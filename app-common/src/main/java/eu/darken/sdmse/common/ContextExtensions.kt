@@ -5,12 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
-import android.content.res.Configuration
 import android.content.res.TypedArray
 import android.util.TypedValue
 import androidx.annotation.*
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import okio.Source
 import okio.source
 
@@ -27,15 +25,9 @@ fun Context.getColorForAttr(@AttrRes attrId: Int): Int {
 }
 
 @ColorInt
-fun Fragment.getColorForAttr(@AttrRes attrId: Int): Int = requireContext().getColorForAttr(attrId)
-
-@ColorInt
 fun Context.getCompatColor(@ColorRes attrId: Int): Int {
     return ContextCompat.getColor(this, attrId)
 }
-
-@ColorInt
-fun Fragment.getCompatColor(@ColorRes attrId: Int): Int = requireContext().getCompatColor(attrId)
 
 @SuppressLint("NewApi")
 fun Context.startServiceCompat(intent: Intent) {
@@ -74,14 +66,4 @@ fun Context.isInstalled(pkgName: String) = try {
     this.packageManager.getPackageInfo(pkgName, 0) != null
 } catch (_: PackageManager.NameNotFoundException) {
     false
-}
-
-fun Context.isTablet(): Boolean {
-    return (resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
-}
-
-fun Context.getSpanCount(widthDp: Int = 410): Int {
-    val displayMetrics = resources.displayMetrics
-    val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
-    return (screenWidthDp / widthDp + 0.5).toInt()
 }

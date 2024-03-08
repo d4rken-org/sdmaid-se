@@ -190,7 +190,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
         }
 
         val liveSearchAdapter = LiveSearchListAdapter().apply {
-            ui.liveSearchResults.setupDefaults(this, dividers = false)
+            ui.liveSearchResults.setupDefaults(this, verticalDividers = false)
         }
 
         vm.liveSearch.observe2(ui) { state ->

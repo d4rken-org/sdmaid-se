@@ -24,10 +24,9 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
-import eu.darken.sdmse.common.getSpanCount
-import eu.darken.sdmse.common.isTablet
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
+import eu.darken.sdmse.common.navigation.getSpanCount
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.permissions.Specialpermission
 import eu.darken.sdmse.common.uix.Fragment3
@@ -74,16 +73,15 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val spanCount = requireContext().getSpanCount(
-            widthDp = 720, // Ends up as 2 columns on a 11" tablet
-        )
-        val layouter = if (requireContext().isTablet() && spanCount > 1) {
+        // Ends up as 2 columns on a 11" tablet
+        val spanCount = getSpanCount(widthDp = 720)
+        val layouter = if (spanCount > 1) {
             GridLayoutManager(context, spanCount, GridLayoutManager.VERTICAL, false)
         } else {
             LinearLayoutManager(requireContext())
         }
 
-        ui.list.setupDefaults(setupAdapter, dividers = false, layouter = layouter)
+        ui.list.setupDefaults(setupAdapter, verticalDividers = false, layouter = layouter)
 
         ui.toolbar.apply {
             setupWithNavController(findNavController())

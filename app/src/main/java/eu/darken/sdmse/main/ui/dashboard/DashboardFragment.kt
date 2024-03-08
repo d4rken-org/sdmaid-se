@@ -15,11 +15,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.getColorForAttr
-import eu.darken.sdmse.common.getSpanCount
-import eu.darken.sdmse.common.isTablet
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
+import eu.darken.sdmse.common.navigation.getColorForAttr
 import eu.darken.sdmse.common.navigation.getQuantityString2
+import eu.darken.sdmse.common.navigation.getSpanCount
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DashboardFragmentBinding
@@ -38,10 +38,9 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
     @Inject lateinit var previewDialog: PreviewDeletionDialog
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val spanCount = requireContext().getSpanCount(
-            widthDp = 390, // Ends up as 3 columns on a medium phones (e.g. Pixel 5)
-        )
-        val layouter = if (requireContext().isTablet() && spanCount > 1) {
+        // Ends up as 3 columns on a medium phones (e.g. Pixel 5)
+        val spanCount = getSpanCount(widthDp = 390)
+        val layouter = if (spanCount > 1) {
             GridLayoutManager(context, spanCount, GridLayoutManager.VERTICAL, false)
         } else {
             LinearLayoutManager(requireContext())
@@ -49,7 +48,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
 
         ui.list.setupDefaults(
             dashAdapter,
-            dividers = false,
+            verticalDividers = false,
             fastscroll = false,
             layouter = layouter,
         )

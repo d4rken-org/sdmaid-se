@@ -52,7 +52,7 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val adapter = ClusterAdapter()
         ui.list.apply {
-            setupDefaults(adapter, dividers = false)
+            setupDefaults(adapter, verticalDividers = false)
             val divDec = ViewHolderBasedDivider(requireContext()) { prev, cur, next ->
                 cur is ClusterAdapter.DuplicateItem.VH && next is ClusterAdapter.DuplicateItem.VH
             }

@@ -51,7 +51,7 @@ class AppActionDialog : BottomSheetDialogFragment2() {
 
         val adapter = AppActionAdapter()
         // TODO fix dividers
-        ui.recyclerview.setupDefaults(adapter, dividers = false)
+        ui.recyclerview.setupDefaults(adapter, verticalDividers = false)
 
         vm.state.observe2(ui) { (appInfo, progress, actions) ->
             val pkg = appInfo.pkg

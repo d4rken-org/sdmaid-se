@@ -24,6 +24,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.selection.SelectionTracker
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
@@ -40,10 +42,12 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
+import eu.darken.sdmse.common.navigation.getSpanCount
 import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.AppcontrolListFragmentBinding
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
@@ -67,6 +71,9 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
     private var lastSelection: Collection<AppControlListAdapter.Item>? = null
     private lateinit var exportPath: ActivityResultLauncher<Intent>
 
+
+    @Inject lateinit var adapter: AppControlListAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requireActivity().onBackPressedDispatcher.addCallback(this, onBackPressedcallback)
@@ -81,6 +88,20 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        // Ends up as 2 columns on a medium phone in landscape (e.g. Pixel 5)
+        val spanCount = getSpanCount(widthDp = 390)
+        val layouter = if (spanCount > 1) {
+            GridLayoutManager(context, spanCount, GridLayoutManager.VERTICAL, false)
+        } else {
+            LinearLayoutManager(requireContext())
+        }
+        ui.list.setupDefaults(
+            adapter = adapter,
+            horizontalDividers = true,
+            layouter = layouter
+        )
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             setOnMenuItemClickListener {
@@ -143,10 +164,6 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 }
             })
         }
-
-        val adapter = AppControlListAdapter()
-
-        ui.list.setupDefaults(adapter)
 
         val tracker = installListSelection(
             adapter = adapter,

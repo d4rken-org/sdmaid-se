@@ -32,7 +32,7 @@ class DeviceStorageFragment : Fragment3(R.layout.analyzer_device_fragment) {
         }
 
         val adapter = DeviceStorageAdapter()
-        ui.list.setupDefaults(adapter, dividers = false)
+        ui.list.setupDefaults(adapter, verticalDividers = false)
 
         vm.state.observe2(ui) { state ->
             adapter.update(state.storages)

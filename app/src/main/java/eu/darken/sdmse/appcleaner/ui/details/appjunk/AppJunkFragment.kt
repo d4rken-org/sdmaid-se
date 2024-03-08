@@ -48,7 +48,7 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val adapter = AppJunkElementsAdapter()
         ui.list.apply {
-            setupDefaults(adapter, dividers = false)
+            setupDefaults(adapter, verticalDividers = false)
             val divDec = ViewHolderBasedDivider(requireContext()) { _, cur, next ->
                 when {
                     cur is AppJunkElementHeaderVH -> false

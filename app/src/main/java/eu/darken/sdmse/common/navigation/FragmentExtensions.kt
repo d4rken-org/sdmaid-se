@@ -1,6 +1,10 @@
 package eu.darken.sdmse.common.navigation
 
 import android.app.Activity
+import android.content.res.Configuration
+import androidx.annotation.AttrRes
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
 import androidx.annotation.IdRes
 import androidx.annotation.PluralsRes
 import androidx.fragment.app.Fragment
@@ -13,6 +17,8 @@ import androidx.navigation.fragment.findNavController
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.getColorForAttr
+import eu.darken.sdmse.common.getCompatColor
 import eu.darken.sdmse.common.getQuantityString2
 
 fun Fragment.doNavigate(direction: NavDirections) = findNavController().doNavigate(direction)
@@ -43,3 +49,24 @@ fun Fragment.getQuantityString2(
     @PluralsRes pluralRes: Int,
     quantity: Int,
 ) = requireContext().getQuantityString2(pluralRes, quantity)
+
+fun Fragment.isTablet(): Boolean {
+    return (resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
+}
+
+fun Fragment.getSpanCount(widthDp: Int = 410): Int {
+    val displayMetrics = resources.displayMetrics
+    val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
+    return (screenWidthDp / widthDp + 0.5).toInt()
+}
+
+
+fun Fragment.isLandscape(): Boolean {
+    return resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+}
+
+@ColorInt
+fun Fragment.getColorForAttr(@AttrRes attrId: Int): Int = requireContext().getColorForAttr(attrId)
+
+@ColorInt
+fun Fragment.getCompatColor(@ColorRes attrId: Int): Int = requireContext().getCompatColor(attrId)

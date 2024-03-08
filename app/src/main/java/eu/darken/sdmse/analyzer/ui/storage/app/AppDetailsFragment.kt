@@ -33,7 +33,7 @@ class AppDetailsFragment : Fragment3(R.layout.analyzer_app_fragment) {
         }
 
         val adapter = AppDetailsAdapter()
-        ui.list.setupDefaults(adapter, dividers = false)
+        ui.list.setupDefaults(adapter, verticalDividers = false)
 
         vm.state.observe2(ui) { state ->
             toolbar.title = state.pkgStat.label.get(requireContext())

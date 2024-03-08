@@ -44,7 +44,7 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val adapter = CorpseElementsAdapter()
         ui.list.apply {
-            setupDefaults(adapter, dividers = false)
+            setupDefaults(adapter, verticalDividers = false)
             val divDec = ViewHolderBasedDivider(requireContext()) { _, cur, _ ->
                 cur !is CorpseElementHeaderVH
             }
