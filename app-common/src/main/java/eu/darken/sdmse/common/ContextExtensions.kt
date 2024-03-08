@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
+import android.content.res.Configuration
 import android.content.res.TypedArray
 import android.util.TypedValue
 import androidx.annotation.*
@@ -73,4 +74,14 @@ fun Context.isInstalled(pkgName: String) = try {
     this.packageManager.getPackageInfo(pkgName, 0) != null
 } catch (_: PackageManager.NameNotFoundException) {
     false
+}
+
+fun Context.isTablet(): Boolean {
+    return (resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
+}
+
+fun Context.getSpanCount(widthDp: Int = 410): Int {
+    val displayMetrics = resources.displayMetrics
+    val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
+    return (screenWidthDp / widthDp + 0.5).toInt()
 }

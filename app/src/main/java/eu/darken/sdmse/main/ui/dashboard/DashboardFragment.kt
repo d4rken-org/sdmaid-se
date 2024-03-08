@@ -7,12 +7,16 @@ import android.view.View
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.getColorForAttr
+import eu.darken.sdmse.common.getSpanCount
+import eu.darken.sdmse.common.isTablet
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
@@ -34,7 +38,21 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
     @Inject lateinit var previewDialog: PreviewDeletionDialog
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        ui.list.setupDefaults(dashAdapter, dividers = false, fastscroll = false)
+        val spanCount = requireContext().getSpanCount(
+            widthDp = 390, // Ends up as 3 columns on a medium phones (e.g. Pixel 5)
+        )
+        val layouter = if (spanCount > 1 && requireContext().isTablet()) {
+            GridLayoutManager(context, spanCount, GridLayoutManager.VERTICAL, false)
+        } else {
+            LinearLayoutManager(requireContext())
+        }
+
+        ui.list.setupDefaults(
+            dashAdapter,
+            dividers = false,
+            fastscroll = false,
+            layouter = layouter,
+        )
 
         vm.listItems.observe2(ui) {
             listProgress.isVisible = it.isEmpty()

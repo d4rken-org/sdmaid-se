@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.google.android.material.appbar.MaterialToolbar
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.DividerItemDecoration2
@@ -28,7 +29,7 @@ fun RecyclerView.setupDefaults(
     adapter: RecyclerView.Adapter<*>? = null,
     dividers: Boolean = true,
     fastscroll: Boolean = true,
-    layouter: LinearLayoutManager = LinearLayoutManager(context)
+    layouter: LayoutManager = LinearLayoutManager(context)
 ) = apply {
     layoutManager = layouter
     itemAnimator = DefaultItemAnimator()

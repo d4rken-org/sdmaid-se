@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="16dp">
 
         <com.google.android.material.textview.MaterialTextView
@@ -33,7 +33,8 @@
             app:layout_constraintBottom_toTopOf="@id/check_action"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/check_action"
@@ -45,6 +46,7 @@
             android:textColor="?colorOnTertiaryContainer"
             app:icon="@drawable/ic_baseline_refresh_24"
             app:iconTint="?colorOnTertiaryContainer"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"

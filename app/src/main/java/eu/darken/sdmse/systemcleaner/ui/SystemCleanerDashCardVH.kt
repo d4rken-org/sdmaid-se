@@ -90,6 +90,9 @@ class SystemCleanerDashCardVH(parent: ViewGroup) :
         val onCancel: () -> Unit,
     ) : DashboardAdapter.Item, MainActionItem {
         override val stableId: Long = this.javaClass.hashCode().toLong()
+        override fun getSpanIndex(spanCount: Int): Int {
+            return 1
+        }
     }
 
 }
