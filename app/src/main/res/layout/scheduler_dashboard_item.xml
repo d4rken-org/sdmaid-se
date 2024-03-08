@@ -7,7 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/icon"
@@ -42,6 +42,7 @@
             android:layout_marginTop="4dp"
             android:text="@string/scheduler_no_active_schedules_subtitle"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/execution_next_label"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title" />
 
@@ -90,7 +91,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:text="---.-- KB"
-            app:layout_constraintBottom_toTopOf="@id/manage_action"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/execution_last_label" />
@@ -107,7 +107,8 @@
             app:icon="@drawable/ic_baseline_access_time_filled_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/execution_last_value" />
+            app:layout_constraintTop_toBottomOf="@id/execution_last_value"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

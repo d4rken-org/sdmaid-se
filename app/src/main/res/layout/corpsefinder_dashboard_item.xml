@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        tools:layout_height="300dp"
         android:layout_margin="16dp">
 
         <ImageView
@@ -28,8 +29,7 @@
             android:layout_marginStart="8dp"
             android:text="@string/corpsefinder_tool_name"
             app:layout_constraintStart_toEndOf="@id/icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/subtitle"
@@ -38,15 +38,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/corpsefinder_explanation_short"
+            app:layout_constraintBottom_toTopOf="@id/activity_container"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/activity_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp"
             android:background="@drawable/dashboard_progress_row_bg"
             app:layout_constraintBottom_toTopOf="@id/action_container"
             app:layout_constraintEnd_toEndOf="parent"
@@ -94,11 +98,9 @@
             android:id="@+id/action_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/activity_container">
+            app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/details_action"
