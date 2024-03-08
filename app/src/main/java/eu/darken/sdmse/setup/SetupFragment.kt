@@ -11,6 +11,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +24,8 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
+import eu.darken.sdmse.common.getSpanCount
+import eu.darken.sdmse.common.isTablet
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.permissions.Permission
@@ -70,6 +74,17 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val spanCount = requireContext().getSpanCount(
+            widthDp = 720, // Ends up as 2 columns on a 11" tablet
+        )
+        val layouter = if (requireContext().isTablet() && spanCount > 1) {
+            GridLayoutManager(context, spanCount, GridLayoutManager.VERTICAL, false)
+        } else {
+            LinearLayoutManager(requireContext())
+        }
+
+        ui.list.setupDefaults(setupAdapter, dividers = false, layouter = layouter)
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             if (vm.screenOptions.isOnboarding) setNavigationIcon(R.drawable.ic_baseline_close_24)
@@ -91,8 +106,6 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
             }
             menu?.findItem(R.id.action_show_areas)?.isVisible = !vm.screenOptions.isOnboarding
         }
-
-        ui.list.setupDefaults(setupAdapter, dividers = false)
 
         vm.listItems.observe2(ui) {
             setupAdapter.update(it)
@@ -119,6 +132,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                     }
                     errorDialog.show()
                 }
+
                 is SetupEvents.SafWrongPathError -> {
                     Snackbar.make(requireView(), R.string.setup_saf_error_wrong_path, Snackbar.LENGTH_LONG)
                         .setAction(eu.darken.sdmse.common.R.string.general_help_action) {
@@ -126,6 +140,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                         }
                         .show()
                 }
+
                 is SetupEvents.RuntimePermissionRequests -> {
                     awaitedPermission = event.item
                     when (event.item) {
@@ -150,6 +165,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                                 }
                             }
                         }
+
                         else -> try {
                             runtimePermissionLauncher.launch(event.item.permissionId)
                         } catch (e: ActivityNotFoundException) {
@@ -158,6 +174,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                         }
                     }
                 }
+
                 is SetupEvents.ConfigureAccessibilityService -> {
                     try {
                         val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
@@ -167,6 +184,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                         e.asErrorDialogBuilder(requireActivity()).show()
                     }
                 }
+
                 is SetupEvents.ShowOurDetailsPage -> {
                     try {
                         startActivity(event.intent)

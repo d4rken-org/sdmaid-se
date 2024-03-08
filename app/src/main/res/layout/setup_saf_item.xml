@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        tools:layout_height="700dp">
 
         <ImageView
             android:id="@+id/icon"
@@ -39,20 +39,22 @@
             style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintVertical_chainStyle="packed"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/setup_saf_card_body"
             app:layout_constraintBottom_toTopOf="@id/saf_item_list"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintVertical_bias="0.0" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/saf_item_list"
+            style="@style/BaseRecyclerList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
-            style="@style/BaseRecyclerList"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@id/grant_action"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +71,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginVertical="8dp"
             android:text="@string/general_grant_access_action"
-            app:layout_constraintTop_toBottomOf="@id/saf_item_list" />
+            app:layout_constraintBottom_toTopOf="@id/explanation" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/explanation"
@@ -83,8 +85,7 @@
             android:text="@string/setup_saf_card_body2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/title"
-            app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/grant_action" />
+            app:layout_constraintStart_toStartOf="@id/title" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.button.MaterialButton

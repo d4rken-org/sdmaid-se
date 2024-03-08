@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        tools:layout_height="400dp">
 
         <ImageView
             android:id="@+id/icon"
@@ -44,7 +45,9 @@
             app:layout_constraintBottom_toTopOf="@id/shizuku_state"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/shizuku_state"
@@ -66,13 +69,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/setup_shizuku_card_title"
-            app:icon="@drawable/ic_default_app_icon_24"
             android:visibility="gone"
-            tools:visibility="visible"
+            app:icon="@drawable/ic_default_app_icon_24"
             app:layout_constraintBottom_toTopOf="@id/allow_shizuku_options"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/shizuku_state" />
+            app:layout_constraintTop_toBottomOf="@id/shizuku_state"
+            tools:visibility="visible" />
 
         <RadioGroup
             android:id="@+id/allow_shizuku_options"
@@ -107,9 +110,8 @@
             android:gravity="center"
             android:text="@string/setup_shizuku_card_body2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/title"
-            app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/allow_shizuku_options" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

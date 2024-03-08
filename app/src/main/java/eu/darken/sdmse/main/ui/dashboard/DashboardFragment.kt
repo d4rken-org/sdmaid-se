@@ -41,7 +41,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
         val spanCount = requireContext().getSpanCount(
             widthDp = 390, // Ends up as 3 columns on a medium phones (e.g. Pixel 5)
         )
-        val layouter = if (spanCount > 1 && requireContext().isTablet()) {
+        val layouter = if (requireContext().isTablet() && spanCount > 1) {
             GridLayoutManager(context, spanCount, GridLayoutManager.VERTICAL, false)
         } else {
             LinearLayoutManager(requireContext())

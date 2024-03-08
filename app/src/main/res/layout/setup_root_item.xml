@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/DashboardCardItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        tools:layout_height="400dp">
 
         <ImageView
             android:id="@+id/icon"
@@ -40,19 +41,22 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/setup_root_card_body"
             app:layout_constraintBottom_toTopOf="@id/root_state"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/root_state"
             style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/setup_root_state_waiting_label"
             app:layout_constraintBottom_toTopOf="@id/allow_root_options"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +68,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@id/explanation"
             app:layout_constraintTop_toBottomOf="@id/root_state">
 
             <com.google.android.material.radiobutton.MaterialRadioButton
@@ -91,9 +96,8 @@
             android:gravity="center"
             android:text="@string/setup_root_card_body2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/title"
-            app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/allow_root_options" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
