@@ -6,8 +6,10 @@ import android.view.View
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.selection.SelectionTracker
+import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,6 +18,7 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
+import eu.darken.sdmse.common.navigation.getSpanCount
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerListFragmentBinding
@@ -37,7 +40,11 @@ class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment
         }
 
         val adapter = SystemCleanerListAdapter()
-        ui.list.setupDefaults(adapter)
+        ui.list.setupDefaults(
+            adapter,
+            horizontalDividers = true,
+            layouter = GridLayoutManager(context, getSpanCount(widthDp = 390), GridLayoutManager.VERTICAL, false),
+        )
 
         val selectionTracker = installListSelection(
             adapter = adapter,
