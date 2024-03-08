@@ -22,7 +22,8 @@ import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardVH
 import javax.inject.Inject
 
 
-class SetupAdapter @Inject constructor() :
+class
+SetupAdapter @Inject constructor() :
     ModularAdapter<SetupAdapter.BaseVH<SetupAdapter.Item, ViewBinding>>(),
     HasAsyncDiffer<SetupAdapter.Item> {
 

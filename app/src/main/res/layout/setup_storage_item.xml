@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        tools:layout_height="400dp">
 
         <ImageView
             android:id="@+id/icon"
@@ -42,16 +43,18 @@
             android:layout_marginTop="8dp"
             android:text="@string/setup_manage_storage_card_body"
             app:layout_constraintBottom_toTopOf="@id/path_item_list"
-            app:layout_constraintEnd_toEndOf="@id/title"
-            app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/path_item_list"
+            style="@style/BaseRecyclerList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
-            style="@style/BaseRecyclerList"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@id/grant_action"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +71,9 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginVertical="8dp"
             android:text="@string/general_grant_access_action"
-            app:layout_constraintTop_toBottomOf="@id/path_item_list" />
+            app:layout_constraintBottom_toTopOf="@id/explanation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/explanation"
@@ -77,13 +82,12 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
-            android:gravity="center"
             android:layout_marginBottom="16dp"
+            android:gravity="center"
             android:text="@string/setup_manage_storage_card_body2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/title"
-            app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/grant_action" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.button.MaterialButton

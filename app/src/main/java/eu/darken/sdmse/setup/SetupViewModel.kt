@@ -266,10 +266,10 @@ class SetupViewModel @Inject constructor(
             NotificationSetupCardVH.Item::class,
             StorageSetupCardVH.Item::class,
             SAFSetupCardVH.Item::class,
-            UsageStatsSetupCardVH.Item::class,
-            AutomationSetupCardVH.Item::class,
             ShizukuSetupCardVH.Item::class,
             RootSetupCardVH.Item::class,
+            UsageStatsSetupCardVH.Item::class,
+            AutomationSetupCardVH.Item::class,
         )
         private val TAG = logTag("Setup", "ViewModel")
     }

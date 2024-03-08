@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/DashboardCardItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        tools:layout_height="400dp">
 
         <ImageView
             android:id="@+id/icon"
@@ -43,7 +45,10 @@
             app:layout_constraintBottom_toTopOf="@id/grant_state"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_goneMarginBottom="16dp" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/grant_state"
@@ -52,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:drawableStart="@drawable/ic_check_circle"
             android:drawableTint="?colorPrimary"
             android:gravity="center"
@@ -70,7 +76,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/general_grant_access_action"
-            app:layout_constraintTop_toBottomOf="@id/grant_state" />
+            app:layout_constraintBottom_toTopOf="@id/explanation" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/explanation"
@@ -83,9 +89,8 @@
             android:gravity="center"
             android:text="@string/setup_notification_hint"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/title"
-            app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/grant_action" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.button.MaterialButton
