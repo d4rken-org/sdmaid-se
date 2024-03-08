@@ -24,8 +24,8 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/ic_folder"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,6 +37,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        app:layout_constraintBottom_toTopOf="@id/secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/content_icon"
         app:layout_constraintTop_toTopOf="parent"
@@ -67,10 +69,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="end"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/secondary"
         app:layout_constraintEnd_toStartOf="@id/progress"
         app:layout_constraintStart_toEndOf="@id/secondary"
-        app:layout_constraintTop_toBottomOf="@id/primary"
+        app:layout_constraintTop_toTopOf="@id/secondary"
         tools:text="@string/file_type_directory" />
 
 
