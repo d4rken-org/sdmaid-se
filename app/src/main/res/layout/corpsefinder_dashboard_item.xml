@@ -50,7 +50,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="12dp"
             android:background="@drawable/dashboard_progress_row_bg"
             app:layout_constraintBottom_toTopOf="@id/action_container"
             app:layout_constraintEnd_toEndOf="parent"
@@ -97,6 +96,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/action_container"
             android:layout_width="0dp"
+            android:paddingTop="12dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
