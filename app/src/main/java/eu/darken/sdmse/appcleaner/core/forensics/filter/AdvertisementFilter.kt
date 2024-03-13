@@ -113,7 +113,10 @@ class AdvertisementFilter @Inject constructor(
 
     companion object {
         private val TAG = logTag("AppCleaner", "Scanner", "Filter", "Advertisements")
-        private val BLACKLIST_AREAS = setOf(DataArea.Type.PRIVATE_DATA, DataArea.Type.PUBLIC_DATA)
+        private val BLACKLIST_AREAS = setOf(
+            DataArea.Type.PRIVATE_DATA,
+            DataArea.Type.PUBLIC_DATA,
+        )
         private val IGNORED_FILES: Collection<String> = listOf(
             ".nomedia",
         )
