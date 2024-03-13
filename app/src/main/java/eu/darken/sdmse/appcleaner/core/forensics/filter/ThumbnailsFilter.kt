@@ -48,22 +48,22 @@ class ThumbnailsFilter @Inject constructor(
         areaType: DataArea.Type,
         segments: Segments
     ): ExpendablesFilter.Match? {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) {
+        val lcsegments = segments.lowercase()
+
+        if (lcsegments.isNotEmpty() && IGNORED_FILES.contains(lcsegments[lcsegments.size - 1])) {
             return null
         }
 
-        if (segments.size >= 2 && HIDDEN_FOLDERS.contains(segments[0])) {
+        if (lcsegments.size >= 2 && HIDDEN_FOLDERS.contains(lcsegments[0])) {
             return target.toDeletionMatch()
         }
 
         // Default case, we don't handle that.
         // package/cache/file
-        if (segments.size >= 2 && pkgId.name == segments[0] && cacheFolderPrefixes.contains(segments[1])) {
-            // Case matching is important here as all paths that differ in casing are hidden caches (e.g. not system made)
+        if (lcsegments.size >= 2 && pkgId.name == lcsegments[0] && cacheFolderPrefixes.contains(lcsegments[1])) {
             return null
         }
 
-        val lcsegments = segments.lowercase()
 
         // package/thumbs.dat
         if (lcsegments.size == 2 && HIDDEN_FILES.contains(lcsegments[1])) {
@@ -120,6 +120,10 @@ class ThumbnailsFilter @Inject constructor(
     }
 
     companion object {
+        private val BLACKLIST_AREAS = setOf(
+            DataArea.Type.PRIVATE_DATA,
+            DataArea.Type.PUBLIC_DATA,
+        )
         private val HIDDEN_FOLDERS: Collection<String> = listOf(
             ".thumbs",
             "thumbs",
