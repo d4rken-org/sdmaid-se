@@ -44,29 +44,34 @@ class RecycleBinsFilter @Inject constructor(
         areaType: DataArea.Type,
         segments: Segments
     ): ExpendablesFilter.Match? {
-        val hierarchy = segments.lowercase()
+        val lcsegments = segments.lowercase()
 
-        // package/trashfile
-        if (hierarchy.size == 2 && TRASH_FILES.contains(hierarchy[1])) {
-            return target.toDeletionMatch()
-        }
-
-        // package/files/trashfile
-        if (hierarchy.size == 3 && "files" == hierarchy[1] && TRASH_FILES.contains(hierarchy[2])) {
-            return target.toDeletionMatch()
+        if (lcsegments.isNotEmpty() && IGNORED_FILES.contains(lcsegments[lcsegments.size - 1])) {
+            return null
         }
 
         //    0      1     2
-        // package/.trash/file
-        if (hierarchy.size >= 3 && TRASH_FOLDERS.contains(hierarchy[1])) {
+        // topdir/.trash/file
+        if (lcsegments.size >= 3 && AREAS.contains(areaType) && TRASH_FOLDERS.contains(lcsegments[1])) {
             return target.toDeletionMatch()
         }
 
         //    0      1     2     3
-        // package/files/.trash/file
-        if (hierarchy.size >= 4
-            && "files" == hierarchy[1]
-            && (TRASH_FOLDERS.contains(hierarchy[2]) || "cache" == hierarchy[2])
+        // topdir/files/.trash/file
+        if (lcsegments.size >= 4
+            && AREAS.contains(areaType)
+            && "files" == lcsegments[1]
+            && TRASH_FOLDERS.contains(lcsegments[2])
+        ) {
+            return target.toDeletionMatch()
+        }
+
+        //    0        1     2     3
+        // Android/.Trash/<pkg>/file
+        if (lcsegments.size >= 4
+            && "android" == lcsegments[0]
+            && ".trash" == lcsegments[1]
+            && lcsegments[2] == pkgId.name
         ) {
             return target.toDeletionMatch()
         }
@@ -98,6 +103,10 @@ class RecycleBinsFilter @Inject constructor(
     }
 
     companion object {
+        private val AREAS = setOf(
+            DataArea.Type.PRIVATE_DATA,
+            DataArea.Type.PUBLIC_DATA,
+        )
         private val TRASH_FOLDERS: Collection<String> = listOf(
             ".trash",
             "trash",
@@ -111,7 +120,9 @@ class RecycleBinsFilter @Inject constructor(
             "recyclebin",
             ".garbage"
         )
-        private val TRASH_FILES: Collection<String> = emptyList()
+        private val IGNORED_FILES: Collection<String> = listOf(
+            ".nomedia",
+        )
         private val TAG = logTag("AppCleaner", "Scanner", "Filter", "RecycleBins")
     }
 }

@@ -38,6 +38,7 @@ class LinuxFoldersFilterTest : SystemCleanerFilterTest() {
         pos(SDCARD, "/.Trash-11", Flag.Dir)
         pos(SDCARD, "/.Trash-222", Flag.Dir)
         pos(SDCARD, "/.Trash-1000", Flag.Dir)
+        neg(SDCARD, "Android/.Trash-1000", Flag.Dir)
         confirm(create())
     }
 }

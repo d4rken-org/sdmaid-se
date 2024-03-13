@@ -17,11 +17,13 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
@@ -52,6 +54,9 @@ class LinuxFilesFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.DIRECTORY),
             areaTypes = targetAreas(),
             pathRegexes = regexes,
+            pfpExclusions = setOf(
+                SegmentCriterium(segs("Android"), mode = SegmentCriterium.Mode.Ancestor())
+            )
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }

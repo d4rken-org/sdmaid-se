@@ -107,6 +107,20 @@
 		  "patterns": ["^(?:\\.FilesByGoogleTrash/)(.+?)$"]
 		}
 	  ]
+	}, {
+	  "packages": [
+		"com.estrongs.android.pop",
+		"com.estrongs.android.pop.cupcake",
+		"com.estrongs.android.pop.app.shortcut",
+		"com.estrongs.android.pop.pro"
+	  ],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": [".estrongs/recycle/"],
+		  "patterns": ["^(?:\\.estrongs/recycle/)(.+?)$"]
+		}
+	  ]
 	}
   ]
 }
