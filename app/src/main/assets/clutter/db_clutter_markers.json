@@ -11162,8 +11162,7 @@
 }, {
   "pkgs": ["com.sec.android.app.myfiles"],
   "mrks": [
-	{"loc": "SDCARD", "path": "Movies/.thumbnails", "flags": ["keeper", "common"]},
-	{"loc": "SDCARD", "path": "Android/.Trash", "flags": ["keeper", "common"]}
+	{"loc": "SDCARD", "path": "Movies/.thumbnails", "flags": ["keeper", "common"]}
   ]
 }, {
   "pkgs": ["com.lecture.notes"],

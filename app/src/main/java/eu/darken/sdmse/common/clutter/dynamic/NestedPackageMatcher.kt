@@ -11,7 +11,7 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 
 open class NestedPackageMatcher(
     val areaType: DataArea.Type,
-    val baseSegments: List<String>,
+    val baseSegments: Segments,
     val badMatches: Set<String>
 ) : MarkerSource {
 

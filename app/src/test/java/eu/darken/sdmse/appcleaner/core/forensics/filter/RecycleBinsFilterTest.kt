@@ -144,16 +144,11 @@ class RecycleBinsFilterTest : BaseFilterTest() {
 
     @Test fun testMeizuGarbage() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.meizu.filemanager").locs(PUBLIC_DATA)
-                .prefixFree(".com.meizu.filemanager/.garbage")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.filemanager").locs(PUBLIC_DATA)
-                .prefixFree(".com.meizu.filemanager/.garbage/something")
-        )
-        addCandidate(neg().pkgs("com.meizu.filemanager").locs(SDCARD).prefixFree(".recycle"))
-        addCandidate(pos().pkgs("com.meizu.filemanager").locs(SDCARD).prefixFree(".recycle/something"))
+        neg("com.meizu.filemanager", PUBLIC_DATA, ".com.meizu.filemanager/.garbage")
+        pos("com.meizu.filemanager", PUBLIC_DATA, ".com.meizu.filemanager/.garbage/something")
+
+        neg("com.meizu.filemanager", SDCARD, ".recycle")
+        pos("com.meizu.filemanager", SDCARD, ".recycle/something")
         confirm(create())
     }
 
@@ -198,6 +193,25 @@ class RecycleBinsFilterTest : BaseFilterTest() {
         addCandidate(neg().pkgs("com.google.android.apps.nbu.files").locs(SDCARD).prefixFree(".FilesByGoogleTrash"))
         addCandidate(
             pos().pkgs("com.google.android.apps.nbu.files").locs(SDCARD).prefixFree(".FilesByGoogleTrash/something")
+        )
+        confirm(create())
+    }
+
+    @Test fun `samsung gallery bin`() = runTest {
+        neg("badpkg", SDCARD, "Android/.Trash/com.sec.android.gallery3d")
+        neg("com.sec.android.gallery3d", SDCARD, "Android/.Trash/com.sec.android.gallery3d")
+        pos("com.sec.android.gallery3d", SDCARD, "Android/.Trash/com.sec.android.gallery3d/3317166978699451126.mp4")
+        confirm(create())
+    }
+
+    @Test fun `samsung myfiles bin`() = runTest {
+        neg("badpkg", SDCARD, "Android/.Trash/com.sec.android.app.myfiles")
+        neg("com.sec.android.app.myfiles", SDCARD, "Android/.Trash/com.sec.android.app.myfiles")
+        neg("com.sec.android.app.myfiles", SDCARD, "Android/.Trash/com.sec.android.app.myfiles/.nomedia")
+        pos(
+            "com.sec.android.app.myfiles",
+            SDCARD,
+            "Android/.Trash/com.sec.android.app.myfiles/9189e8f0-209f-4402-9851-730e5183f578T3/1710218750858/storage/emulated/0/DCIM/Camera/.!%#@\$/20240311_140825.jpg"
         )
         confirm(create())
     }
