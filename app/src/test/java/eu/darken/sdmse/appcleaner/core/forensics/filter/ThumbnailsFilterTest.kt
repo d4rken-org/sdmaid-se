@@ -219,4 +219,13 @@ class ThumbnailsFilterTest : BaseFilterTest() {
         pos("com.rhmsoft.pulsar.pro", SDCARD, "albumthumbs/$rngString")
         confirm(create())
     }
+
+    @Test fun `dont match default caches`() = runTest {
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/cache/User photos/.thumbnails/$rngString")
+        neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/Cache/.thumbnails/$rngString")
+
+        neg("com.viber.voip", PRIVATE_DATA, "com.viber.voip/cache/User photos/.thumbnails/$rngString")
+        neg("com.viber.voip", PRIVATE_DATA, "com.viber.voip/Cache/.thumbnails/$rngString")
+        confirm(create())
+    }
 }

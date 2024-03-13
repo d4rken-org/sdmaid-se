@@ -48,10 +48,6 @@ class HiddenFilter @Inject constructor(
         areaType: DataArea.Type,
         segments: Segments
     ): ExpendablesFilter.Match? {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) {
-            return null
-        }
-
         // Default case, we don't handle that.
         // package/cache/file
         if (segments.size >= 2 && pkgId.name == segments[0] && cacheFolderPrefixes.contains(segments[1])) {
@@ -61,25 +57,29 @@ class HiddenFilter @Inject constructor(
 
         val lcsegments = segments.lowercase()
 
-        // package/cache.dat
+        if (lcsegments.isNotEmpty() && IGNORED_FILES.contains(lcsegments[lcsegments.size - 1])) {
+            return null
+        }
+
+        // topdir/cache.dat
         if (lcsegments.size == 2 && HIDDEN_CACHE_FILES.contains(lcsegments[1])) {
             return target.toDeletionMatch()
         }
 
-        // package/files/cache.dat
+        // topdir/files/cache.dat
         if (lcsegments.size == 3 && HIDDEN_CACHE_FILES.contains(lcsegments[2])) {
             return target.toDeletionMatch()
         }
 
         //    0      1     2
-        // package/.cache/file
-        if (lcsegments.size >= 3 && HIDDEN_CACHE_FOLDERS.contains(lcsegments[1])) { // weird name cache folder
+        // topdir/.cache/file
+        if (lcsegments.size >= 3 && HIDDEN_CACHE_FOLDERS.contains(lcsegments[1])) {
             return target.toDeletionMatch()
         }
         if (isException(segments)) return null
 
         //    0      1     2     3
-        // package/files/.cache/file
+        // topdir/files/.cache/file
         if (lcsegments.size >= 4
             && "files" == lcsegments[1]
             && (HIDDEN_CACHE_FOLDERS.contains(lcsegments[2]) || "cache" == lcsegments[2])
