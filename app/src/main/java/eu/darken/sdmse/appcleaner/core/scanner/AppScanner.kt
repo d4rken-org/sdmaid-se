@@ -257,9 +257,11 @@ class AppScanner @Inject constructor(
                         .forEach { interestingPaths.add(it) }
                 }
 
-            log(TAG, VERBOSE) {
-                val paths = interestingPaths.map { it.file }.joinToString()
-                "Search paths for ${pkg.installId} are: $paths"
+            if (Bugs.isTrace) {
+                log(TAG, VERBOSE) {
+                    val paths = interestingPaths.map { it.file }.joinToString()
+                    "Search paths for ${pkg.installId} are: $paths"
+                }
             }
 
             // To build the search map we find all pathes that belong to an app: One App multiple pathes
@@ -407,8 +409,6 @@ class AppScanner @Inject constructor(
             log(TAG, VERBOSE) { "Searching ${target.key.file} (${target.value})" }
             updateProgressSecondary(target.key.file.userReadablePath)
 
-            if (!target.key.file.path.contains("Android/.Trash")) return@spoi
-
             val searchPath = target.key
             val possibleOwners = target.value
 
@@ -439,13 +439,17 @@ class AppScanner @Inject constructor(
                     // Filters expect a prefix free path, so we have to remove the data area prefix
                     it to it.removePrefix(searchPath.prefix, overlap = 0)
                 }
-                .onEach {
-                    log(TAG, VERBOSE) { "Paths of interest for $target: \n $it.first.path" }
+                .onEach { (path, segs) ->
+                    if (Bugs.isTrace) {
+                        log(TAG, VERBOSE) {
+                            "Paths of interest for ${target.key.file.path} (${target.value}}: \n ${path.path}|$segs"
+                        }
+                    }
                 }
 
             val ownersOfInterest = possibleOwners
                 .filter { searchPath.userHandle == systemUser.handle || it.userHandle == searchPath.userHandle }
-                .onEach { log(TAG, VERBOSE) { "Owners of interest for $target: \n${it.pkgId}" } }
+                .onEach { if (Bugs.isTrace) log(TAG, VERBOSE) { "Owners of interest for $target: \n${it.pkgId}" } }
 
             pathsOfInterest.forEach { (path, segments) ->
                 for (installId in ownersOfInterest) {
@@ -468,9 +472,7 @@ class AppScanner @Inject constructor(
             increaseProgress()
         }
 
-        return results.onEach {
-            if (Bugs.isTrace) log(TAG, VERBOSE) { "readAppDirs(...): $it" }
-        }
+        return results.onEach { if (Bugs.isTrace) log(TAG, VERBOSE) { "readAppDirs(...): $it" } }
     }
 
     private suspend fun determineInaccessibleCaches(
