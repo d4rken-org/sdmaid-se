@@ -31,6 +31,7 @@ class BugReportingFilterTest : BaseFilterTest() {
 
     private fun create() = BugReportingFilter(
         jsonBasedSieveFactory = createJsonSieveFactory(),
+        environment = storageEnvironment,
         gatewaySwitch = gatewaySwitch,
     )
 
@@ -1279,6 +1280,22 @@ class BugReportingFilterTest : BaseFilterTest() {
         neg("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/tlog_v9")
         neg("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/tlog_v9/.nomedia")
         pos("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/tlog_v9/$rngString")
+
+        confirm(create())
+    }
+
+    @Test fun `dont match default caches`() = runTest {
+        pos("some.pkg", PUBLIC_DATA, "some.pkg/files/log.txt")
+        neg("some.pkg", PUBLIC_DATA, "some.pkg/cache/log.txt")
+        neg("some.pkg", PUBLIC_DATA, "some.pkg/Cache/log.txt")
+
+        pos("some.pkg", PRIVATE_DATA, "some.pkg/files/log.txt")
+        neg("some.pkg", PRIVATE_DATA, "some.pkg/cache/log.txt")
+        neg("some.pkg", PRIVATE_DATA, "some.pkg/Cache/log.txt")
+
+        pos("some.pkg", SDCARD, "some.pkg/files/log.txt")
+        pos("some.pkg", SDCARD, "some.pkg/cache/log.txt")
+        pos("some.pkg", SDCARD, "some.pkg/Cache/log.txt")
 
         confirm(create())
     }
