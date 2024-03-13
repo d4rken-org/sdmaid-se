@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.lowercase
 import eu.darken.sdmse.common.pkgs.Pkg
 import javax.inject.Inject
 import javax.inject.Provider
@@ -42,21 +43,23 @@ class GameFilesFilter @Inject constructor(
         areaType: DataArea.Type,
         segments: Segments
     ): ExpendablesFilter.Match? {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1].lowercase())) {
+        val lcsegments = segments.lowercase()
+
+        if (lcsegments.isNotEmpty() && IGNORED_FILES.contains(lcsegments[lcsegments.size - 1])) {
             return null
         }
 
         //    0      1     2
-        // basedir/offlinecache/file
-        if (segments.size >= 3 && TARGET_FOLDERS.contains(segments[1].lowercase())) {
+        // topdir/gamedir/file
+        if (lcsegments.size >= 3 && TARGET_FOLDERS.contains(lcsegments[1])) {
             return target.toDeletionMatch()
         }
 
         //    0      1     2     3
-        // package/files/offlinecache/file
-        if (segments.size >= 4
-            && "files" == segments[1].lowercase()
-            && TARGET_FOLDERS.contains(segments[2].lowercase())
+        // topdir/files/gamedir/file
+        if (lcsegments.size >= 4
+            && "files" == lcsegments[1]
+            && TARGET_FOLDERS.contains(lcsegments[2])
         ) {
             return target.toDeletionMatch()
         }
