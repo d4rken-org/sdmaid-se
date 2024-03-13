@@ -46,38 +46,41 @@ class AdvertisementFilter @Inject constructor(
         areaType: DataArea.Type,
         segments: Segments
     ): ExpendablesFilter.Match? {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) {
-            return null
-        }
-
-        // Default case, we don't handle that.
-        // package/cache/file
-        if (segments.size >= 2 && pkgId.name == segments[0] && cacheFolderPrefixes.contains(segments[1])) {
-            // Case matching is important here as all paths that differ in casing are hidden caches (e.g. not system made)
-            return null
-        }
-
         val lcsegments = segments.lowercase()
 
-        // package/cache.dat
+        // Default case, we don't handle that.
+        // pkg/cache/file
+        if (lcsegments.size >= 2
+            && BLACKLIST_AREAS.contains(areaType)
+            && pkgId.name == lcsegments[0]
+            && cacheFolderPrefixes.contains(lcsegments[1])
+        ) {
+            return null
+        }
+
+        if (lcsegments.isNotEmpty() && IGNORED_FILES.contains(lcsegments[lcsegments.size - 1])) {
+            return null
+        }
+
+        // topdir/cache.dat
         if (lcsegments.size == 2 && HIDDEN_CACHE_FILES.contains(lcsegments[1])) {
             return target.toDeletionMatch()
         }
 
         //    0       1      2
-        // package/files/cache.dat
+        // topdir/files/cache.dat
         if (lcsegments.size == 3 && HIDDEN_CACHE_FILES.contains(lcsegments[2])) {
             return target.toDeletionMatch()
         }
 
         //    0       1       2
-        // package/adcache/...
+        // topdir/adcache/...
         if (lcsegments.size >= 3 && HIDDEN_CACHE_FOLDERS.contains(lcsegments[1])) {
             return target.toDeletionMatch()
         }
 
         //    0      1      2      3
-        // package/files/adcache/...
+        // topdir/files/adcache/...
         if (lcsegments.size >= 4 && "files" == lcsegments[1] && HIDDEN_CACHE_FOLDERS.contains(lcsegments[2])) {
             return target.toDeletionMatch()
         }
@@ -110,6 +113,7 @@ class AdvertisementFilter @Inject constructor(
 
     companion object {
         private val TAG = logTag("AppCleaner", "Scanner", "Filter", "Advertisements")
+        private val BLACKLIST_AREAS = setOf(DataArea.Type.PRIVATE_DATA, DataArea.Type.PUBLIC_DATA)
         private val IGNORED_FILES: Collection<String> = listOf(
             ".nomedia",
         )

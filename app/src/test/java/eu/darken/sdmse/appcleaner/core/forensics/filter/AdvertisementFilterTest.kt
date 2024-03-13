@@ -262,4 +262,14 @@ class AdvertisementFilterTest : BaseFilterTest() {
         pos("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/vast_rtb_cache/$rngString")
         confirm(create())
     }
+
+    @Test fun `dont match default folder`() = runTest {
+        neg("com.some.pkg", PUBLIC_DATA, "com.some.pkg/cache/vast_rtb_cache/$rngString")
+        neg("com.some.pkg", PUBLIC_DATA, "com.some.pkg/Cache/vast_rtb_cache/$rngString")
+
+        neg("com.some.pkg", PRIVATE_DATA, "com.some.pkg/cache/vast_rtb_cache/$rngString")
+        neg("com.some.pkg", PRIVATE_DATA, "com.some.pkg/Cache/vast_rtb_cache/$rngString")
+
+        confirm(create())
+    }
 }
