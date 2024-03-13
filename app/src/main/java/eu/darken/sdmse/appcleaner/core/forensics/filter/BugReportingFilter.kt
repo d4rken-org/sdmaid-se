@@ -18,7 +18,9 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.lowercase
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.storage.StorageEnvironment
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Provider
@@ -27,8 +29,11 @@ import javax.inject.Provider
 @Reusable
 class BugReportingFilter @Inject constructor(
     private val jsonBasedSieveFactory: JsonBasedSieve.Factory,
+    environment: StorageEnvironment,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseExpendablesFilter() {
+
+    private val cacheFolderPrefixes = environment.ourCacheDirs.map { it.name }
 
     private lateinit var sieve: JsonBasedSieve
 
@@ -43,41 +48,53 @@ class BugReportingFilter @Inject constructor(
         areaType: DataArea.Type,
         segments: Segments
     ): ExpendablesFilter.Match? {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1].lowercase())) {
+        val lcsegments = segments.lowercase()
+
+        // Default cachefolder, we don't handle that in this filter.
+        // pkg/cache/file
+        if (lcsegments.size >= 2
+            && BLACKLIST_AREAS.contains(areaType)
+            && pkgId.name == lcsegments[0]
+            && cacheFolderPrefixes.contains(lcsegments[1])
+        ) {
+            return null
+        }
+
+        if (segments.isNotEmpty() && IGNORED_FILES.contains(lcsegments[lcsegments.size - 1])) {
             return null
         }
 
         //    0      1
         // basedir/update_component_log
-        if (segments.size >= 2 && LOGFILE_PATTERNS.any { it.matches(segments[1].lowercase()) }) {
+        if (lcsegments.size >= 2 && LOGFILE_PATTERNS.any { it.matches(lcsegments[1]) }) {
             return target.toDeletionMatch()
         }
 
         //    0      1
         // basedir/update_component_log
-        if (segments.size >= 2 && FILES.contains(segments[1].lowercase())) {
+        if (lcsegments.size >= 2 && FILES.contains(lcsegments[1])) {
             return target.toDeletionMatch()
         }
 
         //    0      1     2
         // basedir/Logfiles/file
-        if (segments.size >= 3 && FOLDERS.contains(segments[1].lowercase())) {
+        if (lcsegments.size >= 3 && FOLDERS.contains(lcsegments[1])) {
             return target.toDeletionMatch()
         }
 
         //    0      1     2
         // basedir/files/log.txt
-        if (segments.size >= 3 && FILES.contains(segments[2].lowercase())) {
+        if (lcsegments.size >= 3 && FILES.contains(lcsegments[2])) {
             return target.toDeletionMatch()
         }
 
         //    0      1     2     3
         // package/files/.cache/file
         if (
-            segments.size >= 4
+            lcsegments.size >= 4
             && (areaType == DataArea.Type.PUBLIC_DATA || areaType == DataArea.Type.PRIVATE_DATA)
-            && "files" == segments[1].lowercase()
-            && FOLDERS.contains(segments[2].lowercase())
+            && "files" == lcsegments[1]
+            && FOLDERS.contains(lcsegments[2])
         ) {
             return target.toDeletionMatch()
         }
@@ -109,6 +126,10 @@ class BugReportingFilter @Inject constructor(
     }
 
     companion object {
+        private val BLACKLIST_AREAS = setOf(
+            DataArea.Type.PRIVATE_DATA,
+            DataArea.Type.PUBLIC_DATA,
+        )
         private val FOLDERS: Collection<String> = listOf(
             "logs",
             ".logs",
