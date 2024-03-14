@@ -84,6 +84,9 @@
     <string name="ui_previews_title">File previews</string>
     <string name="ui_previews_summary">Display file previews in all tools (e.g. image and video thumbnails).</string>
 
+    <string name="ui_language_override_label">App language</string>
+    <string name="ui_language_override_desc">Select a different language for SD Maid, independent of your system\'s default language. Currently: %s</string>
+
     <string name="settings_support_label">Support</string>
     <string name="settings_support_description">Read documentation, report issues, chat with others or record debug logs.</string>
     <string name="documentation_label">Documentation</string>

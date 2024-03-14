@@ -42,6 +42,16 @@
             app:singleLineTitle="false"
             app:summary="@string/ui_previews_summary"
             app:title="@string/ui_previews_title" />
+
+        <Preference
+            android:summary="@string/ui_language_override_desc"
+            app:icon="@drawable/ic_language_onsurface"
+            app:isPreferenceVisible="false"
+            app:key="core.ui.language"
+            app:persistent="false"
+            app:singleLineTitle="false"
+            app:title="@string/ui_language_override_label"
+            tools:isPreferenceVisible="true" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_other_label">
