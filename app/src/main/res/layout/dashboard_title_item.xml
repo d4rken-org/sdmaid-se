@@ -76,9 +76,10 @@
             android:paddingHorizontal="52dp"
             android:text="Beta"
             android:textColor="?colorOnError"
+            android:textSize="14dp"
             android:textStyle="bold"
             app:iconTint="?colorOnError"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText,SpUsage" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/ribbon_secondary"
@@ -88,9 +89,9 @@
             android:layout_gravity="center"
             android:text="v?.?.?-beta?"
             android:textColor="?colorOnError"
-            android:textSize="10sp"
+            android:textSize="10dp"
             app:iconTint="?colorOnError"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText,SpUsage" />
     </LinearLayout>
 
 
