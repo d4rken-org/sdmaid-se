@@ -64,6 +64,7 @@ class ClearCacheModule @AssistedInject constructor(
     private val automationExplorerFactory: AutomationExplorer.Factory,
     private val specGenerators: Provider<Set<@JvmSuppressWildcards SpecGenerator>>,
     private val userManager2: UserManager2,
+    private val labelDebugger: LabelDebugger,
 ) : AutomationModule(automationHost) {
 
     private fun getPriotizedSpecGenerators(): List<SpecGenerator> = specGenerators
@@ -110,6 +111,8 @@ class ClearCacheModule @AssistedInject constructor(
                 controlPanelSubtitle = R.string.appcleaner_automation_subtitle_default_caches.toCaString(),
             )
         }
+
+        labelDebugger.logAllLabels()
 
         val successful = mutableSetOf<Installed.InstallId>()
         val failed = mutableSetOf<Installed.InstallId>()
