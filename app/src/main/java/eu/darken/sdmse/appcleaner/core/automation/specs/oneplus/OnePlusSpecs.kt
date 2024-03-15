@@ -79,8 +79,8 @@ class OnePlusSpecs @Inject constructor(
         log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
 
         run {
-            val storageEntryLabels = onePlusLabels.getStorageEntryLabel()
-                ?: onePlusLabels.getStorageEntryLabels(lang, script)
+            val storageEntryLabels =
+                onePlusLabels.getStorageEntryDynamic() + onePlusLabels.getStorageEntryLabels(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isTextView()) return false
@@ -103,8 +103,8 @@ class OnePlusSpecs @Inject constructor(
         }
 
         run {
-            val clearCacheButtonLabels = onePlusLabels.getClearCacheDynamic()
-                ?: onePlusLabels.getClearCacheStatic(lang, script)
+            val clearCacheButtonLabels =
+                onePlusLabels.getClearCacheDynamic() + onePlusLabels.getClearCacheStatic(lang, script)
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false

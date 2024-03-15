@@ -4,7 +4,6 @@ import android.content.Context
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.common.AutomationLabelSource
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -14,10 +13,9 @@ class ColorOSLabels @Inject constructor(
     @ApplicationContext private val context: Context,
 ) : AutomationLabelSource {
 
-    fun getStorageEntryLabel(): String? = context.get3rdPartyString(
-        SETTINGS_PKG,
+    fun getStorageEntryDynamic(): Set<String> = setOf(
         "storage_use"
-    ).also { log(TAG) { "getStorageEntryLabel(): $it" } }
+    ).getAsStringResources(context, SETTINGS_PKG)
 
     fun getStorageEntryLabels(lang: String, script: String) = when {
         "en".toLang() == lang -> setOf("Storage Usage", "Storage usage")
@@ -52,10 +50,9 @@ class ColorOSLabels @Inject constructor(
         else -> throw UnsupportedOperationException()
     }
 
-    fun getClearCacheLabel(): String? = context.get3rdPartyString(
-        SETTINGS_PKG,
+    fun getClearCacheDynamic(): Set<String> = setOf(
         "clear_cache_btn_text"
-    ).also { log(TAG) { "getClearCacheLabel(): $it" } }
+    ).getAsStringResources(context, SETTINGS_PKG)
 
     fun getClearCacheLabels(lang: String, script: String): Collection<String> = when {
         "en".toLang() == lang -> setOf("Clear Cache")

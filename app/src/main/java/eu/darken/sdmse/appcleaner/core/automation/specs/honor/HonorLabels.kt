@@ -11,7 +11,7 @@ class HonorLabels @Inject constructor(
     private val aospLabels: AOSPLabels
 ) : AutomationLabelSource {
 
-    fun getStorageEntryDynamic(): Set<String>? = aospLabels.getStorageEntryDynamic()
+    fun getStorageEntryDynamic(): Set<String> = aospLabels.getStorageEntryDynamic()
 
     fun getStorageEntryStatic(lang: String, script: String): Set<String> = when {
         "pl".toLang() == lang -> setOf(
@@ -22,7 +22,7 @@ class HonorLabels @Inject constructor(
         else -> emptySet()
     }.tryAppend { aospLabels.getStorageEntryStatic(lang, script) }
 
-    fun getClearCacheDynamic(): Set<String>? = aospLabels.getClearCacheDynamic()
+    fun getClearCacheDynamic(): Set<String> = aospLabels.getClearCacheDynamic()
 
     fun getClearCacheStatic(lang: String, script: String): Set<String> = when {
         else -> emptySet<String>()

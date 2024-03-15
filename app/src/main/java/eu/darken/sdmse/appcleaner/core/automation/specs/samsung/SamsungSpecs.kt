@@ -79,8 +79,8 @@ class SamsungSpecs @Inject constructor(
         log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
 
         run {
-            val storageEntryLabels = samsungLabels.getStorageEntryLabel()?.let { setOf(it) }
-                ?: samsungLabels.getStorageEntryLabels(lang, script)
+            val storageEntryLabels =
+                samsungLabels.getStorageEntryDynamic() + samsungLabels.getStorageEntryLabels(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isTextView()) return false
@@ -103,8 +103,8 @@ class SamsungSpecs @Inject constructor(
         }
 
         run {
-            val clearCacheButtonLabels = samsungLabels.getClearCacheLabel()?.let { setOf(it) }
-                ?: samsungLabels.getClearCacheLabels(lang, script)
+            val clearCacheButtonLabels =
+                samsungLabels.getClearCacheDynamic() + samsungLabels.getClearCacheLabels(lang, script)
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false

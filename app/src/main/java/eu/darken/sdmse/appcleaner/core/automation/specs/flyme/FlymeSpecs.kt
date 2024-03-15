@@ -81,8 +81,8 @@ class FlymeSpecs @Inject constructor(
 
         run {
             // Do this beforehand so we crash early if unsupported
-            val clearCacheButtonLabels = flymeLabels.getClearCacheLabel()?.let { setOf(it) }
-                ?: flymeLabels.getClearCacheLabels(lang, script)
+            val clearCacheButtonLabels =
+                flymeLabels.getClearCacheDynamic() + flymeLabels.getClearCacheLabels(lang, script)
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickable) return false

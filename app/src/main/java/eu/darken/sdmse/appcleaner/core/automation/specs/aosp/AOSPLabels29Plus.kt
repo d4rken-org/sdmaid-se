@@ -3,7 +3,6 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.common.AutomationLabelSource
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -13,10 +12,9 @@ class AOSPLabels29Plus @Inject constructor(
     private val aospLabels14Plus: AOSPLabels14Plus,
 ) : AutomationLabelSource {
 
-    fun getStorageEntryDynamic(): Set<String>? = context
-        .get3rdPartyString(SETTINGS_PKG, "storage_settings_for_app")
-        .also { log(TAG) { "getStorageEntryLabel(): $it" } }
-        ?.let { setOf(it) }
+    fun getStorageEntryDynamic(): Set<String> = setOf(
+        "storage_settings_for_app",
+    ).getAsStringResources(context, SETTINGS_PKG)
 
     // https://github.com/aosp-mirror/platform_packages_apps_settings/tree/android10-mainline-release/res
     // storage_settings_for_app
@@ -119,7 +117,7 @@ class AOSPLabels29Plus @Inject constructor(
         else -> getStorageEntryStatic("en", "")
     }.tryAppend { aospLabels14Plus.getStorageEntryStatic(lang, script) }
 
-    fun getClearCacheDynamic(): Set<String>? = aospLabels14Plus.getClearCacheDynamic()
+    fun getClearCacheDynamic(): Set<String> = aospLabels14Plus.getClearCacheDynamic()
 
     // https://github.com/aosp-mirror/platform_packages_apps_settings/blob/pie-platform-release/res
     // clear_cache_btn_text

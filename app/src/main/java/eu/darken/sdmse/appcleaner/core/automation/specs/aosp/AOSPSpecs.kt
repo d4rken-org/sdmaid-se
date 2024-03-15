@@ -77,8 +77,8 @@ class AOSPSpecs @Inject constructor(
         log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
 
         run {
-            val storageEntryLabels = aospLabels.getStorageEntryDynamic()
-                ?: aospLabels.getStorageEntryStatic(lang, script)
+            val storageEntryLabels =
+                aospLabels.getStorageEntryDynamic() + aospLabels.getStorageEntryStatic(lang, script)
 
             val storageFilter = when {
                 hasApiLevel(34) -> fun(node: AccessibilityNodeInfo): Boolean {
@@ -108,8 +108,8 @@ class AOSPSpecs @Inject constructor(
         }
 
         run {
-            val clearCacheButtonLabels = aospLabels.getClearCacheDynamic()
-                ?: aospLabels.getClearCacheStatic(lang, script)
+            val clearCacheButtonLabels =
+                aospLabels.getClearCacheDynamic() + aospLabels.getClearCacheStatic(lang, script)
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false

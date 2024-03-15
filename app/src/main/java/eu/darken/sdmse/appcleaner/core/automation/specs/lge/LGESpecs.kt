@@ -79,8 +79,7 @@ class LGESpecs @Inject constructor(
         log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
 
         run {
-            val storageEntryLabels = lgeLabels.getStorageEntryLabel()?.let { setOf(it) }
-                ?: lgeLabels.getStorageEntryLabels(lang, script)
+            val storageEntryLabels = lgeLabels.getStorageEntryDynamic() + lgeLabels.getStorageEntryLabels(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isTextView()) return false
@@ -103,8 +102,7 @@ class LGESpecs @Inject constructor(
         }
 
         run {
-            val clearCacheButtonLabels = lgeLabels.getClearCacheLabel()?.let { setOf(it) }
-                ?: lgeLabels.getClearCacheLabels(lang, script)
+            val clearCacheButtonLabels = lgeLabels.getClearCacheDynamic() + lgeLabels.getClearCacheLabels(lang, script)
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false

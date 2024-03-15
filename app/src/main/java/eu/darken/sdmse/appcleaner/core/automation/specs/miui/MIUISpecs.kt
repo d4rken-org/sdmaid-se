@@ -138,8 +138,8 @@ class MIUISpecs @Inject constructor(
         val script = locale.script
 
         run {
-            val storageEntryLabels = aospLabels.getStorageEntryDynamic()
-                ?: aospLabels.getStorageEntryStatic(lang, script)
+            val storageEntryLabels =
+                aospLabels.getStorageEntryDynamic() + aospLabels.getStorageEntryStatic(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isTextView()) return false
@@ -159,8 +159,8 @@ class MIUISpecs @Inject constructor(
         }
 
         run {
-            val clearCacheButtonLabels = aospLabels.getClearCacheDynamic()
-                ?: aospLabels.getClearCacheStatic(lang, script)
+            val clearCacheButtonLabels =
+                aospLabels.getClearCacheDynamic() + aospLabels.getClearCacheStatic(lang, script)
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false

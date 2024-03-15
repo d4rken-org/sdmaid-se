@@ -4,7 +4,6 @@ import android.content.Context
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.common.AutomationLabelSource
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -14,10 +13,9 @@ class AOSPLabels14Plus @Inject constructor(
     @ApplicationContext private val context: Context,
 ) : AutomationLabelSource {
 
-    fun getStorageEntryDynamic(): Set<String>? = context
-        .get3rdPartyString(SETTINGS_PKG, "storage_settings")
-        .also { log(TAG) { "getStorageEntryDynamic(): $it" } }
-        ?.let { setOf(it) }
+    fun getStorageEntryDynamic(): Set<String> = setOf(
+        "storage_settings",
+    ).getAsStringResources(context, SETTINGS_PKG)
 
     // https://github.com/aosp-mirror/platform_packages_apps_settings/tree/pie-platform-release/res
     // storage_settings
@@ -151,10 +149,9 @@ class AOSPLabels14Plus @Inject constructor(
         else -> getStorageEntryStatic("en", "")
     }
 
-    fun getClearCacheDynamic(): Set<String>? = context
-        .get3rdPartyString(SETTINGS_PKG, "clear_cache_btn_text")
-        .also { log(TAG) { "getClearCacheButtonLabels(): $it" } }
-        ?.let { setOf(it) }
+    fun getClearCacheDynamic(): Set<String> = setOf(
+        "clear_cache_btn_text",
+    ).getAsStringResources(context, SETTINGS_PKG)
 
     // https://github.com/aosp-mirror/platform_packages_apps_settings/blob/pie-platform-release/res
     // clear_cache_btn_text

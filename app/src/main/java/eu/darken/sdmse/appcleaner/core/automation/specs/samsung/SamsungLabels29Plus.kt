@@ -3,7 +3,6 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.samsung
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.common.AutomationLabelSource
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -13,12 +12,11 @@ class SamsungLabels29Plus @Inject constructor(
     private val samsungLabels14Plus: SamsungLabels14Plus,
 ) : AutomationLabelSource {
 
-    fun getStorageEntryLabel(): String? = context.get3rdPartyString(
-        SETTINGS_PKG,
+    fun getStorageEntryDynamic(): Set<String> = setOf(
         "storage_settings"
-    ).also { log(TAG) { "getStorageEntryLabel(): $it" } }
+    ).getAsStringResources(context, SETTINGS_PKG)
 
-    fun getStorageEntryLabels(lang: String, script: String): Collection<String> = when {
+    fun getStorageEntryLabels(lang: String, script: String): Set<String> = when {
         // https://github.com/d4rken/sdmaid-public/issues/4124
         // samsung/a41eea/a41:10/QP1A.190711.020/A415FXXU1ATH2:user/release-keys
         "pl".toLang() == lang -> setOf("Domyślna pamięć")
@@ -73,12 +71,11 @@ class SamsungLabels29Plus @Inject constructor(
         else -> emptyList()
     }.tryAppend { samsungLabels14Plus.getStorageEntryLabels(lang, script) }
 
-    fun getClearCacheLabel(): String? = context.get3rdPartyString(
-        SETTINGS_PKG,
+    fun getClearCacheDynamic(): Set<String> = setOf(
         "clear_cache_btn_text"
-    ).also { log(TAG) { "getClearCacheButtonLabels(): $it" } }
+    ).getAsStringResources(context, SETTINGS_PKG)
 
-    fun getClearCacheLabels(lang: String, script: String): Collection<String> = when {
+    fun getClearCacheLabels(lang: String, script: String): Set<String> = when {
         // https://github.com/d4rken/sdmaid-public/issues/4181
         // samsung/a41eea/a41:10/QP1A.190711.020/A415FXXU1ATH2:user/release-keys
         "pl".toLang() == lang -> setOf("Pamięć cache")

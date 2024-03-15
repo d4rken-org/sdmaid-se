@@ -102,8 +102,8 @@ class ColorOSSpecs @Inject constructor(
              *    16: className=android.widget.ImageView, text=null, isClickable=false, isEnabled=true, viewIdResourceName=com.android.settings:id/color_preference_widget_jump, pkgName=com.android.settings
              */
 
-            val storageEntryLabels = colorOSLabels.getStorageEntryLabel()?.let { setOf(it) }
-                ?: colorOSLabels.getStorageEntryLabels(lang, script)
+            val storageEntryLabels =
+                colorOSLabels.getStorageEntryDynamic() + colorOSLabels.getStorageEntryLabels(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isTextView()) return false
@@ -130,8 +130,8 @@ class ColorOSSpecs @Inject constructor(
         run {
             // 16: className=android.widget.Button, text=Clear Cache, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings
 
-            val clearCacheButtonLabels = colorOSLabels.getClearCacheLabel()?.let { setOf(it) }
-                ?: colorOSLabels.getClearCacheLabels(lang, script)
+            val clearCacheButtonLabels =
+                colorOSLabels.getClearCacheDynamic() + colorOSLabels.getClearCacheLabels(lang, script)
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 return node.textMatchesAny(clearCacheButtonLabels)

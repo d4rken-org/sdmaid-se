@@ -5,7 +5,6 @@ import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels14Plus
 import eu.darken.sdmse.automation.core.common.AutomationLabelSource
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -16,12 +15,11 @@ class RealmeLabels @Inject constructor(
     private val labels14Plus: AOSPLabels14Plus,
 ) : AutomationLabelSource {
 
-    fun getStorageEntryLabel(): String? = context.get3rdPartyString(
-        SETTINGS_PKG,
+    fun getStorageEntryDynamic(): Set<String> = setOf(
         "storage_use"
-    ).also { log(TAG) { "getStorageEntryLabel(): $it" } }
+    ).getAsStringResources(context, SETTINGS_PKG)
 
-    fun getStorageEntryLabels(lang: String, script: String) = when {
+    fun getStorageEntryLabels(lang: String, script: String): Set<String> = when {
         "en".toLang() == lang -> setOf(
             "Storage usage",
             // https://github.com/d4rken-org/sdmaid-se/issues/744
@@ -46,12 +44,11 @@ class RealmeLabels @Inject constructor(
         else -> emptySet()
     }.tryAppend { labels14Plus.getStorageEntryStatic(lang, script) }
 
-    fun getClearCacheLabel(): String? = context.get3rdPartyString(
-        SETTINGS_PKG,
+    fun getClearCacheDynamic(): Set<String> = setOf(
         "clear_cache_btn_text"
-    ).also { log(TAG) { "getClearCacheLabel(): $it" } }
+    ).getAsStringResources(context, SETTINGS_PKG)
 
-    fun getClearCacheLabels(lang: String, script: String): Collection<String> = when {
+    fun getClearCacheLabels(lang: String, script: String): Set<String> = when {
         "es".toLang() == lang -> setOf(
             // realme/RMX2155EEA/RMX2155L1:11/RP1A.200720.011/1634016814456:user/release-keys
             "Borrar caché"

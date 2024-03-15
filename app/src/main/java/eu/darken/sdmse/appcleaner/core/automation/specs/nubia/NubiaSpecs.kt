@@ -81,8 +81,8 @@ class NubiaSpecs @Inject constructor(
         log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
 
         run {
-            val storageEntryLabels = nubiaLabels.getStorageEntryLabel()?.let { setOf(it) }
-                ?: nubiaLabels.getStorageEntryLabels(lang, script)
+            val storageEntryLabels =
+                nubiaLabels.getStorageEntryDynamic() + nubiaLabels.getStorageEntryLabels(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isTextView()) return false
@@ -107,8 +107,8 @@ class NubiaSpecs @Inject constructor(
         }
 
         run {
-            val clearCacheButtonLabels = nubiaLabels.getClearCacheLabel()?.let { setOf(it) }
-                ?: nubiaLabels.getClearCacheLabels(lang, script)
+            val clearCacheButtonLabels =
+                nubiaLabels.getClearCacheDynamic() + nubiaLabels.getClearCacheLabels(lang, script)
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false
