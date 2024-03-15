@@ -5,7 +5,6 @@ import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels14Plus
 import eu.darken.sdmse.automation.core.common.AutomationLabelSource
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -16,12 +15,11 @@ class SamsungLabels14Plus @Inject constructor(
     private val aospLabels14Plus: AOSPLabels14Plus,
 ) : AutomationLabelSource {
 
-    fun getStorageEntryLabel(): String? = context.get3rdPartyString(
-        SETTINGS_PKG,
+    fun getStorageEntryDynamic(): Set<String> = setOf(
         "storage_settings"
-    ).also { log(TAG) { "getStorageEntryLabel(): $it" } }
+    ).getAsStringResources(context, SETTINGS_PKG)
 
-    fun getStorageEntryLabels(lang: String, script: String): Collection<String> = when {
+    fun getStorageEntryLabels(lang: String, script: String): Set<String> = when {
         "zh-Hant".toLoc().let { it.language == lang && it.script == script } -> setOf(
             // Traditional
             "儲存位置"
@@ -40,12 +38,11 @@ class SamsungLabels14Plus @Inject constructor(
         else -> emptySet()
     }.tryAppend { aospLabels14Plus.getStorageEntryStatic(lang, script) }
 
-    fun getClearCacheLabel(): String? = context.get3rdPartyString(
-        SETTINGS_PKG,
+    fun getClearCacheDynamic(): Set<String> = setOf(
         "clear_cache_btn_text"
-    ).also { log(TAG) { "getClearCacheButtonLabels(): $it" } }
+    ).getAsStringResources(context, SETTINGS_PKG)
 
-    fun getClearCacheLabels(lang: String, script: String): Collection<String> = when {
+    fun getClearCacheLabels(lang: String, script: String): Set<String> = when {
         "zh-Hant".toLoc().let { it.language == lang && it.script == script } -> setOf(
             "清除緩存",
             // samsung/dream2ltexx/dream2lte:9/PPR1.180610.011/G955FXXU5DSHC:user/release-keys

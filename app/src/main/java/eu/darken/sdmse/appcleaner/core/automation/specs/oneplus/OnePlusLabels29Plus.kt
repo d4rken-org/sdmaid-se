@@ -4,7 +4,6 @@ import android.content.Context
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.common.AutomationLabelSource
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -15,7 +14,7 @@ open class OnePlusLabels29Plus @Inject constructor(
     private val onePlusLabels14Plus: OnePlusLabels14Plus,
 ) : AutomationLabelSource {
 
-    fun getStorageEntryLabel(): Collection<String>? {
+    fun getStorageEntryDynamic(): Set<String> {
         // Fingerprint: OnePlus/OnePlus7/OnePlus7:11/RKQ1.201022.002/2206171327:user/release-keys
         // en_IN: Storage and cache
         // Fingerprint: OnePlus/DN2103EEA/OP515BL1:11/RP1A.200720.011/1653645228105:user/release-keys
@@ -24,13 +23,13 @@ open class OnePlusLabels29Plus @Inject constructor(
         // 5736:    <string name="storage_use">Speichernutzung</string>
         // 5834:    <string name="storageuse_settings_title">Speichernutzung</string>
         // 6294:    <string name="storage_use">Storage usage</string>
-        return setOf("storage_settings_for_app", "storage_use")
-            .mapNotNull { context.get3rdPartyString(SETTINGS_PKG, it) }
-            .takeIf { it.isNotEmpty() }
-            .also { log(TAG) { "getStorageEntryLabel(): $it" } }
+        return setOf(
+            "storage_settings_for_app",
+            "storage_use",
+        ).getAsStringResources(context, SETTINGS_PKG)
     }
 
-    fun getStorageEntryLabels(lang: String, script: String): Collection<String> = when {
+    fun getStorageEntryLabels(lang: String, script: String): Set<String> = when {
         "de".toLang() == lang -> setOf(
             // OnePlus/DN2103EEA/OP515BL1:11/RP1A.200720.011/1632390704634:user/release-keys
             "Speichernutzung"
@@ -75,7 +74,7 @@ open class OnePlusLabels29Plus @Inject constructor(
         else -> emptySet()
     }.tryAppend { onePlusLabels14Plus.getStorageEntryLabels(lang, script) }
 
-    fun getClearCacheDynamic(): Set<String>? = onePlusLabels14Plus.getClearCacheDynamic()
+    fun getClearCacheDynamic(): Set<String> = onePlusLabels14Plus.getClearCacheDynamic()
 
     fun getClearCacheStatic(lang: String, script: String): Set<String> =
         onePlusLabels14Plus.getClearCacheStatic(lang, script)

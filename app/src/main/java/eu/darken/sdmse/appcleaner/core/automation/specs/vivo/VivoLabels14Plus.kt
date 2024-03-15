@@ -11,12 +11,12 @@ class VivoLabels14Plus @Inject constructor(
     private val labels14Plus: AOSPLabels14Plus,
 ) : AutomationLabelSource {
 
-    fun getStorageEntryDynamic(): Set<String>? = labels14Plus.getStorageEntryDynamic()
+    fun getStorageEntryDynamic(): Set<String> = labels14Plus.getStorageEntryDynamic()
 
     fun getStorageEntryStatic(lang: String, script: String): Set<String> =
         labels14Plus.getStorageEntryStatic(lang, script)
 
-    fun getClearCacheDynamic(): Set<String>? = labels14Plus.getClearCacheDynamic()
+    fun getClearCacheDynamic(): Set<String> = labels14Plus.getClearCacheDynamic()
 
     fun getClearCacheStatic(lang: String, script: String): Set<String> = when {
         // vivo/1808/1808:8.1.0/O11019/1592484538:user/release-keys

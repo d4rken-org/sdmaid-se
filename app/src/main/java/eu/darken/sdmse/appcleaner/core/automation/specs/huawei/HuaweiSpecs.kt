@@ -76,8 +76,8 @@ class HuaweiSpecs @Inject constructor(
         val script = locale.script
 
         run {
-            val storageEntryLabels = huaweiLabels.getStorageEntryLabel()?.let { setOf(it) }
-                ?: huaweiLabels.getStorageEntryLabels(lang, script)
+            val storageEntryLabels =
+                huaweiLabels.getStorageEntryDynamic() + huaweiLabels.getStorageEntryLabels(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isTextView()) return false
@@ -100,8 +100,8 @@ class HuaweiSpecs @Inject constructor(
         }
 
         run {
-            val clearCacheButtonLabels = huaweiLabels.getClearCacheLabel()?.let { setOf(it) }
-                ?: huaweiLabels.getClearCacheLabels(lang, script)
+            val clearCacheButtonLabels =
+                huaweiLabels.getClearCacheDynamic() + huaweiLabels.getClearCacheLabels(lang, script)
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false

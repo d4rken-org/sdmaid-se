@@ -82,8 +82,8 @@ class RealmeSpecs @Inject constructor(
         log(Logging.Priority.VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
 
         run {
-            val storageEntryLabels = realmeLabels.getStorageEntryLabel()?.let { setOf(it) }
-                ?: realmeLabels.getStorageEntryLabels(lang, script)
+            val storageEntryLabels =
+                realmeLabels.getStorageEntryDynamic() + realmeLabels.getStorageEntryLabels(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isTextView()) return false
@@ -106,8 +106,8 @@ class RealmeSpecs @Inject constructor(
         }
 
         run {
-            val clearCacheButtonLabels = realmeLabels.getClearCacheLabel()?.let { setOf(it) }
-                ?: realmeLabels.getClearCacheLabels(lang, script)
+            val clearCacheButtonLabels =
+                realmeLabels.getClearCacheDynamic() + realmeLabels.getClearCacheLabels(lang, script)
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false

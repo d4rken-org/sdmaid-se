@@ -4,7 +4,6 @@ import android.content.Context
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.common.AutomationLabelSource
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -14,15 +13,14 @@ class MIUILabels @Inject constructor(
     @ApplicationContext private val context: Context,
 ) : AutomationLabelSource {
 
-    fun getDialogTitles(lang: String, script: String, country: String?): Collection<String> =
-        getDialogTitlesDynamic() ?: getDialogTitlesFallback(lang, script, country)
+    fun getDialogTitles(lang: String, script: String, country: String?): Set<String> =
+        getDialogTitlesDynamic() + getDialogTitlesFallback(lang, script, country)
 
-    private fun getDialogTitlesDynamic() = context
-        .get3rdPartyString(SETTINGS_PKG, "app_manager_dlg_clear_cache_title")
-        .also { log(TAG) { "getDialogTitle(): $it" } }
-        ?.let { setOf(it) }
+    private fun getDialogTitlesDynamic() = setOf(
+        "app_manager_dlg_clear_cache_title"
+    ).getAsStringResources(context, SETTINGS_PKG)
 
-    private fun getDialogTitlesFallback(lang: String, script: String, country: String?): Collection<String> = when {
+    private fun getDialogTitlesFallback(lang: String, script: String, country: String?): Set<String> = when {
         "en".toLang() == lang -> setOf("Clear cache?")
         "de".toLang() == lang -> setOf("Cache löschen?")
         "cs".toLang() == lang -> setOf("Vyčistit mezipaměť?")
@@ -110,15 +108,14 @@ class MIUILabels @Inject constructor(
         else -> throw UnsupportedOperationException()
     }
 
-    fun getClearCacheButtonLabels(lang: String, script: String, country: String?): Collection<String> =
-        getClearCacheButtonLabelDynamic() ?: getClearCacheButtonLabelsFallback(lang, script, country)
+    fun getClearCacheButtonLabels(lang: String, script: String, country: String?): Set<String> =
+        getClearCacheButtonLabelDynamic() + getClearCacheButtonLabelsFallback(lang, script, country)
 
-    private fun getClearCacheButtonLabelDynamic() = context
-        .get3rdPartyString(SETTINGS_PKG, "app_manager_clear_cache")
-        .also { log(TAG) { "getClearCacheButtonLabel(): $it" } }
-        ?.let { setOf(it) }
+    private fun getClearCacheButtonLabelDynamic() = setOf(
+        "app_manager_clear_cache"
+    ).getAsStringResources(context, SETTINGS_PKG)
 
-    private fun getClearCacheButtonLabelsFallback(lang: String, script: String, country: String?): Collection<String> =
+    private fun getClearCacheButtonLabelsFallback(lang: String, script: String, country: String?): Set<String> =
         when {
             "en".toLang() == lang -> setOf("Clear cache")
             "de".toLang() == lang -> setOf("Cache löschen")
@@ -199,13 +196,12 @@ class MIUILabels @Inject constructor(
             else -> throw UnsupportedOperationException()
         }
 
-    fun getClearDataButtonLabels(lang: String, script: String, country: String?): Collection<String> =
-        getClearDataButtonLabelsDynamic() ?: getClearDataButtonLabelsFallback(lang, script, country)
+    fun getClearDataButtonLabels(lang: String, script: String, country: String?): Set<String> =
+        getClearDataButtonLabelsDynamic() + getClearDataButtonLabelsFallback(lang, script, country)
 
-    private fun getClearDataButtonLabelsDynamic() = context
-        .get3rdPartyString(SETTINGS_PKG, "app_manager_menu_clear_data")
-        .also { log(TAG) { "getClearDataButtonLabel(): $it" } }
-        ?.let { setOf(it) }
+    private fun getClearDataButtonLabelsDynamic() = setOf(
+        "app_manager_menu_clear_data"
+    ).getAsStringResources(context, SETTINGS_PKG)
 
     private fun getClearDataButtonLabelsFallback(lang: String, script: String, country: String?): Collection<String> =
         when {

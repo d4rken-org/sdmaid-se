@@ -13,7 +13,7 @@ class AOSPLabels @Inject constructor(
     private val labels29Plus: AOSPLabels29Plus,
 ) : AutomationLabelSource {
 
-    fun getStorageEntryDynamic(): Set<String>? = when {
+    fun getStorageEntryDynamic(): Set<String> = when {
         hasApiLevel(29) -> labels29Plus.getStorageEntryDynamic()
         hasApiLevel(14) -> labels14Plus.getStorageEntryDynamic()
         else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
@@ -25,7 +25,7 @@ class AOSPLabels @Inject constructor(
         else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
     }
 
-    fun getClearCacheDynamic(): Set<String>? = when {
+    fun getClearCacheDynamic(): Set<String> = when {
         hasApiLevel(29) -> labels29Plus.getClearCacheDynamic()
         hasApiLevel(14) -> labels14Plus.getClearCacheDynamic()
         else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")

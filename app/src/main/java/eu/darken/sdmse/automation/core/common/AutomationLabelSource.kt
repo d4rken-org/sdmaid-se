@@ -10,6 +10,11 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import java.util.Locale
 
 interface AutomationLabelSource {
+
+    fun Set<String>.getAsStringResources(context: Context, pkgId: Pkg.Id) = this
+        .mapNotNull { resId -> context.get3rdPartyString(pkgId, resId) }
+        .toSet()
+
     fun String.toLoc(): Locale = Locale.forLanguageTag(this)
 
     fun String.toLang(): String = this.toLoc().language

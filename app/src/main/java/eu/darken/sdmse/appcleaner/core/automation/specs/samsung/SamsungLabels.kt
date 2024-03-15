@@ -13,25 +13,25 @@ open class SamsungLabels @Inject constructor(
     private val labels29Plus: SamsungLabels29Plus,
 ) : AutomationLabelSource {
 
-    fun getStorageEntryLabel(): String? = when {
-        hasApiLevel(29) -> labels29Plus.getStorageEntryLabel()
-        hasApiLevel(14) -> labels14Plus.getStorageEntryLabel()
+    fun getStorageEntryDynamic(): Set<String> = when {
+        hasApiLevel(29) -> labels29Plus.getStorageEntryDynamic()
+        hasApiLevel(14) -> labels14Plus.getStorageEntryDynamic()
         else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
     }
 
-    fun getStorageEntryLabels(lang: String, script: String) = when {
+    fun getStorageEntryLabels(lang: String, script: String): Set<String> = when {
         hasApiLevel(29) -> labels29Plus.getStorageEntryLabels(lang, script)
         hasApiLevel(14) -> labels14Plus.getStorageEntryLabels(lang, script)
         else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
     }
 
-    fun getClearCacheLabel(): String? = when {
-        hasApiLevel(29) -> labels29Plus.getClearCacheLabel()
-        hasApiLevel(14) -> labels14Plus.getClearCacheLabel()
+    fun getClearCacheDynamic(): Set<String> = when {
+        hasApiLevel(29) -> labels29Plus.getClearCacheDynamic()
+        hasApiLevel(14) -> labels14Plus.getClearCacheDynamic()
         else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
     }
 
-    fun getClearCacheLabels(lang: String, script: String): Collection<String> = when {
+    fun getClearCacheLabels(lang: String, script: String): Set<String> = when {
         hasApiLevel(29) -> labels29Plus.getClearCacheLabels(lang, script)
         hasApiLevel(14) -> labels14Plus.getClearCacheLabels(lang, script)
         else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")

@@ -80,8 +80,8 @@ class AlcatelSpecs @Inject constructor(
         log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
 
         run {
-            val storageEntryLabels = alcatelLabels.getStorageEntryDynamic()
-                ?: alcatelLabels.getStorageEntryStatic(lang, script)
+            val storageEntryLabels =
+                alcatelLabels.getStorageEntryDynamic() + alcatelLabels.getStorageEntryStatic(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isTextView()) return false
@@ -104,8 +104,8 @@ class AlcatelSpecs @Inject constructor(
         }
 
         run {
-            val clearCacheButtonLabels = alcatelLabels.getClearCacheDynamic()
-                ?: alcatelLabels.getClearCacheStatic(lang, script)
+            val clearCacheButtonLabels =
+                alcatelLabels.getClearCacheDynamic() + alcatelLabels.getClearCacheStatic(lang, script)
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false

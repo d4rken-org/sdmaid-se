@@ -78,8 +78,8 @@ class HonorSpecs @Inject constructor(
         log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
 
         run {
-            val storageEntryLabels = honorLabels.getStorageEntryDynamic()
-                ?: honorLabels.getStorageEntryStatic(lang, script)
+            val storageEntryLabels =
+                honorLabels.getStorageEntryDynamic() + honorLabels.getStorageEntryStatic(lang, script)
 
             val storageFilter = when {
                 hasApiLevel(34) -> fun(node: AccessibilityNodeInfo): Boolean {
@@ -109,8 +109,8 @@ class HonorSpecs @Inject constructor(
         }
 
         run {
-            val clearCacheButtonLabels = honorLabels.getClearCacheDynamic()
-                ?: honorLabels.getClearCacheStatic(lang, script)
+            val clearCacheButtonLabels =
+                honorLabels.getClearCacheDynamic() + honorLabels.getClearCacheStatic(lang, script)
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false

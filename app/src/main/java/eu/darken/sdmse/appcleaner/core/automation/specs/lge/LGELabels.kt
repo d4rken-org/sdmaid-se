@@ -5,7 +5,6 @@ import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.automation.core.common.AutomationLabelSource
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -17,10 +16,9 @@ class LGELabels @Inject constructor(
     private val aospLabels: AOSPLabels,
 ) : AutomationLabelSource {
 
-    fun getStorageEntryLabel(): String? = context.get3rdPartyString(
-        SETTINGS_PKG,
+    fun getStorageEntryDynamic(): Set<String> = setOf(
         "storage_settings"
-    ).also { log(TAG) { "getStorageEntryLabel(): $it" } }
+    ).getAsStringResources(context, SETTINGS_PKG)
 
     fun getStorageEntryLabels(lang: String, script: String) = when {
         // https://github.com/d4rken/sdmaid-public/issues/3577
@@ -40,10 +38,9 @@ class LGELabels @Inject constructor(
         else -> aospLabels.getStorageEntryStatic(lang, script)
     }
 
-    fun getClearCacheLabel(): String? = context.get3rdPartyString(
-        SETTINGS_PKG,
+    fun getClearCacheDynamic(): Set<String> = setOf(
         "clear_cache_btn_text"
-    ).also { log(TAG) { "getClearCacheButtonLabels(): $it" } }
+    ).getAsStringResources(context, SETTINGS_PKG)
 
     fun getClearCacheLabels(lang: String, script: String): Collection<String> = when {
         // lge/mh2lm/mh2lm:10/QKQ1.200216.002/20283101285e8:user/release-keys

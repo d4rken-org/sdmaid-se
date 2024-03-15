@@ -13,7 +13,7 @@ class VivoLabels29Plus @Inject constructor(
     private val aospLabels29Plus: AOSPLabels29Plus,
 ) : AutomationLabelSource {
 
-    fun getStorageEntryDynamic(): Set<String>? = aospLabels29Plus.getStorageEntryDynamic()
+    fun getStorageEntryDynamic(): Set<String> = aospLabels29Plus.getStorageEntryDynamic()
 
     // 10: className=android.widget.LinearLayout, text=null, isClickable=true, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings
     // 14: className=android.widget.TextView, text=Internal storage, isClickable=false, isEnabled=true, viewIdResourceName=android:id/title, pkgName=com.android.settings
@@ -32,7 +32,7 @@ class VivoLabels29Plus @Inject constructor(
         else -> emptyList()
     }.tryAppend { aospLabels29Plus.getStorageEntryStatic(lang, script) }
 
-    fun getClearCacheDynamic(): Set<String>? = aospLabels14Plus.getClearCacheDynamic()
+    fun getClearCacheDynamic(): Set<String> = aospLabels14Plus.getClearCacheDynamic()
 
     fun getClearCacheStatic(lang: String, script: String): Set<String> =
         aospLabels14Plus.getClearCacheStatic(lang, script)

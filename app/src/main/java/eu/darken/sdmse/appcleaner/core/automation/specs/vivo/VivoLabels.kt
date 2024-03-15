@@ -13,7 +13,7 @@ open class VivoLabels @Inject constructor(
     private val vivoLabels29Plus: VivoLabels29Plus,
 ) : AutomationLabelSource {
 
-    fun getStorageEntryDynamic(): Set<String>? = when {
+    fun getStorageEntryDynamic(): Set<String> = when {
         hasApiLevel(29) -> vivoLabels29Plus.getStorageEntryDynamic()
         hasApiLevel(14) -> vivoLabels14Plus.getStorageEntryDynamic()
         else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
@@ -25,7 +25,7 @@ open class VivoLabels @Inject constructor(
         else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
     }
 
-    fun getClearCacheDynamic(): Set<String>? = when {
+    fun getClearCacheDynamic(): Set<String> = when {
         hasApiLevel(29) -> vivoLabels29Plus.getClearCacheDynamic()
         hasApiLevel(14) -> vivoLabels14Plus.getClearCacheDynamic()
         else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")

@@ -78,8 +78,8 @@ class VivoSpecs @Inject constructor(
         log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
 
         run {
-            val storageEntryLabels = vivoLabels.getStorageEntryDynamic()
-                ?: vivoLabels.getStorageEntryStatic(lang, script)
+            val storageEntryLabels =
+                vivoLabels.getStorageEntryDynamic() + vivoLabels.getStorageEntryStatic(lang, script)
 
             val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isTextView()) return false
@@ -107,8 +107,8 @@ class VivoSpecs @Inject constructor(
         }
 
         run {
-            val clearCacheButtonLabels = vivoLabels.getClearCacheDynamic()
-                ?: vivoLabels.getClearCacheStatic(lang, script)
+            val clearCacheButtonLabels =
+                vivoLabels.getClearCacheDynamic() + vivoLabels.getClearCacheStatic(lang, script)
 
             // 14: className=android.widget.TextView, text=Clear cache, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
