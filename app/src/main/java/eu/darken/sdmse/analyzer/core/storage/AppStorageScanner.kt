@@ -76,7 +76,7 @@ class AppStorageScanner @AssistedInject constructor(
         topLevelDirs: Set<OwnerInfo>,
     ): Result {
         val appStorStats = try {
-            statsManager.queryStatsForPkg(storage.id, pkg)
+            statsManager.queryStatsForAppUid(storage.id, pkg)
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to query stats for ${pkg.id} due to $e" }
             null

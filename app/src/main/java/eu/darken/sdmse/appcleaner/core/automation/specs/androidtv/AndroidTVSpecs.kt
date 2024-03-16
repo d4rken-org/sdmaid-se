@@ -17,7 +17,7 @@ import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.defaultClick
 import eu.darken.sdmse.automation.core.common.defaultWindowFilter
 import eu.darken.sdmse.automation.core.common.defaultWindowIntent
-import eu.darken.sdmse.automation.core.common.getDefaultClearCacheClick
+import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.pkgId
@@ -92,7 +92,7 @@ open class AndroidTVSpecs @Inject constructor(
                 nodeTest = buttonFilter,
                 nodeRecovery = { it.scrollNode() },
                 nodeMapping = clickableParent(),
-                action = getDefaultClearCacheClick(pkg, TAG)
+                action = getAospClearCacheClick(pkg, TAG)
             )
             stepper.withProgress(this) { process(step) }
         }

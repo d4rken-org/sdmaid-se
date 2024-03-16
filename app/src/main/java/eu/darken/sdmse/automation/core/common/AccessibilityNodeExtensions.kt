@@ -35,6 +35,15 @@ fun AccessibilityNodeInfo.textMatchesAny(candidates: Collection<String>): Boolea
     return false
 }
 
+fun AccessibilityNodeInfo.textContainsAny(candidates: Collection<String>): Boolean {
+    candidates.forEach { candidate ->
+        if (textVariants.any { it.contains(candidate, ignoreCase = true) }) {
+            return true
+        }
+    }
+    return false
+}
+
 fun AccessibilityNodeInfo.textEndsWithAny(candidates: Collection<String>): Boolean {
     candidates.forEach { candidate ->
         if (textVariants.any { it.endsWith(candidate, ignoreCase = true) }) {

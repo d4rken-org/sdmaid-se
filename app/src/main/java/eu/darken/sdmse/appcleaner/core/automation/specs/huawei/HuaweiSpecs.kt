@@ -1,15 +1,14 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.huawei
 
-import android.content.Context
 import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
 import eu.darken.sdmse.appcleaner.core.automation.specs.SpecRomType
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPSpecs
 import eu.darken.sdmse.automation.core.common.StepProcessor
@@ -17,12 +16,10 @@ import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.defaultClick
 import eu.darken.sdmse.automation.core.common.defaultWindowFilter
 import eu.darken.sdmse.automation.core.common.defaultWindowIntent
-import eu.darken.sdmse.automation.core.common.getDefaultClearCacheClick
+import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
 import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
 import eu.darken.sdmse.automation.core.common.getSysLocale
-import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.isClickyButton
-import eu.darken.sdmse.automation.core.common.isTextView
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
@@ -46,10 +43,10 @@ import javax.inject.Inject
 @Reusable
 class HuaweiSpecs @Inject constructor(
     private val ipcFunnel: IPCFunnel,
-    @ApplicationContext private val context: Context,
     private val deviceDetective: DeviceDetective,
     private val huaweiLabels: HuaweiLabels,
     private val settings: AppCleanerSettings,
+    private val onTheFlyLabler: OnTheFlyLabler,
 ) : ExplorerSpecGenerator() {
 
     override val tag: String = TAG
@@ -79,11 +76,7 @@ class HuaweiSpecs @Inject constructor(
             val storageEntryLabels =
                 huaweiLabels.getStorageEntryDynamic() + huaweiLabels.getStorageEntryLabels(lang, script)
 
-            val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isTextView()) return false
-                if (!hasApiLevel(33) && !node.idContains("android:id/title")) return false
-                return node.textMatchesAny(storageEntryLabels)
-            }
+            val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
             val step = StepProcessor.Step(
                 parentTag = tag,
@@ -115,7 +108,7 @@ class HuaweiSpecs @Inject constructor(
                     AOSPSpecs.SETTINGS_PKG, ipcFunnel, pkg
                 ),
                 nodeTest = buttonFilter,
-                action = getDefaultClearCacheClick(pkg, tag)
+                action = getAospClearCacheClick(pkg, tag)
             )
 
             stepper.withProgress(this) { process(step) }
