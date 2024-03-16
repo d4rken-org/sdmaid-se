@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
@@ -72,7 +73,7 @@ class ScreenState @Inject constructor(
         ContextCompat.registerReceiver(context, receiver, intentFilter, ContextCompat.RECEIVER_EXPORTED)
 
         awaitClose {
-            log(TAG) { "unregisterReceiver($receiver)" }
+            log(TAG, VERBOSE) { "unregisterReceiver($receiver)" }
             context.unregisterReceiver(receiver)
         }
     }
