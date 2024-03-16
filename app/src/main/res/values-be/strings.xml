@@ -433,6 +433,8 @@
     <string name="appcontrol_app_exclude_edit_description">Цяпер гэта праграма выключана з аднаго або некалькіх інструментаў.</string>
     <string name="appcontrol_tag_user">Карыстальнік</string>
     <string name="appcontrol_tag_active">Апошнія актыўныя</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Пакет</string>
     <string name="appcontrol_tag_system">Сістэма</string>
     <string name="appcontrol_tag_enabled">Уключана</string>
     <string name="appcontrol_tag_disabled">Адключана</string>
@@ -457,6 +459,14 @@
         <item quantity="many">Змяніць уключаны/выключаны стан для %d праграм?</item>
         <item quantity="other">Змяніць уключаны/выключаны стан для %d праграм?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Вызначэнне памераў</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Атрымайце прыблізную ацэнку памеру кожнай праграмы.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Вызначэнне актыўнасці</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Даведайцеся, ці з\'яўляецца актыўнай праграма (або была такой нядаўна).</string>
+    <string name="appcontrol_export_app_selection_action">Экспартаваць праграмы</string>
+    <string name="appcontrol_export_title">Экспартаваць праграму</string>
+    <string name="appcontrol_export_description">Захавайце ўсталявальныя файлы гэтай праграмы на вашай прыладзе. Яны не ўключаюць даныя з праграмы.</string>
+    <string name="appcontrol_progress_exporting_x">Экспартаванне %s</string>
     <string name="analyzer_tool_name">Аналіз сховішча</string>
     <string name="analyzer_explanation_short">Даведайцеся, што займае месца на вашай прыладзе.</string>
     <string name="analyzer_progress_scanning_device">Пошук запамінальных прылад</string>
