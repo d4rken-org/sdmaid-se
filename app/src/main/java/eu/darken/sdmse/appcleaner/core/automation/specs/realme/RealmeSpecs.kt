@@ -1,30 +1,26 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.realme
 
-import android.content.Context
 import android.os.Build
 import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
 import eu.darken.sdmse.appcleaner.core.automation.specs.SpecRomType
 import eu.darken.sdmse.appcleaner.core.automation.specs.alcatel.AlcatelSpecs
-
 import eu.darken.sdmse.automation.core.common.StepProcessor
 import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.defaultClick
 import eu.darken.sdmse.automation.core.common.defaultWindowFilter
 import eu.darken.sdmse.automation.core.common.defaultWindowIntent
-import eu.darken.sdmse.automation.core.common.getDefaultClearCacheClick
+import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
 import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
 import eu.darken.sdmse.automation.core.common.getSysLocale
-import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.isClickyButton
-import eu.darken.sdmse.automation.core.common.isTextView
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.windowCriteria
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
@@ -39,7 +35,6 @@ import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.funnel.IPCFunnel
-import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
@@ -49,10 +44,10 @@ import javax.inject.Inject
 @Reusable
 class RealmeSpecs @Inject constructor(
     ipcFunnel: IPCFunnel,
-    @ApplicationContext private val context: Context,
     private val deviceDetective: DeviceDetective,
     private val realmeLabels: RealmeLabels,
     private val settings: AppCleanerSettings,
+    private val onTheFlyLabler: OnTheFlyLabler,
 ) : ExplorerSpecGenerator() {
 
     override val label = TAG.toCaString()
@@ -85,11 +80,7 @@ class RealmeSpecs @Inject constructor(
             val storageEntryLabels =
                 realmeLabels.getStorageEntryDynamic() + realmeLabels.getStorageEntryLabels(lang, script)
 
-            val storageFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isTextView()) return false
-                if (!hasApiLevel(33) && !node.idContains("android:id/title")) return false
-                return node.textMatchesAny(storageEntryLabels)
-            }
+            val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
             val step = StepProcessor.Step(
                 parentTag = tag,
@@ -119,7 +110,7 @@ class RealmeSpecs @Inject constructor(
                 label = "Find & click 'Clear Cache' (targets=$clearCacheButtonLabels)",
                 windowNodeTest = windowCriteria(SETTINGS_PKG),
                 nodeTest = buttonFilter,
-                action = getDefaultClearCacheClick(pkg, tag)
+                action = getAospClearCacheClick(pkg, tag)
             )
             stepper.withProgress(this) { process(step) }
         }

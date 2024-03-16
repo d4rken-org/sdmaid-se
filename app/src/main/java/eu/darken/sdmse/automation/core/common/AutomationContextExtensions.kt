@@ -1,3 +1,5 @@
+@file:Suppress("UnusedReceiverParameter")
+
 package eu.darken.sdmse.automation.core.common
 
 import android.content.Intent
@@ -138,7 +140,7 @@ fun AutomationExplorer.Context.getDefaultNodeRecovery(pkg: Installed): suspend (
         }
     }
 
-fun AutomationExplorer.Context.getDefaultClearCacheClick(
+fun AutomationExplorer.Context.getAospClearCacheClick(
     pkg: Installed,
     tag: String
 ): suspend (AccessibilityNodeInfo, Int) -> Boolean = scope@{ node, retryCount ->

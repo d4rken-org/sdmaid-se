@@ -1,12 +1,10 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.flyme
 
-import android.content.Context
 import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
@@ -14,7 +12,7 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.SpecRomType
 import eu.darken.sdmse.automation.core.common.StepProcessor
 import eu.darken.sdmse.automation.core.common.defaultWindowFilter
 import eu.darken.sdmse.automation.core.common.defaultWindowIntent
-import eu.darken.sdmse.automation.core.common.getDefaultClearCacheClick
+import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
 import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idContains
@@ -43,7 +41,6 @@ import javax.inject.Inject
 @Reusable
 class FlymeSpecs @Inject constructor(
     private val ipcFunnel: IPCFunnel,
-    @ApplicationContext private val context: Context,
     private val deviceDetective: DeviceDetective,
     private val pkgRepo: PkgRepo,
     private val flymeLabels: FlymeLabels,
@@ -99,7 +96,7 @@ class FlymeSpecs @Inject constructor(
                 windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeTest = buttonFilter,
                 nodeRecovery = getDefaultNodeRecovery(pkg),
-                action = getDefaultClearCacheClick(pkg, TAG)
+                action = getAospClearCacheClick(pkg, TAG)
             )
             stepper.withProgress(this) { process(step) }
         }
