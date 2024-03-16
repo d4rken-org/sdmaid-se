@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="dashboard_delete_all_message">Slet resultater i alle værktøjer?</string>
+    <string name="dashboard_settings_category">Instrumentbræt</string>
+    <string name="dashboard_motd_title">En besked fra udvikleren</string>
+    <string name="dashboard_settings_oneclick_title">Ét-tryks Tilstand</string>
+    <string name="dashboard_settings_oneclick_summary">Start scanning og sletning for alle værktøjer med et tryk på instrumentbrættet handlingsknap, ingen ekstra klik.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Enkelt-kliks værktøjer</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Hvilke værktøjer skal inkluderes i enkelt-klik operationer?</string>
+    <string name="debug_debuglog_size_label">Størrelse</string>
+    <string name="debug_debuglog_size_compressed_label">Komprimeret størrelse</string>
+    <string name="debug_notification_channel_label">Debug notifikationer</string>
+    <string name="debug_debuglog_file_label">Optaget logfil</string>
+    <string name="debug_debuglog_recording_progress">Optager fejlfindingslog</string>
+    <string name="debug_debuglog_stop_action">Stop optagelse</string>
+    <string name="debug_debuglog_sensitive_information_message">Den genererede fil indeholder følsomme oplysninger (f.eks. filnavne og installerede apps). Del kun den med parter du stoler på.</string>
+    <string name="tasks_activity_notification_channel_label">Aktive opgaver</string>
+    <string name="tasks_activity_working_notification_title">SD Maid arbejder</string>
+</resources>

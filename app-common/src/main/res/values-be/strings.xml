@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Бездакорна.</string>
     <string name="slogan_message_6">Байты, прэч!</string>
     <string name="slogan_message_7">Вольнае месца - шчаслівае месца.</string>
+    <string name="slogan_message_8">Ніколі не здавайцеся.</string>
     <string name="general_thank_you_label">Дзякуй</string>
     <string name="general_error_type_mismatch_msg">Неадпаведнасць тыпу: мае быць %1$s, але па факце %2$s.</string>
     <string name="general_error_cant_access_msg">Няма доступу %s.</string>
@@ -113,6 +114,18 @@
         <item quantity="few">%s элементы</item>
         <item quantity="many">%s элементаў</item>
         <item quantity="other">%s элементаў</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d паспяхова</item>
+        <item quantity="few">%d паспяхова</item>
+        <item quantity="many">%d паспяхова</item>
+        <item quantity="other">%d паспяхова</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d няўдала</item>
+        <item quantity="few">%d няўдала</item>
+        <item quantity="many">%d няўдала</item>
+        <item quantity="other">%d няўдала</item>
     </plurals>
     <string name="x_space_can_be_freed">Можна вызваліць %s</string>
     <string name="general_info_label">Інфармацыя</string>
