@@ -10571,7 +10571,7 @@
   ]
 }, {
   "pkgs": ["com.android.fileexplorer"],
-  "mrks": [{"loc": "SDCARD", "path": "FileExplorer"}]
+  "mrks": [{"loc": "SDCARD", "path": "FileExplorer", "flags": ["keeper"]}]
 }, {
   "regexPkgs": ["^(?:com\\.xiaomi\\..*?)$"],
   "mrks": [
