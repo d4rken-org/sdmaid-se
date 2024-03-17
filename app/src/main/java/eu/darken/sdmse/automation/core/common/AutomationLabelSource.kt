@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.Pkg
 import java.util.Locale
 
@@ -49,4 +50,8 @@ interface AutomationLabelSource {
 
     fun Collection<String>.tryAppend(source: () -> Collection<String>): Set<String> =
         this.plus(tryCollection(source)).toSet()
+
+    companion object {
+        internal val TAG = logTag("Automation", "LabelSource")
+    }
 }

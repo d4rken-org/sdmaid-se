@@ -12,6 +12,7 @@ import eu.darken.sdmse.automation.core.ScreenState
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -135,8 +136,10 @@ class StepProcessor @AssistedInject constructor(
 
             while (step.windowNodeTest != null && currentCoroutineContext().isActive) {
                 currentRoot = host.windowRoot().apply {
-                    log(TAG, VERBOSE) { "Looking for viable window root, current nodes:" }
-                    crawl().forEach { log(TAG, VERBOSE) { it.infoShort } }
+                    if (Bugs.isDebug) {
+                        log(TAG, VERBOSE) { "Looking for viable window root, current nodes:" }
+                        crawl().forEach { log(TAG, VERBOSE) { it.infoShort } }
+                    }
                 }
 
                 if (step.windowNodeTest.invoke(currentRoot)) {
@@ -157,8 +160,10 @@ class StepProcessor @AssistedInject constructor(
                 var currentRootNode = targetWindowRoot
 
                 while (currentCoroutineContext().isActive) {
-                    log(TAG, VERBOSE) { "Checking current nodes:" }
-                    currentRootNode.crawl().forEach { log(TAG, VERBOSE) { it.infoShort } }
+                    if (Bugs.isDebug) {
+                        log(TAG, VERBOSE) { "Checking current nodes:" }
+                        currentRootNode.crawl().forEach { log(TAG, VERBOSE) { it.infoShort } }
+                    }
 
                     target = currentRootNode.crawl().map { it.node }.find { step.nodeTest.invoke(it) }
 
