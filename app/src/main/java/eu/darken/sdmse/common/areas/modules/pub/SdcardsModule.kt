@@ -204,7 +204,7 @@ class SdcardsModule @Inject constructor(
     }
 
     companion object {
-        val TEST_PREFIX = "eu.darken.sdmse-test"
+        val TEST_PREFIX = "eu.darken.sdmse-test-sd"
         val TEST_FILE_PREFIX = "$TEST_PREFIX-area-access"
         val TAG: String = logTag("DataArea", "Module", "Sdcard")
     }
