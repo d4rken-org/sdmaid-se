@@ -108,7 +108,7 @@ class StorageScanner @Inject constructor(
                     ?.listFiles(gatewaySwitch)
                     ?.filter { it.name != "Android" }
                     ?.mapNotNull { fileForensics.findOwners(it) }
-                    ?.filter { it.areaInfo.type == DataArea.Type.SDCARD }
+                    ?.filter { setOf(DataArea.Type.SDCARD, DataArea.Type.PORTABLE).contains(it.areaInfo.type) }
                     ?.onEach { log(TAG) { "Top level dir: $it" } }
                     ?: emptySet()
                 topLevelDirs.clear()

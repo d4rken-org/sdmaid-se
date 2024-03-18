@@ -18,12 +18,14 @@ data class DeviceStorage(
     enum class Type {
         PRIMARY,
         SECONDARY,
+        PORTABLE,
         ;
     }
 
     enum class Hardware {
         BUILT_IN,
         SDCARD,
+        USB,
         ;
     }
 
