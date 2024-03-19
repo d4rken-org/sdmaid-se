@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import androidx.core.content.ContextCompat
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -40,10 +41,12 @@ class PackageEventListener @Inject constructor(
                         val pkgId = intent.data?.encodedSchemeSpecificPart?.toPkgId()
                         pkgId?.let { trySendBlocking(Event.PackageInstalled(it)) }
                     }
+
                     Intent.ACTION_PACKAGE_REMOVED -> {
                         val pkgId = intent.data?.encodedSchemeSpecificPart?.toPkgId()
                         pkgId?.let { trySendBlocking(Event.PackageRemoved(it)) }
                     }
+
                     else -> log(ERROR) { "Unknown intent: $intent" }
                 }
             }
@@ -56,7 +59,7 @@ class PackageEventListener @Inject constructor(
             addDataScheme("package")
         }
 
-        context.registerReceiver(receiver, intentFilter)
+        ContextCompat.registerReceiver(context, receiver, intentFilter, ContextCompat.RECEIVER_NOT_EXPORTED)
 
         awaitClose {
             log { "unregisterReceiver($receiver)" }
