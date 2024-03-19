@@ -12,6 +12,7 @@ import android.os.IBinder
 import android.os.IBinder.DeathRecipient
 import android.os.RemoteException
 import androidx.annotation.Keep
+import androidx.core.content.ContextCompat
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -122,7 +123,7 @@ abstract class RootConnectionReceiver constructor(private val pairingCode: Strin
         }
 
         this.contextRef = WeakReference(context)
-        context.registerReceiver(receiver, filter, null, handler)
+        ContextCompat.registerReceiver(context, receiver, filter, null, handler, ContextCompat.RECEIVER_NOT_EXPORTED)
     }
 
     /**
