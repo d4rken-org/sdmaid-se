@@ -137,11 +137,24 @@ class DeviceStorageScanner @Inject constructor(
                     volume.path?.freeSpace ?: 0L
                 }
 
+                val type = when {
+                    volume.disk?.isUsb == true -> DeviceStorage.Type.PORTABLE
+                    else -> DeviceStorage.Type.SECONDARY
+                }
+                val hardware = when {
+                    volume.disk?.isUsb == true -> DeviceStorage.Hardware.USB
+                    else -> DeviceStorage.Hardware.SDCARD
+                }
+
                 DeviceStorage(
                     id = id,
-                    label = R.string.analyzer_storage_type_secondary_title.toCaString(),
-                    type = DeviceStorage.Type.SECONDARY,
-                    hardware = DeviceStorage.Hardware.SDCARD,
+                    label = when (type) {
+                        DeviceStorage.Type.PRIMARY -> throw IllegalArgumentException("Can't be primary")
+                        DeviceStorage.Type.SECONDARY -> R.string.analyzer_storage_type_secondary_title.toCaString()
+                        DeviceStorage.Type.PORTABLE -> R.string.analyzer_storage_type_tertiary_title.toCaString()
+                    },
+                    type = type,
+                    hardware = hardware,
                     spaceCapacity = totalBytes,
                     spaceFree = freeBytes,
                     setupIncomplete = setupIncomplete,

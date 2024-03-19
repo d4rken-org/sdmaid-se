@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui.storage.device
 
 import android.text.format.Formatter
 import android.view.ViewGroup
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
@@ -29,13 +30,14 @@ class DeviceStorageItemVH(parent: ViewGroup) :
 
         identifier.apply {
             val internalId = storage.id.internalId
-            isVisible = internalId != null
+            isInvisible = internalId == null
             text = internalId
         }
 
         secondary.text = when (storage.type) {
             DeviceStorage.Type.PRIMARY -> getString(R.string.analyzer_storage_type_primary_description)
             DeviceStorage.Type.SECONDARY -> getString(R.string.analyzer_storage_type_secondary_description)
+            DeviceStorage.Type.PORTABLE -> getString(R.string.analyzer_storage_type_tertiary_description)
         }
         tertiary.apply {
             isVisible = item.storage.setupIncomplete
@@ -46,6 +48,7 @@ class DeviceStorageItemVH(parent: ViewGroup) :
             when (storage.hardware) {
                 DeviceStorage.Hardware.BUILT_IN -> R.drawable.ic_chip_24
                 DeviceStorage.Hardware.SDCARD -> R.drawable.ic_sd_24
+                DeviceStorage.Hardware.USB -> R.drawable.ic_usb_24
             }
         )
 
