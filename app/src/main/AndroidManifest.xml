@@ -38,6 +38,8 @@
         android:name="android.permission.WRITE_SECURE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
     <application
         android:name="eu.darken.sdmse.App"
         android:allowBackup="true"
@@ -128,7 +130,13 @@
             android:name="eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity"
             android:theme="@style/AppThemeFloating" />
 
-        <service android:name="eu.darken.sdmse.common.debug.recorder.core.RecorderService" />
+        <service
+            android:name="eu.darken.sdmse.common.debug.recorder.core.RecorderService"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="This service is part of a bug reporting mechanism. It is explicitly launched by the user to create debug logs and troubleshoot issues within SD Maid itself. While a debug log is being created, this service shows an on-going foreground notification notification that allows the user to control the debug log functionality." />
+        </service>
     </application>
 
 </manifest>
