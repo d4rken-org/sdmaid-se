@@ -11,6 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.notifications.PendingIntentCompat
@@ -22,6 +23,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 
@@ -81,8 +83,12 @@ class RecorderService : Service2() {
             )
         }
 
-        startForeground(NOTIFICATION_ID, builder.build())
-
+        try {
+            startForeground(NOTIFICATION_ID, builder.build())
+        } catch (e: Exception) {
+            log(TAG) { "Halt stop! Service can't go foreground: ${e.asLog()}" }
+            runBlocking { recorderModule.stopRecorder() }
+        }
         recorderModule.state
             .onEach {
                 if (it.isRecording) {
