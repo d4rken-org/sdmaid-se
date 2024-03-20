@@ -6,7 +6,7 @@ import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -53,7 +53,7 @@ class PkgOpsClient @AssistedInject constructor(
 
     suspend fun clearCache(installId: Installed.InstallId): Boolean = try {
         if (Bugs.isDryRun) {
-            log(TAG, WARN) { "DRYRUN: not executing clearCache($installId)" }
+            log(TAG, INFO) { "DRYRUN: not executing clearCache($installId)" }
             delay(50)
             true
         } else {
@@ -66,7 +66,7 @@ class PkgOpsClient @AssistedInject constructor(
 
     suspend fun clearCache(pkgId: Pkg.Id): Boolean = try {
         if (Bugs.isDryRun) {
-            log(TAG, WARN) { "DRYRUN: not executing clearCache($pkgId)" }
+            log(TAG, INFO) { "DRYRUN: not executing clearCache($pkgId)" }
             delay(50)
             true
         } else {
@@ -79,7 +79,7 @@ class PkgOpsClient @AssistedInject constructor(
 
     suspend fun trimCaches(desiredBytes: Long, storageId: String? = null): Boolean = try {
         if (Bugs.isDryRun) {
-            log(TAG, WARN) { "DRYRUN: not executing trimCaches($desiredBytes, $storageId)" }
+            log(TAG, INFO) { "DRYRUN: not executing trimCaches($desiredBytes, $storageId)" }
             delay(2000)
             true
         } else {

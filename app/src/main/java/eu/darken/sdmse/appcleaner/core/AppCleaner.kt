@@ -168,6 +168,8 @@ class AppCleaner @Inject constructor(
                 ?.map { tp -> snapshot.junks.single { it.identifier == tp } }
                 ?: snapshot.junks
 
+            updateProgressCount(Progress.Count.Percent(targetJunk.size))
+
             targetJunk
                 .sortedByDescending { it.size }
                 .forEach { appJunk ->
@@ -194,7 +196,7 @@ class AppCleaner @Inject constructor(
                         filter.withProgress(
                             client = this,
                             onUpdate = { old, new -> old?.copy(secondary = new?.secondary ?: CaString.EMPTY) },
-                            onCompletion = { null }
+                            onCompletion = { it }
                         ) {
                             try {
                                 process(matches)
@@ -208,6 +210,7 @@ class AppCleaner @Inject constructor(
 
 
                     deletionMap[appJunk.identifier] = deleted
+                    increaseProgress()
                 }
 
             deletionMap
@@ -216,7 +219,10 @@ class AppCleaner @Inject constructor(
         }
 
         val inaccessibleSuccesses = if (task.includeInaccessible) {
-            inaccessibleDeleterProvider.get().withProgress(this) {
+            inaccessibleDeleterProvider.get().withProgress(
+                this,
+                onCompletion = { it }
+            ) {
                 deleteInaccessible(
                     snapshot = snapshot,
                     targetPkgs = task.targetPkgs,

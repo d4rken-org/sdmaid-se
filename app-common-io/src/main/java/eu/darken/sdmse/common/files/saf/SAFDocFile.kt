@@ -14,6 +14,7 @@ import android.system.StructStat
 import android.text.TextUtils
 import eu.darken.sdmse.common.asSequence
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -147,7 +148,7 @@ data class SAFDocFile(
 
     fun delete(): Boolean = try {
         if (Bugs.isDryRun) {
-            log(SAFGateway.TAG, WARN) { "DRYRUN: Not deleting $uri" }
+            log(SAFGateway.TAG, INFO) { "DRYRUN: Not deleting $uri" }
             exists
         } else {
             DocumentsContract.deleteDocument(resolver, uri)

@@ -147,7 +147,7 @@ fun AutomationExplorer.Context.getAospClearCacheClick(
     log(tag, VERBOSE) { "Clicking on ${node.toStringShort()} for $pkg:" }
 
     if (Bugs.isDryRun) {
-        log(tag, WARN) { "DRYRUN: Not clicking ${node.toStringShort()}" }
+        log(tag, INFO) { "DRYRUN: Not clicking ${node.toStringShort()}" }
         return@scope true
     }
 
