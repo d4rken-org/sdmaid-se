@@ -50,7 +50,7 @@ class LinuxFilesFilter @Inject constructor(
             targetTypes = setOf(BaseSieve.TargetType.DIRECTORY),
             areaTypes = targetAreas(),
             pfpCriteria = setOf(
-                SegmentCriterium(segs(".Trash"), mode = SegmentCriterium.Mode.Start()),
+                SegmentCriterium(segs(".Trash"), mode = SegmentCriterium.Mode.Ancestor()),
                 SegmentCriterium(segs(".Trash-"), mode = SegmentCriterium.Mode.Start(allowPartial = true)),
             ),
             pfpExclusions = setOf(
