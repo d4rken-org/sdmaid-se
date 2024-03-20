@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,12 +18,14 @@ import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
+import eu.darken.sdmse.common.navigation.getSpanCount
 import eu.darken.sdmse.common.previews.PreviewFragmentArgs
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DeduplicatorListFragmentBinding
 import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
+import java.lang.Integer.max
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -52,11 +53,16 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
 
         val gridManager = GridLayoutManager(
             context,
-            3, // Columns
-            VERTICAL, // orientation
-            false, // reverselayout
+            max(getSpanCount(widthDp = 256), 3),
+            VERTICAL,
+            false,
         )
-        val linearManager = LinearLayoutManager(context, VERTICAL, false)
+        val linearManager = GridLayoutManager(
+            context,
+            getSpanCount(widthDp = 720),
+            VERTICAL,
+            false,
+        )
 
         val adapter = DeduplicatorListAdapter()
         ui.list.setupDefaults(
