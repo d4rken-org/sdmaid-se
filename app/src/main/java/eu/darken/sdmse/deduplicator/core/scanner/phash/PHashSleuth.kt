@@ -98,6 +98,7 @@ class PHashSleuth @Inject constructor(
                 DataArea.Type.SDCARD,
                 DataArea.Type.PUBLIC_DATA,
                 DataArea.Type.PUBLIC_MEDIA,
+                DataArea.Type.PORTABLE,
             )
             currentAreas.filter { targetAreaTypes.contains(it.type) }.toSet()
         }
