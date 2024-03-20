@@ -44,7 +44,10 @@ class SuperfluousApksFilter @Inject constructor(
 
     override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_superfluosapks_summary.toCaString()
 
-    override suspend fun targetAreas(): Set<DataArea.Type> = setOf(DataArea.Type.SDCARD)
+    override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
+        DataArea.Type.SDCARD,
+        DataArea.Type.PORTABLE,
+    )
 
     private lateinit var sieve: BaseSieve
 

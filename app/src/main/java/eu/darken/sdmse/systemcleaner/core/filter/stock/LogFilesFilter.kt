@@ -75,6 +75,9 @@ class LogFilesFilter @Inject constructor(
                 SegmentCriterium(segs("app_webview"), mode = SegmentCriterium.Mode.Contain()),
                 SegmentCriterium(segs("leveldb"), mode = SegmentCriterium.Mode.Contain()),
                 SegmentCriterium(segs("shared_proto_db"), mode = SegmentCriterium.Mode.Contain()),
+            ),
+            pfpExclusions = setOf(
+                SegmentCriterium(segs(".Trash"), mode = SegmentCriterium.Mode.Start(allowPartial = true)),
             )
         )
         sieve = baseSieveFactory.create(config)

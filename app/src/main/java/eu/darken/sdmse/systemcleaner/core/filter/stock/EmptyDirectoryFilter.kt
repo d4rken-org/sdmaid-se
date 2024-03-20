@@ -44,6 +44,7 @@ class EmptyDirectoryFilter @Inject constructor(
         DataArea.Type.SDCARD,
         DataArea.Type.PUBLIC_DATA,
         DataArea.Type.PUBLIC_MEDIA,
+        DataArea.Type.PORTABLE,
     )
 
     private lateinit var sieve: BaseSieve

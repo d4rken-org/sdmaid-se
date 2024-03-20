@@ -24,7 +24,6 @@ import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
-import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -41,19 +40,19 @@ class LinuxFilesFilter @Inject constructor(
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,
+        DataArea.Type.PORTABLE,
     )
 
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
-        val regexes = setOf(
-            Regex("^(?:[\\W\\w]+/\\.Trash)$".replace("/", "\\" + File.separator)),
-            Regex("^(?:[\\W\\w]+/\\.Trash-[0-9]{1,4})$".replace("/", "\\" + File.separator)),
-        )
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.DIRECTORY),
             areaTypes = targetAreas(),
-            pathRegexes = regexes,
+            pfpCriteria = setOf(
+                SegmentCriterium(segs(".Trash"), mode = SegmentCriterium.Mode.Start()),
+                SegmentCriterium(segs(".Trash-"), mode = SegmentCriterium.Mode.Start(allowPartial = true)),
+            ),
             pfpExclusions = setOf(
                 SegmentCriterium(segs("Android"), mode = SegmentCriterium.Mode.Ancestor())
             )
