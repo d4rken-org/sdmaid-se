@@ -678,7 +678,7 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "delete($mode->NORMAL): $path" }
 
                     var success = if (Bugs.isDryRun) {
-                        log(TAG, WARN) { "DRYRUN: Not deleting $javaFile" }
+                        log(TAG, INFO) { "DRYRUN: Not deleting $javaFile" }
                         javaFile.exists()
                     } else {
                         javaFile.delete()
@@ -707,7 +707,7 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "delete($mode->ROOT): $path" }
                     rootOps {
                         var success = if (Bugs.isDryRun) {
-                            log(TAG, WARN) { "DRYRUN: Not deleting (root) $javaFile" }
+                            log(TAG, INFO) { "DRYRUN: Not deleting (root) $javaFile" }
                             it.exists(path)
                         } else {
                             it.delete(path)
@@ -729,7 +729,7 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "delete($mode->ADB): $path" }
                     adbOps {
                         var success = if (Bugs.isDryRun) {
-                            log(TAG, WARN) { "DRYRUN: Not deleting (adb) $javaFile" }
+                            log(TAG, INFO) { "DRYRUN: Not deleting (adb) $javaFile" }
                             it.exists(path)
                         } else {
                             it.delete(path)

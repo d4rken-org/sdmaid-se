@@ -10,11 +10,11 @@
         android:id="@+id/icon"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/primary"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="8dp"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/ic_baseline_bug_report_24" />
 
@@ -25,7 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
-        app:layout_goneMarginStart="8dp"
         android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@id/secondary"
         app:layout_constraintEnd_toStartOf="@id/progress"
@@ -33,6 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_goneMarginBottom="8dp"
+        app:layout_goneMarginStart="8dp"
         tools:text="Scanning" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -40,10 +40,10 @@
         style="@style/TextAppearance.Material3.BodySmall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ellipsize="middle"
         android:singleLine="true"
-        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/progress"
         app:layout_constraintStart_toStartOf="@id/primary"
@@ -55,13 +55,15 @@
         style="@style/Widget.Material3.CircularProgressIndicator.Small"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
         android:indeterminate="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
-        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/primary"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:max="100"
+        tools:progress="43" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/progress_text"
