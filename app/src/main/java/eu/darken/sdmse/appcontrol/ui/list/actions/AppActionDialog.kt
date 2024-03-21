@@ -12,6 +12,8 @@ import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.appcontrol.core.export.AppExportType
@@ -40,6 +42,8 @@ class AppActionDialog : BottomSheetDialogFragment2() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (dialog as BottomSheetDialog).behavior.state = BottomSheetBehavior.STATE_EXPANDED
+
         exportPath = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode != Activity.RESULT_OK) {
                 log(TAG, WARN) { "exportPathPickerLauncher returned ${result.resultCode}: ${result.data}" }
