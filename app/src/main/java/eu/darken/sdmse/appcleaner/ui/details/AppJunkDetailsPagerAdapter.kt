@@ -6,12 +6,15 @@ import androidx.fragment.app.FragmentManager
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkFragment
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkFragmentArgs
+import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.uix.DetailsPagerAdapter3
 
 class AppJunkDetailsPagerAdapter(
     private val activity: FragmentActivity,
     fm: FragmentManager,
 ) : DetailsPagerAdapter3<AppJunk>(activity, fm) {
+
+    override fun getPageWidth(position: Int): Float = 1f / context.getSpanCount()
 
     override fun onCreateFragment(item: AppJunk): Fragment = AppJunkFragment().apply {
         arguments = AppJunkFragmentArgs(item.identifier).toBundle()
