@@ -6,13 +6,13 @@ import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
 
 open class AutomationNoConsentException(
-    override val message: String = "Accessibility service is not enabled"
+    override val message: String = "User has not consented to accessibility service being used"
 ) : AutomationUnavailableException(), HasLocalizedError {
 
     override fun getLocalizedError(): LocalizedError = LocalizedError(
         throwable = this,
-        label = R.string.automation_error_not_enabled_title.toCaString(),
-        description = R.string.automation_error_not_enabled_body.toCaString(),
+        label = R.string.automation_error_no_consent_title.toCaString(),
+        description = R.string.automation_error_no_consent_body.toCaString(),
     )
 
 }
