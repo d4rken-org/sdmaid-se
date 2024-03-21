@@ -57,7 +57,9 @@ fun Fragment.isTablet(): Boolean {
 fun Fragment.getSpanCount(widthDp: Int = 410): Int {
     val displayMetrics = resources.displayMetrics
     val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
-    return (screenWidthDp / widthDp + 0.5).toInt()
+    return (screenWidthDp / widthDp + 0.5).toInt().also {
+        log { "getSpanCount($screenWidthDp/$widthDp)=$it" }
+    }
 }
 
 
