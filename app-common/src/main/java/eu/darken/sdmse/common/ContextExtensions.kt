@@ -9,6 +9,7 @@ import android.content.res.TypedArray
 import android.util.TypedValue
 import androidx.annotation.*
 import androidx.core.content.ContextCompat
+import eu.darken.sdmse.common.debug.logging.log
 import okio.Source
 import okio.source
 
@@ -66,4 +67,12 @@ fun Context.isInstalled(pkgName: String) = try {
     this.packageManager.getPackageInfo(pkgName, 0) != null
 } catch (_: PackageManager.NameNotFoundException) {
     false
+}
+
+fun Context.getSpanCount(widthDp: Int = 410): Int {
+    val displayMetrics = resources.displayMetrics
+    val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
+    return (screenWidthDp / widthDp + 0.5).toInt().also {
+        log { "getSpanCount($screenWidthDp/$widthDp)=$it" }
+    }
 }

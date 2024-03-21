@@ -20,6 +20,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.getCompatColor
 import eu.darken.sdmse.common.getQuantityString2
+import eu.darken.sdmse.common.getSpanCount
 
 fun Fragment.doNavigate(direction: NavDirections) = findNavController().doNavigate(direction)
 
@@ -54,14 +55,7 @@ fun Fragment.isTablet(): Boolean {
     return (resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
 }
 
-fun Fragment.getSpanCount(widthDp: Int = 410): Int {
-    val displayMetrics = resources.displayMetrics
-    val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
-    return (screenWidthDp / widthDp + 0.5).toInt().also {
-        log { "getSpanCount($screenWidthDp/$widthDp)=$it" }
-    }
-}
-
+fun Fragment.getSpanCount(widthDp: Int = 410) = requireContext().getSpanCount(widthDp = widthDp)
 
 fun Fragment.isLandscape(): Boolean {
     return resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
