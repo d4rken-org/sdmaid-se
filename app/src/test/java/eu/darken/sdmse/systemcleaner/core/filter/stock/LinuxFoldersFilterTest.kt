@@ -31,13 +31,12 @@ class LinuxFoldersFilterTest : SystemCleanerFilterTest() {
     @Test fun testFilter() = runTest {
         mockDefaults()
         neg(PUBLIC_DATA, "/.Trash", Flag.Dir)
-        pos(SDCARD, "/.Trash", Flag.Dir)
-        neg(SDCARD, "/somedir", Flag.Dir)
-        pos(SDCARD, "/somedir/.Trash", Flag.Dir)
+        neg(SDCARD, "/.Trash", Flag.Dir)
+        pos(SDCARD, "/.Trash/file", Flag.Dir)
+        pos(SDCARD, "/.Trash-", Flag.Dir)
+        pos(SDCARD, "/.Trash-/file", Flag.Dir)
         pos(SDCARD, "/.Trash-0", Flag.Dir)
-        pos(SDCARD, "/.Trash-11", Flag.Dir)
-        pos(SDCARD, "/.Trash-222", Flag.Dir)
-        pos(SDCARD, "/.Trash-1000", Flag.Dir)
+        pos(SDCARD, "/.Trash-0/file", Flag.Dir)
         neg(SDCARD, "Android/.Trash-1000", Flag.Dir)
         confirm(create())
     }

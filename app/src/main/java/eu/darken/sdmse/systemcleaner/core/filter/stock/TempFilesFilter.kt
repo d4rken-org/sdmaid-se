@@ -8,6 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.modules.misc.PortableModule
 import eu.darken.sdmse.common.areas.modules.pub.SdcardsModule
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
@@ -63,6 +64,7 @@ class TempFilesFilter @Inject constructor(
                 NameCriterium(".mmsyscache", mode = NameCriterium.Mode.Equal()),
                 NameCriterium("sdm_write_test-", mode = NameCriterium.Mode.Start()),
                 NameCriterium(SdcardsModule.TEST_PREFIX, mode = NameCriterium.Mode.Start()),
+                NameCriterium(PortableModule.TEST_PREFIX, mode = NameCriterium.Mode.Start()),
             ),
             pathExclusions = setOf(
                 SegmentCriterium(segs("backup", "pending"), mode = SegmentCriterium.Mode.Ancestor()),
