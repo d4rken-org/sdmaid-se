@@ -28,7 +28,7 @@ class InaccessibleCacheProvider @Inject constructor(
         }
 
         val storageStats = try {
-            storageStatsManager.queryStatsForAppUid(
+            storageStatsManager.queryStatsForPkg(
                 StorageId(internalId = null, externalId = applicationInfo.storageUuid),
                 pkg,
             )
