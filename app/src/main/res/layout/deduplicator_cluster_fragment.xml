@@ -19,6 +19,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/corpsefinder_corpse_element_header" />
+        tools:listitem="@layout/deduplicator_cluster_element_header" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

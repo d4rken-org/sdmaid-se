@@ -52,8 +52,8 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
         }
 
         fun determineSpanCount(mode: LayoutMode): Int = when (mode) {
-            LayoutMode.LINEAR -> getSpanCount(widthDp = 720)
-            LayoutMode.GRID -> max(getSpanCount(widthDp = 256), 3)
+            LayoutMode.LINEAR -> getSpanCount(widthDp = 410)
+            LayoutMode.GRID -> max(getSpanCount(widthDp = 144), 3)
         }
 
         val adapter = DeduplicatorListAdapter()
