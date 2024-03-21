@@ -12,13 +12,22 @@ import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.cache.CacheRepo
+import eu.darken.sdmse.common.compression.entries
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.copyToAutoClose
+import eu.darken.sdmse.common.files.core.local.deleteAll
+import eu.darken.sdmse.common.files.inputStream
+import eu.darken.sdmse.common.files.local.toLocalPath
+import eu.darken.sdmse.common.files.read
 import eu.darken.sdmse.common.files.segs
+import eu.darken.sdmse.common.hashing.Hasher
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.getPkg
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -28,6 +37,12 @@ import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import kotlinx.coroutines.NonCancellable
+import kotlinx.coroutines.withContext
+import okio.buffer
+import okio.source
+import java.io.File
+import java.util.zip.ZipInputStream
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -36,6 +51,7 @@ class SuperfluousApksFilter @Inject constructor(
     private val pkgOps: PkgOps,
     private val pkgRepo: PkgRepo,
     private val gatewaySwitch: GatewaySwitch,
+    private val cacheRepo: CacheRepo,
 ) : BaseSystemCleanerFilter() {
 
     override suspend fun getIcon(): CaDrawable = R.drawable.ic_app_extra_24.toCaDrawable()
@@ -49,26 +65,89 @@ class SuperfluousApksFilter @Inject constructor(
         DataArea.Type.PORTABLE,
     )
 
+    private val cacheDir by lazy {
+        File(cacheRepo.baseCacheDir, "systemcleaner/filter/superfluousapks").also { dir ->
+            dir.mkdirs()
+            dir.let { it.listFiles()?.toList() }?.forEach {
+                log(TAG, WARN) { "Deleting stale cache data: $it" }
+                it.deleteAll()
+            }
+        }
+    }
+
     private lateinit var sieve: BaseSieve
 
     override suspend fun initialize() {
         val config = BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             areaTypes = targetAreas(),
-            nameCriteria = setOf(NameCriterium(".apk", mode = NameCriterium.Mode.End())),
+            nameCriteria = setOf(
+                NameCriterium(".apk", mode = NameCriterium.Mode.End()),
+                NameCriterium(".apks", mode = NameCriterium.Mode.End()),
+            ),
             pathExclusions = EXCLUSIONS
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized()" }
     }
 
-
     override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
         val sieveResult = sieve.match(item)
         if (!sieveResult.matches) return null
         log(TAG, VERBOSE) { "Passed sieve, checking $item" }
 
-        val apkInfo = pkgOps.viewArchive(item.lookedUp) ?: return null
+        val apkInfo = when {
+            item.name.endsWith(".apk") -> {
+                pkgOps.viewArchive(item.lookedUp)
+            }
+
+            item.name.endsWith(".apks") -> withContext(NonCancellable) {
+                val checksum = item.read(gatewaySwitch).use { Hasher(Hasher.Type.MD5).calc(it) }.format()
+                log(TAG, VERBOSE) { "Checksum is $checksum for ${item.path}" }
+
+                val baseNames = setOf("base.apk")
+
+                val extractedDir = File(cacheDir, checksum).also { it.mkdirs() }
+                try {
+                    val extractedBase = File(extractedDir, "base.apk")
+
+                    if (extractedBase.exists()) {
+                        log(TAG, WARN) { "Why do we already have extracted this?: $extractedBase" }
+                    } else if (cacheRepo.canSpare(item.size)) {
+                        item.read(gatewaySwitch).use { apksSource ->
+                            ZipInputStream(apksSource.inputStream()).use { zis ->
+                                zis.entries
+                                    .find { (_, entry) ->
+                                        log(TAG, VERBOSE) { "Checking archive entry: ${item.path}/${entry.name}" }
+                                        baseNames.contains(entry.name)
+                                    }
+                                    ?.let { (stream, _) ->
+                                        log(TAG, VERBOSE) { "Extracting to $extractedBase" }
+                                        stream.source().buffer().use { it.copyToAutoClose(extractedBase) }
+                                    }
+                            }
+                        }
+                        log(TAG, VERBOSE) { "$extractedBase is ${extractedBase.length()}" }
+                    } else {
+                        log(TAG, WARN) { "Don't have enough cache space to extract $item" }
+                    }
+
+                    if (extractedBase.exists()) pkgOps.viewArchive(extractedBase.toLocalPath()) else null
+                } finally {
+                    extractedDir.deleteAll()
+                }
+            }
+
+            else -> null
+        }
+
+        if (apkInfo == null) {
+            log(TAG, WARN) { "Failed to read archive: $item" }
+            return null
+        }
+
+        log(TAG) { "Checking status for ${apkInfo.packageName} (${apkInfo.versionCode})" }
+
         // TODO Multiple profiles can't have different versions of the same APK, right?
         val installed = pkgRepo.getPkg(apkInfo.id).firstOrNull() ?: return null
 

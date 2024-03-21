@@ -5,6 +5,7 @@ import eu.darken.sdmse.common.areas.DataArea.Type
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.areas.hasFlags
+import eu.darken.sdmse.common.cache.CacheRepo
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.files.local.LocalPath
@@ -35,6 +36,7 @@ import kotlinx.coroutines.flow.flowOf
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import testhelpers.BaseTest
+import java.io.File
 import java.time.Instant
 import java.util.*
 
@@ -48,6 +50,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     @MockK lateinit var gatewaySwitch: GatewaySwitch
     @MockK lateinit var storageEnvironment: StorageEnvironment
     @MockK lateinit var systemCleanerSettings: SystemCleanerSettings
+    @MockK lateinit var cacheRepo: CacheRepo
 
 
     val storageData1 = DataArea(
@@ -272,6 +275,11 @@ abstract class SystemCleanerFilterTest : BaseTest() {
 
         coEvery { fileForensics.identifyArea(any()) } returns null
 
+        cacheRepo.apply {
+            every { baseCacheDir } returns File(IO_TEST_BASEDIR, "repo")
+            coEvery { canSpare(any()) } returns true
+        }
+
         dataAreas.forEach { area ->
             val mockedLockup = LocalPathLookup(
                 lookedUp = area.path as LocalPath,
@@ -482,6 +490,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     suspend fun mockArchive(pkgId: Pkg.Id, path: APath): ApkInfo {
         val apkInfo = mockk<ApkInfo>().apply {
             every { id } returns pkgId
+            every { packageName } returns pkgId.name
         }
         pkgArchives[path.path] = apkInfo
         coEvery { pkgOps.viewArchive(any(), any()) } answers {
