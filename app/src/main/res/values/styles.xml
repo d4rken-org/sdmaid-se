@@ -225,6 +225,8 @@
 
     <style name="SDMButton.Tonal" parent="Widget.Material3.Button.TonalButton">
         <item name="backgroundTint">@color/sdm_button_bg_tint_tonal</item>
+        <item name="android:textColor">?colorOnSecondary</item>
+        <item name="iconTint">?colorOnSecondary</item>
     </style>
 
 </resources>
