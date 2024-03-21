@@ -51,26 +51,20 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
             }
         }
 
-        val gridManager = GridLayoutManager(
-            context,
-            max(getSpanCount(widthDp = 256), 3),
-            VERTICAL,
-            false,
-        )
-        val linearManager = GridLayoutManager(
-            context,
-            getSpanCount(widthDp = 720),
-            VERTICAL,
-            false,
-        )
+        fun determineSpanCount(mode: LayoutMode): Int = when (mode) {
+            LayoutMode.LINEAR -> getSpanCount(widthDp = 720)
+            LayoutMode.GRID -> max(getSpanCount(widthDp = 256), 3)
+        }
 
         val adapter = DeduplicatorListAdapter()
         ui.list.setupDefaults(
             adapter = adapter,
-            layouter = when (vm.layoutMode) {
-                LayoutMode.LINEAR -> linearManager
-                LayoutMode.GRID -> gridManager
-            },
+            layouter = GridLayoutManager(
+                context,
+                determineSpanCount(vm.layoutMode),
+                VERTICAL,
+                false,
+            ),
             verticalDividers = false,
         )
 
@@ -101,15 +95,7 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
 
             if (state.progress == null) adapter.update(state.items)
 
-            when {
-                state.layoutMode == LayoutMode.LINEAR && list.layoutManager != linearManager -> {
-                    list.layoutManager = linearManager
-                }
-
-                state.layoutMode == LayoutMode.GRID && list.layoutManager != gridManager -> {
-                    list.layoutManager = gridManager
-                }
-            }
+            (list.layoutManager as GridLayoutManager).spanCount = determineSpanCount(state.layoutMode)
 
             toolbar.apply {
                 subtitle = if (state.progress == null) {
