@@ -28,10 +28,11 @@ The `QUERY_ALL_PACKAGES` permission allows SD Maid to retrieve the inventory of 
 Information about your installed apps is only processed locally on your device.
 
 Features that use this permission:
-* The "CorpseFinder" feature can show you which files belong to uninstalled applications. To do this SD Maid needs to know which applications are currently installed.
-* The "StorageAnalyzer" feature shows disk usage for each storage device (built-in, removable sdcard and mass storage devices). Divided into "app files", "user files" and "system data".
-SD Maid needs to know which apps you have installed to be able to show you how much space each of them occupies on a scanned storage.
-* The "AppCleaner" feature suggests files that can be deleted to gain more storage space. Each suggested file belongs to an installed app this requires knowing all installed apps.
+* "CorpseFinder" can show you which files belong to uninstalled applications. To do this SD Maid needs to know which applications are currently installed.
+* "StorageAnalyzer" shows how much space different apps occupy on each of your storage devices (built-in, removable sdcard and mass storage devices). Results are divided into "app files", "user files" and "system data".
+SD Maid needs to know which apps you have installed to be able to interpret the results correctly.
+* "AppCleaner" suggests files that can be deleted to gain more storage space. Each suggested file belongs to an installed app this requires knowing all installed apps.
+* "AppControl" offers a searchable and filterable list of apps on your device. Depending your device, various actions are available per app, as well as batch operations on multiple apps.
 
 ### Accessibility service
 
