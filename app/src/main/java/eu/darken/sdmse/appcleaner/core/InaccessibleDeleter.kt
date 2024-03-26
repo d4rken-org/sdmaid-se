@@ -206,6 +206,6 @@ class InaccessibleDeleter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("AppCleaner", "Deleter")
+        private val TAG = logTag("AppCleaner", "Deleter", "Inaccessible")
     }
 }

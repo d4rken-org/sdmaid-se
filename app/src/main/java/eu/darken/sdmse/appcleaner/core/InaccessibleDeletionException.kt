@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
+import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.SetupScreenOptions
 
 class InaccessibleDeletionException(
@@ -29,8 +30,16 @@ class InaccessibleDeletionException(
         fixActionLabel = R.string.setup_title.toCaString(),
         fixAction = {
             val navController = Navigation.findNavController(it, R.id.nav_host)
-            navController.navigate(MainDirections.goToSetup(options = SetupScreenOptions(isOnboarding = true)))
-        }
+            navController.navigate(
+                MainDirections.goToSetup(
+                    options = SetupScreenOptions(
+                        isOnboarding = false,
+                        showCompleted = true,
+                        typeFilter = setOf(SetupModule.Type.AUTOMATION),
+                    )
+                )
+            )
+        },
     )
 
 }
