@@ -190,6 +190,7 @@ class StorageScanner @Inject constructor(
     private suspend fun scanForMedia(storage: DeviceStorage, mediaDir: APathLookup<*>): MediaCategory {
         log(TAG) { "scanForMedia($storage)" }
         updateProgressPrimary(R.string.analyzer_progress_scanning_userfiles)
+        updateProgressCount(Progress.Count.Percent(topLevelDirs.size))
 
         val topLevelContents: Collection<ContentItem> = topLevelDirs.mapNotNull { ownerInfo ->
             updateProgressSecondary(ownerInfo.areaInfo.file.userReadablePath)
@@ -199,6 +200,8 @@ class StorageScanner @Inject constructor(
             } catch (e: ReadException) {
                 log(TAG, ERROR) { "Failed to look up top-level dir ${ownerInfo.areaInfo.file}: ${e.asLog()}" }
                 return@mapNotNull null
+            } finally {
+                increaseProgress()
             }
         }
 
@@ -223,6 +226,7 @@ class StorageScanner @Inject constructor(
         log(TAG) { "scanForSystem($storage)" }
         updateProgressPrimary(R.string.analyzer_progress_scanning_system)
         updateProgressSecondary(Progress.Data().secondary)
+        updateProgressCount(Progress.Count.Indeterminate())
 
         if (storage.type != DeviceStorage.Type.PRIMARY) {
             log(TAG) { "Not a primary storage: $storage" }
