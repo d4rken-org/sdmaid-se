@@ -33,6 +33,7 @@ Features that use this permission:
 SD Maid needs to know which apps you have installed to be able to interpret the results correctly.
 * "AppCleaner" suggests files that can be deleted to gain more storage space. Each suggested file belongs to an installed app this requires knowing all installed apps.
 * "AppControl" offers a searchable and filterable list of apps on your device. Depending your device, various actions are available per app, as well as batch operations on multiple apps.
+* "SystemCleaner" searches the device based on user supplied criteria. One criteria can be to find APKs which are already installed. To determine if an APK is already installed, SD Maid needs to which apps are currently installed on your device.
 
 ### Accessibility service
 
