@@ -197,6 +197,7 @@ class AutomationManager @Inject constructor(
     data class ServiceWrapper(
         private val service: AutomationService,
     ) {
+        @Suppress("UNCHECKED_CAST")
         suspend fun <R> submit(task: AutomationTask): R = service.submit(task) as R
     }
 
