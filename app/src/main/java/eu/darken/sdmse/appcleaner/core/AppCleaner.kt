@@ -227,7 +227,7 @@ class AppCleaner @Inject constructor(
                     snapshot = snapshot,
                     targetPkgs = task.targetPkgs,
                     useAutomation = task.useAutomation,
-                )
+                ).succesful
             }
         } else {
             emptySet()

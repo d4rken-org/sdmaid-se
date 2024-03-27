@@ -17,6 +17,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.automation.core.common.AutomationException
 import eu.darken.sdmse.automation.core.common.getRoot
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
+import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.ui.AutomationControlView
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.valueBlocking
@@ -134,7 +135,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
                         log(TAG) { "Adding new controlview: $view" }
                         view.setCancelListener {
                             view.showOverlay(false)
-                            currentTaskJob?.cancel()
+                            currentTaskJob?.cancel(cause = UserCancelledAutomationException())
                         }
 
                         try {
