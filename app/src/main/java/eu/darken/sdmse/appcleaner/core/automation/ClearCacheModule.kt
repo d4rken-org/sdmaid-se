@@ -33,6 +33,7 @@ import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.common.ScreenUnavailableException
+import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.SpecGenerator
@@ -52,9 +53,12 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
 import javax.inject.Provider
+import kotlin.coroutines.EmptyCoroutineContext
 
 class ClearCacheModule @AssistedInject constructor(
     @Assisted automationHost: AutomationHost,
@@ -119,6 +123,7 @@ class ClearCacheModule @AssistedInject constructor(
 
         updateProgressCount(Progress.Count.Percent(task.targets.size))
 
+        var cancelledByUser = false
         val currentUserHandle = userManager2.currentUser().handle
         for (target in task.targets) {
             if (target.userHandle != currentUserHandle) {
@@ -139,6 +144,7 @@ class ClearCacheModule @AssistedInject constructor(
             try {
                 processSpecForPkg(installed)
                 log(TAG, INFO) { "Successfully cleared cache for for $target" }
+                task.onSuccess(target)
                 successful.add(target)
             } catch (e: ScreenUnavailableException) {
                 log(TAG, WARN) { "Cancelled because screen become unavailable: ${e.asLog()}" }
@@ -148,23 +154,36 @@ class ClearCacheModule @AssistedInject constructor(
                 log(TAG, WARN) { "Timeout while processing $installed" }
                 failed.add(target)
             } catch (e: CancellationException) {
-                log(TAG, WARN) { "We were cancelled" }
-                throw e
+                log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
+                updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
+                updateProgressSecondary(CaString.EMPTY)
+                updateProgressCount(Progress.Count.Indeterminate())
+                if (e is UserCancelledAutomationException) {
+                    log(TAG, INFO) { "User has cancelled automation process, aborting..." }
+                    cancelledByUser = true
+                    break
+                } else {
+                    throw e
+                }
             } catch (e: Exception) {
                 log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
                 failed.add(target)
             } finally {
-                updateProgressCount(Progress.Count.Percent(task.targets.indexOf(target), task.targets.size))
+                increaseProgress()
+//                updateProgressCount(Progress.Count.Percent(task.targets.indexOf(target), task.targets.size))
             }
         }
 
-        val backAction1 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
-        log(TAG, VERBOSE) { "Was back1 successful=$backAction1" }
+        // If we aborted due to an exception and the reason is "User has cancelled", then still clean up
+        withContext(if (cancelledByUser) NonCancellable else EmptyCoroutineContext) {
+            val backAction1 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
+            log(TAG, VERBOSE) { "Was back1 successful=$backAction1" }
 
-        delay(500)
+            delay(500)
 
-        val backAction2 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
-        log(TAG, VERBOSE) { "Was back2 successful=$backAction2" }
+            val backAction2 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
+            log(TAG, VERBOSE) { "Was back2 successful=$backAction2" }
+        }
 
         return ClearCacheTask.Result(
             successful = successful,
