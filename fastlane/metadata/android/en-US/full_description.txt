@@ -11,7 +11,7 @@ Let’s not go on here… Let SD Maid SE help you!
 SD Maid SE is an app and file manager that specializes in knowing which apps have created specific files on your device. SD Maid SE searches your device and compares files with installed apps to offer options for safely freeing up storage space.
 
 ✨ Clean up after uninstalling apps
-If applications create files outside of their standard directories then they are left behind after uninstalling them. The "CorpseFinder" tool finds app remains, tells you to which app they belonged and helps you delete them.
+If apps create files outside their designated directories then files can remain even after uninstalling the apps. The "CorpseFinder" tool finds app remains, tells you to which app they belonged and helps you delete them.
 
 🔍 Search your device the smart way
 Filter for empty directories, temporary files, already installed apps and more. You can even create your own search criteria. The "SystemCleaner" tool allows you to automatically search your device and delete files based on various criteria.
