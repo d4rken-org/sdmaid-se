@@ -8,6 +8,7 @@ import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.ui.AnalyzerDashCardVH
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.hasData
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
@@ -43,6 +44,7 @@ import eu.darken.sdmse.corpsefinder.core.tasks.*
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderDashCardVH
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.ui.DeduplicatorDashCardVH
 import eu.darken.sdmse.main.core.GeneralSettings
@@ -55,6 +57,7 @@ import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
 import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerOneClickTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
@@ -473,10 +476,7 @@ class DashboardViewModel @Inject constructor(
                     submitTask(CorpseFinderDeleteTask())
                 }
 
-                BottomBarState.Action.ONECLICK -> {
-                    submitTask(CorpseFinderScanTask())
-                    submitTask(CorpseFinderDeleteTask())
-                }
+                BottomBarState.Action.ONECLICK -> submitTask(CorpseFinderOneClickTask())
             }
         }
         launch {
@@ -493,10 +493,7 @@ class DashboardViewModel @Inject constructor(
                     submitTask(SystemCleanerProcessingTask())
                 }
 
-                BottomBarState.Action.ONECLICK -> {
-                    submitTask(SystemCleanerScanTask())
-                    submitTask(SystemCleanerProcessingTask())
-                }
+                BottomBarState.Action.ONECLICK -> submitTask(SystemCleanerOneClickTask())
             }
         }
         launch {
@@ -519,8 +516,7 @@ class DashboardViewModel @Inject constructor(
 
                 BottomBarState.Action.ONECLICK -> {
                     if (upgradeRepo.isPro()) {
-                        submitTask(AppCleanerScanTask())
-                        submitTask(AppCleanerProcessingTask())
+                        submitTask(AppCleanerOneClickTask())
                     } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
                         MainDirections.goToUpgradeFragment().navigate()
                     }
@@ -541,10 +537,7 @@ class DashboardViewModel @Inject constructor(
                     submitTask(DeduplicatorDeleteTask())
                 }
 
-                BottomBarState.Action.ONECLICK -> {
-                    submitTask(DeduplicatorScanTask())
-                    submitTask(DeduplicatorDeleteTask())
-                }
+                BottomBarState.Action.ONECLICK -> submitTask(DeduplicatorOneClickTask())
             }
         }
     }
@@ -614,18 +607,21 @@ class DashboardViewModel @Inject constructor(
                 is UninstallWatcherTask.Success -> {}
                 is CorpseFinderSchedulerTask.Success -> {}
                 is CorpseFinderDeleteTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
+                is CorpseFinderOneClickTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
 
             is SystemCleanerTask.Result -> when (result) {
                 is SystemCleanerScanTask.Success -> {}
                 is SystemCleanerSchedulerTask.Success -> {}
                 is SystemCleanerProcessingTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
+                is SystemCleanerOneClickTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
 
             is AppCleanerTask.Result -> when (result) {
                 is AppCleanerScanTask.Success -> {}
                 is AppCleanerSchedulerTask.Success -> {}
                 is AppCleanerProcessingTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
+                is AppCleanerOneClickTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
         }
     }

@@ -28,6 +28,7 @@ import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.FilterSource
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.excludeNestedLookups
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerOneClickTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
@@ -89,8 +90,13 @@ class SystemCleaner @Inject constructor(
                     is SystemCleanerScanTask -> performScan(task)
                     is SystemCleanerProcessingTask -> performProcessing(task)
                     is SystemCleanerSchedulerTask -> {
-                        performScan(SystemCleanerScanTask())
-                        performProcessing(SystemCleanerProcessingTask())
+                        performScan()
+                        performProcessing()
+                    }
+
+                    is SystemCleanerOneClickTask -> {
+                        performScan()
+                        performProcessing()
                     }
                 }
             }
@@ -101,7 +107,9 @@ class SystemCleaner @Inject constructor(
         }
     }
 
-    private suspend fun performScan(task: SystemCleanerScanTask): SystemCleanerTask.Result {
+    private suspend fun performScan(
+        task: SystemCleanerScanTask = SystemCleanerScanTask()
+    ): SystemCleanerTask.Result {
         log(TAG, VERBOSE) { "performScan(): $task" }
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
 
@@ -125,7 +133,9 @@ class SystemCleaner @Inject constructor(
         )
     }
 
-    private suspend fun performProcessing(task: SystemCleanerProcessingTask): SystemCleanerTask.Result {
+    private suspend fun performProcessing(
+        task: SystemCleanerProcessingTask = SystemCleanerProcessingTask()
+    ): SystemCleanerTask.Result {
         log(TAG, VERBOSE) { "performProcessing(): $task" }
 
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")

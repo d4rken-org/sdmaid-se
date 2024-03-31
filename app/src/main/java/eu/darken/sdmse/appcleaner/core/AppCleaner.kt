@@ -7,6 +7,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.scanner.AppScanner
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
@@ -104,8 +105,13 @@ class AppCleaner @Inject constructor(
                     is AppCleanerScanTask -> performScan(task)
                     is AppCleanerProcessingTask -> performProcessing(task)
                     is AppCleanerSchedulerTask -> {
-                        performScan(AppCleanerScanTask())
+                        performScan()
                         performProcessing(AppCleanerProcessingTask(useAutomation = task.useAutomation))
+                    }
+
+                    is AppCleanerOneClickTask -> {
+                        performScan()
+                        performProcessing()
                     }
                 }
             }
@@ -116,7 +122,9 @@ class AppCleaner @Inject constructor(
         }
     }
 
-    private suspend fun performScan(task: AppCleanerScanTask): AppCleanerScanTask.Result {
+    private suspend fun performScan(
+        task: AppCleanerScanTask = AppCleanerScanTask()
+    ): AppCleanerScanTask.Result {
         log(TAG, VERBOSE) { "performScan(): $task" }
 
         if (!appInventorySetupModule.isComplete()) {
@@ -148,7 +156,9 @@ class AppCleaner @Inject constructor(
         )
     }
 
-    private suspend fun performProcessing(task: AppCleanerProcessingTask): AppCleanerProcessingTask.Result {
+    private suspend fun performProcessing(
+        task: AppCleanerProcessingTask = AppCleanerProcessingTask()
+    ): AppCleanerProcessingTask.Result {
         log(TAG, VERBOSE) { "performProcessing(): $task" }
 
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
