@@ -19,7 +19,7 @@ Filter for empty directories, temporary files, already installed apps and more. 
 🧹 Delete expendable files and hidden caches
 Thumbnails, trash bins, offline caches and more: If apps don't clean up after themselves, then SD Maid SE will. The "AppCleaner" tool finds apps with expendable files.
 
-📦 Manage your apps faster
+📦 Manage all of your apps
 Get a comprehensive list of all apps installed on your device. Enabled, disabled, user or system app: no app can hide from you. The "AppControl" tool is an app manager that allows you to search, sort and control your apps.
 
 📊 What is using all your space
