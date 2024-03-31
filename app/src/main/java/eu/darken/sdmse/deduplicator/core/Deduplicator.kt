@@ -21,6 +21,7 @@ import eu.darken.sdmse.deduplicator.core.scanner.DuplicatesScanner
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
 import eu.darken.sdmse.exclusion.core.*
@@ -84,6 +85,10 @@ class Deduplicator @Inject constructor(
                 when (task) {
                     is DeduplicatorScanTask -> performScan(task)
                     is DeduplicatorDeleteTask -> performDelete(task)
+                    is DeduplicatorOneClickTask -> {
+                        performScan()
+                        performDelete()
+                    }
                 }
             }
             lastResult.value = result
@@ -96,7 +101,9 @@ class Deduplicator @Inject constructor(
         }
     }
 
-    private suspend fun performScan(task: DeduplicatorScanTask): DeduplicatorScanTask.Result {
+    private suspend fun performScan(
+        task: DeduplicatorScanTask = DeduplicatorScanTask()
+    ): DeduplicatorScanTask.Result {
         log(TAG) { "performScan(): $task" }
 
         internalData.value = null
@@ -121,7 +128,9 @@ class Deduplicator @Inject constructor(
         )
     }
 
-    private suspend fun performDelete(task: DeduplicatorDeleteTask): DeduplicatorDeleteTask.Result {
+    private suspend fun performDelete(
+        task: DeduplicatorDeleteTask = DeduplicatorDeleteTask()
+    ): DeduplicatorDeleteTask.Result {
         log(TAG) { "performDelete(): $task" }
 
         val snapshot = internalData.value!!

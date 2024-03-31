@@ -140,8 +140,13 @@ class CorpseFinder @Inject constructor(
                     }
 
                     is CorpseFinderSchedulerTask -> {
-                        performScan(CorpseFinderScanTask())
-                        deleteCorpses(CorpseFinderDeleteTask())
+                        performScan()
+                        deleteCorpses()
+                    }
+
+                    is CorpseFinderOneClickTask -> {
+                        performScan()
+                        deleteCorpses()
                     }
                 }
             }
@@ -157,7 +162,9 @@ class CorpseFinder @Inject constructor(
         }
     }
 
-    private suspend fun performScan(task: CorpseFinderScanTask): CorpseFinderTask.Result {
+    private suspend fun performScan(
+        task: CorpseFinderScanTask = CorpseFinderScanTask()
+    ): CorpseFinderTask.Result {
         log(TAG) { "performScan(): $task" }
 
         if (!appInventorySetupModule.isComplete()) {
@@ -229,7 +236,9 @@ class CorpseFinder @Inject constructor(
         )
     }
 
-    private suspend fun deleteCorpses(task: CorpseFinderDeleteTask): CorpseFinderDeleteTask.Success {
+    private suspend fun deleteCorpses(
+        task: CorpseFinderDeleteTask = CorpseFinderDeleteTask()
+    ): CorpseFinderDeleteTask.Success {
         log(TAG) { "deleteCorpses(): $task" }
 
         val deletedCorpses = mutableSetOf<Corpse>()
