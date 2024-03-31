@@ -46,6 +46,7 @@ import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
 import eu.darken.sdmse.deduplicator.ui.DeduplicatorDashCardVH
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
@@ -622,6 +623,12 @@ class DashboardViewModel @Inject constructor(
                 is AppCleanerSchedulerTask.Success -> {}
                 is AppCleanerProcessingTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
                 is AppCleanerOneClickTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
+            }
+
+            is DeduplicatorTask.Result -> when (result) {
+                is DeduplicatorScanTask.Success -> {}
+                is DeduplicatorDeleteTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
+                is DeduplicatorOneClickTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
         }
     }
