@@ -23,7 +23,7 @@ Thumbnails, trash bins, offline caches and more: If apps don't clean up after th
 Get a comprehensive list of all apps installed on your device. Enabled, disabled, user or system app: no app can hide from you. The "AppControl" tool is an app manager that allows you to search, sort and control your apps.
 
 📊 What is using all your space
-Storage management can be complex with apps, media, system, and other files across phone storage, SD cards, and USB devices. "StorageAnalyzer" displays how space is used on your device, simplifying the management of your storage.
+Storage management can be complex with apps, media, system, and other files across phone storage, SD cards, and USB devices. "StorageAnalyzer" displays how space is used on your device, simplifying your storage management.
 
 📷 Find duplicate data
 Duplicate downloads, photos sent through social media or just similar pictures of the same scene: Over time copies can accumulate. The "Deduplicator" tool finds files that are exactly the same or similar and helps you delete extra copies.
