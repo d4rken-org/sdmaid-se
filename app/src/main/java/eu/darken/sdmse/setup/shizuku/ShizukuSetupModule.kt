@@ -18,11 +18,13 @@ import eu.darken.sdmse.common.shizuku.ShizukuSettings
 import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
@@ -31,9 +33,11 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.timeout
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.time.Duration.Companion.seconds
 
 @Singleton
 class ShizukuSetupModule @Inject constructor(
@@ -57,7 +61,9 @@ class ShizukuSetupModule @Inject constructor(
 
     override val state: Flow<SetupModule.State> = combine(
         refreshTrigger,
-        shizukuSettings.useShizuku.flow,
+        shizukuSettings.useShizuku.flow
+            .timeout(6.seconds)
+            .catch { if (it is TimeoutCancellationException) emit(null) else throw it },
     ) { _, useShizuku ->
 
         val baseState = State(
