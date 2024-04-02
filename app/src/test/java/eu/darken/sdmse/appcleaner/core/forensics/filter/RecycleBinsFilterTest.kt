@@ -9,6 +9,7 @@ import eu.darken.sdmse.appcleaner.core.forensics.pos
 import eu.darken.sdmse.appcleaner.core.forensics.prefixFree
 import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_MEDIA
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.rngString
 import kotlinx.coroutines.test.runTest
@@ -35,29 +36,31 @@ class RecycleBinsFilterTest : BaseFilterTest() {
 
     @Test fun testDefaults() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().prefixFree("com.some.app/.trash/"))
-        addCandidate(pos().prefixFree("com.some.app/.trash/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/.trashfiles/"))
-        addCandidate(pos().prefixFree("com.some.app/.trashfiles/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/.trashbin/"))
-        addCandidate(pos().prefixFree("com.some.app/.trashbin/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/.recycle/"))
-        addCandidate(pos().prefixFree("com.some.app/.recycle/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/.recyclebin/"))
-        addCandidate(pos().prefixFree("com.some.app/.recyclebin/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/files/.trash/"))
-        addCandidate(pos().prefixFree("com.some.app/files/.trash/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/files/.trashfiles/"))
-        addCandidate(pos().prefixFree("com.some.app/files/.trashfiles/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/files/.trashbin/"))
-        addCandidate(pos().prefixFree("com.some.app/files/.trashbin/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/files/.recycle/"))
-        addCandidate(pos().prefixFree("com.some.app/files/.recycle/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/files/.recyclebin/"))
-        addCandidate(pos().prefixFree("com.some.app/files/.recyclebin/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/files/.trash/.nomedia"))
-        addCandidate(neg().prefixFree("com.some.app/.trash/.nomedia"))
-        addCandidate(neg().prefixFree("com.some.app/.trashfiles/.nomedia"))
+        addCandidate(neg().prefixFree("$testPkg/.trash/"))
+        addCandidate(pos().prefixFree("$testPkg/.trash/$rngString"))
+        addCandidate(neg().prefixFree("$testPkg/.trashfiles/"))
+        addCandidate(pos().prefixFree("$testPkg/.trashfiles/$rngString"))
+        addCandidate(neg().prefixFree("$testPkg/.trashbin/"))
+        addCandidate(pos().prefixFree("$testPkg/.trashbin/$rngString"))
+        addCandidate(neg().prefixFree("$testPkg/.recycle/"))
+        addCandidate(pos().prefixFree("$testPkg/.recycle/$rngString"))
+        addCandidate(neg().prefixFree("$testPkg/.recyclebin/"))
+        addCandidate(pos().prefixFree("$testPkg/.recyclebin/$rngString"))
+        addCandidate(neg().prefixFree("$testPkg/files/.trash/"))
+        addCandidate(pos().prefixFree("$testPkg/files/.trash/$rngString"))
+        addCandidate(neg().prefixFree("$testPkg/files/.trashfiles/"))
+        addCandidate(pos().prefixFree("$testPkg/files/.trashfiles/$rngString"))
+        addCandidate(neg().prefixFree("$testPkg/files/.trashbin/"))
+        addCandidate(pos().prefixFree("$testPkg/files/.trashbin/$rngString"))
+        addCandidate(neg().prefixFree("$testPkg/files/.recycle/"))
+        addCandidate(pos().prefixFree("$testPkg/files/.recycle/$rngString"))
+        addCandidate(neg().prefixFree("$testPkg/files/.recyclebin/"))
+        addCandidate(pos().prefixFree("$testPkg/files/.recyclebin/$rngString"))
+        addCandidate(neg().prefixFree("$testPkg/files/.trash/.nomedia"))
+        addCandidate(neg().prefixFree("$testPkg/.trash/.nomedia"))
+        addCandidate(neg().prefixFree("$testPkg/.trashfiles/.nomedia"))
+
+        pos(testPkg, PUBLIC_MEDIA, "$testPkg/.trashfiles/${rngString}")
         confirm(create())
     }
 
