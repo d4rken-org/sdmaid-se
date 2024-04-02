@@ -18,7 +18,9 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.lowercase
+import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.pkgs.Pkg
 import java.util.*
 import javax.inject.Inject
@@ -52,7 +54,11 @@ class RecycleBinsFilter @Inject constructor(
 
         //    0      1     2
         // topdir/.trash/file
-        if (lcsegments.size >= 3 && AREAS.contains(areaType) && TRASH_FOLDERS.contains(lcsegments[1])) {
+        if (lcsegments.size >= 3
+            && AREAS.contains(areaType)
+            && (areaType != DataArea.Type.SDCARD || !segs("Android").isAncestorOf(lcsegments, ignoreCase = true))
+            && TRASH_FOLDERS.contains(lcsegments[1])
+        ) {
             return target.toDeletionMatch()
         }
 
@@ -60,6 +66,7 @@ class RecycleBinsFilter @Inject constructor(
         // topdir/files/.trash/file
         if (lcsegments.size >= 4
             && AREAS.contains(areaType)
+            && (areaType != DataArea.Type.SDCARD || !segs("Android").isAncestorOf(lcsegments, ignoreCase = true))
             && "files" == lcsegments[1]
             && TRASH_FOLDERS.contains(lcsegments[2])
         ) {
