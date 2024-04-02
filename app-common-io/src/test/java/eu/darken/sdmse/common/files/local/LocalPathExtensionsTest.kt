@@ -337,6 +337,8 @@ class LocalPathExtensionsTest : BaseTest() {
         }
         prefixLookup.removePrefix(preLookup) shouldBe segs("fix")
         prefixLookup.removePrefix(pre) shouldBe segs("fix")
+
+        prefix.removePrefix(LocalPath.build()) shouldBe segs("pre", "fix")
     }
 
 

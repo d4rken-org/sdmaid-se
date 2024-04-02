@@ -324,6 +324,8 @@ class SAFPathExtensionsTest : BaseTest() {
         }
         prefixLookup.removePrefix(preLookup) shouldBe segs("fix")
         prefixLookup.removePrefix(pre) shouldBe segs("fix")
+
+        prefix.removePrefix(SAFPath.build(baseTreeUri)) shouldBe segs("pre", "fix")
     }
 
     @Test fun `remove prefix with overlap`() {

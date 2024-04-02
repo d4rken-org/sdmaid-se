@@ -70,20 +70,26 @@ fun SAFPath.isParentOf(child: SAFPath): Boolean {
 
 fun SAFPath.startsWith(prefix: SAFPath): Boolean {
     if (treeRoot != prefix.treeRoot) return false
+    // We share the same treeRoot, and the prefix is just the treeRoot, so startWith is true
+    if (prefix.segments.isEmpty()) return true
     if (this == prefix) return true
     if (segments.size < prefix.segments.size) return false
-
     return when {
         prefix.segments.size == 1 -> {
             segments.first().startsWith(prefix.segments.first())
         }
+
         segments.size == prefix.segments.size -> {
             val match = prefix.segments.dropLast(1) == segments.dropLast(1)
             match && segments.last().startsWith(prefix.segments.last())
         }
+
         else -> {
-            val match = prefix.segments.dropLast(1) == segments.dropLast(segments.size - prefix.segments.size + 1)
-            match && segments[prefix.segments.size - 1].startsWith(prefix.segments.last())
+            // Do all segments up to the closest ancestor match?
+            val ancestors = prefix.segments.dropLast(1) == segments.dropLast(segments.size - prefix.segments.size + 1)
+            // Compare the last common segment
+            val commonSegment = segments[prefix.segments.size - 1].startsWith(prefix.segments.last())
+            ancestors && commonSegment
         }
     }
 }
