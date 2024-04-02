@@ -120,10 +120,6 @@ class ThumbnailsFilter @Inject constructor(
     }
 
     companion object {
-        private val BLACKLIST_AREAS = setOf(
-            DataArea.Type.PRIVATE_DATA,
-            DataArea.Type.PUBLIC_DATA,
-        )
         private val HIDDEN_FOLDERS: Collection<String> = listOf(
             ".thumbs",
             "thumbs",

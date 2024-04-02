@@ -104,8 +104,10 @@ class RecycleBinsFilter @Inject constructor(
 
     companion object {
         private val AREAS = setOf(
+            DataArea.Type.SDCARD,
             DataArea.Type.PRIVATE_DATA,
             DataArea.Type.PUBLIC_DATA,
+            DataArea.Type.PUBLIC_MEDIA,
         )
         private val TRASH_FOLDERS: Collection<String> = listOf(
             ".trash",
