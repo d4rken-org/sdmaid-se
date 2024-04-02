@@ -41,7 +41,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             dashAdapter,
             verticalDividers = false,
             fastscroll = false,
-            layouter = GridLayoutManager(context, getSpanCount(widthDp = 390), GridLayoutManager.VERTICAL, false)
+            layouter = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false)
         )
 
         vm.listItems.observe2(ui) {

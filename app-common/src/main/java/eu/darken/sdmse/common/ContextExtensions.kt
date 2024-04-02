@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import eu.darken.sdmse.common.debug.logging.log
 import okio.Source
 import okio.source
+import kotlin.math.max
 
 
 @ColorInt
@@ -69,10 +70,11 @@ fun Context.isInstalled(pkgName: String) = try {
     false
 }
 
-fun Context.getSpanCount(widthDp: Int = 410): Int {
+fun Context.getSpanCount(widthDp: Int = 390): Int {
     val displayMetrics = resources.displayMetrics
     val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
-    return (screenWidthDp / widthDp + 0.5).toInt().also {
+    val count = (screenWidthDp / widthDp + 0.5).toInt()
+    return max(count, 1).also {
         log { "getSpanCount($screenWidthDp/$widthDp)=$it" }
     }
 }

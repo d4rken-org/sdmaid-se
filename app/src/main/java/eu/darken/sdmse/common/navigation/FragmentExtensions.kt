@@ -55,7 +55,7 @@ fun Fragment.isTablet(): Boolean {
     return (resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
 }
 
-fun Fragment.getSpanCount(widthDp: Int = 410) = requireContext().getSpanCount(widthDp = widthDp)
+fun Fragment.getSpanCount(widthDp: Int = 390) = requireContext().getSpanCount(widthDp = widthDp)
 
 fun Fragment.isLandscape(): Boolean {
     return resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
