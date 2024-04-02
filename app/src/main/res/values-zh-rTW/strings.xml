@@ -430,6 +430,10 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">粗略估計每個應用程式的大小</string>
     <string name="appcontrol_settings_module_activity_enabled_label">確認活動</string>
     <string name="appcontrol_settings_module_activity_enabled_description">查找活動（或最近活動）的應用程式</string>
+    <string name="appcontrol_export_app_selection_action">導出應用程序</string>
+    <string name="appcontrol_export_title">導出應用程序</string>
+    <string name="appcontrol_export_description">導出此應用的安裝檔案到設備（不包括應用數據）</string>
+    <string name="appcontrol_progress_exporting_x">正在導出 %s</string>
     <string name="analyzer_tool_name">儲存分析器</string>
     <string name="analyzer_explanation_short">找出哪些檔案佔用您的裝置空間。</string>
     <string name="analyzer_progress_scanning_device">正在搜尋儲存裝置</string>

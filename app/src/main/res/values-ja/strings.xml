@@ -111,7 +111,7 @@
     <string name="setup_shizuku_card_body2">この設定は、お使いの端末でShizukuアプリが設定されていない場合には影響しません。</string>
     <string name="setup_shizuku_state_ready_label">Shizukuリンクの準備完了。</string>
     <string name="setup_shizuku_state_waiting_label">Shizukuとのリンクを待機しています。</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">使用可能な場合は、しずくを使用</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">可能な場合は、Shizukuを使用する</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizukuを使用しない</string>
     <string name="setup_dismiss_hint">設定メニューから再度設定画面を確認できます。</string>
     <string name="setup_permission_granted_label">権限は許可されています</string>
@@ -220,7 +220,7 @@
     <string name="systemcleaner_filter_linuxfiles_label">Linuxのファイル</string>
     <string name="systemcleaner_filter_linuxfiles_summary">ストレージがLinuxコンピュータに接続されたときに作成されるファイルとフォルダ。</string>
     <string name="systemcleaner_filter_macfiles_label">Macのファイル</string>
-    <string name="systemcleaner_filter_macfiles_summary">Appleのファインダーアプリでストレージを閲覧するときに作成されるファイルとフォルダー。</string>
+    <string name="systemcleaner_filter_macfiles_summary">AppleのFinderでストレージを参照するときに作成されるファイルとフォルダです。</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windowsのファイル</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Windowsファイルエクスプローラが接続されたストレージ上に作成されるデータ。 "</string>
     <string name="systemcleaner_filter_thumbnails_label">サムネイル画像</string>
@@ -349,7 +349,7 @@
         <item quantity="other">%d 選択したアプリの消耗ファイルを削除しますか？</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizukuを使用してキャッシュを削除する</string>
-    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="deduplicator_tool_name">重複ファイル</string>
     <string name="deduplicator_explanation_short">お使いのデバイスの重複データを見つけます。</string>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="other">%d 重複したセットが見つかりました</item>
@@ -434,7 +434,7 @@
     <string name="appcontrol_export_title">アプリをエクスポート</string>
     <string name="appcontrol_export_description">このアプリのインストールファイルをお使いのデバイスに保存します。アプリのデータは含まれていません。</string>
     <string name="appcontrol_progress_exporting_x">%s をエクスポート中</string>
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="analyzer_tool_name">ストレージ解析</string>
     <string name="analyzer_explanation_short">お使いのデバイスのスペースを占有しているものをご覧ください。</string>
     <string name="analyzer_progress_scanning_device">ストレージデバイスを検索中</string>
     <string name="analyzer_progress_scanning_storage">ストレージをスキャン中</string>
@@ -500,7 +500,7 @@
     <string name="exclusion_import_action">除外をインポート</string>
     <string name="exclusion_export_action">除外をエクスポート</string>
     <string name="exclusion_create_pkg_hint">AppControl ツールを使用して、アプリケーションの除外を作成します。</string>
-    <string name="exclusion_create_path_hint">StorageAnalyzerツールを使用して、パス除外を作成します。</string>
+    <string name="exclusion_create_path_hint">ストレージ解析ツールを使用して、パス除外を作成します。</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d 除外が作成されました</item>
     </plurals>
