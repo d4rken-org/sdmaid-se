@@ -14,12 +14,12 @@
     <string name="upgrade_screen_benefits_title">優位点</string>
     <string name="upgrade_screen_benefits_body">• アプリの整頓 💯\n• 予定されている動作 ⏰\n• すべてのツールに追加オプション ⚙️\n• あなただけの削除ルール ✍️\n• 意欲的な開発🧙\nそれ以外にも…</string>
     <string name="upgrade_screen_how_title">オプション</string>
-    <string name="upgrade_screen_how_body">サブスクリプションは14日間の無料トライアルから始まり、その後1年に1回課金されます。\n試用版もサブスクリプションもいつでもキャンセル可能です。</string>
+    <string name="upgrade_screen_how_body">定期購入は14日間の無料トライアルから開始します。無料トライアルの終了後から1年に1回の課金がされます。\n試用と定期購入はいつでもキャンセル可能です。</string>
     <string name="upgrade_screen_subscription_trial_action">14日間の無料トライアルを開始</string>
     <string name="upgrade_screen_subscription_action">登録</string>
-    <string name="upgrade_screen_subscription_action_hint">サブスクライブには年 %s 円かかります。</string>
+    <string name="upgrade_screen_subscription_action_hint">定期購入は、年/%sのお支払いです。</string>
     <string name="upgrade_screen_iap_action">1 回限りの購入</string>
-    <string name="upgrade_screen_iap_action_hint">一回限りの購入には %sがかかります。</string>
+    <string name="upgrade_screen_iap_action_hint">1回限りの購入は、%sのお支払いです。</string>
     <string name="upgrade_screen_thanks_toast">あなたが一番です! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">購入状態の復元</string>
     <string name="upgrade_screen_restore_purchase_message">アップグレードは同じGoogleアカウントであれば全ての端末で適用されます。</string>
