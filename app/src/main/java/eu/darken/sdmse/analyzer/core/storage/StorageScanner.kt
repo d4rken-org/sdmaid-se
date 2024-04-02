@@ -28,7 +28,6 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.OwnerInfo
-import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import eu.darken.sdmse.common.progress.Progress
@@ -43,8 +42,11 @@ import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
+import eu.darken.sdmse.setup.inventory.InventorySetupModule
+import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
 
@@ -59,6 +61,8 @@ class StorageScanner @Inject constructor(
     private val fileForensics: FileForensics,
     private val dataAreaManager: DataAreaManager,
     private val appScannerFactory: AppStorageScanner.Factory,
+    private val inventorySetupModule: InventorySetupModule,
+    private val usageStatsSetupModule: UsageStatsSetupModule,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -135,8 +139,8 @@ class StorageScanner @Inject constructor(
 
     private suspend fun scanForApps(storage: DeviceStorage): AppCategory? {
         log(TAG) { "scanForApps($storage)" }
-        if (!Permission.QUERY_ALL_PACKAGES.isGranted(context)) {
-            log(TAG, WARN) { "Permission QUERY_ALL_PACKAGES is missing, can't scan apps." }
+        if (!inventorySetupModule.state.first().isComplete) {
+            log(TAG, WARN) { "Inventory setup is incomplete, can't scan apps." }
             return AppCategory(
                 storageId = storage.id,
                 setupIncomplete = true,
@@ -144,8 +148,8 @@ class StorageScanner @Inject constructor(
             )
         }
 
-        if (!Permission.PACKAGE_USAGE_STATS.isGranted(context)) {
-            log(TAG, WARN) { "Permission PACKAGE_USAGE_STATS is missing, can't scan apps." }
+        if (!usageStatsSetupModule.state.first().isComplete) {
+            log(TAG, WARN) { "Usagestats setup is incomplete, can't scan apps." }
             return AppCategory(
                 storageId = storage.id,
                 setupIncomplete = true,
