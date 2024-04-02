@@ -50,7 +50,7 @@ class StorageContentFragment : Fragment3(R.layout.analyzer_storage_fragment) {
         ui.list.setupDefaults(
             adapter,
             verticalDividers = false,
-            layouter = GridLayoutManager(context, getSpanCount(widthDp = 390), GridLayoutManager.VERTICAL, false)
+            layouter = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false)
         )
 
         vm.state.observe2(ui) { state ->

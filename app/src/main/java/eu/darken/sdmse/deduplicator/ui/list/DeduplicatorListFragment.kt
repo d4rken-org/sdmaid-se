@@ -52,7 +52,7 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
         }
 
         fun determineSpanCount(mode: LayoutMode): Int = when (mode) {
-            LayoutMode.LINEAR -> getSpanCount(widthDp = 410)
+            LayoutMode.LINEAR -> getSpanCount()
             LayoutMode.GRID -> max(getSpanCount(widthDp = 144), 3)
         }
 

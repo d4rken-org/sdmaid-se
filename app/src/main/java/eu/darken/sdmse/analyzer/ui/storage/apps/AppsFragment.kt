@@ -38,7 +38,7 @@ class AppsFragment : Fragment3(R.layout.analyzer_apps_fragment) {
         ui.list.setupDefaults(
             adapter,
             horizontalDividers = true,
-            layouter = GridLayoutManager(context, getSpanCount(widthDp = 390), GridLayoutManager.VERTICAL, false),
+            layouter = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false),
         )
 
         vm.state.observe2(ui) { state ->

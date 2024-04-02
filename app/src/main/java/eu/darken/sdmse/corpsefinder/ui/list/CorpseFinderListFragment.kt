@@ -42,7 +42,7 @@ class CorpseFinderListFragment : Fragment3(R.layout.corpsefinder_list_fragment) 
         ui.list.setupDefaults(
             adapter,
             horizontalDividers = true,
-            layouter = GridLayoutManager(context, getSpanCount(widthDp = 390), GridLayoutManager.VERTICAL, false),
+            layouter = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false),
         )
 
         val selectionTracker = installListSelection(

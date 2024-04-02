@@ -6,7 +6,6 @@ import android.view.View
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.GridLayoutManager
@@ -44,7 +43,7 @@ class AppCleanerListFragment : Fragment3(R.layout.appcleaner_list_fragment) {
         ui.list.setupDefaults(
             adapter,
             horizontalDividers = true,
-            layouter = GridLayoutManager(context, getSpanCount(widthDp = 390), GridLayoutManager.VERTICAL, false),
+            layouter = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false),
         )
 
         vm.state.observe2(ui) { state ->

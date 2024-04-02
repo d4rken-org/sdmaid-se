@@ -90,7 +90,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
         ui.list.setupDefaults(
             adapter = adapter,
             horizontalDividers = true,
-            layouter = GridLayoutManager(context, getSpanCount(widthDp = 390), GridLayoutManager.VERTICAL, false)
+            layouter = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false)
         )
 
         ui.toolbar.apply {
