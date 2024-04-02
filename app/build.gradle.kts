@@ -45,6 +45,11 @@ android {
         create("foss") {
             dimension = "version"
             signingConfig = signingConfigs["releaseFoss"]
+            // The info block is encrypted and can only be read by google
+            dependenciesInfo {
+                includeInApk = false
+                includeInBundle = false
+            }
         }
         create("gplay") {
             dimension = "version"
