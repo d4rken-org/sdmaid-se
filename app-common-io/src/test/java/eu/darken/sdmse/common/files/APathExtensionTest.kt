@@ -746,6 +746,14 @@ class APathExtensionTest : BaseTest() {
         }
     }
 
+    // https://github.com/d4rken-org/sdmaid-se/issues/1100
+    @Test fun `remove prefix SAF - issue 1100`() {
+        val searchpath: APath = SAFPath.build(treeUri)
+        val path: APath = SAFPath.build(treeUri, "nextcloud", "folder")
+
+        path.removePrefix(searchpath, overlap = 0) shouldBe segs("nextcloud", "folder")
+    }
+
     @Test fun `filterDistinctRoots operator - LocalPath`() {
         val file1: APath = LocalPath.build("test", "file1")
         val file1s: APath = LocalPath.build("test", "file1", "sub")
