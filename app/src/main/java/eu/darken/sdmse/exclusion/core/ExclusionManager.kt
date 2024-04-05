@@ -10,9 +10,11 @@ import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.plus
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -25,6 +27,7 @@ class ExclusionManager @Inject constructor(
     private val defaultExclusions: DefaultExclusions,
 ) {
 
+    // TODO Think about making this a SharedResource?
     private val _exclusions = DynamicStateFlow(parentScope = appScope + dispatcherProvider.IO) {
         exclusionStorage.load() ?: emptySet()
     }
@@ -44,6 +47,11 @@ class ExclusionManager @Inject constructor(
         }
         exclusions
     }
+        .shareIn(
+            scope = appScope,
+            started = SharingStarted.Lazily,
+            replay = 1
+        )
 
 
     init {
