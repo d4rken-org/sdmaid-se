@@ -1,4 +1,4 @@
-<i>SD Maid SE</i> is your Android’s trusted assistant, to keep it clean and tidy.
+<i>SD Maid 2/SE</i> is your Android’s trusted assistant, to keep it clean and tidy.
 
 Nobody is perfect and neither is Android.
 * Apps you have already removed leave something behind.
@@ -6,9 +6,9 @@ Nobody is perfect and neither is Android.
 * Your storage is collecting files and directories you don't recognize.
 * Duplicate photos in your gallery.
 
-Let’s not go on here… Let SD Maid SE help you!
+Let’s not go on here… Let SD Maid 2/SE help you!
 
-SD Maid SE is an app and file manager that specializes in knowing which apps have created specific files on your device. SD Maid SE searches your device and compares files with installed apps to offer options for safely freeing up storage space.
+SD Maid 2/SE is an app and file manager that specializes in knowing which apps have created specific files on your device. SD Maid 2/SE searches your device and compares files with installed apps to offer options for safely freeing up storage space.
 
 ✨ Clean up after uninstalling apps
 If apps create files outside their designated directories then files can remain even after uninstalling the apps. The "CorpseFinder" tool finds app remains, tells you to which app they belonged and helps you delete them.
@@ -17,22 +17,24 @@ If apps create files outside their designated directories then files can remain 
 Filter for empty directories, temporary files, already installed apps and more. You can even create your own search criteria. The "SystemCleaner" tool allows you to automatically search your device and delete files based on various criteria.
 
 🧹 Delete expendable files and hidden caches
-Thumbnails, trash bins, offline caches and more: If apps don't clean up after themselves, then SD Maid SE will. The "AppCleaner" tool finds apps with expendable files.
+Thumbnails, trash bins, offline caches and more: If apps don't clean up after themselves, then this app will. The "AppCleaner" tool finds apps with expendable files.
 
 📦 Manage all of your apps
 Get a comprehensive list of all apps installed on your device. Enabled, disabled, user or system app: no app can hide from you. The "AppControl" tool is an app manager that allows you to search, sort and control your apps.
 
 📊 What is using all your space
-Storage management can be complex with apps, media, system, and other files across phone storage, SD cards, and USB devices. "StorageAnalyzer" displays how space is used on your device, simplifying your storage management.
+Storage management can be complex with apps, media, system, and other files across phone storage, SD cards, and USB devices. "StorageAnalyzer" is a file manager that displays how space is used on your device, simplifying your storage management.
 
 📷 Find duplicate data
 Duplicate downloads, photos sent through social media or just similar pictures of the same scene: Over time copies can accumulate. The "Deduplicator" tool finds files that are exactly the same or similar and helps you delete extra copies.
 
-SD Maid SE is ad-free. Some features require a paid upgrade.
+This app is ad-free. Some features require a paid upgrade.
 
 SD Maid 2/SE is the successor to SD Maid 1/Legacy.
 Optimized for newer Android versions and focused on cleaning up.
 
-SD Maid SE has optional features that utilize the AccessibilityService API to automate tedious actions.
-Using the AccessibilityService API, SD Maid SE can click buttons for you to perform operations on multiple apps, e.g. deleting caches.
-SD Maid SE does not use the AccessibilityService API to collect information.
+This app has optional features that utilize the AccessibilityService API to automate tedious actions.
+Using the AccessibilityService API, this app can click buttons for you to perform operations on multiple apps, e.g. deleting caches.
+This app does not use the AccessibilityService API to collect information.
+
+SD Maid 2/SE is a File Manager & Cleaner App.
