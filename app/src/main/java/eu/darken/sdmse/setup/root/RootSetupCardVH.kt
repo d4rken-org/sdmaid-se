@@ -51,11 +51,8 @@ class RootSetupCardVH(parent: ViewGroup) :
     }
 
     data class Item(
-        override val state: RootSetupModule.State,
+        override val state: RootSetupModule.Result,
         val onToggleUseRoot: (Boolean?) -> Unit,
         val onHelp: () -> Unit,
-    ) : SetupAdapter.Item {
-        override val stableId: Long = this.javaClass.hashCode().toLong()
-    }
-
+    ) : SetupAdapter.Item
 }

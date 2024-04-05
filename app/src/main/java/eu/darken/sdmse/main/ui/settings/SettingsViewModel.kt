@@ -32,7 +32,7 @@ class SettingsViewModel @Inject constructor(
 
     val state = combine(
         upgradeRepo.upgradeInfo.map { it.isPro },
-        setupManager.state.map { it.isComplete },
+        setupManager.state.map { it.isDone },
     ) { isPro, isSetUp ->
         State(
             isPro = isPro,

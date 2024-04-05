@@ -131,14 +131,11 @@ class AutomationSetupCardVH(parent: ViewGroup) :
     }
 
     data class Item(
-        override val state: AutomationSetupModule.State,
+        override val state: AutomationSetupModule.Result,
         val onGrantAction: () -> Unit,
         val onDismiss: () -> Unit,
         val onHelp: () -> Unit,
         val onRestrictionsHelp: () -> Unit,
         val onRestrictionsShow: () -> Unit,
-    ) : SetupAdapter.Item {
-        override val stableId: Long = this.javaClass.hashCode().toLong()
-    }
-
+    ) : SetupAdapter.Item
 }

@@ -1,7 +1,5 @@
 package eu.darken.sdmse.analyzer.core.storage
 
-import android.content.Context
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
@@ -43,15 +41,14 @@ import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.setup.inventory.InventorySetupModule
+import eu.darken.sdmse.setup.isComplete
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
 
 class StorageScanner @Inject constructor(
-    @ApplicationContext private val context: Context,
     private val storageManager2: StorageManager2,
     private val pkgRepo: PkgRepo,
     private val rootManager: RootManager,
@@ -139,7 +136,7 @@ class StorageScanner @Inject constructor(
 
     private suspend fun scanForApps(storage: DeviceStorage): AppCategory? {
         log(TAG) { "scanForApps($storage)" }
-        if (!inventorySetupModule.state.first().isComplete) {
+        if (!inventorySetupModule.isComplete()) {
             log(TAG, WARN) { "Inventory setup is incomplete, can't scan apps." }
             return AppCategory(
                 storageId = storage.id,
@@ -148,7 +145,7 @@ class StorageScanner @Inject constructor(
             )
         }
 
-        if (!usageStatsSetupModule.state.first().isComplete) {
+        if (!usageStatsSetupModule.isComplete()) {
             log(TAG, WARN) { "Usagestats setup is incomplete, can't scan apps." }
             return AppCategory(
                 storageId = storage.id,

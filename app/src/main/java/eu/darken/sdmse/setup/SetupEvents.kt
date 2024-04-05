@@ -7,7 +7,7 @@ import eu.darken.sdmse.setup.saf.SAFSetupModule
 
 sealed interface SetupEvents {
     data class SafRequestAccess(
-        val item: SAFSetupModule.State.PathAccess,
+        val item: SAFSetupModule.Result.PathAccess,
     ) : SetupEvents
 
     data class SafWrongPathError(
@@ -19,7 +19,7 @@ sealed interface SetupEvents {
     ) : SetupEvents
 
     data class ConfigureAccessibilityService(
-        val item: AutomationSetupModule.State,
+        val item: AutomationSetupModule.Result,
     ) : SetupEvents
 
     data class ShowOurDetailsPage(

@@ -6,9 +6,13 @@ import com.google.android.material.snackbar.Snackbar
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ui.enableBigText
 import eu.darken.sdmse.main.ui.settings.SettingsFragmentDirections
+import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.first
 
-suspend fun SetupModule.isComplete() = state.first()?.isComplete ?: false
+suspend fun SetupModule.isComplete() = state.filterIsInstance<SetupModule.State.Current>().first().isComplete
+
+val SetupModule.State.isComplete: Boolean
+    get() = this is SetupModule.State.Current && this.isComplete
 
 fun Set<SetupModule.Type>.showFixSetupHint(fragment: Fragment) {
     // If the user navigates back while the snackbar is still showing

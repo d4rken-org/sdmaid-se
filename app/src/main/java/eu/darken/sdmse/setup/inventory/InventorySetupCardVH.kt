@@ -30,11 +30,8 @@ class InventorySetupCardVH(parent: ViewGroup) :
     }
 
     data class Item(
-        override val state: InventorySetupModule.State,
+        override val state: InventorySetupModule.Result,
         val onGrantAction: () -> Unit,
         val onHelp: () -> Unit,
-    ) : SetupAdapter.Item {
-        override val stableId: Long = this.javaClass.hashCode().toLong()
-    }
-
+    ) : SetupAdapter.Item
 }

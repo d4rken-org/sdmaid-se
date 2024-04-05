@@ -31,8 +31,8 @@ class LocalPathCardAdapter @Inject constructor() :
     }
 
     data class Item(
-        val pathAccess: StorageSetupModule.State.PathAccess,
-        val onClicked: (StorageSetupModule.State.PathAccess) -> Unit,
+        val pathAccess: StorageSetupModule.Result.PathAccess,
+        val onClicked: (StorageSetupModule.Result.PathAccess) -> Unit,
     ) : DifferItem {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }

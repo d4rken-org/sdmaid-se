@@ -45,11 +45,8 @@ class SAFSetupCardVH(parent: ViewGroup) :
     }
 
     data class Item(
-        override val state: SAFSetupModule.State,
-        val onPathClicked: (SAFSetupModule.State.PathAccess) -> Unit,
+        override val state: SAFSetupModule.Result,
+        val onPathClicked: (SAFSetupModule.Result.PathAccess) -> Unit,
         val onHelp: () -> Unit,
-    ) : SetupAdapter.Item {
-        override val stableId: Long = this.javaClass.hashCode().toLong()
-    }
-
+    ) : SetupAdapter.Item
 }

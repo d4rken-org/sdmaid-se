@@ -36,8 +36,11 @@ import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.onStart
+import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -56,16 +59,18 @@ class SAFSetupModule @Inject constructor(
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
-    override val state = refreshTrigger
+    override val state: Flow<SetupModule.State> = refreshTrigger
         .mapLatest {
-            State(
+            @Suppress("USELESS_CAST")
+            Result(
                 paths = getAccessObjects(),
-            )
+            ) as SetupModule.State
         }
+        .onStart { emit(Loading()) }
         .replayingShare(appScope)
 
-    private suspend fun getAccessObjects(): List<State.PathAccess> {
-        val requestObjects = mutableListOf<State.PathAccess>()
+    private suspend fun getAccessObjects(): List<Result.PathAccess> {
+        val requestObjects = mutableListOf<Result.PathAccess>()
 
         // Android TV doesn't have the DocumentsUI app necessary to grant us permissions
         if (deviceDetective.isAndroidTV()) {
@@ -123,7 +128,7 @@ class SAFSetupModule @Inject constructor(
                         }
                     }
 
-                    State.PathAccess(
+                    Result.PathAccess(
                         label = label,
                         safPath = safPath,
                         localPath = targetPath,
@@ -184,7 +189,7 @@ class SAFSetupModule @Inject constructor(
                         putExtra(DocumentsContract.EXTRA_INITIAL_URI, navTreeUri)
                     }
 
-                    State.PathAccess(
+                    Result.PathAccess(
                         label = when (safPath.name) {
                             "obb" -> R.string.data_area_public_app_assets_official_label.toCaString()
                             else -> R.string.data_area_public_app_data_official_label.toCaString()
@@ -225,12 +230,17 @@ class SAFSetupModule @Inject constructor(
         refreshTrigger.value = rngString
     }
 
-    data class State(
-        val paths: List<PathAccess>,
-    ) : SetupModule.State {
+    data class Loading(
+        override val startAt: Instant = Instant.now(),
+    ) : SetupModule.State.Loading {
+        override val type: SetupModule.Type = SetupModule.Type.SAF
+    }
 
-        override val type: SetupModule.Type
-            get() = SetupModule.Type.SAF
+    data class Result(
+        val paths: List<PathAccess>,
+    ) : SetupModule.State.Current {
+
+        override val type: SetupModule.Type = SetupModule.Type.SAF
 
         override val isComplete: Boolean = paths.all { it.hasAccess }
 
@@ -244,6 +254,7 @@ class SAFSetupModule @Inject constructor(
             val hasAccess: Boolean = uriPermission != null
         }
     }
+
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {

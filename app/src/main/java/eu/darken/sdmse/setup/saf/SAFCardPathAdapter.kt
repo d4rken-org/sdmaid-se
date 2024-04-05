@@ -31,8 +31,8 @@ class SAFCardPathAdapter @Inject constructor() :
     }
 
     data class Item(
-        val pathAccess: SAFSetupModule.State.PathAccess,
-        val onClicked: (SAFSetupModule.State.PathAccess) -> Unit,
+        val pathAccess: SAFSetupModule.Result.PathAccess,
+        val onClicked: (SAFSetupModule.Result.PathAccess) -> Unit,
     ) : DifferItem {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }

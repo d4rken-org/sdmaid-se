@@ -15,8 +15,11 @@ import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.onStart
+import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -27,7 +30,7 @@ class UsageStatsSetupModule @Inject constructor(
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
-    override val state = refreshTrigger
+    override val state: Flow<SetupModule.State> = refreshTrigger
         .mapLatest {
             val requiredPermission = getRequiredPermission()
 
@@ -37,10 +40,12 @@ class UsageStatsSetupModule @Inject constructor(
                 !isGranted
             }.toSet()
 
-            return@mapLatest State(
+            @Suppress("USELESS_CAST")
+            Result(
                 missingPermission = missingPermission,
-            )
+            ) as SetupModule.State
         }
+        .onStart { emit(Loading()) }
         .replayingShare(appScope)
 
     private fun getRequiredPermission(): Set<Permission> = setOf(Permission.PACKAGE_USAGE_STATS)
@@ -50,12 +55,17 @@ class UsageStatsSetupModule @Inject constructor(
         refreshTrigger.value = rngString
     }
 
-    data class State(
-        val missingPermission: Set<Permission>,
-    ) : SetupModule.State {
+    data class Loading(
+        override val startAt: Instant = Instant.now(),
+    ) : SetupModule.State.Loading {
+        override val type: SetupModule.Type = SetupModule.Type.USAGE_STATS
+    }
 
-        override val type: SetupModule.Type
-            get() = SetupModule.Type.USAGE_STATS
+    data class Result(
+        val missingPermission: Set<Permission>,
+    ) : SetupModule.State.Current {
+
+        override val type: SetupModule.Type = SetupModule.Type.USAGE_STATS
 
         override val isComplete: Boolean = missingPermission.isEmpty()
 

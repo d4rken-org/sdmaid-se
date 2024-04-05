@@ -57,12 +57,9 @@ class ShizukuSetupCardVH(parent: ViewGroup) :
     }
 
     data class Item(
-        override val state: ShizukuSetupModule.State,
+        override val state: ShizukuSetupModule.Result,
         val onToggleUseShizuku: (Boolean?) -> Unit,
         val onHelp: () -> Unit,
         val onOpen: () -> Unit,
-    ) : SetupAdapter.Item {
-        override val stableId: Long = this.javaClass.hashCode().toLong()
-    }
-
+    ) : SetupAdapter.Item
 }

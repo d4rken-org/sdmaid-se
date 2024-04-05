@@ -30,6 +30,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.debug.recorder.ui.DebugRecorderCardVH
+import eu.darken.sdmse.common.flow.intervalFlow
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.throttleLatest
@@ -65,8 +66,11 @@ import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerDashCardVH
 import kotlinx.coroutines.flow.*
+import java.time.Duration
+import java.time.Instant
 import java.util.*
 import javax.inject.Inject
+import kotlin.time.Duration.Companion.seconds
 
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
@@ -301,13 +305,41 @@ class DashboardViewModel @Inject constructor(
             )
         }
 
+    private val setupCardItem: Flow<SetupCardVH.Item?> = setupManager.state
+        .flatMapLatest { setupState ->
+            if (setupState.isDone || setupState.isDismissed) return@flatMapLatest flowOf(null)
+
+            val item = SetupCardVH.Item(
+                setupState = setupState,
+                onDismiss = {
+                    setupManager.setDismissed(true)
+                    events.postValue(DashboardEvents.SetupDismissHint)
+                },
+                onContinue = { MainDirections.goToSetup().navigate() }
+            )
+
+            if (setupState.isIncomplete) return@flatMapLatest flowOf(item)
+
+            if (!setupState.isLoading) return@flatMapLatest flowOf(null)
+
+            intervalFlow(1.seconds).map {
+                val now = Instant.now()
+                val loadingStart = setupState.startedLoadingAt ?: now
+                if (Duration.between(loadingStart, now) >= Duration.ofSeconds(3)) {
+                    item
+                } else {
+                    null
+                }
+            }
+        }
+
     private val listItemsInternal: Flow<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
         recorderModule.state,
         debugCardProvider.create(this),
         titleCardItem,
         upgradeInfo,
         updateInfo,
-        setupManager.state,
+        setupCardItem,
         dataAreaItem,
         corpseFinderItem,
         systemCleanerItem,
@@ -323,7 +355,7 @@ class DashboardViewModel @Inject constructor(
         titleInfo: TitleCardVH.Item,
         upgradeInfo: UpgradeRepo.Info?,
         updateInfo: UpdateCardVH.Item?,
-        setupState: SetupManager.State,
+        setupItem: SetupCardVH.Item?,
         dataAreaInfo: DataAreaCardVH.Item?,
         corpseFinderItem: CorpseFinderDashCardVH.Item?,
         systemCleanerItem: SystemCleanerDashCardVH.Item?,
@@ -337,22 +369,8 @@ class DashboardViewModel @Inject constructor(
         val items = mutableListOf<DashboardAdapter.Item>(titleInfo)
 
         motdItem?.let { items.add(it) }
-
         updateInfo?.let { items.add(it) }
-
-        if (!setupState.isComplete && !setupState.isDismissed) {
-            SetupCardVH.Item(
-                setupState = setupState,
-                onDismiss = {
-                    setupManager.setDismissed(true)
-                    events.postValue(DashboardEvents.SetupDismissHint)
-                },
-                onContinue = {
-                    MainDirections.goToSetup().navigate()
-                }
-            ).run { items.add(this) }
-        }
-
+        setupItem?.let { items.add(it) }
         dataAreaInfo?.let { items.add(it) }
 
         corpseFinderItem?.let { items.add(it) }

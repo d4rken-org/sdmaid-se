@@ -31,11 +31,8 @@ class UsageStatsSetupCardVH(parent: ViewGroup) :
     }
 
     data class Item(
-        override val state: UsageStatsSetupModule.State,
+        override val state: UsageStatsSetupModule.Result,
         val onGrantAction: () -> Unit,
         val onHelp: () -> Unit,
-    ) : SetupAdapter.Item {
-        override val stableId: Long = this.javaClass.hashCode().toLong()
-    }
-
+    ) : SetupAdapter.Item
 }
