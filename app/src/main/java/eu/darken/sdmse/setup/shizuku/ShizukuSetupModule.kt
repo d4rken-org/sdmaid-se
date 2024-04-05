@@ -32,6 +32,7 @@ import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.withTimeoutOrNull
+import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -59,8 +60,7 @@ class ShizukuSetupModule @Inject constructor(
         refreshTrigger,
         shizukuSettings.useShizuku.flow,
     ) { _, useShizuku ->
-
-        val baseState = State(
+        val baseState = Result(
             pkg = shizukuManager.pkgId,
             useShizuku = useShizuku,
             isInstalled = shizukuManager.isInstalled(),
@@ -75,13 +75,15 @@ class ShizukuSetupModule @Inject constructor(
             shizukuManager.permissionGrantEvents.map { }.onStart { emit(Unit) },
             shizukuManager.shizukuBinder.onStart { emit(null) },
         ) { _, _, binder ->
+            @Suppress("USELESS_CAST")
             baseState.copy(
                 basicService = binder?.pingBinder() ?: false,
                 ourService = shizukuManager.isShizukuServiceAvailable(),
-            )
+            )as SetupModule.State
         }
     }
         .flatMapLatest { it }
+        .onStart { emit(Loading()) }
         .onEach { log(TAG) { "New Shizuku setup state: $it" } }
         .replayingShare(appScope)
 
@@ -122,17 +124,22 @@ class ShizukuSetupModule @Inject constructor(
         dataAreaManager.reload()
     }
 
-    data class State(
+    data class Loading(
+        override val startAt: Instant = Instant.now(),
+    ) : SetupModule.State.Loading {
+        override val type: SetupModule.Type = SetupModule.Type.SHIZUKU
+    }
+
+    data class Result(
         val pkg: Pkg.Id,
         val useShizuku: Boolean?,
         val isCompatible: Boolean = false,
         val isInstalled: Boolean = false,
         val basicService: Boolean = false,
         val ourService: Boolean = false,
-    ) : SetupModule.State {
+    ) : SetupModule.State.Current {
 
-        override val type: SetupModule.Type
-            get() = SetupModule.Type.SHIZUKU
+        override val type: SetupModule.Type = SetupModule.Type.SHIZUKU
 
         override val isComplete: Boolean =
             useShizuku == false || !isCompatible || (useShizuku == true && (!isInstalled || ourService))

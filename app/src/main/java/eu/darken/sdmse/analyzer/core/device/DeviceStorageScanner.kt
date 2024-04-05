@@ -1,9 +1,7 @@
 package eu.darken.sdmse.analyzer.core.device
 
 import android.app.usage.StorageStatsManager
-import android.content.Context
 import android.os.storage.StorageManager
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -18,15 +16,14 @@ import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageManager2
+import eu.darken.sdmse.setup.isComplete
 import eu.darken.sdmse.setup.storage.StorageSetupModule
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.first
 import java.util.UUID
 import javax.inject.Inject
 
 class DeviceStorageScanner @Inject constructor(
-    @ApplicationContext private val context: Context,
     private val storageSetupModule: StorageSetupModule,
     private val environment: StorageEnvironment,
     private val storageManager2: StorageManager2,
@@ -48,7 +45,7 @@ class DeviceStorageScanner @Inject constructor(
 
         updateProgressPrimary(R.string.analyzer_progress_scanning_device)
 
-        val setupIncomplete = !storageSetupModule.state.first().isComplete
+        val setupIncomplete = !storageSetupModule.isComplete()
 
         val primaryDevice = run {
             updateProgressSecondary(R.string.analyzer_storage_type_primary_title)

@@ -25,8 +25,12 @@ import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
+import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -42,7 +46,7 @@ class AutomationSetupModule @Inject constructor(
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
-    override val state = combine(
+    override val state: Flow<SetupModule.State> = combine(
         rootManager.useRoot,
         shizukuManager.useShizuku,
         refreshTrigger
@@ -80,7 +84,8 @@ class AutomationSetupModule @Inject constructor(
         log(TAG) { "useShizuku: $useShizuku" }
         log(TAG) { "useRoot: $useRoot" }
 
-        State(
+        @Suppress("USELESS_CAST")
+        Result(
             isNotRequired = useRoot,
             hasConsent = generalSettings.hasAcsConsent.value(),
             canSelfEnable = canSelfEnable,
@@ -89,8 +94,11 @@ class AutomationSetupModule @Inject constructor(
             needsXiaomiAutostart = deviceDetective.isXiaomi() && !canSelfEnable,
             liftRestrictionsIntent = liftRestrictionsIntent,
             showAppOpsRestrictionHint = showAppOpsRestrictionHint
-        ).also { log(TAG) { "New ACS setup state: $it" } }
-    }.replayingShare(appScope)
+        ) as SetupModule.State
+    }
+        .onEach { log(TAG) { "New ACS setup state: $it" } }
+        .onStart { emit(Loading()) }
+        .replayingShare(appScope)
 
     suspend fun setAllow(allowed: Boolean) {
         log(TAG) { "setAllow($allowed)" }
@@ -110,7 +118,13 @@ class AutomationSetupModule @Inject constructor(
         refreshTrigger.value = rngString
     }
 
-    data class State(
+    data class Loading(
+        override val startAt: Instant = Instant.now(),
+    ) : SetupModule.State.Loading {
+        override val type: SetupModule.Type = SetupModule.Type.AUTOMATION
+    }
+
+    data class Result(
         val isNotRequired: Boolean,
         val hasConsent: Boolean?,
         val canSelfEnable: Boolean,
@@ -119,10 +133,9 @@ class AutomationSetupModule @Inject constructor(
         val needsXiaomiAutostart: Boolean,
         val liftRestrictionsIntent: Intent,
         val showAppOpsRestrictionHint: Boolean,
-    ) : SetupModule.State {
+    ) : SetupModule.State.Current {
 
-        override val type: SetupModule.Type
-            get() = SetupModule.Type.AUTOMATION
+        override val type: SetupModule.Type = SetupModule.Type.AUTOMATION
 
         override val isComplete: Boolean = when {
             isNotRequired -> true // ACS not needed

@@ -30,11 +30,8 @@ class NotificationSetupCardVH(parent: ViewGroup) :
     }
 
     data class Item(
-        override val state: NotificationSetupModule.State,
+        override val state: NotificationSetupModule.Result,
         val onGrantAction: () -> Unit,
         val onHelp: () -> Unit,
-    ) : SetupAdapter.Item {
-        override val stableId: Long = this.javaClass.hashCode().toLong()
-    }
-
+    ) : SetupAdapter.Item
 }

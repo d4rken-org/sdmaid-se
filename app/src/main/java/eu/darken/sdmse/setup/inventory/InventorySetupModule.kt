@@ -19,8 +19,11 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.onStart
+import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -31,7 +34,7 @@ class InventorySetupModule @Inject constructor(
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
-    override val state = refreshTrigger
+    override val state: Flow<SetupModule.State> = refreshTrigger
         .mapLatest {
             val requiredPermission = getRequiredPermission()
 
@@ -41,11 +44,13 @@ class InventorySetupModule @Inject constructor(
                 !isGranted
             }.toSet()
 
-            return@mapLatest State(
+            @Suppress("USELESS_CAST")
+            Result(
                 missingPermission = missingPermission,
                 settingsIntent = context.packageName.toPkgId().getSettingsIntent(context)
-            )
+            ) as SetupModule.State
         }
+        .onStart { emit(Loading()) }
         .replayingShare(appScope)
 
     private fun getRequiredPermission(): Set<Permission> = when {
@@ -58,10 +63,16 @@ class InventorySetupModule @Inject constructor(
         refreshTrigger.value = rngString
     }
 
-    data class State(
+    data class Loading(
+        override val startAt: Instant = Instant.now(),
+    ) : SetupModule.State.Loading {
+        override val type: SetupModule.Type = SetupModule.Type.INVENTORY
+    }
+
+    data class Result(
         val missingPermission: Set<Permission>,
         val settingsIntent: Intent,
-    ) : SetupModule.State {
+    ) : SetupModule.State.Current {
 
         override val type: SetupModule.Type
             get() = SetupModule.Type.INVENTORY

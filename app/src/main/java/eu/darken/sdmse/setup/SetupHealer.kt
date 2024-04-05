@@ -23,6 +23,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.launchIn
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -50,10 +51,10 @@ class SetupHealer @Inject constructor(
         combine(
             rootManager.useRoot,
             shizukuManager.useShizuku,
-            usageStatsSetupModule.state,
-            notificationSetupModule.state,
-            storageSetupModule.state,
-            automationSetupModule.state,
+            usageStatsSetupModule.state.filterIsInstance<SetupModule.State.Current>(),
+            notificationSetupModule.state.filterIsInstance<SetupModule.State.Current>(),
+            storageSetupModule.state.filterIsInstance<SetupModule.State.Current>(),
+            automationSetupModule.state.filterIsInstance<SetupModule.State.Current>(),
         ) { useRoot, useShizuku,
             usageState, notifState, storageState, automationState ->
 
@@ -72,10 +73,16 @@ class SetupHealer @Inject constructor(
 
             var reloadDataAreas = false
             try {
-                if (automationState.tryHeal()) automationSetupModule.refresh()
-                if (usageState.tryHeal()) usageStatsSetupModule.refresh()
-                if (notifState.tryHeal()) notificationSetupModule.refresh()
-                if (storageState.tryHeal()) {
+                if ((automationState as AutomationSetupModule.Result).tryHeal()) {
+                    automationSetupModule.refresh()
+                }
+                if ((usageState as UsageStatsSetupModule.Result).tryHeal()) {
+                    usageStatsSetupModule.refresh()
+                }
+                if ((notifState as NotificationSetupModule.Result).tryHeal()) {
+                    notificationSetupModule.refresh()
+                }
+                if ((storageState as StorageSetupModule.Result).tryHeal()) {
                     storageSetupModule.refresh()
                     reloadDataAreas = true
                 }
@@ -92,7 +99,7 @@ class SetupHealer @Inject constructor(
             .launchIn(appScope)
     }
 
-    private suspend fun UsageStatsSetupModule.State.tryHeal(): Boolean {
+    private suspend fun UsageStatsSetupModule.Result.tryHeal(): Boolean {
         if (isComplete || missingPermission.isEmpty()) {
             return false
         }
@@ -113,7 +120,7 @@ class SetupHealer @Inject constructor(
         return allGranted
     }
 
-    private suspend fun StorageSetupModule.State.tryHeal(): Boolean {
+    private suspend fun StorageSetupModule.Result.tryHeal(): Boolean {
         if (isComplete || missingPermission.isEmpty()) {
             return false
         }
@@ -134,7 +141,7 @@ class SetupHealer @Inject constructor(
         return allGranted
     }
 
-    private suspend fun NotificationSetupModule.State.tryHeal(): Boolean {
+    private suspend fun NotificationSetupModule.Result.tryHeal(): Boolean {
         if (isComplete || missingPermission.isEmpty()) {
             return false
         }
@@ -157,7 +164,7 @@ class SetupHealer @Inject constructor(
         return allGranted
     }
 
-    private suspend fun AutomationSetupModule.State.tryHeal(): Boolean {
+    private suspend fun AutomationSetupModule.Result.tryHeal(): Boolean {
         if (isComplete || hasConsent != true) {
             return false
         }

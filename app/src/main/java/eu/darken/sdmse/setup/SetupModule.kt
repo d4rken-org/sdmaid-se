@@ -3,15 +3,23 @@ package eu.darken.sdmse.setup
 import androidx.annotation.StringRes
 import eu.darken.sdmse.R
 import kotlinx.coroutines.flow.Flow
+import java.time.Instant
 
 interface SetupModule {
-    val state: Flow<State?>
+    val state: Flow<State>
 
     suspend fun refresh()
 
-    interface State {
-        val isComplete: Boolean
+    sealed interface State {
         val type: Type
+
+        interface Loading : State {
+            val startAt: Instant
+        }
+
+        interface Current : State {
+            val isComplete: Boolean
+        }
     }
 
     enum class Type(@StringRes val labelRes: Int) {

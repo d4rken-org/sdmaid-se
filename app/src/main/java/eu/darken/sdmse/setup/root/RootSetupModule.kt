@@ -28,6 +28,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.take
+import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -41,7 +42,7 @@ class RootSetupModule @Inject constructor(
 
     private val refreshTrigger = MutableStateFlow(rngString)
     override val state: Flow<SetupModule.State> = combine(refreshTrigger, rootSettings.useRoot.flow) { _, useRoot ->
-        val baseState = State(
+        val baseState = Result(
             useRoot = useRoot,
             isInstalled = rootManager.isInstalled(),
         )
@@ -53,6 +54,7 @@ class RootSetupModule @Inject constructor(
             .map { connection ->
                 if (connection == null) return@map baseState
 
+                @Suppress("USELESS_CAST")
                 baseState.copy(
                     ourService = try {
                         connection.ipc.checkBase() != null
@@ -60,10 +62,11 @@ class RootSetupModule @Inject constructor(
                         log(TAG, WARN) { "Error while checking for root: $e" }
                         false
                     },
-                )
+                ) as SetupModule.State
             }
     }
         .flatMapLatest { it }
+        .onStart { emit(Loading()) }
         .onEach { log(TAG) { "New Root setup state: $it" } }
         .replayingShare(appScope)
 
@@ -88,14 +91,19 @@ class RootSetupModule @Inject constructor(
         }
     }
 
-    data class State(
+    data class Loading(
+        override val startAt: Instant = Instant.now(),
+    ) : SetupModule.State.Loading {
+        override val type: SetupModule.Type = SetupModule.Type.ROOT
+    }
+
+    data class Result(
         val useRoot: Boolean?,
         val isInstalled: Boolean = false,
         val ourService: Boolean = false,
-    ) : SetupModule.State {
+    ) : SetupModule.State.Current {
 
-        override val type: SetupModule.Type
-            get() = SetupModule.Type.ROOT
+        override val type: SetupModule.Type = SetupModule.Type.ROOT
 
         override val isComplete: Boolean = useRoot != null
     }

@@ -45,7 +45,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
     @Inject lateinit var webpageTool: WebpageTool
     @Inject lateinit var deviceDetective: DeviceDetective
 
-    private lateinit var safRequestLauncher: ActivityResultLauncher<SAFSetupModule.State.PathAccess>
+    private lateinit var safRequestLauncher: ActivityResultLauncher<SAFSetupModule.Result.PathAccess>
     private var awaitedPermission: Permission? = null
     private lateinit var specialPermissionLauncher: ActivityResultLauncher<Intent>
     private lateinit var runtimePermissionLauncher: ActivityResultLauncher<String>

@@ -45,11 +45,8 @@ class StorageSetupCardVH(parent: ViewGroup) :
     }
 
     data class Item(
-        override val state: StorageSetupModule.State,
-        val onPathClicked: (StorageSetupModule.State.PathAccess) -> Unit,
+        override val state: StorageSetupModule.Result,
+        val onPathClicked: (StorageSetupModule.Result.PathAccess) -> Unit,
         val onHelp: () -> Unit,
-    ) : SetupAdapter.Item {
-        override val stableId: Long = this.javaClass.hashCode().toLong()
-    }
-
+    ) : SetupAdapter.Item
 }

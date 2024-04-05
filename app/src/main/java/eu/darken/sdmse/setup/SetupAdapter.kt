@@ -41,6 +41,7 @@ SetupAdapter @Inject constructor() :
         addMod(TypedVHCreatorMod({ data[it] is NotificationSetupCardVH.Item }) { NotificationSetupCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ShizukuSetupCardVH.Item }) { ShizukuSetupCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is InventorySetupCardVH.Item }) { InventorySetupCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is SetupModuleLoadingCardVH.Item }) { SetupModuleLoadingCardVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(
@@ -51,6 +52,9 @@ SetupAdapter @Inject constructor() :
     interface Item : DifferItem {
 
         val state: SetupModule.State
+
+        override val stableId: Long
+            get() = state.type.name.hashCode().toLong()
 
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
             get() = { old, new ->

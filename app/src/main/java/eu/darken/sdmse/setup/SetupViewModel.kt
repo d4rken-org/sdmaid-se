@@ -69,130 +69,160 @@ class SetupViewModel @Inject constructor(
 
             setupState.moduleStates
                 .filter { screenOptions.typeFilter == null || screenOptions.typeFilter.contains(it.type) }
-                .filter { !it.isComplete || screenOptions.showCompleted }
+                .filter { it !is SetupModule.State.Current || !it.isComplete || screenOptions.showCompleted }
                 .mapNotNull { state ->
-                    when (state) {
-                        is SAFSetupModule.State -> SAFSetupCardVH.Item(
-                            state = state,
-                            onPathClicked = {
-                                if (!it.hasAccess) {
-                                    events.postValue(SetupEvents.SafRequestAccess(it))
-                                }
-                            },
-                            onHelp = {
-                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#storage-access-framework")
-                            },
-                        ).takeIf { it.state.paths.isNotEmpty() }
+                    when (state.type) {
+                        SetupModule.Type.SAF -> when (state) {
+                            is SetupModule.State.Current -> SAFSetupCardVH.Item(
+                                state = state as SAFSetupModule.Result,
+                                onPathClicked = {
+                                    if (!it.hasAccess) {
+                                        events.postValue(SetupEvents.SafRequestAccess(it))
+                                    }
+                                },
+                                onHelp = {
+                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#storage-access-framework")
+                                },
+                            ).takeIf { it.state.paths.isNotEmpty() }
 
-                        is StorageSetupModule.State -> StorageSetupCardVH.Item(
-                            state = state,
-                            onPathClicked = {
-                                state.missingPermission.firstOrNull()?.let {
-                                    events.postValue(SetupEvents.RuntimePermissionRequests(it))
-                                }
-                            },
-                            onHelp = {
-                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#manage-storage")
-                            },
-                        )
+                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                        }
 
-                        is RootSetupModule.State -> RootSetupCardVH.Item(
-                            state = state,
-                            onToggleUseRoot = {
-                                launch {
-                                    rootSetupModule.toggleUseRoot(it)
-                                    rootSetupModule.refresh()
-                                }
-                            },
-                            onHelp = {
-                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#root-access")
-                            },
-                        )
+                        SetupModule.Type.STORAGE -> when (state) {
+                            is SetupModule.State.Current -> StorageSetupCardVH.Item(
+                                state = state as StorageSetupModule.Result,
+                                onPathClicked = {
+                                    state.missingPermission.firstOrNull()?.let {
+                                        events.postValue(SetupEvents.RuntimePermissionRequests(it))
+                                    }
+                                },
+                                onHelp = {
+                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#manage-storage")
+                                },
+                            )
 
-                        is UsageStatsSetupModule.State -> UsageStatsSetupCardVH.Item(
-                            state = state,
-                            onGrantAction = {
-                                state.missingPermission.firstOrNull()?.let {
-                                    events.postValue(SetupEvents.RuntimePermissionRequests(it))
-                                }
-                            },
-                            onHelp = {
-                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#usage-statistics")
-                            }
-                        )
+                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                        }
 
-                        is AutomationSetupModule.State -> AutomationSetupCardVH.Item(
-                            state = state,
-                            onGrantAction = {
-                                launch {
-                                    automationSetupModule.setAllow(true)
-                                    automationSetupModule.refresh()
-                                    if (!state.canSelfEnable) {
-                                        events.postValue(SetupEvents.ConfigureAccessibilityService(state))
+                        SetupModule.Type.ROOT -> when (state) {
+                            is SetupModule.State.Current -> RootSetupCardVH.Item(
+                                state = state as RootSetupModule.Result,
+                                onToggleUseRoot = {
+                                    launch {
+                                        rootSetupModule.toggleUseRoot(it)
+                                        rootSetupModule.refresh()
+                                    }
+                                },
+                                onHelp = {
+                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#root-access")
+                                },
+                            )
+
+                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                        }
+
+                        SetupModule.Type.USAGE_STATS -> when (state) {
+                            is SetupModule.State.Current -> UsageStatsSetupCardVH.Item(
+                                state = state as UsageStatsSetupModule.Result,
+                                onGrantAction = {
+                                    state.missingPermission.firstOrNull()?.let {
+                                        events.postValue(SetupEvents.RuntimePermissionRequests(it))
+                                    }
+                                },
+                                onHelp = {
+                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#usage-statistics")
+                                }
+                            )
+
+                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                        }
+
+                        SetupModule.Type.AUTOMATION -> when (state) {
+                            is SetupModule.State.Current -> AutomationSetupCardVH.Item(
+                                state = state as AutomationSetupModule.Result,
+                                onGrantAction = {
+                                    launch {
+                                        automationSetupModule.setAllow(true)
+                                        automationSetupModule.refresh()
+                                        if (!state.canSelfEnable) {
+                                            events.postValue(SetupEvents.ConfigureAccessibilityService(state))
+                                        }
+                                    }
+                                },
+                                onDismiss = {
+                                    launch {
+                                        automationSetupModule.setAllow(false)
+                                        automationSetupModule.refresh()
+                                    }
+                                },
+                                onHelp = {
+                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#accessibility-service")
+                                },
+                                onRestrictionsShow = {
+                                    events.postValue(SetupEvents.ShowOurDetailsPage(state.liftRestrictionsIntent))
+                                },
+                                onRestrictionsHelp = {
+                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#acs-appops-restrictions")
+                                },
+                            )
+
+                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                        }
+
+                        SetupModule.Type.NOTIFICATION -> when (state) {
+                            is SetupModule.State.Current -> NotificationSetupCardVH.Item(
+                                state = state as NotificationSetupModule.Result,
+                                onGrantAction = {
+                                    state.missingPermission.firstOrNull()?.let {
+                                        events.postValue(SetupEvents.RuntimePermissionRequests(it))
+                                    }
+                                },
+                                onHelp = {
+                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#notifications")
+                                }
+                            )
+
+                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                        }
+
+                        SetupModule.Type.SHIZUKU -> when (state) {
+                            is SetupModule.State.Current -> ShizukuSetupCardVH.Item(
+                                state = state as ShizukuSetupModule.Result,
+                                onToggleUseShizuku = {
+                                    launch { shizukuSetupModule.toggleUseShizuku(it) }
+                                },
+                                onHelp = {
+                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#shizuku")
+                                },
+                                onOpen = {
+                                    state.pkg.getLaunchIntent(context)?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)?.let {
+                                        try {
+                                            context.startActivity(it)
+                                        } catch (e: ActivityNotFoundException) {
+                                            errorEvents.postValue(e)
+                                        }
                                     }
                                 }
-                            },
-                            onDismiss = {
-                                launch {
-                                    automationSetupModule.setAllow(false)
-                                    automationSetupModule.refresh()
-                                }
-                            },
-                            onHelp = {
-                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#accessibility-service")
-                            },
-                            onRestrictionsShow = {
-                                events.postValue(SetupEvents.ShowOurDetailsPage(state.liftRestrictionsIntent))
-                            },
-                            onRestrictionsHelp = {
-                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#acs-appops-restrictions")
-                            },
-                        )
+                            )
 
-                        is NotificationSetupModule.State -> NotificationSetupCardVH.Item(
-                            state = state,
-                            onGrantAction = {
-                                state.missingPermission.firstOrNull()?.let {
-                                    events.postValue(SetupEvents.RuntimePermissionRequests(it))
-                                }
-                            },
-                            onHelp = {
-                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#notifications")
-                            }
-                        )
+                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                        }
 
-                        is ShizukuSetupModule.State -> ShizukuSetupCardVH.Item(
-                            state = state,
-                            onToggleUseShizuku = {
-                                launch { shizukuSetupModule.toggleUseShizuku(it) }
-                            },
-                            onHelp = {
-                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#shizuku")
-                            },
-                            onOpen = {
-                                state.pkg.getLaunchIntent(context)?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)?.let {
-                                    try {
-                                        context.startActivity(it)
-                                    } catch (e: ActivityNotFoundException) {
-                                        errorEvents.postValue(e)
+                        SetupModule.Type.INVENTORY -> when (state) {
+                            is SetupModule.State.Current -> InventorySetupCardVH.Item(
+                                state = state as InventorySetupModule.Result,
+                                onGrantAction = {
+                                    state.missingPermission.firstOrNull()?.let {
+                                        events.postValue(SetupEvents.ShowOurDetailsPage(state.settingsIntent))
                                     }
+                                },
+                                onHelp = {
+                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#app-inventory")
                                 }
-                            }
-                        )
+                            )
 
-                        is InventorySetupModule.State -> InventorySetupCardVH.Item(
-                            state = state,
-                            onGrantAction = {
-                                state.missingPermission.firstOrNull()?.let {
-                                    events.postValue(SetupEvents.ShowOurDetailsPage(state.settingsIntent))
-                                }
-                            },
-                            onHelp = {
-                                webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#app-inventory")
-                            }
-                        )
-
-                        else -> throw IllegalArgumentException("Unknown state: $state")
+                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                        }
                     }
                 }
                 .sortedBy { item ->
@@ -201,7 +231,7 @@ class SetupViewModel @Inject constructor(
                     } else if (item is RootSetupCardVH.Item && item.state.isInstalled && item.state.useRoot == null) {
                         Int.MIN_VALUE
                     } else {
-                        DISPLAY_ORDER.indexOfFirst { it.isInstance(item) }
+                        DISPLAY_ORDER.indexOfFirst { it == item.state.type }
                     }
                 }
                 .run { items.addAll(this) }
@@ -262,14 +292,14 @@ class SetupViewModel @Inject constructor(
 
     companion object {
         private val DISPLAY_ORDER = listOf(
-            InventorySetupCardVH.Item::class,
-            NotificationSetupCardVH.Item::class,
-            StorageSetupCardVH.Item::class,
-            SAFSetupCardVH.Item::class,
-            ShizukuSetupCardVH.Item::class,
-            RootSetupCardVH.Item::class,
-            UsageStatsSetupCardVH.Item::class,
-            AutomationSetupCardVH.Item::class,
+            SetupModule.Type.INVENTORY,
+            SetupModule.Type.NOTIFICATION,
+            SetupModule.Type.STORAGE,
+            SetupModule.Type.SAF,
+            SetupModule.Type.SHIZUKU,
+            SetupModule.Type.ROOT,
+            SetupModule.Type.USAGE_STATS,
+            SetupModule.Type.AUTOMATION,
         )
         private val TAG = logTag("Setup", "ViewModel")
     }

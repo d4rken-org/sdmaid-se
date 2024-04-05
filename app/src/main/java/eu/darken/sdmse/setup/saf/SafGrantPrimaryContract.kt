@@ -6,11 +6,11 @@ import android.content.Intent
 import android.net.Uri
 import androidx.activity.result.contract.ActivityResultContract
 
-class SafGrantPrimaryContract : ActivityResultContract<SAFSetupModule.State.PathAccess, Uri?>() {
+class SafGrantPrimaryContract : ActivityResultContract<SAFSetupModule.Result.PathAccess, Uri?>() {
 
     override fun createIntent(
         context: Context,
-        data: SAFSetupModule.State.PathAccess
+        data: SAFSetupModule.Result.PathAccess
     ): Intent = data.grantIntent
 
     override fun parseResult(resultCode: Int, intent: Intent?): Uri? = when (resultCode) {

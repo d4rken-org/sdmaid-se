@@ -1,7 +1,6 @@
 package eu.darken.sdmse.main.ui.dashboard.items
 
 import android.view.ViewGroup
-import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
@@ -19,21 +18,31 @@ class SetupCardVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        body.text = if (item.setupState.isHealerWorking) {
-            getString(R.string.setup_incomplete_card_healing_in_progress_body)
-        } else {
-            getString(R.string.setup_incomplete_card_body)
+        val state = item.setupState
+        title.text = when {
+            state.isIncomplete -> getString(R.string.setup_incomplete_card_title)
+            else -> getString(R.string.setup_label)
+        }
+        body.text = when {
+            state.isHealerWorking -> getString(R.string.setup_incomplete_card_healing_in_progress_body)
+            state.isLoading -> getString(R.string.setup_checking_card_body)
+            else -> getString(R.string.setup_incomplete_card_body)
         }
 
         dismissAction.apply {
-            isInvisible = item.setupState.isHealerWorking
+            isVisible = !state.isWorking
             setOnClickListener { item.onDismiss() }
         }
 
-        setupProgress.isVisible = item.setupState.isHealerWorking
+        setupProgress.isVisible = state.isWorking
+
         continueSetupAction.apply {
-            isInvisible = item.setupState.isHealerWorking
+            isVisible = !state.isHealerWorking || state.isIncomplete
             setOnClickListener { item.onContinue() }
+            text = when {
+                state.isIncomplete -> getString(R.string.setup_incomplete_card_continue_action)
+                else -> getString(eu.darken.sdmse.common.R.string.general_view_action)
+            }
         }
     }
 
