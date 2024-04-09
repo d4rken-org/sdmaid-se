@@ -26,7 +26,6 @@ import eu.darken.sdmse.common.shizuku.service.runModuleAction
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
@@ -421,7 +420,7 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || !canRead && mode == Mode.AUTO) -> {
                     if (options.isDirect) {
                         log(TAG, VERBOSE) { "walk($mode->ROOT, direct): $path" }
-                        rootOps { it.walk(path, options) }.asFlow()
+                        rootOps { it.walk(path, options) }
                     } else {
                         log(TAG, VERBOSE) { "walk($mode->ROOT, indirect): $path" }
                         // Can't pass functions via IPC
@@ -438,7 +437,7 @@ class LocalGateway @Inject constructor(
                 hasShizuku() && (mode == Mode.ADB || !canRead && mode == Mode.AUTO) -> {
                     if (options.isDirect) {
                         log(TAG, VERBOSE) { "walk($mode->ADB, direct): $path" }
-                        adbOps { it.walk(path, options) }.asFlow()
+                        adbOps { it.walk(path, options) }
                     } else {
                         log(TAG, VERBOSE) { "walk($mode->ADB, indirect): $path" }
                         // Can't pass functions via IPC
@@ -455,7 +454,7 @@ class LocalGateway @Inject constructor(
                 else -> throw IOException("No matching mode available.")
             }
                 .onEach {
-                    if (Bugs.isTrace) log(TAG, VERBOSE) { "Walked $it" }
+//                    if (Bugs.isTrace) log(TAG, VERBOSE) { "Walked $it" }
                 }
         } catch (e: IOException) {
             log(TAG, WARN) { "walk(path=$path, mode=$mode) failed:\n${e.asLog()}" }
