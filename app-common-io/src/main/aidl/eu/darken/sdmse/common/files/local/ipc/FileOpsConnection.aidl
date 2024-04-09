@@ -23,11 +23,9 @@ interface FileOpsConnection {
 
     boolean delete(in LocalPath path);
 
-    List<LocalPath> listFiles(in LocalPath path);
     RemoteInputStream listFilesStream(in LocalPath path);
 
     LocalPathLookup lookUp(in LocalPath path);
-    List<LocalPathLookup> lookupFiles(in LocalPath path);
     RemoteInputStream lookupFilesStream(in LocalPath path);
 
     LocalPathLookupExtended lookUpExtended(in LocalPath path);

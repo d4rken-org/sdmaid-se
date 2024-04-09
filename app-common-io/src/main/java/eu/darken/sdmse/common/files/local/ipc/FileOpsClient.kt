@@ -27,28 +27,12 @@ class FileOpsClient @AssistedInject constructor(
     @Assisted private val fileOpsConnection: FileOpsConnection
 ) : IpcClientModule {
 
-    fun listFiles(path: LocalPath): Collection<LocalPath> = try {
-        fileOpsConnection.listFiles(path).also {
-            if (Bugs.isTrace) log(TAG) { "listFiles($path): $it" }
-        }
-    } catch (e: Exception) {
-        throw e.toFakeIOException()
-    }
-
     /**
      * Doesn't run into IPC buffer overflows on large directories
      */
-    fun listFilesStream(path: LocalPath): Collection<LocalPath> = try {
+    fun listFiles(path: LocalPath): Collection<LocalPath> = try {
         fileOpsConnection.listFilesStream(path).toLocalPaths().also {
-            if (Bugs.isTrace) log(TAG) { "listFilesStream($path) finished streaming, ${it.size} items" }
-        }
-    } catch (e: Exception) {
-        throw e.toFakeIOException()
-    }
-
-    fun lookupFiles(path: LocalPath): Collection<LocalPathLookup> = try {
-        fileOpsConnection.lookupFiles(path).also {
-            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFiles($path): $it" }
+            if (Bugs.isTrace) log(TAG) { "listFiles($path) finished streaming, ${it.size} items" }
         }
     } catch (e: Exception) {
         throw e.toFakeIOException()
@@ -65,9 +49,9 @@ class FileOpsClient @AssistedInject constructor(
     /**
      * Doesn't run into IPC buffer overflows on large directories
      */
-    fun lookupFilesStream(path: LocalPath): Collection<LocalPathLookup> = try {
+    fun lookupFiles(path: LocalPath): Collection<LocalPathLookup> = try {
         fileOpsConnection.lookupFilesStream(path).toLocalPathLookups().also {
-            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesStream($path) finished streaming, ${it.size} items" }
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFiles($path) finished streaming, ${it.size} items" }
         }
     } catch (e: Exception) {
         throw e.toFakeIOException()
