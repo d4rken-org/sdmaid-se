@@ -1,5 +1,7 @@
 package eu.darken.sdmse.common.files.local.ipc
 
+import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -27,7 +29,8 @@ import eu.darken.sdmse.common.ipc.RemoteOutputStream
 import eu.darken.sdmse.common.ipc.remoteInputStream
 import eu.darken.sdmse.common.ipc.toRemoteOutputStream
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
-import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.plus
 import kotlinx.coroutines.runBlocking
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -35,8 +38,10 @@ import java.io.IOException
 import javax.inject.Inject
 
 class FileOpsHost @Inject constructor(
+    @AppScope private val appScope: CoroutineScope,
+    private val dispatcherProvider: DispatcherProvider,
     private val libcoreTool: LibcoreTool,
-    private val ipcFunnel: IPCFunnel
+    private val ipcFunnel: IPCFunnel,
 ) : FileOpsConnection.Stub(), IpcHostModule {
 
     override fun listFiles(path: LocalPath): List<LocalPath> = try {
@@ -127,9 +132,8 @@ class FileOpsHost @Inject constructor(
                 onFilter = { lookup ->
                     pathDoesNotContain.none { lookup.path.contains(it) }
                 },
-            )
-                .toList()
-        }.toRemoteInputStream()
+            ).toRemoteInputStream(appScope + dispatcherProvider.IO)
+        }
     } catch (e: Exception) {
         log(TAG, ERROR) { "walkStream(path=$path) failed\n${e.asLog()}" }
         throw wrapPropagating(e)

@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.files.local.LocalPathLookupExtended
 import eu.darken.sdmse.common.ipc.IpcClientModule
 import eu.darken.sdmse.common.ipc.sink
 import eu.darken.sdmse.common.ipc.source
+import kotlinx.coroutines.flow.Flow
 import okio.Sink
 import okio.Source
 import java.io.IOException
@@ -92,19 +93,18 @@ class FileOpsClient @AssistedInject constructor(
     fun walk(
         path: LocalPath,
         options: APathGateway.WalkOptions<LocalPath, LocalPathLookup>,
-    ): Collection<LocalPathLookup> = try {
+    ): Flow<LocalPathLookup> {
         if (!options.isDirect) throw IllegalArgumentException("Only direct walk options are supported")
-        fileOpsConnection
-            .walkStream(
+
+        val output = try {
+            fileOpsConnection.walkStream(
                 path,
                 (options.pathDoesNotContain ?: emptyList()).toMutableList(),
             )
-            .toLocalPathLookups()
-            .also {
-                if (Bugs.isTrace) log(TAG, VERBOSE) { "walk($path) finished streaming, ${it.size} items" }
-            }
-    } catch (e: Exception) {
-        throw e.toFakeIOException()
+        } catch (e: Exception) {
+            throw e.toFakeIOException()
+        }
+        return output.toLocalPathLookupFlow()
     }
 
     fun readFile(path: LocalPath): Source = try {
@@ -179,13 +179,13 @@ class FileOpsClient @AssistedInject constructor(
         throw e.toFakeIOException()
     }
 
-    private fun Exception.toFakeIOException(): IOException {
+    private fun Throwable.toFakeIOException(): IOException {
         val org = this.getRootCause()
         val gulpPrefix = "java.io.IOException: "
         val message = when {
             org.message.isNullOrEmpty() -> org.toString()
             org.message?.startsWith(gulpPrefix) == true -> org.message!!.replace(gulpPrefix, "")
-            else -> ""
+            else -> this.message
         }
         return IOException(message, org.cause)
     }
