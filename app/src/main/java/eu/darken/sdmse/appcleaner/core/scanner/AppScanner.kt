@@ -324,7 +324,7 @@ class AppScanner @Inject constructor(
                 try {
                     area to area.path.listFiles(gatewaySwitch)
                 } catch (e: IOException) {
-                    log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
+                    log(TAG, ERROR) { "Failed to list $area: ${e.asLog()}" }
                     null
                 }
             }
@@ -335,9 +335,9 @@ class AppScanner @Inject constructor(
                         if (isExcluded) log(TAG, INFO) { "Excluded during PRIVATE_DATA scan: $path" }
                         !isExcluded
                     }
-                    .mapNotNull { lookup ->
-                        fileForensics.identifyArea(lookup).also {
-                            if (it == null) log(TAG, WARN) { "Failed to identify $lookup" }
+                    .mapNotNull { path ->
+                        fileForensics.identifyArea(path).also {
+                            if (it == null) log(TAG, WARN) { "Failed to identify $path" }
                         }
                     }
             }
