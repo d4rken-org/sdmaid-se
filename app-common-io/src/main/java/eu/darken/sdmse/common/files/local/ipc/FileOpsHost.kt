@@ -44,16 +44,7 @@ class FileOpsHost @Inject constructor(
     private val ipcFunnel: IPCFunnel,
 ) : FileOpsConnection.Stub(), IpcHostModule {
 
-    override fun listFiles(path: LocalPath): List<LocalPath> = try {
-        if (Bugs.isTrace) log(TAG, VERBOSE) { "listFiles($path)..." }
-        path.asFile().listFiles2()
-            .map { LocalPath.build(it) }
-            .onEach { if (Bugs.isTrace) log(TAG, VERBOSE) { "$it" } }
-            .also { if (Bugs.isTrace) log(TAG, VERBOSE) { "listFiles($path) done: ${it.size} items" } }
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "listFiles(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
-    }
+   private fun listFiles(path: LocalPath): List<LocalPath> = path.asFile().listFiles2().map { LocalPath.build(it) }
 
     override fun listFilesStream(path: LocalPath): RemoteInputStream = try {
         if (Bugs.isTrace) log(TAG, VERBOSE) { "listFilesStream($path)..." }
@@ -72,19 +63,6 @@ class FileOpsHost @Inject constructor(
         }
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookUp(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
-    }
-
-    override fun lookupFiles(path: LocalPath): List<LocalPathLookup> = try {
-        if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFiles($path)..." }
-        listFiles(path)
-            .mapIndexed { index, item ->
-                if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up $index: $item" }
-                item.performLookup()
-            }
-            .also { if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFiles($path) done: ${it.size} items" } }
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "lookupFiles(path=$path) failed\n${e.asLog()}" }
         throw wrapPropagating(e)
     }
 

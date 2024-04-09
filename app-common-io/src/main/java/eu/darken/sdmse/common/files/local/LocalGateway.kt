@@ -256,12 +256,12 @@ class LocalGateway @Inject constructor(
 
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "listFiles($mode->ROOT): $path" }
-                    rootOps { it.listFilesStream(path) }
+                    rootOps { it.listFiles(path) }
                 }
 
                 hasShizuku() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "listFiles($mode->ADB): $path" }
-                    adbOps { it.listFilesStream(path) }
+                    adbOps { it.listFiles(path) }
                 }
 
                 else -> throw IOException("No matching mode available.")
@@ -299,12 +299,12 @@ class LocalGateway @Inject constructor(
 
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "lookupFiles($mode->ROOT): $path" }
-                    rootOps { it.lookupFilesStream(path) }
+                    rootOps { it.lookupFiles(path) }
                 }
 
                 hasShizuku() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "lookupFiles($mode->ADB): $path" }
-                    adbOps { it.lookupFilesStream(path) }
+                    adbOps { it.lookupFiles(path) }
                 }
 
                 else -> throw IOException("No matching mode available.")
