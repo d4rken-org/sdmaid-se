@@ -42,8 +42,10 @@ fun ((Context) -> String).toCaString(): CaString = caString { this(it) }
 
 fun Int.toCaString(): CaString = caString { it.getString(this) }.cache()
 
+fun Int.toCaString(vararg args: Any): CaString = caString { it.getString(this, *args) }.cache()
+
 fun Pair<Int, Array<out Any?>>.toCaString() = caString {
     val (res, args) = this
-    it.getString(res, args)
+    it.getString(res, *args)
 }.cache()
 

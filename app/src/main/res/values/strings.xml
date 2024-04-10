@@ -387,6 +387,13 @@
     <string name="appcleaner_automation_loading">Preparing automation via accessibility service</string>
     <string name="appcleaner_automation_title">AppCleaner automation</string>
     <string name="appcleaner_automation_subtitle_default_caches">Clearing default caches…</string>
+
+    <string name="appcleaner_automation_progress_open_settings">Opening settings screen (keywords: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Searching for \"Storage\" entry (keywords: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Looking for \"Clear data\" button (keywords: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Looking for \"Clear cache\" button (keywords: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Trying to confirm previous action (keywords: %s)</string>
+
     <string name="appcleaner_item_caches_inaccessible_title">Default caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Public and private default caches. Not directly accessible, but can be deleted indirectly (e.g. via accessibility service).</string>
     <string name="appcleaner_automation_unavailable_title">Accessibility service unavailable</string>
@@ -501,6 +508,8 @@
     <string name="appcontrol_automation_loading">Preparing automation via accessibility service</string>
     <string name="appcontrol_automation_title">AppControl automation</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Force stopping…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Looking for \"Force stop\" button (keywords: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Trying to confirm previous action (keywords: %s)</string>
 
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Find out what is taking up space on your device.</string>

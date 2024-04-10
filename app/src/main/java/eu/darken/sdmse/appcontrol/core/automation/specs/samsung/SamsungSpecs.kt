@@ -7,6 +7,7 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPSpecs
 import eu.darken.sdmse.automation.core.common.StepProcessor
@@ -23,6 +24,7 @@ import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -78,7 +80,7 @@ class SamsungSpecs @Inject constructor(
         run {
             val step = StepProcessor.Step(
                 parentTag = tag,
-                label = "Find & click 'Force Stop' (targets=$forceStopLabels)",
+                label = R.string.appcontrol_automation_progress_find_force_stop.toCaString(forceStopLabels),
                 windowIntent = defaultWindowIntent(pkg),
                 windowEventFilter = defaultWindowFilter(AOSPSpecs.SETTINGS_PKG),
                 windowNodeTest = windowCriteriaAppIdentifier(AOSPSpecs.SETTINGS_PKG, ipcFunnel, pkg),
@@ -119,7 +121,7 @@ class SamsungSpecs @Inject constructor(
 
             val step = StepProcessor.Step(
                 parentTag = TAG,
-                label = "Find & click 'OK' in confirmation dialog ($titleLbl,$okLbl,$cancelLbl)",
+                label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(titleLbl + okLbl),
                 windowNodeTest = windowCriteria,
                 nodeTest = buttonFilter,
                 nodeMapping = clickableSelfOrParent(),
