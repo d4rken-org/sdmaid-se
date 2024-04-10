@@ -345,7 +345,6 @@
     <string name="appcleaner_include_minimumage_summary">Skip files that are younger than the minimum age.</string>
     <string name="appcleaner_automation_romtype_detection_label">Operating system detection</string>
     <string name="appcleaner_automation_romtype_detection_summary">Accessibility based automation may fail if SD Maid doesn\'t detect your OS correctly. Use this setting to override the detected OS.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Automatic (default)</string>
     <string name="appcleaner_filter_codecache_label">Code cache</string>
     <string name="appcleaner_filter_codecache_summary">JVM code cache. Blocks of bytecode compiled into native code.</string>
     <string name="appcleaner_filter_advertisement_label">Advertisement data</string>
@@ -450,8 +449,10 @@
     <string name="appcontrol_systemsettings_open_title">Show settings</string>
     <string name="appcontrol_systemsettings_open_description">Open your device\'s system settings for this app.</string>
     <string name="appcontrol_app_launch_title">Launch app</string>
-    <string name="appcontrol_app_uninstall_description">Uninstall this app from your device.</string>
     <string name="appcontrol_app_launch_description">Launch this app\'s primary activity.</string>
+    <string name="appcontrol_app_forcestop_title">Force stop</string>
+    <string name="appcontrol_app_forcestop_description">Stops the app. Prevents it from starting itself until you open it or the device is rebooted.</string>
+    <string name="appcontrol_app_uninstall_description">Uninstall this app from your device.</string>
     <string name="appcontrol_app_exclude_add_title">Exclude app</string>
     <string name="appcontrol_app_exclude_add_description">Exclude this app from other operations in SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Edit exclusion</string>
@@ -490,6 +491,16 @@
     <string name="appcontrol_export_title">Export app</string>
     <string name="appcontrol_export_description">Save this app\’s installation files. This does not include app data.</string>
     <string name="appcontrol_progress_exporting_x">Exporting %s</string>
+    <string name="appcontrol_force_stop_selection_action">Force stop apps</string>
+    <string name="appcontrol_force_stop_action">Force stop</string>
+    <string name="appcontrol_force_stop_confirm_title">Confirm force stop</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Force stop %d app?</item>
+        <item quantity="other">Force stop %d apps?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Preparing automation via accessibility service</string>
+    <string name="appcontrol_automation_title">AppControl automation</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Force stopping…</string>
 
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Find out what is taking up space on your device.</string>
@@ -636,4 +647,5 @@
 
     <string name="updatecheck_setting_enabled_label">Update check</string>
     <string name="updatecheck_setting_enabled_explanation">Allow SD Maid to check for updates to let you know if a newer version is available.</string>
+    <string name="device_settings_category">Device</string>
 </resources>

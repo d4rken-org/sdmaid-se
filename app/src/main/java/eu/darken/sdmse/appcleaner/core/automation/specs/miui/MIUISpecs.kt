@@ -8,9 +8,8 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
-import eu.darken.sdmse.appcleaner.core.automation.specs.SpecRomType
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.automation.core.common.StepAbortException
 import eu.darken.sdmse.automation.core.common.StepProcessor
@@ -31,25 +30,22 @@ import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
-import eu.darken.sdmse.automation.core.specs.ExplorerSpecGenerator
-import eu.darken.sdmse.automation.core.specs.SpecGenerator
-import eu.darken.sdmse.common.DeviceDetective
-import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.device.DeviceDetective
+import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.deviceadmin.DeviceAdminManager
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
-import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
+import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
 
 
@@ -57,34 +53,31 @@ import javax.inject.Inject
 class MIUISpecs @Inject constructor(
     private val ipcFunnel: IPCFunnel,
     private val deviceDetective: DeviceDetective,
-    private val pkgRepo: PkgRepo,
     private val miuiLabels: MIUILabels,
     private val aospLabels: AOSPLabels,
     private val deviceAdminManager: DeviceAdminManager,
-    private val settings: AppCleanerSettings,
     private val onTheFlyLabler: OnTheFlyLabler,
-) : ExplorerSpecGenerator() {
-
-    override val label = TAG.toCaString()
+    private val generalSettings: GeneralSettings,
+) : AppCleanerSpecGenerator {
 
     override val tag: String = TAG
 
     override suspend fun isResponsible(pkg: Installed): Boolean {
-        if (settings.romTypeDetection.value() == SpecRomType.MIUI) return true
-        if (deviceDetective.isCustomROM()) return false
-        if (!deviceDetective.isXiaomi()) return false
-        if (VERSION_STARTS.none { Build.VERSION.INCREMENTAL.startsWith(it) }) return false
-        return pkgRepo.isInstalled(SETTINGS_PKG_MIUI)
+        val romType = generalSettings.romTypeDetection.value()
+        if (romType == RomType.MIUI) return true
+        if (romType != RomType.AUTO) return false
+
+        return deviceDetective.getROMType() == RomType.MIUI
     }
 
-    override suspend fun getSpec(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
+    override suspend fun getClearCache(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
         override suspend fun createPlan(): suspend AutomationExplorer.Context.() -> Unit = {
             mainPlan(pkg)
         }
     }
 
     private val isMiui12Plus: Boolean =
-        VERSION_STARTS_CURRENT.any { Build.VERSION.INCREMENTAL.startsWith(it) } || hasApiLevel(34)
+        DeviceDetective.MIUI_VERSION_STARTS.any { Build.VERSION.INCREMENTAL.startsWith(it) } || hasApiLevel(34)
 
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = { pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
@@ -312,28 +305,14 @@ class MIUISpecs @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: MIUISpecs): SpecGenerator
+        @Binds @IntoSet abstract fun mod(mod: MIUISpecs): AppCleanerSpecGenerator
     }
 
     companion object {
         val TAG: String = logTag("AppCleaner", "Automation", "MIUI", "Specs")
         private val SETTINGS_PKG_MIUI = "com.miui.securitycenter".toPkgId()
         private val SETTINGS_PKG_AOSP = "com.android.settings".toPkgId()
-        private val VERSION_STARTS_LEGACY = arrayOf(
-            "V10",
-            "V11",
-        )
-        private val VERSION_STARTS_CURRENT = arrayOf(
-            // Xiaomi/raphael_eea/raphael:10/QKQ1.190825.002/V12.0.1.0.QFKEUXM:user/release-keys
-            "V12",
-            // Xiaomi/venus_eea/venus:12/SKQ1.211006.001/V13.0.1.0.SKBEUXM:user/release-keys
-            "V13",
-            // Xiaomi/plato_id/plato:13/TP1A.220624.014/V14.0.1.0.TLQIDXM:user/release-keys
-            "V14",
-            // POCO/mondrian_global/mondrian:14/UKQ1.230804.001/V816.0.1.0.UMNMIXM:user/release-keys,
-            "V816", // wtf poco
-        )
-        private val VERSION_STARTS = VERSION_STARTS_LEGACY + VERSION_STARTS_CURRENT
+
     }
 
 }

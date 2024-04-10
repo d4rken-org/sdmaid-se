@@ -9,8 +9,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
-import eu.darken.sdmse.appcleaner.core.automation.specs.SpecRomType
+import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.automation.core.common.StepProcessor
 import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.crawl
@@ -26,19 +25,18 @@ import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
-import eu.darken.sdmse.automation.core.specs.ExplorerSpecGenerator
-import eu.darken.sdmse.automation.core.specs.SpecGenerator
-import eu.darken.sdmse.common.DeviceDetective
-import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.device.DeviceDetective
+import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
+import eu.darken.sdmse.main.core.GeneralSettings
 import java.util.*
 import javax.inject.Inject
 
@@ -48,19 +46,20 @@ open class AndroidTVSpecs @Inject constructor(
     @ApplicationContext private val context: Context,
     private val deviceDetective: DeviceDetective,
     private val androidTVLabels: AndroidTVLabels,
-    private val settings: AppCleanerSettings,
-) : ExplorerSpecGenerator() {
-
-    override val label = TAG.toCaString()
+    private val generalSettings: GeneralSettings,
+) : AppCleanerSpecGenerator {
 
     override val tag: String = TAG
 
     override suspend fun isResponsible(pkg: Installed): Boolean {
-        if (settings.romTypeDetection.value() == SpecRomType.ANDROID_TV) return true
-        return deviceDetective.isAndroidTV()
+        val romType = generalSettings.romTypeDetection.value()
+        if (romType == RomType.ANDROID_TV) return true
+        if (romType != RomType.AUTO) return false
+
+        return deviceDetective.getROMType() == RomType.ANDROID_TV
     }
 
-    override suspend fun getSpec(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
+    override suspend fun getClearCache(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
         override suspend fun createPlan(): suspend AutomationExplorer.Context.() -> Unit = {
             mainPlan(pkg)
         }
@@ -141,7 +140,7 @@ open class AndroidTVSpecs @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: AndroidTVSpecs): SpecGenerator
+        @Binds @IntoSet abstract fun mod(mod: AndroidTVSpecs): AppCleanerSpecGenerator
     }
 
     companion object {

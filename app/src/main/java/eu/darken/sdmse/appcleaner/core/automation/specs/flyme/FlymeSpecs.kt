@@ -7,8 +7,7 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
-import eu.darken.sdmse.appcleaner.core.automation.specs.SpecRomType
+import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.automation.core.common.StepProcessor
 import eu.darken.sdmse.automation.core.common.defaultWindowFilter
 import eu.darken.sdmse.automation.core.common.defaultWindowIntent
@@ -20,21 +19,18 @@ import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
-import eu.darken.sdmse.automation.core.specs.ExplorerSpecGenerator
-import eu.darken.sdmse.automation.core.specs.SpecGenerator
-import eu.darken.sdmse.common.DeviceDetective
-import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.device.DeviceDetective
+import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
-import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
+import eu.darken.sdmse.main.core.GeneralSettings
 import java.util.*
 import javax.inject.Inject
 
@@ -42,26 +38,23 @@ import javax.inject.Inject
 class FlymeSpecs @Inject constructor(
     private val ipcFunnel: IPCFunnel,
     private val deviceDetective: DeviceDetective,
-    private val pkgRepo: PkgRepo,
     private val flymeLabels: FlymeLabels,
-    private val settings: AppCleanerSettings,
-) : ExplorerSpecGenerator() {
-
-    override val label = TAG.toCaString()
+    private val generalSettings: GeneralSettings,
+) : AppCleanerSpecGenerator {
 
     override val tag: String = TAG
 
     // https://github.com/d4rken/sdmaid-public/issues/2910
     override suspend fun isResponsible(pkg: Installed): Boolean {
-        if (settings.romTypeDetection.value() == SpecRomType.FLYME) return true
-        if (deviceDetective.isCustomROM()) return false
-        if (!deviceDetective.isMeizu()) return false
+        val romType = generalSettings.romTypeDetection.value()
+        if (romType == RomType.FLYME) return true
+        if (romType != RomType.AUTO) return false
 
         // Meizu/meizu_M8/meizuM8:8.1.0/O11019/1540458380:user/release-keys
-        return pkgRepo.isInstalled("com.meizu.flyme.update".toPkgId())
+        return deviceDetective.getROMType() == RomType.FLYME
     }
 
-    override suspend fun getSpec(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
+    override suspend fun getClearCache(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
         override suspend fun createPlan(): suspend AutomationExplorer.Context.() -> Unit = {
             mainPlan(pkg)
         }
@@ -104,7 +97,7 @@ class FlymeSpecs @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: FlymeSpecs): SpecGenerator
+        @Binds @IntoSet abstract fun mod(mod: FlymeSpecs): AppCleanerSpecGenerator
     }
 
     companion object {

@@ -91,7 +91,7 @@ class AutomationSetupModule @Inject constructor(
             canSelfEnable = canSelfEnable,
             isServiceEnabled = isServiceEnabled,
             isServiceRunning = isServiceRunning,
-            needsXiaomiAutostart = deviceDetective.isXiaomi() && !canSelfEnable,
+            needsXiaomiAutostart = deviceDetective.getROMType() == RomType.MIUI && !canSelfEnable,
             liftRestrictionsIntent = liftRestrictionsIntent,
             showAppOpsRestrictionHint = showAppOpsRestrictionHint
         ) as SetupModule.State

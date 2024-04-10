@@ -8,10 +8,13 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.export.AppExporter
+import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
+import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopper
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.toggle.ComponentToggler
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.appcontrol.core.uninstall.Uninstaller
+import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -57,6 +60,7 @@ class AppControl @Inject constructor(
     private val pkgRepo: PkgRepo,
     private val userManager: UserManager2,
     private val componentToggler: ComponentToggler,
+    private val forceStopper: ForceStopper,
     private val uninstaller: Uninstaller,
     private val pkgOps: PkgOps,
     usageStatsSetupModule: UsageStatsSetupModule,
@@ -66,6 +70,7 @@ class AppControl @Inject constructor(
     settings: AppControlSettings,
     private val appExporterProvider: Provider<AppExporter>,
     private val appInventorySetupModule: InventorySetupModule,
+    automationManager: AutomationManager,
 ) : SDMTool, Progress.Client {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
@@ -85,11 +90,12 @@ class AppControl @Inject constructor(
         progress,
         usageStatsSetupModule.state,
         storageSetupModule.state,
+        automationManager.useAcs,
         rootManager.useRoot,
         shizukuManager.useShizuku,
         settings.moduleSizingEnabled.flow,
         settings.moduleActivityEnabled.flow,
-    ) { data, progress, usageState, storageState, useRoot, useShizuku, sizingEnabled, activityEnabled ->
+    ) { data, progress, usageState, storageState, useAcs, useRoot, useShizuku, sizingEnabled, activityEnabled ->
 
         State(
             data = data,
@@ -97,6 +103,7 @@ class AppControl @Inject constructor(
             isActiveInfoAvailable = activityEnabled && (usageState.isComplete || useRoot || useShizuku),
             isAppToggleAvailable = (useRoot || useShizuku),
             isSizeInfoAvailable = sizingEnabled && usageState.isComplete && storageState.isComplete,
+            isForceStopAvailable = useAcs || useRoot || useShizuku,
         )
     }.replayingShare(appScope)
 
@@ -111,6 +118,7 @@ class AppControl @Inject constructor(
                 is AppControlToggleTask -> performToggle(task)
                 is UninstallTask -> performUninstall(task)
                 is AppExportTask -> performExportSave(task)
+                is ForceStopTask -> performForceStop(task)
                 else -> throw UnsupportedOperationException("Unsupported task: $task")
             }
 
@@ -285,6 +293,43 @@ class AppControl @Inject constructor(
         )
     }
 
+
+    private suspend fun performForceStop(task: ForceStopTask): ForceStopTask.Result {
+        log(TAG) { "performForceStop(): $task" }
+        val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
+
+        val successful = mutableSetOf<Installed.InstallId>()
+        val failed = mutableSetOf<Installed.InstallId>()
+
+        forceStopper.useRes {
+            forceStopper.withProgress(this) {
+                val mappedTargets = task.targets.map { id -> snapshot.apps.single { it.installId == id } }
+                val result = forceStop(mappedTargets)
+                successful.addAll(result.success)
+                failed.addAll(result.failed)
+            }
+        }
+
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
+        updateProgressSecondary(CaString.EMPTY)
+        updateProgressCount(Progress.Count.Indeterminate())
+
+        internalData.value = snapshot.copy(
+            apps = snapshot.apps.map { app ->
+                when {
+                    successful.contains(app.installId) || failed.contains(app.installId) -> {
+                        // TODO Do we need to update some info after force-stopping?
+                        app
+                    }
+
+                    else -> app
+                }
+            }
+        )
+
+        return ForceStopTask.Result(successful, failed)
+    }
+
     private suspend fun Installed.toAppInfo(): AppInfo {
         val determineActive = state.first().isActiveInfoAvailable
         val determineSizes = state.first().isSizeInfoAvailable
@@ -302,6 +347,7 @@ class AppControl @Inject constructor(
         val isAppToggleAvailable: Boolean,
         val isActiveInfoAvailable: Boolean,
         val isSizeInfoAvailable: Boolean,
+        val isForceStopAvailable: Boolean,
     ) : SDMTool.State
 
     data class Data(

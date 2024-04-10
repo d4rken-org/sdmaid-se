@@ -6,7 +6,6 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -15,6 +14,8 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.device.DeviceDetective
+import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.canRead
 import eu.darken.sdmse.common.files.canWrite
@@ -74,7 +75,7 @@ class PublicMediaModule @Inject constructor(
             }
             .run { areas.addAll(this) }
 
-        if (sdcardAreas.isEmpty() && deviceDetective.isAndroidTV()) {
+        if (sdcardAreas.isEmpty() && deviceDetective.getROMType() == RomType.ANDROID_TV) {
             log(TAG, INFO) { "AndroidTV: Restricted access. Trying manual data area creation." }
             userManager2.allUsers()
                 .map { profile ->

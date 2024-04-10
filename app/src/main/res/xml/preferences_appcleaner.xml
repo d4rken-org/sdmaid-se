@@ -46,13 +46,6 @@
         app:summary="@string/appcleaner_include_inaccessible_summary"
         app:title="@string/appcleaner_include_inaccessible_label" />
 
-    <eu.darken.sdmse.common.preferences.ListPreference2
-        android:icon="@drawable/ic_baseline_accessibility_new_24"
-        android:key="automation.romtype.detection"
-        android:title="@string/appcleaner_automation_romtype_detection_label"
-        app:persistent="false"
-        app:summary="@string/appcleaner_automation_romtype_detection_summary" />
-
     <PreferenceCategory android:title="@string/settings_category_filter_generic">
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_format_list_bulleted_24"

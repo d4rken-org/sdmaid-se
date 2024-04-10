@@ -89,8 +89,33 @@ class PkgOps @Inject constructor(
         else -> gid
     }
 
-    suspend fun forceStop(packageName: String): Boolean = rootOps {
-        it.forceStop(packageName)
+    suspend fun forceStop(pkgId: Pkg.Id, mode: Mode = Mode.AUTO): Boolean {
+        log(TAG, VERBOSE) { "forceStop($pkgId, mode=$mode)" }
+        try {
+            val opsAction = { opsClient: PkgOpsClient ->
+                opsClient.forceStop(pkgId.name)
+            }
+
+            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+                log(TAG) { "forceStop($pkgId, $mode->ADB)" }
+                return adbOps { opsAction(it) }
+
+            }
+
+            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
+                log(TAG) { "forceStop($pkgId, $mode->ROOT)" }
+                return rootOps { opsAction(it) }
+            }
+
+            throw ModeUnavailableException("Mode $mode is unavailable")
+        } catch (e: Exception) {
+            if (e is ModeUnavailableException) {
+                log(TAG, DEBUG) { "forceStop(...): $mode unavailable for $pkgId" }
+            } else {
+                log(TAG, WARN) { "forceStop($pkgId, mode=$mode) failed: $e" }
+            }
+            throw PkgOpsException(message = "changePackageState($pkgId, $mode) failed", cause = e)
+        }
     }
 
     suspend fun queryPkg(pkgName: Pkg.Id, flags: Int, userHandle: UserHandle2): Installed? = ipcFunnel.use {

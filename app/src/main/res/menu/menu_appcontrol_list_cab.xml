@@ -19,8 +19,13 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_export_selection"
-        android:icon="@drawable/ic_baseline_save_24"
+        android:icon="@drawable/ic_alert_octagon_outline_24"
         android:title="@string/appcontrol_export_app_selection_action"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_forcestop_selection"
+        android:icon="@drawable/ic_baseline_save_24"
+        android:title="@string/appcontrol_force_stop_selection_action"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_select_all"

@@ -8,13 +8,14 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.device.DeviceDetective
+import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.hasApiLevel
@@ -74,7 +75,7 @@ class StorageSetupModule @Inject constructor(
 
     private fun getRequiredPermission(): Set<Permission> {
         return when {
-            hasApiLevel(30) && !deviceDetective.isAndroidTV() -> setOf(Permission.MANAGE_EXTERNAL_STORAGE)
+            hasApiLevel(30) && deviceDetective.getROMType() != RomType.ANDROID_TV -> setOf(Permission.MANAGE_EXTERNAL_STORAGE)
             else -> setOf(
                 Permission.WRITE_EXTERNAL_STORAGE,
                 Permission.READ_EXTERNAL_STORAGE

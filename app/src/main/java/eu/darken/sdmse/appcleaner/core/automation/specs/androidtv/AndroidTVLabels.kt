@@ -1,13 +1,13 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.androidtv
 
 import dagger.Reusable
-import eu.darken.sdmse.automation.core.common.AutomationLabelSource
+import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
 import eu.darken.sdmse.common.debug.logging.logTag
 import javax.inject.Inject
 
 @Reusable
 open class AndroidTVLabels @Inject constructor(
-) : AutomationLabelSource {
+) : AppCleanerLabelSource {
 
     // Taken from AOSP14to28Specs
     fun getClearCacheLabels(lang: String, script: String): Collection<String> = when {

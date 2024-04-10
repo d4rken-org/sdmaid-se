@@ -158,6 +158,8 @@
     <string name="general_progress_ready">Ready</string>
     <string name="general_progress_done">Done</string>
 
+    <string name="general_rom_type_auto_label">Automatic (default)</string>
+
     <plurals name="result_x_files">
         <item quantity="one">%s file</item>
         <item quantity="other">%s files</item>

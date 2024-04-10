@@ -2,6 +2,7 @@ package eu.darken.sdmse.main.ui
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -32,7 +33,7 @@ class MainViewModel @Inject constructor(
     val readyState = readyStateInternal.asLiveData2()
 
     val keepScreenOn = taskManager.state
-        .map { !it.isIdle }
+        .map { !it.isIdle || BuildConfigWrap.DEBUG }
         .asLiveData2()
 
     fun onGo() {

@@ -2,8 +2,6 @@ package eu.darken.sdmse.appcleaner.core.automation
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
-import android.content.res.Resources
-import android.os.Build
 import android.view.accessibility.AccessibilityEvent
 import dagger.Binds
 import dagger.Module
@@ -36,8 +34,6 @@ import eu.darken.sdmse.automation.core.common.ScreenUnavailableException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
-import eu.darken.sdmse.automation.core.specs.SpecGenerator
-import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -45,7 +41,6 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.funnel.IPCFunnel
-import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getPkg
@@ -66,16 +61,16 @@ class ClearCacheModule @AssistedInject constructor(
     val ipcFunnel: IPCFunnel,
     private val pkgRepo: PkgRepo,
     private val automationExplorerFactory: AutomationExplorer.Factory,
-    private val specGenerators: Provider<Set<@JvmSuppressWildcards SpecGenerator>>,
+    private val specGenerators: Provider<Set<@JvmSuppressWildcards AppCleanerSpecGenerator>>,
     private val userManager2: UserManager2,
     private val labelDebugger: LabelDebugger,
 ) : AutomationModule(automationHost) {
 
-    private fun getPriotizedSpecGenerators(): List<SpecGenerator> = specGenerators
+    private fun getPriotizedSpecGenerators(): List<AppCleanerSpecGenerator> = specGenerators
         .get()
         .also { log(TAG) { "${it.size} step generators are available" } }
         .onEach { log(TAG, VERBOSE) { "Loaded: $it" } }
-        .sortedByDescending { generator: SpecGenerator ->
+        .sortedByDescending { generator: AppCleanerSpecGenerator ->
             when (generator) {
                 is MIUISpecs -> 190
                 is SamsungSpecs -> 170
@@ -196,11 +191,10 @@ class ClearCacheModule @AssistedInject constructor(
         val start = System.currentTimeMillis()
 
         val specGenerator = getPriotizedSpecGenerators().firstOrNull { it.isResponsible(pkg) }
-            ?: throw createUnsupportedError("DeviceSpec")
+            ?: getPriotizedSpecGenerators().single { it is AOSPSpecs }
         log(TAG) { "Using spec generator: $specGenerator" }
 
-
-        val spec = specGenerator.getSpec(pkg)
+        val spec = specGenerator.getClearCache(pkg)
         log(TAG) { "Generated spec for ${pkg.id} is $spec" }
 
         when (spec) {
@@ -239,18 +233,5 @@ class ClearCacheModule @AssistedInject constructor(
 
     companion object {
         val TAG: String = logTag("Automation", "AppCleaner", "ClearCacheModule")
-
-        fun createUnsupportedError(tag: String): Throwable {
-            val locale = if (hasApiLevel(24)) {
-                @Suppress("NewApi")
-                Resources.getSystem().configuration.locales[0]
-            } else {
-                @Suppress("DEPRECATION")
-                Resources.getSystem().configuration.locale
-            }
-            val apiLevel = BuildWrap.VERSION.SDK_INT
-            val rom = Build.MANUFACTURER
-            return UnsupportedOperationException("$tag: ROM $rom($apiLevel) & Locale ($locale) is not supported.")
-        }
     }
 }

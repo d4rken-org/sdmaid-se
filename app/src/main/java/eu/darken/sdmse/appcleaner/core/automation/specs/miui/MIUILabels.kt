@@ -3,7 +3,7 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.miui
 import android.content.Context
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.automation.core.common.AutomationLabelSource
+import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -11,7 +11,7 @@ import javax.inject.Inject
 @Reusable
 class MIUILabels @Inject constructor(
     @ApplicationContext private val context: Context,
-) : AutomationLabelSource {
+) : AppCleanerLabelSource {
 
     fun getDialogTitles(lang: String, script: String, country: String?): Set<String> =
         getDialogTitlesDynamic() + getDialogTitlesFallback(lang, script, country)

@@ -1,7 +1,7 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.oneplus
 
 import dagger.Reusable
-import eu.darken.sdmse.automation.core.common.AutomationLabelSource
+import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
@@ -12,7 +12,7 @@ open class OnePlusLabels @Inject constructor(
     private val labels14Plus: OnePlusLabels14Plus,
     private val labels29Plus: OnePlusLabels29Plus,
     private val labels31Plus: OnePlusLabels31Plus,
-) : AutomationLabelSource {
+) : AppCleanerLabelSource {
 
     fun getStorageEntryDynamic(): Set<String> = when {
         hasApiLevel(31) -> labels31Plus.getStorageEntryDynamic()

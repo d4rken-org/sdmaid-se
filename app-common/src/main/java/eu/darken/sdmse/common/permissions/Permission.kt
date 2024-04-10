@@ -14,7 +14,8 @@ import android.provider.Settings
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.DeviceDetective
+import eu.darken.sdmse.common.device.DeviceDetective
+import eu.darken.sdmse.common.device.RomType
 import kotlin.reflect.full.isSubclassOf
 
 
@@ -87,7 +88,7 @@ sealed class Permission(
             val defaultIntent = Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)
             return when {
                 defaultIntent.resolveActivities(context).isNotEmpty() -> return defaultIntent
-                deviceDetective.isAndroidTV() -> Intent(Settings.ACTION_APPLICATION_SETTINGS)
+                deviceDetective.getROMType() == RomType.ANDROID_TV -> Intent(Settings.ACTION_APPLICATION_SETTINGS)
                 else -> Intent(Settings.ACTION_SETTINGS)
             }
         }

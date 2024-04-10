@@ -41,7 +41,14 @@ class GeneralSettingsFragment : PreferenceFragment3() {
     private val languageOverride: Preference
         get() = findPreference("core.ui.language")!!
 
+    private val romTypeOverride: ListPreference2
+        get() = findPreference(settings.romTypeDetection.keyName)!!
+
     override fun onPreferencesCreated() {
+        super.onPreferencesCreated()
+
+        romTypeOverride.setupWithEnum(settings.romTypeDetection)
+
         themeModePref.setupWithEnum(settings.themeMode)
         themeStylePref.setupWithEnum(settings.themeStyle)
 
@@ -57,7 +64,6 @@ class GeneralSettingsFragment : PreferenceFragment3() {
                 true
             }
         }
-        super.onPreferencesCreated()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -2,7 +2,7 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.automation.core.common.AutomationLabelSource
+import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -10,7 +10,7 @@ import javax.inject.Inject
 class AOSPLabels29Plus @Inject constructor(
     @ApplicationContext private val context: Context,
     private val aospLabels14Plus: AOSPLabels14Plus,
-) : AutomationLabelSource {
+) : AppCleanerLabelSource {
 
     fun getStorageEntryDynamic(): Set<String> = setOf(
         "storage_settings_for_app",
