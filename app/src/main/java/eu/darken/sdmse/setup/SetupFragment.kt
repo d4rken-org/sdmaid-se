@@ -169,8 +169,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
 
                 is SetupEvents.ConfigureAccessibilityService -> {
                     try {
-                        val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
-                        specialPermissionLauncher.launch(intent)
+                        specialPermissionLauncher.launch(event.item.settingsIntent)
                     } catch (e: Exception) {
                         log(TAG, ERROR) { "Failed to open accessibility settings page: ${e.asLog()}" }
                         e.asErrorDialogBuilder(requireActivity()).show()
