@@ -19,7 +19,6 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.flow.replayingShare
-import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.shizuku.ShizukuManager
@@ -58,7 +57,7 @@ class AutomationSetupModule @Inject constructor(
         val isServiceRunning = automationManager.isServiceLaunched()
         log(TAG) { "isServiceRunning=$isServiceRunning" }
 
-        val canSelfEnable = Permission.WRITE_SECURE_SETTINGS.isGranted(context)
+        val canSelfEnable = automationManager.canSelfEnable()
         log(TAG) { "canSelfEnable=$canSelfEnable" }
 
         val mightBeRestricted = context.mightBeRestrictedDueToSideload()
