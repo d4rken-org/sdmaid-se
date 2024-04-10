@@ -11,6 +11,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
+import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.common.SingleLiveEvent
@@ -353,6 +354,22 @@ class AppControlListViewModel @Inject constructor(
         val result = appControl.submit(AppExportTask(targets = targets, saveDir)) as AppExportTask.Result
 
         events.postValue(AppControlListEvents.ExportResult(result.success, result.failed))
+    }
+
+    fun forceStop(items: Collection<AppControlListAdapter.Item>, confirmed: Boolean = false) = launch {
+        log(TAG) { "forceStop(${items.size}, confirmed=$confirmed)" }
+        if (items.size > 1 && !upgradeRepo.isPro()) {
+            MainDirections.goToUpgradeFragment().navigate()
+            return@launch
+        }
+
+        if (!confirmed) {
+            events.postValue(AppControlListEvents.ConfirmForceStop(items.toList()))
+            return@launch
+        }
+        val targets = items.map { it.appInfo.installId }.toSet()
+        val result = appControl.submit(ForceStopTask(targets = targets)) as ForceStopTask.Result
+        events.postValue(AppControlListEvents.ForceStopResult(result))
     }
 
     data class State(

@@ -1,7 +1,7 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 
 import dagger.Reusable
-import eu.darken.sdmse.automation.core.common.AutomationLabelSource
+import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
@@ -11,7 +11,7 @@ import javax.inject.Inject
 class AOSPLabels @Inject constructor(
     private val labels14Plus: AOSPLabels14Plus,
     private val labels29Plus: AOSPLabels29Plus,
-) : AutomationLabelSource {
+) : AppCleanerLabelSource {
 
     fun getStorageEntryDynamic(): Set<String> = when {
         hasApiLevel(29) -> labels29Plus.getStorageEntryDynamic()

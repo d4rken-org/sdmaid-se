@@ -44,22 +44,36 @@ fun AutomationExplorer.Context.defaultWindowFilter(
 }
 
 fun AutomationExplorer.Context.defaultClick(
-    isDryRun: Boolean = false
-): suspend (AccessibilityNodeInfo, Int) -> Boolean = { node: AccessibilityNodeInfo, _: Int ->
+    isDryRun: Boolean = false,
+    onDisabled: ((AccessibilityNodeInfo) -> Boolean)? = null,
+): suspend (AccessibilityNodeInfo, Int) -> Boolean = clickFunc@{ node: AccessibilityNodeInfo, _: Int ->
     log(TAG, VERBOSE) { "Clicking on ${node.toStringShort()}" }
-    if (!node.isEnabled) throw DisabledTargetException("Clickable target is disabled.")
-    if (isDryRun) {
-        node.performAction(AccessibilityNodeInfo.ACTION_SELECT)
+
+    when {
+        !node.isEnabled -> onDisabled?.invoke(node) ?: throw DisabledTargetException("Clickable target is disabled.")
+        isDryRun -> node.performAction(AccessibilityNodeInfo.ACTION_SELECT)
+        else -> node.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+    }
+}
+
+fun AutomationExplorer.Context.clickableSelfOrParent(
+    maxNesting: Int = 6
+): suspend (AccessibilityNodeInfo) -> AccessibilityNodeInfo = { us ->
+    if (us.isClickable) {
+        us
     } else {
-        node.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+        us.findParentOrNull(maxNesting = maxNesting) {
+            it.isClickable
+        } ?: throw AutomationException("No clickable self or parent found (within $maxNesting)")
     }
 }
 
 fun AutomationExplorer.Context.clickableParent(
     maxNesting: Int = 6
 ): suspend (AccessibilityNodeInfo) -> AccessibilityNodeInfo = { us ->
-    us.findParentOrNull(maxNesting = maxNesting) { it.isClickable }
-        ?: throw AutomationException("No clickable parent found (within $maxNesting)")
+    us.findParentOrNull(maxNesting = maxNesting) {
+        it.isClickable
+    } ?: throw AutomationException("No clickable parent found (within $maxNesting)")
 }
 
 fun AutomationExplorer.Context.clickableSibling(): (AccessibilityNodeInfo) -> AccessibilityNodeInfo = { us ->

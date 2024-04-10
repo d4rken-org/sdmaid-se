@@ -14,12 +14,14 @@ import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
 import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
+import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallException
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExcludeActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExportActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.ForceStopActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SizeInfoVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
@@ -57,7 +59,7 @@ import javax.inject.Inject
 class AppActionViewModel @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    @ApplicationContext private val context: Context,
+    @Suppress("StaticFieldLeak") @ApplicationContext private val context: Context,
     private val appControl: AppControl,
     private val taskManager: TaskManager,
     private val exclusionManager: ExclusionManager,
@@ -127,6 +129,20 @@ class AppActionViewModel @Inject constructor(
                     }
                 )
             }
+
+        val forceStopAction = if (state.isForceStopAvailable) {
+            ForceStopActionVH.Item(
+                appInfo = appInfo,
+                onForceStop = {
+                    launch {
+                        val result = taskManager.submit(ForceStopTask(setOf(appInfo.installId))) as ForceStopTask.Result
+                        events.postValue(AppActionEvents.ForceStopResult(result))
+                    }
+                }
+            )
+        } else {
+            null
+        }
 
         val systemSettingsAction = SystemSettingsActionVH.Item(
             appInfo = appInfo,
@@ -211,6 +227,7 @@ class AppActionViewModel @Inject constructor(
             actions = listOfNotNull(
                 sizeAction,
                 launchAction,
+                forceStopAction,
                 systemSettingsAction,
                 appStoreAction,
                 excludeAction,

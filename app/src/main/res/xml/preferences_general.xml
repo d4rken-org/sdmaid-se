@@ -54,6 +54,17 @@
             tools:isPreferenceVisible="true" />
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/device_settings_category">
+
+        <eu.darken.sdmse.common.preferences.ListPreference2
+            android:icon="@drawable/ic_baseline_accessibility_new_24"
+            android:key="core.romtype.detection"
+            android:title="@string/appcleaner_automation_romtype_detection_label"
+            app:persistent="false"
+            app:summary="@string/appcleaner_automation_romtype_detection_summary" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/settings_category_other_label">
 
         <CheckBoxPreference

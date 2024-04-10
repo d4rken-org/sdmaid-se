@@ -189,6 +189,12 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                         true
                     }
 
+                    R.id.action_forcestop_selection -> {
+                        vm.forceStop(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
                     else -> false
                 }
             }
@@ -355,6 +361,30 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     val msgFailed = getQuantityString2(
                         eu.darken.sdmse.common.R.plurals.result_x_failed,
                         event.failed.size
+                    )
+                    Snackbar.make(requireView(), "$msgSuccessful, $msgFailed", Snackbar.LENGTH_SHORT).show()
+                }
+
+                is AppControlListEvents.ConfirmForceStop -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    setTitle(R.string.appcontrol_force_stop_confirm_title)
+                    setMessage(
+                        getQuantityString2(R.plurals.appcontrol_force_stop_confirmation_message_x, event.items.size)
+                    )
+                    setPositiveButton(R.string.appcontrol_force_stop_action) { _, _ ->
+                        vm.forceStop(event.items, confirmed = true)
+                        tracker.clearSelection()
+                    }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                }.show()
+
+                is AppControlListEvents.ForceStopResult -> {
+                    val msgSuccessful = getQuantityString2(
+                        eu.darken.sdmse.common.R.plurals.result_x_successful,
+                        event.result.success.size
+                    )
+                    val msgFailed = getQuantityString2(
+                        eu.darken.sdmse.common.R.plurals.result_x_failed,
+                        event.result.failed.size
                     )
                     Snackbar.make(requireView(), "$msgSuccessful, $msgFailed", Snackbar.LENGTH_SHORT).show()
                 }

@@ -3,7 +3,7 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.oneplus
 import android.content.Context
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.automation.core.common.AutomationLabelSource
+import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -12,7 +12,7 @@ import javax.inject.Inject
 open class OnePlusLabels29Plus @Inject constructor(
     @ApplicationContext private val context: Context,
     private val onePlusLabels14Plus: OnePlusLabels14Plus,
-) : AutomationLabelSource {
+) : AppCleanerLabelSource {
 
     fun getStorageEntryDynamic(): Set<String> {
         // Fingerprint: OnePlus/OnePlus7/OnePlus7:11/RKQ1.201022.002/2206171327:user/release-keys

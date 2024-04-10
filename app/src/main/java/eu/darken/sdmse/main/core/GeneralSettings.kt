@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.theming.ThemeMode
 import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.common.updater.UpdateChecker
@@ -54,6 +55,8 @@ class GeneralSettings @Inject constructor(
     val oneClickDeduplicatorEnabled = dataStore.createValue("dashboard.oneclick.deduplicator.enabled", false)
 
     val isUpdateCheckEnabled = dataStore.createValue("updater.check.enabled", updateChecker.isEnabledByDefault())
+
+    val romTypeDetection = dataStore.createValue("core.romtype.detection", RomType.AUTO, moshi)
 
     override val mapper = PreferenceStoreMapper(
         debugSettings.isDebugMode,

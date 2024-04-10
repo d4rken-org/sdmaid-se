@@ -7,9 +7,8 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
-import eu.darken.sdmse.appcleaner.core.automation.specs.SpecRomType
 import eu.darken.sdmse.automation.core.common.StepProcessor
 import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.defaultClick
@@ -23,20 +22,19 @@ import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
-import eu.darken.sdmse.automation.core.specs.ExplorerSpecGenerator
-import eu.darken.sdmse.automation.core.specs.SpecGenerator
-import eu.darken.sdmse.common.DeviceDetective
-import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.device.DeviceDetective
+import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
+import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
 
 @Reusable
@@ -44,23 +42,22 @@ class AlcatelSpecs @Inject constructor(
     ipcFunnel: IPCFunnel,
     private val deviceDetective: DeviceDetective,
     private val alcatelLabels: AlcatelLabels,
-    private val settings: AppCleanerSettings,
     private val onTheFlyLabler: OnTheFlyLabler,
-) : ExplorerSpecGenerator() {
-
-    override val label = TAG.toCaString()
+    private val generalSettings: GeneralSettings,
+) : AppCleanerSpecGenerator {
 
     override val tag: String = TAG
 
     override suspend fun isResponsible(pkg: Installed): Boolean {
-        if (settings.romTypeDetection.value() == SpecRomType.ALCATEL) return true
-        if (deviceDetective.isCustomROM()) return false
+        val romType = generalSettings.romTypeDetection.value()
+        if (romType == RomType.ALCATEL) return true
+        if (romType != RomType.AUTO) return false
 
         // Android 10 Alcatel ROMs still use older labels
-        return hasApiLevel(29) && deviceDetective.isAlcatel()
+        return hasApiLevel(29) && deviceDetective.getROMType() == RomType.ALCATEL
     }
 
-    override suspend fun getSpec(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
+    override suspend fun getClearCache(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
         override suspend fun createPlan(): suspend AutomationExplorer.Context.() -> Unit = {
             mainPlan(pkg)
         }
@@ -117,7 +114,7 @@ class AlcatelSpecs @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: AlcatelSpecs): SpecGenerator
+        @Binds @IntoSet abstract fun mod(mod: AlcatelSpecs): AppCleanerSpecGenerator
     }
 
     companion object {

@@ -1,15 +1,15 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.honor
 
 import dagger.Reusable
+import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
-import eu.darken.sdmse.automation.core.common.AutomationLabelSource
 import eu.darken.sdmse.common.debug.logging.logTag
 import javax.inject.Inject
 
 @Reusable
 class HonorLabels @Inject constructor(
     private val aospLabels: AOSPLabels
-) : AutomationLabelSource {
+) : AppCleanerLabelSource {
 
     fun getStorageEntryDynamic(): Set<String> = aospLabels.getStorageEntryDynamic()
 

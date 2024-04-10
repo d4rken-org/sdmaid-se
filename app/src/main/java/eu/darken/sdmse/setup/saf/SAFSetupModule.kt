@@ -11,7 +11,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
@@ -19,6 +18,8 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.device.DeviceDetective
+import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.dropLastColon
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.exists
@@ -73,7 +74,7 @@ class SAFSetupModule @Inject constructor(
         val requestObjects = mutableListOf<Result.PathAccess>()
 
         // Android TV doesn't have the DocumentsUI app necessary to grant us permissions
-        if (deviceDetective.isAndroidTV()) {
+        if (deviceDetective.getROMType() == RomType.ANDROID_TV) {
             log(TAG) { "Skipping SAF setup as this is an Android TV device." }
             return requestObjects
         }

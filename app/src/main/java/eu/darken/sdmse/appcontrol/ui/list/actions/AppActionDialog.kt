@@ -17,6 +17,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.appcontrol.core.export.AppExportType
+import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -84,14 +85,26 @@ class AppActionDialog : BottomSheetDialogFragment2() {
 
                 is AppActionEvents.ExportResult -> {
                     val msgSuccessful = getQuantityString2(
-                        eu.darken.sdmse.common.R.plurals.result_x_successful,
+                        R.plurals.result_x_successful,
                         event.successful.size
                     )
                     val msgFailed = getQuantityString2(
-                        eu.darken.sdmse.common.R.plurals.result_x_failed,
+                        R.plurals.result_x_failed,
                         event.failed.size
                     )
                     Snackbar.make(requireView(), "$msgSuccessful, $msgFailed", Snackbar.LENGTH_SHORT).show()
+                }
+
+                is AppActionEvents.ForceStopResult -> {
+                    Snackbar.make(
+                        requireView(),
+                        if (event.result.isSuccess) {
+                            getString(R.string.general_result_success_message)
+                        } else {
+                            getString(R.string.general_result_failure_message)
+                        },
+                        Snackbar.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
