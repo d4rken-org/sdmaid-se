@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.shareLatest
+import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.useRes
 import eu.darken.sdmse.main.core.GeneralSettings
@@ -44,7 +45,10 @@ class AutomationManager @Inject constructor(
 ) {
 
     val useAcs: Flow<Boolean> = settings.hasAcsConsent.flow
-        .mapLatest { (it ?: false) && isServiceEnabled() && isServiceLaunched() }
+        .mapLatest { consent ->
+            if (consent != true) return@mapLatest false
+            (isServiceEnabled() && isServiceLaunched()) || canSelfEnable()
+        }
         .shareLatest(appScope)
 
     private val ourServiceComp: ComponentName by lazy {
@@ -75,11 +79,13 @@ class AutomationManager @Inject constructor(
         log(TAG) { "setAutomationServices($services) -> $after" }
     }
 
-    suspend fun isServiceEnabled(): Boolean = getAutomationServices().contains(ourServiceComp)
-
     private fun currentService(): AutomationService? = AutomationService.instance
 
+    suspend fun isServiceEnabled(): Boolean = getAutomationServices().contains(ourServiceComp)
+
     fun isServiceLaunched() = currentService() != null
+
+    suspend fun canSelfEnable() = Permission.WRITE_SECURE_SETTINGS.isGranted(context)
 
     suspend fun submit(task: AutomationTask): AutomationTask.Result {
         log(TAG) { "submit(): $task" }

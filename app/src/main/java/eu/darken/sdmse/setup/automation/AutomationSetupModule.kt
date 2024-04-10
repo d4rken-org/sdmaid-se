@@ -11,14 +11,14 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.AutomationService
-import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.SystemSettingsProvider.*
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.device.DeviceDetective
+import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.flow.replayingShare
-import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.shizuku.ShizukuManager
@@ -57,7 +57,7 @@ class AutomationSetupModule @Inject constructor(
         val isServiceRunning = automationManager.isServiceLaunched()
         log(TAG) { "isServiceRunning=$isServiceRunning" }
 
-        val canSelfEnable = Permission.WRITE_SECURE_SETTINGS.isGranted(context)
+        val canSelfEnable = automationManager.canSelfEnable()
         log(TAG) { "canSelfEnable=$canSelfEnable" }
 
         val mightBeRestricted = context.mightBeRestrictedDueToSideload()
