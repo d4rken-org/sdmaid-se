@@ -8,6 +8,7 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
@@ -30,6 +31,7 @@ import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -86,7 +88,7 @@ class MIUISpecs @Inject constructor(
 
         val step = StepProcessor.Step(
             parentTag = TAG,
-            label = "Opening app settings screen",
+            label = R.string.appcleaner_automation_progress_find_storage.toCaString(""),
             windowIntent = defaultWindowIntent(pkg),
             windowEventFilter = { event ->
                 // Some MIUI14 devices send the change event for the system settings app
@@ -136,7 +138,7 @@ class MIUISpecs @Inject constructor(
 
             val step = StepProcessor.Step(
                 parentTag = tag,
-                label = "Find & click 'Storage' (targets=$storageEntryLabels)",
+                label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
                 nodeTest = storageFilter,
                 nodeRecovery = getDefaultNodeRecovery(pkg),
                 nodeMapping = clickableParent(),
@@ -156,7 +158,7 @@ class MIUISpecs @Inject constructor(
 
             val step = StepProcessor.Step(
                 parentTag = tag,
-                label = "Find & click 'Clear Cache' (targets=$clearCacheButtonLabels)",
+                label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 nodeTest = buttonFilter,
                 action = getAospClearCacheClick(pkg, tag)
             )
@@ -201,7 +203,7 @@ class MIUISpecs @Inject constructor(
             }
             val step = StepProcessor.Step(
                 parentTag = TAG,
-                label = "Find & click MIUI 'Clear data' (targets=$clearDataLabels)",
+                label = R.string.appcleaner_automation_progress_find_clear_data.toCaString(clearDataLabels),
                 windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG_MIUI, ipcFunnel, pkg),
                 nodeTest = clearDataFilter,
                 nodeRecovery = getDefaultNodeRecovery(pkg),
@@ -218,7 +220,7 @@ class MIUISpecs @Inject constructor(
         if (useAlternativeStep) {
             val alternativeStep: StepProcessor.Step = StepProcessor.Step(
                 parentTag = TAG,
-                label = "BRANCH: Find & Click 'Clear cache' (targets=$clearCacheLabels)",
+                label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheLabels),
                 windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG_MIUI, ipcFunnel, pkg),
                 nodeTest = when {
                     isMiui12Plus -> {
@@ -255,7 +257,7 @@ class MIUISpecs @Inject constructor(
 
             val step = StepProcessor.Step(
                 parentTag = TAG,
-                label = "Find & click 'Clear Cache' entry in bottom sheet (targets=$clearCacheLabels)",
+                label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheLabels),
                 windowNodeTest = windowCriteria,
                 nodeTest = entryFilter,
                 action = defaultClick()
@@ -291,10 +293,9 @@ class MIUISpecs @Inject constructor(
                 }
             }
 
-
             val step = StepProcessor.Step(
                 parentTag = TAG,
-                label = "Find & click 'OK' in confirmation dialog",
+                label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(""),
                 windowNodeTest = windowCriteria,
                 nodeTest = buttonFilter,
                 action = defaultClick()

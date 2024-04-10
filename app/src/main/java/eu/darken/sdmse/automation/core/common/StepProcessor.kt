@@ -11,6 +11,7 @@ import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.ScreenState
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.CaDrawable
+import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -210,7 +211,7 @@ class StepProcessor @AssistedInject constructor(
 
     data class Step(
         val parentTag: String,
-        val label: String,
+        val label: CaString,
         val icon: CaDrawable? = null,
         val windowIntent: Intent? = null,
         val windowEventFilter: (suspend (node: AccessibilityEvent) -> Boolean)? = null,

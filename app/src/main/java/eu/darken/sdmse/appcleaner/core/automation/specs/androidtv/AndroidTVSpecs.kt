@@ -9,6 +9,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.automation.core.common.StepProcessor
 import eu.darken.sdmse.automation.core.common.clickableParent
@@ -25,6 +26,7 @@ import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -84,7 +86,7 @@ open class AndroidTVSpecs @Inject constructor(
 
             val step = StepProcessor.Step(
                 parentTag = TAG,
-                label = "Find & click 'Clear Cache' (targets=$clearCacheButtonLabels)",
+                label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowIntent = defaultWindowIntent(pkg),
                 windowEventFilter = defaultWindowFilter(SETTINGS_PKG),
                 windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
@@ -115,11 +117,12 @@ open class AndroidTVSpecs @Inject constructor(
                 }
             }
 
+            val buttonLabels = setOf(context.getString(android.R.string.ok))
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 return when {
                     node.idMatches("com.android.tv.settings:id/guidedactions_item_content") -> true
                     node.idMatches("com.android.tv.settings:id/guidedactions_item_title") -> {
-                        node.textMatchesAny(setOf(context.getString(android.R.string.ok)))
+                        node.textMatchesAny(buttonLabels)
                     }
 
                     else -> false
@@ -128,7 +131,7 @@ open class AndroidTVSpecs @Inject constructor(
 
             val step = StepProcessor.Step(
                 parentTag = TAG,
-                label = "Find & click 'OK' in confirmation dialog",
+                label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(buttonLabels),
                 windowNodeTest = windowCriteria,
                 nodeTest = buttonFilter,
                 nodeMapping = clickableParent(),

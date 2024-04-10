@@ -7,6 +7,7 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
 import eu.darken.sdmse.appcleaner.core.automation.specs.alcatel.AlcatelSpecs
@@ -24,6 +25,7 @@ import eu.darken.sdmse.automation.core.common.windowCriteria
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.log
@@ -81,7 +83,7 @@ class RealmeSpecs @Inject constructor(
 
             val step = StepProcessor.Step(
                 parentTag = tag,
-                label = "Find & click 'Storage' (targets=$storageEntryLabels)",
+                label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
                 windowIntent = defaultWindowIntent(pkg),
                 windowEventFilter = defaultWindowFilter(SETTINGS_PKG),
                 windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
@@ -104,7 +106,7 @@ class RealmeSpecs @Inject constructor(
 
             val step = StepProcessor.Step(
                 parentTag = tag,
-                label = "Find & click 'Clear Cache' (targets=$clearCacheButtonLabels)",
+                label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowNodeTest = windowCriteria(SETTINGS_PKG),
                 nodeTest = buttonFilter,
                 action = getAospClearCacheClick(pkg, tag)
