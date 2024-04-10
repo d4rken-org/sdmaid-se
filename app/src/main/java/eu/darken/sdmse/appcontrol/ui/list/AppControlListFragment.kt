@@ -55,6 +55,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
     override val ui: AppcontrolListFragmentBinding by viewBinding()
     private var searchView: SearchView? = null
     private var showAppToggleActions: Boolean = false
+    private var showAppForceStopActions: Boolean = false
 
     val DrawerLayout.isDrawerOpen: Boolean
         get() = isDrawerOpen(GravityCompat.END)
@@ -161,6 +162,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             cabMenuRes = R.menu.menu_appcontrol_list_cab,
             onPrepare = { _: SelectionTracker<String>, _: ActionMode, menu: Menu ->
                 menu.findItem(R.id.action_toggle_selection)?.isVisible = showAppToggleActions
+                menu.findItem(R.id.action_forcestop_selection)?.isVisible = showAppForceStopActions
                 true
             },
             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: Collection<AppControlListAdapter.Item> ->
@@ -234,6 +236,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
 
         vm.state.observe2(ui) { state ->
             showAppToggleActions = state.allowAppToggleActions
+            showAppForceStopActions = state.allowAppForceStopActions
 
             loadingOverlay.setProgress(state.progress)
             list.isGone = state.progress != null

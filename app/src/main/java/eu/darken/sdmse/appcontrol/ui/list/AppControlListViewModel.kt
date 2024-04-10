@@ -154,6 +154,7 @@ class AppControlListViewModel @Inject constructor(
                     displayOptions
                 },
                 allowAppToggleActions = state.isAppToggleAvailable,
+                allowAppForceStopActions = state.isForceStopAvailable,
                 hasActiveInfo = state.isActiveInfoAvailable,
                 hasSizeInfo = state.isSizeInfoAvailable,
             )
@@ -378,6 +379,7 @@ class AppControlListViewModel @Inject constructor(
         val progressUI: Progress.Data?,
         val options: DisplayOptions,
         val allowAppToggleActions: Boolean,
+        val allowAppForceStopActions: Boolean,
         val hasSizeInfo: Boolean = false,
         val hasActiveInfo: Boolean = false,
     ) {
