@@ -61,7 +61,6 @@
     <string name="appcleaner_filter_defaultcachesprivate_summary">ଡିଫଲ୍ଟ ଘରୋଇ ଆପ୍ ଦ୍ରୁତିକା। ସିଷ୍ଟମ୍ ସେଟିଂରେ \"ଦ୍ରୁତିକା ସଫା କର\" ଟିପିବାବେଳେ ବିଲୋପ ହେଲା।</string>
     <string name="appcleaner_include_minimumsize_label">ସର୍ବନିମ୍ନ ଆକାର</string>
     <string name="appcleaner_include_minimumage_label">ସର୍ବନିମ୍ନ ବୟସ</string>
-    <string name="appcleaner_automation_romtype_auto_label">ସ୍ୱଚାଳିତ (ଡିଫଲ୍ଟ)</string>
     <string name="appcleaner_filter_advertisement_label">ବିଜ୍ଞାପନ ତଥ୍ୟ</string>
     <string name="appcleaner_filter_hiddencaches_label">ଲୁକ୍କାୟିତ ଦ୍ରୁତିକା</string>
     <string name="appcleaner_filter_hiddencaches_summary">ସାଧାରଣ ଉଦ୍ଦେଶ୍ୟ ଦ୍ରୁତିକା ସିଷ୍ଟମର ପହଞ୍ଚ ବାହାରେ ଗଚ୍ଛିତ।</string>

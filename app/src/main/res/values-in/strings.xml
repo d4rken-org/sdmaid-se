@@ -297,7 +297,6 @@
     <string name="appcleaner_include_minimumage_summary">Atur umur minimal berkas.</string>
     <string name="appcleaner_automation_romtype_detection_label">Deteksi sistem operasi</string>
     <string name="appcleaner_automation_romtype_detection_summary">Automasi berbasis aksesibilitas dapat gagal jika SD Maid tidak mendeteksi OS Anda dengan benar. Gunakan pengaturan ini untuk mengganti OS yang sudah terdeteksi.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Otomatis (bawaan)</string>
     <string name="appcleaner_filter_codecache_label">Cache code</string>
     <string name="appcleaner_filter_codecache_summary">Cache kode JVM. Blok dari bytecode yang dikompilasi menjadi kode asli.</string>
     <string name="appcleaner_filter_advertisement_label">Data iklan</string>
@@ -395,8 +394,8 @@
     <string name="appcontrol_systemsettings_open_title">Tampilkan pengaturan</string>
     <string name="appcontrol_systemsettings_open_description">Membuka info aplikasi ini di pengaturan sistem perangkat.</string>
     <string name="appcontrol_app_launch_title">Jalankan aplikasi</string>
-    <string name="appcontrol_app_uninstall_description">Copot aplikasi ini dari perangkat Anda.</string>
     <string name="appcontrol_app_launch_description">Jalankan aplikasi ini.</string>
+    <string name="appcontrol_app_uninstall_description">Copot aplikasi ini dari perangkat Anda.</string>
     <string name="appcontrol_app_exclude_add_title">Kecualikan aplikasi</string>
     <string name="appcontrol_app_exclude_add_description">Kecualikan aplikasi ini dari operasi-operasi lain di SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Ubah pengecualian</string>
@@ -432,7 +431,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Ketahui apakah suatu aplikasi sedang (atau baru-baru ini) aktif.</string>
     <string name="appcontrol_export_app_selection_action">Ekspor aplikasi</string>
     <string name="appcontrol_export_title">Ekspor aplikasi</string>
-    <string name="appcontrol_export_description">Simpan berkas-berkas pemasangan aplikasi ini pada perangkat Anda. Data-data aplikasi tidak dimasukkan.</string>
     <string name="appcontrol_progress_exporting_x">Mengekspor %s</string>
     <string name="analyzer_tool_name">PenganalisisPenyimpanan</string>
     <string name="analyzer_explanation_short">Cari apa saja yang memenuhi ruang penyimpanan di perangkat Anda.</string>

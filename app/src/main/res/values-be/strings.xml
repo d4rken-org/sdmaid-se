@@ -315,7 +315,6 @@
     <string name="appcleaner_include_minimumage_summary">Прапускаць файлы, узрост якіх меншы за мінімальны.</string>
     <string name="appcleaner_automation_romtype_detection_label">Вызначэнне аперацыйнай сістэмы</string>
     <string name="appcleaner_automation_romtype_detection_summary">Аўтаматызацыя на аснове службы спецыяльных магчымасцей можа выйсці з ладу, калі SD Maid няправільна вызначыць вашу АС. Каб правільна вызначыць сістэму, выберыце гэты параметр.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Аўтаматычна (па змаўчанні)</string>
     <string name="appcleaner_filter_codecache_label">Кэш кода</string>
     <string name="appcleaner_filter_codecache_summary">Кэш кода JVM. Блокі байт-кода, скампіляваныя ва ўбудаваны код.</string>
     <string name="appcleaner_filter_advertisement_label">Даныя рэкламы</string>
@@ -425,8 +424,8 @@
     <string name="appcontrol_systemsettings_open_title">Паказаць налады</string>
     <string name="appcontrol_systemsettings_open_description">Адкрыць сістэмныя налады прылады для гэтай праграмы.</string>
     <string name="appcontrol_app_launch_title">Запусціць праграму</string>
-    <string name="appcontrol_app_uninstall_description">Выдаліць гэту праграму з вашай прылады.</string>
     <string name="appcontrol_app_launch_description">Запуск асноўнай дзейнасці гэтай праграмы.</string>
+    <string name="appcontrol_app_uninstall_description">Выдаліць гэту праграму з вашай прылады.</string>
     <string name="appcontrol_app_exclude_add_title">Выключаныя праграмы</string>
     <string name="appcontrol_app_exclude_add_description">Выключыць гэту праграму з іншых аперацый у SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Рэдагаваць выключэнне</string>
@@ -465,7 +464,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Даведайцеся, ці з\'яўляецца актыўнай праграма (або была такой нядаўна).</string>
     <string name="appcontrol_export_app_selection_action">Экспартаваць праграмы</string>
     <string name="appcontrol_export_title">Экспартаваць праграму</string>
-    <string name="appcontrol_export_description">Захавайце ўсталявальныя файлы гэтай праграмы на вашай прыладзе. Яны не ўключаюць даныя з праграмы.</string>
     <string name="appcontrol_progress_exporting_x">Экспартаванне %s</string>
     <string name="analyzer_tool_name">Аналіз сховішча</string>
     <string name="analyzer_explanation_short">Даведайцеся, што займае месца на вашай прыладзе.</string>

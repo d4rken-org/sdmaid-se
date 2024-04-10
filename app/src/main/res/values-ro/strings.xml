@@ -309,7 +309,6 @@
     <string name="appcleaner_include_minimumage_summary">Sari peste fişierele mai tinere decât vârsta minimă.</string>
     <string name="appcleaner_automation_romtype_detection_label">Detectarea sistemului de operare</string>
     <string name="appcleaner_automation_romtype_detection_summary">Automatizarea bazată pe accesibilitate poate eşua dacă SD Maid nu detectează corect sistemul de operare. Utilizaţi această setare pentru a suprascrie sistemul de operare detectat.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Automat (implicit)</string>
     <string name="appcleaner_filter_codecache_label">Cod cache</string>
     <string name="appcleaner_filter_codecache_summary">Cache de cod JVM. Blocuri de bytecode compilate în cod nativ.</string>
     <string name="appcleaner_filter_advertisement_label">Date de la reclame</string>
@@ -415,8 +414,8 @@
     <string name="appcontrol_systemsettings_open_title">Arată setările</string>
     <string name="appcontrol_systemsettings_open_description">Deschide setările de sistem al dispozitivului tău pentru această aplicație.</string>
     <string name="appcontrol_app_launch_title">Lansează aplicația</string>
-    <string name="appcontrol_app_uninstall_description">Dezinstalați această aplicație de pe dispozitivul dvs.</string>
     <string name="appcontrol_app_launch_description">Lansează activitatea principală a aplicației.</string>
+    <string name="appcontrol_app_uninstall_description">Dezinstalați această aplicație de pe dispozitivul dvs.</string>
     <string name="appcontrol_app_exclude_add_title">Exclude aplicația</string>
     <string name="appcontrol_app_exclude_add_description">Exclude această aplicație din alte operații în SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Editează excluderea</string>
@@ -454,7 +453,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Află dacă o aplicație este (sau a fost recent) activă.</string>
     <string name="appcontrol_export_app_selection_action">Exportă aplicații</string>
     <string name="appcontrol_export_title">Exportă aplicația</string>
-    <string name="appcontrol_export_description">Salvați fișierele de instalare ale acestei aplicații. Aceasta nu include datele aplicației.</string>
     <string name="appcontrol_progress_exporting_x">Exportat %s</string>
     <string name="analyzer_tool_name">Analizator de stocare</string>
     <string name="analyzer_explanation_short">Aflați ce ocupă spațiu pe dispozitivul dvs.</string>

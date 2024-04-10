@@ -303,7 +303,6 @@
     <string name="appcleaner_include_minimumage_summary">Eira faile, mis varasemad kui väikseim vanus.</string>
     <string name="appcleaner_automation_romtype_detection_label">Operatsioonisüsteemi tuvastamine</string>
     <string name="appcleaner_automation_romtype_detection_summary">Juurdepääsul põhinev automatiseerimine võib nurjuda, kui SD Maid ei tuvasta operatsioonisüsteemi korralikult. Selle seadega asendate tuvastatud operatsioonisüsteemi.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Automaatne (tavaline)</string>
     <string name="appcleaner_filter_codecache_label">Koodi vahemälu</string>
     <string name="appcleaner_filter_codecache_summary">JVM-i koodi vahemälu. Baidikoodi plokid kompileeritud lähtekoodi.</string>
     <string name="appcleaner_filter_advertisement_label">Reklaamiandmed</string>
@@ -403,8 +402,8 @@
     <string name="appcontrol_systemsettings_open_title">Näita seadeid</string>
     <string name="appcontrol_systemsettings_open_description">Avage seadme süsteemi seaded selle rakenduse jaoks.</string>
     <string name="appcontrol_app_launch_title">Käivita rakendus</string>
-    <string name="appcontrol_app_uninstall_description">Eemaldab selle rakenduse seadmest.</string>
     <string name="appcontrol_app_launch_description">Käivita selle rakenduse peamine tegevus.</string>
+    <string name="appcontrol_app_uninstall_description">Eemaldab selle rakenduse seadmest.</string>
     <string name="appcontrol_app_exclude_add_title">Eira rakendust</string>
     <string name="appcontrol_app_exclude_add_description">Ära kaasa seda rakendust teistesse SD Maidi toimetustesse.</string>
     <string name="appcontrol_app_exclude_edit_title">Muuda erandit</string>
@@ -441,7 +440,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Uudista, kas rakendus on (või hiljuti oli) kasutusel.</string>
     <string name="appcontrol_export_app_selection_action">Ekspordi rakendused</string>
     <string name="appcontrol_export_title">Ekspordi rakendus</string>
-    <string name="appcontrol_export_description">Salvesta selle rakenduse paigaldusfailid oma seadmesse. See ei hõlma rakenduse andmeid.</string>
     <string name="appcontrol_progress_exporting_x">%s eksportimine</string>
     <string name="analyzer_tool_name">Hoiustamisruumi analüüsija</string>
     <string name="analyzer_explanation_short">Avasta, mis on seadmes.</string>

@@ -315,7 +315,6 @@
     <string name="appcleaner_include_minimumage_summary">Preskočiť súbory, ktoré sú mladšie ako minimálny vek.</string>
     <string name="appcleaner_automation_romtype_detection_label">Detekcia operačného systému</string>
     <string name="appcleaner_automation_romtype_detection_summary">Automatizácia založená na dostupnosti môže zlyhať, ak SD Maid správne nerozpozná váš operačný systém. Toto nastavenie použite na prepísanie zisteného OS.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Automaticky (predvolené)</string>
     <string name="appcleaner_filter_codecache_label">Vyrovnávacia pamäť kódu</string>
     <string name="appcleaner_filter_codecache_summary">Vyrovnávacia pamäť kódu JVM. Bloky bajtového kódu skompilované do natívneho kódu.</string>
     <string name="appcleaner_filter_advertisement_label">Údaje o reklame</string>
@@ -425,8 +424,8 @@
     <string name="appcontrol_systemsettings_open_title">Zobraziť nastavenia</string>
     <string name="appcontrol_systemsettings_open_description">Otvorte systémové nastavenia zariadenia pre túto aplikáciu.</string>
     <string name="appcontrol_app_launch_title">Spustiť aplikáciu</string>
-    <string name="appcontrol_app_uninstall_description">Odinštalujte túto aplikáciu zo svojho zariadenia.</string>
     <string name="appcontrol_app_launch_description">Spustite hlavnú aktivitu tejto aplikácie.</string>
+    <string name="appcontrol_app_uninstall_description">Odinštalujte túto aplikáciu zo svojho zariadenia.</string>
     <string name="appcontrol_app_exclude_add_title">Vylúčiť aplikáciu</string>
     <string name="appcontrol_app_exclude_add_description">Vylúčte túto aplikáciu z iných operácií v SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Upraviť vylúčenie</string>

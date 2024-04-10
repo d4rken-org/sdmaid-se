@@ -297,7 +297,6 @@
     <string name="appcleaner_include_minimumage_summary">跳过低于最短时间的文件。</string>
     <string name="appcleaner_automation_romtype_detection_label">自动识别操作系统类型</string>
     <string name="appcleaner_automation_romtype_detection_summary">如果SDMaid没有正确识别您的系统环境，基于无障碍功能的自动化可能会无法工作。因此，你需要在此手动选择你的系统类型。</string>
-    <string name="appcleaner_automation_romtype_auto_label">自动(默认)</string>
     <string name="appcleaner_filter_codecache_label">代码缓存</string>
     <string name="appcleaner_filter_codecache_summary">JVM 代码缓存。将字节码块编译成本机代码。</string>
     <string name="appcleaner_filter_advertisement_label">广告数据</string>
@@ -395,8 +394,8 @@
     <string name="appcontrol_systemsettings_open_title">显示设置</string>
     <string name="appcontrol_systemsettings_open_description">打开此应用在设备中的系统设置。</string>
     <string name="appcontrol_app_launch_title">启动应用</string>
-    <string name="appcontrol_app_uninstall_description">从设备上卸载此应用</string>
     <string name="appcontrol_app_launch_description">启动此应用的主要活动。</string>
+    <string name="appcontrol_app_uninstall_description">从设备上卸载此应用</string>
     <string name="appcontrol_app_exclude_add_title">排除应用</string>
     <string name="appcontrol_app_exclude_add_description">将此应用排除在 SD Maid 的其他操作之外。</string>
     <string name="appcontrol_app_exclude_edit_title">编辑排除</string>
@@ -432,7 +431,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">检查应用程序是否活动（或最近活动）</string>
     <string name="appcontrol_export_app_selection_action">导出应用</string>
     <string name="appcontrol_export_title">导出应用</string>
-    <string name="appcontrol_export_description">保存此应用的安装文件到你的设备（不包括应用数据）</string>
     <string name="appcontrol_progress_exporting_x">正在导出 %s</string>
     <string name="analyzer_tool_name">存储分析器</string>
     <string name="analyzer_explanation_short">探究占用您设备存储空间的内容</string>

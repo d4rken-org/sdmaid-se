@@ -315,7 +315,6 @@
     <string name="appcleaner_include_minimumage_summary">Preskoči datoteke, ki mlajše od najmanjše starosti.</string>
     <string name="appcleaner_automation_romtype_detection_label">Zaznavanje operacijskega sistema</string>
     <string name="appcleaner_automation_romtype_detection_summary">Samodejna dejanja, ki uporabljajo dostopnost, lahko prenehajo delovati, če SD Maid pravilno ne zazna operacijskega sistema.  Uporabite to nastavitev, če želite preglasiti zaznan operacijski sistem.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Samodejno (privzeto)</string>
     <string name="appcleaner_filter_codecache_label">Kodni predpomnilnik</string>
     <string name="appcleaner_filter_codecache_summary">Kodni predpomnilnik JVM-ja.  Bloki bajtne kode, ki so prevedeni v izvirno kodo.</string>
     <string name="appcleaner_filter_advertisement_label">Podatki oglasov</string>
@@ -425,8 +424,8 @@
     <string name="appcontrol_systemsettings_open_title">Prikaži nastavitve</string>
     <string name="appcontrol_systemsettings_open_description">Odpri sistemske nastavitve tega programa.</string>
     <string name="appcontrol_app_launch_title">Zaženi program</string>
-    <string name="appcontrol_app_uninstall_description">Odstrani ta program z naprave.</string>
     <string name="appcontrol_app_launch_description">Zaženi glavno dejavnost tega programa.</string>
+    <string name="appcontrol_app_uninstall_description">Odstrani ta program z naprave.</string>
     <string name="appcontrol_app_exclude_add_title">Izključi program</string>
     <string name="appcontrol_app_exclude_add_description">Izključi ta program iz drugih opravil v SD Maidu.</string>
     <string name="appcontrol_app_exclude_edit_title">Uredi izjemo</string>

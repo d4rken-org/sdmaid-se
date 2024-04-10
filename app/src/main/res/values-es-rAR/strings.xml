@@ -303,7 +303,6 @@
     <string name="appcleaner_include_minimumage_summary">Omitir archivos que sean menores de la edad mínima.</string>
     <string name="appcleaner_automation_romtype_detection_label">Detección del sistema operativo</string>
     <string name="appcleaner_automation_romtype_detection_summary">La automatización basada en la accesibilidad puede fallar si SD Maid no detecta tu sistema operativo correctamente. Usa esta configuración para invalidar el sistema operativo detectado.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Automático (por defecto)</string>
     <string name="appcleaner_filter_codecache_label">Caché de código</string>
     <string name="appcleaner_filter_codecache_summary">Caché de código JVM. Bloques de bytecode compilados en código nativo.</string>
     <string name="appcleaner_filter_advertisement_label">Datos de publicidad</string>
@@ -405,14 +404,23 @@
     <string name="appcontrol_systemsettings_open_title">Mostrar ajustes</string>
     <string name="appcontrol_systemsettings_open_description">Abre la configuración del sistema de tu dispositivo para esta aplicación.</string>
     <string name="appcontrol_app_launch_title">Iniciar aplicación</string>
-    <string name="appcontrol_app_uninstall_description">Desinstalar esta aplicación de tu dispositivo.</string>
     <string name="appcontrol_app_launch_description">Iniciar la actividad principal de esta aplicación.</string>
+    <string name="appcontrol_app_uninstall_description">Desinstalar esta aplicación de tu dispositivo.</string>
     <string name="appcontrol_app_exclude_add_title">Excluir aplicación</string>
     <string name="appcontrol_app_exclude_add_description">Excluir esta aplicación de otras operaciones en SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Editar exclusión</string>
     <string name="appcontrol_app_exclude_edit_description">Esta aplicación actualmente está excluida de una o más herramientas.</string>
     <string name="appcontrol_tag_user">Usuario</string>
     <string name="appcontrol_tag_active">Activo recientemente</string>
+    <string name="appcontrol_tag_apk_base">Identificador (clave): 
+appcontrol_tag_apk_base
+appcontrol_tag_apk_base
+
+ Archivo: Textos de la aplicación (aplicación principal)</string>
+    <string name="appcontrol_tag_apk_bundle">Identificador (Clave): 
+appcontrol_tag_apk_bundle appcontrol_tag_apk_bundle
+
+Archivo: Textos de la aplicación (aplicación principal)</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_enabled">Activado</string>
     <string name="appcontrol_tag_disabled">Desactivado</string>
@@ -435,6 +443,17 @@
         <item quantity="one">¿Cambiar el estado habilitado/deshabilitado para %d aplicación?</item>
         <item quantity="other">¿Cambiar los estados habilitados/deshabilitados para %d aplicaciones?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Identificador (Clave): 
+appcontrol_settings_module_sizing_enabled_label
+appcontrol_settings_module_sizing_enabled_label
+ 
+Archivo: Textos de la aplicación (aplicación principal)</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Obtenga una estimación aproximada del tamaño de cada aplicación.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Determinar actividad</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Vea si una aplicación está (o estuvo recientemente) activa.</string>
+    <string name="appcontrol_export_app_selection_action">Exportar aplicaciones</string>
+    <string name="appcontrol_export_title">Exportar aplicación</string>
+    <string name="appcontrol_progress_exporting_x">Exportando %s</string>
     <string name="analyzer_tool_name">Analizador del Almacenamiento</string>
     <string name="analyzer_explanation_short">Averigua qué ocupa espacio en tu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Buscando dispositivos de almacenamiento</string>

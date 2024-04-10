@@ -303,7 +303,6 @@
     <string name="appcleaner_include_minimumage_summary">ন্যূনতম বয়সের চেয়ে কম সময়ের ফাইলগুলো এড়িয়ে যান৷</string>
     <string name="appcleaner_automation_romtype_detection_label">অপারেটিং সিস্টেম শনাক্তকরণ</string>
     <string name="appcleaner_automation_romtype_detection_summary">SD Maid আপনার OS সঠিকভাবে সনাক্ত না করলে অ্যাক্সেসিবিলিটি ভিত্তিক অটোমেশন ব্যর্থ হতে পারে। সনাক্ত করা OS ওভাররাইড করতে এই সেটিং ব্যবহার করুন।</string>
-    <string name="appcleaner_automation_romtype_auto_label">স্বয়ংক্রিয় (ডিফল্ট)</string>
     <string name="appcleaner_filter_codecache_label">কোড ক্যাশ</string>
     <string name="appcleaner_filter_codecache_summary">JVM code cache. Bytecode ব্লকগুলি নেটিভ কোডে কম্পাইল করা হয়েছে।</string>
     <string name="appcleaner_filter_advertisement_label">বিজ্ঞাপনী উপাত্তসমূহ</string>
@@ -405,8 +404,8 @@
     <string name="appcontrol_systemsettings_open_title">সেটিংস দেখান</string>
     <string name="appcontrol_systemsettings_open_description">এই অ্যাপের জন্য আপনার ডিভাইসের সিস্টেম সেটিংস খুলুন।</string>
     <string name="appcontrol_app_launch_title">অ্যাপ চালু করুন</string>
-    <string name="appcontrol_app_uninstall_description">আপনার ডিভাইস থেকে এই অ্যাপ্লিকেশন আনইনস্টল করুন।</string>
     <string name="appcontrol_app_launch_description">এই অ্যাপটির প্রাথমিক কার্যকলাপ চালু করুন।</string>
+    <string name="appcontrol_app_uninstall_description">আপনার ডিভাইস থেকে এই অ্যাপ্লিকেশন আনইনস্টল করুন।</string>
     <string name="appcontrol_app_exclude_add_title">অ্যাপ বাদ দিন</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid-এর অন্যান্য ক্রিয়াকলাপ থেকে এই অ্যাপটিকে বাদ দিন।</string>
     <string name="appcontrol_app_exclude_edit_title">বর্জন সম্পাদনা করুন</string>

@@ -303,7 +303,6 @@
     <string name="appcleaner_include_minimumage_summary">Salta i file che sono stati creati da meno dell\'età minima selezionata.</string>
     <string name="appcleaner_automation_romtype_detection_label">Rilevamento del sistema operativo</string>
     <string name="appcleaner_automation_romtype_detection_summary">L\'automazione basata sull\'accessibilità potrebbe non funzionare se SD Maid non riesce a rilevare correttamente il tuo Sistema Operativo. Usa questa impostazione per sovrascrivere il tipo di Sistema Operativo rilevato.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Automatico (predefinito)</string>
     <string name="appcleaner_filter_codecache_label">Cache del codice</string>
     <string name="appcleaner_filter_codecache_summary">Cache del codice della JVM. Blocchi di bytecode compilati in codice nativo.</string>
     <string name="appcleaner_filter_advertisement_label">Dati degli annunci</string>
@@ -406,8 +405,8 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_systemsettings_open_title">Visualizza impostazioni</string>
     <string name="appcontrol_systemsettings_open_description">Apri le impostazioni di sistema del tuo dispositivo per questa app.</string>
     <string name="appcontrol_app_launch_title">Avvia app</string>
-    <string name="appcontrol_app_uninstall_description">Disinstalla quest\'app dal tuo dispositivo.</string>
     <string name="appcontrol_app_launch_description">Apre l\'applicazione.</string>
+    <string name="appcontrol_app_uninstall_description">Disinstalla quest\'app dal tuo dispositivo.</string>
     <string name="appcontrol_app_exclude_add_title">Escludi app</string>
     <string name="appcontrol_app_exclude_add_description">Escludi quest\'app dalle operazioni in SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Modifica app escluse</string>
@@ -444,7 +443,6 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_settings_module_activity_enabled_description">Scopri se un\'app è in esecuzione (o se lo è stata di recente).</string>
     <string name="appcontrol_export_app_selection_action">Esporta applicazioni</string>
     <string name="appcontrol_export_title">Esporta app</string>
-    <string name="appcontrol_export_description">Salva l\'APK di quest\'app nel tuo dispositivo. Non sono inclusi i dati dell\'app.</string>
     <string name="appcontrol_progress_exporting_x">Esportazione %s</string>
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Scopri cosa sta occupando lo spazio del tuo dispositivo.</string>
