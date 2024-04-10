@@ -89,12 +89,6 @@ class AutomationManager @Inject constructor(
 
     private suspend fun startService(): AutomationService {
         log(TAG, VERBOSE) { "startService()" }
-
-        if (settings.hasAcsConsent.value() != true) {
-            log(TAG, WARN) { "startService(): No user consent to enable ACS!" }
-            throw AutomationNoConsentException()
-        }
-
         var service = currentService()
 
         if (service != null) {
@@ -163,6 +157,11 @@ class AutomationManager @Inject constructor(
     }
 
     private val serviceLauncher = callbackFlow {
+        if (settings.hasAcsConsent.value() != true) {
+            log(TAG, WARN) { "serviceLauncher: No user consent for ACS!" }
+            throw AutomationNoConsentException()
+        }
+
         val serviceWasRunning = isServiceLaunched()
         log(TAG) { "serviceLauncher: serviceWasRunning=$serviceWasRunning" }
 
