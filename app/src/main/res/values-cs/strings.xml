@@ -315,7 +315,6 @@
     <string name="appcleaner_include_minimumage_summary">Přeskočit soubory, které jsou mladší než minimální stáří.</string>
     <string name="appcleaner_automation_romtype_detection_label">Detekce operačního systému</string>
     <string name="appcleaner_automation_romtype_detection_summary">Automatizace založená na přístupnosti může selhat, pokud SD Maid nezjistí váš OS správně. Použijte toto nastavení pro přepsání zjištěného OS.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Automaticky (výchozí)</string>
     <string name="appcleaner_filter_codecache_label">Mezipaměť kódu</string>
     <string name="appcleaner_filter_codecache_summary">Mezipaměť kódu JVM. Bloky bajtového kódu zkompilované do nativního kódu.</string>
     <string name="appcleaner_filter_advertisement_label">Reklamní data</string>
@@ -425,8 +424,8 @@
     <string name="appcontrol_systemsettings_open_title">Zobrazit nastavení</string>
     <string name="appcontrol_systemsettings_open_description">Otevřete systémové nastavení zařízení pro tuto aplikaci.</string>
     <string name="appcontrol_app_launch_title">Spustit aplikaci</string>
-    <string name="appcontrol_app_uninstall_description">Odinstalujte tuto aplikaci z vašeho zařízení.</string>
     <string name="appcontrol_app_launch_description">Spuštění hlavní aktivity této aplikace.</string>
+    <string name="appcontrol_app_uninstall_description">Odinstalujte tuto aplikaci z vašeho zařízení.</string>
     <string name="appcontrol_app_exclude_add_title">Vyloučit aplikaci</string>
     <string name="appcontrol_app_exclude_add_description">Vyloučit tuto aplikaci z ostatních operací v SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Upravit výjimku</string>
@@ -465,7 +464,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Zjistěte, zda je (nebo nedávno byla) aplikace aktivní.</string>
     <string name="appcontrol_export_app_selection_action">Exportovat aplikace</string>
     <string name="appcontrol_export_title">Exportovat aplikaci</string>
-    <string name="appcontrol_export_description">Uloží instalační soubory této aplikace do vašeho zařízení. To se netýká dat aplikace.</string>
     <string name="appcontrol_progress_exporting_x">Exportování %s</string>
     <string name="analyzer_tool_name">Analyzátor úložiště</string>
     <string name="analyzer_explanation_short">Zjistěte, co zabírá místo ve vašem zařízení.</string>

@@ -297,7 +297,6 @@
     <string name="appcleaner_include_minimumage_summary">変更拒否期間未満のファイルをスキップします。</string>
     <string name="appcleaner_automation_romtype_detection_label">オペレーティングシステムの検出</string>
     <string name="appcleaner_automation_romtype_detection_summary">SD MaidがOSを正しく検出していない場合、アクセシビリティベースのオートメーションが失敗することがあります。検出されたOSを上書きするには、この設定を使用してください。</string>
-    <string name="appcleaner_automation_romtype_auto_label">自動(デフォルト)</string>
     <string name="appcleaner_filter_codecache_label">コードのキャッシュ</string>
     <string name="appcleaner_filter_codecache_summary">JVMコードキャッシュ。ネイティブコードにコンパイルされるバイトコードの集合体。</string>
     <string name="appcleaner_filter_advertisement_label">広告データ</string>
@@ -395,8 +394,8 @@
     <string name="appcontrol_systemsettings_open_title">設定を表示</string>
     <string name="appcontrol_systemsettings_open_description">このアプリのデバイスのシステム設定を開きます。</string>
     <string name="appcontrol_app_launch_title">アプリを起動</string>
-    <string name="appcontrol_app_uninstall_description">端末からこのアプリをアンインストールします。</string>
     <string name="appcontrol_app_launch_description">このアプリのプライマリアクティビティを起動します。</string>
+    <string name="appcontrol_app_uninstall_description">端末からこのアプリをアンインストールします。</string>
     <string name="appcontrol_app_exclude_add_title">除外するアプリ</string>
     <string name="appcontrol_app_exclude_add_description">SD Maidの他の操作からこのアプリを除外します。</string>
     <string name="appcontrol_app_exclude_edit_title">除外を編集</string>
@@ -432,7 +431,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">アプリがアクティブであるか(または最近アクティブであったか)を確認します。</string>
     <string name="appcontrol_export_app_selection_action">アプリをエクスポート</string>
     <string name="appcontrol_export_title">アプリをエクスポート</string>
-    <string name="appcontrol_export_description">このアプリのインストールファイルをお使いのデバイスに保存します。アプリのデータは含まれていません。</string>
     <string name="appcontrol_progress_exporting_x">%s をエクスポート中</string>
     <string name="analyzer_tool_name">ストレージ解析</string>
     <string name="analyzer_explanation_short">お使いのデバイスのスペースを占有しているものをご覧ください。</string>

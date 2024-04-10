@@ -297,7 +297,6 @@
     <string name="appcleaner_include_minimumage_summary">Bỏ qua các tệp cũ hơn thời gian tối thiểu.</string>
     <string name="appcleaner_automation_romtype_detection_label">Phát hiện hệ điều hành</string>
     <string name="appcleaner_automation_romtype_detection_summary">Tự động hóa dựa trên khả năng truy cập có thể không thành công nếu SD Maid không phát hiện chính xác hệ điều hành của bạn. Sử dụng cài đặt này để ghi đè hệ điều hành được phát hiện.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Tự động (mặc định)</string>
     <string name="appcleaner_filter_codecache_label">Mã bộ nhớ đệm</string>
     <string name="appcleaner_filter_codecache_summary">Bộ đệm mã JVM. Các khối mã byte được biên dịch thành mã gốc.</string>
     <string name="appcleaner_filter_advertisement_label">Dữ liệu quảng cáo</string>
@@ -395,8 +394,8 @@
     <string name="appcontrol_systemsettings_open_title">Hiển thị cài đặt</string>
     <string name="appcontrol_systemsettings_open_description">Mở cài đặt hệ thống của thiết bị cho ứng dụng này.</string>
     <string name="appcontrol_app_launch_title">Chạy ứng dụng</string>
-    <string name="appcontrol_app_uninstall_description">Gỡ cài đặt ứng dụng này khỏi thiết bị của bạn.</string>
     <string name="appcontrol_app_launch_description">Khởi chạy hoạt động chính của ứng dụng này.</string>
+    <string name="appcontrol_app_uninstall_description">Gỡ cài đặt ứng dụng này khỏi thiết bị của bạn.</string>
     <string name="appcontrol_app_exclude_add_title">Loại trừ ứng dụng</string>
     <string name="appcontrol_app_exclude_add_description">Loại trừ ứng dụng này khỏi các hoạt động khác trong SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Chỉnh sửa loại trừ</string>
@@ -432,7 +431,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Tìm hiểu xem một ứng dụng đang (hoặc gần đây) có hoạt động hay không.</string>
     <string name="appcontrol_export_app_selection_action">Xuất ứng dụng</string>
     <string name="appcontrol_export_title">Xuất ứng dụng</string>
-    <string name="appcontrol_export_description">Lưu tệp cài đặt của ứng dụng này vào thiết bị của bạn. Điều này không bao gồm dữ liệu ứng dụng.</string>
     <string name="appcontrol_progress_exporting_x">Đang xuất %s</string>
     <string name="analyzer_tool_name">Phân tích bộ nhớ</string>
     <string name="analyzer_explanation_short">Tìm hiểu những gì đang chiếm dung lượng trên thiết bị của bạn.</string>

@@ -303,7 +303,6 @@
     <string name="appcleaner_include_minimumage_summary">Omet els fitxers que siguin menors a l\'edat mínima.</string>
     <string name="appcleaner_automation_romtype_detection_label">Detecció del sistema operatiu</string>
     <string name="appcleaner_automation_romtype_detection_summary">L\'automatització basada en l\'accessibilitat pot fallar si l\'SD Maid no detecta correctament el vostre sistema operatiu. Utilitzeu aquesta configuració per corregir el sistema operatiu detectat.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Automàtic (per defecte)</string>
     <string name="appcleaner_filter_codecache_label">Memòria cau de codi</string>
     <string name="appcleaner_filter_codecache_summary">Memòria cau de codi JVM. Blocs de «bytecode» compilats en codi natiu.</string>
     <string name="appcleaner_filter_advertisement_label">Dades de publicitat</string>
@@ -405,8 +404,8 @@
     <string name="appcontrol_systemsettings_open_title">Mostra la configuració</string>
     <string name="appcontrol_systemsettings_open_description">Obre la configuració del sistema del vostre dispositiu per a aquesta aplicació.</string>
     <string name="appcontrol_app_launch_title">Inicia l\'aplicació</string>
-    <string name="appcontrol_app_uninstall_description">Desinstal·la aquesta aplicació del dispositiu.</string>
     <string name="appcontrol_app_launch_description">Inicia l\'activitat principal d\'aquesta aplicació.</string>
+    <string name="appcontrol_app_uninstall_description">Desinstal·la aquesta aplicació del dispositiu.</string>
     <string name="appcontrol_app_exclude_add_title">Exclusió d\'aplicacions</string>
     <string name="appcontrol_app_exclude_add_description">Exclou aquesta aplicació d\'altres operacions a l\'SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Edita l\'exclusió</string>
@@ -443,7 +442,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Esbrineu si una aplicació està (o ha estat recentment) activa.</string>
     <string name="appcontrol_export_app_selection_action">Exporta les aplicacions</string>
     <string name="appcontrol_export_title">Exporta l\'aplicació</string>
-    <string name="appcontrol_export_description">Deseu els fitxers d\'instal·lació d\'aquesta aplicació al vostre dispositiu. Això no inclou les dades de l\'aplicació.</string>
     <string name="appcontrol_progress_exporting_x">S\'està exportant %s</string>
     <string name="analyzer_tool_name">Analitzador d\'emmagatzematge</string>
     <string name="analyzer_explanation_short">Descobriu què ocupa espai al vostre dispositiu.</string>

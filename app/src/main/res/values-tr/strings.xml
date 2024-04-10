@@ -303,7 +303,6 @@
     <string name="appcleaner_include_minimumage_summary">Asgari sınırdan daha yeni dosyaları atlayın.</string>
     <string name="appcleaner_automation_romtype_detection_label">İşletim sistemi algılama</string>
     <string name="appcleaner_automation_romtype_detection_summary">SD Maid işletim sisteminizi doğru algılamazsa erişilebilirlik tabanlı otomasyon başarısız olabilir. Algılanan işletim sistemini geçersiz kılmak için bu ayarı kullanın.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Otomatik (varsayılan)</string>
     <string name="appcleaner_filter_codecache_label">Kod önbelleği</string>
     <string name="appcleaner_filter_codecache_summary">JVM kod önbelleği. Yerel kodda derlenen bayt kodu blokları.</string>
     <string name="appcleaner_filter_advertisement_label">Reklam verileri</string>
@@ -405,8 +404,8 @@
     <string name="appcontrol_systemsettings_open_title">Ayarları göster</string>
     <string name="appcontrol_systemsettings_open_description">Bu uygulama için cihazınızın sistem ayarlarını açın.</string>
     <string name="appcontrol_app_launch_title">Uygulamayı başlat</string>
-    <string name="appcontrol_app_uninstall_description">Bu uygulamayı cihazınızdan kaldırın.</string>
     <string name="appcontrol_app_launch_description">Bu uygulamanın birincil etkinliğini başlat.</string>
+    <string name="appcontrol_app_uninstall_description">Bu uygulamayı cihazınızdan kaldırın.</string>
     <string name="appcontrol_app_exclude_add_title">Uygulamayı hariç tut</string>
     <string name="appcontrol_app_exclude_add_description">Bu uygulamayı SD Maid\'deki diğer işlemlerden hariç tutun.</string>
     <string name="appcontrol_app_exclude_edit_title">Hariç tutmayı düzenle</string>
@@ -443,7 +442,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Bir uygulamanın etkin olup olmadığını (veya yakın zamanda etkin olup olmadığını) öğrenin.</string>
     <string name="appcontrol_export_app_selection_action">Uygulamaları dışa aktarma</string>
     <string name="appcontrol_export_title">Uygulamayı dışa aktar</string>
-    <string name="appcontrol_export_description">Bu uygulamanın yükleme dosyalarını cihazınıza kaydedin. Bu, uygulama verilerini içermez.</string>
     <string name="appcontrol_progress_exporting_x">Dışa aktarılıyor %s</string>
     <string name="analyzer_tool_name">DepolamaAnalizcisi</string>
     <string name="analyzer_explanation_short">Cihazınızda neyin yer kapladığını öğrenin.</string>

@@ -315,7 +315,6 @@
     <string name="appcleaner_include_minimumage_summary">Пропускать файлы, которые не достигли минимального возраста.</string>
     <string name="appcleaner_automation_romtype_detection_label">Определение операционной системы</string>
     <string name="appcleaner_automation_romtype_detection_summary">Автоматизация на основе специальных возможностей может завершиться ошибкой, если SD Maid некорректно определит ОС. Используйте этот параметр, чтобы переопределить ОС.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Автоматически (по умолчанию)</string>
     <string name="appcleaner_filter_codecache_label">Кэш кода</string>
     <string name="appcleaner_filter_codecache_summary">Кэш кода JVM. Блоки байткода, скомпилированные в нативный код.</string>
     <string name="appcleaner_filter_advertisement_label">Данные рекламы</string>
@@ -425,8 +424,8 @@
     <string name="appcontrol_systemsettings_open_title">Показать настройки</string>
     <string name="appcontrol_systemsettings_open_description">Открыть системные настройки для этого приложения.</string>
     <string name="appcontrol_app_launch_title">Запустить приложение</string>
-    <string name="appcontrol_app_uninstall_description">Удаление этого приложения с устройства.</string>
     <string name="appcontrol_app_launch_description">Запуск главной активности этого приложения.</string>
+    <string name="appcontrol_app_uninstall_description">Удаление этого приложения с устройства.</string>
     <string name="appcontrol_app_exclude_add_title">Исключение приложений</string>
     <string name="appcontrol_app_exclude_add_description">Исключить это приложение из других операций в SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Редактировать исключение</string>
@@ -465,7 +464,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Узнайте, активно ли приложение (или недавно было активно).</string>
     <string name="appcontrol_export_app_selection_action">Экспорт приложений</string>
     <string name="appcontrol_export_title">Экспорт приложения</string>
-    <string name="appcontrol_export_description">Сохраните установочные файлы этого приложения на Ваше устройство. Это не включает данные приложения.</string>
     <string name="appcontrol_progress_exporting_x">Экспорт %s</string>
     <string name="analyzer_tool_name">Анализ памяти</string>
     <string name="analyzer_explanation_short">Узнайте, что занимает место на Вашем устройстве.</string>

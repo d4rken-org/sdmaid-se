@@ -315,7 +315,6 @@
     <string name="appcleaner_include_minimumage_summary">Pomiń pliki, które są młodsze niż minimalny wiek.</string>
     <string name="appcleaner_automation_romtype_detection_label">Wykrywanie systemu operacyjnego</string>
     <string name="appcleaner_automation_romtype_detection_summary">Automatyzacja oparta na ułatwieniach dostępu może się nie powieść, jeśli SD Maid nie wykryje poprawnie systemu operacyjnego. Użyj tego ustawienia, aby zastąpić wykryty system operacyjny.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Automatyczne (domyślnie)</string>
     <string name="appcleaner_filter_codecache_label">Pamięć podręczna kodu</string>
     <string name="appcleaner_filter_codecache_summary">Pamięć podręczna kodu JVM. Bloki kodu bajtowego kompilowane w kod natywny.</string>
     <string name="appcleaner_filter_advertisement_label">Dane reklam</string>
@@ -425,8 +424,8 @@
     <string name="appcontrol_systemsettings_open_title">Pokaż ustawienia</string>
     <string name="appcontrol_systemsettings_open_description">Otwórz ustawienia systemowe Twojego urządzenia dla tej aplikacji.</string>
     <string name="appcontrol_app_launch_title">Uruchom aplikację</string>
-    <string name="appcontrol_app_uninstall_description">Odinstaluj tę aplikację ze swojego urządzenia.</string>
     <string name="appcontrol_app_launch_description">Uruchom podstawową aktywność tej aplikacji.</string>
+    <string name="appcontrol_app_uninstall_description">Odinstaluj tę aplikację ze swojego urządzenia.</string>
     <string name="appcontrol_app_exclude_add_title">Wykluczenie aplikacji</string>
     <string name="appcontrol_app_exclude_add_description">Wyklucz tę aplikację z innych operacji w SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Edytuj wykluczenie</string>
@@ -465,7 +464,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Dowiedz się, czy aplikacja jest (lub była ostatnio) używana.</string>
     <string name="appcontrol_export_app_selection_action">Eksportuj aplikacje</string>
     <string name="appcontrol_export_title">Eksportuj aplikację</string>
-    <string name="appcontrol_export_description">Zapisz pliki instalacyjne tej aplikacji na urządzeniu. Nie uwzględnia danych aplikacji.</string>
     <string name="appcontrol_progress_exporting_x">Eksportowanie %s</string>
     <string name="analyzer_tool_name">Analizator pamięci</string>
     <string name="analyzer_explanation_short">Dowiedz się, co zajmuje miejsce na urządzeniu.</string>

@@ -289,8 +289,8 @@
     <string name="appcontrol_systemsettings_open_title">Prikaži postavke</string>
     <string name="appcontrol_systemsettings_open_description">Otvara postavke sustava vašeg uređaja za ovu aplikaciju.</string>
     <string name="appcontrol_app_launch_title">Pokreni aplikaciju</string>
-    <string name="appcontrol_app_uninstall_description">Deinstalirajte ovu aplikaciju sa svog uređaja.</string>
     <string name="appcontrol_app_launch_description">Pokreće primarnu aktivnost ove aplikacije.</string>
+    <string name="appcontrol_app_uninstall_description">Deinstalirajte ovu aplikaciju sa svog uređaja.</string>
     <string name="appcontrol_app_exclude_add_title">Izuzmi aplikaciju</string>
     <string name="appcontrol_app_exclude_add_description">Izuzima ovu aplikaciju iz drugih operacija u SD Maidu.</string>
     <string name="appcontrol_app_exclude_edit_title">Uredi izuzimanje</string>

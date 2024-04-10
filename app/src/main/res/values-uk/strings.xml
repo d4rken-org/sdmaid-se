@@ -297,7 +297,6 @@
     <string name="appcleaner_include_minimumage_summary">Пропустити файли, менші за мінімальний вік.</string>
     <string name="appcleaner_automation_romtype_detection_label">Виявлення операційної системи</string>
     <string name="appcleaner_automation_romtype_detection_summary">Автоматизація на основі спеціальних можливостей може дати збій, якщо SD Maid неправильно визначить вашу OS. Використовуйте це налаштування, щоб замінити виявлену OS.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Автоматично (за замовчуванням)</string>
     <string name="appcleaner_filter_codecache_label">Кеш коду</string>
     <string name="appcleaner_filter_codecache_summary">Кеш коду JVM. Блоки байт коду, скомпільовані в нативний код.</string>
     <string name="appcleaner_filter_advertisement_label">Рекламні дані</string>
@@ -383,8 +382,8 @@
     <string name="appcontrol_systemsettings_open_title">Показати налаштування</string>
     <string name="appcontrol_systemsettings_open_description">Відкрийте системні налаштування вашого пристрою для цього додатку.</string>
     <string name="appcontrol_app_launch_title">Запустити додаток</string>
-    <string name="appcontrol_app_uninstall_description">Видаліть цей додаток з пристрою.</string>
     <string name="appcontrol_app_launch_description">Запустіть основну активність цього додатка.</string>
+    <string name="appcontrol_app_uninstall_description">Видаліть цей додаток з пристрою.</string>
     <string name="appcontrol_app_exclude_add_title">Виключити додаток</string>
     <string name="appcontrol_app_exclude_add_description">Виключіть цей додаток з інших операцій у SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Редагувати виключення</string>
@@ -415,7 +414,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Дізнайтеся, чи є додаток активним (або нещодавно був активним).</string>
     <string name="appcontrol_export_app_selection_action">Експорт додатків</string>
     <string name="appcontrol_export_title">Експорт додатка</string>
-    <string name="appcontrol_export_description">Збережіть інсталяційні файли цієї програми на своєму пристрої. Сюди не входять дані програми.</string>
     <string name="appcontrol_progress_exporting_x">Експорт %s</string>
     <string name="analyzer_tool_name">Аналізатор сховища</string>
     <string name="analyzer_explanation_short">Дізнайтеся, що займає місце на вашому пристрої.</string>

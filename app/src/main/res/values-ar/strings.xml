@@ -327,7 +327,6 @@
     <string name="appcleaner_include_minimumage_summary">تخطي الملفات التي هي أصغر من الحد الأدنى للعمر.</string>
     <string name="appcleaner_automation_romtype_detection_label">كشف نظام التشغيل</string>
     <string name="appcleaner_automation_romtype_detection_summary">إذا تفشل الأتمتة القائمة على إمكانية الوصول إذا لم يكتشف SD Maid نظام التشغيل الخاص بك بشكل صحيح. استخدم هذا الإعداد لتجاوز نظام التشغيل المكتشف.</string>
-    <string name="appcleaner_automation_romtype_auto_label">تلقائي (افتراضي)</string>
     <string name="appcleaner_filter_codecache_label">كود مخبأ</string>
     <string name="appcleaner_filter_codecache_summary">JVM كود مخبأ. كتل من بايت كود المترجمة في كود أصلي.</string>
     <string name="appcleaner_filter_advertisement_label">بيانات الإعلان</string>
@@ -445,8 +444,8 @@
     <string name="appcontrol_systemsettings_open_title">عرض الإعدادات</string>
     <string name="appcontrol_systemsettings_open_description">افتح إعدادات النظام بجهازك لهذا التطبيق.</string>
     <string name="appcontrol_app_launch_title">تشغيل التطبيق</string>
-    <string name="appcontrol_app_uninstall_description">إلغاء تثبيت هذا التطبيق من جهازك.</string>
     <string name="appcontrol_app_launch_description">تشغيل النشاط الأساسي لهذا التطبيق.</string>
+    <string name="appcontrol_app_uninstall_description">إلغاء تثبيت هذا التطبيق من جهازك.</string>
     <string name="appcontrol_app_exclude_add_title">استبعاد التطبيق</string>
     <string name="appcontrol_app_exclude_add_description">استبعاد هذا التطبيق من العمليات الأخرى في SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">تعديل الاستبعاد</string>

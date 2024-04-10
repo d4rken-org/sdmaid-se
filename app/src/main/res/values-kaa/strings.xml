@@ -128,7 +128,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Esaptan tısqarılar</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Janlı izlew</string>
     <string name="appcleaner_include_multiuser_label">Basqa paydalanıwshılardı qosıń</string>
-    <string name="appcleaner_automation_romtype_auto_label">Avtomatikalıq (standart)</string>
     <string name="appcleaner_filter_codecache_label">Kod keshi</string>
     <string name="appcleaner_filter_analytics_label">Analitika</string>
     <string name="appcleaner_filter_hiddencaches_label">Jasırın kesh</string>

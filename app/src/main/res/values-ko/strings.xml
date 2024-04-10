@@ -297,7 +297,6 @@
     <string name="appcleaner_include_minimumage_summary">선택한 기간보다 짧은 시간동안 존재한 파일을 건너뜁니다.</string>
     <string name="appcleaner_automation_romtype_detection_label">운영 체제 감지</string>
     <string name="appcleaner_automation_romtype_detection_summary">SD Maid가 운영 체제를 바르게 찾지 않았다면 접근성 기반 자동화가 실패할 수 있습니다. 이 설정을 사용하여 감지된 OS를 재정의하세요.</string>
-    <string name="appcleaner_automation_romtype_auto_label">자동 (기본)</string>
     <string name="appcleaner_filter_codecache_label">앱 코드 내 캐시</string>
     <string name="appcleaner_filter_codecache_summary">JVM 코드 캐시로, 네이티브 코드로 컴파일된 바이트코드 블럭들입니다.</string>
     <string name="appcleaner_filter_advertisement_label">광고 데이터</string>
@@ -395,8 +394,8 @@
     <string name="appcontrol_systemsettings_open_title">설정 보이기</string>
     <string name="appcontrol_systemsettings_open_description">이 앱의 시스템 설정으로 이동합니다.</string>
     <string name="appcontrol_app_launch_title">앱 실행하기</string>
-    <string name="appcontrol_app_uninstall_description">기기에서 이 앱을 삭제합니다.</string>
     <string name="appcontrol_app_launch_description">이 앱을 실행합니다.</string>
+    <string name="appcontrol_app_uninstall_description">기기에서 이 앱을 삭제합니다.</string>
     <string name="appcontrol_app_exclude_add_title">앱 제외</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid의 다른 활동으로부터 이 앱을 제외합니다.</string>
     <string name="appcontrol_app_exclude_edit_title">예외 편집</string>
@@ -432,7 +431,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">앱이 실행되고 있는지 (또는 최근에 실행되었는지) 확인합니다.</string>
     <string name="appcontrol_export_app_selection_action">앱들 내보내기</string>
     <string name="appcontrol_export_title">앱 내보내기</string>
-    <string name="appcontrol_export_description">이 앱의 설치 파일을 기기에 저장합니다. 앱 데이터는 포함되지 않습니다.</string>
     <string name="appcontrol_progress_exporting_x">%s 내보내는 중</string>
     <string name="analyzer_tool_name">저장소 분석기</string>
     <string name="analyzer_explanation_short">무엇이 저장 공간을 차지하고 있는지 확인합니다.</string>

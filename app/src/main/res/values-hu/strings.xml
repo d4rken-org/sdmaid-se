@@ -303,7 +303,6 @@
     <string name="appcleaner_include_minimumage_summary">A minimális életkornál fiatalabb fájlok kihagyása.</string>
     <string name="appcleaner_automation_romtype_detection_label">Operációs rendszer észlelés</string>
     <string name="appcleaner_automation_romtype_detection_summary">Az akadálymentesítésen alapuló automatizálás sikertelen lehet, ha az SD Maid nem ismeri fel helyesen az operációs rendszert. Ezzel a beállítással felülbírálhatja az észlelt operációs rendszert.</string>
-    <string name="appcleaner_automation_romtype_auto_label">Automatikus (alapbeállítás)</string>
     <string name="appcleaner_filter_codecache_label">Kód gyorsítótár</string>
     <string name="appcleaner_filter_codecache_summary">JVM kód gyorsítótár. Bájtkód blokkok natív kódba fordítva.</string>
     <string name="appcleaner_filter_advertisement_label">Hirdetési adatok</string>
@@ -405,8 +404,8 @@
     <string name="appcontrol_systemsettings_open_title">Beállítások megjelenítése</string>
     <string name="appcontrol_systemsettings_open_description">Nyissa meg eszköze rendszerbeállításait ehhez az alkalmazáshoz.</string>
     <string name="appcontrol_app_launch_title">Alkalmazás indítása</string>
-    <string name="appcontrol_app_uninstall_description">Alkalmazás eltávolítása az eszközről.</string>
     <string name="appcontrol_app_launch_description">Indítsa el az alkalmazás elsődleges tevékenységét.</string>
+    <string name="appcontrol_app_uninstall_description">Alkalmazás eltávolítása az eszközről.</string>
     <string name="appcontrol_app_exclude_add_title">Alkalmazás kizárása</string>
     <string name="appcontrol_app_exclude_add_description">Zárja ki ezt az alkalmazást az SD Maid egyéb műveleteiből.</string>
     <string name="appcontrol_app_exclude_edit_title">Kizárás szerkesztése</string>
@@ -439,7 +438,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Nézze meg, hogy egy alkalmazás aktív (vagy nemrégiben volt-e) aktív.</string>
     <string name="appcontrol_export_app_selection_action">Appok exportálása</string>
     <string name="appcontrol_export_title">App exportálása</string>
-    <string name="appcontrol_export_description">Mentse el ennek az appnak a telepítési fájljait. Ez nem tartalmazza az app adagokat.</string>
     <string name="appcontrol_progress_exporting_x">Exportálás %s</string>
     <string name="analyzer_tool_name">TárhelyElemző</string>
     <string name="analyzer_explanation_short">Tudja meg, mi foglalja a helyet a készülékén.</string>
