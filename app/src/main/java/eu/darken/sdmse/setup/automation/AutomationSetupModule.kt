@@ -11,12 +11,13 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.AutomationService
-import eu.darken.sdmse.common.DeviceDetective
 import eu.darken.sdmse.common.SystemSettingsProvider.*
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.device.DeviceDetective
+import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.rngString
@@ -93,7 +94,11 @@ class AutomationSetupModule @Inject constructor(
             isServiceRunning = isServiceRunning,
             needsXiaomiAutostart = deviceDetective.getROMType() == RomType.MIUI && !canSelfEnable,
             liftRestrictionsIntent = liftRestrictionsIntent,
-            showAppOpsRestrictionHint = showAppOpsRestrictionHint
+            showAppOpsRestrictionHint = showAppOpsRestrictionHint,
+            settingsIntent = when (deviceDetective.getROMType()) {
+                RomType.ANDROID_TV -> Intent(Settings.ACTION_SETTINGS)
+                else -> Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
+            }
         ) as SetupModule.State
     }
         .onEach { log(TAG) { "New ACS setup state: $it" } }
@@ -133,6 +138,7 @@ class AutomationSetupModule @Inject constructor(
         val needsXiaomiAutostart: Boolean,
         val liftRestrictionsIntent: Intent,
         val showAppOpsRestrictionHint: Boolean,
+        val settingsIntent: Intent,
     ) : SetupModule.State.Current {
 
         override val type: SetupModule.Type = SetupModule.Type.AUTOMATION
