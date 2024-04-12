@@ -72,6 +72,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Dosya önizlemeleri</string>
     <string name="ui_previews_summary">Tüm araçlarda dosya önizlemelerini görüntüle (örn. resim ve video küçük resimleri).</string>
+    <string name="ui_language_override_label">Uygulama dili</string>
+    <string name="ui_language_override_desc">SD Maid için sisteminizin varsayılan dilinden bağımsız olarak farklı bir dil seçin. Şu anda: %s</string>
     <string name="settings_support_label">Destek</string>
     <string name="settings_support_description">Dokümantasyonu oku, hataları bildir, diğerleriyle sohbet et ya da hata ayıklama günlükleri kaydet.</string>
     <string name="documentation_label">Dokümantasyon</string>
@@ -93,6 +95,9 @@
     <string name="setup_incomplete_card_continue_action">Kuruluma devam et</string>
     <string name="setup_title">Kur</string>
     <string name="setup_forcedshow_summary">Tamamlanmış adımları da içeren kurulum ekranını tekrar göster.</string>
+    <string name="setup_checking_card_body">Kurulum ve işlevsellik doğrulanıyor.</string>
+    <string name="general_error_setup_require_label">Kurulum tamamlanmamış</string>
+    <string name="general_error_setup_require_msg">Bu özelliği kullanmak için daha fazla kurulum gereklidir. Kalan kurulum adımlarını tamamlayın.</string>
     <string name="setup_saf_card_title">Depolama erişim çerçevesi</string>
     <string name="setup_saf_card_body">SD Maid\'in ilave alanlara erişimini onaylayarak gelişmiş sonuçlar alın.</string>
     <string name="setup_saf_card_body2">Çoğu durumda pencere doğru yol önceden seçilmiş halde açılır. Erişim izni verildiğinde girdiler yeşile döner. </string>
@@ -140,6 +145,9 @@
     <string name="setup_acs_disallow_hint">Fikrinizi değiştirirseniz, ayarlara girip kurulumu yeniden başlatarak bu seçeneği tekrar değiştirebilirsiniz.</string>
     <string name="setup_acs_appops_restriction_title">Kısıtlanmış Ayarlar</string>
     <string name="setup_acs_appops_restriction_body">SD Maids erişilebilirlik hizmetini etkinleştiremiyor musunuz? Android 13+, Google Play üzerinden yüklenmeyen uygulamalara kısıtlamalar uygulayabilir. Bu kısıtlamaları SD Maid için sistemin ayrıntı sayfasından kaldırın. Bu seçenek sağ üst köşedeki içerik menüsündedir.</string>
+    <string name="setup_inventory_card_title">Uygulama envanteri</string>
+    <string name="setup_inventory_card_body">SD Maid\'in yüklü uygulamalara ait olmayan dosyaları bulmak için hangi uygulamalara sahip olduğunuzu bilmesi gerekir.</string>
+    <string name="setup_inventory_card_extra">\"Uygulama listesi\" veya \"Tüm paketleri sorgula\" adlı bir izin arayın.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid taranabilecek herhangi bir veri alanı bulamadı. Kurulumu tamamladınız mı?</string>
     <string name="dataarea_warningcard_label">Veri alanları</string>
     <string name="dataarea_warningcard_reload_action">Veri alanlarını tekrar yükle</string>
@@ -345,6 +353,11 @@
     <string name="appcleaner_automation_loading">Erişilebilirlik hizmeti aracılığıyla otomasyon hazırlanıyor</string>
     <string name="appcleaner_automation_title">Uygulama Temizleyici otomasyonu</string>
     <string name="appcleaner_automation_subtitle_default_caches">Varsayılan önbellekler temizleniyor…</string>
+    <string name="appcleaner_automation_progress_open_settings">Ayarlar ekranı açılıyor (anahtar kelimeler: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">\"Depolama\" girişi aranıyor (anahtar kelimeler: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">\"Verileri temizle\" düğmesi aranıyor (anahtar kelimeler: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">\"Önbelleği temizle\" düğmesi aranıyor (anahtar kelimeler: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Önceki eylem onaylanmaya çalışılıyor (anahtar kelimeler: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Varsayılan önbellekler</string>
     <string name="appcleaner_item_caches_inaccessible_body">Genel ve özel varsayılan önbellekler. Doğrudan erişilemez, ancak dolaylı olarak silinebilir (ör. erişilebilirlik hizmeti aracılığıyla).</string>
     <string name="appcleaner_automation_unavailable_title">Erişilebilirlik hizmeti kullanılamıyor</string>
@@ -405,6 +418,8 @@
     <string name="appcontrol_systemsettings_open_description">Bu uygulama için cihazınızın sistem ayarlarını açın.</string>
     <string name="appcontrol_app_launch_title">Uygulamayı başlat</string>
     <string name="appcontrol_app_launch_description">Bu uygulamanın birincil etkinliğini başlat.</string>
+    <string name="appcontrol_app_forcestop_title">Durdurmaya zorla</string>
+    <string name="appcontrol_app_forcestop_description">Uygulamayı durdurur. Siz uygulamayı tekrar açana veya cihaz yeniden başlatılana kadar kendi kendine başlamasını engeller.</string>
     <string name="appcontrol_app_uninstall_description">Bu uygulamayı cihazınızdan kaldırın.</string>
     <string name="appcontrol_app_exclude_add_title">Uygulamayı hariç tut</string>
     <string name="appcontrol_app_exclude_add_description">Bu uygulamayı SD Maid\'deki diğer işlemlerden hariç tutun.</string>
@@ -442,7 +457,20 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Bir uygulamanın etkin olup olmadığını (veya yakın zamanda etkin olup olmadığını) öğrenin.</string>
     <string name="appcontrol_export_app_selection_action">Uygulamaları dışa aktarma</string>
     <string name="appcontrol_export_title">Uygulamayı dışa aktar</string>
+    <string name="appcontrol_export_description">Bu uygulamanın kurulum dosyalarını kaydedin. Bu, uygulama verilerini içermez.</string>
     <string name="appcontrol_progress_exporting_x">Dışa aktarılıyor %s</string>
+    <string name="appcontrol_force_stop_selection_action">Uygulamaları durdurmaya zorla</string>
+    <string name="appcontrol_force_stop_action">Durdurmaya zorla</string>
+    <string name="appcontrol_force_stop_confirm_title">Zorla durdurmayı onaylayın</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Zorla %d uygulamasını durdur?</item>
+        <item quantity="other">Zorla %d uygulamalarını durdur?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Erişilebilirlik hizmeti aracılığıyla otomasyon hazırlanıyor</string>
+    <string name="appcontrol_automation_title">Uygulama Kontrol otomasyonu</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Durmaya zorlanıyor…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\"Durdurmaya zorla\" düğmesi aranıyor (anahtar kelimeler: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Önceki eylem onaylanmaya çalışılıyor (anahtar kelimeler: %s)</string>
     <string name="analyzer_tool_name">DepolamaAnalizcisi</string>
     <string name="analyzer_explanation_short">Cihazınızda neyin yer kapladığını öğrenin.</string>
     <string name="analyzer_progress_scanning_device">Depolama aygıtları aranıyor</string>
@@ -464,6 +492,8 @@
     <string name="analyzer_storage_type_primary_description">Cihazınızın birincil depolama alanı. Dahili hafıza kartı, uygulamalar için özel depolama alanını ve sistem verilerini içerir.</string>
     <string name="analyzer_storage_type_secondary_title">İkincil depolama</string>
     <string name="analyzer_storage_type_secondary_description">Genellikle çıkarılabilir bir hafıza kartı olan ikincil bir depolama alanı. Medya dosyalarını ve onu destekleyen uygulamalardan gelen verileri içerir.</string>
+    <string name="analyzer_storage_type_tertiary_title">Taşınabilir depolama</string>
+    <string name="analyzer_storage_type_tertiary_description">USB portunuza takılı bir flash sürücü gibi taşınabilir bir depolama alanı.</string>
     <string name="analyzer_storage_content_title">Depolama içeriği</string>
     <string name="analyzer_storage_content_type_app_label">Uygulamalar</string>
     <string name="analyzer_storage_content_type_app_description">Yüklü uygulamalar ve verileri (yani uygulama dosyaları, veriler ve önbellekler) tarafından kaplanan alan.</string>
@@ -577,4 +607,5 @@
     <string name="motd_setting_enabled_explanation">SD Maid\'in geliştiriciden gelen önemli mesajları kontrol etmesine izin verin.</string>
     <string name="updatecheck_setting_enabled_label">Güncelleme kontrolü</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid\'in daha yeni bir sürümün mevcut olup olmadığını size bildirmek için güncellemeleri kontrol etmesine izin verin.</string>
+    <string name="device_settings_category">Cihaz</string>
 </resources>

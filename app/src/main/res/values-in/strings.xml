@@ -70,6 +70,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Pratinjau berkas</string>
     <string name="ui_previews_summary">Tampilkan pratinjau berkas di semua peralatan (seperti pratinjau gambar dan video).</string>
+    <string name="ui_language_override_label">Bahasa aplikasi</string>
+    <string name="ui_language_override_desc">Pilih bahasa yang berbeda untuk SD Maid, tidak tergantung bahasa bawaan sistem Anda. Saat ini: %s</string>
     <string name="settings_support_label">Bantuan</string>
     <string name="settings_support_description">Baca dokumentasi, laporan masalah, mengobrol dengan orang lain atau merekam debug logs.</string>
     <string name="documentation_label">Dokumentasi</string>

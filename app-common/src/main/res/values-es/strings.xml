@@ -142,6 +142,7 @@
     <string name="general_timeunit_days">Días</string>
     <string name="general_progress_ready">Preparado</string>
     <string name="general_progress_done">Hecho</string>
+    <string name="general_rom_type_auto_label">Automático (por defecto)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s Archivo</item>
         <item quantity="other">%s archivos</item>

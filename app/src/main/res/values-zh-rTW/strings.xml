@@ -70,6 +70,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">檔案預覽</string>
     <string name="ui_previews_summary">在所有工具中顯示檔案預覽 (例如圖像和影片縮圖)</string>
+    <string name="ui_language_override_label">應用程式語言</string>
+    <string name="ui_language_override_desc">為 SD Maid 選擇一種與系統預設語言不同的語言。目前為：%s</string>
     <string name="settings_support_label">支援</string>
     <string name="settings_support_description">閱讀文件、回報問題、與其他使用者聊天或記錄偵錯記錄。</string>
     <string name="documentation_label">文件</string>
@@ -91,6 +93,9 @@
     <string name="setup_incomplete_card_continue_action">繼續設定</string>
     <string name="setup_title">安裝程式</string>
     <string name="setup_forcedshow_summary">再次顯示安裝程式畫面，包括已完成的項目。</string>
+    <string name="setup_checking_card_body">正在驗證設定完成與功能性。</string>
+    <string name="general_error_setup_require_label">設定未完成</string>
+    <string name="general_error_setup_require_msg">需要進一步設定才能使用此功能。完成剩餘的設定步驟。</string>
     <string name="setup_saf_card_title">儲存空間存取架構</string>
     <string name="setup_saf_card_body">透過授予 SD 女僕額外區域的存取權以改善結果。</string>
     <string name="setup_saf_card_body2">在大多數狀況下，視窗開啟時將預先選取正確的路徑。在存取權被授予時，項目會變為綠色。 </string>
@@ -138,6 +143,9 @@
     <string name="setup_acs_disallow_hint">如果您改變心意，您可以透過前往設定並重新啟動安裝程式以變更此選項。</string>
     <string name="setup_acs_appops_restriction_title">受限制的設定</string>
     <string name="setup_acs_appops_restriction_body">無法啟用 SD 女僕無障礙服務？Android 13+ 可能對未透過 Google Play 安裝的應用程式套用了限制。從系統的詳細資料頁面為 SD 女僕解除這些限制，這個選項在右上角的內容選單中。</string>
+    <string name="setup_inventory_card_title">應用程式清單</string>
+    <string name="setup_inventory_card_body">SD Maid 需要知道您安裝了哪些應用程式，以找到不屬於任何已安裝應用程式的檔案。</string>
+    <string name="setup_inventory_card_extra">尋找一個稱為「應用程式列表」或「查詢所有套件」的權限。</string>
     <string name="dataarea_warningcard_empty_message">SD 女僕找不到任何可以掃描的資料區域，您完成設定了嗎？</string>
     <string name="dataarea_warningcard_label">資料區域</string>
     <string name="dataarea_warningcard_reload_action">重新載入資料區域</string>
@@ -338,6 +346,11 @@
     <string name="appcleaner_automation_loading">正在透過無障礙服務準備自動化工作</string>
     <string name="appcleaner_automation_title">應用清理器自動化</string>
     <string name="appcleaner_automation_subtitle_default_caches">正在清理預設快取…</string>
+    <string name="appcleaner_automation_progress_open_settings">打開設定畫面（關鍵詞：%s）</string>
+    <string name="appcleaner_automation_progress_find_storage">尋找「儲存空間」項目（關鍵詞：%s）</string>
+    <string name="appcleaner_automation_progress_find_clear_data">尋找「清除資料」按鈕（關鍵詞：%s）</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">尋找「清除快取」按鈕（關鍵詞：%s）</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">嘗試確認先前的動作（關鍵詞：%s）</string>
     <string name="appcleaner_item_caches_inaccessible_title">預設快取</string>
     <string name="appcleaner_item_caches_inaccessible_body">公用和私人的預設快取，無法直接存取，但可以間接刪除 (例如透過無障礙服務)。</string>
     <string name="appcleaner_automation_unavailable_title">無障礙服務無法使用</string>
@@ -395,6 +408,8 @@
     <string name="appcontrol_systemsettings_open_description">開啟這個應用程式的系統設定。</string>
     <string name="appcontrol_app_launch_title">啟動應用程式</string>
     <string name="appcontrol_app_launch_description">啟動這個應用程式的主要活動。</string>
+    <string name="appcontrol_app_forcestop_title">強制停止</string>
+    <string name="appcontrol_app_forcestop_description">停止應用程式。防止它在您打開應用程式或設備重新啟動之前自行啟動。</string>
     <string name="appcontrol_app_uninstall_description">從您的裝置中解除安裝這個應用程式。</string>
     <string name="appcontrol_app_exclude_add_title">排除應用程式</string>
     <string name="appcontrol_app_exclude_add_description">從 SD 女僕的其他作業中排除這個應用程式。</string>
@@ -431,7 +446,19 @@
     <string name="appcontrol_settings_module_activity_enabled_description">查找活動（或最近活動）的應用程式</string>
     <string name="appcontrol_export_app_selection_action">導出應用程序</string>
     <string name="appcontrol_export_title">導出應用程序</string>
+    <string name="appcontrol_export_description">儲存此應用程式的安裝檔案。這不包括應用程式資料。</string>
     <string name="appcontrol_progress_exporting_x">正在導出 %s</string>
+    <string name="appcontrol_force_stop_selection_action">強制停止應用程式</string>
+    <string name="appcontrol_force_stop_action">強制停止</string>
+    <string name="appcontrol_force_stop_confirm_title">確認強制停止</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="other">強制停止 %d 個應用程式？</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">透過輔助功能服務準備自動化</string>
+    <string name="appcontrol_automation_title">AppControl 自動化</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">正在強制停止…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">尋找「強制停止」按鈕（關鍵詞：%s）</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">嘗試確認先前的動作（關鍵詞：%s）</string>
     <string name="analyzer_tool_name">儲存分析器</string>
     <string name="analyzer_explanation_short">找出哪些檔案佔用您的裝置空間。</string>
     <string name="analyzer_progress_scanning_device">正在搜尋儲存裝置</string>
@@ -451,6 +478,8 @@
     <string name="analyzer_storage_type_primary_description">您裝置的主要儲存空間，包含內部「SD 卡」、應用程式和系統資料的私人儲存空間。</string>
     <string name="analyzer_storage_type_secondary_title">次要儲存空間</string>
     <string name="analyzer_storage_type_secondary_description">次要儲存空間，通常是卸除式 SD 卡。包含媒體檔案和受支援的應用程式資料。</string>
+    <string name="analyzer_storage_type_tertiary_title">可攜式儲存</string>
+    <string name="analyzer_storage_type_tertiary_description">例如，插入 USB 連接埠的閃存驅動器的可攜式儲存。</string>
     <string name="analyzer_storage_content_title">儲存空間內容</string>
     <string name="analyzer_storage_content_type_app_label">應用程式</string>
     <string name="analyzer_storage_content_type_app_description">已安裝的應用程式及其資料 (即應用程式檔案、資料和快取) 佔用的空間。</string>
@@ -561,4 +590,5 @@
     <string name="motd_setting_enabled_explanation">允許 SD 女僕檢查來自開發人員的重要訊息。</string>
     <string name="updatecheck_setting_enabled_label">檢查更新</string>
     <string name="updatecheck_setting_enabled_explanation">允許 SD 女僕檢查更新，並讓您知道是否有可用的新版本。</string>
+    <string name="device_settings_category">裝置</string>
 </resources>

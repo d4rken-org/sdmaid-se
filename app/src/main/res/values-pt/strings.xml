@@ -72,6 +72,8 @@
     <string name="ui_theme_style_materialyou_label">Material seu</string>
     <string name="ui_previews_title">Pré-visualização do ficheiro</string>
     <string name="ui_previews_summary">Exibir pré-visualizações dos ficheiros em todas as ferramentas (por exemplo, miniaturas de imagens e vídeos).</string>
+    <string name="ui_language_override_label">Idioma da aplicação</string>
+    <string name="ui_language_override_desc">Selecione um idioma diferente para a SD Maid, independente do idioma padrão do seu sistema. Atualmente: %s</string>
     <string name="settings_support_label">Assistência</string>
     <string name="settings_support_description">Leia documentação, reporte problemas, converse com outros ou grave os logs de depuração.</string>
     <string name="documentation_label">Documentação</string>
@@ -93,6 +95,9 @@
     <string name="setup_incomplete_card_continue_action">Continuar configuração</string>
     <string name="setup_title">Configuração</string>
     <string name="setup_forcedshow_summary">Mostrar a tela de configuração novamente, incluindo os itens já concluídos.</string>
+    <string name="setup_checking_card_body">A verificar a conclusão de configuração e funcionalidade.</string>
+    <string name="general_error_setup_require_label">Configuração incompleta</string>
+    <string name="general_error_setup_require_msg">É necessária configuração adicional para usar este recurso. Conclua os passos de configuração restantes.</string>
     <string name="setup_saf_card_title">Quadro de acesso ao armazenamento</string>
     <string name="setup_saf_card_body">Melhorar os resultados, concedendo acesso ao SD Maid a áreas adicionais.</string>
     <string name="setup_saf_card_body2">Na maioria dos casos, a janela abrirá com o caminho correto pré-selecionado. As entradas ficam verdes quando o acesso é concedido. </string>
@@ -140,6 +145,9 @@
     <string name="setup_acs_disallow_hint">Se mudar de ideias pode alterar esta opção novamente indo para ás configurações e reiniciando a configuração.</string>
     <string name="setup_acs_appops_restriction_title">Configurações restritas</string>
     <string name="setup_acs_appops_restriction_body">Não é possível ativar o serviço de acessibilidade SD Maid? O Android 13+ pode aplicar restrições a apps não instaladas pelo Google Play. Retire as restrições na página de detalhes do sistema para o SD Maid. A opção está no menu de contexto no canto superior direito.</string>
+    <string name="setup_inventory_card_title">Inventário da aplicação</string>
+    <string name="setup_inventory_card_body">O SD Maid precisa saber quais as aplicações instaladas para encontrar arquivos que não pertencem a nehuma aplicação.</string>
+    <string name="setup_inventory_card_extra">Procure por uma permissão chamada \"Lista de aplicações\" ou \"Consultar todos os pacotes\".</string>
     <string name="dataarea_warningcard_empty_message">O SD Maid não encontrou nenhuma área de dados que pode ser verificada. Você concluiu a configuração?</string>
     <string name="dataarea_warningcard_label">Áreas de dados</string>
     <string name="dataarea_warningcard_reload_action">Recarregar áreas de dados</string>
@@ -346,6 +354,11 @@ Recursos dos jogos.</string>
     <string name="appcleaner_automation_loading">A preparar automação através do serviço de acessibilidade</string>
     <string name="appcleaner_automation_title">Automação AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Limpando a cache padrão…</string>
+    <string name="appcleaner_automation_progress_open_settings">Abrir menu de configurações (palavra-chave: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">À procura de \"Armazenamento\" (palavras-chave: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">À procura do botão \"Limpar dados\" (palavras-chave: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">À procura do botão \"Limpar dados\" (palavras-chave: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">A tentar confirmar a ação anterior (palavras-chave: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Caches padrão</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache padrão pública e privada. Não acessível diretamente, mas pode ser apagada indiretamente (por exemplo, via serviço de acessibilidade).</string>
     <string name="appcleaner_automation_unavailable_title">Serviço de acessibilidade indisponível</string>
@@ -406,6 +419,8 @@ Recursos dos jogos.</string>
     <string name="appcontrol_systemsettings_open_description">Abra as configurações do sistema do seu dispositivo para esta app.</string>
     <string name="appcontrol_app_launch_title">Iniciar aplicação</string>
     <string name="appcontrol_app_launch_description">Iniciar atividade primária deste aplicativo.</string>
+    <string name="appcontrol_app_forcestop_title">Forçar paragem</string>
+    <string name="appcontrol_app_forcestop_description">Interrompe a aplicação. Impede que se inicie até que você a abra ou que o dispositivo seja reiniciado.</string>
     <string name="appcontrol_app_uninstall_description">Desinstale esta aplicação do seu dispositivo.</string>
     <string name="appcontrol_app_exclude_add_title">Apagar aplicativo</string>
     <string name="appcontrol_app_exclude_add_description">Excluir este aplicativo de outras operações no SD Maid.</string>
@@ -443,7 +458,16 @@ Recursos dos jogos.</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Descubra se uma aplicação está ativa (ou esteve recentemente).</string>
     <string name="appcontrol_export_app_selection_action">Exportar aplicações</string>
     <string name="appcontrol_export_title">Exportar aplicações</string>
+    <string name="appcontrol_export_description">Guarde arquivos de instalação desta aplicação no seu dispositivo. Isso não inclui os dados.</string>
     <string name="appcontrol_progress_exporting_x">A exportar %s</string>
+    <string name="appcontrol_force_stop_selection_action">Forçar paragem de apps</string>
+    <string name="appcontrol_force_stop_action">Forçar paragem</string>
+    <string name="appcontrol_force_stop_confirm_title">Confirmar paragem forçada</string>
+    <string name="appcontrol_automation_loading">A preparar automação através do serviço de acessibilidade</string>
+    <string name="appcontrol_automation_title">Automação AppControl</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Forçar paragem…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">À procura do botão \"Limpar dados\" (palavras-chave: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">A tentar confirmar a ação anterior (palavras-chave: %s)</string>
     <string name="analyzer_tool_name">Analisador de armazenamento</string>
     <string name="analyzer_explanation_short">Descubra o que está ocupando espaço no seu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Procurando dispositivos de armazenamento</string>
@@ -465,6 +489,8 @@ Recursos dos jogos.</string>
     <string name="analyzer_storage_type_primary_description">O armazenamento primário do seu dispositivo. Contém o cartão SD interno, armazenamento privado para apps e dados do sistema.</string>
     <string name="analyzer_storage_type_secondary_title">Armazenamento secundário</string>
     <string name="analyzer_storage_type_secondary_description">Um armazenamento secundário, geralmente um cartão SD removível. Contém ficheiros de mídia e dados de aplicativos que o suportam.</string>
+    <string name="analyzer_storage_type_tertiary_title">Armazenamento portátil</string>
+    <string name="analyzer_storage_type_tertiary_description">Um armazenamento portátil, por exemplo, um flash drive conectado à porta USB.</string>
     <string name="analyzer_storage_content_title">Conteúdo de armazenamento</string>
     <string name="analyzer_storage_content_type_app_label">Aplicações</string>
     <string name="analyzer_storage_content_type_app_description">Espaço ocupado por aplicativos instalados e seus dados (ou seja, arquivos da aplicação, dados e caches).</string>
@@ -577,4 +603,5 @@ Recursos dos jogos.</string>
     <string name="motd_setting_enabled_explanation">Permitir que o SD Maid verifique mensagens importantes do desenvolvedor.</string>
     <string name="updatecheck_setting_enabled_label">Procurar atualizações</string>
     <string name="updatecheck_setting_enabled_explanation">Permita que o SD Maid verifique se há atualizações para uma versão mais recente.</string>
+    <string name="device_settings_category">Dispositivo</string>
 </resources>

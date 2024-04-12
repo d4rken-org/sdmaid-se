@@ -70,6 +70,8 @@
     <string name="ui_theme_style_materialyou_label">Material You 风格</string>
     <string name="ui_previews_title">文件预览</string>
     <string name="ui_previews_summary">在所有工具中显示文件预览（例如图片和视频缩略图）</string>
+    <string name="ui_language_override_label">应用语言</string>
+    <string name="ui_language_override_desc">为 SD Maid 选择不同的语言，独立于系统的默认语言。当前：%s</string>
     <string name="settings_support_label">支持</string>
     <string name="settings_support_description">读取文档、报告问题、与他人交流或记录调试日志。</string>
     <string name="documentation_label">文档</string>
@@ -91,6 +93,8 @@
     <string name="setup_incomplete_card_continue_action">继续设置</string>
     <string name="setup_title">设置</string>
     <string name="setup_forcedshow_summary">再次显示初始化界面，包括已完成的项目。</string>
+    <string name="setup_checking_card_body">验证设置完成情况和功能。</string>
+    <string name="general_error_setup_require_label">设置未完成</string>
     <string name="setup_saf_card_title">存储访问框架</string>
     <string name="setup_saf_card_body">授予 SD Maid 额外访问权限以改进扫描结果。</string>
     <string name="setup_saf_card_body2">在大多数情况下，打开的窗口会选择正确的路径。当访问权限被授予时，条目会变为绿色。 </string>

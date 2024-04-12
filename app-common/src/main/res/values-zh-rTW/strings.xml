@@ -9,6 +9,7 @@
     <string name="slogan_message_5">一塵不染</string>
     <string name="slogan_message_6">位元組，退散！</string>
     <string name="slogan_message_7">釋出空間，歡樂併兼</string>
+    <string name="slogan_message_8">永遠不會放棄你。</string>
     <string name="general_thank_you_label">謝謝您</string>
     <string name="general_error_type_mismatch_msg">類型不相符：想要 %1$s，但卻是 %2$s。</string>
     <string name="general_error_cant_access_msg">無法存取 %s。</string>
@@ -63,6 +64,8 @@
     <string name="general_progress_loading_egg_9">正在緩衝人生的選擇</string>
     <string name="general_progress_loading_egg_10">正在召喚克蘇魯</string>
     <string name="general_progress_loading_egg_11">好！</string>
+    <string name="general_progress_loading_egg_12">請稍候</string>
+    <string name="general_progress_loading_egg_13">至少你現在不用等待</string>
     <string name="general_help_action">說明</string>
     <string name="general_continue">繼續</string>
     <string name="general_progress_queued">在佇列中</string>
@@ -103,6 +106,12 @@
     <plurals name="result_x_items">
         <item quantity="other">%s 個項目</item>
     </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="other">%d 成功</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="other">%d 失敗</item>
+    </plurals>
     <string name="x_space_can_be_freed">%s 可釋出</string>
     <string name="general_info_label">資訊</string>
     <string name="general_count_label">計數</string>
@@ -128,6 +137,7 @@
     <string name="general_timeunit_days">天</string>
     <string name="general_progress_ready">就緒</string>
     <string name="general_progress_done">完成</string>
+    <string name="general_rom_type_auto_label">自動（預設）</string>
     <plurals name="result_x_files">
         <item quantity="other">%s 個檔案</item>
     </plurals>
