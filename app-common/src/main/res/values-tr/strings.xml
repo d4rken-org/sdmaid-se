@@ -142,6 +142,7 @@
     <string name="general_timeunit_days">Günler</string>
     <string name="general_progress_ready">Hazır</string>
     <string name="general_progress_done">Tamamlandı</string>
+    <string name="general_rom_type_auto_label">Otomatik (varsayılan)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s dosya</item>
         <item quantity="other">%s dosyalar</item>

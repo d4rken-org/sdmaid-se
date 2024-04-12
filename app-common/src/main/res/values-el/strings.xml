@@ -142,6 +142,7 @@
     <string name="general_timeunit_days">Ημέρες</string>
     <string name="general_progress_ready">Έτοιμο</string>
     <string name="general_progress_done">Τέλος</string>
+    <string name="general_rom_type_auto_label">Αυτόματα (προεπιλογή)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s αρχείο</item>
         <item quantity="other">%s αρχεία</item>

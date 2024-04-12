@@ -76,6 +76,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Предпросмотр файлов</string>
     <string name="ui_previews_summary">Предварительный просмотр файлов во всех инструментах (например эскизы изображений и видео).</string>
+    <string name="ui_language_override_label">Язык приложения</string>
+    <string name="ui_language_override_desc">Выберите другой язык для приложения SD Maid, отличный от языка системы. Текущий язык: %s</string>
     <string name="settings_support_label">Поддержка</string>
     <string name="settings_support_description">Читайте документацию, сообщайте о проблемах, общайтесь с другими пользователями или шлите отладочные журналы.</string>
     <string name="documentation_label">Документация</string>
@@ -97,6 +99,9 @@
     <string name="setup_incomplete_card_continue_action">Продолжить установку</string>
     <string name="setup_title">Установка</string>
     <string name="setup_forcedshow_summary">Повторный запуск экрана установки, включая выполненные пункты.</string>
+    <string name="setup_checking_card_body">Проверка настроек и функциональности.</string>
+    <string name="general_error_setup_require_label">Настройка не завершена</string>
+    <string name="general_error_setup_require_msg">Для использования этой функции требуется дальнейшая настройка. Завершите оставшиеся шаги.</string>
     <string name="setup_saf_card_title">Доступ к хранилищу</string>
     <string name="setup_saf_card_body">Улучшите результаты, предоставив SD Maid доступ к дополнительным параметрам.</string>
     <string name="setup_saf_card_body2">В большинстве случаев окно открывается с предварительно выбранным правильным путем. Записи становятся зелеными, когда доступ разрешен. </string>
@@ -144,6 +149,9 @@
     <string name="setup_acs_disallow_hint">Если Вы передумаете, Вы можете изменить эту опцию, зайдя в настройки и перезапустив установку.</string>
     <string name="setup_acs_appops_restriction_title">Ограниченные настройки</string>
     <string name="setup_acs_appops_restriction_body">Не удаётся включить службу специальных возможностей для SD Maid? Android 13+ может накладывать ограничения на приложения, установленные не через Google Play. Снимите эти ограничения в системных настройках для SD Maid. Опция находится в контекстном меню в правом верхнем углу.</string>
+    <string name="setup_inventory_card_title">Инвентарь</string>
+    <string name="setup_inventory_card_body">SD Maid нужно знать какие приложения установлены, чтобы находить файлы не принадлежащие каким-либо из них.</string>
+    <string name="setup_inventory_card_extra">Ищите разрешение \"Список приложений\" или \"Запросить все пакеты\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid не обнаружило области для сканирования. Закончили ли Вы установку?</string>
     <string name="dataarea_warningcard_label">Области сканирования</string>
     <string name="dataarea_warningcard_reload_action">Обновить области сканирования</string>
@@ -359,6 +367,11 @@
     <string name="appcleaner_automation_loading">Подготовка автоматизации через службу специальных возможностей</string>
     <string name="appcleaner_automation_title">Автоматизация очистки</string>
     <string name="appcleaner_automation_subtitle_default_caches">Очистка кэша по умолчанию…</string>
+    <string name="appcleaner_automation_progress_open_settings">Открытие экрана настроек (ключевые слова: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Поиск записи \"Хранилище\" (ключевые слова: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Поиск кнопки \"Очистка данных\" (ключевые слова: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Поиск кнопки \"Очистка кэша\" (ключевые слова: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Попытка подтвердить предыдущее действие (ключевые слова: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Кэш по умолчанию</string>
     <string name="appcleaner_item_caches_inaccessible_body">Публичный и приватный кэш по умолчанию. Не имеют прямого доступа, но могут быть удалены косвенно (например, через службу специальных возможностей).</string>
     <string name="appcleaner_automation_unavailable_title">Служба специальных возможностей недоступна</string>
@@ -425,6 +438,8 @@
     <string name="appcontrol_systemsettings_open_description">Открыть системные настройки для этого приложения.</string>
     <string name="appcontrol_app_launch_title">Запустить приложение</string>
     <string name="appcontrol_app_launch_description">Запуск главной активности этого приложения.</string>
+    <string name="appcontrol_app_forcestop_title">Принудительное завершение</string>
+    <string name="appcontrol_app_forcestop_description">Завершение приложения. Предотвращение запуска до тех пор, пока Вы не откроете приложение, или пока устройство не перезагрузится.</string>
     <string name="appcontrol_app_uninstall_description">Удаление этого приложения с устройства.</string>
     <string name="appcontrol_app_exclude_add_title">Исключение приложений</string>
     <string name="appcontrol_app_exclude_add_description">Исключить это приложение из других операций в SD Maid.</string>
@@ -464,7 +479,22 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Узнайте, активно ли приложение (или недавно было активно).</string>
     <string name="appcontrol_export_app_selection_action">Экспорт приложений</string>
     <string name="appcontrol_export_title">Экспорт приложения</string>
+    <string name="appcontrol_export_description">Сохраните файлы установки этого приложения. Это не включает данные приложения.</string>
     <string name="appcontrol_progress_exporting_x">Экспорт %s</string>
+    <string name="appcontrol_force_stop_selection_action">Принудительное завершение приложений</string>
+    <string name="appcontrol_force_stop_action">Принудительное завершение</string>
+    <string name="appcontrol_force_stop_confirm_title">Подтвердите завершение</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Завершить %d приложение?</item>
+        <item quantity="few">Завершить %d прил.?</item>
+        <item quantity="many">Завершить %d прил.?</item>
+        <item quantity="other">Завершить %d прил.?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Подготовка автоматизации через службу специальных возможностей</string>
+    <string name="appcontrol_automation_title">Автоматизация AppControl</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Принудительное завершение…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Поиск кнопки \"Принудительное завершение\" (ключевые слова: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Попытка подтвердить предыдущее действие (ключевые слова: %s)</string>
     <string name="analyzer_tool_name">Анализ памяти</string>
     <string name="analyzer_explanation_short">Узнайте, что занимает место на Вашем устройстве.</string>
     <string name="analyzer_progress_scanning_device">Поиск хранилищ</string>
@@ -490,6 +520,8 @@
     <string name="analyzer_storage_type_primary_description">Основное хранилище Вашего устройства. Включает в себя внутренний раздел SD card, данные приложений и системы.</string>
     <string name="analyzer_storage_type_secondary_title">Дополнительное хранилище</string>
     <string name="analyzer_storage_type_secondary_description">Дополнительная память, обычно внешняя карта памяти. Содержит медиафайлы и данные приложений, которые поддерживают её.</string>
+    <string name="analyzer_storage_type_tertiary_title">Съемный накопитель</string>
+    <string name="analyzer_storage_type_tertiary_description">Съемный накопитель, например, флэш-диск подключен к USB-порту.</string>
     <string name="analyzer_storage_content_title">Содержимое хранилища</string>
     <string name="analyzer_storage_content_type_app_label">Приложения</string>
     <string name="analyzer_storage_content_type_app_description">Место, занятое установленными приложениями и их данными (например, файлы приложений, данные и кэш).</string>
@@ -606,4 +638,5 @@
     <string name="motd_setting_enabled_explanation">Разрешить SD Maid проверять важные сообщения от разработчика.</string>
     <string name="updatecheck_setting_enabled_label">Проверка обновлений</string>
     <string name="updatecheck_setting_enabled_explanation">Разрешить SD Maid проверять наличие обновлений, чтобы уведомить Вас о выходе новой версии.</string>
+    <string name="device_settings_category">Устройство</string>
 </resources>

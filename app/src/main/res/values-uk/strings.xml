@@ -76,6 +76,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Перегляд файлів</string>
     <string name="ui_previews_summary">Показувати попередній перегляд файлів у всіх інструментах (наприклад, ескізи зображень та відео).</string>
+    <string name="ui_language_override_label">Мова додатка</string>
+    <string name="ui_language_override_desc">Виберіть іншу мову для SD Maid незалежно від мови вашої системи за замовчуванням. Зараз: %s</string>
     <string name="settings_support_label">Підтримка</string>
     <string name="settings_support_description">Читайте документацію, повідомляйте про проблеми, спілкуйтеся з іншими або записуйте журнали налагодження.</string>
     <string name="documentation_label">Документація</string>
@@ -97,6 +99,9 @@
     <string name="setup_incomplete_card_continue_action">Продовжити налаштування</string>
     <string name="setup_title">Налаштування</string>
     <string name="setup_forcedshow_summary">Показати екран налаштувань, включно з уже заповненими пунктами.</string>
+    <string name="setup_checking_card_body">Перевірка завершення налаштування та функціональності.</string>
+    <string name="general_error_setup_require_label">Налаштування не завершено</string>
+    <string name="general_error_setup_require_msg">Щоб скористатися цією функцією, потрібно виконати додаткові налаштування. Виконайте решту кроків налаштування.</string>
     <string name="setup_saf_card_title">Система доступу до сховища</string>
     <string name="setup_saf_card_body">Покращуйте результати, надаючи SD Maid доступ до додаткових зон.</string>
     <string name="setup_saf_card_body2">У більшості випадків вікно відкриється з попередньо вибраним правильним шляхом. Записи стають зеленими, коли доступ надано. </string>
@@ -144,6 +149,8 @@
     <string name="setup_acs_disallow_hint">Якщо ви передумаєте, ви можете змінити цю опцію знову, зайшовши в налаштування і перезапустивши інсталяцію.</string>
     <string name="setup_acs_appops_restriction_title">Обмежені налаштування</string>
     <string name="setup_acs_appops_restriction_body">Не вдається увімкнути сервіс спеціальних можливостей для SD Maid? Android 13+ може накладати обмеження на додатки, встановлені не через Google Play. Зніміть ці обмеження в системних налаштуваннях для SD Maid. Дана опція знаходиться в контекстному меню у верхньому правому куті.</string>
+    <string name="setup_inventory_card_body">SD Maid має знати, які додатки ви використовуєте, щоб знайти файли, що не належать жодному із встановлених додатків.</string>
+    <string name="setup_inventory_card_extra">Знайдіть дозвіл під назвою «Список додатків» або «Запитувати всі пакети».</string>
     <string name="dataarea_warningcard_empty_message">SD Maid не виявила області даних для сканування. Ви завершили налаштування?</string>
     <string name="dataarea_warningcard_label">Області сканування</string>
     <string name="dataarea_warningcard_reload_action">Оновити області сканування</string>
@@ -335,6 +342,11 @@
     <string name="appcleaner_automation_loading">Підготовка автоматизації через сервіс спеціальних можливостей</string>
     <string name="appcleaner_automation_title">Автоматизація очищення додатків</string>
     <string name="appcleaner_automation_subtitle_default_caches">Очищення кешу за умовчанням…</string>
+    <string name="appcleaner_automation_progress_open_settings">Відкриття екрана налаштувань (ключові слова: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Пошук запису \"Сховище\" (ключові слова: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Пошук кнопки \"Очистити дані\" (ключові слова: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Пошук кнопки \"Очистити кеш\" (ключові слова: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Спроба підтвердити попередню дію (ключові слова: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Кеш за умовчанням</string>
     <string name="appcleaner_item_caches_inaccessible_body">Публічні та приватні кеші за умовчанням. Не доступні безпосередньо, але можуть бути видалені опосередковано (наприклад, через сервіс спеціальних можливостей).</string>
     <string name="appcleaner_automation_unavailable_title">Сервіс спеціальних можливостей недоступний</string>
@@ -344,7 +356,7 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Видалення кешу за допомогою Shizuku</string>
     <string name="deduplicator_tool_name">Дублікати</string>
     <string name="deduplicator_explanation_short">Знайдіть дублікати даних на вашому пристрої.</string>
-    <string name="deduplicator_protection_deleteall_allowed_title">Зробіть функцію \"Видалити все\" можливою</string>
+    <string name="deduplicator_protection_deleteall_allowed_title">Зробити можливим «Видалити все»</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Показати опції, які дозволяють видалити всі файли в наборі дублікатів так, щоб не залишилося жодного файлу.</string>
     <string name="deduplicator_skip_minsize_title">Мінімальний розмір</string>
     <string name="deduplicator_skip_minsize_description">Пропускати файли, розмір яких менший за мінімальний.</string>
@@ -383,6 +395,8 @@
     <string name="appcontrol_systemsettings_open_description">Відкрийте системні налаштування вашого пристрою для цього додатку.</string>
     <string name="appcontrol_app_launch_title">Запустити додаток</string>
     <string name="appcontrol_app_launch_description">Запустіть основну активність цього додатка.</string>
+    <string name="appcontrol_app_forcestop_title">Примусова зупинка</string>
+    <string name="appcontrol_app_forcestop_description">Зупиняє додаток. Не дає йому запуститися, доки ви не відкриєте його або не перезавантажите пристрій.</string>
     <string name="appcontrol_app_uninstall_description">Видаліть цей додаток з пристрою.</string>
     <string name="appcontrol_app_exclude_add_title">Виключити додаток</string>
     <string name="appcontrol_app_exclude_add_description">Виключіть цей додаток з інших операцій у SD Maid.</string>
@@ -414,7 +428,16 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Дізнайтеся, чи є додаток активним (або нещодавно був активним).</string>
     <string name="appcontrol_export_app_selection_action">Експорт додатків</string>
     <string name="appcontrol_export_title">Експорт додатка</string>
+    <string name="appcontrol_export_description">Збережіть інсталяційні файли цього додатка. Сюди не входять дані додатка.</string>
     <string name="appcontrol_progress_exporting_x">Експорт %s</string>
+    <string name="appcontrol_force_stop_selection_action">Примусово зупинити додатки</string>
+    <string name="appcontrol_force_stop_action">Примусова зупинка</string>
+    <string name="appcontrol_force_stop_confirm_title">Підтвердьте примусову зупинку</string>
+    <string name="appcontrol_automation_loading">Підготовка автоматизації через сервіс спеціальних можливостей</string>
+    <string name="appcontrol_automation_title">Автоматизація очищення додатків</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Примусова зупинка…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Шукаємо кнопку \"Примусово зупинити\" (ключові слова: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Спроба підтвердити попередню дію (ключові слова: %s)</string>
     <string name="analyzer_tool_name">Аналізатор сховища</string>
     <string name="analyzer_explanation_short">Дізнайтеся, що займає місце на вашому пристрої.</string>
     <string name="analyzer_progress_scanning_device">Пошук пристроїв для зберігання даних</string>
@@ -428,6 +451,8 @@
     <string name="analyzer_storage_type_primary_description">Основне сховище вашого пристрою. Містить внутрішню SD карту, приватне сховище для додатків та системних даних.</string>
     <string name="analyzer_storage_type_secondary_title">Вторинне сховище</string>
     <string name="analyzer_storage_type_secondary_description">Вторинне сховище, зазвичай знімна SD карта. Містить медіафайли та дані з додатків, які їх підтримують.</string>
+    <string name="analyzer_storage_type_tertiary_title">Портативний накопичувач</string>
+    <string name="analyzer_storage_type_tertiary_description">Портативний накопичувач, наприклад, флеш-накопичувач, підключений до USB-порту.</string>
     <string name="analyzer_storage_content_title">Вміст сховища</string>
     <string name="analyzer_storage_content_type_app_label">Додатки</string>
     <string name="analyzer_storage_content_type_app_description">Простір, зайнятий встановленими додатками та їхніми даними (тобто файлами додатків, даними та кешем).</string>
@@ -532,4 +557,5 @@
     <string name="motd_setting_enabled_explanation">Дозвольте SD Maid перевіряти важливі повідомлення від розробника.</string>
     <string name="updatecheck_setting_enabled_label">Перевірка оновлення</string>
     <string name="updatecheck_setting_enabled_explanation">Дозвольте SD Maid перевіряти оновлення, щоб повідомити вас про появу нової версії.</string>
+    <string name="device_settings_category">Пристрій</string>
 </resources>

@@ -23,7 +23,7 @@
         <item quantity="other">%d সক্রিয় কাজ</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
-        <item quantity="one">%dটি কাজ অপেক্ষমাণ আছে</item>
+        <item quantity="one">%d টি কাজ অপেক্ষমাণ আছে</item>
         <item quantity="other">%d কাজ অপেক্ষমাণ</item>
     </plurals>
     <string name="tasks_result_notification_channel_label">টাস্ক ফলাফল</string>
@@ -72,6 +72,8 @@
     <string name="ui_theme_style_materialyou_label">ম্যাটেরিয়াল ইউ</string>
     <string name="ui_previews_title">ফাইলের পূর্বরূপ</string>
     <string name="ui_previews_summary">সমস্ত টুলগুলোর ফাইলের প্রিভিউ দেখান (যেমন- ছবি ও ভিডিও থাম্বনেল)।</string>
+    <string name="ui_language_override_label">অ্যাপের ভাষা</string>
+    <string name="ui_language_override_desc">SD Maid এর জন্য একটি ভিন্ন ভাষা নির্বাচন করুন, যেটি আপনার ডিভাইসের ভাষার থেকে ভিন্ন হতে পারে। বর্তমানে আছে: %s</string>
     <string name="settings_support_label">সমর্থন</string>
     <string name="settings_support_description">ডকুমেন্টেশন পড়ুন, সমস্যা রিপোর্ট করুন, অন্যদের সাথে চ্যাট করুন বা ডিবাগ লগ রেকর্ড করুন।</string>
     <string name="documentation_label">নথিপত্রাদি</string>
@@ -93,6 +95,9 @@
     <string name="setup_incomplete_card_continue_action">সেটআপ চালিয়ে যান</string>
     <string name="setup_title">সেটআপ</string>
     <string name="setup_forcedshow_summary">ইতোমধ্যে সমাপ্ত আইটেম-সহ আবার সেটআপ স্ক্রীন দেখান।</string>
+    <string name="setup_checking_card_body">সেটআপ সম্পূর্ণতা এবং কার্যকারিতা যাচাই করা হচ্ছে।</string>
+    <string name="general_error_setup_require_label">সেটাপ অসম্পূর্ণ</string>
+    <string name="general_error_setup_require_msg">এই বৈশিষ্ট্যটি ব্যবহার করার জন্য আরও সেট আপ করতে হবে। অবশিষ্ট সেটআপ পদক্ষেপগুলি সম্পূর্ণ করুন।</string>
     <string name="setup_saf_card_title">স্টোরেজ অ্যাক্সেস ফ্রেমওয়ার্ক</string>
     <string name="setup_saf_card_body">SD Maid -কে অতিরিক্ত ডাটা এরিয়ায় প্রবেশাধিকার দেওয়ার মাধ্যমে ফলাফলের উন্নতি ঘটান।</string>
     <string name="setup_saf_card_body2">বেশিরভাগ ক্ষেত্রেই সঠিক পথটি পূর্বনির্বাচিত করে উইন্ডোটি খুলবে। প্রবেশাধিকার দেওয়া হলে এন্ট্রি সবুজ হয়ে যায়। </string>
@@ -140,6 +145,9 @@
     <string name="setup_acs_disallow_hint">আপনি যদি আপনার মন পরিবর্তন করেন, আপনি সেটিংসে গিয়ে সেটআপ পুনরায় চালু করে এই অপশনটি আবার পরিবর্তন করতে পারেন।</string>
     <string name="setup_acs_appops_restriction_title">সীমাবদ্ধ সেটিংস</string>
     <string name="setup_acs_appops_restriction_body">SD Maids অ্যাক্সেসিবিলিটি পরিষেবা চালু করতে পারছে না? Android 13+ ডিভাইসের ক্ষেত্রে Google Play এর মাধ্যমে ইনস্টল করা হয়নি এমন অ্যাপগুলিতে বিধিনিষেধ প্রয়োগ করতে পারে। SD Maid এর জন্য সিস্টেমের বিস্তারিত পেজ থেকে এই সীমাবদ্ধতাগুলি তুলে নিন। অপশনটি উপরের ডানদিকে কোণায় কন্টেক্সট মেনুতে রয়েছে।</string>
+    <string name="setup_inventory_card_title">অ্যাপ ইনভেন্টরি</string>
+    <string name="setup_inventory_card_body">SD Maid এর জানা দরকার যে কোন অ্যাপগুলি আপনার কাছে এমন ফাইলগুলি খুঁজে বের করতে হবে যা কোনও ইনস্টল করা অ্যাপের অন্তর্গত নয়।</string>
+    <string name="setup_inventory_card_extra">\"অ্যাপ লিস্ট\" বা \"কোয়েরি অল প্যাকেজ\" নামে একটি পারমিশন খুঁজুন।</string>
     <string name="dataarea_warningcard_empty_message">SD Maid স্ক্যান করাতে পারে এমন কোনো ডেটা এরিয়া খুঁজে পায়নি। আপনি সেটআপ সম্পূর্ণ করেছেন?</string>
     <string name="dataarea_warningcard_label">ডেটা এরিয়া</string>
     <string name="dataarea_warningcard_reload_action">ডেটা এরিয়া পুনরায় লোড করুন</string>
@@ -345,6 +353,11 @@
     <string name="appcleaner_automation_loading">অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে অটোমেশন প্রস্তুত করা হচ্ছে</string>
     <string name="appcleaner_automation_title">AppCleaner অটোমেশন</string>
     <string name="appcleaner_automation_subtitle_default_caches">ডিফল্ট ক্যাশ সাফ করা হচ্ছে…</string>
+    <string name="appcleaner_automation_progress_open_settings">সেটিংস স্ক্রীন খোলা হচ্ছে (কীওয়ার্ড: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">\"স্টোরেজ\" এন্ট্রির জন্য অনুসন্ধান করা হচ্ছে (কীওয়ার্ড: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">\"ডেটা সাফ করুন\" বাটন খুঁজছেন (কীওয়ার্ড: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">\"ক্যাশে সাফ করুন\" বাটন খুঁজছেন (কীওয়ার্ড: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">পূর্ববর্তী কর্ম নিশ্চিত করার চেষ্টা করা হচ্ছে (কীওয়ার্ড: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ডিফল্ট ক্যাশ</string>
     <string name="appcleaner_item_caches_inaccessible_body">পাবলিক এবং ব্যক্তিগত ডিফল্ট ক্যাশ। সরাসরি অ্যাক্সেসযোগ্য নয়, তবে পরোক্ষভাবে মুছে ফেলা যেতে পারে (যেমন অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে)।</string>
     <string name="appcleaner_automation_unavailable_title">অ্যাক্সেসিবিলিটি পরিষেবা অনুপলব্ধ৷</string>
@@ -405,6 +418,8 @@
     <string name="appcontrol_systemsettings_open_description">এই অ্যাপের জন্য আপনার ডিভাইসের সিস্টেম সেটিংস খুলুন।</string>
     <string name="appcontrol_app_launch_title">অ্যাপ চালু করুন</string>
     <string name="appcontrol_app_launch_description">এই অ্যাপটির প্রাথমিক কার্যকলাপ চালু করুন।</string>
+    <string name="appcontrol_app_forcestop_title">জোর করে বন্ধ করুন</string>
+    <string name="appcontrol_app_forcestop_description">অ্যাপ বন্ধ করে দিন। যতক্ষণ না আপনি এটি খুলছেন বা ডিভাইসটি রিবুট না করা পর্যন্ত এটি নিজে থেকে শুরু হতে বাধা দেয়।</string>
     <string name="appcontrol_app_uninstall_description">আপনার ডিভাইস থেকে এই অ্যাপ্লিকেশন আনইনস্টল করুন।</string>
     <string name="appcontrol_app_exclude_add_title">অ্যাপ বাদ দিন</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid-এর অন্যান্য ক্রিয়াকলাপ থেকে এই অ্যাপটিকে বাদ দিন।</string>
@@ -412,6 +427,8 @@
     <string name="appcontrol_app_exclude_edit_description">এই অ্যাপটি বর্তমানে এক বা একাধিক টুল থেকে বাদ দেওয়া হয়েছে।</string>
     <string name="appcontrol_tag_user">ব্যবহারকারী</string>
     <string name="appcontrol_tag_active">সম্প্রতি সক্রিয়</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">বান্ডল</string>
     <string name="appcontrol_tag_system">সিস্টেম</string>
     <string name="appcontrol_tag_enabled">সক্রিয়</string>
     <string name="appcontrol_tag_disabled">নিষ্ক্রিয়</string>
@@ -434,6 +451,26 @@
         <item quantity="one">%d অ্যাপের সক্ষম/অক্ষম অবস্থা পরিবর্তন করবেন?</item>
         <item quantity="other">%d অ্যাপের জন্য সক্রিয়/অক্ষম অবস্থা পরিবর্তন করবেন?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">আকার নির্ধারণ করুন</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">প্রতিটি অ্যাপের আকারের মোটামুটি অনুমান পান।</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">কার্যকলাপ নির্ধারণ</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">একটি অ্যাপ সক্রিয় (বা সম্প্রতি ছিল) কিনা তা খুঁজে বের করুন।</string>
+    <string name="appcontrol_export_app_selection_action">এক্সপোর্ট অ্যাপস</string>
+    <string name="appcontrol_export_title">এক্সপোর্ট অ্যাপ</string>
+    <string name="appcontrol_export_description">এই অ্যাপের ইনস্টলেশন ফাইলগুলি সংরক্ষণ করুন। এটি অ্যাপ ডেটা অন্তর্ভুক্ত করে না।</string>
+    <string name="appcontrol_progress_exporting_x">এক্সপোর্ট করা হচ্ছে %s</string>
+    <string name="appcontrol_force_stop_selection_action">জোর করে অ্যাপ বন্ধ করুন</string>
+    <string name="appcontrol_force_stop_action">জোর করে বন্ধ করুন</string>
+    <string name="appcontrol_force_stop_confirm_title">জোর করে অ্যাপ বন্ধ করা নিশ্চিত করুন</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one"> %d অ্যাপটি জোর করে বন্ধ করবেন?</item>
+        <item quantity="other">%d অ্যাপ গুলো জোর করে বন্ধ করবেন?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে অটোমেশন প্রস্তুত করা হচ্ছে</string>
+    <string name="appcontrol_automation_title">AppControl অটোমোশন</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">জোর করে থামানো হচ্ছে...</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\"ফোর্স স্টপ\" বাটন খুঁজছেন (কীওয়ার্ড: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">পূর্ববর্তী কর্ম নিশ্চিত করার চেষ্টা করা হচ্ছে (কীওয়ার্ড: %s)</string>
     <string name="analyzer_tool_name">স্টোরেজ বিশ্লেষক</string>
     <string name="analyzer_explanation_short">আপনার ডিভাইসে কী কী জিনিস স্টোরেজের কতটুকু যায়গা দখল করছে তা খুঁজে বের করুন।</string>
     <string name="analyzer_progress_scanning_device">স্টোরেজ ডিভাইসের জন্য অনুসন্ধান করা হচ্ছে</string>
@@ -455,6 +492,8 @@
     <string name="analyzer_storage_type_primary_description">আপনার ডিভাইসের প্রাথমিক স্টোরেজ। অভ্যন্তরীণ SD কার্ড, অ্যাপগুলির জন্য ব্যক্তিগত স্টোরেজ এবং সিস্টেম ডেটা রয়েছে৷</string>
     <string name="analyzer_storage_type_secondary_title">সেকেন্ডারি স্টোরেজ</string>
     <string name="analyzer_storage_type_secondary_description">একটি সেকেন্ডারি স্টোরেজ, সাধারণত একটি অপসারণযোগ্য SD কার্ড৷ এটি সমর্থন করে এমন অ্যাপ থেকে মিডিয়া ফাইল এবং ডেটা রয়েছে।</string>
+    <string name="analyzer_storage_type_tertiary_title">পোর্টেবল স্টোরেজ</string>
+    <string name="analyzer_storage_type_tertiary_description">একটি পোর্টেবল স্টোরেজ, যেমন একটি ফ্ল্যাশ ড্রাইভ আপনার ইউএসবি পোর্টে প্লাগ করা হয়েছে.</string>
     <string name="analyzer_storage_content_title">স্টোরেজ উপাদান</string>
     <string name="analyzer_storage_content_type_app_label">অ্যাপ</string>
     <string name="analyzer_storage_content_type_app_description">ইনস্টল করা অ্যাপ এবং তাদের ডেটা (যেমন অ্যাপ্লিকেশন ফাইল, ডেটা এবং ক্যাশে) দ্বারা স্থান দখল করা।</string>
@@ -567,4 +606,5 @@
     <string name="motd_setting_enabled_explanation">SD Maid-কে ডেভেলপারের কাছ থেকে গুরুত্বপূর্ণ বার্তাগুলি পরীক্ষা করার অনুমতি দিন।</string>
     <string name="updatecheck_setting_enabled_label">আপডেট চেক</string>
     <string name="updatecheck_setting_enabled_explanation">একটি নতুন সংস্করণ উপলব্ধ কিনা তা জানাতে SD Maid কে আপডেটগুলি পরীক্ষা করার অনুমতি দিন৷</string>
+    <string name="device_settings_category">ডিভাইস</string>
 </resources>

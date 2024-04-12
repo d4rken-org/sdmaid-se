@@ -72,6 +72,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Pré-visualização de arquivos</string>
     <string name="ui_previews_summary">Exibir pré-visualizações de arquivos em todas as ferramentas (por exemplo, miniaturas de imagens e vídeos).</string>
+    <string name="ui_language_override_label">Idioma do aplicativo</string>
+    <string name="ui_language_override_desc">Selecione um idioma diferente para o SD Maid, independente do idioma padrão do seu sistema. Atualmente: %s</string>
     <string name="settings_support_label">Suporte</string>
     <string name="settings_support_description">Leia documentação, reporte problemas, converse com outros ou grave os logs de depuração.</string>
     <string name="documentation_label">Documentação</string>
@@ -93,6 +95,9 @@
     <string name="setup_incomplete_card_continue_action">Continue a configuração</string>
     <string name="setup_title">Configuração</string>
     <string name="setup_forcedshow_summary">Mostrar a tela de configuração novamente, incluindo itens já concluídos.</string>
+    <string name="setup_checking_card_body">Verificando a conclusão da configuração e funcionalidade.</string>
+    <string name="general_error_setup_require_label">A configuração está incompleta</string>
+    <string name="general_error_setup_require_msg">Configuração adicional é necessária para usar este recurso. Conclua os passos de configuração restantes.</string>
     <string name="setup_saf_card_title">Framework de acesso ao armazenamento</string>
     <string name="setup_saf_card_body">Melhorar os resultados, concedendo acesso ao SD Maid a áreas adicionais.</string>
     <string name="setup_saf_card_body2">Geralmente, a janela abrirá com o caminho correto pré-selecionado. As entradas ficam verdes quando o acesso é concedido. </string>
@@ -140,6 +145,9 @@
     <string name="setup_acs_disallow_hint">Se mudar de ideia, você pode alterar esta opção novamente indo para as configurações e reiniciando a configuração.</string>
     <string name="setup_acs_appops_restriction_title">Ajustes restritos</string>
     <string name="setup_acs_appops_restriction_body">Não é possível ativar o serviço de acessibilidade para o SD Maid? O Android 13+ talvez aplique restrições a “apps” não instalados pelo Google Pastorela. Confira essas restrições na página de detalhes do sistema para o SD Maid. A opção está no menu de contexto no canto superior direito.</string>
+    <string name="setup_inventory_card_title">Inventário do aplicativo</string>
+    <string name="setup_inventory_card_body">O SD Maid precisa saber quais aplicativos você precisa encontrar arquivos que não pertencem a qualquer aplicativo instalado.</string>
+    <string name="setup_inventory_card_extra">Procure por uma permissão chamada \"Lista de aplicativos\" ou \"Consultar todos os pacotes\".</string>
     <string name="dataarea_warningcard_empty_message">O SD Maid não encontrou nenhuma área de dados que pode ser digitalizada. Você concluiu a configuração?</string>
     <string name="dataarea_warningcard_label">Áreas de dados</string>
     <string name="dataarea_warningcard_reload_action">Recarregar áreas de dados</string>
@@ -345,6 +353,11 @@
     <string name="appcleaner_automation_loading">Preparando automação por serviço de acessibilidade</string>
     <string name="appcleaner_automation_title">Automação do Limpador de Aplicativos</string>
     <string name="appcleaner_automation_subtitle_default_caches">Limpando os caches padrão…</string>
+    <string name="appcleaner_automation_progress_open_settings">Abertura de tela de configurações (palavras-chave: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Procurando por \"Armazenamento\" (palavras-chave: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Procurando pelo botão \"Limpar dados\" (palavras-chave: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Procurando pelo botão \"Limpar dados\" (palavras-chave: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Tentando confirmar a ação anterior (palavras-chave: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Caches padrão</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache padrão público e privado. Não acessível diretamente, mas pode ser excluído indiretamente (por exemplo, via serviço de acessibilidade).</string>
     <string name="appcleaner_automation_unavailable_title">Serviço de acessibilidade indisponível</string>
@@ -405,6 +418,8 @@
     <string name="appcontrol_systemsettings_open_description">Abra as configurações do sistema do seu dispositivo para este aplicativo.</string>
     <string name="appcontrol_app_launch_title">Iniciar aplicativo</string>
     <string name="appcontrol_app_launch_description">Iniciar atividade primária deste aplicativo.</string>
+    <string name="appcontrol_app_forcestop_title">Forçar parada</string>
+    <string name="appcontrol_app_forcestop_description">Interrompe o aplicativo. Impede que se inicie até que você o abra ou que o dispositivo seja reiniciado.</string>
     <string name="appcontrol_app_uninstall_description">Desinstale este aplicativo de seu dispositivo.</string>
     <string name="appcontrol_app_exclude_add_title">Excluir aplicativo</string>
     <string name="appcontrol_app_exclude_add_description">Excluir este aplicativo de outras operações no SD Maid.</string>
@@ -442,7 +457,11 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Descubra se um aplicativo está ativo (ou recentemente estava) ativo.</string>
     <string name="appcontrol_export_app_selection_action">Exportar os aplicativos</string>
     <string name="appcontrol_export_title">Exportar o aplicativo</string>
+    <string name="appcontrol_export_description">Salvar os arquivos de instalação deste app no seu dispositivo. Isso não inclui os dados do app.</string>
     <string name="appcontrol_progress_exporting_x">Exportando %s</string>
+    <string name="appcontrol_force_stop_selection_action">Força parada do app</string>
+    <string name="appcontrol_force_stop_action">Forçar parada</string>
+    <string name="appcontrol_force_stop_confirm_title">Confirmar parada forçada</string>
     <string name="analyzer_tool_name">Analisador de Armazenamento</string>
     <string name="analyzer_explanation_short">Descubra o que está ocupando espaço no seu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Procurando dispositivos de armazenamento</string>

@@ -70,6 +70,8 @@
     <string name="ui_theme_style_materialyou_label">Cá nhân</string>
     <string name="ui_previews_title">Xem trước tệp</string>
     <string name="ui_previews_summary">Hiển thị xem trước tệp trong tất cả các công cụ (ví dụ: hình thu nhỏ của hình ảnh và video).</string>
+    <string name="ui_language_override_label">Ngôn ngữ ứng dụng</string>
+    <string name="ui_language_override_desc">Chọn ngôn ngữ khác cho SD Maid, độc lập với ngôn ngữ hệ thống mặc định của bạn. Hiện tại: %s</string>
     <string name="settings_support_label">Hỗ trợ</string>
     <string name="settings_support_description">Đọc tài liệu, báo cáo sự cố, trò chuyện với người khác hoặc ghi nhật ký gỡ lỗi.</string>
     <string name="documentation_label">Tài liệu</string>
@@ -91,6 +93,9 @@
     <string name="setup_incomplete_card_continue_action">Tiếp tục thiết lập</string>
     <string name="setup_title">Thiết lập</string>
     <string name="setup_forcedshow_summary">Hiển thị lại màn hình thiết lập, bao gồm các mục đã hoàn thành.</string>
+    <string name="setup_checking_card_body">Xác minh hoàn thành thiết lập và chức năng.</string>
+    <string name="general_error_setup_require_label">Thiết lập chưa hoàn tất</string>
+    <string name="general_error_setup_require_msg">Cần thiết lập thêm để sử dụng tính năng này. Hoàn tất các bước thiết lập còn lại.</string>
     <string name="setup_saf_card_title">Khung truy cập bộ nhớ</string>
     <string name="setup_saf_card_body">Cải thiện kết quả bằng cách cấp cho SD Maid quyền truy cập vào các khu vực bổ sung.</string>
     <string name="setup_saf_card_body2">Trong hầu hết các trường hợp, cửa sổ sẽ mở với đường dẫn chính xác được chọn trước. Các mục chuyển sang màu xanh lục khi quyền truy cập được cấp. </string>
@@ -138,6 +143,9 @@
     <string name="setup_acs_disallow_hint">Nếu đổi ý, bạn có thể thay đổi lại tùy chọn này bằng cách vào cài đặt và khởi động lại thiết lập.</string>
     <string name="setup_acs_appops_restriction_title">Cài đặt hạn chế</string>
     <string name="setup_acs_appops_restriction_body">Không thể bật dịch vụ trợ năng SD Maids? Android 13 trở lên có thể áp dụng các hạn chế đối với các ứng dụng không được cài đặt qua Google Play. Gỡ bỏ những hạn chế này khỏi trang chi tiết của hệ thống dành cho SD Maid. Tùy chọn nằm trong menu ngữ cảnh ở góc trên cùng bên phải.</string>
+    <string name="setup_inventory_card_title">Khoảng không quảng cáo ứng dụng</string>
+    <string name="setup_inventory_card_body">SD Maid cần biết bạn có ứng dụng nào để tìm các tệp không thuộc về bất kỳ ứng dụng đã cài đặt nào.</string>
+    <string name="setup_inventory_card_extra">Hãy tìm quyền có tên \"Danh sách ứng dụng\" hoặc \"Truy vấn tất cả các gói\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid không tìm thấy bất kỳ vùng dữ liệu nào có thể quét được. Bạn đã hoàn thành thiết lập?</string>
     <string name="dataarea_warningcard_label">Vùng dữ liệu</string>
     <string name="dataarea_warningcard_reload_action">Tải lại vùng dữ liệu</string>
@@ -338,6 +346,11 @@
     <string name="appcleaner_automation_loading">Chuẩn bị tự động hóa thông qua dịch vụ trợ năng</string>
     <string name="appcleaner_automation_title">Dọn dẹp ứng dụng tự động</string>
     <string name="appcleaner_automation_subtitle_default_caches">Đang xóa bộ nhớ cache mặc định…</string>
+    <string name="appcleaner_automation_progress_open_settings">Đang mở màn hình cài đặt (từ khóa: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Đang tìm kiếm mục \"Bộ nhớ\" (từ khóa: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Đang tìm nút \"Xóa dữ liệu\" (từ khóa: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Đang tìm nút \"Xóa bộ nhớ cache\" (từ khóa: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Bộ nhớ đệm mặc định</string>
     <string name="appcleaner_item_caches_inaccessible_body">Bộ đệm mặc định công khai và riêng tư. Không thể truy cập trực tiếp, nhưng có thể bị xóa gián tiếp (ví dụ: thông qua dịch vụ trợ năng).</string>
     <string name="appcleaner_automation_unavailable_title">Dịch vụ trợ năng không khả dụng</string>
@@ -395,6 +408,8 @@
     <string name="appcontrol_systemsettings_open_description">Mở cài đặt hệ thống của thiết bị cho ứng dụng này.</string>
     <string name="appcontrol_app_launch_title">Chạy ứng dụng</string>
     <string name="appcontrol_app_launch_description">Khởi chạy hoạt động chính của ứng dụng này.</string>
+    <string name="appcontrol_app_forcestop_title">Buộc dừng</string>
+    <string name="appcontrol_app_forcestop_description">Dừng ứng dụng. Ngăn chặn nó tự khởi động cho đến khi bạn mở nó hoặc thiết bị được khởi động lại.</string>
     <string name="appcontrol_app_uninstall_description">Gỡ cài đặt ứng dụng này khỏi thiết bị của bạn.</string>
     <string name="appcontrol_app_exclude_add_title">Loại trừ ứng dụng</string>
     <string name="appcontrol_app_exclude_add_description">Loại trừ ứng dụng này khỏi các hoạt động khác trong SD Maid.</string>
@@ -431,7 +446,19 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Tìm hiểu xem một ứng dụng đang (hoặc gần đây) có hoạt động hay không.</string>
     <string name="appcontrol_export_app_selection_action">Xuất ứng dụng</string>
     <string name="appcontrol_export_title">Xuất ứng dụng</string>
+    <string name="appcontrol_export_description">Lưu tệp cài đặt của ứng dụng này. Điều này không bao gồm dữ liệu ứng dụng.</string>
     <string name="appcontrol_progress_exporting_x">Đang xuất %s</string>
+    <string name="appcontrol_force_stop_selection_action">Buộc dừng ứng dụng</string>
+    <string name="appcontrol_force_stop_action">Buộc dừng</string>
+    <string name="appcontrol_force_stop_confirm_title">Xác nhận buộc dừng</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="other">Buộc dừng%d ứng dụng?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Preparing automation via accessibility service</string>
+    <string name="appcontrol_automation_title">Tự động điều khiến ứng dụng</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Đang buộc dừng…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Đang tìm nút \"Buộc dừng\" (từ khóa: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
     <string name="analyzer_tool_name">Phân tích bộ nhớ</string>
     <string name="analyzer_explanation_short">Tìm hiểu những gì đang chiếm dung lượng trên thiết bị của bạn.</string>
     <string name="analyzer_progress_scanning_device">Tìm kiếm bộ nhớ thiết bị</string>
@@ -451,6 +478,8 @@
     <string name="analyzer_storage_type_primary_description">Bộ nhớ chính của thiết bị của bạn. Chứa thẻ SD bên trong, bộ nhớ riêng cho ứng dụng và dữ liệu hệ thống.</string>
     <string name="analyzer_storage_type_secondary_title">Bộ nhớ thứ cấp</string>
     <string name="analyzer_storage_type_secondary_description">Bộ lưu trữ thứ cấp, thường là thẻ SD có thể tháo rời. Chứa các tệp phương tiện và dữ liệu từ các ứng dụng hỗ trợ nó.</string>
+    <string name="analyzer_storage_type_tertiary_title">Bộ lưu trữ di động</string>
+    <string name="analyzer_storage_type_tertiary_description">Một bộ lưu trữ di động, ví dụ: một ổ đĩa flash cắm vào cổng USB của bạn.</string>
     <string name="analyzer_storage_content_title">Nội dung lưu trữ</string>
     <string name="analyzer_storage_content_type_app_label">Ứng Dụng</string>
     <string name="analyzer_storage_content_type_app_description">Không gian bị chiếm bởi các ứng dụng đã cài đặt và dữ liệu của chúng (tức là tệp ứng dụng, dữ liệu và bộ nhớ đệm).</string>
@@ -561,4 +590,5 @@
     <string name="motd_setting_enabled_explanation">Cho phép SD Maid kiểm tra các tin nhắn quan trọng từ nhà phát triển.</string>
     <string name="updatecheck_setting_enabled_label">Kiểm tra cập nhật</string>
     <string name="updatecheck_setting_enabled_explanation">Cho phép SD Maid kiểm tra các bản cập nhật để cho bạn biết nếu có phiên bản mới hơn.</string>
+    <string name="device_settings_category">Thiết bị</string>
 </resources>

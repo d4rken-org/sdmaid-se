@@ -72,6 +72,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Faili eelvaated</string>
     <string name="ui_previews_summary">Näita kõikides tööriistades faili eelvaateid (nt pildi ja video pisipilte).</string>
+    <string name="ui_language_override_label">Rakenduse keel</string>
+    <string name="ui_language_override_desc">Kasuta SD Maidi keeles, mis pole süsteemi tavakeel. Hetkel kasutusel: %s</string>
     <string name="settings_support_label">Klienditugi</string>
     <string name="settings_support_description">Lugege dokumente, teatage vigadest, vestelge teistega või salvestage silumislogisid.</string>
     <string name="documentation_label">Dokumendid</string>
@@ -93,6 +95,9 @@
     <string name="setup_incomplete_card_continue_action">Jätka seadistamist</string>
     <string name="setup_title">Seadistamine</string>
     <string name="setup_forcedshow_summary">Näita seadistamisekraani uuesti, sh juba lõpetatud valikuid.</string>
+    <string name="setup_checking_card_body">Seadistuse lõpetamise ja toimivuse kontrollimine.</string>
+    <string name="general_error_setup_require_label">Seadistamine on pooleli</string>
+    <string name="general_error_setup_require_msg">Selle kasutamiseks on vaja seadistada lõpuni. Lõpeta ülejäänud seadistuse etapid.</string>
     <string name="setup_saf_card_title">Ruumile juurdepääsu raamistik</string>
     <string name="setup_saf_card_body">Tulemuste täiustamiseks lubage SD Maidil pääseda juurde veel rohkem kohtadesse.</string>
     <string name="setup_saf_card_body2">Enamasti avaneb aken õige eelvalitud asukohaga. Juurdepääsu saamisest annab märku valikute roheliseks muutumine.</string>
@@ -140,6 +145,9 @@
     <string name="setup_acs_disallow_hint">Enam ei taha? Valiku muutmiseks taaskäivitage seadistamine seadetest.</string>
     <string name="setup_acs_appops_restriction_title">Piiratud seaded</string>
     <string name="setup_acs_appops_restriction_body">SD Maidi juurdepääsetavusteenuse lubamine nurjus? Android 13+ võib piirata Google Play väliseid rakendusi. Eemaldage need SD Maidi piirangud süsteemi seadetes. Vastav valik on üleval paremas nurgas kontekstmenüüs.</string>
+    <string name="setup_inventory_card_title">Rakenduse inventuur</string>
+    <string name="setup_inventory_card_body">SD Maid peab paigaldatud rakenduste failide kuuluvuse leidmiseks teada teie rakendusi.</string>
+    <string name="setup_inventory_card_extra">Otsige luba „Rakenduste loend” või „Küsi kõiki pakette”.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ei leidnud skannitavaid andmekogusid. Kas lõpetasite seadistamise?</string>
     <string name="dataarea_warningcard_label">Andmekogud</string>
     <string name="dataarea_warningcard_reload_action">Laadi andmekogud uuesti</string>
@@ -345,6 +353,11 @@
     <string name="appcleaner_automation_loading">Automatiseerimise ettevalmistamine juurdepääsetavusteenuse kaudu</string>
     <string name="appcleaner_automation_title">Rakendusepuhastaja automatiseerimine</string>
     <string name="appcleaner_automation_subtitle_default_caches">Tavavahemälude tühjendamine…</string>
+    <string name="appcleaner_automation_progress_open_settings">Seadete avamine (märksõnad: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">„Hoiuruum” kande otsimine (märksõnad: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Nupu „Tühjenda andmed” otsimine (märksõnad: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Nupu „Tühjenda vahemälu” otsimine (märksõnad: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Eelmise tegevuse kinnitamise üritamine (märksõnad: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Tavavahemälud</string>
     <string name="appcleaner_item_caches_inaccessible_body">Avalikud ja isiklikud tavalised vahemälud. Juurdepääsetavad kaudselt, ent kustutatavad otseselt (nt juurdepääsetavusteenuse kaudu).</string>
     <string name="appcleaner_automation_unavailable_title">Juurdepääsetavusteenus kättesaamatu</string>
@@ -403,6 +416,8 @@
     <string name="appcontrol_systemsettings_open_description">Avage seadme süsteemi seaded selle rakenduse jaoks.</string>
     <string name="appcontrol_app_launch_title">Käivita rakendus</string>
     <string name="appcontrol_app_launch_description">Käivita selle rakenduse peamine tegevus.</string>
+    <string name="appcontrol_app_forcestop_title">Sundpeata</string>
+    <string name="appcontrol_app_forcestop_description">Peatab rakenduse. Takistab sel käivitumast ise kuni selle ise avate või seade taaskäivitub.</string>
     <string name="appcontrol_app_uninstall_description">Eemaldab selle rakenduse seadmest.</string>
     <string name="appcontrol_app_exclude_add_title">Eira rakendust</string>
     <string name="appcontrol_app_exclude_add_description">Ära kaasa seda rakendust teistesse SD Maidi toimetustesse.</string>
@@ -440,7 +455,20 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Uudista, kas rakendus on (või hiljuti oli) kasutusel.</string>
     <string name="appcontrol_export_app_selection_action">Ekspordi rakendused</string>
     <string name="appcontrol_export_title">Ekspordi rakendus</string>
+    <string name="appcontrol_export_description">Salvesta selle rakenduse paigaldusfailid. See ei hõlma rakenduse andmeid.</string>
     <string name="appcontrol_progress_exporting_x">%s eksportimine</string>
+    <string name="appcontrol_force_stop_selection_action">Sundpeata rakendusi</string>
+    <string name="appcontrol_force_stop_action">Sundpeata</string>
+    <string name="appcontrol_force_stop_confirm_title">Kinnita sundpeatamine</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Sundpeata %d rakendus?</item>
+        <item quantity="other">Sundpeata %d rakendust?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Automatiseerimise ettevalmistamine juurdepääsetavusteenuse kaudu</string>
+    <string name="appcontrol_automation_title">Rakendusehalduri automatiseerimine</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Sundpeatamine...</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Nupu „Sundpeata” otsimine (märksõnad: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Eelmise tegevuse kinnitamise üritamine (märksõnad: %s)</string>
     <string name="analyzer_tool_name">Hoiustamisruumi analüüsija</string>
     <string name="analyzer_explanation_short">Avasta, mis on seadmes.</string>
     <string name="analyzer_progress_scanning_device">Hoiustamiseks kasutatavate seadmete otsimine</string>
@@ -462,6 +490,8 @@
     <string name="analyzer_storage_type_primary_description">Seadme peamine hoiuruum. Sisaldab sisemälu ja isiklikku hoiuruumi rakenduste ning süsteemiandmete jaoks.</string>
     <string name="analyzer_storage_type_secondary_title">Muu hoiuruum</string>
     <string name="analyzer_storage_type_secondary_description">Teisejärguline hoiuruum, tavaliselt eemaldatav SD-kaart. Sisaldab seda toetavat meediafaile ja rakenduste andmeid.</string>
+    <string name="analyzer_storage_type_tertiary_title">Kaasaskantav mälu</string>
+    <string name="analyzer_storage_type_tertiary_description">Näiteks USB-pessa pistetud mälupulk.</string>
     <string name="analyzer_storage_content_title">Hoiustatav sisu</string>
     <string name="analyzer_storage_content_type_app_label">Rakendused</string>
     <string name="analyzer_storage_content_type_app_description">Paigaldatud rakenduste ja nende andmete (nt rakenduse failid, andmed ja vahemälud) hoiuruum.</string>
@@ -572,4 +602,5 @@
     <string name="translation_translators_people">Olav Mägi(olav.magi@gmail.com)</string>
     <string name="motd_setting_enabled_label">Tähtsad sõnumid</string>
     <string name="motd_setting_enabled_explanation">Luba SD Maidil pärida arendajalt tähtsaid teateid.</string>
+    <string name="device_settings_category">Seade</string>
 </resources>

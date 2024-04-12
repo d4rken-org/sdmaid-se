@@ -72,6 +72,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Anteprime dei file</string>
     <string name="ui_previews_summary">Mostra le anteprime dei file in tutti gli strumenti (per esempio le copertine di immagini e video).</string>
+    <string name="ui_language_override_label">Lingua app</string>
+    <string name="ui_language_override_desc">Seleziona una lingua diversa per SD Maid, indipendente dalla lingua predefinita del tuo sistema. Attualmente: %s</string>
     <string name="settings_support_label">Supporto</string>
     <string name="settings_support_description">Leggi documentazione, segnala problemi, chatta con gli altri utenti o registra log di debug.</string>
     <string name="documentation_label">Documentazione</string>
@@ -93,6 +95,8 @@
     <string name="setup_incomplete_card_continue_action">Continua la configurazione</string>
     <string name="setup_title">Configurazione</string>
     <string name="setup_forcedshow_summary">Mostra la schermata di configurazione di nuovo, compresi gli elementi già completati.</string>
+    <string name="general_error_setup_require_label">Configurazione incompleta</string>
+    <string name="general_error_setup_require_msg">Per utilizzare questa funzione è necessario completare i passaggi rimanenti di configurazione.</string>
     <string name="setup_saf_card_title">Framework di accesso all\'archivio</string>
     <string name="setup_saf_card_body">Migliora i risultati garantendo a SD Maid l\'accesso ad aree aggiuntive.</string>
     <string name="setup_saf_card_body2">Nella maggior parte dei casi la finestra si aprirà con il percorso preselezionato. Le voci diventano verdi quando viene concesso l\'accesso.</string>
@@ -140,6 +144,7 @@
     <string name="setup_acs_disallow_hint">Se dovessi cambiare idea, puoi modificare nuovamente questa opzione andando in impostazioni e ripetendo la configurazione.</string>
     <string name="setup_acs_appops_restriction_title">Impostazioni limitate</string>
     <string name="setup_acs_appops_restriction_body">Non puoi abilitare i servizi di accessibilità di SD Maid? Android 13+ può applicare restrizioni alle app non installate tramite Google Play. Rimuovi queste restrizioni dalla pagina di dettaglio del sistema per SD Maid. L\'opzione è nel menu contestuale nell\'angolo in alto a destra.</string>
+    <string name="setup_inventory_card_body">SD Maid deve conoscere le app installate per trovare i file che non appartengono a nessuna di queste.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid non ha trovato nessuna area da scansionare. Hai completato il setup?</string>
     <string name="dataarea_warningcard_label">Aree di dati</string>
     <string name="dataarea_warningcard_reload_action">Ricarica le aree di dati</string>

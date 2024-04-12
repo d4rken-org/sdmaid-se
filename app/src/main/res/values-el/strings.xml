@@ -72,6 +72,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Προεπισκοπήσεις αρχείων</string>
     <string name="ui_previews_summary">Εμφάνιση προεπισκοπήσεων αρχείων σε όλα τα εργαλεία (π.χ. μικρογραφίες εικόνων και βίντεο).</string>
+    <string name="ui_language_override_label">Γλώσσα εφαρμογής</string>
+    <string name="ui_language_override_desc">Επιλέξτε μια διαφορετική γλώσσα για το SD Maid, ανεξάρτητα από την προεπιλεγμένη γλώσσα του συστήματός σας. Τρέχουσα: %s</string>
     <string name="settings_support_label">Υποστήριξη</string>
     <string name="settings_support_description">Διαβάστε το εγχειρίδιο, αναφέρετε προβλήματα, συνομιλήστε με άλλους ή καταγράψτε αρχεία καταγραφής σφαλμάτων.</string>
     <string name="documentation_label">Εγχειρίδιο</string>
@@ -140,6 +142,7 @@
     <string name="setup_acs_disallow_hint">Εάν αλλάξετε γνώμη, μπορείτε να αλλάξετε ξανά αυτήν την επιλογή μεταβαίνοντας στις ρυθμίσεις και επανεκκινώντας τη ρύθμιση.</string>
     <string name="setup_acs_appops_restriction_title">Περιορισμένες ρυθμίσεις</string>
     <string name="setup_acs_appops_restriction_body">Δεν είναι δυνατή η ενεργοποίηση της υπηρεσίας προσβασιμότητας SD Maids; Το Android 13+ ενδέχεται να εφαρμόζει περιορισμούς σε εφαρμογές που δεν είναι εγκατεστημένες μέσω του Google Play. Καταργήστε αυτούς τους περιορισμούς από τη σελίδα λεπτομερειών του συστήματος για το SD Maid. Η επιλογή βρίσκεται στο μενού στην επάνω δεξιά γωνία.</string>
+    <string name="setup_inventory_card_body">Το SD Maid πρέπει να γνωρίζει ποιες εφαρμογές έχετε για να βρει αρχεία που δεν ανήκουν σε καμία εγκατεστημένη εφαρμογή.</string>
     <string name="dataarea_warningcard_empty_message">Το SD Maid δε βρήκε περιοχές δεδομένων που μπορούν να σαρωθούν. Ολοκληρώσατε τη ρύθμιση;</string>
     <string name="dataarea_warningcard_label">Περιοχές δεδομένων</string>
     <string name="dataarea_warningcard_reload_action">Επαναφόρτωση περιοχών δεδομένων</string>
@@ -345,6 +348,9 @@
     <string name="appcleaner_automation_loading">Προετοιμασία αυτοματισμού μέσω υπηρεσίας προσβασιμότητας</string>
     <string name="appcleaner_automation_title">Αυτοματοποίηση εκκαθάρισης εφαρμογών</string>
     <string name="appcleaner_automation_subtitle_default_caches">Εκκαθάριση προεπιλεγμένων κρυφών μνήμης…</string>
+    <string name="appcleaner_automation_progress_open_settings">Άνοιγμα οθόνης ρυθμίσεων (λέξεις-κλειδιά: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Αναζήτηση για καταχώρηση \"Αποθήκευση\" (λέξεις-κλειδιά: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Προσπάθεια επιβεβαίωσης προηγούμενης ενέργειας (λέξεις-κλειδιά: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Προεπιλεγμένες κρυφές μνήμες</string>
     <string name="appcleaner_item_caches_inaccessible_body">Δημόσιες και ιδιωτικές προεπιλεγμένες κρυφές μνήμες. Δεν είναι άμεσα προσβάσιμο, αλλά μπορεί να διαγραφεί έμμεσα (π.χ. μέσω της υπηρεσίας προσβασιμότητας).</string>
     <string name="appcleaner_automation_unavailable_title">Η υπηρεσία προσβασιμότητας δεν είναι διαθέσιμη</string>
@@ -405,6 +411,8 @@
     <string name="appcontrol_systemsettings_open_description">Ανοίξτε τις ρυθμίσεις συστήματος της συσκευής σας για αυτήν την εφαρμογή.</string>
     <string name="appcontrol_app_launch_title">Εκκίνηση εφαρμογής</string>
     <string name="appcontrol_app_launch_description">Εκκίνηση την κύρια δραστηριότητα αυτής της εφαρμογής.</string>
+    <string name="appcontrol_app_forcestop_title">Επιβολή διακοπής</string>
+    <string name="appcontrol_app_forcestop_description">Σταματά την εφαρμογή. Την εμποδίζει να ξεκινήσει μόνη της μέχρι να την ανοίξετε ή να γίνει επανεκκίνηση της συσκευής.</string>
     <string name="appcontrol_app_uninstall_description">Απεγκατάσταση αυτής της εφαρμογής από τη συσκευή σας.</string>
     <string name="appcontrol_app_exclude_add_title">Εξαίρεση εφαρμογής</string>
     <string name="appcontrol_app_exclude_add_description">Εξαίρεση αυτής της εφαρμογής από άλλες λειτουργίες στο SD Maid.</string>
@@ -443,6 +451,15 @@
     <string name="appcontrol_export_app_selection_action">Εξαγωγή εφαρμογών</string>
     <string name="appcontrol_export_title">Εξαγωγή εφαρμογής</string>
     <string name="appcontrol_progress_exporting_x">Εξαγωγή %s</string>
+    <string name="appcontrol_force_stop_selection_action">Επιβολή διακοπής εφαρμογών</string>
+    <string name="appcontrol_force_stop_action">Επιβολή διακοπής</string>
+    <string name="appcontrol_force_stop_confirm_title">Επιβεβαίωση επιβολής διακοπής</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Επιβολή διακοπής %d εφαρμογής;</item>
+        <item quantity="other">Επιβολή διακοπής %d εφαρμογών;</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Προετοιμασία αυτοματισμού μέσω υπηρεσίας προσβασιμότητας</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Επιβολή διακοπής…</string>
     <string name="analyzer_tool_name">Ανάλυση αποθηκευτικού χώρου</string>
     <string name="analyzer_explanation_short">Μάθετε τι καταλαμβάνει χώρο στη συσκευή σας.</string>
     <string name="analyzer_progress_scanning_device">Αναζήτηση για συσκευές αποθηκευτικού χώρου</string>
@@ -464,6 +481,8 @@
     <string name="analyzer_storage_type_primary_description">Η κύρια αποθήκευση της συσκευής σας. Περιέχει την εσωτερική κάρτα SD, ιδιωτικό χώρο αποθήκευσης για εφαρμογές και δεδομένα συστήματος.</string>
     <string name="analyzer_storage_type_secondary_title">Δευτερεύων αποθηκευτικός χώρος</string>
     <string name="analyzer_storage_type_secondary_description">Ένας δευτερεύων αποθηκευτικός χώρος, συνήθως ένα αφαιρούμενο κάρτα SD. Περιέχει αρχεία πολυμέσων και δεδομένα από εφαρμογές που το υποστηρίζουν.</string>
+    <string name="analyzer_storage_type_tertiary_title">Φορητός χώρος αποθήκευσης</string>
+    <string name="analyzer_storage_type_tertiary_description">Ένας φορητός χώρος αποθήκευσης, π.χ. μια μονάδα flash συνδέθηκε στη θύρα USB σας.</string>
     <string name="analyzer_storage_content_title">Περιεχόμενο αποθηκευτικού χώρου</string>
     <string name="analyzer_storage_content_type_app_label">Εφαρμογές</string>
     <string name="analyzer_storage_content_type_app_description">Χώρος που καταλαμβάνεται από εγκατεστημένες εφαρμογές και τα δεδομένα τους (δηλαδή αρχεία εφαρμογών, δεδομένα και κρυφές μνήμες).</string>
@@ -576,4 +595,5 @@
     <string name="motd_setting_enabled_explanation">Να επιτρέπεται στο SD Maid να ελέγχει για σημαντικά μηνύματα από τον προγραμματιστή.</string>
     <string name="updatecheck_setting_enabled_label">Έλεγχος ενημερώσεων</string>
     <string name="updatecheck_setting_enabled_explanation">Επιτρέψτε στο SD Maid να ελέγχει για ενημερώσεις για να σας ειδοποιεί εάν είναι διαθέσιμη νεότερη έκδοση.</string>
+    <string name="device_settings_category">Συσκευή</string>
 </resources>

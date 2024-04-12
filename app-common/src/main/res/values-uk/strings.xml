@@ -9,6 +9,7 @@
     <string name="slogan_message_5">Бездоганно.</string>
     <string name="slogan_message_6">Байти, йдіть геть!</string>
     <string name="slogan_message_7">Вільний простір, щасливе місце.</string>
+    <string name="slogan_message_8">Ніколи не віддам тебе.</string>
     <string name="general_thank_you_label">Дякую</string>
     <string name="general_error_type_mismatch_msg">Невідповідність типу: хотів %1$s, але отримав %2$s.</string>
     <string name="general_error_cant_access_msg">Неможливо отримати доступ до %s.</string>
@@ -126,4 +127,5 @@
     <string name="general_timeunit_days">Дні</string>
     <string name="general_progress_ready">Готово</string>
     <string name="general_progress_done">Виконано</string>
+    <string name="general_rom_type_auto_label">Автоматично (за замовчуванням)</string>
 </resources>

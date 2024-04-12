@@ -76,6 +76,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Náhledy souboru</string>
     <string name="ui_previews_summary">Zobrazení náhledů souborů ve všech nástrojích (např. náhledy obrázků a videí).</string>
+    <string name="ui_language_override_label">Jazyk aplikace</string>
+    <string name="ui_language_override_desc">Vyberte jiný jazyk pro SD Maid, nezávisle na výchozím jazyce systému. Aktuální jazyk: %s</string>
     <string name="settings_support_label">Podpora</string>
     <string name="settings_support_description">Číst dokumentaci, hlásit problémy, komunikovat s ostatními nebo nahrávat záznamy ladění.</string>
     <string name="documentation_label">Dokumentace</string>
@@ -97,6 +99,9 @@
     <string name="setup_incomplete_card_continue_action">Pokračovat v nastavení</string>
     <string name="setup_title">Nastavení</string>
     <string name="setup_forcedshow_summary">Znovu zobrazit obrazovku nastavení včetně již dokončených položek.</string>
+    <string name="setup_checking_card_body">Ověření dokončení nastavení a funkčnosti.</string>
+    <string name="general_error_setup_require_label">Nastavení dokončena</string>
+    <string name="general_error_setup_require_msg">Pro použití této funkce je nutné další nastavení. Dokončete zbývající kroky nastavení.</string>
     <string name="setup_saf_card_title">Framework pro přístup k úložišti</string>
     <string name="setup_saf_card_body">Vylepšete výsledky udělením oprávnění aplikaci SD Maid k dalším oblastem úložiště.</string>
     <string name="setup_saf_card_body2">Ve většině případů se okno otevře s předvolenou správnou cestou. Po udělení přístupu se položky zbarví zeleně. </string>
@@ -144,6 +149,9 @@
     <string name="setup_acs_disallow_hint">Pokud si to rozmyslíte, můžete tuto možnost znovu změnit v nastavení a úvodní nastavení znovu spustit.</string>
     <string name="setup_acs_appops_restriction_title">Omezená nastavení</string>
     <string name="setup_acs_appops_restriction_body">Nelze povolit službu přístupnosti aplikace SD Maid? Systém Android 13+ může uplatňovat omezení na aplikace, které nejsou nainstalovány prostřednictvím služby Google Play. Tato omezení zrušte na stránce s podrobnostmi o aplikaci SD Maid. Tato možnost se nachází v kontextové nabídce v pravém horním rohu.</string>
+    <string name="setup_inventory_card_title">Inventář aplikace</string>
+    <string name="setup_inventory_card_body">Aplikace SD Maid potřebuje vědět, které aplikace máte, aby našla soubory, které nepatří k žádným nainstalovaným aplikacím.</string>
+    <string name="setup_inventory_card_extra">Vyhledejte oprávnění s názvem \"Seznam aplikací\" nebo \"Dotaz na všechny balíčky\".</string>
     <string name="dataarea_warningcard_empty_message">Aplikace SD Maid nenašla žádné datové oblasti, které by bylo možné skenovat. Dokončili jste úvodní nastavení?</string>
     <string name="dataarea_warningcard_label">Oblasti dat</string>
     <string name="dataarea_warningcard_reload_action">Znovu načíst oblasti dat</string>
@@ -359,12 +367,17 @@
     <string name="appcleaner_automation_loading">Příprava automatizace prostřednictvím služby přístupnosti</string>
     <string name="appcleaner_automation_title">Automatizace Čističe aplikací</string>
     <string name="appcleaner_automation_subtitle_default_caches">Čištění výchozích mezipamětí…</string>
+    <string name="appcleaner_automation_progress_open_settings">Otevírání obrazovky nastavení (klíčová slova: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Hledání položky \"Úložiště\" (klíčová slova: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Hledání tlačítka \"Vyčistit data\" (klíčová slova: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Hledání tlačítka \"Vyčistit mezipaměť\" (klíčová slova: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Pokus o potvrzení předchozí akce (klíčová slova: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Výchozí mezipaměti</string>
     <string name="appcleaner_item_caches_inaccessible_body">Veřejné a soukromé výchozí mezipaměti. Není přímo přístupná, ale může být smazána nepřímo (např. přes službu přístupnosti).</string>
     <string name="appcleaner_automation_unavailable_title">Služba přístupnosti není dostupná</string>
     <string name="appcleaner_automation_unavailable_body">K vyčištění nepřístupných mezipamětí je potřeba služba přístupnosti aplikace SD Maid, která není k dispozici. Pokud ji nechcete použít: vypněte funkci \"Zahrnout nedostupné mezipaměti\".</string>
     <string name="appcleaner_junk_userprofile_label">Uživatel</string>
-    <string name="appcleaner_delete_confirmation_message_x">Smazat nepotřebné položky pro %s?</string>
+    <string name="appcleaner_delete_confirmation_message_x">Smazat nepotřebné soubory pro %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Smazat nepotřebné soubory pro %d vybranou aplikaci?</item>
         <item quantity="few">Smazat nepotřebné soubory pro %d vybrané aplikace?</item>
@@ -425,6 +438,8 @@
     <string name="appcontrol_systemsettings_open_description">Otevřete systémové nastavení zařízení pro tuto aplikaci.</string>
     <string name="appcontrol_app_launch_title">Spustit aplikaci</string>
     <string name="appcontrol_app_launch_description">Spuštění hlavní aktivity této aplikace.</string>
+    <string name="appcontrol_app_forcestop_title">Vynutit ukončení</string>
+    <string name="appcontrol_app_forcestop_description">Ukončí aplikaci. Zabrání jejímu samovolnému spuštění, dokud ji neotevřete nebo nerestartujete zařízení.</string>
     <string name="appcontrol_app_uninstall_description">Odinstalujte tuto aplikaci z vašeho zařízení.</string>
     <string name="appcontrol_app_exclude_add_title">Vyloučit aplikaci</string>
     <string name="appcontrol_app_exclude_add_description">Vyloučit tuto aplikaci z ostatních operací v SD Maid.</string>
@@ -464,7 +479,22 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Zjistěte, zda je (nebo nedávno byla) aplikace aktivní.</string>
     <string name="appcontrol_export_app_selection_action">Exportovat aplikace</string>
     <string name="appcontrol_export_title">Exportovat aplikaci</string>
+    <string name="appcontrol_export_description">Uloží instalační soubory této aplikace. To nezahrnuje data aplikace.</string>
     <string name="appcontrol_progress_exporting_x">Exportování %s</string>
+    <string name="appcontrol_force_stop_selection_action">Vynutit ukončení aplikací</string>
+    <string name="appcontrol_force_stop_action">Vynutit ukončení</string>
+    <string name="appcontrol_force_stop_confirm_title">Potvrdit vynucené ukončení</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Vynutit ukončení %d aplikace?</item>
+        <item quantity="few">Vynutit ukončení %d aplikací?</item>
+        <item quantity="many">Vynutit ukončení %d aplikací?</item>
+        <item quantity="other">Vynutit ukončení %d aplikací?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Příprava automatizace prostřednictvím služby přístupnosti</string>
+    <string name="appcontrol_automation_title">Automatizace Správce aplikací</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Vynuceně ukončuji…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Hledání tlačítka \"Vynutit ukončení\" (klíčová slova: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Pokus o potvrzení předchozí akce (klíčová slova: %s)</string>
     <string name="analyzer_tool_name">Analyzátor úložiště</string>
     <string name="analyzer_explanation_short">Zjistěte, co zabírá místo ve vašem zařízení.</string>
     <string name="analyzer_progress_scanning_device">Vyhledávání úložných zařízení</string>
@@ -490,6 +520,8 @@
     <string name="analyzer_storage_type_primary_description">Primární úložiště vašeho zařízení. Obsahuje interní SD kartu, soukromé úložiště pro aplikace a systémová data.</string>
     <string name="analyzer_storage_type_secondary_title">Sekundární úložiště</string>
     <string name="analyzer_storage_type_secondary_description">Sekundární úložiště, obvykle vyměnitelná SD karta. Obsahuje mediální soubory a data z aplikací, které jej podporují.</string>
+    <string name="analyzer_storage_type_tertiary_title">Přenosné úložiště</string>
+    <string name="analyzer_storage_type_tertiary_description">Přenosné úložiště, např. flash disk připojen k USB.</string>
     <string name="analyzer_storage_content_title">Obsah úložiště</string>
     <string name="analyzer_storage_content_type_app_label">Aplikace</string>
     <string name="analyzer_storage_content_type_app_description">Prostor obsazený instalovanými aplikacemi a jejich daty (např. soubory aplikace, data a mezipaměť).</string>
@@ -606,4 +638,5 @@
     <string name="motd_setting_enabled_explanation">Povolit aplikaci SD Maid kontrolu důležitých zpráv od vývojáře.</string>
     <string name="updatecheck_setting_enabled_label">Kontrola aktualizací</string>
     <string name="updatecheck_setting_enabled_explanation">Povolit aplikaci SD Maid vyhledávat aktualizace a informovat, zda je k dispozici novější verze.</string>
+    <string name="device_settings_category">Zařízení</string>
 </resources>
