@@ -1,24 +1,40 @@
-<i>SD Maid SE</i>, Android'inizin temiz ve düzenli kalmasını sağlayan güvenilir yardımcısıdır.
+<i>SD Maid 2/SE</i>, Android'inizin temiz ve düzenli kalmasını sağlayan güvenilir yardımcısıdır.
 
 Kimse mükemmel değildir ve Android de öyle.
 * Kaldırdığınız uygulamalar geride bir şeyler bırakır.
-* Günlükler, çökme raporları ve gerçekten istemediğiniz diğer dosyalar sürekli olarak oluşturulur.
+* Günlükler, çökme raporları ve istemediğiniz diğer dosyalar sürekli olarak oluşturulur.
 * Depolama alanınız tanımadığınız dosya ve dizinleri ile doluyor.
+* Galerinizdeki tekrarlanmış fotoğrafları.
 
-Daha fazla uzatmayalım... Bırakın SD Maid SE size yardımcı olsun:
+Burada devam etmeyelim... SD Maid 2/SE size yardımcı olsun!
 
-* Önceden kaldırılmış uygulamaların verilerini temizleyin
-* Gereksiz dosyaları ve gizli önbellekleri silin
-* Kullanılmayan sistem dosyalarını kaldırın
-* Rastgele dosyalar için kendi filtrelerinizi oluşturun
-* Yinelenen verileri bulun ve silin
-* Depolama alanınızı analiz edin ve çok yer kaplayan büyük dosyaları silin
+SD Maid 2/SE, cihazınızda hangi uygulamaların belirli dosyaları oluşturduğunu bilmek konusunda uzmanlaşmış bir uygulama ve dosya yöneticisidir. SD Maid 2/SE cihazınızı arar ve dosyaları yüklü uygulamalarla karşılaştırarak depolama alanını güvenli bir şekilde boşaltmak için seçenekler sunar.
 
-SD Maid SE reklamsızdır. Bazı özellikler ücretli yükseltme gerektirir.
+✨ Uygulamaları kaldırdıktan sonra kalıntıları temizleyin
+Uygulamalar belirlenen dizinlerin dışında dosyalar oluşturursa, uygulamalar kaldırıldıktan sonra bile dosyalar kalabilir. "CorpseFinder" aracı uygulama kalıntılarını bulur, hangi uygulamaya ait olduklarını söyler ve bunları silmenize yardımcı olur.
+
+🔍 Cihazınızı akıllı bir şekilde tarayın
+Boş dizinler, geçici dosyalar, önceden yüklenmiş uygulamalar ve daha fazlası için filtre uygulayın. Kendi arama kriterlerinizi bile oluşturabilirsiniz. "SystemCleaner" aracı, cihazınızı otomatik olarak aramanıza ve çeşitli kriterlere göre dosyaları silmenize olanak tanır.
+
+🧹 Gereksiz dosyaları ve gizli önbellekleri silin
+Resim önizlemeleri, çöp kutuları, çevrimdışı önbellekler ve daha fazlası: Eğer uygulamalar kendi arkalarını temizlemezlerse, bu uygulama temizleyecektir. "AppCleaner" aracı, harcanabilir dosyalara sahip uygulamaları bulur.
+
+📦 Tüm uygulamalarınızı yönetin
+Cihazınızda yüklü tüm uygulamaların kapsamlı bir listesini alın. Etkin, devre dışı, kullanıcı veya sistem uygulaması: hiçbir uygulama sizden saklanamaz. "AppControl" aracı, uygulamalarınızı aramanıza, sıralamanıza ve kontrol etmenize olanak tanıyan bir uygulama yöneticisidir.
+
+📊 Tüm alanınızı ne kullanıyor?
+Depolama yönetimi, telefon depolama alanı, SD kartlar ve USB aygıtlarındaki uygulamalar, medya, sistem ve diğer dosyalarla karmaşık olabilir. "StorageAnalyzer" cihazınızda nasıl alan kullanıldığını gösteren ve depolama yönetiminizi basitleştiren bir dosya yöneticisidir.
+
+📷 Yinelenen verileri bulun
+Yinelenen indirmeler, sosyal medya aracılığıyla gönderilen fotoğraflar veya aynı sahnenin benzer resimleri: Zaman içinde kopyalar birikebilir. "Deduplicator" aracı, tamamen aynı veya benzer olan dosyaları bulur ve fazladan kopyaları silmenize yardımcı olur.
+
+Bu uygulama reklam içermez. Bazı özellikler ücretli yükseltme gerektirir.
 
 SD Maid 2/SE, SD Maid 1/Legacy'nin yeni sürümüdür.
 Daha yeni Android sürümleri için optimize edilmiş ve temizliğe odaklanmıştır.
 
-SD Maid SE, sıkıcı eylemleri otomatikleştirmek için AccessibilityService API'sini kullanan isteğe bağlı özelliklere sahiptir.
-SD Maid SE, AccessibilityService API'sini kullanarak birden fazla uygulama üzerinde işlem gerçekleştirmeniz için düğmelere tıklayabilir, örn. önbellekleri silme.
-SD Maid SE, bilgi toplamak için AccessibilityService API'sini kullanmaz.
+Bu uygulama, sıkıcı eylemleri otomatikleştirmek için AccessibilityService API'sini kullanan isteğe bağlı özelliklere sahiptir.
+AccessibilityService API'sini kullanan bu uygulama, birden fazla uygulama üzerinde işlem gerçekleştirmeniz için düğmelere tıklayabilir, örn. önbellekleri silme.
+Bu uygulama bilgi toplamak için AccessibilityService API'sini kullanmaz.
+
+SD Maid 2/SE bir Dosya Yöneticisi ve Temizleyici Uygulamasıdır.
