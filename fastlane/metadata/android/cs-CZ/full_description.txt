@@ -1,24 +1,40 @@
-<i>SD Maid SE</i> je důvěryhodný asistent vašeho systému Android, který jej udržuje v čistotě a pořádku.
+<i>SD Maid 2/SE</i> je důvěryhodný asistent vašeho systému Android, který jej udržuje v čistotě a pořádku.
 
 Nikdo není dokonalý, ani systém Android.
 * Aplikace, které jste již odstranili, po sobě něco zanechávají.
-* Neustále se vytvářejí záznamy, hlášení o pádech a další soubory, které ve skutečnosti nechcete.
+* Neustále se vytvářejí záznamy, hlášení o pádech a další soubory, které nechcete.
 * Ve vašem úložišti se shromažďují soubory a adresáře, které neznáte.
+* Duplicitní fotografie v galerii.
 
-Nepokračujte v tom… SD Maid SE vám pomůže:
+Nepokračujte v tom… SD Maid 2/SE vám pomůže!
 
-* Vyčistit data z již odinstalovaných aplikací
-* Vymazat nepotřebné soubory a skryté mezipaměti
-* Odstranit nepoužívané systémové soubory
-* Vytvořit vlastní filtry pro náhodné soubory
-* Vyhledat a smazat duplicitní data
-* Analyzovat úložiště a odstranit velké soubory, které zabírají místo
+SD Maid 2/SE je správce aplikací a souborů, který se specializuje na zjišťování, které aplikace vytvořily ve vašem zařízení konkrétní soubory. SD Maid 2/SE prohledá vaše zařízení a porovná soubory s nainstalovanými aplikacemi a nabídne možnosti bezpečného uvolnění úložiště.
 
-SD Maid SE je bez reklam a zdarma. Některé funkce však vyžadují placený upgrade.
+✨ Čištění po odinstalování aplikací
+Pokud aplikace vytvářejí soubory mimo určené adresáře, mohou v nich zůstat i po odinstalování aplikací. Nástroj "Hledač mrtvol" najde pozůstatky aplikací, řekne vám, ke které aplikaci patřily, a pomůže vám je odstranit.
+
+🔍 Vyhledávání v zařízení chytrým způsobem
+Filtrujte prázdné adresáře, dočasné soubory, již nainstalované aplikace a další. Můžete si dokonce vytvořit vlastní kritéria vyhledávání. Nástroj "Čistič systému" umožňuje automaticky prohledávat zařízení a odstraňovat soubory na základě různých kritérií.
+
+🧹 Odstranění postradatelných souborů a skrytých mezipamětí
+Náhledy, koše, offline mezipaměti a další: pokud po sobě aplikace neuklízejí samy, pak to udělá tato aplikace. Nástroj "Čistič aplikací" najde aplikace s nepotřebnými soubory.
+
+📦 Správa všech aplikací
+Získejte úplný seznam všech aplikací nainstalovaných v zařízení. Povolená, zakázaná, uživatelská nebo systémová aplikace: žádná aplikace se před vámi neschová. Nástroj "Správce aplikací" je správce aplikací, který umožňuje vyhledávat, třídit a ovládat aplikace.
+
+📊 Co využívá veškeré vaše úložiště
+Správa úložiště může být složitá díky aplikacím, médiím, systému a dalším souborům v úložišti telefonu, na kartách SD a zařízeních USB. "Analyzátor úložiště" je správce souborů, který zobrazuje využití místa v zařízení a zjednodušuje tak správu úložiště.
+
+📷 Vyhledání duplicitních dat
+Duplicitní stahování, fotky odeslané přes sociální sítě nebo pouze podobné obrázky stejné scény: kopie se postupem času mohou hromadit. Nástroj "Odstraňovač duplikátů" najde soubory, které jsou shodné nebo podobné a pomáhá odstranit další kopie.
+
+Tato aplikace je bez reklam. Některé funkce však vyžadují placený upgrade.
 
 SD Maid 2/SE je nástupcem SD Maid 1/Legacy.
 Optimalizováno pro novější verze systému Android a zaměřeno na čištění.
 
-SD Maid SE má volitelné funkce, které využívají rozhraní API služby přístupnosti k automatizaci zdlouhavých činností.
-Pomocí rozhraní API služby přístupnosti může SD Maid SE klikat na tlačítka pro provádění operací s vícero aplikacemi, např. mazání mezipamětí.
-SD Maid SE nepoužívá rozhraní API služby přístupnosti ke shromažďování informací.
+Tato aplikace obsahuje volitelné funkce, které využívají rozhraní API AccessibilityService k automatizaci zdlouhavých operací.
+Pomocí AccessibilityService API může tato aplikaci klikat na tlačítka a provádět operace ve více aplikacích, např. mazání mezipamětí.
+Tato aplikace nepoužívá AccessibilityService API ke shromažďování informací.
+
+SD Maid 2/SE je správce souborů a čistič aplikací.
