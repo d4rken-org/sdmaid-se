@@ -19,7 +19,9 @@ import javax.inject.Inject
 class DefaultExclusions @Inject constructor(
     private val exclusionSettings: ExclusionSettings,
 ) {
-
+    // Due to a bug before v0.23.3-beta0, some of the user exclusions can be inside the removedDefaultExclusions
+    // These are just the strings IDs though and shouldn't cause any issue
+    // Downstream we don't combine removed defaults and user exclusions
     val exclusions: Flow<Collection<DefaultExclusion>> = exclusionSettings.removedDefaultExclusions.flow
         .onEach { log(TAG, INFO) { "Removed default exclusions are: $it" } }
         .map { removed -> DATA.filter { !removed.contains(it.id) } }
