@@ -120,7 +120,6 @@ class PHashSleuth @Inject constructor(
         log(TAG) { "Global skip segments: $globalSkips" }
 
         val minSize = settings.minSizeBytes.value()
-        val skipUncommon = settings.skipUncommon.value()
 
         val suspects = mutableSetOf<APathLookup<*>>()
 

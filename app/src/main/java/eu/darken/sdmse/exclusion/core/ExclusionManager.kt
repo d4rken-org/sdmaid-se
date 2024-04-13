@@ -47,6 +47,7 @@ class ExclusionManager @Inject constructor(
         }
         exclusions
     }
+        .setupCommonEventHandlers(TAG) { "exclusions" }
         .shareIn(
             scope = appScope,
             started = SharingStarted.Lazily,
