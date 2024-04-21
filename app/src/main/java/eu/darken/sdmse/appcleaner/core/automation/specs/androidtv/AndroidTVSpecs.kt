@@ -30,6 +30,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -79,6 +80,11 @@ open class AndroidTVSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels = androidTVLabels.getClearCacheLabels(lang, script)
 
+            if (clearCacheButtonLabels.isNotEmpty()) {
+                log(TAG, WARN) { "clearCacheButtonLabels was empty" }
+                throw UnsupportedOperationException("This system language is not supported")
+            }
+
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.idMatches("android:id/title")) return false
                 return node.textMatchesAny(clearCacheButtonLabels)
@@ -97,6 +103,7 @@ open class AndroidTVSpecs @Inject constructor(
             )
             stepper.withProgress(this) { process(step) }
         }
+
         run {
             val clearCacheTexts = androidTVLabels.getClearCacheLabels(lang, script)
 

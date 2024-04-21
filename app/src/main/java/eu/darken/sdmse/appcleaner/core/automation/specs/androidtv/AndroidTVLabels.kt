@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.androidtv
 
 import dagger.Reusable
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import javax.inject.Inject
 
@@ -70,7 +71,7 @@ open class AndroidTVLabels @Inject constructor(
         "hr".toLang() == lang -> setOf("Očisti predmemoriju")
         "bn".toLang() == lang -> setOf("ক্যাশে সাফ করুন")
         "lv".toLang() == lang -> setOf("Notīrīt kešatmiņu")
-        else -> throw UnsupportedOperationException()
+        else -> emptySet<String>().also { log(TAG) { "Unmapped locale: $lang $script" } }
     }
 
     companion object {

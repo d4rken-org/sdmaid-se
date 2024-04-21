@@ -4,6 +4,7 @@ import android.content.Context
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -113,7 +114,7 @@ class FlymeLabels @Inject constructor(
         "hr".toLang() == lang -> setOf("Očisti predmemoriju")
         "bn".toLang() == lang -> setOf("ক্যাশে সাফ করুন")
         "lv".toLang() == lang -> setOf("Notīrīt kešatmiņu")
-        else -> throw UnsupportedOperationException()
+        else -> emptySet<String>().also { log(TAG) { "Unmapped locale: $lang $script" } }
     }
 
     companion object {
