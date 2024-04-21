@@ -10,7 +10,6 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
-import eu.darken.sdmse.appcleaner.core.automation.specs.alcatel.AlcatelSpecs
 import eu.darken.sdmse.automation.core.common.StepProcessor
 import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.defaultClick
@@ -27,7 +26,8 @@ import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -67,13 +67,13 @@ class RealmeSpecs @Inject constructor(
     }
 
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = { pkg ->
-        log(AlcatelSpecs.TAG, Logging.Priority.INFO) { "Executing plan for ${pkg.installId} with context $this" }
+        log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
         val locale = getSysLocale()
         val lang = locale.language
         val script = locale.script
 
-        log(Logging.Priority.VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
+        log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
 
         run {
             val storageEntryLabels =
