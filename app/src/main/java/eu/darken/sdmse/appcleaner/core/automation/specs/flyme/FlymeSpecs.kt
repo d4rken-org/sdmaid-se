@@ -24,6 +24,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -75,6 +76,11 @@ class FlymeSpecs @Inject constructor(
             // Do this beforehand so we crash early if unsupported
             val clearCacheButtonLabels =
                 flymeLabels.getClearCacheDynamic() + flymeLabels.getClearCacheLabels(lang, script)
+
+            if (clearCacheButtonLabels.isNotEmpty()) {
+                log(TAG, WARN) { "clearCacheButtonLabels was empty" }
+                throw UnsupportedOperationException("This system language is not supported")
+            }
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickable) return false

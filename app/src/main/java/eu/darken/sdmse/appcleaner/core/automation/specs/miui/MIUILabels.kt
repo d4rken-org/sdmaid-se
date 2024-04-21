@@ -4,6 +4,7 @@ import android.content.Context
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -105,7 +106,7 @@ class MIUILabels @Inject constructor(
         "km".toLang() == lang -> setOf("ជម្រះឃ្លាំងសម្ងាត់ឬ?")
         "or".toLang() == lang -> setOf("କ୍ୟାଚେ ସଫା କରିବେ?")
         "lo".toLang() == lang -> setOf("ລົບ\u200Bລ້າງ Cache?")
-        else -> throw UnsupportedOperationException()
+        else -> emptySet<String>().also { log(TAG) { "Unmapped locale: $lang $script" } }
     }
 
     fun getClearCacheButtonLabels(lang: String, script: String, country: String?): Set<String> =
@@ -193,7 +194,7 @@ class MIUILabels @Inject constructor(
             "km".toLang() == lang -> setOf("ជម្រះឃ្លាំងសម្ងាត់")
             "or".toLang() == lang -> setOf("କ୍ୟାଚେ ସଫା କରନ୍ତୁ")
             "lo".toLang() == lang -> setOf("ລົບ\u200Bລ້າງ Cache")
-            else -> throw UnsupportedOperationException()
+            else -> emptySet<String>().also { log(TAG) { "Unmapped locale: $lang $script" } }
         }
 
     fun getClearDataButtonLabels(lang: String, script: String, country: String?): Set<String> =
@@ -279,7 +280,7 @@ class MIUILabels @Inject constructor(
             "km".toLang() == lang -> setOf("ជម្រះទិន្នន័យ")
             "or".toLang() == lang -> setOf("ଡାଟା ଖାଲିକରନ୍ତୁ")
             "lo".toLang() == lang -> setOf("ລົບ\u200Bລ້າງ\u200Bຂໍ້\u200Bມູນ")
-            else -> throw UnsupportedOperationException()
+            else -> emptySet<String>().also { log(TAG) { "Unmapped locale: $lang $script" } }
         }
 
     companion object {

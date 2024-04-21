@@ -4,6 +4,7 @@ import android.content.Context
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -47,7 +48,7 @@ class ColorOSLabels @Inject constructor(
         "fr".toLang() == lang -> setOf("Utilisation du stockage")
         "vi".toLang() == lang -> setOf("Sử dụng lưu trữ")
         "ms".toLang() == lang -> setOf("Penggunaan storan")
-        else -> throw UnsupportedOperationException()
+        else -> emptySet<String>().also { log(TAG) { "Unmapped locale: $lang $script" } }
     }
 
     fun getClearCacheDynamic(): Set<String> = setOf(
@@ -101,7 +102,7 @@ class ColorOSLabels @Inject constructor(
         "fa".toLang() == lang -> setOf("پاک کردن حافظهٔ پنهان")
         "th".toLang() == lang -> setOf("ล้างแคช")
         "ja".toLang() == lang -> setOf("キャッシュを消去")
-        else -> throw UnsupportedOperationException()
+        else -> emptySet<String>().also { log(TAG) { "Unmapped locale: $lang $script" } }
     }
 
     companion object {
