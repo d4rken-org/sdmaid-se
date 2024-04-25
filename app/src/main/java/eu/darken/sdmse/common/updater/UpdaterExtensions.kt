@@ -17,13 +17,17 @@ fun UpdateChecker.Update.isNewer(): Boolean = try {
     false
 }
 
-suspend fun UpdateChecker.getUpdate(): UpdateChecker.Update? {
+suspend fun UpdateChecker.getUpdate(betaConsent: Boolean): UpdateChecker.Update? {
     if (!isCheckSupported()) {
         log(TAG, INFO) { "Update check is not supported" }
         return null
     }
 
-    val currentChannel = currentChannel()
+    val currentChannel = when (BuildConfigWrap.BUILD_TYPE) {
+        BuildConfigWrap.BuildType.RELEASE -> if (betaConsent) UpdateChecker.Channel.BETA else UpdateChecker.Channel.PROD
+        BuildConfigWrap.BuildType.BETA -> UpdateChecker.Channel.BETA
+        BuildConfigWrap.BuildType.DEV -> UpdateChecker.Channel.BETA
+    }
     val update = getLatest(currentChannel)
 
     if (update == null) {

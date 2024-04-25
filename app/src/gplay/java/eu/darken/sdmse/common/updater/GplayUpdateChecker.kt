@@ -9,9 +9,6 @@ import javax.inject.Inject
 class GplayUpdateChecker @Inject constructor(
 
 ) : UpdateChecker {
-    override suspend fun currentChannel(): UpdateChecker.Channel {
-        return UpdateChecker.Channel.PROD
-    }
 
     override suspend fun getLatest(channel: UpdateChecker.Channel): UpdateChecker.Update? {
         return null

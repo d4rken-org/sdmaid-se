@@ -3,7 +3,6 @@ package eu.darken.sdmse.common.updater
 import android.content.Context
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -24,12 +23,6 @@ class FossUpdateChecker @Inject constructor(
     private val webpageTool: WebpageTool,
     private val settings: FossUpdateSettings,
 ) : UpdateChecker {
-
-    override suspend fun currentChannel(): UpdateChecker.Channel = when (BuildConfigWrap.BUILD_TYPE) {
-        BuildConfigWrap.BuildType.RELEASE -> UpdateChecker.Channel.PROD
-        BuildConfigWrap.BuildType.BETA -> UpdateChecker.Channel.BETA
-        BuildConfigWrap.BuildType.DEV -> UpdateChecker.Channel.BETA
-    }
 
     override suspend fun getLatest(channel: UpdateChecker.Channel): UpdateChecker.Update? {
         log(TAG) { "getLatest($channel) checking..." }

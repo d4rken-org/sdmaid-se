@@ -30,9 +30,9 @@
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store synchronization may take time. Try rebooting, clearing Google Play cache or simply wait.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Multiple accounts can confuse Google Play. Log out of other accounts or install through the Google Play website, which forces associations with a specific account.</string>
 
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Together, we made it to the first release! Thank you for helping me! Development will of course continue, but you can now switch to more stable builds, if you want to. Do this by opting-out of testing on Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Small note: Ratings given during testing are only visible to me, I\'d appreciate it if you could give SD Maid a public rating if you are happy.</string>
-    <string name="nudge_betagoodbye_positive_action">Opt-out</string>
+    <string name="nudge_betagoodbye_title">Version 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Thank you. We made it this far only together. Development will continue of course, but you can now install SD Maid without opting in for testing on Google Play.</string>
+    <string name="nudge_betagoodbye_hint">You don\'t have to re-install the app. This is already a normal version. Just opt out of testing and you will only receive release updates in the future.</string>
+    <string name="nudge_betagoodbye_positive_action">Leave testing programm</string>
     <string name="nudge_betagoodbye_negative_action">Keep testing</string>
 </resources>

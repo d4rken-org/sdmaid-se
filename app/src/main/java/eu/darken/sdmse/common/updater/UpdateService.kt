@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.main.core.release.ReleaseManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,6 +23,7 @@ class UpdateService @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val updateChecker: UpdateChecker,
     generalSettings: GeneralSettings,
+    releaseManager: ReleaseManager,
 ) {
 
     private val updateCheckTrigger = MutableStateFlow(UUID.randomUUID())
@@ -37,7 +39,7 @@ class UpdateService @Inject constructor(
                 updateCheckTrigger
             ) { isEnabled, _ ->
                 if (isEnabled) {
-                    updateChecker.getUpdate()
+                    updateChecker.getUpdate(betaConsent = releaseManager.hasBetaConsent())
                 } else {
                     log(TAG) { "Update check is not enabled!" }
                     null
