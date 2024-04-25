@@ -44,7 +44,7 @@ class FossUpdateChecker @Inject constructor(
             } else {
                 log(TAG) { "Fetching new release data" }
                 when (channel) {
-                    UpdateChecker.Channel.BETA -> checker.allReleases(OWNER, REPO).firstOrNull { it.isPreRelease }
+                    UpdateChecker.Channel.BETA -> checker.allReleases(OWNER, REPO).last()
                     UpdateChecker.Channel.PROD -> checker.latestRelease(OWNER, REPO)
                 }.also {
                     log(TAG, INFO) { "getLatest($channel) new data is $it" }
