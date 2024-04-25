@@ -166,8 +166,8 @@ dependencies {
     addIO()
     addRetrofit()
 
-    "gplayImplementation"("com.android.billingclient:billing:6.0.1")
-    "gplayImplementation"("com.android.billingclient:billing-ktx:6.0.1")
+    "gplayImplementation"("com.android.billingclient:billing:6.2.1")
+    "gplayImplementation"("com.android.billingclient:billing-ktx:6.2.1")
 
     addAndroidCore()
     addAndroidUI()
