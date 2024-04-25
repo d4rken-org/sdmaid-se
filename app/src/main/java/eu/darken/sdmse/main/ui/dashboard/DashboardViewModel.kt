@@ -52,6 +52,7 @@ import eu.darken.sdmse.deduplicator.ui.DeduplicatorDashCardVH
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.motd.MotdRepo
+import eu.darken.sdmse.main.core.release.ReleaseManager
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.scheduler.core.SchedulerManager
@@ -93,11 +94,22 @@ class DashboardViewModel @Inject constructor(
     private val updateService: UpdateService,
     private val recorderModule: RecorderModule,
     private val motdRepo: MotdRepo,
+    private val releaseManager: ReleaseManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     init {
         if (!generalSettings.isOnboardingCompleted.valueBlocking) {
             DashboardFragmentDirections.actionDashboardFragmentToOnboardingWelcomeFragment().navigate()
+        } else {
+            launch {
+                releaseManager.checkEarlyAdopter()
+                when {
+                    releaseManager.releaseParty() -> {
+                        log(TAG) { "Release party required, navigating..." }
+                        DashboardFragmentDirections.actionDashboardFragmentToBetaGoodbyeFragment().navigate()
+                    }
+                }
+            }
         }
     }
 

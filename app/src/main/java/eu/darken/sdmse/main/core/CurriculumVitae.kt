@@ -12,9 +12,13 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import io.github.z4kn4fein.semver.Version
+import io.github.z4kn4fein.semver.VersionFormatException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import java.time.Instant
 import javax.inject.Inject
@@ -80,7 +84,16 @@ class CurriculumVitae @Inject constructor(
         _launchedCountBeta.value(newLaunchCount)
     }
 
-    val history = _updateHistory.flow
+    val history = _updateHistory.flow.map { versions ->
+        versions.mapNotNull {
+            try {
+                Version.parse(it, false)
+            } catch (e: VersionFormatException) {
+                log(TAG, WARN) { "Invalid version format: $it out of $versions" }
+                null
+            }
+        }
+    }
 
     private suspend fun updateVersionHistory() {
         val history = _updateHistory.value()

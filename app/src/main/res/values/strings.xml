@@ -657,4 +657,7 @@
     <string name="updatecheck_setting_enabled_label">Update check</string>
     <string name="updatecheck_setting_enabled_explanation">Allow SD Maid to check for updates to let you know if a newer version is available.</string>
     <string name="device_settings_category">Device</string>
+
+    <string name="beta_version_indicator_desc">Pre-release versions display a litte ribbon on the start screen. They are updated more frequently, might have more features, but could also have more bugs.</string>
+
 </resources>

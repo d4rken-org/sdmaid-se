@@ -31,6 +31,9 @@ class GithubReleaseCheck @Inject constructor(
         }.build().create(GithubApi::class.java)
     }
 
+    /**
+     * Only returns non-pre-releases
+     */
     suspend fun latestRelease(
         owner: String,
         repo: String
