@@ -17,6 +17,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.throttleLatest
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.main.core.release.ReleaseSettings
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -33,9 +35,11 @@ import kotlin.system.measureTimeMillis
 
 @Singleton
 class GplayReviewTool @Inject constructor(
-    private val settings: ReviewSettings,
-    @AppScope private val appScope: CoroutineScope,
     @ApplicationContext private val context: Context,
+    @AppScope private val appScope: CoroutineScope,
+    private val settings: ReviewSettings,
+    releaseSettings: ReleaseSettings,
+    upgradeRepo: UpgradeRepo,
 ) : ReviewTool {
     private val manager by lazy { ReviewManagerFactory.create(context) }
     private val reviewRefresh = MutableStateFlow(UUID.randomUUID())
@@ -56,16 +60,26 @@ class GplayReviewTool @Inject constructor(
         settings.lastDismissed.flow,
         settings.reviewedAt.flow,
         gplayReviewState,
-    ) { lastDismissed, reviewedAt, reviewInfo ->
-        val isSnoozed = Duration.between(lastDismissed, Instant.now()) < Duration.ofDays(14)
+        upgradeRepo.upgradeInfo,
+        releaseSettings.releasePartyAt.flow,
+    ) { lastDismissed, reviewedAt, reviewInfo, upgradeInfo, releasePartyAt ->
+        val now = Instant.now()
+        val isSnoozed = Duration.between(lastDismissed ?: Instant.EPOCH, now) < Duration.ofDays(14)
         val canShow = reviewInfo?.canShow == true
-        log(TAG) {
-            "State: canShow=$canShow, isSnoozed=$isSnoozed ($lastDismissed), reviewedAt=$reviewedAt"
-        }
+        val hasReviewed = reviewedAt != null
+
+        // Free trial is 14 days, only ask for review after the user has paid something
+        val hasPaidForPro = Duration.between(upgradeInfo.upgradedAt, now) > Duration.ofDays(21)
+
+        // User may still be hangover from party, don't ask for review
+        val hasRecoveredFromParty = Duration.between(releasePartyAt ?: now, now) > Duration.ofDays(5)
+
+        log(TAG) { "State 1: canShow=$canShow, isSnoozed=$isSnoozed ($lastDismissed), reviewedAt=$reviewedAt" }
+        log(TAG) { "State 2: hasRecoveredFromParty=$hasRecoveredFromParty, hasPaidForPro=$hasPaidForPro" }
 
         ReviewTool.State(
-            shouldAskForReview = !isSnoozed && reviewedAt == null && canShow,
-            hasReviewed = false,
+            shouldAskForReview = hasRecoveredFromParty && hasPaidForPro && !isSnoozed && !hasReviewed && canShow,
+            hasReviewed = hasReviewed,
         )
     }
         .throttleLatest(500)

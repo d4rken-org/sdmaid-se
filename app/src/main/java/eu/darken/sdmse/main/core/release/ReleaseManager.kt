@@ -11,6 +11,7 @@ import eu.darken.sdmse.main.core.CurriculumVitae
 import io.github.z4kn4fein.semver.Version
 import io.github.z4kn4fein.semver.VersionFormatException
 import kotlinx.coroutines.flow.firstOrNull
+import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -34,7 +35,7 @@ class ReleaseManager @Inject constructor(
     suspend fun hasBetaConsent() = if (ourVersion >= CUTOFF) settings.wantsBeta.value() else true
 
     suspend fun releaseParty(): Boolean {
-        if (settings.didReleasePartyCheck.value()) {
+        if (settings.releasePartyAt.value() != null) {
             log(TAG) { "releaseParty(): Already had a party (wantsBeta=${settings.wantsBeta.value()})" }
             return false
         }
@@ -58,7 +59,7 @@ class ReleaseManager @Inject constructor(
 
             else -> {
                 log(TAG, INFO) { "releaseParty(): User isn't invited." }
-                settings.didReleasePartyCheck.value(true)
+                settings.releasePartyAt.value(Instant.now())
                 false
             }
         }
