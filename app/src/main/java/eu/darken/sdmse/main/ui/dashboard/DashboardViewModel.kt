@@ -397,7 +397,12 @@ class DashboardViewModel @Inject constructor(
         _ ->
         val items = mutableListOf<DashboardAdapter.Item>(titleInfo)
 
-        reviewItem?.let { items.add(it) }
+        if (motdItem == null && updateInfo == null && setupItem == null && dataAreaInfo == null && reviewItem != null) {
+            log(TAG, INFO) { "Showing review item" }
+            items.add(reviewItem)
+        } else if (reviewItem != null) {
+            log(TAG) { "Could show review item but other high priority items are currently being shown" }
+        }
 
         motdItem?.let { items.add(it) }
         updateInfo?.let { items.add(it) }

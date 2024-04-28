@@ -25,7 +25,7 @@ class ReviewSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    val lastDismissed = dataStore.createValue("review.dismissedAt", Instant.EPOCH, moshi)
+    val lastDismissed = dataStore.createValue("review.dismissedAt", null as Instant?, moshi)
     val reviewedAt = dataStore.createValue("review.reviewedAt", null as Instant?, moshi)
 
     override val mapper = PreferenceStoreMapper(

@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.release.ReleaseSettings
 import eu.darken.sdmse.main.ui.dashboard.items.*
 import kotlinx.coroutines.flow.*
+import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -38,7 +39,7 @@ class BetaGoodbyeViewModel @Inject constructor(
             BuildConfigWrap.Flavor.NONE -> throw IllegalStateException("Why is there no flavor?")
         }
         releaseSettings.wantsBeta.value(consent)
-        releaseSettings.didReleasePartyCheck.value(true)
+        releaseSettings.releasePartyAt.value(Instant.now())
         popNavStack()
     }
 
