@@ -660,4 +660,7 @@
 
     <string name="beta_version_indicator_desc">Pre-release versions display a litte ribbon on the start screen. They are updated more frequently, might have more features, but could also have more bugs.</string>
 
+    <string name="review_app_review_action">Review</string>
+    <string name="review_app_dismiss_action">No</string>
+    <string name="review_app_body">Would you like to leave SD Maid a review?</string>
 </resources>
