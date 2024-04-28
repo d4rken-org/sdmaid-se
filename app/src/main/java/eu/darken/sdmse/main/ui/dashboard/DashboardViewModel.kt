@@ -34,6 +34,7 @@ import eu.darken.sdmse.common.flow.intervalFlow
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.throttleLatest
+import eu.darken.sdmse.common.review.ReviewTool
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.updater.UpdateService
@@ -95,6 +96,7 @@ class DashboardViewModel @Inject constructor(
     private val recorderModule: RecorderModule,
     private val motdRepo: MotdRepo,
     private val releaseManager: ReleaseManager,
+    private val reviewTool: ReviewTool,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     init {
@@ -345,6 +347,19 @@ class DashboardViewModel @Inject constructor(
             }
         }
 
+    private val reviewItem: Flow<ReviewCardVH.Item?> = reviewTool.state.map { state ->
+        if (!state.shouldAskForReview) return@map null
+
+        ReviewCardVH.Item(
+            onReview = {
+                launch { reviewTool.reviewNow(it) }
+            },
+            onDismiss = {
+                launch { reviewTool.dismiss() }
+            }
+        )
+    }
+
     private val listItemsInternal: Flow<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
         recorderModule.state,
         debugCardProvider.create(this),
@@ -361,6 +376,7 @@ class DashboardViewModel @Inject constructor(
         analyzerItem,
         schedulerItem,
         motdItem,
+        reviewItem,
         refreshTrigger,
     ) { recorderState: RecorderModule.State,
         debugItem: DebugCardVH.Item?,
@@ -377,8 +393,11 @@ class DashboardViewModel @Inject constructor(
         analyzerItem: AnalyzerDashCardVH.Item?,
         schedulerItem: SchedulerDashCardVH.Item?,
         motdItem: MotdCardVH.Item?,
+        reviewItem: ReviewCardVH.Item?,
         _ ->
         val items = mutableListOf<DashboardAdapter.Item>(titleInfo)
+
+        reviewItem?.let { items.add(it) }
 
         motdItem?.let { items.add(it) }
         updateInfo?.let { items.add(it) }

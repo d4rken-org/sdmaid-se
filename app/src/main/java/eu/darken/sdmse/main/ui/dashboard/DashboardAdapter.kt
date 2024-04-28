@@ -1,8 +1,10 @@
 package eu.darken.sdmse.main.ui.dashboard
 
+import android.app.Activity
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
+import dagger.hilt.android.scopes.ActivityScoped
 import eu.darken.sdmse.analyzer.ui.AnalyzerDashCardVH
 import eu.darken.sdmse.appcleaner.ui.AppCleanerDashCardVH
 import eu.darken.sdmse.appcontrol.ui.AppControlDashCardVH
@@ -20,6 +22,7 @@ import eu.darken.sdmse.deduplicator.ui.DeduplicatorDashCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DataAreaCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.MotdCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.ReviewCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.TitleCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.UpdateCardVH
@@ -28,8 +31,10 @@ import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerDashCardVH
 import javax.inject.Inject
 
-
-class DashboardAdapter @Inject constructor() :
+@ActivityScoped
+class DashboardAdapter @Inject constructor(
+    private val activity: Activity,
+) :
     ModularAdapter<DashboardAdapter.BaseVH<DashboardAdapter.Item, ViewBinding>>(),
     HasAsyncDiffer<DashboardAdapter.Item> {
 
@@ -54,6 +59,7 @@ class DashboardAdapter @Inject constructor() :
         addMod(TypedVHCreatorMod({ data[it] is SchedulerDashCardVH.Item }) { SchedulerDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is DebugRecorderCardVH.Item }) { DebugRecorderCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is MotdCardVH.Item }) { MotdCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is ReviewCardVH.Item }) { ReviewCardVH(activity, it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(
