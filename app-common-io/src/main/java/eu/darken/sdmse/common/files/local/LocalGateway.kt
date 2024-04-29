@@ -666,28 +666,39 @@ class LocalGateway @Inject constructor(
     suspend fun delete(path: LocalPath, mode: Mode = Mode.AUTO): Unit = runIO {
         try {
             val javaFile = path.asFile()
-            val canNormalWrite = when (mode) {
-                Mode.ROOT -> false
-                Mode.ADB -> false
-                else -> javaFile.canWrite()
+
+            val (normalCanWrite, normalExists) = when {
+                mode == Mode.ROOT -> false to null
+                mode == Mode.ADB -> false to null
+                javaFile.canWrite() -> true to true
+                // Does it not exist or do we lack permission?
+                !javaFile.exists() -> try {
+                    javaFile.parentFile!!.listFiles2()
+                    true to false
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to differentiate between file not existing and lacking permission: $e" }
+                    false to null
+                }
+
+                else -> false to null
             }
 
             when {
-                mode == Mode.NORMAL || mode == Mode.AUTO && canNormalWrite -> {
+                mode == Mode.NORMAL || mode == Mode.AUTO && normalCanWrite -> {
                     log(TAG, VERBOSE) { "delete($mode->NORMAL): $path" }
 
                     var success = if (Bugs.isDryRun) {
                         log(TAG, INFO) { "DRYRUN: Not deleting $javaFile" }
-                        javaFile.exists()
+                        javaFile.canWrite()
                     } else {
                         javaFile.delete()
                     }
 
                     if (!success) {
-                        success = !javaFile.exists()
+                        success = normalExists == false || !javaFile.exists()
                         if (success) {
                             log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
-                        } else if (!canNormalWrite) {
+                        } else if (!normalCanWrite) {
                             throw WriteException(path)
                         }
                     }
@@ -707,7 +718,7 @@ class LocalGateway @Inject constructor(
                     rootOps {
                         var success = if (Bugs.isDryRun) {
                             log(TAG, INFO) { "DRYRUN: Not deleting (root) $javaFile" }
-                            it.exists(path)
+                            it.canWrite(path)
                         } else {
                             it.delete(path)
                         }
@@ -729,7 +740,7 @@ class LocalGateway @Inject constructor(
                     adbOps {
                         var success = if (Bugs.isDryRun) {
                             log(TAG, INFO) { "DRYRUN: Not deleting (adb) $javaFile" }
-                            it.exists(path)
+                            it.canWrite(path)
                         } else {
                             it.delete(path)
                         }
