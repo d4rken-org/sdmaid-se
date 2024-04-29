@@ -5,11 +5,10 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.local.toLocalPath
-import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.navigation.navVia
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -29,11 +28,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.withTimeoutOrNull
-import java.io.File
 import java.util.UUID
 import javax.inject.Inject
+import kotlin.system.measureTimeMillis
 
 class DebugCardProvider @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
@@ -145,15 +143,13 @@ class DebugCardProvider @Inject constructor(
             },
             onRunTest = {
                 vm.launch {
-                    File("/data/system/graphicsstats")
-                        .toLocalPath()
-                        .walk(
-                            gatewaySwitch
-                        )
-                        .toList()
-                        .forEach {
-                            log(TAG) { "###TEST walked: $it" }
+                    gatewaySwitch.useRes {
+                        measureTimeMillis {
+
+                        }.also {
+                            log(TAG, INFO) { "Deletion took $it" }
                         }
+                    }
                 }
             }
         )
