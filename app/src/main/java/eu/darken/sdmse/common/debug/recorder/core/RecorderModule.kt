@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.startServiceCompat
+import eu.darken.sdmse.main.core.CurriculumVitae
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -39,10 +40,11 @@ import javax.inject.Singleton
 class RecorderModule @Inject constructor(
     @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
-    private val dispatcherProvider: DispatcherProvider,
+    dispatcherProvider: DispatcherProvider,
     private val dataAreaManager: DataAreaManager,
     private val sdmId: SDMId,
     private val debugSettings: DebugSettings,
+    private val curriculumVitae: CurriculumVitae,
 ) {
 
     private val triggerFile by lazy {
@@ -158,6 +160,8 @@ class RecorderModule @Inject constructor(
         val state = dataAreaManager.latestState.firstOrNull()
         log(TAG, INFO) { "Data areas: (${state?.areas?.size})" }
         state?.areas?.forEachIndexed { index, dataArea -> log(TAG, INFO) { "#$index $dataArea" } }
+
+        log(TAG, INFO) { "Update history: ${curriculumVitae.history.firstOrNull()}" }
     }
 
     data class State(
