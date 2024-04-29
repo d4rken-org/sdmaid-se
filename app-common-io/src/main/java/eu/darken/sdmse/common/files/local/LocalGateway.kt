@@ -667,20 +667,13 @@ class LocalGateway @Inject constructor(
         try {
             val javaFile = path.asFile()
 
-            val (normalCanWrite, normalExists) = when {
-                mode == Mode.ROOT -> false to null
-                mode == Mode.ADB -> false to null
-                javaFile.canWrite() -> true to true
+            val normalCanWrite = when {
+                mode == Mode.ROOT -> false
+                mode == Mode.ADB -> false
+                javaFile.canWrite() -> true
                 // Does it not exist or do we lack permission?
-                !javaFile.exists() -> try {
-                    javaFile.parentFile!!.listFiles2()
-                    true to false
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "Failed to differentiate between file not existing and lacking permission: $e" }
-                    false to null
-                }
-
-                else -> false to null
+                !javaFile.exists() -> javaFile.parentFile?.canRead() == true
+                else -> false
             }
 
             when {
@@ -695,7 +688,7 @@ class LocalGateway @Inject constructor(
                     }
 
                     if (!success) {
-                        success = normalExists == false || !javaFile.exists()
+                        success = !javaFile.exists()
                         if (success) {
                             log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
                         } else if (!normalCanWrite) {
