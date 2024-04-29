@@ -554,6 +554,7 @@ class LocalGateway @Inject constructor(
             val canNormalOpen = when (mode) {
                 Mode.ROOT -> false
                 Mode.ADB -> false
+                // TODO This isn't a great way to check readability
                 else -> file.exists() && file.parentsInclusive.firstOrNull { it.exists() }?.isReadable() ?: false
             }
 
@@ -667,13 +668,26 @@ class LocalGateway @Inject constructor(
         try {
             val javaFile = path.asFile()
 
+            // On devices without root or shizuku:
+            // Determining whether if a file can't be deleted or just does not exist prevents WriteException errors.
             val normalCanWrite = when {
                 mode == Mode.ROOT -> false
                 mode == Mode.ADB -> false
                 javaFile.canWrite() -> true
-                // Does it not exist or do we lack permission?
-                !javaFile.exists() -> javaFile.parentFile?.canRead() == true
-                else -> false
+                // We couldn't write but it exists, so we can't write normally
+                javaFile.exists() -> false
+                // Does it not exist or do we lack permission? Also see `LocalGateway.exists(...)`
+                else -> when {
+                    // We should be able to access files, really didn't exist, not an access issue
+                    javaFile.parentFile?.canExecute() == true -> true
+                    // On Android 12+ Android/data isn't accessible anymore via normal java file access.
+                    hasApiLevel(32) && storageEnvironment.publicDataDirs.any { it.isAncestorOf(path) } -> false
+                    // If the file path is on public storage, and it wasn't Android/data then, assume true
+                    else -> storageEnvironment.externalDirs
+                        .firstOrNull { it.isAncestorOf(path) }
+                        ?.asFile()
+                        ?.canRead() ?: false
+                }
             }
 
             when {
@@ -692,6 +706,7 @@ class LocalGateway @Inject constructor(
                         if (success) {
                             log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
                         } else if (!normalCanWrite) {
+                            // This was not AUTO, but Mode.NORMAL, we don't try other modes after this
                             throw WriteException(path)
                         }
                     }
