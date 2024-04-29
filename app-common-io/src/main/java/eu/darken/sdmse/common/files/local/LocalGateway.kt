@@ -711,6 +711,15 @@ class LocalGateway @Inject constructor(
                             throw IOException("delete() call returned false")
                         }
                     }
+
+                    if (!success) {
+                        if (mode == Mode.AUTO && hasShizuku()) {
+                            delete(path, Mode.ADB)
+                            return@runIO
+                        } else {
+                            throw IOException("delete() call returned false")
+                        }
+                    }
                 }
 
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
