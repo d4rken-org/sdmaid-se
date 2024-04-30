@@ -18,7 +18,7 @@ interface AutomationHost : Progress.Client {
 
     val scope: CoroutineScope
 
-    suspend fun windowRoot(): AccessibilityNodeInfo
+    suspend fun windowRoot(): AccessibilityNodeInfo?
 
     suspend fun changeOptions(action: (Options) -> Options)
 

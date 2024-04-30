@@ -13,6 +13,7 @@ import eu.darken.sdmse.automation.core.errors.AutomationException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
 import eu.darken.sdmse.automation.core.errors.StepAbortException
+import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
@@ -140,7 +141,7 @@ class StepProcessor @AssistedInject constructor(
             var currentRoot: AccessibilityNodeInfo? = null
 
             while (step.windowNodeTest != null && currentCoroutineContext().isActive) {
-                currentRoot = host.windowRoot().apply {
+                currentRoot = host.waitForWindowRoot().apply {
                     if (Bugs.isDebug) {
                         log(TAG, VERBOSE) { "Looking for viable window root, current nodes:" }
                         crawl().forEach { log(TAG, VERBOSE) { it.infoShort } }
@@ -151,11 +152,11 @@ class StepProcessor @AssistedInject constructor(
                     break
                 } else {
                     log(TAG) { "Not a viable root node: $currentRoot (spec=$step)" }
-                    delay(200)
+                    delay(500)
                 }
             }
 
-            currentRoot ?: host.windowRoot()
+            currentRoot ?: host.waitForWindowRoot()
         }
         log(TAG, VERBOSE) { "Current window root node is ${targetWindowRoot.toStringShort()}" }
 
@@ -189,12 +190,12 @@ class StepProcessor @AssistedInject constructor(
                         delay(100)
                     }
                     // Let's try a new one
-                    currentRootNode = host.windowRoot()
+                    currentRootNode = host.waitForWindowRoot()
                 }
                 target!!
             }
 
-            else -> host.windowRoot()
+            else -> host.waitForWindowRoot()
         }
         log(TAG, VERBOSE) { "Target node is ${targetNode.toStringShort()}" }
 

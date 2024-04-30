@@ -14,8 +14,7 @@ import androidx.annotation.Keep
 import androidx.appcompat.view.ContextThemeWrapper
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.automation.core.common.AutomationException
-import eu.darken.sdmse.automation.core.common.getRoot
+import eu.darken.sdmse.automation.core.common.toStringShort
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.ui.AutomationControlView
@@ -226,25 +225,6 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         if (Bugs.isDebug) log(TAG, VERBOSE) { "New automation event: $eventCopy" }
 
         serviceScope.launch {
-            try {
-                eventCopy.source
-                    ?.getRoot(maxNesting = Int.MAX_VALUE)
-                    ?.let {
-                        fallbackMutex.withLock {
-                            if (!hasApiLevel(30)) {
-                                @Suppress("DEPRECATION")
-                                fallbackRoot?.recycle()
-                            }
-                            fallbackRoot = it
-                        }
-                    }
-                    .also { log(TAG, VERBOSE) { "Fallback root was $fallbackRoot, now is $it" } }
-            } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to get fallbackRoot from $event: $e" }
-            }
-        }
-
-        serviceScope.launch {
             // If we need fallbackRoot, don't race it
             delay(50)
             log(TAG, VERBOSE) { "Providing event: $eventCopy" }
@@ -252,16 +232,10 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         }
     }
 
-    private val fallbackMutex = Mutex()
-    private var fallbackRoot: AccessibilityNodeInfo? = null
-
-    override suspend fun windowRoot(): AccessibilityNodeInfo = suspendCancellableCoroutine {
-        val maybeRootNode: AccessibilityNodeInfo? = rootInActiveWindow ?: fallbackRoot?.also {
-            log(TAG, WARN) { "Using fallback rootNode: $it" }
-        }
-
-        log(TAG, VERBOSE) { "Providing window root: $maybeRootNode" }
-        it.resume(maybeRootNode ?: throw AutomationException("Root node is currently null"))
+    override suspend fun windowRoot(): AccessibilityNodeInfo? = suspendCancellableCoroutine {
+        val rootNode: AccessibilityNodeInfo? = rootInActiveWindow
+        log(TAG, VERBOSE) { "Providing windowRoot: ${rootNode?.toStringShort()}" }
+        it.resume(rootNode)
     }
 
     private val controlLp: WindowManager.LayoutParams = WindowManager.LayoutParams().apply {
