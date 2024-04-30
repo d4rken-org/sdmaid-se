@@ -7,6 +7,8 @@ import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
+import eu.darken.sdmse.automation.core.errors.AutomationException
+import eu.darken.sdmse.automation.core.errors.DisabledTargetException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO

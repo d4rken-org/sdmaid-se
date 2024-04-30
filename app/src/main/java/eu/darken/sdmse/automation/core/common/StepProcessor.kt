@@ -9,6 +9,10 @@ import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.ScreenState
+import eu.darken.sdmse.automation.core.errors.AutomationException
+import eu.darken.sdmse.automation.core.errors.PlanAbortException
+import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
+import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString

@@ -21,7 +21,7 @@ import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopAutomationTask
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
-import eu.darken.sdmse.automation.core.common.ScreenUnavailableException
+import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.ca.CaString
