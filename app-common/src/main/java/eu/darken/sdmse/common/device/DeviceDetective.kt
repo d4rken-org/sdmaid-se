@@ -7,8 +7,6 @@ import android.content.res.Configuration
 import android.os.Build
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.isInstalled
 import javax.inject.Inject
@@ -69,8 +67,6 @@ class DeviceDetective @Inject constructor(
         checkManufactor("vivo") -> RomType.VIVO
         checkManufactor("HONOR") -> RomType.HONOR
         else -> RomType.AOSP
-    }.also {
-        log(TAG, VERBOSE) { "getROMType(): $it" }
     }
 
     companion object {

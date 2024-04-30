@@ -5,16 +5,20 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.common.AutomationLabelSource
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 
 class LabelDebugger @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val deviceDetective: DeviceDetective,
 ) : AutomationLabelSource {
 
     suspend fun logAllLabels() {
         log(TAG) { "logAllStorageLabels()" }
+        val romType = deviceDetective.getROMType()
+        log(TAG) { "ROMTYPE is $romType" }
         SETTINGS_PKGS
             .filter { context.isInstalled(it.name) }
             .forEach { pkgId ->
