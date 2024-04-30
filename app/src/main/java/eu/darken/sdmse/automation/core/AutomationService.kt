@@ -250,6 +250,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     override suspend fun changeOptions(action: (AutomationHost.Options) -> AutomationHost.Options) {
         val newOptions = action(currentOptions)
         currentOptions = newOptions
+        serviceInfo = newOptions.accessibilityServiceInfo
 
         mainThread.post {
             controlView?.let { acv ->
