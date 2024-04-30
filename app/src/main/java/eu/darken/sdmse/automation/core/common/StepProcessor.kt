@@ -135,7 +135,7 @@ class StepProcessor @AssistedInject constructor(
                     log(TAG, VERBOSE) { "Testing window event $it" }
                     step.windowEventFilter.invoke(it)
                 }.first()
-                log(TAG, VERBOSE) { "Waiting for window event filter passed!" }
+                log(TAG, VERBOSE) { "Window event filter passed!" }
             }
 
             var currentRoot: AccessibilityNodeInfo? = null
