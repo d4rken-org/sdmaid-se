@@ -1,4 +1,4 @@
-package eu.darken.sdmse.automation.core.common
+package eu.darken.sdmse.automation.core.errors
 
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.toCaString

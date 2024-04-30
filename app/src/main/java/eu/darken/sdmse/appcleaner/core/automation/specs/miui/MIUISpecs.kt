@@ -12,7 +12,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
-import eu.darken.sdmse.automation.core.common.StepAbortException
 import eu.darken.sdmse.automation.core.common.StepProcessor
 import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.crawl
@@ -29,6 +28,7 @@ import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.textEndsWithAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
+import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.ca.toCaString
