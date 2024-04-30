@@ -156,6 +156,7 @@ class StepProcessor @AssistedInject constructor(
                 }
             }
 
+            // There was no windowNodeTest, so we continue with the first thing we got
             currentRoot ?: host.waitForWindowRoot()
         }
         log(TAG, VERBOSE) { "Current window root node is ${targetWindowRoot.toStringShort()}" }
