@@ -224,9 +224,8 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
         if (Bugs.isDebug) log(TAG, VERBOSE) { "New automation event: $eventCopy" }
 
+        // TODO use a queue here?
         serviceScope.launch {
-            // If we need fallbackRoot, don't race it
-            delay(50)
             log(TAG, VERBOSE) { "Providing event: $eventCopy" }
             automationEvents.emit(eventCopy)
         }
