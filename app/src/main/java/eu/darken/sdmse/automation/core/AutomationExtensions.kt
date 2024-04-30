@@ -12,7 +12,7 @@ import kotlinx.coroutines.isActive
 
 suspend fun AutomationManager.canUseAcsNow(): Boolean = useAcs.first()
 
-suspend fun AutomationHost.waitForWindowRoot(delayMs: Long = 200): AccessibilityNodeInfo {
+suspend fun AutomationHost.waitForWindowRoot(delayMs: Long = 250): AccessibilityNodeInfo {
     var root: AccessibilityNodeInfo? = null
 
     while (currentCoroutineContext().isActive) {
