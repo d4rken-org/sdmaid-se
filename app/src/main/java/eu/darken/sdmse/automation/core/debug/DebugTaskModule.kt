@@ -15,6 +15,7 @@ import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -60,7 +61,7 @@ class DebugTaskModule @AssistedInject constructor(
         val eventJob = host.events
             .onEach {
                 log(TAG) { "Event: $it" }
-                val crawled = host.windowRoot().crawl(debug = true).toList()
+                val crawled = host.waitForWindowRoot().crawl(debug = true).toList()
                 updateProgressSecondary("Event: ${it.eventType} (depth: ${crawled.last().level})")
             }
             .launchIn(moduleScope)

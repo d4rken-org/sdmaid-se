@@ -1,6 +1,5 @@
 package eu.darken.sdmse.automation.core.specs
 
-import android.accessibilityservice.AccessibilityService
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -55,7 +54,7 @@ class AutomationExplorer @AssistedInject constructor(
             override val attempts: Int
                 get() = attempts
 
-            override val service: AccessibilityService = host.service
+            override val host: AutomationHost = this@AutomationExplorer.host
 
             override val stepper: StepProcessor = stepProcessorFactory.create(host)
         }
@@ -86,10 +85,10 @@ class AutomationExplorer @AssistedInject constructor(
 
         val attempts: Int
 
-        val service: AccessibilityService
+        val host: AutomationHost
 
         val androidContext: android.content.Context
-            get() = service
+            get() = host.service
 
         val stepper: StepProcessor
     }
