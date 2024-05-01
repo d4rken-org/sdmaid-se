@@ -104,6 +104,7 @@ class ClearCacheModule @AssistedInject constructor(
                             )
                     eventTypes = AccessibilityEvent.TYPES_ALL_MASK
                     feedbackType = AccessibilityServiceInfo.FEEDBACK_GENERIC
+                    notificationTimeout = 250L
                 },
                 controlPanelTitle = R.string.appcleaner_automation_title.toCaString(),
                 controlPanelSubtitle = R.string.appcleaner_automation_subtitle_default_caches.toCaString(),
