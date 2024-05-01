@@ -1,6 +1,5 @@
 package eu.darken.sdmse.appcleaner.core.automation
 
-import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.view.accessibility.AccessibilityEvent
 import dagger.Binds
@@ -32,6 +31,7 @@ import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
+import eu.darken.sdmse.automation.core.returnToSDMaid
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.ca.CaString
@@ -48,12 +48,8 @@ import eu.darken.sdmse.common.progress.*
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.TimeoutCancellationException
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.withContext
 import javax.inject.Provider
-import kotlin.coroutines.EmptyCoroutineContext
 
 class ClearCacheModule @AssistedInject constructor(
     @Assisted automationHost: AutomationHost,
@@ -170,15 +166,7 @@ class ClearCacheModule @AssistedInject constructor(
         }
 
         // If we aborted due to an exception and the reason is "User has cancelled", then still clean up
-        withContext(if (cancelledByUser) NonCancellable else EmptyCoroutineContext) {
-            val backAction1 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
-            log(TAG, VERBOSE) { "Was back1 successful=$backAction1" }
-
-            delay(500)
-
-            val backAction2 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
-            log(TAG, VERBOSE) { "Was back2 successful=$backAction2" }
-        }
+        returnToSDMaid(cancelledByUser)
 
         return ClearCacheTask.Result(
             successful = successful,
