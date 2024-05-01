@@ -96,7 +96,6 @@ class ClearCacheModule @AssistedInject constructor(
 
         host.changeOptions { old ->
             old.copy(
-                showOverlay = true,
                 accessibilityServiceInfo = AccessibilityServiceInfo().apply {
                     flags = (
                             AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS

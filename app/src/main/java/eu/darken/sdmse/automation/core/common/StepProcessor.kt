@@ -40,6 +40,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withTimeout
+import kotlin.system.measureTimeMillis
 
 
 class StepProcessor @AssistedInject constructor(
@@ -75,7 +76,12 @@ class StepProcessor @AssistedInject constructor(
             try {
                 while (currentCoroutineContext().isActive) {
                     try {
-                        withTimeout(5 * 1000) { doCrawl(step, attempts++) }
+                        withTimeout(5 * 1000) {
+                            val stepTime = measureTimeMillis {
+                                doCrawl(step, attempts++)
+                            }
+                            log(TAG) { "Step took ${stepTime}ms to execute" }
+                        }
                         // Step was successful :))
                         break
                     } catch (e: PlanAbortException) {
@@ -124,11 +130,10 @@ class StepProcessor @AssistedInject constructor(
         }
 
         // avg delay between activity launch and acs event
-        delay(200)
+        delay(50)
 
-        // Wait for correct window
         val targetWindowRoot: AccessibilityNodeInfo = withTimeout(4000) {
-            // Condition for the right window, e.g. check title
+            // Wait for correct window
             if (step.windowIntent != null && step.windowEventFilter != null) {
                 log(TAG, VERBOSE) { "Waiting for window event filter to pass..." }
                 host.events.filter {
@@ -138,8 +143,8 @@ class StepProcessor @AssistedInject constructor(
                 log(TAG, VERBOSE) { "Window event filter passed!" }
             }
 
+            // Condition for the right window, e.g. check title
             var currentRoot: AccessibilityNodeInfo? = null
-
             while (step.windowNodeTest != null && currentCoroutineContext().isActive) {
                 currentRoot = host.waitForWindowRoot().apply {
                     if (Bugs.isDebug) {
