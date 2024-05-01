@@ -68,7 +68,7 @@ class InaccessibleDeleter @Inject constructor(
         targetPkgs: Collection<Installed.InstallId>?,
         useAutomation: Boolean,
     ): InaccDelResult {
-        log(TAG, INFO) { "deleteInaccessible() pkgs=${targetPkgs?.size}, $useAutomation" }
+        log(TAG, INFO) { "deleteInaccessible() targetPkgs=${targetPkgs?.size}, $useAutomation" }
 
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_preparing)
         updateProgressSecondary(CaString.EMPTY)
@@ -94,7 +94,7 @@ class InaccessibleDeleter @Inject constructor(
 
         return deleteInaccessible(
             targetInaccessible,
-            isAllApps = targetJunk == null,
+            isAllApps = targetPkgs == null,
             useAutomation = useAutomation
         )
     }
