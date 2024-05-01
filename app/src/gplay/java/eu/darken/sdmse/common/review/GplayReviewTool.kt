@@ -69,7 +69,7 @@ class GplayReviewTool @Inject constructor(
         val hasReviewed = reviewedAt != null
 
         // Free trial is 14 days, only ask for review after the user has paid something
-        val hasPaidForPro = Duration.between(upgradeInfo.upgradedAt, now) > Duration.ofDays(21)
+        val hasPaidForPro = Duration.between(upgradeInfo.upgradedAt ?: now, now) > Duration.ofDays(21)
 
         // User may still be hangover from party, don't ask for review
         val hasRecoveredFromParty = Duration.between(releasePartyAt ?: now, now) > Duration.ofDays(5)
