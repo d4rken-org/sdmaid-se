@@ -39,10 +39,13 @@ fun AutomationExplorer.Context.defaultWindowIntent(
 
 fun AutomationExplorer.Context.defaultWindowFilter(
     pkgId: Pkg.Id
-): (AccessibilityEvent) -> Boolean {
-    return fun(event: AccessibilityEvent): Boolean {
-        // We want to know that the settings window is open now
-        return event.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED && event.pkgId == pkgId
+): (AccessibilityEvent) -> Boolean = fun(event: AccessibilityEvent): Boolean {
+    // We want to know that the settings window is open now
+    if (event.pkgId != pkgId) return false
+    return when (event.eventType) {
+        AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED -> true
+        AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED -> true
+        else -> false
     }
 }
 

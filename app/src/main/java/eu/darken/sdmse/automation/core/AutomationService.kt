@@ -199,7 +199,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
-        log(TAG) { "onAccessibilityEvent(eventType=${event.eventType})" }
+        log(TAG, VERBOSE) { "onAccessibilityEvent(eventType=${event.eventType})" }
         if (!checkLaunch()) return
 
         if (generalSettings.hasAcsConsent.valueBlocking != true) {
@@ -222,11 +222,9 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             }
         }
 
-        if (Bugs.isDebug) log(TAG, VERBOSE) { "New automation event: $eventCopy" }
-
         // TODO use a queue here?
         serviceScope.launch {
-            log(TAG, VERBOSE) { "Providing event: $eventCopy" }
+            if (Bugs.isDebug) log(TAG) { "Providing event: $eventCopy" }
             automationEvents.emit(eventCopy)
         }
     }
