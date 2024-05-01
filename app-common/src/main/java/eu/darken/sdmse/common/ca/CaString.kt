@@ -28,17 +28,28 @@ internal class CachedCaString(val resolv: (Context) -> String) : CaString {
             return cache
         }
     }
+
+    override fun toString(): String = if (::cache.isInitialized) {
+        "CachedCaString(\"$cache\")"
+    } else {
+        "CachedCaString(${Integer.toHexString(hashCode())})"
+    }
 }
 
 fun caString(provider: (Context) -> String): CaString = object : CaString {
     override fun get(context: Context): String = provider(context)
 }
 
+fun caString(direct: String): CaString = object : CaString {
+    override fun get(context: Context): String = direct
+    override fun toString(): String = "CaString(\"$direct\")"
+}
+
 fun CaString.cache(): CaString = CachedCaString { this.get(it) }
 
-fun String.toCaString(): CaString = caString { this }
+fun String.toCaString(): CaString = caString(this)
 
-fun ((Context) -> String).toCaString(): CaString = caString { this(it) }
+fun ((Context) -> String).toCaString(): CaString = caString { this(it) }.cache()
 
 fun Int.toCaString(): CaString = caString { it.getString(this) }.cache()
 
