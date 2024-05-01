@@ -31,9 +31,9 @@ private val TAG: String = logTag("Automation", "Crawler", "Common")
 fun AutomationExplorer.Context.defaultWindowIntent(
     pkgInfo: Installed
 ): Intent = pkgInfo.getSettingsIntent(androidContext).apply {
-    flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or
+    flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+            Intent.FLAG_ACTIVITY_CLEAR_TASK or
             Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS or
-            Intent.FLAG_ACTIVITY_NEW_TASK or
             Intent.FLAG_ACTIVITY_NO_ANIMATION
 }
 

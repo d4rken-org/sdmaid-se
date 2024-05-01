@@ -1,6 +1,5 @@
 package eu.darken.sdmse.appcontrol.core.automation
 
-import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.view.accessibility.AccessibilityEvent
 import dagger.Binds
@@ -22,6 +21,8 @@ import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
+import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
+import eu.darken.sdmse.automation.core.returnToSDMaid
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.ca.CaString
@@ -108,6 +109,7 @@ class AppControlAutomation @AssistedInject constructor(
 
         updateProgressCount(Progress.Count.Percent(task.targets.size))
 
+        var cancelledByUser = false
         val currentUserHandle = userManager2.currentUser().handle
         for (target in task.targets) {
             if (target.userHandle != currentUserHandle) {
@@ -137,8 +139,17 @@ class AppControlAutomation @AssistedInject constructor(
                 log(TAG, WARN) { "Timeout while processing $installed" }
                 failed.add(target)
             } catch (e: CancellationException) {
-                log(TAG, WARN) { "We were cancelled" }
-                throw e
+                log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
+                updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
+                updateProgressSecondary(CaString.EMPTY)
+                updateProgressCount(Progress.Count.Indeterminate())
+                if (e is UserCancelledAutomationException) {
+                    log(TAG, INFO) { "User has cancelled automation process, aborting..." }
+                    cancelledByUser = true
+                    break
+                } else {
+                    throw e
+                }
             } catch (e: Exception) {
                 log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
                 if (e is UnsupportedOperationException) throw e
@@ -150,8 +161,8 @@ class AppControlAutomation @AssistedInject constructor(
 
         delay(250)
 
-        val backAction1 = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
-        log(TAG, VERBOSE) { "Was back1 successful=$backAction1" }
+        // If we aborted due to an exception and the reason is "User has cancelled", then still clean up
+        returnToSDMaid(cancelledByUser)
 
         return ForceStopAutomationTask.Result(
             successful = successful,
