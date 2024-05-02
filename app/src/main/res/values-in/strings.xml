@@ -93,6 +93,9 @@
     <string name="setup_incomplete_card_continue_action">Lanjutkan penyiapan</string>
     <string name="setup_title">Pengaturan</string>
     <string name="setup_forcedshow_summary">Tampilkan layar penyiapan lagi, termasuk item yang sudah selesai.</string>
+    <string name="setup_checking_card_body">Memverifikasi pengaturan dan kegunaan.</string>
+    <string name="general_error_setup_require_label">Penyiapan belum selesai</string>
+    <string name="general_error_setup_require_msg">Pengaturan lebih lanjut diperlukan untuk menggunakan fitur ini. Selesaikan langkah-langkah penyiapan selanjutnya.</string>
     <string name="setup_saf_card_title">Kerangka akses penyimpanan</string>
     <string name="setup_saf_card_body">Tingkatkan hasil dengan memberikan akses SD Maid ke area tambahan.</string>
     <string name="setup_saf_card_body2">Dalam kebanyakan kasus, jendela akan terbuka dengan jalur yang benar yang telah dipilih sebelumnya. Entri berubah menjadi hijau saat akses diberikan. </string>
@@ -140,6 +143,8 @@
     <string name="setup_acs_disallow_hint">Jika Anda berubah pikiran, Anda dapat mengubah opsi ini lagi dengan masuk ke pengaturan dan memulai ulang penyiapan.</string>
     <string name="setup_acs_appops_restriction_title">Pengaturan terbatas</string>
     <string name="setup_acs_appops_restriction_body">Tidak dapat mengaktifkan layanan aksesibilitas SD Maid? Android 13+ dapat menerapkan batasan untuk aplikasi yang tidak diinstal melalui Google Play. Ubah batasan ini dari halaman detail sistem untuk SD Maid. Pilihannya ada di menu konteks di pojok kanan atas.</string>
+    <string name="setup_inventory_card_title">Inventaris aplikasi</string>
+    <string name="setup_inventory_card_body">SD Maid perlu mengetahui aplikasi apa yang anda install untuk mencari berkas yang tidak terasosiasi dengan aplikasi yang anda install.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid tidak menemukan area data yang dapat dipindai. Apakah Anda menyelesaikan penyiapan?</string>
     <string name="dataarea_warningcard_label">Area data</string>
     <string name="dataarea_warningcard_reload_action">Muat ulang area data</string>
@@ -213,8 +218,7 @@
     <string name="systemcleaner_filter_advertisements_summary">Berkas yang dibuat untuk atau oleh iklan.</string>
     <string name="systemcleaner_filter_anr_label">Kesalahan ANR</string>
     <string name="systemcleaner_filter_anr_summary">Jejak dari kejadian \'aplikasi tidak merespon\'.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Direktori kosong</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Direktori kosong dari semua perangkat. Direktori bersarang mungkin memerlukan beberapa lintasan.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Folder kosong</string>
     <string name="systemcleaner_filter_superfluosapks_label">Berkas APK tidak digunakan</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Berkas penyetelan yang lebih lama atau sama dengan versi aplikasi yang sudah terpasang.</string>
     <string name="systemcleaner_filter_lostdir_label">Folder LOST.DIR</string>
@@ -257,7 +261,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Jika tidak ada area yang dipilih, maka semua area data yang bisa diakses akan dipindai dan dicocokkan.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Batasan tipe berkas</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Berkas</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Direktori</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Folder</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Jika tidak ada tipe yang dipilih, maka semua tipe akan dicocokkan.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Kriteria jalur</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Jalur target harus cocok dengan setidaknya satu entri (misalkan \"Downloads/oldapks/game-\"). Tekan lama entri untuk melihat lebih banyak pilihan.</string>
@@ -340,6 +344,11 @@
     <string name="appcleaner_automation_loading">Menyiapkan otomatisasi melalui layanan aksesibilitas</string>
     <string name="appcleaner_automation_title">Otomatisasi Pembersih Aplikasi</string>
     <string name="appcleaner_automation_subtitle_default_caches">Menghapus cache bawaan…</string>
+    <string name="appcleaner_automation_progress_open_settings">Membuka pengaturan (kata kunci: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Sedang mencari entri \"Penyimpanan\" (kata kunci: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Sedang mencari tombol \"Hapus data\" (kata kunci: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Mencari tombol \"Hapus cache\" (kata kunci: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Mencoba mengkonfirmasi tindakan sebelumnya (kata kunci: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache bawaan</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache bawaan privat dan publik. Tidak terakses secara langsung, namun bisa dihapus secara tidak langsung (cth. layanan aksesibilitas).</string>
     <string name="appcleaner_automation_unavailable_title">Layanan aksesibilitas tidak tersedia</string>
@@ -397,6 +406,7 @@
     <string name="appcontrol_systemsettings_open_description">Membuka info aplikasi ini di pengaturan sistem perangkat.</string>
     <string name="appcontrol_app_launch_title">Jalankan aplikasi</string>
     <string name="appcontrol_app_launch_description">Jalankan aplikasi ini.</string>
+    <string name="appcontrol_app_forcestop_title">Paksa berhenti</string>
     <string name="appcontrol_app_uninstall_description">Copot aplikasi ini dari perangkat Anda.</string>
     <string name="appcontrol_app_exclude_add_title">Kecualikan aplikasi</string>
     <string name="appcontrol_app_exclude_add_description">Kecualikan aplikasi ini dari operasi-operasi lain di SD Maid.</string>
@@ -434,6 +444,14 @@
     <string name="appcontrol_export_app_selection_action">Ekspor aplikasi</string>
     <string name="appcontrol_export_title">Ekspor aplikasi</string>
     <string name="appcontrol_progress_exporting_x">Mengekspor %s</string>
+    <string name="appcontrol_force_stop_selection_action">Paksa berhenti aplikasi</string>
+    <string name="appcontrol_force_stop_action">Paksa berhenti</string>
+    <string name="appcontrol_force_stop_confirm_title">Konfirmasi penghentian paksa</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="other">Paksa berhenti %d aplikasi?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Menyiapkan otomatisasi melalui layanan aksesibilitas</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Memaksa berhenti…</string>
     <string name="analyzer_tool_name">PenganalisisPenyimpanan</string>
     <string name="analyzer_explanation_short">Cari apa saja yang memenuhi ruang penyimpanan di perangkat Anda.</string>
     <string name="analyzer_progress_scanning_device">Mencari perangkat penyimpanan</string>
@@ -453,6 +471,8 @@
     <string name="analyzer_storage_type_primary_description">Penyimpanan utama pada perangkat anda. Berisi internal kartu SD, penyimpanan privat untuk aplikasi-aplikasi dan data sistem.</string>
     <string name="analyzer_storage_type_secondary_title">Penyimpanan cadangan</string>
     <string name="analyzer_storage_type_secondary_description">Penyimpanan sekunder, biasanya sebuah kartu SD yang dapat dicabut. Berisi file-file media dan data dari aplikasi-aplikasi yang mendukung.</string>
+    <string name="analyzer_storage_type_tertiary_title">Penyimpanan portabel</string>
+    <string name="analyzer_storage_type_tertiary_description">Penyimpanan portabel, misal. flash drive yang dicolokkan ke port USB anda.</string>
     <string name="analyzer_storage_content_title">Isi penyimpanan</string>
     <string name="analyzer_storage_content_type_app_label">Aplikasi</string>
     <string name="analyzer_storage_content_type_app_description">Ruang yang ditempati oleh aplikasi terinstal dan datanya (yaitu file aplikasi, data, dan cache).</string>
@@ -491,7 +511,6 @@
     <string name="exclusion_option_allow_partial">Izinkan penyocokan terpisah</string>
     <string name="exclusion_option_ignore_casing">Abaikan kasus</string>
     <string name="exclusion_editor_affected_tools_label">Peralatan yang terpengaruh</string>
-    <string name="exclusion_editor_path_explanation">Pengecualian jalur mencegah SD Maid memproses jalur manapun yang ditentukan. Ini berlaku untuk berkas, direktori, dan subdirektori.</string>
     <string name="exclusion_editor_pkg_explanation">Sebuah pengecualian aplikasi mencegah SD Maid dari memproses setiap paket yang cocok.</string>
     <string name="exclusion_editor_segment_explanation">Pengecualian berbasis segmen mirip dengan pengecualian jalur namun memungkinkan untuk pencocokan sebagian. Misalnya: \"DCIM/Camera\" mengecualikan \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Buang pengecualian ini?</string>
@@ -563,4 +582,5 @@
     <string name="motd_setting_enabled_explanation">Izinkan SD Maid memeriksa pesan penting dari pengembang.</string>
     <string name="updatecheck_setting_enabled_label">Pemeriksaan pembaruan</string>
     <string name="updatecheck_setting_enabled_explanation">Izinkan SD Maid memeriksa pembaruan untuk memberi tahu Anda jika ada versi baru yang tersedia.</string>
+    <string name="device_settings_category">Perangkat</string>
 </resources>

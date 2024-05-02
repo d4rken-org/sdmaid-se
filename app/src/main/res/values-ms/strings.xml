@@ -4,6 +4,7 @@
     <string name="dashboard_settings_category">Papan pemuka</string>
     <string name="dashboard_settings_oneclick_title">Mod Satu Ketik</string>
     <string name="dashboard_settings_oneclick_summary">Mulakan imbasan dan pemadaman untuk semua alatan dengan satu ketikan pada butang tindakan papan pemuka, tiada pengesahan tambahan.</string>
+    <string name="dashboard_settings_oneclick_tools_desc">\?</string>
     <string name="debug_debuglog_size_label">Saiz</string>
     <string name="debug_debuglog_size_compressed_label">Saiz termampat</string>
     <string name="debug_notification_channel_label">Pemberitahuan nyahpepijat</string>
@@ -192,8 +193,6 @@
     <string name="systemcleaner_filter_advertisements_summary">Fail yang telah dibuat untuk atau oleh iklan.</string>
     <string name="systemcleaner_filter_anr_label">Ralat ANR</string>
     <string name="systemcleaner_filter_anr_summary">Jejak daripada peristiwa \'aplikasi tidak bertindak balas\'.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Direktori kosong</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Direktori kosong dari seluruh peranti. Direktori bersarang mungkin memerlukan berbilang pas.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK berlebihan</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Sediakan fail yang lebih lama atau sama dengan versi aplikasi yang telah dipasang.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR folder</string>
@@ -363,7 +362,6 @@
     <string name="exclusion_option_allow_partial">Benarkan padanan separa</string>
     <string name="exclusion_option_ignore_casing">Abaikan selongsong</string>
     <string name="exclusion_editor_affected_tools_label">Alatan yang terjejas</string>
-    <string name="exclusion_editor_path_explanation">Pengecualian laluan menghalang SD Maid daripada melanjutkan proses sebarang laluan yang sepadan. Ini terpakai kepada fail, direktori dan sub-direktori.</string>
     <string name="exclusion_editor_pkg_explanation">Pengecualian aplikasi menghalang SD Maid daripada memproses sebarang pakej yang sepadan.</string>
     <string name="exclusion_editor_segment_explanation">Pengecualian berdasarkan segmen adalah serupa dengan pengecualian laluan tetapi membenarkan padanan separa. Contoh: \"DCIM/Camera\" tidak termasuk \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Alih keluar pengecualian ini?</string>

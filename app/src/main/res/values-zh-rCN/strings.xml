@@ -215,8 +215,6 @@
     <string name="systemcleaner_filter_advertisements_summary">用于广告或创建自广告的文件。</string>
     <string name="systemcleaner_filter_anr_label">ANR 报错</string>
     <string name="systemcleaner_filter_anr_summary">来自“应用未响应”的事件记录。</string>
-    <string name="systemcleaner_filter_emptydirectories_label">空目录</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">设备中所有的空目录。嵌套的空目录可能需要清理多次。</string>
     <string name="systemcleaner_filter_superfluosapks_label">过时的安装包</string>
     <string name="systemcleaner_filter_superfluosapks_summary">已安装应用的过时安装文件。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 文件夹</string>
@@ -259,7 +257,6 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">如果没有选定区域，则会对所有可访问的数据区域进行扫描和匹配。</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">文件类型限制</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">文件</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">目录</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">如果没有选择类型，则将匹配所有类型。</string>
     <string name="systemcleaner_customfilter_editor_path_label">路径筛选规则</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">目标路径至少需要匹配一个条目 （例如\"下载/oldapks/game-\"）。长按条目以获取更多选项。</string>
@@ -493,7 +490,6 @@
     <string name="exclusion_option_allow_partial">允许部分匹配</string>
     <string name="exclusion_option_ignore_casing">忽略大小写</string>
     <string name="exclusion_editor_affected_tools_label">影响的工具</string>
-    <string name="exclusion_editor_path_explanation">路径排除会使 SD Maid 无法进一步处理匹配路径，对于文件、目录和子目录同样适用。</string>
     <string name="exclusion_editor_pkg_explanation">应用排除会阻止 SD Maid 处理匹配的安装包。</string>
     <string name="exclusion_editor_segment_explanation">基于分段的排除与路径排除类似，但允许部分匹配。例如：“DCIM/Camera”会排除“/sdcard/DCIM/Camera/photo.png”。</string>
     <string name="exclusion_editor_remove_confirmation_message">确定删除此排除项吗？</string>

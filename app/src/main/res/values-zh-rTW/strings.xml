@@ -71,7 +71,7 @@
     <string name="ui_previews_title">檔案預覽</string>
     <string name="ui_previews_summary">在所有工具中顯示檔案預覽 (例如圖像和影片縮圖)</string>
     <string name="ui_language_override_label">應用程式語言</string>
-    <string name="ui_language_override_desc">為 SD Maid 選擇一種與系統預設語言不同的語言。目前為：%s</string>
+    <string name="ui_language_override_desc">為 SD 女僕選取一種與系統預設不同的語言。目前為：%s</string>
     <string name="settings_support_label">支援</string>
     <string name="settings_support_description">閱讀文件、回報問題、與其他使用者聊天或記錄偵錯記錄。</string>
     <string name="documentation_label">文件</string>
@@ -93,9 +93,9 @@
     <string name="setup_incomplete_card_continue_action">繼續設定</string>
     <string name="setup_title">安裝程式</string>
     <string name="setup_forcedshow_summary">再次顯示安裝程式畫面，包括已完成的項目。</string>
-    <string name="setup_checking_card_body">正在驗證設定完成與功能性。</string>
-    <string name="general_error_setup_require_label">設定未完成</string>
-    <string name="general_error_setup_require_msg">需要進一步設定才能使用此功能。完成剩餘的設定步驟。</string>
+    <string name="setup_checking_card_body">正在驗證安裝程式完成度與功能性。</string>
+    <string name="general_error_setup_require_label">安裝程式未完成</string>
+    <string name="general_error_setup_require_msg">需要進一步設定才能使用此功能。請完成剩餘的設定步驟。</string>
     <string name="setup_saf_card_title">儲存空間存取架構</string>
     <string name="setup_saf_card_body">透過授予 SD 女僕額外區域的存取權以改善結果。</string>
     <string name="setup_saf_card_body2">在大多數狀況下，視窗開啟時將預先選取正確的路徑。在存取權被授予時，項目會變為綠色。 </string>
@@ -143,9 +143,9 @@
     <string name="setup_acs_disallow_hint">如果您改變心意，您可以透過前往設定並重新啟動安裝程式以變更此選項。</string>
     <string name="setup_acs_appops_restriction_title">受限制的設定</string>
     <string name="setup_acs_appops_restriction_body">無法啟用 SD 女僕無障礙服務？Android 13+ 可能對未透過 Google Play 安裝的應用程式套用了限制。從系統的詳細資料頁面為 SD 女僕解除這些限制，這個選項在右上角的內容選單中。</string>
-    <string name="setup_inventory_card_title">應用程式清單</string>
-    <string name="setup_inventory_card_body">SD Maid 需要知道您安裝了哪些應用程式，以找到不屬於任何已安裝應用程式的檔案。</string>
-    <string name="setup_inventory_card_extra">尋找一個稱為「應用程式列表」或「查詢所有套件」的權限。</string>
+    <string name="setup_inventory_card_title">應用程式清查</string>
+    <string name="setup_inventory_card_body">SD 女僕需要知道您安裝了哪些應用程式，以找到不屬於任何已安裝應用程式的檔案。</string>
+    <string name="setup_inventory_card_extra">找到一個名為「應用程式清單」或「查詢所有套件」的權限。</string>
     <string name="dataarea_warningcard_empty_message">SD 女僕找不到任何可以掃描的資料區域，您完成設定了嗎？</string>
     <string name="dataarea_warningcard_label">資料區域</string>
     <string name="dataarea_warningcard_reload_action">重新載入資料區域</string>
@@ -219,8 +219,8 @@
     <string name="systemcleaner_filter_advertisements_summary">為廣告或由廣告建立的檔案。</string>
     <string name="systemcleaner_filter_anr_label">ANR 錯誤</string>
     <string name="systemcleaner_filter_anr_summary">來自「應用程式沒有回應」活動的追蹤。</string>
-    <string name="systemcleaner_filter_emptydirectories_label">空白目錄</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">來自整部裝置的空白目錄，巢狀目錄可能需要多次通過。</string>
+    <string name="systemcleaner_filter_emptydirectories_label">空白資料夾</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">來自整部裝置的空白資料夾，巢狀目錄可能需要多次通過。</string>
     <string name="systemcleaner_filter_superfluosapks_label">非必要的 APK 檔案</string>
     <string name="systemcleaner_filter_superfluosapks_summary">比已安裝的應用程式較舊或相同的安裝檔案。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 資料夾</string>
@@ -263,7 +263,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">如果區域未被選取，所有可存取的資料區域都將被掃描並相符。</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">檔案類型限制</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">檔案</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">目錄</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">資料夾</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">如果類型未被選取，所有類型都將被相符。</string>
     <string name="systemcleaner_customfilter_editor_path_label">路徑準則</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">目標路徑需要至少與其中一個項目相符 (例如「Downloads/oldapks/game-」)，長按項目以取得更多選項。</string>
@@ -444,8 +444,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">粗略估計每個應用程式的大小</string>
     <string name="appcontrol_settings_module_activity_enabled_label">確認活動</string>
     <string name="appcontrol_settings_module_activity_enabled_description">查找活動（或最近活動）的應用程式</string>
-    <string name="appcontrol_export_app_selection_action">導出應用程序</string>
-    <string name="appcontrol_export_title">導出應用程序</string>
+    <string name="appcontrol_export_app_selection_action">匯出應用程式</string>
+    <string name="appcontrol_export_title">匯出應用程式</string>
     <string name="appcontrol_export_description">儲存此應用程式的安裝檔案。這不包括應用程式資料。</string>
     <string name="appcontrol_progress_exporting_x">正在導出 %s</string>
     <string name="appcontrol_force_stop_selection_action">強制停止應用程式</string>
@@ -455,7 +455,7 @@
         <item quantity="other">強制停止 %d 個應用程式？</item>
     </plurals>
     <string name="appcontrol_automation_loading">透過輔助功能服務準備自動化</string>
-    <string name="appcontrol_automation_title">AppControl 自動化</string>
+    <string name="appcontrol_automation_title">應用控制自動化</string>
     <string name="appcontrol_automation_subtitle_force_stopping">正在強制停止…</string>
     <string name="appcontrol_automation_progress_find_force_stop">尋找「強制停止」按鈕（關鍵詞：%s）</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">嘗試確認先前的動作（關鍵詞：%s）</string>
@@ -518,7 +518,7 @@
     <string name="exclusion_option_allow_partial">允許部分相符</string>
     <string name="exclusion_option_ignore_casing">忽略大小寫</string>
     <string name="exclusion_editor_affected_tools_label">受影響的工具</string>
-    <string name="exclusion_editor_path_explanation">路徑排除可以防止 SD 女僕進一步處理任何相符的路徑，這會套用至檔案、目錄和子目錄。</string>
+    <string name="exclusion_editor_path_explanation">路徑排除可以防止 SD Maid 進一步處理任何符合的路徑。這適用於檔案、資料夾及子資料夾。</string>
     <string name="exclusion_editor_pkg_explanation">應用程式排除可以防止 SD 女僕進一步處理任何相符的套件。</string>
     <string name="exclusion_editor_segment_explanation">基於區段的排除類似於路徑排除，但允許部分相符，例如：「DCIM/Camera」排除「/sdcard/DCIM/Camera/photo.png」。</string>
     <string name="exclusion_editor_remove_confirmation_message">移除這個排除？</string>

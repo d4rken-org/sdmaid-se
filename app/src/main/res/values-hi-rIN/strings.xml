@@ -173,8 +173,6 @@
     <string name="systemcleaner_filter_advertisements_summary">फ़ाइलें जो विज्ञापनों के लिए या उनके द्वारा बनाई गई हैं।</string>
     <string name="systemcleaner_filter_anr_label">ANR त्रुटी</string>
     <string name="systemcleaner_filter_anr_summary">आयोजन के अनुसार \'ऐप जवाब नहीं दे रहा है\'</string>
-    <string name="systemcleaner_filter_emptydirectories_label">खाली निर्देशिकाएं</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">पूरे डिवाइस से खाली निर्देशिका। स्थिर निर्देशिकाओं को एकाधिक बार मार्ग की आवश्यकता हो सकती है।</string>
     <string name="systemcleaner_filter_superfluosapks_label">अत्यधिक APKs</string>
     <string name="systemcleaner_filter_superfluosapks_summary">सेटअप फ़ाइलें जो पहले से इंस्टॉल किए गए ऐप संस्करणों के पुराने या बराबर हैं।</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR फोल्डर</string>
@@ -331,7 +329,6 @@
     <string name="exclusion_option_allow_partial">आंशिक मिलान की अनुमति दें</string>
     <string name="exclusion_option_ignore_casing">आवरण पर ध्यान न दें</string>
     <string name="exclusion_editor_affected_tools_label">प्रभावित उपकरण</string>
-    <string name="exclusion_editor_path_explanation">एक पथ अपवर्जन SD Maid को किसी भी मेल खाने वाले पथ को आगे संसाधित करने से रोकता है। यह फाइलों, निर्देशिकाओं और उप-निर्देशिकाओं पर लागू होता है।</string>
     <string name="exclusion_editor_pkg_explanation">एक ऐप अपवर्जन SD Maid को किसी भी मैचिंग पैकेज को प्रोसेस करने से रोकता है।</string>
     <string name="exclusion_editor_segment_explanation">खंड आधारित अपवर्जन पथ बहिष्करण के समान है लेकिन आंशिक मिलान की अनुमति देता है। उदाहरण: \"DCIM/Camera\" में \"/sdcard/DCIM/Camera/photo.png\" शामिल नहीं है।</string>
     <string name="exclusion_editor_remove_confirmation_message">इस अपवर्जन को निकालें?</string>

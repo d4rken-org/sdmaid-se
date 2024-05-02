@@ -55,7 +55,6 @@
     <string name="systemcleaner_filter_custom_label">فیلتر سفارشی</string>
     <string name="systemcleaner_filter_logfiles_label">فايلهاي گزارش‌ها</string>
     <string name="systemcleaner_filter_logfiles_summary">فایل های وقایع (log.*) مربوط به سراسر دستگاه.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">پوشه های خالی</string>
     <string name="systemcleaner_filter_superfluosapks_label">فایل های نصبی اضافی</string>
     <string name="systemcleaner_filter_tempfiles_label">فایل های موقت</string>
     <string name="systemcleaner_filter_downloadcache_label">حافظه پنهان دانلود</string>

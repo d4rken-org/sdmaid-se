@@ -237,8 +237,8 @@
     <string name="systemcleaner_filter_advertisements_summary">Soubory které byly vytvořeny reklamami nebo pro ně.</string>
     <string name="systemcleaner_filter_anr_label">Chyby ANR</string>
     <string name="systemcleaner_filter_anr_summary">Stopy po událostech typu \"aplikace neodpovídá\".</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Prázdné adresáře</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Prázdné adresáře z celého zařízení. Vnořené adresáře bude možná potřeba projít vícekrát.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Prázdné složky</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Prázdné složky z celého zařízení. Vnořené složky bude možná potřeba projít vícekrát.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Nadbytečné soubory APK</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Instalační soubory, které jsou starší nebo stejné jako již nainstalované verze aplikací.</string>
     <string name="systemcleaner_filter_lostdir_label">Složky LOST.DIR</string>
@@ -281,7 +281,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Pokud není vybrána oblast, pak budou všechny dostupné oblasti dat naskenovány a porovnány.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Omezení typu souboru</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Soubory</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Adresáře</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Složky</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Pokud není vybrán žádný typ, pak budou porovnány všechny typy.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Kritéria cesty</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Cílová cesta musí odpovídat alespoň jedné položce (např. \"Downloads/oldapks/game-\"). Další možnosti získáte dlouhým stisknutím položek.</string>
@@ -560,7 +560,7 @@
     <string name="exclusion_option_allow_partial">Povolit částečné shody</string>
     <string name="exclusion_option_ignore_casing">Ignorovat velikost písmen</string>
     <string name="exclusion_editor_affected_tools_label">Ovlivněné nástroje</string>
-    <string name="exclusion_editor_path_explanation">Cesta ve výjimkách brání aplikaci SD Maid dále zpracovávat shodné cesty. To platí pro soubory, adresáře a podadresáře.</string>
+    <string name="exclusion_editor_path_explanation">Cesta ve výjimkách brání aplikaci SD Maid dále zpracovávat shodné cesty. To platí pro soubory, složky a podsložky.</string>
     <string name="exclusion_editor_pkg_explanation">Aplikace ve výjimkách brání aplikaci SD Maid zpracovávat všechny shodné balíčky.</string>
     <string name="exclusion_editor_segment_explanation">Segmenty ve výjimkách jsou podobné jako cesty ve výjimkách, ale umožňují částečné shody. Např.: \"DCIM/Camera\" nezahrnuje \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Odstranit tuto výjimku?</string>

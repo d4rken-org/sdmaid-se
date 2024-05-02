@@ -76,6 +76,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Podgląd plików</string>
     <string name="ui_previews_summary">Wyświetla podgląd plików we wszystkich narzędziach (np. miniaturach obrazu i wideo).</string>
+    <string name="ui_language_override_label">Język aplikacji</string>
+    <string name="ui_language_override_desc">Wybierz inny język dla SD Maid, niezależnie od domyślnego języka systemu. Obecnie: %s</string>
     <string name="settings_support_label">Wsparcie</string>
     <string name="settings_support_description">Czytaj dokumentację, zgłaszaj problemy, rozmawiaj z innymi lub rejestruj dzienniki debugowania.</string>
     <string name="documentation_label">Dokumentacja</string>
@@ -97,6 +99,9 @@
     <string name="setup_incomplete_card_continue_action">Kontynuuj konfigurację</string>
     <string name="setup_title">Konfiguracja</string>
     <string name="setup_forcedshow_summary">Pokaż ponownie ekran konfiguracji, w tym elementy już ustawione.</string>
+    <string name="setup_checking_card_body">Weryfikacja zakończenia instalacji i funkcjonalności.</string>
+    <string name="general_error_setup_require_label">Konfiguracja nie jest ukończona</string>
+    <string name="general_error_setup_require_msg">Do korzystania z tej funkcji wymagana jest dalsza konfiguracja. Wykonaj pozostałe kroki konfiguracji.</string>
     <string name="setup_saf_card_title">Dostęp do pamięci z wykorzystaniem Storage Access Framework</string>
     <string name="setup_saf_card_body">Popraw wyniki, udzielając SD Maid dostępu do dodatkowych obszarów.</string>
     <string name="setup_saf_card_body2">W większości przypadków okno zostanie otwarte z wybraną już właściwą ścieżką. Wpis będzie zielony, gdy dostęp zostanie udzielony. </string>
@@ -144,6 +149,9 @@
     <string name="setup_acs_disallow_hint">Jeśli zmienisz zdanie, możesz ponownie zmienić tę opcję, przechodząc do ustawień i ponownie uruchamiając konfigurację.</string>
     <string name="setup_acs_appops_restriction_title">Ograniczone ustawienia</string>
     <string name="setup_acs_appops_restriction_body">Nie można włączyć usługi ułatwień dla SD Maid? W Androidzie 13+ mogą być stosowane ograniczenia dla aplikacji niezainstalowanych za pośrednictwem Google Play. Zmień te ograniczenia za pomocą strony szczegółów systemowych dla SD Maid. Opcja znajduje się w menu kontekstowym w prawym górnym rogu.</string>
+    <string name="setup_inventory_card_title">Inwentarz aplikacji</string>
+    <string name="setup_inventory_card_body">SD Maid musi wiedzieć, których aplikacji potrzebujesz aby znaleźć pliki które nie należą do żadnej zainstalowanej aplikacji.</string>
+    <string name="setup_inventory_card_extra">Szukaj uprawnień o nazwie \"Lista aplikacji\" lub \"Zapytanie wszystkich pakietów\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nie znalazło żadnych obszarów danych, które można przeskanować. Czy konfiguracja została ukończona?</string>
     <string name="dataarea_warningcard_label">Obszary danych</string>
     <string name="dataarea_warningcard_reload_action">Przeładuj obszary danych</string>
@@ -229,8 +237,8 @@
     <string name="systemcleaner_filter_advertisements_summary">Pliki, które zostały utworzone dla lub przez reklamy.</string>
     <string name="systemcleaner_filter_anr_label">Błędy ANR</string>
     <string name="systemcleaner_filter_anr_summary">Ślady zdarzeń \'aplikacja nie odpowiada\'.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Puste katalogi</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Puste katalogi z całego urządzenia. Katalogi zagnieżdżone mogą wymagać wielokrotnego przejścia.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Puste foldery</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Puste foldery z całego urządzenia. Zagnieżdżone foldery mogą wymagać wielu przebiegów.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Zbędne pliki APK</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Pliki instalacyjne, które są starsze lub równe wersjom już zainstalowanych aplikacji.</string>
     <string name="systemcleaner_filter_lostdir_label">Foldery LOST.DIR</string>
@@ -273,7 +281,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Jeśli nie zaznaczono żadnego obszaru, wszystkie dostępne obszary danych zostaną zeskanowane i dopasowane.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Ograniczenia typu pliku</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Pliki</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Katalogi</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Foldery</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Jeśli żaden typ nie jest zaznaczony, wszystkie typy będą dopasowane.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Kryteria ścieżki</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Ścieżka docelowa musi odpowiadać co najmniej jednemu wpisowi (np. \"Downloads/oldapks/game-\"). Dotknij dłużej wpisu, aby uzyskać więcej opcji.</string>
@@ -359,6 +367,11 @@
     <string name="appcleaner_automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień</string>
     <string name="appcleaner_automation_title">Automatyzacja AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Czyszczenie domyślnych pamięci podręcznych…</string>
+    <string name="appcleaner_automation_progress_open_settings">Otwieranie ekranu ustawień (słowa kluczowe: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Wyszukiwanie wpisu \"Pamięć\" (słowa kluczowe: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Szukam przycisku \"Wyczyść dane\" (słowa kluczowe: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Szukam przycisku \"Wyczyść dane\" (słowa kluczowe: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Domyślne pamięci podręczne</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publiczne i prywatne domyślne pamięci podręczne. Nie są bezpośrednio dostępne, ale można je usunąć pośrednio (np. za pomocą usługi ułatwień).</string>
     <string name="appcleaner_automation_unavailable_title">Usługa ułatwień niedostępna</string>
@@ -425,6 +438,8 @@
     <string name="appcontrol_systemsettings_open_description">Otwórz ustawienia systemowe Twojego urządzenia dla tej aplikacji.</string>
     <string name="appcontrol_app_launch_title">Uruchom aplikację</string>
     <string name="appcontrol_app_launch_description">Uruchom podstawową aktywność tej aplikacji.</string>
+    <string name="appcontrol_app_forcestop_title">Wymuś zatrzymanie</string>
+    <string name="appcontrol_app_forcestop_description">Zatrzymuje aplikację. Zapobiega uruchomieniu aplikacji, dopóki nie otworzysz jej lub urządzenie zostanie zrestartowane.</string>
     <string name="appcontrol_app_uninstall_description">Odinstaluj tę aplikację ze swojego urządzenia.</string>
     <string name="appcontrol_app_exclude_add_title">Wykluczenie aplikacji</string>
     <string name="appcontrol_app_exclude_add_description">Wyklucz tę aplikację z innych operacji w SD Maid.</string>
@@ -464,7 +479,22 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Dowiedz się, czy aplikacja jest (lub była ostatnio) używana.</string>
     <string name="appcontrol_export_app_selection_action">Eksportuj aplikacje</string>
     <string name="appcontrol_export_title">Eksportuj aplikację</string>
+    <string name="appcontrol_export_description">Zapisz pliki instalacyjne tej aplikacji na urządzeniu. Nie uwzględnia danych aplikacji.</string>
     <string name="appcontrol_progress_exporting_x">Eksportowanie %s</string>
+    <string name="appcontrol_force_stop_selection_action">Wymuś zatrzymanie aplikacji</string>
+    <string name="appcontrol_force_stop_action">Wymuś zatrzymanie</string>
+    <string name="appcontrol_force_stop_confirm_title">Potwierdź wymuszenie zatrzymania</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Wymusić zatrzymanie %d aplikacji?</item>
+        <item quantity="few">Wymusić zatrzymanie %d aplikacji?</item>
+        <item quantity="many">Wymusić zatrzymanie %d aplikacji?</item>
+        <item quantity="other">Wymusić zatrzymanie %d aplikacji?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Przygotowywanie automatyzacji przez usługę dostępności</string>
+    <string name="appcontrol_automation_title">Automatyzacja AppControl</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Wymuś zatrzymanie…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Szukam przycisku \"Wymuś zatrzymanie\" (słowa kluczowe: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>
     <string name="analyzer_tool_name">Analizator pamięci</string>
     <string name="analyzer_explanation_short">Dowiedz się, co zajmuje miejsce na urządzeniu.</string>
     <string name="analyzer_progress_scanning_device">Wyszukiwanie urządzeń pamięci</string>
@@ -490,6 +520,8 @@
     <string name="analyzer_storage_type_primary_description">Podstawowa pamięć Twojego urządzenia. Zawiera wewnętrzną kartę SD, prywatne miejsce na aplikacje i dane systemowe.</string>
     <string name="analyzer_storage_type_secondary_title">Pamięć zewnętrzna</string>
     <string name="analyzer_storage_type_secondary_description">Pamięć dodatkowa, zwykle wymienna karta SD. Zawiera pliki multimedialne i dane z aplikacji, które je obsługują.</string>
+    <string name="analyzer_storage_type_tertiary_title">Pamięć przenośna</string>
+    <string name="analyzer_storage_type_tertiary_description">Pamięć przenośna, np. flash Drive podłączona do portu USB.</string>
     <string name="analyzer_storage_content_title">Zawartość pamięci</string>
     <string name="analyzer_storage_content_type_app_label">Aplikacje</string>
     <string name="analyzer_storage_content_type_app_description">Przestrzeń zajmowana przez zainstalowane aplikacje i ich dane (np. pliki, dane oraz pamięć podręczną aplikacji).</string>
@@ -528,7 +560,7 @@
     <string name="exclusion_option_allow_partial">Zezwalaj na częściowe dopasowania</string>
     <string name="exclusion_option_ignore_casing">Ignoruj wielkość liter</string>
     <string name="exclusion_editor_affected_tools_label">Narzędzia których dotyczy problem</string>
-    <string name="exclusion_editor_path_explanation">Wykluczenie ścieżki uniemożliwia SD Maid dalsze przetwarzanie pasujących ścieżek. Dotyczy to plików, katalogów i podkatalogów.</string>
+    <string name="exclusion_editor_path_explanation">Wykluczenie ścieżki uniemożliwia SD Maid dalsze przetwarzanie pasujących ścieżek. Dotyczy to plików, folderów i podfolderów.</string>
     <string name="exclusion_editor_pkg_explanation">Wykluczenie aplikacji uniemożliwia SD Maid przetwarzanie pasujących pakietów.</string>
     <string name="exclusion_editor_segment_explanation">Wykluczenie na podstawie segmentu jest podobne do wykluczenia ścieżki, ale umożliwia dopasowanie częściowe. Przykład: „DCIM/Camera” wyklucza „/sdcard/DCIM/Camera/photo.png”.</string>
     <string name="exclusion_editor_remove_confirmation_message">Usunąć to wykluczenie?</string>
@@ -606,4 +638,5 @@
     <string name="motd_setting_enabled_explanation">Zezwól SD Maid na sprawdzanie ważnych wiadomości od twórcy.</string>
     <string name="updatecheck_setting_enabled_label">Sprawdzanie aktualizacji</string>
     <string name="updatecheck_setting_enabled_explanation">Zezwól SD Maid na sprawdzanie aktualizacji, aby poinformować Cię, gdy nowa wersja będzie dostępna.</string>
+    <string name="device_settings_category">Urządzenie</string>
 </resources>

@@ -80,6 +80,8 @@
     <string name="ui_theme_style_materialyou_label">تصميم Material You</string>
     <string name="ui_previews_title">معاينة الملفات</string>
     <string name="ui_previews_summary">عرض معاينات الملفات في جميع الأدوات (على سبيل المثال الصور المصغرة والصور الفيديو).</string>
+    <string name="ui_language_override_label">لغة التطبيق</string>
+    <string name="ui_language_override_desc">حدد لغة مختلفة لـ SD Maid، بغض النظر عن اللغة الافتراضية للنظام الخاص بك. حالياً: %s</string>
     <string name="settings_support_label">الدعم</string>
     <string name="settings_support_description">قراءة الوثائق، والإبلاغ عن المشكلات، والمحادثة مع الآخرين أو تسجيل سجلات التصحيح.</string>
     <string name="documentation_label">المستندات</string>
@@ -101,6 +103,9 @@
     <string name="setup_incomplete_card_continue_action">متابعة الإعداد</string>
     <string name="setup_title">الإعداد</string>
     <string name="setup_forcedshow_summary">عرض شاشة الإعداد مرة أخرى ، بما في ذلك العناصر المكتملة بالفعل.</string>
+    <string name="setup_checking_card_body">التحقق من اكتمال التثبيت وجاهزيته.</string>
+    <string name="general_error_setup_require_label">التثبيت غير مكتمل</string>
+    <string name="general_error_setup_require_msg">مطلوب المزيد من الإعداد لاستخدام هذه الميزة. أكمل خطوات التثبيت المتبقية.</string>
     <string name="setup_saf_card_title">إطار الوصول إلى التخزين</string>
     <string name="setup_saf_card_body">تحسين النتائج من خلال منح SD Maid الوصول إلى مناطق إضافية.</string>
     <string name="setup_saf_card_body2">في معظم الحالات ، تفتح النافذة مع تحديد المسار الصحيح مسبقًا. تتحول الإدخالات إلى اللون الأخضر عند منح الوصول. </string>
@@ -148,6 +153,9 @@
     <string name="setup_acs_disallow_hint">إذا غيرت رأيك ، يمكنك تغيير هذا الخيار مرة أخرى بالذهاب إلى الإعدادات وإعادة تشغيل الإعداد.</string>
     <string name="setup_acs_appops_restriction_title">إعدادات مقيدة</string>
     <string name="setup_acs_appops_restriction_body">لا يمكن تمكين SD Maids الوصول الخدمة؟ قد يفرض Android 13+ قيودًا على التطبيقات غير المثبتة عبر Google Play. ارفع هذه القيود من صفحة تفاصيل النظام لـ SD Maid. الخيار موجود في قائمة السياق في أعلى اليمين.</string>
+    <string name="setup_inventory_card_title">مخزون التطبيق</string>
+    <string name="setup_inventory_card_body">يحتاج SD Maid إلى معرفة أي تطبيقات لديك حتى يتم العثور على ملفات لا تنتمي إلى أي تطبيقات مثبتة.</string>
+    <string name="setup_inventory_card_extra">ابحث عن إذن يسمى \"قائمة التطبيقات\" أو \"الاستعلام عن جميع الحزم\".</string>
     <string name="dataarea_warningcard_empty_message">لم تجد SD Maid أي مناطق بيانات يمكن مسحها. هل أكملت الإعداد؟</string>
     <string name="dataarea_warningcard_label">مناطق البيانات</string>
     <string name="dataarea_warningcard_reload_action">إعادة تحميل مناطق البيانات</string>
@@ -241,8 +249,8 @@
     <string name="systemcleaner_filter_advertisements_summary">الملفات التي تم إنشاؤها من أجل أو عن طريق الإعلانات.</string>
     <string name="systemcleaner_filter_anr_label">سجلات الأخطاء</string>
     <string name="systemcleaner_filter_anr_summary">تتبعات من أحداث \"التطبيق لا يستجيب\".</string>
-    <string name="systemcleaner_filter_emptydirectories_label">مسارات فارغة</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">مسارات فارغة من جميع أنحاء الجهاز. قد تتطلب المسارات المتداخلة تمريرات متعددة.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">مجلدات فارغة</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">مجلدات فارغة من جميع أنحاء الجهاز. المجلدات المتداخلة قد تتطلب تصاريح متعددة.</string>
     <string name="systemcleaner_filter_superfluosapks_label">ملفات APK زائدة</string>
     <string name="systemcleaner_filter_superfluosapks_summary">ملفات الإعداد الأقدم أو المساوية لإصدارات التطبيق المثبتة بالفعل.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR مجلدات</string>
@@ -285,7 +293,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">وإذا لم يتم اختيار أي منطقة، سيتم مسح جميع مجالات البيانات التي يمكن الوصول إليها ومطابقتها.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">قيود نوع الملف</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">الملفات</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">المسارات</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">المجلدات</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">إذا لم يتم تحديد أي نوع، سيتم مطابقة جميع الأنواع.</string>
     <string name="systemcleaner_customfilter_editor_path_label">معايير المسار</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">المسار المستهدف يجب أن يتطابق مع مدخل واحد على الأقل (على سبيل المثال \"التنزيلات/oldapks/game-\"). اضغط مطولاً على إدخالات لمزيد من الخيارات.</string>
@@ -373,6 +381,11 @@
     <string name="appcleaner_automation_loading">تحضير الأتمتة عبر خدمة الوصول</string>
     <string name="appcleaner_automation_title">أتمتة منظف التطبيقات</string>
     <string name="appcleaner_automation_subtitle_default_caches">مسح ذاكرة التخزين المؤقت الافتراضية…</string>
+    <string name="appcleaner_automation_progress_open_settings">فتح شاشة الإعدادات (الكلمات الرئيسية: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">البحث عن إدخال \"التخزين\" (الكلمات الرئيسية: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">البحث عن زر \"مسح البيانات\" (الكلمات الرئيسية: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">البحث عن زر \"مسح ذاكرة التخزين المؤقتة\" (الكلمات الرئيسية: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">محاولة لتأكيد الإجراء السابق (الكلمات الرئيسية: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ذاكرة التخزين المؤقت الافتراضية</string>
     <string name="appcleaner_item_caches_inaccessible_body">مخابئ افتراضية عامة وخاصة. لا يمكن الوصول إليها مباشرة ، ولكن يمكن حذفها بشكل غير مباشر (على سبيل المثال عبر خدمة إمكانية الوصول).</string>
     <string name="appcleaner_automation_unavailable_title">خدمة أمكانية الوصول غير متاحة</string>
@@ -445,6 +458,8 @@
     <string name="appcontrol_systemsettings_open_description">افتح إعدادات النظام بجهازك لهذا التطبيق.</string>
     <string name="appcontrol_app_launch_title">تشغيل التطبيق</string>
     <string name="appcontrol_app_launch_description">تشغيل النشاط الأساسي لهذا التطبيق.</string>
+    <string name="appcontrol_app_forcestop_title">إيقاف إجباري</string>
+    <string name="appcontrol_app_forcestop_description">إيقاف التطبيق. يمنعه من البَدْء حتى تقوم بفتحه أو إعادة تشغيل الجهاز.</string>
     <string name="appcontrol_app_uninstall_description">إلغاء تثبيت هذا التطبيق من جهازك.</string>
     <string name="appcontrol_app_exclude_add_title">استبعاد التطبيق</string>
     <string name="appcontrol_app_exclude_add_description">استبعاد هذا التطبيق من العمليات الأخرى في SD Maid.</string>
@@ -452,6 +467,8 @@
     <string name="appcontrol_app_exclude_edit_description">هذا التطبيق مستبعد حالياً من أداة واحدة أو أكثر.</string>
     <string name="appcontrol_tag_user">المستخدم</string>
     <string name="appcontrol_tag_active">نشط مؤخراً</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">حزمة</string>
     <string name="appcontrol_tag_system">النظام</string>
     <string name="appcontrol_tag_enabled">مفعل</string>
     <string name="appcontrol_tag_disabled">معطل</string>
@@ -478,6 +495,30 @@
         <item quantity="many">تغيير حالة تمكين / تعطيل التطبيق %d؟</item>
         <item quantity="other">تغيير الحالات المفعلة/المعطلة لتطبيقات %d؟</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">تحديد الأحجام</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">احصل على تقدير تقريبي لحجم كل تطبيق.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">تحديد النشاط</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">اكتشف إذا كان التطبيق نشطاً (أو مؤخرًا).</string>
+    <string name="appcontrol_export_app_selection_action">تصدير التطبيقات</string>
+    <string name="appcontrol_export_title">تصدير التطبيق</string>
+    <string name="appcontrol_export_description">حفظ ملفات تثبيت هذا التطبيق. هذا لا يشمل بيانات التطبيق.</string>
+    <string name="appcontrol_progress_exporting_x">تصدير %s</string>
+    <string name="appcontrol_force_stop_selection_action">إيقاف التطبيقات إجبارياً</string>
+    <string name="appcontrol_force_stop_action">ايقاف اجباري</string>
+    <string name="appcontrol_force_stop_confirm_title">تأكيد إيقاف بالقوة</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="zero">فرض إيقاف %d تطبيق؟</item>
+        <item quantity="one">فرض إيقاف %d تطبيق؟</item>
+        <item quantity="two">فرض إيقاف %d تطبيق؟</item>
+        <item quantity="few">فرض إيقاف %d تطبيق؟</item>
+        <item quantity="many">فرض إيقاف %d تطبيق؟</item>
+        <item quantity="other">فرض إيقاف %d تطبيق؟</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">إعداد التشغيل الآلي عن طريق خدمة الوصول</string>
+    <string name="appcontrol_automation_title">أتمتة التحكم بالتطبيقات</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">فرض إيقاف…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">البحث عن زر \"فرض التوقف\" (الكلمات الرئيسية: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">محاولة لتأكيد الإجراء السابق (الكلمات الرئيسية: %s)</string>
     <string name="analyzer_tool_name">محلل التخزين</string>
     <string name="analyzer_explanation_short">اكتشف ما الذي يأخذ مساحة على جهازك.</string>
     <string name="analyzer_progress_scanning_device">البحث عن أجهزة تخزين</string>
@@ -507,6 +548,8 @@
     <string name="analyzer_storage_type_primary_description">التخزين الأساسي لجهازك. يحتوي على بطاقة SD الداخلية، تخزين خاص للتطبيقات وبيانات النظام.</string>
     <string name="analyzer_storage_type_secondary_title">التخزين الثانوي</string>
     <string name="analyzer_storage_type_secondary_description">وحدة تخزين ثانوية، عادة بطاقة SD قابلة للإزالة. تحتوي على ملفات الوسائط والبيانات من التطبيقات التي تدعمها.</string>
+    <string name="analyzer_storage_type_tertiary_title">وحدة تخزين محمولة</string>
+    <string name="analyzer_storage_type_tertiary_description">وحدة تخزين محمولة، مثل محرك أقراص فلاش موصولة بمنفذ USB الخاص بك.</string>
     <string name="analyzer_storage_content_title">محتوى التخزين</string>
     <string name="analyzer_storage_content_type_app_label">التطبيقات</string>
     <string name="analyzer_storage_content_type_app_description">المساحة التي تشغلها التطبيقات المثبتة وبياناتها (أي ملفات التطبيقات، والبيانات والمخابئ).</string>
@@ -545,7 +588,7 @@
     <string name="exclusion_option_allow_partial">السماح بالتطابق الجزئي</string>
     <string name="exclusion_option_ignore_casing">تجاهل الغلاف</string>
     <string name="exclusion_editor_affected_tools_label">الأدوات المتأثرة</string>
-    <string name="exclusion_editor_path_explanation">يمنع استبعاد المسار SD Maid من مواصلة معالجة أي مسارات مطابقة. وينطبق هذا على الملفات والدلائل والدلائل الفرعية.</string>
+    <string name="exclusion_editor_path_explanation">يمنع استبعاد المسار SD Maid من مواصلة معالجة أي مسارات مطابقة. ينطبق هذا على الملفات والمجلدات والمجلدات الفرعية.</string>
     <string name="exclusion_editor_pkg_explanation">يمنع استثناء التطبيق SD Maid من معالجة أي حزم مطابقة.</string>
     <string name="exclusion_editor_segment_explanation">والاستبعاد القائم على الشريحة مماثل لاستبعاد المسار ولكنه يسمح بمطابقة جزئية. مثال: \"DCIM/Camera\" لا يشمل \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">إزالة هذا الاستبعاد؟</string>
@@ -627,4 +670,5 @@
     <string name="motd_setting_enabled_explanation">السماح لـ SD Maid بالتحقق من الرسائل الهامة من المطور.</string>
     <string name="updatecheck_setting_enabled_label">التحقق من التحديث</string>
     <string name="updatecheck_setting_enabled_explanation">السماح لـ SD Maid بالتحقق من وجود تحديثات لإعلامك إذا كان إصدار أحدث متاح.</string>
+    <string name="device_settings_category">الجهاز</string>
 </resources>

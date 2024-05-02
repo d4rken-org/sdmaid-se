@@ -183,8 +183,6 @@
     <string name="systemcleaner_filter_advertisements_summary">Datoteke koje su stvorene za ili pomoću oglasa.</string>
     <string name="systemcleaner_filter_anr_label">ANR greške</string>
     <string name="systemcleaner_filter_anr_summary">Tragovi događaja \'aplikacija ne reagira\'.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Prazni direktoriji</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Prazni direktoriji sa svih strana uređaja. Ugniježđeni direktoriji mogu zahtijevati više prolaza.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Suvišni APK-ovi</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Datoteke za postavljanje koje su starije ili jednake verzijama aplikacija koje su već instalirane.</string>
     <string name="systemcleaner_filter_lostdir_label">Mape LOST.DIR</string>
@@ -348,7 +346,6 @@
     <string name="exclusion_option_allow_partial">Dopusti djelimična podudaranja</string>
     <string name="exclusion_option_ignore_casing">Zanemari kućište</string>
     <string name="exclusion_editor_affected_tools_label">Pogođeni alati</string>
-    <string name="exclusion_editor_path_explanation">Izuzimanje putanje sprječava SD Maid da dalje obrađuje podudarne putanje. Ovo se odnosi na datoteke, direktorije i poddirektorije.</string>
     <string name="exclusion_editor_pkg_explanation">Izuzimanje aplikacije sprječava SD Maid da obradi podudarne pakete.</string>
     <string name="exclusion_editor_segment_explanation">Izuzimanje na temelju segmenta slično je izuzimanju putanje, ali dopušta djelomična podudaranja. Primjer: \"DCIM/Camera\" izuzima \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Ukloniti ovaj izuzetak?</string>

@@ -263,7 +263,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Nếu không có khu vực nào được chọn, thì tất cả các khu vực dữ liệu có thể truy cập sẽ được quét và so khớp.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Hạn chế loại tập tin</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Tập tin</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Đường dẫn</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Thư mục</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Nếu không có loại nào được chọn, thì tất cả các loại sẽ được khớp.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Tiêu chí đường dẫn</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Đường dẫn đích cần khớp với ít nhất một mục (ví dụ: \"Download/oldapks/game-\"). Nhấn và giữ các mục để có thêm tùy chọn.</string>

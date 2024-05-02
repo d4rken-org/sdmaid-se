@@ -217,8 +217,6 @@
     <string name="systemcleaner_filter_advertisements_summary">Filer som er opprettet for eller av annonser.</string>
     <string name="systemcleaner_filter_anr_label">ANR-feil</string>
     <string name="systemcleaner_filter_anr_summary">Spor fra \'app svarer ikke\' hendelser.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Tomme mapper</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Tomme mapper fra hele enheten. Mapper i mapper kan trenge flere ganger.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Overflødige APK-filer</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Installasjonsfiler som er eldre eller lik appversjoner som allerede er installert.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mapper</string>
@@ -261,7 +259,6 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Dersom ingen områder er valgt, vil alle tilgjengelige dataområder bli skannet og sammenlignet.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Filtype-begrensninger</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Filer</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Mapper</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Dersom ingen type er valgt, vil alle typer sammenlignes.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Kriterier for bane</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Målbanen må samsvare med minst én oppføring (f.eks. \"Download/oldapks/spill-\"). Hold inne på oppføringer for flere alternativer.</string>
@@ -502,7 +499,6 @@
     <string name="exclusion_option_allow_partial">Tillat delvise treff</string>
     <string name="exclusion_option_ignore_casing">Ignorer store og små bokstaver</string>
     <string name="exclusion_editor_affected_tools_label">Berørte verktøy</string>
-    <string name="exclusion_editor_path_explanation">Ekskludering av en bane forhindrer SD Maid fra å viderebehandle eventuelle samsvarende baner. Dette gjelder filer, mapper og undermapper.</string>
     <string name="exclusion_editor_pkg_explanation">Ekskludering av en app forhindrer SD Maid fra å behandle samsvarende pakker.</string>
     <string name="exclusion_editor_segment_explanation">En segmentbasert ekskludering ligner på en baneekskludering, men tillater delvise treff. Eksempel: \"DCIM/Camera\" ekskluderer \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Vil du fjerne denne ekskluderingen?</string>

@@ -270,7 +270,7 @@ Recursos dos jogos.</string>
     <string name="systemcleaner_customfilter_editor_areas_explanation">Se nenhuma área for selecionada, todas as áreas de dados acessíveis serão verificadas.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Restrições do tipo de arquivo</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Ficheiros</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Directorias</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Pastas</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Se nenhum tipo for selecionado, todos os tipos serão correspondidos.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Critério do caminho</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">O caminho de destino precisa de corresponder pelo menos a uma entrada (por exemplo, \"Downloads/oldapks/jogo\"). Pressão longa para mais opções.</string>
@@ -463,6 +463,10 @@ Recursos dos jogos.</string>
     <string name="appcontrol_force_stop_selection_action">Forçar paragem de apps</string>
     <string name="appcontrol_force_stop_action">Forçar paragem</string>
     <string name="appcontrol_force_stop_confirm_title">Confirmar paragem forçada</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Forçar paragem desta aplicação?</item>
+        <item quantity="other">Forçar paragem das %d aplicações?</item>
+    </plurals>
     <string name="appcontrol_automation_loading">A preparar automação através do serviço de acessibilidade</string>
     <string name="appcontrol_automation_title">Automação AppControl</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Forçar paragem…</string>
@@ -529,7 +533,7 @@ Recursos dos jogos.</string>
     <string name="exclusion_option_allow_partial">Permitir correspondências parciais</string>
     <string name="exclusion_option_ignore_casing">Ignorar maiúsculas/minúsculas</string>
     <string name="exclusion_editor_affected_tools_label">Ferramentas afetadas</string>
-    <string name="exclusion_editor_path_explanation">Uma exclusão de caminho impede que o SD Maid processe quaisquer outros caminhos correspondentes. Isto aplica-se a ficheiros, diretórios e subdiretórios.</string>
+    <string name="exclusion_editor_path_explanation">Uma exclusão dum caminho impede que o SD Maid processe ainda mais quaisquer caminhos correspondentes. Isto aplica-se a arquivos, pastas e subpastas.</string>
     <string name="exclusion_editor_pkg_explanation">Uma aplicação impede o SD Maid de processar pacotes correspondentes.</string>
     <string name="exclusion_editor_segment_explanation">Uma exclusão baseada em segmento é semelhante a uma exclusão de caminho, mas permite correspondências parciais. Exemplo: \"DCIM/Camera\" exclui \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Remover esta exclusão?</string>

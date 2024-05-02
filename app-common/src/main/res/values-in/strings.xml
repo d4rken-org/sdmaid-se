@@ -137,6 +137,7 @@
     <string name="general_timeunit_days">Hari</string>
     <string name="general_progress_ready">Siap</string>
     <string name="general_progress_done">Selesai</string>
+    <string name="general_rom_type_auto_label">Otomatis (Default)</string>
     <plurals name="result_x_files">
         <item quantity="other">%s berkas</item>
     </plurals>

@@ -109,6 +109,14 @@
         <item quantity="one">%s item</item>
         <item quantity="other">%s itens</item>
     </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d completo</item>
+        <item quantity="other">%d completos</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d falhou</item>
+        <item quantity="other">%d falharam</item>
+    </plurals>
     <string name="x_space_can_be_freed">Pode libertar %s</string>
     <string name="general_info_label">Informação</string>
     <string name="general_count_label">Contagem</string>

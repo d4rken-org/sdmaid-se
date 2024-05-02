@@ -61,6 +61,8 @@
     <string name="general_progress_loading_egg_9">Predpomnenje življenjskih odločitev</string>
     <string name="general_progress_loading_egg_10">Klicanje Cthulhuja</string>
     <string name="general_progress_loading_egg_11">To je čisto v redu.</string>
+    <string name="general_progress_loading_egg_12">Prosimo, počakajte.</string>
+    <string name="general_progress_loading_egg_13">Vsaj niste na čakanju.</string>
     <string name="general_help_action">Pomoč</string>
     <string name="general_continue">Nadaljuj</string>
     <string name="general_progress_queued">V čakalni vrsti</string>
@@ -110,6 +112,18 @@
         <item quantity="few">%s predmeti</item>
         <item quantity="other">%s predmetov</item>
     </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">Uspešen: %d</item>
+        <item quantity="two">Uspešna: %d</item>
+        <item quantity="few">Uspešnih: %d</item>
+        <item quantity="other">Uspešnih: %d</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">Spodletel: %d</item>
+        <item quantity="two">Spodletela: %d</item>
+        <item quantity="few">Spodletelih: %d</item>
+        <item quantity="other">Spodletelih: %d</item>
+    </plurals>
     <string name="x_space_can_be_freed">Sprostite lahko %s.</string>
     <string name="general_info_label">Podrobnosti</string>
     <string name="general_count_label">Število</string>
@@ -135,6 +149,7 @@
     <string name="general_timeunit_days">Dnevi</string>
     <string name="general_progress_ready">Pripravljen</string>
     <string name="general_progress_done">Končano</string>
+    <string name="general_rom_type_auto_label">Samodejno (privzeto)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s datoteka</item>
         <item quantity="two">%s datoteki</item>

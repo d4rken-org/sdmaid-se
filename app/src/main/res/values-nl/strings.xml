@@ -72,6 +72,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Voorvertoningen van bestanden</string>
     <string name="ui_previews_summary">Toon bestandsvoorbeelden in alle tools (bijv. afbeeldings- en videominiaturen).</string>
+    <string name="ui_language_override_label">App-taal</string>
+    <string name="ui_language_override_desc">Selecteer een andere taal voor SD Maid, onafhankelijk van de standaardtaal van je systeem. Momenteel: %s</string>
     <string name="settings_support_label">Ondersteuning</string>
     <string name="settings_support_description">Documentatie lezen, problemen melden, met anderen chatten of logboeken voor foutopsporing opnemen.</string>
     <string name="documentation_label">Documentatie</string>
@@ -93,6 +95,9 @@
     <string name="setup_incomplete_card_continue_action">Ga door met instellen</string>
     <string name="setup_title">Instelling</string>
     <string name="setup_forcedshow_summary">Toon het configuratiescherm opnieuw, inclusief reeds voltooide items.</string>
+    <string name="setup_checking_card_body">De voltooiing en functionaliteit van de installatie verifiëren.</string>
+    <string name="general_error_setup_require_label">De installatie is onvolledig</string>
+    <string name="general_error_setup_require_msg">Om deze functie te gebruiken is verdere configuratie vereist. Voltooi de resterende installatiestappen.</string>
     <string name="setup_saf_card_title">Framework voor opslagtoegang</string>
     <string name="setup_saf_card_body">Verbeter de resultaten door SD Maid toegang te verlenen tot extra gebieden.</string>
     <string name="setup_saf_card_body2">In de meeste gevallen wordt het venster geopend met het juiste pad vooraf geselecteerd. Items worden groen wanneer toegang is verleend. </string>
@@ -140,6 +145,9 @@
     <string name="setup_acs_disallow_hint">Als je van gedachten verandert, kun je deze optie weer wijzigen door naar de instellingen te gaan en de installatie opnieuw te starten.</string>
     <string name="setup_acs_appops_restriction_title">Beperkte instellingen</string>
     <string name="setup_acs_appops_restriction_body">Kan de toegankelijkheidsservice van SD Maids niet worden ingeschakeld? Android 13+ kan beperkingen toepassen op apps die niet via Google Play zijn geïnstalleerd. Hef deze beperkingen op van de systeemdetailpagina voor SD Maid. De optie bevindt zich in het contextmenu in de rechterbovenhoek.</string>
+    <string name="setup_inventory_card_title">App-inventaris</string>
+    <string name="setup_inventory_card_body">SD Maid moet weten welke apps je hebt om bestanden te vinden die niet bij geïnstalleerde apps horen.</string>
+    <string name="setup_inventory_card_extra">Zoek naar een machtiging met de naam \'Applijst\' of \'Alle pakketten opvragen\'.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid heeft geen gegevensgebieden gevonden die kunnen worden gescand. Heb je de installatie voltooid?</string>
     <string name="dataarea_warningcard_label">Gegevens gebieden</string>
     <string name="dataarea_warningcard_reload_action">Gegevensgebieden opnieuw laden</string>
@@ -218,7 +226,7 @@
     <string name="systemcleaner_filter_anr_label">ANR-fouten</string>
     <string name="systemcleaner_filter_anr_summary">Sporen van \'toepassing reageert niet\'-gebeurtenissen.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Lege mappen</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Lege mappen van over het hele apparaat. Voor geneste mappen zijn mogelijk meerdere passages vereist.</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Maak mappen leeg van over het hele apparaat. Voor geneste mappen zijn mogelijk meerdere passen nodig.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Overbodige APK\'s</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Installatiebestanden die ouder- of gelijk zijn aan app-versies die al zijn geïnstalleerd.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mappen</string>
@@ -345,6 +353,11 @@
     <string name="appcleaner_automation_loading">Automatisering voorbereiden via toegankelijkheidsservice</string>
     <string name="appcleaner_automation_title">AppReiniger-automatisering</string>
     <string name="appcleaner_automation_subtitle_default_caches">Standaard cachegeheugen wissen…</string>
+    <string name="appcleaner_automation_progress_open_settings">Instellingenscherm openen (trefwoorden: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Zoeken naar item \"Opslag\" (trefwoorden: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Ik zoek naar de knop \'Gegevens wissen\' (trefwoorden: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Ik zoek naar de knop \'Gegevens wissen\' (trefwoorden: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Probeert eerdere actie te bevestigen (trefwoorden: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standaard caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publieke en private standaardcaches. Niet direct toegankelijk, maar wel indirect te verwijderen (bijv. via toegankelijkheidsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Toegankelijkheidsservice niet beschikbaar</string>
@@ -405,6 +418,8 @@
     <string name="appcontrol_systemsettings_open_description">Open de systeeminstellingen van je apparaat voor deze app.</string>
     <string name="appcontrol_app_launch_title">Start app</string>
     <string name="appcontrol_app_launch_description">Start de primaire activiteit van deze app.</string>
+    <string name="appcontrol_app_forcestop_title">Forceer stop</string>
+    <string name="appcontrol_app_forcestop_description">Stopt de app. Voorkomt dat het programma zichzelf opstart totdat je het opent of het apparaat opnieuw opstart.</string>
     <string name="appcontrol_app_uninstall_description">Verwijder deze app van uw apparaat.</string>
     <string name="appcontrol_app_exclude_add_title">App uitsluiten</string>
     <string name="appcontrol_app_exclude_add_description">Sluit deze app uit van andere bewerkingen in SD Maid.</string>
@@ -442,7 +457,20 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Ontdek of een app actief is (of recentelijk was).</string>
     <string name="appcontrol_export_app_selection_action">Apps exporteren</string>
     <string name="appcontrol_export_title">App exporteren</string>
+    <string name="appcontrol_export_description">Sla de installatiebestanden van deze app op. Dit omvat geen app-gegevens.</string>
     <string name="appcontrol_progress_exporting_x">Bezig met exporteren van %s</string>
+    <string name="appcontrol_force_stop_selection_action">Forceer stop-apps</string>
+    <string name="appcontrol_force_stop_action">Forceer stop</string>
+    <string name="appcontrol_force_stop_confirm_title">Bevestig geforceerde stop</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d app geforceerd stoppen?</item>
+        <item quantity="other">%d apps geforceerd stoppen?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Voorbereiden van automatisering via toegankelijkheidsdienst</string>
+    <string name="appcontrol_automation_title">AppControl automatisering</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Geforceerd stoppen…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Ik zoek naar de knop \'Geforceerd stoppen\' (trefwoorden: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Probeert eerdere actie te bevestigen (trefwoorden: %s)</string>
     <string name="analyzer_tool_name">OpslagAnalyzer</string>
     <string name="analyzer_explanation_short">Ontdek wat ruimte in beslag neemt op uw apparaat.</string>
     <string name="analyzer_progress_scanning_device">Zoeken naar opslagapparaten</string>
@@ -464,6 +492,8 @@
     <string name="analyzer_storage_type_primary_description">De primaire opslag van je apparaat. Bevat de interne SD-kaart, privéopslag voor apps en systeemgegevens.</string>
     <string name="analyzer_storage_type_secondary_title">Secundaire opslag</string>
     <string name="analyzer_storage_type_secondary_description">Een tweede opslag, meestal een verwisselbare SD-kaart. Bevat mediabestanden en gegevens van apps die dit ondersteunen.</string>
+    <string name="analyzer_storage_type_tertiary_title">Draagbare opslag</string>
+    <string name="analyzer_storage_type_tertiary_description">Een draagbare opslag, bijv. een USB-stick die op je USB-poort is aangesloten.</string>
     <string name="analyzer_storage_content_title">Inhoud van de opslag</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
     <string name="analyzer_storage_content_type_app_description">Ruimte die wordt ingenomen door geïnstalleerde apps en hun gegevens (d.w.z. installatiebestanden, gegevens en caches).</string>
@@ -502,7 +532,7 @@
     <string name="exclusion_option_allow_partial">Gedeeltelijke overeenkomsten toestaan</string>
     <string name="exclusion_option_ignore_casing">Hoofd-/kleine letters negeren</string>
     <string name="exclusion_editor_affected_tools_label">Betrokken gereedschap</string>
-    <string name="exclusion_editor_path_explanation">Een paduitsluiting verhindert dat SD Maid alle overeenkomende paden verder verwerkt. Dit geldt voor bestanden, mappen en submappen.</string>
+    <string name="exclusion_editor_path_explanation">Een paduitsluiting verhindert dat SD Maid eventuele overeenkomende paden verder verwerkt. Dit geldt voor bestanden, map en submappen.</string>
     <string name="exclusion_editor_pkg_explanation">Een app-uitsluiting voorkomt dat SD Maid overeenkomende pakketten verwerkt.</string>
     <string name="exclusion_editor_segment_explanation">Een op segmenten gebaseerde uitsluiting is vergelijkbaar met een paduitsluiting, maar staat gedeeltelijke overeenkomsten toe. Voorbeeld: \"DCIM/Camera\" sluit \"/sdcard/DCIM/Camera/photo.png\" uit.</string>
     <string name="exclusion_editor_remove_confirmation_message">Deze uitsluiting verwijderen?</string>
@@ -576,4 +606,5 @@
     <string name="motd_setting_enabled_explanation">Sta SD Maid toe om te controleren op belangrijke berichten van de ontwikkelaar.</string>
     <string name="updatecheck_setting_enabled_label">Updatecontrole</string>
     <string name="updatecheck_setting_enabled_explanation">Sta SD Maid toe om te controleren op updates om je te laten weten of er een nieuwere versie beschikbaar is.</string>
+    <string name="device_settings_category">Apparaat</string>
 </resources>

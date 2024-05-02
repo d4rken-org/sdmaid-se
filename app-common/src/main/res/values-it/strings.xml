@@ -109,6 +109,10 @@
         <item quantity="one">%s elemento</item>
         <item quantity="other">%s elementi</item>
     </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d riuscito</item>
+        <item quantity="other">%d riusciti</item>
+    </plurals>
     <plurals name="result_x_failed">
         <item quantity="one">%d fallito</item>
         <item quantity="other">%d falliti</item>
@@ -138,6 +142,7 @@
     <string name="general_timeunit_days">Giorni</string>
     <string name="general_progress_ready">Pronto</string>
     <string name="general_progress_done">Completato</string>
+    <string name="general_rom_type_auto_label">Automatico (predefinito)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s file</item>
         <item quantity="other">%s file</item>

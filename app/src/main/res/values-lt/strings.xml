@@ -178,7 +178,6 @@
     <string name="systemcleaner_filter_logfiles_summary">Žurnalo failai (*.log) iš viso įrenginio.</string>
     <string name="systemcleaner_filter_advertisements_summary">Failai, kurie buvo sukurti reklamai arba pagal skelbimus.</string>
     <string name="systemcleaner_filter_anr_label">ANR klaidos</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Tušti katalogai</string>
     <string name="systemcleaner_filter_lostdir_summary">Laikinieji failai, kurie sukuriami perduodant duomenis iš vieno \"Android\" prietaiso į kitą.</string>
     <string name="systemcleaner_filter_linuxfiles_label">\"Linux\" failai</string>
     <string name="systemcleaner_filter_linuxfiles_summary">Failai ir aplankai, sukurti prijungus saugyklą prie \"Linux\" kompiuterio.</string>
@@ -194,7 +193,6 @@
     <string name="systemcleaner_filter_downloadcache_summary">Sistemos talpyklos aplankas, naudojamas įvairiems dalykams (pvz., OTA atnaujinimams).</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Failų tipų apribojimai</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Failai</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Katalogai</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Jei nepasirinktas joks tipas, bus parinkti visi tipai.</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Tikslinis kelias turi atitikti bent vieną įrašą (pvz., \"Downloads/oldapks/game-\"). Norėdami gauti daugiau parinkčių, ilgai spauskite įrašus.</string>
     <string name="systemcleaner_customfilter_editor_name_explanation">Tikslo pavadinime turi būti bent vienas iš raktažodžių (pvz., \"-receipt\"). Norėdami gauti daugiau parinkčių, ilgai spauskite įrašus.</string>

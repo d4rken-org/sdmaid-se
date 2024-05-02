@@ -217,8 +217,6 @@
     <string name="systemcleaner_filter_advertisements_summary">Skedarët që janë krijuar për ose nga reklamat.</string>
     <string name="systemcleaner_filter_anr_label">Gabime ANR</string>
     <string name="systemcleaner_filter_anr_summary">Gjurmët nga ngjarjet \"aplikacioni nuk përgjigjet\".</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Drejtoritë boshe</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Drejtoritë bosh nga e gjithë pajisja. Drejtoritë e ndërlidhura mund të kërkojnë kalime të shumta.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK të tepërta ose të panevojshme</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Konfiguro skedarët që janë më të vjetër ose të barabartë me versionet e aplikacionit që janë instaluar tashmë.</string>
     <string name="systemcleaner_filter_lostdir_label">Dosjet LOST.DIR</string>
@@ -261,7 +259,6 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Nëse nuk zgjidhet asnjë zonë, atëherë të gjitha zonat e aksesueshme të të dhënave do të skanohen dhe përputhen.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Kufizimet e llojit të skedarit</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Dosjet</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Drejtoritë</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Nëse nuk zgjidhet asnjë lloj, atëherë të gjitha llojet do të përputhen.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Kriteriumi i rrugës</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Ruga e synuar duhet të përputhet me të paktën një hyrje (p.sh. \"Shkarkime/oldapks/lojë-\"). Shtypni gjatë shënimet për më shumë opsione.</string>
@@ -494,7 +491,6 @@
     <string name="exclusion_option_allow_partial">Lejo ndeshjet e pjesshme</string>
     <string name="exclusion_option_ignore_casing">Shpërfille shkrimin me të madhe/me të vogël</string>
     <string name="exclusion_editor_affected_tools_label">Mjetet e prekura</string>
-    <string name="exclusion_editor_path_explanation">Një përjashtim i rrugës e pengon SD Maid të përpunojë më tej çdo shteg që përputhet. Kjo vlen për skedarët, drejtoritë dhe nën-drejtoritë.</string>
     <string name="exclusion_editor_pkg_explanation">Një përjashtim i aplikacionit pengon SD Maid të përpunojë çdo paketë që përputhet.</string>
     <string name="exclusion_editor_segment_explanation">Një përjashtim i bazuar në segment është i ngjashëm me një përjashtim shtegu, por lejon përputhje të pjesshme. Shembull: \"DCIM/Kamera\" përjashton \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Të hiqet ky përjashtim?</string>

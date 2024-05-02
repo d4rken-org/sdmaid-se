@@ -95,6 +95,9 @@
     <string name="setup_incomplete_card_continue_action">Συνέχεια εγκατάστασης</string>
     <string name="setup_title">Εγκατάσταση</string>
     <string name="setup_forcedshow_summary">Εμφάνιση οθόνης ρύθμισης ξανά, συμπεριλαμβανομένων των ήδη ολοκληρωμένων στοιχείων.</string>
+    <string name="setup_checking_card_body">Επαλήθευση ολοκλήρωσης και λειτουργικότητας της εγκατάστασης.</string>
+    <string name="general_error_setup_require_label">Η εγκατάσταση δεν είναι ολοκληρωμένη</string>
+    <string name="general_error_setup_require_msg">Απαιτείται περαιτέρω ρύθμιση για τη χρήση αυτής της δυνατότητας. Ολοκληρώστε τα υπόλοιπα βήματα ρύθμισης.</string>
     <string name="setup_saf_card_title">Framework πρόσβασης αποθήκευσης</string>
     <string name="setup_saf_card_body">Βελτιώστε τα αποτελέσματα παρέχοντας πρόσβαση σε επιπλέον περιοχές.</string>
     <string name="setup_saf_card_body2">Στις περισσότερες περιπτώσεις το παράθυρο θα ανοίξει με την προεπιλεγμένη σωστή διαδρομή. Οι καταχωρήσεις γίνονται πράσινες όταν παρέχεται πρόσβαση. </string>
@@ -220,8 +223,8 @@
     <string name="systemcleaner_filter_advertisements_summary">Αρχεία που έχουν δημιουργηθεί για ή από διαφημίσεις.</string>
     <string name="systemcleaner_filter_anr_label">ANR σφάλματα</string>
     <string name="systemcleaner_filter_anr_summary">Ίχνη από συμβάντα \"η εφαρμογή δεν ανταποκρίνεται\".</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Άδειοι κατάλογοι</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Άδειοι φάκελοι από όλη τη συσκευή. Οι ένθετοι φάκελοι ενδέχεται να απαιτούν πολλαπλά περάσματα.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Άδειοι φάκελοι</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Κενοί φάκελοι από όλη τη συσκευή. Οι ένθετοι φάκελοι ενδέχεται να απαιτούν πολλαπλά περάσματα.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Περιττά APK</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Αρχεία ρύθμισης που είναι παλαιότερα ή ίσα με τις εκδόσεις εφαρμογών που έχουν ήδη εγκατασταθεί.</string>
     <string name="systemcleaner_filter_lostdir_label">Φάκελοι LOST.DIR</string>
@@ -264,7 +267,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Εάν δεν έχει επιλεγεί περιοχή, τότε όλες οι προσβάσιμες περιοχές δεδομένων θα σαρωθούν και θα αντιστοιχιστούν.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Περιορισμοί τύπων αρχείων</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Αρχεία</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Κατάλογοι</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Φάκελοι</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Εάν δεν έχει επιλεγεί τύπος, τότε όλοι οι τύποι θα ταιριάζουν.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Κριτήρια διαδρομής</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Η διαδρομή προορισμού πρέπει να ταιριάζει με τουλάχιστον μία καταχώρηση (π.χ. \"Downloads/oldapks/game-\"). Πατήστε παρατεταμένα τις καταχωρήσεις για περισσότερες επιλογές.</string>
@@ -521,7 +524,7 @@
     <string name="exclusion_option_allow_partial">Να επιτρέπονται μερικές αντιστοιχίες</string>
     <string name="exclusion_option_ignore_casing">Παράβλεψη πεζών-κεφαλαίων</string>
     <string name="exclusion_editor_affected_tools_label">Επηρεαζόμενα εργαλεία</string>
-    <string name="exclusion_editor_path_explanation">Ένας αποκλεισμός διαδρομής εμποδίζει το SD Maid να επεξεργαστεί περαιτέρω τυχόν αντίστοιχες διαδρομές. Αυτό ισχύει για αρχεία, καταλόγους και υποκαταλόγους.</string>
+    <string name="exclusion_editor_path_explanation">Μια εξαίρεση διαδρομής εμποδίζει το SD Maid να επεξεργάζεται περαιτέρω τυχόν αντίστοιχες διαδρομές. Αυτό ισχύει για αρχεία, φακέλους και υποφακέλους.</string>
     <string name="exclusion_editor_pkg_explanation">Ένας αποκλεισμός εφαρμογών εμποδίζει το SD Maid να επεξεργαστεί τυχόν πακέτα που ταιριάζουν.</string>
     <string name="exclusion_editor_segment_explanation">Μια εξαίρεση με βάση το τμήμα είναι παρόμοια με μια εξαίρεση διαδρομής, αλλά επιτρέπει μερικές αντιστοιχίες. Παράδειγμα:\"DCIM/Camera\" αποκλείει \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Κατάργηση αυτόν τον αποκλεισμό;</string>

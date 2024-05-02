@@ -9,6 +9,7 @@
     <string name="slogan_message_5">نظيف.</string>
     <string name="slogan_message_6">بايت، سوف تغادر!</string>
     <string name="slogan_message_7">مساحة حرة، مكان سعيد.</string>
+    <string name="slogan_message_8">لن اتخلى عنك.</string>
     <string name="general_thank_you_label">شكراً لك</string>
     <string name="general_error_type_mismatch_msg">نوع عدم المطابقة: المطلوب %1$s، ولكن حصلت على %2$s.</string>
     <string name="general_error_cant_access_msg">لا يمكن الوصول %s.</string>
@@ -63,6 +64,8 @@
     <string name="general_progress_loading_egg_9">تخزين خيارات الحياة</string>
     <string name="general_progress_loading_egg_10">استدعاء كثولو</string>
     <string name="general_progress_loading_egg_11">هذا جيد</string>
+    <string name="general_progress_loading_egg_12">يرجى الانتظار</string>
+    <string name="general_progress_loading_egg_13">على الأقل أنت لست قيد الانتظار</string>
     <string name="general_help_action">مساعدة</string>
     <string name="general_continue">متابعة</string>
     <string name="general_progress_queued">قيد الانتظار</string>
@@ -118,6 +121,22 @@
         <item quantity="many">%s خيارات</item>
         <item quantity="other">%s خيارات</item>
     </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="zero">%d نجح</item>
+        <item quantity="one">%d نجح</item>
+        <item quantity="two">%d نجح</item>
+        <item quantity="few">%d نجح</item>
+        <item quantity="many">%d نجح</item>
+        <item quantity="other">%d نجح</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="zero">- %d فشل</item>
+        <item quantity="one">- %d فشل</item>
+        <item quantity="two">- %d فشل</item>
+        <item quantity="few">- %d فشل</item>
+        <item quantity="many">- %d فشل</item>
+        <item quantity="other">- %d فشل</item>
+    </plurals>
     <string name="x_space_can_be_freed">%s يمكن تحريرها</string>
     <string name="general_info_label">معلومات</string>
     <string name="general_count_label">العدد</string>
@@ -143,6 +162,7 @@
     <string name="general_timeunit_days">أيام</string>
     <string name="general_progress_ready">جاهز</string>
     <string name="general_progress_done">أكتمل</string>
+    <string name="general_rom_type_auto_label">تلقائي (افتراضي)</string>
     <plurals name="result_x_files">
         <item quantity="zero">ملف %s</item>
         <item quantity="one">ملف %s</item>

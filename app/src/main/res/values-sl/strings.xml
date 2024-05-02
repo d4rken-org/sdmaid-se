@@ -76,6 +76,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Predogledi datotek</string>
     <string name="ui_previews_summary">V vseh orodjih prikaži predoglede datotek (npr. sličice slik in videoposnetkov).</string>
+    <string name="ui_language_override_label">Jezik programa</string>
+    <string name="ui_language_override_desc">Izberite drug jezik za SD Maid, neodvisno od sistemskega jezika.  Trenutno: %s</string>
     <string name="settings_support_label">Podpora</string>
     <string name="settings_support_description">Berite dokumentacijo, poročajte o težavah, klepetajte z drugimi ali posnemite razhroščevalne dnevnike.</string>
     <string name="documentation_label">Dokumentacija</string>
@@ -97,6 +99,9 @@
     <string name="setup_incomplete_card_continue_action">Nadaljuj z nastavitvijo</string>
     <string name="setup_title">Nastavi</string>
     <string name="setup_forcedshow_summary">Znova prikaži zaslon za nastavitev, vključno z že dokončanimi predmeti.</string>
+    <string name="setup_checking_card_body">Preverjanje dokončanja nastavitve in delovanja.</string>
+    <string name="general_error_setup_require_label">Nastavitev ni končana.</string>
+    <string name="general_error_setup_require_msg">Če želite uporabljati to značilnost, opravite vse korake nastavitve.</string>
     <string name="setup_saf_card_title">Ogrodje za dostop do shrambe</string>
     <string name="setup_saf_card_body">Izboljšajte rezultate tako, da SD Mainu odobrite dostop do dodatnih področij.</string>
     <string name="setup_saf_card_body2">V večini primerov se bo odprlo okno z že nastavljeno pravilno potjo.  Ko odobrite dostop, se vnosi obarvajo zeleno. </string>
@@ -144,6 +149,8 @@
     <string name="setup_acs_disallow_hint">Če si premislite, lahko v nastavitvah znova spremenite to možnost in ponovno zaženete nastavitev.</string>
     <string name="setup_acs_appops_restriction_title">Dodatne nastavitve</string>
     <string name="setup_acs_appops_restriction_body">Ne morete omogočiti SD Maidovo storitev dostopnosti?  Android 13+ lahko omejuje programe, ki niso nameščeni iz Google Play.  Te omejitve lahko odpravite na strani sistemskih podrobnosti SD Maida.  Možnost se nahaja v vsebinskem meniju v zgornjem desnem kotu.</string>
+    <string name="setup_inventory_card_title">Programski inventar</string>
+    <string name="setup_inventory_card_extra">Poiščite dovoljenje \"Seznam programov\" ali \"Preglej vse pakete\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ni našel podatkovnih področij, ki jih lahko pregleda.  Ali ste dokončali nastavitev?</string>
     <string name="dataarea_warningcard_label">Podatkovna področja</string>
     <string name="dataarea_warningcard_reload_action">Ponovno naloži podatkovna področja</string>
@@ -359,6 +366,11 @@
     <string name="appcleaner_automation_loading">Pripravljanje samodejnih dejanj preko storitve dostopnosti</string>
     <string name="appcleaner_automation_title">Samodejna dejanja čistilca programov</string>
     <string name="appcleaner_automation_subtitle_default_caches">Čiščenje privzetih predpomnilnikov …</string>
+    <string name="appcleaner_automation_progress_open_settings">Odpiranje zaslona z nastavitvami (ključne besede: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Iskanje vnosa \"Shranjevanje\" (ključne besede: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Iskanje gumba \"Počisti podatke\" (ključne besede: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Iskanje gumba \"Počisti predpomnilnik\" (ključne besede: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Poizkušanje potrditve prejšnjega dejanja (ključne besede: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Prevzeti predpomnilniki</string>
     <string name="appcleaner_item_caches_inaccessible_body">Privzeti javni in zasebni predpomnilniki, ki niso neposredno dostopni, ampak se jih lahko posredno izbriše (npr. preko storitve dostopnosti).</string>
     <string name="appcleaner_automation_unavailable_title">Storitev dostopnosti ni na voljo.</string>
@@ -425,6 +437,8 @@
     <string name="appcontrol_systemsettings_open_description">Odpri sistemske nastavitve tega programa.</string>
     <string name="appcontrol_app_launch_title">Zaženi program</string>
     <string name="appcontrol_app_launch_description">Zaženi glavno dejavnost tega programa.</string>
+    <string name="appcontrol_app_forcestop_title">Vsili ustavitev</string>
+    <string name="appcontrol_app_forcestop_description">Ustavi program.  Prepreči njegov samodejni zagon, dokler ga ne odprete ali ponovno zaženete napravo.</string>
     <string name="appcontrol_app_uninstall_description">Odstrani ta program z naprave.</string>
     <string name="appcontrol_app_exclude_add_title">Izključi program</string>
     <string name="appcontrol_app_exclude_add_description">Izključi ta program iz drugih opravil v SD Maidu.</string>
@@ -432,6 +446,7 @@
     <string name="appcontrol_app_exclude_edit_description">Ta program je trenutno izključen iz enega ali več orodij.</string>
     <string name="appcontrol_tag_user">Uporabnik</string>
     <string name="appcontrol_tag_active">Nedavno dejavno</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_enabled">Omogočeno</string>
     <string name="appcontrol_tag_disabled">Onemogočeno</string>
@@ -449,6 +464,35 @@
     <string name="appcontrol_app_sizes_apk_label">Program</string>
     <string name="appcontrol_app_sizes_data_label">Podatki</string>
     <string name="appcontrol_app_sizes_cache_label">Predpomnilnik</string>
+    <string name="appcontrol_toggle_confirmation_title">Potrdi dejanje</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Omogoči/onemogoči %d?</item>
+        <item quantity="two">Omogoči/onemogoči %d?</item>
+        <item quantity="few">Omogoči/onemogoči %d?</item>
+        <item quantity="other">Omogoči/onemogoči %d?</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Ugotovi velikosti</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Približno oceni velikost vsakega programa.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Ugotovi dejavnost</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Ugotovi, ali je (bil nedavno) program dejaven.</string>
+    <string name="appcontrol_export_app_selection_action">Izvozi programe</string>
+    <string name="appcontrol_export_title">Izvozi program</string>
+    <string name="appcontrol_export_description">Shrani namestitvene datoteke tega programa.  To ne vključuje podatke programa.</string>
+    <string name="appcontrol_progress_exporting_x">Izvažanje %s</string>
+    <string name="appcontrol_force_stop_selection_action">Prisilno ustavi programe</string>
+    <string name="appcontrol_force_stop_action">Vsili ustavitev</string>
+    <string name="appcontrol_force_stop_confirm_title">Prislina ustavitev</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Prisilno ustavi %d program?</item>
+        <item quantity="two">Prisilno ustavi %d programa?</item>
+        <item quantity="few">Prisilno ustavi %d programe?</item>
+        <item quantity="other">Prisilno ustavi %d programov?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Pripravljanje samodejni dejanj preko storitve dostopnosti</string>
+    <string name="appcontrol_automation_title">Samodejna dejanja nadzora programov</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Prisilno ustavljanje …</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Iskanje gumba \"Vsili ustavitev\" (ključne besede: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Poizkušanje potrditve prejšnjega dejanja (ključne besede: %s)</string>
     <string name="analyzer_tool_name">Analizator shrambe</string>
     <string name="analyzer_explanation_short">Izvédite, kaj zaseda prostor na napravi.</string>
     <string name="analyzer_progress_scanning_device">Iskanje pomnilniških naprav</string>
@@ -474,6 +518,8 @@
     <string name="analyzer_storage_type_primary_description">Primarna pomnilniška naprava.  Vsebuje notranjo kartico SD, zasebno shrambo programov in sistemske podatke.</string>
     <string name="analyzer_storage_type_secondary_title">Sekundarna pomnilniška naprava</string>
     <string name="analyzer_storage_type_secondary_description">Sekundarna pomnilniška naprava, običajno odstranljiva kartica SD.  Vsebuje predstavne datoteke in podatke programov, ki jih podpirajo.</string>
+    <string name="analyzer_storage_type_tertiary_title">Prenosna pomnilniška naprava</string>
+    <string name="analyzer_storage_type_tertiary_description">Prenosna pomnilniška naprava, npr. bliskovni pogon, priključen v vrata USB.</string>
     <string name="analyzer_storage_content_title">Vsebina pomnilniške naprave</string>
     <string name="analyzer_storage_content_type_app_label">Programi</string>
     <string name="analyzer_storage_content_type_app_description">Prostor, ki ga zasedajo nameščeni programi in njihovi podatki (npr. programske datoteke, podatki in predpomnilniki).,</string>
@@ -585,8 +631,10 @@
     <string name="translation_encourage_title">Prevedi SD Maid</string>
     <string name="translation_encourage_body">SD Maid prevajajo prostovoljci.  Prevod, ocene, ali pregled – hvaležen sem za vašo pomoč!</string>
     <string name="translation_translators_title">To različico so prevedli</string>
+    <string name="translation_translators_people">1. oseba; 2. oseba(izbirno@email.com)</string>
     <string name="motd_setting_enabled_label">Pomembna sporočila</string>
     <string name="motd_setting_enabled_explanation">Dovolite SD Maidu, da poizve za pomembna sporočila od razvijalca.</string>
     <string name="updatecheck_setting_enabled_label">Preveri za posodobitve</string>
     <string name="updatecheck_setting_enabled_explanation">Dovoli SD Maidu, da preveri za posodobitve in sporoči, če je na voljo nova različica.</string>
+    <string name="device_settings_category">Naprava</string>
 </resources>
