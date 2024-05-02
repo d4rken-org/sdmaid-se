@@ -72,6 +72,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Previsualitzacions de fitxers</string>
     <string name="ui_previews_summary">Mostra previsualitzacions de fitxers a totes les eines (p. ex., miniatures d\'imatges i vídeos).</string>
+    <string name="ui_language_override_label">Idioma de l\'aplicació</string>
+    <string name="ui_language_override_desc">Seleccioneu un idioma diferent per a l\'SD Maid, independentment de l\'idioma per defecte del vostre sistema. Actualment: %s</string>
     <string name="settings_support_label">Suport</string>
     <string name="settings_support_description">Llegiu la documentació, informeu de problemes, xategeu amb altres persones o graveu els registres de depuració.</string>
     <string name="documentation_label">Documentació</string>
@@ -93,6 +95,9 @@
     <string name="setup_incomplete_card_continue_action">Continua la configuració</string>
     <string name="setup_title">Configuració</string>
     <string name="setup_forcedshow_summary">Torna a mostrar la pantalla de configuració, inclosos els elements ja completats.</string>
+    <string name="setup_checking_card_body">Verificació de la finalització de la configuració i la funcionalitat.</string>
+    <string name="general_error_setup_require_label">La configuració no s\'ha completat</string>
+    <string name="general_error_setup_require_msg">Es requereix una configuració addicional per utilitzar aquesta funció. Completeu els passos de configuració restants.</string>
     <string name="setup_saf_card_title">Marc d\'accés a l\'emmagatzematge</string>
     <string name="setup_saf_card_body">Millora els resultats concedint accés a l\'SD Maid a àrees addicionals.</string>
     <string name="setup_saf_card_body2">En la majoria dels casos, la finestra s\'obrirà amb la ruta correcte preseleccionada. Les entrades es tornen verdes quan es concedeix l\'accés. </string>
@@ -140,6 +145,9 @@
     <string name="setup_acs_disallow_hint">Si canvieu d\'opinió, podeu tornar a modificar aquesta opció entrant a la configuració i reiniciar-la.</string>
     <string name="setup_acs_appops_restriction_title">Configuració restringida</string>
     <string name="setup_acs_appops_restriction_body">No podeu activar el servei d\'accessibilitat de l\'SD Maids? En versions superiors d\'Android 13 pot aplicar restriccions a les aplicacions no instal·lades al Google Play. Suprimiu aquestes restriccions des de la pàgina de detalls del sistema per a l\'SD Maid. L\'opció es troba al menú contextual a l\'extrem superior dret.</string>
+    <string name="setup_inventory_card_title">Inventari d\'aplicacions</string>
+    <string name="setup_inventory_card_body">L\'SD Maid necessita saber quines aplicacions teniu per trobar fitxers que no pertanyen a cap aplicació instal·lada.</string>
+    <string name="setup_inventory_card_extra">Cerqueu un permís anomenat «Llista d\'aplicacions» o «Consulta tots els paquets».</string>
     <string name="dataarea_warningcard_empty_message">L\'SD Maid no ha trobat cap àrea de dades que es pugui escanejar. Heu completat la configuració?</string>
     <string name="dataarea_warningcard_label">Àrees de dades</string>
     <string name="dataarea_warningcard_reload_action">Recarrega les àrees de dades</string>
@@ -217,8 +225,8 @@
     <string name="systemcleaner_filter_advertisements_summary">Fitxers que s\'han creat per a o per anuncis.</string>
     <string name="systemcleaner_filter_anr_label">Errors ANR</string>
     <string name="systemcleaner_filter_anr_summary">Rastres dels esdeveniments «l\'aplicació no respon».</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Directoris buits</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Directoris buits de tot el dispositiu. Els directoris nius poden requerir diverses passades.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Carpetes buides</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Carpetes buides de tot el dispositiu. Les carpetes imbricades poden requerir diverses passades.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK supèrflues</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Fitxers d\'instal·lació anteriors o iguals a les versions de l\'aplicació que ja estan instal·lades.</string>
     <string name="systemcleaner_filter_lostdir_label">Carpetes LOST.DIR</string>
@@ -261,7 +269,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Si no se selecciona cap àrea, s\'escanejaran i es coincidiran totes les àrees de dades accessibles.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Restriccions de tipus de fitxer</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Fitxers</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Directoris</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Carpetes</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Si no se selecciona cap tipus, tots els tipus coincidiran.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Criteris de ruta</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">La ruta de destinació ha de coincidir com a mínim amb una entrada (p. ex., «Downloads/oldapks/joc-»). Manteniu premudes les entrades per obtenir més opcions.</string>
@@ -345,6 +353,11 @@
     <string name="appcleaner_automation_loading">S\'està preparant l\'automatització mitjançant el servei d\'accessibilitat</string>
     <string name="appcleaner_automation_title">Automatització del Netejador d\'aplicacions</string>
     <string name="appcleaner_automation_subtitle_default_caches">S\'estan esborrant les memòries cau per defecte…</string>
+    <string name="appcleaner_automation_progress_open_settings">Obertura de la pantalla de configuració (paraules clau: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">S\'està cercant l\'entrada «Emmagatzematge» (paraules clau: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">S\'està buscant el botó «Esborra les dades» (paraules clau: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">S\'està buscant el botó «Esborra la memòria cau» (paraules clau: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">S\'està intentant confirmar l\'acció anterior (paraules clau: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Memòries cau per defecte</string>
     <string name="appcleaner_item_caches_inaccessible_body">Memòries cau públiques i privades per defecte. No és accessible directament, però es pot suprimir indirectament (p. ex. mitjançant el servei d\'accessibilitat).</string>
     <string name="appcleaner_automation_unavailable_title">Servei d\'accessibilitat no disponible</string>
@@ -405,6 +418,8 @@
     <string name="appcontrol_systemsettings_open_description">Obre la configuració del sistema del vostre dispositiu per a aquesta aplicació.</string>
     <string name="appcontrol_app_launch_title">Inicia l\'aplicació</string>
     <string name="appcontrol_app_launch_description">Inicia l\'activitat principal d\'aquesta aplicació.</string>
+    <string name="appcontrol_app_forcestop_title">Força l\'aturada</string>
+    <string name="appcontrol_app_forcestop_description">Atura l\'aplicació. Impedeix que s\'iniciï fins que l\'obriu o es reiniciï el dispositiu.</string>
     <string name="appcontrol_app_uninstall_description">Desinstal·la aquesta aplicació del dispositiu.</string>
     <string name="appcontrol_app_exclude_add_title">Exclusió d\'aplicacions</string>
     <string name="appcontrol_app_exclude_add_description">Exclou aquesta aplicació d\'altres operacions a l\'SD Maid.</string>
@@ -442,7 +457,20 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Esbrineu si una aplicació està (o ha estat recentment) activa.</string>
     <string name="appcontrol_export_app_selection_action">Exporta les aplicacions</string>
     <string name="appcontrol_export_title">Exporta l\'aplicació</string>
+    <string name="appcontrol_export_description">Desa els fitxers d\'instal·lació d\'aquesta aplicació. Això no inclou les dades de l\'aplicació.</string>
     <string name="appcontrol_progress_exporting_x">S\'està exportant %s</string>
+    <string name="appcontrol_force_stop_selection_action">Força l\'aturada d\'aplicacions</string>
+    <string name="appcontrol_force_stop_action">Força l\'aturada</string>
+    <string name="appcontrol_force_stop_confirm_title">Confirmeu l\'aturada forçada</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Força l\'aturada d\'%d aplicació?</item>
+        <item quantity="other">Força l\'aturada de %d aplicacions?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Preparant l\'automatització mitjançant servei d\'accessibilitat</string>
+    <string name="appcontrol_automation_title">Automatització de l\'AppControl</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">S\'està forçant l\'aturada…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">S\'està buscant el botó «Força l\'aturada» (paraules clau: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">S\'està intentant confirmar l\'acció anterior (paraules clau: %s)</string>
     <string name="analyzer_tool_name">Analitzador d\'emmagatzematge</string>
     <string name="analyzer_explanation_short">Descobriu què ocupa espai al vostre dispositiu.</string>
     <string name="analyzer_progress_scanning_device">Cerca de dispositius d\'emmagatzematge</string>
@@ -464,6 +492,8 @@
     <string name="analyzer_storage_type_primary_description">L\'emmagatzematge principal del vostre dispositiu. Conté la targeta SD interna, emmagatzematge privat per a aplicacions i dades del sistema.</string>
     <string name="analyzer_storage_type_secondary_title">Emmagatzematge secundari</string>
     <string name="analyzer_storage_type_secondary_description">Un emmagatzematge secundari, normalment una targeta SD extraïble. Conté fitxers multimèdia i dades d\'aplicacions que ho admeten.</string>
+    <string name="analyzer_storage_type_tertiary_title">Emmagatzematge portàtil</string>
+    <string name="analyzer_storage_type_tertiary_description">Un emmagatzematge portàtil, p. ex. una unitat flaix connectada al port USB.</string>
     <string name="analyzer_storage_content_title">Contingut d\'emmagatzematge</string>
     <string name="analyzer_storage_content_type_app_label">Aplicacions</string>
     <string name="analyzer_storage_content_type_app_description">Espai ocupat per les aplicacions instal·lades i les seves dades (és a dir, fitxers d\'aplicacions, dades i memòria cau).</string>
@@ -502,7 +532,7 @@
     <string name="exclusion_option_allow_partial">Permet coincidències parcials</string>
     <string name="exclusion_option_ignore_casing">Ignora les maj. i min.</string>
     <string name="exclusion_editor_affected_tools_label">Eines afectades</string>
-    <string name="exclusion_editor_path_explanation">Una exclusió de ruta impedeix que l\'SD Maid continuï processant les rutes coincidents. Això s\'aplica a fitxers, directoris i subdirectoris.</string>
+    <string name="exclusion_editor_path_explanation">Una exclusió de ruta impedeix que l\'SD Maid continuï processant les rutes coincidents. Això s\'aplica als fitxers, carpetes i subcarpetes.</string>
     <string name="exclusion_editor_pkg_explanation">Una exclusió d\'aplicació impedeix que l\'SD Maid processi els paquets coincidents.</string>
     <string name="exclusion_editor_segment_explanation">Una exclusió basada en segments és similar a una exclusió de ruta, però permet coincidències parcials. Exemple: «DCIM/Camera» exclou «/sdcard/DCIM/Camera/photo.png».</string>
     <string name="exclusion_editor_remove_confirmation_message">Voleu eliminar aquesta exclusió?</string>
@@ -576,4 +606,5 @@
     <string name="motd_setting_enabled_explanation">Permeteu que l\'SD Maid comprovi si hi ha missatges importants del desenvolupador.</string>
     <string name="updatecheck_setting_enabled_label">Comprova si hi ha actualitzacions</string>
     <string name="updatecheck_setting_enabled_explanation">Permet que l\'SD Maid comprovi si hi ha actualitzacions per fer-vos saber si hi ha una versió més nova disponible.</string>
+    <string name="device_settings_category">Dispositiu</string>
 </resources>

@@ -95,6 +95,7 @@
     <string name="setup_incomplete_card_continue_action">Continua la configurazione</string>
     <string name="setup_title">Configurazione</string>
     <string name="setup_forcedshow_summary">Mostra la schermata di configurazione di nuovo, compresi gli elementi già completati.</string>
+    <string name="setup_checking_card_body">Verifica del completamento di configurazione e funzionalità.</string>
     <string name="general_error_setup_require_label">Configurazione incompleta</string>
     <string name="general_error_setup_require_msg">Per utilizzare questa funzione è necessario completare i passaggi rimanenti di configurazione.</string>
     <string name="setup_saf_card_title">Framework di accesso all\'archivio</string>
@@ -144,7 +145,9 @@
     <string name="setup_acs_disallow_hint">Se dovessi cambiare idea, puoi modificare nuovamente questa opzione andando in impostazioni e ripetendo la configurazione.</string>
     <string name="setup_acs_appops_restriction_title">Impostazioni limitate</string>
     <string name="setup_acs_appops_restriction_body">Non puoi abilitare i servizi di accessibilità di SD Maid? Android 13+ può applicare restrizioni alle app non installate tramite Google Play. Rimuovi queste restrizioni dalla pagina di dettaglio del sistema per SD Maid. L\'opzione è nel menu contestuale nell\'angolo in alto a destra.</string>
+    <string name="setup_inventory_card_title">Inventario App</string>
     <string name="setup_inventory_card_body">SD Maid deve conoscere le app installate per trovare i file che non appartengono a nessuna di queste.</string>
+    <string name="setup_inventory_card_extra">Attivate l\'autorizzazione ad \"Accesso a tutti i file\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid non ha trovato nessuna area da scansionare. Hai completato il setup?</string>
     <string name="dataarea_warningcard_label">Aree di dati</string>
     <string name="dataarea_warningcard_reload_action">Ricarica le aree di dati</string>
@@ -223,7 +226,7 @@
     <string name="systemcleaner_filter_anr_label">Errori ANR</string>
     <string name="systemcleaner_filter_anr_summary">Tracce degli eventi \"L\'applicazione non risponde\".</string>
     <string name="systemcleaner_filter_emptydirectories_label">Cartelle vuote</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Cartelle vuote in tutto il dispositivo. Le cartelle annidate potrebbero richiedere più passaggi.</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Cartelle vuote trovate nel dispositivo. Le sottocartelle potrebbero richiedere più passaggi.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK superflui</string>
     <string name="systemcleaner_filter_superfluosapks_summary">File installabili più vecchi o uguali a versioni di app già installate.</string>
     <string name="systemcleaner_filter_lostdir_label">Cartelle LOST.DIR</string>
@@ -350,6 +353,11 @@
     <string name="appcleaner_automation_loading">Il servizio di accessibilità sta preparando l\'automazione</string>
     <string name="appcleaner_automation_title">Automazione della Pulizia App</string>
     <string name="appcleaner_automation_subtitle_default_caches">Pulizia cache predefinita…</string>
+    <string name="appcleaner_automation_progress_open_settings">Apertura schermata impostazioni (parola chiave: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Cercando la voce \"Spazio di archiviazione\" (parole chiave: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Cercando il pulsante \"Cancella dati\" (parole chiave: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Cercando il pulsante \"Cancella cache\" (parole chiave: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Tentativo di confermare l\'azione precedente (parole chiave: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache predefinita</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache predefinite pubbliche e private. Non direttamente accessibili, ma possono essere cancellate indirettamente (ad esempio con il servizio di accessibilità).</string>
     <string name="appcleaner_automation_unavailable_title">Servizio di accessibilità non disponibile</string>
@@ -411,6 +419,8 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_systemsettings_open_description">Apri le impostazioni di sistema del tuo dispositivo per questa app.</string>
     <string name="appcontrol_app_launch_title">Avvia app</string>
     <string name="appcontrol_app_launch_description">Apre l\'applicazione.</string>
+    <string name="appcontrol_app_forcestop_title">Arresto forzato</string>
+    <string name="appcontrol_app_forcestop_description">Arresta l\'app. Impedisce che si avvii automaticamente fino a quando non la apri o il dispositivo non viene riavviato.</string>
     <string name="appcontrol_app_uninstall_description">Disinstalla quest\'app dal tuo dispositivo.</string>
     <string name="appcontrol_app_exclude_add_title">Escludi app</string>
     <string name="appcontrol_app_exclude_add_description">Escludi quest\'app dalle operazioni in SD Maid.</string>
@@ -448,7 +458,20 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_settings_module_activity_enabled_description">Scopri se un\'app è in esecuzione (o se lo è stata di recente).</string>
     <string name="appcontrol_export_app_selection_action">Esporta applicazioni</string>
     <string name="appcontrol_export_title">Esporta app</string>
+    <string name="appcontrol_export_description">Salva il file d\'installazione di quest\'app. Non sono inclusi i dati dell\'app.</string>
     <string name="appcontrol_progress_exporting_x">Esportazione %s</string>
+    <string name="appcontrol_force_stop_selection_action">Arresto forzato app</string>
+    <string name="appcontrol_force_stop_action">Arresto forzato</string>
+    <string name="appcontrol_force_stop_confirm_title">Conferma arresto forzato</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Forzare l\'arresto di %d app?</item>
+        <item quantity="other">Forzare l\'arresto di %d app?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Allestendo automazioni con il servizio di accessibilità</string>
+    <string name="appcontrol_automation_title">Automazione di AppControl</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Arresto in corso…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Cercando il bottone \"Arresto forzato\" (Parole chiave: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Cercando di confermare l\'azione precedente (parole chiave: %s)</string>
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Scopri cosa sta occupando lo spazio del tuo dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Cercando dispositivi di memoria</string>
@@ -470,6 +493,8 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="analyzer_storage_type_primary_description">L\'archiviazione primaria del tuo dispositivo. Contiene la memoria di sistema e quella di applicazioni e dati dell\'utente.</string>
     <string name="analyzer_storage_type_secondary_title">Archivio secondario</string>
     <string name="analyzer_storage_type_secondary_description">L\'archiviazione secondaria, di solito una MicroSD. Contiene file multimediali e dati dalle applicazioni che la supportano.</string>
+    <string name="analyzer_storage_type_tertiary_title">Memoria esterna</string>
+    <string name="analyzer_storage_type_tertiary_description">Una memoria esterna, ad esempio un\'unità flash collegata alla porta USB.</string>
     <string name="analyzer_storage_content_title">Contenuto della memoria</string>
     <string name="analyzer_storage_content_type_app_label">App</string>
     <string name="analyzer_storage_content_type_app_description">Spazio occupato da app installate e dai loro dati (cioè file di app, dati e cache).</string>
@@ -508,7 +533,7 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="exclusion_option_allow_partial">Consenti risultati parziali</string>
     <string name="exclusion_option_ignore_casing">Non distinguere maiuscole e minuscole</string>
     <string name="exclusion_editor_affected_tools_label">Strumenti interessati</string>
-    <string name="exclusion_editor_path_explanation">L\'esclusione di un percorso impedisce a SD Maid di elaborare ulteriormente qualsiasi percorso corrispondente. Ciò si applica a file, directory e sottodirectory.</string>
+    <string name="exclusion_editor_path_explanation">L\'esclusione di un percorso impedisce a SD Maid di elaborare qualsiasi percorso corrispondente. Si applica a file, cartelle e sottocartelle.</string>
     <string name="exclusion_editor_pkg_explanation">L\'esclusione di un app impedisce a SD Maid di elaborare qualsiasi app corrispondente.</string>
     <string name="exclusion_editor_segment_explanation">L\'esclusione di un segmento è simile all\'esclusione di percorso, ma consente di escludere percorsi simili parzialmente.
 Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/photo.png\".</string>
@@ -583,4 +608,5 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="motd_setting_enabled_explanation">Consenti a SD Maid di controllare la presenza di messaggi importanti dallo sviluppatore.</string>
     <string name="updatecheck_setting_enabled_label">Controlla aggiornamenti</string>
     <string name="updatecheck_setting_enabled_explanation">Consenti a SD Maid di controllare gli aggiornamenti per farti sapere se è disponibile una versione più recente.</string>
+    <string name="device_settings_category">Dispositivo</string>
 </resources>

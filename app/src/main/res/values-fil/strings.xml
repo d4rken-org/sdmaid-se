@@ -72,6 +72,5 @@
     <string name="systemcleaner_filter_advertisements_summary">Mga files na nagawa o para sa patalastas.</string>
     <string name="systemcleaner_filter_anr_label">ANR errors</string>
     <string name="systemcleaner_filter_anr_summary">Bakas mula sa \'application not responding\' na mga pangyayari.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Bakanteng direktoryo</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR folders</string>
 </resources>

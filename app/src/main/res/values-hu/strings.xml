@@ -217,8 +217,6 @@
     <string name="systemcleaner_filter_advertisements_summary">Reklámokhoz vagy hirdetések által létrehozott fájlok.</string>
     <string name="systemcleaner_filter_anr_label">ANR hibák</string>
     <string name="systemcleaner_filter_anr_summary">Az „alkalmazás nem válaszol” események nyomai.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Üres könyvtárak</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Üres könyvtárak az eszköz minden részéről. A beágyazott könyvtárak többszörös áthaladást igényelhetnek.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Felesleges APK-k</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Olyan telepítőfájlokat, amelyek régebbiek, vagy megegyeznek a már telepített alkalmazásverziókkal.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR mappák</string>
@@ -261,7 +259,6 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Ha nincs terület kiválasztva, akkor az összes elérhető adatterület beolvasásra és megfeleltetésre kerül.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Fájltípus korlátozások</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Fájlok</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Könyvtárak</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Ha nincs típus kiválasztva, akkor az összes típus megfelel.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Útvonali kiszabások</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">A cél elérési útvonalnak legalább egy bejegyzéssel meg kell egyeznie (pl. \" Downloads/oldapks/game-\"). További lehetőségekért nyomd meg hosszan a bejegyzéseket.</string>
@@ -498,7 +495,6 @@
     <string name="exclusion_option_allow_partial">Részleges egyezések engedélyezése</string>
     <string name="exclusion_option_ignore_casing">Tömítés figyelmen kívül hagyása</string>
     <string name="exclusion_editor_affected_tools_label">Érintett eszközök</string>
-    <string name="exclusion_editor_path_explanation">Az elérési útvonal kizárásának köszönhetően az SD Maid nem tudja tovább feldolgozni az egyező elérési utakat. Ez vonatkozik a fájlokra, könyvtárakra és alkönyvtárakra.</string>
     <string name="exclusion_editor_pkg_explanation">Az alkalmazás kizárásának megakadályozza, hogy az SD Maid feldolgozza a megfelelő csomagokat.</string>
     <string name="exclusion_editor_segment_explanation">A szegmens alapú kizárás hasonló az elérési útvonal kizárásához, de lehetővé teszi a részleges egyezéseket. Példa: A \"DCIM/Camera\" kizárja a \"/sdcard/DCIM/DCIM/Camera/photo.png\"-t.</string>
     <string name="exclusion_editor_remove_confirmation_message">Eltávolítod a kizárást?</string>

@@ -51,13 +51,13 @@
     <string name="general_progress_processing_x">Обробка %s</string>
     <string name="general_progress_loading">Завантаження</string>
     <string name="general_progress_loading_app_data">Завантаження даних додатку</string>
-    <string name="general_progress_loading_data_areas">Завантаження даних...</string>
+    <string name="general_progress_loading_data_areas">Завантаження даних…</string>
     <string name="general_progress_loading_egg_0">Все ще швидше, ніж iPhone</string>
     <string name="general_progress_loading_egg_1">Завантаження додаткової оперативної пам’яті</string>
     <string name="general_progress_loading_egg_2">Скоро™</string>
     <string name="general_progress_loading_egg_3">ЦП на перерві на каву</string>
     <string name="general_progress_loading_egg_4">Очікуємо дані від Пепе Сільвії</string>
-    <string name="general_progress_loading_egg_5">Турбоенкабулятор запускається</string>
+    <string name="general_progress_loading_egg_5">Запускається турбоінкабалятор</string>
     <string name="general_progress_loading_egg_6">Кладемо вершкове масло</string>
     <string name="general_progress_loading_egg_7">Ну, як ти тримаєшся?</string>
     <string name="general_progress_loading_egg_8">Звуковий сигнал буп-боп</string>

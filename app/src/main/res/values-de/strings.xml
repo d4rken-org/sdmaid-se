@@ -72,6 +72,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Dateivorschauen</string>
     <string name="ui_previews_summary">Dateivorschauen in allen Tools anzeigen (z. B. Bild- und Video-Miniaturansichten).</string>
+    <string name="ui_language_override_label">App Sprache</string>
+    <string name="ui_language_override_desc">Wählen Sie eine andere Sprache für SD Maid, unabhängig von der Standardsprache Ihres Systems. Aktuell: %s</string>
     <string name="settings_support_label">Unterstützung</string>
     <string name="settings_support_description">Die Dokumentation lesen, Probleme melden, mit anderen chatten oder Debug-Protokolle aufzeichnen.</string>
     <string name="documentation_label">Dokumentation</string>
@@ -93,6 +95,9 @@
     <string name="setup_incomplete_card_continue_action">Einrichtung fortsetzen</string>
     <string name="setup_title">Einrichtung</string>
     <string name="setup_forcedshow_summary">Einrichtungs-Bildschirm erneut anzeigen, einschließlich bereits abgeschlossener Elemente.</string>
+    <string name="setup_checking_card_body">Überprüfe die Fertigstellung des Setups und die Funktionalität.</string>
+    <string name="general_error_setup_require_label">Die Einrichtung ist unvollständig</string>
+    <string name="general_error_setup_require_msg">Um diese Funktion nutzen zu können, müssen Sie weitere Einstellungen vornehmen.</string>
     <string name="setup_saf_card_title">Speicherzugriffs-Framework</string>
     <string name="setup_saf_card_body">Verbessere die Ergebnisse, indem Du SD Maid Zugriff auf zusätzliche Bereiche gewährst.</string>
     <string name="setup_saf_card_body2">In den meisten Fällen wird das Fenster mit dem korrekten vorausgewählten Pfad geöffnet. Einträge werden grün, wenn der Zugriff gewährt wird. </string>
@@ -140,6 +145,9 @@
     <string name="setup_acs_disallow_hint">Wenn Du Deine Meinung änderst, kannst Du diese Option erneut ändern, indem Du in die Einstellungen gehst und die Einrichtung neu startest.</string>
     <string name="setup_acs_appops_restriction_title">Eingeschränkte Einstellungen</string>
     <string name="setup_acs_appops_restriction_body">Kann der Zugriffsdienst von SD Maid nicht aktiviert werden? Ab Android 13 gelten möglicherweise Einschränkungen für Apps, die nicht über Google Play installiert wurden. Deaktiviere diese Einschränkungen auf der Detailseite des Systems für SD Maid. Die Option befindet sich im Kontextmenü oben rechts.</string>
+    <string name="setup_inventory_card_title">App-Inventar</string>
+    <string name="setup_inventory_card_body">SD Maid muss wissen, welche Apps Sie Dateien finden müssen, die zu keiner installierten App gehören.</string>
+    <string name="setup_inventory_card_extra">Suchen Sie nach einer Berechtigung namens \"App-Liste\" oder \"Alle Pakete abfragen\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid hat keine Datenbereiche gefunden, die gescannt werden können. Hast Du die Einrichtung abgeschlossen?</string>
     <string name="dataarea_warningcard_label">Datenbereiche</string>
     <string name="dataarea_warningcard_reload_action">Datenbereiche neu laden</string>
@@ -217,8 +225,8 @@
     <string name="systemcleaner_filter_advertisements_summary">Dateien, die für oder von Anzeigen erstellt wurden.</string>
     <string name="systemcleaner_filter_anr_label">ANR Fehler</string>
     <string name="systemcleaner_filter_anr_summary">Überreste von „Anwendung reagiert nicht“-Ereignissen.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Leere Verzeichnisse</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Leere Verzeichnisse auf dem gesamten Gerät. Verschachtelte Verzeichnisse können mehrere Durchgänge erfordern.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Leere Ordner</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Leere Ordner von allen über dem Gerät. Verschachtelte Ordner können mehrere Durchgänge erfordern.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Überflüssige APKs</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Setup-Dateien, die älter oder gleich den bereits installierten App-Versionen sind.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR Ordner</string>
@@ -261,7 +269,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Wenn kein Bereich ausgewählt ist, werden alle zugänglichen Datenbereiche gescannt und abgeglichen.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Dateityp-Einschränkungen</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Dateien</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Verzeichnisse</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Ordner</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Wenn kein Typ ausgewählt ist, werden alle Typen abgeglichen.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Pfadkriterien</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Der Zielpfad muss mit mindestens einem Eintrag (z.B. \"Downloads/oldapks/game-\") übereinstimmen. Einträge für mehr Optionen gedrückt halten.</string>
@@ -345,6 +353,11 @@
     <string name="appcleaner_automation_loading">Vorbereitung der Automatisierung über den Barrierefreiheitsdienst</string>
     <string name="appcleaner_automation_title">App-Reiniger-Automatisierung</string>
     <string name="appcleaner_automation_subtitle_default_caches">Standard Caches löschen…</string>
+    <string name="appcleaner_automation_progress_open_settings">Öffne Einstellungsbildschirm (Schlüsselwörter: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Suche nach \"Storage\"-Eintrag (Schlüsselwörter: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Suche nach \"Daten löschen\" Button (Schlüsselwörter: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Suche nach \"Cache löschen\"-Button (Schlüsselwörter: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Versucht die vorherige Aktion zu bestätigen (Schlüsselwörter: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standard-Caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Öffentliche und private Standardcaches. Nicht direkt zugänglich, kann aber indirekt gelöscht werden (z.B. über den Barrierefreiheitsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Barrierefreiheitsdienst nicht verfügbar</string>
@@ -405,6 +418,8 @@
     <string name="appcontrol_systemsettings_open_description">Öffne die Systemeinstellungen Deines Geräts für diese App.</string>
     <string name="appcontrol_app_launch_title">App starten</string>
     <string name="appcontrol_app_launch_description">Starte die primäre Aktivität dieser App.</string>
+    <string name="appcontrol_app_forcestop_title">Beenden erzwingen</string>
+    <string name="appcontrol_app_forcestop_description">Stoppt die App. Verhindert, dass sie sich selbst startet, bis Sie sie öffnen oder das Gerät neu gestartet wird.</string>
     <string name="appcontrol_app_uninstall_description">Deinstalliere diese App von Deinem Gerät.</string>
     <string name="appcontrol_app_exclude_add_title">App ausschließen</string>
     <string name="appcontrol_app_exclude_add_description">Diese Anwendung von anderen Vorgängen in SD Maid ausschließen.</string>
@@ -442,7 +457,20 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Finde heraus, ob eine App aktiv ist (oder kürzlich aktiv war).</string>
     <string name="appcontrol_export_app_selection_action">Apps exportieren</string>
     <string name="appcontrol_export_title">App exportieren</string>
+    <string name="appcontrol_export_description">Speichern Sie die Installationsdateien dieser App. Dies beinhaltet keine App-Daten.</string>
     <string name="appcontrol_progress_exporting_x">%s wird exportiert</string>
+    <string name="appcontrol_force_stop_selection_action">Stopp-Apps erzwingen</string>
+    <string name="appcontrol_force_stop_action">Beenden erzwingen</string>
+    <string name="appcontrol_force_stop_confirm_title">Stopp bestätigen</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d App erzwingen?</item>
+        <item quantity="other">%d Apps stoppen?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Vorbereitung der Automatisierung über den Barrierefreiheitsdienst</string>
+    <string name="appcontrol_automation_title">AppControl Automatisierung</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Beenden erzwingen…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Suche nach \"Beenden erzwingen\" Button (Schlüsselwörter: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Versuche die vorherige Aktion zu bestätigen (Schlüsselwörter: %s)</string>
     <string name="analyzer_tool_name">Speicheranalyse</string>
     <string name="analyzer_explanation_short">Finde heraus, was auf Deinem Gerät Speicherplatz beansprucht.</string>
     <string name="analyzer_progress_scanning_device">Suche nach Speichermedien</string>
@@ -464,6 +492,8 @@
     <string name="analyzer_storage_type_primary_description">Der Hauptspeicher Deines Geräts. Enthält die interne SD-Karte, nicht-öffentlichen Speicher für Apps und Systemdaten.</string>
     <string name="analyzer_storage_type_secondary_title">Sekundärer Speicher</string>
     <string name="analyzer_storage_type_secondary_description">Ein sekundärer Speicher, normalerweise eine herausnehmbare SD-Karte. Enthält Mediendateien und Daten von Apps, die ihn unterstützen.</string>
+    <string name="analyzer_storage_type_tertiary_title">Tragbarer Speicher</string>
+    <string name="analyzer_storage_type_tertiary_description">Ein tragbarer Speicher, z.B. ein Flash-Laufwerk, der an Ihren USB-Port angeschlossen ist.</string>
     <string name="analyzer_storage_content_title">Speicherinhalt</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
     <string name="analyzer_storage_content_type_app_description">Von installierten Apps und deren Daten (z.B. Anwendungsdateien, Daten und Caches) belegter Speicherplatz.</string>
@@ -576,4 +606,5 @@
     <string name="motd_setting_enabled_explanation">Erlaube SD Maid nach wichtigen Mitteilungen des Entwicklers zu suchen.</string>
     <string name="updatecheck_setting_enabled_label">Aktualisierung prüfen</string>
     <string name="updatecheck_setting_enabled_explanation">Erlaube SD Maid nach Updates zu suchen, um Dich darüber zu informieren, ob eine neuere Version verfügbar ist.</string>
+    <string name="device_settings_category">Gerät</string>
 </resources>

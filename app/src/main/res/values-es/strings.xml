@@ -225,8 +225,8 @@
     <string name="systemcleaner_filter_advertisements_summary">Archivos que han sido creados para o por anuncios.</string>
     <string name="systemcleaner_filter_anr_label">Errores ANR</string>
     <string name="systemcleaner_filter_anr_summary">Rastros de eventos de \"aplicación no responde.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Directorios vacíos</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Directorios vacíos de todo el dispositivo. Los directorios anidados pueden requerir varias pasadas.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Carpetas vacías</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Vaciar las carpetas de todo el dispositivo. Las carpetas del sistema pueden requerir varias pasadas.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APKs superfluos</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Archivos de instalación que son anteriores o iguales a las versiones de la aplicación que ya están instaladas.</string>
     <string name="systemcleaner_filter_lostdir_label">Carpetas LOST.DIR</string>
@@ -269,7 +269,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Si no se selecciona ningún área, se escanearán y compararán todas las áreas de datos accesibles.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Restricciones de tipo de archivo</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Archivos</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Directorios</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Carpetas</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Si no se selecciona ningún tipo, se compararán todos los tipos.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Criterios de ruta</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">La ruta de destino debe coincidir al menos con una entrada (por ejemplo, \"Descargas/oldapks/juego-\"). Mantén pulsadas las entradas para obtener más opciones.</string>
@@ -532,7 +532,7 @@
     <string name="exclusion_option_allow_partial">Permitir coincidencias parciales</string>
     <string name="exclusion_option_ignore_casing">Ignorar mayúsculas/minúsculas</string>
     <string name="exclusion_editor_affected_tools_label">Herramientas afectadas</string>
-    <string name="exclusion_editor_path_explanation">Una exclusión de ruta evita que SD Maid siga procesando cualquier ruta coincidente. Esto se aplica a archivos, directorios y subdirectorios.</string>
+    <string name="exclusion_editor_path_explanation">La exclusión de una ruta impide que SD Maid siga procesando las rutas que coincidan. Esto se aplica a: archivos, carpetas y subcarpetas.</string>
     <string name="exclusion_editor_pkg_explanation">La exclusión de una aplicación evita que SD Maid procese cualquier paquete coincidente.</string>
     <string name="exclusion_editor_segment_explanation">Una exclusión basada en segmentos es similar a una exclusión de ruta, pero permite coincidencias parciales. Por ejemplo: \"DCIM/Camera\" excluye \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">¿Eliminar esta exclusión?</string>

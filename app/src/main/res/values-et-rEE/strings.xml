@@ -225,8 +225,8 @@
     <string name="systemcleaner_filter_advertisements_summary">Reklaamide jaoks või nende loodud failid.</string>
     <string name="systemcleaner_filter_anr_label">Rakenduse mitte reageerimise vead</string>
     <string name="systemcleaner_filter_anr_summary">\"Rakendus ei vasta\" sündmuste jäägid</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Tühjad kataloogid</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Seadme kõik tühjad kataloogid. Kaustu sisaldavad kaustad võivad vajada mitmekordset toimetamist.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Tühjad kaustad</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Seadme kõik tühjad kaustad. Kaustu sisaldavad kataalogid võivad vajada mitmekordset toimetamist.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Üleliigsed .apk failid</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Juba paigaldatud rakenduse versioonist vanemad või sama versiooni seadistusfailid.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR kaustad</string>
@@ -269,7 +269,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Kui ei vali ühtegi kogu, skannitakse ja tuvastatakse kõiki juurdepääsetavaid andmekogusid.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Failitüübi piirangud</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Failid</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Kataloogid</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Kaustad</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Kui ei valita ühtegi tüüpi, näidatakse kõiki tüüpe.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Asukoha reegel</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Sihtasukoht peab kattuma vähemalt ühe kandega (nt „Downloads/oldapks/game-”). Rohkem valikuteks hoidke sõrme kaua kannete peal.</string>
@@ -530,7 +530,7 @@
     <string name="exclusion_option_allow_partial">Kõik osalised leiud</string>
     <string name="exclusion_option_ignore_casing">Eira tähesuurust</string>
     <string name="exclusion_editor_affected_tools_label">Mõjutatud tööriistad</string>
-    <string name="exclusion_editor_path_explanation">Asukoha erand takistab SD Maidil töötlemast mistahes kattuvat asukohta. See hõlmab faile, katalooge ja alamkatalooge.</string>
+    <string name="exclusion_editor_path_explanation">Asukoha erand takistab SD Maidil töötlemast mistahes kattuvat asukohta. See hõlmab faile, kaustu ja alamkaustu.</string>
     <string name="exclusion_editor_pkg_explanation">Rakenduse erand takistab SD Maidil töötlemast mistahes kattuvat paketti.</string>
     <string name="exclusion_editor_segment_explanation">Segmendil põhinev erand sarnaneb asukoha erandile, ent erinevus seisneb osalise leiu poolest. Näiteks \"DCIM/Camera\" kataloog eirab \"/sdcard/DCIM/Camera/photo.png\" faili.</string>
     <string name="exclusion_editor_remove_confirmation_message">Eemaldada see erand?</string>

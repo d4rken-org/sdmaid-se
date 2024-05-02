@@ -229,8 +229,8 @@
     <string name="systemcleaner_filter_advertisements_summary">Файлы, якія былі створаны для або з дапамогай рэкламы.</string>
     <string name="systemcleaner_filter_anr_label">Памылкі адказу праграм (ANR)</string>
     <string name="systemcleaner_filter_anr_summary">Сляды памылак тыпу \'праграма не адказвае\'.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Пустыя каталогі</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Пустыя каталогі з усёй прылады. Для выяўлення ўкладзеных каталогаў можа спатрэбіцца некалькі праходаў.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Пустыя папкі</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Пустыя папкі з усёй прылады. Для выяўлення ўкладзеных папак можа спатрэбіцца некалькі праходаў.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Лішнія файлы APK</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Інсталяцыйныя файлы, у якіх версія старэйшая або роўная з усталяванымі праграмамі.</string>
     <string name="systemcleaner_filter_lostdir_label">Папкі LOST.DIR</string>
@@ -273,7 +273,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Калі ніводная вобласць не выбрана, сканіраванне і супастаўленне закране ўсе даступныя вобласці даных.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Абмежаванні паводле тыпаў файлаў</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Файлы</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Каталогі</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Папкі</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Калі тып не выбраны, супадаць будуць усе тыпы.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Крытэрый шляху</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Мэтавы шлях павінен адпавядаць прынамсі аднаму запісу (напр., \"Downloads/oldapks/game-\"). Доўгае націсканне на запісы адкрые дадатковыя опцыі.</string>
@@ -528,7 +528,7 @@
     <string name="exclusion_option_allow_partial">Дазволіць частковыя супадзенні</string>
     <string name="exclusion_option_ignore_casing">Без уліку рэгістра</string>
     <string name="exclusion_editor_affected_tools_label">Звязаныя інструменты</string>
-    <string name="exclusion_editor_path_explanation">Выключэнне шляху не дазваляе SD Maid далей апрацоўваць любыя адпаведныя шляхі. Гэта датычыцца файлаў, каталогаў і падкаталогаў.</string>
+    <string name="exclusion_editor_path_explanation">Выключэнне шляху не дазваляе SD Maid далей апрацоўваць любыя адпаведныя шляхі. Гэта датычыцца файлаў, папак і падпапак.</string>
     <string name="exclusion_editor_pkg_explanation">Выключэнне праграмы не дазваляе SD Maid апрацоўваць адпаведныя пакеты.</string>
     <string name="exclusion_editor_segment_explanation">Выключэнне на аснове сегмента падобна на выключэнне шляху, але дазваляе частковае супадзенне. Прыклад: \"DCIM/Camera\" выключае \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Выдаліць гэта выключэнне?</string>

@@ -142,6 +142,7 @@
     <string name="general_timeunit_days">Dies</string>
     <string name="general_progress_ready">A punt</string>
     <string name="general_progress_done">Fet</string>
+    <string name="general_rom_type_auto_label">Automàtic (per defecte)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s fitxer</item>
         <item quantity="other">%s fitxers</item>

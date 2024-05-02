@@ -225,8 +225,8 @@
     <string name="systemcleaner_filter_advertisements_summary">Os arquivos criados por softwares de propaganda.</string>
     <string name="systemcleaner_filter_anr_label">Erros de ANR</string>
     <string name="systemcleaner_filter_anr_summary">Vestígios de eventos \'aplicativo não está respondendo\'.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Diretórios vazios</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Diretórios vazios de todo o dispositivo. Os diretórios aninhados podem exigir várias passagens.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Pastas vazias</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Pastas vazias de todo o dispositivo. Pastas aninhadas podem exigir múltiplos passos.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APKs supérfluos</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Arquivos de instalação mais antigos ou iguais às versões do aplicativo já instaladas.</string>
     <string name="systemcleaner_filter_lostdir_label">Pastas LOST.DIR</string>
@@ -269,7 +269,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Se nenhuma área for selecionada, todas as áreas de dados acessíveis serão verificadas e correspondidas.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Restrições de tipo de arquivo</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Arquivos</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Diretórios</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Pastas</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Se nenhum tipo for selecionado, todos os tipos serão correspondidos.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Critério de diretório</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">O caminho de destino precisa corresponder pelo menos a uma entrada (por exemplo, \"Downloads/oldapks/jogo\"). Mantenha pressionado para mais opções.</string>
@@ -521,7 +521,7 @@
     <string name="exclusion_option_allow_partial">Permitir correspondências parciais</string>
     <string name="exclusion_option_ignore_casing">Ignorar maiúsculo/minúsculo</string>
     <string name="exclusion_editor_affected_tools_label">Ferramentas afetadas</string>
-    <string name="exclusion_editor_path_explanation">Uma exceção de caminho de pasta impede que o SD Maid continue processando quaisquer caminhos correspondentes. Isto aplica-se a arquivos, diretórios e subdiretórios.</string>
+    <string name="exclusion_editor_path_explanation">Uma exclusão de caminho de pasta impede que o SD Maid continue processando quaisquer caminhos correspondentes. Isto aplica-se a arquivos, diretórios e subdiretórios.</string>
     <string name="exclusion_editor_pkg_explanation">Uma exceção de aplicativo impede que o SD Maid processe qualquer pacote correspondente.</string>
     <string name="exclusion_editor_segment_explanation">Uma exceção baseada em segmento é semelhante a uma exceção de caminho de pasta, mas permite correspondências parciais. Exemplo: \"DCIM/Camera\" exclui \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Remover essa exceção?</string>

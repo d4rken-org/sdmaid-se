@@ -238,7 +238,7 @@
     <string name="systemcleaner_filter_anr_label">Ошибки ANR</string>
     <string name="systemcleaner_filter_anr_summary">Следы событий \"приложение не отвечает\".</string>
     <string name="systemcleaner_filter_emptydirectories_label">Пустые папки</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Пустые каталоги со всего устройства. Вложенные каталоги могут потребовать нескольких проходов.</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Пустые папки со всего устройства. Вложенные папки могут потребовать нескольких проходов.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Лишние APK-файлы</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Установочные файлы, версии которых старше или одинаковы с установленными версиям приложений.</string>
     <string name="systemcleaner_filter_lostdir_label">Папки LOST.DIR</string>
@@ -281,7 +281,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Если область не выбрана, то все доступные области данных будут проверены и использованы.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Ограничения типов файлов</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Файлы</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Каталоги</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Папки</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Если тип не выбран, то все типы будут использованы.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Критерии пути</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Путь назначения должен совпадать хотя бы с одной записью (например, «Downloads/oldapks/game-»). Удерживайте нажатие на записи для дополнительных опций.</string>
@@ -560,7 +560,7 @@
     <string name="exclusion_option_allow_partial">Разрешить частичное совпадение</string>
     <string name="exclusion_option_ignore_casing">Без учета регистра</string>
     <string name="exclusion_editor_affected_tools_label">Затрагиваемые инструменты</string>
-    <string name="exclusion_editor_path_explanation">Исключение пути не позволяет SD Maid обрабатывать указанные места. Это относится к файлам, каталогам и подкаталогам.</string>
+    <string name="exclusion_editor_path_explanation">Исключение пути не позволяет SD Maid обрабатывать указанные места. Это относится к файлам, папкам и вложенным папкам.</string>
     <string name="exclusion_editor_pkg_explanation">Исключение приложения не позволяет SD Maid обрабатывать указанные пакеты.</string>
     <string name="exclusion_editor_segment_explanation">Исключение сегмента похоже на исключение пути, но допускает частичные совпадения. Пример: \"DCIM/Camera\" исключает \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Удалить исключение?</string>

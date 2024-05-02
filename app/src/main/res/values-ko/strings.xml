@@ -70,6 +70,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">파일 미리보기</string>
     <string name="ui_previews_summary">모든 파일의 미리보기(영상 썸네일 등)를 표시합니다.</string>
+    <string name="ui_language_override_label">앱 언어</string>
+    <string name="ui_language_override_desc">SD Maid에서 시스템 기본 언어와 별개로 사용할 다른 언어를 선택하세요. 현재: %s</string>
     <string name="settings_support_label">지원</string>
     <string name="settings_support_description">앱의 자세한 설명을 확인하거나, 오류 보고, 다른 유저와 소통, 혹은 디버그 로그 기록을 할 수 있습니다.</string>
     <string name="documentation_label">문서</string>
@@ -91,6 +93,9 @@
     <string name="setup_incomplete_card_continue_action">설정 계속하기</string>
     <string name="setup_title">설정하기</string>
     <string name="setup_forcedshow_summary">초기 설정 화면을 다시 엽니다. 이미 완료된 설정을 다시 진행할 수 있습니다.</string>
+    <string name="setup_checking_card_body">설정 완료와 기능성을 검증하고 있어요.</string>
+    <string name="general_error_setup_require_label">설정을 완료하지 않았어요</string>
+    <string name="general_error_setup_require_msg">이 기능을 사용하려면 추가 설정이 필요해요. 남은 설정 단계를 완료하세요.</string>
     <string name="setup_saf_card_title">저장공간 열람 프레임워크</string>
     <string name="setup_saf_card_body">SD Maid가 저장공간 중 일부 공간에 추가로 접근할 수 있도록 권한을 부여할 수 있습니다.</string>
     <string name="setup_saf_card_body2">일반적으로 올바른 파일 경로가 사전 설정된 경우 창이 올바르게 열립니다. 접근 권한이 부여된 항목은 초록색으로 보여집니다. </string>
@@ -138,6 +143,9 @@
     <string name="setup_acs_disallow_hint">나중에 생각이 바뀔 경우, 설정에서 초기 설정을 다시 진행하여 본 옵션을 재조정할 수 있습니다.</string>
     <string name="setup_acs_appops_restriction_title">제한된 설정</string>
     <string name="setup_acs_appops_restriction_body">SD Maid의 접근성 서비스를 활성화할 수 없나요? 안드로이드 13 이후 버전에서는 구글 플레이에서 설치되지 않은 앱에 대해 제한이 자동으로 활성화 될 수 있습니다. 오른쪽 상단의 설정에서 제한을 풀 수 있습니다.</string>
+    <string name="setup_inventory_card_title">앱 보관소</string>
+    <string name="setup_inventory_card_body">설치한 어떤 앱에도 속하지 않은 파일을 찾으려면 어떤 앱이 필요한지 알아야 해요.</string>
+    <string name="setup_inventory_card_extra">“앱 목록”이나 “폭 넓은 패키지 가시성”이라는 권한을 찾으세요.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid에서 스캔할 수 있는 저장 공간이 없습니다. 초기 설정을 끝마치셨나요?</string>
     <string name="dataarea_warningcard_label">데이터 영역</string>
     <string name="dataarea_warningcard_reload_action">데이터 영역 새로고침</string>
@@ -212,7 +220,6 @@
     <string name="systemcleaner_filter_anr_label">응답 없음 에러</string>
     <string name="systemcleaner_filter_anr_summary">애플리케이션이 응답이 없을 때 생성되는 추적용 파일입니다.</string>
     <string name="systemcleaner_filter_emptydirectories_label">빈 폴더</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">기기에 퍼져있는 빈 폴더들입니다. 다중 폴더의 경우 여러 번의 시도가 필요할 수 있습니다.</string>
     <string name="systemcleaner_filter_superfluosapks_label">불필요한 APK 파일</string>
     <string name="systemcleaner_filter_superfluosapks_summary">설치된 앱 버젼보다 낮거나 같은 버젼의 APK 파일입니다.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 폴더</string>
@@ -255,7 +262,6 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">영역을 선택하지 않으면 액세스 가능한 모든 데이터 영역이 매칭되어 스캔됩니다.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">파일 형식 제한</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">파일</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">디렉터리</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">유형을 선택하지 않으면 모든 유형이 매칭됩니다.</string>
     <string name="systemcleaner_customfilter_editor_path_label">경로 조건</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">대상 경로는 적어도 하나의 항목과 일치해야 합니다 (예: \"Downloads/oldapks/game-\"). 더 많은 옵션을 보려면 항목을 길게 누르세요.</string>
@@ -338,6 +344,11 @@
     <string name="appcleaner_automation_loading">접근성 서비스를 통한 자동화를 준비하고 있습니다</string>
     <string name="appcleaner_automation_title">앱정리기 자동화</string>
     <string name="appcleaner_automation_subtitle_default_caches">기본 캐시를 정리하고 있습니다…</string>
+    <string name="appcleaner_automation_progress_open_settings">설정 화면 여는 중 (키워드: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">“저장소” 항목 찾는 중 (키워드: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">“자료 삭제” 버튼 찾는 중 (키워드: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">“캐시 삭제” 버튼 찾는 중 (키워드: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">이전 동작 확인을 시도하는 중 (키워드: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">기본 캐시</string>
     <string name="appcleaner_item_caches_inaccessible_body">앱의 캐시 파일입니다. 직접적인 접근은 어렵지만, 접근성 서비스 등을 통해 간접적으로 지울 수 있습니다.</string>
     <string name="appcleaner_automation_unavailable_title">접근성 서비스를 사용할 수 없습니다.</string>
@@ -395,6 +406,7 @@
     <string name="appcontrol_systemsettings_open_description">이 앱의 시스템 설정으로 이동합니다.</string>
     <string name="appcontrol_app_launch_title">앱 실행하기</string>
     <string name="appcontrol_app_launch_description">이 앱을 실행합니다.</string>
+    <string name="appcontrol_app_forcestop_title">강제 종료하기</string>
     <string name="appcontrol_app_uninstall_description">기기에서 이 앱을 삭제합니다.</string>
     <string name="appcontrol_app_exclude_add_title">앱 제외</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid의 다른 활동으로부터 이 앱을 제외합니다.</string>
@@ -489,7 +501,6 @@
     <string name="exclusion_option_allow_partial">부분 매칭 허용</string>
     <string name="exclusion_option_ignore_casing">대/소문자 무시</string>
     <string name="exclusion_editor_affected_tools_label">영향받은 도구</string>
-    <string name="exclusion_editor_path_explanation">경로 제외는 SD Maid가 해당하는 경로를 더 처리하는 것을 방지합니다. 파일, 디렉토리, 그리고 디렉토리 내 폴더들에 대해 적용됩니다.</string>
     <string name="exclusion_editor_pkg_explanation">앱 제외는 SD Maid가 해당하는 애플리케이션을 처리하는 것을 방지합니다.</string>
     <string name="exclusion_editor_segment_explanation">세그멘트 기반 제외는 경로 제외와 비슷하지만 일부만 해당하는 경우도 적용됩니다. 예시: \"DCIM/Camera\" 를 제외하면 \"/sdcard/DCIM/Camera/photo.png\" 도 제외됩니다.</string>
     <string name="exclusion_editor_remove_confirmation_message">이 제외 항목을 삭제할까요?</string>

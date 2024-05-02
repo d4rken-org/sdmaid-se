@@ -211,8 +211,6 @@
     <string name="systemcleaner_filter_advertisements_summary">広告のために、または広告によって作成されたファイル。</string>
     <string name="systemcleaner_filter_anr_label">ANRエラー</string>
     <string name="systemcleaner_filter_anr_summary">\'アプリが応答していません\'イベントから追跡します。</string>
-    <string name="systemcleaner_filter_emptydirectories_label">空のディレクトリ</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">デバイス上のすべてのディレクトリを空にします。入れ子になったディレクトリには複数のパスが必要です。</string>
     <string name="systemcleaner_filter_superfluosapks_label">余分なAPKファイル</string>
     <string name="systemcleaner_filter_superfluosapks_summary">すでにインストールされているアプリのバージョンより古い、または同等のファイルをセットアップする。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIRフォルダ</string>
@@ -255,7 +253,6 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">領域が選択されていない場合、アクセス可能なすべてのデータ領域がスキャンされ、一致します。</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">ファイルタイプの制限</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">ファイル</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">ディレクトリ</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">タイプが選択されていない場合、すべてのタイプが一致します。</string>
     <string name="systemcleaner_customfilter_editor_path_label">パスの基準</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">ターゲットのパスは、少なくとも1つのエントリーと一致する必要があります(例：\"Downloads/oldapks/game-\")。より多くのオプションのためにエントリを長押しします。</string>
@@ -489,7 +486,6 @@
     <string name="exclusion_option_allow_partial">部分一致を許可</string>
     <string name="exclusion_option_ignore_casing">大文字小文字を無視</string>
     <string name="exclusion_editor_affected_tools_label">影響を受けるツール</string>
-    <string name="exclusion_editor_path_explanation">パス除外はSD Maidが一致するパスをさらに処理することを防ぎます。これはファイル、ディレクトリ、サブディレクトリに適用されます。</string>
     <string name="exclusion_editor_pkg_explanation">アプリを除外すると、SDメイドは一致するパッケージを処理できなくなります。</string>
     <string name="exclusion_editor_segment_explanation">セグメントベースの除外はパス除外に似ていますが、部分一致を許可します。例: \"DCIM/Camera\" は \"/sdcard/DCIM/Camera/photo.png\" を除外します。</string>
     <string name="exclusion_editor_remove_confirmation_message">この除外を削除しますか？</string>

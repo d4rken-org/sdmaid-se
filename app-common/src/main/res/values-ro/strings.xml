@@ -147,6 +147,7 @@
     <string name="general_timeunit_days">Zile</string>
     <string name="general_progress_ready">Pregătit</string>
     <string name="general_progress_done">Terminat</string>
+    <string name="general_rom_type_auto_label">Automat (implicit)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s Fişier</item>
         <item quantity="few">%s Fişier</item>

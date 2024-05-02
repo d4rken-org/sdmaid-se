@@ -211,8 +211,6 @@
     <string name="systemcleaner_filter_advertisements_summary">為廣告或由廣告建立的檔案。</string>
     <string name="systemcleaner_filter_anr_label">ANR 錯誤</string>
     <string name="systemcleaner_filter_anr_summary">來自「應用程式沒有回應」活動的追蹤。</string>
-    <string name="systemcleaner_filter_emptydirectories_label">空白目錄</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">來自整部裝置的空白目錄，巢狀目錄可能需要多次通過。</string>
     <string name="systemcleaner_filter_superfluosapks_label">非必要的 APK 檔案</string>
     <string name="systemcleaner_filter_superfluosapks_summary">比已安裝的應用程式較舊或相同的安裝檔案。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 資料夾</string>
@@ -255,7 +253,6 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">如果區域未被選取，所有可存取的資料區域都將被掃描並相符。</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">檔案類型限制</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">檔案</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">目錄</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">如果類型未被選取，所有類型都將被相符。</string>
     <string name="systemcleaner_customfilter_editor_path_label">路徑準則</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">目標路徑需要至少與其中一個項目相符 (例如「Downloads/oldapks/game-」)，長按項目以取得更多選項。</string>
@@ -489,7 +486,6 @@
     <string name="exclusion_option_allow_partial">允許部分相符</string>
     <string name="exclusion_option_ignore_casing">忽略大小寫</string>
     <string name="exclusion_editor_affected_tools_label">受影響的工具</string>
-    <string name="exclusion_editor_path_explanation">路徑排除可以防止 SD 女僕進一步處理任何相符的路徑，這會套用至檔案、目錄和子目錄。</string>
     <string name="exclusion_editor_pkg_explanation">應用程式排除可以防止 SD 女僕進一步處理任何相符的套件。</string>
     <string name="exclusion_editor_segment_explanation">基於區段的排除類似於路徑排除，但允許部分相符，例如：「DCIM/Camera」排除「/sdcard/DCIM/Camera/photo.png」。</string>
     <string name="exclusion_editor_remove_confirmation_message">移除這個排除？</string>

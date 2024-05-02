@@ -74,6 +74,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Previzualizare fișier</string>
     <string name="ui_previews_summary">Afișează previzualizarea fișierelor în toate uneltele (de ex. imagini și miniaturi video).</string>
+    <string name="ui_language_override_label">Limba aplicației</string>
+    <string name="ui_language_override_desc">Selectați o altă limbă pentru SD Maid, independent de limba implicită a sistemului. Momentan: %s</string>
     <string name="settings_support_label">Suport</string>
     <string name="settings_support_description">Citește documentația, raportează probleme, discută cu alții sau înregistrează jurnale de depanare.</string>
     <string name="documentation_label">Documentație</string>
@@ -95,6 +97,9 @@
     <string name="setup_incomplete_card_continue_action">Continuă configurarea</string>
     <string name="setup_title">Parte de configurare</string>
     <string name="setup_forcedshow_summary">Arată ecranul de configurare din nou, inclusiv sarcini deja completate.</string>
+    <string name="setup_checking_card_body">Verificarea finalizării configurării și a funcționalității.</string>
+    <string name="general_error_setup_require_label">Configurarea este incompletă</string>
+    <string name="general_error_setup_require_msg">Este necesară o configurare suplimentară pentru a utiliza această caracteristică. Finalizați pașii de configurare rămași.</string>
     <string name="setup_saf_card_title">Framework pentru acces la stocare</string>
     <string name="setup_saf_card_body">Îmbunătățește rezultate prin acordarea SD Maid acces la zone suplimentare.</string>
     <string name="setup_saf_card_body2">În cele mai multe cazuri fereastra va deschide cu calea corectă preselectat. Intrările devin verde când accesul este acordat. </string>
@@ -142,6 +147,9 @@
     <string name="setup_acs_disallow_hint">Dacă te-ai răzgândit, poți modifica din nou această opțiune accesând setări și repornind partea de configurare.</string>
     <string name="setup_acs_appops_restriction_title">Setări restricționate</string>
     <string name="setup_acs_appops_restriction_body">Nu poți activa serviciul de accesibilitate? Android 13+ poate aplica restricții la aplicații neinstalate prin Google Play. Ridică aceste restricții de pe pagina de detalii a sistemului pentru SD Maid. Opțiunea se află în meniul contextual din colțul din dreapta sus.</string>
+    <string name="setup_inventory_card_title">Inventarul aplicației</string>
+    <string name="setup_inventory_card_body">SD Maid trebuie să știe ce aplicații aveți pentru a găsi fișiere care nu aparțin niciunei aplicații instalate.</string>
+    <string name="setup_inventory_card_extra">Căutați o permisiune numită „Lista de aplicații” sau „Interogați toate pachetele”.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nu a putut căuta zone de date care pot fi scanate. Ai completat partea de configurare?</string>
     <string name="dataarea_warningcard_label">Zone de date</string>
     <string name="dataarea_warningcard_reload_action">Reîncarcă zonele de date</string>
@@ -223,8 +231,8 @@
     <string name="systemcleaner_filter_advertisements_summary">Fișiere care au fost create pentru sau de reclame.</string>
     <string name="systemcleaner_filter_anr_label">Erori ANR</string>
     <string name="systemcleaner_filter_anr_summary">Urme de la evenimente \"Aplicația nu răspunde\".</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Directoare goale</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Directoare goale de pe tot dispozitivul. Directoarele imbricate pot necesita mai multe treceri.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Dosare goale</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Dosare goale de pe tot dispozitivul. Dosarele imbricate pot necesita mai multe treceri.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK-uri inutile</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Fișiere de configurare care sunt vechi sau egale la versiuni de aplicații care sunt deja instalate.</string>
     <string name="systemcleaner_filter_lostdir_label">Dosare LOST.DIR</string>
@@ -267,7 +275,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Dacă nu este selectată nicio zonă, atunci toate zonele de date accesibile vor fi scanate și compatibile.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Restricții tip fișier</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Fișiere</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Directoare</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Foldere</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Dacă nici un tip nu este selectat, atunci toate tipurile vor fi potrivite.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Criterii de cale</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Calea ţintă trebuie să se potrivească cu cel puţin o intrare (de ex. \"Descărcări/oldapks/game-\"). Apăsaţi lung intrările pentru mai multe opţiuni.</string>
@@ -352,6 +360,11 @@
     <string name="appcleaner_automation_loading">Pregătirea automatizării prin serviciul de accesibilitate</string>
     <string name="appcleaner_automation_title">Automatizare Curățitor de Aplicații</string>
     <string name="appcleaner_automation_subtitle_default_caches">Se curăță cache-ul implicit…</string>
+    <string name="appcleaner_automation_progress_open_settings">Deschiderea ecranului de setări (cuvinte cheie: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Se caută intrarea „Depozitare” (cuvinte cheie: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Se caută butonul „Șterge datele” (cuvinte cheie: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Se caută butonul „Șterge memoria cache” (cuvinte cheie: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache Implicit</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache-uri implicite publice și private. Nu este accesibil direct, dar poate fi șters indirect (ex: prin serviciul de accesibilitate).</string>
     <string name="appcleaner_automation_unavailable_title">Serviciul de accesibilitate indisponibil</string>
@@ -415,6 +428,8 @@
     <string name="appcontrol_systemsettings_open_description">Deschide setările de sistem al dispozitivului tău pentru această aplicație.</string>
     <string name="appcontrol_app_launch_title">Lansează aplicația</string>
     <string name="appcontrol_app_launch_description">Lansează activitatea principală a aplicației.</string>
+    <string name="appcontrol_app_forcestop_title">Opriți forțat</string>
+    <string name="appcontrol_app_forcestop_description">Oprește aplicația. Îl împiedică să pornească singur până când îl deschideți sau dispozitivul este repornit.</string>
     <string name="appcontrol_app_uninstall_description">Dezinstalați această aplicație de pe dispozitivul dvs.</string>
     <string name="appcontrol_app_exclude_add_title">Exclude aplicația</string>
     <string name="appcontrol_app_exclude_add_description">Exclude această aplicație din alte operații în SD Maid.</string>
@@ -453,7 +468,21 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Află dacă o aplicație este (sau a fost recent) activă.</string>
     <string name="appcontrol_export_app_selection_action">Exportă aplicații</string>
     <string name="appcontrol_export_title">Exportă aplicația</string>
+    <string name="appcontrol_export_description">Salvați fișierele de instalare ale acestei aplicații. Aceasta nu include datele aplicației.</string>
     <string name="appcontrol_progress_exporting_x">Exportat %s</string>
+    <string name="appcontrol_force_stop_selection_action">Oprire forțată a aplicațiilor</string>
+    <string name="appcontrol_force_stop_action">Opriți forțat</string>
+    <string name="appcontrol_force_stop_confirm_title">Confirmați oprirea forțată</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Opriți forțat %d aplicație?</item>
+        <item quantity="few">Opriți forțat %d aplicații?</item>
+        <item quantity="other">Opriți forțat %d aplicații?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Pregătirea automatizării prin serviciul de accesibilitate</string>
+    <string name="appcontrol_automation_title">Automatizare Controlul Aplicațiilor</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Oprirea forțată…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Se caută butonul „Oprire forțată” (cuvinte cheie: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
     <string name="analyzer_tool_name">Analizator de stocare</string>
     <string name="analyzer_explanation_short">Aflați ce ocupă spațiu pe dispozitivul dvs.</string>
     <string name="analyzer_progress_scanning_device">Se caută dispozitive de stocare</string>
@@ -477,6 +506,8 @@
     <string name="analyzer_storage_type_primary_description">Stocarea primară a dispozitivului. Conține cardul SD intern, stocare privată pentru aplicații și date de sistem.</string>
     <string name="analyzer_storage_type_secondary_title">Stocare secundară</string>
     <string name="analyzer_storage_type_secondary_description">Un material de stocare secundar, de obicei un card SD detașabil. Conține fișiere media și date de la aplicațiile care îl suportă.</string>
+    <string name="analyzer_storage_type_tertiary_title">Depozitare portabilă</string>
+    <string name="analyzer_storage_type_tertiary_description">O stocare portabilă, de exemplu o unitate flash conectată la portul USB.</string>
     <string name="analyzer_storage_content_title">Conținut de stocare</string>
     <string name="analyzer_storage_content_type_app_label">Aplicaţii</string>
     <string name="analyzer_storage_content_type_app_description">Spaţiu ocupat de aplicaţii instalate şi de datele lor (de exemplu, fişiere de aplicaţie, date şi cache).</string>
@@ -515,7 +546,7 @@
     <string name="exclusion_option_allow_partial">Permite potriviri parțiale</string>
     <string name="exclusion_option_ignore_casing">Ignoră carcasa </string>
     <string name="exclusion_editor_affected_tools_label">Instrumente afectate</string>
-    <string name="exclusion_editor_path_explanation">O excludere a traiectoriei împiedică procesarea ulterioară a oricăror căi de potrivire. Acest lucru se aplică fișierelor, dosarelor și sub-directorilor.</string>
+    <string name="exclusion_editor_path_explanation">O excludere a căilor împiedică SD Maid să proceseze în continuare orice căi care se potrivesc. Acest lucru se aplică fișierelor, folderelor și subdosarelor.</string>
     <string name="exclusion_editor_pkg_explanation">O excludere a aplicației împiedică procesarea pachetelor care se potrivesc.</string>
     <string name="exclusion_editor_segment_explanation">O excludere bazată pe segment este similară unei excluderi a rutei, dar permite potriviri parţiale. Exemplu: \"DCIM/Camera\" exclude \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Eliminați această excludere?</string>
@@ -591,4 +622,5 @@
     <string name="motd_setting_enabled_explanation">Permiteți ca Maid SD să verifice pentru mesaje importante de la dezvoltator.</string>
     <string name="updatecheck_setting_enabled_label">Verificare actualizare</string>
     <string name="updatecheck_setting_enabled_explanation">Permiteți ca SD Maid să verifice actualizările pentru a vă anunța dacă este disponibilă o versiune mai nouă.</string>
+    <string name="device_settings_category">Dispozitiv</string>
 </resources>
