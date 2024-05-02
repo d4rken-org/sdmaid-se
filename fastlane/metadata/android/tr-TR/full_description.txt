@@ -3,7 +3,7 @@
 Kimse mükemmel değildir ve Android de öyle.
 * Kaldırdığınız uygulamalar geride bir şeyler bırakır.
 * Günlükler, çökme raporları ve istemediğiniz diğer dosyalar sürekli olarak oluşturulur.
-* Depolama alanınız tanımadığınız dosya ve dizinleri ile doluyor.
+* Depolama alanınız tanımadığınız dosya ve klasörler ile dolup taşıyor.
 * Galerinizdeki tekrarlanmış fotoğrafları.
 
 Burada devam etmeyelim... SD Maid 2/SE size yardımcı olsun!
@@ -11,10 +11,10 @@ Burada devam etmeyelim... SD Maid 2/SE size yardımcı olsun!
 SD Maid 2/SE, cihazınızda hangi uygulamaların belirli dosyaları oluşturduğunu bilmek konusunda uzmanlaşmış bir uygulama ve dosya yöneticisidir. SD Maid 2/SE cihazınızı arar ve dosyaları yüklü uygulamalarla karşılaştırarak depolama alanını güvenli bir şekilde boşaltmak için seçenekler sunar.
 
 ✨ Uygulamaları kaldırdıktan sonra kalıntıları temizleyin
-Uygulamalar belirlenen dizinlerin dışında dosyalar oluşturursa, uygulamalar kaldırıldıktan sonra bile dosyalar kalabilir. "CorpseFinder" aracı uygulama kalıntılarını bulur, hangi uygulamaya ait olduklarını söyler ve bunları silmenize yardımcı olur.
+Uygulamalar belirlenen klasörlerin dışında dosyalar oluşturursa, uygulamalar kaldırıldıktan sonra bile dosyalar kalabilir. "CorpseFinder" aracı uygulama kalıntılarını bulur, hangi uygulamaya ait olduklarını söyler ve bunları silmenize yardımcı olur.
 
 🔍 Cihazınızı akıllı bir şekilde tarayın
-Boş dizinler, geçici dosyalar, önceden yüklenmiş uygulamalar ve daha fazlası için filtre uygulayın. Kendi arama kriterlerinizi bile oluşturabilirsiniz. "SystemCleaner" aracı, cihazınızı otomatik olarak aramanıza ve çeşitli kriterlere göre dosyaları silmenize olanak tanır.
+Boş klasörleri, geçici dosyaları, önceden yüklenmiş uygulamaları ve daha fazlasını filtreleyin. Kendi arama kriterlerinizi bile oluşturabilirsiniz. "SystemCleaner" aracı, cihazınızı otomatik olarak aramanıza ve çeşitli kriterlere göre dosyaları silmenize olanak tanır.
 
 🧹 Gereksiz dosyaları ve gizli önbellekleri silin
 Resim önizlemeleri, çöp kutuları, çevrimdışı önbellekler ve daha fazlası: Eğer uygulamalar kendi arkalarını temizlemezlerse, bu uygulama temizleyecektir. "AppCleaner" aracı, harcanabilir dosyalara sahip uygulamaları bulur.

@@ -3,7 +3,7 @@
 Ninguém é perfeito e o Android também não.
 * As aplicações removidas deixam sempre vestígios.
 * Os registos, relatórios de erros e outros ficheiros desnecessários estão, constantemente, a serem criados.
-* O seu armazenamento acumula ficheiros e pastas que não reconhece.
+* O seu armazenamento acumula ficheiros e pastas que você não reconhece.
 * Duplicar fotos na sua galeria.
 
 Não vá por aí… SD Maid SE está aqui para ajudar!
@@ -11,30 +11,30 @@ Não vá por aí… SD Maid SE está aqui para ajudar!
 O SD Maid 2/SE é uma aplicação e um organizador de arquivos especializado em saber quais aplicações criaram arquivos específicos no seu dispositivo. O SD Maid 2/SE pesquisa o seu dispositivo e compara arquivos com aplicações instalaas para oferecer opções de libertar espaço de armazenamento com segurança.
 
 ✨ Limpar após desinstalar aplicações
-Se aplicações criam arquivos fora dos seus diretórios designados, então os arquivos poderão continuar mesmo depois de desinstalar as aplicações. The "CorpseFinder" tool finds app remains, tells you to which app they belonged and helps you delete them.
+Se aplicações criam arquivos fora dos seus diretórios designados, então os arquivos poderão continuar mesmo depois de desinstalar as aplicações. A ferramenta "Encontrar restos" decobre a aplicação a que pertenceu os arquivos permanece, e ajuda a excluí-los.
 
-🔍 Search your device the smart way
-Filter for empty directories, temporary files, already installed apps and more. You can even create your own search criteria. The "SystemCleaner" tool allows you to automatically search your device and delete files based on various criteria.
+🔍 Pesquise o seu dispositivo de maneira inteligente
+Filtro para pastas vazias, arquivos temporários, apps já instalados e muito mais. Você pode mesmo criar os seus próprios critérios de pesquisa. A ferramenta "Cleaner" permite que você procure automaticamente no seu dispositivo e exclua arquivos com base em vários critérios.
 
-🧹 Delete expendable files and hidden caches
-Thumbnails, trash bins, offline caches and more: If apps don't clean up after themselves, then this app will. The "AppCleaner" tool finds apps with expendable files.
+🧹 Apague arquivos dispensáveis e caches ocultas
+Miniaturas, caixotes do lixo, caches offline e muito mais: Se as aplicações não se limparem a si mesmas, então esta aplicação irá fazê-lo. A ferramenta "AppCleaner" encontra aplicações com arquivos dispensáveis.
 
-📦 Manage all of your apps
-Get a comprehensive list of all apps installed on your device. Enabled, disabled, user or system app: no app can hide from you. The "AppControl" tool is an app manager that allows you to search, sort and control your apps.
+📦 Faça gestão de todas as suas aplicações
+Obtenha uma lista completa de todas as aplicações instalados no seu dispositivo. Ativada, desativada, aplicação do sistema ou do utilizador: nenhuma aplicação pode se esconder de si. A ferramenta "AppControl" é um gestor de aplicações que lhe permite pesquisar, classificar e controlar as suas aplicações.
 
-📊 What is using all your space
-Storage management can be complex with apps, media, system, and other files across phone storage, SD cards, and USB devices. "StorageAnalyzer" is a file manager that displays how space is used on your device, simplifying your storage management.
+📊 O que está a usar todo o seu espaço
+Gestão de armazenamento pode ser complexo com aplicações mídia, sistema e outros arquivos entre o armazenamento do telefone, cartões SD e dispositivos USB. "StorageAnalyzer" é um gestor de arquivos que exibe como o espaço é usado no seu dispositivo, simplificando a sua gestão de armazenamento.
 
-📷 Find duplicate data
-Duplicate downloads, photos sent through social media or just similar pictures of the same scene: Over time copies can accumulate. The "Deduplicator" tool finds files that are exactly the same or similar and helps you delete extra copies.
+📷 Encontrar dados duplicados
+Downloads duplicados, fotos enviadas através das redes sociais ou apenas imagens semelhantes do mesmo cenário: com o tempo, as cópias podem acumular. A ferramenta "Desduplicator" encontra arquivos que são exatamente iguais ou semelhantes e ajuda a excluir cópias extras.
 
-This app is ad-free. Algumas funcionalidades requerem uma versão paga.
+Esta aplicação não tem publicidade. Algumas funcionalidades requerem uma versão paga.
 
 SD Maid 2 SE é o sucessor do SD Maid 1/Legacy.
 Otimizado para versões mais recentes do Android e focado na limpeza.
 
-This app has optional features that utilize the AccessibilityService API to automate tedious actions.
-Using the AccessibilityService API, this app can click buttons for you to perform operations on multiple apps, e.g. a apagar caches.
-This app does not use the AccessibilityService API to collect information.
+SD Maid possui recursos opcionais que utilizam a API AccessibilityService para automatizar ações chatas.
+Usando a API AccessibilityService, o SD Maid pode clicar em botões para realizar operações em várias aplicações, por exemplo. a apagar caches.
+SD Maid não usa a API AccessibilityService para recolher informações.
 
-SD Maid 2/SE is a File Manager & Cleaner App.
+O SD Maid 2/SE é um Gesor de Arquivos e Aplicativo Cleaner.
