@@ -3,7 +3,7 @@
 Mitte keegi pole täiuslik ja sama kehtib Androidile.
 * Juba eemaldatud rakendused jätavad midagi maha.
 * Pidevalt luuakse ebaolulisi logisid, veaaruandeid ja muid faile.
-* Hoiustamisruum kogub tundmatuid faile ja kaustu.
+* Hoiuruumi koguneb võõraid faile ja kaustu.
 * Korduvad pildid galeriis.
 
 Saab ka teisiti... Luba SD Maid 2/SE-l end aidata!
@@ -11,10 +11,10 @@ Saab ka teisiti... Luba SD Maid 2/SE-l end aidata!
 SD Maid 2/SE on rakendus ja failihaldur, mis teab rakenduste loodud failide päritolu. SD Maid 2/SE otsib seadmest ja võrdleb faile paigaldatud rakendustega, et pakkuda ohutut hoiuruumi vabastamist.
 
 ✨ Rakenduste eemaldamisjärgne puhastus
-Kui rakendused loovad faile kohtadesse, mis pole nende ettenähtud kataloog, siis need säilivad isegi pärast rakenduste eemaldamist. Jäägileidja leiab rakenduse jääke, näitab millisele rakendusele need kuuluvad ja aitab neid kustutada.
+Kui rakendused loovad faile kohtadesse, kus pole nende andmeid, siis need failid püsivad isegi pärast rakenduste eemaldamist. Jäägileidja leiab rakenduse jääke, näitab millisele rakendusele need kuuluvad ja aitab neid kustutada.
 
 🔍 Otsige seadmest nutikalt
-Filtreerige tühje katalooge, ajutisi faile, juba paigaldatud rakendusi jne. Saate luua isegi enda otsingutermini. Süsteemipuhastaja otsib ise seadmest faile kustutamiseks vastavalt teie nõudmisele.
+Jaota tühje kaustu, ajutisi faile, juba paigaldatud rakendusi ja muud. Saate luua isegi enda otsingutermini. Süsteemipuhastaja otsib ise seadmest faile kustutamiseks vastavalt teie nõudmisele.
 
 🧹 Jääkide ja peidetud vahemälude kustutamine
 Pisipildid, prügikastid, võrguühenduseta vahemälud jne. Kui rakendused ei korista enda tagant, siis see rakendus teeb seda. Rakendusepuhastaja leiab jääkidega rakendusi.

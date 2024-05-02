@@ -1,24 +1,40 @@
-<i>SD ajută SE</i> este asistentul dvs. de încredere Android, pentru a o menține curată și ordonată.
+<i>SD Maid 2/SE</i> este asistentul dvs. de încredere pentru Android, pentru a-l menține curat și ordonat.
 
 Nimeni nu este perfect și nici Android nu este.
 * Aplicațiile pe care le-ai eliminat deja lasă ceva în spatele lor.
-* Jurnalele, rapoarte de blocaj și alte fișiere pe care nu le doreai sunt create constant.
-* Stocarea ta colectează fișiere și directoare pe care nu le recunoști.
+* Jurnalele, rapoartele de blocare și alte fișiere pe care nu le doriți sunt create în mod constant.
+* Stocarea dvs. colectează fișiere și foldere pe care nu le recunoașteți.
+* Dublați fotografii în galeria dvs.
 
-Hai să nu mergem aici… Lasă SD Maid SE să te ajute:
+Să nu continuăm aici... Lăsați SD Maid 2/SE să vă ajute!
 
-* Curăță date din aplicații deja dezinstalate
-* Ştergeţi fişierele ce pot fi găsite şi geocutiile ascunse
-* Eliminaţi fişierele de sistem neutilizate
-* Creați-vă propriile filtre pentru fișiere aleatoare
-* Găsește și șterge date duplicat
-* Analizează spațiul de stocare și șterge fișiere mari care preiau spațiu
+SD Maid 2/SE este un manager de aplicații și fișiere care este specializat în a ști ce aplicații au creat anumite fișiere pe dispozitivul dvs. SD Maid 2/SE caută dispozitivul dvs. și compară fișierele cu aplicațiile instalate pentru a oferi opțiuni pentru eliberarea în siguranță a spațiului de stocare.
 
-SD Maid SE este fără reclame. Unele funcții necesită o actualizare plătită.
+✨ Curățați după dezinstalarea aplicațiilor
+Dacă aplicațiile creează fișiere în afara folderelor lor desemnate, atunci fișierele pot rămâne chiar și după dezinstalarea aplicațiilor. Instrumentul „Găsitor de cadavre” găsește rămășițele de aplicații, vă spune cărei aplicații au aparținut și vă ajută să le ștergeți.
+
+🔍 Căutați dispozitivul în mod inteligent
+Filtrați pentru foldere goale, fișiere temporare, aplicații deja instalate și multe altele. Puteți chiar să vă creați propriile criterii de căutare. Instrumentul „Curățitor de sistem” vă permite să căutați automat dispozitivul și să ștergeți fișiere pe baza diferitelor criterii.
+
+🧹 Ștergeți fișierele consumabile și cache-urile ascunse
+Miniaturi, coșuri de gunoi, cache offline și multe altele: dacă aplicațiile nu se curăță după ele, atunci această aplicație o va face. Instrumentul „Curățitor de aplicații” găsește aplicații cu fișiere consumabile.
+
+📦 Gestionați toate aplicațiile dvs
+Obțineți o listă cuprinzătoare a tuturor aplicațiilor instalate pe dispozitivul dvs. Aplicație activată, dezactivată, de utilizator sau de sistem: nicio aplicație nu vă poate ascunde. Instrumentul „Controlul Aplicațiilor” este un manager de aplicații care vă permite să căutați, să sortați și să vă controlați aplicațiile.
+
+📊 Ce vă folosește tot spațiul
+Gestionarea stocării poate fi complexă cu aplicații, media, sistem și alte fișiere din stocarea telefonului, cardurile SD și dispozitivele USB. „Analizatorul de stocare” este un manager de fișiere care afișează modul în care este utilizat spațiul pe dispozitiv, simplificând gestionarea stocării.
+
+📷 Găsiți date duplicat
+Descărcări duplicate, fotografii trimise prin intermediul rețelelor sociale sau doar imagini similare ale aceleiași scene: în timp, copiile se pot acumula. Instrumentul „Deduplicator” găsește fișiere care sunt exact aceleași sau similare și vă ajută să ștergeți copii suplimentare.
+
+Această aplicație nu conține reclame. Unele funcții necesită o actualizare plătită.
 
 SD Maid 2/SE este succesorul lui SD Maid 1/Legacy.
 Optimizat pentru versiuni noi de Android și concentrat pe curățare.
 
-SD Maid SE are funcții opționale care utilizează AccessibilityService API pentru a automatiza acțiuni plictisitoare.
-Folosind API-ul serviciului de accesibilitate, SD Maid SE poate apăsa pe butoane pentru dvs., ceea ce îi permite să efectueze operațiuni pe mai multe aplicații, de ex. ștergerea cache-urilor.
-SD Maid SE nu utilizează AccessibilityService API pentru a colecta informații.
+Această aplicație are caracteristici opționale care utilizează API-ul AccessibilityService pentru a automatiza acțiunile obositoare.
+Folosind API-ul AccessibilityService, această aplicație poate face clic pe butoane pentru a efectua operațiuni pe mai multe aplicații, de exemplu. ștergerea cache-urilor.
+Această aplicație nu utilizează API-ul AccessibilityService pentru a colecta informații.
+
+SD Maid 2/SE este o aplicație Manager de fișiere & Curățitor.
