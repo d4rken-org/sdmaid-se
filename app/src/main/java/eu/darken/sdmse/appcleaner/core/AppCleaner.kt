@@ -14,15 +14,27 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.PathException
+import eu.darken.sdmse.common.files.isAncestorOf
+import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
-import eu.darken.sdmse.common.progress.*
+import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.increaseProgress
+import eu.darken.sdmse.common.progress.updateProgressCount
+import eu.darken.sdmse.common.progress.updateProgressPrimary
+import eu.darken.sdmse.common.progress.updateProgressSecondary
+import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
@@ -237,6 +249,7 @@ class AppCleaner @Inject constructor(
                     snapshot = snapshot,
                     targetPkgs = task.targetPkgs,
                     useAutomation = task.useAutomation,
+                    isBackground = task.isBackground
                 ).succesful
             }
         } else {

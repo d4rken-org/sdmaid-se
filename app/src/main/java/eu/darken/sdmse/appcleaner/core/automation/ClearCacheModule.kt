@@ -11,7 +11,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
-import eu.darken.sdmse.appcleaner.core.automation.specs.*
+import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
+import eu.darken.sdmse.appcleaner.core.automation.specs.LabelDebugger
 import eu.darken.sdmse.appcleaner.core.automation.specs.alcatel.AlcatelSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.androidtv.AndroidTVSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPSpecs
@@ -36,7 +37,9 @@ import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -44,7 +47,12 @@ import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getPkg
-import eu.darken.sdmse.common.progress.*
+import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.increaseProgress
+import eu.darken.sdmse.common.progress.updateProgressCount
+import eu.darken.sdmse.common.progress.updateProgressPrimary
+import eu.darken.sdmse.common.progress.updateProgressSecondary
+import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -165,8 +173,12 @@ class ClearCacheModule @AssistedInject constructor(
             }
         }
 
-        // If we aborted due to an exception and the reason is "User has cancelled", then still clean up
-        returnToSDMaid(cancelledByUser)
+        if (task.returnToApp) {
+            // If we aborted due to an exception and the reason is "User has cancelled", then still clean up
+            returnToSDMaid(cancelledByUser)
+        } else {
+            log(TAG) { "Return to app is disabled." }
+        }
 
         return ClearCacheTask.Result(
             successful = successful,

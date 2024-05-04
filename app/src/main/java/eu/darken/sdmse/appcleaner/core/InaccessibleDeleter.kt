@@ -67,6 +67,7 @@ class InaccessibleDeleter @Inject constructor(
         snapshot: AppCleaner.Data,
         targetPkgs: Collection<Installed.InstallId>?,
         useAutomation: Boolean,
+        isBackground: Boolean,
     ): InaccDelResult {
         log(TAG, INFO) { "deleteInaccessible() targetPkgs=${targetPkgs?.size}, $useAutomation" }
 
@@ -95,7 +96,8 @@ class InaccessibleDeleter @Inject constructor(
         return deleteInaccessible(
             targetInaccessible,
             isAllApps = targetPkgs == null,
-            useAutomation = useAutomation
+            useAutomation = useAutomation,
+            isBackground = isBackground,
         )
     }
 
@@ -103,6 +105,7 @@ class InaccessibleDeleter @Inject constructor(
         targets: Collection<AppJunk>,
         isAllApps: Boolean,
         useAutomation: Boolean,
+        isBackground: Boolean,
     ): InaccDelResult {
         log(TAG) { "${targets.size} inaccessible caches to delete." }
         if (targets.isEmpty()) return InaccDelResult()
@@ -127,7 +130,8 @@ class InaccessibleDeleter @Inject constructor(
             log(TAG) { "Processing ${remainingTargets.size} remaining inaccessible caches" }
             val successFullLive = mutableSetOf<Installed.InstallId>()
             val acsTask = ClearCacheTask(
-                remainingTargets.map { it.identifier },
+                targets = remainingTargets.map { it.identifier },
+                returnToApp = !isBackground,
                 onSuccess = { successFullLive.add(it) }
             )
             val result = try {

@@ -20,6 +20,7 @@ data class AppCleanerProcessingTask(
     val includeInaccessible: Boolean = true,
     val onlyInaccessible: Boolean = false,
     val useAutomation: Boolean = true,
+    val isBackground: Boolean = false,
 ) : AppCleanerTask {
 
     sealed interface Result : AppCleanerTask.Result
