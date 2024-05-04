@@ -34,6 +34,7 @@ suspend fun AutomationHost.waitForWindowRoot(delayMs: Long = 250): Accessibility
 suspend fun AutomationModule.returnToSDMaid(
     userCancelled: Boolean
 ) = withContext(if (userCancelled) NonCancellable else EmptyCoroutineContext) {
+    log { "Returning to SD Maid" }
     val returnIntern = Intent(context, MainActivity::class.java).apply {
         flags = Intent.FLAG_ACTIVITY_NEW_TASK or
                 Intent.FLAG_ACTIVITY_CLEAR_TOP or
