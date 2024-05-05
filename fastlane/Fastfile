@@ -25,6 +25,7 @@ platform :android do
     sh "bash ./remove_unsupported_languages.sh"
   	supply(
         track: 'beta',
+        rollout: '0.10',
         package_name: 'eu.darken.sdmse',
         skip_upload_changelogs: 'false',
         skip_upload_apk: 'true',
@@ -39,6 +40,7 @@ platform :android do
     sh "bash ./remove_unsupported_languages.sh"
     supply(
         track: 'beta',
+        rollout: '0.10',
         package_name: 'eu.darken.sdmse',
         skip_upload_changelogs: 'false',
         skip_upload_apk: 'true',
