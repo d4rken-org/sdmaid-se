@@ -12,7 +12,9 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.coroutine.SuspendingLazy
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -95,15 +97,22 @@ class AppStorageScanner @AssistedInject constructor(
                     }
                     ?.let { LocalPath.build(it) }
                     ?.let { codeDir ->
-                        when {
-                            useRoot -> codeDir.walkContentItem(gatewaySwitch)
-                            appStorStats != null -> ContentItem.fromInaccessible(
+                        if (useRoot) {
+                            try {
+                                return@let codeDir.walkContentItem(gatewaySwitch)
+                            } catch (e: ReadException) {
+                                log(TAG, ERROR) { "Failed to read $codeDir despire root access? ${e.asLog()}" }
+                            }
+                        }
+
+                        if (appStorStats != null) {
+                            return@let ContentItem.fromInaccessible(
                                 codeDir,
                                 if (pkg.userHandle == currentUser) appStorStats.appBytes else 0L
                             )
-
-                            else -> ContentItem.fromInaccessible(codeDir)
                         }
+
+                        ContentItem.fromInaccessible(codeDir)
                     }
 
                 ContentGroup(
@@ -133,22 +142,31 @@ class AppStorageScanner @AssistedInject constructor(
             }
             .toSet()
 
-        val dataDirPrivs = when {
-            storage.type != DeviceStorage.Type.PRIMARY -> emptySet()
-            dataAreas.any { it.type == DataArea.Type.PRIVATE_DATA } -> pkg
-                .getPrivateDataDirs(dataAreas)
-                .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.CURRENT) }
-                .map { it.walkContentItem(gatewaySwitch) }
+        val dataDirPrivs = run {
+            if (storage.type != DeviceStorage.Type.PRIMARY) return@run emptySet()
 
-            appStorStats != null -> setOfNotNull(pkg.applicationInfo?.dataDir).map {
-                ContentItem.fromInaccessible(
-                    LocalPath.build(it),
-                    // This is a simplification, because storage stats don't provider more fine grained infos
-                    appStorStats.dataBytes - (dataDirPubs.firstOrNull()?.size ?: 0L)
-                )
+            if (dataAreas.any { it.type == DataArea.Type.PRIVATE_DATA }) {
+                try {
+                    return@run pkg
+                        .getPrivateDataDirs(dataAreas)
+                        .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.CURRENT) }
+                        .map { it.walkContentItem(gatewaySwitch) }
+                } catch (e: ReadException) {
+                    log(TAG, ERROR) { "Failed to read private data dirs for $pkg: ${e.asLog()}" }
+                }
             }
 
-            else -> setOfNotNull(pkg.applicationInfo?.dataDir).map {
+            if (appStorStats != null) {
+                return@run setOfNotNull(pkg.applicationInfo?.dataDir).map {
+                    ContentItem.fromInaccessible(
+                        LocalPath.build(it),
+                        // This is a simplification, because storage stats don't provider more fine grained infos
+                        appStorStats.dataBytes - (dataDirPubs.firstOrNull()?.size ?: 0L)
+                    )
+                }
+            }
+
+            setOfNotNull(pkg.applicationInfo?.dataDir).map {
                 ContentItem.fromInaccessible(LocalPath.build(it))
             }
         }

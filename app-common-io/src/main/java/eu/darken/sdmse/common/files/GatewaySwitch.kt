@@ -2,6 +2,9 @@ package eu.darken.sdmse.common.files
 
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.files.local.LocalPath
@@ -17,7 +20,6 @@ import okio.IOException
 import okio.Sink
 import okio.Source
 import java.time.Instant
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -76,11 +78,17 @@ class GatewaySwitch @Inject constructor(
         val mapped = path.toTargetType(type)
         return try {
             useGateway(mapped) { lookup(mapped) }
-        } catch (e: ReadException) {
-            if (type != Type.AUTO) throw e
+        } catch (oge: ReadException) {
+            if (type != Type.AUTO) throw oge
+            log(TAG, WARN) { "lookup(...): Original lookup failed, try alternative: ${oge.asLog()}" }
 
             val fallback = path.toAlternative()
-            useGateway(fallback) { lookup(fallback) }
+            try {
+                useGateway(fallback) { lookup(fallback) }
+            } catch (e: ReadException) {
+                log(TAG, WARN) { "lookup(...): Alternative lookup failed either: ${e.asLog()}" }
+                throw oge
+            }
         }
     }
 
@@ -92,16 +100,40 @@ class GatewaySwitch @Inject constructor(
         val mapped = path.toTargetType(type)
         return try {
             useGateway(mapped) { lookupFiles(mapped) }
-        } catch (e: ReadException) {
-            if (type != Type.AUTO) throw e
+        } catch (oge: ReadException) {
+            if (type != Type.AUTO) throw oge
+            log(TAG, WARN) { "lookupFiles(...): Original lookup failed, try alternative: ${oge.asLog()}" }
 
             val fallback = path.toAlternative()
-            useGateway(fallback) { lookupFiles(fallback) }
+            try {
+                useGateway(fallback) { lookupFiles(fallback) }
+            } catch (e: ReadException) {
+                log(TAG, WARN) { "lookupFiles(...): Alternative lookup failed either: ${e.asLog()}" }
+                throw oge
+            }
         }
     }
 
     override suspend fun lookupFilesExtended(path: APath): Collection<APathLookupExtended<APath>> {
-        return useGateway(path) { lookupFilesExtended(path) }
+        return lookupFilesExtended(path, Type.CURRENT)
+    }
+
+    suspend fun lookupFilesExtended(path: APath, type: Type): Collection<APathLookupExtended<APath>> {
+        val mapped = path.toTargetType(type)
+        return try {
+            useGateway(mapped) { lookupFilesExtended(mapped) }
+        } catch (oge: ReadException) {
+            if (type != Type.AUTO) throw oge
+            log(TAG, WARN) { "lookupFilesExtended(...): Original lookup failed, try alternative: ${oge.asLog()}" }
+
+            val fallback = path.toAlternative()
+            try {
+                useGateway(fallback) { lookupFilesExtended(fallback) }
+            } catch (e: ReadException) {
+                log(TAG, WARN) { "lookupFilesExtended(...): Alternative lookup failed either: ${e.asLog()}" }
+                throw oge
+            }
+        }
     }
 
     override suspend fun walk(
@@ -184,8 +216,8 @@ class GatewaySwitch @Inject constructor(
     }
 
     private suspend fun APath.toAlternative(): APath = when (this.pathType) {
-        APath.PathType.LOCAL -> mapper.toSAFPath(this as LocalPath) ?: throw IOException("Can't map $this to SAF")
-        APath.PathType.SAF -> mapper.toLocalPath(this as SAFPath) ?: throw IOException("Can't map $this to LOCAL")
+        APath.PathType.LOCAL -> mapper.toSAFPath(this as LocalPath) ?: throw ReadException(this, "Can't map to SAF")
+        APath.PathType.SAF -> mapper.toLocalPath(this as SAFPath) ?: throw ReadException(this, "Can't map to LOCAL")
         APath.PathType.RAW -> throw UnsupportedOperationException("Alternative mapping for RAW not available")
     }
 
