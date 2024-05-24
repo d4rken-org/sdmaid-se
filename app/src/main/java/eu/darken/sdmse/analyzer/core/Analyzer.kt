@@ -10,6 +10,7 @@ import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanTask
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanner
+import eu.darken.sdmse.analyzer.core.storage.AppDeepScanTask
 import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
 import eu.darken.sdmse.analyzer.core.storage.StorageScanner
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
@@ -20,7 +21,9 @@ import eu.darken.sdmse.analyzer.core.storage.toFlatContent
 import eu.darken.sdmse.analyzer.core.storage.toNestedContent
 import eu.darken.sdmse.common.collections.mutate
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
@@ -30,7 +33,10 @@ import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.getQuantityString2
-import eu.darken.sdmse.common.progress.*
+import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.updateProgressPrimary
+import eu.darken.sdmse.common.progress.updateProgressSecondary
+import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.main.core.SDMTool
@@ -42,6 +48,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -111,6 +118,7 @@ class Analyzer @Inject constructor(
                 is DeviceStorageScanTask -> scanStorageDevices(task)
                 is StorageScanTask -> scanStorageContents(task)
                 is ContentDeleteTask -> deleteContent(task)
+                is AppDeepScanTask -> deepScanApp(task)
                 else -> throw UnsupportedOperationException("Unsupported task: $task")
             }
 
@@ -233,6 +241,36 @@ class Analyzer @Inject constructor(
             itemCount = task.targets.size,
             freedSpace = freedSpace,
         )
+    }
+
+    private suspend fun deepScanApp(task: AppDeepScanTask): AppDeepScanTask.Result {
+        log(TAG, VERBOSE) { "deepScanApp(): $task" }
+
+        if (!appInventorySetupModule.isComplete()) {
+            log(TAG, WARN) { "SetupModule INVENTORY is not complete" }
+            throw IncompleteSetupException(SetupModule.Type.INVENTORY)
+        }
+
+        val targetStorage = storageDevices.value.singleOrNull { it.id == task.storageId }
+            ?: throw IllegalStateException("Couldn't find ${task.storageId}")
+        val targetCategory = storageCategories.first()[targetStorage.id]!!.filterIsInstance<AppCategory>().single()
+        val targetApp = targetCategory.pkgStats[task.installId]!!
+
+        val start = System.currentTimeMillis()
+
+        val updatedApp = storageScanner.get().withProgress(this) { deepScanApp(targetStorage, targetApp) }
+
+        val stop = System.currentTimeMillis()
+        log(TAG) { "deepScanApp() took ${stop - start}ms" }
+
+        storageCategories.value = storageCategories.value.mutate {
+            this[targetStorage.id] = this[targetStorage.id]!!.map { category ->
+                if (category !is AppCategory) return@map category
+                category.copy(pkgStats = category.pkgStats.mutate { replace(task.installId, updatedApp) })
+            }
+        }
+
+        return AppDeepScanTask.Result(true)
     }
 
     data class State(

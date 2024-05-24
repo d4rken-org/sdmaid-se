@@ -7,13 +7,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
+import eu.darken.sdmse.analyzer.core.storage.AppDeepScanTask
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsAppCodeVH
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsAppDataVH
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsAppMediaVH
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsExtraDataVH
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsHeaderVH
-import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -24,7 +24,11 @@ import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.mapNotNull
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
 import javax.inject.Inject
 
 @HiltViewModel
@@ -47,6 +51,16 @@ class AppDetailsViewModel @Inject constructor(
             .onEach {
                 log(TAG, WARN) { "Can't find app for $targetInstallId on $targetStorageId" }
                 popNavStack()
+            }
+            .launchInViewModel()
+
+        analyzer.data
+            .mapNotNull { it.findPkg() }
+            .take(1)
+            .filter { it.isShallow }
+            .onEach {
+                log(TAG) { "Current stats are shallow, initiating deep scan" }
+                analyzer.submit(AppDeepScanTask(targetStorageId, targetInstallId))
             }
             .launchInViewModel()
     }

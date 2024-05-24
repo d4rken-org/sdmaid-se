@@ -22,6 +22,7 @@ data class AppCategory(
 
     data class PkgStat(
         val pkg: Installed,
+        val isShallow: Boolean,
         val appCode: ContentGroup?,
         val appData: ContentGroup?,
         val appMedia: ContentGroup?,
