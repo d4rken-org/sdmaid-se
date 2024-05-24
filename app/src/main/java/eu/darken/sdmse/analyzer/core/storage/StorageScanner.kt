@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -38,6 +39,7 @@ import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.storage.StorageManager2
+import eu.darken.sdmse.common.storage.StorageVolumeX
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.setup.inventory.InventorySetupModule
@@ -77,25 +79,30 @@ class StorageScanner @Inject constructor(
     private var useRoot = false
     private var useShizuku = false
     private var dataAreas = mutableSetOf<DataArea>()
+    private var volume: StorageVolumeX? = null
     private lateinit var currentUser: UserHandle2
 
-    suspend fun scan(storage: DeviceStorage): Collection<ContentCategory> {
-        log(TAG) { "scan($storage)" }
-
-        updateProgressPrimary(storage.label)
-        updateProgressSecondary(R.string.analyzer_progress_scanning_storage)
-
+    suspend fun init(storage: DeviceStorage) {
         useRoot = rootManager.canUseRootNow()
         useShizuku = shizukuManager.canUseShizukuNow()
         currentUser = userManager2.currentUser().handle
 
-        val volume = storageManager2.storageVolumes.singleOrNull { it.uuid == storage.id.internalId }
+        volume = storageManager2.storageVolumes.singleOrNull { it.uuid == storage.id.internalId }
         dataAreaManager.currentAreas()
             .filter { it.hasFlags(DataArea.Flag.PRIMARY) == volume?.isPrimary }
             .let {
                 dataAreas.clear()
                 dataAreas.addAll(it)
             }
+    }
+
+    suspend fun scan(storage: DeviceStorage): Collection<ContentCategory> {
+        log(TAG) { "scan($storage)" }
+
+        updateProgressPrimary(storage.label)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
+
+        init(storage)
 
         log(TAG) { "Target public volume: $volume" }
 
@@ -104,6 +111,8 @@ class StorageScanner @Inject constructor(
                 val storageDir = volume?.directory
                     ?.let { LocalPath.build(it) }
                     ?.let { gatewaySwitch.lookup(it, type = GatewaySwitch.Type.AUTO) }
+
+                updateProgressSecondary(R.string.analyzer_progress_scanning_storage)
 
                 val folders = storageDir?.lookedUp
                     ?.listFiles(gatewaySwitch)
@@ -173,9 +182,17 @@ class StorageScanner @Inject constructor(
         val pkgStats = targetPkgs
             .map { pkg ->
                 updateProgressSecondary(pkg.label ?: pkg.packageName.toCaString())
-                val result = appScanner.processPkg(pkg, topLevelDirs)
+                val matchingTlds = topLevelDirs.filter {
+                    val owner = it.getOwner(pkg.id) ?: return@filter false
+                    !owner.hasFlag(Marker.Flag.CUSTODIAN) && !owner.hasFlag(Marker.Flag.COMMON)
+                }.toSet()
+                val request = AppStorageScanner.Request.Initial(
+                    pkg = pkg,
+                    extraData = matchingTlds.map { it.item }
+                )
+                val result = appScanner.process(request)
+                topLevelDirs.removeAll(matchingTlds)
                 increaseProgress()
-                topLevelDirs.removeAll(result.consumedTopLevelDirs)
                 result.pkgStat
             }
             .filter { it.totalSize > 0L }
@@ -253,6 +270,34 @@ class StorageScanner @Inject constructor(
             groups = groups,
             spaceUsedOverride = unaccountedFor,
         )
+    }
+
+    suspend fun deepScanApp(storage: DeviceStorage, app: AppCategory.PkgStat): AppCategory.PkgStat {
+        log(TAG) { "deepScanApp(): On $storage: $app" }
+        init(storage)
+
+        updateProgressPrimary(app.label)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
+
+        val appScanner = appScannerFactory.create(
+            useRoot = useRoot,
+            useShizuku = useShizuku,
+            currentUser = currentUser,
+            dataAreas = dataAreas,
+            storage = storage,
+        )
+
+
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_searching)
+
+        val request = AppStorageScanner.Request.Reprocessing(
+            pkgStat = app
+        )
+        val rescanned = appScanner.process(request)
+
+        log(TAG) { "Rescanned ${app.id}: $rescanned" }
+
+        return rescanned.pkgStat
     }
 
     companion object {

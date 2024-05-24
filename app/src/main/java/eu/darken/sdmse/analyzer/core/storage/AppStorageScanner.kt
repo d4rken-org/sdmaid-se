@@ -10,7 +10,6 @@ import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.coroutine.SuspendingLazy
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -22,7 +21,6 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.core.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.forensics.OwnerInfo
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getPrivateDataDirs
@@ -74,22 +72,21 @@ class AppStorageScanner @AssistedInject constructor(
             .toSet()
     }
 
-    suspend fun processPkg(
-        pkg: Installed,
-        topLevelDirs: Set<OwnerInfo>,
+    suspend fun process(
+        request: Request,
     ): Result {
         val appStorStats = try {
-            statsManager.queryStatsForPkg(storage.id, pkg)
+            statsManager.queryStatsForPkg(storage.id, request.pkg)
         } catch (e: Exception) {
-            log(TAG, WARN) { "Failed to query stats for ${pkg.id} due to $e" }
+            log(TAG, WARN) { "Failed to query stats for ${request.pkg.id} due to $e" }
             null
         }
 
         val appCodeGroup = when {
             storage.type != DeviceStorage.Type.PRIMARY -> null
-            pkg.isSystemApp && !pkg.isUpdatedSystemApp -> null
-            pkg.isArchived -> null
-            else -> pkg.applicationInfo?.sourceDir
+            request.pkg.isSystemApp && !request.pkg.isUpdatedSystemApp -> null
+            request.pkg.isArchived -> null
+            else -> request.pkg.applicationInfo?.sourceDir
                 ?.let {
                     when {
                         it.endsWith("base.apk") -> File(it).parent
@@ -98,7 +95,7 @@ class AppStorageScanner @AssistedInject constructor(
                 }
                 ?.let { LocalPath.build(it) }
                 ?.let { codeDir ->
-                    if (useRoot) {
+                    if (!request.shallow && useRoot) {
                         try {
                             return@let codeDir.walkContentItem(gatewaySwitch)
                         } catch (e: ReadException) {
@@ -109,7 +106,7 @@ class AppStorageScanner @AssistedInject constructor(
                     if (appStorStats != null) {
                         return@let ContentItem.fromInaccessible(
                             codeDir,
-                            if (pkg.userHandle == currentUser) appStorStats.appBytes else 0L
+                            if (request.pkg.userHandle == currentUser) appStorStats.appBytes else 0L
                         )
                     }
 
@@ -125,12 +122,14 @@ class AppStorageScanner @AssistedInject constructor(
 
         // TODO: For root we look up /data/media?
 
-        // Android/data/<pkg>
+        // Android/data/<request.pkg>
         val dataDirPubs = publicDataPaths.value()
-            .map { it.child(pkg.packageName) }
+            .map { it.child(request.pkg.packageName) }
             .mapNotNull { pubData ->
                 when {
-                    hasApiLevel(33) && !useRoot && !useShizuku -> ContentItem.fromInaccessible(pubData)
+                    request.shallow || (hasApiLevel(33) && !useRoot && !useShizuku) -> {
+                        ContentItem.fromInaccessible(pubData)
+                    }
 
                     gatewaySwitch.exists(pubData, type = GatewaySwitch.Type.AUTO) -> try {
                         pubData.walkContentItem(gatewaySwitch)
@@ -146,28 +145,28 @@ class AppStorageScanner @AssistedInject constructor(
         val dataDirPrivs = run {
             if (storage.type != DeviceStorage.Type.PRIMARY) return@run emptySet()
 
-            if (dataAreas.any { it.type == DataArea.Type.PRIVATE_DATA }) {
+            if (!request.shallow && dataAreas.any { it.type == DataArea.Type.PRIVATE_DATA }) {
                 try {
-                    return@run pkg
+                    return@run request.pkg
                         .getPrivateDataDirs(dataAreas)
                         .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.CURRENT) }
                         .map { it.walkContentItem(gatewaySwitch) }
                 } catch (e: ReadException) {
-                    log(TAG, ERROR) { "Failed to read private data dirs for $pkg: ${e.asLog()}" }
+                    log(TAG, ERROR) { "Failed to read private data dirs for $request.pkg: ${e.asLog()}" }
                 }
             }
 
             if (appStorStats != null) {
-                return@run setOfNotNull(pkg.applicationInfo?.dataDir).map {
+                return@run setOfNotNull(request.pkg.applicationInfo?.dataDir).map {
                     ContentItem.fromInaccessible(
                         LocalPath.build(it),
-                        // This is a simplification, because storage stats don't provider more fine grained infos
+                        // This is a simplification, because storage stats don't provide more fine grained infos
                         appStorStats.dataBytes - (dataDirPubs.firstOrNull()?.size ?: 0L)
                     )
                 }
             }
 
-            setOfNotNull(pkg.applicationInfo?.dataDir).map {
+            setOfNotNull(request.pkg.applicationInfo?.dataDir).map {
                 ContentItem.fromInaccessible(LocalPath.build(it))
             }
         }
@@ -177,9 +176,9 @@ class AppStorageScanner @AssistedInject constructor(
             contents = dataDirPrivs + dataDirPubs,
         )
 
-        // Android/media/<pkg>
+        // Android/media/<request.pkg>
         val appMediaGroup = publicMediaPaths.value()
-            .map { it.child(pkg.packageName) }
+            .map { it.child(request.pkg.packageName) }
             .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.AUTO) }
             .map { it.walkContentItem(gatewaySwitch) }
             .toSet()
@@ -191,17 +190,10 @@ class AppStorageScanner @AssistedInject constructor(
                 )
             }
 
-        val consumed = mutableSetOf<OwnerInfo>()
-        val extraData = topLevelDirs
-            .filter {
-                val owner = it.getOwner(pkg.id) ?: return@filter false
-                !owner.hasFlag(Marker.Flag.CUSTODIAN) && !owner.hasFlag(Marker.Flag.COMMON)
-            }
-            .mapNotNull { ownerInfo ->
+        val extraData = request.extraData
+            .mapNotNull { path ->
                 try {
-                    ownerInfo.areaInfo.file.walkContentItem(gatewaySwitch).also {
-                        consumed.add(ownerInfo)
-                    }
+                    path.walkContentItem(gatewaySwitch)
                 } catch (e: ReadException) {
                     null
                 }
@@ -216,19 +208,45 @@ class AppStorageScanner @AssistedInject constructor(
 
         return Result(
             pkgStat = AppCategory.PkgStat(
-                pkg = pkg,
+                pkg = request.pkg,
+                isShallow = request.shallow,
                 appCode = appCodeGroup,
                 appData = appDataGroup,
                 appMedia = appMediaGroup,
                 extraData = extraData,
             ),
-            consumedTopLevelDirs = consumed,
         )
+    }
+
+    sealed interface Request {
+        val pkg: Installed
+        val shallow: Boolean
+        val extraData: Collection<APath>
+
+        data class Initial(
+            override val pkg: Installed,
+            override val extraData: Collection<APath>,
+        ) : Request {
+            override val shallow: Boolean
+                get() = true
+        }
+
+        data class Reprocessing(
+            val pkgStat: AppCategory.PkgStat,
+        ) : Request {
+            override val pkg: Installed
+                get() = pkgStat.pkg
+
+            override val shallow: Boolean
+                get() = false
+
+            override val extraData: Collection<APath>
+                get() = pkgStat.extraData?.contents?.map { it.path } ?: emptySet()
+        }
     }
 
     data class Result(
         val pkgStat: AppCategory.PkgStat,
-        val consumedTopLevelDirs: Set<OwnerInfo>,
     )
 
     @AssistedFactory
