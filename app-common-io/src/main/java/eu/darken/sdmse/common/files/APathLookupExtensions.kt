@@ -21,6 +21,11 @@ suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>, GT : 
     options: APathGateway.WalkOptions<P, PL> = APathGateway.WalkOptions()
 ): Flow<PL> = lookedUp.walk(gateway, options)
 
+suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>, GT : APathGateway<P, PL, PLE>> PL.du(
+    gateway: GT,
+    options: APathGateway.DuOptions<P, PL> = APathGateway.DuOptions()
+): Long = lookedUp.du(gateway, options)
+
 suspend fun <P : APath, PL : APathLookup<P>> PL.exists(
     gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>
 ): Boolean = lookedUp.exists(gateway)

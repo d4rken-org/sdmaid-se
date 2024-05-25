@@ -2,12 +2,12 @@ package eu.darken.sdmse.common.files
 
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.files.local.*
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.crumbsTo
 import eu.darken.sdmse.common.files.local.isAncestorOf
 import eu.darken.sdmse.common.files.local.isParentOf
 import eu.darken.sdmse.common.files.local.startsWith
-import eu.darken.sdmse.common.files.saf.*
+import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.files.saf.crumbsTo
 import eu.darken.sdmse.common.files.saf.isAncestorOf
 import eu.darken.sdmse.common.files.saf.isParentOf
@@ -18,7 +18,7 @@ import okio.Source
 import java.io.File
 import java.io.IOException
 import java.time.Instant
-import java.util.*
+import java.util.Collections
 import eu.darken.sdmse.common.files.local.removePrefix as removePrefixLocalPath
 import eu.darken.sdmse.common.files.saf.removePrefix as removePrefixSafPath
 
@@ -45,6 +45,14 @@ suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>, GT : 
     options: APathGateway.WalkOptions<P, PL> = APathGateway.WalkOptions()
 ): Flow<PL> {
     return gateway.walk(this, options)
+}
+
+
+suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>, GT : APathGateway<P, PL, PLE>> P.du(
+    gateway: GT,
+    options: APathGateway.DuOptions<P, PL> = APathGateway.DuOptions()
+): Long {
+    return gateway.du(this, options)
 }
 
 suspend fun <T : APath> T.exists(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Boolean {

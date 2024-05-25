@@ -34,6 +34,8 @@ interface FileOpsConnection {
 
     RemoteInputStream walkStream(in LocalPath path, in List<String> pathDoesNotContain);
 
+    long du(in LocalPath path);
+
     boolean createSymlink(in LocalPath linkPath, in LocalPath targetPath);
 
     boolean setModifiedAt(in LocalPath path, in long modifiedAt);

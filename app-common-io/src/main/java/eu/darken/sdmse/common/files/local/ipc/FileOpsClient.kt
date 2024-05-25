@@ -91,6 +91,12 @@ class FileOpsClient @AssistedInject constructor(
         return output.toLocalPathLookupFlow()
     }
 
+    fun du(path: LocalPath): Long = try {
+        fileOpsConnection.du(path)
+    } catch (e: Exception) {
+        throw e.toFakeIOException()
+    }
+
     fun readFile(path: LocalPath): Source = try {
         fileOpsConnection.readFile(path).source()
     } catch (e: Exception) {

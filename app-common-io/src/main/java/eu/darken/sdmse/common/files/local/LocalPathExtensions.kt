@@ -45,7 +45,6 @@ fun LocalPath.performLookup(): LocalPathLookup {
         lookedUp = this,
         size = file.length(),
         modifiedAt = Instant.ofEpochMilli(file.lastModified()),
-
         target = file.readLink()?.let { LocalPath.build(it) }
     )
 }

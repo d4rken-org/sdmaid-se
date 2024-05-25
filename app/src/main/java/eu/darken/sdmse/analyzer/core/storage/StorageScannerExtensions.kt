@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.du
 import eu.darken.sdmse.common.files.walk
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.toList
@@ -106,6 +107,24 @@ internal suspend fun APath.walkContentItem(gatewaySwitch: GatewaySwitch): Conten
     } else {
         ContentItem.fromLookup(lookup)
     }
+}
+
+internal suspend fun APath.sizeContentItem(gatewaySwitch: GatewaySwitch): ContentItem {
+    log(TAG, VERBOSE) { "Sizing content items for $this" }
+
+    val lookup = gatewaySwitch.lookup(this, type = GatewaySwitch.Type.AUTO)
+
+    val extraSize = if (lookup.fileType == FileType.DIRECTORY) {
+        try {
+            lookup.du(gatewaySwitch)
+        } catch (e: ReadException) {
+            log(TAG, WARN) { "Failed to du $this: ${e.asLog()}" }
+            0L
+        }
+    } else {
+        0L
+    }
+    return ContentItem.fromInaccessible(this, lookup.size + extraSize)
 }
 
 private val TAG = logTag("Analyzer", "Storage", "Scanner", "Extensions")

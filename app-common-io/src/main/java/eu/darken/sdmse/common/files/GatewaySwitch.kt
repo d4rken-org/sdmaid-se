@@ -143,6 +143,14 @@ class GatewaySwitch @Inject constructor(
         return useGateway(path) { walk(path, options) }
     }
 
+
+    override suspend fun du(
+        path: APath,
+        options: APathGateway.DuOptions<APath, APathLookup<APath>>
+    ): Long {
+        return useGateway(path) { du(path, options) }
+    }
+
     override suspend fun listFiles(path: APath): Collection<APath> {
         return useGateway(path) { listFiles(path) }
     }

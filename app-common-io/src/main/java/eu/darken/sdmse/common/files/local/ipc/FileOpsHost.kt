@@ -44,7 +44,7 @@ class FileOpsHost @Inject constructor(
     private val ipcFunnel: IPCFunnel,
 ) : FileOpsConnection.Stub(), IpcHostModule {
 
-   private fun listFiles(path: LocalPath): List<LocalPath> = path.asFile().listFiles2().map { LocalPath.build(it) }
+    private fun listFiles(path: LocalPath): List<LocalPath> = path.asFile().listFiles2().map { LocalPath.build(it) }
 
     override fun listFilesStream(path: LocalPath): RemoteInputStream = try {
         if (Bugs.isTrace) log(TAG, VERBOSE) { "listFilesStream($path)..." }
@@ -127,6 +127,14 @@ class FileOpsHost @Inject constructor(
         lookups.toRemoteInputStream()
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFilesExtendedStream(path=$path) failed\n${e.asLog()}" }
+        throw wrapPropagating(e)
+    }
+
+    override fun du(path: LocalPath): Long = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "du($path)..." }
+        runBlocking { path.asFile().walkTopDown().map { it.length() }.sum() }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "exists(path=$path) failed\n${e.asLog()}" }
         throw wrapPropagating(e)
     }
 
