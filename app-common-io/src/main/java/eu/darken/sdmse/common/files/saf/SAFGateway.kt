@@ -323,6 +323,42 @@ class SAFGateway @Inject constructor(
         }
 
 
+    override suspend fun du(
+        path: SAFPath,
+        options: APathGateway.DuOptions<SAFPath, SAFPathLookup>,
+    ): Long = runIO {
+        try {
+            val start = lookup(path)
+            log(TAG, VERBOSE) { "du($path) -> $start" }
+
+            if (start.isFile) return@runIO start.size
+
+            var total = start.size
+
+            val queue = LinkedList(listOf(start))
+            while (!queue.isEmpty()) {
+                val lookUp = queue.removeFirst()
+
+                val newBatch = try {
+                    lookupFiles(lookUp.lookedUp)
+                } catch (e: IOException) {
+                    log(TAG, ERROR) { "Failed to read $lookUp: $e" }
+                    emptyList()
+                }
+
+                newBatch.forEach { child ->
+                    total += child.size
+                    if (child.isDirectory) queue.addFirst(child)
+                }
+            }
+
+            total
+        } catch (e: Exception) {
+            log(TAG, WARN) { "du($path) failed." }
+            throw ReadException(path, cause = e)
+        }
+    }
+
     override suspend fun read(path: SAFPath): Source = runIO {
         try {
             val docFile = findDocFile(path)

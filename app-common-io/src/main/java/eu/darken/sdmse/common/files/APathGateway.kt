@@ -38,6 +38,15 @@ interface APathGateway<
             get() = onFilter == null && onError == null
     }
 
+    suspend fun du(
+        path: P,
+        options: DuOptions<P, PLU> = DuOptions()
+    ): Long
+
+    data class DuOptions<P : APath, PLU : APathLookup<P>>(
+        val abortOnError: Boolean = false,
+    )
+
     suspend fun exists(path: P): Boolean
 
     suspend fun canWrite(path: P): Boolean

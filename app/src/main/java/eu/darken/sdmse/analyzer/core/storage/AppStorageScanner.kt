@@ -180,24 +180,39 @@ class AppStorageScanner @AssistedInject constructor(
         val appMediaGroup = publicMediaPaths.value()
             .map { it.child(request.pkg.packageName) }
             .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.AUTO) }
-            .map { it.walkContentItem(gatewaySwitch) }
-            .toSet()
-            .takeIf { it.isNotEmpty() }
-            ?.let { contentSet ->
-                ContentGroup(
-                    label = R.string.analyzer_storage_content_app_media_label.toCaString(),
-                    contents = contentSet,
-                )
-            }
-
-        val extraData = request.extraData
             .mapNotNull { path ->
                 try {
-                    path.walkContentItem(gatewaySwitch)
+                    if (request.shallow) {
+                        path.sizeContentItem(gatewaySwitch)
+                    } else {
+                        path.walkContentItem(gatewaySwitch)
+                    }
                 } catch (e: ReadException) {
                     null
                 }
             }
+            .toSet()
+            .takeIf { it.isNotEmpty() }
+            ?.let {
+                ContentGroup(
+                    label = R.string.analyzer_storage_content_app_media_label.toCaString(),
+                    contents = it,
+                )
+            }
+
+        val extraDataGroup = request.extraData
+            .mapNotNull { path ->
+                try {
+                    if (request.shallow) {
+                        path.sizeContentItem(gatewaySwitch)
+                    } else {
+                        path.walkContentItem(gatewaySwitch)
+                    }
+                } catch (e: ReadException) {
+                    null
+                }
+            }
+            .toSet()
             .takeIf { it.isNotEmpty() }
             ?.let {
                 ContentGroup(
@@ -213,7 +228,7 @@ class AppStorageScanner @AssistedInject constructor(
                 appCode = appCodeGroup,
                 appData = appDataGroup,
                 appMedia = appMediaGroup,
-                extraData = extraData,
+                extraData = extraDataGroup,
             ),
         )
     }

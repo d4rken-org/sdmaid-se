@@ -3,11 +3,19 @@ package eu.darken.sdmse.common.files.local
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APathGateway
+import eu.darken.sdmse.common.files.Ownership
+import eu.darken.sdmse.common.files.Permissions
+import eu.darken.sdmse.common.files.ReadException
+import eu.darken.sdmse.common.files.WriteException
+import eu.darken.sdmse.common.files.asFile
+import eu.darken.sdmse.common.files.callbacks
 import eu.darken.sdmse.common.files.core.local.createSymlink
 import eu.darken.sdmse.common.files.core.local.isReadable
 import eu.darken.sdmse.common.files.core.local.listFiles2
@@ -26,14 +34,15 @@ import eu.darken.sdmse.common.shizuku.service.runModuleAction
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
-import okio.*
+import okio.Sink
+import okio.Source
+import okio.sink
+import okio.source
 import java.io.File
 import java.io.IOException
 import java.time.Instant
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -409,7 +418,7 @@ class LocalGateway @Inject constructor(
                 }
 
                 canRead && mode == Mode.AUTO -> {
-                    log(TAG, VERBOSE) { "walk($mode->NORMAL, direct): $path" }
+                    log(TAG, VERBOSE) { "walk($mode->NORMAL, escalating): $path" }
                     EscalatingWalker(
                         gateway = this@LocalGateway,
                         start = path,
@@ -453,11 +462,73 @@ class LocalGateway @Inject constructor(
 
                 else -> throw IOException("No matching mode available.")
             }
-                .onEach {
-//                    if (Bugs.isTrace) log(TAG, VERBOSE) { "Walked $it" }
-                }
         } catch (e: IOException) {
             log(TAG, WARN) { "walk(path=$path, mode=$mode) failed:\n${e.asLog()}" }
+            throw ReadException(path, cause = e)
+        }
+    }
+
+    override suspend fun du(
+        path: LocalPath,
+        options: APathGateway.DuOptions<LocalPath, LocalPathLookup>,
+    ): Long = du(path, options, Mode.AUTO)
+
+    suspend fun du(
+        path: LocalPath,
+        options: APathGateway.DuOptions<LocalPath, LocalPathLookup> = APathGateway.DuOptions(),
+        mode: Mode = Mode.AUTO,
+    ): Long = runIO {
+        try {
+            val javaFile = path.asFile()
+            val canRead = when (mode) {
+                Mode.AUTO, Mode.NORMAL -> if (javaFile.canRead()) {
+                    try {
+                        javaFile.length()
+                        true
+                    } catch (e: IOException) {
+                        false
+                    }
+                } else {
+                    false
+                }
+
+                else -> false
+            }
+
+            when {
+                mode == Mode.NORMAL -> {
+                    log(TAG, VERBOSE) { "walk($mode->NORMAL, direct): $path" }
+                    if (!canRead) throw ReadException(path)
+                    javaFile.walkTopDown().map { it.length() }.sum()
+                }
+
+                canRead && mode == Mode.AUTO -> {
+                    log(TAG, VERBOSE) { "du($mode->AUTO, escalating): $path" }
+                    try {
+                        du(path, mode = Mode.NORMAL)
+                    } catch (e: ReadException) {
+                        when {
+                            hasRoot() -> du(path, mode = Mode.ROOT)
+                            hasShizuku() -> du(path, mode = Mode.ADB)
+                            else -> throw e
+                        }
+                    }
+                }
+
+                hasRoot() && (mode == Mode.ROOT || !canRead && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "du($mode->ROOT): $path" }
+                    rootOps { it.du(path) }
+                }
+
+                hasShizuku() && (mode == Mode.ADB || !canRead && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "du($mode->ADB): $path" }
+                    adbOps { it.du(path) }
+                }
+
+                else -> throw IOException("No matching mode available.")
+            }
+        } catch (e: IOException) {
+            log(TAG, WARN) { "du(path=$path, mode=$mode) failed:\n${e.asLog()}" }
             throw ReadException(path, cause = e)
         }
     }

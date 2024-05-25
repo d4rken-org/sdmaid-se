@@ -21,10 +21,10 @@ import java.util.LinkedList
 /**
  * Prevents unnecessary lookups in Mode.NORMAL for nested directories
  */
-class EscalatingWalker constructor(
+class EscalatingWalker(
     private val gateway: LocalGateway,
     private val start: LocalPath,
-    private val options: APathGateway.WalkOptions<LocalPath, LocalPathLookup>,
+    private val options: APathGateway.WalkOptions<LocalPath, LocalPathLookup> = APathGateway.WalkOptions()
 ) : AbstractFlow<LocalPathLookup>() {
     private val tag = "$TAG#${hashCode()}"
 
