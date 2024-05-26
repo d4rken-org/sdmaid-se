@@ -16,6 +16,9 @@ import eu.darken.sdmse.common.pkgs.sources.PackageManagerPkgSource
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.filter
@@ -84,14 +87,24 @@ class PkgRepo @Inject constructor(
     }
 
     private suspend fun generatePkgcache(): Map<CacheKey, CachedInfo> {
-        log(TAG, INFO) { "Generating package cache" }
+        log(TAG, INFO) { "generatePkgcache()..." }
+        val start = System.currentTimeMillis()
         return gatewaySwitch.useRes {
             pkgOps.useRes {
-                val sourceMap: Map<KClass<out PkgDataSource>, Collection<Installed>> = pkgSources.associate { source ->
-                    val fromSource = source.getPkgs()
-                    log(TAG) { "${fromSource.size} pkgs from $source" }
-                    source::class to fromSource
-                }
+                val sourceMap: Map<KClass<out PkgDataSource>, Collection<Installed>> = coroutineScope {
+                    pkgSources.map { source ->
+                        async {
+                            log(TAG) { "generatePkgcache(): $source start..." }
+                            val sourceStart = System.currentTimeMillis()
+                            val fromSource = source.getPkgs()
+                            val sourceStop = System.currentTimeMillis()
+                            log(TAG) {
+                                "generatePkgcache(): ${fromSource.size} pkgs from $source took ${sourceStop - sourceStart}ms"
+                            }
+                            source::class to fromSource
+                        }
+                    }
+                }.awaitAll().toMap()
 
                 val mergedData = mutableMapOf<CacheKey, CachedInfo>()
 
@@ -122,7 +135,8 @@ class PkgRepo @Inject constructor(
 
                 log(TAG, INFO) { "Pkgs total: ${mergedData.size}" }
                 mergedData.values.forEach { log(TAG, DEBUG) { "Installed package: $it" } }
-
+                val stop = System.currentTimeMillis()
+                log(TAG, INFO) { "generatePkgcache(): PkgRepo load took ${stop - start}ms" }
                 mergedData
             }
         }
