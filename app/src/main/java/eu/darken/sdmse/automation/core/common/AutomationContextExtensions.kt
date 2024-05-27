@@ -9,6 +9,7 @@ import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.automation.core.errors.AutomationException
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
+import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -18,11 +19,13 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.funnel.IPCFunnel
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getLabel2
 import eu.darken.sdmse.common.pkgs.getPackageInfo2
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
+import eu.darken.sdmse.common.pkgs.isSystemApp
 import kotlinx.coroutines.delay
 import java.util.Locale
 
@@ -166,37 +169,38 @@ fun AutomationExplorer.Context.getAospClearCacheClick(
 ): suspend (AccessibilityNodeInfo, Int) -> Boolean = scope@{ node, retryCount ->
     log(tag, VERBOSE) { "Clicking on ${node.toStringShort()} for $pkg:" }
 
-    if (Bugs.isDryRun) {
-        log(tag, INFO) { "DRYRUN: Not clicking ${node.toStringShort()}" }
-        return@scope true
-    }
-
     try {
         defaultClick(isDryRun = Bugs.isDryRun).invoke(node, retryCount)
     } catch (e: DisabledTargetException) {
         log(tag) { "Can't click on the clear cache button because it was disabled, but why..." }
-        try {
-            val allButtonsAreDisabled = node.getRoot(maxNesting = 4).crawl().map { it.node }.all {
-                !it.isClickyButton() || !it.isEnabled
-            }
-            if (allButtonsAreDisabled) {
-                // https://github.com/d4rken/sdmaid-public/issues/3121
-                log(tag, WARN) {
-                    "Clear cache button was disabled, but so are others, assuming size calculation going on."
-                }
-                log(tag) { "Sleeping for 1000ms to wait for calculation." }
-                delay((500 * retryCount).toLong())
-                false
-            } else {
-                // https://github.com/d4rken/sdmaid-public/issues/2517
-                log(tag, WARN) {
-                    "Only the clear cache button was disabled, assuming stale information, counting as success."
-                }
-                true
-            }
+        val allButtonsAreDisabled = try {
+            node.getRoot(maxNesting = 4).crawl().map { it.node }.all { !it.isClickyButton() || !it.isEnabled }
         } catch (e: Exception) {
             log(tag, WARN) { "Error while trying to determine why the clear cache button is not enabled." }
             false
+        }
+
+        when {
+            hasApiLevel(34) && pkg.isSystemApp && allButtonsAreDisabled -> {
+                // https://github.com/d4rken-org/sdmaid-se/issues/1178
+                log(TAG, WARN) { "Locked system app, can't click clear cache for ${pkg.installId}" }
+                throw PlanAbortException("Locked system app, can't clear cache: ${pkg.installId}")
+            }
+
+            allButtonsAreDisabled -> {
+                // https://github.com/d4rken/sdmaid-public/issues/3121
+                log(tag, WARN) { "Clear cache button disabled (others are too), assuming size calculation " }
+                val sleepTime = 250L * (retryCount + 1)
+                log(tag) { "Sleeping for $sleepTime to wait for calculation." }
+                delay(sleepTime)
+                false
+            }
+
+            else -> {
+                // https://github.com/d4rken/sdmaid-public/issues/2517
+                log(tag, WARN) { "Only clear cache was disabled, assuming stale infos, counting as success." }
+                true
+            }
         }
     }
 }
