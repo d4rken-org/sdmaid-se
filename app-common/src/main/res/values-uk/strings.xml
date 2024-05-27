@@ -51,7 +51,7 @@
     <string name="general_progress_processing_x">Обробка %s</string>
     <string name="general_progress_loading">Завантаження</string>
     <string name="general_progress_loading_app_data">Завантаження даних додатку</string>
-    <string name="general_progress_loading_data_areas">Завантаження даних…</string>
+    <string name="general_progress_loading_data_areas">Завантаження даних...</string>
     <string name="general_progress_loading_egg_0">Все ще швидше, ніж iPhone</string>
     <string name="general_progress_loading_egg_1">Завантаження додаткової оперативної пам’яті</string>
     <string name="general_progress_loading_egg_2">Скоро™</string>
@@ -61,6 +61,7 @@
     <string name="general_progress_loading_egg_6">Кладемо вершкове масло</string>
     <string name="general_progress_loading_egg_7">Ну, як ти тримаєшся?</string>
     <string name="general_progress_loading_egg_8">Звуковий сигнал буп-боп</string>
+    <string name="general_progress_loading_egg_9">Буферизація життєвого вибору</string>
     <string name="general_progress_loading_egg_10">Виклик Cthulhu</string>
     <string name="general_progress_loading_egg_11">Все гаразд</string>
     <string name="general_progress_loading_egg_12">Будь ласка, зачекайте</string>
@@ -89,8 +90,20 @@
     <string name="general_delete_confirmation_title">Підтвердити видалення</string>
     <string name="general_delete_confirmation_message_x">Видалити \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Видалити %d вибраних елементів?</string>
+    <plurals name="general_delete_success_deleted_x_freed_y">
+        <item quantity="one">Видалено елемент %1$d і звільнено %2$s</item>
+        <item quantity="few">Видалено елементів %1$d і звільнено %2$s</item>
+        <item quantity="many">Видалено елементів %1$d і звільнено %2$s</item>
+        <item quantity="other">Видалено %1$d елементів і звільнено %2$s</item>
+    </plurals>
     <string name="general_remove_action">Видалити</string>
     <string name="general_remove_selected_action">Видалити вибране</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Один елемент було вилучено</item>
+        <item quantity="few">%d елементів було вилучено</item>
+        <item quantity="many">%d елементів було вилучено</item>
+        <item quantity="other">%d елементів було видалено</item>
+    </plurals>
     <string name="general_root_required_label">Потрібні Root права</string>
     <string name="general_root_required_message">Потрібен рутований пристрій</string>
     <string name="general_search_action">Пошук</string>
@@ -101,6 +114,18 @@
         <item quantity="few">%s елементів</item>
         <item quantity="many">%s елементів</item>
         <item quantity="other">%s елементів</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">Успішно %d</item>
+        <item quantity="few">Успішні %d</item>
+        <item quantity="many">Успішні %d</item>
+        <item quantity="other">Успішно %d</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">Помилка %d</item>
+        <item quantity="few">Помилки %d</item>
+        <item quantity="many">Помилки %d</item>
+        <item quantity="other">Помилка %d</item>
     </plurals>
     <string name="x_space_can_be_freed">%s можна звільнити</string>
     <string name="general_info_label">Інформація</string>
@@ -128,4 +153,10 @@
     <string name="general_progress_ready">Готово</string>
     <string name="general_progress_done">Виконано</string>
     <string name="general_rom_type_auto_label">Автоматично (за замовчуванням)</string>
+    <plurals name="result_x_files">
+        <item quantity="one">Файл %s</item>
+        <item quantity="few">Файли %s</item>
+        <item quantity="many">Файлів %s</item>
+        <item quantity="other">Файли %s</item>
+    </plurals>
 </resources>

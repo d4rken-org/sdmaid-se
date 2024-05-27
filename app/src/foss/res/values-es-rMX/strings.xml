@@ -14,9 +14,4 @@
     <string name="upgrade_screen_sponsor_action">Patrocinador el proyecto</string>
     <string name="upgrade_screen_sponsor_action_hint">La alternativa son los anuncios, las analíticas y Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Gracias por apoyar el desarrollo libre ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">¡Juntos, hemos llegado a la primera versión! ¡Gracias por ayudarme a probarla! El desarrollo continuará, pero ahora puedes cambiar a una versión no beta. Para ello, descarga la última versión estable.</string>
-    <string name="nudge_betagoodbye_hint">Pequeña nota: Las valoraciones dadas durante la beta sólo son visibles para mí, te agradecería que dieras a SD Maid una valoración pública si estás contento con la aplicación.</string>
-    <string name="nudge_betagoodbye_positive_action">Date de baja</string>
-    <string name="nudge_betagoodbye_negative_action">Seguir en la beta</string>
 </resources>

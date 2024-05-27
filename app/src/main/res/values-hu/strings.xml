@@ -72,6 +72,7 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Fájl előnézetek</string>
     <string name="ui_previews_summary">Fájlelőnézetek megjelenítése minden eszközben (pl. kép- és videóképek miniatűrjei).</string>
+    <string name="ui_language_override_label">Alkalmazás nyelve</string>
     <string name="settings_support_label">Támogatás</string>
     <string name="settings_support_description">Olvasd el a dokumentációt, jelentsd a problémákat, csevegj másokkal vagy rögzítsd a hibakeresési naplókat.</string>
     <string name="documentation_label">Dokumentáció</string>

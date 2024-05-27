@@ -15,9 +15,9 @@
     <string name="upgrade_screen_sponsor_action">贊助開發</string>
     <string name="upgrade_screen_sponsor_action_hint">替代品為廣告、分析和 Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">感謝您對開放原始碼開發的支持 ❤️</string>
-    <string name="nudge_betagoodbye_title">SD 女僕 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">我們一起做到了初次發行！感謝您協助我進行測試！當然，開發將繼續進行，但您現在可以切換至非測試版的組建。透過下載最新穩定發行版來做到這一點。</string>
-    <string name="nudge_betagoodbye_hint">小附註：測試期間給出的評分只有我自己能看到，如果您樂意能給 SD 女僕一個公開的評分的話，我會很感激。</string>
-    <string name="nudge_betagoodbye_positive_action">退出</string>
-    <string name="nudge_betagoodbye_negative_action">繼續測試</string>
+    <string name="nudge_betagoodbye_title">版本 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">謝謝你。我們只有一起才走到這裡。開發當然會繼續，但您現在可以切換到發行軌道。</string>
+    <string name="nudge_betagoodbye_hint">這已經是正常版本了。只需退出測試，未來您只會收到發行更新。</string>
+    <string name="nudge_betagoodbye_positive_action">切換到發行軌道</string>
+    <string name="nudge_betagoodbye_negative_action">繼續獲得預發布版本</string>
 </resources>

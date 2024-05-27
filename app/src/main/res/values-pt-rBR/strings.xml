@@ -595,4 +595,8 @@
     <string name="motd_setting_enabled_explanation">Permitir que o SD Maid verifique mensagens importantes do desenvolvedor.</string>
     <string name="updatecheck_setting_enabled_label">Verificação de atualização</string>
     <string name="updatecheck_setting_enabled_explanation">Permita que o SD Maid verifique se há atualizações para informar se uma versão mais recente está disponível.</string>
+    <string name="beta_version_indicator_desc">Versões de pré-lançamento exibem uma pequena faixa na tela inicial. Elas são atualizadas com mais frequência, podem ter mais recursos, mas também podem ter mais bugs.</string>
+    <string name="review_app_review_action">Avaliar</string>
+    <string name="review_app_dismiss_action">Talvez depois</string>
+    <string name="review_app_body">Voce gostaria de deixar uma avaliação do SD Maid? ❤️</string>
 </resources>

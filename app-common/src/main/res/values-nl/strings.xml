@@ -142,6 +142,7 @@
     <string name="general_timeunit_days">Dagen</string>
     <string name="general_progress_ready">Klaar</string>
     <string name="general_progress_done">Klaar</string>
+    <string name="general_rom_type_auto_label">Automatisch (standaard)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s bestand</item>
         <item quantity="other">%s bestanden</item>

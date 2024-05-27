@@ -15,9 +15,9 @@
     <string name="upgrade_screen_sponsor_action">Geliştirmeyi destekleyin</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatifler reklamlar, analizler ve Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Açık kaynak geliştirmeyi desteklediğiniz için teşekkür ederiz ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Birlikte ilk sürüme ulaştık! Test etmeme yardım ettiğin için teşekkür ederim! Geliştirme elbette devam edecek, ancak artık beta olmayan yapılara geçebilirsiniz. En son kararlı sürümü indirerek bunu yapın.</string>
-    <string name="nudge_betagoodbye_hint">Küçük not: Test sırasında verilen derecelendirmeler yalnızca benim tarafımdan görülebilir, eğer memnunsanız, SD Maid\'e herkese açık bir derecelendirme verirseniz çok sevinirim.</string>
-    <string name="nudge_betagoodbye_positive_action">Vazgeç</string>
-    <string name="nudge_betagoodbye_negative_action">Test etmeye devam et</string>
+    <string name="nudge_betagoodbye_title">Versiyon 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Teşekkürler. Buraya kadar birlikte gelebildik. Geliştirme elbette devam edecek, ancak artık normal sürüme geçebilirsiniz.</string>
+    <string name="nudge_betagoodbye_hint">Bu zaten normal bir sürümdür. Sadece testten çıkmayı tercih edin ve gelecekte sadece normal sürüm güncellemelerini alın.</string>
+    <string name="nudge_betagoodbye_positive_action">Normal sürüme geç</string>
+    <string name="nudge_betagoodbye_negative_action">Ön sürümleri almaya devam edin</string>
 </resources>

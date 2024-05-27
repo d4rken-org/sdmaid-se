@@ -603,4 +603,8 @@
     <string name="motd_setting_enabled_label">Tähtsad sõnumid</string>
     <string name="motd_setting_enabled_explanation">Luba SD Maidil pärida arendajalt tähtsaid teateid.</string>
     <string name="device_settings_category">Seade</string>
+    <string name="beta_version_indicator_desc">Katsetamisel versioonid näitavad avakuval väikest riba. Neid uuendatakse sagedamini, võivad sisaldada rohkem võimalusi, samas ka vigu.</string>
+    <string name="review_app_review_action">Arvustus</string>
+    <string name="review_app_dismiss_action">Võib-olla hiljem</string>
+    <string name="review_app_body">Tahate kommenteerida SD Maid? ❤️</string>
 </resources>

@@ -26,9 +26,9 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">無法辨識升級的疑難排解提示：</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play 商店同步處理可能需要一些時間。請嘗試重新開機、清除 Google Play 快取或只需等候。</string>
     <string name="upgrade_screen_restore_multiaccount_hint">多重帳戶可能會導致 Google Play 混亂。登出其他帳戶或透過 Google Play 網站安裝，這會強制與特定帳戶關聯。</string>
-    <string name="nudge_betagoodbye_title">SD 女僕 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">我們一起做到了初次發行！感謝您對我的協助！當然，開發將繼續進行，但您現在可以切換至更穩定的組建，如果可以的話。透過在 Google Play 上選取退出測試來做到這一點。</string>
-    <string name="nudge_betagoodbye_hint">小附註：測試期間給出的評分只有我自己能看到，如果您樂意能給 SD 女僕一個公開的評分的話，我會很感激。</string>
-    <string name="nudge_betagoodbye_positive_action">退出</string>
+    <string name="nudge_betagoodbye_title">版本 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">謝謝你。我們只有一起才走到這裡。開發當然會繼續，但您現在可以在不參加 Google Play 測試的情況下安裝 SD Maid。</string>
+    <string name="nudge_betagoodbye_hint">您不必重新安裝應用程式。這已經是正常版本了。只需退出測試，未來您只會收到發行更新。</string>
+    <string name="nudge_betagoodbye_positive_action">離開測試計畫</string>
     <string name="nudge_betagoodbye_negative_action">繼續測試</string>
 </resources>

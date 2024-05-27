@@ -15,9 +15,9 @@
     <string name="upgrade_screen_sponsor_action">Sponsorizează dezvoltarea</string>
     <string name="upgrade_screen_sponsor_action_hint">O alternativă sunt reclamele, analizele și Google Play🙁</string>
     <string name="upgrade_screen_thanks_toast">Mulțumesc că îmi suporți această dezvoltare open-source❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1🥳</string>
-    <string name="nudge_betagoodbye_body">Împreună, am putut să facem prima lansare! Mulțumesc pentru că m-ai ajutat. Dezvoltarea va continua bineînțeles, dar acum pot să treci pe construcții non-beta. Fă asta prin descărcarea la ultima lansare stabilă.</string>
-    <string name="nudge_betagoodbye_hint">Mică notă: Evaluările primite în timpul testelor sunt vizibili numai mie. Apreciez dacă pot să îi dai SD Maid o evaluare publică dacă ești fericit.</string>
-    <string name="nudge_betagoodbye_positive_action">Renunță</string>
-    <string name="nudge_betagoodbye_negative_action">Continuă testarea</string>
+    <string name="nudge_betagoodbye_title">Versiunea 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Mulțumesc. Am ajuns până aici doar împreună. Dezvoltarea va continua, desigur, dar acum puteți trece la o pistă de lansare.</string>
+    <string name="nudge_betagoodbye_hint">Aceasta este deja o versiune normală. Doar renunțați la testare și veți primi doar actualizare de lansare.</string>
+    <string name="nudge_betagoodbye_positive_action">Comutați la urmărirea lansării</string>
+    <string name="nudge_betagoodbye_negative_action">Continuați să primiți pre-lansări</string>
 </resources>

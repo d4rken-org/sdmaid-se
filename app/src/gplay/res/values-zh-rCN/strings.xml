@@ -26,9 +26,9 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">无法识别购买的故障排除提示：</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play 商店同步可能需要一些时间。尝试重启设备、清除 Google Play 缓存或稍作等候。</string>
     <string name="upgrade_screen_restore_multiaccount_hint">多个账户可能会导致 Google Play 混乱。注销其他账户或通过 Google Play 网站进行安装，这可强制与特定账户关联。</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">我们一起开发了第一个版本！谢您你帮助我！开发当然会继续，但如果您愿意，您现在可以切换到更稳定的版本。为此，请选择退出在 Google Play 上的测试。</string>
-    <string name="nudge_betagoodbye_hint">温馨提示：测试期间您的的评分仅对我可见，如果您满意，请给 SD Maid 一个公开评分，我将不胜感激。</string>
-    <string name="nudge_betagoodbye_positive_action">退出</string>
+    <string name="nudge_betagoodbye_title">版本 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">谢谢您。如今的成果离不开你我共同的努力。当然，开发仍将继续，但您现在可以在 Google Play 中下载非测试版本的 SD Maid。</string>
+    <string name="nudge_betagoodbye_hint">您无需重装应用，目前已是正常版本。只需选择退出测试，您将只会在未来收到更新发布。</string>
+    <string name="nudge_betagoodbye_positive_action">退出测试项目</string>
     <string name="nudge_betagoodbye_negative_action">继续测试</string>
 </resources>

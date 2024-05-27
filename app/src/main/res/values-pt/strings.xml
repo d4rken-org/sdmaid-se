@@ -608,4 +608,8 @@ Recursos dos jogos.</string>
     <string name="updatecheck_setting_enabled_label">Procurar atualizações</string>
     <string name="updatecheck_setting_enabled_explanation">Permita que o SD Maid verifique se há atualizações para uma versão mais recente.</string>
     <string name="device_settings_category">Dispositivo</string>
+    <string name="beta_version_indicator_desc">As versões de pré-lançamento exibem uma pequena faixa na tela inicial. Elas são atualizadas com mais frequência, podem ter mais recursos, mas também podem ter mais bugs.</string>
+    <string name="review_app_review_action">Revisão</string>
+    <string name="review_app_dismiss_action">Talvez mais tarde</string>
+    <string name="review_app_body">Gostaria de deixar uma avaliação ao SD Maid? ❤️</string>
 </resources>

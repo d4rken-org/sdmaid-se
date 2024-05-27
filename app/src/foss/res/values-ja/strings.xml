@@ -15,9 +15,4 @@
     <string name="upgrade_screen_sponsor_action">開発支援者</string>
     <string name="upgrade_screen_sponsor_action_hint">代替は広告や分析そしてGoogle Playになります</string>
     <string name="upgrade_screen_thanks_toast">オープンソースでの開発に協力してくれてありがとうございます ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">一緒になって、初公開までこぎつけました！テストにご協力いただき、ありがとうございました！もちろん開発は継続されますが、ベータ版以外のビルドに切り替えられるようになりました。そのためには、最新の安定版リリースをダウンロードしてください。</string>
-    <string name="nudge_betagoodbye_hint">メモ: テスト中につけられた評価は私だけが見ることができますので、もしよろしければSDメイドに公開評価をしていただければ幸いです。</string>
-    <string name="nudge_betagoodbye_positive_action">オプトアウト</string>
-    <string name="nudge_betagoodbye_negative_action">テスト中</string>
 </resources>

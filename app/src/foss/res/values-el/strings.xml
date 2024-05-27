@@ -15,9 +15,9 @@
     <string name="upgrade_screen_sponsor_action">Χορήγησε τη δημιουργία</string>
     <string name="upgrade_screen_sponsor_action_hint">Η εναλλακτική λύση είναι οι διαφημίσεις, τα αναλυτικά στοιχεία και το Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Σας ευχαριστούμε που υποστηρίξατε την ανάπτυξη ανοιχτού κώδικα ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Μαζί, φτάσαμε στην πρώτη κυκλοφορία! Σας ευχαριστώ που με βοηθήσατε να δοκιμάσω! Η ανάπτυξη φυσικά θα συνεχιστεί, αλλά τώρα μπορείτε να μεταβείτε σε μη δοκιμαστικές εκδόσεις. Κάνετε αυτό κατεβάζοντας την τελευταία σταθερή έκδοση.</string>
-    <string name="nudge_betagoodbye_hint">Μικρή σημείωση: Οι βαθμολογίες που δίνονται κατά τη διάρκεια των δοκιμών είναι ορατές μόνο σε μένα, θα το εκτιμούσα αν θα μπορούσατε να δώσετε στο SD Maid μια δημόσια βαθμολογία εάν είστε ευχαριστημένοι.</string>
-    <string name="nudge_betagoodbye_positive_action">Απεγγραφή</string>
-    <string name="nudge_betagoodbye_negative_action">Συνεχίστε τη δοκιμή</string>
+    <string name="nudge_betagoodbye_title">Version 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Ευχαριστώ. Τα καταφέραμε και φτάσαμε έως εδώ μαζί. Η ανάπτυξη θα συνεχιστεί φυσικά, αλλά τώρα μπορείτε να μεταβείτε σε τροχιά κανονικής κυκλοφορίας.</string>
+    <string name="nudge_betagoodbye_hint">Αυτή είναι ήδη μια κανονική έκδοση. Απλά να εξαιρεθείτε από τις δοκιμές και θα λάβετε μόνο ενημερώσεις κυκλοφορίας στο μέλλον.</string>
+    <string name="nudge_betagoodbye_positive_action">Εναλλαγή σε τροχιά κανονικής κυκλοφορίας</string>
+    <string name="nudge_betagoodbye_negative_action">Συνεχίστε να λαμβάνετε προ-κυκλοφορίες</string>
 </resources>

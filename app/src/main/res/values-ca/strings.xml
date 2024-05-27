@@ -607,4 +607,8 @@
     <string name="updatecheck_setting_enabled_label">Comprova si hi ha actualitzacions</string>
     <string name="updatecheck_setting_enabled_explanation">Permet que l\'SD Maid comprovi si hi ha actualitzacions per fer-vos saber si hi ha una versió més nova disponible.</string>
     <string name="device_settings_category">Dispositiu</string>
+    <string name="beta_version_indicator_desc">Les versions prèvies mostren una petita cinta a la pantalla d\'inici. S\'actualitzen amb més freqüència, poden tenir més funcions, però també poden tenir més errors.</string>
+    <string name="review_app_review_action">Revisió</string>
+    <string name="review_app_dismiss_action">Potser després</string>
+    <string name="review_app_body">Voleu deixar una ressenya de l\'SD Maid?️ ❤️</string>
 </resources>

@@ -623,4 +623,8 @@
     <string name="updatecheck_setting_enabled_label">Verificare actualizare</string>
     <string name="updatecheck_setting_enabled_explanation">Permiteți ca SD Maid să verifice actualizările pentru a vă anunța dacă este disponibilă o versiune mai nouă.</string>
     <string name="device_settings_category">Dispozitiv</string>
+    <string name="beta_version_indicator_desc">Versiunile de pre-lansare afișează o panglică mică pe ecranul de pornire. Acestea sunt actualizate mai frecvent, ar putea avea mai multe funcții, dar ar putea avea și mai multe erori.</string>
+    <string name="review_app_review_action">Revizuire</string>
+    <string name="review_app_dismiss_action">Poate mai târziu</string>
+    <string name="review_app_body">Doriți să lăsați aplicației SD Maid o recenzie?️ ❤️</string>
 </resources>

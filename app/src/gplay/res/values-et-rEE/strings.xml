@@ -26,9 +26,9 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Tundmatute uuenduste lahendamise nõuanded:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play poe ajakohastamine võib võtta aega. Ürita taaskäivitada, tühjendada Google\'i poe vahemälu või lihtsalt oota.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Google\'i pood ei pruugi mitme kontoga toime tulla. Logi teistelt kontodelt välja või paigalda Google\'i poe veebilehe kaudu, mis tuvastab seose kindla kontoga.</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Koos oleme jõudnud esimese väljalaskeni. Aitäh, et aitasite mind. Arendamine jätkub, kuid nüüd saate kasutada stabiilsemaid väljalaskeid, selleks lõpetage Google Plays katsetamine.</string>
-    <string name="nudge_betagoodbye_hint">Muide, katsetamise ajal antud hinnangud on nähtavad vaid mulle. Oleksin tänulik, kui hindaksite meid avalikult SD Maidi loa kaudu.</string>
-    <string name="nudge_betagoodbye_positive_action">Välju loendist</string>
+    <string name="nudge_betagoodbye_title">Versioon 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Aitäh! Saavutasime seda koos. Arendamine loomulikult jätkub, ent nüüd saad Google Plays paigaldada SD Maidi ilma katsetamise nõudeta.</string>
+    <string name="nudge_betagoodbye_hint">Saad rakendust edasi kasutada samaviisi, sest see on juba ametlik versioon. Lihtsalt loobu katsetamisest ja edaspidi saad vaid valmis ametlikke uuendusi.</string>
+    <string name="nudge_betagoodbye_positive_action">Loobu katsetamisest</string>
     <string name="nudge_betagoodbye_negative_action">Jätka katsetamist</string>
 </resources>

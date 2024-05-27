@@ -15,9 +15,9 @@
     <string name="upgrade_screen_sponsor_action">赞助开发</string>
     <string name="upgrade_screen_sponsor_action_hint">取而代之的是广告、分析和 Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">感谢您支持开源开发 ❤️</string>
-    <string name="nudge_betagoodbye_title">SD 女佣 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">我们一起开发了第一个版本！谢谢您帮我测试！开发当然会继续，但您现在可以切换到非测试版。通过下载最新的稳定版本来执行此操作。</string>
-    <string name="nudge_betagoodbye_hint">小提示：测试期间给出的评分只有我才能看到，如果您乐意给 SD 女佣一个公开的评分的话，我将不胜感激。</string>
-    <string name="nudge_betagoodbye_positive_action">退出</string>
-    <string name="nudge_betagoodbye_negative_action">继续测试</string>
+    <string name="nudge_betagoodbye_title">版本 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">谢谢您。如今的成果离不开你我共同的努力。当然，开发仍将继续，但您现在可以切换到发布版本。</string>
+    <string name="nudge_betagoodbye_hint">目前已是正常版本。只需选择退出测试，您将只会在未来收到更新发布。</string>
+    <string name="nudge_betagoodbye_positive_action">切换到发布版本</string>
+    <string name="nudge_betagoodbye_negative_action">继续获取预发布版本</string>
 </resources>

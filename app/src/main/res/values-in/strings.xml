@@ -5,7 +5,7 @@
     <string name="dashboard_motd_title">Pesan dari pengembang</string>
     <string name="dashboard_settings_oneclick_title">Mode Satu Ketukan</string>
     <string name="dashboard_settings_oneclick_summary">Mulai scan dan hapus semua alat dengan satu klik pada tombol tindakan dasbor, tanpa konfirmasi tambahan.</string>
-    <string name="dashboard_settings_oneclick_tools_title">One-Tap Tools</string>
+    <string name="dashboard_settings_oneclick_tools_title">Alat Satu Ketuk</string>
     <string name="dashboard_settings_oneclick_tools_desc">Alat apa saja yang harus disertakan dalam operasi satu ketukan?</string>
     <string name="debug_debuglog_size_label">Ukuran</string>
     <string name="debug_debuglog_size_compressed_label">Ukuran terkompres</string>
@@ -88,12 +88,12 @@
     <string name="setup_label">Pengaturan</string>
     <string name="setup_incomplete_card_title">Penyiapan tidak lengkap</string>
     <string name="setup_incomplete_card_body">Selesaikan penyiapan SD Maid untuk mendapatkan hasil yang lebih baik.</string>
-    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid sedang mencoba untuk memperbaiki masalah-masalah setup.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid sedang mencoba memperbaiki masalah-masalah penyiapan.</string>
     <string name="setup_incomplete_card_dismiss_action">Membubarkan</string>
     <string name="setup_incomplete_card_continue_action">Lanjutkan penyiapan</string>
     <string name="setup_title">Pengaturan</string>
     <string name="setup_forcedshow_summary">Tampilkan layar penyiapan lagi, termasuk item yang sudah selesai.</string>
-    <string name="setup_checking_card_body">Memverifikasi pengaturan dan kegunaan.</string>
+    <string name="setup_checking_card_body">Memverifikasi kesempurnaan dan ketergunaan penyiapan.</string>
     <string name="general_error_setup_require_label">Penyiapan belum selesai</string>
     <string name="general_error_setup_require_msg">Pengaturan lebih lanjut diperlukan untuk menggunakan fitur ini. Selesaikan langkah-langkah penyiapan selanjutnya.</string>
     <string name="setup_saf_card_title">Kerangka akses penyimpanan</string>
@@ -219,6 +219,7 @@
     <string name="systemcleaner_filter_anr_label">Kesalahan ANR</string>
     <string name="systemcleaner_filter_anr_summary">Jejak dari kejadian \'aplikasi tidak merespon\'.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Folder kosong</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Seluruh folder kosong di dalam perangkat. Folder bertingkat mungkin memerlukan beberapa tahap.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Berkas APK tidak digunakan</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Berkas penyetelan yang lebih lama atau sama dengan versi aplikasi yang sudah terpasang.</string>
     <string name="systemcleaner_filter_lostdir_label">Folder LOST.DIR</string>
@@ -407,6 +408,7 @@
     <string name="appcontrol_app_launch_title">Jalankan aplikasi</string>
     <string name="appcontrol_app_launch_description">Jalankan aplikasi ini.</string>
     <string name="appcontrol_app_forcestop_title">Paksa berhenti</string>
+    <string name="appcontrol_app_forcestop_description">Hentikan aplikasi. Mencegah penghidupan otomatis aplikasi sampai pengguna membuka aplikasi atau menyalakan ulang perangkat.</string>
     <string name="appcontrol_app_uninstall_description">Copot aplikasi ini dari perangkat Anda.</string>
     <string name="appcontrol_app_exclude_add_title">Kecualikan aplikasi</string>
     <string name="appcontrol_app_exclude_add_description">Kecualikan aplikasi ini dari operasi-operasi lain di SD Maid.</string>
@@ -443,6 +445,7 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Ketahui apakah suatu aplikasi sedang (atau baru-baru ini) aktif.</string>
     <string name="appcontrol_export_app_selection_action">Ekspor aplikasi</string>
     <string name="appcontrol_export_title">Ekspor aplikasi</string>
+    <string name="appcontrol_export_description">Simpan berkas-berkas instalasi. Tidak termasuk data aplikasi.</string>
     <string name="appcontrol_progress_exporting_x">Mengekspor %s</string>
     <string name="appcontrol_force_stop_selection_action">Paksa berhenti aplikasi</string>
     <string name="appcontrol_force_stop_action">Paksa berhenti</string>
@@ -451,7 +454,9 @@
         <item quantity="other">Paksa berhenti %d aplikasi?</item>
     </plurals>
     <string name="appcontrol_automation_loading">Menyiapkan otomatisasi melalui layanan aksesibilitas</string>
+    <string name="appcontrol_automation_title">Otomatisasi AppControl</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Memaksa berhenti…</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Mencoba mengonfirmasi tindakan sebelumnya (kata kunci: %s)</string>
     <string name="analyzer_tool_name">PenganalisisPenyimpanan</string>
     <string name="analyzer_explanation_short">Cari apa saja yang memenuhi ruang penyimpanan di perangkat Anda.</string>
     <string name="analyzer_progress_scanning_device">Mencari perangkat penyimpanan</string>
@@ -511,6 +516,7 @@
     <string name="exclusion_option_allow_partial">Izinkan penyocokan terpisah</string>
     <string name="exclusion_option_ignore_casing">Abaikan kasus</string>
     <string name="exclusion_editor_affected_tools_label">Peralatan yang terpengaruh</string>
+    <string name="exclusion_editor_path_explanation">Pengecualian direktori mencegah SD Maid memproses direktori mana pun yang ditentukan. Ini berlaku untuk berkas, folder, dan subfolder.</string>
     <string name="exclusion_editor_pkg_explanation">Sebuah pengecualian aplikasi mencegah SD Maid dari memproses setiap paket yang cocok.</string>
     <string name="exclusion_editor_segment_explanation">Pengecualian berbasis segmen mirip dengan pengecualian jalur namun memungkinkan untuk pencocokan sebagian. Misalnya: \"DCIM/Camera\" mengecualikan \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Buang pengecualian ini?</string>
@@ -583,4 +589,7 @@
     <string name="updatecheck_setting_enabled_label">Pemeriksaan pembaruan</string>
     <string name="updatecheck_setting_enabled_explanation">Izinkan SD Maid memeriksa pembaruan untuk memberi tahu Anda jika ada versi baru yang tersedia.</string>
     <string name="device_settings_category">Perangkat</string>
+    <string name="review_app_review_action">Pratinjau</string>
+    <string name="review_app_dismiss_action">Lain kali</string>
+    <string name="review_app_body">Bersediakah Anda menulis ulasan untuk SD Maid? ❤️</string>
 </resources>

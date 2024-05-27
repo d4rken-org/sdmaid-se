@@ -142,6 +142,7 @@
     <string name="general_timeunit_days">Jours</string>
     <string name="general_progress_ready">Prêt</string>
     <string name="general_progress_done">Terminé</string>
+    <string name="general_rom_type_auto_label">Automatique (par défaut)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s fichier</item>
         <item quantity="other">%s fichiers</item>

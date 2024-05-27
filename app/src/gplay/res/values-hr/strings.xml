@@ -17,8 +17,5 @@
     <string name="upgrade_screen_iap_action">Jednokratna kupnja</string>
     <string name="upgrade_screen_iap_action_hint">Jednokratna kupnja košta %s.</string>
     <string name="upgrade_screen_thanks_toast">Najbolji ste! ❤️</string>
-    <string name="nudge_betagoodbye_body">Zajedno smo stigli do prvog izdanja! Hvala na pomoći! Razvoj će se naravno nastaviti, ali sada se možete prebaciti na stabilnije verzije, ako to želite. Učinite to tako da odustanete od testiranja na Google Playu.</string>
-    <string name="nudge_betagoodbye_hint">Mala napomena: ocjene dane tijekom testiranja vidljive su samo meni, bio bih vam zahvalan ako biste SD Maidu dali javnu ocjenu ako ste zadovoljni.</string>
-    <string name="nudge_betagoodbye_positive_action">Isključite se</string>
     <string name="nudge_betagoodbye_negative_action">Nastavite s testiranjem</string>
 </resources>

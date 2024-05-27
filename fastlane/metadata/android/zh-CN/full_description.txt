@@ -3,7 +3,7 @@
 人无完人，Android 亦是如此。
 * 已卸载的应用会留下残留。
 * 日志、崩溃报告和其他您不想要的文件会不断被创建。
-* 存储空间中会积累一些您不认识的文件和目录。
+* 无用文件、未知文件夹，无时无刻不在占用您的存储空间。
 * 你的图库中的照片重复。
 
 别让它延续了…让SD Maid 2/SE来帮你咯！
@@ -11,30 +11,30 @@
 SD Maid 2/SE 是一款应用程序和文件管理器，专门用于了解哪些应用程序在您的设备上创建了特定文件。 SD Maid 2/SE 搜索您的设备并将文件与已安装的应用程序进行比较，以提供安全释放存储空间的选项。
 
 ✨ 清理当卸载应用后时
-如果应用程序在其指定目录之外创建文件，那么即使在卸载应用程序后文件仍会保留。 “CorpseFinder”工具可以查找应用程序残留，告诉您它们属于哪个应用程序并帮助您删除它们。
+如果应用程序在其指定文件夹之外创建文件，那么即使在卸载应用程序后文件仍会保留。 “CorpseFinder”工具可以查找应用程序残留，告诉您它们属于哪个应用程序并帮助您删除它们。
 
 🔍 以智能方式搜索您的设备
-过滤空目录、临时文件、已安装的应用程序等。 您甚至可以创建自己的搜索条件。 “SystemCleaner”工具允许您根据各种标准自动搜索您的设备并删除文件。
+过滤空文件夹、临时文件、已安装的应用程序等。 您甚至可以创建自己的搜索条件。 “SystemCleaner”工具允许您根据各种标准自动搜索您的设备并删除文件。
 
 🧹 删除消耗性文件和隐藏缓存
 缩略图、垃圾箱、离线缓存等：如果应用程序不自行清理，那么此应用程序就会清理。 “AppCleaner”工具可查找含有可消耗文件的应用程序。
 
 📦 管理你的所有应用
-获取设备上安装的所有应用程序的完整列表。 启用、禁用、用户或系统应用程序：没有应用程序可以对您隐藏。 "AppControl"工具是一个允许您搜索、排序和控制您的应用程序的应用管理器。
+获取设备上安装的所有应用程序的完整列表。 启用、禁用、用户或系统应用程序：没有应用程序可以对您隐藏。 “AppControl”工具是一个允许您搜索、排序和控制您的应用程序的应用管理器。
 
 📊 什么占用了你的所有空间
-存储管理可能是复杂的，需要在手机存储、SD卡和 USB 设备上的应用、媒体、系统和其他文件。 "StorageAnalyzer" is a file manager that displays how space is used on your device, simplifying your storage management.
+存储管理可能是复杂的，需要在手机存储、SD卡和 USB 设备上的应用、媒体、系统和其他文件。 “StorageAnalyzer”是个文件管理器，它可以显示您的设备空间使用情况，简化您的存储管理。
 
-📷 Find duplicate data
-Duplicate downloads, photos sent through social media or just similar pictures of the same scene: Over time copies can accumulate. The "Deduplicator" tool finds files that are exactly the same or similar and helps you delete extra copies.
+📷 查找重复数据
+随着时间的推移，文件副本会不断积累，如重复下载的文件、通过社交媒体发送的照片或相同场景的类似图片。 “Deduplicator”工具可以找到相似或完全相同的文件，并帮您删除额外的副本。
 
-This app is ad-free. 部分功能需要付费升级才能使用。
+本应用没有广告。 部分功能需要付费升级才能使用。
 
 SD Maid 2/SE 是 SD Maid 1/Legacy 的更新版本。
 对新版本 Android 进行了优化，并专注于清理。
 
-This app has optional features that utilize the AccessibilityService API to automate tedious actions.
-Using the AccessibilityService API, this app can click buttons for you to perform operations on multiple apps, e.g. 清除缓存。
-This app does not use the AccessibilityService API to collect information.
+本应用还包含一些可选功能，这些功能调用无障碍服务 API 来自动处理重复性操作。
+通过无障碍服务 API，本应用可以替您点击按钮来执行多种应用的操作，例如： 清除缓存。
+本应用不会通过无障碍 API 获取您的信息。
 
-SD Maid 2/SE is a File Manager & Cleaner App.
+SD Maid 2/SE 是文件管理器兼清理应用。

@@ -15,9 +15,9 @@
     <string name="upgrade_screen_sponsor_action">개발 후원하기</string>
     <string name="upgrade_screen_sponsor_action_hint">다른 방식은 광고, 데이터 수집, 그리고 플레이 스토어입니다 🙁</string>
     <string name="upgrade_screen_thanks_toast">오픈소스 개발을 지원해주셔서 감사합니다 ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">함께 정식 출시까지 왔네요! 테스트하는 것을 도와주셔서 감사합니다. 개발은 물론 계속되지만, 이제 베타 프로그램을 나갈 수 있습니다. 최신 안정 빌드를 다운로드 받으면 됩니다.</string>
-    <string name="nudge_betagoodbye_hint">메모: 테스트 기간의 앱 별점은 저에게만 표시됩니다. 앱 사용을 즐기고 있다면 공개 별점을 주시면 감사하겠습니다.</string>
-    <string name="nudge_betagoodbye_positive_action">탈퇴</string>
-    <string name="nudge_betagoodbye_negative_action">계속하기</string>
+    <string name="nudge_betagoodbye_title">버전 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">감사합니다. 함께 만들어 왔네요. 개발을 계속하겠지만, 이제 릴리즈 트랙으로 전환할 수 있습니다.</string>
+    <string name="nudge_betagoodbye_hint">이미 일반 버전입니다. 시험 선택만 해제하고 이후에는 릴리즈 업데이트만 받을 거에요.</string>
+    <string name="nudge_betagoodbye_positive_action">릴리즈 트랙으로 전환하기</string>
+    <string name="nudge_betagoodbye_negative_action">프리-릴리즈 받는 것으로 유지하기</string>
 </resources>
