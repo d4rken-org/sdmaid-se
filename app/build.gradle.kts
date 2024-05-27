@@ -97,7 +97,7 @@ android {
         if (listOf("release", "beta").any { variantName.lowercase().contains(it) }) {
             val outputFileName = ProjectConfig.packageName +
                     "-v${defaultConfig.versionName}-${defaultConfig.versionCode}" +
-                    "-${variantName.uppercase()}-${commitHashProvider.get()}.apk"
+                    "-${variantName.uppercase()}.apk"
 
             variantOutputImpl.outputFileName = outputFileName
         }
