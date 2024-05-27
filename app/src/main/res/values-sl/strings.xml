@@ -447,6 +447,7 @@
     <string name="appcontrol_tag_user">Uporabnik</string>
     <string name="appcontrol_tag_active">Nedavno dejavno</string>
     <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Skupina</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_enabled">Omogočeno</string>
     <string name="appcontrol_tag_disabled">Onemogočeno</string>
@@ -637,4 +638,8 @@
     <string name="updatecheck_setting_enabled_label">Preveri za posodobitve</string>
     <string name="updatecheck_setting_enabled_explanation">Dovoli SD Maidu, da preveri za posodobitve in sporoči, če je na voljo nova različica.</string>
     <string name="device_settings_category">Naprava</string>
+    <string name="beta_version_indicator_desc">Predizdajne različice na začetnem zaslonu prikažejo majhen trak.  Posodabljajo se bolj pogosto, imajo morda več funkcij, vendar pa lahko tudi več hroščev.</string>
+    <string name="review_app_review_action">Oceni</string>
+    <string name="review_app_dismiss_action">Morda kasneje</string>
+    <string name="review_app_body">Bi radi ocenili SD Maid? ❤️</string>
 </resources>

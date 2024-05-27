@@ -26,9 +26,5 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Feilsøkingstips for ukjente oppgraderinger:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synkronisering med Play Butikk kan ta tid. Prøv å starte på nytt, tømme Google Play bufferen, eller bare vent.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Flere kontoer kan forvirre Google Play. Logg ut av andre kontoer eller installer via Google Play-nettstedet, som tvinger assosiasjoner til en spesifikk konto.</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Sammen har vi komt til den første utgivelsen! Takk for at du hjelper meg! Utviklingen vil selvsagt fortsette, men du kan nå bytte til mer stabile versjoner, hvis du vil. Gjør dette ved å melde deg ut av testing på Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Liten merknad: Vurderinger gitt under testing er bare synlige for meg, jeg setter stor pris på om du kan gi SD Maid en offentlig vurdering hvis du er fornøyd.</string>
-    <string name="nudge_betagoodbye_positive_action">Meld deg ut</string>
     <string name="nudge_betagoodbye_negative_action">Fortsett å teste</string>
 </resources>

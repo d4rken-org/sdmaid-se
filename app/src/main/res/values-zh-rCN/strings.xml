@@ -95,6 +95,7 @@
     <string name="setup_forcedshow_summary">再次显示初始化界面，包括已完成的项目。</string>
     <string name="setup_checking_card_body">验证设置完成情况和功能。</string>
     <string name="general_error_setup_require_label">设置未完成</string>
+    <string name="general_error_setup_require_msg">使用此功能需要进一步设置，请完成其余设置步骤。</string>
     <string name="setup_saf_card_title">存储访问框架</string>
     <string name="setup_saf_card_body">授予 SD Maid 额外访问权限以改进扫描结果。</string>
     <string name="setup_saf_card_body2">在大多数情况下，打开的窗口会选择正确的路径。当访问权限被授予时，条目会变为绿色。 </string>
@@ -142,6 +143,9 @@
     <string name="setup_acs_disallow_hint">如果您改变主意了，您可以在设置中重启设置来更改这个选项。</string>
     <string name="setup_acs_appops_restriction_title">受限制的设置</string>
     <string name="setup_acs_appops_restriction_body">无法启用 SD Maid 的无障碍服务？Android 13 及以上版本可能对来自 Google Play 之外的应用施加了限制。请从系统的详细信息页面为 SD Maid 解除这些限制。您可以在右上角的菜单中找到这个选项。</string>
+    <string name="setup_inventory_card_title">应用列表</string>
+    <string name="setup_inventory_card_body">SD Maid 需要读取您的应用列表才能找到不属于任何应用的文件。</string>
+    <string name="setup_inventory_card_extra">寻找名为“应用列表”或“查询所有软件包”的权限。</string>
     <string name="dataarea_warningcard_empty_message">SD Maid 没有找到任何可以扫描的区域。您是否完成了初始设置？</string>
     <string name="dataarea_warningcard_label">数据区域</string>
     <string name="dataarea_warningcard_reload_action">重载数据区域</string>
@@ -215,6 +219,8 @@
     <string name="systemcleaner_filter_advertisements_summary">用于广告或创建自广告的文件。</string>
     <string name="systemcleaner_filter_anr_label">ANR 报错</string>
     <string name="systemcleaner_filter_anr_summary">来自“应用未响应”的事件记录。</string>
+    <string name="systemcleaner_filter_emptydirectories_label">空文件夹</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">设备中有许多空目录。嵌套的空目录可能需要清理多次。</string>
     <string name="systemcleaner_filter_superfluosapks_label">过时的安装包</string>
     <string name="systemcleaner_filter_superfluosapks_summary">已安装应用的过时安装文件。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 文件夹</string>
@@ -257,6 +263,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">如果没有选定区域，则会对所有可访问的数据区域进行扫描和匹配。</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">文件类型限制</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">文件</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">文件夹</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">如果没有选择类型，则将匹配所有类型。</string>
     <string name="systemcleaner_customfilter_editor_path_label">路径筛选规则</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">目标路径至少需要匹配一个条目 （例如\"下载/oldapks/game-\"）。长按条目以获取更多选项。</string>
@@ -339,6 +346,11 @@
     <string name="appcleaner_automation_loading">通过无障碍服务来配置自动化处理</string>
     <string name="appcleaner_automation_title">自动化应用清理</string>
     <string name="appcleaner_automation_subtitle_default_caches">清理默认缓存…</string>
+    <string name="appcleaner_automation_progress_open_settings">打开设置界面（关键字：%s）</string>
+    <string name="appcleaner_automation_progress_find_storage">正在搜索“存储”内容（关键词：%s）</string>
+    <string name="appcleaner_automation_progress_find_clear_data">正在查找“清除数据”按钮（关键字：%s）</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">正在查找“清除缓存”按钮（关键字：%s）</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">正在尝试确认先前的操作（关键词：%s）</string>
     <string name="appcleaner_item_caches_inaccessible_title">默认缓存</string>
     <string name="appcleaner_item_caches_inaccessible_body">公共和私有默认缓存。无法直接访问，但可以间接删除（如通过无障碍服务）。</string>
     <string name="appcleaner_automation_unavailable_title">无障碍服务无法使用</string>
@@ -396,6 +408,8 @@
     <string name="appcontrol_systemsettings_open_description">打开此应用在设备中的系统设置。</string>
     <string name="appcontrol_app_launch_title">启动应用</string>
     <string name="appcontrol_app_launch_description">启动此应用的主要活动。</string>
+    <string name="appcontrol_app_forcestop_title">强行停止</string>
+    <string name="appcontrol_app_forcestop_description">停止应用。在您重新点开或重启设备前阻止其启动。</string>
     <string name="appcontrol_app_uninstall_description">从设备上卸载此应用</string>
     <string name="appcontrol_app_exclude_add_title">排除应用</string>
     <string name="appcontrol_app_exclude_add_description">将此应用排除在 SD Maid 的其他操作之外。</string>
@@ -432,7 +446,19 @@
     <string name="appcontrol_settings_module_activity_enabled_description">检查应用程序是否活动（或最近活动）</string>
     <string name="appcontrol_export_app_selection_action">导出应用</string>
     <string name="appcontrol_export_title">导出应用</string>
+    <string name="appcontrol_export_description">保存此应用的安装文件（不包括应用数据）。</string>
     <string name="appcontrol_progress_exporting_x">正在导出 %s</string>
+    <string name="appcontrol_force_stop_selection_action">强制停止应用</string>
+    <string name="appcontrol_force_stop_action">强行停止</string>
+    <string name="appcontrol_force_stop_confirm_title">确认强制停止</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="other">强制停止 %d 个应用？</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">通过无障碍服务来准备自动化操作</string>
+    <string name="appcontrol_automation_title">自动化应用控制</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">正在强制停止…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">正在查找“强制停止”按钮（关键字：%s）</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">正在尝试确认先前的操作（关键词：%s）</string>
     <string name="analyzer_tool_name">存储分析器</string>
     <string name="analyzer_explanation_short">探究占用您设备存储空间的内容</string>
     <string name="analyzer_progress_scanning_device">正在搜索存储设备</string>
@@ -452,6 +478,8 @@
     <string name="analyzer_storage_type_primary_description">您设备的主要存储空间。包含内部 SD 卡、应用和系统数据的私有存储。</string>
     <string name="analyzer_storage_type_secondary_title">外部存储</string>
     <string name="analyzer_storage_type_secondary_description">额外的存储空间，通常为外置 SD 卡。包含媒体文件和受支持应用的数据。</string>
+    <string name="analyzer_storage_type_tertiary_title">便携式存储</string>
+    <string name="analyzer_storage_type_tertiary_description">便携式存储，例如插入 USB 接口的闪存盘。</string>
     <string name="analyzer_storage_content_title">存储内容</string>
     <string name="analyzer_storage_content_type_app_label">应用</string>
     <string name="analyzer_storage_content_type_app_description">已安装应用及其数据占用的空间（例如应用文件、数据和缓存）。</string>
@@ -490,6 +518,7 @@
     <string name="exclusion_option_allow_partial">允许部分匹配</string>
     <string name="exclusion_option_ignore_casing">忽略大小写</string>
     <string name="exclusion_editor_affected_tools_label">影响的工具</string>
+    <string name="exclusion_editor_path_explanation">路径排除会使 SD Maid 无法进一步处理匹配路径，对于文件、文件夹、子文件夹同样适用。</string>
     <string name="exclusion_editor_pkg_explanation">应用排除会阻止 SD Maid 处理匹配的安装包。</string>
     <string name="exclusion_editor_segment_explanation">基于分段的排除与路径排除类似，但允许部分匹配。例如：“DCIM/Camera”会排除“/sdcard/DCIM/Camera/photo.png”。</string>
     <string name="exclusion_editor_remove_confirmation_message">确定删除此排除项吗？</string>
@@ -561,4 +590,9 @@
     <string name="motd_setting_enabled_explanation">允许SD Maid接收来自开发者的重要消息。</string>
     <string name="updatecheck_setting_enabled_label">检查更新</string>
     <string name="updatecheck_setting_enabled_explanation">允许 SD Maid 检查更新，让您知道是否有新版本可用</string>
+    <string name="device_settings_category">设备</string>
+    <string name="beta_version_indicator_desc">预发布版本会在开始屏幕上显示一个小条幅。预发布版本更新更频繁，可能具有更多的功能，但也可能有更多的漏洞。</string>
+    <string name="review_app_review_action">评论</string>
+    <string name="review_app_dismiss_action">稍后再说</string>
+    <string name="review_app_body">想给 SD Maid 写一条评论吗？❤️</string>
 </resources>

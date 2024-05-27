@@ -26,9 +26,5 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Tipy na riešenie problémov s licenciou:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synchronizácia Obchodu Play môže chvíľu trvať. Skúste reštartovať, vymazať vyrovnávaciu pamäť Google Play alebo jednoducho počkajte.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Viaceré účty môžu zmiasť Google Play. Odhláste sa z iných účtov alebo nainštalujte prostredníctvom webovej stránky Google Play, čo si vynúti priradenie ku konkrétnemu účtu.</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Spoločne sme sa dostali do prvého vydania! Ďakujem, že mi pomáhate! Vývoj bude samozrejme pokračovať, ale ak chcete, teraz môžete prejsť na stabilnejšie zostavy. Urobte to tak, že sa odhlásite z testovania v službe Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Malá poznámka: Hodnotenia udelené počas testovania sú viditeľné iba pre mňa, ocenil by som, keby ste SD Maid mohli udeliť verejné hodnotenie, ak ste spokojní.</string>
-    <string name="nudge_betagoodbye_positive_action">Odhlásiť sa</string>
     <string name="nudge_betagoodbye_negative_action">Pokračujte v testovaní</string>
 </resources>

@@ -15,9 +15,9 @@
     <string name="upgrade_screen_sponsor_action">Podpri razvoj</string>
     <string name="upgrade_screen_sponsor_action_hint">Druga možnost so oglasi, analitika in Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Hvala, ker podpirate odprtokodni razvoj. ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Skupaj smo dosegli prvo izdajo!  Hvala, ker mi pomagate pri preizkušanju!  Razvoj se bo seveda nadaljeval, vendar sedaj lahko preklopite na običajne izgradnje.  To lahko naredite tako, da si prenesete najnovejšo stabilno izdajo.</string>
-    <string name="nudge_betagoodbye_hint">Majhna opomba: ocene, ki so bile podane med preizkušanjem, vidim samo jaz.  Če vam je SD Maid všeč, bi bil hvaležen, če bi mu dali javno oceno.</string>
-    <string name="nudge_betagoodbye_positive_action">Prenehaj s preizkušanjem</string>
-    <string name="nudge_betagoodbye_negative_action">Preizkušaj še naprej</string>
+    <string name="nudge_betagoodbye_title">Različica 1.0</string>
+    <string name="nudge_betagoodbye_body">Hvala.  Samo skupaj smo prišli tako daleč.  Seveda se bo razvoj nadaljeval, vendar lahko sedaj preklopite na izdajno različico.</string>
+    <string name="nudge_betagoodbye_hint">To je že običajna različica.  Zapustite preizkusno različico in v prihodnje boste prejemali samo običajne posodobitve.</string>
+    <string name="nudge_betagoodbye_positive_action">Preklopi na izdajno različico</string>
+    <string name="nudge_betagoodbye_negative_action">Še naprej prejemaj predizdaje</string>
 </resources>

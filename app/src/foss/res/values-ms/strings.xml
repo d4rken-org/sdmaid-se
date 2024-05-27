@@ -15,9 +15,4 @@
     <string name="upgrade_screen_sponsor_action">Pembangunan penaja</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatifnya ialah iklan, analitik dan Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Terima kasih kerana menyokong pembangunan sumber terbuka ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Bersama-sama, kita berjaya mencapai pelancaran pertama! Terima kasih kerana membantu saya menguji! Pembangunan sudah tentu akan diteruskan, tetapi anda kini boleh bertukar kepada binaan bukan beta. Lakukan ini dengan memuat turun keluaran stabil terkini.</string>
-    <string name="nudge_betagoodbye_hint">Nota kecil: Penilaian yang diberikan semasa ujian hanya kelihatan kepada saya, saya amat menghargai jika anda boleh memberikan SD Maid penilaian awam jika anda berpuas hati.</string>
-    <string name="nudge_betagoodbye_positive_action">Pilih-keluar</string>
-    <string name="nudge_betagoodbye_negative_action">Teruskan pengujian</string>
 </resources>

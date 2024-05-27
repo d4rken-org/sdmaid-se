@@ -26,9 +26,9 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">인식할 수 없는 업그레이드에 대한 문제 해결 팁:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play 스토어 동기화는 시간이 걸릴 수 있습니다. 재부팅하거나 Google Play 캐시를 지우거나 잠시 기다려 보세요.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">기기에 등록된 여러 개의 계정으로 인해 Google Play가 혼동될 수 있습니다. 다른 계정을 로그아웃하거나 Google Play 웹사이트를 통해 설치하면 특정 계정과 강제로 연결됩니다.</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">함께 정식 출시까지 왔네요! 테스트하는 것을 도와주셔서 감사합니다. 개발은 물론 계속되지만, 원한다면 더 안정한 빌드로 전환할 수 있습니다. 구글 플레이에서 베타 프로그램을 나가면 됩니다.</string>
-    <string name="nudge_betagoodbye_hint">메모: 테스트 기간의 앱 별점은 저에게만 표시됩니다. 앱 사용을 즐기고 있다면 공개 별점을 주시면 감사하겠습니다.</string>
-    <string name="nudge_betagoodbye_positive_action">탈퇴</string>
+    <string name="nudge_betagoodbye_title">버전 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">감사합니다. 함께 만들어 왔네요. 개발을 계속하겠지만, 구글 플레이에서 시험 선택 없이 설치할 수 있습니다.</string>
+    <string name="nudge_betagoodbye_hint">앱을 다시 설치하지 않아도 됩니다. 이미 일반 버전입니다. 시험 선택만 해제하면 이후에 릴리즈 업데이트만 받을 거에요.</string>
+    <string name="nudge_betagoodbye_positive_action">시험 프로그램 떠나기</string>
     <string name="nudge_betagoodbye_negative_action">계속하기</string>
 </resources>

@@ -15,9 +15,9 @@
     <string name="upgrade_screen_sponsor_action">Desenvolupament del patrocinador</string>
     <string name="upgrade_screen_sponsor_action_hint">L\'alternativa són els anuncis, les analítiques i Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Gràcies per donar suport al desenvolupament de codi obert ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Junts, vam arribar a la primera versió! Gràcies per ajudar-me a provar-la! Per descomptat, el desenvolupament continuarà, però ara podeu canviar a versions no beta. Feu-ho baixant la darrera versió estable.</string>
-    <string name="nudge_betagoodbye_hint">Petita nota: les puntuacions donades durant les proves només són visibles per a mi, us agrairia que pugueu donar una puntuació pública a l\'SD Maid si esteu content.</string>
-    <string name="nudge_betagoodbye_positive_action">Desactiva</string>
-    <string name="nudge_betagoodbye_negative_action">Continua amb la beta</string>
+    <string name="nudge_betagoodbye_title">Versió 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Gràcies. Junts hem arribat fins aquí. El desenvolupament continuarà, per descomptat, però ara podeu canviar a la versió estable.</string>
+    <string name="nudge_betagoodbye_hint">Aquesta ja és una versió normal. Només heu de desactivar la prova i només rebreu actualitzacions de llançament en el futur.</string>
+    <string name="nudge_betagoodbye_positive_action">Canvia a la versió estable</string>
+    <string name="nudge_betagoodbye_negative_action">Continua rebent versions prèvies</string>
 </resources>

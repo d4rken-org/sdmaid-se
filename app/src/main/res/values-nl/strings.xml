@@ -37,7 +37,7 @@
     <string name="onboarding_versus_body1">SD Maid SE (ook bekend als SD Maid 2) is de opvolger van SD Maid (ook bekend als SD Maid 1). Een nieuwe app, geoptimaliseerd voor moderne Android.</string>
     <string name="onboarding_versus_body2">De architectuur van zijn voorganger is meer dan 7 jaar oud en niet ontworpen voor de uitdagingen van nieuwere Android-versies. Een volledig herontwerp was nodig om de ontwikkeling voort te zetten.</string>
     <string name="onboarding_versus_body3">Overweeg om over te schakelen naar SD Maid SE voor betere resultaten.</string>
-    <string name="onboarding_versus_body4">De \"pro-status\" van SD Maid 1 is helaas niet overdraagbaar naar SD Maid 2/SE. Na 12 jaar gratis updates is een nieuwe aankoop vereist om de ontwikkeling te ondersteunen (feed the developer).</string>
+    <string name="onboarding_versus_body4">De \"pro-status\" van SD Maid 1 is helaas niet overdraagbaar naar SD Maid 2/SE. Na 12 jaar gratis updates is een nieuwe aankoop vereist om de ontwikkeling te ondersteunen (voed de ontwikkelaar).</string>
     <string name="onboarding_versus_continue_action">Doorgaan</string>
     <string name="onboarding_privacy_title">Privacy</string>
     <string name="onboarding_privacy_body1">SD Maid bevat geen advertenties en verkoopt geen gebruikersgegevens.</string>
@@ -607,4 +607,8 @@
     <string name="updatecheck_setting_enabled_label">Updatecontrole</string>
     <string name="updatecheck_setting_enabled_explanation">Sta SD Maid toe om te controleren op updates om je te laten weten of er een nieuwere versie beschikbaar is.</string>
     <string name="device_settings_category">Apparaat</string>
+    <string name="beta_version_indicator_desc">Pre-releaseversies tonen een klein lint op het startscherm. Ze worden vaker bijgewerkt, hebben mogelijk meer functies, maar kunnen ook meer bugs bevatten.</string>
+    <string name="review_app_review_action">Beoordeling</string>
+    <string name="review_app_dismiss_action">Misschien later</string>
+    <string name="review_app_body">Wil je SD Maid een beoordeling achterlaten? ❤️</string>
 </resources>

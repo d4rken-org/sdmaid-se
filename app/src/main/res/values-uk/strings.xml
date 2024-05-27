@@ -149,6 +149,7 @@
     <string name="setup_acs_disallow_hint">Якщо ви передумаєте, ви можете змінити цю опцію знову, зайшовши в налаштування і перезапустивши інсталяцію.</string>
     <string name="setup_acs_appops_restriction_title">Обмежені налаштування</string>
     <string name="setup_acs_appops_restriction_body">Не вдається увімкнути сервіс спеціальних можливостей для SD Maid? Android 13+ може накладати обмеження на додатки, встановлені не через Google Play. Зніміть ці обмеження в системних налаштуваннях для SD Maid. Дана опція знаходиться в контекстному меню у верхньому правому куті.</string>
+    <string name="setup_inventory_card_title">Інвентар додатку</string>
     <string name="setup_inventory_card_body">SD Maid має знати, які додатки ви використовуєте, щоб знайти файли, що не належать жодному із встановлених додатків.</string>
     <string name="setup_inventory_card_extra">Знайдіть дозвіл під назвою «Список додатків» або «Запитувати всі пакети».</string>
     <string name="dataarea_warningcard_empty_message">SD Maid не виявила області даних для сканування. Ви завершили налаштування?</string>
@@ -178,6 +179,12 @@
         <item quantity="many">%1$d залишків знайдено після видалення %2$s.</item>
         <item quantity="other">%1$d залишків знайдено після видалення %2$s.</item>
     </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Очищення виконано успішно (%1$s): Звільнено %2$s та вилучено %3$d елемент.</item>
+        <item quantity="few">Очищення виконано успішно (%1$s): Звільнено %2$s та вилучено %3$d елементи.</item>
+        <item quantity="many">Очищення виконано успішно (%1$s): Звільнено %2$s та вилучено %3$d елементів.</item>
+        <item quantity="other">Очищення виконано успішно (%1$s): Звільнено %2$s та вилучено %3$d елементів.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Видалити залишки</string>
     <string name="corpsefinder_filter_publicmedia_label">Загальнодоступні медіафайли</string>
     <string name="corpsefinder_filter_publicmedia_summary">Загальнодоступні медіафайли, наприклад, файли, отримані через месенджери.</string>
@@ -201,6 +208,12 @@
     <string name="corpsefinder_filter_appasec_summary">Зашифровані ресурси додатків, наприклад, ігрові ресурси.</string>
     <string name="corpsefinder_filter_app2sd_summary">Дані, переміщені на зовнішнє сховище за допомогою App2SD.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">Виявлено залишок додатка %d</item>
+        <item quantity="few">Виявлено залишки додатка %d</item>
+        <item quantity="many">Виявлено залишків додатка %d</item>
+        <item quantity="other">Виявлено залишки додатка %d</item>
+    </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Видалити всі залишки додатків?</string>
     <string name="corpsefinder_owners_label">Власники</string>
     <string name="corpsefinder_corpse_hints_label">Примітка</string>
@@ -209,6 +222,12 @@
     <string name="corpsefinder_corpse_hint_common">Цей елемент має дуже поширену назву і може належати до ще встановлених додатків, про які SD Maid не знає.</string>
     <string name="systemcleaner_tool_name">Очищувач системи</string>
     <string name="systemcleaner_explanation_short">Зайві дані, які не належать жодному додатку.</string>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d збіг фільтрів</item>
+        <item quantity="few">%d збіги фільтрів</item>
+        <item quantity="many">%d збігів фільтрів</item>
+        <item quantity="other">%d збігів фільтру</item>
+    </plurals>
     <string name="systemcleaner_filter_custom_label">Власний фільтр</string>
     <string name="systemcleaner_filter_custom_manage_label">Керування власними фільтрами</string>
     <string name="systemcleaner_filter_custom_manage_summary">Створюйте, видаляйте, імпортуйте та експортуйте власні фільтри.</string>
@@ -339,6 +358,12 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Кешовані медіафайли, які знову завантажуються при перегляді в чаті.</string>
     <string name="appcleaner_delete_all_confirmation_message">Видалити розширені елементи для всіх додатків?</string>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="one">Знайдено %d витратний матеріал</item>
+        <item quantity="few">Знайдено %d витратні матеріали</item>
+        <item quantity="many">Знайдено %d витратних матеріалів</item>
+        <item quantity="other">Знайдено %d витратних матеріалів</item>
+    </plurals>
     <string name="appcleaner_automation_loading">Підготовка автоматизації через сервіс спеціальних можливостей</string>
     <string name="appcleaner_automation_title">Автоматизація очищення додатків</string>
     <string name="appcleaner_automation_subtitle_default_caches">Очищення кешу за умовчанням…</string>
@@ -353,9 +378,21 @@
     <string name="appcleaner_automation_unavailable_body">Для очищення недоступних кешів потрібен сервіс спеціальних можливостей SD Maid, але він був недоступний. Якщо ви не хочете його використовувати: Вимкніть опцію \"Включати недоступні кеші\".</string>
     <string name="appcleaner_junk_userprofile_label">Користувач</string>
     <string name="appcleaner_delete_confirmation_message_x">Видалити витратні файли для %s?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Видалити витратні файли для %d вибраного додатка?</item>
+        <item quantity="few">Видалити витратні файли для %d вибраних додатків?</item>
+        <item quantity="many">Видалити витратні файли для %d вибраних додатків?</item>
+        <item quantity="other">Видалити витратні файли для %d вибраних додатків?</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Видалення кешу за допомогою Shizuku</string>
     <string name="deduplicator_tool_name">Дублікати</string>
     <string name="deduplicator_explanation_short">Знайдіть дублікати даних на вашому пристрої.</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">Знайдено дублікатів: %d</item>
+        <item quantity="few">Знайдено дублікати: %d</item>
+        <item quantity="many">Знайдено дублікатів: %d</item>
+        <item quantity="other">Знайдено дублікатів: %d</item>
+    </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Зробити можливим «Видалити все»</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Показати опції, які дозволяють видалити всі файли в наборі дублікатів так, щоб не залишилося жодного файлу.</string>
     <string name="deduplicator_skip_minsize_title">Мінімальний розмір</string>
@@ -384,6 +421,12 @@
     <string name="deduplicator_matches_similar_label">Схожі файли</string>
     <string name="appcontrol_tool_name">Управління додатками</string>
     <string name="appcontrol_explanation_short">Додатки, встановлені на вашому пристрої.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">Виявлено додаток %d</item>
+        <item quantity="few">Виявлено додатки %d</item>
+        <item quantity="many">Виявлено додатків %d</item>
+        <item quantity="other">Виявлено %d додатків</item>
+    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Перемикання додатків</string>
     <string name="appcontrol_toggle_app_enable_action">Увімкнути додаток</string>
     <string name="appcontrol_toggle_app_disable_action">Вимкнути додаток</string>
@@ -404,6 +447,8 @@
     <string name="appcontrol_app_exclude_edit_description">Наразі цей додаток виключено з одного або декількох інструментів.</string>
     <string name="appcontrol_tag_user">Користувач</string>
     <string name="appcontrol_tag_active">Нещодавно активний</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Набір</string>
     <string name="appcontrol_tag_system">Системна</string>
     <string name="appcontrol_tag_enabled">Увімкнено</string>
     <string name="appcontrol_tag_disabled">Вимкнено</string>
@@ -422,6 +467,12 @@
     <string name="appcontrol_app_sizes_data_label">Дані</string>
     <string name="appcontrol_app_sizes_cache_label">Кеш</string>
     <string name="appcontrol_toggle_confirmation_title">Підтвердити дію</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Змінити стан увімкнення/вимкнення програми %d?</item>
+        <item quantity="few">Змінити стани увімкнення/вимкнення програм %d?</item>
+        <item quantity="many">Змінити стани увімкнення/вимкнення програм %d?</item>
+        <item quantity="other">Змінити стан увімкнення/вимкнення для %d програм?</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Визначення розмірів</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Отримайте приблизну оцінку розміру кожного додатка.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Визначення активності</string>
@@ -433,6 +484,12 @@
     <string name="appcontrol_force_stop_selection_action">Примусово зупинити додатки</string>
     <string name="appcontrol_force_stop_action">Примусова зупинка</string>
     <string name="appcontrol_force_stop_confirm_title">Підтвердьте примусову зупинку</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Примусово зупинити додаток %d?</item>
+        <item quantity="few">Примусово зупинити додатки %d?</item>
+        <item quantity="many">Примусово зупинити додатки %d?</item>
+        <item quantity="other">Примусово зупинити %d додатків?</item>
+    </plurals>
     <string name="appcontrol_automation_loading">Підготовка автоматизації через сервіс спеціальних можливостей</string>
     <string name="appcontrol_automation_title">Автоматизація очищення додатків</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Примусова зупинка…</string>
@@ -446,6 +503,18 @@
     <string name="analyzer_progress_scanning_userfiles">Пошук файлів користувача</string>
     <string name="analyzer_progress_scanning_system">Сканування системних даних</string>
     <string name="analyzer_device_storage_title">Сховище пристрою</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s доступно</item>
+        <item quantity="few">%s доступні</item>
+        <item quantity="many">%s доступних</item>
+        <item quantity="other">%s доступно</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">Використано %s</item>
+        <item quantity="few">Використані %s</item>
+        <item quantity="many">Використаних %s</item>
+        <item quantity="other">Використано %s</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">Прямий доступ недоступний</string>
     <string name="analyzer_storage_type_primary_title">Первинне сховище</string>
     <string name="analyzer_storage_type_primary_description">Основне сховище вашого пристрою. Містить внутрішню SD карту, приватне сховище для додатків та системних даних.</string>
@@ -501,6 +570,12 @@
     <string name="exclusion_export_action">Винятки для експорту</string>
     <string name="exclusion_create_pkg_hint">Використовуйте інструмент \"Управління додатками\" для створення винятків для додатків.</string>
     <string name="exclusion_create_path_hint">Використовуйте інструмент \"Аналізатор сховища\" для створення винятків шляхів.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Створено один виняток</item>
+        <item quantity="few">Створено %d винятки</item>
+        <item quantity="many">Створено %d винятків</item>
+        <item quantity="other">Створено %d винятків</item>
+    </plurals>
     <string name="automation_accessibility_service_description">Користувачі з особливими потребами можуть увімкнути цю службу, щоб дозволити SD Maid автоматизувати завдання, які інакше вимагали б нудної ручної взаємодії користувача (наприклад, видалення кешу).\n\nПриклад: Якщо ви доручили SD Maid зупинити кілька програм, то SD Maid може використовувати цю послугу, щоб відкрити екран налаштувань кожної програми, знайти кнопку \"Примусова зупинка\" і натиснути її.\n\nПід час використання цієї послуги SD Maid завжди буде на видному місці і надасть користувачеві простий спосіб негайно скасувати будь-яку взаємодію.\n\nНіякі дії не будуть виконуватися без попереднього схвалення користувача. Цю послугу можна вимкнути знову в будь-який час без жодних негативних наслідків.</string>
     <string name="automation_screenoverlay_explanation">SD Maid взаємодіє з вашим пристроєм. Одночасно користуватися екраном неможливо. Дочекайтеся завершення операції або скасуйте її.</string>
     <string name="automation_active_title">SD Maid працює</string>
@@ -530,6 +605,12 @@
     <string name="scheduler_current_schedule_x_at_x">%1$s навколо %2$s</string>
     <string name="scheduler_schedule_next_at_x">Заплановано на %s</string>
     <string name="scheduler_schedule_last_at_x">Останнє виконання в %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Щодня</item>
+        <item quantity="few">Кожні %d днів</item>
+        <item quantity="many">Кожні %d днів</item>
+        <item quantity="other">Кожні %d днів</item>
+    </plurals>
     <string name="scheduler_schedule_repeat_interval">Інтервал повторення</string>
     <string name="scheduler_inaccurate_execution_hint">Очікуваний час виконання є приблизним. Розклад може затримуватися або прискорюватися, якщо він економить заряд акумулятора.</string>
     <string name="scheduler_no_active_schedules_subtitle">Немає активних розкладів</string>
@@ -558,4 +639,8 @@
     <string name="updatecheck_setting_enabled_label">Перевірка оновлення</string>
     <string name="updatecheck_setting_enabled_explanation">Дозвольте SD Maid перевіряти оновлення, щоб повідомити вас про появу нової версії.</string>
     <string name="device_settings_category">Пристрій</string>
+    <string name="beta_version_indicator_desc">Попередні версії мають світлу стрічку на стартовому екрані. Вони оновлюються частіше, можуть мати більше можливостей, але також можуть містити більше помилок.</string>
+    <string name="review_app_review_action">Огляд</string>
+    <string name="review_app_dismiss_action">Можливо пізніше</string>
+    <string name="review_app_body">Бажаєте залишити відгук про SD Maid?️ ❤️</string>
 </resources>

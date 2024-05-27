@@ -26,9 +26,9 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Nasveti za odpravljanje težav pri neprepoznanih nadgradnjah:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinhronizacija s Trgovino Play bo morda trajala nekaj časa.  Poizkusite s ponovnim zagnom naprave, čiščenjem predpomnilnika Googla Play ali preprosto počakajte.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Več računov lahko zmede Google Play.  Odjavite se iz drugih računov ali namestite preko spletne strani Google Play, ki vsili povezavo z določenim računom.</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Skupaj smo dosegli prvo izdajo!  Hvala, ker mi pomagate!  Razvoj se bo seveda nadaljeval, vendar sedaj lahko preklopite, če želite, na bolj stabilne izgradnje.  To lahko naredite tako, da zapustite preizkušanje na Googlu Play.</string>
-    <string name="nudge_betagoodbye_hint">Majhna opomba: ocene, ki so bile podane med preizkušanjem, vidim samo jaz.  Če vam je SD Maid všeč, bi bil hvaležen, če bi mu dali javno oceno.</string>
-    <string name="nudge_betagoodbye_positive_action">Prenehaj s preizkušanjem</string>
+    <string name="nudge_betagoodbye_title">Različica 1.0</string>
+    <string name="nudge_betagoodbye_body">Hvala.  Samo skupaj smo prišli tako daleč.  Seveda se bo razvoj nadaljeval, vendar lahko sedaj na Googlu Play namestite izdajno različico SD Maida.</string>
+    <string name="nudge_betagoodbye_hint">Ni vam treba ponovno namestiti programa, to je že običajna različica.  Zapustite preizkusno različico in v prihodnje boste prejemali samo običajne posodobitve.</string>
+    <string name="nudge_betagoodbye_positive_action">Zapusti program preizkušanja</string>
     <string name="nudge_betagoodbye_negative_action">Preizkušaj še naprej</string>
 </resources>

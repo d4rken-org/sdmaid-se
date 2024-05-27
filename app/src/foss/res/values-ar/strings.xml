@@ -15,9 +15,9 @@
     <string name="upgrade_screen_sponsor_action">ادعم التطوير</string>
     <string name="upgrade_screen_sponsor_action_hint">البديل هو الإعلانات والتحليلات و Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">شكراً على دعمك لتطوير المصادر المفتوحة ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE ن1 🥳</string>
-    <string name="nudge_betagoodbye_body">معًا ، وصلنا إلى الإصدار الأول! شكرا لك لمساعدتي في الاختبار! سيستمر التطوير بالطبع ، ولكن يمكنك الآن التبديل إلى الإصدارات غير التجريبية. قم بذلك عن طريق تنزيل أحدث إصدار مستقر.</string>
-    <string name="nudge_betagoodbye_hint">ملاحظة صغيرة: التقييمات المقدمة أثناء الاختبار مرئية لي فقط ، وسأكون ممتنًا إذا كان بإمكانك منح SD Maid تصنيفًا عامًا إذا كنت سعيدًا.</string>
-    <string name="nudge_betagoodbye_positive_action">الخروج</string>
-    <string name="nudge_betagoodbye_negative_action">استمر بالاختبار</string>
+    <string name="nudge_betagoodbye_title">الإصدار 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">شكرًا لكم. لقد قمنا بذلك معاً فقط. سوف يستمر التطوير بالطبع، ولكن يمكنك الآن الانتقال إلى مسار الإصدار.</string>
+    <string name="nudge_betagoodbye_hint">هذا بالفعل نسخة عادية. فقط اختار الخروج من الاختبار وسوف تتلقى فقط تحديثات الإصدار في المستقبل.</string>
+    <string name="nudge_betagoodbye_positive_action">التبديل إلى مسار الإصدار</string>
+    <string name="nudge_betagoodbye_negative_action">استمر في الحصول على الإصدارات السابقة للإصدار</string>
 </resources>

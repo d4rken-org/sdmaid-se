@@ -608,4 +608,8 @@
     <string name="updatecheck_setting_enabled_label">Güncelleme kontrolü</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid\'in daha yeni bir sürümün mevcut olup olmadığını size bildirmek için güncellemeleri kontrol etmesine izin verin.</string>
     <string name="device_settings_category">Cihaz</string>
+    <string name="beta_version_indicator_desc">Tam sürüm öncesi sürümler başlangıç ekranında küçük bir şerit görüntüler. Daha sık güncellenirler, daha fazla özelliğe sahip olabilirler, ancak daha fazla hataya da sahip olabilirler.</string>
+    <string name="review_app_review_action">Değerlendir</string>
+    <string name="review_app_dismiss_action">Belki daha sonra</string>
+    <string name="review_app_body">SD Maid\'e bir inceleme bırakmak ister misiniz? ️ ❤️</string>
 </resources>

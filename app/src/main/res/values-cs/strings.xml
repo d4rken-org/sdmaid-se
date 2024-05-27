@@ -639,4 +639,8 @@
     <string name="updatecheck_setting_enabled_label">Kontrola aktualizací</string>
     <string name="updatecheck_setting_enabled_explanation">Povolit aplikaci SD Maid vyhledávat aktualizace a informovat, zda je k dispozici novější verze.</string>
     <string name="device_settings_category">Zařízení</string>
+    <string name="beta_version_indicator_desc">Ve zkušebních verzích se na úvodní obrazovce zobrazuje malá lišta. Jsou častěji aktualizovány, mohou mít více funkcí, ale také více chyb.</string>
+    <string name="review_app_review_action">Ohodnotit</string>
+    <string name="review_app_dismiss_action">Možná později</string>
+    <string name="review_app_body">Chcete ohodnotit SD Maid? ❤️</string>
 </resources>

@@ -607,4 +607,8 @@
     <string name="updatecheck_setting_enabled_label">Vérification de la présence de mises à jour</string>
     <string name="updatecheck_setting_enabled_explanation">Permettre à SD Maid de vérifier la présence de mises à jour pour vous en informer.</string>
     <string name="device_settings_category">Appareil</string>
+    <string name="beta_version_indicator_desc">Les versions préliminaires affichent un petit ruban sur l\'écran de démarrage. Ils sont mis à jour plus fréquemment, peuvent avoir plus de fonctionnalités, mais peuvent aussi avoir plus de bugs.</string>
+    <string name="review_app_review_action">Révision</string>
+    <string name="review_app_dismiss_action">Peut-être plus tard</string>
+    <string name="review_app_body">Souhaitez-vous laisser un avis sur SD Maid?️ ❤️</string>
 </resources>

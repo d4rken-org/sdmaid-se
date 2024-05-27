@@ -15,9 +15,4 @@
     <string name="upgrade_screen_sponsor_action">Sponzorovaný vývoj</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatívou sú reklamy, analytika a Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Ďakujem za podporu vývoja open-source ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Spoločne sme sa dostali do prvého vydania! Ďakujem za pomoc pri testovaní! Vývoj bude samozrejme pokračovať, ale teraz môžete prejsť na zostavy bez beta verzie. Urobte to stiahnutím najnovšej stabilnej verzie.</string>
-    <string name="nudge_betagoodbye_hint">Malá poznámka: Hodnotenia udelené počas testovania sú viditeľné iba pre mňa, ocenil by som, keby ste SD Maid mohli udeliť verejné hodnotenie, ak ste spokojní.</string>
-    <string name="nudge_betagoodbye_positive_action">Odhlásiť sa</string>
-    <string name="nudge_betagoodbye_negative_action">Pokračujte v testovaní</string>
 </resources>

@@ -21,9 +21,5 @@
     <string name="upgrade_screen_iap_action">Egyszeri vásárlás</string>
     <string name="upgrade_screen_iap_action_hint">Az egyszeri vásárlás ára %s.</string>
     <string name="upgrade_screen_thanks_toast">Te vagy a legjobb! ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Együtt eljutottunk az első kiadásig! Köszönöm, hogy segítettél! A fejlesztés természetesen folytatódik, de most már átválthat stabilabb buildekre is, ha akar. Ehhez leiratkozhat a tesztelésről a Google Playen.</string>
-    <string name="nudge_betagoodbye_hint">Apró megjegyzés: A tesztelés során adott értékeléseket csak én látom, hálás lennék, ha nyilvánosan értékelné az SD Maid-et, ha elégedett.</string>
-    <string name="nudge_betagoodbye_positive_action">Kimenet</string>
     <string name="nudge_betagoodbye_negative_action">Folytasd a tesztelést</string>
 </resources>

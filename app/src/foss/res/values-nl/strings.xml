@@ -15,9 +15,9 @@
     <string name="upgrade_screen_sponsor_action">Sponsor ontwikkeling</string>
     <string name="upgrade_screen_sponsor_action_hint">Het alternatief zijn advertenties, analyses en Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Bedankt voor het ondersteunen van open-sourceontwikkeling ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Samen hebben we de eerste release gehaald! Bedankt voor je hulp bij het testen! De ontwikkeling gaat natuurlijk door, maar je kunt nu overstappen op niet-bètaversies. Doe dit door de nieuwste stabiele release te downloaden.</string>
-    <string name="nudge_betagoodbye_hint">Kleine opmerking: beoordelingen die tijdens het testen zijn gegeven, zijn alleen zichtbaar voor mij, ik zou het op prijs stellen als je SD Maid een openbare beoordeling zou kunnen geven als je tevreden bent.</string>
-    <string name="nudge_betagoodbye_positive_action">Afmelden</string>
-    <string name="nudge_betagoodbye_negative_action">Blijf testen</string>
+    <string name="nudge_betagoodbye_title">Versie 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Bedankt. Alleen samen zijn we zo ver gekomen. De ontwikkeling gaat uiteraard door, maar je kunt nu overstappen naar een releasetrack.</string>
+    <string name="nudge_betagoodbye_hint">Dit is al een normale versie. Meld je gewoon af voor het testen en je ontvangt in de toekomst alleen release-updates.</string>
+    <string name="nudge_betagoodbye_positive_action">Schakel over naar releasetrack</string>
+    <string name="nudge_betagoodbye_negative_action">Blijf pre-releases ontvangen</string>
 </resources>

@@ -591,4 +591,8 @@
     <string name="updatecheck_setting_enabled_label">Kiểm tra cập nhật</string>
     <string name="updatecheck_setting_enabled_explanation">Cho phép SD Maid kiểm tra các bản cập nhật để cho bạn biết nếu có phiên bản mới hơn.</string>
     <string name="device_settings_category">Thiết bị</string>
+    <string name="beta_version_indicator_desc">Các phiên bản truy cập sớm hiển thị một dải băng nhỏ trên màn hình bắt đầu. Chúng được cập nhật thường xuyên hơn, có thể có nhiều tính năng hơn nhưng cũng có thể có nhiều lỗi hơn.</string>
+    <string name="review_app_review_action">Đánh giá</string>
+    <string name="review_app_dismiss_action">Để sau</string>
+    <string name="review_app_body">Bạn có muốn để lại đánh giá cho SD Maid không?️ ❤️</string>
 </resources>

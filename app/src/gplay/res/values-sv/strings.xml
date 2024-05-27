@@ -21,9 +21,5 @@
     <string name="upgrade_screen_iap_action">Engångsköp</string>
     <string name="upgrade_screen_iap_action_hint">Engångsköp kostar %s.</string>
     <string name="upgrade_screen_thanks_toast">Du är bäst! ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Tillsammans tog vi oss till den första utgåvan! Tack för att ni hjälpte mig! Utvecklingen kommer naturligtvis att fortsätta, men du kan nu byta till stabilare byggnationer, om du vill. Gör detta genom att välja bort testning på Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Liten anmärkning: Betyg som ges under testning är bara synliga för mig, Jag skulle uppskatta om du kunde ge SD Maid ett offentligt betyg om du är glad.</string>
-    <string name="nudge_betagoodbye_positive_action">Lämna</string>
     <string name="nudge_betagoodbye_negative_action">Fortsätt testa</string>
 </resources>

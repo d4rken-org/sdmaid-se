@@ -15,9 +15,4 @@
     <string name="upgrade_screen_sponsor_action">Zhvillimi i sponsorëve</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativa janë reklamat, analitika dhe Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Faleminderit për mbështetjen e zhvillimit me burim të hapur ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Së bashku, ja arritëm në publikimin e parë! Faleminderit që më ndihmove të testoj! Zhvillimi sigurisht që do të vazhdojë, por tani mund të kaloni në ndërtime jo-beta. Bëni këtë duke shkarkuar versionin më të fundit të qëndrueshëm.</string>
-    <string name="nudge_betagoodbye_hint">Shënim i vogël: Vlerësimet e dhëna gjatë testimit janë të dukshme vetëm për mua, do ta vlerësoja nëse mund t\'i jepni SD Maid një vlerësim publik nëse jeni të kënaqur.</string>
-    <string name="nudge_betagoodbye_positive_action">Tërhiqu</string>
-    <string name="nudge_betagoodbye_negative_action">Vazhdo testimin</string>
 </resources>

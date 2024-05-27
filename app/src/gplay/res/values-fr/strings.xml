@@ -26,9 +26,9 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Conseils de dépannage pour les surclassements non reconnus :</string>
     <string name="upgrade_screen_restore_sync_patience_hint">La synchronisation avec Google Play peut prendre du temps. Essayez de redémarrer votre appareil, de vider le cache de Google Play ou simplement d’attendre.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Plusieurs comptes peuvent perturber Google Play. Déconnectez-vous des autres comptes ou installez du site Web de Google Play, ce qui force l’association avec un compte précis.</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Ensemble, nous sommes parvenus à la première version. Merci de m’avoir aidé. Bien sûr, le développement se poursuit, mais vous pouvez désormais passer à des versions plus stables. Pour ce faire, désinscrivez-vous de la version béta sur Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Petite remarque : les notes données pendant les essais ne sont visibles que par moi, je vous serais reconnaissant de donner à SD Maid une note publique si vous êtes satisfaits.</string>
-    <string name="nudge_betagoodbye_positive_action">Se désinscrire</string>
+    <string name="nudge_betagoodbye_title">Version 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Merci. Nous sommes arrivés jusqu\'ici seulement ensemble. Le développement se poursuivra bien sûr, mais vous pouvez désormais installer SD Maid sans opter pour les tests sur Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Vous n\'avez pas besoin de réinstaller l\'application. C\'est déjà une version normale. Désactivez simplement les tests et vous ne recevrez que les mises à jour des versions à l\'avenir.</string>
+    <string name="nudge_betagoodbye_positive_action">Quitter le programme de test</string>
     <string name="nudge_betagoodbye_negative_action">Poursuivre l’essai</string>
 </resources>

@@ -26,9 +26,5 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Aitortu gabeko eguneratze-arazoak konpontzeko aholkuak:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Storeren sinkronizazioak denbora behar izan dezake. Saiatu berrabiarazten, Google Play katxea ezabatzen edo, besterik gabe, itxaron.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Kontu anitzek Google Play nahas dezakete. Beste kontu batzuetatik atera edo Google Play webgunearen bidez instalatu, eta horrek elkarteak kontu zehatz batekin behartzen ditu.</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Elkarrekin, lehen askapenera iritsi gara! Mila esker laguntzeagatik! Garapenak aurrera jarraituko du, noski, baina orain eraikin egonkorragoetara joan zaitezke, nahi baduzu. Egin ezazu Google Playn probatik kanpo.</string>
-    <string name="nudge_betagoodbye_hint">Ohar txiki bat: Probetan emandako kalifikazioak bakarrik ikusten ditut, eskertuko nizuke SD Neskameari kalifikazio publikoa ematea pozik bazaude.</string>
-    <string name="nudge_betagoodbye_positive_action">Ez aukeratu</string>
     <string name="nudge_betagoodbye_negative_action">Segi probatzen</string>
 </resources>

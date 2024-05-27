@@ -26,9 +26,5 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Këshilla për zgjidhjen e problemeve për përmirësimet e panjohura:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinkronizimi i Play Store-it mund të marrë kohë. Provoni të rindizni, pastroni cache-in e Google Play ose thjesht prisni.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Llogaritë e shumta mund të habisin Google Play. Dilni nga llogaritë e tjera ose instaloni përmes faqes së internetit të Google Play, gjë që detyron lidhjet me një llogari specifike.</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Së bashku, arritëm në publikimin e parë! Faleminderit që më ndihmove! Zhvillimi sigurisht që do të vazhdojë, por tani mund të kaloni në ndërtime më të qëndrueshme, nëse dëshironi. Bëni këtë duke hequr dorë nga testimi në Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Shënim i vogël: Vlerësimet e dhëna gjatë testimit janë të dukshme vetëm për mua, do ta vlerësoja nëse mund t\'i jepni SD Maid një vlerësim publik nëse jeni të kënaqur.</string>
-    <string name="nudge_betagoodbye_positive_action">Lërmëni jashtë</string>
     <string name="nudge_betagoodbye_negative_action">Vazhdo testimin</string>
 </resources>

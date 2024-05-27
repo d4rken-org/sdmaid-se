@@ -13,8 +13,4 @@
     <string name="upgrade_screen_sponsor_action">Podržite razvoj</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativa su oglasi, analitika i Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Hvala vam što podržavate razvoj otvorenog koda ❤️</string>
-    <string name="nudge_betagoodbye_body">Zajedno smo stigli do prvog izdanja! Hvala što ste mi pomogli u testiranju! Razvoj će se naravno nastaviti, ali sada se možete prebaciti na ne-beta verzije. Učinite to preuzimanjem najnovijeg stabilnog izdanja.</string>
-    <string name="nudge_betagoodbye_hint">Mala napomena: ocjene dane tijekom testiranja vidljive su samo meni, bio bih vam zahvalan ako biste SD Maidu dali javnu ocjenu ako ste zadovoljni.</string>
-    <string name="nudge_betagoodbye_positive_action">Isključite se</string>
-    <string name="nudge_betagoodbye_negative_action">Nastavite s testiranjem</string>
 </resources>

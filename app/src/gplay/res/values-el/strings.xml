@@ -26,9 +26,9 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Συμβουλές αντιμετώπισης προβλημάτων για μη αναγνωρισμένες αναβαθμίσεις:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Ο συγχρονισμός του Play Store ενδέχεται να πάρει χρόνο. Δοκιμάστε να κάνετε επανεκκίνηση, να καθαρίσετε την προσωρινή μνήμη του Google Play ή απλώς να περιμένετε.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Πολλοί λογαριασμοί μπορεί να μπερδέψουν το Google Play. Αποσυνδεθείτε από άλλους λογαριασμούς ή εγκαταστήστε το μέσω του ιστότοπου Google Play, κάτι που αναγκάζει τους συσχετισμούς με έναν συγκεκριμένο λογαριασμό.</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Μαζί, τα καταφέραμε να φτάσουμε στην πρώτη κυκλοφορία! Σας ευχαριστώ που με βοηθήσατε! Η ανάπτυξη θα συνεχιστεί, αλλά τώρα μπορείτε να μεταβείτε σε πιο σταθερές εκδόσεις, αν θέλετε. Κάντε αυτό επιλέγοντας να απεγραφείτε στο Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Μικρή σημείωση: Οι αξιολογήσεις που δόθηκαν κατά τη διάρκεια της δοκιμής είναι ορατές μόνο σε μένα, Θα το εκτιμούσα αν θα μπορούσατε να δώσετε SD Maid μια δημόσια βαθμολογία αν είστε ευχαριστημένοι.</string>
-    <string name="nudge_betagoodbye_positive_action">Απεγγραφή</string>
+    <string name="nudge_betagoodbye_title">Version 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Ευχαριστώ. Τα καταφέραμε και φτάσαμε έως εδώ μαζί. Η ανάπτυξη θα συνεχιστεί φυσικά, αλλά τώρα μπορείτε να εγκαταστήσετε το SD Maid χωρίς να συμμετέχετε σε δοκιμές στο Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Δεν χρειάζεται να επανεγκαταστήσετε την εφαρμογή. Αυτή είναι ήδη μια κανονική έκδοση. Απλά να εξαιρεθείτε από τις δοκιμές και θα λάβετε μόνο ενημερώσεις κυκλοφορίας στο μέλλον.</string>
+    <string name="nudge_betagoodbye_positive_action">Αποχώρηση από το πρόγραμμα δοκιμών</string>
     <string name="nudge_betagoodbye_negative_action">Συνεχίστε τις δοκιμές</string>
 </resources>

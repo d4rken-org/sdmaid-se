@@ -26,9 +26,5 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">トラブルが起きた際のヒント</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Playストアの同期には時間がかかる場合があります。 そのまましばらくお待ちください。改善されない場合は、再起動するか、Playストアのキャッシュを削除してみてください。</string>
     <string name="upgrade_screen_restore_multiaccount_hint">複数のGoogleアカウントでログインしてあると、Playストアで不具合が発生する場合があります。 他のアカウントからログアウトするか、Web版Playストアからインストールすることで、正常にGoogleアカウントとの連携がされます。</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">一緒になって、初公開までこぎつけました！ご協力ありがとうございました！もちろん開発は続きますが、より安定したビルドに切り替えたい場合は、今すぐ切り替えられます。Google Playのテストをオプトアウトすることで、これを実現できます。</string>
-    <string name="nudge_betagoodbye_hint">メモ: テスト中につけられた評価は私だけが見ることができますので、もしよろしければSDメイドに公開評価をしていただければ幸いです。</string>
-    <string name="nudge_betagoodbye_positive_action">オプトアウト</string>
     <string name="nudge_betagoodbye_negative_action">テスト中</string>
 </resources>

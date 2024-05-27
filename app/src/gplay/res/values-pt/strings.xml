@@ -26,9 +26,9 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Dicas de solução de problemas para upgrades:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">A sincronização com Play Store pode demorar. Tente reiniciar, limpar a cache do Google Play ou simplesmente aguarde.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Várias contas podem confundir o Google Play. Sair das outras contas ou instalar através do site do Google Play, forçando associações com uma conta específica.</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Juntos, chegámos à primeira versão! Obrigado por me ajudar a testar! O desenvolvimento continuará, é claro, mas pode agora mudar para versões não beta. Basta descarregar a última versão estável.</string>
-    <string name="nudge_betagoodbye_hint">Pequena nota: as avaliações dadas durante os testes só são visíveis para mim, mas seria bom que pudesse dar uma avaliação pública, se assim o entender.</string>
-    <string name="nudge_betagoodbye_positive_action">Não participar</string>
+    <string name="nudge_betagoodbye_title">Versão 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Muito obrigado, chegámos longe juntos. O desenvolvimento continuará, é claro, mas agora pode instalar o SD Maid sem optar por testes através do Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Não é necessário reinstalar a aplicação. Já é uma versão normal. Opte por sair do teste e só receberá atualizações no futuro.</string>
+    <string name="nudge_betagoodbye_positive_action">Deixar o programa de teste</string>
     <string name="nudge_betagoodbye_negative_action">Continuar a testar</string>
 </resources>

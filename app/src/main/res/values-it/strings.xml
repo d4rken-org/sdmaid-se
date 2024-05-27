@@ -609,4 +609,8 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="updatecheck_setting_enabled_label">Controlla aggiornamenti</string>
     <string name="updatecheck_setting_enabled_explanation">Consenti a SD Maid di controllare gli aggiornamenti per farti sapere se è disponibile una versione più recente.</string>
     <string name="device_settings_category">Dispositivo</string>
+    <string name="beta_version_indicator_desc">Le versioni pre-release mostrano un piccolo fiocco nella schermata di avvio. Sono aggiornate più di frequente, potrebbero avere alcune funzioni in più, ma anche avere più bug.</string>
+    <string name="review_app_review_action">Recensione</string>
+    <string name="review_app_dismiss_action">Forse più tardi</string>
+    <string name="review_app_body">Vuoi lasciare una recensione su SD Maid? ❤️</string>
 </resources>

@@ -607,4 +607,8 @@
     <string name="updatecheck_setting_enabled_label">Verificación de la actualización</string>
     <string name="updatecheck_setting_enabled_explanation">Permite a SD Maid buscar actualizaciones y que avisarte si hay una nueva versión disponible.</string>
     <string name="device_settings_category">Dispositivo</string>
+    <string name="beta_version_indicator_desc">Las versiones preliminares muestran una pequeña cinta en la pantalla de inicio. Se actualizan con más frecuencia y pueden tener más funciones, pero también más errores.</string>
+    <string name="review_app_review_action">Revisar</string>
+    <string name="review_app_dismiss_action">Quizás más tarde</string>
+    <string name="review_app_body">¿Te gustaría dejar una reseña de SD Maid?️ ❤️</string>
 </resources>

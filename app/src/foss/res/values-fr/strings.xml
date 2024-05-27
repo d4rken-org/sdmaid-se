@@ -15,9 +15,9 @@
     <string name="upgrade_screen_sponsor_action">Financer le développement</string>
     <string name="upgrade_screen_sponsor_action_hint">Sinon, des publicités, des analyses et Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Merci de soutenir le développement des logiciels libres ❤️</string>
-    <string name="nudge_betagoodbye_title">SD Maid 2/SE v1 🥳</string>
-    <string name="nudge_betagoodbye_body">Ensemble, nous sommes parvenus à la première version. Merci de m’avoir aidé à tester. Bien sûr, le développement se poursuit, mais vous pouvez désormais passer à des versions non bêta. Pour ce faire, téléchargez la version stable la plus récente.</string>
-    <string name="nudge_betagoodbye_hint">Petite remarque : les notes données pendant les essais ne sont visibles que par moi, je vous serais reconnaissant de donner à SD Maid une note publique si vous êtes satisfaits.</string>
-    <string name="nudge_betagoodbye_positive_action">Se désinscrire</string>
-    <string name="nudge_betagoodbye_negative_action">Poursuivre l’essai</string>
+    <string name="nudge_betagoodbye_title">Version 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Merci. Nous sommes arrivés jusque-là uniquement ensemble. Le développement continuera bien sûr, mais vous pouvez maintenant passer à une version stable.</string>
+    <string name="nudge_betagoodbye_hint">C\'est déjà une version normale. Désactivez simplement les tests et vous ne recevrez que les mises à jour des versions à l\'avenir.</string>
+    <string name="nudge_betagoodbye_positive_action">Passer à la version de diffusion</string>
+    <string name="nudge_betagoodbye_negative_action">Continuer à obtenir les préversions</string>
 </resources>
