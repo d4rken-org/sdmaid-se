@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    id("projectConfig")
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "androidx.navigation.safeargs.kotlin")
@@ -10,28 +11,28 @@ apply(plugin = "androidx.navigation.safeargs.kotlin")
 val commitHashProvider = providers.of(CommitHashValueSource::class) {}
 
 android {
-    compileSdk = ProjectConfig.compileSdk
+    compileSdk = projectConfig.compileSdk
 
     defaultConfig {
-        namespace = ProjectConfig.packageName
+        namespace = projectConfig.packageName
 
-        minSdk = ProjectConfig.minSdk
-        targetSdk = ProjectConfig.targetSdk
+        minSdk = projectConfig.minSdk
+        targetSdk = projectConfig.targetSdk
 
-        versionCode = ProjectConfig.Version.code
-        versionName = ProjectConfig.Version.name
+        versionCode = projectConfig.version.code.toInt()
+        versionName = projectConfig.version.name
 
         testInstrumentationRunner = "eu.darken.sdmse.HiltTestRunner"
 
-        buildConfigField("String", "PACKAGENAME", "\"${ProjectConfig.packageName}\"")
+        buildConfigField("String", "PACKAGENAME", "\"${projectConfig.packageName}\"")
         buildConfigField("String", "GITSHA", "\"${commitHashProvider.get()}\"")
-        buildConfigField("String", "VERSION_CODE", "\"${ProjectConfig.Version.code}\"")
-        buildConfigField("String", "VERSION_NAME", "\"${ProjectConfig.Version.name}\"")
+        buildConfigField("String", "VERSION_CODE", "\"${projectConfig.version.code}\"")
+        buildConfigField("String", "VERSION_NAME", "\"${projectConfig.version.name}\"")
 
     }
 
     signingConfigs {
-        val basePath = File(System.getProperty("user.home"), ".appconfig/${ProjectConfig.packageName}")
+        val basePath = File(System.getProperty("user.home"), ".appconfig/${projectConfig.packageName}")
         create("releaseFoss") {
             setupCredentials(File(basePath, "signing-foss.properties"))
         }
@@ -95,7 +96,7 @@ android {
         val variantName: String = variantOutputImpl.name
 
         if (listOf("release", "beta").any { variantName.lowercase().contains(it) }) {
-            val outputFileName = ProjectConfig.packageName +
+            val outputFileName = projectConfig.packageName +
                     "-v${defaultConfig.versionName}-${defaultConfig.versionCode}" +
                     "-${variantName.uppercase()}.apk"
 

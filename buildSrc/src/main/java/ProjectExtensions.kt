@@ -1,46 +1,18 @@
-import com.android.build.api.dsl.Packaging
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Action
 import org.gradle.api.JavaVersion
-import org.gradle.api.provider.ValueSource
-import org.gradle.api.provider.ValueSourceParameters
+import org.gradle.api.Project
 import org.gradle.api.tasks.testing.Test
 import org.gradle.api.tasks.testing.TestDescriptor
 import org.gradle.api.tasks.testing.TestListener
 import org.gradle.api.tasks.testing.TestResult
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
-import org.gradle.process.ExecOperations
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
-import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
-import java.nio.charset.Charset
-import java.util.*
-import javax.inject.Inject
-
-object ProjectConfig {
-    const val packageName = "eu.darken.sdmse"
-
-    const val minSdk = 26
-    const val compileSdk = 34
-    const val targetSdk = 34
-
-    object Version {
-        val versionProperties = Properties().apply {
-            load(FileInputStream(File("version.properties")))
-        }
-        val major = versionProperties.getProperty("project.versioning.major").toInt()
-        val minor = versionProperties.getProperty("project.versioning.minor").toInt()
-        val patch = versionProperties.getProperty("project.versioning.patch").toInt()
-        val build = versionProperties.getProperty("project.versioning.build").toInt()
-        val type = versionProperties.getProperty("project.versioning.type")
-
-        val name = "${major}.${minor}.${patch}-$type${build}"
-        val code = major * 10000000 + minor * 100000 + patch * 1000 + build * 10
-    }
-}
+import java.util.Properties
 
 /**
  * Configures the [kotlinOptions][org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions] extension.
@@ -48,14 +20,17 @@ object ProjectConfig {
 private fun LibraryExtension.kotlinOptions(configure: Action<KotlinJvmOptions>): Unit =
     (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("kotlinOptions", configure)
 
-fun LibraryExtension.setupLibraryDefaults() {
-    compileSdk = ProjectConfig.compileSdk
+fun LibraryExtension.setupLibraryDefaults(projectConfig: ProjectConfig) {
+    compileSdk = projectConfig.compileSdk
 
     defaultConfig {
-        minSdk = ProjectConfig.minSdk
+        minSdk = projectConfig.minSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 }
+
+val Project.projectConfig: ProjectConfig
+    get() = extensions.findByType(ProjectConfig::class.java)!!
 
 fun com.android.build.api.dsl.CommonExtension<
         com.android.build.api.dsl.LibraryBuildFeatures,
@@ -91,7 +66,8 @@ fun BaseExtension.setupKotlinOptions() {
             "-Xopt-in=kotlin.time.ExperimentalTime",
             "-Xopt-in=kotlin.RequiresOptIn",
             "-Xjvm-default=all",
-            "-XXLanguage:+DataObjects"
+            "-XXLanguage:+DataObjects",
+            "-Xcontext-receivers"
         )
     }
 }
@@ -162,19 +138,5 @@ fun Test.setupTestLogging() {
                 }
             }
         })
-    }
-}
-
-abstract class CommitHashValueSource : ValueSource<String, ValueSourceParameters.None> {
-    @get:Inject
-    abstract val execOperations: ExecOperations
-
-    override fun obtain(): String {
-        val output = ByteArrayOutputStream()
-        execOperations.exec {
-            commandLine("git", "rev-parse", "--short", "HEAD")
-            standardOutput = output
-        }
-        return String(output.toByteArray(), Charset.defaultCharset()).trim()
     }
 }
