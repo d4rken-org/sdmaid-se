@@ -1,3 +1,7 @@
+plugins {
+    id("projectConfig")
+}
+
 buildscript {
     repositories {
         google()

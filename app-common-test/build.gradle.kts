@@ -3,12 +3,13 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("projectConfig")
 }
 
 android {
-    namespace = "eu.darken.sdmse.common"
+    namespace = "${projectConfig.packageName}.common"
 
-    setupLibraryDefaults()
+    setupLibraryDefaults(projectConfig)
 
     setupModuleBuildTypes()
 

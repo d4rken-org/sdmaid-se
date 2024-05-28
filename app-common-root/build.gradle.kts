@@ -4,14 +4,15 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    id("projectConfig")
 }
 
 apply(plugin = "dagger.hilt.android.plugin")
 
 android {
-    namespace = "${ProjectConfig.packageName}.common.root"
+    namespace = "${projectConfig.packageName}.common.root"
 
-    setupLibraryDefaults()
+    setupLibraryDefaults(projectConfig)
 
     setupModuleBuildTypes()
 
