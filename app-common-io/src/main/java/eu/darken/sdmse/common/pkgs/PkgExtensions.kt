@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.pkgs
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import eu.darken.sdmse.common.pkgs.container.ArchivedPkg
 import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
 
 fun Pkg.getSettingsIntent(context: Context) = id.getSettingsIntent(context)
@@ -13,6 +14,9 @@ fun Pkg.Id.getSettingsIntent(context: Context): Intent = Intent().apply {
 }
 
 fun String.toPkgId() = Pkg.Id(this)
+
+val Pkg.isArchived: Boolean
+    get() = this is ArchivedPkg
 
 val Pkg.isEnabled: Boolean
     get() = this is ExtendedInstallData && this.isEnabled

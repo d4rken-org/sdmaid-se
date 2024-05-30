@@ -69,6 +69,7 @@ class AppExporter @Inject constructor(
         val extension = when (target.exportType) {
             AppExportType.APK -> "apk"
             AppExportType.BUNDLE -> "apks"
+            AppExportType.NONE -> throw IllegalArgumentException("Can't export $target")
         }
         val finalName = "$name - $version.$extension"
 
@@ -115,6 +116,8 @@ class AppExporter @Inject constructor(
                     }
                 }
             }
+
+            AppExportType.NONE -> throw IllegalStateException("Should never get here")
         }
         val exportedSize = savePath.length
         log(TAG, INFO) { "Exported size is $exportedSize" }

@@ -27,6 +27,7 @@ import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
+import eu.darken.sdmse.common.pkgs.isArchived
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.uix.BottomSheetDialogFragment2
@@ -68,11 +69,12 @@ class AppActionDialog : BottomSheetDialogFragment2() {
             tertiary.text = "${pkg.versionName} (${pkg.versionCode})"
             adapter.update(actions)
 
-            tagSystem.tagSystem.isGone = !appInfo.pkg.isSystemApp
-            tagDisabled.tagDisabled.isGone = appInfo.pkg.isEnabled
-            tagActive.tagActive.isGone = appInfo.isActive != true
-            tagApkBase.tagApkBase.isGone = appInfo.exportType != AppExportType.APK
-            tagApkBundle.tagApkBundle.isGone = appInfo.exportType != AppExportType.BUNDLE
+            tagSystem.tagSystem.isVisible = appInfo.pkg.isSystemApp
+            tagArchived.tagArchived.isVisible = appInfo.pkg.isArchived
+            tagDisabled.tagDisabled.isVisible = !appInfo.pkg.isEnabled
+            tagActive.tagActive.isVisible = appInfo.isActive == true
+            tagApkBase.tagApkBase.isVisible = appInfo.exportType == AppExportType.APK
+            tagApkBundle.tagApkBundle.isVisible = appInfo.exportType == AppExportType.BUNDLE
             tagContainer.isGone = tagContainer.children.none { it.isVisible }
 
             ui.recyclerview.isGone = progress != null

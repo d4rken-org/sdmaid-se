@@ -26,6 +26,7 @@ object BuildWrap {
 fun hasApiLevel(level: Int): Boolean = when {
     BuildWrap.VERSION.SDK_INT >= level -> true
     level == 34 && BuildWrap.VERSION.CODENAME == "UpsideDownCake" -> true
+    level == 35 && BuildWrap.VERSION.CODENAME == "VanillaIceCream" -> true
     else -> false
 }
 

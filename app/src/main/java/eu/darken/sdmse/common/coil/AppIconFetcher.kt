@@ -22,7 +22,7 @@ class AppIconFetcher @Inject constructor(
     override suspend fun fetch(): FetchResult {
         log { "Fetching $data" }
         val baseIcon = ipcFunnel.use {
-            packageManager.getIcon2(data.id)
+            data.icon?.get(options.context) ?: packageManager.getIcon2(data.id)
         } ?: ContextCompat.getDrawable(options.context, eu.darken.sdmse.common.io.R.drawable.ic_default_app_icon_24)!!
 
         return DrawableResult(

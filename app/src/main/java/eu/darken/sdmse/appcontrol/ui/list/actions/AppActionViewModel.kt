@@ -130,7 +130,7 @@ class AppActionViewModel @Inject constructor(
                 )
             }
 
-        val forceStopAction = if (state.isForceStopAvailable) {
+        val forceStopAction = if (state.isForceStopAvailable && appInfo.canBeStopped) {
             ForceStopActionVH.Item(
                 appInfo = appInfo,
                 onForceStop = {
@@ -192,19 +192,21 @@ class AppActionViewModel @Inject constructor(
                 )
             }
 
-        val uninstallAction = UninstallActionVH.Item(
-            appInfo = appInfo,
-            onItemClicked = { info ->
-                launch {
-                    val result = appControl.submit(UninstallTask(setOf(info.installId))) as UninstallTask.Result
-                    if (result.failed.isNotEmpty()) {
-                        throw UninstallException(result.failed.first())
+        val uninstallAction = if (appInfo.canBeDeleted) {
+            UninstallActionVH.Item(
+                appInfo = appInfo,
+                onItemClicked = { info ->
+                    launch {
+                        val result = appControl.submit(UninstallTask(setOf(info.installId))) as UninstallTask.Result
+                        if (result.failed.isNotEmpty()) throw UninstallException(result.failed.first())
                     }
                 }
-            }
-        )
+            )
+        } else {
+            null
+        }
 
-        val disableAction = if (state.isAppToggleAvailable) {
+        val disableAction = if (state.isAppToggleAvailable && appInfo.canBeToggled) {
             ToggleActionVH.Item(
                 appInfo = appInfo,
                 onToggle = {
@@ -216,12 +218,16 @@ class AppActionViewModel @Inject constructor(
             null
         }
 
-        val exportaction = ExportActionVH.Item(
-            appInfo = appInfo,
-            onBackup = {
-                events.postValue(AppActionEvents.SelectExportPath(it, Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)))
-            }
-        )
+        val exportaction = if (appInfo.canBeExported) {
+            ExportActionVH.Item(
+                appInfo = appInfo,
+                onBackup = {
+                    events.postValue(AppActionEvents.SelectExportPath(it, Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)))
+                }
+            )
+        } else {
+            null
+        }
 
         val finalState = baseState.copy(
             actions = listOfNotNull(

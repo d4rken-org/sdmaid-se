@@ -12,6 +12,10 @@ data class AppInfo(
     val pkg: Installed,
     val isActive: Boolean?,
     val sizes: PkgOps.SizeStats?,
+    val canBeToggled: Boolean,
+    val canBeStopped: Boolean,
+    val canBeExported: Boolean,
+    val canBeDeleted: Boolean,
 ) {
     val label: CaString
         get() = pkg.label ?: pkg.packageName.toCaString()
@@ -25,6 +29,7 @@ data class AppInfo(
     val exportType: AppExportType
         get() = when {
             pkg.splitSources.isNotNullOrEmpty() -> AppExportType.BUNDLE
-            else -> AppExportType.APK
+            pkg.sourceDir != null -> AppExportType.APK
+            else -> AppExportType.NONE
         }
 }
