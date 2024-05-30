@@ -17,7 +17,9 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.PkgDataSource
+import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.pkgops.IllegalPkgDataException
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
@@ -25,12 +27,11 @@ import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.user.UserManager2
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class PackageManagerPkgSource @Inject constructor(
+class NormalPkgsSource @Inject constructor(
     @ApplicationContext private val context: Context,
     private val pkgOps: PkgOps,
     private val userManager: UserManager2,
@@ -43,10 +44,10 @@ class PackageManagerPkgSource @Inject constructor(
 
         val pkgs = mutableListOf<Installed>()
 
-        pkgs.addAll(getCoreList())
+        pkgs.addAll(coreList())
 
         if (rootManager.canUseRootNow() || shizukuManager.canUseShizukuNow()) {
-            val extraPkgs = getUserSpecificPkgs()
+            val extraPkgs = userSpecific()
                 .filter { pkg -> !pkgs.any { it.id == pkg.id && it.userHandle == pkg.userHandle } }
 
             log(TAG) { "${extraPkgs.size} extra pkgs in addition to ${pkgs.size} core list" }
@@ -64,42 +65,65 @@ class PackageManagerPkgSource @Inject constructor(
             .also { log(TAG, VERBOSE) { "getPkgs(): Unique ${it.size}" } }
     }
 
-    private suspend fun getCoreList(): Collection<Installed> {
-        log(TAG, VERBOSE) { "getCoreList()" }
+    private suspend fun coreList(): Collection<Installed> {
+        log(TAG, VERBOSE) { "coreList()" }
 
         if (hasApiLevel(34) && !Permission.QUERY_ALL_PACKAGES.isGranted(context)) {
             log(TAG, ERROR) { "QUERY_ALL_PACKAGES is not granted !?" }
             throw QueryAllPkgsPermissionMissing()
         }
 
-        val result = pkgOps.queryPkgs(PackageManager.MATCH_ALL)
-        if (result.isEmpty()) {
+        // FYI: MATCH_ALL does not include MATCH_UNINSTALLED_PACKAGES
+        val pkgInfos = pkgOps.queryPkgs(PackageManager.MATCH_ALL)
+        if (pkgInfos.isEmpty()) {
             throw IllegalPkgDataException("No installed packages")
         }
-        if (result.none { it.packageName == BuildConfigWrap.APPLICATION_ID }) {
+        if (pkgInfos.none { it.packageName == BuildConfigWrap.APPLICATION_ID }) {
             throw IllegalPkgDataException("Returned package data didn't contain us")
         }
 
-        log(TAG, VERBOSE) { "getCoreList(): ${result.size} pkgs" }
+        val currentHandle = userManager.currentUser().handle
+        val installerData = pkgOps.getInstallerData(pkgInfos)
+
+        val result = pkgInfos.map {
+            NormalPkg(
+                packageInfo = it,
+                userHandle = currentHandle,
+                installerInfo = installerData[it] ?: InstallerInfo()
+            )
+        }
+
+        log(TAG, VERBOSE) { "coreList(): ${result.size} pkgs" }
         if (Bugs.isTrace) {
             result.onEachIndexed { index, installed ->
-                log(TAG, VERBOSE) { "getCoreList(): #$index - $installed" }
+                log(TAG, VERBOSE) { "coreList(): #$index - $installed" }
             }
         }
 
         return result
     }
 
-    private suspend fun getUserSpecificPkgs(): Collection<Installed> {
-        log(TAG, VERBOSE) { "getUserSpecificPkgs()" }
+    private suspend fun userSpecific(): Collection<Installed> {
+        log(TAG, VERBOSE) { "userSpecific()" }
 
         val result = userManager.allUsers()
             .map { profile ->
-                val userPkgs = pkgOps.queryPkgs(PackageManager.MATCH_ALL, profile.handle)
-                log(TAG, VERBOSE) { "getUserSpecificPkgs(): ${userPkgs.size} pkgs for $profile" }
+                // FYI: MATCH_ALL does not include MATCH_UNINSTALLED_PACKAGES
+                val pkgInfos = pkgOps.queryPkgs(PackageManager.MATCH_ALL, profile.handle)
+                val installerData = pkgOps.getInstallerData(pkgInfos)
+
+                val userPkgs = pkgInfos.map {
+                    NormalPkg(
+                        packageInfo = it,
+                        userHandle = profile.handle,
+                        installerInfo = installerData[it] ?: InstallerInfo()
+                    )
+                }
+
+                log(TAG, VERBOSE) { "userSpecific(): ${userPkgs.size} pkgs for $profile" }
                 if (Bugs.isTrace) {
                     userPkgs.onEachIndexed { index, installed ->
-                        log(TAG, VERBOSE) { "getUserSpecificPkgs(): #$index - $installed" }
+                        log(TAG, VERBOSE) { "userSpecific(): #$index - $installed" }
                     }
                 }
                 userPkgs
@@ -111,10 +135,10 @@ class PackageManagerPkgSource @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: PackageManagerPkgSource): PkgDataSource
+        @Binds @IntoSet abstract fun mod(mod: NormalPkgsSource): PkgDataSource
     }
 
     companion object {
-        private val TAG = logTag("PkgRepo", "Source", "PackageManager")
+        private val TAG = logTag("PkgRepo", "Source", "NormalPkgs")
     }
 }

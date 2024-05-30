@@ -14,12 +14,11 @@ import eu.darken.sdmse.common.pkgs.container.LibraryPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.user.UserManager2
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class SharedLibraryPkgSource @Inject constructor(
+class LibraryPkgsSource @Inject constructor(
     private val pkgOps: PkgOps,
     private val userManager2: UserManager2,
     private val pathClaw: SharedLibraryPathClaw,
@@ -62,10 +61,10 @@ class SharedLibraryPkgSource @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: SharedLibraryPkgSource): PkgDataSource
+        @Binds @IntoSet abstract fun mod(mod: LibraryPkgsSource): PkgDataSource
     }
 
     companion object {
-        private val TAG = logTag("PkgRepo", "Source", "SharedLibrary")
+        private val TAG = logTag("PkgRepo", "Source", "LibraryPkgs")
     }
 }

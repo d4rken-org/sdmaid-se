@@ -12,7 +12,7 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
-import eu.darken.sdmse.common.pkgs.sources.PackageManagerPkgSource
+import eu.darken.sdmse.common.pkgs.sources.NormalPkgsSource
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CoroutineScope
@@ -96,13 +96,13 @@ class PkgRepo @Inject constructor(
                 val mergedData = mutableMapOf<CacheKey, CachedInfo>()
 
                 // This is our primary source of data, we don't overwrite this data with data from other sources
-                sourceMap[PackageManagerPkgSource::class]!!.forEach { pkg ->
+                sourceMap[NormalPkgsSource::class]!!.forEach { pkg ->
                     val key = CacheKey(pkg)
                     mergedData[key] = CachedInfo(key, pkg)
                 }
 
                 sourceMap
-                    .filter { it.key != PackageManagerPkgSource::class }
+                    .filter { it.key != NormalPkgsSource::class }
                     .onEach { (type, pkgs) ->
                         val extraPkgs = pkgs
                             .map { pkg ->
