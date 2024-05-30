@@ -2,7 +2,11 @@ package eu.darken.sdmse.common.pkgs.container
 
 import android.content.pm.PackageInfo
 import androidx.appcompat.content.res.AppCompatResources
-import eu.darken.sdmse.common.ca.*
+import eu.darken.sdmse.common.ca.CaDrawable
+import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.caDrawable
+import eu.darken.sdmse.common.ca.caString
+import eu.darken.sdmse.common.ca.cache
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -27,5 +31,5 @@ data class HiddenPkg(
             ?: AppCompatResources.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
     }.cache()
 
-    override fun toString(): String = "BasicPkg(packageName=$packageName"
+    override fun toString(): String = "HiddenPkg(packageName=$packageName"
 }
