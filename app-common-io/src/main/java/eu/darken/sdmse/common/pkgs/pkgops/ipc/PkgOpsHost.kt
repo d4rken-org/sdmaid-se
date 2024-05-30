@@ -109,26 +109,22 @@ class PkgOpsHost @Inject constructor(
         throw wrapPropagating(e)
     }
 
-    override fun getInstalledPackagesAsUser(flags: Int, handleId: Int): List<PackageInfo> = try {
+    override fun getInstalledPackagesAsUser(flags: Long, handleId: Int): List<PackageInfo> = try {
         log(TAG, VERBOSE) { "getInstalledPackagesAsUser($flags, $handleId)..." }
 
-        val result = pm.getInstalledPackagesAsUser(flags, UserHandle2(handleId)).also {
+        pm.getInstalledPackagesAsUser(flags, UserHandle2(handleId)).also {
             log(TAG) { "getInstalledPackagesAsUser($flags, $handleId): ${it.size}" }
         }
-        result + result + result + result + result
     } catch (e: Exception) {
         log(TAG, ERROR) { "getInstalledPackagesAsUser(flags=$flags, handleId=$handleId) failed." }
         throw wrapPropagating(e)
     }
 
-    override fun getInstalledPackagesAsUserStream(flags: Int, handleId: Int): RemoteInputStream = try {
+    override fun getInstalledPackagesAsUserStream(flags: Long, handleId: Int): RemoteInputStream = try {
         log(TAG, VERBOSE) { "getInstalledPackagesAsUserStream($flags, $handleId)..." }
-        val packageManager = context.packageManager
-        val result = packageManager.getInstalledPackagesAsUser(flags, UserHandle2(handleId)).also {
+        pm.getInstalledPackagesAsUser(flags, UserHandle2(handleId)).also {
             log(TAG) { "getInstalledPackagesAsUser($flags, $handleId): ${it.size}" }
-        }
-        val payload = result + result + result + result + result
-        payload.toRemoteInputStream()
+        }.toRemoteInputStream()
     } catch (e: Exception) {
         log(TAG, ERROR) { "getInstalledPackagesAsUser(flags=$flags, handleId=$handleId) failed." }
         throw wrapPropagating(e)
@@ -136,8 +132,7 @@ class PkgOpsHost @Inject constructor(
 
     override fun setApplicationEnabledSetting(packageName: String, newState: Int, flags: Int) = try {
         log(TAG, VERBOSE) { "setApplicationEnabledSetting($packageName, $newState, $flags)..." }
-        val packageManager = context.packageManager
-        packageManager.setApplicationEnabledSetting(packageName, newState, flags)
+        pm.setApplicationEnabledSetting(packageName, newState, flags)
         log(TAG, VERBOSE) { "setApplicationEnabledSetting($packageName, $newState, $flags) succesful" }
     } catch (e: Exception) {
         log(TAG, ERROR) { "setApplicationEnabledSetting($packageName, $newState, $flags) failed ($e)" }
