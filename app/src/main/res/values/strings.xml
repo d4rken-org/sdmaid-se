@@ -544,7 +544,7 @@
     <string name="analyzer_storage_content_type_system_label">System data</string>
     <string name="analyzer_storage_content_type_system_description">System apps and system data. Apps and data from other users, if several user accounts are set on this device.</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
-    <string name="analyzer_storage_content_app_code_description">Application files, libraries and resources. This space can only be freed by uninstalling the app.</string>
+    <string name="analyzer_storage_content_app_code_description">Application files, libraries and resources. This space can be freed by uninstalling the app or archiving it (available on newer Android version).</string>
     <string name="analyzer_storage_content_app_data_label">App data</string>
     <string name="analyzer_storage_content_app_data_description">Data, settings and caches.</string>
     <string name="analyzer_storage_content_app_media_label">App media</string>
@@ -552,6 +552,7 @@
     <string name="analyzer_storage_content_app_extra_label">Extra app files</string>
     <string name="analyzer_storage_content_app_extra_description">Extra data that this app has placed outside of the default paths, e.g. photos or downloads.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">This app occupies %1$s on \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">This app has been archived.</string>
 
     <string name="data_area_public_app_data_official_label">Default public app data</string>
     <string name="data_area_public_app_assets_official_label">Default public app assets</string>

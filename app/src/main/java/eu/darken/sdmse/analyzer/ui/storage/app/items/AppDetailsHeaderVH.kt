@@ -8,6 +8,7 @@ import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.ui.storage.app.AppDetailsAdapter
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.pkgs.isArchived
 import eu.darken.sdmse.databinding.AnalyzerAppVhHeaderBinding
 
 
@@ -31,11 +32,17 @@ class AppDetailsHeaderVH(parent: ViewGroup) :
         title.text = pkgStat.pkg.label?.get(context) ?: pkgStat.pkg.packageName
         subtitle.text = pkgStat.id.pkgId.name
 
-        primary.text = getString(
-            R.string.analyzer_app_details_app_occupies_x_on_y,
-            Formatter.formatShortFileSize(context, pkgStat.totalSize),
-            storage.label.get(context)
-        )
+        primary.apply {
+            text = getString(
+                R.string.analyzer_app_details_app_occupies_x_on_y,
+                Formatter.formatShortFileSize(context, pkgStat.totalSize),
+                storage.label.get(context)
+            )
+            if (pkgStat.pkg.isArchived) {
+                append(" ")
+                append(getString(R.string.analyzer_app_details_app_is_archived))
+            }
+        }
 
         settingsAction.setOnClickListener { item.onSettingsClicked() }
     }
