@@ -30,6 +30,7 @@ import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.Progress
@@ -349,7 +350,7 @@ class AppControl @Inject constructor(
             sizes = if (determineSizes) pkgOps.querySizeStats(installId) else null,
             canBeToggled = this is NormalPkg,
             canBeStopped = this is NormalPkg,
-            canBeExported = this is NormalPkg,
+            canBeExported = this is SourceAvailable,
             canBeDeleted = true,
         )
     }

@@ -9,7 +9,12 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.MainDirections
-import eu.darken.sdmse.appcontrol.core.*
+import eu.darken.sdmse.appcontrol.core.AppControl
+import eu.darken.sdmse.appcontrol.core.AppControlScanTask
+import eu.darken.sdmse.appcontrol.core.AppControlSettings
+import eu.darken.sdmse.appcontrol.core.AppInfo
+import eu.darken.sdmse.appcontrol.core.FilterSettings
+import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
@@ -20,7 +25,7 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
+import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.progress.Progress
@@ -31,7 +36,13 @@ import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.transformLatest
 import java.time.Instant
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject
@@ -95,7 +106,7 @@ class AppControlListViewModel @Inject constructor(
     private val lablrCacheUpdated = mutableMapOf<Pkg.Id, String>()
     private val AppInfo.lablrUpdated: String
         get() = lablrCacheUpdated[this.id] ?: run {
-            this.pkg.let { it as? ExtendedInstallData }
+            this.pkg.let { it as? InstallDetails }
                 ?.updatedAt
                 ?.let {
                     val formatter = DateTimeFormatter.ofPattern("MM.uuuu")
@@ -107,7 +118,7 @@ class AppControlListViewModel @Inject constructor(
     private val lablrCacheInstalled = mutableMapOf<Pkg.Id, String>()
     private val AppInfo.lablrInstalled: String
         get() = lablrCacheInstalled[this.id] ?: run {
-            this.pkg.let { it as? ExtendedInstallData }
+            this.pkg.let { it as? InstallDetails }
                 ?.installedAt
                 ?.let {
                     val formatter = DateTimeFormatter.ofPattern("MM.uuuu")
@@ -193,11 +204,11 @@ class AppControlListViewModel @Inject constructor(
                         }
 
                         SortSettings.Mode.LAST_UPDATE -> compareBy {
-                            (it.pkg as? ExtendedInstallData)?.updatedAt ?: Instant.EPOCH
+                            (it.pkg as? InstallDetails)?.updatedAt ?: Instant.EPOCH
                         }
 
                         SortSettings.Mode.INSTALLED_AT -> compareBy {
-                            (it.pkg as? ExtendedInstallData)?.installedAt ?: Instant.EPOCH
+                            (it.pkg as? InstallDetails)?.installedAt ?: Instant.EPOCH
                         }
 
                         SortSettings.Mode.SIZE -> compareBy {

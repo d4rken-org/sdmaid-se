@@ -14,7 +14,7 @@ import eu.darken.sdmse.common.forensics.csi.dalvik.tools.ExistCheck
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.OddOnesCheck
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.RuntimeTool
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.SourceDirCheck
-import eu.darken.sdmse.common.pkgs.container.ApkInfo
+import eu.darken.sdmse.common.pkgs.container.PkgArchive
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.user.UserHandle2
@@ -385,7 +385,7 @@ class CSIDalvikDexTest : BaseCSITest() {
 
         for (base in dalviks) {
             val apk = LocalPath.build("/data/app/test-2.apk")
-            val apkArchive = mockk<ApkInfo>().apply {
+            val apkArchive = mockk<PkgArchive>().apply {
                 every { id } returns pkgId
             }
             coEvery { pkgOps.viewArchive(apk, 0) } returns apkArchive

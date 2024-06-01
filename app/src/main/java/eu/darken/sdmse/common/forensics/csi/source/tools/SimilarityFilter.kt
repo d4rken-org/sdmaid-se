@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.getPkg
 import javax.inject.Inject
 
@@ -37,7 +38,7 @@ class SimilarityFilter @Inject constructor(
 
             val userHandle = areaInfo.userHandle
             val sourceDir = pkgRepo.getPkg(candidate.pkgId, userHandle)
-                ?.let { it }
+                ?.let { it as? SourceAvailable }
                 ?.sourceDir ?: return@filter true
 
             if (sourceDir.startsWith(firstDirHyphenPath) && !sourceDir.startsWith(firstDirPath)) {

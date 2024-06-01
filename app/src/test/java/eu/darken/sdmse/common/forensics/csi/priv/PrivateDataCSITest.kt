@@ -5,7 +5,7 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
-import eu.darken.sdmse.common.pkgs.container.ApkInfo
+import eu.darken.sdmse.common.pkgs.container.PkgArchive
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.user.UserHandle2
@@ -257,7 +257,7 @@ class PrivateDataCSITest : BaseCSITest() {
                 path = LocalPath.build("system", "vendor", "overlay", ownerPackage, "$ownerPackage.apk"),
                 flags = 0
             )
-        } returns ApkInfo(
+        } returns PkgArchive(
             id = corpseName.toPkgId(),
             packageInfo = mockk(),
         )

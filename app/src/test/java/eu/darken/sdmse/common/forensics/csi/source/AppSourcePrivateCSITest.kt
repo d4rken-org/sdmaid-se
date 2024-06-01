@@ -13,7 +13,7 @@ import eu.darken.sdmse.common.forensics.csi.source.tools.FileToPkgCheck
 import eu.darken.sdmse.common.forensics.csi.source.tools.LuckyPatcherCheck
 import eu.darken.sdmse.common.forensics.csi.source.tools.SimilarityFilter
 import eu.darken.sdmse.common.forensics.csi.source.tools.SubDirToPkgCheck
-import eu.darken.sdmse.common.pkgs.container.ApkInfo
+import eu.darken.sdmse.common.pkgs.container.PkgArchive
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.user.UserHandle2
@@ -149,7 +149,7 @@ class AppSourcePrivateCSITest : BaseCSITest() {
             )
         }.flatten()
 
-        val apkArchive = mockk<ApkInfo>().apply {
+        val apkArchive = mockk<PkgArchive>().apply {
             every { id } returns packageName
         }
         for (toHit in targets) {
@@ -182,7 +182,7 @@ class AppSourcePrivateCSITest : BaseCSITest() {
         for (base in targets) {
             for (apkName in validApkNames) {
                 val target = base.child(apkName)
-                val apkArchive = mockk<ApkInfo>().apply {
+                val apkArchive = mockk<PkgArchive>().apply {
                     every { id } returns packageName
                 }
                 coEvery { pkgOps.viewArchive(target, 0) } returns apkArchive

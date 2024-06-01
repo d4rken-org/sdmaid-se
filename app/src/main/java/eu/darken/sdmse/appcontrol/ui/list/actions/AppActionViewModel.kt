@@ -36,7 +36,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
+import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.getLaunchIntent
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -180,7 +180,7 @@ class AppActionViewModel @Inject constructor(
             },
         )
 
-        val appStoreAction = (appInfo.pkg as? ExtendedInstallData)
+        val appStoreAction = (appInfo.pkg as? InstallDetails)
             ?.takeIf { it.installerInfo.installer != null }
             ?.let {
                 AppStoreActionVH.Item(

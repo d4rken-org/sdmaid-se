@@ -10,7 +10,7 @@ import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.cache
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.features.ExtendedInstallData
+import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.getIcon2
@@ -22,7 +22,7 @@ data class ArchivedPkg(
     override val packageInfo: PackageInfo,
     override val userHandle: UserHandle2,
     override val installerInfo: InstallerInfo,
-) : Installed, ExtendedInstallData {
+) : Installed, InstallDetails {
 
     override val id: Pkg.Id
         get() = packageInfo.packageName.toPkgId()
