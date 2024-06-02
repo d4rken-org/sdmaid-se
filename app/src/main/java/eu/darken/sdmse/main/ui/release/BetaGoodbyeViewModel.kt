@@ -9,9 +9,8 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.release.ReleaseSettings
-import eu.darken.sdmse.main.ui.dashboard.items.*
-import kotlinx.coroutines.flow.*
 import java.time.Instant
 import javax.inject.Inject
 
@@ -21,6 +20,7 @@ class BetaGoodbyeViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val releaseSettings: ReleaseSettings,
     private val webpageTool: WebpageTool,
+    private val updateChecker: UpdateChecker,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     fun consentPrerelease(consent: Boolean) = launch {
@@ -33,7 +33,16 @@ class BetaGoodbyeViewModel @Inject constructor(
             }
 
             BuildConfigWrap.Flavor.FOSS -> {
-                // NOOP
+                if (!consent && BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.RELEASE) {
+                    launch {
+                        val latest = updateChecker.getLatest(UpdateChecker.Channel.PROD)
+                        if (latest != null) {
+                            updateChecker.viewUpdate(latest)
+                        } else {
+                            webpageTool.open("https://github.com/d4rken-org/sdmaid-se/releases/latest")
+                        }
+                    }
+                }
             }
 
             BuildConfigWrap.Flavor.NONE -> throw IllegalStateException("Why is there no flavor?")

@@ -41,13 +41,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:text="@string/nudge_betagoodbye_body" />
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/already_prod_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="?colorSecondaryContainer">
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="?colorSecondaryContainer"
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <com.google.android.material.textview.MaterialTextView
                     style="@style/TextAppearance.Material3.BodyMedium"
@@ -60,7 +64,6 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:backgroundTint="?colorTertiaryContainer">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
