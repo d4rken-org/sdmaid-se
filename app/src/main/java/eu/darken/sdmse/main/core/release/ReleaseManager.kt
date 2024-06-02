@@ -2,6 +2,7 @@ package eu.darken.sdmse.main.core.release
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -37,6 +38,11 @@ class ReleaseManager @Inject constructor(
     suspend fun releaseParty(): Boolean {
         if (settings.releasePartyAt.value() != null) {
             log(TAG) { "releaseParty(): Already had a party (wantsBeta=${settings.wantsBeta.value()})" }
+            return false
+        }
+
+        if (BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.RELEASE) {
+            log(TAG) { "releaseParty(): This is not a release build, no party!" }
             return false
         }
 
