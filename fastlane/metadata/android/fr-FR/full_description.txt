@@ -17,10 +17,10 @@ Si des applis créent des fichiers en dehors de leurs dossiers désignés, ces f
 Cherchez les dossiers vides, les fichiers temporaires, les applis déjà installées et plus encore. Vous pouvez même créer vos propres critères de recherche. L'outil "SystemCleaner" vous permet de rechercher automatiquement votre appareil et de supprimer des fichiers en fonction de différents critères.
 
 🧹 Supprimer les fichiers superflus et les caches dissimulés
-Miniatures, corbeilles, caches hors ligne et plus encore : Si les applications ne font pas le nettoyage après elles-mêmes, alors cette application le fera. L'outil "AppCleaner" trouve les applications avec des fichiers superflus.
+Imagettes, corbeilles, caches hors ligne et plus encore. Si les applis laissent des traces, cette appli fera le ménage. L'outil "AppCleaner" trouve les applications avec des fichiers superflus.
 
 📦 Gérer toutes vos applis
-Obtenez une liste complète de toutes les applications installées sur votre appareil. Activées, désactivées, application utilisateur ou système : aucune application ne peut vous échapper. L'outil "AppControl" est un gestionnaire d'applications qui vous permet de rechercher, trier et contrôler vos applications.
+Obtenez une liste complète de toutes les applis installées sur votre appareil. Activées, désactivées, application utilisateur ou système : aucune application ne peut vous échapper. L'outil "AppControl" est un gestionnaire d'applications qui vous permet de rechercher, trier et contrôler vos applications.
 
 📊 Qu'est-ce qui utilise tout votre espace
 La gestion du stockage peut être complexe avec des applications, des médias, des fichiers système et d'autres fichiers répartis sur le stockage du téléphone, les cartes SD et les périphériques USB. "StorageAnalyzer" est un gestionnaire de fichiers qui affiche comment l'espace est utilisé sur votre appareil, simplifiant ainsi votre gestion du stockage.
