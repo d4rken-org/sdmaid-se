@@ -22,6 +22,7 @@
     <string name="nudge_betagoodbye_title">Version 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">Thank you. We made it this far only together. Development will continue of course, but you can now switch to a release track.</string>
     <string name="nudge_betagoodbye_hint">This is already a normal version. Just opt out of testing and you will only receive release updates in the future.</string>
+    <string name="nudge_betagoodbye_reinstall_note">You can switch without reinstalling the app by leaving the testing program and waiting for the next release update. A normal update is possible once there is a release version newer than this pre-release.</string>
     <string name="nudge_betagoodbye_positive_action">Switch to release track</string>
     <string name="nudge_betagoodbye_negative_action">Keep getting pre-releases</string>
 </resources>
