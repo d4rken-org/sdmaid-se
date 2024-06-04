@@ -608,7 +608,7 @@
     <string name="updatecheck_setting_enabled_explanation">Erlaube SD Maid nach Updates zu suchen, um Dich darüber zu informieren, ob eine neuere Version verfügbar ist.</string>
     <string name="device_settings_category">Gerät</string>
     <string name="beta_version_indicator_desc">Vorabversionen zeigen ein kleines Band auf dem Startbildschirm an. Sie werden häufiger aktualisiert, könnten mehr Funktionen haben, aber auch mehr Fehler enthalten.</string>
-    <string name="review_app_review_action">Review</string>
-    <string name="review_app_dismiss_action">Maybe later</string>
-    <string name="review_app_body">Would you like to leave SD Maid a review?️ ❤️</string>
+    <string name="review_app_review_action">Bewerten</string>
+    <string name="review_app_dismiss_action">Später vielleicht</string>
+    <string name="review_app_body">Möchtest du SD Maid eine Bewertung hinterlassen? ❤️</string>
 </resources>
