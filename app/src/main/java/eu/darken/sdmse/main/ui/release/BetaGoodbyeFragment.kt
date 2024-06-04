@@ -31,6 +31,7 @@ class BetaGoodbyeFragment : Fragment3(R.layout.beta_goodbye_fragment) {
         ui.stayBetaAction.setOnClickListener { vm.consentPrerelease(true) }
         ui.optOutAction.setOnClickListener { vm.consentPrerelease(false) }
         ui.alreadyProdContainer.isGone = BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.RELEASE
+        ui.stillBetaContainer.isGone = BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.BETA
         super.onViewCreated(view, savedInstanceState)
     }
 }
