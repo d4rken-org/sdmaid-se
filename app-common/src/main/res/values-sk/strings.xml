@@ -137,6 +137,7 @@
     <string name="general_timeunit_days">Dní</string>
     <string name="general_progress_ready">Pripravené</string>
     <string name="general_progress_done">Hotovo</string>
+    <string name="general_rom_type_auto_label">Automaticky (predvolené)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s súbor</item>
         <item quantity="few">%s súbory</item>

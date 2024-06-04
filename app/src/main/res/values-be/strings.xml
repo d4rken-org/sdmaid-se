@@ -76,6 +76,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Эскізы файлаў</string>
     <string name="ui_previews_summary">Адлюстраванне эскізаў файлаў ва ўсіх інструментах (напр., эскізы выяў і відэа).</string>
+    <string name="ui_language_override_label">Мова праграмы</string>
+    <string name="ui_language_override_desc">Выберыце іншую мову для SD Maid, незалежна ад мовы вашай сістэмы па змаўчанні. Бягучая мова: %s</string>
     <string name="settings_support_label">Падтрымка</string>
     <string name="settings_support_description">Чытайце дакументацыю, паведамляйце аб праблемах, гутарыце з іншымі або запісвайце журналы адладкі.</string>
     <string name="documentation_label">Дакументацыя</string>
@@ -97,6 +99,9 @@
     <string name="setup_incomplete_card_continue_action">Працягнуць наладжванне</string>
     <string name="setup_title">Наладжванне</string>
     <string name="setup_forcedshow_summary">Паўторна паказаць экран наладжвання, у тым ліку з ужо наладжанымі элементамі.</string>
+    <string name="setup_checking_card_body">Праверка налад і функцыянальнасці.</string>
+    <string name="general_error_setup_require_label">Наладжванне не завершана</string>
+    <string name="general_error_setup_require_msg">Для выкарыстання гэтай функцыі патрабуецца дадатковае наладжванне. Выканайце астатнія крокі наладжвання.</string>
     <string name="setup_saf_card_title">Доступ да сховішча</string>
     <string name="setup_saf_card_body">Палепшыце рэзультаты, даўшы SD Maid доступ да дадатковых абласцей памяці.</string>
     <string name="setup_saf_card_body2">У большасці выпадкаў акно адкрыецца з папярэдне выбраным правільным шляхам. Запісы становяцца зялёнымі, калі праграме даецца доступ. </string>
@@ -144,6 +149,9 @@
     <string name="setup_acs_disallow_hint">Калі вы перадумаеце, вы можаце зноў змяніць гэты параметр у наладах, выканаўшы паўторнае наладжванне.</string>
     <string name="setup_acs_appops_restriction_title">Абмежаваныя налады</string>
     <string name="setup_acs_appops_restriction_body">Не можаце ўключыць службу спецыяльных магчымасцей для SD Maid? АС Android 13 і навейшыя могуць ужываць абмежаванні да праграм, усталяваных не праз Google Play. Зняць гэтыя абмежаванні можна на старонцы з сістэмнымі наладамі SD Maid. Параметр знаходзіцца ў кантэкстным меню ў правым верхнім вуглу.</string>
+    <string name="setup_inventory_card_title">Інвентар праграмы</string>
+    <string name="setup_inventory_card_body">Каб знаходзіць файлы, якія не адносяцца да ўсталяваных праграм SD Maid неабходна ведаць, якія праграмы ў вас ёсць.</string>
+    <string name="setup_inventory_card_extra">Знайдзіце дазвол пад назвай «Спіс праграм» або «Запыт усіх пакетаў».</string>
     <string name="dataarea_warningcard_empty_message">Праграма SD Maid не выявіла вобласці даных для сканіравання. Ці завершана наладжванне?</string>
     <string name="dataarea_warningcard_label">Вобласці даных</string>
     <string name="dataarea_warningcard_reload_action">Перазагрузіць вобласці даных</string>
@@ -193,9 +201,9 @@
     <string name="corpsefinder_filter_applib_label">Бібліятэкі праграм</string>
     <string name="corpsefinder_filter_applib_summary">Даныя, звязаныя з бібліятэкамі праграм.</string>
     <string name="corpsefinder_filter_appsource_label">Рэсурсы праграм</string>
-    <string name="corpsefinder_filter_appsource_summary">Даныя аб усталёўцы праграмы, то-бок месца захоўвання APK-файла.</string>
+    <string name="corpsefinder_filter_appsource_summary">Інсталяцыйныя файлы, то-бок месца захоўвання APK-файла.</string>
     <string name="corpsefinder_filter_appsource_private_label">Прыватныя крыніцы праграм</string>
-    <string name="corpsefinder_filter_appsource_private_summary">Абмежаваныя даныя аб усталёўкі праграм, напрыклад, абароненыя праграмы старонніх распрацоўшчыкаў.</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Абмежаваныя інсталяцыйныя файлы праграм, напрыклад, абароненыя праграмы старонніх распрацоўшчыкаў.</string>
     <string name="corpsefinder_filter_appasec_label">Зашыфраваныя рэсурсы праграм</string>
     <string name="corpsefinder_filter_appasec_summary">Зашыфраваныя рэсурсы праграм, напрыклад, гульнявыя рэсурсы.</string>
     <string name="corpsefinder_filter_app2sd_summary">Даныя перамешчаны ў знешняе сховішча з дапамогай мадыфікацый App2Sd.</string>
@@ -359,6 +367,11 @@
     <string name="appcleaner_automation_loading">Падрыхтоўка аўтаматызацыі праз службу спецыяльных магчымасцей</string>
     <string name="appcleaner_automation_title">Аўтаматызацыя ачысткі праграм</string>
     <string name="appcleaner_automation_subtitle_default_caches">Ачыстка стандартнага кэшу…</string>
+    <string name="appcleaner_automation_progress_open_settings">Адкрыццё экрана налад (ключавыя словы: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Пошук запісу \"Сховішча\" (ключавыя словы: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Пошук кнопкі \"Ачысціць даныя\" (ключавыя словы: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Пошук кнопкі \"Ачысціць кэш\" (ключавыя словы: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Спроба пацвердзіць папярэдняе дзеянне (ключавыя словы: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Стандартны кэш</string>
     <string name="appcleaner_item_caches_inaccessible_body">Публічны і прыватны стандартны кэш. Недаступны непасрэдна, але можа быць выдалены ўскосна (напрыклад, праз службу спецыяльных магчымасцей).</string>
     <string name="appcleaner_automation_unavailable_title">Служба спецыяльных магчымасцей недаступна</string>
@@ -425,6 +438,8 @@
     <string name="appcontrol_systemsettings_open_description">Адкрыць сістэмныя налады прылады для гэтай праграмы.</string>
     <string name="appcontrol_app_launch_title">Запусціць праграму</string>
     <string name="appcontrol_app_launch_description">Запуск асноўнай дзейнасці гэтай праграмы.</string>
+    <string name="appcontrol_app_forcestop_title">Прымусовае спыненне</string>
+    <string name="appcontrol_app_forcestop_description">Спыненне праграмы. Засцерагае яе ад самаадвольнага запуску, пакуль вы яе не адкрыеце або не перазагрузіце прыладу.</string>
     <string name="appcontrol_app_uninstall_description">Выдаліць гэту праграму з вашай прылады.</string>
     <string name="appcontrol_app_exclude_add_title">Выключаныя праграмы</string>
     <string name="appcontrol_app_exclude_add_description">Выключыць гэту праграму з іншых аперацый у SD Maid.</string>
@@ -464,7 +479,22 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Даведайцеся, ці з\'яўляецца актыўнай праграма (або была такой нядаўна).</string>
     <string name="appcontrol_export_app_selection_action">Экспартаваць праграмы</string>
     <string name="appcontrol_export_title">Экспартаваць праграму</string>
+    <string name="appcontrol_export_description">Захаваць інсталяцыйныя файлы гэтай праграмы на вашай прыладзе. Яны не ўключаюць даныя з праграмы.</string>
     <string name="appcontrol_progress_exporting_x">Экспартаванне %s</string>
+    <string name="appcontrol_force_stop_selection_action">Прымусовае спыненне праграм</string>
+    <string name="appcontrol_force_stop_action">Прымусовае спыненне</string>
+    <string name="appcontrol_force_stop_confirm_title">Пацвердзіце прымусовае спыненне</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Спыніць прымусова %d праграму?</item>
+        <item quantity="few">Спыніць прымусова %d праграмы?</item>
+        <item quantity="many">Спыніць прымусова %d праграм?</item>
+        <item quantity="other">Спыніць прымусова %d праграм?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Падрыхтоўка аўтаматызацыі праз службу спецыяльных магчымасцей</string>
+    <string name="appcontrol_automation_title">Аўтаматызацыя кантролю праграм</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Прымусовае спыненне…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Пошук кнопкі \"Прымусовае спыненне\" (ключавыя словы: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Спроба пацвердзіць папярэдняе дзеянне (ключавыя словы: %s)</string>
     <string name="analyzer_tool_name">Аналіз сховішча</string>
     <string name="analyzer_explanation_short">Даведайцеся, што займае месца на вашай прыладзе.</string>
     <string name="analyzer_progress_scanning_device">Пошук запамінальных прылад</string>
@@ -490,6 +520,8 @@
     <string name="analyzer_storage_type_primary_description">Асноўнае сховішча вашай прылады. Змяшчае ўнутраную карту памяці, прыватнае сховішча для праграм і сістэмных даных.</string>
     <string name="analyzer_storage_type_secondary_title">Дадатковае сховішча</string>
     <string name="analyzer_storage_type_secondary_description">Дадатковае сховішча, звычайна здымная карта памяці. Змяшчае медыяфайлы і даныя з праграм, якія падтрымліваюць гэта.</string>
+    <string name="analyzer_storage_type_tertiary_title">Партатыўнае сховішча</string>
+    <string name="analyzer_storage_type_tertiary_description">Партатыўнае сховішча, напр. флэш-дыск, падключаны да порта USB.</string>
     <string name="analyzer_storage_content_title">Змест сховішча</string>
     <string name="analyzer_storage_content_type_app_label">Праграмы</string>
     <string name="analyzer_storage_content_type_app_description">Месца, занятае ўсталяванымі праграмамі і іх данымі (напр., файламі праграм, данымі і кэшам).</string>
@@ -606,4 +638,9 @@
     <string name="motd_setting_enabled_explanation">Дазволіць SD Maid правяраць наяўнасць важных паведамленняў ад распрацоўшчыка.</string>
     <string name="updatecheck_setting_enabled_label">Праверка абнаўленняў</string>
     <string name="updatecheck_setting_enabled_explanation">Дазвольце SD Maid правяраць наяўнасць абнаўленняў для апавяшчэння вас пра даступнасць новай версіі.</string>
+    <string name="device_settings_category">Прылада</string>
+    <string name="beta_version_indicator_desc">Папярэднія версіі адлюстроўваюць маленькую стужку на стартавым экране. Яны абнаўляюцца часцей, могуць мець больш функцый, але таксама могуць мець больш памылак.</string>
+    <string name="review_app_review_action">Водгук</string>
+    <string name="review_app_dismiss_action">Магчыма пазней</string>
+    <string name="review_app_body">Ці вы хочаце пакінуць водгук на SD Maid?️ ❤️</string>
 </resources>

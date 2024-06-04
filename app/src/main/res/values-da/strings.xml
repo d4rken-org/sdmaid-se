@@ -72,4 +72,20 @@
     <string name="ui_previews_title">Filforhåndsvisninger</string>
     <string name="ui_previews_summary">Vis filforhåndsvisninger i alle værktøjer (fx billed- og videominiaturebilleder).</string>
     <string name="ui_language_override_label">Appsprog</string>
+    <string name="ui_language_override_desc">Vælg et andet sprog til SD Maid, uafhængigt af dit systems standardsprog. Aktuelt: %s</string>
+    <string name="settings_support_label">Support</string>
+    <string name="settings_support_description">Læs dokumentation, rapportér issues, chat med andre eller optag fejlfindingslogs.</string>
+    <string name="documentation_label">Dokumentation</string>
+    <string name="issue_tracker_description">En offentlig issue tracker til fejlrapporter og funktionsanmodninger.</string>
+    <string name="support_debuglog_label">Fejlfindingslog</string>
+    <string name="support_debuglog_desc">Optag alt, appen gør, til en tekstfil, som du kan dele.</string>
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">Et sted at hænge ud og stille spørgsmål.</string>
+    <string name="setup_label">Opsætning</string>
+    <string name="setup_incomplete_card_title">Opsætning er ufærdig</string>
+    <string name="setup_incomplete_card_body">Fuldfør SD Maids opsætning for at få bedre resultater.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid prøver at løse opsætningsproblemer.</string>
+    <string name="setup_incomplete_card_dismiss_action">Afvis</string>
+    <string name="setup_incomplete_card_continue_action">Fortsæt opsætning</string>
+    <string name="setup_title">Opsætning</string>
 </resources>

@@ -152,6 +152,7 @@
     <string name="general_timeunit_days">Дні</string>
     <string name="general_progress_ready">Гатова</string>
     <string name="general_progress_done">Выканана</string>
+    <string name="general_rom_type_auto_label">Аўтаматычна (па змаўчанні)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s файл</item>
         <item quantity="few">%s файлаў</item>
