@@ -98,6 +98,7 @@
     <string name="setup_incomplete_card_continue_action">Pokračovať v nastavení</string>
     <string name="setup_title">Nastavenie</string>
     <string name="setup_forcedshow_summary">Znova zobraziť obrazovku nastavenia vrátane už dokončených položiek.</string>
+    <string name="general_error_setup_require_label">Nastavenie je neúplné</string>
     <string name="setup_saf_card_title">Framework prístupu k úložisku</string>
     <string name="setup_saf_card_body">Zlepšite výsledky udelením prístupu SD Maid do ďalších oblastí.</string>
     <string name="setup_saf_card_body2">Vo väčšine prípadov sa otvorí okno so správnou predvolenou cestou. Po udelení prístupu sa položky rozsvietia na zeleno. </string>
@@ -433,6 +434,7 @@
     <string name="appcontrol_tag_user">Užívateľ</string>
     <string name="appcontrol_tag_active">Nedávno aktívne</string>
     <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Balík</string>
     <string name="appcontrol_tag_system">Systém</string>
     <string name="appcontrol_tag_enabled">Povolené</string>
     <string name="appcontrol_tag_disabled">Zakázané</string>
@@ -451,6 +453,8 @@
     <string name="appcontrol_app_sizes_data_label">Dáta</string>
     <string name="appcontrol_app_sizes_cache_label">Vyrovnávacia pamäť</string>
     <string name="appcontrol_toggle_confirmation_title">Potvrdiť akciu</string>
+    <string name="appcontrol_export_app_selection_action">Exportovať aplikácie</string>
+    <string name="appcontrol_export_title">Exportovať aplikáciu</string>
     <string name="appcontrol_force_stop_action">Vynútiť zastavenie</string>
     <string name="analyzer_tool_name">Analyzátor úložiska</string>
     <string name="analyzer_explanation_short">Zistite, čo zaberá miesto na vašom zariadení.</string>
@@ -594,4 +598,5 @@
     <string name="updatecheck_setting_enabled_label">Kontrola aktualizácií</string>
     <string name="updatecheck_setting_enabled_explanation">Umožnite aplikácii SD Maid skontrolovať aktualizácie, aby ste vedeli, či je k dispozícii novšia verzia.</string>
     <string name="device_settings_category">Zariadenie</string>
+    <string name="review_app_dismiss_action">Možno pozdejšie</string>
 </resources>

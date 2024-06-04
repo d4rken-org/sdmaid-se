@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">স্পনসর ডেভলপমেন্ট</string>
     <string name="upgrade_screen_sponsor_action_hint">বিকল্প হল বিজ্ঞাপন, বিশ্লেষণ এবং Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">ওপেন সোর্স ডেভেলপমেন্ট সমর্থন করার জন্য আপনাকে ধন্যবাদ ❤️</string>
+    <string name="nudge_betagoodbye_title">সংস্করণ ১. ০ 🥳</string>
 </resources>
