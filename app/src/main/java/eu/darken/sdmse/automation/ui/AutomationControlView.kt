@@ -60,16 +60,19 @@ class AutomationControlView @JvmOverloads constructor(
                     progress = data.count.current.toInt()
                     max = data.count.max.toInt()
                 }
+
                 is Count.Percent -> {
                     isIndeterminate = false
                     trackColor = context.getColorForAttr(com.google.android.material.R.attr.colorPrimaryContainer)
                     progress = data.count.current.toInt()
                     max = data.count.max.toInt()
                 }
+
                 is Count.Indeterminate -> {
                     isIndeterminate = true
                     trackColor = Color.TRANSPARENT
                 }
+
                 is Count.Size -> {}
                 is Count.None -> {}
             }
@@ -89,6 +92,10 @@ class AutomationControlView @JvmOverloads constructor(
         ui.clickScreen.isVisible = show
         ui.clickScreenExplanation.isVisible = show
         ui.clickScreenMascotContainer.isVisible = show
+    }
+
+    fun setTranslucent(translucent: Boolean) {
+        ui.root.alpha = if (translucent) 0.1f else 1.0f
     }
 
     fun setCancelListener(listener: OnClickListener?) {

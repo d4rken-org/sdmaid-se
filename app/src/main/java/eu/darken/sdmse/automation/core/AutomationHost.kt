@@ -8,6 +8,7 @@ import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.progress.Progress
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -25,7 +26,8 @@ interface AutomationHost : Progress.Client {
     val events: Flow<AccessibilityEvent>
 
     data class Options(
-        val showOverlay: Boolean = true,
+        val showOverlay: Boolean = !Bugs.isTrace,
+        val translucent: Boolean = Bugs.isTrace,
         val panelGravity: Int = Gravity.BOTTOM,
         val accessibilityServiceInfo: AccessibilityServiceInfo = AccessibilityServiceInfo(),
         val controlPanelTitle: CaString = R.string.automation_active_title.toCaString(),
