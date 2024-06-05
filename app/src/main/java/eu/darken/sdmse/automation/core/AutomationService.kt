@@ -262,6 +262,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
                 windowManager.updateViewLayout(acv, controlLp)
                 acv.showOverlay(newOptions.showOverlay)
+                acv.setTranslucent(newOptions.translucent)
                 acv.setTitle(newOptions.controlPanelTitle, newOptions.controlPanelSubtitle)
             }
         }
