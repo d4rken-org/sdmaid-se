@@ -40,7 +40,6 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
-import java.util.*
 import javax.inject.Inject
 
 @Reusable
@@ -80,7 +79,7 @@ open class AndroidTVSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels = androidTVLabels.getClearCacheLabels(lang, script)
 
-            if (clearCacheButtonLabels.isNotEmpty()) {
+            if (clearCacheButtonLabels.isEmpty()) {
                 log(TAG, WARN) { "clearCacheButtonLabels was empty" }
                 throw UnsupportedOperationException("This system language is not supported")
             }
