@@ -18,6 +18,7 @@
     <string name="nudge_betagoodbye_title">Phiên bản 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">Cảm ơn. Chúng tôi đã làm được điều này cùng nhau. Tất nhiên, quá trình phát triển sẽ tiếp tục nhưng giờ đây bạn có thể chuyển sang kênh phát hành.</string>
     <string name="nudge_betagoodbye_hint">Đây đã là phiên bản bình thường rồi. Chỉ cần chọn không tham gia thử nghiệm và bạn sẽ chỉ nhận được các bản cập nhật phát hành trong tương lai.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Bạn có thể chuyển đổi mà không cần cài đặt lại ứng dụng bằng cách rời khỏi chương trình thử nghiệm và chờ bản cập nhật phát hành tiếp theo. Có thể cập nhật bình thường khi có phiên bản phát hành mới hơn phiên bản trước này.</string>
     <string name="nudge_betagoodbye_positive_action">Chuyển sang bản phát hành</string>
     <string name="nudge_betagoodbye_negative_action">Tiếp tục nhận bản phát hành trước</string>
 </resources>

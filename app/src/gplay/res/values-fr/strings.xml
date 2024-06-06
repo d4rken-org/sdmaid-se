@@ -26,9 +26,10 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Conseils de dépannage pour les surclassements non reconnus :</string>
     <string name="upgrade_screen_restore_sync_patience_hint">La synchronisation avec Google Play peut prendre du temps. Essayez de redémarrer votre appareil, de vider le cache de Google Play ou simplement d’attendre.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Plusieurs comptes peuvent perturber Google Play. Déconnectez-vous des autres comptes ou installez du site Web de Google Play, ce qui force l’association avec un compte précis.</string>
-    <string name="nudge_betagoodbye_title">Version 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Merci. Nous sommes arrivés jusqu\'ici seulement ensemble. Le développement se poursuivra bien sûr, mais vous pouvez désormais installer SD Maid sans opter pour les tests sur Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Vous n\'avez pas besoin de réinstaller l\'application. C\'est déjà une version normale. Désactivez simplement les tests et vous ne recevrez que les mises à jour des versions à l\'avenir.</string>
+    <string name="nudge_betagoodbye_title">Version 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Merci. C’est ensemble que nous sommes arrivés jusqu’ici. Bien sûr, le développement se poursuivra ; vous pouvez désormais installer SD Maid sans choisir de la tester dans Google Play.</string>
+    <string name="nudge_betagoodbye_hint">Pas besoin de réinstaller l’appli. Vous utilisez déjà la version normale. Choisissez simplement de ne plus tester l’appli et vous ne recevrez que les mises à jour de la version stable.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Vous pouvez changer de version sans réinstaller l’appli en quittant le programme de test et en attendant la prochaine mise à jour. Une mise à jour normale est possible s’il existe une version plus récente que cette préversion.</string>
     <string name="nudge_betagoodbye_positive_action">Quitter le programme de test</string>
     <string name="nudge_betagoodbye_negative_action">Poursuivre l’essai</string>
 </resources>

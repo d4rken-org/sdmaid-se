@@ -671,4 +671,8 @@
     <string name="updatecheck_setting_enabled_label">التحقق من التحديث</string>
     <string name="updatecheck_setting_enabled_explanation">السماح لـ SD Maid بالتحقق من وجود تحديثات لإعلامك إذا كان إصدار أحدث متاح.</string>
     <string name="device_settings_category">الجهاز</string>
+    <string name="beta_version_indicator_desc">تعرض النسخ الاختبارية شريطًا خفيفًا على شاشة البدء. يتم تحديثها بشكل متكرر، وقد تحتوي على المزيد من الميزات، ولكن قد تحتوي أيضًا على المزيد من الأخطاء.</string>
+    <string name="review_app_review_action">مراجعة</string>
+    <string name="review_app_dismiss_action">ربما لاحقًا</string>
+    <string name="review_app_body">هل ترغب في ترك تعليق لـ SD Med؟ ❤️</string>
 </resources>

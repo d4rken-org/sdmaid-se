@@ -29,6 +29,7 @@
     <string name="nudge_betagoodbye_title">Versiyon 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">Teşekkürler. Buraya kadar birlikte geldik. Geliştirme elbette devam edecek, ancak artık SD Maid\'i Google Play\'de test etmeyi seçmeden de yükleyebilirsiniz.</string>
     <string name="nudge_betagoodbye_hint">Uygulamayı yeniden yüklemenize gerek yok. Bu zaten normal bir sürümdür. Sadece testten çıkmayı tercih edin ve gelecekte sadece normal sürüm güncellemelerini alacaksınız.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Test programından çıkarak ve bir sonraki sürüm güncellemesini bekleyerek uygulamayı yeniden yüklemeden geçiş yapabilirsiniz. Bu ön sürümden daha yeni bir sürüm çıktığında normal bir güncelleme mümkündür.</string>
     <string name="nudge_betagoodbye_positive_action">Test programından ayrıl</string>
     <string name="nudge_betagoodbye_negative_action">Test etmeye devam et</string>
 </resources>

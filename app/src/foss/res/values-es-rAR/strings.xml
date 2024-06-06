@@ -15,4 +15,10 @@
     <string name="upgrade_screen_sponsor_action">Sponsorear el desarrollo</string>
     <string name="upgrade_screen_sponsor_action_hint">Las alternativas son anuncios, analíticas y Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Gracias por apoyar el desarrollo de código abierto ❤️</string>
+    <string name="nudge_betagoodbye_title">Versión 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Gracias. Juntos hemos llegado hasta aquí. El desarrollo continuará, por supuesto, pero ahora puedes cambiar a una versión final.</string>
+    <string name="nudge_betagoodbye_hint">Esta es ya una versión normal. Simplemente opta por no participar en las pruebas y solo recibirás actualizaciones de nuevas versiones en el futuro.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Puede cambiar sin reinstalar la aplicación dejando el programa de pruebas y esperando la próxima actualización de la versión. Una actualización normal es posible una vez que hay una versión de lanzamiento más reciente que esta pre-versión.</string>
+    <string name="nudge_betagoodbye_positive_action">Cambiar a la versión final</string>
+    <string name="nudge_betagoodbye_negative_action">Seguir recibiendo versiones de pruebas</string>
 </resources>

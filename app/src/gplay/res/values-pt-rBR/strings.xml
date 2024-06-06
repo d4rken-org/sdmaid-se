@@ -29,6 +29,7 @@
     <string name="nudge_betagoodbye_title">Versão 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">Obrigado. Chegamos a este ponto juntos. O desenvolvimento continuará, é claro, mas agora você pode instalar o SD Maid sem optar por testes no Google Play.</string>
     <string name="nudge_betagoodbye_hint">Você não precisa reinstalar o aplicativo. Já é uma versão normal. Opte por não testar e você só receberá as atualizações de lançamento no futuro.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Você pode alternar sem reinstalar o aplicativo saindo do programa de teste e aguardando a próxima atualização. Uma atualização normal é possível quando há uma versão mais recente do que esta pré-versão.</string>
     <string name="nudge_betagoodbye_positive_action">Sair do programa de teste</string>
     <string name="nudge_betagoodbye_negative_action">Continue testando</string>
 </resources>

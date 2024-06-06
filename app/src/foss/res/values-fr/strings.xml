@@ -15,9 +15,10 @@
     <string name="upgrade_screen_sponsor_action">Financer le développement</string>
     <string name="upgrade_screen_sponsor_action_hint">Sinon, des publicités, des analyses et Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Merci de soutenir le développement des logiciels libres ❤️</string>
-    <string name="nudge_betagoodbye_title">Version 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Merci. Nous sommes arrivés jusque-là uniquement ensemble. Le développement continuera bien sûr, mais vous pouvez maintenant passer à une version stable.</string>
-    <string name="nudge_betagoodbye_hint">C\'est déjà une version normale. Désactivez simplement les tests et vous ne recevrez que les mises à jour des versions à l\'avenir.</string>
-    <string name="nudge_betagoodbye_positive_action">Passer à la version de diffusion</string>
-    <string name="nudge_betagoodbye_negative_action">Continuer à obtenir les préversions</string>
+    <string name="nudge_betagoodbye_title">Version 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">Merci. C’est ensemble que nous sommes arrivés jusqu’ici. Bien sûr, le développement se poursuivra ; vous pouvez désormais passer à la version stable.</string>
+    <string name="nudge_betagoodbye_hint">Vous utilisez déjà la version normale. Choisissez simplement de ne plus tester l’appli et vous ne recevrez que les mises à jour de la version stable.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Vous pouvez changer de version sans réinstaller l’appli en quittant le programme de test et en attendant la prochaine mise à jour. Une mise à jour normale est possible s’il existe une version plus récente que cette préversion.</string>
+    <string name="nudge_betagoodbye_positive_action">Passer à la version stable</string>
+    <string name="nudge_betagoodbye_negative_action">Continuer à recevoir les préversions</string>
 </resources>

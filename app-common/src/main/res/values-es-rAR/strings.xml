@@ -109,6 +109,14 @@
         <item quantity="one">%s elemento</item>
         <item quantity="other">%s elementos</item>
     </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d Exitoso</item>
+        <item quantity="other">%d exitoso</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d ha fallado</item>
+        <item quantity="other">%d ha fallado</item>
+    </plurals>
     <string name="x_space_can_be_freed">%s pueden ser liberados</string>
     <string name="general_info_label">Información</string>
     <string name="general_count_label">Contar</string>
@@ -134,6 +142,7 @@
     <string name="general_timeunit_days">Días</string>
     <string name="general_progress_ready">Listo</string>
     <string name="general_progress_done">Hecho</string>
+    <string name="general_rom_type_auto_label">Automático (por defecto)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s Archivo</item>
         <item quantity="other">%s archivos</item>
