@@ -18,6 +18,7 @@
     <string name="nudge_betagoodbye_title">Versión 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">Gracias. Juntos hemos llegado hasta aquí. El desarrollo continuará, por supuesto, pero ahora puedes cambiar a una versión final.</string>
     <string name="nudge_betagoodbye_hint">Esta es ya una versión normal. Simplemente opta por no participar en las pruebas y solo recibirás actualizaciones de nuevas versiones en el futuro.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Puedes cambiar de versión sin reinstalar la aplicación abandonando el programa de prueba y esperando a la próxima actualización. Una actualización normal es posible si existe una versión más reciente que está en versión preliminar.</string>
     <string name="nudge_betagoodbye_positive_action">Cambiar a la versión final</string>
     <string name="nudge_betagoodbye_negative_action">Seguir recibiendo versiones de pruebas</string>
 </resources>

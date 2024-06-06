@@ -29,6 +29,7 @@
     <string name="nudge_betagoodbye_title">Versió 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">Gràcies. Junts hem arribat fins aquí. El desenvolupament continuarà, per descomptat, però ara podeu instal·lar l\'SD Maid sense optar per fer proves al Google Play.</string>
     <string name="nudge_betagoodbye_hint">No cal que torneu a instal·lar l\'aplicació. Aquesta ja és una versió normal. Només heu de desactivar la prova i només rebreu actualitzacions de llançament en el futur.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Podeu canviar sense tornar a instal·lar l\'aplicació sortint del programa de proves i esperant la propera actualització de la versió. Una actualització normal és possible quan hi hagi una versió de llançament més recent que aquesta versió prèvia.</string>
     <string name="nudge_betagoodbye_positive_action">Abandona el programa de proves</string>
     <string name="nudge_betagoodbye_negative_action">Continua amb la beta</string>
 </resources>

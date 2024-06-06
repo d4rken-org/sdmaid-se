@@ -29,6 +29,5 @@
     <string name="nudge_betagoodbye_title">버전 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">감사합니다. 함께 만들어 왔네요. 개발을 계속하겠지만, 구글 플레이에서 시험 선택 없이 설치할 수 있습니다.</string>
     <string name="nudge_betagoodbye_hint">앱을 다시 설치하지 않아도 됩니다. 이미 일반 버전입니다. 시험 선택만 해제하면 이후에 릴리즈 업데이트만 받을 거에요.</string>
-    <string name="nudge_betagoodbye_positive_action">시험 프로그램 떠나기</string>
     <string name="nudge_betagoodbye_negative_action">계속하기</string>
 </resources>

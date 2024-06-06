@@ -633,14 +633,14 @@
     <string name="translation_encourage_title">Перевод SD Maid</string>
     <string name="translation_encourage_body">SD Maid переводится добровольцами. Перевод, рецензирование или корректура - Ваша помощь будет оценена по достоинству!</string>
     <string name="translation_translators_title">Перевод этой версии выполнен</string>
-    <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
+    <string name="translation_translators_people">Gaich;antoon334;notmerennor;grapie</string>
     <string name="motd_setting_enabled_label">Важные сообщения</string>
     <string name="motd_setting_enabled_explanation">Разрешить SD Maid проверять важные сообщения от разработчика.</string>
     <string name="updatecheck_setting_enabled_label">Проверка обновлений</string>
     <string name="updatecheck_setting_enabled_explanation">Разрешить SD Maid проверять наличие обновлений, чтобы уведомить Вас о выходе новой версии.</string>
     <string name="device_settings_category">Устройство</string>
-    <string name="beta_version_indicator_desc">Добеленные версии отображают небольшую ленту на стартовом экране. Они обновляются чаще, могут иметь больше возможностей, но также могут иметь больше ошибок.</string>
-    <string name="review_app_review_action">Reviews</string>
-    <string name="review_app_dismiss_action"></string>
+    <string name="beta_version_indicator_desc">Дорелизные версии отображают небольшую ленту на стартовом экране. Они обновляются чаще, могут иметь больше возможностей, но также могут иметь больше ошибок.</string>
+    <string name="review_app_review_action">Отзыв</string>
+    <string name="review_app_dismiss_action">Возможно, позже</string>
     <string name="review_app_body">Вы хотите оставить отзыв для SD Maid? ❤️</string>
 </resources>

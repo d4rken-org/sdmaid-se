@@ -18,6 +18,7 @@
     <string name="nudge_betagoodbye_title">Versão 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">Muito obrigado, chegámos longe juntos. O desenvolvimento continuará, é claro, mas agora pode para uma versão de lançamento.</string>
     <string name="nudge_betagoodbye_hint">Esta já é uma versão normal. Basta optar por sair do teste e receberá atualizações no futuro.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Pode mudar sem reinstalar a aplicação deixando o programa de teste e esperando a próxima atualização. Uma atualização normal é possível quando há uma versão mais recente do que esta pré-versão.</string>
     <string name="nudge_betagoodbye_positive_action">Mudar para a versão de lançamento</string>
     <string name="nudge_betagoodbye_negative_action">Continue a obter pré-lançamentos</string>
 </resources>

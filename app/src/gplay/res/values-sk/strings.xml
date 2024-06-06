@@ -29,6 +29,5 @@
     <string name="nudge_betagoodbye_title">Verzia 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">Ďakujem. Takto ďaleko sme to dotiahli len spolu. Vývoj bude samozrejme pokračovať, ale teraz si môžete nainštalovať SD Maid bez toho, aby ste sa prihlásili na testovanie na Google Play.</string>
     <string name="nudge_betagoodbye_hint">Aplikáciu nemusíte znova inštalovať. Toto je už normálna verzia. Stačí sa odhlásiť z testovania a v budúcnosti budete dostávať iba aktualizácie vydaní.</string>
-    <string name="nudge_betagoodbye_positive_action">Opustiť program testovania</string>
     <string name="nudge_betagoodbye_negative_action">Pokračujte v testovaní</string>
 </resources>
