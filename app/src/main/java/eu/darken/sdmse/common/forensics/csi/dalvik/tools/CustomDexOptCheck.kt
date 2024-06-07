@@ -5,7 +5,6 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.dalvik.DalvikCheck
-import eu.darken.sdmse.common.pathChopOffLast
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.currentPkgs
 import java.io.File
@@ -41,7 +40,10 @@ class CustomDexOptCheck @Inject constructor(
                     }
                 }
 
-                trunk = trunk.pathChopOffLast()
+                trunk = trunk.let {
+                    val cutOff = it.lastIndexOf(File.separator)
+                    if (cutOff == -1) null else it.substring(0, cutOff)
+                }
                 if (firstSlice == null) {
                     // We expect this to be a packagename
                     // e.g. data@app@ ^ eu.thedarken.sdm-1.apk ^ @classes.dex
