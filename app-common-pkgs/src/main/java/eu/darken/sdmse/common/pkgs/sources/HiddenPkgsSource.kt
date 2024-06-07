@@ -19,23 +19,24 @@ import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.user.UserManager2
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
 
 @Singleton
-class ShellPkgSource @Inject constructor(
+class HiddenPkgsSource @Inject constructor(
     private val pkgOps: PkgOps,
     private val rootManager: RootManager,
     private val userManager: UserManager2,
     private val shellOps: ShellOps,
 ) : PkgDataSource {
 
-
     override suspend fun getPkgs(): Collection<Installed> = pkgOps.useRes {
         log(TAG) { "getPkgs()" }
-        if (!rootManager.canUseRootNow()) return@useRes emptySet()
+        if (!rootManager.canUseRootNow()) {
+            log(TAG) { "Requires root, skipping..." }
+            return@useRes emptySet()
+        }
 
         userManager.allUsers()
             .mapNotNull { user ->
@@ -76,12 +77,12 @@ class ShellPkgSource @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: ShellPkgSource): PkgDataSource
+        @Binds @IntoSet abstract fun mod(mod: HiddenPkgsSource): PkgDataSource
     }
 
     companion object {
 
         private val PATTERN = Regex("^package:(.+?)=([\\w._]+)$")
-        private val TAG = logTag("PkgRepo", "Source", "Shell")
+        private val TAG = logTag("PkgRepo", "Source", "HiddenPkgs")
     }
 }

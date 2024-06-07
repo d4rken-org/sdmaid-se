@@ -5,7 +5,12 @@ import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
-import android.content.pm.PackageManager.*
+import android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER
+import android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+import android.content.pm.PackageManager.GET_UNINSTALLED_PACKAGES
+import android.content.pm.PackageManager.NameNotFoundException
+import android.content.pm.PackageManager.PackageInfoFlags
+import android.content.pm.PackageManager.SYNCHRONOUS
 import android.content.pm.SharedLibraryInfo
 import android.graphics.drawable.Drawable
 import android.os.Process
@@ -14,7 +19,9 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.ModeUnavailableException
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -23,11 +30,11 @@ import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.permissions.Permission
-import eu.darken.sdmse.common.permissions.Permission.*
+import eu.darken.sdmse.common.permissions.Permission.PACKAGE_USAGE_STATS
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.container.ApkInfo
-import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
 import eu.darken.sdmse.common.pkgs.getLabel2
 import eu.darken.sdmse.common.pkgs.getSharedLibraries2
@@ -43,7 +50,8 @@ import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.shizuku.service.runModuleAction
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.plus
 import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -118,60 +126,55 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun queryPkg(pkgName: Pkg.Id, flags: Int, userHandle: UserHandle2): Installed? = ipcFunnel.use {
-        val pkgInfo: PackageInfo? = try {
-            @Suppress("DEPRECATION")
-            packageManager.getPackageInfo(pkgName.name, flags)
+    suspend fun queryPkg(pkgName: Pkg.Id, flags: Long, userHandle: UserHandle2): PackageInfo? = ipcFunnel.use {
+        try {
+            ipcFunnel.use {
+                if (hasApiLevel(33)) {
+                    @Suppress("NewApi")
+                    packageManager.getPackageInfo(pkgName.name, PackageInfoFlags.of(flags))
+                } else {
+                    packageManager.getPackageInfo(pkgName.name, flags.toInt())
+                }
+            }
         } catch (e: NameNotFoundException) {
             log(TAG, VERBOSE) { "queryPkg($pkgName, $flags): null" }
             null
         }
-
-        log(TAG, VERBOSE) { "queryPkg($pkgName, $flags): $pkgInfo" }
-
-        pkgInfo?.let {
-            NormalPkg(
-                packageInfo = it,
-                userHandle = userHandle,
-                installerInfo = it.getInstallerInfo(packageManager)
-            )
-        }
     }
 
-    suspend fun queryPkgs(flags: Int): Collection<Installed> {
-        @Suppress("DEPRECATION", "QueryPermissionsNeeded")
-        val rawPkgs = ipcFunnel.use { packageManager.getInstalledPackages(flags) }
+    suspend fun queryPkgs(flags: Int) = queryPkgs(flags.toLong())
 
-        val handle = userManager.currentUser().handle
-        return ipcFunnel.use {
-            rawPkgs.map {
-                NormalPkg(
-                    packageInfo = it,
-                    userHandle = handle,
-                    installerInfo = it.getInstallerInfo(packageManager)
-                )
-            }
-        }
-    }
-
-    suspend fun queryPkgs(flags: Int, userHandle: UserHandle2): Collection<Installed> {
-        val rawPkgs = if (rootManager.canUseRootNow()) {
-            rootOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
-        } else if (shizukuManager.canUseShizukuNow()) {
-            adbOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
+    @Suppress("QueryPermissionsNeeded")
+    suspend fun queryPkgs(flags: Long): Collection<PackageInfo> = ipcFunnel.use {
+        if (hasApiLevel(33)) {
+            @Suppress("NewApi")
+            packageManager.getInstalledPackages(PackageInfoFlags.of(flags))
         } else {
+            @Suppress("DEPRECATION")
+            packageManager.getInstalledPackages(flags.toInt())
+        }
+    }
+
+    suspend fun queryPkgs(flags: Int, userHandle: UserHandle2) = queryPkgs(flags.toLong(), userHandle)
+
+    suspend fun queryPkgs(flags: Long, userHandle: UserHandle2): Collection<PackageInfo> = when {
+        rootManager.canUseRootNow() -> {
+            rootOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
+        }
+
+        shizukuManager.canUseShizukuNow() -> {
+            adbOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
+        }
+
+        else -> {
             throw IllegalStateException("Can't get user specific packages (neither root nor adb) access available")
         }
+    }
 
-        return ipcFunnel.use {
-            rawPkgs.map {
-                NormalPkg(
-                    packageInfo = it,
-                    userHandle = userHandle,
-                    installerInfo = it.getInstallerInfo(packageManager)
-                )
-            }
-        }
+    suspend fun getInstallerData(
+        pkgInfos: Collection<PackageInfo>
+    ): Map<PackageInfo, InstallerInfo> = ipcFunnel.use {
+        pkgInfos.associateWith { it.getInstallerInfo(packageManager) }
     }
 
     suspend fun isInstalleMaybe(pkg: Pkg.Id, userHandle: UserHandle2): Boolean = try {

@@ -4,6 +4,7 @@ import android.content.ComponentName
 import android.content.pm.IPackageDataObserver
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.content.pm.PackageManager.PackageInfoFlags
 import android.content.pm.SharedLibraryInfo
 import android.graphics.drawable.Drawable
 import android.os.RemoteException
@@ -49,17 +50,29 @@ fun PackageManager.getIcon2(
 
 
 fun PackageManager.getInstalledPackagesAsUser(
-    flags: Int,
+    flags: Long,
     userHandle: UserHandle2,
 ) = try {
-    PackageManager::class.memberFunctions
-        .filter { it.name == "getInstalledPackagesAsUser" }
-        .first {
-            val arg1 = it.parameters[1].type.jvmErasure
-            val arg2 = it.parameters[2].type.jvmErasure
-            Int::class.isSubclassOf(arg1) && Int::class.isSubclassOf(arg2)
-        }
-        .call(this, flags, userHandle.handleId) as List<PackageInfo>
+    val functions = PackageManager::class.memberFunctions.filter { it.name == "getInstalledPackagesAsUser" }
+
+    if (hasApiLevel(33)) {
+        @Suppress("NewApi")
+        functions
+            .first {
+                val arg1 = it.parameters[1].type.jvmErasure
+                val arg2 = it.parameters[2].type.jvmErasure
+                PackageInfoFlags::class.isSubclassOf(arg1) && Int::class.isSubclassOf(arg2)
+            }
+            .call(this, PackageInfoFlags.of(flags), userHandle.handleId) as List<PackageInfo>
+    } else {
+        functions
+            .first {
+                val arg1 = it.parameters[1].type.jvmErasure
+                val arg2 = it.parameters[2].type.jvmErasure
+                Int::class.isSubclassOf(arg1) && Int::class.isSubclassOf(arg2)
+            }
+            .call(this, flags, userHandle.handleId) as List<PackageInfo>
+    }
 } catch (e: Exception) {
     throw IOException("getInstalledPackagesAsUser($flags,$userHandle) failed", e)
 }

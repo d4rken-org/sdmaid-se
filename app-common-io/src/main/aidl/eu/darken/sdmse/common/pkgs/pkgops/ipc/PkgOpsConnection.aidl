@@ -19,9 +19,9 @@ interface PkgOpsConnection {
 
     boolean trimCaches(long desiredBytes, String storageId);
 
-    List<PackageInfo> getInstalledPackagesAsUser(int flags, int handleId);
+    List<PackageInfo> getInstalledPackagesAsUser(long flags, int handleId);
 
-    RemoteInputStream getInstalledPackagesAsUserStream(int flags, int handleId);
+    RemoteInputStream getInstalledPackagesAsUserStream(long flags, int handleId);
 
     void setApplicationEnabledSetting (String packageName, int newState, int flags);
 

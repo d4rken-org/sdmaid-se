@@ -21,7 +21,7 @@ import eu.darken.sdmse.common.pkgs.toKnownPkg
 import eu.darken.sdmse.common.pkgs.toPkgId
 
 data class InstallerInfo(
-    val installingPkg: Pkg?,
+    val installingPkg: Pkg? = null,
     val initiatingPkg: Pkg? = null,
     val originatingPkg: Pkg? = null,
     val sourceType: SourceType = SourceType.UNSPECIFIED,
