@@ -6,20 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.IdRes
-import androidx.annotation.LayoutRes
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import eu.darken.sdmse.R
 import kotlin.reflect.KClass
-
-fun Activity.requireActionBar(): ActionBar {
-    return (this as AppCompatActivity).supportActionBar!!
-}
-
-fun Fragment.requireActivityActionBar(): ActionBar {
-    return (requireActivity() as AppCompatActivity).supportActionBar!!
-}
 
 fun Activity.viewParent(): ViewGroup? {
     return findViewById(android.R.id.content)
@@ -31,14 +21,6 @@ fun Activity.view(): View? {
 
 fun Activity.isContentViewSet(): Boolean {
     return view() != null
-}
-
-fun Activity.ensureContentView(@LayoutRes layoutRes: Int): Boolean {
-    if (!isContentViewSet()) {
-        setContentView(layoutRes)
-        return true
-    }
-    return false
 }
 
 fun AppCompatActivity.showFragment(
