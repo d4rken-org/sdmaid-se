@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.files.saf.FileMode
 import eu.darken.sdmse.common.files.saf.SAFDocFile
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import kotlinx.coroutines.flow.Flow
@@ -56,7 +57,7 @@ class AppExporter @Inject constructor(
 
     suspend fun save(target: AppInfo, directoryUri: Uri): Result {
         log(TAG) { "save(target=$target, $directoryUri)" }
-
+        target.pkg as SourceAvailable
         val baseApk = target.pkg.sourceDir
         log(TAG) { "Base APK is $baseApk" }
 
@@ -69,6 +70,7 @@ class AppExporter @Inject constructor(
         val extension = when (target.exportType) {
             AppExportType.APK -> "apk"
             AppExportType.BUNDLE -> "apks"
+            AppExportType.NONE -> throw IllegalArgumentException("Can't export $target")
         }
         val finalName = "$name - $version.$extension"
 
@@ -115,6 +117,8 @@ class AppExporter @Inject constructor(
                     }
                 }
             }
+
+            AppExportType.NONE -> throw IllegalStateException("Should never get here")
         }
         val exportedSize = savePath.length
         log(TAG, INFO) { "Exported size is $exportedSize" }

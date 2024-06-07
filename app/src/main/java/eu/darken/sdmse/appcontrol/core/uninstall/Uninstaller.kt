@@ -44,6 +44,7 @@ class Uninstaller @Inject constructor(
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
+    // TODO Uninstalling for archived apps
     suspend fun uninstall(app: AppInfo) {
         log(TAG, VERBOSE) { "uninstall($app)" }
         val installId = app.installId

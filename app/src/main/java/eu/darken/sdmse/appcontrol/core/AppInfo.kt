@@ -6,12 +6,17 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.isNotNullOrEmpty
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 
 data class AppInfo(
     val pkg: Installed,
     val isActive: Boolean?,
     val sizes: PkgOps.SizeStats?,
+    val canBeToggled: Boolean,
+    val canBeStopped: Boolean,
+    val canBeExported: Boolean,
+    val canBeDeleted: Boolean,
 ) {
     val label: CaString
         get() = pkg.label ?: pkg.packageName.toCaString()
@@ -24,7 +29,8 @@ data class AppInfo(
 
     val exportType: AppExportType
         get() = when {
-            pkg.splitSources.isNotNullOrEmpty() -> AppExportType.BUNDLE
-            else -> AppExportType.APK
+            pkg is SourceAvailable && pkg.splitSources.isNotNullOrEmpty() -> AppExportType.BUNDLE
+            pkg is SourceAvailable && pkg.sourceDir != null -> AppExportType.APK
+            else -> AppExportType.NONE
         }
 }

@@ -32,7 +32,7 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.permissions.Permission.PACKAGE_USAGE_STATS
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.container.ApkInfo
+import eu.darken.sdmse.common.pkgs.container.PkgArchive
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
@@ -218,13 +218,13 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun viewArchive(path: APath, flags: Int = 0): ApkInfo? = ipcFunnel.use {
+    suspend fun viewArchive(path: APath, flags: Int = 0): PkgArchive? = ipcFunnel.use {
         // TODO Can we support SAF here?
         val jFile = path.asFile()
         if (!jFile.exists()) return@use null
 
         packageManager.getPackageArchiveInfo(path.path, flags)?.let {
-            ApkInfo(
+            PkgArchive(
                 id = it.packageName.toPkgId(),
                 packageInfo = it,
             )

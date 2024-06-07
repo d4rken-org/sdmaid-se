@@ -7,7 +7,12 @@ import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.cache.CacheRepo
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.ReadException
+import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.files.saf.SAFDocFile
@@ -17,7 +22,7 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.container.ApkInfo
+import eu.darken.sdmse.common.pkgs.container.PkgArchive
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.rngString
@@ -38,7 +43,7 @@ import org.junit.jupiter.api.BeforeEach
 import testhelpers.BaseTest
 import java.io.File
 import java.time.Instant
-import java.util.*
+import java.util.UUID
 
 @Suppress("MemberVisibilityCanBePrivate")
 abstract class SystemCleanerFilterTest : BaseTest() {
@@ -486,17 +491,17 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         return installed
     }
 
-    private val pkgArchives = mutableMapOf<String, ApkInfo>()
-    suspend fun mockArchive(pkgId: Pkg.Id, path: APath): ApkInfo {
-        val apkInfo = mockk<ApkInfo>().apply {
+    private val pkgArchives = mutableMapOf<String, PkgArchive>()
+    suspend fun mockArchive(pkgId: Pkg.Id, path: APath): PkgArchive {
+        val pkgArchive = mockk<PkgArchive>().apply {
             every { id } returns pkgId
             every { packageName } returns pkgId.name
         }
-        pkgArchives[path.path] = apkInfo
+        pkgArchives[path.path] = pkgArchive
         coEvery { pkgOps.viewArchive(any(), any()) } answers {
             pkgArchives[arg<APath>(0).path]
         }
-        return apkInfo
+        return pkgArchive
     }
 
 }

@@ -26,6 +26,7 @@ import eu.darken.sdmse.common.forensics.OwnerInfo
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getPrivateDataDirs
+import eu.darken.sdmse.common.pkgs.isArchived
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.isUpdatedSystemApp
 import eu.darken.sdmse.common.storage.StorageManager2
@@ -87,39 +88,39 @@ class AppStorageScanner @AssistedInject constructor(
         val appCodeGroup = when {
             storage.type != DeviceStorage.Type.PRIMARY -> null
             pkg.isSystemApp && !pkg.isUpdatedSystemApp -> null
-            else -> {
-                val appCode = pkg.applicationInfo?.sourceDir
-                    ?.let {
-                        when {
-                            it.endsWith("base.apk") -> File(it).parent
-                            else -> it
+            pkg.isArchived -> null
+            else -> pkg.applicationInfo?.sourceDir
+                ?.let {
+                    when {
+                        it.endsWith("base.apk") -> File(it).parent
+                        else -> it
+                    }
+                }
+                ?.let { LocalPath.build(it) }
+                ?.let { codeDir ->
+                    if (useRoot) {
+                        try {
+                            return@let codeDir.walkContentItem(gatewaySwitch)
+                        } catch (e: ReadException) {
+                            log(TAG, ERROR) { "Failed to read $codeDir despire root access? ${e.asLog()}" }
                         }
                     }
-                    ?.let { LocalPath.build(it) }
-                    ?.let { codeDir ->
-                        if (useRoot) {
-                            try {
-                                return@let codeDir.walkContentItem(gatewaySwitch)
-                            } catch (e: ReadException) {
-                                log(TAG, ERROR) { "Failed to read $codeDir despire root access? ${e.asLog()}" }
-                            }
-                        }
 
-                        if (appStorStats != null) {
-                            return@let ContentItem.fromInaccessible(
-                                codeDir,
-                                if (pkg.userHandle == currentUser) appStorStats.appBytes else 0L
-                            )
-                        }
-
-                        ContentItem.fromInaccessible(codeDir)
+                    if (appStorStats != null) {
+                        return@let ContentItem.fromInaccessible(
+                            codeDir,
+                            if (pkg.userHandle == currentUser) appStorStats.appBytes else 0L
+                        )
                     }
 
-                ContentGroup(
-                    label = R.string.analyzer_storage_content_app_code_label.toCaString(),
-                    contents = setOfNotNull(appCode),
-                )
-            }
+                    ContentItem.fromInaccessible(codeDir)
+                }
+                ?.let {
+                    ContentGroup(
+                        label = R.string.analyzer_storage_content_app_code_label.toCaString(),
+                        contents = setOf(it),
+                    )
+                }
         }
 
         // TODO: For root we look up /data/media?

@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.container.ApkInfo
+import eu.darken.sdmse.common.pkgs.container.PkgArchive
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.user.UserHandle2
@@ -56,7 +56,7 @@ class ApkDirCheckTest : BaseTest() {
 
         coEvery { pkgOps.viewArchive(any(), any()) } answers {
             if (arg<LocalPath>(0).name.endsWith("test.apk")) {
-                mockk<ApkInfo>().apply {
+                mockk<PkgArchive>().apply {
                     every { id } returns testPkg
                     every { tryField<String?>(any()) } returns null
                     every { applicationInfo } returns null
@@ -82,7 +82,7 @@ class ApkDirCheckTest : BaseTest() {
 
         coEvery { pkgOps.viewArchive(any(), any()) } answers {
             if (arg<LocalPath>(0).name.endsWith("base.apk")) {
-                mockk<ApkInfo>().apply {
+                mockk<PkgArchive>().apply {
                     every { id } returns testPkg
                     every { tryField<String?>(any()) } returns null
                     every { applicationInfo } returns null
@@ -110,7 +110,7 @@ class ApkDirCheckTest : BaseTest() {
 
         coEvery { pkgOps.viewArchive(any(), any()) } answers {
             if (arg<LocalPath>(0).name.endsWith("base.apk")) {
-                mockk<ApkInfo>().apply {
+                mockk<PkgArchive>().apply {
                     every { id } returns pkg1
                     every { tryField<String?>("overlayTarget") } returns pkg2.name
                     every { applicationInfo } returns null
@@ -142,7 +142,7 @@ class ApkDirCheckTest : BaseTest() {
 
         coEvery { pkgOps.viewArchive(any(), any()) } answers {
             if (arg<LocalPath>(0).name.endsWith("base.apk")) {
-                mockk<ApkInfo>().apply {
+                mockk<PkgArchive>().apply {
                     every { id } returns pkg1
                     every { tryField<String?>("overlayTarget") } returns pkg2.name
                     every { requestedPermissions } returns emptySet()
@@ -181,7 +181,7 @@ class ApkDirCheckTest : BaseTest() {
 
         coEvery { pkgOps.viewArchive(any(), any()) } answers {
             if (arg<LocalPath>(0).name.endsWith("base.apk")) {
-                mockk<ApkInfo>().apply {
+                mockk<PkgArchive>().apply {
                     every { id } returns pkg1
                     every { tryField<String?>("overlayTarget") } returns pkg2.name
                     every { requestedPermissions } returns emptySet()
@@ -223,7 +223,7 @@ class ApkDirCheckTest : BaseTest() {
 
         coEvery { pkgOps.viewArchive(any(), any()) } answers {
             if (arg<LocalPath>(0).name.endsWith("base.apk")) {
-                mockk<ApkInfo>().apply {
+                mockk<PkgArchive>().apply {
                     every { id } returns pkg1
                     every { tryField<String?>("overlayTarget") } returns pkg2.name
                     every { requestedPermissions } returns setOf(

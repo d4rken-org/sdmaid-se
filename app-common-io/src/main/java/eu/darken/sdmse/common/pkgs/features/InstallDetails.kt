@@ -3,7 +3,7 @@ package eu.darken.sdmse.common.pkgs.features
 import android.content.pm.ApplicationInfo
 import java.time.Instant
 
-interface ExtendedInstallData : PkgInfo {
+interface InstallDetails : PkgInfo {
 
     val isEnabled: Boolean
         get() = applicationInfo?.enabled ?: true
@@ -21,4 +21,7 @@ interface ExtendedInstallData : PkgInfo {
         get() = packageInfo.lastUpdateTime.takeIf { it != 0L }?.let { Instant.ofEpochMilli(it) }
 
     val installerInfo: InstallerInfo
+
+    val sharedUserId: String?
+        get() = packageInfo.sharedUserId
 }

@@ -4,7 +4,7 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
@@ -33,10 +33,10 @@ class SimilarityCheckTest : BaseTest() {
         val pkgA = "pkgA".toPkgId()
         val pkgB = "pkgB".toPkgId()
         pkgRepo.apply {
-            coEvery { query(pkgA, handle) } returns listOf(mockk<Installed>().apply {
+            coEvery { query(pkgA, handle) } returns listOf(mockk<SourceAvailable>().apply {
                 every { sourceDir } returns LocalPath.build("/abc/testdir-1")
             })
-            coEvery { query(pkgB, handle) } returns listOf(mockk<Installed>().apply {
+            coEvery { query(pkgB, handle) } returns listOf(mockk<SourceAvailable>().apply {
                 every { sourceDir } returns LocalPath.build("/abc/testdir-2")
             })
         }
@@ -69,10 +69,10 @@ class SimilarityCheckTest : BaseTest() {
         val pkgA = "pkgA".toPkgId()
         val pkgB = "pkgB".toPkgId()
         pkgRepo.apply {
-            coEvery { query(pkgA, handle) } returns listOf(mockk<Installed>().apply {
+            coEvery { query(pkgA, handle) } returns listOf(mockk<SourceAvailable>().apply {
                 every { sourceDir } returns null
             })
-            coEvery { query(pkgB, handle) } returns listOf(mockk<Installed>().apply {
+            coEvery { query(pkgB, handle) } returns listOf(mockk<SourceAvailable>().apply {
                 every { sourceDir } returns null
             })
         }

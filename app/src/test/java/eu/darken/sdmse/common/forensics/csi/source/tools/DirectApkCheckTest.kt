@@ -2,7 +2,7 @@ package eu.darken.sdmse.common.forensics.csi.source.tools
 
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
-import eu.darken.sdmse.common.pkgs.container.ApkInfo
+import eu.darken.sdmse.common.pkgs.container.PkgArchive
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.user.UserHandle2
@@ -33,7 +33,7 @@ class DirectApkCheckTest : BaseTest() {
             every { userHandle } returns UserHandle2(0)
         }
         val testPkg = "com.mxtech.ffmpeg.x86".toPkgId()
-        coEvery { pkgOps.viewArchive(any(), any()) } returns mockk<ApkInfo>().apply {
+        coEvery { pkgOps.viewArchive(any(), any()) } returns mockk<PkgArchive>().apply {
             every { id } returns testPkg
         }
 

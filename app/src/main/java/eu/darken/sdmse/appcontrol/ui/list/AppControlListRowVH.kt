@@ -9,10 +9,10 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.export.AppExportType
 import eu.darken.sdmse.common.coil.loadAppIcon
-import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
+import eu.darken.sdmse.common.pkgs.isArchived
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.databinding.AppcontrolListItemBinding
@@ -52,11 +52,12 @@ class AppControlListRowVH(parent: ViewGroup) :
             isVisible = appInfo.sizes != null
         }
 
-        tagSystem.tagSystem.isGone = !appInfo.pkg.isSystemApp
-        tagDisabled.tagDisabled.isGone = appInfo.pkg.isEnabled
-        tagActive.tagActive.isGone = appInfo.isActive != true
-        tagApkBase.tagApkBase.isGone = appInfo.exportType != AppExportType.APK && Bugs.isDebug
-        tagApkBundle.tagApkBundle.isGone = appInfo.exportType != AppExportType.BUNDLE && Bugs.isDebug
+        tagSystem.tagSystem.isVisible = appInfo.pkg.isSystemApp
+        tagArchived.tagArchived.isVisible = appInfo.pkg.isArchived
+        tagDisabled.tagDisabled.isVisible = !appInfo.pkg.isEnabled
+        tagActive.tagActive.isVisible = appInfo.isActive == true
+        tagApkBase.tagApkBase.isVisible = appInfo.exportType == AppExportType.APK
+        tagApkBundle.tagApkBundle.isVisible = appInfo.exportType == AppExportType.BUNDLE
         tagContainer.isGone = tagContainer.children.none { it.isVisible }
 
         itemView.setOnClickListener { item.onItemClicked(appInfo) }

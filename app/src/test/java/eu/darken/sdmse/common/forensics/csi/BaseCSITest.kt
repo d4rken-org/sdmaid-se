@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserHandle2
@@ -77,7 +78,7 @@ abstract class BaseCSITest : BaseTest() {
         source: LocalPath? = null,
         userHandle: UserHandle2 = UserHandle2(0),
     ): Installed {
-        val mockPkg = mockk<Installed>().apply {
+        val mockPkg = mockk<SourceAvailable>().apply {
             every { id } returns pkgId
             every { sourceDir } returns source
             every { packageInfo } returns mockk()
