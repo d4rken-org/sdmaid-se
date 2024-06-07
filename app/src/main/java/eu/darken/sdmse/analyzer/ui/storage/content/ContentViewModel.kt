@@ -144,15 +144,16 @@ class ContentViewModel @Inject constructor(
     }.asLiveData2()
 
     fun open(lookup: APathLookup<*>) = launch {
-        log(TAG) { "open($lookup)" }
+        log(TAG) { "open(): Opening $lookup" }
 
         if (lookup !is LocalPathLookup) {
-            log(TAG) { "Can't open unsupported path type: ${lookup.pathType}" }
+            log(TAG) { "open(): Can't open unsupported path type: ${lookup.pathType}" }
             return@launch
         }
         val javaPath = File(lookup.path)
         val uri = FileProvider.getUriForFile(context, "${context.packageName}.provider", javaPath)
         val mimeType = mimeTypeTool.determineMimeType(lookup)
+        log(TAG) { "open(): MimeType is $mimeType" }
 
         val intent = Intent(Intent.ACTION_VIEW).apply {
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
@@ -164,6 +165,7 @@ class ContentViewModel @Inject constructor(
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
+        log(TAG) { "open() launching chooser $chooserIntent" }
         context.startActivity(chooserIntent)
     }
 
