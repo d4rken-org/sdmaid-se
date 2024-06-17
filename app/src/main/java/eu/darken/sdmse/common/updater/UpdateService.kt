@@ -1,6 +1,8 @@
 package eu.darken.sdmse.common.updater
 
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
@@ -35,15 +37,23 @@ class UpdateService @Inject constructor(
             }
 
             combine(
+                generalSettings.isOnboardingCompleted.flow,
                 generalSettings.isUpdateCheckEnabled.flow,
                 updateCheckTrigger
-            ) { isEnabled, _ ->
-                if (isEnabled) {
-                    updateChecker.getUpdate(betaConsent = releaseManager.hasBetaConsent())
-                } else {
-                    log(TAG) { "Update check is not enabled!" }
-                    null
+            ) { isOnboardingCompleted, isUpdateCheckEnabled, _ ->
+                log(TAG, VERBOSE) { "onboardingComplete=$isOnboardingCompleted, checkEnabled=$isUpdateCheckEnabled" }
+
+                if (!isOnboardingCompleted) {
+                    log(TAG, INFO) { "Onboarding is not yet complete!" }
+                    return@combine null
                 }
+
+                if (!isUpdateCheckEnabled) {
+                    log(TAG, INFO) { "Update check is not enabled!" }
+                    return@combine null
+                }
+
+                updateChecker.getUpdate(betaConsent = releaseManager.hasBetaConsent())
             }
         }
         .setupCommonEventHandlers(TAG) { "availableUpdate" }
