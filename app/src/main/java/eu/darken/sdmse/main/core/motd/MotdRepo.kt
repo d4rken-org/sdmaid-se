@@ -4,11 +4,14 @@ import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.locale.LocaleManager
 import eu.darken.sdmse.common.locale.primary
+import eu.darken.sdmse.main.core.GeneralSettings
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -25,17 +28,25 @@ class MotdRepo @Inject constructor(
     @AppScope private val scope: CoroutineScope,
     private val endpoint: MotdEndpoint,
     private val settings: MotdSettings,
-    private val localeManager: LocaleManager,
+    generalSettings: GeneralSettings,
+    localeManager: LocaleManager,
 ) {
     private val refreshTrigger = MutableStateFlow(UUID.randomUUID())
 
     val motd: Flow<MotdState?> = combine(
         refreshTrigger,
         settings.isMotdEnabled.flow,
+        generalSettings.isOnboardingCompleted.flow,
         localeManager.currentLocales,
-    ) { _, isEnabled, locales ->
+    ) { _, isEnabled, isOnboardingCompleted, locales ->
+        log(TAG, VERBOSE) { "isEnabled=$isEnabled, isOnboardingCompleted=$isOnboardingCompleted" }
+
+        if (!isOnboardingCompleted) {
+            log(TAG, INFO) { "Onboarding is not yet complete!" }
+            return@combine null
+        }
         if (!isEnabled) {
-            log(TAG) { "MOTD is disabled." }
+            log(TAG, INFO) { "MOTD is disabled." }
             return@combine null
         }
         try {
