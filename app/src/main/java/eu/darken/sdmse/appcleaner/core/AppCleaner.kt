@@ -118,7 +118,12 @@ class AppCleaner @Inject constructor(
                     is AppCleanerProcessingTask -> performProcessing(task)
                     is AppCleanerSchedulerTask -> {
                         performScan()
-                        performProcessing(AppCleanerProcessingTask(useAutomation = task.useAutomation))
+                        performProcessing(
+                            AppCleanerProcessingTask(
+                                useAutomation = task.useAutomation,
+                                isBackground = true,
+                            )
+                        )
                     }
 
                     is AppCleanerOneClickTask -> {
