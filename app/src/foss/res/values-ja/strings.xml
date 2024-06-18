@@ -6,13 +6,19 @@
     <string name="upgrades_dashcard_title">SD Maidをアップグレード</string>
     <string name="upgrades_dashcard_body">開発を続けるためパトロンになって追加機能を解除してください</string>
     <string name="upgrades_dashcard_upgrade_action">アップグレード</string>
-    <string name="upgrade_screen_title">SD Maidをより良くする</string>
-    <string name="upgrade_screen_preamble">SD Maidには広告がなく、ユーザーデータを販売することもありません。継続的な開発は、あなたのおかげで成り立っているのです。</string>
-    <string name="upgrade_screen_how_title">支援する方法</string>
+    <string name="upgrade_screen_title">SD Maid の改善</string>
+    <string name="upgrade_screen_preamble">SD Maidには広告がなく、ユーザーデータを販売することもありません。継続的な開発は、あなたのおかげで成り立っています。</string>
+    <string name="upgrade_screen_how_title">協力するには</string>
     <string name="upgrade_screen_how_body">パトロンとスポンサーの開発になりましょう！下のボタンをタップすると、すべての追加機能が有効になり、GitHub Sponsors プロファイルを開きます。</string>
     <string name="upgrade_screen_why_title">これは魔法のようです🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleanerの削除機能 💯\n• 予定されている動作 ⏰\n• すべてのツールに追加オプション ⚙️\n• あなただけの削除ルール ✍️\n• 意欲的な開発🧙\nそれ以外にも…</string>
+    <string name="upgrade_screen_why_body">• アプリクリーナー 💯\n• スケジュール動機能 ⏰\n• すべてのツールに追加オプション ⚙️\n• あなただけの削除ルール ✍️\n• 開発者を支援🧙\nその他機能も追加予定…</string>
     <string name="upgrade_screen_sponsor_action">開発支援者</string>
     <string name="upgrade_screen_sponsor_action_hint">代替は広告や分析そしてGoogle Playになります</string>
     <string name="upgrade_screen_thanks_toast">オープンソースでの開発に協力してくれてありがとうございます ❤️</string>
+    <string name="nudge_betagoodbye_title">バージョン 1.0 🥳</string>
+    <string name="nudge_betagoodbye_body">ありがとうございます。私たちはこれまで一緒に作ってきました。開発はもちろん継続されますが、リリーストラックに切り替えることができます。</string>
+    <string name="nudge_betagoodbye_hint">これは既に通常のバージョンです。テストを解除すると、今後のリリースアップデートのみ受け取ることになります。</string>
+    <string name="nudge_betagoodbye_reinstall_note">テストプログラムを離れて次のリリースアップデートを待つことで、アプリを再インストールせずに切り替えることができます。 このプレリリースよりも新しいリリースバージョンがあれば、通常のアップデートが可能です。</string>
+    <string name="nudge_betagoodbye_positive_action">リリーストラックに切り替える</string>
+    <string name="nudge_betagoodbye_negative_action">プレリリースを入手し続ける</string>
 </resources>

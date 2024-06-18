@@ -29,6 +29,7 @@
     <string name="nudge_betagoodbye_title">版本 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">謝謝你。我們只有一起才走到這裡。開發當然會繼續，但您現在可以在不參加 Google Play 測試的情況下安裝 SD Maid。</string>
     <string name="nudge_betagoodbye_hint">您不必重新安裝應用程式。這已經是正常版本了。只需退出測試，未來您只會收到發行更新。</string>
+    <string name="nudge_betagoodbye_reinstall_note">您可以在不重新安裝應用程式的情況下切換，方法是退出測試計畫並等待下一次版本更新。當有比這個預發布版本更新的正式版本時，就可以進行正常的更新。</string>
     <string name="nudge_betagoodbye_positive_action">離開測試計畫</string>
     <string name="nudge_betagoodbye_negative_action">繼續測試</string>
 </resources>

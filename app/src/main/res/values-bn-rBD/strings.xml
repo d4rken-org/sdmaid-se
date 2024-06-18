@@ -607,4 +607,8 @@
     <string name="updatecheck_setting_enabled_label">আপডেট চেক</string>
     <string name="updatecheck_setting_enabled_explanation">একটি নতুন সংস্করণ উপলব্ধ কিনা তা জানাতে SD Maid কে আপডেটগুলি পরীক্ষা করার অনুমতি দিন৷</string>
     <string name="device_settings_category">ডিভাইস</string>
+    <string name="beta_version_indicator_desc">প্রকাশ-পূর্ব সংস্করণ স্টার্ট ডিসপ্লেতে একটি ছোটো রিবন দেখায়। এগুলো আরও ঘন ঘন আপডেট করা হয়ে থাকে, আরও বৈশিষ্ট্য থাকতে পারে, তবে আরও বাগও থাকতে পারে।</string>
+    <string name="review_app_review_action">পর্যালোচনা করুন</string>
+    <string name="review_app_dismiss_action">হয়তো পরে</string>
+    <string name="review_app_body">আপনি কি এসডি মেইডকে একটি পর্যালোচনা দিতে চান?️ ❤️</string>
 </resources>

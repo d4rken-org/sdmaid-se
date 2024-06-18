@@ -617,7 +617,7 @@
     <string name="translation_encourage_title">Traduceți SD Maid</string>
     <string name="translation_encourage_body">SD Maid este tradus de voluntari. Traducere, revizuire sau corectare, ajutorul dumneavoastră este apreciat!</string>
     <string name="translation_translators_title">Această versiune este tradusă de</string>
-    <string name="translation_translators_people">Alex (alecsio on Crowdin);Alexandru51 (Alexandru 9035 on Crowdin)</string>
+    <string name="translation_translators_people">Alex (alexcsy on Crowdin);Alexandru51 (Alexandru 9035 on Crowdin)</string>
     <string name="motd_setting_enabled_label">Mesaje importante</string>
     <string name="motd_setting_enabled_explanation">Permiteți ca Maid SD să verifice pentru mesaje importante de la dezvoltator.</string>
     <string name="updatecheck_setting_enabled_label">Verificare actualizare</string>
