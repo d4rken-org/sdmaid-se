@@ -137,6 +137,7 @@
     <string name="general_timeunit_days">日</string>
     <string name="general_progress_ready">準備</string>
     <string name="general_progress_done">完了</string>
+    <string name="general_rom_type_auto_label">自動(デフォルト)</string>
     <plurals name="result_x_files">
         <item quantity="other">%s ファイル</item>
     </plurals>

@@ -29,5 +29,7 @@
     <string name="nudge_betagoodbye_title">版本 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">谢谢您。如今的成果离不开你我共同的努力。当然，开发仍将继续，但您现在可以在 Google Play 中下载非测试版本的 SD Maid。</string>
     <string name="nudge_betagoodbye_hint">您无需重装应用，目前已是正常版本。只需选择退出测试，您将只会在未来收到更新发布。</string>
+    <string name="nudge_betagoodbye_reinstall_note">您可以通过选择退出测试人员并等待下次更新来切换版本（无需重新安装）。之后一旦有比此预发布版本更新的发布版本，就可以进行正常更新。</string>
+    <string name="nudge_betagoodbye_positive_action">退出测试人员</string>
     <string name="nudge_betagoodbye_negative_action">继续测试</string>
 </resources>

@@ -18,6 +18,7 @@
     <string name="nudge_betagoodbye_title">Wersja 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">Dziękuję. Zaszliśmy tak daleko dzięki wspólnej współpracy. Rozwój będzie oczywiście kontynuowany, ale już teraz możesz przełączyć się na ścieżkę oficjalnych aktualizacji.</string>
     <string name="nudge_betagoodbye_hint">To jest już normalna wersja. Wystarczy zrezygnować z testów, a będziesz otrzymywać tylko przyszłe aktualizacje.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Możesz przełączyć się bez ponownej instalacji aplikacji, opuszczając program testowy i czekając na następną aktualizację. Normalna aktualizacja jest możliwa, jeśli dostępna jest wersja nowsza niż ta wersja wstępna.</string>
     <string name="nudge_betagoodbye_positive_action">Przełącz na ścieżkę oficjalnych aktualizacji</string>
     <string name="nudge_betagoodbye_negative_action">Kontynuuj otrzymywanie wersji przedpremierowych</string>
 </resources>

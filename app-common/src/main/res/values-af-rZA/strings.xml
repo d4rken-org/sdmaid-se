@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+    <string name="slogan_message_0">Tot u diens.</string>
+    <string name="slogan_message_1">Skoon en netjies.</string>
+    <string name="slogan_message_2">Voorkoming van chaos.</string>
+    <string name="slogan_message_3">Doen wat nodig is.</string>
+    <string name="slogan_message_4">Al jou eende in \'n ry.</string>
+    <string name="slogan_message_5">Vlekkeloos.</string>
+    <string name="slogan_message_6">Bytes, wees weg!</string>
+    <string name="slogan_message_7">Vrye spasie, gelukkige plek.</string>
+    <string name="slogan_message_8">Gaan jou nooit opgee nie.</string>
+    <string name="general_thank_you_label">Dankie</string>
+    <string name="general_error_type_mismatch_msg">Tipe mispas: wou %1$s hê, maar het %2$s gekry.</string>
+    <string name="general_error_cant_access_msg">Kan nie toegang tot %s kry nie.</string>
+    <string name="general_error_root_unavailable">Worteltoegang is nie beskikbaar nie.</string>
+    <string name="general_error_empty_result_msg">Die resultaat was leeg.</string>
+    <string name="general_error_no_compatible_app_found_msg">Geen versoenbare toepassing gevind om hierdie versoek te hanteer nie.</string>
+    <string name="general_todo_msg">Daar word nog aan hierdie kenmerk gewerk en tans nie beskikbaar nie.</string>
+</resources>

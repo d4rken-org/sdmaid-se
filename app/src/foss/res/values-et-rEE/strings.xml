@@ -18,6 +18,7 @@
     <string name="nudge_betagoodbye_title">Versioon 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">Aitäh! Saavutasime seda koos. Arendamine loomulikult jätkub, ent nüüd saad valida ametliku valmis väljalaske.</string>
     <string name="nudge_betagoodbye_hint">See on juba ametlik versioon. Lihtsalt loobu katsetamisest ja edaspidi saad vaid valmis ametlikke uuendusi.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Vahetamiseks loobuge katsetamisest ja oodake järgmist uuendust. Rakendust pole vaja paigaldada uuesti. Tavaline uuendamine jätkub pärast sellest eelvaatest uuema tavalise versiooni avaldamist.</string>
     <string name="nudge_betagoodbye_positive_action">Vali valmis ametlik versioon</string>
     <string name="nudge_betagoodbye_negative_action">Jätka katsetamisega</string>
 </resources>

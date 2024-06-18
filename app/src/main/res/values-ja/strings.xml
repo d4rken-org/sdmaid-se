@@ -144,6 +144,8 @@
     <string name="setup_acs_appops_restriction_title">制限された設定</string>
     <string name="setup_acs_appops_restriction_body">SD Maidのユーザー補助機能を有効にできませんか? Android 13以降では、Google Play経由でインストールされていないアプリに制限が適用される場合があります。システムのSD Maid詳細ページからこれらの制限を解除できます。オプションは右上隅のコンテキストメニューにあります。</string>
     <string name="setup_inventory_card_title">アプリのインベントリ</string>
+    <string name="setup_inventory_card_body">SD Maid は、インストールされているアプリに属さないファイルを見つけるために、どのアプリを持っているかを知る必要があります。</string>
+    <string name="setup_inventory_card_extra">アプリリストまたはすべてのパッケージクエリと呼ばれる権限を探します。</string>
     <string name="dataarea_warningcard_empty_message">SD Maidはスキャン可能なデータ領域を発見できませんでした。セットアップは完了しましたか？</string>
     <string name="dataarea_warningcard_label">データエリア</string>
     <string name="dataarea_warningcard_reload_action">データエリアを再読み込み</string>
@@ -218,6 +220,7 @@
     <string name="systemcleaner_filter_anr_label">ANRエラー</string>
     <string name="systemcleaner_filter_anr_summary">\'アプリが応答していません\'イベントから追跡します。</string>
     <string name="systemcleaner_filter_emptydirectories_label">空のフォルダ</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">デバイス全体の空のフォルダを削除します。ネストされたフォルダは複数回の処理が必要になる場合があります。</string>
     <string name="systemcleaner_filter_superfluosapks_label">余分なAPKファイル</string>
     <string name="systemcleaner_filter_superfluosapks_summary">すでにインストールされているアプリのバージョンより古い、または同等のファイルをセットアップする。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIRフォルダ</string>
@@ -443,6 +446,7 @@
     <string name="appcontrol_settings_module_activity_enabled_description">アプリがアクティブであるか(または最近アクティブであったか)を確認します。</string>
     <string name="appcontrol_export_app_selection_action">アプリをエクスポート</string>
     <string name="appcontrol_export_title">アプリをエクスポート</string>
+    <string name="appcontrol_export_description">このアプリのインストールファイルを保存します。アプリのデータは含まれません。</string>
     <string name="appcontrol_progress_exporting_x">%s をエクスポート中</string>
     <string name="appcontrol_force_stop_selection_action">アプリを強制停止する</string>
     <string name="appcontrol_force_stop_action">強制停止</string>
@@ -453,6 +457,8 @@
     <string name="appcontrol_automation_loading">アクセシビリティサービスによる自動化の準備</string>
     <string name="appcontrol_automation_title">アプリコントロールの自動化</string>
     <string name="appcontrol_automation_subtitle_force_stopping">強制停止中...</string>
+    <string name="appcontrol_automation_progress_find_force_stop">強制停止ボタンを探しています(キーワード: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">以前の操作を確認しようとしています(キーワード： %s)</string>
     <string name="analyzer_tool_name">ストレージ解析</string>
     <string name="analyzer_explanation_short">お使いのデバイスのスペースを占有しているものをご覧ください。</string>
     <string name="analyzer_progress_scanning_device">ストレージデバイスを検索中</string>
@@ -472,6 +478,8 @@
     <string name="analyzer_storage_type_primary_description">デバイスのプライマリストレージ。内部SDカード、アプリとシステムデータ用のプライベートストレージが含まれています。</string>
     <string name="analyzer_storage_type_secondary_title">セカンダリストレージ</string>
     <string name="analyzer_storage_type_secondary_description">セカンダリストレージ、通常はリムーバブルSDカード。メディアファイルとそれをサポートするアプリからのデータが含まれています。</string>
+    <string name="analyzer_storage_type_tertiary_title">ポータブルストレージ</string>
+    <string name="analyzer_storage_type_tertiary_description">USBポートに差し込まれたフラッシュドライブなどのポータブルストレージ</string>
     <string name="analyzer_storage_content_title">ストレージコンテンツ</string>
     <string name="analyzer_storage_content_type_app_label">アプリ</string>
     <string name="analyzer_storage_content_type_app_description">インストールされたアプリとそのデータ(すなわち、アプリケーションファイル、データ、キャッシュ)によって占有されます。</string>
@@ -510,6 +518,7 @@
     <string name="exclusion_option_allow_partial">部分一致を許可</string>
     <string name="exclusion_option_ignore_casing">大文字小文字を無視</string>
     <string name="exclusion_editor_affected_tools_label">影響を受けるツール</string>
+    <string name="exclusion_editor_path_explanation">パス除外はSD Maid が一致するパスをさらに処理することを防ぎます。これはファイル、フォルダ、サブフォルダに適用されます。</string>
     <string name="exclusion_editor_pkg_explanation">アプリを除外すると、SDメイドは一致するパッケージを処理できなくなります。</string>
     <string name="exclusion_editor_segment_explanation">セグメントベースの除外はパス除外に似ていますが、部分一致を許可します。例: \"DCIM/Camera\" は \"/sdcard/DCIM/Camera/photo.png\" を除外します。</string>
     <string name="exclusion_editor_remove_confirmation_message">この除外を削除しますか？</string>
@@ -581,4 +590,9 @@
     <string name="motd_setting_enabled_explanation">SD Maidが開発者からの重要なメッセージをチェックすることを許可します。</string>
     <string name="updatecheck_setting_enabled_label">更新を確認</string>
     <string name="updatecheck_setting_enabled_explanation">新しいバージョンが利用可能かどうかを知らせるために、SD Maidがアップデートを確認できるようにします。</string>
+    <string name="device_settings_category">デバイス</string>
+    <string name="beta_version_indicator_desc">プレリリースのバージョンはスタート画面に少しリボンを表示します。より頻繁に更新され、より多くの機能を持っているかもしれませんが、より多くのバグが見られるかもしれません。</string>
+    <string name="review_app_review_action">レビュー</string>
+    <string name="review_app_dismiss_action">また後で</string>
+    <string name="review_app_body">SDメイドをレビューしませんか？ ❤️</string>
 </resources>

@@ -177,7 +177,7 @@
     <string name="corpsefinder_filter_publicmedia_label">Đa phương tiện công khai</string>
     <string name="corpsefinder_filter_publicmedia_summary">Các tệp đa phương tiện công khai ví dụ: các tệp nhận được qua ứng dụng nhắn tin.</string>
     <string name="corpsefinder_filter_publicobb_label">Tài nguyên OBB</string>
-    <string name="corpsefinder_filter_publicobb_summary">Tài nguyên ứng dụng bổ sung, ví dụ: tài nguyên rò chơi.</string>
+    <string name="corpsefinder_filter_publicobb_summary">Tài nguyên ứng dụng bổ sung, ví dụ: tài nguyên trò chơi.</string>
     <string name="corpsefinder_filter_publicdata_label">Dữ liệu ứng dụng công khai</string>
     <string name="corpsefinder_filter_publicdata_summary">Dữ liệu ứng dụng không nhạy cảm, ví dụ: bộ đệm bản đồ.</string>
     <string name="corpsefinder_filter_sdcard_label">Thẻ SD</string>

@@ -88,4 +88,6 @@
     <string name="setup_incomplete_card_dismiss_action">Afvis</string>
     <string name="setup_incomplete_card_continue_action">Fortsæt opsætning</string>
     <string name="setup_title">Opsætning</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Brug ikke Shizuku</string>
 </resources>

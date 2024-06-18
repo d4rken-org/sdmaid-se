@@ -29,5 +29,6 @@
     <string name="nudge_betagoodbye_title">Versione 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">Grazie. Se ce l\'abbiamo fatta fin\'ora è grazie al vostro contributo. Lo sviluppo dell\'app continuerà, ma da adesso puoi installare SD Maid senza optare per il programma di beta testing nel Play Store.</string>
     <string name="nudge_betagoodbye_hint">Non è necessario reinstallare l\'app. Questa è già una versione release. Basta abbandonare il programma di beta testing per ricevere solo aggiornamenti release in futuro.</string>
+    <string name="nudge_betagoodbye_positive_action">Abbandona il programma sperimentale</string>
     <string name="nudge_betagoodbye_negative_action">Rimani nel programma</string>
 </resources>

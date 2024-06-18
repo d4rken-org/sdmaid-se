@@ -29,5 +29,7 @@
     <string name="nudge_betagoodbye_title">Versioon 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">Aitäh! Saavutasime seda koos. Arendamine loomulikult jätkub, ent nüüd saad Google Plays paigaldada SD Maidi ilma katsetamise nõudeta.</string>
     <string name="nudge_betagoodbye_hint">Saad rakendust edasi kasutada samaviisi, sest see on juba ametlik versioon. Lihtsalt loobu katsetamisest ja edaspidi saad vaid valmis ametlikke uuendusi.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Vahetamiseks loobuge katsetamisest ja oodake järgmist uuendust. Rakendust pole vaja paigaldada uuesti. Tavaline uuendamine jätkub pärast sellest eelvaatest uuema tavalise versiooni avaldamist.</string>
+    <string name="nudge_betagoodbye_positive_action">Loobu katsetamisest</string>
     <string name="nudge_betagoodbye_negative_action">Jätka katsetamist</string>
 </resources>
