@@ -11,10 +11,10 @@ N’allons pas plus loin… Laissez SD Maid 2/SE vous aider.
 SD Maid 2/SE est une appli et un gestionnaire de fichiers dont la spécialité est de savoir par quelles applis certains fichiers de votre appareil ont été créés. SD Maid 2/SE parcourt votre appareil et compare les fichiers aux applis installées afin de vous offrir des options pour libérer de l’espace en toute sécurité.
 
 ✨ Nettoyer après désinstallation des applis
-Si des applis créent des fichiers en dehors de leurs dossiers désignés, ces fichiers peuvent subsister même après désinstallation des applis. L'outil "CorpseFinder" trouve les restes d'applications, vous indique à quelle application ils appartenaient et vous aide à les supprimer.
+Si des applis créent des fichiers en dehors de leurs dossiers désignés, ces fichiers peuvent subsister même après désinstallation des applis. La « Recherche de cadavres » trouve les restes d’applis, vous indique à quelle appli ils appartenaient et vous aide à les supprimer.
 
 🔍 Rechercher intelligemment sur votre appareil
-Cherchez les dossiers vides, les fichiers temporaires, les applis déjà installées et plus encore. Vous pouvez même créer vos propres critères de recherche. L'outil "SystemCleaner" vous permet de rechercher automatiquement votre appareil et de supprimer des fichiers en fonction de différents critères.
+Cherchez les dossiers vides, les fichiers temporaires, les applis déjà installées et plus encore. Vous pouvez même créer vos propres critères de recherche. Le « Nettoyeur système » vous permet de chercher automatiquement sur votre appareil des fichiers selon différents critères et de les supprimer.
 
 🧹 Supprimer les fichiers superflus et les caches dissimulés
 Imagettes, corbeilles, caches hors ligne et plus encore. Si les applis laissent des traces, cette appli fera le ménage. L'outil "AppCleaner" trouve les applications avec des fichiers superflus.

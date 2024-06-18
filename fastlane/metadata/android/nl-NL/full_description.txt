@@ -1,24 +1,40 @@
-<i>SD Maid SE</i> is de vertrouwde assistent van je Android, om het schoon en netjes te houden.
+<i>SD Maid 2/SE</i> is de vertrouwde assistent van je Android om deze schoon en netjes te houden.
 
 Niemand is perfect en Android ook niet.
 * Apps die je al hebt verwijderd, laten iets achter.
-* Er worden voortdurend logboeken, crashrapporten en andere bestanden gemaakt die je eigenlijk niet echt wilt hebben.
+* Logboeken, crashrapporten en andere bestanden die je niet wilt, worden voortdurend aangemaakt.
 * Je opslagruimte verzamelt bestanden en mappen die je niet herkent.
+* Dubbele foto's in je galerij.
 
-Laten we hier niet verder gaan... Laat SD Maid SE je helpen:
+Laten we hier niet verder op ingaan... Laat SD Maid 2/SE je helpen!
 
-* Ruim gegevens op van reeds verwijderde apps
-* Verwijder vervangbare bestanden en verborgen caches
-* Verwijder ongebruikte systeembestanden
-* Creëer je eigen filters voor willekeurige bestanden
-* Zoek en verwijder dubbele gegevens
-* Analyseer je opslag en verwijder grote bestanden die ruimte in beslag nemen
+SD Maid 2/SE is een app- en bestandsbeheerder die gespecialiseerd is in het weten welke apps specifieke bestanden op je apparaat hebben gemaakt. SD Maid 2/SE doorzoekt je apparaat en vergelijkt bestanden met geïnstalleerde apps om opties te bieden voor het veilig vrijmaken van opslagruimte.
 
-SD Maid SE is advertentievrij. Voor sommige functies is een betaalde upgrade vereist.
+✨ Clean up after uninstalling apps
+Als apps bestanden buiten de aangewezen mappen maken, kunnen de bestanden blijven staan, zelfs nadat de apps zijn verwijderd. De tool "Lijkzoeker" vindt app-resten, vertelt je bij welke app ze horen en helpt je ze te verwijderen.
+
+🔍 Zoek op een slimme manier op je apparaat
+Filter op lege mappen, tijdelijke bestanden, reeds geïnstalleerde apps en meer. Je kunt zelfs jouw eigen zoekcriteria maken. Met de tool "SystemCleaner" kun je automatisch jouw apparaat doorzoeken en bestanden verwijderen op basis van verschillende criteria.
+
+🧹 Verwijder vervangbare bestanden en verborgen caches
+Miniaturen, prullenbakken, offline caches en meer: ​​als apps zichzelf niet opruimen, dan zal deze app dat wel doen. Het hulpprogramma "AppCleaner" vindt apps met vervangbare bestanden.
+
+📦 Beheer al je apps
+Krijg een uitgebreide lijst van alle apps die op je apparaat zijn geïnstalleerd. Ingeschakeld, uitgeschakeld, gebruikers- of systeem-app: geen enkele app kan zich voor je verbergen. De tool "AppControl" is een app-manager waarmee je jouw apps kunt zoeken, sorteren en beheren.
+
+📊 What is using all your space
+Storage management can be complex with apps, media, system, and other files across phone storage, SD cards, and USB devices. "StorageAnalyzer" is a file manager that displays how space is used on your device, simplifying your storage management.
+
+📷 Find duplicate data
+Duplicate downloads, photos sent through social media or just similar pictures of the same scene: Over time copies can accumulate. The "Deduplicator" tool finds files that are exactly the same or similar and helps you delete extra copies.
+
+This app is ad-free. Voor sommige functies is een betaalde upgrade vereist.
 
 SD Maid 2/SE is de opvolger van SD Maid 1/Legacy.
 Geoptimaliseerd voor nieuwere Android-versies en gericht op opschonen.
 
-SD Maid SE heeft optionele functies die gebruikmaken van de AccessibilityService API om vervelende handelingen te automatiseren.
-Met behulp van de AccessibilityService API kan SD Maid SE op knoppen klikken om bewerkingen uit te voeren op meerdere apps, bijvoorbeeld. caches verwijderen.
-SD Maid SE gebruikt de AccessibilityService API niet om informatie te verzamelen.
+This app has optional features that utilize the AccessibilityService API to automate tedious actions.
+Using the AccessibilityService API, this app can click buttons for you to perform operations on multiple apps, e.g. caches verwijderen.
+This app does not use the AccessibilityService API to collect information.
+
+SD Maid 2/SE is a File Manager & Cleaner App.
