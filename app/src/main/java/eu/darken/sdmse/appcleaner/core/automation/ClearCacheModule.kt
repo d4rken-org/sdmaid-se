@@ -32,7 +32,7 @@ import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
-import eu.darken.sdmse.automation.core.returnToSDMaid
+import eu.darken.sdmse.automation.core.finishAutomation
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.ca.CaString
@@ -169,16 +169,13 @@ class ClearCacheModule @AssistedInject constructor(
                 failed.add(target)
             } finally {
                 increaseProgress()
-//                updateProgressCount(Progress.Count.Percent(task.targets.indexOf(target), task.targets.size))
             }
         }
 
-        if (task.returnToApp) {
-            // If we aborted due to an exception and the reason is "User has cancelled", then still clean up
-            returnToSDMaid(cancelledByUser)
-        } else {
-            log(TAG) { "Return to app is disabled." }
-        }
+        finishAutomation(
+            userCancelled = cancelledByUser,
+            returnToApp = task.returnToApp,
+        )
 
         return ClearCacheTask.Result(
             successful = successful,
