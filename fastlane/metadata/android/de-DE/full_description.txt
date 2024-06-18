@@ -1,24 +1,40 @@
-<i>SD Maid SE</i> ist der vertrauenswürdige Assistent Deines Android-Geräts, der dafür sorgt, dass es sauber und ordentlich bleibt.
+<i>SD Maid 2/SE</i> ist der vertrauenswürdige Assistent Deines Android-Geräts, der dafür sorgt, dass es sauber und ordentlich bleibt.
 
 Niemand ist perfekt, Android auch nicht.
 * Bereits entfernte Apps lassen Daten zurück.
 * Protokolle, Absturzberichte und andere Dateien, die Du nicht wirklich brauchst, werden ständig erstellt.
 * Dein Speicher sammelt Dateien und Verzeichnisse an, die Du nicht kennst.
+* Duplizierte Fotos in deiner Galerie.
 
-Lass uns hier nicht weitermachen... Lass dir von SD Maid SE helfen:
+Das muss nicht sein... Lasse dir von SD Maid 2/SE helfen!
 
-* Daten von bereits deinstallierten Apps bereinigen
-* Lösche überflüssige Dateien und versteckte Caches
-* Entferne unbenutzte Systemdateien
-* Erstelle Deine eigenen Filter für zufällige Dateien
-* Suche und lösche Daten-Duplikate
-* Analysiere Deinen Speicher und lösche große Dateien, die Platz belegen
+SD Maid 2/SE ist eine App und Dateimanager, der darauf spezialisiert ist, zu wissen, welche Apps bestimmte Dateien auf dem Gerät erstellt haben. SD Maid 2/SE durchsucht Ihr Gerät und vergleicht Dateien mit installierten Apps, um Optionen zur sicheren Speicherplatzgewinnung anzubieten.
 
-SD Maid SE ist werbefrei. Für ein paar Funktionen ist ein kostenpflichtiges Upgrade erforderlich.
+✨ Bereinigen nach der Deinstallation von Apps
+Wenn Apps Dateien außerhalb ihres vorgesehenen Ordners erstellen, können Dateien auch nach der Deinstallation der Apps verbleiben. Das "Leichenfinder" Tool findet solche Überreste, teilt Ihnen mit zu welcher App sie gehörten und hilft Ihnen diese zu löschen.
+
+🔍 Durchsuchen Sie Ihr Gerät auf intelligente Weise
+Filtern Sie nach leeren Ordnern, temporären Dateien, bereits installierten Apps und mehr. Sie können sogar eigene Suchkriterien erstellen. Mit dem "System-Reiniger" Tool können Sie automatisch nach verschiedenen Kriterien suchen und Dateien löschen.
+
+🧹 Lösche überflüssige Dateien und versteckte Caches
+Vorschaubilder, Papierkorb, Offline-Caches und mehr: Wenn Apps nicht hinter sich selbst aufräumen, wird diese App es tun. Das "App-Reiniger" Tool findet Apps mit entbehrlichen Dateien.
+
+📦 Verwalten Sie alle Ihre Apps
+Erhalten Sie eine umfassende Liste aller auf Ihrem Gerät installierten Apps. Aktiviert, deaktiviert, Benutzer oder System-App: Keine App kann sich vor Ihnen verstecken. Das Tool "App-Kontrolle" ist ein App-Manager, mit dem Sie Ihre Apps suchen, sortieren und steuern können.
+
+📊 Was nutzt Ihren Speicherplatz
+Das Speichermanagement ist komplex. Apps, Medien, System und anderen Dateien sind über den Telefonspeicher, die SD-Karten und USB-Geräte verstreut. "Speicheranalyse" ist ein Dateimanager, der anzeigt, wie Platz auf Ihrem Gerät genutzt wird, was Ihre Speicherverwaltung vereinfacht.
+
+📷 Duplikate finden
+Doppelte Downloads, über Social Media gesendete Fotos oder ähnliche Bilder derselben Szene: Im Laufe der Zeit können viele Kopien angesammelt werden. Das Tool "Duplikat-Entferner" findet Dateien, die genau identisch oder ähnlich sind und hilft Ihnen, zusätzliche Kopien zu löschen.
+
+Diese App ist werbefrei. Für ein paar Funktionen ist ein kostenpflichtiges Upgrade erforderlich.
 
 SD Maid 2/SE ist der Nachfolger von SD Maid 1/Legacy.
 Optimiert für neuere Android-Versionen und aufs Aufräumen ausgerichtet.
 
-SD Maid SE verfügt über optionale Funktionen, die die AccessibilityService-API verwenden, um langwierige Aktionen zu automatisieren.
-Mithilfe der AccessibilityService-API kann SD Maid SE auf Schaltflächen klicken, damit Sie Operationen an mehreren Apps ausführen können, z.B. Caches löschen.
-SD Maid SE verwendet die AccessibilityService-API nicht zum Sammeln von Informationen.
+SD Maid 2/SE verfügt über optionale Funktionen, die die AccessibilityService-API verwenden, um langwierige Aktionen zu automatisieren.
+Mit der AccessibilityService-API kann SD Maid 2/SE für Sie auf Schaltflächen klicken, um Vorgänge für mehreren Anwendungen durchzuführen, z.B. Caches löschen.
+SD Maid verwendet die AccessibilityService API nicht, um Informationen zu sammeln.
+
+SD Maid 2/SE ist eine Dateimanager & App Reiniger.
