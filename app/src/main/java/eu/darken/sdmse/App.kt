@@ -72,7 +72,7 @@ open class App : Application(), Configuration.Provider {
 
             Bugs.isDebug = isDebug || recorder.isRecording
             Bugs.isTrace = isDebug && isTrace
-            Bugs.isDryRun = isDryRun
+            Bugs.isDryRun = isDebug && isDryRun
         }.launchIn(appScope)
 
         bugReporter.setup(this)
