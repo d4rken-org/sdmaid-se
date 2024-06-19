@@ -18,7 +18,6 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeout
-import java.io.IOException
 import kotlin.coroutines.resume
 import kotlin.reflect.full.isSubclassOf
 import kotlin.reflect.full.memberFunctions
@@ -71,10 +70,11 @@ fun PackageManager.getInstalledPackagesAsUser(
                 val arg2 = it.parameters[2].type.jvmErasure
                 Int::class.isSubclassOf(arg1) && Int::class.isSubclassOf(arg2)
             }
-            .call(this, flags, userHandle.handleId) as List<PackageInfo>
+            .call(this, flags.toInt(), userHandle.handleId) as List<PackageInfo>
     }
 } catch (e: Exception) {
-    throw IOException("getInstalledPackagesAsUser($flags,$userHandle) failed", e)
+    log(ERROR) { e.asLog() }
+    throw e
 }
 
 // WORKAROUND
