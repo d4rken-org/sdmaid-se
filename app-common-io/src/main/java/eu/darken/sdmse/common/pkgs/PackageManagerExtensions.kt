@@ -53,7 +53,7 @@ fun PackageManager.getInstalledPackagesAsUser(
     userHandle: UserHandle2,
 ) = try {
     val functions = PackageManager::class.memberFunctions.filter { it.name == "getInstalledPackagesAsUser" }
-
+    throw RuntimeException("lol")
     if (hasApiLevel(33)) {
         @Suppress("NewApi")
         functions

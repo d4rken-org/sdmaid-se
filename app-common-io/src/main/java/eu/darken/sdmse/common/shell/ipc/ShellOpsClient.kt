@@ -8,10 +8,8 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.error.getRootCause
 import eu.darken.sdmse.common.ipc.IpcClientModule
 import kotlinx.coroutines.withContext
-import java.io.IOException
 
 class ShellOpsClient @AssistedInject constructor(
     @Assisted private val connection: ShellOpsConnection,
@@ -23,18 +21,9 @@ class ShellOpsClient @AssistedInject constructor(
             connection.execute(cmd)
         }
     } catch (e: Exception) {
-        log(TAG, ERROR) { "execute($cmd) failed: ${e.asLog()}" }
-        throw fakeIOException(e.getRootCause())
-    }
-
-    private fun fakeIOException(e: Throwable): IOException {
-        val gulpExceptionPrefix = "java.io.IOException: "
-        val message = when {
-            e.message.isNullOrEmpty() -> e.toString()
-            e.message?.startsWith(gulpExceptionPrefix) == true -> e.message!!.replace(gulpExceptionPrefix, "")
-            else -> ""
+        throw e.unwrapPropagation().also {
+            log(TAG, ERROR) { "execute($cmd) failed: ${it.asLog()}" }
         }
-        return IOException(message, e.cause)
     }
 
     @AssistedFactory
