@@ -53,7 +53,7 @@ class FileOpsHost @Inject constructor(
         result.toRemoteInputStream()
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFiles(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun lookUp(path: LocalPath): LocalPathLookup = try {
@@ -63,7 +63,7 @@ class FileOpsHost @Inject constructor(
         }
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookUp(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun lookupFilesStream(path: LocalPath): RemoteInputStream = try {
@@ -76,7 +76,7 @@ class FileOpsHost @Inject constructor(
         lookups.toRemoteInputStream()
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFiles(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun lookUpExtended(path: LocalPath): LocalPathLookupExtended = try {
@@ -86,7 +86,7 @@ class FileOpsHost @Inject constructor(
         }
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookUpExtended(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun lookupFilesExtended(path: LocalPath): List<LocalPathLookupExtended> = try {
@@ -99,7 +99,7 @@ class FileOpsHost @Inject constructor(
             .also { if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesExtended($path) done: ${it.size} items" } }
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFilesExtended(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun walkStream(path: LocalPath, pathDoesNotContain: List<String>): RemoteInputStream = try {
@@ -114,7 +114,7 @@ class FileOpsHost @Inject constructor(
         }
     } catch (e: Exception) {
         log(TAG, ERROR) { "walkStream(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun lookupFilesExtendedStream(path: LocalPath): RemoteInputStream = try {
@@ -127,7 +127,7 @@ class FileOpsHost @Inject constructor(
         lookups.toRemoteInputStream()
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFilesExtendedStream(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun du(path: LocalPath): Long = try {
@@ -135,7 +135,7 @@ class FileOpsHost @Inject constructor(
         runBlocking { path.asFile().walkTopDown().map { it.length() }.sum() }
     } catch (e: Exception) {
         log(TAG, ERROR) { "exists(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun readFile(path: LocalPath): RemoteInputStream = try {
@@ -143,7 +143,7 @@ class FileOpsHost @Inject constructor(
         FileInputStream(path.asFile()).remoteInputStream()
     } catch (e: Exception) {
         log(TAG, ERROR) { "readFile(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun writeFile(path: LocalPath): RemoteOutputStream = try {
@@ -151,7 +151,7 @@ class FileOpsHost @Inject constructor(
         FileOutputStream(path.asFile()).toRemoteOutputStream()
     } catch (e: Exception) {
         log(TAG, ERROR) { "writeFile(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun mkdirs(path: LocalPath): Boolean = try {
@@ -159,7 +159,7 @@ class FileOpsHost @Inject constructor(
         path.asFile().mkdirs()
     } catch (e: Exception) {
         log(TAG, ERROR) { "mkdirs(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun createNewFile(path: LocalPath): Boolean = try {
@@ -181,7 +181,7 @@ class FileOpsHost @Inject constructor(
         file.createNewFile()
     } catch (e: Exception) {
         log(TAG, ERROR) { "mkdirs(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun canRead(path: LocalPath): Boolean = try {
@@ -189,7 +189,7 @@ class FileOpsHost @Inject constructor(
         path.asFile().canRead()
     } catch (e: Exception) {
         log(TAG, ERROR) { "path(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun canWrite(path: LocalPath): Boolean = try {
@@ -197,7 +197,7 @@ class FileOpsHost @Inject constructor(
         path.asFile().canWrite()
     } catch (e: Exception) {
         log(TAG, ERROR) { "canWrite(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun exists(path: LocalPath): Boolean = try {
@@ -205,7 +205,7 @@ class FileOpsHost @Inject constructor(
         path.asFile().exists()
     } catch (e: Exception) {
         log(TAG, ERROR) { "exists(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun delete(path: LocalPath): Boolean = try {
@@ -213,7 +213,7 @@ class FileOpsHost @Inject constructor(
         path.asFile().delete()
     } catch (e: Exception) {
         log(TAG, ERROR) { "delete(path=$path) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun createSymlink(linkPath: LocalPath, targetPath: LocalPath): Boolean = try {
@@ -221,7 +221,7 @@ class FileOpsHost @Inject constructor(
         linkPath.asFile().createSymlink(targetPath.asFile())
     } catch (e: Exception) {
         log(TAG, ERROR) { "createSymlink(linkPath=$linkPath, targetPath=$targetPath) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun setModifiedAt(path: LocalPath, modifiedAt: Long): Boolean = try {
@@ -229,7 +229,7 @@ class FileOpsHost @Inject constructor(
         path.asFile().setLastModified(modifiedAt)
     } catch (e: Exception) {
         log(TAG, ERROR) { "setModifiedAt(path=$path, modifiedAt=$modifiedAt) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun setPermissions(path: LocalPath, permissions: Permissions): Boolean = try {
@@ -237,7 +237,7 @@ class FileOpsHost @Inject constructor(
         path.asFile().setPermissions(permissions)
     } catch (e: Exception) {
         log(TAG, ERROR) { "setModifiedAt(path=$path, permissions=$permissions) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
     override fun setOwnership(path: LocalPath, ownership: Ownership): Boolean = try {
@@ -245,11 +245,13 @@ class FileOpsHost @Inject constructor(
         path.asFile().setOwnership(ownership)
     } catch (e: Exception) {
         log(TAG, ERROR) { "setModifiedAt(path=$path, ownership=$ownership) failed\n${e.asLog()}" }
-        throw wrapPropagating(e)
+        throw e.wrapToPropagate()
     }
 
+    // Not all exception can be passed through the binder
+    // See Parcel.writeException(...)
     private fun wrapPropagating(e: Exception): Exception {
-        return if (e is UnsupportedOperationException) e else UnsupportedOperationException(e)
+        return if (e is RuntimeException) e else RuntimeException(e)
     }
 
     companion object {

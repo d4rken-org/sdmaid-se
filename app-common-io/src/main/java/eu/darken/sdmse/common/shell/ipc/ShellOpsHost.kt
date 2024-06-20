@@ -35,12 +35,7 @@ class ShellOpsHost @Inject constructor(
         }
     } catch (e: Exception) {
         log(TAG, ERROR) { "execute(cmd=$cmd) failed." }
-        throw wrapPropagating(e)
-    }
-
-    private fun wrapPropagating(e: Exception): Exception {
-        return if (e is UnsupportedOperationException) e
-        else UnsupportedOperationException(e)
+        throw e.wrapToPropagate()
     }
 
     companion object {
