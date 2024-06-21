@@ -36,6 +36,14 @@ class ShizukuSetupCardVH(parent: ViewGroup) :
             }
         }
 
+        body.apply {
+            text = getString(R.string.setup_shizuku_card_body)
+            if (item.state.alsoHasRoot) {
+                append("\n")
+                append(getString(R.string.setup_shizuku_card_root_info))
+            }
+        }
+
         shizukuState.apply {
             isVisible = item.state.useShizuku == true && item.state.isInstalled
             text = getString(
