@@ -1,9 +1,11 @@
 package eu.darken.sdmse.stats.core.db
 
 import androidx.room.Dao
+import androidx.room.Insert
 import androidx.room.Query
 import eu.darken.sdmse.stats.core.ReportId
 import kotlinx.coroutines.flow.Flow
+import java.time.Instant
 
 @Dao
 interface ReportsDao {
@@ -14,6 +16,10 @@ interface ReportsDao {
     @Query("SELECT * FROM reports")
     fun waterfall(): Flow<List<ReportEntity>>
 
-    // TODO fun to delete older than X days
+    @Insert
+    fun insert(entity: ReportEntity)
+
+    @Query("SELECT * FROM reports WHERE end_at < :cutOff")
+    fun getReportsOlderThan(cutOff: Instant): List<ReportEntity>
 
 }

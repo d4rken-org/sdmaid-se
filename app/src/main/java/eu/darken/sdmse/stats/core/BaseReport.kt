@@ -8,7 +8,7 @@ data class BaseReport(
     override val reportId: ReportId = UUID.randomUUID(),
     override val startAt: Instant,
     override val endAt: Instant,
-    override val toolType: SDMTool.Type,
+    override val tool: SDMTool.Type,
     override val status: Report.Status,
     val error: Exception? = null,
 ) : Report

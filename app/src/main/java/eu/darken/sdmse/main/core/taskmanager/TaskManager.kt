@@ -238,7 +238,7 @@ class TaskManager @Inject constructor(
                     val report = BaseReport(
                         startAt = completeTask.startedAt ?: Instant.now(),
                         endAt = completeTask.completedAt ?: Instant.now(),
-                        toolType = completeTask.tool.type,
+                        tool = completeTask.tool.type,
                         status = when {
                             completeTask.error != null -> Report.Status.FAILURE
                             reportDetails != null -> reportDetails.status

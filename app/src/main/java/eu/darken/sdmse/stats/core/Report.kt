@@ -8,7 +8,7 @@ interface Report {
     val reportId: ReportId
     val startAt: Instant
     val endAt: Instant
-    val toolType: SDMTool.Type
+    val tool: SDMTool.Type
     val status: Status
 
     enum class Status {
