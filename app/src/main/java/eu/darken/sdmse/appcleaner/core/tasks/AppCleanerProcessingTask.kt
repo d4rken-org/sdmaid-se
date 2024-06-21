@@ -7,6 +7,8 @@ import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.serialization.KClassParcelizer
+import eu.darken.sdmse.stats.core.HasReportDetails
+import eu.darken.sdmse.stats.core.Reportable
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.TypeParceler
 import kotlin.reflect.KClass
@@ -21,15 +23,15 @@ data class AppCleanerProcessingTask(
     val onlyInaccessible: Boolean = false,
     val useAutomation: Boolean = true,
     val isBackground: Boolean = false,
-) : AppCleanerTask {
+) : AppCleanerTask, Reportable {
 
     sealed interface Result : AppCleanerTask.Result
 
     @Parcelize
     data class Success(
         private val deletedCount: Int,
-        private val recoveredSpace: Long
-    ) : Result {
+        private val recoveredSpace: Long,
+    ) : Result, HasReportDetails {
         override val primaryInfo: CaString
             get() = caString {
                 it.getString(
