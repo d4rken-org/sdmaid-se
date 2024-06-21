@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.shizuku.ShizukuSettings
 import eu.darken.sdmse.common.shizuku.canUseShizukuNow
@@ -41,7 +42,8 @@ class ShizukuSetupModule @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val shizukuSettings: ShizukuSettings,
     private val shizukuManager: ShizukuManager,
-    private val dataAreaManager: DataAreaManager
+    private val dataAreaManager: DataAreaManager,
+    private val rootManager: RootManager,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -59,12 +61,14 @@ class ShizukuSetupModule @Inject constructor(
     override val state: Flow<SetupModule.State> = combine(
         refreshTrigger,
         shizukuSettings.useShizuku.flow,
-    ) { _, useShizuku ->
+        rootManager.useRoot,
+    ) { _, useShizuku, useRoot ->
         val baseState = Result(
             pkg = shizukuManager.pkgId,
             useShizuku = useShizuku,
             isInstalled = shizukuManager.isInstalled(),
             isCompatible = shizukuManager.isCompatible(),
+            alsoHasRoot = useRoot,
         )
 
         if (useShizuku != true) return@combine flowOf(baseState)
@@ -79,7 +83,7 @@ class ShizukuSetupModule @Inject constructor(
             baseState.copy(
                 basicService = binder?.pingBinder() ?: false,
                 ourService = shizukuManager.isShizukuServiceAvailable(),
-            )as SetupModule.State
+            ) as SetupModule.State
         }
     }
         .flatMapLatest { it }
@@ -137,6 +141,7 @@ class ShizukuSetupModule @Inject constructor(
         val isInstalled: Boolean = false,
         val basicService: Boolean = false,
         val ourService: Boolean = false,
+        val alsoHasRoot: Boolean = false,
     ) : SetupModule.State.Current {
 
         override val type: SetupModule.Type = SetupModule.Type.SHIZUKU
