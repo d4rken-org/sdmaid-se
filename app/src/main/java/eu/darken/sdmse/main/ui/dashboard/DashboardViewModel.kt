@@ -207,9 +207,13 @@ class DashboardViewModel @Inject constructor(
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.CORPSEFINDER) }
             },
-            onViewDetails = { showCorpseFinderDetails() }
+            onViewTool = { showCorpseFinder() },
+            onViewDetails = {
+                DashboardFragmentDirections.actionDashboardFragmentToCorpseFinderDetailsFragment().navigate()
+            },
         )
     }
+
     private val systemCleanerItem: Flow<DashboardToolCard.Item> = combine(
         systemCleaner.state,
         taskManager.state.map { it.getLatestResult(SDMTool.Type.SYSTEMCLEANER) },
@@ -229,9 +233,13 @@ class DashboardViewModel @Inject constructor(
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.SYSTEMCLEANER) }
             },
-            onViewDetails = { showSystemCleanerDetails() }
+            onViewTool = { showSystemCleaner() },
+            onViewDetails = {
+                DashboardFragmentDirections.actionDashboardFragmentToSystemCleanerDetailsFragment().navigate()
+            },
         )
     }
+
     private val appCleanerItem: Flow<DashboardToolCard.Item> = combine(
         appCleaner.state,
         taskManager.state.map { it.getLatestResult(SDMTool.Type.APPCLEANER) },
@@ -252,7 +260,10 @@ class DashboardViewModel @Inject constructor(
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.APPCLEANER) }
             },
-            onViewDetails = { showAppCleanerDetails() }
+            onViewTool = { showAppCleaner() },
+            onViewDetails = {
+                DashboardFragmentDirections.actionDashboardFragmentToAppCleanerDetailsFragment().navigate()
+            },
         )
     }
 
@@ -281,7 +292,10 @@ class DashboardViewModel @Inject constructor(
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.DEDUPLICATOR) }
             },
-            onViewDetails = { showDeduplicatorDetails() }
+            onViewTool = { showDeduplicator() },
+            onViewDetails = {
+                DashboardFragmentDirections.actionDashboardFragmentToDeduplicatorDetailsFragment().navigate()
+            },
         )
     }
 
@@ -639,7 +653,7 @@ class DashboardViewModel @Inject constructor(
         submitTask(CorpseFinderDeleteTask())
     }
 
-    fun showCorpseFinderDetails() {
+    fun showCorpseFinder() {
         log(TAG, INFO) { "showCorpseFinderDetails()" }
         DashboardFragmentDirections.actionDashboardFragmentToCorpseFinderListFragment().navigate()
     }
@@ -649,7 +663,7 @@ class DashboardViewModel @Inject constructor(
         submitTask(SystemCleanerProcessingTask())
     }
 
-    fun showSystemCleanerDetails() {
+    fun showSystemCleaner() {
         log(TAG, INFO) { "showSystemCleanerDetails()" }
         DashboardFragmentDirections.actionDashboardFragmentToSystemCleanerListFragment().navigate()
     }
@@ -664,12 +678,12 @@ class DashboardViewModel @Inject constructor(
         submitTask(AppCleanerProcessingTask())
     }
 
-    fun showAppCleanerDetails() {
+    fun showAppCleaner() {
         log(TAG, INFO) { "showAppCleanerDetails()" }
         DashboardFragmentDirections.actionDashboardFragmentToAppCleanerListFragment().navigate()
     }
 
-    fun showDeduplicatorDetails() {
+    fun showDeduplicator() {
         log(TAG, INFO) { "showDeduplicatorDetails()" }
         DashboardFragmentDirections.actionDashboardFragmentToDeduplicatorListFragment().navigate()
     }

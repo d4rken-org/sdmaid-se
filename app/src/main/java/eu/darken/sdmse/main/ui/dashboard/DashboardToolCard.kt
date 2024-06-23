@@ -7,7 +7,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.ui.performClickWithRipple
 import eu.darken.sdmse.databinding.DashboardToolCardBinding
 import eu.darken.sdmse.main.core.SDMTool
 
@@ -72,12 +71,7 @@ class DashboardToolCard(parent: ViewGroup) :
 
         detailsAction.apply {
             isGone = item.progress != null || item.onDelete == null
-            setOnClickListener { itemView.performClickWithRipple() }
-        }
-
-        itemView.apply {
             setOnClickListener { item.onViewDetails() }
-            isClickable = item.progress == null && item.onDelete != null
         }
 
         scanAction.apply {
@@ -108,7 +102,7 @@ class DashboardToolCard(parent: ViewGroup) :
         }
 
         itemView.apply {
-            setOnClickListener { item.onViewDetails() }
+            setOnClickListener { item.onViewTool() }
             isClickable = item.progress == null && item.onDelete != null
         }
     }
@@ -120,6 +114,7 @@ class DashboardToolCard(parent: ViewGroup) :
         val showProRequirement: Boolean,
         val onScan: () -> Unit,
         val onDelete: (() -> Unit)?,
+        val onViewTool: () -> Unit,
         val onViewDetails: () -> Unit,
         val onCancel: () -> Unit,
     ) : DashboardAdapter.Item, MainActionItem {
