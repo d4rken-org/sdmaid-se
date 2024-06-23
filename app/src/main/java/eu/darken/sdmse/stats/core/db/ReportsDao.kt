@@ -22,4 +22,6 @@ interface ReportsDao {
     @Query("SELECT * FROM reports WHERE end_at < :cutOff")
     fun getReportsOlderThan(cutOff: Instant): List<ReportEntity>
 
+    @Query("DELETE FROM reports WHERE report_id IN (:ids)")
+    fun delete(ids: List<ReportId>)
 }

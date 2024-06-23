@@ -32,6 +32,10 @@ class ReportsDatabase @Inject constructor(
         appScope.launch {
             try {
                 val oldReports = database.reports().getReportsOlderThan(Instant.now() - Duration.ofDays(90))
+                if (oldReports.isNotEmpty()) {
+                    log(TAG) { "Deleting old reports: $oldReports" }
+                    database.reports().delete(oldReports.map { it.reportId })
+                }
             } catch (e: Exception) {
                 log(TAG, ERROR) { "Failed to clean up reports: ${e.asLog()}" }
             }
