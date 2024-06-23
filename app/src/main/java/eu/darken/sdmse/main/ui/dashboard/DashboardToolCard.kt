@@ -42,15 +42,18 @@ class DashboardToolCard(parent: ViewGroup) :
                 SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER -> 0
             }
         )
-        description.setText(
-            when (item.toolType) {
-                SDMTool.Type.CORPSEFINDER -> R.string.corpsefinder_explanation_short
-                SDMTool.Type.SYSTEMCLEANER -> R.string.systemcleaner_explanation_short
-                SDMTool.Type.APPCLEANER -> R.string.appcleaner_explanation_short
-                SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_explanation_short
-                SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER -> 0
-            }
-        )
+        description.apply {
+            setText(
+                when (item.toolType) {
+                    SDMTool.Type.CORPSEFINDER -> R.string.corpsefinder_explanation_short
+                    SDMTool.Type.SYSTEMCLEANER -> R.string.systemcleaner_explanation_short
+                    SDMTool.Type.APPCLEANER -> R.string.appcleaner_explanation_short
+                    SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_explanation_short
+                    SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER -> 0
+                }
+            )
+            isGone = item.progress != null || item.result != null
+        }
 
         activityContainer.isGone = item.progress == null && item.result == null
         progressBar.isInvisible = item.progress == null
