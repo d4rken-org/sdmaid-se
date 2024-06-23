@@ -72,13 +72,16 @@ class TaskManager @Inject constructor(
         val result: SDMTool.Task.Result? = null,
         val error: Exception? = null,
     ) {
+        val toolType: SDMTool.Type
+            get() = tool.type
+
         val isComplete: Boolean = completedAt != null
         val isCancelling: Boolean = cancelledAt != null && completedAt == null
         val isActive: Boolean = !isComplete && startedAt != null
         val isQueued: Boolean = !isComplete && startedAt == null && cancelledAt == null
 
         override fun toString(): String {
-            return "ManagedTask(${tool.type}: ${task.javaClass.simpleName} - queued=$queuedAt, started=$startedAt, completed=$completedAt, cancelled=$cancelledAt) - result=$result, error=$error)"
+            return "ManagedTask(${toolType}: ${task.javaClass.simpleName} - queued=$queuedAt, started=$startedAt, completed=$completedAt, cancelled=$cancelledAt) - result=$result, error=$error)"
         }
     }
 

@@ -9,14 +9,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        tools:layout_height="300dp">
+        tools:layout_height="300dp"
+        android:layout_margin="16dp">
 
         <ImageView
             android:id="@+id/icon"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/ic_baseline_view_list_24"
+            tools:src="@drawable/ic_recycle"
             app:layout_constraintBottom_toBottomOf="@id/title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/title" />
@@ -27,22 +27,22 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="@string/systemcleaner_tool_name"
-            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="@string/appcleaner_tool_name"
             app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/subtitle"
+            android:id="@+id/description"
             style="@style/TextAppearance.Material3.BodySmall"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@string/systemcleaner_explanation_short"
+            tools:text="@string/appcleaner_explanation_short"
             app:layout_constraintBottom_toTopOf="@+id/activity_container"
-            app:layout_constraintEnd_toEndOf="@id/title"
-            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title"
             app:layout_constraintVertical_bias="0.0"
             app:layout_constraintVertical_chainStyle="packed" />
@@ -56,7 +56,7 @@
             app:layout_constraintBottom_toTopOf="@id/action_container"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/subtitle">
+            app:layout_constraintTop_toBottomOf="@id/description">
 
             <eu.darken.sdmse.common.progress.ProgressBarView
                 android:id="@+id/progress_bar"
@@ -99,8 +99,8 @@
             android:id="@+id/action_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingTop="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -152,8 +152,7 @@
                 app:icon="@drawable/ic_cancel"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:visibility="visible" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

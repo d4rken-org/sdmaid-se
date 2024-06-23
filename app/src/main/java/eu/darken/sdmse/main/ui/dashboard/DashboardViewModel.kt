@@ -13,7 +13,6 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
-import eu.darken.sdmse.appcleaner.ui.AppCleanerDashCardVH
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.ui.AppControlDashCardVH
 import eu.darken.sdmse.common.SdmSeLinks
@@ -24,7 +23,9 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.DebugCardProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -42,20 +43,32 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.hasData
-import eu.darken.sdmse.corpsefinder.core.tasks.*
-import eu.darken.sdmse.corpsefinder.ui.CorpseFinderDashCardVH
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderOneClickTask
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
+import eu.darken.sdmse.corpsefinder.core.tasks.UninstallWatcherTask
 import eu.darken.sdmse.deduplicator.core.Deduplicator
+import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
-import eu.darken.sdmse.deduplicator.ui.DeduplicatorDashCardVH
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.motd.MotdRepo
 import eu.darken.sdmse.main.core.release.ReleaseManager
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
-import eu.darken.sdmse.main.ui.dashboard.items.*
+import eu.darken.sdmse.main.core.taskmanager.getLatestResult
+import eu.darken.sdmse.main.ui.dashboard.items.DataAreaCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.MotdCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.ReviewCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.TitleCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.UpdateCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.UpgradeCardVH
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
 import eu.darken.sdmse.setup.SetupManager
@@ -66,11 +79,17 @@ import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
-import eu.darken.sdmse.systemcleaner.ui.SystemCleanerDashCardVH
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.onStart
 import java.time.Duration
 import java.time.Instant
-import java.util.*
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.seconds
 
@@ -169,55 +188,67 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val corpseFinderItem: Flow<CorpseFinderDashCardVH.Item> = corpseFinder.state.map { state ->
-        CorpseFinderDashCardVH.Item(
-            data = state.data,
+    private val corpseFinderItem: Flow<DashboardToolCard.Item> = combine(
+        corpseFinder.state,
+        taskManager.state.map { it.getLatestResult(SDMTool.Type.CORPSEFINDER) },
+    ) { state, lastResult ->
+        DashboardToolCard.Item(
+            toolType = SDMTool.Type.CORPSEFINDER,
+            result = lastResult,
             progress = state.progress,
+            showProRequirement = false,
             onScan = {
                 launch { submitTask(CorpseFinderScanTask()) }
             },
             onDelete = {
                 val task = CorpseFinderDeleteTask()
                 events.postValue(DashboardEvents.CorpseFinderDeleteConfirmation(task))
-            },
+            }.takeIf { state.data?.hasData == true },
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.CORPSEFINDER) }
             },
             onViewDetails = { showCorpseFinderDetails() }
         )
     }
-    private val systemCleanerItem: Flow<SystemCleanerDashCardVH.Item> = systemCleaner.state.map { state ->
-        SystemCleanerDashCardVH.Item(
-            data = state.data,
+    private val systemCleanerItem: Flow<DashboardToolCard.Item> = combine(
+        systemCleaner.state,
+        taskManager.state.map { it.getLatestResult(SDMTool.Type.SYSTEMCLEANER) },
+    ) { state, lastResult ->
+        DashboardToolCard.Item(
+            toolType = SDMTool.Type.SYSTEMCLEANER,
+            result = lastResult,
             progress = state.progress,
+            showProRequirement = false,
             onScan = {
                 launch { submitTask(SystemCleanerScanTask()) }
             },
             onDelete = {
                 val task = SystemCleanerProcessingTask()
                 events.postValue(DashboardEvents.SystemCleanerDeleteConfirmation(task))
-            },
+            }.takeIf { state.data?.hasData == true },
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.SYSTEMCLEANER) }
             },
             onViewDetails = { showSystemCleanerDetails() }
         )
     }
-    private val appCleanerItem: Flow<AppCleanerDashCardVH.Item> = combine(
+    private val appCleanerItem: Flow<DashboardToolCard.Item> = combine(
         appCleaner.state,
+        taskManager.state.map { it.getLatestResult(SDMTool.Type.APPCLEANER) },
         upgradeInfo.map { it?.isPro ?: false },
-    ) { state, isPro ->
-        AppCleanerDashCardVH.Item(
-            data = state.data,
+    ) { state, lastResult, isPro ->
+        DashboardToolCard.Item(
+            toolType = SDMTool.Type.APPCLEANER,
+            result = lastResult,
             progress = state.progress,
-            isPro = isPro,
+            showProRequirement = !isPro,
             onScan = {
                 launch { submitTask(AppCleanerScanTask()) }
             },
             onDelete = {
                 val task = AppCleanerProcessingTask()
                 events.postValue(DashboardEvents.AppCleanerDeleteConfirmation(task))
-            },
+            }.takeIf { state.data?.hasData == true },
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.APPCLEANER) }
             },
@@ -225,10 +256,16 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val deduplicatorItem: Flow<DeduplicatorDashCardVH.Item?> = deduplicator.state.map { state ->
-        DeduplicatorDashCardVH.Item(
-            data = state.data,
+    private val deduplicatorItem: Flow<DashboardToolCard.Item?> = combine(
+        deduplicator.state,
+        taskManager.state.map { it.getLatestResult(SDMTool.Type.DEDUPLICATOR) },
+        upgradeInfo.map { it?.isPro ?: false },
+    ) { state, lastResult, isPro ->
+        DashboardToolCard.Item(
+            toolType = SDMTool.Type.DEDUPLICATOR,
+            result = lastResult,
             progress = state.progress,
+            showProRequirement = !isPro,
             onScan = {
                 launch { submitTask(DeduplicatorScanTask()) }
             },
@@ -240,7 +277,7 @@ class DashboardViewModel @Inject constructor(
                     )
                     events.postValue(event)
                 }
-            },
+            }.takeIf { state.data?.hasData == true },
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.DEDUPLICATOR) }
             },
@@ -385,10 +422,10 @@ class DashboardViewModel @Inject constructor(
         updateInfo: UpdateCardVH.Item?,
         setupItem: SetupCardVH.Item?,
         dataAreaInfo: DataAreaCardVH.Item?,
-        corpseFinderItem: CorpseFinderDashCardVH.Item?,
-        systemCleanerItem: SystemCleanerDashCardVH.Item?,
-        appCleanerItem: AppCleanerDashCardVH.Item?,
-        deduplicatorItem: DeduplicatorDashCardVH.Item?,
+        corpseFinderItem: DashboardToolCard.Item?,
+        systemCleanerItem: DashboardToolCard.Item?,
+        appCleanerItem: DashboardToolCard.Item?,
+        deduplicatorItem: DashboardToolCard.Item?,
         appControlItem: AppControlDashCardVH.Item?,
         analyzerItem: AnalyzerDashCardVH.Item?,
         schedulerItem: SchedulerDashCardVH.Item?,
