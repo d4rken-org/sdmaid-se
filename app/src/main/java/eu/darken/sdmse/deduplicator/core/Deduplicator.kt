@@ -6,16 +6,16 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.flow.replayingShare
-import eu.darken.sdmse.common.progress.*
+import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
-import eu.darken.sdmse.corpsefinder.core.tasks.*
 import eu.darken.sdmse.deduplicator.core.deleter.DuplicatesDeleter
 import eu.darken.sdmse.deduplicator.core.scanner.DuplicatesScanner
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
@@ -24,7 +24,7 @@ import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
-import eu.darken.sdmse.exclusion.core.*
+import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.main.core.SDMTool
@@ -124,7 +124,7 @@ class Deduplicator @Inject constructor(
 
         return DeduplicatorScanTask.Success(
             itemCount = results.size,
-            recoverableSpace = results.sumOf { it.totalSize },
+            recoverableSpace = results.sumOf { it.redundantSize },
         )
     }
 

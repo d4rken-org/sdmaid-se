@@ -1,9 +1,10 @@
 package eu.darken.sdmse.systemcleaner.core.tasks
 
 import android.text.format.Formatter
-import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.stats.core.HasReportDetails
 import eu.darken.sdmse.stats.core.Reportable
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
@@ -22,14 +23,17 @@ data class SystemCleanerProcessingTask(
         private val processedItems: Int,
         private val recoveredSpace: Long,
     ) : Result, HasReportDetails {
-
-        override val primaryInfo: CaString
+        override val primaryInfo
             get() = caString {
-                it.getString(
-                    eu.darken.sdmse.common.R.string.general_result_x_space_freed,
-                    Formatter.formatShortFileSize(it, recoveredSpace)
-                )
+                getQuantityString2(R.plurals.systemcleaner_result_x_items_deleted, processedItems)
             }
 
+        override val secondaryInfo
+            get() = caString {
+                getString(
+                    eu.darken.sdmse.common.R.string.general_result_x_space_freed,
+                    Formatter.formatFileSize(this, recoveredSpace)
+                )
+            }
     }
 }

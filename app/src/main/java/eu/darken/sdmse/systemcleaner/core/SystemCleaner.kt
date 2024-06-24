@@ -8,15 +8,24 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.PathException
+import eu.darken.sdmse.common.files.isAncestorOf
+import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
-import eu.darken.sdmse.common.progress.*
+import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.updateProgressPrimary
+import eu.darken.sdmse.common.progress.updateProgressSecondary
+import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
@@ -34,7 +43,9 @@ import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -128,7 +139,7 @@ class SystemCleaner @Inject constructor(
         )
 
         return SystemCleanerScanTask.Success(
-            itemCount = results.size,
+            itemCount = results.sumOf { it.items.size },
             recoverableSpace = results.sumOf { it.size },
         )
     }

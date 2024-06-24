@@ -6,7 +6,6 @@ import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
 import dagger.hilt.android.scopes.ActivityScoped
 import eu.darken.sdmse.analyzer.ui.AnalyzerDashCardVH
-import eu.darken.sdmse.appcleaner.ui.AppCleanerDashCardVH
 import eu.darken.sdmse.appcontrol.ui.AppControlDashCardVH
 import eu.darken.sdmse.common.debug.recorder.ui.DebugRecorderCardVH
 import eu.darken.sdmse.common.lists.BindableVH
@@ -17,8 +16,6 @@ import eu.darken.sdmse.common.lists.differ.setupDiffer
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
-import eu.darken.sdmse.corpsefinder.ui.CorpseFinderDashCardVH
-import eu.darken.sdmse.deduplicator.ui.DeduplicatorDashCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DataAreaCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.MotdCardVH
@@ -28,7 +25,6 @@ import eu.darken.sdmse.main.ui.dashboard.items.TitleCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.UpdateCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.UpgradeCardVH
 import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
-import eu.darken.sdmse.systemcleaner.ui.SystemCleanerDashCardVH
 import javax.inject.Inject
 
 @ActivityScoped
@@ -50,10 +46,7 @@ class DashboardAdapter @Inject constructor(
         addMod(TypedVHCreatorMod({ data[it] is UpgradeCardVH.Item }) { UpgradeCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is UpdateCardVH.Item }) { UpdateCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is DataAreaCardVH.Item }) { DataAreaCardVH(it) })
-        addMod(TypedVHCreatorMod({ data[it] is CorpseFinderDashCardVH.Item }) { CorpseFinderDashCardVH(it) })
-        addMod(TypedVHCreatorMod({ data[it] is SystemCleanerDashCardVH.Item }) { SystemCleanerDashCardVH(it) })
-        addMod(TypedVHCreatorMod({ data[it] is AppCleanerDashCardVH.Item }) { AppCleanerDashCardVH(it) })
-        addMod(TypedVHCreatorMod({ data[it] is DeduplicatorDashCardVH.Item }) { DeduplicatorDashCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is DashboardToolCard.Item }) { DashboardToolCard(it) })
         addMod(TypedVHCreatorMod({ data[it] is AppControlDashCardVH.Item }) { AppControlDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is AnalyzerDashCardVH.Item }) { AnalyzerDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is SchedulerDashCardVH.Item }) { SchedulerDashCardVH(it) })
