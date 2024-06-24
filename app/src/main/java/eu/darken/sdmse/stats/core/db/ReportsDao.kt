@@ -24,4 +24,7 @@ interface ReportsDao {
 
     @Query("DELETE FROM reports WHERE report_id IN (:ids)")
     fun delete(ids: List<ReportId>)
+
+    @Query("SELECT COUNT(*) FROM reports")
+    fun countAll(): Int
 }

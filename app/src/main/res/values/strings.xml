@@ -682,4 +682,13 @@
     <string name="review_app_review_action">Review</string>
     <string name="review_app_dismiss_action">Maybe later</string>
     <string name="review_app_body">Would you like to leave SD Maid a review?️ ❤️</string>
+
+    <string name="statistics_settings_label">Statistics</string>
+    <string name="statistics_settings_desc">Statistics and reports about operations.</string>
+    <string name="statistics_settings_retention_label">Retention</string>
+    <string name="statistics_settings_retention_desc">After how many days should old reports be deleted.</string>
+    <plurals name="statistics_settings_retention_x_days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
 </resources>
