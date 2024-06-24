@@ -15,7 +15,7 @@ data class DeduplicatorScanTask(
     @Parcelize
     data class Success(
         private val itemCount: Int,
-        private val recoverableSpace: Long
+        private val recoverableSpace: Long,
     ) : Result {
         override val primaryInfo: CaString
             get() = eu.darken.sdmse.common.R.string.general_result_success_message.toCaString()

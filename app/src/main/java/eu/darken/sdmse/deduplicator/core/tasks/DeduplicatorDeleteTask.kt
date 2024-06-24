@@ -5,13 +5,15 @@ import android.text.format.Formatter
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.deduplicator.core.Duplicate
+import eu.darken.sdmse.stats.core.HasReportDetails
+import eu.darken.sdmse.stats.core.Reportable
 import kotlinx.parcelize.Parcelize
 import java.util.UUID
 
 @Parcelize
 data class DeduplicatorDeleteTask(
     val mode: TargetMode = TargetMode.All(),
-) : DeduplicatorTask {
+) : DeduplicatorTask, Reportable {
 
     sealed interface TargetMode : Parcelable {
 
@@ -43,8 +45,8 @@ data class DeduplicatorDeleteTask(
     @Parcelize
     data class Success(
         val deletedItems: Int,
-        val recoveredSpace: Long
-    ) : Result {
+        val recoveredSpace: Long,
+    ) : Result, HasReportDetails {
         override val primaryInfo: CaString
             get() = caString {
                 it.getString(
