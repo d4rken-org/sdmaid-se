@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import androidx.annotation.StringRes
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -38,7 +39,7 @@ fun <T : Progress.Client> T.updateProgressPrimary(primary: CaString) {
 }
 
 fun <T : Progress.Client> T.updateProgressPrimary(resolv: (Context) -> String) {
-    updateProgress { (it ?: Progress.Data()).copy(primary = resolv.toCaString()) }
+    updateProgress { (it ?: Progress.Data()).copy(primary = caString { resolv(this) }) }
 }
 
 fun <T : Progress.Client> T.updateProgressPrimary(@StringRes primary: Int, vararg args: Any) {
@@ -50,7 +51,7 @@ fun <T : Progress.Client> T.updateProgressSecondary(secondary: String) {
 }
 
 fun <T : Progress.Client> T.updateProgressSecondary(resolv: (Context) -> String) {
-    updateProgress { (it ?: Progress.Data()).copy(secondary = resolv.toCaString()) }
+    updateProgress { (it ?: Progress.Data()).copy(secondary = caString { resolv(this) }) }
 }
 
 fun <T : Progress.Client> T.updateProgressSecondary(secondary: CaString = CaString.EMPTY) {

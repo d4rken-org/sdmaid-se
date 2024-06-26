@@ -1,7 +1,9 @@
 package eu.darken.sdmse.appcleaner.core.tasks
 
-import eu.darken.sdmse.common.ca.CaString
-import eu.darken.sdmse.common.ca.toCaString
+import android.text.format.Formatter
+import eu.darken.sdmse.R
+import eu.darken.sdmse.common.ca.caString
+import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.pkgs.Pkg
 import kotlinx.parcelize.Parcelize
 
@@ -15,9 +17,19 @@ data class AppCleanerScanTask(
     @Parcelize
     data class Success(
         private val itemCount: Int,
-        private val recoverableSpace: Long
+        private val recoverableSpace: Long,
     ) : Result {
-        override val primaryInfo: CaString
-            get() = eu.darken.sdmse.common.R.string.general_result_success_message.toCaString()
+        override val primaryInfo
+            get() = caString {
+                getQuantityString2(R.plurals.appcleaner_result_x_items_found, itemCount)
+            }
+
+        override val secondaryInfo
+            get() = caString {
+                getString(
+                    eu.darken.sdmse.common.R.string.x_space_can_be_freed,
+                    Formatter.formatFileSize(this, recoverableSpace)
+                )
+            }
     }
 }

@@ -6,6 +6,8 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.storage.StorageId
+import eu.darken.sdmse.stats.core.HasReportDetails
+import eu.darken.sdmse.stats.core.Reportable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -14,13 +16,13 @@ data class ContentDeleteTask(
     val groupId: ContentGroup.Id,
     val targetPkg: Installed.InstallId? = null,
     val targets: Set<APath>,
-) : AnalyzerTask {
+) : AnalyzerTask, Reportable {
 
     @Parcelize
     data class Result(
         val itemCount: Int,
         val freedSpace: Long,
-    ) : AnalyzerTask.Result {
+    ) : AnalyzerTask.Result, HasReportDetails {
         override val primaryInfo: CaString
             get() = eu.darken.sdmse.common.R.string.general_result_success_message.toCaString()
     }

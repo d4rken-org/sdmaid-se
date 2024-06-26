@@ -87,6 +87,18 @@
         <action
             android:id="@+id/action_dashboardFragment_to_betaGoodbyeFragment"
             app:destination="@id/betaGoodbyeFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_deduplicatorDetailsFragment"
+            app:destination="@id/deduplicatorDetailsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_systemCleanerDetailsFragment"
+            app:destination="@id/systemCleanerDetailsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_appCleanerDetailsFragment"
+            app:destination="@id/appCleanerDetailsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_corpseFinderDetailsFragment"
+            app:destination="@id/corpseFinderDetailsFragment" />
     </fragment>
 
     <action
@@ -159,7 +171,8 @@
         <argument
             android:name="corpsePath"
             app:argType="eu.darken.sdmse.common.files.APath"
-            app:nullable="true" />
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 
     <fragment
@@ -177,7 +190,8 @@
         <argument
             android:name="filterIdentifier"
             app:argType="string"
-            app:nullable="true" />
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/filterContentFragment"
@@ -204,7 +218,8 @@
         <argument
             android:name="identifier"
             app:argType="eu.darken.sdmse.common.pkgs.features.Installed$InstallId"
-            app:nullable="true" />
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/appJunkFragment"
@@ -440,7 +455,9 @@
         tools:layout="@layout/deduplicator_details_fragment">
         <argument
             android:name="identifier"
-            app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Id" />
+            app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Id"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/clusterFragment"

@@ -177,6 +177,8 @@ dependencies {
     addAndroidUI()
     addWorkerManager()
 
+    addRoomDb()
+
     addTesting()
 
     implementation("io.github.z4kn4fein:semver:1.4.2")

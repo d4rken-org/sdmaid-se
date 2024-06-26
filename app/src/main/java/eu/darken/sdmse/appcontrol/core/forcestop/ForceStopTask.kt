@@ -4,18 +4,20 @@ import eu.darken.sdmse.appcontrol.core.AppControlTask
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.stats.core.HasReportDetails
+import eu.darken.sdmse.stats.core.Reportable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ForceStopTask(
     val targets: Set<Installed.InstallId> = emptySet(),
-) : AppControlTask {
+) : AppControlTask, Reportable {
 
     @Parcelize
     data class Result(
         val success: Set<Installed.InstallId>,
         val failed: Set<Installed.InstallId>,
-    ) : AppControlTask.Result {
+    ) : AppControlTask.Result, HasReportDetails {
 
         val isSuccess: Boolean
             get() = success.isNotEmpty() && failed.isEmpty()

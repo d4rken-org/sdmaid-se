@@ -27,6 +27,7 @@ interface SDMTool : Progress.Host, Progress.Client, HasSharedResource<Any> {
         }
     }
 
+    // If you rename any of these, check mapping for ROOM DB
     enum class Type {
         CORPSEFINDER,
         SYSTEMCLEANER,

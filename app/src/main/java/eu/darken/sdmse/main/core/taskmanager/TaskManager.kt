@@ -15,7 +15,11 @@ import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.sharedresource.KeepAlive
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.main.core.SDMTool
-import eu.darken.sdmse.stats.StatsRepo
+import eu.darken.sdmse.stats.core.BaseReport
+import eu.darken.sdmse.stats.core.HasReportDetails
+import eu.darken.sdmse.stats.core.Report
+import eu.darken.sdmse.stats.core.Reportable
+import eu.darken.sdmse.stats.core.StatsRepo
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
@@ -29,6 +33,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.Semaphore
@@ -65,15 +70,18 @@ class TaskManager @Inject constructor(
         val job: Job? = null,
         val resourceLock: KeepAlive? = null,
         val result: SDMTool.Task.Result? = null,
-        val error: Throwable? = null,
+        val error: Exception? = null,
     ) {
+        val toolType: SDMTool.Type
+            get() = tool.type
+
         val isComplete: Boolean = completedAt != null
         val isCancelling: Boolean = cancelledAt != null && completedAt == null
         val isActive: Boolean = !isComplete && startedAt != null
         val isQueued: Boolean = !isComplete && startedAt == null && cancelledAt == null
 
         override fun toString(): String {
-            return "ManagedTask(${tool.type}: ${task.javaClass.simpleName} - queued=$queuedAt, started=$startedAt, completed=$completedAt, cancelled=$cancelledAt) - result=$result, error=$error)"
+            return "ManagedTask(${toolType}: ${task.javaClass.simpleName} - queued=$queuedAt, started=$startedAt, completed=$completedAt, cancelled=$cancelledAt) - result=$result, error=$error)"
         }
     }
 
@@ -134,11 +142,15 @@ class TaskManager @Inject constructor(
             .launchIn(appScope)
     }
 
-    private suspend fun updateTasks(update: MutableMap<String, ManagedTask>.() -> Unit) = withContext(NonCancellable) {
+    private suspend fun updateTasks(
+        update: MutableMap<String, ManagedTask>.() -> Unit
+    ): Map<String, ManagedTask> = withContext(NonCancellable) {
         managerLock.withLock {
             val modMap = managedTasks.value.toMutableMap()
             update(modMap)
-            managedTasks.value = modMap
+            modMap.toMap().also {
+                managedTasks.value = it
+            }
         }
     }
 
@@ -218,6 +230,30 @@ class TaskManager @Inject constructor(
         }
 
         job.invokeOnCompletion { log(TAG, VERBOSE) { "Task completion: ${managedTasks.value[taskId]}" } }
+
+        if (task is Reportable) {
+            managedTasks
+                .mapNotNull { it[taskId] }
+                .filter { it.isComplete }
+                .take(1)
+                .onEach { completeTask ->
+                    val reportDetails = (completeTask.result as? HasReportDetails)?.reportDetails
+                    val report = BaseReport(
+                        startAt = completeTask.startedAt ?: Instant.now(),
+                        endAt = completeTask.completedAt ?: Instant.now(),
+                        tool = completeTask.tool.type,
+                        status = when {
+                            completeTask.error != null -> Report.Status.FAILURE
+                            reportDetails != null -> reportDetails.status
+                            else -> Report.Status.SUCCESS
+                        },
+                        error = completeTask.error
+                    )
+                    statsRepo.report(report, reportDetails)
+                }
+                .launchIn(appScope)
+
+        }
 
         withContext(NonCancellable) {
             // Any task causes the taskmanager to stay "alive" and with it any depending resources

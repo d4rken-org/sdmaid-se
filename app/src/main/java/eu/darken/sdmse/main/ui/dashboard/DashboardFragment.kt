@@ -179,7 +179,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     setMessage(R.string.corpsefinder_delete_all_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ -> vm.confirmCorpseDeletion() }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showCorpseFinderDetails() }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showCorpseFinder() }
                 }.show()
 
                 is DashboardEvents.SystemCleanerDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
@@ -187,7 +187,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     setMessage(R.string.systemcleaner_delete_all_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ -> vm.confirmFilterContentDeletion() }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showSystemCleanerDetails() }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showSystemCleaner() }
                 }.show()
 
                 is DashboardEvents.AppCleanerDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
@@ -195,14 +195,14 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     setMessage(R.string.appcleaner_delete_all_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ -> vm.confirmAppJunkDeletion() }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showAppCleanerDetails() }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showAppCleaner() }
                 }.show()
 
                 is DashboardEvents.DeduplicatorDeleteConfirmation -> previewDialog.show(
                     mode = PreviewDeletionDialog.Mode.All(clusters = event.clusters ?: emptyList()),
                     onPositive = { vm.confirmDeduplicatorDeletion() },
                     onNegative = { },
-                    onNeutral = { vm.showDeduplicatorDetails() },
+                    onNeutral = { vm.showDeduplicator() },
                 )
 
                 DashboardEvents.SetupDismissHint -> {

@@ -12,11 +12,11 @@
 
     <include layout="@layout/dashboard_dataarea_item" />
 
-    <include layout="@layout/corpsefinder_dashboard_item" />
+    <include layout="@layout/dashboard_tool_card" />
 
-    <include layout="@layout/systemcleaner_dashboard_item" />
+    <include layout="@layout/dashboard_tool_card" />
 
-    <include layout="@layout/appcleaner_dashboard_item" />
+    <include layout="@layout/dashboard_tool_card" />
 
     <include layout="@layout/dashboard_upgrade_item" />
 

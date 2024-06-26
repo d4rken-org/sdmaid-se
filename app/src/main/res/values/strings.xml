@@ -232,6 +232,10 @@
     <string name="corpsefinder_filter_appasec_summary">Encrypted app resources, e.g. game assets.</string>
     <string name="corpsefinder_filter_app2sd_summary">Data moved to external storage by App2Sd mods.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d app remnant deleted</item>
+        <item quantity="other">%d app remnants deleted</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">%d app remnant discovered</item>
         <item quantity="other">%d app remnants discovered</item>
@@ -245,6 +249,10 @@
 
     <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Superfluous data that doesn\'t belong to any specific app.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d match deleted</item>
+        <item quantity="other">%d matches deleted</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d filter match</item>
         <item quantity="other">%d filter matches</item>
@@ -381,6 +389,10 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Cached media files that are downloaded again when viewed in chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Delete expendable items for all apps?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d expendable item deleted</item>
+        <item quantity="other">%d expendable items deleted</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d expendable item found</item>
         <item quantity="other">%d expendable items found</item>
@@ -409,6 +421,10 @@
 
     <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">Find duplicate data on your device.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d duplicate deleted</item>
+        <item quantity="other">%d duplicates deleted</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d duplicate set found</item>
         <item quantity="other">%d duplicate sets found</item>
@@ -666,4 +682,13 @@
     <string name="review_app_review_action">Review</string>
     <string name="review_app_dismiss_action">Maybe later</string>
     <string name="review_app_body">Would you like to leave SD Maid a review?️ ❤️</string>
+
+    <string name="statistics_settings_label">Statistics</string>
+    <string name="statistics_settings_desc">Statistics and reports about operations.</string>
+    <string name="statistics_settings_retention_label">Retention</string>
+    <string name="statistics_settings_retention_desc">After how many days should old reports be deleted.</string>
+    <plurals name="statistics_settings_retention_x_days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
 </resources>
