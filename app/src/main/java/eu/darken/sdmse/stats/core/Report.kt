@@ -10,6 +10,7 @@ interface Report {
     val endAt: Instant
     val tool: SDMTool.Type
     val status: Status
+    val errorMessage: String?
 
     enum class Status {
         SUCCESS,
@@ -19,6 +20,18 @@ interface Report {
 
     interface Details {
         val status: Status
+            get() = Status.SUCCESS
+
+        val failureReason: String?
+            get() = null
+
+        interface SpaceFreed : Details {
+            val spaceFreed: Long
+        }
+
+        interface ItemsProcessed : Details {
+            val processedCount: Int
+        }
     }
 }
 

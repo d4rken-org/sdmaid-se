@@ -72,6 +72,8 @@ import eu.darken.sdmse.main.ui.dashboard.items.UpgradeCardVH
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
 import eu.darken.sdmse.setup.SetupManager
+import eu.darken.sdmse.stats.core.StatsRepo
+import eu.darken.sdmse.stats.ui.StatsDashCardVH
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerOneClickTask
@@ -116,6 +118,7 @@ class DashboardViewModel @Inject constructor(
     private val motdRepo: MotdRepo,
     private val releaseManager: ReleaseManager,
     private val reviewTool: ReviewTool,
+    private val statsRepo: StatsRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     init {
@@ -411,6 +414,15 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
+    private val statsItem: Flow<StatsDashCardVH.Item> = statsRepo.state.map {
+        StatsDashCardVH.Item(
+            state = it,
+            onViewAction = {
+                DashboardFragmentDirections.actionDashboardFragmentToReportsFragment().navigate()
+            }
+        )
+    }
+
     private val listItemsInternal: Flow<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
         recorderModule.state,
         debugCardProvider.create(this),
@@ -428,6 +440,7 @@ class DashboardViewModel @Inject constructor(
         schedulerItem,
         motdItem,
         reviewItem,
+        statsItem,
         refreshTrigger,
     ) { recorderState: RecorderModule.State,
         debugItem: DebugCardVH.Item?,
@@ -445,6 +458,7 @@ class DashboardViewModel @Inject constructor(
         schedulerItem: SchedulerDashCardVH.Item?,
         motdItem: MotdCardVH.Item?,
         reviewItem: ReviewCardVH.Item?,
+        statsItem: StatsDashCardVH.Item?,
         _ ->
         val items = mutableListOf<DashboardAdapter.Item>(titleInfo)
 
@@ -468,6 +482,8 @@ class DashboardViewModel @Inject constructor(
         analyzerItem?.let { items.add(it) }
 
         schedulerItem?.let { items.add(it) }
+
+        statsItem?.let { items.add(it) }
 
         upgradeInfo
             ?.takeIf { !it.isPro }

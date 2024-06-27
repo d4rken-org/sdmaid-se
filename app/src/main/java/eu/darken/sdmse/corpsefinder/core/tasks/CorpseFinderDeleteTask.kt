@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.corpsefinder.core.CorpseIdentifier
 import eu.darken.sdmse.stats.core.HasReportDetails
+import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.Reportable
 import kotlinx.parcelize.Parcelize
 
@@ -23,6 +24,12 @@ data class CorpseFinderDeleteTask(
         val deletedItems: Int,
         val recoveredSpace: Long,
     ) : Result, HasReportDetails {
+        override val reportDetails: Report.Details
+            get() = object : Report.Details.SpaceFreed, Report.Details.ItemsProcessed {
+                override val spaceFreed: Long = recoveredSpace
+
+                override val processedCount: Int = deletedItems
+            }
         override val primaryInfo
             get() = caString {
                 getQuantityString2(R.plurals.corpsefinder_result_x_corpses_deleted, deletedItems)

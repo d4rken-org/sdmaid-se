@@ -29,6 +29,13 @@ android {
         buildConfigField("String", "VERSION_CODE", "\"${projectConfig.version.code}\"")
         buildConfigField("String", "VERSION_NAME", "\"${projectConfig.version.name}\"")
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments(
+                    mapOf("room.schemaLocation" to "$projectDir/schemas")
+                )
+            }
+        }
     }
 
     signingConfigs {

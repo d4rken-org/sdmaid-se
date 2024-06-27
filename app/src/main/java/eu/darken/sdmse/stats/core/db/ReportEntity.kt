@@ -16,6 +16,7 @@ data class ReportEntity(
     @ColumnInfo(name = "end_at") override val endAt: Instant,
     @ColumnInfo(name = "tool") override val tool: SDMTool.Type,
     @ColumnInfo(name = "status") override val status: Report.Status,
+    @ColumnInfo(name = "error_message") override val errorMessage: String?,
 ) : Report {
 
     companion object {
@@ -25,6 +26,7 @@ data class ReportEntity(
             endAt = report.endAt,
             tool = report.tool,
             status = report.status,
+            errorMessage = report.errorMessage,
         )
     }
 }

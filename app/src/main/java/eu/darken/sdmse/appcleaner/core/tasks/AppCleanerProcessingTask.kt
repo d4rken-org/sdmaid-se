@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.serialization.KClassParcelizer
 import eu.darken.sdmse.stats.core.HasReportDetails
+import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.Reportable
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.TypeParceler
@@ -33,6 +34,12 @@ data class AppCleanerProcessingTask(
         private val deletedCount: Int,
         private val recoveredSpace: Long,
     ) : Result, HasReportDetails {
+        override val reportDetails: Report.Details
+            get() = object : Report.Details.SpaceFreed, Report.Details.ItemsProcessed {
+                override val spaceFreed: Long = recoveredSpace
+
+                override val processedCount: Int = deletedCount
+            }
         override val primaryInfo
             get() = caString {
                 getQuantityString2(R.plurals.appcleaner_result_x_items_deleted, deletedCount)

@@ -52,9 +52,9 @@
             app:title="@string/general_settings_label" />
         <Preference
             android:icon="@drawable/chart_box_outline_24"
-            app:fragment="eu.darken.sdmse.stats.ui.settings.StatisticsSettingsFragment"
-            app:summary="@string/statistics_settings_desc"
-            app:title="@string/statistics_settings_label" />
+            app:fragment="eu.darken.sdmse.stats.ui.settings.StatsSettingsFragment"
+            app:summary="@string/stats_settings_desc"
+            app:title="@string/stats_label" />
         <Preference
             android:icon="@drawable/ic_alarm_check_24"
             android:key="scheduler.settings"

@@ -12,7 +12,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.ReportId
-import eu.darken.sdmse.stats.core.StatisticsSettings
+import eu.darken.sdmse.stats.core.StatsSettings
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import java.time.Instant
@@ -23,7 +23,7 @@ import javax.inject.Singleton
 class ReportsDatabase @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     @ApplicationContext private val context: Context,
-    private val statisticsSettings: StatisticsSettings,
+    private val statsSettings: StatsSettings,
 ) {
 
     private val database by lazy {
@@ -34,7 +34,7 @@ class ReportsDatabase @Inject constructor(
         appScope.launch {
             try {
                 val oldReports = database.reports().getReportsOlderThan(
-                    Instant.now() - statisticsSettings.reportRetention.value()
+                    Instant.now() - statsSettings.reportRetention.value()
                 )
                 if (oldReports.isNotEmpty()) {
                     val beforeCount = database.reports().countAll()
@@ -48,6 +48,8 @@ class ReportsDatabase @Inject constructor(
             }
         }
     }
+
+    val reports = database.reports().waterfall()
 
     suspend fun find(id: ReportId): Report? = database.reports().getById(id)
         .also { log(TAG, VERBOSE) { "find($id) -> it" } }

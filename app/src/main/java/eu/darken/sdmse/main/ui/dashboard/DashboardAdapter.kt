@@ -25,6 +25,7 @@ import eu.darken.sdmse.main.ui.dashboard.items.TitleCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.UpdateCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.UpgradeCardVH
 import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
+import eu.darken.sdmse.stats.ui.StatsDashCardVH
 import javax.inject.Inject
 
 @ActivityScoped
@@ -53,6 +54,7 @@ class DashboardAdapter @Inject constructor(
         addMod(TypedVHCreatorMod({ data[it] is DebugRecorderCardVH.Item }) { DebugRecorderCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is MotdCardVH.Item }) { MotdCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ReviewCardVH.Item }) { ReviewCardVH(activity, it) })
+        addMod(TypedVHCreatorMod({ data[it] is StatsDashCardVH.Item }) { StatsDashCardVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

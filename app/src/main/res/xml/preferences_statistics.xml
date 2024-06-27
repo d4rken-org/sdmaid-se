@@ -7,8 +7,8 @@
             app:icon="@drawable/ic_file_chart_outline_24"
             app:key="reports.retention"
             app:singleLineTitle="false"
-            app:summary="@string/statistics_settings_retention_desc"
-            app:title="@string/statistics_settings_retention_label" />
+            app:summary="@string/stats_settings_retention_desc"
+            app:title="@string/stats_settings_retention_label" />
     </PreferenceCategory>
 
     <PreferenceCategory
