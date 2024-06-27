@@ -2,6 +2,7 @@ package eu.darken.sdmse.stats.ui.reports
 
 import android.content.res.ColorStateList
 import android.text.format.DateUtils
+import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
@@ -43,7 +44,10 @@ class ReportBaseRowVH(parent: ViewGroup) :
                         getColorForAttr(com.google.android.material.R.attr.colorPrimary)
                     )
                 }
-                executionInfo.setText(R.string.stats_report_status_success)
+                executionInfo.text = report.affectedSpace?.let {
+                    val freed = Formatter.formatShortFileSize(context, it)
+                    getString(eu.darken.sdmse.common.R.string.general_result_x_space_freed, freed)
+                } ?: getString(R.string.stats_report_status_success)
             }
 
             Report.Status.PARTIAL_SUCCESS -> {

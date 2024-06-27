@@ -6,6 +6,9 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.core.local.File
+import eu.darken.sdmse.common.files.local.toLocalPath
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.isSystemApp
@@ -49,7 +52,13 @@ class InaccessibleCacheProvider @Inject constructor(
                 @Suppress("NewApi")
                 storageStats.externalCacheBytes
             } else null,
+            theoreticalPaths = pkg.genTheoreticalPaths(),
         )
+    }
+
+    private fun Installed.genTheoreticalPaths() = mutableSetOf<APath>().apply {
+        add(File("/storage/emulated/${userHandle.handleId}/Android/data/${id.name}").toLocalPath())
+        add(File("/data/user/${userHandle.handleId}/${id.name}").toLocalPath())
     }
 
     companion object {

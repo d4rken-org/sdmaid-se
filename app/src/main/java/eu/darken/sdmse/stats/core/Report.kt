@@ -12,26 +12,14 @@ interface Report {
     val status: Status
     val errorMessage: String?
 
+    val affectedCount: Int?
+    val affectedSpace: Long?
+    val extra: String?
+
     enum class Status {
         SUCCESS,
         PARTIAL_SUCCESS,
         FAILURE
-    }
-
-    interface Details {
-        val status: Status
-            get() = Status.SUCCESS
-
-        val failureReason: String?
-            get() = null
-
-        interface SpaceFreed : Details {
-            val spaceFreed: Long
-        }
-
-        interface ItemsProcessed : Details {
-            val processedCount: Int
-        }
     }
 }
 

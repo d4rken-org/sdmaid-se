@@ -134,8 +134,8 @@ class CorpseFinder @Inject constructor(
                                 val watcherResult = ExternalWatcherResult.Deletion(
                                     appName = pkgOps.getLabel(task.target)?.toCaString(),
                                     pkgId = task.target,
-                                    deletedItems = it.deletedItems,
-                                    freedSpace = it.recoveredSpace,
+                                    deletedItems = it.affectedCount,
+                                    freedSpace = it.affectedSpace,
                                 )
                                 watcherNotifications.notifyOfDeletion(watcherResult)
                             }
@@ -150,19 +150,29 @@ class CorpseFinder @Inject constructor(
 
                         UninstallWatcherTask.Success(
                             foundItems = targets.size,
-                            deletedItems = internalDeleteResult?.deletedItems ?: 0,
-                            recoveredSpace = internalDeleteResult?.recoveredSpace ?: 0L,
+                            affectedPaths = internalDeleteResult?.affectedPaths ?: emptySet(),
+                            affectedSpace = internalDeleteResult?.affectedSpace ?: 0L,
                         )
                     }
 
                     is CorpseFinderSchedulerTask -> {
                         performScan()
-                        deleteCorpses()
+                        deleteCorpses().let {
+                            CorpseFinderSchedulerTask.Success(
+                                affectedSpace = it.affectedSpace,
+                                affectedPaths = it.affectedPaths,
+                            )
+                        }
                     }
 
                     is CorpseFinderOneClickTask -> {
                         performScan()
-                        deleteCorpses()
+                        deleteCorpses().let {
+                            CorpseFinderOneClickTask.Success(
+                                affectedSpace = it.affectedSpace,
+                                affectedPaths = it.affectedPaths,
+                            )
+                        }
                     }
                 }
             }
@@ -180,7 +190,7 @@ class CorpseFinder @Inject constructor(
 
     private suspend fun performScan(
         task: CorpseFinderScanTask = CorpseFinderScanTask()
-    ): CorpseFinderTask.Result {
+    ): CorpseFinderScanTask.Result {
         log(TAG) { "performScan(): $task" }
 
         if (!appInventorySetupModule.isComplete()) {
@@ -337,8 +347,8 @@ class CorpseFinder @Inject constructor(
         )
 
         return CorpseFinderDeleteTask.Success(
-            deletedItems = deletedCorpses.size + deletedContents.values.sumOf { it.size },
-            recoveredSpace = deletedCorpses.sumOf { it.size } + deletedContentSize
+            affectedSpace = deletedCorpses.sumOf { it.size } + deletedContentSize,
+            affectedPaths = deletedCorpses.map { it.lookup.lookedUp }.toSet(),
         )
     }
 

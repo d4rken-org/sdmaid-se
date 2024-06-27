@@ -102,12 +102,22 @@ class SystemCleaner @Inject constructor(
                     is SystemCleanerProcessingTask -> performProcessing(task)
                     is SystemCleanerSchedulerTask -> {
                         performScan()
-                        performProcessing()
+                        performProcessing().let {
+                            SystemCleanerSchedulerTask.Success(
+                                affectedSpace = it.affectedSpace,
+                                affectedPaths = it.affectedPaths
+                            )
+                        }
                     }
 
                     is SystemCleanerOneClickTask -> {
                         performScan()
-                        performProcessing()
+                        performProcessing().let {
+                            SystemCleanerOneClickTask.Success(
+                                affectedSpace = it.affectedSpace,
+                                affectedPaths = it.affectedPaths
+                            )
+                        }
                     }
                 }
             }
@@ -120,7 +130,7 @@ class SystemCleaner @Inject constructor(
 
     private suspend fun performScan(
         task: SystemCleanerScanTask = SystemCleanerScanTask()
-    ): SystemCleanerTask.Result {
+    ): SystemCleanerScanTask.Success {
         log(TAG, VERBOSE) { "performScan(): $task" }
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
 
@@ -146,7 +156,7 @@ class SystemCleaner @Inject constructor(
 
     private suspend fun performProcessing(
         task: SystemCleanerProcessingTask = SystemCleanerProcessingTask()
-    ): SystemCleanerTask.Result {
+    ): SystemCleanerProcessingTask.Success {
         log(TAG, VERBOSE) { "performProcessing(): $task" }
 
         val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
@@ -193,7 +203,7 @@ class SystemCleaner @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
 
         var gainedContentSize = 0L
-        var processedContentCount = 0
+        val processedContent = mutableSetOf<APath>()
 
         internalData.value = snapshot.copy(
             filterContents = snapshot.filterContents
@@ -206,7 +216,7 @@ class SystemCleaner @Inject constructor(
                                 }
                                 if (isProcessed) {
                                     gainedContentSize += contentItem.expectedGain
-                                    processedContentCount++
+                                    processedContent.add(contentItem.path)
                                 }
                                 !isProcessed
                             }
@@ -219,8 +229,8 @@ class SystemCleaner @Inject constructor(
         )
 
         return SystemCleanerProcessingTask.Success(
-            processedItems = processedContentCount,
-            recoveredSpace = gainedContentSize
+            affectedSpace = gainedContentSize,
+            affectedPaths = processedContent,
         )
     }
 

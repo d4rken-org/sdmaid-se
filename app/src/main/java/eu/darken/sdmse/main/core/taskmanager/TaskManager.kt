@@ -15,10 +15,6 @@ import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.sharedresource.KeepAlive
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.main.core.SDMTool
-import eu.darken.sdmse.stats.core.BaseReport
-import eu.darken.sdmse.stats.core.HasReportDetails
-import eu.darken.sdmse.stats.core.Report
-import eu.darken.sdmse.stats.core.Reportable
 import eu.darken.sdmse.stats.core.StatsRepo
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -231,29 +227,12 @@ class TaskManager @Inject constructor(
 
         job.invokeOnCompletion { log(TAG, VERBOSE) { "Task completion: ${managedTasks.value[taskId]}" } }
 
-        if (task is Reportable) {
-            managedTasks
-                .mapNotNull { it[taskId] }
-                .filter { it.isComplete }
-                .take(1)
-                .onEach { completeTask ->
-                    val reportDetails = (completeTask.result as? HasReportDetails)?.reportDetails
-                    val report = BaseReport(
-                        startAt = completeTask.startedAt ?: Instant.now(),
-                        endAt = completeTask.completedAt ?: Instant.now(),
-                        tool = completeTask.tool.type,
-                        status = when {
-                            completeTask.error != null -> Report.Status.FAILURE
-                            reportDetails != null -> reportDetails.status
-                            else -> Report.Status.SUCCESS
-                        },
-                        errorMessage = completeTask.error?.toString(),
-                    )
-                    statsRepo.report(report, reportDetails)
-                }
-                .launchIn(appScope)
-
-        }
+        managedTasks
+            .mapNotNull { it[taskId] }
+            .filter { it.isComplete }
+            .take(1)
+            .onEach { statsRepo.report(it) }
+            .launchIn(appScope)
 
         withContext(NonCancellable) {
             // Any task causes the taskmanager to stay "alive" and with it any depending resources

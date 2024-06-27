@@ -87,7 +87,12 @@ class Deduplicator @Inject constructor(
                     is DeduplicatorDeleteTask -> performDelete(task)
                     is DeduplicatorOneClickTask -> {
                         performScan()
-                        performDelete()
+                        performDelete().let {
+                            DeduplicatorOneClickTask.Success(
+                                affectedSpace = it.affectedSpace,
+                                affectedPaths = it.affectedPaths,
+                            )
+                        }
                     }
                 }
             }
@@ -130,7 +135,7 @@ class Deduplicator @Inject constructor(
 
     private suspend fun performDelete(
         task: DeduplicatorDeleteTask = DeduplicatorDeleteTask()
-    ): DeduplicatorDeleteTask.Result {
+    ): DeduplicatorDeleteTask.Success {
         log(TAG) { "performDelete(): $task" }
 
         val snapshot = internalData.value!!
@@ -142,8 +147,8 @@ class Deduplicator @Inject constructor(
         internalData.value = snapshot.prune(result.success.map { it.identifier }.toSet())
 
         return DeduplicatorDeleteTask.Success(
-            deletedItems = result.success.size,
-            recoveredSpace = result.success.sumOf { it.size },
+            affectedSpace = result.success.sumOf { it.size },
+            affectedPaths = result.success.map { it.path }.toSet()
         )
     }
 

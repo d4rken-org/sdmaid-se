@@ -1,70 +1,132 @@
 {
   "formatVersion": 1,
   "database": {
-	"version": 1,
-	"identityHash": "79fb496f0ffe281dbde5236022b94590",
-	"entities": [
-	  {
-		"tableName": "reports",
-		"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `report_id` TEXT NOT NULL, `start_at` INTEGER NOT NULL, `end_at` INTEGER NOT NULL, `tool` TEXT NOT NULL, `status` TEXT NOT NULL, `error_message` TEXT)",
-		"fields": [
-		  {
-			"fieldPath": "id",
-			"columnName": "id",
-			"affinity": "INTEGER",
-			"notNull": true
-		  },
-		  {
-			"fieldPath": "reportId",
-			"columnName": "report_id",
-			"affinity": "TEXT",
-			"notNull": true
-		  },
-		  {
-			"fieldPath": "startAt",
-			"columnName": "start_at",
-			"affinity": "INTEGER",
-			"notNull": true
-		  },
-		  {
-			"fieldPath": "endAt",
-			"columnName": "end_at",
-			"affinity": "INTEGER",
-			"notNull": true
-		  },
-		  {
-			"fieldPath": "tool",
-			"columnName": "tool",
-			"affinity": "TEXT",
-			"notNull": true
-		  },
-		  {
-			"fieldPath": "status",
-			"columnName": "status",
-			"affinity": "TEXT",
-			"notNull": true
-		  },
-		  {
-			"fieldPath": "errorMessage",
-			"columnName": "error_message",
-			"affinity": "TEXT",
-			"notNull": false
-		  }
-		],
-		"primaryKey": {
-		  "autoGenerate": true,
-		  "columnNames": [
-			"id"
-		  ]
-		},
-		"indices": [],
-		"foreignKeys": []
-	  }
-	],
-	"views": [],
-	"setupQueries": [
-	  "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-	  "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '79fb496f0ffe281dbde5236022b94590')"
-	]
+    "version": 1,
+    "identityHash": "8f4d2fe777af4f3e10256474868fde80",
+    "entities": [
+      {
+        "tableName": "reports",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `report_id` TEXT NOT NULL, `start_at` INTEGER NOT NULL, `end_at` INTEGER NOT NULL, `tool` TEXT NOT NULL, `status` TEXT NOT NULL, `error_message` TEXT, `affected_count` INTEGER, `affected_space` INTEGER, `extra` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reportId",
+            "columnName": "report_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startAt",
+            "columnName": "start_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endAt",
+            "columnName": "end_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tool",
+            "columnName": "tool",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "errorMessage",
+            "columnName": "error_message",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "affectedCount",
+            "columnName": "affected_count",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "affectedSpace",
+            "columnName": "affected_space",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "extra",
+            "columnName": "extra",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "affected_paths",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `report_id` TEXT NOT NULL, `tool` TEXT NOT NULL, `action` TEXT NOT NULL, `path` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reportId",
+            "columnName": "report_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tool",
+            "columnName": "tool",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "action",
+            "columnName": "action",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "path",
+            "columnName": "path",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8f4d2fe777af4f3e10256474868fde80')"
+    ]
   }
 }
