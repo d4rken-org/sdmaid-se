@@ -15,17 +15,20 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class StatisticsSettings @Inject constructor(
+class StatsSettings @Inject constructor(
     @ApplicationContext private val context: Context,
     private val moshi: Moshi,
 ) : PreferenceScreenData {
 
-    private val Context.dataStore by preferencesDataStore(name = "settings_statistics")
+    private val Context.dataStore by preferencesDataStore(name = "settings_stats")
 
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
     val reportRetention = dataStore.createValue("reports.retention", Duration.ofDays(90), moshi)
+
+    val totalSpaceFreed = dataStore.createValue("total.space.freed", 0L)
+    val totalItemsProcessed = dataStore.createValue("total.items.processed", 0L)
 
     override val mapper = PreferenceStoreMapper(
         reportRetention
@@ -33,6 +36,6 @@ class StatisticsSettings @Inject constructor(
 
     companion object {
         val DEFAULT_RETENTION: Duration = Duration.ofDays(90)
-        internal val TAG = logTag("Statistics", "Settings")
+        internal val TAG = logTag("Stats", "Settings")
     }
 }

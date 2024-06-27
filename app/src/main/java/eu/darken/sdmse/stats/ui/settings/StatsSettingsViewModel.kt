@@ -9,13 +9,13 @@ import eu.darken.sdmse.stats.core.StatsRepo
 import javax.inject.Inject
 
 @HiltViewModel
-class StatisticsSettingsViewModel @Inject constructor(
+class StatsSettingsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     statsRepo: StatsRepo,
     upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider) {
 
     companion object {
-        private val TAG = logTag("Settings", "Statistics", "ViewModel")
+        private val TAG = logTag("Settings", "Stats", "ViewModel")
     }
 }

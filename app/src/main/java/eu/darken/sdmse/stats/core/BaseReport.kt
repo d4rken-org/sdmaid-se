@@ -10,5 +10,5 @@ data class BaseReport(
     override val endAt: Instant,
     override val tool: SDMTool.Type,
     override val status: Report.Status,
-    val error: Exception? = null,
+    override val errorMessage: String?
 ) : Report

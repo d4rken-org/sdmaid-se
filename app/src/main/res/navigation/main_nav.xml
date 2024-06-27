@@ -99,6 +99,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_corpseFinderDetailsFragment"
             app:destination="@id/corpseFinderDetailsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_reportsFragment"
+            app:destination="@id/reportsFragment" />
     </fragment>
 
     <action
@@ -170,9 +173,9 @@
         tools:layout="@layout/corpsefinder_details_fragment">
         <argument
             android:name="corpsePath"
+            android:defaultValue="@null"
             app:argType="eu.darken.sdmse.common.files.APath"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
     </fragment>
 
     <fragment
@@ -189,9 +192,9 @@
         tools:layout="@layout/systemcleaner_details_fragment">
         <argument
             android:name="filterIdentifier"
+            android:defaultValue="@null"
             app:argType="string"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/filterContentFragment"
@@ -217,9 +220,9 @@
         tools:layout="@layout/appcleaner_details_fragment">
         <argument
             android:name="identifier"
+            android:defaultValue="@null"
             app:argType="eu.darken.sdmse.common.pkgs.features.Installed$InstallId"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/appJunkFragment"
@@ -455,9 +458,9 @@
         tools:layout="@layout/deduplicator_details_fragment">
         <argument
             android:name="identifier"
+            android:defaultValue="@null"
             app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Id"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/clusterFragment"
@@ -492,4 +495,8 @@
         android:id="@+id/betaGoodbyeFragment"
         android:name="eu.darken.sdmse.main.ui.release.BetaGoodbyeFragment"
         tools:layout="@layout/beta_goodbye_fragment" />
+    <fragment
+        android:id="@+id/reportsFragment"
+        android:name="eu.darken.sdmse.stats.ui.reports.ReportsFragment"
+        tools:layout="@layout/stats_reports_fragment" />
 </navigation>

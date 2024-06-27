@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.stats.core.HasReportDetails
+import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.Reportable
 import kotlinx.parcelize.Parcelize
 import java.util.UUID
@@ -48,6 +49,13 @@ data class DeduplicatorDeleteTask(
         val deletedItems: Int,
         val recoveredSpace: Long,
     ) : Result, HasReportDetails {
+        override val reportDetails: Report.Details
+            get() = object : Report.Details.SpaceFreed, Report.Details.ItemsProcessed {
+                override val spaceFreed: Long = recoveredSpace
+
+                override val processedCount: Int = deletedItems
+            }
+
         override val primaryInfo
             get() = caString {
                 getQuantityString2(R.plurals.deduplicator_result_x_clusters_processed, deletedItems)

@@ -11,19 +11,19 @@ import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.databinding.ViewPreferenceSeekbarBinding
-import eu.darken.sdmse.stats.core.StatisticsSettings
+import eu.darken.sdmse.stats.core.StatsSettings
 import java.time.Duration
 import javax.inject.Inject
 
 @Keep
 @AndroidEntryPoint
-class StatisticsSettingsFragment : PreferenceFragment2() {
+class StatsSettingsFragment : PreferenceFragment2() {
 
-    private val vm: StatisticsSettingsViewModel by viewModels()
+    private val vm: StatsSettingsViewModel by viewModels()
 
-    @Inject lateinit var _settings: StatisticsSettings
+    @Inject lateinit var _settings: StatsSettings
 
-    override val settings: StatisticsSettings by lazy { _settings }
+    override val settings: StatsSettings by lazy { _settings }
     override val preferenceFile: Int = R.xml.preferences_statistics
 
     override fun onPreferencesCreated() {
@@ -38,7 +38,7 @@ class StatisticsSettingsFragment : PreferenceFragment2() {
                     slider.value = settings.reportRetention.valueBlocking.toDays().toFloat()
 
                     val getSliderText = { value: Float ->
-                        getQuantityString2(R.plurals.statistics_settings_retention_x_days, value.toInt())
+                        getQuantityString2(R.plurals.stats_settings_retention_x_days, value.toInt())
                     }
                     slider.setLabelFormatter { getSliderText(it) }
                     sliderValue.text = getSliderText(slider.value)
@@ -54,14 +54,14 @@ class StatisticsSettingsFragment : PreferenceFragment2() {
                     })
                 }
                 MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.statistics_settings_retention_label)
+                    setTitle(R.string.stats_settings_retention_label)
                     setView(dialogLayout.root)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_save_action) { _, _ ->
                         settings.reportRetention.valueBlocking = Duration.ofDays(dialogLayout.slider.value.toLong())
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_reset_action) { _, _ ->
-                        settings.reportRetention.valueBlocking = StatisticsSettings.DEFAULT_RETENTION
+                        settings.reportRetention.valueBlocking = StatsSettings.DEFAULT_RETENTION
                     }
                 }.show()
                 true

@@ -247,7 +247,7 @@ class TaskManager @Inject constructor(
                             reportDetails != null -> reportDetails.status
                             else -> Report.Status.SUCCESS
                         },
-                        error = completeTask.error
+                        errorMessage = completeTask.error?.toString(),
                     )
                     statsRepo.report(report, reportDetails)
                 }

@@ -11,10 +11,11 @@ import eu.darken.sdmse.common.room.InstantConverter
     ],
     version = 1,
     autoMigrations = [
-//        AutoMigration(1, 2)
+        //AutoMigration(1, 2)
     ],
     exportSchema = true,
-)
+
+    )
 @TypeConverters(
     InstantConverter::class,
     ReportIdTypeConverter::class,
