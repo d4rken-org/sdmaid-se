@@ -10,6 +10,8 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.room.APathTypeConverter
+import eu.darken.sdmse.stats.core.AffectedPath
 import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.ReportId
 import eu.darken.sdmse.stats.core.StatsSettings
@@ -24,24 +26,45 @@ class ReportsDatabase @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     @ApplicationContext private val context: Context,
     private val statsSettings: StatsSettings,
+    private val aPathTypeConverter: APathTypeConverter,
 ) {
 
     private val database by lazy {
-        Room.databaseBuilder(context, ReportsRoomDb::class.java, "reports").build()
+        Room
+            .databaseBuilder(context, ReportsRoomDb::class.java, "reports")
+            .addTypeConverter(aPathTypeConverter)
+            .build()
     }
+
+    private val reportsDao: ReportsDao
+        get() = database.reports()
+
+    private val filesDao: AffectedFilesDao
+        get() = database.files()
 
     init {
         appScope.launch {
             try {
-                val oldReports = database.reports().getReportsOlderThan(
+                val oldReports = reportsDao.getReportsOlderThan(
                     Instant.now() - statsSettings.reportRetention.value()
                 )
                 if (oldReports.isNotEmpty()) {
-                    val beforeCount = database.reports().countAll()
-                    log(TAG) { "Deleting old reports (${oldReports.size}): $oldReports" }
-                    database.reports().delete(oldReports.map { it.reportId })
-                    val afterCount = database.reports().countAll()
-                    log(TAG) { "Clean up finished, reports before $beforeCount and after $afterCount" }
+                    run {
+                        val beforeCount = reportsDao.countAll()
+                        log(TAG) { "Deleting old reports (${oldReports.size})" }
+                        reportsDao.delete(oldReports.map { it.reportId })
+                        val afterCount = reportsDao.countAll()
+                        log(TAG) { "Clean up of reports finished: before$beforeCount, after=$afterCount" }
+                    }
+
+                    run {
+                        val filesBefore = filesDao.countAll()
+                        log(TAG) { "Deleting file infos related to old reports (${filesBefore})" }
+                        filesDao.delete(oldReports.map { it.reportId })
+                        val filesAfter = filesDao.countAll()
+                        log(TAG) { "Clean up of file infos finished: before$filesBefore, after=$filesAfter" }
+                    }
+
                 }
             } catch (e: Exception) {
                 log(TAG, ERROR) { "Failed to clean up reports: ${e.asLog()}" }
@@ -49,15 +72,22 @@ class ReportsDatabase @Inject constructor(
         }
     }
 
-    val reports = database.reports().waterfall()
+    val reports = reportsDao.waterfall()
 
-    suspend fun find(id: ReportId): Report? = database.reports().getById(id)
+    suspend fun find(id: ReportId): Report? = reportsDao.getById(id)
         .also { log(TAG, VERBOSE) { "find($id) -> it" } }
 
-    suspend fun add(report: Report) {
-        log(TAG) { "add(): $report" }
+    suspend fun addReport(report: Report) {
+        log(TAG) { "addReport(): $report" }
         val entity = ReportEntity.from(report)
-        database.reports().insert(entity)
+        reportsDao.insert(entity)
+    }
+
+    suspend fun addFiles(files: Collection<AffectedPath>) {
+        if (files.isEmpty()) return
+        log(TAG) { "addFiles(): ${files.size} files for ${files.first().reportId}" }
+        val entities = files.map { AffectedPathEntity.from(it) }
+        filesDao.insert(entities)
     }
 
     companion object {

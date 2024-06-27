@@ -25,7 +25,7 @@ class StatsSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    val reportRetention = dataStore.createValue("reports.retention", Duration.ofDays(90), moshi)
+    val reportRetention = dataStore.createValue("reports.retention", Duration.ofDays(30), moshi)
 
     val totalSpaceFreed = dataStore.createValue("total.space.freed", 0L)
     val totalItemsProcessed = dataStore.createValue("total.items.processed", 0L)

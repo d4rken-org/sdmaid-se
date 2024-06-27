@@ -1,4 +1,4 @@
-package eu.darken.sdmse.stats.core.db
+package eu.darken.sdmse.common.room
 
 import androidx.room.TypeConverter
 import eu.darken.sdmse.main.core.SDMTool

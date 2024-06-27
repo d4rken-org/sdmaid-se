@@ -179,7 +179,7 @@ class ContentViewModel @Inject constructor(
             targets = targets
         )
         val result = analyzer.submit(task) as ContentDeleteTask.Result
-        events.postValue(ContentItemEvents.ContentDeleted(result.itemCount, result.freedSpace))
+        events.postValue(ContentItemEvents.ContentDeleted(result.affectedCount, result.affectedSpace))
     }
 
     fun onNavigateBack() {

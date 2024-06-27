@@ -236,10 +236,9 @@ class Analyzer @Inject constructor(
             this[task.storageId] = this[task.storageId]!!.minus(oldCategory).plus(newCategory)
         }
 
-
         return ContentDeleteTask.Result(
-            itemCount = task.targets.size,
-            freedSpace = freedSpace,
+            affectedSpace = freedSpace,
+            affectedPaths = task.targets,
         )
     }
 
