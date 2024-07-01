@@ -19,7 +19,7 @@ import java.util.LinkedList
 
 
 internal fun Collection<ContentItem>.toNestedContent(): Collection<ContentItem> {
-    val workList = this.sortedBy { it.path.segments.size }.reversed().toMutableList()
+    val workList = this.sortedBy { it.path.segments.size }.asReversed().toMutableList()
 
     val topLevel = mutableListOf<ContentItem>()
 
