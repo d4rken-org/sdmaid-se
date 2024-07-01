@@ -16,6 +16,9 @@ interface ReportsDao {
     @Query("SELECT * FROM reports")
     fun waterfall(): Flow<List<ReportEntity>>
 
+    @Query("SELECT COUNT(*) FROM reports")
+    fun reportCount(): Flow<Int>
+
     @Insert
     fun insert(entity: ReportEntity)
 
@@ -24,7 +27,4 @@ interface ReportsDao {
 
     @Query("DELETE FROM reports WHERE report_id IN (:ids)")
     fun delete(ids: List<ReportId>)
-
-    @Query("SELECT COUNT(*) FROM reports")
-    fun countAll(): Int
 }

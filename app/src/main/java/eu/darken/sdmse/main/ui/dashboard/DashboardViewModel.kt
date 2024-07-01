@@ -414,7 +414,8 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val statsItem: Flow<StatsDashCardVH.Item> = statsRepo.state.map {
+    private val statsItem: Flow<StatsDashCardVH.Item?> = statsRepo.state.map {
+        if (it.isEmpty) return@map null
         StatsDashCardVH.Item(
             state = it,
             onViewAction = {

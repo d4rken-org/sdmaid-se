@@ -1,6 +1,7 @@
 package eu.darken.sdmse.stats.core
 
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -12,7 +13,10 @@ import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.stats.core.db.ReportEntity
 import eu.darken.sdmse.stats.core.db.ReportsDatabase
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.NonCancellable
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.withContext
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -24,17 +28,20 @@ class StatsRepo @Inject constructor(
     private val statsSettings: StatsSettings,
 ) {
 
-    val reports = reportsDatabase.reports
+    val reports: Flow<Collection<Report>>
+        get() = reportsDatabase.reports
 
     val state = combine(
-        reportsDatabase.reports,
+        reportsDatabase.reportCount,
         statsSettings.totalSpaceFreed.flow,
         statsSettings.totalItemsProcessed.flow,
-    ) { reports, spaceFreed, itemsProcessed ->
+        reportsDatabase.databaseSize,
+    ) { reportsCount, spaceFreed, itemsProcessed, databaseSize ->
         State(
-            reports = reports,
+            reportsCount = reportsCount,
             totalSpaceFreed = spaceFreed,
             itemsProcessed = itemsProcessed,
+            databaseSize = databaseSize,
         )
     }
         .throttleLatest(500)
@@ -86,6 +93,13 @@ class StatsRepo @Inject constructor(
         }
     }
 
+    suspend fun resetAll() = withContext(NonCancellable) {
+        log(TAG, INFO) { "resetAll()" }
+        statsSettings.totalItemsProcessed.value(0L)
+        statsSettings.totalSpaceFreed.value(0L)
+        reportsDatabase.clear()
+    }
+
     private fun APath.toAffectedPath(
         id: ReportId,
         tool: SDMTool.Type,
@@ -98,10 +112,14 @@ class StatsRepo @Inject constructor(
     }
 
     data class State(
-        val reports: List<Report>,
+        val reportsCount: Int,
         val totalSpaceFreed: Long,
         val itemsProcessed: Long,
-    )
+        val databaseSize: Long,
+    ) {
+        val isEmpty: Boolean
+            get() = reportsCount == 0 && totalSpaceFreed == 0L && itemsProcessed == 0L
+    }
 
     companion object {
         private val TAG = logTag("Stats", "Repo")

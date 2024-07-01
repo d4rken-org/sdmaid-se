@@ -689,10 +689,15 @@
     <string name="stats_report_status_partial_success">Partial success</string>
     <string name="stats_report_status_partial_failure">Failure</string>
     <string name="stats_settings_desc">Configure SD Maid\'s statistics, reports and data retention.</string>
-    <string name="stats_settings_retention_label">Retention</string>
-    <string name="stats_settings_retention_desc">After how many days should old reports be deleted.</string>
+    <string name="stats_settings_retention_category">Retention</string>
+    <string name="stats_settings_retention_reports_label">General reports</string>
+    <string name="stats_settings_retention_reports_desc">Number of days before deleting basic SD Maid operation reports.</string>
+    <string name="stats_settings_retention_paths_label">Detailed path information</string>
+    <string name="stats_settings_retention_paths_desc">The number of days to keep details about paths affected by SD Maid.</string>
     <plurals name="stats_settings_retention_x_days">
         <item quantity="one">%d day</item>
         <item quantity="other">%d days</item>
     </plurals>
+    <string name="stats_settings_reset_all_label">Reset all</string>
+    <string name="stats_settings_reset_all_desc">Delete all reports and set all statistics to zero.</string>
 </resources>
