@@ -15,12 +15,12 @@ interface AffectedFilesDao {
     @Query("SELECT * FROM affected_paths")
     fun waterfall(): Flow<List<AffectedPathEntity>>
 
+    @Query("SELECT COUNT(*) FROM affected_paths")
+    fun filesCount(): Flow<Int>
+
     @Insert
     fun insert(files: List<AffectedPathEntity>)
 
     @Query("DELETE FROM affected_paths WHERE report_id IN (:reportIds)")
     fun delete(reportIds: List<ReportId>)
-
-    @Query("SELECT COUNT(*) FROM affected_paths")
-    fun countAll(): Int
 }
