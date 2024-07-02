@@ -2,13 +2,13 @@ package eu.darken.sdmse.stats.core
 
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.flow.shareLatest
 import eu.darken.sdmse.common.flow.throttleLatest
-import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.stats.core.db.ReportEntity
 import eu.darken.sdmse.stats.core.db.ReportsDatabase
@@ -31,6 +31,16 @@ class StatsRepo @Inject constructor(
     val reports: Flow<Collection<Report>>
         get() = reportsDatabase.reports
 
+    data class State(
+        val reportsCount: Int,
+        val totalSpaceFreed: Long,
+        val itemsProcessed: Long,
+        val databaseSize: Long,
+    ) {
+        val isEmpty: Boolean
+            get() = reportsCount == 0 && totalSpaceFreed == 0L && itemsProcessed == 0L
+    }
+
     val state = combine(
         reportsDatabase.reportCount,
         statsSettings.totalSpaceFreed.flow,
@@ -48,12 +58,14 @@ class StatsRepo @Inject constructor(
         .shareLatest(appScope)
 
     suspend fun report(task: TaskManager.ManagedTask) {
-        log(TAG, INFO) { "report(${task.id})..." }
+        log(TAG, INFO) { "report(${task.id})...${task.task.javaClass}" }
 
         if (task.task !is Reportable) {
             log(TAG) { "report(${task.id}): Not reportable" }
             return
         }
+
+        if (Bugs.isDebug) log(TAG) { "report(${task.id})...$task" }
 
         val reportDetails = (task.result as? ReportDetails)
         val report = ReportEntity(
@@ -83,7 +95,7 @@ class StatsRepo @Inject constructor(
 
         reportDetails?.affectedPaths?.let { files ->
             log(TAG) { "report(${task.id}): Saving details about affected ${files.size} files " }
-            val affectedPaths = files.map { it.toAffectedPath(report.reportId, report.tool) }
+            val affectedPaths = files.map { it.toAffectedPath(report.reportId) }
             reportsDatabase.addFiles(affectedPaths)
         }
 
@@ -102,23 +114,21 @@ class StatsRepo @Inject constructor(
 
     private fun APath.toAffectedPath(
         id: ReportId,
-        tool: SDMTool.Type,
         action: AffectedPath.Action = AffectedPath.Action.DELETED
     ) = object : AffectedPath {
         override val reportId: ReportId = id
-        override val tool: SDMTool.Type = tool
         override val action: AffectedPath.Action = action
         override val path: APath = this@toAffectedPath
     }
 
-    data class State(
-        val reportsCount: Int,
-        val totalSpaceFreed: Long,
-        val itemsProcessed: Long,
-        val databaseSize: Long,
-    ) {
-        val isEmpty: Boolean
-            get() = reportsCount == 0 && totalSpaceFreed == 0L && itemsProcessed == 0L
+    suspend fun getById(id: ReportId): Report? {
+        log(TAG) { "getById($id)" }
+        return reportsDatabase.getReport(id)
+    }
+
+    suspend fun getAffectedPaths(id: ReportId): Collection<AffectedPath> {
+        log(TAG) { "getAffectedPaths($id)" }
+        return reportsDatabase.getAffectedPaths(id)
     }
 
     companion object {

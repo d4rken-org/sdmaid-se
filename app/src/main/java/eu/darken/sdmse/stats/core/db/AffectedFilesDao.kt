@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 interface AffectedFilesDao {
 
     @Query("SELECT * FROM affected_paths WHERE report_id = :id")
-    fun getById(id: ReportId): List<AffectedPathEntity>?
+    fun getById(id: ReportId): List<AffectedPathEntity>
 
     @Query("SELECT * FROM affected_paths")
     fun waterfall(): Flow<List<AffectedPathEntity>>

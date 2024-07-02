@@ -1,6 +1,7 @@
 package eu.darken.sdmse.stats.core
 
 import eu.darken.sdmse.main.core.SDMTool
+import java.time.Duration
 import java.time.Instant
 import java.util.UUID
 
@@ -15,6 +16,9 @@ interface Report {
     val affectedCount: Int?
     val affectedSpace: Long?
     val extra: String?
+
+    val duration: Duration
+        get() = Duration.between(startAt, endAt)
 
     enum class Status {
         SUCCESS,

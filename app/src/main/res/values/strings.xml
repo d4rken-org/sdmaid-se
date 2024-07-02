@@ -700,4 +700,5 @@
     </plurals>
     <string name="stats_settings_reset_all_label">Reset all</string>
     <string name="stats_settings_reset_all_desc">Delete all reports and set all statistics to zero.</string>
+    <string name="stats_affected_paths_label">Affected paths</string>
 </resources>
