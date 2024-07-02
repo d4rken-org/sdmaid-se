@@ -8,7 +8,6 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -127,8 +126,11 @@ class ReportsDatabase @Inject constructor(
     val reportCount: Flow<Int>
         get() = reportsDao.reportCount()
 
-    suspend fun find(id: ReportId): Report? = reportsDao.getById(id)
-        .also { log(TAG, VERBOSE) { "find($id) -> it" } }
+    suspend fun getReport(id: ReportId): Report? = reportsDao.getById(id)
+
+    suspend fun getAffectedPaths(id: ReportId): Collection<AffectedPath> {
+        return filesDao.getById(id)
+    }
 
     suspend fun addReport(report: Report) {
         log(TAG) { "addReport(): $report" }

@@ -25,9 +25,7 @@ class ReportsFragment : Fragment3(R.layout.stats_reports_fragment) {
     override val ui: StatsReportsFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        ui.toolbar.apply {
-            setupWithNavController(findNavController())
-        }
+        ui.toolbar.setupWithNavController(findNavController())
 
         val adapter = ReportsAdapter()
         ui.list.setupDefaults(

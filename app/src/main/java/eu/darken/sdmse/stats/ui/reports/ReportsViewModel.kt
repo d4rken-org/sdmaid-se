@@ -43,7 +43,9 @@ class ReportsViewModel @Inject constructor(
                 onReportAction = {
                     when (report.status) {
                         Report.Status.SUCCESS, Report.Status.PARTIAL_SUCCESS -> {
-
+                            ReportsFragmentDirections.actionReportsFragmentToAffectedFilesFragment(
+                                report.reportId
+                            ).navigate()
                         }
 
                         Report.Status.FAILURE -> {

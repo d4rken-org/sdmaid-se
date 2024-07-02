@@ -1,11 +1,11 @@
 package eu.darken.sdmse.stats.core
 
+import androidx.annotation.DrawableRes
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.files.APath
-import eu.darken.sdmse.main.core.SDMTool
 
 interface AffectedPath {
     val reportId: ReportId
-    val tool: SDMTool.Type
     val action: Action
     val path: APath
 
@@ -14,3 +14,8 @@ interface AffectedPath {
         ;
     }
 }
+
+@get:DrawableRes val AffectedPath.Action.iconRes: Int
+    get() = when (this) {
+        AffectedPath.Action.DELETED -> R.drawable.ic_delete
+    }
