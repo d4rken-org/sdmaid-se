@@ -8,7 +8,8 @@ do
 done
 
 if [ -z "$device_id" ] ;then
-    echo "Missing device ID, use '-d <DEVICE_ID>')"
+    echo "Missing device ID, use '-d <DEVICE_ID>'"
+    adb devices
     exit 1
 else
     echo "Device ID is $device_id"
