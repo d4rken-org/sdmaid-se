@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.flow.shareLatest
 import eu.darken.sdmse.common.flow.throttleLatest
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.stats.core.db.ReportEntity
 import eu.darken.sdmse.stats.core.db.ReportsDatabase
@@ -96,12 +97,13 @@ class StatsRepo @Inject constructor(
         reportDetails?.affectedPaths?.let { files ->
             log(TAG) { "report(${task.id}): Saving details about affected ${files.size} files " }
             val affectedPaths = files.map { it.toAffectedPath(report.reportId) }
-            reportsDatabase.addFiles(affectedPaths)
+            reportsDatabase.addPaths(affectedPaths)
         }
 
-        reportDetails?.affectedPkgs?.let { files ->
-            log(TAG) { "report(${task.id}): Saving details about affected pkgs: ${files.size}" }
-            // TODO
+        reportDetails?.affectedPkgs?.let { pkgs ->
+            log(TAG) { "report(${task.id}): Saving details about affected pkgs: ${pkgs.size}" }
+            val affectedPkgs = pkgs.map { it.toAffectedPkg(report.reportId, reportDetails.affectedPkgsAction!!) }
+            reportsDatabase.addPkgs(affectedPkgs)
         }
     }
 
@@ -121,6 +123,15 @@ class StatsRepo @Inject constructor(
         override val path: APath = this@toAffectedPath
     }
 
+    private fun Pkg.Id.toAffectedPkg(
+        id: ReportId,
+        action: AffectedPkg.Action
+    ) = object : AffectedPkg {
+        override val reportId: ReportId = id
+        override val action: AffectedPkg.Action = action
+        override val pkgId: Pkg.Id = this@toAffectedPkg
+    }
+
     suspend fun getById(id: ReportId): Report? {
         log(TAG) { "getById($id)" }
         return reportsDatabase.getReport(id)
@@ -129,6 +140,11 @@ class StatsRepo @Inject constructor(
     suspend fun getAffectedPaths(id: ReportId): Collection<AffectedPath> {
         log(TAG) { "getAffectedPaths($id)" }
         return reportsDatabase.getAffectedPaths(id)
+    }
+
+    suspend fun getAffectedPkgs(id: ReportId): Collection<AffectedPkg> {
+        log(TAG) { "getAffectedPkgs($id)" }
+        return reportsDatabase.getAffectedPkgs(id)
     }
 
     companion object {

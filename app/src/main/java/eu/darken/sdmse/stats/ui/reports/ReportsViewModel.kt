@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.intervalFlow
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.StatsRepo
 import kotlinx.coroutines.flow.combine
@@ -43,9 +44,15 @@ class ReportsViewModel @Inject constructor(
                 onReportAction = {
                     when (report.status) {
                         Report.Status.SUCCESS, Report.Status.PARTIAL_SUCCESS -> {
-                            ReportsFragmentDirections.actionReportsFragmentToAffectedFilesFragment(
-                                report.reportId
-                            ).navigate()
+                            when (report.tool) {
+                                SDMTool.Type.APPCONTROL -> ReportsFragmentDirections.actionReportsFragmentToAffectedPkgsFragment(
+                                    report.reportId
+                                )
+
+                                else -> ReportsFragmentDirections.actionReportsFragmentToAffectedFilesFragment(
+                                    report.reportId
+                                )
+                            }.navigate()
                         }
 
                         Report.Status.FAILURE -> {

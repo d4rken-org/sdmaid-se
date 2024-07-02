@@ -196,8 +196,9 @@ class AppActionViewModel @Inject constructor(
             UninstallActionVH.Item(
                 appInfo = appInfo,
                 onItemClicked = { info ->
+                    val task = UninstallTask(setOf(info.installId))
                     launch {
-                        val result = appControl.submit(UninstallTask(setOf(info.installId))) as UninstallTask.Result
+                        val result = taskManager.submit(task) as UninstallTask.Result
                         if (result.failed.isNotEmpty()) throw UninstallException(result.failed.first())
                     }
                 }
@@ -254,7 +255,7 @@ class AppActionViewModel @Inject constructor(
         }
         log(TAG) { "exportApp($saveDir)" }
 
-        val result = appControl.submit(
+        val result = taskManager.submit(
             AppExportTask(
                 targets = setOf(state.value!!.appInfo.installId),
                 savePath = saveDir,

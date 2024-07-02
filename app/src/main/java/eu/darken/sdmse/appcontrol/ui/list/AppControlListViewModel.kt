@@ -35,6 +35,7 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
+import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
@@ -57,13 +58,14 @@ class AppControlListViewModel @Inject constructor(
     private val settings: AppControlSettings,
     private val exclusionManager: ExclusionManager,
     private val upgradeRepo: UpgradeRepo,
+    private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider) {
 
     init {
         appControl.state
             .take(1)
             .filter { it.data == null }
-            .onEach { appControl.submit(AppControlScanTask()) }
+            .onEach { taskManager.submit(AppControlScanTask()) }
             .launchInViewModel()
     }
 
@@ -317,7 +319,7 @@ class AppControlListViewModel @Inject constructor(
 
     fun refresh(refreshPkgCache: Boolean = false) = launch {
         log(TAG) { "refresh()" }
-        appControl.submit(AppControlScanTask(refreshPkgCache = refreshPkgCache))
+        taskManager.submit(AppControlScanTask(refreshPkgCache = refreshPkgCache))
     }
 
     fun exclude(items: Collection<AppControlListAdapter.Item>) = launch {
@@ -337,7 +339,7 @@ class AppControlListViewModel @Inject constructor(
             return@launch
         }
         val targets = items.map { it.appInfo.installId }.toSet()
-        appControl.submit(AppControlToggleTask(targets = targets))
+        taskManager.submit(AppControlToggleTask(targets = targets))
     }
 
     fun uninstall(items: Collection<AppControlListAdapter.Item>, confirmed: Boolean = false) = launch {
@@ -347,7 +349,7 @@ class AppControlListViewModel @Inject constructor(
             return@launch
         }
         val targets = items.map { it.appInfo.installId }.toSet()
-        appControl.submit(UninstallTask(targets = targets))
+        taskManager.submit(UninstallTask(targets = targets))
     }
 
     fun export(items: Collection<AppControlListAdapter.Item>, saveDir: Uri? = null) = launch {
@@ -363,7 +365,7 @@ class AppControlListViewModel @Inject constructor(
             return@launch
         }
         val targets = items.map { it.appInfo.installId }.toSet()
-        val result = appControl.submit(AppExportTask(targets = targets, saveDir)) as AppExportTask.Result
+        val result = taskManager.submit(AppExportTask(targets = targets, saveDir)) as AppExportTask.Result
 
         events.postValue(AppControlListEvents.ExportResult(result.success, result.failed))
     }
@@ -380,7 +382,7 @@ class AppControlListViewModel @Inject constructor(
             return@launch
         }
         val targets = items.map { it.appInfo.installId }.toSet()
-        val result = appControl.submit(ForceStopTask(targets = targets)) as ForceStopTask.Result
+        val result = taskManager.submit(ForceStopTask(targets = targets)) as ForceStopTask.Result
         events.postValue(AppControlListEvents.ForceStopResult(result))
     }
 

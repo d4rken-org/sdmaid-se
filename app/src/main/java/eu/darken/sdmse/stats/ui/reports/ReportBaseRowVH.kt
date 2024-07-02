@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.StatsReportsBaseItemBinding
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.iconRes
 import eu.darken.sdmse.main.core.labelRes
 import eu.darken.sdmse.stats.core.Report
@@ -44,10 +45,16 @@ class ReportBaseRowVH(parent: ViewGroup) :
                         getColorForAttr(com.google.android.material.R.attr.colorPrimary)
                     )
                 }
-                executionInfo.text = report.affectedSpace?.let {
-                    val freed = Formatter.formatShortFileSize(context, it)
-                    getString(eu.darken.sdmse.common.R.string.general_result_x_space_freed, freed)
-                } ?: getString(R.string.stats_report_status_success)
+                executionInfo.text = when (report.tool) {
+                    SDMTool.Type.APPCONTROL -> report.affectedCount?.let { affected ->
+                        getQuantityString(eu.darken.sdmse.common.R.plurals.result_x_items, affected)
+                    } ?: getString(R.string.stats_report_status_success)
+
+                    else -> report.affectedSpace?.let {
+                        val freed = Formatter.formatShortFileSize(context, it)
+                        getString(eu.darken.sdmse.common.R.string.general_result_x_space_freed, freed)
+                    } ?: getString(R.string.stats_report_status_success)
+                }
             }
 
             Report.Status.PARTIAL_SUCCESS -> {
