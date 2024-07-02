@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.room.APathTypeConverter
 import eu.darken.sdmse.stats.core.AffectedPath
+import eu.darken.sdmse.stats.core.AffectedPkg
 import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.ReportId
 import eu.darken.sdmse.stats.core.StatsSettings
@@ -67,8 +68,11 @@ class ReportsDatabase @Inject constructor(
     private val reportsDao: ReportsDao
         get() = database.reports()
 
-    private val filesDao: AffectedFilesDao
-        get() = database.files()
+    private val pathsDao: AffectedPathsDao
+        get() = database.paths()
+
+    private val pkgsDao: AffectedPkgsDao
+        get() = database.pkgs()
 
     init {
         statsSettings.retentionReports.flow
@@ -89,10 +93,10 @@ class ReportsDatabase @Inject constructor(
                 }
 
                 run {
-                    val filesBefore = filesDao.filesCount().first()
+                    val filesBefore = pathsDao.filesCount().first()
                     log(TAG) { "Deleting file infos related to old reports (${filesBefore})" }
-                    filesDao.delete(oldReportIds)
-                    val deleted = filesBefore - filesDao.filesCount().first()
+                    pathsDao.delete(oldReportIds)
+                    val deleted = filesBefore - pathsDao.filesCount().first()
                     log(TAG) { "Clean up of file infos finished, deleted $deleted" }
                     if (deleted > 0) updateSize = true
                 }
@@ -109,10 +113,10 @@ class ReportsDatabase @Inject constructor(
             }
             .map { reports -> reports.map { it.reportId } }
             .onEach { oldReportIds ->
-                val filesBefore = filesDao.filesCount().first()
+                val filesBefore = pathsDao.filesCount().first()
                 log(TAG) { "Deleting stale infos about affected files (${filesBefore})" }
-                filesDao.delete(oldReportIds)
-                val deleted = filesBefore - filesDao.filesCount().first()
+                pathsDao.delete(oldReportIds)
+                val deleted = filesBefore - pathsDao.filesCount().first()
                 log(TAG) { "Clean up of stale file infos finished, deleted $deleted" }
 
                 if (deleted > 0) databaseSize.value = getDatabaseSize()
@@ -129,7 +133,11 @@ class ReportsDatabase @Inject constructor(
     suspend fun getReport(id: ReportId): Report? = reportsDao.getById(id)
 
     suspend fun getAffectedPaths(id: ReportId): Collection<AffectedPath> {
-        return filesDao.getById(id)
+        return pathsDao.getById(id)
+    }
+
+    suspend fun getAffectedPkgs(id: ReportId): Collection<AffectedPkg> {
+        return pkgsDao.getById(id)
     }
 
     suspend fun addReport(report: Report) {
@@ -139,11 +147,19 @@ class ReportsDatabase @Inject constructor(
         databaseSize.value = getDatabaseSize()
     }
 
-    suspend fun addFiles(files: Collection<AffectedPath>) {
-        if (files.isEmpty()) return
-        log(TAG) { "addFiles(): ${files.size} files for ${files.first().reportId}" }
-        val entities = files.map { AffectedPathEntity.from(it) }
-        filesDao.insert(entities)
+    suspend fun addPaths(paths: Collection<AffectedPath>) {
+        if (paths.isEmpty()) return
+        log(TAG) { "addPaths(): ${paths.size} paths for ${paths.first().reportId}" }
+        val entities = paths.map { AffectedPathEntity.from(it) }
+        pathsDao.insert(entities)
+        databaseSize.value = getDatabaseSize()
+    }
+
+    suspend fun addPkgs(pkgs: Collection<AffectedPkg>) {
+        if (pkgs.isEmpty()) return
+        log(TAG) { "addPkgs(): ${pkgs.size} pkgs for ${pkgs.first().reportId}" }
+        val entities = pkgs.map { AffectedPkgEntity.from(it) }
+        pkgsDao.insert(entities)
         databaseSize.value = getDatabaseSize()
     }
 

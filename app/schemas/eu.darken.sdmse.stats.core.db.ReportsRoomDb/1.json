@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "dede40c19096d29c113a2592912301ad",
+    "identityHash": "14953ab8beb5f65930d7bd6da4f1868b",
     "entities": [
       {
         "tableName": "reports",
@@ -115,12 +115,50 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "affected_pkgs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `report_id` TEXT NOT NULL, `action` TEXT NOT NULL, `pkg_id` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reportId",
+            "columnName": "report_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "action",
+            "columnName": "action",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pkgId",
+            "columnName": "pkg_id",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'dede40c19096d29c113a2592912301ad')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '14953ab8beb5f65930d7bd6da4f1868b')"
     ]
   }
 }

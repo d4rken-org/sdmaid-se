@@ -18,12 +18,17 @@ interface ReportDetails {
     interface AffectedPaths : ReportDetails, AffectedCount {
         val affectedPaths: Set<APath>
 
+        val action: AffectedPath.Action
+            get() = AffectedPath.Action.DELETED
+
         override val affectedCount: Int
             get() = affectedPaths.size
     }
 
     interface AffectedPkgs : ReportDetails, AffectedCount {
         val affectedPkgs: Set<Pkg.Id>
+
+        val action: AffectedPkg.Action
 
         override val affectedCount: Int
             get() = affectedPkgs.size

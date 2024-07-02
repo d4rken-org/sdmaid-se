@@ -7,7 +7,7 @@ import eu.darken.sdmse.stats.core.ReportId
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface AffectedFilesDao {
+interface AffectedPathsDao {
 
     @Query("SELECT * FROM affected_paths WHERE report_id = :id")
     fun getById(id: ReportId): List<AffectedPathEntity>

@@ -28,8 +28,6 @@ class AffectedPathVH(parent: ViewGroup) :
     data class Item(
         val path: AffectedPath,
     ) : AffectedPathsAdapter.Item {
-
         override val stableId: Long = path.hashCode().toLong()
     }
-
 }

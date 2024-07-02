@@ -14,3 +14,6 @@ val ReportDetails.affectedPaths: Collection<APath>?
 
 val ReportDetails.affectedPkgs: Collection<Pkg.Id>?
     get() = (this as? ReportDetails.AffectedPkgs)?.affectedPkgs
+
+val ReportDetails.affectedPkgsAction: AffectedPkg.Action?
+    get() = (this as? ReportDetails.AffectedPkgs)?.action

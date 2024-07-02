@@ -5,6 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import eu.darken.sdmse.common.room.APathTypeConverter
 import eu.darken.sdmse.common.room.InstantConverter
+import eu.darken.sdmse.common.room.PkgIdTypeConverter
 import eu.darken.sdmse.common.room.SDMToolTypeConverter
 import eu.darken.sdmse.stats.core.db.converter.AffectedFileActionConverter
 import eu.darken.sdmse.stats.core.db.converter.ReportIdTypeConverter
@@ -14,14 +15,14 @@ import eu.darken.sdmse.stats.core.db.converter.ReportStatusConverter
     entities = [
         ReportEntity::class,
         AffectedPathEntity::class,
+        AffectedPkgEntity::class,
     ],
     version = 1,
     autoMigrations = [
         //AutoMigration(1, 2)
     ],
     exportSchema = true,
-
-    )
+)
 @TypeConverters(
     InstantConverter::class,
     ReportIdTypeConverter::class,
@@ -29,8 +30,10 @@ import eu.darken.sdmse.stats.core.db.converter.ReportStatusConverter
     ReportStatusConverter::class,
     AffectedFileActionConverter::class,
     APathTypeConverter::class,
+    PkgIdTypeConverter::class,
 )
 abstract class ReportsRoomDb : RoomDatabase() {
     abstract fun reports(): ReportsDao
-    abstract fun files(): AffectedFilesDao
+    abstract fun paths(): AffectedPathsDao
+    abstract fun pkgs(): AffectedPkgsDao
 }

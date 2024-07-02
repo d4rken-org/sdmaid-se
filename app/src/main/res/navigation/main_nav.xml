@@ -502,11 +502,22 @@
         <action
             android:id="@+id/action_reportsFragment_to_affectedFilesFragment"
             app:destination="@id/affectedFilesFragment" />
+        <action
+            android:id="@+id/action_reportsFragment_to_affectedPkgsFragment"
+            app:destination="@id/affectedPkgsFragment" />
     </fragment>
     <fragment
         android:id="@+id/affectedFilesFragment"
         android:name="eu.darken.sdmse.stats.ui.paths.AffectedPathsFragment"
         tools:layout="@layout/stats_affected_paths_fragment">
+        <argument
+            android:name="reportId"
+            app:argType="java.util.UUID" />
+    </fragment>
+    <fragment
+        android:id="@+id/affectedPkgsFragment"
+        android:name="eu.darken.sdmse.stats.ui.pkgs.AffectedPkgsFragment"
+        tools:layout="@layout/stats_affected_pkgs_fragment">
         <argument
             android:name="reportId"
             app:argType="java.util.UUID" />
