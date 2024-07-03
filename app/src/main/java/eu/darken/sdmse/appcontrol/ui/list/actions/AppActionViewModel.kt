@@ -136,7 +136,7 @@ class AppActionViewModel @Inject constructor(
                 onForceStop = {
                     launch {
                         val result = taskManager.submit(ForceStopTask(setOf(appInfo.installId))) as ForceStopTask.Result
-                        events.postValue(AppActionEvents.ForceStopResult(result))
+                        events.postValue(AppActionEvents.ShowResult(result))
                     }
                 }
             )
@@ -200,6 +200,7 @@ class AppActionViewModel @Inject constructor(
                     launch {
                         val result = taskManager.submit(task) as UninstallTask.Result
                         if (result.failed.isNotEmpty()) throw UninstallException(result.failed.first())
+                        else events.postValue(AppActionEvents.ShowResult(result))
                     }
                 }
             )
@@ -212,7 +213,10 @@ class AppActionViewModel @Inject constructor(
                 appInfo = appInfo,
                 onToggle = {
                     val task = AppControlToggleTask(setOf(appInfo.installId))
-                    launch { taskManager.submit(task) }
+                    launch {
+                        val result = taskManager.submit(task) as AppControlToggleTask.Result
+                        events.postValue(AppActionEvents.ShowResult(result))
+                    }
                 }
             )
         } else {
@@ -262,7 +266,7 @@ class AppActionViewModel @Inject constructor(
             )
         ) as AppExportTask.Result
 
-        events.postValue(AppActionEvents.ExportResult(result.success, result.failed))
+        events.postValue(AppActionEvents.ShowResult(result))
     }
 
     data class State(

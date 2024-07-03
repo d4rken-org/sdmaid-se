@@ -356,18 +356,6 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     exportPath.launch(event.intent)
                 }
 
-                is AppControlListEvents.ExportResult -> {
-                    val msgSuccessful = getQuantityString2(
-                        eu.darken.sdmse.common.R.plurals.result_x_successful,
-                        event.successful.size
-                    )
-                    val msgFailed = getQuantityString2(
-                        eu.darken.sdmse.common.R.plurals.result_x_failed,
-                        event.failed.size
-                    )
-                    Snackbar.make(requireView(), "$msgSuccessful, $msgFailed", Snackbar.LENGTH_SHORT).show()
-                }
-
                 is AppControlListEvents.ConfirmForceStop -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(R.string.appcontrol_force_stop_confirm_title)
                     setMessage(
@@ -380,16 +368,12 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                 }.show()
 
-                is AppControlListEvents.ForceStopResult -> {
-                    val msgSuccessful = getQuantityString2(
-                        eu.darken.sdmse.common.R.plurals.result_x_successful,
-                        event.result.success.size
-                    )
-                    val msgFailed = getQuantityString2(
-                        eu.darken.sdmse.common.R.plurals.result_x_failed,
-                        event.result.failed.size
-                    )
-                    Snackbar.make(requireView(), "$msgSuccessful, $msgFailed", Snackbar.LENGTH_SHORT).show()
+                is AppControlListEvents.ShowResult -> {
+                    Snackbar.make(
+                        requireView(),
+                        event.result.primaryInfo.get(requireContext()),
+                        Snackbar.LENGTH_SHORT
+                    ).show()
                 }
             }
         }

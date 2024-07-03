@@ -1,7 +1,6 @@
 package eu.darken.sdmse.appcontrol.core.toggle
 
 import eu.darken.sdmse.appcontrol.core.AppControlTask
-import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.getQuantityString2
@@ -29,9 +28,17 @@ data class AppControlToggleTask(
 
         override val primaryInfo: CaString
             get() = caString {
-                val succ = getQuantityString2(R.plurals.result_x_successful, enabled.size + disabled.size)
-                val failed = getQuantityString2(R.plurals.result_x_failed, failed.size)
-                "$succ | $failed"
+                getQuantityString2(
+                    eu.darken.sdmse.R.plurals.appcontrol_toggle_result_message_x,
+                    enabled.size + disabled.size
+                )
+            }
+
+        override val secondaryInfo: CaString?
+            get() = failed.takeIf { it.isNotEmpty() }?.let {
+                caString {
+                    getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_failed, failed.size)
+                }
             }
     }
 }
