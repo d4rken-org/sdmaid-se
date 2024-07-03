@@ -4041,12 +4041,16 @@
   "pkgs": ["com.quintstoffers.DataSync"],
   "mrks": [{"loc": "PUBLIC_DATA", "path": "DataSync"}]
 }, {
-  "pkgs": ["com.facebook.katana"],
+  "pkgs": [
+	"com.facebook.katana",
+	"com.facebook.lite"
+  ],
   "mrks": [
 	{"loc": "SDCARD", "path": "media/audio/notifications/facebook_ringtone_pop.m4a"},
 	{"loc": "SDCARD", "path": "DCIM/Facebook", "flags": ["keeper"]},
 	{"loc": "SDCARD", "path": "com.facebook.katana"},
-	{"loc": "SDCARD", "path": ".facebook_cache"}
+	{"loc": "SDCARD", "path": ".facebook_cache"},
+	{"loc": "SDCARD", "path": "Pictures/Facebook", "flags": ["keeper"]}
   ]
 }, {
   "pkgs": ["cloudtv.dayframe"],
@@ -9429,9 +9433,6 @@
   "pkgs": ["jp.hazuki.yuzubrowser"],
   "mrks": [{"loc": "SDCARD", "path": "YuzuBrowser", "flags": ["keeper"]}]
 }, {
-  "pkgs": ["com.facebook.lite"],
-  "mrks": [{"loc": "SDCARD", "path": "Pictures/facebook", "flags": ["keeper"]}]
-}, {
   "pkgs": ["projekt.andromeda"],
   "mrks": [{"loc": "SDCARD", "path": ".andromeda"}]
 }, {
@@ -12563,5 +12564,14 @@
 }, {
   "pkgs": ["md.obsidian"],
   "mrks": [{"loc": "SDCARD", "path": "obsidian", "flags": ["common", "keeper"]}]
+}, {
+  "pkgs": ["dev.imranr.obtainium"],
+  "mrks": [
+	{"loc": "SDCARD", "path": "Backups", "flags": ["common", "keeper"]},
+	{"loc": "SDCARD", "contains": "Backups/obtainium-export-", "regex": "^Backups/obtainium-export-.+?$"}
+  ]
+}, {
+  "pkgs": ["com.muslim.labs.androidquran.naskh"],
+  "mrks": [{"loc": "SDCARD", "path": "quran_android"}]
 }
 ]
