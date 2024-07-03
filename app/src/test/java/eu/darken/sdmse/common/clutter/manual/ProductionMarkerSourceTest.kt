@@ -36,4 +36,10 @@ class ProductionMarkerSourceTest : BaseTest() {
         pos(SDCARD, "com.picsart.studio", "Download/crash_log_12.txt")
     }
 
+    @Test fun `obtanium backup exports`() = testEnv {
+        neg(SDCARD, "Backups/something")
+        pos(SDCARD, "dev.imranr.obtainium", "Backups/obtainium-export-2024-01-04T10-55-12.476037-auto.json")
+        pos(SDCARD, "dev.imranr.obtainium", "Backups/obtainium-export-something123")
+    }
+
 }
