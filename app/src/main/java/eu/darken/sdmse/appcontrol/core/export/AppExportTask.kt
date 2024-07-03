@@ -24,11 +24,8 @@ data class AppExportTask(
         val success: Set<AppExporter.Result>,
         val failed: Set<Installed.InstallId>,
     ) : AppControlTask.Result, ReportDetails.AffectedPkgs {
-        override val affectedPkgs: Set<Pkg.Id>
-            get() = success.map { it.installId.pkgId }.toSet()
-
-        override val action: AffectedPkg.Action
-            get() = AffectedPkg.Action.EXPORTED
+        override val affectedPkgs: Map<Pkg.Id, AffectedPkg.Action>
+            get() = success.associate { it.installId.pkgId to AffectedPkg.Action.EXPORTED }
 
         override val primaryInfo: CaString
             get() = caString {

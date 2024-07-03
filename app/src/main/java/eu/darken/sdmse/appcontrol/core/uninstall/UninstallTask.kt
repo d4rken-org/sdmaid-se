@@ -22,11 +22,8 @@ data class UninstallTask(
         val failed: Set<Installed.InstallId>,
     ) : AppControlTask.Result, ReportDetails.AffectedPkgs {
 
-        override val affectedPkgs: Set<Pkg.Id>
-            get() = success.map { it.pkgId }.toSet()
-
-        override val action: AffectedPkg.Action
-            get() = AffectedPkg.Action.DELETED
+        override val affectedPkgs: Map<Pkg.Id, AffectedPkg.Action>
+            get() = success.associate { it.pkgId to AffectedPkg.Action.DELETED }
 
         override val primaryInfo: CaString
             get() = caString {

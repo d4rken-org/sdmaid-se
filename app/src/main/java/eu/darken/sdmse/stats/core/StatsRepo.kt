@@ -1,5 +1,7 @@
 package eu.darken.sdmse.stats.core
 
+import android.content.Context
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
@@ -25,6 +27,7 @@ import javax.inject.Singleton
 @Singleton
 class StatsRepo @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
+    @ApplicationContext private val context: Context,
     private val reportsDatabase: ReportsDatabase,
     private val statsSettings: StatsSettings,
 ) {
@@ -78,6 +81,8 @@ class StatsRepo @Inject constructor(
                 reportDetails != null -> reportDetails.status
                 else -> Report.Status.SUCCESS
             },
+            primaryMessage = task.result?.primaryInfo?.get(context),
+            secondaryMessage = task.result?.secondaryInfo?.get(context),
             errorMessage = task.error?.toString(),
             affectedCount = reportDetails?.affectedCount,
             affectedSpace = reportDetails?.affectedSpace,
@@ -102,7 +107,7 @@ class StatsRepo @Inject constructor(
 
         reportDetails?.affectedPkgs?.let { pkgs ->
             log(TAG) { "report(${task.id}): Saving details about affected pkgs: ${pkgs.size}" }
-            val affectedPkgs = pkgs.map { it.toAffectedPkg(report.reportId, reportDetails.affectedPkgsAction!!) }
+            val affectedPkgs = pkgs.toAffectedPkgs(report.reportId)
             reportsDatabase.addPkgs(affectedPkgs)
         }
     }
@@ -123,13 +128,14 @@ class StatsRepo @Inject constructor(
         override val path: APath = this@toAffectedPath
     }
 
-    private fun Pkg.Id.toAffectedPkg(
+    private fun Map<Pkg.Id, AffectedPkg.Action>.toAffectedPkgs(
         id: ReportId,
-        action: AffectedPkg.Action
-    ) = object : AffectedPkg {
-        override val reportId: ReportId = id
-        override val action: AffectedPkg.Action = action
-        override val pkgId: Pkg.Id = this@toAffectedPkg
+    ) = this.map { (pkgId, action) ->
+        object : AffectedPkg {
+            override val reportId: ReportId = id
+            override val action: AffectedPkg.Action = action
+            override val pkgId: Pkg.Id = pkgId
+        }
     }
 
     suspend fun getById(id: ReportId): Report? {

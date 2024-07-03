@@ -2,12 +2,10 @@ package eu.darken.sdmse.stats.ui.reports
 
 import android.content.res.ColorStateList
 import android.text.format.DateUtils
-import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.StatsReportsBaseItemBinding
-import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.iconRes
 import eu.darken.sdmse.main.core.labelRes
 import eu.darken.sdmse.stats.core.Report
@@ -45,16 +43,8 @@ class ReportBaseRowVH(parent: ViewGroup) :
                         getColorForAttr(com.google.android.material.R.attr.colorPrimary)
                     )
                 }
-                executionInfo.text = when (report.tool) {
-                    SDMTool.Type.APPCONTROL -> report.affectedCount?.let { affected ->
-                        getQuantityString(eu.darken.sdmse.common.R.plurals.result_x_items, affected)
-                    } ?: getString(R.string.stats_report_status_success)
-
-                    else -> report.affectedSpace?.let {
-                        val freed = Formatter.formatShortFileSize(context, it)
-                        getString(eu.darken.sdmse.common.R.string.general_result_x_space_freed, freed)
-                    } ?: getString(R.string.stats_report_status_success)
-                }
+                infoPrimary.text = report.primaryMessage
+                infoSecondary.text = report.secondaryMessage
             }
 
             Report.Status.PARTIAL_SUCCESS -> {
@@ -64,7 +54,8 @@ class ReportBaseRowVH(parent: ViewGroup) :
                         getColorForAttr(com.google.android.material.R.attr.colorSecondary)
                     )
                 }
-                executionInfo.setText(R.string.stats_report_status_partial_success)
+                infoPrimary.setText(R.string.stats_report_status_partial_success)
+                infoSecondary.text = report.primaryMessage
             }
 
             Report.Status.FAILURE -> {
@@ -74,9 +65,9 @@ class ReportBaseRowVH(parent: ViewGroup) :
                         getColorForAttr(com.google.android.material.R.attr.colorError)
                     )
                 }
-                executionInfo.setText(R.string.stats_report_status_partial_failure)
+                infoPrimary.setText(R.string.stats_report_status_partial_failure)
                 if (report.errorMessage != null) {
-                    executionInfo.append("\n${report.errorMessage}")
+                    infoSecondary.text = report.errorMessage
                 }
             }
         }

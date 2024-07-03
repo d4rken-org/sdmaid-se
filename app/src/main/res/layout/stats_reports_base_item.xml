@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/tool_icon"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
         android:importantForAccessibility="no"
         android:src="@drawable/ic_baseline_info_24"
@@ -20,7 +20,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tool_label"
-        style="@style/TextAppearance.Material3.BodySmall"
+        style="@style/TextAppearance.Material3.TitleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -31,7 +31,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/last_execution"
-        style="@style/TextAppearance.Material3.LabelSmall"
+        style="@style/TextAppearance.Material3.LabelMedium"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -44,7 +44,22 @@
         tools:text="~ 1 minute ago" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/execution_info"
+        android:id="@+id/info_primary"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:maxLines="3"
+        app:layout_constraintBottom_toTopOf="@id/info_secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tool_label"
+        tools:text="@string/beta_version_indicator_desc" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/info_secondary"
         style="@style/TextAppearance.Material3.BodySmall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -56,7 +71,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tool_label" />
+        app:layout_constraintTop_toBottomOf="@id/info_primary"
+        tools:text="@string/beta_version_indicator_desc" />
 
     <ImageView
         android:id="@+id/execution_state"

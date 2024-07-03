@@ -12,7 +12,8 @@ interface AffectedPkg {
     enum class Action {
         EXPORTED,
         STOPPED,
-        TOGGLED,
+        ENABLED,
+        DISABLED,
         DELETED,
         ;
     }
@@ -22,6 +23,7 @@ interface AffectedPkg {
     get() = when (this) {
         AffectedPkg.Action.EXPORTED -> R.drawable.ic_baseline_save_24
         AffectedPkg.Action.STOPPED -> R.drawable.ic_alert_octagon_outline_24
-        AffectedPkg.Action.TOGGLED -> R.drawable.ic_snowflake_24
+        AffectedPkg.Action.ENABLED -> R.drawable.ic_snowflake_off_24
+        AffectedPkg.Action.DISABLED -> R.drawable.ic_snowflake_24
         AffectedPkg.Action.DELETED -> R.drawable.ic_delete
     }

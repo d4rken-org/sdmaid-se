@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "14953ab8beb5f65930d7bd6da4f1868b",
+    "identityHash": "1c924dd86ef6c6cefa68bfb3797e3492",
     "entities": [
       {
         "tableName": "reports",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `report_id` TEXT NOT NULL, `start_at` INTEGER NOT NULL, `end_at` INTEGER NOT NULL, `tool` TEXT NOT NULL, `status` TEXT NOT NULL, `error_message` TEXT, `affected_count` INTEGER, `affected_space` INTEGER, `extra` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `report_id` TEXT NOT NULL, `start_at` INTEGER NOT NULL, `end_at` INTEGER NOT NULL, `tool` TEXT NOT NULL, `status` TEXT NOT NULL, `primary_message` TEXT, `secondary_message` TEXT, `error_message` TEXT, `affected_count` INTEGER, `affected_space` INTEGER, `extra` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -43,6 +43,18 @@
             "columnName": "status",
             "affinity": "TEXT",
             "notNull": true
+          },
+          {
+            "fieldPath": "primaryMessage",
+            "columnName": "primary_message",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "secondaryMessage",
+            "columnName": "secondary_message",
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "errorMessage",
@@ -158,7 +170,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '14953ab8beb5f65930d7bd6da4f1868b')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1c924dd86ef6c6cefa68bfb3797e3492')"
     ]
   }
 }
