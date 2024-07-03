@@ -12,8 +12,5 @@ val ReportDetails.affectedSpace: Long?
 val ReportDetails.affectedPaths: Collection<APath>?
     get() = (this as? ReportDetails.AffectedPaths)?.affectedPaths
 
-val ReportDetails.affectedPkgs: Collection<Pkg.Id>?
+val ReportDetails.affectedPkgs: Map<Pkg.Id, AffectedPkg.Action>?
     get() = (this as? ReportDetails.AffectedPkgs)?.affectedPkgs
-
-val ReportDetails.affectedPkgsAction: AffectedPkg.Action?
-    get() = (this as? ReportDetails.AffectedPkgs)?.action

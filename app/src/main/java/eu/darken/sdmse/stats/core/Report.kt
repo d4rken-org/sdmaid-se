@@ -11,6 +11,8 @@ interface Report {
     val endAt: Instant
     val tool: SDMTool.Type
     val status: Status
+    val primaryMessage: String?
+    val secondaryMessage: String?
     val errorMessage: String?
 
     val affectedCount: Int?

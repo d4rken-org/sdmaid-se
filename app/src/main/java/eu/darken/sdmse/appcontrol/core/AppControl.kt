@@ -170,7 +170,8 @@ class AppControl @Inject constructor(
 
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
 
-        val successful = mutableSetOf<Installed.InstallId>()
+        val enabled = mutableSetOf<Installed.InstallId>()
+        val disabled = mutableSetOf<Installed.InstallId>()
         val failed = mutableSetOf<Installed.InstallId>()
         updateProgressCount(Progress.Count.Percent(task.targets.size))
 
@@ -189,7 +190,7 @@ class AppControl @Inject constructor(
 
                 try {
                     componentToggler.changePackageState(target.installId, newState)
-                    successful.add(targetId)
+                    if (newState) enabled.add(targetId) else disabled.add(targetId)
                     log(TAG, INFO) { "State successfully changed to $newState" }
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to change state for $targetId: ${e.asLog()}" }
@@ -209,7 +210,7 @@ class AppControl @Inject constructor(
         internalData.value = snapshot.copy(
             apps = snapshot.apps.map { app ->
                 when {
-                    successful.contains(app.installId) || failed.contains(app.installId) -> {
+                    enabled.contains(app.installId) || disabled.contains(app.installId) || failed.contains(app.installId) -> {
                         // TODO if the app is suddenly no longer installed, show the user an error?
                         refreshed.filter { it.id == app.id }.map { it.toAppInfo() }
                     }
@@ -219,7 +220,7 @@ class AppControl @Inject constructor(
             }.flatten()
         )
 
-        return AppControlToggleTask.Result(successful, failed)
+        return AppControlToggleTask.Result(enabled, disabled, failed)
     }
 
     private suspend fun performUninstall(task: UninstallTask): UninstallTask.Result {

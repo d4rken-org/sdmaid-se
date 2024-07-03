@@ -26,9 +26,7 @@ interface ReportDetails {
     }
 
     interface AffectedPkgs : ReportDetails, AffectedCount {
-        val affectedPkgs: Set<Pkg.Id>
-
-        val action: AffectedPkg.Action
+        val affectedPkgs: Map<Pkg.Id, AffectedPkg.Action>
 
         override val affectedCount: Int
             get() = affectedPkgs.size

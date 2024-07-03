@@ -22,11 +22,8 @@ data class ForceStopTask(
         val failed: Set<Installed.InstallId>,
     ) : AppControlTask.Result, ReportDetails.AffectedPkgs {
 
-        override val affectedPkgs: Set<Pkg.Id>
-            get() = success.map { it.pkgId }.toSet()
-
-        override val action: AffectedPkg.Action
-            get() = AffectedPkg.Action.STOPPED
+        override val affectedPkgs: Map<Pkg.Id, AffectedPkg.Action>
+            get() = success.associate { it.pkgId to AffectedPkg.Action.STOPPED }
 
         val isSuccess: Boolean
             get() = success.isNotEmpty() && failed.isEmpty()
