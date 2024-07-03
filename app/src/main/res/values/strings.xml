@@ -499,6 +499,10 @@
     <string name="appcontrol_list_sortmode_size_label">Size</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">App sizes are estimated for performance reasons. Use the StorageAnalyzer tool for more accurate data.</string>
     <string name="appcontrol_progress_uninstalling_app">Uninstalling app</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d app was uninstalled</item>
+        <item quantity="other">%d apps were uninstalled</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">App size</string>
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Data</string>
@@ -508,6 +512,10 @@
         <item quantity="one">Change enabled/disabled state of %d app?</item>
         <item quantity="other">Change enabled/disabled states for %d apps?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d app was toggled</item>
+        <item quantity="other">%d apps were toggled</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determine sizes</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Get a rough estimate of each app\'s size.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determine activity</string>
@@ -515,6 +523,10 @@
     <string name="appcontrol_export_app_selection_action">Export apps</string>
     <string name="appcontrol_export_title">Export app</string>
     <string name="appcontrol_export_description">Save this app\’s installation files. This does not include app data.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d app was exported</item>
+        <item quantity="other">%d apps were exported</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Exporting %s</string>
     <string name="appcontrol_force_stop_selection_action">Force stop apps</string>
     <string name="appcontrol_force_stop_action">Force stop</string>
@@ -522,6 +534,10 @@
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="one">Force stop %d app?</item>
         <item quantity="other">Force stop %d apps?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d app was stopped</item>
+        <item quantity="other">%d apps were stopped</item>
     </plurals>
     <string name="appcontrol_automation_loading">Preparing automation via accessibility service</string>
     <string name="appcontrol_automation_title">AppControl automation</string>

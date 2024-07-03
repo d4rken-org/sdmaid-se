@@ -27,9 +27,14 @@ data class UninstallTask(
 
         override val primaryInfo: CaString
             get() = caString {
-                val succ = getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_successful, success.size)
-                val failed = getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_failed, failed.size)
-                "$succ | $failed"
+                getQuantityString2(eu.darken.sdmse.R.plurals.appcontrol_uninstall_result_message_x, success.size)
+            }
+
+        override val secondaryInfo: CaString?
+            get() = failed.takeIf { it.isNotEmpty() }?.let {
+                caString {
+                    getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_failed, failed.size)
+                }
             }
     }
 }
