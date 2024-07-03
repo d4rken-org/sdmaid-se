@@ -1,9 +1,7 @@
 package eu.darken.sdmse.appcontrol.ui.list
 
 import android.content.Intent
-import eu.darken.sdmse.appcontrol.core.export.AppExporter
-import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.appcontrol.core.AppControlTask
 
 sealed class AppControlListEvents {
     data class ConfirmDeletion(val items: List<AppControlListAdapter.Item>) : AppControlListEvents()
@@ -14,13 +12,6 @@ sealed class AppControlListEvents {
         val items: List<AppControlListAdapter.Item>,
         val intent: Intent
     ) : AppControlListEvents()
-
-    data class ExportResult(
-        val successful: Collection<AppExporter.Result>,
-        val failed: Collection<Installed.InstallId>,
-    ) : AppControlListEvents()
-
-    data class ForceStopResult(val result: ForceStopTask.Result) : AppControlListEvents()
-
     data class ConfirmForceStop(val items: List<AppControlListAdapter.Item>) : AppControlListEvents()
+    data class ShowResult(val result: AppControlTask.Result) : AppControlListEvents()
 }

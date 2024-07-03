@@ -18,7 +18,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.appcontrol.core.export.AppExportType
-import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -26,7 +25,6 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
-import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.pkgs.isArchived
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
@@ -92,26 +90,10 @@ class AppActionDialog : BottomSheetDialogFragment2() {
                     }
                 }
 
-                is AppActionEvents.ExportResult -> {
-                    val msgSuccessful = getQuantityString2(
-                        R.plurals.result_x_successful,
-                        event.successful.size
-                    )
-                    val msgFailed = getQuantityString2(
-                        R.plurals.result_x_failed,
-                        event.failed.size
-                    )
-                    Snackbar.make(requireView(), "$msgSuccessful, $msgFailed", Snackbar.LENGTH_SHORT).show()
-                }
-
-                is AppActionEvents.ForceStopResult -> {
+                is AppActionEvents.ShowResult -> {
                     Snackbar.make(
                         requireView(),
-                        if (event.result.isSuccess) {
-                            getString(R.string.general_result_success_message)
-                        } else {
-                            getString(R.string.general_result_failure_message)
-                        },
+                        event.result.primaryInfo.get(requireContext()),
                         Snackbar.LENGTH_SHORT
                     ).show()
                 }

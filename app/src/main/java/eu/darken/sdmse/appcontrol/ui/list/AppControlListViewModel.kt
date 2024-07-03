@@ -349,7 +349,8 @@ class AppControlListViewModel @Inject constructor(
             return@launch
         }
         val targets = items.map { it.appInfo.installId }.toSet()
-        taskManager.submit(UninstallTask(targets = targets))
+        val result = taskManager.submit(UninstallTask(targets = targets)) as UninstallTask.Result
+        events.postValue(AppControlListEvents.ShowResult(result))
     }
 
     fun export(items: Collection<AppControlListAdapter.Item>, saveDir: Uri? = null) = launch {
@@ -367,7 +368,7 @@ class AppControlListViewModel @Inject constructor(
         val targets = items.map { it.appInfo.installId }.toSet()
         val result = taskManager.submit(AppExportTask(targets = targets, saveDir)) as AppExportTask.Result
 
-        events.postValue(AppControlListEvents.ExportResult(result.success, result.failed))
+        events.postValue(AppControlListEvents.ShowResult(result))
     }
 
     fun forceStop(items: Collection<AppControlListAdapter.Item>, confirmed: Boolean = false) = launch {
@@ -383,7 +384,7 @@ class AppControlListViewModel @Inject constructor(
         }
         val targets = items.map { it.appInfo.installId }.toSet()
         val result = taskManager.submit(ForceStopTask(targets = targets)) as ForceStopTask.Result
-        events.postValue(AppControlListEvents.ForceStopResult(result))
+        events.postValue(AppControlListEvents.ShowResult(result))
     }
 
     data class State(
