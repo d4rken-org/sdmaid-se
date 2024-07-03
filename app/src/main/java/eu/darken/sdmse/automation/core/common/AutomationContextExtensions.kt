@@ -56,7 +56,7 @@ fun AutomationExplorer.Context.defaultClick(
     isDryRun: Boolean = false,
     onDisabled: ((AccessibilityNodeInfo) -> Boolean)? = null,
 ): suspend (AccessibilityNodeInfo, Int) -> Boolean = clickFunc@{ node: AccessibilityNodeInfo, _: Int ->
-    log(TAG, VERBOSE) { "Clicking on ${node.toStringShort()}" }
+    log(TAG, VERBOSE) { "Clicking (isDryRun=$isDryRun) on ${node.toStringShort()}" }
 
     when {
         !node.isEnabled -> onDisabled?.invoke(node) ?: throw DisabledTargetException("Clickable target is disabled.")
