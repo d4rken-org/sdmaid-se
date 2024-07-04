@@ -135,6 +135,6 @@ class ArchivedPkgsSource @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("PkgRepo", "Source", "ArchivedPkgs")
+        private val TAG = logTag("Pkg", "Repo", "Source", "ArchivedPkgs")
     }
 }

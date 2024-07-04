@@ -516,6 +516,6 @@ class PkgOps @Inject constructor(
 
     companion object {
         private const val PULSE_PERIOD_SECONDS = 10
-        val TAG = logTag("PkgOps")
+        val TAG = logTag("Pkg", "Ops")
     }
 }
