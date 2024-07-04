@@ -37,7 +37,10 @@ interface IpcHostModule {
             // TODO Find better way to pass trace, see IpcClientModule
             val encodedTrace = stackTrace.encodeBase64()
             if (encodedTrace != null) {
-                msgBuilder.append(STACK_MARKER).append(encodedTrace)
+                msgBuilder
+                    .append("\n\n")
+                    .append(STACK_MARKER)
+                    .append(encodedTrace)
             }
         }
 
@@ -45,6 +48,6 @@ interface IpcHostModule {
     }
 
     companion object {
-        const val STACK_MARKER = "\n\n#STACK#:"
+        const val STACK_MARKER = "#STACK#:"
     }
 }
