@@ -280,3 +280,6 @@ fun Collection<APath>.filterDistinctRoots(): Set<APath> = this
         }
     }
     .toSet()
+
+val APath.extension: String?
+    get() = name.substringAfterLast('.', "").takeIf { it.isNotEmpty() }

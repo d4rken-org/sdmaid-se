@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common.files
 
-import eu.darken.sdmse.common.files.*
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.files.saf.SAFDocFile
@@ -788,5 +787,18 @@ class APathExtensionTest : BaseTest() {
         val file2s: APath = SAFPath.build(treeUri, "test", "file2", "sub")
 
         setOf(file1, file1s, file2, file2s).filterDistinctRoots() shouldBe setOf(file1, file2)
+    }
+
+
+    @Test fun `file extensions`() {
+        LocalPath.build("test", "file1").extension shouldBe null
+        LocalPath.build("test", "file1.abc").extension shouldBe "abc"
+        LocalPath.build("test", "file1.abc.def").extension shouldBe "def"
+        LocalPath.build("test", "file1.abc..").extension shouldBe null
+
+        SAFPath.build(treeUri, "test", "file2").extension shouldBe null
+        SAFPath.build(treeUri, "test", "file2.abc").extension shouldBe "abc"
+        SAFPath.build(treeUri, "test", "file2.abc.def").extension shouldBe "def"
+        SAFPath.build(treeUri, "test", "file2.abc..").extension shouldBe null
     }
 }

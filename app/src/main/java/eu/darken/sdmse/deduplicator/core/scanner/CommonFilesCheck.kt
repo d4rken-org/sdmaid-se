@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.extension
 import javax.inject.Inject
 
 class CommonFilesCheck @Inject constructor(
@@ -14,17 +15,24 @@ class CommonFilesCheck @Inject constructor(
 
     suspend fun isCommon(lookup: APathLookup<*>): Boolean {
         val mimeType = mimeTypeTool.determineMimeType(lookup)
-        if (Bugs.isTrace) log(TAG, VERBOSE) { "$mimeType <- ${lookup.path}" }
-        return COMMON_TYPES.contains(mimeType)
+        if (Bugs.isDebug) log(TAG, VERBOSE) { "MimeType: $mimeType <- ${lookup.path}" }
+        return when {
+            mimeType == "application/octet-stream" -> APPS_SUFFIXES.contains(lookup.extension)
+            else -> COMMON_TYPES.contains(mimeType)
+        }
     }
 
     suspend fun isImage(lookup: APathLookup<*>): Boolean {
         val mimeType = mimeTypeTool.determineMimeType(lookup)
-        if (Bugs.isTrace) log(TAG, VERBOSE) { "$mimeType <- ${lookup.path}" }
+        if (Bugs.isDebug) log(TAG, VERBOSE) { "MimeType: $mimeType <- ${lookup.path}" }
         return IMAGES.contains(mimeType)
     }
 
     companion object {
+        private val APPS_SUFFIXES = setOf(
+            "apk",
+            "apks"
+        )
         private val IMAGES = setOf(
             "image/x-ms-bmp",
             "image/jpeg",
