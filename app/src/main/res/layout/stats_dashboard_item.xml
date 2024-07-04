@@ -56,6 +56,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
+            android:clickable="false"
+            android:focusable="false"
             android:layout_marginBottom="16dp"
             android:text="@string/general_more_info_action"
             app:layout_constraintBottom_toBottomOf="parent"
