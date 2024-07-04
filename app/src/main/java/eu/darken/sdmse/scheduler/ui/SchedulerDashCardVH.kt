@@ -56,8 +56,7 @@ class SchedulerDashCardVH(parent: ViewGroup) :
             }
         }
 
-        root.setOnClickListener { manageAction.performClick() }
-        manageAction.apply { setOnClickListener { item.onManageClicked() } }
+        root.setOnClickListener { item.onManageClicked() }
     }
 
     data class Item(

@@ -51,6 +51,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:clickable="false"
+            android:focusable="false"
             android:text="@string/upgrades_dashcard_upgrade_action"
             app:icon="@drawable/ic_baseline_stars_24"
             app:layout_constraintBottom_toBottomOf="parent"

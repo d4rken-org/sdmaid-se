@@ -56,6 +56,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            android:clickable="false"
+            android:focusable="false"
             android:text="@string/general_view_action"
             app:icon="@drawable/ic_eye_24"
             app:layout_constraintBottom_toBottomOf="parent"

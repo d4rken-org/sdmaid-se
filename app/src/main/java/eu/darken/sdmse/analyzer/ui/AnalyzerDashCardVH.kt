@@ -22,10 +22,7 @@ class AnalyzerDashCardVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
 
-        root.setOnClickListener { viewAction.performClick() }
-        viewAction.apply {
-            setOnClickListener { item.onViewDetails() }
-        }
+        root.setOnClickListener { item.onViewDetails() }
     }
 
     data class Item(
