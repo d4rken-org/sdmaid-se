@@ -65,6 +65,6 @@ class LibraryPkgsSource @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("PkgRepo", "Source", "LibraryPkgs")
+        private val TAG = logTag("Pkg", "Repo", "Source", "LibraryPkgs")
     }
 }

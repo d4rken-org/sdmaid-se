@@ -69,6 +69,6 @@ class SharedLibraryPathClaw @Inject constructor() {
             LIBRARY_GENERIC_PATH_CLAW,
         )
 
-        private val TAG = logTag("PkgRepo", "Source", "SharedLibrary", "PathClaw")
+        private val TAG = logTag("Pkg", "Repo", "Source", "SharedLibrary", "PathClaw")
     }
 }

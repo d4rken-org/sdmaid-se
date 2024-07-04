@@ -83,6 +83,6 @@ class HiddenPkgsSource @Inject constructor(
     companion object {
 
         private val PATTERN = Regex("^package:(.+?)=([\\w._]+)$")
-        private val TAG = logTag("PkgRepo", "Source", "HiddenPkgs")
+        private val TAG = logTag("Pkg", "Repo", "Source", "HiddenPkgs")
     }
 }
