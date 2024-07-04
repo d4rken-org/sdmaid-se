@@ -13,7 +13,6 @@ import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
 import kotlinx.coroutines.flow.AbstractFlow
 import kotlinx.coroutines.flow.FlowCollector
-import java.io.IOException
 import java.util.LinkedList
 
 // TODO support symlinks?
@@ -70,7 +69,7 @@ class EscalatingWalker(
                                 collector.emit(child)
                             }
                         continue
-                    } catch (e: IOException) {
+                    } catch (e: Exception) {
                         log(TAG, VERBOSE) { "Escalating ${item.target.lookedUp} to $escalationMode due to: $e" }
                         queue.addFirst(item.copy(targetMode = escalationMode, error = e))
                     }
@@ -89,7 +88,7 @@ class EscalatingWalker(
                                 collector.emit(child)
                             }
                         continue
-                    } catch (e: IOException) {
+                    } catch (e: Exception) {
                         log(TAG, DEBUG) { "Failed to read despite escalation: ${item.target.lookedUp}: $e" }
                         queue.addFirst(item.copy(targetMode = null, error = e))
                     }
@@ -110,7 +109,7 @@ class EscalatingWalker(
     data class QueuedItem(
         val target: LocalPathLookup,
         val targetMode: LocalGateway.Mode? = LocalGateway.Mode.NORMAL,
-        val error: IOException? = null,
+        val error: Exception? = null,
     ) {
         fun toSubItem(target: LocalPathLookup) = copy(
             target = target,

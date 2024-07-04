@@ -11,12 +11,11 @@ import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
 import kotlinx.coroutines.flow.AbstractFlow
 import kotlinx.coroutines.flow.FlowCollector
-import java.io.IOException
 import java.util.LinkedList
 
 // TODO support symlinks?
 // TODO unit test coverage
-class DirectLocalWalker constructor(
+class DirectLocalWalker(
     private val start: LocalPath,
     private val onFilter: suspend (LocalPathLookup) -> Boolean = { true },
     private val onError: suspend (LocalPathLookup, Exception) -> Boolean = { _, _ -> true },
@@ -33,14 +32,13 @@ class DirectLocalWalker constructor(
         val queue = LinkedList(listOf(startLookUp))
 
         while (!queue.isEmpty()) {
-
             val lookUp = queue.removeFirst()
 
             val newBatch = try {
                 lookUp.lookedUp.asFile()
                     .listFiles2()
                     .map { it.toLocalPath().performLookup() }
-            } catch (e: IOException) {
+            } catch (e: Exception) {
                 log(TAG, ERROR) { "Failed to read $lookUp: $e" }
                 if (onError(lookUp, e)) {
                     emptyList()

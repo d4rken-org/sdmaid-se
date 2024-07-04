@@ -9,12 +9,11 @@ import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
 import kotlinx.coroutines.flow.AbstractFlow
 import kotlinx.coroutines.flow.FlowCollector
-import java.io.IOException
 import java.util.LinkedList
 
 // TODO support symlinks?
 // TODO unit test coverage
-class IndirectLocalWalker constructor(
+class IndirectLocalWalker(
     private val gateway: LocalGateway,
     private val mode: LocalGateway.Mode = LocalGateway.Mode.AUTO,
     private val start: LocalPath,
@@ -38,7 +37,7 @@ class IndirectLocalWalker constructor(
 
             val newBatch = try {
                 gateway.lookupFiles(lookUp.lookedUp, mode)
-            } catch (e: IOException) {
+            } catch (e: Exception) {
                 log(TAG, ERROR) { "Failed to read $lookUp: $e" }
                 if (onError(lookUp, e)) {
                     emptyList()

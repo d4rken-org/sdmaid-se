@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.ipc
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import java.io.ByteArrayInputStream
 import java.io.ObjectInputStream
@@ -47,7 +48,7 @@ interface IpcClientModule {
                     }
                 }
         } catch (e: Exception) {
-            log(WARN) { "Failed to unwrap exception: $this" }
+            log(WARN) { "Failed to unwrap exception: $this: ${e.asLog()}" }
             this
         }
     }
