@@ -46,12 +46,19 @@ class StatsDashCardVH(parent: ViewGroup) :
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             )
         }
-
+        viewAction.apply {
+            if (item.showProRequirement) {
+                setIconResource(R.drawable.ic_baseline_stars_24)
+            } else {
+                icon = null
+            }
+        }
         root.setOnClickListener { item.onViewAction() }
     }
 
     data class Item(
         val state: StatsRepo.State,
+        val showProRequirement: Boolean,
         val onViewAction: () -> Unit,
     ) : DashboardAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()

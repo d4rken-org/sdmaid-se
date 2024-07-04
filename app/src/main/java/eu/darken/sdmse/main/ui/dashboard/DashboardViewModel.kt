@@ -414,12 +414,20 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val statsItem: Flow<StatsDashCardVH.Item?> = statsRepo.state.map {
-        if (it.isEmpty) return@map null
+    private val statsItem: Flow<StatsDashCardVH.Item?> = combine(
+        statsRepo.state,
+        upgradeInfo.map { it?.isPro ?: false },
+    ) { state, isPro ->
+        if (state.isEmpty) return@combine null
         StatsDashCardVH.Item(
-            state = it,
+            state = state,
+            showProRequirement = !isPro,
             onViewAction = {
-                DashboardFragmentDirections.actionDashboardFragmentToReportsFragment().navigate()
+                if (isPro) {
+                    DashboardFragmentDirections.actionDashboardFragmentToReportsFragment()
+                } else {
+                    MainDirections.goToUpgradeFragment()
+                }.navigate()
             }
         )
     }
