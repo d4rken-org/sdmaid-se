@@ -166,6 +166,8 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 true
             },
             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: Collection<AppControlListAdapter.Item> ->
+                if (selected.isEmpty()) return@installListSelection false
+
                 when (item.itemId) {
                     R.id.action_exclude_selected -> {
                         vm.exclude(selected)
