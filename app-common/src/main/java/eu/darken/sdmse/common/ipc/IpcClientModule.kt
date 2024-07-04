@@ -26,8 +26,8 @@ interface IpcClientModule {
         val exceptionName = matchResult?.groupValues?.get(1) ?: return this
         val messageParts = message!!
             .removePrefix(matchResult.groupValues.first())
-            .trim()
             .split(IpcHostModule.STACK_MARKER)
+            .map { it.trim() }
 
         return try {
             Class.forName(exceptionName)
@@ -36,7 +36,6 @@ interface IpcClientModule {
                 .newInstance(messageParts.first())
                 .also { newException ->
                     //  TODO: Couldn't find a way to keep the trace through parceling
-                    // it.stackTrace = this.stackTrace
                     if (Bugs.isDebug && messageParts.size > 1) {
                         log(VERBOSE) { "Decoding stacktrace..." }
                         messageParts[1].decodeStacktrace()?.let { remoteTrace ->
