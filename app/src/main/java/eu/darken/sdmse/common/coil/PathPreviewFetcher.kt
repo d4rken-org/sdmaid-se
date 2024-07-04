@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.coil
 
 import android.content.Context
+import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
 import coil.ImageLoader
 import coil.decode.DataSource
@@ -16,7 +17,10 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.asFile
+import eu.darken.sdmse.common.files.extension
 import eu.darken.sdmse.common.files.iconRes
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.main.core.GeneralSettings
 import okio.buffer
 import javax.inject.Inject
@@ -38,6 +42,9 @@ class PathPreviewFetcher @Inject constructor(
         )
     }
 
+    private val pacMan: PackageManager
+        get() = context.packageManager
+
     override suspend fun fetch(): FetchResult {
         if (data.fileType != FileType.FILE || data.size == 0L) return fallbackIcon
 
@@ -45,16 +52,41 @@ class PathPreviewFetcher @Inject constructor(
 
         val mimeType = mimeTypeTool.determineMimeType(data)
 
-        val isValid = mimeType.startsWith("image") || mimeType.startsWith("video")
-        if (!isValid) return fallbackIcon
+        return when {
+            mimeType.startsWith("image") || mimeType.startsWith("video") -> {
+                val buffer = gatewaySwitch.read(data.lookedUp).buffer()
+                SourceResult(
+                    ImageSource(buffer, context),
+                    mimeType,
+                    dataSource = DataSource.DISK
+                )
+            }
 
-        val buffer = gatewaySwitch.read(data.lookedUp).buffer()
+            mimeType == "application/octet-stream" && data.lookedUp.extension == "apk" && data.lookedUp is LocalPath -> {
+                val file = data.lookedUp.asFile()
 
-        return SourceResult(
-            ImageSource(buffer, context),
-            mimeType,
-            dataSource = DataSource.DISK
-        )
+                val iconDrawable = file
+                    .takeIf { it.canRead() }
+                    ?.let { pacMan.getPackageArchiveInfo(it.path, PackageManager.GET_META_DATA) }
+                    ?.let {
+                        it.applicationInfo.apply {
+                            sourceDir = file.path
+                            publicSourceDir = file.path
+                        }
+                    }
+                    ?.let { pacMan.getApplicationIcon(it) }
+
+                iconDrawable?.let {
+                    DrawableResult(
+                        drawable = it,
+                        isSampled = false,
+                        dataSource = DataSource.DISK
+                    )
+                } ?: fallbackIcon
+            }
+
+            else -> fallbackIcon
+        }
     }
 
     class Factory @Inject constructor(
