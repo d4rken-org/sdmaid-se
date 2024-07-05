@@ -99,3 +99,6 @@ fun Collection<APathLookup<*>>.filterDistinctRoots(): Set<APathLookup<*>> {
     val lookupMap = this.associateBy { it.lookedUp }
     return lookupMap.keys.filterDistinctRoots().map { lookupMap.getValue(it) }.toSet()
 }
+
+val APathLookup<*>.extension: String?
+    get() = lookedUp.extension

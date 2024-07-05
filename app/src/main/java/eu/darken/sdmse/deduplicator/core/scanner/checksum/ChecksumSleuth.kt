@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -110,6 +111,7 @@ class ChecksumSleuth @Inject constructor(
 
         val minSize = settings.minSizeBytes.value()
         val skipUncommon = settings.skipUncommon.value()
+        log(TAG) { "Search with minSize=$minSize and skipUncommon=$skipUncommon" }
 
         val suspects = mutableSetOf<APathLookup<*>>()
 
@@ -143,7 +145,11 @@ class ChecksumSleuth @Inject constructor(
                 }
                 .buffer(1024)
                 .filter {
-                    it.isFile && it.size >= minSize && (!skipUncommon || commonFilesCheck.isCommon(it))
+                    if (!it.isFile) return@filter false
+                    val isGoodSize = it.size >= minSize
+                    val isGoodType = (!skipUncommon || commonFilesCheck.isCommon(it))
+                    if (Bugs.isDebug) log(TAG) { "goodSize=$isGoodSize, goodType=$isGoodType <-> $it" }
+                    isGoodSize && isGoodType
                 }
                 .collect { item -> suspects.add(item) }
         }
