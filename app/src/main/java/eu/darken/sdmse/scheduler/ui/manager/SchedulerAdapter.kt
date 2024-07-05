@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.scheduler.ui.manager.items.AlarmHintRowVH
+import eu.darken.sdmse.scheduler.ui.manager.items.BatteryHintRowVH
 import eu.darken.sdmse.scheduler.ui.manager.items.ScheduleRowVH
 import javax.inject.Inject
 
@@ -28,6 +29,7 @@ class SchedulerAdapter @Inject constructor() :
         addMod(DataBinderMod(data))
         addMod(TypedVHCreatorMod({ data[it] is ScheduleRowVH.Item }) { ScheduleRowVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is AlarmHintRowVH.Item }) { AlarmHintRowVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is BatteryHintRowVH.Item }) { BatteryHintRowVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

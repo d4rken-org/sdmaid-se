@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common.permissions
 
-import android.annotation.SuppressLint
 import android.app.AppOpsManager
 import android.content.Context
 import android.content.Intent
@@ -9,11 +8,9 @@ import android.content.pm.ResolveInfo
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
-import android.os.PowerManager
 import android.provider.Settings
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
-import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import kotlin.reflect.full.isSubclassOf
@@ -29,24 +26,6 @@ sealed class Permission(
 
     object POST_NOTIFICATIONS
         : Permission("android.permission.POST_NOTIFICATIONS"), RuntimePermission
-
-    @SuppressLint("BatteryLife")
-    object IGNORE_BATTERY_OPTIMIZATION
-        : Permission("android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"), Specialpermission {
-        override fun isGranted(context: Context): Boolean {
-            val pwm = context.getSystemService(Context.POWER_SERVICE) as PowerManager
-            return pwm.isIgnoringBatteryOptimizations(BuildConfigWrap.APPLICATION_ID)
-        }
-
-        override fun createIntent(context: Context, deviceDetective: DeviceDetective): Intent = Intent().apply {
-            action = Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
-            data = Uri.fromParts("package", context.packageName, null)
-        }
-
-        override fun createIntentFallback(context: Context): Intent = Intent().apply {
-            Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
-        }
-    }
 
     @RequiresApi(Build.VERSION_CODES.R)
     object MANAGE_EXTERNAL_STORAGE
