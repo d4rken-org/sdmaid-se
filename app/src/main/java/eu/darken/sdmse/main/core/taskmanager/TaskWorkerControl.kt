@@ -3,6 +3,7 @@ package eu.darken.sdmse.main.core.taskmanager
 import androidx.work.Data
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.OutOfQuotaPolicy
 import androidx.work.WorkManager
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -26,7 +27,7 @@ class TaskWorkerControl @Inject constructor(
 
         val workRequest = OneTimeWorkRequestBuilder<TaskWorker>().apply {
             setInputData(workerData)
-//            setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
+            setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
         }.build()
 
         log(TAG, VERBOSE) { "Worker request: $workRequest" }
