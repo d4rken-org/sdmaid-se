@@ -10,6 +10,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -46,6 +47,7 @@ class TaskWorker @AssistedInject constructor(
 
     override suspend fun getForegroundInfo(): ForegroundInfo {
         val state = withTimeoutOrNull(3000) { taskManager.state.first() }
+        log(TAG) { "Supplying getForegroundInfo() with $state" }
         if (state == null) log(TAG, WARN) { "TaskManager state was not available" }
         return taskWorkerNotifications.getForegroundInfo(state)
     }
@@ -53,6 +55,14 @@ class TaskWorker @AssistedInject constructor(
     override suspend fun doWork(): Result = try {
         val start = System.currentTimeMillis()
         log(TAG, VERBOSE) { "Executing $inputData now (runAttemptCount=$runAttemptCount)" }
+
+        try {
+            log(TAG) { "Declaring as foreground task" }
+            setForeground(getForegroundInfo())
+            log(TAG, INFO) { "Foreground state declared!" }
+        } catch (e: IllegalStateException) {
+            log(TAG, ERROR) { "Can't execute in foreground: ${e.asLog()}" }
+        }
 
         doDoWork()
 
@@ -93,6 +103,7 @@ class TaskWorker @AssistedInject constructor(
                         log(TAG) { "No active tasks, grace period passed, canceling now" }
                         workerScope.cancel()
                     }
+
                     else -> {
                         val activeTasks = state.tasks.filter { !it.isComplete }
                         log(TAG) { "Active tasks: ${activeTasks.size}" }
