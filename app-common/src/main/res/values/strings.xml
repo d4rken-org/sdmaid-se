@@ -164,4 +164,5 @@
         <item quantity="one">%s file</item>
         <item quantity="other">%s files</item>
     </plurals>
+    <string name="general_advice_title">Advice</string>
 </resources>

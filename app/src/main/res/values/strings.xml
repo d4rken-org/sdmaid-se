@@ -677,6 +677,7 @@
     <string name="scheduler_notification_result_failure_message">Some scheduled tasks failed or encountered errors. Try running them manually.</string>
     <string name="scheduler_commands_after_schedule_label">Post-schedule commands</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell commands that will be executed at the end of a schedule.</string>
+    <string name="scheduler_battery_optimization_hint">Consider disabling battery optimizations for SD Maid if you experience issues with background execution.</string>
 
     <string name="updates_dashcard_title">Update available</string>
     <string name="updates_dashcard_body">An update is available. You have %1$s and the latest version is %2$s.</string>

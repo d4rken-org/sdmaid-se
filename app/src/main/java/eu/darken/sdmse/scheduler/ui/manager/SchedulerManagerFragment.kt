@@ -1,5 +1,6 @@
 package eu.darken.sdmse.scheduler.ui.manager
 
+import android.content.ActivityNotFoundException
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isGone
@@ -11,6 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
@@ -74,6 +76,14 @@ class SchedulerManagerFragment : Fragment3(R.layout.scheduler_manager_fragment) 
                         }
                         setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                     }.show()
+                }
+
+                is SchedulerManagerEvents.ShowBatteryOptimizationSettings -> {
+                    try {
+                        startActivity(event.intent)
+                    } catch (e: ActivityNotFoundException) {
+                        e.asErrorDialogBuilder(requireActivity()).show()
+                    }
                 }
             }
         }

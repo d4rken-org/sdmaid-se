@@ -29,6 +29,8 @@ class SchedulerSettings @Inject constructor(
 
     val createdDefaultEntry = dataStore.createValue("default.entry.created", false)
 
+    val hintBatteryDismissed = dataStore.createValue("hint.battery.optimization.dismissed", false)
+
     override val mapper = PreferenceStoreMapper(
         skipWhenPowerSaving,
         skipWhenNotCharging,

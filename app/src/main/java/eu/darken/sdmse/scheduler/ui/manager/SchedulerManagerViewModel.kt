@@ -7,12 +7,15 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.BatteryHelper
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shizuku.ShizukuManager
@@ -21,18 +24,22 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
-import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.scheduler.core.Schedule
 import eu.darken.sdmse.scheduler.core.ScheduleId
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.scheduler.core.SchedulerSettings
 import eu.darken.sdmse.scheduler.ui.manager.items.AlarmHintRowVH
+import eu.darken.sdmse.scheduler.ui.manager.items.BatteryHintRowVH
 import eu.darken.sdmse.scheduler.ui.manager.items.ScheduleRowVH
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.take
 import java.time.Duration
 import java.time.Instant
 import java.time.LocalTime
-import java.util.*
+import java.util.UUID
 import javax.inject.Inject
 
 @SuppressLint("StaticFieldLeak")
@@ -43,39 +50,62 @@ class SchedulerManagerViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     taskManager: TaskManager,
     private val schedulerManager: SchedulerManager,
-    private val schedulerSettings: SchedulerSettings,
+    private val settings: SchedulerSettings,
     private val upgradeRepo: UpgradeRepo,
     private val rootManager: RootManager,
     private val shizukuManager: ShizukuManager,
+    private val batteryHelper: BatteryHelper,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     val events = SingleLiveEvent<SchedulerManagerEvents>()
+
+    private val showBatteryOptimizationHint = combine(
+        batteryHelper.isIgnoringBatteryOptimizations,
+        settings.hintBatteryDismissed.flow,
+    ) { isIgnoring, isDismissed ->
+        !isDismissed && !isIgnoring
+    }
 
     init {
         schedulerManager.state
             .take(1)
             .onEach {
                 if (it.schedules.isNotEmpty()) return@onEach
-                if (schedulerSettings.createdDefaultEntry.value()) return@onEach
+                if (settings.createdDefaultEntry.value()) return@onEach
 
                 val defaultEntry = Schedule(
                     id = UUID.randomUUID().toString(),
                     label = context.getString(R.string.scheduler_schedule_default_name),
                 )
                 schedulerManager.saveSchedule(defaultEntry)
-                schedulerSettings.createdDefaultEntry.value(true)
+                settings.createdDefaultEntry.value(true)
             }
             .launchInViewModel()
+
+        launch {
+            if (batteryHelper.isIgnoringBatteryOptimizations.first() && settings.hintBatteryDismissed.value()) {
+                log(TAG) { "Resetting hintBatteryDismissed to false" }
+                settings.hintBatteryDismissed.value(false)
+            }
+        }
     }
 
     val items = combine(
         schedulerManager.state,
-        taskManager.state
-    ) { schedulerState, taskState ->
+        taskManager.state,
+        showBatteryOptimizationHint,
+    ) { schedulerState, taskState, showBatteryHint ->
         val items = mutableListOf<SchedulerAdapter.Item>()
 
-        if (schedulerState.schedules.any { it.isEnabled }) {
-            items.add(AlarmHintRowVH.Item(schedulerState))
+        if (hasApiLevel(31) && showBatteryHint && schedulerState.schedules.any { it.isEnabled }) {
+            BatteryHintRowVH.Item(
+                onFix = {
+                    events.postValue(
+                        SchedulerManagerEvents.ShowBatteryOptimizationSettings(batteryHelper.createIntent())
+                    )
+                },
+                onDismiss = { settings.hintBatteryDismissed.valueBlocking = true }
+            ).apply { items.add(this) }
         }
 
         val showCommands = rootManager.canUseRootNow() || shizukuManager.canUseShizukuNow()
@@ -123,6 +153,12 @@ class SchedulerManagerViewModel @Inject constructor(
                 showCommands = showCommands,
             )
         }.run { items.addAll(this) }
+
+        if (schedulerState.schedules.any { it.isEnabled }) {
+            AlarmHintRowVH.Item(
+                schedulerState
+            ).apply { items.add(this) }
+        }
 
         State(
             listItems = items,
