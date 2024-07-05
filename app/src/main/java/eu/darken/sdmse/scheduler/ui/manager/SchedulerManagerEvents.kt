@@ -6,8 +6,5 @@ import eu.darken.sdmse.scheduler.core.Schedule
 sealed interface SchedulerManagerEvents {
     data class FinalCommandsEdit(val schedule: Schedule) : SchedulerManagerEvents
 
-    data class ShowBatteryOptimizationSettings(
-        val primary: Intent,
-        val fallback: Intent,
-    ) : SchedulerManagerEvents
+    data class ShowBatteryOptimizationSettings(val intent: Intent) : SchedulerManagerEvents
 }

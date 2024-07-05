@@ -80,7 +80,7 @@ class SchedulerManagerFragment : Fragment3(R.layout.scheduler_manager_fragment) 
 
                 is SchedulerManagerEvents.ShowBatteryOptimizationSettings -> {
                     try {
-                        startActivity(event.primary)
+                        startActivity(event.intent)
                     } catch (e: ActivityNotFoundException) {
                         e.asErrorDialogBuilder(requireActivity()).show()
                     }

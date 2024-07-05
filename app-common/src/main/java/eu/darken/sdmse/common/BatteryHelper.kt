@@ -32,10 +32,6 @@ class BatteryHelper @Inject constructor(
         action = Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS
     }
 
-    fun createIntentFallback(): Intent = Intent().apply {
-        action = Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS
-    }
-
     companion object {
         private val TAG = logTag("BatteryHelper")
     }

@@ -101,10 +101,7 @@ class SchedulerManagerViewModel @Inject constructor(
             BatteryHintRowVH.Item(
                 onFix = {
                     events.postValue(
-                        SchedulerManagerEvents.ShowBatteryOptimizationSettings(
-                            primary = batteryHelper.createIntent(),
-                            fallback = batteryHelper.createIntentFallback()
-                        )
+                        SchedulerManagerEvents.ShowBatteryOptimizationSettings(batteryHelper.createIntent())
                     )
                 },
                 onDismiss = { settings.hintBatteryDismissed.valueBlocking = true }
