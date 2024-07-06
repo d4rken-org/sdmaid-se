@@ -57,8 +57,8 @@ class InaccessibleCacheProvider @Inject constructor(
     }
 
     private fun Installed.genTheoreticalPaths() = mutableSetOf<APath>().apply {
-        add(File("/storage/emulated/${userHandle.handleId}/Android/data/${id.name}").toLocalPath())
-        add(File("/data/user/${userHandle.handleId}/${id.name}").toLocalPath())
+        add(File("/storage/emulated/${userHandle.handleId}/Android/data/${id.name}/cache").toLocalPath())
+        add(File("/data/user/${userHandle.handleId}/${id.name}/cache").toLocalPath())
     }
 
     companion object {
