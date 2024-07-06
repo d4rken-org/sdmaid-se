@@ -467,7 +467,6 @@
     <string name="analyzer_storage_content_type_system_label">Rendszeradatok</string>
     <string name="analyzer_storage_content_type_system_description">Rendszeralkalmazások és rendszeradatok.  Alkalmazások és adatok más felhasználóktól, ha több felhasználói fiók van beállítva ezen az eszközön.</string>
     <string name="analyzer_storage_content_app_code_label">App kód</string>
-    <string name="analyzer_storage_content_app_code_description">Alkalmazási fájlok, könyvtárak és erőforrások. Ez a hely csak az alkalmazás eltávolításával szabadítható fel.</string>
     <string name="analyzer_storage_content_app_data_label">App adatok</string>
     <string name="analyzer_storage_content_app_data_description">Adatok, beállítások és gyorsítótárak.</string>
     <string name="analyzer_storage_content_app_media_label">App média</string>

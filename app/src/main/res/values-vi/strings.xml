@@ -114,6 +114,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Cho phép SD Maid sử dụng Shizuku nếu có thể để cải thiện kết quả và kích hoạt các tính năng.</string>
     <string name="setup_shizuku_card_body2">Cài đặt này không có hiệu lực nếu ứng dụng Shizuku không được thiết lập trên thiết bị của bạn.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku kết hợp với truy cập root không cho phép các tính năng bổ sung, nhưng nó cải thiện độ tin cậy. SD Maid sẽ sử dụng nó như một phương pháp dự phòng.</string>
     <string name="setup_shizuku_state_ready_label">Liên kết Shizuku đã sẵn sàng.</string>
     <string name="setup_shizuku_state_waiting_label">Chờ liên kết với Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Sử dụng Shizuku nếu có</string>
@@ -420,6 +421,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Đóng gói</string>
     <string name="appcontrol_tag_system">Hệ thống</string>
+    <string name="appcontrol_tag_archived">Lưu trữ</string>
     <string name="appcontrol_tag_enabled">Đã bật</string>
     <string name="appcontrol_tag_disabled">Đã tắt</string>
     <string name="appcontrol_progress_enabling_package">Kích hoạt ứng dụng</string>
@@ -489,7 +491,7 @@
     <string name="analyzer_storage_content_type_system_label">Dữ liệu hệ thống</string>
     <string name="analyzer_storage_content_type_system_description">Ứng dụng hệ thống và dữ liệu hệ thống. Ứng dụng và dữ liệu từ những người dùng khác nếu có nhiều tài khoản người dùng được đặt trên thiết bị này.</string>
     <string name="analyzer_storage_content_app_code_label">Mã ứng dụng</string>
-    <string name="analyzer_storage_content_app_code_description">Các tệp ứng dụng, thư viện và tài nguyên. Không gian này chỉ có thể được giải phóng bằng cách gỡ cài đặt ứng dụng.</string>
+    <string name="analyzer_storage_content_app_code_description">Các tập tin ứng dụng, thư viện và tài nguyên. Không gian này có thể được giải phóng bằng cách gỡ cài đặt ứng dụng hoặc lưu trữ nó (có sẵn trên phiên bản Android mới hơn).</string>
     <string name="analyzer_storage_content_app_data_label">Dữ liệu ứng dụng</string>
     <string name="analyzer_storage_content_app_data_description">Dữ liệu, cài đặt và bộ nhớ đệm.</string>
     <string name="analyzer_storage_content_app_media_label">Phương tiện ứng dụng</string>
@@ -497,6 +499,7 @@
     <string name="analyzer_storage_content_app_extra_label">Tệp ứng dụng bổ sung</string>
     <string name="analyzer_storage_content_app_extra_description">Dữ liệu bổ sung mà ứng dụng này đã đặt bên ngoài đường dẫn mặc định, ví dụ: ảnh hoặc tải xuống.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Ứng dụng này chiếm %1$s trên \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Ứng dụng này đã được lưu trữ.</string>
     <string name="data_area_public_app_data_official_label">Dữ liệu ứng dụng công khai mặc định</string>
     <string name="data_area_public_app_assets_official_label">Nội dung ứng dụng công khai mặc định</string>
     <string name="data_area_public_storage_label">Lưu trữ công khai</string>

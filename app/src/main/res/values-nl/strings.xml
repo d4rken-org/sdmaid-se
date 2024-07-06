@@ -503,7 +503,6 @@
     <string name="analyzer_storage_content_type_system_label">Systeem gegevens</string>
     <string name="analyzer_storage_content_type_system_description">Systeemapps en systeemgegevens. Apps en gegevens van andere gebruikers, als er meerdere gebruikersaccounts op dit apparaat zijn ingesteld.</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
-    <string name="analyzer_storage_content_app_code_description">Applicatiebestanden, bibliotheken en bronnen. Deze ruimte kan alleen worden vrijgemaakt door de app te verwijderen.</string>
     <string name="analyzer_storage_content_app_data_label">App gegevens</string>
     <string name="analyzer_storage_content_app_data_description">Data, instellingen en caches.</string>
     <string name="analyzer_storage_content_app_media_label">App media</string>

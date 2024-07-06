@@ -116,6 +116,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Permeteu que l\'SD Maid utilitzi Shizuku sempre que sigui possible per millorar els resultats i activar funcions.</string>
     <string name="setup_shizuku_card_body2">Aquesta configuració no té cap efecte si l\'aplicació Shizuku no està configurat al vostre dispositiu.</string>
+    <string name="setup_shizuku_card_root_info">El Shizuku en combinació amb l\'accés «root» no permet funcions addicionals, però millora la fiabilitat. L\'SD Maid l\'utilitzarà com a mètode alternatiu.</string>
     <string name="setup_shizuku_state_ready_label">L\'enllaç Shizuku està llest.</string>
     <string name="setup_shizuku_state_waiting_label">Esperant l\'enllaç amb Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Utilitza el Shizuku si està disponible</string>
@@ -430,6 +431,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Paquet</string>
     <string name="appcontrol_tag_system">Sistema</string>
+    <string name="appcontrol_tag_archived">Arxivat</string>
     <string name="appcontrol_tag_enabled">Habilitat</string>
     <string name="appcontrol_tag_disabled">Inhabilitat</string>
     <string name="appcontrol_progress_enabling_package">Activant l\'aplicació</string>
@@ -503,7 +505,7 @@
     <string name="analyzer_storage_content_type_system_label">Dades del sistema</string>
     <string name="analyzer_storage_content_type_system_description">Aplicacions del sistema i dades del sistema. Aplicacions i dades d\'altres usuaris, si hi ha diversos comptes d\'usuari configurats en aquest dispositiu.</string>
     <string name="analyzer_storage_content_app_code_label">Codi de l\'aplicació</string>
-    <string name="analyzer_storage_content_app_code_description">Fitxers d\'aplicacions, biblioteques i recursos. Aquest espai només es pot alliberar desinstal·lant l\'aplicació.</string>
+    <string name="analyzer_storage_content_app_code_description">Fitxers d\'aplicacions, biblioteques i recursos. Aquest espai es pot alliberar desinstal·lant l\'aplicació o arxivant-la (disponible a la versió d\'Android més recent).</string>
     <string name="analyzer_storage_content_app_data_label">Dades de l\'aplicació</string>
     <string name="analyzer_storage_content_app_data_description">Dades, configuració i memòria cau.</string>
     <string name="analyzer_storage_content_app_media_label">Mitjans de l\'aplicació</string>
@@ -511,6 +513,7 @@
     <string name="analyzer_storage_content_app_extra_label">Fitxers d\'aplicacions addicionals</string>
     <string name="analyzer_storage_content_app_extra_description">Dades addicionals que aquesta aplicació ha col·locat fora de les rutes per defecte, p. ex. fotos o baixades.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Aquesta aplicació ocupa %1$s a «%2$s».</string>
+    <string name="analyzer_app_details_app_is_archived">Aquesta aplicació s\'ha arxivat.</string>
     <string name="data_area_public_app_data_official_label">Dades públiques per defecte de l\'aplicació</string>
     <string name="data_area_public_app_assets_official_label">Recursos d\'aplicacions públiques per defecte</string>
     <string name="data_area_public_storage_label">Emmagatzematge públic</string>

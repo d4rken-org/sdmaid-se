@@ -62,6 +62,8 @@
     <string name="setup_root_card_title">הרשאות רוט</string>
     <string name="setup_root_enable_root_use_label">השתמש בהרשאות רוט אם אפשרי</string>
     <string name="setup_root_disable_root_use_label">אל תשתמש בהרשאות רוט</string>
+    <string name="setup_shizuku_card_root_info">Shizuku בשילוב עם הרשאות גישת root לא מאפשרים פונקציונליות נוספת, אבל משפרים האמינות.
+SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="setup_permission_granted_label">ההרשאה ניתנה</string>
     <string name="setup_usagestats_title">סטטיסטיקות שימוש</string>
     <string name="setup_notification_title">התראות</string>
@@ -112,11 +114,14 @@
     <string name="appcontrol_app_launch_title">פתח אפליקציה</string>
     <string name="appcontrol_tag_user">משתמש</string>
     <string name="appcontrol_tag_system">מערכת</string>
+    <string name="appcontrol_tag_archived">אורכב</string>
     <string name="appcontrol_tag_enabled">פועל</string>
     <string name="appcontrol_tag_disabled">מושבת</string>
     <string name="appcontrol_progress_enabling_package">מפעיל אפליקציה</string>
     <string name="appcontrol_progress_disabling_package">משבית אפליקציה</string>
     <string name="analyzer_storage_content_type_system_description">אפליקציות מערכת ונתוני מערכת. אפליקציות ונתונים ממשתמשים אחרים, אם מוגדרים מספר חשבונות משתמש במכשיר זה.</string>
+    <string name="analyzer_storage_content_app_code_description">קבצי אפליקציות, ספריות ומשאבים. מקום זה יכול להתפנות על ידי הסרת האפליקציה או אירכובה (זמין בגירסאות אנדרואיד חדשות).</string>
+    <string name="analyzer_app_details_app_is_archived">אפליקציה זו אורכבה.</string>
     <string name="scheduler_setting_nopowersaving_title">דלג אם הסוללה חלשה</string>
     <string name="scheduler_setting_charging_title">דלג אם אין שינוי</string>
     <string name="scheduler_setting_charging_summary">אם המכשיר אינו נטען, ידלג על הביצוע המתוכנן.</string>

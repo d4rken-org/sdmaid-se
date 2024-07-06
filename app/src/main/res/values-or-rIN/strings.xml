@@ -99,7 +99,6 @@
     <string name="analyzer_storage_type_secondary_description">ଏକ ପରୋକ୍ଷ ଷ୍ଟୋରେଜ୍, ସାଧାରଣତଃ ଏକ ଅପସାରଣ-ଯୋଗ୍ୟ SD card। ଯହିଁରେ ସମର୍ଥିତ ଆପ୍‌ଗୁଡ଼ିକର ମିଡ଼ିଆ ଫାଇଲ୍ ଏବଂ ତଥ୍ୟ ରହିଥାଏ।</string>
     <string name="analyzer_storage_content_title">ଷ୍ଟୋରେଜ୍ ଵିଷୟଵସ୍ତୁ</string>
     <string name="analyzer_storage_content_type_system_label">ସିଷ୍ଟମ୍ ତଥ୍ୟ</string>
-    <string name="analyzer_storage_content_app_code_description">ଆପ୍ଲିକେସନ୍ ଫାଇଲ୍, ଲାଇବ୍ରେରୀ ଏବଂ ସମ୍ବଳ। ଏହି ସ୍ପେସ୍ କେବଳ ଆପ୍ ଅନଇନଷ୍ଟଲ୍ କରି ମୁକ୍ତ କରାଯାଇପାରିବ।</string>
     <string name="analyzer_storage_content_app_data_label">ଆପ୍ ତଥ୍ୟ</string>
     <string name="analyzer_storage_content_app_data_description">ତଥ୍ୟ, ସେଟିଂ ଏବଂ ଦ୍ରୁତିକା।</string>
     <string name="analyzer_storage_content_app_media_label">ଆପ୍ ମିଡ଼ିଆ</string>

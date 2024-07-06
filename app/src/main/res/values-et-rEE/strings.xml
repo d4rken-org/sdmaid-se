@@ -116,6 +116,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Luba SD Maidil võimalusel täiustada tulemusi ja lubada veel võimalusi Shizukuga.</string>
     <string name="setup_shizuku_card_body2">See säte ei toimi, kui seadmes pole seadistatud Shizuku rakendust.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku koos juurpääsuga ei taga juurdepääsu lisavõimalustele, ent see täiustab toimivust. SD Maid kasutab seda tagavaravariandina.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku link on valmis.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku lingi ootel.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Saadavusel kasuta Shizukut</string>
@@ -428,6 +429,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pakk</string>
     <string name="appcontrol_tag_system">Süsteem</string>
+    <string name="appcontrol_tag_archived">Arhiveeritud</string>
     <string name="appcontrol_tag_enabled">Lubatud</string>
     <string name="appcontrol_tag_disabled">Keelatud</string>
     <string name="appcontrol_progress_enabling_package">Rakenduse lubamine</string>
@@ -501,7 +503,7 @@
     <string name="analyzer_storage_content_type_system_label">Süsteemi andmed</string>
     <string name="analyzer_storage_content_type_system_description">Süsteemi rakendused ja andmed. Muude kasutajate rakendused ja andmed, kui seadmes on seadistatud mitu kasutajakontot.</string>
     <string name="analyzer_storage_content_app_code_label">Rakenduse kood</string>
-    <string name="analyzer_storage_content_app_code_description">Rakenduse failid, kogumid ja ressurssid. Selle hoiuruumi vabastamiseks tuleb rakendus eemaldada.</string>
+    <string name="analyzer_storage_content_app_code_description">Rakenduse failid, teegid ja allikad. Sellle ruumi vabastamiseks eemaldage rakendus või arhiveerige see (saadaval uusimas Androidi versioonis).</string>
     <string name="analyzer_storage_content_app_data_label">Rakenduse andmed</string>
     <string name="analyzer_storage_content_app_data_description">Andmed, seaded ja vahemälud.</string>
     <string name="analyzer_storage_content_app_media_label">Rakenduse meedia</string>
@@ -509,6 +511,7 @@
     <string name="analyzer_storage_content_app_extra_label">Rakenduse täiendavad failid</string>
     <string name="analyzer_storage_content_app_extra_description">Lisaandmed, mis ei asu rakenduse tavapärastes asukohtades, nt pildid või alla laaditud sisu.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Sellele rakendusele kuulub kohas \"%2$s\" %1$s.</string>
+    <string name="analyzer_app_details_app_is_archived">See rakendus on arhiveeritud.</string>
     <string name="data_area_public_app_data_official_label">Tavalised avalikud rakenduse andmed</string>
     <string name="data_area_public_app_assets_official_label">Rakenduse avalikud tavaandmed</string>
     <string name="data_area_public_storage_label">Avalik mälu</string>

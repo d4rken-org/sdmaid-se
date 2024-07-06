@@ -114,6 +114,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">允許 SD 女僕使用 Shizuku，這樣就可以改善搜尋結果並啟用更多功能。</string>
     <string name="setup_shizuku_card_body2">如果 Shizuku 應用程式尚未在您的裝置上安裝，此設定將會無效。</string>
+    <string name="setup_shizuku_card_root_info">Shizuku 與 root 權限結合不會啟用額外功能，但可以提高可靠性。SD Maid 會將其作為後備方法使用。</string>
     <string name="setup_shizuku_state_ready_label">Shizku 連結已就緒。</string>
     <string name="setup_shizuku_state_waiting_label">正在等候 Shizuku 連結。</string>
     <string name="setup_shizuku_enable_shizuku_use_label">使用 Shizuku (如果可用)</string>
@@ -420,6 +421,7 @@
     <string name="appcontrol_tag_apk_base">安裝包</string>
     <string name="appcontrol_tag_apk_bundle">組合包</string>
     <string name="appcontrol_tag_system">系統</string>
+    <string name="appcontrol_tag_archived">已封存</string>
     <string name="appcontrol_tag_enabled">已啟用</string>
     <string name="appcontrol_tag_disabled">已停用</string>
     <string name="appcontrol_progress_enabling_package">正在啟用應用程式</string>
@@ -489,7 +491,7 @@
     <string name="analyzer_storage_content_type_system_label">系統資料</string>
     <string name="analyzer_storage_content_type_system_description">系統應用程式和系統資料，即來自其他使用者的應用程式和資料 (如果此裝置上有多位使用者)。</string>
     <string name="analyzer_storage_content_app_code_label">應用程式程式碼</string>
-    <string name="analyzer_storage_content_app_code_description">應用程式檔案、程式庫和資源，此空間僅可透過解除安裝應用程式釋出。</string>
+    <string name="analyzer_storage_content_app_code_description">應用程式的檔案、函式庫和資源。可以透過解除安裝應用程式或將其封存（適用於較新版的 Android 系統）來釋放這些空間。</string>
     <string name="analyzer_storage_content_app_data_label">應用程式資料</string>
     <string name="analyzer_storage_content_app_data_description">資料、設定和快取。</string>
     <string name="analyzer_storage_content_app_media_label">應用程式媒體</string>
@@ -497,6 +499,7 @@
     <string name="analyzer_storage_content_app_extra_label">額外應用程式檔案</string>
     <string name="analyzer_storage_content_app_extra_description">這個應用程式放置在預設路徑之外的額外資料，例如相片和下載項目。</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">這個應用程式在「%2$s」上佔用了 %1$s。</string>
+    <string name="analyzer_app_details_app_is_archived">此應用程式已被封存。</string>
     <string name="data_area_public_app_data_official_label">預設公用應用程式資料</string>
     <string name="data_area_public_app_assets_official_label">預設公用應用程式資產</string>
     <string name="data_area_public_storage_label">公用儲存空間</string>

@@ -530,7 +530,6 @@
     <string name="analyzer_storage_content_type_system_label">Sistemski podatki</string>
     <string name="analyzer_storage_content_type_system_description">Sistemski programi in podatki.  Programi in podatki drugih uporabnikov, če je na napravi več uporabniških računov.</string>
     <string name="analyzer_storage_content_app_code_label">Programska koda</string>
-    <string name="analyzer_storage_content_app_code_description">Programske datoteke, knjižnice in viri.  Ta prostor sprostite lahko samo z odstranitvijo programa.</string>
     <string name="analyzer_storage_content_app_data_label">Programski podatki</string>
     <string name="analyzer_storage_content_app_data_description">Podatki, nastavitve in predpomnilniki.</string>
     <string name="analyzer_storage_content_app_media_label">Predstavnost programov</string>

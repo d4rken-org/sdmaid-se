@@ -491,7 +491,6 @@
     <string name="analyzer_storage_content_type_system_label">Systémové údaje</string>
     <string name="analyzer_storage_content_type_system_description">Systémové aplikácie a systémové údaje. Aplikácie a údaje od iných používateľov, ak je na tomto zariadení nastavených niekoľko používateľských účtov.</string>
     <string name="analyzer_storage_content_app_code_label">Kód aplikácie</string>
-    <string name="analyzer_storage_content_app_code_description">Súbory aplikácie, knižnice a zdroje. Tento priestor je možné uvoľniť iba odinštalovaním aplikácie.</string>
     <string name="analyzer_storage_content_app_data_label">Dáta aplikácie</string>
     <string name="analyzer_storage_content_app_data_description">Dáta, nastavenia a vyrovnávacie pamäte.</string>
     <string name="analyzer_storage_content_app_media_label">Médiá aplikácie</string>

@@ -472,7 +472,6 @@
     <string name="analyzer_storage_content_type_system_label">시스템 데이터</string>
     <string name="analyzer_storage_content_type_system_description">시스템 앱 및 데이터. 여러 유저가 추가되어 있다면 다른 유저의 앱과 데이터를 포함합니다.</string>
     <string name="analyzer_storage_content_app_code_label">앱 소스</string>
-    <string name="analyzer_storage_content_app_code_description">앱의 파일이나 라이브러리 등이 차지하는 공간입니다. 해당 앱을 삭제해야 공간을 확보할 수 있습니다.</string>
     <string name="analyzer_storage_content_app_data_label">앱 데이터</string>
     <string name="analyzer_storage_content_app_data_description">앱의 데이터, 설정, 캐시 등을 포함하는 공간입니다.</string>
     <string name="analyzer_storage_content_app_media_label">앱 미디어</string>

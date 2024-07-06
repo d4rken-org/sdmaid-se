@@ -124,6 +124,7 @@
     <string name="setup_shizuku_card_title">شيزوكو</string>
     <string name="setup_shizuku_card_body">السماح لـ SD Maid باستخدام شيزوكو كلما كان ذلك ممكناً لتحسين النتائج وتمكين الميزات.</string>
     <string name="setup_shizuku_card_body2">هذا الإعداد ليس له أي تأثير إذا لم يتم إعداد تطبيق شيزوكو على جهازك.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku مع الوصول إلى الجذر لا يتيح ميزات إضافية، ولكنه يحسن الموثوقية. سوف يستخدمه SD Maid كطريقة احتياطية.</string>
     <string name="setup_shizuku_state_ready_label">رابط شيزوكو جاهز.</string>
     <string name="setup_shizuku_state_waiting_label">في انتظار الرابط مع شيزوكو.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">استخدم Shizuku ان كانت متوفرة</string>
@@ -470,6 +471,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">حزمة</string>
     <string name="appcontrol_tag_system">النظام</string>
+    <string name="appcontrol_tag_archived">مؤرشف</string>
     <string name="appcontrol_tag_enabled">مفعل</string>
     <string name="appcontrol_tag_disabled">معطل</string>
     <string name="appcontrol_progress_enabling_package">تفعيل التطبيق</string>
@@ -559,7 +561,7 @@
     <string name="analyzer_storage_content_type_system_label">بيانات النظام</string>
     <string name="analyzer_storage_content_type_system_description">تطبيقات النظام وبيانات النظام. التطبيقات والبيانات من المستخدمين الآخرين، إذا تم تعيين عدة حسابات للمستخدمين على هذا الجهاز.</string>
     <string name="analyzer_storage_content_app_code_label">كود التطبيق</string>
-    <string name="analyzer_storage_content_app_code_description">ملفات التطبيق، المكتبات والموارد. لا يمكن تحرير هذه المساحة إلا بإلغاء تثبيت التطبيق.</string>
+    <string name="analyzer_storage_content_app_code_description">ملفات التطبيق، المكتبات والموارد. يمكن تحرير هذه المساحة عن طريق إلغاء تثبيت التطبيق أو أرشفته (متاحة على إصدارات أندرويد الأحدث).</string>
     <string name="analyzer_storage_content_app_data_label">بيانات التطبيق</string>
     <string name="analyzer_storage_content_app_data_description">البيانات والإعدادات والمخابئ.</string>
     <string name="analyzer_storage_content_app_media_label">وسائط التطبيق</string>
@@ -567,6 +569,7 @@
     <string name="analyzer_storage_content_app_extra_label">ملفات تطبيق إضافية</string>
     <string name="analyzer_storage_content_app_extra_description">بيانات إضافية وضعها هذا التطبيق خارج المسارات الافتراضية، مثل الصور أو التنزيلات.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">يشغل هذا التطبيق %1$s في \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">تم أرشفة هذا التطبيق.</string>
     <string name="data_area_public_app_data_official_label">بيانات التطبيق العامة الافتراضية</string>
     <string name="data_area_public_app_assets_official_label">أصول التطبيق العامة الافتراضية</string>
     <string name="data_area_public_storage_label">التخزين العام</string>

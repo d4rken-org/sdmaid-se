@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE פרו</string>
+    <string name="app_name_upgrade_postfix">פרו</string>
+    <string name="upgrade_feature_requires_pro">דורש מנוי פרימיום</string>
+    <string name="upgrades_dashcard_title">שדרוג SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro מציע תוצאות טובות יותר, יותר פיצ\'רים ואפשרויות.</string>
+    <string name="upgrades_dashcard_upgrade_action">שדרוג</string>
+    <string name="upgrades_gplay_unavailable_error_title">החנות של גוגל לא זמינה כרגע</string>
+    <string name="upgrade_screen_title">רכוש SD Maid SE פרו</string>
+    <string name="upgrade_screen_benefits_title">יתרונות</string>
+    <string name="upgrade_screen_how_title">הגדרות</string>
+    <string name="upgrade_screen_subscription_trial_action">התחילו 14 ימי ניסיון</string>
+    <string name="upgrade_screen_subscription_action">הירשם כמנוי</string>
+    <string name="upgrade_screen_subscription_action_hint">המנוי עולה %s לשנה.</string>
+    <string name="upgrade_screen_iap_action">רכישה חד-פעמית</string>
+    <string name="upgrade_screen_iap_action_hint">רכישה חד-פעמית עולה %s.</string>
+    <string name="upgrade_screen_thanks_toast">אתם הכי טובים בעולם ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">שחזור קנייה</string>
+    <string name="nudge_betagoodbye_title">גרסא 1.0 🥳</string>
+    <string name="nudge_betagoodbye_positive_action">עזוב את תוכנית הבדיקות</string>
+    <string name="nudge_betagoodbye_negative_action">המשך לבדוק</string>
+</resources>

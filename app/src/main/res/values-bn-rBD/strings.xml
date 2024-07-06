@@ -116,6 +116,7 @@
     <string name="setup_shizuku_card_title">শিজুকু</string>
     <string name="setup_shizuku_card_body">ফলাফল উন্নত করতে এবং ফিচার গুলো সক্ষম করতে SD Maid কে Shizuku ব্যবহার করার অনুমতি দিন।</string>
     <string name="setup_shizuku_card_body2">আপনার ডিভাইসে Shizuku অ্যাপ সেট আপ না থাকলে এই সেটিংটির কোনো প্রভাব নেই।</string>
+    <string name="setup_shizuku_card_root_info">Shizuku রুট অ্যাক্সেসের সংমিশ্রণে অতিরিক্ত বৈশিষ্ট্যগুলি সক্ষম করে না, তবে এটি নির্ভরযোগ্যতা উন্নত করে। SD Maid এটি ফলব্যাক পদ্ধতি হিসাবে ব্যবহার করবে।</string>
     <string name="setup_shizuku_state_ready_label">Shizuku লিঙ্ক প্রস্তুত।</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku সাথে লিঙ্কের জন্য অপেক্ষা করছে।</string>
     <string name="setup_shizuku_enable_shizuku_use_label">শিজুকু থাকলে ব্যবহার করুন</string>
@@ -430,6 +431,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">বান্ডল</string>
     <string name="appcontrol_tag_system">সিস্টেম</string>
+    <string name="appcontrol_tag_archived">আর্কাইভ</string>
     <string name="appcontrol_tag_enabled">সক্রিয়</string>
     <string name="appcontrol_tag_disabled">নিষ্ক্রিয়</string>
     <string name="appcontrol_progress_enabling_package">অ্যাপ সক্রিয় করা হচ্ছে</string>
@@ -503,7 +505,7 @@
     <string name="analyzer_storage_content_type_system_label">সিস্টেম ডেটা</string>
     <string name="analyzer_storage_content_type_system_description">সিস্টেম অ্যাপস এবং সিস্টেম ডেটা। এই ডিভাইসে একাধিক ব্যবহারকারীর অ্যাকাউন্ট সেট করা থাকলে অন্যান্য ব্যবহারকারীর অ্যাপ এবং ডেটা।</string>
     <string name="analyzer_storage_content_app_code_label">অ্যাপ কোড</string>
-    <string name="analyzer_storage_content_app_code_description">অ্যাপ্লিকেশন ফাইল, লাইব্রেরি এবং রিসোর্স। এই স্থানটি শুধুমাত্র অ্যাপটি আনইনস্টল করে খালি করা যেতে পারে।</string>
+    <string name="analyzer_storage_content_app_code_description">অ্যাপ্লিকেশন ফাইল, লাইব্রেরি এবং সম্পদ. অ্যাপটি আনইনস্টল করে বা আর্কাইভ করে (নতুন Android সংস্করণে উপলব্ধ) এই স্থানটি খালি করা যেতে পারে।</string>
     <string name="analyzer_storage_content_app_data_label">অ্যাপ ডেটা</string>
     <string name="analyzer_storage_content_app_data_description">ডেটা, সেটিংস এবং ক্যাশ।</string>
     <string name="analyzer_storage_content_app_media_label">অ্যাপ মিডিয়া</string>
@@ -511,6 +513,7 @@
     <string name="analyzer_storage_content_app_extra_label">অতিরিক্ত অ্যাপ ফাইল</string>
     <string name="analyzer_storage_content_app_extra_description">অতিরিক্ত ডেটা যা এই অ্যাপটি ডিফল্ট পাথের বাইরে রেখেছে, যেমন ফটো বা ডাউনলোড।</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">এই অ্যাপটি \"%2$s\" এ %1$s দখল করে।</string>
+    <string name="analyzer_app_details_app_is_archived">এই অ্যাপটি আর্কাইভ করা হয়েছে।</string>
     <string name="data_area_public_app_data_official_label">ডিফল্ট পাবলিক অ্যাপ ডেটা</string>
     <string name="data_area_public_app_assets_official_label">ডিফল্ট পাবলিক অ্যাপ সম্পদ</string>
     <string name="data_area_public_storage_label">পাবলিক স্টোরেজ</string>
