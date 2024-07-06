@@ -1,24 +1,40 @@
-<i>SD Maid SE</i> er din Android sin pålitelige assistent, for å holde den ren og ryddig.
+<i>SD Maid 2/SE</i> er din Android sin pålitelige assistent, for å holde den ren og ryddig.
 
 Ingen er perfekte, heller ikke Android.
 * Apper du allerede har fjernet legger noe igjen.
-* Logger, krasjrapporter og andre filer du egentlig ikke vil ha, blir stadig opprettet.
+* Logger, krasjrapporter og andre filer du ikke vil ha, blir stadig opprettet.
 * Lagringen din samler filer og mapper du ikke kjenner igjen.
+* Flere like bilder i galleriet ditt.
 
-La oss ikke fortsette her… La SD Maid SE hjelpe deg:
+La oss ikke fortsette her… La SD Maid 2/SE hjelpe deg!
 
-* Rydd opp i data fra apper som allerede er avinstallert
-* Slett unødvendige filer og skjulte buffere
-* Fjern ubrukte systemfiler
-* Lag dine egne filtre for tilfeldige filer
-* Finn og slett duplisert data
-* Analyser lagringen din og slett store filer som tar opp plass
+SD Maid 2/SE er en app og filbehandler som spesialiserer seg på kunnskap om hvilke apper som står bak spesifikke filer på enheten din. SD Maid 2/SE søker gjennom enheten din og sammenligner filer med installerte apper for å tilby alternativer hvor du trygt kan frigjøre lagringsplass.
 
-SD Maid SE er annonsefri. Noen funksjoner krever en betalt oppgradering.
+✨ Rydd opp etter apper er avinstallert
+Hvis apper oppretter filer utenfor de angitte mappene, kan filene bli liggende igjen selv etter appene er avinstallert. Verktøyet "Restfinner" finner rester fra apper, forteller deg hvor de kommer fra og hjelper deg med å slette dem.
+
+🔍 Søk gjennom enheten din på den smarte måten
+Filtre for tomme mapper, midlertidige filer, allerede installerte apper og mer. Du kan til og med lage dine egne søkekriterier. Verktøyet "Systemrenser" lar deg automatisk søke gjennom enheten og slette filer basert på forskjellige kriterier.
+
+🧹 Slett unødvendige filer og skjulte buffere
+Miniatyrbilder, papirkurver, offline-hurtigbuffere og mer: Hvis apper ikke rydder opp etter seg selv, vil denne appen gjøre det. Verktøyet "Apprenser" finner apper med unødvendige filer.
+
+📦 Administrer alle appene dine
+Få en sammensatt liste over alle installerte apper på enheten din. Aktivert, deaktivert, bruker eller systemapp: ingen apper kan skjule seg for deg. Verktøyet "Appkontroll" er en app-behandler som lar deg søke, sortere og kontrollere appene dine.
+
+📊 Hva er det som bruker all plassen din
+Lagringshåndtering kan være komplisert med apper, medier, system og andre filer på tvers av telefonlagring, SD-kort og USB-enheter. Verktøyet "Lagringsanalysator" er en filbehandler som viser hvordan plass brukes på enheten din, og forenkler lagringsbehandlingen.
+
+📷 Finn duplisert data
+Like nedlastinger, bilder sendt gjennom sosiale medier eller bare lignende bilder med samme motiv: Over tid kan kopier samle seg. Verktøyet "Deduplisering" finner filer som er nøyaktig like eller lignende og hjelper deg med å slette ekstra kopier.
+
+Denne appen er annonsefri. Noen funksjoner krever en betalt oppgradering.
 
 SD Maid 2/SE er etterfølgeren til SD Maid 1/Legacy.
 Optimalisert for nyere Android-versjoner og fokusert på rengjøring.
 
-SD Maid SE har valgfrie funksjoner som bruker AccessibilityService API for å automatisere kjedelige handlinger.
-Ved å bruke tilgjengelighetstjenesten kan SD Maid SE trykke på knapper for deg, for å utføre handlinger på flere apper, f.eks. sletting av hurtigbuffere.
-SD Maid SE bruker ikke tilgjengelighetstjenesten for å samle inn informasjon.
+Denne appen har valgfrie funksjoner som bruker Tilgjengelighetstjeneste API-en for å automatisere kjedelige handlinger.
+Ved hjelp av Tilgjengelighetstjeneste API-en, kan denne appen trykke på knapper for deg for å utføre operasjoner på flere apper, f.eks. sletting av hurtigbuffere.
+Denne appen bruker ikke Tilgjengelighetstjeneste API-en for å samle informasjon.
+
+SD Maid 2/SE er en app for filbehandling og rensing.
