@@ -23,7 +23,7 @@
         <item quantity="other">%d processi attivi</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
-        <item quantity="one">%d processo nella cache</item>
+        <item quantity="one">%d attività in coda</item>
         <item quantity="other">%d processi nella cache</item>
     </plurals>
     <string name="tasks_result_notification_channel_label">Risultati attività</string>
@@ -75,9 +75,9 @@
     <string name="ui_language_override_label">Lingua app</string>
     <string name="ui_language_override_desc">Seleziona una lingua diversa per SD Maid, indipendente dalla lingua predefinita del tuo sistema. Attualmente: %s</string>
     <string name="settings_support_label">Supporto</string>
-    <string name="settings_support_description">Leggi documentazione, segnala problemi, chatta con gli altri utenti o registra log di debug.</string>
+    <string name="settings_support_description">Leggi la documentazione, segnala problemi, chatta con gli altri utenti o registra log di debug.</string>
     <string name="documentation_label">Documentazione</string>
-    <string name="issue_tracker_description">Un traker pubblico per segnalazioni di bug e richieste di funzionalità.</string>
+    <string name="issue_tracker_description">Un tracker pubblico per segnalazioni di bug e richieste di funzionalità.</string>
     <string name="issue_tracker_label">Tracker di problemi</string>
     <string name="support_installid_label">Installa ID</string>
     <string name="support_installid_desc">Le segnalazioni automatiche degli errori sono anonime. Condividi il tuo ID d\'installazione con lo sviluppatore se necessita di trovare la tua segnalazione all\'interno del registro segnalazioni.</string>
@@ -116,6 +116,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Concedi a SD Maid di utilizzare Shizuku dove possibile per migliorare i risultati e per abilitare le funzionalità.</string>
     <string name="setup_shizuku_card_body2">Questa impostazione non ha alcun effetto se l\'app Shizuku non è impostata nel tuo dispositivo.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku, in combinazione con l\'accesso root, non abilità funzionalità aggiuntive, tuttavia migliora l\'affidabilità. SD Maid lo utilizzerà come metodo di riserva.</string>
     <string name="setup_shizuku_state_ready_label">Il collegamento a Shizuku è pronto.</string>
     <string name="setup_shizuku_state_waiting_label">In attesa del collegamento con Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Usa Shizuku se disponibile</string>
@@ -209,7 +210,7 @@
     <string name="corpsefinder_corpse_hints_label">Avviso</string>
     <string name="corpsefinder_owner_unknown">Proprietario sconosciuto</string>
     <string name="corpsefinder_corpse_hint_keeper">Questo elemento può contenere dati che si desidera conservare nonostante l\'app proprietaria sia disinstallata, ad esempio foto o backup.</string>
-    <string name="corpsefinder_corpse_hint_common">Questo prodotto ha un nome molto comune e potrebbe appartenere ad applicazioni ancora installate che SD Maid non riesce a identificare.</string>
+    <string name="corpsefinder_corpse_hint_common">Questo elemento ha un nome molto comune e potrebbe appartenere ad applicazioni ancora installate che SD Maid non riesce a identificare.</string>
     <string name="systemcleaner_tool_name">Pulitore di sistema</string>
     <string name="systemcleaner_explanation_short">Dati superflui che non appartengono ad alcuna app in particolare.</string>
     <plurals name="systemcleaner_result_x_items_found">
@@ -276,7 +277,7 @@
     <string name="systemcleaner_customfilter_editor_name_label">Criteri di denominazione</string>
     <string name="systemcleaner_customfilter_editor_name_explanation">Il nome di destinazione deve contenere almeno una delle parole chiavi (ad esempio \"-receipt\"). Premi a lungo le voci per più opzioni.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Esclusioni</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Il risultato sarà escluso se il percorso corrisponde a qualsiasi voce (ad esempio \"DCIM\"). Premi a lungo le voci per ulteriori opzioni.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Il risultato sarà escluso se il percorso corrisponde a qualsiasi voce (ad esempio \"DCIM\"). Tieni premuto sulle voci per ulteriori opzioni.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modalità confronto percorsi</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Il percorso inizia con la parola chiave</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Il percorso contiene la parola chiave</string>
@@ -329,8 +330,8 @@
     <string name="appcleaner_filter_offlinecache_summary">File memorizzati per l\'uso quando offline, ad esempio file delle mappe.</string>
     <string name="appcleaner_filter_recyclebins_label">Cestini</string>
     <string name="appcleaner_filter_recyclebins_summary">File cancellati ma archiviati in una cartella speciale per consentirne il ripristino.</string>
-    <string name="appcleaner_filter_webview_label">File di Webviwe</string>
-    <string name="appcleaner_filter_webview_summary">File memorizzati nella cache da Webview e utilizzati all\'interno delle app.</string>
+    <string name="appcleaner_filter_webview_label">File di Webview</string>
+    <string name="appcleaner_filter_webview_summary">File memorizzati nella cache da istanze di Webview utilizzate all\'interno delle app.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Backup di WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Eliminare le copie extra dei backup di WhatsApp e mantenere solo gli ultimi.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">File ricevuti su WhatsApp</string>
@@ -431,6 +432,7 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pacchetto</string>
     <string name="appcontrol_tag_system">Sistema</string>
+    <string name="appcontrol_tag_archived">Archiviato</string>
     <string name="appcontrol_tag_enabled">Attivo</string>
     <string name="appcontrol_tag_disabled">Disabilitato</string>
     <string name="appcontrol_progress_enabling_package">Attivazione app</string>
@@ -504,7 +506,7 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="analyzer_storage_content_type_system_label">Dati di sistema</string>
     <string name="analyzer_storage_content_type_system_description">App di sistema e dati di sistema. Applicazioni e dati di altri utenti, se ci sono più account utente in questo dispositivo.</string>
     <string name="analyzer_storage_content_app_code_label">Codice app</string>
-    <string name="analyzer_storage_content_app_code_description">File delle applicazioni, librerie e risorse. Questo spazio può essere liberato solo disinstallando l\'app.</string>
+    <string name="analyzer_storage_content_app_code_description">File di applicazioni, librerie e risorse. Questo spazio può essere liberato disinstallando l\'app oppure archiviandola (disponibile nella versione di android più recente).</string>
     <string name="analyzer_storage_content_app_data_label">Dati app</string>
     <string name="analyzer_storage_content_app_data_description">Dati, impostazioni e cache.</string>
     <string name="analyzer_storage_content_app_media_label">App media</string>
@@ -512,6 +514,7 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="analyzer_storage_content_app_extra_label">File extra di app</string>
     <string name="analyzer_storage_content_app_extra_description">Dati aggiuntivi che l\'app ha posizionato al di fuori dei percorsi predefiniti, ad esempio foto o download.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Questa app occupa %1$s di \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">L\'applicazione è stata archiviata.</string>
     <string name="data_area_public_app_data_official_label">Dati pubblici predefiniti delle app</string>
     <string name="data_area_public_app_assets_official_label">Dati pubblici predefiniti delle app</string>
     <string name="data_area_public_storage_label">Archivio pubblico</string>

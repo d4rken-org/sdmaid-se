@@ -503,7 +503,6 @@
     <string name="analyzer_storage_content_type_system_label">Systemdaten</string>
     <string name="analyzer_storage_content_type_system_description">System-Apps und Systemdaten. Apps und Daten von anderen Benutzern, falls mehrere Benutzerkonten auf diesem Gerät eingerichtet sind.</string>
     <string name="analyzer_storage_content_app_code_label">App-Code</string>
-    <string name="analyzer_storage_content_app_code_description">Anwendungsdateien, Bibliotheken und Ressourcen. Dieser Speicherplatz kann nur durch Deinstallation der App freigegeben werden.</string>
     <string name="analyzer_storage_content_app_data_label">App-Daten</string>
     <string name="analyzer_storage_content_app_data_description">Daten, Einstellungen und Caches.</string>
     <string name="analyzer_storage_content_app_media_label">App-Medien</string>

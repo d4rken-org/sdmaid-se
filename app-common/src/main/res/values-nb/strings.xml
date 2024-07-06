@@ -142,6 +142,7 @@
     <string name="general_timeunit_days">Dager</string>
     <string name="general_progress_ready">Klar</string>
     <string name="general_progress_done">Ferdig</string>
+    <string name="general_rom_type_auto_label">Automatisk (standard)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s fil</item>
         <item quantity="other">%s filer</item>

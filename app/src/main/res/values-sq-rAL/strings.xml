@@ -72,6 +72,8 @@
     <string name="ui_theme_style_materialyou_label">Materia dhe Ju</string>
     <string name="ui_previews_title">Pamje paraprake të skedarëve</string>
     <string name="ui_previews_summary">Shfaqni pamjet paraprake të skedarëve në të gjitha mjetet (p.sh. miniaturat e imazheve dhe videove).</string>
+    <string name="ui_language_override_label">Gjuha e aplikacionit</string>
+    <string name="ui_language_override_desc">Zgjidhni një gjuhë tjetër për SD Maid, pavarësisht nga gjuha e paracaktuar e sistemit tuaj. Aktualisht: %s</string>
     <string name="settings_support_label">Përkrahje</string>
     <string name="settings_support_description">Lexoni dokumentacionin, raportoni problemet, bisedoni me të tjerët ose inçizoni regjistrat e korrigjimit.</string>
     <string name="documentation_label">Dokumentim</string>
@@ -93,6 +95,9 @@
     <string name="setup_incomplete_card_continue_action">Vazhdo konfigurimin</string>
     <string name="setup_title">Konfigurim</string>
     <string name="setup_forcedshow_summary">Shfaq sërish ekranin e konfigurimit, duke përfshirë artikujt tashmë të përfunduar.</string>
+    <string name="setup_checking_card_body">Verifikimi i përfundimit dhe funksionalitetit të konfigurimit.</string>
+    <string name="general_error_setup_require_label">Konfigurimi nuk është i plotë</string>
+    <string name="general_error_setup_require_msg">Kërkohet një konfigurim i mëtejshëm për të përdorur këtë veçori. Plotësoni hapat e mbetur të konfigurimit.</string>
     <string name="setup_saf_card_title">Korniza e aksesit të ruajtjes</string>
     <string name="setup_saf_card_body">Përmirësoni rezultatet duke i dhënë SD Maid qasje në zona të tjera.</string>
     <string name="setup_saf_card_body2">Në shumicën e rasteve dritarja do të hapet me shtegun e duhur të parazgjedhur. Regjistrimet bëhen jeshile kur të jepet qasja. </string>
@@ -111,6 +116,7 @@
     <string name="setup_shizuku_card_title">Qetësi</string>
     <string name="setup_shizuku_card_body">Lejo SD Maid të përdorë \"Shizuku\" ku është e mundur për të përmirësuar rezultatet dhe aktivizuar veçoritë.</string>
     <string name="setup_shizuku_card_body2">Ky cilësim nuk ka efekt nëse aplikacioni \"Shizuku\" nuk është konfiguruar në pajisjen tuaj.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku në kombinim me qasjen rrënjore nuk mundëson veçori shtesë, por përmirëson besueshmërinë. SD Maid do ta përdorë atë si metodë kthimi.</string>
     <string name="setup_shizuku_state_ready_label">Lidhja Shizuku është gati.</string>
     <string name="setup_shizuku_state_waiting_label">Në pritje të lidhjes me Shizukun.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Përdorni Shizuku nëse është i disponueshëm</string>
@@ -140,6 +146,9 @@
     <string name="setup_acs_disallow_hint">Nëse ndryshoni mendje, mund ta ndryshoni përsëri këtë opsion duke shkuar te cilësimet dhe duke rifilluar konfigurimin.</string>
     <string name="setup_acs_appops_restriction_title">Cilësimet e kufizuara</string>
     <string name="setup_acs_appops_restriction_body">Nuk mund të aktivizoni shërbimin e aksesueshmërisë SD Maids? Android 13+ mund të zbatojë kufizime për aplikacionet që nuk janë instaluar nëpërmjet Google Play. Hiqni këto kufizime nga faqja e detajeve të sistemit për SD Maid. Opsioni është në menunë e kontekstit në këndin e sipërm djathtas.</string>
+    <string name="setup_inventory_card_title">Inventari i aplikacionit</string>
+    <string name="setup_inventory_card_body">SD Maid duhet të dijë se cilat aplikacione keni për të gjetur skedarë që nuk i përkasin asnjë aplikacioni të instaluar.</string>
+    <string name="setup_inventory_card_extra">Kërkoni një leje të quajtur \"Lista e aplikacioneve\" ose \"Kërkoni të gjitha paketat\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nuk gjeti asnjë zonë të dhënash që mund të skanohej. E keni përfunduar konfigurimin?</string>
     <string name="dataarea_warningcard_label">Zonat e të dhënave</string>
     <string name="dataarea_warningcard_reload_action">Ringarko zonat e të dhënave</string>
@@ -217,6 +226,8 @@
     <string name="systemcleaner_filter_advertisements_summary">Skedarët që janë krijuar për ose nga reklamat.</string>
     <string name="systemcleaner_filter_anr_label">Gabime ANR</string>
     <string name="systemcleaner_filter_anr_summary">Gjurmët nga ngjarjet \"aplikacioni nuk përgjigjet\".</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Dosjet bosh</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Zbrazni dosjet nga e gjithë pajisja. Dosjet e mbivendosura mund të kërkojnë kalime të shumta.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK të tepërta ose të panevojshme</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Konfiguro skedarët që janë më të vjetër ose të barabartë me versionet e aplikacionit që janë instaluar tashmë.</string>
     <string name="systemcleaner_filter_lostdir_label">Dosjet LOST.DIR</string>
@@ -259,6 +270,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Nëse nuk zgjidhet asnjë zonë, atëherë të gjitha zonat e aksesueshme të të dhënave do të skanohen dhe përputhen.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Kufizimet e llojit të skedarit</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Dosjet</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Dosjet</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Nëse nuk zgjidhet asnjë lloj, atëherë të gjitha llojet do të përputhen.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Kriteriumi i rrugës</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Ruga e synuar duhet të përputhet me të paktën një hyrje (p.sh. \"Shkarkime/oldapks/lojë-\"). Shtypni gjatë shënimet për më shumë opsione.</string>
@@ -342,6 +354,11 @@
     <string name="appcleaner_automation_loading">Përgatitja e automatizimit nëpërmjet shërbimit të aksesueshmërisë</string>
     <string name="appcleaner_automation_title">Automatizimi i AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Po pastrohet memoria e paracaktuar…</string>
+    <string name="appcleaner_automation_progress_open_settings">Hapja e ekranit të cilësimeve (fjalë kyçe: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Duke kërkuar për hyrjen \"Storage\" (fjalë kyçe: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Po kërkon butonin \"Pastro të dhënat\" (fjalë kyçe: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Duke kërkuar për butonin \"Pastro cache\" (fjalë kyçe: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Po përpiqet të konfirmojë veprimin e mëparshëm (fjalë kyçe: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache të paracaktuar</string>
     <string name="appcleaner_item_caches_inaccessible_body">Memoriet e paracaktuara publike dhe private. Jo i aksesueshëm drejtpërdrejt, por mund të fshihet në mënyrë indirekte (p.sh. nëpërmjet shërbimit të aksesueshmërisë).</string>
     <string name="appcleaner_automation_unavailable_title">Shërbimi i aksesueshmërisë është i çaktivizuar</string>
@@ -402,6 +419,8 @@
     <string name="appcontrol_systemsettings_open_description">Hap cilësimet e sistemit të pajisjes për këtë aplikacion.</string>
     <string name="appcontrol_app_launch_title">Nis aplikacionin</string>
     <string name="appcontrol_app_launch_description">Nis aktivitetin kryesor të këtij aplikacioni.</string>
+    <string name="appcontrol_app_forcestop_title">Ndalim me forcë</string>
+    <string name="appcontrol_app_forcestop_description">Ndalon aplikacionin. Parandalon që të fillojë vetë derisa ta hapni ose pajisja të rindizet.</string>
     <string name="appcontrol_app_uninstall_description">Çinstaloni këtë aplikacion nga pajisja juaj.</string>
     <string name="appcontrol_app_exclude_add_title">Përjashtoni aplikacionin</string>
     <string name="appcontrol_app_exclude_add_description">Përjashtoni këtë aplikacion nga operacionet e tjera në SD Maid.</string>
@@ -410,7 +429,9 @@
     <string name="appcontrol_tag_user">Përdoruesi</string>
     <string name="appcontrol_tag_active">Aktiv së fundmi</string>
     <string name="appcontrol_tag_apk_base"></string>
+    <string name="appcontrol_tag_apk_bundle">Pako</string>
     <string name="appcontrol_tag_system">Sistemi</string>
+    <string name="appcontrol_tag_archived">Arkivuar</string>
     <string name="appcontrol_tag_enabled">Aktivizuar</string>
     <string name="appcontrol_tag_disabled">Çaktivizuar</string>
     <string name="appcontrol_progress_enabling_package">Aktivizimi i aplikacionit</string>
@@ -432,6 +453,26 @@
         <item quantity="one">Ndryshoe gjendjen e aktivizuar/e çaktivizuar e %d të aplikacionit?</item>
         <item quantity="other">Të ndryshohen gjendjet e aktivizuara/çaktivizuara për %d e aplikacioneve?</item>
     </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Përcakton madhësitë</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Merrni një vlerësim të përafërt të madhësisë së secilit aplikacion.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Përcaktoni aktivitetin</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Zbuloni nëse një aplikacion është (ose ka qenë kohët e fundit) aktiv.</string>
+    <string name="appcontrol_export_app_selection_action">Eksporto aplikacione</string>
+    <string name="appcontrol_export_title">Eksporto aplikacion</string>
+    <string name="appcontrol_export_description">Ruani skedarët e instalimit të këtij aplikacioni. Kjo nuk përfshin të dhënat e aplikacionit.</string>
+    <string name="appcontrol_progress_exporting_x">Po eksporton %s</string>
+    <string name="appcontrol_force_stop_selection_action">Ndaloni me forcë aplikacionet</string>
+    <string name="appcontrol_force_stop_action">Ndalim me forcë</string>
+    <string name="appcontrol_force_stop_confirm_title">Konfirmo ndalimin me forcë</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Të ndalohet me forcë %d aplikacioni?</item>
+        <item quantity="other">Të ndalohen me forcë %d aplikacionet?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Përgatitja e automatizimit nëpërmjet shërbimit të aksesueshmërisë</string>
+    <string name="appcontrol_automation_title">Automatizimi i AppControl</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Ndalimi me forcë…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Duke kërkuar për butonin \"Ndalimi i detyruar\" (fjalë kyçe: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Po përpiqet të konfirmojë veprimin e mëparshëm (fjalë kyçe: %s)</string>
     <string name="analyzer_tool_name">Analizuesi i magazinës</string>
     <string name="analyzer_explanation_short">Zbuloni se çfarë po zë hapësirë ​​në pajisjen tuaj.</string>
     <string name="analyzer_progress_scanning_device">Duke kërkuar për pajisje ruajtëse</string>
@@ -453,6 +494,8 @@
     <string name="analyzer_storage_type_primary_description">Ruajtja kryesore e pajisjes suaj. Përmban kartën e brendshme SD, hapësirën ruajtëse private për aplikacionet dhe të dhënat e sistemit.</string>
     <string name="analyzer_storage_type_secondary_title">Magazina sekondare</string>
     <string name="analyzer_storage_type_secondary_description">Një hapësirë ​​ruajtëse shtesë ose dytësore, zakonisht një kartë SD e lëvizshme. Përmban skedarë mediash dhe të dhëna nga aplikacionet që e mbështesin atë.</string>
+    <string name="analyzer_storage_type_tertiary_title">Magazinim portativ(i jashtëm)</string>
+    <string name="analyzer_storage_type_tertiary_description">Një ruajtje portative, p.sh. një flash drive i lidhur në portën tuaj USB.</string>
     <string name="analyzer_storage_content_title">Përmbajtja e magazinës</string>
     <string name="analyzer_storage_content_type_app_label">Aplikacionet</string>
     <string name="analyzer_storage_content_type_app_description">Hapësira e zënë nga aplikacionet e instaluara dhe të dhënat e tyre (d.m.th. skedarët e aplikacioneve, të dhënat dhe memoriet e fshehta).</string>
@@ -462,7 +505,7 @@
     <string name="analyzer_storage_content_type_system_label">Të dhënat e sistemit</string>
     <string name="analyzer_storage_content_type_system_description">Aplikacionet e sistemit dhe të dhënat e sistemit. Aplikacionet dhe të dhënat nga përdoruesit e tjerë, nëse në këtë pajisje janë caktuar disa llogari përdoruesish.</string>
     <string name="analyzer_storage_content_app_code_label">Kodi i aplikacionit</string>
-    <string name="analyzer_storage_content_app_code_description">Skedarët e aplikacionit, bibliotekat dhe burimet. Kjo hapësirë ​​mund të lirohet vetëm duke çinstaluar aplikacionin.</string>
+    <string name="analyzer_storage_content_app_code_description">Skedarët e aplikacionit, bibliotekat dhe burimet. Kjo hapësirë ​​mund të lirohet duke çinstaluar aplikacionin ose duke e arkivuar atë (e disponueshme në versionin më të ri të Android).</string>
     <string name="analyzer_storage_content_app_data_label">Të dhenat e programit</string>
     <string name="analyzer_storage_content_app_data_description">Të dhënat, cilësimet dhe cache.</string>
     <string name="analyzer_storage_content_app_media_label">Media e aplikacionit</string>
@@ -470,6 +513,7 @@
     <string name="analyzer_storage_content_app_extra_label">Skedarët shtesë të aplikacionit</string>
     <string name="analyzer_storage_content_app_extra_description">Të dhëna shtesë që ky aplikacion ka vendosur jashtë shtigjeve të paracaktuara, p.sh. foto ose shkarkime.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Ky aplikacion zë %1$s në \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Ky aplikacion është arkivuar.</string>
     <string name="data_area_public_app_data_official_label">Të dhënat e parazgjedhura të aplikacionit publik</string>
     <string name="data_area_public_app_assets_official_label">Asetet e parazgjedhura të aplikacionit publik</string>
     <string name="data_area_public_storage_label">Magazina publike</string>
@@ -491,6 +535,7 @@
     <string name="exclusion_option_allow_partial">Lejo ndeshjet e pjesshme</string>
     <string name="exclusion_option_ignore_casing">Shpërfille shkrimin me të madhe/me të vogël</string>
     <string name="exclusion_editor_affected_tools_label">Mjetet e prekura</string>
+    <string name="exclusion_editor_path_explanation">Një përjashtim shtegu e pengon SD Maid të përpunojë më tej çdo shteg që përputhet. Kjo vlen për skedarët, dosjet dhe nën-dosjet.</string>
     <string name="exclusion_editor_pkg_explanation">Një përjashtim i aplikacionit pengon SD Maid të përpunojë çdo paketë që përputhet.</string>
     <string name="exclusion_editor_segment_explanation">Një përjashtim i bazuar në segment është i ngjashëm me një përjashtim shtegu, por lejon përputhje të pjesshme. Shembull: \"DCIM/Kamera\" përjashton \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Të hiqet ky përjashtim?</string>
@@ -564,4 +609,9 @@
     <string name="motd_setting_enabled_explanation">Lejo SD Maid të kontrollojë për mesazhe të rëndësishme nga zhvilluesi.</string>
     <string name="updatecheck_setting_enabled_label">Kontrolli i azhurnuar</string>
     <string name="updatecheck_setting_enabled_explanation">Lejo SD Maid të kontrollojë për përditësime për t\'ju njoftuar nëse disponohet një version më i ri.</string>
+    <string name="device_settings_category">Pajisja</string>
+    <string name="beta_version_indicator_desc">Versionet e para-lëshimit shfaqin një shirit të vogël në ekranin fillestar. Ato përditësohen më shpesh, mund të kenë më shumë veçori, por gjithashtu mund të kenë më shumë gabime.</string>
+    <string name="review_app_review_action">Rishikimi</string>
+    <string name="review_app_dismiss_action">Ndoshta më vonë</string>
+    <string name="review_app_body">Dëshironi t\'i lini një koment SD Maid?️ ❤️</string>
 </resources>

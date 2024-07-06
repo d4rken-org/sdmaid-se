@@ -457,7 +457,6 @@
     <string name="analyzer_storage_content_type_system_label">系統資料</string>
     <string name="analyzer_storage_content_type_system_description">系統應用程式和系統資料，即來自其他使用者的應用程式和資料 (如果此裝置上有多位使用者)。</string>
     <string name="analyzer_storage_content_app_code_label">應用程式程式碼</string>
-    <string name="analyzer_storage_content_app_code_description">應用程式檔案、程式庫和資源，此空間僅可透過解除安裝應用程式釋出。</string>
     <string name="analyzer_storage_content_app_data_label">應用程式資料</string>
     <string name="analyzer_storage_content_app_data_description">資料、設定和快取。</string>
     <string name="analyzer_storage_content_app_media_label">應用程式媒體</string>

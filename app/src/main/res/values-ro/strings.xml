@@ -517,7 +517,6 @@
     <string name="analyzer_storage_content_type_system_label">Date de sistem</string>
     <string name="analyzer_storage_content_type_system_description">Aplicații de sistem și date de sistem. Aplicații și date de la alți utilizatori, dacă pe acest dispozitiv sunt setate mai multe conturi de utilizatori.</string>
     <string name="analyzer_storage_content_app_code_label">Codul aplicației</string>
-    <string name="analyzer_storage_content_app_code_description">Fișiere, biblioteci și resurse ale aplicației. Acest spațiu poate fi eliberat doar prin dezinstalarea aplicației.</string>
     <string name="analyzer_storage_content_app_data_label">Date aplicație</string>
     <string name="analyzer_storage_content_app_data_description">Date, setări şi cache-uri.</string>
     <string name="analyzer_storage_content_app_media_label">Aplicație media</string>

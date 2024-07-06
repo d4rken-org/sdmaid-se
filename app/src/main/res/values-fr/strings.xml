@@ -116,6 +116,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Permettre à SD Maid d’utiliser Shizuku dans la mesure du possible pour améliorer les résultats et activer des fonctions.</string>
     <string name="setup_shizuku_card_body2">Ce paramètre n\'a aucun effet si l\'appli Shizuku n\'est pas configurée sur votre appareil.</string>
+    <string name="setup_shizuku_card_root_info">La combinaison de Shizuku et de l’accès à la racine ne permet pas d’obtenir des fonctions supplémentaires, mais elle améliore la fiabilité. SD Maid l’utilisera comme méthode de repli.</string>
     <string name="setup_shizuku_state_ready_label">Le lien Shizuku est prêt.</string>
     <string name="setup_shizuku_state_waiting_label">En attente de lien avec Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Utiliser Shizuku si l’appli est proposée</string>
@@ -430,6 +431,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Offre groupée</string>
     <string name="appcontrol_tag_system">Système</string>
+    <string name="appcontrol_tag_archived">Archivées</string>
     <string name="appcontrol_tag_enabled">Activée</string>
     <string name="appcontrol_tag_disabled">Désactivée</string>
     <string name="appcontrol_progress_enabling_package">Activation de l’appli</string>
@@ -503,7 +505,7 @@
     <string name="analyzer_storage_content_type_system_label">Données système</string>
     <string name="analyzer_storage_content_type_system_description">Applications système et données système. Applis et données d’autres utilisateurs, si plusieurs comptes utilisateur sont configurés sur cet appareil.</string>
     <string name="analyzer_storage_content_app_code_label">Code de l’appli</string>
-    <string name="analyzer_storage_content_app_code_description">Fichiers, bibliothèques et ressources d’applications. Cet espace ne peut être libéré qu\'en désinstallant l\'application.</string>
+    <string name="analyzer_storage_content_app_code_description">Fichiers, bibliothèques et ressources de l’appli. Cet espace peut être libéré en la désinstallant ou en l’archivant (proposé sur les versions d’Android les plus récentes).</string>
     <string name="analyzer_storage_content_app_data_label">Données de l’appli</string>
     <string name="analyzer_storage_content_app_data_description">Données, paramètres et caches.</string>
     <string name="analyzer_storage_content_app_media_label">Médias de l’appli</string>
@@ -511,6 +513,7 @@
     <string name="analyzer_storage_content_app_extra_label">Fichiers d’appli supplémentaires</string>
     <string name="analyzer_storage_content_app_extra_description">Données supplémentaires que cette appli a placées en dehors des chemins par défaut, p. ex. des photos ou des téléchargements.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Cette appli occupe %1$s sur \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Cette appli a été archivée.</string>
     <string name="data_area_public_app_data_official_label">Données d’applis publiques par défaut</string>
     <string name="data_area_public_app_assets_official_label">Ressources publiques par défaut d’applis</string>
     <string name="data_area_public_storage_label">Mémoire publique</string>
@@ -540,8 +543,8 @@
     <string name="exclusion_reset_default_exclusions">Restaurer les exclusions par défaut</string>
     <string name="exclusion_import_action">Importer des exclusions</string>
     <string name="exclusion_export_action">Exporter les exclusions</string>
-    <string name="exclusion_create_pkg_hint">Utilisez l’outil « Vérificateur d’applis » pour exclure des applis.</string>
-    <string name="exclusion_create_path_hint">Utilisez l’Analyseur de mémoire pour créer des exclusions de chemin.</string>
+    <string name="exclusion_create_pkg_hint">Utilisez le « Vérificateur d’applis » pour exclure des applis.</string>
+    <string name="exclusion_create_path_hint">Utilisez l’« Analyseur de mémoire » pour exclure des chemins.</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Une exclusion a été créée</item>
         <item quantity="other">%d exclusions ont été créées</item>

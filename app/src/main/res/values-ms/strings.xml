@@ -337,7 +337,6 @@
     <string name="analyzer_storage_content_type_media_description">Gambar yang ditangkap, video yang dirakam atau data yang dimuat turun. Sebarang data yang bukan milik aplikasi tertentu.</string>
     <string name="analyzer_storage_content_type_system_label">Data sistem</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikasi</string>
-    <string name="analyzer_storage_content_app_code_description">Fail aplikasi, perpustakaan dan sumber. Ruang ini hanya boleh dikosongkan dengan menyahpasang aplikasi.</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>
     <string name="analyzer_storage_content_app_data_description">Data, tetapan dan cache.</string>
     <string name="analyzer_storage_content_app_media_label">Media aplikasi</string>

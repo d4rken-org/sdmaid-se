@@ -43,6 +43,7 @@
     <string name="onboarding_privacy_body1">SD Maid har ingen annoncer og sælger ikke brugerdata.</string>
     <string name="onboarding_privacy_bugreport_toggle_body">Fejlrapporter sendes, når fejl opstår, og kan indeholde detaljer om apps og filer på din enhed. Rapporterne hjælper mig med at rette fejl og forbedre appen.</string>
     <string name="onboarding_privacy_bugreport_toggle">Tillad automatiske fejlrapporter</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint"></string>
     <string name="onboarding_privacy_continue_action">Fortsæt</string>
     <string name="onboarding_setup_title">Opsætning</string>
     <string name="onboarding_setup_body1">SD Maid søger i alle tilgængelige dataområder.</string>
@@ -77,6 +78,7 @@
     <string name="settings_support_description">Læs dokumentation, rapportér issues, chat med andre eller optag fejlfindingslogs.</string>
     <string name="documentation_label">Dokumentation</string>
     <string name="issue_tracker_description">En offentlig issue tracker til fejlrapporter og funktionsanmodninger.</string>
+    <string name="issue_tracker_label">Problemsporer</string>
     <string name="support_debuglog_label">Fejlfindingslog</string>
     <string name="support_debuglog_desc">Optag alt, appen gør, til en tekstfil, som du kan dele.</string>
     <string name="discord_label">Discord</string>

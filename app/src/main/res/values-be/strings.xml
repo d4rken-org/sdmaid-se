@@ -120,6 +120,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Дазвольце SD Maid выкарыстоўваць Shizuku, дзе гэта магчыма, каб палепшыць рэзультаты і ўключыць дадатковыя функцыі.</string>
     <string name="setup_shizuku_card_body2">Гэтыя налады не дзейнічаюць, калі праграма Shizuku не наладжана на вашай прыладзе.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku у спалучэнні з каранёвым доступам не дае дадатковых функцый, але павышае надзейнасць. SD Maid будзе выкарыстоўваць гэту праграму як запасны метад.</string>
     <string name="setup_shizuku_state_ready_label">Сувязь з Shizuku наладжана.</string>
     <string name="setup_shizuku_state_waiting_label">Чаканне сувязі з Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Пры даступнасці выкарыстоўваць Shizuku</string>
@@ -450,6 +451,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Пакет</string>
     <string name="appcontrol_tag_system">Сістэма</string>
+    <string name="appcontrol_tag_archived">У архіве</string>
     <string name="appcontrol_tag_enabled">Уключана</string>
     <string name="appcontrol_tag_disabled">Адключана</string>
     <string name="appcontrol_progress_enabling_package">Уключэнне праграмы</string>
@@ -531,7 +533,7 @@
     <string name="analyzer_storage_content_type_system_label">Сістэмныя даныя</string>
     <string name="analyzer_storage_content_type_system_description">Сістэмныя праграмы і сістэмныя даныя. Праграмы і даныя іншых карыстальнікаў, калі на гэтай прыладзе маецца некалькі ўліковых запісаў.</string>
     <string name="analyzer_storage_content_app_code_label">Праграмы код</string>
-    <string name="analyzer_storage_content_app_code_description">Праграмныя файлы, бібліятэкі і рэсурсы. Гэта месца можна вызваліць толькі пры выдаленні праграмы.</string>
+    <string name="analyzer_storage_content_app_code_description">Файлы праграм, бібліятэкі і рэсурсы. Гэта месца можна вызваліць, выдаліўшы праграму або перамясціць яе ў архіў (даступна ў навейшых версіях Android).</string>
     <string name="analyzer_storage_content_app_data_label">Праграмныя даныя</string>
     <string name="analyzer_storage_content_app_data_description">Даныя, налады і кэш.</string>
     <string name="analyzer_storage_content_app_media_label">Праграмныя медыяфайлы</string>
@@ -539,6 +541,7 @@
     <string name="analyzer_storage_content_app_extra_label">Дадатковыя файлы праграмы</string>
     <string name="analyzer_storage_content_app_extra_description">Дадатковыя даныя, якія гэта праграма размясціла па-за стандартнымі шляхамі, напр. фатаграфіі або спампоўкі.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Гэта праграма займае %1$s на \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Гэта праграма перамешчана ў архіў.</string>
     <string name="data_area_public_app_data_official_label">Стандартныя публічныя даныя праграмы</string>
     <string name="data_area_public_app_assets_official_label">Стандартныя публічныя рэсурсы праграмы</string>
     <string name="data_area_public_storage_label">Агульная памяць</string>

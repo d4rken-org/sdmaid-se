@@ -503,7 +503,6 @@
     <string name="analyzer_storage_content_type_system_label">Δεδομένα συστήματος</string>
     <string name="analyzer_storage_content_type_system_description">Εφαρμογές συστήματος και δεδομένα συστήματος. Εφαρμογές και δεδομένα από άλλους χρήστες, εάν έχουν οριστεί πολλοί λογαριασμοί χρηστών σε αυτήν τη συσκευή.</string>
     <string name="analyzer_storage_content_app_code_label">Κώδικας εφαρμογής</string>
-    <string name="analyzer_storage_content_app_code_description">Αρχεία εφαρμογών, libraries και πόροι. Αυτός ο χώρος μπορεί να απελευθερωθεί μόνο με την απεγκατάσταση της εφαρμογής.</string>
     <string name="analyzer_storage_content_app_data_label">Δεδομένα εφαρμογών</string>
     <string name="analyzer_storage_content_app_data_description">Δεδομένα, ρυθμίσεις και κρυφές μνήμες.</string>
     <string name="analyzer_storage_content_app_media_label">Μέσα εφαρμογής</string>

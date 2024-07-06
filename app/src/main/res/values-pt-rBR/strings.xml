@@ -116,6 +116,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Permita que o SD Maid use Shizuku sempre que possível para melhorar os resultados e habilitar recursos.</string>
     <string name="setup_shizuku_card_body2">Esta configuração não tem efeito se o aplicativo Shizuku não estiver configurado no seu dispositivo.</string>
+    <string name="setup_shizuku_card_root_info">O Shizuku em combinação com o acesso root não habilita recursos adicionais, mas melhora a confiabilidade. O SD Maid o usará como método alternativo.</string>
     <string name="setup_shizuku_state_ready_label">O link Shizuku está pronto.</string>
     <string name="setup_shizuku_state_waiting_label">Aguardando o link com Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Usar Shizuku se disponível</string>
@@ -430,6 +431,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pacote</string>
     <string name="appcontrol_tag_system">Sistema</string>
+    <string name="appcontrol_tag_archived">Arquivado</string>
     <string name="appcontrol_tag_enabled">Ativado</string>
     <string name="appcontrol_tag_disabled">Desativado</string>
     <string name="appcontrol_progress_enabling_package">Ativando aplicativo</string>
@@ -492,7 +494,7 @@
     <string name="analyzer_storage_content_type_system_label">Dados do sistema</string>
     <string name="analyzer_storage_content_type_system_description">Apps do sistema e dados do sistema. Apps e dados de outros usuários, se várias contas de usuário estiverem definidas neste dispositivo.</string>
     <string name="analyzer_storage_content_app_code_label">Código da aplicação</string>
-    <string name="analyzer_storage_content_app_code_description">Arquivos de instalação, bibliotecas e recursos. Este espaço só pode ser liberado desinstalando o aplicativo.</string>
+    <string name="analyzer_storage_content_app_code_description">Arquivos de aplicativos, bibliotecas e recursos. Este espaço pode ser liberado desinstalando o aplicativo ou arquivando-o (disponível na versão mais recente do Android).</string>
     <string name="analyzer_storage_content_app_data_label">Dados do aplicativo</string>
     <string name="analyzer_storage_content_app_data_description">Dados, configurações e caches.</string>
     <string name="analyzer_storage_content_app_media_label">Mídia da aplicação</string>
@@ -500,6 +502,7 @@
     <string name="analyzer_storage_content_app_extra_label">Arquivos extras do aplicativo</string>
     <string name="analyzer_storage_content_app_extra_description">Dados extras que este aplicativo colocou fora do caminho padrão, por exemplo, fotos ou downloads.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Este aplicativo ocupa %1$s em \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Este app foi arquivado.</string>
     <string name="data_area_public_app_data_official_label">Dados públicos padrão do aplicativo</string>
     <string name="data_area_public_app_assets_official_label">Recursos de aplicativos públicos padrão</string>
     <string name="data_area_public_storage_label">Armazenamento público</string>

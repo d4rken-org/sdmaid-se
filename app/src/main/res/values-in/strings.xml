@@ -114,6 +114,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Izinkan SD Maid untuk menggunakan Shizuku jika memungkinkan untuk mendapatkan hasil yang lebih baik dan menyalakan fitur-fitur tertentu.</string>
     <string name="setup_shizuku_card_body2">Pengaturan ini tidak berpengaruh jika aplikasi Shizuku tidak dipasang pada perangkat Anda.</string>
+    <string name="setup_shizuku_card_root_info">Kombinasi Shizuku dan akses root tidak membuka fitur baru, melainkan sebagai jaminan. SD Maid menggunakannya sebagai metode alternatif.</string>
     <string name="setup_shizuku_state_ready_label">Hubungan dengan Shizuku sudah siap.</string>
     <string name="setup_shizuku_state_waiting_label">Menunggu penghubungan dengan Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Gunakan Shizuku jika tersedia</string>
@@ -145,6 +146,7 @@
     <string name="setup_acs_appops_restriction_body">Tidak dapat mengaktifkan layanan aksesibilitas SD Maid? Android 13+ dapat menerapkan batasan untuk aplikasi yang tidak diinstal melalui Google Play. Ubah batasan ini dari halaman detail sistem untuk SD Maid. Pilihannya ada di menu konteks di pojok kanan atas.</string>
     <string name="setup_inventory_card_title">Inventaris aplikasi</string>
     <string name="setup_inventory_card_body">SD Maid perlu mengetahui aplikasi apa yang anda install untuk mencari berkas yang tidak terasosiasi dengan aplikasi yang anda install.</string>
+    <string name="setup_inventory_card_extra">Cari izin yang disebut \"Daftar Aplikasi\" atau \"Kueri semua paket\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid tidak menemukan area data yang dapat dipindai. Apakah Anda menyelesaikan penyiapan?</string>
     <string name="dataarea_warningcard_label">Area data</string>
     <string name="dataarea_warningcard_reload_action">Muat ulang area data</string>
@@ -419,6 +421,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundel</string>
     <string name="appcontrol_tag_system">Sistem</string>
+    <string name="appcontrol_tag_archived">Diarsip</string>
     <string name="appcontrol_tag_enabled">Diaktifkan</string>
     <string name="appcontrol_tag_disabled">Dinonaktifkan</string>
     <string name="appcontrol_progress_enabling_package">Mengaktifkan aplikasi</string>
@@ -456,6 +459,7 @@
     <string name="appcontrol_automation_loading">Menyiapkan otomatisasi melalui layanan aksesibilitas</string>
     <string name="appcontrol_automation_title">Otomatisasi AppControl</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Memaksa berhenti…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Mencari tombol \"Paksa setop\" (kata kunci: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Mencoba mengonfirmasi tindakan sebelumnya (kata kunci: %s)</string>
     <string name="analyzer_tool_name">PenganalisisPenyimpanan</string>
     <string name="analyzer_explanation_short">Cari apa saja yang memenuhi ruang penyimpanan di perangkat Anda.</string>
@@ -487,7 +491,7 @@
     <string name="analyzer_storage_content_type_system_label">Data sistem</string>
     <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika beberapa akun pengguna lain ada di perangkat ini.</string>
     <string name="analyzer_storage_content_app_code_label">Kode aplikasi</string>
-    <string name="analyzer_storage_content_app_code_description">File aplikasi, pustaka, dan sumber daya. Ruang ini hanya dapat dibebaskan dengan mencopot pemasangan aplikasi.</string>
+    <string name="analyzer_storage_content_app_code_description">File aplikasi, pustaka, dan sumber daya. Ruang ini dapat dibebaskan dengan mencopot pemasangan aplikasi atau mengarsipkannya (tersedia pada versi Android yang lebih baru).</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>
     <string name="analyzer_storage_content_app_data_description">Data, pengaturan, dan tembolok.</string>
     <string name="analyzer_storage_content_app_media_label">Media aplikasi</string>
@@ -495,6 +499,7 @@
     <string name="analyzer_storage_content_app_extra_label">Berkas-berkas aplikasi lainnya</string>
     <string name="analyzer_storage_content_app_extra_description">Data lain yang ditempatkan di luar jalur umumnya oleh aplikasi ini, seperti foto atau unduhan.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikasi ini menempati %1$s pada \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Aplikasi ini telah diarsipkan.</string>
     <string name="data_area_public_app_data_official_label">Data aplikasi publik bawaan</string>
     <string name="data_area_public_app_assets_official_label">Aset aplikasi publik bawaan</string>
     <string name="data_area_public_storage_label">Penyimpanan publik</string>
@@ -589,6 +594,7 @@
     <string name="updatecheck_setting_enabled_label">Pemeriksaan pembaruan</string>
     <string name="updatecheck_setting_enabled_explanation">Izinkan SD Maid memeriksa pembaruan untuk memberi tahu Anda jika ada versi baru yang tersedia.</string>
     <string name="device_settings_category">Perangkat</string>
+    <string name="beta_version_indicator_desc">Versi pra-rilis menampilkan pita kecil di layar mulai. Mereka lebih sering diperbarui, yang dapat membawa lebih banyak fitur, tetapi dapat mengorbankan stabilitas.</string>
     <string name="review_app_review_action">Pratinjau</string>
     <string name="review_app_dismiss_action">Lain kali</string>
     <string name="review_app_body">Bersediakah Anda menulis ulasan untuk SD Maid? ❤️</string>

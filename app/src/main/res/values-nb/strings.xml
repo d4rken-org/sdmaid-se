@@ -72,6 +72,8 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Forhåndsvisninger av filer</string>
     <string name="ui_previews_summary">Vis forhåndsvisninger av filer i alle verktøy (f.eks. miniatyrbilder av bilde og video).</string>
+    <string name="ui_language_override_label">App-språk</string>
+    <string name="ui_language_override_desc">Velg et annet språk for SD Maid, uavhengig av språket til systemet ditt. For øyeblikket: %s</string>
     <string name="settings_support_label">Støtte</string>
     <string name="settings_support_description">Les dokumentasjon, rapporter problemer, chat med andre eller ta opp feilsøkingslogger.</string>
     <string name="documentation_label">Dokumentasjon</string>
@@ -93,6 +95,9 @@
     <string name="setup_incomplete_card_continue_action">Fortsett oppsett</string>
     <string name="setup_title">Oppsett</string>
     <string name="setup_forcedshow_summary">Vis skjermen for oppsett igjen, inkludert allerede fullførte elementer.</string>
+    <string name="setup_checking_card_body">Verifiserer fullføring av oppsett og funksjonalitet.</string>
+    <string name="general_error_setup_require_label">Oppsett er ufullstendig</string>
+    <string name="general_error_setup_require_msg">Videre oppsett kreves for å bruke denne funksjonen. Fullfør de resterende stegene.</string>
     <string name="setup_saf_card_title">Rammeverk for lagringstilgang</string>
     <string name="setup_saf_card_body">Forbedre resultatene ved å gi SD Maid tilgang til flere områder.</string>
     <string name="setup_saf_card_body2">I de fleste tilfeller vil vinduet åpnes med riktig bane forhåndsvalgt. Oppføringer blir grønne når tilgang er gitt. </string>
@@ -111,6 +116,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Tillat SD Maid å bruke Shizuku der det er mulig, for å forbedre resultatene og aktivere funksjoner.</string>
     <string name="setup_shizuku_card_body2">Denne innstillingen har ingen effekt hvis Shizuku-appen ikke er konfigurert på enheten din.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku i kombinasjon med root-tilgang aktiverer ikke flere funksjoner, men det forbedrer stabiliteten. SD Maid vil bruke den som reserveløsning.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku-lenken er klar.</string>
     <string name="setup_shizuku_state_waiting_label">Venter på lenken med Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Bruk Shizuku hvis tilgjengelig</string>
@@ -140,6 +146,9 @@
     <string name="setup_acs_disallow_hint">Hvis du ombestemmer deg, kan du endre dette alternativet igjen ved å gå inn i innstillingene og starte oppsettet på nytt.</string>
     <string name="setup_acs_appops_restriction_title">Begrenset innstillinger</string>
     <string name="setup_acs_appops_restriction_body">Kan du ikke aktivere SD Maids tilgjengelighetstjeneste? Android 13+ kan legge til begrensninger for apper som ikke er installert via Google Play. Fjern disse restriksjonene fra systemets detaljside for SD Maid. Alternativet er i hurtigmenyen øverst til høyre.</string>
+    <string name="setup_inventory_card_title">App-beholdning</string>
+    <string name="setup_inventory_card_body">SD Maid må vite hvilke apper du har for å finne filer som ikke tilhører noen installerte apper.</string>
+    <string name="setup_inventory_card_extra">Se etter en tillatelse kalt \"App-liste\" eller \"Bred pakketilgang\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid fant ingen dataområder for skanning. Fullførte du oppsettet?</string>
     <string name="dataarea_warningcard_label">Dataområder</string>
     <string name="dataarea_warningcard_reload_action">Last inn dataområder på nytt</string>
@@ -217,6 +226,8 @@
     <string name="systemcleaner_filter_advertisements_summary">Filer som er opprettet for eller av annonser.</string>
     <string name="systemcleaner_filter_anr_label">ANR-feil</string>
     <string name="systemcleaner_filter_anr_summary">Spor fra \'app svarer ikke\' hendelser.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Tomme mapper</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Tomme mapper fra hele enheten. Mapper i mapper kan kreve flere gjennomganger.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Overflødige APK-filer</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Installasjonsfiler som er eldre eller lik appversjoner som allerede er installert.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mapper</string>
@@ -259,6 +270,7 @@
     <string name="systemcleaner_customfilter_editor_areas_explanation">Dersom ingen områder er valgt, vil alle tilgjengelige dataområder bli skannet og sammenlignet.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Filtype-begrensninger</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Filer</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Mapper</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Dersom ingen type er valgt, vil alle typer sammenlignes.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Kriterier for bane</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Målbanen må samsvare med minst én oppføring (f.eks. \"Download/oldapks/spill-\"). Hold inne på oppføringer for flere alternativer.</string>
@@ -342,6 +354,11 @@
     <string name="appcleaner_automation_loading">Forbereder automatisering via tilgjengelighetstjeneste</string>
     <string name="appcleaner_automation_title">Apprenser automatisering</string>
     <string name="appcleaner_automation_subtitle_default_caches">Fjerner standard hurtigbuffere…</string>
+    <string name="appcleaner_automation_progress_open_settings">Åpner innstillingsskjerm (nøkkelord: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Søker etter \"Lagring\"-oppføring (nøkkelord: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Ser etter \"Fjern data\"-knapp (nøkkelord: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Ser etter \"Tøm hurtigbuffer\"-knapp (nøkkelord: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Prøver å bekrefte forrige handling (nøkkelord: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standard hurtigbuffere</string>
     <string name="appcleaner_item_caches_inaccessible_body">Standard offentlige og private hurtigbuffere. Ikke direkte tilgjengelig, men kan slettes indirekte (f.eks. via tilgjengelighetstjeneste).</string>
     <string name="appcleaner_automation_unavailable_title">Tilgjengelighetstjeneste utilgjengelig</string>
@@ -402,6 +419,8 @@
     <string name="appcontrol_systemsettings_open_description">Åpne enhetens systeminnstillinger for denne appen.</string>
     <string name="appcontrol_app_launch_title">Start app</string>
     <string name="appcontrol_app_launch_description">Start denne appens primære aktivitet.</string>
+    <string name="appcontrol_app_forcestop_title">Tving avslutning</string>
+    <string name="appcontrol_app_forcestop_description">Stopper appen. Hindrer den fra å starte seg selv, frem til du åpner den eller enheten startes på nytt.</string>
     <string name="appcontrol_app_uninstall_description">Avinstaller denne appen fra enheten din.</string>
     <string name="appcontrol_app_exclude_add_title">Ekskluder app</string>
     <string name="appcontrol_app_exclude_add_description">Ekskluder denne appen fra andre operasjoner i SD Maid.</string>
@@ -412,6 +431,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pakke</string>
     <string name="appcontrol_tag_system">System</string>
+    <string name="appcontrol_tag_archived">Arkivert</string>
     <string name="appcontrol_tag_enabled">Aktivert</string>
     <string name="appcontrol_tag_disabled">Deaktivert</string>
     <string name="appcontrol_progress_enabling_package">Aktiverer app</string>
@@ -439,7 +459,20 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Finn ut om en app er (eller nylig var) aktiv.</string>
     <string name="appcontrol_export_app_selection_action">Eksporter apper</string>
     <string name="appcontrol_export_title">Eksporter app</string>
+    <string name="appcontrol_export_description">Lagre installasjonsfilene til denne appen. Dette inkluderer ikke appdata.</string>
     <string name="appcontrol_progress_exporting_x">Eksporterer %s</string>
+    <string name="appcontrol_force_stop_selection_action">Tving avslutning av apper</string>
+    <string name="appcontrol_force_stop_action">Tving avslutning</string>
+    <string name="appcontrol_force_stop_confirm_title">Bekreft tvangsavslutning</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Tving avslutning for %d app?</item>
+        <item quantity="other">Tving avslutning for %d apper?</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Forbereder automatisering via tilgjengelighetstjeneste</string>
+    <string name="appcontrol_automation_title">Appkontroll automatisering</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Tvinger avslutning…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Ser etter \"Tving avslutning\"-knapp (nøkkelord: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Prøver å bekrefte forrige handling (nøkkelord: %s)</string>
     <string name="analyzer_tool_name">Lagringsanalysator</string>
     <string name="analyzer_explanation_short">Finn ut hva som tar opp plass på enheten din.</string>
     <string name="analyzer_progress_scanning_device">Søker etter lagringsenheter</string>
@@ -461,6 +494,8 @@
     <string name="analyzer_storage_type_primary_description">Den primære lagringen til enheten din. Inneholder internt minnekort, privat lagring for apper og systemdata.</string>
     <string name="analyzer_storage_type_secondary_title">Sekundærlagring</string>
     <string name="analyzer_storage_type_secondary_description">En sekundær lagring, vanligvis et flyttbart minnekort. Inneholder mediefiler og data fra apper som støtter det.</string>
+    <string name="analyzer_storage_type_tertiary_title">Bærbar lagring</string>
+    <string name="analyzer_storage_type_tertiary_description">En bærbar lagring, f.eks. en flash-stasjon koblet til USB-porten.</string>
     <string name="analyzer_storage_content_title">Lagringsinnhold</string>
     <string name="analyzer_storage_content_type_app_label">Apper</string>
     <string name="analyzer_storage_content_type_app_description">Plass okkupert av installerte apper og deres data (dvs. applikasjonsfiler, data og buffere).</string>
@@ -470,7 +505,7 @@
     <string name="analyzer_storage_content_type_system_label">Systemdata</string>
     <string name="analyzer_storage_content_type_system_description">Systemapper og systemdata. Apper og data fra andre brukere, hvis flere brukerkontoer er angitt på denne enheten.</string>
     <string name="analyzer_storage_content_app_code_label">App-kode</string>
-    <string name="analyzer_storage_content_app_code_description">Applikasjonsfiler, biblioteker og ressurser. Denne plassen kan bare frigjøres ved å avinstallere appen.</string>
+    <string name="analyzer_storage_content_app_code_description">Applikasjonsfiler, biblioteker og ressurser. Denne plassen kan frigjøres ved å avinstallere appen eller arkivere den (tilgjengelig på nyere Android-versjon).</string>
     <string name="analyzer_storage_content_app_data_label">App-data</string>
     <string name="analyzer_storage_content_app_data_description">Data, innstillinger og buffere.</string>
     <string name="analyzer_storage_content_app_media_label">App-medier</string>
@@ -478,6 +513,7 @@
     <string name="analyzer_storage_content_app_extra_label">Ekstra app-filer</string>
     <string name="analyzer_storage_content_app_extra_description">Ekstra data som denne appen har plassert utenfor standardbanene, f.eks. bilder eller nedlastinger.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Denne appen bruker %1$s på \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Denne appen er arkivert.</string>
     <string name="data_area_public_app_data_official_label">Standard offentlig appdata</string>
     <string name="data_area_public_app_assets_official_label">Standard offentlige appressurser</string>
     <string name="data_area_public_storage_label">Offentlig lagring</string>
@@ -499,6 +535,7 @@
     <string name="exclusion_option_allow_partial">Tillat delvise treff</string>
     <string name="exclusion_option_ignore_casing">Ignorer store og små bokstaver</string>
     <string name="exclusion_editor_affected_tools_label">Berørte verktøy</string>
+    <string name="exclusion_editor_path_explanation">Ekskludering av en bane forhindrer SD Maid fra å viderebehandle eventuelle samsvarende baner. Dette gjelder filer, mapper og undermapper.</string>
     <string name="exclusion_editor_pkg_explanation">Ekskludering av en app forhindrer SD Maid fra å behandle samsvarende pakker.</string>
     <string name="exclusion_editor_segment_explanation">En segmentbasert ekskludering ligner på en baneekskludering, men tillater delvise treff. Eksempel: \"DCIM/Camera\" ekskluderer \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Vil du fjerne denne ekskluderingen?</string>
@@ -572,4 +609,9 @@
     <string name="motd_setting_enabled_explanation">La SD Maid se etter viktige meldinger fra utvikleren.</string>
     <string name="updatecheck_setting_enabled_label">Oppdateringssjekk</string>
     <string name="updatecheck_setting_enabled_explanation">La SD Maid se etter oppdateringer for å fortelle deg om en nyere versjon er tilgjengelig.</string>
+    <string name="device_settings_category">Enhet</string>
+    <string name="beta_version_indicator_desc">Pre-release-versjoner viser et lite bånd på startskjermen. De oppdateres oftere, kan ha flere funksjoner, men kan også ha flere feil.</string>
+    <string name="review_app_review_action">Anmeldelse</string>
+    <string name="review_app_dismiss_action">Kanskje senere</string>
+    <string name="review_app_body">Vil du gi SD Maid en anmeldelse? ❤️</string>
 </resources>

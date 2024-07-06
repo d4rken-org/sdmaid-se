@@ -120,6 +120,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Povolte aplikaci SD Maid používat Shizuku, pokud je to možné, pro zlepšení výkonu a aktivaci funkcí.</string>
     <string name="setup_shizuku_card_body2">Toto nastavení nemá žádný účinek, pokud v zařízení není nastavena aplikace Shizuku.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku v kombinaci s root přístupem nepovoluje další funkce, ale vylepšuje spolehlivost. SD Maid jej použije jako záložní metodu.</string>
     <string name="setup_shizuku_state_ready_label">Propojení se Shizuku je připraveno.</string>
     <string name="setup_shizuku_state_waiting_label">Čekání na propojení se Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Použít Shizuku, pokud je k dispozici</string>
@@ -450,6 +451,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Balíček</string>
     <string name="appcontrol_tag_system">Systém</string>
+    <string name="appcontrol_tag_archived">Archivované</string>
     <string name="appcontrol_tag_enabled">Povoleno</string>
     <string name="appcontrol_tag_disabled">Zakázáno</string>
     <string name="appcontrol_progress_enabling_package">Povolování aplikace</string>
@@ -531,7 +533,7 @@
     <string name="analyzer_storage_content_type_system_label">Systémová data</string>
     <string name="analyzer_storage_content_type_system_description">Systémové aplikace a systémová data. Aplikace a data od jiných uživatelů, pokud je v tomto zařízení nastaveno více uživatelských účtů.</string>
     <string name="analyzer_storage_content_app_code_label">Kód aplikace</string>
-    <string name="analyzer_storage_content_app_code_description">Soubory aplikace, knihovny a zdroje. Tento prostor lze uvolnit pouze odinstalací aplikace.</string>
+    <string name="analyzer_storage_content_app_code_description">Soubory aplikace, knihovny a prostředky. Tento prostor může být uvolněn odinstalováním aplikace nebo její archivací (dostupné v novějších verzích Android).</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikace</string>
     <string name="analyzer_storage_content_app_data_description">Data, nastavení a mezipaměti.</string>
     <string name="analyzer_storage_content_app_media_label">Média aplikace</string>
@@ -539,6 +541,7 @@
     <string name="analyzer_storage_content_app_extra_label">Další soubory aplikace</string>
     <string name="analyzer_storage_content_app_extra_description">Další data, která tato aplikace umístila mimo výchozí cesty, např. fotky nebo stažené soubory.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Tato aplikace zabírá %1$s v \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Tato aplikace byla archivována.</string>
     <string name="data_area_public_app_data_official_label">Výchozí veřejná data aplikace</string>
     <string name="data_area_public_app_assets_official_label">Výchozí veřejné prostředky aplikace</string>
     <string name="data_area_public_storage_label">Veřejné úložiště</string>

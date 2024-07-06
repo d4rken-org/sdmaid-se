@@ -116,6 +116,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Sonuçları iyileştirmek ve bazı ek özellikleri etkinleştirmek için mümkün olduğunda SD Maid\'in Shizuku\'yu kullanmasına izin verin.</string>
     <string name="setup_shizuku_card_body2">Shizuku uygulaması cihazınızda kurulu değilse bu ayarın hiçbir etkisi yoktur.</string>
+    <string name="setup_shizuku_card_root_info">Kök erişimi ile birlikte Shizuku herhangi bir ek özellik etkinleştirmez, ancak güvenilirliği artırır. SD Maid bunu yedek yöntem olarak kullanacaktır.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku bağlantısı hazır.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku\'ya bağlanmak için bekleniyor.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Varsa Shizuku\'yu kullanın</string>
@@ -430,6 +431,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Paket</string>
     <string name="appcontrol_tag_system">Sistem</string>
+    <string name="appcontrol_tag_archived">Arşivlenmiş</string>
     <string name="appcontrol_tag_enabled">Etkin</string>
     <string name="appcontrol_tag_disabled">Devre dışı</string>
     <string name="appcontrol_progress_enabling_package">Uygulama etkinleştiriliyor</string>
@@ -503,7 +505,7 @@
     <string name="analyzer_storage_content_type_system_label">Sistem verileri</string>
     <string name="analyzer_storage_content_type_system_description">Sistem uygulamaları ve sistem verileri. Bu cihazda birden fazla kullanıcı hesabı ayarlanmışsa, diğer kullanıcılara ait uygulamalar ve veriler.</string>
     <string name="analyzer_storage_content_app_code_label">Uygulama kodu</string>
-    <string name="analyzer_storage_content_app_code_description">Uygulama dosyaları, kütüphaneler ve kaynaklar. Bu alan yalnızca uygulama kaldırılarak boşaltılabilir.</string>
+    <string name="analyzer_storage_content_app_code_description">Uygulama dosyaları, kütüphaneler ve kaynaklar. Bu alan, uygulamayı kaldırarak veya arşivleyerek (daha yeni Android sürümlerinde mevcuttur) boşaltılabilir.</string>
     <string name="analyzer_storage_content_app_data_label">Uygulama verileri</string>
     <string name="analyzer_storage_content_app_data_description">Veriler, ayarlar ve önbellekler.</string>
     <string name="analyzer_storage_content_app_media_label">Uygulama medyası</string>
@@ -511,6 +513,7 @@
     <string name="analyzer_storage_content_app_extra_label">Ek uygulama dosyaları</string>
     <string name="analyzer_storage_content_app_extra_description">Bu uygulamanın varsayılan dizinler dışındaki verileri, örneğin fotoğraflar veya indirmeler.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Bu uygulama \"%2$s\"de %1$s yer kaplıyor.</string>
+    <string name="analyzer_app_details_app_is_archived">Bu uygulama arşivlendi.</string>
     <string name="data_area_public_app_data_official_label">Varsayılan genel uygulama verileri</string>
     <string name="data_area_public_app_assets_official_label">Varsayılan genel uygulama verileri</string>
     <string name="data_area_public_storage_label">Genel Depolama</string>

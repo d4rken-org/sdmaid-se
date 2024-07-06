@@ -26,5 +26,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Tips untuk memperbaiki peningkatan yang tidak dikenali:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinkronisasi Play Store dapat memakan waktu. Coba restart, bersihkan tembolok Google Play, atau tunggu saja.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Akun yang berbeda-beda dapat membuat pusing Google Play. Keluarlah dari akun-akun yang lain atau pasang aplikasinya dari situs web Google Play yang akan memaksa penghubungan dengan akun tertentu.</string>
+    <string name="nudge_betagoodbye_title">Versi 1.0 🥳</string>
     <string name="nudge_betagoodbye_negative_action">Teruslah menguji</string>
 </resources>

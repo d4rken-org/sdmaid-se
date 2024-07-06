@@ -9,6 +9,7 @@
     <string name="slogan_message_5">I panjollë.</string>
     <string name="slogan_message_6">Bytes, largohuni!</string>
     <string name="slogan_message_7">Hapësirë ​​e lirë, vend i lumtur.</string>
+    <string name="slogan_message_8">Nuk do të le kurre vetëm.</string>
     <string name="general_thank_you_label">Faleminderit</string>
     <string name="general_error_type_mismatch_msg">Mospërputhja e llojit: Kërkonte %1$s, por mori %2$s.</string>
     <string name="general_error_cant_access_msg">Nuk mund të qaset %s.</string>
@@ -63,6 +64,8 @@
     <string name="general_progress_loading_egg_9">Buferimi i zgjedhjeve të jetës</string>
     <string name="general_progress_loading_egg_10">Duke thirrur Cthulhu</string>
     <string name="general_progress_loading_egg_11">Kjo është mirë</string>
+    <string name="general_progress_loading_egg_12">Prisni ju lutem</string>
+    <string name="general_progress_loading_egg_13">Të paktën nuk jeni në pritje</string>
     <string name="general_help_action">Ndihmë</string>
     <string name="general_continue">Vazhdo</string>
     <string name="general_progress_queued">Në radhë</string>
@@ -106,6 +109,14 @@
         <item quantity="one">%s artikull</item>
         <item quantity="other">%s artikuj</item>
     </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d i suksesshëm</item>
+        <item quantity="other">%d i suksesshëm</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d dështoi</item>
+        <item quantity="other">%d dështoi</item>
+    </plurals>
     <string name="x_space_can_be_freed">%s mund të lirohet</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Numëroni</string>
@@ -131,6 +142,7 @@
     <string name="general_timeunit_days">Ditët</string>
     <string name="general_progress_ready">Gati</string>
     <string name="general_progress_done">E sosur</string>
+    <string name="general_rom_type_auto_label">Automatik (bazë)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s skedar</item>
         <item quantity="other">%s skedarë</item>

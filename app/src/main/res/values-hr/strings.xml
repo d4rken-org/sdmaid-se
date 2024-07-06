@@ -321,7 +321,6 @@
     <string name="analyzer_storage_content_type_media_description">Snimljene slike, snimljeni videozapisi ili preuzeti podaci. Svi podaci koji ne pripadaju određenoj aplikaciji.</string>
     <string name="analyzer_storage_content_type_system_label">Sistemski podaci</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikacije</string>
-    <string name="analyzer_storage_content_app_code_description">Aplikacijske datoteke, biblioteke i resursi. Ovaj se prostor može osloboditi samo deinstaliranjem aplikacije.</string>
     <string name="analyzer_storage_content_app_data_label">Podaci aplikacije</string>
     <string name="analyzer_storage_content_app_data_description">Podaci, postavke i predmemorije.</string>
     <string name="analyzer_storage_content_app_media_label">Mediji aplikacije</string>

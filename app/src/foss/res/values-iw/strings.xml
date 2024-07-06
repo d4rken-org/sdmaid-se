@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_dashcard_upgrade_action">שדרוג</string>
+    <string name="upgrade_screen_sponsor_action">תמוך בפיתוח</string>
+    <string name="nudge_betagoodbye_title">גרסא 1.0 🥳</string>
+</resources>

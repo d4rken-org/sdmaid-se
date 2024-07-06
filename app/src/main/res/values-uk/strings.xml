@@ -120,6 +120,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Дозвольте SD Maid використовувати Shizuku, де це можливо, щоб покращити результати та увімкнути функції.</string>
     <string name="setup_shizuku_card_body2">Цей параметр не діє, якщо на вашому пристрої не встановлено програму Shizuku.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku у поєднанні з root-доступом не дає додаткових можливостей, але підвищує надійність. SD Maid використовуватиме його як резервний метод.</string>
     <string name="setup_shizuku_state_ready_label">Посилання на Shizuku готове.</string>
     <string name="setup_shizuku_state_waiting_label">Чекаємо на зв\'язок з Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Використовуйте Shizuku, якщо це можливо</string>
@@ -450,6 +451,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Набір</string>
     <string name="appcontrol_tag_system">Системна</string>
+    <string name="appcontrol_tag_archived">Заархівовано</string>
     <string name="appcontrol_tag_enabled">Увімкнено</string>
     <string name="appcontrol_tag_disabled">Вимкнено</string>
     <string name="appcontrol_progress_enabling_package">Увімкнення додатка</string>
@@ -531,7 +533,7 @@
     <string name="analyzer_storage_content_type_system_label">Системні дані</string>
     <string name="analyzer_storage_content_type_system_description">Системні додатки та системні дані. Додатки та дані інших користувачів, якщо на пристрої встановлено кілька облікових записів.</string>
     <string name="analyzer_storage_content_app_code_label">Код додатка</string>
-    <string name="analyzer_storage_content_app_code_description">Файли додатка, бібліотеки та ресурси. Звільнити цей простір можна лише видаливши додаток.</string>
+    <string name="analyzer_storage_content_app_code_description">Файли додатка, бібліотеки та ресурси. Цей простір можна звільнити, видаливши додатки або заархівувавши їх (доступно на нових версіях Android).</string>
     <string name="analyzer_storage_content_app_data_label">Дані додатка</string>
     <string name="analyzer_storage_content_app_data_description">Дані, налаштування та кеш.</string>
     <string name="analyzer_storage_content_app_media_label">Медіафайли додатка</string>
@@ -539,6 +541,7 @@
     <string name="analyzer_storage_content_app_extra_label">Додаткові файли додатка</string>
     <string name="analyzer_storage_content_app_extra_description">Додаткові дані, які додаток розмістив за межами шляхів за умовчанням, наприклад, фотографії або завантаження.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Цей додаток займає %1$s на \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Цей додаток було заархівовано.</string>
     <string name="data_area_public_app_data_official_label">Загальнодоступні дані додатка за замовчуванням</string>
     <string name="data_area_public_app_assets_official_label">Загальнодоступні дані додатка за замовчуванням</string>
     <string name="data_area_public_storage_label">Загальне сховище</string>

@@ -489,7 +489,6 @@
     <string name="analyzer_storage_content_type_system_label">システムデータ</string>
     <string name="analyzer_storage_content_type_system_description">システムアプリとシステムデータ。この端末で複数のユーザーアカウントが設定されている場合、他のユーザーからのアプリとデータ。</string>
     <string name="analyzer_storage_content_app_code_label">アプリコード</string>
-    <string name="analyzer_storage_content_app_code_description">アプリケーション・ファイル、ライブラリ、およびリソース。このスペースはアプリをアンインストールすることでのみ解放できます。</string>
     <string name="analyzer_storage_content_app_data_label">アプリのデータ</string>
     <string name="analyzer_storage_content_app_data_description">データ、設定、キャッシュ。</string>
     <string name="analyzer_storage_content_app_media_label">アプリのメディア</string>
