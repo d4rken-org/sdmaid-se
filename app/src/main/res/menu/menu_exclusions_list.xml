@@ -24,4 +24,13 @@
         android:title="@string/exclusion_reset_default_exclusions"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/menu_show_defaults"
+        android:checkable="true"
+        android:checked="false"
+        android:title="@string/exclusion_show_defaults_action"
+        android:visible="false"
+        app:showAsAction="never"
+        tools:visible="true" />
+
 </menu>
