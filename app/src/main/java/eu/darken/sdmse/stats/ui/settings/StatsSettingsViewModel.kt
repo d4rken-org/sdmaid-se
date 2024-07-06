@@ -17,7 +17,7 @@ class StatsSettingsViewModel @Inject constructor(
 
     val state = statsRepo.state.map {
         State(
-            databaseSize = it.databaseSize
+            reportsCount = it.reportsCount
         )
     }.asLiveData2()
 
@@ -27,7 +27,7 @@ class StatsSettingsViewModel @Inject constructor(
     }
 
     data class State(
-        val databaseSize: Long,
+        val reportsCount: Int,
     )
 
     companion object {

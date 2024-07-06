@@ -1,7 +1,6 @@
 package eu.darken.sdmse.stats.core.db
 
 import android.content.Context
-import android.database.sqlite.SQLiteDatabase
 import androidx.room.Room
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -165,22 +164,6 @@ class ReportsDatabase @Inject constructor(
 
     suspend fun clear() = withContext(dispatcherProvider.IO) {
         log(TAG, INFO) { "clear()" }
-        val walFile = File(context.getDatabasePath(DB_NAME).parent, "$DB_NAME-wal")
-        val shmFile = File(context.getDatabasePath(DB_NAME).parent, "$DB_NAME-shm")
-
-        if (walFile.exists() || shmFile.exists()) {
-            SQLiteDatabase.openDatabase(
-                dbFile.path,
-                null,
-                SQLiteDatabase.OPEN_READWRITE
-            ).use {
-                it.rawQuery("PRAGMA wal_checkpoint(FULL)", null).use { }
-            }
-        }
-
-        walFile.delete()
-        shmFile.delete()
-
         database.clearAllTables()
 
         databaseSize.value = getDatabaseSize()
