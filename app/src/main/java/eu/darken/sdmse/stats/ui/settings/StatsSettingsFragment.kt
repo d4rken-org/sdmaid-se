@@ -1,7 +1,6 @@
 package eu.darken.sdmse.stats.ui.settings
 
 import android.os.Bundle
-import android.text.format.Formatter
 import android.view.View
 import androidx.annotation.Keep
 import androidx.annotation.StringRes
@@ -59,8 +58,9 @@ class StatsSettingsFragment : PreferenceFragment3() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.state.observe2 { state ->
-            preferenceSize.summary = Formatter.formatShortFileSize(requireContext(),
-                state.databaseSize.takeIf { it > 32 * 1024 } ?: 0L
+            preferenceSize.summary = getQuantityString2(
+                eu.darken.sdmse.common.R.plurals.result_x_items,
+                state.reportsCount
             )
         }
         super.onViewCreated(view, savedInstanceState)

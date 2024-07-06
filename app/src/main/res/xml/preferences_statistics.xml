@@ -21,11 +21,11 @@
             app:summary="@string/stats_settings_retention_paths_desc"
             app:title="@string/stats_settings_retention_paths_label" />
         <Preference
-            app:icon="@drawable/ic_weight_24"
+            app:icon="@drawable/baseline_settings_backup_restore_24"
             app:key="reports.size"
             app:singleLineTitle="false"
             app:summary="~"
-            app:title="@string/general_size_label" />
+            app:title="@string/stats_settings_reset_all_label" />
     </PreferenceCategory>
 
 </PreferenceScreen>
