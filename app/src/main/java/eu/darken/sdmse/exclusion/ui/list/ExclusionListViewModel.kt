@@ -37,9 +37,11 @@ import eu.darken.sdmse.exclusion.core.types.tryAsPathExclusion
 import eu.darken.sdmse.exclusion.ui.list.types.PackageExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.PathExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.SegmentExclusionVH
-import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.systemcleaner.ui.customfilter.list.CustomFilterListFragmentDirections
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 import java.io.IOException
 import javax.inject.Inject
 
@@ -60,6 +62,8 @@ class ExclusionListViewModel @Inject constructor(
 
     val events = SingleLiveEvent<ExclusionListEvents>()
 
+    private val showDefaults = MutableStateFlow(handle["showDefaults"] ?: false)
+
     private val lookups = exclusionManager.exclusions
         .map { excls -> excls.mapNotNull { it.tryAsPathExclusion() }.map { it.path } }
         .map { paths ->
@@ -79,10 +83,22 @@ class ExclusionListViewModel @Inject constructor(
     val state = combine(
         exclusionManager.exclusions,
         pkgRepo.pkgs.onStart { emit(emptySet()) },
-        lookups.onStart { emit(emptyMap()) }
-    ) { exclusions, pkgs, lookups ->
-        val items = exclusions.map { _exclusion ->
-            when (val exclusion = if (_exclusion is DefaultExclusion) _exclusion.exclusion else _exclusion) {
+        lookups.onStart { emit(emptyMap()) },
+        showDefaults,
+    ) { exclusions, pkgs, lookups, showDefaults ->
+        handle["showDefaults"] = showDefaults
+
+        val items = mutableListOf<ExclusionListAdapter.Item>()
+
+        exclusions.mapNotNull { _exclusion ->
+            val exclusion = when (_exclusion) {
+                is DefaultExclusion -> if (showDefaults) _exclusion.exclusion else null
+                else -> _exclusion
+            }
+
+            if (exclusion == null) return@mapNotNull null
+
+            when (exclusion) {
                 is PkgExclusion -> PackageExclusionVH.Item(
                     pkg = pkgs.firstOrNull { it.id == exclusion.pkgId },
                     exclusion = exclusion,
@@ -132,7 +148,8 @@ class ExclusionListViewModel @Inject constructor(
 
                 else -> throw NotImplementedError()
             }
-        }
+        }.run { items.addAll(this) }
+
         val sortedItems = items.sortedWith(
             compareBy<ExclusionListAdapter.Item> { it.isDefault }
                 .thenBy {
@@ -146,7 +163,11 @@ class ExclusionListViewModel @Inject constructor(
                     it.exclusion.label.get(context)
                 }
         )
-        State(sortedItems, loading = false)
+        State(
+            items = sortedItems,
+            loading = false,
+            showDefaults = showDefaults,
+        )
     }
         .onStart { emit(State()) }
         .asLiveData2()
@@ -154,6 +175,7 @@ class ExclusionListViewModel @Inject constructor(
     data class State(
         val items: List<ExclusionListAdapter.Item> = emptyList(),
         val loading: Boolean = true,
+        val showDefaults: Boolean = false,
     )
 
     fun restore(items: Set<Exclusion>) = launch {
@@ -261,6 +283,11 @@ class ExclusionListViewModel @Inject constructor(
         log(TAG, VERBOSE) { "Wrote $rawContainer to ${targetFile.uri}" }
 
         events.postValue(ExclusionListEvents.ExportSuccess(exportData))
+    }
+
+    fun showDefeaultExclusions(show: Boolean) {
+        log(TAG) { "showDefaultExclusions($show)" }
+        showDefaults.value = show
     }
 
     companion object {

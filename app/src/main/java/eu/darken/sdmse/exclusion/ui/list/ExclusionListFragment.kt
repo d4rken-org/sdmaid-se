@@ -98,6 +98,12 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
                         true
                     }
 
+                    R.id.menu_show_defaults -> {
+                        it.isChecked = !it.isChecked
+                        vm.showDefeaultExclusions(it.isChecked)
+                        true
+                    }
+
                     else -> false
                 }
             }
@@ -169,10 +175,15 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
         )
 
 
-        vm.state.observe2(ui) {
-            adapter.update(it.items)
-            loadingOverlay.isVisible = it.loading
-            emptyOverlay.isVisible = it.items.isEmpty() && !it.loading
+        vm.state.observe2(ui) { state ->
+            adapter.update(state.items)
+            loadingOverlay.isVisible = state.loading
+            emptyOverlay.isVisible = state.items.isEmpty() && !state.loading
+
+            toolbar.menu.findItem(R.id.menu_show_defaults)?.apply {
+                isVisible = true
+                isChecked = state.showDefaults
+            }
         }
 
         vm.events.observe2 { event ->
