@@ -470,6 +470,20 @@
 		  ]
 		}
 	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA", "PUBLIC_DATA"],
+		  "contains": [
+			"/files/tbslog/",
+			"/Tencent/tbs_live_log/"
+		  ],
+		  "patterns": [
+			"^.+?/files/tbslog/.+?\\.log$",
+			"^.+?/Tencent/tbs_live_log/.+?\\.log$"
+		  ]
+		}
+	  ]
 	}
   ]
 }
