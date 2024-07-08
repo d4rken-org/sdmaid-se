@@ -201,6 +201,10 @@
     <string name="corpsefinder_filter_appasec_summary">Recursos de l\'aplicació xifrats, p. ex. actius del joc.</string>
     <string name="corpsefinder_filter_app2sd_summary">Dades mogudes a l\'emmagatzematge extern mitjançant modificacions d\'App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">S\'ha suprimit %d aplicació restant</item>
+        <item quantity="other">S\'han suprimit %d aplicacions restants</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">S\'ha descobert restes d\'%d aplicació</item>
         <item quantity="other">S\'han descobert restes de %d aplicacions</item>
@@ -213,6 +217,10 @@
     <string name="corpsefinder_corpse_hint_common">Aquest element té un nom molt comú i podria pertànyer a aplicacions encara instal·lades que l\'SD Maid no coneix.</string>
     <string name="systemcleaner_tool_name">Netejador del sistema</string>
     <string name="systemcleaner_explanation_short">Dades superflues que no pertanyen a cap aplicació concreta.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">S\'ha suprimit %d coincidència</item>
+        <item quantity="other">S\'han suprimit %d coincidències</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d coincidència de filtre</item>
         <item quantity="other">%d coincidències de filtre</item>
@@ -347,6 +355,10 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Fitxers multimèdia a la memòria cau que es tornen a baixar quan es visualitzen al xat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Voleu suprimir els elements prescindibles de totes les aplicacions?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">S\'ha suprimit %d element fungible</item>
+        <item quantity="other">S\'han suprimit %d elements fungibles</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">S\'ha trobat %d element prescindible</item>
         <item quantity="other">S\'han trobat %d articles prescindibles</item>
@@ -372,6 +384,10 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Eliminació de memòria cau mitjançant Shizuku</string>
     <string name="deduplicator_tool_name">Deduplicador</string>
     <string name="deduplicator_explanation_short">Troba dades duplicades al vostre dispositiu.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">S\'ha suprimit %d duplicat</item>
+        <item quantity="other">S\'han eliminat %d duplicats</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">S\'ha trobat %d conjunt duplicat</item>
         <item quantity="other">S\'han trobat %d conjunts duplicats</item>
@@ -444,6 +460,10 @@
     <string name="appcontrol_list_sortmode_size_label">Mida</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Les mides de les aplicacions s\'estimen per raons de rendiment. Utilitzeu l\'eina Analitzador d\'emmagatzematge per obtenir dades més precises.</string>
     <string name="appcontrol_progress_uninstalling_app">Desinstal·lant l\'aplicació</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">S\'ha desinstal·lat %d aplicació</item>
+        <item quantity="other">S\'han desinstal·lat %d aplicacions</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Mida de l\'aplicació</string>
     <string name="appcontrol_app_sizes_apk_label">Aplicació</string>
     <string name="appcontrol_app_sizes_data_label">Dades</string>
@@ -453,6 +473,10 @@
         <item quantity="one">Voleu canviar l\'estat d\'activació/desactivació d\'%d aplicació?</item>
         <item quantity="other">Voleu canviar l\'estat d\'activació/desactivació de %d aplicacions?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">S\'ha commutat %d aplicació</item>
+        <item quantity="other">S\'han commutat %d aplicacions</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determina les mides</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Obteniu una estimació aproximada de la mida de cada aplicació.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determina l\'activitat</string>
@@ -460,6 +484,10 @@
     <string name="appcontrol_export_app_selection_action">Exporta les aplicacions</string>
     <string name="appcontrol_export_title">Exporta l\'aplicació</string>
     <string name="appcontrol_export_description">Desa els fitxers d\'instal·lació d\'aquesta aplicació. Això no inclou les dades de l\'aplicació.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">S\'ha exportat %d aplicació</item>
+        <item quantity="other">S\'han exportat %d aplicacions</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">S\'està exportant %s</string>
     <string name="appcontrol_force_stop_selection_action">Força l\'aturada d\'aplicacions</string>
     <string name="appcontrol_force_stop_action">Força l\'aturada</string>
@@ -467,6 +495,10 @@
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="one">Força l\'aturada d\'%d aplicació?</item>
         <item quantity="other">Força l\'aturada de %d aplicacions?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">S\'ha aturat %d aplicació</item>
+        <item quantity="other">S\'han aturat %d aplicacions</item>
     </plurals>
     <string name="appcontrol_automation_loading">Preparant l\'automatització mitjançant servei d\'accessibilitat</string>
     <string name="appcontrol_automation_title">Automatització de l\'AppControl</string>
@@ -599,6 +631,7 @@
     <string name="scheduler_notification_result_failure_message">Algunes tasques programades han fallat o han trobat errors. Proveu d\'executar-les manualment.</string>
     <string name="scheduler_commands_after_schedule_label">Ordres posteriors a la programació</string>
     <string name="scheduler_commands_after_schedule_desc">Ordres del shell d\'Android que s\'executaran al final d\'una programació.</string>
+    <string name="scheduler_battery_optimization_hint">Considereu desactivar les optimitzacions de la bateria per a l\'SD Maid si teniu problemes amb l\'execució en segon pla.</string>
     <string name="updates_dashcard_title">Actualització disponible</string>
     <string name="updates_dashcard_body">Hi ha una actualització disponible. Teniu la versió %1$s i la darrera és %2$s.</string>
     <string name="translation_encourage_title">Traducció de l\'SD Maid</string>
@@ -614,4 +647,23 @@
     <string name="review_app_review_action">Revisió</string>
     <string name="review_app_dismiss_action">Potser després</string>
     <string name="review_app_body">Voleu deixar una ressenya de l\'SD Maid?️ ❤️</string>
+    <string name="stats_label">Historial</string>
+    <string name="stats_dash_body">S\'han alliberat %s i s\'han processat %s elements des que vau convidar l\'SD Maid al vostre dispositiu.</string>
+    <string name="stats_report_status_success">Èxit</string>
+    <string name="stats_report_status_partial_success">Èxit parcial</string>
+    <string name="stats_report_status_partial_failure">Error</string>
+    <string name="stats_settings_desc">Configureu les estadístiques, els informes i la retenció de dades de l\'SD Maid.</string>
+    <string name="stats_settings_retention_category">Retenció</string>
+    <string name="stats_settings_retention_reports_label">Informes generals</string>
+    <string name="stats_settings_retention_reports_desc">Nombre de dies abans de suprimir els informes bàsics d\'operacions de l\'SD Maid.</string>
+    <string name="stats_settings_retention_paths_label">Informació detallada de la ruta</string>
+    <string name="stats_settings_retention_paths_desc">El nombre de dies per conservar els detalls de les rutes afectades per l\'SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d dia</item>
+        <item quantity="other">%d dies</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Reinicia-ho tot</string>
+    <string name="stats_settings_reset_all_desc">Suprimeix tots els informes i posa totes les estadístiques a zero.</string>
+    <string name="stats_affected_paths_label">Rutes afectades</string>
+    <string name="stats_affected_pkgs_label">Aplicacions afectades</string>
 </resources>

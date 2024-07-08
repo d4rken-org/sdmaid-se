@@ -201,6 +201,10 @@
     <string name="corpsefinder_filter_appasec_summary">Risorse di app criptate, ad esempio risorse di gioco.</string>
     <string name="corpsefinder_filter_app2sd_summary">Dati spostati nella memoria esterna da App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d resto di applicazione eliminato</item>
+        <item quantity="other">%d resti di applicazioni eliminati</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">Trovato %d resto di app</item>
         <item quantity="other">Trovati %d resti di app</item>
@@ -213,6 +217,10 @@
     <string name="corpsefinder_corpse_hint_common">Questo elemento ha un nome molto comune e potrebbe appartenere ad applicazioni ancora installate che SD Maid non riesce a identificare.</string>
     <string name="systemcleaner_tool_name">Pulitore di sistema</string>
     <string name="systemcleaner_explanation_short">Dati superflui che non appartengono ad alcuna app in particolare.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d corrispondenza eliminata</item>
+        <item quantity="other">%d corrispondenze eliminate</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d Corrispondenza del filtro</item>
         <item quantity="other">%d Corrispondenze del filtro</item>

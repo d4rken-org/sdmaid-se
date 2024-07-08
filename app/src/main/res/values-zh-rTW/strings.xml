@@ -583,6 +583,7 @@
     <string name="scheduler_notification_result_failure_message">部分排程的工作失敗或發生錯誤，請嘗試手動執行。</string>
     <string name="scheduler_commands_after_schedule_label">排程後命令</string>
     <string name="scheduler_commands_after_schedule_desc">將會在排程結束後執行的 Android 殼層命令。</string>
+    <string name="scheduler_battery_optimization_hint">如果您在背景執行時遇到問題，請考慮為 SD Maid 停用電池最佳化。</string>
     <string name="updates_dashcard_title">有可用的更新</string>
     <string name="updates_dashcard_body">有可用的更新項目。您已安裝 %1$s，而最新版本為 %2$s。</string>
     <string name="translation_encourage_title">翻譯 SD 女僕</string>
@@ -598,4 +599,9 @@
     <string name="review_app_review_action">評論</string>
     <string name="review_app_dismiss_action">稍後再說</string>
     <string name="review_app_body">您想為 SD Maid 留下評論嗎？❤️</string>
+    <string name="stats_dash_body">自從您邀請 SD Maid 到您的裝置後，已釋放 %s 並處理 %s 項目。</string>
+    <string name="stats_settings_desc">設定 SD Maid 的統計數據、報告和資料保留。</string>
+    <string name="stats_settings_retention_reports_desc">刪除基本 SD Maid 操作報告前的天數。</string>
+    <string name="stats_settings_retention_paths_desc">保留 SD Maid 影響路徑詳細資料的天數。</string>
+    <string name="stats_settings_reset_all_desc">刪除所有報告並將所有統計數據歸零。</string>
 </resources>

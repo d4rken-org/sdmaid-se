@@ -153,4 +153,5 @@
         <item quantity="few">%s Fişier</item>
         <item quantity="other">%s Fişier</item>
     </plurals>
+    <string name="general_advice_title">Sfat</string>
 </resources>

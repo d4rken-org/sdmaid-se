@@ -588,6 +588,7 @@
     <string name="scheduler_notification_result_failure_message">Algumas tarefas agendadas falharam ou encontraram erros. Tente executá-las manualmente.</string>
     <string name="scheduler_commands_after_schedule_label">Comandos pós-agendado</string>
     <string name="scheduler_commands_after_schedule_desc">Comandos de shell do Android que serão executados no final de um cronograma.</string>
+    <string name="scheduler_battery_optimization_hint">Considere desabilitar as otimizações de bateria para o SD Maid se você tiver problemas com a execução em segundo plano.</string>
     <string name="updates_dashcard_title">Atualização disponível</string>
     <string name="updates_dashcard_body">Uma atualização está disponível. Sua versão é %1$s e a última versão é %2$s.</string>
     <string name="translation_encourage_title">Traduzir o SD Maid</string>
@@ -602,4 +603,23 @@
     <string name="review_app_review_action">Avaliar</string>
     <string name="review_app_dismiss_action">Talvez depois</string>
     <string name="review_app_body">Voce gostaria de deixar uma avaliação do SD Maid? ❤️</string>
+    <string name="stats_label">Histórico</string>
+    <string name="stats_dash_body">%s foi liberado e %s itens foram processados desde que você convidou o SD Maid para o seu dispositivo.</string>
+    <string name="stats_report_status_success">Com sucesso</string>
+    <string name="stats_report_status_partial_success">Com sucesso parcial</string>
+    <string name="stats_report_status_partial_failure">Falha</string>
+    <string name="stats_settings_desc">Configure as estatísticas, os relatórios e a retenção de dados do SD Maid.</string>
+    <string name="stats_settings_retention_category">Retenção</string>
+    <string name="stats_settings_retention_reports_label">Relatórios gerais</string>
+    <string name="stats_settings_retention_reports_desc">Número de dias antes de excluir os relatórios básicos de operação do SD Maid.</string>
+    <string name="stats_settings_retention_paths_label">Informações detalhadas do caminho</string>
+    <string name="stats_settings_retention_paths_desc">Número de dias para manter os detalhes sobre os caminhos afetados pelo SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d dia</item>
+        <item quantity="other">%d dias</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Restaurar tudo</string>
+    <string name="stats_settings_reset_all_desc">Excluir todos os relatórios e definir todas as estatísticas para zero.</string>
+    <string name="stats_affected_paths_label">Caminhos afetados</string>
+    <string name="stats_affected_pkgs_label">Apps afetados</string>
 </resources>

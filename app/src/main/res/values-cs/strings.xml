@@ -209,6 +209,12 @@
     <string name="corpsefinder_filter_appasec_summary">Šifrované zdroje aplikace, např. herní prostředky.</string>
     <string name="corpsefinder_filter_app2sd_summary">Data přesunutá do externího úložiště pomocí modifikací App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d pozůstatek aplikace smazán</item>
+        <item quantity="few">%d pozůstatky aplikace smazány</item>
+        <item quantity="many">%d pozůstatků aplikace smazáno</item>
+        <item quantity="other">%d pozůstatků aplikace smazáno</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">Nalezen %d pozůstatek aplikace</item>
         <item quantity="few">Nalezeny %d pozůstatky aplikace</item>
@@ -223,6 +229,12 @@
     <string name="corpsefinder_corpse_hint_common">Tato položka má velmi běžný název a mohla by patřit k dosud nainstalovaným aplikacím, které SD Maid nezná.</string>
     <string name="systemcleaner_tool_name">Čistič systému</string>
     <string name="systemcleaner_explanation_short">Zbytečná data, která nepatří do žádné konkrétní aplikace.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d shoda smazána</item>
+        <item quantity="few">%d shody smazány</item>
+        <item quantity="many">%d shod smazáno</item>
+        <item quantity="other">%d shod smazáno</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d shodný filtr</item>
         <item quantity="few">%d shodné filtry</item>
@@ -359,6 +371,12 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Soubory médií v mezipaměti, které se při zobrazení v konverzaci znovu stáhnou.</string>
     <string name="appcleaner_delete_all_confirmation_message">Smazat nepotřebné položky pro všechny aplikace?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d nepotřebná položka odstraněna</item>
+        <item quantity="few">%d nepotřebné položky odstraněny</item>
+        <item quantity="many">%d nepotřebných položek odstraněno</item>
+        <item quantity="other">%d nepotřebných položek odstraněno</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Nalezena %d nepotřebná položka</item>
         <item quantity="few">Nalezeny %d nepotřebné položky</item>
@@ -388,6 +406,12 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Mazání mezipaměti pomocí Shizuku</string>
     <string name="deduplicator_tool_name">Odstraňovač duplikátů</string>
     <string name="deduplicator_explanation_short">Vyhledejte duplicitní data v zařízení.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d duplikát smazán</item>
+        <item quantity="few">%d duplikáty smazány</item>
+        <item quantity="many">%d duplikátů smazáno</item>
+        <item quantity="other">%d duplikátů smazáno</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">Nalezena %d sada duplikátů</item>
         <item quantity="few">Nalezeny %d sady duplikátů</item>
@@ -451,7 +475,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Balíček</string>
     <string name="appcontrol_tag_system">Systém</string>
-    <string name="appcontrol_tag_archived">Archivované</string>
+    <string name="appcontrol_tag_archived">Archivováno</string>
     <string name="appcontrol_tag_enabled">Povoleno</string>
     <string name="appcontrol_tag_disabled">Zakázáno</string>
     <string name="appcontrol_progress_enabling_package">Povolování aplikace</string>
@@ -464,6 +488,12 @@
     <string name="appcontrol_list_sortmode_size_label">Velikost</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Velikosti aplikací jsou z výkonnostních důvodů odhadovány. Pro přesnější údaje použijte Analyzátor úložiště.</string>
     <string name="appcontrol_progress_uninstalling_app">Odinstalování aplikace</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d aplikace byla odinstalována</item>
+        <item quantity="few">%d aplikace byly odinstalovány</item>
+        <item quantity="many">%d aplikací bylo odinstalováno</item>
+        <item quantity="other">%d aplikací bylo odinstalováno</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Velikost aplikace</string>
     <string name="appcontrol_app_sizes_apk_label">Aplikace</string>
     <string name="appcontrol_app_sizes_data_label">Data</string>
@@ -475,6 +505,12 @@
         <item quantity="many">Změnit zapnutý/vypnutý stav %d aplikací?</item>
         <item quantity="other">Změnit zapnutý/vypnutý stav %d aplikací?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d aplikace byla přepnuta</item>
+        <item quantity="few">%d aplikace byly přepnuty</item>
+        <item quantity="many">%d aplikací bylo přepnuto</item>
+        <item quantity="other">%d aplikací bylo přepnuto</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Stanovit velikost</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Získejte hrubý odhad velikosti každé aplikace.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Zjistit aktivitu</string>
@@ -482,6 +518,12 @@
     <string name="appcontrol_export_app_selection_action">Exportovat aplikace</string>
     <string name="appcontrol_export_title">Exportovat aplikaci</string>
     <string name="appcontrol_export_description">Uloží instalační soubory této aplikace. To nezahrnuje data aplikace.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d aplikace byla exportována</item>
+        <item quantity="few">%d aplikace byly exportovány</item>
+        <item quantity="many">%d aplikací bylo exportováno</item>
+        <item quantity="other">%d aplikací bylo exportováno</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Exportování %s</string>
     <string name="appcontrol_force_stop_selection_action">Vynutit ukončení aplikací</string>
     <string name="appcontrol_force_stop_action">Vynutit ukončení</string>
@@ -491,6 +533,12 @@
         <item quantity="few">Vynutit ukončení %d aplikací?</item>
         <item quantity="many">Vynutit ukončení %d aplikací?</item>
         <item quantity="other">Vynutit ukončení %d aplikací?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d aplikace byla ukončena</item>
+        <item quantity="few">%d aplikace byly ukončeny</item>
+        <item quantity="many">%d aplikací bylo ukončeno</item>
+        <item quantity="other">%d aplikací bylo ukončeno</item>
     </plurals>
     <string name="appcontrol_automation_loading">Příprava automatizace prostřednictvím služby přístupnosti</string>
     <string name="appcontrol_automation_title">Automatizace Správce aplikací</string>
@@ -631,6 +679,7 @@
     <string name="scheduler_notification_result_failure_message">Některé naplánované úlohy selhaly nebo došlo k chybám. Zkuste je spustit ručně.</string>
     <string name="scheduler_commands_after_schedule_label">Příkazy po naplánování</string>
     <string name="scheduler_commands_after_schedule_desc">Příkazy Android shell, které budou provedeny na konci plánu.</string>
+    <string name="scheduler_battery_optimization_hint">Zvažte vypnutí optimalizace baterie pro SD Maid, pokud narazíte na problémy se spuštěním na pozadí.</string>
     <string name="updates_dashcard_title">Aktualizace je k dispozici</string>
     <string name="updates_dashcard_body">Aktualizace je k dispozici. Máte %1$s a poslední verze je %2$s.</string>
     <string name="translation_encourage_title">Přeložit SD Maid</string>
@@ -646,4 +695,25 @@
     <string name="review_app_review_action">Ohodnotit</string>
     <string name="review_app_dismiss_action">Možná později</string>
     <string name="review_app_body">Chcete ohodnotit SD Maid? ❤️</string>
+    <string name="stats_label">Historie</string>
+    <string name="stats_dash_body">Bylo uvolněno %s a zpracováno %s položek, od té doby, co jste pozvali SD Maid do vašeho zařízení.</string>
+    <string name="stats_report_status_success">Úspěch</string>
+    <string name="stats_report_status_partial_success">Částečný úspěch</string>
+    <string name="stats_report_status_partial_failure">Neúspěch</string>
+    <string name="stats_settings_desc">Nastavte statistiky, zprávy a uchování dat aplikace SD Maid.</string>
+    <string name="stats_settings_retention_category">Zachování</string>
+    <string name="stats_settings_retention_reports_label">Obecné zprávy</string>
+    <string name="stats_settings_retention_reports_desc">Počet dní před odstraněním základních zpráv o operacích v SD Maid.</string>
+    <string name="stats_settings_retention_paths_label">Podrobné informace o cestě</string>
+    <string name="stats_settings_retention_paths_desc">Počet dní k uchování podrobností o cestách ovlivněných aplikací SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d den</item>
+        <item quantity="few">%d dny</item>
+        <item quantity="many">%d dnů</item>
+        <item quantity="other">%d dnů</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Obnovit vše</string>
+    <string name="stats_settings_reset_all_desc">Odstranit všechna hlášení a nastavit všechny statistiky na nulu.</string>
+    <string name="stats_affected_paths_label">Ovlivněné cesty</string>
+    <string name="stats_affected_pkgs_label">Ovlivněné aplikace</string>
 </resources>
