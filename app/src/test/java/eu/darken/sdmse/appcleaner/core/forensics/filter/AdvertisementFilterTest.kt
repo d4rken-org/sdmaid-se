@@ -99,18 +99,25 @@ class AdvertisementFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun testWeChat() = runTest {
+    @Test fun `wechat ads`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/sns_ad_landingpages")
-        )
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/sns_ad_landingpages/.nomedia")
 
-        )
-        addCandidate(
-            pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/sns_ad_landingpages/" + rngString)
-        )
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/sns_ad_landingpages")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/sns_ad_landingpages/.nomedia")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/sns_ad_landingpages/$rngString")
+
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/hbstoryvideo")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/hbstoryvideo/.nomedia")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/hbstoryvideo/$rngString")
+
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/sns_ad_landingpages")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/sns_ad_landingpages/.nomedia")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/sns_ad_landingpages/$rngString")
+
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/hbstoryvideo")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/hbstoryvideo/.nomedia")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/hbstoryvideo/$rngString")
+
         confirm(create())
     }
 
@@ -263,12 +270,25 @@ class AdvertisementFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
+
     @Test fun `dont match default folder`() = runTest {
         neg("com.some.pkg", PUBLIC_DATA, "com.some.pkg/cache/vast_rtb_cache/$rngString")
         neg("com.some.pkg", PUBLIC_DATA, "com.some.pkg/Cache/vast_rtb_cache/$rngString")
 
         neg("com.some.pkg", PRIVATE_DATA, "com.some.pkg/cache/vast_rtb_cache/$rngString")
         neg("com.some.pkg", PRIVATE_DATA, "com.some.pkg/Cache/vast_rtb_cache/$rngString")
+
+        confirm(create())
+    }
+
+    @Test fun `IFlyAdImgCache ads`() = runTest {
+        addDefaultNegatives()
+
+        neg("com.zhihu.android", PRIVATE_DATA, "com.zhihu.android/files/IFlyAdImgCache")
+        pos("com.zhihu.android", PRIVATE_DATA, "com.zhihu.android/files/IFlyAdImgCache/$rngString")
+
+        neg("com.zhihu.android", PUBLIC_DATA, "com.zhihu.android/files/IFlyAdImgCache")
+        pos("com.zhihu.android", PUBLIC_DATA, "com.zhihu.android/files/IFlyAdImgCache/$rngString")
 
         confirm(create())
     }

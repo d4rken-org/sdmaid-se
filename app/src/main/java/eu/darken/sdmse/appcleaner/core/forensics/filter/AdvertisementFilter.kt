@@ -123,6 +123,7 @@ class AdvertisementFilter @Inject constructor(
         private val HIDDEN_CACHE_FOLDERS: Collection<String> = listOf(
             "vast_rtb_cache",
             "GoAdSdk",
+            "IFlyAdImgCache",
         ).lowercase()
         private val HIDDEN_CACHE_FILES: Collection<String> = listOf(
 
