@@ -31,10 +31,12 @@
 	  "packages": ["com.tencent.mm"],
 	  "fileFilter": [
 		{
-		  "locations": ["SDCARD"],
-		  "startsWith": ["tencent/MicroMsg/"],
-		  "patterns": [
-			"^(?>tencent/MicroMsg/sns_ad_landingpages/)([\\W\\w]+?)$"
+		  "locations": ["SDCARD", "PUBLIC_DATA"],
+		  "startsWith": [
+			"tencent/MicroMsg/sns_ad_landingpages/",
+			"tencent/MicroMsg/hbstoryvideo/",
+			"com.tencent.mm/MicroMsg/sns_ad_landingpages/",
+			"com.tencent.mm/MicroMsg/hbstoryvideo/"
 		  ]
 		}
 	  ]
