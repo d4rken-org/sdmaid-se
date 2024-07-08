@@ -1485,72 +1485,189 @@ class HiddenFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun testTencentMicroMsg() = runTest {
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg"))
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/sns/$rngString")
+    @Test fun `wechat tencent micro message`() = runTest {
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/sns/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image2/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/video/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/voice2/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/CheckResUpdate")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/CheckResUpdate/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/WebviewCache")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/WebviewCache/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/Cache")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/Cache/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/.tmp")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/.tmp/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/CDNTemp")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/CDNTemp/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/FailMsgFileCache")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/FailMsgFileCache/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/diskcache")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/diskcache/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e63cd8c46008e42a3d3d614a3temp012345789111")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3temp0123456789111")
+        neg("com.tencent.mm", SDCARD, "tencent/assistant/cache")
+        pos("com.tencent.mm", SDCARD, "tencent/assistant/cache/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/assistant/thumbnailcache")
+        pos("com.tencent.mm", SDCARD, "tencent/assistant/thumbnailcache/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/assistant/tmp")
+        pos("com.tencent.mm", SDCARD, "tencent/assistant/tmp/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/brandicon")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/brandicon/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/cdn/download")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/cdn/download/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/emoji/cover")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/emoji/cover/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/mmslot/webcached")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/mmslot/webcached/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/openapi_cache")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/openapi_cache/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/wxacache")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/wxacache/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/wxafiles")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/wxafiles/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/wxanewfiles")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/wxanewfiles/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/wxvideocache")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/wxvideocache/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/wxvideotmp")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/wxvideotmp/$rngString")
+
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/sns/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image2/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/video/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/voice2/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/CheckResUpdate")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/CheckResUpdate/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/WebviewCache")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/WebviewCache/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/Cache")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/Cache/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/.tmp")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/.tmp/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/CDNTemp")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/CDNTemp/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/FailMsgFileCache")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/FailMsgFileCache/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/diskcache")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/diskcache/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/efda91e63cd8c46008e42a3d3d614a3temp012345789111")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3temp0123456789111")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/assistant/cache")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/assistant/cache/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/assistant/thumbnailcache")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/assistant/thumbnailcache/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/assistant/tmp")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/assistant/tmp/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/brandicon")
+        pos(
+            "com.tencent.mm",
+            PUBLIC_DATA,
+            "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/brandicon/$rngString"
         )
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/cdn/download")
+        pos(
+            "com.tencent.mm",
+            PUBLIC_DATA,
+            "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/cdn/download/$rngString"
         )
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image2/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/emoji/cover")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/emoji/cover/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/mmslot/webcached")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/mmslot/webcached/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/openapi_cache")
+        pos(
+            "com.tencent.mm",
+            PUBLIC_DATA,
+            "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/openapi_cache/$rngString"
         )
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/video/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/wxacache")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/wxacache/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/wxafiles")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/wxafiles/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/wxanewfiles")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/wxanewfiles/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/wxvideocache")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/wxvideocache/$rngString")
+        neg("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/wxvideotmp")
+        pos("com.tencent.mm", PUBLIC_DATA, "com.tencent.mm/MicroMsg/wxvideotmp/$rngString")
+
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/sns/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image/$rngString")
+        neg(
+            "com.tencent.mm",
+            PRIVATE_DATA,
+            "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image2/$rngString"
         )
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/voice2/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/video/$rngString")
+        neg(
+            "com.tencent.mm",
+            PRIVATE_DATA,
+            "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/voice2/$rngString"
         )
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/CheckResUpdate"))
-        addCandidate(pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/CheckResUpdate/$rngString"))
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/WebviewCache"))
-        addCandidate(pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/WebviewCache/$rngString"))
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/Cache"))
-        addCandidate(pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/Cache/$rngString"))
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/.tmp"))
-        addCandidate(pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/.tmp/$rngString"))
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/wxacache"))
-        addCandidate(pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/wxacache/$rngString"))
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/CDNTemp"))
-        addCandidate(pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/CDNTemp/$rngString"))
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/FailMsgFileCache"))
-        addCandidate(
-            pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/FailMsgFileCache/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/CheckResUpdate")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/CheckResUpdate/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/WebviewCache")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/WebviewCache/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/Cache")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/Cache/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/.tmp")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/.tmp/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/CDNTemp")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/CDNTemp/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/FailMsgFileCache")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/FailMsgFileCache/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/diskcache")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/diskcache/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/efda91e63cd8c46008e42a3d3d614a3temp012345789111")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3temp0123456789111")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/assistant/cache")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/assistant/cache/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/assistant/thumbnailcache")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/assistant/thumbnailcache/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/assistant/tmp")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/assistant/tmp/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/brandicon")
+        pos(
+            "com.tencent.mm",
+            PRIVATE_DATA,
+            "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/brandicon/$rngString"
         )
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/diskcache"))
-        addCandidate(pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/diskcache/$rngString"))
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e63cd8c46008e42a3d3d614a3temp012345789111")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/cdn/download")
+        pos(
+            "com.tencent.mm",
+            PRIVATE_DATA,
+            "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/cdn/download/$rngString"
         )
-        addCandidate(
-            pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3temp0123456789111")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/emoji/cover")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/emoji/cover/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/mmslot/webcached")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/mmslot/webcached/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/openapi_cache")
+        pos(
+            "com.tencent.mm",
+            PRIVATE_DATA,
+            "com.tencent.mm/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/openapi_cache/$rngString"
         )
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("VideoCache/com.tencent.mm"))
-        addCandidate(pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("VideoCache/com.tencent.mm/$rngString"))
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/assistant/cache"))
-        addCandidate(pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/assistant/cache/$rngString"))
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/assistant/thumbnailcache"))
-        addCandidate(
-            pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/assistant/thumbnailcache/$rngString")
-        )
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/assistant/tmp"))
-        addCandidate(pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/assistant/tmp/$rngString"))
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/brandicon")
-        )
-        addCandidate(
-            pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/brandicon/$rngString")
-        )
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/wxacache")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/wxacache/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/wxafiles")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/wxafiles/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/wxanewfiles")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/wxanewfiles/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/wxvideocache")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/wxvideocache/$rngString")
+        neg("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/wxvideotmp")
+        pos("com.tencent.mm", PRIVATE_DATA, "com.tencent.mm/MicroMsg/wxvideotmp/$rngString")
+
+        neg("com.tencent.mm", SDCARD, "VideoCache/com.tencent.mm")
+        pos("com.tencent.mm", SDCARD, "VideoCache/com.tencent.mm/$rngString")
+
         confirm(create())
     }
 
@@ -2170,6 +2287,180 @@ class HiddenFilterTest : BaseFilterTest() {
         neg("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/AVFSCache")
         pos("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/AVFSCache/laz_homepage_module")
         pos("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/AVFSCache/some/random/file")
+        confirm(create())
+    }
+
+    @Test fun `agricultural bank of china`() = runTest {
+        neg("com.android.bankabc", PUBLIC_DATA, "com.android.bankabc/image")
+        neg("com.android.bankabc", PUBLIC_DATA, "com.android.bankabc/imageX")
+        pos("com.android.bankabc", PUBLIC_DATA, "com.android.bankabc/image/file")
+        neg("com.android.bankabc", PUBLIC_DATA, "com.android.bankabc/files/nebulaDownload/downloads")
+        neg("com.android.bankabc", PUBLIC_DATA, "com.android.bankabc/files/nebulaDownload/downloadsX")
+        pos("com.android.bankabc", PUBLIC_DATA, "com.android.bankabc/files/nebulaDownload/downloads/file")
+        neg("com.android.bankabc", PUBLIC_DATA, "com.android.bankabc/files/image")
+        neg("com.android.bankabc", PUBLIC_DATA, "com.android.bankabc/files/imageX")
+        neg("com.android.bankabc", PUBLIC_DATA, "com.android.bankabc/files/imageX/file")
+        pos("com.android.bankabc", PUBLIC_DATA, "com.android.bankabc/files/image/file")
+        confirm(create())
+    }
+
+    @Test fun `alipay caches`() = runTest {
+        neg("com.eg.android.AlipayGphone", PRIVATE_DATA, "com.eg.android.AlipayGphone/app_alipay_msp_disk_cache")
+        pos(
+            "com.eg.android.AlipayGphone",
+            PRIVATE_DATA,
+            "com.eg.android.AlipayGphone/app_alipay_msp_disk_cache/deleteme"
+        )
+        neg("com.eg.android.AlipayGphone", PRIVATE_DATA, "com.eg.android.AlipayGphone/files/cashier_templates")
+        pos("com.eg.android.AlipayGphone", PRIVATE_DATA, "com.eg.android.AlipayGphone/files/cashier_templates/deleteme")
+        neg("com.eg.android.AlipayGphone", PRIVATE_DATA, "com.eg.android.AlipayGphone/files/ccdn/caches/packages")
+        pos(
+            "com.eg.android.AlipayGphone",
+            PRIVATE_DATA,
+            "com.eg.android.AlipayGphone/files/ccdn/caches/packages/deleteme"
+        )
+        neg("com.eg.android.AlipayGphone", PRIVATE_DATA, "com.eg.android.AlipayGphone/files/ccdn/caches/resources")
+        pos(
+            "com.eg.android.AlipayGphone",
+            PRIVATE_DATA,
+            "com.eg.android.AlipayGphone/files/ccdn/caches/resources/deleteme"
+        )
+
+        neg(
+            "com.eg.android.AlipayGphone",
+            PUBLIC_DATA,
+            "com.eg.android.AlipayGphone/files/multimedia/1a2b3c4d5e6f7g8h9i0jklmnopqrstuvwx/ef/"
+        )
+        pos(
+            "com.eg.android.AlipayGphone",
+            PUBLIC_DATA,
+            "com.eg.android.AlipayGphone/files/multimedia/1a2b3c4d5e6f7g8h9i0jklmnopqrstuvwx/ef/deleteme"
+        )
+
+        neg("com.eg.android.AlipayGphone", SDCARD, "alipay/com.eg.android.AlipayGphone/nebulaDownload/downloads/")
+        pos(
+            "com.eg.android.AlipayGphone",
+            SDCARD,
+            "alipay/com.eg.android.AlipayGphone/nebulaDownload/downloads/deleteme"
+        )
+
+        neg("com.eg.android.AlipayGphone", SDCARD, "alipay/com.eg.android.AlipayGphone/openplatform/downloads/")
+        pos("com.eg.android.AlipayGphone", SDCARD, "alipay/com.eg.android.AlipayGphone/openplatform/downloads/deleteme")
+
+        neg("com.eg.android.AlipayGphone", SDCARD, "alipay/multimedia/1a2b3c4d5e6f7g8h9i0jklmnopqrstuvwx/1f/")
+        pos("com.eg.android.AlipayGphone", SDCARD, "alipay/multimedia/1a2b3c4d5e6f7g8h9i0jklmnopqrstuvwx/1f/deleteme")
+
+        confirm(create())
+    }
+
+    @Test fun `jing dong caches`() = runTest {
+        neg("com.jingdong.app.mall", PRIVATE_DATA, "com.jingdong.app.mall/files/custom_theme_pics")
+        pos("com.jingdong.app.mall", PRIVATE_DATA, "com.jingdong.app.mall/files/custom_theme_pics/deleteme")
+        neg("com.jingdong.app.mall", PRIVATE_DATA, "com.jingdong.app.mall/files/jingdongbannerBgVideo")
+        pos("com.jingdong.app.mall", PRIVATE_DATA, "com.jingdong.app.mall/files/jingdongbannerBgVideo/deleteme")
+        neg("com.jingdong.app.mall", PRIVATE_DATA, "com.jingdong.app.mall/files/jingdonghomeSkuVideo")
+        pos("com.jingdong.app.mall", PRIVATE_DATA, "com.jingdong.app.mall/files/jingdonghomeSkuVideo/deleteme")
+        neg("com.jingdong.app.mall", PRIVATE_DATA, "com.jingdong.app.mall/files/start_image")
+        pos("com.jingdong.app.mall", PRIVATE_DATA, "com.jingdong.app.mall/files/start_image/deleteme")
+
+        neg("com.jingdong.app.mall", PUBLIC_DATA, "com.jingdong.app.mall/files/image")
+        pos("com.jingdong.app.mall", PUBLIC_DATA, "com.jingdong.app.mall/files/image/deleteme")
+
+        neg("com.jingdong.app.mall", SDCARD, "JDIM/cache")
+        pos("com.jingdong.app.mall", SDCARD, "JDIM/cache/image/deleteme")
+        neg("com.jingdong.app.mall", SDCARD, "JDIM/cache/image/.nomedia")
+
+        confirm(create())
+    }
+
+    @Test fun `netease cloudmusic hidden caches`() = runTest {
+        neg("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/NetworkCache")
+        pos("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/NetworkCache/deleteme")
+        neg("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/sailfish")
+        pos("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/sailfish/deleteme")
+
+        confirm(create())
+    }
+
+    @Test fun `seazon feedme feedly`() = runTest {
+        neg("com.seazon.feedme", PUBLIC_DATA, "com.seazon.feedme/files/providers/Feedly/cache")
+        pos("com.seazon.feedme", PUBLIC_DATA, "com.seazon.feedme/files/providers/Feedly/cache/deleteme")
+        neg("com.seazon.feedme", PUBLIC_DATA, "com.seazon.feedme/files/providers/Feedly/states")
+        pos("com.seazon.feedme", PUBLIC_DATA, "com.seazon.feedme/files/providers/Feedly/states/deleteme")
+
+        confirm(create())
+    }
+
+    @Test fun `suing dot com`() = runTest {
+        neg("com.suning.mobile.ebuy", PUBLIC_DATA, "com.suning.mobile.ebuy/files/Pictures/cache")
+        pos("com.suning.mobile.ebuy", PUBLIC_DATA, "com.suning.mobile.ebuy/files/Pictures/cache/deleteme")
+
+        neg("com.suning.mobile.ebuy", SDCARD, "oneplayer/.local")
+        pos("com.suning.mobile.ebuy", SDCARD, "oneplayer/.local/deleteme")
+
+        confirm(create())
+    }
+
+    @Test fun `Xianyu cache`() = runTest {
+        neg("com.taobao.idlefish", PUBLIC_DATA, "com.taobao.idlefish/files/AVFSCache")
+        pos("com.taobao.idlefish", PUBLIC_DATA, "com.taobao.idlefish/files/AVFSCache/deleteme")
+
+        confirm(create())
+    }
+
+    @Test fun `Taobao cache`() = runTest {
+        neg("com.taobao.taobao", PRIVATE_DATA, "com.taobao.taobao/app_zcache")
+        pos("com.taobao.taobao", PRIVATE_DATA, "com.taobao.taobao/app_zcache/deleteme")
+
+        neg("com.taobao.taobao", PRIVATE_DATA, "com.taobao.taobao/files/AVFSCache")
+        pos("com.taobao.taobao", PRIVATE_DATA, "com.taobao.taobao/files/AVFSCache/deleteme")
+
+        neg("com.taobao.taobao", PUBLIC_DATA, "com.taobao.taobao/files/AVFSCache")
+        pos("com.taobao.taobao", PUBLIC_DATA, "com.taobao.taobao/files/AVFSCache/deleteme")
+
+        confirm(create())
+    }
+
+    @Test fun `qq downloader`() = runTest {
+        neg("com.tencent.android.qqdownloader", PUBLIC_DATA, "com.tencent.android.qqdownloader/files/tassistant/apk")
+        pos(
+            "com.tencent.android.qqdownloader",
+            PUBLIC_DATA,
+            "com.tencent.android.qqdownloader/files/tassistant/apk/deleteme"
+        )
+
+        neg("com.tencent.android.qqdownloader", PUBLIC_DATA, "com.tencent.android.qqdownloader/files/tassistant/gif")
+        pos(
+            "com.tencent.android.qqdownloader",
+            PUBLIC_DATA,
+            "com.tencent.android.qqdownloader/files/tassistant/gif/deleteme"
+        )
+
+        neg(
+            "com.tencent.android.qqdownloader",
+            PUBLIC_DATA,
+            "com.tencent.android.qqdownloader/files/tassistant/mediaCache"
+        )
+        pos(
+            "com.tencent.android.qqdownloader",
+            PUBLIC_DATA,
+            "com.tencent.android.qqdownloader/files/tassistant/mediaCache/deleteme"
+        )
+
+        neg("com.tencent.android.qqdownloader", PUBLIC_DATA, "com.tencent.android.qqdownloader/files/tassistant/pic")
+        pos(
+            "com.tencent.android.qqdownloader",
+            PUBLIC_DATA,
+            "com.tencent.android.qqdownloader/files/tassistant/pic/deleteme"
+        )
+
+        neg("com.tencent.android.qqdownloader", PUBLIC_DATA, "com.tencent.android.qqdownloader/files/tassistant/video")
+        pos(
+            "com.tencent.android.qqdownloader",
+            PUBLIC_DATA,
+            "com.tencent.android.qqdownloader/files/tassistant/video/deleteme"
+        )
+
         confirm(create())
     }
 }

@@ -702,27 +702,59 @@
 	  "packages": ["com.tencent.mm"],
 	  "fileFilter": [
 		{
-		  "locations": ["SDCARD"],
+		  "locations": ["SDCARD", "PUBLIC_DATA", "PRIVATE_DATA"],
 		  "startsWith": [
 			"tencent/MicroMsg/",
 			"VideoCache/com.tencent.mm/",
-			"tencent/assistant/"
+			"tencent/assistant/",
+			"com.tencent.mm/MicroMsg/",
+			"com.tencent.mm/assistant/"
 		  ],
 		  "patterns": [
+			"^(?>VideoCache/com.tencent.mm/)([\\W\\w]+?)$",
+
 			"^(?>tencent/MicroMsg/CheckResUpdate/)([\\W\\w]+?)$",
 			"^(?>tencent/MicroMsg/WebviewCache/)([\\W\\w]+?)$",
 			"^(?>tencent/MicroMsg/Cache/)([\\W\\w]+?)$",
 			"^(?>tencent/MicroMsg/wxacache/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/wxafiles/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/wxvideocache/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/wxanewfiles/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/wxvideotmp/)([\\W\\w]+?)$",
 			"^(?>tencent/MicroMsg/.tmp/)([\\W\\w]+?)$",
 			"^(?>tencent/MicroMsg/CDNTemp/)([\\W\\w]+?)$",
 			"^(?>tencent/MicroMsg/FailMsgFileCache/)([\\W\\w]+?)$",
 			"^(?>tencent/MicroMsg/diskcache/)([\\W\\w]+?)$",
 			"^(?>tencent/MicroMsg/)([0-9a-z-]{32}temp[\\d]{13})$",
-			"^(?>tencent/MicroMsg/[0-9a-z-]{32}\/brandicon\/)(?>.+)",
+			"^(?>tencent/MicroMsg/[0-9a-z-]{32}/brandicon/)(?>.+)",
+			"^(?>tencent/MicroMsg/[0-9a-z-]{32}/openapi_cache/)(?>.+)",
+			"^(?>tencent/MicroMsg/[0-9a-z-]{32}/cdn/download/)(?>.+)",
+			"^(?>tencent/MicroMsg/emoji/cover/)(?>.+)",
+			"^(?>tencent/MicroMsg/mmslot/webcached/)(?>.+)",
 			"^(?>tencent/assistant/cache/)([\\W\\w]+?)$",
 			"^(?>tencent/assistant/tmp/)([\\W\\w]+?)$",
 			"^(?>tencent/assistant/thumbnailcache/)([\\W\\w]+?)$",
-			"^(?>VideoCache/com.tencent.mm/)([\\W\\w]+?)$"
+			"^(?>com.tencent.mm/MicroMsg/CheckResUpdate/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/MicroMsg/WebviewCache/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/MicroMsg/Cache/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/MicroMsg/wxacache/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/MicroMsg/wxafiles/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/MicroMsg/wxvideocache/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/MicroMsg/wxanewfiles/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/MicroMsg/wxvideotmp/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/MicroMsg/.tmp/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/MicroMsg/CDNTemp/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/MicroMsg/FailMsgFileCache/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/MicroMsg/diskcache/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/MicroMsg/)([0-9a-z-]{32}temp[\\d]{13})$",
+			"^(?>com.tencent.mm/MicroMsg/[0-9a-z-]{32}/brandicon/)(?>.+)",
+			"^(?>com.tencent.mm/MicroMsg/[0-9a-z-]{32}/openapi_cache/)(?>.+)",
+			"^(?>com.tencent.mm/MicroMsg/[0-9a-z-]{32}/cdn/download/)(?>.+)",
+			"^(?>com.tencent.mm/MicroMsg/emoji/cover/)(?>.+)",
+			"^(?>com.tencent.mm/MicroMsg/mmslot/webcached/)(?>.+)",
+			"^(?>com.tencent.mm/assistant/cache/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/assistant/tmp/)([\\W\\w]+?)$",
+			"^(?>com.tencent.mm/assistant/thumbnailcache/)([\\W\\w]+?)$"
 		  ]
 		}
 	  ]
@@ -1142,6 +1174,132 @@
 		  "locations": ["PUBLIC_DATA"],
 		  "contains": ["com.rarlab.rar/files/_rartemp_"],
 		  "patterns": ["^com\\.rarlab\\.rar/files/_rartemp_.+?$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.android.bankabc"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": [
+			"com.android.bankabc/files/image/",
+			"com.android.bankabc/files/nebulaDownload/downloads/",
+			"com.android.bankabc/image/"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.eg.android.AlipayGphone"],
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "startsWith": [
+			"com.eg.android.AlipayGphone/app_alipay_msp_disk_cache/",
+			"com.eg.android.AlipayGphone/files/cashier_templates/",
+			"com.eg.android.AlipayGphone/files/ccdn/caches/packages/",
+			"com.eg.android.AlipayGphone/files/ccdn/caches/resources/"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.eg.android.AlipayGphone"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA", "SDCARD"],
+		  "startsWith": [
+			"com.eg.android.AlipayGphone/files/multimedia/",
+			"alipay/com.eg.android.AlipayGphone/nebulaDownload/downloads/",
+			"alipay/com.eg.android.AlipayGphone/openplatform/downloads/",
+			"alipay/multimedia/"
+		  ],
+		  "patterns": [
+			"^com.eg.android.AlipayGphone/files/multimedia/[0-9a-z]+?/[0-9a-z]{2}/.+?",
+			"^alipay/com.eg.android.AlipayGphone/nebulaDownload/downloads/.+?$",
+			"^alipay/com.eg.android.AlipayGphone/openplatform/downloads/.+?$",
+			"^alipay/multimedia/[0-9a-z]+?/[0-9a-z]{2}/.+?$"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.jingdong.app.mall"],
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "startsWith": [
+			"com.jingdong.app.mall/files/custom_theme_pics/",
+			"com.jingdong.app.mall/files/jingdongbannerBgVideo/",
+			"com.jingdong.app.mall/files/jingdonghomeSkuVideo/",
+			"com.jingdong.app.mall/files/start_image/"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.jingdong.app.mall"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA", "SDCARD"],
+		  "notContains": [".nomedia"],
+		  "startsWith": [
+			"com.jingdong.app.mall/files/image/",
+			"JDIM/cache/image/"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.netease.cloudmusic"],
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "startsWith": [
+			"com.netease.cloudmusic/files/NetworkCache/",
+			"com.netease.cloudmusic/files/sailfish/"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.seazon.feedme"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": [
+			"com.seazon.feedme/files/providers/Feedly/cache/",
+			"com.seazon.feedme/files/providers/Feedly/states/"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.suning.mobile.ebuy"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA", "SDCARD"],
+		  "startsWith": [
+			"com.suning.mobile.ebuy/files/Pictures/cache/",
+			"oneplayer/.local/"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.taobao.taobao"],
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "startsWith": [
+			"com.taobao.taobao/app_zcache/"
+		  ]
+		}
+	  ]
+	}, {
+	  "packages": ["com.tencent.android.qqdownloader"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": [
+			"com.tencent.android.qqdownloader/files/tassistant/apk/",
+			"com.tencent.android.qqdownloader/files/tassistant/gif/",
+			"com.tencent.android.qqdownloader/files/tassistant/mediaCache/",
+			"com.tencent.android.qqdownloader/files/tassistant/pic/",
+			"com.tencent.android.qqdownloader/files/tassistant/video/"
+		  ]
 		}
 	  ]
 	}
