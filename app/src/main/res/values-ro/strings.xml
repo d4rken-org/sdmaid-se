@@ -118,6 +118,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Permite SD Maid să folosească Shizuku acolo unde este posibil pentru a îmbunătăţi rezultatele şi pentru a activa caracteristicile.</string>
     <string name="setup_shizuku_card_body2">Această setare nu are efect dacă aplicația Shizuku nu este configurată pe dispozitivul dvs.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku în combinație cu accesul root nu permite funcții suplimentare, dar îmbunătățește fiabilitatea. SD Maid îl va folosi ca metodă alternativă.</string>
     <string name="setup_shizuku_state_ready_label">Link-ul Shizuku este gata.</string>
     <string name="setup_shizuku_state_waiting_label">Se așteaptă legătura cu Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Utilizați Shizuku dacă este disponibil</string>
@@ -204,6 +205,11 @@
     <string name="corpsefinder_filter_appasec_summary">Resurse criptate a aplicației, ex: activele jocului.</string>
     <string name="corpsefinder_filter_app2sd_summary">Datele mutate în stocarea externă de către modurile aplicației App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d aplicație restantă a fost ștearsă</item>
+        <item quantity="few">%d aplicații restante au fost șterse</item>
+        <item quantity="other">%d aplicații restante au fost șterse</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">A fost descoperită %d rămășiță de aplicație</item>
         <item quantity="few">Au fost descoperite %d rămășițe de aplicație</item>
@@ -217,6 +223,11 @@
     <string name="corpsefinder_corpse_hint_common">Acest articol are un nume foarte comun și ar putea aparține unor aplicații încă instalate pe care SD Maid nu le cunoaște.</string>
     <string name="systemcleaner_tool_name">Curățitor de sistem</string>
     <string name="systemcleaner_explanation_short">Date de prisos care nu aparțin unei anumite aplicații.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d rezultat șters</item>
+        <item quantity="few">%d rezultate șterse</item>
+        <item quantity="other">%d rezultate șterse</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d potrivire de filtru</item>
         <item quantity="few">%d potriviri de filtru</item>
@@ -352,6 +363,11 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Fișiere media cache care sunt descărcate din nou când sunt vizualizate în chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Ștergeți elementele consumabile pentru toate aplicațiile?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d element consumabil șters</item>
+        <item quantity="few">%d elemente consumabile șterse</item>
+        <item quantity="other">%d elemente consumabile șterse</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">A fost găsit %d articol consumabil</item>
         <item quantity="few">Au fost găsite %d articole consumabile</item>
@@ -379,6 +395,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Ştergerea cache-urilor folosind Shizuku</string>
     <string name="deduplicator_tool_name">Curățitor de duplicate</string>
     <string name="deduplicator_explanation_short">Găsiți date duplicat pe dispozitivul dvs.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d duplicat șters</item>
+        <item quantity="few">%d duplicate șterse</item>
+        <item quantity="other">%d duplicate șterse</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d set duplicat găsit</item>
         <item quantity="few">%d seturi duplicate găsite</item>
@@ -440,6 +461,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pachet</string>
     <string name="appcontrol_tag_system">Sistem</string>
+    <string name="appcontrol_tag_archived">Arhivat</string>
     <string name="appcontrol_tag_enabled">Activat</string>
     <string name="appcontrol_tag_disabled">Dezactivat</string>
     <string name="appcontrol_progress_enabling_package">Se activează aplicația</string>
@@ -452,6 +474,11 @@
     <string name="appcontrol_list_sortmode_size_label">Dimensiune</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Dimensiunile aplicației sunt estimate din motive de performanță. Utilizați unealta de analiză a stocării pentru date mai exacte.</string>
     <string name="appcontrol_progress_uninstalling_app">Dezinstalare aplicație</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d aplicație a fost dezinstalată</item>
+        <item quantity="few">%d aplicații au fost dezinstalate</item>
+        <item quantity="other">%d aplicații au fost dezinstalate</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Dimensiunea aplicației</string>
     <string name="appcontrol_app_sizes_apk_label">Aplicație</string>
     <string name="appcontrol_app_sizes_data_label">Data</string>
@@ -462,6 +489,11 @@
         <item quantity="few">Schimbați starea activată/dezactivată a aplicației %d?</item>
         <item quantity="other">Schimbați stările activate/dezactivate pentru %d aplicații?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d aplicație a fost comutată</item>
+        <item quantity="few">%d aplicații au fost comutate</item>
+        <item quantity="other">%d aplicații au fost comutate</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determină dimensiunile</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Obțineți o estimare aproximativă a dimensiunii fiecărei aplicații.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determină activitatea</string>
@@ -469,6 +501,11 @@
     <string name="appcontrol_export_app_selection_action">Exportă aplicații</string>
     <string name="appcontrol_export_title">Exportă aplicația</string>
     <string name="appcontrol_export_description">Salvați fișierele de instalare ale acestei aplicații. Aceasta nu include datele aplicației.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d aplicația a fost exportată</item>
+        <item quantity="few">%d aplicații au fost exportate</item>
+        <item quantity="other">%d aplicații au fost exportate</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Exportat %s</string>
     <string name="appcontrol_force_stop_selection_action">Oprire forțată a aplicațiilor</string>
     <string name="appcontrol_force_stop_action">Opriți forțat</string>
@@ -477,6 +514,11 @@
         <item quantity="one">Opriți forțat %d aplicație?</item>
         <item quantity="few">Opriți forțat %d aplicații?</item>
         <item quantity="other">Opriți forțat %d aplicații?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d aplicație a fost oprită</item>
+        <item quantity="few">%d aplicații au fost oprite</item>
+        <item quantity="other">%d aplicații au fost oprite</item>
     </plurals>
     <string name="appcontrol_automation_loading">Pregătirea automatizării prin serviciul de accesibilitate</string>
     <string name="appcontrol_automation_title">Automatizare Controlul Aplicațiilor</string>
@@ -517,6 +559,7 @@
     <string name="analyzer_storage_content_type_system_label">Date de sistem</string>
     <string name="analyzer_storage_content_type_system_description">Aplicații de sistem și date de sistem. Aplicații și date de la alți utilizatori, dacă pe acest dispozitiv sunt setate mai multe conturi de utilizatori.</string>
     <string name="analyzer_storage_content_app_code_label">Codul aplicației</string>
+    <string name="analyzer_storage_content_app_code_description">Fișiere de aplicații, biblioteci și resurse. Acest spațiu poate fi eliberat dezinstalând aplicația sau arhivând-o (disponibil pe versiunea Android mai nouă).</string>
     <string name="analyzer_storage_content_app_data_label">Date aplicație</string>
     <string name="analyzer_storage_content_app_data_description">Date, setări şi cache-uri.</string>
     <string name="analyzer_storage_content_app_media_label">Aplicație media</string>
@@ -524,6 +567,7 @@
     <string name="analyzer_storage_content_app_extra_label">Fisiere extra ale aplicatiei</string>
     <string name="analyzer_storage_content_app_extra_description">Date suplimentare pe care această aplicație le-a plasat în afara căilor implicite, de exemplu fotografii sau descărcări.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Această aplicație ocupă %1$s pe \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Această aplicație a fost arhivată.</string>
     <string name="data_area_public_app_data_official_label">Date implicite ale aplicațiilor publice</string>
     <string name="data_area_public_app_assets_official_label">Proprietăți implicite ale aplicației publice</string>
     <string name="data_area_public_storage_label">Spațiu de stocare public</string>
@@ -611,6 +655,7 @@
     <string name="scheduler_notification_result_failure_message">Unele sarcini programate au eșuat sau au întâmpinat erori. Încercați să le rulați manual.</string>
     <string name="scheduler_commands_after_schedule_label">Comenzi post-program</string>
     <string name="scheduler_commands_after_schedule_desc">Comenzi Android shell care vor fi executate la sfârșitul unui program.</string>
+    <string name="scheduler_battery_optimization_hint">Luați în considerare dezactivarea optimizărilor bateriei pentru SD Maid dacă întâmpinați probleme cu execuția în fundal.</string>
     <string name="updates_dashcard_title">Actualizare disponibilă</string>
     <string name="updates_dashcard_body">Este disponibilă o actualizare. Aveți %1$s și cea mai recentă versiune este %2$s.</string>
     <string name="translation_encourage_title">Traduceți SD Maid</string>
@@ -626,4 +671,24 @@
     <string name="review_app_review_action">Revizuire</string>
     <string name="review_app_dismiss_action">Poate mai târziu</string>
     <string name="review_app_body">Doriți să lăsați aplicației SD Maid o recenzie?️ ❤️</string>
+    <string name="stats_label">Istoric</string>
+    <string name="stats_dash_body">%s au fost eliberate și %s articole procesate de când ați invitat SD Maid pe dispozitiv.</string>
+    <string name="stats_report_status_success">Succes</string>
+    <string name="stats_report_status_partial_success">Succes parțial</string>
+    <string name="stats_report_status_partial_failure">Eșec</string>
+    <string name="stats_settings_desc">Configurați statisticile, rapoartele și păstrarea datelor SD Maid.</string>
+    <string name="stats_settings_retention_category">Retenție</string>
+    <string name="stats_settings_retention_reports_label">Raport general</string>
+    <string name="stats_settings_retention_reports_desc">Numărul de zile înainte de ștergerea rapoartelor de bază privind operațiunile SD Maid.</string>
+    <string name="stats_settings_retention_paths_label">Informații detaliate despre cale</string>
+    <string name="stats_settings_retention_paths_desc">Numărul de zile pentru păstrarea detaliilor despre căile afectate de SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d zi</item>
+        <item quantity="few">%d zile</item>
+        <item quantity="other">%d zile</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Resetează totul</string>
+    <string name="stats_settings_reset_all_desc">Ștergeți toate rapoartele si setați toate statisticile la zero.</string>
+    <string name="stats_affected_paths_label">Căi afectate</string>
+    <string name="stats_affected_pkgs_label">Aplicații afectate</string>
 </resources>

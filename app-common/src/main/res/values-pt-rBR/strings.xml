@@ -142,4 +142,5 @@
         <item quantity="one">%s arquivo</item>
         <item quantity="other">%s arquivos</item>
     </plurals>
+    <string name="general_advice_title">Aviso</string>
 </resources>

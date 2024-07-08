@@ -60,7 +60,9 @@
     <string name="general_progress_loading_egg_5">Turbo võtab hoogu</string>
     <string name="general_progress_loading_egg_6">Uurin inimmõistust</string>
     <string name="general_progress_loading_egg_7">Heips! Kuidas kärab?</string>
+    <string name="general_progress_loading_egg_8">Tsipa veel</string>
     <string name="general_progress_loading_egg_9">Hmm, kas puhverdada või mitte?</string>
+    <string name="general_progress_loading_egg_10">Cthulhu kutsumine</string>
     <string name="general_progress_loading_egg_11">Käib küll</string>
     <string name="general_progress_loading_egg_12">Oota</string>
     <string name="general_progress_loading_egg_13">Vähemalt ei pea ootama</string>
@@ -145,4 +147,5 @@
         <item quantity="one">%s fail</item>
         <item quantity="other">%s faili</item>
     </plurals>
+    <string name="general_advice_title">Nõuanne</string>
 </resources>

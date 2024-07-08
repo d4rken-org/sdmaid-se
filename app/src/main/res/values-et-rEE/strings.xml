@@ -201,6 +201,10 @@
     <string name="corpsefinder_filter_appasec_summary">Nt mängu vara.</string>
     <string name="corpsefinder_filter_app2sd_summary">App2Sd lisade poolt välisele andmekandjale liigutatud andmed.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d rakenduse jääk kustutatud</item>
+        <item quantity="other">%d rakenduse jääki kustutatud</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">Avastati %d rakenduse jääk</item>
         <item quantity="other">Avastati %d rakenduse jääki</item>
@@ -213,6 +217,10 @@
     <string name="corpsefinder_corpse_hint_common">Sellel on levinud nimi ja see võib kuuluda praegu paigaldatud rakendustele, mida SD Maid ei tea.</string>
     <string name="systemcleaner_tool_name">Süsteemipuhastaja</string>
     <string name="systemcleaner_explanation_short">Üleliigsed andmed, mis ei kuulu ühelegi kindlale rakendusele.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d tulemus kustutatud</item>
+        <item quantity="other">%d tulemust kustutatud</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d filtri kattuvus</item>
         <item quantity="other">%d filtri tulemust</item>
@@ -347,6 +355,10 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Vahemällu salvetatud meediafailid, mis laaditakse uuesti alla, kui neid vestlusaknas vaadata.</string>
     <string name="appcleaner_delete_all_confirmation_message">Kustutada kõikide rakenduste ühekordne sisu?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d ühekordne fail kustutatud</item>
+        <item quantity="other">%d ühekordset faili kustutatud</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Järele jäi %d</item>
         <item quantity="other">Järele jäi %d</item>
@@ -372,6 +384,10 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Vahemälude kustutamine Shizukuga</string>
     <string name="deduplicator_tool_name">Koopiate eemaldaja</string>
     <string name="deduplicator_explanation_short">Leidke seadmest samad andmed.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d koopia kustutatud</item>
+        <item quantity="other">%d koopiat kustutatud</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d sama kogum leiti</item>
         <item quantity="other">%d sama kogumit leiti</item>
@@ -385,6 +401,8 @@
     <string name="deduplicator_detection_method_label">Tuvastamise viis</string>
     <string name="deduplicator_detection_method_checksum_title">Sisu kontrollsumma</string>
     <string name="deduplicator_detection_method_checksum_summary">Tuvasta koopiad failide kontrollsummade arvutamisel. Kattuvate kontrollsummadega failide sisu on sama.</string>
+    <string name="deduplicator_detection_method_phash_title">Tajuräsi</string>
+    <string name="deduplicator_detection_method_phash_summary">Sarnaste failide leidmiseks analüüsige sisu omadusi ja võrrelge tajuräsi väärtusi.</string>
     <string name="deduplicator_occupied_space_label">Kasutatud salvestusruum</string>
     <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s kasutavad koopiad</string>
     <string name="deduplicator_file_size_label">Faili maht</string>
@@ -442,6 +460,10 @@
     <string name="appcontrol_list_sortmode_size_label">Maht</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Rakenduse mahtu uuritakse jõudluse eesmärkidel. Täpsemad andmed saad hoiustamisruumi analüüsijaga.</string>
     <string name="appcontrol_progress_uninstalling_app">Rakenduse eemaldamine</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d rakendus eemaldati</item>
+        <item quantity="other">%d rakendust eemaldati</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Rakenduse maht</string>
     <string name="appcontrol_app_sizes_apk_label">Rakendus</string>
     <string name="appcontrol_app_sizes_data_label">Andmed</string>
@@ -451,6 +473,10 @@
         <item quantity="one">Muuda %d rakenduse lubatud/keelatud olekut?</item>
         <item quantity="other">Muuda %d rakenduse lubatud/keelatud olekut?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d rakendus märgiti</item>
+        <item quantity="other">%d rakendust märgiti</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Arvuta mahud</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Hangi iga rakenduse umbkaudne maht.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Kontrolli kasutamist</string>
@@ -458,6 +484,10 @@
     <string name="appcontrol_export_app_selection_action">Ekspordi rakendused</string>
     <string name="appcontrol_export_title">Ekspordi rakendus</string>
     <string name="appcontrol_export_description">Salvesta selle rakenduse paigaldusfailid. See ei hõlma rakenduse andmeid.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d rakendus eksporditi</item>
+        <item quantity="other">%d rakendust eksporditi</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">%s eksportimine</string>
     <string name="appcontrol_force_stop_selection_action">Sundpeata rakendusi</string>
     <string name="appcontrol_force_stop_action">Sundpeata</string>
@@ -465,6 +495,10 @@
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="one">Sundpeata %d rakendus?</item>
         <item quantity="other">Sundpeata %d rakendust?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d rakendus peatati</item>
+        <item quantity="other">%d rakendust peatati</item>
     </plurals>
     <string name="appcontrol_automation_loading">Automatiseerimise ettevalmistamine juurdepääsetavusteenuse kaudu</string>
     <string name="appcontrol_automation_title">Rakendusehalduri automatiseerimine</string>
@@ -597,6 +631,7 @@
     <string name="scheduler_notification_result_failure_message">Osad ajastatud ülesanded nurjusid või sattusid vea otsa. Üritage neid ise teha.</string>
     <string name="scheduler_commands_after_schedule_label">Käsud pärast ajastajat</string>
     <string name="scheduler_commands_after_schedule_desc">Androidi shellikäsud, mis käivituvad pärast ajastaja tegevust.</string>
+    <string name="scheduler_battery_optimization_hint">Taustatoimingute probleemide puhul keelake SD Maidi jaoks aku optimeerimine.</string>
     <string name="updates_dashcard_title">Uuendus saadaval</string>
     <string name="updates_dashcard_body">Saadaval on uuendus. Teil on %1$s ja uusim versioon on %2$s.</string>
     <string name="translation_encourage_title">Tõlkige SD Maidi</string>
@@ -605,9 +640,30 @@
     <string name="translation_translators_people">Olav Mägi(olav.magi@gmail.com)</string>
     <string name="motd_setting_enabled_label">Tähtsad sõnumid</string>
     <string name="motd_setting_enabled_explanation">Luba SD Maidil pärida arendajalt tähtsaid teateid.</string>
+    <string name="updatecheck_setting_enabled_label">Kontrolli uuendusi</string>
+    <string name="updatecheck_setting_enabled_explanation">Luba SD Maidil kontrollida uuendusi, et teada saada uue versiooni saadavusest.</string>
     <string name="device_settings_category">Seade</string>
     <string name="beta_version_indicator_desc">Katsetamisel versioonid näitavad avakuval väikest riba. Neid uuendatakse sagedamini, võivad sisaldada rohkem võimalusi, samas ka vigu.</string>
     <string name="review_app_review_action">Arvustus</string>
     <string name="review_app_dismiss_action">Võib-olla hiljem</string>
     <string name="review_app_body">Tahate kommenteerida SD Maid? ❤️</string>
+    <string name="stats_label">Ajalugu</string>
+    <string name="stats_dash_body">%s on vabastatud ja %s faili töödeldud alates SD Maidi seadmesse paigaldamisest.</string>
+    <string name="stats_report_status_success">Õnnestus</string>
+    <string name="stats_report_status_partial_success">Õnnestus enam-vähem</string>
+    <string name="stats_report_status_partial_failure">Tõrge</string>
+    <string name="stats_settings_desc">Seadista SD Maidi statistikat, aruandeid ja andmete hoiustamist.</string>
+    <string name="stats_settings_retention_category">Hoiustamine</string>
+    <string name="stats_settings_retention_reports_label">Üldaruanded</string>
+    <string name="stats_settings_retention_reports_desc">Mitme päeva pärast kustuvad SD Maidi tavatoimingute aruanded.</string>
+    <string name="stats_settings_retention_paths_label">Põhjalik asukoha teave</string>
+    <string name="stats_settings_retention_paths_desc">Mitu päeva säilitada SD Maidi puhastatud asukohtade andmeid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d päev</item>
+        <item quantity="other">%d päeva</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Taasta kõik</string>
+    <string name="stats_settings_reset_all_desc">Kustuta kõik aruanded ja nulli kogu statistika.</string>
+    <string name="stats_affected_paths_label">Mõjutatud asukohad</string>
+    <string name="stats_affected_pkgs_label">Mõjutatud rakendused</string>
 </resources>

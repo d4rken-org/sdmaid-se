@@ -147,4 +147,5 @@
         <item quantity="one">%s ficheiro</item>
         <item quantity="other">%s ficheiros</item>
     </plurals>
+    <string name="general_advice_title">Conselho</string>
 </resources>

@@ -201,6 +201,10 @@
     <string name="corpsefinder_filter_appasec_summary">Recursos de aplicaciones cifradas, por ejemplo assets del juego.</string>
     <string name="corpsefinder_filter_app2sd_summary">Datos movidos al almacenamiento externo por las modificaciones de App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d resto de la aplicación eliminado</item>
+        <item quantity="other">%d restos de las aplicaciones eliminados</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">%d resto de aplicación descubierto</item>
         <item quantity="other">%d restos de aplicaciones descubiertos</item>
@@ -213,6 +217,10 @@
     <string name="corpsefinder_corpse_hint_common">Este elemento tiene un nombre muy común y podría pertenecer a aplicaciones aún instaladas que SD Maid desconoce.</string>
     <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Datos superfluos que no pertenecen a ninguna aplicación concreta.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d coincidencia eliminada</item>
+        <item quantity="other">%d coincidencias eliminadas</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d coincidencia del filtro</item>
         <item quantity="other">%d coincidencias de los filtros</item>
@@ -347,6 +355,10 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Archivos multimedia en caché que se vuelven a descargar cuando se ven en el chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">¿Borrar los elementos innecesarios para todas las aplicaciones?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d elemento prescindible eliminado</item>
+        <item quantity="other">%d elementos prescindibles eliminados</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d elemento desechable encontrado</item>
         <item quantity="other">%d elementos desechables encontrados</item>
@@ -372,6 +384,10 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Borrar las cachés mediante Shizuku</string>
     <string name="deduplicator_tool_name">Deduplicador</string>
     <string name="deduplicator_explanation_short">Encuentra los datos duplicados en tu dispositivo.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d duplicado eliminado</item>
+        <item quantity="other">%d duplicados eliminados</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d conjunto duplicado encontrado</item>
         <item quantity="other">%d conjuntos duplicados encontrados</item>
@@ -444,6 +460,10 @@
     <string name="appcontrol_list_sortmode_size_label">Tamaño</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Los tamaños de las aplicaciones se estiman por motivos de rendimiento. Utilice la herramienta StorageAnalyzer para obtener datos más precisos.</string>
     <string name="appcontrol_progress_uninstalling_app">Desinstalar la aplicación</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d aplicación desinstalada</item>
+        <item quantity="other">%d aplicaciones desinstaladas</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Tamaño de la aplicación</string>
     <string name="appcontrol_app_sizes_apk_label">Aplicación</string>
     <string name="appcontrol_app_sizes_data_label">Datos</string>
@@ -453,6 +473,10 @@
         <item quantity="one">¿Cambiar el estado habilitado/deshabilitado para %d aplicación?</item>
         <item quantity="other">¿Cambiar los estados habilitados/deshabilitados para %d aplicaciones?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d aplicación desactivada</item>
+        <item quantity="other">%d aplicaciones desactivadas</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determinar los tamaños</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Obtenga una estimación aproximada del tamaño de cada aplicación.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determinar la actividad</string>
@@ -460,6 +484,10 @@
     <string name="appcontrol_export_app_selection_action">Exportar las aplicaciones</string>
     <string name="appcontrol_export_title">Exportar la aplicación</string>
     <string name="appcontrol_export_description">Guarde los archivos de instalación de esta aplicación. Esto no incluye los datos de la aplicación.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d aplicación exportada</item>
+        <item quantity="other">%d aplicaciones exportadas</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Exportando %s</string>
     <string name="appcontrol_force_stop_selection_action">Forzar la detención de las aplicaciones</string>
     <string name="appcontrol_force_stop_action">Forzar la detención</string>
@@ -467,6 +495,10 @@
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="one">¿Forzar la parada de la aplicación %d?</item>
         <item quantity="other">¿Forzar las paradas de las aplicaciones %d?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d aplicación detenida</item>
+        <item quantity="other">%d aplicaciones detenidas</item>
     </plurals>
     <string name="appcontrol_automation_loading">Preparar la automatización mediante el servicio de accesibilidad</string>
     <string name="appcontrol_automation_title">Automatización de AppControl</string>
@@ -599,6 +631,7 @@
     <string name="scheduler_notification_result_failure_message">Algunas tareas programadas fallaron o encontraron errores. Intente ejecutarlas manualmente.</string>
     <string name="scheduler_commands_after_schedule_label">Comandos posteriores a la programación</string>
     <string name="scheduler_commands_after_schedule_desc">Comandos de shell de Android que se ejecutarán al final de una programación.</string>
+    <string name="scheduler_battery_optimization_hint">Considera desactivar las optimizaciones de batería para SD Maid si experimentas problemas con la ejecución en segundo plano.</string>
     <string name="updates_dashcard_title">Actualización disponible</string>
     <string name="updates_dashcard_body">Hay disponible una actualización. Tienes %1$s y la última versión es %2$s.</string>
     <string name="translation_encourage_title">Traducir SD Maid</string>
@@ -614,4 +647,23 @@
     <string name="review_app_review_action">Revisar</string>
     <string name="review_app_dismiss_action">Quizás más tarde</string>
     <string name="review_app_body">¿Te gustaría dejar una reseña de SD Maid?️ ❤️</string>
+    <string name="stats_label">Historial</string>
+    <string name="stats_dash_body">%s han sido liberados y %s elementos procesados desde que invitaste a SD Maid a tu dispositivo.</string>
+    <string name="stats_report_status_success">Correctamente</string>
+    <string name="stats_report_status_partial_success">Parcialmente</string>
+    <string name="stats_report_status_partial_failure">Fallo</string>
+    <string name="stats_settings_desc">Configura las estadísticas, los informes y la permanencia de los datos de SD Maid.</string>
+    <string name="stats_settings_retention_category">Permanencia</string>
+    <string name="stats_settings_retention_reports_label">Informes generales</string>
+    <string name="stats_settings_retention_reports_desc">Número de días antes de borrar los informes básicos de las operaciones de SD Maid.</string>
+    <string name="stats_settings_retention_paths_label">Información detallada de la ruta</string>
+    <string name="stats_settings_retention_paths_desc">El número de días que se conservarán los detalles sobre las rutas afectadas por SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d día</item>
+        <item quantity="other">%d días</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Restablecer todo</string>
+    <string name="stats_settings_reset_all_desc">Borrar todos los informes y poner a cero todas las estadísticas.</string>
+    <string name="stats_affected_paths_label">Rutas afectadas</string>
+    <string name="stats_affected_pkgs_label">Aplicaciones afectadas</string>
 </resources>

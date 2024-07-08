@@ -147,4 +147,5 @@
         <item quantity="one">%s fitxer</item>
         <item quantity="other">%s fitxers</item>
     </plurals>
+    <string name="general_advice_title">Consell</string>
 </resources>

@@ -201,6 +201,10 @@
     <string name="corpsefinder_filter_appasec_summary">এনক্রিপ্ট করা অ্যাপ রিসোর্স, যেমন গেম অ্যাসেট।</string>
     <string name="corpsefinder_filter_app2sd_summary">App2Sd মোড দ্বারা ডেটা এক্সট্রানাল স্টোরেজে স্থানান্তরিত হয়েছে৷</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d টি অ্যাপের অবশিষ্টাংশ মুছে ফেলা হয়েছে</item>
+        <item quantity="other">%d টি অ্যাপের অবশিষ্টাংশ মুছে ফেলা হয়েছে</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">%d অ্যাপের অবশিষ্টাংশ পাওয়া হয়েছে</item>
         <item quantity="other">%d অ্যাপের অবশিষ্টাংশ পাওয়া হয়েছে</item>
@@ -213,6 +217,10 @@
     <string name="corpsefinder_corpse_hint_common">এই আইটেমটির একটি খুব সাধারণ নাম রয়েছে এবং এটি এখনও ইনস্টল করা অ্যাপগুলির অন্তর্গত হতে পারে যা SD Maid জানে না৷</string>
     <string name="systemcleaner_tool_name">সিস্টেম ক্লিনার</string>
     <string name="systemcleaner_explanation_short">অতিরিক্ত ডেটা যা কোনো নির্দিষ্ট অ্যাপের অন্তর্গত নয়।</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d ম্যাচ মুছে ফেলা হয়েছে</item>
+        <item quantity="other">%d ম্যাচ মুছে ফেলা হয়েছে</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d ফিল্টার মিলেছে</item>
         <item quantity="other">%d ফিল্টার মিলেছে</item>
@@ -347,6 +355,10 @@
     <string name="appcleaner_filter_viber_label">ভাইবার</string>
     <string name="appcleaner_filter_viber_summary">ক্যাশ করা মিডিয়া ফাইল যা চ্যাটে দেখা হলে আবার ডাউনলোড করা হয়।</string>
     <string name="appcleaner_delete_all_confirmation_message">সকল অ্যাপের বাদ দেওয়া যাবে এমন আইটেমসমূহ মুছবেন?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d টি ব্যয়যোগ্য আইটেম মুছে ফেলা হয়েছে</item>
+        <item quantity="other">%d টি ব্যয়যোগ্য আইটেম মুছে ফেলা হয়েছে</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%dটি বাদ দেয়ার মতো আইটেম পাওয়া গেছে</item>
         <item quantity="other">%dটি বাদ দেয়ার মতো আইটেম পাওয়া গেছে</item>
@@ -372,6 +384,10 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku ব্যবহার করে ক্যাশ মুছে ফেলা হচ্ছে।</string>
     <string name="deduplicator_tool_name">ডিডুপ্লিকেটর</string>
     <string name="deduplicator_explanation_short">আপনার ডিভাইসে ডুপ্লিকেট ডেটা খুঁজুন।</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d ডুপ্লিকেট মুছে ফেলা হয়েছে</item>
+        <item quantity="other">%d সদৃশ মুছে ফেলা হয়েছে</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d সদৃশ সেট পাওয়া গেছে</item>
         <item quantity="other">%d টি সদৃশ সেট পাওয়া গেছে</item>
@@ -444,6 +460,10 @@
     <string name="appcontrol_list_sortmode_size_label">আকার</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">অ্যাপ্লিকেশান আকার কর্মক্ষমতা কারণে অনুমান করা হয়. আরও সঠিক তথ্যের জন্য স্টোরেজ অ্যানালাইজার টুল ব্যবহার করুন।</string>
     <string name="appcontrol_progress_uninstalling_app">অ্যাপ আনইনস্টল করা হচ্ছে</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d অ্যাপ আনইনস্টল করা হয়েছে</item>
+        <item quantity="other">%d টি অ্যাপ আনইনস্টল করা হয়েছে</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">অ্যাপের সাইজ</string>
     <string name="appcontrol_app_sizes_apk_label">অ্যাপ</string>
     <string name="appcontrol_app_sizes_data_label">ডাটা</string>
@@ -453,6 +473,10 @@
         <item quantity="one">%d অ্যাপের সক্ষম/অক্ষম অবস্থা পরিবর্তন করবেন?</item>
         <item quantity="other">%d অ্যাপের জন্য সক্রিয়/অক্ষম অবস্থা পরিবর্তন করবেন?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d অ্যাপ টগল করা হয়েছে</item>
+        <item quantity="other">%d অ্যাপ টগল করা হয়েছে</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">আকার নির্ধারণ করুন</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">প্রতিটি অ্যাপের আকারের মোটামুটি অনুমান পান।</string>
     <string name="appcontrol_settings_module_activity_enabled_label">কার্যকলাপ নির্ধারণ</string>
@@ -460,6 +484,10 @@
     <string name="appcontrol_export_app_selection_action">এক্সপোর্ট অ্যাপস</string>
     <string name="appcontrol_export_title">এক্সপোর্ট অ্যাপ</string>
     <string name="appcontrol_export_description">এই অ্যাপের ইনস্টলেশন ফাইলগুলি সংরক্ষণ করুন। এটি অ্যাপ ডেটা অন্তর্ভুক্ত করে না।</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d অ্যাপ এক্সপোর্ট করা হয়েছে</item>
+        <item quantity="other">%dটি অ্যাপ এক্সপোর্ট করা হয়েছে</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">এক্সপোর্ট করা হচ্ছে %s</string>
     <string name="appcontrol_force_stop_selection_action">জোর করে অ্যাপ বন্ধ করুন</string>
     <string name="appcontrol_force_stop_action">জোর করে বন্ধ করুন</string>
@@ -467,6 +495,10 @@
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="one"> %d অ্যাপটি জোর করে বন্ধ করবেন?</item>
         <item quantity="other">%d অ্যাপ গুলো জোর করে বন্ধ করবেন?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d অ্যাপ বন্ধ করা হয়েছে</item>
+        <item quantity="other">%d অ্যাপ বন্ধ করা হয়েছে</item>
     </plurals>
     <string name="appcontrol_automation_loading">অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে অটোমেশন প্রস্তুত করা হচ্ছে</string>
     <string name="appcontrol_automation_title">AppControl অটোমোশন</string>
@@ -599,6 +631,7 @@
     <string name="scheduler_notification_result_failure_message">কিছু নির্ধারিত কাজ ব্যর্থ হয়েছে বা ত্রুটির সম্মুখীন হয়েছে। এগুলোকে নিজে নিজে চালানোর চেষ্টা করুন।</string>
     <string name="scheduler_commands_after_schedule_label">পোস্ট-শিডিউল কমান্ড</string>
     <string name="scheduler_commands_after_schedule_desc">অ্যান্ড্রয়েড শেল কমান্ড যা একটি সময়সূচীর শেষে কার্যকর করা হবে।</string>
+    <string name="scheduler_battery_optimization_hint">আপনি যদি ব্যাকগ্রাউন্ড এক্সিকিউশনে সমস্যা অনুভব করেন তবে SD মেইডের জন্য ব্যাটারি অপ্টিমাইজেশন অক্ষম করার কথা বিবেচনা করুন।</string>
     <string name="updates_dashcard_title">আপডেট এসেছে</string>
     <string name="updates_dashcard_body">একটি নতুন আপডেট পাওয়া গেছে। আপনার কাছে %1$s সংস্করণ আছে এবং সর্বশেষ সংস্করণ হলো %2$s৷</string>
     <string name="translation_encourage_title">SD Maid অনুবাদ করুন</string>
@@ -614,4 +647,23 @@
     <string name="review_app_review_action">পর্যালোচনা করুন</string>
     <string name="review_app_dismiss_action">হয়তো পরে</string>
     <string name="review_app_body">আপনি কি এসডি মেইডকে একটি পর্যালোচনা দিতে চান?️ ❤️</string>
+    <string name="stats_label">ইতিহাস</string>
+    <string name="stats_dash_body">আপনি আপনার ডিভাইসে SD মেইডকে আমন্ত্রণ জানানোর পর থেকে %s মুক্ত করা হয়েছে এবং %s আইটেম প্রক্রিয়া করা হয়েছে৷</string>
+    <string name="stats_report_status_success">সাফল্য</string>
+    <string name="stats_report_status_partial_success">আংশিক সাফল্য</string>
+    <string name="stats_report_status_partial_failure">ব্যর্থতা</string>
+    <string name="stats_settings_desc">এসডি মেইডের পরিসংখ্যান, প্রতিবেদন এবং ডেটা ধারণ কনফিগার করুন।</string>
+    <string name="stats_settings_retention_category">ধরে রাখা</string>
+    <string name="stats_settings_retention_reports_label">সাধারণ রিপোর্ট</string>
+    <string name="stats_settings_retention_reports_desc">বেসিক SD Maid অপারেশন রিপোর্ট মুছে ফেলার আগের দিনের সংখ্যা।</string>
+    <string name="stats_settings_retention_paths_label">বিস্তারিত পথ তথ্য</string>
+    <string name="stats_settings_retention_paths_desc">SD Maid দ্বারা প্রভাবিত পথ সম্পর্কে বিশদ বিবরণ রাখার দিনের সংখ্যা।</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d দিন</item>
+        <item quantity="other">%d দিন</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">সব পুনরায় সেট করুন</string>
+    <string name="stats_settings_reset_all_desc">সমস্ত রিপোর্ট মুছুন এবং সমস্ত পরিসংখ্যান শূন্যে সেট করুন.</string>
+    <string name="stats_affected_paths_label">প্রভাবিত পাথ</string>
+    <string name="stats_affected_pkgs_label">প্রভাবিত অ্যাপস</string>
 </resources>

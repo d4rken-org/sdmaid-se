@@ -197,6 +197,9 @@
     <string name="corpsefinder_filter_appasec_summary">Tài nguyên ứng dụng được mã hóa, ví dụ: tài nguyên trò chơi.</string>
     <string name="corpsefinder_filter_app2sd_summary">Dữ liệu được chuyển sang bộ nhớ ngoài bằng chế độ App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">%d phần còn lại của ứng dụng đã bị xóa</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="other">Đã phát hiện %d phần còn lại của ứng dụng</item>
     </plurals>
@@ -208,6 +211,9 @@
     <string name="corpsefinder_corpse_hint_common">Mục này có một tên rất phổ biến và có thể thuộc về các ứng dụng vẫn được cài đặt mà SD Maid không biết.</string>
     <string name="systemcleaner_tool_name">Dọn dẹp hệ thống</string>
     <string name="systemcleaner_explanation_short">Dữ liệu thừa không thuộc về bất kỳ ứng dụng cụ thể nào.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="other">%d kết quả trùng khớp đã bị xóa</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="other">%d bộ lọc phù hợp</item>
     </plurals>
@@ -341,6 +347,9 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Các tệp phương tiện đã lưu trong bộ nhớ cache được tải xuống lại khi xem trong cuộc trò chuyện.</string>
     <string name="appcleaner_delete_all_confirmation_message">Xóa các mục có thể sử dụng cho tất cả các ứng dụng?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="other">%d thành phần có thể sử dụng đã bị xóa</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">Đã tìm thấy %d mục có thể sử dụng được</item>
     </plurals>
@@ -364,6 +373,9 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Xóa bộ đệm bằng cách sử dụng Shizuku</string>
     <string name="deduplicator_tool_name">Quản lý tệp trùng lặp</string>
     <string name="deduplicator_explanation_short">Tìm dữ liệu trùng lặp trên thiết bị của bạn.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">%d bản sao đã bị xóa</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="other">Đã tìm thấy %d bộ trùng lặp</item>
     </plurals>
@@ -434,6 +446,9 @@
     <string name="appcontrol_list_sortmode_size_label">Kích thước</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Kích thước ứng dụng được ước tính vì lý do hiệu suất. Sử dụng công cụ StorageAnalyzer để có dữ liệu chính xác hơn.</string>
     <string name="appcontrol_progress_uninstalling_app">Đang gỡ cài đặt ứng dụng</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="other">%d ứng dụng đã được gỡ cài đặt</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Kích thước ứng dụng</string>
     <string name="appcontrol_app_sizes_apk_label">Ứng dụng</string>
     <string name="appcontrol_app_sizes_data_label">Data</string>
@@ -442,6 +457,9 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="other">Thay đổi trạng thái bật/tắt cho %d ứng dụng?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="other">%d ứng dụng đã được chuyển đổi</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Xác định kích thước</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Nhận ước tính sơ bộ về kích thước của từng ứng dụng.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Xác định hoạt động</string>
@@ -449,12 +467,18 @@
     <string name="appcontrol_export_app_selection_action">Xuất ứng dụng</string>
     <string name="appcontrol_export_title">Xuất ứng dụng</string>
     <string name="appcontrol_export_description">Lưu tệp cài đặt của ứng dụng này. Điều này không bao gồm dữ liệu ứng dụng.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="other">%d ứng dụng đã được xuất</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Đang xuất %s</string>
     <string name="appcontrol_force_stop_selection_action">Buộc dừng ứng dụng</string>
     <string name="appcontrol_force_stop_action">Buộc dừng</string>
     <string name="appcontrol_force_stop_confirm_title">Xác nhận buộc dừng</string>
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="other">Buộc dừng%d ứng dụng?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="other">%d ứng dụng đã bị dừng</item>
     </plurals>
     <string name="appcontrol_automation_loading">Preparing automation via accessibility service</string>
     <string name="appcontrol_automation_title">Tự động điều khiến ứng dụng</string>
@@ -583,6 +607,7 @@
     <string name="scheduler_notification_result_failure_message">Một số tác vụ đã lên lịch không thành công hoặc gặp lỗi. Hãy thử chạy chúng bằng tay.</string>
     <string name="scheduler_commands_after_schedule_label">Các lệnh sau lịch trình</string>
     <string name="scheduler_commands_after_schedule_desc">Các lệnh shell của Android sẽ được thực thi khi kết thúc lịch trình.</string>
+    <string name="scheduler_battery_optimization_hint">Hãy cân nhắc việc tắt tính năng tối ưu hóa pin cho SD Maid nếu bạn gặp sự cố khi thực thi ở chế độ nền.</string>
     <string name="updates_dashcard_title">Bản cập nhật khả dụng</string>
     <string name="updates_dashcard_body">Một bản cập nhật khả dụng. Bạn có %1$s và phiên bản mới nhất là %2$s.</string>
     <string name="translation_encourage_title">Dịch SD Maid</string>
@@ -598,4 +623,22 @@
     <string name="review_app_review_action">Đánh giá</string>
     <string name="review_app_dismiss_action">Để sau</string>
     <string name="review_app_body">Bạn có muốn để lại đánh giá cho SD Maid không?️ ❤️</string>
+    <string name="stats_label">Lịch sử</string>
+    <string name="stats_dash_body">%s đã được giải phóng và %s mục đã được xử lý kể từ khi bạn mời SD Maid vào thiết bị của mình.</string>
+    <string name="stats_report_status_success">Thành công</string>
+    <string name="stats_report_status_partial_success">Thành công một phần</string>
+    <string name="stats_report_status_partial_failure">Thất bại</string>
+    <string name="stats_settings_desc">Định cấu hình số liệu thống kê, báo cáo và lưu giữ dữ liệu của SD Maid.</string>
+    <string name="stats_settings_retention_category">Giữ lại</string>
+    <string name="stats_settings_retention_reports_label">Báo cáo tổng hợp</string>
+    <string name="stats_settings_retention_reports_desc">Số ngày trước khi xóa báo cáo vận hành SD Maid cơ bản.</string>
+    <string name="stats_settings_retention_paths_label">Thông tin đường dẫn chi tiết</string>
+    <string name="stats_settings_retention_paths_desc">Số ngày lưu giữ thông tin chi tiết về các đường dẫn bị ảnh hưởng bởi SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="other">%d ngày</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Đặt lại tất cả</string>
+    <string name="stats_settings_reset_all_desc">Xóa tất cả các báo cáo và đặt tất cả số liệu thống kê về 0.</string>
+    <string name="stats_affected_paths_label">Đường dẫn bị ảnh hưởng</string>
+    <string name="stats_affected_pkgs_label">Ứng dụng bị ảnh hưởng</string>
 </resources>

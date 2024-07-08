@@ -159,4 +159,5 @@
         <item quantity="many">%s souborů</item>
         <item quantity="other">%s souborů</item>
     </plurals>
+    <string name="general_advice_title">Doporučení</string>
 </resources>

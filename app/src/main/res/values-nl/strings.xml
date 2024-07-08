@@ -116,6 +116,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Sta SD Maid toe om Shizuku waar mogelijk te gebruiken om de resultaten te verbeteren en functies in te schakelen.</string>
     <string name="setup_shizuku_card_body2">Deze instelling heeft geen effect als de Shizuku-app niet is ingesteld op uw apparaat.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku in combinatie met root-toegang maakt geen extra functies mogelijk, maar verbetert wel de betrouwbaarheid. SD Maid zal het gebruiken als fallback-methode.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku-link is klaar.</string>
     <string name="setup_shizuku_state_waiting_label">Wachten op link met Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Gebruik Shizuku indien beschikbaar</string>
@@ -200,6 +201,10 @@
     <string name="corpsefinder_filter_appasec_summary">Versleutelde app-bronnen, bijv. spelactiva.</string>
     <string name="corpsefinder_filter_app2sd_summary">Gegevens zijn verplaatst naar externe opslag door App2Sd-mods.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d app-restant verwijderd</item>
+        <item quantity="other">%d app-restanten verwijderd</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">%d restant van app ontdekt</item>
         <item quantity="other">%d app-restanten ontdekt</item>
@@ -430,6 +435,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundel</string>
     <string name="appcontrol_tag_system">Systeem</string>
+    <string name="appcontrol_tag_archived">Gearchiveerd</string>
     <string name="appcontrol_tag_enabled">Ingeschakeld</string>
     <string name="appcontrol_tag_disabled">Uitgeschakeld</string>
     <string name="appcontrol_progress_enabling_package">App inschakelen</string>
@@ -442,6 +448,10 @@
     <string name="appcontrol_list_sortmode_size_label">Grootte</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">App-grootes worden geschat om prestatieredenen. Gebruik de StorageAnalyzer-tool voor nauwkeurigere gegevens.</string>
     <string name="appcontrol_progress_uninstalling_app">App verwijderen</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d app werd verwijderd</item>
+        <item quantity="other">%d app werden verwijderd</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">App-grootte</string>
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Gegevens</string>
@@ -450,6 +460,10 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="one">Ingeschakelde/uitgeschakelde status van %d app wijzigen?</item>
         <item quantity="other">Ingeschakelde/uitgeschakelde status voor %d apps wijzigen?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d app is omgeschakeld</item>
+        <item quantity="other">%d apps zijn omgeschakeld</item>
     </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Bepaal grootte</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Krijg een ruwe schatting van de grootte van elke app.</string>
@@ -503,6 +517,7 @@
     <string name="analyzer_storage_content_type_system_label">Systeem gegevens</string>
     <string name="analyzer_storage_content_type_system_description">Systeemapps en systeemgegevens. Apps en gegevens van andere gebruikers, als er meerdere gebruikersaccounts op dit apparaat zijn ingesteld.</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
+    <string name="analyzer_storage_content_app_code_description">Applicatiebestanden, bibliotheken en bronnen. Deze ruimte kan vrijgemaakt worden door de app te verwijderen of te archiveren (beschikbaar op nieuwere Android-versie).</string>
     <string name="analyzer_storage_content_app_data_label">App gegevens</string>
     <string name="analyzer_storage_content_app_data_description">Data, instellingen en caches.</string>
     <string name="analyzer_storage_content_app_media_label">App media</string>
@@ -510,6 +525,7 @@
     <string name="analyzer_storage_content_app_extra_label">Extra app-bestanden</string>
     <string name="analyzer_storage_content_app_extra_description">Extra gegevens die deze app buiten de standaard paden heeft geplaatst, bijv. foto\'s of downloads.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Deze app neemt %1$s in beslag op \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Deze app is gearchiveerd.</string>
     <string name="data_area_public_app_data_official_label">Standaard openbare app-gegevens</string>
     <string name="data_area_public_app_assets_official_label">Standaard openbare app-items</string>
     <string name="data_area_public_storage_label">Openbare opslag</string>
@@ -595,6 +611,7 @@
     <string name="scheduler_notification_result_failure_message">Sommige geplande taken zijn mislukt of er zijn fouten opgetreden. Probeer ze handmatig uit te voeren.</string>
     <string name="scheduler_commands_after_schedule_label">Opdrachten na het plannen</string>
     <string name="scheduler_commands_after_schedule_desc">Android-shellopdrachten die aan het einde van een planning worden uitgevoerd.</string>
+    <string name="scheduler_battery_optimization_hint">Overweeg om batterij-optimalisaties voor SD Maid uit te schakelen als je problemen ondervindt met uitvoering op de achtergrond.</string>
     <string name="updates_dashcard_title">Update beschikbaar</string>
     <string name="updates_dashcard_body">Een update is beschikbaar. Je hebt %1$s en de nieuwste versie is %2$s.</string>
     <string name="translation_encourage_title">Vertaal SD Maid</string>
@@ -610,4 +627,19 @@
     <string name="review_app_review_action">Beoordeling</string>
     <string name="review_app_dismiss_action">Misschien later</string>
     <string name="review_app_body">Wil je SD Maid een beoordeling achterlaten? ❤️</string>
+    <string name="stats_label">Geschiedenis</string>
+    <string name="stats_dash_body">%s zijn vrijgegeven en %s items verwerkt sinds je SD Maid op je apparaat hebt uitgenodigd.</string>
+    <string name="stats_report_status_success">Succes</string>
+    <string name="stats_report_status_partial_success">Gedeeltelijk succes</string>
+    <string name="stats_report_status_partial_failure">Mislukt</string>
+    <string name="stats_settings_desc">Configureer de statistieken, rapporten en gegevensretentie van SD Maid.</string>
+    <string name="stats_settings_retention_category">Behoud</string>
+    <string name="stats_settings_retention_reports_label">Algemene rapporten</string>
+    <string name="stats_settings_retention_reports_desc">Aantal dagen voordat de standaard SD Maid-bedieningsrapporten worden verwijderd.</string>
+    <string name="stats_settings_retention_paths_label">Gedetailleerde padinformatie</string>
+    <string name="stats_settings_retention_paths_desc">Het aantal dagen dat gegevens moeten worden bewaard over paden die worden beïnvloed door SD Maid.</string>
+    <string name="stats_settings_reset_all_label">Reset Alles</string>
+    <string name="stats_settings_reset_all_desc">Verwijder alle rapporten en zet alle statistieken op nul.</string>
+    <string name="stats_affected_paths_label">Beïnvloede paden</string>
+    <string name="stats_affected_pkgs_label">Beïnvloede apps</string>
 </resources>

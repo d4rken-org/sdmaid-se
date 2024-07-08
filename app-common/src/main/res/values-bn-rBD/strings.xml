@@ -147,4 +147,5 @@
         <item quantity="one">%s ফাইল</item>
         <item quantity="other">%s ফাইল</item>
     </plurals>
+    <string name="general_advice_title">উপদেশ</string>
 </resources>
