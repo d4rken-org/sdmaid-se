@@ -12,6 +12,7 @@ import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPrivateFilt
 import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.GameFilesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.HiddenFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.MobileQQFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.OfflineCacheFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.RecycleBinsFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.TelegramFilter
@@ -47,6 +48,7 @@ val <T : ExpendablesFilter> KClass<T>.labelRes: Int
         ThreemaFilter::class -> R.string.appcleaner_filter_threema_label
         WeChatFilter::class -> R.string.appcleaner_filter_wechat_label
         ViberFilter::class -> R.string.appcleaner_filter_viber_label
+        MobileQQFilter::class -> R.string.appcleaner_filter_qqchat_label
         else -> eu.darken.sdmse.common.R.string.general_todo_msg
     }
 
@@ -72,6 +74,7 @@ val <T : ExpendablesFilter> KClass<T>.descriptionRes: Int
         ThreemaFilter::class -> R.string.appcleaner_filter_threema_summary
         WeChatFilter::class -> R.string.appcleaner_filter_wechat_summary
         ViberFilter::class -> R.string.appcleaner_filter_viber_summary
+        MobileQQFilter::class -> R.string.appcleaner_filter_qqchat_summary
         else -> eu.darken.sdmse.common.R.string.general_todo_msg
     }
 
@@ -97,5 +100,6 @@ val <T : ExpendablesFilter> KClass<T>.iconsRes: Int
         ThreemaFilter::class -> R.drawable.ic_chat_24
         WeChatFilter::class -> R.drawable.ic_wechat_24
         ViberFilter::class -> R.drawable.ic_chat_24
+        MobileQQFilter::class -> R.drawable.ic_qqchat_24
         else -> R.drawable.file_question
     }

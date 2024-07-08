@@ -3123,7 +3123,10 @@
 	{"loc": "SDCARD", "path": "Pictures/Pengyou", "flags": ["keeper"]}
   ]
 }, {
-  "pkgs": ["com.tencent.mobileqq"],
+  "pkgs": [
+	"com.tencent.mobileqq",
+	"com.tencent.mobileqqi"
+  ],
   "mrks": [
 	{"loc": "SDCARD", "path": "tencent/com/tencent/mobileqq"},
 	{"loc": "SDCARD", "path": "tencent/QQ_Images", "flags": ["keeper"]},
@@ -3136,20 +3139,9 @@
 	{"loc": "SDCARD", "path": "com.tencent.mobileqq"},
 	{"loc": "SDCARD", "path": ".AppCenterWebBuffer_QQ"},
 	{"loc": "PUBLIC_DATA", "path": "com.qzone"},
-	{"loc": "PUBLIC_DATA", "path": "com.tencent.zebrasdk"}
-  ]
-}, {
-  "pkgs": ["com.tencent.mobileqqi"],
-  "mrks": [
-	{"loc": "PUBLIC_DATA", "path": "com.qzone"},
+	{"loc": "PUBLIC_DATA", "path": "com.tencent.zebrasdk"},
 	{"loc": "SDCARD", "path": "MobileQQ"},
-	{"loc": "SDCARD", "path": "QQ_Collection"},
-	{"loc": "SDCARD", "path": "tencent/QQ_Images", "flags": ["keeper"]},
-	{"loc": "SDCARD", "path": "tencent/QQ_Favorite"},
-	{"loc": "SDCARD", "path": "tencent/MobileQQ"},
-	{"loc": "SDCARD", "path": "tencent/QQ_Collection"},
-	{"loc": "SDCARD", "path": "QQfile_recv"},
-	{"loc": "SDCARD", "path": "tencent/QQfile_recv"}
+	{"loc": "SDCARD", "path": "QQ_Collection"}
   ]
 }, {
   "pkgs": ["com.tencent.benchmark"],

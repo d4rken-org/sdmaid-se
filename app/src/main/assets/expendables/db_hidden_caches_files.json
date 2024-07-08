@@ -1302,6 +1302,45 @@
 		  ]
 		}
 	  ]
+	}, {
+	  "packages": ["com.tencent.mobileqq"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA", "PRIVATE_DATA"],
+		  "startsWith": [
+			"com.tencent.mobileqq/files/.info/",
+			"com.tencent.mobileqq/files/ae/camera/capture/",
+			"com.tencent.mobileqq/files/opensdk_tmp/",
+			"com.tencent.mobileqq/files/QWallet/.tmp/",
+			"com.tencent.mobileqq/files/tbs/TbsReaderTemp/",
+			"com.tencent.mobileqq/files/tencent/MobileQQ/.pendant/",
+			"com.tencent.mobileqq/files/uploader/",
+			"com.tencent.mobileqq/qzone/",
+			"com.tencent.mobileqq/Tencent/mini/files/",
+			"com.tencent.mobileqq/Tencent/MobileQQ/.emotionsm/",
+			"com.tencent.mobileqq/Tencent/MobileQQ/.gift/",
+			"com.tencent.mobileqq/Tencent/MobileQQ/pddata/app/offline/",
+			"com.tencent.mobileqq/Tencent/MobileQQ/photo/",
+			"com.tencent.mobileqq/Tencent/MobileQQ/Scribble/ScribbleCache/",
+			"com.tencent.mobileqq/Tencent/MobileQQ/shortvideo/",
+			"com.tencent.mobileqq/Tencent/MobileQQ/tencent/MobileQQ/webso/offline/",
+			"com.tencent.mobileqq/Tencent/MobileQQ/thumb/",
+			"com.tencent.mobileqq/Tencent/QQfile_recv/.",
+			"com.tencent.mobileqq/Tencent/Qzone/.AppCenterImgCache/",
+			"com.tencent.mobileqq/Tencent/TMAssistantSDK/Download/com.tencent.mobileqq/",
+			"com.tencent.mobileqq/files/ArkApp/Cache/",
+			"com.tencent.mobileqq/files/ArkApp_qzone/Cache/",
+			"com.tencent.mobileqq/files/ArkApp_tool/Cache/",
+			"com.tencent.mobileqq/files/far/",
+			"com.tencent.mobileqq/files/fdmon/",
+			"com.tencent.mobileqq/files/gvideo/",
+			"com.tencent.mobileqq/files/pddata/app/offline/",
+			"com.tencent.mobileqq/files/ShadowPlugin_ilive-pluginapngCache/",
+			"com.tencent.mobileqq/files/tempFile",
+			"com.tencent.mobileqq/files/WebOfflineRes/"
+		  ]
+		}
+	  ]
 	}
   ]
 }
