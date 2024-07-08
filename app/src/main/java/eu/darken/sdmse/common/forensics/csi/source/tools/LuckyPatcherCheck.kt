@@ -53,7 +53,7 @@ class LuckyPatcherCheck @Inject constructor(
     }
 
     companion object {
-        private val LUCKYPATCHER_ODDONES by lazy { Regex("^([\\w\\W]+?)-[0-9]{1,4}\\.o?dex$") }
+        private val LUCKYPATCHER_ODDONES by lazy { Regex("^(.+?)-[0-9]{1,4}\\.o?dex$") }
         private val BAD_UNCLES = setOf(
             "com.forpda.lp",
             "com.chelpus.lackypatch",

@@ -157,7 +157,7 @@
 		{
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.skype.rover/files/", "com.skype.raider/files/"],
-		  "patterns": ["^(?:com\\.skype\\.(?:rover|raider)/files/[\\w,._-]+?/logs/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:com\\.skype\\.(?:rover|raider)/files/[\\w,._-]+?/logs/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -184,7 +184,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["MaleWorkout/crash/"],
-		  "patterns": ["^(?:MaleWorkout/crash/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:MaleWorkout/crash/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -198,11 +198,11 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "contains": ["/.cache/KingsoftOffice/log/"],
-		  "patterns": ["^(?:cn\\.wps\\.moffice[_\\w]*/\\.cache/KingsoftOffice/log/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:cn\\.wps\\.moffice[_\\w]*/\\.cache/KingsoftOffice/log/)(.+?)$"]
 		}, {
 		  "locations": ["PUBLIC_DATA"],
 		  "contains": ["/.cache/KingsoftOffice/.temp/"],
-		  "patterns": ["^(?:cn\\.wps\\.moffice[_\\w]*\/\\.cache\/KingsoftOffice\/\\.temp\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:cn\\.wps\\.moffice[_\\w]*\/\\.cache\/KingsoftOffice\/\\.temp\/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -214,7 +214,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["archos_debug/"],
-		  "patterns": ["^(?:archos_debug/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:archos_debug/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -224,11 +224,11 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["tencent/MicroMsg/"],
 		  "patterns": [
-			"^(?>tencent/MicroMsg/crash/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/xlog/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/locallog/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/watchdog/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/failmsgfilecache/)([\\W\\w]+?)$",
+			"^(?>tencent/MicroMsg/crash/)(.+?)$",
+			"^(?>tencent/MicroMsg/xlog/)(.+?)$",
+			"^(?>tencent/MicroMsg/locallog/)(.+?)$",
+			"^(?>tencent/MicroMsg/watchdog/)(.+?)$",
+			"^(?>tencent/MicroMsg/failmsgfilecache/)(.+?)$",
 			"^(?>tencent/MicroMsg/)(FTS5IndexMicroMsgInfo.txt)$",
 			"^(?>tencent/MicroMsg/[0-9a-z-]{32}\/logcat\/)(?>.+)"
 		  ]
@@ -248,7 +248,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["tencent/wns/EncryptLogs/"],
-		  "patterns": ["^(?>tencent\/wns\/EncryptLogs\/[\\w\\.]+\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>tencent\/wns\/EncryptLogs\/[\\w\\.]+\/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -256,7 +256,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["tencent/msflogs/"],
-		  "patterns": ["^(?>tencent\/msflogs\/(?>\\w+\/){3})([\\W\\w]+?)$"]
+		  "patterns": ["^(?>tencent\/msflogs\/(?>\\w+\/){3})(.+?)$"]
 		}
 	  ]
 	}, {
@@ -264,7 +264,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["log/GearLog/"],
-		  "patterns": ["^(?:log/GearLog/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:log/GearLog/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -277,7 +277,7 @@
 		}, {
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["org.mozilla.fenix/glean_data/"],
-		  "patterns": ["^(?:org\\.mozilla\\.fenix/glean_data/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:org\\.mozilla\\.fenix/glean_data/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -303,7 +303,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["ICBCWAPLog/"],
-		  "patterns": ["^(?:ICBCWAPLog/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:ICBCWAPLog/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -312,7 +312,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["vmlog/"],
-		  "patterns": ["^(?:vmlog/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:vmlog/)(.+?)$"]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": ["log.txt"],
@@ -334,7 +334,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Android/flyme_sync_sdk_log"],
-		  "patterns": ["^(?:Android/flyme_sync_sdk_log.txt(/[\\W\\w]+?)?)$"]
+		  "patterns": ["^(?:Android/flyme_sync_sdk_log.txt(/.+?)?)$"]
 		}
 	  ]
 	}, {
@@ -365,7 +365,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["sogou"],
-		  "patterns": ["^(?:sogou/corelog/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:sogou/corelog/)(.+?)$"]
 		}
 	  ]
 	}, {
