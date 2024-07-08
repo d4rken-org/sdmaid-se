@@ -46,7 +46,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["MidasOversea/"],
 		  "patterns": [
-			"^(?>MidasOversea/)([\\W\\w]+?)$"
+			"^(?>MidasOversea/)(.+?)$"
 		  ]
 		}
 	  ]
@@ -56,7 +56,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": [".bmob/"],
 		  "patterns": [
-			"^(?>\\.bmob/)([\\W\\w]+?)$"
+			"^(?>\\.bmob/)(.+?)$"
 		  ]
 		}
 	  ]

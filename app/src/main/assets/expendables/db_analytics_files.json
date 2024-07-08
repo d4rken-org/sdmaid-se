@@ -79,7 +79,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["tencent/beacon/"],
 		  "patterns": [
-			"^(?>tencent/beacon/)([\\W\\w]+?)$"
+			"^(?>tencent/beacon/)(.+?)$"
 		  ]
 		}
 	  ]
@@ -100,7 +100,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": [".sysdv/"],
 		  "patterns": [
-			"^(?>.sysdv/)([\\W\\w]+?)$"
+			"^(?>.sysdv/)(.+?)$"
 		  ]
 		}
 	  ]

@@ -60,11 +60,11 @@ class WhatsAppSentFilter @Inject constructor(
                     areaTypes = setOf(location),
                     contains = setOf("$folder1/Media/$folder2"),
                     patterns = setOf(
-                        "(?>$folder1/Media/$folder2 Video/Sent/)(?:[\\W\\w]+?)$",
-                        "(?>$folder1/Media/$folder2 Animated Gifs/Sent/)(?:[\\W\\w]+?)$",
-                        "(?>$folder1/Media/$folder2 Images/Sent/)(?:[\\W\\w]+?)$",
-                        "(?>$folder1/Media/$folder2 Audio/Sent/)(?:[\\W\\w]+?)$",
-                        "(?>$folder1/Media/$folder2 Documents/Sent/)(?:[\\W\\w]+?)$",
+                        "(?>$folder1/Media/$folder2 Video/Sent/)(?:.+?)$",
+                        "(?>$folder1/Media/$folder2 Animated Gifs/Sent/)(?:.+?)$",
+                        "(?>$folder1/Media/$folder2 Images/Sent/)(?:.+?)$",
+                        "(?>$folder1/Media/$folder2 Audio/Sent/)(?:.+?)$",
+                        "(?>$folder1/Media/$folder2 Documents/Sent/)(?:.+?)$",
                     ),
                     exclusions = setOf(".nomedia"),
                 )

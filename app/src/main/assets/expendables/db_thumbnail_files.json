@@ -7,7 +7,7 @@
 		{
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.quickoffice.android/files/"],
-		  "patterns": ["^(?:com\\.quickoffice\\.android/files/)([\\w\\W]+?\\.thumb\\.(?:home|panel))$"]
+		  "patterns": ["^(?:com\\.quickoffice\\.android/files/)(.+?\\.thumb\\.(?:home|panel))$"]
 		}
 	  ]
 	}, {
@@ -16,11 +16,11 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".FX/CloudThumbnail/"],
-		  "patterns": ["^(?:\\.FX/CloudThumbnail/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:\\.FX/CloudThumbnail/)(.+?)$"]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": [".FX/ImageThumbnail/"],
-		  "patterns": ["^(?:\\.FX/ImageThumbnail/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:\\.FX/ImageThumbnail/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -57,7 +57,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": [".thumbnails/"],
 		  "notContains": [".nomedia"],
-		  "patterns": ["^(?:\\.thumbnails/.+?/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:\\.thumbnails/.+?/)(.+?)$"]
 		}
 	  ]
 	}, {

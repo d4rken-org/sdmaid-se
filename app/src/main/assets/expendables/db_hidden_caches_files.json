@@ -206,7 +206,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Audials/temporary/"],
-		  "patterns": ["^(?:Audials/temporary/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:Audials/temporary/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -425,7 +425,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".PolarisViewer4/polarisTemp/"],
-		  "patterns": ["^(?>\\.PolarisViewer4/polarisTemp/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.PolarisViewer4/polarisTemp/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -452,15 +452,15 @@
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.skype.rover/files"],
 		  "patterns": [
-			"^(?:com\\.skype\\.rover/files/[\\w,._-]+?/media_messaging/emo_cache(?:_v[0-9])?/)([\\W\\w]+?)$",
-			"^(?:com\\.skype\\.rover/files/[\\w,._-]+?/media_messaging/media_cache(?:_v[0-9])?/)([\\W\\w]+?)$"
+			"^(?:com\\.skype\\.rover/files/[\\w,._-]+?/media_messaging/emo_cache(?:_v[0-9])?/)(.+?)$",
+			"^(?:com\\.skype\\.rover/files/[\\w,._-]+?/media_messaging/media_cache(?:_v[0-9])?/)(.+?)$"
 		  ]
 		}, {
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.skype.raider/files"],
 		  "patterns": [
-			"^(?:com\\.skype\\.raider/files/[\\w,._-]+?/media_messaging/emo_cache(?:_v[0-9])?/)([\\W\\w]+?)$",
-			"^(?:com\\.skype\\.raider/files/[\\w,._-]+?/media_messaging/media_cache(?:_v[0-9])?/)([\\W\\w]+?)$"
+			"^(?:com\\.skype\\.raider/files/[\\w,._-]+?/media_messaging/emo_cache(?:_v[0-9])?/)(.+?)$",
+			"^(?:com\\.skype\\.raider/files/[\\w,._-]+?/media_messaging/media_cache(?:_v[0-9])?/)(.+?)$"
 		  ]
 		}
 	  ]
@@ -475,19 +475,19 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".estrongs/dianxin/notify"],
-		  "patterns": ["^(?>\\.estrongs/dianxin/notify/.cache/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.estrongs/dianxin/notify/.cache/)(.+?)$"]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": [".estrongs/.app_icon_back"],
-		  "patterns": ["^(?>\\.estrongs/\\.app_icon_back/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.estrongs/\\.app_icon_back/)(.+?)$"]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": ["dianxin/notify"],
-		  "patterns": ["^(?>dianxin/notify/.cache/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>dianxin/notify/.cache/)(.+?)$"]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": [".BD_SAPI_CACHE/"],
-		  "patterns": ["^(?>\\.BD_SAPI_CACHE/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.BD_SAPI_CACHE/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -496,7 +496,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.ksmobile.launcher/files/iconcache/"],
-		  "patterns": ["^(?>com\\.ksmobile\\.launcher/files/iconcache/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>com\\.ksmobile\\.launcher/files/iconcache/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -505,7 +505,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.ecareme.asuswebstorage/folderBrowseCache/"],
-		  "patterns": ["^(?>com\\.ecareme\\.asuswebstorage/folderBrowseCache/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>com\\.ecareme\\.asuswebstorage/folderBrowseCache/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -515,7 +515,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": [".EveryplayCache/images/"],
 		  "notContains": [".nomedia"],
-		  "patterns": ["^(?>\\.EveryplayCache/images/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.EveryplayCache/images/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -529,7 +529,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": [".face/"],
 		  "notContains": [".nomedia"],
-		  "patterns": ["^(?>\\.face/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.face/)(.+?)$"]
 		}, {
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.sec.android.gallery3d/Temp/"],
@@ -565,7 +565,7 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["motionstills/warp_grid_cache"],
 		  "notContains": [".nomedia"],
-		  "patterns": ["^(?:motionstills/warp_grid_cache/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:motionstills/warp_grid_cache/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -574,7 +574,7 @@
 		{
 		  "locations": ["PRIVATE_DATA"],
 		  "startsWith": ["com.plexapp.android/Plex Media Server/Cache"],
-		  "patterns": ["^(?:com.plexapp.android/Plex Media Server/Cache/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:com.plexapp.android/Plex Media Server/Cache/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -583,7 +583,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".fotadownload/"],
-		  "patterns": ["^(?:.fotadownload/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:.fotadownload/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -602,15 +602,15 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["UCDownloads/video/.apolloCache", "UCDownloadsPad/video/.apolloCache"],
-		  "patterns": ["^(?:UCDownloads(?:Pad)?/video/.apolloCache\/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:UCDownloads(?:Pad)?/video/.apolloCache\/)(.+?)$"]
 		}, {
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.UCMobile.intl/files/UcDownloads/video/.apolloCache"],
-		  "patterns": ["^(?:com\\.UCMobile\\.intl/files/UcDownloads/video/\\.apolloCache/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:com\\.UCMobile\\.intl/files/UcDownloads/video/\\.apolloCache/)(.+?)$"]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": ["supercache"],
-		  "patterns": ["^(?:supercache/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?:supercache/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -619,7 +619,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Download/", ".crdownload"],
-		  "patterns": ["^(?:Download/)([\\W\\w]+?.crdownload)$"]
+		  "patterns": ["^(?:Download/)(.+?.crdownload)$"]
 		}
 	  ]
 	}, {
@@ -628,11 +628,11 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.zhiliaoapp.musically/files/frescocache/"],
-		  "patterns": ["^(?>com\\.zhiliaoapp\\.musically/files/frescocache/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>com\\.zhiliaoapp\\.musically/files/frescocache/)(.+?)$"]
 		}, {
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.zhiliaoapp.musically/Videos/"],
-		  "patterns": ["^(?>com\\.zhiliaoapp\\.musically/Videos/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>com\\.zhiliaoapp\\.musically/Videos/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -641,7 +641,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Keerby/FormatFactory/tmp/"],
-		  "patterns": ["^(?>Keerby/FormatFactory/tmp/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>Keerby/FormatFactory/tmp/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -668,7 +668,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["LocalKingMapTempN5/"],
-		  "patterns": ["^(?>LocalKingMapTempN5/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>LocalKingMapTempN5/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -677,7 +677,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": [".fotaApps/"],
-		  "patterns": ["^(?>\\.fotaApps/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.fotaApps/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -686,7 +686,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["WhatsApp/.Shared/"],
-		  "patterns": ["^(?>WhatsApp/\\.Shared/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>WhatsApp/\\.Shared/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -695,7 +695,7 @@
 		{
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["com.lonelycatgames.Xplore/files/Send Anywhere/.temp/"],
-		  "patterns": ["^(?>com\\.lonelycatgames\\.Xplore/files/Send Anywhere/\\.temp/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>com\\.lonelycatgames\\.Xplore/files/Send Anywhere/\\.temp/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -711,50 +711,49 @@
 			"com.tencent.mm/assistant/"
 		  ],
 		  "patterns": [
-			"^(?>VideoCache/com.tencent.mm/)([\\W\\w]+?)$",
-
-			"^(?>tencent/MicroMsg/CheckResUpdate/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/WebviewCache/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/Cache/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/wxacache/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/wxafiles/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/wxvideocache/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/wxanewfiles/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/wxvideotmp/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/.tmp/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/CDNTemp/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/FailMsgFileCache/)([\\W\\w]+?)$",
-			"^(?>tencent/MicroMsg/diskcache/)([\\W\\w]+?)$",
+			"^(?>VideoCache/com.tencent.mm/)(.+?)$",
+			"^(?>tencent/MicroMsg/CheckResUpdate/)(.+?)$",
+			"^(?>tencent/MicroMsg/WebviewCache/)(.+?)$",
+			"^(?>tencent/MicroMsg/Cache/)(.+?)$",
+			"^(?>tencent/MicroMsg/wxacache/)(.+?)$",
+			"^(?>tencent/MicroMsg/wxafiles/)(.+?)$",
+			"^(?>tencent/MicroMsg/wxvideocache/)(.+?)$",
+			"^(?>tencent/MicroMsg/wxanewfiles/)(.+?)$",
+			"^(?>tencent/MicroMsg/wxvideotmp/)(.+?)$",
+			"^(?>tencent/MicroMsg/.tmp/)(.+?)$",
+			"^(?>tencent/MicroMsg/CDNTemp/)(.+?)$",
+			"^(?>tencent/MicroMsg/FailMsgFileCache/)(.+?)$",
+			"^(?>tencent/MicroMsg/diskcache/)(.+?)$",
 			"^(?>tencent/MicroMsg/)([0-9a-z-]{32}temp[\\d]{13})$",
 			"^(?>tencent/MicroMsg/[0-9a-z-]{32}/brandicon/)(?>.+)",
 			"^(?>tencent/MicroMsg/[0-9a-z-]{32}/openapi_cache/)(?>.+)",
 			"^(?>tencent/MicroMsg/[0-9a-z-]{32}/cdn/download/)(?>.+)",
 			"^(?>tencent/MicroMsg/emoji/cover/)(?>.+)",
 			"^(?>tencent/MicroMsg/mmslot/webcached/)(?>.+)",
-			"^(?>tencent/assistant/cache/)([\\W\\w]+?)$",
-			"^(?>tencent/assistant/tmp/)([\\W\\w]+?)$",
-			"^(?>tencent/assistant/thumbnailcache/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/MicroMsg/CheckResUpdate/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/MicroMsg/WebviewCache/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/MicroMsg/Cache/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/MicroMsg/wxacache/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/MicroMsg/wxafiles/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/MicroMsg/wxvideocache/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/MicroMsg/wxanewfiles/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/MicroMsg/wxvideotmp/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/MicroMsg/.tmp/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/MicroMsg/CDNTemp/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/MicroMsg/FailMsgFileCache/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/MicroMsg/diskcache/)([\\W\\w]+?)$",
+			"^(?>tencent/assistant/cache/)(.+?)$",
+			"^(?>tencent/assistant/tmp/)(.+?)$",
+			"^(?>tencent/assistant/thumbnailcache/)(.+?)$",
+			"^(?>com.tencent.mm/MicroMsg/CheckResUpdate/)(.+?)$",
+			"^(?>com.tencent.mm/MicroMsg/WebviewCache/)(.+?)$",
+			"^(?>com.tencent.mm/MicroMsg/Cache/)(.+?)$",
+			"^(?>com.tencent.mm/MicroMsg/wxacache/)(.+?)$",
+			"^(?>com.tencent.mm/MicroMsg/wxafiles/)(.+?)$",
+			"^(?>com.tencent.mm/MicroMsg/wxvideocache/)(.+?)$",
+			"^(?>com.tencent.mm/MicroMsg/wxanewfiles/)(.+?)$",
+			"^(?>com.tencent.mm/MicroMsg/wxvideotmp/)(.+?)$",
+			"^(?>com.tencent.mm/MicroMsg/.tmp/)(.+?)$",
+			"^(?>com.tencent.mm/MicroMsg/CDNTemp/)(.+?)$",
+			"^(?>com.tencent.mm/MicroMsg/FailMsgFileCache/)(.+?)$",
+			"^(?>com.tencent.mm/MicroMsg/diskcache/)(.+?)$",
 			"^(?>com.tencent.mm/MicroMsg/)([0-9a-z-]{32}temp[\\d]{13})$",
 			"^(?>com.tencent.mm/MicroMsg/[0-9a-z-]{32}/brandicon/)(?>.+)",
 			"^(?>com.tencent.mm/MicroMsg/[0-9a-z-]{32}/openapi_cache/)(?>.+)",
 			"^(?>com.tencent.mm/MicroMsg/[0-9a-z-]{32}/cdn/download/)(?>.+)",
 			"^(?>com.tencent.mm/MicroMsg/emoji/cover/)(?>.+)",
 			"^(?>com.tencent.mm/MicroMsg/mmslot/webcached/)(?>.+)",
-			"^(?>com.tencent.mm/assistant/cache/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/assistant/tmp/)([\\W\\w]+?)$",
-			"^(?>com.tencent.mm/assistant/thumbnailcache/)([\\W\\w]+?)$"
+			"^(?>com.tencent.mm/assistant/cache/)(.+?)$",
+			"^(?>com.tencent.mm/assistant/tmp/)(.+?)$",
+			"^(?>com.tencent.mm/assistant/thumbnailcache/)(.+?)$"
 		  ]
 		}
 	  ]
@@ -764,7 +763,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".newsbreak/image/"],
-		  "patterns": ["^(?>\\.newsbreak\/image/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.newsbreak\/image/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -773,7 +772,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": [".sems/"],
-		  "patterns": ["^(?>\\.sems/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>\\.sems/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -786,8 +785,8 @@
 			"qpython/cache/"
 		  ],
 		  "patterns": [
-			"^(?>qpython/log/)([\\W\\w]+?)$",
-			"^(?>qpython/cache/)([\\W\\w]+?)$"
+			"^(?>qpython/log/)(.+?)$",
+			"^(?>qpython/cache/)(.+?)$"
 		  ]
 		}
 	  ]
@@ -797,7 +796,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["VMOSfiletransferstation/"],
-		  "patterns": ["^(?>VMOSfiletransferstation/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>VMOSfiletransferstation/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -824,11 +823,11 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["video.like/nerv-cache"],
-		  "patterns": ["^(?>video.like/nerv-cache/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>video.like/nerv-cache/)(.+?)$"]
 		}, {
 		  "locations": ["PUBLIC_DATA"],
 		  "startsWith": ["video.like/files/xlog"],
-		  "patterns": ["^(?>video.like/files/xlog/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>video.like/files/xlog/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -837,7 +836,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["Lumii/.tattooTemp"],
-		  "patterns": ["^(?>Lumii/\\.tattooTemp/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>Lumii/\\.tattooTemp/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -857,15 +856,15 @@
 			"Photo Editor/.bg/"
 		  ],
 		  "patterns": [
-			"^(?>Photo Editor/\\.brush)([\\W\\w]+?)$",
-			"^(?>Photo Editor/\\.neon)([\\W\\w]+?)$",
-			"^(?>Photo Editor/\\.mosaic)([\\W\\w]+?)$",
-			"^(?>Photo Editor/\\.lightfx)([\\W\\w]+?)$",
-			"^(?>Photo Editor/\\.filter)([\\W\\w]+?)$",
-			"^(?>Photo Editor/\\.edited_photo)([\\W\\w]+?)$",
-			"^(?>Photo Editor/\\.eraser)([\\W\\w]+?)$",
-			"^(?>Photo Editor/\\.sticker)([\\W\\w]+?)$",
-			"^(?>Photo Editor/\\.bg)([\\W\\w]+?)$"
+			"^(?>Photo Editor/\\.brush)(.+?)$",
+			"^(?>Photo Editor/\\.neon)(.+?)$",
+			"^(?>Photo Editor/\\.mosaic)(.+?)$",
+			"^(?>Photo Editor/\\.lightfx)(.+?)$",
+			"^(?>Photo Editor/\\.filter)(.+?)$",
+			"^(?>Photo Editor/\\.edited_photo)(.+?)$",
+			"^(?>Photo Editor/\\.eraser)(.+?)$",
+			"^(?>Photo Editor/\\.sticker)(.+?)$",
+			"^(?>Photo Editor/\\.bg)(.+?)$"
 		  ]
 		}
 	  ]
@@ -875,7 +874,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["DCIM/Auto Photo Cut Paste/.temp/"],
-		  "patterns": ["^(?>DCIM/Auto Photo Cut Paste/\\.temp/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>DCIM/Auto Photo Cut Paste/\\.temp/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -884,7 +883,7 @@
 		{
 		  "locations": ["SDCARD"],
 		  "startsWith": ["DCIM/Cut Paste Frames/.temp/"],
-		  "patterns": ["^(?>DCIM/Cut Paste Frames/\\.temp/)([\\W\\w]+?)$"]
+		  "patterns": ["^(?>DCIM/Cut Paste Frames/\\.temp/)(.+?)$"]
 		}
 	  ]
 	}, {
@@ -910,12 +909,12 @@
 			"Body Editor/.tattooTemp/"
 		  ],
 		  "patterns": [
-			"^(?>Body Editor/\\.cache/)([\\W\\w]+?)$",
-			"^(?>Body Editor/\\.bg/)([\\W\\w]+?)$",
-			"^(?>Body Editor/\\.filter/)([\\W\\w]+?)$",
-			"^(?>Body Editor/\\.font/)([\\W\\w]+?)$",
-			"^(?>Body Editor/\\.sticker/)([\\W\\w]+?)$",
-			"^(?>Body Editor/\\.tattooTemp/)([\\W\\w]+?)$"
+			"^(?>Body Editor/\\.cache/)(.+?)$",
+			"^(?>Body Editor/\\.bg/)(.+?)$",
+			"^(?>Body Editor/\\.filter/)(.+?)$",
+			"^(?>Body Editor/\\.font/)(.+?)$",
+			"^(?>Body Editor/\\.sticker/)(.+?)$",
+			"^(?>Body Editor/\\.tattooTemp/)(.+?)$"
 		  ]
 		}
 	  ]
