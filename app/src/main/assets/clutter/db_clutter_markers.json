@@ -1075,6 +1075,7 @@
   "pkgs": ["com.baidu.BaiduMap"],
   "mrks": [
 	{"loc": "SDCARD", "path": "BaiduMap"},
+	{"loc": "SDCARD", "path": ".BD_SAPI_CACHE"},
 	{"loc": "SDCARD", "path": "BaiduShenBian_Map_Plugin"}
   ]
 }, {
@@ -12423,7 +12424,10 @@
   "mrks": [{"loc": "SDCARD", "path": "Aliucord", "flags": ["keeper"]}]
 }, {
   "pkgs": ["com.baidu.BaiduMap.meizu"],
-  "mrks": [{"loc": "SDCARD", "path": "BaiduMeizuMap", "flags": ["keeper"]}]
+  "mrks": [
+	{"loc": "SDCARD", "path": "BaiduMeizuMap", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": ".BD_SAPI_CACHE"}
+  ]
 }, {
   "pkgs": ["com.adguard.android"],
   "mrks": [{"loc": "SDCARD", "path": "Documents/AdGuard", "flags": ["keeper"]}]

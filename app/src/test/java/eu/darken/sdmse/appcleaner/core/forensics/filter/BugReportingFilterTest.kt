@@ -1342,4 +1342,20 @@ class BugReportingFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+    @Test fun `tencent browser service log`() = runTest {
+        addDefaultNegatives()
+
+        neg("some.pkg", PRIVATE_DATA, "some.pkg/files/tbslog")
+        pos("some.pkg", PRIVATE_DATA, "some.pkg/files/tbslog/deleteme.log")
+        neg("some.pkg", PRIVATE_DATA, "some.pkg/files/Tencent/tbs_live_log")
+        pos("some.pkg", PRIVATE_DATA, "some.pkg/files/Tencent/tbs_live_log/deleteme.log")
+
+        neg("some.pkg", PUBLIC_DATA, "some.pkg/files/tbslog")
+        pos("some.pkg", PUBLIC_DATA, "some.pkg/files/tbslog/deleteme.log")
+        neg("some.pkg", PUBLIC_DATA, "some.pkg/files/Tencent/tbs_live_log")
+        pos("some.pkg", PUBLIC_DATA, "some.pkg/files/Tencent/tbs_live_log/deleteme.log")
+
+        confirm(create())
+    }
 }
