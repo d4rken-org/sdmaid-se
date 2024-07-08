@@ -55,6 +55,7 @@ class AppCleanerSettings @Inject constructor(
     val filterWhatsAppReceivedEnabled = dataStore.createValue("filter.whatsapp.received.enabled", false)
     val filterWhatsAppSentEnabled = dataStore.createValue("filter.whatsapp.sent.enabled", false)
     val filterWeChatEnabled = dataStore.createValue("filter.wechat.enabled", false)
+    val filterMobileQQEnabled = dataStore.createValue("filter.mobileqq.enabled", false)
     val filterViberEnabled = dataStore.createValue("filter.viber.enabled", false)
 
     val minCacheAgeMs = dataStore.createValue("skip.mincacheage.milliseconds", MIN_CACHE_AGE_DEFAULT)
@@ -94,6 +95,7 @@ class AppCleanerSettings @Inject constructor(
         filterWhatsAppReceivedEnabled,
         filterWhatsAppSentEnabled,
         filterWeChatEnabled,
+        filterMobileQQEnabled,
         filterViberEnabled,
     )
 

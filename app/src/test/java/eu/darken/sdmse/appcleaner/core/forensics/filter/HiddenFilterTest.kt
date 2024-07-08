@@ -2463,4 +2463,90 @@ class HiddenFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+    @Test fun `qq chat`() = runTest {
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/.info")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/.info/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/ae/camera/capture")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/ae/camera/capture/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/opensdk_tmp")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/opensdk_tmp/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/QWallet/.tmp")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/QWallet/.tmp/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/tbs/TbsReaderTemp")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/tbs/TbsReaderTemp/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/tencent/MobileQQ/.pendant")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/tencent/MobileQQ/.pendant/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/uploader")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/files/uploader/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/qzone")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/qzone/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/mini/files")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/mini/files/deletem")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/.emotionsm")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/.emotionsm/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/.gift")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/.gift/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/pddata/app/offline")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/pddata/app/offline/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/photo")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/photo/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/Scribble/ScribbleCache")
+        pos(
+            "com.tencent.mobileqq",
+            PUBLIC_DATA,
+            "com.tencent.mobileqq/Tencent/MobileQQ/Scribble/ScribbleCache/deleteme"
+        )
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/shortvideo")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/shortvideo/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/tencent/MobileQQ/webso/offline")
+        pos(
+            "com.tencent.mobileqq",
+            PUBLIC_DATA,
+            "com.tencent.mobileqq/Tencent/MobileQQ/tencent/MobileQQ/webso/offline/deleteme"
+        )
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/thumb")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/MobileQQ/thumb/deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/QQfile_recv/")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/QQfile_recv/.deleteme")
+        neg("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/Qzone/.AppCenterImgCache")
+        pos("com.tencent.mobileqq", PUBLIC_DATA, "com.tencent.mobileqq/Tencent/Qzone/.AppCenterImgCache/deleteme")
+        neg(
+            "com.tencent.mobileqq",
+            PUBLIC_DATA,
+            "com.tencent.mobileqq/Tencent/TMAssistantSDK/Download/com.tencent.mobileqq"
+        )
+        pos(
+            "com.tencent.mobileqq",
+            PUBLIC_DATA,
+            "com.tencent.mobileqq/Tencent/TMAssistantSDK/Download/com.tencent.mobileqq/deleteme"
+        )
+
+        neg("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/ArkApp/Cache")
+        pos("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/ArkApp/Cache/deleteme")
+        neg("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/ArkApp_qzone/Cache")
+        pos("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/ArkApp_qzone/Cache/deleteme")
+        neg("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/ArkApp_tool/Cache")
+        pos("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/ArkApp_tool/Cache/deleteme")
+        neg("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/far")
+        pos("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/far/deleteme")
+        neg("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/fdmon")
+        pos("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/fdmon/deleteme")
+        neg("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/gvideo")
+        pos("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/gvideo/deleteme")
+        neg("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/pddata/app/offline")
+        pos("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/pddata/app/offline/deleteme")
+        neg("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/ShadowPlugin_ilive-pluginapngCache")
+        pos(
+            "com.tencent.mobileqq",
+            PRIVATE_DATA,
+            "com.tencent.mobileqq/files/ShadowPlugin_ilive-pluginapngCache/deleteme"
+        )
+        neg("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/tempFil")
+        pos("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/tempFile")
+        neg("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/WebOfflineRes")
+        pos("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/files/WebOfflineRes/deleteme")
+
+        confirm(create())
+    }
 }

@@ -451,6 +451,25 @@
 		  ]
 		}
 	  ]
+	}, {
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA", "PUBLIC_DATA"],
+		  "contains": ["/files/tencent/msflogs/"],
+		  "patterns": ["^.+?/files/tencent/msflogs/.+?/.+?\\.log$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.tencent.mobileqq"],
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "startsWith": [
+			"com.tencent.mobileqq/app_crashrecord/",
+			"com.tencent.mobileqq/app_tombs/"
+		  ]
+		}
+	  ]
 	}
   ]
 }

@@ -1311,4 +1311,35 @@ class BugReportingFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+    @Test fun `tencent msflogs logs`() = runTest {
+        addDefaultNegatives()
+
+        neg("some.pkg", PUBLIC_DATA, "some.pkg/files/tencent/msflogs")
+        pos(
+            "some.pkg",
+            PUBLIC_DATA,
+            "some.pkg/files/tencent/msflogs/com/tencent/mobileqq/com.tencent.mobileqq_MSF.24.07.08.14.log"
+        )
+        neg("some.pkg", PRIVATE_DATA, "some.pkg/files/tencent/msflogs")
+        pos(
+            "some.pkg",
+            PRIVATE_DATA,
+            "some.pkg/files/tencent/msflogs/com/tencent/mobileqq/com.tencent.mobileqq_MSF.24.07.08.14.log"
+        )
+
+        confirm(create())
+    }
+
+    @Test fun `qq chat crash logs`() = runTest {
+        addDefaultNegatives()
+
+        neg("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/app_crashrecord")
+        pos("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/app_crashrecord/deleteme")
+        neg("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/app_tombs")
+        pos("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/app_tombs/sys_log_1720437966614.txt")
+        pos("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/app_tombs/jni_log_1720437966614.txt")
+
+        confirm(create())
+    }
 }

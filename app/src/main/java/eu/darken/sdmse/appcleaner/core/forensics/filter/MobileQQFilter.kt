@@ -24,7 +24,7 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 @Reusable
-class WeChatFilter @Inject constructor(
+class MobileQQFilter @Inject constructor(
     private val dynamicSieveFactory: DynamicSieve.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseExpendablesFilter() {
@@ -33,50 +33,35 @@ class WeChatFilter @Inject constructor(
 
     override suspend fun initialize() {
         log(TAG) { "initialize()" }
-        val configSD = DynamicSieve.MatchConfig(
-            pkgNames = setOf("com.tencent.mm".toPkgId()),
-            areaTypes = setOf(DataArea.Type.SDCARD),
+        val configOne = DynamicSieve.MatchConfig(
+            pkgNames = setOf("com.tencent.mobileqq".toPkgId()),
+            areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
             startsWith = setOf(
-                "tencent/MicroMsg",
-            ),
-            patterns = setOf(
-                "^(?>tencent\\/MicroMsg\\/[0-9a-z-]{32}\\/sns\\/)(?>.+)$",
-                "^(?>tencent\\/MicroMsg\\/[0-9a-z-]{32}\\/video\\/)(?>.+)$",
-                "^(?>tencent\\/MicroMsg\\/[0-9a-z-]{32}\\/image2\\/)(?>.+)$",
-                "^(?>tencent\\/MicroMsg\\/[0-9a-z-]{32}\\/voice2\\/)(?>.+)$",
+                "tencent/MobileQQ/chatpic/",
+                "Tencent/MobileQQ/chatpic/",
+                "tencent/MobileQQ/shortvideo/",
+                "Tencent/MobileQQ/shortvideo/",
+                "com.tencent.mobileqq/MobileQQ/chatpic/",
+                "com.tencent.mobileqq/MobileQQ/shortvideo/",
             ),
             exclusions = setOf(".nomedia"),
         )
-        val configPub = DynamicSieve.MatchConfig(
-            pkgNames = setOf("com.tencent.mm".toPkgId()),
-            areaTypes = setOf(DataArea.Type.PUBLIC_DATA),
+        val configTwo = DynamicSieve.MatchConfig(
+            pkgNames = setOf("com.tencent.mobileqq".toPkgId()),
+            areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
             startsWith = setOf(
-                "com.tencent.mm/MicroMsg",
+                "com.tencent.mobileqq/MobileQQ/",
+                "tencent/MobileQQ/",
+                "Tencent/MobileQQ/",
             ),
             patterns = setOf(
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/sns\\/)(?>.+)$",
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/video\\/)(?>.+)$",
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/image2\\/)(?>.+)$",
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/voice2\\/)(?>.+)$",
-            ),
-            exclusions = setOf(".nomedia"),
-        )
-        val configPriv = DynamicSieve.MatchConfig(
-            pkgNames = setOf("com.tencent.mm".toPkgId()),
-            areaTypes = setOf(DataArea.Type.PRIVATE_DATA),
-            startsWith = setOf(
-                "com.tencent.mm/MicroMsg",
-            ),
-            patterns = setOf(
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/sns\\/)(?>.+)$",
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/video\\/)(?>.+)$",
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/image2\\/)(?>.+)$",
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/voice2\\/)(?>.+)$",
+                "^T|tencent/MobileQQ/\\d+/ptt/.+$",
+                "^com.tencent.mobileqq/MobileQQ/\\d+/ptt/.+$",
             ),
             exclusions = setOf(".nomedia"),
         )
 
-        sieve = dynamicSieveFactory.create(setOf(configSD, configPub, configPriv))
+        sieve = dynamicSieveFactory.create(setOf(configOne, configTwo))
     }
 
     override suspend fun match(
@@ -101,9 +86,9 @@ class WeChatFilter @Inject constructor(
     @Reusable
     class Factory @Inject constructor(
         private val settings: AppCleanerSettings,
-        private val filterProvider: Provider<WeChatFilter>
+        private val filterProvider: Provider<MobileQQFilter>
     ) : ExpendablesFilter.Factory {
-        override suspend fun isEnabled(): Boolean = settings.filterWeChatEnabled.value()
+        override suspend fun isEnabled(): Boolean = settings.filterMobileQQEnabled.value()
         override suspend fun create(): ExpendablesFilter = filterProvider.get()
     }
 
@@ -117,6 +102,6 @@ class WeChatFilter @Inject constructor(
         private val IGNORED_FILES: Collection<String> = listOf(
             ".nomedia",
         )
-        private val TAG = logTag("AppCleaner", "Scanner", "Filter", "WeChat")
+        private val TAG = logTag("AppCleaner", "Scanner", "Filter", "MobileQQ")
     }
 }

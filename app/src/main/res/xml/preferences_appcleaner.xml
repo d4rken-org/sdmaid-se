@@ -164,6 +164,12 @@
             app:singleLineTitle="false"
             app:summary="@string/appcleaner_filter_viber_summary"
             app:title="@string/appcleaner_filter_viber_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_qqchat_24"
+            app:key="filter.mobileqq.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/appcleaner_filter_qqchat_summary"
+            app:title="@string/appcleaner_filter_qqchat_label" />
     </PreferenceCategory>
 
 </PreferenceScreen>
