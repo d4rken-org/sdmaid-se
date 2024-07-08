@@ -843,7 +843,10 @@
   "mrks": [{"loc": "SDCARD", "path": ".SohuNewsCache"}]
 }, {
   "pkgs": ["com.jingdong.app.mall"],
-  "mrks": [{"loc": "SDCARD", "path": "jingdong"}]
+  "mrks": [
+	{"loc": "SDCARD", "path": "jingdong"},
+	{"loc": "SDCARD", "path": "JDIM", "flags": ["common", "keeper"]}
+  ]
 }, {
   "pkgs": ["cn.buding.takeout"],
   "mrks": [{"loc": "SDCARD", "path": ".budingtake"}]
@@ -12573,5 +12576,8 @@
 }, {
   "pkgs": ["com.muslim.labs.androidquran.naskh"],
   "mrks": [{"loc": "SDCARD", "path": "quran_android"}]
+}, {
+  "pkgs": ["com.suning.mobile.ebuy"],
+  "mrks": [{"loc": "SDCARD", "path": "oneplayer/.local"}]
 }
 ]
