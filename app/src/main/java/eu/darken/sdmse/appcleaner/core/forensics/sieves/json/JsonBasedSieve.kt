@@ -23,13 +23,10 @@ import okio.buffer
 class JsonBasedSieve @AssistedInject constructor(
     @Assisted private val assetPath: String,
     @ApplicationContext private val context: Context,
-    private val baseMoshi: Moshi
+    private val moshi: Moshi
 ) {
 
     private val filterDb: SieveJsonDb = run {
-        val moshi = baseMoshi.newBuilder().apply {
-//            add(RegexAdapter(caseInsensitive = true))
-        }.build()
         val source: BufferedSource = context.openAsset(assetPath).buffer()
         moshi.adapter<SieveJsonDb>().fromJson(source)!!
     }

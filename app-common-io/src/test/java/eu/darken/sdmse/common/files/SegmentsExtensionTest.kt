@@ -118,6 +118,12 @@ class SegmentsExtensionTest : BaseTest() {
         segs("ABc", "def").startsWith(segs("ab")) shouldBe false
         segs("ABc", "def").startsWith(segs("ab"), ignoreCase = true, allowPartial = false) shouldBe false
         segs("ABc", "def").startsWith(segs("ab"), ignoreCase = true, allowPartial = true) shouldBe true
+
+        segs("abc", "def", "").startsWith(segs("abc", "def"), ignoreCase = true, allowPartial = false) shouldBe true
+        segs("abc", "def", "").startsWith(segs("abc", "def"), ignoreCase = true, allowPartial = true) shouldBe true
+
+        segs("abc", "def", "ghi").startsWith(segs("abc", "def", ""), allowPartial = false) shouldBe false
+        segs("abc", "def", "ghi").startsWith(segs("abc", "def", ""), allowPartial = true) shouldBe true
     }
 
     @Test fun `segment endsWith`() {
