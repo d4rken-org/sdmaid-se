@@ -104,6 +104,20 @@
 		  ]
 		}
 	  ]
+	}, {
+	  "packages": ["com.netease.cloudmusic"],
+	  "fileFilter": [
+		{
+		  "locations": ["PRIVATE_DATA"],
+		  "startsWith": [
+			"com.netease.cloudmusic/files/MAMStatistic/",
+			"com.netease.cloudmusic/files/MAMStatisticV2/",
+			"com.netease.cloudmusic/files/RealTimeStatistic/",
+			"com.netease.cloudmusic/files/Statistic/",
+			"com.netease.cloudmusic/files/StatisticV2/"
+		  ]
+		}
+	  ]
 	}
   ]
 }

@@ -1299,4 +1299,16 @@ class BugReportingFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+    @Test fun `netease cloudmusic traces`() = runTest {
+        addDefaultNegatives()
+
+        neg("com.netease.cloudmusic", SDCARD, "netease/cloudmusic/Stacktrace")
+        pos("com.netease.cloudmusic", SDCARD, "netease/cloudmusic/Stacktrace/deleteme")
+
+        neg("com.netease.cloudmusic", PUBLIC_DATA, "com.netease.cloudmusic/files/Stacktrace")
+        pos("com.netease.cloudmusic", PUBLIC_DATA, "com.netease.cloudmusic/files/Stacktrace/deleteme")
+
+        confirm(create())
+    }
 }

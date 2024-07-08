@@ -440,6 +440,17 @@
 		  "patterns": ["^Download/crash_log_\\d+\\.txt$"]
 		}
 	  ]
+	}, {
+	  "packages": ["com.netease.cloudmusic"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD", "PUBLIC_DATA"],
+		  "startsWith": [
+			"netease/cloudmusic/Stacktrace/",
+			"com.netease.cloudmusic/files/Stacktrace/"
+		  ]
+		}
+	  ]
 	}
   ]
 }

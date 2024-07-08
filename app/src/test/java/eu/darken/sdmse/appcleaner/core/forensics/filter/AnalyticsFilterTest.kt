@@ -259,13 +259,29 @@ class AnalyticsFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-
     @Test fun testSysDV() = runTest {
         addDefaultNegatives()
         addCandidate(neg().pkgs("com.pinterest").locs(SDCARD).prefixFree(".sys"))
         addCandidate(neg().pkgs("com.pinterest").locs(SDCARD).prefixFree(".sys/$rngString"))
         addCandidate(neg().pkgs("com.pinterest").locs(SDCARD).prefixFree(".sysdv/"))
         addCandidate(pos().pkgs("com.pinterest").locs(SDCARD).prefixFree(".sysdv/$rngString"))
+        confirm(create())
+    }
+
+    @Test fun `netease cloudmusic analytics`() = runTest {
+        addDefaultNegatives()
+
+        neg("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/MAMStatistic")
+        pos("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/MAMStatistic/deleteme")
+        neg("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/MAMStatisticV2")
+        pos("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/MAMStatisticV2/deleteme")
+        neg("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/RealTimeStatistic")
+        pos("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/RealTimeStatistic/deleteme")
+        neg("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/Statistic")
+        pos("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/Statistic/deleteme")
+        neg("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/StatisticV2")
+        pos("com.netease.cloudmusic", PRIVATE_DATA, "com.netease.cloudmusic/files/StatisticV2/deleteme")
+
         confirm(create())
     }
 }
