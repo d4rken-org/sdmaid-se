@@ -1,6 +1,7 @@
 package eu.darken.sdmse.main.ui.dashboard.items
 
 import android.annotation.SuppressLint
+import android.graphics.Typeface
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
@@ -28,6 +29,12 @@ class DebugCardVH(parent: ViewGroup) :
         }
         dryrunEnabled.apply {
             setChecked2(item.isDryRunEnabled)
+            setTextColor(
+                getColorForAttr(
+                    if (item.isDryRunEnabled) android.R.attr.colorError else android.R.attr.textColorPrimary
+                )
+            )
+            setTypeface(null, if (item.isDryRunEnabled) Typeface.BOLD else Typeface.NORMAL)
             setOnCheckedChangeListener { _, isChecked -> item.onDryRunEnabled(isChecked) }
         }
         pkgsReloadAction.setOnClickListener { item.onReloadPkgs() }

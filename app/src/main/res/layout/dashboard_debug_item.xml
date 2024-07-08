@@ -51,13 +51,14 @@
                 style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enable dry-run mode" />
+                android:text="Dry-run mode (disable deletion)" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/areas_reload_action"
                 style="@style/SDMButton.Outlined"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="Reload data areas" />
 
             <com.google.android.material.button.MaterialButton
