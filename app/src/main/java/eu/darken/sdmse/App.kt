@@ -97,19 +97,19 @@ open class App : Application(), Configuration.Provider {
         log(TAG) { "onCreate() done! ${Exception().asLog()}" }
     }
 
-
-    override fun getWorkManagerConfiguration(): Configuration = Configuration.Builder()
-        .setMinimumLoggingLevel(
-            when {
-                BuildConfigWrap.DEBUG -> android.util.Log.VERBOSE
-                BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.DEV -> android.util.Log.DEBUG
-                BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.BETA -> android.util.Log.INFO
-                BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.RELEASE -> android.util.Log.WARN
-                else -> android.util.Log.VERBOSE
-            }
-        )
-        .setWorkerFactory(workerFactory)
-        .build()
+    override val workManagerConfiguration: Configuration
+        get() = Configuration.Builder()
+            .setMinimumLoggingLevel(
+                when {
+                    BuildConfigWrap.DEBUG -> android.util.Log.VERBOSE
+                    BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.DEV -> android.util.Log.DEBUG
+                    BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.BETA -> android.util.Log.INFO
+                    BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.RELEASE -> android.util.Log.WARN
+                    else -> android.util.Log.VERBOSE
+                }
+            )
+            .setWorkerFactory(workerFactory)
+            .build()
 
     companion object {
         internal val TAG = logTag("App")

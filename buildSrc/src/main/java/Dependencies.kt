@@ -107,7 +107,7 @@ fun DependencyHandlerScope.addRoomDb() {
 }
 
 fun DependencyHandlerScope.addWorkerManager() {
-    val version = "2.7.1"
+    val version = "2.9.0"
     implementation("androidx.work:work-runtime:$version")
     testImplementation("androidx.work:work-testing:$version")
     implementation("androidx.work:work-runtime-ktx:$version")
