@@ -61,10 +61,21 @@ fun DependencyHandlerScope.addCoroutines() {
 //    }
 }
 
+fun DependencyHandlerScope.addCoil() {
+    val version = "2.4.0"
+    implementation("io.coil-kt:coil:$version")
+    implementation("io.coil-kt:coil-video:$version")
+}
+
+fun DependencyHandlerScope.addLottie() {
+    implementation("com.airbnb.android:lottie:3.5.0")
+}
+
 fun DependencyHandlerScope.addSerialization() {
-    implementation("com.squareup.moshi:moshi:${Versions.Moshi.core}")
-    implementation("com.squareup.moshi:moshi-adapters:${Versions.Moshi.core}")
-    kapt("com.squareup.moshi:moshi-kotlin-codegen:${Versions.Moshi.core}")
+    val version = "1.14.0"
+    implementation("com.squareup.moshi:moshi:$version")
+    implementation("com.squareup.moshi:moshi-adapters:$version")
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:$version")
 }
 
 fun DependencyHandlerScope.addIO() {
@@ -96,9 +107,10 @@ fun DependencyHandlerScope.addRoomDb() {
 }
 
 fun DependencyHandlerScope.addWorkerManager() {
-    implementation("androidx.work:work-runtime:${Versions.AndroidX.WorkManager.core}")
-    testImplementation("androidx.work:work-testing:${Versions.AndroidX.WorkManager.core}")
-    implementation("androidx.work:work-runtime-ktx:${Versions.AndroidX.WorkManager.core}")
+    val version = "2.7.1"
+    implementation("androidx.work:work-runtime:$version")
+    testImplementation("androidx.work:work-testing:$version")
+    implementation("androidx.work:work-runtime-ktx:$version")
 
     implementation("androidx.hilt:hilt-work:1.0.0")
     kapt("androidx.hilt:hilt-compiler:1.0.0")

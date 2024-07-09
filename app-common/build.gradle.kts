@@ -47,9 +47,8 @@ dependencies {
     addIO()
     addTesting()
 
-    implementation("io.coil-kt:coil:${Versions.Coil.core}")
-
-    implementation("com.airbnb.android:lottie:3.5.0")
+    addCoil()
+    addLottie()
 
     implementation("com.github.d4rken.rxshell:core:v3.0.0")
 }
