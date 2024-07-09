@@ -2,13 +2,13 @@ package eu.darken.sdmse.appcleaner.ui.details.appjunk.elements
 
 import android.text.format.Formatter
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkElementsAdapter
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.common.files.labelRes
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.databinding.AppcleanerAppjunkElementFileBinding
@@ -41,10 +41,9 @@ class AppJunkElementFileVH(parent: ViewGroup) :
 
         primary.text = item.match.lookup.userReadablePath.get(context)
 
-        secondary.text = if (item.match.lookup.fileType == FileType.FILE) {
-            Formatter.formatFileSize(context, item.match.expectedGain)
-        } else {
-            getString(item.match.lookup.fileType.labelRes)
+        size.apply {
+            text = Formatter.formatShortFileSize(context, item.match.expectedGain)
+            isGone = item.match.lookup.fileType != FileType.FILE
         }
 
         root.setOnClickListener { item.onItemClick(item) }
