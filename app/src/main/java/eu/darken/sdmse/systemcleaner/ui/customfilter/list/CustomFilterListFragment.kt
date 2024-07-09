@@ -1,6 +1,7 @@
 package eu.darken.sdmse.systemcleaner.ui.customfilter.list
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -21,6 +22,7 @@ import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -182,6 +184,27 @@ class CustomFilterListFragment : Fragment3(R.layout.systemcleaner_customfilter_l
 
                 is CustomFilterListEvents.ExportEvent -> {
                     exportPickerLauncher.launch(event.intent)
+                }
+
+                is CustomFilterListEvents.ExportFinished -> {
+                    Snackbar
+                        .make(
+                            requireView(),
+                            getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_successful, event.files.size),
+                            Snackbar.LENGTH_LONG
+                        )
+                        .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
+                            try {
+                                val intent = Intent(Intent.ACTION_VIEW).apply {
+                                    setDataAndType(event.path.uri, event.path.type)
+                                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                                }
+                                startActivity(intent)
+                            } catch (e: ActivityNotFoundException) {
+                                e.asErrorDialogBuilder(requireActivity()).show()
+                            }
+                        }
+                        .show()
                 }
             }
         }
