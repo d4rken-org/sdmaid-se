@@ -5,7 +5,7 @@ object Versions {
     }
 
     object Dagger {
-        const val core = "2.48.1"
+        const val core = "2.51.1"
     }
 
     object AndroidX {
