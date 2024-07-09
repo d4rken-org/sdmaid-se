@@ -2,12 +2,12 @@ package eu.darken.sdmse.corpsefinder.ui.details.corpse.elements
 
 import android.text.format.Formatter
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.joinSegments
-import eu.darken.sdmse.common.files.labelRes
 import eu.darken.sdmse.common.files.removePrefix
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
@@ -44,10 +44,9 @@ class CorpseElementFileVH(parent: ViewGroup) :
         val prefixFree = item.lookup.lookedUp.removePrefix(item.corpse.lookup)
         primary.text = prefixFree.joinSegments("/")
 
-        secondary.text = if (item.lookup.fileType == FileType.FILE) {
-            Formatter.formatFileSize(context, item.lookup.size)
-        } else {
-            getString(item.lookup.fileType.labelRes)
+        size.apply {
+            text = Formatter.formatShortFileSize(context, item.lookup.size)
+            isGone = item.lookup.fileType != FileType.FILE
         }
 
         root.setOnClickListener { item.onItemClick(item) }

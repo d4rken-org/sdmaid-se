@@ -8,12 +8,14 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/secondary"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/primary"
+        app:layout_goneMarginBottom="8dp"
         tools:src="@drawable/ic_file" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -24,27 +26,29 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toTopOf="@id/secondary"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/icon"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
         tools:text=".../some/happy/little/file" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/secondary"
+        android:id="@+id/size"
         style="@style/TextAppearance.Material3.LabelSmall"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="1dp"
+        android:layout_marginTop="2dp"
         android:layout_marginBottom="8dp"
         android:ellipsize="end"
+        android:gravity="center"
         android:singleLine="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/primary"
-        app:layout_constraintStart_toStartOf="@id/primary"
-        app:layout_constraintTop_toBottomOf="@id/primary"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:text="999.99 KB" />
+        app:layout_constraintBottom_toBottomOf="@id/primary"
+        app:layout_constraintEnd_toStartOf="@id/primary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon"
+        tools:text="64.9 KB" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
