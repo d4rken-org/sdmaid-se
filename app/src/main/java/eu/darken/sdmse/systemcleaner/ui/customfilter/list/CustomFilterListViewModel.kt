@@ -17,14 +17,15 @@ import eu.darken.sdmse.common.readAsText
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
-import eu.darken.sdmse.main.ui.dashboard.items.*
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.filter.custom.RawFilter
 import eu.darken.sdmse.systemcleaner.core.filter.custom.toggleCustomFilter
 import eu.darken.sdmse.systemcleaner.ui.customfilter.list.types.CustomFilterDefaultVH
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 import java.io.IOException
 import javax.inject.Inject
 
@@ -159,7 +160,9 @@ class CustomFilterListViewModel @Inject constructor(
         val saveDir = DocumentFile.fromTreeUri(context, directoryUri)
             ?: throw IOException("Failed to access $directoryUri")
 
-        exportData.forEach { rawFilter ->
+        val exported = mutableListOf<DocumentFile>()
+
+        exportData.map { rawFilter ->
             val targetFile = saveDir.createFile(MimeTypes.Json.value, rawFilter.name)
                 ?: throw IOException("Failed to create ${rawFilter.name} in $saveDir")
 
@@ -168,7 +171,10 @@ class CustomFilterListViewModel @Inject constructor(
             }
 
             log(TAG) { "Wrote ${rawFilter.name} to $targetFile" }
+            exported.add(targetFile)
         }
+
+        events.postValue(CustomFilterListEvents.ExportFinished(saveDir, exported))
     }
 
     companion object {
