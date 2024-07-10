@@ -54,8 +54,11 @@ class RootHostLauncher @Inject constructor(
             override fun onConnect(connection: RootConnection) {
                 log(TAG) { "onConnect(connection=$connection)" }
 
-                val userConnection = connection.userConnection.getInterface(serviceClass)
-                    ?: throw RootException("Failed to get user connection")
+                val userConnection = try {
+                    connection.userConnection.getInterface(serviceClass) as Service
+                } catch (e: Exception) {
+                    throw RootException("Failed to get user connection (ROOT)", e)
+                }
 
                 log(TAG) { "onServiceConnected(...) -> $userConnection" }
                 trySendBlocking(ConnectionWrapper(userConnection, connection))
