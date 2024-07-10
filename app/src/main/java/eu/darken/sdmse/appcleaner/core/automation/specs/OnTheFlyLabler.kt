@@ -28,16 +28,18 @@ class OnTheFlyLabler @Inject constructor(
     @ApplicationContext private val context: Context,
     private val statsManager: StorageStatsManager2,
 ) {
-    suspend fun isStorageEntry(pkg: Installed, node: AccessibilityNodeInfo): Boolean {
+    private suspend fun createStorageEntryMatcher(pkg: Installed): ((AccessibilityNodeInfo) -> Boolean)? {
+        log(TAG) { "createStorageEntryMatcher(${pkg.installId} initialising..." }
+
         if (!Permission.PACKAGE_USAGE_STATS.isGranted(context)) {
-            log(TAG) { "isStorageEntry(...): Missing PACKAGE_USAGE_STATS" }
-            return false
+            log(TAG) { "createStorageEntryMatcher(...): Missing PACKAGE_USAGE_STATS" }
+            return null
         }
 
         val storageId = pkg.applicationInfo?.storageUuid?.let { StorageId(internalId = null, externalId = it) }
         if (storageId == null) {
             log(TAG, WARN) { "Couldn't determine StorageId via appInfo=${pkg.applicationInfo}" }
-            return false
+            return null
         }
 
         val stats1: StorageStats = try {
@@ -46,10 +48,10 @@ class OnTheFlyLabler @Inject constructor(
             statsManager.queryStatsForPkg(storageId, pkg)
         } catch (e: SecurityException) {
             log(TAG, WARN) { "Don't have permission to query app size for ${pkg.id}: $e" }
-            return false
+            return null
         } catch (e: Exception) {
             log(TAG, ERROR) { "Unexpected error when querying app size for ${pkg.id}: ${e.asLog()}" }
-            return false
+            return null
         }
 
         val targetSize = stats1.appBytes + stats1.dataBytes
@@ -60,33 +62,46 @@ class OnTheFlyLabler @Inject constructor(
             Formatter.formatShortFileSize(context, targetSize),
         )
 
-        return node.textContainsAny(targetTexts).also {
-            if (Bugs.isDebug) {
-                if (it) log(TAG) { "Matched for $targetTexts on ${node.textVariants} from ${pkg.installId}" }
-                else log(TAG, VERBOSE) { "Miss for $targetTexts on ${node.textVariants} from ${pkg.installId}" }
-            }
+        log(TAG) { "Loaded ${targetTexts.size} targets for ${pkg.installId}: $targetTexts " }
 
+        return { node ->
+            node.textContainsAny(targetTexts).also {
+                if (Bugs.isDebug) {
+                    if (it) log(TAG) { "Matched for $targetTexts on ${node.textVariants} from ${pkg.installId}" }
+                    else log(TAG, VERBOSE) { "Miss for $targetTexts on ${node.textVariants} from ${pkg.installId}" }
+                }
+
+            }
         }
     }
 
     fun getAOSPStorageFilter(
         labels: Collection<String>,
         pkg: Installed,
-    ): suspend (AccessibilityNodeInfo) -> Boolean = when {
-        hasApiLevel(33) -> storageFilter@{ node ->
-            if (!node.isTextView()) return@storageFilter false
-            node.textMatchesAny(labels) || isStorageEntry(pkg, node)
+    ): suspend (AccessibilityNodeInfo) -> Boolean {
+        var storageMatcher: ((AccessibilityNodeInfo) -> Boolean)? = null
+
+        val matchStorage: suspend ((AccessibilityNodeInfo) -> Boolean) = {
+            if (storageMatcher == null) storageMatcher = createStorageEntryMatcher(pkg)
+            storageMatcher?.invoke(it) ?: false
         }
 
-        else -> storageFilter@{ node ->
-            if (!node.isTextView()) return@storageFilter false
+        return when {
+            hasApiLevel(33) -> storageFilter@{ node ->
+                if (!node.isTextView()) return@storageFilter false
+                node.textMatchesAny(labels) || matchStorage(node)
+            }
 
-            if (node.idContains("android:id/title")) {
-                node.textMatchesAny(labels)
-            } else if (node.idContains("android:id/summary")) {
-                isStorageEntry(pkg, node)
-            } else {
-                false
+            else -> storageFilter@{ node ->
+                if (!node.isTextView()) return@storageFilter false
+
+                if (node.idContains("android:id/title")) {
+                    node.textMatchesAny(labels)
+                } else if (node.idContains("android:id/summary")) {
+                    matchStorage(node)
+                } else {
+                    false
+                }
             }
         }
     }
