@@ -58,8 +58,11 @@ class ShizukuHostLauncher @Inject constructor() {
                 log(TAG) { "Updating host options to $options" }
                 baseConnection.updateHostOptions(options)
 
-                val userConnection = baseConnection.userConnection.getInterface(serviceClass)
-                    ?: throw ShizukuException("Failed to get user connection")
+                val userConnection = try {
+                    baseConnection.userConnection.getInterface(serviceClass) as Service
+                } catch (e: Exception) {
+                    throw ShizukuException("Failed to get user connection (SHIZUKU)", e)
+                }
 
                 log(TAG) { "onServiceConnected(...) -> $userConnection" }
                 trySendBlocking(ConnectionWrapper(userConnection, baseConnection as Host))
