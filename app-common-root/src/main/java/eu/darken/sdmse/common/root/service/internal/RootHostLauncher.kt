@@ -57,7 +57,8 @@ class RootHostLauncher @Inject constructor(
                 val userConnection = try {
                     connection.userConnection.getInterface(serviceClass) as Service
                 } catch (e: Exception) {
-                    throw RootException("Failed to get user connection (ROOT)", e)
+                    close(RootException("Failed to get user connection (ROOT)", e))
+                    return
                 }
 
                 log(TAG) { "onServiceConnected(...) -> $userConnection" }

@@ -51,8 +51,12 @@ class ShizukuHostLauncher @Inject constructor() {
                     return
                 }
 
-                val baseConnection = ShizukuConnection.Stub.asInterface(binder)
-                    ?: throw ShizukuException("Failed to get base connection")
+                val baseConnection = try {
+                    ShizukuConnection.Stub.asInterface(binder)!!
+                } catch (e: Exception) {
+                    close(ShizukuException("Failed to get base connection", e))
+                    return
+                }
 
                 // Initial options, Shizuku has no init arguments through which these can be supplied earlier
                 log(TAG) { "Updating host options to $options" }
@@ -61,7 +65,8 @@ class ShizukuHostLauncher @Inject constructor() {
                 val userConnection = try {
                     baseConnection.userConnection.getInterface(serviceClass) as Service
                 } catch (e: Exception) {
-                    throw ShizukuException("Failed to get user connection (SHIZUKU)", e)
+                    close(ShizukuException("Failed to get user connection (SHIZUKU)", e))
+                    return
                 }
 
                 log(TAG) { "onServiceConnected(...) -> $userConnection" }
