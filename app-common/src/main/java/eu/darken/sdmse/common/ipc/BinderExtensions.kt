@@ -35,9 +35,8 @@ fun <T : Any> IBinder.getInterface(clazz: KClass<T>): T? {
     log(VERBOSE) { "Creating class $className" }
     val ctorProxy = Class
         .forName(className)
-        .getConstructor(IBinder::class.java)
+        .getDeclaredConstructor(IBinder::class.java)
         .apply { isAccessible = true }
 
     return ctorProxy.newInstance(this) as T
-
 }
