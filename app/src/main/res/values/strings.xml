@@ -376,8 +376,8 @@
     <string name="appcleaner_filter_webview_summary">Files cached by Webview instances used within apps.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp backups</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Delete extra copies of WhatsApp backups and only keep the latest.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp received files</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Files you received from people via WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Files you received from people via WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp received files</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp sent files</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Files sent from WhatsApp to others.</string>
     <string name="appcleaner_filter_telegram_label">Telegram media files</string>
