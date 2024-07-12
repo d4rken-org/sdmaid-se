@@ -62,6 +62,8 @@ import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.pkgExclusions
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.setup.isComplete
+import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.toList
@@ -85,6 +87,7 @@ class AppScanner @Inject constructor(
     private val inaccessibleCacheProvider: InaccessibleCacheProvider,
     private val userManager: UserManager2,
     private val pkgOps: PkgOps,
+    private val usageStatsSetupModule: UsageStatsSetupModule,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -121,7 +124,7 @@ class AppScanner @Inject constructor(
         }
 
         val includeSystemApps = settings.includeSystemAppsEnabled.value()
-        val includeRunningApps = settings.includeRunningAppsEnabled.value()
+        val includeRunningApps = settings.includeRunningAppsEnabled.value() || !usageStatsSetupModule.isComplete()
         val includeOtherUsers = settings.includeOtherUsersEnabled.value()
 
         val pkgExclusions = exclusionManager.pkgExclusions(SDMTool.Type.APPCLEANER)
