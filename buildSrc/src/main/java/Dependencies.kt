@@ -72,7 +72,7 @@ fun DependencyHandlerScope.addLottie() {
 }
 
 fun DependencyHandlerScope.addSerialization() {
-    val version = "1.14.0"
+    val version = "1.15.1"
     implementation("com.squareup.moshi:moshi:$version")
     implementation("com.squareup.moshi:moshi-adapters:$version")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:$version")
