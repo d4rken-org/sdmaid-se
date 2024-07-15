@@ -1,4 +1,4 @@
-<img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/banner.png" width="400">
+ <img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/banner.png" width="400">
 
 # SD Maid 2/SE
 
