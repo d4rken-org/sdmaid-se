@@ -1,0 +1,37 @@
+Contribuyendo
+¡Las contribuciones son bienvenidas! Hay varias maneras de contribuir y algunas cosas que se deben tener en cuenta.
+
+Si no estás seguro de algo, ven a chatear en Discord o crea una discusión .
+
+Traducciones
+¿Hablas varios idiomas? ¡Hacer que SD Maid sea accesible para más personas es absolutamente fantástico!
+
+Considere unirse al proyecto de traducción de SD Maid SE en Crowdin: https://crowdin.com/project/sdmaid-se
+
+Si su idioma de destino aún no está disponible, cree un ticket de problema para agregar soporte.
+
+Definiciones de desorden
+¿Encontró algo que SD Maid aún no detecta? Algunas partes de SD Maid dependen de definiciones agregadas manualmente para el desorden y filtros para archivos prescindibles.
+
+Puedes abrir un ticket de problema y esperar a que alguien lo agregue o crear directamente una solicitud de extracción.
+
+Ejemplo de ticket de emisión:
+
+https://github.com/d4rken-org/sdmaid-se/issues?q=es%3Aetiqueta+de+problema%3A%22c%3A+ClutterDB%22+está%3Acerrado
+
+Ejemplo de entrada en la base de datos:
+
+sdmaid-se/app/src/main/activos/clutter/db_clutter_markers.json
+
+Líneas 12545 a 12548 en c99805a
+
+}, {
+   "paquetes" : [ " com.meizu.safe " ],
+   "mrks" : [{ "loc" : " SDCARD " , "path" : " 360 " , "flags" : [ " guardián " ]}]
+}, {
+Código
+¿Sabes programar? 🙏🏻 Podrías ayudar a corregir algunos errores, pulir funciones existentes o incluso agregar otras nuevas. Pero incluso si te pican los dedos, no te pongas a programar y abras una solicitud de incorporación de cambios.
+
+Primero, crea un ticket de problema sobre lo que quieres hacer o comenta sobre un ticket de problema existente que quieras abordar. Una vez que te asignen el trabajo, puedes ponerte manos a la obra :).
+
+Esto evita que pierdas tiempo en cosas en las que ya estás trabajando y evita que se amplíen las funciones. Hay muchas ideas geniales, pero no todas encajan en el alcance de SD Maid.
