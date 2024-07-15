@@ -1,0 +1,375 @@
+Puntos de conexión de la API de REST para estados de confirmaciones
+Usa la API de REST para interactuar con los estados de confirmación.
+
+Acerca de los estados de confirmación
+Puedes usar la API de REST para que los servicios externos marquen las confirmaciones con un estado error, failure, pending o success, que después se refleja en las solicitudes de incorporación de cambios que implican esas confirmaciones. Los estados también incluyen valores description y target_url opcionales, y se recomienda encarecidamente proporcionarlos, ya que hacen que los estados sean mucho más útiles en la IU de GitHub.
+
+Como ejemplo, un uso común es para que los servicios de integración continua marquen las confirmaciones como compilaciones correctas o con error por medio de los estados. target_url sería la dirección URL completa de la salida de la compilación y description sería el resumen general de lo que ha ocurrido con la compilación.
+
+Los estados pueden incluir un valor context para indicar qué servicio proporciona ese estado. Por ejemplo, puede hacer que el servicio de integración continua inserte estados con un contexto de ci y que una herramienta de auditoría de seguridad inserte estados con un contexto de security. Después, puedes usar la API de REST para Obtener el estado combinado de una referencia específica para recuperar todo el estado de una confirmación.
+
+Tenga en cuenta que el ámbito de OAuth repo:status concede acceso de destino a los estados sin conceder también acceso al código del repositorio, mientras que el ámbito repo concede permiso para el código y los estados.
+
+Si vas a desarrollar una aplicación de GitHub y quieres proporcionar información más detallada sobre un servicio externo, es posible que quieras utilizar la API de REST para administrar las comprobaciones. Para obtener más información, vea «Puntos de conexión de la API de REST para comprobaciones».
+
+Get the combined status for a specific reference
+Users with pull access in a repository can access a combined view of commit statuses for a given ref. The ref can be a SHA, a branch name, or a tag name.
+
+Additionally, a combined state is returned. The state is one of:
+
+failure if any of the contexts report as error or failure
+pending if there are no statuses or a context is pending
+success if the latest status for all contexts is success
+Tokens de acceso específicos para "Get the combined status for a specific reference"
+Este punto de conexión funciona con los siguientes tipos de token pormenorizados:
+
+Tokens de acceso de usuario de la aplicación de GitHub
+Token de acceso a la instalación de la aplicación de GitHub
+Tokens de acceso personal específico
+El token pormenorizado debe tener el siguiente conjunto de permisos:
+
+"Commit statuses" repository permissions (read)
+Este punto de conexión se puede usar sin autenticación o los permisos mencionados anteriormente si solo se solicitan recursos públicos.
+
+Parámetros para "Get the combined status for a specific reference"
+Encabezados
+Nombre, Tipo, Descripción
+accept string
+Setting to application/vnd.github+json is recommended.
+
+Parámetros de la ruta de acceso
+Nombre, Tipo, Descripción
+owner string Requerido
+The account owner of the repository. The name is not case sensitive.
+
+repo string Requerido
+The name of the repository without the .git extension. The name is not case sensitive.
+
+ref string Requerido
+The commit reference. Can be a commit SHA, branch name (heads/BRANCH_NAME), or tag name (tags/TAG_NAME). For more information, see "Git References" in the Git documentation.
+
+Parámetros de consulta
+Nombre, Tipo, Descripción
+per_page integer
+The number of results per page (max 100). For more information, see "Using pagination in the REST API."
+
+Valor predeterminado: 30
+
+page integer
+The page number of the results to fetch. For more information, see "Using pagination in the REST API."
+
+Valor predeterminado: 1
+
+Códigos de estado de respuesta HTTP para "Get the combined status for a specific reference"
+status code	Descripción
+200	
+OK
+
+404	
+Resource not found
+
+Ejemplos de código para "Get the combined status for a specific reference"
+Ejemplo de solicitud
+GET
+/repos/{owner}/{repo}/commits/{ref}/status
+cURL
+JavaScript
+CLI de GitHub
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/commits/REF/status
+Response
+
+Respuesta de ejemplo
+Esquema de respuesta
+Status: 200
+{
+  "state": "success",
+  "statuses": [
+    {
+      "url": "https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+      "avatar_url": "https://github.com/images/error/hubot_happy.gif",
+      "id": 1,
+      "node_id": "MDY6U3RhdHVzMQ==",
+      "state": "success",
+      "description": "Build has completed successfully",
+      "target_url": "https://ci.example.com/1000/output",
+      "context": "continuous-integration/jenkins",
+      "created_at": "2012-07-20T01:19:13Z",
+      "updated_at": "2012-07-20T01:19:13Z"
+    },
+    {
+      "url": "https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+      "avatar_url": "https://github.com/images/error/other_user_happy.gif",
+      "id": 2,
+      "node_id": "MDY6U3RhdHVzMg==",
+      "state": "success",
+      "description": "Testing has completed successfully",
+      "target_url": "https://ci.example.com/2000/output",
+      "context": "security/brakeman",
+      "created_at": "2012-08-20T01:19:13Z",
+      "updated_at": "2012-08-20T01:19:13Z"
+    }
+  ],
+  "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+  "total_count": 2,
+  "repository": {
+    "id": 1296269,
+    "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
+    "name": "Hello-World",
+    "full_name": "octocat/Hello-World",
+    "owner": {
+      "login": "octocat",
+      "id": 1,
+      "node_id": "MDQ6VXNlcjE=",
+      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/octocat",
+      "html_url": "https://github.com/octocat",
+      "followers_url": "https://api.github.com/users/octocat/followers",
+      "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+      "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+      "organizations_url": "https://api.github.com/users/octocat/orgs",
+      "repos_url": "https://api.github.com/users/octocat/repos",
+      "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/octocat/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "private": false,
+    "html_url": "https://github.com/octocat/Hello-World",
+    "description": "This your first repo!",
+    "fork": false,
+    "url": "https://api.github.com/repos/octocat/Hello-World",
+    "archive_url": "https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
+    "assignees_url": "https://api.github.com/repos/octocat/Hello-World/assignees{/user}",
+    "blobs_url": "https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}",
+    "branches_url": "https://api.github.com/repos/octocat/Hello-World/branches{/branch}",
+    "collaborators_url": "https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}",
+    "comments_url": "https://api.github.com/repos/octocat/Hello-World/comments{/number}",
+    "commits_url": "https://api.github.com/repos/octocat/Hello-World/commits{/sha}",
+    "compare_url": "https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}",
+    "contents_url": "https://api.github.com/repos/octocat/Hello-World/contents/{+path}",
+    "contributors_url": "https://api.github.com/repos/octocat/Hello-World/contributors",
+    "deployments_url": "https://api.github.com/repos/octocat/Hello-World/deployments",
+    "downloads_url": "https://api.github.com/repos/octocat/Hello-World/downloads",
+    "events_url": "https://api.github.com/repos/octocat/Hello-World/events",
+    "forks_url": "https://api.github.com/repos/octocat/Hello-World/forks",
+    "git_commits_url": "https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}",
+    "git_refs_url": "https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}",
+    "git_url": "git:github.com/octocat/Hello-World.git",
+    "issue_comment_url": "https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}",
+    "issue_events_url": "https://api.github.com/repos/octocat/Hello-World/issues/events{/number}",
+    "issues_url": "https://api.github.com/repos/octocat/Hello-World/issues{/number}",
+    "keys_url": "https://api.github.com/repos/octocat/Hello-World/keys{/key_id}",
+    "labels_url": "https://api.github.com/repos/octocat/Hello-World/labels{/name}",
+    "languages_url": "https://api.github.com/repos/octocat/Hello-World/languages",
+    "merges_url": "https://api.github.com/repos/octocat/Hello-World/merges",
+    "milestones_url": "https://api.github.com/repos/octocat/Hello-World/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}",
+    "pulls_url": "https://api.github.com/repos/octocat/Hello-World/pulls{/number}",
+    "releases_url": "https://api.github.com/repos/octocat/Hello-World/releases{/id}",
+    "ssh_url": "git@github.com:octocat/Hello-World.git",
+    "stargazers_url": "https://api.github.com/repos/octocat/Hello-World/stargazers",
+    "statuses_url": "https://api.github.com/repos/octocat/Hello-World/statuses/{sha}",
+    "subscribers_url": "https://api.github.com/repos/octocat/Hello-World/subscribers",
+    "subscription_url": "https://api.github.com/repos/octocat/Hello-World/subscription",
+    "tags_url": "https://api.github.com/repos/octocat/Hello-World/tags",
+    "teams_url": "https://api.github.com/repos/octocat/Hello-World/teams",
+    "trees_url": "https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}",
+    "hooks_url": "http://api.github.com/repos/octocat/Hello-World/hooks"
+  },
+  "commit_url": "https://api.github.com/repos/octocat/Hello-World/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+  "url": "https://api.github.com/repos/octocat/Hello-World/6dcb09b5b57875f334f61aebed695e2e4193db5e/status"
+}
+List commit statuses for a reference
+Users with pull access in a repository can view commit statuses for a given ref. The ref can be a SHA, a branch name, or a tag name. Statuses are returned in reverse chronological order. The first status in the list will be the latest one.
+
+This resource is also available via a legacy route: GET /repos/:owner/:repo/statuses/:ref.
+
+Tokens de acceso específicos para "List commit statuses for a reference"
+Este punto de conexión funciona con los siguientes tipos de token pormenorizados:
+
+Tokens de acceso de usuario de la aplicación de GitHub
+Token de acceso a la instalación de la aplicación de GitHub
+Tokens de acceso personal específico
+El token pormenorizado debe tener el siguiente conjunto de permisos:
+
+"Commit statuses" repository permissions (read)
+Este punto de conexión se puede usar sin autenticación o los permisos mencionados anteriormente si solo se solicitan recursos públicos.
+
+Parámetros para "List commit statuses for a reference"
+Encabezados
+Nombre, Tipo, Descripción
+accept string
+Setting to application/vnd.github+json is recommended.
+
+Parámetros de la ruta de acceso
+Nombre, Tipo, Descripción
+owner string Requerido
+The account owner of the repository. The name is not case sensitive.
+
+repo string Requerido
+The name of the repository without the .git extension. The name is not case sensitive.
+
+ref string Requerido
+The commit reference. Can be a commit SHA, branch name (heads/BRANCH_NAME), or tag name (tags/TAG_NAME). For more information, see "Git References" in the Git documentation.
+
+Parámetros de consulta
+Nombre, Tipo, Descripción
+per_page integer
+The number of results per page (max 100). For more information, see "Using pagination in the REST API."
+
+Valor predeterminado: 30
+
+page integer
+The page number of the results to fetch. For more information, see "Using pagination in the REST API."
+
+Valor predeterminado: 1
+
+Códigos de estado de respuesta HTTP para "List commit statuses for a reference"
+status code	Descripción
+200	
+OK
+
+301	
+Moved permanently
+
+Ejemplos de código para "List commit statuses for a reference"
+Ejemplo de solicitud
+GET
+/repos/{owner}/{repo}/commits/{ref}/statuses
+cURL
+JavaScript
+CLI de GitHub
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/commits/REF/statuses
+Response
+
+Respuesta de ejemplo
+Esquema de respuesta
+Status: 200
+[
+  {
+    "url": "https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+    "avatar_url": "https://github.com/images/error/hubot_happy.gif",
+    "id": 1,
+    "node_id": "MDY6U3RhdHVzMQ==",
+    "state": "success",
+    "description": "Build has completed successfully",
+    "target_url": "https://ci.example.com/1000/output",
+    "context": "continuous-integration/jenkins",
+    "created_at": "2012-07-20T01:19:13Z",
+    "updated_at": "2012-07-20T01:19:13Z",
+    "creator": {
+      "login": "octocat",
+      "id": 1,
+      "node_id": "MDQ6VXNlcjE=",
+      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/octocat",
+      "html_url": "https://github.com/octocat",
+      "followers_url": "https://api.github.com/users/octocat/followers",
+      "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+      "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+      "organizations_url": "https://api.github.com/users/octocat/orgs",
+      "repos_url": "https://api.github.com/users/octocat/repos",
+      "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/octocat/received_events",
+      "type": "User",
+      "site_admin": false
+    }
+  }
+]
+Create a commit status
+Users with push access in a repository can create commit statuses for a given SHA.
+
+Note: there is a limit of 1000 statuses per sha and context within a repository. Attempts to create more than 1000 statuses will result in a validation error.
+
+Tokens de acceso específicos para "Create a commit status"
+Este punto de conexión funciona con los siguientes tipos de token pormenorizados:
+
+Tokens de acceso de usuario de la aplicación de GitHub
+Token de acceso a la instalación de la aplicación de GitHub
+Tokens de acceso personal específico
+El token pormenorizado debe tener el siguiente conjunto de permisos:
+
+"Commit statuses" repository permissions (write)
+Parámetros para "Create a commit status"
+Encabezados
+Nombre, Tipo, Descripción
+accept string
+Setting to application/vnd.github+json is recommended.
+
+Parámetros de la ruta de acceso
+Nombre, Tipo, Descripción
+owner string Requerido
+The account owner of the repository. The name is not case sensitive.
+
+repo string Requerido
+The name of the repository without the .git extension. The name is not case sensitive.
+
+sha string Requerido
+Parámetros del cuerpo
+Nombre, Tipo, Descripción
+state string Requerido
+The state of the status.
+
+Puede ser uno de los siguientes: error, failure, pending, success
+
+target_url string or null
+The target URL to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the source of the status.
+For example, if your continuous integration system is posting build status, you would want to provide the deep link for the build output for this specific SHA:
+http://ci.example.com/user/repo/build/sha
+
+description string or null
+A short description of the status.
+
+context string
+A string label to differentiate this status from the status of other systems. This field is case-insensitive.
+
+Valor predeterminado: default
+
+Códigos de estado de respuesta HTTP para "Create a commit status"
+status code	Descripción
+201	
+Created
+
+Ejemplos de código para "Create a commit status"
+Ejemplo de solicitud
+POST
+/repos/{owner}/{repo}/statuses/{sha}
+cURL
+JavaScript
+CLI de GitHub
+
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/statuses/SHA \
+  -d '{"state":"success","target_url":"https://example.com/build/status","description":"The build succeeded!","context":"continuous-integration/jenkins"}'
+Response
+
+Respuesta de ejemplo
+Esquema de respuesta
+Status: 201
+{
+  "url": "https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+  "avatar_url": "https://github.com/images/error/hubot_happy.gif",
+  "id": 1,
+  "node_id": "MDY6U3RhdHVzMQ==",
+  "state": "success",
