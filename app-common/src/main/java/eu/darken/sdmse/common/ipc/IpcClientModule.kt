@@ -16,6 +16,7 @@ interface IpcClientModule {
     fun String.decodeStacktrace(): Array<StackTraceElement>? = try {
         val decodedBytes = Base64.decode(this)
         ObjectInputStream(ByteArrayInputStream(decodedBytes)).use {
+            @Suppress("UNCHECKED_CAST")
             it.readObject() as Array<StackTraceElement>
         }
     } catch (e: Exception) {
@@ -23,32 +24,23 @@ interface IpcClientModule {
     }
 
     fun Throwable.unwrapPropagation(): Throwable {
-        val matchResult = Regex("^([a-zA-Z0-9.]+Exception): ").find((message ?: ""))
-        val exceptionName = matchResult?.groupValues?.get(1) ?: return this
-        val messageParts = message!!
-            .removePrefix(matchResult.groupValues.first())
-            .split(IpcHostModule.STACK_MARKER)
-            .map { it.trim() }
+        val messageParts = (message ?: "").split(IpcHostModule.STACK_MARKER).map { it.trim() }
 
         return try {
-            Class.forName(exceptionName)
-                .asSubclass(Throwable::class.java)
-                .getConstructor(String::class.java)
-                .newInstance(messageParts.first())
-                .also { newException ->
-                    //  TODO: Couldn't find a way to keep the trace through parceling
-                    if (Bugs.isDebug && messageParts.size > 1) {
-                        log(VERBOSE) { "Decoding stacktrace..." }
-                        messageParts[1].decodeStacktrace()?.let { remoteTrace ->
-                            // Stacktrace on this side of the binder + the stacktrace on the other side of it
-                            newException.stackTrace = (remoteTrace + stackTrace).filter {
-                                !it.className.startsWith("android.os.Binder") && !it.className.startsWith("android.os.Parcel")
-                            }.toTypedArray()
-                        }
+            WrappedIPCException(messageParts[0]).also { newException ->
+                //  TODO: Couldn't find a way to keep the trace through parceling
+                if (Bugs.isDebug && messageParts.size > 1) {
+                    log(VERBOSE) { "Decoding stacktrace..." }
+                    messageParts[1].decodeStacktrace()?.let { remoteTrace ->
+                        // Stacktrace on this side of the binder + the stacktrace on the other side of it
+                        newException.stackTrace = (remoteTrace + stackTrace).filter {
+                            !it.className.startsWith("android.os.Binder") && !it.className.startsWith("android.os.Parcel")
+                        }.toTypedArray()
                     }
                 }
+            }
         } catch (e: Exception) {
-            log(WARN) { "Failed to unwrap exception: $this: ${e.asLog()}" }
+            log(WARN) { "Failed to unwrap exception:\n---\n$this\n---\n${e.asLog()}" }
             this
         }
     }

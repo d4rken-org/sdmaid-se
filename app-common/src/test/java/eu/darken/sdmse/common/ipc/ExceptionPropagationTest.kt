@@ -15,16 +15,16 @@ class ExceptionPropagationTest : BaseTest(), IpcHostModule, IpcClientModule {
     fun `propagate exception with stacktrace`() {
         UnsupportedOperationException(
             """
-                java.io.IOException: Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure
+                eu.darken.sdmse.common.files.ReadException: Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure
                 
-                #STACK#:rO0ABXVyAB5bTGphdmEubGFuZy5TdGFja1RyYWNlRWxlbWVudDsCRio8PP0iOQIAAHhwAAAABXNyABtqYXZhLmxhbmcuU3RhY2tUcmFjZUVsZW1lbnRhCcWaJjbdhQIABEkACmxpbmVOdW1iZXJMAA5kZWNsYXJpbmdDbGFzc3QAEkxqYXZhL2xhbmcvU3RyaW5nO0wACGZpbGVOYW1lcQB+AANMAAptZXRob2ROYW1lcQB+AAN4cAAAAId0ACJjb20uYW5kcm9pZC5iaWxsaW5nY2xpZW50LmFwaS56emRpcHQADXBlcmZvcm1Mb29rdXBzcQB+AAIAAAB1dAAyZXUuZGFya2VuLnNkbXNlLmNvbW1vbi5maWxlcy5sb2NhbC5pcGMuRmlsZU9wc0hvc3RwdAARbG9va3VwRmlsZXNTdHJlYW1zcQB+AAIAAASTdAA9ZXUuZGFya2VuLnNkbXNlLmNvbW1vbi5maWxlcy5sb2NhbC5pcGMuRmlsZU9wc0Nvbm5lY3Rpb24kU3R1YnB0AApvblRyYW5zYWN0c3EAfgACAAAD/XQAEWFuZHJvaWQub3MuQmluZGVydAALQmluZGVyLmphdmF0ABRleGVjVHJhbnNhY3RJbnRlcm5hbHNxAH4AAgAAA+J0ABFhbmRyb2lkLm9zLkJpbmRlcnQAC0JpbmRlci5qYXZhdAAMZXhlY1RyYW5zYWN0
+                #STACK#:rO0ABXVyAB5bTGphdmEubGFuZy5TdGFja1RyYWNlRWxlbWVudDsCRio8PP0iOQIAAHhwAAAABXNyABtqYXZhLmxhbmcuU3RhY2tUcmFjZUVsZW1lbnRhCcWaJjbdhQIABEkACmxpbmVOdW1iZXJMAA5kZWNsYXJpbmdDbGFzc3QAEkxqYXZhL2xhbmcvU3RyaW5nO0wACGZpbGVOYW1lcQB+AANMAAptZXRob2ROYW1lcQB+AAN4cAAAAId0ABdjb2lsLmRlY29kZS5EZWNvZGVVdGlsc3B0AA1wZXJmb3JtTG9va3Vwc3EAfgACAAAAdXQAMmV1LmRhcmtlbi5zZG1zZS5jb21tb24uZmlsZXMubG9jYWwuaXBjLkZpbGVPcHNIb3N0cHQAEWxvb2t1cEZpbGVzU3RyZWFtc3EAfgACAAAEn3QAPWV1LmRhcmtlbi5zZG1zZS5jb21tb24uZmlsZXMubG9jYWwuaXBjLkZpbGVPcHNDb25uZWN0aW9uJFN0dWJwdAAKb25UcmFuc2FjdHNxAH4AAgAAA/10ABFhbmRyb2lkLm9zLkJpbmRlcnQAC0JpbmRlci5qYXZhdAAUZXhlY1RyYW5zYWN0SW50ZXJuYWxzcQB+AAIAAAPidAARYW5kcm9pZC5vcy5CaW5kZXJ0AAtCaW5kZXIuamF2YXQADGV4ZWNUcmFuc2FjdA==
             """.trimIndent()
         ).unwrapPropagation().apply {
             this shouldBe instanceOf<IOException>()
-            message shouldBe "Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure"
+            message shouldBe "eu.darken.sdmse.common.files.ReadException: Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure"
             stackTraceToString().lines().take(5).joinToString("\n").trimIndent() shouldBe """
-                java.io.IOException: Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure
-                	at com.android.billingclient.api.zzdi.performLookup(Unknown Source)
+                eu.darken.sdmse.common.ipc.WrappedIPCException: eu.darken.sdmse.common.files.ReadException: Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure
+                	at coil.decode.DecodeUtils.performLookup(Unknown Source)
                 	at eu.darken.sdmse.common.files.local.ipc.FileOpsHost.lookupFilesStream(Unknown Source)
                 	at eu.darken.sdmse.common.files.local.ipc.FileOpsConnection${'$'}Stub.onTransact(Unknown Source)
                 	at eu.darken.sdmse.common.ipc.ExceptionPropagationTest.propagate exception with stacktrace(ExceptionPropagationTest.kt:16)
@@ -40,7 +40,7 @@ class ExceptionPropagationTest : BaseTest(), IpcHostModule, IpcClientModule {
             """.trimIndent()
         ).unwrapPropagation().apply {
             this shouldBe instanceOf<IOException>()
-            message shouldBe "Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure"
+            message shouldBe "java.io.IOException: Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure"
         }
     }
 
