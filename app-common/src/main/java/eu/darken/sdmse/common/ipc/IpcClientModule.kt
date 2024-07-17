@@ -27,7 +27,7 @@ interface IpcClientModule {
         val messageParts = (message ?: "").split(IpcHostModule.STACK_MARKER).map { it.trim() }
 
         return try {
-            WrappedIPCException(messageParts[0]).also { newException ->
+            UnwrappedIPCException(messageParts[0]).also { newException ->
                 //  TODO: Couldn't find a way to keep the trace through parceling
                 if (Bugs.isDebug && messageParts.size > 1) {
                     log(VERBOSE) { "Decoding stacktrace..." }
@@ -41,7 +41,7 @@ interface IpcClientModule {
             }
         } catch (e: Exception) {
             log(WARN) { "Failed to unwrap exception:\n---\n$this\n---\n${e.asLog()}" }
-            this
+            UnwrappedIPCException(this.toString())
         }
     }
 

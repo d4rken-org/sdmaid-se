@@ -2,6 +2,6 @@ package eu.darken.sdmse.common.ipc
 
 import java.io.IOException
 
-class WrappedIPCException(
+class UnwrappedIPCException(
     override val message: String
 ) : IOException()

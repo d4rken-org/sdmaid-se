@@ -23,7 +23,7 @@ class ExceptionPropagationTest : BaseTest(), IpcHostModule, IpcClientModule {
             this shouldBe instanceOf<IOException>()
             message shouldBe "eu.darken.sdmse.common.files.ReadException: Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure"
             stackTraceToString().lines().take(5).joinToString("\n").trimIndent() shouldBe """
-                eu.darken.sdmse.common.ipc.WrappedIPCException: eu.darken.sdmse.common.files.ReadException: Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure
+                eu.darken.sdmse.common.ipc.UnwrappedIPCException: eu.darken.sdmse.common.files.ReadException: Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure
                 	at coil.decode.DecodeUtils.performLookup(Unknown Source)
                 	at eu.darken.sdmse.common.files.local.ipc.FileOpsHost.lookupFilesStream(Unknown Source)
                 	at eu.darken.sdmse.common.files.local.ipc.FileOpsConnection${'$'}Stub.onTransact(Unknown Source)
