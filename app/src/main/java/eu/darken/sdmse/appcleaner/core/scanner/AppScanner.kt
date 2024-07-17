@@ -30,6 +30,7 @@ import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.listFiles
@@ -67,7 +68,6 @@ import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.toList
-import okio.IOException
 import java.time.Instant
 import javax.inject.Inject
 
@@ -326,7 +326,7 @@ class AppScanner @Inject constructor(
             .mapNotNull { area ->
                 try {
                     area to area.path.listFiles(gatewaySwitch)
-                } catch (e: IOException) {
+                } catch (e: ReadException) {
                     log(TAG, ERROR) { "Failed to list $area: ${e.asLog()}" }
                     null
                 }
@@ -360,7 +360,7 @@ class AppScanner @Inject constructor(
             .mapNotNull { area ->
                 try {
                     area to area.path.lookupFiles(gatewaySwitch)
-                } catch (e: IOException) {
+                } catch (e: ReadException) {
                     log(TAG, ERROR) { "Failed to lookup $area: ${e.asLog()}" }
                     null
                 }
@@ -427,7 +427,7 @@ class AppScanner @Inject constructor(
                         )
                     )
                     .toList()
-            } catch (e: IOException) {
+            } catch (e: ReadException) {
                 log(TAG, WARN) { "Failed to read ${searchPath.file}: ${e.asLog()}" }
                 emptyList()
             }

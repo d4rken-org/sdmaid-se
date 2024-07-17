@@ -224,8 +224,8 @@ class GatewaySwitch @Inject constructor(
     }
 
     private suspend fun APath.toAlternative(): APath = when (this.pathType) {
-        APath.PathType.LOCAL -> mapper.toSAFPath(this as LocalPath) ?: throw ReadException(this, "Can't map to SAF")
-        APath.PathType.SAF -> mapper.toLocalPath(this as SAFPath) ?: throw ReadException(this, "Can't map to LOCAL")
+        APath.PathType.LOCAL -> mapper.toSAFPath(this as LocalPath) ?: throw ReadException("Can't map to SAF", this)
+        APath.PathType.SAF -> mapper.toLocalPath(this as SAFPath) ?: throw ReadException("Can't map to LOCAL", this)
         APath.PathType.RAW -> throw UnsupportedOperationException("Alternative mapping for RAW not available")
     }
 

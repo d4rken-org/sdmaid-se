@@ -80,12 +80,12 @@ class ShellOps @Inject constructor(
                 log(TAG, VERBOSE) { "execute($cmd, $mode): $result" }
             }
 
-            if (result == null) throw ShellOpsException(cmd, "No matching mode")
+            if (result == null) throw ShellOpsException("No matching mode", cmd)
 
             result
         } catch (e: IOException) {
             log(TAG, WARN) { "execute($cmd) failed: ${e.asLog()}" }
-            throw ShellOpsException(cmd, cause = e)
+            throw ShellOpsException(cmd = cmd, cause = e)
         }
     }
 

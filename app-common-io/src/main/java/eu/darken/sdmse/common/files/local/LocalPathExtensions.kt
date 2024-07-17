@@ -38,7 +38,7 @@ fun LocalPath.toCrumbs(): List<LocalPath> {
 }
 
 fun LocalPath.performLookup(): LocalPathLookup {
-    val type = file.getAPathFileType() ?: throw ReadException(this, "Does not exist or can't be read")
+    val type = file.getAPathFileType() ?: throw ReadException("Does not exist or can't be read", this)
 
     return LocalPathLookup(
         fileType = type,
@@ -105,10 +105,12 @@ fun LocalPath.startsWith(prefix: LocalPath): Boolean {
         prefix.segments.size == 1 -> {
             segments.first().startsWith(prefix.segments.first())
         }
+
         segments.size == prefix.segments.size -> {
             val match = prefix.segments.dropLast(1) == segments.dropLast(1)
             match && segments.last().startsWith(prefix.segments.last())
         }
+
         else -> {
             val match = prefix.segments.dropLast(1) == segments.dropLast(segments.size - prefix.segments.size + 1)
             match && segments[prefix.segments.size - 1].startsWith(prefix.segments.last())

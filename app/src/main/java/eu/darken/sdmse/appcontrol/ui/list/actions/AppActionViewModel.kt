@@ -199,7 +199,7 @@ class AppActionViewModel @Inject constructor(
                     val task = UninstallTask(setOf(info.installId))
                     launch {
                         val result = taskManager.submit(task) as UninstallTask.Result
-                        if (result.failed.isNotEmpty()) throw UninstallException(result.failed.first())
+                        if (result.failed.isNotEmpty()) throw UninstallException(installId = result.failed.first())
                         else events.postValue(AppActionEvents.ShowResult(result))
                     }
                 }

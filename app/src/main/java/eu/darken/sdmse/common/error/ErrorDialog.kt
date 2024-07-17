@@ -39,12 +39,12 @@ fun Throwable.asErrorDialogBuilder(
                 }
             }
 
-            this@asErrorDialogBuilder is WriteException -> {
+            this@asErrorDialogBuilder is WriteException && path != null -> {
                 setNeutralButton(eu.darken.sdmse.R.string.exclusion_create_action) { _, _ ->
                     activity.findNavController(eu.darken.sdmse.R.id.nav_host).navigate(
                         resId = eu.darken.sdmse.R.id.goToPathExclusionEditor,
                         args = PathExclusionFragmentArgs(
-                            initial = PathExclusionEditorOptions(targetPath = this@asErrorDialogBuilder.path)
+                            initial = PathExclusionEditorOptions(targetPath = path!!)
                         ).toBundle()
                     )
                 }

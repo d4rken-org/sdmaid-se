@@ -60,7 +60,10 @@ class Uninstaller @Inject constructor(
                 val result = shellOps.execute(shellCmd, mode = ShellOps.Mode.ROOT)
                 log(TAG) { "Uninstall command via ROOT result: $result" }
                 if (!result.isSuccess) {
-                    throw UninstallException(installId, IllegalStateException(result.errors.joinToString()))
+                    throw UninstallException(
+                        installId = installId,
+                        cause = IllegalStateException(result.errors.joinToString())
+                    )
                 }
             }
 
@@ -75,7 +78,10 @@ class Uninstaller @Inject constructor(
                 val result = shellOps.execute(shellCmd, mode = ShellOps.Mode.ADB)
                 log(TAG) { "Uninstall command via ADB result: $result" }
                 if (!result.isSuccess) {
-                    throw UninstallException(installId, IllegalStateException(result.errors.joinToString()))
+                    throw UninstallException(
+                        installId = installId,
+                        cause = IllegalStateException(result.errors.joinToString())
+                    )
                 }
             }
 
@@ -106,7 +112,7 @@ class Uninstaller @Inject constructor(
             log(TAG) { "Successfully uninstalled $installId" }
         } catch (e: Exception) {
             log(TAG, ERROR) { "Failed to uninstall $installId: ${e.asLog()}" }
-            throw UninstallException(installId, cause = e)
+            throw UninstallException(installId = installId, cause = e)
         }
 
         AppControl.lastUninstalledPkg = installId.pkgId

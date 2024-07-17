@@ -5,7 +5,6 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.files.local.fromFile
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -14,7 +13,7 @@ import java.io.EOFException
 import java.io.File
 import java.io.IOException
 
-abstract class SerializedStorage<T> constructor(
+abstract class SerializedStorage<T>(
     private val dispatcherProvider: DispatcherProvider,
     private val logTag: String,
 ) {
