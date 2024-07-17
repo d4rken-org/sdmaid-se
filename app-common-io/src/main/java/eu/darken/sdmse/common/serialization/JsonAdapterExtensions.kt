@@ -60,12 +60,12 @@ fun <T> JsonAdapter<T>.toFile(value: T, file: File) = try {
 
 fun <T> JsonAdapter<T>.fromFile(file: File): T = try {
     if (!file.exists()) {
-        throw ReadException(file)
+        throw ReadException(message = "File does not exist ${file.path}")
     }
     val value = file.source().use { from(it) }
 
     log(TAG, VERBOSE) { "fromFile(file=$file): $value" }
-    value ?: throw ReadException(file)
+    value ?: throw ReadException(message = "Failed to load JSON from ${file.path}")
 } catch (e: Exception) {
     if (e !is InterruptedIOException) {
         log(TAG, WARN) { "fromFile(file=$file): $e" }

@@ -26,7 +26,7 @@ interface IpcHostModule {
     // See Parcel.writeException(...)
     fun Throwable.wrapToPropagate(): Exception {
         val msgBuilder = StringBuilder()
-        msgBuilder.append(this.toString())
+        msgBuilder.append("${this.javaClass.name}: $message")
         cause?.let {
             msgBuilder.append("\nCaused by: ")
             msgBuilder.append(it.toString())

@@ -132,7 +132,7 @@ class LocalGateway @Inject constructor(
             throw IOException("No matching mode available.")
         } catch (e: IOException) {
             log(TAG, WARN) { "createDir(path=$path, mode=$mode) failed." }
-            throw WriteException(path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 
@@ -196,7 +196,7 @@ class LocalGateway @Inject constructor(
             throw IOException("No matching mode available.")
         } catch (e: IOException) {
             log(TAG, WARN) { "createFile(path=$path, mode=$mode) failed." }
-            throw WriteException(path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 
@@ -214,7 +214,7 @@ class LocalGateway @Inject constructor(
             when {
                 mode == Mode.NORMAL || canRead && mode == Mode.AUTO -> {
                     log(TAG, VERBOSE) { "lookup($mode->NORMAL): $path" }
-                    if (!canRead) throw ReadException(path)
+                    if (!canRead) throw ReadException(path = path)
                     path.performLookup()
                 }
 
@@ -234,7 +234,7 @@ class LocalGateway @Inject constructor(
             }
 
         } catch (e: Exception) {
-            throw ReadException(path, cause = e).also {
+            throw ReadException(path = path, cause = e).also {
                 log(TAG, WARN) { "lookup(path=$path, mode=$mode) failed:\n${it.asLog()}" }
             }
         }
@@ -259,7 +259,7 @@ class LocalGateway @Inject constructor(
             when {
                 mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
                     log(TAG, VERBOSE) { "listFiles($mode->NORMAL): $path" }
-                    if (nonRootList == null) throw ReadException(path)
+                    if (nonRootList == null) throw ReadException(path = path)
                     nonRootList.map { LocalPath.build(it) }
                 }
 
@@ -276,7 +276,7 @@ class LocalGateway @Inject constructor(
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
-            throw ReadException(path, cause = e).also {
+            throw ReadException(path = path, cause = e).also {
                 log(TAG, WARN) { "listFiles(path=$path, mode=$mode) failed:\n${it.asLog()}" }
             }
         }
@@ -300,7 +300,7 @@ class LocalGateway @Inject constructor(
             when {
                 mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
                     log(TAG, VERBOSE) { "lookupFiles($mode->NORMAL): $path" }
-                    if (nonRootList == null) throw ReadException(path)
+                    if (nonRootList == null) throw ReadException(path = path)
                     nonRootList
                         .map { it.toLocalPath() }
                         .map { it.performLookup() }
@@ -325,7 +325,7 @@ class LocalGateway @Inject constructor(
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "lookupFiles(path=$path, mode=$mode) failed:\n${e.asLog()}" }
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -350,7 +350,7 @@ class LocalGateway @Inject constructor(
                 when {
                     mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
                         log(TAG, VERBOSE) { "lookupFilesExtended($mode->NORMAL): $path" }
-                        if (nonRootList == null) throw ReadException(path)
+                        if (nonRootList == null) throw ReadException(path = path)
                         nonRootList
                             .map { it.toLocalPath() }
                             .map { it.performLookupExtended(ipcFunnel, libcoreTool) }
@@ -375,7 +375,7 @@ class LocalGateway @Inject constructor(
                 }
             } catch (e: IOException) {
                 log(TAG, WARN) { "lookupFilesExtended(path=$path, mode=$mode) failed:\n${e.asLog()}" }
-                throw ReadException(path, cause = e)
+                throw ReadException(path = path, cause = e)
             }
         }
 
@@ -409,7 +409,7 @@ class LocalGateway @Inject constructor(
             when {
                 mode == Mode.NORMAL -> {
                     log(TAG, VERBOSE) { "walk($mode->NORMAL, direct): $path" }
-                    if (!canRead) throw ReadException(path)
+                    if (!canRead) throw ReadException(path = path)
                     DirectLocalWalker(
                         start = path,
                         onFilter = { lookup -> options.onFilter?.invoke(lookup) ?: true },
@@ -464,7 +464,7 @@ class LocalGateway @Inject constructor(
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "walk(path=$path, mode=$mode) failed:\n${e.asLog()}" }
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -498,7 +498,7 @@ class LocalGateway @Inject constructor(
             when {
                 mode == Mode.NORMAL -> {
                     log(TAG, VERBOSE) { "walk($mode->NORMAL, direct): $path" }
-                    if (!canRead) throw ReadException(path)
+                    if (!canRead) throw ReadException(path = path)
                     javaFile.walkTopDown().map { it.length() }.sum()
                 }
 
@@ -529,7 +529,7 @@ class LocalGateway @Inject constructor(
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "du(path=$path, mode=$mode) failed:\n${e.asLog()}" }
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -578,7 +578,7 @@ class LocalGateway @Inject constructor(
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "exists(path=$path, mode=$mode) failed:\n${e.asLog()}" }
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -613,7 +613,7 @@ class LocalGateway @Inject constructor(
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "canWrite(path=$path, mode$mode) failed." }
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -650,7 +650,7 @@ class LocalGateway @Inject constructor(
 
         } catch (e: IOException) {
             log(TAG, WARN) { "canRead(path=$path, mode=$mode) failed." }
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -689,7 +689,7 @@ class LocalGateway @Inject constructor(
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "read(path=$path, mode=$mode) failed." }
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -729,7 +729,7 @@ class LocalGateway @Inject constructor(
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "write(path=$path, mode=$mode) failed." }
-            throw WriteException(path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 
@@ -778,7 +778,7 @@ class LocalGateway @Inject constructor(
                             log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
                         } else if (!normalCanWrite) {
                             // This was not AUTO, but Mode.NORMAL, we don't try other modes after this
-                            throw WriteException(path)
+                            throw WriteException(path = path)
                         }
                     }
 
@@ -847,7 +847,7 @@ class LocalGateway @Inject constructor(
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "delete(path=$path, mode=$mode) failed." }
-            throw WriteException(path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 
@@ -884,7 +884,7 @@ class LocalGateway @Inject constructor(
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "createSymlink(linkPath=$linkPath, targetPath=$targetPath, mode=$mode) failed." }
-            throw WriteException(linkPath, cause = e)
+            throw WriteException(path = linkPath, cause = e)
         }
     }
 
@@ -921,7 +921,7 @@ class LocalGateway @Inject constructor(
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "setModifiedAt(path=$path, modifiedAt=$modifiedAt, mode=$mode) failed." }
-            throw WriteException(path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 
@@ -957,7 +957,7 @@ class LocalGateway @Inject constructor(
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "setPermissions(path=$path, permissions=${permissions}, mode=$mode) failed." }
-            throw WriteException(path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 
@@ -995,7 +995,7 @@ class LocalGateway @Inject constructor(
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "setOwnership(path=$path, ownership=$ownership, mode=$mode) failed." }
-            throw WriteException(path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 

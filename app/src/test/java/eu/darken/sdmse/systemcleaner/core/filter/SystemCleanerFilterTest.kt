@@ -270,7 +270,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         coEvery { gatewaySwitch.exists(any()) } returns false
         coEvery { gatewaySwitch.canRead(any()) } returns false
         coEvery { gatewaySwitch.lookupFiles(any()) } answers {
-            throw ReadException(arg<APath>(0))
+            throw ReadException(path = arg<APath>(0))
         }
         every { storageEnvironment.dataDir } returns LocalPath.build("/data")
 

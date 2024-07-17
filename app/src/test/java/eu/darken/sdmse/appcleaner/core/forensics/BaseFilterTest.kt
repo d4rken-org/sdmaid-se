@@ -274,7 +274,7 @@ abstract class BaseFilterTest : BaseTest() {
         coEvery { gatewaySwitch.exists(any()) } returns false
         coEvery { gatewaySwitch.canRead(any()) } returns false
         coEvery { gatewaySwitch.lookupFiles(any()) } answers {
-            throw ReadException(arg<APath>(0))
+            throw ReadException(path = arg<APath>(0))
         }
         storageEnvironment.apply {
             every { dataDir } returns LocalPath.build("/data")

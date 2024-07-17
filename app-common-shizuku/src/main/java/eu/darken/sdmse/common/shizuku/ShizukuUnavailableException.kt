@@ -1,6 +1,6 @@
 package eu.darken.sdmse.common.shizuku
 
-class ShizukuUnavailableException(
-    message: String,
+class ShizukuUnavailableException @JvmOverloads constructor(
+    message: String? = null,
     cause: Throwable? = null,
-) : ShizukuException(message, cause)
+) : ShizukuException(message = message, cause = cause)

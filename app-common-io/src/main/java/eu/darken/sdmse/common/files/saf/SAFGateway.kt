@@ -65,7 +65,7 @@ class SAFGateway @Inject constructor(
 
         if (match == null) {
             log(TAG, VERBOSE) { "No UriPermission match for $file" }
-            throw MissingUriPermissionException(file)
+            throw MissingUriPermissionException(path = file)
         }
 
         val targetTreeUri = SAFDocFile.buildTreeUri(
@@ -78,26 +78,26 @@ class SAFGateway @Inject constructor(
     override suspend fun createFile(path: SAFPath): Unit = runIO {
         val docFile = findDocFile(path)
         log(TAG, VERBOSE) { "createFile(): $path -> $docFile" }
-        if (docFile.exists) throw WriteException(path, message = "File already exists")
+        if (docFile.exists) throw WriteException("File already exists", path)
 
         try {
             createDocumentFile(FILE_TYPE_DEFAULT, path)
         } catch (e: Exception) {
             log(TAG, WARN) { "createFile($path) failed: ${e.asLog()}" }
-            throw WriteException(path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 
     override suspend fun createDir(path: SAFPath): Unit = runIO {
         val docFile = findDocFile(path)
         log(TAG, VERBOSE) { "createDir(): $path -> $docFile" }
-        if (docFile.exists) throw WriteException(path, message = "Directory already exists")
+        if (docFile.exists) throw WriteException("Directory already exists", path)
 
         try {
             createDocumentFile(DIR_TYPE, path)
         } catch (e: Exception) {
             log(TAG, WARN) { "createDir($path) failed: ${e.asLog()}" }
-            throw WriteException(path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 
@@ -149,7 +149,7 @@ class SAFGateway @Inject constructor(
             }
         } catch (e: Exception) {
             log(TAG, WARN) { "listFiles($path) failed." }
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -159,7 +159,7 @@ class SAFGateway @Inject constructor(
             log(TAG, VERBOSE) { "exists(): $path -> $docFile" }
             docFile.exists
         } catch (e: Exception) {
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -177,7 +177,7 @@ class SAFGateway @Inject constructor(
 
             if (!success) throw IOException("Document delete() call returned false")
         } catch (e: Exception) {
-            throw WriteException(path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 
@@ -189,7 +189,7 @@ class SAFGateway @Inject constructor(
         } catch (e: MissingUriPermissionException) {
             false
         } catch (e: Exception) {
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -201,7 +201,7 @@ class SAFGateway @Inject constructor(
         } catch (e: MissingUriPermissionException) {
             false
         } catch (e: Exception) {
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -220,7 +220,7 @@ class SAFGateway @Inject constructor(
             }
         } catch (e: Exception) {
             log(TAG, WARN) { "lookup($path) failed." }
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -243,7 +243,7 @@ class SAFGateway @Inject constructor(
                 }
         } catch (e: Exception) {
             log(TAG, WARN) { "lookupFiles($path) failed." }
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -267,7 +267,7 @@ class SAFGateway @Inject constructor(
                 }
         } catch (e: Exception) {
             log(TAG, WARN) { "lookupFilesExtended($path) failed." }
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -319,7 +319,7 @@ class SAFGateway @Inject constructor(
         .flowOn(dispatcherProvider.IO)
         .catch { e ->
             log(TAG, WARN) { "walk($path) failed." }
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
 
 
@@ -355,7 +355,7 @@ class SAFGateway @Inject constructor(
             total
         } catch (e: Exception) {
             log(TAG, WARN) { "du($path) failed." }
-            throw ReadException(path, cause = e)
+            throw ReadException(path = path, cause = e)
         }
     }
 
@@ -395,7 +395,7 @@ class SAFGateway @Inject constructor(
             log(TAG, VERBOSE) { "setModifiedAt(): $path -> $docFile" }
             docFile.setLastModified(modifiedAt)
         } catch (e: Exception) {
-            throw WriteException(path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 
@@ -405,7 +405,7 @@ class SAFGateway @Inject constructor(
             log(TAG, VERBOSE) { "setPermissions(): $path -> $docFile" }
             docFile.setPermissions(permissions)
         } catch (e: Exception) {
-            throw WriteException(path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 
@@ -415,7 +415,7 @@ class SAFGateway @Inject constructor(
             log(TAG, VERBOSE) { "setOwnership(): $path -> $docFile" }
             docFile.setOwnership(ownership)
         } catch (e: Exception) {
-            throw WriteException(path, cause = e)
+            throw WriteException(path = path, cause = e)
         }
     }
 

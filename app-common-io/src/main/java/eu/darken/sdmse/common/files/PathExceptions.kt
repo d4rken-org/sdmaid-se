@@ -5,29 +5,33 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
 import eu.darken.sdmse.common.error.localized
-import java.io.File
 import java.io.IOException
 
 open class PathException(
-    val path: APath,
-    message: String = "Error during access.",
-    cause: Throwable? = null
-) : IOException("$message <-> ${path.path}", cause)
+    message: String? = "Error during access.",
+    val path: APath?,
+    cause: Throwable? = null,
+) : IOException(if (path != null) "$message <-> ${path.path}" else message, cause)
 
-open class ReadException(
-    path: APath,
-    message: String = "Can't read from path.",
-    cause: Throwable? = null
-) : PathException(path, message, cause), HasLocalizedError {
-
-    constructor(file: File) : this(RawPath.build(file))
+open class ReadException @JvmOverloads constructor(
+    message: String? = "Can't read from path.",
+    path: APath? = null,
+    cause: Throwable? = null,
+) : PathException(message = message, cause = cause, path = path), HasLocalizedError {
 
     override fun getLocalizedError() = LocalizedError(
         throwable = this,
         label = "ReadException".toCaString(),
         description = caString { cx ->
             val sb = StringBuilder()
-            sb.append(cx.getString(eu.darken.sdmse.common.R.string.general_error_cant_access_msg, path))
+            sb.append(
+                path?.let {
+                    cx.getString(
+                        eu.darken.sdmse.common.R.string.general_error_cant_access_msg,
+                        it.userReadablePath.get(cx)
+                    )
+                } ?: message
+            )
             cause?.let {
                 sb.append("\n\n")
                 val localizedCause = it.localized(cx)
@@ -38,20 +42,25 @@ open class ReadException(
     )
 }
 
-class WriteException(
-    path: APath,
-    message: String = "Can't write to path.",
-    cause: Throwable? = null
-) : PathException(path, message, cause), HasLocalizedError {
-
-    constructor(file: File) : this(RawPath.build(file))
+class WriteException @JvmOverloads constructor(
+    message: String? = "Can't write to path.",
+    path: APath? = null,
+    cause: Throwable? = null,
+) : PathException(message = message, cause = cause, path = path), HasLocalizedError {
 
     override fun getLocalizedError() = LocalizedError(
         throwable = this,
         label = "WriteException".toCaString(),
         description = caString { cx ->
             val sb = StringBuilder()
-            sb.append(cx.getString(eu.darken.sdmse.common.R.string.general_error_cant_access_msg, path))
+            sb.append(
+                path?.let {
+                    cx.getString(
+                        eu.darken.sdmse.common.R.string.general_error_cant_access_msg,
+                        it.userReadablePath.get(cx)
+                    )
+                } ?: message
+            )
             cause?.let {
                 sb.append("\n\n")
                 val localizedCause = it.localized(cx)
