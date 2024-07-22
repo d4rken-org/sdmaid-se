@@ -18,6 +18,7 @@ import eu.darken.sdmse.automation.core.common.defaultWindowIntent
 import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
 import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
 import eu.darken.sdmse.automation.core.common.getSysLocale
+import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
@@ -36,7 +37,6 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
-import java.util.*
 import javax.inject.Inject
 
 @Reusable
@@ -102,10 +102,14 @@ class VivoSpecs @Inject constructor(
             val clearCacheButtonLabels =
                 vivoLabels.getClearCacheDynamic() + vivoLabels.getClearCacheStatic(lang, script)
 
-            // 14: className=android.widget.TextView, text=Clear cache, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings
-            val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isClickable) return false
-                return node.textMatchesAny(clearCacheButtonLabels)
+            val buttonFilter = when {
+                hasApiLevel(34) -> fun(node: AccessibilityNodeInfo): Boolean {
+                    return node.idContains("id/vbutton_title") && node.textMatchesAny(clearCacheButtonLabels)
+                }
+
+                else -> fun(node: AccessibilityNodeInfo): Boolean {
+                    return node.isClickable && node.textMatchesAny(clearCacheButtonLabels)
+                }
             }
 
             val step = StepProcessor.Step(
@@ -113,6 +117,10 @@ class VivoSpecs @Inject constructor(
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeTest = buttonFilter,
+                nodeMapping = when {
+                    hasApiLevel(34) -> clickableParent()
+                    else -> null
+                },
                 action = getAospClearCacheClick(pkg, tag)
             )
             stepper.withProgress(this) { process(step) }
