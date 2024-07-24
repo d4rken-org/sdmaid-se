@@ -147,4 +147,5 @@
         <item quantity="one">%s fil</item>
         <item quantity="other">%s filer</item>
     </plurals>
+    <string name="general_advice_title">Råd</string>
 </resources>

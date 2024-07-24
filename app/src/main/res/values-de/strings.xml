@@ -116,6 +116,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Erlaube SD Maid, Shizuku nach Möglichkeit zu verwenden, um Ergebnisse zu verbessern und Funktionen zu aktivieren.</string>
     <string name="setup_shizuku_card_body2">Diese Einstellung hat keine Auswirkung, wenn die Shizuku-App nicht auf Deinem Gerät eingerichtet ist.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku in Kombination mit Root-Zugriff aktiviert keine zusätzlichen Funktionen, verbessert aber die Zuverlässigkeit. SD Maid wird es als Fallback-Methode verwenden.</string>
     <string name="setup_shizuku_state_ready_label">Der Shizuku-Link ist fertig.</string>
     <string name="setup_shizuku_state_waiting_label">Warte auf Verbindung mit Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Verwende Shizuku, falls verfügbar</string>
@@ -200,6 +201,10 @@
     <string name="corpsefinder_filter_appasec_summary">Verschlüsselte App-Ressourcen, z.B. Spiel-Assets.</string>
     <string name="corpsefinder_filter_app2sd_summary">Daten, die von App2Sd Mods in den externen Speicher verschoben wurden.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d App-Rest gelöscht</item>
+        <item quantity="other">%d App-Reste gelöscht</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">%d App-Rest entdeckt</item>
         <item quantity="other">%d App-Reste entdeckt</item>
@@ -212,6 +217,10 @@
     <string name="corpsefinder_corpse_hint_common">Dieses Element hat einen sehr gebräuchlichen Namen und könnte zu noch installierten Apps gehören, die SD Maid nicht kennt.</string>
     <string name="systemcleaner_tool_name">System-Reiniger</string>
     <string name="systemcleaner_explanation_short">Überflüssige Daten, die keiner bestimmten App zugeordnet sind.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d Übereinstimmung gelöscht</item>
+        <item quantity="other">%d Übereinstimmungen gelöscht</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d Filterübereinstimmung</item>
         <item quantity="other">%d Filterübereinstimmungen</item>
@@ -346,6 +355,10 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Zwischengespeicherte Mediendateien, die beim Betrachten des Chats erneut heruntergeladen werden.</string>
     <string name="appcleaner_delete_all_confirmation_message">Überflüssige Objekte für alle Apps löschen?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d Verbrauchsgegenstand gelöscht</item>
+        <item quantity="other">%d Verbrauchsgegenstände gelöscht</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d überflüssiges Objekt gefunden</item>
         <item quantity="other">%d überflüssige Objekte gefunden</item>
@@ -371,6 +384,10 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Caches mit Shizuku löschen</string>
     <string name="deduplicator_tool_name">Duplikat-Entferner</string>
     <string name="deduplicator_explanation_short">Finde doppelte Daten auf deinem Gerät.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d Duplikat gelöscht</item>
+        <item quantity="other">%d Duplikate gelöscht</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d Duplikatsatz gefunden</item>
         <item quantity="other">%d Duplikatsätze gefunden</item>
@@ -430,6 +447,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bündel</string>
     <string name="appcontrol_tag_system">System</string>
+    <string name="appcontrol_tag_archived">Archiviert</string>
     <string name="appcontrol_tag_enabled">Aktiviert</string>
     <string name="appcontrol_tag_disabled">Deaktiviert</string>
     <string name="appcontrol_progress_enabling_package">App aktivieren</string>
@@ -442,6 +460,10 @@
     <string name="appcontrol_list_sortmode_size_label">Größe</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">App-Größen werden aus Leistungsgründen geschätzt. Verwende das Storage Analysator-Tool für genauere Daten.</string>
     <string name="appcontrol_progress_uninstalling_app">Deinstalliert App</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d App wurde deinstalliert</item>
+        <item quantity="other">%d Apps wurden deinstalliert</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">App-Größe</string>
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Daten</string>
@@ -451,6 +473,10 @@
         <item quantity="one">Aktiviert/deaktiviert Status der App %d ändern?</item>
         <item quantity="other">Aktiviert/deaktiviert Status der Apps %d ändern?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d App wurde umgeschaltet</item>
+        <item quantity="other">%d Apps wurden umgeschaltet</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Größen bestimmen</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Erhalte eine grobe Schätzung der Größe jeder App.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Aktivität bestimmen</string>
@@ -458,6 +484,10 @@
     <string name="appcontrol_export_app_selection_action">Apps exportieren</string>
     <string name="appcontrol_export_title">App exportieren</string>
     <string name="appcontrol_export_description">Speichern Sie die Installationsdateien dieser App. Dies beinhaltet keine App-Daten.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d App wurde exportiert</item>
+        <item quantity="other">%d Apps wurden exportiert</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">%s wird exportiert</string>
     <string name="appcontrol_force_stop_selection_action">Stopp-Apps erzwingen</string>
     <string name="appcontrol_force_stop_action">Beenden erzwingen</string>
@@ -465,6 +495,10 @@
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="one">%d App erzwingen?</item>
         <item quantity="other">%d Apps stoppen?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d App wurde gestoppt</item>
+        <item quantity="other">%d Apps wurden gestoppt</item>
     </plurals>
     <string name="appcontrol_automation_loading">Vorbereitung der Automatisierung über den Barrierefreiheitsdienst</string>
     <string name="appcontrol_automation_title">AppControl Automatisierung</string>
@@ -503,6 +537,7 @@
     <string name="analyzer_storage_content_type_system_label">Systemdaten</string>
     <string name="analyzer_storage_content_type_system_description">System-Apps und Systemdaten. Apps und Daten von anderen Benutzern, falls mehrere Benutzerkonten auf diesem Gerät eingerichtet sind.</string>
     <string name="analyzer_storage_content_app_code_label">App-Code</string>
+    <string name="analyzer_storage_content_app_code_description">Anwendungsdateien, Bibliotheken und Ressourcen. Dieser Speicherplatz kann freigegeben werden, indem die App deinstalliert oder archiviert wird (verfügbar bei neueren Android-Versionen).</string>
     <string name="analyzer_storage_content_app_data_label">App-Daten</string>
     <string name="analyzer_storage_content_app_data_description">Daten, Einstellungen und Caches.</string>
     <string name="analyzer_storage_content_app_media_label">App-Medien</string>
@@ -510,6 +545,7 @@
     <string name="analyzer_storage_content_app_extra_label">Zusätzliche App-Dateien</string>
     <string name="analyzer_storage_content_app_extra_description">Zusätzliche Daten, die diese App außerhalb der Standardpfade platziert hat, z.B. Fotos oder Downloads.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Diese App belegt %1$s auf \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Diese App wurde archiviert.</string>
     <string name="data_area_public_app_data_official_label">Standardmäßige öffentliche App-Daten</string>
     <string name="data_area_public_app_assets_official_label">Standardmäßige öffentliche App-Ressourcen</string>
     <string name="data_area_public_storage_label">Öffentlicher Speicher</string>
@@ -595,6 +631,7 @@
     <string name="scheduler_notification_result_failure_message">Einige geplante Aufgaben sind fehlgeschlagen oder es sind Fehler aufgetreten. Versuchen Sie, sie manuell auszuführen.</string>
     <string name="scheduler_commands_after_schedule_label">Befehle nach Zeitplan</string>
     <string name="scheduler_commands_after_schedule_desc">Androide Shell-Befehle, die am Ende eines Zeitplans ausgeführt werden.</string>
+    <string name="scheduler_battery_optimization_hint">Erwäge die Deaktivierung der Batterieoptimierungen für SD Maid, wenn bei der Hintergrundausführung Probleme auftreten.</string>
     <string name="updates_dashcard_title">Update verfügbar</string>
     <string name="updates_dashcard_body">Eine Aktualisierung ist verfügbar. Du hast %1$s und die neueste Version ist %2$s.</string>
     <string name="translation_encourage_title">Übersetze SD Maid</string>
@@ -610,4 +647,9 @@
     <string name="review_app_review_action">Bewerten</string>
     <string name="review_app_dismiss_action">Später vielleicht</string>
     <string name="review_app_body">Möchtest du SD Maid eine Bewertung hinterlassen? ❤️</string>
+    <string name="stats_label">Verlauf</string>
+    <string name="stats_dash_body">%s wurden freigegeben und %s Elemente verarbeitet, seitdem SD Maid auf Ihr Gerät eingeladen haben.</string>
+    <string name="stats_report_status_success">Erfolgreich</string>
+    <string name="stats_report_status_partial_success">Teilerfolg</string>
+    <string name="stats_report_status_partial_failure">Fehlgeschlagen</string>
 </resources>

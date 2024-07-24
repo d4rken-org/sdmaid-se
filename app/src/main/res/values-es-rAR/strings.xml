@@ -75,7 +75,7 @@
     <string name="ui_language_override_label">Idioma de la aplicación</string>
     <string name="ui_language_override_desc">Seleccione otro idioma para SD Maid, independientemente del idioma por defecto de su sistema. Actualmente: %s</string>
     <string name="settings_support_label">Ayuda</string>
-    <string name="settings_support_description">Lee la documentación, informa de los problemas, chatea con otros usuarios o graba los registros de depuración.</string>
+    <string name="settings_support_description">Leé la documentación, informá problemas, chateá con otros usuarios o grabá los registros de depuración.</string>
     <string name="documentation_label">Documentación</string>
     <string name="issue_tracker_description">Un rastreador de problemas público para reportes de errores y peticiones de características.</string>
     <string name="issue_tracker_label">Rastreador de problemas</string>
@@ -625,4 +625,8 @@ Archivo: Textos de la aplicación (aplicación principal)</string>
     <string name="review_app_review_action">Reseña</string>
     <string name="review_app_dismiss_action">Quizás más tarde</string>
     <string name="review_app_body">¿Te gustaría dejar una reseña de SD Maid?️ ❤️</string>
+    <string name="stats_settings_desc">Configurá las estadísticas, los informes y la retención de datos de SD Maid.</string>
+    <string name="stats_settings_reset_all_desc">Eliminar todos los reportes y establecer todas las estadísticas a cero.</string>
+    <string name="stats_affected_paths_label">Directorios afectados</string>
+    <string name="stats_affected_pkgs_label">Apps afectadas</string>
 </resources>

@@ -197,6 +197,9 @@
     <string name="corpsefinder_filter_appasec_summary">Sumber aplikasi terenkripsi, cth. aset permainan.</string>
     <string name="corpsefinder_filter_app2sd_summary">Data dipindah ke penyimpanan eksternal oleh mod App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">%d sisa aplikasi dihapus</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="other">%d sisa aplikasi ditemukan</item>
     </plurals>
@@ -208,6 +211,9 @@
     <string name="corpsefinder_corpse_hint_common">Berkas ini memiliki nama yang umum dan kemungkinan masih berkaitan dengan aplikasi yang terpasang yang tidak diketahui oleh SD Maid.</string>
     <string name="systemcleaner_tool_name">Pembersih Sistem</string>
     <string name="systemcleaner_explanation_short">Data berlebihan yang bukan milik aplikasi tertentu.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="other">%d cocokan dihapus</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="other">%d filter yang cocok</item>
     </plurals>
@@ -341,6 +347,9 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Berkas-berkas media yang ditembolok yang diunduh lagi saat dilihat di percakapan.</string>
     <string name="appcleaner_delete_all_confirmation_message">Hapus item-item yang tidak penting untuk semua aplikasi?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="other">%d berkas dapat dibuang telah dihapus</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d berkas yang bisa dihapus ditemukan</item>
     </plurals>
@@ -364,6 +373,9 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Menghapus tembolok menggunakan Shizuku</string>
     <string name="deduplicator_tool_name">Deduplikator</string>
     <string name="deduplicator_explanation_short">Temukan data duplikat pada perangkat Anda.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">%d duplikat dihapus</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="other">%d set duplikat ditemukan</item>
     </plurals>
@@ -434,6 +446,9 @@
     <string name="appcontrol_list_sortmode_size_label">Ukuran</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Ukuran aplikasi diperkirakan untuk alasan kinerja. Gunakan alat StorageAnalyzer untuk data yang lebih akurat.</string>
     <string name="appcontrol_progress_uninstalling_app">Mencopot aplikasi</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="other">%d aplikasi dihapus</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Ukuran aplikasi</string>
     <string name="appcontrol_app_sizes_apk_label">Aplikasi</string>
     <string name="appcontrol_app_sizes_data_label">Data</string>
@@ -442,6 +457,9 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="other">Ganti keadaan aktif/nonaktif %d aplikasi?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="other">%d aplikasi disaklar</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Tentukan ukuran</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Dapatkan perkiraan kasar ukuran masing-masing aplikasi.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Tentukan aktivitas</string>
@@ -449,12 +467,18 @@
     <string name="appcontrol_export_app_selection_action">Ekspor aplikasi</string>
     <string name="appcontrol_export_title">Ekspor aplikasi</string>
     <string name="appcontrol_export_description">Simpan berkas-berkas instalasi. Tidak termasuk data aplikasi.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="other">%d aplikasi diekspor</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Mengekspor %s</string>
     <string name="appcontrol_force_stop_selection_action">Paksa berhenti aplikasi</string>
     <string name="appcontrol_force_stop_action">Paksa berhenti</string>
     <string name="appcontrol_force_stop_confirm_title">Konfirmasi penghentian paksa</string>
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="other">Paksa berhenti %d aplikasi?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="other">%d aplikasi dihentikan</item>
     </plurals>
     <string name="appcontrol_automation_loading">Menyiapkan otomatisasi melalui layanan aksesibilitas</string>
     <string name="appcontrol_automation_title">Otomatisasi AppControl</string>
@@ -487,7 +511,7 @@
     <string name="analyzer_storage_content_type_app_description">Ruang yang ditempati oleh aplikasi terinstal dan datanya (yaitu file aplikasi, data, dan cache).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Izin tidak ada</string>
     <string name="analyzer_storage_content_type_media_label">Berkas pengguna</string>
-    <string name="analyzer_storage_content_type_media_description">Gambar yang diambil, video yang direkam, atay data yang diunduh. Semua data yang bukan milik suatu aplikasi.</string>
+    <string name="analyzer_storage_content_type_media_description">Gambar yang diambil, video yang direkam, atau data yang diunduh. Semua data yang bukan milik suatu aplikasi.</string>
     <string name="analyzer_storage_content_type_system_label">Data sistem</string>
     <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika beberapa akun pengguna lain ada di perangkat ini.</string>
     <string name="analyzer_storage_content_app_code_label">Kode aplikasi</string>
@@ -583,6 +607,7 @@
     <string name="scheduler_notification_result_failure_message">Beberapa tugas terjadwal gagal atau mengalami kesalahan. Cobalah menjalankannya secara manual.</string>
     <string name="scheduler_commands_after_schedule_label">Perintah pasca-penjadwalan</string>
     <string name="scheduler_commands_after_schedule_desc">Perintah shell Android yang akan dieksekusi pada akhir jadwal.</string>
+    <string name="scheduler_battery_optimization_hint">Pertimbangkan untuk menonaktifkan optimisasi baterai untuk SD Maid jika Anda mengalami masalah dengan penjalanan latar belakang.</string>
     <string name="updates_dashcard_title">Pembaruan tersedia</string>
     <string name="updates_dashcard_body">Pembaruan tersedia. Versi aplikasi Anda %1$s dan versi terbaru adalah %2$s.</string>
     <string name="translation_encourage_title">Terjemahkan SD Maid</string>
@@ -598,4 +623,12 @@
     <string name="review_app_review_action">Pratinjau</string>
     <string name="review_app_dismiss_action">Lain kali</string>
     <string name="review_app_body">Bersediakah Anda menulis ulasan untuk SD Maid? ❤️</string>
+    <string name="stats_label">Riwayat</string>
+    <string name="stats_dash_body">%s telah dibersihkan dan %s item telah diproses sejak anda menginstal SD Maid di perangkat anda.</string>
+    <string name="stats_report_status_success">Sukses</string>
+    <string name="stats_report_status_partial_failure">Kegagalan</string>
+    <string name="stats_settings_desc">Konfigurasikan statistik, laporan, dan retensi data SD Maid.</string>
+    <string name="stats_settings_retention_category">Retensi</string>
+    <string name="stats_settings_retention_reports_label">Laporan umum</string>
+    <string name="stats_settings_retention_reports_desc">Hitungan hari sebelum menghapus laporan operasi dasar SD Maid.</string>
 </resources>

@@ -599,9 +599,22 @@
     <string name="review_app_review_action">評論</string>
     <string name="review_app_dismiss_action">稍後再說</string>
     <string name="review_app_body">您想為 SD Maid 留下評論嗎？❤️</string>
+    <string name="stats_label">歷史記錄</string>
     <string name="stats_dash_body">自從您邀請 SD Maid 到您的裝置後，已釋放 %s 並處理 %s 項目。</string>
+    <string name="stats_report_status_success">成功</string>
+    <string name="stats_report_status_partial_success">部分成功</string>
+    <string name="stats_report_status_partial_failure">失敗</string>
     <string name="stats_settings_desc">設定 SD Maid 的統計數據、報告和資料保留。</string>
+    <string name="stats_settings_retention_category">保留</string>
+    <string name="stats_settings_retention_reports_label">一般報告</string>
     <string name="stats_settings_retention_reports_desc">刪除基本 SD Maid 操作報告前的天數。</string>
+    <string name="stats_settings_retention_paths_label">路徑詳細資料</string>
     <string name="stats_settings_retention_paths_desc">保留 SD Maid 影響路徑詳細資料的天數。</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="other">%d 天</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">全部重設</string>
     <string name="stats_settings_reset_all_desc">刪除所有報告並將所有統計數據歸零。</string>
+    <string name="stats_affected_paths_label">受影響的路徑</string>
+    <string name="stats_affected_pkgs_label">受影響的應用程式</string>
 </resources>

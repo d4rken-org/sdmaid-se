@@ -147,4 +147,5 @@
         <item quantity="one">%s dosya</item>
         <item quantity="other">%s dosyalar</item>
     </plurals>
+    <string name="general_advice_title">Tavsiye</string>
 </resources>
