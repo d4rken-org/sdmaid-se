@@ -23,18 +23,18 @@ Pisipildid, prügikastid, võrguühenduseta vahemälud jne. Kui rakendused ei ko
 Saate põhjaliku loendi kõikidest seadmesse paigaldatud rakendustest. Lubatud, keelatud, kasutaja või süsteemi rakendus: ükski rakendus ei peida end teie eest. Rakendusekontroll on rakendusi otsiv, jaotav ja haldav rakendustehaldur.
 
 📊 Mis võtab ruumi?
-Storage management can be complex with apps, media, system, and other files across phone storage, SD cards, and USB devices. "StorageAnalyzer" is a file manager that displays how space is used on your device, simplifying your storage management.
+Ruumi haldamine rakenduste, meediumi, süsteemi ja muude failidega on keeruline telefoni sisemälus, SD-kaartidel ja USB-seadmetel. „Hoiustamisruumi analüüsija” on seadme ruumi kasutamist kirjeldav ja ruumi haldamist hõlbustav failihaldur.
 
-📷 Find duplicate data
-Duplicate downloads, photos sent through social media or just similar pictures of the same scene: Over time copies can accumulate. The "Deduplicator" tool finds files that are exactly the same or similar and helps you delete extra copies.
+📷 Samasuguste andmete otsimine
+Mitu korda allalaaditu, sotsiaalmeedia kaudu saadetud pildid või sama stseeni sarnased pildid. Koopiad võivad aja jooksul koguneda. Koopiate eemaldaja otsib samasuguseid või sarnaseid faile ja aitab kustutada liigseid koopiaid.
 
-This app is ad-free. Osa võimalusi vajab tasulist täiendust.
+See rakendus on reklaamivaba. Osa võimalusi vajab tasulist täiendust.
 
 SD Maid 2/SE on SD Maid 1/Legacy uus põlvkond.
 Optimeeritud uuemate Androidi versioonide jaoks ja keskendub puhastamisele.
 
-This app has optional features that utilize the AccessibilityService API to automate tedious actions.
-Using the AccessibilityService API, this app can click buttons for you to perform operations on multiple apps, e.g. vahemälude kustutamine.
-This app does not use the AccessibilityService API to collect information.
+Sellel rakendusel on tüütute tegevuste automatiseerimiseks juurdepääsuteenuse API-t käivitavad lisavõimalused.
+See rakendus klõpsab juurdepääsuteenuse API-ga nuppe, et saaksid toimetada mitmes rakenduses, nt vahemälude kustutamine.
+See rakendus ei kogu juurdepääsuteenuse API-ga teavet.
 
-SD Maid 2/SE is a File Manager & Cleaner App.
+SD Maid 2/SE on failihaldur ja puhastaja.

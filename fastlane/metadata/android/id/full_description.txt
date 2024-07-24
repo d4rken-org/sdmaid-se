@@ -1,29 +1,29 @@
-<i>SD Maid 2/SE</i> adalah asisten Android tepercaya untuk menjaga kebersihan dan kerapian perangkat Anda.
+<i>SD Maid 2/SE</i> adalah asisten Android terpercaya, agar selalu bersih dan rapi.
 
 Tiada yang sempurna dan itu termasuk Android.
 * Aplikasi yang baru saja dihapus meninggalkan beberapa jejak.
-* Catatan, laporan kerusakan, dan data lain yang tidak diinginkan masih selalu dibuat.
-* Penyimpanan Anda mengumpulkan berkas-berkas dan folder-folder yang tidak Anda kenali.
-* Foto-foto duplikat yang ada dalam galeri Anda.
+* Log, laporan crash, dan data lain yang tidak diinginkan masih selalu dibuat.
+* Penyimpananmu mengumpulkan berkas-berkas dan folder-folder yang tidak kamu kenali.
+* Foto-foto duplikat yang ada dalam galeri mu.
 
-Mari sudahi ... Biarkan SD Maid2/SE membantu Anda!
+Mari sudahi... Biarkan SD Maid2/SE membantu mu!
 
-SD Maid 2/SE adalah pengelola aplikasi dan berkas yang dapat mengetahui aplikasi apa yang telah membuat berkas tertentu di perangkat Anda. SD Maid 2/SE mencari dan membandingkan berkas-berkas dengan aplikasi yang terpasang dan menawarkan pilihan untuk mengosongkan ruang penyimpanan dengan aman.
+SD Maid 2/SE adalah pengelola aplikasi dan berkas yang dapat mengetahui aplikasi apa yang telah membuat berkas tertentu di perangkat mu. SD Maid 2/SE mencari dan membandingkan berkas-berkas dengan aplikasi yang terpasang dan menawarkan pilihan untuk mengosongkan ruang penyimpanan dengan aman.
 
 ✨ Bersih-bersih setelah menghapus aplikasi
-Jika aplikasi membuat berkas diluar folder yang telah ditentukan, berkas-berkas tersebut akan tetap ada bahkan setelah aplikasi tersebut dihapus. Alat "CorpseFinder" mencari sisa aplikasi dan memberi tahu Anda dari aplikasi apa sisa tersebut ditemukan serta membantu Anda menghapus sisa tersebut.
+Jika aplikasi membuat berkas diluar folder yang telah ditentukan, berkas-berkas tersebut akan tetap ada bahkan setelah aplikasi tersebut dihapus. Alat "CorpseFinder" mencari sisa aplikasi dan memberi tahu mu dari aplikasi apa sisa tersebut ditemukan serta membantu kamu menghapus sisa tersebut.
 
-🔍 Pindai perangkat Anda dengan cara yang cerdik
-Filter untuk folder kosong, berkas sementara, aplikasi terpasang, dan banyak lagi. Anda bahkan bisa membuat kriteria pencarian pribadi. Alat "SystemCleaner" memungkinkan Anda untuk memindai perangkat dan menghapus berkas berdasarkan berbagai kriteria.
+🔍 Pindai perangkat mu dengan cara yang cerdik
+Filter untuk folder kosong, berkas sementara, aplikasi terpasang, dan banyak lagi. Kamu bahkan bisa membuat kriteria pencarian milikmu sendiri. Alat "SystemCleaner" memungkinkan kamu untuk memindai perangkat dan menghapus berkas berdasarkan berbagai kriteria.
 
-🧹 Delete expendable files and hidden caches
-Keluku, sisa berkas, tembolok luring, dan lain-lain: Jika aplikasi terkait tidak mampu membersihkan sendiri, aplikasi inilah yang mampu. The "AppCleaner" tool finds apps with expendable files.
+🧹 Hapus file yang dapat dibuang dan cache tersembunyi
+Thumbnail, sisa berkas, cache offline, dan lain-lain: Jika aplikasi terkait tidak mampu membersihkan sendiri, aplikasi inilah yang mampu. Alat "AppCleaner" dapat menemukan aplikasi dengan file yang dapat dibuang.
 
-📦 Mengelola semua aplikasi Anda
-Dapatkan daftar mendetail atas seluruh aplikasi yang terpasang pada perangkat Anda. Aplikasi aktif, non-aktif, milik pengguna atau sistem: tak ada yang tersembunyi dari Anda. Alat "AppControl" adalah pengelola aplikasi yang memungkinkan Anda untuk memindai, menyortir, dan mengendalikan aplikasi Anda.
+📦 Mengelola semua aplikasi milikmu
+Dapatkan daftar mendetail atas seluruh aplikasi yang terpasang pada perangkat mu. Aplikasi aktif, non-aktif, milik pengguna atau sistem: tak ada yang tersembunyi darimu. Alat "AppControl" adalah pengelola aplikasi yang memungkinkan kamu untuk memindai, menyortir, dan mengendalikan aplikasi mu.
 
 📊 Apa saja yang menggunakan ruang penyimpanan anda
-Storage management can be complex with apps, media, system, and other files across phone storage, SD cards, and USB devices. "StorageAnalyzer" is a file manager that displays how space is used on your device, simplifying your storage management.
+Manajemen penyimpanan bisa menjadi rumit pada aplikasi, media, sistem, dan file lain di penyimpanan ponsel, kartu SD, dan perangkat USB. "StorageAnalyzer" adalah pengelola file yang menampilkan bagaimana ruang digunakan pada perangkat mu, menyederhanakan manajemen penyimpanan mu.
 
 📷 Find duplicate data
 Duplicate downloads, photos sent through social media or just similar pictures of the same scene: Over time copies can accumulate. The "Deduplicator" tool finds files that are exactly the same or similar and helps you delete extra copies.
