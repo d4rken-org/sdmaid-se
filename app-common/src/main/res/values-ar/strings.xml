@@ -171,4 +171,5 @@
         <item quantity="many">%s ملفات</item>
         <item quantity="other">%s ملفات</item>
     </plurals>
+    <string name="general_advice_title">نصيحة</string>
 </resources>

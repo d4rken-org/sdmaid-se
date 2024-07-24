@@ -217,6 +217,14 @@
     <string name="corpsefinder_filter_appasec_summary">موارد التطبيق المشفرة ، على سبيل المثال أصول اللعبة.</string>
     <string name="corpsefinder_filter_app2sd_summary">تم نقل البيانات إلى وحدة التخزين الخارجية عن طريق تعديل App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">التطبيق إلى الذاكرة</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="zero">تم حذف %d من بقايا التطبيق</item>
+        <item quantity="one">تم حذف %d من بقايا التطبيق</item>
+        <item quantity="two">تم حذف %d من بقايا التطبيق</item>
+        <item quantity="few">تم حذف %d من بقايا التطبيق</item>
+        <item quantity="many">تم حذف %d من بقايا التطبيق</item>
+        <item quantity="other">تم حذف %d من بقايا التطبيق</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="zero">%d من التطبيقات المتبقية اكتشفت</item>
         <item quantity="one">%d من التطبيقات المتبقية اكتشفت</item>
@@ -233,6 +241,14 @@
     <string name="corpsefinder_corpse_hint_common">هذا العنصر له اسم شائع جدًا ويمكن أن ينتمي إلى التطبيقات التي لا تزال مثبتة والتي لا يعرفها SD Maid.</string>
     <string name="systemcleaner_tool_name">منظف النظام</string>
     <string name="systemcleaner_explanation_short">تنظيف دقيق للبيانات التي لا تنتمي لأي تطبيق محدد.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="zero">تم حذف %d من المطابقة</item>
+        <item quantity="one">تم حذف %d من المطابقة</item>
+        <item quantity="two">تم حذف %d من المطابقة</item>
+        <item quantity="few">تم حذف %d من المطابقة</item>
+        <item quantity="many">تم حذف %d من المطابقة</item>
+        <item quantity="other">تم حذف %d من المطابقة</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="zero">تطابق %d فلتر</item>
         <item quantity="one">%d مرشح مطابق</item>
@@ -371,6 +387,14 @@
     <string name="appcleaner_filter_viber_label">فايبر</string>
     <string name="appcleaner_filter_viber_summary">ملفات الوسائط المخزنة مؤقتاً والتي يتم تنزيلها مرة أخرى عند عرضها في المحادثة.</string>
     <string name="appcleaner_delete_all_confirmation_message">هل تريد حذف العناصر المستهلكة لكافة التطبيقات؟</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="zero">تم حذف %d من العناصر المستهلكة</item>
+        <item quantity="one">تم حذف %d من العناصر المستهلكة</item>
+        <item quantity="two">تم حذف %d من العناصر المستهلكة</item>
+        <item quantity="few">تم حذف %d من العناصر المستهلكة</item>
+        <item quantity="many">تم حذف %d من العناصر المستهلكة</item>
+        <item quantity="other">تم حذف %d من العناصر المستهلكة</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="zero">تم العثور على %d عنصر مستهلك</item>
         <item quantity="one">تم العثور على %d عنصر قابل للاستهلاك</item>
@@ -404,6 +428,14 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">حذف الملفات المؤقتة باستخدام شيزوكو</string>
     <string name="deduplicator_tool_name">النسخة المتكررة</string>
     <string name="deduplicator_explanation_short">ابحث عن النسخة المكررة على جهازك.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="zero">تم حذف %d من المتكررة</item>
+        <item quantity="one">تم حذف %d من المتكررة</item>
+        <item quantity="two">تم حذف %d من المتكررة</item>
+        <item quantity="few">تم حذف %d من المتكررة</item>
+        <item quantity="many">تم حذف %d من المتكررة</item>
+        <item quantity="other">تم حذف %d من المتكررة</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="zero">تم العثور على مجموعة %d مكررة</item>
         <item quantity="one">تم العثور على مجموعة %d مكررة</item>
@@ -484,6 +516,14 @@
     <string name="appcontrol_list_sortmode_size_label">الحجم</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">أحجام التطبيقات مقدرة لأسباب تتعلق بالأداء. استخدم أداة تحليل التخزين للحصول على بيانات أدق.</string>
     <string name="appcontrol_progress_uninstalling_app">إلغاء تثبيت التطبيق</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="zero">تم إلغاء تثبيت %d من التطبيقات</item>
+        <item quantity="one">تم إلغاء تثبيت %d من التطبيقات</item>
+        <item quantity="two">تم إلغاء تثبيت %d من التطبيقات</item>
+        <item quantity="few">تم إلغاء تثبيت %d من التطبيقات</item>
+        <item quantity="many">تم إلغاء تثبيت %d من التطبيقات</item>
+        <item quantity="other">تم إلغاء تثبيت %d من التطبيقات</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">حجم التطبيق</string>
     <string name="appcontrol_app_sizes_apk_label">التطبيق</string>
     <string name="appcontrol_app_sizes_data_label">البيانات</string>
@@ -497,6 +537,14 @@
         <item quantity="many">تغيير حالة تمكين / تعطيل التطبيق %d؟</item>
         <item quantity="other">تغيير الحالات المفعلة/المعطلة لتطبيقات %d؟</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="zero">تم تبديل %d من التطبيقات</item>
+        <item quantity="one">تم تبديل %d من التطبيقات</item>
+        <item quantity="two">تبديل %d من التطبيقات</item>
+        <item quantity="few">تبديل %d من التطبيقات</item>
+        <item quantity="many">تبديل %d من التطبيقات</item>
+        <item quantity="other">تبديل %d من التطبيقات</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">تحديد الأحجام</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">احصل على تقدير تقريبي لحجم كل تطبيق.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">تحديد النشاط</string>
@@ -504,6 +552,14 @@
     <string name="appcontrol_export_app_selection_action">تصدير التطبيقات</string>
     <string name="appcontrol_export_title">تصدير التطبيق</string>
     <string name="appcontrol_export_description">حفظ ملفات تثبيت هذا التطبيق. هذا لا يشمل بيانات التطبيق.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="zero">تم تصدير %d من التطبيقات</item>
+        <item quantity="one">تم تصدير %d تطبيق</item>
+        <item quantity="two">تصدير %d من التطبيقات</item>
+        <item quantity="few">تصدير %d من التطبيقات</item>
+        <item quantity="many">تصدير %d من التطبيقات</item>
+        <item quantity="other">تصدير %d من التطبيقات</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">تصدير %s</string>
     <string name="appcontrol_force_stop_selection_action">إيقاف التطبيقات إجبارياً</string>
     <string name="appcontrol_force_stop_action">ايقاف اجباري</string>
@@ -515,6 +571,14 @@
         <item quantity="few">فرض إيقاف %d تطبيق؟</item>
         <item quantity="many">فرض إيقاف %d تطبيق؟</item>
         <item quantity="other">فرض إيقاف %d تطبيق؟</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="zero">تم إيقاف %d من التطبيقات</item>
+        <item quantity="one">إيقاف %d من التطبيقات</item>
+        <item quantity="two">إيقاف %d من التطبيقات</item>
+        <item quantity="few">إيقاف %d من التطبيقات</item>
+        <item quantity="many">إيقاف %d من التطبيقات</item>
+        <item quantity="other">إيقاف %d من التطبيقات</item>
     </plurals>
     <string name="appcontrol_automation_loading">إعداد التشغيل الآلي عن طريق خدمة الوصول</string>
     <string name="appcontrol_automation_title">أتمتة التحكم بالتطبيقات</string>
@@ -663,6 +727,7 @@
     <string name="scheduler_notification_result_failure_message">بعض المهام المجدولة فشلت أو واجهت أخطاء. حاول تشغيلها يدويا.</string>
     <string name="scheduler_commands_after_schedule_label">أوامر ما بعد الجدولة</string>
     <string name="scheduler_commands_after_schedule_desc">أوامر هيكل أندرويد التي ستُنفَّذ في نهاية الجدول الزمني.</string>
+    <string name="scheduler_battery_optimization_hint">فكر في تعطيل تحسينات البطارية لـ SD Maid إذا واجهت مشكلات في التنفيذ في الخلفية.</string>
     <string name="updates_dashcard_title">تحديث متاح</string>
     <string name="updates_dashcard_body">هنالك تحديث متاح. إصدارك %1$s واخر إصدار هو %2$s.</string>
     <string name="translation_encourage_title">ترجمة SD Maid</string>
@@ -678,4 +743,27 @@
     <string name="review_app_review_action">مراجعة</string>
     <string name="review_app_dismiss_action">ربما لاحقًا</string>
     <string name="review_app_body">هل ترغب في ترك تعليق لـ SD Med؟ ❤️</string>
+    <string name="stats_label">السجل</string>
+    <string name="stats_dash_body">تم تحرير %s ومعالجة %s من العناصر منذ تثبيت SD Maid في جهازك.</string>
+    <string name="stats_report_status_success">تم بنجاح</string>
+    <string name="stats_report_status_partial_success">تم بنجاح جزئي</string>
+    <string name="stats_report_status_partial_failure">فشل</string>
+    <string name="stats_settings_desc">تكوين إحصائيات SD Maid والتقارير والاحتفاظ بالبيانات.</string>
+    <string name="stats_settings_retention_category">الاحتفاظ</string>
+    <string name="stats_settings_retention_reports_label">التقارير العامة</string>
+    <string name="stats_settings_retention_reports_desc">عدد الأيام قبل حذف تقارير تشغيل SD Maid الأساسية.</string>
+    <string name="stats_settings_retention_paths_label">معلومات المسار التفصيلية</string>
+    <string name="stats_settings_retention_paths_desc">عدد الأيام اللازمة للاحتفاظ بتفاصيل حول المسارات المتأثرة بـ SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="zero">%d أيام</item>
+        <item quantity="one">%d يوم</item>
+        <item quantity="two">%d يومان</item>
+        <item quantity="few">%d أيام</item>
+        <item quantity="many">%d أيام</item>
+        <item quantity="other">%d أيام</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">إعادة تعيين الكل</string>
+    <string name="stats_settings_reset_all_desc">حذف كافة التقارير وتعيين كافة الإحصائيات وتصفيرها.</string>
+    <string name="stats_affected_paths_label">المسارات المتأثرة</string>
+    <string name="stats_affected_pkgs_label">التطبيقات المتأثرة</string>
 </resources>

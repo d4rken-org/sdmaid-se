@@ -73,6 +73,7 @@
     <string name="ui_previews_title">Fájl előnézetek</string>
     <string name="ui_previews_summary">Fájlelőnézetek megjelenítése minden eszközben (pl. kép- és videóképek miniatűrjei).</string>
     <string name="ui_language_override_label">Alkalmazás nyelve</string>
+    <string name="ui_language_override_desc">Valasszon egy nyelvet az SD Maid számára, függetlenül a rendezer nyelvétöl</string>
     <string name="settings_support_label">Támogatás</string>
     <string name="settings_support_description">Olvasd el a dokumentációt, jelentsd a problémákat, csevegj másokkal vagy rögzítsd a hibakeresési naplókat.</string>
     <string name="documentation_label">Dokumentáció</string>
@@ -94,6 +95,8 @@
     <string name="setup_incomplete_card_continue_action">Folytassa a beállítást</string>
     <string name="setup_title">Beállítás</string>
     <string name="setup_forcedshow_summary">A beállítási képernyő ismételt megjelenítése, beleértve a már befejezett elemeket is.</string>
+    <string name="setup_checking_card_body">A telepítés befejezésének ellenőrzése és funkciói.</string>
+    <string name="general_error_setup_require_label">A telepítés sikertelen</string>
     <string name="setup_saf_card_title">Tárolási hozzáférési keretrendszer</string>
     <string name="setup_saf_card_body">Javítsa az eredményeket, ha további területekhez biztosít hozzáférést az SD Maid számára.</string>
     <string name="setup_saf_card_body2">A legtöbb esetben az ablak megnyílik a megfelelő előre kiválasztott útvonallal. A bejegyzések zöldre váltanak, amikor a hozzáférést engedélyezik. </string>

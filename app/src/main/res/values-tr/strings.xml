@@ -201,6 +201,10 @@
     <string name="corpsefinder_filter_appasec_summary">Şifrelenmiş uygulama kaynakları, oyun dosyaları gibi.</string>
     <string name="corpsefinder_filter_app2sd_summary">App2SD modları tarafından harici depolamaya taşınan veriler.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d uygulama kalıntısı silindi</item>
+        <item quantity="other">%d uygulama kalıntısı silindi</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">%d uygulama kalıntısı bulundu</item>
         <item quantity="other">%d uygulama kalıntısı bulundu</item>
@@ -213,6 +217,10 @@
     <string name="corpsefinder_corpse_hint_common">Bu öge çok yaygın bir isme sahip, bu yüzden SD Maid\'in haberinin olmadığı, hâlâ yüklü bir uygulamaya ait olabilir.</string>
     <string name="systemcleaner_tool_name">SistemTemizleyicisi</string>
     <string name="systemcleaner_explanation_short">Belli bir uygulamaya ait olmayan gereksiz veriler.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d eşleşen dosya silindi</item>
+        <item quantity="other">%d eşleşen dosya silindi</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d filtre eşleşti</item>
         <item quantity="other">%d filtre eşleşti</item>
@@ -347,6 +355,10 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Sohbette görüntülendiğinde tekrar indirilen önbelleğe alınmış medya dosyaları.</string>
     <string name="appcleaner_delete_all_confirmation_message">Tüm uygulamaların gereksiz ögeleri silinsin mi?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d temizlenebilir öğe silindi</item>
+        <item quantity="other">%d temizlenebilir öğe silindi</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d silinebilir öğe bulundu</item>
         <item quantity="other">%d silinebilir öğe bulundu</item>
@@ -372,6 +384,10 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku kullanılarak önbellekler siliniyor</string>
     <string name="deduplicator_tool_name">Tekilleyici</string>
     <string name="deduplicator_explanation_short">Cihazındaki birbirinin aynısı olan verileri bul.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d kopya silindi</item>
+        <item quantity="other">%d kopya silindi</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d tekrarlı grup bulundu</item>
         <item quantity="other">%d tekrarlı gruplar bulundu</item>
@@ -444,6 +460,10 @@
     <string name="appcontrol_list_sortmode_size_label">Boyut</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Uygulama boyutları performans nedeniyle tahmini olarak verilmiştir. Daha doğru veriler için StorageAnalyzer aracını kullanın.</string>
     <string name="appcontrol_progress_uninstalling_app">Uygulama kaldırılıyor</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d uygulama kaldırıldı</item>
+        <item quantity="other">%d uygulama kaldırıldı</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Uygulama boyutu</string>
     <string name="appcontrol_app_sizes_apk_label">Uygulama</string>
     <string name="appcontrol_app_sizes_data_label">Veri</string>
@@ -453,6 +473,10 @@
         <item quantity="one">%d uygulamasının etkin/devre dışı durumunu değiştir?</item>
         <item quantity="other">%d uygulamaları için etkin/devre dışı durumlarını değiştir?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d uygulamanın durumu değiştirildi</item>
+        <item quantity="other">%d uygulamanın durumu değiştirildi</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Boyutları belirle</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Her uygulamanın boyutu hakkında kabaca bir tahminde bulunun.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Faaliyeti belirleyin</string>
@@ -460,6 +484,10 @@
     <string name="appcontrol_export_app_selection_action">Uygulamaları dışa aktarma</string>
     <string name="appcontrol_export_title">Uygulamayı dışa aktar</string>
     <string name="appcontrol_export_description">Bu uygulamanın kurulum dosyalarını kaydedin. Bu, uygulama verilerini içermez.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d uygulama dışa aktarıldı</item>
+        <item quantity="other">%d uygulama dışa aktarıldı</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Dışa aktarılıyor %s</string>
     <string name="appcontrol_force_stop_selection_action">Uygulamaları durdurmaya zorla</string>
     <string name="appcontrol_force_stop_action">Durdurmaya zorla</string>
@@ -467,6 +495,10 @@
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="one">Zorla %d uygulamasını durdur?</item>
         <item quantity="other">Zorla %d uygulamalarını durdur?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d uygulama durduruldu</item>
+        <item quantity="other">%d uygulama durduruldu</item>
     </plurals>
     <string name="appcontrol_automation_loading">Erişilebilirlik hizmeti aracılığıyla otomasyon hazırlanıyor</string>
     <string name="appcontrol_automation_title">Uygulama Kontrol otomasyonu</string>
@@ -600,6 +632,7 @@
     <string name="scheduler_notification_result_failure_message">Bazı zamanlanmış görevler başarısız oldu veya hatalarla karşılaştı. Bunları manuel olarak çalıştırmayı deneyin.</string>
     <string name="scheduler_commands_after_schedule_label">Program sonrası komutlar</string>
     <string name="scheduler_commands_after_schedule_desc">Bir zamanlamanın sonunda çalıştırılacak Android shell komutları.</string>
+    <string name="scheduler_battery_optimization_hint">Uygulamanın arka planda çalışmasıyla ilgili sorunlar yaşıyorsanız SD Maid için batarya optimizasyonlarını kapatmayı deneyebilirsiniz.</string>
     <string name="updates_dashcard_title">Güncelleme mevcut</string>
     <string name="updates_dashcard_body">Güncelleme mevcut. Cihazınızda %1$s sürümü var. En son sürüm: %2$s.</string>
     <string name="translation_encourage_title">SD Maid\'i çevirmeye yardım et</string>
@@ -615,4 +648,23 @@
     <string name="review_app_review_action">Değerlendir</string>
     <string name="review_app_dismiss_action">Belki daha sonra</string>
     <string name="review_app_body">SD Maid\'e bir inceleme bırakmak ister misiniz? ️ ❤️</string>
+    <string name="stats_label">Geçmiş</string>
+    <string name="stats_dash_body">SD Maid\'i yüklediğinizden beri %s alan açıldı ve %s öğe temizlendi.</string>
+    <string name="stats_report_status_success">Başarılı</string>
+    <string name="stats_report_status_partial_success">Kısmen başarılı</string>
+    <string name="stats_report_status_partial_failure">Başarısız</string>
+    <string name="stats_settings_desc">SD Maid\'in istatistiklerini, raporlarını ve veri saklama ayarlarını yapılandırın.</string>
+    <string name="stats_settings_retention_category">Saklama</string>
+    <string name="stats_settings_retention_reports_label">Genel raporlar</string>
+    <string name="stats_settings_retention_reports_desc">SD Maid\'in temel işlem raporlarının saklanma süresi.</string>
+    <string name="stats_settings_retention_paths_label">Detaylı dizin bilgisi</string>
+    <string name="stats_settings_retention_paths_desc">SD Maid tarafından etkilenen dizinlerle ilgili detayların saklanma süresi.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d gün</item>
+        <item quantity="other">%d gün</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Tümünü sıfırla</string>
+    <string name="stats_settings_reset_all_desc">Tüm raporları sil ve tüm istatistikleri sıfırla.</string>
+    <string name="stats_affected_paths_label">Etkilenen dizinler</string>
+    <string name="stats_affected_pkgs_label">Etkilenen uygulamalar</string>
 </resources>

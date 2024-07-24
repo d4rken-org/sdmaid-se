@@ -153,4 +153,5 @@
         <item quantity="many">%s plików</item>
         <item quantity="other">%s plików</item>
     </plurals>
+    <string name="general_advice_title">Porada</string>
 </resources>
