@@ -10,7 +10,7 @@ Laten we hier niet verder op ingaan... Laat SD Maid 2/SE je helpen!
 
 SD Maid 2/SE is een app- en bestandsbeheerder die gespecialiseerd is in het weten welke apps specifieke bestanden op je apparaat hebben gemaakt. SD Maid 2/SE doorzoekt je apparaat en vergelijkt bestanden met geïnstalleerde apps om opties te bieden voor het veilig vrijmaken van opslagruimte.
 
-✨ Clean up after uninstalling apps
+✨ Ruim op na het verwijderen van apps
 Als apps bestanden buiten de aangewezen mappen maken, kunnen de bestanden blijven staan, zelfs nadat de apps zijn verwijderd. De tool "Lijkzoeker" vindt app-resten, vertelt je bij welke app ze horen en helpt je ze te verwijderen.
 
 🔍 Zoek op een slimme manier op je apparaat
@@ -22,19 +22,19 @@ Miniaturen, prullenbakken, offline caches en meer: ​​als apps zichzelf niet 
 📦 Beheer al je apps
 Krijg een uitgebreide lijst van alle apps die op je apparaat zijn geïnstalleerd. Ingeschakeld, uitgeschakeld, gebruikers- of systeem-app: geen enkele app kan zich voor je verbergen. De tool "AppControl" is een app-manager waarmee je jouw apps kunt zoeken, sorteren en beheren.
 
-📊 What is using all your space
-Storage management can be complex with apps, media, system, and other files across phone storage, SD cards, and USB devices. "StorageAnalyzer" is a file manager that displays how space is used on your device, simplifying your storage management.
+📊 Wat gebruikt al je ruimte
+Opslagbeheer kan complex zijn met apps, media, systeem- en andere bestanden op telefoonopslag, SD-kaarten en USB-apparaten. "StorageAnalyzer" is een bestandsbeheerder die weergeeft hoe de ruimte op je apparaat wordt gebruikt, waardoor je opslagbeheer wordt vereenvoudigd.
 
-📷 Find duplicate data
-Duplicate downloads, photos sent through social media or just similar pictures of the same scene: Over time copies can accumulate. The "Deduplicator" tool finds files that are exactly the same or similar and helps you delete extra copies.
+📷 Vind dubbele gegevens
+Dubbele downloads, foto's verzonden via sociale media of gewoon vergelijkbare foto's van dezelfde scène: na verloop van tijd kunnen kopieën zich ophopen. De tool "Deduplicator" vindt bestanden die precies hetzelfde of vergelijkbaar zijn en helpt je extra kopieën te verwijderen.
 
-This app is ad-free. Voor sommige functies is een betaalde upgrade vereist.
+Deze app is advertentievrij. Voor sommige functies is een betaalde upgrade vereist.
 
 SD Maid 2/SE is de opvolger van SD Maid 1/Legacy.
 Geoptimaliseerd voor nieuwere Android-versies en gericht op opschonen.
 
-This app has optional features that utilize the AccessibilityService API to automate tedious actions.
-Using the AccessibilityService API, this app can click buttons for you to perform operations on multiple apps, e.g. caches verwijderen.
-This app does not use the AccessibilityService API to collect information.
+Deze app heeft optionele functies die gebruik maken van de AccessibilityService API om vervelende acties te automatiseren.
+Met behulp van de AccessibilityService API kan deze app op knoppen klikken om bewerkingen op meerdere apps uit te voeren, bijvoorbeeld. caches verwijderen.
+Deze app maakt geen gebruik van de AccessibilityService API om informatie te verzamelen.
 
-SD Maid 2/SE is a File Manager & Cleaner App.
+SD Maid 2/SE is een app voor bestandsbeheer en opschoning.
