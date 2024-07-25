@@ -94,7 +94,7 @@ class SchedulerManagerViewModel @Inject constructor(
         schedulerManager.state,
         taskManager.state,
         showBatteryOptimizationHint,
-    ) { schedulerState, taskState, showBatteryHint ->
+    ) { schedulerState, _, showBatteryHint ->
         val items = mutableListOf<SchedulerAdapter.Item>()
 
         if (hasApiLevel(31) && showBatteryHint && schedulerState.schedules.any { it.isEnabled }) {

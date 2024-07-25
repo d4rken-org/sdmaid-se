@@ -181,7 +181,7 @@ class DashboardViewModel @Inject constructor(
 
     private val titleCardItem = combine(
         upgradeInfo,
-        taskManager.state
+        taskManager.state,
     ) { upgradeInfo, taskState ->
         TitleCardVH.Item(
             upgradeInfo = upgradeInfo,

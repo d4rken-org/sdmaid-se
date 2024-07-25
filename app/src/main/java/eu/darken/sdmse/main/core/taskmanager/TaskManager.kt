@@ -112,12 +112,18 @@ class TaskManager @Inject constructor(
             .distinctUntilChanged()
             .onEach {
                 updateTasks {
-                    this.entries
+                    // We want to keep one result of each type
+                    val tasksByType = this.entries
                         .asSequence()
                         .filter { it.value.isComplete }
-                        .sortedBy { it.value.completedAt }
+                        .groupBy { it.value.toolType }
+
+                    // Keep the newest for each type
+                    val tasksToRemove = tasksByType
+                        .flatMap { (_, tasks) -> tasks.sortedByDescending { it.value.completedAt }.drop(1) }
                         .map { it.key }
-                        .drop(10)
+
+                    tasksToRemove
                         .onEach {
                             log(TAG, VERBOSE) { "Pruning old task: $it" }
                             remove(it)
