@@ -348,7 +348,7 @@ class CorpseFinder @Inject constructor(
 
         return CorpseFinderDeleteTask.Success(
             affectedSpace = deletedCorpses.sumOf { it.size } + deletedContentSize,
-            affectedPaths = deletedCorpses.map { it.lookup.lookedUp }.toSet(),
+            affectedPaths = deletedCorpses.map { it.lookup.lookedUp }.toSet() + deletedContents.flatMap { it.value },
         )
     }
 
