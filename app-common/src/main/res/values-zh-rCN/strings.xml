@@ -141,4 +141,5 @@
     <plurals name="result_x_files">
         <item quantity="other">%s 个文件</item>
     </plurals>
+    <string name="general_advice_title">建议</string>
 </resources>

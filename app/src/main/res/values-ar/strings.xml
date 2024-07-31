@@ -4,13 +4,13 @@
     <string name="dashboard_settings_category">الرئيسية</string>
     <string name="dashboard_motd_title">رسالة من المطور</string>
     <string name="dashboard_settings_oneclick_title">وضع النقرة الواحدة</string>
-    <string name="dashboard_settings_oneclick_summary">ابدأ الفحص والحذف لجميع الأدوات بنقرة واحدة على زر إجراء الرئيسية ، دون تأكيدات إضافية.</string>
+    <string name="dashboard_settings_oneclick_summary">ابدأ الفحص والحذف لجميع الأدوات بنقرة واحدة على زر إجراء الرئيسية، دون تأكيدات إضافية.</string>
     <string name="dashboard_settings_oneclick_tools_title">أدوات بنقرة واحدة</string>
     <string name="dashboard_settings_oneclick_tools_desc">ما هي الأدوات التي يجب تضمينها في عمليات النقرة الواحدة؟</string>
     <string name="debug_debuglog_size_label">الحجم</string>
     <string name="debug_debuglog_size_compressed_label">الحجم المضغوط</string>
     <string name="debug_notification_channel_label">إشعار التطوير</string>
-    <string name="debug_debuglog_file_label">الكتابة إلى مِلَفّ السجل</string>
+    <string name="debug_debuglog_file_label">الكتابة إلى ملف السجل</string>
     <string name="debug_debuglog_recording_progress">تسجيل سجل التصحيح</string>
     <string name="debug_debuglog_record_action">تسجيل سجل التصحيح</string>
     <string name="debug_debuglog_stop_action">إيقاف التسجيل</string>

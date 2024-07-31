@@ -120,6 +120,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Dovolite SD Maidu, da po možnosti uporabi Shizuku, da izboljša rezultate in omogoči funkcije.</string>
     <string name="setup_shizuku_card_body2">Ta nastavitev nima učinka, če na napravi nimate nameščenega Shizukuja.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku v kombinaciji s skrbniškim dostopom ne omogoča dodatnih značilnosti, ampak izboljša zanesljivost.  SD Maid ga bo uporabil kot pomožno orodje.</string>
     <string name="setup_shizuku_state_ready_label">Povezava do Shizukuja je pripravljena.</string>
     <string name="setup_shizuku_state_waiting_label">Čakanje na povezavo s Shizukujem.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Uporabi Shizuku, če je na voljo</string>
@@ -207,6 +208,12 @@
     <string name="corpsefinder_filter_appasec_summary">Šifrirani programski viri, npr. shranjene datoteke iger.</string>
     <string name="corpsefinder_filter_app2sd_summary">Podatki, ki so bili premaknjeni v zunanjo shrambo s pomočjo programov App2SD.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">Izbrisan je bil %d ostanek programa.</item>
+        <item quantity="two">Izbrisana sta bila %d ostanka programov.</item>
+        <item quantity="few">Izbrisani so bili %d-je ostanki programov.</item>
+        <item quantity="other">Izbrisanih je bilo %d ostankov programov.</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">Odkrit je bil %d ostanek programov.</item>
         <item quantity="two">Odkrita sta bila %d ostanka programov.</item>
@@ -221,6 +228,12 @@
     <string name="corpsefinder_corpse_hint_common">Ta predmet ima zelo pogosto ime in bi lahko pripadal nameščenim programom, katere SD Maid ne pozna.</string>
     <string name="systemcleaner_tool_name">Čistilec sistema</string>
     <string name="systemcleaner_explanation_short">Odvečni podatki, ki ne pripadajo nobenemu programu.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">Izbrisan je bil %d zadetek.</item>
+        <item quantity="two">Izbrisana sta bila %d zadetka.</item>
+        <item quantity="few">Izbrisani so bili %d-je zadetki.</item>
+        <item quantity="other">Izbrisanih je bilo %d zadetkov.</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d ujemanje filtra</item>
         <item quantity="two">%d ujemanja filtra</item>
@@ -357,6 +370,12 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Prepomnjene predstavne datoteke, ki so bile ponovno prejete, ko si jih ogledate v klepetih.</string>
     <string name="appcleaner_delete_all_confirmation_message">Izbriši odvečne predmete vseh programov?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">Izbrisan je bil %d odvečen predmet.</item>
+        <item quantity="two">Izbrisana sta bila %d odvečna predmeta.</item>
+        <item quantity="few">Izbrisani so bili %d-je odvečni predmeti.</item>
+        <item quantity="other">Izbrisanih je bilo %d odvečnih predmetov.</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Najden je bil %d odvečen predmet.</item>
         <item quantity="two">Najdena sta bila %d odvečna predmeta.</item>
@@ -386,6 +405,12 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Brisanje prepomnilnikov s Shizukujem</string>
     <string name="deduplicator_tool_name">Odstranjevalec dvojnikov</string>
     <string name="deduplicator_explanation_short">Na napravi poiščite podvojene podatke.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">Izbrisan je bil %d dvojnik.</item>
+        <item quantity="two">Izbrisana sta bila %d dvojnika.</item>
+        <item quantity="few">Izbrisani so bili %d-je dvojniki.</item>
+        <item quantity="other">Izbrisanih je bilo %d dvojnikov.</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">Najden je bil %d podvojeni niz.</item>
         <item quantity="two">Najdena sta bila %d podvojena niza.</item>
@@ -449,6 +474,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Skupina</string>
     <string name="appcontrol_tag_system">Sistem</string>
+    <string name="appcontrol_tag_archived">Arhivirano</string>
     <string name="appcontrol_tag_enabled">Omogočeno</string>
     <string name="appcontrol_tag_disabled">Onemogočeno</string>
     <string name="appcontrol_progress_enabling_package">Omogočanje programa</string>
@@ -461,6 +487,12 @@
     <string name="appcontrol_list_sortmode_size_label">Velikost</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Velikosti programov se določajo zaradi zmogljivosti.  Za natančnejše podatke uporabite Analizatorja shrambe.</string>
     <string name="appcontrol_progress_uninstalling_app">Odstranjevanje programa</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d program je bil odstranjen.</item>
+        <item quantity="two">%d programa sta bila odstranjena.</item>
+        <item quantity="few">%d-je programi so bili odstranjeni.</item>
+        <item quantity="other">%d programov je bilo odstranjenih.</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Velikost programa</string>
     <string name="appcontrol_app_sizes_apk_label">Program</string>
     <string name="appcontrol_app_sizes_data_label">Podatki</string>
@@ -472,6 +504,12 @@
         <item quantity="few">Omogoči/onemogoči %d?</item>
         <item quantity="other">Omogoči/onemogoči %d?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d program je bil preklopljen.</item>
+        <item quantity="two">%d programa sta bila preklopljena.</item>
+        <item quantity="few">%d-je programi so bili preklopljeni.</item>
+        <item quantity="other">%d programov je bilo preklopljenih.</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Ugotovi velikosti</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Približno oceni velikost vsakega programa.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Ugotovi dejavnost</string>
@@ -479,6 +517,12 @@
     <string name="appcontrol_export_app_selection_action">Izvozi programe</string>
     <string name="appcontrol_export_title">Izvozi program</string>
     <string name="appcontrol_export_description">Shrani namestitvene datoteke tega programa.  To ne vključuje podatke programa.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d program je bil izvožen.</item>
+        <item quantity="two">%d programa sta bila izvožena.</item>
+        <item quantity="few">%d-je programi so bili izvoženi.</item>
+        <item quantity="other">%d programov je bilo izvoženih.</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Izvažanje %s</string>
     <string name="appcontrol_force_stop_selection_action">Prisilno ustavi programe</string>
     <string name="appcontrol_force_stop_action">Vsili ustavitev</string>
@@ -488,6 +532,12 @@
         <item quantity="two">Prisilno ustavi %d programa?</item>
         <item quantity="few">Prisilno ustavi %d programe?</item>
         <item quantity="other">Prisilno ustavi %d programov?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d program je bil ustavljen.</item>
+        <item quantity="two">%d programa sta bila ustavljena.</item>
+        <item quantity="few">%d-je programi so bili ustavljeni.</item>
+        <item quantity="other">%d programov je bilo ustavljenih.</item>
     </plurals>
     <string name="appcontrol_automation_loading">Pripravljanje samodejni dejanj preko storitve dostopnosti</string>
     <string name="appcontrol_automation_title">Samodejna dejanja nadzora programov</string>
@@ -530,6 +580,7 @@
     <string name="analyzer_storage_content_type_system_label">Sistemski podatki</string>
     <string name="analyzer_storage_content_type_system_description">Sistemski programi in podatki.  Programi in podatki drugih uporabnikov, če je na napravi več uporabniških računov.</string>
     <string name="analyzer_storage_content_app_code_label">Programska koda</string>
+    <string name="analyzer_storage_content_app_code_description">Programske datoteke, knjižnice in viri.  Ta prostor lahko sprostite z odstranitvijo ali arhiviranjem (na voljo v novejših različicah Androida) programa.</string>
     <string name="analyzer_storage_content_app_data_label">Programski podatki</string>
     <string name="analyzer_storage_content_app_data_description">Podatki, nastavitve in predpomnilniki.</string>
     <string name="analyzer_storage_content_app_media_label">Predstavnost programov</string>
@@ -537,6 +588,7 @@
     <string name="analyzer_storage_content_app_extra_label">Dodatne programske datoteke</string>
     <string name="analyzer_storage_content_app_extra_description">Dodatni podatki, ki jih je ta program shranil zunaj privzetih poti, npr. fotografije ali prenosi.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Ta program zaseda %1$s na \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Ta program je bil arhiviran.</string>
     <string name="data_area_public_app_data_official_label">Privzeti javni programski podatki</string>
     <string name="data_area_public_app_assets_official_label">Privzeta javna programska sredstva</string>
     <string name="data_area_public_storage_label">Javna shramba</string>
@@ -626,6 +678,7 @@
     <string name="scheduler_notification_result_failure_message">Nekatera načrtovana opravila se niso uspešno končala ali so naletela na napake.  Poizkusite jih ročno zagnati.</string>
     <string name="scheduler_commands_after_schedule_label">Ukazi, ki se izvedejo po urniku</string>
     <string name="scheduler_commands_after_schedule_desc">Ukazi Androidove lupine, ki bodo izvedeni po koncu urnika.</string>
+    <string name="scheduler_battery_optimization_hint">Če opazite težave z izvajanjem v ozadju, lahko za SD Maid onemogočite optimizacijo energije.</string>
     <string name="updates_dashcard_title">Na voljo je posodobitev.</string>
     <string name="updates_dashcard_body">Na voljo je posodobitev.  Vaša različica: %1$s, najnovejša: %2$s.</string>
     <string name="translation_encourage_title">Prevedi SD Maid</string>
@@ -641,4 +694,25 @@
     <string name="review_app_review_action">Oceni</string>
     <string name="review_app_dismiss_action">Morda kasneje</string>
     <string name="review_app_body">Bi radi ocenili SD Maid? ❤️</string>
+    <string name="stats_label">Zgodovina</string>
+    <string name="stats_dash_body">Od kar ste SD Maid namestili na napravo, je bilo sproščenih %s in obdelanih %s predmetov.</string>
+    <string name="stats_report_status_success">Uspešno</string>
+    <string name="stats_report_status_partial_success">Delno uspešno</string>
+    <string name="stats_report_status_partial_failure">Spodletelo</string>
+    <string name="stats_settings_desc">Nastavite statistiko, poročila in shranjevanje podatkov za SD Maid.</string>
+    <string name="stats_settings_retention_category">Shranjevanje</string>
+    <string name="stats_settings_retention_reports_label">Splošna poročila</string>
+    <string name="stats_settings_retention_reports_desc">Št. dni, za kolikor naj se obdržijo osnovna poročila o delovanju SD Maida.</string>
+    <string name="stats_settings_retention_paths_label">Podrobni podatki o poteh</string>
+    <string name="stats_settings_retention_paths_desc">Št. dni, za kolikor naj obdržijo podobnosti o poteh, na katere je vplival SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d dan</item>
+        <item quantity="two">%d dni</item>
+        <item quantity="few">%d dni</item>
+        <item quantity="other">%d dni</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Ponastavi vse</string>
+    <string name="stats_settings_reset_all_desc">Izbriši vsa poročila in nastavi vso statistiko na nične vrednosti.</string>
+    <string name="stats_affected_paths_label">Obravnavane poti</string>
+    <string name="stats_affected_pkgs_label">Obravnavani programi</string>
 </resources>
