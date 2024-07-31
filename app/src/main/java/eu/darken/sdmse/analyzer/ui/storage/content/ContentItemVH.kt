@@ -92,7 +92,7 @@ class ContentItemVH(parent: ViewGroup) :
 
         override val stableId: Long = content.path.hashCode().toLong()
         override val itemSelectionKey: String? = when {
-            parent == null -> null
+            content.inaccessible -> null
             else -> content.path.path
         }
     }
