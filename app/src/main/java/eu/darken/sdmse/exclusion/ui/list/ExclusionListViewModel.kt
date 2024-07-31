@@ -32,8 +32,7 @@ import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
-import eu.darken.sdmse.exclusion.core.types.isDefault
-import eu.darken.sdmse.exclusion.core.types.tryAsPathExclusion
+import eu.darken.sdmse.exclusion.core.types.UserExclusion
 import eu.darken.sdmse.exclusion.ui.list.types.PackageExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.PathExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.SegmentExclusionVH
@@ -65,7 +64,8 @@ class ExclusionListViewModel @Inject constructor(
     private val showDefaults = MutableStateFlow(handle["showDefaults"] ?: false)
 
     private val lookups = exclusionManager.exclusions
-        .map { excls -> excls.mapNotNull { it.tryAsPathExclusion() }.map { it.path } }
+        .map { holders -> holders.map { it.exclusion } }
+        .map { excls -> excls.filterIsInstance<PathExclusion>().map { it.path } }
         .map { paths ->
             paths
                 .mapNotNull { path ->
@@ -85,27 +85,26 @@ class ExclusionListViewModel @Inject constructor(
         pkgRepo.pkgs.onStart { emit(emptySet()) },
         lookups.onStart { emit(emptyMap()) },
         showDefaults,
-    ) { exclusions, pkgs, lookups, showDefaults ->
+    ) { holders, pkgs, lookups, showDefaults ->
         handle["showDefaults"] = showDefaults
 
         val items = mutableListOf<ExclusionListAdapter.Item>()
 
-        exclusions.mapNotNull { _exclusion ->
-            val exclusion = when (_exclusion) {
-                is DefaultExclusion -> if (showDefaults) _exclusion.exclusion else null
-                else -> _exclusion
+        holders.mapNotNull { holder ->
+            val isDefault = when (holder) {
+                is DefaultExclusion -> true
+                is UserExclusion -> false
             }
+            if (isDefault && !showDefaults) return@mapNotNull null
 
-            if (exclusion == null) return@mapNotNull null
-
-            when (exclusion) {
+            when (val exclusion = holder.exclusion) {
                 is PkgExclusion -> PackageExclusionVH.Item(
                     pkg = pkgs.firstOrNull { it.id == exclusion.pkgId },
                     exclusion = exclusion,
-                    isDefault = _exclusion.isDefault(),
+                    isDefault = isDefault,
                     onItemClick = {
-                        if (_exclusion.isDefault()) {
-                            webpageTool.open(_exclusion.reason)
+                        if (isDefault) {
+                            webpageTool.open((holder as DefaultExclusion).reason)
                         } else {
                             ExclusionListFragmentDirections.actionExclusionsListFragmentToPkgExclusionFragment(
                                 exclusionId = exclusion.id,
@@ -118,10 +117,10 @@ class ExclusionListViewModel @Inject constructor(
                 is PathExclusion -> PathExclusionVH.Item(
                     lookup = lookups[exclusion.path],
                     exclusion = exclusion,
-                    isDefault = _exclusion.isDefault(),
+                    isDefault = isDefault,
                     onItemClick = {
-                        if (_exclusion.isDefault()) {
-                            webpageTool.open(_exclusion.reason)
+                        if (isDefault) {
+                            webpageTool.open((holder as DefaultExclusion).reason)
                         } else {
                             ExclusionListFragmentDirections.actionExclusionsListFragmentToPathExclusionFragment(
                                 exclusionId = exclusion.id,
@@ -133,10 +132,10 @@ class ExclusionListViewModel @Inject constructor(
 
                 is SegmentExclusion -> SegmentExclusionVH.Item(
                     exclusion = exclusion,
-                    isDefault = _exclusion.isDefault(),
+                    isDefault = isDefault,
                     onItemClick = {
-                        if (_exclusion.isDefault()) {
-                            webpageTool.open(_exclusion.reason)
+                        if (isDefault) {
+                            webpageTool.open((holder as DefaultExclusion).reason)
                         } else {
                             ExclusionListFragmentDirections.actionExclusionsListFragmentToSegmentExclusionFragment(
                                 exclusionId = exclusion.id,

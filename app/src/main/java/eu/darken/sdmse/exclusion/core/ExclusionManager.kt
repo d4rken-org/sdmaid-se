@@ -9,7 +9,9 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.types.ExclusionHolder
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
+import eu.darken.sdmse.exclusion.core.types.UserExclusion
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
@@ -39,16 +41,25 @@ class ExclusionManager @Inject constructor(
         }
     }
 
-    val exclusions: Flow<Collection<Exclusion>> = combine(
+    val exclusions: Flow<Collection<ExclusionHolder>> = combine(
         userExclusions.flow,
         defaultExclusions.exclusions,
     ) { user, defaults ->
-        val uniqDefaults = defaults.filter { def ->
-            val notCovered = user.none { it.id == def.id }
-            if (!notCovered) log(TAG, WARN) { "User exclusions overlap with $def" }
-            notCovered
-        }
-        (user + uniqDefaults).also {
+        val combined = mutableSetOf<ExclusionHolder>()
+
+        defaults
+            .filter { def ->
+                val notCovered = user.none { it.id == def.id }
+                if (!notCovered) log(TAG, WARN) { "User exclusions overlap with $def" }
+                notCovered
+            }
+            .run { combined.addAll(this) }
+
+        user
+            .map { UserExclusion(exclusion = it) }
+            .run { combined.addAll(this) }
+
+        combined.also {
             log(TAG, INFO) { "Exclusions (${it.size}) are:\n${it.joinToString("\n")}" }
         }
     }
