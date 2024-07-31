@@ -98,6 +98,10 @@ class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fra
                 isChecked = exclusion.tags.contains(Exclusion.Tag.CORPSEFINDER)
                 setOnClickListener { vm.toggleTag(Exclusion.Tag.CORPSEFINDER) }
             }
+            ui.toolsSystemcleaner.apply {
+                isChecked = exclusion.tags.contains(Exclusion.Tag.SYSTEMCLEANER)
+                setOnClickListener { vm.toggleTag(Exclusion.Tag.SYSTEMCLEANER) }
+            }
             ui.toolsAppcleaner.apply {
                 isChecked = exclusion.tags.contains(Exclusion.Tag.APPCLEANER)
                 setOnClickListener { vm.toggleTag(Exclusion.Tag.APPCLEANER) }

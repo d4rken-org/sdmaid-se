@@ -150,6 +150,12 @@
                         android:text="@string/corpsefinder_tool_name" />
 
                     <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/tools_systemcleaner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/systemcleaner_tool_name" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/tools_appcleaner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
