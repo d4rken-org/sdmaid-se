@@ -9,11 +9,21 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
-import eu.darken.sdmse.corpsefinder.core.tasks.*
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.hasData
-import kotlinx.coroutines.flow.*
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
+import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.core.taskmanager.TaskManager
+import eu.darken.sdmse.main.core.taskmanager.getLatestTask
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
+import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,6 +31,7 @@ class DeduplicatorDetailsViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     deduplicator: Deduplicator,
+    private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
     private val args by handle.navArgs<DeduplicatorDetailsFragmentArgs>()
     private var currentTarget: Duplicate.Cluster.Id? = null
@@ -31,6 +42,21 @@ class DeduplicatorDetailsViewModel @Inject constructor(
             .filter { !it.hasData }
             .take(1)
             .onEach { popNavStack() }
+            .launchInViewModel()
+
+        val start = Instant.now()
+        val handledResults = mutableSetOf<String>()
+        taskManager.state
+            .map { it.getLatestTask(SDMTool.Type.DEDUPLICATOR) }
+            .filterNotNull()
+            .filter { it.completedAt!! > start }
+            .onEach { task ->
+                val result = task.result as? DeduplicatorTask.Result ?: return@onEach
+                if (!handledResults.contains(task.id)) {
+                    handledResults.add(task.id)
+                    events.postValue(DeduplicatorDetailsEvents.TaskResult(result))
+                }
+            }
             .launchInViewModel()
     }
 
