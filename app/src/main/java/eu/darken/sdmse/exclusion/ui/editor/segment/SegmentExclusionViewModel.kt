@@ -15,7 +15,7 @@ import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.exclusion.core.currentExclusions
+import eu.darken.sdmse.exclusion.core.current
 import eu.darken.sdmse.exclusion.core.remove
 import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
@@ -39,8 +39,7 @@ class SegmentExclusionViewModel @Inject constructor(
     val events = SingleLiveEvent<SegmentExclusionEvents>()
 
     private val currentState = DynamicStateFlow(TAG, viewModelScope) {
-        val origExclusion = exclusionManager.currentExclusions()
-            .singleOrNull { it.id == identifier } as SegmentExclusion?
+        val origExclusion = exclusionManager.current().singleOrNull { it.id == identifier } as SegmentExclusion?
 
         if (origExclusion == null && initialOptions == null) {
             throw IllegalArgumentException("Neither existing exclusion nor init options were available")

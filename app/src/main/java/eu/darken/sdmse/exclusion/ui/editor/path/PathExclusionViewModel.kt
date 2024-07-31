@@ -14,7 +14,7 @@ import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.exclusion.core.currentExclusions
+import eu.darken.sdmse.exclusion.core.current
 import eu.darken.sdmse.exclusion.core.remove
 import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
@@ -37,8 +37,8 @@ class PathExclusionViewModel @Inject constructor(
 
     val events = SingleLiveEvent<PathEditorEvents>()
 
-    private val currentState = DynamicStateFlow<State>(TAG, viewModelScope) {
-        val origExclusion = exclusionManager.currentExclusions().singleOrNull { it.id == identifier } as PathExclusion?
+    private val currentState = DynamicStateFlow(TAG, viewModelScope) {
+        val origExclusion = exclusionManager.current().singleOrNull { it.id == identifier } as PathExclusion?
 
         if (origExclusion == null && initialOptions == null) {
             throw IllegalArgumentException("Neither existing exclusion nor init options were available")
