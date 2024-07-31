@@ -9,11 +9,22 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.core.taskmanager.TaskManager
+import eu.darken.sdmse.main.core.taskmanager.getLatestTask
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.hasData
-import kotlinx.coroutines.flow.*
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
+import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,6 +32,7 @@ class FilterContentDetailsViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     systemCleaner: SystemCleaner,
+    private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
     private val args by handle.navArgs<FilterContentDetailsFragmentArgs>()
     private var currentTarget: FilterIdentifier? = null
@@ -32,6 +44,21 @@ class FilterContentDetailsViewModel @Inject constructor(
             .take(1)
             .onEach {
                 popNavStack()
+            }
+            .launchInViewModel()
+
+        val start = Instant.now()
+        val handledResults = mutableSetOf<String>()
+        taskManager.state
+            .map { it.getLatestTask(SDMTool.Type.SYSTEMCLEANER) }
+            .filterNotNull()
+            .filter { it.completedAt!! > start }
+            .onEach { task ->
+                val result = task.result as? SystemCleanerTask.Result ?: return@onEach
+                if (!handledResults.contains(task.id)) {
+                    handledResults.add(task.id)
+                    events.postValue(FilterContentDetailsEvents.TaskResult(result))
+                }
             }
             .launchInViewModel()
     }

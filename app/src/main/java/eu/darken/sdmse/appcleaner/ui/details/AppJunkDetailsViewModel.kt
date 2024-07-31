@@ -5,6 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.hasData
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
@@ -13,8 +14,18 @@ import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
-import kotlinx.coroutines.flow.*
+import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.core.taskmanager.TaskManager
+import eu.darken.sdmse.main.core.taskmanager.getLatestTask
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
 import java.lang.Integer.min
+import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,6 +33,7 @@ class AppJunkDetailsViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     appCleaner: AppCleaner,
+    private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val args by handle.navArgs<AppJunkDetailsFragmentArgs>()
@@ -43,6 +55,21 @@ class AppJunkDetailsViewModel @Inject constructor(
             .filter { !it.hasData }
             .take(1)
             .onEach { popNavStack() }
+            .launchInViewModel()
+
+        val start = Instant.now()
+        val handledResults = mutableSetOf<String>()
+        taskManager.state
+            .map { it.getLatestTask(SDMTool.Type.APPCLEANER) }
+            .filterNotNull()
+            .filter { it.completedAt!! > start }
+            .onEach { task ->
+                val result = task.result as? AppCleanerTask.Result ?: return@onEach
+                if (!handledResults.contains(task.id)) {
+                    handledResults.add(task.id)
+                    events.postValue(AppJunkDetailsEvents.TaskResult(result))
+                }
+            }
             .launchInViewModel()
     }
 

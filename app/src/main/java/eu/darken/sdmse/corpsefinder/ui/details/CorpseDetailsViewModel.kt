@@ -13,8 +13,18 @@ import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.CorpseIdentifier
 import eu.darken.sdmse.corpsefinder.core.hasData
-import eu.darken.sdmse.corpsefinder.core.tasks.*
-import kotlinx.coroutines.flow.*
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
+import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.core.taskmanager.TaskManager
+import eu.darken.sdmse.main.core.taskmanager.getLatestTask
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
+import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,6 +32,7 @@ class CorpseDetailsViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     corpseFinder: CorpseFinder,
+    private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
     private val args by handle.navArgs<CorpseDetailsFragmentArgs>()
     private var currentTarget: CorpseIdentifier? = null
@@ -32,6 +43,21 @@ class CorpseDetailsViewModel @Inject constructor(
             .filter { !it.hasData }
             .take(1)
             .onEach { popNavStack() }
+            .launchInViewModel()
+
+        val start = Instant.now()
+        val handledResults = mutableSetOf<String>()
+        taskManager.state
+            .map { it.getLatestTask(SDMTool.Type.CORPSEFINDER) }
+            .filterNotNull()
+            .filter { it.completedAt!! > start }
+            .onEach { task ->
+                val result = task.result as? CorpseFinderTask.Result ?: return@onEach
+                if (!handledResults.contains(task.id)) {
+                    handledResults.add(task.id)
+                    events.postValue(CorpseDetailsEvents.TaskResult(result))
+                }
+            }
             .launchInViewModel()
     }
 

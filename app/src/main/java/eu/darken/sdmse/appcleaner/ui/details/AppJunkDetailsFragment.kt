@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.viewpager.widget.ViewPager
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.logging.log
@@ -64,6 +65,16 @@ class AppJunkDetailsFragment : Fragment3(R.layout.appcleaner_details_fragment) {
                 state.items.indexOfFirst { it.identifier == state.target }
                     .takeIf { it != -1 }
                     ?.let { viewpager.currentItem = it }
+            }
+        }
+
+        vm.events.observe2 { event ->
+            when (event) {
+                is AppJunkDetailsEvents.TaskResult -> Snackbar.make(
+                    requireView(),
+                    event.result.primaryInfo.get(requireContext()),
+                    Snackbar.LENGTH_LONG
+                ).show()
             }
         }
         super.onViewCreated(view, savedInstanceState)
