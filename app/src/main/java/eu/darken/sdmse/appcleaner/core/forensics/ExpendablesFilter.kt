@@ -22,7 +22,12 @@ interface ExpendablesFilter : Progress.Host, Progress.Client {
         segments: Segments
     ): Match?
 
-    suspend fun process(matches: Collection<Match>)
+    suspend fun process(matches: Collection<Match>): ProcessResult
+
+    data class ProcessResult(
+        val success: Collection<Match>,
+        val failed: Collection<Pair<Match, Exception>>,
+    )
 
     interface Match {
         val identifier: ExpendablesFilterIdentifier

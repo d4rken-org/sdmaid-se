@@ -21,7 +21,6 @@ import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.lowercase
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.storage.StorageEnvironment
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -106,8 +105,8 @@ class BugReportingFilter @Inject constructor(
         }
     }
 
-    override suspend fun process(matches: Collection<ExpendablesFilter.Match>) {
-        matches.deleteAll(gatewaySwitch)
+    override suspend fun process(matches: Collection<ExpendablesFilter.Match>): ExpendablesFilter.ProcessResult {
+        return matches.deleteAll(gatewaySwitch)
     }
 
     @Reusable

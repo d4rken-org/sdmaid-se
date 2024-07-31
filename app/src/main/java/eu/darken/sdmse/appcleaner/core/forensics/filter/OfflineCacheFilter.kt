@@ -20,7 +20,6 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.lowercase
 import eu.darken.sdmse.common.pkgs.Pkg
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -70,8 +69,8 @@ class OfflineCacheFilter @Inject constructor(
         }
     }
 
-    override suspend fun process(matches: Collection<ExpendablesFilter.Match>) {
-        matches.deleteAll(gatewaySwitch)
+    override suspend fun process(matches: Collection<ExpendablesFilter.Match>): ExpendablesFilter.ProcessResult {
+        return matches.deleteAll(gatewaySwitch)
     }
 
     @Reusable

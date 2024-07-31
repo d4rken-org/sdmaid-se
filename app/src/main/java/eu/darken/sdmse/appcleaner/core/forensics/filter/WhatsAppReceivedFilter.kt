@@ -95,8 +95,8 @@ class WhatsAppReceivedFilter @Inject constructor(
         }
     }
 
-    override suspend fun process(matches: Collection<ExpendablesFilter.Match>) {
-        matches.deleteAll(gatewaySwitch)
+    override suspend fun process(matches: Collection<ExpendablesFilter.Match>): ExpendablesFilter.ProcessResult {
+        return matches.deleteAll(gatewaySwitch)
     }
 
     @Reusable

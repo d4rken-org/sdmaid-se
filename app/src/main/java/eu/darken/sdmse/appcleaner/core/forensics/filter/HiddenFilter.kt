@@ -21,7 +21,6 @@ import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.lowercase
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.storage.StorageEnvironment
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -109,8 +108,8 @@ class HiddenFilter @Inject constructor(
         return dirs.size >= 4 && dirs[2] == "Cache" && dirs[3].contains(".unity3d&")
     }
 
-    override suspend fun process(matches: Collection<ExpendablesFilter.Match>) {
-        matches.deleteAll(gatewaySwitch)
+    override suspend fun process(matches: Collection<ExpendablesFilter.Match>): ExpendablesFilter.ProcessResult {
+        return matches.deleteAll(gatewaySwitch)
     }
 
     @Reusable
