@@ -114,6 +114,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">可能ならば、SD MaidにShizukuの使用を許可することで結果を改善し機能を追加します。</string>
     <string name="setup_shizuku_card_body2">この設定は、お使いの端末でShizukuアプリが設定されていない場合には影響しません。</string>
+    <string name="setup_shizuku_card_root_info">Root権限に加えてShizukuを使用しても追加機能は提供されませんが、より安定した動作が期待できます。SD MaidはShizukuを代替手段として活用します。</string>
     <string name="setup_shizuku_state_ready_label">Shizukuリンクの準備完了。</string>
     <string name="setup_shizuku_state_waiting_label">Shizukuとのリンクを待機しています。</string>
     <string name="setup_shizuku_enable_shizuku_use_label">可能な場合は、Shizukuを使用する</string>
@@ -196,6 +197,9 @@
     <string name="corpsefinder_filter_appasec_summary">暗号化されたアプリのリソース、例えばゲームのアセット。</string>
     <string name="corpsefinder_filter_app2sd_summary">データは、App2Sd modsによって外部ストレージに移動しました。</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">アプリの残留ファイルを %d 個を削除しました</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="other">%d 個のアプリ残留ファイルを発見</item>
     </plurals>
@@ -207,6 +211,9 @@
     <string name="corpsefinder_corpse_hint_common">この項目は非常に一般的な名前を持っており、SD Maidが知らない、まだインストールされているアプリに属している可能性があります。</string>
     <string name="systemcleaner_tool_name">システムクリーナー</string>
     <string name="systemcleaner_explanation_short">特定のアプリに属していない過剰なデータ。</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="other">%d 件の項目を削除しました</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="other">%d フィルターにマッチしました</item>
     </plurals>
@@ -340,6 +347,9 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">チャットで表示されたときに再度ダウンロードされるキャッシュされたメディアファイル。</string>
     <string name="appcleaner_delete_all_confirmation_message">すべてのアプリの消耗品を削除しますか？</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="other">%d個の不要なアイテムを削除しました</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d 消耗品が見つかりました</item>
     </plurals>
@@ -363,6 +373,9 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizukuを使用してキャッシュを削除する</string>
     <string name="deduplicator_tool_name">重複ファイル</string>
     <string name="deduplicator_explanation_short">お使いのデバイスの重複データを見つけます。</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">重複ファイルを %d 個削除しました</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="other">%d 重複したセットが見つかりました</item>
     </plurals>
@@ -420,6 +433,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">バンドル</string>
     <string name="appcontrol_tag_system">システム</string>
+    <string name="appcontrol_tag_archived">アーカイブ済み</string>
     <string name="appcontrol_tag_enabled">有効</string>
     <string name="appcontrol_tag_disabled">無効化済み</string>
     <string name="appcontrol_progress_enabling_package">アプリを有効化</string>
@@ -432,6 +446,9 @@
     <string name="appcontrol_list_sortmode_size_label">サイズ</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">パフォーマンス上の理由からアプリのサイズが推定されます。より正確なデータを取得するには、StorageAnalyzerツールを使用してください。</string>
     <string name="appcontrol_progress_uninstalling_app">アプリのアンインストール中</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="other">%d個のアプリをアンインストールしました</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">アプリのサイズ</string>
     <string name="appcontrol_app_sizes_apk_label">アプリ</string>
     <string name="appcontrol_app_sizes_data_label">データ</string>
@@ -440,6 +457,9 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="other">%dの有効/無効を変更しますか？</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="other">%d個のアプリの有効・無効を切り替えました</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">サイズの決定</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">各アプリのサイズの大まかな推定値を取得します。</string>
     <string name="appcontrol_settings_module_activity_enabled_label">アクティビティの決定</string>
@@ -447,12 +467,18 @@
     <string name="appcontrol_export_app_selection_action">アプリをエクスポート</string>
     <string name="appcontrol_export_title">アプリをエクスポート</string>
     <string name="appcontrol_export_description">このアプリのインストールファイルを保存します。アプリのデータは含まれません。</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="other">%d個のアプリをエクスポートしました</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">%s をエクスポート中</string>
     <string name="appcontrol_force_stop_selection_action">アプリを強制停止する</string>
     <string name="appcontrol_force_stop_action">強制停止</string>
     <string name="appcontrol_force_stop_confirm_title">強制停止の確認</string>
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="other">%d アプリを強制停止しますか？</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="other">%d個のアプリを停止しました</item>
     </plurals>
     <string name="appcontrol_automation_loading">アクセシビリティサービスによる自動化の準備</string>
     <string name="appcontrol_automation_title">アプリコントロールの自動化</string>
@@ -489,6 +515,7 @@
     <string name="analyzer_storage_content_type_system_label">システムデータ</string>
     <string name="analyzer_storage_content_type_system_description">システムアプリとシステムデータ。この端末で複数のユーザーアカウントが設定されている場合、他のユーザーからのアプリとデータ。</string>
     <string name="analyzer_storage_content_app_code_label">アプリコード</string>
+    <string name="analyzer_storage_content_app_code_description">アプリのファイル、ライブラリ、リソースが含まれます。この領域は、アプリをアンインストールするか、アーカイブ（新しいAndroidバージョンで利用可能）することで解放できます。</string>
     <string name="analyzer_storage_content_app_data_label">アプリのデータ</string>
     <string name="analyzer_storage_content_app_data_description">データ、設定、キャッシュ。</string>
     <string name="analyzer_storage_content_app_media_label">アプリのメディア</string>
@@ -496,6 +523,7 @@
     <string name="analyzer_storage_content_app_extra_label">追加のアプリファイル</string>
     <string name="analyzer_storage_content_app_extra_description">このアプリがデフォルトのパスの外に配置した追加データ（写真やダウンロードなど）。</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">このアプリは \" %1$s \" で%2$s を占めています。</string>
+    <string name="analyzer_app_details_app_is_archived">このアプリはアーカイブ済みです。</string>
     <string name="data_area_public_app_data_official_label">デフォルトのパブリックアプリデータ</string>
     <string name="data_area_public_app_assets_official_label">デフォルトのパブリックアプリアセット</string>
     <string name="data_area_public_storage_label">パブリックストレージ</string>
@@ -579,6 +607,7 @@
     <string name="scheduler_notification_result_failure_message">スケジュールされたタスクの一部で失敗またはエラーが発生しました。手動で実行してください。</string>
     <string name="scheduler_commands_after_schedule_label">ポストスケジュール コマンド</string>
     <string name="scheduler_commands_after_schedule_desc">スケジュールの最後に実行される Android シェルコマンド。</string>
+    <string name="scheduler_battery_optimization_hint">SD Maidがバックグラウンドで正常に動作しない場合は、バッテリー最適化をオフにすることをご検討ください。</string>
     <string name="updates_dashcard_title">アップデートが利用可能です</string>
     <string name="updates_dashcard_body">アップデートが利用可能です。今のあなたのバージョンは%1$sで最新バージョンが%2$sです。</string>
     <string name="translation_encourage_title">SD Maidを翻訳</string>
@@ -594,4 +623,22 @@
     <string name="review_app_review_action">レビュー</string>
     <string name="review_app_dismiss_action">また後で</string>
     <string name="review_app_body">SDメイドをレビューしませんか？ ❤️</string>
+    <string name="stats_label">履歴</string>
+    <string name="stats_dash_body">SD Maidをインストールしてから、%sの容量を解放し、%s個のアイテムを処理しました。</string>
+    <string name="stats_report_status_success">成功</string>
+    <string name="stats_report_status_partial_success">一部成功</string>
+    <string name="stats_report_status_partial_failure">失敗</string>
+    <string name="stats_settings_desc">SD Maidの統計、レポート、データ保持に関する設定を行います。</string>
+    <string name="stats_settings_retention_category">保持</string>
+    <string name="stats_settings_retention_reports_label">全般レポート</string>
+    <string name="stats_settings_retention_reports_desc">SD Maidの基本操作レポートを削除するまでの日数</string>
+    <string name="stats_settings_retention_paths_label">詳細なパス情報</string>
+    <string name="stats_settings_retention_paths_desc">SD Maidが操作したパスの詳細情報を保持する日数</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="other">%d日</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">すべてリセット</string>
+    <string name="stats_settings_reset_all_desc">レポートをすべて削除し、統計をリセットします。</string>
+    <string name="stats_affected_paths_label">操作対象パス</string>
+    <string name="stats_affected_pkgs_label">操作対象のアプリ</string>
 </resources>

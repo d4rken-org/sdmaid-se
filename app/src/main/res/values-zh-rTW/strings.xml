@@ -197,6 +197,9 @@
     <string name="corpsefinder_filter_appasec_summary">加密的應用程式資源，例如遊戲資產。</string>
     <string name="corpsefinder_filter_app2sd_summary">資料已被 App2Sd 模組移至外部儲存空間。</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">已刪除 %d 個應用程式殘留</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="other">%d 個應用程式殘留已找到</item>
     </plurals>
@@ -208,6 +211,9 @@
     <string name="corpsefinder_corpse_hint_common">此項目有一個非常常見的名稱，可能屬於已安裝的應用程式，但 SD 女僕卻不知道。</string>
     <string name="systemcleaner_tool_name">系統清理器</string>
     <string name="systemcleaner_explanation_short">不屬於任何特定應用程式的非必要資料。</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="other">已刪除 %d 個匹配項目</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="other">%d 個過濾器相符項目</item>
     </plurals>
@@ -341,6 +347,9 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">在聊天中檢視時會再次下載的快取媒體檔案。</string>
     <string name="appcleaner_delete_all_confirmation_message">為所有應用程式刪除無關緊要的項目？</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="other">已刪除 %d 個可刪除項目</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d 個無關緊要的項目已找到</item>
     </plurals>
@@ -364,6 +373,9 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">正在透過使用 Shizuku 刪除快取</string>
     <string name="deduplicator_tool_name">除重程式</string>
     <string name="deduplicator_explanation_short">找出您裝置上的重複資料。</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">已刪除 %d 個重複項目</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="other">%d 組重複資料已找到</item>
     </plurals>
@@ -434,6 +446,9 @@
     <string name="appcontrol_list_sortmode_size_label">大小</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">應用程式大小是因節約效能原因而估計的，可使用儲存分析器工具以取得更精確的資料。</string>
     <string name="appcontrol_progress_uninstalling_app">正在解除安裝應用程式</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="other">已解除安裝 %d 個應用程式</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">應用程式大小</string>
     <string name="appcontrol_app_sizes_apk_label">應用程式</string>
     <string name="appcontrol_app_sizes_data_label">資料</string>
@@ -442,6 +457,9 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="other">要變更 %d 個應用程式的啟用/停用狀態嗎？</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="other">已切換 %d 個應用程式</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">已確認大小</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">粗略估計每個應用程式的大小</string>
     <string name="appcontrol_settings_module_activity_enabled_label">確認活動</string>
@@ -449,12 +467,18 @@
     <string name="appcontrol_export_app_selection_action">匯出應用程式</string>
     <string name="appcontrol_export_title">匯出應用程式</string>
     <string name="appcontrol_export_description">儲存此應用程式的安裝檔案。這不包括應用程式資料。</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="other">已匯出 %d 個應用程式</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">正在導出 %s</string>
     <string name="appcontrol_force_stop_selection_action">強制停止應用程式</string>
     <string name="appcontrol_force_stop_action">強制停止</string>
     <string name="appcontrol_force_stop_confirm_title">確認強制停止</string>
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="other">強制停止 %d 個應用程式？</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="other">已停止 %d 個應用程式</item>
     </plurals>
     <string name="appcontrol_automation_loading">透過輔助功能服務準備自動化</string>
     <string name="appcontrol_automation_title">應用控制自動化</string>

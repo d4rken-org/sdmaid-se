@@ -114,6 +114,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">允许 SD Maid 在需要时调用 Shizuku 以启用功能和改善结果。</string>
     <string name="setup_shizuku_card_body2">若您的设备未设置 Shizuku 应用，则此设置无效。</string>
+    <string name="setup_shizuku_card_root_info">Shizuku与root 权限相结合不会启用额外的功能，但它能提高可靠性。SD Maid将用作回退方法。</string>
     <string name="setup_shizuku_state_ready_label">Shizuku 链接已就绪。</string>
     <string name="setup_shizuku_state_waiting_label">正在等待与 Shizuku 链接。</string>
     <string name="setup_shizuku_enable_shizuku_use_label">允许使用 Shizuku</string>
@@ -196,6 +197,9 @@
     <string name="corpsefinder_filter_appasec_summary">加密的应用资源，例如游戏资产</string>
     <string name="corpsefinder_filter_app2sd_summary">通过 App2Sd 模组移动到外部储存的数据。</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">%d 应用残留已删除</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="other">发现了 %d 项应用残留</item>
     </plurals>
@@ -207,6 +211,9 @@
     <string name="corpsefinder_corpse_hint_common">此项的文件名很常见，有可能属于 SD Maid 不知道的未卸载应用。</string>
     <string name="systemcleaner_tool_name">系统清理</string>
     <string name="systemcleaner_explanation_short">不属于任何特定应用的冗余数据</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="other">已删除%d 匹配项</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="other">%d 项满足筛选</item>
     </plurals>
@@ -340,6 +347,9 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">在聊天中查看时会再次下载的缓存媒体文件</string>
     <string name="appcleaner_delete_all_confirmation_message">删除所有应用中的可删除项目？</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="other">已删除 %d 个可删除项</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">找到了 %d 个可删除项</item>
     </plurals>
@@ -363,6 +373,9 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">使用 Shizuku 删除缓存</string>
     <string name="deduplicator_tool_name">去重工具</string>
     <string name="deduplicator_explanation_short">查找设备上的重复数据</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">已删除 %d 重复项</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="other">已找到 %d 组重复资料</item>
     </plurals>
@@ -420,6 +433,7 @@
     <string name="appcontrol_tag_apk_base">安装包文件</string>
     <string name="appcontrol_tag_apk_bundle">捆绑垃圾</string>
     <string name="appcontrol_tag_system">系统</string>
+    <string name="appcontrol_tag_archived">已存档</string>
     <string name="appcontrol_tag_enabled">已启用</string>
     <string name="appcontrol_tag_disabled">已停用</string>
     <string name="appcontrol_progress_enabling_package">正在启用应用</string>
@@ -432,6 +446,9 @@
     <string name="appcontrol_list_sortmode_size_label">大小</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">出于性能考虑，应用大小为估算所得。请使用「存储分析器」工具获取更准确的数据</string>
     <string name="appcontrol_progress_uninstalling_app">正在卸载应用</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="other">已卸载%d 应用</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">应用大小</string>
     <string name="appcontrol_app_sizes_apk_label">应用</string>
     <string name="appcontrol_app_sizes_data_label">数据</string>
@@ -440,6 +457,9 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="other">更改 %d 个应用的启用/禁用状态？</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="other">已切换了 %d 的应用</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">确定大小</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">粗略估计每个应用的大小</string>
     <string name="appcontrol_settings_module_activity_enabled_label">活动识别</string>
@@ -447,12 +467,18 @@
     <string name="appcontrol_export_app_selection_action">导出应用</string>
     <string name="appcontrol_export_title">导出应用</string>
     <string name="appcontrol_export_description">保存此应用的安装文件（不包括应用数据）。</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="other">已导出 %d 的应用</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">正在导出 %s</string>
     <string name="appcontrol_force_stop_selection_action">强制停止应用</string>
     <string name="appcontrol_force_stop_action">强行停止</string>
     <string name="appcontrol_force_stop_confirm_title">确认强制停止</string>
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="other">强制停止 %d 个应用？</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="other">已停止 %d 的应用</item>
     </plurals>
     <string name="appcontrol_automation_loading">通过无障碍服务来准备自动化操作</string>
     <string name="appcontrol_automation_title">自动化应用控制</string>
@@ -489,6 +515,7 @@
     <string name="analyzer_storage_content_type_system_label">系统数据</string>
     <string name="analyzer_storage_content_type_system_description">系统应用和系统数据。如果在此设备上设置了其他用户账户，则这也将清除其他用户的应用和数据。</string>
     <string name="analyzer_storage_content_app_code_label">应用代码</string>
+    <string name="analyzer_storage_content_app_code_description">应用程序文件、库和资源。此空间可以通过卸载应用程序或将其存档而释放(可在更新的安卓版本上查阅)。</string>
     <string name="analyzer_storage_content_app_data_label">应用数据</string>
     <string name="analyzer_storage_content_app_data_description">数据、设置和缓存</string>
     <string name="analyzer_storage_content_app_media_label">应用媒体</string>
@@ -496,6 +523,7 @@
     <string name="analyzer_storage_content_app_extra_label">额外应用文件</string>
     <string name="analyzer_storage_content_app_extra_description">此应用放在默认路径之外的额外数据，例如图片或下载</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">此应用在“%2$s”上占用了 %1$s</string>
+    <string name="analyzer_app_details_app_is_archived">此应用已被归档。</string>
     <string name="data_area_public_app_data_official_label">默认公用应用数据</string>
     <string name="data_area_public_app_assets_official_label">默认公用应用数据</string>
     <string name="data_area_public_storage_label">公共存储</string>
@@ -579,6 +607,7 @@
     <string name="scheduler_notification_result_failure_message">部分计划任务运行失败或遇到错误。请尝试手动运行。</string>
     <string name="scheduler_commands_after_schedule_label">计划任务后命令</string>
     <string name="scheduler_commands_after_schedule_desc">将在计划任务结束后执行的 Android shell 命令。</string>
+    <string name="scheduler_battery_optimization_hint">如果您遇到后台执行问题，请考虑禁用 SD Maid 电池优化。</string>
     <string name="updates_dashcard_title">有可用的更新</string>
     <string name="updates_dashcard_body">有可用更新。当前版本为 %1$s，最新版本为 %2$s。</string>
     <string name="translation_encourage_title">为 SD Maid 贡献翻译</string>
@@ -594,4 +623,22 @@
     <string name="review_app_review_action">评论</string>
     <string name="review_app_dismiss_action">稍后再说</string>
     <string name="review_app_body">想给 SD Maid 写一条评论吗？❤️</string>
+    <string name="stats_label">历史</string>
+    <string name="stats_dash_body">您将SDMaid安装到您的设备以来，已释放 %s 和处理 %s 的项目。</string>
+    <string name="stats_report_status_success">成功</string>
+    <string name="stats_report_status_partial_success">部分成功</string>
+    <string name="stats_report_status_partial_failure">失败</string>
+    <string name="stats_settings_desc">配置 SD Maid的统计、报告和数据保留。</string>
+    <string name="stats_settings_retention_category">保留</string>
+    <string name="stats_settings_retention_reports_label">一般性报告</string>
+    <string name="stats_settings_retention_reports_desc">删除 SD Maid 操作报告之前的天数。</string>
+    <string name="stats_settings_retention_paths_label">路径详细信息</string>
+    <string name="stats_settings_retention_paths_desc">保留受 SD Maid 影响路径的详细信息的天数</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="other">%d 天</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">全部重置</string>
+    <string name="stats_settings_reset_all_desc">删除所有报告并将所有统计数据归零。</string>
+    <string name="stats_affected_paths_label">受影响的路径</string>
+    <string name="stats_affected_pkgs_label">受影响的应用</string>
 </resources>

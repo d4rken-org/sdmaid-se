@@ -301,7 +301,7 @@
     <string name="systemcleaner_customfilter_import_action">Neuen Filter importieren</string>
     <string name="systemcleaner_customfilter_export_action">Ausgewählten Filter exportieren</string>
     <string name="appcleaner_tool_name">App-Reiniger</string>
-    <string name="appcleaner_explanation_short">Überflüssige Daten, die zu bestimmten Apps gehören.</string>
+    <string name="appcleaner_explanation_short">Entbehrliche Daten, die zu bestimmten Apps gehören.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Öffentliche Standard-Caches</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Standardmäßige öffentliche App-Caches. Auf älteren Android-Versionen unter Android/Daten zugänglich. Wird gelöscht, wenn du in den Systemeinstellungen auf „Cache leeren“ tippst.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Private Standard-Caches</string>
@@ -315,7 +315,7 @@
     <string name="appcleaner_include_multiuser_label">Andere Benutzer einbeziehen</string>
     <string name="appcleaner_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
     <string name="appcleaner_include_minimumsize_label">Mindestgröße</string>
-    <string name="appcleaner_include_minimumsize_summary">Apps auslassen, bei denen die Gesamtmenge überflüssiger Daten unterhalb des Minimums liegt.</string>
+    <string name="appcleaner_include_minimumsize_summary">Apps auslassen, bei denen die Gesamtmenge entbehrlichen Daten unterhalb des Minimums liegt.</string>
     <string name="appcleaner_include_minimumage_label">Mindestalter</string>
     <string name="appcleaner_include_minimumage_summary">Dateien auslassen, die jünger als das Mindestalter sind.</string>
     <string name="appcleaner_automation_romtype_detection_label">Betriebssystemerkennung</string>
@@ -354,14 +354,14 @@
     <string name="appcleaner_filter_wechat_summary">Gesendete oder empfangene Dateien in Konversationen und WeChat Momenten.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Zwischengespeicherte Mediendateien, die beim Betrachten des Chats erneut heruntergeladen werden.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Überflüssige Objekte für alle Apps löschen?</string>
+    <string name="appcleaner_delete_all_confirmation_message">Entbehrliche Objekte für alle Apps löschen?</string>
     <plurals name="appcleaner_result_x_items_deleted">
-        <item quantity="one">%d Verbrauchsgegenstand gelöscht</item>
-        <item quantity="other">%d Verbrauchsgegenstände gelöscht</item>
+        <item quantity="one">%d entbehrliches Objekt gelöscht</item>
+        <item quantity="other">%d entbehrliche Objekte gelöscht</item>
     </plurals>
     <plurals name="appcleaner_result_x_items_found">
-        <item quantity="one">%d überflüssiges Objekt gefunden</item>
-        <item quantity="other">%d überflüssige Objekte gefunden</item>
+        <item quantity="one">%d entbehrliches Objekt gefunden</item>
+        <item quantity="other">%d entbehrliche Objekte gefunden</item>
     </plurals>
     <string name="appcleaner_automation_loading">Vorbereitung der Automatisierung über den Barrierefreiheitsdienst</string>
     <string name="appcleaner_automation_title">App-Reiniger-Automatisierung</string>
@@ -376,9 +376,9 @@
     <string name="appcleaner_automation_unavailable_title">Barrierefreiheitsdienst nicht verfügbar</string>
     <string name="appcleaner_automation_unavailable_body">Das Löschen unzugänglicher Caches erfordert den Barrierefreiheitsdienst von SD Maid, der jedoch nicht verfügbar war. Wenn Du ihn nicht verwenden möchtest: Deaktiviere die Option „Unzugängliche Caches einbeziehen“.</string>
     <string name="appcleaner_junk_userprofile_label">Benutzer</string>
-    <string name="appcleaner_delete_confirmation_message_x">Überflüssige Dateien für %s löschen?</string>
+    <string name="appcleaner_delete_confirmation_message_x">Entbehrliche Dateien für %s löschen?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
-        <item quantity="one">Überflüssige Dateien für %d ausgewählte App löschen?</item>
+        <item quantity="one">Entbehrliche Dateien für %d ausgewählte App löschen?</item>
         <item quantity="other">Überflüssige Dateien für %d ausgewählte Apps löschen?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Caches mit Shizuku löschen</string>

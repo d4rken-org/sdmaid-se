@@ -356,8 +356,8 @@
     <string name="appcleaner_filter_viber_summary">ক্যাশ করা মিডিয়া ফাইল যা চ্যাটে দেখা হলে আবার ডাউনলোড করা হয়।</string>
     <string name="appcleaner_delete_all_confirmation_message">সকল অ্যাপের বাদ দেওয়া যাবে এমন আইটেমসমূহ মুছবেন?</string>
     <plurals name="appcleaner_result_x_items_deleted">
-        <item quantity="one">%d টি ব্যয়যোগ্য আইটেম মুছে ফেলা হয়েছে</item>
-        <item quantity="other">%d টি ব্যয়যোগ্য আইটেম মুছে ফেলা হয়েছে</item>
+        <item quantity="one">%dটি বাদ দেওয়ার উপযোগী আইটেম মুছে ফেলা হয়েছে</item>
+        <item quantity="other">%dটি বাদ দেওয়ার উপযোগী আইটেম মুছে ফেলা হয়েছে</item>
     </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%dটি বাদ দেয়ার মতো আইটেম পাওয়া গেছে</item>
