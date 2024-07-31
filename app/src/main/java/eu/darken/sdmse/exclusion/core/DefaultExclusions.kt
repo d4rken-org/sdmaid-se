@@ -5,10 +5,12 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.exclusion.core.types.DefaultExclusion
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
+import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -47,7 +49,11 @@ class DefaultExclusions @Inject constructor(
             DefaultExclusion(
                 "https://github.com/d4rken-org/sdmaid-se/issues/618",
                 PkgExclusion("de.zollsoft.impfapp".toPkgId(), setOf(Exclusion.Tag.APPCLEANER)),
-            )
+            ),
+            DefaultExclusion(
+                "https://github.com/d4rken-org/sdmaid-se/issues/1331",
+                PathExclusion(LocalPath.build("data", "rootfs"), setOf(Exclusion.Tag.SYSTEMCLEANER)),
+            ),
         )
     }
 }
