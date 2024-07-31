@@ -69,7 +69,7 @@ class SystemCrawler @Inject constructor(
         updateProgressCount(Progress.Count.Indeterminate())
 
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.SYSTEMCLEANER)
-
+        log(TAG, INFO) { "Loaded exclusions: $exclusions" }
 
         val currentAreas = areaManager.currentAreas()
         val targetAreas = filters
@@ -104,16 +104,25 @@ class SystemCrawler @Inject constructor(
                 .flatMapMerge(3) { area ->
                     val filter: suspend (APathLookup<*>) -> Boolean = when (area.type) {
                         DataArea.Type.SDCARD -> filter@{ toCheck: APathLookup<*> ->
-                            if (sdcardSkips.any { toCheck.segments.endsWith(it) }) return@filter false
-                            exclusions.none { it.match(toCheck) }
+                            if (sdcardSkips.any { toCheck.segments.endsWith(it) }) {
+                                log(TAG, INFO) { "Excluded $toCheck by global skip" }
+                                return@filter false
+                            }
+
+                            exclusions.none { excl ->
+                                excl.match(toCheck).also { if (it) log(TAG, INFO) { "Excluded $toCheck by $excl" } }
+                            }
                         }
 
                         else -> filter@{ toCheck: APathLookup<*> ->
                             if (globalSkips.any { toCheck.segments.startsWith(it) }) {
-                                log(TAG, WARN) { "Skipping: $toCheck" }
+                                log(TAG, INFO) { "Excluded $toCheck by global skip" }
                                 return@filter false
                             }
-                            exclusions.none { it.match(toCheck) }
+
+                            exclusions.none { excl ->
+                                excl.match(toCheck).also { if (it) log(TAG, INFO) { "Excluded $toCheck by $excl" } }
+                            }
                         }
                     }
                     area.path.walk(
