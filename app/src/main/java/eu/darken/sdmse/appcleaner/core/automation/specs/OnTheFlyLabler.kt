@@ -22,7 +22,10 @@ import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageStatsManager2
+import java.util.Locale
 import javax.inject.Inject
+import kotlin.math.ln
+import kotlin.math.pow
 
 class OnTheFlyLabler @Inject constructor(
     @ApplicationContext private val context: Context,
@@ -56,13 +59,23 @@ class OnTheFlyLabler @Inject constructor(
 
         val targetSize = stats1.appBytes + stats1.dataBytes
 
-        val targetTexts = setOf(
+        val targetTexts = setOfNotNull(
             // https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/packages/SettingsLib/SpaPrivileged/src/com/android/settingslib/spaprivileged/template/app/AppStorageSize.kt
-            Formatter.formatFileSize(context, targetSize),
-            Formatter.formatShortFileSize(context, targetSize),
+            Formatter.formatFileSize(context, targetSize).also {
+                log(TAG, VERBOSE) { "formatFileSize=$it" }
+            },
+            Formatter.formatShortFileSize(context, targetSize).also {
+                log(TAG, VERBOSE) { "formatShortFileSize=$it" }
+            },
+            try {
+                formatExtraFileSize(targetSize).also { log(TAG, VERBOSE) { "formatExtraFileSize=$it" } }
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "formatExtraFileSize($targetSize) failed: ${e.asLog()}" }
+                null
+            },
         )
 
-        log(TAG) { "Loaded ${targetTexts.size} targets for ${pkg.installId}: $targetTexts " }
+        log(TAG) { "Loaded ${targetTexts.size} targets from $targetSize for ${pkg.installId}: $targetTexts" }
 
         return { node ->
             node.textContainsAny(targetTexts).also {
@@ -104,6 +117,14 @@ class OnTheFlyLabler @Inject constructor(
                 }
             }
         }
+    }
+
+    private fun formatExtraFileSize(bytes: Long): String {
+        if (bytes < 1000) return "$bytes B"
+        val units = arrayOf("B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB")
+        val exp = (ln(bytes.toDouble()) / ln(1000.0)).toInt()
+        val value = bytes / 1000.0.pow(exp.toDouble())
+        return String.format(Locale.getDefault(), "%.2f %s", value, units[exp])
     }
 
     companion object {
