@@ -14,7 +14,6 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -22,7 +21,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.PathException
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.replayingShare
@@ -235,16 +233,18 @@ class AppCleaner @Inject constructor(
                             onUpdate = { old, new -> old?.copy(secondary = new?.secondary ?: CaString.EMPTY) },
                             onCompletion = { it }
                         ) {
-                            try {
-                                process(matches)
-                                log(TAG) { "Processed ${matches.size} for $filterIdentifier at ${appJunk.pkg}!" }
-                                deleted.addAll(matches)
-                            } catch (e: PathException) {
-                                log(TAG, ERROR) { "Deletion failed for $filterIdentifier at ${appJunk.pkg}: $e" }
+                            val result = process(matches)
+                            log(TAG, INFO) {
+                                "Processed ${result.success.size} matches in $filterIdentifier for ${appJunk.pkg}!"
                             }
+                            if (result.failed.isNotEmpty()) {
+                                log(TAG, WARN) {
+                                    "${result.failed.size} matches failed to process in $filterIdentifier for ${appJunk.pkg}"
+                                }
+                            }
+                            deleted.addAll(result.success)
                         }
                     }
-
 
                     deletionMap[appJunk.identifier] = deleted
                     increaseProgress()

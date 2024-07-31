@@ -14,9 +14,14 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.isAncestorOf
+import eu.darken.sdmse.common.files.prepend
+import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.pkgs.Pkg
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -55,8 +60,8 @@ class WebViewCacheFilter @Inject constructor(
         }
     }
 
-    override suspend fun process(matches: Collection<ExpendablesFilter.Match>) {
-        matches.deleteAll(gatewaySwitch)
+    override suspend fun process(matches: Collection<ExpendablesFilter.Match>): ExpendablesFilter.ProcessResult {
+        return matches.deleteAll(gatewaySwitch)
     }
 
     @Reusable
