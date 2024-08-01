@@ -59,7 +59,7 @@ class OnTheFlyLabler @Inject constructor(
 
         val targetSize = stats1.appBytes + stats1.dataBytes
 
-        val targetTexts = setOfNotNull(
+        val baseTexts = setOfNotNull(
             // https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/packages/SettingsLib/SpaPrivileged/src/com/android/settingslib/spaprivileged/template/app/AppStorageSize.kt
             Formatter.formatFileSize(context, targetSize).also {
                 log(TAG, VERBOSE) { "formatFileSize=$it" }
@@ -74,6 +74,14 @@ class OnTheFlyLabler @Inject constructor(
                 null
             },
         )
+
+        val targetTexts = baseTexts.flatMap {
+            when {
+                it.contains(".") -> setOf(it, it.replace(".", ","))
+                it.contains(",") -> setOf(it, it.replace(",", "."))
+                else -> setOf(it)
+            }
+        }
 
         log(TAG) { "Loaded ${targetTexts.size} targets from $targetSize for ${pkg.installId}: $targetTexts" }
 
