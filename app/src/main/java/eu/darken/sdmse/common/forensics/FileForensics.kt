@@ -4,7 +4,9 @@ import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -18,6 +20,7 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import kotlinx.coroutines.CoroutineScope
 import javax.inject.Inject
+import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
@@ -25,7 +28,7 @@ class FileForensics @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     @ApplicationContext val context: Context,
     private val pkgRepo: PkgRepo,
-    private val csiProcessors: Set<@JvmSuppressWildcards CSIProcessor>,
+    private val csiProcessorsProvider: Provider<Set<@JvmSuppressWildcards CSIProcessor>>,
     gatewaySwitch: GatewaySwitch,
     pkgOps: PkgOps,
 ) : HasSharedResource<Any> {
@@ -34,9 +37,11 @@ class FileForensics @Inject constructor(
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
-    init {
-        log(TAG, INFO) { "${csiProcessors.size} CSI processors loaded." }
-        log(TAG, VERBOSE) { csiProcessors.joinToString("\n") }
+    private val csiProcessors by lazy {
+        csiProcessorsProvider.get().also {
+            log(TAG, INFO) { "${it.size} CSI processors loaded." }
+            log(TAG, VERBOSE) { it.joinToString("\n") }
+        }
     }
 
     suspend fun identifyArea(file: APath): AreaInfo? = keepResourceHoldersAlive(commonResources) {
@@ -51,7 +56,7 @@ class FileForensics @Inject constructor(
         return identifyArea(file)?.let { findOwners(it) }
     }
 
-    suspend fun findOwners(areaInfo: AreaInfo): OwnerInfo? = keepResourceHoldersAlive(commonResources) {
+    suspend fun findOwners(areaInfo: AreaInfo): OwnerInfo = keepResourceHoldersAlive(commonResources) {
         val startFindingOwner = System.currentTimeMillis()
 
         val result = csiProcessors
