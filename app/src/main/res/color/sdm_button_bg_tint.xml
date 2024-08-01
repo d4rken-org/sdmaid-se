@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="?colorPrimaryContainer" android:state_focused="true" />
-    <item android:color="?colorPrimary" />
+    <!-- Selected state, e.g. during DPAD navigation on Android TV-->
+    <item android:color="@color/lime" android:state_focused="true" />
+    <!-- Disabled state -->
+    <item android:color="?attr/colorOnSurface" android:alpha="@dimen/material_emphasis_disabled_background" android:state_enabled="false" />
+    <!-- Checkable, unchecked state -->
+    <item android:color="?attr/colorSurfaceContainerHighest" android:state_checkable="true" android:state_checked="false" />
+    <!-- Default, Enabled state -->
+    <item android:color="?attr/colorContainer" />
 </selector>
