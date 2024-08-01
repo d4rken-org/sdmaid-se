@@ -57,34 +57,34 @@ class ShizukuManager @Inject constructor(
     /**
      * Is the device shizukud and we have access?
      */
-    suspend fun isShizukud(): Boolean = withContext(dispatcherProvider.IO) {
+    suspend fun isShizukud(): Boolean {
         if (!isInstalled()) {
             log(TAG) { "isShizukud(): Shizuku is not installed" }
-            return@withContext false
+            return false
         }
         log(TAG, VERBOSE) { "isShizukud(): Shizuku is installed" }
 
         if (!isCompatible()) {
             log(TAG) { "isShizukud(): Shizuku version is too old" }
-            return@withContext false
+            return false
         }
         log(TAG, VERBOSE) { "isShizukud(): Shizuku is recent enough" }
 
         val granted = isGranted()
         if (granted == false) {
             log(TAG) { "isShizukud(): Permission not granted" }
-            return@withContext false
+            return false
         }
         log(TAG, VERBOSE) { "isShizukud(): Permission is granted" }
 
         if (granted == null) {
             log(TAG) { "isShizukud(): Binder unavailable" }
-            return@withContext false
+            return false
         }
         log(TAG, VERBOSE) { "isShizukud(): Binder available" }
 
         log(TAG, VERBOSE) { "isShizukud(): Checking availability of (Our) ShizukuService..." }
-        isShizukuServiceAvailable().also {
+        return isShizukuServiceAvailable().also {
             if (it) log(TAG, VERBOSE) { "isShizukud(): (Our) ShizukuService is available :)" }
             else log(TAG) { "isShizukud(): (Our) ShizukuService is unavailable" }
         }
