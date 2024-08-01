@@ -10,17 +10,19 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
-import eu.darken.sdmse.common.flow.shareLatest
 import eu.darken.sdmse.common.root.service.RootServiceClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
@@ -93,7 +95,15 @@ class RootManager @Inject constructor(
      */
     val useRoot: Flow<Boolean> = settings.useRoot.flow
         .mapLatest { (it ?: false) && isRooted() }
-        .shareLatest(appScope)
+        .stateIn(
+            scope = appScope,
+            started = SharingStarted.WhileSubscribed(
+                stopTimeoutMillis = 3000,
+                replayExpirationMillis = 0,
+            ),
+            initialValue = null
+        )
+        .filterNotNull()
 
     suspend fun isInstalled(): Boolean {
         val installed =
