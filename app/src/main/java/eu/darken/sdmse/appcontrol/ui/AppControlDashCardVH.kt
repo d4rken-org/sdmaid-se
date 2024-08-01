@@ -1,6 +1,7 @@
 package eu.darken.sdmse.appcontrol.ui
 
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.common.lists.binding
@@ -21,12 +22,17 @@ class AppControlDashCardVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-
-        root.setOnClickListener { item.onViewDetails() }
+        toolLoadingIndicator.isGone = !item.isInitializing
+        viewAction.isEnabled = !item.isInitializing
+        root.apply {
+            setOnClickListener { item.onViewDetails() }
+            isClickable = !item.isInitializing
+        }
     }
 
     data class Item(
         val data: AppControl.Data?,
+        val isInitializing: Boolean,
         val progress: Progress.Data?,
         val onViewDetails: () -> Unit,
     ) : DashboardAdapter.Item {

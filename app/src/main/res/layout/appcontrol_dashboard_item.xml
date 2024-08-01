@@ -28,7 +28,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:text="@string/appcontrol_tool_name"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tool_loading_indicator"
             app:layout_constraintStart_toEndOf="@id/icon"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,6 +47,17 @@
             app:layout_constraintTop_toBottomOf="@id/title"
             app:layout_constraintVertical_bias="1.0"
             app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/tool_loading_indicator"
+            style="@style/Widget.Material3.CircularProgressIndicator.ExtraSmall"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:indeterminate="true"
+            app:indicatorSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:trackThickness="3dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/view_action"
