@@ -28,8 +28,10 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.time.Duration.Companion.seconds
 
 @Singleton
 class ShizukuManager @Inject constructor(
@@ -126,12 +128,16 @@ class ShizukuManager @Inject constructor(
 
     suspend fun requestPermission() = shizukuWrapper.requestPermission()
 
-    suspend fun isShizukuServiceAvailable(): Boolean = try {
-        log(TAG, VERBOSE) { "isShizukuServiceAvailable(): Requesting service client" }
-        serviceClient.get().item.ipc.checkBase() != null
-    } catch (e: Exception) {
-        log(TAG, WARN) { "isShizukuServiceAvailable(): Error during checkBase(): $e" }
-        false
+    suspend fun isShizukuServiceAvailable(): Boolean = withContext(dispatcherProvider.IO) {
+        try {
+            log(TAG, VERBOSE) { "isShizukuServiceAvailable(): Requesting service client" }
+            withTimeout(8.seconds) {
+                serviceClient.get().use { it.item.ipc.checkBase() != null }
+            }
+        } catch (e: Exception) {
+            log(TAG, WARN) { "isShizukuServiceAvailable(): Error during checkBase(): $e" }
+            false
+        }
     }
 
     /**
