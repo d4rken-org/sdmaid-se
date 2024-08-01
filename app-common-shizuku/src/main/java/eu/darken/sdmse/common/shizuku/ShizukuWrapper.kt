@@ -36,7 +36,7 @@ class ShizukuWrapper @Inject constructor(
         Handler(handlerThread.looper)
     }
 
-    val baseServiceBinder: Flow<ShizukuBaseServiceBinder?> = callbackFlow<ShizukuBinderWrapper?> {
+    val baseServiceBinder: Flow<ShizukuBaseServiceBinder?> = callbackFlow {
         val sendBinder = {
             val binder = Shizuku.getBinder()
             log(TAG) { "Sending binder: $binder" }
