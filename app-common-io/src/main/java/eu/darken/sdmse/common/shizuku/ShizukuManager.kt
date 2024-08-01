@@ -30,10 +30,8 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import kotlinx.coroutines.withTimeout
 import javax.inject.Inject
 import javax.inject.Singleton
-import kotlin.time.Duration.Companion.seconds
 
 @Singleton
 class ShizukuManager @Inject constructor(
@@ -133,10 +131,8 @@ class ShizukuManager @Inject constructor(
 
     suspend fun isOurServiceAvailable(): Boolean = withContext(dispatcherProvider.IO) {
         try {
-            withTimeout(8.seconds) {
-                log(TAG, VERBOSE) { "isOurServiceAvailable(): Requesting service client" }
-                serviceClient.get().use { it.item.ipc.checkBase() != null }
-            }
+            log(TAG, VERBOSE) { "isOurServiceAvailable(): Requesting service client" }
+            serviceClient.get().use { it.item.ipc.checkBase() != null }
         } catch (e: Exception) {
             log(TAG, WARN) { "isOurServiceAvailable(): Error during checkBase(): $e" }
             false
