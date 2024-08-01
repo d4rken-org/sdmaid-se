@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Handler
 import android.os.HandlerThread
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -15,6 +16,7 @@ import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuBinderWrapper
 import javax.inject.Inject
@@ -23,6 +25,7 @@ import javax.inject.Singleton
 @Singleton
 class ShizukuWrapper @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val dispatcherProvider: DispatcherProvider,
 ) {
 
     private val handlerThread: HandlerThread by lazy {
@@ -87,7 +90,7 @@ class ShizukuWrapper @Inject constructor(
         val grantResult: Int,
     )
 
-    suspend fun isGranted(): Boolean? {
+    suspend fun isGranted(): Boolean? = withContext(dispatcherProvider.IO) {
         val granted = try {
             Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED
         } catch (e: IllegalStateException) {
@@ -95,7 +98,7 @@ class ShizukuWrapper @Inject constructor(
             null
         }
         log(TAG) { "isGranted()=$granted" }
-        return granted
+        granted
     }
 
 
@@ -103,7 +106,7 @@ class ShizukuWrapper @Inject constructor(
         return !Shizuku.isPreV11()
     }
 
-    suspend fun requestPermission() {
+    suspend fun requestPermission() = withContext(dispatcherProvider.IO) {
         log(TAG) { "requestPermission()" }
         Shizuku.requestPermission(433)
     }
