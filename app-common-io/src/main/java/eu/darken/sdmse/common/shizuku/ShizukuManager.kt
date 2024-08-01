@@ -83,21 +83,36 @@ class ShizukuManager @Inject constructor(
     val pkgId: Pkg.Id
         get() = PKG_ID
 
-    suspend fun isInstalled(): Boolean {
-        val installed = try {
-            @Suppress("DEPRECATION")
+    private var isInstalledCache: Boolean? = null
+    private val isInstalledLock = Mutex()
+
+    suspend fun isInstalled(): Boolean = isInstalledLock.withLock {
+        isInstalledCache?.let { return@withLock it }
+
+        try {
             context.packageManager.getPackageInfo(PKG_ID.name, 0)
             true
         } catch (e: PackageManager.NameNotFoundException) {
             false
+        }.also {
+            isInstalledCache = it
+            log(TAG) { "isInstalled(): $it" }
         }
-        log(TAG) { "isInstalled(): $installed" }
-        return installed
     }
 
     suspend fun isGranted(): Boolean? = shizukuWrapper.isGranted()
 
-    suspend fun isCompatible(): Boolean = shizukuWrapper.isCompatible()
+    private var isCompatibleCache: Boolean? = null
+    private val isCompatibleLock = Mutex()
+
+    suspend fun isCompatible(): Boolean = isCompatibleLock.withLock {
+        isCompatibleCache?.let { return@withLock it }
+
+        shizukuWrapper.isCompatible().also {
+            log(TAG) { "isCompatible(): $it" }
+            isCompatibleCache = it
+        }
+    }
 
     suspend fun requestPermission() = shizukuWrapper.requestPermission()
 
