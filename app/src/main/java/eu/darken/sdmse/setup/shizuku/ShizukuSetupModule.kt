@@ -82,7 +82,7 @@ class ShizukuSetupModule @Inject constructor(
             @Suppress("USELESS_CAST")
             baseState.copy(
                 basicService = binder?.pingBinder() ?: false,
-                ourService = shizukuManager.isShizukuServiceAvailable(),
+                ourService = shizukuManager.isOurServiceAvailable(),
             ) as SetupModule.State
         }
     }

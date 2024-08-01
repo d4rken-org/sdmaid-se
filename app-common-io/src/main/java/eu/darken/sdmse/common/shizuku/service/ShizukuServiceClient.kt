@@ -129,7 +129,7 @@ class ShizukuServiceClient @Inject constructor(
                 log(TAG, ERROR) { "Failed to establish connection: ${it.asLog()}" }
                 throw ShizukuUnavailableException("Failed to establish connection", cause = it)
             }
-            .onCompletion { log(TAG) { "Connection unavailable." } }
+            .onCompletion { log(TAG) { "Connection closed" } }
 
         internal val TAG = logTag("Shizuku", "Service", "Client")
     }

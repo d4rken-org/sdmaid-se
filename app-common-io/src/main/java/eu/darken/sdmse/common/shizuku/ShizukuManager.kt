@@ -86,7 +86,7 @@ class ShizukuManager @Inject constructor(
         log(TAG, VERBOSE) { "isShizukud(): Binder available" }
 
         log(TAG, VERBOSE) { "isShizukud(): Checking availability of (Our) ShizukuService..." }
-        return isShizukuServiceAvailable().also {
+        return isOurServiceAvailable().also {
             if (it) log(TAG, VERBOSE) { "isShizukud(): (Our) ShizukuService is available :)" }
             else log(TAG) { "isShizukud(): (Our) ShizukuService is unavailable" }
         }
@@ -128,14 +128,15 @@ class ShizukuManager @Inject constructor(
 
     suspend fun requestPermission() = shizukuWrapper.requestPermission()
 
-    suspend fun isShizukuServiceAvailable(): Boolean = withContext(dispatcherProvider.IO) {
+
+    suspend fun isOurServiceAvailable(): Boolean = withContext(dispatcherProvider.IO) {
         try {
-            log(TAG, VERBOSE) { "isShizukuServiceAvailable(): Requesting service client" }
             withTimeout(8.seconds) {
+                log(TAG, VERBOSE) { "isOurServiceAvailable(): Requesting service client" }
                 serviceClient.get().use { it.item.ipc.checkBase() != null }
             }
         } catch (e: Exception) {
-            log(TAG, WARN) { "isShizukuServiceAvailable(): Error during checkBase(): $e" }
+            log(TAG, WARN) { "isOurServiceAvailable(): Error during checkBase(): $e" }
             false
         }
     }
