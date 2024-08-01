@@ -6,15 +6,17 @@ import android.os.IBinder
 import android.os.IInterface
 import dagger.Reusable
 import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.ipc.getInterface
 import eu.darken.sdmse.common.shizuku.ShizukuException
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeoutOrNull
 import rikka.shizuku.Shizuku
 import rikka.shizuku.Shizuku.UserServiceArgs
 import javax.inject.Inject
@@ -41,6 +43,8 @@ class ShizukuHostLauncher @Inject constructor() {
             debuggable(options.isDebug)
             version(BuildConfigWrap.VERSION_CODE.toInt())
         }
+
+        val awaitDisconnect = CompletableDeferred<Unit>()
 
         val callback: ServiceConnection = object : ServiceConnection {
             override fun onServiceConnected(componentName: ComponentName, binder: IBinder?) {
@@ -74,14 +78,22 @@ class ShizukuHostLauncher @Inject constructor() {
             }
 
             override fun onServiceDisconnected(componentName: ComponentName) {
-                log(TAG, WARN) { "onServiceDisconnected($componentName)" }
+                log(TAG) { "onServiceDisconnected($componentName)" }
+                awaitDisconnect.complete(Unit)
             }
         }
         Shizuku.bindUserService(serviceArgs, callback)
 
-        log(TAG) { "Waiting for close" }
+        log(TAG) { "Waiting for flow to close" }
         awaitClose {
             Shizuku.unbindUserService(serviceArgs, callback, true)
+            log(TAG) { "Waiting for disconnect..." }
+            // If we don't wait for the service to actually disconnect,
+            // then quick flow restarts can cause DeadObjectExceptions being thrown by our Shizuku service binder
+            runBlocking {
+                withTimeoutOrNull(500) { awaitDisconnect.await() }
+            }
+
             log(TAG) { "Flow closed." }
         }
     }

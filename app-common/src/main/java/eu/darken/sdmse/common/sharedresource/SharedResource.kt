@@ -1,14 +1,33 @@
 package eu.darken.sdmse.common.sharedresource
 
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.traceCall
 import eu.darken.sdmse.common.error.tryUnwrap
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancelAndJoin
+import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.shareIn
+import kotlinx.coroutines.job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.newCoroutineContext
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 
@@ -17,7 +36,7 @@ import kotlinx.coroutines.sync.withLock
  * Allows keeping reusable resources alive until it is no longer needed by anyone.
  */
 @Suppress("ProtectedInFinal")
-open class SharedResource<T : Any> constructor(
+open class SharedResource<T : Any>(
     tag: String,
     parentScope: CoroutineScope,
     source: Flow<T>,
@@ -98,7 +117,11 @@ open class SharedResource<T : Any> constructor(
             log(iTag, WARN) { "Failed to provide resource: ${it.asLog()}" }
             emit(Event.Error(it))
         }
-        .shareIn(parentScope, SharingStarted.WhileSubscribed(replayExpirationMillis = 0), replay = 1)
+        .shareIn(
+            parentScope,
+            SharingStarted.WhileSubscribed(stopTimeoutMillis = 1000, replayExpirationMillis = 0),
+            replay = 1
+        )
 
     suspend fun get(): Resource<T> {
         val c = Any().hashCode()
