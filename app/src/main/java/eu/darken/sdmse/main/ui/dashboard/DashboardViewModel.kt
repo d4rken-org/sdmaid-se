@@ -192,13 +192,14 @@ class DashboardViewModel @Inject constructor(
     }
 
     private val corpseFinderItem: Flow<DashboardToolCard.Item> = combine(
-        corpseFinder.state,
+        (corpseFinder.state as Flow<CorpseFinder.State?>).onStart { emit(null) },
         taskManager.state.map { it.getLatestResult(SDMTool.Type.CORPSEFINDER) },
     ) { state, lastResult ->
         DashboardToolCard.Item(
             toolType = SDMTool.Type.CORPSEFINDER,
+            isInitializing = state == null,
             result = lastResult,
-            progress = state.progress,
+            progress = state?.progress,
             showProRequirement = false,
             onScan = {
                 launch { submitTask(CorpseFinderScanTask()) }
@@ -206,7 +207,7 @@ class DashboardViewModel @Inject constructor(
             onDelete = {
                 val task = CorpseFinderDeleteTask()
                 events.postValue(DashboardEvents.CorpseFinderDeleteConfirmation(task))
-            }.takeIf { state.data?.hasData == true },
+            }.takeIf { state?.data?.hasData == true },
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.CORPSEFINDER) }
             },
@@ -218,13 +219,14 @@ class DashboardViewModel @Inject constructor(
     }
 
     private val systemCleanerItem: Flow<DashboardToolCard.Item> = combine(
-        systemCleaner.state,
+        (systemCleaner.state as Flow<SystemCleaner.State?>).onStart { emit(null) },
         taskManager.state.map { it.getLatestResult(SDMTool.Type.SYSTEMCLEANER) },
     ) { state, lastResult ->
         DashboardToolCard.Item(
             toolType = SDMTool.Type.SYSTEMCLEANER,
+            isInitializing = state == null,
             result = lastResult,
-            progress = state.progress,
+            progress = state?.progress,
             showProRequirement = false,
             onScan = {
                 launch { submitTask(SystemCleanerScanTask()) }
@@ -232,7 +234,7 @@ class DashboardViewModel @Inject constructor(
             onDelete = {
                 val task = SystemCleanerProcessingTask()
                 events.postValue(DashboardEvents.SystemCleanerDeleteConfirmation(task))
-            }.takeIf { state.data?.hasData == true },
+            }.takeIf { state?.data?.hasData == true },
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.SYSTEMCLEANER) }
             },
@@ -244,14 +246,15 @@ class DashboardViewModel @Inject constructor(
     }
 
     private val appCleanerItem: Flow<DashboardToolCard.Item> = combine(
-        appCleaner.state,
+        (appCleaner.state as Flow<AppCleaner.State?>).onStart { emit(null) },
         taskManager.state.map { it.getLatestResult(SDMTool.Type.APPCLEANER) },
         upgradeInfo.map { it?.isPro ?: false },
     ) { state, lastResult, isPro ->
         DashboardToolCard.Item(
             toolType = SDMTool.Type.APPCLEANER,
+            isInitializing = state == null,
             result = lastResult,
-            progress = state.progress,
+            progress = state?.progress,
             showProRequirement = !isPro,
             onScan = {
                 launch { submitTask(AppCleanerScanTask()) }
@@ -259,7 +262,7 @@ class DashboardViewModel @Inject constructor(
             onDelete = {
                 val task = AppCleanerProcessingTask()
                 events.postValue(DashboardEvents.AppCleanerDeleteConfirmation(task))
-            }.takeIf { state.data?.hasData == true },
+            }.takeIf { state?.data?.hasData == true },
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.APPCLEANER) }
             },
@@ -271,14 +274,15 @@ class DashboardViewModel @Inject constructor(
     }
 
     private val deduplicatorItem: Flow<DashboardToolCard.Item?> = combine(
-        deduplicator.state,
+        (deduplicator.state as Flow<Deduplicator.State?>).onStart { emit(null) },
         taskManager.state.map { it.getLatestResult(SDMTool.Type.DEDUPLICATOR) },
         upgradeInfo.map { it?.isPro ?: false },
     ) { state, lastResult, isPro ->
         DashboardToolCard.Item(
             toolType = SDMTool.Type.DEDUPLICATOR,
+            isInitializing = state == null,
             result = lastResult,
-            progress = state.progress,
+            progress = state?.progress,
             showProRequirement = !isPro,
             onScan = {
                 launch { submitTask(DeduplicatorScanTask()) }
@@ -291,7 +295,7 @@ class DashboardViewModel @Inject constructor(
                     )
                     events.postValue(event)
                 }
-            }.takeIf { state.data?.hasData == true },
+            }.takeIf { state?.data?.hasData == true },
             onCancel = {
                 launch { taskManager.cancel(SDMTool.Type.DEDUPLICATOR) }
             },
@@ -302,15 +306,18 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val appControlItem: Flow<AppControlDashCardVH.Item?> = appControl.state.mapLatest { state ->
-        AppControlDashCardVH.Item(
-            data = state.data,
-            progress = state.progress,
-            onViewDetails = {
-                DashboardFragmentDirections.actionDashboardFragmentToAppControlListFragment().navigate()
-            }
-        )
-    }
+    private val appControlItem: Flow<AppControlDashCardVH.Item?> = (appControl.state as Flow<AppControl.State?>)
+        .onStart { emit(null) }
+        .mapLatest { state ->
+            AppControlDashCardVH.Item(
+                isInitializing = state == null,
+                data = state?.data,
+                progress = state?.progress,
+                onViewDetails = {
+                    DashboardFragmentDirections.actionDashboardFragmentToAppControlListFragment().navigate()
+                }
+            )
+        }
 
     private val analyzerItem: Flow<AnalyzerDashCardVH.Item?> = combine(
         analyzer.data,

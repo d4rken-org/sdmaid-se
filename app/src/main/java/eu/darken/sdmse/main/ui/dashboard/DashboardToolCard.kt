@@ -54,6 +54,8 @@ class DashboardToolCard(parent: ViewGroup) :
             isGone = item.progress != null || item.result != null
         }
 
+        toolLoadingIndicator.isGone = !item.isInitializing
+
         activityContainer.isGone = item.progress == null && item.result == null
         progressBar.isInvisible = item.progress == null
         statusPrimary.isInvisible = item.progress != null
@@ -84,6 +86,7 @@ class DashboardToolCard(parent: ViewGroup) :
             }
             isGone = item.progress != null
             setOnClickListener { item.onScan() }
+            isEnabled = !item.isInitializing
         }
         deleteAction.apply {
             isGone = item.progress != null || item.onDelete == null
@@ -95,6 +98,7 @@ class DashboardToolCard(parent: ViewGroup) :
             } else {
                 icon = null
             }
+            isEnabled = !item.isInitializing
         }
         cancelAction.apply {
             isGone = item.progress == null
@@ -109,6 +113,7 @@ class DashboardToolCard(parent: ViewGroup) :
 
     data class Item(
         val toolType: SDMTool.Type,
+        val isInitializing: Boolean,
         val result: SDMTool.Task.Result?,
         val progress: Progress.Data?,
         val showProRequirement: Boolean,

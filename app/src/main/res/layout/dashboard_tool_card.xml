@@ -9,17 +9,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_height="300dp"
-        android:layout_margin="16dp">
+        android:layout_margin="16dp"
+        tools:layout_height="300dp">
 
         <ImageView
             android:id="@+id/icon"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            tools:src="@drawable/ic_recycle"
             app:layout_constraintBottom_toBottomOf="@id/title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/title" />
+            app:layout_constraintTop_toTopOf="@id/title"
+            tools:src="@drawable/ic_recycle" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title"
@@ -27,11 +27,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            tools:text="@string/appcleaner_tool_name"
+            app:layout_constraintEnd_toStartOf="@id/tool_loading_indicator"
             app:layout_constraintStart_toEndOf="@id/icon"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="@string/appcleaner_tool_name" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/description"
@@ -39,13 +39,24 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            tools:text="@string/appcleaner_explanation_short"
             app:layout_constraintBottom_toTopOf="@+id/activity_container"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title"
             app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="@string/appcleaner_explanation_short" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/tool_loading_indicator"
+            style="@style/Widget.Material3.CircularProgressIndicator.ExtraSmall"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:indeterminate="true"
+            app:indicatorSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:trackThickness="3dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/activity_container"
@@ -99,8 +110,8 @@
             android:id="@+id/action_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:paddingTop="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
