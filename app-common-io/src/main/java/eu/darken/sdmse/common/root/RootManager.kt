@@ -78,7 +78,7 @@ class RootManager @Inject constructor(
             cachedState?.let { return@withContext it }
 
             val newState = try {
-                serviceClient.get().item.ipc.checkBase() != null
+                serviceClient.get().use { it.item.ipc.checkBase() != null }
             } catch (e: Exception) {
                 log(TAG, WARN) { "Error while checking for root: $e" }
                 false
