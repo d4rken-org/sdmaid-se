@@ -400,7 +400,7 @@ class DashboardViewModel @Inject constructor(
             intervalFlow(1.seconds).map {
                 val now = Instant.now()
                 val loadingStart = setupState.startedLoadingAt ?: now
-                if (Duration.between(loadingStart, now) >= Duration.ofSeconds(3)) {
+                if (Duration.between(loadingStart, now) >= Duration.ofSeconds(5)) {
                     item
                 } else {
                     null
