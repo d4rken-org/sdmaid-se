@@ -16,11 +16,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.plus
 import javax.inject.Inject
@@ -70,15 +66,6 @@ class ExclusionManager @Inject constructor(
             replay = 1
         )
 
-
-    init {
-        userExclusions.flow
-            .drop(1)
-            .distinctUntilChanged()
-            .onEach { exclusionStorage.save(it) }
-            .launchIn(appScope + dispatcherProvider.IO)
-    }
-
     suspend fun save(toSave: Set<Exclusion>): Collection<Exclusion> {
         log(TAG) { "save(): $toSave" }
         val newOrUpdated = mutableSetOf<Exclusion>()
@@ -92,6 +79,7 @@ class ExclusionManager @Inject constructor(
             this
                 .filter { old -> newExclusions.none { old.id == it.id } }
                 .plus(newExclusions).toSet()
+                .also { exclusionStorage.save(it) }
         }
         return newOrUpdated
     }
@@ -102,7 +90,11 @@ class ExclusionManager @Inject constructor(
         val userTargets = userExclusions.flow.first().filter { ids.contains(it.id) }.toSet()
         if (userTargets.isNotEmpty()) {
             log(TAG) { "remove(): Removing user exclusions: $userTargets" }
-            userExclusions.updateBlocking { this - userTargets }
+            userExclusions.updateBlocking {
+                (this - userTargets).also {
+                    exclusionStorage.save(it)
+                }
+            }
         }
 
         val defaultTargets = defaultExclusions.exclusions.first()
