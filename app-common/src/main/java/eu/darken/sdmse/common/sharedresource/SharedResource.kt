@@ -101,9 +101,11 @@ open class SharedResource<T : Any> constructor(
         .shareIn(parentScope, SharingStarted.WhileSubscribed(replayExpirationMillis = 0), replay = 1)
 
     suspend fun get(): Resource<T> {
+        val c = Any().hashCode()
+
         if (Bugs.isTrace && !isAlive) {
-            log(iTag, DEBUG) { "get(): Reviving SharedResource" }
-            log(iTag, VERBOSE) { "get(): Revive call origin: ${traceCall()}" }
+            log(iTag, DEBUG) { "get($c): Reviving SharedResource" }
+            log(iTag, VERBOSE) { "get($c): Revive call origin: ${traceCall()}" }
         }
 
         val activeLease = lock.withLock {
@@ -111,7 +113,7 @@ open class SharedResource<T : Any> constructor(
                 invokeOnCompletion {
                     if (Bugs.isTraceDeepDive) {
                         val leaseSize = leases.size
-                        log(iTag, VERBOSE) { "get(): Lease completed (now=$leaseSize, $job)." }
+                        log(iTag, VERBOSE) { "get($c): Lease completed (now=$leaseSize, $job)." }
                     }
                 }
             }
@@ -121,26 +123,26 @@ open class SharedResource<T : Any> constructor(
                 if (Bugs.isTraceDeepDive) traceCall() else null
             ).also {
                 if (Bugs.isTraceDeepDive) {
-                    log(iTag, VERBOSE) { "get(): Adding new lease ($job)" }
+                    log(iTag, VERBOSE) { "get($c): Adding new lease ($job)" }
                 }
 
                 leases.add(it)
 
                 if (Bugs.isTraceDeepDive) {
                     val leaseSize = leases.size
-                    log(iTag, VERBOSE) { "get(): Now holding $leaseSize lease(s)" }
+                    log(iTag, VERBOSE) { "get($c): Now holding $leaseSize lease(s)" }
                 }
             }
         }
 
         val resource = try {
-            if (Bugs.isTraceDeepDive) log(iTag, VERBOSE) { "get(): Retrieving resource" }
+            if (Bugs.isTraceDeepDive) log(iTag, VERBOSE) { "get($c): Retrieving resource" }
             when (val event = resourceHolder.first()) {
                 is Event.Error -> throw event.error
                 is Event.Resource -> event.resource
             }
         } catch (e: Exception) {
-            log(iTag, WARN) { "get(): Failed to retrieve resource (${e.asLog()}" }
+            log(iTag, WARN) { "get($c): Failed to retrieve resource (${e.asLog()}" }
             activeLease.close()
             throw e.tryUnwrap()
         }
