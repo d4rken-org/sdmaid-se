@@ -55,8 +55,7 @@ class SetupHealer @Inject constructor(
             notificationSetupModule.state.filterIsInstance<SetupModule.State.Current>(),
             storageSetupModule.state.filterIsInstance<SetupModule.State.Current>(),
             automationSetupModule.state.filterIsInstance<SetupModule.State.Current>(),
-        ) { useRoot, useShizuku,
-            usageState, notifState, storageState, automationState ->
+        ) { useRoot, useShizuku, usageState, notifState, storageState, automationState ->
 
             val hasHealingPowers = useRoot || useShizuku
 
