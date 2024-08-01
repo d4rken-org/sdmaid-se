@@ -1,7 +1,5 @@
 Hi 👋
-SD Maid 2/SE ist in aktiver Entwicklung.
-Es ist eine noch sehr junge App und hat noch nicht alle finalen Funktionen.
-Ich arbeite täglich an neuen Verbesserungen.
+SD Maid 2/SE ist in aktiver Entwicklung. Ich arbeite täglich an neuen Verbesserungen.
 Meld dich doch kurz wenn du ne coole Idee hast 😊!
 
 Aktualisierungen bringen Fehlerlösungen, verbessern die Leistung, und bringen vielleicht neue Funktionen.
