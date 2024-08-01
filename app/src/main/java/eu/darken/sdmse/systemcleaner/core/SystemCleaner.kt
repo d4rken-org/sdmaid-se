@@ -49,6 +49,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
+import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
@@ -58,7 +59,7 @@ class SystemCleaner @Inject constructor(
     gatewaySwitch: GatewaySwitch,
     private val crawler: SystemCrawler,
     private val exclusionManager: ExclusionManager,
-    private val filterSource: FilterSource,
+    private val filterSourceProvider: Provider<FilterSource>,
     pkgOps: PkgOps,
     rootManager: RootManager,
 ) : SDMTool, Progress.Client {
@@ -135,7 +136,7 @@ class SystemCleaner @Inject constructor(
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
 
         internalData.value = null
-
+        val filterSource = filterSourceProvider.get()
         val results = crawler.withProgress(this) {
             crawl(filterSource.create(onlyEnabled = true))
         }
@@ -164,6 +165,7 @@ class SystemCleaner @Inject constructor(
         val processedContents = mutableMapOf<FilterContent, Set<SystemCleanerFilter.Match>>()
 
         val targetFilters = task.targetFilters ?: snapshot.filterContents.map { it.identifier }
+        val filterSource = filterSourceProvider.get()
         val filters = filterSource.create(onlyEnabled = false)
 
         targetFilters.forEach { targetIdentifier ->
