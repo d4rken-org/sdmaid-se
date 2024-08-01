@@ -11,7 +11,6 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.AutomationService
-import eu.darken.sdmse.common.SystemSettingsProvider.*
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -21,7 +20,6 @@ import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
@@ -42,15 +40,13 @@ class AutomationSetupModule @Inject constructor(
     private val automationManager: AutomationManager,
     private val deviceDetective: DeviceDetective,
     rootManager: RootManager,
-    shizukuManager: ShizukuManager,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
     override val state: Flow<SetupModule.State> = combine(
         rootManager.useRoot,
-        shizukuManager.useShizuku,
         refreshTrigger
-    ) { useRoot, useShizuku, _ ->
+    ) { useRoot, _ ->
         val isServiceEnabled = automationManager.isServiceEnabled()
         log(TAG) { "isServiceEnabled=$isServiceEnabled" }
 
@@ -81,7 +77,6 @@ class AutomationSetupModule @Inject constructor(
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
-        log(TAG) { "useShizuku: $useShizuku" }
         log(TAG) { "useRoot: $useRoot" }
 
         @Suppress("USELESS_CAST")
