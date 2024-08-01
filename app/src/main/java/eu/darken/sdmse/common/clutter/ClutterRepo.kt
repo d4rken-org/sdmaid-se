@@ -35,6 +35,6 @@ class ClutterRepo @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("ClutterRepository")
+        val TAG: String = logTag("ClutterRepo")
     }
 }
