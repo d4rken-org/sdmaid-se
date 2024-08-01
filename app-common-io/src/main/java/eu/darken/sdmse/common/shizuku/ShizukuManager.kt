@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -24,6 +25,8 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -56,27 +59,34 @@ class ShizukuManager @Inject constructor(
      */
     suspend fun isShizukud(): Boolean = withContext(dispatcherProvider.IO) {
         if (!isInstalled()) {
-            log(TAG) { "Shizuku is not installed" }
+            log(TAG) { "isShizukud(): Shizuku is not installed" }
             return@withContext false
         }
+        log(TAG, VERBOSE) { "isShizukud(): Shizuku is installed" }
+
         if (!isCompatible()) {
-            log(TAG) { "Shizuku version is too old" }
+            log(TAG) { "isShizukud(): Shizuku version is too old" }
             return@withContext false
         }
+        log(TAG, VERBOSE) { "isShizukud(): Shizuku is recent enough" }
 
         val granted = isGranted()
         if (granted == false) {
-            log(TAG) { "Permission not granted" }
+            log(TAG) { "isShizukud(): Permission not granted" }
             return@withContext false
         }
+        log(TAG, VERBOSE) { "isShizukud(): Permission is granted" }
 
         if (granted == null) {
-            log(TAG) { "Binder unavailable" }
+            log(TAG) { "isShizukud(): Binder unavailable" }
             return@withContext false
         }
+        log(TAG, VERBOSE) { "isShizukud(): Binder available" }
 
+        log(TAG, VERBOSE) { "isShizukud(): Checking availability of (Our) ShizukuService..." }
         isShizukuServiceAvailable().also {
-            if (!it) log(TAG) { "(Our) ShizukuService is unavailable" }
+            if (it) log(TAG, VERBOSE) { "isShizukud(): (Our) ShizukuService is available :)" }
+            else log(TAG) { "isShizukud(): (Our) ShizukuService is unavailable" }
         }
     }
 
@@ -117,9 +127,10 @@ class ShizukuManager @Inject constructor(
     suspend fun requestPermission() = shizukuWrapper.requestPermission()
 
     suspend fun isShizukuServiceAvailable(): Boolean = try {
+        log(TAG, VERBOSE) { "isShizukuServiceAvailable(): Requesting service client" }
         serviceClient.get().item.ipc.checkBase() != null
     } catch (e: Exception) {
-        log(TAG, WARN) { "Error during checkBase(): $e" }
+        log(TAG, WARN) { "isShizukuServiceAvailable(): Error during checkBase(): $e" }
         false
     }
 
