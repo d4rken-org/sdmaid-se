@@ -3,6 +3,7 @@ package eu.darken.sdmse.main.ui.dashboard
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.App
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.ui.AnalyzerDashCardVH
@@ -22,6 +23,7 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.DebugCardProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -89,6 +91,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import java.time.Duration
 import java.time.Instant
@@ -528,9 +531,13 @@ class DashboardViewModel @Inject constructor(
             }
 
         debugItem?.let { items.add(it) }
-
         items
     }
+        .onEach {
+            if (!Bugs.isDebug) return@onEach
+            val stop = System.currentTimeMillis()
+            log(TAG, VERBOSE) { "Time to dashboard (TTD) ${stop - App.INIT_AT}ms" }
+        }
         .throttleLatest(500)
         .replayingShare(vmScope)
 
