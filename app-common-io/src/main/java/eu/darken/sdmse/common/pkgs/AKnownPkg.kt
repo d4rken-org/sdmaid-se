@@ -10,10 +10,9 @@ import eu.darken.sdmse.common.ca.caDrawable
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.features.AppStore
-import kotlin.reflect.full.isSubclassOf
 
 @Keep
-sealed class AKnownPkg constructor(override val id: Pkg.Id) : Pkg {
+sealed class AKnownPkg(override val id: Pkg.Id) : Pkg {
     constructor(rawPkgId: String) : this(Pkg.Id(rawPkgId))
 
     @get:StringRes open val labelRes: Int? = null
@@ -72,13 +71,15 @@ sealed class AKnownPkg constructor(override val id: Pkg.Id) : Pkg {
     }
 
     companion object {
-        // Without lazy there is an NPE: https://youtrack.jetbrains.com/issue/KT-25957
-        val values: List<AKnownPkg> by lazy {
-            AKnownPkg::class.nestedClasses
-                .filter { clazz -> clazz.isSubclassOf(AKnownPkg::class) }
-                .map { clazz -> clazz.objectInstance }
-                .filterIsInstance<AKnownPkg>()
-        }
+        val values: List<AKnownPkg> = listOf(
+            AndroidSystem,
+            GooglePlay,
+            VivoAppStore,
+            OppoMarket,
+            HuaweiAppGallery,
+            SamsungAppStore,
+            XiaomiAppStore
+        )
 
         val APP_STORES by lazy { values.filterIsInstance<AppStore>() }
         val OEM_STORES by lazy { APP_STORES - GooglePlay }
