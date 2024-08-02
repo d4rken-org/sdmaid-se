@@ -18,6 +18,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
+import javax.inject.Provider
 
 class FileForensicsTest : BaseTest() {
 
@@ -28,7 +29,7 @@ class FileForensicsTest : BaseTest() {
     @MockK lateinit var gatewaySwitch: GatewaySwitch
     @MockK lateinit var pkgOps: PkgOps
     val processors = mutableSetOf<CSIProcessor>()
-
+    private val processorsProvider = Provider<Set<CSIProcessor>> { processors }
 
     @BeforeEach fun setup() {
         MockKAnnotations.init(this)
@@ -55,7 +56,7 @@ class FileForensicsTest : BaseTest() {
     }
 
     @Test fun init() = runTest2(autoCancel = true) {
-        val forensics = FileForensics(this, context, pkgRepo, processors, gatewaySwitch, pkgOps)
+        val forensics = FileForensics(this, context, pkgRepo, processorsProvider, gatewaySwitch, pkgOps)
         val testPath = LocalPath.build("/test")
         val areaInfo = forensics.identifyArea(testPath)
         areaInfo shouldBe testAreaInfo
