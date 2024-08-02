@@ -113,5 +113,6 @@ open class App : Application(), Configuration.Provider {
 
     companion object {
         internal val TAG = logTag("App")
+        val INIT_AT = System.currentTimeMillis()
     }
 }
