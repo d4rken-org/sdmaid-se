@@ -6,7 +6,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.LocalPath
@@ -38,6 +40,13 @@ class HiddenPkgsSource @Inject constructor(
             return@useRes emptySet()
         }
 
+        val alreadyKnown = try {
+            pkgOps.queryPkgs(0).map { it.packageName }
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "Failed to grab default packages: ${e.asLog()}" }
+            emptySet()
+        }
+
         userManager.allUsers()
             .mapNotNull { user ->
                 val result = shellOps.execute(
@@ -48,13 +57,20 @@ class HiddenPkgsSource @Inject constructor(
                 user to result.output
             }
             .map { (user, lines) ->
+                log(TAG, VERBOSE) { "${lines.size} entries for $user" }
                 lines.mapNotNull { PATTERN.matchEntire(it) }.map { user to it }
             }
             .flatten()
             .mapNotNull { (user, match) ->
                 val pkgName = match.groupValues[2]
+                if (alreadyKnown.contains((pkgName))) {
+                    return@mapNotNull null
+                }
+
+                log(TAG) { "Potentially hidden pkg: $pkgName" }
 
                 val sourcePath = LocalPath.build(match.groupValues[1])
+                log(TAG, VERBOSE) { "Reading archive $sourcePath" }
                 val apkInfo = pkgOps.viewArchive(sourcePath)
 
                 if (apkInfo == null) {
