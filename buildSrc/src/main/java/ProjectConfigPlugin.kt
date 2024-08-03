@@ -9,7 +9,9 @@ open class ProjectConfig {
     val minSdk = 26
 
     val compileSdk = 34
+    val compileSdkPreview: String = "VanillaIceCream"
     val targetSdk = 34
+    val targetSdkPreview: String = "VanillaIceCream"
 
     lateinit var version: Version
 

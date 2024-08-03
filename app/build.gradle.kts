@@ -11,13 +11,21 @@ apply(plugin = "androidx.navigation.safeargs.kotlin")
 val commitHashProvider = providers.of(CommitHashValueSource::class) {}
 
 android {
-    compileSdk = projectConfig.compileSdk
+    if (projectConfig.compileSdkPreview != null) {
+        compileSdkPreview = projectConfig.compileSdkPreview
+    } else {
+        compileSdk = projectConfig.compileSdk
+    }
 
     defaultConfig {
         namespace = projectConfig.packageName
 
         minSdk = projectConfig.minSdk
-        targetSdk = projectConfig.targetSdk
+        if (projectConfig.targetSdkPreview != null) {
+            targetSdkPreview = projectConfig.targetSdkPreview
+        } else {
+            targetSdk = projectConfig.targetSdk
+        }
 
         versionCode = projectConfig.version.code.toInt()
         versionName = projectConfig.version.name
@@ -203,8 +211,4 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
     androidTestImplementation("androidx.navigation:navigation-testing:${Versions.AndroidX.Navigation.core}")
-
-
-    testImplementation("org.robolectric:robolectric:4.9.1")
-    testImplementation("androidx.test.ext:junit:1.1.4")
 }

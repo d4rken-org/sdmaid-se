@@ -21,7 +21,11 @@ private fun LibraryExtension.kotlinOptions(configure: Action<KotlinJvmOptions>):
     (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("kotlinOptions", configure)
 
 fun LibraryExtension.setupLibraryDefaults(projectConfig: ProjectConfig) {
-    compileSdk = projectConfig.compileSdk
+    if (projectConfig.compileSdkPreview != null) {
+        compileSdkPreview = projectConfig.compileSdkPreview
+    } else {
+        compileSdk = projectConfig.compileSdk
+    }
 
     defaultConfig {
         minSdk = projectConfig.minSdk
