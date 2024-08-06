@@ -1,13 +1,11 @@
 package eu.darken.sdmse.setup.automation
 
-import android.content.res.ColorStateList
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.core.widget.TextViewCompat
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.lists.binding
+import eu.darken.sdmse.common.ui.setLeftIcon
 import eu.darken.sdmse.databinding.SetupAutomationItemBinding
 import eu.darken.sdmse.setup.SetupAdapter
 
@@ -27,30 +25,21 @@ class AutomationSetupCardVH(parent: ViewGroup) :
         val state = item.state
         enabledState.apply {
             isVisible = state.hasConsent == true
-            setCompoundDrawablesRelativeWithIntrinsicBounds(
-                ContextCompat.getDrawable(
-                    context, when {
-                        state.isServiceEnabled -> R.drawable.ic_check_circle
-                        state.canSelfEnable -> R.drawable.ic_baseline_access_time_filled_24
-                        else -> R.drawable.ic_cancel
-                    }
-                ),
-                null,
-                null,
-                null,
-            )
-            TextViewCompat.setCompoundDrawableTintList(
-                this,
-                ColorStateList.valueOf(
-                    context.getColorForAttr(
-                        when {
-                            state.isServiceEnabled -> androidx.appcompat.R.attr.colorPrimary
-                            state.canSelfEnable -> com.google.android.material.R.attr.colorSecondary
-                            else -> androidx.appcompat.R.attr.colorError
-                        }
-                    )
+
+            when {
+                state.isServiceEnabled -> setLeftIcon(
+                    R.drawable.ic_check_circle,
+                    androidx.appcompat.R.attr.colorPrimary
                 )
-            )
+
+                state.canSelfEnable -> setLeftIcon(
+                    R.drawable.ic_baseline_access_time_filled_24,
+                    com.google.android.material.R.attr.colorSecondary
+                )
+
+                else -> setLeftIcon(R.drawable.ic_cancel, androidx.appcompat.R.attr.colorError)
+            }
+
             setTextColor(
                 context.getColorForAttr(
                     when {
@@ -82,20 +71,19 @@ class AutomationSetupCardVH(parent: ViewGroup) :
 
         runningState.apply {
             isVisible = state.isServiceEnabled && state.hasConsent == true
-            setCompoundDrawablesRelativeWithIntrinsicBounds(
-                ContextCompat.getDrawable(
-                    context, if (state.isServiceRunning) R.drawable.ic_check_circle else R.drawable.ic_cancel
-                ),
-                null,
-                null,
-                null,
-            )
-            TextViewCompat.setCompoundDrawableTintList(
-                this,
-                ColorStateList.valueOf(
-                    context.getColorForAttr(if (state.isServiceRunning) androidx.appcompat.R.attr.colorPrimary else androidx.appcompat.R.attr.colorError)
+
+            when {
+                state.isServiceRunning -> setLeftIcon(
+                    R.drawable.ic_check_circle,
+                    androidx.appcompat.R.attr.colorPrimary
                 )
-            )
+
+                else -> setLeftIcon(
+                    R.drawable.ic_cancel,
+                    androidx.appcompat.R.attr.colorError
+                )
+            }
+
             setTextColor(
                 context.getColorForAttr(
                     if (state.isServiceRunning) androidx.appcompat.R.attr.colorPrimary else androidx.appcompat.R.attr.colorError

@@ -45,7 +45,7 @@ import eu.darken.sdmse.common.forensics.identifyArea
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
-import eu.darken.sdmse.common.pkgs.currentPkgs
+import eu.darken.sdmse.common.pkgs.current
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getPrivateDataDirs
 import eu.darken.sdmse.common.pkgs.isEnabled
@@ -133,7 +133,7 @@ class AppScanner @Inject constructor(
 
         val currentUser = userManager.currentUser()
         val allUsers = userManager.allUsers()
-        val allCurrentPkgs = pkgRepo.currentPkgs()
+        val allCurrentPkgs = pkgRepo.current()
             .filter { includeOtherUsers || it.userHandle == currentUser.handle }
             .filter { includeSystemApps || !it.isSystemApp }
             .filter { includeRunningApps || !pkgOps.isRunning(it.installId) }

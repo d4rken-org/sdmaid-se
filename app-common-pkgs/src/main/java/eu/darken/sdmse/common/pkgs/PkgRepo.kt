@@ -2,13 +2,17 @@ package eu.darken.sdmse.common.pkgs
 
 import eu.darken.sdmse.common.collections.mutate
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -21,13 +25,9 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.onStart
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.plus
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.reflect.KClass
@@ -35,6 +35,7 @@ import kotlin.reflect.KClass
 @Singleton
 class PkgRepo @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
+    dispatcherProvider: DispatcherProvider,
     pkgEventListener: PackageEventListener,
     private val pkgSources: Set<@JvmSuppressWildcards PkgDataSource>,
     private val gatewaySwitch: GatewaySwitch,
@@ -42,30 +43,32 @@ class PkgRepo @Inject constructor(
     private val userManager: UserManager2,
 ) {
 
-    data class CacheContainer(
-        val isSetupDone: Boolean = false,
-        val isInitialized: Boolean = false,
-        val pkgData: Map<CacheKey, CachedInfo> = emptyMap(),
-    ) {
-        internal val pkgCount: Int
-            get() = pkgData.count { it.value.data != null }
+    private val cache = DynamicStateFlow(TAG, appScope + dispatcherProvider.IO) {
+        log(TAG, INFO) { "Initializing pkg cache" }
+        generateCacheContainer().also {
+            isPreInitInternal.value = false
+        }
     }
 
-    private val cacheLock = Mutex()
-    private val pkgCache = MutableStateFlow(CacheContainer())
+    data class PkgData(
+        internal val pkgMap: Map<CacheKey, CachedInfo> = emptyMap(),
+        val error: Exception? = null,
+    ) {
 
-    val pkgs: Flow<Collection<Installed>> = pkgCache
-        .filter { it.isInitialized }
-        .map { it.pkgData }
-        .map { cachedInfo -> cachedInfo.values.mapNotNull { it.data } }
-        .onStart {
-            cacheLock.withLock {
-                if (!pkgCache.value.isInitialized) {
-                    log(TAG, INFO) { "Init due to pkgs subscription" }
-                    load()
-                }
+        val pkgs: Collection<Installed>
+            get() {
+                if (error != null) throw error
+                return pkgMap.values.mapNotNull { it.data }
             }
-        }
+
+        internal val pkgCount: Int
+            get() = pkgMap.count { it.value.data != null }
+    }
+
+    private val isPreInitInternal = MutableStateFlow(true)
+    val isPreInit: Flow<Boolean> = isPreInitInternal
+
+    val data: Flow<PkgData> = cache.flow
         .replayingShare(appScope)
 
     init {
@@ -78,15 +81,17 @@ class PkgRepo @Inject constructor(
             .launchIn(appScope)
     }
 
-    private suspend fun load() {
-        log(TAG) { "load()" }
-        pkgCache.value = CacheContainer(
-            isInitialized = true,
-            pkgData = generatePkgcache()
-        )
+    private suspend fun generateCacheContainer(): PkgData {
+        log(TAG) { "generateCacheContainer()..." }
+        return try {
+            PkgData(pkgMap = gatherPkgData())
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "Failed to load pkg data: ${e.asLog()}" }
+            PkgData(error = e)
+        }
     }
 
-    private suspend fun generatePkgcache(): Map<CacheKey, CachedInfo> {
+    private suspend fun gatherPkgData(): Map<CacheKey, CachedInfo> {
         log(TAG, INFO) { "generatePkgcache()..." }
         val start = System.currentTimeMillis()
         return gatewaySwitch.useRes {
@@ -142,33 +147,49 @@ class PkgRepo @Inject constructor(
         }
     }
 
+    suspend fun refresh(
+        id: Pkg.Id,
+        userHandle: UserHandle2? = null
+    ): Collection<Installed> {
+        log(TAG) { "refresh(): $id" }
+        // TODO refreshing the whole cache is inefficient, implement single target refresh?
+        refresh()
+        return queryCache(id, userHandle).mapNotNull { it.data }
+    }
+
+    suspend fun refresh(): Collection<Installed> {
+        val before = cache.value()
+        log(TAG) { "refresh()... (before=${before.pkgCount})" }
+        val after = cache.updateBlocking { generateCacheContainer() }
+        log(TAG, INFO) { "...refresh()ed (after=${after.pkgCount})" }
+        return after.pkgs
+    }
+
     private suspend fun queryCache(
         pkgId: Pkg.Id,
         userHandle: UserHandle2?,
-    ): Set<CachedInfo> = cacheLock.withLock {
-        if (!pkgCache.value.isInitialized) {
-            log(TAG) { "Package cache doesn't exist yet..." }
-            load()
-        }
+    ): Set<CachedInfo> {
         val systemHandle = userManager.systemUser().handle
 
-        val infos = pkgCache.value.pkgData.values.filter {
+        val infos = cache.value().pkgMap.filter {
             it.key.pkgId == pkgId && (userHandle == null || userHandle == systemHandle || it.key.userHandle == userHandle)
         }
-        if (infos.isNotEmpty()) return@withLock infos.toSet()
+        if (infos.isNotEmpty()) return infos.values.toSet()
 
         log(TAG, VERBOSE) { "Cache miss for $pkgId:$userHandle" }
 
-        // We didn't have any cache matches
-        if (userHandle != null) {
+        // Save the cache miss for better performance
+        return if (userHandle != null) {
             val key = CacheKey(pkgId, userHandle)
             val cacheInfo = CachedInfo(key, null)
 
-            pkgCache.value = pkgCache.value.copy(
-                pkgData = pkgCache.value.pkgData.mutate {
-                    this[key] = cacheInfo
-                }
-            )
+            cache.updateBlocking {
+                this.copy(
+                    pkgMap = this.pkgMap.mutate {
+                        this[key] = cacheInfo
+                    }
+                )
+            }
 
             setOf(cacheInfo)
         } else {
@@ -180,23 +201,6 @@ class PkgRepo @Inject constructor(
         pkgId: Pkg.Id,
         userHandle: UserHandle2?,
     ): Collection<Installed> = queryCache(pkgId, userHandle).mapNotNull { it.data }
-
-    suspend fun refresh(
-        id: Pkg.Id,
-        userHandle: UserHandle2? = null
-    ): Collection<Installed> {
-        log(TAG) { "refresh(): $id" }
-        // TODO refreshing the whole cache is inefficient, implement single target refresh?
-        cacheLock.withLock { load() }
-        return queryCache(id, userHandle).mapNotNull { it.data }
-    }
-
-    suspend fun refresh(): Collection<Installed> = cacheLock.withLock {
-        log(TAG) { "refresh()... (before=${pkgCache.value.pkgCount})" }
-        load()
-        log(TAG, INFO) { "...refresh()ed (after=${pkgCache.value.pkgCount})" }
-        pkgCache.value.pkgData.mapNotNull { it.value.data }
-    }
 
     data class CacheKey(
         val pkgId: Pkg.Id,

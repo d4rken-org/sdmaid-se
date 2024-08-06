@@ -19,6 +19,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.pkgs
 import eu.darken.sdmse.common.readAsText
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
@@ -82,7 +83,7 @@ class ExclusionListViewModel @Inject constructor(
 
     val state = combine(
         exclusionManager.exclusions,
-        pkgRepo.pkgs.onStart { emit(emptySet()) },
+        pkgRepo.pkgs().onStart { emit(emptySet()) },
         lookups.onStart { emit(emptyMap()) },
         showDefaults,
     ) { holders, pkgs, lookups, showDefaults ->

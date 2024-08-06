@@ -21,7 +21,7 @@ import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
 import eu.darken.sdmse.common.forensics.csi.toOwners
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.currentPkgs
+import eu.darken.sdmse.common.pkgs.current
 import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -61,7 +61,7 @@ class AppSourceLibCSI @Inject constructor(
             ?.let { owners.add(Owner(it, userHandle)) }
 
         if (owners.isEmpty()) {
-            pkgRepo.currentPkgs()
+            pkgRepo.current()
                 .filter { it.applicationInfo != null }
                 .filter { pkg ->
                     val nativLibDir = pkg.applicationInfo?.nativeLibraryDir?.let {

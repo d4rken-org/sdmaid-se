@@ -16,8 +16,8 @@ import eu.darken.sdmse.common.lists.differ.setupDiffer
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
-import eu.darken.sdmse.main.ui.dashboard.items.DataAreaCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.ErrorDataAreaVH
 import eu.darken.sdmse.main.ui.dashboard.items.MotdCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.ReviewCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
@@ -46,7 +46,6 @@ class DashboardAdapter @Inject constructor(
         addMod(TypedVHCreatorMod({ data[it] is SetupCardVH.Item }) { SetupCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is UpgradeCardVH.Item }) { UpgradeCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is UpdateCardVH.Item }) { UpdateCardVH(it) })
-        addMod(TypedVHCreatorMod({ data[it] is DataAreaCardVH.Item }) { DataAreaCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is DashboardToolCard.Item }) { DashboardToolCard(it) })
         addMod(TypedVHCreatorMod({ data[it] is AppControlDashCardVH.Item }) { AppControlDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is AnalyzerDashCardVH.Item }) { AnalyzerDashCardVH(it) })
@@ -55,6 +54,7 @@ class DashboardAdapter @Inject constructor(
         addMod(TypedVHCreatorMod({ data[it] is MotdCardVH.Item }) { MotdCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ReviewCardVH.Item }) { ReviewCardVH(activity, it) })
         addMod(TypedVHCreatorMod({ data[it] is StatsDashCardVH.Item }) { StatsDashCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is ErrorDataAreaVH.Item }) { ErrorDataAreaVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

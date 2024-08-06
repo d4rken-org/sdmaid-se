@@ -1,5 +1,6 @@
 package eu.darken.sdmse.main.ui.dashboard
 
+import android.content.ActivityNotFoundException
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.text.format.Formatter
@@ -13,6 +14,7 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.easterEggProgressMsg
+import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -229,6 +231,12 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 is DashboardEvents.TodoHint -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setMessage(eu.darken.sdmse.common.R.string.general_todo_msg)
                 }.show()
+
+                is DashboardEvents.OpenIntent -> try {
+                    startActivity(event.intent)
+                } catch (e: ActivityNotFoundException) {
+                    e.asErrorDialogBuilder(requireActivity()).show()
+                }
             }
         }
 

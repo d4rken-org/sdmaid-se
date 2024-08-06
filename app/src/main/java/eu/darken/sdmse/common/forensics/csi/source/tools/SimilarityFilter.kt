@@ -8,7 +8,7 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
-import eu.darken.sdmse.common.pkgs.getPkg
+import eu.darken.sdmse.common.pkgs.get
 import javax.inject.Inject
 
 
@@ -37,7 +37,7 @@ class SimilarityFilter @Inject constructor(
         return toCheck.filter { candidate ->
 
             val userHandle = areaInfo.userHandle
-            val sourceDir = pkgRepo.getPkg(candidate.pkgId, userHandle)
+            val sourceDir = pkgRepo.get(candidate.pkgId, userHandle)
                 ?.let { it as? SourceAvailable }
                 ?.sourceDir ?: return@filter true
 
