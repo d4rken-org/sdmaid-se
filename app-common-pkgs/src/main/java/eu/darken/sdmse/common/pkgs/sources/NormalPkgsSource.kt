@@ -16,11 +16,11 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.permissions.Permission
+import eu.darken.sdmse.common.pkgs.InvalidPkgInventoryException
 import eu.darken.sdmse.common.pkgs.PkgDataSource
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.InstallerInfo
-import eu.darken.sdmse.common.pkgs.pkgops.IllegalPkgDataException
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
@@ -76,10 +76,10 @@ class NormalPkgsSource @Inject constructor(
         // FYI: MATCH_ALL does not include MATCH_UNINSTALLED_PACKAGES
         val pkgInfos = pkgOps.queryPkgs(PackageManager.MATCH_ALL)
         if (pkgInfos.isEmpty()) {
-            throw IllegalPkgDataException("No installed packages")
+            throw InvalidPkgInventoryException("Could not retrieve list of installed packages")
         }
         if (pkgInfos.none { it.packageName == BuildConfigWrap.APPLICATION_ID }) {
-            throw IllegalPkgDataException("Returned package data didn't contain us")
+            throw InvalidPkgInventoryException("Returned package data didn't contain us")
         }
 
         val currentHandle = userManager.currentUser().handle

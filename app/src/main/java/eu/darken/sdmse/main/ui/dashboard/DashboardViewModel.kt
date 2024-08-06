@@ -1,8 +1,10 @@
 package eu.darken.sdmse.main.ui.dashboard
 
+import android.content.Context
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.App
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.analyzer.core.Analyzer
@@ -37,6 +39,7 @@ import eu.darken.sdmse.common.flow.intervalFlow
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.throttleLatest
+import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.review.ReviewTool
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -63,8 +66,8 @@ import eu.darken.sdmse.main.core.motd.MotdRepo
 import eu.darken.sdmse.main.core.release.ReleaseManager
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.core.taskmanager.getLatestResult
-import eu.darken.sdmse.main.ui.dashboard.items.DataAreaCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.ErrorDataAreaVH
 import eu.darken.sdmse.main.ui.dashboard.items.MotdCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.ReviewCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
@@ -103,6 +106,7 @@ class DashboardViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val areaManager: DataAreaManager,
+    private val pkgRepo: PkgRepo,
     private val taskManager: TaskManager,
     private val setupManager: SetupManager,
     private val corpseFinder: CorpseFinder,
@@ -122,6 +126,7 @@ class DashboardViewModel @Inject constructor(
     private val releaseManager: ReleaseManager,
     private val reviewTool: ReviewTool,
     private val statsRepo: StatsRepo,
+    @ApplicationContext private val context: Context,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     init {
@@ -348,17 +353,17 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val dataAreaItem: Flow<DataAreaCardVH.Item?> = areaManager.latestState
+    private val dataAreaItem: Flow<ErrorDataAreaVH.Item?> = areaManager.latestState
         .map {
             if (it == null) return@map null
             if (it.areas.isNotEmpty()) return@map null
-            DataAreaCardVH.Item(
+            ErrorDataAreaVH.Item(
                 state = it,
                 onReload = {
                     launch {
                         areaManager.reload()
                     }
-                }
+                },
             )
         }
 
@@ -467,7 +472,7 @@ class DashboardViewModel @Inject constructor(
         upgradeInfo: UpgradeRepo.Info?,
         updateInfo: UpdateCardVH.Item?,
         setupItem: SetupCardVH.Item?,
-        dataAreaInfo: DataAreaCardVH.Item?,
+        dataAreaError: ErrorDataAreaVH.Item?,
         corpseFinderItem: DashboardToolCard.Item?,
         systemCleanerItem: DashboardToolCard.Item?,
         appCleanerItem: DashboardToolCard.Item?,
@@ -481,7 +486,9 @@ class DashboardViewModel @Inject constructor(
         _ ->
         val items = mutableListOf<DashboardAdapter.Item>(titleInfo)
 
-        if (motdItem == null && updateInfo == null && setupItem == null && dataAreaInfo == null && reviewItem != null) {
+        val noError = dataAreaError == null
+
+        if (motdItem == null && updateInfo == null && setupItem == null && noError && reviewItem != null) {
             log(TAG, INFO) { "Showing review item" }
             items.add(reviewItem)
         } else if (reviewItem != null) {
@@ -491,7 +498,7 @@ class DashboardViewModel @Inject constructor(
         motdItem?.let { items.add(it) }
         updateInfo?.let { items.add(it) }
         setupItem?.let { items.add(it) }
-        dataAreaInfo?.let { items.add(it) }
+        dataAreaError?.let { items.add(it) }
 
         corpseFinderItem?.let { items.add(it) }
         systemCleanerItem?.let { items.add(it) }

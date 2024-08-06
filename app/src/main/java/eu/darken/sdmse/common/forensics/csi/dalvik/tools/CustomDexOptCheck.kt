@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.dalvik.DalvikCheck
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.currentPkgs
+import eu.darken.sdmse.common.pkgs.current
 import java.io.File
 import javax.inject.Inject
 
@@ -19,7 +19,7 @@ class CustomDexOptCheck @Inject constructor(
         areaInfo: AreaInfo,
     ): Pair<DalvikCheck.Result, LocalPath?> {
         val owners = mutableSetOf<Owner>()
-        val currentPkgs = pkgRepo.currentPkgs()
+        val currentPkgs = pkgRepo.current()
         var extraPathToCheck: LocalPath? = null
 
         // Custom apk/jar subfile that has been optimized manually

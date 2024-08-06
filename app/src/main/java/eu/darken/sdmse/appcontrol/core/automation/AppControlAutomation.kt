@@ -36,7 +36,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
-import eu.darken.sdmse.common.pkgs.getPkg
+import eu.darken.sdmse.common.pkgs.get
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
@@ -124,7 +124,7 @@ class AppControlAutomation @AssistedInject constructor(
                 throw UnsupportedOperationException("ACS based force-stop is not support for other users ($target)")
             }
 
-            val installed = pkgRepo.getPkg(target.pkgId, target.userHandle)
+            val installed = pkgRepo.get(target.pkgId, target.userHandle)
 
             if (installed == null) {
                 log(TAG, WARN) { "$target is not in package repo" }
