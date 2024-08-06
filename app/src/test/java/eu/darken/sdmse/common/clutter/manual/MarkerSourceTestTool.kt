@@ -3,7 +3,10 @@ package eu.darken.sdmse.common.clutter.manual
 import android.content.Context
 import android.content.res.AssetManager
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.areas.DataArea.Type.*
+import eu.darken.sdmse.common.areas.DataArea.Type.DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.clutter.MarkerSource
 import eu.darken.sdmse.common.clutter.manual.MarkerSourceTestTool.Candi.MatchType.NEG
@@ -42,7 +45,9 @@ class MarkerSourceTestTool(private val assetPath: String) {
             File(arg<String>(0)).inputStream()
         }
 
-        every { pkgRepo.pkgs } returns flowOf(testApps)
+        every { pkgRepo.data } returns flowOf(
+            mockk<PkgRepo.PkgData>().apply { every { pkgs } returns testApps }
+        )
     }
 
     fun getMarkerSource(): MarkerSource {

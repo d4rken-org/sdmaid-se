@@ -54,7 +54,7 @@ abstract class BaseCSITest : BaseTest() {
         every { storageEnvironment.dataDir } returns LocalPath.build("/data")
 
         coEvery { pkgRepo.query(any(), any()) } returns emptySet()
-        every { pkgRepo.pkgs } returns flowOf(pkgs)
+        every { pkgRepo.data } answers { flowOf(PkgRepo.PkgData.from(pkgs)) }
         coEvery { pkgOps.viewArchive(any(), any()) } returns null
     }
 
@@ -82,6 +82,7 @@ abstract class BaseCSITest : BaseTest() {
             every { id } returns pkgId
             every { sourceDir } returns source
             every { packageInfo } returns mockk()
+            every { this@apply.userHandle } returns userHandle
         }
         coEvery { pkgRepo.query(pkgId, UserHandle2(-1)) } returns setOf(mockPkg)
         coEvery { pkgRepo.query(pkgId, userHandle) } returns setOf(mockPkg)
