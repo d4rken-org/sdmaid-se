@@ -166,7 +166,7 @@ class ContentViewModel @Inject constructor(
         }
 
         log(TAG) { "open() launching chooser $chooserIntent" }
-        context.startActivity(chooserIntent)
+        events.postValue(ContentItemEvents.OpenContent(chooserIntent))
     }
 
     fun delete(items: Set<ContentItem>) = launch {

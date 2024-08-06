@@ -1,5 +1,6 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
+import android.content.ActivityNotFoundException
 import android.os.Bundle
 import android.text.format.Formatter
 import android.view.MenuItem
@@ -16,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
@@ -140,6 +142,14 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                     ),
                     Snackbar.LENGTH_LONG
                 ).show()
+
+                is ContentItemEvents.OpenContent -> {
+                    try {
+                        startActivity(event.intent)
+                    } catch (e: ActivityNotFoundException) {
+                        e.asErrorDialogBuilder(requireActivity()).show()
+                    }
+                }
             }
         }
 
