@@ -24,7 +24,6 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
@@ -45,9 +44,7 @@ class PkgRepo @Inject constructor(
 
     private val cache = DynamicStateFlow(TAG, appScope + dispatcherProvider.IO) {
         log(TAG, INFO) { "Initializing pkg cache" }
-        generateCacheContainer().also {
-            isPreInitInternal.value = false
-        }
+        generateCacheContainer()
     }
 
     data class PkgData(
@@ -63,10 +60,16 @@ class PkgRepo @Inject constructor(
 
         internal val pkgCount: Int
             get() = pkgMap.count { it.value.data != null }
-    }
 
-    private val isPreInitInternal = MutableStateFlow(true)
-    val isPreInit: Flow<Boolean> = isPreInitInternal
+        companion object {
+            fun from(pkgs: Collection<Installed>) = PkgData(
+                pkgMap = pkgs.associate {
+                    val key = CacheKey(it.id, it.userHandle)
+                    key to CachedInfo(key, it)
+                }
+            )
+        }
+    }
 
     val data: Flow<PkgData> = cache.flow
         .replayingShare(appScope)
