@@ -101,6 +101,12 @@
     #    "update_option" : "update_without_changes",
     "languages_mapping": *stringmapping
   }, {
+    "source": "/app-common-pkgs/src/main/res/values/strings.xml",
+    "dest": "/strings-app-common-pkgs.xml",
+    "translation": "/app-common-pkgs/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
     "source": "/fastlane/metadata/android/en-US/full_description.txt",
     "dest": "/store-description.txt",
     "translation": "/fastlane/metadata/android/%locale%/full_description.txt",

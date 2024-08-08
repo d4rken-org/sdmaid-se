@@ -28,7 +28,7 @@ import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.OwnerInfo
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.currentPkgs
+import eu.darken.sdmse.common.pkgs.current
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -165,7 +165,7 @@ class StorageScanner @Inject constructor(
 
         updateProgressPrimary(R.string.analyzer_progress_scanning_apps)
 
-        val targetPkgs = pkgRepo.currentPkgs()
+        val targetPkgs = pkgRepo.current()
             .filter { it.packageName != "android" }
             .filter { it.applicationInfo != null }
 

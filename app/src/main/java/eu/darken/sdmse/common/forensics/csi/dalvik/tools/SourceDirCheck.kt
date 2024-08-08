@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.csi.dalvik.DalvikCheck
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.currentPkgs
+import eu.darken.sdmse.common.pkgs.current
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import javax.inject.Inject
 
@@ -16,7 +16,7 @@ class SourceDirCheck @Inject constructor(
 ) : DalvikCheck {
 
     suspend fun check(areaInfo: AreaInfo, candidates: Collection<LocalPath>): DalvikCheck.Result {
-        val ownerPkg = pkgRepo.currentPkgs()
+        val ownerPkg = pkgRepo.current()
             .filterIsInstance<SourceAvailable>()
             .filter { it.sourceDir != null }
             .firstOrNull { pkg -> candidates.any { it.path == pkg.sourceDir?.path } }

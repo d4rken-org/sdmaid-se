@@ -11,7 +11,7 @@ import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.getPkg
+import eu.darken.sdmse.common.pkgs.get
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.current
@@ -52,7 +52,7 @@ class PkgExclusionViewModel @Inject constructor(
         State(
             original = origExclusion,
             current = newExcl,
-            pkg = pkgRepo.getPkg(newExcl.pkgId).firstOrNull(),
+            pkg = pkgRepo.get(newExcl.pkgId).firstOrNull(),
         )
     }
 

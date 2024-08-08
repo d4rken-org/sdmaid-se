@@ -1,5 +1,6 @@
 package eu.darken.sdmse.main.ui.dashboard
 
+import android.content.Intent
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.deduplicator.core.Duplicate
@@ -32,4 +33,6 @@ sealed interface DashboardEvents {
     data class TaskResult(
         val result: SDMTool.Task.Result
     ) : DashboardEvents
+
+    data class OpenIntent(val intent: Intent) : DashboardEvents
 }

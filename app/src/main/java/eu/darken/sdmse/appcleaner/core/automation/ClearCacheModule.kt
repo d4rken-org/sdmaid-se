@@ -47,7 +47,7 @@ import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
-import eu.darken.sdmse.common.pkgs.getPkg
+import eu.darken.sdmse.common.pkgs.get
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -131,7 +131,7 @@ class ClearCacheModule @AssistedInject constructor(
                 throw UnsupportedOperationException("ACS based deletion is not support for other users ($target)")
             }
 
-            val installed = pkgRepo.getPkg(target.pkgId, target.userHandle)
+            val installed = pkgRepo.get(target.pkgId, target.userHandle)
 
             if (installed == null) {
                 log(TAG, WARN) { "$target is not in package repo" }

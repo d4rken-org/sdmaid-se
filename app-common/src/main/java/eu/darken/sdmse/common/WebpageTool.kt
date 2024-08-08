@@ -16,18 +16,23 @@ class WebpageTool @Inject constructor(
 ) {
 
     fun open(address: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(address)).apply {
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        }
-        try {
-            context.startActivity(intent)
-        } catch (e: ActivityNotFoundException) {
-            log(ERROR) { "Failed to launch. No compatible activity!" }
-        } catch (e: SecurityException) {
-            // Permission Denial: starting Intent { act=android.intent.action.VIEW dat=https://github.com/...
-            // flg=0x10000000 cmp=com.mxtech.videoplayer.pro/com.mxtech.videoplayer.ActivityWebBrowser }
-            log(ERROR) { "Failed to launch activity due to $e" }
-        }
+        open(context, address)
     }
 
+    companion object {
+        fun open(context: Context, address: String) {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(address)).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+            try {
+                context.startActivity(intent)
+            } catch (e: ActivityNotFoundException) {
+                log(ERROR) { "Failed to launch. No compatible activity!" }
+            } catch (e: SecurityException) {
+                // Permission Denial: starting Intent { act=android.intent.action.VIEW dat=https://github.com/...
+                // flg=0x10000000 cmp=com.mxtech.videoplayer.pro/com.mxtech.videoplayer.ActivityWebBrowser }
+                log(ERROR) { "Failed to launch activity due to $e" }
+            }
+        }
+    }
 }

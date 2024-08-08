@@ -4,7 +4,7 @@
     style="@style/DashboardCardItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="?colorTertiaryContainer">
+    android:backgroundTint="?colorErrorContainer">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

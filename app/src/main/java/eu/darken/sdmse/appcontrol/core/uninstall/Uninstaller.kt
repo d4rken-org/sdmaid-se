@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.pkgs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
@@ -105,7 +106,7 @@ class Uninstaller @Inject constructor(
             log(TAG) { "Waiting for system uninstall process (timeout=$timeoutSeconds)" }
             // Wait until the app is no longer installed
             withTimeout(timeoutSeconds * 1000) {
-                pkgRepo.pkgs.first { pkgs ->
+                pkgRepo.pkgs().first { pkgs ->
                     pkgs.none { it.installId == installId }
                 }
             }

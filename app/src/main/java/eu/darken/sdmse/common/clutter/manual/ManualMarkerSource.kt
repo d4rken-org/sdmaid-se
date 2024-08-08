@@ -9,7 +9,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.currentPkgs
+import eu.darken.sdmse.common.pkgs.current
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import kotlinx.coroutines.sync.Mutex
@@ -78,7 +78,7 @@ open class ManualMarkerSource(
         log(TAG, VERBOSE) { "buildDatabase(entries=${clutterEntries.size})..." }
 
         val startTimeMarkerGeneration = System.currentTimeMillis()
-        val installedApps: Collection<Installed> = pkgRepo.currentPkgs()
+        val installedApps: Collection<Installed> = pkgRepo.current()
         var markerCount: Long = 0
         val clutterMap: HashMap<Pkg.Id, MutableCollection<ManualMarker>> = LinkedHashMap()
         var counter = 0

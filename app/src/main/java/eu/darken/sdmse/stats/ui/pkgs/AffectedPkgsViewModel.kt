@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.getPkg
+import eu.darken.sdmse.common.pkgs.get
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.stats.core.AffectedPkg
 import eu.darken.sdmse.stats.core.Report
@@ -58,7 +58,7 @@ class AffectedPkgsViewModel @Inject constructor(
 
         affectedPkgs
             .sortedBy { it.pkgId.name }
-            .map { pkg -> AffectedPkgVH.Item(pkg, pkgRepo.getPkg(pkg.pkgId).firstOrNull()) }
+            .map { pkg -> AffectedPkgVH.Item(pkg, pkgRepo.get(pkg.pkgId).firstOrNull()) }
             .run { elements.addAll(this) }
 
         State(elements)

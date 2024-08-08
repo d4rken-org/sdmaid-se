@@ -28,7 +28,7 @@ import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
-import eu.darken.sdmse.common.pkgs.currentPkgs
+import eu.darken.sdmse.common.pkgs.current
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.isEnabled
@@ -151,7 +151,7 @@ class AppControl @Inject constructor(
         }
 
         val currentUserHandle = userManager.currentUser().handle
-        val pkgs = if (task.refreshPkgCache) pkgRepo.refresh() else pkgRepo.currentPkgs()
+        val pkgs = if (task.refreshPkgCache) pkgRepo.refresh() else pkgRepo.current()
         val appInfos = pkgs
             .filter { it.userHandle == currentUserHandle }
             .map { it.toAppInfo() }

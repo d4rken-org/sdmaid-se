@@ -212,12 +212,10 @@ class SetupViewModel @Inject constructor(
                             is SetupModule.State.Current -> InventorySetupCardVH.Item(
                                 state = state as InventorySetupModule.Result,
                                 onGrantAction = {
-                                    state.missingPermission.firstOrNull()?.let {
-                                        events.postValue(SetupEvents.ShowOurDetailsPage(state.settingsIntent))
-                                    }
+                                    events.postValue(SetupEvents.ShowOurDetailsPage(state.settingsIntent))
                                 },
                                 onHelp = {
-                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#app-inventory")
+                                    webpageTool.open(InventorySetupModule.INFO_URL)
                                 }
                             )
 

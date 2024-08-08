@@ -1,0 +1,4 @@
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Invalid app inventory</string>
+    <string name="pkgrepo_invalid_inventory_error_description">The system provided an invalid list of installed apps to SD Maid.</string>
+</resources>

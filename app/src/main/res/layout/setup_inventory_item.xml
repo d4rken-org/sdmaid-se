@@ -57,10 +57,24 @@
             android:gravity="center"
             android:text="@string/setup_permission_granted_label"
             android:textColor="?colorPrimary"
-            app:layout_constraintBottom_toTopOf="@id/grant_action"
+            app:layout_constraintBottom_toTopOf="@id/grant_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/body" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/grant_hint"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/setup_inventory_invalid_message"
+            android:textColor="?colorError"
+            app:layout_constraintBottom_toTopOf="@id/grant_action"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/grant_state" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/grant_action"
@@ -70,7 +84,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/general_grant_access_action"
-            app:layout_constraintTop_toBottomOf="@id/grant_state" />
+            app:layout_constraintTop_toBottomOf="@id/grant_hint" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/explanation"
