@@ -34,6 +34,7 @@ import eu.darken.sdmse.common.shizuku.service.runModuleAction
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
 import okio.Sink
@@ -429,7 +430,9 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || !canRead && mode == Mode.AUTO) -> {
                     if (options.isDirect) {
                         log(TAG, VERBOSE) { "walk($mode->ROOT, direct): $path" }
-                        rootOps { it.walk(path, options) }
+                        // We need to keep the resource alive until the caller is done with the Flow
+                        val resource = rootManager.serviceClient.get()
+                        rootOps { it.walk(path, options).onCompletion { resource.close() } }
                     } else {
                         log(TAG, VERBOSE) { "walk($mode->ROOT, indirect): $path" }
                         // Can't pass functions via IPC
@@ -446,7 +449,9 @@ class LocalGateway @Inject constructor(
                 hasShizuku() && (mode == Mode.ADB || !canRead && mode == Mode.AUTO) -> {
                     if (options.isDirect) {
                         log(TAG, VERBOSE) { "walk($mode->ADB, direct): $path" }
-                        adbOps { it.walk(path, options) }
+                        // We need to keep the resource alive until the caller is done with the Flow
+                        val resource = shizukuManager.serviceClient.get()
+                        adbOps { it.walk(path, options).onCompletion { resource.close() } }
                     } else {
                         log(TAG, VERBOSE) { "walk($mode->ADB, indirect): $path" }
                         // Can't pass functions via IPC
