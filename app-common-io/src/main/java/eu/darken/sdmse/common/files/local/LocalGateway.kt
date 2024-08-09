@@ -28,6 +28,7 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.sharedresource.keepResourcesAlive
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.shizuku.service.runModuleAction
@@ -64,11 +65,15 @@ class LocalGateway @Inject constructor(
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
     private suspend fun <T> rootOps(action: suspend (FileOpsClient) -> T): T {
-        return rootManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
+        return keepResourcesAlive(setOf(rootManager.serviceClient)) {
+            rootManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
+        }
     }
 
     private suspend fun <T> adbOps(action: suspend (FileOpsClient) -> T): T {
-        return shizukuManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
+        return keepResourcesAlive(setOf(shizukuManager.serviceClient)) {
+            shizukuManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
+        }
     }
 
     suspend fun hasRoot(): Boolean = rootManager.canUseRootNow()

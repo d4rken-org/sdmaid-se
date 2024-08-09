@@ -2,10 +2,8 @@ package eu.darken.sdmse.common.root.service
 
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -106,12 +104,6 @@ class RootServiceClient @Inject constructor(
     ) {
         inline fun <reified T> getModule(): T = clientModules.single { it is T } as T
     }
-
-    suspend fun <T> runSessionAction(action: suspend (Connection) -> T): T = get().use {
-        if (Bugs.isTrace) log(TAG, VERBOSE) { "runSessionAction(action=$action)" }
-        action(it.item)
-    }
-
 
     companion object {
 

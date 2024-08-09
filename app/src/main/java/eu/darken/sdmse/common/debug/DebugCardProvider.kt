@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.common.root.service.RootServiceClient
+import eu.darken.sdmse.common.sharedresource.runSessionAction
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.shizuku.ShizukuManager

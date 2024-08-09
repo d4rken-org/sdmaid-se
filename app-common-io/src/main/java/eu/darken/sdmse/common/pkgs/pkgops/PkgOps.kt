@@ -45,6 +45,7 @@ import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.sharedresource.keepResourcesAlive
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.shizuku.service.runModuleAction
@@ -72,11 +73,15 @@ class PkgOps @Inject constructor(
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
     private suspend fun <T> adbOps(action: suspend (PkgOpsClient) -> T): T {
-        return shizukuManager.serviceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
+        return keepResourcesAlive(setOf(shizukuManager.serviceClient)) {
+            shizukuManager.serviceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
+        }
     }
 
     private suspend fun <T> rootOps(action: suspend (PkgOpsClient) -> T): T {
-        return rootManager.serviceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
+        return keepResourcesAlive(setOf(rootManager.serviceClient)) {
+            rootManager.serviceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
+        }
     }
 
     suspend fun getUserNameForUID(uid: Int): String? = rootOps { client ->
