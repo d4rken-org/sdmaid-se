@@ -43,3 +43,7 @@ suspend inline fun <C : HasSharedResource<*>, R> C.keepResourcesAlive(
         keepAlives.closeAll()
     }
 }
+
+suspend fun <T, A : Any> SharedResource<A>.runSessionAction(action: suspend (A) -> T): T = get().use {
+    action(it.item)
+}

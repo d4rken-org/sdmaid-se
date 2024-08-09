@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.root.service
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.sharedresource.runSessionAction
 
 
 @Suppress("UNCHECKED_CAST")
