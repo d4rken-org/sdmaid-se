@@ -6,6 +6,9 @@ import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.excludeNestedLookups
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
+import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPrivateFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
+import eu.darken.sdmse.appcleaner.core.identifier
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -104,10 +107,16 @@ class PostProcessorModule @Inject constructor(
 
         if (!useRoot && useShizuku) {
             val edgeCaseSegs = segs(before.pkg.id.name, "cache")
-            before.expendables.forEach { (type, matches) ->
-                val edgeCases = matches.filter { it.path.segments.containsSegments(edgeCaseSegs) }
-                edgeCaseMap[type] = edgeCases
-            }
+            val edgeCaseFilters = setOf(
+                DefaultCachesPublicFilter::class.identifier,
+                DefaultCachesPrivateFilter::class.identifier,
+            )
+            before.expendables
+                .filter { edgeCaseFilters.contains(it.key) }
+                .forEach { (type, matches) ->
+                    val edgeCases = matches.filter { it.path.segments.containsSegments(edgeCaseSegs) }
+                    edgeCaseMap[type] = edgeCases
+                }
         }
 
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.APPCLEANER)
@@ -122,7 +131,7 @@ class PostProcessorModule @Inject constructor(
             expendables = after.expendables?.mapValues { (type, paths) ->
                 val edges = edgeCaseMap[type] ?: emptySet()
                 if (edges.isNotEmpty()) log(TAG, VERBOSE) { "Re-adding edge cases: $edges" }
-                paths.plus(edges)
+                (paths + edges).toSet()
             }
         )
 
