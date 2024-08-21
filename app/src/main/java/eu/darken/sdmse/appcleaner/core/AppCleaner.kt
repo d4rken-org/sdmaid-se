@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
 import eu.darken.sdmse.appcleaner.core.scanner.AppScanner
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
@@ -277,37 +278,39 @@ class AppCleaner @Inject constructor(
         val deleted = mutableSetOf<APath>()
 
         internalData.value = snapshot.copy(
-            junks = snapshot.junks
-                .map { appJunk ->
-                    updateProgressSecondary(appJunk.label)
-                    // Remove all files we deleted or children of deleted files
-                    val updatedExpendables = appJunk.expendables
-                        ?.mapValues { (type, matches) ->
-                            matches.filter { match ->
-                                val isDeleted = accessibleDeletionMap.getOrDefault(appJunk.identifier, emptySet()).any {
-                                    it.path.isAncestorOf(match.path) || it.path.matches(match.path)
-                                }
-                                if (isDeleted) deleted.add(match.path)
-                                !isDeleted
-                            }
-                        }
-                        ?.filterValues { it.isNotEmpty() }
+            junks = snapshot.junks.map { appJunk ->
+                updateProgressSecondary(appJunk.label)
+                // Remove all files we deleted or children of deleted files
 
-                    val updatedInaccessible = when {
-                        inaccessibleSuccesses.contains(appJunk.identifier) -> {
-                            deleted.addAll(appJunk.inaccessibleCache?.theoreticalPaths!!)
-                            null
-                        }
-
-                        else -> appJunk.inaccessibleCache
+                val updatedExpendables = appJunk.expendables?.mapValues { (type, matches) ->
+                    if (type == DefaultCachesPublicFilter::class && inaccessibleSuccesses.contains(appJunk.identifier)) {
+                        // It's inaccessible caches were deleted, this included the default public caches
+                        return@mapValues emptySet<ExpendablesFilter.Match>()
                     }
 
-                    appJunk.copy(
-                        expendables = updatedExpendables,
-                        inaccessibleCache = updatedInaccessible,
-                    )
+                    matches.filter { match ->
+                        val isDeleted = accessibleDeletionMap.getOrDefault(appJunk.identifier, emptySet()).any {
+                            it.path.isAncestorOf(match.path) || it.path.matches(match.path)
+                        }
+                        if (isDeleted) deleted.add(match.path)
+                        !isDeleted
+                    }
+                }?.filterValues { it.isNotEmpty() }
+
+                val updatedInaccessible = when {
+                    inaccessibleSuccesses.contains(appJunk.identifier) -> {
+                        deleted.addAll(appJunk.inaccessibleCache?.theoreticalPaths!!)
+                        null
+                    }
+
+                    else -> appJunk.inaccessibleCache
                 }
-                .filter { !it.isEmpty() }
+
+                appJunk.copy(
+                    expendables = updatedExpendables,
+                    inaccessibleCache = updatedInaccessible,
+                )
+            }.filter { !it.isEmpty() }
         )
 
         // Force check via !! because we should not have ran automation for any junk without inaccessible data
