@@ -33,7 +33,7 @@ data class AppJunk(
         val knownFiles = expendables?.values?.flatten()?.sumOf { it.expectedGain } ?: 0L
         val inaccessibleSize = inaccessibleCache?.run {
             val publicCacheSize = expendables
-                ?.get(DefaultCachesPublicFilter::class.identifier)
+                ?.get(DefaultCachesPublicFilter::class)
                 ?.sumOf { it.expectedGain }
             when {
                 publicCacheSize == null -> {
