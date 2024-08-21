@@ -131,6 +131,10 @@ class PostProcessorModule @Inject constructor(
             log(TAG) { "After checking exclusions: $after" }
         }
 
+        if (after.itemCount > before.itemCount) {
+            throw IllegalStateException("Item count after exclusions can't be greater than before!")
+        }
+
         return after
     }
 
