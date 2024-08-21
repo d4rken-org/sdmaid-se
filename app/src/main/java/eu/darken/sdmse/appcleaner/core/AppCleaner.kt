@@ -177,7 +177,7 @@ class AppCleaner @Inject constructor(
         )
 
         return AppCleanerScanTask.Success(
-            itemCount = results.size,
+            itemCount = results.sumOf { it.itemCount },
             recoverableSpace = results.sumOf { it.size },
         )
     }
