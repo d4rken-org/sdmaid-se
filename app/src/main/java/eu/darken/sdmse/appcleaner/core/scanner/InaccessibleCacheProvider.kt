@@ -46,9 +46,9 @@ class InaccessibleCacheProvider @Inject constructor(
         return InaccessibleCache(
             pkg.installId,
             isSystemApp = pkg.isSystemApp,
-            itemCount = 1,
-            cacheBytes = storageStats.cacheBytes,
-            externalCacheBytes = if (hasApiLevel(31)) {
+            itemCount = 2,
+            totalSize = storageStats.cacheBytes,
+            publicSize = if (hasApiLevel(31)) {
                 @Suppress("NewApi")
                 storageStats.externalCacheBytes
             } else null,

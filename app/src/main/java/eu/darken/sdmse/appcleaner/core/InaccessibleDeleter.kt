@@ -91,7 +91,7 @@ class InaccessibleDeleter @Inject constructor(
                 }
                 isCurrentUser
             }
-            .sortedByDescending { it.inaccessibleCache?.totalBytes }
+            .sortedByDescending { it.inaccessibleCache?.totalSize }
 
         return deleteInaccessible(
             targetInaccessible,
@@ -193,7 +193,7 @@ class InaccessibleDeleter @Inject constructor(
                                     break
                                 }
 
-                                newInfo.cacheBytes != beforeInfo.cacheBytes -> {
+                                newInfo.totalSize != beforeInfo.totalSize -> {
                                     log(TAG, VERBOSE) { "Size has changed $beforeInfo -> $newInfo" }
                                     break
                                 }

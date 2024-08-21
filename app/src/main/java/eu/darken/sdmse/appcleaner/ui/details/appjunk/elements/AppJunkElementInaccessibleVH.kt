@@ -22,7 +22,7 @@ class AppJunkElementInaccessibleVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        size.text = Formatter.formatFileSize(context, item.inaccessibleCache.privateCacheSize)
+        size.text = Formatter.formatFileSize(context, item.inaccessibleCache.totalSize)
 
         root.setOnClickListener { item.onItemClick(item) }
     }
