@@ -7,6 +7,7 @@ import eu.darken.sdmse.appcleaner.core.excludeNestedLookups
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -45,13 +46,21 @@ class PostProcessorModule @Inject constructor(
 
     suspend fun postProcess(apps: Collection<AppJunk>): Collection<AppJunk> {
         log(TAG) { "postProcess(${apps.size})" }
+
         val minCacheSize = settings.minCacheSizeBytes.value()
+        log(TAG, INFO) { "Minimum cache size is $minCacheSize" }
+
         val processed = apps
             .map { checkAliasedItems(it) }
             .mapNotNull { checkExclusions(it) }
             .map { checkForHiddenModules(it) }
-            .filter { it.size >= minCacheSize }
+            .filter {
+                val isMinSize = it.size >= minCacheSize
+                if (!isMinSize) log(TAG) { "Below minimum size: $it" }
+                isMinSize
+            }
             .filter { !it.isEmpty() }
+
         log(TAG) { "After post processing: ${apps.size} reduced to ${processed.size}" }
         return processed
     }
