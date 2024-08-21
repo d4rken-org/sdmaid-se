@@ -9,8 +9,8 @@ data class InaccessibleCache(
     val identifier: Installed.InstallId,
     val isSystemApp: Boolean,
     val itemCount: Int,
-    val cacheBytes: Long,
-    val externalCacheBytes: Long?,
+    val totalSize: Long,
+    val publicSize: Long?,
     val theoreticalPaths: Set<APath>,
 ) {
 
@@ -20,10 +20,7 @@ data class InaccessibleCache(
     val userHandle: UserHandle2
         get() = identifier.userHandle
 
-    val privateCacheSize: Long = cacheBytes - (externalCacheBytes ?: 0L)
+    val privateSize: Long = totalSize - (publicSize ?: 0L)
 
-    val totalBytes: Long
-        get() = cacheBytes + (externalCacheBytes ?: 0L)
-
-    val isEmpty: Boolean = privateCacheSize == 0L
+    val isEmpty: Boolean = totalSize == 0L
 }

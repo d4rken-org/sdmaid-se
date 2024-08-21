@@ -38,17 +38,17 @@ data class AppJunk(
             when {
                 publicCacheSize == null -> {
                     // No extra info about public caches
-                    cacheBytes
+                    totalSize
                 }
 
-                externalCacheBytes != null -> {
-                    // The system knows has seperate info for pub/priv caches
-                    privateCacheSize
+                publicSize != null -> {
+                    // The system has seperate info for pub/priv caches
+                    privateSize
                 }
 
                 else -> {
                     // Assume system info includes pub caches
-                    cacheBytes - publicCacheSize
+                    totalSize - publicCacheSize
                 }
             }
         } ?: 0L

@@ -164,11 +164,11 @@ class AppScanner @Inject constructor(
                 expendables?.groupBy { it.identifier }
 
             // For <API31 we can improve accuracy manually
-            if (inaccessible != null && byFilterType != null && inaccessible.externalCacheBytes == null) {
+            if (inaccessible != null && byFilterType != null && inaccessible.publicSize == null) {
                 inaccessible = inaccessible.copy(
-                    externalCacheBytes = byFilterType[DefaultCachesPublicFilter::class]?.sumOf { it.expectedGain }
+                    publicSize = byFilterType[DefaultCachesPublicFilter::class]?.sumOf { it.expectedGain }
                 )
-                log(TAG) { "Guesstimated external cache size as ${inaccessible.externalCacheBytes}" }
+                log(TAG) { "Guesstimated external cache size as ${inaccessible.publicSize}" }
             }
 
             AppJunk(
