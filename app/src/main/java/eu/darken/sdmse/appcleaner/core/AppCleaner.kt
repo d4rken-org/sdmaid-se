@@ -282,6 +282,8 @@ class AppCleaner @Inject constructor(
                 updateProgressSecondary(appJunk.label)
                 // Remove all files we deleted or children of deleted files
 
+                val deletedInaccessible = mutableSetOf<ExpendablesFilter.Match>()
+
                 val updatedExpendables = appJunk.expendables?.mapValues { (type, matches) ->
                     if (type == DefaultCachesPublicFilter::class && inaccessibleSuccesses.contains(appJunk.identifier)) {
                         // It's inaccessible caches were deleted, this included the default public caches
@@ -292,19 +294,32 @@ class AppCleaner @Inject constructor(
                         val isDeleted = accessibleDeletionMap.getOrDefault(appJunk.identifier, emptySet()).any {
                             it.path.isAncestorOf(match.path) || it.path.matches(match.path)
                         }
-                        if (isDeleted) deleted.add(match.path)
+                        if (isDeleted) {
+                            deleted.add(match.path)
+                            if (match.identifier == DefaultCachesPublicFilter::class) {
+                                // We need path and size to update the size of `InaccessibleCache` later
+                                deletedInaccessible.add(match)
+                            }
+                        }
                         !isDeleted
                     }
                 }?.filterValues { it.isNotEmpty() }
 
-                val updatedInaccessible = when {
-                    inaccessibleSuccesses.contains(appJunk.identifier) -> {
-                        deleted.addAll(appJunk.inaccessibleCache?.theoreticalPaths!!)
-                        null
+                val updatedInaccessible = appJunk.inaccessibleCache?.let { inacc ->
+                    if (inaccessibleSuccesses.contains(appJunk.identifier)) {
+                        // Inaccessible were deleted, `expendables` should have been updated correctly by above code
+                        deleted.addAll(inacc.theoreticalPaths)
+                        return@let null
                     }
 
-                    else -> appJunk.inaccessibleCache
+                    val deletedSize = deletedInaccessible.sumOf { it.expectedGain }
+                    inacc.copy(
+                        itemCount = 1,
+                        totalSize = inacc.totalSize - deletedSize,
+                        publicSize = inacc.publicSize?.let { it - deletedSize }?.coerceAtLeast(0L),
+                    )
                 }
+
 
                 appJunk.copy(
                     expendables = updatedExpendables,
@@ -316,7 +331,7 @@ class AppCleaner @Inject constructor(
         // Force check via !! because we should not have ran automation for any junk without inaccessible data
         val automationSize = inaccessibleSuccesses
             .map { inaccessible -> snapshot.junks.single { it.identifier == inaccessible }.inaccessibleCache!! }
-            .sumOf { it.cacheBytes }
+            .sumOf { it.totalSize }
 
         return AppCleanerProcessingTask.Success(
             affectedSpace = accessibleDeletionMap.values.sumOf { contents -> contents.sumOf { it.expectedGain } } + automationSize,
