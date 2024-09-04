@@ -102,9 +102,17 @@ class VivoSpecs @Inject constructor(
             val clearCacheButtonLabels =
                 vivoLabels.getClearCacheDynamic() + vivoLabels.getClearCacheStatic(lang, script)
 
+            var isUnclickableLabelButton = false
             val buttonFilter = when {
                 hasApiLevel(34) -> fun(node: AccessibilityNodeInfo): Boolean {
-                    return node.idContains("id/vbutton_title") && node.textMatchesAny(clearCacheButtonLabels)
+                    if (!node.textMatchesAny(clearCacheButtonLabels)) return false
+
+                    return if (node.idContains("id/vbutton_title")) {
+                        isUnclickableLabelButton = true
+                        true
+                    } else {
+                        node.isClickable
+                    }
                 }
 
                 else -> fun(node: AccessibilityNodeInfo): Boolean {
@@ -118,7 +126,7 @@ class VivoSpecs @Inject constructor(
                 windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeTest = buttonFilter,
                 nodeMapping = when {
-                    hasApiLevel(34) -> clickableParent()
+                    hasApiLevel(34) && isUnclickableLabelButton -> clickableParent()
                     else -> null
                 },
                 action = getAospClearCacheClick(pkg, tag)
