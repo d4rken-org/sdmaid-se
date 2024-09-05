@@ -16,7 +16,12 @@ import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoGplay
 import eu.darken.sdmse.common.upgrade.core.billing.GplayServiceUnavailableException
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 
@@ -44,13 +49,23 @@ class UpgradeViewModel @Inject constructor(
     val state = combine(
         flow {
             val data = withTimeoutOrNull(5000) {
-                upgradeRepo.querySkus(OurSku.Iap.PRO_UPGRADE)
+                try {
+                    upgradeRepo.querySkus(OurSku.Iap.PRO_UPGRADE)
+                } catch (e: Exception) {
+                    errorEvents.postValue(e)
+                    null
+                }
             }
             emit(data)
         },
         flow {
             val data = withTimeoutOrNull(5000) {
-                upgradeRepo.querySkus(OurSku.Sub.PRO_UPGRADE)
+                try {
+                    upgradeRepo.querySkus(OurSku.Sub.PRO_UPGRADE)
+                } catch (e: Exception) {
+                    errorEvents.postValue(e)
+                    null
+                }
             }
             emit(data)
         },
