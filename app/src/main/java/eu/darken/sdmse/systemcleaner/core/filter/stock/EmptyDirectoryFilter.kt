@@ -17,13 +17,18 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.lookupFiles
+import eu.darken.sdmse.common.files.matches
+import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.*
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.Mode
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -118,7 +123,7 @@ class EmptyDirectoryFilter @Inject constructor(
             return null
         }
 
-        if (item.size > 4096) return null
+        if (item.size > 65536) return null
 
         // Check for nested empty directories
         val content = item.lookupFiles(gatewaySwitch)
