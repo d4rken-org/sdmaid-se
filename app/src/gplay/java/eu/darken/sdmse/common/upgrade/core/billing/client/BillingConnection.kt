@@ -143,7 +143,9 @@ data class BillingConnection(
 
         if (!result.isSuccess) throw BillingClientException(result)
 
-        if (details.isNullOrEmpty()) throw IllegalStateException("Unknown SKU, no details available.")
+        if (details.isNullOrEmpty()) {
+            throw IllegalStateException("No details available for ${skus.joinToString { "${it.type}-${it.id}" }}")
+        }
 
         return details
             .groupBy { it.productId }
