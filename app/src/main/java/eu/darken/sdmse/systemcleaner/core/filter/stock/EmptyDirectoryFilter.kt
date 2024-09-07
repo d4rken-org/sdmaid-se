@@ -123,8 +123,6 @@ class EmptyDirectoryFilter @Inject constructor(
             return null
         }
 
-        if (item.size > 65536) return null
-
         // Check for nested empty directories
         val content = item.lookupFiles(gatewaySwitch)
         return when {
