@@ -96,4 +96,13 @@ class EmptyDirectoryFilterTest : SystemCleanerFilterTest() {
 
         confirm(create())
     }
+
+    @Test fun `empty directories - with large node sizes`() = runTest {
+        neg(SDCARD, "0", Flag.File)
+        pos(SDCARD, "1", Flag.Dir, Flag.Size(262144))
+        pos(SDCARD, "2", Flag.Dir, Flag.Size(524288))
+        pos(SDCARD, "3", Flag.Dir, Flag.Size(1048576))
+
+        confirm(create())
+    }
 }

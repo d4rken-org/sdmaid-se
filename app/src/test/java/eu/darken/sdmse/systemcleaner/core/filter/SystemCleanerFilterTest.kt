@@ -379,6 +379,8 @@ abstract class SystemCleanerFilterTest : BaseTest() {
             data object Primary : Area
             data object Secondary : Area
         }
+
+        data class Size(val size: Long) : Flag
     }
 
     suspend fun pos(location: Type, path: String, vararg flags: Flag) {
@@ -413,6 +415,8 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                 }
                 require(!(flagsCollection.contains(Flag.Dir) && flagsCollection.contains(Flag.File))) { "Can't be both file and dir." }
 
+                val sizeFlag = flags.filterIsInstance<Flag.Size>().singleOrNull()
+
                 val mockPath = area.path.child(targetPath)
                 val mockLookup = when (area.path.pathType) {
                     APath.PathType.LOCAL -> LocalPathLookup(
@@ -425,6 +429,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                             throw IllegalArgumentException("Unknown file type")
                         },
                         size = when {
+                            sizeFlag != null -> sizeFlag.size
                             flagsCollection.contains(Flag.Dir) -> 512L
                             else -> 1024 * 1024L
                         },
