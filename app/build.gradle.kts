@@ -1,9 +1,9 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("kotlin-kapt")
     id("kotlin-parcelize")
     id("projectConfig")
+    id("kotlin-kapt")
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "androidx.navigation.safeargs.kotlin")
