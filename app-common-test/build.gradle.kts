@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "${projectConfig.packageName}.common"
+    namespace = "${projectConfig.packageName}.common.test"
 
     setupLibraryDefaults(projectConfig)
 
