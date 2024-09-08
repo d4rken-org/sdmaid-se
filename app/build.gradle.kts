@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-parcelize")
     id("projectConfig")
+    id("com.google.devtools.ksp")
     id("kotlin-kapt")
 }
 apply(plugin = "dagger.hilt.android.plugin")
@@ -204,6 +205,8 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
     androidTestImplementation("androidx.navigation:navigation-testing:${Versions.AndroidX.Navigation.core}")
+
+
 
 
     testImplementation("org.robolectric:robolectric:4.9.1")
