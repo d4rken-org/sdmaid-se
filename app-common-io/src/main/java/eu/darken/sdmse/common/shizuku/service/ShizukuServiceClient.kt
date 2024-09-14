@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
+import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.ipc.IpcClientModule
 import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsClient
 import eu.darken.sdmse.common.sharedresource.SharedResource
@@ -20,9 +21,11 @@ import eu.darken.sdmse.common.shizuku.service.internal.ShizukuHostLauncher
 import eu.darken.sdmse.common.shizuku.service.internal.ShizukuHostOptions
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
@@ -55,11 +58,11 @@ class ShizukuServiceClient @Inject constructor(
             recorderPath = debugSettings.recorderPath.value(),
         )
 
-        var lastInternal: ShizukuConnection? = null
+        val lastInternal = MutableStateFlow<ShizukuConnection?>(null)
         serviceLauncher
             .createServiceHostConnection(optionsInitial)
             .onEach { wrapper ->
-                lastInternal = wrapper.host
+                lastInternal.value = wrapper.host
                 send(wrapper.service)
             }
             .launchIn(this)
@@ -69,18 +72,19 @@ class ShizukuServiceClient @Inject constructor(
             debugSettings.isTraceMode.flow,
             debugSettings.isDryRunMode.flow,
             debugSettings.recorderPath.flow,
-        ) { isDebug, isTrace, isDryRun, recorderPath ->
-            lastInternal?.let {
-                val optionsDynamic = ShizukuHostOptions(
-                    isDebug = isDebug,
-                    isTrace = isTrace,
-                    isDryRun = isDryRun,
-                    recorderPath = recorderPath,
-                )
-                log(TAG) { "Updating debug settings: $optionsDynamic" }
-                it.updateHostOptions(optionsDynamic)
-            }
-        }.launchIn(this)
+            lastInternal.filterNotNull(),
+        ) { isDebug, isTrace, isDryRun, recorderPath, lastConnection ->
+            val optionsDynamic = ShizukuHostOptions(
+                isDebug = isDebug,
+                isTrace = isTrace,
+                isDryRun = isDryRun,
+                recorderPath = recorderPath,
+            )
+            log(TAG) { "Updating debug settings: $optionsDynamic" }
+            lastConnection.updateHostOptions(optionsDynamic)
+        }
+            .setupCommonEventHandlers(TAG) { "dynamic-debug-settings" }
+            .launchIn(this)
 
         log(TAG) { "awaitClose()..." }
         awaitClose {
