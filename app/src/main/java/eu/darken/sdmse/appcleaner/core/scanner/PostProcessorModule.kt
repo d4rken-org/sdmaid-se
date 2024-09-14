@@ -73,7 +73,7 @@ class PostProcessorModule @Inject constructor(
 
         val after = before.copy(
             expendables = before.expendables
-                .mapValues { (key, value) ->
+                .mapValues { (_, value) ->
                     value.distinctBy { it.path }
                 }
                 .filter { it.value.isNotEmpty() }
@@ -121,7 +121,7 @@ class PostProcessorModule @Inject constructor(
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.APPCLEANER)
 
         var after = before.copy(
-            expendables = before.expendables.mapValues { (type, paths) ->
+            expendables = before.expendables.mapValues { (_, paths) ->
                 exclusions.excludeNestedLookups(paths)
             }
         )

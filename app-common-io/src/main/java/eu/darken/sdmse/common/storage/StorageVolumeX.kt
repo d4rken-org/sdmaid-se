@@ -28,10 +28,11 @@ import java.lang.reflect.Method
  */
 @Parcelize
 @TypeParceler<Any, AnyParceler>
-class StorageVolumeX constructor(
+class StorageVolumeX(
     private val volumeObj: Any
 ) : Parcelable {
-    private val volumeClass: Class<*> = volumeObj.javaClass
+    private val volumeClass: Class<*>
+        get() = volumeObj.javaClass
 
 
     private val volume: StorageVolume

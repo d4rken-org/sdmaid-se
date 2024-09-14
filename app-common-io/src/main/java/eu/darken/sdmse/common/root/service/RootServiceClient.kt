@@ -46,7 +46,7 @@ class RootServiceClient @Inject constructor(
         log(TAG) { "Instantiating Root launcher..." }
         if (rootSettings.useRoot.value() != true) throw RootUnavailableException("Root is not enabled")
 
-        val options = RootHostOptions(
+        val initialOptions = RootHostOptions(
             isDebug = debugSettings.isDebugMode.value(),
             isTrace = debugSettings.isTraceMode.value(),
             isDryRun = debugSettings.isDryRunMode.value(),
@@ -55,7 +55,7 @@ class RootServiceClient @Inject constructor(
 
         var lastInternal: RootConnection? = null
         rootHostLauncher
-            .createHostConnection(options = options)
+            .createHostConnection(options = initialOptions)
             .onEach { wrapper ->
                 lastInternal = wrapper.host
                 send(wrapper.service)
@@ -69,14 +69,14 @@ class RootServiceClient @Inject constructor(
             debugSettings.recorderPath.flow
         ) { isDebug, isTrace, isDryRun, recorderPath ->
             lastInternal?.let {
-                val options = RootHostOptions(
+                val dynamicOptions = RootHostOptions(
                     isDebug = isDebug,
                     isTrace = isTrace,
                     isDryRun = isDryRun,
                     recorderPath = recorderPath,
                 )
-                log(TAG) { "Updating debug settings: $options" }
-                it.updateHostOptions(options)
+                log(TAG) { "Updating debug settings: $dynamicOptions" }
+                it.updateHostOptions(dynamicOptions)
             }
         }.launchIn(this)
 

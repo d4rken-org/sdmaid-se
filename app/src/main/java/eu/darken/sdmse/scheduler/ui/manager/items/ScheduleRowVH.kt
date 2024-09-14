@@ -11,7 +11,6 @@ import eu.darken.sdmse.databinding.SchedulerManagerListScheduleItemBinding
 import eu.darken.sdmse.scheduler.core.Schedule
 import eu.darken.sdmse.scheduler.ui.manager.SchedulerAdapter
 import java.time.Instant
-import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
@@ -35,8 +34,6 @@ class ScheduleRowVH(parent: ViewGroup) :
         subtitle.apply {
             val days = schedule.repeatInterval.toDays()
             val daysText = getQuantityString(R.plurals.scheduler_schedule_repeat_x_days, days.toInt())
-
-            val localTime = LocalTime.of(schedule.hour, schedule.minute)
 
             val hourTxt = schedule.hour.toString().padStart(2, '0')
             val minuteTxt = schedule.minute.toString().padStart(2, '0')
