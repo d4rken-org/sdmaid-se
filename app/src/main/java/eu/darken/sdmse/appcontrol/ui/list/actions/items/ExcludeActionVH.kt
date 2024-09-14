@@ -21,7 +21,6 @@ class ExcludeActionVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        val appInfo = item.appInfo
         if (item.exclusion == null) {
             icon.setImageResource(R.drawable.ic_shield_24)
             primary.text = getString(R.string.appcontrol_app_exclude_add_title)

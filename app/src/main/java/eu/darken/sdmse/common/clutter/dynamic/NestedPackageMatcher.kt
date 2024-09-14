@@ -49,8 +49,8 @@ open class NestedPackageMatcher(
         })
     }
 
-    override suspend fun getMarkerForLocation(location: DataArea.Type): Collection<Marker> {
-        return if (location === this.areaType) dynamicMarkers else emptyList()
+    override suspend fun getMarkerForLocation(areaType: DataArea.Type): Collection<Marker> {
+        return if (areaType === this.areaType) dynamicMarkers else emptyList()
     }
 
     override suspend fun match(areaType: DataArea.Type, prefixFreeBasePath: List<String>): Collection<Marker.Match> {
@@ -67,7 +67,7 @@ open class NestedPackageMatcher(
         return markers
     }
 
-    private class PackageMarker constructor(
+    private class PackageMarker(
         override val areaType: DataArea.Type,
         override val segments: Segments,
         val pkgId: Pkg.Id,

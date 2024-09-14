@@ -54,7 +54,7 @@ fun PackageManager.getInstalledPackagesAsUser(
 ) = try {
     val functions = PackageManager::class.memberFunctions.filter { it.name == "getInstalledPackagesAsUser" }
     if (hasApiLevel(33)) {
-        @Suppress("NewApi")
+        @Suppress("NewApi", "UNCHECKED_CAST")
         functions
             .first {
                 val arg1 = it.parameters[1].type.jvmErasure
@@ -63,6 +63,7 @@ fun PackageManager.getInstalledPackagesAsUser(
             }
             .call(this, PackageInfoFlags.of(flags), userHandle.handleId) as List<PackageInfo>
     } else {
+        @Suppress("UNCHECKED_CAST")
         functions
             .first {
                 val arg1 = it.parameters[1].type.jvmErasure

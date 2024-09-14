@@ -114,6 +114,7 @@ private fun PackageInfo.getInstallerInfoApi30(packageManager: PackageManager): I
 
 private fun PackageInfo.getInstallerInfoLegacy(packageManager: PackageManager): InstallerInfo {
     val installingPkg = try {
+        @Suppress("DEPRECATION")
         packageManager.getInstallerPackageName(packageName)
             ?.let { Pkg.Id(it) }
             ?.let { it.toKnownPkg() ?: it.toStub() }

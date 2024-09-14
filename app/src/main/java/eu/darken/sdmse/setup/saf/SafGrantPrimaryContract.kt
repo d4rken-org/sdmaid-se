@@ -10,8 +10,8 @@ class SafGrantPrimaryContract : ActivityResultContract<SAFSetupModule.Result.Pat
 
     override fun createIntent(
         context: Context,
-        data: SAFSetupModule.Result.PathAccess
-    ): Intent = data.grantIntent
+        input: SAFSetupModule.Result.PathAccess
+    ): Intent = input.grantIntent
 
     override fun parseResult(resultCode: Int, intent: Intent?): Uri? = when (resultCode) {
         Activity.RESULT_OK -> intent?.data
