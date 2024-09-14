@@ -7,7 +7,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.WriteException
+import eu.darken.sdmse.common.files.PathException
 import eu.darken.sdmse.common.files.deleteAll
 import eu.darken.sdmse.common.files.filterDistinctRoots
 import eu.darken.sdmse.common.flow.throttleLatest
@@ -50,7 +50,7 @@ abstract class BaseExpendablesFilter : ExpendablesFilter {
                 try {
                     targetContent.deleteAll(gatewaySwitch)
                     success.add(originalmatch)
-                } catch (e: WriteException) {
+                } catch (e: PathException) {
                     log(logTag("AppCleaner,BaseExpendablesFilter"), ERROR) {
                         "Failed to delete $originalmatch due to $e"
                     }
