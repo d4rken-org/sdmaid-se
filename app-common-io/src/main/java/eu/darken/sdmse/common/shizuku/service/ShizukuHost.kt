@@ -63,6 +63,7 @@ class ShizukuHost(
 
         currentOptions
             .onEach { options ->
+                log(TAG) { "New options: $options" }
                 if (options.isDebug && Logging.loggers.none { it == logCatLogger }) {
                     Logging.install(logCatLogger)
                     log(TAG) { "Logger installed!" }
