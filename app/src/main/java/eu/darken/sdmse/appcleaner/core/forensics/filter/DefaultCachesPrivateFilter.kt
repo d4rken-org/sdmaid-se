@@ -52,10 +52,16 @@ class DefaultCachesPrivateFilter @Inject constructor(
         }
     }
 
-    override suspend fun process(matches: Collection<ExpendablesFilter.Match>): ExpendablesFilter.ProcessResult {
-        return matches.deleteAll(gatewaySwitch)
+    override suspend fun process(
+        targets: Collection<ExpendablesFilter.Match>,
+        allMatches: Collection<ExpendablesFilter.Match>
+    ): ExpendablesFilter.ProcessResult {
+        return deleteAll(
+            targets.map { it as ExpendablesFilter.Match.Deletion },
+            gatewaySwitch,
+            allMatches
+        )
     }
-
     @Reusable
     class Factory @Inject constructor(
         private val settings: AppCleanerSettings,
