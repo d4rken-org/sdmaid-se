@@ -108,8 +108,15 @@ class HiddenFilter @Inject constructor(
         return dirs.size >= 4 && dirs[2] == "Cache" && dirs[3].contains(".unity3d&")
     }
 
-    override suspend fun process(matches: Collection<ExpendablesFilter.Match>): ExpendablesFilter.ProcessResult {
-        return matches.deleteAll(gatewaySwitch)
+    override suspend fun process(
+        targets: Collection<ExpendablesFilter.Match>,
+        allMatches: Collection<ExpendablesFilter.Match>
+    ): ExpendablesFilter.ProcessResult {
+        return deleteAll(
+            targets.map { it as ExpendablesFilter.Match.Deletion },
+            gatewaySwitch,
+            allMatches
+        )
     }
 
     @Reusable
