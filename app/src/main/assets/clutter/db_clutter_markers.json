@@ -3142,7 +3142,9 @@
 	{"loc": "PUBLIC_DATA", "path": "com.qzone"},
 	{"loc": "PUBLIC_DATA", "path": "com.tencent.zebrasdk"},
 	{"loc": "SDCARD", "path": "MobileQQ"},
-	{"loc": "SDCARD", "path": "QQ_Collection"}
+	{"loc": "SDCARD", "path": "QQ_Collection"},
+	{"loc": "SDCARD", "path": "qsvf", "flags": ["common"]},
+	{"loc": "SDCARD", "path": "mfcache", "flags": ["common"]}
   ]
 }, {
   "pkgs": ["com.tencent.benchmark"],
@@ -12285,7 +12287,10 @@
   "mrks": [{"loc": "SDCARD", "path": "com.eamobile.bejeweled2_carrier_wf"}]
 }, {
   "pkgs": ["com.osfans.trime"],
-  "mrks": [{"loc": "SDCARD", "path": "rime", "flags": ["keeper"]}]
+  "mrks": [
+	{"loc": "SDCARD", "path": "rime", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "rime.old", "flags": ["keeper"]}
+  ]
 }, {
   "pkgs": ["com.videoconverter.videocompressor"],
   "mrks": [{"loc": "SDCARD", "path": "VideoCompressor", "flags": ["keeper"]}]
@@ -12575,5 +12580,8 @@
 }, {
   "pkgs": ["com.suning.mobile.ebuy"],
   "mrks": [{"loc": "SDCARD", "path": "oneplayer/.local"}]
+}, {
+  "pkgs": ["com.mi.android.globalFileexplorer"],
+  "mrks": [{"loc": "SDCARD", "path": "FileExplorer", "flags": ["common", "keeper"]}]
 }
 ]
