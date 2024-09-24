@@ -648,7 +648,7 @@
     <string name="review_app_dismiss_action">Später vielleicht</string>
     <string name="review_app_body">Möchtest du SD Maid eine Bewertung hinterlassen? ❤️</string>
     <string name="stats_label">Verlauf</string>
-    <string name="stats_dash_body">%s wurden freigegeben und %s Elemente verarbeitet, seitdem SD Maid auf Ihr Gerät eingeladen haben.</string>
+    <string name="stats_dash_body">%s wurden freigegeben und %s Elemente verarbeitet, seitdem du SD Maid auf dein Gerät eingeladen hast.</string>
     <string name="stats_report_status_success">Erfolgreich</string>
     <string name="stats_report_status_partial_success">Teilerfolg</string>
     <string name="stats_report_status_partial_failure">Fehlgeschlagen</string>
