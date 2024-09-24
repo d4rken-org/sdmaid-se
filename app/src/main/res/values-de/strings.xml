@@ -147,7 +147,7 @@
     <string name="setup_acs_appops_restriction_title">Eingeschränkte Einstellungen</string>
     <string name="setup_acs_appops_restriction_body">Kann der Zugriffsdienst von SD Maid nicht aktiviert werden? Ab Android 13 gelten möglicherweise Einschränkungen für Apps, die nicht über Google Play installiert wurden. Deaktiviere diese Einschränkungen auf der Detailseite des Systems für SD Maid. Die Option befindet sich im Kontextmenü oben rechts.</string>
     <string name="setup_inventory_card_title">App-Inventar</string>
-    <string name="setup_inventory_card_body">SD Maid muss wissen, welche Apps Sie Dateien finden müssen, die zu keiner installierten App gehören.</string>
+    <string name="setup_inventory_card_body">SD Maid muss wissen, welche Apps du installiert hast, um Dateien zu finden, die zu keiner installierten App gehören.</string>
     <string name="setup_inventory_card_extra">Suchen Sie nach einer Berechtigung namens \"App-Liste\" oder \"Alle Pakete abfragen\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid hat keine Datenbereiche gefunden, die gescannt werden können. Hast Du die Einrichtung abgeschlossen?</string>
     <string name="dataarea_warningcard_label">Datenbereiche</string>
@@ -652,4 +652,18 @@
     <string name="stats_report_status_success">Erfolgreich</string>
     <string name="stats_report_status_partial_success">Teilerfolg</string>
     <string name="stats_report_status_partial_failure">Fehlgeschlagen</string>
+    <string name="stats_settings_desc">Konfigurieren Sie die Statistiken, Berichte und die Datenspeicherung von SD Maid.</string>
+    <string name="stats_settings_retention_category">Vorratsspeicherung</string>
+    <string name="stats_settings_retention_reports_label">Allgemeine Berichte</string>
+    <string name="stats_settings_retention_reports_desc">Anzahl der Tage vor dem Löschen der grundlegenden SD Maid Operationsberichte.</string>
+    <string name="stats_settings_retention_paths_label">Detaillierte Pfadinformationen</string>
+    <string name="stats_settings_retention_paths_desc">Die Anzahl der Tage, um Details über Pfade zu erhalten, die von SD Maid betroffen sind.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d Tag</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Alles zurücksetzen</string>
+    <string name="stats_settings_reset_all_desc">Alle Berichte löschen und alle Statistiken auf Null setzen.</string>
+    <string name="stats_affected_paths_label">Betroffene Pfade</string>
+    <string name="stats_affected_pkgs_label">Betroffene Apps</string>
 </resources>

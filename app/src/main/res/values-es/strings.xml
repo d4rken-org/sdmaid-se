@@ -215,11 +215,11 @@
     <string name="corpsefinder_owner_unknown">Propietario desconocido</string>
     <string name="corpsefinder_corpse_hint_keeper">Este elemento puede contener datos que quieres conservar a pesar de que su propietario ha sido desinstalado, por ejemplo, fotos o copias de seguridad.</string>
     <string name="corpsefinder_corpse_hint_common">Este elemento tiene un nombre muy común y podría pertenecer a aplicaciones aún instaladas que SD Maid desconoce.</string>
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="systemcleaner_tool_name">Limpiador del sistema</string>
     <string name="systemcleaner_explanation_short">Datos superfluos que no pertenecen a ninguna aplicación concreta.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
-        <item quantity="one">%d coincidencia eliminada</item>
-        <item quantity="other">%d coincidencias eliminadas</item>
+        <item quantity="one">Se ha eliminado %d coincidencia</item>
+        <item quantity="other">Se han eliminado %d coincidencias</item>
     </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d coincidencia del filtro</item>
@@ -382,7 +382,7 @@
         <item quantity="other">¿Eliminar archivos prescindibles para %d aplicaciones seleccionadas?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Borrar las cachés mediante Shizuku</string>
-    <string name="deduplicator_tool_name">Deduplicador</string>
+    <string name="deduplicator_tool_name">Eliminar archivos duplicados</string>
     <string name="deduplicator_explanation_short">Encuentra los datos duplicados en tu dispositivo.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d duplicado eliminado</item>
@@ -406,7 +406,7 @@
     <string name="deduplicator_occupied_space_label">Almacenamiento ocupado</string>
     <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s están ocupados por duplicados</string>
     <string name="deduplicator_file_size_label">Tamaño del archivo</string>
-    <string name="deduplicator_average_size_label">Tamaño promedio</string>
+    <string name="deduplicator_average_size_label">Tamaño medio</string>
     <string name="deduplicator_cluster_x_label">Agrupar %s</string>
     <string name="deduplicator_delete_confirmation_message">¿Borrar todas las copias menos una en todos los archivos duplicados?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">¿Borrar todas las copias menos una de estos archivos duplicados?</string>
@@ -418,11 +418,11 @@
     <string name="deduplicator_details_cluster_title">Conjunto de duplicados</string>
     <string name="deduplicator_matches_exact_label">Copias iguales</string>
     <string name="deduplicator_matches_similar_label">Archivos parecidos</string>
-    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_tool_name">Control de las aplicaciones</string>
     <string name="appcontrol_explanation_short">Aplicaciones instaladas en tu dispositivo.</string>
     <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d aplicación detectada</item>
-        <item quantity="other">%d aplicaciónes detectadas</item>
+        <item quantity="one">Se ha detectado %d aplicación</item>
+        <item quantity="other">Se han detectado %d aplicaciones</item>
     </plurals>
     <string name="appcontrol_toggle_app_selection_action">Alternar las aplicaciones</string>
     <string name="appcontrol_toggle_app_enable_action">Activar aplicación</string>
@@ -440,12 +440,12 @@
     <string name="appcontrol_app_uninstall_description">Desinstalar esta aplicación de tu dispositivo.</string>
     <string name="appcontrol_app_exclude_add_title">Omitir la aplicación</string>
     <string name="appcontrol_app_exclude_add_description">Excluye esta aplicación de otras operaciones en SD Maid.</string>
-    <string name="appcontrol_app_exclude_edit_title">Modificar la excepción</string>
-    <string name="appcontrol_app_exclude_edit_description">Esta aplicación está actualmente excluida en una o más herramientas.</string>
+    <string name="appcontrol_app_exclude_edit_title">Editar excepción</string>
+    <string name="appcontrol_app_exclude_edit_description">Actualmente esta aplicación está excluida de una o más herramientas.</string>
     <string name="appcontrol_tag_user">Usuario</string>
     <string name="appcontrol_tag_active">Activo recientemente</string>
     <string name="appcontrol_tag_apk_base">APK</string>
-    <string name="appcontrol_tag_apk_bundle">Bundle</string>
+    <string name="appcontrol_tag_apk_bundle">Paquete</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Archivado</string>
     <string name="appcontrol_tag_enabled">Activado</string>
@@ -483,10 +483,10 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Descubra si una aplicación está (o estuvo recientemente) activa.</string>
     <string name="appcontrol_export_app_selection_action">Exportar las aplicaciones</string>
     <string name="appcontrol_export_title">Exportar la aplicación</string>
-    <string name="appcontrol_export_description">Guarde los archivos de instalación de esta aplicación. Esto no incluye los datos de la aplicación.</string>
+    <string name="appcontrol_export_description">Guarda los archivos de instalación de esta aplicación. Esto no incluye los datos de la aplicación.</string>
     <plurals name="appcontrol_export_result_message_x">
-        <item quantity="one">%d aplicación exportada</item>
-        <item quantity="other">%d aplicaciones exportadas</item>
+        <item quantity="one">Se ha exportado %d aplicación</item>
+        <item quantity="other">Se han exportado %d aplicaciones</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Exportando %s</string>
     <string name="appcontrol_force_stop_selection_action">Forzar la detención de las aplicaciones</string>
@@ -497,11 +497,11 @@
         <item quantity="other">¿Forzar las paradas de las aplicaciones %d?</item>
     </plurals>
     <plurals name="appcontrol_force_stop_result_message_x">
-        <item quantity="one">%d aplicación detenida</item>
-        <item quantity="other">%d aplicaciones detenidas</item>
+        <item quantity="one">Se ha detenido %d aplicación</item>
+        <item quantity="other">Se han detenido %d aplicaciones</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Preparar la automatización mediante el servicio de accesibilidad</string>
-    <string name="appcontrol_automation_title">Automatización de AppControl</string>
+    <string name="appcontrol_automation_loading">Preparando la automatización mediante el servicio de accesibilidad</string>
+    <string name="appcontrol_automation_title">Automatización del control de las aplicaciones</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Forzando la detención…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Buscando el botón \"Forzar la detención\" (palabras clave: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Intentando confirmar la acción anterior (palabras clave: %s)</string>

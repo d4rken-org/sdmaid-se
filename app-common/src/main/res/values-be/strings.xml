@@ -4,7 +4,7 @@
     <string name="slogan_message_0">Да Вашых паслуг.</string>
     <string name="slogan_message_1">Чысціня і парадак.</string>
     <string name="slogan_message_2">Прадухіленне хаосу.</string>
-    <string name="slogan_message_3">Рабіць тое, што патрэбна.</string>
+    <string name="slogan_message_3">Робіць тое, што патрэбна.</string>
     <string name="slogan_message_4">Усё на сваім месцы.</string>
     <string name="slogan_message_5">Бездакорна.</string>
     <string name="slogan_message_6">Байты, прэч!</string>
@@ -159,4 +159,5 @@
         <item quantity="many">%s файлаў</item>
         <item quantity="other">%s файлаў</item>
     </plurals>
+    <string name="general_advice_title">Парада</string>
 </resources>

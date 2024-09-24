@@ -201,6 +201,10 @@
     <string name="corpsefinder_filter_appasec_summary">Krypterte appressurser, f.eks. spillressurser.</string>
     <string name="corpsefinder_filter_app2sd_summary">Data flyttet til ekstern lagring av App2SD modifikasjoner.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d app-rest slettet</item>
+        <item quantity="other">%d app-rester slettet</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">%d app-rest oppdaget</item>
         <item quantity="other">%d app-rester oppdaget</item>
@@ -213,6 +217,10 @@
     <string name="corpsefinder_corpse_hint_common">Dette elementet har et veldig vanlig navn og kan tilhøre fortsatt installerte apper som SD Maid ikke kjenner.</string>
     <string name="systemcleaner_tool_name">Systemrenser</string>
     <string name="systemcleaner_explanation_short">Overflødig data som ikke tilhører noen spesifikk app.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d match slettet</item>
+        <item quantity="other">%d matcher slettet</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d filtertreff</item>
         <item quantity="other">%d filtertreff</item>
@@ -347,6 +355,10 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Bufret mediefiler som lastes ned igjen når de vises i chatten.</string>
     <string name="appcleaner_delete_all_confirmation_message">Slette unødvendige elementer for alle apper?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d ubetydelig element slettet</item>
+        <item quantity="other">%d ubetydelige elementer slettet</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d ubetydelig element funnet</item>
         <item quantity="other">%d ubetydelige element funnet</item>
@@ -372,6 +384,10 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Sletter buffere ved hjelp av Shizuku</string>
     <string name="deduplicator_tool_name">Deduplisering</string>
     <string name="deduplicator_explanation_short">Finn dupliserte data på enheten din.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d duplikat slettet</item>
+        <item quantity="other">%d duplikater slettet</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d duplisert sett funnet</item>
         <item quantity="other">%d dupliserte sett funnet</item>
@@ -444,6 +460,10 @@
     <string name="appcontrol_list_sortmode_size_label">Størrelse</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">App-størrelser er estimert av ytelsesgrunner. Bruk Lagringsanalysator-verktøyet for mer nøyaktig data.</string>
     <string name="appcontrol_progress_uninstalling_app">Avinstallerer app</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d app ble avinstallert</item>
+        <item quantity="other">%d apper ble avinstallert</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">App-størrelse</string>
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Data</string>
@@ -453,6 +473,10 @@
         <item quantity="one">Endre aktivert/deaktivert status for %d app?</item>
         <item quantity="other">Endre aktivert/deaktivert status for %d apper?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d app ble aktivert/deaktivert</item>
+        <item quantity="other">%d apper ble aktivert/deaktivert</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Bestem størrelser</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Få et grovt estimat av størrelsen til hver app.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bestem aktivitet</string>
@@ -460,6 +484,10 @@
     <string name="appcontrol_export_app_selection_action">Eksporter apper</string>
     <string name="appcontrol_export_title">Eksporter app</string>
     <string name="appcontrol_export_description">Lagre installasjonsfilene til denne appen. Dette inkluderer ikke appdata.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d app ble eksportert</item>
+        <item quantity="other">%d apper ble eksportert</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Eksporterer %s</string>
     <string name="appcontrol_force_stop_selection_action">Tving avslutning av apper</string>
     <string name="appcontrol_force_stop_action">Tving avslutning</string>
@@ -467,6 +495,10 @@
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="one">Tving avslutning for %d app?</item>
         <item quantity="other">Tving avslutning for %d apper?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d app ble stoppet</item>
+        <item quantity="other">%d apper ble stoppet</item>
     </plurals>
     <string name="appcontrol_automation_loading">Forbereder automatisering via tilgjengelighetstjeneste</string>
     <string name="appcontrol_automation_title">Appkontroll automatisering</string>
@@ -599,6 +631,7 @@
     <string name="scheduler_notification_result_failure_message">Noen planlagte oppgaver mislyktes eller møtte feil. Prøv å kjøre dem manuelt.</string>
     <string name="scheduler_commands_after_schedule_label">Kommandoer etter planlegging</string>
     <string name="scheduler_commands_after_schedule_desc">Android skall-kommandoer som vil bli utført på slutten av en tidsplan.</string>
+    <string name="scheduler_battery_optimization_hint">Vurder å deaktivere batterioptimalisering for SD Maid hvis du opplever problemer med bakgrunnskjøring.</string>
     <string name="updates_dashcard_title">Oppdatering tilgjengelig</string>
     <string name="updates_dashcard_body">En oppdatering er tilgjengelig. Du har %1$s og den nyeste versjonen er %2$s.</string>
     <string name="translation_encourage_title">Oversett SD Maid</string>
@@ -614,4 +647,23 @@
     <string name="review_app_review_action">Anmeldelse</string>
     <string name="review_app_dismiss_action">Kanskje senere</string>
     <string name="review_app_body">Vil du gi SD Maid en anmeldelse? ❤️</string>
+    <string name="stats_label">Historie</string>
+    <string name="stats_dash_body">%s har blitt frigjort og %s elementer har blitt behandlet siden du inviterte SD Maid til enheten din.</string>
+    <string name="stats_report_status_success">Vellykket</string>
+    <string name="stats_report_status_partial_success">Delvis vellykket</string>
+    <string name="stats_report_status_partial_failure">Mislykket</string>
+    <string name="stats_settings_desc">Konfigurer SD Maid sin statistikk, rapporter og dataoppbevaring.</string>
+    <string name="stats_settings_retention_category">Oppbevaring</string>
+    <string name="stats_settings_retention_reports_label">Generelle rapporter</string>
+    <string name="stats_settings_retention_reports_desc">Antall dager før sletting av standard driftsrapporter for SD Maid.</string>
+    <string name="stats_settings_retention_paths_label">Detaljert bane-informasjon</string>
+    <string name="stats_settings_retention_paths_desc">Antall dager detaljer om baner berørt av SD Maid skal beholdes.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d dag</item>
+        <item quantity="other">%d dager</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Tilbakestill alt</string>
+    <string name="stats_settings_reset_all_desc">Slett alle rapporter og sett all statistikk til null.</string>
+    <string name="stats_affected_paths_label">Berørte baner</string>
+    <string name="stats_affected_pkgs_label">Berørte apper</string>
 </resources>

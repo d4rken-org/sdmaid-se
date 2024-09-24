@@ -159,4 +159,5 @@
         <item quantity="many">Файлів %s</item>
         <item quantity="other">Файли %s</item>
     </plurals>
+    <string name="general_advice_title">Поради</string>
 </resources>

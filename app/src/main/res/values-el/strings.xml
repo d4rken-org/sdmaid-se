@@ -116,6 +116,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Επιτρέψτε στο SD Maid να χρησιμοποιεί το Shizuku όπου είναι δυνατόν για να βελτιώσει τα αποτελέσματα και να ενεργοποιήσει λειτουργίες.</string>
     <string name="setup_shizuku_card_body2">Αυτή η ρύθμιση δεν έχει καμία επίδραση εάν η εφαρμογή Shizuku δεν έχει ρυθμιστεί στη συσκευή σας.</string>
+    <string name="setup_shizuku_card_root_info">Το Shizuku σε συνδυασμό με την πρόσβαση root δεν επιτρέπει πρόσθετες λειτουργίες, αλλά βελτιώνει την αξιοπιστία. Το SD Maid θα το χρησιμοποιήσει ως εναλλακτική μέθοδο.</string>
     <string name="setup_shizuku_state_ready_label">Ο σύνδεσμος Shizuku είναι έτοιμος.</string>
     <string name="setup_shizuku_state_waiting_label">Αναμονή για σύνδεση με Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Χρήση Shizuku εάν είναι διαθέσιμη</string>
@@ -200,6 +201,10 @@
     <string name="corpsefinder_filter_appasec_summary">Κρυπτογραφημένοι πόροι εφαρμογών, π.χ. στοιχεία παιχνιδιών.</string>
     <string name="corpsefinder_filter_app2sd_summary">Τα δεδομένα μεταφέρθηκαν σε εξωτερικό χώρο αποθήκευσης από το App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d υπόλοιπο εφαρμογής διαγράφηκε</item>
+        <item quantity="other">διαγράφηκαν %d υπολείμματα εφαρμογών</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">Ανακαλύφθηκε το υπόλοιπο της εφαρμογής %d</item>
         <item quantity="other">Ανακαλύφθηκαν τα υπόλοιπα της εφαρμογής %d</item>

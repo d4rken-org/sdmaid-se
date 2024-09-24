@@ -355,6 +355,10 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">File multimediali nella cache, che vengono scaricati di nuovo quando visualizzati in chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Eliminare gli elementi inutili per tutte le applicazioni?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d elemento inutile eliminato</item>
+        <item quantity="other">%d elementi inutili eliminati</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d elemento inutile trovato</item>
         <item quantity="other">%d elementi inutili trovati</item>
@@ -381,6 +385,10 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcleaner_progress_shizuku_deleting_caches">Cancella cache con Shizuku</string>
     <string name="deduplicator_tool_name">Deduplicatore</string>
     <string name="deduplicator_explanation_short">Trova doppioni dei dati nel dispositivo.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d duplicato eliminato</item>
+        <item quantity="other">%d duplicati eliminati</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d set di duplicati trovato</item>
         <item quantity="other">%d Set di duplicati trovati</item>
@@ -453,6 +461,10 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_list_sortmode_size_label">Dimensione</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Le dimensioni delle app sono stimate per ragioni di prestazioni. Utilizzare lo StorageAnalyzer per dati più accurati.</string>
     <string name="appcontrol_progress_uninstalling_app">Rimozione app</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d app è stata disinstallata</item>
+        <item quantity="other">%d app sono state disinstallate</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Dimensioni app</string>
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Dati</string>
@@ -462,6 +474,10 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
         <item quantity="one">Cambiare lo stato abilitato/disabilitato dell\'app %d?</item>
         <item quantity="other">Cambiare lo stato abilitato/disabilitato delle app %d?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d app modificata</item>
+        <item quantity="other">%d app modificate</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determina dimensioni</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Ottieni una stima delle dimensioni di ogni app.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Controllo attività</string>
@@ -469,6 +485,10 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_export_app_selection_action">Esporta applicazioni</string>
     <string name="appcontrol_export_title">Esporta app</string>
     <string name="appcontrol_export_description">Salva il file d\'installazione di quest\'app. Non sono inclusi i dati dell\'app.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d app è stata esportata</item>
+        <item quantity="other">%d app sono state esportate</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Esportazione %s</string>
     <string name="appcontrol_force_stop_selection_action">Arresto forzato app</string>
     <string name="appcontrol_force_stop_action">Arresto forzato</string>
@@ -476,6 +496,10 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="one">Forzare l\'arresto di %d app?</item>
         <item quantity="other">Forzare l\'arresto di %d app?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d app è stata arrestata</item>
+        <item quantity="other">%d app sono state arrestate</item>
     </plurals>
     <string name="appcontrol_automation_loading">Allestendo automazioni con il servizio di accessibilità</string>
     <string name="appcontrol_automation_title">Automazione di AppControl</string>
@@ -609,6 +633,7 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="scheduler_notification_result_failure_message">Alcune attività pianificate sono fallite o hanno riscontrato errori. Provare ad eseguirle manualmente.</string>
     <string name="scheduler_commands_after_schedule_label">Comandi post-pianificazione</string>
     <string name="scheduler_commands_after_schedule_desc">Comandi del terminale di Android che verranno eseguiti alla fine di una pianificazione.</string>
+    <string name="scheduler_battery_optimization_hint">Si consiglia di disattivare l\'ottimizzazione batteria per SD Maid se riscontrano problemi con l\'esecuzione in background.</string>
     <string name="updates_dashcard_title">Aggiornamento disponibile</string>
     <string name="updates_dashcard_body">È disponibile un aggiornamento. Hai %1$s e l\'ultima versione è %2$s.</string>
     <string name="translation_encourage_title">Traduci SD Maid</string>
@@ -624,4 +649,23 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="review_app_review_action">Recensione</string>
     <string name="review_app_dismiss_action">Forse più tardi</string>
     <string name="review_app_body">Vuoi lasciare una recensione su SD Maid? ❤️</string>
+    <string name="stats_label">Cronologia</string>
+    <string name="stats_dash_body">Da quando hai installato SD Maid sono stati liberati %s e analizzati %s elementi.</string>
+    <string name="stats_report_status_success">Completato</string>
+    <string name="stats_report_status_partial_success">Completato parzialmente</string>
+    <string name="stats_report_status_partial_failure">Errore</string>
+    <string name="stats_settings_desc">Configura statistiche, report e periodo di conservazione dei dati di SD Maid.</string>
+    <string name="stats_settings_retention_category">Conservazione</string>
+    <string name="stats_settings_retention_reports_label">Report generali</string>
+    <string name="stats_settings_retention_reports_desc">Per quanti giorni SD Maid deve mantenere i report generali.</string>
+    <string name="stats_settings_retention_paths_label">Informazioni dettagliate sui percorsi</string>
+    <string name="stats_settings_retention_paths_desc">Per quanti giorni SD Maid deve mantenere i dettagli sui percorsi interessati.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d giorno</item>
+        <item quantity="other">%d giorni</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Ripristina</string>
+    <string name="stats_settings_reset_all_desc">Cancella tutti i report e imposta tutte le statistiche a zero.</string>
+    <string name="stats_affected_paths_label">Percorsi interessati</string>
+    <string name="stats_affected_pkgs_label">App interessate</string>
 </resources>

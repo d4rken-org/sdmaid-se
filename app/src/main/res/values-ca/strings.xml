@@ -3,10 +3,10 @@
     <string name="dashboard_delete_all_message">Voleu suprimir els resultats de totes les eines?</string>
     <string name="dashboard_settings_category">Tauler</string>
     <string name="dashboard_motd_title">Un missatge del desenvolupador</string>
-    <string name="dashboard_settings_oneclick_title">Mode d\'un toc</string>
-    <string name="dashboard_settings_oneclick_summary">Inicia l\'escaneig i la supressió de totes les eines amb un toc al botó d\'acció del tauler, sense confirmacions addicionals.</string>
-    <string name="dashboard_settings_oneclick_tools_title">Eines de només un toc</string>
-    <string name="dashboard_settings_oneclick_tools_desc">Quines eines s\'han d\'incloure en les operacions de només un toc?</string>
+    <string name="dashboard_settings_oneclick_title">Mode d\'Un Sol Toc</string>
+    <string name="dashboard_settings_oneclick_summary">Inicia l\'escaneig i la supressió de totes les eines amb un toc al botó d\'acció del tauler sense confirmacions addicionals.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Eines d\'Un Sol Toc</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Quines eines s\'han d\'incloure en les operacions d\'Un Sol Toc?</string>
     <string name="debug_debuglog_size_label">Mida</string>
     <string name="debug_debuglog_size_compressed_label">Mida comprimida</string>
     <string name="debug_notification_channel_label">Notificacions de depuració</string>
@@ -14,8 +14,8 @@
     <string name="debug_debuglog_recording_progress">Gravació del registre de depuració</string>
     <string name="debug_debuglog_record_action">Desa el registre de depuració</string>
     <string name="debug_debuglog_stop_action">Atura la gravació</string>
-    <string name="debug_debuglog_sensitive_information_message">El fitxer generat conté informació sensible (p. ex. noms de fitxers i aplicacions instal·lades). Compartiu-ho només amb persones de confiança.</string>
-    <string name="settings_debuglog_explanation">Aquesta funció enregistra tot el que fa l\'aplicació en un fitxer que es pot compartir. El fitxer generat conté informació sensible (p. ex. noms de fitxers i aplicacions instal·lades). Compartiu-ho només amb persones de confiança (p. ex. un desenvolupador que està solucionant un problema).</string>
+    <string name="debug_debuglog_sensitive_information_message">El fitxer generat conté informació confidencial (p. ex. noms de fitxers i aplicacions instal·lades). Compartiu-ho només amb persones de confiança.</string>
+    <string name="settings_debuglog_explanation">Aquesta funció enregistra tot el que fa l\'aplicació en un fitxer que es pot compartir. El fitxer generat conté informació confidencial (p. ex. noms de fitxers i aplicacions instal·lades). Compartiu-ho només amb persones de confiança (p. ex. un desenvolupador que està solucionant un problema).</string>
     <string name="tasks_activity_notification_channel_label">Tasques actives</string>
     <string name="tasks_activity_working_notification_title">L\'SD Maid està en execució</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -30,14 +30,14 @@
     <string name="tasks_result_subtext">Resultat de la tasca</string>
     <string name="onboarding_welcome_title">Us donem la benvinguda</string>
     <string name="onboarding_welcome_body1">L\'SD Maid SE gestiona fitxers, aplicacions i l\'emmagatzematge.</string>
-    <string name="onboarding_welcome_body2">Allibera espai d\'emmagatzematge netejant darrere d\'altres aplicacions. Suprimeix els fitxers prescindibles i elimina les dades sobrants.</string>
+    <string name="onboarding_welcome_body2">Allibereu espai d\'emmagatzematge netejant darrere d\'altres aplicacions. Suprimiu els fitxers prescindibles i elimineu les dades sobrants.</string>
     <string name="onboarding_welcome_body_beta">Aquesta és una versió beta (de prova). Continueu amb sentit de l\'humor i un pla de seguretat. Informeu dels problemes que trobeu.</string>
     <string name="onboarding_welcome_continue_action">Continua</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">L\'SD Maid SE (també conegut com SD Maid 2) és el successor de l\'SD Maid (també conegut com SD Maid 1). Una nova aplicació, optimitzada per a l\'Android modern.</string>
-    <string name="onboarding_versus_body2">L\'arquitectura del seu predecessor té més de 7 anys i no està dissenyada per als reptes de les versions més actuals d\'Android. Va ser necessari un redisseny complet per continuar el desenvolupament.</string>
+    <string name="onboarding_versus_body1">L\'SD Maid SE (també coneguda com a SD Maid 2) és la successora de l\'SD Maid (també coneguda com a SD Maid 1). Una nova aplicació optimitzada per a l\'Android modern.</string>
+    <string name="onboarding_versus_body2">L\'arquitectura de la seva predecessora té més de 7 anys i no està dissenyada per als reptes de les versions més noves d\'Android. Va ser necessari un redisseny complet per continuar el desenvolupament.</string>
     <string name="onboarding_versus_body3">Penseu a canviar a l\'SD Maid SE per millorar els resultats.</string>
-    <string name="onboarding_versus_body4">Malauradament, l\'estat pro de l\'SD Maid 1 no es pot transferir a l\'SD Maid 2/SE. Després de 12 anys d\'actualitzacions gratuïtes, cal una nova compra per mantenir el desenvolupament (per alimentar al desenvolupador).</string>
+    <string name="onboarding_versus_body4">Malauradament, l\'estat \"Pro\" de l\'SD Maid 1 no es pot transferir a l\'SD Maid 2/SE. Després de 12 anys d\'actualitzacions gratuïtes, cal una nova compra per mantenir el desenvolupament (per alimentar al desenvolupador).</string>
     <string name="onboarding_versus_continue_action">Continua</string>
     <string name="onboarding_privacy_title">Privadesa</string>
     <string name="onboarding_privacy_body1">L\'SD Maid no té anuncis i no ven les dades d\'usuari.</string>
@@ -49,7 +49,7 @@
     <string name="onboarding_setup_body1">L\'SD Maid cercarà totes les àrees de dades accessibles.</string>
     <string name="onboarding_setup_body2">El que és accessible depèn del vostre dispositiu, la versió d\'Android i els permisos concedits.</string>
     <string name="onboarding_setup_body3">Comenceu a utilitzar l\'SD Maid configurant l\'accés a les àrees que s\'han de cercar.</string>
-    <string name="onboarding_setup_continue_action">Configura l\'accés</string>
+    <string name="onboarding_setup_continue_action">Configureu l\'accés</string>
     <string name="settings_privacy_policy_label">Política de privadesa</string>
     <string name="settings_privacy_policy_desc">Tractament responsable de les dades.</string>
     <string name="settings_licenses_label">Llicències</string>
@@ -166,13 +166,13 @@
     <string name="corpsefinder_settings_risk_keeper_summary">Fitxers que potser voldreu conservar, encara que l\'aplicació estigui desinstal·lada, p. ex. fotos que heu fet o còpies de seguretat que heu creat.</string>
     <string name="corpsefinder_settings_risk_common_title">Inclou noms comuns</string>
     <string name="corpsefinder_settings_risk_common_summary">Dades amb noms d\'ús habitual, p. ex. una carpeta «Notes» és propietat de massa aplicacions desconegudes.</string>
-    <string name="corpsefinder_watcher_title">Desinstal·lació de l\'observador</string>
+    <string name="corpsefinder_watcher_title">Vigilant de desinstal·lacions</string>
     <string name="corpsefinder_watcher_summary">Explora automàticament les restes quan s\'elimina una aplicació.</string>
     <string name="corpsefinder_watcher_autodelete_title">Eliminació automàtica</string>
     <string name="corpsefinder_watcher_autodelete_summary">Suprimeix automàticament les restes relacionades amb l\'aplicació desinstal·lada.</string>
     <plurals name="corpsefinder_watcher_notification_scan_result">
         <item quantity="one">S\'ha trobat %1$d resta després de desinstal·lar %2$s.</item>
-        <item quantity="other">S\'han trobat %1$d restes després de desinstal·lar %2$s.</item>
+        <item quantity="other">S\'han trobat %1$d sobrants després de desinstal·lar %2$s.</item>
     </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Neteja correcta (%1$s): s\'ha alliberat %2$s i s\'ha eliminat %3$d element.</item>
@@ -202,8 +202,8 @@
     <string name="corpsefinder_filter_app2sd_summary">Dades mogudes a l\'emmagatzematge extern mitjançant modificacions d\'App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
-        <item quantity="one">S\'ha suprimit %d aplicació restant</item>
-        <item quantity="other">S\'han suprimit %d aplicacions restants</item>
+        <item quantity="one">S\'ha suprimit %d deixalla d\'aplicacions</item>
+        <item quantity="other">S\'han suprimit %d deixalles d\'aplicacions</item>
     </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">S\'ha descobert restes d\'%d aplicació</item>
@@ -337,7 +337,7 @@
     <string name="appcleaner_filter_offlinecache_label">Memòria cau fora de línia</string>
     <string name="appcleaner_filter_offlinecache_summary">Fitxers emmagatzemats per utilitzar-los sense connexió, p. ex. mosaics del mapa.</string>
     <string name="appcleaner_filter_recyclebins_label">Papereres de reciclatge</string>
-    <string name="appcleaner_filter_recyclebins_summary">Fitxers que s\'han suprimit però que s\'han posat en una carpeta especial per permetre restaurar-los.</string>
+    <string name="appcleaner_filter_recyclebins_summary">Fitxers que s\'han suprimit, però que s\'han posat en una carpeta especial per permetre restaurar-los.</string>
     <string name="appcleaner_filter_webview_label">Fitxers WebView</string>
     <string name="appcleaner_filter_webview_summary">Fitxers desats a la memòria cau per les instàncies WebView utilitzades a les aplicacions.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Còpies de seguretat de WhatsApp</string>
@@ -357,7 +357,7 @@
     <string name="appcleaner_delete_all_confirmation_message">Voleu suprimir els elements prescindibles de totes les aplicacions?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">S\'ha suprimit %d element fungible</item>
-        <item quantity="other">S\'han suprimit %d elements fungibles</item>
+        <item quantity="other">S\'han suprimit %d elements reemplaçables</item>
     </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">S\'ha trobat %d element prescindible</item>

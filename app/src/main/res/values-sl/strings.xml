@@ -151,6 +151,7 @@
     <string name="setup_acs_appops_restriction_title">Dodatne nastavitve</string>
     <string name="setup_acs_appops_restriction_body">Ne morete omogočiti SD Maidovo storitev dostopnosti?  Android 13+ lahko omejuje programe, ki niso nameščeni iz Google Play.  Te omejitve lahko odpravite na strani sistemskih podrobnosti SD Maida.  Možnost se nahaja v vsebinskem meniju v zgornjem desnem kotu.</string>
     <string name="setup_inventory_card_title">Programski inventar</string>
+    <string name="setup_inventory_card_body">Sporočite SD Maidu, katere programi se uporabljajo za iskanje datotek in niso nameščeni.</string>
     <string name="setup_inventory_card_extra">Poiščite dovoljenje \"Seznam programov\" ali \"Preglej vse pakete\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ni našel podatkovnih področij, ki jih lahko pregleda.  Ali ste dokončali nastavitev?</string>
     <string name="dataarea_warningcard_label">Podatkovna področja</string>
@@ -215,7 +216,7 @@
         <item quantity="other">Izbrisanih je bilo %d ostankov programov.</item>
     </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">Odkrit je bil %d ostanek programov.</item>
+        <item quantity="one">Odkrit je bil %d ostanek programa.</item>
         <item quantity="two">Odkrita sta bila %d ostanka programov.</item>
         <item quantity="few">Odkriti so bili %d-je ostanki programov.</item>
         <item quantity="other">Odkritih je bilo %d ostankov programov.</item>

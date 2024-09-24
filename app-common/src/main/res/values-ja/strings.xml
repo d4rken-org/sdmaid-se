@@ -141,4 +141,5 @@
     <plurals name="result_x_files">
         <item quantity="other">%s ファイル</item>
     </plurals>
+    <string name="general_advice_title">アドバイス</string>
 </resources>
