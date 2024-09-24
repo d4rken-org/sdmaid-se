@@ -108,8 +108,8 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
             toolbar.title = state.title?.get(requireContext())
             toolbar.subtitle = state.subtitle?.get(requireContext())
 
-            adapter.update(state.items)
             loadingOverlay.setProgress(state.progress)
+            if (state.progress == null) adapter.update(state.items)
             list.isInvisible = state.progress != null
         }
 
