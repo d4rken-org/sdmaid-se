@@ -25,16 +25,16 @@ Pobierz wyczerpującą listę wszystkich aplikacji zainstalowanych na twoim urz�
 📊 Co wykorzystuje całą Twoją przestrzeń
 Zarządzanie pamięcią masową może być skomplikowane w przypadku aplikacji, multimediów, systemu i innych plików w pamięci telefonu, kartach SD i urządzeniach USB. "StorageAnalyzer" jest menedżerem plików, który wyświetla sposób wykorzystania miejsca na urządzeniu, upraszczając zarządzanie pamięcią.
 
-📷 Find duplicate data
-Duplicate downloads, photos sent through social media or just similar pictures of the same scene: Over time copies can accumulate. The "Deduplicator" tool finds files that are exactly the same or similar and helps you delete extra copies.
+📷 Znajdź duplikaty danych
+Zduplikowane pobierania, zdjęcia wysyłane przez media społecznościowe lub podobne zdjęcia tej samej sceny: Z czasem kopie mogą się kumulować. Narzędzie "Deduplikator" znajduje pliki, które są dokładnie takie same lub podobne i pomagają usunąć dodatkowe kopie.
 
-This app is ad-free. Niektóre funkcje wymagają płatnego ulepszenia.
+Ta aplikacja nie zawiera reklam. Niektóre funkcje wymagają płatnego ulepszenia.
 
 SD Maid 2/SE to następca SD Maid 1/Legacy.
 Zoptymalizowana dla nowszych wersji Androida i skupiona na sprzątaniu.
 
-This app has optional features that utilize the AccessibilityService API to automate tedious actions.
-Using the AccessibilityService API, this app can click buttons for you to perform operations on multiple apps, e.g. usuwanie pamięci podręcznych.
-This app does not use the AccessibilityService API to collect information.
+Ta aplkacja ma opcjonalne funkcje, które wykorzystują interfejs API AccessibilityService do automatyzacji żmudnych czynności.
+Korzystając z API AccessibilityService, ta aplikacja może klikać przyciski, aby wykonać operacje na wielu aplikacjach, np. usuwanie pamięci podręcznych.
+Ta aplikacja nie używa API AccessibilityService do zbierania informacji.
 
-SD Maid 2/SE is a File Manager & Cleaner App.
+SD Maid 2/SE to Menedżer plików i aplikacja czyszcząca.

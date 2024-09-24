@@ -14,13 +14,13 @@ SD Maid 2/SE es un gestor de aplicaciones y archivos especializado en saber qué
 Si las aplicaciones crean archivos fuera de tus carpetas designadas, los archivos pueden permanecer incluso después de desinstalar las aplicaciones. La herramienta "CorpseFinder" encuentra restos de aplicaciones, te dice a qué aplicación pertenecían y te ayuda a eliminarlos.
 
 🔍 Busca en tu dispositivo de forma inteligente
-Filtra las carpetas vacías, los archivos temporales, las aplicaciones ya instaladas y mucho más. Incluso puede crear sus propios criterios de búsqueda. La herramienta "SystemCleaner" te permite buscar automáticamente en tu dispositivo y eliminar archivos en función de varios criterios.
+Filtra las carpetas vacías, los archivos temporales, las aplicaciones ya instaladas y mucho más. Incluso puede crear sus propios criterios de búsqueda. La herramienta "Limpiador del sistema" te permite buscar automáticamente en tu dispositivo y eliminar archivos en función de varios criterios.
 
 🧹 Eliminar archivos prescindibles y cachés ocultos
 Miniaturas, papeleras, cachés sin conexión y mucho más: Si las aplicaciones no se limpian solas, esta aplicación lo hará. La herramienta "AppCleaner" encuentra aplicaciones con archivos prescindibles.
 
 📦 Gestiona todas tus aplicaciones
-Obtén una lista completa de todas las aplicaciones instaladas en tu dispositivo. Aplicación activada, desactivada, de usuario o de sistema: ninguna aplicación puede esconderse de ti. La herramienta "AppControl" es un gestor de aplicaciones que te permite buscar, ordenar y controlar tus aplicaciones.
+Obtén una lista completa de todas las aplicaciones instaladas en tu dispositivo. Aplicación activada, desactivada, de usuario o de sistema: ninguna aplicación puede esconderse de ti. La herramienta "Control de las aplicaciones" es un gestor de aplicaciones que te permite buscar, ordenar y controlar tus aplicaciones.
 
 📊 ¿Qué es lo que ocupa todo tu espacio?
 La gestión del almacenamiento puede ser compleja, con aplicaciones, medios, sistema y otros archivos en el almacenamiento del teléfono, tarjetas SD y dispositivos USB. "StorageAnalyzer" es un gestor de archivos que muestra cómo se utiliza el espacio en tu dispositivo, simplificando la gestión de tu almacenamiento.
