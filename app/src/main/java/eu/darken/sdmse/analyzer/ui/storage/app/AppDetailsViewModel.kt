@@ -36,7 +36,7 @@ class AppDetailsViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     @Suppress("StaticFieldLeak") @ApplicationContext private val context: Context,
-    analyzer: Analyzer,
+    private val analyzer: Analyzer,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<AppDetailsFragmentArgs>()
@@ -68,6 +68,11 @@ class AppDetailsViewModel @Inject constructor(
     private fun Analyzer.Data.findPkg(): AppCategory.PkgStat? {
         val appContent = categories[targetStorageId]?.filterIsInstance<AppCategory>()?.singleOrNull()
         return appContent?.pkgStats?.get(targetInstallId)
+    }
+
+    fun refresh() = launch {
+        log(TAG) { "refresh()" }
+        analyzer.submit(AppDeepScanTask(targetStorageId, targetInstallId))
     }
 
     val state = combine(

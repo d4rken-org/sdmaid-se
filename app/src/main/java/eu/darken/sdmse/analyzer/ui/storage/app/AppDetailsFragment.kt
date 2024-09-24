@@ -1,6 +1,7 @@
 package eu.darken.sdmse.analyzer.ui.storage.app
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
@@ -21,17 +22,23 @@ class AppDetailsFragment : Fragment3(R.layout.analyzer_app_fragment) {
     override val vm: AppDetailsViewModel by viewModels()
     override val ui: AnalyzerAppFragmentBinding by viewBinding()
 
+    private val menuRefreshAction: MenuItem?
+        get() = ui.toolbar.menu?.findItem(R.id.menu_action_refresh)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             setOnMenuItemClickListener {
                 when (it.itemId) {
+                    R.id.menu_action_refresh -> {
+                        vm.refresh()
+                        true
+                    }
+
                     else -> false
                 }
             }
-
         }
-
         val adapter = AppDetailsAdapter()
         ui.list.setupDefaults(adapter, verticalDividers = false)
 
@@ -42,6 +49,7 @@ class AppDetailsFragment : Fragment3(R.layout.analyzer_app_fragment) {
             adapter.update(state.items)
             loadingOverlay.setProgress(state.progress)
             list.isInvisible = state.progress != null
+            menuRefreshAction?.isVisible = state.progress == null
         }
 
         super.onViewCreated(view, savedInstanceState)
