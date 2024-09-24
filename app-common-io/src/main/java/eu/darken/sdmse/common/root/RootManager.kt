@@ -98,7 +98,7 @@ class RootManager @Inject constructor(
         .stateIn(
             scope = appScope,
             started = SharingStarted.WhileSubscribed(
-                stopTimeoutMillis = 3000,
+                stopTimeoutMillis = 10 * 1000,
                 replayExpirationMillis = 0,
             ),
             initialValue = null
