@@ -38,6 +38,7 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.setup.IncompleteSetupException
@@ -66,6 +67,7 @@ class Analyzer @Inject constructor(
 
     override val type: SDMTool.Type = SDMTool.Type.ANALYZER
 
+    private val usedResources = setOf(gatewaySwitch)
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
     private val progressPub = MutableStateFlow<Progress.Data?>(null)
@@ -114,14 +116,15 @@ class Analyzer @Inject constructor(
         log(TAG) { "submit($task) starting..." }
         updateProgress { Progress.Data() }
         try {
-            val result = when (task) {
-                is DeviceStorageScanTask -> scanStorageDevices(task)
-                is StorageScanTask -> scanStorageContents(task)
-                is ContentDeleteTask -> deleteContent(task)
-                is AppDeepScanTask -> deepScanApp(task)
-                else -> throw UnsupportedOperationException("Unsupported task: $task")
+            val result = keepResourceHoldersAlive(usedResources) {
+                when (task) {
+                    is DeviceStorageScanTask -> scanStorageDevices(task)
+                    is StorageScanTask -> scanStorageContents(task)
+                    is ContentDeleteTask -> deleteContent(task)
+                    is AppDeepScanTask -> deepScanApp(task)
+                    else -> throw UnsupportedOperationException("Unsupported task: $task")
+                }
             }
-
             log(TAG, INFO) { "submit($task) finished: $result" }
             result
         } finally {
