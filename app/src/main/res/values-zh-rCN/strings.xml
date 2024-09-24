@@ -624,7 +624,7 @@
     <string name="review_app_dismiss_action">稍后再说</string>
     <string name="review_app_body">想给 SD Maid 写一条评论吗？❤️</string>
     <string name="stats_label">历史</string>
-    <string name="stats_dash_body">您将SDMaid安装到您的设备以来，已释放 %s 和处理 %s 的项目。</string>
+    <string name="stats_dash_body">您将 SDMaid 安装到您的设备以来，已释放 %s 并处理了 %s 个项目。</string>
     <string name="stats_report_status_success">成功</string>
     <string name="stats_report_status_partial_success">部分成功</string>
     <string name="stats_report_status_partial_failure">失败</string>

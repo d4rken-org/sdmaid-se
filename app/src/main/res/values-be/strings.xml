@@ -209,6 +209,12 @@
     <string name="corpsefinder_filter_appasec_summary">Зашыфраваныя рэсурсы праграм, напрыклад, гульнявыя рэсурсы.</string>
     <string name="corpsefinder_filter_app2sd_summary">Даныя перамешчаны ў знешняе сховішча з дапамогай мадыфікацый App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">Выдалены рэшткі %d праграмы</item>
+        <item quantity="few">Выдалены рэшткі %d праграм</item>
+        <item quantity="many">Выдалены рэшткі %d праграм</item>
+        <item quantity="other">Выдалены рэшткі %d праграм</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">Выяўлены рэшткі %d праграмы</item>
         <item quantity="few">Выяўлены рэшткі %d праграм</item>
@@ -223,6 +229,12 @@
     <string name="corpsefinder_corpse_hint_common">Гэты элемент мае вельмі распаўсюджаную назву і можа належаць усталяваным праграмам, пра якія SD Maid не ведае.</string>
     <string name="systemcleaner_tool_name">Ачыстка сістэмы</string>
     <string name="systemcleaner_explanation_short">Лішнія даныя, якія не адносяцца да пэўнай праграмы.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">Выдалена %d супадзенне</item>
+        <item quantity="few">Выдалена %d супадзення</item>
+        <item quantity="many">Выдалена %d супадзенняў</item>
+        <item quantity="other">Выдалена %d супадзенняў</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">Супаў %d фільтр</item>
         <item quantity="few">Супала %d фільтры</item>
@@ -359,6 +371,12 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Кэшаваныя медыяфайлы, загружаныя паўторна пры праглядзе ў чаце.</string>
     <string name="appcleaner_delete_all_confirmation_message">Выдаліць непатрэбныя элементы ва ўсіх праграмах?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">Выдалены %d непатрэбны элемент</item>
+        <item quantity="few">Выдалена %d непатрэбных элементаў</item>
+        <item quantity="many">Выдалена %d непатрэбных элементаў</item>
+        <item quantity="other">Выдалена %d непатрэбных элементаў</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Знойдзены %d непатрэбны элемент</item>
         <item quantity="few">Знойдзена %d непатрэбных элемента</item>
@@ -388,6 +406,12 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Выдаленне кэшу з дапамогай Shizuku</string>
     <string name="deduplicator_tool_name">Дэдуплікатар</string>
     <string name="deduplicator_explanation_short">Пошук дублікатаў даных на вашай прыладзе.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">Выдалены %d дублікат</item>
+        <item quantity="few">Выдалена %d дубліката</item>
+        <item quantity="many">Выдалена %d дублікатаў</item>
+        <item quantity="other">Выдалена %d дублікатаў</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">Знойдзена %d пара дублікатаў</item>
         <item quantity="few">Знойдзена %d пары дублікатаў</item>
@@ -464,6 +488,12 @@
     <string name="appcontrol_list_sortmode_size_label">Памер</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Памеры праграм ацэньваюцца паводле іх прадукцыйнасці. З дапамогай Аналізу сховішча атрымайце больш дакладныя даныя.</string>
     <string name="appcontrol_progress_uninstalling_app">Выдаленне праграмы</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">Выдалена %d праграма</item>
+        <item quantity="few">Выдалена %d праграмы</item>
+        <item quantity="many">Выдалена %d праграм</item>
+        <item quantity="other">Выдалена %d праграм</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Памер праграмы</string>
     <string name="appcontrol_app_sizes_apk_label">Праграма</string>
     <string name="appcontrol_app_sizes_data_label">Даныя</string>
@@ -475,6 +505,12 @@
         <item quantity="many">Змяніць уключаны/выключаны стан для %d праграм?</item>
         <item quantity="other">Змяніць уключаны/выключаны стан для %d праграм?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">Адключана %d праграма</item>
+        <item quantity="few">Адключана %d праграмы</item>
+        <item quantity="many">Адключана %d праграм</item>
+        <item quantity="other">Адключана %d праграм</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Вызначэнне памераў</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Атрымайце прыблізную ацэнку памеру кожнай праграмы.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Вызначэнне актыўнасці</string>
@@ -482,6 +518,12 @@
     <string name="appcontrol_export_app_selection_action">Экспартаваць праграмы</string>
     <string name="appcontrol_export_title">Экспартаваць праграму</string>
     <string name="appcontrol_export_description">Захаваць інсталяцыйныя файлы гэтай праграмы на вашай прыладзе. Яны не ўключаюць даныя з праграмы.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">Экспартавана %d праграма</item>
+        <item quantity="few">Экспартавана %d праграмы</item>
+        <item quantity="many">Экспартавана %d праграм</item>
+        <item quantity="other">Экспартавана %d праграм</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Экспартаванне %s</string>
     <string name="appcontrol_force_stop_selection_action">Прымусовае спыненне праграм</string>
     <string name="appcontrol_force_stop_action">Прымусовае спыненне</string>
@@ -491,6 +533,12 @@
         <item quantity="few">Спыніць прымусова %d праграмы?</item>
         <item quantity="many">Спыніць прымусова %d праграм?</item>
         <item quantity="other">Спыніць прымусова %d праграм?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">Спынена %d праграма</item>
+        <item quantity="few">Спынена %d праграмы</item>
+        <item quantity="many">Спынена %d праграм</item>
+        <item quantity="other">Спынена %d праграм</item>
     </plurals>
     <string name="appcontrol_automation_loading">Падрыхтоўка аўтаматызацыі праз службу спецыяльных магчымасцей</string>
     <string name="appcontrol_automation_title">Аўтаматызацыя кантролю праграм</string>
@@ -631,6 +679,7 @@
     <string name="scheduler_notification_result_failure_message">Некаторыя запланаваныя задачы не выкананы або пры іх выкананні ўзніклі памылкі. Паспрабуйце запусціць іх уручную.</string>
     <string name="scheduler_commands_after_schedule_label">Каманды пасля раскладу</string>
     <string name="scheduler_commands_after_schedule_desc">Каманды сістэмы Android, якія будуць выкананы пасля раскладу.</string>
+    <string name="scheduler_battery_optimization_hint">Падумайце аб адключэнні аптымізацыі батарэі для SD Maid, калі ў вас узніклі праблемы з фонавым выкананнем.</string>
     <string name="updates_dashcard_title">Даступна абнаўленне</string>
     <string name="updates_dashcard_body">Даступна абнаўленне. У вас версія %1$s, а апошняя версія — %2$s.</string>
     <string name="translation_encourage_title">Перакласці SD Maid</string>
@@ -646,4 +695,25 @@
     <string name="review_app_review_action">Водгук</string>
     <string name="review_app_dismiss_action">Магчыма пазней</string>
     <string name="review_app_body">Ці вы хочаце пакінуць водгук на SD Maid?️ ❤️</string>
+    <string name="stats_label">Гісторыя</string>
+    <string name="stats_dash_body">Была вызвалена %s і апрацавана %s элементаў пасля таго, як вы запрасілі SD Maid на сваю прыладу.</string>
+    <string name="stats_report_status_success">Паспяхова</string>
+    <string name="stats_report_status_partial_success">Частковы поспех</string>
+    <string name="stats_report_status_partial_failure">Няўдала</string>
+    <string name="stats_settings_desc">Наладжванне статыстыкі, справаздач і захаванне даных SD Maid.</string>
+    <string name="stats_settings_retention_category">Утрыманне</string>
+    <string name="stats_settings_retention_reports_label">Агульныя справаздачы</string>
+    <string name="stats_settings_retention_reports_desc">Колькасць дзён да выдалення асноўных справаздач аб аперацыях SD Maid.</string>
+    <string name="stats_settings_retention_paths_label">Падрабязная інфармацыя аб шляху</string>
+    <string name="stats_settings_retention_paths_desc">Колькасць дзён для захоўвання звестак аб шляхах, на якія ўплывае SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d дзень</item>
+        <item quantity="few">%d дні</item>
+        <item quantity="many">%d дзён</item>
+        <item quantity="other">%d дзён</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Скінуць усё</string>
+    <string name="stats_settings_reset_all_desc">Выдаліць усе справаздачы і абнуліць усю статыстыку.</string>
+    <string name="stats_affected_paths_label">Закранутыя шляхі</string>
+    <string name="stats_affected_pkgs_label">Закранутыя праграмы</string>
 </resources>

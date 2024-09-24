@@ -217,6 +217,10 @@
     <string name="corpsefinder_corpse_hint_common">Dit item heeft een veel voorkomende naam en zou kunnen behoren tot nog steeds geïnstalleerde apps die SD Maid niet kent.</string>
     <string name="systemcleaner_tool_name">SysteemReiniger</string>
     <string name="systemcleaner_explanation_short">Overbodige gegevens die niet bij een specifieke app behoren.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d overeenkomst verwijderd</item>
+        <item quantity="other">%d overeenkomsten verwijderd</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d filterovereenkomst</item>
         <item quantity="other">%d filterovereenkomsten</item>

@@ -307,7 +307,7 @@
     <string name="appcleaner_filter_defaultcachesprivate_label">গোপন ডিফল্ট ক্যাশ</string>
     <string name="appcleaner_filter_defaultcachesprivate_summary">ডিফল্ট ব্যক্তিগত অ্যাপ ক্যাশ। সিস্টেম সেটিংসে \"ক্যাশে সাফ করুন\" ট্যাপ করার সময় মুছে ফেলা হয়েছে।</string>
     <string name="appcleaner_include_systemapps_label">সিস্টেম অ্যাপগুলোও অন্তর্ভুক্ত করুন</string>
-    <string name="appcleaner_include_systemapps_summary">সিস্টেম অ্যাপগুলোও স্ক্যানে অন্তর্ভুক্ত করুন</string>
+    <string name="appcleaner_include_systemapps_summary">সিস্টেম অ্যাপগুলোকেও স্ক্যানে অন্তর্ভুক্ত করুন।</string>
     <string name="appcleaner_include_runningapps_label">চলমান অ্যাপ্লিকেশন অন্তর্ভুক্ত করুন</string>
     <string name="appcleaner_include_runningapps_summary">বর্তমানে রানিং অ্যাপগুলি অন্তর্ভুক্ত করুন যা হস্তক্ষেপের কারণ হতে পারে।</string>
     <string name="appcleaner_include_inaccessible_label">দুর্গম ক্যাশ অন্তর্ভুক্ত করুন</string>

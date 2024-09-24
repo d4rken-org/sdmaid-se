@@ -16,5 +16,9 @@
     <string name="upgrade_screen_sponsor_action_hint">L\'alternativa sono annunci, analytics e Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Grazie per aver supportato lo sviluppo open-source ❤️</string>
     <string name="nudge_betagoodbye_title">Versione 1.0 🥳</string>
-    <string name="nudge_betagoodbye_negative_action">Continua a ricevere le pre-release</string>
+    <string name="nudge_betagoodbye_body">Grazie. Senza di te non saremmo arrivati così lontano. Lo sviluppo dell\'app continuerà, ma da adesso puoi passare al canale di rilascio ufficiale.</string>
+    <string name="nudge_betagoodbye_hint">Questa è una versione ufficiale dell\'app. Esci dal canale di prova per ricevere solo aggiornamenti ufficiali.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Puoi effettuare il passaggio senza reinstallare l\'app, abbandonando il programma di prova e aspettando un aggiornamento più recente di questa versione.</string>
+    <string name="nudge_betagoodbye_positive_action">Passa al canale ufficiale</string>
+    <string name="nudge_betagoodbye_negative_action">Continua a ricevere le versioni di prova</string>
 </resources>

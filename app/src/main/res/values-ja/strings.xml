@@ -123,19 +123,19 @@
     <string name="setup_permission_granted_label">権限は許可されています</string>
     <string name="setup_usagestats_title">使用状況の統計</string>
     <string name="setup_usagestats_body">使用統計の許可により、アプリの詳細へのアクセスが許可されます。SD Maid は追加のキャッシュサイズを決定するために使用します。</string>
-    <string name="setup_usagestats_hint">アクセシビリティサービスは基本的なキャッシュの削除に必要です。</string>
+    <string name="setup_usagestats_hint">ユーザー補助サービスは基本的なキャッシュの削除に必要です。</string>
     <string name="setup_notification_title">通知</string>
     <string name="setup_notification_body">SDメイドが現在進行中の操作や重要なイベントについて通知するために通知を表示することを許可します。</string>
     <string name="setup_notification_hint">通知は控えめに使用されます 🤞</string>
     <string name="setup_feature_requires_additional_setup_x">この機能は追加のセットアップアイテムを完了する必要があります： %s</string>
-    <string name="setup_acs_card_title">ユーザー補助</string>
+    <string name="setup_acs_card_title">ユーザー補助サービス</string>
     <string name="setup_acs_card_body">ユーザー補助機能により、SD Maidは画面にアクセスし面倒な作業を自動化できます。例: 複数の画面での「キャッシュを削除」のタップ。</string>
     <string name="setup_acs_card_body2">SD Maidは、ユーザーの同意なしにユーザー補助機能を使用しません。使用中は常に目立つ (キャンセル可能な) インジケーターを表示し、情報を収集するための使用をしません。</string>
-    <string name="setup_acs_state_enabled">アクセシビリティサービスは有効です。</string>
-    <string name="setup_acs_state_disabled">アクセシビリティサービスは無効です。</string>
-    <string name="setup_acs_state_running">アクセシビリティサービスは実行中です。</string>
+    <string name="setup_acs_state_enabled">ユーザー補助サービスは有効です。</string>
+    <string name="setup_acs_state_disabled">ユーザー補助サービスは無効です。</string>
+    <string name="setup_acs_state_running">ユーザー補助サービスは実行中です。</string>
     <string name="setup_acs_state_ondemand">サービスは要求されたときのみ起動されます</string>
-    <string name="setup_acs_state_stopped">アクセシビリティサービスは停止しています。</string>
+    <string name="setup_acs_state_stopped">ユーザー補助サービスは停止しています。</string>
     <string name="setup_acs_state_stopped_hint">サービスは有効ですが、実行されていません。一度オフ/オンにするかデバイスを再起動します。SD Maidがシステムによって「最適化」されていないことを確認してください。</string>
     <string name="setup_acs_state_stopped_hint_miui">サービスが無効になり続ける場合は、システム設定でSD Maidの「自動起動」オプションを有効にしてみてください。</string>
     <string name="setup_acs_consent_positive_action">サービスを有効化しアクセス権限を許可する</string>
@@ -303,7 +303,7 @@
     <string name="appcleaner_include_runningapps_label">実行中のアプリを含める</string>
     <string name="appcleaner_include_runningapps_summary">干渉を引き起こす可能性のあるアプリを含めてください。</string>
     <string name="appcleaner_include_inaccessible_label">アクセスできないキャッシュを含める</string>
-    <string name="appcleaner_include_inaccessible_summary">直接アクセスできないが、アクセシビリティサービスを使用してシステム設定を介して削除し、自動化することができるデータを含めます。 </string>
+    <string name="appcleaner_include_inaccessible_summary">直接なアクセスはできませんが、ユーザー補助サービスを介して削除を自動化することができるデータを含めます。 </string>
     <string name="appcleaner_include_multiuser_label">他のユーザーを含める</string>
     <string name="appcleaner_include_multiuser_summary">このデバイスの他のユーザープロファイルのアプリを含めます。</string>
     <string name="appcleaner_include_minimumsize_label">最小サイズ</string>
@@ -353,7 +353,7 @@
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d 消耗品が見つかりました</item>
     </plurals>
-    <string name="appcleaner_automation_loading">アクセシビリティサービスによる自動化の準備</string>
+    <string name="appcleaner_automation_loading">ユーザー補助サービスによる自動化の準備</string>
     <string name="appcleaner_automation_title">アプリクリーナーの自動化</string>
     <string name="appcleaner_automation_subtitle_default_caches">デフォルトキャッシュをクリアしています…</string>
     <string name="appcleaner_automation_progress_open_settings">設定画面を開く (キーワード: %s)</string>
@@ -362,9 +362,9 @@
     <string name="appcleaner_automation_progress_find_clear_cache">「キャッシュをクリア」ボタンを探しています (キーワード: %s)</string>
     <string name="appcleaner_automation_progress_find_ok_confirmation">以前の操作を確認しようとしています(キーワード： %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">デフォルトキャッシュ</string>
-    <string name="appcleaner_item_caches_inaccessible_body">パブリックおよびプライベートのデフォルトキャッシュ。直接アクセスできませんが、間接的に削除することができます (アクセシビリティサービスなど)。</string>
-    <string name="appcleaner_automation_unavailable_title">アクセシビリティサービスは無効です。</string>
-    <string name="appcleaner_automation_unavailable_body">アクセスできないキャッシュをクリアするには、SD Maidのアクセシビリティサービスが必要ですが、利用できませんでした。使用したくない場合は、「アクセスできないキャッシュを含める」オプションを無効にします。</string>
+    <string name="appcleaner_item_caches_inaccessible_body">パブリックおよびプライベートのデフォルトキャッシュ。直接アクセスできませんが、間接的に削除することができます (ユーザー補助サービスなど)。</string>
+    <string name="appcleaner_automation_unavailable_title">ユーザー補助サービスは無効です。</string>
+    <string name="appcleaner_automation_unavailable_body">アクセスできないキャッシュをクリアするには、SD Maidのユーザー補助サービスが必要ですが、利用できませんでした。使用したくない場合は、「アクセスできないキャッシュを含める」オプションを無効にします。</string>
     <string name="appcleaner_junk_userprofile_label">ユーザー</string>
     <string name="appcleaner_delete_confirmation_message_x">%s の消耗ファイルを削除しますか？</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
@@ -480,7 +480,7 @@
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="other">%d個のアプリを停止しました</item>
     </plurals>
-    <string name="appcontrol_automation_loading">アクセシビリティサービスによる自動化の準備</string>
+    <string name="appcontrol_automation_loading">ユーザー補助サービスによる自動化の準備</string>
     <string name="appcontrol_automation_title">アプリコントロールの自動化</string>
     <string name="appcontrol_automation_subtitle_force_stopping">強制停止中...</string>
     <string name="appcontrol_automation_progress_find_force_stop">強制停止ボタンを探しています(キーワード: %s)</string>
@@ -562,11 +562,11 @@
     <string name="automation_screenoverlay_explanation">SD Maid はデバイスと相互作用しています。同時に画面を使用することはできません。 操作が完了するかキャンセルされるまで待ちます。</string>
     <string name="automation_active_title">SD Maidは稼動中です</string>
     <string name="automation_error_no_consent_title">自動化のエラー</string>
-    <string name="automation_error_no_consent_body">アクセシビリティサービスが設定されていません。セットアップを完了し、同意を得てください。</string>
+    <string name="automation_error_no_consent_body">ユーザー補助サービスが設定されていません。セットアップを完了し、同意を得てください。</string>
     <string name="automation_error_not_enabled_title">サービスが有効になっていません</string>
-    <string name="automation_error_not_enabled_body">アクセシビリティサービスが無効になっています。もう一度オンにしてください。</string>
+    <string name="automation_error_not_enabled_body">ユーザー補助サービスが無効になっています。もう一度オンにしてください。</string>
     <string name="automation_error_not_running_title">サービスが実行されていません</string>
-    <string name="automation_error_not_running_body">アクセシビリティサービスが実行されていません。デバイスを再起動してみてください。</string>
+    <string name="automation_error_not_running_body">ユーザー補助サービスが実行されていません。デバイスを再起動してみてください。</string>
     <string name="automation_error_screen_unavailable_title">画面が利用できません</string>
     <string name="automation_error_screen_unavailable_body">画面が利用できなくなったため、操作が中断されました(たとえば、画面のスリープやロック画面の有効化など)。</string>
     <string name="history_label">履歴</string>
@@ -597,8 +597,8 @@
     <string name="scheduler_setting_nopowersaving_summary">デバイスが省電力モードの場合、スケジュールされた実行はスキップされます。</string>
     <string name="scheduler_setting_charging_title">充電していないときにスキップ</string>
     <string name="scheduler_setting_charging_summary">デバイスが充電されていない場合、スケジュールされた実行はスキップされます。</string>
-    <string name="scheduler_setting_automation_title">アクセシビリティサービス</string>
-    <string name="scheduler_setting_automation_summary">アクセシビリティサービスを使用するアクションを含めます。タスクが実行されるときに、SD Maidが画面と対話できるようにする必要があります。</string>
+    <string name="scheduler_setting_automation_title">ユーザー補助サービス</string>
+    <string name="scheduler_setting_automation_summary">ユーザー補助サービスを使用するアクションを含めます。タスクが実行されるときに、SD Maidが画面と対話できるようにする必要があります。</string>
     <string name="scheduler_notification_channel_label">スケジューラー</string>
     <string name="scheduler_notification_title">スケジュールされたタスク</string>
     <string name="scheduler_notification_message">実行中: \"%s\"</string>

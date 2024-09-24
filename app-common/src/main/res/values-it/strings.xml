@@ -147,4 +147,5 @@
         <item quantity="one">%s file</item>
         <item quantity="other">%s file</item>
     </plurals>
+    <string name="general_advice_title">Consiglio</string>
 </resources>
