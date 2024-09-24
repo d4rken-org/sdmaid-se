@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.files
 
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.crumbsTo
@@ -118,19 +119,26 @@ suspend fun <T : APath> T.deleteAll(
     filter: (APathLookup<*>) -> Boolean = { true }
 ) {
     try {
-        // Recursion enter
         val lookup = gateway.lookup(this)
 
         if (lookup.isDirectory) {
-            gateway.listFiles(this).forEach { it.deleteAll(gateway, filter) }
+            gateway.listFiles(this).forEach {
+                it.deleteAll(gateway, filter) // Recursion enter
+            }
         }
 
         if (!filter(lookup)) {
             log(VERBOSE) { "Skipped due to filter: $this" }
             return
         }
-    } catch (e: ReadException) {
-        if (!gateway.exists(this)) return else throw e
+    } catch (e: PathException) {
+        val exists = gateway.exists(this)
+        if (!exists) {
+            log(WARN) { "Path failed to delete, but no longer exists: $this" }
+            return
+        } else {
+            throw e
+        }
     }
 
     // Recursion exit
