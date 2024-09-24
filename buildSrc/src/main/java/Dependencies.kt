@@ -65,7 +65,7 @@ fun DependencyHandlerScope.addCoroutines() {
 }
 
 fun DependencyHandlerScope.addCoil() {
-    val version = "2.4.0"
+    val version = "2.7.0"
     implementation("io.coil-kt:coil:$version")
     implementation("io.coil-kt:coil-video:$version")
 }
