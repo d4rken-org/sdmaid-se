@@ -35,7 +35,6 @@ class CoilModule {
         bitmapFetcher: BitmapFetcher.Factory,
         dispatcherProvider: DispatcherProvider,
     ): ImageLoader = ImageLoader.Builder(context).apply {
-
         if (BuildConfigWrap.DEBUG) {
             val logger = object : Logger {
                 override var level: Int = Log.VERBOSE
@@ -47,11 +46,15 @@ class CoilModule {
         }
         components {
             add(appIconFetcherFactory)
-            add(VideoFrameDecoder.Factory())
             add(pathPreviewFetcher)
             add(bitmapFetcher)
+            add(VideoFrameDecoder.Factory())
         }
-        dispatcher(dispatcherProvider.Default)
+        dispatcher(
+            dispatcherProvider.Default.limitedParallelism(
+                (Runtime.getRuntime().availableProcessors() - 1).coerceAtLeast(2)
+            )
+        )
     }.build()
 
     @Singleton
