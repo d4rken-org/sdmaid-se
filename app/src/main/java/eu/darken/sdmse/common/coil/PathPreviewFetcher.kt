@@ -27,6 +27,7 @@ import javax.inject.Inject
 
 class PathPreviewFetcher @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val coilTempFiles: CoilTempFiles,
     private val generalSettings: GeneralSettings,
     private val gatewaySwitch: GatewaySwitch,
     private val mimeTypeTool: MimeTypeTool,
@@ -56,7 +57,10 @@ class PathPreviewFetcher @Inject constructor(
             mimeType.startsWith("image") || mimeType.startsWith("video") -> {
                 val buffer = gatewaySwitch.read(data.lookedUp).buffer()
                 SourceResult(
-                    ImageSource(buffer, context),
+                    ImageSource(
+                        buffer,
+                        coilTempFiles.getBaseCachePath(),
+                    ),
                     mimeType,
                     dataSource = DataSource.DISK
                 )
@@ -91,6 +95,7 @@ class PathPreviewFetcher @Inject constructor(
 
     class Factory @Inject constructor(
         @ApplicationContext private val context: Context,
+        private val coilTempFiles: CoilTempFiles,
         private val generalSettings: GeneralSettings,
         private val gatewaySwitch: GatewaySwitch,
         private val mimeTypeTool: MimeTypeTool,
@@ -100,7 +105,15 @@ class PathPreviewFetcher @Inject constructor(
             data: APathLookup<*>,
             options: Options,
             imageLoader: ImageLoader
-        ): Fetcher = PathPreviewFetcher(context, generalSettings, gatewaySwitch, mimeTypeTool, data, options)
+        ): Fetcher = PathPreviewFetcher(
+            context,
+            coilTempFiles,
+            generalSettings,
+            gatewaySwitch,
+            mimeTypeTool,
+            data,
+            options,
+        )
     }
 }
 
