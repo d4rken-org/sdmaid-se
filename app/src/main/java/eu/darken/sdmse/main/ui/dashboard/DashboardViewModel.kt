@@ -488,7 +488,15 @@ class DashboardViewModel @Inject constructor(
 
         val noError = dataAreaError == null
 
-        if (motdItem == null && updateInfo == null && setupItem == null && noError && reviewItem != null) {
+        val anyInitializing = setOfNotNull(
+            corpseFinderItem?.isInitializing,
+            systemCleanerItem?.isInitializing,
+            appCleanerItem?.isInitializing,
+            deduplicatorItem?.isInitializing,
+            appControlItem?.isInitializing,
+        ).any { it }
+
+        if (motdItem == null && updateInfo == null && setupItem == null && noError && reviewItem != null && !anyInitializing) {
             log(TAG, INFO) { "Showing review item" }
             items.add(reviewItem)
         } else if (reviewItem != null) {
