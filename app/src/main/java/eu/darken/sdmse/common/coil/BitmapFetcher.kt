@@ -18,6 +18,7 @@ import javax.inject.Inject
 
 class BitmapFetcher @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val coilTempFiles: CoilTempFiles,
     private val gatewaySwitch: GatewaySwitch,
     private val mimeTypeTool: MimeTypeTool,
     private val data: Request,
@@ -38,7 +39,10 @@ class BitmapFetcher @Inject constructor(
         val buffer = gatewaySwitch.read(target.lookedUp).buffer()
 
         return SourceResult(
-            ImageSource(buffer, context),
+            ImageSource(
+                buffer,
+                coilTempFiles.getBaseCachePath(),
+            ),
             mimeType,
             dataSource = DataSource.DISK
         )
@@ -46,6 +50,7 @@ class BitmapFetcher @Inject constructor(
 
     class Factory @Inject constructor(
         @ApplicationContext private val context: Context,
+        private val coilTempFiles: CoilTempFiles,
         private val gatewaySwitch: GatewaySwitch,
         private val mimeTypeTool: MimeTypeTool,
     ) : Fetcher.Factory<Request> {
@@ -54,7 +59,7 @@ class BitmapFetcher @Inject constructor(
             data: Request,
             options: Options,
             imageLoader: ImageLoader
-        ): Fetcher = BitmapFetcher(context, gatewaySwitch, mimeTypeTool, data, options)
+        ): Fetcher = BitmapFetcher(context, coilTempFiles, gatewaySwitch, mimeTypeTool, data, options)
     }
 
     data class Request(

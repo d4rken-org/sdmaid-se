@@ -52,7 +52,7 @@ class CoilModule {
         }
         dispatcher(
             dispatcherProvider.Default.limitedParallelism(
-                (Runtime.getRuntime().availableProcessors() - 1).coerceAtLeast(2)
+                (Runtime.getRuntime().availableProcessors() / 2).coerceAtLeast(2)
             )
         )
     }.build()

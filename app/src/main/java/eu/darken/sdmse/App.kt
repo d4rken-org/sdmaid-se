@@ -8,6 +8,7 @@ import coil.ImageLoaderFactory
 import dagger.hilt.android.HiltAndroidApp
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.BuildWrap
+import eu.darken.sdmse.common.coil.CoilTempFiles
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.AutomaticBugReporter
@@ -28,6 +29,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.system.exitProcess
 
@@ -45,6 +47,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var curriculumVitae: CurriculumVitae
     @Inject lateinit var updateService: UpdateService
     @Inject lateinit var theming: Theming
+    @Inject lateinit var coilTempFiles: CoilTempFiles
 
     private val logCatLogger = LogCatLogger()
 
@@ -83,6 +86,7 @@ open class App : Application(), Configuration.Provider {
 
         theming.setup()
 
+        appScope.launch { coilTempFiles.cleanUp() }
         Coil.setImageLoader(imageLoaderFactory)
 
         curriculumVitae.updateAppLaunch()
