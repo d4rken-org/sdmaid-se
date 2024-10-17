@@ -24,19 +24,20 @@ import eu.darken.sdmse.common.files.local.setOwnership
 import eu.darken.sdmse.common.files.local.setPermissions
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.ipc.IpcHostModule
+import eu.darken.sdmse.common.ipc.RemoteFileHandle
 import eu.darken.sdmse.common.ipc.RemoteInputStream
-import eu.darken.sdmse.common.ipc.RemoteOutputStream
-import eu.darken.sdmse.common.ipc.remoteInputStream
-import eu.darken.sdmse.common.ipc.toRemoteOutputStream
+import eu.darken.sdmse.common.ipc.fileHandle
+import eu.darken.sdmse.common.ipc.remoteFileHandle
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.runBlocking
-import java.io.FileInputStream
-import java.io.FileOutputStream
 import java.io.IOException
 import javax.inject.Inject
 
+/**
+ * ROOT-side
+ */
 class FileOpsHost @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
@@ -138,19 +139,11 @@ class FileOpsHost @Inject constructor(
         throw e.wrapToPropagate()
     }
 
-    override fun readFile(path: LocalPath): RemoteInputStream = try {
-        if (Bugs.isTrace) log(TAG, VERBOSE) { "readFile($path)..." }
-        FileInputStream(path.asFile()).remoteInputStream()
+    override fun file(path: LocalPath, readWrite: Boolean): RemoteFileHandle = try {
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "file($path, $readWrite)..." }
+        path.asFile().fileHandle(readWrite).remoteFileHandle()
     } catch (e: Exception) {
-        log(TAG, ERROR) { "readFile(path=$path) failed\n${e.asLog()}" }
-        throw e.wrapToPropagate()
-    }
-
-    override fun writeFile(path: LocalPath): RemoteOutputStream = try {
-        if (Bugs.isTrace) log(TAG, VERBOSE) { "writeFile($path)..." }
-        FileOutputStream(path.asFile()).toRemoteOutputStream()
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "writeFile(path=$path) failed\n${e.asLog()}" }
+        log(TAG, ERROR) { "file(path=$path) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()
     }
 

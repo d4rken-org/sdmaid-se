@@ -23,9 +23,9 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.copyToAutoClose
 import eu.darken.sdmse.common.files.core.local.deleteAll
+import eu.darken.sdmse.common.files.file
 import eu.darken.sdmse.common.files.inputStream
 import eu.darken.sdmse.common.files.local.toLocalPath
-import eu.darken.sdmse.common.files.read
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.hashing.Hasher
 import eu.darken.sdmse.common.pkgs.PkgRepo
@@ -102,7 +102,9 @@ class SuperfluousApksFilter @Inject constructor(
             }
 
             item.name.endsWith(".apks") -> withContext(NonCancellable) {
-                val checksum = item.read(gatewaySwitch).use { Hasher(Hasher.Type.MD5).calc(it) }.format()
+                val checksum = item.file(gatewaySwitch, readWrite = false).source().use {
+                    Hasher(Hasher.Type.MD5).calc(it)
+                }.format()
                 log(TAG, VERBOSE) { "Checksum is $checksum for ${item.path}" }
 
                 val baseNames = setOf("base.apk")
@@ -114,7 +116,7 @@ class SuperfluousApksFilter @Inject constructor(
                     if (extractedBase.exists()) {
                         log(TAG, WARN) { "Why do we already have extracted this?: $extractedBase" }
                     } else if (cacheRepo.canSpare(item.size)) {
-                        item.read(gatewaySwitch).use { apksSource ->
+                        item.file(gatewaySwitch, readWrite = false).source().use { apksSource ->
                             ZipInputStream(apksSource.inputStream()).use { zis ->
                                 zis.entries
                                     .find { (_, entry) ->

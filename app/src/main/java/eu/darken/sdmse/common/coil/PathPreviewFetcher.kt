@@ -5,7 +5,6 @@ import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
 import coil.ImageLoader
 import coil.decode.DataSource
-import coil.decode.ImageSource
 import coil.fetch.DrawableResult
 import coil.fetch.FetchResult
 import coil.fetch.Fetcher
@@ -22,7 +21,6 @@ import eu.darken.sdmse.common.files.extension
 import eu.darken.sdmse.common.files.iconRes
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.main.core.GeneralSettings
-import okio.buffer
 import javax.inject.Inject
 
 class PathPreviewFetcher @Inject constructor(
@@ -55,12 +53,10 @@ class PathPreviewFetcher @Inject constructor(
 
         return when {
             mimeType.startsWith("image") || mimeType.startsWith("video") -> {
-                val buffer = gatewaySwitch.read(data.lookedUp).buffer()
+                val handle = gatewaySwitch.file(data.lookedUp, readWrite = false)
+
                 SourceResult(
-                    ImageSource(
-                        buffer,
-                        coilTempFiles.getBaseCachePath(),
-                    ),
+                    handle.toImageSource(options),
                     mimeType,
                     dataSource = DataSource.DISK
                 )

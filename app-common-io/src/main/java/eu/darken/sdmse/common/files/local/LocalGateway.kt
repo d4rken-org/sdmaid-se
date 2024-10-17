@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.files.core.local.parentsInclusive
 import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.ipc.fileHandle
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
@@ -38,10 +39,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
-import okio.Sink
-import okio.Source
-import okio.sink
-import okio.source
+import okio.FileHandle
 import java.io.File
 import java.io.IOException
 import java.time.Instant
@@ -664,82 +662,56 @@ class LocalGateway @Inject constructor(
         }
     }
 
-    override suspend fun read(path: LocalPath): Source = read(path, Mode.AUTO)
+    override suspend fun file(path: LocalPath, readWrite: Boolean): FileHandle = file(path, readWrite, Mode.AUTO)
 
-    suspend fun read(path: LocalPath, mode: Mode = Mode.AUTO): Source = runIO {
+    suspend fun file(path: LocalPath, readWrite: Boolean, mode: Mode = Mode.AUTO): FileHandle = runIO {
         try {
-            val javaFile = path.asFile()
+            val file = path.asFile()
             val canNormalOpen = when (mode) {
                 Mode.ROOT -> false
                 Mode.ADB -> false
-                else -> javaFile.isReadable()
+                else -> when {
+                    readWrite -> (file.exists() && file.canWrite()) || !file.exists() && file.parentFile?.canWrite() == true
+                    else -> file.isReadable()
+                }
             }
 
             when {
                 mode == Mode.NORMAL || mode == Mode.AUTO && canNormalOpen -> {
-                    log(TAG, VERBOSE) { "read($mode->NORMAL): $path" }
-                    javaFile.source()
+                    log(TAG, VERBOSE) { "file($mode->NORMAL): $path" }
+                    file.fileHandle(readWrite)
                 }
 
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
-                    log(TAG, VERBOSE) { "read($mode->ROOT): $path" }
-                    // We need to keep the resource alive until the caller is done with the Source object
+                    log(TAG, VERBOSE) { "file($mode->ROOT, RW=$readWrite): $path" }
+                    // We need to keep the resource alive until the caller is done with the object
                     val resource = rootManager.serviceClient.get()
-                    rootOps { it.readFile(path).callbacks { resource.close() } }
+                    rootOps {
+                        it.file(path, readWrite).callbacks {
+                            resource.close()
+                            log(TAG, VERBOSE) { "file($mode->ROOT, RW=$readWrite): Closing resource for $path" }
+                        }
+                    }
                 }
 
                 hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
-                    log(TAG, VERBOSE) { "read($mode->ADB): $path" }
-                    // We need to keep the resource alive until the caller is done with the Source object
+                    log(TAG, VERBOSE) { "file($mode->ADB, RW=$readWrite): $path" }
+                    // We need to keep the resource alive until the caller is done with the object
                     val resource = shizukuManager.serviceClient.get()
-                    adbOps { it.readFile(path).callbacks { resource.close() } }
+                    adbOps {
+                        it.file(path, readWrite).callbacks {
+                            resource.close()
+                            log(TAG, VERBOSE) { "file($mode->ADB, RW=$readWrite): Closing resource for $path" }
+                        }
+                    }
                 }
 
                 else -> throw IOException("No matching mode available.")
             }
         } catch (e: IOException) {
-            log(TAG, WARN) { "read(path=$path, mode=$mode) failed." }
-            throw ReadException(path = path, cause = e)
-        }
-    }
-
-    override suspend fun write(path: LocalPath): Sink = write(path, Mode.AUTO)
-
-    suspend fun write(path: LocalPath, mode: Mode = Mode.AUTO): Sink = runIO {
-        try {
-            val file = path.asFile()
-
-            val canOpen = when (mode) {
-                Mode.ROOT -> false
-                Mode.ADB -> false
-                else -> (file.exists() && file.canWrite()) || !file.exists() && file.parentFile?.canWrite() == true
-            }
-
-            when {
-                mode == Mode.NORMAL || mode == Mode.AUTO && canOpen -> {
-                    log(TAG, VERBOSE) { "write($mode->NORMAL): $path" }
-                    file.sink()
-                }
-
-                hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
-                    log(TAG, VERBOSE) { "write($mode->ROOT): $path" }
-                    // We need to keep the resource alive until the caller is done with the Sink object
-                    val resource = rootManager.serviceClient.get()
-                    rootOps { it.writeFile(path).callbacks { resource.close() } }
-                }
-
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
-                    log(TAG, VERBOSE) { "write($mode->ADB): $path" }
-                    // We need to keep the resource alive until the caller is done with the Sink object
-                    val resource = shizukuManager.serviceClient.get()
-                    adbOps { it.writeFile(path).callbacks { resource.close() } }
-                }
-
-                else -> throw IOException("No matching mode available.")
-            }
-        } catch (e: IOException) {
-            log(TAG, WARN) { "write(path=$path, mode=$mode) failed." }
-            throw WriteException(path = path, cause = e)
+            log(TAG, WARN) { "file(path=$path, mode=$mode, RW=$readWrite) failed." }
+            if (readWrite) throw WriteException(path = path, cause = e)
+            else throw ReadException(path = path, cause = e)
         }
     }
 

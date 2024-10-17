@@ -3,7 +3,6 @@ package eu.darken.sdmse.common.files.saf
 import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
-import android.os.ParcelFileDescriptor
 import android.provider.DocumentsContract
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -30,11 +29,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
-import okio.Sink
-import okio.Source
-import okio.buffer
-import okio.sink
-import okio.source
+import okio.FileHandle
 import java.io.IOException
 import java.time.Instant
 import java.util.LinkedList
@@ -359,33 +354,19 @@ class SAFGateway @Inject constructor(
         }
     }
 
-    override suspend fun read(path: SAFPath): Source = runIO {
+    override suspend fun file(path: SAFPath, readWrite: Boolean): FileHandle = runIO {
         try {
             val docFile = findDocFile(path)
-            log(TAG, VERBOSE) { "read(): $path -> $docFile" }
+            log(TAG, VERBOSE) { "file(readWrite0$readWrite): $path -> $docFile" }
 
-            if (!docFile.readable) throw IOException("readable=false")
+            if (readWrite && !docFile.writable) throw IOException("writable=false")
+            else if (!docFile.readable) throw IOException("readable=false")
 
-            val pfd = docFile.openPFD(contentResolver, FileMode.READ)
-            ParcelFileDescriptor.AutoCloseInputStream(pfd).source().buffer()
+            val pfd = docFile.openPFD(contentResolver, if (readWrite) FileMode.READ_WRITE else FileMode.READ)
+            pfd.toFileHandle(readWrite)
         } catch (e: Exception) {
-            log(TAG, WARN) { "Failed to read from $path: ${e.asLog()}" }
+            log(TAG, WARN) { "Failed to access from $path: ${e.asLog()}" }
             throw ReadException(path = path, cause = e)
-        }
-    }
-
-    override suspend fun write(path: SAFPath): Sink = runIO {
-        try {
-            val docFile = findDocFile(path)
-            log(TAG, VERBOSE) { "write(): $path -> $docFile" }
-
-            if (!docFile.writable) throw IOException("writable=false")
-
-            val pfd = docFile.openPFD(contentResolver, FileMode.WRITE)
-            ParcelFileDescriptor.AutoCloseOutputStream(pfd).sink().buffer()
-        } catch (e: Exception) {
-            log(TAG, WARN) { "Failed to write to $path: ${e.asLog()}" }
-            throw WriteException(path = path, cause = e)
         }
     }
 

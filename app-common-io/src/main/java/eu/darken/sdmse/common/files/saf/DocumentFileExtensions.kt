@@ -16,8 +16,8 @@ import java.io.IOException
 import java.util.Date
 
 
-enum class FileMode constructor(val value: String) {
-    WRITE("w"), READ("r")
+enum class FileMode(val value: String) {
+    READ_WRITE("rw"), WRITE("w"), READ("r")
 }
 
 internal fun DocumentFile.fstat(contentResolver: ContentResolver): StructStat? {

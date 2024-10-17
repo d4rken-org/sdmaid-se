@@ -14,11 +14,9 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.files.local.LocalPathLookupExtended
 import eu.darken.sdmse.common.ipc.IpcClientModule
-import eu.darken.sdmse.common.ipc.sink
-import eu.darken.sdmse.common.ipc.source
+import eu.darken.sdmse.common.ipc.fileHandle
 import kotlinx.coroutines.flow.Flow
-import okio.Sink
-import okio.Source
+import okio.FileHandle
 import java.time.Instant
 
 class FileOpsClient @AssistedInject constructor(
@@ -95,14 +93,8 @@ class FileOpsClient @AssistedInject constructor(
         throw e.unwrapPropagation()
     }
 
-    fun readFile(path: LocalPath): Source = try {
-        fileOpsConnection.readFile(path).source()
-    } catch (e: Exception) {
-        throw e.unwrapPropagation()
-    }
-
-    fun writeFile(path: LocalPath): Sink = try {
-        fileOpsConnection.writeFile(path).sink()
+    fun file(path: LocalPath, readWrite: Boolean): FileHandle = try {
+        fileOpsConnection.file(path, readWrite).fileHandle(readWrite)
     } catch (e: Exception) {
         throw e.unwrapPropagation()
     }
