@@ -171,7 +171,7 @@ class ChecksumSleuth @Inject constructor(
                         val start = System.currentTimeMillis()
 
                         val hash = try {
-                            gatewaySwitch.read(item.lookedUp).hash(Hasher.Type.SHA256)
+                            gatewaySwitch.file(item.lookedUp, readWrite = false).source().hash(Hasher.Type.SHA256)
                         } catch (e: Exception) {
                             log(TAG, ERROR) { "Failed to read $item: ${e.asLog()}" }
                             return@flow

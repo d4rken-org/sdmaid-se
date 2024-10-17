@@ -3,8 +3,7 @@ package eu.darken.sdmse.common.files
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.flow.Flow
-import okio.Sink
-import okio.Source
+import okio.FileHandle
 
 
 val APathLookup<*>.isDirectory: Boolean
@@ -42,13 +41,10 @@ suspend fun <P : APath, PL : APathLookup<P>> PL.deleteAll(
     filter: (APathLookup<*>) -> Boolean = { true }
 ) = lookedUp.deleteAll(gateway, filter)
 
-suspend fun <P : APath, PL : APathLookup<P>> PL.write(
-    gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>
-): Sink = lookedUp.write(gateway)
-
-suspend fun <P : APath, PL : APathLookup<P>> PL.read(
-    gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>
-): Source = lookedUp.read(gateway)
+suspend fun <P : APath, PL : APathLookup<P>> PL.file(
+    gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>,
+    readWrite: Boolean
+): FileHandle = lookedUp.file(gateway, readWrite)
 
 suspend fun <P : APath, PL : APathLookup<P>> PL.canRead(
     gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>

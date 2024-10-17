@@ -3,7 +3,6 @@ package eu.darken.sdmse.common.coil
 import android.content.Context
 import coil.ImageLoader
 import coil.decode.DataSource
-import coil.decode.ImageSource
 import coil.fetch.FetchResult
 import coil.fetch.Fetcher
 import coil.fetch.SourceResult
@@ -13,7 +12,6 @@ import eu.darken.sdmse.common.MimeTypeTool
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
-import okio.buffer
 import javax.inject.Inject
 
 class BitmapFetcher @Inject constructor(
@@ -30,19 +28,15 @@ class BitmapFetcher @Inject constructor(
         if (target.fileType != FileType.FILE) throw IllegalArgumentException("Not a file: $data")
         if (target.size == 0L) throw IllegalArgumentException("Empty file: $data")
 
-
         val mimeType = mimeTypeTool.determineMimeType(data.lookup)
 
         val isValid = mimeType.startsWith("image")
         if (!isValid) throw UnsupportedOperationException("Unsupported mimetype: $mimeType")
 
-        val buffer = gatewaySwitch.read(target.lookedUp).buffer()
+        val handle = gatewaySwitch.file(target.lookedUp, readWrite = false)
 
         return SourceResult(
-            ImageSource(
-                buffer,
-                coilTempFiles.getBaseCachePath(),
-            ),
+            ImageSource(buffer, context),
             mimeType,
             dataSource = DataSource.DISK
         )

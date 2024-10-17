@@ -14,8 +14,7 @@ import eu.darken.sdmse.common.files.saf.isAncestorOf
 import eu.darken.sdmse.common.files.saf.isParentOf
 import eu.darken.sdmse.common.files.saf.startsWith
 import kotlinx.coroutines.flow.Flow
-import okio.Sink
-import okio.Source
+import okio.FileHandle
 import java.io.File
 import java.io.IOException
 import java.time.Instant
@@ -145,12 +144,11 @@ suspend fun <T : APath> T.deleteAll(
     this.delete(gateway)
 }
 
-suspend fun <T : APath> T.write(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Sink {
-    return gateway.write(this)
-}
-
-suspend fun <T : APath> T.read(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Source {
-    return gateway.read(this)
+suspend fun <T : APath> T.file(
+    gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>,
+    readWrite: Boolean,
+): FileHandle {
+    return gateway.file(this, readWrite)
 }
 
 suspend fun <T : APath> T.createSymlink(
