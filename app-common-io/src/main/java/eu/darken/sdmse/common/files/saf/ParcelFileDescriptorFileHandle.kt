@@ -64,10 +64,14 @@ fun ParcelFileDescriptor.toFileHandle(readWrite: Boolean): FileHandle {
         }
 
         @Throws(IOException::class)
-        override fun protectedClose() = try {
-            Os.close(fileDescriptor)
-        } catch (e: ErrnoException) {
-            throw IOException("Error closing file descriptor ${this@toFileHandle}", e)
+        override fun protectedClose() {
+            try {
+                Os.close(fileDescriptor)
+            } catch (e: ErrnoException) {
+                throw IOException("Error closing file descriptor ${this@toFileHandle}", e)
+            } finally {
+                this@toFileHandle.close()
+            }
         }
     }
 }
