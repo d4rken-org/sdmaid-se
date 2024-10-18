@@ -56,7 +56,7 @@ class PathPreviewFetcher @Inject constructor(
                 val handle = gatewaySwitch.file(data.lookedUp, readWrite = false)
 
                 SourceResult(
-                    handle.toImageSource(options),
+                    handle.toImageSource(coilTempFiles.getBaseCachePath()),
                     mimeType,
                     dataSource = DataSource.DISK
                 )

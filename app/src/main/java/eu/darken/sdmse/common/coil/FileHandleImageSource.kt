@@ -4,13 +4,13 @@ import android.media.MediaDataSource
 import coil.annotation.ExperimentalCoilApi
 import coil.decode.ImageSource
 import coil.fetch.MediaDataSourceFetcher.MediaSourceMetadata
-import coil.request.Options
 import okio.FileHandle
 import okio.buffer
+import java.io.File
 
 @OptIn(ExperimentalCoilApi::class)
-internal fun FileHandle.toImageSource(
-    options: Options,
+internal suspend fun FileHandle.toImageSource(
+    cacheDir: File,
 ): ImageSource {
     val handle = this
     val sourceBuffer = this.source().buffer()
@@ -30,7 +30,7 @@ internal fun FileHandle.toImageSource(
     }
     return ImageSource(
         source = sourceBuffer,
-        context = options.context,
+        cacheDirectory = cacheDir,
         metadata = MediaSourceMetadata(mediaDataSource),
     )
 }

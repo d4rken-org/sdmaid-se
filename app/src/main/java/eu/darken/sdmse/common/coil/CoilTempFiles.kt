@@ -33,11 +33,12 @@ class CoilTempFiles @Inject constructor(
 
     suspend fun cleanUp() = withContext(dispatcherProvider.IO + NonCancellable) {
         try {
+            // TODO Remove in a later update
             log(TAG) { "Checking for legacy files in $legacyPath" }
             legacyPath.listFiles2()
                 .filter { NAME_REGEX.matches(it.name) }
                 .forEach {
-                    log(TAG) { "Deleting legacy tmp file: $it (${it.length()} Byte)" }
+                    log(TAG, WARN) { "Deleting legacy tmp file: $it (${it.length()} Byte)" }
                     if (it.delete()) log(TAG, VERBOSE) { "Deleted legacy file: $it" }
                 }
         } catch (e: Exception) {
@@ -46,10 +47,11 @@ class CoilTempFiles @Inject constructor(
 
         if (!basePath.exists()) return@withContext
 
+        // Theoretically no longer necessary since #1435
         try {
             log(TAG) { "Cleaning up $basePath" }
             basePath.listFiles2().forEach {
-                log(TAG) { "Deleting orphaned tmp file: $it (${it.length()} Byte)" }
+                log(TAG, WARN) { "Deleting orphaned tmp file: $it (${it.length()} Byte)" }
                 if (it.delete()) log(TAG, VERBOSE) { "Deleted: $it" }
             }
         } catch (e: Exception) {

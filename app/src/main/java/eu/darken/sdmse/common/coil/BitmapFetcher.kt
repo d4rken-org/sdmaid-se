@@ -1,13 +1,11 @@
 package eu.darken.sdmse.common.coil
 
-import android.content.Context
 import coil.ImageLoader
 import coil.decode.DataSource
 import coil.fetch.FetchResult
 import coil.fetch.Fetcher
 import coil.fetch.SourceResult
 import coil.request.Options
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.MimeTypeTool
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
@@ -15,7 +13,6 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import javax.inject.Inject
 
 class BitmapFetcher @Inject constructor(
-    @ApplicationContext private val context: Context,
     private val coilTempFiles: CoilTempFiles,
     private val gatewaySwitch: GatewaySwitch,
     private val mimeTypeTool: MimeTypeTool,
@@ -36,14 +33,13 @@ class BitmapFetcher @Inject constructor(
         val handle = gatewaySwitch.file(target.lookedUp, readWrite = false)
 
         return SourceResult(
-            ImageSource(buffer, context),
+            handle.toImageSource(coilTempFiles.getBaseCachePath()),
             mimeType,
             dataSource = DataSource.DISK
         )
     }
 
     class Factory @Inject constructor(
-        @ApplicationContext private val context: Context,
         private val coilTempFiles: CoilTempFiles,
         private val gatewaySwitch: GatewaySwitch,
         private val mimeTypeTool: MimeTypeTool,
@@ -53,7 +49,7 @@ class BitmapFetcher @Inject constructor(
             data: Request,
             options: Options,
             imageLoader: ImageLoader
-        ): Fetcher = BitmapFetcher(context, coilTempFiles, gatewaySwitch, mimeTypeTool, data, options)
+        ): Fetcher = BitmapFetcher(coilTempFiles, gatewaySwitch, mimeTypeTool, data, options)
     }
 
     data class Request(
