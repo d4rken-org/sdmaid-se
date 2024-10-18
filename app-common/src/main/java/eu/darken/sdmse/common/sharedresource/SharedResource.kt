@@ -72,10 +72,10 @@ open class SharedResource<T : Any>(
         .onCompletion {
             lock.withLock {
                 isAlive = false
-                log(iTag, VERBOSE) { "Releasing shared resource..." }
+                if (Bugs.isDebug) log(iTag, VERBOSE) { "Releasing shared resource..." }
 
                 children.values.forEach {
-                    log(iTag, VERBOSE) { "Closing child resource: $it" }
+                    if (Bugs.isDebug) log(iTag, VERBOSE) { "Closing child resource: $it" }
                     it.close()
                 }
                 children.clear()
