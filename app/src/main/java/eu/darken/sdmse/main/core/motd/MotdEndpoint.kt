@@ -41,8 +41,12 @@ class MotdEndpoint @Inject constructor(
         return try {
             getMotd(BuildConfigWrap.FLAVOR, BuildConfigWrap.BUILD_TYPE, locale)
         } catch (e: HttpException) {
-            log(TAG, ERROR) { "getMotd($locale) error: ${e.asLog()}" }
-            if (e.code() == 404) null else throw e
+            if (e.code() == 404) {
+                null
+            } else {
+                log(TAG, ERROR) { "getMotd($locale) error: ${e.asLog()}" }
+                throw e
+            }
         }
     }
 

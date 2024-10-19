@@ -1,6 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter
 
 import dagger.Reusable
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterLoader
@@ -21,7 +22,7 @@ class FilterSource @Inject constructor(
 ) {
 
     init {
-        filterFactories.forEach { log(TAG) { "Available filter: $it" } }
+        filterFactories.forEach { log(TAG, VERBOSE) { "Available filter: $it" } }
     }
 
     suspend fun create(onlyEnabled: Boolean): Set<SystemCleanerFilter> {
@@ -30,7 +31,7 @@ class FilterSource @Inject constructor(
             .filter { !onlyEnabled || it.isEnabled() }
             .map { it.create() }
             .onEach {
-                log(TAG) { "Initializing $it" }
+                log(TAG, VERBOSE) { "Initializing $it" }
                 it.initialize()
             }
             .toList()
@@ -41,7 +42,7 @@ class FilterSource @Inject constructor(
             .filter { !onlyEnabled || it.isEnabled() }
             .map { it.create() }
             .onEach {
-                log(TAG) { "Initializing $it" }
+                log(TAG, VERBOSE) { "Initializing $it" }
                 it.initialize()
             }
             .toList()
