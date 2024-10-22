@@ -217,6 +217,10 @@
     <string name="corpsefinder_corpse_hint_common">Αυτό το στοιχείο έχει ένα πολύ κοινό όνομα και θα μπορούσε να ανήκει σε ακόμα εγκατεστημένες εφαρμογές που η SD Maid δεν γνωρίζει.</string>
     <string name="systemcleaner_tool_name">Εκκαθάριση συστήματος</string>
     <string name="systemcleaner_explanation_short">Περιττά δεδομένα που δεν ανήκουν σε καμία συγκεκριμένη εφαρμογή.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d αντιστοίχιση διαγράφηκε</item>
+        <item quantity="other">%d αντιστοιχίες διαγράφηκαν</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d αντιστοίχιση φίλτρου</item>
         <item quantity="other">%d αντιστοιχίσεις φίλτρων</item>
@@ -351,6 +355,10 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Αποθηκευμένα αρχεία πολυμέσων που λαμβάνονται ξανά όταν προβάλλονται στη συνομιλία.</string>
     <string name="appcleaner_delete_all_confirmation_message">Διαγραφή αναλώσιμων στοιχείων για όλες τις εφαρμογές;</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d αναλώσιμο στοιχείο διαγράφηκε</item>
+        <item quantity="other">%d αναλώσιμα στοιχεία διαγράφηκαν</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Βρέθηκε %d αναλώσιμο στοιχείο</item>
         <item quantity="other">Βρέθηκαν %d αναλώσιμα στοιχεία</item>
@@ -376,6 +384,10 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Διαγραφή κρυφών μνήμης χρησιμοποιώντας το Shizuku</string>
     <string name="deduplicator_tool_name">Αποκωδικοποιητής</string>
     <string name="deduplicator_explanation_short">Βρείτε διπλότυπα δεδομένα στη συσκευή σας.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d διπλότυπο διαγράφηκε</item>
+        <item quantity="other">%d διπλότυπα διαγράφηκαν</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d παρόμοιο set βρέθηκε</item>
         <item quantity="other">%d παρόμοια set βρέθηκαν</item>
@@ -435,6 +447,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Πακέτο</string>
     <string name="appcontrol_tag_system">Συστήματος</string>
+    <string name="appcontrol_tag_archived">Αρχειοθετημένα</string>
     <string name="appcontrol_tag_enabled">Ενεργοποιημένες</string>
     <string name="appcontrol_tag_disabled">Απενεργοποιημένες</string>
     <string name="appcontrol_progress_enabling_package">Ενεργοποίηση εφαρμογής</string>
@@ -447,6 +460,10 @@
     <string name="appcontrol_list_sortmode_size_label">Μέγεθος</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Τα μεγέθη των εφαρμογών εκτιμώνται για λόγους απόδοσης. Χρησιμοποιήστε το εργαλείο StorageAnalyzer για πιο ακριβή δεδομένα.</string>
     <string name="appcontrol_progress_uninstalling_app">Απεγκατάσταση εφαρμογής</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d εφαρμογή απεγκαταστάθηκε</item>
+        <item quantity="other">%d εφαρμογές απεγκαταστάθηκαν</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Μέγεθος εφαρμογής</string>
     <string name="appcontrol_app_sizes_apk_label">Εφαρμογή</string>
     <string name="appcontrol_app_sizes_data_label">Δεδομένα</string>
@@ -456,6 +473,10 @@
         <item quantity="one">Αλλαγή ενεργοποίηση/απενεργοποίηση κατάστασης %d εφαρμογής;</item>
         <item quantity="other">Αλλαγή ενεργοποίηση/απενεργοποίηση καταστάσεων για %d εφαρμογές;</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">Έγινε ενναλαγή %d εφαρμογής</item>
+        <item quantity="other">Έγινε ενναλαγή %d εφαρμογών</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Προσδιορισμός μεγεθών</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Λάβετε μια πρόχειρη εκτίμηση του μεγέθους κάθε εφαρμογής.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Προσδιορισμός δραστηριότητας</string>
@@ -463,6 +484,10 @@
     <string name="appcontrol_export_app_selection_action">Εξαγωγή εφαρμογών</string>
     <string name="appcontrol_export_title">Εξαγωγή εφαρμογής</string>
     <string name="appcontrol_export_description">Αποθηκεύστε τα αρχεία εγκατάστασης αυτής της εφαρμογής. Αυτό δεν περιλαμβάνει δεδομένα εφαρμογής.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">Έγινε εξαγωγή %d εφαρμογής</item>
+        <item quantity="other">Έγινε εξαγωγή %d εφαρμογών</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Εξαγωγή %s</string>
     <string name="appcontrol_force_stop_selection_action">Επιβολή διακοπής εφαρμογών</string>
     <string name="appcontrol_force_stop_action">Επιβολή διακοπής</string>
@@ -470,6 +495,10 @@
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="one">Επιβολή διακοπής %d εφαρμογής;</item>
         <item quantity="other">Επιβολή διακοπής %d εφαρμογών;</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d εφαρμογή σταμάτησε</item>
+        <item quantity="other">%d εφαρμογές σταμάτησαν</item>
     </plurals>
     <string name="appcontrol_automation_loading">Προετοιμασία αυτοματισμού μέσω υπηρεσίας προσβασιμότητας</string>
     <string name="appcontrol_automation_title">Αυτόματος Έλεγχος Εφαρμογών</string>
@@ -508,6 +537,7 @@
     <string name="analyzer_storage_content_type_system_label">Δεδομένα συστήματος</string>
     <string name="analyzer_storage_content_type_system_description">Εφαρμογές συστήματος και δεδομένα συστήματος. Εφαρμογές και δεδομένα από άλλους χρήστες, εάν έχουν οριστεί πολλοί λογαριασμοί χρηστών σε αυτήν τη συσκευή.</string>
     <string name="analyzer_storage_content_app_code_label">Κώδικας εφαρμογής</string>
+    <string name="analyzer_storage_content_app_code_description">Αρχεία εφαρμογών, βιβλιοθήκες και πόροι. Αυτός ο χώρος μπορεί να ελευθερωθεί με την απεγκατάσταση της εφαρμογής ή την αρχειοθέτησή της (διατίθεται σε νεότερη έκδοση Android).</string>
     <string name="analyzer_storage_content_app_data_label">Δεδομένα εφαρμογών</string>
     <string name="analyzer_storage_content_app_data_description">Δεδομένα, ρυθμίσεις και κρυφές μνήμες.</string>
     <string name="analyzer_storage_content_app_media_label">Μέσα εφαρμογής</string>
@@ -515,6 +545,7 @@
     <string name="analyzer_storage_content_app_extra_label">Επιπλέον αρχεία εφαρμογών</string>
     <string name="analyzer_storage_content_app_extra_description">Επιπλέον δεδομένα που έχει τοποθετήσει αυτή η εφαρμογή εκτός των προεπιλεγμένων διαδρομών, π.χ. φωτογραφίες ή λήψεις.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Αυτή η εφαρμογή καταλαμβάνει %1$s στο \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Αυτή η εφαρμογή έχει αρχειοθετηθεί.</string>
     <string name="data_area_public_app_data_official_label">Προεπιλεγμένα δημόσιας δεδομένα εφαρμογής</string>
     <string name="data_area_public_app_assets_official_label">Προεπιλεγμένα στοιχεία δημόσιων εφαρμογών</string>
     <string name="data_area_public_storage_label">Δημόσια αποθήκευση</string>
@@ -600,6 +631,7 @@
     <string name="scheduler_notification_result_failure_message">Ορισμένες προγραμματισμένες εργασίες απέτυχαν ή αντιμετώπισαν σφάλματα. Δοκιμάστε να τις εκτελέσετε χειροκίνητα.</string>
     <string name="scheduler_commands_after_schedule_label">Εντολές μεταχρονοδιαγράμματος</string>
     <string name="scheduler_commands_after_schedule_desc">Εντολές κελύφους Android που θα εκτελεστούν στο τέλος ενός χρονοδιαγράμματος.</string>
+    <string name="scheduler_battery_optimization_hint">Εάν αντιμετωπίζετε προβλήματα με την εκτέλεση στο παρασκήνιο, εξετάστε το ενδεχόμενο να απενεργοποιήσετε τις βελτιστοποιήσεις μπαταρίας για το SD Maid.</string>
     <string name="updates_dashcard_title">Ενημέρωση διαθέσιμη</string>
     <string name="updates_dashcard_body">Υπάρχει διαθέσιμη ενημέρωση. Έχετε την %1$s και η τελευταία έκδοση είναι %2$s.</string>
     <string name="translation_encourage_title">Μετάφραση του SD Maid</string>
@@ -615,4 +647,23 @@
     <string name="review_app_review_action">Αξιολόγηση</string>
     <string name="review_app_dismiss_action">Ίσως αργότερα</string>
     <string name="review_app_body">Θα θέλατε να αφήσετε μια αξιολόγηση για το SD Maid;️ ❤️</string>
+    <string name="stats_label">Ιστορικό</string>
+    <string name="stats_dash_body">%s έχουν απελευθερωθεί και %s αντικείμενα επεξεργάστηκαν από τη στιγμή που προσκαλέσατε SD Maid στη συσκευή σας.</string>
+    <string name="stats_report_status_success">Επιτυχώς</string>
+    <string name="stats_report_status_partial_success">Μερικώς επιτυχώς</string>
+    <string name="stats_report_status_partial_failure">Ανεπιτυχώς</string>
+    <string name="stats_settings_desc">Διαμορφώστε τα στατιστικά στοιχεία, τις αναφορές και τη διατήρηση δεδομένων του SD Maid.</string>
+    <string name="stats_settings_retention_category">Διατήρηση</string>
+    <string name="stats_settings_retention_reports_label">Γενικές αναφορές</string>
+    <string name="stats_settings_retention_reports_desc">Αριθμός ημερών πριν από τη διαγραφή βασικών αναφορών λειτουργίας SD Maid.</string>
+    <string name="stats_settings_retention_paths_label">Λεπτομερείς πληροφορίες διαδρομής</string>
+    <string name="stats_settings_retention_paths_desc">Ο αριθμός των ημερών για τη διατήρηση λεπτομερειών σχετικά με τις διαδρομές που επηρεάζονται από το SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d ημέρα</item>
+        <item quantity="other">%d ημέρες</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Επαναφορά όλων</string>
+    <string name="stats_settings_reset_all_desc">Διαγράψτε όλες τις αναφορές και μηδενίστε όλα τα στατιστικά στοιχεία.</string>
+    <string name="stats_affected_paths_label">Επηρεαζόμενες διαδρομές</string>
+    <string name="stats_affected_pkgs_label">Επηρεαζόμενες εφαρμογές</string>
 </resources>
