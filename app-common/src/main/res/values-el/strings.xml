@@ -147,4 +147,5 @@
         <item quantity="one">%s αρχείο</item>
         <item quantity="other">%s αρχεία</item>
     </plurals>
+    <string name="general_advice_title">Συμβουλές</string>
 </resources>
