@@ -20,6 +20,7 @@ import eu.darken.sdmse.common.ModeUnavailableException
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -486,6 +487,7 @@ class PkgOps @Inject constructor(
         installId: Installed.InstallId,
         storageUUID: UUID = StorageManager.UUID_DEFAULT
     ): SizeStats? = try {
+        log(TAG, VERBOSE) { "querySizeStats($installId,$storageUUID)" }
         val stats = storageStatsManager.queryStatsForPackage(
             storageUUID,
             installId.pkgId.name,
@@ -499,8 +501,11 @@ class PkgOps @Inject constructor(
                 stats.externalCacheBytes
             } else null,
             dataBytes = stats.dataBytes,
-        )
+        ).also { log(TAG, VERBOSE) { "querySizeStats($installId,$storageUUID) -> $it" } }
     } catch (e: NameNotFoundException) {
+        null
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "Failed to querySizeStats for $installId: ${e.asLog()}" }
         null
     }
 
