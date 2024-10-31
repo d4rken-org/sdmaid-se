@@ -2,7 +2,6 @@ package eu.darken.sdmse.appcontrol.ui.list
 
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.recyclerview.selection.SelectionTracker
 import androidx.viewbinding.ViewBinding
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.common.lists.BindableVH
@@ -24,8 +23,6 @@ class AppControlListAdapter @Inject constructor() :
     override val asyncDiffer: AsyncDiffer<*, Item> = setupDiffer()
 
     override fun getItemCount(): Int = data.size
-
-    var tracker: SelectionTracker<Long>? = null
 
     init {
         addMod(DataBinderMod(data))
