@@ -3,7 +3,7 @@ package eu.darken.sdmse.common.lists.selection
 import androidx.recyclerview.selection.SelectionTracker
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 
-class ItemSelectionMod constructor(
+class ItemSelectionMod(
     private val tracker: SelectionTracker<String>,
 ) : ModularAdapter.Module.Binder<ModularAdapter.VH> {
 
