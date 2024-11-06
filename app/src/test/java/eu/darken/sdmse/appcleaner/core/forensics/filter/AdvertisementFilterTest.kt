@@ -292,4 +292,22 @@ class AdvertisementFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+    @Test fun `SHAREit ads`() = runTest {
+        val pkgs = setOf(
+            "com.lenovo.anyshare.gps",
+            "com.lenovo.anyshare",
+            "shareit.lite",
+            "shareit.premium",
+        )
+        pkgs.forEach {
+            neg(it, PUBLIC_DATA, "$it/files/cooperation")
+            pos(it, PUBLIC_DATA, "$it/files/cooperation/anything")
+            neg(it, PUBLIC_DATA, "$it/files/.ad")
+            pos(it, PUBLIC_DATA, "$it/files/.ad/anything")
+            neg(it, PUBLIC_DATA, "$it/files/mb")
+            pos(it, PUBLIC_DATA, "$it/files/mb/anything")
+        }
+        confirm(create())
+    }
 }

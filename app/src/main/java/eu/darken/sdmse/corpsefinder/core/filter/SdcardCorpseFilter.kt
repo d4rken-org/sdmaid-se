@@ -15,23 +15,45 @@ import eu.darken.sdmse.common.clutter.ClutterRepo
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathGateway
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.asFile
+import eu.darken.sdmse.common.files.canRead
+import eu.darken.sdmse.common.files.canWrite
+import eu.darken.sdmse.common.files.exists
+import eu.darken.sdmse.common.files.isAncestorOf
+import eu.darken.sdmse.common.files.isDirectory
+import eu.darken.sdmse.common.files.listFiles
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.toLocalPath
+import eu.darken.sdmse.common.files.lookup
+import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.Owner
 import eu.darken.sdmse.common.forensics.OwnerInfo
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.isInstalled
-import eu.darken.sdmse.common.progress.*
+import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.increaseProgress
+import eu.darken.sdmse.common.progress.updateProgressCount
+import eu.darken.sdmse.common.progress.updateProgressPrimary
+import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.flow.toSet
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -224,7 +246,9 @@ class SdcardCorpseFilter @Inject constructor(
             when {
                 canidate.isOwned -> {
                     aliveItems.add(canidate)
-                    log(TAG, VERBOSE) { "Alive item, owner installed (can block other corpses): ${canidate.item}" }
+                    log(TAG, VERBOSE) {
+                        "Alive item, owner installed (can block other corpses): ${canidate.item} -> ${canidate.owners}"
+                    }
                 }
 
                 canidate.isKeeper && !includeRiskKeeper -> {

@@ -87,6 +87,36 @@
 		  "patterns": ["^com\\.viber\\.voip/files/User photos/\\.thumbnails/.+?$"]
 		}
 	  ]
+	}, {
+	  "packages": [
+		"com.lenovo.anyshare.gps",
+		"com.lenovo.anyshare",
+		"shareit.lite",
+		"shareit.premium"
+	  ],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "contains": [
+			"/files/SHAREit/.thumbnails/",
+			"/files/SHAREit Lite/.thumbnails/",
+			"/files/SHAREit Premium/.thumbnails/",
+			"/files/SHAREit/.mediathumbs/",
+			"/files/SHAREit Lite/.mediathumbs/",
+			"/files/SHAREit Premium/.mediathumbs/"
+		  ]
+		}, {
+		  "locations": ["SDCARD"],
+		  "startsWith": [
+			"SHAREit/.thumbnails/",
+			"SHAREit Lite/.thumbnails/",
+			"SHAREit Premium/.thumbnails/",
+			"SHAREit/.mediathumbs/",
+			"SHAREit Lite/.mediathumbs/",
+			"SHAREit Premium/.mediathumbs/"
+		  ]
+		}
+	  ]
 	}
   ]
 }

@@ -228,4 +228,40 @@ class ThumbnailsFilterTest : BaseFilterTest() {
         neg("com.viber.voip", PRIVATE_DATA, "com.viber.voip/Cache/.thumbnails/$rngString")
         confirm(create())
     }
+
+    @Test fun `SHAREit thumbs`() = runTest {
+        val pkgs = setOf(
+            "com.lenovo.anyshare.gps",
+            "com.lenovo.anyshare",
+            "shareit.lite",
+            "shareit.premium",
+        )
+        pkgs.forEach {
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit/.thumbnails")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit/.thumbnails/anything")
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit Lite/.thumbnails")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit Lite/.thumbnails/anything")
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit Premium/.thumbnails")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit Premium/.thumbnails/anything")
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit/.mediathumbs")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit/.mediathumbs/anything")
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit Lite/.mediathumbs")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit Lite/.mediathumbs/anything")
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit Premium/.mediathumbs")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit Premium/.mediathumbs/anything")
+            neg(it, SDCARD, "SHAREit/.thumbnails")
+            pos(it, SDCARD, "SHAREit/.thumbnails/anything")
+            neg(it, SDCARD, "SHAREit Lite/.thumbnails")
+            pos(it, SDCARD, "SHAREit Lite/.thumbnails/anything")
+            neg(it, SDCARD, "SHAREit Premium/.thumbnails")
+            pos(it, SDCARD, "SHAREit Premium/.thumbnails/anything")
+            neg(it, SDCARD, "SHAREit/.mediathumbs")
+            pos(it, SDCARD, "SHAREit/.mediathumbs/anything")
+            neg(it, SDCARD, "SHAREit Lite/.mediathumbs")
+            pos(it, SDCARD, "SHAREit Lite/.mediathumbs/anything")
+            neg(it, SDCARD, "SHAREit Premium/.mediathumbs")
+            pos(it, SDCARD, "SHAREit Premium/.mediathumbs/anything")
+        }
+        confirm(create())
+    }
 }

@@ -2549,4 +2549,28 @@ class HiddenFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+    @Test fun `SHAREit caches`() = runTest {
+        val pkgs = setOf(
+            "com.lenovo.anyshare.gps",
+            "com.lenovo.anyshare",
+            "shareit.lite",
+            "shareit.premium",
+        )
+        pkgs.forEach {
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit/.caches")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit/.caches/anything")
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit Lite/.caches")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit Lite/.caches/anything")
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit Premium/.caches")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit Premium/.caches/anything")
+            neg(it, SDCARD, "SHAREit/.caches")
+            pos(it, SDCARD, "SHAREit/.caches/anything")
+            neg(it, SDCARD, "SHAREit Lite/.caches")
+            pos(it, SDCARD, "SHAREit Lite/.caches/anything")
+            neg(it, SDCARD, "SHAREit Premium/.caches")
+            pos(it, SDCARD, "SHAREit Premium/.caches/anything")
+        }
+        confirm(create())
+    }
 }
