@@ -3801,11 +3801,21 @@
   "pkgs": ["com.uei.lg.quicksetsdk.lite"],
   "mrks": [{"loc": "SDCARD", "path": "QuicksetLite Setup"}]
 }, {
-  "pkgs": ["com.lenovo.anyshare.gps", "com.lenovo.anyshare"],
+  "pkgs": ["com.lenovo.anyshare.gps", "com.lenovo.anyshare", "shareit.lite", "shareit.premium"],
   "mrks": [
 	{"loc": "SDCARD", "path": "QieZi"},
 	{"loc": "SDCARD", "path": ".SHAREit"},
-	{"loc": "SDCARD", "path": "SHAREit", "flags": ["keeper"]}
+	{"loc": "SDCARD", "path": "SHAREit", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "SHAREit_Lite"},
+	{"loc": "SDCARD", "path": "SHAREit Lite"},
+	{"loc": "SDCARD", "path": "SHAREit Premium"},
+	{"loc": "SDCARD", "path": "Android/cache"},
+	{"loc": "SDCARD", "path": "Android/AndroidSystemProperties"},
+	{"loc": "SDCARD", "path": "com.android.settings"},
+	{"loc": "SDCARD", "path": "sepolicy_extends"},
+	{"loc": "SDCARD", "path": ".system_config"},
+	{"loc": "SDCARD", "path": "DCIM/.shareit_beyla_ids.cfg"},
+	{"loc": "SDCARD", "path": "DCIM/.sys_install_s_time.cfg"}
   ]
 }, {
   "pkgs": ["com.tencent.game.rhythmmaster"],
@@ -10996,9 +11006,6 @@
 }, {
   "pkgs": ["com.weitetech.WiiWatchPro"],
   "mrks": [{"loc": "SDCARD", "path": "WiiWatch_Files_log"}]
-}, {
-  "pkgs": ["shareit.lite"],
-  "mrks": [{"loc": "SDCARD", "path": "SHAREit_Lite"}]
 }, {
   "pkgs": ["com.media.bestrecorder.audiorecorder"],
   "mrks": [{"loc": "SDCARD", "path": "Recorders", "flags": ["keeper", "common"]}]

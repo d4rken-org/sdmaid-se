@@ -161,4 +161,28 @@ class OfflineCacheFilterTest : BaseFilterTest() {
         }
         confirm(create())
     }
+
+    @Test fun `SHAREit offline`() = runTest {
+        val pkgs = setOf(
+            "com.lenovo.anyshare.gps",
+            "com.lenovo.anyshare",
+            "shareit.lite",
+            "shareit.premium",
+        )
+        pkgs.forEach {
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit/.offline")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit/.offline/anything")
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit Lite/.offline")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit Lite/.offline/anything")
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit Premium/.offline")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit Premium/.offline/anything")
+            neg(it, SDCARD, "SHAREit/.offline")
+            pos(it, SDCARD, "SHAREit/.offline/anything")
+            neg(it, SDCARD, "SHAREit Lite/.offline")
+            pos(it, SDCARD, "SHAREit Lite/.offline/anything")
+            neg(it, SDCARD, "SHAREit Premium/.offline")
+            pos(it, SDCARD, "SHAREit Premium/.offline/anything")
+        }
+        confirm(create())
+    }
 }
