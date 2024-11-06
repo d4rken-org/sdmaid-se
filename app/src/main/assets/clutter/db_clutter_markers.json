@@ -3815,6 +3815,7 @@
 	{"loc": "SDCARD", "path": "sepolicy_extends"},
 	{"loc": "SDCARD", "path": ".system_config"},
 	{"loc": "SDCARD", "path": "DCIM/.shareit_beyla_ids.cfg"},
+	{"loc": "SDCARD", "path": "DCIM/.shareit_lite_install.cfg"},
 	{"loc": "SDCARD", "path": "DCIM/.sys_install_s_time.cfg"}
   ]
 }, {
