@@ -731,15 +731,13 @@ class LocalGateway @Inject constructor(
                 javaFile.exists() -> false
                 // Does it not exist or do we lack permission? Also see `LocalGateway.exists(...)`
                 else -> when {
-                    // We should be able to access files, really didn't exist, not an access issue
-                    javaFile.parentFile?.canExecute() == true -> true
                     // On Android 12+ Android/data isn't accessible anymore via normal java file access.
                     hasApiLevel(32) && storageEnvironment.publicDataDirs.any { it.isAncestorOf(path) } -> false
                     // If the file path is on public storage, and it wasn't Android/data then, assume true
                     else -> storageEnvironment.externalDirs
                         .firstOrNull { it.isAncestorOf(path) }
                         ?.asFile()
-                        ?.canRead() ?: false
+                        ?.canWrite() ?: false
                 }
             }
 
