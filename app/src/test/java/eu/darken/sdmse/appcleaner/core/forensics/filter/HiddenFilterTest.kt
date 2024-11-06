@@ -2573,4 +2573,12 @@ class HiddenFilterTest : BaseFilterTest() {
         }
         confirm(create())
     }
+
+
+    @Test fun `samsung cloud tmp`() = runTest {
+        neg("com.samsung.android.scloud", SDCARD, "scloud/tmp")
+        pos("com.samsung.android.scloud", SDCARD, "sdcloud/tmp/deleteme")
+
+        confirm(create())
+    }
 }
