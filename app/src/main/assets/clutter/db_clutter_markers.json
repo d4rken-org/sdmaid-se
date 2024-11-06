@@ -8478,7 +8478,8 @@
 	{"loc": "SDCARD", "path": "cloudagent", "flags": ["keeper"]},
 	{"loc": "SDCARD", "path": ".cloudagent"},
 	{"loc": "SDCARD", "path": ".DOCUMENT_restore_temp"},
-	{"loc": "SDCARD", "path": ".APP", "flags": ["keeper", "common"]}
+	{"loc": "SDCARD", "path": ".APP", "flags": ["keeper", "common"]},
+	{"loc": "SDCARD", "path": "scloud", "flags": ["keeper", "common"]}
   ]
 }, {
   "pkgs": ["com.yaki.wordsplash"],
