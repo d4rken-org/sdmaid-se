@@ -133,7 +133,7 @@ class SdcardCorpseFilter @Inject constructor(
                     .filter { area ->
                         // Only makes sense to process this nested marker if the parent actually exists
                         val areaContent = topLevelContent[area]!!
-                        areaContent.any { it.item.segments.isAncestorOf(marker.segments) }
+                        areaContent.any { it.areaInfo.prefixFreeSegments.isAncestorOf(marker.segments) }
                     }
                     .map { determineNestedCandidates(it, marker) }
                     .flatten()
