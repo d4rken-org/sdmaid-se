@@ -182,6 +182,13 @@ class StorageScanner @Inject constructor(
         val pkgStats = targetPkgs
             .map { pkg ->
                 updateProgressSecondary(pkg.label ?: pkg.packageName.toCaString())
+
+                // TODO This does not include nested markers, e.g. Android/something or DCIM/something
+                // Supporting this is not trivial:
+                // If a Top level folder has app owned sub folders we need to prevent deleting it
+                // We would need to hide Android/data and Android/media, but not Android/<other>
+                // How deep would this nesting logic have to go?
+
                 val matchingTlds = topLevelDirs.filter {
                     val owner = it.getOwner(pkg.id) ?: return@filter false
                     !owner.hasFlag(Marker.Flag.CUSTODIAN) && !owner.hasFlag(Marker.Flag.COMMON)
