@@ -209,6 +209,12 @@
     <string name="corpsefinder_filter_appasec_summary">Zasoby aplikacji szyfrowane, np. zasoby gier.</string>
     <string name="corpsefinder_filter_app2sd_summary">Dane przeniesione na zewnętrzną pamięć przez modyfikacje App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">Usunięto pozostałość aplikacji %d</item>
+        <item quantity="few">Usunięto pozostałości aplikacji %d</item>
+        <item quantity="many">Usunięto pozostałości aplikacji %d</item>
+        <item quantity="other">Usunięto pozostałości aplikacji %d</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">%d pozostałość po aplikacji odkryta</item>
         <item quantity="few">%d pozostałości po aplikacji odkryte</item>

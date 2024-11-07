@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body4"></string>
+    <string name="onboarding_privacy_title">Gizlilik</string>
+    <string name="settings_sponsor_development_title"></string>
+    <string name="ui_theme_mode_setting_explanation">Tətbiq temasında istifadə olunan mod (yəni gecə ya gündüz).</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid, quraşdırma problemlərini həll etməyə çalışır.</string>
+    <string name="setup_saf_missing_app_error"></string>
+    <string name="setup_manage_storage_card_body">SD Maid-ə yaddaşınızı idarə etməsinə icazə verin.</string>
+</resources>
