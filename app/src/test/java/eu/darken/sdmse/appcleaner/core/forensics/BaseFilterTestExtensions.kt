@@ -6,19 +6,27 @@ import java.io.File
 import java.time.Instant
 
 fun BaseFilterTest.pos(pkg: String, areaType: DataArea.Type, vararg segments: String) {
+    pos(setOf(pkg), setOf(areaType), *segments)
+}
+
+fun BaseFilterTest.pos(pkgs: Set<String>, areaTypes: Set<DataArea.Type>, vararg segments: String) {
     BaseFilterTest.Candidate(
         matchType = BaseFilterTest.Candidate.Type.POSITIVE,
-        pkgs = setOf(pkg.toPkgId()),
-        areaTypes = setOf(areaType),
+        pkgs = pkgs.map { it.toPkgId() },
+        areaTypes = areaTypes,
         prefixFreePaths = setOf(segments.map { it.split(File.separatorChar) }.flatten())
     ).let { addCandidate(it) }
 }
 
 fun BaseFilterTest.neg(pkg: String, areaType: DataArea.Type, vararg segments: String) {
+    neg(setOf(pkg), setOf(areaType), *segments)
+}
+
+fun BaseFilterTest.neg(pkgs: Set<String>, areaTypes: Set<DataArea.Type>, vararg segments: String) {
     BaseFilterTest.Candidate(
         matchType = BaseFilterTest.Candidate.Type.NEGATIVE,
-        pkgs = setOf(pkg.toPkgId()),
-        areaTypes = setOf(areaType),
+        pkgs = pkgs.map { it.toPkgId() },
+        areaTypes = areaTypes,
         prefixFreePaths = setOf(segments.map { it.split(File.separatorChar) }.flatten())
     ).let { addCandidate(it) }
 }

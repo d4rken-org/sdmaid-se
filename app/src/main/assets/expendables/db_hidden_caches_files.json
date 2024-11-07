@@ -1353,14 +1353,17 @@
 		  "contains": [
 			"/files/SHAREit/.caches/",
 			"/files/SHAREit Lite/.caches/",
-			"/files/SHAREit Premium/.caches/"
+			"/files/SHAREit Premium/.caches/",
+			"/files/SHAREit/.status/",
+			"/files/SHAREit Lite/.status/",
+			"/files/SHAREit Premium/.status/"
 		  ]
 		}, {
 		  "locations": ["SDCARD"],
 		  "startsWith": [
-			"SHAREit/.caches/",
-			"SHAREit Lite/.caches/",
-			"SHAREit Premium/.caches/"
+			"SHAREit/.status/",
+			"SHAREit Lite/.status/",
+			"SHAREit Premium/.status/"
 		  ]
 		}
 	  ]
