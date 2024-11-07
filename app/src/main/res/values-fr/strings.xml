@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">Supprimer les résultats pour tous les outils ?</string>
+    <string name="dashboard_delete_all_message">Supprimer les résultats pour tous les outils ?</string>
     <string name="dashboard_settings_category">Tableau de bord</string>
     <string name="dashboard_motd_title">Un message du développeur</string>
     <string name="dashboard_settings_oneclick_title">Mode d’accès direct</string>
@@ -97,7 +97,7 @@
     <string name="setup_forcedshow_summary">Afficher l\'écran de configuration de nouveau, dont les éléments terminés.</string>
     <string name="setup_checking_card_body">Vérification de la configuration et de la fonctionnalité.</string>
     <string name="general_error_setup_require_label">La configuration est terminée</string>
-    <string name="general_error_setup_require_msg">D’autres réglages sont nécessaires pour utiliser cette fonction. Effectuez les étapes de configuration restantes.</string>
+    <string name="general_error_setup_require_msg">Afin d’utiliser cette fonction, effectuez les étapes de configuration restantes.</string>
     <string name="setup_saf_card_title">Cadre d’accès à la mémoire</string>
     <string name="setup_saf_card_body">Améliorez les résultats en accordant à SD Maid l\'accès à d’autres zones.</string>
     <string name="setup_saf_card_body2">Dans la plupart des cas, le bon chemin sera présélectionné lors de l’ouverture de la fenêtre. Les éléments deviennent verts si l’accès est accordé. </string>
