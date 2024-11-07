@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dashboard_delete_all_message">ਕੀ ਸਾਰੇ ਸੰਦਾਂ ਵਿੱਚੋਂ ਨਤੀਜੇ ਮਿਟਾਉਣੇ ਹਨ?</string>
+    <string name="dashboard_settings_category">ਡੈਸ਼ਬੋਰਡ</string>
+    <string name="dashboard_motd_title">ਡਿਵੈਲਪਰ ਵੱਲੋਂ ਇੱਕ ਸੁਨੇਹਾ</string>
+    <string name="dashboard_settings_oneclick_title">ਇੱਕ-ਠੁੰਗ ਮੋਡ</string>
+    <string name="dashboard_settings_oneclick_summary">ਡੈਸ਼ਬੋਰਡ ਦੇ ਐਕਸ਼ਨ ਬਟਨ \'ਤੇ ਠੁੰਗ ਮਾਰਕੇ ਸਾਰੇ ਸੰਦਾਂ ਲਈ ਸਕੈਨ ਅਤੇ ਮਿਟਾਉਣਾ ਸ਼ੁਰੂ ਕਰੋ, ਕੋਈ ਵਾਧੂ ਤਸਦੀਕ ਨਹੀਂ</string>
+    <string name="dashboard_settings_oneclick_tools_title">ਇੱਕ-ਠੁੰਗ ਸੰਦ</string>
+    <string name="dashboard_settings_oneclick_tools_desc">ਇੱਕ-ਠੁੰਗ ਓਪਰੇਸ਼ਨ ਵਿੱਚ ਕਿਹੜੇ ਸਾਧਨ ਸ਼ਾਮਲ ਕੀਤੇ ਜਾਣੇ ਚਾਹੀਦੇ ਹਨ?</string>
+    <string name="debug_debuglog_size_label">ਆਕਾਰ</string>
+    <string name="debug_debuglog_size_compressed_label">ਕੰਪ੍ਰੈਸਡ ਆਕਾਰ</string>
+    <string name="debug_notification_channel_label">ਡੀਬੱਗ ਸੂਚਨਾਵਾਂ</string>
+    <string name="debug_debuglog_file_label">ਰਿਕਾਰਡ ਕੀਤੀ ਲੌਗ ਫਾਈਲ</string>
+    <string name="debug_debuglog_recording_progress">ਡੀਬੱਗ ਲੌਗ ਰਿਕਾਰਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
+    <string name="debug_debuglog_record_action">ਡੀਬੱਗ ਲੌਗ ਰਿਕਾਰਡ ਕਰੋ</string>
+    <string name="debug_debuglog_stop_action">ਰਿਕਾਰਡਿੰਗ ਰੋਕੋ</string>
+    <string name="debug_debuglog_sensitive_information_message">ਤਿਆਰ ਕੀਤੀ ਫ਼ਾਈਲ ਵਿੱਚ ਸੰਵੇਦਨਸ਼ੀਲ ਜਾਣਕਾਰੀ (ਉਦਾਹਰਨ ਲਈ ਫ਼ਾਈਲ ਦੇ ਨਾਮ ਅਤੇ ਸਥਾਪਤ ਐਪਾਂ) ਸ਼ਾਮਲ ਹੈ। ਇਸ ਨੂੰ ਸਿਰਫ਼ ਭਰੋਸੇਯੋਗ ਪਾਰਟੀਆਂ ਨਾਲ ਸਾਂਝਾ ਕਰੋ।</string>
+    <string name="settings_debuglog_explanation">ਇਹ ਵਿਸ਼ੇਸ਼ਤਾ ਐਪ ਦੁਆਰਾ ਕੀਤੀ ਜਾ ਰਹੀ ਹਰ ਚੀਜ਼ ਨੂੰ ਸ਼ੇਅਰ ਕਰਨ ਯੋਗ ਫਾਈਲ ਵਿੱਚ ਰਿਕਾਰਡ ਕਰਦੀ ਹੈ। ਤਿਆਰ ਕੀਤੀ ਫ਼ਾਈਲ ਵਿੱਚ ਸੰਵੇਦਨਸ਼ੀਲ ਜਾਣਕਾਰੀ (ਉਦਾਹਰਨ ਲਈ ਫ਼ਾਈਲ ਦੇ ਨਾਮ ਅਤੇ ਸਥਾਪਤ ਐਪਾਂ) ਸ਼ਾਮਲ ਹੈ। ਇਸਨੂੰ ਸਿਰਫ਼ ਭਰੋਸੇਯੋਗ ਪਾਰਟੀਆਂ ਨਾਲ ਸਾਂਝਾ ਕਰੋ (ਜਿਵੇਂ ਕਿ ਇੱਕ ਡਿਵੈਲਪਰ ਜੋ ਕਿਸੇ ਸਮੱਸਿਆ ਨੂੰ ਨਬੇੜ ਰਿਹਾ ਹੈ)।</string>
+    <string name="tasks_activity_notification_channel_label">ਸਰਗਰਮ ਕੰਮ</string>
+    <string name="tasks_activity_working_notification_title">SD Maid ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="one">%d ਸਰਗਰਮ ਕੰਮ</item>
+        <item quantity="other">%d ਸਰਗਰਮ ਕੰਮ</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="one">%d ਕੰਮ ਕਤਾਰ ਵਿੱਚ ਹਨ</item>
+        <item quantity="other">%d ਕਤਾਰਬੱਧ ਕੰਮ</item>
+    </plurals>
+    <string name="tasks_result_notification_channel_label">ਕਾਰਜ ਨਤੀਜੇ</string>
+    <string name="tasks_result_subtext">ਕਾਰਜ ਨਤੀਜੇ</string>
+    <string name="onboarding_welcome_title">ਜੀ ਆਇਆਂ ਨੂੰ</string>
+    <string name="onboarding_welcome_body1">SD Maid SE ਫਾਈਲਾਂ, ਐਪਾਂ ਅਤੇ ਸਟੋਰੇਜ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਦੀ ਹੈ।</string>
+    <string name="onboarding_welcome_body2">ਹੋਰ ਐਪਾਂ ਦੇ ਪਿੱਛੇ ਸਾਫ਼ ਕਰਕੇ ਸਟੋਰੇਜ ਥਾਂ ਪ੍ਰਾਪਤ ਕਰੋ। ਬੇਲੋੜੀਆਂ ਫਾਈਲਾਂ ਨੂੰ ਮਿਟਾਓ ਅਤੇ ਬਚਿਆ ਹੋਇਆ ਡੇਟਾ ਹਟਾਓ।</string>
+    <string name="onboarding_welcome_body_beta">ਇਹ ਇੱਕ ਬੀਟਾ (ਟੈਸਟਿੰਗ) ਬਿਲਡ ਹੈ। ਹਾਸੇ ਦੀ ਭਾਵਨਾ ਅਤੇ ਬੈਕਅੱਪ ਯੋਜਨਾ ਨਾਲ ਅੱਗੇ ਵਧੋ। ਕਿਰਪਾ ਕਰਕੇ ਤੁਹਾਡੇ ਸਾਹਮਣੇ ਆਉਣ ਵਾਲੀਆਂ ਸਮੱਸਿਆਵਾਂ ਦੀ ਰਿਪੋਰਟ ਕਰੋ।</string>
+    <string name="onboarding_welcome_continue_action">ਜਾਰੀ ਰੱਖੋ</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (ਉਰਫ਼ SD Maid 2) SD Maid (ਉਰਫ਼ SD Maid 1) ਦਾ ਉੱਤਰਾਧਿਕਾਰੀ ਹੈ। ਇੱਕ ਨਵੀਂ ਐਪ, ਆਧੁਨਿਕ ਐਂਡਰਾਇਡ ਲਈ ਅਨੁਕੂਲਿਤ।</string>
+    <string name="onboarding_versus_body2">ਇਸਦੀ ਪੂਰਵਜ ਦਾ ਢਾਂਚਾ 7 ਸਾਲਾਂ ਤੋਂ ਵੱਧ ਪੁਰਾਣਾ ਹੈ ਅਤੇ ਨਵੇਂ ਐਂਡਰਾਇਡ ਸੰਸਕਰਣਾਂ ਦੀਆਂ ਚੁਣੌਤੀਆਂ ਲਈ ਤਿਆਰ ਨਹੀਂ ਕੀਤਾ ਗਿਆ। ਵਿਕਾਸ ਨੂੰ ਜਾਰੀ ਰੱਖਣ ਲਈ ਇੱਕ ਮੁਕੰਮਲ ਰੀਡਿਜ਼ਾਈਨ ਜ਼ਰੂਰੀ ਸੀ।</string>
+    <string name="onboarding_versus_body3">ਬਿਹਤਰ ਨਤੀਜਿਆਂ ਲਈ SD Maid SE \'ਤੇ ਜਾਣ ਬਾਰੇ ਵਿਚਾਰ ਕਰੋ।</string>
+    <string name="onboarding_versus_body4">SD Maid 1 ਦੀ \"ਪ੍ਰੋ ਸਥਿਤੀ\" ਬਦਕਿਸਮਤੀ ਨਾਲ SD Maid 2/SE ਨੂੰ ਤਬਦੀਲ ਕਰਨ ਯੋਗ ਨਹੀਂ ਹੈ। 12 ਸਾਲਾਂ ਦੇ ਮੁਫ਼ਤ ਅੱਪਡੇਟਾਂ ਤੋਂ ਬਾਅਦ, ਵਿਕਾਸ ਨੂੰ ਕਾਇਮ ਰੱਖਣ ਲਈ ਇੱਕ ਨਵੀਂ ਖਰੀਦ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ (ਡਿਵੈਲਪਰ ਨੂੰ ਦਾਨ ਦਿਓ)।</string>
+    <string name="onboarding_versus_continue_action">ਜਾਰੀ ਰੱਖੋ</string>
+    <string name="onboarding_privacy_title">ਪਰਦੇਦਾਰੀ</string>
+    <string name="onboarding_privacy_body1">SD Maid ਕੋਈ ਮਸ਼ਹੂਰੀ ਨਹੀਂ ਵਿਖਾਉਂਦਾ ਹੈ ਅਤੇ ਵਰਤੋਂਕਾਰ ਦਾ ਡੇਟਾ ਨਹੀਂ ਵੇਚਦਾ ਹੈ।</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">ਗਲਤੀਆਂ ਹੋਣ \'ਤੇ ਬੱਗ ਰਿਪੋਰਟਾਂ ਘੱਲੀਆਂ ਜਾਂਦੀਆਂ ਹਨ ਅਤੇ ਤੁਹਾਡੇ ਯੰਤਰ \'ਤੇ ਐਪਾਂ ਅਤੇ ਫਾਈਲਾਂ ਬਾਰੇ ਵੇਰਵੇ ਸ਼ਾਮਲ ਹੋ ਸਕਦੇ ਹਨ। ਰਿਪੋਰਟਾਂ ਬੱਗ ਠੀਕ ਕਰਨ ਅਤੇ ਐਪ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਮੇਰੀ ਮਦਦ ਕਰਦੀਆਂ ਹਨ।</string>
+    <string name="onboarding_privacy_bugreport_toggle">ਆਟੋਮੈਟਿਕ ਬੱਗ ਰਿਪੋਰਟਾਂ ਦੀ ਮਨਜ਼ੂਰੀ ਦਿਓ</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">ਇਹਨਾਂ ਵਿਕਲਪਾਂ ਨੂੰ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਬਦਲਿਆ ਜਾ ਸਕਦਾ ਹੈ।</string>
+    <string name="onboarding_privacy_continue_action">ਜਾਰੀ ਰੱਖੋ</string>
+    <string name="onboarding_setup_title">ਸਥਾਪਤ ਕਰੋ</string>
+    <string name="onboarding_setup_body1">SD Maid ਸਾਰੇ ਪਹੁੰਚਯੋਗ ਡੇਟਾ ਖੇਤਰਾਂ ਦੀ ਭਾਲ ਕਰੇਗੀ।</string>
+    <string name="onboarding_setup_body2">ਕੀ ਪਹੁੰਚਯੋਗ ਹੈ ਇਹ ਤੁਹਾਡਾ ਯੰਤਰ, ਐਂਡਰਾਇਡ ਸੰਸਕਰਣ ਅਤੇ ਮਨਜ਼ੂਰਸ਼ੁਦਾ ਅਨੁਮਤੀਆਂ \'ਤੇ ਨਿਰਭਰ ਕਰਦਾ ਹੈ।</string>
+    <string name="onboarding_setup_body3">ਉਹਨਾਂ ਖੇਤਰਾਂ ਤੱਕ ਪਹੁੰਚ ਸਥਾਪਤ ਕਰਕੇ SD Maid ਦੀ ਵਰਤੋਂ ਸ਼ੁਰੂ ਕਰੋ ਜਿਨ੍ਹਾਂ ਦੀ ਭਾਲ ਕੀਤੀ ਜਾਣੀ ਚਾਹੀਦੀ ਹੈ।</string>
+    <string name="onboarding_setup_continue_action">ਪਹੁੰਚ ਸਥਾਪਤ ਕਰੋ</string>
+    <string name="settings_privacy_policy_label">ਪਰਦੇਦਾਰੀ ਨੀਤੀ</string>
+    <string name="settings_privacy_policy_desc">ਡੇਟਾ ਨੂੰ ਜ਼ਿੰਮੇਵਾਰੀ ਨਾਲ ਸੰਭਾਲ ਰਿਹਾ ਹੈ।</string>
+    <string name="settings_licenses_label">ਲਸੰਸ</string>
+    <string name="settings_category_other_label">ਹੋਰ</string>
+    <string name="settings_category_filter_generic">ਆਮ ਫਿਲਟਰ</string>
+    <string name="settings_category_filter_specific">ਖ਼ਾਸ ਫਿਲਟਰ</string>
+    <string name="settings_sponsor_development_title">ਡਿਵੈਲਪਮੈਂਟ ਸਪਾਂਸਰ ਕਰੋ</string>
+    <string name="settings_sponsor_development_summary">ਇੱਕ ਸਰਪ੍ਰਸਤ ਬਣੋ ਅਤੇ ਨਿਰੰਤਰ ਵਿਕਾਸ ਨੂੰ ਸੰਭਵ ਬਣਾਓ।</string>
+    <string name="general_settings_label">ਆਮ</string>
+</resources>
