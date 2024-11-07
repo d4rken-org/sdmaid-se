@@ -136,22 +136,30 @@ class HiddenFilter @Inject constructor(
 
     companion object {
         private val HIDDEN_CACHE_FOLDERS: Collection<String> = listOf(
-            ".cache",
             "tmp", ".tmp",
             "tmpdata", "tmp-data", "tmp_data",
             ".tmpdata", ".tmp-data", ".tmp_data",
             ".temp", "temp",
             "tempdata", "temp-data", "temp_data",
             ".tempdata", ".temp-data", ".temp_data",
-            "cache", "_cache", "-cache",
+            ".cache", "cache", "_cache", "-cache",
+            ".caches", "caches", "_caches", "-caches",
             "imagecache", "image-cache", "image_cache",
             ".imagecache", ".image-cache", ".image_cache",
+            "imagecaches", "image-caches", "image_caches",
+            ".imagecaches", ".image-caches", ".image_caches",
             "videocache", "video-cache", "video_cache",
             ".videocache", ".video-cache", ".video_cache",
+            "videocaches", "video-caches", "video_caches",
+            ".videocaches", ".video-caches", ".video_caches",
             "mediacache", "media-cache", "media_cache",
-            ".mediacache", ".mediacache", ".media-cache",
+            ".mediacache", ".media-cache", ".media-cache",
+            "mediacaches", "media-caches", "media_caches",
+            ".mediacaches", ".media-caches", ".media_caches",
             "diskcache", "disk-cache", "disk_cache",
             ".diskcache", ".disk-cache", ".disk_cache",
+            "diskcaches", "disk-caches", "disk_caches",
+            ".diskcaches", ".disk-caches", ".disk_caches",
             "filescache",
             "AVFSCache"
         ).map { it.lowercase() }

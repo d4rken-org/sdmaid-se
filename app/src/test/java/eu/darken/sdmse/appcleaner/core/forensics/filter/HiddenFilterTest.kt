@@ -37,359 +37,168 @@ class HiddenFilterTest : BaseFilterTest() {
 
     @Test fun testHiddenCacheDefaults() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/").locs(SDCARD, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/.cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/-cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/image-cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/video-cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/image-cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.image-cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/video-cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.video-cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/UnityCache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/.cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/_cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/Cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/.Cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/-cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/image-cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/video-cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/UnityCache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/.cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/_cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/Cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/.Cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/-cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/image-cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/.image-cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/video-cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/.video-cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/video-cache/LmWFkb0wDc9JIjEeQyYLRdQanDA")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg)
-                .prefixFree("$testPkg/files/video-cache/j1ZyoUdWHQxeQ1JzBvzM3_68bn4/0000000000082000")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg)
-                .prefixFree("$testPkg/files/UnityCache/j1ZyoUdWHQxeQ1JzBvzM3_68bn4/0000000000082000")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/TempData")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/TempData/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/TempData")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/TempData/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/.temp")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/.temp/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.temp")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/.temp/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/temp")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/temp/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/temp")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/temp/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/tmp")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/tmp/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/tmp")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/tmp/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/.tmp")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/.tmp/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.tmp")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/.tmp/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/cache.dat")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/cache.dat")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/image_cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/image_cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/image_cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/image_cache/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/.trash")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/.trash/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.trash")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.trash/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/.Trash")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/.Trash/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.Trash")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.Trash/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/.cache/.nomedia")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/_cache/.nomedia")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/Cache/.nomedia")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/.Cache/.nomedia")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/-cache/.nomedia")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/image-cache/.nomedia")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/video-cache/.nomedia")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/UnityCache/.nomedia")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/diskcache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/diskcache/something")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/disk-cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/disk-cache/something")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/disk_cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/disk_cache/something")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.diskcache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/.diskcache/something")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.disk-cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/.disk-cache/something")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.disk_cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/.disk_cache/something")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files")
+        neg(setOf(testPkg), setOf(SDCARD, PRIVATE_DATA), "$testPkg/")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.cache")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/cache")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/-cache")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/image-cache")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/video-cache")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.cache")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/image-cache")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.image-cache")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/video-cache")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.video-cache")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/UnityCache")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/_cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/Cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.Cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/-cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/image-cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/video-cache/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/UnityCache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/_cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/Cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.Cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/-cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/image-cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.image-cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/video-cache/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.video-cache/file")
+        pos(
+            setOf(testPkg),
+            setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA),
+            "$testPkg/files/video-cache/LmWFkb0wDc9JIjEeQyYLRdQanDA"
+        )
+        pos(
+            setOf(testPkg),
+            setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA),
+            "$testPkg/files/video-cache/j1ZyoUdWHQxeQ1JzBvzM3_68bn4/0000000000082000"
+        )
+        neg(
+            setOf(testPkg),
+            setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA),
+            "$testPkg/files/UnityCache/j1ZyoUdWHQxeQ1JzBvzM3_68bn4/0000000000082000"
+        )
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/TempData")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/TempData/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/TempData")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/TempData/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.temp")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.temp/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.temp")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.temp/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/temp")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/temp/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/temp")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/temp/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/tmp")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/tmp/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/tmp")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/tmp/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.tmp")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.tmp/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.tmp")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.tmp/file")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/cache.dat")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/cache.dat")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/image_cache")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/image_cache/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/image_cache")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/image_cache/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.trash")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.trash/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.trash")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.trash/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.Trash")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.Trash/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.Trash")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.Trash/file")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.cache/.nomedia")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/_cache/.nomedia")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/Cache/.nomedia")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.Cache/.nomedia")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/-cache/.nomedia")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/image-cache/.nomedia")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/video-cache/.nomedia")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/UnityCache/.nomedia")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/diskcache")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/diskcache/something")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/disk-cache")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/disk-cache/something")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/disk_cache")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/disk_cache/something")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.diskcache")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.diskcache/something")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.disk-cache")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.disk-cache/something")
+        neg(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.disk_cache")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.disk_cache/something")
+
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/-caches/something")
+
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/imagecaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/imagecaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/image-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/image-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/image_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/image_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.imagecaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.imagecaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.image-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.image-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.image_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.image_caches/something")
+
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/videocaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/videocaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/video-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/video-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/video_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/video_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.videocaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.videocaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.video-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.video-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.video_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.video_caches/something")
+
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/mediacaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/mediacaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/media-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/media-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/media_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/media_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.mediacaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.mediacaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.media-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.media-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.media_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.media_caches/something")
+
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/diskcaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/diskcaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/disk-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/disk-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/disk_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/disk_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.diskcaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.diskcaches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.disk-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.disk-caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/files/.disk_caches/something")
+        pos(setOf(testPkg), setOf(SDCARD, PUBLIC_DATA, PRIVATE_DATA), "$testPkg/.disk_caches/something")
+
         confirm(create())
     }
 
@@ -2564,12 +2373,24 @@ class HiddenFilterTest : BaseFilterTest() {
             pos(it, PUBLIC_DATA, "$it/files/SHAREit Lite/.caches/anything")
             neg(it, PUBLIC_DATA, "$it/files/SHAREit Premium/.caches")
             pos(it, PUBLIC_DATA, "$it/files/SHAREit Premium/.caches/anything")
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit/.status")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit/.status/anything")
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit Lite/.status")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit Lite/.status/anything")
+            neg(it, PUBLIC_DATA, "$it/files/SHAREit Premium/.status")
+            pos(it, PUBLIC_DATA, "$it/files/SHAREit Premium/.status/anything")
             neg(it, SDCARD, "SHAREit/.caches")
             pos(it, SDCARD, "SHAREit/.caches/anything")
             neg(it, SDCARD, "SHAREit Lite/.caches")
             pos(it, SDCARD, "SHAREit Lite/.caches/anything")
             neg(it, SDCARD, "SHAREit Premium/.caches")
             pos(it, SDCARD, "SHAREit Premium/.caches/anything")
+            neg(it, SDCARD, "SHAREit/.status")
+            pos(it, SDCARD, "SHAREit/.status/anything")
+            neg(it, SDCARD, "SHAREit Lite/.status")
+            pos(it, SDCARD, "SHAREit Lite/.status/anything")
+            neg(it, SDCARD, "SHAREit Premium/.status")
+            pos(it, SDCARD, "SHAREit Premium/.status/anything")
         }
         confirm(create())
     }
