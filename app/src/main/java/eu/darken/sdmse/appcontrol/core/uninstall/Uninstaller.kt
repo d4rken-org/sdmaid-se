@@ -87,7 +87,7 @@ class Uninstaller @Inject constructor(
             }
 
             else -> {
-                log(TAG) { "Using normal instant to uninstall $installId" }
+                log(TAG) { "Using normal intent to uninstall $installId" }
                 val appSettingsIntent = Intent(Intent.ACTION_DELETE).apply {
                     data = Uri.parse("package:${installId.pkgId.name}")
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

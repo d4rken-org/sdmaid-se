@@ -199,7 +199,6 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
-        log(TAG, VERBOSE) { "onAccessibilityEvent(eventType=${event.eventType})" }
         if (!checkLaunch()) return
 
         if (generalSettings.hasAcsConsent.valueBlocking != true) {
@@ -208,6 +207,8 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         }
 
         if (!automationProcessor.hasTask) return
+
+        log(TAG, VERBOSE) { "onAccessibilityEvent(eventType=${event.eventType})" }
 
         val eventCopy = if (hasApiLevel(30)) {
             @Suppress("NewApi")

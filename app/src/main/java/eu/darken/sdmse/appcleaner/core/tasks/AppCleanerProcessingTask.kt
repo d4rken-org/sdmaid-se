@@ -46,5 +46,9 @@ data class AppCleanerProcessingTask(
                     Formatter.formatFileSize(this, affectedSpace)
                 )
             }
+
+        override fun toString(): String {
+            return "AppCleanerProcessingTask.Success($affectedSpace,${affectedPaths.size} items)"
+        }
     }
 }
