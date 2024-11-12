@@ -230,9 +230,11 @@ class AppCleaner @Inject constructor(
                         val filter = filters.singleOrNull { it.identifier == filterIdentifier }
                             ?: throw IllegalStateException("Can't find filter for $filterIdentifier")
 
+                        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
+
                         filter.withProgress(
                             client = this,
-                            onUpdate = { old, new -> old?.copy(secondary = new?.secondary ?: CaString.EMPTY) },
+                            onUpdate = { old, new -> old?.copy(secondary = new?.primary ?: CaString.EMPTY) },
                             onCompletion = { it }
                         ) {
                             val result = process(targets, allMatches)
