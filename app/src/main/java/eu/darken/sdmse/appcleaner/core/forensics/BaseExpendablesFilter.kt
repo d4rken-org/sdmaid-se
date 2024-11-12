@@ -16,7 +16,9 @@ import eu.darken.sdmse.common.files.filterDistinctRoots
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.progress.updateProgressSecondary
+import eu.darken.sdmse.common.progress.increaseProgress
+import eu.darken.sdmse.common.progress.updateProgressCount
+import eu.darken.sdmse.common.progress.updateProgressPrimary
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 
@@ -35,6 +37,7 @@ abstract class BaseExpendablesFilter : ExpendablesFilter {
         allMatches: Collection<ExpendablesFilter.Match>,
     ): ExpendablesFilter.ProcessResult {
         log(TAG, INFO) { "deleteAll(...) Processing ${targets.size} out of ${allMatches.size} matches" }
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_preparing)
         val successful = mutableSetOf<ExpendablesFilter.Match>()
         val failed = mutableSetOf<Pair<ExpendablesFilter.Match, Exception>>()
 
@@ -42,15 +45,17 @@ abstract class BaseExpendablesFilter : ExpendablesFilter {
 
         if (distinctRoots.size != targets.size) {
             log(TAG, INFO) { "${targets.size} match objects but only ${distinctRoots.size} distinct roots" }
-            if (Bugs.isDebug) {
+            if (Bugs.isTrace) {
                 targets
                     .filter { !distinctRoots.contains(it.lookup) }
                     .forEachIndexed { index, item -> log(TAG, INFO) { "Non distinct root #$index: $item" } }
             }
         }
 
+        updateProgressCount(Progress.Count.Percent(distinctRoots.size))
+
         distinctRoots.forEach { targetRoot ->
-            updateProgressSecondary(targetRoot.userReadablePath)
+            updateProgressPrimary(targetRoot.userReadablePath)
             val main = targets.first { it.lookup == targetRoot }
 
             val mainDeleted = try {
@@ -76,7 +81,7 @@ abstract class BaseExpendablesFilter : ExpendablesFilter {
 
             // deleteAll(...) starts at leafs, children may have been deleted, even if the top-level dir wasn't
             val affected = allMatches.filter { it != main && main.lookup.isAncestorOf(it.lookup) }
-            if (Bugs.isDebug) {
+            if (Bugs.isTrace) {
                 log(TAG) { "$main affects ${affected.size} other matches" }
                 affected.forEach { log(TAG, VERBOSE) { "Affected: $it" } }
             }
@@ -96,6 +101,7 @@ abstract class BaseExpendablesFilter : ExpendablesFilter {
                     }
                 }
             }
+            increaseProgress()
         }
 
         return ExpendablesFilter.ProcessResult(
