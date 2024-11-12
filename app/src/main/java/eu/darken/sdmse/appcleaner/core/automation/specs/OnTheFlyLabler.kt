@@ -59,31 +59,48 @@ class OnTheFlyLabler @Inject constructor(
 
         val targetSize = stats1.appBytes + stats1.dataBytes
 
-        val baseTexts = setOfNotNull(
-            // https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/packages/SettingsLib/SpaPrivileged/src/com/android/settingslib/spaprivileged/template/app/AppStorageSize.kt
-            Formatter.formatFileSize(context, targetSize).also {
-                log(TAG, VERBOSE) { "formatFileSize=$it" }
-            },
-            Formatter.formatShortFileSize(context, targetSize).also {
-                log(TAG, VERBOSE) { "formatShortFileSize=$it" }
-            },
-            try {
-                formatExtraFileSize(targetSize).also { log(TAG, VERBOSE) { "formatExtraFileSize=$it" } }
-            } catch (e: Exception) {
-                log(TAG, ERROR) { "formatExtraFileSize($targetSize) failed: ${e.asLog()}" }
-                null
-            },
-        )
+        val targetTexts = mutableSetOf<String>()
 
-        val targetTexts = baseTexts.flatMap {
-            when {
-                it.contains(".") -> setOf(it, it.replace(".", ","))
-                it.contains(",") -> setOf(it, it.replace(",", "."))
-                else -> setOf(it)
-            }
+        // https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/packages/SettingsLib/SpaPrivileged/src/com/android/settingslib/spaprivileged/template/app/AppStorageSize.kt
+        Formatter.formatFileSize(context, targetSize).run {
+            log(TAG, VERBOSE) { "formatFileSize=$this" }
+            targetTexts.add(this)
         }
 
-        log(TAG) { "Loaded ${targetTexts.size} targets from $targetSize for ${pkg.installId}: $targetTexts" }
+        Formatter.formatShortFileSize(context, targetSize).run {
+            log(TAG, VERBOSE) { "formatShortFileSize=$this" }
+            targetTexts.add(this)
+        }
+
+        try {
+            formatExtraFileSize(targetSize).run {
+                log(TAG, VERBOSE) { "formatExtraFileSize=$this" }
+                targetTexts.add(this)
+            }
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "formatExtraFileSize($targetSize) failed: ${e.asLog()}" }
+        }
+
+        targetTexts.mapNotNull {
+            when {
+                it.contains(".") -> setOf(it.replace(".", ","))
+                it.contains(",") -> setOf(it.replace(",", "."))
+                else -> null
+            }
+        }.forEach { targetTexts.addAll(it) }
+
+        targetTexts.mapNotNull {
+            when {
+                it.contains(" ") -> setOf(it.replace(" ", " "))
+                it.contains(" ") -> setOf(it.replace(" ", " "))
+                else -> null
+            }
+        }.forEach { targetTexts.addAll(it) }
+
+        log(TAG) {
+            val distinguisable = targetTexts.map { it.replace("\u00A0", "\\u00A0") }
+            "Loaded ${targetTexts.size} targets from $targetSize for ${pkg.installId}: $distinguisable"
+        }
 
         return { node ->
             node.textContainsAny(targetTexts).also {
