@@ -27,7 +27,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.deleteAll
+import eu.darken.sdmse.common.files.delete
 import eu.darken.sdmse.common.files.filterDistinctRoots
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.matches
@@ -188,7 +188,7 @@ class Analyzer @Inject constructor(
             .forEach { target ->
                 log(TAG) { "Deleting $target" }
                 updateProgressSecondary(target.userReadablePath)
-                target.deleteAll(gatewaySwitch)
+                target.delete(gatewaySwitch, recursive = true)
             }
 
         // TODO this seems convoluted, can we come up with a better data pattern?

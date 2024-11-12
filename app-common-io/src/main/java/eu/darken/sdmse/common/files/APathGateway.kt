@@ -54,7 +54,7 @@ interface APathGateway<
 
     suspend fun file(path: P, readWrite: Boolean): FileHandle
 
-    suspend fun delete(path: P)
+    suspend fun delete(path: P, recursive: Boolean)
 
     suspend fun createSymlink(linkPath: P, targetPath: P): Boolean
 

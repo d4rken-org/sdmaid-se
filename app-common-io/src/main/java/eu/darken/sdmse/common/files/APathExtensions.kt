@@ -107,13 +107,18 @@ suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APat
     return this
 }
 
-suspend fun <T : APath> T.delete(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>) {
-    gateway.delete(this)
-    log(VERBOSE) { "APath.delete(): Deleted $this" }
+suspend fun <T : APath> T.delete(
+    gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>,
+    recursive: Boolean = false,
+) {
+    gateway.delete(
+        this,
+        recursive = recursive
+    )
+    log(VERBOSE) { "APath.delete(recursive=$recursive): Deleted $this" }
 }
 
-// TODO move this into the gateways?
-suspend fun <T : APath> T.deleteAll(
+suspend fun <T : APath> T.deleteWalk(
     gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>,
     filter: (APathLookup<*>) -> Boolean = { true }
 ) {
@@ -122,7 +127,7 @@ suspend fun <T : APath> T.deleteAll(
 
         if (lookup.isDirectory) {
             gateway.listFiles(this).forEach {
-                it.deleteAll(gateway, filter) // Recursion enter
+                it.deleteWalk(gateway, filter) // Recursion enter
             }
         }
 
@@ -141,7 +146,7 @@ suspend fun <T : APath> T.deleteAll(
     }
 
     // Recursion exit
-    this.delete(gateway)
+    this.delete(gateway, recursive = false)
 }
 
 suspend fun <T : APath> T.file(

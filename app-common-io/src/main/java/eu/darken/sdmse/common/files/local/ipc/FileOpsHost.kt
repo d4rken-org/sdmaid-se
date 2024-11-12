@@ -201,11 +201,13 @@ class FileOpsHost @Inject constructor(
         throw e.wrapToPropagate()
     }
 
-    override fun delete(path: LocalPath): Boolean = try {
-        if (Bugs.isTrace) log(TAG, VERBOSE) { "exists($path)..." }
-        path.asFile().delete()
+    override fun delete(path: LocalPath, recursive: Boolean): Boolean = try {
+        log(TAG, VERBOSE) { "delete($path,=recursive$recursive)..." }
+        path.asFile().run {
+            if (recursive) deleteRecursively() else delete()
+        }
     } catch (e: Exception) {
-        log(TAG, ERROR) { "delete(path=$path) failed\n${e.asLog()}" }
+        log(TAG, ERROR) { "delete(path=$path,recursive=$recursive) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()
     }
 
@@ -239,12 +241,6 @@ class FileOpsHost @Inject constructor(
     } catch (e: Exception) {
         log(TAG, ERROR) { "setModifiedAt(path=$path, ownership=$ownership) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()
-    }
-
-    // Not all exception can be passed through the binder
-    // See Parcel.writeException(...)
-    private fun wrapPropagating(e: Exception): Exception {
-        return if (e is RuntimeException) e else RuntimeException(e)
     }
 
     companion object {

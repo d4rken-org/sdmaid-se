@@ -1,7 +1,5 @@
 package eu.darken.sdmse.common.files
 
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.flow.Flow
 import okio.FileHandle
 
@@ -30,16 +28,17 @@ suspend fun <P : APath, PL : APathLookup<P>> PL.exists(
 ): Boolean = lookedUp.exists(gateway)
 
 suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>> PL.delete(
-    gateway: APathGateway<P, PL, PLE>
-) {
-    lookedUp.delete(gateway)
-    log(VERBOSE) { "APath.delete(): Deleted $this" }
-}
+    gateway: APathGateway<P, PL, PLE>,
+    recursive: Boolean = false,
+) = lookedUp.delete(
+    gateway,
+    recursive = recursive
+)
 
-suspend fun <P : APath, PL : APathLookup<P>> PL.deleteAll(
+suspend fun <P : APath, PL : APathLookup<P>> PL.deletewalk(
     gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>,
     filter: (APathLookup<*>) -> Boolean = { true }
-) = lookedUp.deleteAll(gateway, filter)
+) = lookedUp.deleteWalk(gateway, filter)
 
 suspend fun <P : APath, PL : APathLookup<P>> PL.file(
     gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>,

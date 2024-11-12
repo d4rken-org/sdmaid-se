@@ -129,8 +129,8 @@ class FileOpsClient @AssistedInject constructor(
         throw e.unwrapPropagation()
     }
 
-    fun delete(path: LocalPath): Boolean = try {
-        fileOpsConnection.delete(path)
+    fun delete(path: LocalPath, recursive: Boolean): Boolean = try {
+        fileOpsConnection.delete(path, recursive)
     } catch (e: Exception) {
         throw e.unwrapPropagation()
     }

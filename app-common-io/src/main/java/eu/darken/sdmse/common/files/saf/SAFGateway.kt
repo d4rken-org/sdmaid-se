@@ -158,21 +158,44 @@ class SAFGateway @Inject constructor(
         }
     }
 
-    override suspend fun delete(path: SAFPath) = runIO {
-        try {
-            val docFile = findDocFile(path)
-            log(TAG, VERBOSE) { "delete(): $path -> $docFile" }
+    suspend fun delete(path: SAFPath) = delete(path, recursive = false)
 
-            var success = docFile.delete()
+    override suspend fun delete(path: SAFPath, recursive: Boolean) = runIO {
 
-            if (!success) {
-                success = !docFile.exists
-                if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
+        log(TAG, VERBOSE) { "delete(recursive=$recursive): $path" }
+
+        val queue = LinkedList(listOf(lookup(path)))
+
+        while (!queue.isEmpty()) {
+            val lookUp = queue.removeFirst()
+
+            if (lookUp.isDirectory) {
+                val newBatch = try {
+                    lookupFiles(lookUp.lookedUp)
+                } catch (e: IOException) {
+                    log(TAG, ERROR) { "Failed to read directory to delete $lookUp: $e" }
+                    throw ReadException(path = path, cause = e)
+                }
+                queue.addAll(newBatch)
+            } else {
+                var success = try {
+                    lookUp.docFile.delete()
+                } catch (e: Exception) {
+                    throw WriteException(path = path, cause = e)
+                }
+
+                if (!success) {
+                    success = try {
+                        !lookUp.docFile.exists
+                    } catch (e: IOException) {
+                        log(TAG, ERROR) { "Failed to perform exists() check $lookUp: $e" }
+                        throw ReadException(path = path, cause = e)
+                    }
+                    if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
+                }
+
+                if (!success) throw IOException("Document delete() call returned false")
             }
-
-            if (!success) throw IOException("Document delete() call returned false")
-        } catch (e: Exception) {
-            throw WriteException(path = path, cause = e)
         }
     }
 

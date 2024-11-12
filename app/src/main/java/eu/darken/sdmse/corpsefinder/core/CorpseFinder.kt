@@ -16,7 +16,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.WriteException
-import eu.darken.sdmse.common.files.deleteAll
+import eu.darken.sdmse.common.files.delete
 import eu.darken.sdmse.common.files.filterDistinctRoots
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.matches
@@ -288,13 +288,10 @@ class CorpseFinder @Inject constructor(
                             )
                         })
                         log(TAG) { "Deleting $targetContent..." }
+                        updateProgressSecondary(targetContent.userReadablePath)
                         try {
-                            targetContent.deleteAll(gatewaySwitch) {
-                                updateProgressSecondary(it.userReadablePath)
-                                true
-                            }
+                            targetContent.delete(gatewaySwitch, recursive = true)
                             log(TAG) { "Deleted $targetContent!" }
-
                             deleted.add(targetContent)
                         } catch (e: WriteException) {
                             log(TAG, WARN) { "Deletion failed for $targetContent: $e" }
@@ -312,7 +309,7 @@ class CorpseFinder @Inject constructor(
                 log(TAG) { "Deleting $targetCorpse..." }
                 updateProgressSecondary(corpse.lookup.userReadablePath)
                 try {
-                    corpse.lookup.deleteAll(gatewaySwitch)
+                    corpse.lookup.delete(gatewaySwitch, recursive = true)
                     log(TAG) { "Deleted $targetCorpse!" }
                     deletedCorpses.add(corpse)
                 } catch (e: WriteException) {
