@@ -753,11 +753,16 @@ class LocalGateway @Inject constructor(
                 mode == Mode.NORMAL || mode == Mode.AUTO && normalCanWrite -> {
                     log(TAG, VERBOSE) { "delete($mode->NORMAL): $path" }
 
-                    var success = if (Bugs.isDryRun) {
-                        log(TAG, INFO) { "DRYRUN: Not deleting $javaFile" }
-                        javaFile.canWrite()
-                    } else {
-                        javaFile.run { if (recursive) deleteRecursively() else delete() }
+                    var success = javaFile.run {
+                        when {
+                            Bugs.isDryRun -> {
+                                log(TAG, INFO) { "DRYRUN: Not deleting $javaFile" }
+                                javaFile.canWrite()
+                            }
+
+                            recursive -> deleteRecursively()
+                            else -> delete()
+                        }
                     }
 
                     if (!success) {
@@ -792,12 +797,8 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "delete($mode->ROOT): $path" }
                     rootOps {
-                        var success = if (Bugs.isDryRun) {
-                            log(TAG, INFO) { "DRYRUN: Not deleting (root) $javaFile" }
-                            it.canWrite(path)
-                        } else {
-                            it.delete(path, recursive = true)
-                        }
+                        if (Bugs.isDryRun) log(TAG, INFO) { "DRYRUN: Not deleting (root) $javaFile" }
+                        var success = it.delete(path, recursive = true, dryRun = Bugs.isDryRun)
 
                         if (!success) {
                             // TODO We could move this into the root service for better performance?
@@ -814,12 +815,9 @@ class LocalGateway @Inject constructor(
                 hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "delete($mode->ADB): $path" }
                     adbOps {
-                        var success = if (Bugs.isDryRun) {
-                            log(TAG, INFO) { "DRYRUN: Not deleting (adb) $javaFile" }
-                            it.canWrite(path)
-                        } else {
-                            it.delete(path, recursive = true)
-                        }
+                        if (Bugs.isDryRun) log(TAG, INFO) { "DRYRUN: Not deleting (adb) $javaFile" }
+                        var success = it.delete(path, recursive = true, dryRun = Bugs.isDryRun)
+
 
                         if (!success) {
                             // TODO We could move this into the ADB service for better performance?
