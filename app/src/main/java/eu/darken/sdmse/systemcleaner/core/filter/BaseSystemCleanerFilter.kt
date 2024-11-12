@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter
 
 import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.deleteAll
+import eu.darken.sdmse.common.files.delete
 import eu.darken.sdmse.common.files.filterDistinctRoots
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
@@ -29,7 +29,7 @@ abstract class BaseSystemCleanerFilter : SystemCleanerFilter {
         .also { updateProgressCount(Progress.Count.Percent(it.size)) }
         .forEach { targetContent ->
             updateProgressPrimary(targetContent.userReadablePath)
-            targetContent.deleteAll(gatewaySwitch)
+            targetContent.delete(gatewaySwitch, recursive = true)
             increaseProgress()
         }
 }

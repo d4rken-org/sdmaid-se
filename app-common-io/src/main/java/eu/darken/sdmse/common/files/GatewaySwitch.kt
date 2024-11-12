@@ -182,8 +182,8 @@ class GatewaySwitch @Inject constructor(
         return useGateway(path) { file(path, readWrite) }
     }
 
-    override suspend fun delete(path: APath) {
-        return useGateway(path) { delete(path) }
+    override suspend fun delete(path: APath, recursive: Boolean) {
+        return useGateway(path) { delete(path, recursive = recursive) }
     }
 
     override suspend fun createSymlink(linkPath: APath, targetPath: APath): Boolean {

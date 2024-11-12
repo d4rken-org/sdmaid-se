@@ -715,9 +715,17 @@ class LocalGateway @Inject constructor(
         }
     }
 
-    override suspend fun delete(path: LocalPath) = delete(path, Mode.AUTO)
+    override suspend fun delete(path: LocalPath, recursive: Boolean) = delete(
+        path,
+        recursive = recursive,
+        mode = Mode.AUTO
+    )
 
-    suspend fun delete(path: LocalPath, mode: Mode = Mode.AUTO): Unit = runIO {
+    suspend fun delete(
+        path: LocalPath,
+        recursive: Boolean = false,
+        mode: Mode = Mode.AUTO
+    ): Unit = runIO {
         try {
             val javaFile = path.asFile()
 
@@ -749,7 +757,7 @@ class LocalGateway @Inject constructor(
                         log(TAG, INFO) { "DRYRUN: Not deleting $javaFile" }
                         javaFile.canWrite()
                     } else {
-                        javaFile.delete()
+                        javaFile.run { if (recursive) deleteRecursively() else delete() }
                     }
 
                     if (!success) {
@@ -764,7 +772,7 @@ class LocalGateway @Inject constructor(
 
                     if (!success) {
                         if (mode == Mode.AUTO && hasRoot()) {
-                            delete(path, Mode.ROOT)
+                            delete(path, recursive = recursive, mode = Mode.ROOT)
                             return@runIO
                         } else {
                             throw IOException("delete() call returned false")
@@ -773,7 +781,7 @@ class LocalGateway @Inject constructor(
 
                     if (!success) {
                         if (mode == Mode.AUTO && hasShizuku()) {
-                            delete(path, Mode.ADB)
+                            delete(path, recursive = recursive, mode = Mode.ADB)
                             return@runIO
                         } else {
                             throw IOException("delete() call returned false")
@@ -788,7 +796,7 @@ class LocalGateway @Inject constructor(
                             log(TAG, INFO) { "DRYRUN: Not deleting (root) $javaFile" }
                             it.canWrite(path)
                         } else {
-                            it.delete(path)
+                            it.delete(path, recursive = true)
                         }
 
                         if (!success) {
@@ -810,7 +818,7 @@ class LocalGateway @Inject constructor(
                             log(TAG, INFO) { "DRYRUN: Not deleting (adb) $javaFile" }
                             it.canWrite(path)
                         } else {
-                            it.delete(path)
+                            it.delete(path, recursive = true)
                         }
 
                         if (!success) {

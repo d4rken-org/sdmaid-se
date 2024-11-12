@@ -10,7 +10,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.PathException
-import eu.darken.sdmse.common.files.deleteAll
+import eu.darken.sdmse.common.files.delete
 import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.filterDistinctRoots
 import eu.darken.sdmse.common.files.isAncestorOf
@@ -54,7 +54,7 @@ abstract class BaseExpendablesFilter : ExpendablesFilter {
             val main = targets.first { it.lookup == targetRoot }
 
             val mainDeleted = try {
-                targetRoot.deleteAll(gatewaySwitch)
+                targetRoot.delete(gatewaySwitch, recursive = true)
                 log(TAG) { "Main match deleted: $main" }
                 true
             } catch (oge: PathException) {

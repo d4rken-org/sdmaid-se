@@ -21,7 +21,7 @@ interface FileOpsConnection {
 
     boolean exists(in LocalPath path);
 
-    boolean delete(in LocalPath path);
+    boolean delete(in LocalPath path, boolean recursive);
 
     RemoteInputStream listFilesStream(in LocalPath path);
 

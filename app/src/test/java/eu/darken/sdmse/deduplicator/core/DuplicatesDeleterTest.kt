@@ -20,7 +20,7 @@ import testhelpers.BaseTest
 class DuplicatesDeleterTest : BaseTest() {
 
     private val gatewaySwitch: GatewaySwitch = mockk<GatewaySwitch>().apply {
-        coEvery { delete(any()) } returns Unit
+        coEvery { delete(any(), any()) } returns Unit
     }
     private val arbiter: DuplicatesArbiter = mockk<DuplicatesArbiter>().apply {
         coEvery { decideGroups(any()) } answers {
