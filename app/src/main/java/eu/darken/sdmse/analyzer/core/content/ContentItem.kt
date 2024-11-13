@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.core.content
 
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
@@ -23,6 +24,12 @@ data class ContentItem(
         }
 
         else -> null
+    }
+
+    override fun toString(): String = if (Bugs.isTrace) {
+        super.toString()
+    } else {
+        "ContentItem($path, $itemSize, $type, ${children.size} items, $inaccessible)"
     }
 
     companion object {
