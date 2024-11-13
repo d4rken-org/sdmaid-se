@@ -3,11 +3,15 @@ package eu.darken.sdmse.common
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.util.TypedValue
-import androidx.annotation.*
+import androidx.annotation.AttrRes
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.annotation.PluralsRes
 import androidx.core.content.ContextCompat
 import eu.darken.sdmse.common.debug.logging.log
 import okio.Source
@@ -78,3 +82,5 @@ fun Context.getSpanCount(widthDp: Int = 390): Int {
         log { "getSpanCount($screenWidthDp/$widthDp)=$it" }
     }
 }
+
+fun Context.getPackageInfo(): PackageInfo = packageManager.getPackageInfo(packageName, 0)
