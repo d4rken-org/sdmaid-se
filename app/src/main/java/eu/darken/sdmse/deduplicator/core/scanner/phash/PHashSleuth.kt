@@ -63,6 +63,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.isActive
 import java.io.IOException
+import java.util.LinkedList
 import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Provider
@@ -194,7 +195,7 @@ class PHashSleuth @Inject constructor(
             .toMap()
 
         val requiredSim = 0.95f
-        val remainingItems = hashedItems.keys.toMutableList()
+        val remainingItems = LinkedList(hashedItems.keys)
         val hashBuckets = mutableSetOf<Set<Pair<APathLookup<*>, Double>>>()
 
         updateProgressCount(Progress.Count.Percent(remainingItems.size))

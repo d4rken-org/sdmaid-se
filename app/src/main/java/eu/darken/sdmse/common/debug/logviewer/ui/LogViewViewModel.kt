@@ -8,8 +8,10 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.logviewer.core.LogViewLogger
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.uix.ViewModel3
-import eu.darken.sdmse.main.ui.dashboard.items.*
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
+import java.util.LinkedList
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,7 +21,7 @@ class LogViewViewModel @Inject constructor(
     private val logViewLogger: LogViewLogger,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val currentLog = mutableListOf<LogViewerAdapter.LogViewerRow.Item>()
+    private val currentLog = LinkedList<LogViewerAdapter.LogViewerRow.Item>()
 
     val log = logViewLogger.lines
         .map {
