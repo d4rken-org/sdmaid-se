@@ -29,7 +29,7 @@ class DirectLocalWalker(
             return
         }
 
-        val queue = LinkedList(listOf(startLookUp))
+        val queue = LinkedList(mutableListOf(startLookUp))
 
         while (!queue.isEmpty()) {
             val lookUp = queue.removeFirst()
