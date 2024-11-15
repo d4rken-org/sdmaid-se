@@ -117,7 +117,7 @@ class Theming @Inject constructor(
 
         ThemeStyle.MATERIAL_YOU -> {
             // We don't use DynamicColors.applyToActivitiesIfAvailable() because we can't remove it again
-            activities.forEach { activity ->
+            this@Theming.activities.forEach { activity ->
                 log(TAG) { "Applying MATERIAL_YOU to $activity" }
                 DynamicColors.applyToActivityIfAvailable(activity)
             }

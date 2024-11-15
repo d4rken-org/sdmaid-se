@@ -2,6 +2,7 @@ package eu.darken.sdmse.main.ui
 
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,6 +36,7 @@ class MainActivity : Activity2() {
         super.onCreate(savedInstanceState)
 
         val splashScreen = installSplashScreen()
+        enableEdgeToEdge()
         theming.notifySplashScreenDone(this)
         splashScreen.setKeepOnScreenCondition { showSplashScreen && savedInstanceState == null }
 

@@ -42,7 +42,13 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdge().apply {
             topHalf(ui.list)
+            bottomHalf(ui.mainAction)
         }
+
+//        WindowCompat. getInsetsController(activity!!.window, ui.root).apply {
+//            isAppearanceLightStatusBars = true
+//            isAppearanceLightNavigationBars = false
+//        }
 
         ui.list.apply {
             setupDefaults(
