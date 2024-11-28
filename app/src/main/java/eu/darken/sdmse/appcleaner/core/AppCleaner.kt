@@ -52,6 +52,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -231,11 +232,16 @@ class AppCleaner @Inject constructor(
                             ?: throw IllegalStateException("Can't find filter for $filterIdentifier")
 
                         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading)
-
+                        val currentProgress = progress.first()
                         filter.withProgress(
                             client = this,
-                            onUpdate = { old, new -> old?.copy(secondary = new?.primary ?: CaString.EMPTY) },
-                            onCompletion = { it }
+                            onUpdate = { old, new ->
+                                old?.copy(
+                                    secondary = new?.primary ?: CaString.EMPTY,
+                                    count = new?.count ?: Progress.Count.Indeterminate(),
+                                )
+                            },
+                            onCompletion = { currentProgress }
                         ) {
                             val result = process(targets, allMatches)
                             log(TAG, INFO) {
