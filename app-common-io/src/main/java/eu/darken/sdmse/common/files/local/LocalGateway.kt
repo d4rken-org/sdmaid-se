@@ -798,17 +798,8 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "delete($mode->ROOT): $path" }
                     rootOps {
                         if (Bugs.isDryRun) log(TAG, INFO) { "DRYRUN: Not deleting (root) $javaFile" }
-                        var success = it.delete(path, recursive = true, dryRun = Bugs.isDryRun)
-
-                        if (!success) {
-                            // TODO We could move this into the root service for better performance?
-                            success = !it.exists(path)
-                            if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
-                        }
-
-                        if (!success) {
-                            throw IOException("Root delete() call returned false")
-                        }
+                        val success = it.delete(path, recursive = true, dryRun = Bugs.isDryRun)
+                        if (!success) throw IOException("Root delete() call returned false")
                     }
                 }
 
@@ -816,15 +807,7 @@ class LocalGateway @Inject constructor(
                     log(TAG, VERBOSE) { "delete($mode->ADB): $path" }
                     adbOps {
                         if (Bugs.isDryRun) log(TAG, INFO) { "DRYRUN: Not deleting (adb) $javaFile" }
-                        var success = it.delete(path, recursive = true, dryRun = Bugs.isDryRun)
-
-
-                        if (!success) {
-                            // TODO We could move this into the ADB service for better performance?
-                            success = !it.exists(path)
-                            if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
-                        }
-
+                        val success = it.delete(path, recursive = true, dryRun = Bugs.isDryRun)
                         if (!success) throw IOException("ADB delete() call returned false")
                     }
                 }

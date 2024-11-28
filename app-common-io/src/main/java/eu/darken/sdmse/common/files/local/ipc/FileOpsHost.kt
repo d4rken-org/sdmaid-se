@@ -203,13 +203,20 @@ class FileOpsHost @Inject constructor(
 
     override fun delete(path: LocalPath, recursive: Boolean, dryRun: Boolean): Boolean = try {
         log(TAG, VERBOSE) { "delete($path,recursive=$recursive,dryRun=$dryRun)..." }
-        path.asFile().run {
-            when {
-                dryRun -> canWrite()
-                recursive -> deleteRecursively()
-                else -> delete()
-            }
+        val javaFile = path.asFile()
+
+        var success = when {
+            dryRun -> javaFile.canWrite()
+            recursive -> javaFile.deleteRecursively()
+            else -> javaFile.delete()
         }
+
+        if (!success) {
+            success = !javaFile.exists()
+            if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
+        }
+
+        success
     } catch (e: Exception) {
         log(TAG, ERROR) { "delete(path=$path,recursive=$recursive,dryRun=$dryRun) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()
