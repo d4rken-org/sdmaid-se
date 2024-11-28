@@ -41,6 +41,7 @@ abstract class BaseExpendablesFilter : ExpendablesFilter {
         val successful = mutableSetOf<ExpendablesFilter.Match>()
         val failed = mutableSetOf<Pair<ExpendablesFilter.Match, Exception>>()
 
+        log(TAG, VERBOSE) { "Checking distinct roots..." }
         val distinctRoots = targets.map { it.lookup }.filterDistinctRoots()
 
         if (distinctRoots.size != targets.size) {
@@ -52,9 +53,11 @@ abstract class BaseExpendablesFilter : ExpendablesFilter {
             }
         }
 
+        log(TAG) { "Got ${distinctRoots.size} distinct roots" }
         updateProgressCount(Progress.Count.Percent(distinctRoots.size))
 
         distinctRoots.forEach { targetRoot ->
+            log(TAG) { "Processing root: $targetRoot" }
             updateProgressPrimary(targetRoot.userReadablePath)
             val main = targets.first { it.lookup == targetRoot }
 
