@@ -83,13 +83,14 @@ fun LocalPath.performLookupExtended(
 }
 
 fun LocalPath.isAncestorOf(child: LocalPath): Boolean {
-    val parentPath = this.asFile().absolutePath
-    val childPath = child.asFile().absolutePath
+    val parentPath = this.asFile().path
+    val childPath = child.asFile().path
 
-    return when (parentPath) {
-        childPath -> false
-        File.separator -> childPath.startsWith(parentPath)
-        else -> childPath.startsWith(parentPath + File.separator)
+    return when {
+        parentPath.length >= childPath.length -> false
+        !childPath.startsWith(parentPath) -> false
+        parentPath == File.separator -> true
+        else -> childPath[parentPath.length] == File.separatorChar
     }
 }
 
