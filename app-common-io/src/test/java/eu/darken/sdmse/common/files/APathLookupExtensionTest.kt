@@ -142,4 +142,18 @@ class APathLookupExtensionTest : BaseTest() {
             lookup4
         )
     }
+
+    @Test fun `filterDistinctRoots performance`() {
+        val targets = mutableSetOf<LocalPathLookup>()
+        (1..8000).forEach {
+            LocalPathLookup(
+                lookedUp = LocalPath.build("parentA", "parentB", "file$it"),
+                fileType = FileType.FILE,
+                size = 0,
+                modifiedAt = Instant.EPOCH,
+                target = null,
+            ).run { targets.add(this) }
+        }
+        targets.filterDistinctRoots().size shouldBe 8000
+    }
 }
