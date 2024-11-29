@@ -4,9 +4,7 @@ import android.content.pm.PackageInfo
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -15,7 +13,6 @@ import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.user.UserHandle2
-import kotlinx.coroutines.delay
 
 class PkgOpsClient @AssistedInject constructor(
     @Assisted private val connection: PkgOpsConnection
@@ -53,42 +50,24 @@ class PkgOpsClient @AssistedInject constructor(
         }
     }
 
-    suspend fun clearCache(installId: Installed.InstallId): Boolean = try {
-        if (Bugs.isDryRun) {
-            log(TAG, INFO) { "DRYRUN: not executing clearCache($installId)" }
-            delay(50)
-            true
-        } else {
-            connection.clearCacheAsUser(installId.pkgId.name, installId.userHandle.handleId)
-        }
+    suspend fun clearCache(installId: Installed.InstallId, dryRun: Boolean): Boolean = try {
+        connection.clearCacheAsUser(installId.pkgId.name, installId.userHandle.handleId, dryRun)
     } catch (e: Exception) {
         throw e.unwrapPropagation().also {
             log(TAG, ERROR) { "clearCache(installId=$installId) failed: ${it.asLog()}" }
         }
     }
 
-    suspend fun clearCache(pkgId: Pkg.Id): Boolean = try {
-        if (Bugs.isDryRun) {
-            log(TAG, INFO) { "DRYRUN: not executing clearCache($pkgId)" }
-            delay(50)
-            true
-        } else {
-            connection.clearCache(pkgId.name)
-        }
+    suspend fun clearCache(pkgId: Pkg.Id, dryRun: Boolean): Boolean = try {
+        connection.clearCache(pkgId.name, dryRun)
     } catch (e: Exception) {
         throw e.unwrapPropagation().also {
             log(TAG, ERROR) { "clearCache(pkgId=$pkgId) failed: ${it.asLog()}" }
         }
     }
 
-    suspend fun trimCaches(desiredBytes: Long, storageId: String? = null): Boolean = try {
-        if (Bugs.isDryRun) {
-            log(TAG, INFO) { "DRYRUN: not executing trimCaches($desiredBytes, $storageId)" }
-            delay(2000)
-            true
-        } else {
-            connection.trimCaches(desiredBytes, storageId)
-        }
+    suspend fun trimCaches(desiredBytes: Long, storageId: String? = null, dryRun: Boolean): Boolean = try {
+        connection.trimCaches(desiredBytes, storageId, dryRun)
     } catch (e: Exception) {
         throw e.unwrapPropagation().also {
             log(TAG, ERROR) { "trimCaches(desiredBytes=$desiredBytes, storageId=$storageId) failed: ${it.asLog()}" }

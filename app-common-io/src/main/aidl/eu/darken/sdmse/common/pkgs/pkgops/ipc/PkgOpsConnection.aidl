@@ -13,11 +13,11 @@ interface PkgOpsConnection {
 
     boolean forceStop(String packageName);
 
-    boolean clearCacheAsUser(String packageName, int handleId);
+    boolean clearCacheAsUser(String packageName, int handleId, boolean dryRun);
 
-    boolean clearCache(String packageName);
+    boolean clearCache(String packageName, boolean dryRun);
 
-    boolean trimCaches(long desiredBytes, String storageId);
+    boolean trimCaches(long desiredBytes, String storageId, boolean dryRun);
 
     List<PackageInfo> getInstalledPackagesAsUser(long flags, int handleId);
 

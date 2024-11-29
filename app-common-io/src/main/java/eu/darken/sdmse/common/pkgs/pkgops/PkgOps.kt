@@ -19,6 +19,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.ModeUnavailableException
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -310,7 +311,7 @@ class PkgOps @Inject constructor(
 
             if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
                 log(TAG) { "clearCache($id, $mode->ROOT)" }
-                rootOps { it.clearCache(id) }
+                rootOps { it.clearCache(id, dryRun = Bugs.isDryRun) }
                 return
             }
 
@@ -325,20 +326,24 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun trimCaches(desiredBytes: Long, storageId: String? = null, mode: Mode = Mode.AUTO) {
+    suspend fun trimCaches(
+        desiredBytes: Long,
+        storageId: String? = null,
+        mode: Mode = Mode.AUTO,
+    ) {
         log(TAG) { "trimCaches($desiredBytes, $storageId, $mode)" }
         try {
             if (mode == Mode.NORMAL) throw PkgOpsException("trimCaches($storageId) does not support mode=NORMAL")
 
             if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
                 log(TAG) { "trimCaches($desiredBytes, $storageId, $mode->ADB)" }
-                adbOps { it.trimCaches(desiredBytes, storageId) }
+                adbOps { it.trimCaches(desiredBytes, storageId, dryRun = Bugs.isDryRun) }
                 return
             }
 
             if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
                 log(TAG) { "trimCaches($desiredBytes, $storageId, $mode->ROOT)" }
-                rootOps { it.trimCaches(desiredBytes, storageId) }
+                rootOps { it.trimCaches(desiredBytes, storageId, dryRun = Bugs.isDryRun) }
                 return
             }
 
@@ -373,7 +378,7 @@ class PkgOps @Inject constructor(
                 val stat = stats.find { it.packageName == id.pkgId.name }
                 val secondsSinceLastUse = stat?.let { (System.currentTimeMillis() - it.lastTimeUsed) / 1000L }
                 log(TAG, VERBOSE) { "isRunning($id): ${secondsSinceLastUse}s" }
-                return secondsSinceLastUse?.let { it < PULSE_PERIOD_SECONDS } ?: false
+                return secondsSinceLastUse?.let { it < PULSE_PERIOD_SECONDS } == true
             }
 
             throw ModeUnavailableException("Mode $mode is unavailable")
