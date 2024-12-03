@@ -154,6 +154,7 @@ class StepProcessor @AssistedInject constructor(
                 }
 
                 if (step.windowNodeTest.invoke(currentRoot)) {
+                    log(TAG) { "Window root found: $currentRoot (spec=$step)" }
                     break
                 } else {
                     log(TAG) { "Not a viable root node: $currentRoot (spec=$step)" }
@@ -211,7 +212,7 @@ class StepProcessor @AssistedInject constructor(
 
         // Perform action, e.g. clicking a button
         log(TAG, VERBOSE) { "Performing action on $mappedNode" }
-        val success = step.action?.invoke(mappedNode, attempt) ?: true
+        val success = step.action?.invoke(mappedNode, attempt) != false
 
         if (success) {
             log(TAG) { "Crawl was successful :)" }
