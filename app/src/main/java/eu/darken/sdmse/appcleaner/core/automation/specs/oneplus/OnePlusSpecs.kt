@@ -32,11 +32,11 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
-import java.util.*
 import javax.inject.Inject
 
 @Reusable
@@ -97,15 +97,27 @@ class OnePlusSpecs @Inject constructor(
             val clearCacheButtonLabels =
                 onePlusLabels.getClearCacheDynamic() + onePlusLabels.getClearCacheStatic(lang, script)
 
-            val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isClickyButton()) return false
-                return node.textMatchesAny(clearCacheButtonLabels)
+            var isUnclickableButton = false
+            val buttonFilter = when {
+                hasApiLevel(34) -> fun(node: AccessibilityNodeInfo): Boolean {
+                    if (!node.textMatchesAny(clearCacheButtonLabels)) return false
+                    isUnclickableButton = !node.isClickyButton()
+                    return true
+                }
+
+                else -> fun(node: AccessibilityNodeInfo): Boolean {
+                    return node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
+                }
             }
 
             val step = StepProcessor.Step(
                 parentTag = tag,
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
+                nodeMapping = when {
+                    hasApiLevel(34) && isUnclickableButton -> clickableParent()
+                    else -> null
+                },
                 nodeTest = buttonFilter,
                 action = getAospClearCacheClick(pkg, tag)
             )
