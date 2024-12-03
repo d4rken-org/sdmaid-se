@@ -2,7 +2,6 @@ package eu.darken.sdmse.appcleaner.ui.settings
 
 import android.os.Bundle
 import android.text.format.DateUtils
-import android.text.format.Formatter
 import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
@@ -17,7 +16,6 @@ import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.databinding.AppcontrolSettingsAgeSettingDialogBinding
-import eu.darken.sdmse.databinding.ViewPreferenceSeekbarBinding
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.showFixSetupHint
 import java.time.Duration
@@ -46,40 +44,13 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
 
         findPreference<Preference>(settings.minCacheSizeBytes.keyName)?.apply {
             setOnPreferenceClickListener {
-                val dialogLayout = ViewPreferenceSeekbarBinding.inflate(layoutInflater, null, false)
-                dialogLayout.apply {
-                    slider.valueFrom = 0f
-                    slider.valueTo = 100 * 1024f
-                    slider.value = (settings.minCacheSizeBytes.valueBlocking / 1024f).coerceAtMost(slider.valueTo)
-
-                    val getSliderText = { value: Float ->
-                        val size = value.toLong() * 1024L
-                        Formatter.formatShortFileSize(requireContext(), size)
-                    }
-                    slider.setLabelFormatter { getSliderText(it) }
-                    sliderValue.text = getSliderText(slider.value)
-
-                    slider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
-                        override fun onStartTrackingTouch(slider: Slider) {
-                            sliderValue.text = getSliderText(slider.value)
-                        }
-
-                        override fun onStopTrackingTouch(slider: Slider) {
-                            sliderValue.text = getSliderText(slider.value)
-                        }
-                    })
-                }
-                MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.appcleaner_include_minimumsize_label)
-                    setView(dialogLayout.root)
-                    setPositiveButton(eu.darken.sdmse.common.R.string.general_save_action) { _, _ ->
-                        settings.minCacheSizeBytes.valueBlocking = dialogLayout.slider.value.toLong() * 1024L
-                    }
-                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                    setNeutralButton(eu.darken.sdmse.common.R.string.general_reset_action) { _, _ ->
-                        settings.minCacheSizeBytes.valueBlocking = AppCleanerSettings.MIN_CACHE_SIZE_DEFAULT
-                    }
-                }.show()
+                SizeInputDialog(
+                    requireActivity(),
+                    titleRes = R.string.appcleaner_include_minimumsize_label,
+                    currentSize = settings.minCacheSizeBytes.valueBlocking,
+                    onReset = { settings.minCacheSizeBytes.valueBlocking = AppCleanerSettings.MIN_CACHE_SIZE_DEFAULT },
+                    onSave = { settings.minCacheSizeBytes.valueBlocking = it }
+                ).show()
                 true
             }
         }
