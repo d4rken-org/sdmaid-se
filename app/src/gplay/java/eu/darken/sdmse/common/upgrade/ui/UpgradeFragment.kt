@@ -10,6 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdge
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.uix.Fragment3
@@ -24,6 +25,11 @@ class UpgradeFragment : Fragment3(R.layout.upgrade_fragment) {
     override val ui: UpgradeFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdge().apply {
+            topHalf(ui.toolbar)
+            bottomHalf(ui.scrollView)
+        }
+
         ui.toolbar.setupWithNavController(findNavController())
 
         vm.state.observe2(ui) { state ->

@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdge
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -34,6 +35,11 @@ class PkgExclusionFragment : Fragment3(R.layout.exclusion_editor_pkg_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdge().apply {
+            topHalf(ui.toolbar)
+            bottomHalf(ui.scrollView)
+        }
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             setNavigationOnClickListener { vm.cancel() }

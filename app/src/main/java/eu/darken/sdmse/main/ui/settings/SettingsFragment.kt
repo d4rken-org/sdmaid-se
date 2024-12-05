@@ -9,6 +9,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdge
 import eu.darken.sdmse.common.uix.Fragment2
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SettingsFragmentBinding
@@ -45,6 +46,7 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
                         screenTitle = getString(eu.darken.sdmse.common.R.string.general_settings_title)
                     )
                 }
+
                 else -> {
                     // We added the current fragment to the stack, the new fragment's infos were already set, do nothing.
                     null
@@ -67,6 +69,11 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
                 screens.addAll(it)
             }
             screens.lastOrNull()?.let { setCurrentScreenInfo(it) }
+        }
+
+        EdgeToEdge().apply {
+            topHalf(ui.toolbar)
+            bottomHalf(ui.contentFrame)
         }
 
         ui.toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }

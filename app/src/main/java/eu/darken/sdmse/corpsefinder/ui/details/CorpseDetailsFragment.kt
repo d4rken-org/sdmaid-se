@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdge
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.CorpsefinderDetailsFragmentBinding
@@ -21,6 +22,10 @@ class CorpseDetailsFragment : Fragment3(R.layout.corpsefinder_details_fragment) 
     override val ui: CorpsefinderDetailsFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdge().apply {
+            topHalf(ui.toolbar)
+        }
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             setOnMenuItemClickListener {
