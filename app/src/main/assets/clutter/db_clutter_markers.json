@@ -12592,5 +12592,8 @@
 }, {
   "pkgs": ["com.mi.android.globalFileexplorer"],
   "mrks": [{"loc": "SDCARD", "path": "FileExplorer", "flags": ["common", "keeper"]}]
+}, {
+  "pkgs": ["com.miui.screenshot"],
+  "mrks": [{"loc": "SDCARD", "path": "DCIM/Screenshots", "flags": ["keeper", "common"]}]
 }
 ]
