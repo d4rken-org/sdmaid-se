@@ -16,6 +16,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdge
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.getQuantityString2
@@ -46,6 +47,11 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdge().apply {
+            topHalf(ui.toolbar)
+            bottomHalf(ui.list)
+        }
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             setNavigationOnClickListener { vm.onNavigateBack() }

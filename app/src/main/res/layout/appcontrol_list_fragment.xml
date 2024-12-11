@@ -36,15 +36,15 @@
                 style="@style/BaseRecyclerList"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:contentDescription="Appcontrol apps"
-                tools:ignore="HardcodedText"
                 android:clipToPadding="false"
+                android:contentDescription="Appcontrol apps"
                 android:paddingVertical="4dp"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText"
                 tools:listitem="@layout/appcleaner_list_item"
                 tools:visibility="visible" />
 
@@ -310,15 +310,24 @@
 
     </androidx.drawerlayout.widget.DrawerLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <FrameLayout
+        android:id="@+id/refresh_action_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/general_refresh_action"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/refresh_action"
         style="@style/Widget.Material3.FloatingActionButton.Primary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
         android:contentDescription="@string/general_refresh_action"
-        android:src="@drawable/ic_baseline_refresh_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            android:src="@drawable/ic_baseline_refresh_24" />
+
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

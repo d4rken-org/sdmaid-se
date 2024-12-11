@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdge
 import eu.darken.sdmse.common.lists.ViewHolderBasedDivider
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
@@ -42,6 +43,10 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
         get() = requireParentFragment().requireView().findViewById(R.id.viewpager)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdge().apply {
+            bottomHalf(ui.list)
+        }
+
         val adapter = CorpseElementsAdapter()
         ui.list.apply {
             setupDefaults(adapter, verticalDividers = false)

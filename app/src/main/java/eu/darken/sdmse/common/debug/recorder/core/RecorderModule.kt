@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity
 import eu.darken.sdmse.common.flow.DynamicStateFlow
+import eu.darken.sdmse.common.getPackageInfo
 import eu.darken.sdmse.common.startServiceCompat
 import eu.darken.sdmse.main.core.CurriculumVitae
 import kotlinx.coroutines.CoroutineScope
@@ -141,7 +142,7 @@ class RecorderModule @Inject constructor(
     }
 
     private suspend fun logInfos() {
-        val pkgInfo = context.packageManager.getPackageInfo(context.packageName, 0)!!
+        val pkgInfo = context.getPackageInfo()
         log(TAG, INFO) { "APILEVEL: ${BuildWrap.VERSION.SDK_INT}" }
         log(TAG, INFO) { "Build.FINGERPRINT: ${BuildWrap.FINGERPRINT}" }
         log(TAG, INFO) { "Build.MANUFACTOR: ${Build.MANUFACTURER}" }

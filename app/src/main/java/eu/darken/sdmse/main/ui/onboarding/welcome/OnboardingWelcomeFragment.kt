@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
+import eu.darken.sdmse.common.EdgeToEdge
 import eu.darken.sdmse.common.pkgs.getPackageInfo2
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.uix.Fragment3
@@ -20,6 +21,10 @@ class OnboardingWelcomeFragment : Fragment3(R.layout.onboarding_welcome_fragment
     override val ui: OnboardingWelcomeFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdge().apply {
+            whole(ui.root)
+        }
+
         ui.goAction.setOnClickListener {
             val legacySdm = requireContext().packageManager.getPackageInfo2("eu.thedarken.sdm".toPkgId(), 0)
             if (legacySdm != null) {

@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.coil
 
 import android.content.Context
+import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
 import coil.ImageLoader
@@ -69,7 +70,7 @@ class PathPreviewFetcher @Inject constructor(
                     .takeIf { it.canRead() }
                     ?.let { pacMan.getPackageArchiveInfo(it.path, PackageManager.GET_META_DATA) }
                     ?.let {
-                        it.applicationInfo.apply {
+                        (it.applicationInfo ?: ApplicationInfo()).apply {
                             sourceDir = file.path
                             publicSourceDir = file.path
                         }

@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.getPackageInfo
 import eu.darken.sdmse.main.core.CurriculumVitae
 import io.github.z4kn4fein.semver.Version
 import io.github.z4kn4fein.semver.VersionFormatException
@@ -23,7 +24,7 @@ class ReleaseManager @Inject constructor(
 ) {
 
     private val ourVersion: Version by lazy {
-        val versionName = context.packageManager.getPackageInfo(context.packageName, 0).versionName
+        val versionName = context.getPackageInfo().versionName!!
         try {
             Version.parse(versionName, strict = false).also { log(TAG) { "Current version is $it" } }
         } catch (e: VersionFormatException) {
