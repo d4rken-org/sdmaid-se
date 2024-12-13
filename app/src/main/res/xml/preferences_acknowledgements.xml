@@ -31,6 +31,15 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://twitter.com/maxpatchs" />
         </eu.darken.sdmse.common.preferences.IntentPreference>
+        <eu.darken.sdmse.common.preferences.IntentPreference
+            android:key="thanks.crowdin"
+            android:summary="For supporting translation of open-source projects"
+            android:title="crowdin.com"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://crowdin.com/" />
+        </eu.darken.sdmse.common.preferences.IntentPreference>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/settings_licenses_label"
