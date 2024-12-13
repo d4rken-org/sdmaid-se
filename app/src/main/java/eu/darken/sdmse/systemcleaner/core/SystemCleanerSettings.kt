@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
+import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -46,6 +47,9 @@ class SystemCleanerSettings @Inject constructor(
     val filterTombstonesEnabled = dataStore.createValue("filter.tombstones.enabled", false)
     val filterUsageStatsEnabled = dataStore.createValue("filter.usagestats.enabled", false)
 
+    val filterScreenshotsEnabled = dataStore.createValue("filter.screenshots.enabled", false)
+    val filterScreenshotsAge = dataStore.createValue("filter.screenshots.age", SCREENSHOTS_AGE_DEFAULT, moshi)
+
     val enabledCustomFilter = dataStore.createValue(
         "filter.custom.enabled",
         emptySet<FilterIdentifier>(),
@@ -57,6 +61,8 @@ class SystemCleanerSettings @Inject constructor(
         filterAdvertisementsEnabled,
         filterEmptyDirectoriesEnabled,
         filterSuperfluosApksEnabled,
+        filterScreenshotsEnabled,
+        filterScreenshotsAge,
         filterLostDirEnabled,
         filterLinuxFilesEnabled,
         filterMacFilesEnabled,
@@ -74,6 +80,7 @@ class SystemCleanerSettings @Inject constructor(
     )
 
     companion object {
+        val SCREENSHOTS_AGE_DEFAULT: Duration = Duration.ofDays(14)
         internal val TAG = logTag("SystemCleaner", "Settings")
     }
 }

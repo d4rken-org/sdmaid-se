@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
+import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -15,6 +16,7 @@ class SystemCleanerSettingsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     upgradeRepo: UpgradeRepo,
     systemCleaner: SystemCleaner,
+    private val settings: SystemCleanerSettings,
 ) : ViewModel3(dispatcherProvider) {
 
     val state = combine(
@@ -26,6 +28,8 @@ class SystemCleanerSettingsViewModel @Inject constructor(
             isPro = isPro,
         )
     }.asLiveData2()
+
+    val screenshotsAge = settings.filterScreenshotsAge.flow.asLiveData2()
 
     data class State(
         val areSystemFilterAvailable: Boolean,

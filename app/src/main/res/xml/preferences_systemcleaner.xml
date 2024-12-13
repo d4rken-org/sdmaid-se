@@ -19,8 +19,8 @@
             app:title="@string/systemcleaner_filter_logfiles_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_ads_click_24"
-            app:singleLineTitle="false"
             app:key="filter.advertisements.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_advertisements_summary"
             app:title="@string/systemcleaner_filter_advertisements_label" />
         <CheckBoxPreference
@@ -36,6 +36,19 @@
             app:summary="@string/systemcleaner_filter_superfluosapks_summary"
             app:title="@string/systemcleaner_filter_superfluosapks_label" />
         <CheckBoxPreference
+            app:icon="@drawable/ic_cellphone_screenshot_24"
+            app:key="filter.screenshots.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/systemcleaner_filter_screenshots_summary"
+            app:title="@string/systemcleaner_filter_screenshots_label" />
+        <Preference
+            app:icon="@drawable/ic_file_clock_outline_24"
+            app:key="filter.screenshots.age"
+            app:isPreferenceVisible="false"
+            app:singleLineTitle="false"
+            app:summary="@string/systemcleaner_filter_screenshots_age_summary"
+            app:title="@string/systemcleaner_filter_screenshots_age_label" />
+        <CheckBoxPreference
             app:icon="@drawable/ic_baseline_usb_24"
             app:key="filter.lostdir.enabled"
             app:singleLineTitle="false"
@@ -49,8 +62,8 @@
             app:title="@string/systemcleaner_filter_linuxfiles_label" />
         <CheckBoxPreference
             app:icon="@drawable/ic_os_mac"
-            app:singleLineTitle="false"
             app:key="filter.macfiles.enabled"
+            app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_macfiles_summary"
             app:title="@string/systemcleaner_filter_macfiles_label" />
         <CheckBoxPreference
