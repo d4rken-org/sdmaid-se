@@ -17,13 +17,16 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.isDirectory
+import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.*
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.Mode
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
@@ -174,7 +177,7 @@ class AdvertisementFilter @Inject constructor(
             pathRegexes = rawRegexes.map { Regex(it) }.toSet()
         )
         sieve = baseSieveFactory.create(config)
-        log(TAG) { "initialized()" }
+        log(TAG) { "initialized() with $config" }
     }
 
     override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {

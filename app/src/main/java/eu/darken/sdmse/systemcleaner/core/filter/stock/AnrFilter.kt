@@ -76,13 +76,11 @@ class AnrFilter @Inject constructor(
                 pathRegexes = regexPairs.map { Regex(it.second) }.toSet(),
             )
             sieve = baseSieveFactory.create(config)
+            log(TAG) { "initialized() with $config" }
         } else {
             log(TAG, WARN) { "Sieve is underdefined" }
         }
-
-        log(TAG) { "initialized()" }
     }
-
 
     override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
         if (sieve == null) log(TAG, INFO) { "Sieve is underdefined, skipping match" }

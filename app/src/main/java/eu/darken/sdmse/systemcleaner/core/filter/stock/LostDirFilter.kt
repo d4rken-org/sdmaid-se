@@ -54,7 +54,7 @@ class LostDirFilter @Inject constructor(
             pathRegexes = regexes,
         )
         sieve = baseSieveFactory.create(config)
-        log(TAG) { "initialized()" }
+        log(TAG) { "initialized() with $config" }
     }
 
 

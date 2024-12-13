@@ -27,7 +27,7 @@ import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.*
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.Mode
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -60,7 +60,7 @@ class DataLoggerFilter @Inject constructor(
         )
 
         sieve = baseSieveFactory.create(config)
-        log(TAG) { "initialized()" }
+        log(TAG) { "initialized() with $config" }
     }
 
 
