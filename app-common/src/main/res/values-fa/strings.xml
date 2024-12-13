@@ -117,8 +117,6 @@
     <string name="file_type_directory">مسیر</string>
     <string name="file_type_file">فایل</string>
     <string name="file_type_unknown">ناشناخته</string>
-    <string name="general_timeunit_hours">ساعت</string>
-    <string name="general_timeunit_days">روز</string>
     <string name="general_progress_ready">آماده</string>
     <string name="general_progress_done">انجام شد</string>
     <string name="general_rom_type_auto_label">خودکار (پیش‌فرض)</string>

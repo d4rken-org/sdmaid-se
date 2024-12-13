@@ -125,8 +125,6 @@
     <string name="file_type_directory">Direktorij</string>
     <string name="file_type_file">Datoteka</string>
     <string name="file_type_unknown">Nepoznato</string>
-    <string name="general_timeunit_hours">Sati</string>
-    <string name="general_timeunit_days">Dani</string>
     <string name="general_progress_ready">Spremno</string>
     <string name="general_progress_done">Gotovo</string>
     <plurals name="result_x_files">

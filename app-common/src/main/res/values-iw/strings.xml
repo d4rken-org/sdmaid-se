@@ -123,8 +123,6 @@
     <string name="file_type_directory">תיקייה</string>
     <string name="file_type_file">קובץ</string>
     <string name="file_type_unknown">לא ידוע</string>
-    <string name="general_timeunit_hours">שעות</string>
-    <string name="general_timeunit_days">ימים</string>
     <string name="general_progress_ready">מוכן</string>
     <string name="general_progress_done">בוצע</string>
     <string name="general_rom_type_auto_label">אוטומטי (ברירת מחדל)</string>

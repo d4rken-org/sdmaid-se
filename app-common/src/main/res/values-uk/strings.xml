@@ -148,8 +148,6 @@
     <string name="file_type_directory">Каталог</string>
     <string name="file_type_file">Файл</string>
     <string name="file_type_unknown">Невідомо</string>
-    <string name="general_timeunit_hours">Години</string>
-    <string name="general_timeunit_days">Дні</string>
     <string name="general_progress_ready">Готово</string>
     <string name="general_progress_done">Виконано</string>
     <string name="general_rom_type_auto_label">Автоматично (за замовчуванням)</string>

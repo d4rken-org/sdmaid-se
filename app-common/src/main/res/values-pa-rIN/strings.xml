@@ -79,8 +79,6 @@
     <string name="file_type_directory">ਡਾਇਰੈਕਟਰੀ</string>
     <string name="file_type_file">ਫਾਈਲ</string>
     <string name="file_type_unknown">ਅਗਿਆਤ</string>
-    <string name="general_timeunit_hours">ਘੰਟੇ</string>
-    <string name="general_timeunit_days">ਦਿਨ</string>
     <string name="general_progress_ready">ਤਿਆਰ</string>
     <string name="general_progress_done">ਮੁਕੰਮਲ</string>
     <string name="general_rom_type_auto_label">ਸਵੈਚਾਲਿਤ (ਮੂਲ)</string>

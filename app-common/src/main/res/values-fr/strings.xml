@@ -138,8 +138,6 @@
     <string name="file_type_directory">Dossier</string>
     <string name="file_type_file">Fichier</string>
     <string name="file_type_unknown">Inconnu</string>
-    <string name="general_timeunit_hours">Heures</string>
-    <string name="general_timeunit_days">Jours</string>
     <string name="general_progress_ready">Prêt</string>
     <string name="general_progress_done">Terminé</string>
     <string name="general_rom_type_auto_label">Automatique (par défaut)</string>

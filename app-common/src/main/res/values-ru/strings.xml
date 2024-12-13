@@ -148,8 +148,6 @@
     <string name="file_type_directory">Папка</string>
     <string name="file_type_file">Файл</string>
     <string name="file_type_unknown">Неизвестно</string>
-    <string name="general_timeunit_hours">Часы</string>
-    <string name="general_timeunit_days">Дни</string>
     <string name="general_progress_ready">Готово</string>
     <string name="general_progress_done">Выполнено</string>
     <string name="general_rom_type_auto_label">Автоматически (по умолчанию)</string>

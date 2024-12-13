@@ -138,8 +138,6 @@
     <string name="file_type_directory">Dizin</string>
     <string name="file_type_file">Dosya</string>
     <string name="file_type_unknown">Bilinmeyen</string>
-    <string name="general_timeunit_hours">Saatler</string>
-    <string name="general_timeunit_days">Günler</string>
     <string name="general_progress_ready">Hazır</string>
     <string name="general_progress_done">Tamamlandı</string>
     <string name="general_rom_type_auto_label">Otomatik (varsayılan)</string>

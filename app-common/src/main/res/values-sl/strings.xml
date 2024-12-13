@@ -145,8 +145,6 @@
     <string name="file_type_directory">Mapa</string>
     <string name="file_type_file">Datoteka</string>
     <string name="file_type_unknown">Neznano</string>
-    <string name="general_timeunit_hours">Ure</string>
-    <string name="general_timeunit_days">Dnevi</string>
     <string name="general_progress_ready">Pripravljen</string>
     <string name="general_progress_done">Končano</string>
     <string name="general_rom_type_auto_label">Samodejno (privzeto)</string>

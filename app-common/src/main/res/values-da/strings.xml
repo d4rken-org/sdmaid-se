@@ -136,8 +136,6 @@
     <string name="file_type_directory">Mappe</string>
     <string name="file_type_file">Fil</string>
     <string name="file_type_unknown">Ukendt</string>
-    <string name="general_timeunit_hours">Timer</string>
-    <string name="general_timeunit_days">Dage</string>
     <string name="general_progress_ready">Klar</string>
     <string name="general_progress_done">Færdig</string>
     <string name="general_rom_type_auto_label">Automatisk (standard)</string>

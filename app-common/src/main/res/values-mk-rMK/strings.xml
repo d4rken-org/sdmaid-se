@@ -138,8 +138,6 @@
     <string name="file_type_directory">Именик</string>
     <string name="file_type_file">Датотека</string>
     <string name="file_type_unknown">Непознато</string>
-    <string name="general_timeunit_hours">Часови</string>
-    <string name="general_timeunit_days">Денови</string>
     <string name="general_progress_ready">Подготвени</string>
     <string name="general_progress_done">Готово</string>
     <string name="general_rom_type_auto_label">Автоматско (стандардно)</string>

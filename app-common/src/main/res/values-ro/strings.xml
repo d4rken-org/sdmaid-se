@@ -143,8 +143,6 @@
     <string name="file_type_directory">Director</string>
     <string name="file_type_file">Fișier</string>
     <string name="file_type_unknown">Necunoscut</string>
-    <string name="general_timeunit_hours">Ore</string>
-    <string name="general_timeunit_days">Zile</string>
     <string name="general_progress_ready">Pregătit</string>
     <string name="general_progress_done">Terminat</string>
     <string name="general_rom_type_auto_label">Automat (implicit)</string>
