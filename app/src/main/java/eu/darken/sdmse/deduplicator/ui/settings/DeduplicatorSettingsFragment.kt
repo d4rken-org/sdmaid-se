@@ -5,8 +5,8 @@ import androidx.fragment.app.viewModels
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.appcleaner.ui.settings.SizeInputDialog
 import eu.darken.sdmse.common.datastore.valueBlocking
+import eu.darken.sdmse.common.ui.SizeInputDialog
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import javax.inject.Inject

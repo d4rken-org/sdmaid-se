@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
+import androidx.preference.CheckBoxPreference
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+import eu.darken.sdmse.common.ui.AgeInputDialog
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.main.ui.settings.SettingsFragmentDirections
 import eu.darken.sdmse.setup.SetupModule
@@ -48,12 +51,36 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
         get() = findPreference(settings.filterTombstonesEnabled.keyName)!!
     private val filterUsageStatsEnabled: BadgedCheckboxPreference
         get() = findPreference(settings.filterUsageStatsEnabled.keyName)!!
+    private val filterScreenshotsEnabled: CheckBoxPreference
+        get() = findPreference(settings.filterScreenshotsEnabled.keyName)!!
+    private val filterScreenshotsAge: Preference
+        get() = findPreference(settings.filterScreenshotsAge.keyName)!!
 
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
 
         customFilterEntry.setOnPreferenceClickListener {
             SettingsFragmentDirections.actionSettingsContainerFragmentToCustomFilterListFragment().navigate()
+            true
+        }
+
+        filterScreenshotsAge.apply {
+            isVisible = filterScreenshotsEnabled.isChecked
+            setOnPreferenceClickListener {
+                AgeInputDialog(
+                    requireActivity(),
+                    titleRes = R.string.systemcleaner_filter_screenshots_age_label,
+                    currentAge = settings.filterScreenshotsAge.valueBlocking,
+                    onReset = {
+                        settings.filterScreenshotsAge.valueBlocking = SystemCleanerSettings.SCREENSHOTS_AGE_DEFAULT
+                    },
+                    onSave = { settings.filterScreenshotsAge.valueBlocking = it }
+                ).show()
+                true
+            }
+        }
+        filterScreenshotsEnabled.setOnPreferenceChangeListener { _, isEnabled ->
+            filterScreenshotsAge.isVisible = isEnabled as Boolean
             true
         }
 
@@ -81,6 +108,13 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
             filterRecentTasksEnabled.isRestricted = !state.areSystemFilterAvailable
             filterTombstonesEnabled.isRestricted = !state.areSystemFilterAvailable
             filterUsageStatsEnabled.isRestricted = !state.areSystemFilterAvailable
+        }
+
+        vm.screenshotsAge.observe2(this) { age ->
+            filterScreenshotsEnabled.summary = getString(
+                R.string.systemcleaner_filter_screenshots_summary,
+                AgeInputDialog.formatAge(requireContext(), age)
+            )
         }
     }
 

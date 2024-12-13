@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.ui.settings
+package eu.darken.sdmse.common.ui
 
 import android.app.Activity
 import android.content.Context

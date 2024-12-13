@@ -271,6 +271,10 @@
     <string name="systemcleaner_filter_anr_summary">Traces from \'application not responding\' events.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Empty folders</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Empty folders from all over the device. Nested folders may require multiple passes.</string>
+    <string name="systemcleaner_filter_screenshots_label">Screenshots</string>
+    <string name="systemcleaner_filter_screenshots_summary">Screenshots older than %s from multiple apps and locations.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Screenshot Age</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Minimum age for screenshots to be considered for deletion.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Superfluous APKs</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Setup files that are older or equal to app versions that are already installed.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR folders</string>

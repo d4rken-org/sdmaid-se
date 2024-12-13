@@ -7,20 +7,20 @@
     android:padding="16dp">
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/size_text"
+        android:id="@+id/age_text"
         style="@style/ThemeOverlay.Material3.TextInputEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:maxLines="1"
         android:ems="6"
         android:gravity="center"
         android:inputType="text"
-        android:maxLines="1"
         app:layout_constraintBottom_toTopOf="@id/slider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="100.00 MB" />
+        tools:text="5d" />
 
     <com.google.android.material.slider.Slider
         android:id="@+id/slider"
@@ -30,6 +30,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/size_text"
+        app:layout_constraintTop_toBottomOf="@id/age_text"
         tools:ignore="HardcodedText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

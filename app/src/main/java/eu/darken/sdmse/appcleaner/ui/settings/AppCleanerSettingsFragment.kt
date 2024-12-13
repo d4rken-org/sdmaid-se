@@ -14,8 +14,9 @@ import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+import eu.darken.sdmse.common.ui.SizeInputDialog
 import eu.darken.sdmse.common.uix.PreferenceFragment2
-import eu.darken.sdmse.databinding.AppcontrolSettingsAgeSettingDialogBinding
+import eu.darken.sdmse.databinding.AppcleanerSettingsAgeSettingDialogBinding
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.showFixSetupHint
 import java.time.Duration
@@ -57,7 +58,7 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
 
         findPreference<Preference>(settings.minCacheAgeMs.keyName)?.apply {
             setOnPreferenceClickListener {
-                val dialogLayout = AppcontrolSettingsAgeSettingDialogBinding.inflate(layoutInflater, null, false)
+                val dialogLayout = AppcleanerSettingsAgeSettingDialogBinding.inflate(layoutInflater, null, false)
 
                 var currentValue = settings.minCacheAgeMs.valueBlocking
 
