@@ -2,11 +2,10 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">في خدمتك.</string>
-    <string name="slogan_message_1">نظيف ومنسق.</string>
+    <string name="slogan_message_1">نظيف ومرتب.</string>
     <string name="slogan_message_2">منع الفوضى.</string>
     <string name="slogan_message_3">القيام بما هو ضروري.</string>
-    <string name="slogan_message_4">كل الملفات في صف لتنظيف.</string>
-    <string name="slogan_message_5">نظيف.</string>
+    <string name="slogan_message_5">بلا عيب.</string>
     <string name="slogan_message_6">بايت، سوف تغادر!</string>
     <string name="slogan_message_7">مساحة حرة، مكان سعيد.</string>
     <string name="slogan_message_8">لن اتخلى عنك.</string>

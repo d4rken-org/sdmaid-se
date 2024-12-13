@@ -358,8 +358,6 @@
     <string name="appcleaner_filter_webview_summary">Pliki buforowane przez instancje Webview używane w aplikacjach.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Kopie zapasowe WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Usuń dodatkowe kopie zapasowe WhatsApp i zachowaj tylko najnowszą.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Pliki otrzymane WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Pliki otrzymane od innych osób za pośrednictwem aplikacji WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Pliki wysłane WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Pliki wysłane z WhatsApp do innych osób.</string>
     <string name="appcleaner_filter_telegram_label">Pliki multimedialne Telegram</string>

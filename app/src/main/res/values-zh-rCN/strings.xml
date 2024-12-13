@@ -334,8 +334,6 @@
     <string name="appcleaner_filter_webview_summary">应用内置浏览器的缓存文件。</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 备份</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">删除 WhatsApp 备份的额外副本，只保留最新备份</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp 收到的文件</string>
-    <string name="appcleaner_filter_whatsapp_received_label">您通过 WhatsApp 从其他人那里收到的文件。</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp 发出的文件</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">您通过 WhatsApp 发送给其他人的文件</string>
     <string name="appcleaner_filter_telegram_label">Telegram 媒体文件</string>

@@ -326,8 +326,6 @@
     <string name="appcleaner_filter_webview_summary">Az alkalmazásokban használt WebView példányok által gyorsítótárazott fájlok.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp biztonsági mentések</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Törölje a WhatsApp biztonsági másolatainak extra másolatait, és csak a legfrissebbet tartsa meg.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp érkezett fájlok</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Az emberektől WhatsAppon keresztül kapott fájlok.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp elküldött fájlok</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsAppról másoknak küldött fájlok.</string>
     <string name="appcleaner_filter_telegram_label">Telegram médiafájlok</string>

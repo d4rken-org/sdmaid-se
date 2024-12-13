@@ -316,8 +316,6 @@
     <string name="appcleaner_filter_webview_summary">應用程式中使用 Webview 執行個體所快取的檔案。</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 備份</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">刪除 WhatsApp 備份的額外複本，僅保留最新的備份。</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp 接收的檔案</string>
-    <string name="appcleaner_filter_whatsapp_received_label">您透過 WhatsApp 從其他人那裏接收的檔案。</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp 傳送的檔案</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">從 WhatsApp 向其他人傳送的檔案。</string>
     <string name="appcleaner_filter_telegram_label">Telegram 媒體檔案</string>

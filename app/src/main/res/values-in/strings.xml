@@ -334,8 +334,6 @@
     <string name="appcleaner_filter_webview_summary">Berkas yang di-cache oleh WebView yang digunakan dalam aplikasi.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Cadangan WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Hapus salinan ekstra dari cadangan WhatsApp dan hanya terbaru yang disimpan.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Berkas diterima WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Berkas yang Anda terima dari orang lain melalui WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Berkas terkirim WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Berkas-berkas yang dikirim dari WhatsApp ke orang lain.</string>
     <string name="appcleaner_filter_telegram_label">Berkas media Telegram</string>

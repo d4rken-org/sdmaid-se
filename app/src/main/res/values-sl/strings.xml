@@ -358,8 +358,6 @@
     <string name="appcleaner_filter_webview_summary">Predpomnjene datoteke primerkov programa Webview, ki jih uporabljajo znotraj drugih programov.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Varnostne kopije WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Izbrišite odvečne varnostne kopije WhatsApp in obdržite samo zadnjo.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Prejete datoteke WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Datoteke, ki ste jih prejeli od ljudi preko WhatsAppa.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Poslane datoteke WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Datoteke, ki ste jih drugim poslali preko WhatsAppa.</string>
     <string name="appcleaner_filter_telegram_label">Predstavne datoteke Telegram</string>

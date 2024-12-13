@@ -342,8 +342,6 @@
     <string name="appcleaner_filter_webview_summary">Filer bufret av Webview-forekomster brukt i apper.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp sikkerhetskopier</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Slett ekstra kopier av WhatsApp sikkerhetskopier og kun behold de nyeste.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp mottatte filer</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Filer mottatt fra personer i WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp sendte filer</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Filer sendt fra WhatsApp til andre.</string>
     <string name="appcleaner_filter_telegram_label">Telegram mediefiler</string>

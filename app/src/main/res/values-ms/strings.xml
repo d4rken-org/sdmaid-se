@@ -263,8 +263,6 @@
     <string name="appcleaner_filter_webview_summary">Fail dicache oleh tika Webview yang digunakan dalam apl.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Sandaran WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Padamkan salinan tambahan sandaran WhatsApp dan simpan yang terkini sahaja.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp menerima fail</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Fail yang anda terima daripada orang melalui WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp menghantar fail</string>
     <string name="appcleaner_filter_telegram_label">Fail media Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Fail diterima atau dihantar melalui Telegram.</string>

@@ -346,8 +346,6 @@
     <string name="appcleaner_filter_webview_summary">Файли, кешовані екземплярами Webview, що використовуються у додатках.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Резервні копії WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Видаліть зайві копії резервних копій WhatsApp і залише лише найновіші.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Отримані файли WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Файли, які ви отримали від людей через WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Відправлені файли з WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Файли, надіслані з WhatsApp іншим.</string>
     <string name="appcleaner_filter_telegram_label">Медіафайли Telegram</string>

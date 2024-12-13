@@ -342,8 +342,6 @@
     <string name="appcleaner_filter_webview_summary">অ্যাপের মধ্যে ব্যবহৃত ওয়েবভিউ দৃষ্টান্ত দ্বারা ক্যাশ করা ফাইলগুলি৷</string>
     <string name="appcleaner_filter_whatsapp_backups_label">হোয়াটসঅ্যাপ ব্যাকআপ</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">হোয়াটসঅ্যাপ ব্যাকআপের অতিরিক্ত কপি মুছুন এবং শুধুমাত্র সর্বশেষ রাখুন।</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">হোয়াটসঅ্যাপে আসা ফাইল</string>
-    <string name="appcleaner_filter_whatsapp_received_label">আপনি হোয়াটসঅ্যাপের মাধ্যমে লোকেদের কাছ থেকে প্রাপ্ত ফাইলগুলি।</string>
     <string name="appcleaner_filter_whatsapp_sent_label">হোয়াটসঅ্যাপে পাঠানো ফাইল</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">হোয়াটসঅ্যাপ থেকে অন্যদের কাছে পাঠানো ফাইলসমূহ।</string>
     <string name="appcleaner_filter_telegram_label">টেলিগ্রাম মিডিয়া ফাইল</string>

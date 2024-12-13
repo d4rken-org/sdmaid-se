@@ -2,10 +2,11 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Laging nakahandang maglingkod.</string>
+    <string name="slogan_message_1">Napakalinis.</string>
     <string name="slogan_message_2">Pangontra-kalat.</string>
     <string name="slogan_message_3">Ginagawa ang dapat gawin.</string>
-    <string name="slogan_message_4">Mabusisi\'t iwas-pagkakamali.</string>
     <string name="slogan_message_5">Walang natitirang dumi.</string>
+    <string name="slogan_message_8">Hindi kita bibiguin kailanman.</string>
     <string name="general_thank_you_label">Salamat</string>
     <string name="general_error_type_mismatch_msg">Pagkakaiba sa uri: %1$s ang hiniling, pero %2$s ang nakuha.</string>
     <string name="general_error_cant_access_msg">Hindi ma-access ang %s.</string>
@@ -17,9 +18,11 @@
     <string name="general_copy_action">Kopyahin</string>
     <string name="general_wipe_action">Linisin</string>
     <string name="general_cancel_action">Kanselahin</string>
+    <string name="general_reset_action">I-reset</string>
     <string name="general_save_action">I-save</string>
     <string name="general_thanks_action">Salamat</string>
     <string name="general_gotit_action">Kuha ko</string>
+    <string name="general_set_up_action">I-set up</string>
     <string name="general_edit_action">Baguhin</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Walang laman</string>
@@ -51,6 +54,9 @@
     <string name="general_progress_loading_egg_5">Nagbubukas na ang turbo encabulator</string>
     <string name="general_progress_loading_egg_6">Ibinabasbas ang malapot na puting mantikilya</string>
     <string name="general_progress_loading_egg_7">So, kaya pa ba?</string>
+    <string name="general_progress_loading_egg_10">Tinatawag ang bathalang Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Okay lang \'to</string>
+    <string name="general_progress_loading_egg_12">Kumapit ka lang</string>
     <string name="general_help_action">Tulong</string>
     <string name="general_continue">Tumuloy</string>
     <string name="general_progress_queued">Nakapila</string>
@@ -64,6 +70,7 @@
     <string name="general_update_action">Mag-update</string>
     <string name="general_scan_action">Mag-scan</string>
     <string name="general_delete_action">Burahin</string>
+    <string name="general_delete_selected_action">I-delete ang mga napili</string>
     <string name="general_show_details_action">Ipakita ang mga detalye</string>
     <string name="general_delete_confirmation_title">Kumpirmahin ang pagbura</string>
     <string name="general_delete_confirmation_message_x">Burahin ang \"%s\"?</string>
@@ -95,4 +102,7 @@
     <string name="file_type_directory">Directory</string>
     <string name="file_type_file">File</string>
     <string name="file_type_unknown">Hindi alam</string>
+    <string name="general_progress_ready">Handa na</string>
+    <string name="general_progress_done">Tapos na</string>
+    <string name="general_advice_title">Mga Payo</string>
 </resources>

@@ -350,8 +350,6 @@
     <string name="appcleaner_filter_webview_summary">Fișiere cache de instanțele Webview folosite în aplicații.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Copii de rezervă WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Șterge extra copii al backup-urilor WhatsApp și păstrează numai cel de ultima dată.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Fișiere WhatsApp primite</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Fişiere primite de la persoane prin WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Fișiere WhatsApp trimise</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Fişiere trimise din WhatsApp către alţii.</string>
     <string name="appcleaner_filter_telegram_label">Fișiere media Telegram</string>

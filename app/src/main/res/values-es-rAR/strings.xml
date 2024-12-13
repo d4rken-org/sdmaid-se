@@ -334,8 +334,6 @@
     <string name="appcleaner_filter_webview_summary">Archivos almacenados en caché por instancias de Webview utilizados dentro de las aplicaciones.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Copias de seguridad de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Elimina las copias adicionales de las copias de seguridad de WhatsApp y conserva solo la más reciente.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Archivos recibidos de WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Archivos que recibiste de otras personas a través de WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Archivos enviados de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Archivos enviados desde WhatsApp a otros.</string>
     <string name="appcleaner_filter_telegram_label">Archivos multimedia de Telegram</string>

@@ -358,8 +358,6 @@
     <string name="appcleaner_filter_webview_summary">Файлы кэша Webview, используемые в приложениях.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Резервные копии WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Удаление лишних резервных копий WhatsAp и сохранение только последней.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Полученные файлы WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Файлы, которые Вы получили от пользователей через WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Отправленные файлы WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Файлы, отправленные из WhatsApp другим пользователям.</string>
     <string name="appcleaner_filter_telegram_label">Медиафайлы Telegram</string>
@@ -696,7 +694,7 @@
     <string name="review_app_dismiss_action">Возможно, позже</string>
     <string name="review_app_body">Вы хотите оставить отзыв для SD Maid? ❤️</string>
     <string name="stats_label">История</string>
-    <string name="stats_dash_body">%s было освобождено и %s элементов было обработано после приглашения SD Maid tна Ваше устройство.</string>
+    <string name="stats_dash_body">%s было освобождено и %s элементов было обработано после приглашения SD Maid на Ваше устройство.</string>
     <string name="stats_report_status_success">Успешно</string>
     <string name="stats_report_status_partial_success">Частичный успех</string>
     <string name="stats_report_status_partial_failure">Ошибка</string>

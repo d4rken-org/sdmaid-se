@@ -342,8 +342,6 @@
     <string name="appcleaner_filter_webview_summary">Bestanden die in de cache zijn opgeslagen door Webview-instanties die in apps worden gebruikt.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Back-ups van WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Verwijder extra exemplaren van WhatsApp-back-ups en bewaar alleen de nieuwste.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp ontving bestanden</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Bestanden die je van mensen hebt gekregen via WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp heeft bestanden verzonden</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Bestanden verzonden vanuit WhatsApp naar anderen.</string>
     <string name="appcleaner_filter_telegram_label">Telegram-mediabestanden</string>
@@ -355,6 +353,10 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Mediabestanden in de cache die opnieuw worden gedownload wanneer ze in de chat worden bekeken.</string>
     <string name="appcleaner_delete_all_confirmation_message">Verbruiksartikelen voor alle apps verwijderen?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d vervangbaar item verwijderd</item>
+        <item quantity="other">%d vervangbare items verwijderd</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d vervangbaar item gevonden</item>
         <item quantity="other">%d vervangbare items gevonden</item>

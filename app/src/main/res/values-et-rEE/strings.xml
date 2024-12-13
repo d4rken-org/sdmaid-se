@@ -342,8 +342,6 @@
     <string name="appcleaner_filter_webview_summary">Rakendustes kasutatud veebivaate vahemälus olevad failid.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsAppi varundusfailid</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Kustutage WhatsAppi varundusfailide lisakoopiad ja säilitage vaid uusim.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsAppi kaudu saadud failid</string>
-    <string name="appcleaner_filter_whatsapp_received_label">WhatsAppi kasutajatelt saadud failid.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsAppiga saadetud failid</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsAppist teistele saadetud failid.</string>
     <string name="appcleaner_filter_telegram_label">Telegrami meediafailid</string>

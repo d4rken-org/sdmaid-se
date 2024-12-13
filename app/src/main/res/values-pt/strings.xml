@@ -343,8 +343,6 @@ Recursos dos jogos.</string>
     <string name="appcleaner_filter_webview_summary">Arquivos armazenados na cache pelo webview dentro de apps.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Backups do WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Apague cópias extras de backups do WhatsApp e mantenha apenas as mais recentes.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Ficheiros recebidos WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Ficheiros recebidos de pessoas via WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Ficheiros enviados no WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Ficheiros enviados do WhatsApp para outros.</string>
     <string name="appcleaner_filter_telegram_label">Ficheiros de mídia do Telegram</string>

@@ -201,6 +201,10 @@
     <string name="corpsefinder_filter_appasec_summary">Recursos de aplicativos criptografados, por exemplo, recursos de jogo.</string>
     <string name="corpsefinder_filter_app2sd_summary">Dados movidos para armazenamento externo pelos mods App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d resíduos de aplicativo deletado encontrado</item>
+        <item quantity="other">%d resíduos de aplicativos excluídos</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">%d resíduo de aplicativo encontrado</item>
         <item quantity="other">%d resíduos de aplicativos encontrados</item>
@@ -213,6 +217,10 @@
     <string name="corpsefinder_corpse_hint_common">Este item tem um nome muito comum e pode pertencer a apps instalados que o SD Maid não sabe.</string>
     <string name="systemcleaner_tool_name">Limpador do sistema</string>
     <string name="systemcleaner_explanation_short">Dados supérfluos que não pertencem a nenhum aplicativo específico.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d item excluído</item>
+        <item quantity="other">%d itens excluídos</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d filtro correspondente</item>
         <item quantity="other">%d filtros correspondentes</item>
@@ -334,8 +342,6 @@
     <string name="appcleaner_filter_webview_summary">Arquivos armazenados em cache por instâncias do Webview usados em aplicativos.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Backups do WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Exclua cópias extras de backups do WhatsApp e mantenha apenas as mais recentes.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Arquivos recebidos pelo WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Arquivos recebidos das pessoas via WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Arquivos enviados pelo WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Arquivos enviados do WhatsApp para outros.</string>
     <string name="appcleaner_filter_telegram_label">Arquivos de mídia do Telegram</string>
@@ -347,6 +353,10 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Arquivos de mídia em cache baixados novamente quando vistos no chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Deletar itens desnecessários para todos os aplicativos?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d item sem uso deletado</item>
+        <item quantity="other">%d itens inúteis excluídos</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d item inútil encontrado</item>
         <item quantity="other">%d itens inúteis encontrados</item>
@@ -372,6 +382,10 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Excluindo caches usando Shizuku</string>
     <string name="deduplicator_tool_name">Desduplicador</string>
     <string name="deduplicator_explanation_short">Encontrar dados duplicados no seu dispositivo.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d item duplicado excluído</item>
+        <item quantity="other">%d itens duplicados excluídos</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d conjunto duplicado encontrado</item>
         <item quantity="other">%d conjuntos duplicados encontrados</item>
@@ -444,6 +458,10 @@
     <string name="appcontrol_list_sortmode_size_label">Tamanho</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Os tamanhos de apps são estimados por razões de desempenho. Use a ferramenta Analisador de Armazenamento para dados mais precisos.</string>
     <string name="appcontrol_progress_uninstalling_app">Desinstalar aplicativo</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d aplicativo desinstalado com sucesso</item>
+        <item quantity="other">%d aplicativos desinstalados com sucesso</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Tamanho do app</string>
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Dados</string>
@@ -453,6 +471,10 @@
         <item quantity="one">Alterar o estado habilitado/desabilitado de %d app?</item>
         <item quantity="other">Alterar os estados habilitados/desabilitados de %d apps?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d aplicativo alterado</item>
+        <item quantity="other">%d aplicativos foram alternados</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determinar os tamanhos</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Obtenha uma estimativa aproximada do tamanho de cada aplicativo.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determinar a atividade</string>
@@ -460,10 +482,27 @@
     <string name="appcontrol_export_app_selection_action">Exportar os aplicativos</string>
     <string name="appcontrol_export_title">Exportar o aplicativo</string>
     <string name="appcontrol_export_description">Salvar os arquivos de instalação deste app no seu dispositivo. Isso não inclui os dados do app.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d aplicativo foi exportado</item>
+        <item quantity="other">%d aplicativos foram exportados</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Exportando %s</string>
     <string name="appcontrol_force_stop_selection_action">Força parada do app</string>
     <string name="appcontrol_force_stop_action">Forçar parada</string>
     <string name="appcontrol_force_stop_confirm_title">Confirmar parada forçada</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Forçar parada de %d aplicativo?</item>
+        <item quantity="other">Forçar parada de %d aplicativos?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d aplicativo foi interrompido</item>
+        <item quantity="other">%d aplicativos foram interrompidos</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Preparando automação via serviço de acessibilidade</string>
+    <string name="appcontrol_automation_title">Automação do controle de aplicações</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Forçando parada…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Procurando pelo botão \"Forçar parada\" (palavras-chave: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Tentando confirmar a ação anterior (palavras-chave: %s)</string>
     <string name="analyzer_tool_name">Analisador de Armazenamento</string>
     <string name="analyzer_explanation_short">Descubra o que está ocupando espaço no seu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Procurando dispositivos de armazenamento</string>
@@ -485,6 +524,8 @@
     <string name="analyzer_storage_type_primary_description">O armazenamento primário do seu dispositivo. Contém o cartão SD interno, armazenamento privado para os apps e dados do sistema.</string>
     <string name="analyzer_storage_type_secondary_title">Armazenamento secundário</string>
     <string name="analyzer_storage_type_secondary_description">Um armazenamento secundário, geralmente um cartão SD removível. Contém os arquivos de mídia e os dados de aplicativos que o suportam.</string>
+    <string name="analyzer_storage_type_tertiary_title">Armazenamento portátil</string>
+    <string name="analyzer_storage_type_tertiary_description">Um armazenamento portátil, ex: um pendrive conectado na porta USB.</string>
     <string name="analyzer_storage_content_title">Conteúdo do armazenamento</string>
     <string name="analyzer_storage_content_type_app_label">Aplicativos</string>
     <string name="analyzer_storage_content_type_app_description">Espaço ocupado por aplicativos instalados e seus dados (ou seja, arquivos de instalação, dados e caches).</string>
@@ -599,6 +640,7 @@
     <string name="motd_setting_enabled_explanation">Permitir que o SD Maid verifique mensagens importantes do desenvolvedor.</string>
     <string name="updatecheck_setting_enabled_label">Verificação de atualização</string>
     <string name="updatecheck_setting_enabled_explanation">Permita que o SD Maid verifique se há atualizações para informar se uma versão mais recente está disponível.</string>
+    <string name="device_settings_category">Dispositivo</string>
     <string name="beta_version_indicator_desc">Versões de pré-lançamento exibem uma pequena faixa na tela inicial. Elas são atualizadas com mais frequência, podem ter mais recursos, mas também podem ter mais bugs.</string>
     <string name="review_app_review_action">Avaliar</string>
     <string name="review_app_dismiss_action">Talvez depois</string>

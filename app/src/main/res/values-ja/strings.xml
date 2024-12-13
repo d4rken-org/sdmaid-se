@@ -334,8 +334,6 @@
     <string name="appcleaner_filter_webview_summary">アプリ内で使用されるWebviewインスタンスによってキャッシュされたファイル。</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsAppのバックアップ</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">WhatsAppバックアップの余分なコピーを削除し、最新のものだけを残す。</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsAppの受信ファイル</string>
-    <string name="appcleaner_filter_whatsapp_received_label">WhatsAppを介して人々から受信したファイル。</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsAppの送信ファイル</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsAppから他人に送信されたファイル</string>
     <string name="appcleaner_filter_telegram_label">Telegram メディアファイル</string>

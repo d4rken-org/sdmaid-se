@@ -248,7 +248,6 @@
     <string name="appcleaner_filter_webview_label">Webview datoteke</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp sigurnosne kopije</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Izbrišite dodatne kopije sigurnosnih kopija WhatsAppa i zadržite samo najnovije.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Datoteke primljene putem WhatsAppa</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Datoteke poslane putem WhatsAppa</string>
     <string name="appcleaner_filter_telegram_label">Telegram medijske datoteke</string>
     <string name="appcleaner_filter_telegram_summary">Datoteke primljene ili poslane putem Telegrama.</string>

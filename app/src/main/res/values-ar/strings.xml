@@ -374,8 +374,6 @@
     <string name="appcleaner_filter_webview_summary">الملفات المخزنة مؤقتًا بواسطة مثيلات عرض الويب المستخدمة داخل التطبيقات.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">نسخ وأتساب الاحتياطية</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">احذف النسخ الإضافية من نسخ WhatsApp الاحتياطية واحتفظ بالأحدث فقط.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">ملفات وأتساب المستلمة</string>
-    <string name="appcleaner_filter_whatsapp_received_label">الملفات التي استقبلتها من الناس عبر WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">ملفات وأتساب المرسلة</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">الملفات المرسلة من واتساب للآخرين.</string>
     <string name="appcleaner_filter_telegram_label">ملفات وسائط Telegram</string>
