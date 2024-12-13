@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Neplatný soupis aplikací</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Systém poskytl aplikaci SD Maid neplatný seznam nainstalovaných aplikací.</string>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">অবৈধ অ্যাপ ইনভেন্টরি</string>
+    <string name="pkgrepo_invalid_inventory_error_description">সিস্টেমটি SD মেইডকে ইনস্টল করা অ্যাপগুলির একটি অবৈধ তালিকা প্রদান করেছে৷</string>
+</resources>

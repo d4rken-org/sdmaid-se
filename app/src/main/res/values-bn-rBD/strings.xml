@@ -123,6 +123,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ব্যবহার করবেন না।</string>
     <string name="setup_dismiss_hint">আপনি সেটিংস মেনুর মাধ্যমে আবার সেটআপ স্ক্রীনটি খুঁজে পেতে পারেন।</string>
     <string name="setup_permission_granted_label">অনুমতি মঞ্জুর করা হয়েছে</string>
+    <string name="setup_permission_error_label">অনুমতি ত্রুটি</string>
     <string name="setup_usagestats_title">ব্যবহারের পরিসংখ্যান</string>
     <string name="setup_usagestats_body">অ্যাপের বিস্তারিত তথ্যের জন্য Statistics permission এর অনুমতি দিন। SD Maid এটি ব্যবহার করবে অবশিষ্ট cache সাইজ নির্ধারণ করতে।</string>
     <string name="setup_usagestats_hint">অ্যাক্সেসিবিলিটি পরিষেবাভিত্তিক cache মোছার জন্য প্রয়োজন৷</string>
@@ -149,6 +150,7 @@
     <string name="setup_inventory_card_title">অ্যাপ ইনভেন্টরি</string>
     <string name="setup_inventory_card_body">SD Maid এর জানা দরকার যে কোন অ্যাপগুলি আপনার কাছে এমন ফাইলগুলি খুঁজে বের করতে হবে যা কোনও ইনস্টল করা অ্যাপের অন্তর্গত নয়।</string>
     <string name="setup_inventory_card_extra">\"অ্যাপ লিস্ট\" বা \"কোয়েরি অল প্যাকেজ\" নামে একটি পারমিশন খুঁজুন।</string>
+    <string name="setup_inventory_invalid_message">সিস্টেমটি ইনস্টল করা অ্যাপগুলির একটি অবৈধ তালিকা প্রদান করেছে (যেমন খুব কম বা কিছু অনুপস্থিত)। সিস্টেম সেটিংসে যান এবং \"অ্যাপ তালিকা\" এ SD Maid অ্যাক্সেসের অনুমতি দিন।</string>
     <string name="dataarea_warningcard_empty_message">SD Maid স্ক্যান করাতে পারে এমন কোনো ডেটা এরিয়া খুঁজে পায়নি। আপনি সেটআপ সম্পূর্ণ করেছেন?</string>
     <string name="dataarea_warningcard_label">ডেটা এরিয়া</string>
     <string name="dataarea_warningcard_reload_action">ডেটা এরিয়া পুনরায় লোড করুন</string>
@@ -236,6 +238,10 @@
     <string name="systemcleaner_filter_anr_summary">\'application not responding\' ইভেন্ট থেকে ট্রেস করুন।</string>
     <string name="systemcleaner_filter_emptydirectories_label">খালি ফোল্ডার</string>
     <string name="systemcleaner_filter_emptydirectories_summary">সমস্ত ডিভাইস থেকে খালি ফোল্ডার। নেস্টেড ফোল্ডারের একাধিক পাসের প্রয়োজন হতে পারে।</string>
+    <string name="systemcleaner_filter_screenshots_label">স্ক্রিনশট</string>
+    <string name="systemcleaner_filter_screenshots_summary">একাধিক অ্যাপ্লিকেশান এবং অবস্থান থেকে %s -এর থেকে পুরানো স্ক্রিনশট৷</string>
+    <string name="systemcleaner_filter_screenshots_age_label">স্ক্রিনশট বয়স</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">স্ক্রিনশট মুছে ফেলার জন্য বিবেচনা করার জন্য সর্বনিম্ন বয়স।</string>
     <string name="systemcleaner_filter_superfluosapks_label">অনাবশ্যক APK-সমূহ</string>
     <string name="systemcleaner_filter_superfluosapks_summary">ইতিমধ্যে ইনস্টল করা অ্যাপ সংস্করণের তুলনায় পুরানো বা সমান ফাইল সেটআপ করুন৷</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR ফোল্ডার</string>
@@ -342,6 +348,8 @@
     <string name="appcleaner_filter_webview_summary">অ্যাপের মধ্যে ব্যবহৃত ওয়েবভিউ দৃষ্টান্ত দ্বারা ক্যাশ করা ফাইলগুলি৷</string>
     <string name="appcleaner_filter_whatsapp_backups_label">হোয়াটসঅ্যাপ ব্যাকআপ</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">হোয়াটসঅ্যাপ ব্যাকআপের অতিরিক্ত কপি মুছুন এবং শুধুমাত্র সর্বশেষ রাখুন।</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">আপনি হোয়াটসঅ্যাপের মাধ্যমে লোকেদের কাছ থেকে প্রাপ্ত ফাইলগুলি।</string>
+    <string name="appcleaner_filter_whatsapp_received_label">হোয়াটসঅ্যাপ ফাইল পেয়েছে</string>
     <string name="appcleaner_filter_whatsapp_sent_label">হোয়াটসঅ্যাপে পাঠানো ফাইল</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">হোয়াটসঅ্যাপ থেকে অন্যদের কাছে পাঠানো ফাইলসমূহ।</string>
     <string name="appcleaner_filter_telegram_label">টেলিগ্রাম মিডিয়া ফাইল</string>
@@ -352,6 +360,8 @@
     <string name="appcleaner_filter_wechat_summary">কথোপকথন এবং WeChat moments ফাইলগুলি পাঠানো বা গ্রহণ করা হয়েছে৷</string>
     <string name="appcleaner_filter_viber_label">ভাইবার</string>
     <string name="appcleaner_filter_viber_summary">ক্যাশ করা মিডিয়া ফাইল যা চ্যাটে দেখা হলে আবার ডাউনলোড করা হয়।</string>
+    <string name="appcleaner_filter_qqchat_label">QQ চ্যাট</string>
+    <string name="appcleaner_filter_qqchat_summary">QQ চ্যাট কথোপকথনে ফাইল পাঠানো বা গ্রহণ করা হয়েছে।</string>
     <string name="appcleaner_delete_all_confirmation_message">সকল অ্যাপের বাদ দেওয়া যাবে এমন আইটেমসমূহ মুছবেন?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">%dটি বাদ দেওয়ার উপযোগী আইটেম মুছে ফেলা হয়েছে</item>
@@ -579,6 +589,7 @@
         <item quantity="one">একটি বর্জন তৈরি করা হয়েছে</item>
         <item quantity="other">%d বর্জন তৈরি করা হয়েছে</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">ডিফল্ট দেখান</string>
     <string name="automation_accessibility_service_description">বিশেষ অ্যাক্সেসিবিলিটি প্রয়োজনের ব্যবহারকারীরা এই সার্ভিসটি SD Maid স্বয়ংক্রিয় কাজগুলি করার অনুমতি দিতে সক্ষম করতে পারে যেগুলি অন্যথায় ক্লান্তিকর ম্যানুয়াল ব্যবহারকারীর ইন্টারঅ্যাকশনের প্রয়োজন হবে (যেমন ক্যাশ মুছে ফেলা)।\n\n উদাহরণ: আপনি যদি SD Maid কে একাধিক অ্যাপ বন্ধ করার নির্দেশ দেন তাহলে SD Maid এই পরিষেবাটি ব্যবহার করে প্রতিটি অ্যাপের সেটিংস স্ক্রীন খুলতে, \'ফোর্স স্টপ\' বোতামটি খুঁজে বের করে সেটিতে ট্যাপ করতে পারে।\n\nএই পরিষেবাটি ব্যবহার করার সময় SD Maid সর্বদা প্রধানভাবে দেখাবে এবং ব্যবহারকারীকে অবিলম্বে যেকোনো মিথস্ক্রিয়া বাতিল করার একটি সহজ উপায় প্রদান করবে।\n\nব্যবহারকারীর পূর্বানুমতি ছাড়া কোনো কাজ করা হবে না। এই পরিষেবাটি বিরূপ প্রভাব ছাড়াই যে কোনও সময় আবার নিষ্ক্রিয় করা যেতে পারে।</string>
     <string name="automation_screenoverlay_explanation">SD Maid আপনার ডিভাইসের সাথে ইন্টারঅ্যাক্ট করছে। একই সময়ে স্ক্রিন ব্যবহার করা সম্ভব নয়। অপারেশন শেষ না হওয়া পর্যন্ত অপেক্ষা করুন বা এটি বাতিল করুন।</string>
     <string name="automation_active_title">SD Maid কাজ করছে</string>

@@ -150,6 +150,18 @@
     <string name="general_progress_ready">Připraveno</string>
     <string name="general_progress_done">Hotovo</string>
     <string name="general_rom_type_auto_label">Automaticky (výchozí)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d den</item>
+        <item quantity="few">%d dny</item>
+        <item quantity="many">%d dnů</item>
+        <item quantity="other">%d dnů</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d hodina</item>
+        <item quantity="few">%d hodiny</item>
+        <item quantity="many">%d hodin</item>
+        <item quantity="other">%d hodin</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s soubor</item>
         <item quantity="few">%s soubory</item>

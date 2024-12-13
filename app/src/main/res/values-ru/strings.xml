@@ -127,6 +127,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Не использовать Shizuku</string>
     <string name="setup_dismiss_hint">Вы можете снова перейти к экрану установки через меню настроек.</string>
     <string name="setup_permission_granted_label">Разрешение предоствлено</string>
+    <string name="setup_permission_error_label">Ошибка доступа</string>
     <string name="setup_usagestats_title">Статистика использования</string>
     <string name="setup_usagestats_body">Разрешение на статистику использования предоставляет доступ к более подробной информации о приложении. SD Maid использует его для определения дополнительных размеров кэша.</string>
     <string name="setup_usagestats_hint">Требуется для удаления кэша с помощью службы специальных возможностей.</string>
@@ -153,6 +154,7 @@
     <string name="setup_inventory_card_title">Инвентарь</string>
     <string name="setup_inventory_card_body">SD Maid нужно знать какие приложения установлены, чтобы находить файлы не принадлежащие каким-либо из них.</string>
     <string name="setup_inventory_card_extra">Ищите разрешение \"Список приложений\" или \"Запросить все пакеты\".</string>
+    <string name="setup_inventory_invalid_message">Система предоставила неверный список установленных приложений (например, слишком мало или некоторые из них отсутствовали). Перейдите в настройки системы и разрешите SD Maid доступ к \"Списку приложений\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid не обнаружило области для сканирования. Закончили ли Вы установку?</string>
     <string name="dataarea_warningcard_label">Области сканирования</string>
     <string name="dataarea_warningcard_reload_action">Обновить области сканирования</string>
@@ -252,6 +254,10 @@
     <string name="systemcleaner_filter_anr_summary">Следы событий \"приложение не отвечает\".</string>
     <string name="systemcleaner_filter_emptydirectories_label">Пустые папки</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Пустые папки со всего устройства. Вложенные папки могут потребовать нескольких проходов.</string>
+    <string name="systemcleaner_filter_screenshots_label">Скриншоты</string>
+    <string name="systemcleaner_filter_screenshots_summary">Скриншоты старше %s из нескольких приложений и мест.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Возраст скриншота</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Минимальный возраст скриншота для рассмотрения к удалению.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Лишние APK-файлы</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Установочные файлы, версии которых старше или одинаковы с установленными версиям приложений.</string>
     <string name="systemcleaner_filter_lostdir_label">Папки LOST.DIR</string>
@@ -358,6 +364,8 @@
     <string name="appcleaner_filter_webview_summary">Файлы кэша Webview, используемые в приложениях.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Резервные копии WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Удаление лишних резервных копий WhatsAp и сохранение только последней.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Файлы, которые Вы получили от пользователей через WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Полученные файлы WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Отправленные файлы WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Файлы, отправленные из WhatsApp другим пользователям.</string>
     <string name="appcleaner_filter_telegram_label">Медиафайлы Telegram</string>
@@ -368,6 +376,8 @@
     <string name="appcleaner_filter_wechat_summary">Отправленные или полученные файлы в разговорах и моментах WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Кэшированные медиафайлы, которые повторно загружаются при просмотре в чате.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ-чат</string>
+    <string name="appcleaner_filter_qqchat_summary">Файлы, отправленные и полученные через QQ-чат.</string>
     <string name="appcleaner_delete_all_confirmation_message">Удалить ненужные данные для всех приложений?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">Удалено ненужных элементов: %d</item>
@@ -625,6 +635,7 @@
         <item quantity="many">Создано исключений: %d</item>
         <item quantity="other">Создано исключений: %d</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Показать значения по умолчанию</string>
     <string name="automation_accessibility_service_description">Пользователи с особыми потребностями доступности могут включить эту службу, чтобы позволить SD Maid автоматизировать задачи, которые в противном случае потребовали бы утомительного ручного взаимодействия с пользователем (например, удаление кэша).\n\nПример: Если вы поручите SD Maid остановить несколько приложений, SD Maid может использовать эту службу, чтобы открыть экран настроек каждого приложения, найти кнопку \'Завершить\' и нажать ее.\n\n\nSD Maid всегда будет показывать, когда используется эта служба, и предоставит пользователю простой способ немедленно отменить любое взаимодействие.\n\nНикакие действия не будут выполняться без предварительного одобрения пользователя. Эта служба может быть снова отключена в любое время без каких-либо негативных последствий.</string>
     <string name="automation_screenoverlay_explanation">SD Maid взаимодействует с Вашим устройством. Одновременное использование экрана невозможно. Дождитесь завершения операции или отмените её.</string>
     <string name="automation_active_title">SD Maid работает</string>

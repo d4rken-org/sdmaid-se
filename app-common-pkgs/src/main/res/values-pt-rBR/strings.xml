@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Inventário de aplicativos inválido</string>
+    <string name="pkgrepo_invalid_inventory_error_description">O sistema forneceu uma lista inválida de aplicativos instalados ao SD Maid.</string>
+</resources>

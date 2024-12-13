@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">Vymazat výsledky ve všech nástrojích?</string>
+    <string name="dashboard_delete_all_message">Smazat výsledky ve všech nástrojích?</string>
     <string name="dashboard_settings_category">Panel nástrojů</string>
     <string name="dashboard_motd_title">Zpráva od vývojáře</string>
     <string name="dashboard_settings_oneclick_title">Režim jedním klepnutím</string>
@@ -34,7 +34,7 @@
     <string name="tasks_result_subtext">Výsledek úlohy</string>
     <string name="onboarding_welcome_title">Vítejte</string>
     <string name="onboarding_welcome_body1">SD Maid SE spravuje soubory, aplikace a úložiště.</string>
-    <string name="onboarding_welcome_body2">Získejte místo v úložišti úklidem po ostatních aplikacích. Odstraňte nepotřebné soubory a odstraňte zbytky dat.</string>
+    <string name="onboarding_welcome_body2">Získejte místo v úložišti úklidem po ostatních aplikacích. Smažte nepotřebné soubory a odstraňte zbytky dat.</string>
     <string name="onboarding_welcome_body_beta">Toto je Beta (testovací) verze. Postupujte se smyslem pro humor a záložním plánem. Nahlaste problémy, se kterými se setkáte.</string>
     <string name="onboarding_welcome_continue_action">Pokračovat</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
@@ -127,6 +127,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Nepoužít Shizuku</string>
     <string name="setup_dismiss_hint">Obrazovku úvodního nastavení najdete opět v nabídce nastavení.</string>
     <string name="setup_permission_granted_label">Oprávnění uděleno</string>
+    <string name="setup_permission_error_label">Chyba oprávnění</string>
     <string name="setup_usagestats_title">Statistiky používání</string>
     <string name="setup_usagestats_body">Oprávnění ke statistikám používání umožňuje přístup k dalším podrobnostem o aplikaci. SD Maid je používá k určení dalších velikostí mezipaměti.</string>
     <string name="setup_usagestats_hint">Vyžadováno pro mazání mezipaměti na základě služby přístupnosti.</string>
@@ -153,6 +154,7 @@
     <string name="setup_inventory_card_title">Inventář aplikace</string>
     <string name="setup_inventory_card_body">Aplikace SD Maid potřebuje vědět, které aplikace máte, aby našla soubory, které nepatří k žádným nainstalovaným aplikacím.</string>
     <string name="setup_inventory_card_extra">Vyhledejte oprávnění s názvem \"Seznam aplikací\" nebo \"Dotaz na všechny balíčky\".</string>
+    <string name="setup_inventory_invalid_message">Systém poskytl neplatný seznam nainstalovaných aplikací (např. jich bylo příliš málo nebo některé chyběly). Přejděte do nastavení systému a povolte aplikaci SD Maid přístup k \"Seznamu aplikací\".</string>
     <string name="dataarea_warningcard_empty_message">Aplikace SD Maid nenašla žádné datové oblasti, které by bylo možné skenovat. Dokončili jste úvodní nastavení?</string>
     <string name="dataarea_warningcard_label">Oblasti dat</string>
     <string name="dataarea_warningcard_reload_action">Znovu načíst oblasti dat</string>
@@ -172,8 +174,8 @@
     <string name="corpsefinder_settings_risk_common_summary">Data s příliš běžnými názvy, např. složka \"Poznámky\" je vlastněna příliš mnoha neznámými aplikacemi.</string>
     <string name="corpsefinder_watcher_title">Hlídač odinstalace</string>
     <string name="corpsefinder_watcher_summary">Automaticky skenovat pozůstatky, když je nějaká aplikace odinstalována.</string>
-    <string name="corpsefinder_watcher_autodelete_title">Automatické odstranění</string>
-    <string name="corpsefinder_watcher_autodelete_summary">Automaticky odstranit všechny pozůstatky související s odinstalovanou aplikací.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Automatické smazání</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Automaticky smazat všechny pozůstatky související s odinstalovanou aplikací.</string>
     <plurals name="corpsefinder_watcher_notification_scan_result">
         <item quantity="one">Nalezen %1$d pozůstatek po odinstalaci %2$s.</item>
         <item quantity="few">Nalezeny %1$d pozůstatky po odinstalaci %2$s.</item>
@@ -186,7 +188,7 @@
         <item quantity="many">Vyčištění bylo úspěšné (%1$s): Uvolněno %2$s a odstraněno %3$d položek.</item>
         <item quantity="other">Vyčištění bylo úspěšné (%1$s): Uvolněno %2$s a odstraněno %3$d položek.</item>
     </plurals>
-    <string name="corpsefinder_watcher_notification_delete_action">Odstranit pozůstatky</string>
+    <string name="corpsefinder_watcher_notification_delete_action">Smazat pozůstatky</string>
     <string name="corpsefinder_filter_publicmedia_label">Veřejná média</string>
     <string name="corpsefinder_filter_publicmedia_summary">Veřejné mediální soubory, např. soubory přijaté aplikacemi pro zasílání zpráv.</string>
     <string name="corpsefinder_filter_publicobb_label">OBB zdroje</string>
@@ -221,7 +223,7 @@
         <item quantity="many">Nalezeno %d pozůstatků aplikace</item>
         <item quantity="other">Nalezeno %d pozůstatků aplikace</item>
     </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">Vymazat všechny pozůstatky aplikace?</string>
+    <string name="corpsefinder_delete_all_confirmation_message">Smazat všechny pozůstatky aplikace?</string>
     <string name="corpsefinder_owners_label">Vlastníci</string>
     <string name="corpsefinder_corpse_hints_label">Oznámení</string>
     <string name="corpsefinder_owner_unknown">Neznámý vlastník</string>
@@ -252,6 +254,10 @@
     <string name="systemcleaner_filter_anr_summary">Stopy po událostech typu \"aplikace neodpovídá\".</string>
     <string name="systemcleaner_filter_emptydirectories_label">Prázdné složky</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Prázdné složky z celého zařízení. Vnořené složky bude možná potřeba projít vícekrát.</string>
+    <string name="systemcleaner_filter_screenshots_label">Snímky obrazovky</string>
+    <string name="systemcleaner_filter_screenshots_summary">Snímky obrazovky starší než %s z více aplikací a umístění.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Stáří snímků obrazovky</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Minimální stáří, od kterého je možné snímky obrazovky smazat.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Nadbytečné soubory APK</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Instalační soubory, které jsou starší nebo stejné jako již nainstalované verze aplikací.</string>
     <string name="systemcleaner_filter_lostdir_label">Složky LOST.DIR</string>
@@ -282,10 +288,10 @@
     <string name="systemcleaner_filter_tombstones_summary">Pokud dojde k pádu nativních procesů (např. her), vytvoří se zde soubory.</string>
     <string name="systemcleaner_filter_usagestats_label">Statistiky používání</string>
     <string name="systemcleaner_filter_usagestats_summary">Soubory související se statistikou používání aplikace.</string>
-    <string name="systemcleaner_delete_all_confirmation_message">Vymazat veškerý obsah filtru?</string>
+    <string name="systemcleaner_delete_all_confirmation_message">Smazat veškerý obsah filtru?</string>
     <string name="systemcleaner_customfilter_label">Vlastní filtr</string>
     <string name="systemcleaner_customfilter_create_action">Vytvořit vlastní filtr</string>
-    <string name="systemcleaner_customfilter_create_hint">Vytvořte si vlastní filtr pro odstranění dalších souborů, které jsou jedinečné pro vaše zařízení a případy použití.</string>
+    <string name="systemcleaner_customfilter_create_hint">Vytvořte si vlastní filtr pro smazání dalších souborů, které jsou jedinečné pro vaše zařízení a případy použití.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Odstranit tento filtr?</string>
     <string name="systemcleaner_editor_unsaved_confirmation_message">Máš neuložené změny!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Označení filtru</string>
@@ -319,15 +325,15 @@
     <string name="appcleaner_tool_name">Čistič aplikací</string>
     <string name="appcleaner_explanation_short">Nepotřebná data patřící specifickým aplikacím.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Veřejné výchozí mezipaměti</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Výchozí veřejné mezipaměti aplikací. Ve starších verzích systému Android je přístupná pod položkou Android/data. Odstraní se po klepnutí na \"Vymazat mezipaměť\" v nastavení systému.</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Výchozí veřejné mezipaměti aplikací. Ve starších verzích systému Android je přístupná pod položkou Android/data. Smažou se po klepnutí na \"Smazat mezipaměť\" v nastavení systému.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Soukromé výchozí mezipaměti</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Výchozí soukromé mezipaměti aplikací. Odstraní se po klepnutí na \"Vymazat mezipaměť\" v nastavení systému.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Výchozí soukromé mezipaměti aplikací. Smažou se po klepnutí na \"Smazat mezipaměť\" v nastavení systému.</string>
     <string name="appcleaner_include_systemapps_label">Zahrnout systémové aplikace</string>
     <string name="appcleaner_include_systemapps_summary">Zahrňte do skenování systémové aplikace.</string>
     <string name="appcleaner_include_runningapps_label">Zahrnout spuštěné aplikace</string>
     <string name="appcleaner_include_runningapps_summary">Zahrnout právě běžící aplikace, což může způsobit jejich přerušení.</string>
     <string name="appcleaner_include_inaccessible_label">Zahrnout nepřístupné mezipaměti</string>
-    <string name="appcleaner_include_inaccessible_summary">Zahrnout data, ke kterým nelze přistupovat přímo, ale lze je odstranit prostřednictvím nastavení systému a automatizovaně pomocí služby přístupnosti. </string>
+    <string name="appcleaner_include_inaccessible_summary">Zahrnout data, ke kterým nelze přistupovat přímo, ale lze je smazat prostřednictvím nastavení systému a automatizovaně pomocí služby přístupnosti. </string>
     <string name="appcleaner_include_multiuser_label">Zahrnout další uživatele</string>
     <string name="appcleaner_include_multiuser_summary">Zahrnout aplikace z dalších uživatelských profilů v tomto zařízení.</string>
     <string name="appcleaner_include_minimumsize_label">Minimální velikost</string>
@@ -357,7 +363,9 @@
     <string name="appcleaner_filter_webview_label">Soubory WebView</string>
     <string name="appcleaner_filter_webview_summary">Soubory ukládané do mezipaměti instancemi WebView použité v aplikacích.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Zálohy WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_backups_summary">Odstraňte další kopie záloh aplikace WhatsApp a ponechte si pouze nejnovější.</string>
+    <string name="appcleaner_filter_whatsapp_backups_summary">Smažte další kopie záloh aplikace WhatsApp a ponechte si pouze nejnovější.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Soubory, které jste obdrželi od osob prostřednictvím aplikace WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Přijaté soubory WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Odeslané soubory WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Soubory odeslané z aplikace WhatsApp ostatním.</string>
     <string name="appcleaner_filter_telegram_label">Soubory médií Telegramu</string>
@@ -368,12 +376,14 @@
     <string name="appcleaner_filter_wechat_summary">Odeslané nebo přijaté soubory v konverzacích a momentkách aplikace WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Soubory médií v mezipaměti, které se při zobrazení v konverzaci znovu stáhnou.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ chat</string>
+    <string name="appcleaner_filter_qqchat_summary">Odeslané nebo přijaté soubory v konverzacích QQ chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Smazat nepotřebné položky pro všechny aplikace?</string>
     <plurals name="appcleaner_result_x_items_deleted">
-        <item quantity="one">%d nepotřebná položka odstraněna</item>
-        <item quantity="few">%d nepotřebné položky odstraněny</item>
-        <item quantity="many">%d nepotřebných položek odstraněno</item>
-        <item quantity="other">%d nepotřebných položek odstraněno</item>
+        <item quantity="one">%d nepotřebná položka smazána</item>
+        <item quantity="few">%d nepotřebné položky smazány</item>
+        <item quantity="many">%d nepotřebných položek smazáno</item>
+        <item quantity="other">%d nepotřebných položek smazáno</item>
     </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Nalezena %d nepotřebná položka</item>
@@ -416,8 +426,8 @@
         <item quantity="many">Nalezeno %d sad duplikátů</item>
         <item quantity="other">Nalezeno %d sad duplikátů</item>
     </plurals>
-    <string name="deduplicator_protection_deleteall_allowed_title">Umožnit funkci \"Vymazat vše\"</string>
-    <string name="deduplicator_protection_deleteall_allowed_summary">Zobrazit možnosti, které umožňují vymazat všechny soubory v sadě duplikátů tak, aby nezůstal žádný soubor.</string>
+    <string name="deduplicator_protection_deleteall_allowed_title">Umožnit funkci \"Smazat vše\"</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Zobrazit možnosti, které umožňují smazat všechny soubory v sadě duplikátů tak, aby nezůstal žádný soubor.</string>
     <string name="deduplicator_skip_minsize_title">Minimální velikost</string>
     <string name="deduplicator_skip_minsize_description">Přeskočit soubory, které nedosahují minimální velikosti.</string>
     <string name="deduplicator_skip_uncommon_title">Přeskočit neobvyklé typy souborů</string>
@@ -432,12 +442,12 @@
     <string name="deduplicator_file_size_label">Velikost souboru</string>
     <string name="deduplicator_average_size_label">Průměrná velikost</string>
     <string name="deduplicator_cluster_x_label">Cluster %s</string>
-    <string name="deduplicator_delete_confirmation_message">Vymazat všechno ve všech sadách duplicitních souborů kromě jedné kopie?</string>
-    <string name="deduplicator_delete_single_set_confirmation_message">Vymazat všechny kopie kromě jedné v této sadě duplicitních souborů?</string>
-    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Vymazat všechny soubory v této sadě duplicitních souborů? Žádný soubor nezůstane!</string>
-    <string name="deduplicator_delete_multiple_sets_confirmation_message">Vymazat všechny kopie kromě jedné v každé vybrané sadě duplicitních souborů?</string>
-    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Vymazat všechny soubory v každé vybrané sadě duplicitních souborů? Žádný soubor nezůstane!</string>
-    <string name="deduplicator_delete_all_toggle_msg">Vymazat všechny kopie. Žádný soubor nezůstane!</string>
+    <string name="deduplicator_delete_confirmation_message">Smazat všechno ve všech sadách duplicitních souborů kromě jedné kopie?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Smazat všechny kopie kromě jedné v této sadě duplicitních souborů?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Smazat všechny soubory v této sadě duplicitních souborů? Žádný soubor nezůstane!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Smazat všechny kopie kromě jedné v každé vybrané sadě duplicitních souborů?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Smazat všechny soubory v každé vybrané sadě duplicitních souborů? Žádný soubor nezůstane!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Smazat všechny kopie. Žádný soubor nezůstane!</string>
     <string name="deduplicator_progress_comparing_files">Porovnávání souborů</string>
     <string name="deduplicator_details_cluster_title">Sady duplikátů</string>
     <string name="deduplicator_matches_exact_label">Přesné kopie</string>
@@ -625,6 +635,7 @@
         <item quantity="many">Vytvořeno %d výjimek</item>
         <item quantity="other">Vytvořeno %d výjimek</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Zobrazit výchozí</string>
     <string name="automation_accessibility_service_description">Uživatelé se zvláštními potřebami v oblasti přístupnosti mohou tuto službu povolit a umožnit tak aplikaci SD Maid automatizovat úlohy, které by jinak vyžadovaly zdlouhavou ruční interakci uživatele (např. mazání mezipaměti).\n\nPříklad: Pokud dáte aplikaci SD Maid pokyn k ukončení více aplikací, může SD Maid pomocí této služby otevřít obrazovku nastavení každé aplikace, najít tlačítko \"Vynutit ukončení\" a klepnout na něj.\n\nSD Maid se při používání této služby vždy viditelně zobrazí a poskytne uživateli snadný způsob, jak okamžitě zrušit jakoukoli interakci.\n\nBez předchozího souhlasu uživatele nebudou prováděny žádné akce. Tuto službu lze kdykoli znovu zakázat bez nežádoucích účinků.</string>
     <string name="automation_screenoverlay_explanation">SD Maid komunikuje s vaším zařízením. Během této doby není možné používat obrazovku. Vyčkejte na dokončení operace nebo ji zrušte.</string>
     <string name="automation_active_title">SD Maid pracuje</string>
@@ -711,7 +722,7 @@
         <item quantity="other">%d dnů</item>
     </plurals>
     <string name="stats_settings_reset_all_label">Obnovit vše</string>
-    <string name="stats_settings_reset_all_desc">Odstranit všechna hlášení a nastavit všechny statistiky na nulu.</string>
+    <string name="stats_settings_reset_all_desc">Smazat všechna hlášení a nastavit všechny statistiky na nulu.</string>
     <string name="stats_affected_paths_label">Ovlivněné cesty</string>
     <string name="stats_affected_pkgs_label">Ovlivněné aplikace</string>
 </resources>
