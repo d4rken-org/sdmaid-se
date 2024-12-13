@@ -88,7 +88,7 @@ class SuperfluousApksFilter @Inject constructor(
             pathExclusions = EXCLUSIONS
         )
         sieve = baseSieveFactory.create(config)
-        log(TAG) { "initialized()" }
+        log(TAG) { "initialized() with $config" }
     }
 
     override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {

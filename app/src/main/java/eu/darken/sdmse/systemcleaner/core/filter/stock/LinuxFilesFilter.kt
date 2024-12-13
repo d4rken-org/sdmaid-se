@@ -58,7 +58,7 @@ class LinuxFilesFilter @Inject constructor(
             )
         )
         sieve = baseSieveFactory.create(config)
-        log(TAG) { "initialized()" }
+        log(TAG) { "initialized() with $config" }
     }
 
 

@@ -80,7 +80,7 @@ class TempFilesFilter @Inject constructor(
 
 
         sieve = baseSieveFactory.create(config)
-        log(TAG) { "initialized()" }
+        log(TAG) { "initialized() with $config" }
     }
 
     private val sdmTempFileRegex = Regex(
