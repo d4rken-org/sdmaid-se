@@ -138,8 +138,6 @@
     <string name="file_type_directory">Κατάλογος</string>
     <string name="file_type_file">Αρχείο</string>
     <string name="file_type_unknown">Άγνωστο</string>
-    <string name="general_timeunit_hours">Ώρες</string>
-    <string name="general_timeunit_days">Ημέρες</string>
     <string name="general_progress_ready">Έτοιμο</string>
     <string name="general_progress_done">Τέλος</string>
     <string name="general_rom_type_auto_label">Αυτόματα (προεπιλογή)</string>

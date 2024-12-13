@@ -138,8 +138,6 @@
     <string name="file_type_directory">Kaust</string>
     <string name="file_type_file">Fail</string>
     <string name="file_type_unknown">Tundmatu</string>
-    <string name="general_timeunit_hours">Tundi</string>
-    <string name="general_timeunit_days">Päeva</string>
     <string name="general_progress_ready">Valmis</string>
     <string name="general_progress_done">Valmis</string>
     <string name="general_rom_type_auto_label">Automaatne (tavaline)</string>

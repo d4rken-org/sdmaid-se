@@ -133,8 +133,6 @@
     <string name="file_type_directory">디렉토리</string>
     <string name="file_type_file">파일</string>
     <string name="file_type_unknown">알 수 없음</string>
-    <string name="general_timeunit_hours">시</string>
-    <string name="general_timeunit_days">일</string>
     <string name="general_progress_ready">준비</string>
     <string name="general_progress_done">완료</string>
     <plurals name="result_x_files">

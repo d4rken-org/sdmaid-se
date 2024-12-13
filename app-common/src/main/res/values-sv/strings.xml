@@ -127,8 +127,6 @@
     <string name="file_type_directory">Katalog</string>
     <string name="file_type_file">Fil</string>
     <string name="file_type_unknown">Okänd</string>
-    <string name="general_timeunit_hours">Timmar</string>
-    <string name="general_timeunit_days">Dagar</string>
     <string name="general_progress_ready">Redo</string>
     <string name="general_progress_done">Klar</string>
     <plurals name="result_x_files">

@@ -115,8 +115,6 @@
     <string name="file_type_directory">Direktori</string>
     <string name="file_type_file">Fail</string>
     <string name="file_type_unknown">Tidak diketahui</string>
-    <string name="general_timeunit_hours">Jam</string>
-    <string name="general_timeunit_days">Hari</string>
     <string name="general_progress_ready">Sedia</string>
     <string name="general_progress_done">Selesai</string>
     <plurals name="result_x_files">

@@ -138,8 +138,6 @@
     <string name="file_type_directory">Directori</string>
     <string name="file_type_file">Fitxer</string>
     <string name="file_type_unknown">Desconegut</string>
-    <string name="general_timeunit_hours">Hores</string>
-    <string name="general_timeunit_days">Dies</string>
     <string name="general_progress_ready">A punt</string>
     <string name="general_progress_done">Fet</string>
     <string name="general_rom_type_auto_label">Automàtic (per defecte)</string>

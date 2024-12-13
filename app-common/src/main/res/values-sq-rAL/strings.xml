@@ -138,8 +138,6 @@
     <string name="file_type_directory">Drejtoria</string>
     <string name="file_type_file">Skedar</string>
     <string name="file_type_unknown">E panjohur</string>
-    <string name="general_timeunit_hours">Orët</string>
-    <string name="general_timeunit_days">Ditët</string>
     <string name="general_progress_ready">Gati</string>
     <string name="general_progress_done">E sosur</string>
     <string name="general_rom_type_auto_label">Automatik (bazë)</string>

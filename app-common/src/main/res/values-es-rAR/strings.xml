@@ -138,8 +138,6 @@
     <string name="file_type_directory">Carpeta</string>
     <string name="file_type_file">Archivo</string>
     <string name="file_type_unknown">Desconocido</string>
-    <string name="general_timeunit_hours">Horas</string>
-    <string name="general_timeunit_days">Días</string>
     <string name="general_progress_ready">Listo</string>
     <string name="general_progress_done">Hecho</string>
     <string name="general_rom_type_auto_label">Automático (por defecto)</string>

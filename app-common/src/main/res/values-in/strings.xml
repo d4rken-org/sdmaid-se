@@ -133,8 +133,6 @@
     <string name="file_type_directory">Direktori</string>
     <string name="file_type_file">Berkas</string>
     <string name="file_type_unknown">Tidak diketahui</string>
-    <string name="general_timeunit_hours">Jam</string>
-    <string name="general_timeunit_days">Hari</string>
     <string name="general_progress_ready">Siap</string>
     <string name="general_progress_done">Selesai</string>
     <string name="general_rom_type_auto_label">Otomatis (Default)</string>

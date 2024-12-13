@@ -138,8 +138,6 @@
     <string name="file_type_directory">ফোল্ডার</string>
     <string name="file_type_file">ফাইল</string>
     <string name="file_type_unknown">অজানা</string>
-    <string name="general_timeunit_hours">ঘন্টা</string>
-    <string name="general_timeunit_days">দিন</string>
     <string name="general_progress_ready">প্রস্তুত</string>
     <string name="general_progress_done">সম্পন্ন হয়েছে</string>
     <string name="general_rom_type_auto_label">স্বয়ংক্রিয় (ডিফল্ট)</string>

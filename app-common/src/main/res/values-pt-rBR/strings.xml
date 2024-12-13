@@ -134,8 +134,6 @@
     <string name="file_type_directory">Diretório</string>
     <string name="file_type_file">Arquivo</string>
     <string name="file_type_unknown">Desconhecido</string>
-    <string name="general_timeunit_hours">Horas</string>
-    <string name="general_timeunit_days">Dias</string>
     <string name="general_progress_ready">Pronto</string>
     <string name="general_progress_done">Concluído</string>
     <plurals name="result_x_files">
