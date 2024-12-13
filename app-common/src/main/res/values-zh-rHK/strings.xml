@@ -5,7 +5,6 @@
     <string name="slogan_message_1">乾淨整潔</string>
     <string name="slogan_message_2">防止混亂</string>
     <string name="slogan_message_3">做好必要的工作</string>
-    <string name="slogan_message_4">把事情安排得有條不紊</string>
     <string name="slogan_message_5">一塵不染</string>
     <string name="general_thank_you_label">謝謝您</string>
     <string name="general_error_type_mismatch_msg">類型不相符：想要 %1$s，但卻是 %2$s。</string>

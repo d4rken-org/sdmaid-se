@@ -1,9 +1,9 @@
-<i>SD Maid 2/SE</i> adalah asisten Android terpercaya, agar selalu bersih dan rapi.
+<i>SD Maid 2/SE</i> adalah asisten Android terpercayamu, agar selalu bersih dan rapi.
 
 Tiada yang sempurna dan itu termasuk Android.
 * Aplikasi yang baru saja dihapus meninggalkan beberapa jejak.
-* Log, laporan crash, dan file lain yang tidak diinginkan masih selalu dibuat.
-* Penyimpananmu mengumpulkan file-file dan folder-folder yang tidak kamu kenali.
+* Log, laporan crash, dan file lain yang tidak kamu inginkan yang masih selalu dibuat.
+* Penyimpananmu mengumpulkan file dan folder yang tidak kamu kenali.
 * Foto-foto duplikat yang ada dalam galeri mu.
 
 Mari sudahi... Biarkan SD Maid2/SE membantu mu!
@@ -34,7 +34,7 @@ SD Maid 2/SE ialah penerus dari SD Maid 1/Lawas.
 Dioptimalkan untuk Android versi terbaru dan difokuskan untuk membersihkan.
 
 Aplikasi ini memiliki fitur opsional yang memanfaatkan API AccessibilityService untuk mengotomatiskan tindakan yang membosankan.
-Dengan menggunakan API AccessibilityService, aplikasi ini dapat mengklik tombol bagi Anda untuk melakukan operasi pada beberapa aplikasi, misalnya. menghapus cache.
+Dengan menggunakan API AccessibilityService, aplikasi ini dapat mengklik tombol untuk kamu melakukan operasi pada beberapa aplikasi, misalnya. menghapus cache.
 Apli ini tidak menggunakan API AccessibilityService untuk mengumpulkan info.
 
-SD Maid 2/SE adalah Pengelola Berkas & Pembersih.
+SD Maid 2/SE adalah aplikasi Pengelola file & Pembersih.

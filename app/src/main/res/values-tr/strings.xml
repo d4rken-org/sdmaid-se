@@ -342,8 +342,6 @@
     <string name="appcleaner_filter_webview_summary">Herhangi bir uygulamada uygulama içi tarayıcı kullanılırken önbelleğe alınan dosyalardır.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp yedekleri</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">WhatsApp yedeklerinin fazladan kopyalarını silin ve yalnızca en yenisini saklayın.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp alınan dosyalar</string>
-    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp aracılığıyla herhangi bir kişiden aldığınız dosyalardır.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp gönderilen dosyalar</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp\'tan başkalarına gönderilen dosyalar.</string>
     <string name="appcleaner_filter_telegram_label">Telegram medya dosyaları</string>

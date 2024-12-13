@@ -334,8 +334,6 @@
     <string name="appcleaner_filter_webview_summary">Các tệp được lưu vào bộ đệm ẩn bởi các phiên bản Webview được sử dụng trong các ứng dụng.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Sao lưu WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Xóa các bản sao lưu bổ sung của WhatsApp và chỉ giữ bản mới nhất.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Tệp WhatsApp đã nhận</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Tệp bạn nhận được từ mọi người qua WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Tệp WhatsApp đã gửi</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Các tập tin được gửi từ WhatsApp cho người khác.</string>
     <string name="appcleaner_filter_telegram_label">Tệp phương tiện Telegram</string>

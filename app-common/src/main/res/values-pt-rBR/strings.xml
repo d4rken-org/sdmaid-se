@@ -5,7 +5,6 @@
     <string name="slogan_message_1">Limpo e arrumado.</string>
     <string name="slogan_message_2">Prevenindo o caos.</string>
     <string name="slogan_message_3">Fazendo o necessário.</string>
-    <string name="slogan_message_4">Tudo limpo e organizado.</string>
     <string name="slogan_message_5">Impecável.</string>
     <string name="slogan_message_6">Bytes, desapareça!</string>
     <string name="slogan_message_7">Espaço livre, lugar feliz.</string>
@@ -113,6 +112,10 @@
         <item quantity="one">%s com sucesso</item>
         <item quantity="other">%d com sucesso</item>
     </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d falhou</item>
+        <item quantity="other">%d falharam</item>
+    </plurals>
     <string name="x_space_can_be_freed">%s podem ser liberados</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Contar</string>
@@ -136,6 +139,7 @@
     <string name="file_type_unknown">Desconhecido</string>
     <string name="general_progress_ready">Pronto</string>
     <string name="general_progress_done">Concluído</string>
+    <string name="general_rom_type_auto_label">Automático (padrão)</string>
     <plurals name="result_x_files">
         <item quantity="one">%s arquivo</item>
         <item quantity="other">%s arquivos</item>

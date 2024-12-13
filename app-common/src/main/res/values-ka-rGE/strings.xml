@@ -4,7 +4,6 @@
     <string name="slogan_message_0">Თქვენს სერვისში.</string>
     <string name="slogan_message_2">Ქაოსის პრევენცია.</string>
     <string name="slogan_message_3">Აკეთებს იმას, რაც საჭიროა.</string>
-    <string name="slogan_message_4">ყველა თქვენი იხვი ზედიზედ.</string>
     <string name="slogan_message_5">უნაკლო.</string>
     <string name="general_thank_you_label">Გმადლობთ</string>
     <string name="general_error_type_mismatch_msg">ტიპის შეუსაბამობა: სურდა %1$s, მაგრამ მიიღო %2$s.</string>

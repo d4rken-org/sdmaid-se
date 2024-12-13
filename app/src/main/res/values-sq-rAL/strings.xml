@@ -334,8 +334,6 @@
     <string name="appcleaner_filter_webview_summary">Skedarët e ruajtur në memorie të fshehtë nga rastet e Webview të përdorura brenda aplikacioneve.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp të dhëna të ruajtura</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Fshini kopjet shtesë të kopjeve rezervë të WhatsApp dhe mbani vetëm më të fundit.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp mori skedarë</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Skedarët që keni marrë nga njerëzit përmes WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp skedarë të dërguar</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Skedarët e dërguar nga WhatsApp te të tjerët.</string>
     <string name="appcleaner_filter_telegram_label">Skedarët mediatikë të Telegramit</string>

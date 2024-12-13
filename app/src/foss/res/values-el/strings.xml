@@ -8,17 +8,17 @@
     <string name="upgrades_dashcard_upgrade_action">Αναβάθμιση</string>
     <string name="upgrade_screen_title">Βελτιώστε το SD Maid</string>
     <string name="upgrade_screen_preamble">Το SD Maid δεν έχει διαφημίσεις και δεν πωλεί δεδομένα χρήστη. Η συνεχής ανάπτυξη γίνεται δυνατή μόνο από εσάς.</string>
-    <string name="upgrade_screen_how_title">Πώς να βοηθήσω</string>
+    <string name="upgrade_screen_how_title">Πώς να βοηθήσετε</string>
     <string name="upgrade_screen_how_body">Γίνετε μέρος του patron μας και χορηγός ανάπτυξης! Πατήστε το παρακάτω κουμπί για να ενεργοποιήσετε όλες τις επιπλέον λειτουργίες και να ανοίξετε το προφίλ χορηγών GitHub.</string>
     <string name="upgrade_screen_why_title">Αυτό δημιουργεί 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner διαγραφή λειτουργικότητα 💯\n• Προγραμματισμένες εργασία ⏰\n• Επιπλέον επιλογές για όλα τα εργαλεία ️⚙️\n• Οι δικοί σας κανόνες διαγραφής ️✍️\n• Ένας προγραμματιστής με κίνητρο🧙\nΚαι περισσότερα…</string>
+    <string name="upgrade_screen_why_body">• AppCleaner λειτουργικότητα διαγραφής 💯\n• Προγραμματισμένες εργασίες ⏰\n• Επιπλέον επιλογές για όλα τα εργαλεία ️⚙️\n• Οι δικοί σας κανόνες διαγραφής ️✍️\n• Ένας προγραμματιστής με κίνητρο🧙\nκαι περισσότερα…</string>
     <string name="upgrade_screen_sponsor_action">Χορήγησε τη δημιουργία</string>
     <string name="upgrade_screen_sponsor_action_hint">Η εναλλακτική λύση είναι οι διαφημίσεις, τα αναλυτικά στοιχεία και το Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Σας ευχαριστούμε που υποστηρίξατε την ανάπτυξη ανοιχτού κώδικα ❤️</string>
-    <string name="nudge_betagoodbye_title">Version 1.0 🥳</string>
+    <string name="nudge_betagoodbye_title">Έκδοση 1.0 🥳</string>
     <string name="nudge_betagoodbye_body">Ευχαριστώ. Τα καταφέραμε και φτάσαμε έως εδώ μαζί. Η ανάπτυξη θα συνεχιστεί φυσικά, αλλά τώρα μπορείτε να μεταβείτε σε τροχιά κανονικής κυκλοφορίας.</string>
     <string name="nudge_betagoodbye_hint">Αυτή είναι ήδη μια κανονική έκδοση. Απλά να εξαιρεθείτε από τις δοκιμές και θα λάβετε μόνο ενημερώσεις κυκλοφορίας στο μέλλον.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Μπορείτε να κάνετε εναλλαγή χωρίς να επανεγκαταστήσετε την εφαρμογή αποχωρώντας απ\' το πρόγραμμα δοκιμών και περιμένοντας την επόμενη ενημέρωση έκδοσης. Μια κανονική ενημέρωση είναι πιθανή μόλις υπάρχει μια έκδοση κυκλοφορίας νεότερη από αυτή την προ-κυκλοφορία.</string>
+    <string name="nudge_betagoodbye_reinstall_note">Μπορείτε να κάνετε εναλλαγή χωρίς να επανεγκαταστήσετε την εφαρμογή αποχωρώντας απ\' το πρόγραμμα δοκιμών και περιμένοντας την επόμενη ενημέρωση έκδοσης. Μια κανονική ενημέρωση είναι δυνατή μόλις υπάρχει μια έκδοση κυκλοφορίας νεότερη από αυτή την προ-κυκλοφορία.</string>
     <string name="nudge_betagoodbye_positive_action">Εναλλαγή σε τροχιά κανονικής κυκλοφορίας</string>
     <string name="nudge_betagoodbye_negative_action">Συνεχίστε να λαμβάνετε προ-κυκλοφορίες</string>
 </resources>

@@ -1,16 +1,16 @@
-<i>SD Maid 2/SE</i> is your Android’s trusted assistant, to keep it clean and tidy.
+<i>SD Maid 2/SE</i> é o seu assistente Android de confiança, para manter o seu dispositivo limpo e arrumado.
 
 Ninguém é perfeito e nem o Android.
 * Os aplicativos que você já removeu deixam algo para trás.
-* Logs, crash reports and other files you don't want are constantly being created.
+* Logs, crash reports e outros arquivos os quais você não quer que sejam constantemente criados.
 * Seu armazenamento está coletando arquivos e pastas que você não reconhece.
-* Duplicate photos in your gallery.
+* Fotos duplicadas em sua galeria.
 
-Let’s not go on here… Let SD Maid 2/SE help you!
+Não iremos nos estender por aqui… Deixe o SD Maid 2/SE te ajudar!
 
-SD Maid 2/SE is an app and file manager that specializes in knowing which apps have created specific files on your device. SD Maid 2/SE searches your device and compares files with installed apps to offer options for safely freeing up storage space.
+SD Maid 2/SE é um aplicativo e gerenciador de arquivos que se especializa em identificar quais aplicativos criaram arquivos específicos em seu dispositivo. O SD Maid 2/SE analisa seu dispositivo, compara arquivos com aplicativos instalados e oferece opções seguras para liberar espaço de armazenamento.
 
-✨ Clean up after uninstalling apps
+✨ Limpeza após desinstalar aplicativos
 Se os apps criarem arquivos fora de suas pastas designadas, então os arquivos poderão permanecer mesmo depois de desinstalar os apps. The "CorpseFinder" tool finds app remains, tells you to which app they belonged and helps you delete them.
 
 🔍 Search your device the smart way

@@ -2,4 +2,10 @@
 <resources>
     <string name="dashboard_delete_all_message"></string>
     <string name="dashboard_settings_category"></string>
+    <string name="dashboard_motd_title">တီထွင်သူမှ သတင်းစကား</string>
+    <string name="dashboard_settings_oneclick_title">တစ်ခါနှိပ် မုဒ်</string>
+    <string name="dashboard_settings_oneclick_tools_title">တစ်ခါနှိပ် ကိရိယာများ</string>
+    <string name="debug_debuglog_size_label">အရွယ်အစား</string>
+    <string name="debug_debuglog_size_compressed_label">ချုံ့ထားသောအရွယ်အစား</string>
+    <string name="debug_debuglog_stop_action">ဖမ်ယူခြင်းကို ရပ်ပါ</string>
 </resources>

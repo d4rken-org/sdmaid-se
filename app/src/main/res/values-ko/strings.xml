@@ -326,8 +326,6 @@
     <string name="appcleaner_filter_webview_summary">인앱 브라우저(웹뷰)에서 만들어진 캐시입니다.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 백업</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">오래된 WhatsApp 백업을 지우고 최신 버전만 남깁니다.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp에서 받은 파일</string>
-    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp을 통해 받은 파일입니다.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp에서 보낸 파일</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp에서 다른 곳으로 파일 보내</string>
     <string name="appcleaner_filter_telegram_label">텔레그램 미디어 파일</string>

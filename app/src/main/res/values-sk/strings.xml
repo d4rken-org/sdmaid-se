@@ -337,8 +337,6 @@
     <string name="appcleaner_filter_webview_summary">Súbory uložené vo vyrovnávacej pamäti inštanciami Webview používané v aplikáciách.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Zálohy WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Odstráňte nadbytočné kópie záloh WhatsApp a ponechajte si iba najnovšie.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp prijaté súbory</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Súbory, ktoré ste dostali od ľudí cez WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp odoslané súbory</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Súbory odoslané z WhatsApp ostatným.</string>
     <string name="appcleaner_filter_telegram_label">Mediálne súbory Telegramu</string>

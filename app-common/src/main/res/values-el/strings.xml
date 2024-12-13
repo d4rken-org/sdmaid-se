@@ -5,7 +5,6 @@
     <string name="slogan_message_1">Καθαρό και τακτοποιημένο.</string>
     <string name="slogan_message_2">Αποτροπή χάους.</string>
     <string name="slogan_message_3">Κάνουμε ότι είναι αναγκαίο.</string>
-    <string name="slogan_message_4">Όλα τα παπάκια στη σειρά.</string>
     <string name="slogan_message_5">Πεντακάθαρο.</string>
     <string name="slogan_message_6">Bytes, εξαφανιστείτε!</string>
     <string name="slogan_message_7">Ελεύθερος χώρος, ευτυχισμένος τόπος.</string>
@@ -53,9 +52,9 @@
     <string name="general_progress_loading_app_data">Φόρτωση δεδομένων εφαρμογών</string>
     <string name="general_progress_loading_data_areas">Φόρτωση περιοχών δεδομένων</string>
     <string name="general_progress_loading_egg_0">Ακόμα πιο γρήγορο από ένα iPhone</string>
-    <string name="general_progress_loading_egg_1">Φόρτωση περισσότερης μνήμης</string>
+    <string name="general_progress_loading_egg_1">Λήψη περισσότερης RAM</string>
     <string name="general_progress_loading_egg_2">Σύντομα™</string>
-    <string name="general_progress_loading_egg_3">Ο πυρήνας είναι σε διάλειμμα</string>
+    <string name="general_progress_loading_egg_3">Ο επεξεργαστής είναι σε ένα διάλειμμα για καφέ</string>
     <string name="general_progress_loading_egg_4">Αναμονή δεδομένων από Pepe Silvia</string>
     <string name="general_progress_loading_egg_5">Εκκίνηση Turbo encabulator</string>
     <string name="general_progress_loading_egg_6">Μοιράζοντας το βούτυρο</string>
@@ -63,7 +62,7 @@
     <string name="general_progress_loading_egg_8">Beeping boop bop</string>
     <string name="general_progress_loading_egg_9">Buffering life choices</string>
     <string name="general_progress_loading_egg_10">Κλήση Cthulhu</string>
-    <string name="general_progress_loading_egg_11">Αυτό είναι μια Χαρά</string>
+    <string name="general_progress_loading_egg_11">Αυτό είναι μια χαρά</string>
     <string name="general_progress_loading_egg_12">Παρακαλώ περιμένετε</string>
     <string name="general_progress_loading_egg_13">Τουλάχιστον δεν είσαι σε αναμονή</string>
     <string name="general_help_action">Βοήθεια</string>
@@ -91,11 +90,11 @@
     <string name="general_delete_confirmation_message_x">Διαγραφή \"%s\";</string>
     <string name="general_delete_confirmation_message_selected_x_items">Διαγραφή %d επιλεγμένων στοιχείων;</string>
     <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">Διαγράφηκε %1$d και απελευθερώθηκαν %2$s</item>
-        <item quantity="other">Διαγράφηκαν %1$d και απελευθερώθηκαν %2$s</item>
+        <item quantity="one">Διαγράφηκε %1$d αντικείμενο και απελευθερώθηκαν %2$s</item>
+        <item quantity="other">Διαγράφηκαν %1$d αντικείμενα και απελευθερώθηκαν %2$s</item>
     </plurals>
     <string name="general_remove_action">Αφαίρεση</string>
-    <string name="general_remove_selected_action">Αφαίρεση επιλεγμένου</string>
+    <string name="general_remove_selected_action">Αφαίρεση επιλεγμένων</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Ένα στοιχείο αφαιρέθηκε</item>
         <item quantity="other">%d στοιχεία αφαιρέθηκαν</item>

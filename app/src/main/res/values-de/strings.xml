@@ -342,8 +342,6 @@
     <string name="appcleaner_filter_webview_summary">Von Webview-Instanzen zwischengespeicherte Dateien, die in Apps verwendet werden.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp-Sicherungen</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Lösche zusätzliche Kopien von WhatsApp Sicherungen und behalte nur die neuesten.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp hat Dateien empfangen</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Dateien, die du von Personen über WhatsApp erhalten hast.</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Via WhatsApp gesendete Dateien</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Dateien, die von WhatsApp an andere gesendet wurden.</string>
     <string name="appcleaner_filter_telegram_label">Telegram-Mediendateien</string>
@@ -653,7 +651,7 @@
     <string name="stats_report_status_partial_success">Teilerfolg</string>
     <string name="stats_report_status_partial_failure">Fehlgeschlagen</string>
     <string name="stats_settings_desc">Konfigurieren Sie die Statistiken, Berichte und die Datenspeicherung von SD Maid.</string>
-    <string name="stats_settings_retention_category">Vorratsspeicherung</string>
+    <string name="stats_settings_retention_category">Aufbewahrung</string>
     <string name="stats_settings_retention_reports_label">Allgemeine Berichte</string>
     <string name="stats_settings_retention_reports_desc">Anzahl der Tage vor dem Löschen der grundlegenden SD Maid Operationsberichte.</string>
     <string name="stats_settings_retention_paths_label">Detaillierte Pfadinformationen</string>
