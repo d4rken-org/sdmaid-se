@@ -73,3 +73,7 @@ SD Maid SE's code is available under a GPL v3 license, this excludes:
 * Google Play screenshots.
 * Google Play texts & descriptions.
 * Translations.
+
+## Thanks
+
+* Thanks to [crowdin.com](https://crowdin.com/) for supporting open-source projects
