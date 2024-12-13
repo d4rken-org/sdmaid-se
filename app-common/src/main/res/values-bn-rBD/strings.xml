@@ -140,6 +140,14 @@
     <string name="general_progress_ready">প্রস্তুত</string>
     <string name="general_progress_done">সম্পন্ন হয়েছে</string>
     <string name="general_rom_type_auto_label">স্বয়ংক্রিয় (ডিফল্ট)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d দিন</item>
+        <item quantity="other">%d দিন</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d ঘন্টা</item>
+        <item quantity="other">%d ঘন্টা</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s ফাইল</item>
         <item quantity="other">%s ফাইল</item>
