@@ -2,8 +2,11 @@ package eu.darken.sdmse.common.ui
 
 import android.app.Activity
 import android.content.Context
+import android.content.DialogInterface
 import android.text.format.Formatter
+import android.widget.Button
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.slider.Slider
@@ -22,13 +25,10 @@ class SizeInputDialog(
 
     private val context: Context
         get() = activity
-
-    private fun parseSize(input: String): Long? {
-        val match = SIZE_UNITS_REGEX.matchEntire(input.trim()) ?: return null
-        val (value, _, unit) = match.destructured
-        val factor = SIZE_UNITS[unit.uppercase()] ?: return null
-        return (value.toDoubleOrNull()?.times(factor))?.toLong()
-    }
+    private lateinit var dialog: AlertDialog
+    private val sizeParser = SizeParser(context)
+    private val positiveButton: Button
+        get() = dialog.getButton(DialogInterface.BUTTON_POSITIVE)
 
     private val dialogLayout = ViewPreferenceInputSizeBinding.inflate(activity.layoutInflater, null, false).apply {
         slider.valueFrom = minimumSize.toFloat()
@@ -48,8 +48,27 @@ class SizeInputDialog(
 
         slider.setLabelFormatter { Formatter.formatShortFileSize(context, getSliderSize()) }
 
-        sizeText.addTextChangedListener {
-            parseSize(it.toString())?.let { setSliderSize(it) }
+        sizeText.addTextChangedListener { rawSize ->
+            val parsedSize = sizeParser.parse(rawSize.toString())
+            when {
+                parsedSize != null && parsedSize in minimumSize..maximumSize -> {
+                    sizeText.error = null
+                    setSliderSize(parsedSize)
+                    positiveButton.isEnabled = true
+                }
+
+                parsedSize != null -> {
+                    val minLimit = Formatter.formatShortFileSize(context, minimumSize)
+                    val maxLimit = Formatter.formatShortFileSize(context, maximumSize)
+                    sizeText.error = "$minLimit <= X <= $maxLimit"
+                    positiveButton.isEnabled = false
+                }
+
+                else -> {
+                    sizeText.error = context.getText(eu.darken.sdmse.common.R.string.general_error_invalid_input_label)
+                    positiveButton.isEnabled = false
+                }
+            }
         }
 
         slider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
@@ -63,7 +82,7 @@ class SizeInputDialog(
             }
         })
     }
-    private val dialog = MaterialAlertDialogBuilder(context).apply {
+    private val dialogBuilder = MaterialAlertDialogBuilder(context).apply {
         setTitle(titleRes)
         setView(dialogLayout.root)
         setPositiveButton(eu.darken.sdmse.common.R.string.general_save_action) { _, _ ->
@@ -78,17 +97,10 @@ class SizeInputDialog(
     }
 
     fun show() {
-        dialog.show()
+        dialog = dialogBuilder.show()
     }
 
     companion object {
         private const val KB_MULTIPLIER = 1024L
-        private val SIZE_UNITS_REGEX = Regex("(\\d+(\\.\\d+)?)\\s*(B|KB|MB|GB)", RegexOption.IGNORE_CASE)
-        private val SIZE_UNITS = mapOf(
-            "B" to 1L,
-            "KB" to 1_000L,
-            "MB" to 1_000_000L,
-            "GB" to 1_000_000_000L,
-        )
     }
 }
