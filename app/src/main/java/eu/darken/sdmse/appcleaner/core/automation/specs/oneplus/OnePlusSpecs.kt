@@ -115,7 +115,16 @@ class OnePlusSpecs @Inject constructor(
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeMapping = when {
-                    hasApiLevel(34) && isUnclickableButton -> clickableParent()
+                    hasApiLevel(34) -> {
+                        // Function that is evaluated later, has access to vars in this scope
+                        { node ->
+                            when {
+                                isUnclickableButton -> clickableParent().invoke(node)
+                                else -> node
+                            }
+                        }
+                    }
+
                     else -> null
                 },
                 nodeTest = buttonFilter,
