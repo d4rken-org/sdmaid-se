@@ -10,6 +10,7 @@ import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.automation.core.errors.AutomationException
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
+import eu.darken.sdmse.automation.core.errors.UnclickableTargetException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -61,7 +62,8 @@ fun AutomationExplorer.Context.defaultClick(
     when {
         !node.isEnabled -> onDisabled?.invoke(node) ?: throw DisabledTargetException("Clickable target is disabled.")
         isDryRun -> node.performAction(AccessibilityNodeInfo.ACTION_SELECT)
-        else -> node.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+        node.isClickable -> node.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+        else -> throw UnclickableTargetException("Target is not clickable")
     }
 }
 
@@ -81,6 +83,7 @@ fun AutomationExplorer.Context.clickableParent(
     maxNesting: Int = 6
 ): suspend (AccessibilityNodeInfo) -> AccessibilityNodeInfo = { us ->
     us.findParentOrNull(maxNesting = maxNesting) {
+        log(TAG, VERBOSE) { "isClickable? ${it.toStringShort()}" }
         it.isClickable
     } ?: throw AutomationException("No clickable parent found (within $maxNesting)")
 }

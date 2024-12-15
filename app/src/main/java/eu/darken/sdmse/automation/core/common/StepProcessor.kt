@@ -19,6 +19,8 @@ import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -125,7 +127,7 @@ class StepProcessor @AssistedInject constructor(
         }
 
         if (step.windowIntent != null) {
-            log(TAG, VERBOSE) { "Launching window intent: ${step.windowIntent}" }
+            log(TAG) { "Launching window intent: ${step.windowIntent}" }
             host.service.startActivity(step.windowIntent)
         }
 
@@ -135,12 +137,12 @@ class StepProcessor @AssistedInject constructor(
         val targetWindowRoot: AccessibilityNodeInfo = withTimeout(4000) {
             // Wait for correct window
             if (step.windowIntent != null && step.windowEventFilter != null) {
-                log(TAG, VERBOSE) { "Waiting for window event filter to pass..." }
+                log(TAG) { "Waiting for window event filter to pass..." }
                 host.events.filter {
                     log(TAG, VERBOSE) { "Testing window event $it" }
                     step.windowEventFilter.invoke(it)
                 }.first()
-                log(TAG, VERBOSE) { "Window event filter passed!" }
+                log(TAG) { "Window event filter passed!" }
             }
 
             // Condition for the right window, e.g. check title
@@ -154,7 +156,7 @@ class StepProcessor @AssistedInject constructor(
                 }
 
                 if (step.windowNodeTest.invoke(currentRoot)) {
-                    log(TAG) { "Window root found: $currentRoot (spec=$step)" }
+                    log(TAG, INFO) { "Window root found: $currentRoot (spec=$step)" }
                     break
                 } else {
                     log(TAG) { "Not a viable root node: $currentRoot (spec=$step)" }
@@ -165,7 +167,7 @@ class StepProcessor @AssistedInject constructor(
             // There was no windowNodeTest, so we continue with the first thing we got
             currentRoot ?: host.waitForWindowRoot()
         }
-        log(TAG, VERBOSE) { "Current window root node is ${targetWindowRoot.toStringShort()}" }
+        log(TAG, DEBUG) { "Current window root node is ${targetWindowRoot.toStringShort()}" }
 
         val targetNode: AccessibilityNodeInfo = when {
             step.nodeTest != null -> {
@@ -181,10 +183,10 @@ class StepProcessor @AssistedInject constructor(
                     target = currentRootNode.crawl().map { it.node }.find { step.nodeTest.invoke(it) }
 
                     if (target != null) {
-                        log(TAG, VERBOSE) { "Target node found: $target" }
+                        log(TAG, INFO) { "Target node found: ${target.toStringShort()}" }
                         break
                     } else {
-                        log(TAG, VERBOSE) { "Target node not found" }
+                        log(TAG, WARN) { "Target node not found" }
                     }
 
                     if (step.nodeRecovery != null) {
@@ -204,18 +206,20 @@ class StepProcessor @AssistedInject constructor(
 
             else -> host.waitForWindowRoot()
         }
-        log(TAG, VERBOSE) { "Target node is ${targetNode.toStringShort()}" }
 
         // e.g. find a clickable parent based on the target node
-        val mappedNode = step.nodeMapping?.invoke(targetNode) ?: targetNode
-        log(TAG, VERBOSE) { "Mapped node is ${mappedNode.toStringShort()}" }
+        val mappedNode = step.nodeMapping
+            ?.also { log(TAG, DEBUG) { "Trying to map ${targetNode.toStringShort()} using $it" } }
+            ?.invoke(targetNode)
+            ?.also { log(TAG, INFO) { "Mapped node is ${it.toStringShort()}" } }
+            ?: targetNode.also { log(TAG, VERBOSE) { "No mapping to be done." } }
 
         // Perform action, e.g. clicking a button
-        log(TAG, VERBOSE) { "Performing action on $mappedNode" }
+        log(TAG, INFO) { "Performing action on $mappedNode" }
         val success = step.action?.invoke(mappedNode, attempt) != false
 
         if (success) {
-            log(TAG) { "Crawl was successful :)" }
+            log(TAG, INFO) { "Crawl was successful :)" }
         } else {
             throw AutomationException("Action failed on $mappedNode (spec=$step)")
         }
