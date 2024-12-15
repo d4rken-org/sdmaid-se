@@ -13,7 +13,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
-import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.main.core.GeneralSettings
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.combine
@@ -118,11 +117,9 @@ class Theming @Inject constructor(
 
         ThemeStyle.MATERIAL_YOU -> {
             // We don't use DynamicColors.applyToActivitiesIfAvailable() because we can't remove it again
-            activities.forEach { activity ->
+            this@Theming.activities.forEach { activity ->
                 log(TAG) { "Applying MATERIAL_YOU to $activity" }
-
                 DynamicColors.applyToActivityIfAvailable(activity)
-                activity.window.statusBarColor = activity.getColorForAttr(android.R.attr.colorPrimaryDark)
             }
         }
     }

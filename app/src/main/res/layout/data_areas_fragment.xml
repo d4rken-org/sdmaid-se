@@ -23,9 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="64dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/list"
+        app:layout_constraintEnd_toEndOf="@id/list"
+        app:layout_constraintStart_toStartOf="@id/list"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         tools:visibility="visible">
 
