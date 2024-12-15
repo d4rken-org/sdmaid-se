@@ -126,7 +126,15 @@ class VivoSpecs @Inject constructor(
                 windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeTest = buttonFilter,
                 nodeMapping = when {
-                    hasApiLevel(34) && isUnclickableLabelButton -> clickableParent()
+                    hasApiLevel(34) -> {
+                        // Pass a function that is evaluated later, and has access to vars in this scope
+                        { node ->
+                            when {
+                                isUnclickableLabelButton -> clickableParent().invoke(node)
+                                else -> node
+                            }
+                        }
+                    }
                     else -> null
                 },
                 action = getAospClearCacheClick(pkg, tag)
