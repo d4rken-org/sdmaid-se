@@ -170,4 +170,5 @@
         <item quantity="other">%s files</item>
     </plurals>
     <string name="general_advice_title">Advice</string>
+    <string name="general_error_invalid_input_label">Invalid input</string>
 </resources>
