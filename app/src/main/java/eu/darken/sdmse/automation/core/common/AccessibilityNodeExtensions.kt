@@ -100,10 +100,10 @@ fun AccessibilityNodeInfo.findParentOrNull(
     maxNesting: Int = 3,
     predicate: (AccessibilityNodeInfo) -> Boolean
 ): AccessibilityNodeInfo? {
-    var target = this
+    var target = this.parent ?: return null
     for (i in 1..maxNesting) {
         if (predicate(target)) return target
-        if (target.parent != null) target = target.parent
+        target = target.parent ?: break
     }
     return null
 }
