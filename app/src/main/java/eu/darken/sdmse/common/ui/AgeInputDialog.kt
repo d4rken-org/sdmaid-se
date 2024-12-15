@@ -2,14 +2,16 @@ package eu.darken.sdmse.common.ui
 
 import android.app.Activity
 import android.content.Context
+import android.content.DialogInterface
+import android.widget.Button
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.slider.Slider
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.databinding.ViewPreferenceInputAgeBinding
 import java.time.Duration
-import kotlin.math.roundToLong
 
 class AgeInputDialog(
     private val activity: Activity,
@@ -25,27 +27,11 @@ class AgeInputDialog(
     private val context: Context
         get() = activity
 
-    private fun parseAge(input: String): Duration? {
-        val (valueRaw, _, unit) = SPLIT_REGEX.matchEntire(input.trim())?.destructured ?: return null
-        val value = valueRaw.toDoubleOrNull()?.roundToLong() ?: return null
-        return when {
-            context.getQuantityString2(
-                eu.darken.sdmse.common.R.plurals.general_age_hours,
-                value.toInt()
-            ) == input -> {
-                Duration.ofHours(value)
-            }
+    private val durationParser = DurationParser(context)
 
-            context.getQuantityString2(
-                eu.darken.sdmse.common.R.plurals.general_age_days,
-                value.toInt()
-            ) == input -> {
-                Duration.ofDays(value)
-            }
-
-            else -> null
-        }
-    }
+    private lateinit var dialog: AlertDialog
+    private val positiveButton: Button
+        get() = dialog.getButton(DialogInterface.BUTTON_POSITIVE)
 
     private fun Slider.getDuration() = Duration.ofHours(value.toLong())
 
@@ -65,7 +51,32 @@ class AgeInputDialog(
         slider.setLabelFormatter { formatAge(context, slider.getDuration()) }
 
         ageText.addTextChangedListener { rawAge ->
-            parseAge(rawAge.toString())?.let { slider.setDuration(it) }
+            val parsedAge = durationParser.parse(rawAge.toString())
+            when {
+                parsedAge != null && parsedAge in minimumAge..maximumAge -> {
+                    ageText.error = null
+                    slider.setDuration(parsedAge)
+                    positiveButton.isEnabled = true
+                }
+
+                parsedAge != null -> {
+                    val minLimit = context.getQuantityString2(
+                        eu.darken.sdmse.common.R.plurals.general_age_hours,
+                        minimumAge.toHours().toInt()
+                    )
+                    val maxLimit = context.getQuantityString2(
+                        eu.darken.sdmse.common.R.plurals.general_age_days,
+                        maximumAge.toDays().toInt()
+                    )
+                    ageText.error = "$minLimit <= X <= $maxLimit"
+                    positiveButton.isEnabled = false
+                }
+
+                else -> {
+                    ageText.error = context.getText(eu.darken.sdmse.common.R.string.general_error_invalid_input_label)
+                    positiveButton.isEnabled = false
+                }
+            }
         }
 
         slider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
@@ -80,7 +91,7 @@ class AgeInputDialog(
         })
     }
 
-    private val dialog = MaterialAlertDialogBuilder(context).apply {
+    private val dialogBuilder = MaterialAlertDialogBuilder(context).apply {
         setTitle(titleRes)
         setView(dialogLayout.root)
         setPositiveButton(eu.darken.sdmse.common.R.string.general_save_action) { _, _ ->
@@ -95,12 +106,10 @@ class AgeInputDialog(
     }
 
     fun show() {
-        dialog.show()
+        dialog = dialogBuilder.show()
     }
 
     companion object {
-        val SPLIT_REGEX = Regex("(\\d+(\\.\\d+)?)\\s*(\\w+)", RegexOption.IGNORE_CASE)
-
         fun formatAge(
             context: Context,
             age: Duration
