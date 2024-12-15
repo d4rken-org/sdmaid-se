@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Μη έγκυρο απόθεμα εφαρμογής</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Το σύστημα παρείχε μια μη έγκυρη λίστα των εγκατεστημένων εφαρμογών στο SD Maid.</string>
+</resources>

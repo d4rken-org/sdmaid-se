@@ -123,6 +123,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Ära kasuta Shizukut</string>
     <string name="setup_dismiss_hint">Seadistamisekraani leiate taas seadete menüüst.</string>
     <string name="setup_permission_granted_label">Lubatud</string>
+    <string name="setup_permission_error_label">Lubamise tõrge</string>
     <string name="setup_usagestats_title">Kasutusstatistika</string>
     <string name="setup_usagestats_body">Kasutusstatistika luba annab juurdepääsetavuse rakenduse täpsematele andmetele. SD Maid tuvastab nendega muidu märkamatuks jäävat vahemälu mahtu.</string>
     <string name="setup_usagestats_hint">Vaja juurdepääsetavusteenusel põhineva vahemälu kustutamiseks.</string>
@@ -149,6 +150,7 @@
     <string name="setup_inventory_card_title">Rakenduse inventuur</string>
     <string name="setup_inventory_card_body">SD Maid peab paigaldatud rakenduste failide kuuluvuse leidmiseks teada teie rakendusi.</string>
     <string name="setup_inventory_card_extra">Otsige luba „Rakenduste loend” või „Küsi kõiki pakette”.</string>
+    <string name="setup_inventory_invalid_message">Süsteem esitas paigaldatud rakenduste puuduliku nimekirja (nt liiga vähe või osad on puudu). Avage süsteemi seaded ja lubage SD Maidil juurde pääseda rakenduste loendile.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ei leidnud skannitavaid andmekogusid. Kas lõpetasite seadistamise?</string>
     <string name="dataarea_warningcard_label">Andmekogud</string>
     <string name="dataarea_warningcard_reload_action">Laadi andmekogud uuesti</string>
@@ -236,6 +238,10 @@
     <string name="systemcleaner_filter_anr_summary">\"Rakendus ei vasta\" sündmuste jäägid</string>
     <string name="systemcleaner_filter_emptydirectories_label">Tühjad kaustad</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Seadme kõik tühjad kaustad. Kaustu sisaldavad kataalogid võivad vajada mitmekordset toimetamist.</string>
+    <string name="systemcleaner_filter_screenshots_label">Ekraanipildid</string>
+    <string name="systemcleaner_filter_screenshots_summary">Mitme rakenduse ja asukoha ekraanipildid, mis vanemad kui %s.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Ekraanipildi vanus</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Ekraanipiltide miinumumvanus, et kustutamiseks arvestada.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Üleliigsed .apk failid</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Juba paigaldatud rakenduse versioonist vanemad või sama versiooni seadistusfailid.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR kaustad</string>
@@ -342,6 +348,8 @@
     <string name="appcleaner_filter_webview_summary">Rakendustes kasutatud veebivaate vahemälus olevad failid.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsAppi varundusfailid</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Kustutage WhatsAppi varundusfailide lisakoopiad ja säilitage vaid uusim.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">WhatsAppi kasutajatelt saadud failid.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsAppi kaudu saadud failid</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsAppiga saadetud failid</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsAppist teistele saadetud failid.</string>
     <string name="appcleaner_filter_telegram_label">Telegrami meediafailid</string>
@@ -352,6 +360,8 @@
     <string name="appcleaner_filter_wechat_summary">Vestlustes ja WeChat hetkedes saadetud või saadud failid.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Vahemällu salvetatud meediafailid, mis laaditakse uuesti alla, kui neid vestlusaknas vaadata.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ chat</string>
+    <string name="appcleaner_filter_qqchat_summary">QQ chati vestluses saadetud või saadud failid.</string>
     <string name="appcleaner_delete_all_confirmation_message">Kustutada kõikide rakenduste ühekordne sisu?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">%d ühekordne fail kustutatud</item>
@@ -579,6 +589,7 @@
         <item quantity="one">Loodi üks erand</item>
         <item quantity="other">Loodi %d erandit</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Näita tavaseadeid</string>
     <string name="automation_accessibility_service_description">Erivajadustega kasutajad saavad selle teenuse lubamisega lasta SD Maidil automatiseerida ülesandeid, mis muidu nõuaksid kasutajalt tüütut käsitsi sekkumist (nt vahemälu kustutamine).\n\nNäide: kui õpetad SD Maidi peatama mitu rakendust, siis SD Maid saab selle teenusega avada iga rakenduse seadete ekraani, leida nupu „Force Stop“ (Sundpeatamine) ja puutuda seda.\n\nSD Maid ilmub selle teenuse kasutamisel alati silmapaistvalt ja võimaldab kasutajal hõlpsalt tühistada mis tahes tegevuse kohe.\n\nMitte midagi ei tehta ilma kasutaja eelneva loata. Seda teenust saab keelata taas igal ajal ilma tõsiste tagajärgedeta.</string>
     <string name="automation_screenoverlay_explanation">SD Maid toimetab seadmega. Samal ajal ei saa kasutada ekraani. Oodake toimetamise lõppu või tühistage see.</string>
     <string name="automation_active_title">SD Maid töötab</string>

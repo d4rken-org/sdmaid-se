@@ -123,6 +123,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">No utilizar Shizuku</string>
     <string name="setup_dismiss_hint">Puedes volver a encontrar la pantalla de configuración a través del menú de la configuración.</string>
     <string name="setup_permission_granted_label">Permiso concedido</string>
+    <string name="setup_permission_error_label">Error de autorización</string>
     <string name="setup_usagestats_title">Estadísticas de uso</string>
     <string name="setup_usagestats_body">El permiso de estadísticas de uso concede acceso a más detalles de la aplicación. SD Maid lo usa para determinar tamaños de caché adicionales.</string>
     <string name="setup_usagestats_hint">Necesaria para la eliminación de la caché basada en el servicio de accesibilidad.</string>
@@ -149,6 +150,7 @@
     <string name="setup_inventory_card_title">Lista de aplicaciones</string>
     <string name="setup_inventory_card_body">SD Maid necesita saber qué aplicaciones tienes para encontrar archivos que no pertenecen a ninguna aplicación instalada.</string>
     <string name="setup_inventory_card_extra">Busca un permiso llamado \"Lista de aplicaciones\" o \"Consultar todos los paquetes\".</string>
+    <string name="setup_inventory_invalid_message">El sistema proporcionó una lista inválida de aplicaciones instaladas (p. ej., muy pocas o algunas faltaban). Ir a las configuraciones del sistema y permitir el acceso SD Maid a \"Lista de aplicaciones\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid no encontró ningún área de datos que se pueda escanear. ¿Completaste la configuración?</string>
     <string name="dataarea_warningcard_label">Áreas de datos</string>
     <string name="dataarea_warningcard_reload_action">Recarga las áreas de los datos</string>
@@ -236,6 +238,10 @@
     <string name="systemcleaner_filter_anr_summary">Rastros de eventos de \"aplicación no responde.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Carpetas vacías</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Vaciar las carpetas de todo el dispositivo. Las carpetas del sistema pueden requerir varias pasadas.</string>
+    <string name="systemcleaner_filter_screenshots_label">Capturas de pantalla</string>
+    <string name="systemcleaner_filter_screenshots_summary">Capturas de pantalla anteriores a %s de varias aplicaciones y ubicaciones.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Antigüedad de la captura de pantalla</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Antigüedad mínima de las capturas de pantalla para que las capturas de pantalla sean consideradas para su eliminación.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APKs superfluos</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Archivos de instalación que son anteriores o iguales a las versiones de la aplicación que ya están instaladas.</string>
     <string name="systemcleaner_filter_lostdir_label">Carpetas LOST.DIR</string>
@@ -342,6 +348,8 @@
     <string name="appcleaner_filter_webview_summary">Archivos almacenados en la caché por las instancias de Webview utilizadas en las aplicaciones.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Copias de seguridad de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Elimine las copias adicionales de las copias de seguridad de WhatsApp y conserve solo la más reciente.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Archivos que has recibido de otras personas por WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Archivos recibidos por WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Archivos enviados de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Archivos enviados desde WhatsApp a otras personas.</string>
     <string name="appcleaner_filter_telegram_label">Archivos multimedia de Telegram</string>
@@ -352,6 +360,8 @@
     <string name="appcleaner_filter_wechat_summary">Archivos enviados o recibidos en conversaciones y momentos de WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Archivos multimedia en caché que se vuelven a descargar cuando se ven en el chat.</string>
+    <string name="appcleaner_filter_qqchat_label">Chat por QQ</string>
+    <string name="appcleaner_filter_qqchat_summary">Archivos enviados o recibidos en conversaciones por el chat QQ.</string>
     <string name="appcleaner_delete_all_confirmation_message">¿Borrar los elementos innecesarios para todas las aplicaciones?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">%d elemento prescindible eliminado</item>
@@ -579,6 +589,7 @@
         <item quantity="one">Una exclusión creada</item>
         <item quantity="other">Se han creado %d excepciones</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Mostrar valores por defecto</string>
     <string name="automation_accessibility_service_description">Los usuarios con necesidades especiales de accesibilidad pueden habilitar este servicio para permitir a SD Maid automatizar las tareas que de otro modo requerirían una tediosa interacción manual del usuario (por ejemplo, la eliminación de la caché).\n\nPor ejemplo: Si indicas a SD Maid que detenga varias aplicaciones, SD Maid puede usar este servicio para abrir la pantalla de configuración de cada aplicación, utilizar este servicio para abrir la pantalla de configuración de cada aplicación y encontrar el botón \'Forzar la detención de la aplicación\' y presionarlo.\n\nSD Maid siempre se mostrará de forma destacada cuando se utiliza este servicio y proporcionará una manera fácil para que el usuario cancele cualquier interacción inmediatamente.\n\nNo se llevará a cabo ninguna acción sin la aprobación previa del usuario. Este servicio puede ser desactivado de nuevo en cualquier momento sin efectos adversos.</string>
     <string name="automation_screenoverlay_explanation">SD Maid está interactuando con tu dispositivo. No es posible utilizar la pantalla al mismo tiempo. Espere a que finalice la operación o cancélela.</string>
     <string name="automation_active_title">SD Maid está trabajando</string>

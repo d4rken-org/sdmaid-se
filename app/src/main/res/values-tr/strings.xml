@@ -123,6 +123,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku\'yu kullanma</string>
     <string name="setup_dismiss_hint">Ayarlar menüsünden kurulum ekranına tekrar ulaşabilirsiniz.</string>
     <string name="setup_permission_granted_label">İzin verildi</string>
+    <string name="setup_permission_error_label">İzin Hatası</string>
     <string name="setup_usagestats_title">Kullanım istatistikleri</string>
     <string name="setup_usagestats_body">Kullanım istatistikleri izni daha fazla uygulama detayına erişim sağlar. SD Maid bunu ek önbellek boyutlarını belirlemek için kullanır.</string>
     <string name="setup_usagestats_hint">Erişilebilirlik hizmeti tabanlı önbellek silme işlemi için gereklidir.</string>
@@ -149,6 +150,7 @@
     <string name="setup_inventory_card_title">Uygulama envanteri</string>
     <string name="setup_inventory_card_body">SD Maid\'in yüklü uygulamalara ait olmayan dosyaları bulmak için hangi uygulamalara sahip olduğunuzu bilmesi gerekir.</string>
     <string name="setup_inventory_card_extra">\"Uygulama listesi\" veya \"Tüm paketleri sorgula\" adlı bir izin arayın.</string>
+    <string name="setup_inventory_invalid_message">Sistem, yüklü uygulamaların geçersiz bir listesini sağladı (örn. çok az veya bazıları eksik). Sistem ayarlarına gidin ve SD Maid\'in \"Uygulama listesi \"ne erişimine izin verin.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid taranabilecek herhangi bir veri alanı bulamadı. Kurulumu tamamladınız mı?</string>
     <string name="dataarea_warningcard_label">Veri alanları</string>
     <string name="dataarea_warningcard_reload_action">Veri alanlarını tekrar yükle</string>
@@ -236,6 +238,10 @@
     <string name="systemcleaner_filter_anr_summary">\'Uygulama yanıt vermiyor\' olaylarından gelen izler.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Boş klasörler</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Cihazın her yerinden klasörleri boşaltın. İç içe klasörler birden fazla geçiş gerektirebilir.</string>
+    <string name="systemcleaner_filter_screenshots_label">Ekran görüntüleri</string>
+    <string name="systemcleaner_filter_screenshots_summary">Birden fazla uygulama ve konumdan %s\'den daha eski ekran görüntüleri.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Ekran Görüntüsü Yaşı</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Ekran görüntülerinin silinmek üzere değerlendirilebilmesi için minimum yaş.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Gereksiz APK\'lar</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Halihazırda yüklü olan uygulama sürümlerine eşit veya daha eski olan kurulum dosyaları.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR klasörleri</string>
@@ -342,6 +348,8 @@
     <string name="appcleaner_filter_webview_summary">Herhangi bir uygulamada uygulama içi tarayıcı kullanılırken önbelleğe alınan dosyalardır.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp yedekleri</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">WhatsApp yedeklerinin fazladan kopyalarını silin ve yalnızca en yenisini saklayın.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp aracılığıyla herhangi bir kişiden aldığınız dosyalardır.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp alınan dosyalar</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp gönderilen dosyalar</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp\'tan başkalarına gönderilen dosyalar.</string>
     <string name="appcleaner_filter_telegram_label">Telegram medya dosyaları</string>
@@ -352,6 +360,8 @@
     <string name="appcleaner_filter_wechat_summary">Konuşmalarda ve WeChat anlarında gönderilen veya alınan dosyalar.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Sohbette görüntülendiğinde tekrar indirilen önbelleğe alınmış medya dosyaları.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ chat</string>
+    <string name="appcleaner_filter_qqchat_summary">QQ chat konuşmalarında gönderilen veya alınan dosyalar.</string>
     <string name="appcleaner_delete_all_confirmation_message">Tüm uygulamaların gereksiz ögeleri silinsin mi?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">%d temizlenebilir öğe silindi</item>
@@ -580,6 +590,7 @@
         <item quantity="one">Bir hariç tutma oluşturuldu</item>
         <item quantity="other">%d hariç tutma oluşturuldu</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Varsayılanları göster</string>
     <string name="automation_accessibility_service_description">Farklı uygulamaların önbelleklerini sırayla temizlemek gibi sıkıcı ve tekrarlayan işlemleri yapmak istemeyen veya kendine özel erişilebilirlik kuralı oluşturmak isteyen kullanıcılar için SD Maid erişilebilirlik hizmetini kullanarak bu işlemleri otomatikleştirebilir.\n\nÖrneğin birden fazla uygulamayı zorla durdurmak isterseniz bu hizmet sayesinde SD Maid\'e her bir uygulama için ayarlar ekranını açmasını ve ardından zorla durdurmasını öğretebilirsiniz.\n\nSD Maid bu hizmeti kullandığı her zaman ekranda bir uyarı ve istenildiği takdirde işlemin derhal iptal edilebilmesi için bir tuş gösterir.\n\nÖncesinde kullanıcı onayı olmaksızın hiçbir işlem yapılmayacaktır. Bu hizmeti istediğiniz zaman devre dışı bırakılabilirsiniz, olumsuz bir etkisi olmaz.</string>
     <string name="automation_screenoverlay_explanation">SD Maid, cihazınızla etkileşime giriyor. Ekranı aynı anda kullanmak mümkün değildir. İşlem bitene kadar bekleyin veya iptal edin.</string>
     <string name="automation_active_title">SD Maid çalışıyor</string>

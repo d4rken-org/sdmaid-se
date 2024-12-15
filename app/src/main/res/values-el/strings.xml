@@ -123,6 +123,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Να μη χρησιμοποιηθεί το Shizuku</string>
     <string name="setup_dismiss_hint">Μπορείτε να βρείτε ξανά την οθόνη εγκατάστασης μέσω του μενού ρυθμίσεων.</string>
     <string name="setup_permission_granted_label">Χορηγήθηκε πρόσβαση</string>
+    <string name="setup_permission_error_label">Σφάλμα άδειας</string>
     <string name="setup_usagestats_title">Στατιστικά χρήσης</string>
     <string name="setup_usagestats_body">Η άδεια στατιστικών χρήσης παρέχει πρόσβαση σε περισσότερες λεπτομέρειες εφαρμογής. Το SD Maid το χρησιμοποιεί για να καθορίσει πρόσθετα μεγέθη κρυφής μνήμης.</string>
     <string name="setup_usagestats_hint">Απαιτείται για διαγραφή προσωρινής μνήμης βάσει υπηρεσίας προσβασιμότητας.</string>
@@ -149,6 +150,7 @@
     <string name="setup_inventory_card_title">Εφαρμογές</string>
     <string name="setup_inventory_card_body">Το SD Maid πρέπει να γνωρίζει ποιες εφαρμογές έχετε για να βρει αρχεία που δεν ανήκουν σε καμία εγκατεστημένη εφαρμογή.</string>
     <string name="setup_inventory_card_extra">Αναζητήστε μια άδεια που ονομάζεται \"Λίστα εφαρμογών\"/\"App list\" ή \"Ερώτηση σε όλα τα πακέτα\"/\"Query all packages\".</string>
+    <string name="setup_inventory_invalid_message">Το σύστημα παρείχε μια μη έγκυρη λίστα εγκατεστημένων εφαρμογών (π.χ. λείπουν πολύ λίγα ή μερικά από αυτά). Μεταβείτε στις ρυθμίσεις συστήματος και επιτρέψτε την πρόσβαση SD Maid στη \"Λίστα εφαρμογών\".</string>
     <string name="dataarea_warningcard_empty_message">Το SD Maid δε βρήκε περιοχές δεδομένων που μπορούν να σαρωθούν. Ολοκληρώσατε την εγκατάσταση;</string>
     <string name="dataarea_warningcard_label">Περιοχές δεδομένων</string>
     <string name="dataarea_warningcard_reload_action">Επαναφόρτωση περιοχών δεδομένων</string>
@@ -236,6 +238,10 @@
     <string name="systemcleaner_filter_anr_summary">Ίχνη από συμβάντα \"η εφαρμογή δεν ανταποκρίνεται\".</string>
     <string name="systemcleaner_filter_emptydirectories_label">Άδειοι φάκελοι</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Κενοί φάκελοι από όλη τη συσκευή. Οι ένθετοι φάκελοι ενδέχεται να απαιτούν πολλαπλά περάσματα.</string>
+    <string name="systemcleaner_filter_screenshots_label">Στιγμιότυπα οθόνης</string>
+    <string name="systemcleaner_filter_screenshots_summary">Στιγμιότυπα παλαιότερα από %s από πολλαπλές εφαρμογές και τοποθεσίες.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Ηλικία Στιγμιότυπου</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Ελάχιστη ηλικία για στιγμιότυπα οθόνης που πρέπει να λαμβάνονται υπόψη για διαγραφή.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Περιττά APK</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Αρχεία ρύθμισης που είναι παλαιότερα ή ίσα με τις εκδόσεις εφαρμογών που έχουν ήδη εγκατασταθεί.</string>
     <string name="systemcleaner_filter_lostdir_label">Φάκελοι LOST.DIR</string>
@@ -342,6 +348,8 @@
     <string name="appcleaner_filter_webview_summary">Αρχεία που αποθηκεύονται προσωρινά από παρουσίες Webview που χρησιμοποιούνται σε εφαρμογές.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Αντίγραφα ασφαλείας WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Διαγράψτε επιπλέον αντίγραφα των αντιγράφων ασφαλείας του WhatsApp και διατηρήστε μόνο τα πιο πρόσφατα.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Αρχεία που λάβατε από άτομα μέσω του WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Ληφθέντα αρχεία WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Απεσταλμένα αρχεία WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Αρχεία που στείλατε από το WhatsApp σε αλλους.</string>
     <string name="appcleaner_filter_telegram_label">Αρχεία πολυμέσων Telegram</string>
@@ -352,6 +360,8 @@
     <string name="appcleaner_filter_wechat_summary">Απεστελμένα ή ληφθέντα αρχεία σε συνομιλίες και WeChat στιγμές.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Αποθηκευμένα αρχεία πολυμέσων που λαμβάνονται ξανά όταν προβάλλονται στη συνομιλία.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ chat</string>
+    <string name="appcleaner_filter_qqchat_summary">Αποστολή ή λήψη αρχείων από QQ chat συνομιλίες.</string>
     <string name="appcleaner_delete_all_confirmation_message">Διαγραφή αναλώσιμων στοιχείων για όλες τις εφαρμογές;</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">%d αναλώσιμο στοιχείο διαγράφηκε</item>
@@ -579,6 +589,7 @@
         <item quantity="one">Δημιουργήθηκε ένας αποκλεισμός</item>
         <item quantity="other">Δημιουργήθηκαν %d εξαιρέσεις</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Εμφάνιση προεπιλογών</string>
     <string name="automation_accessibility_service_description">Οι χρήστες με ειδικές ανάγκες προσβασιμότητας μπορούν να ενεργοποιήσουν αυτήν την υπηρεσία να επιτρέπει στο SD Maid να αυτοματοποιήσει εργασίες που διαφορετικά θα απαιτούσαν κουραστική χειροκίνητη αλληλεπίδραση με το χρήστη (π.χ. διαγραφή της προσωρινής μνήμης).\n\nΠαράδειγμα: Εάν δώσετε οδηγίες στο SD Maid να σταματήσει πολλαπλές εφαρμογές, τότε το SD Maid μπορεί να χρησιμοποιήσει αυτήν την υπηρεσία για να ανοίξει κάθε οθόνη ρυθμίσεων εφαρμογών, να βρει το κουμπί \'Force Stop\' και να το κάνει κλικ.\n\nΤο SD Maid εμφανίζεται πάντα κατά τη χρήση αυτής της υπηρεσίας και παρέχει έναν εύκολο τρόπο για τον χρήστη να ακυρώσει αμέσως οποιαδήποτε αλληλεπίδραση.\n\nΔεν θα πραγματοποιηθούν ενέργειες χωρίς προηγούμενη έγκριση του χρήστη. Η υπηρεσία αυτή μπορεί να απενεργοποιηθεί ανά πάσα στιγμή χωρίς ανεπιθύμητες ενέργειες.</string>
     <string name="automation_screenoverlay_explanation">Το SD Maid αλληλεπιδρά με τη συσκευή σας. Δεν είναι δυνατή η ταυτόχρονη χρήση της οθόνης. Περιμένετε έως ότου ολοκληρωθεί η λειτουργία ή ακυρώστε την.</string>
     <string name="automation_active_title">Το SD Maid λειτουργεί</string>

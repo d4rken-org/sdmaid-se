@@ -127,6 +127,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Nie korzystaj z Shizuku</string>
     <string name="setup_dismiss_hint">Możesz ponownie otworzyć ekran ustawień poprzez menu ustawień.</string>
     <string name="setup_permission_granted_label">Uprawnienie przyznane</string>
+    <string name="setup_permission_error_label">Błąd uprawnień</string>
     <string name="setup_usagestats_title">Statystyki używania</string>
     <string name="setup_usagestats_body">Uprawnienie do statystyk używania umożliwia uzyskanie dostępu do większej liczby szczegółów dotyczących aplikacji. SD Maid korzysta z niego, aby określić dodatkowe rozmiary pamięci podręcznej.</string>
     <string name="setup_usagestats_hint">Wymagane do usuwania pamięci podręcznej z wykorzystaniem usługi ułatwień.</string>
@@ -153,6 +154,7 @@
     <string name="setup_inventory_card_title">Inwentarz aplikacji</string>
     <string name="setup_inventory_card_body">SD Maid musi wiedzieć, których aplikacji potrzebujesz aby znaleźć pliki które nie należą do żadnej zainstalowanej aplikacji.</string>
     <string name="setup_inventory_card_extra">Szukaj uprawnień o nazwie \"Lista aplikacji\" lub \"Zapytanie wszystkich pakietów\".</string>
+    <string name="setup_inventory_invalid_message">System dostarczył nieprawidłową listę zainstalowanych aplikacji (np. zbyt mało lub niektóre z nich były niedostępne). Przejdź do ustawień systemowych i zezwól SD Maid na dostęp do „Listy aplikacji”.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nie znalazło żadnych obszarów danych, które można przeskanować. Czy konfiguracja została ukończona?</string>
     <string name="dataarea_warningcard_label">Obszary danych</string>
     <string name="dataarea_warningcard_reload_action">Przeładuj obszary danych</string>
@@ -252,6 +254,10 @@
     <string name="systemcleaner_filter_anr_summary">Ślady zdarzeń \'aplikacja nie odpowiada\'.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Puste foldery</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Puste foldery z całego urządzenia. Zagnieżdżone foldery mogą wymagać wielu przebiegów.</string>
+    <string name="systemcleaner_filter_screenshots_label">Zrzuty ekranu</string>
+    <string name="systemcleaner_filter_screenshots_summary">Zrzuty ekranu starsze niż %s z wielu aplikacji i lokalizacji.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Data zrzutu ekranu</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Minimalny wiek, od którego zacznie się usuwanie.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Zbędne pliki APK</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Pliki instalacyjne, które są starsze lub równe wersjom już zainstalowanych aplikacji.</string>
     <string name="systemcleaner_filter_lostdir_label">Foldery LOST.DIR</string>
@@ -358,6 +364,8 @@
     <string name="appcleaner_filter_webview_summary">Pliki buforowane przez instancje Webview używane w aplikacjach.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Kopie zapasowe WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Usuń dodatkowe kopie zapasowe WhatsApp i zachowaj tylko najnowszą.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Pliki otrzymane od innych osób za pośrednictwem aplikacji WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Pliki otrzymane WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Pliki wysłane WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Pliki wysłane z WhatsApp do innych osób.</string>
     <string name="appcleaner_filter_telegram_label">Pliki multimedialne Telegram</string>
@@ -368,6 +376,8 @@
     <string name="appcleaner_filter_wechat_summary">Wysłane lub otrzymane pliki w konwersacjach WeChat oraz WeChat moments.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Pliki multimedialne zapisane w pamięci podręcznej, które są ponownie pobierane podczas przeglądania na czacie.</string>
+    <string name="appcleaner_filter_qqchat_label">Czat QQ</string>
+    <string name="appcleaner_filter_qqchat_summary">Wysłane lub odebrane pliki w rozmowach na czacie QQ.</string>
     <string name="appcleaner_delete_all_confirmation_message">Usunąć zbędne elementy dla wszystkich aplikacji?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">Usunięto %d zbędny element</item>
@@ -625,6 +635,7 @@
         <item quantity="many">Utworzono %d wykluczeń</item>
         <item quantity="other">Utworzono %d wykluczeń</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Pokaż domyślne</string>
     <string name="automation_accessibility_service_description">Użytkownicy ze specjalnymi potrzebami w zakresie ułatwień dostępu mogą włączyć tę usługę, aby umożliwić SD Maid automatyzację zadań, które w innym przypadku wymagałyby żmudnej ręcznej interakcji użytkownika (np. usuwanie pamięci podręcznej).\n\nPrzykład: jeśli poinstruujesz SD Maid, aby zatrzymywała wiele aplikacji, SD Maid może z tego korzystać aby otworzyć każdy ekran ustawień aplikacji, znajdź przycisk „Wymuś zatrzymanie” i dotknij go.\n\nSD Maid zawsze będzie wyraźnie widoczne podczas korzystania z tej usługi i zapewni użytkownikowi łatwy sposób natychmiastowego anulowania dowolnej interakcji.\n\nNie działania będą wykonywane bez uprzedniej zgody użytkownika. Usługę tę można ponownie wyłączyć w dowolnym momencie bez negatywnych skutków.</string>
     <string name="automation_screenoverlay_explanation">SD Maid wchodzi w interakcję z Twoim urządzeniem. Nie jest możliwe jednoczesne korzystanie z ekranu. Poczekaj na zakończenie operacji lub anuluj ją.</string>
     <string name="automation_active_title">SD Maid pracuje</string>
