@@ -123,6 +123,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">No utilitzis Shizuku</string>
     <string name="setup_dismiss_hint">Podeu tornar a trobar la pantalla de configuració mitjançant el menú de configuració.</string>
     <string name="setup_permission_granted_label">Permís concedit</string>
+    <string name="setup_permission_error_label">Error de permís</string>
     <string name="setup_usagestats_title">Estadístiques d\'ús</string>
     <string name="setup_usagestats_body">El permís d\'estadístiques d\'ús permet accedir a més detalls de l\'aplicació. L\'SD Maid l\'utilitza per determinar mides de memòria cau addicionals.</string>
     <string name="setup_usagestats_hint">Necessari per a la supressió de la memòria cau basada en el servei d\'accessibilitat.</string>
@@ -149,6 +150,7 @@
     <string name="setup_inventory_card_title">Inventari d\'aplicacions</string>
     <string name="setup_inventory_card_body">L\'SD Maid necessita saber quines aplicacions teniu per trobar fitxers que no pertanyen a cap aplicació instal·lada.</string>
     <string name="setup_inventory_card_extra">Cerqueu un permís anomenat «Llista d\'aplicacions» o «Consulta tots els paquets».</string>
+    <string name="setup_inventory_invalid_message">El sistema ha proporcionat una llista no vàlida d\'aplicacions instal·lades (p. ex., molt poques o en faltaven algunes). Aneu a la configuració del sistema i permeteu l\'accés de l\'SD Maid a «Llista d\'aplicacions».</string>
     <string name="dataarea_warningcard_empty_message">L\'SD Maid no ha trobat cap àrea de dades que es pugui escanejar. Heu completat la configuració?</string>
     <string name="dataarea_warningcard_label">Àrees de dades</string>
     <string name="dataarea_warningcard_reload_action">Recarrega les àrees de dades</string>
@@ -236,6 +238,10 @@
     <string name="systemcleaner_filter_anr_summary">Rastres dels esdeveniments «l\'aplicació no respon».</string>
     <string name="systemcleaner_filter_emptydirectories_label">Carpetes buides</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Carpetes buides de tot el dispositiu. Les carpetes imbricades poden requerir diverses passades.</string>
+    <string name="systemcleaner_filter_screenshots_label">Captures de pantalla</string>
+    <string name="systemcleaner_filter_screenshots_summary">Les captures de pantalla anteriors a %s de diverses aplicacions i ubicacions.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Antiguitat de la captura de pantalla</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Antiguitat mínima per tenir en compte les captures de pantalla per suprimir-les.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK supèrflues</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Fitxers d\'instal·lació anteriors o iguals a les versions de l\'aplicació que ja estan instal·lades.</string>
     <string name="systemcleaner_filter_lostdir_label">Carpetes LOST.DIR</string>
@@ -342,6 +348,8 @@
     <string name="appcleaner_filter_webview_summary">Fitxers desats a la memòria cau per les instàncies WebView utilitzades a les aplicacions.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Còpies de seguretat de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Suprimeix les còpies addicionals de les còpies de seguretat de WhatsApp i conserva només les més recents.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Fitxers que heu rebut de persones a través de WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Fitxers rebuts del WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Fitxers enviats de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Fitxers enviats des de WhatsApp a altres persones.</string>
     <string name="appcleaner_filter_telegram_label">Fitxers multimèdia de Telegram</string>
@@ -352,6 +360,8 @@
     <string name="appcleaner_filter_wechat_summary">Fitxers enviats o rebuts en converses i moments de WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Fitxers multimèdia a la memòria cau que es tornen a baixar quan es visualitzen al xat.</string>
+    <string name="appcleaner_filter_qqchat_label">Xat del QQ</string>
+    <string name="appcleaner_filter_qqchat_summary">Fitxers enviats o rebuts en converses de xat del QQ.</string>
     <string name="appcleaner_delete_all_confirmation_message">Voleu suprimir els elements prescindibles de totes les aplicacions?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">S\'ha suprimit %d element fungible</item>
@@ -579,6 +589,7 @@
         <item quantity="one">S\'ha creat una exclusió</item>
         <item quantity="other">S\'han creat %d exclusions</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Mostra els valors per defecte</string>
     <string name="automation_accessibility_service_description">Els usuaris amb necessitats especials d\'accessibilitat poden habilitar aquest servei per permetre que l\'SD Maid automatitzi tasques que d\'altra manera requeririen una interacció manual de l\'usuari tediosa (p. ex. l\'eliminació de la memòria cau).\n\nExemple: si indiqueu a l\'SD Maid que aturi diverses aplicacions, l\'SD Maid pot utilitzar aquest servei per obrir la pantalla de configuració de cada aplicació, cerqueu el botó «Força l\'aturada» i toqueu-lo. \n\nL\'SD Maid sempre es mostrarà de manera destacada quan utilitzeu aquest servei i proporcionarà una manera fàcil perquè l\'usuari cancel·li qualsevol interacció immediatament.\n\n\nNo es realitzarà cap acció sense l\'aprovació prèvia de l\'usuari. Aquest servei es pot tornar a desactivar en qualsevol moment sense efectes adversos.</string>
     <string name="automation_screenoverlay_explanation">L\'SD Maid està interactuant amb el vostre dispositiu. No és possible utilitzar la pantalla al mateix temps. Espereu fins que finalitzi l\'operació o cancel·leu-la.</string>
     <string name="automation_active_title">L\'SD Maid està en execució</string>

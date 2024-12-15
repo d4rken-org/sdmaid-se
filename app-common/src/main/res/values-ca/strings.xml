@@ -140,6 +140,14 @@
     <string name="general_progress_ready">A punt</string>
     <string name="general_progress_done">Fet</string>
     <string name="general_rom_type_auto_label">Automàtic (per defecte)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d dia</item>
+        <item quantity="other">%d dies</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d hora</item>
+        <item quantity="other">%d hores</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s fitxer</item>
         <item quantity="other">%s fitxers</item>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Inventari d\'aplicacions no vàlid</string>
+    <string name="pkgrepo_invalid_inventory_error_description">El sistema ha proporcionat una llista no vàlida d\'aplicacions instal·lades a l\'SD Maid.</string>
+</resources>

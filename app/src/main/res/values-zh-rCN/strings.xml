@@ -121,6 +121,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">不使用 Shizuku</string>
     <string name="setup_dismiss_hint">您可以在设置菜单中再次找到初始设置页面。</string>
     <string name="setup_permission_granted_label">已授予权限</string>
+    <string name="setup_permission_error_label">权限错误</string>
     <string name="setup_usagestats_title">使用情况</string>
     <string name="setup_usagestats_body">通过允许查看使用情况，可以查看应用的更多详细信息。SD Maid 使用此权限计算额外缓存的大小。</string>
     <string name="setup_usagestats_hint">使用无障碍服务的缓存删除操作需要此权限。</string>
@@ -147,6 +148,7 @@
     <string name="setup_inventory_card_title">应用列表</string>
     <string name="setup_inventory_card_body">SD Maid 需要读取您的应用列表才能找到不属于任何应用的文件。</string>
     <string name="setup_inventory_card_extra">寻找名为“应用列表”或“查询所有软件包”的权限。</string>
+    <string name="setup_inventory_invalid_message">系统提供的已安装应用列表无效（例如太少或部分缺失），请转至系统设置并允许 SD Maid 访问“应用列表”</string>
     <string name="dataarea_warningcard_empty_message">SD Maid 没有找到任何可以扫描的区域。您是否完成了初始设置？</string>
     <string name="dataarea_warningcard_label">数据区域</string>
     <string name="dataarea_warningcard_reload_action">重载数据区域</string>
@@ -228,6 +230,10 @@
     <string name="systemcleaner_filter_anr_summary">来自“应用未响应”的事件记录。</string>
     <string name="systemcleaner_filter_emptydirectories_label">空文件夹</string>
     <string name="systemcleaner_filter_emptydirectories_summary">设备中有许多空目录。嵌套的空目录可能需要清理多次。</string>
+    <string name="systemcleaner_filter_screenshots_label">截图</string>
+    <string name="systemcleaner_filter_screenshots_summary">来自多个应用和位置的早于“%s”的屏幕截图</string>
+    <string name="systemcleaner_filter_screenshots_age_label">截图时间</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">考虑删除截图的最早时间</string>
     <string name="systemcleaner_filter_superfluosapks_label">过时的安装包</string>
     <string name="systemcleaner_filter_superfluosapks_summary">已安装应用的过时安装文件。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 文件夹</string>
@@ -334,6 +340,8 @@
     <string name="appcleaner_filter_webview_summary">应用内置浏览器的缓存文件。</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 备份</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">删除 WhatsApp 备份的额外副本，只保留最新备份</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">您通过 WhatsApp 从其他人那里收到的文件</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp 收到的文件</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp 发出的文件</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">您通过 WhatsApp 发送给其他人的文件</string>
     <string name="appcleaner_filter_telegram_label">Telegram 媒体文件</string>
@@ -344,6 +352,8 @@
     <string name="appcleaner_filter_wechat_summary">在微信聊天和朋友圈中发送或接受的文件。</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">在聊天中查看时会再次下载的缓存媒体文件</string>
+    <string name="appcleaner_filter_qqchat_label">QQ 聊天</string>
+    <string name="appcleaner_filter_qqchat_summary">QQ 聊天对话中发送或收到的文件</string>
     <string name="appcleaner_delete_all_confirmation_message">删除所有应用中的可删除项目？</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="other">已删除 %d 个可删除项</item>
@@ -556,6 +566,7 @@
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">已创建 %d 个排除项。</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">默认</string>
     <string name="automation_accessibility_service_description">有特殊无障碍需求的用户可以启用此服务，SD Maid 可替您自动完成那些需要用户繁琐交互的任务（如清理缓存）。\n\n例如，如果您想批量停止应用，SD Maid 可以借助此服务打开每个应用的设置界面，自动找到“强制停止”按钮并点击。\n\nSD Maid 在运行此服务时会产生醒目提示，以便您随时取消任意操作。\n\n所有操作行为都需要用户事先批准才会实施。用户可以随时禁用此服务，且不会产生任何负面影响。</string>
     <string name="automation_screenoverlay_explanation">SD Maid 正在占用您的设备。此时无法使用屏幕，请等待操作完成或取消操作。</string>
     <string name="automation_active_title">SD Maid 正在运行</string>

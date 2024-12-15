@@ -254,10 +254,10 @@
     <string name="systemcleaner_filter_anr_summary">Следы событий \"приложение не отвечает\".</string>
     <string name="systemcleaner_filter_emptydirectories_label">Пустые папки</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Пустые папки со всего устройства. Вложенные папки могут потребовать нескольких проходов.</string>
-    <string name="systemcleaner_filter_screenshots_label">Скриншоты</string>
-    <string name="systemcleaner_filter_screenshots_summary">Скриншоты старше %s из нескольких приложений и мест.</string>
-    <string name="systemcleaner_filter_screenshots_age_label">Возраст скриншота</string>
-    <string name="systemcleaner_filter_screenshots_age_summary">Минимальный возраст скриншота для рассмотрения к удалению.</string>
+    <string name="systemcleaner_filter_screenshots_label">Снимки экрана</string>
+    <string name="systemcleaner_filter_screenshots_summary">Снимки экрана старше %s из нескольких приложений и мест.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Давность снимка экрана</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Минимальная давность снимка экрана для удаления.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Лишние APK-файлы</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Установочные файлы, версии которых старше или одинаковы с установленными версиям приложений.</string>
     <string name="systemcleaner_filter_lostdir_label">Папки LOST.DIR</string>
