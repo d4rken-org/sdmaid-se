@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pkgrepo_invalid_inventory_error_title">Inventaire d\'application invalide</string>
-    <string name="pkgrepo_invalid_inventory_error_description">Le système a fourni une liste non valide d\'applications installées à SD Maid.</string>
+    <string name="pkgrepo_invalid_inventory_error_title">L’inventaire des applis est invalide</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Le système a communiqué à SD Maid une liste non valide d’applis installées.</string>
 </resources>
