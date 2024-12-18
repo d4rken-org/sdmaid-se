@@ -135,6 +135,12 @@
     <string name="general_progress_ready">就緒</string>
     <string name="general_progress_done">完成</string>
     <string name="general_rom_type_auto_label">自動（預設）</string>
+    <plurals name="general_age_days">
+        <item quantity="other">%d 天</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="other">%d 小時</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="other">%s 個檔案</item>
     </plurals>

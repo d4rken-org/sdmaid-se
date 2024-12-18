@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">無效的應用程式清單</string>
+    <string name="pkgrepo_invalid_inventory_error_description">系統向 SD Maid 提供了一份無效的已安裝應用程式清單。</string>
+</resources>

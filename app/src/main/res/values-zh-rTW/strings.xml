@@ -121,6 +121,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">不要使用 Shizuku</string>
     <string name="setup_dismiss_hint">您可以透過設定選單再次找到安裝程式畫面。</string>
     <string name="setup_permission_granted_label">權限已授予</string>
+    <string name="setup_permission_error_label">權限不足</string>
     <string name="setup_usagestats_title">使用量統計資料</string>
     <string name="setup_usagestats_body">使用量統計資料權限授予更多應用程式的存取權，SD 女僕用它來確定額外快取大小。</string>
     <string name="setup_usagestats_hint">需要基於無障礙服務的快取偵測。</string>
@@ -147,6 +148,7 @@
     <string name="setup_inventory_card_title">應用程式清查</string>
     <string name="setup_inventory_card_body">SD 女僕需要知道您安裝了哪些應用程式，以找到不屬於任何已安裝應用程式的檔案。</string>
     <string name="setup_inventory_card_extra">找到一個名為「應用程式清單」或「查詢所有套件」的權限。</string>
+    <string name="setup_inventory_invalid_message">系統提供了一份無效的已安裝應用程式清單（例如，清單過少或缺失某些項目）。請前往系統設定，允許 SD Maid 存取「應用程式清單」。</string>
     <string name="dataarea_warningcard_empty_message">SD 女僕找不到任何可以掃描的資料區域，您完成設定了嗎？</string>
     <string name="dataarea_warningcard_label">資料區域</string>
     <string name="dataarea_warningcard_reload_action">重新載入資料區域</string>
@@ -228,6 +230,10 @@
     <string name="systemcleaner_filter_anr_summary">來自「應用程式沒有回應」活動的追蹤。</string>
     <string name="systemcleaner_filter_emptydirectories_label">空白資料夾</string>
     <string name="systemcleaner_filter_emptydirectories_summary">來自整部裝置的空白資料夾，巢狀目錄可能需要多次通過。</string>
+    <string name="systemcleaner_filter_screenshots_label">截圖</string>
+    <string name="systemcleaner_filter_screenshots_summary">來自多個應用程式和位置的螢幕截圖，時間早於 %s。</string>
+    <string name="systemcleaner_filter_screenshots_age_label">螢幕截圖年齡</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">設定螢幕截圖可考慮刪除的最小年齡。</string>
     <string name="systemcleaner_filter_superfluosapks_label">非必要的 APK 檔案</string>
     <string name="systemcleaner_filter_superfluosapks_summary">比已安裝的應用程式較舊或相同的安裝檔案。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 資料夾</string>
@@ -334,6 +340,8 @@
     <string name="appcleaner_filter_webview_summary">應用程式中使用 Webview 執行個體所快取的檔案。</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 備份</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">刪除 WhatsApp 備份的額外複本，僅保留最新的備份。</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">您透過 WhatsApp 收到的檔案。</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp 收到的檔案</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp 傳送的檔案</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">從 WhatsApp 向其他人傳送的檔案。</string>
     <string name="appcleaner_filter_telegram_label">Telegram 媒體檔案</string>
@@ -344,6 +352,8 @@
     <string name="appcleaner_filter_wechat_summary">在聊天中傳送或接收的檔案和 WeChat 朋友圈。</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">在聊天中檢視時會再次下載的快取媒體檔案。</string>
+    <string name="appcleaner_filter_qqchat_label">QQ 聊天</string>
+    <string name="appcleaner_filter_qqchat_summary">QQ 聊天對話中傳送或接收的檔案。</string>
     <string name="appcleaner_delete_all_confirmation_message">為所有應用程式刪除無關緊要的項目？</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="other">已刪除 %d 個可刪除項目</item>
@@ -556,6 +566,7 @@
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d 個排除項目已建立</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">顯示預設</string>
     <string name="automation_accessibility_service_description">有特殊存取需要的使用者可以啟用此服務，以允許 SD 女僕自動完成原本需要乏味的手動互動的工作 (例如快取刪除)。\n\n範例：如果您指示 SD 女僕停止多個應用程式，那麼 SD 女僕可以使用這項服務以開啟每個應用程式的設定畫面，找到「強制停止」按鈕並輕觸。\n\n在使用此服務時，SD 女僕將一律醒目顯示，並為使用者直接取消互動提供一個簡單的方法。\n\n未經使用者預先核准，將不會執行任何動作。這項服務可以在任何時候再次被停用，而不會產生不利影響。</string>
     <string name="automation_screenoverlay_explanation">SD 女僕正在與您的裝置進行互動。無法在同一時間使用螢幕，請稍候作業完成或取消作業。</string>
     <string name="automation_active_title">SD 女僕正在運作</string>
