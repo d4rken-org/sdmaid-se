@@ -140,6 +140,14 @@
     <string name="general_progress_ready">Prêt</string>
     <string name="general_progress_done">Terminé</string>
     <string name="general_rom_type_auto_label">Automatique (par défaut)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d jour</item>
+        <item quantity="other">%d jours</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d heure</item>
+        <item quantity="other">%d heures</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s fichier</item>
         <item quantity="other">%s fichiers</item>
