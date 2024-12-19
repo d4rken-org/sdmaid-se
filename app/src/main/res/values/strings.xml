@@ -15,7 +15,7 @@
     <string name="debug_debuglog_record_action">Record debug log</string>
     <string name="debug_debuglog_stop_action">Stop recording</string>
     <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties.</string>
-    <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties (e.g. a developer that is troubleshooting an issue).</string>
+    <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties (e.g. a developer troubleshooting an issue).</string>
 
     <string name="tasks_activity_notification_channel_label">Active tasks</string>
     <string name="tasks_activity_working_notification_title">SD Maid is working</string>
@@ -284,7 +284,7 @@
     <string name="systemcleaner_filter_macfiles_label">Mac files</string>
     <string name="systemcleaner_filter_macfiles_summary">Files and folders that are created when browsing storage with Apple\'s finder app.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows files</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Data that the Windows file explorer can create on connected storage. "</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Data that the Windows file explorer can create on connected storage."</string>
     <string name="systemcleaner_filter_thumbnails_label">Thumbnail images</string>
     <string name="systemcleaner_filter_thumbnails_summary">Cached previews for images and videos.</string>
     <string name="systemcleaner_filter_tempfiles_label">Temporary files</string>
