@@ -1,7 +1,7 @@
 package eu.darken.sdmse.analyzer.core.content
 
-import android.text.format.Formatter
 import eu.darken.sdmse.analyzer.core.AnalyzerTask
+import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
@@ -28,12 +28,19 @@ data class ContentDeleteTask(
 
         override val primaryInfo: CaString
             get() = caString {
-                getQuantityString2(
-                    eu.darken.sdmse.common.R.plurals.general_delete_success_deleted_x_freed_y,
+                val itemText = getQuantityString2(
+                    eu.darken.sdmse.common.R.plurals.general_delete_success_deleted_x,
                     affectedPaths.size,
-                    affectedPaths.size,
-                    Formatter.formatShortFileSize(this, affectedSpace)
                 )
+                val spaceText = run {
+                    val (spaceFormatted, spaceQuantity) = ByteFormatter.formatSize(this, affectedSpace)
+                    getQuantityString2(
+                        eu.darken.sdmse.common.R.plurals.general_delete_success_freed_y,
+                        spaceQuantity,
+                        spaceFormatted,
+                    )
+                }
+                "$itemText $spaceText"
             }
     }
 }
