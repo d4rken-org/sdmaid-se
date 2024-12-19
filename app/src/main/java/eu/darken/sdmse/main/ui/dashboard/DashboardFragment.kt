@@ -46,10 +46,10 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             layouter = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false)
         )
 
-        vm.listItems.observe2(ui) {
-            listProgress.isVisible = it.isEmpty()
-            list.isVisible = it.isNotEmpty()
-            dashAdapter.update(it)
+        vm.listState.observe2(ui) { state ->
+            mascotOverlay.isVisible = state.items.isEmpty() || state.isEasterEgg
+            list.isVisible = state.items.isNotEmpty()
+            dashAdapter.update(state.items)
         }
 
         ui.bottomBar.apply {

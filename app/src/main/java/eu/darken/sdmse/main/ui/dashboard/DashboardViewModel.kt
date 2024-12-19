@@ -1,10 +1,7 @@
 package eu.darken.sdmse.main.ui.dashboard
 
-import android.content.Context
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.App
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.analyzer.core.Analyzer
@@ -39,7 +36,6 @@ import eu.darken.sdmse.common.flow.intervalFlow
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.throttleLatest
-import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.review.ReviewTool
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -103,10 +99,8 @@ import kotlin.time.Duration.Companion.seconds
 
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
-    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val areaManager: DataAreaManager,
-    private val pkgRepo: PkgRepo,
     private val taskManager: TaskManager,
     private val setupManager: SetupManager,
     private val corpseFinder: CorpseFinder,
@@ -125,8 +119,7 @@ class DashboardViewModel @Inject constructor(
     private val motdRepo: MotdRepo,
     private val releaseManager: ReleaseManager,
     private val reviewTool: ReviewTool,
-    private val statsRepo: StatsRepo,
-    @ApplicationContext private val context: Context,
+    statsRepo: StatsRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     init {
@@ -187,6 +180,8 @@ class DashboardViewModel @Inject constructor(
         .setupCommonEventHandlers(TAG) { "upgradeInfo" }
         .replayingShare(vmScope)
 
+    private val easterEggTriggered = MutableStateFlow(false)
+
     private val titleCardItem = combine(
         upgradeInfo,
         taskManager.state,
@@ -196,6 +191,7 @@ class DashboardViewModel @Inject constructor(
             webpageTool = webpageTool,
             isWorking = !taskState.isIdle,
             onRibbonClicked = { webpageTool.open(SdmSeLinks.ISSUES) },
+            onMascotTriggered = { easterEggTriggered.value = it }
         )
     }
 
@@ -447,7 +443,7 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val listItemsInternal: Flow<List<DashboardAdapter.Item>> = eu.darken.sdmse.common.flow.combine(
+    private val listStateInternal: Flow<ListState> = eu.darken.sdmse.common.flow.combine(
         recorderModule.state,
         debugCardProvider.create(this),
         titleCardItem,
@@ -465,6 +461,7 @@ class DashboardViewModel @Inject constructor(
         motdItem,
         reviewItem,
         statsItem,
+        easterEggTriggered,
         refreshTrigger,
     ) { recorderState: RecorderModule.State,
         debugItem: DebugCardVH.Item?,
@@ -483,6 +480,7 @@ class DashboardViewModel @Inject constructor(
         motdItem: MotdCardVH.Item?,
         reviewItem: ReviewCardVH.Item?,
         statsItem: StatsDashCardVH.Item?,
+        easterEggTriggered,
         _ ->
         val items = mutableListOf<DashboardAdapter.Item>(titleInfo)
 
@@ -546,7 +544,11 @@ class DashboardViewModel @Inject constructor(
             }
 
         debugItem?.let { items.add(it) }
-        items
+
+        ListState(
+            items = items,
+            isEasterEgg = easterEggTriggered,
+        )
     }
         .onEach {
             if (!Bugs.isDebug) return@onEach
@@ -556,8 +558,12 @@ class DashboardViewModel @Inject constructor(
         .throttleLatest(500)
         .replayingShare(vmScope)
 
-    val listItems = listItemsInternal.asLiveData()
+    val listState = listStateInternal.asLiveData()
 
+    data class ListState(
+        val items: List<DashboardAdapter.Item>,
+        val isEasterEgg: Boolean = false,
+    )
 
     data class BottomBarState(
         val isReady: Boolean,
@@ -584,7 +590,7 @@ class DashboardViewModel @Inject constructor(
         systemCleaner.state,
         appCleaner.state,
         generalSettings.enableDashboardOneClick.flow,
-        listItemsInternal.map { items -> items.any { it is MainActionItem } },
+        listStateInternal.map { state -> state.items.any { it is MainActionItem } },
     ) { upgradeInfo,
         taskState,
         corpseState,
