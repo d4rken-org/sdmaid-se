@@ -25,6 +25,7 @@ import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve.*
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.Mode
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
@@ -47,10 +48,11 @@ class AnalyticsFilter @Inject constructor(
     )
 
     private lateinit var sieve: BaseSieve
+    private lateinit var antiTrackingSieve: BaseSieve
 
     override suspend fun initialize() {
         val pathContains = setOf(
-            SegmentCriterium(segs(".bugsense"), mode = SegmentCriterium.Mode.Contain())
+            SegmentCriterium(segs(".bugsense"), mode = Mode.Contain())
         )
         val regexes = setOf(
             Regex("^(?:[\\W\\w]+/\\.(?:bugsense))$".replace("/", "\\" + File.separator))
@@ -64,11 +66,24 @@ class AnalyticsFilter @Inject constructor(
         )
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized() with $config" }
+
+        val antiTracking = Config(
+            areaTypes = setOf(DataArea.Type.SDCARD),
+            pfpCriteria = setOf(
+                SegmentCriterium(segs(".tlocalcookieid"), Mode.Equal()),
+                SegmentCriterium(segs(".INSTALLATION"), Mode.Equal()),
+                SegmentCriterium(segs(".wps_preloaded_2.txt"), Mode.Equal()),
+            ),
+        )
+        antiTrackingSieve = baseSieveFactory.create(antiTracking)
+        log(TAG) { "initialized() anti tracking sieve with $antiTracking" }
     }
 
 
     override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
-        return sieve.match(item).toDeletion()
+        var match = antiTrackingSieve.match(item)
+        if (!match.matches) match = sieve.match(item)
+        return match.toDeletion()
     }
 
     override suspend fun process(matches: Collection<SystemCleanerFilter.Match>) {
