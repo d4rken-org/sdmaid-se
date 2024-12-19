@@ -1,6 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import eu.darken.sdmse.common.areas.DataArea.Type
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
@@ -30,7 +31,7 @@ class AnalyticsFilterTest : SystemCleanerFilterTest() {
 
     @Test fun testFilter() = runTest {
         mockDefaults()
-        val areas = setOf(Type.SDCARD, Type.PUBLIC_DATA)
+        val areas = setOf(SDCARD, Type.PUBLIC_DATA)
         areaManager.currentAreas()
             .filter { areas.contains(it.type) }
             .distinctBy { it.type }
@@ -39,6 +40,13 @@ class AnalyticsFilterTest : SystemCleanerFilterTest() {
                 neg(it.type, ".bugsense", Flag.Dir)
                 pos(it.type, ".bugsense", Flag.File)
             }
+
+        neg(SDCARD, "tlocalcookieid", Flag.File)
+        pos(SDCARD, ".tlocalcookieid", Flag.File)
+        neg(SDCARD, "INSTALLATION", Flag.File)
+        pos(SDCARD, ".INSTALLATION", Flag.File)
+        neg(SDCARD, "wps_preloaded_2.txt", Flag.File)
+        pos(SDCARD, ".wps_preloaded_2.txt", Flag.File)
         confirm(create())
     }
 
