@@ -236,6 +236,10 @@
     <string name="systemcleaner_filter_anr_summary">Tracce degli eventi \"L\'applicazione non risponde\".</string>
     <string name="systemcleaner_filter_emptydirectories_label">Cartelle vuote</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Cartelle vuote trovate nel dispositivo. Le sottocartelle potrebbero richiedere più passaggi.</string>
+    <string name="systemcleaner_filter_screenshots_label">Screenshot</string>
+    <string name="systemcleaner_filter_screenshots_summary">Screenshot più vecchi di %s da più app e posizioni.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Età Screenshot</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Età minima da considerare per l\'eliminazione degli screenshot.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK superflui</string>
     <string name="systemcleaner_filter_superfluosapks_summary">File installabili più vecchi o uguali a versioni di app già installate.</string>
     <string name="systemcleaner_filter_lostdir_label">Cartelle LOST.DIR</string>
@@ -342,6 +346,8 @@
     <string name="appcleaner_filter_webview_summary">File memorizzati nella cache da istanze di Webview utilizzate all\'interno delle app.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Backup di WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Eliminare le copie extra dei backup di WhatsApp e mantenere solo gli ultimi.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">File ricevuti nelle chat di WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">File ricevuti su WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_label">File inviati su WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">File inviati da WhatsApp ad altre persone.</string>
     <string name="appcleaner_filter_telegram_label">File multimediali di Telegram</string>
@@ -352,6 +358,8 @@
     <string name="appcleaner_filter_wechat_summary">File inviati o ricevuti su WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">File multimediali nella cache, che vengono scaricati di nuovo quando visualizzati in chat.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ chat</string>
+    <string name="appcleaner_filter_qqchat_summary">File inviati o ricevuti su QQ chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Eliminare gli elementi inutili per tutte le applicazioni?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">%d elemento inutile eliminato</item>
@@ -581,6 +589,7 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
         <item quantity="one">Un\'esclusione creata</item>
         <item quantity="other">%d esclusioni create</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Mostra predefiniti</string>
     <string name="automation_accessibility_service_description">Potete abilitare questo servizio per concedere a SD Maid di automatizzare compiti che richiederebbero molteplici interazioni manuali (ad esempio l\'eliminazioni della cache). \n\nEsempio: Se viene chiesto a SD Maid di arrestare più app, allora questo servizio viene utilizzato per aprire le impostazioni di ogni app, trovare il bottone \'Arresto forzato\' e cliccarlo.\n\nSD Maid mostrerà sempre quando il servizio verrà utilizzao e consentendo all\'utente di annullare le interazioni immadiatamente.\n\nNessuna azione verrà eseguita senza l\'approvazione dell\'utente. Questo servizio può essere disattivato in qualsiasi momento senza effetti collaterali.</string>
     <string name="automation_screenoverlay_explanation">SD Maid sta interagendo con il tuo dispositivo. Non è possibile utilizzare lo schermo allo stesso tempo. Attendere fino al termine dell\'operazione o annullarla.</string>
     <string name="automation_active_title">SD Maid sta funzionando</string>

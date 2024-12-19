@@ -19,6 +19,7 @@
     <string name="ui_theme_style_default_label">ଡିଫଲ୍ଟ</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">ଫାଇଲ୍ ପୂର୍ଵାଵଲୋକନ</string>
+    <string name="ui_language_override_label">ଆପ୍ ଭାଷା</string>
     <string name="settings_support_label">ସମର୍ଥନ</string>
     <string name="changelog_label">ପରିବର୍ତ୍ତନ ପୋଥି</string>
     <string name="setup_manage_storage_card_title">ଷ୍ଟୋରେଜ୍ ପରିଚାଳନା</string>

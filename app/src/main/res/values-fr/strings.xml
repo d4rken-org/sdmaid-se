@@ -139,7 +139,7 @@
     <string name="setup_acs_state_running">Le service d’accessibilité est en cours d’exécution</string>
     <string name="setup_acs_state_ondemand">Le service sera lancé sur demande</string>
     <string name="setup_acs_state_stopped">Le service d’accessibilité est arrêté</string>
-    <string name="setup_acs_state_stopped_hint">Le service est activé, mais ne s’exécute pas. Désactivez et réactivez-le ou redémarrez votre appareil. Vérifiez que SD Maid n’est pas « optimisée » par le système.</string>
+    <string name="setup_acs_state_stopped_hint">Le service est activé, mais ne s’exécute pas. Désactivez et réactivez-le ou redémarrez votre appareil. Assurez-vous que SD Maid n’est pas « optimisée » par le système.</string>
     <string name="setup_acs_state_stopped_hint_miui">Si le service ne cesse d’être désactivé après un certain temps, essayez d’activer l’option « Démarrage automatique » pour SD Maid dans les paramètres du système.</string>
     <string name="setup_acs_consent_positive_action">Activer le service et accorder l’accès</string>
     <string name="setup_acs_consent_negative_action">Ne pas utiliser le service d’accessibilité</string>
@@ -239,7 +239,7 @@
     <string name="systemcleaner_filter_emptydirectories_label">Dossiers vides</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Dossiers vides de tout l’appareil. Les dossiers imbriqués peuvent demander plusieurs opérations.</string>
     <string name="systemcleaner_filter_screenshots_label">Captures d’écran</string>
-    <string name="systemcleaner_filter_screenshots_summary">Captures d\'écran plus anciennes que %s provenant de plusieurs applications et emplacements.</string>
+    <string name="systemcleaner_filter_screenshots_summary">Captures d’écran de %s ou plus provenant de plusieurs applis et emplacements.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Âge de la capture d’écran</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Âge minimal pour que les captures d’écran soient prises en compte pour être supprimées.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK superflus</string>
