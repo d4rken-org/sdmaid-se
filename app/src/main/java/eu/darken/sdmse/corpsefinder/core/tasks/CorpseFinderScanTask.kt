@@ -1,7 +1,7 @@
 package eu.darken.sdmse.corpsefinder.core.tasks
 
-import android.text.format.Formatter
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -26,9 +26,11 @@ data class CorpseFinderScanTask(
 
         override val secondaryInfo
             get() = caString {
-                getString(
-                    eu.darken.sdmse.common.R.string.x_space_can_be_freed,
-                    Formatter.formatFileSize(this, recoverableSpace)
+                val (formatted, quantity) = ByteFormatter.formatSize(this, recoverableSpace)
+                getQuantityString2(
+                    eu.darken.sdmse.common.R.plurals.x_space_can_be_freed,
+                    quantity,
+                    formatted,
                 )
             }
     }

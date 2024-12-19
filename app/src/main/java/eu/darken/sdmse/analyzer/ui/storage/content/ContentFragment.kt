@@ -2,7 +2,6 @@ package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.content.ActivityNotFoundException
 import android.os.Bundle
-import android.text.format.Formatter
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.OnBackPressedCallback
@@ -16,9 +15,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
-import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -134,12 +133,24 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
 
                 is ContentItemEvents.ContentDeleted -> Snackbar.make(
                     requireView(),
-                    requireContext().getQuantityString2(
-                        eu.darken.sdmse.common.R.plurals.general_delete_success_deleted_x_freed_y,
-                        event.count,
-                        event.count,
-                        Formatter.formatShortFileSize(requireContext(), event.freedSpace)
-                    ),
+                    run {
+                        val itemText = getQuantityString2(
+                            eu.darken.sdmse.common.R.plurals.general_delete_success_deleted_x,
+                            event.count,
+                        )
+                        val spaceText = run {
+                            val (spaceFormatted, spaceQuantity) = ByteFormatter.formatSize(
+                                requireContext(),
+                                event.freedSpace
+                            )
+                            getQuantityString2(
+                                eu.darken.sdmse.common.R.plurals.general_delete_success_freed_y,
+                                spaceQuantity,
+                                spaceFormatted,
+                            )
+                        }
+                        "$itemText $spaceText"
+                    },
                     Snackbar.LENGTH_LONG
                 ).show()
 

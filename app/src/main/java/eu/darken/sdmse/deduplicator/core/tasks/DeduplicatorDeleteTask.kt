@@ -1,8 +1,8 @@
 package eu.darken.sdmse.deduplicator.core.tasks
 
 import android.os.Parcelable
-import android.text.format.Formatter
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getQuantityString2
@@ -57,9 +57,11 @@ data class DeduplicatorDeleteTask(
 
         override val secondaryInfo
             get() = caString {
-                getString(
-                    eu.darken.sdmse.common.R.string.general_result_x_space_freed,
-                    Formatter.formatFileSize(this, affectedSpace)
+                val (formatted, quantity) = ByteFormatter.formatSize(this, affectedSpace)
+                getQuantityString2(
+                    eu.darken.sdmse.common.R.plurals.general_result_x_space_freed,
+                    quantity,
+                    formatted,
                 )
             }
     }
