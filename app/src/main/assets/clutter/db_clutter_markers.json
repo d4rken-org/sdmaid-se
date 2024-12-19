@@ -888,7 +888,10 @@
   "mrks": [{"loc": "SDCARD", "path": "TianQiTong"}]
 }, {
   "pkgs": ["com.tencent.android.qqdownloader"],
-  "mrks": [{"loc": "SDCARD", "path": "bao"}]
+  "mrks": [
+	{"loc": "SDCARD", "path": "bao"},
+	{"loc": "SDCARD", "path": "tencent/tassistant"}
+  ]
 }, {
   "pkgs": ["com.youku.phone"],
   "mrks": [{"loc": "SDCARD", "path": "youku"}]
