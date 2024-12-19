@@ -1,6 +1,8 @@
 package eu.darken.sdmse.main.ui.dashboard.items
 
 import android.text.SpannableStringBuilder
+import android.view.MotionEvent
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
@@ -58,6 +60,22 @@ class TitleCardVH(parent: ViewGroup) :
             BuildConfigWrap.BuildType.RELEASE -> ""
         }
         ribbonSecondary.text = BuildConfigWrap.VERSION_NAME
+
+        mascotContainer.apply {
+            val touchListener = View.OnTouchListener { _, event ->
+                if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                    item.onMascotTriggered(false)
+                    setOnTouchListener(null)
+                    performClick()
+                }
+                false
+            }
+            setOnLongClickListener {
+                item.onMascotTriggered(true)
+                setOnTouchListener(touchListener)
+                true
+            }
+        }
     }
 
     data class Item(
@@ -65,6 +83,7 @@ class TitleCardVH(parent: ViewGroup) :
         val isWorking: Boolean,
         val onRibbonClicked: () -> Unit,
         val webpageTool: WebpageTool,
+        val onMascotTriggered: (Boolean) -> Unit,
     ) : DashboardAdapter.Item {
 
         override val stableId: Long = this.javaClass.hashCode().toLong()
