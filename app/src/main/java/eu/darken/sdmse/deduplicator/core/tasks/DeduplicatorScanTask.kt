@@ -1,7 +1,7 @@
 package eu.darken.sdmse.deduplicator.core.tasks
 
-import android.text.format.Formatter
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -26,9 +26,11 @@ data class DeduplicatorScanTask(
 
         override val secondaryInfo
             get() = caString {
-                getString(
-                    R.string.deduplicator_x_space_occupied_by_duplicates_msg,
-                    Formatter.formatFileSize(this, recoverableSpace)
+                val (text, quantity) = ByteFormatter.formatSize(this, recoverableSpace)
+                getQuantityString2(
+                    R.plurals.deduplicator_x_space_occupied_by_duplicates_msg,
+                    quantity,
+                    text,
                 )
             }
     }

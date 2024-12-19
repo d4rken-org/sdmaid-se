@@ -51,6 +51,12 @@ fun Fragment.getQuantityString2(
     quantity: Int,
 ) = requireContext().getQuantityString2(pluralRes, quantity)
 
+fun Fragment.getQuantityString2(
+    @PluralsRes stringRes: Int,
+    quantity: Int,
+    vararg formatArgs: Any
+) = requireContext().getQuantityString2(stringRes, quantity, *formatArgs)
+
 fun Fragment.isTablet(): Boolean {
     return (resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
 }

@@ -3,7 +3,6 @@ package eu.darken.sdmse.main.ui.dashboard
 import android.content.ActivityNotFoundException
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.text.format.Formatter
 import android.view.View
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -13,6 +12,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.getColorForAttr
@@ -78,9 +78,11 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 }
             } else if (state.totalItems > 0 || state.totalSize > 0L) {
                 bottomBarTextLeft.apply {
-                    text = requireContext().getString(
-                        eu.darken.sdmse.common.R.string.x_space_can_be_freed,
-                        Formatter.formatShortFileSize(requireContext(), state.totalSize)
+                    val (formatted, quantity) = ByteFormatter.formatSize(context, state.totalSize)
+                    text = getQuantityString2(
+                        eu.darken.sdmse.common.R.plurals.x_space_can_be_freed,
+                        quantity,
+                        formatted,
                     )
                     append("\n")
                     append(getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.totalItems))
