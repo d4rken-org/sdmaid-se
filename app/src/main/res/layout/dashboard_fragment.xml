@@ -5,12 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <eu.darken.sdmse.common.MascotView
-        android:id="@+id/list_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         style="@style/BaseRecyclerList"
@@ -25,6 +19,12 @@
         tools:itemCount="1"
         tools:listitem="@layout/dashboard_preview_layout"
         tools:visibility="visible" />
+
+    <eu.darken.sdmse.common.MascotView
+        android:id="@+id/mascot_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_bar"
