@@ -67,7 +67,6 @@
     <string name="general_tag_filter_label">Filtriraj po oznakama</string>
     <string name="general_result_success_message">Operacija je uspjela</string>
     <string name="general_result_failure_message">Operacija nije uspjela</string>
-    <string name="general_result_x_space_freed">%s oslobođeno</string>
     <string name="general_options_label">Mogućnosti</string>
     <string name="general_details_label">Detalji</string>
     <string name="general_view_action">Prikaz</string>
@@ -81,11 +80,6 @@
     <string name="general_delete_confirmation_title">Potvrdite brisanje</string>
     <string name="general_delete_confirmation_message_x">Izbrisati \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Izbrisati %d odabranih stavki?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">Izbrisana %1$d stavka i oslobođeno %2$s</item>
-        <item quantity="few">Izbrisane %1$d stavke i oslobođeno %2$s</item>
-        <item quantity="other">Izbrisano %1$d stavki i oslobođeno %2$s</item>
-    </plurals>
     <string name="general_remove_action">Ukloni</string>
     <string name="general_remove_selected_action">Ukloni odabrano</string>
     <plurals name="general_remove_success_x_items">
@@ -103,7 +97,6 @@
         <item quantity="few">%s stavke</item>
         <item quantity="other">%s stavki</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s se može osloboditi</string>
     <string name="general_info_label">Informacije</string>
     <string name="general_count_label">Količina</string>
     <string name="general_app_label">Aplikacija</string>

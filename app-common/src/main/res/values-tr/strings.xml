@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">Etiketlere göre filtrele</string>
     <string name="general_result_success_message">İşlem başarılı</string>
     <string name="general_result_failure_message">Operasyon başarısız</string>
-    <string name="general_result_x_space_freed">%s serbest bırakıldı</string>
     <string name="general_options_label">Seçenekler</string>
     <string name="general_details_label">Detaylar</string>
     <string name="general_view_action">Bak</string>
@@ -89,10 +88,6 @@
     <string name="general_delete_confirmation_title">Silmeyi onayla</string>
     <string name="general_delete_confirmation_message_x">\"%s\" silinsin mi?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Seçili %d öğe silinsin mi?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">%1$d öğe silindi ve %2$s yer açıldı</item>
-        <item quantity="other">%1$d öğe silindi ve %2$s yer açıldı</item>
-    </plurals>
     <string name="general_remove_action">Kaldır</string>
     <string name="general_remove_selected_action">Seçilenleri kaldır</string>
     <plurals name="general_remove_success_x_items">
@@ -116,7 +111,6 @@
         <item quantity="one">%d başarısız</item>
         <item quantity="other">%d başarısız</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s serbest bırakılabilir</string>
     <string name="general_info_label">Bilgi</string>
     <string name="general_count_label">Toplam</string>
     <string name="general_app_label">Uygulama</string>

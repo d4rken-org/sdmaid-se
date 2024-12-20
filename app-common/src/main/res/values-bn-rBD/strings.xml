@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">ট্যাগ দ্বারা ফিল্টার</string>
     <string name="general_result_success_message">কাজটি সফল হয়েছে</string>
     <string name="general_result_failure_message">কাজটি ব্যর্থ হয়েছে</string>
-    <string name="general_result_x_space_freed">%s খালি হয়েছে</string>
     <string name="general_options_label">অপশন</string>
     <string name="general_details_label">বিস্তারিত</string>
     <string name="general_view_action">দেখুন</string>
@@ -89,10 +88,6 @@
     <string name="general_delete_confirmation_title">মুছে ফেলা নিশ্চিত করুন</string>
     <string name="general_delete_confirmation_message_x">\"%s\" মুছবেন?</string>
     <string name="general_delete_confirmation_message_selected_x_items">%dটি নির্বাচিত আইটেম মুছবেন?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">%1$d টি আইটেম মুছে ফেলা হয়েছে এবং %2$s মুক্ত করা হয়েছে৷</item>
-        <item quantity="other">%1$d টি আইটেম মুছে ফেলা হয়েছে এবং %2$s টি খালি করা হয়েছে৷</item>
-    </plurals>
     <string name="general_remove_action">অপসারণ করুন</string>
     <string name="general_remove_selected_action">বাছাইটি বাদ দিন</string>
     <plurals name="general_remove_success_x_items">
@@ -116,7 +111,6 @@
         <item quantity="one">%d ব্যর্থ</item>
         <item quantity="other">%d ব্যর্থ</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s মুক্ত করা যেতে পারে</string>
     <string name="general_info_label">তথ্য</string>
     <string name="general_count_label">গণনা</string>
     <string name="general_app_label">অ্যাপ</string>

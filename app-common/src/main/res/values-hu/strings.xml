@@ -73,7 +73,6 @@
     <string name="general_tag_filter_label">Szűrés címkék szerint</string>
     <string name="general_result_success_message">A művelet sikeres</string>
     <string name="general_result_failure_message">A művelet nem sikerült</string>
-    <string name="general_result_x_space_freed">%s felszabadult</string>
     <string name="general_options_label">Beállítások</string>
     <string name="general_details_label">Részletek</string>
     <string name="general_view_action">Megtekintés</string>
@@ -87,10 +86,6 @@
     <string name="general_delete_confirmation_title">A törlés megerősítésére</string>
     <string name="general_delete_confirmation_message_x">Törli a \"%s\" fájlt?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Töröljük a kiválasztott %d tételt?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">Törölt %1$d elemet és felszabadított %2$s-t</item>
-        <item quantity="other">Törölt %1$d elem és felszabadított %2$s</item>
-    </plurals>
     <string name="general_remove_action">Eltávolítás</string>
     <string name="general_remove_selected_action">Kijelölt elemek eltávolítása</string>
     <plurals name="general_remove_success_x_items">
@@ -119,7 +114,6 @@
         <item quantity="other">%d hibás
 %d hibás</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s felszabadítható</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Darabszám</string>
     <string name="general_app_label">Alkalmazás</string>

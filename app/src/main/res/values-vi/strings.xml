@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Ghi nhật ký gỡ lỗi</string>
     <string name="debug_debuglog_stop_action">Dừng ghi</string>
     <string name="debug_debuglog_sensitive_information_message">Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ nó với các bên đáng tin cậy.</string>
-    <string name="settings_debuglog_explanation">Tính năng này ghi lại mọi thứ mà ứng dụng đang thực hiện vào một tệp có thể chia sẻ. Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ nó với các bên đáng tin cậy (ví dụ: nhà phát triển đang khắc phục sự cố).</string>
     <string name="tasks_activity_notification_channel_label">Tác vụ đang chạy</string>
     <string name="tasks_activity_working_notification_title">SD Maid đang hoạt động</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -237,7 +236,6 @@
     <string name="systemcleaner_filter_macfiles_label">Mac files</string>
     <string name="systemcleaner_filter_macfiles_summary">Các tệp và thư mục được tạo khi duyệt bộ nhớ bằng ứng dụng tìm kiếm của Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Tệp Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Dữ liệu mà trình quản lý tệp Windows có thể tạo trên bộ lưu trữ được kết nối. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Hình thu nhỏ</string>
     <string name="systemcleaner_filter_thumbnails_summary">Bản xem trước được lưu trong bộ nhớ cache cho hình ảnh và video.</string>
     <string name="systemcleaner_filter_tempfiles_label">Tẹp tin tạm</string>
@@ -279,10 +277,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Loại trừ</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Kết quả sẽ bị loại trừ nếu đường dẫn khớp với bất kỳ mục nhập nào (ví dụ: \"DCIM\"). Nhấn và giữ các mục để có thêm tùy chọn.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Chế độ so sánh đường dẫn</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Đường dẫn bắt đầu bằng từ khóa</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Đường dẫn chứa từ khóa</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Đường dẫn kết thúc bằng từ khóa</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Đường dẫn trùng với từ khóa</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Chế độ so sánh tên</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Tên bắt đầu bằng từ khóa</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Tên chứa từ khóa</string>
@@ -389,7 +383,6 @@
     <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
     <string name="deduplicator_detection_method_phash_summary">Tìm các tệp tương tự bằng cách phân tích các tính năng nội dung và so sánh các giá trị.</string>
     <string name="deduplicator_occupied_space_label">Lưu trữ bị chiếm dụng</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s bị chiếm bởi các bản sao</string>
     <string name="deduplicator_file_size_label">Kích thước tệp</string>
     <string name="deduplicator_average_size_label">Kích thước trung bình</string>
     <string name="deduplicator_cluster_x_label">Cụm %s</string>
@@ -622,7 +615,6 @@
     <string name="review_app_dismiss_action">Để sau</string>
     <string name="review_app_body">Bạn có muốn để lại đánh giá cho SD Maid không?️ ❤️</string>
     <string name="stats_label">Lịch sử</string>
-    <string name="stats_dash_body">%s đã được giải phóng và %s mục đã được xử lý kể từ khi bạn mời SD Maid vào thiết bị của mình.</string>
     <string name="stats_report_status_success">Thành công</string>
     <string name="stats_report_status_partial_success">Thành công một phần</string>
     <string name="stats_report_status_partial_failure">Thất bại</string>

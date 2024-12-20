@@ -14,7 +14,6 @@
     <string name="debug_debuglog_record_action">Įrašyti derinimo žurnalą</string>
     <string name="debug_debuglog_stop_action">Sustabdyti įrašymą</string>
     <string name="debug_debuglog_sensitive_information_message">Sukurtame faile yra neskelbtinos informacijos (pvz., failų pavadinimai ir įdiegtos programos). Dalinkitės juo tik su patikimomis šalimis.</string>
-    <string name="settings_debuglog_explanation">Ši funkcija įrašo viską, ką programa daro, į bendrinamą failą. Sukurtame faile yra neskelbtinos informacijos (pvz., failų pavadinimai ir įdiegtos programos). Dalinkitės juo tik su patikimomis šalimis (pvz., kūrėju, kuris šalina problemą).</string>
     <string name="tasks_activity_notification_channel_label">Aktyvios užduotys</string>
     <string name="tasks_activity_working_notification_title">\"SD Maid\" veikia</string>
     <string name="tasks_result_notification_channel_label">Užduoties rezultatai</string>
@@ -184,7 +183,6 @@
     <string name="systemcleaner_filter_macfiles_label">\"Mac\" failai</string>
     <string name="systemcleaner_filter_macfiles_summary">Failai ir aplankai, kurie sukuriami naršant saugyklą naudojant \"Apple\" programą \"Finder\".</string>
     <string name="systemcleaner_filter_windowsfiles_label">\"Windows\" failai</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Duomenys, kuriuos \"Windows\" failų naršyklė gali sukurti prijungtoje saugykloje. "</string>
     <string name="systemcleaner_filter_thumbnails_summary">Į talpyklą įrašytos vaizdų ir vaizdo įrašų peržiūros.</string>
     <string name="systemcleaner_filter_tempfiles_label">Laikinieji failai</string>
     <string name="systemcleaner_filter_tempfiles_summary">Laikini failai, paprastai trumpalaikės aktyvių operacijų talpyklos.</string>

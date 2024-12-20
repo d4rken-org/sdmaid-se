@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Zaznamenajte denník ladenia</string>
     <string name="debug_debuglog_stop_action">Ukončiť nahrávanie</string>
     <string name="debug_debuglog_sensitive_information_message">Vygenerovaný súbor obsahuje citlivé informácie (napr. názvy súborov a nainštalované aplikácie). Zdieľajte ho iba s dôveryhodnými stranami.</string>
-    <string name="settings_debuglog_explanation">Táto funkcia zaznamenáva všetko, čo aplikácia robí, do zdieľaného súboru. Vygenerovaný súbor obsahuje citlivé informácie (napr. názvy súborov a nainštalované aplikácie). Zdieľajte ho iba s dôveryhodnými stranami (napr. vývojár, ktorý rieši problém).</string>
     <string name="tasks_activity_notification_channel_label">Aktívne úlohy</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -240,7 +239,6 @@
     <string name="systemcleaner_filter_macfiles_label">Mac súbory</string>
     <string name="systemcleaner_filter_macfiles_summary">Súbory a priečinky, ktoré sa vytvárajú pri prehliadaní úložiska pomocou aplikácie Apple Finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows súbory</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Údaje, ktoré môže prieskumník súborov systému Windows vytvoriť na pripojenom úložisku. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Náhľady obrázkov</string>
     <string name="systemcleaner_filter_thumbnails_summary">Ukážky obrázkov a videí uložené vo vyrovnávacej pamäti.</string>
     <string name="systemcleaner_filter_tempfiles_label">Dočasné súbory</string>
@@ -282,10 +280,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Vylúčenia</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Výsledok bude vylúčený, ak sa cesta zhoduje s akoukoľvek položkou (napr. „DCIM“). Dlhým stlačením položiek získate ďalšie možnosti.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Režim porovnávania ciest</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Cesta začína kľúčovými slovami</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Cesta obsahuje kľúčové slová</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Cesta končí kľúčovými slovami</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Cesta je rovnaká ako kľúčové slová</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Režim porovnávania mien</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Názov začína kľúčovým slovom</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Názov obsahuje kľúčové slovo</string>
@@ -390,7 +384,6 @@
     <string name="deduplicator_detection_method_phash_title">Percepčný hash</string>
     <string name="deduplicator_detection_method_phash_summary">Nájdite podobné súbory analýzou funkcií obsahu a porovnaním hodnôt hash vnímania.</string>
     <string name="deduplicator_occupied_space_label">Obsadené úložisko</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s je obsadených duplikátmi</string>
     <string name="deduplicator_file_size_label">Veľkosť súboru</string>
     <string name="deduplicator_average_size_label">Priemerná veľkosť</string>
     <string name="deduplicator_cluster_x_label">Klaster %s</string>

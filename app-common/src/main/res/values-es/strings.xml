@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">Filtrar por las etiquetas</string>
     <string name="general_result_success_message">Operación exitosa</string>
     <string name="general_result_failure_message">Operación fallida</string>
-    <string name="general_result_x_space_freed">%s liberado</string>
     <string name="general_options_label">Opciones</string>
     <string name="general_details_label">Detalles</string>
     <string name="general_view_action">Ver</string>
@@ -89,10 +88,6 @@
     <string name="general_delete_confirmation_title">Confirmar el borrado</string>
     <string name="general_delete_confirmation_message_x">¿Borrar \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">¿Borrar los %d elementos seleccionados?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">Eliminado %1$d elemento y liberado %2$s</item>
-        <item quantity="other">Eliminados %1$d elementos y liberados %2$s</item>
-    </plurals>
     <string name="general_remove_action">Eliminar</string>
     <string name="general_remove_selected_action">Eliminar la selección</string>
     <plurals name="general_remove_success_x_items">
@@ -116,7 +111,6 @@
         <item quantity="one">%d ha fallado</item>
         <item quantity="other">%d han fallado</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s pueden liberarse</string>
     <string name="general_info_label">Información</string>
     <string name="general_count_label">Contar</string>
     <string name="general_app_label">Aplicación</string>

@@ -74,7 +74,6 @@
     <string name="general_tag_filter_label">סנן לפי תגיות</string>
     <string name="general_result_success_message">הפעולה בוצעה בהצלחה</string>
     <string name="general_result_failure_message">הפעולה נכשלה</string>
-    <string name="general_result_x_space_freed">%s שוחרר</string>
     <string name="general_options_label">הגדרות</string>
     <string name="general_details_label">פרטים</string>
     <string name="general_view_action">הצג</string>
@@ -101,7 +100,6 @@
         <item quantity="many">%s פריטים</item>
         <item quantity="other">%s פריטים</item>
     </plurals>
-    <string name="x_space_can_be_freed">ניתן לשחרר %s</string>
     <string name="general_info_label">מידע</string>
     <string name="general_count_label">ספירה</string>
     <string name="general_app_label">אפליקציה</string>

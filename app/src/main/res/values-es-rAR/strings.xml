@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Grabar un registro de depuración</string>
     <string name="debug_debuglog_stop_action">Detener la grabación</string>
     <string name="debug_debuglog_sensitive_information_message">El archivo generado contiene información sensible (por ejemplo, nombres de archivos y aplicaciones instaladas). Únicamente compartilo con personas de confianza.</string>
-    <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo que se puede compartir. El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártelo solo con personas de confianza (por ejemplo, un desarrollador que esté solucionando un problema).</string>
     <string name="tasks_activity_notification_channel_label">Tareas activas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está trabajando</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -237,7 +236,6 @@
     <string name="systemcleaner_filter_macfiles_label">Archivos Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Archivos y carpetas que se crean al explorar el almacenamiento con la aplicación Finder de Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Archivos de Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Datos que el explorador de archivos de Windows puede crear en el almacenamiento conectado. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniaturas</string>
     <string name="systemcleaner_filter_thumbnails_summary">Vista previa en caché para imágenes y videos.</string>
     <string name="systemcleaner_filter_tempfiles_label">Archivos temporales</string>
@@ -279,10 +277,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusiones</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">El resultado se excluirá si la ruta coincide con alguna entrada (por ejemplo, \"DCIM\"). Mantené pulsadas las entradas para ver más opciones.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modo de comparación de las rutas</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">La ruta comienza con las palabras clave</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">La ruta contiene las palabras clave</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">La ruta termina con las palabras clave</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">La ruta es igual a las palabras clave</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modo de comparación de los nombres</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">El nombre empieza por la palabra clave</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">El nombre contiene la palabra clave</string>
@@ -386,7 +380,6 @@
     <string name="deduplicator_detection_method_phash_title">Hash conceptual</string>
     <string name="deduplicator_detection_method_phash_summary">Encuentre archivos similares analizando características de contenido y comparando valores hash perceptivos.</string>
     <string name="deduplicator_occupied_space_label">Almacenamiento ocupado</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s están ocupados por duplicados</string>
     <string name="deduplicator_file_size_label">Tamaño del archivo</string>
     <string name="deduplicator_average_size_label">Tamaño promedio</string>
     <string name="deduplicator_cluster_x_label">Agrupar %s</string>

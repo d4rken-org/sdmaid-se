@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">Filtrează după etichete</string>
     <string name="general_result_success_message">Operațiune cu succes</string>
     <string name="general_result_failure_message">Operațiune eșuată</string>
-    <string name="general_result_x_space_freed">%s eliberat</string>
     <string name="general_options_label">Opțiuni</string>
     <string name="general_details_label">Detalii</string>
     <string name="general_view_action">Vezi</string>
@@ -89,11 +88,6 @@
     <string name="general_delete_confirmation_title">Confirmă ștergerea</string>
     <string name="general_delete_confirmation_message_x">Ștergi \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Ștergi %d elemente selectate?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">%1$d element șters și eliberat %2$s</item>
-        <item quantity="few">%1$d element șters și eliberat %2$s</item>
-        <item quantity="other">S-au șters %1$d elemente și au eliberat %2$s</item>
-    </plurals>
     <string name="general_remove_action">Elimină</string>
     <string name="general_remove_selected_action">Elimină selecția</string>
     <plurals name="general_remove_success_x_items">
@@ -121,7 +115,6 @@
         <item quantity="few">%d eșuate</item>
         <item quantity="other">%d eșuate</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s pot fi eliberați</string>
     <string name="general_info_label">Informații</string>
     <string name="general_count_label">Numără</string>
     <string name="general_app_label">Aplicație</string>

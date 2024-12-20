@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Grabar registro de depuración</string>
     <string name="debug_debuglog_stop_action">Detener grabación</string>
     <string name="debug_debuglog_sensitive_information_message">El archivo generado contiene informació sensible (p. ej. nombres de archivos y aplicaciones instaladas). Compártelo sólo con personas de confianza.</string>
-    <string name="settings_debuglog_explanation">Esta característica graba todo lo que está haciendo la aplicación en un archivo compartible. El archivo generado contiene informació sensible (p. ej. nombres de archivos y aplicaciones instaladas). Compártelo sólo con personas de confianza (p. ej. un desarrollador que esté solucionando un problema).</string>
     <string name="tasks_activity_notification_channel_label">Tareas activas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está trabajando</string>
     <plurals name="tasks_activity_active_notification_message">

@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">Фільтрувати за тегами</string>
     <string name="general_result_success_message">Операція успішна</string>
     <string name="general_result_failure_message">Операція не вдалася</string>
-    <string name="general_result_x_space_freed">%s звільнено</string>
     <string name="general_options_label">Параметри</string>
     <string name="general_details_label">Подробиці</string>
     <string name="general_view_action">Дивитися</string>
@@ -89,12 +88,6 @@
     <string name="general_delete_confirmation_title">Підтвердити видалення</string>
     <string name="general_delete_confirmation_message_x">Видалити \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Видалити %d вибраних елементів?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">Видалено елемент %1$d і звільнено %2$s</item>
-        <item quantity="few">Видалено елементів %1$d і звільнено %2$s</item>
-        <item quantity="many">Видалено елементів %1$d і звільнено %2$s</item>
-        <item quantity="other">Видалено %1$d елементів і звільнено %2$s</item>
-    </plurals>
     <string name="general_remove_action">Видалити</string>
     <string name="general_remove_selected_action">Видалити вибране</string>
     <plurals name="general_remove_success_x_items">
@@ -126,7 +119,6 @@
         <item quantity="many">Помилки %d</item>
         <item quantity="other">Помилка %d</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s можна звільнити</string>
     <string name="general_info_label">Інформація</string>
     <string name="general_count_label">Кількість</string>
     <string name="general_app_label">Додаток</string>
@@ -157,4 +149,5 @@
         <item quantity="other">Файли %s</item>
     </plurals>
     <string name="general_advice_title">Поради</string>
+    <string name="general_error_invalid_input_label">Невірне введення</string>
 </resources>

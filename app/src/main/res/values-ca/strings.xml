@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Desa el registre de depuració</string>
     <string name="debug_debuglog_stop_action">Atura la gravació</string>
     <string name="debug_debuglog_sensitive_information_message">El fitxer generat conté informació confidencial (p. ex. noms de fitxers i aplicacions instal·lades). Compartiu-ho només amb persones de confiança.</string>
-    <string name="settings_debuglog_explanation">Aquesta funció enregistra tot el que fa l\'aplicació en un fitxer que es pot compartir. El fitxer generat conté informació confidencial (p. ex. noms de fitxers i aplicacions instal·lades). Compartiu-ho només amb persones de confiança (p. ex. un desenvolupador que està solucionant un problema).</string>
     <string name="tasks_activity_notification_channel_label">Tasques actives</string>
     <string name="tasks_activity_working_notification_title">L\'SD Maid està en execució</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -251,7 +250,6 @@
     <string name="systemcleaner_filter_macfiles_label">Fitxers Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Fitxers i carpetes que es creen en explorar l\'emmagatzematge amb l\'aplicació de cerca d\'Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Fitxers de Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Dades que l'explorador de fitxers de Windows pot crear a l'emmagatzematge connectat. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatures</string>
     <string name="systemcleaner_filter_thumbnails_summary">Previsualitzacions a la memòria cau d\'imatges i vídeos.</string>
     <string name="systemcleaner_filter_tempfiles_label">Fitxers temporals</string>
@@ -293,10 +291,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusions</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">El resultat s\'exclourà si la ruta coincideix amb qualsevol entrada (p. ex., «DCIM»). Manteniu premudes les entrades per obtenir més opcions.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Mode de comparació de rutes</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">La ruta comença amb paraules clau</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">La ruta conté paraules clau</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">La ruta acaba amb paraules clau</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">La ruta és igual a les paraules clau</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Mode de comparació de noms</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">El nom comença amb la paraula clau</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">El nom conté la paraula clau</string>
@@ -412,7 +406,6 @@
     <string name="deduplicator_detection_method_phash_title">Hash perceptiu</string>
     <string name="deduplicator_detection_method_phash_summary">Troba fitxers similars analitzant les característiques de contingut i comparant els valors hash perceptius.</string>
     <string name="deduplicator_occupied_space_label">Emmagatzematge ocupat</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s estan ocupats per duplicats</string>
     <string name="deduplicator_file_size_label">Mida del fitxer</string>
     <string name="deduplicator_average_size_label">Mida mitjana</string>
     <string name="deduplicator_cluster_x_label">Clúster %s</string>
@@ -657,7 +650,6 @@
     <string name="review_app_dismiss_action">Potser després</string>
     <string name="review_app_body">Voleu deixar una ressenya de l\'SD Maid?️ ❤️</string>
     <string name="stats_label">Historial</string>
-    <string name="stats_dash_body">S\'han alliberat %s i s\'han processat %s elements des que vau convidar l\'SD Maid al vostre dispositiu.</string>
     <string name="stats_report_status_success">Èxit</string>
     <string name="stats_report_status_partial_success">Èxit parcial</string>
     <string name="stats_report_status_partial_failure">Error</string>

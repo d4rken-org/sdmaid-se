@@ -63,7 +63,6 @@
     <string name="general_tag_filter_label">依標籤過濾</string>
     <string name="general_result_success_message">作業成功</string>
     <string name="general_result_failure_message">作業失敗</string>
-    <string name="general_result_x_space_freed">%s 已釋出</string>
     <string name="general_options_label">選項</string>
     <string name="general_details_label">詳細資料</string>
     <string name="general_view_action">檢視</string>
@@ -76,9 +75,6 @@
     <string name="general_delete_confirmation_title">確認刪除</string>
     <string name="general_delete_confirmation_message_x">刪除「%s」？</string>
     <string name="general_delete_confirmation_message_selected_x_items">刪除 %d 個已選取的項目？</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="other">刪除 %1$d 個項目並釋出 %2$s</item>
-    </plurals>
     <string name="general_remove_action">移除</string>
     <string name="general_remove_selected_action">移除已選取的項目</string>
     <plurals name="general_remove_success_x_items">
@@ -92,7 +88,6 @@
     <plurals name="result_x_items">
         <item quantity="other">%s 個項目</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s 可釋出</string>
     <string name="general_info_label">資訊</string>
     <string name="general_count_label">計數</string>
     <string name="general_app_label">應用程式</string>
