@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">Filtra per etiquetes</string>
     <string name="general_result_success_message">Operació realitzada amb èxit</string>
     <string name="general_result_failure_message">Operació fallida</string>
-    <string name="general_result_x_space_freed">%s alliberats</string>
     <string name="general_options_label">Opcions</string>
     <string name="general_details_label">Detalls</string>
     <string name="general_view_action">Mostra</string>
@@ -89,10 +88,6 @@
     <string name="general_delete_confirmation_title">Confirmeu la supressió</string>
     <string name="general_delete_confirmation_message_x">Voleu suprimir «%s»?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Voleu suprimir els %d elements seleccionats?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">S\'ha suprimit %1$d element i s\'ha alliberat %2$s</item>
-        <item quantity="other">S\'han suprimit %1$d elements i s\'han alliberat %2$s</item>
-    </plurals>
     <string name="general_remove_action">Elimina</string>
     <string name="general_remove_selected_action">Eliminar els seleccionats</string>
     <plurals name="general_remove_success_x_items">
@@ -116,7 +111,6 @@
         <item quantity="one">%d ha fallat</item>
         <item quantity="other">%d han fallat</item>
     </plurals>
-    <string name="x_space_can_be_freed">Es poden alliberar %s</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Compta</string>
     <string name="general_app_label">Aplicació</string>

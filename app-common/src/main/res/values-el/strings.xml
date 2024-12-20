@@ -75,7 +75,10 @@
     <string name="general_tag_filter_label">Φιλτράρισμα με ετικέτες</string>
     <string name="general_result_success_message">Λειτουργία επιτυχής</string>
     <string name="general_result_failure_message">Η λειτουργία απέτυχε</string>
-    <string name="general_result_x_space_freed">%s απελευθερώθηκαν</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s απελευθερώθηκε</item>
+        <item quantity="other">%s απελευθερώθηκαν</item>
+    </plurals>
     <string name="general_options_label">Επιλογές</string>
     <string name="general_details_label">Λεπτομέρειες</string>
     <string name="general_view_action">Προβολή</string>
@@ -89,9 +92,13 @@
     <string name="general_delete_confirmation_title">Επιβεβαίωση διαγραφής</string>
     <string name="general_delete_confirmation_message_x">Διαγραφή \"%s\";</string>
     <string name="general_delete_confirmation_message_selected_x_items">Διαγραφή %d επιλεγμένων στοιχείων;</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">Διαγράφηκε %1$d αντικείμενο και απελευθερώθηκαν %2$s</item>
-        <item quantity="other">Διαγράφηκαν %1$d αντικείμενα και απελευθερώθηκαν %2$s</item>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Διαγράφηκε %d στοιχείο.</item>
+        <item quantity="other">Διαγράφηκαν %d στοιχεία.</item>
+    </plurals>
+    <plurals name="general_delete_success_freed_y">
+        <item quantity="one">Απελευθερώθηκε %s χώρου.</item>
+        <item quantity="other">Απελευθερώθηκαν %s χώρου.</item>
     </plurals>
     <string name="general_remove_action">Αφαίρεση</string>
     <string name="general_remove_selected_action">Αφαίρεση επιλεγμένων</string>
@@ -116,7 +123,10 @@
         <item quantity="one">%d απέτυχε</item>
         <item quantity="other">%d απέτυχαν</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s μπορούν να απελευθερωθούν</string>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s μπορεί να απελευθερωθεί</item>
+        <item quantity="other">%s μπορούν να απελευθερωθούν</item>
+    </plurals>
     <string name="general_info_label">Πληροφορίες</string>
     <string name="general_count_label">Πλήθος</string>
     <string name="general_app_label">Εφαρμογή</string>
@@ -153,4 +163,5 @@
         <item quantity="other">%s αρχεία</item>
     </plurals>
     <string name="general_advice_title">Συμβουλές</string>
+    <string name="general_error_invalid_input_label">Μη έγκυρη εισαγωγή</string>
 </resources>

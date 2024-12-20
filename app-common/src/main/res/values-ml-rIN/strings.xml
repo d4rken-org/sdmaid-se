@@ -58,7 +58,6 @@
     <string name="general_tag_filter_label">ടാഗുകൾ പ്രകാരം ഫിൽട്ടർ ചെയ്യുക</string>
     <string name="general_result_success_message">ഓപ്പറേഷൻ വിജയിച്ചു</string>
     <string name="general_result_failure_message">ഓപ്പറേഷൻ പരാജയപ്പെട്ടു</string>
-    <string name="general_result_x_space_freed">%sഫ്രീ ആക്കി</string>
     <string name="general_details_label">വിശദാംശങ്ങൾ</string>
     <string name="general_view_action">കാഴ്ചകൾ</string>
     <string name="general_update_action">അപ്ഡേറ്റ്</string>
@@ -77,7 +76,6 @@
         <item quantity="one">%s ഇനം</item>
         <item quantity="other">%s items</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s-നെ മോചിപ്പിക്കാൻ കഴിയും</string>
     <string name="general_info_label">വിവരങ്ങൾ</string>
     <string name="general_count_label">എണ്ണം</string>
     <string name="general_app_label">അപ്ലിക്കേഷൻ</string>

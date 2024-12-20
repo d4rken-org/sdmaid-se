@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Sla het foutopsporingslogboek op</string>
     <string name="debug_debuglog_stop_action">Stop met opnemen</string>
     <string name="debug_debuglog_sensitive_information_message">Het gegenereerde bestand bevat gevoelige informatie (bijv. bestandsnamen en geïnstalleerde apps). Deel het alleen met vertrouwde partijen.</string>
-    <string name="settings_debuglog_explanation">Deze functie registreert alles wat de app doet in een deelbaar bestand. Het gegenereerde bestand bevat gevoelige informatie (bijv. bestandsnamen en geïnstalleerde apps). Deel het alleen met vertrouwde partijen (bijv. een ontwikkelaar die een probleem aan het oplossen is).</string>
     <string name="tasks_activity_notification_channel_label">Actieve taken</string>
     <string name="tasks_activity_working_notification_title">SD Maid is aan het werk</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -245,7 +244,6 @@
     <string name="systemcleaner_filter_macfiles_label">Mac bestanden</string>
     <string name="systemcleaner_filter_macfiles_summary">Bestanden en mappen die worden gemaakt tijdens het bladeren door opslag met de zoeker-app van Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows bestanden</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Gegevens die de Windows-bestandsverkenner kan maken op verbonden opslag. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatuurafbeeldingen</string>
     <string name="systemcleaner_filter_thumbnails_summary">In cache opgeslagen voorbeelden voor afbeeldingen en video\'s.</string>
     <string name="systemcleaner_filter_tempfiles_label">Tijdelijke bestanden</string>
@@ -287,10 +285,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Uitsluitingen</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Het resultaat wordt uitgesloten als het pad overeenkomt met een invoer (bijvoorbeeld \'DCIM\'). Druk lang op de vermeldingen voor meer opties.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modus voor padvergelijking</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Pad begint met trefwoorden</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Pad bevat trefwoorden</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Pad eindigt met trefwoorden</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Pad is gelijk aan trefwoorden</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modus voor padvergelijking</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Naam begint met trefwoord</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Pad bevat trefwoorden</string>
@@ -398,7 +392,6 @@
     <string name="deduplicator_detection_method_phash_title">Perceptie-hash</string>
     <string name="deduplicator_detection_method_phash_summary">Vind vergelijkbare bestanden door inhoudskenmerken te analyseren en perceptuele hashwaarden te vergelijken.</string>
     <string name="deduplicator_occupied_space_label">Gebruikte opslag</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s zijn bezet door duplicaten</string>
     <string name="deduplicator_file_size_label">Bestandsgrootte</string>
     <string name="deduplicator_average_size_label">Gemiddelde grootte</string>
     <string name="deduplicator_cluster_x_label">Groepeer %s</string>
@@ -634,7 +627,6 @@
     <string name="review_app_dismiss_action">Misschien later</string>
     <string name="review_app_body">Wil je SD Maid een beoordeling achterlaten? ❤️</string>
     <string name="stats_label">Geschiedenis</string>
-    <string name="stats_dash_body">%s zijn vrijgegeven en %s items verwerkt sinds je SD Maid op je apparaat hebt uitgenodigd.</string>
     <string name="stats_report_status_success">Succes</string>
     <string name="stats_report_status_partial_success">Gedeeltelijk succes</string>
     <string name="stats_report_status_partial_failure">Mislukt</string>

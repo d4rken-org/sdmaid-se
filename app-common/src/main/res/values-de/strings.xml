@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">Nach Tags filtern</string>
     <string name="general_result_success_message">Operation erfolgreich</string>
     <string name="general_result_failure_message">Operation fehlgeschlagen</string>
-    <string name="general_result_x_space_freed">%s freigegeben</string>
     <string name="general_options_label">Optionen</string>
     <string name="general_details_label">Details</string>
     <string name="general_view_action">Ansehen</string>
@@ -89,10 +88,6 @@
     <string name="general_delete_confirmation_title">Löschung bestätigen</string>
     <string name="general_delete_confirmation_message_x">\"%s\" löschen?</string>
     <string name="general_delete_confirmation_message_selected_x_items">%d ausgewählte Objekte löschen?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">%1$d Objekt gelöscht und %2$s freigegeben</item>
-        <item quantity="other">%1$d Objekte gelöscht und %2$s freigegeben</item>
-    </plurals>
     <string name="general_remove_action">Entfernen</string>
     <string name="general_remove_selected_action">Ausgewähltes entfernen</string>
     <plurals name="general_remove_success_x_items">
@@ -116,7 +111,6 @@
         <item quantity="one">%d fehlgeschlagen</item>
         <item quantity="other">%d fehlgeschlagen</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s können freigegeben werden</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Anzahl</string>
     <string name="general_app_label">App</string>

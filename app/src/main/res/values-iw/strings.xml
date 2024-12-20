@@ -13,7 +13,6 @@
     <string name="debug_debuglog_record_action">שמירת קובץ לוג</string>
     <string name="debug_debuglog_stop_action">הפסקת הקלטה</string>
     <string name="debug_debuglog_sensitive_information_message">הקובץ שנוצר מכיל מידע רגיש (למשל שמות קבצים ואפליקציות מותקנות). שתף אותו רק עם גורמים אמינים.</string>
-    <string name="settings_debuglog_explanation">הפונקציה רושמת את כל מה שהאפליקציה עושה לתוך קובץ שניתן לשתף. הקובץ שנוצר מכיל מידע רגיש (למשל שמות קבצים ואפליקציות מותקנות). שתף אותו רק עם גורמים אמינים (למשל עם המפתח אשר אמור לפתור תקלות).</string>
     <string name="tasks_activity_notification_channel_label">משימות פעילות</string>
     <string name="tasks_activity_working_notification_title">SD Maid פועל</string>
     <plurals name="tasks_activity_queued_notification_message">

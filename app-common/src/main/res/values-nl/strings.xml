@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">Filteren op tags</string>
     <string name="general_result_success_message">Bewerking geslaagd</string>
     <string name="general_result_failure_message">Bewerking mislukt</string>
-    <string name="general_result_x_space_freed">%s bevrijd</string>
     <string name="general_options_label">Opties</string>
     <string name="general_details_label">Details</string>
     <string name="general_view_action">Weergave</string>
@@ -89,10 +88,6 @@
     <string name="general_delete_confirmation_title">Bevestig verwijdering</string>
     <string name="general_delete_confirmation_message_x">Verwijder \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">%d geselecteerde items verwijderen?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">%1$d item verwijderd en %2$s vrijgegeven</item>
-        <item quantity="other">%1$d items verwijderd en %2$s vrijgegeven</item>
-    </plurals>
     <string name="general_remove_action">Verwijderen</string>
     <string name="general_remove_selected_action">Selectie verwijderen</string>
     <plurals name="general_remove_success_x_items">
@@ -116,7 +111,6 @@
         <item quantity="one">%d mislukt</item>
         <item quantity="other">%d mislukt</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s kan worden vrijgemaakt</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Tellen</string>
     <string name="general_app_label">App</string>

@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">تصفية حسب العلامات</string>
     <string name="general_result_success_message">تمت المهمة</string>
     <string name="general_result_failure_message">فشلت المهمة</string>
-    <string name="general_result_x_space_freed">%s محررة</string>
     <string name="general_options_label">الخيارات</string>
     <string name="general_details_label">التفاصيل</string>
     <string name="general_view_action">عرض</string>
@@ -89,14 +88,6 @@
     <string name="general_delete_confirmation_title">تأكيد الحذف</string>
     <string name="general_delete_confirmation_message_x">حذف \"%s\"؟</string>
     <string name="general_delete_confirmation_message_selected_x_items">حذف %d من العناصر المحددة؟</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="zero">تم حذف %1$d عنصر وحرر %2$s</item>
-        <item quantity="one">تم حذف %1$d عنصر وحرر %2$s</item>
-        <item quantity="two">تم حذف %1$d عنصران وحرر %2$s</item>
-        <item quantity="few">تم حذف %1$d عناصر وحرر %2$s</item>
-        <item quantity="many">تم حذف %1$d عناصر وحرر %2$s</item>
-        <item quantity="other">تم حذف %1$d عناصر وحرر %2$s</item>
-    </plurals>
     <string name="general_remove_action">حذف</string>
     <string name="general_remove_selected_action">حذف المُحدد</string>
     <plurals name="general_remove_success_x_items">
@@ -136,7 +127,6 @@
         <item quantity="many">- %d فشل</item>
         <item quantity="other">- %d فشل</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s يمكن تحريرها</string>
     <string name="general_info_label">معلومات</string>
     <string name="general_count_label">العدد</string>
     <string name="general_app_label">تطبيق</string>

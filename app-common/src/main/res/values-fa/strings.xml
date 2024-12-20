@@ -96,7 +96,6 @@
         <item quantity="one">%d شکست خورد</item>
         <item quantity="other">%d شکست خورد</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s قابل آزادسازی است</string>
     <string name="general_info_label">درباره</string>
     <string name="general_count_label">تعداد</string>
     <string name="general_app_label">برنامه</string>

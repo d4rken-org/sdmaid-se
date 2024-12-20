@@ -65,7 +65,6 @@
     <string name="general_tag_filter_label">Tapis mengikut tag</string>
     <string name="general_result_success_message">Operasi berjaya</string>
     <string name="general_result_failure_message">Operasi gagal</string>
-    <string name="general_result_x_space_freed">%s dibebaskan</string>
     <string name="general_options_label">Pilihan</string>
     <string name="general_details_label">Butiran</string>
     <string name="general_view_action">Lihat</string>
@@ -77,9 +76,6 @@
     <string name="general_delete_confirmation_title">Sahkan pemadaman</string>
     <string name="general_delete_confirmation_message_x">Padamkan \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Padamkan %d item yang dipilih?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="other">Memadamkan %1$d item dan membebaskan %2$s</item>
-    </plurals>
     <string name="general_remove_action">Alih keluar</string>
     <string name="general_remove_selected_action">Buang yang dipilih</string>
     <plurals name="general_remove_success_x_items">
@@ -93,7 +89,6 @@
     <plurals name="result_x_items">
         <item quantity="other">%s butiran</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s boleh dibebaskan</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Kira</string>
     <string name="general_app_label">Aplikasi</string>

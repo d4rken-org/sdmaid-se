@@ -64,7 +64,6 @@
     <string name="general_tag_filter_label">Salain ayon sa tag</string>
     <string name="general_result_success_message">Matagumpay ang operasyon</string>
     <string name="general_result_failure_message">Palpak ang operasyon</string>
-    <string name="general_result_x_space_freed">Napakawalan ang %s</string>
     <string name="general_details_label">Mga detalye</string>
     <string name="general_view_action">Tingnan</string>
     <string name="general_update_action">Mag-update</string>
@@ -84,7 +83,6 @@
         <item quantity="one">%s item</item>
         <item quantity="other">%s item</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s ang mapapakawalan</string>
     <string name="general_info_label">Impormasyon</string>
     <string name="general_count_label">Bilang</string>
     <string name="general_app_label">App</string>

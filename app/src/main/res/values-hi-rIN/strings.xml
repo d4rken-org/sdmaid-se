@@ -13,7 +13,6 @@
     <string name="debug_debuglog_record_action">डिबग लॉग रिकॉर्ड करें</string>
     <string name="debug_debuglog_stop_action">रिकॉर्डिंग रोकें</string>
     <string name="debug_debuglog_sensitive_information_message">उत्पन्न की गई फ़ाइल में संवेदनशील जानकारी होती है (जैसे फ़ाइल नाम और इंस्टॉल किए गए ऐप्स)। इसे केवल विश्वसनीय पार्टियों के साथ साझा करें।</string>
-    <string name="settings_debuglog_explanation">यह सुविधा वह सब कुछ रिकॉर्ड करती है जो साझा करने योग्य एक ऐप द्वारा बनाई जाती है। बनाई गई फ़ाइल में संवेदनशील जानकारी होती है (जैसे फ़ाइल नाम और इंस्टॉल किए गए ऐप्स)। इसे केवल विश्वसनीय पार्टियों के साथ साझा करें (उदाहरण के लिए एक डेवलपर को जो ऐसे किसी समस्या का निवारण कर रहा है)।</string>
     <string name="tasks_activity_notification_channel_label">सक्रिय कार्य</string>
     <string name="tasks_activity_working_notification_title">SD मेड काम कर रही है</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -181,7 +180,6 @@
     <string name="systemcleaner_filter_linuxfiles_label">Linux फाइल</string>
     <string name="systemcleaner_filter_macfiles_label">Mac फाइल</string>
     <string name="systemcleaner_filter_windowsfiles_label">विंडो फाइल</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"डेटा जो विंडोज़ फाइल एक्सप्लोरर जुड़ने से स्टोरेज पर बना सकता है। "</string>
     <string name="systemcleaner_filter_thumbnails_label">थंबनेल छवियां</string>
     <string name="systemcleaner_filter_thumbnails_summary">छवियों और वीडियो के लिए कैश्ड पूर्वावलोकन।</string>
     <string name="systemcleaner_filter_tempfiles_label">अस्थायी फ़ाइलें</string>

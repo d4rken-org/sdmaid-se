@@ -13,7 +13,6 @@
     <string name="debug_debuglog_record_action">Rekod log nyahpepijat</string>
     <string name="debug_debuglog_stop_action">Hentikan rakaman</string>
     <string name="debug_debuglog_sensitive_information_message">Fail yang dijana mengandungi maklumat sensitif (misalnya, nama fail dan aplikasi yang dipasang). Hanya kongsi dengan pihak yang dipercayai.</string>
-    <string name="settings_debuglog_explanation">Ciri ini merekodkan semua yang dilakukan oleh aplikasi ke dalam fail yang boleh dikongsi. Fail yang dijana mengandungi maklumat sensitif (misalnya, nama fail dan aplikasi yang dipasang). Hanya kongsi dengan pihak yang dipercayai (misalnya, pembangun yang sedang menyelesaikan masalah).</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid sedang bekerja</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -202,7 +201,6 @@
     <string name="systemcleaner_filter_macfiles_label">Fail Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Fail dan folder yang dibuat semasa menyemak imbas storan dengan aplikasi pencari Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Fail Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Data yang boleh dibuat oleh penjelajah fail Windows pada storan yang disambungkan. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Imej Thumbnail</string>
     <string name="systemcleaner_filter_thumbnails_summary">Pratonton cache untuk imej dan video.</string>
     <string name="systemcleaner_filter_tempfiles_label">Fail sementara</string>

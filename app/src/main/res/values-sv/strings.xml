@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Spela in felsökningslogg</string>
     <string name="debug_debuglog_stop_action">Avsluta inspelning</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererade filen innehåller känslig information (t.ex. filnamn och installerade appar). Dela den endast med betrodda parter.</string>
-    <string name="settings_debuglog_explanation">Den här funktionen spelar in allt som appen gör i en delbar fil. Den genererade filen innehåller känslig information (e.. filnamn och installerade appar). Dela endast med betrodda parter (t.ex. en utvecklare som felsöker ett problem).</string>
     <string name="tasks_activity_notification_channel_label">Aktiva uppgifter</string>
     <string name="tasks_activity_working_notification_title">SD Maid fungerar</string>
     <plurals name="tasks_activity_active_notification_message">

@@ -73,7 +73,6 @@
     <string name="general_tag_filter_label">Filtrér efter tags</string>
     <string name="general_result_success_message">Operation lykkedes</string>
     <string name="general_result_failure_message">Operation mislykkedes</string>
-    <string name="general_result_x_space_freed">%s frigjort</string>
     <string name="general_options_label">Indstillinger</string>
     <string name="general_details_label">Detaljer</string>
     <string name="general_view_action">Vis</string>
@@ -87,10 +86,6 @@
     <string name="general_delete_confirmation_title">Bekræft sletning</string>
     <string name="general_delete_confirmation_message_x">Slet \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Slet %d valgte elementer?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">Slettet %1$d element og frigjorde %2$s</item>
-        <item quantity="other">Slettede %1$d elementer og frigjorde %2$s</item>
-    </plurals>
     <string name="general_remove_action">Fjern</string>
     <string name="general_remove_selected_action">Fjern valgte</string>
     <plurals name="general_remove_success_x_items">
@@ -114,7 +109,6 @@
         <item quantity="one">%d mislykkedes</item>
         <item quantity="other">%d mislykkedes</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s kan frigøres</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Antal</string>
     <string name="general_app_label">App</string>

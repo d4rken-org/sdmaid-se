@@ -61,7 +61,6 @@
     <string name="general_tag_filter_label">टैग द्वारा फ़िल्टर करें</string>
     <string name="general_result_success_message">ऑपरेशन सफल रहा</string>
     <string name="general_result_failure_message">ऑपरेशन विफल रहा</string>
-    <string name="general_result_x_space_freed">%s खाली की गई</string>
     <string name="general_options_label">विकल्प</string>
     <string name="general_details_label">विवरण</string>
     <string name="general_view_action">देखे</string>
@@ -83,7 +82,6 @@
         <item quantity="one">%s वस्तु</item>
         <item quantity="other">%s वस्तुएं</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s मुक्त किया जा सकता है</string>
     <string name="general_info_label">जानकारी</string>
     <string name="general_count_label">गणना</string>
     <string name="general_app_label">ऐप</string>

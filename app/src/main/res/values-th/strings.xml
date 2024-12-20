@@ -13,7 +13,6 @@
     <string name="debug_debuglog_record_action">จัดเก็บบันทึกการดีบัค</string>
     <string name="debug_debuglog_stop_action">หยุดการบันทึก</string>
     <string name="debug_debuglog_sensitive_information_message">ไฟล์ที่เพิ่งสร้างมีข้อมูลสำคัญ (เช่น ชื่อไฟล์และแอพที่ได้ติดตั้ง) แชร์เฉพาะกับแหล่งที่ไว้ใจได้เท่านั้น</string>
-    <string name="settings_debuglog_explanation">ฟีเจอร์นี้จะบันทึกการทำงานทุกอย่างของแอพลงในไฟล์ที่แชร์ได้ ซึ่งจะประกอบด้วยข้อมูลสำคัญ (เช่น ชื่อไฟล์และแอพที่ได้ติดตั้ง) แชร์เฉพาะกับแหล่งที่ไว้ใจได้เท่านั้น (เช่น ส่งให้นักพัฒนาโปรแกรมเพื่อแก้ไขปัญหา)</string>
     <string name="tasks_activity_notification_channel_label">งานที่ทำอยู่</string>
     <string name="tasks_activity_working_notification_title">SD Maid กำลังทำงาน</string>
     <plurals name="tasks_activity_active_notification_message">

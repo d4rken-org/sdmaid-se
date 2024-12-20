@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">تسجيل سجل التصحيح</string>
     <string name="debug_debuglog_stop_action">إيقاف التسجيل</string>
     <string name="debug_debuglog_sensitive_information_message">يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل أسماء الملفات والتطبيقات المثبتة). شاركها فقط مع الأطراف الموثوقة.</string>
-    <string name="settings_debuglog_explanation">تسجل هذه الميزة كل ما يفعله التطبيق في ملف قابل للمشاركة. يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل أسماء الملفات والتطبيقات المثبتة). شاركها فقط مع أطراف موثوقة (على سبيل المثال ، مطور يقوم باستكشاف مشكلة ما).</string>
     <string name="tasks_activity_notification_channel_label">المهام النشطة</string>
     <string name="tasks_activity_working_notification_title">SD Maid يعمل</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -277,7 +276,6 @@
     <string name="systemcleaner_filter_macfiles_label">ملفات ماك</string>
     <string name="systemcleaner_filter_macfiles_summary">الملفات والمجلدات التي يتم إنشاؤها عند تصفح وحدة التخزين مع تطبيق آبل الباحث.</string>
     <string name="systemcleaner_filter_windowsfiles_label">ملفات ويندوز</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"البيانات التي يمكن أن ينشئها مستكشف ملفات Windows على التخزين المتصل. "</string>
     <string name="systemcleaner_filter_thumbnails_label">صور مصغرة</string>
     <string name="systemcleaner_filter_thumbnails_summary">المعاينات المخبأة للصور ومقاطع الفيديو.</string>
     <string name="systemcleaner_filter_tempfiles_label">ملفات مؤقتة</string>
@@ -319,10 +317,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">الاستثناءات</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">سيتم استبعاد النتيجة إذا كان المسار يتطابق مع أي مدخل (مثل \"DCIM\"). اضغط مطولاً على الإدخالات لمزيد من الخيارات.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">وضع مقارنة المسار</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">المسار يبدأ بالكلمات المفتاحية</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">المسار يحتوي على كلمات مفتاحية</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">ينتهي المسار بالكلمات المفتاحية</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">المسار يحتوي على نفس عدد الكلمات المفتاحية</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">وضع مقارنة الاسم</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">يبدأ الاسم بالكلمة المفتاحية</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">الاسم يحتوي على كلمة مفتاحية</string>
@@ -454,7 +448,6 @@
     <string name="deduplicator_detection_method_phash_title">التجزئة المفهومة</string>
     <string name="deduplicator_detection_method_phash_summary">العثور على ملفات مماثلة عن طريق تحليل ميزات المحتوى ومقارنة قيم التجزئة الإدراكية.</string>
     <string name="deduplicator_occupied_space_label">المساحة المستخدمة</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s مشغولة بالنسخ المكررة</string>
     <string name="deduplicator_file_size_label">حجم الملف</string>
     <string name="deduplicator_average_size_label">متوسط الحجم</string>
     <string name="deduplicator_cluster_x_label">المجموعة %s</string>
@@ -742,7 +735,6 @@
     <string name="review_app_dismiss_action">ربما لاحقًا</string>
     <string name="review_app_body">هل ترغب في ترك تعليق لـ SD Med؟ ❤️</string>
     <string name="stats_label">السجل</string>
-    <string name="stats_dash_body">تم تحرير %s ومعالجة %s من العناصر منذ تثبيت SD Maid في جهازك.</string>
     <string name="stats_report_status_success">تم بنجاح</string>
     <string name="stats_report_status_partial_success">تم بنجاح جزئي</string>
     <string name="stats_report_status_partial_failure">فشل</string>

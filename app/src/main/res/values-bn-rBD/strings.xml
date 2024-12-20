@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">ডিবাগ লগ রেকর্ড করুন</string>
     <string name="debug_debuglog_stop_action">রেকর্ডিং বন্ধ করুন</string>
     <string name="debug_debuglog_sensitive_information_message">তৈরি করা ফাইলটিতে সংবেদনশীল তথ্য রয়েছে (যেমন ফাইলের নাম এবং ইনস্টল করা অ্যাপ)। শুধুমাত্র বিশ্বস্ত করো সাথে শেয়ার করুন।</string>
-    <string name="settings_debuglog_explanation">এই ফিচারটি অ্যাপের সব কিছু একটি শেয়ার করার মতো ফাইল রেকর্ড করে। তৈরি করা ফাইলটিতে সংবেদনশীল তথ্য রয়েছে (যেমন ফাইলের নাম এবং ইনস্টল করা অ্যাপ)। এটি শুধুমাত্র বিশ্বস্ত করো সাথে শেয়ার করুন (যেমন একজন ডেভেলপার যে সমস্যা সমাধান করছে)।</string>
     <string name="tasks_activity_notification_channel_label">সক্রিয় কাজ</string>
     <string name="tasks_activity_working_notification_title">SD Maid কাজ করছে</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -251,7 +250,6 @@
     <string name="systemcleaner_filter_macfiles_label">Mac ফাইল</string>
     <string name="systemcleaner_filter_macfiles_summary">অ্যাপলের ফাইন্ডার অ্যাপের মাধ্যমে স্টোরেজ ব্রাউজ করার সময় তৈরি করা ফাইল এবং ফোল্ডার।</string>
     <string name="systemcleaner_filter_windowsfiles_label">উইন্ডোজের ফাইলসমূহ</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"সংযুক্ত স্টোরেজে উইন্ডোজ ফাইল এক্সপ্লোরার তৈরি করতে পারে এমন ডেটা৷ "</string>
     <string name="systemcleaner_filter_thumbnails_label">থাম্বনেল ছবি</string>
     <string name="systemcleaner_filter_thumbnails_summary">ছবি এবং ভিডিওর জন্য ক্যাশ প্রিভিউ।</string>
     <string name="systemcleaner_filter_tempfiles_label">অস্থায়ী ফাইল</string>
@@ -293,10 +291,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">বর্জন</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">যদি পাথ কোনো এন্ট্রির সাথে মেলে (যেমন \"DCIM\") তাহলে ফলাফলটি বাদ দেওয়া হবে। লং প্রেস করুন আরো অপশন এর জন্য।</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">পাথ তুলনা মোড</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">পথ কীওয়ার্ড দিয়ে শুরু হয়</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">পাথ কীওয়ার্ড ধারণ করে</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">পথ কীওয়ার্ড দিয়ে শেষ হয়</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">পথ কিওয়ার্ডের সমান</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">নাম তুলনা মোড</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">নাম কীওয়ার্ড দিয়ে শুরু হয়</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">নামের মধ্যে কীওয়ার্ড রয়েছে</string>
@@ -412,7 +406,6 @@
     <string name="deduplicator_detection_method_phash_title">উপলব্ধিগত হ্যাশ</string>
     <string name="deduplicator_detection_method_phash_summary">বিষয়বস্তু বৈশিষ্ট্য বিশ্লেষণ করে এবং উপলব্ধিগত হ্যাশ মান তুলনা করে একই ফাইল খুঁজুন।</string>
     <string name="deduplicator_occupied_space_label">সঞ্চয়স্থান দখল</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s ডুপ্লিকেট দ্বারা দখল করা হয়</string>
     <string name="deduplicator_file_size_label">ফাইলের আকার</string>
     <string name="deduplicator_average_size_label">গড় আকার</string>
     <string name="deduplicator_cluster_x_label">ক্লাস্টার %s</string>
@@ -657,7 +650,6 @@
     <string name="review_app_dismiss_action">হয়তো পরে</string>
     <string name="review_app_body">আপনি কি এসডি মেইডকে একটি পর্যালোচনা দিতে চান?️ ❤️</string>
     <string name="stats_label">ইতিহাস</string>
-    <string name="stats_dash_body">আপনি আপনার ডিভাইসে SD মেইডকে আমন্ত্রণ জানানোর পর থেকে %s মুক্ত করা হয়েছে এবং %s আইটেম প্রক্রিয়া করা হয়েছে৷</string>
     <string name="stats_report_status_success">সাফল্য</string>
     <string name="stats_report_status_partial_success">আংশিক সাফল্য</string>
     <string name="stats_report_status_partial_failure">ব্যর্থতা</string>
