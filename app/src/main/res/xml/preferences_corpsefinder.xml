@@ -27,7 +27,7 @@
             app:summary="@string/corpsefinder_settings_risk_keeper_summary"
             app:title="@string/corpsefinder_settings_risk_keeper_title" />
         <CheckBoxPreference
-            app:icon="@drawable/file_question"
+            app:icon="@drawable/ic_baseline_warning_24"
             app:key="risk.include.common"
             app:singleLineTitle="false"
             app:summary="@string/corpsefinder_settings_risk_common_summary"
