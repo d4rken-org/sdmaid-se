@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Hibakeresési napló rögzítése</string>
     <string name="debug_debuglog_stop_action">Rögzítés leállítása</string>
     <string name="debug_debuglog_sensitive_information_message">A létrehozott fájl bizalmas információkat tartalmaz (például fájlneveket és telepített alkalmazásokat). Csak megbízható felekkel ossza meg.</string>
-    <string name="settings_debuglog_explanation">Ez a funkció megosztható fájlba rögzíti mindazt, amit az alkalmazás csinál. A létrehozott fájl bizalmas információkat tartalmaz (például fájlneveket és telepített alkalmazásokat). Csak megbízható felekkel ossza meg (pl. egy fejlesztővel, aki egy probléma megoldását végzi).</string>
     <string name="tasks_activity_notification_channel_label">Aktív feladatok</string>
     <string name="tasks_activity_working_notification_title">Az SD Maid működik</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -230,7 +229,6 @@
     <string name="systemcleaner_filter_macfiles_label">Mac fájlok</string>
     <string name="systemcleaner_filter_macfiles_summary">Fájlok és mappák, amelyek az Apple kereső alkalmazással történő tárhelyböngészés során jönnek létre.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows fájlok</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Adatok, amelyeket a Windows fájlkezelő létrehozhat a csatlakoztatott tárhelyen. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatűr képek</string>
     <string name="systemcleaner_filter_thumbnails_summary">Gyorsítótárazott előnézetek a képekhez és videókhoz.</string>
     <string name="systemcleaner_filter_tempfiles_label">Ideiglenes fájlok</string>
@@ -271,10 +269,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Kizárások</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Az eredmény kizárásra kerül, ha az elérési út megegyezik bármely bejegyzéssel (pl. \"DCIM\"). További lehetőségekért nyomd meg hosszan a bejegyzéseket.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Útvonal-összehasonlító üzemmód</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Az útvonal kulcsszavakkal kezdődik</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Az útvonal kulcsszavakat tartalmaz</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Az útvonal kulcsszavakkal végződik</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Az útvonal egyenlő a kulcsszavakkal</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Név összehasonlítási mód</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">A név kulcsszóval kezdődik</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">A név kulcsszót tartalmaz</string>
@@ -373,7 +367,6 @@
     <string name="deduplicator_detection_method_phash_title">Hasonló hash</string>
     <string name="deduplicator_detection_method_phash_summary">Hasonló fájlok keresése a tartalmi jellemzők elemzésével és az érzékelési hash-értékek összehasonlításával.</string>
     <string name="deduplicator_occupied_space_label">Foglalt tároló</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s-ot duplikátumok foglalják el</string>
     <string name="deduplicator_file_size_label">Fájlméret</string>
     <string name="deduplicator_average_size_label">Átlagos méret</string>
     <string name="deduplicator_cluster_x_label">Halmaz %s</string>

@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">Filtro sipas etiketave</string>
     <string name="general_result_success_message">Operation successful</string>
     <string name="general_result_failure_message">Operacioni dështoi</string>
-    <string name="general_result_x_space_freed">%s u lirua</string>
     <string name="general_options_label">Opsione</string>
     <string name="general_details_label">Detajet</string>
     <string name="general_view_action">Pamje</string>
@@ -89,10 +88,6 @@
     <string name="general_delete_confirmation_title">Konfirmo fshirjen</string>
     <string name="general_delete_confirmation_message_x">Të fshihet \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Të fshihen %d artikuj të zgjedhur?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">U fshi %1$d artikull dhe u lirua %2$s</item>
-        <item quantity="other">%1$d artikuj u fshinë dhe %2$s u lirua</item>
-    </plurals>
     <string name="general_remove_action">Hiq</string>
     <string name="general_remove_selected_action">Hiq të zgjedhurin</string>
     <plurals name="general_remove_success_x_items">
@@ -116,7 +111,6 @@
         <item quantity="one">%d dështoi</item>
         <item quantity="other">%d dështoi</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s mund të lirohet</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Numëroni</string>
     <string name="general_app_label">Aplikacioni</string>

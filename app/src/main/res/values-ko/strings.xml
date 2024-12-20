@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">디버그 로그 녹화하기</string>
     <string name="debug_debuglog_stop_action">기록 정지</string>
     <string name="debug_debuglog_sensitive_information_message">생성된 파일은 민감한 정보를 포함하고 있습니다. (파일 이름, 설치된 앱 등) 신뢰할 수 있는 이들과만 공유하세요.</string>
-    <string name="settings_debuglog_explanation">이 기능을 사용하면 앱에서 하고 있는 모든 작업을 한 파일에 저장합니다. 생성된 파일은 민감한 정보를 포함할 수 있습니다. (파일 이름, 설치된 앱 등) 애플리케이션의 개발자 등, 신뢰할 수 있는 이들과만 공유하세요.</string>
     <string name="tasks_activity_notification_channel_label">진행 중인 작업</string>
     <string name="tasks_activity_working_notification_title">SD Maid가 작업 중에 있습니다</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -229,7 +228,6 @@
     <string name="systemcleaner_filter_macfiles_label">맥 파일</string>
     <string name="systemcleaner_filter_macfiles_summary">애플의 Finder 앱을 이용할 때 생성되는 파일 및 폴더입니다.</string>
     <string name="systemcleaner_filter_windowsfiles_label">윈도우 파일</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"윈도우 파일 탐색기가 연결된 기기에 생성하는 파일입니다. "</string>
     <string name="systemcleaner_filter_thumbnails_label">썸네일 이미지</string>
     <string name="systemcleaner_filter_thumbnails_summary">사진과 영상의 미리보기 파일입니다.</string>
     <string name="systemcleaner_filter_tempfiles_label">임시 파일</string>
@@ -271,10 +269,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">제외 항목</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">경로가 어떤 항목 (예: \"DCIM\")과 일치하는 경우 결과는 제외됩니다. 더 많은 옵션을 보려면 항목을 길게 누르세요.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">경로 비교 모드</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">경로가 키워드로 시작됩니다.</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">경로에 키워드가 포함되어 있습니다.</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">경로가 키워드로 종료됩니다.</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">경로가 키워드와 동일합니다.</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">이름 비교 모드</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">이름이 키워드로 시작됩니다.</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">이름에 키워드가 포함되어 있습니다.</string>
@@ -375,7 +369,6 @@
     <string name="deduplicator_detection_method_phash_title">인식 해시</string>
     <string name="deduplicator_detection_method_phash_summary">콘텐츠 특징을 분석하고 인식 해시값을 비교하여 유사한 파일을 찾습니다.</string>
     <string name="deduplicator_occupied_space_label">사용 중인 저장공간</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s가 중복으로 차지합니다.</string>
     <string name="deduplicator_file_size_label">파일 크기</string>
     <string name="deduplicator_average_size_label">평균 크기</string>
     <string name="deduplicator_cluster_x_label">클러스터 %s</string>

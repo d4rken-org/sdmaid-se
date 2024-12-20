@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Registrer feilsøkingslogg</string>
     <string name="debug_debuglog_stop_action">Stopp opptak</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererte filen inneholder sensitiv informasjon (f.eks. filnavn og installerte apper). Del den kun med pålitelige parter.</string>
-    <string name="settings_debuglog_explanation">Denne funksjonen registrerer alt appen gjør i en fil som kan deles. Den genererte filen inneholder sensitiv informasjon (f.eks. filnavn og installerte apper). Del den kun med pålitelige parter (f.eks. en utvikler som feilsøker et problem).</string>
     <string name="tasks_activity_notification_channel_label">Aktive oppgaver</string>
     <string name="tasks_activity_working_notification_title">SD Maid jobber</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -245,7 +244,6 @@
     <string name="systemcleaner_filter_macfiles_label">Mac-filer</string>
     <string name="systemcleaner_filter_macfiles_summary">Filer og mapper som opprettes når du blar gjennom lagringen med Apples finder-app.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows-filer</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Data som filutforskeren i Windows kan opprette når tilkoblet lagring. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatyrbilder</string>
     <string name="systemcleaner_filter_thumbnails_summary">Bufret forhåndsvisning av bilder og videoer.</string>
     <string name="systemcleaner_filter_tempfiles_label">Midlertidige filer</string>
@@ -287,10 +285,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Ekskludering</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Resultatet vil bli ekskludert hvis banen samsvarer med en oppføring (f.eks. \"DCIM\"). Hold inne på oppføringer for flere alternativer.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modus for banesammenligning</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Banen starter med nøkkelord</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Banen inneholder nøkkelord</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Banen slutter med nøkkelord</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Bane er lik søkeord</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modus for navnesammenligning</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Navn starter med nøkkelord</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Navn inneholder nøkkelord</string>
@@ -402,7 +396,6 @@
     <string name="deduplicator_detection_method_phash_title">Perseptuell hasj</string>
     <string name="deduplicator_detection_method_phash_summary">Finn lignende filer ved å analysere innholdselementer og sammenligne perseptuelle hash-verdier.</string>
     <string name="deduplicator_occupied_space_label">Brukt lagringsplass</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s er brukt av duplikater</string>
     <string name="deduplicator_file_size_label">Filstørrelse</string>
     <string name="deduplicator_average_size_label">Gjennomsnittlig størrelse</string>
     <string name="deduplicator_cluster_x_label">Klynge %s</string>
@@ -646,7 +639,6 @@
     <string name="review_app_dismiss_action">Kanskje senere</string>
     <string name="review_app_body">Vil du gi SD Maid en anmeldelse? ❤️</string>
     <string name="stats_label">Historie</string>
-    <string name="stats_dash_body">%s har blitt frigjort og %s elementer har blitt behandlet siden du inviterte SD Maid til enheten din.</string>
     <string name="stats_report_status_success">Vellykket</string>
     <string name="stats_report_status_partial_success">Delvis vellykket</string>
     <string name="stats_report_status_partial_failure">Mislykket</string>

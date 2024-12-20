@@ -72,7 +72,6 @@
     <string name="general_tag_filter_label">Filtrera efter taggar</string>
     <string name="general_result_success_message">Operationen lyckades</string>
     <string name="general_result_failure_message">Operationen misslyckades</string>
-    <string name="general_result_x_space_freed">%s frigjord</string>
     <string name="general_options_label">Alternativ</string>
     <string name="general_details_label">Detaljer</string>
     <string name="general_view_action">Se</string>
@@ -86,10 +85,6 @@
     <string name="general_delete_confirmation_title">Bekräfta radering</string>
     <string name="general_delete_confirmation_message_x">Ta bort \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Ta bort %d markerade objekt?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">Raderade %1$d objekt och frigjorde %2$s</item>
-        <item quantity="other">Raderade %1$d objekt och frigjorde %2$s</item>
-    </plurals>
     <string name="general_remove_action">Avlägsna</string>
     <string name="general_remove_selected_action">Ta bort valda</string>
     <plurals name="general_remove_success_x_items">
@@ -105,7 +100,6 @@
         <item quantity="one">%s objekt</item>
         <item quantity="other">%s objekt</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s kan frigöras</string>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Räkna</string>
     <string name="general_app_label">App</string>

@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Снимите дневник отклањања грешака</string>
     <string name="debug_debuglog_stop_action">Заустави снимање</string>
     <string name="debug_debuglog_sensitive_information_message">Генерисана датотека садржи осетљиве информације (нпр. имена датотека и инсталиране апликације). Делите га само са поузданим странама.</string>
-    <string name="settings_debuglog_explanation">Ова функција бележи све што апликација ради у датотеци за дељење. Генерисана датотека садржи осетљиве информације (нпр. имена датотека и инсталиране апликације). Делите га само са поузданим странама (нпр. програмером који решава проблем).</string>
     <string name="tasks_activity_notification_channel_label">Активни задаци</string>
     <string name="tasks_activity_working_notification_title">СД Чистач ради</string>
     <plurals name="tasks_activity_active_notification_message">

@@ -12,7 +12,6 @@
     <string name="debug_debuglog_record_action">Snimi dnevnik otklanjanja pogrešaka</string>
     <string name="debug_debuglog_stop_action">Zaustavi snimanje</string>
     <string name="debug_debuglog_sensitive_information_message">Generirana datoteka sadrži osjetljive informacije (npr. nazive datoteka i instalirane aplikacije). Dijelite je samo s pouzdanim stranama.</string>
-    <string name="settings_debuglog_explanation">Ova značajka bilježi sve što aplikacija radi u datoteku koja se može dijeliti. Generirana datoteka sadrži osjetljive informacije (npr. nazive datoteka i instalirane aplikacije). Dijelite je samo s pouzdanim stranama (npr. programerom koji rješava problem).</string>
     <string name="tasks_activity_notification_channel_label">Aktivni zadaci</string>
     <string name="tasks_activity_working_notification_title">SD Maid radi</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -190,7 +189,6 @@
     <string name="systemcleaner_filter_linuxfiles_label">Linux datoteke</string>
     <string name="systemcleaner_filter_macfiles_label">Mac datoteke</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows datoteke</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Podaci koje Windows preglednik datoteka može stvoriti na povezanoj pohrani."</string>
     <string name="systemcleaner_filter_thumbnails_label">Sličice</string>
     <string name="systemcleaner_filter_thumbnails_summary">Predmemorirani pregledi za slike i videozapise.</string>
     <string name="systemcleaner_filter_tempfiles_label">Privremene datoteke</string>

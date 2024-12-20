@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">Филтрирајте по ознаки</string>
     <string name="general_result_success_message">Operation successful</string>
     <string name="general_result_failure_message">Неуспешна операција</string>
-    <string name="general_result_x_space_freed">%s слободно</string>
     <string name="general_options_label">Опции</string>
     <string name="general_details_label">Детали</string>
     <string name="general_view_action">Прикажи</string>
@@ -89,10 +88,6 @@
     <string name="general_delete_confirmation_title">Потврдете го бришењето</string>
     <string name="general_delete_confirmation_message_x">Да се ​​избрише „%s“?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Да се избришат селектираните елементи %d?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">Избришана е %1$d ставка и ослободена %2$s</item>
-        <item quantity="other">Избришани %1$d ставки и ослободени %2$s</item>
-    </plurals>
     <string name="general_remove_action">Отстрани</string>
     <string name="general_remove_selected_action">Отстранете го избраното</string>
     <plurals name="general_remove_success_x_items">
@@ -116,7 +111,6 @@
         <item quantity="one">%d успешно</item>
         <item quantity="other">%d успешно</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s може да се ослободи</string>
     <string name="general_info_label">Инфо</string>
     <string name="general_count_label">Брои</string>
     <string name="general_app_label">Апликација</string>

@@ -3,10 +3,15 @@ package eu.darken.sdmse.common.ui
 import android.content.Context
 import android.text.format.Formatter
 import eu.darken.sdmse.common.debug.logging.log
+import java.text.DecimalFormatSymbols
+import java.util.Locale
 
 class SizeParser(private val context: Context) {
 
-    private val sizeUnitsRegex = Regex("(\\d+(?:[,.]\\d+)?)\\s*(\\w+)", RegexOption.IGNORE_CASE)
+    private val sizeUnitsRegex by lazy {
+        val ds = DecimalFormatSymbols(Locale.getDefault()).decimalSeparator
+        Regex("(\\d+(?:[$ds]\\d+)?)\\s*(\\w+)", RegexOption.IGNORE_CASE)
+    }
     private val sizeUnitsLocalized by lazy {
         val unitDelimiterRegex = Regex("\\s")
         val sizeSplitter: (Long, String) -> Pair<String, Long> = { size, fallback ->

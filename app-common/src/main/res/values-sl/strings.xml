@@ -72,7 +72,6 @@
     <string name="general_tag_filter_label">Filtriraj po oznakah</string>
     <string name="general_result_success_message">Opravilo je bilo uspešno.</string>
     <string name="general_result_failure_message">Opravilo je spodletelo.</string>
-    <string name="general_result_x_space_freed">Sproščeno je bilo %s.</string>
     <string name="general_options_label">Možnosti</string>
     <string name="general_details_label">Podrobnosti</string>
     <string name="general_view_action">Pokaži</string>
@@ -86,12 +85,6 @@
     <string name="general_delete_confirmation_title">Potrdite izbris</string>
     <string name="general_delete_confirmation_message_x">Izbriši \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Izbriši %d izbranih predmetov?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">Izbrisan je bil %1$d predmet – sproščenega je bilo %2$s.</item>
-        <item quantity="two">Izbrisana sta bila %1$d predmeta – sproščenega je bilo %2$s.</item>
-        <item quantity="few">Izbrisani so bili %1$d-je predmeti – sproščenega je bilo %2$s.</item>
-        <item quantity="other">Izbrisanih je bilo %1$d predmetov – sproščenega je bilo %2$s.</item>
-    </plurals>
     <string name="general_remove_action">Odstrani</string>
     <string name="general_remove_selected_action">Odstrani izbrano</string>
     <plurals name="general_remove_success_x_items">
@@ -123,7 +116,6 @@
         <item quantity="few">Spodletelih: %d</item>
         <item quantity="other">Spodletelih: %d</item>
     </plurals>
-    <string name="x_space_can_be_freed">Sprostite lahko %s.</string>
     <string name="general_info_label">Podrobnosti</string>
     <string name="general_count_label">Število</string>
     <string name="general_app_label">Program</string>

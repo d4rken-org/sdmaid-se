@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Itala ang debug log</string>
     <string name="debug_debuglog_stop_action">Itigil ang pagta-tala</string>
     <string name="debug_debuglog_sensitive_information_message">Naglalaman ng sensitibong impormasyon ang nalikhang file (hal. pangalan ng mga file at mga naka-install na app). Ibahagi lamang ito sa mga pinagkakatiwalaan mo.</string>
-    <string name="settings_debuglog_explanation">Itinatala ng feature na ito lahat ng mga ginagawa ng app sa isang maibabahaging file. Naglalaman ng sensitibong impormasyon ang nalikhang file (hal. pangalan ng mga file at mga naka-install na app). Ibahagi lamang ito sa mga pinagkakatiwalaan mo (hal. isang developer na sinusubukang mag-ayos ng problema).</string>
     <string name="tasks_activity_notification_channel_label">Mga aktibong gawain</string>
     <string name="tasks_activity_working_notification_title">Nagtatrabaho ang SD Maid</string>
     <plurals name="tasks_activity_active_notification_message">

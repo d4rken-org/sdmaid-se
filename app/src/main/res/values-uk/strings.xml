@@ -15,7 +15,7 @@
     <string name="debug_debuglog_record_action">Записати журнал налагодження</string>
     <string name="debug_debuglog_stop_action">Зупинити запис</string>
     <string name="debug_debuglog_sensitive_information_message">Створений файл містить конфіденційну інформацію (наприклад, імена файлів та встановлені програми). Діліться нею лише з довіреними особами.</string>
-    <string name="settings_debuglog_explanation">Ця функція записує все що робить програма у файл, який може бути викладений у спільний доступ. Створений файл містить конфіденційну інформацію (наприклад, імена файлів і встановлених програм). Діліться ним лише з довіреними особами (наприклад, з розробником, який виправляє проблему).</string>
+    <string name="settings_debuglog_explanation">Ця функція записує все, що робить додаток, у файл, до якого можна надати спільний доступ. Створений файл містить конфіденційну інформацію (наприклад, імена файлів і встановлених додатків). Діліться ним лише з довіреними особами (наприклад, з розробником, який вирішує проблему).</string>
     <string name="tasks_activity_notification_channel_label">Активні завдання</string>
     <string name="tasks_activity_working_notification_title">SD Maid працює</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -255,7 +255,7 @@
     <string name="systemcleaner_filter_macfiles_label">Файли Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Файли та папки, створені під час перегляду сховища за допомогою програми Finder від Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Файли Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Дані, які провідник файлів Windows може створювати на підключеному сховищі. "</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Дані, які провідник файлів Windows може створювати на підключеному сховищі."</string>
     <string name="systemcleaner_filter_thumbnails_label">Ескізи зображень</string>
     <string name="systemcleaner_filter_thumbnails_summary">Кешовані прев\'ю для зображень та відео.</string>
     <string name="systemcleaner_filter_tempfiles_label">Тимчасові файли</string>
@@ -297,10 +297,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Винятки</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Результат буде виключено, якщо шлях збігається з будь-яким записом (наприклад, \"DCIM\"). Довго натискайте записи для отримання додаткових опцій.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Режим порівняння шляхів</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Шлях починається з ключових слів</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Шлях містить ключові слова</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Шлях закінчується ключовими словами</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Шлях дорівнює ключовим словам</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Шлях починається із ключового слова</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Шлях містить ключове слово</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Шлях закінчується ключовим словом</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Шлях дорівнює ключовому слову</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Режим порівняння імен</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Ім\'я починається з ключового слова</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Ім\'я містить ключове слово</string>
@@ -414,7 +414,6 @@
     <string name="deduplicator_detection_method_phash_title">Хеш сприйняття</string>
     <string name="deduplicator_detection_method_phash_summary">Знаходьте схожі файли, аналізуючи особливості контенту та порівнюючи значення хеш-функції сприйняття.</string>
     <string name="deduplicator_occupied_space_label">Зайняте сховище</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s займають дублікати</string>
     <string name="deduplicator_file_size_label">Розмір файлу</string>
     <string name="deduplicator_average_size_label">Середній розмір</string>
     <string name="deduplicator_cluster_x_label">Кластер %s</string>
@@ -657,7 +656,6 @@
     <string name="review_app_dismiss_action">Можливо пізніше</string>
     <string name="review_app_body">Бажаєте залишити відгук про SD Maid?️ ❤️</string>
     <string name="stats_label">Історія</string>
-    <string name="stats_dash_body">З моменту запрошення SD Maid на ваш пристрій було звільнено %s та оброблено %s об\'єктів.</string>
     <string name="stats_report_status_success">Успіх</string>
     <string name="stats_report_status_partial_success">Частковий успіх</string>
     <string name="stats_report_status_partial_failure">Невдача</string>

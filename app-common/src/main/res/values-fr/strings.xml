@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">Filtrer par étiquettes</string>
     <string name="general_result_success_message">L’opération est réussie</string>
     <string name="general_result_failure_message">Échec de l’opération</string>
-    <string name="general_result_x_space_freed">%s libérés</string>
     <string name="general_options_label">Options</string>
     <string name="general_details_label">Détails</string>
     <string name="general_view_action">Afficher</string>
@@ -89,10 +88,6 @@
     <string name="general_delete_confirmation_title">Confirmer la suppression</string>
     <string name="general_delete_confirmation_message_x">Supprimer « %s » ?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Supprimer les %d éléments sélectionnés ?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">%1$d élément supprimé et %2$s libéré</item>
-        <item quantity="other">%1$d élément ont été supprimés et %2$s libérés</item>
-    </plurals>
     <string name="general_remove_action">Supprimer</string>
     <string name="general_remove_selected_action">Supprimer la sélection</string>
     <plurals name="general_remove_success_x_items">
@@ -116,7 +111,6 @@
         <item quantity="one">%d en échec</item>
         <item quantity="other">%d en échec</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s peuvent être libérés</string>
     <string name="general_info_label">Renseignements</string>
     <string name="general_count_label">Quantité</string>
     <string name="general_app_label">Appli</string>

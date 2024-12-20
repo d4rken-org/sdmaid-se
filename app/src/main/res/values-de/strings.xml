@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Debug-Protokoll aufzeichnen</string>
     <string name="debug_debuglog_stop_action">Aufzeichnung beenden</string>
     <string name="debug_debuglog_sensitive_information_message">Die generierte Datei enthält sensible Informationen (z.B. Dateinamen und installierte Apps). Teile sie nur mit vertrauenswürdigen Personen.</string>
-    <string name="settings_debuglog_explanation">Diese Funktion zeichnet alle Aktivitäten dieser App auf, und speichert sie in einer teilbaren Datei. Die generierte Datei enthält sensible Informationen (z.B. Dateinamen und installierte Apps). Teile sie nur mit vertrauenswürdigen Personen (z.B. einem Entwickler, der ein Problem behebt).</string>
     <string name="tasks_activity_notification_channel_label">Aktive Aufgaben</string>
     <string name="tasks_activity_working_notification_title">SD Maid arbeitet</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -245,7 +244,6 @@
     <string name="systemcleaner_filter_macfiles_label">Mac-Dateien</string>
     <string name="systemcleaner_filter_macfiles_summary">Dateien und Ordner, die beim Durchsuchen des Speichers mit der Finder-App von Apple erstellt werden.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows-Dateien</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Daten, die der Windows Datei-Explorer auf verbundenen Speichermedien erstellen kann. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniaturbilder</string>
     <string name="systemcleaner_filter_thumbnails_summary">Zwischengespeicherte Vorschauen für Bilder und Videos.</string>
     <string name="systemcleaner_filter_tempfiles_label">Temporäre Dateien</string>
@@ -287,10 +285,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Ausschlüsse</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Das Ergebnis wird ausgeschlossen, wenn der Pfad mit irgendeinem Eintrag (z.B. \"DCIM\") übereinstimmt. Einträge für weitere Optionen gedrückt halten.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Pfadvergleichsmodus</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Pfad beginnt mit Schlüsselwörtern</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Pfad enthält Schlüsselwörter</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Pfad endet mit Schlüsselwörtern</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Pfad ist mit Schlüsselwörtern identisch</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Namensvergleichsmodus</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Name beginnt mit Schlüsselwort</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Name enthält Schlüsselwort</string>
@@ -402,7 +396,6 @@
     <string name="deduplicator_detection_method_phash_title">Wahrnehmungshash</string>
     <string name="deduplicator_detection_method_phash_summary">Finde ähnliche Dateien, indem Inhaltsmerkmale analysiert und wahrnehmungsbezogene Hash-Werte verglichen werden.</string>
     <string name="deduplicator_occupied_space_label">Belegter Speicher</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s sind von Duplikaten belegt</string>
     <string name="deduplicator_file_size_label">Dateigröße</string>
     <string name="deduplicator_average_size_label">Durchschnittliche Größe</string>
     <string name="deduplicator_cluster_x_label">Cluster %s</string>
@@ -646,7 +639,6 @@
     <string name="review_app_dismiss_action">Später vielleicht</string>
     <string name="review_app_body">Möchtest du SD Maid eine Bewertung hinterlassen? ❤️</string>
     <string name="stats_label">Verlauf</string>
-    <string name="stats_dash_body">%s wurden freigegeben und %s Elemente verarbeitet, seitdem du SD Maid auf dein Gerät eingeladen hast.</string>
     <string name="stats_report_status_success">Erfolgreich</string>
     <string name="stats_report_status_partial_success">Teilerfolg</string>
     <string name="stats_report_status_partial_failure">Fehlgeschlagen</string>

@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">タグによるフィルタリング</string>
     <string name="general_result_success_message">実行成功</string>
     <string name="general_result_failure_message">実行失敗</string>
-    <string name="general_result_x_space_freed">%s解放されました</string>
     <string name="general_options_label">オプション</string>
     <string name="general_details_label">詳細</string>
     <string name="general_view_action">表示</string>
@@ -89,9 +88,6 @@
     <string name="general_delete_confirmation_title">削除完了</string>
     <string name="general_delete_confirmation_message_x">\"%s\"を削除しますか？</string>
     <string name="general_delete_confirmation_message_selected_x_items">%d 選択したアイテムを削除しますか？</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="other">%1$d 項目を削除し、 %2$s を解放しました</item>
-    </plurals>
     <string name="general_remove_action">削除</string>
     <string name="general_remove_selected_action">選択した項目を削除</string>
     <plurals name="general_remove_success_x_items">
@@ -111,7 +107,6 @@
     <plurals name="result_x_failed">
         <item quantity="other">%d に失敗しました</item>
     </plurals>
-    <string name="x_space_can_be_freed">%sは解放できます</string>
     <string name="general_info_label">情報</string>
     <string name="general_count_label">カウント</string>
     <string name="general_app_label">アプリ</string>

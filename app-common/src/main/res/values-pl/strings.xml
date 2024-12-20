@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">Filtruj według tagów</string>
     <string name="general_result_success_message">Operacja wykonana pomyślnie</string>
     <string name="general_result_failure_message">Operacja nie powiodła się</string>
-    <string name="general_result_x_space_freed">%s zwolnione</string>
     <string name="general_options_label">Opcje</string>
     <string name="general_details_label">Szczegóły</string>
     <string name="general_view_action">Wyświetl</string>
@@ -89,12 +88,6 @@
     <string name="general_delete_confirmation_title">Potwierdź usunięcie</string>
     <string name="general_delete_confirmation_message_x">Usunąć \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Usunąć %d wybranych elementów?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">Usunięto %1$d element i zwolniono %2$s</item>
-        <item quantity="few">Usunięto %1$d elementy i zwolniono %2$s</item>
-        <item quantity="many">Usunięto %1$d elementów i zwolniono %2$s</item>
-        <item quantity="other">Usunięto %1$d elementów i zwolniono %2$s</item>
-    </plurals>
     <string name="general_remove_action">Usuń</string>
     <string name="general_remove_selected_action">Usuń zaznaczone</string>
     <plurals name="general_remove_success_x_items">
@@ -120,7 +113,6 @@
         <item quantity="many">%d pomyślnie</item>
         <item quantity="other">%d pomyślnie</item>
     </plurals>
-    <string name="x_space_can_be_freed">Można zwolnić %s</string>
     <string name="general_info_label">Informacje</string>
     <string name="general_count_label">Liczba</string>
     <string name="general_app_label">Aplikacja</string>

@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Posneti dnevnik razhroščevanja</string>
     <string name="debug_debuglog_stop_action">Ustavi snemanje</string>
     <string name="debug_debuglog_sensitive_information_message">Ustvarjena datoteka vsebuje občutljive podatke (npr. imena datotek in nameščene programe).  Posredujte jo samo osebam, ki jim zaupate.</string>
-    <string name="settings_debuglog_explanation">Ta funkcija posname vse, kar naredi program, v datoteko.  Ustvarjena datoteka vsebuje občutljive podatke (npr. imena datotek in nameščene programe).  Posredujte jo samo osebam, ki  jim zaupate (npr. razvijalcu, ki poskuša rešiti težavo).</string>
     <string name="tasks_activity_notification_channel_label">Dejavna opravila</string>
     <string name="tasks_activity_working_notification_title">SD Maid opravlja naloge</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -261,7 +260,6 @@
     <string name="systemcleaner_filter_macfiles_label">Datoteke Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Datoteke in mape, ki se ustvarijo pri pregledovanju shrambe z Apllovim programom Finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Datoteke Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Podatki, ki jih lahko ustvari raziskovalec datotek Windows pri priklopu shrambe."</string>
     <string name="systemcleaner_filter_thumbnails_label">Sličice</string>
     <string name="systemcleaner_filter_thumbnails_summary">Predpomnjeni predogledi slik in videoposnetkov.</string>
     <string name="systemcleaner_filter_tempfiles_label">Začasne datoteke</string>
@@ -303,10 +301,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Izjeme</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezultat bo izključen, če se pot ujema s katerimkoli vnosom (npr. \"DCIM\").  Za več možnosti pridržite vnose.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Način primerjave poti</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Pot se začne s ključnimi besedami</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Pot vsebuje ključne besede</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Pot se konča s ključnimi besedami</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Pot je enaka ključnim besedam</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Način primerjave imen</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Ime se začne s ključno besedo</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Ime vsebuje ključno besedo</string>
@@ -428,7 +422,6 @@
     <string name="deduplicator_detection_method_phash_title">Zaznavno razpršilo</string>
     <string name="deduplicator_detection_method_phash_summary">Poiščite podobne datoteke s preučevanjem značilnosti vsebin in primerjanjem vrednosti njihovih zaznavnih razpršil.</string>
     <string name="deduplicator_occupied_space_label">Zaseden prostor</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s zasedajo dvojniki.</string>
     <string name="deduplicator_file_size_label">Velikost datoteke</string>
     <string name="deduplicator_average_size_label">Povprečna velikost</string>
     <string name="deduplicator_cluster_x_label">Gruča %s</string>
@@ -694,7 +687,6 @@
     <string name="review_app_dismiss_action">Morda kasneje</string>
     <string name="review_app_body">Bi radi ocenili SD Maid? ❤️</string>
     <string name="stats_label">Zgodovina</string>
-    <string name="stats_dash_body">Od kar ste SD Maid namestili na napravo, je bilo sproščenih %s in obdelanih %s predmetov.</string>
     <string name="stats_report_status_success">Uspešno</string>
     <string name="stats_report_status_partial_success">Delno uspešno</string>
     <string name="stats_report_status_partial_failure">Spodletelo</string>
