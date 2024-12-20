@@ -15,7 +15,7 @@
     <string name="debug_debuglog_record_action">Καταγραφή αρχείου εντοπισμού σφαλμάτων</string>
     <string name="debug_debuglog_stop_action">Διακοπή καταγραφής</string>
     <string name="debug_debuglog_sensitive_information_message">Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π.χ. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με όποιον εμπιστεύεστε.</string>
-    <string name="settings_debuglog_explanation">Αυτή η λειτουργία καταγράφει όλα όσα κάνει η εφαρμογή σε ένα κοινόχρηστο αρχείο. Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π. χ.. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με αξιόπιστα μέρη (π.χ. ένας προγραμματιστής που αντιμετωπίζει προβλήματα σε ένα ζήτημα).</string>
+    <string name="settings_debuglog_explanation">Αυτή η λειτουργία καταγράφει όλα όσα κάνει η εφαρμογή σε ένα κοινόχρηστο αρχείο. Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π. χ.. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με αξιόπιστα μέρη (π.χ. σε έναν προγραμματιστή για να διορθώσει προβλήματα και σφάλματα σε ένα ζήτημα).</string>
     <string name="tasks_activity_notification_channel_label">Ενεργές διεργασίες</string>
     <string name="tasks_activity_working_notification_title">Η εφαρμογή SD Maid είναι απασχολημένη</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -251,7 +251,7 @@
     <string name="systemcleaner_filter_macfiles_label">Αρχεία Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Αρχεία και φάκελοι που δημιουργούνται κατά την περιήγηση στο χώρο αποθήκευσης με την εφαρμογή finder της Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Αρχεία Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Δεδομένα που μπορεί να δημιουργήσει η Εξερεύνηση αρχείων των Windows σε συνδεδεμένο χώρο αποθήκευσης. "</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Δεδομένα που μπορεί να δημιουργήσει η Εξερεύνηση αρχείων των Windows σε συνδεδεμένο χώρο αποθήκευσης."</string>
     <string name="systemcleaner_filter_thumbnails_label">Εικόνες μικρογραφίας</string>
     <string name="systemcleaner_filter_thumbnails_summary">Προσωρινά αποθηκευμένες προεπισκοπήσεις για εικόνες και βίντεο.</string>
     <string name="systemcleaner_filter_tempfiles_label">Προσωρινά αρχεία</string>
@@ -293,10 +293,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Εξαιρέσεις</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Το αποτέλεσμα θα αποκλειστεί εάν η διαδρομή ταιριάζει με οποιαδήποτε καταχώρηση (π.χ. \"DCIM\"). Πατήστε παρατεταμένα τις καταχωρήσεις για περισσότερες επιλογές.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Τρόπος σύγκρισης διαδρομών</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Η διαδρομή ξεκινά με λέξεις-κλειδιά</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Η διαδρομή περιέχει λέξεις-κλειδιά</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Η διαδρομή τελειώνει με λέξεις-κλειδιά</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Η διαδρομή είναι ίση με λέξεις-κλειδιά</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Η διαδρομή ξεκινά με λέξη-κλειδί</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Η διαδρομή περιέχει λέξη-κλειδί</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Η διαδρομή τελειώνει με λέξη-κλειδί</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Η διαδρομή είναι ίση με τη λέξη-κλειδί</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Τρόπος σύγκρισης ονόματος</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Το όνομα ξεκινά με λέξη-κλειδί</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Το όνομα περιέχει λέξη-κλειδί</string>
@@ -412,7 +412,10 @@
     <string name="deduplicator_detection_method_phash_title">Αντιληπτικό κατακερματισμό</string>
     <string name="deduplicator_detection_method_phash_summary">Βρείτε παρόμοια αρχεία αναλύοντας χαρακτηριστικά περιεχομένου και συγκρίνοντας τιμές αντιληπτικού κατακερματισμού.</string>
     <string name="deduplicator_occupied_space_label">Αποθηκευτικός χώρος που χρησιμοποιείται</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s καταλαμβάνονται από διπλότυπα</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s καταλαμβάνεται από διπλότυπα</item>
+        <item quantity="other">%s καταλαμβάνονται από διπλότυπα</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Μέγεθος αρχείου</string>
     <string name="deduplicator_average_size_label">Μέσο μέγεθος</string>
     <string name="deduplicator_cluster_x_label">Σύμπλεγμα %s</string>
@@ -657,7 +660,14 @@
     <string name="review_app_dismiss_action">Ίσως αργότερα</string>
     <string name="review_app_body">Θα θέλατε να αφήσετε μια αξιολόγηση για το SD Maid;️ ❤️</string>
     <string name="stats_label">Ιστορικό</string>
-    <string name="stats_dash_body">%s έχουν απελευθερωθεί και %s αντικείμενα επεξεργάστηκαν από τη στιγμή που προσκαλέσατε SD Maid στη συσκευή σας.</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s έχει απελευθερωθεί.</item>
+        <item quantity="other">%s έχουν απελευθερωθεί.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s στοιχείο έχει επεξεργαστεί από τη στιγμή που προσκαλέσατε το SD Maid στη συσκευή σας.</item>
+        <item quantity="other">%s στοιχεία έχουν επεξεργαστεί από τη στιγμή που προσκαλέσατε τον SD Maid στη συσκευή σας.</item>
+    </plurals>
     <string name="stats_report_status_success">Επιτυχώς</string>
     <string name="stats_report_status_partial_success">Μερικώς επιτυχώς</string>
     <string name="stats_report_status_partial_failure">Ανεπιτυχώς</string>

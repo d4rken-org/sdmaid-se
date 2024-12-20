@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Hata ayıklama günlüğünü kaydet</string>
     <string name="debug_debuglog_stop_action">Kaydı durdur</string>
     <string name="debug_debuglog_sensitive_information_message">Oluşturulan dosya hassas bilgiler (dosya isimleri ve yüklü uygulamalar gibi) içermektedir. Sadece güvenilir taraflarla paylaşın.</string>
-    <string name="settings_debuglog_explanation">Bu özellik uygulamanın yaptığı her şeyi paylaşılabilir bir dosyaya kaydeder. Oluşturulan dosya hassas bilgiler (dosya isimleri ve yüklü uygulamalar gibi) içerir. Sadece güvenilir taraflarla (sorun gidermeye çalışan bir geliştirici gibi) paylaşın.</string>
     <string name="tasks_activity_notification_channel_label">Etkin görevler</string>
     <string name="tasks_activity_working_notification_title">SD Maid şu an çalışıyor</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -251,7 +250,6 @@
     <string name="systemcleaner_filter_macfiles_label">Mac dosyaları</string>
     <string name="systemcleaner_filter_macfiles_summary">Apple\'ın finder uygulamasını kullanarak depolama alanınıza göz atarken oluşturulan dosyalar ve klasörlerdir.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows dosyaları</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Windows dosya gezgininin bağlı depolama alanında oluşturabileceği veriler. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Önizleme resimleri</string>
     <string name="systemcleaner_filter_thumbnails_summary">Resimler ve videolar için önbelleğe alınmış önizlemeler.</string>
     <string name="systemcleaner_filter_tempfiles_label">Geçici dosyalar</string>
@@ -293,10 +291,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">İstisnalar</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Yol herhangi bir girişle eşleşirse sonuç hariç tutulacaktır (örn. \"DCIM\"). Daha fazla seçenek için girişlere uzun basın.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Yol karşılaştırma modu</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Yol anahtar kelimelerle başlar</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Yol anahtar kelimeler içerir</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Yol anahtar kelimelerle biter</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Yol anahtar kelimelere eşittir</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">İsim karşılaştırma modu</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">İsim anahtar kelime ile başlar</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Ad anahtar sözcük içerir</string>
@@ -412,7 +406,6 @@
     <string name="deduplicator_detection_method_phash_title">Algısal hash</string>
     <string name="deduplicator_detection_method_phash_summary">İçerik özelliklerini analiz ederek ve algısal hash değerlerini karşılaştırarak benzer dosyaları bulun.</string>
     <string name="deduplicator_occupied_space_label">Kullanılan depolama</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">Tekrar eden dosyalar %s alan kaplıyor</string>
     <string name="deduplicator_file_size_label">Dosya boyutu</string>
     <string name="deduplicator_average_size_label">Ortalama boyut</string>
     <string name="deduplicator_cluster_x_label">Küme %s</string>
@@ -658,7 +651,6 @@
     <string name="review_app_dismiss_action">Belki daha sonra</string>
     <string name="review_app_body">SD Maid\'e bir inceleme bırakmak ister misiniz? ️ ❤️</string>
     <string name="stats_label">Geçmiş</string>
-    <string name="stats_dash_body">SD Maid\'i yüklediğinizden beri %s alan açıldı ve %s öğe temizlendi.</string>
     <string name="stats_report_status_success">Başarılı</string>
     <string name="stats_report_status_partial_success">Kısmen başarılı</string>
     <string name="stats_report_status_partial_failure">Başarısız</string>

@@ -8,7 +8,6 @@
     <string name="debug_debuglog_file_label">ჩაწერილი ჟურნალის ფაილი</string>
     <string name="debug_debuglog_record_action">გამართვის ჟურნალის ჩაწერა</string>
     <string name="debug_debuglog_sensitive_information_message">გენერირებული ფაილი შეიცავს სენსიტიურ ინფორმაციას (მაგ. ფაილის სახელები და დაინსტალირებული აპები). გაუზიარეთ ის მხოლოდ სანდო მხარეებს.</string>
-    <string name="settings_debuglog_explanation">ეს ფუნქცია ჩაწერს ყველაფერს, რასაც აპლიკაცია აკეთებს გასაზიარებელ ფაილში. გენერირებული ფაილი შეიცავს სენსიტიურ ინფორმაციას (მაგ. ფაილის სახელები და დაინსტალირებული აპები). გაუზიარეთ ის მხოლოდ სანდო მხარეებს (მაგ. დეველოპერს, რომელიც აგვარებს პრობლემას).</string>
     <string name="tasks_activity_notification_channel_label">აქტიური ამოცანები</string>
     <string name="tasks_activity_working_notification_title">SD Maid მუშაობს</string>
     <string name="tasks_result_notification_channel_label">დავალების შედეგები</string>

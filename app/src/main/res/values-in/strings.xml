@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Rekam log debug</string>
     <string name="debug_debuglog_stop_action">Berhenti merekam</string>
     <string name="debug_debuglog_sensitive_information_message">File yang dihasilkan berisi informasi sensitif (misalnya nama file dan aplikasi yang diinstal). Hanya bagikan dengan pihak tepercaya.</string>
-    <string name="settings_debuglog_explanation">Fitur ini merekam semua yang dilakukan aplikasi ke dalam file yang dapat dibagikan. File yang dihasilkan berisi informasi sensitif (misalnya nama file dan aplikasi yang diinstal). Hanya bagikan dengan pihak tepercaya (misalnya pengembang yang sedang memecahkan masalah).</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid bekerja</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -237,7 +236,6 @@
     <string name="systemcleaner_filter_macfiles_label">Berkas Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Berkas dan folder yang dibuat ketika menjelajahi penyimpanan menggunakan aplikasi Apple Finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Berkas Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Data berkas yang dibuat Windows Explorer sewaktu perangkat terhubung. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Gambar pratinjau</string>
     <string name="systemcleaner_filter_thumbnails_summary">Tampilan cache gambar dan video.</string>
     <string name="systemcleaner_filter_tempfiles_label">Berkas sementara</string>
@@ -279,10 +277,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Pengecualian</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Hasil akan dikecualikan jika jalur berkas cocok dengan suatu entri (seperti \"DCIM\"). Tekan lama entri untuk melihat lebih banyak pilihan.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Mode perbandingan jalur</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Jalur dimulai dengan kata kunci</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Jalur mengandung kata kunci</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Jalur diakhiri dengan kata kunci</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Jalur sama dengan kata kunci</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Mode perbandingan nama</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Nama dimulai dengan kata kunci</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Nama mengandung kata kunci</string>
@@ -389,7 +383,6 @@
     <string name="deduplicator_detection_method_phash_title">Hash persepsual</string>
     <string name="deduplicator_detection_method_phash_summary">Find similar files by analyzing content features and comparing perceptual hash values.</string>
     <string name="deduplicator_occupied_space_label">Penyimpanan terpakai</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s dipenuhi oleh duplikat</string>
     <string name="deduplicator_file_size_label">Ukuran berkas</string>
     <string name="deduplicator_average_size_label">Ukuran rata-rata</string>
     <string name="deduplicator_cluster_x_label">Kluster %s</string>
@@ -622,7 +615,6 @@
     <string name="review_app_dismiss_action">Lain kali</string>
     <string name="review_app_body">Bersediakah Anda menulis ulasan untuk SD Maid? ❤️</string>
     <string name="stats_label">Riwayat</string>
-    <string name="stats_dash_body">%s telah dibersihkan dan %s item telah diproses sejak anda menginstal SD Maid di perangkat anda.</string>
     <string name="stats_report_status_success">Sukses</string>
     <string name="stats_report_status_partial_success">Separuh berhasil</string>
     <string name="stats_report_status_partial_failure">Kegagalan</string>

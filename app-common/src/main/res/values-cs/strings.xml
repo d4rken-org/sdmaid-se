@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">Filtrovat podle štítků</string>
     <string name="general_result_success_message">Operace úspěšně dokončena</string>
     <string name="general_result_failure_message">Operace se nezdařila</string>
-    <string name="general_result_x_space_freed">Uvolněno %s</string>
     <string name="general_options_label">Možnosti</string>
     <string name="general_details_label">Podrobnosti</string>
     <string name="general_view_action">Zobrazit</string>
@@ -89,12 +88,6 @@
     <string name="general_delete_confirmation_title">Potvrdit vymazání</string>
     <string name="general_delete_confirmation_message_x">Vymazat \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Smazat %d vybraných položek?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="one">Smazána %1$d položka a uvolněno %2$s</item>
-        <item quantity="few">Smazány %1$d položky a uvolněno %2$s</item>
-        <item quantity="many">Smazáno %1$d položek a uvolněno %2$s</item>
-        <item quantity="other">Smazáno %1$d položek a uvolněno %2$s</item>
-    </plurals>
     <string name="general_remove_action">Odstranit</string>
     <string name="general_remove_selected_action">Odstranit vybrané</string>
     <plurals name="general_remove_success_x_items">
@@ -126,7 +119,6 @@
         <item quantity="many">%d neúspěšných</item>
         <item quantity="other">%d neúspěšných</item>
     </plurals>
-    <string name="x_space_can_be_freed">Je možné uvolnit %s</string>
     <string name="general_info_label">Informace</string>
     <string name="general_count_label">Počet</string>
     <string name="general_app_label">Aplikace</string>

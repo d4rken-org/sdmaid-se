@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Inçizimi i regjistrit të korrigjimit</string>
     <string name="debug_debuglog_stop_action">Ndalo inçizimin</string>
     <string name="debug_debuglog_sensitive_information_message">Skedari i krijuar përmban informacione të ndjeshme (p.sh. emrat e skedarëve dhe aplikacionet e instaluara). Ndani atë vetëm me palët e besuara.</string>
-    <string name="settings_debuglog_explanation">Kjo veçori regjistron gjithçka që bën aplikacioni në një skedar të ndashëm. Skedari i krijuar përmban informacione të ndjeshme (p.sh. emrat e skedarëve dhe aplikacionet e instaluara). Ndani atë vetëm me palët e besuara (p.sh. një zhvillues që po zgjidh një problem).</string>
     <string name="tasks_activity_notification_channel_label">Detyra aktive</string>
     <string name="tasks_activity_working_notification_title">SD Maid po punon</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -237,7 +236,6 @@
     <string name="systemcleaner_filter_macfiles_label">Skedarët Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Skedarët dhe dosjet që krijohen kur shfletoni hapësirën ruajtëse me aplikacionin gjetës të Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Skedarët Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Të dhënat që eksploruesi i skedarëve të Windows mund të krijojë në hapësirën ruajtëse të lidhur. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Imazhe miniaturë</string>
     <string name="systemcleaner_filter_thumbnails_summary">Pamje paraprake të ruajtura në memorie për imazhe dhe video.</string>
     <string name="systemcleaner_filter_tempfiles_label">Skedarët e përkohshëm</string>
@@ -279,10 +277,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Përjashtimet</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezultati do të përjashtohet nëse ruga përputhet me ndonjë hyrje (p.sh. \"DCIM\"). Shtypni gjatë shënimet për më shumë opsione.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Ruga modus krahasor (Mënyra e krahasimit të rrugës)</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Rruga fillon me fjalë kyçe</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Shtegu përmban fjalë kyçe</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Rruga përfundon me fjalë kyçe</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Rruga është e barabartë me fjalët kyçe</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Mënyra e krahasimit të emrit</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Emri fillon me fjalen kyçe</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Emri përmban fjalë kyçe</string>
@@ -386,7 +380,6 @@
     <string name="deduplicator_detection_method_phash_title">Hash perceptues</string>
     <string name="deduplicator_detection_method_phash_summary">Gjeni skedarë të ngjashëm duke analizuar veçoritë e përmbajtjes dhe duke krahasuar vlerat perceptuese hash.</string>
     <string name="deduplicator_occupied_space_label">Magazina e zënë</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s janë të zëna nga dublikatë</string>
     <string name="deduplicator_file_size_label">Madhësia e skedarit</string>
     <string name="deduplicator_average_size_label">Madhësia mesatare</string>
     <string name="deduplicator_cluster_x_label">Tog %s</string>

@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Zaznamenat soubor záznamu</string>
     <string name="debug_debuglog_stop_action">Ukončit záznam</string>
     <string name="debug_debuglog_sensitive_information_message">Vygenerovaný soubor obsahuje citlivé informace (např. názvy souborů a nainstalovaných aplikací). Sdílejte pouze s důvěryhodnými protistranami.</string>
-    <string name="settings_debuglog_explanation">Tato funkce zaznamenává vše, co aplikace dělá do souboru, který lze sdílet. Vygenerovaný soubor obsahuje citlivé informace (např. názvy souborů a nainstalovaných aplikací). Sdílejte je pouze s důvěryhodnými stranami (např. s vývojáři, kteří řeší nějaký problém).</string>
     <string name="tasks_activity_notification_channel_label">Aktivní úlohy</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -267,7 +266,6 @@
     <string name="systemcleaner_filter_macfiles_label">Soubory systému macOS</string>
     <string name="systemcleaner_filter_macfiles_summary">Soubory a složky vytvořené při procházení úložištěm pomocí aplikace Finder od Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Soubory systému Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Data, která může průzkumník souborů systému Windows vytvořit v připojeném úložišti. "</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatury obrázků</string>
     <string name="systemcleaner_filter_thumbnails_summary">Náhledy obrázků a videí uložené v mezipaměti.</string>
     <string name="systemcleaner_filter_tempfiles_label">Dočasné soubory</string>
@@ -309,10 +307,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Výjimky</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Výsledek bude vyloučen, pokud se cesta shoduje s jakoukoli položkou (např. \"DCIM\"). Další možnosti získáte dlouhým stisknutím položek.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Režim porovnání cest</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Cesta začíná klíčovými slovy</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Cesta obsahuje klíčová slova</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Cesta končí klíčovými slovy</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Cesta je rovna klíčovým slovům</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Režim porovnání názvu</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Název začíná klíčovým slovem</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Název obsahuje klíčové slovo</string>
@@ -438,7 +432,6 @@
     <string name="deduplicator_detection_method_phash_title">Percepční hash</string>
     <string name="deduplicator_detection_method_phash_summary">Vyhledávání podobných souborů pomocí analýzy vlastností obsahu a porovnávání percepčních hodnot hash.</string>
     <string name="deduplicator_occupied_space_label">Obsazené úložiště</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s je obsazeno duplikáty</string>
     <string name="deduplicator_file_size_label">Velikost souboru</string>
     <string name="deduplicator_average_size_label">Průměrná velikost</string>
     <string name="deduplicator_cluster_x_label">Cluster %s</string>
@@ -705,7 +698,6 @@
     <string name="review_app_dismiss_action">Možná později</string>
     <string name="review_app_body">Chcete ohodnotit SD Maid? ❤️</string>
     <string name="stats_label">Historie</string>
-    <string name="stats_dash_body">Bylo uvolněno %s a zpracováno %s položek, od té doby, co jste pozvali SD Maid do vašeho zařízení.</string>
     <string name="stats_report_status_success">Úspěch</string>
     <string name="stats_report_status_partial_success">Částečný úspěch</string>
     <string name="stats_report_status_partial_failure">Neúspěch</string>

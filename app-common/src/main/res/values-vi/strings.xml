@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">Bộ lọc theo thẻ</string>
     <string name="general_result_success_message">Thao tác thành công</string>
     <string name="general_result_failure_message">Thao tác thất bại</string>
-    <string name="general_result_x_space_freed">Đã giải phóng %s</string>
     <string name="general_options_label">Tùy chọn</string>
     <string name="general_details_label">Chi tiết</string>
     <string name="general_view_action">Xem</string>
@@ -89,9 +88,6 @@
     <string name="general_delete_confirmation_title">Xác nhận xoá</string>
     <string name="general_delete_confirmation_message_x">Xoá \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Xóa %d mục đã chọn?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="other">Đã xóa %1$d mục và giải phóng %2$s</item>
-    </plurals>
     <string name="general_remove_action">Loại bỏ</string>
     <string name="general_remove_selected_action">Loại bỏ đã chọn</string>
     <plurals name="general_remove_success_x_items">
@@ -111,7 +107,6 @@
     <plurals name="result_x_failed">
         <item quantity="other">%d thất bại</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s có thể được giải phóng</string>
     <string name="general_info_label">Thông tin</string>
     <string name="general_count_label">Đếm được</string>
     <string name="general_app_label">Ứng dụng</string>

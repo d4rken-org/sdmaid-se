@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">记录调试日志</string>
     <string name="debug_debuglog_stop_action">停止记录</string>
     <string name="debug_debuglog_sensitive_information_message">生成的文件包含敏感信息(例如文件名称和已安装应用程序)，请仅与可信方共享。</string>
-    <string name="settings_debuglog_explanation">这个功能可以将应用程序的所有操作记录下来并生成一个可分享的文件。生成的文件将包含敏感信息(例如文件名和已安装的应用程序)。请仅与可信任方(例如正在解决问题的开发者)分享此文件。</string>
     <string name="tasks_activity_notification_channel_label">正在运行的任务</string>
     <string name="tasks_activity_working_notification_title">SD Maid 正在运行</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -243,7 +242,6 @@
     <string name="systemcleaner_filter_macfiles_label">Mac 文件</string>
     <string name="systemcleaner_filter_macfiles_summary">使用 Apple 的 Finder 应用浏览存储时生成的文件和文件夹。</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows 文件</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"连接至 Windows 资源管理器时生成的数据。"</string>
     <string name="systemcleaner_filter_thumbnails_label">略缩图</string>
     <string name="systemcleaner_filter_thumbnails_summary">图片和视频的预览图缓存。</string>
     <string name="systemcleaner_filter_tempfiles_label">临时文件</string>
@@ -285,10 +283,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">排除列表</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">如果路径匹配任何条目(如“DCIM”)，结果将被排除。长按条目以获取更多选项。</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">路径匹配模式</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">以关键词开始的路径</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">包含关键词的路径</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">以关键词结尾的路径</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">关键词与路径匹配</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">文件名比较模式</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">以关键词开始的文件名</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">包含关键词的文件名</string>
@@ -399,7 +393,6 @@
     <string name="deduplicator_detection_method_phash_title">感知哈希</string>
     <string name="deduplicator_detection_method_phash_summary">通过分析内容特征并比较感知哈希值来查找相似文件</string>
     <string name="deduplicator_occupied_space_label">占用的存储空间</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">重复项占用 %s</string>
     <string name="deduplicator_file_size_label">文件大小</string>
     <string name="deduplicator_average_size_label">平均大小</string>
     <string name="deduplicator_cluster_x_label">集群 %s</string>
@@ -633,7 +626,6 @@
     <string name="review_app_dismiss_action">稍后再说</string>
     <string name="review_app_body">想给 SD Maid 写一条评论吗？❤️</string>
     <string name="stats_label">历史</string>
-    <string name="stats_dash_body">您将 SDMaid 安装到您的设备以来，已释放 %s 并处理了 %s 个项目。</string>
     <string name="stats_report_status_success">成功</string>
     <string name="stats_report_status_partial_success">部分成功</string>
     <string name="stats_report_status_partial_failure">失败</string>

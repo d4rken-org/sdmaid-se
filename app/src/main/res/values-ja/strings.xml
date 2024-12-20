@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">デバッグログの記録</string>
     <string name="debug_debuglog_stop_action">記録を停止</string>
     <string name="debug_debuglog_sensitive_information_message">生成されたファイルにはセンシティブな情報(ファイル名やインストールされているアプリなど)が含まれています。信頼できる相手のみと共有してください。</string>
-    <string name="settings_debuglog_explanation">この機能はアプリの動作を共有可能なファイルとして記録をします。生成されたファイルにはセンシティブな情報(ファイル名やインストールされているアプリなど)が含まれています。信頼できる相手(不具合対応をしている開発者など)のみと共有してください。</string>
     <string name="tasks_activity_notification_channel_label">実行中のタスク</string>
     <string name="tasks_activity_working_notification_title">SD Maidは稼動中です</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -237,7 +236,6 @@
     <string name="systemcleaner_filter_macfiles_label">Macのファイル</string>
     <string name="systemcleaner_filter_macfiles_summary">AppleのFinderでストレージを参照するときに作成されるファイルとフォルダです。</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windowsのファイル</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Windowsファイルエクスプローラが接続されたストレージ上に作成されるデータ。 "</string>
     <string name="systemcleaner_filter_thumbnails_label">サムネイル画像</string>
     <string name="systemcleaner_filter_thumbnails_summary">キャッシュされた画像とビデオのプレビュー。</string>
     <string name="systemcleaner_filter_tempfiles_label">一時ファイル</string>
@@ -279,10 +277,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">除外設定</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">パスが任意のエントリ(例:DCIM)に一致する場合、結果は除外されます。</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">パス比較モード</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">パスはキーワードで始まります</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">パスにキーワードが含まれます</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">パスはキーワードで終了します</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">パスはキーワードと等しいです</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">名前比較モード</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">名前はキーワードで始まる</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">名前にキーワードが含まれています</string>
@@ -389,7 +383,6 @@
     <string name="deduplicator_detection_method_phash_title">概念ハッシュ</string>
     <string name="deduplicator_detection_method_phash_summary">コンテンツの特徴を分析し、知覚ハッシュ値を比較することによって、類似したファイルを見つけます。</string>
     <string name="deduplicator_occupied_space_label">占拠されたストレージ</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s は重複によって占有されています</string>
     <string name="deduplicator_file_size_label">ファイルサイズ</string>
     <string name="deduplicator_average_size_label">平均サイズ</string>
     <string name="deduplicator_cluster_x_label">クラスター %s</string>
@@ -622,7 +615,6 @@
     <string name="review_app_dismiss_action">また後で</string>
     <string name="review_app_body">SDメイドをレビューしませんか？ ❤️</string>
     <string name="stats_label">履歴</string>
-    <string name="stats_dash_body">SD Maidをインストールしてから、%sの容量を解放し、%s個のアイテムを処理しました。</string>
     <string name="stats_report_status_success">成功</string>
     <string name="stats_report_status_partial_success">一部成功</string>
     <string name="stats_report_status_partial_failure">失敗</string>

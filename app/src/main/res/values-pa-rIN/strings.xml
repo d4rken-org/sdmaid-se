@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">ਡੀਬੱਗ ਲੌਗ ਰਿਕਾਰਡ ਕਰੋ</string>
     <string name="debug_debuglog_stop_action">ਰਿਕਾਰਡਿੰਗ ਰੋਕੋ</string>
     <string name="debug_debuglog_sensitive_information_message">ਤਿਆਰ ਕੀਤੀ ਫ਼ਾਈਲ ਵਿੱਚ ਸੰਵੇਦਨਸ਼ੀਲ ਜਾਣਕਾਰੀ (ਉਦਾਹਰਨ ਲਈ ਫ਼ਾਈਲ ਦੇ ਨਾਮ ਅਤੇ ਸਥਾਪਤ ਐਪਾਂ) ਸ਼ਾਮਲ ਹੈ। ਇਸ ਨੂੰ ਸਿਰਫ਼ ਭਰੋਸੇਯੋਗ ਪਾਰਟੀਆਂ ਨਾਲ ਸਾਂਝਾ ਕਰੋ।</string>
-    <string name="settings_debuglog_explanation">ਇਹ ਵਿਸ਼ੇਸ਼ਤਾ ਐਪ ਦੁਆਰਾ ਕੀਤੀ ਜਾ ਰਹੀ ਹਰ ਚੀਜ਼ ਨੂੰ ਸ਼ੇਅਰ ਕਰਨ ਯੋਗ ਫਾਈਲ ਵਿੱਚ ਰਿਕਾਰਡ ਕਰਦੀ ਹੈ। ਤਿਆਰ ਕੀਤੀ ਫ਼ਾਈਲ ਵਿੱਚ ਸੰਵੇਦਨਸ਼ੀਲ ਜਾਣਕਾਰੀ (ਉਦਾਹਰਨ ਲਈ ਫ਼ਾਈਲ ਦੇ ਨਾਮ ਅਤੇ ਸਥਾਪਤ ਐਪਾਂ) ਸ਼ਾਮਲ ਹੈ। ਇਸਨੂੰ ਸਿਰਫ਼ ਭਰੋਸੇਯੋਗ ਪਾਰਟੀਆਂ ਨਾਲ ਸਾਂਝਾ ਕਰੋ (ਜਿਵੇਂ ਕਿ ਇੱਕ ਡਿਵੈਲਪਰ ਜੋ ਕਿਸੇ ਸਮੱਸਿਆ ਨੂੰ ਨਬੇੜ ਰਿਹਾ ਹੈ)।</string>
     <string name="tasks_activity_notification_channel_label">ਸਰਗਰਮ ਕੰਮ</string>
     <string name="tasks_activity_working_notification_title">SD Maid ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ</string>
     <plurals name="tasks_activity_active_notification_message">

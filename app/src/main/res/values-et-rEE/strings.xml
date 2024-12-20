@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">Salvesta silumislogi</string>
     <string name="debug_debuglog_stop_action">Peata salvestamine</string>
     <string name="debug_debuglog_sensitive_information_message">Loodud fail sisaldab isiklikku teavet (nt failinimesid ja paigaldatud rakendusi). Jagage seda vaid usaldusväärsete osapooltega.</string>
-    <string name="settings_debuglog_explanation">Sellega salvestatakse kogu rakenduse tegevuse jagatavaks failiks. Loodud fail sisaldab tähtsat teavet (nt failinimed ja paigaldatud rakendused). Jagage seda vaid usalduväärsete muude osapooltega ( nt probleemi lahendava arendajaga).</string>
     <string name="tasks_activity_notification_channel_label">Aktiivsed ülesanded</string>
     <string name="tasks_activity_working_notification_title">SD Maid toimetab</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -251,7 +250,6 @@
     <string name="systemcleaner_filter_macfiles_label">Maci failid</string>
     <string name="systemcleaner_filter_macfiles_summary">Apple\'i leidmisrakendusega hoiustamisruumi sirvimisel loodud failid ja kaustad.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windowsi failid</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Andmed, mida Windowsi failihaldur võib luua ühendatud andmekandjale."</string>
     <string name="systemcleaner_filter_thumbnails_label">Pisipildi kujutised</string>
     <string name="systemcleaner_filter_thumbnails_summary">Piltide ja videote eelvaated vahemälus.</string>
     <string name="systemcleaner_filter_tempfiles_label">Ajutised failid</string>
@@ -293,10 +291,6 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Erandid</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Tulemust eiratakse, kui asukoht kattub vähemalt ühe kandega (nt „DCIM”). Rohkemateks valikuteks hoidke sõrme kaua kannete peal.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Asukoha võrdlemise režiim</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Asukoht algab märksõnadega</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Asukoht sisaldab märksõnu</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Asukoht lõppeb märksõnadega</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Asukoht on sama, mis märksõnad</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Nime võrdlemise režiim</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Nimi algab märksõnaga</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Nimi sisaldab märksõna</string>
@@ -412,7 +406,6 @@
     <string name="deduplicator_detection_method_phash_title">Tajuräsi</string>
     <string name="deduplicator_detection_method_phash_summary">Sarnaste failide leidmiseks analüüsige sisu omadusi ja võrrelge tajuräsi väärtusi.</string>
     <string name="deduplicator_occupied_space_label">Kasutatud salvestusruum</string>
-    <string name="deduplicator_x_space_occupied_by_duplicates_msg">%s kasutavad koopiad</string>
     <string name="deduplicator_file_size_label">Faili maht</string>
     <string name="deduplicator_average_size_label">Keskmine maht</string>
     <string name="deduplicator_cluster_x_label">Klaster %s</string>
@@ -657,7 +650,6 @@
     <string name="review_app_dismiss_action">Võib-olla hiljem</string>
     <string name="review_app_body">Tahate kommenteerida SD Maid? ❤️</string>
     <string name="stats_label">Ajalugu</string>
-    <string name="stats_dash_body">%s on vabastatud ja %s faili töödeldud alates SD Maidi seadmesse paigaldamisest.</string>
     <string name="stats_report_status_success">Õnnestus</string>
     <string name="stats_report_status_partial_success">Õnnestus enam-vähem</string>
     <string name="stats_report_status_partial_failure">Tõrge</string>

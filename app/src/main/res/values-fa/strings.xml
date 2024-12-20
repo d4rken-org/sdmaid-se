@@ -15,7 +15,6 @@
     <string name="debug_debuglog_record_action">ضبط کردن فایل گزارش خطا</string>
     <string name="debug_debuglog_stop_action">توقف ضبط کردن</string>
     <string name="debug_debuglog_sensitive_information_message">فایل تولید شده حاوی اطلاعات حساس است (مانند نام فایل ها و برنامه های نصب شده). آن را فقط با اشخاص قابل اعتماد به اشتراک بگذارید.</string>
-    <string name="settings_debuglog_explanation">این ویژگی هر کاری را که برنامه انجام می دهد در یک فایل قابل اشتراک گذاری ثبت می کند. فایل تولید شده حاوی اطلاعات حساس است (مانند نام فایل ها و برنامه های نصب شده). آن را فقط با اشخاص مورد اعتماد به اشتراک بگذارید (مثلاً برنامه‌نویسی که در حال عیب‌یابی یک مشکل است).</string>
     <string name="tasks_activity_notification_channel_label">وظایف فعال</string>
     <string name="tasks_activity_working_notification_title">SDMaid در حال کار کردن است</string>
     <string name="tasks_result_notification_channel_label">حاصل کار</string>

@@ -75,7 +75,6 @@
     <string name="general_tag_filter_label">태그별로 필터</string>
     <string name="general_result_success_message">작업 성공</string>
     <string name="general_result_failure_message">작업 실패</string>
-    <string name="general_result_x_space_freed">%s 확보됨</string>
     <string name="general_options_label">옵션</string>
     <string name="general_details_label">세부사항</string>
     <string name="general_view_action">보기</string>
@@ -89,9 +88,6 @@
     <string name="general_delete_confirmation_title">삭제 확인</string>
     <string name="general_delete_confirmation_message_x">%s 를 삭제할까요?</string>
     <string name="general_delete_confirmation_message_selected_x_items">선택한 항목 %d개를 삭제하시겠습니까?</string>
-    <plurals name="general_delete_success_deleted_x_freed_y">
-        <item quantity="other">항목 %1$d개를 제거해 용량 %2$s 확보</item>
-    </plurals>
     <string name="general_remove_action">제거</string>
     <string name="general_remove_selected_action">선택 사항 삭제하기</string>
     <plurals name="general_remove_success_x_items">
@@ -111,7 +107,6 @@
     <plurals name="result_x_failed">
         <item quantity="other">%d개 실패</item>
     </plurals>
-    <string name="x_space_can_be_freed">%s 확보 가능</string>
     <string name="general_info_label">정보</string>
     <string name="general_count_label">개수</string>
     <string name="general_app_label">앱</string>
