@@ -6,6 +6,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdge
 import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -18,6 +19,10 @@ class OnboardingPrivacyFragment : Fragment3(R.layout.onboarding_privacy_fragment
     override val ui: OnboardingPrivacyFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdge().apply {
+            whole(ui.root)
+        }
+
         ui.goAction.setOnClickListener {
             OnboardingPrivacyFragmentDirections.actionOnboardingPrivacyFragmentToOnboardingSetupFragment().navigate()
         }

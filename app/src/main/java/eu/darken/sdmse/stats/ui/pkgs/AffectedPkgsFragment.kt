@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdge
 import eu.darken.sdmse.common.lists.ViewHolderBasedDivider
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -23,6 +24,11 @@ class AffectedPkgsFragment : Fragment3(R.layout.stats_affected_pkgs_fragment) {
     override val ui: StatsAffectedPkgsFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdge().apply {
+            topHalf(ui.toolbar)
+            bottomHalf(ui.list)
+        }
+
         ui.toolbar.setupWithNavController(findNavController())
 
         val adapter = AffectedPkgsAdapter()

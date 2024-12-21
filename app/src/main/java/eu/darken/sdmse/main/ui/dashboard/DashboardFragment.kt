@@ -13,6 +13,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdge
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.getColorForAttr
@@ -39,12 +40,24 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
     @Inject lateinit var previewDialog: PreviewDeletionDialog
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        ui.list.setupDefaults(
-            dashAdapter,
-            verticalDividers = false,
-            fastscroll = false,
-            layouter = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false)
-        )
+        EdgeToEdge().apply {
+            topHalf(ui.list)
+            bottomHalf(ui.mainAction)
+        }
+
+//        WindowCompat. getInsetsController(activity!!.window, ui.root).apply {
+//            isAppearanceLightStatusBars = true
+//            isAppearanceLightNavigationBars = false
+//        }
+
+        ui.list.apply {
+            setupDefaults(
+                dashAdapter,
+                verticalDividers = false,
+                fastscroll = false,
+                layouter = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false)
+            )
+        }
 
         vm.listState.observe2(ui) { state ->
             mascotOverlay.isVisible = state.items.isEmpty() || state.isEasterEgg
