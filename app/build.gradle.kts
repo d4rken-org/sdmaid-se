@@ -12,13 +12,21 @@ apply(plugin = "androidx.navigation.safeargs.kotlin")
 val commitHashProvider = providers.of(CommitHashValueSource::class) {}
 
 android {
-    compileSdk = projectConfig.compileSdk
+    if (projectConfig.compileSdkPreview != null) {
+        compileSdkPreview = projectConfig.compileSdkPreview
+    } else {
+        compileSdk = projectConfig.compileSdk
+    }
 
     defaultConfig {
         namespace = projectConfig.packageName
 
         minSdk = projectConfig.minSdk
-        targetSdk = projectConfig.targetSdk
+        if (projectConfig.targetSdkPreview != null) {
+            targetSdkPreview = projectConfig.targetSdkPreview
+        } else {
+            targetSdk = projectConfig.targetSdk
+        }
 
         versionCode = projectConfig.version.code.toInt()
         versionName = projectConfig.version.name
