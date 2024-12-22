@@ -88,6 +88,10 @@
     <string name="general_delete_confirmation_title">Confirmer la suppression</string>
     <string name="general_delete_confirmation_message_x">Supprimer « %s » ?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Supprimer les %d éléments sélectionnés ?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d élément a été supprimé.</item>
+        <item quantity="other">%d éléments ont été supprimés.</item>
+    </plurals>
     <string name="general_remove_action">Supprimer</string>
     <string name="general_remove_selected_action">Supprimer la sélection</string>
     <plurals name="general_remove_success_x_items">
@@ -110,6 +114,10 @@
     <plurals name="result_x_failed">
         <item quantity="one">%d en échec</item>
         <item quantity="other">%d en échec</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s peut être libéré</item>
+        <item quantity="other">%s peuvent être libérés</item>
     </plurals>
     <string name="general_info_label">Renseignements</string>
     <string name="general_count_label">Quantité</string>
@@ -147,4 +155,5 @@
         <item quantity="other">%s fichiers</item>
     </plurals>
     <string name="general_advice_title">Conseil</string>
+    <string name="general_error_invalid_input_label">Entrée invalide</string>
 </resources>

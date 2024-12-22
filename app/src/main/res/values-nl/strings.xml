@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Sla het foutopsporingslogboek op</string>
     <string name="debug_debuglog_stop_action">Stop met opnemen</string>
     <string name="debug_debuglog_sensitive_information_message">Het gegenereerde bestand bevat gevoelige informatie (bijv. bestandsnamen en geïnstalleerde apps). Deel het alleen met vertrouwde partijen.</string>
+    <string name="settings_debuglog_explanation">Deze functie registreert alles wat de app doet in een deelbaar bestand. Het gegenereerde bestand bevat gevoelige informatie (bijv. bestandsnamen en geïnstalleerde apps). Deel het alleen met vertrouwde partijen (bijv. een ontwikkelaar die een probleem oplost).</string>
     <string name="tasks_activity_notification_channel_label">Actieve taken</string>
     <string name="tasks_activity_working_notification_title">SD Maid is aan het werk</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -122,6 +123,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku niet gebruiken</string>
     <string name="setup_dismiss_hint">Je vindt het instellingenscherm terug via het instellingenmenu.</string>
     <string name="setup_permission_granted_label">Toestemming verleend</string>
+    <string name="setup_permission_error_label">Toestemmingsfout</string>
     <string name="setup_usagestats_title">Gebruiksstatistieken</string>
     <string name="setup_usagestats_body">De toestemming voor gebruiksstatistieken geeft toegang tot meer app details. SD Maid gebruikt het om extra cachegroottes te bepalen.</string>
     <string name="setup_usagestats_hint">Vereist voor cacheverwijdering op basis van toegankelijkheidsservice.</string>
@@ -148,6 +150,7 @@
     <string name="setup_inventory_card_title">App-inventaris</string>
     <string name="setup_inventory_card_body">SD Maid moet weten welke apps je hebt om bestanden te vinden die niet bij geïnstalleerde apps horen.</string>
     <string name="setup_inventory_card_extra">Zoek naar een machtiging met de naam \'Applijst\' of \'Alle pakketten opvragen\'.</string>
+    <string name="setup_inventory_invalid_message">Het systeem heeft een ongeldige lijst met geïnstalleerde apps verstrekt (bijv. te weinig of sommige ontbreken). Ga naar de systeeminstellingen en geef SD Maid toegang tot de \"App-lijst\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid heeft geen gegevensgebieden gevonden die kunnen worden gescand. Heb je de installatie voltooid?</string>
     <string name="dataarea_warningcard_label">Gegevens gebieden</string>
     <string name="dataarea_warningcard_reload_action">Gegevensgebieden opnieuw laden</string>
@@ -235,6 +238,10 @@
     <string name="systemcleaner_filter_anr_summary">Sporen van \'toepassing reageert niet\'-gebeurtenissen.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Lege mappen</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Maak mappen leeg van over het hele apparaat. Voor geneste mappen zijn mogelijk meerdere passen nodig.</string>
+    <string name="systemcleaner_filter_screenshots_label">Schermafbeeldingen</string>
+    <string name="systemcleaner_filter_screenshots_summary">Schermafbeeldingen ouder dan %s van meerdere apps en locaties.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Schermafbeelding Leeftijd</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Minimumleeftijd waarop schermafbeeldingen in aanmerking komen voor verwijdering.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Overbodige APK\'s</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Installatiebestanden die ouder- of gelijk zijn aan app-versies die al zijn geïnstalleerd.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mappen</string>
@@ -244,6 +251,7 @@
     <string name="systemcleaner_filter_macfiles_label">Mac bestanden</string>
     <string name="systemcleaner_filter_macfiles_summary">Bestanden en mappen die worden gemaakt tijdens het bladeren door opslag met de zoeker-app van Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows bestanden</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Gegevens die de Windows-bestandsverkenner kan maken op aangesloten opslag."</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatuurafbeeldingen</string>
     <string name="systemcleaner_filter_thumbnails_summary">In cache opgeslagen voorbeelden voor afbeeldingen en video\'s.</string>
     <string name="systemcleaner_filter_tempfiles_label">Tijdelijke bestanden</string>
@@ -285,6 +293,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Uitsluitingen</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Het resultaat wordt uitgesloten als het pad overeenkomt met een invoer (bijvoorbeeld \'DCIM\'). Druk lang op de vermeldingen voor meer opties.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modus voor padvergelijking</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Pad begint met sleutelwoord</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Pad bevat sleutelwoord</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Pad eindigt met sleutelwoord</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Pad is gelijk aan sleutelwoord</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modus voor padvergelijking</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Naam begint met trefwoord</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Pad bevat trefwoorden</string>
@@ -336,6 +348,8 @@
     <string name="appcleaner_filter_webview_summary">Bestanden die in de cache zijn opgeslagen door Webview-instanties die in apps worden gebruikt.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Back-ups van WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Verwijder extra exemplaren van WhatsApp-back-ups en bewaar alleen de nieuwste.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Bestanden die je via WhatsApp van anderen hebt ontvangen.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp ontving bestanden</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp heeft bestanden verzonden</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Bestanden verzonden vanuit WhatsApp naar anderen.</string>
     <string name="appcleaner_filter_telegram_label">Telegram-mediabestanden</string>
@@ -346,6 +360,8 @@
     <string name="appcleaner_filter_wechat_summary">Verzonden of ontvangen bestanden in gesprekken en WeChat-momenten.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Mediabestanden in de cache die opnieuw worden gedownload wanneer ze in de chat worden bekeken.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ-chat</string>
+    <string name="appcleaner_filter_qqchat_summary">Verzonden of ontvangen bestanden in QQ-chatgesprekken.</string>
     <string name="appcleaner_delete_all_confirmation_message">Verbruiksartikelen voor alle apps verwijderen?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">%d vervangbaar item verwijderd</item>
@@ -376,6 +392,10 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Cachegeheugens verwijderen met Shizuku</string>
     <string name="deduplicator_tool_name">Ontdubbelaar</string>
     <string name="deduplicator_explanation_short">Zoek dubbele gegevens op je toestel.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d dubbel verwijderd</item>
+        <item quantity="other">%d dubbele verwijderd</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">%d dubbele set gevonden</item>
         <item quantity="other">%d dubbele sets gevonden</item>
@@ -392,6 +412,10 @@
     <string name="deduplicator_detection_method_phash_title">Perceptie-hash</string>
     <string name="deduplicator_detection_method_phash_summary">Vind vergelijkbare bestanden door inhoudskenmerken te analyseren en perceptuele hashwaarden te vergelijken.</string>
     <string name="deduplicator_occupied_space_label">Gebruikte opslag</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s wordt ingenomen door duplicaten</item>
+        <item quantity="other">%s worden ingenomen door duplicaten</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Bestandsgrootte</string>
     <string name="deduplicator_average_size_label">Gemiddelde grootte</string>
     <string name="deduplicator_cluster_x_label">Groepeer %s</string>
@@ -471,6 +495,10 @@
     <string name="appcontrol_export_app_selection_action">Apps exporteren</string>
     <string name="appcontrol_export_title">App exporteren</string>
     <string name="appcontrol_export_description">Sla de installatiebestanden van deze app op. Dit omvat geen app-gegevens.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d app is geëxporteerd</item>
+        <item quantity="other">%d apps zijn geëxporteerd</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Bezig met exporteren van %s</string>
     <string name="appcontrol_force_stop_selection_action">Forceer stop-apps</string>
     <string name="appcontrol_force_stop_action">Forceer stop</string>
@@ -478,6 +506,10 @@
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="one">%d app geforceerd stoppen?</item>
         <item quantity="other">%d apps geforceerd stoppen?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d app werd gestopt</item>
+        <item quantity="other">%d apps werden gestopt</item>
     </plurals>
     <string name="appcontrol_automation_loading">Voorbereiden van automatisering via toegankelijkheidsdienst</string>
     <string name="appcontrol_automation_title">AppControl automatisering</string>
@@ -560,6 +592,7 @@
         <item quantity="one">Eén uitsluiting is gemaakt</item>
         <item quantity="other">%d uitsluitingen gemaakt</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Toon standaardinstellingen</string>
     <string name="automation_accessibility_service_description">Gebruikers met speciale toegankelijkheidsbehoeften kunnen deze service inschakelen om SD Maid in staat te stellen taken te automatiseren waarvoor anders een vervelende handmatige gebruikersinteractie nodig zou zijn (bijv. het verwijderen van de cache).\n\nVoorbeeld: Als je SD Maid instrueert om meerdere apps te stoppen, dan kan SD Maid deze service gebruiken om elk app-instellingenscherm te openen, de knop \'Forceer Stop\' te vinden en erop te klikken.\n\nSD Maid wordt altijd prominent weergegeven wanneer deze service wordt gebruikt en biedt de gebruiker een gemakkelijke manier om elke interactie onmiddellijk te annuleren.\n\nNee acties worden uitgevoerd zonder voorafgaande toestemming van de gebruiker. Deze service kan op elk moment weer worden uitgeschakeld zonder nadelige gevolgen.</string>
     <string name="automation_screenoverlay_explanation">SD Maid communiceert met je apparaat. Het is niet mogelijk om tegelijkertijd het scherm te gebruiken. Wacht tot de bewerking voltooid is of annuleer deze.</string>
     <string name="automation_active_title">SD Maid is aan het werk</string>
@@ -627,6 +660,14 @@
     <string name="review_app_dismiss_action">Misschien later</string>
     <string name="review_app_body">Wil je SD Maid een beoordeling achterlaten? ❤️</string>
     <string name="stats_label">Geschiedenis</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s is vrijgemaakt.</item>
+        <item quantity="other">%s zijn vrijgemaakt.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s item verwerkt sinds je SD Maid op je apparaat hebt uitgenodigd.</item>
+        <item quantity="other">%s items verwerkt sinds je SD Maid op je apparaat hebt uitgenodigd.</item>
+    </plurals>
     <string name="stats_report_status_success">Succes</string>
     <string name="stats_report_status_partial_success">Gedeeltelijk succes</string>
     <string name="stats_report_status_partial_failure">Mislukt</string>
@@ -636,6 +677,10 @@
     <string name="stats_settings_retention_reports_desc">Aantal dagen voordat de standaard SD Maid-bedieningsrapporten worden verwijderd.</string>
     <string name="stats_settings_retention_paths_label">Gedetailleerde padinformatie</string>
     <string name="stats_settings_retention_paths_desc">Het aantal dagen dat gegevens moeten worden bewaard over paden die worden beïnvloed door SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d dag</item>
+        <item quantity="other">%d dagen</item>
+    </plurals>
     <string name="stats_settings_reset_all_label">Reset Alles</string>
     <string name="stats_settings_reset_all_desc">Verwijder alle rapporten en zet alle statistieken op nul.</string>
     <string name="stats_affected_paths_label">Beïnvloede paden</string>

@@ -56,6 +56,10 @@
         <item quantity="one">%sଟିଏ ଦ୍ରବ୍ୟ</item>
         <item quantity="other">%sଟି ଦ୍ରବ୍ୟ</item>
     </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s ମୁକ୍ତ କରିହେବ</item>
+        <item quantity="other">%s ମୁକ୍ତ କରିହେବ</item>
+    </plurals>
     <string name="general_info_label">ସୂଚନା</string>
     <string name="general_count_label">ଗଣନା</string>
     <string name="general_app_label">ଆପ୍</string>
@@ -76,4 +80,17 @@
     <string name="file_type_unknown">ଅଜ୍ଞାତ</string>
     <string name="general_progress_ready">ପ୍ରସ୍ତୁତ</string>
     <string name="general_progress_done">ହୋଇଗଲା</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d ଦିନ</item>
+        <item quantity="other">%d ଦିନ</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d ଘଣ୍ଟା</item>
+        <item quantity="other">%d ଘଣ୍ଟା</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%sଟିଏ ଫାଇଲ୍</item>
+        <item quantity="other">%sଟି ଫାଇଲ୍</item>
+    </plurals>
+    <string name="general_error_invalid_input_label">ଅଵୈଧ ଇନ୍‌ପୁଟ୍</string>
 </resources>

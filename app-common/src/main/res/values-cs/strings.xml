@@ -88,6 +88,12 @@
     <string name="general_delete_confirmation_title">Potvrdit vymazání</string>
     <string name="general_delete_confirmation_message_x">Vymazat \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Smazat %d vybraných položek?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Smazána %d položka.</item>
+        <item quantity="few">Smazány %d položky.</item>
+        <item quantity="many">Smazáno %d položek.</item>
+        <item quantity="other">Smazáno %d položek.</item>
+    </plurals>
     <string name="general_remove_action">Odstranit</string>
     <string name="general_remove_selected_action">Odstranit vybrané</string>
     <plurals name="general_remove_success_x_items">
@@ -118,6 +124,12 @@
         <item quantity="few">%d neúspěšné</item>
         <item quantity="many">%d neúspěšných</item>
         <item quantity="other">%d neúspěšných</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">Je možné uvolnit %s</item>
+        <item quantity="few">Je možné uvolnit %s</item>
+        <item quantity="many">Je možné uvolnit %s</item>
+        <item quantity="other">Je možné uvolnit %s</item>
     </plurals>
     <string name="general_info_label">Informace</string>
     <string name="general_count_label">Počet</string>
@@ -161,4 +173,5 @@
         <item quantity="other">%s souborů</item>
     </plurals>
     <string name="general_advice_title">Doporučení</string>
+    <string name="general_error_invalid_input_label">Neplatný vstup</string>
 </resources>

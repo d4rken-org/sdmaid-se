@@ -88,6 +88,10 @@
     <string name="general_delete_confirmation_title">Confirmar el borrado</string>
     <string name="general_delete_confirmation_message_x">¿Borrar \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">¿Borrar los %d elementos seleccionados?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d elemento eliminado.</item>
+        <item quantity="other">%d elementos eliminados.</item>
+    </plurals>
     <string name="general_remove_action">Eliminar</string>
     <string name="general_remove_selected_action">Eliminar la selección</string>
     <plurals name="general_remove_success_x_items">
@@ -110,6 +114,10 @@
     <plurals name="result_x_failed">
         <item quantity="one">%d ha fallado</item>
         <item quantity="other">%d han fallado</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">Se pueden liberar %s</item>
+        <item quantity="other">Se pueden liberar %s</item>
     </plurals>
     <string name="general_info_label">Información</string>
     <string name="general_count_label">Contar</string>
@@ -147,4 +155,5 @@
         <item quantity="other">%s archivos</item>
     </plurals>
     <string name="general_advice_title">Consejo</string>
+    <string name="general_error_invalid_input_label">Entrada incorrecta</string>
 </resources>

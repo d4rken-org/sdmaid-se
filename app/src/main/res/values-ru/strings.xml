@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Запись журнала отладки</string>
     <string name="debug_debuglog_stop_action">Остановить запись</string>
     <string name="debug_debuglog_sensitive_information_message">Созданный файл содержит конфиденциальную информацию (например, имена файлов и установленные приложения). Передавайте его только доверенным лицам.</string>
+    <string name="settings_debuglog_explanation">Эта функция записывает все действия приложения в файл, который может быть выложен в общий доступ. Созданный файл содержит конфиденциальную информацию (например, имена файлов и установленные приложения). Делитесь им только с доверенными лицами (например, с разработчиком, который устраняет проблему).</string>
     <string name="tasks_activity_notification_channel_label">Активные задачи</string>
     <string name="tasks_activity_working_notification_title">SD Maid работает</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -266,6 +267,7 @@
     <string name="systemcleaner_filter_macfiles_label">Файлы Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Файлы и папки, которые создаются при просмотре хранилища с помощью приложения Finder от Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Файлы Windows</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Данные, которые проводник Windows может создавать на подключенном хранилище."</string>
     <string name="systemcleaner_filter_thumbnails_label">Эскизы изображений</string>
     <string name="systemcleaner_filter_thumbnails_summary">Кэшированный предпросмотр для изображений и видео.</string>
     <string name="systemcleaner_filter_tempfiles_label">Временные файлы</string>
@@ -307,6 +309,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Исключения</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Результат будет исключен, если путь совпадает с любой записью (например, \"DCIM\"). Удерживайте нажатие на записи для дополнительных опций.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Режим сравнения путей</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Путь начинается с ключевого слова</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Путь содержит ключевое слово</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Путь заканчивается ключевым словом</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Путь соответствует ключевому слову</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Режим сравнения имен</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Имя начинается с ключевого слова</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Имя содержит ключевое слово</string>
@@ -432,6 +438,12 @@
     <string name="deduplicator_detection_method_phash_title">Похожее содержимое</string>
     <string name="deduplicator_detection_method_phash_summary">Поиск похожих файлов путем анализа и сравнения уникальных свойств содержимого.</string>
     <string name="deduplicator_occupied_space_label">Используемая память</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">Дубликатами занято: %s</item>
+        <item quantity="few">Дубликатами занято: %s</item>
+        <item quantity="many">Дубликатами занято: %s</item>
+        <item quantity="other">Дубликатами занято: %s</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Размер файла</string>
     <string name="deduplicator_average_size_label">Средний размер</string>
     <string name="deduplicator_cluster_x_label">Группа %s</string>
@@ -698,6 +710,18 @@
     <string name="review_app_dismiss_action">Возможно, позже</string>
     <string name="review_app_body">Вы хотите оставить отзыв для SD Maid? ❤️</string>
     <string name="stats_label">История</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">Освобождено: %s</item>
+        <item quantity="few">Освобождено: %s</item>
+        <item quantity="many">Освобождено: %s</item>
+        <item quantity="other">Освобождено: %s</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s элемент был обработан с тех пор, как Вы пригласили SD Maid на Ваше устройство.</item>
+        <item quantity="few">Обработано элементов с тех пор, как Вы пригласили SD Maid на Ваше устройство: %s</item>
+        <item quantity="many">Обработано элементов с тех пор, как Вы пригласили SD Maid на Ваше устройство: %s</item>
+        <item quantity="other">Обработано элементов с тех пор, как Вы пригласили SD Maid на Ваше устройство: %s</item>
+    </plurals>
     <string name="stats_report_status_success">Успешно</string>
     <string name="stats_report_status_partial_success">Частичный успех</string>
     <string name="stats_report_status_partial_failure">Ошибка</string>

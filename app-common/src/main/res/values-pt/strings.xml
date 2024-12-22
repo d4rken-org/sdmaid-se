@@ -88,6 +88,10 @@
     <string name="general_delete_confirmation_title">Confirmar eliminação</string>
     <string name="general_delete_confirmation_message_x">Apagar \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Apagar os %d itens selecionados?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Apagado %d item.</item>
+        <item quantity="other">Apagados %d itens.</item>
+    </plurals>
     <string name="general_remove_action">Remover</string>
     <string name="general_remove_selected_action">Remover seleção</string>
     <plurals name="general_remove_success_x_items">
@@ -110,6 +114,10 @@
     <plurals name="result_x_failed">
         <item quantity="one">%d falhou</item>
         <item quantity="other">%d falharam</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">Pode libertar %s</item>
+        <item quantity="other">Pode libertar %s</item>
     </plurals>
     <string name="general_info_label">Informação</string>
     <string name="general_count_label">Contagem</string>
@@ -147,4 +155,5 @@
         <item quantity="other">%s ficheiros</item>
     </plurals>
     <string name="general_advice_title">Conselho</string>
+    <string name="general_error_invalid_input_label">Entrada inválida</string>
 </resources>

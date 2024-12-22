@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Gravar log de depuração</string>
     <string name="debug_debuglog_stop_action">Parar gravação</string>
     <string name="debug_debuglog_sensitive_information_message">O arquivo gerado contém informações confidenciais (por exemplo, nomes de arquivos e aplicativos instalados). Compartilhe-o apenas com pessoas confiáveis.</string>
+    <string name="settings_debuglog_explanation">Este recurso grava tudo o que o app está fazendo em um arquivo compartilhável. O arquivo gerado contém informações confidenciais (por exemplo,  nomes de arquivos e apps instalados). Compartilhe apenas com partes confiáveis (por exemplo, uma solução de problemas para um desenvolvedor).</string>
     <string name="tasks_activity_notification_channel_label">Tarefas ativas</string>
     <string name="tasks_activity_working_notification_title">O SD Maid está trabalhando</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -250,6 +251,7 @@
     <string name="systemcleaner_filter_macfiles_label">Arquivos Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Arquivos e pastas que são criados ao navegar no armazenamento com o aplicativo de busca da Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Arquivos Windows</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Dados que o explorador de arquivos Windows pode criar no armazenamento conectado."</string>
     <string name="systemcleaner_filter_thumbnails_label">Imagens em miniatura</string>
     <string name="systemcleaner_filter_thumbnails_summary">Pré-visualizações em cache para imagens e vídeos.</string>
     <string name="systemcleaner_filter_tempfiles_label">Arquivos temporários</string>
@@ -291,6 +293,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusões</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">O resultado será ignorado se o caminho corresponder a qualquer entrada (ex: \"DCIM\"). Mantenha pressionado para mais opções.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modo de comparação de diretórios</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">O nome começa com a palavra-chave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">O caminho contém palavra-chave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">O caminho termina com a palavra-chave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">O caminho é igual à palavra-chave</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modo de comparação do nome</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">O nome começa com a palavra-chave</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">O nome contém a palavra-chave</string>

@@ -90,6 +90,10 @@
     <string name="appcontrol_list_sortmode_packagename_label">ପ୍ୟାକେଜ୍‌_ନାମ</string>
     <string name="analyzer_explanation_short">ଜାଣନ୍ତୁ ଆପଣଙ୍କ ଡିଵାଇସ୍‌ରେ କ\'ଣ ଜାଗା ଖାଉଛି।</string>
     <string name="analyzer_device_storage_title">ଡିଵାଇସ୍ ଷ୍ଟୋରେଜ୍</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s ଉପଲବ୍ଧ</item>
+        <item quantity="other">%s ଉପଲବ୍ଧ</item>
+    </plurals>
     <plurals name="analyzer_space_used">
         <item quantity="one">%s ବ୍ୟବହୃତ</item>
         <item quantity="other">%s ବ୍ୟବହୃତ</item>

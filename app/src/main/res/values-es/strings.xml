@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Grabar el registro de depuración</string>
     <string name="debug_debuglog_stop_action">Finalizar grabación</string>
     <string name="debug_debuglog_sensitive_information_message">El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártalo solo con personas de confianza.</string>
+    <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo que se puede compartir. El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártalo solo con personas de confianza (por ejemplo, un desarrollador que solucione un problema).</string>
     <string name="tasks_activity_notification_channel_label">Tareas activas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está trabajando</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -250,6 +251,7 @@
     <string name="systemcleaner_filter_macfiles_label">Archivos Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Archivos y carpetas que se crean al explorar el almacenamiento con Finder de Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Archivos de Windows</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Datos que el explorador de archivos de Windows puede crear en el almacenamiento conectado."</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniaturas</string>
     <string name="systemcleaner_filter_thumbnails_summary">Miniaturas en la caché de las imágenes y los videos.</string>
     <string name="systemcleaner_filter_tempfiles_label">Archivos temporales</string>
@@ -291,6 +293,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusiones</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">El resultado se excluirá si la ruta coincide con alguna entrada (por ejemplo, \"DCIM\"). Mantén pulsadas las entradas para ver más opciones.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modo de comparación de las rutas</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">La ruta comienza con una palabra clave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">La ruta contiene la palabra clave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">La ruta termina con la palabra clave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">La ruta es igual a la palabra clave</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modo de comparación de los nombres</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">El nombre empieza por la palabra clave</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">El nombre contiene la palabra clave</string>
@@ -406,6 +412,10 @@
     <string name="deduplicator_detection_method_phash_title">Hash perceptual</string>
     <string name="deduplicator_detection_method_phash_summary">Encuentra los archivos similares analizando las características del contenido y comparando los valores hash perceptuales.</string>
     <string name="deduplicator_occupied_space_label">Almacenamiento ocupado</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s está ocupado por duplicados</item>
+        <item quantity="other">%s están ocupadas por duplicados</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Tamaño del archivo</string>
     <string name="deduplicator_average_size_label">Tamaño medio</string>
     <string name="deduplicator_cluster_x_label">Agrupar %s</string>
@@ -650,6 +660,14 @@
     <string name="review_app_dismiss_action">Quizás más tarde</string>
     <string name="review_app_body">¿Te gustaría dejar una reseña de SD Maid?️ ❤️</string>
     <string name="stats_label">Historial</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">Se ha liberado %s.</item>
+        <item quantity="other">Se han liberado %s.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s elemento ha sido procesado desde que invitaste a SD Maid a tu dispositivo.</item>
+        <item quantity="other">%s elementos han sido procesados desde que invitaste a SD Maid a tu dispositivo.</item>
+    </plurals>
     <string name="stats_report_status_success">Correctamente</string>
     <string name="stats_report_status_partial_success">Parcialmente</string>
     <string name="stats_report_status_partial_failure">Fallo</string>
