@@ -34,7 +34,7 @@ data class UninstallWatcherTask(
                 val spaceText = run {
                     val (spaceFormatted, spaceQuantity) = ByteFormatter.formatSize(this, affectedSpace)
                     getQuantityString2(
-                        eu.darken.sdmse.common.R.plurals.general_delete_success_freed_y,
+                        eu.darken.sdmse.common.R.plurals.general_result_x_space_freed,
                         spaceQuantity,
                         spaceFormatted,
                     )

@@ -144,7 +144,7 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                                 event.freedSpace
                             )
                             getQuantityString2(
-                                eu.darken.sdmse.common.R.plurals.general_delete_success_freed_y,
+                                eu.darken.sdmse.common.R.plurals.general_result_x_space_freed,
                                 spaceQuantity,
                                 spaceFormatted,
                             )
