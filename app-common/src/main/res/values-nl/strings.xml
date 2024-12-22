@@ -88,8 +88,12 @@
     <string name="general_delete_confirmation_title">Bevestig verwijdering</string>
     <string name="general_delete_confirmation_message_x">Verwijder \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">%d geselecteerde items verwijderen?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d item verwijderd.</item>
+        <item quantity="other">%d items verwijderd.</item>
+    </plurals>
     <string name="general_remove_action">Verwijderen</string>
-    <string name="general_remove_selected_action">Selectie verwijderen</string>
+    <string name="general_remove_selected_action">Verwijder geselecteerde</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Eén item is verwijderd</item>
         <item quantity="other">%d items zijn verwijderd</item>
@@ -110,6 +114,10 @@
     <plurals name="result_x_failed">
         <item quantity="one">%d mislukt</item>
         <item quantity="other">%d mislukt</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s kan worden vrijgemaakt</item>
+        <item quantity="other">%s kan worden vrijgemaakt</item>
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Tellen</string>
@@ -132,11 +140,20 @@
     <string name="file_type_file">Bestand</string>
     <string name="file_type_unknown">Onbekend</string>
     <string name="general_progress_ready">Klaar</string>
-    <string name="general_progress_done">Klaar</string>
+    <string name="general_progress_done">Gedaan</string>
     <string name="general_rom_type_auto_label">Automatisch (standaard)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d dag</item>
+        <item quantity="other">%d dagen</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d uur</item>
+        <item quantity="other">%d uur</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s bestand</item>
         <item quantity="other">%s bestanden</item>
     </plurals>
     <string name="general_advice_title">Advies</string>
+    <string name="general_error_invalid_input_label">Ongeldige invoer</string>
 </resources>

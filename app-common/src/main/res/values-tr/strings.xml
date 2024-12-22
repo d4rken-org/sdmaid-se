@@ -88,6 +88,10 @@
     <string name="general_delete_confirmation_title">Silmeyi onayla</string>
     <string name="general_delete_confirmation_message_x">\"%s\" silinsin mi?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Seçili %d öğe silinsin mi?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d öğe silindi.</item>
+        <item quantity="other">%d öğe silindi.</item>
+    </plurals>
     <string name="general_remove_action">Kaldır</string>
     <string name="general_remove_selected_action">Seçilenleri kaldır</string>
     <plurals name="general_remove_success_x_items">
@@ -110,6 +114,10 @@
     <plurals name="result_x_failed">
         <item quantity="one">%d başarısız</item>
         <item quantity="other">%d başarısız</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s serbest bırakılabilir</item>
+        <item quantity="other">%s serbest bırakılabilir</item>
     </plurals>
     <string name="general_info_label">Bilgi</string>
     <string name="general_count_label">Toplam</string>
@@ -147,4 +155,5 @@
         <item quantity="other">%s dosyalar</item>
     </plurals>
     <string name="general_advice_title">Tavsiye</string>
+    <string name="general_error_invalid_input_label">Geçersiz giriş</string>
 </resources>

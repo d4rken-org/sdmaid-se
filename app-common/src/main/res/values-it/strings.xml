@@ -88,6 +88,10 @@
     <string name="general_delete_confirmation_title">Conferma eliminazione</string>
     <string name="general_delete_confirmation_message_x">Eliminare \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Eliminare %d elementi selezionati?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Eliminato %d elemento</item>
+        <item quantity="other">Eliminati %d elementi</item>
+    </plurals>
     <string name="general_remove_action">Elimina</string>
     <string name="general_remove_selected_action">Rimuovi selezionato</string>
     <plurals name="general_remove_success_x_items">
@@ -110,6 +114,10 @@
     <plurals name="result_x_failed">
         <item quantity="one">%d fallito</item>
         <item quantity="other">%d falliti</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s può essere liberato</item>
+        <item quantity="other">%s possono essere liberati</item>
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Conteggio</string>
@@ -147,4 +155,5 @@
         <item quantity="other">%s file</item>
     </plurals>
     <string name="general_advice_title">Consiglio</string>
+    <string name="general_error_invalid_input_label">Inserimento non valido</string>
 </resources>

@@ -248,6 +248,7 @@
     <string name="systemcleaner_filter_macfiles_label">File di Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">File e cartelle che vengono creati durante la navigazione archiviazione con l\'app di ricerca di Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">File di Windows</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Dati che Esplora file di Windows può creare nell'archivio connesso"</string>
     <string name="systemcleaner_filter_thumbnails_label">Anteprime</string>
     <string name="systemcleaner_filter_thumbnails_summary">Anteprime nella cache per immagini e video.</string>
     <string name="systemcleaner_filter_tempfiles_label">File temporanei</string>
@@ -289,6 +290,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Esclusioni</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Il risultato sarà escluso se il percorso corrisponde a qualsiasi voce (ad esempio \"DCIM\"). Tieni premuto sulle voci per ulteriori opzioni.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modalità confronto percorsi</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Il percorso inizia con la parola chiave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Il percorso contiene la parola chiave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Il percorso termina con la parola chiave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Il percorso è uguale alla parola chiave</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modalità confronto nomi</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Il nome inizia con la parola chiave</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Il nome contiene la parola chiave</string>
@@ -405,6 +410,10 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="deduplicator_detection_method_phash_title">Hash percettivo</string>
     <string name="deduplicator_detection_method_phash_summary">Trova file simili analizzando le caratteristiche del contenuto e confrontando i valori degli hash percettivi.</string>
     <string name="deduplicator_occupied_space_label">Spazio occupato</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s è occupato da duplicati</item>
+        <item quantity="other">%s sono occupati da duplicati</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Dimensione file</string>
     <string name="deduplicator_average_size_label">Dimensione media</string>
     <string name="deduplicator_cluster_x_label">Cluster %s</string>
@@ -650,6 +659,10 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="review_app_dismiss_action">Forse più tardi</string>
     <string name="review_app_body">Vuoi lasciare una recensione su SD Maid? ❤️</string>
     <string name="stats_label">Cronologia</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s è stato liberato</item>
+        <item quantity="other">%s sono stati liberati</item>
+    </plurals>
     <string name="stats_report_status_success">Completato</string>
     <string name="stats_report_status_partial_success">Completato parzialmente</string>
     <string name="stats_report_status_partial_failure">Errore</string>

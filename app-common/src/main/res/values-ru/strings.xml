@@ -88,6 +88,12 @@
     <string name="general_delete_confirmation_title">Подтвердить удаление</string>
     <string name="general_delete_confirmation_message_x">Удалить \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Удалить %d выбранных элементов?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Удален %d элемент.</item>
+        <item quantity="few">Удалено элементов: %d</item>
+        <item quantity="many">Удалено элементов: %d</item>
+        <item quantity="other">Удалено элементов: %d</item>
+    </plurals>
     <string name="general_remove_action">Удалить</string>
     <string name="general_remove_selected_action">Убрать выбранные</string>
     <plurals name="general_remove_success_x_items">
@@ -118,6 +124,12 @@
         <item quantity="few">Ошибка %d</item>
         <item quantity="many">Ошибка %d</item>
         <item quantity="other">Ошибка %d</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">Можно освободить: %s</item>
+        <item quantity="few">Можно освободить: %s</item>
+        <item quantity="many">Можно освободить: %s</item>
+        <item quantity="other">Можно освободить: %s</item>
     </plurals>
     <string name="general_info_label">Информация</string>
     <string name="general_count_label">Количество</string>
@@ -161,4 +173,5 @@
         <item quantity="other">Файлов: %s</item>
     </plurals>
     <string name="general_advice_title">Совет</string>
+    <string name="general_error_invalid_input_label">Недопустимое значение</string>
 </resources>

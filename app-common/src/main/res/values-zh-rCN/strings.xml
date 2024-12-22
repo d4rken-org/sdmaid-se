@@ -88,6 +88,9 @@
     <string name="general_delete_confirmation_title">确认删除</string>
     <string name="general_delete_confirmation_message_x">是否删除“%s”？</string>
     <string name="general_delete_confirmation_message_selected_x_items">删除选中的 %d 个项目吗？</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="other">已删除 %d 项</item>
+    </plurals>
     <string name="general_remove_action">删除</string>
     <string name="general_remove_selected_action">移除所选</string>
     <plurals name="general_remove_success_x_items">
@@ -106,6 +109,9 @@
     </plurals>
     <plurals name="result_x_failed">
         <item quantity="other">%d个失败</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="other">可释放 %s 空间</item>
     </plurals>
     <string name="general_info_label">信息</string>
     <string name="general_count_label">数量</string>
@@ -140,4 +146,5 @@
         <item quantity="other">%s 个文件</item>
     </plurals>
     <string name="general_advice_title">建议</string>
+    <string name="general_error_invalid_input_label">输入无效</string>
 </resources>

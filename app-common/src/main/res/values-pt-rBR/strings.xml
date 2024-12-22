@@ -147,4 +147,5 @@
         <item quantity="other">%s arquivos</item>
     </plurals>
     <string name="general_advice_title">Aviso</string>
+    <string name="general_error_invalid_input_label">Entrada inválida</string>
 </resources>
