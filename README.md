@@ -21,7 +21,7 @@ Features include:
 * Deleting expendable files, e.g. caches (AppCleaner)
 * User configurable filters for random files (SystemCleaner)
 * Scheduling actions (Scheduler)
-* Controling/disabling apps (AppControl)
+* Controlling/disabling apps (AppControl)
 * Storage overview (StorageAnalyzer)
 * Find duplicate data (Deduplicator)
 * Root and Shizuku support
