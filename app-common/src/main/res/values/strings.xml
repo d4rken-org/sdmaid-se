@@ -80,8 +80,8 @@
     <string name="general_result_success_message">Operation successful</string>
     <string name="general_result_failure_message">Operation failed</string>
     <plurals name="general_result_x_space_freed">
-        <item quantity="one">%s freed</item>
-        <item quantity="other">%s freed</item>
+        <item quantity="one">Freed %s space.</item>
+        <item quantity="other">Freed %s space.</item>
     </plurals>
 
     <string name="general_options_label">Options</string>
@@ -101,10 +101,6 @@
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Deleted %d item.</item>
         <item quantity="other">Deleted %d items.</item>
-    </plurals>
-    <plurals name="general_delete_success_freed_y">
-        <item quantity="one">Freed %s space.</item>
-        <item quantity="other">Freed %s space.</item>
     </plurals>
 
     <string name="general_remove_action">Remove</string>
