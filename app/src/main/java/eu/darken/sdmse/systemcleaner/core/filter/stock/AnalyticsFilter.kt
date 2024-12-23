@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.segs
+import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -68,11 +69,32 @@ class AnalyticsFilter @Inject constructor(
         log(TAG) { "initialized() with $config" }
 
         val antiTracking = Config(
-            areaTypes = setOf(DataArea.Type.SDCARD),
+            areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
             pfpCriteria = setOf(
                 SegmentCriterium(segs(".tlocalcookieid"), Mode.Equal()),
                 SegmentCriterium(segs(".INSTALLATION"), Mode.Equal()),
                 SegmentCriterium(segs(".wps_preloaded_2.txt"), Mode.Equal()),
+                SegmentCriterium(".UTSystemConfig/Global/Alvin2.xml".toSegs(), Mode.Equal()),
+                SegmentCriterium(".DataStorage/ContextData.xml".toSegs(), Mode.Equal()),
+                SegmentCriterium("com.snssdk.api.embed/cache/clientudid.dat".toSegs(), Mode.Equal()),
+                SegmentCriterium("Tencent/ams/cache/meta.dat".toSegs(), Mode.Equal()),
+                SegmentCriterium("com.tencent.ams/cache/meta.dat".toSegs(), Mode.Equal()),
+                SegmentCriterium("backups/.SystemConfig/.cuid".toSegs(), Mode.Equal()),
+                SegmentCriterium("backups/.SystemConfig/.cuid2".toSegs(), Mode.Equal()),
+                SegmentCriterium("backups/.adiu".toSegs(), Mode.Equal()),
+                SegmentCriterium("Mob/comm/dbs/.duid".toSegs(), Mode.Equal()),
+                SegmentCriterium(segs(".mn_1006862472"), Mode.Equal()),
+                SegmentCriterium(segs(".imei.txt"), Mode.Equal()),
+                SegmentCriterium(segs(".DC4278477faeb9.txt"), Mode.Equal()),
+                SegmentCriterium("Android/obj/.um/sysid.dat".toSegs(), Mode.Equal()),
+                SegmentCriterium(".um/sysid.dat".toSegs(), Mode.Equal()),
+                SegmentCriterium(".pns/.uniqueId".toSegs(), Mode.Ancestor()),
+                SegmentCriterium(segs(".oukdtft"), Mode.Equal()),
+                SegmentCriterium("libs/com.igexin.sdk.deviceId.db".toSegs(), Mode.Equal()),
+                SegmentCriterium("data/.push_deviceid".toSegs(), Mode.Equal()),
+                SegmentCriterium("msc/.2F6E2C5B63F0F83B".toSegs(), Mode.Equal()),
+                SegmentCriterium(".lm_device/.lm_device_id".toSegs(), Mode.Equal()),
+                SegmentCriterium("LMDevice/lm_device_id".toSegs(), Mode.Equal()),
             ),
         )
         antiTrackingSieve = baseSieveFactory.create(antiTracking)
