@@ -1,7 +1,6 @@
 package eu.darken.flowshell.core.cmd
 
 import eu.darken.flowshell.core.FlowShell
-import eu.darken.flowshell.core.FlowShellDebug
 import eu.darken.rxshell.cmd.RxCmdShell
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -26,6 +25,6 @@ class FlowCmdShell {
 
 
     companion object {
-        private val TAG = FlowShellDebug.logTag("FlowCmdShell")
+        private const val TAG = "FS:FlowCmdShell"
     }
 }

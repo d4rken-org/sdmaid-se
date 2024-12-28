@@ -1,6 +1,6 @@
 package eu.darken.flowshell.core.process
 
-import eu.darken.flowshell.core.FlowShellDebug
+import eu.darken.flowshell.core.FlowShellDebug.isDebug
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -16,15 +16,15 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 class FlowProcess(
-    sessionLaunch: suspend () -> Process,
-    sessionCheck: suspend (Process) -> Boolean = { it.isAlive2 },
-    sessionKill: suspend (Process) -> Unit = { it.destroyForcibly() },
+    launch: suspend () -> Process,
+    check: suspend (Process) -> Boolean = { it.isAlive },
+    kill: suspend (Process) -> Unit = { it.destroyForcibly() },
 ) {
 
     private val processCreator = callbackFlow {
-        if (FlowShellDebug.isDebug) log(TAG, VERBOSE) { "PROCESS: Launchin..." }
-        val process = sessionLaunch()
-        if (FlowShellDebug.isDebug) log(TAG, VERBOSE) { "PROCESS: Launched!" }
+        if (isDebug) log(TAG, VERBOSE) { "Launching..." }
+        val process = launch()
+        if (isDebug) log(TAG, VERBOSE) { "Launched!" }
 
         val processExitCode = MutableSharedFlow<Int>(
             replay = 1,
@@ -34,9 +34,9 @@ class FlowProcess(
 
         val killRoutine: suspend () -> Unit = {
             try {
-                sessionKill(process)
+                kill(process)
             } catch (e: Exception) {
-                log(TAG, ERROR) { "PROCESS: sessionKill threw up: ${e.asLog()}" }
+                log(TAG, ERROR) { "sessionKill threw up: ${e.asLog()}" }
                 throw e
             }
         }
@@ -44,42 +44,52 @@ class FlowProcess(
         val session = Session(
             process = process,
             exitCode = processExitCode,
+            onCheck = check,
             onKill = {
-                if (sessionCheck(process)) {
-                    if (FlowShellDebug.isDebug) log(TAG) { "PROCESS: Kill session due to kill()..." }
+                if (check(process)) {
+                    if (isDebug) log(TAG) { "Kill session due to kill()..." }
                     killRoutine()
                 }
             }
         )
+        if (isDebug) log(TAG) { "Emitting session: $session" }
         send(session)
 
         launch(Dispatchers.IO) {
-            if (FlowShellDebug.isDebug) log(TAG, VERBOSE) { "PROCESS: Waiting for process finish" }
+            if (isDebug) log(TAG, VERBOSE) { "Waiting for process finish" }
             val result = process.waitFor()
-            if (FlowShellDebug.isDebug) log(TAG) { "PROCESS: Has finished with CODE $result" }
+            if (isDebug) log(TAG) { "Has finished with CODE $result" }
             this@callbackFlow.cancel("Process ended with $result")
             processExitCode.emit(result)
         }
 
         awaitClose {
-            if (FlowShellDebug.isDebug) log(TAG, VERBOSE) { "PROCESS: Closing..." }
+            if (isDebug) log(TAG, VERBOSE) { "Flow is closing..." }
             runBlocking {
-                if (sessionCheck(process)) {
-                    if (FlowShellDebug.isDebug) log(TAG) { "PROCESS: Kill session due to awaitClose()..." }
-                    killRoutine()
-                }
+                if (check(process)) killRoutine()
+
+                if (isDebug) log(TAG) { "Waiting for process to terminate" }
+                process.waitFor()
+                if (isDebug) log(TAG) { "Process has terminated" }
             }
-            if (FlowShellDebug.isDebug) log(TAG, VERBOSE) { "PROCESS: Closed!" }
+            if (isDebug) log(TAG, VERBOSE) { "Flow is closed!" }
         }
     }
 
     val session: Flow<Session> = processCreator
 
     data class Session(
-        val process: Process,
+        private val process: Process,
         val exitCode: Flow<Int>,
-        val onKill: suspend () -> Unit,
+        private val onKill: suspend () -> Unit,
+        private val onCheck: suspend (Process) -> Boolean,
     ) {
+        val input = process.outputStream
+        val output = process.inputStream
+        val errors = process.errorStream
+
+        suspend fun isAlive() = onCheck(process)
+
         suspend fun kill() = onKill()
     }
 

@@ -7,8 +7,12 @@ import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapConcat
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -32,15 +36,15 @@ class FlowProcessTest : BaseTest() {
         var checked = false
         var killed = false
         val flow = FlowProcess(
-            sessionLaunch = {
+            launch = {
                 opened = true
-                ProcessBuilder("echo", "hello").start()
+                ProcessBuilder("sh", "-c", "echo 'Error' 1>&2; echo 'Input'; sleep 1").start()
             },
-            sessionCheck = {
+            check = {
                 checked = true
-                it.isAlive2
+                it.isAlive
             },
-            sessionKill = {
+            kill = {
                 killed = true
                 it.destroyForcibly()
             }
@@ -57,13 +61,13 @@ class FlowProcessTest : BaseTest() {
         var started = -1L
         var stopped = -1L
         val flow = FlowProcess(
-            sessionLaunch = {
+            launch = {
                 ProcessBuilder("sleep", "1").start().also {
                     started = System.currentTimeMillis()
                 }
             },
-            sessionCheck = { true },
-            sessionKill = {
+            check = { true },
+            kill = {
                 stopped = System.currentTimeMillis()
                 log { "Killing process" }
                 it.destroyForcibly()
@@ -77,9 +81,36 @@ class FlowProcessTest : BaseTest() {
         (stopped - started) shouldBeGreaterThan 1000
     }
 
+    @Test fun `session stays open`() = runTest {
+        val flow = FlowProcess(
+            launch = {
+                ProcessBuilder("sh").start()
+            },
+        )
+        var session: FlowProcess.Session? = null
+        flow.session.onEach { session = it }.launchIn(this)
+        delay(100)
+        session shouldNotBe null
+
+        val writer = session!!.input.buffered().bufferedWriter()
+
+        (1..100).forEach {
+            writer.write("echo hi$it\n")
+            writer.flush()
+        }
+
+        session!!.isAlive() shouldBe true
+
+        writer.write("exit\n")
+        writer.flush()
+
+        log { "Waiting for exit code" }
+        session!!.exitCode.first() shouldBe 0
+    }
+
     @Test fun `session can be killed`() = runTest {
         val flow = FlowProcess(
-            sessionLaunch = {
+            launch = {
                 log { "Launching process" }
                 ProcessBuilder("sleep", "3").start().also {
                     log { "Process launched" }
@@ -100,14 +131,14 @@ class FlowProcessTest : BaseTest() {
         var stopped = -1L
 
         val flow = FlowProcess(
-            sessionLaunch = {
+            launch = {
                 log { "Launching process" }
                 ProcessBuilder("sleep", "3").start().also {
                     log { "Process launched" }
                     started = System.currentTimeMillis()
                 }
             },
-            sessionKill = {
+            kill = {
                 log { "Killing process" }
                 it.destroyForcibly()
                 log { "Process killed" }
@@ -123,13 +154,13 @@ class FlowProcessTest : BaseTest() {
 
     @Test fun `exception on close`() = runTest {
         val flow = FlowProcess(
-            sessionLaunch = {
+            launch = {
                 log { "Launching process" }
-                ProcessBuilder("echo", "N+M").start().also {
+                ProcessBuilder("sleep", "1").start().also {
                     log { "Process launched" }
                 }
             },
-            sessionKill = {
+            kill = {
                 log { "Killing process" }
                 throw IOException("test")
             }
@@ -144,7 +175,7 @@ class FlowProcessTest : BaseTest() {
 
     @Test fun `exception on open`() = runTest {
         val flow = FlowProcess(
-            sessionLaunch = {
+            launch = {
                 throw IOException("test")
             },
         )
@@ -158,7 +189,7 @@ class FlowProcessTest : BaseTest() {
     @Test fun `session is restartable`() = runTest {
         var startCount = 0
         val flow = FlowProcess(
-            sessionLaunch = {
+            launch = {
                 ProcessBuilder("echo", "<3").start().also {
                     startCount++
                 }
@@ -177,7 +208,7 @@ class FlowProcessTest : BaseTest() {
     @Test fun `session is kill and restartable`() = runTest {
         var startCount = 0
         val flow = FlowProcess(
-            sessionLaunch = {
+            launch = {
                 ProcessBuilder("sleep", "1").start().also {
                     startCount++
                 }
@@ -191,5 +222,25 @@ class FlowProcessTest : BaseTest() {
         log { "Waiting for exit code (launch #2)" }
         flow.session.flatMapConcat { it.exitCode }.first() shouldBe 0
         startCount shouldBe 2
+    }
+
+    @Test fun `session is killed via pid`() = runTest {
+        var opened = false
+        var killed = false
+        val flow = FlowProcess(
+            launch = {
+                opened = true
+                ProcessBuilder("sh").start()
+            },
+            kill = {
+                it.killViaPid()
+                killed = true
+            }
+        )
+
+        flow.session.first()
+
+        opened shouldBe true
+        killed shouldBe true
     }
 }

@@ -1,15 +1,16 @@
 package eu.darken.flowshell.core.process
 
-import eu.darken.flowshell.core.FlowShellDebug
-import eu.darken.rxshell.extra.ApiWrap
+import eu.darken.flowshell.core.FlowShellDebug.isDebug
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.plus
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.withContext
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStreamWriter
@@ -19,71 +20,57 @@ private const val TAG = "FS:FlowProcess:Extensions"
 private val PID_PATTERN = Pattern.compile("^.+?pid=(\\d+).+?$")
 private val SPACES_PATTERN = Pattern.compile("\\s+")
 
-internal val Process.isAlive2: Boolean
-    get() = if (ApiWrap.hasOreo()) {
-        @Suppress("NewApi")
-        this.isAlive
-    } else {
-        try {
-            this.exitValue()
-            false
-        } catch (e: IllegalThreadStateException) {
-            true
-        }
-    }
-
 // stupid method for getting the pid, but it actually works
 internal val Process.processPid: Int?
     get() = PID_PATTERN.matcher(this.toString())
         .takeIf { it.matches() }
-        ?.let { it.group(1).toInt() }
+        ?.group(1)?.toInt()
 
-suspend fun Process.killWithRootPid(shell: String = "su"): Boolean {
-    if (FlowShellDebug.isDebug) log(TAG) { "killWithRootPid($this,$shell)" }
-    if (!this.isAlive2) {
-        if (FlowShellDebug.isDebug) log(TAG) { "Process is no longer alive, skipping kill." }
+suspend fun Process.killViaPid(shell: String = "sh"): Boolean {
+    if (isDebug) log(TAG) { "killWithRoot($this,$shell)" }
+    if (!this.isAlive) {
+        if (isDebug) log(TAG, VERBOSE) { "Process is no longer alive, skipping kill." }
         return true
     }
 
     val pid = this.processPid
     if (pid == null) {
-        if (FlowShellDebug.isDebug) log(TAG, ERROR) { "Can't find PID for $this" }
+        if (isDebug) log(TAG, ERROR) { "Can't find PID for $this" }
         return false
     }
     val pidFamily = this.pidFamily(shell)
-    if (FlowShellDebug.isDebug) log(TAG) { "Pid family pids: $pidFamily" }
+    if (isDebug) log(TAG, VERBOSE) { "Family pids: $pidFamily" }
 
-    return pidFamily?.destroyPids() ?: false
+    return pidFamily?.kill() ?: false
 }
 
 // use 'ps' to get this pid and all pids that are related to it (e.g. spawned by it)
-internal suspend fun Process.pidFamily(shell: String = "su"): PidFamily? {
-    val parentPid = processPid ?: return null
+internal suspend fun Process.pidFamily(shell: String = "sh"): PidFamily? = withContext(Dispatchers.IO) {
+    val parentPid = processPid ?: return@withContext null
     var process: Process? = null
     val childPids = try {
         process = ProcessBuilder(shell).start()
-        val os = OutputStreamWriter(process.outputStream)
 
-        val output = coroutineScope {
-            val errorsHarvester = process.errorStream.miniHarvester().launchIn(this + Dispatchers.IO)
-            val outputHarvester = process.inputStream.miniHarvester().launchIn(this + Dispatchers.IO)
+        val rawPidLines = coroutineScope {
+            val output = mutableListOf<String>()
+            val error = mutableListOf<String>()
+            process.errorStream.miniHarvester().onEach { output.add(it) }.launchIn(this)
+            process.inputStream.miniHarvester().onEach { error.add(it) }.launchIn(this)
 
-            os.write("ps${System.lineSeparator()}")
-            os.write("exit${System.lineSeparator()}")
-            os.flush()
-            os.close()
-            val exitcode = process.waitFor()
-            if (FlowShellDebug.isDebug) log(TAG) { "pidFamily($parentPid) exitcode: $exitcode" }
-            if (exitcode == 0) {
-                listOf<String>()
-            } else {
-                null
+            OutputStreamWriter(process.outputStream).apply {
+                write("ps -o pid,ppid${System.lineSeparator()}")
+                write("exit${System.lineSeparator()}")
+                flush()
+                close()
             }
+
+            val exitcode = process.waitFor()
+            if (exitcode == 0) output + error else null
         }
 
-        output
+        rawPidLines
             ?.asSequence()
-            ?.drop(1)
+            ?.drop(1) // Title line
             ?.map { SPACES_PATTERN.split(it) }
             ?.filter { it.size >= 3 }
             ?.filter { parentPid == it[2].toInt() }
@@ -91,81 +78,65 @@ internal suspend fun Process.pidFamily(shell: String = "su"): PidFamily? {
                 try {
                     line[1].toInt()
                 } catch (e: NumberFormatException) {
-                    if (FlowShellDebug.isDebug) log(TAG, WARN) { "pidFamily(parentPid) parse failure: $line" }
+                    if (isDebug) log(TAG, WARN) { "pidFamily(parentPid) parse failure: $line" }
                     null
                 }
             }
             ?.toSet()
     } catch (interrupt: InterruptedException) {
-        if (FlowShellDebug.isDebug) log(TAG, WARN) { "Interrupted" }
-        return null
+        if (isDebug) log(TAG, WARN) { "Interrupted" }
+        return@withContext null
     } catch (e: IOException) {
-        if (FlowShellDebug.isDebug) log(TAG, WARN) { "IOException, pipe broke?" }
-        return null
+        if (isDebug) log(TAG, WARN) { "IOException, pipe broke?" }
+        return@withContext null
     } finally {
         process?.destroy()
     }
 
-    return PidFamily(parentPid, childPids ?: emptySet())
+    return@withContext PidFamily(parentPid, childPids ?: emptySet()).also {
+        if (isDebug) log(TAG) { "pidFamily($parentPid) is $it" }
+    }
 }
 
 internal data class PidFamily(
     val parent: Int,
-    val children: List<Int>
+    val children: Set<Int>
 ) {
-    suspend fun destroyPids(): Boolean {
+    suspend fun kill(shell: String = "sh"): Boolean = withContext(Dispatchers.IO) {
         val pids = listOf(parent) + children
         var process: Process? = null
-        return try {
-            process = ProcessBuilder("su").start()
-            val out = OutputStreamWriter(process.outputStream)
+        try {
+            process = ProcessBuilder(shell).start()
+
             coroutineScope {
-                process.errorStream.miniHarvester().launchIn(this + Dispatchers.IO)
-                process.inputStream.miniHarvester().launchIn(this + Dispatchers.IO)
-                for (p in children) out.write("kill $p${System.lineSeparator()}")
-                out.write("exit${System.lineSeparator()}")
-                out.flush()
-                out.close()
-                val exitcode = process.waitFor()
-                if (FlowShellDebug.isDebug) log(TAG) { "destroyPids(pids=$pids) exitcode: $exitcode" }
-                exitcode == 0
+                process.errorStream.miniHarvester().launchIn(this)
+                process.inputStream.miniHarvester().launchIn(this)
+
+                OutputStreamWriter(process.outputStream).apply {
+                    pids.forEach { write("kill -9 $it${System.lineSeparator()}") }
+                    write("exit${System.lineSeparator()}")
+                    flush()
+                    close()
+                }
             }
+
+            val exitcode = process.waitFor()
+            if (isDebug) log(TAG) { "kill(pids=$pids) exitcode: $exitcode" }
+            exitcode == 0
+
         } catch (interrupt: InterruptedException) {
-            log(TAG, WARN) { "destroyPids(pids=$pids) Interrupted!" }
+            log(TAG, WARN) { "kill(pids=$pids) Interrupted!" }
             false
         } catch (e: IOException) {
-            log(TAG, WARN) { "destroyPids(pids=$pids) IOException, command failed? not found?" }
+            log(TAG, WARN) { "kill(pids=$pids) IOException, command failed? not found?" }
             false
         } finally {
             process?.destroy()
         }
-        return true
     }
 }
 
-fun InputStream.miniHarvester() = callbackFlow<String> {
-    return Observable
-        .create<String?>(ObservableOnSubscribe<String?> { emitter: ObservableEmitter<String?> ->
-            val reader = BufferedReader(InputStreamReader(inputStream))
-            val lineReader = LineReader()
-            var line: String?
-            try {
-                while (lineReader.readLine(reader).also { line = it } != null && !emitter.isDisposed()) {
-                    emitter.onNext(line!!)
-                }
-            } catch (e: IOException) {
-                if (FlowShellDebug.isDebug) Timber.tag(TAG).d("MiniHarvester read error: %s", e.message)
-            } finally {
-                emitter.onComplete()
-            }
-        })
-        .doOnEach(Consumer<Notification<String?>> { n: Notification<String?>? ->
-            if (FlowShellDebug.isDebug) Timber.tag(
-                TAG
-            ).v("miniHarvesters:doOnEach %s", n)
-        })
-        .subscribeOn(Schedulers.io())
-        .toList()
-        .onErrorReturnItem(ArrayList<String>())
-        .cache()
+private fun InputStream.miniHarvester() = flow {
+    val reader = this@miniHarvester.reader().buffered()
+    reader.lineSequence().forEach { emit(it) }
 }

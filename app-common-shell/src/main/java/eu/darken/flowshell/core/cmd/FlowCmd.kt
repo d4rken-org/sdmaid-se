@@ -15,6 +15,6 @@ data class FlowCmd(
         val errors: List<String>?,
     ) {
         val isSuccessful: Boolean
-            get() = exitCode.isSuccess
+            get() = exitCode == FlowShell.ExitCode.OK
     }
 }
