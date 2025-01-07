@@ -1,6 +1,6 @@
 package eu.darken.flowshell.core.cmd
 
-import eu.darken.flowshell.core.FlowShell
+import eu.darken.flowshell.core.process.FlowProcess
 
 data class FlowCmd(
     val instructions: List<String>,
@@ -10,11 +10,11 @@ data class FlowCmd(
 
     data class Result(
         val flowCmd: FlowCmd,
-        val exitCode: FlowShell.ExitCode,
+        val exitCode: FlowProcess.ExitCode,
         val output: List<String>?,
         val errors: List<String>?,
     ) {
         val isSuccessful: Boolean
-            get() = exitCode == FlowShell.ExitCode.OK
+            get() = exitCode == FlowProcess.ExitCode.OK
     }
 }

@@ -6,19 +6,20 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 
 class FlowProcess(
     launch: suspend () -> Process,
-    check: suspend (Process) -> Boolean = { it.isAlive },
-    kill: suspend (Process) -> Unit = { it.destroyForcibly() },
+    kill: suspend (Process) -> Unit = { if (it.isAlive) it.destroyForcibly() },
 ) {
 
     private val processCreator = callbackFlow {
@@ -26,11 +27,7 @@ class FlowProcess(
         val process = launch()
         if (isDebug) log(TAG, VERBOSE) { "Launched!" }
 
-        val processExitCode = MutableSharedFlow<Int>(
-            replay = 1,
-            extraBufferCapacity = 1,
-            onBufferOverflow = BufferOverflow.SUSPEND
-        )
+        val processExitCode = MutableStateFlow<ExitCode?>(null)
 
         val killRoutine: suspend () -> Unit = {
             try {
@@ -44,31 +41,32 @@ class FlowProcess(
         val session = Session(
             process = process,
             exitCode = processExitCode,
-            onCheck = check,
             onKill = {
-                if (check(process)) {
-                    if (isDebug) log(TAG) { "Kill session due to kill()..." }
-                    killRoutine()
-                }
+                if (isDebug) log(TAG) { "Kill session due to kill()..." }
+                killRoutine()
             }
         )
+
+        // Send session first
         if (isDebug) log(TAG) { "Emitting session: $session" }
         send(session)
 
-        launch(Dispatchers.IO) {
+        // Otherwise we could already have closed, if the process is short
+        launch(Dispatchers.IO + NonCancellable) {
             if (isDebug) log(TAG, VERBOSE) { "Waiting for process finish" }
-            val result = process.waitFor()
-            if (isDebug) log(TAG) { "Has finished with CODE $result" }
-            this@callbackFlow.cancel("Process ended with $result")
-            processExitCode.emit(result)
+            val code = process.waitFor().let { ExitCode(it) }
+            if (isDebug) log(TAG) { "Has finished with $code" }
+            processExitCode.value = code
+            this@callbackFlow.close()
         }
 
+        if (isDebug) log(TAG, VERBOSE) { "Waiting for flow to close..." }
         awaitClose {
             if (isDebug) log(TAG, VERBOSE) { "Flow is closing..." }
             runBlocking {
-                if (check(process)) killRoutine()
+                killRoutine()
 
-                if (isDebug) log(TAG) { "Waiting for process to terminate" }
+                if (isDebug) log(TAG) { "Waiting for process to be terminate" }
                 process.waitFor()
                 if (isDebug) log(TAG) { "Process has terminated" }
             }
@@ -80,17 +78,30 @@ class FlowProcess(
 
     data class Session(
         private val process: Process,
-        val exitCode: Flow<Int>,
+        val exitCode: Flow<ExitCode?>,
         private val onKill: suspend () -> Unit,
-        private val onCheck: suspend (Process) -> Boolean,
     ) {
         val input = process.outputStream
         val output = process.inputStream
         val errors = process.errorStream
 
-        suspend fun isAlive() = onCheck(process)
+        suspend fun waitFor() = withContext(Dispatchers.IO) {
+            exitCode.filterNotNull().first()
+        }
 
-        suspend fun kill() = onKill()
+        suspend fun isAlive() = exitCode.first() == null
+
+        suspend fun kill() = withContext(Dispatchers.IO) {
+            onKill()
+        }
+    }
+
+    data class ExitCode(val value: Int) {
+        companion object {
+            val OK = ExitCode(0)
+            val PROBLEM = ExitCode(1)
+            val OUT_OF_RANGE = ExitCode(255)
+        }
     }
 
     companion object {

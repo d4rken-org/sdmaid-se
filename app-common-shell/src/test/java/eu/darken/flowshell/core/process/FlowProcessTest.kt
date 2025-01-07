@@ -3,21 +3,25 @@ package eu.darken.flowshell.core.process
 
 import eu.darken.flowshell.core.FlowShellDebug
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.flow.replayingShare
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.plus
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import testhelpers.coroutine.runTest2
 import java.io.IOException
 
 class FlowProcessTest : BaseTest() {
@@ -33,16 +37,11 @@ class FlowProcessTest : BaseTest() {
 
     @Test fun `base opening`() = runTest {
         var opened = false
-        var checked = false
         var killed = false
         val flow = FlowProcess(
             launch = {
                 opened = true
                 ProcessBuilder("sh", "-c", "echo 'Error' 1>&2; echo 'Input'; sleep 1").start()
-            },
-            check = {
-                checked = true
-                it.isAlive
             },
             kill = {
                 killed = true
@@ -53,7 +52,6 @@ class FlowProcessTest : BaseTest() {
         flow.session.first()
 
         opened shouldBe true
-        checked shouldBe true
         killed shouldBe true
     }
 
@@ -66,7 +64,6 @@ class FlowProcessTest : BaseTest() {
                     started = System.currentTimeMillis()
                 }
             },
-            check = { true },
             kill = {
                 stopped = System.currentTimeMillis()
                 log { "Killing process" }
@@ -76,7 +73,9 @@ class FlowProcessTest : BaseTest() {
         )
 
         log { "Waiting for exit code" }
-        flow.session.flatMapConcat { it.exitCode }.first() shouldBe 0
+        flow.session.collect {
+            it.waitFor() shouldBe FlowProcess.ExitCode.OK
+        }
 
         (stopped - started) shouldBeGreaterThan 1000
     }
@@ -105,25 +104,38 @@ class FlowProcessTest : BaseTest() {
         writer.flush()
 
         log { "Waiting for exit code" }
-        session!!.exitCode.first() shouldBe 0
+        session!!.waitFor() shouldBe FlowProcess.ExitCode.OK
+    }
+
+    @Test fun `wait for blocks until exit`() = runTest2(autoCancel = true) {
+        val sharedSession = FlowProcess(
+            launch = { ProcessBuilder("sleep", "1").start() },
+        ).session.replayingShare(this)
+        sharedSession.launchIn(this + Dispatchers.IO)
+
+        sharedSession.first().apply {
+            val start = System.currentTimeMillis()
+            waitFor() shouldBe FlowProcess.ExitCode.OK
+            val stop = System.currentTimeMillis()
+            stop - start shouldBeGreaterThan 900L
+        }
     }
 
     @Test fun `session can be killed`() = runTest {
+        var start = 0L
         val flow = FlowProcess(
             launch = {
-                log { "Launching process" }
                 ProcessBuilder("sleep", "3").start().also {
-                    log { "Process launched" }
+                    start = System.currentTimeMillis()
                 }
             },
         )
 
-        flow.session
-            .flatMapConcat {
-                it.kill()
-                it.exitCode
-            }
-            .first() shouldBe 137
+        flow.session.collect {
+            it.kill()
+            it.waitFor() shouldBe FlowProcess.ExitCode(137)
+        }
+        System.currentTimeMillis() - start shouldBeLessThan 2000
     }
 
     @Test fun `session is killed on scope cancel`() = runTest {
@@ -147,7 +159,7 @@ class FlowProcessTest : BaseTest() {
         )
 
         log { "Waiting for exit code" }
-        flow.session.first().exitCode.first() shouldBe 137
+        flow.session.first().exitCode.filterNotNull().first() shouldBe FlowProcess.ExitCode(137)
 
         (stopped - started) shouldBeLessThan 3000
     }
@@ -197,11 +209,15 @@ class FlowProcessTest : BaseTest() {
         )
 
         log { "Waiting for exit code (launch #1)" }
-        flow.session.flatMapConcat { it.exitCode }.first() shouldBe 0
+        flow.session.collect {
+            it.waitFor() shouldBe FlowProcess.ExitCode.OK
+        }
         startCount shouldBe 1
 
         log { "Waiting for exit code (launch #2)" }
-        flow.session.flatMapConcat { it.exitCode }.first() shouldBe 0
+        flow.session.collect {
+            it.waitFor() shouldBe FlowProcess.ExitCode.OK
+        }
         startCount shouldBe 2
     }
 
@@ -215,12 +231,15 @@ class FlowProcessTest : BaseTest() {
             },
         )
 
+        // Immediately ends the scope after the emission
         log { "Starting and killing (launch #1)" }
-        flow.session.first().exitCode.first() shouldBe 137
+        flow.session.first().exitCode.first() shouldBe FlowProcess.ExitCode(137)
         startCount shouldBe 1
 
         log { "Waiting for exit code (launch #2)" }
-        flow.session.flatMapConcat { it.exitCode }.first() shouldBe 0
+        flow.session.collect {
+            it.waitFor() shouldBe FlowProcess.ExitCode.OK
+        }
         startCount shouldBe 2
     }
 
@@ -238,7 +257,9 @@ class FlowProcessTest : BaseTest() {
             }
         )
 
-        flow.session.first()
+        flow.session.first().apply {
+            waitFor() shouldBe FlowProcess.ExitCode(137)
+        }
 
         opened shouldBe true
         killed shouldBe true

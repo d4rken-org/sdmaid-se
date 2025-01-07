@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -22,12 +23,17 @@ import java.io.OutputStreamWriter
 import java.nio.charset.StandardCharsets
 
 class FlowShell(
-    val shell: String = "sh",
+    val process: FlowProcess
 ) {
-    private val process = FlowProcess(
-        launch = { ProcessBuilder(shell).start() },
-        kill = { it.killViaPid(shell) }
+    constructor(
+        shell: String = "sh"
+    ) : this(
+        process = FlowProcess(
+            launch = { ProcessBuilder(shell).start() },
+            kill = { it.killViaPid(shell) }
+        )
     )
+
     private val shellCreator = process.session
         .map { processSession ->
             if (isDebug) log(TAG, VERBOSE) { "Wrapping to shell session..." }
@@ -43,8 +49,10 @@ class FlowShell(
     data class Session(
         private val session: FlowProcess.Session,
     ) {
-        val exitCode: Flow<ExitCode>
-            get() = session.exitCode.map { ExitCode((it)) }
+        val exitCode: Flow<FlowProcess.ExitCode?>
+            get() = session.exitCode
+
+        suspend fun isAlive() = session.isAlive()
 
         private val writer by lazy {
             OutputStreamWriter(session.input, StandardCharsets.UTF_8)
@@ -52,7 +60,6 @@ class FlowShell(
 
         private fun InputStream.lineHarvester(tag: String) = flow {
             if (isDebug) log(TAG, VERBOSE) { "Harverster($tag) is active" }
-
             bufferedReader().use { reader ->
                 reader.lines().consumeAsFlow().collect {
                     if (isDebug) log(TAG, VERBOSE) { "Harverster($tag) -> $it" }
@@ -72,8 +79,8 @@ class FlowShell(
             if (flush) writer.flush()
         }
 
-        suspend fun waitFor(): ExitCode = withContext(Dispatchers.IO) {
-            exitCode.first()
+        suspend fun waitFor(): FlowProcess.ExitCode = withContext(Dispatchers.IO) {
+            exitCode.filterNotNull().first()
         }
 
         suspend fun close() = withContext(Dispatchers.IO) {
@@ -83,17 +90,7 @@ class FlowShell(
 
         suspend fun kill() = withContext(Dispatchers.IO) {
             if (isDebug) log(TAG) { "kill()" }
-            writer.close()
             session.kill()
-        }
-    }
-
-
-    data class ExitCode(val value: Int) {
-        companion object {
-            val OK = ExitCode(0)
-            val PROBLEM = ExitCode(1)
-            val OUT_OF_RANGE = ExitCode(255)
         }
     }
 

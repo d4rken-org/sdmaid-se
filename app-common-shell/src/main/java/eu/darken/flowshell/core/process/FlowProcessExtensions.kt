@@ -121,7 +121,7 @@ internal data class PidFamily(
             }
 
             val exitcode = process.waitFor()
-            if (isDebug) log(TAG) { "kill(pids=$pids) exitcode: $exitcode" }
+            if (isDebug) log(TAG) { "kill(pids=$pids) -> exitcode: $exitcode" }
             exitcode == 0
 
         } catch (interrupt: InterruptedException) {

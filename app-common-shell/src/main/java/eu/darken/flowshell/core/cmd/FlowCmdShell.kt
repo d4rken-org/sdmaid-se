@@ -1,6 +1,6 @@
 package eu.darken.flowshell.core.cmd
 
-import eu.darken.flowshell.core.FlowShell
+import eu.darken.flowshell.core.process.FlowProcess
 import eu.darken.rxshell.cmd.RxCmdShell
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -15,7 +15,7 @@ class FlowCmdShell {
         val rxResult = rxCmd.execute(RxCmdShell.builder().build())
         val result: FlowCmd.Result = FlowCmd.Result(
             flowCmd = flowCmd,
-            exitCode = FlowShell.ExitCode(rxResult.exitCode),
+            exitCode = FlowProcess.ExitCode(rxResult.exitCode),
             output = rxResult.output,
             errors = rxResult.errors
         )
