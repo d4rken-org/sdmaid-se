@@ -259,17 +259,17 @@ class TaggedInputView @JvmOverloads constructor(
 
         val tagTypes = when (chipTag.criterium) {
             is NameCriterium -> listOf(
-                NameCriterium.Mode.Start() to R.string.systemcleaner_customfilter_editor_segments_matching_mode_start_label,
-                NameCriterium.Mode.Contain() to R.string.systemcleaner_customfilter_editor_segments_matching_mode_contains_label,
-                NameCriterium.Mode.End() to R.string.systemcleaner_customfilter_editor_segments_matching_mode_end_label,
-                NameCriterium.Mode.Equal() to R.string.systemcleaner_customfilter_editor_segments_matching_mode_equal_label,
+                NameCriterium.Mode.Start() to R.string.systemcleaner_customfilter_editor_name_matching_mode_start_label,
+                NameCriterium.Mode.Contain() to R.string.systemcleaner_customfilter_editor_name_matching_mode_contains_label,
+                NameCriterium.Mode.End() to R.string.systemcleaner_customfilter_editor_name_matching_mode_end_label,
+                NameCriterium.Mode.Equal() to R.string.systemcleaner_customfilter_editor_name_matching_mode_equal_label,
             )
 
             is SegmentCriterium -> listOf(
-                SegmentCriterium.Mode.Start(allowPartial = true) to R.string.systemcleaner_customfilter_editor_name_matching_mode_start_label,
-                SegmentCriterium.Mode.Contain(allowPartial = true) to R.string.systemcleaner_customfilter_editor_name_matching_mode_contains_label,
-                SegmentCriterium.Mode.End(allowPartial = true) to R.string.systemcleaner_customfilter_editor_name_matching_mode_end_label,
-                SegmentCriterium.Mode.Equal() to R.string.systemcleaner_customfilter_editor_name_matching_mode_equal_label,
+                SegmentCriterium.Mode.Start(allowPartial = true) to R.string.systemcleaner_customfilter_editor_segments_matching_mode_start_label,
+                SegmentCriterium.Mode.Contain(allowPartial = true) to R.string.systemcleaner_customfilter_editor_segments_matching_mode_contains_label,
+                SegmentCriterium.Mode.End(allowPartial = true) to R.string.systemcleaner_customfilter_editor_segments_matching_mode_end_label,
+                SegmentCriterium.Mode.Equal() to R.string.systemcleaner_customfilter_editor_segments_matching_mode_equal_label,
             )
         }
         setSingleChoiceItems(
