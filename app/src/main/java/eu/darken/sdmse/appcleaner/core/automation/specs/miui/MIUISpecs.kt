@@ -177,8 +177,11 @@ class MIUISpecs @Inject constructor(
         log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script, country=$country)" }
 
         val clearDataLabels = miuiLabels.getClearDataButtonLabels(lang, script, country)
+        log(TAG) { "clearDataLabels=$clearDataLabels" }
         val clearCacheLabels = miuiLabels.getClearCacheButtonLabels(lang, script, country)
+        log(TAG) { "clearCacheLabels=$clearCacheLabels" }
         val dialogTitles = miuiLabels.getDialogTitles(lang, script, country)
+        log(TAG) { "clearCacheLabels=$clearCacheLabels" }
 
         var useAlternativeStep = deviceAdminManager.getDeviceAdmins().contains(pkg.id).also {
             if (it) log(TAG) { "${pkg.id} is a device admin, using alternative step directly." }

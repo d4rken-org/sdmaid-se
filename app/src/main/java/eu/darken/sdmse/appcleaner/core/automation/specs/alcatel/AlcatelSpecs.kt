@@ -77,6 +77,7 @@ class AlcatelSpecs @Inject constructor(
         run {
             val storageEntryLabels =
                 alcatelLabels.getStorageEntryDynamic() + alcatelLabels.getStorageEntryStatic(lang, script)
+            log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
@@ -97,6 +98,7 @@ class AlcatelSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels =
                 alcatelLabels.getClearCacheDynamic() + alcatelLabels.getClearCacheStatic(lang, script)
+            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false

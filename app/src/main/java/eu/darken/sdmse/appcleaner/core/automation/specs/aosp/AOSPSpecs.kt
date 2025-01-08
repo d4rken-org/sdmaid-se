@@ -36,7 +36,6 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
-import java.util.*
 import javax.inject.Inject
 
 @Reusable
@@ -76,7 +75,8 @@ class AOSPSpecs @Inject constructor(
         run {
             val storageEntryLabels =
                 aospLabels.getStorageEntryDynamic() + aospLabels.getStorageEntryStatic(lang, script)
-
+            log(TAG) { "storageEntryLabels=$storageEntryLabels" }
+            
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
             val step = StepProcessor.Step(
@@ -96,6 +96,7 @@ class AOSPSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels =
                 aospLabels.getClearCacheDynamic() + aospLabels.getClearCacheStatic(lang, script)
+            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false

@@ -37,7 +37,6 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
-import java.util.*
 import javax.inject.Inject
 
 @Reusable
@@ -75,6 +74,7 @@ class HuaweiSpecs @Inject constructor(
         run {
             val storageEntryLabels =
                 huaweiLabels.getStorageEntryDynamic() + huaweiLabels.getStorageEntryLabels(lang, script)
+            log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
@@ -95,6 +95,7 @@ class HuaweiSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels =
                 huaweiLabels.getClearCacheDynamic() + huaweiLabels.getClearCacheLabels(lang, script)
+            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false

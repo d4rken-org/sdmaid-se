@@ -37,7 +37,6 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
-import java.util.*
 import javax.inject.Inject
 
 @Reusable
@@ -76,6 +75,7 @@ class LGESpecs @Inject constructor(
 
         run {
             val storageEntryLabels = lgeLabels.getStorageEntryDynamic() + lgeLabels.getStorageEntryLabels(lang, script)
+            log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 

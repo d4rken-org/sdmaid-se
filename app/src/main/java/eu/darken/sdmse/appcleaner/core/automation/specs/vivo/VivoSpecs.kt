@@ -76,6 +76,7 @@ class VivoSpecs @Inject constructor(
         run {
             val storageEntryLabels =
                 vivoLabels.getStorageEntryDynamic() + vivoLabels.getStorageEntryStatic(lang, script)
+            log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
@@ -101,6 +102,7 @@ class VivoSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels =
                 vivoLabels.getClearCacheDynamic() + vivoLabels.getClearCacheStatic(lang, script)
+            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             var isUnclickableLabelButton = false
             val buttonFilter = when {

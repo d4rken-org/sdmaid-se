@@ -76,6 +76,7 @@ class OnePlusSpecs @Inject constructor(
         run {
             val storageEntryLabels =
                 onePlusLabels.getStorageEntryDynamic() + onePlusLabels.getStorageEntryLabels(lang, script)
+            log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
@@ -96,6 +97,7 @@ class OnePlusSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels =
                 onePlusLabels.getClearCacheDynamic() + onePlusLabels.getClearCacheStatic(lang, script)
+            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             var isUnclickableButton = false
             val buttonFilter = when {
