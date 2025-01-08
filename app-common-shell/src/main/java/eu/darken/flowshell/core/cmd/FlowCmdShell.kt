@@ -15,6 +15,8 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.dropWhile
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
@@ -89,32 +91,56 @@ class FlowCmdShell(
             mutex.withLock {
                 cmdCount++
                 val id = UUID.randomUUID().toString()
+                val idStart = "$id-start"
+                val idEnd = "$id-end"
                 log(TAG, VERBOSE) { "submit($cmdCount): $cmd" }
 
                 val output = mutableListOf<String>()
                 val outputReady = CompletableDeferred<Unit>()
                 val outputJob = sharedOutput
-                    .onStart { outputReady.complete(Unit) }
-                    .onEach { output.add(it) }
-                    .takeWhile { !it.startsWith(id) }
+                    .onStart {
+                        outputReady.complete(Unit)
+                        log(TAG, VERBOSE) { "Output monitor started ($id)" }
+                    }
+                    .dropWhile { it != idStart }
+                    .onEach { log(TAG, VERBOSE) { "Output monitor running ($id)" } }
+                    .drop(1)
+                    .onEach {
+                        log(TAG, VERBOSE) { "Adding (output-$id) $it" }
+                        output.add(it)
+                    }
+                    .takeWhile { !it.startsWith(idEnd) }
                     .onCompletion { if (isDebug) log(TAG, VERBOSE) { "Output monitor finished ($id)" } }
                     .launchIn(this + Dispatchers.IO)
 
                 val errors = mutableListOf<String>()
                 val errorReady = CompletableDeferred<Unit>()
                 val errorJob = sharedErrors
-                    .onStart { errorReady.complete(Unit) }
-                    .takeWhile { it != id }
-                    .onEach { errors.add(it) }
+                    .onStart {
+                        errorReady.complete(Unit)
+                        log(TAG, VERBOSE) { "Error monitor started ($id)" }
+                    }
+                    .dropWhile { it != idStart }
+                    .onEach { log(TAG, VERBOSE) { "Error monitor running ($id)" } }
+                    .drop(1)
+                    .takeWhile { it != idEnd }
+                    .onEach {
+                        log(TAG, VERBOSE) { "Adding (errors-$id) $it" }
+                        errors.add(it)
+                    }
                     .onCompletion { if (isDebug) log(TAG, VERBOSE) { "Error monitor finished ($id)" } }
                     .launchIn(this + Dispatchers.IO)
 
                 listOf(outputReady, errorReady).awaitAll()
+
                 if (isDebug) log(TAG, VERBOSE) { "Harvesters are ready, writing commands... ($id)" }
 
+                session.write("echo $idStart", false)
+                session.write("echo $idStart >&2", false)
                 cmd.instructions.forEach { session.write(it, flush = false) }
-                session.write("echo $id $?", false)
-                session.write("echo $id >&2", true)
+                session.write("echo $idEnd $?", false)
+                session.write("echo $idEnd >&2", true)
+
                 if (isDebug) log(TAG, VERBOSE) { "Commands are written, waiting... ($id)" }
 
                 listOf(outputJob, errorJob).joinAll()

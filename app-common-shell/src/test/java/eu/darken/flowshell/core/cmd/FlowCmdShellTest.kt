@@ -111,7 +111,7 @@ class FlowCmdShellTest : BaseTest() {
         }
     }
 
-    @Test fun `race commands`() = runTest2(autoCancel = true) {
+    @Test fun `race command commands`() = runTest2(autoCancel = true) {
         FlowCmdShell().session.collect { session ->
             session.counter shouldBe 0
             (1..1000)
