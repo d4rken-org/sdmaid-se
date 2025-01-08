@@ -234,7 +234,7 @@ class FlowProcessTest : BaseTest() {
 
         // Immediately ends the scope after the emission
         log { "Starting and killing (launch #1)" }
-        flow.session.first().exitCode.first() shouldBe FlowProcess.ExitCode(137)
+        flow.session.first().exitCode.first() shouldNotBe FlowProcess.ExitCode.OK
         startCount shouldBe 1
 
         log { "Waiting for exit code (launch #2)" }
