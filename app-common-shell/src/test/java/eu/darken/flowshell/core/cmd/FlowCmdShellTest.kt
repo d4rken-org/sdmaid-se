@@ -164,7 +164,7 @@ class FlowCmdShellTest : BaseTest() {
 
         shouldThrow<TimeoutCancellationException> {
             withTimeout(500) {
-                FlowCmd("sleep 3").execute(session).apply {
+                FlowCmd("sleep 3", "echo nope").execute(session).apply {
                     exitCode shouldBe FlowProcess.ExitCode.OK
                 }
             }

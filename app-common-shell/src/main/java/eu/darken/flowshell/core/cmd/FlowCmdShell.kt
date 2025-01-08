@@ -22,6 +22,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.onSubscription
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.flow.takeWhile
 import kotlinx.coroutines.joinAll
@@ -98,7 +99,7 @@ class FlowCmdShell(
                 val output = mutableListOf<String>()
                 val outputReady = CompletableDeferred<Unit>()
                 val outputJob = sharedOutput
-                    .onStart {
+                    .onSubscription {
                         outputReady.complete(Unit)
                         log(TAG, VERBOSE) { "Output monitor started ($id)" }
                     }
@@ -116,7 +117,7 @@ class FlowCmdShell(
                 val errors = mutableListOf<String>()
                 val errorReady = CompletableDeferred<Unit>()
                 val errorJob = sharedErrors
-                    .onStart {
+                    .onSubscription {
                         errorReady.complete(Unit)
                         log(TAG, VERBOSE) { "Error monitor started ($id)" }
                     }
