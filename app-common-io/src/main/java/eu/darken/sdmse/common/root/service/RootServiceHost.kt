@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.annotation.Keep
 import dagger.Lazy
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.rxshell.cmd.Cmd
-import eu.darken.rxshell.cmd.RxCmdShell
+import eu.darken.flowshell.core.cmd.FlowCmd
+import eu.darken.flowshell.core.cmd.execute
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.ipc.FileOpsConnection
@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsConnection
 import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsHost
 import eu.darken.sdmse.common.shell.ipc.ShellOpsConnection
 import eu.darken.sdmse.common.shell.ipc.ShellOpsHost
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -29,8 +30,8 @@ class RootServiceHost @Inject constructor(
     override fun checkBase(): String {
         val sb = StringBuilder()
         sb.append("Our pkg: ${context.packageName}\n")
-        val ids = Cmd.builder("id").submit(RxCmdShell.Builder().build()).blockingGet()
-        sb.append("Shell ids are: ${ids.merge()}\n")
+        val ids = runBlocking { FlowCmd("id").execute() }
+        sb.append("Shell ids are: ${ids.merged}\n")
         val result = sb.toString()
         log(TAG) { "checkBase(): $result" }
         return result

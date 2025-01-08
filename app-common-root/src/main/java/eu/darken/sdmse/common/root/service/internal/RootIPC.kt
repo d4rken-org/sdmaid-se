@@ -8,8 +8,9 @@ import android.os.RemoteException
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import eu.darken.rxshell.cmd.Cmd
-import eu.darken.rxshell.cmd.RxCmdShell
+import eu.darken.flowshell.core.cmd.FlowCmd
+import eu.darken.flowshell.core.cmd.execute
+import eu.darken.flowshell.core.process.FlowProcess
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -120,7 +121,7 @@ class RootIPC @AssistedInject constructor(
         require(timeout >= 0L) { "Timeout can't be negative: $timeout" }
     }
 
-    fun broadcastAndWait() {
+    suspend fun broadcastAndWait() {
         log(TAG) { "broadcast()" }
 
         broadcastIPC()
@@ -168,7 +169,7 @@ class RootIPC @AssistedInject constructor(
      * Uses the reflected sendBroadcast method that doesn't require us to have a context
      * You may call this manually to re-broadcast the interface
      */
-    private fun broadcastIPC() {
+    private suspend fun broadcastIPC() {
         val bundle = Bundle().apply {
             putBinder(RootConnectionReceiver.BROADCAST_BINDER, internalBinder)
             putString(RootConnectionReceiver.BROADCAST_CODE, initArgs.pairingCode)
@@ -224,10 +225,10 @@ class RootIPC @AssistedInject constructor(
         connections.singleOrNull { it.deathRecipient === deathRecipient }
     }
 
-    private fun getUserIds(): List<Int> {
-        val result = Cmd.builder("pm list users").execute(RxCmdShell.builder().build())
-        if (result.exitCode != Cmd.ExitCode.OK) {
-            log(TAG, ERROR) { "Failed to get user handles via shell: ${result.merge()}" }
+    private suspend fun getUserIds(): List<Int> {
+        val result = FlowCmd("pm list users").execute()
+        if (result.exitCode != FlowProcess.ExitCode.OK) {
+            log(TAG, ERROR) { "Failed to get user handles via shell: ${result.merged}" }
             return listOf(0)
         }
 

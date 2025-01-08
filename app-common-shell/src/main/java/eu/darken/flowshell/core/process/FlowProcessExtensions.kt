@@ -27,7 +27,7 @@ internal val Process.processPid: Int?
         ?.group(1)?.toInt()
 
 suspend fun Process.killViaPid(shell: String = "sh"): Boolean {
-    if (isDebug) log(TAG) { "killWithRoot($this,$shell)" }
+    if (isDebug) log(TAG, VERBOSE) { "killViaPid($this,$shell)" }
     if (!this.isAlive) {
         if (isDebug) log(TAG, VERBOSE) { "Process is no longer alive, skipping kill." }
         return true
@@ -94,7 +94,7 @@ internal suspend fun Process.pidFamily(shell: String = "sh"): PidFamily? = withC
     }
 
     return@withContext PidFamily(parentPid, childPids ?: emptySet()).also {
-        if (isDebug) log(TAG) { "pidFamily($parentPid) is $it" }
+        if (isDebug) log(TAG, VERBOSE) { "pidFamily($parentPid) is $it" }
     }
 }
 
@@ -121,7 +121,7 @@ internal data class PidFamily(
             }
 
             val exitcode = process.waitFor()
-            if (isDebug) log(TAG) { "kill(pids=$pids) -> exitcode: $exitcode" }
+            if (isDebug) log(TAG, VERBOSE) { "kill(pids=$pids) -> exitcode: $exitcode" }
             exitcode == 0
 
         } catch (interrupt: InterruptedException) {

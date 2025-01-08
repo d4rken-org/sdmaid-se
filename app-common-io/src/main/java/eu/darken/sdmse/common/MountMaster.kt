@@ -1,8 +1,10 @@
 package eu.darken.sdmse.common
 
 import android.os.Build
-import eu.darken.rxshell.cmd.Cmd
-import eu.darken.rxshell.cmd.RxCmdShell
+import eu.darken.flowshell.core.cmd.FlowCmd
+import eu.darken.flowshell.core.cmd.FlowCmdShell
+import eu.darken.flowshell.core.cmd.execute
+import eu.darken.flowshell.core.process.FlowProcess
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -38,13 +40,13 @@ class MountMaster @Inject constructor(
         }
 
         log(TAG) { "Checking for mount-master support..." }
-        val result = Cmd.builder("su --help").execute(RxCmdShell.builder().root(true).build())
-        if (result.exitCode != Cmd.ExitCode.OK) {
-            log(TAG, INFO) { "mount-master check failed: ${result.merge()}" }
+        val result = FlowCmd("su --help").execute(FlowCmdShell("su"))
+        if (result.exitCode != FlowProcess.ExitCode.OK) {
+            log(TAG, INFO) { "mount-master check failed: ${result.merged}" }
             return false
         }
 
-        val supported = result.merge().any { it.contains("--mount-master") }
+        val supported = result.merged.any { it.contains("--mount-master") }
         log(TAG, INFO) { "mount-master is required and current support status is supported=$supported" }
         return supported
     }

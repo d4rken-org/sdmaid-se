@@ -3,10 +3,10 @@
 package eu.darken.sdmse.common.serialization
 
 import com.squareup.moshi.*
-import io.reactivex.rxjava3.annotations.CheckReturnValue
 import java.io.IOException
 import java.lang.reflect.Type
 import java.util.*
+import javax.annotation.CheckReturnValue
 
 class ValueBasedPolyJsonAdapterFactory<T> internal constructor(
     val baseType: Class<T>,

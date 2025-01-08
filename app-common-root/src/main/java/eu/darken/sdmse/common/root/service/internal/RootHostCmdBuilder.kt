@@ -6,7 +6,7 @@ import android.os.Build
 import android.os.Process
 import android.util.Base64
 import androidx.annotation.RequiresApi
-import eu.darken.rxshell.cmd.Cmd
+import eu.darken.flowshell.core.cmd.FlowCmd
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -17,7 +17,7 @@ import eu.darken.sdmse.common.parcel.marshall
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.IOException
-import java.util.*
+import java.util.UUID
 import kotlin.reflect.KClass
 
 /**
@@ -28,7 +28,7 @@ import kotlin.reflect.KClass
  */
 
 @SuppressLint("PrivateApi")
-class RootHostCmdBuilder<Host : BaseRootHost> constructor(
+class RootHostCmdBuilder<Host : BaseRootHost>(
     private val context: Context,
     private val rootHost: KClass<Host>,
 ) {
@@ -43,14 +43,12 @@ class RootHostCmdBuilder<Host : BaseRootHost> constructor(
         Class.forName("android.os.SystemProperties")
     }
 
-    @get:RequiresApi(26)
     private val isVndkLite by lazy {
         classSystemProperties
             .getDeclaredMethod("getBoolean", String::class.java, Boolean::class.java)
             .invoke(null, "ro.vndk.lite", false) as Boolean
     }
 
-    @get:RequiresApi(26)
     private val vndkVersion by lazy {
         classSystemProperties
             .getDeclaredMethod("get", String::class.java, String::class.java)
@@ -185,7 +183,7 @@ class RootHostCmdBuilder<Host : BaseRootHost> constructor(
     fun build(
         withRelocation: Boolean,
         initialOptions: RootHostInitArgs,
-    ): Cmd.Builder {
+    ): FlowCmd {
         log { "build(relocate=$withRelocation, ${initialOptions})" }
         val cmds = mutableListOf<String>()
 
@@ -209,7 +207,7 @@ class RootHostCmdBuilder<Host : BaseRootHost> constructor(
 
         cmds.add(launchCmd)
 
-        return Cmd.builder(cmds)
+        return FlowCmd(cmds)
     }
 
     private fun buildLaunchCmd(isDebug: Boolean, processPath: String): String {

@@ -9,12 +9,15 @@ data class FlowCmd(
     constructor(vararg instrs: String) : this(instrs.toList())
 
     data class Result(
-        val flowCmd: FlowCmd,
+        val original: FlowCmd,
         val exitCode: FlowProcess.ExitCode,
-        val output: List<String>?,
-        val errors: List<String>?,
+        val output: List<String>,
+        val errors: List<String>,
     ) {
         val isSuccessful: Boolean
             get() = exitCode == FlowProcess.ExitCode.OK
+
+        val merged: List<String>
+            get() = output + errors
     }
 }

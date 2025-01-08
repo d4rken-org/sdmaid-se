@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.shell.ipc
 
-import eu.darken.rxshell.cmd.Cmd
+import eu.darken.flowshell.core.cmd.FlowCmd
+import eu.darken.flowshell.core.cmd.execute
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
@@ -25,10 +26,10 @@ class ShellOpsHost @Inject constructor(
     override fun execute(cmd: ShellOpsCmd): ShellOpsResult = try {
         runBlocking {
             val result = sharedShell.useRes {
-                Cmd.builder(cmd.cmds).execute(it)
+                FlowCmd(cmd.cmds).execute(it)
             }
             ShellOpsResult(
-                exitCode = result.exitCode,
+                exitCode = result.exitCode.value,
                 output = result.output,
                 errors = result.errors
             )

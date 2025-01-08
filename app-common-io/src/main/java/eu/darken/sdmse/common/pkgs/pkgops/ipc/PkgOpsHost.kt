@@ -5,7 +5,9 @@ import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.rxshell.cmd.Cmd
+import eu.darken.flowshell.core.cmd.FlowCmd
+import eu.darken.flowshell.core.cmd.execute
+import eu.darken.flowshell.core.process.FlowProcess
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.Bugs.isDryRun
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -65,8 +67,8 @@ class PkgOpsHost @Inject constructor(
             log(TAG, ERROR) { "isRunning($packageName): runningAppProcesses failed due to $e " }
             runBlocking {
                 sharedShell.useRes {
-                    Cmd.builder("pidof $packageName").execute(it)
-                }.exitCode == Cmd.ExitCode.OK
+                    FlowCmd("pidof $packageName").execute(it)
+                }.exitCode == FlowProcess.ExitCode.OK
             }
         }
         log(TAG, VERBOSE) { "isRunning(packageName=$packageName)=$result" }
@@ -162,10 +164,10 @@ class PkgOpsHost @Inject constructor(
         log(TAG, VERBOSE) { "grantPermission($packageName, $handleId, $permissionId)..." }
         val result = runBlocking {
             sharedShell.useRes {
-                Cmd.builder("pm grant --user $handleId $packageName $permissionId").execute(it)
+                FlowCmd("pm grant --user $handleId $packageName $permissionId").execute(it)
             }
         }
-        result.exitCode == Cmd.ExitCode.OK
+        result.exitCode == FlowProcess.ExitCode.OK
     } catch (e: Exception) {
         log(TAG, ERROR) { "grantPermission($packageName, $handleId, $permissionId) failed: ${e.asLog()}" }
         throw e.wrapToPropagate()
@@ -175,10 +177,10 @@ class PkgOpsHost @Inject constructor(
         log(TAG, VERBOSE) { "revokePermission($packageName, $handleId, $permissionId)..." }
         val result = runBlocking {
             sharedShell.useRes {
-                Cmd.builder("pm revoke --user $handleId $packageName $permissionId").execute(it)
+                FlowCmd("pm revoke --user $handleId $packageName $permissionId").execute(it)
             }
         }
-        result.exitCode == Cmd.ExitCode.OK
+        result.exitCode == FlowProcess.ExitCode.OK
     } catch (e: Exception) {
         log(TAG, ERROR) { "revokePermission($packageName, $handleId, $permissionId) failed: ${e.asLog()}" }
         throw e.wrapToPropagate()
@@ -188,10 +190,10 @@ class PkgOpsHost @Inject constructor(
         log(TAG, VERBOSE) { "setAppOps($packageName, $handleId, $key, $value)..." }
         val result = runBlocking {
             sharedShell.useRes {
-                Cmd.builder("appops set --user $handleId $packageName $key $value ").execute(it)
+                FlowCmd("appops set --user $handleId $packageName $key $value ").execute(it)
             }
         }
-        result.exitCode == Cmd.ExitCode.OK
+        result.exitCode == FlowProcess.ExitCode.OK
     } catch (e: Exception) {
         log(TAG, ERROR) { "setAppOps($packageName, $handleId, $key, $value) failed: ${e.asLog()}" }
         throw e.wrapToPropagate()

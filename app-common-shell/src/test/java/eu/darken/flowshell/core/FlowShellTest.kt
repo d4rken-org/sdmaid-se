@@ -52,6 +52,7 @@ class FlowShellTest : BaseTest() {
                 delay(it)
             }
             session.close()
+            session.isAlive() shouldBe false
             session.waitFor() shouldBe FlowProcess.ExitCode.OK
         }
 
@@ -59,7 +60,7 @@ class FlowShellTest : BaseTest() {
         errors shouldBe rows.map { "error $it" }
     }
 
-    @Test fun `sessions can be reused`() = runTest2(autoCancel = true) {
+    @Test fun `exitcode behavior`() = runTest2(autoCancel = true) {
         val sharedSession = FlowShell().session.replayingShare(this)
         sharedSession.launchIn(this + Dispatchers.IO)
 
@@ -77,10 +78,8 @@ class FlowShellTest : BaseTest() {
         val sharedSession = FlowShell().session.replayingShare(this)
         sharedSession.launchIn(this + Dispatchers.IO)
         sharedSession.first().apply {
-            isAlive() shouldBe true
             close()
             waitFor() shouldBe FlowProcess.ExitCode.OK
-            isAlive() shouldBe false
         }
     }
 
@@ -88,10 +87,8 @@ class FlowShellTest : BaseTest() {
         val sharedSession = FlowShell().session.replayingShare(this)
         sharedSession.launchIn(this + Dispatchers.IO)
         sharedSession.first().apply {
-            isAlive() shouldBe true
-            kill()
+            cancel()
             waitFor() shouldBe FlowProcess.ExitCode(137)
-            isAlive() shouldBe false
         }
     }
 

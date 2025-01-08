@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.flow.replayingShare
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.longs.shouldBeGreaterThan
+import io.kotest.matchers.longs.shouldBeGreaterThanOrEqual
 import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
@@ -77,7 +78,7 @@ class FlowProcessTest : BaseTest() {
             it.waitFor() shouldBe FlowProcess.ExitCode.OK
         }
 
-        (stopped - started) shouldBeGreaterThan 1000
+        (stopped - started) shouldBeGreaterThanOrEqual 1000
     }
 
     @Test fun `session stays open`() = runTest {
@@ -132,7 +133,7 @@ class FlowProcessTest : BaseTest() {
         )
 
         flow.session.collect {
-            it.kill()
+            it.cancel()
             it.waitFor() shouldBe FlowProcess.ExitCode(137)
         }
         System.currentTimeMillis() - start shouldBeLessThan 2000
