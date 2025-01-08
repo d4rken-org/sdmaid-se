@@ -101,13 +101,11 @@ class FlowCmdShell(
                 val outputJob = sharedOutput
                     .onSubscription {
                         outputReady.complete(Unit)
-                        log(TAG, VERBOSE) { "Output monitor started ($id)" }
+                        if (isDebug) log(TAG, VERBOSE) { "Output monitor started ($id)" }
                     }
-                    .dropWhile { it != idStart }
-                    .onEach { log(TAG, VERBOSE) { "Output monitor running ($id)" } }
-                    .drop(1)
+                    .dropWhile { it != idStart }.drop(1)
                     .onEach {
-                        log(TAG, VERBOSE) { "Adding (output-$id) $it" }
+                        if (isDebug) log(TAG, VERBOSE) { "Adding (output-$id) $it" }
                         output.add(it)
                     }
                     .takeWhile { !it.startsWith(idEnd) }
@@ -119,14 +117,12 @@ class FlowCmdShell(
                 val errorJob = sharedErrors
                     .onSubscription {
                         errorReady.complete(Unit)
-                        log(TAG, VERBOSE) { "Error monitor started ($id)" }
+                        if (isDebug) log(TAG, VERBOSE) { "Error monitor started ($id)" }
                     }
-                    .dropWhile { it != idStart }
-                    .onEach { log(TAG, VERBOSE) { "Error monitor running ($id)" } }
-                    .drop(1)
+                    .dropWhile { it != idStart }.drop(1)
                     .takeWhile { it != idEnd }
                     .onEach {
-                        log(TAG, VERBOSE) { "Adding (errors-$id) $it" }
+                        if (isDebug) log(TAG, VERBOSE) { "Adding (errors-$id) $it" }
                         errors.add(it)
                     }
                     .onCompletion { if (isDebug) log(TAG, VERBOSE) { "Error monitor finished ($id)" } }
