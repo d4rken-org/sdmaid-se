@@ -41,6 +41,7 @@ import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.main.core.SDMTool
@@ -83,6 +84,7 @@ class AppControl @Inject constructor(
     automationManager: AutomationManager,
 ) : SDMTool, Progress.Client {
 
+    private val usedResources = setOf(pkgOps)
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
     private val progressPub = MutableStateFlow<Progress.Data?>(null)
@@ -123,13 +125,15 @@ class AppControl @Inject constructor(
         log(TAG) { "submit($task) starting..." }
         updateProgress { Progress.Data() }
         try {
-            val result = when (task) {
-                is AppControlScanTask -> performScan(task)
-                is AppControlToggleTask -> performToggle(task)
-                is UninstallTask -> performUninstall(task)
-                is AppExportTask -> performExportSave(task)
-                is ForceStopTask -> performForceStop(task)
-                else -> throw UnsupportedOperationException("Unsupported task: $task")
+            val result = keepResourceHoldersAlive(usedResources) {
+                when (task) {
+                    is AppControlScanTask -> performScan(task)
+                    is AppControlToggleTask -> performToggle(task)
+                    is UninstallTask -> performUninstall(task)
+                    is AppExportTask -> performExportSave(task)
+                    is ForceStopTask -> performForceStop(task)
+                    else -> throw UnsupportedOperationException("Unsupported task: $task")
+                }
             }
 
             log(TAG, INFO) { "submit($task) finished: $result" }
