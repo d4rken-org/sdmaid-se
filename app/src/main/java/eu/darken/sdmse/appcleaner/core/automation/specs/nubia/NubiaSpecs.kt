@@ -78,6 +78,7 @@ class NubiaSpecs @Inject constructor(
         run {
             val storageEntryLabels =
                 nubiaLabels.getStorageEntryDynamic() + nubiaLabels.getStorageEntryLabels(lang, script)
+            log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
@@ -100,6 +101,7 @@ class NubiaSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels =
                 nubiaLabels.getClearCacheDynamic() + nubiaLabels.getClearCacheLabels(lang, script)
+            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 if (!node.isClickyButton()) return false

@@ -34,7 +34,6 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
-import java.util.*
 import javax.inject.Inject
 
 @Reusable
@@ -76,6 +75,7 @@ class FlymeSpecs @Inject constructor(
             // Do this beforehand so we crash early if unsupported
             val clearCacheButtonLabels =
                 flymeLabels.getClearCacheDynamic() + flymeLabels.getClearCacheLabels(lang, script)
+            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             if (clearCacheButtonLabels.isNotEmpty()) {
                 log(TAG, WARN) { "clearCacheButtonLabels was empty" }

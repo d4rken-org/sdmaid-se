@@ -78,6 +78,7 @@ class RealmeSpecs @Inject constructor(
         run {
             val storageEntryLabels =
                 realmeLabels.getStorageEntryDynamic() + realmeLabels.getStorageEntryLabels(lang, script)
+            log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
@@ -98,6 +99,7 @@ class RealmeSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels =
                 realmeLabels.getClearCacheDynamic() + realmeLabels.getClearCacheLabels(lang, script)
+            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             var isUnclickableButton = false
             val buttonFilter = when {

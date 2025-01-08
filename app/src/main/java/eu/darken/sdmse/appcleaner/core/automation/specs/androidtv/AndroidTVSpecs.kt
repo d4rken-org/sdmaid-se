@@ -78,6 +78,7 @@ open class AndroidTVSpecs @Inject constructor(
 
         run {
             val clearCacheButtonLabels = androidTVLabels.getClearCacheLabels(lang, script)
+            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             if (clearCacheButtonLabels.isEmpty()) {
                 log(TAG, WARN) { "clearCacheButtonLabels was empty" }
@@ -105,6 +106,7 @@ open class AndroidTVSpecs @Inject constructor(
 
         run {
             val clearCacheTexts = androidTVLabels.getClearCacheLabels(lang, script)
+            log(TAG) { "clearCacheTexts=$clearCacheTexts" }
 
             val windowCriteria = fun(node: AccessibilityNodeInfo): Boolean {
                 if (node.pkgId != SETTINGS_PKG) return false

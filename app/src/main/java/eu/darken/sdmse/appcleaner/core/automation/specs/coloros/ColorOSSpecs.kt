@@ -39,7 +39,6 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
-import java.util.*
 import javax.inject.Inject
 
 @Reusable
@@ -92,6 +91,7 @@ class ColorOSSpecs @Inject constructor(
 
             val storageEntryLabels =
                 colorOSLabels.getStorageEntryDynamic() + colorOSLabels.getStorageEntryLabels(lang, script)
+            log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
@@ -115,6 +115,7 @@ class ColorOSSpecs @Inject constructor(
 
             val clearCacheButtonLabels =
                 colorOSLabels.getClearCacheDynamic() + colorOSLabels.getClearCacheLabels(lang, script)
+            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
                 return node.textMatchesAny(clearCacheButtonLabels)
