@@ -57,6 +57,11 @@
     <string name="general_progress_loading_egg_3">پردازنده در حال استراحت با قهوه است</string>
     <string name="general_progress_loading_egg_4">در انتظار اطلاعات از پپه سیلویا</string>
     <string name="general_progress_loading_egg_5">محفظه توربو در حال راه اندازی است</string>
+    <string name="general_progress_loading_egg_6">ردکردن کره</string>
+    <string name="general_progress_loading_egg_7">خب. چطوری تحملش میکنی؟</string>
+    <string name="general_progress_loading_egg_8">بوق بوپ بوپ</string>
+    <string name="general_progress_loading_egg_9">بافر کردن انتخاب های زندگی</string>
+    <string name="general_progress_loading_egg_10">احضار کاتولو</string>
     <string name="general_progress_loading_egg_11">این خوبه</string>
     <string name="general_progress_loading_egg_12">لطفا نگه دارید</string>
     <string name="general_progress_loading_egg_13">حداقل در انتظار نیستی</string>
@@ -67,8 +72,13 @@
     <string name="general_progress_deleting_x">درحال حذف %s</string>
     <string name="general_sort_options_label">گزینه‌های مرتب‌سازی</string>
     <string name="general_sort_reverse_action">حالت مرتب سازی معکوس</string>
+    <string name="general_tag_filter_label">فیلتر بر اساس برچسب</string>
     <string name="general_result_success_message">عملیات موفق</string>
     <string name="general_result_failure_message">عملیات انجام نشد</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s فضا آزاد شد.</item>
+        <item quantity="other">%s فضا آزاد شد.</item>
+    </plurals>
     <string name="general_options_label">گزینه‌ها</string>
     <string name="general_details_label">جزئیات</string>
     <string name="general_view_action">نمایش</string>
@@ -81,8 +91,17 @@
     <string name="general_toggle_layout_mode">تغییر حالت نمایش</string>
     <string name="general_delete_confirmation_title">تایید حذف</string>
     <string name="general_delete_confirmation_message_x">\"%s\" حذف شود؟</string>
+    <string name="general_delete_confirmation_message_selected_x_items">%d مورد انتخابی حذف شود؟</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d مورد حذف شد.</item>
+        <item quantity="other">%d مورد حذف شد.</item>
+    </plurals>
     <string name="general_remove_action">حذف</string>
     <string name="general_remove_selected_action">حذف انتخاب شده</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">یک مورد حذف شد</item>
+        <item quantity="other">%d مورد حذف شد</item>
+    </plurals>
     <string name="general_root_required_label">نیازمند روت</string>
     <string name="general_root_required_message">به دستگاه روت شده نیاز دارد</string>
     <string name="general_search_action">جستجو</string>
@@ -92,9 +111,17 @@
         <item quantity="one">%s مورد</item>
         <item quantity="other">%s مورد</item>
     </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d موفقیت آمیز بود</item>
+        <item quantity="other">%d موفقیت آمیز بود</item>
+    </plurals>
     <plurals name="result_x_failed">
         <item quantity="one">%d شکست خورد</item>
         <item quantity="other">%d شکست خورد</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s قابل آزادسازی است</item>
+        <item quantity="other">%s قابل آزادسازی است</item>
     </plurals>
     <string name="general_info_label">درباره</string>
     <string name="general_count_label">تعداد</string>
@@ -108,6 +135,7 @@
     <string name="general_type_label">نوع</string>
     <string name="general_size_label">اندازه‌</string>
     <string name="general_exclude_action">استثناء</string>
+    <string name="general_exclude_selected_action">استثناء انتخابی</string>
     <string name="general_device_label">دستگاه</string>
     <string name="general_settings_title">تنظیمات</string>
     <string name="general_help_title">کمک</string>
@@ -118,4 +146,18 @@
     <string name="general_progress_ready">آماده</string>
     <string name="general_progress_done">انجام شد</string>
     <string name="general_rom_type_auto_label">خودکار (پیش‌فرض)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d روز</item>
+        <item quantity="other">%d روز</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d ساعت</item>
+        <item quantity="other">%d ساعت</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s فایل</item>
+        <item quantity="other">%s فایل</item>
+    </plurals>
+    <string name="general_advice_title">پیشنهاد</string>
+    <string name="general_error_invalid_input_label">ورودی نامعتبر</string>
 </resources>

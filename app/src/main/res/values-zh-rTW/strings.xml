@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">記錄偵錯記錄</string>
     <string name="debug_debuglog_stop_action">停止記錄</string>
     <string name="debug_debuglog_sensitive_information_message">產生的檔案包含敏感資訊 (例如檔案名稱和已安裝的應用程式)，請僅將它分享至受信任的對象。</string>
+    <string name="settings_debuglog_explanation">此功能將應用程式正在執行的所有操作記錄到可分享檔案中。 產生的檔案包含敏感資訊(例如檔案名稱和已安裝的應用程式)。 僅與可信任方分享(例如解決問題的開發人員)。</string>
     <string name="tasks_activity_notification_channel_label">進行中的工作</string>
     <string name="tasks_activity_working_notification_title">SD 女僕正在運作</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -120,7 +121,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">不要使用 Shizuku</string>
     <string name="setup_dismiss_hint">您可以透過設定選單再次找到安裝程式畫面。</string>
     <string name="setup_permission_granted_label">權限已授予</string>
-    <string name="setup_permission_error_label">權限不足</string>
+    <string name="setup_permission_error_label">權限錯誤</string>
     <string name="setup_usagestats_title">使用量統計資料</string>
     <string name="setup_usagestats_body">使用量統計資料權限授予更多應用程式的存取權，SD 女僕用它來確定額外快取大小。</string>
     <string name="setup_usagestats_hint">需要基於無障礙服務的快取偵測。</string>
@@ -242,6 +243,7 @@
     <string name="systemcleaner_filter_macfiles_label">Mac 檔案</string>
     <string name="systemcleaner_filter_macfiles_summary">使用 Apple 的 Finder 應用程式瀏覽儲存裝置時建立的檔案和資料夾。</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows 檔案</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Windows 檔案總管可以在連線的儲存體上建立的資料。"</string>
     <string name="systemcleaner_filter_thumbnails_label">縮圖影像</string>
     <string name="systemcleaner_filter_thumbnails_summary">圖片和影片的快取預覽。</string>
     <string name="systemcleaner_filter_tempfiles_label">暫存檔案</string>
@@ -283,6 +285,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">排除</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">如果路徑符合任何項目 (例如「DCIM」)，結果將被排除，長按項目以取得更多選項。</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">路徑比較模式</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">路徑以關鍵字開始</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">路徑包含關鍵字</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">路徑以關鍵字結束</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">路徑等於關鍵字</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">名稱比較模式</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">名稱以關鍵字開始</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">名稱包含關鍵字</string>
@@ -393,6 +399,9 @@
     <string name="deduplicator_detection_method_phash_title">感知雜湊</string>
     <string name="deduplicator_detection_method_phash_summary">透過分析內容特徵並比較感知雜湊值來尋找相似檔案。</string>
     <string name="deduplicator_occupied_space_label">佔用儲存空間</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%s 被重複項目佔用</item>
+    </plurals>
     <string name="deduplicator_file_size_label">檔案大小</string>
     <string name="deduplicator_average_size_label">平均大小</string>
     <string name="deduplicator_cluster_x_label">叢集 %s</string>
@@ -626,6 +635,12 @@
     <string name="review_app_dismiss_action">稍後再說</string>
     <string name="review_app_body">您想為 SD Maid 留下評論嗎？❤️</string>
     <string name="stats_label">歷史記錄</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="other">%s 已被釋放。</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="other">自從您邀請 SD Maid 到您的裝置以來，已處理 %s 項目。</item>
+    </plurals>
     <string name="stats_report_status_success">成功</string>
     <string name="stats_report_status_partial_success">部分成功</string>
     <string name="stats_report_status_partial_failure">失敗</string>

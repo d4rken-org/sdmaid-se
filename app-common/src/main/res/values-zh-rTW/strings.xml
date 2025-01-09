@@ -75,6 +75,9 @@
     <string name="general_tag_filter_label">依標籤過濾</string>
     <string name="general_result_success_message">作業成功</string>
     <string name="general_result_failure_message">作業失敗</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="other">已釋放 %s 空間。</item>
+    </plurals>
     <string name="general_options_label">選項</string>
     <string name="general_details_label">詳細資料</string>
     <string name="general_view_action">檢視</string>
@@ -88,6 +91,9 @@
     <string name="general_delete_confirmation_title">確認刪除</string>
     <string name="general_delete_confirmation_message_x">刪除「%s」？</string>
     <string name="general_delete_confirmation_message_selected_x_items">刪除 %d 個已選取的項目？</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="other">已刪除 %d 項。</item>
+    </plurals>
     <string name="general_remove_action">移除</string>
     <string name="general_remove_selected_action">移除已選取的項目</string>
     <plurals name="general_remove_success_x_items">
@@ -106,6 +112,9 @@
     </plurals>
     <plurals name="result_x_failed">
         <item quantity="other">%d 失敗</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="other">%s 可以被釋放</item>
     </plurals>
     <string name="general_info_label">資訊</string>
     <string name="general_count_label">計數</string>
@@ -140,4 +149,5 @@
         <item quantity="other">%s 個檔案</item>
     </plurals>
     <string name="general_advice_title">建議</string>
+    <string name="general_error_invalid_input_label">無效的輸入</string>
 </resources>

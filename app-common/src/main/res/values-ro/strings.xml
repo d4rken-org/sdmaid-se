@@ -75,6 +75,11 @@
     <string name="general_tag_filter_label">Filtrează după etichete</string>
     <string name="general_result_success_message">Operațiune cu succes</string>
     <string name="general_result_failure_message">Operațiune eșuată</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">S-a eliberat %s spațiu.</item>
+        <item quantity="few">S-a eliberat %s spațiu.</item>
+        <item quantity="other">S-a eliberat %s spațiu.</item>
+    </plurals>
     <string name="general_options_label">Opțiuni</string>
     <string name="general_details_label">Detalii</string>
     <string name="general_view_action">Vezi</string>
@@ -88,6 +93,11 @@
     <string name="general_delete_confirmation_title">Confirmă ștergerea</string>
     <string name="general_delete_confirmation_message_x">Ștergi \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Ștergi %d elemente selectate?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">S-a șters %d articol.</item>
+        <item quantity="few">Au fost șterse %d articole.</item>
+        <item quantity="other">Au fost șterse %d articole.</item>
+    </plurals>
     <string name="general_remove_action">Elimină</string>
     <string name="general_remove_selected_action">Elimină selecția</string>
     <plurals name="general_remove_success_x_items">
@@ -115,6 +125,11 @@
         <item quantity="few">%d eșuate</item>
         <item quantity="other">%d eșuate</item>
     </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s poate fi eliberat</item>
+        <item quantity="few">%s pot fii eliberate</item>
+        <item quantity="other">%s pot fii eliberate</item>
+    </plurals>
     <string name="general_info_label">Informații</string>
     <string name="general_count_label">Numără</string>
     <string name="general_app_label">Aplicație</string>
@@ -138,10 +153,21 @@
     <string name="general_progress_ready">Pregătit</string>
     <string name="general_progress_done">Terminat</string>
     <string name="general_rom_type_auto_label">Automat (implicit)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d zi</item>
+        <item quantity="few">%d zile</item>
+        <item quantity="other">%d zile</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d oră</item>
+        <item quantity="few">%d ore</item>
+        <item quantity="other">%d ore</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s Fişier</item>
         <item quantity="few">%s Fişier</item>
         <item quantity="other">%s Fişier</item>
     </plurals>
     <string name="general_advice_title">Sfat</string>
+    <string name="general_error_invalid_input_label">Intrare nevalidă</string>
 </resources>

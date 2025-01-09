@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Rekam log debug</string>
     <string name="debug_debuglog_stop_action">Berhenti merekam</string>
     <string name="debug_debuglog_sensitive_information_message">File yang dihasilkan berisi informasi sensitif (misalnya nama file dan aplikasi yang diinstal). Hanya bagikan dengan pihak tepercaya.</string>
+    <string name="settings_debuglog_explanation">Fitur ini merekam semua yang dilakukan aplikasi ke dalam file yang dapat dibagikan. File yang dihasilkan berisi informasi sensitif (misalnya nama file dan aplikasi yang diinstal). Hanya bagikan dengan pihak terpercaya (misalnya pengembang yang sedang memecahkan masalah).</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid bekerja</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -120,6 +121,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Jangan gunakan Shizuku</string>
     <string name="setup_dismiss_hint">Kamu dapat menemukan layar penyiapan lagi melalui menu pengaturan.</string>
     <string name="setup_permission_granted_label">Izin diberikan</string>
+    <string name="setup_permission_error_label">Kesalahan perizinan</string>
     <string name="setup_usagestats_title">Statistik penggunaan</string>
     <string name="setup_usagestats_body">Izin statistik penggunaan memberi akses ke lebih banyak detail aplikasi. SD Maid menggunakannya untuk menentukan ukuran cache tambahan.</string>
     <string name="setup_usagestats_hint">Diperlukan untuk penghapusan cache berbasis layanan aksesibilitas.</string>
@@ -227,6 +229,10 @@
     <string name="systemcleaner_filter_anr_summary">Jejak dari kejadian \'aplikasi tidak merespon\'.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Folder kosong</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Seluruh folder kosong di dalam perangkat. Folder bertingkat mungkin memerlukan beberapa tahap.</string>
+    <string name="systemcleaner_filter_screenshots_label">Tangkapan layar</string>
+    <string name="systemcleaner_filter_screenshots_summary">Tangkapan layar lebih lama dari %s dari beberapa apl dan lokasi.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Lama Tangkapan layar</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Lama tangkapan layar untuk dipertimbangkan dihapus.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Berkas APK tidak digunakan</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Berkas penyetelan yang lebih lama atau sama dengan versi aplikasi yang sudah terpasang.</string>
     <string name="systemcleaner_filter_lostdir_label">Folder LOST.DIR</string>
@@ -328,6 +334,8 @@
     <string name="appcleaner_filter_webview_summary">Berkas yang di-cache oleh WebView yang digunakan dalam aplikasi.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Cadangan WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Hapus salinan ekstra dari cadangan WhatsApp dan hanya terbaru yang disimpan.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Berkas yang Anda diterima dari orang via WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Berkas diterima WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Berkas terkirim WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Berkas-berkas yang dikirim dari WhatsApp ke orang lain.</string>
     <string name="appcleaner_filter_telegram_label">Berkas media Telegram</string>
@@ -338,6 +346,8 @@
     <string name="appcleaner_filter_wechat_summary">Berkas kiriman atau diterima pada percakapan dan momen WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Berkas-berkas media yang ditembolok yang diunduh lagi saat dilihat di percakapan.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ chat</string>
+    <string name="appcleaner_filter_qqchat_summary">Berkas terkirim atau diterima di percakapan QQ chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Hapus item-item yang tidak penting untuk semua aplikasi?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="other">%d berkas dapat dibuang telah dihapus</item>
@@ -549,6 +559,7 @@
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d pengecualian telah dibuat</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Tampilkan bawaan</string>
     <string name="automation_accessibility_service_description">Pengguna dengan kebutuhan aksesibilitas khusus dapat mengaktifkan layanan ini untuk mengizinkan sd maid mengotomatiskan tugas yang jika tidak memerlukan interaksi pengguna manual yang membosankan (mis. penghapusan cache).\n\ncontoh: Jika Anda menginstruksikan SD Maid untuk menghentikan beberapa aplikasi, maka SD Maid dapat menggunakan ini layanan untuk membuka setiap layar pengaturan aplikasi, temukan tombol \'Paksa Berhenti\' dan ketuk.\n\nSD Maid akan selalu ditampilkan dengan jelas saat menggunakan layanan ini dan menyediakan cara mudah bagi pengguna untuk segera membatalkan interaksi apa pun.\n\nTidak tindakan akan dilakukan tanpa persetujuan pengguna sebelumnya. Layanan ini dapat dinonaktifkan kembali sewaktu-waktu tanpa efek samping.</string>
     <string name="automation_screenoverlay_explanation">SD Maid sedang berinteraksi dengan perangkat Anda. Tidak memungkinkan untuk menggunakan layar secara bersamaan. Tunggu sampai operasi selesai atau dibatalkan.</string>
     <string name="automation_active_title">SD Maid sedang bekerja</string>
@@ -615,6 +626,12 @@
     <string name="review_app_dismiss_action">Lain kali</string>
     <string name="review_app_body">Bersediakah Anda menulis ulasan untuk SD Maid? ❤️</string>
     <string name="stats_label">Riwayat</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="other">%s telah dibebaskan.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="other">%s item diproses sejak Anda menginstal SD Maid di perangkat Anda.</item>
+    </plurals>
     <string name="stats_report_status_success">Sukses</string>
     <string name="stats_report_status_partial_success">Separuh berhasil</string>
     <string name="stats_report_status_partial_failure">Kegagalan</string>

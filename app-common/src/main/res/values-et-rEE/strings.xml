@@ -75,6 +75,10 @@
     <string name="general_tag_filter_label">Filtreeri siltide järgi</string>
     <string name="general_result_success_message">Edukas toiming</string>
     <string name="general_result_failure_message">Toiming ebaõnnestus</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Vabastati %s ruumi.</item>
+        <item quantity="other">Vabastati %s ruumi.</item>
+    </plurals>
     <string name="general_options_label">Valikud</string>
     <string name="general_details_label">Andmed</string>
     <string name="general_view_action">Vaade</string>

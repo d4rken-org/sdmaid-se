@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Registra log di debug</string>
     <string name="debug_debuglog_stop_action">Interrompi registrazione</string>
     <string name="debug_debuglog_sensitive_information_message">Il file creato contiene informazioni sensibili (ad esempio nomi di file e applicazioni installate). Condividilo solo con persone fidate.</string>
+    <string name="settings_debuglog_explanation">Questa funzione registra tutte le attività dell\'app in un file condivisibile. Questo file conterrà informazioni sensibile (es. i nomi dei file e la lista delle app installate nel dispositivo). Condividetelo solo con persone fidate (es. lo sviluppatore per la risoluzione di problemi).</string>
     <string name="tasks_activity_notification_channel_label">Processi attivi</string>
     <string name="tasks_activity_working_notification_title">SD Maid è in esecuzione</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -121,7 +122,8 @@
     <string name="setup_shizuku_enable_shizuku_use_label">Usa Shizuku se disponibile</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Non usare Shizuku</string>
     <string name="setup_dismiss_hint">Puoi riconfigurare la schermata iniziale nel menu delle impostazioni.</string>
-    <string name="setup_permission_granted_label">Permesso concesso</string>
+    <string name="setup_permission_granted_label">Autorizzazione concessa</string>
+    <string name="setup_permission_error_label">Errore di autorizzazione</string>
     <string name="setup_usagestats_title">Statistiche di utilizzo</string>
     <string name="setup_usagestats_body">L\'accesso alle statistiche di utilizzo concede l\'accesso a maggiori dettagli delle app. SD Maid li utilizza per calcolare le dimensioni aggiuntive della cache.</string>
     <string name="setup_usagestats_hint">Richiesto per cancellare la cache dei servizi di accessibilità.</string>
@@ -148,6 +150,7 @@
     <string name="setup_inventory_card_title">Inventario App</string>
     <string name="setup_inventory_card_body">SD Maid deve conoscere le app installate per trovare i file che non appartengono a nessuna di queste.</string>
     <string name="setup_inventory_card_extra">Attivate l\'autorizzazione ad \"Accesso a tutti i file\".</string>
+    <string name="setup_inventory_invalid_message">Il sistema ha fornito un elenco non valido di app installate (es. troppe poche app o alcune mancano). Concedi a SD Maid l\'accesso a \"Lista App\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid non ha trovato nessuna area da scansionare. Hai completato il setup?</string>
     <string name="dataarea_warningcard_label">Aree di dati</string>
     <string name="dataarea_warningcard_reload_action">Ricarica le aree di dati</string>
@@ -662,6 +665,10 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s è stato liberato</item>
         <item quantity="other">%s sono stati liberati</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s elemento analizzati da quando hai iniziato a usare SD Maid.</item>
+        <item quantity="other">%s elementi analizzati da quando hai iniziato a usare SD Maid.</item>
     </plurals>
     <string name="stats_report_status_success">Completato</string>
     <string name="stats_report_status_partial_success">Completato parzialmente</string>
