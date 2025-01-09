@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Debug-Protokoll aufzeichnen</string>
     <string name="debug_debuglog_stop_action">Aufzeichnung beenden</string>
     <string name="debug_debuglog_sensitive_information_message">Die generierte Datei enthält sensible Informationen (z.B. Dateinamen und installierte Apps). Teile sie nur mit vertrauenswürdigen Personen.</string>
+    <string name="settings_debuglog_explanation">Diese Funktion zeichnet alle Aktivitäten der App in einer gemeinsam nutzbaren Datei auf. Die generierte Datei enthält vertrauliche Informationen (z. B. Dateinamen und installierte Apps). Gebe diese nur an vertrauenswürdige Parteien weiter (z. B. einen Entwickler, der ein Problem behebt).</string>
     <string name="tasks_activity_notification_channel_label">Aktive Aufgaben</string>
     <string name="tasks_activity_working_notification_title">SD Maid arbeitet</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -122,6 +123,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku nicht verwenden</string>
     <string name="setup_dismiss_hint">Du kannst die Einrichtung im Einstellungsmenü wiederfinden.</string>
     <string name="setup_permission_granted_label">Erlaubnis erteilt</string>
+    <string name="setup_permission_error_label">Berechtigungsfehler</string>
     <string name="setup_usagestats_title">Nutzungsstatistiken</string>
     <string name="setup_usagestats_body">Die Nutzungsstatistik-Berechtigung gewährt Zugriff auf weitere App-Details. SD Maid verwendet sie, um zusätzliche Cache-Größen zu bestimmen.</string>
     <string name="setup_usagestats_hint">Erforderlich für das Löschen des Caches auf der Grundlage des Zugriffsdiensts.</string>
@@ -148,6 +150,7 @@
     <string name="setup_inventory_card_title">App-Inventar</string>
     <string name="setup_inventory_card_body">SD Maid muss wissen, welche Apps du installiert hast, um Dateien zu finden, die zu keiner installierten App gehören.</string>
     <string name="setup_inventory_card_extra">Suchen Sie nach einer Berechtigung namens \"App-Liste\" oder \"Alle Pakete abfragen\".</string>
+    <string name="setup_inventory_invalid_message">Das System hat eine ungültige Liste installierter Apps bereitgestellt (z. B. zu wenige oder einige fehlten). Gehe zu den Systemeinstellungen und erlaube SD Maid den Zugriff auf die „App-Liste“.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid hat keine Datenbereiche gefunden, die gescannt werden können. Hast Du die Einrichtung abgeschlossen?</string>
     <string name="dataarea_warningcard_label">Datenbereiche</string>
     <string name="dataarea_warningcard_reload_action">Datenbereiche neu laden</string>
@@ -235,6 +238,10 @@
     <string name="systemcleaner_filter_anr_summary">Überreste von „Anwendung reagiert nicht“-Ereignissen.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Leere Ordner</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Leere Ordner von allen über dem Gerät. Verschachtelte Ordner können mehrere Durchgänge erfordern.</string>
+    <string name="systemcleaner_filter_screenshots_label">Screenshots</string>
+    <string name="systemcleaner_filter_screenshots_summary">Screenshots, die älter als %s sind, von mehreren Apps und Standorten.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Screenshot Alter</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Mindestalter für Screenshots, damit diese für eine Löschung in Betracht gezogen werden.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Überflüssige APKs</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Setup-Dateien, die älter oder gleich den bereits installierten App-Versionen sind.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR Ordner</string>
@@ -244,6 +251,7 @@
     <string name="systemcleaner_filter_macfiles_label">Mac-Dateien</string>
     <string name="systemcleaner_filter_macfiles_summary">Dateien und Ordner, die beim Durchsuchen des Speichers mit der Finder-App von Apple erstellt werden.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows-Dateien</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Daten, die der Windows-Datei-Explorer auf einem angeschlossenen Speicher erstellen kann."</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniaturbilder</string>
     <string name="systemcleaner_filter_thumbnails_summary">Zwischengespeicherte Vorschauen für Bilder und Videos.</string>
     <string name="systemcleaner_filter_tempfiles_label">Temporäre Dateien</string>
@@ -285,6 +293,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Ausschlüsse</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Das Ergebnis wird ausgeschlossen, wenn der Pfad mit irgendeinem Eintrag (z.B. \"DCIM\") übereinstimmt. Einträge für weitere Optionen gedrückt halten.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Pfadvergleichsmodus</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Pfad beginnt mit Schlüsselwort</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Pfad enthält Schlüsselwort</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Pfad endet mit Schlüsselwort</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Pfad ist gleich Schlüsselwort</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Namensvergleichsmodus</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Name beginnt mit Schlüsselwort</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Name enthält Schlüsselwort</string>
@@ -336,6 +348,8 @@
     <string name="appcleaner_filter_webview_summary">Von Webview-Instanzen zwischengespeicherte Dateien, die in Apps verwendet werden.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp-Sicherungen</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Lösche zusätzliche Kopien von WhatsApp Sicherungen und behalte nur die neuesten.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Dateien, die du von Personen über WhatsApp erhalten hast.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Von WhatsApp empfangene Dateien</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Via WhatsApp gesendete Dateien</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Dateien, die von WhatsApp an andere gesendet wurden.</string>
     <string name="appcleaner_filter_telegram_label">Telegram-Mediendateien</string>
@@ -346,6 +360,8 @@
     <string name="appcleaner_filter_wechat_summary">Gesendete oder empfangene Dateien in Konversationen und WeChat Momenten.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Zwischengespeicherte Mediendateien, die beim Betrachten des Chats erneut heruntergeladen werden.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ-Chat</string>
+    <string name="appcleaner_filter_qqchat_summary">Gesendete oder empfangene Dateien in QQ-Chat-Konversationen.</string>
     <string name="appcleaner_delete_all_confirmation_message">Entbehrliche Objekte für alle Apps löschen?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">%d entbehrliches Objekt gelöscht</item>
@@ -396,6 +412,10 @@
     <string name="deduplicator_detection_method_phash_title">Wahrnehmungshash</string>
     <string name="deduplicator_detection_method_phash_summary">Finde ähnliche Dateien, indem Inhaltsmerkmale analysiert und wahrnehmungsbezogene Hash-Werte verglichen werden.</string>
     <string name="deduplicator_occupied_space_label">Belegter Speicher</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s ist von Duplikaten belegt</item>
+        <item quantity="other">%s sind von Duplikaten belegt</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Dateigröße</string>
     <string name="deduplicator_average_size_label">Durchschnittliche Größe</string>
     <string name="deduplicator_cluster_x_label">Cluster %s</string>
@@ -572,6 +592,7 @@
         <item quantity="one">Ein Ausschluss wurde erstellt</item>
         <item quantity="other">%d Ausschlüsse erstellt</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Standardwerte anzeigen</string>
     <string name="automation_accessibility_service_description">Benutzer mit besonderen Anforderungen an die Barrierefreiheit können diesen Dienst aktivieren, damit SD Maid Aufgaben automatisieren kann, die ansonsten mühsame manuelle Benutzerinteraktionen erfordern würden (z. B. Cache-Löschen).\n\nBeispiel: Wenn Du SD Maid anweist, mehrere Apps zu stoppen, kann SD Maid dies verwenden, um den Einstellungsbildschirm jeder App zu öffnen, nach der Schaltfläche „Stoppen erzwingen“ zu suchen und darauf zu tippen.\n\nSD Maid wird bei der Nutzung dieses Dienstes immer gut sichtbar angezeigt und bietet dem Benutzer eine einfache Möglichkeit, jede Interaktion sofort abzubrechen.\n\nEs werden keine Aktionen ohne vorherige Zustimmung des Benutzers durchgeführt. Dieser Dienst kann jederzeit ohne nachteilige Auswirkungen wieder deaktiviert werden.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interagiert mit Deinem Gerät. Eine gleichzeitige Nutzung des Bildschirms ist nicht möglich. Warte bis der Vorgang abgeschlossen ist oder brich ihn ab.</string>
     <string name="automation_active_title">SD Maid funktioniert</string>
@@ -639,6 +660,14 @@
     <string name="review_app_dismiss_action">Später vielleicht</string>
     <string name="review_app_body">Möchtest du SD Maid eine Bewertung hinterlassen? ❤️</string>
     <string name="stats_label">Verlauf</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s wurde freigegeben.</item>
+        <item quantity="other">%s wurden freigegeben.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s Element verarbeitet seit Sie SD Maid auf Ihr Gerät geladen haben.</item>
+        <item quantity="other">%s Elemente verarbeitet seit Sie SD Maid auf Ihr Gerät geladen haben.</item>
+    </plurals>
     <string name="stats_report_status_success">Erfolgreich</string>
     <string name="stats_report_status_partial_success">Teilerfolg</string>
     <string name="stats_report_status_partial_failure">Fehlgeschlagen</string>

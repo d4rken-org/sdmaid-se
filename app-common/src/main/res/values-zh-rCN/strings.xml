@@ -75,6 +75,9 @@
     <string name="general_tag_filter_label">按标签排序</string>
     <string name="general_result_success_message">操作成功</string>
     <string name="general_result_failure_message">操作失败</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="other">已释放 %s 空间</item>
+    </plurals>
     <string name="general_options_label">选项</string>
     <string name="general_details_label">详细信息</string>
     <string name="general_view_action">查看</string>

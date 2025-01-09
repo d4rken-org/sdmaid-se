@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Înregistrează jurnalul de depanare</string>
     <string name="debug_debuglog_stop_action">Oprire înregistrare</string>
     <string name="debug_debuglog_sensitive_information_message">Fișierul generat conține informații sensibile (ex: numele fișierului și aplicații instalate). Partajează-l doar cu părțile de încredere.</string>
+    <string name="settings_debuglog_explanation">Această funcție înregistrează tot ce face aplicația într-un fișier partajabil. Fișierul generat conține informații sensibile (de exemplu, numele fișierelor și aplicațiilor instalate). Distribuiți-l numai persoanelor de încredere (de exemplu, unui dezvoltator care depanează o problemă).</string>
     <string name="tasks_activity_notification_channel_label">Sarcini active</string>
     <string name="tasks_activity_working_notification_title">SD Maid funcționează</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -124,6 +125,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Nu utiliza Shizuku</string>
     <string name="setup_dismiss_hint">Poți căuta partea de configurare din nou în meniul de setări.</string>
     <string name="setup_permission_granted_label">Permisiune acordată</string>
+    <string name="setup_permission_error_label">Eroare de permisiune</string>
     <string name="setup_usagestats_title">Statici de utilizare</string>
     <string name="setup_usagestats_body">Permisiunea pentru acces la statici de utilizare pentru mai multe detalii despre aplicații. SD Maid va folosi pentru a determina dimensiunile cache suplimentare.</string>
     <string name="setup_usagestats_hint">Necesar pentru serviciul de accesibilitate bazat pe ștergerea memoriei cache.</string>
@@ -150,6 +152,7 @@
     <string name="setup_inventory_card_title">Inventarul aplicației</string>
     <string name="setup_inventory_card_body">SD Maid trebuie să știe ce aplicații aveți pentru a găsi fișiere care nu aparțin niciunei aplicații instalate.</string>
     <string name="setup_inventory_card_extra">Căutați o permisiune numită „Lista de aplicații” sau „Interogați toate pachetele”.</string>
+    <string name="setup_inventory_invalid_message">Sistemul a furnizat o listă invalidă de aplicații instalate (de exemplu, prea puține sau unele lipseau).  Accesați setările sistemului și permiteți accesul SD Maid la lista de aplicații.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nu a putut căuta zone de date care pot fi scanate. Ai completat partea de configurare?</string>
     <string name="dataarea_warningcard_label">Zone de date</string>
     <string name="dataarea_warningcard_reload_action">Reîncarcă zonele de date</string>
@@ -243,6 +246,10 @@
     <string name="systemcleaner_filter_anr_summary">Urme de la evenimente \"Aplicația nu răspunde\".</string>
     <string name="systemcleaner_filter_emptydirectories_label">Dosare goale</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Dosare goale de pe tot dispozitivul. Dosarele imbricate pot necesita mai multe treceri.</string>
+    <string name="systemcleaner_filter_screenshots_label">Capturi de ecran</string>
+    <string name="systemcleaner_filter_screenshots_summary">Capturi de ecran mai vechi de %s din mai multe aplicații și locații.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Vârsta caputrii de ecran</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Vârsta minimă pentru a lua în considerare ștergerea capturilor de ecran.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK-uri inutile</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Fișiere de configurare care sunt vechi sau egale la versiuni de aplicații care sunt deja instalate.</string>
     <string name="systemcleaner_filter_lostdir_label">Dosare LOST.DIR</string>
@@ -252,6 +259,7 @@
     <string name="systemcleaner_filter_macfiles_label">Fișiere Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Fișiere și dosare care sunt create când navigați cu aplicația Apple finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Fișiere Windows</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Date pe care exploratorul de fișiere Windows le poate crea în spațiul de stocare conectat."</string>
     <string name="systemcleaner_filter_thumbnails_label">Imagini miniatură</string>
     <string name="systemcleaner_filter_thumbnails_summary">Previzualizări prin cache pentru imagini și videoclipuri.</string>
     <string name="systemcleaner_filter_tempfiles_label">Fișiere temporare</string>
@@ -293,6 +301,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Excluderi</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezultatul va fi exclus dacă calea se potrivește cu orice intrare (de ex. \"DCIM\"). Apăsați lung intrările pentru mai multe opțiuni.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modul de comparare a căilor</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Calea începe cu cuvântul cheie</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Calea conține cuvântul cheie</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Calea se termină cu cuvântul cheie</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Calea este egală cu cuvântul cheie</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Mod de comparare nume</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Numele începe cu cuvântul cheie</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Numele conţine cuvânt cheie</string>
@@ -344,6 +356,8 @@
     <string name="appcleaner_filter_webview_summary">Fișiere cache de instanțele Webview folosite în aplicații.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Copii de rezervă WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Șterge extra copii al backup-urilor WhatsApp și păstrează numai cel de ultima dată.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Fișierele pe care le-ați primit de la oameni prin WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp a primit fișiere</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Fișiere WhatsApp trimise</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Fişiere trimise din WhatsApp către alţii.</string>
     <string name="appcleaner_filter_telegram_label">Fișiere media Telegram</string>
@@ -354,6 +368,8 @@
     <string name="appcleaner_filter_wechat_summary">Fișiere primite sau trimise în conversații și momente în WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Fișiere media cache care sunt descărcate din nou când sunt vizualizate în chat.</string>
+    <string name="appcleaner_filter_qqchat_label">Chat QQ</string>
+    <string name="appcleaner_filter_qqchat_summary">Fișiere trimise sau primite în conversațiile de chat QQ.</string>
     <string name="appcleaner_delete_all_confirmation_message">Ștergeți elementele consumabile pentru toate aplicațiile?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">%d element consumabil șters</item>
@@ -409,6 +425,11 @@
     <string name="deduplicator_detection_method_phash_title">Hash veșnic</string>
     <string name="deduplicator_detection_method_phash_summary">Găsiți fișiere similare analizând caracteristicile conținutului și comparând valorile hash perceptuale.</string>
     <string name="deduplicator_occupied_space_label">Spațiu de stocare ocupat</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s este ocupat de duplicate</item>
+        <item quantity="few">%s sunt ocupate de duplicate</item>
+        <item quantity="other">%s sunt ocupate de duplicate</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Dimensiune fişier</string>
     <string name="deduplicator_average_size_label">Dimensiune medie</string>
     <string name="deduplicator_cluster_x_label">Cluster %s</string>
@@ -595,6 +616,7 @@
         <item quantity="few">%d excluderi create</item>
         <item quantity="other">Excluderi %d create</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Afișați valorile implicite</string>
     <string name="automation_accessibility_service_description">Utilizatorii cu nevoi speciale de accesibilitate pot permite acestui serviciu să permită SD Maid să automatizeze sarcini care altfel ar necesita interacțiunea manuală dificilă a utilizatorului (e.. ştergere cache).\n\nExemplu: Dacă dați instrucțiuni de ajutor SD pentru a opri mai multe aplicații, atunci ajutorul SD poate folosi acest serviciu pentru a deschide ecranul de setări al fiecărei aplicații, găsește butonul „Oprește forțata” și apasă pe el.\n\nSD Maid va arăta întotdeauna în mod vizibil când se utilizează acest serviciu și va oferi o modalitate ușoară utilizatorului de a anula imediat orice interacțiune.\n\nNicio acțiune nu va fi efectuată fără aprobarea prealabilă a utilizatorului. Acest serviciu poate fi dezactivat din nou în orice moment, fără efecte adverse.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interacționează cu dispozitivul dvs. Nu este posibil să utilizați ecranul în același timp. Așteptați până la finalizarea operației sau anulați-o.</string>
     <string name="automation_active_title">SD Maid funcționează</string>
@@ -663,6 +685,16 @@
     <string name="review_app_dismiss_action">Poate mai târziu</string>
     <string name="review_app_body">Doriți să lăsați aplicației SD Maid o recenzie?️ ❤️</string>
     <string name="stats_label">Istoric</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s a fost eliberat.</item>
+        <item quantity="few">%s au fost eliberați.</item>
+        <item quantity="other">%s au fost eliberați.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s articol a fost procesat de când ați invitat SD Maid pe dispozitiv.</item>
+        <item quantity="few">%s articole procesate de când ați invitat SD Maid pe dispozitiv.</item>
+        <item quantity="other">%s articole procesate de când ați invitat SD Maid pe dispozitiv.</item>
+    </plurals>
     <string name="stats_report_status_success">Succes</string>
     <string name="stats_report_status_partial_success">Succes parțial</string>
     <string name="stats_report_status_partial_failure">Eșec</string>

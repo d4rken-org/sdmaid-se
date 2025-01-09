@@ -75,6 +75,9 @@
     <string name="general_tag_filter_label">Bộ lọc theo thẻ</string>
     <string name="general_result_success_message">Thao tác thành công</string>
     <string name="general_result_failure_message">Thao tác thất bại</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="other">Đã giải phóng %s dung lượng.</item>
+    </plurals>
     <string name="general_options_label">Tùy chọn</string>
     <string name="general_details_label">Chi tiết</string>
     <string name="general_view_action">Xem</string>

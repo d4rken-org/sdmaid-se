@@ -75,6 +75,10 @@
     <string name="general_tag_filter_label">Filtrar por etiqueta</string>
     <string name="general_result_success_message">Operação bem sucedida</string>
     <string name="general_result_failure_message">Falha na operação</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Libertou %s. espaço.</item>
+        <item quantity="other">Libertou %s. espaço.</item>
+    </plurals>
     <string name="general_options_label">Opções</string>
     <string name="general_details_label">Detalhes</string>
     <string name="general_view_action">Ver</string>

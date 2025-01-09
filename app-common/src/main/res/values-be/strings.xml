@@ -75,6 +75,12 @@
     <string name="general_tag_filter_label">Фільтраваць паводле тэгаў</string>
     <string name="general_result_success_message">Аперацыя выканана</string>
     <string name="general_result_failure_message">Аперацыя не выканана</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Вызвалена %s месца.</item>
+        <item quantity="few">Вызвалена %s месцы.</item>
+        <item quantity="many">Вызвалена %s месцаў.</item>
+        <item quantity="other">Вызвалена %s месцаў.</item>
+    </plurals>
     <string name="general_options_label">Параметры</string>
     <string name="general_details_label">Падрабязнасці</string>
     <string name="general_view_action">Праглядзець</string>
@@ -88,6 +94,12 @@
     <string name="general_delete_confirmation_title">Пацвердзіць выдаленне</string>
     <string name="general_delete_confirmation_message_x">Выдаліць \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Выдаліць %d выбраных элементаў?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Выдалены %d элемент.</item>
+        <item quantity="few">Выдалены %d элементы.</item>
+        <item quantity="many">Выдалены %d элементаў.</item>
+        <item quantity="other">Выдалены %d элементаў.</item>
+    </plurals>
     <string name="general_remove_action">Выдаліць</string>
     <string name="general_remove_selected_action">Выдаліць выбраныя</string>
     <plurals name="general_remove_success_x_items">
@@ -119,6 +131,12 @@
         <item quantity="many">%d няўдала</item>
         <item quantity="other">%d няўдала</item>
     </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s можна вызваліць</item>
+        <item quantity="few">%s можна вызваліць</item>
+        <item quantity="many">%s можна вызваліць</item>
+        <item quantity="other">%s можна вызваліць</item>
+    </plurals>
     <string name="general_info_label">Інфармацыя</string>
     <string name="general_count_label">Колькасць</string>
     <string name="general_app_label">Праграма</string>
@@ -142,6 +160,18 @@
     <string name="general_progress_ready">Гатова</string>
     <string name="general_progress_done">Выканана</string>
     <string name="general_rom_type_auto_label">Аўтаматычна (па змаўчанні)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d дзень</item>
+        <item quantity="few">%d дні</item>
+        <item quantity="many">%d дзён</item>
+        <item quantity="other">%d дзён</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d гадзіна</item>
+        <item quantity="few">%d гадзіны</item>
+        <item quantity="many">%d гадзін</item>
+        <item quantity="other">%d гадзін</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s файл</item>
         <item quantity="few">%s файлаў</item>
@@ -149,4 +179,5 @@
         <item quantity="other">%s файлаў</item>
     </plurals>
     <string name="general_advice_title">Парада</string>
+    <string name="general_error_invalid_input_label">Няправільнае значэнне</string>
 </resources>

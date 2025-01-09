@@ -414,7 +414,7 @@ Recursos dos jogos.</string>
     <string name="deduplicator_detection_method_phash_summary">Encontre ficheiros semelhantes analisando recursos de conteúdo e comparando valores hash perceptuais.</string>
     <string name="deduplicator_occupied_space_label">Armazenamento Ocupado</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
-        <item quantity="one">%s está ocupado por duplicatas</item>
+        <item quantity="one">%s está ocupado por duplicados </item>
         <item quantity="other">%s estão ocupados por duplicados</item>
     </plurals>
     <string name="deduplicator_file_size_label">Tamanho do ficheiro</string>

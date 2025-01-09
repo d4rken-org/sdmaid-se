@@ -75,6 +75,12 @@
     <string name="general_tag_filter_label">Фильтр по тегам</string>
     <string name="general_result_success_message">Операция выполнена</string>
     <string name="general_result_failure_message">Сбой операции</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Освобождено места: %s</item>
+        <item quantity="few">Освобождено места: %s</item>
+        <item quantity="many">Освобождено места: %s</item>
+        <item quantity="other">Освобождено места: %s</item>
+    </plurals>
     <string name="general_options_label">Опции</string>
     <string name="general_details_label">Детали</string>
     <string name="general_view_action">Посмотреть</string>

@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_dashcard_body">قفل ویژگی های اضافی را باز کنید و برای حمایت از توسعه مداوم، حامی شوید!</string>
+    <string name="upgrades_dashcard_upgrade_action">ارتقاء</string>
+    <string name="upgrade_screen_title">بهبود خدمتکار SD</string>
+</resources>
