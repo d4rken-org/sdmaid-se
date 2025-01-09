@@ -1,0 +1,8 @@
+Olá 👋
+O SD Maid 2/SE está em desenvolvimento ativo. Estou a trabalhar em novas funcionalidades todos os dias.
+Se tiveres boas ideias, avisa-me 😊!
+
+As atualizações incluem correções de erros, melhorias de desempenho e, talvez, novas funcionalidades.
+Um changelog detalhado está sempre disponível no GitHub.
+
+Para tua informação: Estou sozinho aqui, por isso as respostas podem, às vezes, demorar um pouco. Desculpa por isso!

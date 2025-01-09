@@ -1,0 +1,8 @@
+Hai 👋
+SD Maid 2/SE sedang dalam pengembangan aktif. Saya bekerja pada fitur-fitur baru setiap hari.
+Kalau kamu punya ide bagus, beri tahu saya ya 😊!
+
+Pembaruan mencakup perbaikan bug, peningkatan kinerja, dan mungkin fitur baru.
+Catatan perubahan yang terperinci selalu tersedia di GitHub.
+
+FYI: Saya hanya sendiri di sini, jadi kadang balasan mungkin memakan waktu. Maaf ya!

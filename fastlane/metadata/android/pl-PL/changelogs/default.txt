@@ -1,0 +1,8 @@
+Cześć 👋
+SD Maid 2/SE jest w aktywnym rozwoju. Każdego dnia pracuję nad nowymi funkcjami.
+Jeśli masz jakieś dobre pomysły, daj mi znać 😊!
+
+Aktualizacje zawierają poprawki błędów, ulepszenia wydajności i być może nowe funkcje.
+Szczegółowy changelog jest zawsze dostępny na GitHubie.
+
+Dla informacji: Jestem tutaj sam, więc czasami odpowiedzi mogą trochę potrwać. Przepraszam za to!
