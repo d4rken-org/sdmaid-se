@@ -11,22 +11,22 @@ Laten we hier niet verder op ingaan... Laat SD Maid 2/SE je helpen!
 SD Maid 2/SE is een app- en bestandsbeheerder die gespecialiseerd is in het weten welke apps specifieke bestanden op je apparaat hebben gemaakt. SD Maid 2/SE doorzoekt je apparaat en vergelijkt bestanden met geïnstalleerde apps om opties te bieden voor het veilig vrijmaken van opslagruimte.
 
 ✨ Ruim op na het verwijderen van apps
-Als apps bestanden buiten de aangewezen mappen maken, kunnen de bestanden blijven staan, zelfs nadat de apps zijn verwijderd. De tool "Lijkzoeker" vindt app-resten, vertelt je bij welke app ze horen en helpt je ze te verwijderen.
+Als apps bestanden buiten de aangewezen mappen maken, kunnen de bestanden blijven staan, zelfs nadat de apps zijn verwijderd. De tool "CorpseFinder" vindt app-resten, vertelt je bij welke app ze hoorden en helpt je ze te verwijderen.
 
 🔍 Zoek op een slimme manier op je apparaat
-Filter op lege mappen, tijdelijke bestanden, reeds geïnstalleerde apps en meer. Je kunt zelfs jouw eigen zoekcriteria maken. Met de tool "SystemCleaner" kun je automatisch jouw apparaat doorzoeken en bestanden verwijderen op basis van verschillende criteria.
+Filter op lege mappen, tijdelijke bestanden, reeds geïnstalleerde apps en meer. Je kunt zelfs jouw eigen zoekcriteria maken. Met het hulpprogramma 'SystemCleaner' kun je automatisch je apparaat doorzoeken en bestanden verwijderen op basis van verschillende criteria.
 
-🧹 Verwijder vervangbare bestanden en verborgen caches
+🧹 Verwijder overbodige bestanden en verborgen caches
 Miniaturen, prullenbakken, offline caches en meer: ​​als apps zichzelf niet opruimen, dan zal deze app dat wel doen. Het hulpprogramma "AppCleaner" vindt apps met vervangbare bestanden.
 
 📦 Beheer al je apps
-Krijg een uitgebreide lijst van alle apps die op je apparaat zijn geïnstalleerd. Ingeschakeld, uitgeschakeld, gebruikers- of systeem-app: geen enkele app kan zich voor je verbergen. De tool "AppControl" is een app-manager waarmee je jouw apps kunt zoeken, sorteren en beheren.
+Krijg een uitgebreide lijst van alle apps die op je apparaat zijn geïnstalleerd. Ingeschakeld, uitgeschakeld, gebruikers- of systeem-app: geen enkele app kan zich voor je verbergen. Het hulpmiddel "AppControl" is een app-manager waarmee je jouw apps kunt zoeken, sorteren en beheren.
 
 📊 Wat gebruikt al je ruimte
 Opslagbeheer kan complex zijn met apps, media, systeem- en andere bestanden op telefoonopslag, SD-kaarten en USB-apparaten. "StorageAnalyzer" is een bestandsbeheerder die weergeeft hoe de ruimte op je apparaat wordt gebruikt, waardoor je opslagbeheer wordt vereenvoudigd.
 
 📷 Vind dubbele gegevens
-Dubbele downloads, foto's verzonden via sociale media of gewoon vergelijkbare foto's van dezelfde scène: na verloop van tijd kunnen kopieën zich ophopen. De tool "Deduplicator" vindt bestanden die precies hetzelfde of vergelijkbaar zijn en helpt je extra kopieën te verwijderen.
+Dubbele downloads, foto's verzonden via sociale media of gewoon vergelijkbare foto's van dezelfde scène: na verloop van tijd kunnen kopieën zich ophopen. Het hulpprogramma "Deduplicator" vindt bestanden die precies hetzelfde of vergelijkbaar zijn en helpt je extra kopieën te verwijderen.
 
 Deze app is advertentievrij. Voor sommige functies is een betaalde upgrade vereist.
 
@@ -34,7 +34,7 @@ SD Maid 2/SE is de opvolger van SD Maid 1/Legacy.
 Geoptimaliseerd voor nieuwere Android-versies en gericht op opschonen.
 
 Deze app heeft optionele functies die gebruik maken van de AccessibilityService API om vervelende acties te automatiseren.
-Met behulp van de AccessibilityService API kan deze app op knoppen klikken om bewerkingen op meerdere apps uit te voeren, bijvoorbeeld. caches verwijderen.
+Met behulp van de AccessibilityService API kan deze app op knoppen klikken waarmee u bewerkingen in meerdere apps kunt uitvoeren, bijv. caches aan het verwijderen.
 Deze app maakt geen gebruik van de AccessibilityService API om informatie te verzamelen.
 
-SD Maid 2/SE is een app voor bestandsbeheer en opschoning.
+SD Maid 2/SE is een bestandsbeheerder- en opschoonapp.

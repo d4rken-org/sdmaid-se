@@ -11,7 +11,7 @@ Não iremos nos estender por aqui… Deixe o SD Maid 2/SE te ajudar!
 SD Maid 2/SE é um aplicativo e gerenciador de arquivos que se especializa em identificar quais aplicativos criaram arquivos específicos em seu dispositivo. O SD Maid 2/SE analisa seu dispositivo, compara arquivos com aplicativos instalados e oferece opções seguras para liberar espaço de armazenamento.
 
 ✨ Limpeza após desinstalar aplicativos
-Se os apps criarem arquivos fora de suas pastas designadas, então os arquivos poderão permanecer mesmo depois de desinstalar os apps. The "CorpseFinder" tool finds app remains, tells you to which app they belonged and helps you delete them.
+Se os apps criarem arquivos fora de suas pastas designadas, então os arquivos poderão permanecer mesmo depois de desinstalar os apps. A ferramenta "CorpseFinder" encontra arquivos residuais de aplicativos, diz a que aplicativo pertencia e ajuda a excluí-los.
 
 🔍 Search your device the smart way
 Filtro para pastas vazias, arquivos temporários, apps já instalados e muito mais. You can even create your own search criteria. The "SystemCleaner" tool allows you to automatically search your device and delete files based on various criteria.
