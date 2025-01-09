@@ -11,7 +11,7 @@
 
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
-fastlane_version "2.208.0"
+fastlane_version "2.226.0"
 
 default_platform :android
 
