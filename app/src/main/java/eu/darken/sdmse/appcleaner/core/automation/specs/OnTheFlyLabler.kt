@@ -5,6 +5,7 @@ import android.content.Context
 import android.text.format.Formatter
 import android.view.accessibility.AccessibilityNodeInfo
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.automation.core.common.findParentOrNull
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.isTextView
 import eu.darken.sdmse.automation.core.common.textContainsAny
@@ -133,13 +134,29 @@ class OnTheFlyLabler @Inject constructor(
             else -> storageFilter@{ node ->
                 if (!node.isTextView()) return@storageFilter false
 
-                if (node.idContains("android:id/title")) {
+                val match = if (node.idContains("android:id/title")) {
                     node.textMatchesAny(labels)
                 } else if (node.idContains("android:id/summary")) {
                     matchStorage(node)
                 } else {
                     false
                 }
+
+                // In some multipane layouts the "Storage" text can appear in the left menu pane
+                // If we find out that our matched node has the wrong parent, then it's a false positive
+                val isFalsePositive = node.findParentOrNull(
+                    // crawl():------6: className=android.widget.LinearLayout, text='null', isClickable=false, isEnabled=true, viewIdResourceName=com.android.settings:id/ll_landleft, pkgName=com.android.settings, identity=75f034b
+                    // crawl():----------------16: className=android.widget.TextView, text='Speicher', isClickable=false, isEnabled=true, viewIdResourceName=android:id/title, pkgName=com.android.settings, identity=8aa3292
+                    maxNesting = 11,
+                ) {
+                    // On a Lenovo M10 Plus we identify the panes
+                    // Left pane (main menu) has parent: com.android.settings:id/ll_landleft
+                    // Right pane (app setting details) has parent: com.android.settings:id/ll_landright
+                    //
+                    it.idContains("ll_landleft")
+                } != null
+
+                match && !isFalsePositive
             }
         }
     }
