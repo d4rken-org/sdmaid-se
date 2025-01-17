@@ -39,7 +39,7 @@ class AutomationExplorer @AssistedInject constructor(
     }
 
     suspend fun process(spec: AutomationSpec.Explorer) {
-        log(TAG) { "process(): $spec" }
+        log(TAG) { "process(): ${spec.tag}" }
 
         var attempts = 0
 

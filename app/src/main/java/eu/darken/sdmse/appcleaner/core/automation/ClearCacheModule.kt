@@ -75,7 +75,7 @@ class ClearCacheModule @AssistedInject constructor(
     private fun getPriotizedSpecGenerators(): List<AppCleanerSpecGenerator> = specGenerators
         .get()
         .also { log(TAG) { "${it.size} step generators are available" } }
-        .onEach { log(TAG, VERBOSE) { "Loaded: $it" } }
+        .onEach { log(TAG, VERBOSE) { "Loaded: $it (${it.tag})" } }
         .sortedByDescending { generator: AppCleanerSpecGenerator ->
             when (generator) {
                 is MIUISpecs -> 190
@@ -192,10 +192,10 @@ class ClearCacheModule @AssistedInject constructor(
 
         val specGenerator = getPriotizedSpecGenerators().firstOrNull { it.isResponsible(pkg) }
             ?: getPriotizedSpecGenerators().single { it is AOSPSpecs }
-        log(TAG) { "Using spec generator: $specGenerator" }
+        log(TAG) { "Using spec generator: ${specGenerator.tag}" }
 
         val spec = specGenerator.getClearCache(pkg)
-        log(TAG) { "Generated spec for ${pkg.id} is $spec" }
+        log(TAG) { "Generated spec for ${pkg.id} is ${spec.tag}" }
 
         when (spec) {
             is AutomationSpec.Explorer -> processExplorerSpec(pkg, spec)
