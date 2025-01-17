@@ -3,8 +3,8 @@ package eu.darken.sdmse.automation.core.specs
 import java.time.Duration
 
 sealed interface AutomationSpec {
+    val tag: String
     interface Explorer : AutomationSpec {
-
         val executionTimeout: Duration
             get() = Duration.ofSeconds(20)
 
