@@ -125,7 +125,7 @@ jobs:
       - name: Set up ruby env
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.6
+          ruby-version: 3.3.6
           bundler-cache: true
 
       - name: Assemble beta and upload to Google Play
