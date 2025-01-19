@@ -4,6 +4,7 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import androidx.core.view.isGone
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.corpsefinder.core.Corpse
@@ -30,7 +31,16 @@ class CorpseElementHeaderVH(parent: ViewGroup) :
         pathValue.text = corpse.lookup.userReadablePath.get(context)
         typeIcon.setImageResource(corpse.filterType.iconRes)
         typeValue.text = getString(corpse.filterType.labelRes)
+
+        sizeIcon.setImageResource(
+            when {
+                corpse.lookup.fileType == FileType.DIRECTORY -> R.drawable.ic_folder
+                corpse.lookup.fileType == FileType.FILE -> R.drawable.ic_file
+                else -> R.drawable.file_question
+            }
+        )
         sizeVaule.text = Formatter.formatFileSize(context, corpse.size)
+
         ownersValue.text = if (corpse.ownerInfo.owners.isNotEmpty()) {
             corpse.ownerInfo.owners.joinToString("\n") { it.pkgId.name }
         } else {
@@ -39,10 +49,22 @@ class CorpseElementHeaderVH(parent: ViewGroup) :
 
         hintsLabel.isGone = corpse.riskLevel == RiskLevel.NORMAL
         hintsValue.isGone = corpse.riskLevel == RiskLevel.NORMAL
-        hintsValue.text = when (corpse.riskLevel) {
-            RiskLevel.NORMAL -> ""
-            RiskLevel.KEEPER -> getString(R.string.corpsefinder_corpse_hint_keeper)
-            RiskLevel.COMMON -> getString(R.string.corpsefinder_corpse_hint_common)
+
+        when (corpse.riskLevel) {
+            RiskLevel.NORMAL -> hintsValue.apply {
+                text = ""
+                setTextColor(getColorForAttr(com.google.android.material.R.attr.colorPrimary))
+            }
+
+            RiskLevel.KEEPER -> hintsValue.apply {
+                text = getString(R.string.corpsefinder_corpse_hint_keeper)
+                setTextColor(getColorForAttr(com.google.android.material.R.attr.colorSecondary))
+            }
+
+            RiskLevel.COMMON -> hintsValue.apply {
+                text = getString(R.string.corpsefinder_corpse_hint_common)
+                setTextColor(getColorForAttr(com.google.android.material.R.attr.colorTertiary))
+            }
         }
 
 
