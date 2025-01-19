@@ -4,6 +4,7 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.corpsefinder.core.Corpse
@@ -41,22 +42,32 @@ class CorpseFinderListRowVH(parent: ViewGroup) :
         secondary.text = corpse.lookup.userReadablePath.get(context).removeSuffix(primary.text)
 
         when (corpse.riskLevel) {
-            RiskLevel.NORMAL -> {
-                tertiary.isVisible = false
+            RiskLevel.NORMAL -> tertiary.apply {
+                isVisible = false
+                setTextColor(getColorForAttr(com.google.android.material.R.attr.colorPrimary))
             }
 
-            RiskLevel.KEEPER -> {
-                tertiary.text = getString(R.string.corpsefinder_corpse_hint_keeper)
-                tertiary.isVisible = true
+            RiskLevel.KEEPER -> tertiary.apply {
+                text = getString(R.string.corpsefinder_corpse_hint_keeper)
+                isVisible = true
+                setTextColor(getColorForAttr(com.google.android.material.R.attr.colorSecondary))
             }
 
-            RiskLevel.COMMON -> {
-                tertiary.text = getString(R.string.corpsefinder_corpse_hint_common)
-                tertiary.isVisible = true
+            RiskLevel.COMMON -> tertiary.apply {
+                text = getString(R.string.corpsefinder_corpse_hint_common)
+                isVisible = true
+                setTextColor(getColorForAttr(com.google.android.material.R.attr.colorTertiary))
             }
         }
 
         areaInfo.text = getString(corpse.filterType.labelRes)
+        sizeIcon.setImageResource(
+            when {
+                corpse.lookup.fileType == FileType.DIRECTORY -> R.drawable.ic_folder
+                corpse.lookup.fileType == FileType.FILE -> R.drawable.ic_file
+                else -> R.drawable.file_question
+            }
+        )
         size.text = StringBuilder().apply {
             if (corpse.content.isNotEmpty()) {
                 append(getQuantityString(eu.darken.sdmse.common.R.plurals.result_x_items, corpse.content.size))
