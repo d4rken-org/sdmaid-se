@@ -23,9 +23,7 @@ class DeviceDetective @Inject constructor(
         val pm = context.packageManager
         @Suppress("DEPRECATION")
         if (pm.hasSystemFeature(PackageManager.FEATURE_TELEVISION)) return true
-        if (pm.hasSystemFeature(PackageManager.FEATURE_LEANBACK)) return true
-
-        return false
+        return pm.hasSystemFeature(PackageManager.FEATURE_LEANBACK)
     }
 
     private fun checkManufactor(name: String): Boolean {
@@ -59,6 +57,7 @@ class DeviceDetective @Inject constructor(
         checkManufactor("huawei") && hasApp(MIUI_PKGS) -> RomType.HUAWEI
         checkManufactor("lge") -> RomType.LGE
         checkManufactor("Xiaomi") && hasApp(MIUI_PKGS) && hasFingerPrint(MIUI_VERSION_STARTS) -> RomType.MIUI
+        checkManufactor("Xiaomi") && hasApp(HYPEROS_PKGS) && hasFingerPrint(HYPEROS_VERSION_STARTS) -> RomType.HYPEROS
         checkManufactor("nubia") -> RomType.NUBIA
         checkManufactor("OnePlus") -> RomType.ONEPLUS
         checkManufactor("POCO") -> RomType.POCO
@@ -88,6 +87,17 @@ class DeviceDetective @Inject constructor(
         private val MIUI_PKGS = setOf(
             "com.miui.securitycenter"
         )
+
+        val HYPEROS_VERSION_STARTS = setOf(
+            // OS1.0.12.0.ULLMIXM
+            "OS1",
+            // Xiaomi/corot_global/corot:15/AP3A.240617.008/OS2.0.6.0.VMLMIXM:user/release-keys
+            "OS2",
+        )
+        private val HYPEROS_PKGS = setOf(
+            "com.miui.securitycenter"
+        )
+
         private val FLYME_PKGS = setOf(
             "com.meizu.flyme.update"
         )
