@@ -92,7 +92,8 @@ open class AndroidTVSpecs @Inject constructor(
             }
 
             val step = StepProcessor.Step(
-                parentTag = TAG,
+                source = TAG,
+                descriptionInternal = "Clear cache button",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowIntent = defaultWindowIntent(pkg),
                 windowEventFilter = defaultWindowFilter(SETTINGS_PKG),
@@ -139,7 +140,8 @@ open class AndroidTVSpecs @Inject constructor(
             }
 
             val step = StepProcessor.Step(
-                parentTag = TAG,
+                source = TAG,
+                descriptionInternal = "Confirm action",
                 label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(buttonLabels),
                 windowNodeTest = windowCriteria,
                 nodeTest = buttonFilter,

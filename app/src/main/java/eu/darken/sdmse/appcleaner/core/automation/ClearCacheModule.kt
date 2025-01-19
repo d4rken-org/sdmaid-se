@@ -20,6 +20,7 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.coloros.ColorOSSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.flyme.FlymeSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.honor.HonorSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.huawei.HuaweiSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.HyperOsSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.lge.LGESpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.miui.MIUISpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.nubia.NubiaSpecs
@@ -79,6 +80,7 @@ class ClearCacheModule @AssistedInject constructor(
         .sortedByDescending { generator: AppCleanerSpecGenerator ->
             when (generator) {
                 is MIUISpecs -> 190
+                is HyperOsSpecs -> 180
                 is SamsungSpecs -> 170
                 is AlcatelSpecs -> 160
                 is RealmeSpecs -> 150
