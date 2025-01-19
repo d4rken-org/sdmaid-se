@@ -15,6 +15,8 @@ import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlLabelDebugger
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.appcontrol.core.automation.specs.androidtv.AndroidTVSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPSpecs
+import eu.darken.sdmse.appcontrol.core.automation.specs.hyperos.HyperOsSpecs
+import eu.darken.sdmse.appcontrol.core.automation.specs.miui.MIUISpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.samsung.SamsungSpecs
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopAutomationTask
 import eu.darken.sdmse.automation.core.AutomationHost
@@ -66,7 +68,8 @@ class AppControlAutomation @AssistedInject constructor(
         .onEach { log(TAG, VERBOSE) { "Loaded: $it" } }
         .sortedByDescending { generator: AppControlSpecGenerator ->
             when (generator) {
-//                is MIUISpecs -> 190
+                is MIUISpecs -> 190
+                is HyperOsSpecs -> 180
                 is SamsungSpecs -> 170
 //                is AlcatelSpecs -> 160
 //                is RealmeSpecs -> 150
