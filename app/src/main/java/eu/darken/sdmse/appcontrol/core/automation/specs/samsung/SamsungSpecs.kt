@@ -11,7 +11,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPSpecs
 import eu.darken.sdmse.automation.core.common.StepProcessor
-import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.clickableSelfOrParent
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.defaultClick
@@ -85,11 +84,9 @@ class SamsungSpecs @Inject constructor(
                 windowIntent = defaultWindowIntent(pkg),
                 windowEventFilter = defaultWindowFilter(AOSPSpecs.SETTINGS_PKG),
                 windowNodeTest = windowCriteriaAppIdentifier(AOSPSpecs.SETTINGS_PKG, ipcFunnel, pkg),
-                nodeTest = storageFilter@{ node ->
-                    node.textMatchesAny(forceStopLabels)
-                },
+                nodeTest = storageFilter@{ node -> node.textMatchesAny(forceStopLabels) },
                 nodeRecovery = getDefaultNodeRecovery(pkg),
-                nodeMapping = clickableParent(),
+                nodeMapping = clickableSelfOrParent(),
                 action = defaultClick(onDisabled = {
                     wasDisabled = true
                     true
