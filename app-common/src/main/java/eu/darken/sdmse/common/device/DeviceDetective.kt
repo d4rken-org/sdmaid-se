@@ -8,6 +8,7 @@ import android.os.Build
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.isInstalled
 import javax.inject.Inject
 
@@ -56,8 +57,9 @@ class DeviceDetective @Inject constructor(
         checkManufactor("meizu") && hasApp(FLYME_PKGS) -> RomType.FLYME
         checkManufactor("huawei") && hasApp(MIUI_PKGS) -> RomType.HUAWEI
         checkManufactor("lge") -> RomType.LGE
+        // HyperOS 1.0 is based on Android 14 / API34, so anything lower is likely a false positive of MIUI
+        checkManufactor("Xiaomi") && hasApiLevel(34) && hasApp(HYPEROS_PKGS) && hasFingerPrint(HYPEROS_VERSION_STARTS) -> RomType.HYPEROS
         checkManufactor("Xiaomi") && hasApp(MIUI_PKGS) && hasFingerPrint(MIUI_VERSION_STARTS) -> RomType.MIUI
-        checkManufactor("Xiaomi") && hasApp(HYPEROS_PKGS) && hasFingerPrint(HYPEROS_VERSION_STARTS) -> RomType.HYPEROS
         checkManufactor("nubia") -> RomType.NUBIA
         checkManufactor("OnePlus") -> RomType.ONEPLUS
         checkManufactor("POCO") -> RomType.POCO
