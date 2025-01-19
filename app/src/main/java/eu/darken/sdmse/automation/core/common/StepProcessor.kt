@@ -226,7 +226,8 @@ class StepProcessor @AssistedInject constructor(
     }
 
     data class Step(
-        val parentTag: String,
+        val source: String,
+        val descriptionInternal: String,
         val label: CaString,
         val icon: CaDrawable? = null,
         val windowIntent: Intent? = null,
@@ -237,9 +238,7 @@ class StepProcessor @AssistedInject constructor(
         val nodeMapping: (suspend (node: AccessibilityNodeInfo) -> AccessibilityNodeInfo)? = null,
         val action: (suspend (node: AccessibilityNodeInfo, retryCount: Int) -> Boolean)? = null
     ) {
-
-        override fun toString(): String = "Spec(parent=$parentTag, label=$label)"
-
+        override fun toString(): String = "Spec(source=$source, description=$descriptionInternal)"
     }
 
     data class Result(val success: Boolean, val exception: Exception? = null)
