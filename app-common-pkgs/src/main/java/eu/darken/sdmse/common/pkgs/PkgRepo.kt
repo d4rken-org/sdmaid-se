@@ -42,7 +42,7 @@ class PkgRepo @Inject constructor(
     private val userManager: UserManager2,
 ) {
 
-    private val cache = DynamicStateFlow(TAG, appScope + dispatcherProvider.IO) {
+    private val cache = DynamicStateFlow(if (Bugs.isTrace) TAG else null, appScope + dispatcherProvider.IO) {
         log(TAG, INFO) { "Initializing pkg cache" }
         generateCacheContainer()
     }
