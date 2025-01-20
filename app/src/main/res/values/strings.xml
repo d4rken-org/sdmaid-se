@@ -649,6 +649,7 @@
     <string name="automation_error_not_running_body">Accessibility service is not running. Try rebooting the device.</string>
     <string name="automation_error_screen_unavailable_title">Screen unavailable</string>
     <string name="automation_error_screen_unavailable_body">The operation was aborted because the screen became unavailable (e.g. display off or lockscreen active).</string>
+    <string name="automation_error_compatibility_body">SD Maid couldn’t figure out the screen layout. If this keeps happening, your language or setup might not be fully supported. Check for updates or reach out to me so I can fix it.</string>
 
     <string name="history_label">History</string>
     <string name="history_description">A chronological list of recent actions and affected data.</string>

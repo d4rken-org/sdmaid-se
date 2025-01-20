@@ -31,6 +31,7 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.vivo.VivoSpecs
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
+import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.core.finishAutomation
@@ -38,6 +39,7 @@ import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -128,6 +130,8 @@ class ClearCacheModule @AssistedInject constructor(
 
         var cancelledByUser = false
         val currentUserHandle = userManager2.currentUser().handle
+        var timeoutCount = 0
+
         for (target in task.targets) {
             if (target.userHandle != currentUserHandle) {
                 throw UnsupportedOperationException("ACS based deletion is not support for other users ($target)")
@@ -156,6 +160,7 @@ class ClearCacheModule @AssistedInject constructor(
             } catch (e: TimeoutCancellationException) {
                 log(TAG, WARN) { "Timeout while processing $installed" }
                 failed.add(target)
+                if (timeoutCount > 2) break else timeoutCount++
             } catch (e: CancellationException) {
                 log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
                 updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
@@ -181,6 +186,11 @@ class ClearCacheModule @AssistedInject constructor(
             returnToApp = task.returnToApp,
             deviceDetective = deviceDetective,
         )
+
+        if (timeoutCount != 0 && successful.isEmpty()) {
+            log(TAG, ERROR) { "Continued timeout errors, no successes so far, possible compatbility issue?" }
+            throw AutomationCompatibilityException()
+        }
 
         return ClearCacheTask.Result(
             successful = successful,

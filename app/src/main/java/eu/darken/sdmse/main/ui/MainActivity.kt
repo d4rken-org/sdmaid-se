@@ -7,7 +7,10 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
+import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.navigation.findNavController
 import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.common.uix.Activity2
@@ -56,11 +59,17 @@ class MainActivity : Activity2() {
         navController.addOnDestinationChangedListener { _, destination, bundle ->
             Bugs.leaveBreadCrumb("Navigated to $destination with args $bundle")
         }
+
+        vm.errorEvents.observe2 {
+            log(tag, VERBOSE) { "Error event: $it" }
+            it.asErrorDialogBuilder(this).show()
+        }
     }
 
     override fun onResume() {
         super.onResume()
         vm.checkUpgrades()
+        vm.checkErrors()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
