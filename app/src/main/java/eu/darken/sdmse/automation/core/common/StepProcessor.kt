@@ -60,7 +60,7 @@ class StepProcessor @AssistedInject constructor(
         progressPub.value = update(progressPub.value)
     }
 
-    suspend fun process(step: Step): Unit = withTimeout(20 * 1000) {
+    suspend fun process(step: Step): Unit = withTimeout(step.timeout) {
         log(TAG) { "crawl(): $step" }
         updateProgressPrimary(step.label)
         var attempts = 0
@@ -236,7 +236,8 @@ class StepProcessor @AssistedInject constructor(
         val nodeTest: (suspend (node: AccessibilityNodeInfo) -> Boolean)? = null,
         val nodeRecovery: (suspend (node: AccessibilityNodeInfo) -> Boolean)? = null,
         val nodeMapping: (suspend (node: AccessibilityNodeInfo) -> AccessibilityNodeInfo)? = null,
-        val action: (suspend (node: AccessibilityNodeInfo, retryCount: Int) -> Boolean)? = null
+        val action: (suspend (node: AccessibilityNodeInfo, retryCount: Int) -> Boolean)? = null,
+        val timeout: Long = 15 * 1000,
     ) {
         override fun toString(): String = "Spec(source=$source, description=$descriptionInternal)"
     }
