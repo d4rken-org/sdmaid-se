@@ -15,7 +15,7 @@ jobs:
         flavor: [ Foss,Gplay ]
         variant: [ Beta,Release ]
         module: [ app ]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
@@ -33,7 +33,7 @@ jobs:
         flavor: [ Foss,Gplay ]
         variant: [ Debug ]
         module: [ app ]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
@@ -50,7 +50,7 @@ jobs:
       matrix:
         variant: [ Debug,Beta,Release ]
         flavor: [ test,testFoss,testGplay ]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4

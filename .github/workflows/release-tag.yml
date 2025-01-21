@@ -10,7 +10,7 @@ jobs:
     name: Create GitHub release
     permissions:
       contents: write
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     environment: foss-production
     steps:
       - name: Decode Keystore
@@ -83,7 +83,7 @@ jobs:
 
   release-gplay:
     name: Create Google Play release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     environment: gplay-production
     steps:
       - name: Decode Keystore
