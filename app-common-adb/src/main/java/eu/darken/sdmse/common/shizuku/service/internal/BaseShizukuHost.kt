@@ -2,9 +2,11 @@ package eu.darken.sdmse.common.shizuku.service.internal
 
 import android.annotation.SuppressLint
 import android.content.Context
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.runBlocking
 import kotlin.system.exitProcess
 
 @SuppressLint("PrivateApi")
