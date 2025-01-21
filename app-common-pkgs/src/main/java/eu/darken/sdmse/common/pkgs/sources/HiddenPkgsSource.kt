@@ -20,6 +20,8 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
+import eu.darken.sdmse.common.shizuku.ShizukuManager
+import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -29,16 +31,26 @@ import javax.inject.Singleton
 class HiddenPkgsSource @Inject constructor(
     private val pkgOps: PkgOps,
     private val rootManager: RootManager,
+    private val shizukuManager: ShizukuManager,
     private val userManager: UserManager2,
     private val shellOps: ShellOps,
 ) : PkgDataSource {
 
     override suspend fun getPkgs(): Collection<Installed> = pkgOps.useRes {
         log(TAG) { "getPkgs()" }
-        if (!rootManager.canUseRootNow()) {
-            log(TAG) { "Requires root, skipping..." }
+
+        val mode = when {
+            rootManager.canUseRootNow() -> ShellOps.Mode.ROOT
+            shizukuManager.canUseShizukuNow() -> ShellOps.Mode.ADB
+            else -> null
+        }
+
+        if (mode == null) {
+            log(TAG) { "Requires root or adb, skipping..." }
             return@useRes emptySet()
         }
+
+        log(TAG) { "Using shell mode $mode" }
 
         val alreadyKnown = try {
             pkgOps.queryPkgs(0).map { it.packageName }
@@ -51,7 +63,7 @@ class HiddenPkgsSource @Inject constructor(
             .mapNotNull { user ->
                 val result = shellOps.execute(
                     ShellOpsCmd("pm list packages -f --user ${user.handle.handleId}"),
-                    ShellOps.Mode.ROOT,
+                    mode,
                 )
                 if (!result.isSuccess) return@mapNotNull null
                 user to result.output
