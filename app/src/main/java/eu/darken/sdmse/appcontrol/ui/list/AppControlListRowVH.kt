@@ -2,19 +2,13 @@ package eu.darken.sdmse.appcontrol.ui.list
 
 import android.text.format.Formatter
 import android.view.ViewGroup
-import androidx.core.view.children
-import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppInfo
-import eu.darken.sdmse.appcontrol.core.export.AppExportType
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
-import eu.darken.sdmse.common.pkgs.isArchived
-import eu.darken.sdmse.common.pkgs.isEnabled
-import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.databinding.AppcontrolListItemBinding
 
 
@@ -45,20 +39,14 @@ class AppControlListRowVH(parent: ViewGroup) :
         secondary.text = appInfo.pkg.packageName
 
         @Suppress("SetTextI18n")
-        tertiary.text = "${appInfo.pkg.versionName}  (${appInfo.pkg.versionCode})"
+        tertiary.text = "${appInfo.pkg.versionName ?: "?"}  (${appInfo.pkg.versionCode})"
 
         sizes.apply {
             text = appInfo.sizes?.let { Formatter.formatShortFileSize(context, it.total) }
             isVisible = appInfo.sizes != null
         }
 
-        tagSystem.tagSystem.isVisible = appInfo.pkg.isSystemApp
-        tagArchived.tagArchived.isVisible = appInfo.pkg.isArchived
-        tagDisabled.tagDisabled.isVisible = !appInfo.pkg.isEnabled
-        tagActive.tagActive.isVisible = appInfo.isActive == true
-        tagApkBase.tagApkBase.isVisible = appInfo.exportType == AppExportType.APK
-        tagApkBundle.tagApkBundle.isVisible = appInfo.exportType == AppExportType.BUNDLE
-        tagContainer.isGone = tagContainer.children.none { it.isVisible }
+        tagContainer.setPkg(appInfo)
 
         itemView.setOnClickListener { item.onItemClicked(appInfo) }
     }

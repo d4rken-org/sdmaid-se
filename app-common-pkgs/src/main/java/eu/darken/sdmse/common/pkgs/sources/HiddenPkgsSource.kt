@@ -5,6 +5,8 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -20,8 +22,6 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -31,7 +31,7 @@ import javax.inject.Singleton
 class HiddenPkgsSource @Inject constructor(
     private val pkgOps: PkgOps,
     private val rootManager: RootManager,
-    private val shizukuManager: ShizukuManager,
+    private val adbManager: AdbManager,
     private val userManager: UserManager2,
     private val shellOps: ShellOps,
 ) : PkgDataSource {
@@ -41,7 +41,7 @@ class HiddenPkgsSource @Inject constructor(
 
         val mode = when {
             rootManager.canUseRootNow() -> ShellOps.Mode.ROOT
-            shizukuManager.canUseShizukuNow() -> ShellOps.Mode.ADB
+            adbManager.canUseAdbNow() -> ShellOps.Mode.ADB
             else -> null
         }
 

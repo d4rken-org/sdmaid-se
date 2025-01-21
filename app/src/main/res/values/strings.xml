@@ -499,6 +499,8 @@
     <string name="appcontrol_tag_apk_bundle">Bundle</string>
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_archived">Archived</string>
+    <string name="appcontrol_tag_uninstalled">Data Only</string>
+    <string name="appcontrol_tag_not_installed">Not installed</string>
     <string name="appcontrol_tag_enabled">Enabled</string>
     <string name="appcontrol_tag_disabled">Disabled</string>
     <string name="appcontrol_progress_enabling_package">Enabling app</string>
