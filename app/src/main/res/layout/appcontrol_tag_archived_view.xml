@@ -6,8 +6,8 @@
     style="@style/AppControlTagStyle"
     tools:visibility="visible"
     android:background="@drawable/bg_tag_box"
-    android:textColor="?colorOnTertiary"
-    android:backgroundTint="?colorTertiary"
-    app:iconTint="?colorOnTertiary"
+    android:textColor="?colorOnSecondary"
+    android:backgroundTint="?colorSecondary"
+    app:iconTint="?colorOnSecondary"
     android:text="@string/appcontrol_tag_archived"
     android:visibility="gone" />

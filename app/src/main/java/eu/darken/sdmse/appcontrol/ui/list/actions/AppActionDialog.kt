@@ -9,15 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.children
 import androidx.core.view.isGone
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.sdmse.appcontrol.core.export.AppExportType
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -25,9 +22,6 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
-import eu.darken.sdmse.common.pkgs.isArchived
-import eu.darken.sdmse.common.pkgs.isEnabled
-import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.uix.BottomSheetDialogFragment2
 import eu.darken.sdmse.databinding.AppcontrolActionDialogBinding
 
@@ -60,20 +54,13 @@ class AppActionDialog : BottomSheetDialogFragment2() {
         ui.recyclerview.setupDefaults(adapter, verticalDividers = false)
 
         vm.state.observe2(ui) { (appInfo, progress, actions) ->
-            val pkg = appInfo.pkg
-            icon.loadAppIcon(pkg)
+            icon.loadAppIcon(appInfo.pkg)
             primary.text = appInfo.label.get(requireContext())
-            secondary.text = pkg.packageName
-            tertiary.text = "${pkg.versionName} (${pkg.versionCode})"
+            secondary.text = appInfo.pkg.packageName
+            tertiary.text = "${appInfo.pkg.versionName ?: "?"} (${appInfo.pkg.versionCode})"
             adapter.update(actions)
 
-            tagSystem.tagSystem.isVisible = appInfo.pkg.isSystemApp
-            tagArchived.tagArchived.isVisible = appInfo.pkg.isArchived
-            tagDisabled.tagDisabled.isVisible = !appInfo.pkg.isEnabled
-            tagActive.tagActive.isVisible = appInfo.isActive == true
-            tagApkBase.tagApkBase.isVisible = appInfo.exportType == AppExportType.APK
-            tagApkBundle.tagApkBundle.isVisible = appInfo.exportType == AppExportType.BUNDLE
-            tagContainer.isGone = tagContainer.children.none { it.isVisible }
+            tagContainer.setPkg(appInfo)
 
             ui.recyclerview.isGone = progress != null
             ui.loadingOverlay.setProgress(progress)

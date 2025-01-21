@@ -17,6 +17,7 @@ data class FilterSettings(
         @Json(name = "ENABLED") ENABLED,
         @Json(name = "DISABLED") DISABLED,
         @Json(name = "ACTIVE") ACTIVE,
+        @Json(name = "NOT_INSTALLED") NOT_INSTALLED,
         ;
     }
 }

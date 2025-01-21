@@ -28,7 +28,7 @@ data class UninstalledPkg(
 
     override val icon: CaDrawable = caDrawable { context ->
         context.packageManager.getIcon2(id)
-            ?: AppCompatResources.getDrawable(context, R.drawable.ic_ghost_24)!!
+            ?: AppCompatResources.getDrawable(context, R.drawable.ic_package_variant_24)!!
     }.cache()
 
     override fun toString(): String = "UninstalledPkg(packageName=$packageName"

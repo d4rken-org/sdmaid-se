@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import eu.darken.sdmse.common.pkgs.container.ArchivedPkg
 import eu.darken.sdmse.common.pkgs.container.LibraryPkg
+import eu.darken.sdmse.common.pkgs.container.UninstalledPkg
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 
 fun Pkg.getSettingsIntent(context: Context) = id.getSettingsIntent(context)
@@ -18,6 +19,12 @@ fun String.toPkgId() = Pkg.Id(this)
 
 val Pkg.isArchived: Boolean
     get() = this is ArchivedPkg
+
+val Pkg.isUninstalled: Boolean
+    get() = this is UninstalledPkg
+
+val Pkg.isInstalled: Boolean
+    get() = !isArchived && !isUninstalled
 
 val Pkg.isEnabled: Boolean
     get() = this is InstallDetails && this.isEnabled

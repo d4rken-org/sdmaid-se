@@ -27,6 +27,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.isEnabled
+import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.toSystemTimezone
@@ -192,6 +193,7 @@ class AppControlListViewModel @Inject constructor(
                     if (listFilter.tags.contains(FilterSettings.Tag.ENABLED) && !it.pkg.isEnabled) return@filter false
                     if (listFilter.tags.contains(FilterSettings.Tag.DISABLED) && it.pkg.isEnabled) return@filter false
                     if (listFilter.tags.contains(FilterSettings.Tag.ACTIVE) && it.isActive == false) return@filter false
+                    if (listFilter.tags.contains(FilterSettings.Tag.NOT_INSTALLED) && it.pkg.isInstalled) return@filter false
 
                     return@filter true
                 }
@@ -303,6 +305,12 @@ class AppControlListViewModel @Inject constructor(
                 }
 
                 FilterSettings.Tag.ACTIVE -> if (existing) {
+                    old.tags.minus(tag)
+                } else {
+                    old.tags.plus(tag)
+                }
+
+                FilterSettings.Tag.NOT_INSTALLED -> if (existing) {
                     old.tags.minus(tag)
                 } else {
                     old.tags.plus(tag)

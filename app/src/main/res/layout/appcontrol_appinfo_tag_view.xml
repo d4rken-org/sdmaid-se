@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <include
+        android:id="@+id/tag_system"
+        layout="@layout/appcontrol_tag_system_view"
+        tools:visibility="visible" />
+
+    <include
+        android:id="@+id/tag_archived"
+        layout="@layout/appcontrol_tag_archived_view"
+        tools:visibility="visible" />
+
+    <include
+        android:id="@+id/tag_uninstalled"
+        layout="@layout/appcontrol_tag_uninstalled_view"
+        tools:visibility="visible" />
+
+    <include
+        android:id="@+id/tag_disabled"
+        layout="@layout/appcontrol_tag_disabled_view"
+        tools:visibility="visible" />
+
+    <include
+        android:id="@+id/tag_active"
+        layout="@layout/appcontrol_tag_active_view"
+        tools:visibility="visible" />
+
+    <include
+        android:id="@+id/tag_apk_base"
+        layout="@layout/appcontrol_tag_apk_base_view"
+        tools:visibility="visible" />
+
+    <include
+        android:id="@+id/tag_apk_bundle"
+        layout="@layout/appcontrol_tag_apk_bundle_view"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/tag_flow"
+        style="@style/AppControlTagContainerFlow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tag_system,tag_apk_base,tag_apk_bundle,tag_archived,tag_uninstalled,tag_disabled,tag_active"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</merge>

@@ -31,7 +31,7 @@ data class ArchivedPkg(
     }.cache()
 
     override val icon: CaDrawable = caDrawable { context ->
-        context.packageManager.getIcon2(id) ?: AppCompatResources.getDrawable(context, R.drawable.baseline_archive_24)!!
+        context.packageManager.getIcon2(id) ?: AppCompatResources.getDrawable(context, R.drawable.ic_archive_24)!!
     }.cache()
 
     override val isEnabled: Boolean
