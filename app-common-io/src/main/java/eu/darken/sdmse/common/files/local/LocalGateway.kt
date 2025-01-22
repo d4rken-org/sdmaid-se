@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.files.local
 
 import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.AdbUnavailableException
 import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.adb.service.runModuleAction
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -29,6 +30,7 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.ipc.fileHandle
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.RootUnavailableException
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.SharedResource
@@ -63,12 +65,14 @@ class LocalGateway @Inject constructor(
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
     private suspend fun <T> rootOps(action: suspend (FileOpsClient) -> T): T {
+        if (!rootManager.canUseRootNow()) throw RootUnavailableException()
         return keepResourcesAlive(setOf(rootManager.serviceClient)) {
             rootManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
         }
     }
 
     private suspend fun <T> adbOps(action: suspend (FileOpsClient) -> T): T {
+        if (!adbManager.canUseAdbNow()) throw AdbUnavailableException()
         return keepResourcesAlive(setOf(adbManager.serviceClient)) {
             adbManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
         }

@@ -3,8 +3,8 @@ package eu.darken.sdmse.common.shell
 import eu.darken.rxshell.cmd.Cmd
 import eu.darken.rxshell.cmd.RxCmdShell
 import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.AdbUnavailableException
 import eu.darken.sdmse.common.adb.canUseAdbNow
-import eu.darken.sdmse.common.adb.service.AdbServiceClient
 import eu.darken.sdmse.common.adb.service.runModuleAction
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -15,11 +15,12 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.RootUnavailableException
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.common.root.service.RootServiceClient
 import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.sharedresource.keepResourcesAlive
 import eu.darken.sdmse.common.shell.ipc.ShellOpsClient
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.shell.ipc.ShellOpsResult
@@ -34,20 +35,24 @@ import javax.inject.Singleton
 class ShellOps @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
-    private val rootServiceClient: RootServiceClient,
     private val rootManager: RootManager,
     private val adbManager: AdbManager,
-    private val adbServiceClient: AdbServiceClient,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
-    private suspend fun <T> rootOps(action: suspend (ShellOpsClient) -> T): T {
-        return rootServiceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
+    private suspend fun <T> adbOps(action: suspend (ShellOpsClient) -> T): T {
+        if (!adbManager.canUseAdbNow()) throw AdbUnavailableException()
+        return keepResourcesAlive(setOf(adbManager.serviceClient)) {
+            adbManager.serviceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
+        }
     }
 
-    private suspend fun <T> adbOps(action: suspend (ShellOpsClient) -> T): T {
-        return adbServiceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
+    private suspend fun <T> rootOps(action: suspend (ShellOpsClient) -> T): T {
+        if (!rootManager.canUseRootNow()) throw RootUnavailableException()
+        return keepResourcesAlive(setOf(rootManager.serviceClient)) {
+            rootManager.serviceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
+        }
     }
 
     private suspend fun <T> runIO(

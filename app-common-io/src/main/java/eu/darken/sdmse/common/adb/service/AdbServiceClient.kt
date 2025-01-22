@@ -105,9 +105,7 @@ class AdbServiceClient @Inject constructor(
     data class Connection(
         val ipc: AdbServiceConnection,
         val clientModules: List<IpcClientModule>
-    ) {
-        inline fun <reified T> getModule(): T = clientModules.single { it is T } as T
-    }
+    )
 
     companion object {
 

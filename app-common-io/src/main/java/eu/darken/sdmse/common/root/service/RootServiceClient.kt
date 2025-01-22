@@ -105,9 +105,7 @@ class RootServiceClient @Inject constructor(
     data class Connection(
         val ipc: RootServiceConnection,
         val clientModules: List<IpcClientModule>
-    ) {
-        inline fun <reified T> getModule(): T = clientModules.single { it is T } as T
-    }
+    )
 
     companion object {
 
