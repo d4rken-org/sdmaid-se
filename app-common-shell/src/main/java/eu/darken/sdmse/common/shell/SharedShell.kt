@@ -1,13 +1,15 @@
 package eu.darken.sdmse.common.shell
 
 import eu.darken.flowshell.core.cmd.FlowCmdShell
-import eu.darken.flowshell.core.process.FlowProcess
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
@@ -30,23 +32,21 @@ class SharedShell(
             throw e
         }
 
-        invokeOnClose {
-            log(aTag) { "Canceling!" }
-            runBlocking {
-                session.close()
-            }
-        }
-
         send(session)
 
-        val exitCode = try {
-            session.waitFor()
-        } catch (sessionError: Exception) {
-            throw IllegalStateException("SharedShell finished unexpectedly", sessionError)
-        }
-
-        if (exitCode != FlowProcess.ExitCode.OK) {
-            throw IllegalStateException("SharedShell finished with exitcode $exitCode")
+        awaitClose {
+            log(aTag) { "Closing!" }
+            runBlocking {
+                try {
+                    session.close()
+                    val exitCode = session.waitFor()
+                    log(aTag) { "FlowCmdShell finished with exitcode $exitCode" }
+                } catch (e: CancellationException) {
+                    log(aTag) { "FlowCmdShell was cancelled: $e" }
+                } catch (e: Exception) {
+                    log(aTag, WARN) { "Session.close() failed: $e" }
+                }
+            }
         }
     }
 

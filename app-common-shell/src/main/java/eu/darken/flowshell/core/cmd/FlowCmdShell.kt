@@ -81,7 +81,6 @@ class FlowCmdShell(
         suspend fun close() = withContext(Dispatchers.IO) {
             if (isDebug) log(TAG) { "close()" }
             session.close()
-            session.waitFor()
             scope.cancel()
         }
 
