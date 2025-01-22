@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeoutOrNull
 
 class SharedShell(
     tag: String,
@@ -38,7 +39,7 @@ class SharedShell(
             log(aTag) { "Closing!" }
             runBlocking {
                 try {
-                    session.close()
+                    withTimeoutOrNull(5 * 1000) { session.close() } ?: session.cancel()
                     val exitCode = session.waitFor()
                     log(aTag) { "FlowCmdShell finished with exitcode $exitCode" }
                 } catch (e: CancellationException) {
