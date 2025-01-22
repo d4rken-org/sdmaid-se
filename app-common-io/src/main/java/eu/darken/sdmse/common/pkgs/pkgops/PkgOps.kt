@@ -18,6 +18,7 @@ import android.os.storage.StorageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.ModeUnavailableException
 import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.AdbUnavailableException
 import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.adb.service.runModuleAction
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -46,6 +47,7 @@ import eu.darken.sdmse.common.pkgs.getSharedLibraries2
 import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsClient
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.RootUnavailableException
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
@@ -75,12 +77,14 @@ class PkgOps @Inject constructor(
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
     private suspend fun <T> adbOps(action: suspend (PkgOpsClient) -> T): T {
+        if (!adbManager.canUseAdbNow()) throw AdbUnavailableException()
         return keepResourcesAlive(setOf(adbManager.serviceClient)) {
             adbManager.serviceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
         }
     }
 
     private suspend fun <T> rootOps(action: suspend (PkgOpsClient) -> T): T {
+        if (!rootManager.canUseRootNow()) throw RootUnavailableException()
         return keepResourcesAlive(setOf(rootManager.serviceClient)) {
             rootManager.serviceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
         }
