@@ -5,6 +5,8 @@ import android.os.Process
 import android.os.UserHandle
 import android.os.UserManager
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -22,6 +24,7 @@ class UserManager2 @Inject constructor(
     @ApplicationContext private val context: Context,
     private val userManager: UserManager,
     private val rootManager: RootManager,
+    private val adbManager: AdbManager,
     private val shellOps: ShellOps,
 ) {
 
@@ -43,8 +46,16 @@ class UserManager2 @Inject constructor(
     suspend fun allUsers(): Set<UserProfile2> {
         val profiles = mutableSetOf<UserProfile2>()
 
-        if (rootManager.canUseRootNow()) {
-            val shellResult = shellOps.execute(ShellOpsCmd("pm list users"), mode = ShellOps.Mode.ROOT)
+        val shellMode = when {
+            rootManager.canUseRootNow() -> ShellOps.Mode.ROOT
+            adbManager.canUseAdbNow() -> ShellOps.Mode.ADB
+            else -> null
+        }
+
+        log(TAG) { "allUsers(): shellMode=$shellMode" }
+
+        if (shellMode != null) {
+            val shellResult = shellOps.execute(ShellOpsCmd("pm list users"), shellMode)
             if (shellResult.isSuccess) {
                 shellResult.output
                     .mapNotNull { userListRegex.matchEntire(it) }
@@ -67,11 +78,7 @@ class UserManager2 @Inject constructor(
 
         if (profiles.isEmpty()) {
             userManager.userProfiles
-                .map {
-                    UserProfile2(
-                        handle = it.toUserHandle2(),
-                    )
-                }
+                .map { UserProfile2(handle = it.toUserHandle2()) }
                 .run { profiles.addAll(this) }
         }
 
