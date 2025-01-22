@@ -7,6 +7,8 @@ import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCacheProvider
 import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.errors.AutomationUnavailableException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -26,8 +28,6 @@ import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
@@ -49,7 +49,7 @@ class InaccessibleDeleter @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val userManager: UserManager2,
     private val automationManager: AutomationManager,
-    private val shizukuManager: ShizukuManager,
+    private val adbManager: AdbManager,
     private val pkgOps: PkgOps,
     private val inaccessibleCacheProvider: InaccessibleCacheProvider,
 ) : Progress.Host, Progress.Client {
@@ -113,10 +113,10 @@ class InaccessibleDeleter @Inject constructor(
         val successTargets = mutableListOf<Installed.InstallId>()
         val failedTargets = mutableListOf<Installed.InstallId>()
 
-        if (shizukuManager.canUseShizukuNow() && isAllApps) {
-            val shizukuResult = trimCachesWithShizuku(targets)
-            successTargets.addAll(shizukuResult.succesful)
-            failedTargets.addAll(shizukuResult.failed)
+        if (adbManager.canUseAdbNow() && isAllApps) {
+            val adbResult = trimCachesWithAdb(targets)
+            successTargets.addAll(adbResult.succesful)
+            failedTargets.addAll(adbResult.failed)
         }
 
         if (useAutomation && targets.size != successTargets.size) {
@@ -158,8 +158,8 @@ class InaccessibleDeleter @Inject constructor(
         )
     }
 
-    private suspend fun trimCachesWithShizuku(targets: Collection<AppJunk>): InaccDelResult {
-        log(TAG) { "Using Shizuku to delete inaccessible caches" }
+    private suspend fun trimCachesWithAdb(targets: Collection<AppJunk>): InaccDelResult {
+        log(TAG) { "Using ADB to delete inaccessible caches" }
         updateProgressPrimary(R.string.appcleaner_progress_shizuku_deleting_caches)
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
 

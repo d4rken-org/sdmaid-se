@@ -8,6 +8,8 @@ import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
@@ -22,8 +24,6 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
@@ -52,7 +52,7 @@ class SchedulerWorker @AssistedInject constructor(
     private val schedulerNotifications: SchedulerNotifications,
     private val setupHealer: SetupHealer,
     private val rootManager: RootManager,
-    private val shizukuManager: ShizukuManager,
+    private val adbManager: AdbManager,
     private val shellOps: ShellOps,
 ) : CoroutineWorker(context, params) {
 
@@ -183,7 +183,7 @@ class SchedulerWorker @AssistedInject constructor(
 
             val shellOpsMode = when {
                 rootManager.canUseRootNow() -> ShellOps.Mode.ROOT
-                shizukuManager.canUseShizukuNow() -> ShellOps.Mode.ADB
+                adbManager.canUseAdbNow() -> ShellOps.Mode.ADB
                 else -> ShellOps.Mode.NORMAL
             }
             val result = shellOps.execute(ShellOpsCmd(cmds = cmds), shellOpsMode)

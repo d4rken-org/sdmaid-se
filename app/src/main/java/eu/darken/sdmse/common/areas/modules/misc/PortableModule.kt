@@ -6,6 +6,8 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -23,8 +25,6 @@ import eu.darken.sdmse.common.files.saf.SAFGateway
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.user.UserManager2
@@ -38,7 +38,7 @@ class PortableModule @Inject constructor(
     private val storageManager2: StorageManager2,
     private val gatewaySwitch: GatewaySwitch,
     private val pathMapper: PathMapper,
-    private val shizukuManager: ShizukuManager,
+    private val adbManager: AdbManager,
     private val rootManager: RootManager,
 ) : DataAreaModule {
 
@@ -122,7 +122,7 @@ class PortableModule @Inject constructor(
 
         // ADB
         targetPath.let { localPath ->
-            if (!shizukuManager.canUseShizukuNow()) return@let
+            if (!adbManager.canUseAdbNow()) return@let
 
             val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 

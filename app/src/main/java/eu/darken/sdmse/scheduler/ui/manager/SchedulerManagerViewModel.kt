@@ -9,6 +9,8 @@ import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BatteryHelper
 import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
@@ -18,8 +20,6 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
@@ -53,7 +53,7 @@ class SchedulerManagerViewModel @Inject constructor(
     private val settings: SchedulerSettings,
     private val upgradeRepo: UpgradeRepo,
     private val rootManager: RootManager,
-    private val shizukuManager: ShizukuManager,
+    private val adbManager: AdbManager,
     private val batteryHelper: BatteryHelper,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
@@ -108,7 +108,7 @@ class SchedulerManagerViewModel @Inject constructor(
             ).apply { items.add(this) }
         }
 
-        val showCommands = rootManager.canUseRootNow() || shizukuManager.canUseShizukuNow()
+        val showCommands = rootManager.canUseRootNow() || adbManager.canUseAdbNow()
 
         schedulerState.schedules.map { schedule ->
             ScheduleRowVH.Item(

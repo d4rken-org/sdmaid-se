@@ -1,10 +1,11 @@
-package eu.darken.sdmse.common.shizuku.service
+package eu.darken.sdmse.common.adb.service
 
 import android.content.Context
 import android.os.IBinder
 import androidx.annotation.Keep
 import dagger.Lazy
 import eu.darken.sdmse.common.BuildConfigWrap
+import eu.darken.sdmse.common.adb.service.internal.BaseAdbHost
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.FileLogger
 import eu.darken.sdmse.common.debug.logging.LogCatLogger
@@ -16,8 +17,6 @@ import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shell.SharedShell
-import eu.darken.sdmse.common.shizuku.service.internal.BaseShizukuHost
-import eu.darken.sdmse.common.shizuku.service.internal.ShizukuHostOptions
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -26,23 +25,23 @@ import java.io.File
 import javax.inject.Inject
 
 @Keep
-class ShizukuHost(
+class AdbHost(
     context: Context
-) : BaseShizukuHost(TAG, context), HasSharedResource<Any> {
+) : BaseAdbHost(TAG, context), HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, hostScope)
 
-    private lateinit var component: ShizukuComponent
+    private lateinit var component: AdbComponent
     private lateinit var keepAliveToken: Resource<*>
 
     @Inject lateinit var sharedShell: SharedShell
-    @Inject lateinit var serviceHost: Lazy<ShizukuServiceHost>
+    @Inject lateinit var serviceHost: Lazy<AdbServiceHost>
 
     private val logCatLogger = LogCatLogger()
-    private val currentOptions = MutableStateFlow(ShizukuHostOptions())
+    private val currentOptions = MutableStateFlow(AdbHostOptions())
 
     init {
-        Bugs.processTag = "Shizuku"
+        Bugs.processTag = "ADB"
         if (BuildConfigWrap.DEBUG) {
             Logging.install(logCatLogger)
             log(TAG) { "BuildConfigWrap.DEBUG=true" }
@@ -53,7 +52,7 @@ class ShizukuHost(
     }
 
     suspend fun onStart() {
-        component = DaggerShizukuComponent.builder().application(context).build().also {
+        component = DaggerAdbComponent.builder().application(context).build().also {
             it.inject(this)
         }
 
@@ -74,7 +73,7 @@ class ShizukuHost(
 
                 if (options.recorderPath != null && currentFileLogger == null) {
                     val ogPath = options.recorderPath!!
-                    val newPath = ogPath.replace(".log", "_shizuku.log")
+                    val newPath = ogPath.replace(".log", "_adb.log")
                     val logger = FileLogger(File(newPath)).also {
                         currentFileLogger = it
                         it.start()
@@ -100,12 +99,12 @@ class ShizukuHost(
 
     override fun getUserConnection(): IBinder = serviceHost.get()
 
-    override fun updateHostOptions(options: ShizukuHostOptions) {
+    override fun updateHostOptions(options: AdbHostOptions) {
         log(TAG) { "updateHostOptions(): $options" }
         currentOptions.value = options
     }
 
     companion object {
-        internal val TAG = logTag("Shizuku", "Host")
+        internal val TAG = logTag("ADB", "Host")
     }
 }

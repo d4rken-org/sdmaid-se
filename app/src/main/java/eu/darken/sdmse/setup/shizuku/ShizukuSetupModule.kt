@@ -5,6 +5,8 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.common.adb.AdbSettings
+import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
@@ -14,9 +16,6 @@ import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.ShizukuSettings
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
@@ -40,17 +39,17 @@ import javax.inject.Singleton
 @Singleton
 class ShizukuSetupModule @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    private val shizukuSettings: ShizukuSettings,
+    private val adbSettings: AdbSettings,
     private val shizukuManager: ShizukuManager,
     private val dataAreaManager: DataAreaManager,
-    private val rootManager: RootManager,
+    rootManager: RootManager,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
 
     private val permissionRequester = shizukuManager.shizukuBinder
         .onEach {
-            if (shizukuSettings.useShizuku.value() == true && shizukuManager.isGranted() == false) {
+            if (adbSettings.useShizuku.value() == true && shizukuManager.isGranted() == false) {
                 log(TAG) { "Requesting Shizuku permission for us..." }
                 shizukuManager.requestPermission()
             }
@@ -60,11 +59,11 @@ class ShizukuSetupModule @Inject constructor(
 
     override val state: Flow<SetupModule.State> = combine(
         refreshTrigger,
-        shizukuSettings.useShizuku.flow,
+        adbSettings.useShizuku.flow,
         rootManager.useRoot,
     ) { _, useShizuku, useRoot ->
         val baseState = Result(
-            pkg = shizukuManager.pkgId,
+            pkg = shizukuManager.shizukuPkgId,
             useShizuku = useShizuku,
             isInstalled = shizukuManager.isInstalled(),
             isCompatible = shizukuManager.isCompatible(),
@@ -98,7 +97,7 @@ class ShizukuSetupModule @Inject constructor(
 
     suspend fun toggleUseShizuku(useShizuku: Boolean?) {
         log(TAG) { "toggleUseShizuku(useShizuku=$useShizuku)" }
-        val couldUseShizuku = shizukuManager.canUseShizukuNow()
+        val couldUseShizuku = shizukuManager.useShizuku.first()
         if (useShizuku == true && shizukuManager.isGranted() == false) {
             val grantResult = coroutineScope {
                 val eventResult = async {
@@ -114,9 +113,9 @@ class ShizukuSetupModule @Inject constructor(
             }
 
             log(TAG) { "Permission grant result was $grantResult" }
-            shizukuSettings.useShizuku.value(grantResult.takeIf { it == true })
+            adbSettings.useShizuku.value(grantResult.takeIf { it == true })
         } else {
-            shizukuSettings.useShizuku.value(useShizuku)
+            adbSettings.useShizuku.value(useShizuku)
         }
 
         if (!couldUseShizuku && useShizuku == true) {

@@ -1,5 +1,8 @@
 package eu.darken.sdmse.common.files.local
 
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
+import eu.darken.sdmse.common.adb.service.runModuleAction
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
@@ -30,9 +33,6 @@ import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourcesAlive
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
-import eu.darken.sdmse.common.shizuku.service.runModuleAction
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -55,7 +55,7 @@ class LocalGateway @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val storageEnvironment: StorageEnvironment,
     private val rootManager: RootManager,
-    private val shizukuManager: ShizukuManager,
+    private val adbManager: AdbManager,
 ) : APathGateway<LocalPath, LocalPathLookup, LocalPathLookupExtended> {
 
     // Represents the resource that keeps the gateway resources alive
@@ -69,14 +69,14 @@ class LocalGateway @Inject constructor(
     }
 
     private suspend fun <T> adbOps(action: suspend (FileOpsClient) -> T): T {
-        return keepResourcesAlive(setOf(shizukuManager.serviceClient)) {
-            shizukuManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
+        return keepResourcesAlive(setOf(adbManager.serviceClient)) {
+            adbManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
         }
     }
 
     suspend fun hasRoot(): Boolean = rootManager.canUseRootNow()
 
-    suspend fun hasShizuku(): Boolean = shizukuManager.canUseShizukuNow()
+    suspend fun hasAdb(): Boolean = adbManager.canUseAdbNow()
 
     private suspend fun <T> runIO(
         block: suspend CoroutineScope.() -> T
@@ -119,7 +119,7 @@ class LocalGateway @Inject constructor(
                 }
             }
 
-            if (hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO)) {
+            if (hasAdb() && (mode == Mode.ADB || mode == Mode.AUTO)) {
                 if (adbOps { file.exists() && file.isFile }) {
                     throw IOException("Path exists already, but it's a file.")
                 }
@@ -183,7 +183,7 @@ class LocalGateway @Inject constructor(
                 }
             }
 
-            if (hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO)) {
+            if (hasAdb() && (mode == Mode.ADB || mode == Mode.AUTO)) {
                 if (adbOps { it.exists(path) }) {
                     throw IOException("Path exists already")
                 }
@@ -227,7 +227,7 @@ class LocalGateway @Inject constructor(
                     rootOps { it.lookUp(path) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || !canRead && mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || !canRead && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "lookup($mode->ADB): $path" }
                     adbOps { it.lookUp(path) }
                 }
@@ -272,7 +272,7 @@ class LocalGateway @Inject constructor(
                     rootOps { it.listFiles(path) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "listFiles($mode->ADB): $path" }
                     adbOps { it.listFiles(path) }
                 }
@@ -315,7 +315,7 @@ class LocalGateway @Inject constructor(
                     rootOps { it.lookupFiles(path) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "lookupFiles($mode->ADB): $path" }
                     adbOps { it.lookupFiles(path) }
                 }
@@ -365,7 +365,7 @@ class LocalGateway @Inject constructor(
                         rootOps { it.lookupFilesExtendedStream(path) }
                     }
 
-                    hasShizuku() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
+                    hasAdb() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
                         log(TAG, VERBOSE) { "lookupFilesExtended($mode->ADB): $path" }
                         adbOps { it.lookupFilesExtendedStream(path) }
                     }
@@ -449,11 +449,11 @@ class LocalGateway @Inject constructor(
                     }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || !canRead && mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || !canRead && mode == Mode.AUTO) -> {
                     if (options.isDirect) {
                         log(TAG, VERBOSE) { "walk($mode->ADB, direct): $path" }
                         // We need to keep the resource alive until the caller is done with the Flow
-                        val resource = shizukuManager.serviceClient.get()
+                        val resource = adbManager.serviceClient.get()
                         adbOps { it.walk(path, options).onCompletion { resource.close() } }
                     } else {
                         log(TAG, VERBOSE) { "walk($mode->ADB, indirect): $path" }
@@ -517,7 +517,7 @@ class LocalGateway @Inject constructor(
                     } catch (e: ReadException) {
                         when {
                             hasRoot() -> du(path, mode = Mode.ROOT)
-                            hasShizuku() -> du(path, mode = Mode.ADB)
+                            hasAdb() -> du(path, mode = Mode.ADB)
                             else -> throw e
                         }
                     }
@@ -528,7 +528,7 @@ class LocalGateway @Inject constructor(
                     rootOps { it.du(path) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || !canRead && mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || !canRead && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "du($mode->ADB): $path" }
                     adbOps { it.du(path) }
                 }
@@ -577,7 +577,7 @@ class LocalGateway @Inject constructor(
                     rootOps { it.exists(path) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "exists($mode->ADB): $path" }
                     adbOps { it.exists(path) }
                 }
@@ -612,7 +612,7 @@ class LocalGateway @Inject constructor(
                     rootOps { it.canWrite(path) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "canWrite($mode->ADB): $path" }
                     adbOps { it.canWrite(path) }
                 }
@@ -648,7 +648,7 @@ class LocalGateway @Inject constructor(
                     rootOps { it.canRead(path) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "canRead($mode->ADB): $path" }
                     adbOps { it.canRead(path) }
                 }
@@ -694,10 +694,10 @@ class LocalGateway @Inject constructor(
                     }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "file($mode->ADB, RW=$readWrite): $path" }
                     // We need to keep the resource alive until the caller is done with the object
-                    val resource = shizukuManager.serviceClient.get()
+                    val resource = adbManager.serviceClient.get()
                     adbOps {
                         it.file(path, readWrite).callbacks {
                             resource.close()
@@ -729,7 +729,7 @@ class LocalGateway @Inject constructor(
         try {
             val javaFile = path.asFile()
 
-            // On devices without root or shizuku:
+            // On devices without root or adb:
             // Determining whether if a file can't be deleted or just does not exist prevents WriteException errors.
             val normalCanWrite = when {
                 mode == Mode.ROOT -> false
@@ -785,7 +785,7 @@ class LocalGateway @Inject constructor(
                     }
 
                     if (!success) {
-                        if (mode == Mode.AUTO && hasShizuku()) {
+                        if (mode == Mode.AUTO && hasAdb()) {
                             delete(path, recursive = recursive, mode = Mode.ADB)
                             return@runIO
                         } else {
@@ -803,7 +803,7 @@ class LocalGateway @Inject constructor(
                     }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "delete($mode->ADB): $path" }
                     adbOps {
                         if (Bugs.isDryRun) log(TAG, INFO) { "DRYRUN: Not deleting (adb) $javaFile" }
@@ -844,7 +844,7 @@ class LocalGateway @Inject constructor(
                     rootOps { it.createSymlink(linkPath, targetPath) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "createSymlink($mode->ADB): $linkPath -> $targetPath" }
                     adbOps { it.createSymlink(linkPath, targetPath) }
                 }
@@ -881,7 +881,7 @@ class LocalGateway @Inject constructor(
                     rootOps { it.setModifiedAt(path, modifiedAt) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "setModifiedAt($mode->ADB): $path" }
                     adbOps { it.setModifiedAt(path, modifiedAt) }
                 }
@@ -917,7 +917,7 @@ class LocalGateway @Inject constructor(
                 }
 
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "setPermissions($mode->ADB): $path" }
                     adbOps { it.setPermissions(path, permissions) }
                 }
@@ -955,7 +955,7 @@ class LocalGateway @Inject constructor(
                     rootOps { it.setOwnership(path, ownership) }
                 }
 
-                hasShizuku() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
+                hasAdb() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "setOwnership($mode->ADB): $path" }
                     adbOps { it.setOwnership(path, ownership) }
                 }

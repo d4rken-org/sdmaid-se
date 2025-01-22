@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.shizuku.service.internal
+package eu.darken.sdmse.common.adb.service.internal
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -10,10 +10,10 @@ import kotlinx.coroutines.runBlocking
 import kotlin.system.exitProcess
 
 @SuppressLint("PrivateApi")
-abstract class BaseShizukuHost(
+abstract class BaseAdbHost(
     private val iTag: String,
     val context: Context,
-) : ShizukuConnection.Stub() {
+) : AdbConnection.Stub() {
 
     val hostScope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 

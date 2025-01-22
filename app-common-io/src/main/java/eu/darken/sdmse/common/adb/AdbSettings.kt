@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.shizuku
+package eu.darken.sdmse.common.adb
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -13,7 +13,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ShizukuSettings @Inject constructor(
+class AdbSettings @Inject constructor(
     @ApplicationContext private val context: Context,
 ) : PreferenceScreenData {
 
@@ -24,11 +24,13 @@ class ShizukuSettings @Inject constructor(
 
     val useShizuku = dataStore.createValue("core.shizuku.enabled", null as Boolean?)
 
+    val useAdb = useShizuku
+
     override val mapper = PreferenceStoreMapper(
         useShizuku
     )
 
     companion object {
-        internal val TAG = logTag("Shizuku", "Settings")
+        internal val TAG = logTag("ADB", "Settings")
     }
 }

@@ -11,7 +11,7 @@ plugins {
 apply(plugin = "dagger.hilt.android.plugin")
 
 android {
-    namespace = "${projectConfig.packageName}.common.shizuku"
+    namespace = "${projectConfig.packageName}.common.adb"
 
     setupLibraryDefaults(projectConfig)
 
@@ -49,6 +49,6 @@ dependencies {
 
     addTesting()
 
-    implementation("dev.rikka.shizuku:api:13.1.2")
-    implementation("dev.rikka.shizuku:provider:13.1.2")
+    implementation("dev.rikka.shizuku:api:13.1.5")
+    implementation("dev.rikka.shizuku:provider:13.1.5")
 }

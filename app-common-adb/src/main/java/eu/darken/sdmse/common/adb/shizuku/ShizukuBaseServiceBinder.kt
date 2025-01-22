@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.shizuku.service.internal
+package eu.darken.sdmse.common.adb.shizuku
 
 import rikka.shizuku.ShizukuBinderWrapper
 
