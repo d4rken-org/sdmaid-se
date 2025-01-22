@@ -9,6 +9,8 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.BuildConfigWrap
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -24,8 +26,6 @@ import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -36,7 +36,7 @@ class NormalPkgsSource @Inject constructor(
     private val pkgOps: PkgOps,
     private val userManager: UserManager2,
     private val rootManager: RootManager,
-    private val shizukuManager: ShizukuManager,
+    private val adbManager: AdbManager,
 ) : PkgDataSource {
 
     override suspend fun getPkgs(): Collection<Installed> = pkgOps.useRes {
@@ -46,7 +46,7 @@ class NormalPkgsSource @Inject constructor(
 
         pkgs.addAll(coreList())
 
-        if (rootManager.canUseRootNow() || shizukuManager.canUseShizukuNow()) {
+        if (rootManager.canUseRootNow() || adbManager.canUseAdbNow()) {
             val extraPkgs = userSpecific()
                 .filter { pkg -> !pkgs.any { it.id == pkg.id && it.userHandle == pkg.userHandle } }
 

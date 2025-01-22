@@ -4,6 +4,8 @@ import dagger.Reusable
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.common.R
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -24,8 +26,6 @@ import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.setup.automation.AutomationSetupModule
 import eu.darken.sdmse.setup.isComplete
 import kotlinx.coroutines.CoroutineScope
@@ -40,7 +40,7 @@ class ForceStopper @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val pkgOps: PkgOps,
     private val automation: AutomationManager,
-    private val shizukuManager: ShizukuManager,
+    private val adbManager: AdbManager,
     private val rootManager: RootManager,
     private val automationSetupModule: AutomationSetupModule,
 ) : HasSharedResource<Any>, Progress.Host, Progress.Client {
@@ -64,7 +64,7 @@ class ForceStopper @Inject constructor(
         val successful = mutableSetOf<Installed.InstallId>()
         val failed = mutableSetOf<Installed.InstallId>()
 
-        if (rootManager.canUseRootNow() || shizukuManager.canUseShizukuNow()) {
+        if (rootManager.canUseRootNow() || adbManager.canUseAdbNow()) {
             log(TAG) { "Using ROOT/ADB..." }
             updateProgressCount(Progress.Count.Percent(apps.size))
             apps.forEach {

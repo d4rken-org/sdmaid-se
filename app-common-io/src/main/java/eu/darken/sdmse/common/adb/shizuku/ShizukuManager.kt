@@ -1,8 +1,10 @@
-package eu.darken.sdmse.common.shizuku
+package eu.darken.sdmse.common.adb.shizuku
 
 import android.content.Context
 import android.content.pm.PackageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.adb.AdbSettings
+import eu.darken.sdmse.common.adb.service.AdbServiceClient
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -14,8 +16,6 @@ import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
-import eu.darken.sdmse.common.shizuku.service.ShizukuServiceClient
-import eu.darken.sdmse.common.shizuku.service.internal.ShizukuBaseServiceBinder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
@@ -37,11 +37,13 @@ import javax.inject.Singleton
 class ShizukuManager @Inject constructor(
     @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
-    settings: ShizukuSettings,
     private val dispatcherProvider: DispatcherProvider,
+    settings: AdbSettings,
     private val shizukuWrapper: ShizukuWrapper,
-    val serviceClient: ShizukuServiceClient,
+    val serviceClient: AdbServiceClient,
 ) {
+
+    suspend fun managerIds() = setOf(PKG_ID)
 
     val permissionGrantEvents: Flow<ShizukuWrapper.ShizukuPermissionRequest> = shizukuWrapper.permissionGrantEvents
         .setupCommonEventHandlers(TAG) { "grantEvents" }
@@ -92,7 +94,7 @@ class ShizukuManager @Inject constructor(
         }
     }
 
-    val pkgId: Pkg.Id
+    val shizukuPkgId: Pkg.Id
         get() = PKG_ID
 
     private var isInstalledCache: Boolean? = null
@@ -163,6 +165,6 @@ class ShizukuManager @Inject constructor(
 
     companion object {
         private val TAG = logTag("Shizuku", "Manager")
-        private val PKG_ID = "moe.shizuku.privileged.api".toPkgId()
+        internal val PKG_ID = "moe.shizuku.privileged.api".toPkgId()
     }
 }

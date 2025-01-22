@@ -8,6 +8,8 @@ import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
@@ -36,8 +38,6 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.storage.StorageVolumeX
 import eu.darken.sdmse.common.user.UserHandle2
@@ -54,7 +54,7 @@ class StorageScanner @Inject constructor(
     private val storageManager2: StorageManager2,
     private val pkgRepo: PkgRepo,
     private val rootManager: RootManager,
-    private val shizukuManager: ShizukuManager,
+    private val adbManager: AdbManager,
     private val userManager2: UserManager2,
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,
@@ -77,14 +77,14 @@ class StorageScanner @Inject constructor(
     private val topLevelDirs = mutableSetOf<OwnerInfo>()
 
     private var useRoot = false
-    private var useShizuku = false
+    private var useAdb = false
     private var dataAreas = mutableSetOf<DataArea>()
     private var volume: StorageVolumeX? = null
     private lateinit var currentUser: UserHandle2
 
     suspend fun init(storage: DeviceStorage) {
         useRoot = rootManager.canUseRootNow()
-        useShizuku = shizukuManager.canUseShizukuNow()
+        useAdb = adbManager.canUseAdbNow()
         currentUser = userManager2.currentUser().handle
 
         volume = storageManager2.storageVolumes.singleOrNull { it.uuid == storage.id.internalId }
@@ -173,7 +173,7 @@ class StorageScanner @Inject constructor(
 
         val appScanner = appScannerFactory.create(
             useRoot = useRoot,
-            useShizuku = useShizuku,
+            useAdb = useAdb,
             currentUser = currentUser,
             dataAreas = dataAreas,
             storage = storage,
@@ -288,7 +288,7 @@ class StorageScanner @Inject constructor(
 
         val appScanner = appScannerFactory.create(
             useRoot = useRoot,
-            useShizuku = useShizuku,
+            useAdb = useAdb,
             currentUser = currentUser,
             dataAreas = dataAreas,
             storage = storage,

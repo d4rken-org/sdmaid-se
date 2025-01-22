@@ -1,16 +1,13 @@
-package eu.darken.sdmse.common.shizuku
+package eu.darken.sdmse.common.adb.shizuku
 
-import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Handler
 import android.os.HandlerThread
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
-import eu.darken.sdmse.common.shizuku.service.internal.ShizukuBaseServiceBinder
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.Flow
@@ -24,7 +21,6 @@ import javax.inject.Singleton
 
 @Singleton
 class ShizukuWrapper @Inject constructor(
-    @ApplicationContext private val context: Context,
     private val dispatcherProvider: DispatcherProvider,
 ) {
 
@@ -112,7 +108,7 @@ class ShizukuWrapper @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("Shizuku", "Wrapper")
+        private val TAG = logTag("ADB", "Shizuku", "Wrapper")
     }
 
 }

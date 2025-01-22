@@ -37,7 +37,7 @@ class AppStorageScanner @AssistedInject constructor(
     private val statsManager: StorageStatsManager2,
     private val gatewaySwitch: GatewaySwitch,
     @Assisted("useRoot") private val useRoot: Boolean,
-    @Assisted("useShizuku") private val useShizuku: Boolean,
+    @Assisted("useAdb") private val useAdb: Boolean,
     @Assisted private val currentUser: UserHandle2,
     @Assisted private val dataAreas: Set<DataArea>,
     @Assisted private val storage: DeviceStorage,
@@ -127,7 +127,7 @@ class AppStorageScanner @AssistedInject constructor(
             .map { it.child(request.pkg.packageName) }
             .mapNotNull { pubData ->
                 when {
-                    request.shallow || (hasApiLevel(33) && !useRoot && !useShizuku) -> {
+                    request.shallow || (hasApiLevel(33) && !useRoot && !useAdb) -> {
                         ContentItem.fromInaccessible(pubData)
                     }
 
@@ -268,7 +268,7 @@ class AppStorageScanner @AssistedInject constructor(
     interface Factory {
         fun create(
             @Assisted("useRoot") useRoot: Boolean,
-            @Assisted("useShizuku") useShizuku: Boolean,
+            @Assisted("useAdb") useAdb: Boolean,
             currentUser: UserHandle2,
             dataAreas: Set<DataArea>,
             storage: DeviceStorage,

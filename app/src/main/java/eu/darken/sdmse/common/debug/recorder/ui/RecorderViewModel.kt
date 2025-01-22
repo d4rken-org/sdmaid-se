@@ -55,11 +55,11 @@ class RecorderViewModel @Inject constructor(
         .catch { log(TAG, ERROR) { "Failed to get default log size: ${it.asLog()}" } }
         .replayingShare(vmScope)
 
-    private val logObsShizuku = pathCache
-        .map { File(it.replace(".log", "_shizuku.log")) }
+    private val logObsAdb = pathCache
+        .map { File(it.replace(".log", "_adb.log")) }
         .map { if (it.exists()) LogData(it, it.length()) else null }
-        .onEach { log(TAG) { "Shizuku log: $it" } }
-        .catch { log(TAG, ERROR) { "Failed to get Shizuku log size: ${it.asLog()}" } }
+        .onEach { log(TAG) { "ADB log: $it" } }
+        .catch { log(TAG, ERROR) { "Failed to get ADB log size: ${it.asLog()}" } }
         .replayingShare(vmScope)
 
     private val logObsRoot = pathCache
@@ -71,12 +71,12 @@ class RecorderViewModel @Inject constructor(
 
     private val resultCacheCompressedObs = combine(
         logObsDefault,
-        logObsShizuku,
+        logObsAdb,
         logObsRoot,
-    ) { default, shizuku, root ->
+    ) { default, adb, root ->
         val zipContent = listOfNotNull(
             default.file.path,
-            shizuku?.file?.path,
+            adb?.file?.path,
             root?.file?.path
         )
         log(TAG) { "Compressing files: $zipContent" }

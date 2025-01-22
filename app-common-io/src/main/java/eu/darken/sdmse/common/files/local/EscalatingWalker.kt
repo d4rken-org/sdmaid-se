@@ -37,7 +37,7 @@ class EscalatingWalker(
 
         val escalationMode = when {
             gateway.hasRoot() -> LocalGateway.Mode.ROOT
-            gateway.hasShizuku() -> LocalGateway.Mode.ADB
+            gateway.hasAdb() -> LocalGateway.Mode.ADB
             else -> null
         }
 

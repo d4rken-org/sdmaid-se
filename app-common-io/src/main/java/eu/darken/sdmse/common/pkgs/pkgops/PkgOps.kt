@@ -17,6 +17,9 @@ import android.os.Process
 import android.os.storage.StorageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.ModeUnavailableException
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
+import eu.darken.sdmse.common.adb.service.runModuleAction
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
@@ -48,9 +51,6 @@ import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourcesAlive
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
-import eu.darken.sdmse.common.shizuku.service.runModuleAction
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CoroutineScope
@@ -67,7 +67,7 @@ class PkgOps @Inject constructor(
     private val ipcFunnel: IPCFunnel,
     private val userManager: UserManager2,
     private val rootManager: RootManager,
-    private val shizukuManager: ShizukuManager,
+    private val adbManager: AdbManager,
     private val usageStatsManager: UsageStatsManager,
     private val storageStatsManager: StorageStatsManager,
 ) : HasSharedResource<Any> {
@@ -75,8 +75,8 @@ class PkgOps @Inject constructor(
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
     private suspend fun <T> adbOps(action: suspend (PkgOpsClient) -> T): T {
-        return keepResourcesAlive(setOf(shizukuManager.serviceClient)) {
-            shizukuManager.serviceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
+        return keepResourcesAlive(setOf(adbManager.serviceClient)) {
+            adbManager.serviceClient.runModuleAction(PkgOpsClient::class.java) { action(it) }
         }
     }
 
@@ -111,7 +111,7 @@ class PkgOps @Inject constructor(
                 opsClient.forceStop(pkgId.name)
             }
 
-            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+            if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
                 log(TAG) { "forceStop($pkgId, $mode->ADB)" }
                 return adbOps { opsAction(it) }
 
@@ -169,7 +169,7 @@ class PkgOps @Inject constructor(
             rootOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
         }
 
-        shizukuManager.canUseShizukuNow() -> {
+        adbManager.canUseAdbNow() -> {
             adbOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
         }
 
@@ -279,7 +279,7 @@ class PkgOps @Inject constructor(
                 )
             }
 
-            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+            if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
                 log(TAG) { "changePackageState($id, enabled=$enabled, $mode->ADB)" }
                 adbOps { opsAction(it) }
                 return
@@ -335,7 +335,7 @@ class PkgOps @Inject constructor(
         try {
             if (mode == Mode.NORMAL) throw PkgOpsException("trimCaches($storageId) does not support mode=NORMAL")
 
-            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+            if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
                 log(TAG) { "trimCaches($desiredBytes, $storageId, $mode->ADB)" }
                 adbOps { it.trimCaches(desiredBytes, storageId, dryRun = Bugs.isDryRun) }
                 return
@@ -361,7 +361,7 @@ class PkgOps @Inject constructor(
 
     suspend fun isRunning(id: Installed.InstallId, mode: Mode = Mode.AUTO): Boolean {
         try {
-            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+            if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
                 log(TAG, VERBOSE) { "isRunning($id, $mode->ADB)" }
                 return adbOps { it.isRunning(id.pkgId) }
             }
@@ -397,7 +397,7 @@ class PkgOps @Inject constructor(
             log(TAG) { "grantPermission($id, $permission, $mode)" }
             if (mode == Mode.NORMAL) throw PkgOpsException("grantPermission($id, $permission) does not support mode=NORMAL")
 
-            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+            if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
                 log(TAG) { "grantPermission($id, $permission, $mode->ADB)" }
                 return adbOps { it.grantPermission(id, permission) }
             }
@@ -424,7 +424,7 @@ class PkgOps @Inject constructor(
             log(TAG) { "revokePermission($id, $permission, $mode)" }
             if (mode == Mode.NORMAL) throw PkgOpsException("revokePermission($id, $permission) does not support mode=NORMAL")
 
-            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+            if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
                 log(TAG) { "revokePermission($id, $permission, $mode->ADB)" }
                 return adbOps { it.revokePermission(id, permission) }
             }
@@ -456,7 +456,7 @@ class PkgOps @Inject constructor(
             log(TAG) { "setAppOps($id, $key, $value, $mode)" }
             if (mode == Mode.NORMAL) throw PkgOpsException("setAppOps($id, $key, $value) does not support mode=NORMAL")
 
-            if (shizukuManager.canUseShizukuNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+            if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
                 log(TAG) { "setAppOps($id, $key, $value, $mode->ADB)" }
                 return adbOps { it.setAppOps(id, key.raw, value.raw) }
             }

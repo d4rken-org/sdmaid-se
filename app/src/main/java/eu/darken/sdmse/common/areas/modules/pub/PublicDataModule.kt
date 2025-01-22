@@ -6,6 +6,8 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -25,8 +27,6 @@ import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.common.storage.PathMapper
 import java.io.IOException
 import javax.inject.Inject
@@ -35,7 +35,7 @@ import javax.inject.Inject
 class PublicDataModule @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val pathMapper: PathMapper,
-    private val shizukuManager: ShizukuManager,
+    private val adbManager: AdbManager,
     private val rootManager: RootManager,
 ) : DataAreaModule {
 
@@ -97,7 +97,7 @@ class PublicDataModule @Inject constructor(
             hasApiLevel(33) -> {
                 when {
                     // If we have root, we need to convert any SAFPath back
-                    rootManager.canUseRootNow() || shizukuManager.canUseShizukuNow() -> {
+                    rootManager.canUseRootNow() || adbManager.canUseAdbNow() -> {
                         when (target) {
                             is LocalPath -> target
                             is SAFPath -> pathMapper.toLocalPath(target)
@@ -106,7 +106,7 @@ class PublicDataModule @Inject constructor(
                     }
 
                     else -> {
-                        log(TAG, INFO) { "Skipping Android/data (API33, no root/Shizuku): $parentArea" }
+                        log(TAG, INFO) { "Skipping Android/data (API33, no root/adb): $parentArea" }
                         null
                     }
                 }
@@ -115,7 +115,7 @@ class PublicDataModule @Inject constructor(
             hasApiLevel(30) -> {
                 when {
                     // Can't use SAFPath with Shizuku or Root
-                    rootManager.canUseRootNow() || shizukuManager.canUseShizukuNow() -> when (target) {
+                    rootManager.canUseRootNow() || adbManager.canUseAdbNow() -> when (target) {
                         is SAFPath -> pathMapper.toLocalPath(target)
                         else -> target
                     }

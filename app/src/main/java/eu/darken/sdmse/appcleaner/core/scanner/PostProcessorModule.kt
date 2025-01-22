@@ -8,6 +8,8 @@ import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
 import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPrivateFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -22,8 +24,6 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.main.core.SDMTool
@@ -34,7 +34,7 @@ import javax.inject.Inject
 @Reusable
 class PostProcessorModule @Inject constructor(
     private val rootManager: RootManager,
-    private val shizukuManager: ShizukuManager,
+    private val adbManager: AdbManager,
     private val exclusionManager: ExclusionManager,
     private val settings: AppCleanerSettings,
 ) : Progress.Host, Progress.Client {
@@ -93,10 +93,10 @@ class PostProcessorModule @Inject constructor(
         // Empty apps don't generate edge cases (and are omitted).
         if (before.expendables.isNullOrEmpty()) return before
 
-        val useShizuku = shizukuManager.canUseShizukuNow()
+        val useAdb = adbManager.canUseAdbNow()
 
-        if (useShizuku && before.pkg.id == shizukuManager.pkgId) {
-            log(TAG, WARN) { "Shizuku is being used, excluding it." }
+        if (useAdb && adbManager.managerIds().contains(before.pkg.id)) {
+            log(TAG, WARN) { "ADB is being used, excluding related packages." }
             return null
         }
 
@@ -104,7 +104,7 @@ class PostProcessorModule @Inject constructor(
 
         val edgeCaseMap = mutableMapOf<ExpendablesFilterIdentifier, Collection<ExpendablesFilter.Match>>()
 
-        if (!useRoot && useShizuku) {
+        if (!useRoot && useAdb) {
             val edgeCaseSegs = segs(before.pkg.id.name, "cache")
             val edgeCaseFilters = setOf(
                 DefaultCachesPublicFilter::class,

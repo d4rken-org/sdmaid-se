@@ -3,6 +3,6 @@
 -keepclassmembers class eu.darken.sdmse.common.root.service.RootServiceConnection$Stub$Proxy {
   *;
 }
--keepclassmembers class eu.darken.sdmse.common.shizuku.ShizukuServiceConnection$Stub$Proxy {
+-keepclassmembers class eu.darken.sdmse.common.adb.AdbServiceConnection** {
   *;
 }

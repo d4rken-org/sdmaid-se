@@ -15,6 +15,7 @@ import eu.darken.sdmse.appcontrol.core.toggle.ComponentToggler
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.appcontrol.core.uninstall.Uninstaller
 import eu.darken.sdmse.automation.core.AutomationManager
+import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -42,7 +43,6 @@ import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
-import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.setup.IncompleteSetupException
@@ -77,7 +77,7 @@ class AppControl @Inject constructor(
     usageStatsSetupModule: UsageStatsSetupModule,
     storageSetupModule: StorageSetupModule,
     rootManager: RootManager,
-    shizukuManager: ShizukuManager,
+    adbManager: AdbManager,
     settings: AppControlSettings,
     private val appExporterProvider: Provider<AppExporter>,
     private val appInventorySetupModule: InventorySetupModule,
@@ -104,18 +104,18 @@ class AppControl @Inject constructor(
         storageSetupModule.state,
         automationManager.useAcs,
         rootManager.useRoot,
-        shizukuManager.useShizuku,
+        adbManager.useAdb,
         settings.moduleSizingEnabled.flow,
         settings.moduleActivityEnabled.flow,
-    ) { data, progress, usageState, storageState, useAcs, useRoot, useShizuku, sizingEnabled, activityEnabled ->
+    ) { data, progress, usageState, storageState, useAcs, useRoot, useAdb, sizingEnabled, activityEnabled ->
 
         State(
             data = data,
             progress = progress,
-            isActiveInfoAvailable = activityEnabled && (usageState.isComplete || useRoot || useShizuku),
-            isAppToggleAvailable = (useRoot || useShizuku),
+            isActiveInfoAvailable = activityEnabled && (usageState.isComplete || useRoot || useAdb),
+            isAppToggleAvailable = (useRoot || useAdb),
             isSizeInfoAvailable = sizingEnabled && usageState.isComplete && storageState.isComplete,
-            isForceStopAvailable = useAcs || useRoot || useShizuku,
+            isForceStopAvailable = useAcs || useRoot || useAdb,
         )
     }.replayingShare(appScope)
 

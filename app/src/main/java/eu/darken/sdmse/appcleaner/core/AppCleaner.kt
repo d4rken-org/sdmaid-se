@@ -13,6 +13,7 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
+import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -37,7 +38,6 @@ import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
-import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
@@ -70,7 +70,7 @@ class AppCleaner @Inject constructor(
     pkgOps: PkgOps,
     usageStatsSetupModule: UsageStatsSetupModule,
     rootManager: RootManager,
-    shizukuManager: ShizukuManager,
+    adbManager: AdbManager,
     private val filterFactories: Set<@JvmSuppressWildcards ExpendablesFilter.Factory>,
     private val appInventorySetupModule: InventorySetupModule,
 ) : SDMTool, Progress.Client {
@@ -92,16 +92,16 @@ class AppCleaner @Inject constructor(
     override val state: Flow<State> = combine(
         usageStatsSetupModule.state,
         rootManager.useRoot,
-        shizukuManager.useShizuku,
+        adbManager.useAdb,
         internalData,
         progress,
-    ) { usageState, useRoot, useShizuku, data, progress ->
+    ) { usageState, useRoot, useAdb, data, progress ->
         State(
             data = data,
             progress = progress,
-            isRunningAppsDetectionAvailable = usageState.isComplete || useRoot || useShizuku,
+            isRunningAppsDetectionAvailable = usageState.isComplete || useRoot || useAdb,
             isOtherUsersAvailable = useRoot,
-            isInaccessibleCacheAvailable = usageState.isComplete || useRoot || useShizuku,
+            isInaccessibleCacheAvailable = usageState.isComplete || useRoot || useAdb,
             isAcsRequired = !useRoot
         )
     }.replayingShare(appScope)

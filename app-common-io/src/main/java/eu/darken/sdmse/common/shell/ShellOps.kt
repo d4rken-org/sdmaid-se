@@ -2,6 +2,10 @@ package eu.darken.sdmse.common.shell
 
 import eu.darken.rxshell.cmd.Cmd
 import eu.darken.rxshell.cmd.RxCmdShell
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
+import eu.darken.sdmse.common.adb.service.AdbServiceClient
+import eu.darken.sdmse.common.adb.service.runModuleAction
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
@@ -19,10 +23,6 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shell.ipc.ShellOpsClient
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.shell.ipc.ShellOpsResult
-import eu.darken.sdmse.common.shizuku.ShizukuManager
-import eu.darken.sdmse.common.shizuku.canUseShizukuNow
-import eu.darken.sdmse.common.shizuku.service.ShizukuServiceClient
-import eu.darken.sdmse.common.shizuku.service.runModuleAction
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
@@ -36,8 +36,8 @@ class ShellOps @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val rootServiceClient: RootServiceClient,
     private val rootManager: RootManager,
-    private val shizukuManager: ShizukuManager,
-    private val shizukuServiceClient: ShizukuServiceClient,
+    private val adbManager: AdbManager,
+    private val adbServiceClient: AdbServiceClient,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
@@ -47,7 +47,7 @@ class ShellOps @Inject constructor(
     }
 
     private suspend fun <T> adbOps(action: suspend (ShellOpsClient) -> T): T {
-        return shizukuServiceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
+        return adbServiceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
     }
 
     private suspend fun <T> runIO(
@@ -71,7 +71,7 @@ class ShellOps @Inject constructor(
                 result = rootOps { it.execute(cmd) }
             }
 
-            if (result == null && shizukuManager.canUseShizukuNow() && mode == Mode.ADB) {
+            if (result == null && adbManager.canUseAdbNow() && mode == Mode.ADB) {
                 log(TAG, VERBOSE) { "execute(mode->ADB): $cmd" }
                 result = adbOps { it.execute(cmd) }
             }

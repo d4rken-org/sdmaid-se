@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.shizuku.service
+package eu.darken.sdmse.common.adb.service
 
 import android.content.Context
 import dagger.BindsInstance
@@ -7,22 +7,22 @@ import eu.darken.sdmse.common.coroutine.CoroutineModule
 import javax.inject.Singleton
 
 /**
- * Injected into java process run by Shizuku, see [ShizukuHost]
+ * Injected into java process run by Shizuku, see [AdbHost]
  */
 @Singleton
 @Component(
     modules = [
-        ShizukuModule::class,
+        AdbModule::class,
         CoroutineModule::class
     ]
 )
-interface ShizukuComponent {
+interface AdbComponent {
 
-    fun inject(main: ShizukuHost)
+    fun inject(main: AdbHost)
 
     @Component.Builder
     interface Builder {
-        fun build(): ShizukuComponent
+        fun build(): AdbComponent
 
         @BindsInstance fun application(context: Context): Builder
     }

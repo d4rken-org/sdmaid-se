@@ -2,6 +2,7 @@ package eu.darken.sdmse.setup
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -12,7 +13,6 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.common.shizuku.ShizukuManager
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.user.ourInstall
 import eu.darken.sdmse.setup.automation.AutomationSetupModule
@@ -32,7 +32,7 @@ import javax.inject.Singleton
 class SetupHealer @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     @ApplicationContext private val context: Context,
-    shizukuManager: ShizukuManager,
+    adbManager: AdbManager,
     rootManager: RootManager,
     private val setupHelper: SetupHelper,
     private val pkgOps: PkgOps,
@@ -50,14 +50,14 @@ class SetupHealer @Inject constructor(
     init {
         combine(
             rootManager.useRoot,
-            shizukuManager.useShizuku,
+            adbManager.useAdb,
             usageStatsSetupModule.state.filterIsInstance<SetupModule.State.Current>(),
             notificationSetupModule.state.filterIsInstance<SetupModule.State.Current>(),
             storageSetupModule.state.filterIsInstance<SetupModule.State.Current>(),
             automationSetupModule.state.filterIsInstance<SetupModule.State.Current>(),
-        ) { useRoot, useShizuku, usageState, notifState, storageState, automationState ->
+        ) { useRoot, useAdb, usageState, notifState, storageState, automationState ->
 
-            val hasHealingPowers = useRoot || useShizuku
+            val hasHealingPowers = useRoot || useAdb
 
             val hasIncomplete = listOf(
                 usageState.isComplete,

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.shizuku.service
+package eu.darken.sdmse.common.adb.service
 
 import android.content.Context
 import dagger.Module
@@ -13,22 +13,22 @@ import kotlinx.coroutines.plus
 import javax.inject.Singleton
 
 /**
- * Installed in non-hilt [ShizukuComponent]
+ * Installed in non-hilt [AdbComponent]
  */
 @DisableInstallInCheck
 @Module
-class ShizukuModule {
+class AdbModule {
 
     @Provides
     @Singleton
     fun sharedShell(@AppScope scope: CoroutineScope, dispatcherProvider: DispatcherProvider): SharedShell {
-        return SharedShell(ShizukuHost.TAG + "-sharedShell", scope + dispatcherProvider.IO)
+        return SharedShell(AdbHost.TAG + "-sharedShell", scope + dispatcherProvider.IO)
     }
 
     @Provides
     @Singleton
     @ApplicationContext
-    fun shizukuContext(context: Context): Context {
+    fun adbContext(context: Context): Context {
         return context
     }
 

@@ -1,5 +1,10 @@
-package eu.darken.sdmse.common.shizuku.service
+package eu.darken.sdmse.common.adb.service
 
+import eu.darken.sdmse.common.adb.AdbServiceConnection
+import eu.darken.sdmse.common.adb.AdbSettings
+import eu.darken.sdmse.common.adb.AdbUnavailableException
+import eu.darken.sdmse.common.adb.service.internal.AdbConnection
+import eu.darken.sdmse.common.adb.service.internal.AdbHostLauncher
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.DebugSettings
@@ -13,12 +18,6 @@ import eu.darken.sdmse.common.ipc.IpcClientModule
 import eu.darken.sdmse.common.pkgs.pkgops.ipc.PkgOpsClient
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shell.ipc.ShellOpsClient
-import eu.darken.sdmse.common.shizuku.ShizukuServiceConnection
-import eu.darken.sdmse.common.shizuku.ShizukuSettings
-import eu.darken.sdmse.common.shizuku.ShizukuUnavailableException
-import eu.darken.sdmse.common.shizuku.service.internal.ShizukuConnection
-import eu.darken.sdmse.common.shizuku.service.internal.ShizukuHostLauncher
-import eu.darken.sdmse.common.shizuku.service.internal.ShizukuHostOptions
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -35,30 +34,30 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ShizukuServiceClient @Inject constructor(
-    serviceLauncher: ShizukuHostLauncher,
+class AdbServiceClient @Inject constructor(
+    serviceLauncher: AdbHostLauncher,
     @AppScope coroutineScope: CoroutineScope,
-    private val shizukuSettings: ShizukuSettings,
+    private val adbSettings: AdbSettings,
     private val debugSettings: DebugSettings,
     private val fileOpsClientFactory: FileOpsClient.Factory,
     private val pkgOpsClientFactory: PkgOpsClient.Factory,
     private val shellOpsClientFactory: ShellOpsClient.Factory,
-) : SharedResource<ShizukuServiceClient.Connection>(
+) : SharedResource<AdbServiceClient.Connection>(
     TAG,
     coroutineScope,
     callbackFlow {
-        log(TAG) { "Instantiating Shizuku launcher..." }
+        log(TAG) { "Instantiating ADB launcher..." }
 
-        if (shizukuSettings.useShizuku.value() != true) throw ShizukuUnavailableException("Shizuku is not enabled")
+        if (adbSettings.useAdb.value() != true) throw AdbUnavailableException("ADB is not enabled")
 
-        val optionsInitial = ShizukuHostOptions(
+        val optionsInitial = AdbHostOptions(
             isDebug = debugSettings.isDebugMode.value(),
             isTrace = debugSettings.isTraceMode.value(),
             isDryRun = debugSettings.isDryRunMode.value(),
             recorderPath = debugSettings.recorderPath.value(),
         )
 
-        val lastInternal = MutableStateFlow<ShizukuConnection?>(null)
+        val lastInternal = MutableStateFlow<AdbConnection?>(null)
         serviceLauncher
             .createServiceHostConnection(optionsInitial)
             .onEach { wrapper ->
@@ -74,7 +73,7 @@ class ShizukuServiceClient @Inject constructor(
             debugSettings.recorderPath.flow,
             lastInternal.filterNotNull(),
         ) { isDebug, isTrace, isDryRun, recorderPath, lastConnection ->
-            val optionsDynamic = ShizukuHostOptions(
+            val optionsDynamic = AdbHostOptions(
                 isDebug = isDebug,
                 isTrace = isTrace,
                 isDryRun = isDryRun,
@@ -104,7 +103,7 @@ class ShizukuServiceClient @Inject constructor(
 ) {
 
     data class Connection(
-        val ipc: ShizukuServiceConnection,
+        val ipc: AdbServiceConnection,
         val clientModules: List<IpcClientModule>
     ) {
         inline fun <reified T> getModule(): T = clientModules.single { it is T } as T
@@ -112,22 +111,22 @@ class ShizukuServiceClient @Inject constructor(
 
     companion object {
 
-        fun ShizukuHostLauncher.createServiceHostConnection(
-            options: ShizukuHostOptions,
+        fun AdbHostLauncher.createServiceHostConnection(
+            options: AdbHostOptions,
         ) = this
             .createConnection(
-                serviceClass = ShizukuServiceConnection::class,
-                hostClass = ShizukuHost::class,
+                serviceClass = AdbServiceConnection::class,
+                hostClass = AdbHost::class,
                 options = options,
             )
             .onStart { log(TAG) { "Initiating connection to host." } }
             .onEach { log(TAG) { "Connection available: $it" } }
             .catch {
                 log(TAG, ERROR) { "Failed to establish connection: ${it.asLog()}" }
-                throw ShizukuUnavailableException("Failed to establish connection", cause = it)
+                throw AdbUnavailableException("Failed to establish connection", cause = it)
             }
             .onCompletion { log(TAG) { "Connection closed" } }
 
-        internal val TAG = logTag("Shizuku", "Service", "Client")
+        internal val TAG = logTag("ADB", "Service", "Client")
     }
 }
