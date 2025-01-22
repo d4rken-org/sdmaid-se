@@ -43,9 +43,6 @@ dependencies {
     addDI()
     addCoroutines()
 
-    api("com.github.d4rken.rxshell:core:v3.0.0")
-    api("com.github.d4rken.rxshell:root:v3.0.0")
-
     addTesting()
     testImplementation(project(":app-common-test"))
     testImplementation("org.robolectric:robolectric:4.9.1")

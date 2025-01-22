@@ -50,6 +50,4 @@ dependencies {
 
     addCoil()
     addLottie()
-
-    implementation("com.github.d4rken.rxshell:core:v3.0.0")
 }

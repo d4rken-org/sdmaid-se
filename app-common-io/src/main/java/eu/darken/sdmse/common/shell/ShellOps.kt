@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.shell
 
-import eu.darken.rxshell.cmd.Cmd
-import eu.darken.rxshell.cmd.RxCmdShell
+import eu.darken.flowshell.core.cmd.FlowCmd
+import eu.darken.flowshell.core.cmd.execute
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.AdbUnavailableException
 import eu.darken.sdmse.common.adb.canUseAdbNow
@@ -66,9 +66,7 @@ class ShellOps @Inject constructor(
             var result: ShellOpsResult? = null
             if (mode == Mode.NORMAL) {
                 log(TAG, VERBOSE) { "execute(mode->NORMAL): $cmd" }
-                result = cmd.toRxCmdBuilder()
-                    .execute(RxCmdShell.builder().build())
-                    .toShellOpsResult()
+                result = cmd.toFlowCmd().execute().toShellOpsResult()
             }
 
             if (result == null && rootManager.canUseRootNow() && mode == Mode.ROOT) {
@@ -94,10 +92,10 @@ class ShellOps @Inject constructor(
         }
     }
 
-    private fun ShellOpsCmd.toRxCmdBuilder() = Cmd.builder(cmds)
+    private fun ShellOpsCmd.toFlowCmd() = FlowCmd(cmds)
 
-    private fun Cmd.Result.toShellOpsResult() = ShellOpsResult(
-        exitCode = exitCode,
+    private fun FlowCmd.Result.toShellOpsResult() = ShellOpsResult(
+        exitCode = exitCode.value,
         output = output,
         errors = errors
     )
