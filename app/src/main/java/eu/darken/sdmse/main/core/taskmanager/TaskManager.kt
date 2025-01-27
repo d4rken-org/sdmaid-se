@@ -209,18 +209,18 @@ class TaskManager @Inject constructor(
                 stage(taskId)
                 result = execute(taskId)
 
-                log(TAG) { "Result for $taskId is $result" }
+                log(TAG) { "Result for ${task.type}-$taskId is $result" }
             } catch (e: Exception) {
                 if (e is CancellationException) {
-                    log(TAG, INFO) { "execute(): Task was cancelled ($taskId): $task" }
+                    log(TAG, INFO) { "execute(): Task was cancelled (${task.type}-$taskId): $task" }
                 } else {
-                    log(TAG, ERROR) { "execute(): Execution failed ($taskId): $task\n${e.asLog()}" }
+                    log(TAG, ERROR) { "execute(): Execution failed (${task.type}-$taskId): $task\n${e.asLog()}" }
                 }
                 error = e
             } finally {
                 updateTasks {
                     this[taskId]!!.tool.updateProgress { null }
-                    log(TAG) { "Releasing resource lock for $taskId" }
+                    log(TAG) { "Releasing resource lock for ${task.type}-$taskId" }
                     this[taskId]!!.resourceLock!!.close()
                     this[taskId] = this[taskId]!!.copy(
                         completedAt = Instant.now(),
