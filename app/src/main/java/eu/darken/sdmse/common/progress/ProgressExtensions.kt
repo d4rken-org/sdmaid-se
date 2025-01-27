@@ -13,9 +13,11 @@ import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelAndJoin
+import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.isActive
 import kotlin.coroutines.EmptyCoroutineContext
 
 fun <T : Progress.Client> T.updateProgressIcon(icon: Drawable) {
@@ -85,7 +87,7 @@ suspend fun <T : Progress.Host> T.forwardProgressTo(
     onCompletion: (Progress.Data?) -> Progress.Data?,
 ) = progress
     .onEach { new -> client.updateProgress { onUpdate(it, new) } }
-    .onCompletion { client.updateProgress { onCompletion(it) } }
+    .onCompletion { if (currentCoroutineContext().isActive) client.updateProgress { onCompletion(it) } }
 
 suspend fun <T : Progress.Host, R> T.withProgress(
     client: Progress.Client,
