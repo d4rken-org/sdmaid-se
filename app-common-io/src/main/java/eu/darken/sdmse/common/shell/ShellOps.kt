@@ -55,13 +55,7 @@ class ShellOps @Inject constructor(
         }
     }
 
-    private suspend fun <T> runIO(
-        block: suspend CoroutineScope.() -> T
-    ): T = withContext(dispatcherProvider.IO) {
-        block()
-    }
-
-    suspend fun execute(cmd: ShellOpsCmd, mode: Mode): ShellOpsResult = runIO {
+    suspend fun execute(cmd: ShellOpsCmd, mode: Mode): ShellOpsResult = withContext(dispatcherProvider.IO) {
         try {
             var result: ShellOpsResult? = null
             if (mode == Mode.NORMAL) {
