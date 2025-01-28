@@ -8,7 +8,6 @@ import eu.darken.flowshell.core.cmd.FlowCmd
 import eu.darken.flowshell.core.cmd.FlowCmdShell
 import eu.darken.flowshell.core.cmd.execute
 import eu.darken.flowshell.core.cmd.openSession
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -21,7 +20,6 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeoutOrNull
 import java.util.UUID
@@ -47,13 +45,6 @@ class RootHostLauncher @Inject constructor(
         options: RootHostOptions,
     ): Flow<ConnectionWrapper<Service>> = callbackFlow {
         log(TAG) { "createConnection($serviceClass, $hostClass, $useMountMaster, $options)" }
-        log(TAG, INFO) { "Initiating connection to host($hostClass) via binder($serviceClass)" }
-
-        val (rootSession, _) = try {
-            FlowCmdShell("su").openSession(this)
-        } catch (e: Exception) {
-            throw RootException("Failed to open root session.", e.cause)
-        }
 
         val pairingCode = UUID.randomUUID().toString()
 
@@ -78,55 +69,79 @@ class RootHostLauncher @Inject constructor(
             }
         }
 
+        log(TAG, INFO) { "Initiating connection to host($hostClass) via binder($serviceClass)" }
         ipcReceiver.connect(context)
 
-        launch {
+        val (rootSession, _) = try {
+            FlowCmdShell("su").openSession(this)
+        } catch (e: Exception) {
+            throw RootException("Failed to open root session.", e)
+        }
+
+        if (useMountMaster) {
             try {
-                val cmdBuilder = RootHostCmdBuilder(context, hostClass)
+                log(TAG, INFO) { "Using --mount-master" }
+                val result = FlowCmd("su --mount-master").execute(rootSession)
+                log(TAG) { "--mount-master result: $result" }
+                if (!result.isSuccessful) throw IllegalStateException("--mount-master command was unsuccessful")
+            } catch (e: Exception) {
+                log(TAG) { "Failed to use --mount-master" }
+            }
+        }
 
-                if (useMountMaster) {
-                    FlowCmd("su --mount-master").execute(rootSession)
+        try {
+            val initArgs = RootHostInitArgs(
+                pairingCode = pairingCode,
+                packageName = context.packageName,
+                waitForDebugger = options.isTrace && Debug.isDebuggerConnected(),
+                isDebug = options.isDebug,
+                isTrace = options.isTrace,
+                isDryRun = options.isDryRun,
+                recorderPath = options.recorderPath
+            )
+
+            val cmdBuilder = RootHostCmdBuilder(context, hostClass)
+            var retryWithRelocation = false
+
+            try {
+                val cmd = cmdBuilder.build(withRelocation = false, initialOptions = initArgs).also {
+                    log { "RootHost launch command is $it" }
                 }
+                // Doesn't return until root host has quit
+                cmd.execute(rootSession).also {
+                    log(TAG) { "Session (WITH-relocation) has ended: $it" }
+                }
+            } catch (e: Exception) {
+                if (e is CancellationException) throw e
+                log(TAG, WARN) { "Launch without relocation failed: ${e.asLog()}" }
+                retryWithRelocation = true
+            }
 
-                val initArgs = RootHostInitArgs(
-                    pairingCode = pairingCode,
-                    packageName = context.packageName,
-                    waitForDebugger = options.isTrace && Debug.isDebuggerConnected(),
-                    isDebug = options.isDebug,
-                    isTrace = options.isTrace,
-                    isDryRun = options.isDryRun,
-                    recorderPath = options.recorderPath
-                )
-
+            if (retryWithRelocation) {
                 try {
-                    val cmd = cmdBuilder.build(withRelocation = false, initialOptions = initArgs).also {
-                        log { "RootHost launch command is $it" }
-                    }
-
-                    // Doesn't return until root host has quit
-                    cmd.execute(rootSession).also {
-                        log(TAG) { "Session (WITH-relocation) has ended: $it" }
-                    }
-                } catch (e: CancellationException) {
-                    log(TAG, DEBUG) { "Session was cancelled: ${e.asLog()}" }
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "Launch without relocation failed: ${e.asLog()}" }
-
                     val cmd = cmdBuilder.build(withRelocation = true, initialOptions = initArgs).also {
                         log { "RootHost launch command is $it" }
                     }
-
+                    // Doesn't return until root host has quit
                     cmd.execute(rootSession).also {
                         log(TAG) { "Session (without-relocation) has ended: $it" }
                     }
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Launch WITH relocation failed too: ${e.asLog()}" }
+                    throw e
                 }
-            } catch (e: Exception) {
-                log(TAG, WARN) { "Launch completely failed failed: ${e.asLog()}" }
-                throw RootException("Failed to launch java root host.", e.cause)
+            }
+        } catch (e: Exception) {
+            if (e is CancellationException) {
+                log(TAG) { "RootHostLauncher was cancelled: ${e.asLog()}" }
+                throw e
             }
 
-            log(TAG, INFO) { "Root host has quit" }
+            log(TAG, WARN) { "Launch completely failed: ${e.asLog()}" }
+            throw RootException("Failed to launch java root host.", e)
         }
+
+        log(TAG, INFO) { "Root host has completed or error'd" }
 
         log(TAG) { "Waiting for session to close..." }
         awaitClose {
@@ -138,7 +153,6 @@ class RootHostLauncher @Inject constructor(
             }
         }
     }
-
 
     data class ConnectionWrapper<Service : IInterface>(
         val service: Service,
