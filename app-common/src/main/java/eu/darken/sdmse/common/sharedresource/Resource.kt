@@ -4,7 +4,7 @@ import kotlin.coroutines.cancellation.CancellationException
 
 data class Resource<T>(
     private val _item: T,
-    val lease: SharedResource<*>.ActiveLease,
+    val lease: SharedResource<*>.Lease,
 ) : KeepAlive by lease {
     val item: T
         get() {
