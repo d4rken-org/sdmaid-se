@@ -95,7 +95,7 @@ class RootIPC @AssistedInject constructor(
         }
 
         override fun bye(self: IBinder) {
-            log(TAG) { "self(self=$self)" }
+            log(TAG) { "bye(self=$self)" }
             // The non-root process is either informing us it is going away, or it already died
             synchronized(connections) {
                 getConnection(self)?.let { conn ->
@@ -205,6 +205,7 @@ class RootIPC @AssistedInject constructor(
                     log { "pruneConnections() $con: isBinderAlive=$it" }
                 }
             }
+            connections.forEach { log { "Remaining connection after pruning: $it" } }
             if (!connectionSeen && connections.size > 0) {
                 connectionSeen = true
                 synchronized(helloWaiter) { helloWaiter.notifyAll() }

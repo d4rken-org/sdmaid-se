@@ -43,9 +43,9 @@ class RootServiceClient @Inject constructor(
     private val pkgOpsClientFactory: PkgOpsClient.Factory,
     private val shellOpsClientFactory: ShellOpsClient.Factory,
 ) : SharedResource<RootServiceClient.Connection>(
-    TAG,
-    coroutineScope,
-    callbackFlow {
+    tag = TAG,
+    parentScope = coroutineScope,
+    source = callbackFlow {
         log(TAG) { "Instantiating Root launcher..." }
         if (rootSettings.useRoot.value() != true) throw RootUnavailableException("Root is not enabled")
 
@@ -99,7 +99,6 @@ class RootServiceClient @Inject constructor(
                 )
             )
         }
-
 ) {
 
     data class Connection(

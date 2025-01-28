@@ -1,6 +1,7 @@
 package eu.darken.flowshell.core.cmd
 
 import eu.darken.flowshell.core.FlowShell
+import eu.darken.flowshell.core.FlowShellDebug
 import eu.darken.flowshell.core.FlowShellDebug.isDebug
 import eu.darken.flowshell.core.process.FlowProcess
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -61,6 +62,7 @@ class FlowCmdShell(
     data class Session(
         private val session: FlowShell.Session,
     ) {
+        private val _tag = "${TAG}:${session.session.id}"
         private val scope = CoroutineScope(Job() + Dispatchers.IO)
         private val mutex = Mutex()
 
@@ -73,13 +75,13 @@ class FlowCmdShell(
         suspend fun waitFor() = session.waitFor()
 
         suspend fun cancel() = withContext(Dispatchers.IO) {
-            if (isDebug) log(TAG) { "kill()" }
+            if (isDebug) log(_tag) { "kill()" }
             session.cancel()
             scope.cancel()
         }
 
         suspend fun close() = withContext(Dispatchers.IO) {
-            if (isDebug) log(TAG) { "close()" }
+            if (isDebug) log(_tag) { "close()" }
             session.close()
             scope.cancel()
         }
@@ -93,22 +95,22 @@ class FlowCmdShell(
                 val id = UUID.randomUUID().toString()
                 val idStart = "$id-start"
                 val idEnd = "$id-end"
-                log(TAG, VERBOSE) { "submit($cmdCount): $cmd" }
+                log(_tag, VERBOSE) { "submit($cmdCount): $cmd" }
 
                 val output = mutableListOf<String>()
                 val outputReady = CompletableDeferred<Unit>()
                 val outputJob = sharedOutput
                     .onSubscription {
                         outputReady.complete(Unit)
-                        if (isDebug) log(TAG, VERBOSE) { "Output monitor started ($id)" }
+                        if (isDebug) log(_tag, VERBOSE) { "Output monitor started ($id)" }
                     }
                     .dropWhile { it != idStart }.drop(1)
                     .onEach {
-                        if (isDebug) log(TAG, VERBOSE) { "Adding (output-$id) $it" }
+                        if (isDebug) log(_tag, VERBOSE) { "Adding (output-$id) $it" }
                         output.add(it)
                     }
                     .takeWhile { !it.startsWith(idEnd) }
-                    .onCompletion { if (isDebug) log(TAG, VERBOSE) { "Output monitor finished ($id)" } }
+                    .onCompletion { if (isDebug) log(_tag, VERBOSE) { "Output monitor finished ($id)" } }
                     .launchIn(this + Dispatchers.IO)
 
                 val errors = mutableListOf<String>()
@@ -116,20 +118,20 @@ class FlowCmdShell(
                 val errorJob = sharedErrors
                     .onSubscription {
                         errorReady.complete(Unit)
-                        if (isDebug) log(TAG, VERBOSE) { "Error monitor started ($id)" }
+                        if (isDebug) log(_tag, VERBOSE) { "Error monitor started ($id)" }
                     }
                     .dropWhile { it != idStart }.drop(1)
                     .takeWhile { it != idEnd }
                     .onEach {
-                        if (isDebug) log(TAG, VERBOSE) { "Adding (errors-$id) $it" }
+                        if (isDebug) log(_tag, VERBOSE) { "Adding (errors-$id) $it" }
                         errors.add(it)
                     }
-                    .onCompletion { if (isDebug) log(TAG, VERBOSE) { "Error monitor finished ($id)" } }
+                    .onCompletion { if (isDebug) log(_tag, VERBOSE) { "Error monitor finished ($id)" } }
                     .launchIn(this + Dispatchers.IO)
 
                 listOf(outputReady, errorReady).awaitAll()
 
-                if (isDebug) log(TAG, VERBOSE) { "Harvesters are ready, writing commands... ($id)" }
+                if (isDebug) log(_tag, VERBOSE) { "Harvesters are ready, writing commands... ($id)" }
 
                 session.write("echo $idStart", false)
                 session.write("echo $idStart >&2", false)
@@ -137,12 +139,12 @@ class FlowCmdShell(
                 session.write("echo $idEnd $?", false)
                 session.write("echo $idEnd >&2", true)
 
-                if (isDebug) log(TAG, VERBOSE) { "Commands are written, waiting... ($id)" }
+                if (isDebug) log(_tag, VERBOSE) { "Commands are written, waiting... ($id)" }
 
                 listOf(outputJob, errorJob).joinAll()
 
-                if (isDebug) log(TAG, VERBOSE) { "Determining exitcode ($id)" }
-                val rawExitCodeRow = output.removeLast()
+                if (isDebug) log(_tag, VERBOSE) { "Determining exitcode ($id)" }
+                val rawExitCodeRow = output.removeAt(output.lastIndex)
 
                 val exitCode = rawExitCodeRow
                     .split(" ")
@@ -155,12 +157,12 @@ class FlowCmdShell(
                     exitCode = exitCode,
                     output = output,
                     errors = errors
-                ).also { log(TAG) { "submit($cmdCount): $cmd -> $it" } }
+                ).also { log(_tag) { "submit($cmdCount): $cmd -> $it" } }
             }
         }
     }
 
     companion object {
-        private const val TAG = "FS:FlowCmdShell"
+        private val TAG = "${FlowShellDebug.tag}:FlowCmdShell"
     }
 }
