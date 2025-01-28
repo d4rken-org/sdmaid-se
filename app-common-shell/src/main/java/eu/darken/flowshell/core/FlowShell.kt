@@ -56,22 +56,24 @@ class FlowShell(
     val session: Flow<Session> = sessionProducer
 
     data class Session(
-        private val session: FlowProcess.Session,
+        internal val session: FlowProcess.Session,
     ) {
+
+        private val _tag = "$TAG:${session.id}"
 
         private val writer by lazy {
             OutputStreamWriter(session.input, StandardCharsets.UTF_8)
         }
 
         private fun InputStream.lineHarvester(tag: String) = flow {
-            if (isDebug) log(TAG, VERBOSE) { "Harverster($tag) is active" }
+            if (isDebug) log(_tag, VERBOSE) { "Harverster($tag) is active" }
             bufferedReader().use { reader ->
                 reader.lines().consumeAsFlow().collect {
-                    if (isDebug) log(TAG, VERBOSE) { "Harverster($tag) -> $it" }
+                    if (isDebug) log(_tag, VERBOSE) { "Harverster($tag) -> $it" }
                     emit(it)
                 }
             }
-            if (isDebug) log(TAG, VERBOSE) { "Harverster($tag) is finished" }
+            if (isDebug) log(_tag, VERBOSE) { "Harverster($tag) is finished" }
         }.flowOn(Dispatchers.IO)
 
         val output: Flow<String> = session.output!!.lineHarvester("output")
@@ -79,9 +81,14 @@ class FlowShell(
         val error: Flow<String> = session.errors!!.lineHarvester("error")
 
         suspend fun write(line: String, flush: Boolean = true) = withContext(Dispatchers.IO) {
-            if (isDebug) log(TAG) { "write(line=$line, flush=$flush)" }
-            writer.write(line + System.lineSeparator())
-            if (flush) writer.flush()
+            if (isDebug) log(_tag) { "write(line=$line, flush=$flush)" }
+            try {
+                writer.write(line + System.lineSeparator())
+                if (flush) writer.flush()
+            } catch (e: Exception) {
+                log(_tag, WARN) { "write($line,$flush) failed: $e" }
+                throw e
+            }
         }
 
         val exitCode: Flow<FlowProcess.ExitCode?>
@@ -94,18 +101,18 @@ class FlowShell(
         }
 
         suspend fun cancel() = withContext(Dispatchers.IO) {
-            if (isDebug) log(TAG) { "kill()" }
+            if (isDebug) log(_tag) { "kill()" }
             session.cancel()
         }
 
         suspend fun close() = withContext(Dispatchers.IO) {
-            if (isDebug) log(TAG) { "close()" }
+            if (isDebug) log(_tag) { "close()" }
             write("exit")
             waitFor()
         }
     }
 
     companion object {
-        private const val TAG = "FS:FlowShell"
+        private val TAG = "${FlowShellDebug.tag}:FlowShell"
     }
 }

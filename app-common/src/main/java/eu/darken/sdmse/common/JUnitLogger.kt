@@ -11,8 +11,8 @@ class JUnitLogger(private val minLogLevel: Logging.Priority = Logging.Priority.V
 
     override fun log(priority: Logging.Priority, tag: String, message: String, metaData: Map<String, Any>?) {
         val now = Instant.now()
-        val seconds = Duration.between(startTime, now).seconds
-        println("${now.toEpochMilli()} ($seconds) ${priority.shortLabel}/$tag: $message")
+        val ms = Duration.between(startTime, now).toMillis()
+        println("${now.toEpochMilli()} ($ms) ${priority.shortLabel}/$tag: $message")
     }
 
 }

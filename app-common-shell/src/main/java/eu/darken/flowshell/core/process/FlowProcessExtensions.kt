@@ -1,5 +1,6 @@
 package eu.darken.flowshell.core.process
 
+import eu.darken.flowshell.core.FlowShellDebug
 import eu.darken.flowshell.core.FlowShellDebug.isDebug
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -16,7 +17,7 @@ import java.io.InputStream
 import java.io.OutputStreamWriter
 import java.util.regex.Pattern
 
-private const val TAG = "FS:FlowProcess:Extensions"
+private val TAG = "${FlowShellDebug.tag}:FlowProcess:Extensions"
 private val PID_PATTERN = Pattern.compile("^.+?pid=(\\d+).+?$")
 private val SPACES_PATTERN = Pattern.compile("\\s+")
 

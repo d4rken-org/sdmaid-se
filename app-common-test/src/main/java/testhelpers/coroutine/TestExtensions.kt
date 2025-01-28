@@ -1,6 +1,7 @@
 package testhelpers.coroutine
 
 import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.test.TestScope
@@ -8,17 +9,22 @@ import kotlinx.coroutines.test.runTest
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 import kotlin.reflect.KClass
+import kotlin.time.Duration
+import kotlin.time.Duration.Companion.seconds
 
 fun runTest2(
     autoCancel: Boolean = false,
     context: CoroutineContext = EmptyCoroutineContext,
     expectedError: KClass<out Throwable>? = null,
+    timeout: Duration = 60.seconds,
     testBody: suspend TestScope.() -> Unit
 ) {
     try {
         val scope = TestScope(context = context)
         try {
-            scope.runTest {
+            scope.runTest(
+                timeout = timeout
+            ) {
                 testBody()
                 if (autoCancel) scope.cancel("autoCancel")
             }
@@ -28,7 +34,7 @@ fun runTest2(
         }
     } catch (e: CancellationException) {
         if (e.message == "autoCancel" && autoCancel) {
-            io.kotest.mpp.log { "Test was auto-cancelled ${e.asLog()}" }
+            log("test") { "Test was auto-cancelled ${e.asLog()}" }
         } else {
             throw e
         }

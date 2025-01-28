@@ -55,8 +55,11 @@ class UserManager2 @Inject constructor(
         log(TAG) { "allUsers(): shellMode=$shellMode" }
 
         if (shellMode != null) {
-            val shellResult = shellOps.execute(ShellOpsCmd("pm list users"), shellMode)
-            if (shellResult.isSuccess) {
+            try {
+                val shellResult = shellOps.execute(ShellOpsCmd("pm list users"), shellMode)
+                log(TAG) { "allUser() result: $shellResult" }
+                if (!shellResult.isSuccess) throw IllegalStateException("allUser() failed: ")
+
                 shellResult.output
                     .mapNotNull { userListRegex.matchEntire(it) }
                     .mapNotNull { match ->
@@ -73,6 +76,8 @@ class UserManager2 @Inject constructor(
                         }
                     }
                     .run { profiles.addAll(this) }
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "allUsers(): Lookup failed ${e.asLog()}" }
             }
         }
 

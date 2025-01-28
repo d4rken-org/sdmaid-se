@@ -1,5 +1,6 @@
 package eu.darken.flowshell.core.process
 
+import eu.darken.flowshell.core.FlowShellDebug
 import eu.darken.flowshell.core.FlowShellDebug.isDebug
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -20,6 +21,7 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
+import java.util.UUID
 import kotlin.coroutines.cancellation.CancellationException
 
 class FlowProcess(
@@ -28,54 +30,57 @@ class FlowProcess(
 ) {
 
     private val processCreator = callbackFlow {
-        if (isDebug) log(TAG, VERBOSE) { "Launching..." }
+        val shortId = UUID.randomUUID().toString().takeLast(4)
+        val _tag = "$TAG:$shortId"
+        if (isDebug) log(_tag, VERBOSE) { "Launching..." }
         val process = launch()
-        if (isDebug) log(TAG, VERBOSE) { "Launched!" }
+        if (isDebug) log(_tag, VERBOSE) { "Launched!" }
 
         val processExitCode = MutableStateFlow<ExitCode?>(null)
 
         val killRoutine: suspend () -> Unit = {
+            if (isDebug) log(_tag, VERBOSE) { "killRoutine is executing" }
             try {
                 kill(process)
             } catch (e: Exception) {
-                log(TAG, ERROR) { "sessionKill threw up: ${e.asLog()}" }
+                log(_tag, ERROR) { "sessionKill threw up: ${e.asLog()}" }
                 throw e
             }
         }
 
         val session = Session(
+            id = shortId,
             process = process,
             exitCode = processExitCode,
             onKill = {
-                if (isDebug) log(TAG) { "Kill session due to kill()..." }
+                if (isDebug) log(_tag) { "Kill session due to kill()..." }
                 killRoutine()
             }
         )
 
         // Send session first
-        if (isDebug) log(TAG) { "Emitting session: $session" }
+        if (isDebug) log(_tag) { "Emitting session: $session" }
         send(session)
 
         // Otherwise we could already have closed, if the process is short
         launch(Dispatchers.IO + NonCancellable) {
-            if (isDebug) log(TAG, VERBOSE) { "Exit-monitor: Waiting for process finish" }
+            if (isDebug) log(_tag, VERBOSE) { "Exit-monitor: Waiting for process finish" }
             val code = process.waitFor().let { ExitCode(it) }
-            if (isDebug) log(TAG) { "Exit-monitor: Process finished with $code" }
+            if (isDebug) log(_tag) { "Exit-monitor: Process finished with $code" }
             processExitCode.value = code
             this@callbackFlow.close()
         }
 
-        if (isDebug) log(TAG, VERBOSE) { "Waiting for flow to close..." }
+        if (isDebug) log(_tag, VERBOSE) { "Waiting for flow to close..." }
         awaitClose {
-            if (isDebug) log(TAG, VERBOSE) { "Flow is closing..." }
+            if (isDebug) log(_tag, VERBOSE) { "awaitClose() passed, flow is closing..." }
             runBlocking {
                 killRoutine()
-
-                if (isDebug) log(TAG) { "Waiting for process to be terminate" }
+                if (isDebug) log(_tag) { "kill() executed, waiting for process to terminate" }
                 process.waitFor()
-                if (isDebug) log(TAG) { "Process has terminated" }
+                if (isDebug) log(_tag) { "Process has terminated" }
             }
-            if (isDebug) log(TAG, VERBOSE) { "Flow is closed!" }
+            if (isDebug) log(_tag, VERBOSE) { "Flow is closed!" }
         }
     }
 
@@ -93,6 +98,7 @@ class FlowProcess(
         }
 
     data class Session(
+        internal val id: String,
         private val process: Process,
         val exitCode: Flow<ExitCode?>,
         private val onKill: suspend () -> Unit,
@@ -119,6 +125,6 @@ class FlowProcess(
     }
 
     companion object {
-        private const val TAG = "FS:FlowProcess"
+        private val TAG = "${FlowShellDebug.tag}:FlowProcess"
     }
 }

@@ -7,32 +7,28 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.traceCall
-import eu.darken.sdmse.common.error.tryUnwrap
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancelAndJoin
-import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
-import kotlinx.coroutines.flow.onStart
-import kotlinx.coroutines.flow.shareIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.isActive
-import kotlinx.coroutines.job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.newCoroutineContext
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
 import java.util.UUID
 
 /**
@@ -43,7 +39,7 @@ import java.util.UUID
 open class SharedResource<T : Any>(
     tag: String,
     parentScope: CoroutineScope,
-    source: Flow<T>,
+    private val source: Flow<T>,
 ) : KeepAlive {
     private val iTag = "$tag:SR"
     override val resourceId: String = iTag
@@ -56,148 +52,159 @@ open class SharedResource<T : Any>(
     private val children = mutableMapOf<SharedResource<*>, KeepAlive>()
 
     override val isClosed: Boolean
-        get() = !isAlive
+        get() = sourceJob == null
 
-    private var isAlive = false
-    private var isClosing = false
-    private var rId: String? = null
+    private var sId: String? = null
 
-    private val resourceHolder: Flow<Event<T>> = source
-        .onStart {
-            lock.withLock {
-                isAlive = true
-                rId = "R:${UUID.randomUUID().toString().takeLast(4)}"
-                log(iTag, DEBUG) { "Core($rId): Creating shared resource..." }
+    private var sourceJob: Job? = null
+    private var sourceValue: T? = null
 
-                children.apply {
-                    if (isEmpty()) return@apply
-                    val _children = values.toList()
-                    log(iTag, WARN) { "Core($rId): Non-empty child references: $_children" }
-                    clear()
-                }
-            }
-        }
-        .map {
-            (Event.Resource(rId!!, it) as Event<T>).also {
-                log(iTag) { "Core($rId): Resource ready: $it" }
-            }
-        }
-        .catch { log(iTag, WARN) { "Core($rId): Failed to provide resource: ${it.asLog()}" } }
-        .onCompletion {
-            if (Bugs.isDebug) log(iTag, VERBOSE) { "Core($rId): Waiting for lock to release shared resource..." }
-            lock.withLock {
-                isAlive = false
-                if (Bugs.isDebug) log(iTag, VERBOSE) { "Core($rId): Releasing shared resource..." }
-
-                children.apply {
-                    values.forEach {
-                        if (Bugs.isDebug) log(iTag, VERBOSE) { "Core($rId): Closing child resource: $it" }
-                        it.close()
-                    }
-                    clear()
-                }
-
-                leases.apply {
-                    if (isEmpty()) return@apply
-
-                    if (Bugs.isDebug) {
-                        val remainingLeases = this.joinToString()
-                        log(iTag, VERBOSE) { "Core($rId): Cleaning up remaining leases: $remainingLeases" }
-                    }
-
-                    filter { it.job.isActive }.forEachIndexed { index, lease ->
-                        if (Bugs.isTrace) log(iTag, VERBOSE) { "Core($rId): Canceling #$index: $lease..." }
-                        lease.job.cancelAndJoin()
-                    }
-
-                    if (Bugs.isDebug) log(iTag, VERBOSE) { "Core($rId): Remaining leases have been cleaned up." }
-
-                    clear()
-                }
-
-
-                val orphanedLeases = leaseScope.coroutineContext.job.children.filter { it.isActive }.toList()
-                if (orphanedLeases.isNotEmpty()) {
-                    log(iTag, WARN) { "Core($rId): Orphaned leases: $orphanedLeases" }
-                    // This cancels all active leases, at the latest.
-                    leaseScope.coroutineContext.cancelChildren()
-                }
-                log(iTag, DEBUG) { "Core($rId): Shared resource flow completed." }
-            }
-            parentScope.launch {
-                // Needs to set isClosed AFTER the resourceHolder is REALLY finished
-                // TODO this sucks but I really have not found a better way
-                delay(50)
-                if (Bugs.isDive) log(iTag, VERBOSE) { "Core($rId): Waiting for lock to set isClosing=false" }
-                lock.withLock {
-                    if (Bugs.isDive) log(iTag, VERBOSE) { "Core($rId): Setting isClosing=false" }
-                    isClosing = false
-                }
-            }
-        }
-        .shareIn(
-            parentScope,
-            SharingStarted.WhileSubscribed(stopTimeoutMillis = 0, replayExpirationMillis = 0),
-            replay = 1,
-        )
-
-    suspend fun get(): Resource<T> {
+    suspend fun get(): Resource<T> = lock.withLock {
         val lId = "L:${UUID.randomUUID().toString().takeLast(4)}"
 
-        if (isClosing) {
-            if (Bugs.isDive) log(iTag, VERBOSE) { "Lease($lId).get($rId): Resource is closing waiting..." }
-            while (isClosing && currentCoroutineContext().isActive) {
+        if (Bugs.isTrace) {
+            if (isClosed) {
+                log(iTag, DEBUG) { "Lease($lId).get($sId): Getting new sourceValue" }
+            } else {
+                log(iTag, VERBOSE) { "Lease($lId).get($sId): Getting current sourceValue ($sId)" }
+            }
+        }
+
+        if (sourceJob == null) {
+            sId = "S:${UUID.randomUUID().toString().takeLast(4)}"
+
+            log(iTag, DEBUG) { "Core($sId): Launching source job..." }
+            var sourceError: Throwable? = null
+            sourceJob = source
+                .onEach {
+                    sourceValue = it.also { log(iTag) { "Core($sId): sourceValue=$it" } }
+                }
+                .catch { error ->
+                    log(iTag, WARN) { "Core($sId): Source ERROR, closing SharedResource: ${error.asLog()}" }
+                    sourceError = error
+                }
+                .onCompletion { error ->
+                    log(iTag, DEBUG) { "Core($sId): Source completed, closing SharedResource..." }
+                    closeInternal()
+                }
+                .launchIn(leaseScope)
+
+            if (Bugs.isDive) log(iTag, VERBOSE) { "Lease($lId).get($sId): Waiting for resource" }
+            while (sourceValue == null && currentCoroutineContext().isActive) {
+                sourceError?.let { throw it }
                 delay(1)
             }
         }
 
-        val lease = lock.withLock {
-            if (Bugs.isTrace) {
-                if (isAlive) {
-                    log(iTag, VERBOSE) { "Lease($lId).get($rId): Getting existing resource ($rId)" }
-                } else {
-                    log(iTag, DEBUG) { "Lease($lId).get($rId): Reviving SharedResource" }
-                    log(iTag, VERBOSE) { "Lease($lId).get($rId): Revive call origin: ${traceCall()}" }
-                }
-            }
-
-            val job = resourceHolder.launchIn(leaseScope).apply {
-                invokeOnCompletion {
-                    if (Bugs.isDive) {
-                        val count = leases.size
-                        log(iTag, VERBOSE) { "Lease($lId).get($rId): Lease on $rId completed (now=$count, $job)." }
-                    }
-                }
-            }
-
+        val lease = withContext(NonCancellable) {
             Lease(
                 id = lId,
-                job = job,
+                job = leaseScope.launch {
+                    if (Bugs.isDive) log(iTag, VERBOSE) { "Lease($lId).get($sId): Lease is active" }
+                    awaitCancellation()
+                },
                 traceTag = if (Bugs.isDive) traceCall() else null
-            ).also {
-                leases.add(it)
+            ).also { leases.add(it) }
+        }
 
-                if (Bugs.isDive) {
-                    log(iTag, VERBOSE) { "Lease($lId).get($rId): Added new lease ($job)" }
-                    val leaseSize = leases.size
-                    log(iTag, VERBOSE) { "Lease($lId).get($rId): Now holding $leaseSize lease(s)" }
+        if (Bugs.isTrace) {
+            val leaseSize = leases.size
+            log(iTag, VERBOSE) { "Lease($lId).get($sId): Now holding $leaseSize lease(s)" }
+
+            if (Bugs.isDive) {
+                try {
+                    leases.toList().forEachIndexed { i, l ->
+                        log(iTag, VERBOSE) { "Lease($lId).get($sId): Now holding #$i - $l" }
+                    }
+                } catch (e: Exception) {
+                    log(iTag, VERBOSE) { "Lease($lId).get($sId): Lease logging concurrency error" }
                 }
             }
         }
 
-        val resourceEvent = try {
-            if (Bugs.isDive) log(iTag, VERBOSE) { "Lease($lId).get($rId): Retrieving resource" }
-            when (val event = resourceHolder.first()) {
-                is Event.Error -> throw event.error
-                is Event.Resource -> event
-            }
-        } catch (e: Exception) {
-            log(iTag, WARN) { "Lease($lId).get($rId): Failed to retrieve resource (${e.asLog()}" }
-            lease.close()
-            throw e.tryUnwrap()
+        Resource(sourceValue!!, lease).also {
+            if (Bugs.isTrace) log(iTag) { "Lease($lId).get($sId) --> ${it.item}" }
         }
-        if (Bugs.isTrace) log(iTag) { "Lease($lId).get($rId): Resource retrieved: $resourceEvent" }
-        return Resource(resourceEvent.resource, lease)
+    }
+
+    private suspend fun closeLeaseInternal(lease: Lease): Unit = withContext(NonCancellable) {
+        val lId = lease.id
+        if (Bugs.isDive) log(iTag, VERBOSE) { "Lease($lId).close(): Closing..." }
+
+        leases.remove(lease).also {
+            if (Bugs.isTrace) {
+                val leaseSize = leases.size
+                if (it) log(iTag, VERBOSE) { "Lease($lId).close(): Removed! (now $leaseSize)" }
+                else log(iTag, WARN) { "Lease($lId).close(): Already removed? (now $leaseSize) " }
+            }
+        }
+
+        if (Bugs.isDive) log(iTag) { "Lease($lId).close(): Canceling lease job: ${lease.job}" }
+        lease.job.cancelAndJoin()
+        if (Bugs.isDive) log(iTag, VERBOSE) { "Lease($lId).close(): Lease job is completed" }
+
+        if (leases.isEmpty()) {
+            log(iTag, DEBUG) { "Lease($lId).close(): ZERO leases left for $sId, canceling source and waiting" }
+            sourceJob!!.cancelAndJoin()
+
+            children.apply {
+                if (isEmpty()) return@apply
+                onEachIndexed { index, entry ->
+                    if (Bugs.isDebug) log(iTag, VERBOSE) { "Core($sId): Closing child #$index $entry" }
+                    entry.value.close()
+                }
+                clear()
+
+                if (Bugs.isDebug) log(iTag, VERBOSE) { "Core($sId): Remaining children have been cleared" }
+            }
+
+            leases.apply {
+                if (isEmpty()) return@apply
+                forEachIndexed { index, lease ->
+                    if (Bugs.isTrace) log(iTag, VERBOSE) { "Core($sId): Canceling lease #$index: $lease..." }
+                    lease.job.cancelAndJoin()
+                }
+                clear()
+                if (Bugs.isDebug) log(iTag, VERBOSE) { "Core($sId): Remaining leases have been cleared" }
+            }
+        } else {
+            if (Bugs.isDive) {
+                try {
+                    leases.toList().forEachIndexed { index, lease ->
+                        log(iTag, VERBOSE) { "Lease($lId).close(): Remaining lease #$index - $lease" }
+                    }
+                } catch (e: Exception) {
+                    log(iTag, VERBOSE) { "Lease($lId).close(): Lease logging concurrency error" }
+                }
+            }
+        }
+    }
+
+    override fun close() {
+        if (isClosed) {
+            if (Bugs.isTrace) log(iTag) { "Core($sId).close() already closed" }
+            return
+        } else {
+            if (Bugs.isTrace) {
+                log(iTag) { "Core($sId).close()ing via ${Exception().asLog()}" }
+            } else {
+                log(iTag) { "Core($sId).close()ing..." }
+            }
+        }
+
+        runBlocking {
+            lock.withLock { closeInternal() }
+        }
+    }
+
+    private suspend fun closeInternal() = withContext(NonCancellable) {
+        while (leases.isNotEmpty()) {
+            log(iTag) { "Core($sId).close(): Current leases: ${leases.map { it.resourceId }}" }
+            closeLeaseInternal(leases.first())
+        }
+        sourceValue = null
+        sourceJob = null
+        log(iTag, DEBUG) { "Core($sId): Shared resource flow completed." }
     }
 
     /**
@@ -210,13 +217,13 @@ open class SharedResource<T : Any>(
     suspend fun addChild(child: SharedResource<*>) = lock.withLock {
         if (children.contains(child)) {
             if (Bugs.isDive) {
-                log(iTag, VERBOSE) { "Core($rId).addChild(): Already keeping child alive: $child" }
+                log(iTag, VERBOSE) { "Core($sId).addChild(): Already keeping child alive: $child" }
             }
             return@withLock
         }
 
-        if (!isAlive) {
-            log(iTag, VERBOSE) { "Core($rId).addChild(): Can't add child, we are not alive: $child" }
+        if (isClosed) {
+            log(iTag, VERBOSE) { "Core($sId).addChild(): Can't add child, we are not alive: $child" }
             child.close()
             return@withLock
         }
@@ -227,24 +234,12 @@ open class SharedResource<T : Any>(
 
         if (Bugs.isDive) {
             val childrenSize = children.size
-            log(iTag, VERBOSE) { "Core($rId).addChild(): Resource now has $childrenSize children: $child" }
+            log(iTag, VERBOSE) { "Core($sId).addChild(): Resource now has $childrenSize children: $child" }
         }
-    }
-
-    override fun close() {
-        if (!isAlive) return
-        if (Bugs.isTrace) {
-            log(iTag) { "Core($rId).close() by ${Exception().asLog()}" }
-        } else {
-            log(iTag) { "Core($rId).close()" }
-        }
-        leaseScope.coroutineContext.cancelChildren()
-        // TODO, do we need to lock and set isClosing?
     }
 
     override fun toString(): String =
         "SharedResource(tag=$iTag, leases=${leases.size}, children=${children.size})"
-
 
     inner class Lease(
         internal val id: String,
@@ -256,60 +251,10 @@ open class SharedResource<T : Any>(
         override val isClosed: Boolean
             get() = !job.isActive
 
-        override fun close() {
-            if (Bugs.isTrace) log(iTag, VERBOSE) { "Lease($id).close(): Closing... ($job)." }
-
-            runBlocking {
-                if (Bugs.isDive) {
-                    log(iTag, VERBOSE) { "Lease($id).close(): Close code running, waiting for lock! ($job)" }
-                }
-                lock.withLock {
-                    if (Bugs.isDive) {
-                        log(iTag, VERBOSE) { "Lease($id).close(): Lock acquired, removing our lease! ($job)" }
-                    }
-                    leases.remove(this@Lease).also {
-                        val leaseSize = leases.size
-                        if (Bugs.isTrace) {
-                            if (it) {
-                                log(iTag, VERBOSE) { "Lease($id).close(): Removed! (now $leaseSize) ($job)" }
-                            } else {
-                                log(iTag, WARN) { "Lease($id).close(): Already removed? (now $leaseSize) ($job)" }
-                            }
-                        }
-                    }
-
-                    if (leases.isEmpty()) {
-                        isClosing = true
-                        log(iTag, DEBUG) { "Lease($id).close(): ZERO leases left for $rId, setting isClosing=true" }
-                    }
-
-                    if (job.isActive) {
-                        if (Bugs.isTrace) log(iTag) { "Lease($id).close(): Canceling job! ($job)" }
-                        job.cancel()
-                    } else {
-                        if (Bugs.isTrace) log(iTag, WARN) { "Lease($id).close(): Already cancelled! ($job)" }
-                    }
-
-                    if (job.isCompleted) {
-                        if (Bugs.isDive) log(iTag, VERBOSE) { "Lease($id).close(): Job is completed ($job)" }
-                    } else {
-                        if (Bugs.isDive) log(iTag, VERBOSE) { "Lease($id).close(): Waiting for completion ($job)" }
-                        job.join()
-                        if (Bugs.isDive) log(iTag, VERBOSE) { "Lease($id).close(): Job is now completed ($job)" }
-                    }
-                }
-
-                if (Bugs.isDive) {
-                    try {
-                        leases.toList().forEachIndexed { index, lease ->
-                            log(iTag, VERBOSE) { "Lease($id).close(): Remaining lease #$index - $lease" }
-                        }
-                    } catch (e: Exception) {
-                        log(iTag, VERBOSE) { "Lease($id).close(): Lease logging concurrency error" }
-                    }
-                }
+        override fun close() = runBlocking {
+            lock.withLock {
+                closeLeaseInternal(this@Lease)
             }
-
         }
 
         override fun toString(): String = "Lease(id=$id, job=$job)" + (traceTag?.let { "\nCreated at $it" } ?: "")
@@ -341,11 +286,6 @@ open class SharedResource<T : Any>(
         }
 
         override fun hashCode(): Int = resourceId.hashCode()
-    }
-
-    sealed interface Event<T> {
-        data class Resource<T>(val id: String, val resource: T) : Event<T>
-        data class Error<T>(val error: Throwable) : Event<T>
     }
 
     companion object {
