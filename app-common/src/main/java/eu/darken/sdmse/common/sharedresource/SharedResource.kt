@@ -24,7 +24,6 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.isActive
@@ -70,47 +69,52 @@ open class SharedResource<T : Any>(
                 rId = "R:${UUID.randomUUID().toString().takeLast(4)}"
                 log(iTag, DEBUG) { "Core($rId): Creating shared resource..." }
 
-                if (children.isNotEmpty()) {
-                    val _children = children.values.toList()
+                children.apply {
+                    if (isEmpty()) return@apply
+                    val _children = values.toList()
                     log(iTag, WARN) { "Core($rId): Non-empty child references: $_children" }
-                    children.clear()
+                    clear()
                 }
             }
         }
         .map {
-            @Suppress("USELESS_CAST")
-            Event.Resource(rId!!, it) as Event<T>
+            (Event.Resource(rId!!, it) as Event<T>).also {
+                log(iTag) { "Core($rId): Resource ready: $it" }
+            }
         }
-        .onEach { log(iTag) { "Core($rId): Resource ready: $it" } }
         .catch { log(iTag, WARN) { "Core($rId): Failed to provide resource: ${it.asLog()}" } }
         .onCompletion {
+            if (Bugs.isDebug) log(iTag, VERBOSE) { "Core($rId): Waiting for lock to release shared resource..." }
             lock.withLock {
                 isAlive = false
                 if (Bugs.isDebug) log(iTag, VERBOSE) { "Core($rId): Releasing shared resource..." }
 
-                children.values.forEach {
-                    if (Bugs.isDebug) log(iTag, VERBOSE) { "Core($rId): Closing child resource: $it" }
-                    it.close()
+                children.apply {
+                    values.forEach {
+                        if (Bugs.isDebug) log(iTag, VERBOSE) { "Core($rId): Closing child resource: $it" }
+                        it.close()
+                    }
+                    clear()
                 }
-                children.clear()
 
-                if (leases.isNotEmpty()) {
+                leases.apply {
+                    if (isEmpty()) return@apply
+
                     if (Bugs.isDebug) {
-                        val remainingLeases = leases.joinToString()
+                        val remainingLeases = this.joinToString()
                         log(iTag, VERBOSE) { "Core($rId): Cleaning up remaining leases: $remainingLeases" }
                     }
 
-                    leases
-                        .filter { it.job.isActive }
-                        .forEachIndexed { index, lease ->
-                            if (Bugs.isTrace) log(iTag, VERBOSE) { "Core($rId): Canceling #$index: $lease..." }
-                            lease.job.cancelAndJoin()
-                        }
+                    filter { it.job.isActive }.forEachIndexed { index, lease ->
+                        if (Bugs.isTrace) log(iTag, VERBOSE) { "Core($rId): Canceling #$index: $lease..." }
+                        lease.job.cancelAndJoin()
+                    }
 
                     if (Bugs.isDebug) log(iTag, VERBOSE) { "Core($rId): Remaining leases have been cleaned up." }
 
-                    leases.clear()
+                    clear()
                 }
+
 
                 val orphanedLeases = leaseScope.coroutineContext.job.children.filter { it.isActive }.toList()
                 if (orphanedLeases.isNotEmpty()) {
