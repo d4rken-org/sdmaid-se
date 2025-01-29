@@ -27,7 +27,6 @@ class SharedShellTest : BaseTest() {
         Bugs.apply {
             isDebug = true
             isTrace = true
-            isDive = true
         }
     }
 
@@ -37,7 +36,6 @@ class SharedShellTest : BaseTest() {
         Bugs.apply {
             isDebug = false
             isTrace = false
-            isDive = false
         }
     }
 

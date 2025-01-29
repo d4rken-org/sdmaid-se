@@ -61,7 +61,7 @@ class FlowProcessTest : BaseTest() {
         var stopped = -1L
         val flow = FlowProcess(
             launch = {
-                ProcessBuilder("sleep", "1").start().also {
+                ProcessBuilder("sleep", "2").start().also {
                     started = System.currentTimeMillis()
                 }
             },

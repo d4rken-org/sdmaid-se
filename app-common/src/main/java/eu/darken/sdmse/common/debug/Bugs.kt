@@ -27,9 +27,6 @@ object Bugs {
     var isDryRun = false
     var isDebug = false
     var isTrace = false
-    var isDeepDive = false
-    val isTraceDeepDive: Boolean
-        get() = isTrace && isDeepDive
 
     var processTag: String = "Default"
 
