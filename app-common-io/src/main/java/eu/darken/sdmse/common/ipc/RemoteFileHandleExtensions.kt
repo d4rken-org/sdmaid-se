@@ -33,7 +33,7 @@ internal fun FileHandle.remoteFileHandle(): RemoteFileHandle.Stub = object : Rem
 
     override fun read(fileOffset: Long, array: ByteArray, arrayOffset: Int, byteCount: Int): Int = try {
         this@remoteFileHandle.read(fileOffset, array, arrayOffset, byteCount).also {
-            if (Bugs.isDive) {
+            if (Bugs.isTrace) {
                 log(VERBOSE) { "read(rootside-p): $fileOffset, ${array.size}, $arrayOffset, $byteCount, read $it into ${array.toHex()}" }
             }
         }
@@ -73,7 +73,7 @@ internal fun RemoteFileHandle.fileHandle(readWrite: Boolean): FileHandle = objec
     @Throws(IOException::class)
     override fun protectedRead(fileOffset: Long, array: ByteArray, arrayOffset: Int, byteCount: Int): Int = try {
         this@fileHandle.read(fileOffset, array, arrayOffset, byteCount).also {
-            if (Bugs.isDive) {
+            if (Bugs.isTrace) {
                 log(VERBOSE) { "read(appside-p): $fileOffset, ${array.size}, $arrayOffset, $byteCount, read $it into ${array.toHex()}" }
             }
             if (it == -2) throw IOException("Remote Exception")

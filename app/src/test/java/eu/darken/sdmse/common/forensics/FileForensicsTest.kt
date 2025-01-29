@@ -38,12 +38,14 @@ class FileForensicsTest : BaseTest() {
         processors.add(csiProcessor)
 
         every { gatewaySwitch.sharedResource } returns mockk<SharedResource<Any>>().apply {
+            every { resourceId } returns "gateway:SR"
             coEvery { get() } returns mockk<Resource<Any>>().apply {
                 every { close() } returns Unit
             }
             every { close() } returns Unit
         }
         every { pkgOps.sharedResource } returns mockk<SharedResource<Any>>().apply {
+            every { resourceId } returns "pkgops:SR"
             coEvery { get() } returns mockk<Resource<Any>>().apply {
                 every { close() } returns Unit
             }

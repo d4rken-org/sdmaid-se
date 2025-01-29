@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.shell
 
 import eu.darken.flowshell.core.cmd.FlowCmdShell
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -24,7 +25,7 @@ class SharedShell(
 ) : HasSharedResource<FlowCmdShell.Session> {
     private val aTag = "$tag:SharedShell"
     private val source = callbackFlow {
-        log(aTag) { "Launching SharedShell session" }
+        log(aTag, INFO) { "Launching SharedShell session" }
 
         invokeOnClose { log(aTag) { "Shared shell invokeOnClose!" } }
 
@@ -37,16 +38,20 @@ class SharedShell(
             throw e
         }
 
-        log(aTag, VERBOSE) { "Sending obtained session instance: $session" }
+        log(aTag, INFO) { "Sending obtained session instance: $session" }
         send(session)
 
         log(aTag) { "Shared shell is open, waiting until close" }
         session.waitFor()
         awaitClose {
-            log(aTag) { "Closing!" }
+            // Why is this never reached if we cancel the source job
+            log(aTag, INFO) { "Closing!" }
             runBlocking {
                 try {
-                    withTimeoutOrNull(5 * 1000) { session.close() } ?: session.cancel()
+                    withTimeoutOrNull(5 * 1000) { session.close() } ?: run {
+                        log(aTag, WARN) { "Session did not close in time, canceling" }
+                        session.cancel()
+                    }
                     val exitCode = session.waitFor()
                     log(aTag) { "FlowCmdShell finished with exitcode $exitCode" }
                 } catch (e: CancellationException) {
