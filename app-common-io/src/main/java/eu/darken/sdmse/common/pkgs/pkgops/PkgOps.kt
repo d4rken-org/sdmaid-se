@@ -54,7 +54,6 @@ import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourcesAlive
 import eu.darken.sdmse.common.user.UserHandle2
-import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
 import java.util.UUID
@@ -67,7 +66,6 @@ class PkgOps @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
     private val ipcFunnel: IPCFunnel,
-    private val userManager: UserManager2,
     private val rootManager: RootManager,
     private val adbManager: AdbManager,
     private val usageStatsManager: UsageStatsManager,
@@ -161,7 +159,6 @@ class PkgOps @Inject constructor(
             @Suppress("NewApi")
             packageManager.getInstalledPackages(PackageInfoFlags.of(flags))
         } else {
-            @Suppress("DEPRECATION")
             packageManager.getInstalledPackages(flags.toInt())
         }
     }

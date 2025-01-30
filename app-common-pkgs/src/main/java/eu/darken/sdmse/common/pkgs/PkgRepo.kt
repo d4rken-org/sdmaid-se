@@ -17,6 +17,8 @@ import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.sources.NormalPkgsSource
+import eu.darken.sdmse.common.sharedresource.closeAll
+import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CoroutineScope
@@ -39,6 +41,7 @@ class PkgRepo @Inject constructor(
     private val pkgSources: Set<@JvmSuppressWildcards PkgDataSource>,
     private val gatewaySwitch: GatewaySwitch,
     private val pkgOps: PkgOps,
+    private val shellOps: ShellOps,
     private val userManager: UserManager2,
 ) {
 
@@ -97,57 +100,58 @@ class PkgRepo @Inject constructor(
     private suspend fun gatherPkgData(): Map<CacheKey, CachedInfo> {
         log(TAG, INFO) { "generatePkgcache()..." }
         val start = System.currentTimeMillis()
-        return gatewaySwitch.useRes {
-            pkgOps.useRes {
-                val sourceMap: Map<KClass<out PkgDataSource>, Collection<Installed>> = coroutineScope {
-                    pkgSources.map { source ->
-                        async {
-                            log(TAG) { "generatePkgcache(): $source start..." }
-                            val sourceStart = System.currentTimeMillis()
-                            val fromSource = source.getPkgs()
-                            val sourceStop = System.currentTimeMillis()
-                            log(TAG) {
-                                "generatePkgcache(): ${fromSource.size} pkgs from $source took ${sourceStop - sourceStart}ms"
-                            }
-                            source::class to fromSource
-                        }
+        val leases = setOf(pkgOps, gatewaySwitch, shellOps).map { it.sharedResource.get() }
+
+        val sourceMap: Map<KClass<out PkgDataSource>, Collection<Installed>> = coroutineScope {
+            pkgSources.map { source ->
+                async {
+                    log(TAG) { "generatePkgcache(): $source start..." }
+                    val sourceStart = System.currentTimeMillis()
+                    val fromSource = source.getPkgs()
+                    val sourceStop = System.currentTimeMillis()
+                    log(TAG) {
+                        "generatePkgcache(): ${fromSource.size} pkgs from $source took ${sourceStop - sourceStart}ms"
                     }
-                }.awaitAll().toMap()
+                    source::class to fromSource
+                }
+            }
+        }.awaitAll().toMap()
 
-                val mergedData = mutableMapOf<CacheKey, CachedInfo>()
+        val mergedData = mutableMapOf<CacheKey, CachedInfo>()
 
-                // This is our primary source of data, we don't overwrite this data with data from other sources
-                sourceMap[NormalPkgsSource::class]!!.forEach { pkg ->
-                    val key = CacheKey(pkg)
-                    mergedData[key] = CachedInfo(key, pkg)
+        // This is our primary source of data, we don't overwrite this data with data from other sources
+        sourceMap[NormalPkgsSource::class]!!.forEach { pkg ->
+            val key = CacheKey(pkg)
+            mergedData[key] = CachedInfo(key, pkg)
+        }
+
+        sourceMap
+            .filter { it.key != NormalPkgsSource::class }
+            .onEach { (type, pkgs) ->
+                val extraPkgs = pkgs
+                    .map { pkg ->
+                        val key = CacheKey(pkg)
+                        key to CachedInfo(key, pkg)
+                    }
+                    .filter { (key, _) -> !mergedData.containsKey(key) }
+                    .associate { (key, info) -> key to info }
+
+                if (Bugs.isTrace) {
+                    log(TAG) { "${extraPkgs.size} extra pkgs from $type" }
+                    extraPkgs.forEach { log(TAG, VERBOSE) { "Extra pkg from $type: ${it.value}" } }
                 }
 
-                sourceMap
-                    .filter { it.key != NormalPkgsSource::class }
-                    .onEach { (type, pkgs) ->
-                        val extraPkgs = pkgs
-                            .map { pkg ->
-                                val key = CacheKey(pkg)
-                                key to CachedInfo(key, pkg)
-                            }
-                            .filter { (key, _) -> !mergedData.containsKey(key) }
-                            .associate { (key, info) -> key to info }
-
-                        if (Bugs.isTrace) {
-                            log(TAG) { "${extraPkgs.size} extra pkgs from $type" }
-                            extraPkgs.forEach { log(TAG, VERBOSE) { "Extra pkg from $type: ${it.value}" } }
-                        }
-
-                        mergedData.putAll(extraPkgs)
-                    }
-
-                log(TAG, INFO) { "Pkgs total: ${mergedData.size}" }
-                mergedData.values.forEach { log(TAG, DEBUG) { "Installed package: $it" } }
-                val stop = System.currentTimeMillis()
-                log(TAG, INFO) { "generatePkgcache(): PkgRepo load took ${stop - start}ms" }
-                mergedData
+                mergedData.putAll(extraPkgs)
             }
-        }
+
+        log(TAG, INFO) { "Pkgs total: ${mergedData.size}" }
+        mergedData.values.forEach { log(TAG, DEBUG) { "Installed package: $it" } }
+        val stop = System.currentTimeMillis()
+        log(TAG, INFO) { "generatePkgcache(): PkgRepo load took ${stop - start}ms" }
+
+        leases.closeAll()
+
+        return mergedData
     }
 
     suspend fun refresh(

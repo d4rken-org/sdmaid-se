@@ -38,6 +38,7 @@ import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
+import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
@@ -71,11 +72,12 @@ class AppCleaner @Inject constructor(
     usageStatsSetupModule: UsageStatsSetupModule,
     rootManager: RootManager,
     adbManager: AdbManager,
+    shellOps: ShellOps,
     private val filterFactories: Set<@JvmSuppressWildcards ExpendablesFilter.Factory>,
     private val appInventorySetupModule: InventorySetupModule,
 ) : SDMTool, Progress.Client {
 
-    private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
+    private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps, shellOps)
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
