@@ -446,29 +446,27 @@ class SharedResourceTest : BaseTest() {
         (1..100).map { i ->
             val jobs = mutableSetOf<Job>()
 
+            sr.get()
+
             launch(Dispatchers.IO) {
-                sr.get()
+                try {
+                    sr.get().close()
+                } catch (e: Exception) {
+                    log { "Thrown ${e.asLog()}" }
+                    (e is CancellationException) shouldBe true
+                }
+            }.also { jobs.add(it) }
 
-                launch(Dispatchers.IO) {
-                    try {
-                        sr.get().close()
-                    } catch (e: Exception) {
-                        log { "Thrown ${e.asLog()}" }
-                        (e is CancellationException) shouldBe true
-                    }
-                }.also { jobs.add(it) }
-
-                launch(Dispatchers.IO) {
-                    shouldNotThrowAny {
-                        sr.close()
-                    }
-                }.also { jobs.add(it) }
-
+            launch(Dispatchers.IO) {
+                shouldNotThrowAny {
+                    sr.close()
+                }
             }.also { jobs.add(it) }
 
             jobs.joinAll()
-        }
 
-        sr.isClosed shouldBe true
+            sr.close()
+            sr.isClosed shouldBe true
+        }
     }
 }
