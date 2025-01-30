@@ -82,8 +82,6 @@ class DeviceDetective @Inject constructor(
             "V13",
             // Xiaomi/plato_id/plato:13/TP1A.220624.014/V14.0.1.0.TLQIDXM:user/release-keys
             "V14",
-            // POCO/mondrian_global/mondrian:14/UKQ1.230804.001/V816.0.1.0.UMNMIXM:user/release-keys,
-            "V816", // wtf poco
         )
         val MIUI_VERSION_STARTS = MIUI_VERSION_STARTS_LEGACY + MIUI_VERSION_STARTS_CURRENT
         private val MIUI_PKGS = setOf(
@@ -91,6 +89,9 @@ class DeviceDetective @Inject constructor(
         )
 
         val HYPEROS_VERSION_STARTS = setOf(
+            // POCO/mondrian_global/mondrian:14/UKQ1.230804.001/V816.0.1.0.UMNMIXM:user/release-keys
+            // Xiaomi/aristotle_eea/aristotle:14/UP1A.230905.011/V816.0.17.0.UMFEUXM:user/release-keys
+            "V816.",
             // OS1.0.12.0.ULLMIXM
             "OS1",
             // Xiaomi/corot_global/corot:15/AP3A.240617.008/OS2.0.6.0.VMLMIXM:user/release-keys
