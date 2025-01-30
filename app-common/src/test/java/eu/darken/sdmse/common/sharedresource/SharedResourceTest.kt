@@ -287,23 +287,19 @@ class SharedResourceTest : BaseTest() {
         )
 
         (1..100).map { i ->
+            val leadLease = sr.get()
             val jobs = mutableSetOf<Job>()
 
             launch(Dispatchers.IO) {
-                val leadLease = sr.get()
+                shouldNotThrowAny {
+                    sr.get().close()
+                }
+            }.also { jobs.add(it) }
 
-                launch(Dispatchers.IO) {
-                    shouldNotThrowAny {
-                        sr.get().close()
-                    }
-                }.also { jobs.add(it) }
-
-                launch(Dispatchers.IO) {
-                    shouldNotThrowAny {
-                        leadLease.close()
-                    }
-                }.also { jobs.add(it) }
-
+            launch(Dispatchers.IO) {
+                shouldNotThrowAny {
+                    leadLease.close()
+                }
             }.also { jobs.add(it) }
 
             jobs.joinAll()
