@@ -42,6 +42,7 @@ class FileForensicsTest : BaseTest() {
             coEvery { get() } returns mockk<Resource<Any>>().apply {
                 every { close() } returns Unit
             }
+            every { isClosed } returns true
             every { close() } returns Unit
         }
         every { pkgOps.sharedResource } returns mockk<SharedResource<Any>>().apply {
@@ -49,6 +50,7 @@ class FileForensicsTest : BaseTest() {
             coEvery { get() } returns mockk<Resource<Any>>().apply {
                 every { close() } returns Unit
             }
+            every { isClosed } returns true
             every { close() } returns Unit
         }
     }
