@@ -273,6 +273,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Empty folders from all over the device. Nested folders may require multiple passes.</string>
     <string name="systemcleaner_filter_screenshots_label">Screenshots</string>
     <string name="systemcleaner_filter_screenshots_summary">Screenshots older than %s from multiple apps and locations.</string>
+    <string name="systemcleaner_filter_trashed_label">Trashed files</string>
+    <string name="systemcleaner_filter_trashed_summary">Files in recycle bins from various apps and locations that are marked for deletion but not yet permanently removed.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Screenshot Age</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimum age for screenshots to be considered for deletion.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Superfluous APKs</string>
