@@ -50,6 +50,8 @@ class SystemCleanerSettings @Inject constructor(
     val filterScreenshotsEnabled = dataStore.createValue("filter.screenshots.enabled", false)
     val filterScreenshotsAge = dataStore.createValue("filter.screenshots.age", SCREENSHOTS_AGE_DEFAULT, moshi)
 
+    val filterTrashedEnabled = dataStore.createValue("filter.trashed.enabled", false)
+
     val enabledCustomFilter = dataStore.createValue(
         "filter.custom.enabled",
         emptySet<FilterIdentifier>(),
@@ -63,6 +65,7 @@ class SystemCleanerSettings @Inject constructor(
         filterSuperfluosApksEnabled,
         filterScreenshotsEnabled,
         filterScreenshotsAge,
+        filterTrashedEnabled,
         filterLostDirEnabled,
         filterLinuxFilesEnabled,
         filterMacFilesEnabled,
