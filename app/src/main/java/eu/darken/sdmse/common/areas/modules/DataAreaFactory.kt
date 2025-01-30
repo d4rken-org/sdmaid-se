@@ -13,18 +13,20 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.sharedresource.closeAll
+import eu.darken.sdmse.common.shell.ShellOps
 import javax.inject.Inject
 
 @Reusable
 class DataAreaFactory @Inject constructor(
     private val pkgOps: PkgOps,
     private val gatewaySwitch: GatewaySwitch,
+    private val shellOps: ShellOps,
     private val areaModules: Set<@JvmSuppressWildcards DataAreaModule>,
 ) {
 
     suspend fun build(): Collection<DataArea> {
         log(TAG) { "build()" }
-        val leases = setOf(pkgOps, gatewaySwitch).map { it.sharedResource.get() }
+        val leases = setOf(pkgOps, gatewaySwitch, shellOps).map { it.sharedResource.get() }
 
         val firstPass = areaModules.map { it.firstPass() }.flatten()
         log(TAG, VERBOSE) { "build(): First pass: ${firstPass.joinToString("\n")}" }
