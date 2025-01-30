@@ -44,8 +44,8 @@ class FlowShellTest : BaseTest() {
         val rows = (1..10L)
 
         shell.session.flowOn(Dispatchers.IO).collect { session ->
-            session.output.onEach { output.add(it) }.launchIn(this)
-            session.error.onEach { errors.add(it) }.launchIn(this)
+            val outputJob = session.output.onEach { output.add(it) }.launchIn(this)
+            val errorJob = session.error.onEach { errors.add(it) }.launchIn(this)
             rows.forEach {
                 session.write("echo test $it")
                 session.write("echo error $it 1>&2")
@@ -54,6 +54,8 @@ class FlowShellTest : BaseTest() {
             session.close()
             session.isAlive() shouldBe false
             session.waitFor() shouldBe FlowProcess.ExitCode.OK
+            outputJob.join()
+            errorJob.join()
         }
 
         output shouldBe rows.map { "test $it" }
