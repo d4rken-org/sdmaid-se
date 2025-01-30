@@ -58,4 +58,4 @@ jobs:
         uses: ./.github/actions/common-setup
 
       - name: Test modules
-        run: ./gradlew ${{ matrix.flavor }}${{ matrix.variant }}UnitTest
+        run: ./gradlew test
