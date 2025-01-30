@@ -300,14 +300,11 @@ open class SharedResource<T : Any>(
         }
 
         if (isClosed) {
-            if (Bugs.isTrace) {
-                log(iTag, VERBOSE) { "[$sId|_]-addChild() Can't add child, we are not alive: $child" }
-            }
+            if (Bugs.isTrace) log(iTag, VERBOSE) { "[$sId|_]-addChild() Can't add child, we are not alive: $child" }
             if (!child.isClosed) {
-                val trace = IllegalStateException("Adding open child to closed parent")
-                log(iTag, WARN) { "[$sId|_]-addChild() we are closed, but child is open $child:\n${trace.asLog()}" }
+                val trace = IllegalStateException("Tried to add open child to closed parent")
+                log(iTag, WARN) { "[$sId|_]-addChild() We are closed! Can't add open child $child:\n${trace.asLog()}" }
             }
-            child.close()
             return@withLock
         }
 
