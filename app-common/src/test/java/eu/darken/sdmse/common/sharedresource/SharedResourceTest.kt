@@ -119,7 +119,7 @@ class SharedResourceTest : BaseTest() {
         srChild.isClosed shouldBe true
     }
 
-    @Test fun `closed parents close added children`() = runTest2(autoCancel = true) {
+    @Test fun `closed parents dont close added children`() = runTest2(autoCancel = true) {
         val srParent = SharedResource.createKeepAlive("parent", this + Dispatchers.IO, Duration.ZERO)
         val srChild = SharedResource.createKeepAlive("child", this + Dispatchers.IO, Duration.ZERO)
 
@@ -128,7 +128,7 @@ class SharedResourceTest : BaseTest() {
         srParent.isClosed shouldBe true
 
         srParent.addChild(srChild)
-        srChild.isClosed shouldBe true
+        srChild.isClosed shouldBe false
         srParent.isClosed shouldBe true
     }
 
