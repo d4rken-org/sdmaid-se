@@ -1,22 +1,31 @@
 package eu.darken.sdmse.systemcleaner.ui.details.filtercontent
 
+import android.os.Bundle
 import androidx.lifecycle.SavedStateHandle
+import androidx.navigation.NavDirections
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.previews.PreviewFragmentArgs
+import eu.darken.sdmse.common.previews.PreviewOptions
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.filter.filterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.stock.EmptyDirectoryFilter
+import eu.darken.sdmse.systemcleaner.core.filter.stock.ScreenshotsFilter
+import eu.darken.sdmse.systemcleaner.core.filter.stock.TrashedFilter
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementFileVH
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementHeaderVH
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 @HiltViewModel
@@ -51,6 +60,8 @@ class FilterContentViewModel @Inject constructor(
 
         val sorted = when (filterContent.identifier) {
             EmptyDirectoryFilter::class.filterIdentifier -> filterContent.items.sortedBy { it.path.path }
+            TrashedFilter::class.filterIdentifier -> filterContent.items.sortedByDescending { it.lookup.modifiedAt }
+            ScreenshotsFilter::class.filterIdentifier -> filterContent.items.sortedBy { it.lookup.modifiedAt }
             else -> filterContent.items.sortedByDescending { it.expectedGain }
         }
 
@@ -59,6 +70,26 @@ class FilterContentViewModel @Inject constructor(
                 filterContent = filterContent,
                 match = item,
                 onItemClick = { delete(setOf(it)) },
+                onThumbnailClick = when (filterContent.identifier) {
+                    TrashedFilter::class.filterIdentifier, ScreenshotsFilter::class.filterIdentifier -> {
+                        {
+                            object : NavDirections {
+                                override val actionId: Int = R.id.goToPreview
+                                override val arguments: Bundle = PreviewFragmentArgs(
+                                    PreviewOptions(item.path)
+                                ).toBundle()
+
+                            }.navigate()
+                        }
+                    }
+
+                    else -> null
+                },
+                showDate = when (filterContent.identifier) {
+                    TrashedFilter::class.filterIdentifier -> true
+                    ScreenshotsFilter::class.filterIdentifier -> true
+                    else -> false
+                }
             )
         }.run { elements.addAll(this) }
 
