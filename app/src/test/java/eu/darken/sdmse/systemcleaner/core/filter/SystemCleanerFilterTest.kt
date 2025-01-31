@@ -213,6 +213,13 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         userHandle = UserHandle2(-1)
     )
 
+    val portable = DataArea(
+        flags = emptySet(),
+        type = Type.PORTABLE,
+        path = LocalPath.build("storage", "usb1"),
+        userHandle = UserHandle2(1),
+    )
+
     private val dataAreas = setOf(
         storageData1,
         storageData2,
@@ -243,6 +250,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         storageAndroidMedia1,
         storageAndroidMedia2,
         storageCachePartition,
+        portable,
     )
 
     private data class TreeKey(
@@ -315,6 +323,14 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         neg(Type.SDCARD, "Pictures", Flag.Dir)
         neg(Type.SDCARD, "Camera", Flag.Dir)
         neg(Type.SDCARD, "Music", Flag.Dir)
+
+        neg(Type.PORTABLE, "DCIM", Flag.Dir)
+        neg(Type.PORTABLE, "DCIM/Camera", Flag.Dir)
+        neg(Type.PORTABLE, "Android", Flag.Dir)
+        neg(Type.PORTABLE, "Photos", Flag.Dir)
+        neg(Type.PORTABLE, "Pictures", Flag.Dir)
+        neg(Type.PORTABLE, "Camera", Flag.Dir)
+        neg(Type.PORTABLE, "Music", Flag.Dir)
     }
 
     suspend fun confirm(filter: SystemCleanerFilter) {
