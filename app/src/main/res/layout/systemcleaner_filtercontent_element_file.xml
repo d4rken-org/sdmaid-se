@@ -26,12 +26,30 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@id/secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginBottom="8dp"
+        tools:text=".../some/happy/little/file" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/secondary"
+        style="@style/TextAppearance.Material3.LabelSmall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="gone"
+        tools:visibility="visible"
         android:layout_marginBottom="8dp"
+        android:gravity="end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/icon"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text=".../some/happy/little/file" />
+        app:layout_constraintTop_toBottomOf="@id/primary"
+        tools:text="00:00 00.00.0000" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/size"
@@ -44,7 +62,7 @@
         android:ellipsize="end"
         android:gravity="center"
         android:singleLine="true"
-        app:layout_constraintBottom_toBottomOf="@id/primary"
+        app:layout_constraintBottom_toBottomOf="@id/secondary"
         app:layout_constraintEnd_toStartOf="@id/primary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/icon"
