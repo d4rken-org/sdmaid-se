@@ -1,6 +1,5 @@
 package eu.darken.sdmse.analyzer.core.device
 
-import android.app.usage.StorageStatsManager
 import android.os.storage.StorageManager
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.toCaString
@@ -16,6 +15,7 @@ import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageManager2
+import eu.darken.sdmse.common.storage.StorageStatsManager2
 import eu.darken.sdmse.setup.isComplete
 import eu.darken.sdmse.setup.storage.StorageSetupModule
 import kotlinx.coroutines.flow.Flow
@@ -27,7 +27,7 @@ class DeviceStorageScanner @Inject constructor(
     private val storageSetupModule: StorageSetupModule,
     private val environment: StorageEnvironment,
     private val storageManager2: StorageManager2,
-    private val storageStatsmanager: StorageStatsManager,
+    private val storageStatsmanager: StorageStatsManager2,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -55,17 +55,13 @@ class DeviceStorageScanner @Inject constructor(
             )
 
             val totalBytes = try {
-                storageStatsmanager.getTotalBytes(id.externalId).also {
-                    if (it == 0L) throw IllegalStateException("Total bytes is 0")
-                }
+                storageStatsmanager.getTotalBytes(id)
             } catch (e: Exception) {
                 log(TAG, WARN) { "Failed to get total bytes for $id" }
                 environment.dataDir.asFile().totalSpace
             }
             val freeBytes = try {
-                storageStatsmanager.getFreeBytes(id.externalId).also {
-                    if (it == 0L) throw IllegalStateException("Free bytes is 0")
-                }
+                storageStatsmanager.getFreeBytes(id)
             } catch (e: Exception) {
                 log(TAG, WARN) { "Failed to get free bytes for $id" }
                 environment.dataDir.asFile().freeSpace
@@ -117,18 +113,13 @@ class DeviceStorageScanner @Inject constructor(
 
                 val totalBytes = try {
                     // Secondary storage isn't available in on all APIs, (e.g. not on a Redmi 7A @ Android 9)
-                    storageStatsmanager.getTotalBytes(id.externalId).also {
-                        if (it == 0L) throw IllegalStateException("Total bytes is 0")
-                    }
+                    storageStatsmanager.getTotalBytes(id)
                 } catch (e: Exception) {
                     log(TAG, WARN) { "Failed to get total bytes for $id" }
                     volume.path?.totalSpace ?: 0L
                 }
                 val freeBytes = try {
-                    storageStatsmanager.getFreeBytes(id.externalId).also {
-                        // Was 0 for Xiaomi/pine_eea/pine:9/PKQ1.190319.001/V11.0.18.0.PCMEUXM:user/release-keys
-                        if (it == 0L) throw IllegalStateException("Free bytes is 0")
-                    }
+                    storageStatsmanager.getFreeBytes(id)
                 } catch (e: Exception) {
                     log(TAG, WARN) { "Failed to get free bytes for $id" }
                     volume.path?.freeSpace ?: 0L
