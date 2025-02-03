@@ -24,7 +24,25 @@ class StorageStatsManager2 @Inject constructor(
         osStatManager.queryStatsForPackage(storageId.externalId, pkg.packageName, pkg.userHandle.asUserHandle())
     }
 
+    @Throws(IllegalStateException::class)
+    suspend fun getTotalBytes(id: StorageId): Long {
+        val value = osStatManager.getTotalBytes(id.externalId)
+        if (value == ERRROR_MIN || value == ERROR_MAX) throw IllegalStateException("Total bytes is $value")
+        return value
+    }
+
+    @Throws(IllegalStateException::class)
+    suspend fun getFreeBytes(id: StorageId): Long {
+        val value = osStatManager.getFreeBytes(id.externalId)
+        if (value == ERRROR_MIN || value == ERROR_MAX) throw IllegalStateException("Total bytes is $value")
+        return value
+    }
+
     companion object {
+        // using get*Bytes on a 512GB sdcard leads to invalid values being returned
+        // See https://github.com/d4rken-org/sdmaid-se/issues/1575
+        private const val ERROR_MAX = 1000000000000L
+        private const val ERRROR_MIN = 0L
         val TAG: String = logTag("StorageStatsManager2")
     }
 }
