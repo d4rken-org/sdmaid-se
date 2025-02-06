@@ -6,6 +6,7 @@ import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.datastore.valueBlocking
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.ui.SizeInputDialog
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
@@ -22,8 +23,19 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
     override val settings: DeduplicatorSettings by lazy { ddSettings }
     override val preferenceFile: Int = R.xml.preferences_deduplicator
 
+    private val searchLocationsPref: Preference
+        get() = findPreference("scan.location.paths")!!
+
+
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
+
+        searchLocationsPref.apply {
+            setOnPreferenceClickListener {
+//                requestLauncher.launch(DeduplicatorPathContract.Options())
+                true
+            }
+        }
 
         findPreference<Preference>(settings.minSizeBytes.keyName)?.apply {
             setOnPreferenceClickListener {
@@ -39,4 +51,7 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
         }
     }
 
+    companion object {
+        private val TAG = logTag("Settings", "Deduplicator", "Fragment")
+    }
 }

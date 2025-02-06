@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="eu.darken.sdmse.main.ui.MainActivity">
+
+    <item
+        android:id="@+id/menu_action_save"
+        android:icon="@drawable/ic_baseline_save_24"
+        android:orderInCategory="90"
+        android:title="@string/general_save_action"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_action_home"
+        android:icon="@drawable/ic_folder_home_24"
+        android:orderInCategory="90"
+        android:title="@string/picker_home_action"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_action_select_all"
+        android:icon="@drawable/ic_select_all_24"
+        android:orderInCategory="90"
+        android:title="@string/general_list_select_all_action"
+        app:showAsAction="never" />
+</menu>

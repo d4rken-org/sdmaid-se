@@ -522,4 +522,16 @@
             android:name="reportId"
             app:argType="java.util.UUID" />
     </fragment>
+    <action
+        android:id="@+id/goToPicker"
+        app:destination="@id/pickerFragment" />
+    <fragment
+        android:id="@+id/pickerFragment"
+        android:name="eu.darken.sdmse.common.picker.PickerFragment"
+        tools:layout="@layout/common_picker_fragment">
+        <argument
+            android:name="request"
+            app:argType="eu.darken.sdmse.common.picker.PickerRequest" />
+    </fragment>
+
 </navigation>
