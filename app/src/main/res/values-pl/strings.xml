@@ -716,12 +716,6 @@
         <item quantity="many"> %s zostało zwolnionych</item>
         <item quantity="other"> %s zostało zwolnionych</item>
     </plurals>
-    <plurals name="stats_dash_body_count">
-        <item quantity="one">%s element został przetworzony od momentu zaproszenia SD Maid do Twojego urządzenia.</item>
-        <item quantity="few">%s elementów przetworzono od momentu zaproszenia SD Maid do Twojego urządzenia.</item>
-        <item quantity="many">%s elementów przetworzono od momentu zaproszenia SD Maid do Twojego urządzenia.</item>
-        <item quantity="other">%s elementów przetworzono od momentu zaproszenia SD Maid do Twojego urządzenia.</item>
-    </plurals>
     <string name="stats_report_status_success">Zakończono pomyślnie</string>
     <string name="stats_report_status_partial_success">Częściowy sukces</string>
     <string name="stats_report_status_partial_failure">Niepowodzenie</string>

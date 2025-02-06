@@ -665,6 +665,10 @@ Recursos dos jogos.</string>
         <item quantity="one">%s foram libertos.</item>
         <item quantity="other">%s foram libertos.</item>
     </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s foram libertos e %s itens processados desde que convidou o SD Maid para o seu dispositivo.</item>
+        <item quantity="other">%s foram libertos e %s itens processados desde que convidou o SD Maid para o seu dispositivo.</item>
+    </plurals>
     <string name="stats_report_status_success">Sucesso</string>
     <string name="stats_report_status_partial_success">Sucesso parcial</string>
     <string name="stats_report_status_partial_failure">Falha</string>
