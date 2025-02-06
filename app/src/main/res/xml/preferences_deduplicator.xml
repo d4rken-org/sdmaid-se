@@ -2,6 +2,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <Preference
+        app:icon="@drawable/ic_folder_search_24"
+        app:key="scan.location.paths"
+        app:singleLineTitle="false"
+        app:title="@string/deduplicator_search_locations_title" />
+
     <CheckBoxPreference
         app:icon="@drawable/ic_numeric_0_box_24"
         app:key="protection.deleteall.allowed"

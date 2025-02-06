@@ -3,7 +3,7 @@ package eu.darken.sdmse.main.ui.areas
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.areas.getShortLabel
+import eu.darken.sdmse.common.areas.label
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.DataAreasListItemBinding
 
@@ -22,7 +22,7 @@ class DataAreaRowVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         val area = item.area
         icon.setImageResource(R.drawable.ic_sd_storage)
-        primary.text = area.type.getShortLabel(context)
+        primary.text = area.type.label.get(context)
         secondary.text = area.path.userReadablePath.get(context)
     }
 
