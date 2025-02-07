@@ -90,29 +90,27 @@ class UninstallWatcherNotifications @Inject constructor(
         setContentText(resultText)
         setStyle(BigTextStyle().bigText(resultText))
 
-        if (result.foundItems > 0) {
-            val deleteIntent = Intent(context, ExternalWatcherTaskReceiver::class.java).apply {
-                action = ExternalWatcherTaskReceiver.TASK_INTENT
-                val deleteTask = ExternalWatcherTask.Delete(
-                    target = result.pkgId,
-                )
-                putExtra(ExternalWatcherTaskReceiver.EXTRA_TASK, deleteTask)
-            }
-
-            val deletePi = PendingIntent.getBroadcast(
-                context,
-                0,
-                deleteIntent,
-                PendingIntentCompat.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        val deleteIntent = Intent(context, ExternalWatcherTaskReceiver::class.java).apply {
+            action = ExternalWatcherTaskReceiver.TASK_INTENT
+            val deleteTask = ExternalWatcherTask.Delete(
+                target = result.pkgId,
             )
-
-            val deleteAction = NotificationCompat.Action(
-                R.drawable.ic_delete,
-                context.getString(R.string.corpsefinder_watcher_notification_delete_action),
-                deletePi
-            )
-            addAction(deleteAction)
+            putExtra(ExternalWatcherTaskReceiver.EXTRA_TASK, deleteTask)
         }
+
+        val deletePi = PendingIntent.getBroadcast(
+            context,
+            0,
+            deleteIntent,
+            PendingIntentCompat.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val deleteAction = NotificationCompat.Action(
+            R.drawable.ic_delete,
+            context.getString(R.string.corpsefinder_watcher_notification_delete_action),
+            deletePi
+        )
+        addAction(deleteAction)
     }.build()
 
     fun notifyOfScan(result: ExternalWatcherResult.Scan) {
