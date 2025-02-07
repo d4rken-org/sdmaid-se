@@ -7,8 +7,6 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.device.DeviceDetective
-import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.main.ui.MainActivity
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.NonCancellable
@@ -38,8 +36,7 @@ suspend fun AutomationHost.waitForWindowRoot(delayMs: Long = 250): Accessibility
 suspend fun AutomationModule.finishAutomation(
     // If we aborted due to an exception and the reason is "User has cancelled", then still clean up
     userCancelled: Boolean,
-    returnToApp: Boolean,
-    deviceDetective: DeviceDetective,
+    returnToApp: Boolean
 ) = withContext(if (userCancelled) NonCancellable else EmptyCoroutineContext) {
     if (returnToApp) {
         log(INFO) { "finishAutomation(...): Returning to SD Maid" }
@@ -51,17 +48,7 @@ suspend fun AutomationModule.finishAutomation(
         }
         context.startActivity(returnIntern)
     } else {
-        when (deviceDetective.getROMType()) {
-            RomType.ANDROID_TV -> {
-                log(INFO) { "finishAutomation(...): Going back via back button" }
-                val backAction = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
-                log(VERBOSE) { "finishAutomation(...): Back button successful=$backAction" }
-            }
-
-            else -> {
-                log(INFO) { "finishAutomation(...): Going to home screen" }
-                host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_HOME)
-            }
-        }
+        log(INFO) { "finishAutomation(...): Going to home screen" }
+        host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_HOME)
     }
 }

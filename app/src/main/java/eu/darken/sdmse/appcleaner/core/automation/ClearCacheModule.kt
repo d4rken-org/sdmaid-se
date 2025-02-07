@@ -46,7 +46,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -72,7 +71,6 @@ class ClearCacheModule @AssistedInject constructor(
     private val specGenerators: Provider<Set<@JvmSuppressWildcards AppCleanerSpecGenerator>>,
     private val userManager2: UserManager2,
     private val labelDebugger: LabelDebugger,
-    private val deviceDetective: DeviceDetective,
 ) : AutomationModule(automationHost) {
 
     private fun getPriotizedSpecGenerators(): List<AppCleanerSpecGenerator> = specGenerators
@@ -183,7 +181,6 @@ class ClearCacheModule @AssistedInject constructor(
         finishAutomation(
             userCancelled = cancelledByUser,
             returnToApp = task.returnToApp,
-            deviceDetective = deviceDetective,
         )
 
         if (timeoutCount != 0 && successful.isEmpty()) {
