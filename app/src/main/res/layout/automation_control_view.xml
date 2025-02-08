@@ -45,6 +45,8 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/control_card"
         style="@style/Widget.Material3.CardView.Elevated"
+        app:cardCornerRadius="@dimen/cardRadius"
+        app:cardBackgroundColor="?attr/colorSurface"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
