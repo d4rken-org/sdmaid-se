@@ -1,0 +1,10 @@
+<resources>
+    <declare-styleable name="PreferenceView">
+        <attr name="pvIcon" format="reference" />
+        <attr name="pvTitle" format="reference|string" />
+        <attr name="pvDescription" format="reference|string" />
+    </declare-styleable>
+    <declare-styleable name="TaggedInputView">
+        <attr name="tivTitle" format="reference" />
+    </declare-styleable>
+</resources>
