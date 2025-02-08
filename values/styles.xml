@@ -1,0 +1,238 @@
+<resources>
+
+    <style name="DashboardCardItem" parent="Widget.Material3.CardView.Elevated">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+    </style>
+
+    <style name="DashboardCardButton.Filled" parent="SDMButton.Icon.Filled">
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="iconPadding">4dp</item>
+    </style>
+
+    <style name="DashboardCardButton.Filled.Tonal" parent="SDMButton.Icon.Filled.Tonal">
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="iconPadding">4dp</item>
+    </style>
+
+    <style name="DashboardCardButton.Outlined" parent="SDMButton.Icon.Outlined">
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="iconPadding">4dp</item>
+    </style>
+
+    <style name="DashboardCardButton.Flat" parent="SDMButton.Icon">
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="iconPadding">4dp</item>
+    </style>
+
+    <style name="BaseRecyclerList">
+        <item name="android:fastScrollEnabled">false</item>
+        <item name="fastScrollEnabled">false</item>
+        <item name="android:requiresFadingEdge">none</item>
+    </style>
+
+    <style name="DefaultListItemContainer">
+        <item name="android:layout_width">match_parent</item>
+        <!--<item name="android:focusable">true</item>-->
+        <!--<item name="android:background">@drawable/list_selector_background_default</item>-->
+        <item name="android:foreground">?selectableItemBackground</item>
+    </style>
+
+    <style name="OneLineListItemContainer" parent="DefaultListItemContainer">
+        <item name="android:layout_height">56dp</item>
+        <item name="android:minHeight">56dp</item>
+    </style>
+
+    <style name="OneLineListItemContainerDense" parent="OneLineListItemContainer">
+        <item name="android:layout_height">56dp</item>
+        <item name="android:minHeight">56dp</item>
+    </style>
+
+    <style name="TwoLineListItemContainer" parent="DefaultListItemContainer">
+        <item name="android:layout_height">72dp</item>
+        <item name="android:minHeight">72dp</item>
+    </style>
+
+    <style name="TwoLineListItemContainerDense" parent="TwoLineListItemContainer">
+        <item name="android:layout_height">64dp</item>
+        <item name="android:minHeight">64dp</item>
+    </style>
+
+    <style name="ThreeLineListItemContainer" parent="DefaultListItemContainer">
+        <item name="android:layout_height">88dp</item>
+        <item name="android:minHeight">88dp</item>
+    </style>
+
+    <style name="ListItemIconPrimary">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:contentDescription">Preview image</item>
+    </style>
+
+    <style name="ListItemIconSecondary">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">24dp</item>
+    </style>
+
+    <style name="SmallListItemPrimary" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="SmallListItemSecondary" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="SmallListItemIcon">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">24dp</item>
+        <item name="android:contentDescription">Icon</item>
+    </style>
+
+    <style name="MyCardView" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+    </style>
+
+    <style name="TextInputLayoutOutlinedDense" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">?colorOnSurface</item>
+        <item name="hintTextColor">?colorOnSurface</item>
+        <item name="android:colorPrimary">?colorOnSurface</item>
+        <item name="android:textColorPrimary">?colorOnSurface</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.Button.Highlight" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">?colorSecondary</item>
+    </style>
+
+    <style name="LoadingOverlayViewStyle">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:id">@id/loading_overlay</item>
+    </style>
+
+    <!--    <style name="Widget.MaterialComponents.Button.TextButton2" parent="Widget.MaterialComponents.Button.TextButton">-->
+    <!--        <item name="android:textColor">@color/material_button_texts</item>-->
+    <!--    </style>-->
+
+    <style name="BreadCrumbBarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">?colorPrimary</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.Button.Flush.Highlighted" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="backgroundTint">?colorSecondary</item>
+        <item name="android:textColor">?colorOnSecondary</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.Button.Flush" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@drawable/bg_flatbutton</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.Button.IconOnly" parent="Widget.MaterialComponents.Button">
+        <item name="iconPadding">0dp</item>
+        <item name="iconGravity">textStart</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.Button.TextButton.Card" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?colorOnSurface</item>
+        <item name="android:minHeight">32dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="AppControlTagStyle" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_marginStart">2dp</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="AppControlTagContainerFlow">
+        <item name="flow_horizontalBias">0</item>
+        <item name="flow_horizontalGap">2dp</item>
+        <item name="flow_horizontalStyle">packed</item>
+        <item name="flow_verticalBias">0</item>
+        <item name="flow_verticalGap">2dp</item>
+        <item name="flow_verticalStyle">packed</item>
+        <item name="flow_wrapMode">chain2</item>
+    </style>
+
+    <style name="PreviewRoundedBox">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="PreviewRoundedBox.Small">
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="PreviewRoundedBox.Medium">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="PreviewRoundedBox.Large">
+        <item name="cornerSize">32dp</item>
+    </style>
+
+    <style name="SDMToolbar.Primary" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">?actionBarSize</item>
+        <item name="navigationContentDescription">Navigate back</item>
+        <item name="android:background">?attr/colorSurfaceContainer</item>
+
+        <item name="titleTextColor">@color/md_theme_onSurface</item>
+        <item name="navigationIconTint">@color/md_theme_onSurface</item>
+        <item name="itemIconTint">@color/md_theme_onSurface</item>
+        <item name="subtitleTextColor">@color/md_theme_onSurface</item>
+    </style>
+
+    <style name="SDMButton" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/sdm_button_bg_tint</item>
+    </style>
+
+    <style name="SDMButton.Icon" parent="Widget.Material3.Button.IconButton" />
+
+    <style name="SDMButton.Icon.Outlined" parent="Widget.Material3.Button.IconButton.Outlined">
+
+    </style>
+
+    <style name="SDMButton.Icon.Filled" parent="Widget.Material3.Button.IconButton.Filled">
+        <item name="backgroundTint">@color/sdm_button_bg_tint</item>
+    </style>
+
+    <style name="SDMButton.Icon.Filled.Tonal" parent="Widget.Material3.Button.IconButton.Filled.Tonal">
+
+    </style>
+
+    <style name="SDMButton.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+
+    </style>
+
+    <style name="SDMButton.Text" parent="Widget.Material3.Button.TextButton">
+
+    </style>
+
+    <style name="SDMButton.Tonal" parent="Widget.Material3.Button.TonalButton">
+        <item name="backgroundTint">@color/sdm_button_bg_tint_tonal</item>
+        <item name="android:textColor">?colorOnSecondary</item>
+        <item name="iconTint">?colorOnSecondary</item>
+    </style>
+
+</resources>
