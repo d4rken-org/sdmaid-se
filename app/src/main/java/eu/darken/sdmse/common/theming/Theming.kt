@@ -2,9 +2,14 @@ package eu.darken.sdmse.common.theming
 
 import android.app.Activity
 import android.app.Application
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.os.Bundle
+import android.view.Window
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import com.google.android.material.color.DynamicColors
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.valueBlocking
@@ -13,7 +18,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
-import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.main.core.GeneralSettings
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.combine
@@ -122,7 +126,46 @@ class Theming @Inject constructor(
                 log(TAG) { "Applying MATERIAL_YOU to $activity" }
 
                 DynamicColors.applyToActivityIfAvailable(activity)
-                activity.window.statusBarColor = activity.getColorForAttr(android.R.attr.colorPrimaryDark)
+
+                val uiMode = activity.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+
+                val color = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.UPSIDE_DOWN_CAKE) { // API 34+
+                    try {
+                        if (uiMode == Configuration.UI_MODE_NIGHT_YES) {
+                            activity.getColor(android.R.color.system_surface_container_dark) // API 34+ Dark
+                        } else {
+                            activity.getColor(android.R.color.system_surface_container_light) // API 34+ Light
+                        }
+                    } catch (e: Resources.NotFoundException) {
+
+                        if (uiMode == Configuration.UI_MODE_NIGHT_YES) {
+                            ContextCompat.getColor(activity, R.color.md_theme_surfaceContainer)
+                        } else {
+                            ContextCompat.getColor(activity, R.color.md_theme_surfaceContainer)
+                        }
+                    }
+                } else if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) { // API 31+
+                    try {
+                        if (uiMode == Configuration.UI_MODE_NIGHT_YES) {
+                            activity.getColor(android.R.color.system_accent1_700) // API 31+ Dark
+                        } else {
+                            activity.getColor(android.R.color.system_accent1_700) // API 31+ Light
+                        }
+                    } catch (e: Resources.NotFoundException) {
+
+                        if (uiMode == Configuration.UI_MODE_NIGHT_YES) {
+                            ContextCompat.getColor(activity, R.color.md_theme_surfaceContainer)
+                        } else {
+                            ContextCompat.getColor(activity, R.color.md_theme_surfaceContainer)
+                        }
+                    }
+                } else {
+                    ContextCompat.getColor(activity, R.color.md_theme_surfaceContainer) // API < 31
+                }
+
+                val window = activity.window
+                window.statusBarColor = color
+                window.navigationBarColor = color
             }
         }
     }
