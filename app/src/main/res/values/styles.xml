@@ -191,10 +191,17 @@
         <item name="cornerSize">32dp</item>
     </style>
 
-    <style name="SDMToolbar.Primary" parent="Widget.MaterialComponents.Toolbar.Primary">
+    <style name="SDMToolbar.Primary" parent="Widget.Material3.Toolbar">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minHeight">?actionBarSize</item>
         <item name="navigationContentDescription">Navigate back</item>
+        <item name="android:background">?attr/colorSurfaceContainer</item>
+
+        <item name="titleTextColor">@color/md_theme_onSurface</item>
+        <item name="navigationIconTint">@color/md_theme_onSurface</item>
+        <item name="actionMenuTextColor">@color/md_theme_onSurface</item>
+        <item name="itemIconTint">@color/md_theme_onSurface</item>
+        <item name="subtitleTextColor">@color/md_theme_onSurface</item>
     </style>
 
     <style name="SDMButton" parent="Widget.Material3.Button">

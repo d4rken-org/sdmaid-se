@@ -2,11 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurfaceContainer">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
-        style="@style/Widget.MaterialComponents.Toolbar.Surface"
+        style="@style/SDMToolbar.Primary"
         android:layout_width="0dp"
         android:minHeight="?actionBarSize"
         android:layout_height="wrap_content"
@@ -42,7 +43,9 @@
             <com.google.android.material.card.MaterialCardView
                 style="@style/Widget.Material3.CardView.Elevated"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/cardRadius"
+                android:backgroundTint="?colorSurface">
 
                 <com.google.android.material.textview.MaterialTextView
                     style="@style/TextAppearance.Material3.BodyMedium"
