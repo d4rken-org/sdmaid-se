@@ -13,6 +13,8 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:paddingBottom="100dp"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/padding"
         android:contentDescription="Dashboard"
         tools:ignore="HardcodedText"
         android:visibility="invisible"

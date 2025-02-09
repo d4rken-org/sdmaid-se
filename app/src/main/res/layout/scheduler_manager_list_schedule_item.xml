@@ -66,7 +66,7 @@
             app:layout_constraintTop_toBottomOf="@id/primary"
             tools:text="Last executed 10 hours ago" />
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
+        <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/enabled_toggle"
             style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
             android:layout_width="match_parent"
@@ -84,21 +84,21 @@
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/enabled_toggle">
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/tool_corpsefinder_toggle"
                 style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/corpsefinder_tool_name" />
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/tool_systemcleaner_toggle"
                 style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/systemcleaner_tool_name" />
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/tool_appcleaner_toggle"
                 style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
                 android:layout_width="match_parent"

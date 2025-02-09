@@ -27,6 +27,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding"
+            android:paddingRight="@dimen/padding"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -97,6 +99,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:paddingLeft="@dimen/padding"
+                    android:paddingRight="@dimen/padding"
                     android:padding="16dp">
 
                     <eu.darken.sdmse.systemcleaner.ui.customfilter.editor.TaggedInputView
