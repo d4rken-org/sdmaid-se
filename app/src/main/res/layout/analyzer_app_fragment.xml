@@ -24,6 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/padding"
         android:contentDescription="Analyzer app details"
         android:paddingVertical="4dp"
         app:layout_constraintBottom_toBottomOf="parent"

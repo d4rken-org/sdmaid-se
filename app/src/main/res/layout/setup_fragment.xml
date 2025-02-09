@@ -44,6 +44,8 @@
         tools:ignore="HardcodedText"
         android:clipToPadding="false"
         android:paddingVertical="4dp"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/padding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

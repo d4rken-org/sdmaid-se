@@ -25,6 +25,8 @@
         android:clipToPadding="false"
         android:contentDescription="Analyzer devices"
         tools:ignore="HardcodedText"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/padding"
         android:paddingVertical="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
