@@ -23,16 +23,6 @@
             app:title="@string/picker_select_paths_title" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <eu.darken.sdmse.common.progress.ProgressOverlayView
-        android:id="@+id/loading_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintBottom_toBottomOf="@id/list"
-        app:layout_constraintEnd_toEndOf="@id/list"
-        app:layout_constraintStart_toStartOf="@id/list"
-        app:layout_constraintTop_toTopOf="@id/list" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         style="@style/BaseRecyclerList"
@@ -49,6 +39,16 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         tools:ignore="HardcodedText"
         tools:listitem="@layout/analyzer_content_item_vh" />
+
+    <eu.darken.sdmse.common.progress.ProgressOverlayView
+        android:id="@+id/loading_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="@id/list"
+        app:layout_constraintEnd_toEndOf="@id/list"
+        app:layout_constraintStart_toStartOf="@id/list"
+        app:layout_constraintTop_toTopOf="@id/list" />
 
     <LinearLayout
         android:id="@+id/selected_container"

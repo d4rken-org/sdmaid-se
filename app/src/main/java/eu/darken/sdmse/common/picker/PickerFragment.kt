@@ -6,6 +6,7 @@ import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isInvisible
 import androidx.core.view.iterator
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -19,6 +20,7 @@ import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getSpanCount
+import eu.darken.sdmse.common.navigation.popBackStack
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.CommonPickerFragmentBinding
@@ -90,8 +92,10 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
         )
         vm.state.observe2(ui) { state ->
             log(TAG) { "updating with new state: $state" }
-            toolbar.subtitle = state.current?.lookup?.path ?: ""
-            toolbar.menu.iterator().forEach { it.isVisible = state.progress == null }
+            toolbar.apply {
+                subtitle = state.current?.lookup?.path ?: ""
+                menu.iterator().forEach { it.isVisible = state.progress == null }
+            }
 
             loadingOverlay.setProgress(state.progress)
             if (state.progress == null) pickerAdapter.update(state.items)
@@ -107,13 +111,18 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
 
         vm.events.observe2 { event ->
             when (event) {
-                PickerEvents.ExitConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
+                PickerEvent.ExitConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setMessage(R.string.picker_unsaved_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_discard_action) { _, _ ->
                         vm.cancel(confirmed = true)
                     }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                 }.show()
+
+                is PickerEvent.Save -> {
+                    setFragmentResult(event.requestKey, event.result.toBundle())
+                    popBackStack()
+                }
             }
         }
 

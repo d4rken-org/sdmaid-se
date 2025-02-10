@@ -443,6 +443,7 @@
     <string name="deduplicator_protection_deleteall_allowed_title">Make \"Delete all\" possible</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Show options that allow you to delete all files in a set of duplicates so that no file is left over.</string>
     <string name="deduplicator_search_locations_title">Search locations</string>
+    <string name="deduplicator_search_locations_all_summary">All accessible areas</string>
     <string name="deduplicator_skip_minsize_title">Minimum size</string>
     <string name="deduplicator_skip_minsize_description">Skip files that are below the minimum size.</string>
     <string name="deduplicator_skip_uncommon_title">Skip uncommon file types</string>
