@@ -23,9 +23,8 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.combineTransform
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.onStart
 import okio.IOException
 import javax.inject.Inject
 
@@ -69,11 +68,13 @@ class PickerViewModel @Inject constructor(
         }
     }
 
-    private val internalState = combine(
+    private val internalState = combineTransform(
         dataAreaManager.state,
         navigationState,
         selectedItems,
     ) { areaState, navState, selected ->
+        emit(State())
+
         val current: PickerItem? = navState?.lastOrNull()
         val items = when {
             current == null ->
@@ -106,8 +107,6 @@ class PickerViewModel @Inject constructor(
                     when (request.mode) {
                         PickerRequest.PickMode.DIR,
                         PickerRequest.PickMode.DIRS -> it.isDirectory
-
-                        else -> true
                     }
                 }
                 .map { lookup ->
@@ -147,10 +146,8 @@ class PickerViewModel @Inject constructor(
             selected = selectedItems,
             hasChanges = selected.map { it.lookedUp } != request.selectedPaths,
             progress = null,
-        )
-    }
-        .onStart { emit(State()) }
-        .replayingShare(viewModelScope)
+        ).run { emit(this) }
+    }.replayingShare(viewModelScope)
 
     val state = internalState.asLiveData2()
 

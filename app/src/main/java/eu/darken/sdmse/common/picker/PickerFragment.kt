@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
-import androidx.core.view.isInvisible
 import androidx.core.view.iterator
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
@@ -32,7 +31,8 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
     override val vm: PickerViewModel by viewModels()
     override val ui: CommonPickerFragmentBinding by viewBinding()
 
-    private lateinit var selectedContainer: BottomSheetBehavior<LinearLayout>
+    private lateinit var sheetBehavior: BottomSheetBehavior<LinearLayout>
+    private var initialSheetCollapse = true
 
     private val onBackPressedcallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
@@ -46,7 +46,7 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        selectedContainer = BottomSheetBehavior.from(ui.selectedContainer).apply {
+        sheetBehavior = BottomSheetBehavior.from(ui.selectedContainer).apply {
             isHideable = false
             state = BottomSheetBehavior.STATE_COLLAPSED
             peekHeight = requireContext().dpToPx(64f)
@@ -56,7 +56,7 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
         }
 
         ui.toolbar.apply {
-            setNavigationOnClickListener { vm.cancel(confirmed = false) }
+            setNavigationOnClickListener { vm.goBack() }
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.menu_action_save -> {
@@ -90,23 +90,27 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
             selectedAdapter,
             horizontalDividers = true,
         )
+        ui.selectedSecondary.text = requireContext().getQuantityString2(R.plurals.picker_selected_paths_subtitle, 0)
+
         vm.state.observe2(ui) { state ->
             log(TAG) { "updating with new state: $state" }
-            toolbar.apply {
-                subtitle = state.current?.lookup?.path ?: ""
-                menu.iterator().forEach { it.isVisible = state.progress == null }
-            }
+            if (state.progress != null) toolbar.subtitle = state.current?.lookup?.path ?: ""
+            toolbar.menu.iterator().forEach { it.isVisible = state.progress == null }
 
-            loadingOverlay.setProgress(state.progress)
             if (state.progress == null) pickerAdapter.update(state.items)
-            list.isInvisible = state.progress != null
 
-            selectedList.isInvisible = state.progress != null
             selectedSecondary.text = requireContext().getQuantityString2(
                 R.plurals.picker_selected_paths_subtitle,
                 state.selected.size,
             )
             if (state.progress == null) selectedAdapter.update(state.selected)
+
+            loadingOverlay.setProgress(state.progress)
+
+            if (state.selected.isNotEmpty() && initialSheetCollapse && sheetBehavior.state == BottomSheetBehavior.STATE_COLLAPSED) {
+                sheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
+                initialSheetCollapse = false
+            }
         }
 
         vm.events.observe2 { event ->

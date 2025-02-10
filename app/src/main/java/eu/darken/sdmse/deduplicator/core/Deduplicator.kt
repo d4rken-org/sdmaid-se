@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -46,6 +47,7 @@ class Deduplicator @Inject constructor(
     private val exclusionManager: ExclusionManager,
     private val scanner: Provider<DuplicatesScanner>,
     private val deleter: Provider<DuplicatesDeleter>,
+    private val settings: DeduplicatorSettings,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.DEDUPLICATOR
@@ -110,11 +112,18 @@ class Deduplicator @Inject constructor(
         task: DeduplicatorScanTask = DeduplicatorScanTask()
     ): DeduplicatorScanTask.Result {
         log(TAG) { "performScan(): $task" }
-
         internalData.value = null
 
+        val scanOptions = DuplicatesScanner.Options(
+            paths = task.paths ?: settings.scanPaths.value().paths,
+            minimumSize = settings.minSizeBytes.value(),
+            skipUncommon = settings.skipUncommon.value(),
+            useSleuthChecksum = settings.isSleuthChecksumEnabled.value(),
+            useSleuthPHash = settings.isSleuthPHashEnabled.value(),
+        )
+
         val results = scanner.get().withProgress(this) {
-            scan()
+            scan(scanOptions)
         }
 
         log(TAG, INFO) { "performScan(): ${results.size} clusters found" }
