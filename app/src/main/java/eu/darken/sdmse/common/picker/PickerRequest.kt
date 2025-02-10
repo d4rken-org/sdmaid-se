@@ -7,11 +7,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class PickerRequest(
+    val requestKey: String,
     val mode: PickMode,
     val allowedAreas: Set<DataArea.Type> = emptySet(),
     val selectedPaths: List<APath> = emptyList(),
 ) : Parcelable {
     enum class PickMode {
-        MIXED, FILE, FILES, DIR, DIRS
+        DIR, DIRS
     }
 }

@@ -42,7 +42,7 @@ class PickerViewModel @Inject constructor(
 
     private val selectedItems = MutableStateFlow(emptyList<APathLookup<*>>())
     private val navigationState = MutableStateFlow<List<PickerItem>?>(null)
-    val events = SingleLiveEvent<PickerEvents>()
+    val events = SingleLiveEvent<PickerEvent>()
 
     init {
         log(TAG, INFO) { "Request: $request" }
@@ -74,7 +74,6 @@ class PickerViewModel @Inject constructor(
         navigationState,
         selectedItems,
     ) { areaState, navState, selected ->
-
         val current: PickerItem? = navState?.lastOrNull()
         val items = when {
             current == null ->
@@ -141,10 +140,12 @@ class PickerViewModel @Inject constructor(
                     onRemove = { select(setOf(it)) }
                 )
             }
+
         State(
             current = current,
             items = items,
             selected = selectedItems,
+            hasChanges = selected.map { it.lookedUp } != request.selectedPaths,
             progress = null,
         )
     }
@@ -169,8 +170,8 @@ class PickerViewModel @Inject constructor(
 
     fun cancel(confirmed: Boolean) {
         log(TAG) { "cancel(confirmed=$confirmed)" }
-        if (!confirmed) {
-            events.postValue(PickerEvents.ExitConfirmation)
+        if (!confirmed && state.value?.hasChanges == true) {
+            events.postValue(PickerEvent.ExitConfirmation)
             return
         }
         popNavStack()
@@ -199,13 +200,18 @@ class PickerViewModel @Inject constructor(
 
     fun save() {
         log(TAG) { "save()" }
+        val result = PickerResult(
+            selectedPaths = selectedItems.value.map { it.lookedUp }.toSet(),
+        )
+        events.postValue(PickerEvent.Save(requestKey = request.requestKey, result = result))
     }
 
     data class State(
         val current: PickerItem? = null,
         val items: List<PickerAdapter.Item> = emptyList(),
         val selected: List<PickerSelectedAdapter.Item> = emptyList(),
-        val progress: Progress.Data? = null,
+        val hasChanges: Boolean = false,
+        val progress: Progress.Data? = Progress.Data(),
     )
 
     companion object {

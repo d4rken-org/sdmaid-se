@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.files.local
 
 import com.squareup.moshi.JsonDataException
+import com.squareup.moshi.Types
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.RawPath
@@ -14,10 +15,12 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 import java.io.File
+import java.lang.reflect.Type
 import java.time.Instant
 
 class LocalPathTest : BaseTest() {
     private val testFile = File("./testfile")
+    private val testFile2 = File("./testfile2")
 
     private val moshi = SerializationIOModule().moshi()
 
@@ -81,6 +84,33 @@ class LocalPathTest : BaseTest() {
                 "file":"${testFile.path}",
                 "pathType":"LOCAL"
             }
+        """.toComparableJson()
+
+        adapter.fromJson(json) shouldBe original
+    }
+
+    @Test
+    fun `test polymorph list serialization`() {
+        testFile.tryMkFile()
+        val original = listOf(
+            LocalPath.build(file = testFile),
+            LocalPath.build(file = testFile2),
+        )
+
+        val type: Type = Types.newParameterizedType(List::class.java, APath::class.java)
+        val adapter = moshi.adapter<List<APath>>(type)
+        val json = adapter.toJson(original)
+
+        json.toComparableJson() shouldBe """
+                [
+                    {
+                        "file":"${testFile.path}",
+                        "pathType":"LOCAL"
+                    }, {
+                        "file":"${testFile2.path}",
+                        "pathType":"LOCAL"
+                    }
+                ]
         """.toComparableJson()
 
         adapter.fromJson(json) shouldBe original
