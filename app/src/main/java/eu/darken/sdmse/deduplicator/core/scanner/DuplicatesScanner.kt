@@ -1,10 +1,26 @@
 package eu.darken.sdmse.deduplicator.core.scanner
 
+import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.areas.currentAreas
+import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathGateway
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.endsWith
+import eu.darken.sdmse.common.files.isFile
+import eu.darken.sdmse.common.files.segs
+import eu.darken.sdmse.common.files.startsWith
+import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.flow.throttleLatest
+import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
@@ -15,15 +31,31 @@ import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumSleuth
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashSleuth
+import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.pathExclusions
+import eu.darken.sdmse.exclusion.core.types.match
+import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.buffer
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.flatMapMerge
+import kotlinx.coroutines.flow.flowOn
 import java.util.UUID
 import javax.inject.Inject
+import javax.inject.Provider
 
 
 class DuplicatesScanner @Inject constructor(
-    private val checksumFactory: ChecksumSleuth.Factory,
-    private val phashFactory: PHashSleuth.Factory,
+    private val checksumSleuthProvider: Provider<ChecksumSleuth>,
+    private val pHashSleuthProvider: Provider<PHashSleuth>,
+    private val exclusionManager: ExclusionManager,
+    private val areaManager: DataAreaManager,
+    private val dispatcherProvider: DispatcherProvider,
+    private val gatewaySwitch: GatewaySwitch,
+    private val commonFilesCheck: CommonFilesCheck,
+    private val fileForensics: FileForensics,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
@@ -33,22 +65,138 @@ class DuplicatesScanner @Inject constructor(
         progressPub.value = update(progressPub.value)
     }
 
-    suspend fun scan(): Set<Duplicate.Cluster> {
-        log(TAG) { "scan()" }
+    private suspend fun defaultSearchFlow(): Flow<APathLookup<*>> {
+        val currentAreas = areaManager.currentAreas()
+        log(TAG) { "Current areas are: $currentAreas" }
 
-        val cksGroups: Set<ChecksumDuplicate.Group> = if (checksumFactory.isEnabled()) {
-            log(TAG) { "$checksumFactory is enabled" }
-            checksumFactory.create().withProgress(this) { investigate() }
+        val targetAreas = run {
+            val targetAreaTypes = setOf(
+                DataArea.Type.SDCARD,
+                DataArea.Type.PUBLIC_DATA,
+                DataArea.Type.PUBLIC_MEDIA,
+                DataArea.Type.PORTABLE,
+            )
+            currentAreas.filter { targetAreaTypes.contains(it.type) }.toSet()
+        }
+        log(TAG) { "Target areas: $targetAreas" }
+
+        val sdcardSkips = mutableSetOf(
+            segs("Android", "data"),
+            segs("Android", "media"),
+            segs("Android", "obb"),
+        )
+
+        val globalSkips = mutableSetOf<Segments>()
+        if (targetAreas.all { it.path.segments != segs("", "data", "data") }) {
+            globalSkips.add(segs("", "data", "data"))
+            globalSkips.add(segs("", "data", "user", "0"))
+        }
+        globalSkips.add(segs("", "data", "media", "0"))
+        log(TAG) { "Global skip segments: $globalSkips" }
+
+        val exclusions = exclusionManager.pathExclusions(SDMTool.Type.DEDUPLICATOR)
+        log(TAG) { "Deduplicator exclusions are: $exclusions" }
+
+        return targetAreas.asFlow()
+            .flatMapMerge(2) { area ->
+                val filter: suspend (APathLookup<*>) -> Boolean = when (area.type) {
+                    DataArea.Type.SDCARD -> filter@{ toCheck: APathLookup<*> ->
+                        if (sdcardSkips.any { toCheck.segments.endsWith(it) }) return@filter false
+                        exclusions.none { it.match(toCheck) }
+                    }
+
+                    else -> filter@{ toCheck: APathLookup<*> ->
+                        if (globalSkips.any { toCheck.segments.startsWith(it) }) {
+                            log(TAG, WARN) { "Skipping: $toCheck" }
+                            return@filter false
+                        }
+                        exclusions.none { it.match(toCheck) }
+                    }
+                }
+                area.path.walk(
+                    gatewaySwitch,
+                    options = APathGateway.WalkOptions(
+                        onFilter = filter
+                    )
+                )
+            }
+    }
+
+    private suspend fun customPathSearchFlow(paths: Set<APath>): Flow<APathLookup<*>> {
+        val exclusions = exclusionManager.pathExclusions(SDMTool.Type.DEDUPLICATOR)
+        log(TAG) { "Deduplicator exclusions are: $exclusions" }
+
+        val allowedAreas = setOf(
+            DataArea.Type.SDCARD,
+            DataArea.Type.PUBLIC_DATA,
+            DataArea.Type.PUBLIC_MEDIA,
+            DataArea.Type.PORTABLE,
+        )
+
+        fileForensics.useRes {
+            paths.forEach { path ->
+                val area = fileForensics.identifyArea(path)
+                if (!allowedAreas.contains(area?.type)) {
+                    throw IllegalArgumentException("Unsupported area for $path: $area")
+                }
+            }
+        }
+
+        return paths.asFlow()
+            .flatMapMerge(2) { path ->
+                val filter: suspend (APathLookup<*>) -> Boolean = filter@{ toCheck: APathLookup<*> ->
+                    exclusions.none { it.match(toCheck) }
+                }
+                path.walk(
+                    gatewaySwitch,
+                    options = APathGateway.WalkOptions(
+                        onFilter = filter
+                    )
+                )
+            }
+    }
+
+    data class Options(
+        val paths: Set<APath>?,
+        val minimumSize: Long,
+        val skipUncommon: Boolean,
+        val useSleuthChecksum: Boolean,
+        val useSleuthPHash: Boolean,
+    )
+
+    suspend fun scan(options: Options): Set<Duplicate.Cluster> {
+        log(TAG) { "scan($options)" }
+
+        val searchPaths = if (options.paths != null) {
+            customPathSearchFlow(options.paths)
         } else {
-            log(TAG) { "$checksumFactory is disabled" }
+            defaultSearchFlow()
+        }
+
+        val searchFlow = searchPaths
+            .flowOn(dispatcherProvider.IO)
+            .buffer(1024)
+            .filter {
+                if (!it.isFile) return@filter false
+                val isGoodSize = it.size >= options.minimumSize
+                val isGoodType = (!options.skipUncommon || commonFilesCheck.isCommon(it))
+                if (Bugs.isDebug) log(TAG) { "goodSize=$isGoodSize, goodType=$isGoodType <-> $it" }
+                isGoodSize && isGoodType
+            }
+
+        val cksGroups: Set<ChecksumDuplicate.Group> = if (options.useSleuthChecksum) {
+            log(TAG) { "Using ChecksumSleuth is enabled" }
+            checksumSleuthProvider.get().withProgress(this) { investigate(searchFlow) }
+        } else {
+            log(TAG) { "ChecksumSleuth is disabled" }
             emptySet()
         }
 
-        val phGroups = if (phashFactory.isEnabled()) {
-            log(TAG) { "$phashFactory is enabled" }
-            phashFactory.create().withProgress(this) { investigate() }
+        val phGroups = if (options.useSleuthPHash) {
+            log(TAG) { "PHashSleuth is enabled" }
+            pHashSleuthProvider.get().withProgress(this) { investigate(searchFlow) }
         } else {
-            log(TAG) { "$phashFactory is disabled" }
+            log(TAG) { "PHashSleuth is disabled" }
             emptySet()
         }
 
