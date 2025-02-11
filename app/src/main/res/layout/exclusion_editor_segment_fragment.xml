@@ -12,7 +12,7 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
-            style="@style/SDMToolbar.Primary"
+            style="@style/SDMToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/menu_exclusion_editor_pkg"
@@ -27,8 +27,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/padding"
-            android:paddingRight="@dimen/padding"
             android:orientation="vertical">
 
             <com.google.android.material.card.MaterialCardView
@@ -36,7 +34,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                app:cardBackgroundColor="?attr/colorSurface"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp">
 

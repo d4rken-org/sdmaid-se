@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurfaceContainer">
+    style="@style/BaseScreen">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarlayout"
@@ -15,7 +15,7 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
-            style="@style/SDMToolbar.Primary"
+            style="@style/SDMToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:subtitle="@string/general_details_label"
@@ -26,7 +26,7 @@
             style="@style/Widget.Design.TabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorSurfaceContainer"
+            android:background="?colorSurface"
             app:tabMode="scrollable" />
 
     </com.google.android.material.appbar.AppBarLayout>

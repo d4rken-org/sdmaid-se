@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/DashboardCardItem"
-    app:cardBackgroundColor="?attr/colorSurface"
+    style="@style/BaseCardItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="?colorSecondaryContainer">
+    app:cardBackgroundColor="?colorSecondaryContainer">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/DashboardCardItem"
+    style="@style/BaseCardItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="?colorErrorContainer">
+    app:cardBackgroundColor="?colorErrorContainer">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/dataarea_warningcard_label"
-            android:textColor="?colorOnTertiaryContainer"
+            android:textColor="?colorOnErrorContainer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/dataarea_warningcard_empty_message"
-            android:textColor="?colorOnTertiaryContainer"
+            android:textColor="?colorOnErrorContainer"
             app:layout_constraintBottom_toTopOf="@id/check_action"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
@@ -43,9 +43,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/dataarea_warningcard_reload_action"
-            android:textColor="?colorOnTertiaryContainer"
+            android:textColor="?colorOnErrorContainer"
             app:icon="@drawable/ic_baseline_refresh_24"
-            app:iconTint="?colorOnTertiaryContainer"
+            app:iconTint="?colorOnErrorContainer"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"

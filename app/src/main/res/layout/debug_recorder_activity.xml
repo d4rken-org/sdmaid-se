@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Widget.Material3.CardView.Outlined"
     android:layout_width="wrap_content"
-    app:cardBackgroundColor="?attr/colorSurface"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="?attr/colorPrimaryContainer">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:textColor="?colorOnPrimaryContainer"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -34,6 +35,7 @@
             style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textColor="?colorOnPrimaryContainer"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginEnd="16dp"
@@ -49,6 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:textColor="?colorOnPrimaryContainer"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -64,6 +67,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:textColor="?colorOnPrimaryContainer"
             android:text="@string/settings_privacy_policy_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,6 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:textColor="?colorOnPrimaryContainer"
             android:layout_marginEnd="32dp"
             android:text="@string/debug_debuglog_size_label"
             app:layout_constraintEnd_toStartOf="@+id/label_compressed_size"
@@ -88,6 +94,7 @@
             style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="?colorOnPrimaryContainer"
             android:layout_marginEnd="32dp"
             app:layout_constraintEnd_toStartOf="@+id/recording_size_compressed"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -101,6 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:textColor="?colorOnPrimaryContainer"
             android:layout_marginEnd="16dp"
             android:text="@string/debug_debuglog_size_compressed_label"
             app:layout_constraintEnd_toEndOf="parent"
@@ -113,6 +121,7 @@
             style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="?colorOnPrimaryContainer"
             app:layout_constraintEnd_toEndOf="@+id/label_compressed_size"
             app:layout_constraintStart_toEndOf="@+id/recording_size"
             app:layout_constraintTop_toBottomOf="@+id/label_compressed_size"
@@ -130,7 +139,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/cancel_action"
-            style="@style/SDMButton.Outlined"
+            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -143,7 +152,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/share_action"
-            style="@style/SDMButton"
+            style="@style/Widget.Material3.Button.TonalButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -151,6 +160,7 @@
             android:layout_marginBottom="16dp"
             android:text="@string/general_share_action"
             android:visibility="invisible"
+            tools:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recording_size_compressed" />

@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getColorForAttr
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.navigation.getSpanCount
+import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DashboardFragmentBinding
@@ -37,8 +38,11 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
     @Inject lateinit var dashAdapter: DashboardAdapter
     @Inject lateinit var oneClickOptions: OneClickOptionsDialog
     @Inject lateinit var previewDialog: PreviewDeletionDialog
+    @Inject lateinit var theming: Theming
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        theming.setNavBarStyle(requireActivity(), Theming.NavBarStyle.PRIMARY)
+
         ui.list.setupDefaults(
             dashAdapter,
             verticalDividers = false,
@@ -69,6 +73,8 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 }
             }
         }
+        requireActivity().window
+
         vm.bottomBarState.observe2(ui) { state ->
             if (state.activeTasks > 0 || state.queuedTasks > 0) {
                 bottomBarTextLeft.apply {
@@ -243,6 +249,11 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
         }
 
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onDestroyView() {
+        theming.setNavBarStyle(requireActivity(), Theming.NavBarStyle.SURFACE)
+        super.onDestroyView()
     }
 
 }

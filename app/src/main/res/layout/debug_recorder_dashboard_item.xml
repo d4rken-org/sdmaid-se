@@ -2,10 +2,10 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/DashboardCardItem"
+    style="@style/BaseCardItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="?colorTertiaryContainer">
+    app:cardBackgroundColor="?attr/colorPrimaryContainer">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,6 +17,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_bug_report"
+            app:tint="?colorOnPrimaryContainer"
             app:layout_constraintBottom_toBottomOf="@id/title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/title" />
@@ -28,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/debug_debuglog_recording_progress"
-            android:textColor="?colorOnSecondaryContainer"
+            android:textColor="?colorOnPrimaryContainer"
             app:layout_constraintStart_toEndOf="@id/setup_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
@@ -39,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textColor="?colorOnTertiaryContainer"
+            android:textColor="?colorOnPrimaryContainer"
             app:layout_constraintEnd_toEndOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title"
             app:layout_constraintTop_toBottomOf="@id/title"
