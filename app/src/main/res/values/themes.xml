@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Theme.Material3.DynamicColors.Light.NoActionBar" parent="Theme.Material3.DynamicColors.Light">
         <item name="windowActionBar">false</item>
@@ -72,6 +72,7 @@
         <item name="android:statusBarColor">@color/md_theme_surfaceContainer</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">@color/md_theme_surfaceContainer</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
     </style>
 
     <style name="AppThemeSplash" parent="Theme.SplashScreen">
