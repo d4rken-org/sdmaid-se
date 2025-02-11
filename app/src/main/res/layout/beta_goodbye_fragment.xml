@@ -50,7 +50,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardCornerRadius="@dimen/cardRadius"
                 app:cardBackgroundColor="?attr/colorSurface"
                 android:backgroundTint="?colorSecondaryContainer"
                 android:visibility="gone"
@@ -77,7 +76,6 @@
                     style="@style/TextAppearance.Material3.BodyMedium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="@dimen/cardRadius"
                     app:cardBackgroundColor="?attr/colorSurface"
                     android:layout_margin="16dp"
                     android:text="@string/nudge_betagoodbye_reinstall_note" />
