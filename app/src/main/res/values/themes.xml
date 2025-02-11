@@ -66,13 +66,6 @@
         <item name="dynamicColorThemeOverlay">@style/Theme.Material3.DynamicColors.Light.NoActionBar</item>
     </style>
 
-    <style name="DashboardTheme" parent="BaseAppTheme">
-        <item name="windowActionModeOverlay">true</item>
-        <item name="actionModeCloseDrawable">@drawable/ic_baseline_close_24</item>
-        <item name="android:statusBarColor">@color/md_theme_surfaceContainer</item>
-        <item name="android:windowLightStatusBar">true</item>
-    </style>
-
     <style name="AppTheme" parent="BaseAppTheme">
         <item name="windowActionModeOverlay">true</item>
         <item name="actionModeCloseDrawable">@drawable/ic_baseline_close_24</item>
