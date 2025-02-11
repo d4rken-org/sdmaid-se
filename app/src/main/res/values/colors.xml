@@ -168,6 +168,4 @@
     <color name="state_negative_1">@color/yellow</color>
     <color name="state_negative_2">@color/orange</color>
     <color name="state_negative_3">@color/red</color>
-    
-    <color name="automation_scrim">#A6000000</color>
 </resources>
