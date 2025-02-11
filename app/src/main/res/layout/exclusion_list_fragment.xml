@@ -2,7 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardBackgroundColor="?attr/colorSurfaceContainer"
+    style="@style/BaseScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,7 +12,7 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
-            style="@style/SDMToolbar.Primary"
+            style="@style/SDMToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/menu_exclusions_list"
@@ -54,7 +54,7 @@
         tools:ignore="HardcodedText"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingVertical="4dp"
+        android:paddingVertical="8dp"
         android:paddingBottom="100dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/exclusion_list_item_path" />

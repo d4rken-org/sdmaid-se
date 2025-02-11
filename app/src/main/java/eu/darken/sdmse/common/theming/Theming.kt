@@ -3,9 +3,10 @@ package eu.darken.sdmse.common.theming
 import android.app.Activity
 import android.app.Application
 import android.content.res.Configuration
-import android.content.res.Resources
+import android.content.res.Resources.NotFoundException
 import android.os.Bundle
-import android.view.Window
+import android.view.View
+import android.view.WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import com.google.android.material.color.DynamicColors
@@ -13,11 +14,15 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.valueBlocking
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
+import eu.darken.sdmse.common.getColorForAttr
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.main.core.GeneralSettings
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.combine
@@ -127,46 +132,93 @@ class Theming @Inject constructor(
 
                 DynamicColors.applyToActivityIfAvailable(activity)
 
-                val uiMode = activity.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-
-                val color = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.UPSIDE_DOWN_CAKE) { // API 34+
-                    try {
-                        if (uiMode == Configuration.UI_MODE_NIGHT_YES) {
-                            activity.getColor(android.R.color.system_surface_container_dark) // API 34+ Dark
-                        } else {
-                            activity.getColor(android.R.color.system_surface_container_light) // API 34+ Light
-                        }
-                    } catch (e: Resources.NotFoundException) {
-
-                        if (uiMode == Configuration.UI_MODE_NIGHT_YES) {
-                            ContextCompat.getColor(activity, R.color.md_theme_surfaceContainer)
-                        } else {
-                            ContextCompat.getColor(activity, R.color.md_theme_surfaceContainer)
-                        }
-                    }
-                } else if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) { // API 31+
-                    try {
-                        if (uiMode == Configuration.UI_MODE_NIGHT_YES) {
-                            activity.getColor(android.R.color.system_accent1_700) // API 31+ Dark
-                        } else {
-                            activity.getColor(android.R.color.system_accent1_700) // API 31+ Light
-                        }
-                    } catch (e: Resources.NotFoundException) {
-
-                        if (uiMode == Configuration.UI_MODE_NIGHT_YES) {
-                            ContextCompat.getColor(activity, R.color.md_theme_surfaceContainer)
-                        } else {
-                            ContextCompat.getColor(activity, R.color.md_theme_surfaceContainer)
-                        }
-                    }
-                } else {
-                    ContextCompat.getColor(activity, R.color.md_theme_surfaceContainer) // API < 31
-                }
-
-                val window = activity.window
-                window.statusBarColor = color
-                window.navigationBarColor = color
+                setStatusBarColor(activity, StatusBarStyle.SURFACE)
+                setNavBarStyle(activity, NavBarStyle.SURFACE)
             }
+        }
+    }
+
+    enum class NavBarStyle {
+        SURFACE, PRIMARY
+    }
+
+    fun setNavBarStyle(activity: Activity, mode: NavBarStyle) {
+        log(TAG) { "setNavBarStyle($activity,$mode)" }
+        val window = activity.window ?: return
+        val uiMode = activity.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+
+        when (mode) {
+            NavBarStyle.PRIMARY -> {
+                if (hasApiLevel(30)) {
+                    @Suppress("NewApi")
+                    window.insetsController?.setSystemBarsAppearance(
+                        0,
+                        APPEARANCE_LIGHT_NAVIGATION_BARS
+                    )
+                } else {
+                    @Suppress("DEPRECATION")
+                    window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
+                }
+            }
+
+            NavBarStyle.SURFACE -> {
+                if (hasApiLevel(30)) {
+                    @Suppress("NewApi")
+                    window.insetsController?.setSystemBarsAppearance(
+                        APPEARANCE_LIGHT_NAVIGATION_BARS,
+                        APPEARANCE_LIGHT_NAVIGATION_BARS
+                    )
+                } else {
+                    if (uiMode != Configuration.UI_MODE_NIGHT_YES) {
+                        @Suppress("DEPRECATION")
+                        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+                    }
+                }
+            }
+        }
+
+        window.navigationBarColor = try {
+            activity.getColorForAttr(
+                when (mode) {
+                    NavBarStyle.SURFACE -> com.google.android.material.R.attr.colorSurface
+                    NavBarStyle.PRIMARY -> com.google.android.material.R.attr.colorPrimarySurface
+                }
+            ).also {
+                log(TAG) { "Setting navigationBarColor for $activity to $it" }
+            }
+        } catch (e: NotFoundException) {
+            log(TAG, ERROR) { "Failed to get colorPrimary from theme: ${e.asLog()}" }
+            ContextCompat.getColor(
+                activity, when (mode) {
+                    NavBarStyle.SURFACE -> R.color.md_theme_surface
+                    NavBarStyle.PRIMARY -> R.color.md_theme_primary
+                }
+            )
+        }
+    }
+
+    enum class StatusBarStyle {
+        SURFACE, PRIMARY
+    }
+
+    fun setStatusBarColor(activity: Activity, mode: StatusBarStyle) {
+        log(TAG) { "setStatusBarColor($activity, $mode)" }
+        val window = activity.window ?: return
+        window.statusBarColor = try {
+            activity.getColorForAttr(
+                when (mode) {
+                    StatusBarStyle.SURFACE -> com.google.android.material.R.attr.colorSurface
+                    StatusBarStyle.PRIMARY -> com.google.android.material.R.attr.colorPrimarySurface
+                }
+            )
+        } catch (e: NotFoundException) {
+            log(TAG, ERROR) { "Failed to get colorSurface from theme: ${e.asLog()}" }
+            ContextCompat.getColor(
+                activity, when (mode) {
+                    StatusBarStyle.SURFACE -> R.color.md_theme_surface
+                    StatusBarStyle.PRIMARY -> R.color.md_theme_primary
+                }
+            )
         }
     }
 

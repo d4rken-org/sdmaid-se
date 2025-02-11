@@ -2,26 +2,24 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardBackgroundColor="?attr/colorSurfaceContainer"
+    style="@style/BaseScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
+        style="@style/BaseRecyclerList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
-        android:paddingVertical="4dp"
-        android:paddingLeft="@dimen/padding"
-        android:paddingRight="@dimen/padding"
-        style="@style/BaseRecyclerList"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:contentDescription="Duplicate sets"
-        tools:ignore="HardcodedText"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText"
         tools:listitem="@layout/deduplicator_cluster_element_header" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

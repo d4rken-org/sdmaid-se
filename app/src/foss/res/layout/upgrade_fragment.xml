@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/BaseScreen"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/colorSurfaceContainer">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
-        style="@style/SDMToolbar.Primary"
+        style="@style/SDMToolbar"
         android:layout_width="0dp"
-        android:minHeight="?actionBarSize"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_arrow_back"
-        app:navigationIconTint="?colorOnSurface"
         app:title="@string/upgrade_screen_title"
         app:titleCentered="true" />
 
@@ -44,14 +42,15 @@
                 style="@style/Widget.Material3.CardView.Elevated"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="?colorSurface">
+                app:cardBackgroundColor="?colorPrimaryContainer">
 
                 <com.google.android.material.textview.MaterialTextView
                     style="@style/TextAppearance.Material3.BodyMedium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:text="@string/upgrade_screen_preamble" />
+                    android:text="@string/upgrade_screen_preamble"
+                    android:textColor="?colorOnPrimaryContainer" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.textview.MaterialTextView

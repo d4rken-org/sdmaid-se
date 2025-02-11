@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardBackgroundColor="?attr/colorSurfaceContainer"
+    style="@style/BaseScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -50,7 +50,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="?attr/colorSurface"
                 android:backgroundTint="?colorSecondaryContainer"
                 android:visibility="gone"
                 tools:visibility="visible">
@@ -76,7 +75,6 @@
                     style="@style/TextAppearance.Material3.BodyMedium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="?attr/colorSurface"
                     android:layout_margin="16dp"
                     android:text="@string/nudge_betagoodbye_reinstall_note" />
             </com.google.android.material.card.MaterialCardView>
@@ -102,7 +100,8 @@
                         android:paddingStart="8dp"
                         android:rotation="-45"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlSymmetry">
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/ribbon_primary"

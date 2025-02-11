@@ -2,13 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardBackgroundColor="?attr/colorSurfaceContainer"
+    style="@style/BaseScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
-        style="@style/SDMToolbar.Primary"
+        style="@style/SDMToolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,15 +22,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
-        android:paddingVertical="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:contentDescription="Analyzer storages"
-        tools:ignore="HardcodedText"
-        android:paddingLeft="@dimen/padding"
-        android:paddingRight="@dimen/padding"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:ignore="HardcodedText"
         tools:listitem="@layout/analyzer_storage_vh_apps" />
 
     <eu.darken.sdmse.common.progress.ProgressOverlayView

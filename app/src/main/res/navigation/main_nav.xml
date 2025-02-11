@@ -316,7 +316,7 @@
     <fragment
         android:id="@+id/appDetailsFragment"
         android:name="eu.darken.sdmse.analyzer.ui.storage.app.AppDetailsFragment"
-        tools:layout="@layout/analyzer_app_fragment">
+        tools:layout="@layout/analyzer_device_fragment">
         <argument
             android:name="storageId"
             app:argType="eu.darken.sdmse.common.storage.StorageId" />

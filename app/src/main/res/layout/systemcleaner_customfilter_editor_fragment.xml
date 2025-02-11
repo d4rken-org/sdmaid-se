@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurfaceContainer">
+    style="@style/BaseScreen">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
-            style="@style/SDMToolbar.Primary"
+            style="@style/SDMToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/menu_systemcleaner_customfilter_editor"
@@ -27,8 +27,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/padding"
-            android:paddingRight="@dimen/padding"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -99,8 +97,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingLeft="@dimen/padding"
-                    android:paddingRight="@dimen/padding"
                     android:padding="16dp">
 
                     <eu.darken.sdmse.systemcleaner.ui.customfilter.editor.TaggedInputView

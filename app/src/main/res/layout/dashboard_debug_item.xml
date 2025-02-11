@@ -2,8 +2,8 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/DashboardCardItem"
-    app:cardBackgroundColor="?attr/colorSurface"
+    style="@style/BaseCardItem"
+    app:cardBackgroundColor="?attr/colorSecondaryContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:ignore="HardcodedText">
@@ -17,6 +17,7 @@
             android:id="@+id/icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            app:tint="?colorOnSecondaryContainer"
             android:src="@drawable/ic_spider_thread_onsurface"
             app:layout_constraintBottom_toBottomOf="@id/title"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:textColor="?colorOnSecondaryContainer"
             android:text="Debug mode is enabled"
             app:layout_constraintStart_toEndOf="@id/icon"
             app:layout_constraintTop_toTopOf="parent"
@@ -44,6 +46,7 @@
                 android:id="@+id/trace_enabled"
                 style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
                 android:layout_width="match_parent"
+                android:textColor="?colorOnSecondaryContainer"
                 android:layout_height="wrap_content"
                 android:text="Enable trace mode" />
 
@@ -51,21 +54,24 @@
                 android:id="@+id/dryrun_enabled"
                 style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
                 android:layout_width="match_parent"
+                android:textColor="?colorOnSecondaryContainer"
                 android:layout_height="wrap_content"
                 android:text="Dry-run mode (disable deletion)" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/areas_reload_action"
-                style="@style/SDMButton.Outlined"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
+                android:textColor="?colorOnSecondaryContainer"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Reload data areas" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/pkgs_reload_action"
-                style="@style/SDMButton.Outlined"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
+                android:textColor="?colorOnSecondaryContainer"
                 android:layout_height="wrap_content"
                 android:text="Reload apps" />
 
@@ -73,13 +79,15 @@
                 android:id="@+id/root_test_state"
                 style="@style/TextAppearance.Material3.BodyMedium"
                 android:layout_width="match_parent"
+                android:textColor="?colorOnSecondaryContainer"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 tools:text="Root test: Consent=true, Magisk=true, Service=LoremIpsum" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/root_test_action"
-                style="@style/SDMButton.Outlined"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:textColor="?colorOnSecondaryContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Test root" />
@@ -88,27 +96,29 @@
                 android:id="@+id/shizuku_test_state"
                 style="@style/TextAppearance.Material3.BodyMedium"
                 android:layout_width="match_parent"
+                android:textColor="?colorOnSecondaryContainer"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 tools:text="Shizuku test: Consent=true, Magisk=true, Service=LoremIpsum" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/shizuku_test_action"
-                style="@style/SDMButton.Outlined"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:textColor="?colorOnSecondaryContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Test Shizuku" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/test_action"
-                style="@style/SDMButton.Tonal"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Run tests" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/logview_action"
-                style="@style/SDMButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="View log" />

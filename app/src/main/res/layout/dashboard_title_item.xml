@@ -8,7 +8,6 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
-
     <eu.darken.sdmse.common.MascotView
         android:id="@+id/mascot_container"
         android:layout_width="wrap_content"
