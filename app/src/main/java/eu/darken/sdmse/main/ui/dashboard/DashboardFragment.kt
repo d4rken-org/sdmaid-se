@@ -73,7 +73,6 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 }
             }
         }
-        requireActivity().window
 
         vm.bottomBarState.observe2(ui) { state ->
             if (state.activeTasks > 0 || state.queuedTasks > 0) {
