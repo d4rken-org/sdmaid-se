@@ -3,7 +3,6 @@ package eu.darken.sdmse.main.ui
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
