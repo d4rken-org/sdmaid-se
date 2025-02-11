@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/DashboardCardItem"
-    app:cardCornerRadius="@dimen/cardRadius"
     android:backgroundTint="?colorSurface"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">

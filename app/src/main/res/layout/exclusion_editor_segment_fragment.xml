@@ -36,7 +36,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                app:cardCornerRadius="@dimen/cardRadius"
                 app:cardBackgroundColor="?attr/colorSurface"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp">
@@ -89,7 +88,6 @@
                 style="@style/Widget.Material3.CardView.Filled"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="@dimen/cardRadius"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp">
@@ -127,7 +125,6 @@
                 style="@style/Widget.Material3.CardView.Filled"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="@dimen/cardRadius"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp">
 
