@@ -78,4 +78,11 @@
         <item name="dynamicColorThemeOverlay">@style/Theme.Material3.DynamicColors.Dark.Floating</item>
     </style>
 
+    <style name="AppTheme" parent="BaseAppTheme">
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeCloseDrawable">@drawable/ic_baseline_close_24</item>
+        <item name="android:statusBarColor">@color/md_theme_surfaceContainer</item>
+        <item name="android:navigationBarColor">@color/md_theme_surfaceContainer</item>
+    </style>
+
 </resources>
