@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.getPackageInfo
 import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
 import java.time.Duration
 import java.time.Instant
@@ -96,8 +97,7 @@ class FossUpdateChecker @Inject constructor(
 
     override fun isEnabledByDefault(): Boolean {
         val pm = context.packageManager
-        val installers: Set<String> = pm
-            .getPackageInfo(context.packageName, 0)
+        val installers: Set<String> = context.getPackageInfo()
             .getInstallerInfo(pm)
             .allInstallers
             .map { it.id.name }

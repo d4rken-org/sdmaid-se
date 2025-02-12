@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.getPackageInfo
 import io.github.z4kn4fein.semver.Version
 import io.github.z4kn4fein.semver.VersionFormatException
 import kotlinx.coroutines.CoroutineScope
@@ -36,7 +37,7 @@ class CurriculumVitae @Inject constructor(
     private val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    private val usPkgInfo: PackageInfo by lazy { context.packageManager.getPackageInfo(context.packageName, 0) }
+    private val usPkgInfo: PackageInfo by lazy { context.getPackageInfo() }
 
     private val _updateHistory = dataStore.createValue("stats.update.history", emptyList<String>(), moshi)
     private val _installedFirst = dataStore.createValue<Instant?>("stats.install.first", null, moshi)
@@ -100,7 +101,7 @@ class CurriculumVitae @Inject constructor(
         log(TAG) { "Current version history is $history" }
 
         val lastVersion = history.lastOrNull()
-        val current = usPkgInfo.versionName
+        val current = usPkgInfo.versionName!!
         if (lastVersion != current) {
             val versionHistory = history + current
             log(TAG) { "Update happened, new version history is $versionHistory" }
