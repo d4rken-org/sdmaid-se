@@ -15,6 +15,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -44,6 +45,9 @@ abstract class PreferenceFragment2 : PreferenceFragmentCompat() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(listView, top = null, left = null, right = null)
+        }
         super.onViewCreated(view, savedInstanceState)
         settings.dataStore.data
             .onEach {

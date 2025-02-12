@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge style="@style/TwoLineListItemContainer"
+<merge tools:style="@style/TwoLineListItemContainer"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -37,7 +37,7 @@
         app:layout_constraintStart_toEndOf="@+id/icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:text="@string/backup_type_app_label" />
+        tools:text="@string/general_todo_msg" />
 
     <TextView
         android:id="@+id/description"

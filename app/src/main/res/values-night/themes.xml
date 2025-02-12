@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="Theme.Material3.DynamicColors.Dark.NoActionBar" parent="Theme.Material3.DynamicColors.Dark">
         <item name="windowActionBar">false</item>
@@ -64,8 +64,6 @@
         <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest</item>
 
         <item name="dynamicColorThemeOverlay">@style/Theme.Material3.DynamicColors.Dark.NoActionBar</item>
-
-        <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:ignore="NewApi">true</item>
     </style>
 
     <style name="AppThemeFloating" parent="BaseAppTheme">

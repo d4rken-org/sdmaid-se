@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.lists.ViewHolderBasedDivider
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
@@ -42,6 +43,11 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
         get() = requireParentFragment().requireView().findViewById(R.id.viewpager)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, top = null, bottom = null)
+            insetsPadding(ui.list, top = null, left = null, right = null)
+        }
+
         val adapter = CorpseElementsAdapter()
         ui.list.apply {
             setupDefaults(adapter, verticalDividers = false)
@@ -51,16 +57,16 @@ class CorpseFragment : Fragment3(R.layout.corpsefinder_corpse_fragment) {
             addItemDecoration(divDec)
         }
 
-         selectionTracker = installListSelection(
-             adapter = adapter,
-             cabMenuRes = R.menu.menu_corpsefinder_corpse_cab,
-             toolbar = requireParentFragment().requireView().findViewById(R.id.toolbar),
-             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<CorpseElementsAdapter.Item> ->
-                 when (item.itemId) {
-                     R.id.action_delete_selected -> {
-                         vm.delete(selected)
-                         true
-                     }
+        selectionTracker = installListSelection(
+            adapter = adapter,
+            cabMenuRes = R.menu.menu_corpsefinder_corpse_cab,
+            toolbar = requireParentFragment().requireView().findViewById(R.id.toolbar),
+            onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<CorpseElementsAdapter.Item> ->
+                when (item.itemId) {
+                    R.id.action_delete_selected -> {
+                        vm.delete(selected)
+                        true
+                    }
 
                     else -> false
                 }

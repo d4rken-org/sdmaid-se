@@ -16,6 +16,7 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.lists.differ.update
@@ -45,6 +46,12 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, top = null, bottom = null)
+            insetsPadding(ui.toolbar, bottom = null)
+            insetsPadding(ui.list, top = null, left = null, right = null)
+        }
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             setNavigationOnClickListener { vm.onNavigateBack() }

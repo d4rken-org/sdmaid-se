@@ -10,6 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
@@ -29,6 +30,13 @@ class SchedulerManagerFragment : Fragment3(R.layout.scheduler_manager_fragment) 
     @Inject lateinit var webpageTool: WebpageTool
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.toolbar, bottom = null)
+            insetsPadding(ui.root, top = null, bottom = null)
+            insetsPadding(ui.list, top = null, left = null, right = null)
+            insetsPadding(ui.mainActionContainer, top = null)
+        }
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             setOnMenuItemClickListener {
