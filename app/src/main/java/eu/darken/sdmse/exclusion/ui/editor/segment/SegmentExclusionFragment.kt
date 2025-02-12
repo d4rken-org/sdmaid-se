@@ -40,7 +40,7 @@ class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fra
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
             insetsPadding(ui.root, left = true, right = true)
-            insetsPadding(ui.appbarlayout, top = true, left = true, right = true)
+            insetsPadding(ui.appbarlayout, top = true)
             insetsPadding(ui.scrollView, bottom = true)
         }
 

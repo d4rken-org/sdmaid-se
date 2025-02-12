@@ -30,9 +30,6 @@
     </style>
 
     <style name="BaseRecyclerList">
-        <item name="android:fastScrollEnabled">false</item>
-        <item name="fastScrollEnabled">false</item>
-        <item name="android:requiresFadingEdge">none</item>
     </style>
 
     <style name="DefaultListItemContainer">
@@ -193,10 +190,14 @@
         <item name="cornerSize">32dp</item>
     </style>
 
-    <style name="SDMToolbar" parent="Widget.Material3.Toolbar.Surface">
+    <style name="SDMToolbar" parent="Widget.Material3.Toolbar">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minHeight">?actionBarSize</item>
         <item name="navigationContentDescription">Navigate back</item>
+    </style>
+
+    <style name="SDMAppBar" parent="Widget.Material3.AppBarLayout">
+
     </style>
 
     <style name="SDMButton" parent="Widget.Material3.Button">
