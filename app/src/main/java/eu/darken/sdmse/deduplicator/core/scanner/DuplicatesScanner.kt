@@ -157,7 +157,7 @@ class DuplicatesScanner @Inject constructor(
     }
 
     data class Options(
-        val paths: Set<APath>?,
+        val paths: Set<APath>,
         val minimumSize: Long,
         val skipUncommon: Boolean,
         val useSleuthChecksum: Boolean,
@@ -167,10 +167,10 @@ class DuplicatesScanner @Inject constructor(
     suspend fun scan(options: Options): Set<Duplicate.Cluster> {
         log(TAG) { "scan($options)" }
 
-        val searchPaths = if (options.paths != null) {
-            customPathSearchFlow(options.paths)
-        } else {
+        val searchPaths = if (options.paths.isEmpty()) {
             defaultSearchFlow()
+        } else {
+            customPathSearchFlow(options.paths)
         }
 
         val searchFlow = searchPaths
@@ -185,7 +185,7 @@ class DuplicatesScanner @Inject constructor(
             }
 
         val cksGroups: Set<ChecksumDuplicate.Group> = if (options.useSleuthChecksum) {
-            log(TAG) { "Using ChecksumSleuth is enabled" }
+            log(TAG) { "ChecksumSleuth is enabled" }
             checksumSleuthProvider.get().withProgress(this) { investigate(searchFlow) }
         } else {
             log(TAG) { "ChecksumSleuth is disabled" }
