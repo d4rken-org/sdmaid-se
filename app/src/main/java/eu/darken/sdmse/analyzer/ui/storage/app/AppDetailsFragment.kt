@@ -28,9 +28,9 @@ class AppDetailsFragment : Fragment3(R.layout.analyzer_app_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
-            insetsPadding(ui.root, top = null, bottom = null)
-            insetsPadding(ui.toolbar, bottom = null)
-            insetsPadding(ui.list, top = null, left = null, right = null)
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.toolbar, top = true, left = true, right = true)
+            insetsPadding(ui.list, bottom = true)
         }
 
         ui.toolbar.apply {

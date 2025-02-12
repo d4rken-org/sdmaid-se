@@ -36,9 +36,9 @@ class PkgExclusionFragment : Fragment3(R.layout.exclusion_editor_pkg_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
-            insetsPadding(ui.root, top = null, bottom = null)
-            insetsPadding(ui.appbarlayout, bottom = null)
-            insetsPadding(ui.scrollView, top = null, left = null, right = null)
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.appbarlayout, top = true, left = true, right = true)
+            insetsPadding(ui.scrollView, bottom = true)
         }
 
         ui.toolbar.apply {

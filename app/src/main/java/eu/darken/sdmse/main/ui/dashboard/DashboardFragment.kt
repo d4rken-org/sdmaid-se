@@ -45,9 +45,9 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
         theming.setNavBarStyle(requireActivity(), Theming.NavBarStyle.PRIMARY)
 
         EdgeToEdgeHelper(requireActivity()).apply {
-            insetsPadding(ui.list, left = null, right = null, bottom = null)
-            insetsPadding(ui.root, top = null, bottom = null)
-            insetsPadding(ui.mainAction, top = null)
+            insetsPadding(ui.list, top = true)
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.mainAction, right = true, bottom = true)
         }
 
         ui.list.setupDefaults(

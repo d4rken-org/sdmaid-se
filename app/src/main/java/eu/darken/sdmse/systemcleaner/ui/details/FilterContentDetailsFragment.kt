@@ -23,7 +23,7 @@ class FilterContentDetailsFragment : Fragment3(R.layout.systemcleaner_details_fr
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
-            insetsPadding(ui.appbarlayout, bottom = null)
+            insetsPadding(ui.appbarlayout, top = true, left = true, right = true)
         }
 
         ui.toolbar.apply {

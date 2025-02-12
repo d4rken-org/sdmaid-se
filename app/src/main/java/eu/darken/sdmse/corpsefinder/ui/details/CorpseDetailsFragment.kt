@@ -23,7 +23,7 @@ class CorpseDetailsFragment : Fragment3(R.layout.corpsefinder_details_fragment) 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
-            insetsPadding(ui.appbarlayout, bottom = null)
+            insetsPadding(ui.appbarlayout, top = true, left = true, right = true)
         }
 
         ui.toolbar.apply {

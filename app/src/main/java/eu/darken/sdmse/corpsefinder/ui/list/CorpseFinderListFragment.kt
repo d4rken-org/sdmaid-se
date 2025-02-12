@@ -31,9 +31,9 @@ class CorpseFinderListFragment : Fragment3(R.layout.corpsefinder_list_fragment) 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
-            insetsPadding(ui.toolbar, bottom = null)
-            insetsPadding(ui.root, top = null, bottom = null)
-            insetsPadding(ui.list, top = null, left = null, right = null)
+            insetsPadding(ui.toolbar, top = true, left = true, right = true)
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.list, bottom = true)
         }
 
         ui.toolbar.apply {
