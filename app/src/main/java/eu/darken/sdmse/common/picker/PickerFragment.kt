@@ -12,6 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.dpToPx
@@ -46,6 +47,13 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.appbarlayout, top = true)
+            insetsPadding(ui.list, bottom = true)
+            insetsPadding(ui.list, bottom = true)
+        }
+
         sheetBehavior = BottomSheetBehavior.from(ui.selectedContainer).apply {
             isHideable = false
             state = BottomSheetBehavior.STATE_COLLAPSED

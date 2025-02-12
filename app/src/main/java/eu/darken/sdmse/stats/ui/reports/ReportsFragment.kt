@@ -28,8 +28,9 @@ class ReportsFragment : Fragment3(R.layout.stats_reports_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
             insetsPadding(ui.root, left = true, right = true)
-            insetsPadding(ui.toolbar, top = true)
+            insetsPadding(ui.appbarlayout, top = true)
             insetsPadding(ui.list, bottom = true)
+            insetsPadding(ui.loadingOverlay, bottom = true)
         }
 
         ui.toolbar.setupWithNavController(findNavController())

@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
+import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DataAreasFragmentBinding
@@ -28,7 +29,7 @@ class DataAreasFragment : Fragment3(R.layout.data_areas_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
             insetsPadding(ui.root, left = true, right = true)
-            insetsPadding(ui.toolbar, top = true)
+            insetsPadding(ui.appbarlayout, top = true)
             insetsPadding(ui.list, bottom = true)
         }
 
@@ -62,7 +63,7 @@ class DataAreasFragment : Fragment3(R.layout.data_areas_fragment) {
 
         vm.items.observe2(ui) {
             adapter.update(it.areas)
-            loadingOverlay.isGone = it.areas != null
+            loadingOverlay.setProgress(if (it.areas == null) Progress.Data() else null)
             list.isGone = it.areas == null
 
             toolbar.menu?.findItem(R.id.menu_action_refresh)?.isVisible = it.allowReload

@@ -1,94 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BaseScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        style="@style/SDMToolbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/menu_data_areas"
-        app:subtitle="@string/general_details_label"
-        app:title="@string/data_areas_label" />
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarlayout"
+        style="@style/SDMAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/loading_overlay"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="64dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/list"
-        app:layout_constraintEnd_toEndOf="@id/list"
-        app:layout_constraintStart_toStartOf="@id/list"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:visibility="visible">
-
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/loading_indicator"
-            style="@style/Widget.Material3.CircularProgressIndicator"
-            android:layout_width="wrap_content"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/SDMToolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:indeterminate="true"
-            android:padding="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:menu="@menu/menu_data_areas"
+            app:subtitle="@string/general_details_label"
+            app:title="@string/data_areas_label" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/loading_indicator_text"
-            style="@style/TextAppearance.Material3.LabelSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="7sp"
-            app:layout_constraintBottom_toBottomOf="@id/loading_indicator"
-            app:layout_constraintEnd_toEndOf="@id/loading_indicator"
-            app:layout_constraintStart_toStartOf="@id/loading_indicator"
-            app:layout_constraintTop_toTopOf="@id/loading_indicator"
-            tools:ignore="SmallSp"
-            tools:text="100%" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/loading_primary"
-            style="@style/TextAppearance.Material3.BodyLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loading_indicator"
-            tools:text="Loading primary" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/loading_secondary"
-            style="@style/TextAppearance.Material3.BodyMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loading_primary"
-            tools:text="Detailed progress secondary" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
+        style="@style/BaseRecyclerList"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
         android:contentDescription="Data areas"
-        tools:ignore="HardcodedText"
-        style="@style/BaseRecyclerList"
         android:paddingVertical="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:ignore="HardcodedText"
         tools:listitem="@layout/data_areas_list_item" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <eu.darken.sdmse.common.progress.ProgressOverlayView
+        android:id="@+id/loading_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
