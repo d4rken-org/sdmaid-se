@@ -44,7 +44,7 @@ class FilterContentFragment : Fragment3(R.layout.systemcleaner_filtercontent_fra
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
-            insetsPadding(ui.root, top = null)
+            insetsPadding(ui.root, left = true, right = true, bottom = true)
         }
 
         val adapter = FilterContentElementsAdapter()

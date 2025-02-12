@@ -15,20 +15,19 @@ class EdgeToEdgeHelper(activity: Activity) {
 
     fun insetsPadding(
         view: View,
-        left: Float? = 0f,
-        top: Float? = 0f,
-        right: Float? = 0f,
-        bottom: Float? = 0f,
+        left: Boolean = false,
+        top: Boolean = false,
+        right: Boolean = false,
+        bottom: Boolean = false,
     ) {
         ViewCompat.setOnApplyWindowInsetsListener(view) { v: View, insets: WindowInsetsCompat ->
-            val ctx = v.context
             log(tag) { "Applying padding insets to $v" }
             val systemBars: Insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(
-                if (left == null) v.paddingLeft else systemBars.left + ctx.dpToPx(left),
-                if (top == null) v.paddingTop else systemBars.top + ctx.dpToPx(top),
-                if (right == null) v.paddingRight else systemBars.right + ctx.dpToPx(right),
-                if (bottom == null) v.paddingBottom else systemBars.bottom + ctx.dpToPx(bottom),
+                if (left) systemBars.left else v.paddingLeft,
+                if (top) systemBars.top else v.paddingTop,
+                if (right) systemBars.right else v.paddingRight,
+                if (bottom) systemBars.bottom else v.paddingBottom,
             )
             insets
         }

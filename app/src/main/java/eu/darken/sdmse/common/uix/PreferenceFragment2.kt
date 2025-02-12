@@ -46,7 +46,7 @@ abstract class PreferenceFragment2 : PreferenceFragmentCompat() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
-            insetsPadding(listView, top = null, left = null, right = null)
+            insetsPadding(listView, bottom = true)
         }
         super.onViewCreated(view, savedInstanceState)
         settings.dataStore.data
