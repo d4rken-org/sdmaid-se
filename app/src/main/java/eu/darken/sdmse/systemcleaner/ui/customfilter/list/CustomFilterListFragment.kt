@@ -51,6 +51,7 @@ class CustomFilterListFragment : Fragment3(R.layout.systemcleaner_customfilter_l
             insetsPadding(ui.root, left = true, right = true)
             insetsPadding(ui.toolbar, top = true)
             insetsPadding(ui.list, bottom = true)
+            insetsPadding(ui.loadingOverlay, bottom = true)
             insetsPadding(ui.mainActionContainer, bottom = true)
         }
 

@@ -22,16 +22,6 @@
             app:title="@string/systemcleaner_tool_name" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <eu.darken.sdmse.common.progress.ProgressOverlayView
-        android:id="@+id/loading_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="64dp"
-        android:visibility="gone"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:visibility="visible" />
-
     <LinearLayout
         android:id="@+id/empty_overlay"
         android:layout_width="match_parent"
@@ -78,4 +68,15 @@
             app:srcCompat="@drawable/filter_plus" />
 
     </FrameLayout>
+
+    <eu.darken.sdmse.common.progress.ProgressOverlayView
+        android:id="@+id/loading_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="64dp"
+        android:visibility="gone"
+        app:layout_behavior=".common.ui.BelowAppBarBehavior"
+        tools:visibility="visible" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

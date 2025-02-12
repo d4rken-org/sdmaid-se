@@ -39,7 +39,7 @@
         android:layout_height="match_parent"
         android:layout_margin="64dp"
         android:visibility="gone"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_behavior=".common.ui.BelowAppBarBehavior"
         tools:visibility="visible" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

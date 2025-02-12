@@ -34,22 +34,8 @@
         android:paddingTop="4dp"
         android:paddingBottom="72dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
         tools:ignore="HardcodedText"
         tools:listitem="@layout/analyzer_content_item_vh" />
-
-    <eu.darken.sdmse.common.progress.ProgressOverlayView
-        android:id="@+id/loading_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintBottom_toBottomOf="@id/list"
-        app:layout_constraintEnd_toEndOf="@id/list"
-        app:layout_constraintStart_toStartOf="@id/list"
-        app:layout_constraintTop_toTopOf="@id/list" />
 
     <LinearLayout
         android:id="@+id/selected_container"
@@ -100,5 +86,11 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </LinearLayout>
+
+    <eu.darken.sdmse.common.progress.ProgressOverlayView
+        android:id="@+id/loading_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior=".common.ui.BelowAppBarBehavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -32,12 +32,6 @@
         tools:ignore="HardcodedText"
         tools:listitem="@layout/analyzer_storage_vh_apps" />
 
-    <eu.darken.sdmse.common.progress.ProgressOverlayView
-        android:id="@+id/loading_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
     <FrameLayout
         android:id="@+id/refresh_action_container"
         android:layout_width="wrap_content"
@@ -58,5 +52,12 @@
             tools:visibility="visible" />
 
     </FrameLayout>
+
+    <eu.darken.sdmse.common.progress.ProgressOverlayView
+        android:id="@+id/loading_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior=".common.ui.BelowAppBarBehavior" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

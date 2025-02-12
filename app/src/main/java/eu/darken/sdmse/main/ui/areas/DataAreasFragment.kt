@@ -31,6 +31,7 @@ class DataAreasFragment : Fragment3(R.layout.data_areas_fragment) {
             insetsPadding(ui.root, left = true, right = true)
             insetsPadding(ui.appbarlayout, top = true)
             insetsPadding(ui.list, bottom = true)
+            insetsPadding(ui.loadingOverlay, bottom = true)
         }
 
         ui.toolbar.apply {
