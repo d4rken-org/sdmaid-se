@@ -8,6 +8,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarlayout"
+        style="@style/SDMAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -18,9 +19,10 @@
             android:layout_height="wrap_content"
             app:menu="@menu/menu_systemcleaner_customfilter_editor"
             app:title="@string/systemcleaner_filter_custom_label" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -246,7 +248,7 @@
                 android:padding="32dp"
                 android:text="@string/systemcleaner_customfilter_editor_warning" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
         android:id="@+id/live_search_container"

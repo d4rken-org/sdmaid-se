@@ -93,6 +93,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             insetsPadding(ui.root, left = true, right = true)
             insetsPadding(ui.toolbar, top = true, left = true, right = true)
             insetsPadding(ui.list, bottom = true)
+            insetsPadding(ui.filterpane, top = true, bottom = true)
             insetsPadding(ui.refreshActionContainer, right = true, bottom = true)
         }
         ui.list.setupDefaults(

@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BaseScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        style="@style/SDMToolbar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarlayout"
+        style="@style/SDMAppBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/menu_exclusions_list"
-        app:subtitle="@string/general_details_label"
-        app:title="@string/exclusion_manager_title" />
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/SDMToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/menu_exclusions_list"
+            app:subtitle="@string/general_details_label"
+            app:title="@string/exclusion_manager_title" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <eu.darken.sdmse.common.progress.ProgressOverlayView
         android:id="@+id/loading_overlay"
@@ -26,10 +31,6 @@
         android:layout_margin="64dp"
         android:visibility="gone"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintBottom_toBottomOf="@id/list"
-        app:layout_constraintEnd_toEndOf="@id/list"
-        app:layout_constraintStart_toStartOf="@id/list"
-        app:layout_constraintTop_toTopOf="@id/list"
         tools:visibility="visible" />
 
     <LinearLayout
@@ -39,10 +40,7 @@
         android:layout_gravity="center"
         android:layout_margin="32dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/list"
-        app:layout_constraintEnd_toEndOf="@id/list"
-        app:layout_constraintStart_toStartOf="@id/list"
-        app:layout_constraintTop_toTopOf="@id/list"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:visibility="visible">
 
         <com.google.android.material.textview.MaterialTextView
@@ -55,17 +53,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         style="@style/BaseRecyclerList"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
         android:contentDescription="Exclusions"
         android:paddingVertical="8dp"
         android:paddingBottom="100dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
         tools:ignore="HardcodedText"
         tools:listitem="@layout/exclusion_list_item_path" />
 
@@ -73,8 +67,7 @@
         android:id="@+id/main_action_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/list"
-        app:layout_constraintEnd_toEndOf="@id/list">
+        android:layout_gravity="bottom|end">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/main_action"
@@ -88,4 +81,4 @@
 
     </FrameLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

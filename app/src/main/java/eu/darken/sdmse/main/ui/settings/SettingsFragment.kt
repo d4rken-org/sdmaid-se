@@ -36,7 +36,7 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
             insetsPadding(ui.root, left = true, right = true)
-            insetsPadding(ui.toolbar, top = true)
+            insetsPadding(ui.appbarlayout, top = true)
         }
 
         childFragmentManager.addOnBackStackChangedListener {

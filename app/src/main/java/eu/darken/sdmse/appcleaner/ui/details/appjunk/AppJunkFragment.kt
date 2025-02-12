@@ -48,7 +48,8 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
-            insetsPadding(ui.root, left = true, right = true, bottom = true)
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.list, bottom = true)
         }
 
         val adapter = AppJunkElementsAdapter()
