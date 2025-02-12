@@ -18,7 +18,7 @@ class OnboardingSetupFragment : Fragment3(R.layout.onboarding_setup_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
-            insetsPadding(ui.root)
+            insetsPadding(ui.root, top = true, left = true, right = true, bottom = true)
         }
 
         ui.goAction.setOnClickListener { vm.finishOnboarding() }

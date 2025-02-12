@@ -30,7 +30,7 @@ class BetaGoodbyeFragment : Fragment3(R.layout.beta_goodbye_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
-            insetsPadding(ui.root)
+            insetsPadding(ui.root, top = true, left = true, right = true, bottom = true)
         }
 
         ui.stayBetaAction.setOnClickListener { vm.consentPrerelease(true) }
