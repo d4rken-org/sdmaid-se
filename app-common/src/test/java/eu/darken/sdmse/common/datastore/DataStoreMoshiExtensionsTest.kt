@@ -30,6 +30,7 @@ class DataStoreMoshiExtensionsTest : BaseTest() {
 
     @JsonClass(generateAdapter = true)
     data class TestGson(
+        val list: List<String> = listOf("1", "2"),
         val string: String = "",
         val boolean: Boolean = true,
         val float: Float = 1.0f,
@@ -62,6 +63,10 @@ class DataStoreMoshiExtensionsTest : BaseTest() {
             flow.first() shouldBe testData2
             testStore.data.first()[stringPreferencesKey(keyName)]!!.toComparableJson() shouldBe """
                 {
+                    "list": [
+                        "1",
+                        "2"
+                    ],
                     "string":"update",
                     "boolean":true,
                     "float":1.0,
@@ -105,6 +110,10 @@ class DataStoreMoshiExtensionsTest : BaseTest() {
             flow.first() shouldBe testData2
             testStore.data.first()[stringPreferencesKey(keyName)]!!.toComparableJson() shouldBe """
                 {
+                    "list": [
+                        "1",
+                        "2"
+                    ],
                     "string":"update",
                     "boolean":true,
                     "float":1.0,

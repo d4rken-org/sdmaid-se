@@ -2,12 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BaseScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
-        style="@style/SDMToolbar.Primary"
+        style="@style/SDMToolbar"
         android:layout_width="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +25,7 @@
         tools:visibility="visible"
         style="@style/BaseRecyclerList"
         android:clipToPadding="false"
-        android:paddingVertical="4dp"
+        android:paddingVertical="8dp"
         android:contentDescription="Deduplicator result"
         tools:ignore="HardcodedText"
         app:layout_constraintBottom_toBottomOf="parent"

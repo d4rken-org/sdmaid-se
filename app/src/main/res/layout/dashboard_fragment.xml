@@ -2,6 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BaseScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,11 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingBottom="100dp"
         android:contentDescription="Dashboard"
-        tools:ignore="HardcodedText"
+        android:paddingHorizontal="8dp"
+        android:paddingBottom="100dp"
         android:visibility="invisible"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:ignore="HardcodedText"
         tools:itemCount="1"
         tools:listitem="@layout/dashboard_preview_layout"
         tools:visibility="visible" />

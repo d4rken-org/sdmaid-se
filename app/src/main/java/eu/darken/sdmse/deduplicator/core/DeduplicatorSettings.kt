@@ -4,12 +4,15 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.ui.LayoutMode
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -31,6 +34,12 @@ class DeduplicatorSettings @Inject constructor(
     val minSizeBytes = dataStore.createValue<Long>("skip.minsize.bytes", MIN_FILE_SIZE)
     val isSleuthChecksumEnabled = dataStore.createValue("sleuth.checksum.enabled", true)
     val isSleuthPHashEnabled = dataStore.createValue("sleuth.phash.enabled", false)
+    val scanPaths = dataStore.createValue("scan.location.paths", ScanPaths(), moshi)
+
+    @JsonClass(generateAdapter = true)
+    data class ScanPaths(
+        @Json(name = "paths") val paths: Set<APath> = emptySet(),
+    )
 
     val layoutMode = dataStore.createValue("ui.list.layoutmode", LayoutMode.GRID, moshi)
 
@@ -40,6 +49,7 @@ class DeduplicatorSettings @Inject constructor(
         skipUncommon,
         isSleuthChecksumEnabled,
         isSleuthPHashEnabled,
+        scanPaths,
     )
 
     companion object {
