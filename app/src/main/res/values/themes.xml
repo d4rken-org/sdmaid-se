@@ -64,8 +64,6 @@
         <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest</item>
 
         <item name="dynamicColorThemeOverlay">@style/Theme.Material3.DynamicColors.Light.NoActionBar</item>
-
-        <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:ignore="NewApi">true</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">

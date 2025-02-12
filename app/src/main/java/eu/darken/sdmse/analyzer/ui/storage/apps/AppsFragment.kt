@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -24,6 +25,12 @@ class AppsFragment : Fragment3(R.layout.analyzer_apps_fragment) {
     override val ui: AnalyzerAppsFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, top = null, bottom = null)
+            insetsPadding(ui.toolbar, bottom = null)
+            insetsPadding(ui.list, top = null, left = null, right = null)
+        }
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             setOnMenuItemClickListener {

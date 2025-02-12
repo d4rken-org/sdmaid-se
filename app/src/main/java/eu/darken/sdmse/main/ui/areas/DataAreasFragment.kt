@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -25,6 +26,12 @@ class DataAreasFragment : Fragment3(R.layout.data_areas_fragment) {
     @Inject lateinit var webpageTool: WebpageTool
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.toolbar, bottom = null)
+            insetsPadding(ui.root, top = null, bottom = null)
+            insetsPadding(ui.list, top = null, left = null, right = null)
+        }
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             setOnMenuItemClickListener {
@@ -33,6 +40,7 @@ class DataAreasFragment : Fragment3(R.layout.data_areas_fragment) {
                         vm.reloadDataAreas()
                         true
                     }
+
                     R.id.menu_action_info -> {
                         MaterialAlertDialogBuilder(requireContext()).apply {
                             setMessage(R.string.data_areas_description)

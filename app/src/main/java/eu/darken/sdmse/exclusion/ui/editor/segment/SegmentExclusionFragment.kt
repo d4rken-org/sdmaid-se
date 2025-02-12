@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.files.joinSegments
 import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.common.uix.Fragment3
@@ -37,6 +38,12 @@ class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fra
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, top = null, bottom = null)
+            insetsPadding(ui.appbarlayout, bottom = null)
+            insetsPadding(ui.scrollView, top = null, left = null, right = null)
+        }
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             setNavigationOnClickListener { vm.cancel() }

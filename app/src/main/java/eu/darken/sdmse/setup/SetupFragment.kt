@@ -15,6 +15,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -71,6 +72,11 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, bottom = null)
+            insetsPadding(ui.list, top = null, left = null, right = null)
+        }
+
         ui.list.setupDefaults(
             setupAdapter,
             verticalDividers = false,

@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BaseCardItem"
-    app:cardBackgroundColor="?attr/colorSurfaceContainer"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    app:cardBackgroundColor="?attr/colorSurfaceContainer">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,10 +14,10 @@
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
             android:id="@+id/header_container"
-            android:background="@drawable/bg_listitem_selectable"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_listitem_selectable">
 
             <ImageView
                 android:id="@+id/preview_image"
@@ -93,9 +93,9 @@
             android:id="@+id/cluster_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/deduplicator_list_linear_sub_item"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            tools:listitem="@layout/deduplicator_list_linear_sub_item" />
 
     </LinearLayout>
 

@@ -14,7 +14,7 @@
         android:clipToPadding="false"
         android:contentDescription="Dashboard"
         android:paddingHorizontal="8dp"
-        android:paddingBottom="100dp"
+        android:paddingBottom="128dp"
         android:visibility="invisible"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:ignore="HardcodedText"
@@ -26,7 +26,8 @@
         android:id="@+id/mascot_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        tools:visibility="gone" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_bar"
