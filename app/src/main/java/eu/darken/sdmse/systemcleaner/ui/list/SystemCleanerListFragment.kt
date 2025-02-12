@@ -34,6 +34,7 @@ class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment
             insetsPadding(ui.root, top = true, left = true, right = true)
             insetsPadding(ui.appbarlayout, top = true)
             insetsPadding(ui.list, bottom = true)
+            insetsPadding(ui.loadingOverlay, bottom = true)
         }
 
         ui.toolbar.apply {

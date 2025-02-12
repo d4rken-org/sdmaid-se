@@ -34,6 +34,7 @@ class AppCleanerListFragment : Fragment3(R.layout.appcleaner_list_fragment) {
         EdgeToEdgeHelper(requireActivity()).apply {
             insetsPadding(ui.root, top = true, left = true, right = true)
             insetsPadding(ui.list, bottom = true)
+            insetsPadding(ui.loadingOverlay, bottom = true)
         }
 
         ui.toolbar.apply {

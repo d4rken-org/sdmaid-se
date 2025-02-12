@@ -51,7 +51,7 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
             insetsPadding(ui.root, left = true, right = true)
             insetsPadding(ui.appbarlayout, top = true)
             insetsPadding(ui.list, bottom = true)
-            insetsPadding(ui.list, bottom = true)
+            insetsPadding(ui.loadingOverlay, bottom = true)
         }
 
         sheetBehavior = BottomSheetBehavior.from(ui.selectedContainer).apply {
