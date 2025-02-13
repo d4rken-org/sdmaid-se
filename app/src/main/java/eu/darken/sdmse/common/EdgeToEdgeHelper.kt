@@ -5,6 +5,8 @@ import android.view.View
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 
@@ -21,7 +23,7 @@ class EdgeToEdgeHelper(activity: Activity) {
         bottom: Boolean = false,
     ) {
         ViewCompat.setOnApplyWindowInsetsListener(view) { v: View, insets: WindowInsetsCompat ->
-            log(tag) { "Applying padding insets to $v" }
+            if (Bugs.isTrace) log(tag, VERBOSE) { "Applying padding insets to $v" }
             val systemBars: Insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(
                 if (left) systemBars.left else v.paddingLeft,
