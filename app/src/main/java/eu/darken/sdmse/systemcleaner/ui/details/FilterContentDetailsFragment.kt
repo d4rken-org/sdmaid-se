@@ -10,6 +10,8 @@ import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdgeHelper
+import eu.darken.sdmse.common.ui.updateLiftStatus
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerDetailsFragmentBinding
@@ -21,6 +23,11 @@ class FilterContentDetailsFragment : Fragment3(R.layout.systemcleaner_details_fr
     override val ui: SystemcleanerDetailsFragmentBinding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.appbarlayout, top = true, left = true, right = true)
+            insetsPadding(ui.loadingOverlay, bottom = true)
+        }
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             setOnMenuItemClickListener {
@@ -37,6 +44,9 @@ class FilterContentDetailsFragment : Fragment3(R.layout.systemcleaner_details_fr
 
                 override fun onPageSelected(position: Int) {
                     vm.updatePage(pagerAdapter.data[position].identifier)
+                    pagerAdapter.getFragment(ui.viewpager.currentItem)?.view?.findViewById<View>(R.id.list)?.let {
+                        ui.appbarlayout.updateLiftStatus(it)
+                    }
                 }
 
                 override fun onPageScrollStateChanged(state: Int) {}

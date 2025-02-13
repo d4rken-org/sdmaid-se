@@ -15,6 +15,7 @@ import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFile
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementHeaderVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementInaccessibleVH
 import eu.darken.sdmse.appcleaner.ui.labelRes
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.lists.ViewHolderBasedDivider
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
@@ -46,6 +47,11 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
         get() = requireParentFragment().requireView().findViewById(R.id.viewpager)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.list, bottom = true)
+        }
+
         val adapter = AppJunkElementsAdapter()
         ui.list.apply {
             setupDefaults(adapter, verticalDividers = false)

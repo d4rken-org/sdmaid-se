@@ -8418,7 +8418,8 @@
   "mrks": [
 	{"loc": "SDCARD", "path": "DCIM/Restored", "flags": ["common", "keeper"]},
 	{"loc": "SDCARD", "path": "DCIM/Google Photos", "flags": ["keeper"]},
-	{"loc": "SDCARD", "path": "Pictures/PhotosEditor", "flags": ["keeper", "common"]}
+	{"loc": "SDCARD", "path": "Pictures/PhotosEditor", "flags": ["keeper", "common"]},
+	{"loc": "SDCARD", "path": ".picker_transcoded"}
   ]
 }, {
   "pkgs": ["com.cmcm.transfer"],
@@ -12593,5 +12594,11 @@
 }, {
   "pkgs": ["com.miui.screenshot"],
   "mrks": [{"loc": "SDCARD", "path": "DCIM/Screenshots", "flags": ["keeper", "common"]}]
+}, {
+  "pkgs": ["com.google.android.photopicker"],
+  "mrks": [{"loc": "SDCARD", "path": ".picker_transcoded"}]
+}, {
+  "pkgs": ["com.android.documentsui"],
+  "mrks": [{"loc": "SDCARD", "path": ".picker_transcoded"}]
 }
 ]

@@ -16,6 +16,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.common.files.FileType
@@ -55,6 +56,12 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.appbarlayout, top = true)
+            insetsPadding(ui.scrollView, bottom = true)
+        }
+
         ui.toolbar.apply {
             setupWithNavController(findNavController())
             setNavigationOnClickListener { vm.cancel() }

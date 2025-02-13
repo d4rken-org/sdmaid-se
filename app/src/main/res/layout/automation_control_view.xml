@@ -36,7 +36,7 @@
         android:paddingHorizontal="32dp"
         android:paddingVertical="16dp"
         android:text="@string/automation_screenoverlay_explanation"
-        android:textColor="?colorOnBackground"
+        android:textColor="?colorOnSurface"
         app:layout_constraintBottom_toTopOf="@id/control_card"
         app:layout_constraintEnd_toEndOf="@id/click_screen"
         app:layout_constraintStart_toStartOf="@id/click_screen"

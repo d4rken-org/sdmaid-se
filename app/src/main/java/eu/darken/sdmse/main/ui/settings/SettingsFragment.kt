@@ -9,6 +9,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.uix.Fragment2
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SettingsFragmentBinding
@@ -33,6 +34,11 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
     ) : Parcelable
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.appbarlayout, top = true)
+        }
+
         childFragmentManager.addOnBackStackChangedListener {
             val backStackCnt = childFragmentManager.backStackEntryCount
             val newScreenInfo = when {
@@ -45,6 +51,7 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
                         screenTitle = getString(eu.darken.sdmse.common.R.string.general_settings_title)
                     )
                 }
+
                 else -> {
                     // We added the current fragment to the stack, the new fragment's infos were already set, do nothing.
                     null

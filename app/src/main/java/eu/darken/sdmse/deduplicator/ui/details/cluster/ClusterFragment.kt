@@ -13,6 +13,7 @@ import androidx.recyclerview.selection.SelectionTracker.SelectionPredicate
 import androidx.viewpager.widget.ViewPager
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.lists.ViewHolderBasedDivider
 import eu.darken.sdmse.common.lists.differ.update
@@ -50,6 +51,11 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
         get() = requireParentFragment().requireView().findViewById(R.id.viewpager)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.list, bottom = true)
+        }
+
         val adapter = ClusterAdapter()
         ui.list.apply {
             setupDefaults(adapter, verticalDividers = false)

@@ -3,21 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
-
+    android:layout_height="wrap_content">
 
     <eu.darken.sdmse.common.MascotView
         android:id="@+id/mascot_container"
         android:layout_width="wrap_content"
         android:layout_height="96dp"
-        android:layout_marginEnd="8dp"
         android:contentDescription="SD Maid mascot"
         app:layout_constraintBottom_toBottomOf="@id/title_container"
         app:layout_constraintEnd_toStartOf="@id/title_container"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/title_container"
         tools:ignore="HardcodedText" />
 
@@ -25,10 +21,7 @@
         android:id="@+id/title_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
+        android:layout_margin="16dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,30 +49,48 @@
         android:id="@+id/ribbon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="-50dp"
-        android:layout_marginTop="8dp"
-        android:background="?colorError"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_ribbon"
+        android:backgroundTint="?colorTertiaryContainer"
+        android:gravity="center"
         android:orientation="vertical"
         android:paddingHorizontal="8dp"
-        android:paddingVertical="4dp"
-        android:rotation="-45"
+        android:paddingVertical="10dp"
         android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/title_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/title_container"
+        app:layout_constraintTop_toTopOf="@id/title_container"
         tools:visibility="visible">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/ribbon_primary"
-            style="@style/TextAppearance.Material3.BodySmall"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="52dp"
-            android:text="Beta"
-            android:textColor="?colorOnError"
-            android:textSize="14dp"
-            android:textStyle="bold"
-            app:iconTint="?colorOnError"
-            tools:ignore="HardcodedText,SpUsage" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="2dp"
+                android:src="@drawable/ic_bug_report"
+                app:tint="?colorOnTertiaryContainer" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/ribbon_primary"
+                style="@style/TextAppearance.Material3.LabelMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beta"
+                android:textColor="?colorOnTertiaryContainer"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:iconTint="?colorOnTertiaryContainer"
+                tools:ignore="HardcodedText,SpUsage" />
+        </LinearLayout>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/ribbon_secondary"
@@ -88,9 +99,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="v?.?.?-beta?"
-            android:textColor="?colorOnError"
-            android:textSize="10dp"
-            app:iconTint="?colorOnError"
+            android:textColor="?colorOnTertiaryContainer"
+            android:textSize="8dp"
+            app:iconTint="?colorOnTertiaryContainer"
             tools:ignore="HardcodedText,SpUsage" />
     </LinearLayout>
 

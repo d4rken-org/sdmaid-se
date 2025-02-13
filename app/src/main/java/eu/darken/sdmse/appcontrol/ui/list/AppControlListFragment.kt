@@ -32,6 +32,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -88,6 +89,13 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.appbarlayout, top = true, left = true, right = true)
+            insetsPadding(ui.list, bottom = true)
+            insetsPadding(ui.filterpane, bottom = true)
+            insetsPadding(ui.refreshActionContainer, right = true, bottom = true)
+        }
         ui.list.setupDefaults(
             adapter = adapter,
             horizontalDividers = true,

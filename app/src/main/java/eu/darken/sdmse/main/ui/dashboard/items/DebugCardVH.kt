@@ -31,7 +31,7 @@ class DebugCardVH(parent: ViewGroup) :
             setChecked2(item.isDryRunEnabled)
             setTextColor(
                 getColorForAttr(
-                    if (item.isDryRunEnabled) android.R.attr.colorError else android.R.attr.textColorPrimary
+                    if (item.isDryRunEnabled) android.R.attr.colorError else com.google.android.material.R.attr.colorOnSecondaryContainer
                 )
             )
             setTypeface(null, if (item.isDryRunEnabled) Typeface.BOLD else Typeface.NORMAL)

@@ -2,7 +2,7 @@ package eu.darken.sdmse.common.files.saf
 
 import android.net.Uri
 import com.squareup.moshi.JsonDataException
-import eu.darken.sdmse.common.files.*
+import com.squareup.moshi.Types
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.RawPath
 import eu.darken.sdmse.common.serialization.SerializationIOModule
@@ -16,6 +16,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
+import java.lang.reflect.Type
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [29])
@@ -56,6 +57,34 @@ class SAFPathTest : BaseTest() {
                 "segments": ["seg3","seg2","seg1"],
                 "pathType":"SAF"
             }
+        """.toComparableJson()
+
+        adapter.fromJson(json) shouldBe original
+    }
+
+    @Test
+    fun `test polymorph list serialization`() {
+        val original = listOf(
+            SAFPath.build(testUri, "seg3", "seg2", "seg1"),
+            SAFPath.build(testUri, "seg4", "seg5", "seg6"),
+        )
+
+        val type: Type = Types.newParameterizedType(List::class.java, APath::class.java)
+        val adapter = moshi.adapter<List<APath>>(type)
+        val json = adapter.toJson(original)
+
+        json.toComparableJson() shouldBe """
+                [
+                    {
+                        "treeRoot": "$testUri",
+                        "segments": ["seg3","seg2","seg1"],
+                        "pathType":"SAF"
+                    }, {
+                        "treeRoot": "$testUri",
+                        "segments": ["seg4","seg5","seg6"],
+                        "pathType":"SAF"
+                    }
+                ]
         """.toComparableJson()
 
         adapter.fromJson(json) shouldBe original

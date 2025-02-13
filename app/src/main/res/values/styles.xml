@@ -1,10 +1,12 @@
 <resources>
 
-    <style name="DashboardCardItem" parent="Widget.Material3.CardView.Elevated">
-        <item name="android:layout_marginTop">8dp</item>
-        <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:layout_marginStart">8dp</item>
-        <item name="android:layout_marginEnd">8dp</item>
+    <style name="BaseCardItem" parent="Widget.Material3.CardView.Elevated">
+        <item name="android:layout_marginVertical">8dp</item>
+        <item name="android:layout_marginHorizontal">8dp</item>
+    </style>
+
+    <style name="BaseScreen">
+        <item name="android:background">?attr/colorSurface</item>
     </style>
 
     <style name="DashboardCardButton.Filled" parent="SDMButton.Icon.Filled">
@@ -28,9 +30,6 @@
     </style>
 
     <style name="BaseRecyclerList">
-        <item name="android:fastScrollEnabled">false</item>
-        <item name="fastScrollEnabled">false</item>
-        <item name="android:requiresFadingEdge">none</item>
     </style>
 
     <style name="DefaultListItemContainer">
@@ -191,10 +190,13 @@
         <item name="cornerSize">32dp</item>
     </style>
 
-    <style name="SDMToolbar.Primary" parent="Widget.MaterialComponents.Toolbar.Primary">
-        <item name="android:layout_height">wrap_content</item>
+    <style name="SDMToolbar" parent="Widget.Material3.Toolbar">
         <item name="android:minHeight">?actionBarSize</item>
         <item name="navigationContentDescription">Navigate back</item>
+    </style>
+
+    <style name="SDMAppBar" parent="Widget.Material3.AppBarLayout">
+
     </style>
 
     <style name="SDMButton" parent="Widget.Material3.Button">

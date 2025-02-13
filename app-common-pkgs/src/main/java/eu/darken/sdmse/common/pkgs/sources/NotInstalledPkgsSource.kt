@@ -129,7 +129,7 @@ class NotInstalledPkgsSource @Inject constructor(
         get() {
             return try {
                 @SuppressLint("DiscouragedPrivateApi")
-                val privateFlagsField = applicationInfo.javaClass.getDeclaredField("privateFlags").apply {
+                val privateFlagsField = applicationInfo!!.javaClass.getDeclaredField("privateFlags").apply {
                     isAccessible = true
                 }
                 privateFlagsField.getInt(applicationInfo)
@@ -147,7 +147,7 @@ class NotInstalledPkgsSource @Inject constructor(
     private val PackageInfo.isUninstalled: Boolean
         get() = when {
             !hasApiLevel(29) -> {
-                val sourceDir = applicationInfo.sourceDir
+                val sourceDir = applicationInfo?.sourceDir
                 try {
                     sourceDir?.let { !File(it).exists() } ?: true
                 } catch (e: Exception) {
