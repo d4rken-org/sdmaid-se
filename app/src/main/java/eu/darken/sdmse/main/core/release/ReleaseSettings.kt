@@ -25,6 +25,8 @@ class ReleaseSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
+    // Was used during v1.0 migration
+    // See https://github.com/d4rken-org/sdmaid-se/blob/f52df69cb6c54b39775908952e7065796a1a5087/app/src/main/java/eu/darken/sdmse/main/core/release/ReleaseManager.kt#L38-L67
     val releasePartyAt = dataStore.createValue("release.party.date", null as Instant?, moshi)
     val wantsBeta = dataStore.createValue("release.prerelease.consent", false)
     val earlyAdopter = dataStore.createValue("release.earlyadopter", null as Boolean?)

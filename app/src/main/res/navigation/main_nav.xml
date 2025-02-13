@@ -85,9 +85,6 @@
             android:id="@+id/action_dashboardFragment_to_deduplicatorListFragment"
             app:destination="@id/deduplicatorListFragment" />
         <action
-            android:id="@+id/action_dashboardFragment_to_betaGoodbyeFragment"
-            app:destination="@id/betaGoodbyeFragment" />
-        <action
             android:id="@+id/action_dashboardFragment_to_deduplicatorDetailsFragment"
             app:destination="@id/deduplicatorDetailsFragment" />
         <action
@@ -491,10 +488,6 @@
             android:name="item"
             app:argType="eu.darken.sdmse.common.previews.item.PreviewItem" />
     </fragment>
-    <fragment
-        android:id="@+id/betaGoodbyeFragment"
-        android:name="eu.darken.sdmse.main.ui.release.BetaGoodbyeFragment"
-        tools:layout="@layout/beta_goodbye_fragment" />
     <fragment
         android:id="@+id/reportsFragment"
         android:name="eu.darken.sdmse.stats.ui.reports.ReportsFragment"
