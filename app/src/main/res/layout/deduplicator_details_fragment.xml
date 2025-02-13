@@ -22,10 +22,9 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tablayout"
-            style="@style/Widget.Design.TabLayout"
+            style="@style/Widget.Material3.TabLayout.OnSurface"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?colorSurface"
             app:tabMode="scrollable" />
 
     </com.google.android.material.appbar.AppBarLayout>
