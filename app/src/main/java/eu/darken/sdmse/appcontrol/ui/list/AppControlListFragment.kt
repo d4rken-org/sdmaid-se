@@ -91,7 +91,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
             insetsPadding(ui.root, left = true, right = true)
-            insetsPadding(ui.toolbar, top = true, left = true, right = true)
+            insetsPadding(ui.appbarlayout, top = true, left = true, right = true)
             insetsPadding(ui.list, bottom = true)
             insetsPadding(ui.filterpane, bottom = true)
             insetsPadding(ui.refreshActionContainer, right = true, bottom = true)
