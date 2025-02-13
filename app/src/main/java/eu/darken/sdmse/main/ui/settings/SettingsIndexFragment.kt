@@ -39,14 +39,6 @@ class SettingsIndexFragment : PreferenceFragment2() {
         get() = findPreference("core.changelog")!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setupMenu(R.menu.menu_settings_index) { item ->
-            when (item.itemId) {
-                R.id.menu_item_twitter -> {
-                    vm.openWebsite("https://twitter.com/d4rken")
-                }
-            }
-        }
-
         vm.state.observe2(this) { state ->
             sponsorPref.isVisible = BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.FOSS && !state.isPro
             setupPref.tintIcon(
