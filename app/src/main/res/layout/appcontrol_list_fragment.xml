@@ -1,40 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer"
+    style="@style/BaseScreen"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layoutDirection="inherit">
+    android:layout_height="match_parent">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        style="@style/BaseScreen"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarlayout"
+        style="@style/SDMAppBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:liftOnScrollTargetViewId="@id/list">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbarlayout"
-            style="@style/SDMAppBar"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/SDMToolbar"
             android:layout_width="match_parent"
-            app:liftOnScrollTargetViewId="@id/list"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:menu="@menu/menu_appcontrol_list"
+            app:subtitle="@string/general_details_label"
+            app:title="@string/appcontrol_tool_name" />
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbar"
-                style="@style/SDMToolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:menu="@menu/menu_appcontrol_list"
-                app:subtitle="@string/general_details_label"
-                app:title="@string/appcontrol_tool_name" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-        </com.google.android.material.appbar.AppBarLayout>
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior=".common.ui.BelowAppBarBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/content_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/list"
@@ -45,6 +44,7 @@
                 android:contentDescription="Appcontrol apps"
                 android:paddingVertical="8dp"
                 android:visibility="invisible"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -83,6 +83,25 @@
                 app:layout_constraintEnd_toStartOf="@id/fastscroller"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <FrameLayout
+                android:id="@+id/refresh_action_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/general_refresh_action"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/refresh_action"
+                    style="@style/Widget.Material3.FloatingActionButton.Primary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="32dp"
+                    android:contentDescription="@string/general_refresh_action"
+                    android:src="@drawable/ic_baseline_refresh_24" />
+
+            </FrameLayout>
+
             <eu.darken.sdmse.common.progress.ProgressOverlayView
                 android:id="@+id/loading_overlay"
                 android:layout_width="match_parent"
@@ -94,268 +113,249 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <FrameLayout
-            android:id="@+id/refresh_action_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:contentDescription="@string/general_refresh_action"
-            android:visibility="invisible"
-            tools:visibility="visible">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/refresh_action"
-                style="@style/Widget.Material3.FloatingActionButton.Primary"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/filterpane"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="?colorSurfaceVariant"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="16dp"
+            tools:layout_gravity="end">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/sortmode_label"
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/general_sort_options_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/sortmode_group"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:checkedButton="@id/sortmode_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/sortmode_direction"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sortmode_label"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sortmode_name"
+                    style="@style/SDMButton.Outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/appcontrol_list_sortmode_name_label" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sortmode_updated"
+                    style="@style/SDMButton.Outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/appcontrol_list_sortmode_updated_label" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sortmode_installed"
+                    style="@style/SDMButton.Outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/appcontrol_list_sortmode_installed_label" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sortmode_packagename"
+                    style="@style/SDMButton.Outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/appcontrol_list_sortmode_packagename_label" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sortmode_size"
+                    style="@style/SDMButton.Outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/appcontrol_list_sortmode_size_label" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sortmode_direction"
+                style="@style/SDMButton.Icon.Filled.Tonal"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/general_sort_reverse_action"
+                app:icon="@drawable/ic_sort_ascending_24"
+                app:layout_constraintBottom_toBottomOf="@id/sortmode_group"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/sortmode_group"
+                app:layout_constraintTop_toTopOf="@id/sortmode_group" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tag_filters_label"
+                style="@style/TextAppearance.Material3.BodyLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="32dp"
-                android:contentDescription="@string/general_refresh_action"
-                android:src="@drawable/ic_baseline_refresh_24" />
-
-        </FrameLayout>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/filterpane"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:background="?colorSurfaceVariant"
-        android:clickable="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:padding="16dp"
-        tools:layout_gravity="">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/sortmode_label"
-            style="@style/TextAppearance.Material3.BodyLarge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/general_sort_options_label"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.button.MaterialButtonToggleGroup
-            android:id="@+id/sortmode_group"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="vertical"
-            app:checkedButton="@id/sortmode_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/sortmode_direction"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sortmode_label"
-            app:singleSelection="true">
+                android:layout_marginTop="8dp"
+                android:paddingVertical="16dp"
+                android:text="@string/general_tag_filter_label"
+                app:layout_constraintEnd_toStartOf="@id/tag_filter_clear_action"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sortmode_group" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/sortmode_name"
-                style="@style/SDMButton.Outlined"
-                android:layout_width="match_parent"
+                android:id="@+id/tag_filter_clear_action"
+                style="@style/SDMButton.Text"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:text="@string/appcontrol_list_sortmode_name_label" />
+                android:gravity="end|center_vertical"
+                android:paddingEnd="8dp"
+                android:text="@string/general_show_all_action"
+                app:layout_constraintBottom_toBottomOf="@id/tag_filters_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tag_filters_label"
+                app:layout_constraintTop_toTopOf="@id/tag_filters_label" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/sortmode_updated"
-                style="@style/SDMButton.Outlined"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/tag_filter_user_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_app_extra_24"
+                app:layout_constraintBottom_toBottomOf="@id/tag_filter_user_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tag_filter_user_switch" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/tag_filter_user_switch"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:text="@string/appcontrol_list_sortmode_updated_label" />
+                android:layout_marginStart="8dp"
+                android:text="@string/appcontrol_tag_user"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
+                app:layout_constraintTop_toBottomOf="@id/tag_filters_label" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/sortmode_installed"
-                style="@style/SDMButton.Outlined"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/tag_filter_system_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_apps"
+                app:layout_constraintBottom_toBottomOf="@id/tag_filter_system_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tag_filter_system_switch" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/tag_filter_system_switch"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:text="@string/appcontrol_list_sortmode_installed_label" />
+                android:layout_marginStart="8dp"
+                android:text="@string/appcontrol_tag_system"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
+                app:layout_constraintTop_toBottomOf="@id/tag_filter_user_switch" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/sortmode_packagename"
-                style="@style/SDMButton.Outlined"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/tag_filter_enabled_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_weather_sunny_24"
+                app:layout_constraintBottom_toBottomOf="@id/tag_filter_enabled_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tag_filter_enabled_switch" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/tag_filter_enabled_switch"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:text="@string/appcontrol_list_sortmode_packagename_label" />
+                android:layout_marginStart="8dp"
+                android:text="@string/appcontrol_tag_enabled"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
+                app:layout_constraintTop_toBottomOf="@id/tag_filter_system_switch" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/sortmode_size"
-                style="@style/SDMButton.Outlined"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/tag_filter_disabled_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_snowflake_24"
+                app:layout_constraintBottom_toBottomOf="@id/tag_filter_disabled_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tag_filter_disabled_switch" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/tag_filter_disabled_switch"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:text="@string/appcontrol_list_sortmode_size_label" />
-        </com.google.android.material.button.MaterialButtonToggleGroup>
+                android:layout_marginStart="8dp"
+                android:text="@string/appcontrol_tag_disabled"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
+                app:layout_constraintTop_toBottomOf="@id/tag_filter_enabled_switch" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/sortmode_direction"
-            style="@style/SDMButton.Icon.Filled.Tonal"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:contentDescription="@string/general_sort_reverse_action"
-            app:icon="@drawable/ic_sort_ascending_24"
-            app:layout_constraintBottom_toBottomOf="@id/sortmode_group"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/sortmode_group"
-            app:layout_constraintTop_toTopOf="@id/sortmode_group" />
+            <ImageView
+                android:id="@+id/tag_filter_active_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_app_extra_24"
+                app:layout_constraintBottom_toBottomOf="@id/tag_filter_active_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tag_filter_active_switch" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tag_filters_label"
-            style="@style/TextAppearance.Material3.BodyLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:paddingVertical="16dp"
-            android:text="@string/general_tag_filter_label"
-            app:layout_constraintEnd_toStartOf="@id/tag_filter_clear_action"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sortmode_group" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/tag_filter_clear_action"
-            style="@style/SDMButton.Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="end|center_vertical"
-            android:paddingEnd="8dp"
-            android:text="@string/general_show_all_action"
-            app:layout_constraintBottom_toBottomOf="@id/tag_filters_label"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tag_filters_label"
-            app:layout_constraintTop_toTopOf="@id/tag_filters_label" />
-
-        <ImageView
-            android:id="@+id/tag_filter_user_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_app_extra_24"
-            app:layout_constraintBottom_toBottomOf="@id/tag_filter_user_switch"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tag_filter_user_switch" />
-
-        <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/tag_filter_user_switch"
-            style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/appcontrol_tag_user"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
-            app:layout_constraintTop_toBottomOf="@id/tag_filters_label" />
-
-        <ImageView
-            android:id="@+id/tag_filter_system_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_apps"
-            app:layout_constraintBottom_toBottomOf="@id/tag_filter_system_switch"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tag_filter_system_switch" />
-
-        <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/tag_filter_system_switch"
-            style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/appcontrol_tag_system"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
-            app:layout_constraintTop_toBottomOf="@id/tag_filter_user_switch" />
-
-        <ImageView
-            android:id="@+id/tag_filter_enabled_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_weather_sunny_24"
-            app:layout_constraintBottom_toBottomOf="@id/tag_filter_enabled_switch"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tag_filter_enabled_switch" />
-
-        <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/tag_filter_enabled_switch"
-            style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/appcontrol_tag_enabled"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
-            app:layout_constraintTop_toBottomOf="@id/tag_filter_system_switch" />
-
-        <ImageView
-            android:id="@+id/tag_filter_disabled_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_snowflake_24"
-            app:layout_constraintBottom_toBottomOf="@id/tag_filter_disabled_switch"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tag_filter_disabled_switch" />
-
-        <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/tag_filter_disabled_switch"
-            style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/appcontrol_tag_disabled"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
-            app:layout_constraintTop_toBottomOf="@id/tag_filter_enabled_switch" />
-
-        <ImageView
-            android:id="@+id/tag_filter_active_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_app_extra_24"
-            app:layout_constraintBottom_toBottomOf="@id/tag_filter_active_switch"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tag_filter_active_switch" />
-
-        <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/tag_filter_active_switch"
-            style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/appcontrol_tag_active"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tag_filter_active_icon"
-            app:layout_constraintTop_toBottomOf="@id/tag_filter_disabled_switch" />
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/tag_filter_active_switch"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/appcontrol_tag_active"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tag_filter_active_icon"
+                app:layout_constraintTop_toBottomOf="@id/tag_filter_disabled_switch" />
 
 
-        <ImageView
-            android:id="@+id/tag_filter_notinstalled_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_cube_off_outline_24"
-            app:layout_constraintBottom_toBottomOf="@id/tag_filter_notinstalled_switch"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tag_filter_notinstalled_switch" />
+            <ImageView
+                android:id="@+id/tag_filter_notinstalled_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_cube_off_outline_24"
+                app:layout_constraintBottom_toBottomOf="@id/tag_filter_notinstalled_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tag_filter_notinstalled_switch" />
 
-        <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/tag_filter_notinstalled_switch"
-            style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/appcontrol_tag_not_installed"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tag_filter_notinstalled_icon"
-            app:layout_constraintTop_toBottomOf="@id/tag_filter_active_switch" />
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/tag_filter_notinstalled_switch"
+                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/appcontrol_tag_not_installed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tag_filter_notinstalled_icon"
+                app:layout_constraintTop_toBottomOf="@id/tag_filter_active_switch" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.drawerlayout.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
