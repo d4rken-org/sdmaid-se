@@ -125,12 +125,6 @@ class DashboardViewModel @Inject constructor(
         } else {
             launch {
                 releaseManager.checkEarlyAdopter()
-                when {
-                    releaseManager.releaseParty() -> {
-                        log(TAG) { "Release party required, navigating..." }
-                        DashboardFragmentDirections.actionDashboardFragmentToBetaGoodbyeFragment().navigate()
-                    }
-                }
             }
         }
     }
