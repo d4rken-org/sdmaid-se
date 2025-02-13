@@ -42,8 +42,6 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
     @Inject lateinit var theming: Theming
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        theming.setNavBarStyle(requireActivity(), Theming.NavBarStyle.PRIMARY)
-
         EdgeToEdgeHelper(requireActivity()).apply {
             insetsPadding(ui.root, left = true, right = true)
             insetsPadding(ui.list, top = true)
@@ -256,10 +254,4 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
 
         super.onViewCreated(view, savedInstanceState)
     }
-
-    override fun onDestroyView() {
-        theming.setNavBarStyle(requireActivity(), Theming.NavBarStyle.SURFACE)
-        super.onDestroyView()
-    }
-
 }
