@@ -11,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
+import eu.darken.sdmse.common.ui.updateLiftStatus
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DeduplicatorDetailsFragmentBinding
@@ -43,6 +44,9 @@ class DeduplicatorDetailsFragment : Fragment3(R.layout.deduplicator_details_frag
 
                 override fun onPageSelected(position: Int) {
                     vm.updatePage(pagerAdapter.data[position].identifier)
+                    pagerAdapter.getFragment(ui.viewpager.currentItem)?.view?.findViewById<View>(R.id.list)?.let {
+                        ui.appbarlayout.updateLiftStatus(it)
+                    }
                 }
 
                 override fun onPageScrollStateChanged(state: Int) {}
