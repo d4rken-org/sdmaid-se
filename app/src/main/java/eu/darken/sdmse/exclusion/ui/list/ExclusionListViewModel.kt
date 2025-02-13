@@ -28,8 +28,10 @@ import eu.darken.sdmse.exclusion.core.DefaultExclusions
 import eu.darken.sdmse.exclusion.core.ExclusionImporter
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.LegacyImporter
+import eu.darken.sdmse.exclusion.core.current
 import eu.darken.sdmse.exclusion.core.types.DefaultExclusion
 import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
@@ -242,7 +244,12 @@ class ExclusionListViewModel @Inject constructor(
         events.postValue(ExclusionListEvents.ImportSuccess(exclusion))
     }
 
-    private var stagedExport: Set<Exclusion>? = null
+    private var stagedExportIds: Set<ExclusionId>?
+        set(value) {
+            handle["stagedExportIds"] = value
+        }
+        get() = handle["stagedExportIds"]
+
     fun exportExclusions(items: Collection<ExclusionListAdapter.Item>) = launch {
         log(TAG) { "exportExclusions($items)" }
 
@@ -252,8 +259,8 @@ class ExclusionListViewModel @Inject constructor(
             return@launch
         }
 
-        val exclusion = items.map { it.exclusion }
-        stagedExport = exclusion.toSet()
+        val exclusion = items.map { it.exclusion.id }
+        stagedExportIds = exclusion.toSet()
 
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
         events.postValue(ExclusionListEvents.ExportEvent(intent, exclusion))
@@ -265,7 +272,9 @@ class ExclusionListViewModel @Inject constructor(
             return@launch
         }
 
-        val exportData = stagedExport ?: throw IllegalStateException("No staged export data available")
+        val exportIds = stagedExportIds ?: throw IllegalStateException("No staged export data available")
+
+        val exportData = exclusionManager.current().filter { exportIds.contains(it.id) }.toSet()
 
         val saveDir = DocumentFile.fromTreeUri(context, directoryUri)
             ?: throw IOException("Failed to access $directoryUri")
