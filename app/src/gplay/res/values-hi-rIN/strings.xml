@@ -19,5 +19,4 @@
     <string name="upgrade_screen_iap_action">एक-बार खरीदे</string>
     <string name="upgrade_screen_iap_action_hint">एकमुश्त खरीदारी का मूल्य %s है।</string>
     <string name="upgrade_screen_thanks_toast">आप सर्वश्रेष्ठ हैं! ❤️</string>
-    <string name="nudge_betagoodbye_negative_action">परीक्षण करते रहें</string>
 </resources>

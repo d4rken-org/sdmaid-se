@@ -15,10 +15,4 @@
     <string name="upgrade_screen_sponsor_action">Pengembangan sponsor</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatifnya adalah iklan, analitik, dan Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Terima kasih karena telah mendukung pengembangan sumber terbuka ❤️</string>
-    <string name="nudge_betagoodbye_title">Versi 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Terima kasih. Kita dapat sejauh ini berkat semua. Pengembangan pastinya berlanjut, sekarang dapat beralih ke versi Release.</string>
-    <string name="nudge_betagoodbye_hint">Ini sudah yang versi normal. Pilih tinggalkan pengujian dan nanti akan mendapat pembaruan yang Release.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Beralih versi tidak perlu memasang ulang aplikasi dengan meninggalkan pengujian dan menunggu Release berikutnya. Pembaruan normal dapat dilakukan saat ada versi lebih baru daripada Pre-release ini.</string>
-    <string name="nudge_betagoodbye_positive_action">Beralih ke versi Release</string>
-    <string name="nudge_betagoodbye_negative_action">Tetap mendapat Pre-release</string>
 </resources>

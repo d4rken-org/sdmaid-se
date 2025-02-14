@@ -15,10 +15,4 @@
     <string name="upgrade_screen_sponsor_action">Støtt utviklingen</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativet er annonser, analyser og Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Takk for at du støtter utviklingen som har åpen kildekode ❤️</string>
-    <string name="nudge_betagoodbye_title">Versjon 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Tusen takk. Sammen er vi kommet så langt. Utviklingen vil selvfølgelig fortsette, men du kan nå bytte til et mer stablit spor.</string>
-    <string name="nudge_betagoodbye_hint">Dette er allerede en normal versjon. Bare velge bort testing, slik at du kun mottar stabile utgivelser i fremtiden.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Du kan bytte uten å installere appen på nytt ved å forlate test-programmet og vente på neste utgivelse. En normal oppdatering er mulig når det er en versjon som er nyere enn pre-release.</string>
-    <string name="nudge_betagoodbye_positive_action">Bytt til stablit spor</string>
-    <string name="nudge_betagoodbye_negative_action">Fortsett med pre-release</string>
 </resources>

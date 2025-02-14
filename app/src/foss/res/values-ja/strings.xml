@@ -15,10 +15,4 @@
     <string name="upgrade_screen_sponsor_action">開発支援者</string>
     <string name="upgrade_screen_sponsor_action_hint">代替は広告や分析そしてGoogle Playになります</string>
     <string name="upgrade_screen_thanks_toast">オープンソースでの開発に協力してくれてありがとうございます ❤️</string>
-    <string name="nudge_betagoodbye_title">バージョン 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">ありがとうございます。私たちはこれまで一緒に作ってきました。開発はもちろん継続されますが、リリーストラックに切り替えることができます。</string>
-    <string name="nudge_betagoodbye_hint">これは既に通常のバージョンです。テストを解除すると、今後のリリースアップデートのみ受け取ることになります。</string>
-    <string name="nudge_betagoodbye_reinstall_note">テストプログラムを離れて次のリリースアップデートを待つことで、アプリを再インストールせずに切り替えることができます。 このプレリリースよりも新しいリリースバージョンがあれば、通常のアップデートが可能です。</string>
-    <string name="nudge_betagoodbye_positive_action">リリーストラックに切り替える</string>
-    <string name="nudge_betagoodbye_negative_action">プレリリースを入手し続ける</string>
 </resources>

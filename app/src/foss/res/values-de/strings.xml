@@ -15,10 +15,4 @@
     <string name="upgrade_screen_sponsor_action">Weiterentwicklung unterstützen</string>
     <string name="upgrade_screen_sponsor_action_hint">Die Alternative sind Anzeigen, Analysen und Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Vielen Dank für Deine Unterstützung der Open-Source-Entwicklung ❤️</string>
-    <string name="nudge_betagoodbye_title">Version 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Danke. Wir haben es nur gemeinsam so weit geschafft. Die Entwicklung wird natürlich fortgesetzt, aber du kannst jetzt auf den Release-Kanal wechseln.</string>
-    <string name="nudge_betagoodbye_hint">Dies ist bereits eine normale Version. Steig einfach aus dem Testprogramm aus, und du wirst in Zukunft nur noch Release-Updates erhalten.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Du kannst ohne Neuinstallation der App wechseln, indem du das Testprogramm verlässt und auf das nächste Release-Update wartest. Ein normales Update ist möglich, sobald eine neuere Version als diese Vorabversion verfügbar ist.</string>
-    <string name="nudge_betagoodbye_positive_action">Zum Release Track wechseln</string>
-    <string name="nudge_betagoodbye_negative_action">Weiter Pre-Releases erhalten</string>
 </resources>

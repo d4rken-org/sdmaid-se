@@ -26,10 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Consejos para solucionar problemas de actualizaciones no reconocidas:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">La sincronización de Play Store puede tardar. Prueba a reiniciar, borrar la caché de Google Play o simplemente espera.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Varias cuentas pueden confundir a Google Play. Cierra la sesión de otras cuentas o instala a través del sitio web de Google Play, que obliga las asociaciones con una cuenta específica.</string>
-    <string name="nudge_betagoodbye_title">Versión 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Gracias. Hemos llegado hasta aquí juntos. El desarrollo continuará, por supuesto, pero ahora se puede instalar SD Maid sin registrarte como testador en Google Play.</string>
-    <string name="nudge_betagoodbye_hint">No tienes que volver a instalar la aplicación. Esta ya es una versión normal. Simplemente opta por no participar en las pruebas y solo recibirás actualizaciones de versiones finales en el futuro.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Puedes cambiar de versión sin reinstalar la aplicación abandonando el programa de prueba y esperando a la próxima actualización. Una actualización normal es posible si existe una versión más reciente que esta versión preliminar.</string>
-    <string name="nudge_betagoodbye_positive_action">Salir del programa de pruebas</string>
-    <string name="nudge_betagoodbye_negative_action">Seguir probando</string>
 </resources>

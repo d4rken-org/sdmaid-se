@@ -16,5 +16,4 @@
     <string name="upgrade_screen_iap_action">ერთჯერადი შეძენა</string>
     <string name="upgrade_screen_iap_action_hint">ერთჯერადი შეძენა ღირს %s.</string>
     <string name="upgrade_screen_thanks_toast">Საუკეთესო ხარ! ❤️</string>
-    <string name="nudge_betagoodbye_negative_action">გააგრძელე ტესტირება</string>
 </resources>

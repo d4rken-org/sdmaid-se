@@ -19,5 +19,4 @@
     <string name="upgrade_screen_iap_action">Belian sekali</string>
     <string name="upgrade_screen_iap_action_hint">Kos pembelian sekali ialah %s.</string>
     <string name="upgrade_screen_thanks_toast">Anda lah yang terbaik! ❤️</string>
-    <string name="nudge_betagoodbye_negative_action">Teruskan menguji</string>
 </resources>

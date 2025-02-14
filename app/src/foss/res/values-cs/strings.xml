@@ -15,10 +15,4 @@
     <string name="upgrade_screen_sponsor_action">Sponzorovat vývoj</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativou jsou reklamy, analytika a Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Děkuji vám za podporu vývoje open-source ❤️</string>
-    <string name="nudge_betagoodbye_title">Verze 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Děkujeme. Tak daleko jsme se dostali jen společně. Vývoj bude samozřejmě pokračovat, ale nyní můžete přejít na hlavní vydání.</string>
-    <string name="nudge_betagoodbye_hint">Toto je již běžná verze. Stačí se odhlásit z testování a v budoucnu budete dostávat pouze hlavní aktualizace.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Nyní se můžete přepnout bez přeinstalování aplikace opuštěním testovacího programu a vyčkáním na další vydanou aktualizaci. Normální aktualizace je možná, jakmile je dostupná verze novější než toto předběžné vydání.</string>
-    <string name="nudge_betagoodbye_positive_action">Přejít na hlavní vydání</string>
-    <string name="nudge_betagoodbye_negative_action">Zachovat zkušební verzi</string>
 </resources>

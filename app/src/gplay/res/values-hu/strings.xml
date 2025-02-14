@@ -21,5 +21,4 @@
     <string name="upgrade_screen_iap_action">Egyszeri vásárlás</string>
     <string name="upgrade_screen_iap_action_hint">Az egyszeri vásárlás ára %s.</string>
     <string name="upgrade_screen_thanks_toast">Te vagy a legjobb! ❤️</string>
-    <string name="nudge_betagoodbye_negative_action">Folytasd a tesztelést</string>
 </resources>

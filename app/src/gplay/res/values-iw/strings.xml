@@ -17,7 +17,4 @@
     <string name="upgrade_screen_iap_action_hint">רכישה חד-פעמית עולה %s.</string>
     <string name="upgrade_screen_thanks_toast">אתם הכי טובים בעולם ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">שחזור קנייה</string>
-    <string name="nudge_betagoodbye_title">גרסא 1.0 🥳</string>
-    <string name="nudge_betagoodbye_positive_action">עזוב את תוכנית הבדיקות</string>
-    <string name="nudge_betagoodbye_negative_action">המשך לבדוק</string>
 </resources>

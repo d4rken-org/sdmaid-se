@@ -26,10 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Mẹo khắc phục sự cố cho các bản nâng cấp không được nhận dạng:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Đồng bộ hóa Cửa hàng Play có thể mất thời gian. Hãy thử khởi động lại, xóa bộ nhớ đệm của Google Play hoặc chỉ cần đợi.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Nhiều tài khoản có thể gây nhầm lẫn cho Google Play. Đăng xuất khỏi các tài khoản khác hoặc cài đặt thông qua trang web Google Play, trang này buộc liên kết với một tài khoản cụ thể.</string>
-    <string name="nudge_betagoodbye_title">Phiên bản 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Cảm ơn. Chúng tôi đã làm được điều này cùng nhau. Tất nhiên, quá trình phát triển sẽ tiếp tục nhưng giờ đây bạn có thể cài đặt SD Maid mà không cần chọn tham gia thử nghiệm trên Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Bạn không cần phải cài đặt lại ứng dụng. Đây đã là phiên bản bình thường rồi. Chỉ cần chọn không tham gia thử nghiệm và bạn sẽ chỉ nhận được các bản cập nhật phát hành trong tương lai.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Bạn có thể chuyển đổi mà không cần cài đặt lại ứng dụng bằng cách rời khỏi chương trình thử nghiệm và chờ bản cập nhật phát hành tiếp theo. Có thể cập nhật bình thường khi có phiên bản phát hành mới hơn phiên bản tiền phát hành này.</string>
-    <string name="nudge_betagoodbye_positive_action">Rời khỏi chương trình thử nghiệm</string>
-    <string name="nudge_betagoodbye_negative_action">Tiếp tục thử nghiệm</string>
 </resources>

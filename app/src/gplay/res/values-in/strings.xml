@@ -26,10 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Tips untuk memperbaiki peningkatan yang tidak dikenali:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinkronisasi Play Store dapat memakan waktu. Coba restart, bersihkan tembolok Google Play, atau tunggu saja.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Akun yang berbeda-beda dapat membuat pusing Google Play. Keluarlah dari akun-akun yang lain atau pasang aplikasinya dari situs web Google Play yang akan memaksa penghubungan dengan akun tertentu.</string>
-    <string name="nudge_betagoodbye_title">Versi 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Terima kasih. Kita dapat sejauh ini berkat semua. Pengembangan pastinya berlanjut, sekarang SD Maid dapat Anda pasang tanpa ikut pengujian di Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Tidak perlu memasang ulang aplikasi. Ini sudah yang versi normal. Pilih tinggalkan pengujian dan nanti akan mendapat pembaruan di masa depan.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Beralih versi tidak perlu instal ulang aplikasi dengan meninggalkan pengujian dan menunggu Release berikutnya. Pembaruan normal dapat dilakukan saat ada versi lebih baru daripada Pre-release ini.</string>
-    <string name="nudge_betagoodbye_positive_action">Tinggalkan pengujian</string>
-    <string name="nudge_betagoodbye_negative_action">Teruslah menguji</string>
 </resources>

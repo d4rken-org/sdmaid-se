@@ -21,5 +21,4 @@
     <string name="upgrade_screen_iap_action">一次購買</string>
     <string name="upgrade_screen_iap_action_hint">一次購買的費用為 %s。</string>
     <string name="upgrade_screen_thanks_toast">您是最棒的！❤️</string>
-    <string name="nudge_betagoodbye_negative_action">繼續測試</string>
 </resources>

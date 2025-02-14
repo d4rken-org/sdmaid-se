@@ -26,10 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Këshilla për zgjidhjen e problemeve për përmirësimet e panjohura:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinkronizimi i Play Store-it mund të marrë kohë. Provoni të rindizni, pastroni cache-in e Google Play ose thjesht prisni.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Llogaritë e shumta mund të habisin Google Play. Dilni nga llogaritë e tjera ose instaloni përmes faqes së internetit të Google Play, gjë që detyron lidhjet me një llogari specifike.</string>
-    <string name="nudge_betagoodbye_title">Versioni 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Ju faleminderit. Kemi arritur deri këtu vetëm së bashku. Zhvillimi do të vazhdojë sigurisht, por tani mund të instaloni SD Maid pa u zgjedhur për testim në Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Ju nuk keni nevojë të riinstaloni aplikacionin. Ky është tashmë një version normal. Thjesht hiqni dorë nga testimi dhe do të merrni vetëm përditësime të lëshimit në të ardhmen.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Mund të kaloni pa e riinstaluar aplikacionin duke lënë programin e testimit dhe duke pritur për përditësimin tjetër të lëshimit. Një përditësim normal është i mundur pasi të ketë një version lëshimi më të ri se ky publikim paraprak.</string>
-    <string name="nudge_betagoodbye_positive_action">Largohu nga programi i testimit</string>
-    <string name="nudge_betagoodbye_negative_action">Vazhdo testimin</string>
 </resources>
