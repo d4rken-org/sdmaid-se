@@ -16,5 +16,4 @@
     <string name="upgrade_screen_iap_action">ഒറ്റത്തവണ വാങ്ങൽ</string>
     <string name="upgrade_screen_iap_action_hint">ഒറ്റത്തവണ വാങ്ങലിന്റെ വില %s ആണ്.</string>
     <string name="upgrade_screen_thanks_toast">നന്ദി❤️</string>
-    <string name="nudge_betagoodbye_negative_action">പരിശോധന തുടരുക</string>
 </resources>

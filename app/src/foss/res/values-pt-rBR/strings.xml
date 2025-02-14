@@ -15,10 +15,4 @@
     <string name="upgrade_screen_sponsor_action">Desenvolvimento do patrocinador</string>
     <string name="upgrade_screen_sponsor_action_hint">A alternativa são anúncios, análises e Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Obrigado por apoiar o desenvolvimento de código aberto ❤️</string>
-    <string name="nudge_betagoodbye_title">Versão 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Obrigado. Chegamos a este ponto juntos. O desenvolvimento continuará, é claro, mas agora você pode mudar para rastrear o lançamento.</string>
-    <string name="nudge_betagoodbye_hint">Esta já é uma versão normal. Basta optar por não testar e você só receberá atualizações do lançamento no futuro.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Você pode alternar sem reinstalar o aplicativo saindo do programa de teste e aguardando a próxima atualização. Uma atualização normal é possível quando há uma versão mais recente do que esta pré-versão.</string>
-    <string name="nudge_betagoodbye_positive_action">Mudar para a rastrear o lançamento</string>
-    <string name="nudge_betagoodbye_negative_action">Continuar obtendo os pré-lançamentos</string>
 </resources>

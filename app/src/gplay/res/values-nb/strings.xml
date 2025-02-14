@@ -26,10 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Feilsøkingstips for ukjente oppgraderinger:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synkronisering med Play Butikk kan ta tid. Prøv å starte på nytt, tømme Google Play bufferen, eller bare vent.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Flere kontoer kan forvirre Google Play. Logg ut av andre kontoer eller installer via Google Play-nettstedet, som tvinger assosiasjoner til en spesifikk konto.</string>
-    <string name="nudge_betagoodbye_title">Versjon 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Tusen takk. Sammen er vi kommet så langt. Utviklingen vil selvfølgelig fortsette, men du kan nå installere SD Maid uten å melde deg inn for testing på Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Du trenger ikke å installere appen på nytt. Dette er allerede en normal versjon. Bare velge bort testing, slik at du kun mottar stabile utgivelser i fremtiden.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Du kan bytte uten å installere appen på nytt ved å forlate test-programmet og vente på neste utgivelse. En normal oppdatering er mulig når det er en versjon som er nyere enn pre-release.</string>
-    <string name="nudge_betagoodbye_positive_action">Forlat test-program</string>
-    <string name="nudge_betagoodbye_negative_action">Fortsett å teste</string>
 </resources>

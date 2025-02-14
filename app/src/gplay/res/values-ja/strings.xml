@@ -26,10 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">トラブルが起きた際のヒント</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Playストアの同期には時間がかかる場合があります。 そのまましばらくお待ちください。改善されない場合は、再起動するか、Playストアのキャッシュを削除してみてください。</string>
     <string name="upgrade_screen_restore_multiaccount_hint">複数のGoogleアカウントでログインしてあると、Playストアで不具合が発生する場合があります。 他のアカウントからログアウトするか、Web版Playストアからインストールすることで、正常にGoogleアカウントとの連携がされます。</string>
-    <string name="nudge_betagoodbye_title">バージョン 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">ありがとうございます。私たちはこれまで一緒に作ってきました。 開発はもちろん継続されますが、Google Playでテストすることを選択せずにSDメイドをインストールすることができます。</string>
-    <string name="nudge_betagoodbye_hint">アプリを再インストールする必要はありません。これは既に通常のバージョンです。 テストを解除するだけで、今後はリリースアップデートのみ受け取ることになります。</string>
-    <string name="nudge_betagoodbye_reinstall_note">テストプログラムを離れて次のリリースアップデートを待つことで、アプリを再インストールせずに切り替えることができます。 このプレリリースよりも新しいリリースバージョンがあれば、通常のアップデートが可能です。</string>
-    <string name="nudge_betagoodbye_positive_action">テストプログラムを終了する</string>
-    <string name="nudge_betagoodbye_negative_action">テスト中</string>
 </resources>

@@ -21,5 +21,4 @@
     <string name="upgrade_screen_iap_action">Engångsköp</string>
     <string name="upgrade_screen_iap_action_hint">Engångsköp kostar %s.</string>
     <string name="upgrade_screen_thanks_toast">Du är bäst! ❤️</string>
-    <string name="nudge_betagoodbye_negative_action">Fortsätt testa</string>
 </resources>

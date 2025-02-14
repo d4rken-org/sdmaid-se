@@ -26,10 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Tipy pro řešení problémů s nerozpoznaným navýšením licence:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synchronizace Obchodu Play může chvíli trvat. Zkuste restartovat, vymazat mezipaměť Google Play nebo prostě počkat.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Více účtů může zmást Google Play. Odhlaste se z ostatních účtů nebo nainstalujte přes webové stránky Google Play, což vynucuje asociace s konkrétním účtem.</string>
-    <string name="nudge_betagoodbye_title">Verze 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Děkujeme. Tak daleko jsme se dostali jen společně. Vývoj bude samozřejmě pokračovat, ale nyní si můžete SD Maid nainstalovat, aniž byste se museli přihlásit k testování na Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Aplikaci nemusíte znovu instalovat. Toto je již běžná verze. Stačí se odhlásit z testování a v budoucnu budete dostávat pouze hlavní aktualizace.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Nyní se můžete přepnout bez přeinstalování aplikace opuštěním testovacího programu a vyčkáním na další vydanou aktualizaci. Normální aktualizace je možná, jakmile je dostupná verze novější než toto předběžné vydání.</string>
-    <string name="nudge_betagoodbye_positive_action">Opustit program testování</string>
-    <string name="nudge_betagoodbye_negative_action">Nadále testovat</string>
 </resources>

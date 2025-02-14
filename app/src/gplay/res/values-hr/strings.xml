@@ -17,5 +17,4 @@
     <string name="upgrade_screen_iap_action">Jednokratna kupnja</string>
     <string name="upgrade_screen_iap_action_hint">Jednokratna kupnja košta %s.</string>
     <string name="upgrade_screen_thanks_toast">Najbolji ste! ❤️</string>
-    <string name="nudge_betagoodbye_negative_action">Nastavite s testiranjem</string>
 </resources>

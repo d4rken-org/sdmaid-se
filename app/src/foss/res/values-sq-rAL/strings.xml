@@ -15,10 +15,4 @@
     <string name="upgrade_screen_sponsor_action">Zhvillimi i sponsorëve</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativa janë reklamat, analitika dhe Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Faleminderit për mbështetjen e zhvillimit me burim të hapur ❤️</string>
-    <string name="nudge_betagoodbye_title">Versioni 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Ju faleminderit. Kemi arritur deri këtu vetëm së bashku. Zhvillimi do të vazhdojë sigurisht, por tani mund të kaloni në një këngë lëshimi.</string>
-    <string name="nudge_betagoodbye_hint">Ky është tashmë një version normal. Thjesht hiqni dorë nga testimi dhe do të merrni vetëm përditësime të lëshimit në të ardhmen.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Mund të kaloni pa e riinstaluar aplikacionin duke lënë programin e testimit dhe duke pritur për përditësimin tjetër të lëshimit. Një përditësim normal është i mundur pasi të ketë një version lëshimi më të ri se ky publikim paraprak.</string>
-    <string name="nudge_betagoodbye_positive_action">Kalo te lirimi i ri</string>
-    <string name="nudge_betagoodbye_negative_action">Vazhdoni të merrni publikime paraprake</string>
 </resources>

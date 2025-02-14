@@ -26,8 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Tipy na riešenie problémov s licenciou:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synchronizácia Obchodu Play môže chvíľu trvať. Skúste reštartovať, vymazať vyrovnávaciu pamäť Google Play alebo jednoducho počkajte.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Viaceré účty môžu zmiasť Google Play. Odhláste sa z iných účtov alebo nainštalujte prostredníctvom webovej stránky Google Play, čo si vynúti priradenie ku konkrétnemu účtu.</string>
-    <string name="nudge_betagoodbye_title">Verzia 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Ďakujem. Takto ďaleko sme to dotiahli len spolu. Vývoj bude samozrejme pokračovať, ale teraz si môžete nainštalovať SD Maid bez toho, aby ste sa prihlásili na testovanie na Google Play.</string>
-    <string name="nudge_betagoodbye_hint">Aplikáciu nemusíte znova inštalovať. Toto je už normálna verzia. Stačí sa odhlásiť z testovania a v budúcnosti budete dostávať iba aktualizácie vydaní.</string>
-    <string name="nudge_betagoodbye_negative_action">Pokračujte v testovaní</string>
 </resources>

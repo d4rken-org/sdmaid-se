@@ -10,5 +10,4 @@
     <string name="upgrade_screen_iap_action">ఒకేసారి కొనేయి</string>
     <string name="upgrade_screen_iap_action_hint">ఒకేసారి కొనేయడానికి %s అవుతుంది.</string>
     <string name="upgrade_screen_thanks_toast">మీరు అత్యుత్తమం❤️</string>
-    <string name="nudge_betagoodbye_negative_action">పరీక్షిస్తూ ఉండు</string>
 </resources>

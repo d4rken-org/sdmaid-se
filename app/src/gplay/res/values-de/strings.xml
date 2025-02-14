@@ -26,10 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Fehlerbehebungstipps bei nicht erkannten Upgrades:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Die Synchronisation im Play Store kann etwas dauern. Versuch es mit einem Neustart, leere den Google Play Cache oder warte einfach.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Mehrere Konten können Google Play durcheinanderbringen. Melde dich von anderen Konten ab oder installiere über die Google Play-Website, um die Zuordnung zu einem bestimmten Konto zu erzwingen.</string>
-    <string name="nudge_betagoodbye_title">Version 1.0 🥳</string>
-    <string name="nudge_betagoodbye_body">Danke. Wir haben es nur gemeinsam so weit geschafft. Die Entwicklung wird natürlich fortgesetzt, aber du kannst jetzt zum Release-Kanal wechseln.</string>
-    <string name="nudge_betagoodbye_hint">Dies ist bereits eine normale Version. Steig einfach aus dem Testprogramm aus, und du wirst in Zukunft nur noch Release-Updates erhalten.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Du kannst ohne Neuinstallation der App wechseln, indem du das Testprogramm verlässt und auf das nächste Release-Update wartest. Ein normales Update ist möglich, sobald eine neuere Version als diese Vorabversion verfügbar ist.</string>
-    <string name="nudge_betagoodbye_positive_action">Testprogramm verlassen</string>
-    <string name="nudge_betagoodbye_negative_action">Weiter testen</string>
 </resources>

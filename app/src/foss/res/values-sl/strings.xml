@@ -15,10 +15,4 @@
     <string name="upgrade_screen_sponsor_action">Podpri razvoj</string>
     <string name="upgrade_screen_sponsor_action_hint">Druga možnost so oglasi, analitika in Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Hvala, ker podpirate odprtokodni razvoj. ❤️</string>
-    <string name="nudge_betagoodbye_title">Različica 1.0</string>
-    <string name="nudge_betagoodbye_body">Hvala.  Samo skupaj smo prišli tako daleč.  Seveda se bo razvoj nadaljeval, vendar lahko sedaj preklopite na izdajno različico.</string>
-    <string name="nudge_betagoodbye_hint">To je že običajna različica.  Zapustite preizkusno različico in v prihodnje boste prejemali samo običajne posodobitve.</string>
-    <string name="nudge_betagoodbye_reinstall_note">Preklopite lahko brez ponovne namestitve programa tako, da zapustite preizkusni program in počakate na posodobitev.  Ko je enkrat na voljo izdajna različica, ki je novejša od te predizdajne, se bo program posodobil kot običajno.</string>
-    <string name="nudge_betagoodbye_positive_action">Preklopi na izdajno različico</string>
-    <string name="nudge_betagoodbye_negative_action">Še naprej prejemaj predizdaje</string>
 </resources>
