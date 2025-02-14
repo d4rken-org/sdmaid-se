@@ -83,25 +83,6 @@
                 app:layout_constraintEnd_toStartOf="@id/fastscroller"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <FrameLayout
-                android:id="@+id/refresh_action_container"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/general_refresh_action"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/refresh_action"
-                    style="@style/Widget.Material3.FloatingActionButton.Primary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="32dp"
-                    android:contentDescription="@string/general_refresh_action"
-                    android:src="@drawable/ic_baseline_refresh_24" />
-
-            </FrameLayout>
-
             <eu.darken.sdmse.common.progress.ProgressOverlayView
                 android:id="@+id/loading_overlay"
                 android:layout_width="match_parent"
@@ -357,5 +338,25 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.drawerlayout.widget.DrawerLayout>
+
+
+    <FrameLayout
+        android:id="@+id/refresh_action_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:contentDescription="@string/general_refresh_action"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/refresh_action"
+            style="@style/Widget.Material3.FloatingActionButton.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:contentDescription="@string/general_refresh_action"
+            android:src="@drawable/ic_baseline_refresh_24" />
+
+    </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
