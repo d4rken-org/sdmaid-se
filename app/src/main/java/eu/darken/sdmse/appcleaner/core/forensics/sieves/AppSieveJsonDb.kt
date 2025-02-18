@@ -1,11 +1,11 @@
-package eu.darken.sdmse.appcleaner.core.forensics.sieves.json
+package eu.darken.sdmse.appcleaner.core.forensics.sieves
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.areas.DataArea
 
 @JsonClass(generateAdapter = true)
-data class SieveJsonDb(
+data class AppSieveJsonDb(
     @Json(name = "schemaVersion") val schemaVersion: Int,
     @Json(name = "appFilter") val appFilters: List<AppFilter>
 ) {

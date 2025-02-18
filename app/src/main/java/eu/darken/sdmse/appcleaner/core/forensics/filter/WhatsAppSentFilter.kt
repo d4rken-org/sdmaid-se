@@ -9,7 +9,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
-import eu.darken.sdmse.appcleaner.core.forensics.sieves.dynamic.DynamicSieve
+import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -25,11 +25,11 @@ import javax.inject.Provider
 
 @Reusable
 class WhatsAppSentFilter @Inject constructor(
-    private val dynamicSieveFactory: DynamicSieve.Factory,
+    private val dynamicSieveFactory: DynamicAppSieve.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseExpendablesFilter() {
 
-    private lateinit var sieve: DynamicSieve
+    private lateinit var sieve: DynamicAppSieve
 
     override suspend fun initialize() {
         log(TAG) { "initialize()" }
@@ -55,7 +55,7 @@ class WhatsAppSentFilter @Inject constructor(
                 )
             }
             .map { (location, pkg, folder1, folder2) ->
-                DynamicSieve.MatchConfig(
+                DynamicAppSieve.MatchConfig(
                     pkgNames = setOf(pkg.toPkgId()),
                     areaTypes = setOf(location),
                     contains = setOf("$folder1/Media/$folder2"),

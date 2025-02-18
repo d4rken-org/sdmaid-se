@@ -9,7 +9,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
-import eu.darken.sdmse.appcleaner.core.forensics.sieves.dynamic.DynamicSieve
+import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -25,15 +25,15 @@ import javax.inject.Provider
 
 @Reusable
 class WeChatFilter @Inject constructor(
-    private val dynamicSieveFactory: DynamicSieve.Factory,
+    private val dynamicSieveFactory: DynamicAppSieve.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseExpendablesFilter() {
 
-    private lateinit var sieve: DynamicSieve
+    private lateinit var sieve: DynamicAppSieve
 
     override suspend fun initialize() {
         log(TAG) { "initialize()" }
-        val configSD = DynamicSieve.MatchConfig(
+        val configSD = DynamicAppSieve.MatchConfig(
             pkgNames = setOf("com.tencent.mm".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD),
             startsWith = setOf(
@@ -47,7 +47,7 @@ class WeChatFilter @Inject constructor(
             ),
             exclusions = setOf(".nomedia"),
         )
-        val configPub = DynamicSieve.MatchConfig(
+        val configPub = DynamicAppSieve.MatchConfig(
             pkgNames = setOf("com.tencent.mm".toPkgId()),
             areaTypes = setOf(DataArea.Type.PUBLIC_DATA),
             startsWith = setOf(
@@ -61,7 +61,7 @@ class WeChatFilter @Inject constructor(
             ),
             exclusions = setOf(".nomedia"),
         )
-        val configPriv = DynamicSieve.MatchConfig(
+        val configPriv = DynamicAppSieve.MatchConfig(
             pkgNames = setOf("com.tencent.mm".toPkgId()),
             areaTypes = setOf(DataArea.Type.PRIVATE_DATA),
             startsWith = setOf(

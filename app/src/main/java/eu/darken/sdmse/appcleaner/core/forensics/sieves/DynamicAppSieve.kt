@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.forensics.sieves.dynamic
+package eu.darken.sdmse.appcleaner.core.forensics.sieves
 
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
@@ -15,7 +15,7 @@ import eu.darken.sdmse.common.isNotNullOrEmpty
 import eu.darken.sdmse.common.pkgs.Pkg
 
 
-class DynamicSieve @AssistedInject constructor(
+class DynamicAppSieve @AssistedInject constructor(
     @Assisted private val configs: Set<MatchConfig>,
 ) {
 
@@ -119,6 +119,6 @@ class DynamicSieve @AssistedInject constructor(
 
     @AssistedFactory
     interface Factory {
-        fun create(configs: Set<MatchConfig>): DynamicSieve
+        fun create(configs: Set<MatchConfig>): DynamicAppSieve
     }
 }

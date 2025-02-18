@@ -2,8 +2,8 @@ package eu.darken.sdmse.appcleaner.core.forensics
 
 import android.content.Context
 import android.content.res.AssetManager
-import eu.darken.sdmse.appcleaner.core.forensics.sieves.dynamic.DynamicSieve
-import eu.darken.sdmse.appcleaner.core.forensics.sieves.json.JsonBasedSieve
+import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve
+import eu.darken.sdmse.appcleaner.core.forensics.sieves.JsonAppSieve
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataArea.Type
 import eu.darken.sdmse.common.areas.DataAreaManager
@@ -382,9 +382,9 @@ abstract class BaseFilterTest : BaseTest() {
 
     }
 
-    fun createJsonSieveFactory() = object : JsonBasedSieve.Factory {
-        override fun create(assetPath: String): JsonBasedSieve {
-            return JsonBasedSieve(
+    fun createJsonSieveFactory() = object : JsonAppSieve.Factory {
+        override fun create(assetPath: String): JsonAppSieve {
+            return JsonAppSieve(
                 context = context,
                 assetPath = assetPath,
                 moshi = SerializationAppModule().moshi(),
@@ -392,9 +392,9 @@ abstract class BaseFilterTest : BaseTest() {
         }
     }
 
-    fun createDynamicSieveFactory() = object : DynamicSieve.Factory {
-        override fun create(configs: Set<DynamicSieve.MatchConfig>): DynamicSieve {
-            return DynamicSieve(
+    fun createDynamicSieveFactory() = object : DynamicAppSieve.Factory {
+        override fun create(configs: Set<DynamicAppSieve.MatchConfig>): DynamicAppSieve {
+            return DynamicAppSieve(
                 configs = configs,
             )
         }

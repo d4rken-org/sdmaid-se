@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.forensics.sieves.dynamic
+package eu.darken.sdmse.appcleaner.core.forensics.sieves
 
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.segs
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 
-class DynamicSieveTest : BaseTest() {
+class DynamicAppSieveTest : BaseTest() {
 
     @BeforeEach
     fun setup() {
@@ -17,8 +17,8 @@ class DynamicSieveTest : BaseTest() {
     }
 
     fun create(
-        configs: Set<DynamicSieve.MatchConfig>
-    ): DynamicSieve = DynamicSieve(configs)
+        configs: Set<DynamicAppSieve.MatchConfig>
+    ): DynamicAppSieve = DynamicAppSieve(configs)
 
     @Test fun `invalid empty file`() {
         shouldThrowAny {
@@ -28,12 +28,12 @@ class DynamicSieveTest : BaseTest() {
 
     @Test fun `invalid app filter`() {
         shouldThrowAny {
-            create(setOf(DynamicSieve.MatchConfig()))
+            create(setOf(DynamicAppSieve.MatchConfig()))
         }
     }
 
     @Test fun `location condition`() {
-        val config = DynamicSieve.MatchConfig(
+        val config = DynamicAppSieve.MatchConfig(
             areaTypes = setOf(DataArea.Type.SDCARD),
             contains = setOf("a/test/path")
         )
@@ -54,7 +54,7 @@ class DynamicSieveTest : BaseTest() {
     }
 
     @Test fun testBadMatch() {
-        val config = DynamicSieve.MatchConfig(
+        val config = DynamicAppSieve.MatchConfig(
             areaTypes = setOf(DataArea.Type.SDCARD),
             contains = setOf("a/test/path")
         )
@@ -75,7 +75,7 @@ class DynamicSieveTest : BaseTest() {
     }
 
     @Test fun testCaseSensitivity() {
-        val config = DynamicSieve.MatchConfig(
+        val config = DynamicAppSieve.MatchConfig(
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PRIVATE_DATA),
             contains = setOf("a/test/path")
         )
@@ -101,7 +101,7 @@ class DynamicSieveTest : BaseTest() {
     }
 
     @Test fun `startsWith ie inclusive`() {
-        val config = DynamicSieve.MatchConfig(
+        val config = DynamicAppSieve.MatchConfig(
             areaTypes = setOf(DataArea.Type.SDCARD),
             startsWith = setOf("a/test/path")
         )
@@ -128,7 +128,7 @@ class DynamicSieveTest : BaseTest() {
     }
 
     @Test fun `ancestors ie exclusive`() {
-        val config = DynamicSieve.MatchConfig(
+        val config = DynamicAppSieve.MatchConfig(
             areaTypes = setOf(DataArea.Type.SDCARD),
             ancestors = setOf("a/test/path")
         )
@@ -155,7 +155,7 @@ class DynamicSieveTest : BaseTest() {
     }
 
     @Test fun testContains() {
-        val config = DynamicSieve.MatchConfig(
+        val config = DynamicAppSieve.MatchConfig(
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PRIVATE_DATA, DataArea.Type.SYSTEM),
             contains = setOf("a/test/path")
         )
@@ -188,7 +188,7 @@ class DynamicSieveTest : BaseTest() {
     }
 
     @Test fun testRegex() {
-        val config = DynamicSieve.MatchConfig(
+        val config = DynamicAppSieve.MatchConfig(
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PRIVATE_DATA, DataArea.Type.SYSTEM),
             contains = setOf("a/test/path"),
             patterns = setOf("^(?>a*\\/[0-9a-z-]+\\/pa.+)$")
