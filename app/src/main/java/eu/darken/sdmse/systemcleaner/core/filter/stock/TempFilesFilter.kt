@@ -27,7 +27,6 @@ import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
-import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -44,10 +43,7 @@ class TempFilesFilter @Inject constructor(
 
     override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
         DataArea.Type.SDCARD,
-        DataArea.Type.PUBLIC_DATA,
-        DataArea.Type.PUBLIC_MEDIA,
         DataArea.Type.DATA,
-        DataArea.Type.PRIVATE_DATA,
         DataArea.Type.DATA_SYSTEM,
         DataArea.Type.DATA_SYSTEM_DE,
     )
@@ -70,22 +66,11 @@ class TempFilesFilter @Inject constructor(
                 SegmentCriterium(segs("backup", "pending"), mode = SegmentCriterium.Mode.Ancestor()),
                 SegmentCriterium(segs("cache", "recovery"), mode = SegmentCriterium.Mode.Ancestor()),
             ),
-            pfpExclusions = setOf(
-                SegmentCriterium(
-                    segs("com.drweb.pro.market", "files", "pro_settings"),
-                    mode = SegmentCriterium.Mode.Ancestor()
-                ), // TODO move to exclusion manager?
-            )
         )
-
 
         sieve = baseSieveFactory.create(config)
         log(TAG) { "initialized() with $config" }
     }
-
-    private val sdmTempFileRegex = Regex(
-        "(?:sdm_write_test-[0-9a-f-]+)".replace("/", "\\" + File.separator)
-    )
 
     override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
         return sieve.match(item).toDeletion()

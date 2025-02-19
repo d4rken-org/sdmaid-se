@@ -22,7 +22,7 @@ import eu.darken.sdmse.common.forensics.identifyArea
 import java.time.Duration
 
 class BaseSieve @AssistedInject constructor(
-    @Assisted private val config: Config,
+    @Assisted val config: Config,
     private val fileForensics: FileForensics,
 ) {
 
@@ -285,8 +285,8 @@ class BaseSieve @AssistedInject constructor(
     }
 
     data class Config(
-        val targetTypes: Set<TargetType>? = null,
         val areaTypes: Set<DataArea.Type>? = null,
+        val targetTypes: Set<TargetType>? = null,
         val pathCriteria: Set<SegmentCriterium>? = null,
         val pfpCriteria: Set<SegmentCriterium>? = null,
         val nameCriteria: Set<NameCriterium>? = null,

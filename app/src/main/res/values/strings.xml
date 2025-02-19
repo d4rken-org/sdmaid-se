@@ -263,8 +263,8 @@
     <string name="systemcleaner_filter_custom_label">Custom filter</string>
     <string name="systemcleaner_filter_custom_manage_label">Manage custom filters</string>
     <string name="systemcleaner_filter_custom_manage_summary">Create, delete, import and export your custom filters.</string>
-    <string name="systemcleaner_filter_logfiles_label">Log files</string>
-    <string name="systemcleaner_filter_logfiles_summary">Log files (*.log) from all over the device.</string>
+    <string name="systemcleaner_filter_logfiles_label">System log files</string>
+    <string name="systemcleaner_filter_logfiles_summary">System and system service log files (e.g. *.log) in various locations.</string>
     <string name="systemcleaner_filter_advertisements_label">Ad files</string>
     <string name="systemcleaner_filter_advertisements_summary">Files that have been created for or by advertisements.</string>
     <string name="systemcleaner_filter_anr_label">ANR errors</string>
@@ -289,8 +289,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Data that the Windows file explorer can create on connected storage."</string>
     <string name="systemcleaner_filter_thumbnails_label">Thumbnail images</string>
     <string name="systemcleaner_filter_thumbnails_summary">Cached previews for images and videos.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Temporary files</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Temporary files, usually short lived caches for active operations.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Temporary system files</string>
+    <string name="systemcleaner_filter_tempfiles_summary">System related temporary files, usually short lived caches for active operations.</string>
     <string name="systemcleaner_filter_analytics_label">Analytics files</string>
     <string name="systemcleaner_filter_analytics_summary">Data related to analytics and bug tracking.</string>
     <string name="systemcleaner_filter_downloadcache_label">Download cache</string>

@@ -20,7 +20,7 @@ import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
 
 @Reusable
-class DataSystemModule @Inject constructor(
+class DataVendorModule @Inject constructor(
     private val userManager2: UserManager2,
     private val gatewaySwitch: GatewaySwitch,
 ) : DataAreaModule {
@@ -37,8 +37,8 @@ class DataSystemModule @Inject constructor(
             .filter { it.type == DataArea.Type.DATA && it.hasFlags(DataArea.Flag.PRIMARY) }
             .map { parentArea ->
                 DataArea(
-                    type = DataArea.Type.DATA_SYSTEM,
-                    path = parentArea.path.child("system"),
+                    type = DataArea.Type.DATA_VENDOR,
+                    path = parentArea.path.child("vendor"),
                     userHandle = userManager2.systemUser().handle,
                     flags = parentArea.flags,
                 )
@@ -52,10 +52,10 @@ class DataSystemModule @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: DataSystemModule): DataAreaModule
+        @Binds @IntoSet abstract fun mod(mod: DataVendorModule): DataAreaModule
     }
 
     companion object {
-        val TAG: String = logTag("DataArea", "Module", "Data", "System")
+        val TAG: String = logTag("DataArea", "Module", "Data", "Vendor")
     }
 }
