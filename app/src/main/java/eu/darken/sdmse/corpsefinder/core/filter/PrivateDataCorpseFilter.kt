@@ -7,7 +7,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.UNTESTED_API
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
@@ -52,8 +51,9 @@ class PrivateDataCorpseFilter @Inject constructor(
             return emptySet()
         }
 
-        if (hasApiLevel(UNTESTED_API)) {
-            log(TAG, WARN) { "Untested API level ($UNTESTED_API) skipping for safety." }
+        // TODO needs to be checked on more rooted ROMs
+        if (hasApiLevel(36)) {
+            log(TAG, WARN) { "Untested API level (36) skipping for safety." }
             return emptySet()
         }
 
