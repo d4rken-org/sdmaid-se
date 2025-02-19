@@ -112,6 +112,26 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         path = storageData2.path.child("app-lib"),
     )
 
+    val storageDataVendor1 = storageData1.copy(
+        type = Type.DATA_VENDOR,
+        path = storageData1.path.child("vendor"),
+    )
+
+    val storageDataVendor2 = storageData2.copy(
+        type = Type.DATA_VENDOR,
+        path = storageData2.path.child("vendor"),
+    )
+
+    val storageDataMisc1 = storageData1.copy(
+        type = Type.DATA_MISC,
+        path = storageData1.path.child("misc"),
+    )
+
+    val storageDataMisc2 = storageData2.copy(
+        type = Type.DATA_MISC,
+        path = storageData2.path.child("misc"),
+    )
+
     val storageDataSystem1 = storageData1.copy(
         type = Type.DATA_SYSTEM,
         path = storageData1.path.child("system"),
@@ -160,6 +180,20 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     val storageDalvikProfile2 = storageData2.copy(
         type = Type.DALVIK_PROFILE,
         path = storageData2.path.child("dalvik-cache", "profiles"),
+    )
+
+    val storagePrivateData1 = DataArea(
+        flags = setOf(DataArea.Flag.PRIMARY),
+        type = Type.PRIVATE_DATA,
+        path = LocalPath.build("/data_mirror", "data_de", "null", "0"),
+        userHandle = UserHandle2(0),
+    )
+
+    val storagePrivateData2 = DataArea(
+        flags = setOf(DataArea.Flag.PRIMARY),
+        type = Type.PRIVATE_DATA,
+        path = LocalPath.build("/data_mirror", "data_ce", "null", "0"),
+        userHandle = UserHandle2(0),
     )
 
     val storageSdcard1 = DataArea(
@@ -231,6 +265,10 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         storageDataAppPrivate2,
         storageDataAppLib1,
         storageDataAppLib2,
+        storageDataVendor1,
+        storageDataVendor2,
+        storageDataMisc1,
+        storageDataMisc2,
         storageDataSystem1,
         storageDataSystem2,
         storageDataSystemCE1,
@@ -241,6 +279,8 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         storageDalvikDex2,
         storageDalvikProfile1,
         storageDalvikProfile2,
+        storagePrivateData1,
+        storagePrivateData2,
         storageSdcard1,
         storageSdcard2,
         storageAndroidData1,
@@ -397,6 +437,8 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         }
 
         data class Size(val size: Long) : Flag
+
+        data class LastModified(val modifiedAt: Instant) : Flag
     }
 
     suspend fun pos(location: Type, path: String, vararg flags: Flag) {
@@ -432,6 +474,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                 require(!(flagsCollection.contains(Flag.Dir) && flagsCollection.contains(Flag.File))) { "Can't be both file and dir." }
 
                 val sizeFlag = flags.filterIsInstance<Flag.Size>().singleOrNull()
+                val lastModifiedFlag = flags.filterIsInstance<Flag.LastModified>().singleOrNull()
 
                 val mockPath = area.path.child(targetPath)
                 val mockLookup = when (area.path.pathType) {
@@ -449,7 +492,10 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                             flagsCollection.contains(Flag.Dir) -> 512L
                             else -> 1024 * 1024L
                         },
-                        modifiedAt = Instant.EPOCH,
+                        modifiedAt = when {
+                            lastModifiedFlag != null -> lastModifiedFlag.modifiedAt
+                            else -> Instant.EPOCH
+                        },
                         target = null,
                     )
 
@@ -463,7 +509,10 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                                 flagsCollection.contains(Flag.Dir) -> 512L
                                 else -> 1024 * 1024L
                             }
-                            every { lastModified } returns Instant.EPOCH
+                            every { lastModified } returns when {
+                                lastModifiedFlag != null -> lastModifiedFlag.modifiedAt
+                                else -> Instant.EPOCH
+                            }
                         },
                     )
 

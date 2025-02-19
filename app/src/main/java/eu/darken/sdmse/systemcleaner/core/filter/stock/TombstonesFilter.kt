@@ -24,7 +24,6 @@ import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
-import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import javax.inject.Inject
@@ -41,27 +40,34 @@ class TombstonesFilter @Inject constructor(
 
     override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_tombstones_summary.toCaString()
 
-    override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
-        DataArea.Type.DATA,
-    )
+    override suspend fun targetAreas(): Set<DataArea.Type> = sieves.map { it.config.areaTypes!! }.flatten().toSet()
 
-    private lateinit var sieve: BaseSieve
+    private lateinit var sieves: List<BaseSieve>
 
     override suspend fun initialize() {
-        val config = BaseSieve.Config(
+        val toLoad = mutableListOf<BaseSieve.Config>()
+
+        BaseSieve.Config(
             targetTypes = setOf(BaseSieve.TargetType.FILE),
-            areaTypes = targetAreas(),
-            pfpCriteria = setOf(
-                SegmentCriterium(segs("tombstones"), mode = SegmentCriterium.Mode.Ancestor()),
-            ),
-        )
-        sieve = baseSieveFactory.create(config)
-        log(TAG) { "initialized() with $config" }
+            areaTypes = setOf(DataArea.Type.DATA),
+            pfpCriteria = setOf(SegmentCriterium(segs("tombstones"), mode = SegmentCriterium.Mode.Ancestor())),
+        ).run { toLoad.add(this) }
+        BaseSieve.Config(
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
+            areaTypes = setOf(DataArea.Type.DATA_VENDOR),
+            pfpCriteria = setOf(SegmentCriterium(segs("tombstones"), mode = SegmentCriterium.Mode.Ancestor())),
+        ).run { toLoad.add(this) }
+
+        log(TAG) { "initialized() with $toLoad" }
+        sieves = toLoad.map { baseSieveFactory.create(it) }
     }
 
 
     override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
-        return sieve.match(item).toDeletion()
+        val match = sieves.firstOrNull { it.match(item).matches }
+        if (match == null) return null
+
+        return SystemCleanerFilter.Match.Deletion(item)
     }
 
     override suspend fun process(matches: Collection<SystemCleanerFilter.Match>) {

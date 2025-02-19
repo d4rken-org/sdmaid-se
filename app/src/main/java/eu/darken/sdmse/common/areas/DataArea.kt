@@ -42,6 +42,8 @@ data class DataArea(
         @Json(name = "DALVIK_PROFILE") DALVIK_PROFILE("DALVIK_PROFILE"),
         @Json(name = "DOWNLOAD_CACHE") DOWNLOAD_CACHE("DOWNLOAD_CACHE"),
         @Json(name = "DATA") DATA("DATA"),
+        @Json(name = "DATA_MISC") DATA_MISC("DATA_MISC"),
+        @Json(name = "DATA_VENDOR") DATA_VENDOR("DATA_VENDOR"),
         @Json(name = "DATA_SYSTEM") DATA_SYSTEM("DATA_SYSTEM"),
 
         /**

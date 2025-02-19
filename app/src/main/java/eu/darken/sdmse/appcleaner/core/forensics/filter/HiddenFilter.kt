@@ -9,7 +9,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
-import eu.darken.sdmse.appcleaner.core.forensics.sieves.json.JsonBasedSieve
+import eu.darken.sdmse.appcleaner.core.forensics.sieves.JsonAppSieve
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -27,14 +27,14 @@ import javax.inject.Provider
 
 @Reusable
 class HiddenFilter @Inject constructor(
-    private val jsonBasedSieveFactory: JsonBasedSieve.Factory,
+    private val jsonBasedSieveFactory: JsonAppSieve.Factory,
     environment: StorageEnvironment,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseExpendablesFilter() {
 
     private val cacheFolderPrefixes = environment.ourCacheDirs.map { it.name }
 
-    private lateinit var sieve: JsonBasedSieve
+    private lateinit var sieve: JsonAppSieve
 
     override suspend fun initialize() {
         log(TAG) { "initialize()" }

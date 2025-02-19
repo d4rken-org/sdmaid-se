@@ -8,8 +8,6 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaDrawable
@@ -17,24 +15,23 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.segs
+import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
 import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
 import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Provider
 
 @Reusable
 class LogFilesFilter @Inject constructor(
     private val baseSieveFactory: BaseSieve.Factory,
-    private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
@@ -44,26 +41,15 @@ class LogFilesFilter @Inject constructor(
 
     override suspend fun getDescription(): CaString = R.string.systemcleaner_filter_logfiles_summary.toCaString()
 
-    override suspend fun targetAreas(): Set<DataArea.Type> = setOf(
-        DataArea.Type.PRIVATE_DATA,
-        DataArea.Type.DATA_SYSTEM,
-        DataArea.Type.DATA_SYSTEM_CE,
-        DataArea.Type.DATA_SYSTEM_DE,
-        DataArea.Type.DOWNLOAD_CACHE,
-        DataArea.Type.SDCARD,
-        DataArea.Type.PUBLIC_DATA,
-    )
+    override suspend fun targetAreas(): Set<DataArea.Type> = sieves.map { it.config.areaTypes!! }.flatten().toSet()
 
-    private lateinit var sieve: BaseSieve
-    private lateinit var mediaLocations: Set<APath>
+    private lateinit var sieves: List<BaseSieve>
 
     override suspend fun initialize() {
-        mediaLocations = areaManager.currentAreas()
-            .map { it.path.child("media") }
-            .toSet()
+        val toLoad = mutableListOf<BaseSieve.Config>()
 
-        val config = BaseSieve.Config(
-            areaTypes = targetAreas(),
+        BaseSieve.Config(
+            areaTypes = setOf(DataArea.Type.SDCARD),
             targetTypes = setOf(BaseSieve.TargetType.FILE),
             nameCriteria = setOf(NameCriterium(".log", mode = NameCriterium.Mode.End())),
             pathExclusions = setOf(
@@ -74,26 +60,72 @@ class LogFilesFilter @Inject constructor(
                 SegmentCriterium(segs("leveldb"), mode = SegmentCriterium.Mode.Contain()),
                 SegmentCriterium(segs("shared_proto_db"), mode = SegmentCriterium.Mode.Contain()),
             ),
-            pfpExclusions = setOf(
-                SegmentCriterium(segs(".Trash"), mode = SegmentCriterium.Mode.Start(allowPartial = true)),
+        ).run { toLoad.add(this) }
+
+        BaseSieve.Config(
+            areaTypes = setOf(DataArea.Type.DOWNLOAD_CACHE),
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
+            nameCriteria = setOf(NameCriterium(".log", mode = NameCriterium.Mode.End())),
+        ).run { toLoad.add(this) }
+
+
+        BaseSieve.Config(
+            areaTypes = setOf(DataArea.Type.DATA_VENDOR),
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
+            nameCriteria = setOf(NameCriterium(".txt.old", mode = NameCriterium.Mode.End())),
+            pfpCriteria = setOf(
+                SegmentCriterium("radio/extended_logs".toSegs(), mode = SegmentCriterium.Mode.Ancestor())
             )
-        )
-        sieve = baseSieveFactory.create(config)
-        log(TAG) { "initialized() with $config" }
+        ).run { toLoad.add(this) }
+
+        BaseSieve.Config(
+            areaTypes = setOf(DataArea.Type.DATA_VENDOR),
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
+            nameCriteria = setOf(NameCriterium("bt_activity_pkt.txt.last", mode = NameCriterium.Mode.Equal())),
+            pfpCriteria = setOf(SegmentCriterium("bluetooth".toSegs(), mode = SegmentCriterium.Mode.Ancestor()))
+        ).run { toLoad.add(this) }
+
+        BaseSieve.Config(
+            areaTypes = setOf(DataArea.Type.DATA_SYSTEM),
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
+            nameCriteria = setOf(NameCriterium("checkpoints-", mode = NameCriterium.Mode.Start())),
+            pfpCriteria = setOf(SegmentCriterium(segs("shutdown-checkpoints"), mode = SegmentCriterium.Mode.Ancestor()))
+        ).run { toLoad.add(this) }
+
+        BaseSieve.Config(
+            areaTypes = setOf(DataArea.Type.DATA_MISC),
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
+            nameCriteria = setOf(NameCriterium("update_engine.", mode = NameCriterium.Mode.Start())),
+            pfpCriteria = setOf(
+                SegmentCriterium("update_engine_log".toSegs(), mode = SegmentCriterium.Mode.Ancestor())
+            ),
+            minimumAge = Duration.ofDays(2),
+        ).run { toLoad.add(this) }
+
+        BaseSieve.Config(
+            areaTypes = setOf(DataArea.Type.DATA_MISC),
+            targetTypes = setOf(BaseSieve.TargetType.FILE),
+            nameCriteria = setOf(NameCriterium("last_kmsg.", mode = NameCriterium.Mode.Start())),
+            pfpCriteria = setOf(
+                SegmentCriterium("recovery".toSegs(), mode = SegmentCriterium.Mode.Ancestor())
+            ),
+        ).run { toLoad.add(this) }
+
+        BaseSieve.Config(
+            areaTypes = setOf(DataArea.Type.DATA),
+            targetTypes = setOf(BaseSieve.TargetType.FILE, BaseSieve.TargetType.DIRECTORY),
+            pfpCriteria = setOf(
+                SegmentCriterium("miuilog/stability/scout/app".toSegs(), mode = SegmentCriterium.Mode.Ancestor())
+            ),
+        ).run { toLoad.add(this) }
+
+        log(TAG) { "initialized() with $toLoad" }
+        sieves = toLoad.map { baseSieveFactory.create(it) }
     }
 
-
     override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
-        val sieveResult = sieve.match(item)
-        if (!sieveResult.matches) return null
-
-        // TODO Support SAF path matching?
-        // https://github.com/d4rken/sdmaid-public/issues/2147
-        val badTelegramMatch = EDGECASE_TELEGRAMX.matches(item.path)
-
-        // https://github.com/d4rken/sdmaid-public/issues/961
-        val overlap = mediaLocations.any { it.isAncestorOf(item) }
-        if (overlap || badTelegramMatch) return null
+        val match = sieves.firstOrNull { it.match(item).matches }
+        if (match == null) return null
 
         return SystemCleanerFilter.Match.Deletion(item)
     }

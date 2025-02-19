@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.forensics.sieves.json
+package eu.darken.sdmse.appcleaner.core.forensics.sieves
 
 import android.content.Context
 import android.content.res.AssetManager
@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import java.io.File
 
-class AssetsBasedSieveTest : BaseTest() {
+class JsonAppSieveTest : BaseTest() {
     private val context: Context = mockk()
     private val assetManager: AssetManager = mockk()
     private var testData: ByteArray? = null
@@ -29,7 +29,7 @@ class AssetsBasedSieveTest : BaseTest() {
         }
     }
 
-    fun create(path: String): JsonBasedSieve = JsonBasedSieve(path, context, baseMoshi)
+    fun create(path: String): JsonAppSieve = JsonAppSieve(path, context, baseMoshi)
 
     @Test fun `invalid empty file`() {
         shouldThrowAny {
