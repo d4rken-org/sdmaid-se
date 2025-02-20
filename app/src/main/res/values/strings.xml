@@ -265,6 +265,8 @@
     <string name="systemcleaner_filter_custom_manage_summary">Create, delete, import and export your custom filters.</string>
     <string name="systemcleaner_filter_logfiles_label">System log files</string>
     <string name="systemcleaner_filter_logfiles_summary">System and system service log files (e.g. *.log) in various locations.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Installer cache</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Cached data related to installed apps that is used by the system\'s package management.</string>
     <string name="systemcleaner_filter_advertisements_label">Ad files</string>
     <string name="systemcleaner_filter_advertisements_summary">Files that have been created for or by advertisements.</string>
     <string name="systemcleaner_filter_anr_label">ANR errors</string>

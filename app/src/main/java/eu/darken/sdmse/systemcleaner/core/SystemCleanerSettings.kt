@@ -51,6 +51,7 @@ class SystemCleanerSettings @Inject constructor(
     val filterScreenshotsAge = dataStore.createValue("filter.screenshots.age", SCREENSHOTS_AGE_DEFAULT, moshi)
 
     val filterTrashedEnabled = dataStore.createValue("filter.trashed.enabled", false)
+    val filterPackageCacheEnabled = dataStore.createValue("filter.packagecache.enabled", false)
 
     val enabledCustomFilter = dataStore.createValue(
         "filter.custom.enabled",
@@ -80,6 +81,7 @@ class SystemCleanerSettings @Inject constructor(
         filterRecentTasksEnabled,
         filterTombstonesEnabled,
         filterUsageStatsEnabled,
+        filterPackageCacheEnabled,
     )
 
     companion object {

@@ -51,6 +51,8 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
         get() = findPreference(settings.filterTombstonesEnabled.keyName)!!
     private val filterUsageStatsEnabled: BadgedCheckboxPreference
         get() = findPreference(settings.filterUsageStatsEnabled.keyName)!!
+    private val filterPackageCaches: BadgedCheckboxPreference
+        get() = findPreference(settings.filterPackageCacheEnabled.keyName)!!
     private val filterScreenshotsEnabled: CheckBoxPreference
         get() = findPreference(settings.filterScreenshotsEnabled.keyName)!!
     private val filterScreenshotsAge: Preference
@@ -92,6 +94,7 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
         filterRecentTasksEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
         filterTombstonesEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
         filterUsageStatsEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterPackageCaches.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -108,6 +111,7 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
             filterRecentTasksEnabled.isRestricted = !state.areSystemFilterAvailable
             filterTombstonesEnabled.isRestricted = !state.areSystemFilterAvailable
             filterUsageStatsEnabled.isRestricted = !state.areSystemFilterAvailable
+            filterPackageCaches.isRestricted = !state.areSystemFilterAvailable
         }
 
         vm.screenshotsAge.observe2(this) { age ->

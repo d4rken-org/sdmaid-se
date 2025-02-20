@@ -49,8 +49,8 @@
             app:title="@string/systemcleaner_filter_screenshots_label" />
         <Preference
             app:icon="@drawable/ic_file_clock_outline_24"
-            app:key="filter.screenshots.age"
             app:isPreferenceVisible="false"
+            app:key="filter.screenshots.age"
             app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_screenshots_age_summary"
             app:title="@string/systemcleaner_filter_screenshots_age_label" />
@@ -148,6 +148,13 @@
             app:singleLineTitle="false"
             app:summary="@string/systemcleaner_filter_usagestats_summary"
             app:title="@string/systemcleaner_filter_usagestats_label" />
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
+            app:icon="@drawable/ic_apps"
+            app:key="filter.packagecache.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/systemcleaner_filter_packagecaches_summary"
+            app:title="@string/systemcleaner_filter_packagecaches_label" />
 
     </PreferenceCategory>
 
