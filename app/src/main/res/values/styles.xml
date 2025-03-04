@@ -193,6 +193,8 @@
     <style name="SDMToolbar" parent="Widget.Material3.Toolbar">
         <item name="android:minHeight">?actionBarSize</item>
         <item name="navigationContentDescription">Navigate back</item>
+        <item name="statusBarScrim">?colorSurfaceVariant</item>
+        <item name="contentScrim">?colorSurfaceVariant</item>
     </style>
 
     <style name="SDMAppBar" parent="Widget.Material3.AppBarLayout">
