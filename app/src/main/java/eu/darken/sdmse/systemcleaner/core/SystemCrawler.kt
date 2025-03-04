@@ -16,11 +16,13 @@ import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
-import eu.darken.sdmse.common.files.endsWith
+import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.flow.throttleLatest
+import eu.darken.sdmse.common.forensics.FileForensics
+import eu.darken.sdmse.common.forensics.identifyArea
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
@@ -40,8 +42,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.flatMapMerge
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onCompletion
 import java.io.IOException
 import javax.inject.Inject
 
@@ -50,6 +54,7 @@ class SystemCrawler @Inject constructor(
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
+    private val forensics: FileForensics,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
@@ -73,19 +78,9 @@ class SystemCrawler @Inject constructor(
 
         val currentAreas = areaManager.currentAreas()
         val targetAreas = filters
-            .map { it.targetAreas() }
-            .flatten()
-            .toSet()
-            .map { type -> currentAreas.filter { it.type == type } }
-            .flatten()
-            .toSet()
+            .map { it.targetAreas() }.flatten().toSet()
+            .map { type -> currentAreas.filter { it.type == type } }.flatten().toSet()
         log(TAG) { "Target areas wanted by filters: $targetAreas" }
-
-        val sdcardSkips = mutableSetOf(
-            segs("Android", "data"),
-            segs("Android", "media"),
-            segs("Android", "obb"),
-        )
 
         val globalSkips = mutableSetOf<Segments>()
         if (targetAreas.all { it.path.segments != segs("", "data", "data") }) {
@@ -97,68 +92,88 @@ class SystemCrawler @Inject constructor(
 
         val sieveContents = mutableMapOf<FilterIdentifier, Set<SystemCleanerFilter.Match>>()
 
+//        var startTime = System.currentTimeMillis()
+//        var count = 0
+//        var totalRate = 0.0
+//        var numIntervals = 0
         gatewaySwitch.useRes {
             targetAreas
                 .asFlow()
-                .flowOn(dispatcherProvider.IO)
-                .flatMapMerge(3) { area ->
-                    val filter: suspend (APathLookup<*>) -> Boolean = when (area.type) {
-                        DataArea.Type.SDCARD -> filter@{ toCheck: APathLookup<*> ->
-                            if (sdcardSkips.any { toCheck.segments.endsWith(it) }) {
-                                log(TAG, INFO) { "Excluded $toCheck by global skip" }
-                                return@filter false
-                            }
+                .flowOn(dispatcherProvider.Default)
+                .flatMapMerge(2) { targetArea ->
+                    val filter: suspend (APathLookup<*>) -> Boolean = filter@{ toCheck: APathLookup<*> ->
+                        if (globalSkips.any { toCheck.segments.startsWith(it) }) {
+                            log(TAG, INFO) { "Excluded $toCheck by global skip" }
+                            return@filter false
+                        }
 
-                            exclusions.none { excl ->
-                                excl.match(toCheck).also { if (it) log(TAG, INFO) { "Excluded $toCheck by $excl" } }
+                        if (toCheck.isDirectory) {
+                            val area: DataArea? = forensics.identifyArea(toCheck)?.dataArea
+
+                            if (area?.type != targetArea.type) {
+                                if (Bugs.isTrace) log(TAG, VERBOSE) { "$targetArea does not match $area for $toCheck" }
+                                return@filter false
                             }
                         }
 
-                        else -> filter@{ toCheck: APathLookup<*> ->
-                            if (globalSkips.any { toCheck.segments.startsWith(it) }) {
-                                log(TAG, INFO) { "Excluded $toCheck by global skip" }
-                                return@filter false
-                            }
-
-                            exclusions.none { excl ->
-                                excl.match(toCheck).also { if (it) log(TAG, INFO) { "Excluded $toCheck by $excl" } }
-                            }
+                        exclusions.none { excl ->
+                            excl.match(toCheck).also { if (it) log(TAG, INFO) { "Excluded $toCheck by $excl" } }
                         }
                     }
-                    area.path.walk(
-                        gatewaySwitch,
-                        options = APathGateway.WalkOptions(
-                            onFilter = filter
+                    log(TAG) { "Scanning $targetArea" }
+
+                    targetArea.path
+                        .walk(
+                            gatewaySwitch,
+                            options = APathGateway.WalkOptions(onFilter = filter)
                         )
-                    ).map { area to it }
+                        .map { targetArea to it }
+                        .onCompletion { log(TAG) { "Finished scanning $targetArea" } }
                 }
-                .buffer(1024)
-                .collect { (area, item) ->
-                    if (Bugs.isTrace) log(TAG, VERBOSE) { "Trying to match $item" }
-                    updateProgressSecondary(item.path)
-                    val matched: Pair<SystemCleanerFilter, SystemCleanerFilter.Match>? = filters
-                        .filter { it.targetAreas().contains(area.type) }
-                        .firstNotNullOfOrNull { filter ->
-                            val match = try {
-                                filter.match(item)
-                            } catch (e: CancellationException) {
-                                throw e
-                            } catch (e: IOException) {
-                                log(TAG, WARN) { "IO error while matching ($filter): ${e.asLog()}" }
-                                null
-                            } catch (e: Exception) {
-                                log(TAG, ERROR) { "Sieve failed ($filter): ${e.asLog()}" }
-                                throw SystemCleanerFilterException(filter, e)
+//                .onEach {
+//                    count++
+//                    val elapsedTime = System.currentTimeMillis() - startTime
+//                    if (elapsedTime >= 1_000) { // 1 second elapsed
+//                        val rate = count.toDouble() / (elapsedTime / 1000.0)
+//                        totalRate += rate
+//                        numIntervals++
+//
+//                        val averageRate = totalRate / numIntervals
+//                        log(TAG, INFO) { "Emission rate : $averageRate items/sec" }
+//
+//                        startTime = System.currentTimeMillis()
+//                        count = 0
+//                    }
+//                }
+                .buffer(2048 * 4)
+                .flatMapMerge(4) { (area, item) ->
+                    flow {
+                        if (Bugs.isTrace) log(TAG, VERBOSE) { "Trying to match $item" }
+                        updateProgressSecondary(item.path)
+                        val matched: Pair<SystemCleanerFilter, SystemCleanerFilter.Match>? = filters
+                            .filter { it.targetAreas().contains(area.type) }
+                            .firstNotNullOfOrNull { filter ->
+                                val match = try {
+                                    filter.match(item)
+                                } catch (e: CancellationException) {
+                                    throw e
+                                } catch (e: IOException) {
+                                    log(TAG, WARN) { "IO error while matching ($filter): ${e.asLog()}" }
+                                    null
+                                } catch (e: Exception) {
+                                    log(TAG, ERROR) { "Sieve failed ($filter): ${e.asLog()}" }
+                                    throw SystemCleanerFilterException(filter, e)
+                                }
+                                if (match != null) filter to match else null
                             }
-                            if (match != null) filter to match else null
-                        }
-
-                    if (matched != null) {
-                        log(TAG, INFO) { "Filter match: $matched <- $item" }
-                        sieveContents[matched.first.identifier] =
-                            (sieveContents[matched.first.identifier] ?: emptySet()).plus(matched.second)
-                        matchesInternal.emit(MatchEvent(matched.first, item))
+                        if (matched != null) emit(item to matched)
                     }
+                }
+                .collect { (item, matched) ->
+                    log(TAG, INFO) { "Filter match: $matched <- $item" }
+                    sieveContents[matched.first.identifier] =
+                        (sieveContents[matched.first.identifier] ?: emptySet()).plus(matched.second)
+                    matchesInternal.emit(MatchEvent(matched.first, item))
                 }
         }
 
