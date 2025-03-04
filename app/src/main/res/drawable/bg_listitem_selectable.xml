@@ -3,7 +3,7 @@
     <item>
         <selector>
             <item android:state_activated="true">
-                <color android:color="?colorPrimaryContainer" />
+                <color android:color="?colorPrimaryVariant" />
             </item>
         </selector>
     </item>
