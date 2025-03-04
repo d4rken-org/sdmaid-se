@@ -38,15 +38,17 @@ class TelegramFilter @Inject constructor(
         DynamicAppSieve.MatchConfig(
             pkgNames = setOf("org.telegram.messenger".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
-            startsWith = setOf(
+            ancestors = setOf(
                 "Telegram/Telegram Audio",
                 "Telegram/Telegram Documents",
                 "Telegram/Telegram Images",
                 "Telegram/Telegram Video",
+                "Telegram/Telegram Stories",
                 "org.telegram.messenger/files/Telegram/Telegram Audio",
                 "org.telegram.messenger/files/Telegram/Telegram Documents",
                 "org.telegram.messenger/files/Telegram/Telegram Images",
                 "org.telegram.messenger/files/Telegram/Telegram Video",
+                "org.telegram.messenger/files/Telegram/Telegram Stories",
             ),
             exclusions = setOf(".nomedia"),
         ).let { configs.add(it) }
@@ -54,11 +56,12 @@ class TelegramFilter @Inject constructor(
         DynamicAppSieve.MatchConfig(
             pkgNames = setOf("org.telegram.plus".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD),
-            startsWith = setOf(
+            ancestors = setOf(
                 "Telegram/Telegram Audio",
                 "Telegram/Telegram Documents",
                 "Telegram/Telegram Images",
                 "Telegram/Telegram Video",
+                "Telegram/Telegram Stories",
             ),
             exclusions = setOf(".nomedia"),
         ).let { configs.add(it) }
@@ -66,11 +69,12 @@ class TelegramFilter @Inject constructor(
         DynamicAppSieve.MatchConfig(
             pkgNames = setOf("org.thunderdog.challegram".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
-            startsWith = setOf(
+            ancestors = setOf(
                 "Telegram/Telegram Audio",
                 "Telegram/Telegram Documents",
                 "Telegram/Telegram Images",
                 "Telegram/Telegram Video",
+                "Telegram/Telegram Stories",
                 "org.thunderdog.challegram/files/documents",
                 "org.thunderdog.challegram/files/music",
                 "org.thunderdog.challegram/files/videos",
@@ -78,6 +82,7 @@ class TelegramFilter @Inject constructor(
                 "org.thunderdog.challegram/files/animations",
                 "org.thunderdog.challegram/files/voice",
                 "org.thunderdog.challegram/files/photos",
+                "org.thunderdog.challegram/files/stories",
             ),
             exclusions = setOf(".nomedia"),
         ).let { configs.add(it) }
@@ -85,15 +90,17 @@ class TelegramFilter @Inject constructor(
         DynamicAppSieve.MatchConfig(
             pkgNames = setOf("ir.ilmili.telegraph".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
-            startsWith = setOf(
+            ancestors = setOf(
                 "Telegram/Telegram Audio",
                 "Telegram/Telegram Documents",
                 "Telegram/Telegram Images",
                 "Telegram/Telegram Video",
+                "Telegram/Telegram Stories",
                 "ir.ilmili.telegraph/files/Telegram/Telegram Audio",
                 "ir.ilmili.telegraph/files/Telegram/Telegram Documents",
                 "ir.ilmili.telegraph/files/Telegram/Telegram Images",
                 "ir.ilmili.telegraph/files/Telegram/Telegram Video",
+                "ir.ilmili.telegraph/files/Telegram/Telegram Stories",
             ),
             exclusions = setOf(".nomedia"),
         ).let { configs.add(it) }
@@ -101,15 +108,17 @@ class TelegramFilter @Inject constructor(
         DynamicAppSieve.MatchConfig(
             pkgNames = setOf("org.telegram.messenger.web".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
-            startsWith = setOf(
+            ancestors = setOf(
                 "Telegram/Telegram Audio",
                 "Telegram/Telegram Documents",
                 "Telegram/Telegram Images",
                 "Telegram/Telegram Video",
+                "Telegram/Telegram Stories",
                 "org.telegram.messenger.web/files/Telegram/Telegram Audio",
                 "org.telegram.messenger.web/files/Telegram/Telegram Documents",
                 "org.telegram.messenger.web/files/Telegram/Telegram Images",
                 "org.telegram.messenger.web/files/Telegram/Telegram Video",
+                "org.telegram.messenger.web/files/Telegram/Telegram Stories",
             ),
             exclusions = setOf(".nomedia"),
         ).let { configs.add(it) }
