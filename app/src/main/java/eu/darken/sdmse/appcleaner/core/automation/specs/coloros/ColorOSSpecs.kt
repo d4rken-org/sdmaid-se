@@ -20,6 +20,7 @@ import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
 import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idMatches
+import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.windowCriteria
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
@@ -113,14 +114,26 @@ class ColorOSSpecs @Inject constructor(
         }
 
         run {
-            // 16: className=android.widget.Button, text=Clear Cache, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings
-
             val clearCacheButtonLabels =
                 colorOSLabels.getClearCacheDynamic() + colorOSLabels.getClearCacheLabels(lang, script)
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
-            val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                return node.textMatchesAny(clearCacheButtonLabels)
+            var isUnclickableButton = false
+            val buttonFilter = when {
+                //------------12: text='null', className=android.widget.FrameLayout, isClickable=false, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings, identity=ebb882b
+                //-------------13: text='null', className=android.widget.LinearLayout, isClickable=false, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings, identity=7f41bda
+                //--------------14: text='null', className=android.widget.RelativeLayout, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/content_rl, pkgName=com.android.settings, identity=808780b
+                //---------------15: text='Clear cache', className=android.widget.Button, isClickable=false, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings, identity=3b0a6e8
+                hasApiLevel(35) -> fun(node: AccessibilityNodeInfo): Boolean {
+                    if (!node.textMatchesAny(clearCacheButtonLabels)) return false
+                    isUnclickableButton = !node.isClickyButton()
+                    return true
+                }
+
+                // 16: className=android.widget.Button, text=Clear Cache, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings
+                else -> fun(node: AccessibilityNodeInfo): Boolean {
+                    return node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
+                }
             }
 
             val recognizesName = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg)
@@ -139,6 +152,19 @@ class ColorOSSpecs @Inject constructor(
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowNodeTest = combined,
                 nodeTest = buttonFilter,
+                nodeMapping = when {
+                    hasApiLevel(35) -> {
+                        // Function that is evaluated later, has access to vars in this scope
+                        { node ->
+                            when {
+                                isUnclickableButton -> clickableParent().invoke(node)
+                                else -> node
+                            }
+                        }
+                    }
+
+                    else -> null
+                },
                 nodeRecovery = getDefaultNodeRecovery(pkg),
                 action = getAospClearCacheClick(pkg, TAG)
             )
