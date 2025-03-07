@@ -223,6 +223,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     SortSettings.Mode.LAST_UPDATE -> getRowItem(pos)?.lablrUpdated
                     SortSettings.Mode.INSTALLED_AT -> getRowItem(pos)?.lablrInstalled
                     SortSettings.Mode.SIZE -> getRowItem(pos)?.lablrSize
+                    SortSettings.Mode.USAGE -> getRowItem(pos)?.lablrUsage
                 }
                 FastScrollItemIndicator.Text(lbl ?: "?")
             }
@@ -260,6 +261,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 SortSettings.Mode.INSTALLED_AT -> R.id.sortmode_installed
                 SortSettings.Mode.PACKAGENAME -> R.id.sortmode_packagename
                 SortSettings.Mode.SIZE -> R.id.sortmode_size
+                SortSettings.Mode.USAGE -> R.id.sortmode_usage
             }
             sortmodeGroup.apply {
                 clearOnButtonCheckedListeners()
@@ -272,6 +274,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                         R.id.sortmode_installed -> SortSettings.Mode.INSTALLED_AT
                         R.id.sortmode_packagename -> SortSettings.Mode.PACKAGENAME
                         R.id.sortmode_size -> SortSettings.Mode.SIZE
+                        R.id.sortmode_usage -> SortSettings.Mode.USAGE
                         else -> throw IllegalArgumentException("Unknown sortmode $checkedId")
                     }
                     vm.updateSortMode(mode)

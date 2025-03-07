@@ -154,16 +154,6 @@ class PkgRepo @Inject constructor(
         return mergedData
     }
 
-    suspend fun refresh(
-        id: Pkg.Id,
-        userHandle: UserHandle2? = null
-    ): Collection<Installed> {
-        log(TAG) { "refresh(): $id" }
-        // TODO refreshing the whole cache is inefficient, implement single target refresh?
-        refresh()
-        return queryCache(id, userHandle).mapNotNull { it.data }
-    }
-
     suspend fun refresh(): Collection<Installed> {
         val before = cache.value()
         log(TAG) { "refresh()... (before=${before.pkgCount})" }

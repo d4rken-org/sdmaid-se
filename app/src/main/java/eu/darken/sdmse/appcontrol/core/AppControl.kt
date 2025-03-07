@@ -27,13 +27,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.PkgRepo
-import eu.darken.sdmse.common.pkgs.container.NormalPkg
-import eu.darken.sdmse.common.pkgs.current
 import eu.darken.sdmse.common.pkgs.features.Installed
-import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.isEnabled
-import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -68,12 +63,10 @@ import javax.inject.Singleton
 @Singleton
 class AppControl @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    private val pkgRepo: PkgRepo,
     private val userManager: UserManager2,
     private val componentToggler: ComponentToggler,
     private val forceStopper: ForceStopper,
     private val uninstaller: Uninstaller,
-    private val pkgOps: PkgOps,
     usageStatsSetupModule: UsageStatsSetupModule,
     storageSetupModule: StorageSetupModule,
     rootManager: RootManager,
@@ -82,9 +75,10 @@ class AppControl @Inject constructor(
     private val appExporterProvider: Provider<AppExporter>,
     private val appInventorySetupModule: InventorySetupModule,
     automationManager: AutomationManager,
+    private val appScan: AppScan,
 ) : SDMTool, Progress.Client {
 
-    private val usedResources = setOf(pkgOps)
+    private val usedResources = setOf(appScan)
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
     private val progressPub = MutableStateFlow<Progress.Data?>(null)
@@ -154,11 +148,17 @@ class AppControl @Inject constructor(
             throw IncompleteSetupException(SetupModule.Type.INVENTORY)
         }
 
-        val currentUserHandle = userManager.currentUser().handle
-        val pkgs = if (task.refreshPkgCache) pkgRepo.refresh() else pkgRepo.current()
-        val appInfos = pkgs
-            .filter { it.userHandle == currentUserHandle }
-            .map { it.toAppInfo() }
+
+        val appInfos = appScan.run {
+            if (task.refreshPkgCache) refresh()
+            val curState = state.first()
+            allApps(
+                user = userManager.currentUser().handle,
+                includeActive = curState.isActiveInfoAvailable,
+                includeSize = curState.isSizeInfoAvailable,
+                includeUsage = true // TODO
+            )
+        }
 
         internalData.value = Data(
             apps = appInfos
@@ -209,14 +209,21 @@ class AppControl @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val refreshed = pkgRepo.refresh()
+
+        val curState = state.first()
+        appScan.refresh()
 
         internalData.value = snapshot.copy(
             apps = snapshot.apps.map { app ->
                 when {
                     enabled.contains(app.installId) || disabled.contains(app.installId) || failed.contains(app.installId) -> {
                         // TODO if the app is suddenly no longer installed, show the user an error?
-                        refreshed.filter { it.id == app.id }.map { it.toAppInfo() }
+                        appScan.app(
+                            pkgId = app.id,
+                            includeSize = curState.isSizeInfoAvailable,
+                            includeActive = curState.isActiveInfoAvailable,
+                            includeUsage = true // TODO
+                        )
                     }
 
                     else -> setOf(app)
@@ -258,13 +265,19 @@ class AppControl @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val refreshed = pkgRepo.refresh()
+        val curState = state.first()
+        appScan.refresh()
 
         internalData.value = snapshot.copy(
             apps = snapshot.apps.map { app ->
                 when {
                     successful.contains(app.installId) || failed.contains(app.installId) -> {
-                        refreshed.filter { it.id == app.id }.map { it.toAppInfo() }
+                        appScan.app(
+                            pkgId = app.id,
+                            includeSize = curState.isSizeInfoAvailable,
+                            includeActive = curState.isActiveInfoAvailable,
+                            includeUsage = true // TODO
+                        )
                     }
 
                     else -> setOf(app)
@@ -345,20 +358,6 @@ class AppControl @Inject constructor(
         return ForceStopTask.Result(successful, failed)
     }
 
-    private suspend fun Installed.toAppInfo(): AppInfo {
-        val determineActive = state.first().isActiveInfoAvailable
-        val determineSizes = state.first().isSizeInfoAvailable
-
-        return AppInfo(
-            pkg = this,
-            isActive = if (determineActive) pkgOps.isRunning(installId) else null,
-            sizes = if (determineSizes) pkgOps.querySizeStats(installId) else null,
-            canBeToggled = this is NormalPkg,
-            canBeStopped = this is NormalPkg,
-            canBeExported = this is SourceAvailable,
-            canBeDeleted = true,
-        )
-    }
 
     data class State(
         val data: Data?,

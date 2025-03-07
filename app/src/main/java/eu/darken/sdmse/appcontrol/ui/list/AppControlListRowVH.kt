@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppInfo
+import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
@@ -39,7 +40,10 @@ class AppControlListRowVH(parent: ViewGroup) :
         secondary.text = appInfo.pkg.packageName
 
         @Suppress("SetTextI18n")
-        tertiary.text = "${appInfo.pkg.versionName ?: "?"}  (${appInfo.pkg.versionCode})"
+        tertiary.text = when (item.sortMode) {
+            SortSettings.Mode.USAGE -> item.appInfo.usage?.screenTime.toString()
+            else -> "${appInfo.pkg.versionName ?: "?"}  (${appInfo.pkg.versionCode})"
+        }
 
         sizes.apply {
             text = appInfo.sizes?.let { Formatter.formatShortFileSize(context, it.total) }
@@ -53,11 +57,13 @@ class AppControlListRowVH(parent: ViewGroup) :
 
     data class Item(
         override val appInfo: AppInfo,
+        val sortMode: SortSettings.Mode,
         val lablrName: String?,
         val lablrPkg: String?,
         val lablrUpdated: String?,
         val lablrInstalled: String?,
         val lablrSize: String?,
+        val lablrUsage: String?,
         val onItemClicked: (AppInfo) -> Unit,
     ) : AppControlListAdapter.Item, SelectableItem {
 

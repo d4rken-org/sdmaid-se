@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.text.format.DateUtils
 import android.text.format.Formatter
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -45,6 +46,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.transformLatest
+import java.time.Duration
 import java.time.Instant
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject
@@ -142,6 +144,14 @@ class AppControlListViewModel @Inject constructor(
                 ?.let { Formatter.formatShortFileSize(context, it) } ?: "?"
         }.also { lablrCacheSize[this.id] = it }
 
+    private val lablrCacheUsage = mutableMapOf<Pkg.Id, String>()
+    private val AppInfo.lablrUsage: String
+        get() = lablrCacheUsage[this.id] ?: run {
+            this.usage
+                ?.let { DateUtils.formatElapsedTime(it.screenTime.toSeconds()) }
+                ?: "?"
+        }.also { lablrCacheUsage[this.id] = it }
+
     data class DisplayOptions(
         val searchQuery: String,
         val listSort: SortSettings,
@@ -218,17 +228,23 @@ class AppControlListViewModel @Inject constructor(
                         SortSettings.Mode.SIZE -> compareBy {
                             it.sizes?.total ?: 0L
                         }
+
+                        SortSettings.Mode.USAGE -> compareBy {
+                            it.usage?.screenTime ?: Duration.ZERO
+                        }
                     }
                 )
                 ?.let { if (listSort.reversed) it.reversed() else it }
                 ?.map { content ->
                     AppControlListRowVH.Item(
                         appInfo = content,
+                        sortMode = listSort.mode,
                         lablrName = if (listSort.mode == SortSettings.Mode.NAME) content.lablrLabel else null,
                         lablrPkg = if (listSort.mode == SortSettings.Mode.PACKAGENAME) content.lablrPkg else null,
                         lablrInstalled = if (listSort.mode == SortSettings.Mode.INSTALLED_AT) content.lablrInstalled else null,
                         lablrUpdated = if (listSort.mode == SortSettings.Mode.LAST_UPDATE) content.lablrUpdated else null,
                         lablrSize = if (listSort.mode == SortSettings.Mode.SIZE) content.lablrSize else null,
+                        lablrUsage = if (listSort.mode == SortSettings.Mode.USAGE) content.lablrUsage else null,
                         onItemClicked = {
                             AppControlListFragmentDirections.actionAppControlListFragmentToAppActionDialog(
                                 content.pkg.id
