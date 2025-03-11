@@ -139,24 +139,6 @@
                     android:text="@string/appcontrol_list_sortmode_name_label" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/sortmode_updated"
-                    style="@style/SDMButton.Outlined"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:text="@string/appcontrol_list_sortmode_updated_label" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/sortmode_installed"
-                    style="@style/SDMButton.Outlined"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:text="@string/appcontrol_list_sortmode_installed_label" />
-
-                <com.google.android.material.button.MaterialButton
                     android:id="@+id/sortmode_packagename"
                     style="@style/SDMButton.Outlined"
                     android:layout_width="match_parent"
@@ -175,6 +157,24 @@
                     android:text="@string/appcontrol_list_sortmode_size_label" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sortmode_installed"
+                    style="@style/SDMButton.Outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/appcontrol_list_sortmode_installed_label" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sortmode_updated"
+                    style="@style/SDMButton.Outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/appcontrol_list_sortmode_updated_label" />
+
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/sortmode_screentime"
                     style="@style/SDMButton.Outlined"
                     android:layout_width="match_parent"
@@ -182,6 +182,7 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:text="@string/appcontrol_list_sortmode_screentime_label" />
+
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
             <com.google.android.material.button.MaterialButton
