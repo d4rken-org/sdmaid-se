@@ -229,11 +229,11 @@ class AppControlListViewModel @Inject constructor(
                         }
 
                         SortSettings.Mode.LAST_UPDATE -> compareBy {
-                            (it.pkg as? InstallDetails)?.updatedAt ?: Instant.EPOCH
+                            it.updatedAt ?: Instant.EPOCH
                         }
 
                         SortSettings.Mode.INSTALLED_AT -> compareBy {
-                            (it.pkg as? InstallDetails)?.installedAt ?: Instant.EPOCH
+                            it.installedAt ?: Instant.EPOCH
                         }
 
                         SortSettings.Mode.SIZE -> compareBy {

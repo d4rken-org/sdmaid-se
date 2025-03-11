@@ -566,6 +566,8 @@
     <string name="appcontrol_automation_progress_find_force_stop">Looking for \"Force stop\" button (keywords: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Trying to confirm previous action (keywords: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Screen time: %1$s since %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Last updated: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Installed at: %s</string>
 
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Find out what is taking up space on your device.</string>

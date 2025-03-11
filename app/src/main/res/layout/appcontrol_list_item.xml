@@ -11,13 +11,13 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/tertiary"
+        app:layout_constraintBottom_toBottomOf="@id/extra_info"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/primary"
+        app:layout_constraintTop_toTopOf="@id/label"
         tools:src="@mipmap/ic_launcher" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/primary"
+        android:id="@+id/label"
         style="@style/TextAppearance.Material3.TitleSmall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
         android:layout_marginEnd="16dp"
         android:ellipsize="end"
         android:singleLine="true"
-        app:layout_constraintBottom_toTopOf="@id/secondary"
+        app:layout_constraintBottom_toTopOf="@id/packagename"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/icon"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,30 +34,30 @@
         tools:text="SD Maid SE" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/secondary"
-        style="@style/TextAppearance.Material3.BodySmall"
+        android:id="@+id/packagename"
+        style="@style/TextAppearance.Material3.LabelSmall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:singleLine="true"
-        app:layout_constraintBottom_toTopOf="@id/tertiary"
-        app:layout_constraintEnd_toEndOf="@id/primary"
-        app:layout_constraintStart_toStartOf="@id/primary"
-        app:layout_constraintTop_toBottomOf="@id/primary"
+        app:layout_constraintBottom_toTopOf="@id/extra_info"
+        app:layout_constraintEnd_toEndOf="@id/label"
+        app:layout_constraintStart_toStartOf="@id/label"
+        app:layout_constraintTop_toBottomOf="@id/label"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="eu.darken.sdmse" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tertiary"
-        style="@style/TextAppearance.Material3.LabelSmall"
+        android:id="@+id/extra_info"
+        style="@style/TextAppearance.Material3.BodySmall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@id/tag_container"
         app:layout_constraintEnd_toStartOf="@id/sizes"
-        app:layout_constraintStart_toStartOf="@id/primary"
-        app:layout_constraintTop_toBottomOf="@id/secondary"
+        app:layout_constraintStart_toStartOf="@id/label"
+        app:layout_constraintTop_toBottomOf="@id/packagename"
         app:layout_goneMarginBottom="8dp"
         tools:text="v0.0.0 (0000000000)" />
 
@@ -69,10 +69,10 @@
         android:layout_marginEnd="16dp"
         android:gravity="end"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/tertiary"
+        app:layout_constraintBottom_toBottomOf="@id/extra_info"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tertiary"
-        app:layout_constraintTop_toTopOf="@id/tertiary"
+        app:layout_constraintStart_toEndOf="@id/extra_info"
+        app:layout_constraintTop_toTopOf="@id/extra_info"
         app:layout_goneMarginBottom="8dp"
         tools:text="345 MB"
         tools:visibility="visible" />
@@ -87,7 +87,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tertiary"
+        app:layout_constraintTop_toBottomOf="@id/extra_info"
         app:layout_goneMarginBottom="8dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

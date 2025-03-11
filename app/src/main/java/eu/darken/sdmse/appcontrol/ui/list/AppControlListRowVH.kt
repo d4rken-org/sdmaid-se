@@ -32,7 +32,8 @@ class AppControlListRowVH(parent: ViewGroup) :
         itemView.isActivated = selected
     }
 
-    private val dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)
+    private val usageDateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)
+    private val installFormatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
 
     override val onBindData: AppcontrolListItemBinding.(
         item: Item,
@@ -41,20 +42,30 @@ class AppControlListRowVH(parent: ViewGroup) :
         lastItem = item
         val appInfo = item.appInfo
         icon.loadAppIcon(appInfo.pkg)
-        primary.text = appInfo.label.get(context)
-        secondary.text = appInfo.pkg.packageName
+        label.text = appInfo.label.get(context)
+        packagename.text = appInfo.pkg.packageName
 
         @Suppress("SetTextI18n")
-        tertiary.text = when (item.sortMode) {
-            SortSettings.Mode.SCREEN_TIME -> {
-                if (appInfo.usage == null) {
-                    context.getString(eu.darken.sdmse.common.R.string.general_na_label)
-                } else {
-                    val since = appInfo.usage.screenTimeSince.toSystemTimezone().format(dateTimeFormatter)
-                    val durationTxt = item.lablrScreenTime ?: "?"
-                    getString(R.string.appcontrol_item_screentime_x_since_y_label, durationTxt, since)
-                }
+        extraInfo.text = when (item.sortMode) {
+            SortSettings.Mode.SCREEN_TIME -> if (appInfo.usage == null) {
+                context.getString(eu.darken.sdmse.common.R.string.general_na_label)
+            } else {
+                val since = appInfo.usage.screenTimeSince.toSystemTimezone().format(usageDateFormatter)
+                val durationTxt = item.lablrScreenTime ?: "?"
+                getString(R.string.appcontrol_item_screentime_x_since_y_label, durationTxt, since)
             }
+
+            SortSettings.Mode.LAST_UPDATE -> getString(
+                R.string.appcontrol_item_lastupdate_x_label,
+                appInfo.updatedAt?.toSystemTimezone()?.format(installFormatter)
+                    ?: getString(eu.darken.sdmse.common.R.string.general_na_label)
+            )
+
+            SortSettings.Mode.INSTALLED_AT -> getString(
+                R.string.appcontrol_item_installedat_x_label,
+                appInfo.installedAt?.toSystemTimezone()?.format(installFormatter)
+                    ?: getString(eu.darken.sdmse.common.R.string.general_na_label)
+            )
 
             else -> "${appInfo.pkg.versionName ?: "?"}  (${appInfo.pkg.versionCode})"
         }
