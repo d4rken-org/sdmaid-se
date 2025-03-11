@@ -1,6 +1,7 @@
 package eu.darken.sdmse.appcontrol.core
 
 import eu.darken.sdmse.appcontrol.core.export.AppExportType
+import eu.darken.sdmse.appcontrol.core.usage.UsageInfo
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.isNotNullOrEmpty
@@ -13,6 +14,7 @@ data class AppInfo(
     val pkg: Installed,
     val isActive: Boolean?,
     val sizes: PkgOps.SizeStats?,
+    val usage: UsageInfo?,
     val canBeToggled: Boolean,
     val canBeStopped: Boolean,
     val canBeExported: Boolean,
