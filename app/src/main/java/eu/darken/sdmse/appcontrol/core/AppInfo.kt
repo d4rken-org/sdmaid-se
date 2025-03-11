@@ -6,9 +6,11 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.isNotNullOrEmpty
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import java.time.Instant
 
 data class AppInfo(
     val pkg: Installed,
@@ -28,6 +30,12 @@ data class AppInfo(
 
     val installId: Installed.InstallId
         get() = pkg.installId
+
+    val updatedAt: Instant?
+        get() = (pkg as? InstallDetails)?.updatedAt
+
+    val installedAt: Instant?
+        get() = (pkg as? InstallDetails)?.installedAt
 
     val exportType: AppExportType
         get() = when {
