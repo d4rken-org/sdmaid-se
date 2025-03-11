@@ -45,15 +45,12 @@ class AppControlListRowVH(parent: ViewGroup) :
         label.text = appInfo.label.get(context)
         packagename.text = appInfo.pkg.packageName
 
-        @Suppress("SetTextI18n")
         extraInfo.text = when (item.sortMode) {
-            SortSettings.Mode.SCREEN_TIME -> if (appInfo.usage == null) {
-                context.getString(eu.darken.sdmse.common.R.string.general_na_label)
-            } else {
-                val since = appInfo.usage.screenTimeSince.toSystemTimezone().format(usageDateFormatter)
-                val durationTxt = item.lablrScreenTime ?: "?"
-                getString(R.string.appcontrol_item_screentime_x_since_y_label, durationTxt, since)
-            }
+            SortSettings.Mode.INSTALLED_AT -> getString(
+                R.string.appcontrol_item_installedat_x_label,
+                appInfo.installedAt?.toSystemTimezone()?.format(installFormatter)
+                    ?: getString(eu.darken.sdmse.common.R.string.general_na_label)
+            )
 
             SortSettings.Mode.LAST_UPDATE -> getString(
                 R.string.appcontrol_item_lastupdate_x_label,
@@ -61,11 +58,13 @@ class AppControlListRowVH(parent: ViewGroup) :
                     ?: getString(eu.darken.sdmse.common.R.string.general_na_label)
             )
 
-            SortSettings.Mode.INSTALLED_AT -> getString(
-                R.string.appcontrol_item_installedat_x_label,
-                appInfo.installedAt?.toSystemTimezone()?.format(installFormatter)
-                    ?: getString(eu.darken.sdmse.common.R.string.general_na_label)
-            )
+            SortSettings.Mode.SCREEN_TIME -> if (appInfo.usage == null) {
+                context.getString(eu.darken.sdmse.common.R.string.general_na_label)
+            } else {
+                val since = appInfo.usage.screenTimeSince.toSystemTimezone().format(usageDateFormatter)
+                val durationTxt = item.lablrScreenTime ?: "?"
+                getString(R.string.appcontrol_item_screentime_x_since_y_label, durationTxt, since)
+            }
 
             else -> "${appInfo.pkg.versionName ?: "?"}  (${appInfo.pkg.versionCode})"
         }

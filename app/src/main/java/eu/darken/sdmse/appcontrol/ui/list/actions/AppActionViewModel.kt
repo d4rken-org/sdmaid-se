@@ -1,6 +1,7 @@
 package eu.darken.sdmse.appcontrol.ui.list.actions
 
 import android.content.ActivityNotFoundException
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -22,8 +23,9 @@ import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExcludeActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExportActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ForceStopActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.InfoSizeVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.InfoUsageVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
-import eu.darken.sdmse.appcontrol.ui.list.actions.items.SizeInfoVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ToggleActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.UninstallActionVH
@@ -95,23 +97,44 @@ class AppActionViewModel @Inject constructor(
         emit(baseState)
 
         val sizeAction = appInfo.sizes?.let {
-            SizeInfoVH.Item(
+            InfoSizeVH.Item(
                 appInfo,
-                onSizeClicked = {
+                onClicked = {
                     // TODO nicer target than this?
                     val intent = Intent(Settings.ACTION_INTERNAL_STORAGE_SETTINGS).apply {
                         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     }
                     try {
                         context.startActivity(intent)
-                    } catch (e: ActivityNotFoundException) {
-                        errorEvents.postValue(e)
-                    } catch (e: SecurityException) {
+                    } catch (e: Exception) {
                         errorEvents.postValue(e)
                     }
                 }
             )
         }
+
+        val usageAction = InfoUsageVH.Item(
+            appInfo,
+            onClicked = {
+                try {
+                    try {
+                        val wellBeing = Intent().apply {
+                            component = ComponentName(
+                                "com.google.android.apps.wellbeing",
+                                "com.google.android.apps.wellbeing.settings.TopLevelSettingsActivity"
+                            )
+                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        }
+                        context.startActivity(wellBeing)
+                    } catch (e: ActivityNotFoundException) {
+                        val fallback = appInfo.createSystemSettingsIntent(context)
+                        context.startActivity(fallback)
+                    }
+                } catch (e: Exception) {
+                    errorEvents.postValue(e)
+                }
+            }
+        )
 
         val launchAction = appInfo.pkg.id.getLaunchIntent(context)
             ?.apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
@@ -237,6 +260,7 @@ class AppActionViewModel @Inject constructor(
         val finalState = baseState.copy(
             actions = listOfNotNull(
                 sizeAction,
+                usageAction,
                 launchAction,
                 forceStopAction,
                 systemSettingsAction,
