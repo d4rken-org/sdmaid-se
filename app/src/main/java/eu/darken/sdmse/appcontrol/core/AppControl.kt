@@ -210,7 +210,6 @@ class AppControl @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Indeterminate())
 
-
         val curState = state.first()
         appScan.refresh()
 

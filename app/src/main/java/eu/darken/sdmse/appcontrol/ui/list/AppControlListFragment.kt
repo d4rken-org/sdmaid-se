@@ -227,8 +227,8 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 }
                 FastScrollItemIndicator.Text(lbl ?: "?")
             }
-            val showIndicator: (FastScrollItemIndicator, Int, Int) -> Boolean = { _, _, size ->
-                size in 2..32
+            val showIndicator: (FastScrollItemIndicator, Int, Int) -> Boolean = { _, pos, size ->
+                pos == 0 || pos == size - 1 || (pos % size / 16f).toInt() == 0
             }
             fastscroller.setupWithRecyclerView(ui.list, itemLabler, showIndicator, true)
             fastscrollerThumb.setupWithFastScroller(ui.fastscroller)
