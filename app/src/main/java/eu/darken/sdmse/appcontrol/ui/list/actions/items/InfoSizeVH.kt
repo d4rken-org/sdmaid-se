@@ -9,18 +9,18 @@ import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.ui.list.actions.AppActionAdapter
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
-import eu.darken.sdmse.databinding.AppcontrolActionSizeItemBinding
+import eu.darken.sdmse.databinding.AppcontrolActionInfoSizeItemBinding
 
 
-class SizeInfoVH(parent: ViewGroup) :
-    AppActionAdapter.BaseVH<SizeInfoVH.Item, AppcontrolActionSizeItemBinding>(
-        R.layout.appcontrol_action_size_item,
+class InfoSizeVH(parent: ViewGroup) :
+    AppActionAdapter.BaseVH<InfoSizeVH.Item, AppcontrolActionInfoSizeItemBinding>(
+        R.layout.appcontrol_action_info_size_item,
         parent
     ) {
 
-    override val viewBinding = lazy { AppcontrolActionSizeItemBinding.bind(itemView) }
+    override val viewBinding = lazy { AppcontrolActionInfoSizeItemBinding.bind(itemView) }
 
-    override val onBindData: AppcontrolActionSizeItemBinding.(
+    override val onBindData: AppcontrolActionInfoSizeItemBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
@@ -36,12 +36,12 @@ class SizeInfoVH(parent: ViewGroup) :
         dataSize.text = Formatter.formatFileSize(context, sizes.dataBytes)
         cacheSize.text = Formatter.formatFileSize(context, sizes.cacheBytes)
 
-        itemView.setOnClickListener { item.onSizeClicked(appInfo) }
+        itemView.setOnClickListener { item.onClicked(appInfo) }
     }
 
     data class Item(
         val appInfo: AppInfo,
-        val onSizeClicked: (AppInfo) -> Unit,
+        val onClicked: (AppInfo) -> Unit,
     ) : AppActionAdapter.Item {
 
         override val stableId: Long = this::class.java.hashCode().toLong()
