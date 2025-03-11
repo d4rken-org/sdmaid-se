@@ -15,6 +15,7 @@ data class SortSettings(
         @Json(name = "INSTALLED_AT") INSTALLED_AT,
         @Json(name = "PACKAGENAME") PACKAGENAME,
         @Json(name = "SIZE") SIZE,
+        @Json(name = "SCREEN_TIME") SCREEN_TIME,
         ;
     }
 }

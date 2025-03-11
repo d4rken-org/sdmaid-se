@@ -5,11 +5,15 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppInfo
+import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
+import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.databinding.AppcontrolListItemBinding
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 
 class AppControlListRowVH(parent: ViewGroup) :
@@ -28,6 +32,8 @@ class AppControlListRowVH(parent: ViewGroup) :
         itemView.isActivated = selected
     }
 
+    private val dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)
+
     override val onBindData: AppcontrolListItemBinding.(
         item: Item,
         payloads: List<Any>
@@ -39,7 +45,19 @@ class AppControlListRowVH(parent: ViewGroup) :
         secondary.text = appInfo.pkg.packageName
 
         @Suppress("SetTextI18n")
-        tertiary.text = "${appInfo.pkg.versionName ?: "?"}  (${appInfo.pkg.versionCode})"
+        tertiary.text = when (item.sortMode) {
+            SortSettings.Mode.SCREEN_TIME -> {
+                if (appInfo.usage == null) {
+                    context.getString(eu.darken.sdmse.common.R.string.general_na_label)
+                } else {
+                    val since = appInfo.usage.screenTimeSince.toSystemTimezone().format(dateTimeFormatter)
+                    val durationTxt = item.lablrScreenTime ?: "?"
+                    getString(R.string.appcontrol_item_screentime_x_since_y_label, durationTxt, since)
+                }
+            }
+
+            else -> "${appInfo.pkg.versionName ?: "?"}  (${appInfo.pkg.versionCode})"
+        }
 
         sizes.apply {
             text = appInfo.sizes?.let { Formatter.formatShortFileSize(context, it.total) }
@@ -53,11 +71,13 @@ class AppControlListRowVH(parent: ViewGroup) :
 
     data class Item(
         override val appInfo: AppInfo,
+        val sortMode: SortSettings.Mode,
         val lablrName: String?,
         val lablrPkg: String?,
         val lablrUpdated: String?,
         val lablrInstalled: String?,
         val lablrSize: String?,
+        val lablrScreenTime: String?,
         val onItemClicked: (AppInfo) -> Unit,
     ) : AppControlListAdapter.Item, SelectableItem {
 

@@ -24,6 +24,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.formatDuration
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.isEnabled
@@ -40,13 +41,13 @@ import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.transformLatest
+import java.time.Duration
 import java.time.Instant
 import java.time.format.DateTimeFormatter
+import java.util.UUID
 import javax.inject.Inject
 
 @SuppressLint("StaticFieldLeak")
@@ -63,16 +64,20 @@ class AppControlListViewModel @Inject constructor(
 ) : ViewModel3(dispatcherProvider) {
 
     init {
-        appControl.state
-            .take(1)
-            .filter { it.data == null }
-            .onEach { taskManager.submit(AppControlScanTask()) }
-            .launchInViewModel()
+        launch {
+            val initState = appControl.state.first()
+            if (initState.data != null) return@launch
+            val initScan = AppControlScanTask(
+                screenTime = settings.listSort.value().mode == SortSettings.Mode.SCREEN_TIME
+            )
+            taskManager.submit(initScan)
+        }
     }
 
     val events = SingleLiveEvent<AppControlListEvents>()
     private val searchQuery = MutableStateFlow("")
 
+    private var lastDataId: UUID? = null
     private val queryCacheLabel = mutableMapOf<Pkg.Id, String>()
     private val AppInfo.normalizedLabel: String
         get() = queryCacheLabel[this.id]
@@ -142,6 +147,12 @@ class AppControlListViewModel @Inject constructor(
                 ?.let { Formatter.formatShortFileSize(context, it) } ?: "?"
         }.also { lablrCacheSize[this.id] = it }
 
+    private val lablrCacheScreenTime = mutableMapOf<Pkg.Id, String>()
+    private val AppInfo.lablrScreenTime: String
+        get() = lablrCacheScreenTime[this.id] ?: run {
+            usage?.screenTime?.formatDuration() ?: context.getString(eu.darken.sdmse.common.R.string.general_na_label)
+        }.also { lablrCacheScreenTime[this.id] = it }
+
     data class DisplayOptions(
         val searchQuery: String,
         val listSort: SortSettings,
@@ -173,6 +184,16 @@ class AppControlListViewModel @Inject constructor(
                 hasSizeInfo = state.isSizeInfoAvailable,
             )
             emit(initialState)
+
+            if (state.data?.id != lastDataId) {
+                lablrCacheLabel.clear()
+                lablrCacheUpdated.clear()
+                lablrCacheInstalled.clear()
+                lablrCachePkg.clear()
+                lablrCacheSize.clear()
+                lablrCacheScreenTime.clear()
+            }
+            lastDataId = state.data?.id
 
             val queryNormalized = displayOptions.searchQuery.lowercase()
             val listFilter = displayOptions.listFilter
@@ -218,17 +239,23 @@ class AppControlListViewModel @Inject constructor(
                         SortSettings.Mode.SIZE -> compareBy {
                             it.sizes?.total ?: 0L
                         }
+
+                        SortSettings.Mode.SCREEN_TIME -> compareBy {
+                            it.usage?.screenTime ?: Duration.ZERO.minusMillis(1)
+                        }
                     }
                 )
                 ?.let { if (listSort.reversed) it.reversed() else it }
                 ?.map { content ->
                     AppControlListRowVH.Item(
                         appInfo = content,
+                        sortMode = listSort.mode,
                         lablrName = if (listSort.mode == SortSettings.Mode.NAME) content.lablrLabel else null,
                         lablrPkg = if (listSort.mode == SortSettings.Mode.PACKAGENAME) content.lablrPkg else null,
                         lablrInstalled = if (listSort.mode == SortSettings.Mode.INSTALLED_AT) content.lablrInstalled else null,
                         lablrUpdated = if (listSort.mode == SortSettings.Mode.LAST_UPDATE) content.lablrUpdated else null,
                         lablrSize = if (listSort.mode == SortSettings.Mode.SIZE) content.lablrSize else null,
+                        lablrScreenTime = if (listSort.mode == SortSettings.Mode.SCREEN_TIME) content.lablrScreenTime else null,
                         onItemClicked = {
                             AppControlListFragmentDirections.actionAppControlListFragmentToAppActionDialog(
                                 content.pkg.id
@@ -260,12 +287,23 @@ class AppControlListViewModel @Inject constructor(
 
     fun updateSortMode(mode: SortSettings.Mode) = launch {
         log(TAG) { "updateSortMode($mode)" }
-        if (!settings.ackSizeSortCaveat.value() && mode == SortSettings.Mode.SIZE) {
-            events.postValue(AppControlListEvents.ShowSizeSortCaveat)
+
+        when (mode) {
+            SortSettings.Mode.SIZE -> {
+                if (!settings.ackSizeSortCaveat.value()) {
+                    events.postValue(AppControlListEvents.ShowSizeSortCaveat)
+                }
+            }
+
+            SortSettings.Mode.SCREEN_TIME -> {
+                val cur = appControl.state.first()
+                if (!cur.hasScreenTime) appControl.submit(AppControlScanTask(screenTime = true))
+            }
+
+            else -> {}
         }
-        settings.listSort.update {
-            it.copy(mode = mode)
-        }
+
+        settings.listSort.update { it.copy(mode = mode) }
     }
 
     fun toggleSortDirection() = launch {
@@ -327,6 +365,7 @@ class AppControlListViewModel @Inject constructor(
 
     fun refresh(refreshPkgCache: Boolean = false) = launch {
         log(TAG) { "refresh()" }
+        lablrCachePkg
         taskManager.submit(AppControlScanTask(refreshPkgCache = refreshPkgCache))
     }
 
