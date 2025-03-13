@@ -8,8 +8,10 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class AppControlScanTask(
     val pkgIdFilter: Set<Pkg.Id> = emptySet(),
-    val refreshPkgCache: Boolean = false,
-    val screenTime: Boolean = false,
+    val refreshPkgCache: Boolean,
+    val loadInfoScreenTime: Boolean,
+    val loadInfoSize: Boolean,
+    val loadInfoActive: Boolean,
 ) : AppControlTask {
 
     @Parcelize

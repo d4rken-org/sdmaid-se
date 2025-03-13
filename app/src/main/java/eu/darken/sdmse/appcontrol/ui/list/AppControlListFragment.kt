@@ -229,8 +229,8 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
         }
 
         vm.state.observe2(ui) { state ->
-            showAppToggleActions = state.allowAppToggleActions
-            showAppForceStopActions = state.allowAppForceStopActions
+            showAppToggleActions = state.allowActionToggle
+            showAppForceStopActions = state.allowActionForceStop
 
             loadingOverlay.setProgress(state.progress)
             list.isGone = state.progress != null
@@ -262,7 +262,8 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     vm.updateSortMode(mode)
                 }
             }
-            sortmodeSize.isVisible = state.hasSizeInfo
+            sortmodeSize.isEnabled = state.allowSortSize
+            sortmodeScreentime.isVisible = state.allowSortScreenTime
 
             sortmodeDirection.setIconResource(
                 if (state.options.listSort.reversed) R.drawable.ic_sort_descending_24 else R.drawable.ic_sort_ascending_24
@@ -281,8 +282,9 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
 
             tagFilterActiveSwitch.apply {
                 setChecked2(listFilter.tags.contains(FilterSettings.Tag.ACTIVE), animate = false)
-                isEnabled = state.hasActiveInfo
+                isVisible = state.allowFilterActive
             }
+            tagFilterActiveIcon.isVisible = state.allowFilterActive
 
             if (state.appInfos != null) {
                 toolbar.subtitle = getQuantityString2(
@@ -378,16 +380,9 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             }
         }
 
-        ui.refreshAction.apply {
-            setOnClickListener {
-                tracker.clearSelection()
-                vm.refresh()
-            }
-            setOnLongClickListener {
-                tracker.clearSelection()
-                vm.refresh(refreshPkgCache = true)
-                true
-            }
+        ui.refreshAction.setOnClickListener {
+            tracker.clearSelection()
+            vm.refresh(refreshPkgCache = true)
         }
 
         super.onViewCreated(view, savedInstanceState)

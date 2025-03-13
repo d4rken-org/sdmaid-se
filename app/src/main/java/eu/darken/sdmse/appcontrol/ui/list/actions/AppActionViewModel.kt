@@ -61,8 +61,8 @@ import javax.inject.Inject
 class AppActionViewModel @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    @Suppress("StaticFieldLeak") @ApplicationContext private val context: Context,
-    private val appControl: AppControl,
+    @ApplicationContext private val context: Context,
+    appControl: AppControl,
     private val taskManager: TaskManager,
     private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider) {
@@ -153,7 +153,7 @@ class AppActionViewModel @Inject constructor(
                 )
             }
 
-        val forceStopAction = if (state.isForceStopAvailable && appInfo.canBeStopped) {
+        val forceStopAction = if (state.canForceStop && appInfo.canBeStopped) {
             ForceStopActionVH.Item(
                 appInfo = appInfo,
                 onForceStop = {
@@ -231,7 +231,7 @@ class AppActionViewModel @Inject constructor(
             null
         }
 
-        val disableAction = if (state.isAppToggleAvailable && appInfo.canBeToggled) {
+        val disableAction = if (state.canToggle && appInfo.canBeToggled) {
             ToggleActionVH.Item(
                 appInfo = appInfo,
                 onToggle = {
