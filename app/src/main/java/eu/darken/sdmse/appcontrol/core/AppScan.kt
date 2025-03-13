@@ -1,6 +1,5 @@
 package eu.darken.sdmse.appcontrol.core
 
-import android.app.usage.UsageStatsManager
 import eu.darken.sdmse.appcontrol.core.usage.UsageInfo
 import eu.darken.sdmse.appcontrol.core.usage.UsageTool
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -17,6 +16,7 @@ import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
@@ -27,7 +27,6 @@ import javax.inject.Inject
 class AppScan @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
-    private val statsManager: UsageStatsManager,
     private val pkgRepo: PkgRepo,
     private val pkgOps: PkgOps,
     private val usageTool: UsageTool,
@@ -40,7 +39,12 @@ class AppScan @Inject constructor(
     private val sizeCache = mutableMapOf<Installed.InstallId, PkgOps.SizeStats?>()
     private val usageCache = mutableMapOf<Installed.InstallId, UsageInfo?>()
 
-    suspend fun refresh() = mutex.withLock {
+    private suspend fun <T> doRun(action: suspend () -> T): T = mutex.withLock {
+        adoptChildResource(pkgOps.sharedResource)
+        action()
+    }
+
+    suspend fun refresh() = doRun {
         activeCache.clear()
         sizeCache.clear()
         usageCache.clear()
@@ -52,10 +56,10 @@ class AppScan @Inject constructor(
         includeUsage: Boolean,
         includeActive: Boolean,
         includeSize: Boolean,
-    ): Set<AppInfo> = mutex.withLock {
+    ): Set<AppInfo> = doRun {
         log(TAG, VERBOSE) { "allApps($user)" }
         val pkgs = pkgRepo.current()
-        return pkgs
+        pkgs
             .filter { it.userHandle == user }
             .map {
                 it.toAppInfo(
@@ -72,7 +76,7 @@ class AppScan @Inject constructor(
         includeUsage: Boolean,
         includeActive: Boolean,
         includeSize: Boolean,
-    ): AppInfo = mutex.withLock {
+    ): AppInfo = doRun {
         log(TAG, VERBOSE) { "app($installId)" }
         pkgRepo.current()
             .single { it.installId == installId }
@@ -88,7 +92,7 @@ class AppScan @Inject constructor(
         includeUsage: Boolean,
         includeActive: Boolean,
         includeSize: Boolean,
-    ): Set<AppInfo> = mutex.withLock {
+    ): Set<AppInfo> = doRun {
         log(TAG, VERBOSE) { "app($pkgId)" }
         pkgRepo.current()
             .filter { it.id == pkgId }
@@ -107,7 +111,7 @@ class AppScan @Inject constructor(
         includeActive: Boolean,
         includeSize: Boolean,
         includeUsage: Boolean,
-    ): AppInfo = AppInfo(
+    ) = AppInfo(
         pkg = this,
         isActive = if (includeActive) {
             activeCache[installId] ?: pkgOps.isRunning(installId).also { activeCache[installId] = it }
