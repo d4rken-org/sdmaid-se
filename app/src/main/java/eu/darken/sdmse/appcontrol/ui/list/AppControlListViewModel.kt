@@ -43,6 +43,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.transformLatest
 import java.time.Duration
 import java.time.Instant
@@ -67,11 +68,15 @@ class AppControlListViewModel @Inject constructor(
         launch {
             val initState = appControl.state.first()
             if (initState.data != null) return@launch
-            val initScan = AppControlScanTask(
-                screenTime = settings.listSort.value().mode == SortSettings.Mode.SCREEN_TIME
-            )
-            taskManager.submit(initScan)
+            taskManager.submit(getScanTask())
         }
+
+        settings.moduleSizingEnabled.flow
+            .onEach { taskManager.submit(getScanTask()) }
+            .launchInViewModel()
+        settings.moduleActivityEnabled.flow
+            .onEach { taskManager.submit(getScanTask()) }
+            .launchInViewModel()
     }
 
     val events = SingleLiveEvent<AppControlListEvents>()
@@ -164,28 +169,33 @@ class AppControlListViewModel @Inject constructor(
         settings.listSort.flow,
         settings.listFilter.flow,
     ) { query, listSort, listFilter ->
-        DisplayOptions(searchQuery = query, listSort = listSort, listFilter = listFilter)
+        DisplayOptions(
+            searchQuery = query,
+            listSort = listSort,
+            listFilter = listFilter,
+        )
     }
 
     val state = currentDisplayOptions.flatMapLatest { displayOptions ->
-        appControl.state.transformLatest { state ->
+        appControl.state.transformLatest { cur ->
             val initialState = State(
                 appInfos = null,
-                progressWorker = state.progress,
+                progressWorker = cur.progress,
                 progressUI = Progress.Data(),
-                options = if (displayOptions.listSort.mode == SortSettings.Mode.SIZE && !state.isSizeInfoAvailable) {
+                options = if (displayOptions.listSort.mode == SortSettings.Mode.SIZE && !cur.canInfoSize) {
                     displayOptions.copy(listSort = SortSettings())
                 } else {
                     displayOptions
                 },
-                allowAppToggleActions = state.isAppToggleAvailable,
-                allowAppForceStopActions = state.isForceStopAvailable,
-                hasActiveInfo = state.isActiveInfoAvailable,
-                hasSizeInfo = state.isSizeInfoAvailable,
+                allowActionToggle = cur.canToggle,
+                allowActionForceStop = cur.canForceStop,
+                allowFilterActive = cur.canInfoActive,
+                allowSortSize = cur.canInfoSize,
+                allowSortScreenTime = cur.canInfoScreenTime,
             )
             emit(initialState)
 
-            if (state.data?.id != lastDataId) {
+            if (cur.data?.id != lastDataId) {
                 lablrCacheLabel.clear()
                 lablrCacheUpdated.clear()
                 lablrCacheInstalled.clear()
@@ -193,12 +203,12 @@ class AppControlListViewModel @Inject constructor(
                 lablrCacheSize.clear()
                 lablrCacheScreenTime.clear()
             }
-            lastDataId = state.data?.id
+            lastDataId = cur.data?.id
 
             val queryNormalized = displayOptions.searchQuery.lowercase()
             val listFilter = displayOptions.listFilter
             val listSort = displayOptions.listSort
-            val appInfos = state.data?.apps
+            val appInfos = cur.data?.apps
                 ?.filter { appInfo ->
                     if (queryNormalized.isEmpty()) return@filter true
 
@@ -287,23 +297,21 @@ class AppControlListViewModel @Inject constructor(
 
     fun updateSortMode(mode: SortSettings.Mode) = launch {
         log(TAG) { "updateSortMode($mode)" }
-
+        settings.listSort.update { it.copy(mode = mode) }
         when (mode) {
             SortSettings.Mode.SIZE -> {
                 if (!settings.ackSizeSortCaveat.value()) {
                     events.postValue(AppControlListEvents.ShowSizeSortCaveat)
                 }
+                if (appControl.state.first().data?.hasInfoSize != true) refresh()
             }
 
             SortSettings.Mode.SCREEN_TIME -> {
-                val cur = appControl.state.first()
-                if (!cur.hasScreenTime) appControl.submit(AppControlScanTask(screenTime = true))
+                if (appControl.state.first().data?.hasInfoScreenTime != true) refresh()
             }
 
             else -> {}
         }
-
-        settings.listSort.update { it.copy(mode = mode) }
     }
 
     fun toggleSortDirection() = launch {
@@ -363,10 +371,16 @@ class AppControlListViewModel @Inject constructor(
         settings.listFilter.update { old -> old.copy(tags = emptySet()) }
     }
 
+    private suspend fun getScanTask(refreshPkgCache: Boolean = false) = AppControlScanTask(
+        refreshPkgCache = refreshPkgCache,
+        loadInfoSize = settings.moduleSizingEnabled.value(),
+        loadInfoActive = settings.moduleActivityEnabled.value(),
+        loadInfoScreenTime = settings.listSort.value().mode == SortSettings.Mode.SCREEN_TIME,
+    )
+
     fun refresh(refreshPkgCache: Boolean = false) = launch {
         log(TAG) { "refresh()" }
-        lablrCachePkg
-        taskManager.submit(AppControlScanTask(refreshPkgCache = refreshPkgCache))
+        taskManager.submit(getScanTask(refreshPkgCache))
     }
 
     fun exclude(items: Collection<AppControlListAdapter.Item>) = launch {
@@ -439,10 +453,11 @@ class AppControlListViewModel @Inject constructor(
         val progressWorker: Progress.Data?,
         val progressUI: Progress.Data?,
         val options: DisplayOptions,
-        val allowAppToggleActions: Boolean,
-        val allowAppForceStopActions: Boolean,
-        val hasSizeInfo: Boolean = false,
-        val hasActiveInfo: Boolean = false,
+        val allowActionToggle: Boolean,
+        val allowActionForceStop: Boolean,
+        val allowSortSize: Boolean = false,
+        val allowSortScreenTime: Boolean = false,
+        val allowFilterActive: Boolean = false,
     ) {
         val progress: Progress.Data?
             get() = progressWorker ?: progressUI

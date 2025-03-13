@@ -72,7 +72,6 @@ class AppControl @Inject constructor(
     storageSetupModule: StorageSetupModule,
     rootManager: RootManager,
     adbManager: AdbManager,
-    settings: AppControlSettings,
     private val appExporterProvider: Provider<AppExporter>,
     private val appInventorySetupModule: InventorySetupModule,
     automationManager: AutomationManager,
@@ -100,17 +99,16 @@ class AppControl @Inject constructor(
         automationManager.useAcs,
         rootManager.useRoot,
         adbManager.useAdb,
-        settings.moduleSizingEnabled.flow,
-        settings.moduleActivityEnabled.flow,
-    ) { data, progress, usageState, storageState, useAcs, useRoot, useAdb, sizingEnabled, activityEnabled ->
+    ) { data, progress, usageState, storageState, useAcs, useRoot, useAdb ->
 
         State(
             data = data,
             progress = progress,
-            isActiveInfoAvailable = activityEnabled && (usageState.isComplete || useRoot || useAdb),
-            isSizeInfoAvailable = sizingEnabled && usageState.isComplete && storageState.isComplete,
-            isAppToggleAvailable = (useRoot || useAdb),
-            isForceStopAvailable = useAcs || useRoot || useAdb,
+            canInfoActive = usageState.isComplete || useRoot || useAdb,
+            canInfoSize = usageState.isComplete && storageState.isComplete,
+            canInfoScreenTime = usageState.isComplete,
+            canToggle = useRoot || useAdb,
+            canForceStop = useAcs || useRoot || useAdb,
         )
     }.replayingShare(appScope)
 
@@ -149,25 +147,26 @@ class AppControl @Inject constructor(
             throw IncompleteSetupException(SetupModule.Type.INVENTORY)
         }
 
+        val curState = state.first()
+
         val appInfos = appScan.run {
             if (task.refreshPkgCache) refresh()
-            val curState = state.first()
             allApps(
                 user = userManager.currentUser().handle,
-                includeActive = curState.isActiveInfoAvailable,
-                includeSize = curState.isSizeInfoAvailable,
-                includeUsage = task.screenTime,
+                includeActive = task.loadInfoActive && curState.canInfoActive,
+                includeSize = task.loadInfoSize && curState.canInfoSize,
+                includeUsage = task.loadInfoScreenTime && curState.canInfoScreenTime,
             )
         }
 
         internalData.value = Data(
             apps = appInfos,
-            determineScreenTime = task.screenTime,
+            hasInfoScreenTime = task.loadInfoScreenTime && curState.canInfoScreenTime,
+            hasInfoActive = task.loadInfoSize && curState.canInfoSize,
+            hasInfoSize = task.loadInfoSize && curState.canInfoSize,
         )
 
-        return AppControlScanTask.Result(
-            itemCount = appInfos.size
-        )
+        return AppControlScanTask.Result(itemCount = appInfos.size)
     }
 
     private suspend fun performToggle(task: AppControlToggleTask): AppControlToggleTask.Result {
@@ -210,7 +209,6 @@ class AppControl @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val curState = state.first()
         appScan.refresh()
 
         internalData.value = snapshot.copy(
@@ -220,9 +218,9 @@ class AppControl @Inject constructor(
                         // TODO if the app is suddenly no longer installed, show the user an error?
                         appScan.app(
                             pkgId = app.id,
-                            includeSize = curState.isSizeInfoAvailable,
-                            includeActive = curState.isActiveInfoAvailable,
-                            includeUsage = snapshot.determineScreenTime
+                            includeSize = snapshot.hasInfoSize,
+                            includeActive = snapshot.hasInfoActive,
+                            includeUsage = snapshot.hasInfoScreenTime
                         )
                     }
 
@@ -265,7 +263,6 @@ class AppControl @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val curState = state.first()
         appScan.refresh()
 
         internalData.value = snapshot.copy(
@@ -274,9 +271,9 @@ class AppControl @Inject constructor(
                     successful.contains(app.installId) || failed.contains(app.installId) -> {
                         appScan.app(
                             pkgId = app.id,
-                            includeSize = curState.isSizeInfoAvailable,
-                            includeActive = curState.isActiveInfoAvailable,
-                            includeUsage = snapshot.determineScreenTime
+                            includeSize = snapshot.hasInfoSize,
+                            includeActive = snapshot.hasInfoActive,
+                            includeUsage = snapshot.hasInfoScreenTime
                         )
                     }
 
@@ -361,19 +358,19 @@ class AppControl @Inject constructor(
     data class State(
         val data: Data?,
         val progress: Progress.Data?,
-        val isActiveInfoAvailable: Boolean,
-        val isSizeInfoAvailable: Boolean,
-        val isAppToggleAvailable: Boolean,
-        val isForceStopAvailable: Boolean,
-    ) : SDMTool.State {
-        val hasScreenTime: Boolean
-            get() = data?.determineScreenTime ?: false
-    }
+        val canToggle: Boolean,
+        val canForceStop: Boolean,
+        val canInfoSize: Boolean,
+        val canInfoActive: Boolean,
+        val canInfoScreenTime: Boolean,
+    ) : SDMTool.State
 
     data class Data(
         val id: UUID = UUID.randomUUID(),
         val apps: Collection<AppInfo>,
-        val determineScreenTime: Boolean,
+        val hasInfoScreenTime: Boolean,
+        val hasInfoActive: Boolean,
+        val hasInfoSize: Boolean,
     )
 
     @InstallIn(SingletonComponent::class)
