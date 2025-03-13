@@ -145,10 +145,6 @@ class AppControlListViewModel @Inject constructor(
     private val AppInfo.lablrSize: String
         get() = lablrCacheSize[this.id] ?: run {
             this.sizes?.total
-                ?.let {
-                    val hundredMB = 104857600
-                    if (it % hundredMB == 0L) it else ((it / hundredMB) + 1L) * hundredMB
-                }
                 ?.let { Formatter.formatShortFileSize(context, it) } ?: "?"
         }.also { lablrCacheSize[this.id] = it }
 
