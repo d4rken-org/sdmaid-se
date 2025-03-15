@@ -185,8 +185,8 @@ class AppControlListViewModel @Inject constructor(
                 },
                 allowActionToggle = cur.canToggle,
                 allowActionForceStop = cur.canForceStop,
-                allowFilterActive = cur.canInfoActive,
-                allowSortSize = cur.canInfoSize,
+                allowFilterActive = cur.canInfoActive && settings.moduleActivityEnabled.value(),
+                allowSortSize = cur.canInfoSize && settings.moduleSizingEnabled.value(),
                 allowSortScreenTime = cur.canInfoScreenTime,
             )
             emit(initialState)
@@ -449,8 +449,8 @@ class AppControlListViewModel @Inject constructor(
         val progressWorker: Progress.Data?,
         val progressUI: Progress.Data?,
         val options: DisplayOptions,
-        val allowActionToggle: Boolean,
-        val allowActionForceStop: Boolean,
+        val allowActionToggle: Boolean = false,
+        val allowActionForceStop: Boolean = false,
         val allowSortSize: Boolean = false,
         val allowSortScreenTime: Boolean = false,
         val allowFilterActive: Boolean = false,
