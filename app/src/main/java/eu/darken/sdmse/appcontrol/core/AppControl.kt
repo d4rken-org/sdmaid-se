@@ -27,7 +27,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
@@ -174,9 +174,9 @@ class AppControl @Inject constructor(
 
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
 
-        val enabled = mutableSetOf<Installed.InstallId>()
-        val disabled = mutableSetOf<Installed.InstallId>()
-        val failed = mutableSetOf<Installed.InstallId>()
+        val enabled = mutableSetOf<InstallId>()
+        val disabled = mutableSetOf<InstallId>()
+        val failed = mutableSetOf<InstallId>()
         updateProgressCount(Progress.Count.Percent(task.targets.size))
 
         componentToggler.useRes {
@@ -237,8 +237,8 @@ class AppControl @Inject constructor(
         updateProgressCount(Progress.Count.Counter(task.targets.size))
 
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
-        val successful = mutableSetOf<Installed.InstallId>()
-        val failed = mutableSetOf<Installed.InstallId>()
+        val successful = mutableSetOf<InstallId>()
+        val failed = mutableSetOf<InstallId>()
 
         uninstaller.useRes {
             task.targets.forEach { targetId ->
@@ -322,8 +322,8 @@ class AppControl @Inject constructor(
         log(TAG) { "performForceStop(): $task" }
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
 
-        val successful = mutableSetOf<Installed.InstallId>()
-        val failed = mutableSetOf<Installed.InstallId>()
+        val successful = mutableSetOf<InstallId>()
+        val failed = mutableSetOf<InstallId>()
 
         forceStopper.useRes {
             forceStopper.withProgress(this) {

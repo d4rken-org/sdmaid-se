@@ -2,6 +2,8 @@ package eu.darken.sdmse.common.pkgs.pkgops.ipc;
 
 import android.content.pm.PackageInfo;
 import eu.darken.sdmse.common.ipc.RemoteInputStream;
+import eu.darken.sdmse.common.pkgs.features.InstallId;
+import eu.darken.sdmse.common.pkgs.pkgops.ipc.RunningPackagesResult;
 
 interface PkgOpsConnection {
 
@@ -9,7 +11,7 @@ interface PkgOpsConnection {
 
     String getGroupNameforGID(int gid);
 
-    boolean isRunning(String packageName);
+    RunningPackagesResult getRunningPackages();
 
     boolean forceStop(String packageName);
 

@@ -11,7 +11,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.ipc.IpcClientModule
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.user.UserHandle2
 
 class PkgOpsClient @AssistedInject constructor(
@@ -42,15 +42,15 @@ class PkgOpsClient @AssistedInject constructor(
         }
     }
 
-    fun isRunning(pkgId: Pkg.Id): Boolean = try {
-        connection.isRunning(pkgId.name)
+    fun getRunningPackages(): Set<InstallId> = try {
+        connection.getRunningPackages().pkgs
     } catch (e: Exception) {
         throw e.unwrapPropagation().also {
-            log(TAG, ERROR) { "isRunning(pkgId=$pkgId) failed: ${it.asLog()}" }
+            log(TAG, ERROR) { "getRunningPackages() failed: ${it.asLog()}" }
         }
     }
 
-    suspend fun clearCache(installId: Installed.InstallId, dryRun: Boolean): Boolean = try {
+    suspend fun clearCache(installId: InstallId, dryRun: Boolean): Boolean = try {
         connection.clearCacheAsUser(installId.pkgId.name, installId.userHandle.handleId, dryRun)
     } catch (e: Exception) {
         throw e.unwrapPropagation().also {
@@ -106,7 +106,7 @@ class PkgOpsClient @AssistedInject constructor(
         }
     }
 
-    fun grantPermission(id: Installed.InstallId, permission: Permission): Boolean = try {
+    fun grantPermission(id: InstallId, permission: Permission): Boolean = try {
         connection.grantPermission(id.pkgId.name, id.userHandle.handleId, permission.permissionId)
     } catch (e: Exception) {
         throw e.unwrapPropagation().also {
@@ -114,7 +114,7 @@ class PkgOpsClient @AssistedInject constructor(
         }
     }
 
-    fun revokePermission(id: Installed.InstallId, permission: Permission): Boolean = try {
+    fun revokePermission(id: InstallId, permission: Permission): Boolean = try {
         connection.revokePermission(id.pkgId.name, id.userHandle.handleId, permission.permissionId)
     } catch (e: Exception) {
         throw e.unwrapPropagation().also {
@@ -122,7 +122,7 @@ class PkgOpsClient @AssistedInject constructor(
         }
     }
 
-    fun setAppOps(id: Installed.InstallId, key: String, value: String): Boolean = try {
+    fun setAppOps(id: InstallId, key: String, value: String): Boolean = try {
         connection.setAppOps(id.pkgId.name, id.userHandle.handleId, key, value)
     } catch (e: Exception) {
         throw e.unwrapPropagation().also {

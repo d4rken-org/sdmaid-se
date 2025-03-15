@@ -15,7 +15,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.throttleLatest
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
@@ -61,8 +61,8 @@ class ForceStopper @Inject constructor(
         adoptChildResource(pkgOps)
 
 
-        val successful = mutableSetOf<Installed.InstallId>()
-        val failed = mutableSetOf<Installed.InstallId>()
+        val successful = mutableSetOf<InstallId>()
+        val failed = mutableSetOf<InstallId>()
 
         if (rootManager.canUseRootNow() || adbManager.canUseAdbNow()) {
             log(TAG) { "Using ROOT/ADB..." }
@@ -98,8 +98,8 @@ class ForceStopper @Inject constructor(
     }
 
     data class Result(
-        val success: Set<Installed.InstallId>,
-        val failed: Set<Installed.InstallId>,
+        val success: Set<InstallId>,
+        val failed: Set<InstallId>,
     )
 
     companion object {

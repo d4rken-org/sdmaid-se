@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.isNotNullOrEmpty
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -28,7 +29,7 @@ data class AppInfo(
     val id: Pkg.Id
         get() = pkg.id
 
-    val installId: Installed.InstallId
+    val installId: InstallId
         get() = pkg.installId
 
     val updatedAt: Instant?

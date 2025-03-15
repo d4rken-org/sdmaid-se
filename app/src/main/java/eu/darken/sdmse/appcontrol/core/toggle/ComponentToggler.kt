@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
@@ -24,7 +24,7 @@ class ComponentToggler @Inject constructor(
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
-    suspend fun changePackageState(installId: Installed.InstallId, enabled: Boolean) {
+    suspend fun changePackageState(installId: InstallId, enabled: Boolean) {
         log(TAG, INFO) { "changePackageState($installId,$enabled)" }
         adoptChildResource(pkgOps)
         pkgOps.changePackageState(installId.pkgId, enabled)

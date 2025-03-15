@@ -3,13 +3,14 @@ package eu.darken.sdmse.analyzer.core.storage.categories
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.storage.StorageId
 
 data class AppCategory(
     override val storageId: StorageId,
     val setupIncomplete: Boolean = false,
-    val pkgStats: Map<Installed.InstallId, PkgStat>,
+    val pkgStats: Map<InstallId, PkgStat>,
 ) : ContentCategory {
 
     override val spaceUsed: Long
@@ -29,7 +30,7 @@ data class AppCategory(
         val extraData: ContentGroup?,
     ) {
 
-        val id: Installed.InstallId
+        val id: InstallId
             get() = pkg.installId
 
         val label: CaString

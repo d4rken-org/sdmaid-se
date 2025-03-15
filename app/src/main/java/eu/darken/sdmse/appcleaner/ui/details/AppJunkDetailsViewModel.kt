@@ -11,7 +11,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.SDMTool
@@ -38,7 +38,7 @@ class AppJunkDetailsViewModel @Inject constructor(
 
     private val args by handle.navArgs<AppJunkDetailsFragmentArgs>()
 
-    private var currentTarget: Installed.InstallId? = null
+    private var currentTarget: InstallId? = null
         get() = field ?: handle["target"]
         set(value) {
             field = value.also { handle["target"] = it }
@@ -107,11 +107,11 @@ class AppJunkDetailsViewModel @Inject constructor(
 
     data class State(
         val items: List<AppJunk>,
-        val target: Installed.InstallId?,
+        val target: InstallId?,
         val progress: Progress.Data?,
     )
 
-    fun updatePage(identifier: Installed.InstallId) {
+    fun updatePage(identifier: InstallId) {
         log(TAG) { "updatePage($identifier)" }
         currentTarget = identifier
     }

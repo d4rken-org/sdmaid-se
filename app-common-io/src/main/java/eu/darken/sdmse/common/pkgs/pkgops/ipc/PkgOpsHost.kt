@@ -20,9 +20,12 @@ import eu.darken.sdmse.common.ipc.IpcHostModule
 import eu.darken.sdmse.common.ipc.RemoteInputStream
 import eu.darken.sdmse.common.pkgs.deleteApplicationCacheFiles
 import eu.darken.sdmse.common.pkgs.deleteApplicationCacheFilesAsUser
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.freeStorageAndNotify
 import eu.darken.sdmse.common.pkgs.getInstalledPackagesAsUser
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
+import eu.darken.sdmse.common.pkgs.pkgops.ProcessScanner
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.shell.SharedShell
 import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.coroutines.runBlocking
@@ -34,6 +37,7 @@ class PkgOpsHost @Inject constructor(
     @ApplicationContext private val context: Context,
     private val libcoreTool: LibcoreTool,
     private val sharedShell: SharedShell,
+    private val processScanner: ProcessScanner,
 ) : PkgOpsConnection.Stub(), IpcHostModule {
 
     private val pm: PackageManager
@@ -56,25 +60,26 @@ class PkgOpsHost @Inject constructor(
         throw e.wrapToPropagate()
     }
 
-    override fun isRunning(packageName: String): Boolean = try {
+    override fun getRunningPackages(): RunningPackagesResult = try {
         val result = try {
-            val runningAppProcesses = am.runningAppProcesses
-                ?.flatMap { it.pkgList.toList() }
-                ?.distinct()
-                ?: emptyList()
-            runningAppProcesses.any { it == packageName }
+            am.runningAppProcesses!!
+                .flatMap { it.pkgList.toList() }
+                .distinct()
+                .map {
+                    // TODO can we get the correctly user handle?
+                    InstallId(it.toPkgId(), UserHandle2())
+                }
+                .toSet()
         } catch (e: Exception) {
-            log(TAG, ERROR) { "isRunning($packageName): runningAppProcesses failed due to $e " }
-            runBlocking {
-                sharedShell.useRes {
-                    FlowCmd("pidof $packageName").execute(it)
-                }.exitCode == FlowProcess.ExitCode.OK
-            }
+            log(TAG, ERROR) { "getRunningPackages(): runningAppProcesses failed due to $e " }
+            runBlocking { processScanner.getRunningPackages() }
+                .map { InstallId(it.pkgId, it.handle) }
+                .toSet()
         }
-        log(TAG, VERBOSE) { "isRunning(packageName=$packageName)=$result" }
-        result
+        log(TAG, VERBOSE) { "getRunningPackages()=$result" }
+        RunningPackagesResult(result)
     } catch (e: Exception) {
-        log(TAG, ERROR) { "isRunning(packageName=$packageName) failed: ${e.asLog()}" }
+        log(TAG, ERROR) { "getRunningPackages() failed: ${e.asLog()}" }
         throw e.wrapToPropagate()
     }
 

@@ -8,7 +8,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
@@ -44,7 +44,7 @@ class UsageTool @Inject constructor(
             .groupBy { it.packageName }
             .map { entry ->
                 UsageInfo(
-                    installId = Installed.InstallId(
+                    installId = InstallId(
                         pkgId = entry.key.toPkgId(),
                         userHandle = currentUser.handle,
                     ),

@@ -49,6 +49,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.get
 import eu.darken.sdmse.common.progress.Progress
@@ -123,8 +124,8 @@ class ClearCacheModule @AssistedInject constructor(
 
         labelDebugger.logAllLabels()
 
-        val successful = mutableSetOf<Installed.InstallId>()
-        val failed = mutableSetOf<Installed.InstallId>()
+        val successful = mutableSetOf<InstallId>()
+        val failed = mutableSetOf<InstallId>()
 
         updateProgressCount(Progress.Count.Percent(task.targets.size))
 

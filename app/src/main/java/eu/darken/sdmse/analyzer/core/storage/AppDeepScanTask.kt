@@ -3,14 +3,14 @@ package eu.darken.sdmse.analyzer.core.storage
 import eu.darken.sdmse.analyzer.core.AnalyzerTask
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.storage.StorageId
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class AppDeepScanTask(
     val storageId: StorageId,
-    val installId: Installed.InstallId,
+    val installId: InstallId,
 ) : AnalyzerTask {
 
     @Parcelize

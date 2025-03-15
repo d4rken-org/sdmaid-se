@@ -22,7 +22,7 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.saf.FileMode
 import eu.darken.sdmse.common.files.saf.SAFDocFile
 import eu.darken.sdmse.common.flow.throttleLatest
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressPrimary
@@ -134,7 +134,7 @@ class AppExporter @Inject constructor(
 
     @Parcelize
     data class Result(
-        val installId: Installed.InstallId,
+        val installId: InstallId,
         val baseApk: APath?,
         val extraSources: Set<APath>?,
         val savePath: Uri,

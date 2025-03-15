@@ -37,6 +37,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.get
 import eu.darken.sdmse.common.progress.Progress
@@ -115,8 +116,8 @@ class AppControlAutomation @AssistedInject constructor(
     private suspend fun processForceStop(task: ForceStopAutomationTask): ForceStopAutomationTask.Result {
         labelDebugger.logAllLabels()
 
-        val successful = mutableSetOf<Installed.InstallId>()
-        val failed = mutableSetOf<Installed.InstallId>()
+        val successful = mutableSetOf<InstallId>()
+        val failed = mutableSetOf<InstallId>()
 
         updateProgressCount(Progress.Count.Percent(task.targets.size))
 
