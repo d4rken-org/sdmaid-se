@@ -46,6 +46,7 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.current
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getPrivateDataDirs
 import eu.darken.sdmse.common.pkgs.isEnabled
@@ -131,12 +132,14 @@ class AppScanner @Inject constructor(
 
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
 
+        val runningPkgs = pkgOps.getRunningPackages()
+
         val currentUser = userManager.currentUser()
         val allUsers = userManager.allUsers()
         val allCurrentPkgs = pkgRepo.current()
             .filter { includeOtherUsers || it.userHandle == currentUser.handle }
             .filter { includeSystemApps || !it.isSystemApp }
-            .filter { includeRunningApps || !pkgOps.isRunning(it.installId) }
+            .filter { includeRunningApps || !runningPkgs.contains(it.installId) }
             .filter { pkgFilter.isEmpty() || pkgFilter.contains(it.id) }
             .filter { pkg ->
                 val isExcluded = pkgExclusions.any { it.match(pkg.id) }
@@ -147,7 +150,7 @@ class AppScanner @Inject constructor(
 
         log(TAG) { "${allCurrentPkgs.size} apps to check :)" }
 
-        val expendablesFromAppData: Map<Installed.InstallId, Collection<ExpendablesFilter.Match>> =
+        val expendablesFromAppData: Map<InstallId, Collection<ExpendablesFilter.Match>> =
             buildSearchMap(allCurrentPkgs)
                 .onEach { log(TAG) { "Searchmap contains ${it.value.size} pathes for ${it.key}." } }
                 .let { readAppDirs(it) }
@@ -200,14 +203,14 @@ class AppScanner @Inject constructor(
 
     private suspend fun buildSearchMap(
         pkgsToCheck: Collection<Installed>,
-    ): Map<AreaInfo, Collection<Installed.InstallId>> {
+    ): Map<AreaInfo, Collection<InstallId>> {
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading_data_areas)
         updateProgressCount(Progress.Count.Indeterminate())
 
         val currentAreas = areaManager.currentAreas()
         val dataAreaMap = createDataAreaMap(currentAreas)
 
-        val searchPathMap = mutableMapOf<AreaInfo, Collection<Installed.InstallId>>()
+        val searchPathMap = mutableMapOf<AreaInfo, Collection<InstallId>>()
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_generating_searchpaths)
         updateProgressCount(Progress.Count.Percent(pkgsToCheck.size))
 
@@ -394,8 +397,8 @@ class AppScanner @Inject constructor(
     }
 
     private suspend fun readAppDirs(
-        searchPathsOfInterest: Map<AreaInfo, Collection<Installed.InstallId>>
-    ): Map<Installed.InstallId, Collection<ExpendablesFilter.Match>> {
+        searchPathsOfInterest: Map<AreaInfo, Collection<InstallId>>
+    ): Map<InstallId, Collection<ExpendablesFilter.Match>> {
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Percent(searchPathsOfInterest.size))
@@ -404,7 +407,7 @@ class AppScanner @Inject constructor(
         val cutOffAge = Instant.now().minusMillis(minCacheAgeMs)
         log(TAG) { "minCacheAgeMs=$minCacheAgeMs -> Cut off after $cutOffAge" }
 
-        val results = HashMap<Installed.InstallId, Collection<ExpendablesFilter.Match>>()
+        val results = HashMap<InstallId, Collection<ExpendablesFilter.Match>>()
 
         val systemUser = userManager.systemUser()
 

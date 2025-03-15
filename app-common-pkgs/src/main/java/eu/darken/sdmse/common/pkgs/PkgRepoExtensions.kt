@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.pkgs
 
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.coroutines.flow.Flow
@@ -20,7 +21,7 @@ suspend fun PkgRepo.get(
 ): Installed? = query(pkgId, userHandle).singleOrNull()
 
 suspend fun PkgRepo.get(
-    installId: Installed.InstallId
+    installId: InstallId
 ): Installed? = query(installId.pkgId, installId.userHandle).singleOrNull()
 
 suspend fun PkgRepo.isInstalled(

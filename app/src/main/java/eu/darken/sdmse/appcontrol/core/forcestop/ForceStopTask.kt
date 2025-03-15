@@ -5,7 +5,7 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.stats.core.AffectedPkg
 import eu.darken.sdmse.stats.core.ReportDetails
 import eu.darken.sdmse.stats.core.Reportable
@@ -13,13 +13,13 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ForceStopTask(
-    val targets: Set<Installed.InstallId> = emptySet(),
+    val targets: Set<InstallId> = emptySet(),
 ) : AppControlTask, Reportable {
 
     @Parcelize
     data class Result(
-        val success: Set<Installed.InstallId>,
-        val failed: Set<Installed.InstallId>,
+        val success: Set<InstallId>,
+        val failed: Set<InstallId>,
     ) : AppControlTask.Result, ReportDetails.AffectedPkgs {
 
         override val affectedPkgs: Map<Pkg.Id, AffectedPkg.Action>

@@ -20,7 +20,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.throttleLatest
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.Progress
@@ -65,7 +65,7 @@ class InaccessibleDeleter @Inject constructor(
 
     suspend fun deleteInaccessible(
         snapshot: AppCleaner.Data,
-        targetPkgs: Collection<Installed.InstallId>?,
+        targetPkgs: Collection<InstallId>?,
         useAutomation: Boolean,
         isBackground: Boolean,
     ): InaccDelResult {
@@ -110,8 +110,8 @@ class InaccessibleDeleter @Inject constructor(
         log(TAG) { "${targets.size} inaccessible caches to delete." }
         if (targets.isEmpty()) return InaccDelResult()
 
-        val successTargets = mutableListOf<Installed.InstallId>()
-        val failedTargets = mutableListOf<Installed.InstallId>()
+        val successTargets = mutableListOf<InstallId>()
+        val failedTargets = mutableListOf<InstallId>()
 
         if (adbManager.canUseAdbNow() && isAllApps) {
             val adbResult = trimCachesWithAdb(targets)
@@ -128,7 +128,7 @@ class InaccessibleDeleter @Inject constructor(
             val remainingTargets = targets.filter { !successTargets.contains(it.identifier) }
 
             log(TAG) { "Processing ${remainingTargets.size} remaining inaccessible caches" }
-            val successFullLive = mutableSetOf<Installed.InstallId>()
+            val successFullLive = mutableSetOf<InstallId>()
             val acsTask = ClearCacheTask(
                 targets = remainingTargets.map { it.identifier },
                 returnToApp = !isBackground,
@@ -166,8 +166,8 @@ class InaccessibleDeleter @Inject constructor(
         val trimCandidates = targets.filter { !it.pkg.isSystemApp }
         updateProgressCount(Progress.Count.Counter(trimCandidates.size))
 
-        val successTargets = mutableSetOf<Installed.InstallId>()
-        val failedTargets = mutableSetOf<Installed.InstallId>()
+        val successTargets = mutableSetOf<InstallId>()
+        val failedTargets = mutableSetOf<InstallId>()
 
         try {
             pkgOps.trimCaches(Long.MAX_VALUE)
@@ -237,8 +237,8 @@ class InaccessibleDeleter @Inject constructor(
     }
 
     data class InaccDelResult(
-        val succesful: Set<Installed.InstallId> = emptySet(),
-        val failed: Set<Installed.InstallId> = emptySet(),
+        val succesful: Set<InstallId> = emptySet(),
+        val failed: Set<InstallId> = emptySet(),
     )
 
     companion object {

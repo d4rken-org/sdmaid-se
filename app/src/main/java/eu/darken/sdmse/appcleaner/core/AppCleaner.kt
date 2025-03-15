@@ -27,7 +27,7 @@ import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.forensics.FileForensics
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
@@ -201,7 +201,7 @@ class AppCleaner @Inject constructor(
             .onEach { it.initialize() }
 
         val accessibleDeletionMap = if (!task.onlyInaccessible) {
-            val deletionMap = mutableMapOf<Installed.InstallId, Set<ExpendablesFilter.Match>>()
+            val deletionMap = mutableMapOf<InstallId, Set<ExpendablesFilter.Match>>()
 
             val targetJunk = task.targetPkgs
                 ?.map { tp -> snapshot.junks.single { it.identifier == tp } }
@@ -350,7 +350,7 @@ class AppCleaner @Inject constructor(
         )
     }
 
-    suspend fun exclude(identifiers: Set<Installed.InstallId>) = toolLock.withLock {
+    suspend fun exclude(identifiers: Set<InstallId>) = toolLock.withLock {
         log(TAG) { "exclude(): $identifiers" }
 
         // FIXME what about user specific exclusion?
@@ -370,7 +370,7 @@ class AppCleaner @Inject constructor(
         )
     }
 
-    suspend fun exclude(identifier: Installed.InstallId, exclsionTargets: Set<APath>) = toolLock.withLock {
+    suspend fun exclude(identifier: InstallId, exclsionTargets: Set<APath>) = toolLock.withLock {
         log(TAG) { "exclude(): $identifier, $exclsionTargets" }
         val exclusions = exclsionTargets.map {
             PathExclusion(

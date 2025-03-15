@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getQuantityString2
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.serialization.KClassParcelizer
 import eu.darken.sdmse.stats.core.ReportDetails
 import eu.darken.sdmse.stats.core.Reportable
@@ -17,7 +17,7 @@ import kotlin.reflect.KClass
 @Parcelize
 @TypeParceler<KClass<out ExpendablesFilter>, KClassParcelizer>()
 data class AppCleanerProcessingTask(
-    val targetPkgs: Set<Installed.InstallId>? = null,
+    val targetPkgs: Set<InstallId>? = null,
     val targetFilters: Set<KClass<out ExpendablesFilter>>? = null,
     val targetContents: Set<APath>? = null,
     val includeInaccessible: Boolean = true,

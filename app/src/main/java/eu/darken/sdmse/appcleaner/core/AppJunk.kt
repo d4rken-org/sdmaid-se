@@ -6,6 +6,7 @@ import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilte
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.user.UserProfile2
 
@@ -16,7 +17,7 @@ data class AppJunk(
     val inaccessibleCache: InaccessibleCache?,
 ) {
 
-    val identifier: Installed.InstallId
+    val identifier: InstallId
         get() = pkg.installId
 
     val label: CaString

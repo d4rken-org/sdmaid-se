@@ -218,7 +218,7 @@
         <argument
             android:name="identifier"
             android:defaultValue="@null"
-            app:argType="eu.darken.sdmse.common.pkgs.features.Installed$InstallId"
+            app:argType="eu.darken.sdmse.common.pkgs.features.InstallId"
             app:nullable="true" />
     </fragment>
     <fragment
@@ -227,7 +227,7 @@
         tools:layout="@layout/appcleaner_appjunk_fragment">
         <argument
             android:name="identifier"
-            app:argType="eu.darken.sdmse.common.pkgs.features.Installed$InstallId" />
+            app:argType="eu.darken.sdmse.common.pkgs.features.InstallId" />
     </fragment>
 
     <action
@@ -319,7 +319,7 @@
             app:argType="eu.darken.sdmse.common.storage.StorageId" />
         <argument
             android:name="installId"
-            app:argType="eu.darken.sdmse.common.pkgs.features.Installed$InstallId" />
+            app:argType="eu.darken.sdmse.common.pkgs.features.InstallId" />
         <action
             android:id="@+id/action_appDetailsFragment_to_contentFragment"
             app:destination="@id/contentFragment" />
@@ -337,7 +337,7 @@
         <argument
             android:name="installId"
             android:defaultValue="@null"
-            app:argType="eu.darken.sdmse.common.pkgs.features.Installed$InstallId"
+            app:argType="eu.darken.sdmse.common.pkgs.features.InstallId"
             app:nullable="true" />
     </fragment>
 

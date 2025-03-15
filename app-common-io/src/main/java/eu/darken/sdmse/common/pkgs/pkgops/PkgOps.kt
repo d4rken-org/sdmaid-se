@@ -39,7 +39,7 @@ import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.permissions.Permission.PACKAGE_USAGE_STATS
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.container.PkgArchive
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
 import eu.darken.sdmse.common.pkgs.getLabel2
@@ -54,6 +54,7 @@ import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourcesAlive
 import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.plus
 import java.util.UUID
@@ -70,6 +71,7 @@ class PkgOps @Inject constructor(
     private val adbManager: AdbManager,
     private val usageStatsManager: UsageStatsManager,
     private val storageStatsManager: StorageStatsManager,
+    private val userManager2: UserManager2,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
@@ -303,7 +305,7 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun clearCache(id: Installed.InstallId, mode: Mode = Mode.AUTO) {
+    suspend fun clearCache(id: InstallId, mode: Mode = Mode.AUTO) {
         log(TAG) { "clearCache($id, $mode)" }
         try {
             if (mode == Mode.NORMAL) throw PkgOpsException("clearCache($id) does not support mode=NORMAL")
@@ -359,41 +361,46 @@ class PkgOps @Inject constructor(
         }
     }
 
-
-    suspend fun isRunning(id: Installed.InstallId, mode: Mode = Mode.AUTO): Boolean {
+    suspend fun getRunningPackages(mode: Mode = Mode.AUTO): Set<InstallId> {
         try {
             if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
-                log(TAG, VERBOSE) { "isRunning($id, $mode->ADB)" }
-                return adbOps { it.isRunning(id.pkgId) }
+                log(TAG, VERBOSE) { "getRunningPackages($mode->ADB)" }
+                return adbOps { it.getRunningPackages() }
             }
 
             if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
-                log(TAG, VERBOSE) { "isRunning($id, $mode->ROOT)" }
-                return rootOps { it.isRunning(id.pkgId) }
+                log(TAG, VERBOSE) { "getRunningPackages($mode->ROOT)" }
+                return rootOps { it.getRunningPackages() }
             }
 
             if (PACKAGE_USAGE_STATS.isGranted(context) && (mode == Mode.AUTO || mode == Mode.NORMAL)) {
-                log(TAG, VERBOSE) { "isRunning($id, $mode->NORMAL)" }
+                log(TAG, VERBOSE) { "getRunningPackages($mode->NORMAL)" }
                 val now = System.currentTimeMillis()
-                val stats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST, now - 60 * 1000, now)
-                val stat = stats.find { it.packageName == id.pkgId.name }
-                val secondsSinceLastUse = stat?.let { (System.currentTimeMillis() - it.lastTimeUsed) / 1000L }
-                log(TAG, VERBOSE) { "isRunning($id): ${secondsSinceLastUse}s" }
-                return secondsSinceLastUse?.let { it < PULSE_PERIOD_SECONDS } == true
+                val stats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST, now - 240 * 1000, now)
+                val currentUser = userManager2.currentUser()
+                return stats
+                    .groupBy { it.packageName }
+                    .map { (_, value) -> value.maxBy { it.lastTimeUsed } }
+                    .filter {
+                        val secondsSinceLastUse = (System.currentTimeMillis() - it.lastTimeUsed) / 1000L
+                        secondsSinceLastUse < 60
+                    }
+                    .map { InstallId(it.packageName.toPkgId(), currentUser.handle) }
+                    .toSet()
             }
 
             throw ModeUnavailableException("Mode $mode is unavailable")
         } catch (e: Exception) {
             if (e is ModeUnavailableException) {
-                log(TAG, DEBUG) { "isRunning(...): $mode unavailable for $id" }
+                log(TAG, DEBUG) { "getRunningPackages(...): $mode unavailable" }
             } else {
-                log(TAG, WARN) { "isRunning($id,$mode) failed: ${e.asLog()}" }
+                log(TAG, WARN) { "getRunningPackages($mode) failed: ${e.asLog()}" }
             }
-            throw PkgOpsException(message = "isRunning($id, $mode) failed", cause = e)
+            throw PkgOpsException(message = "getRunningPackages($mode) failed", cause = e)
         }
     }
 
-    suspend fun grantPermission(id: Installed.InstallId, permission: Permission, mode: Mode = Mode.AUTO): Boolean {
+    suspend fun grantPermission(id: InstallId, permission: Permission, mode: Mode = Mode.AUTO): Boolean {
         try {
             log(TAG) { "grantPermission($id, $permission, $mode)" }
             if (mode == Mode.NORMAL) throw PkgOpsException("grantPermission($id, $permission) does not support mode=NORMAL")
@@ -420,7 +427,7 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun revokePermission(id: Installed.InstallId, permission: Permission, mode: Mode = Mode.AUTO): Boolean {
+    suspend fun revokePermission(id: InstallId, permission: Permission, mode: Mode = Mode.AUTO): Boolean {
         try {
             log(TAG) { "revokePermission($id, $permission, $mode)" }
             if (mode == Mode.NORMAL) throw PkgOpsException("revokePermission($id, $permission) does not support mode=NORMAL")
@@ -448,7 +455,7 @@ class PkgOps @Inject constructor(
     }
 
     suspend fun setAppOps(
-        id: Installed.InstallId,
+        id: InstallId,
         key: AppOpsKey,
         value: AppOpsValue,
         mode: Mode = Mode.AUTO
@@ -490,7 +497,7 @@ class PkgOps @Inject constructor(
     }
 
     suspend fun querySizeStats(
-        installId: Installed.InstallId,
+        installId: InstallId,
         storageUUID: UUID = StorageManager.UUID_DEFAULT
     ): SizeStats? = try {
         log(TAG, VERBOSE) { "querySizeStats($installId,$storageUUID)" }
@@ -531,7 +538,6 @@ class PkgOps @Inject constructor(
     }
 
     companion object {
-        private const val PULSE_PERIOD_SECONDS = 10
         val TAG = logTag("Pkg", "Ops")
     }
 }

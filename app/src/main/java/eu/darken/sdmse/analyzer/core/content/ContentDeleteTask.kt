@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getQuantityString2
-import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.stats.core.ReportDetails
 import eu.darken.sdmse.stats.core.Reportable
@@ -16,7 +16,7 @@ import kotlinx.parcelize.Parcelize
 data class ContentDeleteTask(
     val storageId: StorageId,
     val groupId: ContentGroup.Id,
-    val targetPkg: Installed.InstallId? = null,
+    val targetPkg: InstallId? = null,
     val targets: Set<APath>,
 ) : AnalyzerTask, Reportable {
 

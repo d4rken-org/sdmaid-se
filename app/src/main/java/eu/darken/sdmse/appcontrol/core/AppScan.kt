@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.current
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -35,9 +36,9 @@ class AppScan @Inject constructor(
     override val sharedResource = SharedResource.createKeepAlive(PkgOps.TAG, appScope + dispatcherProvider.IO)
 
     private val mutex = Mutex()
-    private val activeCache = mutableMapOf<Installed.InstallId, Boolean?>()
-    private val sizeCache = mutableMapOf<Installed.InstallId, PkgOps.SizeStats?>()
-    private val usageCache = mutableMapOf<Installed.InstallId, UsageInfo?>()
+    private var activeCache: Map<InstallId, Boolean?>? = null
+    private val sizeCache = mutableMapOf<InstallId, PkgOps.SizeStats?>()
+    private var usageCache: Map<InstallId, UsageInfo?>? = null
 
     private suspend fun <T> doRun(action: suspend () -> T): T = mutex.withLock {
         adoptChildResource(pkgOps.sharedResource)
@@ -45,9 +46,9 @@ class AppScan @Inject constructor(
     }
 
     suspend fun refresh() = doRun {
-        activeCache.clear()
+        activeCache = null
         sizeCache.clear()
-        usageCache.clear()
+        usageCache = null
         pkgRepo.refresh()
     }
 
@@ -72,7 +73,7 @@ class AppScan @Inject constructor(
     }
 
     suspend fun app(
-        installId: Installed.InstallId,
+        installId: InstallId,
         includeUsage: Boolean,
         includeActive: Boolean,
         includeSize: Boolean,
@@ -114,14 +115,23 @@ class AppScan @Inject constructor(
     ) = AppInfo(
         pkg = this,
         isActive = if (includeActive) {
-            activeCache[installId] ?: pkgOps.isRunning(installId).also { activeCache[installId] = it }
+            if (activeCache == null) {
+                activeCache = mutableMapOf<InstallId, Boolean?>().apply {
+                    putAll(pkgOps.getRunningPackages().map { it to true })
+                }
+            }
+            activeCache!![installId] ?: false
         } else null,
         sizes = if (includeSize) {
             sizeCache[installId] ?: pkgOps.querySizeStats(installId).also { sizeCache[installId] = it }
         } else null,
         usage = if (includeUsage) {
-            if (usageCache.isEmpty()) usageCache.putAll(usageTool.lastMonth().map { it.installId to it })
-            usageCache[installId]
+            if (usageCache == null) {
+                usageCache = mutableMapOf<InstallId, UsageInfo?>().apply {
+                    putAll(usageTool.lastMonth().map { it.installId to it })
+                }
+            }
+            usageCache!![installId]
         } else null,
         canBeToggled = this is NormalPkg,
         canBeStopped = this is NormalPkg,
