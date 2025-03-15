@@ -20,6 +20,10 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.flatMapMerge
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -37,7 +41,7 @@ class AppScan @Inject constructor(
 
     private val mutex = Mutex()
     private var activeCache: Map<InstallId, Boolean?>? = null
-    private val sizeCache = mutableMapOf<InstallId, PkgOps.SizeStats?>()
+    private var sizeCache: Map<InstallId, PkgOps.SizeStats?>? = null
     private var usageCache: Map<InstallId, UsageInfo?>? = null
 
     private suspend fun <T> doRun(action: suspend () -> T): T = mutex.withLock {
@@ -47,9 +51,32 @@ class AppScan @Inject constructor(
 
     suspend fun refresh() = doRun {
         activeCache = null
-        sizeCache.clear()
+        sizeCache = null
         usageCache = null
         pkgRepo.refresh()
+    }
+
+    private suspend fun getUsage(id: InstallId): UsageInfo? {
+        if (usageCache == null) {
+            usageCache = mutableMapOf<InstallId, UsageInfo?>().apply {
+                putAll(usageTool.lastMonth().map { it.installId to it })
+            }
+        }
+        return usageCache!![id]
+    }
+
+    private suspend fun getSize(id: InstallId): PkgOps.SizeStats? {
+        if (sizeCache == null) pkgOps.querySizeStats(id)
+        return sizeCache!![id]
+    }
+
+    private suspend fun getActive(id: InstallId): Boolean? {
+        if (activeCache == null) {
+            activeCache = mutableMapOf<InstallId, Boolean?>().apply {
+                putAll(pkgOps.getRunningPackages().map { it to true })
+            }
+        }
+        return activeCache!![id]
     }
 
     suspend fun allApps(
@@ -59,7 +86,18 @@ class AppScan @Inject constructor(
         includeSize: Boolean,
     ): Set<AppInfo> = doRun {
         log(TAG, VERBOSE) { "allApps($user)" }
-        val pkgs = pkgRepo.current()
+        val pkgs = pkgRepo.current().filter { it.userHandle == user }
+
+        if (sizeCache == null) {
+            sizeCache = pkgs
+                .map { it.installId }
+                .asFlow()
+                .flatMapMerge(4) {
+                    flow { emit(it to pkgOps.querySizeStats(it)) }
+                }
+                .toList().associate { (id, size) -> id to size }
+        }
+
         pkgs
             .filter { it.userHandle == user }
             .map {
@@ -70,22 +108,6 @@ class AppScan @Inject constructor(
                 )
             }
             .toSet()
-    }
-
-    suspend fun app(
-        installId: InstallId,
-        includeUsage: Boolean,
-        includeActive: Boolean,
-        includeSize: Boolean,
-    ): AppInfo = doRun {
-        log(TAG, VERBOSE) { "app($installId)" }
-        pkgRepo.current()
-            .single { it.installId == installId }
-            .toAppInfo(
-                includeUsage = includeUsage,
-                includeActive = includeActive,
-                includeSize = includeSize,
-            )
     }
 
     suspend fun app(
@@ -114,25 +136,9 @@ class AppScan @Inject constructor(
         includeUsage: Boolean,
     ) = AppInfo(
         pkg = this,
-        isActive = if (includeActive) {
-            if (activeCache == null) {
-                activeCache = mutableMapOf<InstallId, Boolean?>().apply {
-                    putAll(pkgOps.getRunningPackages().map { it to true })
-                }
-            }
-            activeCache!![installId] ?: false
-        } else null,
-        sizes = if (includeSize) {
-            sizeCache[installId] ?: pkgOps.querySizeStats(installId).also { sizeCache[installId] = it }
-        } else null,
-        usage = if (includeUsage) {
-            if (usageCache == null) {
-                usageCache = mutableMapOf<InstallId, UsageInfo?>().apply {
-                    putAll(usageTool.lastMonth().map { it.installId to it })
-                }
-            }
-            usageCache!![installId]
-        } else null,
+        isActive = if (includeActive) getActive(installId) ?: false else null,
+        sizes = if (includeSize) getSize(installId) else null,
+        usage = if (includeUsage) getUsage(installId) else null,
         canBeToggled = this is NormalPkg,
         canBeStopped = this is NormalPkg,
         canBeExported = this is SourceAvailable,
