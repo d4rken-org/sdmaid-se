@@ -287,7 +287,7 @@ class AppScanner @Inject constructor(
         dataAreaMap.entries
             .map { it.value }
             .flatten()
-            .mapNotNull { fileForensics.findOwners(it) }
+            .map { fileForensics.findOwners(it) }
             .forEach { ownerInfo ->
                 val installIds = ownerInfo.installedOwners
                     .filter { !it.hasFlag(Marker.Flag.CUSTODIAN) }

@@ -43,7 +43,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.transformLatest
 import java.time.Duration
 import java.time.Instant
@@ -70,13 +69,6 @@ class AppControlListViewModel @Inject constructor(
             if (initState.data != null) return@launch
             taskManager.submit(getScanTask())
         }
-
-        settings.moduleSizingEnabled.flow
-            .onEach { taskManager.submit(getScanTask()) }
-            .launchInViewModel()
-        settings.moduleActivityEnabled.flow
-            .onEach { taskManager.submit(getScanTask()) }
-            .launchInViewModel()
     }
 
     val events = SingleLiveEvent<AppControlListEvents>()

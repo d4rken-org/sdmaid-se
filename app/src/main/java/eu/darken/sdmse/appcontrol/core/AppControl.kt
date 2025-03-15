@@ -212,21 +212,19 @@ class AppControl @Inject constructor(
         appScan.refresh()
 
         internalData.value = snapshot.copy(
-            apps = snapshot.apps.map { app ->
-                when {
-                    enabled.contains(app.installId) || disabled.contains(app.installId) || failed.contains(app.installId) -> {
-                        // TODO if the app is suddenly no longer installed, show the user an error?
-                        appScan.app(
-                            pkgId = app.id,
-                            includeSize = snapshot.hasInfoSize,
-                            includeActive = snapshot.hasInfoActive,
-                            includeUsage = snapshot.hasInfoScreenTime
-                        )
-                    }
-
-                    else -> setOf(app)
-                }
-            }.flatten()
+            apps = run {
+                val affectedPkgs = enabled.map { it.pkgId } + disabled.map { it.pkgId } + failed.map { it.pkgId }
+                val cleanedSnapshot = snapshot.apps.filterNot { affectedPkgs.contains(it.id) }
+                val updatedPkgs = affectedPkgs.map {
+                    appScan.app(
+                        pkgId = it,
+                        includeSize = snapshot.hasInfoSize,
+                        includeActive = snapshot.hasInfoActive,
+                        includeUsage = snapshot.hasInfoScreenTime
+                    )
+                }.flatten()
+                cleanedSnapshot + updatedPkgs
+            }
         )
 
         return AppControlToggleTask.Result(enabled, disabled, failed)
@@ -266,20 +264,19 @@ class AppControl @Inject constructor(
         appScan.refresh()
 
         internalData.value = snapshot.copy(
-            apps = snapshot.apps.map { app ->
-                when {
-                    successful.contains(app.installId) || failed.contains(app.installId) -> {
-                        appScan.app(
-                            pkgId = app.id,
-                            includeSize = snapshot.hasInfoSize,
-                            includeActive = snapshot.hasInfoActive,
-                            includeUsage = snapshot.hasInfoScreenTime
-                        )
-                    }
-
-                    else -> setOf(app)
-                }
-            }.flatten()
+            apps = run {
+                val affectedPkgs = successful.map { it.pkgId } + failed.map { it.pkgId }
+                val cleanedSnapshot = snapshot.apps.filterNot { affectedPkgs.contains(it.id) }
+                val updatedPkgs = affectedPkgs.map {
+                    appScan.app(
+                        pkgId = it,
+                        includeSize = snapshot.hasInfoSize,
+                        includeActive = snapshot.hasInfoActive,
+                        includeUsage = snapshot.hasInfoScreenTime
+                    )
+                }.flatten()
+                cleanedSnapshot + updatedPkgs
+            }
         )
 
         return UninstallTask.Result(successful, failed)
