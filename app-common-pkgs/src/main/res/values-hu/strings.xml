@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Érvénytelen alkalmazáskészlet</string>
+    <string name="pkgrepo_invalid_inventory_error_description">A rendszer egy érvénytelen alkalmazás listát adott meg az SD Maidnek.</string>
+</resources>

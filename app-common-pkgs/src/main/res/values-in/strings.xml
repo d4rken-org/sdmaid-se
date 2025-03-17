@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Inventaris aplikasi tidak valid</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Sistem memberikan daftar aplikasi terinstal yang tidak valid kepada SD Maid.</string>
+</resources>

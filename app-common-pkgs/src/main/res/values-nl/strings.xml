@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Ongeldige app-inventaris</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Het systeem heeft een ongeldige lijst met geïnstalleerde apps verstrekt aan SD Maid.</string>
+</resources>

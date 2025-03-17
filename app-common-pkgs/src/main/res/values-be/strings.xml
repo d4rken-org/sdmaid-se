@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Няправільны пералік праграм</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Сістэма прадставіла SD Maid няправільны пералік усталяваных праграм.</string>
+</resources>

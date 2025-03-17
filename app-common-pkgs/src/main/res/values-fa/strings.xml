@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">موجودی برنامه نامعتبر</string>
+    <string name="pkgrepo_invalid_inventory_error_description">سیستم یک لیست نامعتبر از برنامه‌های نصب شده به SD Maid ارائه داده است.</string>
+</resources>
