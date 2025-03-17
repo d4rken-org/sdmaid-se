@@ -11,7 +11,7 @@ Mari sudahi... Biarkan SD Maid2/SE membantu mu!
 SD Maid 2/SE adalah pengelola aplikasi dan file yang dapat mengetahui aplikasi apa yang telah membuat file-file tertentu di perangkat mu. SD Maid 2/SE mencari dan membandingkan file-file dengan aplikasi yang terpasang dan menawarkan pilihan untuk mengosongkan ruang penyimpanan dengan aman.
 
 ✨ Bersih-bersih setelah menghapus aplikasi
-Jika aplikasi membuat file diluar folder yang telah ditentukan, file-file tersebut akan tetap ada bahkan setelah aplikasi tersebut dihapus. Alat "CorpseFinder" mencari sisa aplikasi dan memberi tahu mu dari aplikasi apa sisa tersebut ditemukan serta membantu kamu menghapus sisa tersebut.
+Jika aplikasi membuat file diluar folder yang telah ditentukan, file-file tersebut akan tetap ada bahkan setelah aplikasi tersebut dihapus. Alat "PencariMayat" menemukan sisa-sisa aplikasi, memberi tahu aplikasi mana yang memilikinya, dan membantu Anda menghapusnya.
 
 🔍 Pindai perangkat mu dengan cara yang cerdik
 Filter untuk folder kosong, berkas sementara, aplikasi terpasang, dan banyak lagi. Kamu bahkan bisa membuat kriteria pencarian milikmu sendiri. Alat "SystemCleaner" memungkinkan kamu untuk memindai perangkat dan menghapus berkas berdasarkan berbagai kriteria.
