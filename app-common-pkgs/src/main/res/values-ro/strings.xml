@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Inventar de aplicații nevalid</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Sistemul a furnizat aplicației SD Maid o listă invalidă de aplicații instalate.</string>
+</resources>
