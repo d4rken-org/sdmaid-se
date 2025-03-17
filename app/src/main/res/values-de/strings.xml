@@ -23,8 +23,8 @@
         <item quantity="other">%d aktive Aufgaben</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
-        <item quantity="one">%d Aufgabe anstehend</item>
-        <item quantity="other">%d Aufgaben anstehend</item>
+        <item quantity="one">%d Aufgabe in der Warteschlange</item>
+        <item quantity="other">%d wartende Aufgaben</item>
     </plurals>
     <string name="tasks_result_notification_channel_label">Ergebnisse der Aufgabe</string>
     <string name="tasks_result_subtext">Ergebnis der Aufgabe</string>
@@ -54,8 +54,8 @@
     <string name="settings_privacy_policy_desc">Verantwortungsvoller Umgang mit Daten.</string>
     <string name="settings_licenses_label">Lizenzen</string>
     <string name="settings_category_other_label">Sonstiges</string>
-    <string name="settings_category_filter_generic">Allgemeiner Filter</string>
-    <string name="settings_category_filter_specific">Spezifischer Filter</string>
+    <string name="settings_category_filter_generic">Allgemeine Filter</string>
+    <string name="settings_category_filter_specific">Spezifische Filter</string>
     <string name="settings_sponsor_development_title">Fördere Entwicklung</string>
     <string name="settings_sponsor_development_summary">Werde Förderer und ermögliche die weitere Entwicklung.</string>
     <string name="general_settings_label">Allgemein</string>
@@ -240,6 +240,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Leere Ordner von allen über dem Gerät. Verschachtelte Ordner können mehrere Durchgänge erfordern.</string>
     <string name="systemcleaner_filter_screenshots_label">Screenshots</string>
     <string name="systemcleaner_filter_screenshots_summary">Screenshots, die älter als %s sind, von mehreren Apps und Standorten.</string>
+    <string name="systemcleaner_filter_trashed_label">Gelöschte Dateien</string>
+    <string name="systemcleaner_filter_trashed_summary">Dateien im Papierkorb aus verschiedenen Apps und Orten, die zum Löschen markiert sind, aber noch nicht endgültig entfernt sind.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Screenshot Alter</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Mindestalter für Screenshots, damit diese für eine Löschung in Betracht gezogen werden.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Überflüssige APKs</string>
@@ -402,6 +404,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Ermögliche „Alle löschen“</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Zeige Optionen an, mit denen Du alle Dateien in einem Duplikatsatz löschen kannst, sodass keine Datei übrig bleibt.</string>
+    <string name="deduplicator_search_locations_title">Suchorte</string>
+    <string name="deduplicator_search_locations_all_summary">Alle zugänglichen Bereiche</string>
     <string name="deduplicator_skip_minsize_title">Mindestgröße</string>
     <string name="deduplicator_skip_minsize_description">Überspringe Dateien, die kleiner als die Mindestgröße sind.</string>
     <string name="deduplicator_skip_uncommon_title">Überspringe ungewöhnliche Dateitypen</string>
@@ -459,6 +463,8 @@
     <string name="appcontrol_tag_apk_bundle">Bündel</string>
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_archived">Archiviert</string>
+    <string name="appcontrol_tag_uninstalled">Nur Daten</string>
+    <string name="appcontrol_tag_not_installed">Nicht installiert</string>
     <string name="appcontrol_tag_enabled">Aktiviert</string>
     <string name="appcontrol_tag_disabled">Deaktiviert</string>
     <string name="appcontrol_progress_enabling_package">App aktivieren</string>
@@ -604,6 +610,7 @@
     <string name="automation_error_not_running_body">Der Barrierefreiheitsdienst wird nicht ausgeführt. Versuche das Gerät neu zu starten.</string>
     <string name="automation_error_screen_unavailable_title">Bildschirm nicht verfügbar</string>
     <string name="automation_error_screen_unavailable_body">Der Vorgang wurde abgebrochen, da der Bildschirm nicht mehr verfügbar war (z.B. Bildschirm aus oder Sperrbildschirm).</string>
+    <string name="automation_error_compatibility_body">SD-Maid konnte das Bildschirmlayout nicht ermitteln. Wenn dies wiederholend geschieht, wird Ihre Sprache oder das Setup möglicherweise nicht vollständig unterstützt. Suchen Sie nach Updates oder wenden Sie sich an mich, damit ich es beheben kann.</string>
     <string name="history_label">Verlauf</string>
     <string name="history_description">Eine chronologische Liste der letzten Aktionen und betroffenen Daten.</string>
     <string name="scheduler_label">Planer</string>
@@ -685,4 +692,18 @@
     <string name="stats_settings_reset_all_desc">Alle Berichte löschen und alle Statistiken auf Null setzen.</string>
     <string name="stats_affected_paths_label">Betroffene Pfade</string>
     <string name="stats_affected_pkgs_label">Betroffene Apps</string>
+    <string name="picker_select_paths_title">Pfade auswählen</string>
+    <string name="picker_selected_paths_title">Ausgewählte Pfade</string>
+    <string name="picker_unsaved_confirmation_message">Änderungen verwerfen?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d Pfad ausgewählt</item>
+        <item quantity="other">%d Pfade ausgewählt</item>
+    </plurals>
+    <string name="picker_home_action">Datenbereiche</string>
+    <string name="area_type_sdcard_label">Öffentlicher Speicher</string>
+    <string name="area_type_public_media_label">Öffentliche App-Medien</string>
+    <string name="area_type_public_data_label">Öffentliche App-Daten</string>
+    <string name="area_type_public_obb_label">Öffentliche App-Ressourcen</string>
+    <string name="area_type_private_data_label">Private App-Daten</string>
+    <string name="area_type_portable_label">Portabler Speicher</string>
 </resources>

@@ -67,7 +67,7 @@
     <string name="general_progress_loading_egg_13">Zumindest bist du nicht in der Warteschleife</string>
     <string name="general_help_action">Hilfe</string>
     <string name="general_continue">Weitermachen</string>
-    <string name="general_progress_queued">Anstehend</string>
+    <string name="general_progress_queued">In der Warteschlange</string>
     <string name="general_progress_deleting">Am Löschen</string>
     <string name="general_progress_deleting_x">%s wird gelöscht</string>
     <string name="general_sort_options_label">Sortier-Optionen</string>

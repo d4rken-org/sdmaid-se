@@ -92,6 +92,10 @@
     <string name="general_delete_confirmation_title">মুছে ফেলা নিশ্চিত করুন</string>
     <string name="general_delete_confirmation_message_x">\"%s\" মুছবেন?</string>
     <string name="general_delete_confirmation_message_selected_x_items">%dটি নির্বাচিত আইটেম মুছবেন?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%dটি আইটেম মুছে ফেলা হয়েছে।</item>
+        <item quantity="other">%dটি আইটেম মুছে ফেলা হয়েছে।</item>
+    </plurals>
     <string name="general_remove_action">অপসারণ করুন</string>
     <string name="general_remove_selected_action">বাছাইটি বাদ দিন</string>
     <plurals name="general_remove_success_x_items">
@@ -114,6 +118,10 @@
     <plurals name="result_x_failed">
         <item quantity="one">%d ব্যর্থ</item>
         <item quantity="other">%d ব্যর্থ</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s মুক্ত করা যেতে পারে</item>
+        <item quantity="other">%s মুক্ত করা যেতে পারে</item>
     </plurals>
     <string name="general_info_label">তথ্য</string>
     <string name="general_count_label">গণনা</string>
@@ -151,4 +159,5 @@
         <item quantity="other">%s ফাইল</item>
     </plurals>
     <string name="general_advice_title">উপদেশ</string>
+    <string name="general_error_invalid_input_label">অবৈধ ইনপুট</string>
 </resources>

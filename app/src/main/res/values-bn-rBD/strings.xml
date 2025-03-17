@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">ডিবাগ লগ রেকর্ড করুন</string>
     <string name="debug_debuglog_stop_action">রেকর্ডিং বন্ধ করুন</string>
     <string name="debug_debuglog_sensitive_information_message">তৈরি করা ফাইলটিতে সংবেদনশীল তথ্য রয়েছে (যেমন ফাইলের নাম এবং ইনস্টল করা অ্যাপ)। শুধুমাত্র বিশ্বস্ত করো সাথে শেয়ার করুন।</string>
+    <string name="settings_debuglog_explanation">এই বৈশিষ্ট্যটি অ্যাপটি যা করছে তা একটি শেয়ারযোগ্য ফাইলে রেকর্ড করে। তৈরি হওয়া ফাইলটিতে সংবেদনশীল তথ্য থাকে (যেমন ফাইলের নাম এবং ইনস্টল করা অ্যাপ)। এটি শুধুমাত্র বিশ্বস্ত পক্ষের সাথেই শেয়ার করুন (যেমন, কোনও ডেভেলপার কোনও সমস্যার সমাধান করছেন)।</string>
     <string name="tasks_activity_notification_channel_label">সক্রিয় কাজ</string>
     <string name="tasks_activity_working_notification_title">SD Maid কাজ করছে</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -239,6 +240,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">সমস্ত ডিভাইস থেকে খালি ফোল্ডার। নেস্টেড ফোল্ডারের একাধিক পাসের প্রয়োজন হতে পারে।</string>
     <string name="systemcleaner_filter_screenshots_label">স্ক্রিনশট</string>
     <string name="systemcleaner_filter_screenshots_summary">একাধিক অ্যাপ্লিকেশান এবং অবস্থান থেকে %s -এর থেকে পুরানো স্ক্রিনশট৷</string>
+    <string name="systemcleaner_filter_trashed_label">ট্র্যাশে ফেলা ফাইল</string>
+    <string name="systemcleaner_filter_trashed_summary">বিভিন্ন অ্যাপ এবং স্থান থেকে রিসাইকেল বিনে থাকা ফাইলগুলি যা মুছে ফেলার জন্য চিহ্নিত করা হয়েছে কিন্তু এখনও স্থায়ীভাবে সরানো হয়নি।</string>
     <string name="systemcleaner_filter_screenshots_age_label">স্ক্রিনশট বয়স</string>
     <string name="systemcleaner_filter_screenshots_age_summary">স্ক্রিনশট মুছে ফেলার জন্য বিবেচনা করার জন্য সর্বনিম্ন বয়স।</string>
     <string name="systemcleaner_filter_superfluosapks_label">অনাবশ্যক APK-সমূহ</string>
@@ -250,6 +253,7 @@
     <string name="systemcleaner_filter_macfiles_label">Mac ফাইল</string>
     <string name="systemcleaner_filter_macfiles_summary">অ্যাপলের ফাইন্ডার অ্যাপের মাধ্যমে স্টোরেজ ব্রাউজ করার সময় তৈরি করা ফাইল এবং ফোল্ডার।</string>
     <string name="systemcleaner_filter_windowsfiles_label">উইন্ডোজের ফাইলসমূহ</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"সংযুক্ত স্টোরেজে উইন্ডোজ ফাইল এক্সপ্লোরার তৈরি করতে পারে এমন ডেটা৷"</string>
     <string name="systemcleaner_filter_thumbnails_label">থাম্বনেল ছবি</string>
     <string name="systemcleaner_filter_thumbnails_summary">ছবি এবং ভিডিওর জন্য ক্যাশ প্রিভিউ।</string>
     <string name="systemcleaner_filter_tempfiles_label">অস্থায়ী ফাইল</string>
@@ -291,6 +295,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">বর্জন</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">যদি পাথ কোনো এন্ট্রির সাথে মেলে (যেমন \"DCIM\") তাহলে ফলাফলটি বাদ দেওয়া হবে। লং প্রেস করুন আরো অপশন এর জন্য।</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">পাথ তুলনা মোড</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">পাথ কীওয়ার্ড দিয়ে শুরু হয়</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">পাথে কীওয়ার্ড থাকে</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">পাথ কীওয়ার্ড দিয়ে শেষ হয়</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">পাথ হল কীওয়ার্ডের সমান</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">নাম তুলনা মোড</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">নাম কীওয়ার্ড দিয়ে শুরু হয়</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">নামের মধ্যে কীওয়ার্ড রয়েছে</string>
@@ -396,6 +404,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">\"সমস্ত মুছুন\" সম্ভব করুন</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">এমন বিকল্পগুলি দেখান যা আপনাকে সদৃশগুলির একটি সেটের সমস্ত ফাইল মুছতে দেয় যাতে কোনও ফাইল অবশিষ্ট না থাকে।</string>
+    <string name="deduplicator_search_locations_title">অবস্থান অনুসন্ধান করুন</string>
+    <string name="deduplicator_search_locations_all_summary">সমস্ত প্রবেশযোগ্য এলাকা</string>
     <string name="deduplicator_skip_minsize_title">ন্যূনতম আকার</string>
     <string name="deduplicator_skip_minsize_description">ন্যূনতম আকারের নিচের ফাইলগুলি এড়িয়ে যান।</string>
     <string name="deduplicator_skip_uncommon_title">অস্বাভাবিক ফাইলের ধরন এড়িয়ে যান</string>
@@ -406,6 +416,10 @@
     <string name="deduplicator_detection_method_phash_title">উপলব্ধিগত হ্যাশ</string>
     <string name="deduplicator_detection_method_phash_summary">বিষয়বস্তু বৈশিষ্ট্য বিশ্লেষণ করে এবং উপলব্ধিগত হ্যাশ মান তুলনা করে একই ফাইল খুঁজুন।</string>
     <string name="deduplicator_occupied_space_label">সঞ্চয়স্থান দখল</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s ডুপ্লিকেট দ্বারা দখল করা আছে</item>
+        <item quantity="other">%s ডুপ্লিকেট দ্বারা দখল করা আছে</item>
+    </plurals>
     <string name="deduplicator_file_size_label">ফাইলের আকার</string>
     <string name="deduplicator_average_size_label">গড় আকার</string>
     <string name="deduplicator_cluster_x_label">ক্লাস্টার %s</string>
@@ -449,6 +463,8 @@
     <string name="appcontrol_tag_apk_bundle">বান্ডল</string>
     <string name="appcontrol_tag_system">সিস্টেম</string>
     <string name="appcontrol_tag_archived">আর্কাইভ</string>
+    <string name="appcontrol_tag_uninstalled">শুধুমাত্র ডেটা</string>
+    <string name="appcontrol_tag_not_installed">ইনস্টল করা নেই</string>
     <string name="appcontrol_tag_enabled">সক্রিয়</string>
     <string name="appcontrol_tag_disabled">নিষ্ক্রিয়</string>
     <string name="appcontrol_progress_enabling_package">অ্যাপ সক্রিয় করা হচ্ছে</string>
@@ -594,6 +610,7 @@
     <string name="automation_error_not_running_body">অ্যাক্সেসিবিলিটি পরিষেবা চলছে না। ডিভাইসটি রিবুট করার চেষ্টা করুন।</string>
     <string name="automation_error_screen_unavailable_title">স্ক্রীন অনুপলব্ধ</string>
     <string name="automation_error_screen_unavailable_body">স্ক্রীনটি অনুপলব্ধ হওয়ার কারণে অপারেশনটি বাতিল করা হয়েছে (যেমন ডিসপ্লে বন্ধ বা লকস্ক্রিন সক্রিয়)।</string>
+    <string name="automation_error_compatibility_body">SD Maid স্ক্রিন লেআউটটি বুঝতে পারেনি। যদি এটি চলতে থাকে, তাহলে আপনার ভাষা বা সেটআপ সম্পূর্ণরূপে সমর্থিত নাও হতে পারে। আপডেটগুলি পরীক্ষা করুন অথবা আমার সাথে যোগাযোগ করুন যাতে আমি এটি ঠিক করতে পারি।</string>
     <string name="history_label">ইতিহাস</string>
     <string name="history_description">সাম্প্রতিক ক্রিয়াকলাপ এবং প্রভাবিত ডেটার একটি কালানুক্রমিক তালিকা।</string>
     <string name="scheduler_label">সময়সূচী</string>
@@ -650,6 +667,14 @@
     <string name="review_app_dismiss_action">হয়তো পরে</string>
     <string name="review_app_body">আপনি কি এসডি মেইডকে একটি পর্যালোচনা দিতে চান?️ ❤️</string>
     <string name="stats_label">ইতিহাস</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s মুক্ত করা হয়েছে।</item>
+        <item quantity="other">%s মুক্ত করা হয়েছে।</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">আপনার ডিভাইসে SD Maid আমন্ত্রণ জানানোর পর থেকে %s আইটেমটি প্রক্রিয়া করা হয়েছে।</item>
+        <item quantity="other">আপনার ডিভাইসে SD Maid-কে আমন্ত্রণ জানানোর পর থেকে %sটি আইটেম প্রক্রিয়া করা হয়েছে।</item>
+    </plurals>
     <string name="stats_report_status_success">সাফল্য</string>
     <string name="stats_report_status_partial_success">আংশিক সাফল্য</string>
     <string name="stats_report_status_partial_failure">ব্যর্থতা</string>
@@ -667,4 +692,18 @@
     <string name="stats_settings_reset_all_desc">সমস্ত রিপোর্ট মুছুন এবং সমস্ত পরিসংখ্যান শূন্যে সেট করুন.</string>
     <string name="stats_affected_paths_label">প্রভাবিত পাথ</string>
     <string name="stats_affected_pkgs_label">প্রভাবিত অ্যাপস</string>
+    <string name="picker_select_paths_title">পথ নির্বাচন করুন</string>
+    <string name="picker_selected_paths_title">নির্বাচিত পথ</string>
+    <string name="picker_unsaved_confirmation_message">পরিবর্তনগুলি বাতিল করবেন?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%dটি পথ নির্বাচিত হয়েছে</item>
+        <item quantity="other">%dটি পথ নির্বাচিত হয়েছে</item>
+    </plurals>
+    <string name="picker_home_action">ডেটা এলাকা</string>
+    <string name="area_type_sdcard_label">পাবলিক স্টোরেজ</string>
+    <string name="area_type_public_media_label">পাবলিক অ্যাপ মিডিয়া</string>
+    <string name="area_type_public_data_label">পাবলিক অ্যাপ ডেটা</string>
+    <string name="area_type_public_obb_label">পাবলিক অ্যাপ রিসোর্স</string>
+    <string name="area_type_private_data_label">প্রাইভেট অ্যাপ ডেটা</string>
+    <string name="area_type_portable_label">পোর্টেবল স্টোরেজ</string>
 </resources>

@@ -240,6 +240,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Κενοί φάκελοι από όλη τη συσκευή. Οι ένθετοι φάκελοι ενδέχεται να απαιτούν πολλαπλά περάσματα.</string>
     <string name="systemcleaner_filter_screenshots_label">Στιγμιότυπα οθόνης</string>
     <string name="systemcleaner_filter_screenshots_summary">Στιγμιότυπα παλαιότερα από %s από πολλαπλές εφαρμογές και τοποθεσίες.</string>
+    <string name="systemcleaner_filter_trashed_label">Αρχεία στον κάδο απορριμμάτων</string>
+    <string name="systemcleaner_filter_trashed_summary">Αρχεία σε κάδους ανακύκλωσης από διάφορες εφαρμογές και τοποθεσίες που έχουν επισημανθεί για διαγραφή αλλά δεν έχουν ακόμη αφαιρεθεί οριστικά.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Ηλικία Στιγμιότυπου</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Ελάχιστη ηλικία για στιγμιότυπα οθόνης που πρέπει να λαμβάνονται υπόψη για διαγραφή.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Περιττά APK</string>
@@ -402,6 +404,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Κάντε δυνατή την \"Διαγραφή όλων\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Εμφάνιση επιλογών που σας επιτρέπουν να διαγράψετε όλα τα αρχεία σε ένα σύνολο διπλότυπων έτσι ώστε να μην μείνει κανένα αρχείο.</string>
+    <string name="deduplicator_search_locations_title">Τοποθεσίες αναζήτησης</string>
+    <string name="deduplicator_search_locations_all_summary">Όλες οι προσβάσιμες περιοχές</string>
     <string name="deduplicator_skip_minsize_title">Ελάχιστο μέγεθος</string>
     <string name="deduplicator_skip_minsize_description">Παράλειψη αρχείων που είναι μικρότερα από το ελάχιστο μέγεθος.</string>
     <string name="deduplicator_skip_uncommon_title">Παράλειψη ασυνήθιστων τύπων αρχείων</string>
@@ -459,6 +463,8 @@
     <string name="appcontrol_tag_apk_bundle">Πακέτο</string>
     <string name="appcontrol_tag_system">Συστήματος</string>
     <string name="appcontrol_tag_archived">Αρχειοθετημένα</string>
+    <string name="appcontrol_tag_uninstalled">Μόνο Δεδομένα</string>
+    <string name="appcontrol_tag_not_installed">Δεν έχει εγκατασταθεί</string>
     <string name="appcontrol_tag_enabled">Ενεργοποιημένες</string>
     <string name="appcontrol_tag_disabled">Απενεργοποιημένες</string>
     <string name="appcontrol_progress_enabling_package">Ενεργοποίηση εφαρμογής</string>
@@ -604,6 +610,7 @@
     <string name="automation_error_not_running_body">Η υπηρεσία προσβασιμότητας δεν εκτελείται. Δοκιμάστε να επανεκκινήσετε τη συσκευή.</string>
     <string name="automation_error_screen_unavailable_title">Μη διαθέσιμη οθόνη</string>
     <string name="automation_error_screen_unavailable_body">Η λειτουργία ματαιώθηκε επειδή η οθόνη δεν ήταν διαθέσιμη (π.χ. απενεργοποιημένη οθόνη ή ενεργή οθόνη κλειδώματος).</string>
+    <string name="automation_error_compatibility_body">Το SD Maid δεν μπόρεσε να καταλάβει τη διάταξη της οθόνης. Αν αυτό συνεχίσει να συμβαίνει, η γλώσσα ή η ρύθμιση σας ενδέχεται να μην υποστηρίζονται πλήρως. Ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου ώστε να μπορώ να το διορθώσω.</string>
     <string name="history_label">Ιστορικό</string>
     <string name="history_description">Μια χρονολογική λίστα των πρόσφατων ενεργειών και των επηρεαζόμενων δεδομένων.</string>
     <string name="scheduler_label">Χρονοδιάγραμμα</string>
@@ -685,4 +692,18 @@
     <string name="stats_settings_reset_all_desc">Διαγράψτε όλες τις αναφορές και μηδενίστε όλα τα στατιστικά στοιχεία.</string>
     <string name="stats_affected_paths_label">Επηρεαζόμενες διαδρομές</string>
     <string name="stats_affected_pkgs_label">Επηρεαζόμενες εφαρμογές</string>
+    <string name="picker_select_paths_title">Επιλέξτε διαδρομές</string>
+    <string name="picker_selected_paths_title">Επιλεγμένες διαδρομές</string>
+    <string name="picker_unsaved_confirmation_message">Απόρριψη αλλαγών;</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">Επιλέχθηκε %d διαδρομή</item>
+        <item quantity="other">Επιλέχθηκαν %d διαδρομές</item>
+    </plurals>
+    <string name="picker_home_action">Περιοχές δεδομένων</string>
+    <string name="area_type_sdcard_label">Δημόσιος αποθηκευτικός χώρος</string>
+    <string name="area_type_public_media_label">Δημόσια πολυμέσα εφαρμογών</string>
+    <string name="area_type_public_data_label">Δημόσια δεδομένα εφαρμογών</string>
+    <string name="area_type_public_obb_label">Δημόσιοι πόροι εφαρμογών</string>
+    <string name="area_type_private_data_label">Ιδιωτικά δεδομένα εφαρμογών</string>
+    <string name="area_type_portable_label">Φορητός αποθηκευτικός χώρος</string>
 </resources>

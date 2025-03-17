@@ -240,6 +240,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Cihazın her yerinden klasörleri boşaltın. İç içe klasörler birden fazla geçiş gerektirebilir.</string>
     <string name="systemcleaner_filter_screenshots_label">Ekran görüntüleri</string>
     <string name="systemcleaner_filter_screenshots_summary">Birden fazla uygulama ve konumdan %s\'den daha eski ekran görüntüleri.</string>
+    <string name="systemcleaner_filter_trashed_label">Çöpe atılan dosyalar</string>
+    <string name="systemcleaner_filter_trashed_summary">Çeşitli uygulamaların ve konumların geri dönüşüm kutularındaki silinmek üzere işaretlenmiş ancak henüz kalıcı olarak kaldırılmamış dosyalar.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Ekran Görüntüsü Yaşı</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Ekran görüntülerinin silinmek üzere değerlendirilebilmesi için minimum yaş.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Gereksiz APK\'lar</string>
@@ -402,6 +404,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">\"Hepsini sil\" seçeneğini aktifleştir</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Tekrar eden dosyalar için tüm dosyaları sil seçeneklerini göster, sonucunda hiçbir dosya kalmayacaktır.</string>
+    <string name="deduplicator_search_locations_title">Arama konumları</string>
+    <string name="deduplicator_search_locations_all_summary">Tüm erişilebilir alanlar</string>
     <string name="deduplicator_skip_minsize_title">Minimum boyut</string>
     <string name="deduplicator_skip_minsize_description">Minimum boyutun altındaki dosyaları geç.</string>
     <string name="deduplicator_skip_uncommon_title">Tanıdık olmayan dosya türlerini geç</string>
@@ -459,6 +463,8 @@
     <string name="appcontrol_tag_apk_bundle">Paket</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_archived">Arşivlenmiş</string>
+    <string name="appcontrol_tag_uninstalled">Sadece Veri</string>
+    <string name="appcontrol_tag_not_installed">Yüklü değil</string>
     <string name="appcontrol_tag_enabled">Etkin</string>
     <string name="appcontrol_tag_disabled">Devre dışı</string>
     <string name="appcontrol_progress_enabling_package">Uygulama etkinleştiriliyor</string>
@@ -605,6 +611,7 @@
     <string name="automation_error_not_running_body">Erişilebilirlik hizmeti çalışmıyor. Cihazı yeniden başlatmayı deneyin.</string>
     <string name="automation_error_screen_unavailable_title">Ekran kullanılamıyor</string>
     <string name="automation_error_screen_unavailable_body">Ekran kullanılamaz hale geldiği için işlem iptal edildi (örn. ekran kapalı veya ekran kilidi etkin).</string>
+    <string name="automation_error_compatibility_body">SD Maid ekran düzenini çözemedi. Bu durum devam ederse, diliniz veya kurulumunuz tam olarak desteklenmiyor olabilir. Güncellemeleri kontrol edin veya düzeltebilmem için bana ulaşın.</string>
     <string name="history_label">Geçmiş</string>
     <string name="history_description">Son eylemlerin ve etkilenen verilerin kronolojik listesi.</string>
     <string name="scheduler_label">Zamanlayıcı</string>
@@ -686,4 +693,18 @@
     <string name="stats_settings_reset_all_desc">Tüm raporları sil ve tüm istatistikleri sıfırla.</string>
     <string name="stats_affected_paths_label">Etkilenen dizinler</string>
     <string name="stats_affected_pkgs_label">Etkilenen uygulamalar</string>
+    <string name="picker_select_paths_title">Yolları seçin</string>
+    <string name="picker_selected_paths_title">Seçilen yollar</string>
+    <string name="picker_unsaved_confirmation_message">Değişiklikler yok sayılsın mı?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d yolu seçildi</item>
+        <item quantity="other">%d yolları seçildi</item>
+    </plurals>
+    <string name="picker_home_action">Veri alanları</string>
+    <string name="area_type_sdcard_label">Genel Depolama</string>
+    <string name="area_type_public_media_label">Genel uygulama medyası</string>
+    <string name="area_type_public_data_label">Genel uygulama verileri</string>
+    <string name="area_type_public_obb_label">Genel uygulama kaynakları</string>
+    <string name="area_type_private_data_label">Özel uygulama verileri</string>
+    <string name="area_type_portable_label">Taşınabilir depolama</string>
 </resources>

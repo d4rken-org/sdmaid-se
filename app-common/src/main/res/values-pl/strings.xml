@@ -75,6 +75,12 @@
     <string name="general_tag_filter_label">Filtruj według tagów</string>
     <string name="general_result_success_message">Operacja wykonana pomyślnie</string>
     <string name="general_result_failure_message">Operacja nie powiodła się</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Zwolniono %s przestrzeni.</item>
+        <item quantity="few">Zwolniono %s przestrzeni.</item>
+        <item quantity="many">Zwolniono %s przestrzeni.</item>
+        <item quantity="other">Zwolniono %s przestrzeni.</item>
+    </plurals>
     <string name="general_options_label">Opcje</string>
     <string name="general_details_label">Szczegóły</string>
     <string name="general_view_action">Wyświetl</string>
@@ -89,10 +95,10 @@
     <string name="general_delete_confirmation_message_x">Usunąć \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Usunąć %d wybranych elementów?</string>
     <plurals name="general_delete_success_deleted_x">
-        <item quantity="one">Usunięto %d element!</item>
-        <item quantity="few">Usunięto %d elementów!</item>
-        <item quantity="many">Usunięto %d elementów!</item>
-        <item quantity="other">Usunięto %d elementów!</item>
+        <item quantity="one">Usunięto %d element.</item>
+        <item quantity="few">Usunięto %d elementy.</item>
+        <item quantity="many">Usunięto %d elementów.</item>
+        <item quantity="other">Usunięto %d elementów.</item>
     </plurals>
     <string name="general_remove_action">Usuń</string>
     <string name="general_remove_selected_action">Usuń zaznaczone</string>
@@ -118,6 +124,12 @@
         <item quantity="few">%d pomyślnie</item>
         <item quantity="many">%d pomyślnie</item>
         <item quantity="other">%d pomyślnie</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d niepowodzenie</item>
+        <item quantity="few">%d niepowodzenia</item>
+        <item quantity="many">%d niepowodzeń</item>
+        <item quantity="other">%d niepowodzeń</item>
     </plurals>
     <plurals name="x_space_can_be_freed">
         <item quantity="one">%s może zostać zwolnione</item>
@@ -147,7 +159,7 @@
     <string name="file_type_unknown">Nieznany</string>
     <string name="general_progress_ready">Gotowe</string>
     <string name="general_progress_done">Wykonano</string>
-    <string name="general_rom_type_auto_label">Automatyczny (domyślny)</string>
+    <string name="general_rom_type_auto_label">Automatyczne (domyślnie)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d dzień</item>
         <item quantity="few">%d dni</item>
@@ -156,7 +168,7 @@
     </plurals>
     <plurals name="general_age_hours">
         <item quantity="one">%d godzina</item>
-        <item quantity="few">%d godzin</item>
+        <item quantity="few">%d godziny</item>
         <item quantity="many">%d godzin</item>
         <item quantity="other">%d godzin</item>
     </plurals>

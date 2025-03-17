@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Posneti dnevnik razhroščevanja</string>
     <string name="debug_debuglog_stop_action">Ustavi snemanje</string>
     <string name="debug_debuglog_sensitive_information_message">Ustvarjena datoteka vsebuje občutljive podatke (npr. imena datotek in nameščene programe).  Posredujte jo samo osebam, ki jim zaupate.</string>
+    <string name="settings_debuglog_explanation">Ta značilnost si v datoteko zabeleži vse, kar počne program.  Ustvarjena datoteka vsebuje občutljive podatke (npr. imena datotek in nameščene programe).  Posredujte jo samo osebam, ki  jim zaupate (npr. razvijalcu, ki poskuša rešiti težavo).</string>
     <string name="tasks_activity_notification_channel_label">Dejavna opravila</string>
     <string name="tasks_activity_working_notification_title">SD Maid opravlja naloge</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -126,6 +127,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Ne uporabi Shizukuja</string>
     <string name="setup_dismiss_hint">Zaslon za nastavitev lahko znova najdete v meniju z nastavitvami.</string>
     <string name="setup_permission_granted_label">Dovoljenje je bilo odobreno.</string>
+    <string name="setup_permission_error_label">Napaka dovoljenja</string>
     <string name="setup_usagestats_title">Statistika uporabe</string>
     <string name="setup_usagestats_body">Dovoljenje za statistiko uporabe odobri dostop do več podrobnosti o programih.  SD Maid ga uporablja za določanje dodatnih velikosti predpomnilnikov.</string>
     <string name="setup_usagestats_hint">Zahtevano za izbris predpomnilnikov s pomočjo storitve dostopnosti.</string>
@@ -152,6 +154,7 @@
     <string name="setup_inventory_card_title">Programski inventar</string>
     <string name="setup_inventory_card_body">Sporočite SD Maidu, katere programi se uporabljajo za iskanje datotek in niso nameščeni.</string>
     <string name="setup_inventory_card_extra">Poiščite dovoljenje \"Seznam programov\" ali \"Preglej vse pakete\".</string>
+    <string name="setup_inventory_invalid_message">Sistem je podal neveljaven seznam nameščenih programov (npr. premalo).  Pojdite v nastavitve sistema in SD Maidu omogočite dostop do seznama programov.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ni našel podatkovnih področij, ki jih lahko pregleda.  Ali ste dokončali nastavitev?</string>
     <string name="dataarea_warningcard_label">Podatkovna področja</string>
     <string name="dataarea_warningcard_reload_action">Ponovno naloži podatkovna področja</string>
@@ -251,6 +254,12 @@
     <string name="systemcleaner_filter_anr_summary">Sledi dogodkov \'program se ne odziva\'.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Prazne mape</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Prazne mape s celotne naprave.  Ugnezdene mape bodo morda zahtevale več prehodov.</string>
+    <string name="systemcleaner_filter_screenshots_label">Posnetki zaslona</string>
+    <string name="systemcleaner_filter_screenshots_summary">Posnetki zaslona iz več programov in mest, starejši od %s.</string>
+    <string name="systemcleaner_filter_trashed_label">Zavržene datoteke</string>
+    <string name="systemcleaner_filter_trashed_summary">Datoteke v smetnjakih iz raznih programov in mest, ki so označene za izbris in ne trajno odstranjene.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Starost posnetkov zaslona</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Najmanjša starost posnetkov zaslona, ki naj se izbrišejo.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Odvečni APK-ji</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Namestitvene datoteke, ki so starejše ali enake različice, kot nameščeni programi.</string>
     <string name="systemcleaner_filter_lostdir_label">Mape LOST.DIR</string>
@@ -260,6 +269,7 @@
     <string name="systemcleaner_filter_macfiles_label">Datoteke Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Datoteke in mape, ki se ustvarijo pri pregledovanju shrambe z Apllovim programom Finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Datoteke Windows</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Podatki, ki jih lahko ustvari Raziskovalec Windows, ko priklopite napravo."</string>
     <string name="systemcleaner_filter_thumbnails_label">Sličice</string>
     <string name="systemcleaner_filter_thumbnails_summary">Predpomnjeni predogledi slik in videoposnetkov.</string>
     <string name="systemcleaner_filter_tempfiles_label">Začasne datoteke</string>
@@ -301,6 +311,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Izjeme</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezultat bo izključen, če se pot ujema s katerimkoli vnosom (npr. \"DCIM\").  Za več možnosti pridržite vnose.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Način primerjave poti</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Pot se začne s ključno besedo</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Pot vsebuje ključno besedo</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Pot se konča s ključno besedo</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Pot je enaka ključni besedi</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Način primerjave imen</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Ime se začne s ključno besedo</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Ime vsebuje ključno besedo</string>
@@ -352,6 +366,8 @@
     <string name="appcleaner_filter_webview_summary">Predpomnjene datoteke primerkov programa Webview, ki jih uporabljajo znotraj drugih programov.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Varnostne kopije WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Izbrišite odvečne varnostne kopije WhatsApp in obdržite samo zadnjo.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Datoteke, ki ste jih prejeli od oseb preko WhatsAppa.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Datoteke, prejete preko WhatsAppa</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Poslane datoteke WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Datoteke, ki ste jih drugim poslali preko WhatsAppa.</string>
     <string name="appcleaner_filter_telegram_label">Predstavne datoteke Telegram</string>
@@ -362,6 +378,8 @@
     <string name="appcleaner_filter_wechat_summary">Datoteke, ki so bile prejete in poslane v pogovorih in trenutkih WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Prepomnjene predstavne datoteke, ki so bile ponovno prejete, ko si jih ogledate v klepetih.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ Chat</string>
+    <string name="appcleaner_filter_qqchat_summary">Poslane in prejete datoteke v pogovorih QQ Chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Izbriši odvečne predmete vseh programov?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">Izbrisan je bil %d odvečen predmet.</item>
@@ -412,6 +430,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Omogoči \"Izbriši vse\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">V nizih dvojnikov prikaži možnosti za izbris vseh datotek, tako da ne ostane nobena.</string>
+    <string name="deduplicator_search_locations_title">Mesta iskanja</string>
+    <string name="deduplicator_search_locations_all_summary">Vsa dostopna področja</string>
     <string name="deduplicator_skip_minsize_title">Najmanjša velikost</string>
     <string name="deduplicator_skip_minsize_description">Preskoči datoteke, ki manjše od najmanjše velikosti.</string>
     <string name="deduplicator_skip_uncommon_title">Preskoči redke vrste datotek</string>
@@ -422,6 +442,12 @@
     <string name="deduplicator_detection_method_phash_title">Zaznavno razpršilo</string>
     <string name="deduplicator_detection_method_phash_summary">Poiščite podobne datoteke s preučevanjem značilnosti vsebin in primerjanjem vrednosti njihovih zaznavnih razpršil.</string>
     <string name="deduplicator_occupied_space_label">Zaseden prostor</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s zasedajo dvojniki.</item>
+        <item quantity="two">%s zasedajo dvojniki.</item>
+        <item quantity="few">%s zasedajo dvojniki.</item>
+        <item quantity="other">%s zasedajo dvojniki.</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Velikost datoteke</string>
     <string name="deduplicator_average_size_label">Povprečna velikost</string>
     <string name="deduplicator_cluster_x_label">Gruča %s</string>
@@ -467,6 +493,8 @@
     <string name="appcontrol_tag_apk_bundle">Skupina</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_archived">Arhivirano</string>
+    <string name="appcontrol_tag_uninstalled">Samo podatki</string>
+    <string name="appcontrol_tag_not_installed">Ni nameščeno</string>
     <string name="appcontrol_tag_enabled">Omogočeno</string>
     <string name="appcontrol_tag_disabled">Onemogočeno</string>
     <string name="appcontrol_progress_enabling_package">Omogočanje programa</string>
@@ -618,6 +646,7 @@
         <item quantity="few">Ustvarjene so bile %d izjeme.</item>
         <item quantity="other">Ustvarjenih je bilo %d izjem.</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Prikaži privzete</string>
     <string name="automation_accessibility_service_description">Uporabniki s posebnimi potrebami lahko to storitev omogočijo, da SD Maidu dovolijo samodejno izvajanje opravil, ki bi drugače zahtevale podrobno ročno upravljanje (npr. brisanje predpomnilnika).\n\nPrimer: če SD Maidu naročite ustavitev več programov, potem SD Maid lahko to storitev uporabi, da odpre nastavitve vsakega programa, poišče gumb \'Vsili ustavitev\' in klikne na njega.\n\nSD Maid se bo ob uporabi te storitve vedno prikazal in uporabniku ponudil enostaven način za takojšnji preklic upravljanja.\n\nNobeno dejanje se ne bo opravilo brez odobritve uporabnika. To storitev lahko kadarkoli onemogočite brez negativnih učinkov.</string>
     <string name="automation_screenoverlay_explanation">SD Maid upravlja z vašo napravo.  Med tem časom ne morete uporabljati zaslona.  Počakajte, da se opravilo konča ali ga prekličite.</string>
     <string name="automation_active_title">SD Maid opravlja naloge</string>
@@ -629,6 +658,7 @@
     <string name="automation_error_not_running_body">Storitev dostopnosti se ne izvaja.  Poizkusite s ponovnim zagonom naprave.</string>
     <string name="automation_error_screen_unavailable_title">Zaslon ni na voljo.</string>
     <string name="automation_error_screen_unavailable_body">Opravilo je bilo prekinjeno, ker zaslon ni več na voljo (npr. zaslon se je izklopil ali zaklenil).</string>
+    <string name="automation_error_compatibility_body">SD Maid ni mogel prepoznati razporeditve zaslona.  Če se to stalno dogaja, vaš jezik ali nastavitev morda nista podprta.  Preverite za posodobitve ali stopite v stik z mano, da to lahko popravim.</string>
     <string name="history_label">Zgodovina</string>
     <string name="history_description">Časovni seznam nedavnih dejanj in podatki, na katere so dejanja vplivala.</string>
     <string name="scheduler_label">Urnik</string>
@@ -687,6 +717,18 @@
     <string name="review_app_dismiss_action">Morda kasneje</string>
     <string name="review_app_body">Bi radi ocenili SD Maid? ❤️</string>
     <string name="stats_label">Zgodovina</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">Sproščenih je bilo %s.</item>
+        <item quantity="two">Sproščenih je bilo %s.</item>
+        <item quantity="few">Sproščenih je bilo %s.</item>
+        <item quantity="other">Sproščenih je bilo %s.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">Od kar ste SD Maid povabili v svojo napravo, je bil obdelan %s predmet.</item>
+        <item quantity="two">Od kar ste SD Maid povabili v svojo napravo, sta bila obdelana %s predmeta.</item>
+        <item quantity="few">Od kar ste SD Maid povabili v svojo napravo, so bili obdelani %s-je predmeti.</item>
+        <item quantity="other">Od kar ste SD Maid povabili v svojo napravo, je bilo obdelanih %s predmetov.</item>
+    </plurals>
     <string name="stats_report_status_success">Uspešno</string>
     <string name="stats_report_status_partial_success">Delno uspešno</string>
     <string name="stats_report_status_partial_failure">Spodletelo</string>
@@ -706,4 +748,20 @@
     <string name="stats_settings_reset_all_desc">Izbriši vsa poročila in nastavi vso statistiko na nične vrednosti.</string>
     <string name="stats_affected_paths_label">Obravnavane poti</string>
     <string name="stats_affected_pkgs_label">Obravnavani programi</string>
+    <string name="picker_select_paths_title">Izberite poti</string>
+    <string name="picker_selected_paths_title">Izbrane poti</string>
+    <string name="picker_unsaved_confirmation_message">Zavrzi spremembe?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">Izbrana je bila %d pot.</item>
+        <item quantity="two">Izbrani sta je bili %d poti.</item>
+        <item quantity="few">Izbrane so bile %d poti.</item>
+        <item quantity="other">Izbranih je bilo %d poti.</item>
+    </plurals>
+    <string name="picker_home_action">Podatkovna področja</string>
+    <string name="area_type_sdcard_label">Javna shramba</string>
+    <string name="area_type_public_media_label">Javne predstavne datoteke</string>
+    <string name="area_type_public_data_label">Javni programski podatki</string>
+    <string name="area_type_public_obb_label">Javni programski viri</string>
+    <string name="area_type_private_data_label">Zasebni programski podatki</string>
+    <string name="area_type_portable_label">Prenosna pomnilniška naprava</string>
 </resources>

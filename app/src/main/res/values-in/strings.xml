@@ -148,6 +148,7 @@
     <string name="setup_inventory_card_title">Inventaris aplikasi</string>
     <string name="setup_inventory_card_body">SD Maid perlu mengetahui aplikasi apa yang anda install untuk mencari berkas yang tidak terasosiasi dengan aplikasi yang anda install.</string>
     <string name="setup_inventory_card_extra">Cari izin yang disebut \"Daftar Aplikasi\" atau \"Kueri semua paket\".</string>
+    <string name="setup_inventory_invalid_message">Sistem memberikan daftar aplikasi terinstal yang tidak valid (misalnya, terlalu sedikit atau ada yang hilang). Buka pengaturan sistem dan izinkan SD Maid mengakses \"Daftar aplikasi\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid tidak menemukan area data yang dapat dipindai. Apakah Anda menyelesaikan penyiapan?</string>
     <string name="dataarea_warningcard_label">Area data</string>
     <string name="dataarea_warningcard_reload_action">Muat ulang area data</string>
@@ -231,6 +232,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Seluruh folder kosong di dalam perangkat. Folder bertingkat mungkin memerlukan beberapa tahap.</string>
     <string name="systemcleaner_filter_screenshots_label">Tangkapan layar</string>
     <string name="systemcleaner_filter_screenshots_summary">Tangkapan layar lebih lama dari %s dari beberapa apl dan lokasi.</string>
+    <string name="systemcleaner_filter_trashed_label">Berkas yang dibuang</string>
+    <string name="systemcleaner_filter_trashed_summary">Berkas di tempat sampah dari berbagai aplikasi dan lokasi yang ditandai untuk dihapus tetapi belum dihapus secara permanen.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Lama Tangkapan layar</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Lama tangkapan layar untuk dipertimbangkan dihapus.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Berkas APK tidak digunakan</string>
@@ -242,6 +245,7 @@
     <string name="systemcleaner_filter_macfiles_label">Berkas Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Berkas dan folder yang dibuat ketika menjelajahi penyimpanan menggunakan aplikasi Apple Finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Berkas Windows</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Data yang dapat dibuat oleh Windows file explorer pada penyimpanan yang terhubung."</string>
     <string name="systemcleaner_filter_thumbnails_label">Gambar pratinjau</string>
     <string name="systemcleaner_filter_thumbnails_summary">Tampilan cache gambar dan video.</string>
     <string name="systemcleaner_filter_tempfiles_label">Berkas sementara</string>
@@ -283,6 +287,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Pengecualian</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Hasil akan dikecualikan jika jalur berkas cocok dengan suatu entri (seperti \"DCIM\"). Tekan lama entri untuk melihat lebih banyak pilihan.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Mode perbandingan jalur</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Jalur dimulai dengan kata kunci</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Jalur mengandung kata kunci</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Jalur diakhiri dengan kata kunci</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Jalur sama dengan kata kunci</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Mode perbandingan nama</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Nama dimulai dengan kata kunci</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Nama mengandung kata kunci</string>
@@ -309,7 +317,7 @@
     <string name="appcleaner_include_minimumsize_label">Ukuran minimum</string>
     <string name="appcleaner_include_minimumsize_summary">Lewati aplikasi dimana jumlah data yang dapat dihapus di bawah batas minimum.</string>
     <string name="appcleaner_include_minimumage_label">Umur minimal</string>
-    <string name="appcleaner_include_minimumage_summary">Atur umur minimal berkas.</string>
+    <string name="appcleaner_include_minimumage_summary">Lewati berkas yang lebih baru dari umur minimum.</string>
     <string name="appcleaner_automation_romtype_detection_label">Deteksi sistem operasi</string>
     <string name="appcleaner_automation_romtype_detection_summary">Automasi berbasis aksesibilitas dapat gagal jika SD Maid tidak mendeteksi OS Anda dengan benar. Gunakan pengaturan ini untuk mengganti OS yang sudah terdeteksi.</string>
     <string name="appcleaner_filter_codecache_label">Cache code</string>
@@ -382,25 +390,30 @@
         <item quantity="other">%d set duplikat ditemukan</item>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Izinkan \"Hapus semua\"</string>
-    <string name="deduplicator_protection_deleteall_allowed_summary">Show options that allow you to delete all files in a set of duplicates so that no file is left over.</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Tampilkan opsi yang memungkinkan Anda menghapus semua file dalam satu set duplikat sehingga tidak ada file yang tersisa.</string>
+    <string name="deduplicator_search_locations_title">Lokasi pencarian</string>
+    <string name="deduplicator_search_locations_all_summary">Semua area yang dapat diakses</string>
     <string name="deduplicator_skip_minsize_title">Ukuran minimum</string>
-    <string name="deduplicator_skip_minsize_description">Skip files that are below the minimum size.</string>
+    <string name="deduplicator_skip_minsize_description">Lewati file yang berada di bawah ukuran minimum.</string>
     <string name="deduplicator_skip_uncommon_title">Lewati jenis berkas yang tidak umum</string>
     <string name="deduplicator_skip_uncommon_description">Hanya sertakan berkas media, dokumen, dan arsip yang umum.</string>
     <string name="deduplicator_detection_method_label">Metode deteksi</string>
     <string name="deduplicator_detection_method_checksum_title">Checksum konten</string>
-    <string name="deduplicator_detection_method_checksum_summary">Determine duplicates by calculating checksums for files. Files with matching checksums have the exact same content.</string>
+    <string name="deduplicator_detection_method_checksum_summary">Tentukan duplikat dengan menghitung checksum untuk file. File dengan checksum yang cocok memiliki konten yang persis sama.</string>
     <string name="deduplicator_detection_method_phash_title">Hash persepsual</string>
-    <string name="deduplicator_detection_method_phash_summary">Find similar files by analyzing content features and comparing perceptual hash values.</string>
+    <string name="deduplicator_detection_method_phash_summary">Temukan file serupa dengan menganalisis fitur konten dan membandingkan nilai hash perseptual.</string>
     <string name="deduplicator_occupied_space_label">Penyimpanan terpakai</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%s ditempati oleh duplikat</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Ukuran berkas</string>
     <string name="deduplicator_average_size_label">Ukuran rata-rata</string>
     <string name="deduplicator_cluster_x_label">Kluster %s</string>
     <string name="deduplicator_delete_confirmation_message">Delete all but one copy in all sets of duplicate files?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Delete all but one copy in all sets of duplicate files?</string>
-    <string name="deduplicator_delete_single_set_keep_none_confirmation_message"></string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Hapus semua file dalam set file duplikat ini? Tidak ada file yang tersisa!</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Menghapus semua salinan kecuali satu dari setiap berkas duplikat yang dipilih?</string>
-    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Menghapus semua berkas dalam setiap set berkas duplikat yang dipilih? Tidak ada berkas yang tersisa!</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Hapus semua berkas dalam setiap set berkas duplikat yang dipilih? Tidak ada berkas yang tersisa!</string>
     <string name="deduplicator_delete_all_toggle_msg">Menghapus semua salinan. Tidak ada berkas lagi yang tersisa!</string>
     <string name="deduplicator_progress_comparing_files">Membandingkan berkas-berkas</string>
     <string name="deduplicator_details_cluster_title">Set duplikat</string>
@@ -435,6 +448,8 @@
     <string name="appcontrol_tag_apk_bundle">Bundel</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_archived">Diarsip</string>
+    <string name="appcontrol_tag_uninstalled">Hanya Data</string>
+    <string name="appcontrol_tag_not_installed">Tidak dipasang</string>
     <string name="appcontrol_tag_enabled">Diaktifkan</string>
     <string name="appcontrol_tag_disabled">Dinonaktifkan</string>
     <string name="appcontrol_progress_enabling_package">Mengaktifkan aplikasi</string>
@@ -487,7 +502,7 @@
     <string name="appcontrol_automation_progress_find_force_stop">Mencari tombol \"Paksa setop\" (kata kunci: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Mencoba mengonfirmasi tindakan sebelumnya (kata kunci: %s)</string>
     <string name="analyzer_tool_name">PenganalisisPenyimpanan</string>
-    <string name="analyzer_explanation_short">Cari apa saja yang memenuhi ruang penyimpanan di perangkat Anda.</string>
+    <string name="analyzer_explanation_short">Mencari apa saja yang memenuhi ruang penyimpanan di perangkat Anda.</string>
     <string name="analyzer_progress_scanning_device">Mencari perangkat penyimpanan</string>
     <string name="analyzer_progress_scanning_storage">Memindai penyimpanan</string>
     <string name="analyzer_progress_scanning_apps">Memindai aplikasi</string>
@@ -505,8 +520,8 @@
     <string name="analyzer_storage_type_primary_description">Penyimpanan utama pada perangkat anda. Berisi internal kartu SD, penyimpanan privat untuk aplikasi-aplikasi dan data sistem.</string>
     <string name="analyzer_storage_type_secondary_title">Penyimpanan cadangan</string>
     <string name="analyzer_storage_type_secondary_description">Penyimpanan sekunder, biasanya sebuah kartu SD yang dapat dicabut. Berisi file-file media dan data dari aplikasi-aplikasi yang mendukung.</string>
-    <string name="analyzer_storage_type_tertiary_title">Penyimpanan portabel</string>
-    <string name="analyzer_storage_type_tertiary_description">Penyimpanan portabel, misal. flash drive yang dicolokkan ke port USB anda.</string>
+    <string name="analyzer_storage_type_tertiary_title">Penyimpanan eksternal</string>
+    <string name="analyzer_storage_type_tertiary_description">Penyimpanan eksternal, misal. flash drive yang dicolokkan ke port USB Anda.</string>
     <string name="analyzer_storage_content_title">Isi penyimpanan</string>
     <string name="analyzer_storage_content_type_app_label">Aplikasi</string>
     <string name="analyzer_storage_content_type_app_description">Ruang yang ditempati oleh aplikasi terinstal dan datanya (yaitu file aplikasi, data, dan cache).</string>
@@ -571,6 +586,7 @@
     <string name="automation_error_not_running_body">Layanan aksesibilitas tidak berjalan. Coba nyalakan ulang perangkat anda.</string>
     <string name="automation_error_screen_unavailable_title">Layar tidak tersedia</string>
     <string name="automation_error_screen_unavailable_body">Tindakan dibatalkan karena layar tidak tersedia (tampilan mati atau ponsel terkunci).</string>
+    <string name="automation_error_compatibility_body">SD Maid tidak dapat mengenali tata letak layar. Jika ini terus terjadi, bahasa atau pengaturan Anda mungkin belum sepenuhnya didukung. Periksa pembaruan atau hubungi saya agar saya dapat memperbaikinya.</string>
     <string name="history_label">Riwayat</string>
     <string name="history_description">Daftar kronologis tindakan terbaru dan data yang terpengaruh.</string>
     <string name="scheduler_label">Penjadwal</string>
@@ -648,4 +664,17 @@
     <string name="stats_settings_reset_all_desc">Hapus semua laporan dan semua statistik ke nol.</string>
     <string name="stats_affected_paths_label">Jalur terpengaruh</string>
     <string name="stats_affected_pkgs_label">Apli terpengaruh</string>
+    <string name="picker_select_paths_title">Pilih lokasi</string>
+    <string name="picker_selected_paths_title">Lokasi yang dipilih</string>
+    <string name="picker_unsaved_confirmation_message">Buang perubahan?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="other">%d lokasi dipilih</item>
+    </plurals>
+    <string name="picker_home_action">Area data</string>
+    <string name="area_type_sdcard_label">Penyimpanan umum</string>
+    <string name="area_type_public_media_label">Media apl umum</string>
+    <string name="area_type_public_data_label">Data apl umum</string>
+    <string name="area_type_public_obb_label">Sumber apl umum</string>
+    <string name="area_type_private_data_label">Data apl pribadi</string>
+    <string name="area_type_portable_label">Penyimpanan eksternal</string>
 </resources>

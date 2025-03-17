@@ -256,6 +256,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Пустые папки со всего устройства. Вложенные папки могут потребовать нескольких проходов.</string>
     <string name="systemcleaner_filter_screenshots_label">Снимки экрана</string>
     <string name="systemcleaner_filter_screenshots_summary">Снимки экрана старше %s из нескольких приложений и мест.</string>
+    <string name="systemcleaner_filter_trashed_label">Мусор</string>
+    <string name="systemcleaner_filter_trashed_summary">Файлы в корзине из различных приложений и расположений, помеченные для удаления, но еще не удалённые.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Давность снимка экрана</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Минимальная давность снимка экрана для удаления.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Лишние APK-файлы</string>
@@ -428,6 +430,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Разрешить функцию \"Удалить всё\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Показать опцию, позволяющую удалить все файлы из набора дубликатов так, чтобы не осталось ни одного файла.</string>
+    <string name="deduplicator_search_locations_title">Поиск расположений</string>
+    <string name="deduplicator_search_locations_all_summary">Все доступные области</string>
     <string name="deduplicator_skip_minsize_title">Минимальный размер</string>
     <string name="deduplicator_skip_minsize_description">Пропускать файлы меньше заданного размера.</string>
     <string name="deduplicator_skip_uncommon_title">Пропускать неизвестные типы файлов</string>
@@ -489,6 +493,8 @@
     <string name="appcontrol_tag_apk_bundle">Комплект</string>
     <string name="appcontrol_tag_system">Система</string>
     <string name="appcontrol_tag_archived">Архив</string>
+    <string name="appcontrol_tag_uninstalled">Только данные</string>
+    <string name="appcontrol_tag_not_installed">Не установлено</string>
     <string name="appcontrol_tag_enabled">Включено</string>
     <string name="appcontrol_tag_disabled">Отключено</string>
     <string name="appcontrol_progress_enabling_package">Включение приложения</string>
@@ -652,6 +658,7 @@
     <string name="automation_error_not_running_body">Служба специальных возможностей не запущена. Попробуйте перезагрузить устройство.</string>
     <string name="automation_error_screen_unavailable_title">Экран недоступен</string>
     <string name="automation_error_screen_unavailable_body">Операция была прервана, потому что экран стал недоступным (например, экран выключен или активен экран блокировки).</string>
+    <string name="automation_error_compatibility_body">SD Maid не удалось определить макет экрана. Если это происходит, Ваш язык или настройки могут поддерживаться не полностью. Проверьте наличие обновлений или свяжитесь со мной, чтобы я мог это исправить.</string>
     <string name="history_label">История</string>
     <string name="history_description">Хронологический список последних действий и затронутых данных.</string>
     <string name="scheduler_label">Расписание</string>
@@ -741,4 +748,20 @@
     <string name="stats_settings_reset_all_desc">Удалить все отчеты и обнулить статистику.</string>
     <string name="stats_affected_paths_label">Затрагиваемые пути</string>
     <string name="stats_affected_pkgs_label">Затрагиваемые приложения</string>
+    <string name="picker_select_paths_title">Выберите пути</string>
+    <string name="picker_selected_paths_title">Выбранные пути</string>
+    <string name="picker_unsaved_confirmation_message">Отменить изменения?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">Выбрано путей: %d</item>
+        <item quantity="few">Выбрано путей: %d</item>
+        <item quantity="many">Выбрано путей: %d</item>
+        <item quantity="other">Выбрано путей: %d</item>
+    </plurals>
+    <string name="picker_home_action">Области данных</string>
+    <string name="area_type_sdcard_label">Общее хранилище</string>
+    <string name="area_type_public_media_label">Общие медиа приложений</string>
+    <string name="area_type_public_data_label">Общие данные приложений</string>
+    <string name="area_type_public_obb_label">Общие ресурсы приложений</string>
+    <string name="area_type_private_data_label">Общие данные приложений</string>
+    <string name="area_type_portable_label">Съёмный накопитель</string>
 </resources>

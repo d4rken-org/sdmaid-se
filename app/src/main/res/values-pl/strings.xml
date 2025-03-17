@@ -99,7 +99,7 @@
     <string name="setup_incomplete_card_continue_action">Kontynuuj konfigurację</string>
     <string name="setup_title">Konfiguracja</string>
     <string name="setup_forcedshow_summary">Pokaż ponownie ekran konfiguracji, w tym elementy już ustawione.</string>
-    <string name="setup_checking_card_body">Weryfikacja zakończenia instalacji i funkcjonalności.</string>
+    <string name="setup_checking_card_body">Weryfikacja zakończenia konfiguracji i funkcjonalności.</string>
     <string name="general_error_setup_require_label">Konfiguracja nie jest ukończona</string>
     <string name="general_error_setup_require_msg">Do korzystania z tej funkcji wymagana jest dalsza konfiguracja. Wykonaj pozostałe kroki konfiguracji.</string>
     <string name="setup_saf_card_title">Dostęp do pamięci z wykorzystaniem Storage Access Framework</string>
@@ -151,9 +151,9 @@
     <string name="setup_acs_disallow_hint">Jeśli zmienisz zdanie, możesz ponownie zmienić tę opcję, przechodząc do ustawień i ponownie uruchamiając konfigurację.</string>
     <string name="setup_acs_appops_restriction_title">Ograniczone ustawienia</string>
     <string name="setup_acs_appops_restriction_body">Nie można włączyć usługi ułatwień dla SD Maid? W Androidzie 13+ mogą być stosowane ograniczenia dla aplikacji niezainstalowanych za pośrednictwem Google Play. Zmień te ograniczenia za pomocą strony szczegółów systemowych dla SD Maid. Opcja znajduje się w menu kontekstowym w prawym górnym rogu.</string>
-    <string name="setup_inventory_card_title">Inwentarz aplikacji</string>
-    <string name="setup_inventory_card_body">SD Maid musi wiedzieć, których aplikacji potrzebujesz aby znaleźć pliki które nie należą do żadnej zainstalowanej aplikacji.</string>
-    <string name="setup_inventory_card_extra">Szukaj uprawnień o nazwie \"Lista aplikacji\" lub \"Zapytanie wszystkich pakietów\".</string>
+    <string name="setup_inventory_card_title">Zasobnik aplikacji</string>
+    <string name="setup_inventory_card_body">SD Maid musi wiedzieć, których aplikacji potrzebujesz, aby znaleźć pliki, które nie należą do żadnej zainstalowanej aplikacji.</string>
+    <string name="setup_inventory_card_extra">Szukaj uprawnień o nazwie \"Lista aplikacji\" lub \"Zapytaj o wszystkie pakiety\".</string>
     <string name="setup_inventory_invalid_message">System dostarczył nieprawidłową listę zainstalowanych aplikacji (np. zbyt mało lub niektóre z nich były niedostępne). Przejdź do ustawień systemowych i zezwól SD Maid na dostęp do „Listy aplikacji”.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nie znalazło żadnych obszarów danych, które można przeskanować. Czy konfiguracja została ukończona?</string>
     <string name="dataarea_warningcard_label">Obszary danych</string>
@@ -212,10 +212,10 @@
     <string name="corpsefinder_filter_app2sd_summary">Dane przeniesione na zewnętrzną pamięć przez modyfikacje App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
-        <item quantity="one">Usunięto pozostałość aplikacji %d</item>
-        <item quantity="few">Usunięto pozostałości aplikacji %d</item>
-        <item quantity="many">Usunięto pozostałości aplikacji %d</item>
-        <item quantity="other">Usunięto pozostałości aplikacji %d</item>
+        <item quantity="one">Usunięto %d pozostałość aplikacji</item>
+        <item quantity="few">Usunięto %d pozostałości aplikacji</item>
+        <item quantity="many">Usunięto %d pozostałości aplikacji</item>
+        <item quantity="other">Usunięto %d pozostałości aplikacji</item>
     </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">%d pozostałość po aplikacji odkryta</item>
@@ -229,13 +229,13 @@
     <string name="corpsefinder_owner_unknown">Nieznany właściciel</string>
     <string name="corpsefinder_corpse_hint_keeper">Ten przedmiot może zawierać dane, które chcesz zachować, mimo że jego właściciel został odinstalowany, np. zdjęcia lub kopie zapasowe.</string>
     <string name="corpsefinder_corpse_hint_common">Ten przedmiot ma bardzo powszechną nazwę i może należeć do zainstalowanych aplikacji, których SD Maid nie zna.</string>
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="systemcleaner_tool_name">Sprzątacz systemowy</string>
     <string name="systemcleaner_explanation_short">Zbędne dane które nie należą do żadnej konkretnej aplikacji.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d dopasowanie zostało usunięte</item>
-        <item quantity="few">%d dopasowań zostało usunięte</item>
-        <item quantity="many">%d dopasowanie zostało usunięte</item>
-        <item quantity="other">%d usuniętych dopasowań</item>
+        <item quantity="few">%d dopasowania zostały usunięte</item>
+        <item quantity="many">%d dopasowań zostało usuniętych</item>
+        <item quantity="other">%d dopasowań zostało usuniętych</item>
     </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d dopasowanie filtra</item>
@@ -256,7 +256,9 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Puste foldery z całego urządzenia. Zagnieżdżone foldery mogą wymagać wielu przebiegów.</string>
     <string name="systemcleaner_filter_screenshots_label">Zrzuty ekranu</string>
     <string name="systemcleaner_filter_screenshots_summary">Zrzuty ekranu starsze niż %s z wielu aplikacji i lokalizacji.</string>
-    <string name="systemcleaner_filter_screenshots_age_label">Data zrzutu ekranu</string>
+    <string name="systemcleaner_filter_trashed_label">Pliki w koszu</string>
+    <string name="systemcleaner_filter_trashed_summary">Pliki w koszu z różnych aplikacji i lokalizacji, które są oznaczone do usunięcia, ale nie zostały jeszcze trwale usunięte.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Wiek zrzutu ekranu</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimalny wiek, od którego zacznie się usuwanie.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Zbędne pliki APK</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Pliki instalacyjne, które są starsze lub równe wersjom już zainstalowanych aplikacji.</string>
@@ -267,7 +269,7 @@
     <string name="systemcleaner_filter_macfiles_label">Pliki systemu MacOS</string>
     <string name="systemcleaner_filter_macfiles_summary">Pliki i foldery które są tworzone podczas przeglądania pamięci masowej za pomocą aplikacji Finder firmy Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Pliki systemu Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Dane które eksplorator plików systemu Windows może tworzyć na podłączonym nośniku. "</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Dane, które eksplorator plików systemu Windows może tworzyć na podłączonym nośniku."</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatury obrazów</string>
     <string name="systemcleaner_filter_thumbnails_summary">Zapisane w pamięci podręcznej podglądy obrazów i filmów.</string>
     <string name="systemcleaner_filter_tempfiles_label">Pliki tymczasowe</string>
@@ -309,9 +311,9 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Wykluczenia</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Wynik zostanie wykluczony, jeśli ścieżka pasuje do dowolnego wpisu (np. \"DCIM\"). Dotknij dłużej wpisu, aby uzyskać więcej opcji.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Tryb porównania ścieżek</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Nazwa zaczyna się od słowa kluczowego</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Ścieżka zaczyna się słowem kluczowym</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Ścieżka zawiera słowo kluczowe</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Ścieżka kończy się słowem kluczowym.</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Ścieżka kończy się słowem kluczowym</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Ścieżka jest równa słowu kluczowemu</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Tryb porównywania nazw</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Nazwa zaczyna się od słowa kluczowego</string>
@@ -322,7 +324,7 @@
     <string name="systemcleaner_customfilter_editor_livesearch_label">Wyszukiwanie</string>
     <string name="systemcleaner_customfilter_import_action">Importuj nowy filtr</string>
     <string name="systemcleaner_customfilter_export_action">Eksportuj wybrany filtr</string>
-    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="appcleaner_tool_name">Sprzątacz aplikacji</string>
     <string name="appcleaner_explanation_short">Zbędne dane należące do konkretnych aplikacji.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Publiczne domyślne pamięci podręczne</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Domyślne publiczne pamięci podręczne aplikacji. Dostępne pod Androidem/dane w starszych wersjach Androida. Usunięte po dotknięciu opcji „Wyczyść pamięć podręczną” w ustawieniach systemu.</string>
@@ -381,9 +383,9 @@
     <string name="appcleaner_delete_all_confirmation_message">Usunąć zbędne elementy dla wszystkich aplikacji?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">Usunięto %d zbędny element</item>
-        <item quantity="few">Usunięto %d zbędnych elementów</item>
+        <item quantity="few">Usunięto %d zbędne elementy</item>
         <item quantity="many">Usunięto %d zbędnych elementów</item>
-        <item quantity="other">Usunięto %d zbędny element</item>
+        <item quantity="other">Usunięto %d zbędnych elementów</item>
     </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d zbędny element znaleziony</item>
@@ -397,7 +399,7 @@
     <string name="appcleaner_automation_progress_open_settings">Otwieranie ekranu ustawień (słowa kluczowe: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Wyszukiwanie wpisu \"Pamięć\" (słowa kluczowe: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Szukam przycisku \"Wyczyść dane\" (słowa kluczowe: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_cache">Szukam przycisku \"Wyczyść dane\" (słowa kluczowe: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Szukam przycisku \"Wyczyść pamięć podręczną\" (słowa kluczowe: %s)</string>
     <string name="appcleaner_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Domyślne pamięci podręczne</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publiczne i prywatne domyślne pamięci podręczne. Nie są bezpośrednio dostępne, ale można je usunąć pośrednio (np. za pomocą usługi ułatwień).</string>
@@ -416,9 +418,9 @@
     <string name="deduplicator_explanation_short">Znajdź zduplikowane dane na swoim urządzeniu.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d duplikat usunięty</item>
-        <item quantity="few">%d duplikatów usuniętych</item>
+        <item quantity="few">%d duplikaty usunięte</item>
         <item quantity="many">%d duplikatów usuniętych</item>
-        <item quantity="other">%d duplikat usunięty</item>
+        <item quantity="other">%d duplikatów usuniętych</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">Znaleziono %d duplikat elementu</item>
@@ -428,6 +430,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Zezwól na \"Usuń wszystko\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Pokaż opcje, które pozwalają usunąć wszystkie pliki w zestawie duplikatów, aby żaden plik nie został pozostawiony.</string>
+    <string name="deduplicator_search_locations_title">Lokalizacje wyszukiwania</string>
+    <string name="deduplicator_search_locations_all_summary">Wszystkie dostępne obszary</string>
     <string name="deduplicator_skip_minsize_title">Minimalny rozmiar</string>
     <string name="deduplicator_skip_minsize_description">Pomiń pliki poniżej minimalnego rozmiaru.</string>
     <string name="deduplicator_skip_uncommon_title">Pomiń niestandardowe typy plików</string>
@@ -441,8 +445,8 @@
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s jest zajęty przez duplikaty</item>
         <item quantity="few">%s są zajęte przez duplikaty</item>
-        <item quantity="many">%s są zajęte przez duplikaty</item>
-        <item quantity="other">%s są zajęte przez duplikaty</item>
+        <item quantity="many">%s jest zajętych przez duplikaty</item>
+        <item quantity="other">%s jest zajętych przez duplikaty</item>
     </plurals>
     <string name="deduplicator_file_size_label">Rozmiar pliku</string>
     <string name="deduplicator_average_size_label">Średni rozmiar</string>
@@ -457,7 +461,7 @@
     <string name="deduplicator_details_cluster_title">Zestaw duplikatów</string>
     <string name="deduplicator_matches_exact_label">Dokładne kopie</string>
     <string name="deduplicator_matches_similar_label">Podobne pliki</string>
-    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_tool_name">Zarządzanie aplikacjami</string>
     <string name="appcontrol_explanation_short">Aplikacje zainstalowane na Twoim urządzeniu.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d aplikacja wykryta</item>
@@ -489,6 +493,8 @@
     <string name="appcontrol_tag_apk_bundle">Pakiet</string>
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_archived">Zarchiwizowane</string>
+    <string name="appcontrol_tag_uninstalled">Tylko dane</string>
+    <string name="appcontrol_tag_not_installed">Nie zainstalowano</string>
     <string name="appcontrol_tag_enabled">Włączona</string>
     <string name="appcontrol_tag_disabled">Wyłączona</string>
     <string name="appcontrol_progress_enabling_package">Włączanie aplikacji</string>
@@ -503,9 +509,9 @@
     <string name="appcontrol_progress_uninstalling_app">Odinstalowywanie aplikacji</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d aplikacja została odinstalowana</item>
-        <item quantity="few">%d aplikacji zostało odinstalowanych</item>
+        <item quantity="few">%d aplikacje zostały odinstalowane</item>
         <item quantity="many">%d aplikacji zostało odinstalowanych</item>
-        <item quantity="other">%d aplikacja została odinstalowa</item>
+        <item quantity="other">%d aplikacji zostało odinstalowanych</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Rozmiar aplikacji</string>
     <string name="appcontrol_app_sizes_apk_label">Aplikacje</string>
@@ -520,9 +526,9 @@
     </plurals>
     <plurals name="appcontrol_toggle_result_message_x">
         <item quantity="one">%d aplikacja została przełączona</item>
-        <item quantity="few">%d aplikacji zostało przełączonych</item>
+        <item quantity="few">%d aplikacje zostały przełączone</item>
         <item quantity="many">%d aplikacji zostało przełączonych</item>
-        <item quantity="other">%d aplikacji zostały przełączone</item>
+        <item quantity="other">%d aplikacji zostało przełączonych</item>
     </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Określ rozmiary</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Uzyskaj przybliżony szacunkowy rozmiar każdej aplikacji.</string>
@@ -530,12 +536,12 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Dowiedz się, czy aplikacja jest (lub była ostatnio) używana.</string>
     <string name="appcontrol_export_app_selection_action">Eksportuj aplikacje</string>
     <string name="appcontrol_export_title">Eksportuj aplikację</string>
-    <string name="appcontrol_export_description">Zapisz pliki instalacyjne tej aplikacji na urządzeniu. Nie uwzględnia danych aplikacji.</string>
+    <string name="appcontrol_export_description">Zapisz pliki instalacyjne tej aplikacji. Nie uwzględnia danych aplikacji.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplikacja została wyeksportowana</item>
-        <item quantity="few">%d aplikacji zostało wyeksportowanych</item>
+        <item quantity="few">%d aplikacje zostały wyeksportowane</item>
         <item quantity="many">%d aplikacji zostało wyeksportowanych</item>
-        <item quantity="other">%d aplikacje zostały wyeksportowane</item>
+        <item quantity="other">%d aplikacji zostało wyeksportowanych</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Eksportowanie %s</string>
     <string name="appcontrol_force_stop_selection_action">Wymuś zatrzymanie aplikacji</string>
@@ -549,13 +555,13 @@
     </plurals>
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="one">%d aplikacja została zatrzymana</item>
-        <item quantity="few">%d aplikacji zostało zatrzymanych</item>
+        <item quantity="few">%d aplikacje zostały zatrzymane</item>
         <item quantity="many">%d aplikacji zostało zatrzymanych</item>
-        <item quantity="other">%d aplikacje zostały zatrzymane</item>
+        <item quantity="other">%d aplikacji zostało zatrzymanych</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Przygotowywanie automatyzacji przez usługę dostępności</string>
-    <string name="appcontrol_automation_title">Automatyzacja AppControl</string>
-    <string name="appcontrol_automation_subtitle_force_stopping">Wymuś zatrzymanie…</string>
+    <string name="appcontrol_automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień</string>
+    <string name="appcontrol_automation_title">Automatyzacja Zarządzania aplikacjami</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Wymuszanie zatrzymania…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Szukam przycisku \"Wymuś zatrzymanie\" (słowa kluczowe: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>
     <string name="analyzer_tool_name">Analizator pamięci</string>
@@ -584,7 +590,7 @@
     <string name="analyzer_storage_type_secondary_title">Pamięć zewnętrzna</string>
     <string name="analyzer_storage_type_secondary_description">Pamięć dodatkowa, zwykle wymienna karta SD. Zawiera pliki multimedialne i dane z aplikacji, które je obsługują.</string>
     <string name="analyzer_storage_type_tertiary_title">Pamięć przenośna</string>
-    <string name="analyzer_storage_type_tertiary_description">Pamięć przenośna, np. flash Drive podłączona do portu USB.</string>
+    <string name="analyzer_storage_type_tertiary_description">Pamięć przenośna, np. pendrive podłączony do portu USB.</string>
     <string name="analyzer_storage_content_title">Zawartość pamięci</string>
     <string name="analyzer_storage_content_type_app_label">Aplikacje</string>
     <string name="analyzer_storage_content_type_app_description">Przestrzeń zajmowana przez zainstalowane aplikacje i ich dane (np. pliki, dane oraz pamięć podręczną aplikacji).</string>
@@ -652,6 +658,7 @@
     <string name="automation_error_not_running_body">Usługa ułatwień nie jest uruchomiona. Spróbuj ponownie uruchomić urządzenie.</string>
     <string name="automation_error_screen_unavailable_title">Ekran niedostępny</string>
     <string name="automation_error_screen_unavailable_body">Operacja została przerwana ponieważ ekran stał się niedostępny (np. wyłączony wyświetlacz lub aktywna blokada ekranu).</string>
+    <string name="automation_error_compatibility_body">SD Maid nie może rozpoznać układu ekranu. Jeśli będzie się to powtarzać, Twój język lub konfiguracja mogą nie być w pełni obsługiwane. Sprawdź aktualizacje lub skontaktuj się ze mną, aby móc je naprawić.</string>
     <string name="history_label">Historia</string>
     <string name="history_description">Chronologiczna lista ostatnich działań i dotyczących ich danych.</string>
     <string name="scheduler_label">Harmonogram</string>
@@ -711,16 +718,16 @@
     <string name="review_app_body">Chcesz wystawić recenzję SD Maid?️ ❤️</string>
     <string name="stats_label">Historia</string>
     <plurals name="stats_dash_body_size">
-        <item quantity="one"> %s zostało zwolnione</item>
-        <item quantity="few"> %s zostało zwolnione</item>
-        <item quantity="many"> %s zostało zwolnionych</item>
-        <item quantity="other"> %s zostało zwolnionych</item>
+        <item quantity="one">%s zostało zwolnione.</item>
+        <item quantity="few">%s zostały zwolnione.</item>
+        <item quantity="many">%s zostało zwolnionych.</item>
+        <item quantity="other">%s zostało zwolnionych.</item>
     </plurals>
     <plurals name="stats_dash_body_count">
         <item quantity="one">%s element został przetworzony od momentu zaproszenia SD Maid do Twojego urządzenia.</item>
-        <item quantity="few">%s elementów przetworzono od momentu zaproszenia SD Maid do Twojego urządzenia.</item>
-        <item quantity="many">%s elementów przetworzono od momentu zaproszenia SD Maid do Twojego urządzenia.</item>
-        <item quantity="other">%s elementów przetworzono od momentu zaproszenia SD Maid do Twojego urządzenia.</item>
+        <item quantity="few">%s elementy zostały przetworzone od momentu zaproszenia SD Maid do Twojego urządzenia.</item>
+        <item quantity="many">%s element zostało przetworzonych od momentu zaproszenia SD Maid do Twojego urządzenia.</item>
+        <item quantity="other">%s element zostało przetworzonych od momentu zaproszenia SD Maid do Twojego urządzenia.</item>
     </plurals>
     <string name="stats_report_status_success">Zakończono pomyślnie</string>
     <string name="stats_report_status_partial_success">Częściowy sukces</string>
@@ -739,6 +746,22 @@
     </plurals>
     <string name="stats_settings_reset_all_label">Resetuj wszystko</string>
     <string name="stats_settings_reset_all_desc">Usuń wszystkie raporty i ustaw wszystkie statystyki na zero.</string>
-    <string name="stats_affected_paths_label">Ścieżki których to dotyczy</string>
-    <string name="stats_affected_pkgs_label">Aplikacje których to dotyczy</string>
+    <string name="stats_affected_paths_label">Ścieżki, których to dotyczy</string>
+    <string name="stats_affected_pkgs_label">Aplikacje, których to dotyczy</string>
+    <string name="picker_select_paths_title">Wybierz ścieżki</string>
+    <string name="picker_selected_paths_title">Wybrane ścieżki</string>
+    <string name="picker_unsaved_confirmation_message">Odrzucić zmiany?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d wybrana ścieżka</item>
+        <item quantity="few">%d wybrane ścieżki</item>
+        <item quantity="many">%d wybranych ścieżek</item>
+        <item quantity="other">%d wybranych ścieżek</item>
+    </plurals>
+    <string name="picker_home_action">Obszary danych</string>
+    <string name="area_type_sdcard_label">Pamięć ogólnodostępna</string>
+    <string name="area_type_public_media_label">Ogólnodostępne multimedia aplikacji</string>
+    <string name="area_type_public_data_label">Ogólnodostępne dane aplikacji</string>
+    <string name="area_type_public_obb_label">Ogólnodostępne zasoby aplikacji</string>
+    <string name="area_type_private_data_label">Prywatne dane aplikacji</string>
+    <string name="area_type_portable_label">Pamięć przenośna</string>
 </resources>

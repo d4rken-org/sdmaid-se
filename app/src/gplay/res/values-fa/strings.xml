@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">خدمتکار SD نسخه کامل</string>
     <string name="app_name_upgrade_postfix">حرفه‌ای</string>
+    <string name="upgrade_feature_requires_pro">نیاز به خدمتکار SD نسخه کامل</string>
+    <string name="upgrades_dashcard_title">ارتقاء خدمتکار SD</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro نتایج بهتری ارائه می‌دهد، ویژگی‌های بیشتری دارد و گزینه‌های پیشرفته‌تری برای کاربران حرفه‌ای فراهم می‌کند.</string>
     <string name="upgrades_dashcard_upgrade_action">ارتقاء</string>
+    <string name="upgrades_gplay_unavailable_error_title">گوگل پلی در دسترس نیست</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid نمی‌تواند به Google Play متصل شود. آیا Google Play نصب شده و به‌روز است؟ آیا حساب Google شما وارد شده است؟ سعی کنید کش برنامه Google Play را پاک کنید و دستگاه خود را مجدداً راه‌اندازی کنید.</string>
+    <string name="upgrades_no_purchases_found_check_account">هیچ خریدی یافت نشد. آیا از حساب صحیح استفاده می‌کنید؟</string>
+    <string name="upgrade_screen_title">گرفتن خدمتکار SD نسخه کامل</string>
+    <string name="upgrade_screen_preamble">SD Maid هیچ تبلیغی ندارد و داده‌های کاربران را نمی‌فروشد. کار من توسط شما تأمین مالی می‌شود ❤️.</string>
+    <string name="upgrade_screen_benefits_title">مزایا</string>
+    <string name="upgrade_screen_benefits_body">• پاکسازی برنامه‌ها 💯\n• عملیات زمان‌بندی شده ⏰\n• گزینه‌های اضافی برای همه ابزارها ⚙️\n• قوانین حذف خودتان ✍️\n• یک توسعه‌دهنده انگیزه‌مند 🧙\nو بیشتر...</string>
     <string name="upgrade_screen_how_title">گزینه‌ها</string>
+    <string name="upgrade_screen_how_body">می‌توانید بین یک خرید یک‌باره و یک اشتراک سالیانه ارزان‌تر انتخاب کنید.\nاشتراک با یک دوره آزمایشی ۱۴ روزه رایگان شروع می‌شود و پس از آن به صورت سالیانه هزینه می‌شود. دوره آزمایشی و اشتراک در هر زمان قابل لغو هستند.\nهمان ویژگی‌ها، فقط مدل‌های قیمتی متفاوت.</string>
+    <string name="upgrade_screen_subscription_trial_action">شروع دوره آزمایشی ۱۴ روزه رایگان</string>
     <string name="upgrade_screen_subscription_action">اشتراک</string>
+    <string name="upgrade_screen_subscription_action_hint">هزینه اشتراک سالیانه %s است.</string>
+    <string name="upgrade_screen_iap_action">خرید یکباره</string>
+    <string name="upgrade_screen_iap_action_hint">هزینه خرید یک‌باره %s است.</string>
     <string name="upgrade_screen_thanks_toast">تو بهترینی! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">بازیابی خرید</string>
+    <string name="upgrade_screen_restore_purchase_message">به‌روزرسانی شما در تمامی دستگاه‌های موجود در همان حساب Google معتبر است.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">نکات عیب یابی ارتقاهای ناشناخته:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">ممکن است همگام‌سازی فروشگاه Google Play کمی زمان ببرد. سعی کنید دستگاه خود را مجدداً راه‌اندازی کنید، کش برنامه Google Play را پاک کنید یا کمی صبر کنید.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">داشتن حساب‌های متعدد می‌تواند Google Play را گیج کند. از سایر حساب‌ها خارج شوید یا از طریق وب‌سایت Google Play نصب کنید، که انجمن‌ها را با یک حساب خاص تحمیل می‌کند.</string>
 </resources>

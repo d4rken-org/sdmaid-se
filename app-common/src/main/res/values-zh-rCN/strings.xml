@@ -10,8 +10,8 @@
     <string name="slogan_message_7">释放空间，乐似神仙</string>
     <string name="slogan_message_8">你不会被骗。</string>
     <string name="general_thank_you_label">感谢</string>
-    <string name="general_error_type_mismatch_msg">类型不匹配：目标“%1$s”，却得到“%2$s”</string>
-    <string name="general_error_cant_access_msg">无法访问“%s”</string>
+    <string name="general_error_type_mismatch_msg">类型不匹配：目标 %1$s ，却得到 %2$s 。</string>
+    <string name="general_error_cant_access_msg">无法访问 %s 。</string>
     <string name="general_error_root_unavailable">无法获取 Root 权限</string>
     <string name="general_error_empty_result_msg">结果为空</string>
     <string name="general_error_no_compatible_app_found_msg">未找到兼容的应用来处理此请求</string>
@@ -69,7 +69,7 @@
     <string name="general_continue">继续</string>
     <string name="general_progress_queued">排队中</string>
     <string name="general_progress_deleting">正在删除</string>
-    <string name="general_progress_deleting_x">正在删除“%s”</string>
+    <string name="general_progress_deleting_x">正在删除 %s</string>
     <string name="general_sort_options_label">排序选项</string>
     <string name="general_sort_reverse_action">反向排序模式</string>
     <string name="general_tag_filter_label">按标签排序</string>
@@ -111,7 +111,7 @@
         <item quantity="other">%d 成功</item>
     </plurals>
     <plurals name="result_x_failed">
-        <item quantity="other">%d个失败</item>
+        <item quantity="other">%d 失败</item>
     </plurals>
     <plurals name="x_space_can_be_freed">
         <item quantity="other">可释放 %s 空间</item>
@@ -138,7 +138,7 @@
     <string name="file_type_unknown">未知</string>
     <string name="general_progress_ready">准备就绪</string>
     <string name="general_progress_done">完成</string>
-    <string name="general_rom_type_auto_label">自动(默认)</string>
+    <string name="general_rom_type_auto_label">自动（默认）</string>
     <plurals name="general_age_days">
         <item quantity="other">%d 天</item>
     </plurals>
