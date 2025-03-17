@@ -248,6 +248,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Dosare goale de pe tot dispozitivul. Dosarele imbricate pot necesita mai multe treceri.</string>
     <string name="systemcleaner_filter_screenshots_label">Capturi de ecran</string>
     <string name="systemcleaner_filter_screenshots_summary">Capturi de ecran mai vechi de %s din mai multe aplicații și locații.</string>
+    <string name="systemcleaner_filter_trashed_label">Fișiere șterse</string>
+    <string name="systemcleaner_filter_trashed_summary">Fișierele din coșurile de reciclare din diverse aplicații și locații care sunt marcate pentru ștergere, dar care nu au fost încă eliminate definitiv.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Vârsta caputrii de ecran</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Vârsta minimă pentru a lua în considerare ștergerea capturilor de ecran.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK-uri inutile</string>
@@ -415,6 +417,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Faceți posibil \"Ștergeți toate\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Arată opţiuni care vă permit să ştergeţi toate fişierele dintr-un set de duplicate, astfel încât nici un fişier să nu mai fie disponibil.</string>
+    <string name="deduplicator_search_locations_title">Căutați locații</string>
+    <string name="deduplicator_search_locations_all_summary">Toate zonele accesibile</string>
     <string name="deduplicator_skip_minsize_title">Dimensiunea minimă</string>
     <string name="deduplicator_skip_minsize_description">Sari peste fișierele care sunt sub dimensiunea minimă.</string>
     <string name="deduplicator_skip_uncommon_title">Sari peste tipurile de fișiere mai puțin frecvente</string>
@@ -474,6 +478,8 @@
     <string name="appcontrol_tag_apk_bundle">Pachet</string>
     <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_archived">Arhivat</string>
+    <string name="appcontrol_tag_uninstalled">Numai date</string>
+    <string name="appcontrol_tag_not_installed">Neinstalat</string>
     <string name="appcontrol_tag_enabled">Activat</string>
     <string name="appcontrol_tag_disabled">Dezactivat</string>
     <string name="appcontrol_progress_enabling_package">Se activează aplicația</string>
@@ -628,6 +634,7 @@
     <string name="automation_error_not_running_body">Serviciul de accesibilitate nu rulează. Încercați să reporniți dispozitivul.</string>
     <string name="automation_error_screen_unavailable_title">Ecran indisponibil</string>
     <string name="automation_error_screen_unavailable_body">Operația a fost anulată deoarece ecranul a devenit indisponibil (de exemplu, afișare oprită sau ecranul de blocare activ).</string>
+    <string name="automation_error_compatibility_body">SD Maid nu și-a putut da seama de aspectul ecranului. Dacă acest lucru se întâmplă în continuare, este posibil ca limba sau configurația dvs. să nu fie pe deplin acceptate. Verificați actualizările sau contactați-mă ca să pot remedia.</string>
     <string name="history_label">Istoric</string>
     <string name="history_description">O listă cronologică cu acțiuni recente și date afectate.</string>
     <string name="scheduler_label">Programator</string>
@@ -713,4 +720,19 @@
     <string name="stats_settings_reset_all_desc">Ștergeți toate rapoartele si setați toate statisticile la zero.</string>
     <string name="stats_affected_paths_label">Căi afectate</string>
     <string name="stats_affected_pkgs_label">Aplicații afectate</string>
+    <string name="picker_select_paths_title">Selectați căi</string>
+    <string name="picker_selected_paths_title">Căile selectate</string>
+    <string name="picker_unsaved_confirmation_message">Renunțați la modificări?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d cale selectată</item>
+        <item quantity="few">%d căi selectate</item>
+        <item quantity="other">%d căi selectate</item>
+    </plurals>
+    <string name="picker_home_action">Zone de date</string>
+    <string name="area_type_sdcard_label">Spațiu de stocare public</string>
+    <string name="area_type_public_media_label">Media aplicației publice</string>
+    <string name="area_type_public_data_label">Date publice ale aplicației</string>
+    <string name="area_type_public_obb_label">Resursele aplicației publice</string>
+    <string name="area_type_private_data_label">Date private ale aplicației</string>
+    <string name="area_type_portable_label">Depozitare portabilă</string>
 </resources>

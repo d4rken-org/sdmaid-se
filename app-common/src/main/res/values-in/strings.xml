@@ -149,4 +149,5 @@
         <item quantity="other">%s berkas</item>
     </plurals>
     <string name="general_advice_title">Nasihat</string>
+    <string name="general_error_invalid_input_label">Input tidak valid</string>
 </resources>

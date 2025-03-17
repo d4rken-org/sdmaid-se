@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pkgrepo_invalid_inventory_error_title">Nieprawidłowa zawartość aplikacji</string>
+    <string name="pkgrepo_invalid_inventory_error_title">Nieprawidłowy zasobnik aplikacji</string>
     <string name="pkgrepo_invalid_inventory_error_description">System dostarczył nieprawidłową listę zainstalowanych aplikacji do SD Maid.</string>
 </resources>

@@ -240,6 +240,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Dossiers vides de tout l’appareil. Les dossiers imbriqués peuvent demander plusieurs opérations.</string>
     <string name="systemcleaner_filter_screenshots_label">Captures d’écran</string>
     <string name="systemcleaner_filter_screenshots_summary">Captures d’écran de %s ou plus provenant de plusieurs applis et emplacements.</string>
+    <string name="systemcleaner_filter_trashed_label">Fichiers des corbeilles</string>
+    <string name="systemcleaner_filter_trashed_summary">Fichiers situés dans les corbeilles de divers emplacements et applis, marqués pour suppression, mais qui n’ont pas encore été irrémédiablement supprimés.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Âge de la capture d’écran</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Âge minimal pour que les captures d’écran soient prises en compte pour être supprimées.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK superflus</string>
@@ -402,6 +404,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Rendre « Tout effacer » possible</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Afficher les options de suppression de tous les fichiers d\'un jeu de doublons afin qu’aucun fichier ne reste.</string>
+    <string name="deduplicator_search_locations_title">Chercher dans les emplacements</string>
+    <string name="deduplicator_search_locations_all_summary">Toutes les zones accessibles</string>
     <string name="deduplicator_skip_minsize_title">Taille minimale</string>
     <string name="deduplicator_skip_minsize_description">Ignorer les fichiers inférieurs à taille minimale.</string>
     <string name="deduplicator_skip_uncommon_title">Ignorer les types de fichier inhabituels</string>
@@ -459,6 +463,8 @@
     <string name="appcontrol_tag_apk_bundle">Paquet d’appli</string>
     <string name="appcontrol_tag_system">Système</string>
     <string name="appcontrol_tag_archived">Archivées</string>
+    <string name="appcontrol_tag_uninstalled">Données seulement</string>
+    <string name="appcontrol_tag_not_installed">N’est pas installée</string>
     <string name="appcontrol_tag_enabled">Activée</string>
     <string name="appcontrol_tag_disabled">Désactivée</string>
     <string name="appcontrol_progress_enabling_package">Activation de l’appli</string>
@@ -604,6 +610,7 @@
     <string name="automation_error_not_running_body">Le service d’accessibilité ne s’exécute pas. Essayez de redémarrer l’appareil.</string>
     <string name="automation_error_screen_unavailable_title">Écran inaccessible</string>
     <string name="automation_error_screen_unavailable_body">L’opération a été interrompue, car l’écran est devenu inaccessible (p. ex. éteint ou verrouillé).</string>
+    <string name="automation_error_compatibility_body">SD Maid n’a pas réussi à déterminer l’agencement de l’écran. Si cela se produit régulièrement, il se peut que votre langue ou votre configuration ne soit pas entièrement prise en charge. Vérifiez la présence de mises à jour ou contactez-moi afin que je corrige la situation.</string>
     <string name="history_label">Historique</string>
     <string name="history_description">Liste chronologique des actions récentes et des données affectées.</string>
     <string name="scheduler_label">Programmateur</string>
@@ -685,4 +692,18 @@
     <string name="stats_settings_reset_all_desc">Supprimer tous les relevés et mettre toutes les statistiques à zéro.</string>
     <string name="stats_affected_paths_label">Chemins affectés</string>
     <string name="stats_affected_pkgs_label">Applis affectées</string>
+    <string name="picker_select_paths_title">Choisir les chemins</string>
+    <string name="picker_selected_paths_title">Chemins choisis</string>
+    <string name="picker_unsaved_confirmation_message">Abandonner les changements ?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d chemin a été choisi</item>
+        <item quantity="other">%d chemins ont été choisis</item>
+    </plurals>
+    <string name="picker_home_action">Zones des données</string>
+    <string name="area_type_sdcard_label">Mémoire publique</string>
+    <string name="area_type_public_media_label">Supports publics d’applis</string>
+    <string name="area_type_public_data_label">Données publiques d’applis</string>
+    <string name="area_type_public_obb_label">Ressources publiques d’applis</string>
+    <string name="area_type_private_data_label">Données privées d’applis</string>
+    <string name="area_type_portable_label">Unité de stockage amovible</string>
 </resources>

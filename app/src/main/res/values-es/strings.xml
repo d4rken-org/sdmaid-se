@@ -204,8 +204,8 @@
     <string name="corpsefinder_filter_app2sd_summary">Datos movidos al almacenamiento externo por las modificaciones de App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
-        <item quantity="one">%d resto de la aplicación eliminado</item>
-        <item quantity="other">%d restos de las aplicaciones eliminados</item>
+        <item quantity="one">%d resto de la aplicación eliminada</item>
+        <item quantity="other">%d restos de las aplicaciones eliminadas</item>
     </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">%d resto de aplicación descubierto</item>
@@ -240,6 +240,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Vaciar las carpetas de todo el dispositivo. Las carpetas del sistema pueden requerir varias pasadas.</string>
     <string name="systemcleaner_filter_screenshots_label">Capturas de pantalla</string>
     <string name="systemcleaner_filter_screenshots_summary">Capturas de pantalla anteriores a %s de varias aplicaciones y ubicaciones.</string>
+    <string name="systemcleaner_filter_trashed_label">Archivos eliminados</string>
+    <string name="systemcleaner_filter_trashed_summary">Archivos en papeleras de varias aplicaciones y ubicaciones que están marcados para su eliminación pero aún no se han eliminado permanentemente.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Antigüedad de la captura de pantalla</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Antigüedad mínima de las capturas de pantalla para que las capturas de pantalla sean consideradas para su eliminación.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APKs superfluos</string>
@@ -361,7 +363,7 @@
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Archivos multimedia en caché que se vuelven a descargar cuando se ven en el chat.</string>
     <string name="appcleaner_filter_qqchat_label">Chat por QQ</string>
-    <string name="appcleaner_filter_qqchat_summary">Archivos enviados o recibidos en conversaciones por el chat QQ.</string>
+    <string name="appcleaner_filter_qqchat_summary">Archivos enviados o recibidos en conversaciones en el chat QQ.</string>
     <string name="appcleaner_delete_all_confirmation_message">¿Borrar los elementos innecesarios para todas las aplicaciones?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">%d elemento prescindible eliminado</item>
@@ -402,6 +404,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Posibilidad de \"Borrar todo\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar las opciones que permiten eliminar todos los archivos duplicados para que no quede ningún archivo.</string>
+    <string name="deduplicator_search_locations_title">Buscar ubicaciones</string>
+    <string name="deduplicator_search_locations_all_summary">Todos los espacios accesibles</string>
     <string name="deduplicator_skip_minsize_title">Tamaño mínimo</string>
     <string name="deduplicator_skip_minsize_description">Omite los archivos que no alcanzan el tamaño mínimo.</string>
     <string name="deduplicator_skip_uncommon_title">Omitir los tipos de archivos poco comunes</string>
@@ -459,6 +463,8 @@
     <string name="appcontrol_tag_apk_bundle">Paquete</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Archivado</string>
+    <string name="appcontrol_tag_uninstalled">Solo datos</string>
+    <string name="appcontrol_tag_not_installed">No instalado</string>
     <string name="appcontrol_tag_enabled">Activado</string>
     <string name="appcontrol_tag_disabled">Desactivado</string>
     <string name="appcontrol_progress_enabling_package">Activar aplicación</string>
@@ -604,6 +610,7 @@
     <string name="automation_error_not_running_body">El servicio de accesibilidad no se está ejecutando. Intente reiniciar el dispositivo.</string>
     <string name="automation_error_screen_unavailable_title">No hay ninguna pantalla disponible</string>
     <string name="automation_error_screen_unavailable_body">La operación se canceló porque la pantalla dejó de estar disponible (por ejemplo, pantalla apagada o pantalla de bloqueo activa).</string>
+    <string name="automation_error_compatibility_body">SD Maid no pudo entender el diseño de la pantalla. Si esto sigue ocurriendo, es posible que el idioma o la configuración no sean totalmente compatibles. Busca actualizaciones o comunícate conmigo para que pueda arreglarlo.</string>
     <string name="history_label">Historial</string>
     <string name="history_description">Una lista cronológica de acciones recientes y datos afectados.</string>
     <string name="scheduler_label">Programador</string>
@@ -685,4 +692,18 @@
     <string name="stats_settings_reset_all_desc">Borrar todos los informes y poner a cero todas las estadísticas.</string>
     <string name="stats_affected_paths_label">Rutas afectadas</string>
     <string name="stats_affected_pkgs_label">Aplicaciones afectadas</string>
+    <string name="picker_select_paths_title">Seleccionar rutas</string>
+    <string name="picker_selected_paths_title">Rutas seleccionadas</string>
+    <string name="picker_unsaved_confirmation_message">¿Descartar los cambios?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">Ruta seleccionada: %d</item>
+        <item quantity="other">Rutas seleccionadas: %d</item>
+    </plurals>
+    <string name="picker_home_action">Áreas de datos</string>
+    <string name="area_type_sdcard_label">Almacenamiento público</string>
+    <string name="area_type_public_media_label">Medios de las aplicaciones públicas</string>
+    <string name="area_type_public_data_label">Datos de aplicaciones públicas</string>
+    <string name="area_type_public_obb_label">Recursos de aplicaciones públicas</string>
+    <string name="area_type_private_data_label">Datos de aplicaciones privadas</string>
+    <string name="area_type_portable_label">Almacenamiento externo</string>
 </resources>

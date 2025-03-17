@@ -241,6 +241,8 @@ Recursos dos jogos.</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Pastas vazias de todo o dispositivo. Pastas nativas podem exigir múltiplas passagens.</string>
     <string name="systemcleaner_filter_screenshots_label">Capturas de ecrã</string>
     <string name="systemcleaner_filter_screenshots_summary">Capturas de tela anteriores a %s de vários aplicativos e locais.</string>
+    <string name="systemcleaner_filter_trashed_label">Ficheiros apagados</string>
+    <string name="systemcleaner_filter_trashed_summary">Ficheiros no lixo de várias aplicações e locais, mas ainda não removidos permanentemente.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Idade da Captura</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Antiguidade mínima a considerar para eliminação.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK supérfluos</string>
@@ -403,6 +405,8 @@ Recursos dos jogos.</string>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Permitir \"Apagar tudo\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar opções que permitam que apague todos os arquivos num conjunto de duplicados.</string>
+    <string name="deduplicator_search_locations_title">Pesquisar localizações</string>
+    <string name="deduplicator_search_locations_all_summary">Todas as áreas acessíveis</string>
     <string name="deduplicator_skip_minsize_title">Tamanho mínimo</string>
     <string name="deduplicator_skip_minsize_description">Saltar ficheiros que sejam mais pequenos que o tamanho mínimo.</string>
     <string name="deduplicator_skip_uncommon_title">Ignorar tipos de ficheiros incomuns</string>
@@ -460,6 +464,8 @@ Recursos dos jogos.</string>
     <string name="appcontrol_tag_apk_bundle">Pacote</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Arquivado</string>
+    <string name="appcontrol_tag_uninstalled">Apenas dados</string>
+    <string name="appcontrol_tag_not_installed">Não Instalado</string>
     <string name="appcontrol_tag_enabled">Ativado</string>
     <string name="appcontrol_tag_disabled">Desativado</string>
     <string name="appcontrol_progress_enabling_package">Ativando o aplicativo</string>
@@ -605,6 +611,7 @@ Recursos dos jogos.</string>
     <string name="automation_error_not_running_body">O serviço de acessibilidade não está a funcionar. Tente reiniciar o dispositivo.</string>
     <string name="automation_error_screen_unavailable_title">Ecrã indisponível</string>
     <string name="automation_error_screen_unavailable_body">A operação foi cancelada porque o ecrã ficou indisponível (por exemplo, ecrã desligado ou bloqueio de ecrã ativo).</string>
+    <string name="automation_error_compatibility_body">SD Maid não conseguiu descobrir o layout da tela. Se isso continuar a acontecer, o idioma ou instalação pode não ser totalmente suportado. Verifique se há atualizações ou entre em contacto comigo para que eu possa corrigi-lo.</string>
     <string name="history_label">Histórico</string>
     <string name="history_description">Uma lista cronológica de ações recentes e dados afetados.</string>
     <string name="scheduler_label">Agendar</string>
@@ -665,6 +672,10 @@ Recursos dos jogos.</string>
         <item quantity="one">%s foram libertos.</item>
         <item quantity="other">%s foram libertos.</item>
     </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s itens processados desde que convidou o SD Maid para o seu dispositivo.</item>
+        <item quantity="other">%s itens processados desde que convidou o SD Maid para o seu dispositivo.</item>
+    </plurals>
     <string name="stats_report_status_success">Sucesso</string>
     <string name="stats_report_status_partial_success">Sucesso parcial</string>
     <string name="stats_report_status_partial_failure">Falha</string>
@@ -682,4 +693,19 @@ Recursos dos jogos.</string>
     <string name="stats_settings_reset_all_desc">Apagar todos os relatórios e definir todas as estatísticas para zero.</string>
     <string name="stats_affected_paths_label">Caminhos afetados</string>
     <string name="stats_affected_pkgs_label">Aplicações afetadas</string>
+    <string name="picker_select_paths_title">Selecionar caminho</string>
+    <string name="picker_selected_paths_title">Caminhos selecionados</string>
+    <string name="picker_unsaved_confirmation_message">Rejeitar alterações?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">Other
+%d caminho selecionado</item>
+        <item quantity="other">%d caminhos selecionados</item>
+    </plurals>
+    <string name="picker_home_action">Áreas de dados</string>
+    <string name="area_type_sdcard_label">Armazenamento público</string>
+    <string name="area_type_public_media_label">Mídia pública</string>
+    <string name="area_type_public_data_label">Mídia pública</string>
+    <string name="area_type_public_obb_label">Recursos de aplicações públicos</string>
+    <string name="area_type_private_data_label">Dados de apps privados</string>
+    <string name="area_type_portable_label">Armazenamento portátil</string>
 </resources>

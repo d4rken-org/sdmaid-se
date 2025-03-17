@@ -18,94 +18,692 @@
     <string name="settings_debuglog_explanation">این ویژگی هر کاری را که برنامه انجام می دهد در یک فایل قابل اشتراک گذاری ثبت می کند. فایل تولید شده حاوی اطلاعات حساس است (مانند نام فایل ها و برنامه های نصب شده). آن را فقط با اشخاص مورد اعتماد به اشتراک بگذارید (مثلاً برنامه‌نویسی که در حال عیب‌یابی یک مشکل است).</string>
     <string name="tasks_activity_notification_channel_label">وظایف فعال</string>
     <string name="tasks_activity_working_notification_title">SDMaid در حال کار کردن است</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="one">%d کار فعال</item>
+        <item quantity="other">%d کار فعال</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="one">%d کار در صف</item>
+        <item quantity="other">%d کار در صف</item>
+    </plurals>
     <string name="tasks_result_notification_channel_label">حاصل کار</string>
     <string name="tasks_result_subtext">حاصل کار</string>
     <string name="onboarding_welcome_title">خوش آمدید</string>
     <string name="onboarding_welcome_body1">Sdmaid se فایلها ، برنامه ها و حافضه را مدیریت میکند.</string>
+    <string name="onboarding_welcome_body2">با پاکسازی برنامه‌های دیگر، فضای ذخیره‌سازی خود را افزایش دهید. فایل‌های قابل حذف را پاک کنید و داده‌های باقیمانده را حذف کنید.</string>
+    <string name="onboarding_welcome_body_beta">این یک نسخه آزمایشی (بتا) است. با یک حس شوخ‌طبعی و یک پشتیبان گرفتن جلو بروید. لطفاً مشکلاتی که مواجه می‌شوید را گزارش دهید.</string>
     <string name="onboarding_welcome_continue_action">ادامه</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (معروف به SD Maid 2) جانشین SD Maid (معروف به SD Maid 1) است. این یک برنامه جدید است که برای دستگاه‌های مدرن اندرویدی بهینه شده است.</string>
+    <string name="onboarding_versus_body2">معماری نسخه قبلی بیش از ۷ سال قدمت دارد و برای چالش‌های نسخه‌های جدیدتر اندروید طراحی نشده است. یک بازطراحی کامل برای ادامه توسعه ضروری بود تا با نیازهای دستگاه‌های مدرن هماهنگی پیدا کند. </string>
     <string name="onboarding_versus_body3">برای نتایج بهتر، به SD Maid SE بروید.</string>
+    <string name="onboarding_versus_body4">متأسفانه \"وضعیت حرفه ای\" SD Maid 1 به SD Maid 2/SE قابل انتقال نیست. پس از 12 سال به‌روز رسانی رایگان، برای حفظ توسعه (کمک به توسعه دهنده) به خرید جدیدی نیاز است.</string>
     <string name="onboarding_versus_continue_action">ادامه</string>
     <string name="onboarding_privacy_title">حریم خصوصی</string>
     <string name="onboarding_privacy_body1">Sd maid se طبلیقات ندارد و اطلاعات کاربر را نمیفروشد.</string>
     <string name="onboarding_privacy_bugreport_toggle_body">گزارش‌های اشکال زمانی ارسال می‌شوند که خطا رخ می‌دهد و ممکن است حاوی جزئیاتی درباره برنامه‌ها و فایل‌های دستگاه شما باشد. گزارش ها به من کمک می کنند تا اشکالات را برطرف کرده و برنامه را بهبود بخشم.</string>
+    <string name="onboarding_privacy_bugreport_toggle">اجازه به گزارش خودکار اشکال</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">این گزینه‌ها را می‌توانید در تنظیمات تغییر دهید.</string>
     <string name="onboarding_privacy_continue_action">ادامه</string>
     <string name="onboarding_setup_title">راه‌اندازی</string>
+    <string name="onboarding_setup_body1">SD Maid تمام مناطق داده قابل دسترسی را جستجو خواهد کرد.</string>
+    <string name="onboarding_setup_body2">آنچه که قابل دسترسی است بستگی به دستگاه شما، نسخه اندروید و دسترسی‌های مجاز دارد.</string>
+    <string name="onboarding_setup_body3">استفاده از SD Maid را با تنظیم دسترسی به مناطق قابل جستجو شروع کنید.</string>
+    <string name="onboarding_setup_continue_action">تنظیم کردن دسترسی</string>
     <string name="settings_privacy_policy_label">سیاست حفظ حریم خصوصی</string>
+    <string name="settings_privacy_policy_desc">رعایت مسئولانه داده‌ها.</string>
     <string name="settings_licenses_label">مجوزها</string>
     <string name="settings_category_other_label">بقیه</string>
+    <string name="settings_category_filter_generic">فیلتر کلی</string>
+    <string name="settings_category_filter_specific">فیلتر خاص</string>
+    <string name="settings_sponsor_development_title">حامی توسعه دهنده</string>
+    <string name="settings_sponsor_development_summary">به حامی تبدیل شوید و توسعه مداوم را ممکن کنید.</string>
     <string name="general_settings_label">عمومی</string>
+    <string name="general_settings_desc">تغییرات عمومی که بر کل برنامه تأثیر می‌گذارد.</string>
     <string name="settings_category_ui_label">رابط کاربری</string>
+    <string name="ui_theme_mode_setting_label">حالت طرح‌زمینه</string>
+    <string name="ui_theme_mode_setting_explanation">حالت استفاده‌شده در تنظیمات ظاهری برنامه (مانند حالت شب یا روز).</string>
+    <string name="ui_theme_mode_dark_label">تاریک</string>
+    <string name="ui_theme_mode_light_label">روشن</string>
+    <string name="ui_theme_mode_system_label">سیستم</string>
+    <string name="ui_theme_style_setting_label">سبک طرح‌زمینه</string>
+    <string name="ui_theme_style_setting_explanation">سبک رنگی که در تنظیمات ظاهری برنامه استفاده می‌شود.</string>
+    <string name="ui_theme_style_default_label">پیش فرض</string>
+    <string name="ui_theme_style_materialyou_label">متریال شما</string>
+    <string name="ui_previews_title">پیش‌نمایش فایل‌ها</string>
+    <string name="ui_previews_summary">نمایش پیش‌نمایش فایل‌ها در تمام ابزارها (مانند تصاویر ویدئویی و تصاویر کوچک).</string>
+    <string name="ui_language_override_label">زبان برنامه</string>
+    <string name="ui_language_override_desc">یک زبان متفاوت برای SD Maid انتخاب کنید که مستقل از زبان پیش‌فرض سیستم شما باشد. در حال حاضر: %s</string>
     <string name="settings_support_label">پشتیبانی</string>
+    <string name="settings_support_description">مطالعه مستندات، گزارش مشکلات، چت با دیگران یا ضبط گزارش‌های اشکال.</string>
     <string name="documentation_label">مستندات</string>
+    <string name="issue_tracker_description">یک ردیاب عمومی مشکلات برای گزارش اشکالات و درخواست‌های ویژگی‌های جدید.</string>
     <string name="issue_tracker_label">رهگیری مشکل</string>
     <string name="support_installid_label">شناسه نصب</string>
+    <string name="support_installid_desc">گزارش‌های خطای خودکار به صورت ناشناس هستند. در صورت نیاز توسعه‌دهنده به یافتن گزارش‌های خطای شما، شناسه نصب خود را به اشتراک بگذارید.</string>
     <string name="support_debuglog_label">گزارش خطاء</string>
+    <string name="support_debuglog_desc">ضبط همه چیزهایی که برنامه انجام می‌دهد در یک فایل متنی که می‌توانید به اشتراک بگذارید.</string>
     <string name="discord_label">دیسکورد</string>
+    <string name="discord_description">یک مکان برای وقت گذرانی و پرسش سوالات.</string>
     <string name="changelog_label">گزارش تغییرات</string>
     <string name="settings_acknowledgements_label">سپاسگزاری‌ها</string>
     <string name="setup_label">راه‌اندازی</string>
     <string name="setup_incomplete_card_title">راه‌اندازی کامل نیست</string>
     <string name="setup_incomplete_card_body">برای دریافت نتایج بهتر، راه‌اندازی SD Maid را تمام کنید.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid در حال تلاش برای رفع مشکلات تنظیمات است.</string>
     <string name="setup_incomplete_card_dismiss_action">رد کردن</string>
     <string name="setup_incomplete_card_continue_action">ادامه راه‌اندازی</string>
     <string name="setup_title">راه‌اندازی</string>
+    <string name="setup_forcedshow_summary">برای نمایش مجدد صفحه تنظیم کردن، از جمله موارد تکمیل شده.</string>
+    <string name="setup_checking_card_body">در حال بررسی تکمیل تنظیم و عملکرد.</string>
+    <string name="general_error_setup_require_label">راه‌اندازی کامل نیست</string>
+    <string name="general_error_setup_require_msg">برای استفاده از این ویژگی، نیاز به تنظیمات بیشتری دارید. مراحل باقی‌مانده تنظیمات را کامل کنید.</string>
+    <string name="setup_saf_card_title">چارچوب دسترسی به ذخیره‌سازی</string>
+    <string name="setup_saf_card_body">برای بهبود نتایج، دسترسی SD Maid را به مناطق بیشتری از دستگاه خود اعطا کنید.</string>
+    <string name="setup_saf_card_body2">در بیشتر موارد، پنجره با مسیر درست از پیش انتخاب‌شده باز می‌شود. موارد زمانی که دسترسی اعطا می‌شود، سبز می‌شوند. </string>
+    <string name="setup_saf_error_wrong_path">به نظر می‌رسد که مسیر اشتباه را انتخاب کرده‌اید</string>
+    <string name="setup_saf_missing_app_error">به نظر می‌رسد که برنامه رابط اسناد در دستگاه شما در دسترس نیست. این برنامه یک برنامه سیستمی است که باید در تمام دستگاه‌های اندرویدی موجود باشد.</string>
+    <string name="setup_manage_storage_card_title">مدیریت فضای ذخیره‌سازی</string>
+    <string name="setup_manage_storage_card_body">اجازه SD Maid برای مدیریت فضای ذخیره شما.</string>
+    <string name="setup_manage_storage_card_body2">دسترسی پایه به ذخیره‌سازی عمومی، مانند \"Download/\" و \"DCIM/\"، اما نه همیشه \"Android/data\".</string>
     <string name="setup_root_card_title">دسترسی روت</string>
+    <string name="setup_root_card_body">اگر SD Maid در دسترس باشد باید از دسترسی روت استفاده کند؟ از دسترسی ریشه می‌توان برای بررسی پوشه های اضافی سیستم و داده های برنامه خصوصی استفاده کرد.</string>
+    <string name="setup_root_state_ready_label">دسترسی روت آماده است.</string>
+    <string name="setup_root_state_waiting_label">منتظر برای دسترسی روت.</string>
+    <string name="setup_root_enable_root_use_label">استفاده از دسترسی روت در صورت دسترس بودن</string>
+    <string name="setup_root_disable_root_use_label">عدم استفاده از دسترسی روت</string>
+    <string name="setup_root_card_body2">این ویژگی تنها در دستگاه‌های روت شده در دسترس است. اگر این تغییر را خودتان انجام نداده‌اید، پس دستگاه شما روت نشده و این تنظیم هیچ تاثیری ندارد.</string>
+    <string name="setup_shizuku_card_title">شیزوکو</string>
+    <string name="setup_shizuku_card_body">اجازه دهید SD Maid از Shizuku استفاده کند، در صورت امکان، تا نتایج بهتری به دست‌آورد و ویژگی‌های بیشتری فعال شود.</string>
+    <string name="setup_shizuku_card_body2">این تنظیم هیچ اثری نخواهد داشت اگر برنامه Shizuku روی دستگاه شما تنظیم نشده باشد.</string>
+    <string name="setup_shizuku_card_root_info">استفاده از Shizuku همراه با دسترسی روت ویژگی‌های جدیدی را فعال نمی‌کند، اما قابلیت اطمینان را بهبود می‌بخشد. SD Maid از Shizuku به عنوان روش جایگزین استفاده خواهد کرد.</string>
+    <string name="setup_shizuku_state_ready_label">پیوند Shizuku آماده است.</string>
+    <string name="setup_shizuku_state_waiting_label">منتظر برای پیوند Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">استفاده از Shizuku در صورت دسترس بودن</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">عدم استفاده از Shizuku</string>
+    <string name="setup_dismiss_hint">می‌توانید صفحه راه‌اندازی را از طریق منوی تنظیمات دوباره پیدا کنید.</string>
     <string name="setup_permission_granted_label">مجوز اعطا شد</string>
+    <string name="setup_permission_error_label">خطای دسترسی</string>
     <string name="setup_usagestats_title">آمار استفاده</string>
+    <string name="setup_usagestats_body">دسترسی به آمار استفاده، اجازه دسترسی به جزئیات بیشتری از برنامه را فراهم می‌کند. SD Maid از این دسترسی برای تعیین اندازه‌های اضافی حافظه پنهان استفاده می‌کند.</string>
+    <string name="setup_usagestats_hint">برای حذف حافظه پنهان بر اساس خدمات دسترسی ضروری است.</string>
     <string name="setup_notification_title">اعلان ها</string>
+    <string name="setup_notification_body">اجازه دهید SD Maid برای اطلاع‌رسانی درباره عملیات جاری یا رویدادهای مهم، اعلان‌ها ارسال کند.</string>
+    <string name="setup_notification_hint">اعلان‌ها به‌صورت محدود استفاده می‌شوند 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">برای این ویژگی نیاز به تکمیل اقلام تنظیمات اضافی است: %s</string>
     <string name="setup_acs_card_title">سرویس دسترسی</string>
+    <string name="setup_acs_card_body">خدمات دسترسی به SD Maid اجازه می‌دهد تا با صفحه نمایش شما تعامل کرده و اقدامات خسته‌کننده‌ای مانند لمس \"پاک کردن کش\" بر روی چندین صفحه را به صورت خودکار انجام دهد.</string>
+    <string name="setup_acs_card_body2">SD Maid بدون رضایت شما از خدمات دسترسی استفاده نخواهد کرد، همواره یک نشانگر واضح (قابل لغو) هنگام فعال بودن نمایش می‌دهد و از آن برای جمع‌آوری اطلاعات استفاده نخواهد کرد.</string>
+    <string name="setup_acs_state_enabled">خدمات دسترسی فعال شده است.</string>
+    <string name="setup_acs_state_disabled">خدمات دسترسی غیرفعال شده است.</string>
+    <string name="setup_acs_state_running">خدمات دسترسی در حال اجرا است.</string>
+    <string name="setup_acs_state_ondemand">سرویس بر اساس تقاضا راه‌اندازی خواهد شد.</string>
+    <string name="setup_acs_state_stopped">خدمات دسترسی متوقف شده است.</string>
+    <string name="setup_acs_state_stopped_hint">خدمات فعال شده‌اند، اما در حال اجرا نیستند. آن را خاموش/روشن کنید یا دستگاه خود را مجدداً راه‌اندازی کنید. بررسی کنید که SD Maid توسط سیستم \"بهینه‌سازی\" نشده باشد.</string>
+    <string name="setup_acs_state_stopped_hint_miui">اگر خدمات پس از مدتی غیرفعال می‌شوند، گزینه \"شروع خودکار\" را برای SD Maid در تنظیمات سیستم فعال کنید.</string>
+    <string name="setup_acs_consent_positive_action">خدمات را فعال کرده و دسترسی‌ها را اعطا کنید</string>
+    <string name="setup_acs_consent_negative_action">خدمات دسترسی را استفاده نکنید</string>
+    <string name="setup_acs_allow_hint">اگر یک آیکون کوچک در لبه صفحه مشاهده می‌کنید، احتمالاً به‌طور تصادفی گزینه \"میانبر\" را فعال کرده‌اید.</string>
+    <string name="setup_acs_disallow_hint">اگر نظر خود را تغییر دادید، می‌توانید این گزینه را دوباره با رفتن به تنظیمات و راه‌اندازی مجدد تنظیم تغییر دهید.</string>
+    <string name="setup_acs_appops_restriction_title">تنظیمات محدود شده</string>
+    <string name="setup_acs_appops_restriction_body">نمی‌توانید خدمات دسترسی SD Maid را فعال کنید؟ اندروید 13+ ممکن است محدودیت‌هایی برای برنامه‌هایی که از طریق Google Play نصب نشده‌اند اعمال کند. این محدودیت‌ها را از صفحه جزئیات سیستم برای SD Maid بردارید. گزینه در منوی زمینه در گوشه بالا سمت راست قرار دارد.</string>
+    <string name="setup_inventory_card_title">فهرست برنامه‌ها</string>
+    <string name="setup_inventory_card_body">SD Maid نیاز دارد بداند کدام برنامه‌ها را نصب کرده‌اید تا فایل‌هایی را که به هیچ‌یک از برنامه‌های نصب شده تعلق ندارند، پیدا کند.</string>
+    <string name="setup_inventory_card_extra">به دنبال مجوزی به نام \"لیست برنامه\" یا \"پرس و جو از همه بسته ها\" بگردید.</string>
+    <string name="setup_inventory_invalid_message">سیستم یک لیست نامعتبر از برنامه‌های نصب شده ارائه داده است (مثلاً تعداد کمی یا برخی از آنها گم شده‌اند). به تنظیمات سیستم بروید و به SD Maid دسترسی به \"لیست برنامه\" را بدهید.</string>
+    <string name="dataarea_warningcard_empty_message">SD Maid هیچ ناحیه داده‌ای برای اسکن پیدا نکرد. آیا راه‌اندازی را تکمیل کرده‌اید؟</string>
     <string name="dataarea_warningcard_label">حوزه های داده</string>
+    <string name="dataarea_warningcard_reload_action">بارگذاری دوباره ناحیه‌های داده</string>
     <string name="debug_mode_label">حالت اشکال زدایی</string>
+    <string name="debug_mode_explanation">گزینه‌های آزمایشی را فعال کرده و خروجی با جزئیات بیشتر را تنظیم کنید. برنامه کندتر اجرا خواهد شد و عملکرد متفاوتی خواهد داشت.</string>
+    <string name="debug_bugreporter_label">ارسال خودکار مشکلات</string>
+    <string name="debug_bugreporter_summary">به طور خودکار مشکلات را گزارش می‌دهد، مانند جزئیات درباره‌ی خرابی‌های برنامه، تا بتوانم علت آن را بفهمم و آن را رفع کنم.</string>
     <string name="settings_category_tools_label">ابزارها</string>
     <string name="settings_category_filter">فیلتر</string>
+    <string name="settings_category_risklevel">سطح خطر</string>
     <string name="corpsefinder_tool_name">جستجوگر بقایا</string>
+    <string name="corpsefinder_explanation_short">این داده‌ها مربوط به برنامه‌هایی هستند که قبلاً حذف شده‌اند.</string>
+    <string name="corpsefinder_settings_summary">فیلترهای اسکن و سطوح خطر را تنظیم کنید.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">بقایای دلخواه را شامل کنید</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">فایل‌هایی که ممکن است بخواهید نگه دارید، حتی اگر برنامه حذف شود، مانند عکس‌هایی که گرفته‌اید یا پشتیبان‌گیری‌هایی که ایجاد کرده‌اید.</string>
+    <string name="corpsefinder_settings_risk_common_title"> شامل شدن نام‌های رایج</string>
+    <string name="corpsefinder_settings_risk_common_summary">داده‌هایی با نام‌های متداول، به عنوان مثال، یک پوشه با نام \"Notes\" که توسط برنامه‌های ناشناس زیادی مالکیت دارد.</string>
     <string name="corpsefinder_watcher_title">مشاهده پاک شده ها</string>
+    <string name="corpsefinder_watcher_summary">به صورت خودکار برای باقی‌مانده‌ها هنگام حذف یک برنامه اسکن کنید.</string>
+    <string name="corpsefinder_watcher_autodelete_title">حذف خودکار</string>
+    <string name="corpsefinder_watcher_autodelete_summary">به صورت خودکار هر گونه باقی‌مانده مرتبط با برنامه حذف شده را پاک کنید.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d باقی‌مانده پس از حذف نصب %2$s پیدا شد.</item>
+        <item quantity="other">%1$d باقی‌مانده پس از حذف نصب %2$s پیدا شد.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">پاکسازی موفقیت‌آمیز (%1$s): %2$s آزاد شد و %3$d مورد حذف گردید.</item>
+        <item quantity="other">پاکسازی موفقیت‌آمیز (%1$s): %2$s آزاد شد و %3$d مورد حذف گردید.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">حذف باقیمانده‌ها</string>
+    <string name="corpsefinder_filter_publicmedia_label">رسانه عمومی</string>
+    <string name="corpsefinder_filter_publicmedia_summary">فایل‌های رسانه‌ای عمومی، به عنوان مثال فایل‌هایی که از طریق برنامه‌های پیام‌رسان دریافت شده‌اند.</string>
     <string name="corpsefinder_filter_publicobb_label">منابع OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">منابع اضافی برنامه، مانند فایل‌های بازی.</string>
+    <string name="corpsefinder_filter_publicdata_label">داده‌های عمومی برنامه</string>
+    <string name="corpsefinder_filter_publicdata_summary">داده‌های غیر حساس برنامه، مانند کش نقشه‌ها.</string>
+    <string name="corpsefinder_filter_sdcard_label">کارت حافظه</string>
+    <string name="corpsefinder_filter_sdcard_summary">ذخیره‌سازی عمومی، داخلی و خارجی (به عنوان مثال، کارت‌های حافظه).</string>
+    <string name="corpsefinder_filter_privatedata_label">اطلاعات خصوصی برنامه </string>
+    <string name="corpsefinder_filter_privatedata_summary">داده‌های خصوصی برنامه، مانند اعتبارات، تنظیمات برنامه و همچنین کش مرورگر.</string>
     <string name="corpsefinder_filter_dalvik_label">حافظه پنهان دالویک</string>
+    <string name="corpsefinder_filter_dalvik_summary">داده‌های اجرایی کش شده برنامه.</string>
+    <string name="corpsefinder_filter_applib_label">کتابخانه‌های برنامه</string>
+    <string name="corpsefinder_filter_applib_summary">کتابخانه‌های مربوط به برنامه.</string>
     <string name="corpsefinder_filter_appsource_label">منابع برنامه</string>
+    <string name="corpsefinder_filter_appsource_summary">داده‌های نصب برنامه، یعنی جایی که فایل‌های APK قرار می‌گیرند.</string>
+    <string name="corpsefinder_filter_appsource_private_label">منابع خصوصی برنامه</string>
+    <string name="corpsefinder_filter_appsource_private_summary">داده‌های نصب برنامه‌های محدود، به عنوان مثال برنامه‌های شخص ثالث محافظت‌شده.</string>
+    <string name="corpsefinder_filter_appasec_label">منابع رمزنگاری شده برنامه</string>
+    <string name="corpsefinder_filter_appasec_summary">منابع رمزنگاری شده برنامه، به عنوان مثال فایل‌های بازی.</string>
+    <string name="corpsefinder_filter_app2sd_summary">داده‌هایی که توسط مودهای App2Sd به حافظه خارجی منتقل شده‌اند.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d باقی‌مانده برنامه حذف شد.</item>
+        <item quantity="other">%d باقی‌مانده برنامه حذف شد.</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d باقی‌مانده برنامه پیدا شد.</item>
+        <item quantity="other">%d باقی‌مانده برنامه پیدا شد.</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">همه باقی‌مانده‌های برنامه حذف شود؟</string>
     <string name="corpsefinder_owners_label">صاحبان</string>
     <string name="corpsefinder_corpse_hints_label">اطلاعیه</string>
+    <string name="corpsefinder_owner_unknown">مالک نامشخص</string>
+    <string name="corpsefinder_corpse_hint_keeper">این مورد ممکن است حاوی داده‌هایی باشد که می‌خواهید نگه دارید حتی با اینکه مالک آن حذف شده است، به عنوان مثال، عکس‌ها یا پشتیبان‌ها.</string>
+    <string name="corpsefinder_corpse_hint_common">این مورد دارای نام بسیار رایجی است و ممکن است متعلق به برنامه‌هایی باشد که هنوز نصب هستند و SD Maid آن‌ها را نمی‌شناسد.</string>
     <string name="systemcleaner_tool_name">پاکسازی سیستم</string>
+    <string name="systemcleaner_explanation_short">داده‌های اضافی که به هیچ برنامه خاصی تعلق ندارند.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d تطابق حذف شد.</item>
+        <item quantity="other">%d تطابق حذف شد.</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d تطابق با فیلتر</item>
+        <item quantity="other">%d تطابق با فیلتر</item>
+    </plurals>
     <string name="systemcleaner_filter_custom_label">فیلتر سفارشی</string>
+    <string name="systemcleaner_filter_custom_manage_label">مدیریت فیلترهای سفارشی</string>
+    <string name="systemcleaner_filter_custom_manage_summary">ایجاد، حذف، وارد کردن و صادر کردن فیلترهای سفارشی خود.</string>
     <string name="systemcleaner_filter_logfiles_label">فايلهاي گزارش‌ها</string>
     <string name="systemcleaner_filter_logfiles_summary">فایل های وقایع (log.*) مربوط به سراسر دستگاه.</string>
+    <string name="systemcleaner_filter_advertisements_label">فایلهای تبلیغات</string>
+    <string name="systemcleaner_filter_advertisements_summary">فایل هایی که برای تبلیغات یا توسط تبلیغات ایجاد شده اند.</string>
+    <string name="systemcleaner_filter_anr_label">خطاهای ANR</string>
+    <string name="systemcleaner_filter_anr_summary">آثار مربوط به وقایع \"برنامه پاسخ نمی دهد\".</string>
+    <string name="systemcleaner_filter_emptydirectories_label">پوشه‌های خالی</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">پوشه‌های خالی از سرتاسر دستگاه. پوشه‌های تودرتو ممکن است به چندین مرتبه بررسی نیاز داشته باشند.</string>
+    <string name="systemcleaner_filter_screenshots_label">عکس‌های صفحه</string>
+    <string name="systemcleaner_filter_screenshots_summary">اسکرین‌شات‌هایی که قدیمی‌تر از %s هستند از برنامه‌ها و مکان‌های مختلف.</string>
+    <string name="systemcleaner_filter_trashed_label">فایل های زباله</string>
+    <string name="systemcleaner_filter_trashed_summary">فایل‌هایی در سطل‌ زباله از برنامه‌ها و مکان‌های مختلف که برای حذف علامت‌گذاری شده‌اند اما هنوز به‌صورت دائمی حذف نشده‌اند.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">سن عکس صفحه</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">حداقل سن برای اسکرین‌شات‌ها که برای حذف شدن در نظر گرفته می‌شود.</string>
     <string name="systemcleaner_filter_superfluosapks_label">فایل های نصبی اضافی</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">فایل‌های تنظیماتی که قدیمی‌تر یا برابر با نسخه‌های برنامه‌هایی که قبلاً نصب شده‌اند، هستند.</string>
+    <string name="systemcleaner_filter_lostdir_label">پوشه‌های LOST.DIR</string>
+    <string name="systemcleaner_filter_lostdir_summary">فایل‌های موقت که هنگام انتقال داده بین دستگاه‌های اندرویدی ایجاد می‌شوند.</string>
+    <string name="systemcleaner_filter_linuxfiles_label">فایل‌های لینوکس</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">فایل‌ها و پوشه‌هایی که هنگام اتصال فضای ذخیره‌سازی به یک کامپیوتر لینوکس ایجاد می‌شوند.</string>
+    <string name="systemcleaner_filter_macfiles_label">فایل‌های مک</string>
+    <string name="systemcleaner_filter_macfiles_summary">فایل‌ها و پوشه‌هایی که هنگام مرور فضای ذخیره‌سازی با استفاده از برنامه Finder اپل ایجاد می‌شوند.</string>
+    <string name="systemcleaner_filter_windowsfiles_label">فایل‌های ویندوز</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"این فایل‌ها و پوشه‌ها هنگام مرور فضای ذخیره‌سازی با استفاده از کامپیوترهای ویندوز ایجاد می‌شوند."</string>
+    <string name="systemcleaner_filter_thumbnails_label">تصاویر بندانگشتی</string>
+    <string name="systemcleaner_filter_thumbnails_summary">تصاویر پیش‌نمایش کش شده برای تصاویر و ویدئوها.</string>
     <string name="systemcleaner_filter_tempfiles_label">فایل های موقت</string>
+    <string name="systemcleaner_filter_tempfiles_summary">فایل‌های موقت، که معمولاً حافظه‌های موقتی کوتاه‌مدت برای عملیات‌های فعال هستند.</string>
+    <string name="systemcleaner_filter_analytics_label">فایل‌های تحلیلی</string>
+    <string name="systemcleaner_filter_analytics_summary">داده‌های مرتبط با تحلیل‌ها و ردیابی اشکالات</string>
     <string name="systemcleaner_filter_downloadcache_label">حافظه پنهان دانلود</string>
+    <string name="systemcleaner_filter_downloadcache_summary">پوشه حافظه نهان سیستم که برای موارد مختلفی مانند به‌روزرسانی‌های OTA استفاده می‌شود.</string>
+    <string name="systemcleaner_filter_localtmp_label">فایل‌های موقت محلی</string>
+    <string name="systemcleaner_filter_localtmp_summary">فایل‌های موقت مربوط به سیستم (مثلاً از Android Studio).</string>
+    <string name="systemcleaner_filter_datalogger_label">فایل‌های گزارش سیستم</string>
+    <string name="systemcleaner_filter_datalogger_summary">فایل‌های خاص گزارش سیستم</string>
+    <string name="systemcleaner_filter_logdropbox_label">جعبه گزارش‌ها</string>
+    <string name="systemcleaner_filter_logdropbox_summary">یک منطقه در سیستم برای انداختن فایل‌های گزارش در آن.</string>
+    <string name="systemcleaner_filter_recenttasks_label">آخرین وظایف</string>
+    <string name="systemcleaner_filter_recenttasks_summary">داده‌های مربوط به تاریخچه وظایف در سوئیچ‌کننده وظایف سیستم.</string>
+    <string name="systemcleaner_filter_tombstones_label">باقی‌مانده‌های خرابی سیستم</string>
+    <string name="systemcleaner_filter_tombstones_summary">اگر فرآیندهای بومی کرش کنند (به عنوان مثال، بازی‌ها) فایل‌هایی در اینجا ایجاد می‌شوند.</string>
     <string name="systemcleaner_filter_usagestats_label">آمار استفاده</string>
+    <string name="systemcleaner_filter_usagestats_summary">فایل‌های مربوط به آمار استفاده از برنامه‌ها.</string>
+    <string name="systemcleaner_delete_all_confirmation_message">همه محتوای فیلترها حذف شوند؟</string>
+    <string name="systemcleaner_customfilter_label">فیلتر سفارشی</string>
+    <string name="systemcleaner_customfilter_create_action">ایجاد فیلتر سفارشی</string>
+    <string name="systemcleaner_customfilter_create_hint">ایجاد فیلتر سفارشی برای حذف فایل‌های اضافی که به دستگاه و موارد استفاده شما منحصر به فرد هستند.</string>
+    <string name="systemcleaner_editor_remove_confirmation_message">حذف این فیلتر؟</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">شما تغییرات ذخیره نشده‌ای دارید!</string>
+    <string name="systemcleaner_customfilter_editor_label_label">برپسب فیلتر</string>
+    <string name="systemcleaner_customfilter_editor_warning">فیلترهای سفارشی می‌توانند خطرناک باشند. نتایج اسکن خود را قبل از حذف بررسی کنید!</string>
+    <string name="systemcleaner_customfilter_editor_areas_label">حوزه های داده</string>
+    <string name="systemcleaner_customfilter_editor_areas_explanation">اگر هیچ ناحیه‌ای انتخاب نشود، تمام نواحی داده‌های قابل دسترسی اسکن و تطبیق داده خواهند شد.</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">محدودیت‌های نوع فایل</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_files_label">فایل‌ها</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">پوشه‌ها</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">اگر هیچ نوعی انتخاب نشود، همه نوع‌ها تطبیق داده می‌شوند.</string>
+    <string name="systemcleaner_customfilter_editor_path_label">معیار مسیر</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">مسیر هدف باید حداقل با یک ورودی مطابقت داشته باشد (به عنوان مثال، \"Downloads/oldapks/game-\"). برای گزینه‌های بیشتر، ورودی‌ها را طولانی فشار دهید.</string>
+    <string name="systemcleaner_customfilter_editor_name_label">معیار اسم</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">نام هدف باید حداقل یکی از کلمات کلیدی را شامل شود (به عنوان مثال، \"-receipt\"). برای گزینه‌های بیشتر، ورودی‌ها را طولانی فشار دهید.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_label">استثنائات</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">نتیجه مستثناء خواهد شد اگر مسیر با هر یک از ورودی‌ها مطابقت داشته باشد (مثلاً \"DCIM\"). برای گزینه‌های بیشتر، ورودی‌ها را طولانی فشار دهید.</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">حالت مقایسه مسیر</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">مسیر با کلید‌واژه شروع می‌شود</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">مسیر شامل کلید‌واژه</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">مسیر با کلید‌واژه به پایان می‌رسد</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">مسیر برابر با کلید‌واژه</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">حالت مقایسه نام</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">نام با کلید‌واژه شروع می‌شود</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">نام شامل کلید‌واژه</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">نام با کلید‌واژه تمام می‌‍شود</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">نام برابر با کلید‌واژه</string>
+    <string name="systemcleaner_customfilter_last_edit">آخرین ویرایش: %s</string>
+    <string name="systemcleaner_customfilter_editor_livesearch_label">جستجو زنده</string>
+    <string name="systemcleaner_customfilter_import_action">واردات فیلتر جدید</string>
+    <string name="systemcleaner_customfilter_export_action">صادرات فیلتر انتخاب شده</string>
     <string name="appcleaner_tool_name">پاکسازی برنامه</string>
+    <string name="appcleaner_explanation_short">داده‌های مصرف‌شدنی متعلق به برنامه‌های خاص.</string>
+    <string name="appcleaner_filter_defaultcachespublic_label">کش‌های پیش‌فرض عمومی</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">پیش‌فرض کش‌های عمومی برنامه. در نسخه‌های قدیمی‌تر اندروید در مسیر Android/data قابل دسترسی هستند. با فشار دادن \"پاک کردن کش\" در تنظیمات سیستم حذف می‌شوند.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_label">کش‌های پیش‌فرض خصوصی</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">کش‌های پیش‌فرض خصوصی برنامه. با ضربه زدن روی \"پاک کردن کش\" در تنظیمات سیستم حذف می‌شود.</string>
     <string name="appcleaner_include_systemapps_label">نمایش برنامه‌های سیستمی</string>
+    <string name="appcleaner_include_systemapps_summary">برنامه‌های سیستمی را در اسکن شامل کنید.</string>
+    <string name="appcleaner_include_runningapps_label">شامل کردن برنامه‌های اجرائی</string>
+    <string name="appcleaner_include_runningapps_summary">برنامه‌هایی که در حال حاضر در حال اجرا هستند و ممکن است تداخل ایجاد کنند را شامل کنید.</string>
+    <string name="appcleaner_include_inaccessible_label">شامل کردن کش‌های غیرقابل‌دسترسی</string>
+    <string name="appcleaner_include_inaccessible_summary">داده‌هایی را شامل کنید که نمی‌توان به طور مستقیم به آن‌ها دسترسی داشت اما می‌توان از طریق تنظیمات سیستم و با استفاده از یک سرویس دسترسی خودکار حذف کرد. </string>
+    <string name="appcleaner_include_multiuser_label">شامل کردن کاربران دیگر</string>
+    <string name="appcleaner_include_multiuser_summary">برنامه‌های موجود در نمایه‌های دیگر کاربران در این دستگاه را شامل کنید.</string>
+    <string name="appcleaner_include_minimumsize_label">حداقل اندازه</string>
+    <string name="appcleaner_include_minimumsize_summary">برنامه‌هایی که مجموع داده‌های مصرف‌شدنی آن‌ها زیر حداقل است را نادیده بگیرید.</string>
     <string name="appcleaner_include_minimumage_label">حداقل سن</string>
+    <string name="appcleaner_include_minimumage_summary">پرونده‌هایی که کمتر از حداقل سن هستند را نادیده بگیرید.</string>
+    <string name="appcleaner_automation_romtype_detection_label">تشخیص سیستم عامل</string>
+    <string name="appcleaner_automation_romtype_detection_summary">خودکار‌سازی مبتنی بر دسترسی ممکن است در صورتی که SD Maid سیستم عامل شما را به درستی تشخیص ندهد، شکست بخورد. از این تنظیم برای جایگزینی سیستم عامل تشخیص داده شده استفاده کنید.</string>
     <string name="appcleaner_filter_codecache_label">حافظه پنهان کد</string>
     <string name="appcleaner_filter_codecache_summary">حافظه پنهان کد JVM. بلوک های بایت کد به کد بومی کامپایل شده است.</string>
+    <string name="appcleaner_filter_advertisement_label">داده‌های تبلیغاتی</string>
+    <string name="appcleaner_filter_advertisement_summary">پرونده‌های مربوط به تبلیغات، به عنوان مثال رسانه‌های کش شده.</string>
     <string name="appcleaner_filter_bugreporting_label">گزارش مشکل</string>
+    <string name="appcleaner_filter_bugreporting_summary">داده‌های مربوط به گزارش خطا، به عنوان مثال، گزارش‌های خطا یا خروجی‌های خرابی.</string>
     <string name="appcleaner_filter_analytics_label">تحلیل</string>
+    <string name="appcleaner_filter_analytics_summary">داده‌های مربوط به تحلیل‌ها، به عنوان مثال، آمارهای کش شده برای چیزی که در یک برنامه ضربه می‌زنید.</string>
     <string name="appcleaner_filter_hiddencaches_label">کش های مخفی</string>
+    <string name="appcleaner_filter_hiddencaches_summary">کش‌های عمومی که خارج از دسترس سیستم ذخیره می‌شوند.</string>
+    <string name="appcleaner_filter_thumbnails_label">تصاویر بندانگشتی رسانه</string>
+    <string name="appcleaner_filter_thumbnails_summary">تصاویر بندانگشتی پیش‌نمایش تصویر، ویدئو و صدا</string>
+    <string name="appcleaner_filter_gamefiles_label">فایل‌های بازی</string>
+    <string name="appcleaner_filter_gamefiles_summary">منابع مربوط به بازی که در صورت نیاز در راه‌اندازی مجدد بازی بارگذاری می‌شوند.</string>
     <string name="appcleaner_filter_offlinecache_label">حافظه پنهان آفلاین</string>
+    <string name="appcleaner_filter_offlinecache_summary">پرونده‌های ذخیره‌شده برای استفاده در حالت آفلاین، به عنوان مثال داده های نقشه.</string>
+    <string name="appcleaner_filter_recyclebins_label">سطل زباله</string>
+    <string name="appcleaner_filter_recyclebins_summary">پرونده‌هایی که حذف شده‌اند اما در یک پوشه خاص قرار داده شده‌اند تا بتوان آن‌ها را بازیابی کرد.</string>
+    <string name="appcleaner_filter_webview_label">فایل‌ها نمایش محتوای وب</string>
+    <string name="appcleaner_filter_webview_summary">فایل‌های ذخیره شده توسط نمایش محتوای وب که در داخل برنامه‌ها استفاده می‌شوند.</string>
+    <string name="appcleaner_filter_whatsapp_backups_label">پشتیبان‌گیری‌های واتساپ</string>
+    <string name="appcleaner_filter_whatsapp_backups_summary">نسخه‌های اضافی پشتیبان‌گیری‌های واتساپ را حذف کنید و تنها آخرین نسخه را نگه دارید.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">پرونده‌هایی که از طریق واتساپ از دیگران دریافت کرده‌اید.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">پرونده‌های دریافتی واتس‌اپ</string>
     <string name="appcleaner_filter_whatsapp_sent_label">فایل‌های ارسالی واتس‌اپ</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">پرونده‌هایی که از طریق واتساپ به دیگران ارسال کرده‌اید.</string>
     <string name="appcleaner_filter_telegram_label">فایل های رسانه ای تلگرام</string>
     <string name="appcleaner_filter_telegram_summary">فایل های دریافتی یا ارسالی از طریق تلگرام.</string>
     <string name="appcleaner_filter_threema_label">تریما</string>
     <string name="appcleaner_filter_threema_summary">پرونده های دریافتی از طریق برنامه ‌تریما.</string>
     <string name="appcleaner_filter_wechat_label">ویچت</string>
     <string name="appcleaner_filter_wechat_summary">در مکالمات و مراودات WeChat فایل‌ها را ارسال یا دریافت می‌کند.</string>
+    <string name="appcleaner_filter_viber_label">وایبر</string>
+    <string name="appcleaner_filter_viber_summary">پرونده‌های رسانه‌ای کش شده که هنگام مشاهده در چت دوباره بارگیری می‌شوند.</string>
+    <string name="appcleaner_filter_qqchat_label">چت QQ</string>
+    <string name="appcleaner_filter_qqchat_summary">پرونده‌های ارسال شده یا دریافت شده در مکالمات چت QQ</string>
+    <string name="appcleaner_delete_all_confirmation_message">موارد قابل مصرف را برای تمامی برنامه‌ها حذف کنید؟</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d مورد قابل مصرف حذف شد</item>
+        <item quantity="other">%d مورد قابل مصرف حذف شد</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="one">%d مورد قابل مصرف یافت شد</item>
+        <item quantity="other">%d مورد قابل مصرف یافت شد</item>
+    </plurals>
+    <string name="appcleaner_automation_loading">در حال آماده‌سازی خودکارسازی از طریق سرویس دسترسی</string>
+    <string name="appcleaner_automation_title">خودکارسازی پاک کننده برنامه</string>
+    <string name="appcleaner_automation_subtitle_default_caches">پاک کردن حافظه‌های نهان پیش‌فرض...</string>
+    <string name="appcleaner_automation_progress_open_settings">باز کردن صفحه تنظیمات (کلید‌واژه: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">در حال جستجو برای دکمه \"Storage\" (کلید‌واژه: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">در حال جستجو برای دکمه \"Clear data\" (کلید‌واژه: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">در حال جستجو برای دکمه \"Clear cache\" (کلید‌واژه: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">در حال تلاش برای تأیید عمل قبلی (کلید واژه‌ها: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">کش های پیش فرض</string>
+    <string name="appcleaner_item_caches_inaccessible_body">حافظه‌های نهان پیش‌فرض عمومی و خصوصی. به‌طور مستقیم قابل دسترسی نیستند، اما می‌توان به‌طور غیرمستقیم آنها را حذف کرد (به عنوان مثال، از طریق سرویس دسترسی).</string>
+    <string name="appcleaner_automation_unavailable_title">سرویس دسترسی در دسترس نیست</string>
+    <string name="appcleaner_automation_unavailable_body">پاک کردن حافظه‌های نهان غیرقابل دسترسی نیازمند سرویس دسترسی SD Maid است، اما این سرویس در دسترس نبود. اگر نمی‌خواهید از آن استفاده کنید: گزینه \"شامل حافظه‌های نهان غیرقابل دسترسی\" را غیرفعال کنید.</string>
     <string name="appcleaner_junk_userprofile_label">کاربر</string>
+    <string name="appcleaner_delete_confirmation_message_x">آیا فایل‌های قابل حذف برای %s حذف شوند؟</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">آیا فایل‌های قابل حذف برای %d برنامه انتخاب شده حذف شوند؟</item>
+        <item quantity="other">آیا فایل‌های قابل حذف برای %d برنامه انتخاب شده حذف شوند؟</item>
+    </plurals>
+    <string name="appcleaner_progress_shizuku_deleting_caches">حذف حافظه پنهان با استفاده از Shizuku</string>
+    <string name="deduplicator_tool_name">حذف تکراری</string>
+    <string name="deduplicator_explanation_short">پیدا کردن داده‌های تکراری در دستگاه شما.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d داده تکراری حذف شد.</item>
+        <item quantity="other">%d داده تکراری حذف شد.</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d مجموعه تکراری پیدا شد.</item>
+        <item quantity="other">%d مجموعه تکراری پیدا شد.</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">امکان \"حذف همه\" را فراهم کنید</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">نمایش گزینه‌هایی که به شما اجازه می‌دهد همه فایل‌ها در یک مجموعه تکراری را حذف کنید به طوری که هیچ فایلی باقی نماند.</string>
+    <string name="deduplicator_search_locations_title">جستجوی مکان‌ها</string>
+    <string name="deduplicator_search_locations_all_summary">تمام مناطق قابل دسترسی</string>
+    <string name="deduplicator_skip_minsize_title">حداقل اندازه</string>
+    <string name="deduplicator_skip_minsize_description">فایل‌هایی که کمتر از اندازه حداقل هستند را نادیده بگیرید.</string>
+    <string name="deduplicator_skip_uncommon_title">چشم‌پوشی از انواع فایل‌های نادر</string>
+    <string name="deduplicator_skip_uncommon_description">فقط فایل‌های رسانه‌ای معمولی، اسناد و آرشیوها را شامل کنید.</string>
+    <string name="deduplicator_detection_method_label">روش تشخیص</string>
+    <string name="deduplicator_detection_method_checksum_title">محاسبه مجموع چکیده</string>
+    <string name="deduplicator_detection_method_checksum_summary">تشخیص تکراری‌ها با محاسبه مجموع چکیده برای فایل‌ها. فایل‌هایی که مجموع چکیده یکسان دارند، محتوای دقیقا یکسانی دارند.</string>
+    <string name="deduplicator_detection_method_phash_title">چکیده ادراکی</string>
+    <string name="deduplicator_detection_method_phash_summary">یافتن فایل‌های مشابه با تحلیل ویژگی‌های محتوا و مقایسه چکیده‌های ادراکی.</string>
+    <string name="deduplicator_occupied_space_label">حافظه اشغال شده</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s توسط فایل‌های تکراری اشغال شده</item>
+        <item quantity="other">%s توسط فایل‌های تکراری اشغال شده</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">اندازه فایل</string>
+    <string name="deduplicator_average_size_label">اندازه میانگین</string>
+    <string name="deduplicator_cluster_x_label">خوشه %s</string>
+    <string name="deduplicator_delete_confirmation_message">حذف همه بجز یک نسخه در تمام مجموعه‌های فایل‌های تکراری؟</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">حذف همه بجز یک نسخه در این مجموعه از فایل‌های تکراری؟</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">حذف همه فایل‌ها در این مجموعه از فایل‌های تکراری؟ هیچ فایلی باقی نخواهد ماند!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">حذف همه بجز یک نسخه در هر مجموعه انتخابی از فایل‌های تکراری؟</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">حذف همه فایل‌ها در هر مجموعه انتخابی از فایل‌های تکراری؟ هیچ فایلی باقی نخواهد ماند!</string>
+    <string name="deduplicator_delete_all_toggle_msg">حذف تمام نسخه‌ها. هیچ فایلی باقی نمی‌ماند!</string>
+    <string name="deduplicator_progress_comparing_files">مقایسه فایل‌ها</string>
+    <string name="deduplicator_details_cluster_title">مجموعه‌ای از فایل‌های تکراری</string>
+    <string name="deduplicator_matches_exact_label">نسخه‌های دقیقا مشابه</string>
+    <string name="deduplicator_matches_similar_label">فایل های مشابه</string>
     <string name="appcontrol_tool_name">کنترل برنامه</string>
+    <string name="appcontrol_explanation_short">برنامه‌های نصب‌شده بر روی دستگاه شما.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d برنامه شناسایی شد</item>
+        <item quantity="other">%d برنامه شناسایی شد</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">تغییر وضعیت برنامه‌ها</string>
+    <string name="appcontrol_toggle_app_enable_action">فعال‌سازی برنامه</string>
+    <string name="appcontrol_toggle_app_disable_action">غیرفعال‌سازی برنامه</string>
+    <string name="appcontrol_toggle_app_enable_description">فعال‌سازی یک برنامه به آن اجازه می‌دهد که اجرا شود و در صورت داشتن فعالیت، ممکن است آن را در راه‌انداز شما قابل مشاهده کند.</string>
+    <string name="appcontrol_toggle_app_disable_description">غیرفعال کردن یک برنامه مانع از اجرا شدن آن می‌شود و آن را از لیست‌ها مخفی می‌کند. هیچ گونه از دست دادن داده‌ای رخ نمی‌دهد.</string>
+    <string name="appcontrol_appstore_open_title">باز کردن در فروشگاه برنامه</string>
+    <string name="appcontrol_appstore_open_description">این برنامه را در فروشگاه برنامه‌ای که از آن نصب شده باز کنید.</string>
+    <string name="appcontrol_systemsettings_open_title">نمایش تنظیمات</string>
+    <string name="appcontrol_systemsettings_open_description">تنظیمات سیستم دستگاه خود را برای این برنامه باز کنید.</string>
     <string name="appcontrol_app_launch_title">اجرای برنامه</string>
+    <string name="appcontrol_app_launch_description">فعالیت اصلی این برنامه را راه‌اندازی کنید.</string>
+    <string name="appcontrol_app_forcestop_title">توقف اجباری</string>
+    <string name="appcontrol_app_forcestop_description">برنامه را متوقف می‌کند. از شروع خودکار برنامه جلوگیری می‌کند تا زمانی که خودتان آن را باز کنید یا دستگاه دوباره راه‌اندازی شود.</string>
+    <string name="appcontrol_app_uninstall_description">این برنامه را از دستگاه خود حذف نصب کنید.</string>
+    <string name="appcontrol_app_exclude_add_title">استثناء کردن برنامه</string>
+    <string name="appcontrol_app_exclude_add_description">این برنامه را از سایر عملیات در SD Maid استثنا کنید.</string>
+    <string name="appcontrol_app_exclude_edit_title">ویرایش استثناء</string>
+    <string name="appcontrol_app_exclude_edit_description">این برنامه در حال حاضر از یک یا چند ابزار استثنا شده است.</string>
     <string name="appcontrol_tag_user">کاربر</string>
+    <string name="appcontrol_tag_active">فعالیت اخیر</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">باندل</string>
     <string name="appcontrol_tag_system">سیستم</string>
+    <string name="appcontrol_tag_archived">آرشیو شده</string>
+    <string name="appcontrol_tag_uninstalled">فقط تاریخ</string>
+    <string name="appcontrol_tag_not_installed">نصب نشده</string>
     <string name="appcontrol_tag_enabled">فعال</string>
     <string name="appcontrol_tag_disabled">غیرفعال</string>
+    <string name="appcontrol_progress_enabling_package">فعال کردن برنامه</string>
+    <string name="appcontrol_progress_disabling_package">غیرفعال کردن برنامه</string>
     <string name="appcontrol_list_filteroptions_label">گزینه‌های فیلتر</string>
     <string name="appcontrol_list_sortmode_name_label">نام برنامه</string>
+    <string name="appcontrol_list_sortmode_updated_label">آخرین به‌روز رسانی</string>
+    <string name="appcontrol_list_sortmode_installed_label">اولین به‌روز رسانی</string>
     <string name="appcontrol_list_sortmode_packagename_label">نام بسته</string>
+    <string name="appcontrol_list_sortmode_size_label">اندازه‌</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">اندازه‌های برنامه به دلایل عملکردی تخمین زده می‌شوند. از ابزار آنالیز حافظه برای داده‌های دقیق‌تر استفاده کنید.</string>
+    <string name="appcontrol_progress_uninstalling_app">حذف کردن برنامه</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d برنامه حذف نصب شد</item>
+        <item quantity="other">%d برنامه حذف نصب شد</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">اندازه برنامه</string>
+    <string name="appcontrol_app_sizes_apk_label">برنامه</string>
+    <string name="appcontrol_app_sizes_data_label">داده‌</string>
+    <string name="appcontrol_app_sizes_cache_label">حافظه نهان</string>
+    <string name="appcontrol_toggle_confirmation_title">تأیید اقدام</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">وضعیت فعال/غیرفعال %d برنامه را تغییر کند؟</item>
+        <item quantity="other">وضعیت فعال/غیرفعال %d برنامه را تغییر کند؟</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d برنامه تغییر وضعیت کرد</item>
+        <item quantity="other">%d برنامه تغییر وضعیت کرد</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">تعیین اندازه‌ها</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">دریافت یک تخمین تقریبی از اندازه هر برنامه.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">تعیین فعالیت‌ها</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">پیدا کردن اینکه آیا یک برنامه فعال است (یا اخیراً فعال بوده است).</string>
+    <string name="appcontrol_export_app_selection_action">صادرات برنامه‌ها</string>
+    <string name="appcontrol_export_title">واردات برنامه‌ها</string>
+    <string name="appcontrol_export_description">پرونده‌های نصب این برنامه را ذخیره کنید. این شامل داده‌های برنامه نمی‌شود.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d برنامه صادر شد</item>
+        <item quantity="other">%d برنامه صادر شد</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">صادرکردن %s</string>
+    <string name="appcontrol_force_stop_selection_action">توقف اجباری برنامه‌ها</string>
+    <string name="appcontrol_force_stop_action">توقف اجباری</string>
+    <string name="appcontrol_force_stop_confirm_title">تایید توقف اجباری</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d برنامه اجباری متوقف شود؟</item>
+        <item quantity="other">%d برنامه اجباری متوقف شود؟</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d برنامه متوقف شد</item>
+        <item quantity="other">%d برنامه متوقف شد</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">در حال آماده‌سازی خودکارسازی از طریق سرویس دسترسی</string>
+    <string name="appcontrol_automation_title">خودکار سازی کنترل برنامه</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">توقف اجباری...</string>
+    <string name="appcontrol_automation_progress_find_force_stop">به دنبال دکمه \"توقف اجباری\" (کلید واژه‌ها: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">در حال تلاش برای تأیید عمل قبلی (کلید واژه‌ها: %s)</string>
+    <string name="analyzer_tool_name">آنالایزر ذخیره‌سازی</string>
+    <string name="analyzer_explanation_short">برای پیدا کردن اینکه چه چیزی فضای دستگاه شما را اشغال کرده است.</string>
+    <string name="analyzer_progress_scanning_device">جستجو برای دستگاه های ذخیره‌سازی</string>
+    <string name="analyzer_progress_scanning_storage">در حال جستجوی ذخیره‌سازی</string>
+    <string name="analyzer_progress_scanning_apps">در حال جستجوی برنامه‌ها</string>
+    <string name="analyzer_progress_scanning_userfiles">در حال جستجوی فایل‌های کاربر</string>
+    <string name="analyzer_progress_scanning_system">در حال جستجوی داده‌های سیستم</string>
+    <string name="analyzer_device_storage_title">حافظه دستگاه</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s در دسترس</item>
+        <item quantity="other">%s در دسترس</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s استفاده شده</item>
+        <item quantity="other">%s استفاده شده</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">هیچ دسترسی مستقیمی در‌دسترس نیست</string>
+    <string name="analyzer_storage_type_primary_title">حافظه اصلی</string>
+    <string name="analyzer_storage_type_primary_description">فضای ذخیره‌سازی اصلی دستگاه شما. شامل کارت SD داخلی، فضای ذخیره‌سازی خصوصی برای برنامه‌ها و داده‌های سیستم است.</string>
+    <string name="analyzer_storage_type_secondary_title">حافظه ثانویه</string>
+    <string name="analyzer_storage_type_secondary_description">ذخیره‌سازی ثانویه، که معمولاً یک کارت SD قابل جابجایی است. شامل فایل‌های رسانه‌ای و داده‌های برنامه‌هایی است که از آن پشتیبانی می‌کنند.</string>
+    <string name="analyzer_storage_type_tertiary_title">فضای ذخیره‌سازی قابل‌حمل</string>
+    <string name="analyzer_storage_type_tertiary_description">یک فضای ذخیره‌سازی قابل حمل، مانند یک فلش درایو که به پورت USB شما متصل شده.</string>
+    <string name="analyzer_storage_content_title">محتوای فضای ذخیره‌سازی</string>
+    <string name="analyzer_storage_content_type_app_label">برنامه‌</string>
+    <string name="analyzer_storage_content_type_app_description">فضای اشغالی توسط برنامه‌های نصب شده و داده‌های آن‌ها (یعنی فایل‌های برنامه، داده‌ها و کش‌ها).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">مجوز ها گمشده</string>
+    <string name="analyzer_storage_content_type_media_label">فایلهای کاربر</string>
+    <string name="analyzer_storage_content_type_media_description">تصاویر گرفته شده، ویدئوهای ضبط شده یا داده‌های دانلود شده. هر داده‌ای که به یک برنامه خاص تعلق ندارد.</string>
+    <string name="analyzer_storage_content_type_system_label">داده های سیستم</string>
+    <string name="analyzer_storage_content_type_system_description">برنامه های سیستم و داده های سیستم و سایر کاربران، در صورتی که چندین حساب کاربری در این دستگاه تنظیم شده باشد.</string>
+    <string name="analyzer_storage_content_app_code_label">کد برنامه</string>
+    <string name="analyzer_storage_content_app_code_description">فایل‌های برنامه، کتابخانه‌ها و منابع. این فضا را می‌توان با حذف برنامه یا بایگانی آن آزاد کرد (این امکان در نسخه‌های جدیدتر اندروید وجود دارد).</string>
+    <string name="analyzer_storage_content_app_data_label">داده برنامه</string>
+    <string name="analyzer_storage_content_app_data_description">داده، تنظیمات و حافظه نهان.</string>
+    <string name="analyzer_storage_content_app_media_label">رسانه برنامه</string>
+    <string name="analyzer_storage_content_app_media_description">فایل‌های رسانه‌ای از برنامه، مانند عکس‌های دریافتی واتساپ.</string>
+    <string name="analyzer_storage_content_app_extra_label">فایل‌های اضافی برنامه</string>
+    <string name="analyzer_storage_content_app_extra_description">داده‌های اضافی که این برنامه در خارج از مسیرهای پیش‌فرض ذخیره کرده است، مثلاً عکس‌ها یا بارگیری‌ها.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">این برنامه %1$s بر روی \"%2$s\" را اشغال کرده.</string>
+    <string name="analyzer_app_details_app_is_archived">این برنامه بایگانی شده است.</string>
+    <string name="data_area_public_app_data_official_label">داده‌های پیش‌فرض عمومی برنامه</string>
+    <string name="data_area_public_app_assets_official_label">دارایی‌های پیش‌فرض عمومی برنامه</string>
+    <string name="data_area_public_storage_label">ذخیره‌سازی عمومی</string>
+    <string name="data_area_sdcard_label">کارت حافظه</string>
     <string name="data_areas_label">حوزه های داده</string>
+    <string name="data_areas_description">منطقه‌های داده نشان‌دهنده مکان‌هایی بر روی دستگاه شما هستند که SD Maid به آنها دسترسی دارد. منطقه‌های داده مختلف ممکن است با توجه به نسخه اندروید شما و مجوزهایی که داده شده‌اند، در دسترس باشند.</string>
+    <string name="data_areas_short_summary">مناطقی که SD Maid می تواند بر اساس مجوزهای اعطا شده فعلی به آنها دسترسی داشته باشد.</string>
+    <string name="exclusion_manager_title">مدیر اسثناء</string>
+    <string name="exclusion_manager_desc">مدیریت فایل ها و برنامه های مستثناء</string>
+    <string name="exclusion_explanation_body1">مستثنی کردن فایل‌ها و برنامه‌ها از عملیات‌های SD Maid.</string>
+    <string name="exclusion_add_new_hint">ابتدا به SD Maid اجازه دهید جستجو کند و سپس از منوی زمینه در نتیجه ای که می خواهید حذف کنید، استثناهای جدید اضافه کنید.</string>
+    <string name="exclusion_create_action">ایجاد استثناء</string>
+    <string name="exclusion_edit_action">ویرایش استثناء</string>
+    <string name="exclusion_type_package">استثناء برنامه</string>
+    <string name="exclusion_type_path">استثناء مسیر</string>
+    <string name="exclusion_type_segment">استثناء بخش</string>
+    <string name="exclusion_tags_alltools">همه ابزار‌ها</string>
+    <string name="exclusion_target_label">استثناء کردن هدف</string>
+    <string name="exclusion_option_allow_partial">اجازه به عملیات جزئی</string>
+    <string name="exclusion_option_ignore_casing">نادیده‌گرفتن پوشش</string>
+    <string name="exclusion_editor_affected_tools_label">ابزارهای تأثیرپذیر</string>
+    <string name="exclusion_editor_path_explanation">SD Maid را از پردازش بیشتر هر مسیر تطابقی مستثناء جلوگیری می‌کند. این به فایل‌ها، پوشه‌ها و زیرپوشه‌ها اعمال می‌شود.</string>
+    <string name="exclusion_editor_pkg_explanation"> SD Maid را از پردازش هر پکیج تطابقی با برنامه مسثناء جلوگیری می‌کند.</string>
+    <string name="exclusion_editor_segment_explanation">استثناء مبتنی بر بخش مشابه اما اجازه تطابق‌های جزئی را می‌دهد. مثال: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\" را مستثنی می‌کند.</string>
+    <string name="exclusion_editor_remove_confirmation_message">حذف این استثناء؟</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">شما تغییرات ذخیره نشده‌ای دارید!</string>
+    <string name="exclusion_reset_default_exclusions">بازگرداندن استثناءهای پیش‌فرض</string>
+    <string name="exclusion_import_action">واردات استثناء</string>
+    <string name="exclusion_export_action">صادرات استثناء</string>
+    <string name="exclusion_create_pkg_hint">از ابزار کنترل برنامه برای ایجاد استثناءهای برنامه استفاده کنید.</string>
+    <string name="exclusion_create_path_hint">از ابزار آنالیز ذخیره‌سازی برای ایجاد استثناءهای مسیر استفاده کنید.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">یک استثناء ایجاد شد</item>
+        <item quantity="other">%d استثناء ایجاد شد</item>
+    </plurals>
+    <string name="exclusion_show_defaults_action">نمایش پیش‌فرض</string>
+    <string name="automation_accessibility_service_description">کاربران با نیازهای دسترسی ویژه می‌توانند این سرویس را فعال کنند تا SD Maid وظایفی را که به طور معمول نیاز به تعامل دستی خسته‌کننده دارند (مانند حذف کش) خودکار کند.\n\nمثال: اگر به SD Maid دستور دهید که چند برنامه را متوقف کند، SD Maid می‌تواند از این سرویس استفاده کند تا صفحه تنظیمات هر برنامه را باز کند، دکمه «توقف اجباری» را پیدا کند و آن را فشار دهد.\n\nSD Maid همیشه هنگام استفاده از این سرویس به طور واضح نشان می‌دهد و راهی آسان برای کاربر فراهم می‌کند تا هر تعاملی را بلافاصله لغو کند.\n\nهیچ اقدامی بدون تأیید قبلی کاربر انجام نخواهد شد. این سرویس را می‌توان در هر زمان بدون اثرات منفی دوباره غیرفعال کرد.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid با دستگاه شما در حال تعامل است. استفاده از صفحه نمایش به طور همزمان ممکن نیست. منتظر بمانید تا عملیات به پایان برسد یا آن را لغو کنید.</string>
+    <string name="automation_active_title">SD Maid در حال کارکردن است</string>
+    <string name="automation_error_no_consent_title">خطا خودکارسازی</string>
+    <string name="automation_error_no_consent_body">سرویس دسترسی تنظیم نشده است. تنظیمات را کامل کنید و اجازه دهید.</string>
+    <string name="automation_error_not_enabled_title">سرویس فعال نیست</string>
+    <string name="automation_error_not_enabled_body">سرویس دسترسی غیرفعال است. آن را دوباره روشن کنید.</string>
+    <string name="automation_error_not_running_title">سرویس اجرا نمی‌شود</string>
+    <string name="automation_error_not_running_body">سرویس دسترسی در حال اجرا نیست. دستگاه را دوباره راه‌اندازی کنید.</string>
+    <string name="automation_error_screen_unavailable_title">صفحه نمایش در دسترس نیست</string>
+    <string name="automation_error_screen_unavailable_body">عملیات متوقف شد زیرا صفحه نمایش در دسترس نبود (مانند خاموش شدن نمایشگر یا فعال بودن قفل صفحه).</string>
+    <string name="automation_error_compatibility_body">به نظر می‌رسد SD Maid با مشکل تشخیص طرح صفحه روبرو است. اگر این مشکل همچنان ادامه دارد، ممکن است زبان یا تنظیمات دستگاه شما به طور کامل پشتیبانی نشود. پیشنهاد می‌کنم ابتدا بررسی کنید که آیا بروزرسانی برای برنامه وجود دارد یا خیر.</string>
+    <string name="history_label">تاریخچه</string>
+    <string name="history_description">یک لیست زمانی از اقدامات اخیر و داده‌های تأثیر پذیرفته.</string>
+    <string name="scheduler_label">برنامه ریز</string>
+    <string name="scheduler_execution_label">اجرای بعدی (تقریبی)</string>
+    <string name="scheduler_execution_last_label">آخرین اجرا</string>
+    <string name="scheduler_settings_label">برنامه ریز</string>
+    <string name="scheduler_settings_summary">تنظیمات مربوط به برنامه‌ریز زمان‌بندی را تنظیم کنید.</string>
+    <string name="scheduler_new_schedule_action">ایجاد زمان‌بندی</string>
+    <string name="scheduler_schedule_name_label">نام زمان‌بندی</string>
+    <string name="scheduler_schedule_toggle_enabled">برنامه ریز فعال است</string>
+    <string name="scheduler_schedule_toggle_disabled">برنامه ریز غیرفعال است</string>
+    <string name="scheduler_edit_schedule_action">ویرایش زمان‌بندی</string>
+    <string name="scheduler_schedule_time_label">زمان تخمینی</string>
+    <string name="scheduler_schedule_repeat_label">فاصله تکرار در روزها</string>
+    <string name="scheduler_schedule_default_name">زمان‌بندی پیش‌فرض</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s در میان %2$s</string>
+    <string name="scheduler_schedule_next_at_x">برنامه‌ریزی شده برای %s</string>
+    <string name="scheduler_schedule_last_at_x">آخرین اجرایی در %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="one">روزانه</item>
         <item quantity="other">هر %d روز</item>
     </plurals>
     <string name="scheduler_schedule_repeat_interval">فاصله زمانی تکرار</string>
+    <string name="scheduler_inaccurate_execution_hint">زمان‌های اجرای مورد انتظار به صورت تقریبی هستند. برنامه‌ها ممکن است برای حفظ باتری به تأخیر افتاده یا تسریع شوند.</string>
+    <string name="scheduler_no_active_schedules_subtitle">هیچ برنامه فعالی وجود ندارد.</string>
+    <string name="scheduler_setting_nopowersaving_title">صرف نظر در صورت کم بودن باتری</string>
+    <string name="scheduler_setting_nopowersaving_summary">اگر دستگاه در حالت صرفه‌جویی در مصرف انرژی باشد، اجرای برنامه زمان‌بندی شده لغو خواهد شد.</string>
+    <string name="scheduler_setting_charging_title">صرف نظر در صورت عدم شارژ</string>
+    <string name="scheduler_setting_charging_summary">اگر دستگاه در حال شارژ نباشد، اجرای برنامه زمان‌بندی شده لغو خواهد شد.</string>
+    <string name="scheduler_setting_automation_title">سرویس دسترسی</string>
+    <string name="scheduler_setting_automation_summary">شامل عملیات‌هایی باشید که از یک سرویس دسترسی استفاده می‌کنند. این تنظیم به SD Maid اجازه می‌دهد تا با صفحه‌نمایش شما تعامل داشته باشد (یعنی قفل صفحه باز باشد) زمانی که وظایف اجرا می‌شوند.</string>
+    <string name="scheduler_notification_channel_label">برنامه ریز</string>
+    <string name="scheduler_notification_title">وظیفه زمان‌بندی شده</string>
+    <string name="scheduler_notification_message">اجرایی: \"%s\"</string>
+    <string name="scheduler_notification_result_title">برنامه‌ زمان‌بندی به پایان رسید.</string>
+    <string name="scheduler_notification_result_success_message">تمام وظایف زمان‌بندی شده با موفقیت اجرا شدند.</string>
+    <string name="scheduler_notification_result_failure_message">برخی از وظایف زمان‌بندی شده با خطا مواجه شدند یا شکست خوردند. سعی کنید آنها را به صورت دستی اجرا کنید.</string>
+    <string name="scheduler_commands_after_schedule_label">دستورات پس از زمان‌بندی</string>
+    <string name="scheduler_commands_after_schedule_desc">دستورات Android Shell که در پایان یک زمانبندی اجرا خواهند شد.</string>
+    <string name="scheduler_battery_optimization_hint">در صورت بروز مشکلات در اجرای پس‌زمینه، غیرفعال کردن بهینه‌سازی باتری برای SD Maid را در نظر بگیرید.</string>
+    <string name="updates_dashcard_title">به‌روزرسانی موجود است</string>
+    <string name="updates_dashcard_body">به‌روزرسانی موجود است. شما نسخه %1$s را دارید و جدیدترین نسخه موجود %2$s است.</string>
+    <string name="translation_encourage_title">ترجمه خدمتکار SD</string>
     <string name="translation_encourage_body">SD Maid توسط داوطلبان ترجمه شده است. ترجمه، بررسی یا تصحیح، از کمک شما قدردانی می شود!</string>
+    <string name="translation_translators_title">این نسخه ترجمه شده است توسط</string>
+    <string name="translation_translators_people">شخص1؛شخص2(optional@email.com)</string>
+    <string name="motd_setting_enabled_label">پیام‌های مهم</string>
+    <string name="motd_setting_enabled_explanation">اجازه دهید SD Maid پیام‌های مهمی را از توسعه‌دهنده بررسی کند.</string>
+    <string name="updatecheck_setting_enabled_label">بررسی به‌روز رسانی</string>
+    <string name="updatecheck_setting_enabled_explanation">اجازه دهید SD Maid بررسی کند که آیا نسخه جدیدتری در دسترس است یا خیر.</string>
+    <string name="device_settings_category">دستگاه</string>
+    <string name="beta_version_indicator_desc">نسخه‌های پیش‌انتشار یک نشان کوچک روی صفحه شروع نمایش می‌دهند. این نسخه‌ها بیشتر به‌روزرسانی می‌شوند و ممکن است ویژگی‌های بیشتری داشته باشند، اما احتمالاً باگ‌های بیشتری نیز دارند.</string>
+    <string name="review_app_review_action">مرور</string>
+    <string name="review_app_dismiss_action">شاید بعداً</string>
+    <string name="review_app_body">آیا می خواهید نظری برای SD Maid بگذارید؟️ ❤️</string>
+    <string name="stats_label">تاریخچه</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">مقدار %s آزاد شده است.</item>
+        <item quantity="other">مقدار %s آزاد شده است.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">مقدار %s مورد پردازش شده از زمانی که SD Maid را به دستگاه خود دعوت کرده‌اید.</item>
+        <item quantity="other">مقدار %s مورد پردازش شده از زمانی که SD Maid را به دستگاه خود دعوت کرده‌اید.</item>
+    </plurals>
+    <string name="stats_report_status_success">موفقیت</string>
+    <string name="stats_report_status_partial_success">موفقیت جزئی</string>
+    <string name="stats_report_status_partial_failure">شکست</string>
+    <string name="stats_settings_desc">پیکربندی آمار، گزارش‌ها و نگهداری داده‌های SD Maid</string>
+    <string name="stats_settings_retention_category">حفظ و نگهداری</string>
+    <string name="stats_settings_retention_reports_label">گزارش های کلی</string>
+    <string name="stats_settings_retention_reports_desc">تعداد روزها قبل از حذف گزارش‌های عملیات پایه SD Maid.</string>
+    <string name="stats_settings_retention_paths_label">اطلاعات دقیق مسیر</string>
+    <string name="stats_settings_retention_paths_desc">تعداد روزهایی که جزئیات مربوط به مسیرهای تحت تأثیر SD Maid را نگه دارید.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d روز</item>
+        <item quantity="other">%d روز</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">بازنشانی همه</string>
+    <string name="stats_settings_reset_all_desc">حذف همه گزارش‌ها و تنظیم همه آمارها به صفر.</string>
+    <string name="stats_affected_paths_label">مسیرهای تحت تأثیر</string>
+    <string name="stats_affected_pkgs_label">برنامه‌های تحت تأثیر</string>
+    <string name="picker_select_paths_title">انتخاب مسیر‌ها</string>
+    <string name="picker_selected_paths_title">مسیر‌های انتخابی</string>
+    <string name="picker_unsaved_confirmation_message">صرف نظر از تغییرات؟</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d مسیر انتخابی</item>
+        <item quantity="other">%d مسیر انتخابی</item>
+    </plurals>
+    <string name="picker_home_action">مناطق داده</string>
+    <string name="area_type_sdcard_label">ذخیره‌سازی عمومی</string>
+    <string name="area_type_public_media_label">رسانه برنامه عمومی</string>
+    <string name="area_type_public_data_label">داده‌های عمومی برنامه</string>
+    <string name="area_type_public_obb_label">منابع برنامه عمومی</string>
+    <string name="area_type_private_data_label">اطلاعات خصوصی برنامه </string>
+    <string name="area_type_portable_label">فضای ذخیره‌سازی قابل‌حمل</string>
 </resources>

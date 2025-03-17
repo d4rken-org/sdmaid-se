@@ -75,6 +75,14 @@
     <string name="general_tag_filter_label">تصفية حسب العلامات</string>
     <string name="general_result_success_message">تمت المهمة</string>
     <string name="general_result_failure_message">فشلت المهمة</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="zero">أفرج عن مساحة %s.</item>
+        <item quantity="one">أفرج عن مساحة %s.</item>
+        <item quantity="two">أفرج عن مساحة %s.</item>
+        <item quantity="few">أفرج عن مساحة %s.</item>
+        <item quantity="many">أفرج عن مساحة %s.</item>
+        <item quantity="other">أفرج عن مساحة %s.</item>
+    </plurals>
     <string name="general_options_label">الخيارات</string>
     <string name="general_details_label">التفاصيل</string>
     <string name="general_view_action">عرض</string>
@@ -88,6 +96,14 @@
     <string name="general_delete_confirmation_title">تأكيد الحذف</string>
     <string name="general_delete_confirmation_message_x">حذف \"%s\"؟</string>
     <string name="general_delete_confirmation_message_selected_x_items">حذف %d من العناصر المحددة؟</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="zero">تم حذف عنصر %d.</item>
+        <item quantity="one">تم حذف عنصر %d.</item>
+        <item quantity="two">تم حذف عنصر %d.</item>
+        <item quantity="few">تم حذف عنصر %d.</item>
+        <item quantity="many">تم حذف عنصر %d.</item>
+        <item quantity="other">تم حذف عناصر %d.</item>
+    </plurals>
     <string name="general_remove_action">حذف</string>
     <string name="general_remove_selected_action">حذف المُحدد</string>
     <plurals name="general_remove_success_x_items">
@@ -127,6 +143,14 @@
         <item quantity="many">- %d فشل</item>
         <item quantity="other">- %d فشل</item>
     </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="zero">%s يمكن تحريره</item>
+        <item quantity="one">%s يمكن تحريره</item>
+        <item quantity="two">%s يمكن تحريره</item>
+        <item quantity="few">%s يمكن تحريره</item>
+        <item quantity="many">%s يمكن تحريره</item>
+        <item quantity="other">%s يمكن تحريره</item>
+    </plurals>
     <string name="general_info_label">معلومات</string>
     <string name="general_count_label">العدد</string>
     <string name="general_app_label">تطبيق</string>
@@ -150,6 +174,22 @@
     <string name="general_progress_ready">جاهز</string>
     <string name="general_progress_done">أكتمل</string>
     <string name="general_rom_type_auto_label">تلقائي (افتراضي)</string>
+    <plurals name="general_age_days">
+        <item quantity="zero">%d يوم</item>
+        <item quantity="one">%d يوم</item>
+        <item quantity="two">%d يومان</item>
+        <item quantity="few">%d ايام</item>
+        <item quantity="many">%d ايام</item>
+        <item quantity="other">%d أيام</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="zero">%d ساعات</item>
+        <item quantity="one">%d ساعات</item>
+        <item quantity="two">%d ساعات</item>
+        <item quantity="few">%d ساعات</item>
+        <item quantity="many">%d ساعات</item>
+        <item quantity="other">%d ساعات</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="zero">ملف %s</item>
         <item quantity="one">ملف %s</item>
@@ -159,4 +199,5 @@
         <item quantity="other">%s ملفات</item>
     </plurals>
     <string name="general_advice_title">نصيحة</string>
+    <string name="general_error_invalid_input_label">إدخال خاطئ</string>
 </resources>

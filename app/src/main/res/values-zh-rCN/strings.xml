@@ -14,7 +14,7 @@
     <string name="debug_debuglog_recording_progress">正在记录调试日志</string>
     <string name="debug_debuglog_record_action">记录调试日志</string>
     <string name="debug_debuglog_stop_action">停止记录</string>
-    <string name="debug_debuglog_sensitive_information_message">生成的文件包含敏感信息(例如文件名称和已安装应用程序)，请仅与可信方共享。</string>
+    <string name="debug_debuglog_sensitive_information_message">生成的文件包含敏感信息（例如文件名称和已安装应用程序），请仅与可信方共享。</string>
     <string name="settings_debuglog_explanation">此功能将应用执行的所有操作记录到一个可共享文件中，该文件包含敏感信息（例如文件名和已安装的应用）。请仅与可信任方（例如解决问题的开发人员）共享</string>
     <string name="tasks_activity_notification_channel_label">正在运行的任务</string>
     <string name="tasks_activity_working_notification_title">SD Maid 正在运行</string>
@@ -29,13 +29,13 @@
     <string name="onboarding_welcome_title">欢迎</string>
     <string name="onboarding_welcome_body1">SD Maid SE 是一款管理文件、应用和存储的工具。</string>
     <string name="onboarding_welcome_body2">通过清理其他应用程序留下的垃圾文件和残留数据，来释放存储空间。</string>
-    <string name="onboarding_welcome_body_beta">这是预览 (测试) 版本，所以在使用时请放轻松并保留备份，并及时报告您遇到的问题。</string>
+    <string name="onboarding_welcome_body_beta">这是一个预览（测试）版本，在使用时请放轻松并保留您的备份。请及时报告您可能遇到的问题。</string>
     <string name="onboarding_welcome_continue_action">继续</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE（又名 SD Maid 2）是 SD Maid 的续作，是一款专门优化现代 Android 系统的全新应用。</string>
     <string name="onboarding_versus_body2">它的前身架构已经超过 7 年了，不再适用于新版 Android 系统，所以采用全新设计迫在眉睫。</string>
     <string name="onboarding_versus_body3">您可以考虑转用 SD Maid SE 以获得更好的效果。</string>
-    <string name="onboarding_versus_body4">很不幸，SD Maid 1 的“专业状态”无法转移到 SD Maid 2/SE。我们经过了 12 年的免费更新，请购买新的产品来维持我们的发展（支持开发者）。</string>
+    <string name="onboarding_versus_body4">很不幸，SD Maid 1 的 “专业版授权” 无法转移到 SD Maid 2/SE。我们已经提供了 12 年的免费更新，请购买新的产品来维持我们的发展（以支持开发者）。</string>
     <string name="onboarding_versus_continue_action">继续</string>
     <string name="onboarding_privacy_title">隐私</string>
     <string name="onboarding_privacy_body1">SD Maid 不含广告，也不会售卖用户信息。</string>
@@ -60,7 +60,7 @@
     <string name="general_settings_desc">这些通用设置将被应用于整个软件</string>
     <string name="settings_category_ui_label">用户界面</string>
     <string name="ui_theme_mode_setting_label">主题模式</string>
-    <string name="ui_theme_mode_setting_explanation">应用所使用的主题模式（例如夜间模式或日间模式）。</string>
+    <string name="ui_theme_mode_setting_explanation">应用所使用的主题模式（例如深色模式或浅色模式）。</string>
     <string name="ui_theme_mode_dark_label">深色模式</string>
     <string name="ui_theme_mode_light_label">浅色模式</string>
     <string name="ui_theme_mode_system_label">跟随系统</string>
@@ -71,7 +71,7 @@
     <string name="ui_previews_title">文件预览</string>
     <string name="ui_previews_summary">在所有工具中显示文件预览（例如图片和视频缩略图）</string>
     <string name="ui_language_override_label">应用语言</string>
-    <string name="ui_language_override_desc">为 SD Maid 选择不同的语言，独立于系统的默认语言。当前：%s</string>
+    <string name="ui_language_override_desc">为 SD Maid 选择不同的语言，独立于系统的默认语言。当前语言：%s</string>
     <string name="settings_support_label">支持</string>
     <string name="settings_support_description">读取文档、报告问题、与他人交流或记录调试日志。</string>
     <string name="documentation_label">文档</string>
@@ -92,7 +92,7 @@
     <string name="setup_incomplete_card_dismiss_action">取消</string>
     <string name="setup_incomplete_card_continue_action">继续设置</string>
     <string name="setup_title">设置</string>
-    <string name="setup_forcedshow_summary">再次显示初始化界面，包括已完成的项目。</string>
+    <string name="setup_forcedshow_summary">再次显示向导界面，会包含已完成的项目。</string>
     <string name="setup_checking_card_body">验证设置完成情况和功能。</string>
     <string name="general_error_setup_require_label">设置未完成</string>
     <string name="general_error_setup_require_msg">使用此功能需要进一步设置，请完成其余设置步骤。</string>
@@ -114,7 +114,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">允许 SD Maid 在需要时调用 Shizuku 以启用功能和改善结果。</string>
     <string name="setup_shizuku_card_body2">若您的设备未设置 Shizuku 应用，则此设置无效。</string>
-    <string name="setup_shizuku_card_root_info">Shizuku与root 权限相结合不会启用额外的功能，但它能提高可靠性。SD Maid将用作回退方法。</string>
+    <string name="setup_shizuku_card_root_info">Shizuku 与 root权限 同时启用不会启用额外的功能，但它能提高可靠性。SD Maid会将它用作后备方案。</string>
     <string name="setup_shizuku_state_ready_label">Shizuku 链接已就绪。</string>
     <string name="setup_shizuku_state_waiting_label">正在等待与 Shizuku 链接。</string>
     <string name="setup_shizuku_enable_shizuku_use_label">允许使用 Shizuku</string>
@@ -128,7 +128,7 @@
     <string name="setup_notification_title">通知</string>
     <string name="setup_notification_body">允许 SD Maid 发布通知以告知您正在进行的操作或重要事件。</string>
     <string name="setup_notification_hint">我们不会滥用通知 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">使用此功能前需要额外设置： \"%s\" 。</string>
+    <string name="setup_feature_requires_additional_setup_x">使用此功能前需要额外设置： %s</string>
     <string name="setup_acs_card_title">无障碍服务</string>
     <string name="setup_acs_card_body">无障碍服务允许 SD Maid 与您的屏幕交互，并自动完成重复性的动作，如在不同页面点击“清除缓存”。</string>
     <string name="setup_acs_card_body2">SD Maid 只会在您的允许下使用无障碍服务，并会在使用时显示醒目的提示。此过程可以随时取消，并且不会收集信息。</string>
@@ -137,7 +137,7 @@
     <string name="setup_acs_state_running">无障碍服务正在运行</string>
     <string name="setup_acs_state_ondemand">服务将按需启动</string>
     <string name="setup_acs_state_stopped">无障碍服务已停止</string>
-    <string name="setup_acs_state_stopped_hint">服务已启动，但并未运行。请切换其开关状态或重启您的设备，并确保系统后台没有“电池优化” SD Maid。</string>
+    <string name="setup_acs_state_stopped_hint">服务已启动，但并未运行。请切换其开关状态或重启您的设备，并确保系统后台没有对 SD Maid 使用“电池优化”。</string>
     <string name="setup_acs_state_stopped_hint_miui">如果一段时间后服务仍处于禁用状态，可以尝试在系统设置中启用 SD Maid 的“自启动”功能。</string>
     <string name="setup_acs_consent_positive_action">启用服务并获取权限</string>
     <string name="setup_acs_consent_negative_action">不要使用无障碍服务</string>
@@ -171,7 +171,7 @@
     <string name="corpsefinder_watcher_autodelete_title">自动删除</string>
     <string name="corpsefinder_watcher_autodelete_summary">自动删除与已卸载应用相关的残留数据。</string>
     <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="other">卸载%2$s后发现了 %1$d 项残留数据。</item>
+        <item quantity="other">卸载 %2$s 后发现了 %1$d 项残留数据。</item>
     </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="other">清理成功（%1$s）：已释放 %2$s 并删除了 %3$d 个项目。</item>
@@ -184,7 +184,7 @@
     <string name="corpsefinder_filter_publicdata_label">公共应用数据</string>
     <string name="corpsefinder_filter_publicdata_summary">非敏感的应用数据，例如地图缓存。</string>
     <string name="corpsefinder_filter_sdcard_label">SD 卡</string>
-    <string name="corpsefinder_filter_sdcard_summary">一般公共存储，内部和外部(例如 SD 卡)。</string>
+    <string name="corpsefinder_filter_sdcard_summary">一般公共存储，内部和外部（例如 SD 卡）。</string>
     <string name="corpsefinder_filter_privatedata_label">私有程序数据</string>
     <string name="corpsefinder_filter_privatedata_summary">私有程序数据，例如登录凭证、应用设置、浏览器缓存等。</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik 虚拟机缓存</string>
@@ -214,7 +214,7 @@
     <string name="systemcleaner_tool_name">系统清理</string>
     <string name="systemcleaner_explanation_short">不属于任何特定应用的冗余数据</string>
     <plurals name="systemcleaner_result_x_items_deleted">
-        <item quantity="other">已删除%d 匹配项</item>
+        <item quantity="other">已删除 %d 匹配项</item>
     </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="other">%d 项满足筛选</item>
@@ -231,7 +231,9 @@
     <string name="systemcleaner_filter_emptydirectories_label">空文件夹</string>
     <string name="systemcleaner_filter_emptydirectories_summary">设备中有许多空目录。嵌套的空目录可能需要清理多次。</string>
     <string name="systemcleaner_filter_screenshots_label">截图</string>
-    <string name="systemcleaner_filter_screenshots_summary">来自多个应用和位置的早于“%s”的屏幕截图</string>
+    <string name="systemcleaner_filter_screenshots_summary">来自多个应用和位置的早于 %s 的屏幕截图。</string>
+    <string name="systemcleaner_filter_trashed_label">回收站文件</string>
+    <string name="systemcleaner_filter_trashed_summary">各种应用程序中已被标记为删除但尚未永久删除的回收站文件。</string>
     <string name="systemcleaner_filter_screenshots_age_label">截图时间</string>
     <string name="systemcleaner_filter_screenshots_age_summary">考虑删除截图的最早时间</string>
     <string name="systemcleaner_filter_superfluosapks_label">过时的安装包</string>
@@ -283,7 +285,7 @@
     <string name="systemcleaner_customfilter_editor_name_label">名称筛选条件</string>
     <string name="systemcleaner_customfilter_editor_name_explanation">目标名称必须包含至少一个关键字 （例如“-receiv”），长按条目以获取更多选项。</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">排除列表</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">如果路径匹配任何条目(如“DCIM”)，结果将被排除。长按条目以获取更多选项。</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">如果路径匹配任何条目（如 “DCIM”），结果将被排除。长按条目以获取更多选项。</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">路径匹配模式</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">以关键词开始的路径</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">包含关键词的路径</string>
@@ -317,7 +319,7 @@
     <string name="appcleaner_include_minimumage_label">最短时间</string>
     <string name="appcleaner_include_minimumage_summary">跳过低于最短时间的文件。</string>
     <string name="appcleaner_automation_romtype_detection_label">自动识别操作系统类型</string>
-    <string name="appcleaner_automation_romtype_detection_summary">如果SDMaid没有正确识别您的系统环境，基于无障碍功能的自动化可能会无法工作。因此，你需要在此手动选择你的系统类型。</string>
+    <string name="appcleaner_automation_romtype_detection_summary">如果 SD Maid 没有正确识别您的系统环境，基于无障碍功能的自动化可能会无法工作。因此，你需要在此手动选择你的系统类型。</string>
     <string name="appcleaner_filter_codecache_label">代码缓存</string>
     <string name="appcleaner_filter_codecache_summary">JVM 代码缓存。将字节码块编译成本机代码。</string>
     <string name="appcleaner_filter_advertisement_label">广告数据</string>
@@ -345,11 +347,11 @@
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp 发出的文件</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">您通过 WhatsApp 发送给其他人的文件</string>
     <string name="appcleaner_filter_telegram_label">Telegram 媒体文件</string>
-    <string name="appcleaner_filter_telegram_summary">通过Telegram接收或发送的文件。</string>
+    <string name="appcleaner_filter_telegram_summary">通过 Telegram 接收或发送的文件。</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
-    <string name="appcleaner_filter_threema_summary">通过 Threema 接受的文件。</string>
+    <string name="appcleaner_filter_threema_summary">通过 Threema 接收的文件。</string>
     <string name="appcleaner_filter_wechat_label">微信</string>
-    <string name="appcleaner_filter_wechat_summary">在微信聊天和朋友圈中发送或接受的文件。</string>
+    <string name="appcleaner_filter_wechat_summary">在微信聊天和朋友圈中发送或接收的文件。</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">在聊天中查看时会再次下载的缓存媒体文件</string>
     <string name="appcleaner_filter_qqchat_label">QQ 聊天</string>
@@ -389,6 +391,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">使“全部删除”成为可能</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">显示允许您删除一组重复文件中的所有文件的选项，实现一键清空</string>
+    <string name="deduplicator_search_locations_title">搜索位置</string>
+    <string name="deduplicator_search_locations_all_summary">所有可访问区域</string>
     <string name="deduplicator_skip_minsize_title">最小文件大小</string>
     <string name="deduplicator_skip_minsize_description">跳过小于最小大小的文件</string>
     <string name="deduplicator_skip_uncommon_title">跳过不常见的文件类型</string>
@@ -407,10 +411,10 @@
     <string name="deduplicator_cluster_x_label">集群 %s</string>
     <string name="deduplicator_delete_confirmation_message">删除所有重复文件组中除一份副本之外的所有副本？</string>
     <string name="deduplicator_delete_single_set_confirmation_message">删除这组重复文件中除一份副本之外的所有副本？</string>
-    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">删除这组重复文件中的所有文件？不会留下任何文件！</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">删除这组重复文件中的所有文件？这将不会留下任何文件！</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">删除每组选定的重复文件中除一份副本之外的所有副本？</string>
-    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">删除每组选定的重复文件中的所有文件？不会留下任何文件！</string>
-    <string name="deduplicator_delete_all_toggle_msg">删除所有副本，不会留下任何文件！</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">删除每组选定的重复文件中的所有文件？这将不会留下任何文件！</string>
+    <string name="deduplicator_delete_all_toggle_msg">删除所有副本，这将不会留下任何文件！</string>
     <string name="deduplicator_progress_comparing_files">正在比较文件</string>
     <string name="deduplicator_details_cluster_title">重复组</string>
     <string name="deduplicator_matches_exact_label">完全相同</string>
@@ -423,8 +427,8 @@
     <string name="appcontrol_toggle_app_selection_action">切换应用</string>
     <string name="appcontrol_toggle_app_enable_action">启用应用</string>
     <string name="appcontrol_toggle_app_disable_action">停用应用</string>
-    <string name="appcontrol_toggle_app_enable_description">启动应用可使其运行并在有活动时显示在启动器中。</string>
-    <string name="appcontrol_toggle_app_disable_description">禁用应用可防止其运行并将其从列表中隐藏。该过程不会丢失数据。</string>
+    <string name="appcontrol_toggle_app_enable_description">启动应用可使其可运行并将其显示在桌面上。</string>
+    <string name="appcontrol_toggle_app_disable_description">禁用应用可阻止其运行并将其从桌面中隐藏。该过程不会丢失数据。</string>
     <string name="appcontrol_appstore_open_title">在应用商店中打开</string>
     <string name="appcontrol_appstore_open_description">在安装该应用的应用市场中打开此应用。</string>
     <string name="appcontrol_systemsettings_open_title">显示设置</string>
@@ -440,10 +444,12 @@
     <string name="appcontrol_app_exclude_edit_description">此应用目前被排除在一个或多个工具之外。</string>
     <string name="appcontrol_tag_user">用户</string>
     <string name="appcontrol_tag_active">最近的活动</string>
-    <string name="appcontrol_tag_apk_base">安装包文件</string>
-    <string name="appcontrol_tag_apk_bundle">捆绑垃圾</string>
+    <string name="appcontrol_tag_apk_base">APK 完整包</string>
+    <string name="appcontrol_tag_apk_bundle">AAB 分包</string>
     <string name="appcontrol_tag_system">系统</string>
     <string name="appcontrol_tag_archived">已存档</string>
+    <string name="appcontrol_tag_uninstalled">仅数据</string>
+    <string name="appcontrol_tag_not_installed">未安装</string>
     <string name="appcontrol_tag_enabled">已启用</string>
     <string name="appcontrol_tag_disabled">已停用</string>
     <string name="appcontrol_progress_enabling_package">正在启用应用</string>
@@ -457,7 +463,7 @@
     <string name="appcontrol_list_sortmode_size_caveat_msg">出于性能考虑，应用大小为估算所得。请使用「存储分析器」工具获取更准确的数据</string>
     <string name="appcontrol_progress_uninstalling_app">正在卸载应用</string>
     <plurals name="appcontrol_uninstall_result_message_x">
-        <item quantity="other">已卸载%d 应用</item>
+        <item quantity="other">已卸载 %d 应用</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">应用大小</string>
     <string name="appcontrol_app_sizes_apk_label">应用</string>
@@ -468,7 +474,7 @@
         <item quantity="other">更改 %d 个应用的启用/禁用状态？</item>
     </plurals>
     <plurals name="appcontrol_toggle_result_message_x">
-        <item quantity="other">已切换了 %d 的应用</item>
+        <item quantity="other">已切换 %d 个应用</item>
     </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">确定大小</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">粗略估计每个应用的大小</string>
@@ -478,7 +484,7 @@
     <string name="appcontrol_export_title">导出应用</string>
     <string name="appcontrol_export_description">保存此应用的安装文件（不包括应用数据）。</string>
     <plurals name="appcontrol_export_result_message_x">
-        <item quantity="other">已导出 %d 的应用</item>
+        <item quantity="other">已导出 %d 个应用</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">正在导出 %s</string>
     <string name="appcontrol_force_stop_selection_action">强制停止应用</string>
@@ -488,7 +494,7 @@
         <item quantity="other">强制停止 %d 个应用？</item>
     </plurals>
     <plurals name="appcontrol_force_stop_result_message_x">
-        <item quantity="other">已停止 %d 的应用</item>
+        <item quantity="other">已停止 %d 个应用</item>
     </plurals>
     <string name="appcontrol_automation_loading">通过无障碍服务来准备自动化操作</string>
     <string name="appcontrol_automation_title">自动化应用控制</string>
@@ -525,7 +531,7 @@
     <string name="analyzer_storage_content_type_system_label">系统数据</string>
     <string name="analyzer_storage_content_type_system_description">系统应用和系统数据。如果在此设备上设置了其他用户账户，则这也将清除其他用户的应用和数据。</string>
     <string name="analyzer_storage_content_app_code_label">应用代码</string>
-    <string name="analyzer_storage_content_app_code_description">应用程序文件、库和资源。此空间可以通过卸载应用程序或将其存档而释放(可在更新的安卓版本上查阅)。</string>
+    <string name="analyzer_storage_content_app_code_description">应用程序的文件、依赖库和资源。此空间可以通过卸载应用程序或将其存档（在较新的安卓版本上）从而释放。</string>
     <string name="analyzer_storage_content_app_data_label">应用数据</string>
     <string name="analyzer_storage_content_app_data_description">数据、设置和缓存</string>
     <string name="analyzer_storage_content_app_media_label">应用媒体</string>
@@ -580,6 +586,7 @@
     <string name="automation_error_not_running_body">无障碍服务未运行。请尝试重启设备。</string>
     <string name="automation_error_screen_unavailable_title">屏幕不可用</string>
     <string name="automation_error_screen_unavailable_body">操作已中止，原因为屏幕不可用（例如息屏或锁屏状态）</string>
+    <string name="automation_error_compatibility_body">SD Maid 无法确定您的屏幕布局大小。 如果这种情况持续发生，可能是您的语言或系统设置不能完全支持。 请检查更新应用或联系我让我解决这个问题。</string>
     <string name="history_label">历史</string>
     <string name="history_description">将最近操作和涉及数据按时间排序的列表。</string>
     <string name="scheduler_label">计划任务</string>
@@ -624,9 +631,9 @@
     <string name="translation_encourage_title">为 SD Maid 贡献翻译</string>
     <string name="translation_encourage_body">SD Maid 由志愿者贡献翻译。无论是翻译、审核还是校对，我们都非常感谢您的帮助！</string>
     <string name="translation_translators_title">此版本的翻译贡献者：</string>
-    <string name="translation_translators_people">FrzHrzn</string>
+    <string name="translation_translators_people">FrzHrzn;hhh23333</string>
     <string name="motd_setting_enabled_label">重要消息</string>
-    <string name="motd_setting_enabled_explanation">允许SD Maid接收来自开发者的重要消息。</string>
+    <string name="motd_setting_enabled_explanation">允许 SD Maid 接收来自开发者的重要消息。</string>
     <string name="updatecheck_setting_enabled_label">检查更新</string>
     <string name="updatecheck_setting_enabled_explanation">允许 SD Maid 检查更新，让您知道是否有新版本可用</string>
     <string name="device_settings_category">设备</string>
@@ -657,4 +664,17 @@
     <string name="stats_settings_reset_all_desc">删除所有报告并将所有统计数据归零。</string>
     <string name="stats_affected_paths_label">受影响的路径</string>
     <string name="stats_affected_pkgs_label">受影响的应用</string>
+    <string name="picker_select_paths_title">选择路径</string>
+    <string name="picker_selected_paths_title">已选中路径</string>
+    <string name="picker_unsaved_confirmation_message">放弃更改？</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="other">已选中 %d 个路径</item>
+    </plurals>
+    <string name="picker_home_action">数据区域</string>
+    <string name="area_type_sdcard_label">公共存储</string>
+    <string name="area_type_public_media_label">公共媒体存储</string>
+    <string name="area_type_public_data_label">公共应用数据</string>
+    <string name="area_type_public_obb_label">公共应用资源</string>
+    <string name="area_type_private_data_label">私有应用数据</string>
+    <string name="area_type_portable_label">外置存储</string>
 </resources>

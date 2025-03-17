@@ -256,6 +256,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Prázdné složky z celého zařízení. Vnořené složky bude možná potřeba projít vícekrát.</string>
     <string name="systemcleaner_filter_screenshots_label">Snímky obrazovky</string>
     <string name="systemcleaner_filter_screenshots_summary">Snímky obrazovky starší než %s z více aplikací a umístění.</string>
+    <string name="systemcleaner_filter_trashed_label">Soubory v koši</string>
+    <string name="systemcleaner_filter_trashed_summary">Soubory v koších z různých aplikací a umístění, které jsou označené ke smazání ale ještě nebyly trvale odstraněny.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Stáří snímků obrazovky</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimální stáří, od kterého je možné snímky obrazovky smazat.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Nadbytečné soubory APK</string>
@@ -428,6 +430,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Umožnit funkci \"Smazat vše\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Zobrazit možnosti, které umožňují smazat všechny soubory v sadě duplikátů tak, aby nezůstal žádný soubor.</string>
+    <string name="deduplicator_search_locations_title">Vyhledat místa</string>
+    <string name="deduplicator_search_locations_all_summary">Všechny dostupné oblasti</string>
     <string name="deduplicator_skip_minsize_title">Minimální velikost</string>
     <string name="deduplicator_skip_minsize_description">Přeskočit soubory, které nedosahují minimální velikosti.</string>
     <string name="deduplicator_skip_uncommon_title">Přeskočit neobvyklé typy souborů</string>
@@ -489,6 +493,8 @@
     <string name="appcontrol_tag_apk_bundle">Balíček</string>
     <string name="appcontrol_tag_system">Systém</string>
     <string name="appcontrol_tag_archived">Archivováno</string>
+    <string name="appcontrol_tag_uninstalled">Pouze data</string>
+    <string name="appcontrol_tag_not_installed">Nenainstalováno</string>
     <string name="appcontrol_tag_enabled">Povoleno</string>
     <string name="appcontrol_tag_disabled">Zakázáno</string>
     <string name="appcontrol_progress_enabling_package">Povolování aplikace</string>
@@ -652,6 +658,7 @@
     <string name="automation_error_not_running_body">Služba přístupnosti neběží. Zkuste restartovat zařízení.</string>
     <string name="automation_error_screen_unavailable_title">Obrazovka je nedostupná</string>
     <string name="automation_error_screen_unavailable_body">Operace byla přerušena, protože obrazovka se stala nedostupnou (např. vypnutý displej nebo aktivní zámek obrazovky).</string>
+    <string name="automation_error_compatibility_body">Aplikace SD Maid nedokázala rozeznat rozložení obrazovky. Pokud se toto opakuje, nemusí být váš jazyk nebo nastavení plně podporované. Zkontrolujte aktualizace nebo se mi ozvěte, abych to opravil.</string>
     <string name="history_label">Historie</string>
     <string name="history_description">Chronologický seznam nedávných akcí a dotčených dat.</string>
     <string name="scheduler_label">Plánovač</string>
@@ -741,4 +748,20 @@
     <string name="stats_settings_reset_all_desc">Smazat všechna hlášení a nastavit všechny statistiky na nulu.</string>
     <string name="stats_affected_paths_label">Ovlivněné cesty</string>
     <string name="stats_affected_pkgs_label">Ovlivněné aplikace</string>
+    <string name="picker_select_paths_title">Vybrat cesty</string>
+    <string name="picker_selected_paths_title">Vybrané cesty</string>
+    <string name="picker_unsaved_confirmation_message">Zahodit změny?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">Vybrána %d cesta</item>
+        <item quantity="few">Vybrány %d cesty</item>
+        <item quantity="many">Vybráno %d cest</item>
+        <item quantity="other">Vybráno %d cest</item>
+    </plurals>
+    <string name="picker_home_action">Oblasti dat</string>
+    <string name="area_type_sdcard_label">Veřejné úložiště</string>
+    <string name="area_type_public_media_label">Veřejná média aplikace</string>
+    <string name="area_type_public_data_label">Veřejná data aplikace</string>
+    <string name="area_type_public_obb_label">Veřejné zdroje aplikace</string>
+    <string name="area_type_private_data_label">Soukromé data aplikace</string>
+    <string name="area_type_portable_label">Přenosné úložiště</string>
 </resources>
