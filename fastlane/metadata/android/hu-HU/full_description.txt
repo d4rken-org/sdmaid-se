@@ -1,24 +1,40 @@
-Az <i>SD Maid SE</i> az Androidod megbízható asszisztense, hogy tisztán és rendben tartsa azt.
+<i>SD Maid 2/SE</i> az Androidod megbízható asszisztense, hogy tisztán és rendben tartsa azt.
 
 Semmi sem tökéletes, még az Android sem.
 * Az eltávolított alkalmazásaid hagynak maguk után valamit.
-* Folyamatosan készülnek a naplók, összeomlási jelentések és más olyan fájlok, amelyeket nem igazán szeretnél.
-* A tárhelyed olyan fájlokat és könyvtárakat gyűjt, amelyeket nem ismersz fel.
+* Folyamatosan keletkeznek a naplók, az összeomlási jelentések és más, nem kívánt fájlok.
+* A tárhelyre ismeretlen fájlok és mappák gyűlnek össze.
+* Duplikált fényképek a galériában.
 
-Ne folytassuk tovább… Hagyd, hogy az SD Maid SE segítsen neked:
+Ne is folytassuk... Hagyd, hogy az SD Maid 2/SE segítsen!
 
-* Megtisztítja az adatokat az eltávolított alkalmazásokból
-* Törli a felesleges fájlokat és a rejtett gyorsítótárakat
-* Eltávolítja a nem használt rendszerfájlokat
-* Hozz létre saját szűrőket a véletlenszerű fájlokhoz
-* Megtalálja és törli az ismétlődő adatokat
-* Elemzi a tárhelyet, és törli a nagy fájlokat
+Az SD Maid 2/SE egy olyan alkalmazás- és fájlkezelő, amely arra specializálódott, hogy tudja, mely alkalmazások hoztak létre bizonyos fájlokat a készüléken. Az SD Maid 2/SE átkutatja a készüléket, és összehasonlítja a fájlokat a telepített alkalmazásokkal, hogy lehetőségeket kínáljon a tárhely biztonságos felszabadítására.
 
-Az SD Maid SE reklámmentes. Egyes funkciók fizetős frissítést igényelnek.
+✨ Alkalmazások eltávolítása utáni tisztítás
+Ha az alkalmazások a kijelölt mappákon kívül hoznak létre fájlokat, akkor a fájlok az alkalmazások eltávolítása után is megmaradhatnak. A „MaradványSzűrő” eszköz megtalálja az alkalmazásmaradványokat, és megmondja, hogy melyik alkalmazáshoz tartoztak, és segít törölni őket.
+
+🔍 Keresés az eszközön okos módon
+Az üres mappák, az ideiglenes fájlok, a már telepített alkalmazások stb. szűrése. Még saját keresési feltételeket is létrehozhatóak. A „RendszerTisztító” eszköz lehetővé teszi a készülék automatikus keresését és a fájlok törlését különböző feltételek alapján.
+
+🧹 Felesleges fájlok és rejtett gyorsítótárak törlése
+Miniatűrök, kukák, offline gyorsítótárak és még sok más: Ha az alkalmazások nem takarítanak maguk után, akkor ez az alkalmazás megteszi. Az „AlkalmazásTisztító” eszköz megtalálja a feláldozható fájlokat tartalmazó alkalmazásokat.
+
+📦 Az összes alkalmazás kezelése
+Átfogó listát kaphatsz a készülékre telepített összes alkalmazásról. Engedélyezett, letiltott, felhasználói vagy rendszeralkalmazás: egyetlen alkalmazás sem rejtőzhet el előled. Az „AlkalmazásTisztító” eszköz egy alkalmazáskezelő, amely lehetővé teszi az alkalmazások keresését, rendezését és ellenőrzését.
+
+📊 Mi használja az összes helyet
+A tárhely kezelése összetett lehet az alkalmazások, a média, a rendszer és egyéb fájlok kezelése a telefon tárolóján, az SD-kártyákon és az USB-eszközökön. A „TárhelyElemző” egy fájlkezelő, amely megjeleníti, hogyan van használva a tárhely az eszközön, így egyszerűsítve a tárhelykezelést.
+
+📷 Duplikált adatok keresése
+Duplikált letöltések, közösségi médián keresztül küldött fotók vagy egyszerűen csak hasonló képek ugyanarról a jelenetről: Idővel a másolatok felhalmozódhatnak. A „Deduplicator” eszköz megtalálja a pontosan azonos vagy hasonló fájlokat, és segít törölni a felesleges másolatokat.
+
+Ez az alkalmazás hirdetésmentes. Egyes funkciók fizetős frissítést igényelnek.
 
 Az SD Maid 2/SE az SD Maid 1/Legacy utódja.
 Újabb Android-verziókra optimalizálva, és a tisztításra összpontosítva.
 
-Az SD Maid SE olyan opcionális funkciókkal rendelkezik, amelyek az AccessibilityService API-t használják az unalmas műveletek automatizálására.
-Az AccessibilityService API használatával az SD Maid SE gombokra kattintva több alkalmazáson is végrehajthat műveleteket, pl. gyorsítótárak törlése.
-Az SD Maid nem használja az AccessibilityService API-t információgyűjtésre.
+Ez az alkalmazás opcionális funkciókkal rendelkezik, amelyek az AccessibilityService API-t használják az unalmas műveletek automatizálására.
+Az AccessibilityService API használatával ez az alkalmazás gombokra kattintva több alkalmazáson is végezhet műveleteket, pl. gyorsítótárak törlése.
+Ez az alkalmazás nem használja az AccessibilityService API-t az információgyűjtéshez.
+
+Az SD Maid 2/SE egy fájlkezelő és tisztító alkalmazás.
