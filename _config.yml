@@ -1,0 +1,31 @@
+theme: minima
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+
+title: "SD Maid 2/SE"
+description: "Android's most thorough cleaning tool."
+author: "by Matthias Urhahn"
+
+include:
+  - PRIVACY_POLICY.md
+exclude:
+  - buildSrc
+  - gradle/wrapper
+  - fastlane
+  - Gemfile
+  - Gemfile.lock
+  - crowdin*
+  - app
+  - app-common
+  - app-common-test
+  - app-common-shell
+  - app-common-root
+  - app-common-pkgs
+  - app-common-io
+  - app-common-adb
+  - motd
+  - tooling
+  - CONTRIBUTING.md
