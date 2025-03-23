@@ -33,4 +33,12 @@ data class CustomFilterConfig(
 ) : Parcelable {
     val isUnderdefined: Boolean
         get() = pathCriteria.isNullOrEmpty() && nameCriteria.isNullOrEmpty()
+
+    val isDefault: Boolean
+        get() = this == CustomFilterConfig(
+            identifier = identifier,
+            createdAt = createdAt,
+            modifiedAt = modifiedAt,
+            label = "",
+        )
 }

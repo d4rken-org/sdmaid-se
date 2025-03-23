@@ -210,7 +210,8 @@ class CustomFilterEditorViewModel @Inject constructor(
     ) {
         val canRemove: Boolean = original != null
         val canSave: Boolean = original != current && !current.isUnderdefined && current.label.isNotEmpty()
-        val hasUnchanged: Boolean = original != current
+        val hasUnchanged: Boolean = if (original != null) original != current else !current.isDefault
+
     }
 
     val liveSearch = currentState.flow
