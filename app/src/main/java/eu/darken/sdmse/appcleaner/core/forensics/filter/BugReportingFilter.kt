@@ -18,7 +18,9 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.isDescendentOf
 import eu.darken.sdmse.common.files.lowercase
+import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import javax.inject.Inject
@@ -98,10 +100,18 @@ class BugReportingFilter @Inject constructor(
             return target.toDeletionMatch()
         }
 
-        return if (sieve.matches(pkgId, areaType, segments)) {
-            target.toDeletionMatch()
-        } else {
-            null
+        return when {
+            sieve.matches(pkgId, areaType, segments) -> {
+                target.toDeletionMatch()
+            }
+
+            segments.isDescendentOf("${pkgId.name}/files/.crashlytics.v3".toSegs()) -> {
+                target.toDeletionMatch()
+            }
+
+            else -> {
+                null
+            }
         }
     }
 

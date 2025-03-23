@@ -1358,4 +1358,55 @@ class BugReportingFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+
+    @Test fun `crashlytics v3`() = runTest {
+        addDefaultNegatives()
+
+        neg(testPkg, PRIVATE_DATA, "some.pkg/files")
+        neg(testPkg, PRIVATE_DATA, "some.pkg/files/.crashlytics.v3")
+        pos(testPkg, PRIVATE_DATA, "$testPkg/files/.crashlytics.v3/$testPkg")
+        pos(testPkg, PRIVATE_DATA, "$testPkg/files/.crashlytics.v3/$testPkg/open-sessions")
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.crashlytics.v3/$testPkg/open-sessions/ABCDEF10803280001217C85529785A6B1"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.crashlytics.v3/$testPkg/open-sessions/ABCDEF10803280001217C85529785A6B1/report"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.crashlytics.v3/$testPkg/open-sessions/ABCDEF10803280001217C85529785A6B1/start-time"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.crashlytics.v3/$testPkg/open-sessions/ABCDEF10803280001217C85529785A6B1/internal-keys"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.crashlytics.v3/$testPkg/open-sessions/ABCDEF10803280001217C85529785A6B1/keys"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.crashlytics.v3/$testPkg/open-sessions/ABCDEF10803280001217C85529785A6B1/userlog"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.crashlytics.v3/$testPkg/open-sessions/ABCDEF10803280001217C85529785A6B1/aqs.22549f8ec9ce4bb59f66aa283eb3f0eb"
+        )
+        pos(testPkg, PRIVATE_DATA, "$testPkg/files/.crashlytics.v3/$testPkg/reports")
+        pos(testPkg, PRIVATE_DATA, "$testPkg/files/.crashlytics.v3/$testPkg/priority-reports")
+        pos(testPkg, PRIVATE_DATA, "$testPkg/files/.crashlytics.v3/$testPkg/native-reports")
+        pos(testPkg, PRIVATE_DATA, "$testPkg/files/.crashlytics.v3/$testPkg/com.crashlytics.settings.json")
+
+        confirm(create())
+    }
 }
