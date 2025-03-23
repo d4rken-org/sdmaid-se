@@ -41,104 +41,90 @@ class BaseSieve @AssistedInject constructor(
     )
 
     suspend fun match(subject: APathLookup<*>): Result {
+        val nope = { Result(subject, matches = false) }
+
         // Directory or file?
         config.targetTypes?.takeIf { it.isNotEmpty() }?.let { types ->
             if (subject.isFile && !types.contains(TargetType.FILE)) {
-                return Result(subject, matches = false)
+                return nope()
             } else if (subject.isDirectory && !types.contains(TargetType.DIRECTORY)) {
-                return Result(subject, matches = false)
+                return nope()
             }
         }
 
         config.maximumSize?.let {
             // Is our subject too large?
-            if (subject.size > it) return Result(subject, matches = false)
+            if (subject.size > it) return nope()
         }
 
         config.minimumSize?.let {
             // Maybe it's too small
-            if (subject.size < it) return Result(subject, matches = false)
+            if (subject.size < it) return nope()
         }
 
-        config.maximumAge?.let {
-            if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() > it.toMillis()) {
-                return Result(subject, matches = false)
+        if (config.maximumAge != null || config.minimumAge != null) {
+            val nowMillis = System.currentTimeMillis()
+            config.maximumAge?.let {
+                if (nowMillis - subject.modifiedAt.toEpochMilli() > it.toMillis()) {
+                    return nope()
+                }
             }
-        }
 
-        config.minimumAge?.let {
-            if (System.currentTimeMillis() - subject.modifiedAt.toEpochMilli() < it.toMillis()) {
-                return Result(subject, matches = false)
+            config.minimumAge?.let {
+                if (nowMillis - subject.modifiedAt.toEpochMilli() < it.toMillis()) {
+                    return nope()
+                }
             }
         }
 
         config.pathCriteria?.takeIf { it.isNotEmpty() }?.let { criteria ->
-            val hasMatch = criteria.match(subject.segments)
-            if (!hasMatch) return Result(subject, matches = false)
+            if (!criteria.match(subject.segments)) return nope()
         }
 
         config.nameCriteria?.takeIf { it.isNotEmpty() }?.let { criteria ->
-            val hasMatch = criteria.any { crit ->
-                when (crit.mode) {
-                    is NameCriterium.Mode.Start -> subject.name.startsWith(
-                        crit.name,
-                        ignoreCase = crit.mode.ignoreCase
-                    )
-
-                    is NameCriterium.Mode.End -> subject.name.endsWith(
-                        crit.name,
-                        ignoreCase = crit.mode.ignoreCase
-                    )
-
-                    is NameCriterium.Mode.Contain -> subject.name.contains(
-                        crit.name,
-                        ignoreCase = crit.mode.ignoreCase
-                    )
-
-                    is NameCriterium.Mode.Equal -> subject.name.equals(
-                        crit.name,
-                        ignoreCase = crit.mode.ignoreCase
-                    )
-
-                }
-            }
-
-            if (!hasMatch) return Result(subject, matches = false)
+            if (!criteria.match(subject.name)) return nope()
         }
 
         config.pathExclusions?.takeIf { it.isNotEmpty() }?.let { exclusions ->
             // Check what the path should not contain
-            val isExcluded = exclusions.match(subject.segments)
-            if (isExcluded) return Result(subject, matches = false)
+            if (exclusions.match(subject.segments)) return nope()
         }
 
         config.pathRegexes?.takeIf { it.isNotEmpty() }?.let { regexes ->
-            if (regexes.none { it.matches(subject.path) }) return Result(subject, matches = false)
+            if (regexes.none { it.matches(subject.path) }) return nope()
         }
 
-        val areaInfo = fileForensics.identifyArea(subject)
-        if (areaInfo == null) {
-            log(TAG, WARN) { "Couldn't identify area for $subject" }
-            return Result(subject, matches = false)
+        var areaInfo: AreaInfo? = null
+        var pfpSegments: List<String>? = null
+
+        suspend fun areaLoader(): Boolean {
+            if (areaInfo != null) return true
+            areaInfo = fileForensics.identifyArea(subject)
+            if (areaInfo == null) {
+                log(TAG, WARN) { "Couldn't identify area for $subject" }
+                return false
+            }
+            pfpSegments = areaInfo!!.prefixFreeSegments
+            return true
         }
-        val pfpSegments = areaInfo.prefixFreeSegments
 
         config.areaTypes?.takeIf { it.isNotEmpty() }?.let { types ->
-            val matchesArea = types.contains(areaInfo.type)
-            if (!matchesArea) return Result(subject, matches = false)
+            val loaded = areaLoader()
+            val typeMatches = areaInfo?.type in types
+            if (!loaded || !typeMatches) return nope()
         }
 
         // Now working on the prefix-free-path!
         // Check pfp startsWith/ancestorOf
 
         config.pfpExclusions?.takeIf { it.isNotEmpty() }?.let { criteria ->
-            val isExcluded = criteria.match(pfpSegments)
-            if (isExcluded) return Result(subject, matches = false)
+            if (!areaLoader()) return nope()
+            if (criteria.match(pfpSegments!!)) return nope()
         }
 
         config.pfpCriteria?.takeIf { it.isNotEmpty() }?.let { criteria ->
-            val hasMatch = criteria.match(pfpSegments)
-            if (!hasMatch) return Result(subject, matches = false)
+            if (!areaLoader()) return nope()
+            if (!criteria.match(pfpSegments!!)) return nope()
         }
 
         return Result(
@@ -146,6 +132,30 @@ class BaseSieve @AssistedInject constructor(
             matches = true,
             areaInfo = areaInfo
         )
+    }
+
+    private fun Collection<NameCriterium>.match(target: String): Boolean = any { crit ->
+        when (crit.mode) {
+            is NameCriterium.Mode.Start -> target.startsWith(
+                crit.name,
+                ignoreCase = crit.mode.ignoreCase
+            )
+
+            is NameCriterium.Mode.End -> target.endsWith(
+                crit.name,
+                ignoreCase = crit.mode.ignoreCase
+            )
+
+            is NameCriterium.Mode.Contain -> target.contains(
+                crit.name,
+                ignoreCase = crit.mode.ignoreCase
+            )
+
+            is NameCriterium.Mode.Equal -> target.equals(
+                crit.name,
+                ignoreCase = crit.mode.ignoreCase
+            )
+        }
     }
 
     private fun Collection<SegmentCriterium>.match(target: Segments): Boolean = any { crit ->
