@@ -22,7 +22,6 @@ import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.forensics.FileForensics
-import eu.darken.sdmse.common.forensics.identifyArea
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
@@ -92,10 +91,6 @@ class SystemCrawler @Inject constructor(
 
         val sieveContents = mutableMapOf<FilterIdentifier, Set<SystemCleanerFilter.Match>>()
 
-//        var startTime = System.currentTimeMillis()
-//        var count = 0
-//        var totalRate = 0.0
-//        var numIntervals = 0
         gatewaySwitch.useRes {
             targetAreas
                 .asFlow()
@@ -108,10 +103,13 @@ class SystemCrawler @Inject constructor(
                         }
 
                         if (toCheck.isDirectory) {
-                            val area: DataArea? = forensics.identifyArea(toCheck)?.dataArea
+                            val contentAreaCheck = toCheck.child("peek-content-area")
+                            val area: DataArea? = forensics.identifyArea(contentAreaCheck)?.dataArea
 
                             if (area?.type != targetArea.type) {
-                                if (Bugs.isTrace) log(TAG, VERBOSE) { "$targetArea does not match $area for $toCheck" }
+                                if (Bugs.isTrace) log(TAG, VERBOSE) {
+                                    "AreaCheck: Want ${targetArea.type}, Got ${area?.type} for ${toCheck.path}"
+                                }
                                 return@filter false
                             }
                         }
@@ -130,21 +128,6 @@ class SystemCrawler @Inject constructor(
                         .map { targetArea to it }
                         .onCompletion { log(TAG) { "Finished scanning $targetArea" } }
                 }
-//                .onEach {
-//                    count++
-//                    val elapsedTime = System.currentTimeMillis() - startTime
-//                    if (elapsedTime >= 1_000) { // 1 second elapsed
-//                        val rate = count.toDouble() / (elapsedTime / 1000.0)
-//                        totalRate += rate
-//                        numIntervals++
-//
-//                        val averageRate = totalRate / numIntervals
-//                        log(TAG, INFO) { "Emission rate : $averageRate items/sec" }
-//
-//                        startTime = System.currentTimeMillis()
-//                        count = 0
-//                    }
-//                }
                 .buffer(2048 * 4)
                 .flatMapMerge(4) { (area, item) ->
                     flow {
