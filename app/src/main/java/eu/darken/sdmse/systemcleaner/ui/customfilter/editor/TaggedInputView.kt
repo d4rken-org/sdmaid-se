@@ -24,11 +24,11 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.common.files.joinSegments
 import eu.darken.sdmse.common.files.toSegs
+import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.SieveCriterium
 import eu.darken.sdmse.common.ui.getString
 import eu.darken.sdmse.databinding.ViewTaggedInputBinding
-import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SieveCriterium
 import java.io.File
 
 class TaggedInputView @JvmOverloads constructor(

@@ -40,14 +40,14 @@ class WhatsAppBackupsFilter @Inject constructor(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
-        segments: Segments
+        pfpSegs: Segments
     ): ExpendablesFilter.Match? {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) return null
+        if (pfpSegs.isNotEmpty() && IGNORED_FILES.contains(pfpSegs[pfpSegs.size - 1])) return null
 
         if (!VALID_LOCS.contains(DataArea.Type.SDCARD)) return null
         if (!VALID_PKGS.contains(pkgId)) return null
-        if (VALID_PREFIXES.none { segments.startsWith(it) }) return null
-        if (FILE_REGEXES.none { it.matches(segments.last()) }) return null
+        if (VALID_PREFIXES.none { pfpSegs.startsWith(it) }) return null
+        if (FILE_REGEXES.none { it.matches(pfpSegs.last()) }) return null
 
         return if (target.modifiedAt == Instant.EPOCH) {
             null

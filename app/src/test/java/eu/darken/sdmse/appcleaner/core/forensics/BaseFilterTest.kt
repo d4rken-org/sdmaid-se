@@ -3,6 +3,7 @@ package eu.darken.sdmse.appcleaner.core.forensics
 import android.content.Context
 import android.content.res.AssetManager
 import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve
+import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve2
 import eu.darken.sdmse.appcleaner.core.forensics.sieves.JsonAppSieve
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataArea.Type
@@ -395,6 +396,14 @@ abstract class BaseFilterTest : BaseTest() {
     fun createDynamicSieveFactory() = object : DynamicAppSieve.Factory {
         override fun create(configs: Set<DynamicAppSieve.MatchConfig>): DynamicAppSieve {
             return DynamicAppSieve(
+                configs = configs,
+            )
+        }
+    }
+
+    fun createDynamicSieve2Factory() = object : DynamicAppSieve2.Factory {
+        override fun create(configs: Set<DynamicAppSieve2.MatchConfig>): DynamicAppSieve2 {
+            return DynamicAppSieve2(
                 configs = configs,
             )
         }

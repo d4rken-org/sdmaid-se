@@ -39,13 +39,13 @@ class DefaultCachesPublicFilter @Inject constructor(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
-        segments: Segments
+        pfpSegs: Segments
     ): ExpendablesFilter.Match? {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) return null
+        if (pfpSegs.isNotEmpty() && IGNORED_FILES.contains(pfpSegs[pfpSegs.size - 1])) return null
 
         if (!areaType.isPublic) return null
 
-        return if (segments.size >= 3 && cacheFolderPrefixes.contains(segments[1])) {
+        return if (pfpSegs.size >= 3 && cacheFolderPrefixes.contains(pfpSegs[1])) {
             target.toDeletionMatch()
         } else {
             null

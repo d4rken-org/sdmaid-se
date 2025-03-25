@@ -43,9 +43,9 @@ class RecycleBinsFilter @Inject constructor(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
-        segments: Segments
+        pfpSegs: Segments
     ): ExpendablesFilter.Match? {
-        val lcsegments = segments.lowercase()
+        val lcsegments = pfpSegs.lowercase()
 
         if (lcsegments.isNotEmpty() && IGNORED_FILES.contains(lcsegments[lcsegments.size - 1])) {
             return null
@@ -82,7 +82,7 @@ class RecycleBinsFilter @Inject constructor(
             return target.toDeletionMatch()
         }
 
-        return if (segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)) {
+        return if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, areaType, pfpSegs)) {
             target.toDeletionMatch()
         } else {
             null

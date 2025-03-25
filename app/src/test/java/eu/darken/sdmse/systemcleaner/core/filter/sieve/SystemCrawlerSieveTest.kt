@@ -1,4 +1,4 @@
-package eu.darken.sdmse.systemcleaner.core.filter
+package eu.darken.sdmse.systemcleaner.core.filter.sieve
 
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.APathLookup
@@ -8,11 +8,11 @@ import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve.Config
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve.TargetType
-import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.TypeCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve.Config
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import java.time.Instant
 
-class BaseSieveTest : BaseTest() {
+class SystemCrawlerSieveTest : BaseTest() {
 
     private val basePath = LocalPath.build("sdcard")
     private val fileForensics: FileForensics = mockk<FileForensics>().apply {
@@ -38,7 +38,7 @@ class BaseSieveTest : BaseTest() {
         }
     }
 
-    private suspend fun Config.match(subject: APathLookup<*>) = BaseSieve(
+    private suspend fun Config.match(subject: APathLookup<*>) = SystemCrawlerSieve(
         config = this,
         fileForensics = fileForensics
     ).match(subject)
@@ -59,10 +59,10 @@ class BaseSieveTest : BaseTest() {
     @Test
     fun `just filetypes`() = runTest {
         val configForFile = Config(
-            targetTypes = setOf(TargetType.FILE)
+            targetTypes = setOf(TypeCriterium.FILE)
         )
         val configForDir = Config(
-            targetTypes = setOf(TargetType.DIRECTORY)
+            targetTypes = setOf(TypeCriterium.DIRECTORY)
         )
         val aFile = baseLookup.copy(
             fileType = FileType.FILE

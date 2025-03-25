@@ -2,9 +2,9 @@ package eu.darken.sdmse.systemcleaner.core.filter
 
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.excludeNestedLookups
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
 
-suspend fun BaseSieve.Result.toDeletion(): SystemCleanerFilter.Match.Deletion? {
+suspend fun SystemCrawlerSieve.Result.toDeletion(): SystemCleanerFilter.Match.Deletion? {
     return if (matches) SystemCleanerFilter.Match.Deletion(item) else null
 }
 

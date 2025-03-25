@@ -21,18 +21,18 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium.Mode
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.Mode
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
 import javax.inject.Inject
 import javax.inject.Provider
 
 class DataLocalTmpFilter @Inject constructor(
-    private val baseSieveFactory: BaseSieve.Factory,
+    private val sieveFactory: SystemCrawlerSieve.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
@@ -46,17 +46,17 @@ class DataLocalTmpFilter @Inject constructor(
         DataArea.Type.DATA,
     )
 
-    private lateinit var sieve: BaseSieve
+    private lateinit var sieve: SystemCrawlerSieve
 
     override suspend fun initialize() {
-        val config = BaseSieve.Config(
+        val config = SystemCrawlerSieve.Config(
             areaTypes = targetAreas(),
             pfpCriteria = setOf(
                 SegmentCriterium(segs("local", "tmp"), mode = Mode.Ancestor())
             ),
         )
 
-        sieve = baseSieveFactory.create(config)
+        sieve = sieveFactory.create(config)
         log(TAG) { "initialized() with $config" }
     }
 

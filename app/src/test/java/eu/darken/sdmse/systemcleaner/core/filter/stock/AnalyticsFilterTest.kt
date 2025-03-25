@@ -1,9 +1,10 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
-import eu.darken.sdmse.common.areas.DataArea.Type.*
+import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -22,8 +23,9 @@ class AnalyticsFilterTest : SystemCleanerFilterTest() {
     }
 
     private fun create() = AnalyticsFilter(
-        baseSieveFactory = object : BaseSieve.Factory {
-            override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
+        sieveFactory = object : SystemCrawlerSieve.Factory {
+            override fun create(config: SystemCrawlerSieve.Config): SystemCrawlerSieve =
+                SystemCrawlerSieve(config, fileForensics)
         },
         gatewaySwitch = gatewaySwitch,
     )

@@ -31,12 +31,13 @@ import eu.darken.sdmse.common.hashing.Hasher
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.get
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.TypeCriterium
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.withContext
 import okio.buffer
@@ -47,7 +48,7 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 class SuperfluousApksFilter @Inject constructor(
-    private val baseSieveFactory: BaseSieve.Factory,
+    private val sieveFactory: SystemCrawlerSieve.Factory,
     private val pkgOps: PkgOps,
     private val pkgRepo: PkgRepo,
     private val gatewaySwitch: GatewaySwitch,
@@ -75,11 +76,11 @@ class SuperfluousApksFilter @Inject constructor(
         }
     }
 
-    private lateinit var sieve: BaseSieve
+    private lateinit var sieve: SystemCrawlerSieve
 
     override suspend fun initialize() {
-        val config = BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.FILE),
+        val config = SystemCrawlerSieve.Config(
+            targetTypes = setOf(TypeCriterium.FILE),
             areaTypes = targetAreas(),
             nameCriteria = setOf(
                 NameCriterium(".apk", mode = NameCriterium.Mode.End()),
@@ -87,7 +88,7 @@ class SuperfluousApksFilter @Inject constructor(
             ),
             pathExclusions = EXCLUSIONS
         )
-        sieve = baseSieveFactory.create(config)
+        sieve = sieveFactory.create(config)
         log(TAG) { "initialized() with $config" }
     }
 

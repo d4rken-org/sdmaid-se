@@ -1,8 +1,9 @@
-package eu.darken.sdmse.systemcleaner.core.filter.sieve
+package eu.darken.sdmse.common.sieve
 
 import eu.darken.sdmse.common.serialization.SerializationAppModule
-import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.NameCriterium.Mode
 import io.kotest.matchers.shouldBe
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
@@ -15,10 +16,59 @@ class NameCriteriumTest : BaseTest() {
     private val adapter = moshi.adapter(NameCriterium::class.java)
 
     @Test
+    fun `name criteria START - basic`() = runTest {
+        NameCriterium("abc", mode = Mode.Start()).match("ghi") shouldBe false
+        NameCriterium("ghi", mode = Mode.Start()).match("ghi") shouldBe true
+    }
+
+    @Test
+    fun `name criteria START - casing`() = runTest {
+        NameCriterium("ghi", mode = Mode.Start(ignoreCase = false)).match("GHI") shouldBe false
+        NameCriterium("ghi", mode = Mode.Start(ignoreCase = true)).match("ghi") shouldBe true
+    }
+
+    @Test
+    fun `name criteria CONTAIN - basic`() = runTest {
+        NameCriterium("e", mode = Mode.Contain()).match("ghi") shouldBe false
+        NameCriterium("h", mode = Mode.Contain()).match("ghi") shouldBe true
+    }
+
+    @Test
+    fun `name criteria CONTAIN - casing`() = runTest {
+        NameCriterium("h", mode = Mode.Contain(ignoreCase = false)).match("GHI") shouldBe false
+        NameCriterium("h", mode = Mode.Contain(ignoreCase = true)).match("GHI") shouldBe true
+    }
+
+    @Test
+    fun `name criteria END - basic`() = runTest {
+        NameCriterium("h", mode = Mode.End()).match("ghi") shouldBe false
+        NameCriterium("hi", mode = Mode.End()).match("ghi") shouldBe true
+    }
+
+    @Test
+    fun `name criteria END - casing`() = runTest {
+        NameCriterium("h", mode = Mode.End(ignoreCase = false)).match("gHI") shouldBe false
+        NameCriterium("hi", mode = Mode.End(ignoreCase = true)).match("gHI") shouldBe true
+    }
+
+    @Test
+    fun `name criteria EQUAL - basic`() = runTest {
+        NameCriterium("def", mode = Mode.Equal()).match("ghi") shouldBe false
+        NameCriterium("ghi", mode = Mode.Equal()).match("ghi") shouldBe true
+    }
+
+    @Test
+    fun `name criteria EQUAL - casing`() = runTest {
+        NameCriterium("ghi", mode = Mode.Equal(ignoreCase = false)).match("GHI") shouldBe false
+        NameCriterium("ghi", mode = Mode.Equal(ignoreCase = true)).match("GHI") shouldBe true
+    }
+
+
+    @Test
     fun `match serialization`() {
         val original = NameCriterium(
             name = "some.apk",
-            mode = NameCriterium.Mode.Equal(ignoreCase = false)
+            mode = Mode.Equal(ignoreCase = false)
         )
         val rawJson = adapter.toJson(original)
         rawJson.toComparableJson() shouldBe """
@@ -37,7 +87,7 @@ class NameCriteriumTest : BaseTest() {
     fun `start serialization`() {
         val original = NameCriterium(
             name = "some.apk",
-            mode = NameCriterium.Mode.Start()
+            mode = Mode.Start()
         )
         val rawJson = adapter.toJson(original)
         rawJson.toComparableJson() shouldBe """
@@ -56,7 +106,7 @@ class NameCriteriumTest : BaseTest() {
     fun `contain serialization`() {
         val original = NameCriterium(
             name = "some.apk",
-            mode = NameCriterium.Mode.Contain()
+            mode = Mode.Contain()
         )
         val rawJson = adapter.toJson(original)
         rawJson.toComparableJson() shouldBe """
@@ -75,7 +125,7 @@ class NameCriteriumTest : BaseTest() {
     fun `end serialization`() {
         val original = NameCriterium(
             name = "some.apk",
-            mode = NameCriterium.Mode.End()
+            mode = Mode.End()
         )
         val rawJson = adapter.toJson(original)
         rawJson.toComparableJson() shouldBe """

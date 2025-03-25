@@ -4,7 +4,7 @@ import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf
@@ -33,8 +33,9 @@ class ScreenshotsFilterTest : SystemCleanerFilterTest() {
     }
 
     private fun create() = ScreenshotsFilter(
-        baseSieveFactory = object : BaseSieve.Factory {
-            override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
+        sieveFactory = object : SystemCrawlerSieve.Factory {
+            override fun create(config: SystemCrawlerSieve.Config): SystemCrawlerSieve =
+                SystemCrawlerSieve(config, fileForensics)
         },
         gatewaySwitch = gatewaySwitch,
         settings = settings,

@@ -43,17 +43,17 @@ class WebViewCacheFilter @Inject constructor(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
-        segments: Segments
+        pfpSegs: Segments
     ): ExpendablesFilter.Match? {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) {
+        if (pfpSegs.isNotEmpty() && IGNORED_FILES.contains(pfpSegs[pfpSegs.size - 1])) {
             return null
         }
 
-        if (WEBVIEW_CACHES.any { it.prepend(pkgId.name).isAncestorOf(segments) }) {
+        if (WEBVIEW_CACHES.any { it.prepend(pkgId.name).isAncestorOf(pfpSegs) }) {
             return target.toDeletionMatch()
         }
 
-        return if (segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)) {
+        return if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, areaType, pfpSegs)) {
             target.toDeletionMatch()
         } else {
             null

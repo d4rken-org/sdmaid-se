@@ -16,6 +16,8 @@ import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.flow.withPrevious
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.SystemCrawler
@@ -25,8 +27,6 @@ import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.filter.custom.currentConfigs
 import eu.darken.sdmse.systemcleaner.core.filter.custom.toggleCustomFilter
-import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListRow
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow

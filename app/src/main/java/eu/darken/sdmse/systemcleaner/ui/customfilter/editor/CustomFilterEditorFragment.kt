@@ -23,11 +23,11 @@ import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
+import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerCustomfilterEditorFragmentBinding
-import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListAdapter
 import kotlin.math.roundToInt
 

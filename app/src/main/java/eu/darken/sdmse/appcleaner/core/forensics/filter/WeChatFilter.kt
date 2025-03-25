@@ -83,11 +83,11 @@ class WeChatFilter @Inject constructor(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
-        segments: Segments
+        pfpSegs: Segments
     ): ExpendablesFilter.Match? {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) return null
+        if (pfpSegs.isNotEmpty() && IGNORED_FILES.contains(pfpSegs[pfpSegs.size - 1])) return null
 
-        return if (segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)) {
+        return if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, areaType, pfpSegs)) {
             target.toDeletionMatch()
         } else {
             null

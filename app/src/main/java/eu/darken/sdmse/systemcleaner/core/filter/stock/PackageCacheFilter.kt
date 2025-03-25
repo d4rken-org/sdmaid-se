@@ -21,15 +21,15 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium.Mode
+import eu.darken.sdmse.common.sieve.TypeCriterium
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve.Config
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve.TargetType
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.Mode
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve.Config
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -39,7 +39,7 @@ import javax.inject.Provider
  */
 @Reusable
 class PackageCacheFilter @Inject constructor(
-    private val baseSieveFactory: BaseSieve.Factory,
+    private val sieveFactory: SystemCrawlerSieve.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
@@ -51,15 +51,15 @@ class PackageCacheFilter @Inject constructor(
 
     override suspend fun targetAreas(): Set<DataArea.Type> = sieve.config.areaTypes!!
 
-    private lateinit var sieve: BaseSieve
+    private lateinit var sieve: SystemCrawlerSieve
 
     override suspend fun initialize() {
         val config = Config(
-            targetTypes = setOf(TargetType.FILE, TargetType.DIRECTORY),
+            targetTypes = setOf(TypeCriterium.FILE, TypeCriterium.DIRECTORY),
             areaTypes = setOf(DataArea.Type.DATA_SYSTEM),
             pfpCriteria = setOf(SegmentCriterium(segs("package_cache"), mode = Mode.Ancestor())),
         )
-        sieve = baseSieveFactory.create(config)
+        sieve = sieveFactory.create(config)
         log(TAG) { "initialized() with $config" }
     }
 

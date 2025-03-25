@@ -12,10 +12,10 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.serialization.fromFile
 import eu.darken.sdmse.common.serialization.toFile
+import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
-import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flatMapLatest
@@ -89,7 +89,7 @@ class CustomFilterRepo @Inject constructor(
         refreshTrigger.value = UUID.randomUUID()
     }
 
-    suspend fun save(configs: Set<CustomFilterConfig>): Unit {
+    suspend fun save(configs: Set<CustomFilterConfig>) {
         log(TAG) { "save($configs)" }
         lock.withLock {
             configs.forEach { config ->
