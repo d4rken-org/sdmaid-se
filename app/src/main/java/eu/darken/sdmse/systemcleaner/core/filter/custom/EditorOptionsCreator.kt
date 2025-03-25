@@ -14,7 +14,7 @@ import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
 import eu.darken.sdmse.common.getQuantityString2
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorOptions
 import javax.inject.Inject
 

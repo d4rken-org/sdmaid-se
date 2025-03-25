@@ -38,11 +38,11 @@ class CodeCacheFilter @Inject constructor(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
-        segments: Segments
+        pfpSegs: Segments
     ): ExpendablesFilter.Match? {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) return null
+        if (pfpSegs.isNotEmpty() && IGNORED_FILES.contains(pfpSegs[pfpSegs.size - 1])) return null
 
-        return if (segments.size >= 3 && areaType == DataArea.Type.PRIVATE_DATA && cacheFolderPrefixes.contains(segments[1])) {
+        return if (pfpSegs.size >= 3 && areaType == DataArea.Type.PRIVATE_DATA && cacheFolderPrefixes.contains(pfpSegs[1])) {
             target.toDeletionMatch()
         } else {
             null

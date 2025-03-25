@@ -21,16 +21,17 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.TypeCriterium
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
 import javax.inject.Inject
 import javax.inject.Provider
 
 class TombstonesFilter @Inject constructor(
-    private val baseSieveFactory: BaseSieve.Factory,
+    private val sieveFactory: SystemCrawlerSieve.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
@@ -42,24 +43,24 @@ class TombstonesFilter @Inject constructor(
 
     override suspend fun targetAreas(): Set<DataArea.Type> = sieves.map { it.config.areaTypes!! }.flatten().toSet()
 
-    private lateinit var sieves: List<BaseSieve>
+    private lateinit var sieves: List<SystemCrawlerSieve>
 
     override suspend fun initialize() {
-        val toLoad = mutableListOf<BaseSieve.Config>()
+        val toLoad = mutableListOf<SystemCrawlerSieve.Config>()
 
-        BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.FILE),
+        SystemCrawlerSieve.Config(
+            targetTypes = setOf(TypeCriterium.FILE),
             areaTypes = setOf(DataArea.Type.DATA),
             pfpCriteria = setOf(SegmentCriterium(segs("tombstones"), mode = SegmentCriterium.Mode.Ancestor())),
         ).run { toLoad.add(this) }
-        BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.FILE),
+        SystemCrawlerSieve.Config(
+            targetTypes = setOf(TypeCriterium.FILE),
             areaTypes = setOf(DataArea.Type.DATA_VENDOR),
             pfpCriteria = setOf(SegmentCriterium(segs("tombstones"), mode = SegmentCriterium.Mode.Ancestor())),
         ).run { toLoad.add(this) }
 
         log(TAG) { "initialized() with $toLoad" }
-        sieves = toLoad.map { baseSieveFactory.create(it) }
+        sieves = toLoad.map { sieveFactory.create(it) }
     }
 
 

@@ -44,9 +44,9 @@ class AdvertisementFilter @Inject constructor(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
-        segments: Segments
+        pfpSegs: Segments
     ): ExpendablesFilter.Match? {
-        val lcsegments = segments.lowercase()
+        val lcsegments = pfpSegs.lowercase()
 
         // Default case, we don't handle that.
         // pkg/cache/file
@@ -85,7 +85,7 @@ class AdvertisementFilter @Inject constructor(
             return target.toDeletionMatch()
         }
 
-        return if (segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)) {
+        return if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, areaType, pfpSegs)) {
             target.toDeletionMatch()
         } else {
             null

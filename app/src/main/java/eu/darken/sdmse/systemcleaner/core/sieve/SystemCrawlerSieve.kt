@@ -1,6 +1,5 @@
 package eu.darken.sdmse.systemcleaner.core.sieve
 
-import androidx.annotation.Keep
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -9,30 +8,21 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.common.files.Segments
-import eu.darken.sdmse.common.files.containsSegments
-import eu.darken.sdmse.common.files.endsWith
-import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
-import eu.darken.sdmse.common.files.matches
-import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
+import eu.darken.sdmse.common.sieve.FileSieve
+import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.TypeCriterium
 import java.time.Duration
 
-class BaseSieve @AssistedInject constructor(
+class SystemCrawlerSieve @AssistedInject constructor(
     @Assisted val config: Config,
     private val fileForensics: FileForensics,
-) {
-
-    @Keep
-    enum class TargetType {
-        FILE,
-        DIRECTORY,
-        ;
-    }
+) : FileSieve {
 
     data class Result(
         val item: APathLookup<*>,
@@ -45,9 +35,9 @@ class BaseSieve @AssistedInject constructor(
 
         // Directory or file?
         config.targetTypes?.takeIf { it.isNotEmpty() }?.let { types ->
-            if (subject.isFile && !types.contains(TargetType.FILE)) {
+            if (subject.isFile && !types.contains(TypeCriterium.FILE)) {
                 return nope()
-            } else if (subject.isDirectory && !types.contains(TargetType.DIRECTORY)) {
+            } else if (subject.isDirectory && !types.contains(TypeCriterium.DIRECTORY)) {
                 return nope()
             }
         }
@@ -78,16 +68,16 @@ class BaseSieve @AssistedInject constructor(
         }
 
         config.pathCriteria?.takeIf { it.isNotEmpty() }?.let { criteria ->
-            if (!criteria.match(subject.segments)) return nope()
+            if (!criteria.matchAny(subject.segments)) return nope()
         }
 
         config.nameCriteria?.takeIf { it.isNotEmpty() }?.let { criteria ->
-            if (!criteria.match(subject.name)) return nope()
+            if (!criteria.matchAny(subject.name)) return nope()
         }
 
         config.pathExclusions?.takeIf { it.isNotEmpty() }?.let { exclusions ->
             // Check what the path should not contain
-            if (exclusions.match(subject.segments)) return nope()
+            if (exclusions.matchAny(subject.segments)) return nope()
         }
 
         config.pathRegexes?.takeIf { it.isNotEmpty() }?.let { regexes ->
@@ -119,12 +109,12 @@ class BaseSieve @AssistedInject constructor(
 
         config.pfpExclusions?.takeIf { it.isNotEmpty() }?.let { criteria ->
             if (!areaLoader()) return nope()
-            if (criteria.match(pfpSegments!!)) return nope()
+            if (criteria.matchAny(pfpSegments!!)) return nope()
         }
 
         config.pfpCriteria?.takeIf { it.isNotEmpty() }?.let { criteria ->
             if (!areaLoader()) return nope()
-            if (!criteria.match(pfpSegments!!)) return nope()
+            if (!criteria.matchAny(pfpSegments!!)) return nope()
         }
 
         return Result(
@@ -134,71 +124,15 @@ class BaseSieve @AssistedInject constructor(
         )
     }
 
-    private fun Collection<NameCriterium>.match(target: String): Boolean = any { crit ->
-        when (crit.mode) {
-            is NameCriterium.Mode.Start -> target.startsWith(
-                crit.name,
-                ignoreCase = crit.mode.ignoreCase
-            )
-
-            is NameCriterium.Mode.End -> target.endsWith(
-                crit.name,
-                ignoreCase = crit.mode.ignoreCase
-            )
-
-            is NameCriterium.Mode.Contain -> target.contains(
-                crit.name,
-                ignoreCase = crit.mode.ignoreCase
-            )
-
-            is NameCriterium.Mode.Equal -> target.equals(
-                crit.name,
-                ignoreCase = crit.mode.ignoreCase
-            )
-        }
-    }
-
-    private fun Collection<SegmentCriterium>.match(target: Segments): Boolean = any { crit ->
-        when (crit.mode) {
-            is SegmentCriterium.Mode.Ancestor -> crit.segments.isAncestorOf(
-                target,
-                ignoreCase = crit.mode.ignoreCase,
-            )
-
-            is SegmentCriterium.Mode.Start -> target.startsWith(
-                crit.segments,
-                ignoreCase = crit.mode.ignoreCase,
-                allowPartial = crit.mode.allowPartial,
-            )
-
-            is SegmentCriterium.Mode.End -> target.endsWith(
-                crit.segments,
-                ignoreCase = crit.mode.ignoreCase,
-                allowPartial = crit.mode.allowPartial,
-            )
-
-            is SegmentCriterium.Mode.Contain -> target.containsSegments(
-                crit.segments,
-                allowPartial = crit.mode.allowPartial,
-                ignoreCase = crit.mode.ignoreCase
-            )
-
-            is SegmentCriterium.Mode.Equal -> target.matches(
-                crit.segments,
-                ignoreCase = crit.mode.ignoreCase
-            )
-        }
-    }
-
     data class Config(
         val areaTypes: Set<DataArea.Type>? = null,
-        val targetTypes: Set<TargetType>? = null,
-        val pathCriteria: Set<SegmentCriterium>? = null,
-        val pfpCriteria: Set<SegmentCriterium>? = null,
+        val targetTypes: Set<TypeCriterium>? = null,
         val nameCriteria: Set<NameCriterium>? = null,
+        val pathCriteria: Set<SegmentCriterium>? = null,
         val pathExclusions: Set<SegmentCriterium>? = null,
-        val pfpExclusions: Set<SegmentCriterium>? = null,
         val pathRegexes: Set<Regex>? = null,
+        val pfpCriteria: Set<SegmentCriterium>? = null,
+        val pfpExclusions: Set<SegmentCriterium>? = null,
         val maximumSize: Long? = null,
         val minimumSize: Long? = null,
         val maximumAge: Duration? = null,
@@ -207,7 +141,7 @@ class BaseSieve @AssistedInject constructor(
 
     @AssistedFactory
     interface Factory {
-        fun create(config: Config): BaseSieve
+        fun create(config: Config): SystemCrawlerSieve
     }
 
     companion object {

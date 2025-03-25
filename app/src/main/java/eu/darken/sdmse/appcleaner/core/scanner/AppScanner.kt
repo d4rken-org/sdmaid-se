@@ -445,10 +445,10 @@ class AppScanner @Inject constructor(
                     // Filters expect a prefix free path, so we have to remove the data area prefix
                     it to it.removePrefix(searchPath.prefix, overlap = 0)
                 }
-                .onEach { (path, segs) ->
+                .onEach { (path, pfpSegs) ->
                     if (Bugs.isTrace) {
                         log(TAG, VERBOSE) {
-                            "Paths of interest for ${target.key.file.path} (${target.value}}: \n ${path.path}|$segs"
+                            "Paths of interest for ${target.key.file.path} (${target.value}}: \n ${path.path}|$pfpSegs"
                         }
                     }
                 }
@@ -457,19 +457,19 @@ class AppScanner @Inject constructor(
                 .filter { searchPath.userHandle == systemUser.handle || it.userHandle == searchPath.userHandle }
                 .onEach { if (Bugs.isTrace) log(TAG, VERBOSE) { "Owners of interest for $target: \n${it.pkgId}" } }
 
-            pathsOfInterest.forEach { (path, segments) ->
+            pathsOfInterest.forEach { (path, pfpSegs) ->
                 for (installId in ownersOfInterest) {
                     val match = enabledFilters.firstNotNullOfOrNull { filter ->
                         filter.match(
                             pkgId = installId.pkgId,
                             target = path,
                             areaType = searchPath.type,
-                            segments = segments,
+                            pfpSegs = pfpSegs,
                         )
 
                     } ?: continue
 
-                    log(TAG, INFO) { "${match.identifier.simpleName} matched ${searchPath.type}:$segments" }
+                    log(TAG, INFO) { "${match.identifier.simpleName} matched ${searchPath.type}:$pfpSegs" }
                     results[installId] = (results[installId] ?: emptySet()).plus(match)
                     break
                 }

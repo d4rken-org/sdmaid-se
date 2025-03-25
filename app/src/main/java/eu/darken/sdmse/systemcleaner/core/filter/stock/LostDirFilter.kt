@@ -17,17 +17,18 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.sieve.TypeCriterium
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
 class LostDirFilter @Inject constructor(
-    private val baseSieveFactory: BaseSieve.Factory,
+    private val sieveFactory: SystemCrawlerSieve.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
@@ -42,18 +43,18 @@ class LostDirFilter @Inject constructor(
         DataArea.Type.PORTABLE,
     )
 
-    private lateinit var sieve: BaseSieve
+    private lateinit var sieve: SystemCrawlerSieve
 
     override suspend fun initialize() {
         val regexes = setOf(
             Regex("^(?:[\\W\\w]+/LOST\\.DIR/[\\W\\w]+)$".replace("/", "\\" + File.separator))
         )
-        val config = BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.FILE),
+        val config = SystemCrawlerSieve.Config(
+            targetTypes = setOf(TypeCriterium.FILE),
             areaTypes = targetAreas(),
             pathRegexes = regexes,
         )
-        sieve = baseSieveFactory.create(config)
+        sieve = sieveFactory.create(config)
         log(TAG) { "initialized() with $config" }
     }
 

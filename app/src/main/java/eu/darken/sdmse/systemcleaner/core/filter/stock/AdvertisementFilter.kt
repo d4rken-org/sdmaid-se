@@ -21,19 +21,19 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.segs
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium.Mode
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.Mode
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
 @Reusable
 class AdvertisementFilter @Inject constructor(
-    private val baseSieveFactory: BaseSieve.Factory,
+    private val sieveFactory: SystemCrawlerSieve.Factory,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
@@ -48,7 +48,7 @@ class AdvertisementFilter @Inject constructor(
         DataArea.Type.SDCARD,
     )
 
-    private lateinit var sieve: BaseSieve
+    private lateinit var sieve: SystemCrawlerSieve
 
     override suspend fun initialize() {
         val pfpCriteria = mutableSetOf<SegmentCriterium>()
@@ -171,12 +171,12 @@ class AdvertisementFilter @Inject constructor(
                 )
             }
 
-        val config = BaseSieve.Config(
+        val config = SystemCrawlerSieve.Config(
             areaTypes = targetAreas(),
             pfpCriteria = pfpCriteria,
             pathRegexes = rawRegexes.map { Regex(it) }.toSet()
         )
-        sieve = baseSieveFactory.create(config)
+        sieve = sieveFactory.create(config)
         log(TAG) { "initialized() with $config" }
     }
 

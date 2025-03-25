@@ -2,8 +2,8 @@ package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 
 import android.os.Parcelable
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.systemcleaner.core.sieve.NameCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

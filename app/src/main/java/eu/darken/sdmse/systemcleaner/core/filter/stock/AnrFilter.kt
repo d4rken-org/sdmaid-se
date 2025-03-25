@@ -25,17 +25,18 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.TypeCriterium
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
 import javax.inject.Inject
 import javax.inject.Provider
 
 class AnrFilter @Inject constructor(
-    private val baseSieveFactory: BaseSieve.Factory,
+    private val sieveFactory: SystemCrawlerSieve.Factory,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
@@ -51,7 +52,7 @@ class AnrFilter @Inject constructor(
         DataArea.Type.DOWNLOAD_CACHE,
     )
 
-    private var sieve: BaseSieve? = null
+    private var sieve: SystemCrawlerSieve? = null
 
     override suspend fun initialize() {
         val regexPairs = areaManager.currentAreas()
@@ -67,15 +68,15 @@ class AnrFilter @Inject constructor(
             }
 
         if (regexPairs.isNotEmpty()) {
-            val config = BaseSieve.Config(
-                targetTypes = setOf(BaseSieve.TargetType.FILE),
+            val config = SystemCrawlerSieve.Config(
+                targetTypes = setOf(TypeCriterium.FILE),
                 areaTypes = targetAreas(),
                 pfpCriteria = setOf(
                     SegmentCriterium(segs("anr"), mode = SegmentCriterium.Mode.Ancestor())
                 ),
                 pathRegexes = regexPairs.map { Regex(it.second) }.toSet(),
             )
-            sieve = baseSieveFactory.create(config)
+            sieve = sieveFactory.create(config)
             log(TAG) { "initialized() with $config" }
         } else {
             log(TAG, WARN) { "Sieve is underdefined" }

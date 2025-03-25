@@ -45,16 +45,16 @@ class HiddenFilter @Inject constructor(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
-        segments: Segments
+        pfpSegs: Segments
     ): ExpendablesFilter.Match? {
         // Default case, we don't handle that.
         // package/cache/file
-        if (segments.size >= 2 && pkgId.name == segments[0] && cacheFolderPrefixes.contains(segments[1])) {
+        if (pfpSegs.size >= 2 && pkgId.name == pfpSegs[0] && cacheFolderPrefixes.contains(pfpSegs[1])) {
             // Case matching is important here as all paths that differ in casing are hidden caches (e.g. not system made)
             return null
         }
 
-        val lcsegments = segments.lowercase()
+        val lcsegments = pfpSegs.lowercase()
 
         if (lcsegments.isNotEmpty() && IGNORED_FILES.contains(lcsegments[lcsegments.size - 1])) {
             return null
@@ -75,7 +75,7 @@ class HiddenFilter @Inject constructor(
         if (lcsegments.size >= 3 && HIDDEN_CACHE_FOLDERS.contains(lcsegments[1])) {
             return target.toDeletionMatch()
         }
-        if (isException(segments)) return null
+        if (isException(pfpSegs)) return null
 
         //    0      1     2     3
         // topdir/files/.cache/file
@@ -97,7 +97,7 @@ class HiddenFilter @Inject constructor(
             return target.toDeletionMatch()
         }
 
-        return if (segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)) {
+        return if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, areaType, pfpSegs)) {
             target.toDeletionMatch()
         } else {
             null

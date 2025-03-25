@@ -23,18 +23,19 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.lookupFiles
 import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.files.segs
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium.Mode
+import eu.darken.sdmse.common.sieve.TypeCriterium
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.Mode
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
 import javax.inject.Inject
 import javax.inject.Provider
 
 
 class EmptyDirectoryFilter @Inject constructor(
-    private val baseSieveFactory: BaseSieve.Factory,
+    private val sieveFactory: SystemCrawlerSieve.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
@@ -52,7 +53,7 @@ class EmptyDirectoryFilter @Inject constructor(
         DataArea.Type.PORTABLE,
     )
 
-    private lateinit var sieve: BaseSieve
+    private lateinit var sieve: SystemCrawlerSieve
     private val protectedBaseDirs = setOf(
         segs("Camera"),
         segs("Photos"),
@@ -86,8 +87,8 @@ class EmptyDirectoryFilter @Inject constructor(
     )
 
     override suspend fun initialize() {
-        val config = BaseSieve.Config(
-            targetTypes = setOf(BaseSieve.TargetType.DIRECTORY),
+        val config = SystemCrawlerSieve.Config(
+            targetTypes = setOf(TypeCriterium.DIRECTORY),
             areaTypes = targetAreas(),
             pathExclusions = setOf(
                 SegmentCriterium(segs("mnt", "asec"), mode = Mode.Contain()),
@@ -98,7 +99,7 @@ class EmptyDirectoryFilter @Inject constructor(
                 SegmentCriterium(segs(".stfolder"), mode = Mode.Contain()),
             ),
         )
-        sieve = baseSieveFactory.create(config)
+        sieve = sieveFactory.create(config)
 
         log(TAG) { "initialized() with $config" }
     }

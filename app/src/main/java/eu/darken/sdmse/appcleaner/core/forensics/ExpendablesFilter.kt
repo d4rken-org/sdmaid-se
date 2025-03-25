@@ -19,7 +19,7 @@ interface ExpendablesFilter : Progress.Host, Progress.Client {
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
-        segments: Segments
+        pfpSegs: Segments
     ): Match?
 
     suspend fun process(targets: Collection<Match>, allMatches: Collection<Match>): ProcessResult

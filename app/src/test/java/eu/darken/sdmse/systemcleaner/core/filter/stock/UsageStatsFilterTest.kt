@@ -5,7 +5,7 @@ import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -30,8 +30,9 @@ class UsageStatsFilterTest : SystemCleanerFilterTest() {
     }
 
     private fun create() = UsagestatsFilter(
-        baseSieveFactory = object : BaseSieve.Factory {
-            override fun create(config: BaseSieve.Config): BaseSieve = BaseSieve(config, fileForensics)
+        sieveFactory = object : SystemCrawlerSieve.Factory {
+            override fun create(config: SystemCrawlerSieve.Config): SystemCrawlerSieve =
+                SystemCrawlerSieve(config, fileForensics)
         },
         gatewaySwitch = gatewaySwitch,
     )

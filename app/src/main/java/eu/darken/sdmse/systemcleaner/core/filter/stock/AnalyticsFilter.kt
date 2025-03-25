@@ -19,20 +19,21 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.files.toSegs
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium.Mode
+import eu.darken.sdmse.common.sieve.TypeCriterium
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve.*
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium
-import eu.darken.sdmse.systemcleaner.core.sieve.SegmentCriterium.Mode
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve.*
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
 
 class AnalyticsFilter @Inject constructor(
-    private val baseSieveFactory: BaseSieve.Factory,
+    private val sieveFactory: SystemCrawlerSieve.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
@@ -48,8 +49,8 @@ class AnalyticsFilter @Inject constructor(
         DataArea.Type.PRIVATE_DATA,
     )
 
-    private lateinit var sieve: BaseSieve
-    private lateinit var antiTrackingSieve: BaseSieve
+    private lateinit var sieve: SystemCrawlerSieve
+    private lateinit var antiTrackingSieve: SystemCrawlerSieve
 
     override suspend fun initialize() {
         val pathContains = setOf(
@@ -61,11 +62,11 @@ class AnalyticsFilter @Inject constructor(
 
         val config = Config(
             areaTypes = targetAreas(),
-            targetTypes = setOf(TargetType.FILE),
+            targetTypes = setOf(TypeCriterium.FILE),
             pathCriteria = pathContains,
             pathRegexes = regexes,
         )
-        sieve = baseSieveFactory.create(config)
+        sieve = sieveFactory.create(config)
         log(TAG) { "initialized() with $config" }
 
         val antiTracking = Config(
@@ -97,7 +98,7 @@ class AnalyticsFilter @Inject constructor(
                 SegmentCriterium("LMDevice/lm_device_id".toSegs(), Mode.Equal()),
             ),
         )
-        antiTrackingSieve = baseSieveFactory.create(antiTracking)
+        antiTrackingSieve = sieveFactory.create(antiTracking)
         log(TAG) { "initialized() anti tracking sieve with $antiTracking" }
     }
 

@@ -14,14 +14,15 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.sieve.TypeCriterium
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
-import eu.darken.sdmse.systemcleaner.core.sieve.BaseSieve
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
 
 class CustomFilter @AssistedInject constructor(
     @Assisted private val filterConfig: CustomFilterConfig,
-    private val baseSieveFactory: BaseSieve.Factory,
+    private val systemCrawlerSieveFactory: SystemCrawlerSieve.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
@@ -33,19 +34,19 @@ class CustomFilter @AssistedInject constructor(
 
     override suspend fun getDescription(): CaString = R.string.systemcleaner_customfilter_label.toCaString()
 
-    override suspend fun targetAreas(): Set<DataArea.Type> = filterConfig.areas ?: DataArea.Type.values().toSet()
+    override suspend fun targetAreas(): Set<DataArea.Type> = filterConfig.areas ?: DataArea.Type.entries.toSet()
 
-    private lateinit var sieve: BaseSieve
+    private lateinit var sieve: SystemCrawlerSieve
 
     override suspend fun initialize() {
-        val sieveConfig = BaseSieve.Config(
+        val sieveConfig = SystemCrawlerSieve.Config(
             areaTypes = targetAreas(),
             targetTypes = filterConfig.fileTypes?.map {
                 when (it) {
-                    FileType.DIRECTORY -> BaseSieve.TargetType.DIRECTORY
-                    FileType.SYMBOLIC_LINK -> BaseSieve.TargetType.FILE
-                    FileType.FILE -> BaseSieve.TargetType.FILE
-                    FileType.UNKNOWN -> BaseSieve.TargetType.FILE
+                    FileType.DIRECTORY -> TypeCriterium.DIRECTORY
+                    FileType.SYMBOLIC_LINK -> TypeCriterium.FILE
+                    FileType.FILE -> TypeCriterium.FILE
+                    FileType.UNKNOWN -> TypeCriterium.FILE
                 }
             }?.toSet(),
             pathCriteria = filterConfig.pathCriteria,
@@ -57,7 +58,7 @@ class CustomFilter @AssistedInject constructor(
             maximumAge = filterConfig.ageMaximum,
             pathRegexes = filterConfig.pathRegexes,
         )
-        sieve = baseSieveFactory.create(sieveConfig)
+        sieve = systemCrawlerSieveFactory.create(sieveConfig)
         log(TAG) { "initialized()" }
     }
 

@@ -47,9 +47,9 @@ class BugReportingFilter @Inject constructor(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
-        segments: Segments
+        pfpSegs: Segments
     ): ExpendablesFilter.Match? {
-        val lcsegments = segments.lowercase()
+        val lcsegments = pfpSegs.lowercase()
 
         // Default cachefolder, we don't handle that in this filter.
         // pkg/cache/file
@@ -61,7 +61,7 @@ class BugReportingFilter @Inject constructor(
             return null
         }
 
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(lcsegments[lcsegments.size - 1])) {
+        if (pfpSegs.isNotEmpty() && IGNORED_FILES.contains(lcsegments[lcsegments.size - 1])) {
             return null
         }
 
@@ -101,11 +101,11 @@ class BugReportingFilter @Inject constructor(
         }
 
         return when {
-            sieve.matches(pkgId, areaType, segments) -> {
+            sieve.matches(pkgId, areaType, pfpSegs) -> {
                 target.toDeletionMatch()
             }
 
-            segments.isDescendentOf("${pkgId.name}/files/.crashlytics.v3".toSegs()) -> {
+            pfpSegs.isDescendentOf("${pkgId.name}/files/.crashlytics.v3".toSegs()) -> {
                 target.toDeletionMatch()
             }
 
