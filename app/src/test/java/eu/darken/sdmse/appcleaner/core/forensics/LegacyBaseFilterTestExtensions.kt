@@ -28,7 +28,7 @@ fun BaseFilterTest.addCandidate(legcan: LegacyCandidate) {
         },
         pkgs = legcan.pkgs ?: emptySet(),
         areaTypes = legcan.areaTypes ?: emptySet(),
-        prefixFreePaths = setOf(legcan.prefixFreePath!!.split("/")),
+        pfpSegs = legcan.prefixFreePath!!.split("/"),
         lastModified = legcan.lastModified?.let { Instant.ofEpochMilli(it) }
     )
     addCandidate(newCan)

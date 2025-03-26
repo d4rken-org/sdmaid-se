@@ -9,7 +9,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
-import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve
+import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve2
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -20,45 +20,48 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.sieve.CriteriaOperator
+import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium.Mode
 import javax.inject.Inject
 import javax.inject.Provider
 
 @Reusable
 class MobileQQFilter @Inject constructor(
-    private val dynamicSieveFactory: DynamicAppSieve.Factory,
+    private val dynamicSieveFactory: DynamicAppSieve2.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseExpendablesFilter() {
 
-    private lateinit var sieve: DynamicAppSieve
+    private lateinit var sieve: DynamicAppSieve2
 
     override suspend fun initialize() {
         log(TAG) { "initialize()" }
-        val configOne = DynamicAppSieve.MatchConfig(
+        val configOne = DynamicAppSieve2.MatchConfig(
             pkgNames = setOf("com.tencent.mobileqq".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
-            startsWith = setOf(
-                "tencent/MobileQQ/chatpic/",
-                "Tencent/MobileQQ/chatpic/",
-                "tencent/MobileQQ/shortvideo/",
-                "Tencent/MobileQQ/shortvideo/",
-                "com.tencent.mobileqq/MobileQQ/chatpic/",
-                "com.tencent.mobileqq/MobileQQ/shortvideo/",
+            pfpCriteria = setOf(
+                SegmentCriterium("Tencent/MobileQQ/chatpic", Mode.Ancestor()),
+                SegmentCriterium("Tencent/MobileQQ/shortvideo", Mode.Ancestor()),
+                SegmentCriterium("com.tencent.mobileqq/MobileQQ/chatpic", Mode.Ancestor()),
+                SegmentCriterium("com.tencent.mobileqq/MobileQQ/shortvideo", Mode.Ancestor()),
             ),
-            exclusions = setOf(".nomedia"),
+            pfpExclusions = setOf(NameCriterium(".nomedia", mode = NameCriterium.Mode.Equal())),
         )
-        val configTwo = DynamicAppSieve.MatchConfig(
+        val configTwo = DynamicAppSieve2.MatchConfig(
             pkgNames = setOf("com.tencent.mobileqq".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
-            startsWith = setOf(
-                "com.tencent.mobileqq/MobileQQ/",
-                "tencent/MobileQQ/",
-                "Tencent/MobileQQ/",
+            pfpCriteria = setOf(
+                CriteriaOperator.And(
+                    SegmentCriterium("com.tencent.mobileqq/MobileQQ", Mode.Ancestor()),
+                    SegmentCriterium("ptt", Mode.Specific(index = 1, backwards = true)),
+                ),
+                CriteriaOperator.And(
+                    SegmentCriterium("Tencent/MobileQQ", Mode.Ancestor()),
+                    SegmentCriterium("ptt", Mode.Specific(index = 1, backwards = true)),
+                ),
             ),
-            patterns = setOf(
-                "^T|tencent/MobileQQ/\\d+/ptt/.+$",
-                "^com.tencent.mobileqq/MobileQQ/\\d+/ptt/.+$",
-            ),
-            exclusions = setOf(".nomedia"),
+            pfpExclusions = setOf(NameCriterium(".nomedia", mode = NameCriterium.Mode.Equal())),
         )
 
         sieve = dynamicSieveFactory.create(setOf(configOne, configTwo))
@@ -68,15 +71,11 @@ class MobileQQFilter @Inject constructor(
         pkgId: Pkg.Id,
         target: APathLookup<APath>,
         areaType: DataArea.Type,
-        segments: Segments
-    ): ExpendablesFilter.Match? {
-        if (segments.isNotEmpty() && IGNORED_FILES.contains(segments[segments.size - 1])) return null
-
-        return if (segments.isNotEmpty() && sieve.matches(pkgId, areaType, segments)) {
-            target.toDeletionMatch()
-        } else {
-            null
-        }
+        pfpSegs: Segments
+    ): ExpendablesFilter.Match? = if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, target, areaType, pfpSegs)) {
+        target.toDeletionMatch()
+    } else {
+        null
     }
 
     override suspend fun process(
@@ -106,9 +105,6 @@ class MobileQQFilter @Inject constructor(
     }
 
     companion object {
-        private val IGNORED_FILES: Collection<String> = listOf(
-            ".nomedia",
-        )
         private val TAG = logTag("AppCleaner", "Scanner", "Filter", "MobileQQ")
     }
 }

@@ -9,7 +9,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
-import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve
+import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve2
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -20,16 +20,19 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.sieve.CriteriaOperator
+import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
 import javax.inject.Inject
 import javax.inject.Provider
 
 @Reusable
 class WhatsAppReceivedFilter @Inject constructor(
-    private val dynamicSieveFactory: DynamicAppSieve.Factory,
+    private val dynamicSieveFactory: DynamicAppSieve2.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseExpendablesFilter() {
 
-    private lateinit var sieve: DynamicAppSieve
+    private lateinit var sieve: DynamicAppSieve2
 
     override suspend fun initialize() {
         log(TAG) { "initialize()" }
@@ -55,24 +58,29 @@ class WhatsAppReceivedFilter @Inject constructor(
                 )
             }
             .map { (location, pkg, folder1, folder2) ->
-                DynamicAppSieve.MatchConfig(
+                DynamicAppSieve2.MatchConfig(
                     pkgNames = setOf(pkg.toPkgId()),
                     areaTypes = setOf(location),
-                    contains = setOf("$folder1/Media/$folder2"),
-                    patterns = setOf(
-                        "(?>$folder1/Media/$folder2 Video/)(?=(?!Private)(?!.+\\/)).+?$",
-                        "(?>$folder1/Media/$folder2 Video/Private/)(?:[^\\/]+?)$",
-                        "(?>$folder1/Media/$folder2 Images/)(?=(?!Private)(?!.+\\/)).+?$",
-                        "(?>$folder1/Media/$folder2 Images/Private/)(?:[^\\/]+?)$",
-                        "(?>$folder1/Media/$folder2 Animated Gifs/)(?=(?!Private)(?!.+\\/)).+?$",
-                        "(?>$folder1/Media/$folder2 Animated Gifs/Private/)(?:[^\\/]+?)$",
-                        "(?>$folder1/Media/$folder2 Audio/)(?=(?!Private)(?!.+\\/)).+?$",
-                        "(?>$folder1/Media/$folder2 Audio/Private/)(?:[^\\/]+?)$",
-                        "(?>$folder1/Media/$folder2 Documents/)(?=(?!Private)(?!.+\\/)).+?$",
-                        "(?>$folder1/Media/$folder2 Documents/Private/)(?:[^\\/]+?)$",
-                        "(?>$folder1/Media/$folder2 Voice Notes/[0-9]+?/)(?:[^\\/]+?)$",
+                    pfpCriteria = setOf(
+                        SegmentCriterium("$folder1/Media/$folder2 Video", SegmentCriterium.Mode.Ancestor()),
+                        SegmentCriterium("$folder1/Media/$folder2 Images", SegmentCriterium.Mode.Ancestor()),
+                        SegmentCriterium("$folder1/Media/$folder2 Animated Gifs", SegmentCriterium.Mode.Ancestor()),
+                        SegmentCriterium("$folder1/Media/$folder2 Audio", SegmentCriterium.Mode.Ancestor()),
+                        SegmentCriterium("$folder1/Media/$folder2 Documents", SegmentCriterium.Mode.Ancestor()),
+                        CriteriaOperator.And(
+                            SegmentCriterium("$folder1/Media/$folder2 Voice Notes", SegmentCriterium.Mode.Ancestor()),
+                            SegmentCriterium(
+                                "$folder2 Voice Notes",
+                                mode = SegmentCriterium.Mode.Specific(index = 2, backwards = true)
+                            ),
+                        )
                     ),
-                    exclusions = setOf(".nomedia", "Sent"),
+                    pfpExclusions = setOf(
+                        NameCriterium(".nomedia", mode = NameCriterium.Mode.Equal()),
+                        NameCriterium("Sent", mode = NameCriterium.Mode.Equal()),
+                        NameCriterium("Private", mode = NameCriterium.Mode.Equal()),
+                        SegmentCriterium("Sent", mode = SegmentCriterium.Mode.Specific(index = 1, backwards = true)),
+                    ),
                 )
             }
             .toSet()
@@ -85,14 +93,10 @@ class WhatsAppReceivedFilter @Inject constructor(
         target: APathLookup<APath>,
         areaType: DataArea.Type,
         pfpSegs: Segments
-    ): ExpendablesFilter.Match? {
-        if (pfpSegs.isNotEmpty() && IGNORED_FILES.contains(pfpSegs[pfpSegs.size - 1])) return null
-
-        return if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, areaType, pfpSegs)) {
-            target.toDeletionMatch()
-        } else {
-            null
-        }
+    ): ExpendablesFilter.Match? = if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, target, areaType, pfpSegs)) {
+        target.toDeletionMatch()
+    } else {
+        null
     }
 
     override suspend fun process(
@@ -122,9 +126,6 @@ class WhatsAppReceivedFilter @Inject constructor(
     }
 
     companion object {
-        private val IGNORED_FILES: Collection<String> = listOf(
-            ".nomedia",
-        )
         private val TAG = logTag("AppCleaner", "Scanner", "Filter", "WhatsApp", "Received")
     }
 }

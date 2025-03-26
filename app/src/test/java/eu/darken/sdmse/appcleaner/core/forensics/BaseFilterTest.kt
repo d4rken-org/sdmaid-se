@@ -2,7 +2,6 @@ package eu.darken.sdmse.appcleaner.core.forensics
 
 import android.content.Context
 import android.content.res.AssetManager
-import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve
 import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve2
 import eu.darken.sdmse.appcleaner.core.forensics.sieves.JsonAppSieve
 import eu.darken.sdmse.common.areas.DataArea
@@ -340,16 +339,15 @@ abstract class BaseFilterTest : BaseTest() {
                 c.lastModified?.let {
                     every { modifiedAt } returns it
                 }
+                every { name } returns c.pfpSegs.last()
             }
 
             when (c.matchType) {
                 Candidate.Type.POSITIVE -> {
                     c.areaTypes.forEach { loc ->
                         c.pkgs.forEach { pkg ->
-                            c.prefixFreePaths.forEach { segs ->
-                                withClue("Should match $pkg, $loc $segs") {
-                                    filter.match(pkg, target, loc, segs) shouldNotBe null
-                                }
+                            withClue("Should match $pkg, $loc ${c.pfpSegs}") {
+                                filter.match(pkg, target, loc, c.pfpSegs) shouldNotBe null
                             }
                         }
                     }
@@ -358,10 +356,8 @@ abstract class BaseFilterTest : BaseTest() {
                 Candidate.Type.NEGATIVE -> {
                     c.areaTypes.forEach { loc ->
                         c.pkgs.forEach { pkg ->
-                            c.prefixFreePaths.forEach { segs ->
-                                withClue("Should NOT match $pkg, $loc $segs") {
-                                    filter.match(pkg, target, loc, segs) shouldBe null
-                                }
+                            withClue("Should NOT match $pkg, $loc ${c.pfpSegs}") {
+                                filter.match(pkg, target, loc, c.pfpSegs) shouldBe null
                             }
                         }
                     }
@@ -374,7 +370,7 @@ abstract class BaseFilterTest : BaseTest() {
         val matchType: Type,
         val areaTypes: Collection<DataArea.Type>,
         val pkgs: Collection<Pkg.Id>,
-        val prefixFreePaths: Collection<Segments>,
+        val pfpSegs: Segments,
         val lastModified: Instant? = null
     ) {
         enum class Type {
@@ -389,14 +385,6 @@ abstract class BaseFilterTest : BaseTest() {
                 context = context,
                 assetPath = assetPath,
                 moshi = SerializationAppModule().moshi(),
-            )
-        }
-    }
-
-    fun createDynamicSieveFactory() = object : DynamicAppSieve.Factory {
-        override fun create(configs: Set<DynamicAppSieve.MatchConfig>): DynamicAppSieve {
-            return DynamicAppSieve(
-                configs = configs,
             )
         }
     }
