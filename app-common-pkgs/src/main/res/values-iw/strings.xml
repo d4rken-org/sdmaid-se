@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">מלאי אפליקציות לא חוקי</string>
+    <string name="pkgrepo_invalid_inventory_error_description">המערכת סיפקה רשימה לא חוקית של אפליקציות מותקנות ל-SD Maid.</string>
+</resources>
