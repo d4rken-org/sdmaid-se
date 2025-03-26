@@ -157,3 +157,19 @@ fun Segments?.endsWith(
         }
     }
 }
+
+fun Segments.segmentContains(
+    segment: String,
+    index: Int,
+    backwards: Boolean = false,
+    ignoreCase: Boolean = false,
+    allowPartial: Boolean = false,
+): Boolean {
+    val target = getOrNull(if (backwards) lastIndex - index else index) ?: return false
+
+    return if (allowPartial) {
+        target.contains(segment, ignoreCase = ignoreCase)
+    } else {
+        target.equals(segment, ignoreCase = ignoreCase)
+    }
+}
