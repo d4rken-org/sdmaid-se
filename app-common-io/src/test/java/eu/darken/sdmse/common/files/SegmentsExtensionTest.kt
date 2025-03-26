@@ -158,4 +158,52 @@ class SegmentsExtensionTest : BaseTest() {
         segs("abc", "dEF").endsWith(segs("ef"), allowPartial = true) shouldBe false
         segs("abc", "dEF").endsWith(segs("ef"), ignoreCase = true, allowPartial = true) shouldBe true
     }
+
+    @Test fun `segment specific`() {
+        segs().segmentContains("", 0) shouldBe false
+        segs().segmentContains("", 1) shouldBe false
+        segs("abc").segmentContains("abc", index = 1) shouldBe false
+        segs("abc").segmentContains("abc", backwards = true, index = 1) shouldBe false
+        segs("abc").segmentContains(
+            "abc",
+            ignoreCase = true,
+            backwards = true,
+            allowPartial = true,
+            index = 1
+        ) shouldBe false
+        segs("abc").segmentContains(
+            "abc",
+            ignoreCase = true,
+            backwards = true,
+            allowPartial = true,
+            index = 0
+        ) shouldBe true
+        segs("abc").segmentContains(
+            "abc",
+            ignoreCase = false,
+            backwards = false,
+            allowPartial = false,
+            index = 0
+        ) shouldBe true
+
+        segs("", "abc", "").segmentContains("", 0) shouldBe true
+        segs("", "abc", "").segmentContains("", 1) shouldBe false
+        segs("", "abc", "").segmentContains("", 2) shouldBe true
+
+        segs("ab", "", "cd").segmentContains("", 1) shouldBe true
+        segs("ab", "", "cd").segmentContains("", 1, backwards = true) shouldBe true
+
+
+        segs("abc", "def", "ghi").segmentContains("def", 1, backwards = false) shouldBe true
+        segs("abc", "def", "ghi").segmentContains("def", 1, backwards = true) shouldBe true
+
+        segs("abc", "DEF", "ghi").segmentContains("def", 1, ignoreCase = false) shouldBe false
+        segs("abc", "DEF", "ghi").segmentContains("def", 1, ignoreCase = true) shouldBe true
+
+        segs("abc", "DEF", "ghi").segmentContains("E", 1, allowPartial = false) shouldBe false
+        segs("abc", "DEF", "ghi").segmentContains("E", 1, allowPartial = true) shouldBe true
+
+        segs("abc", "DEF", "ghi").segmentContains("e", 1, ignoreCase = false, allowPartial = true) shouldBe false
+        segs("abc", "DEF", "ghi").segmentContains("e", 1, ignoreCase = true, allowPartial = true) shouldBe true
+    }
 }

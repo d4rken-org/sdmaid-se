@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.sieve
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.serialization.SerializationAppModule
 import eu.darken.sdmse.common.sieve.SegmentCriterium.Mode
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
@@ -95,6 +96,23 @@ class SegmentCriteriumTest : BaseTest() {
     fun `pfp criteria MATCH - casing`() = runTest {
         SegmentCriterium("abc/def", mode = Mode.Equal(ignoreCase = false)).matchRaw("abc/DEF") shouldBe false
         SegmentCriterium("abc/def", mode = Mode.Equal(ignoreCase = true)).matchRaw("abc/DEF") shouldBe true
+    }
+
+    @Test
+    fun `pfp criteria SPECIFIC - casing`() = runTest {
+        shouldThrow<IllegalArgumentException> {
+            SegmentCriterium("ABC/DEF", Mode.Specific(index = 0)).matchRaw("abc/DEF") shouldBe false
+        }
+
+        SegmentCriterium("DEF", Mode.Specific(index = 0)).matchRaw("abc/DEF") shouldBe false
+        SegmentCriterium("abc", Mode.Specific(index = 0)).matchRaw("abc/DEF") shouldBe true
+        SegmentCriterium("DEF", Mode.Specific(index = 0, backwards = true)).matchRaw("abc/DEF") shouldBe true
+        SegmentCriterium("ABC", Mode.Specific(index = 0, ignoreCase = true)).matchRaw("abc/DEF") shouldBe true
+        SegmentCriterium("DE", Mode.Specific(index = 1, allowPartial = true)).matchRaw("abc/DEF") shouldBe true
+        SegmentCriterium(
+            "BC",
+            Mode.Specific(index = 1, ignoreCase = true, backwards = true, allowPartial = true)
+        ).matchRaw("abc/DEF") shouldBe true
     }
 
     @Test

@@ -218,7 +218,8 @@ class TaggedInputView @JvmOverloads constructor(
             }
 
             is SegmentCriterium -> when (chipTag.criterium.mode) {
-                is SegmentCriterium.Mode.Ancestor -> TruncateAt.START
+                is SegmentCriterium.Mode.Specific -> throw IllegalArgumentException("Specific not supported")
+                is SegmentCriterium.Mode.Ancestor -> throw IllegalArgumentException("Ancestor not supported")
                 is SegmentCriterium.Mode.Contain -> TruncateAt.MIDDLE
                 is SegmentCriterium.Mode.End -> TruncateAt.START
                 is SegmentCriterium.Mode.Equal -> TruncateAt.MIDDLE
@@ -319,6 +320,7 @@ class TaggedInputView @JvmOverloads constructor(
                     is SegmentCriterium.Mode.End -> R.string.systemcleaner_customfilter_editor_segments_matching_mode_end_label
                     is SegmentCriterium.Mode.Equal -> R.string.systemcleaner_customfilter_editor_segments_matching_mode_equal_label
                     is SegmentCriterium.Mode.Ancestor -> throw IllegalArgumentException("Ancestor not supported")
+                    is SegmentCriterium.Mode.Specific -> throw IllegalArgumentException("Specific not supported")
                 }
             }
         @get:DrawableRes val iconRes: Int
@@ -336,6 +338,7 @@ class TaggedInputView @JvmOverloads constructor(
                     is SegmentCriterium.Mode.Equal -> R.drawable.ic_approximately_equal_24
                     is SegmentCriterium.Mode.Start -> R.drawable.ic_contain_start_24
                     is SegmentCriterium.Mode.Ancestor -> throw IllegalArgumentException("Ancestor not supported")
+                    is SegmentCriterium.Mode.Specific -> throw IllegalArgumentException("Specific not supported")
                 }
             }
     }

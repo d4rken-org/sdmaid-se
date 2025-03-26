@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.files.containsSegments
 import eu.darken.sdmse.common.files.endsWith
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.matches
+import eu.darken.sdmse.common.files.segmentContains
 import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.files.toSegs
 import kotlinx.parcelize.Parcelize
@@ -34,6 +35,13 @@ data class SegmentCriterium(
         )
 
         is Mode.Equal -> target.matches(segments, ignoreCase = mode.ignoreCase)
+        is Mode.Specific -> target.segmentContains(
+            segment = segments.single(),
+            index = mode.index,
+            backwards = mode.backwards,
+            allowPartial = mode.allowPartial,
+            ignoreCase = mode.ignoreCase
+        )
     }
 
     sealed interface Mode : SieveCriterium.Mode {
@@ -70,6 +78,15 @@ data class SegmentCriterium(
         data class Equal(
             val ignoreCase: Boolean = true,
         ) : Mode
+
+        @JsonClass(generateAdapter = true)
+        @Parcelize
+        data class Specific(
+            val index: Int,
+            val backwards: Boolean = false,
+            val ignoreCase: Boolean = true,
+            val allowPartial: Boolean = false,
+        ) : Mode
     }
 
     companion object {
@@ -79,5 +96,6 @@ data class SegmentCriterium(
             .withSubtype(Mode.Contain::class.java, "CONTAIN")
             .withSubtype(Mode.End::class.java, "END")
             .withSubtype(Mode.Equal::class.java, "MATCH")!!
+            .withSubtype(Mode.Specific::class.java, "SPECIFIC")!!
     }
 }
