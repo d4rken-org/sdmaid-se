@@ -7,9 +7,14 @@
     <string name="upgrades_dashcard_body">SD Maid Pro מציע תוצאות טובות יותר, יותר פיצ\'רים ואפשרויות.</string>
     <string name="upgrades_dashcard_upgrade_action">שדרוג</string>
     <string name="upgrades_gplay_unavailable_error_title">החנות של גוגל לא זמינה כרגע</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid לא יכול להתחבר ל-Google Play. האם Google Play מותקן ומעודכן? האם חשבון Google שלך מחובר? נסה לנקות את המטמון של אפליקציית Google Play ולאתחל את המכשיר שלך.</string>
+    <string name="upgrades_no_purchases_found_check_account">לא נמצאו רכישות. האם אתה משתמש בחשבון הנכון?</string>
     <string name="upgrade_screen_title">רכוש SD Maid SE פרו</string>
+    <string name="upgrade_screen_preamble">SD Maid ללא מודעות ואינה מוכרת נתוני משתמשים. העבודה שלי ממומנת על ידך ❤️.</string>
     <string name="upgrade_screen_benefits_title">יתרונות</string>
+    <string name="upgrade_screen_benefits_body">• ניקוי אפליקציות 💯\n• פעולות מתוזמנות ⏰\n• אפשרויות נוספות לכל הכלים ⚙️\n• כללי המחיקה שלך ✍️\n• מפתח בעל מוטיבציה 🧙\nועוד...</string>
     <string name="upgrade_screen_how_title">הגדרות</string>
+    <string name="upgrade_screen_how_body">אתה יכול לבחור בין רכישה חד פעמית לבין מנוי שנתי זול יותר.\nהמינוי מתחיל בניסיון חינם של 14 יום, ולאחר מכן תחויב פעם בשנה. גרסת ניסיון ומנוי ניתנים לביטול בכל עת.\nאותן תכונות, רק דגמי תמחור שונים.</string>
     <string name="upgrade_screen_subscription_trial_action">התחילו 14 ימי ניסיון</string>
     <string name="upgrade_screen_subscription_action">הירשם כמנוי</string>
     <string name="upgrade_screen_subscription_action_hint">המנוי עולה %s לשנה.</string>
@@ -17,4 +22,8 @@
     <string name="upgrade_screen_iap_action_hint">רכישה חד-פעמית עולה %s.</string>
     <string name="upgrade_screen_thanks_toast">אתם הכי טובים בעולם ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">שחזור קנייה</string>
+    <string name="upgrade_screen_restore_purchase_message">השדרוג שלך תקף בכל המכשירים המחוברים לחשבון Google זה.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">עצות לפתרון בעיות עבור שדרוגים לא מזוהים:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">הסנכרון של חנות Play עשוי לקחת זמן. נסה לאתחל מחדש, לנקות את המטמון של Google Play או פשוט המתן.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">חשבונות מרובים יכולים לבלבל את Google Play. התנתק מחשבונות אחרים או התקן דרך אתר Google Play, מה שמאלץ שיוכים עם חשבון ספציפי.</string>
 </resources>

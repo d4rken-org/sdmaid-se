@@ -3,7 +3,7 @@
     <string name="dashboard_delete_all_message">Törli az eredményeket az összes eszközben?</string>
     <string name="dashboard_settings_category">Vezérlőpult</string>
     <string name="dashboard_motd_title">Üzenet a fejlesztőtől</string>
-    <string name="dashboard_settings_oneclick_title">Egykattintásos Mód</string>
+    <string name="dashboard_settings_oneclick_title">Egyéríntéses Mód</string>
     <string name="dashboard_settings_oneclick_summary">Indítsa el az összes eszköz vizsgálatát és törlését az irányítópult műveletgombjára kattintva, további megerősítések nélkül.</string>
     <string name="dashboard_settings_oneclick_tools_title">Egy-érintéses eszközök</string>
     <string name="dashboard_settings_oneclick_tools_desc">Mely eszközök legyenek még benne az Egy-érintéses műveletekben?</string>

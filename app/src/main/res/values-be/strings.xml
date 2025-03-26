@@ -256,6 +256,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Пустыя папкі з усёй прылады. Для выяўлення ўкладзеных папак можа спатрэбіцца некалькі праходаў.</string>
     <string name="systemcleaner_filter_screenshots_label">Здымкі экрана</string>
     <string name="systemcleaner_filter_screenshots_summary">Здымкі экрана, старэйшыя за %s, з розных праграм і месцаў.</string>
+    <string name="systemcleaner_filter_trashed_label">Выдаленыя файлы</string>
+    <string name="systemcleaner_filter_trashed_summary">Файлы ў сметніцы з разнастайных праграм і месцаў, якія былі пазначаны да выдалення, але не выдалены канчаткова.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Час стварэння здымкаў экрана</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Мінімальны час стварэння для выдалення здымкаў экрана.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Лішнія файлы APK</string>
@@ -428,6 +430,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Дазволіць выдаленне ўсіх элементаў</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Паказаць опцыю, якая дазваляе выдаліць усе элементы ў пары дублікатаў, каб не засталося ніводнага з іх.</string>
+    <string name="deduplicator_search_locations_title">Пошук размяшчэння</string>
+    <string name="deduplicator_search_locations_all_summary">Усе даступныя месцы</string>
     <string name="deduplicator_skip_minsize_title">Мінімальны памер</string>
     <string name="deduplicator_skip_minsize_description">Прапускаць файлы, памер якіх меншы за мінімальны.</string>
     <string name="deduplicator_skip_uncommon_title">Прапускаць невядомыя тыпы файлаў</string>
@@ -489,6 +493,8 @@
     <string name="appcontrol_tag_apk_bundle">Пакет</string>
     <string name="appcontrol_tag_system">Сістэма</string>
     <string name="appcontrol_tag_archived">У архіве</string>
+    <string name="appcontrol_tag_uninstalled">Толькі даныя</string>
+    <string name="appcontrol_tag_not_installed">Не ўсталявана</string>
     <string name="appcontrol_tag_enabled">Уключана</string>
     <string name="appcontrol_tag_disabled">Адключана</string>
     <string name="appcontrol_progress_enabling_package">Уключэнне праграмы</string>
@@ -652,6 +658,7 @@
     <string name="automation_error_not_running_body">Служба спецыяльных магчымасцей не працуе. Паспрабуйце перазагрузіць прыладу.</string>
     <string name="automation_error_screen_unavailable_title">Экран недаступны</string>
     <string name="automation_error_screen_unavailable_body">Выкананне аперацыі было спынена, таму што экран стаў недаступным (напр., дысплэй выключаны, або актывіраваны экран блакіроўкі).</string>
+    <string name="automation_error_compatibility_body">SD Maid не ўдалося вызначыць макет экрана. Калі гэта паўтараецца, магчыма, ваша мова або налады падтрымліваюцца не цалкам. Праверце наяўнасць абнаўленняў або звяжыцеся са мной, каб я мог гэта выправіць.</string>
     <string name="history_label">Гісторыя</string>
     <string name="history_description">Храналагічны спіс апошніх дзеянняў і закранутых даных.</string>
     <string name="scheduler_label">Планіроўшчык</string>
@@ -741,4 +748,20 @@
     <string name="stats_settings_reset_all_desc">Выдаліць усе справаздачы і абнуліць усю статыстыку.</string>
     <string name="stats_affected_paths_label">Закранутыя шляхі</string>
     <string name="stats_affected_pkgs_label">Закранутыя праграмы</string>
+    <string name="picker_select_paths_title">Выберыце шляхі</string>
+    <string name="picker_selected_paths_title">Выбраныя шляхі</string>
+    <string name="picker_unsaved_confirmation_message">Адхіліць змены?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">Выбраны %d шлях</item>
+        <item quantity="few">Выбрана %d шляхі</item>
+        <item quantity="many">Выбрана %d шляхоў</item>
+        <item quantity="other">Выбрана %d шляхоў</item>
+    </plurals>
+    <string name="picker_home_action">Вобласці даных</string>
+    <string name="area_type_sdcard_label">Агульная памяць</string>
+    <string name="area_type_public_media_label">Публічныя медыяфайлы праграм</string>
+    <string name="area_type_public_data_label">Публічныя даныя праграм</string>
+    <string name="area_type_public_obb_label">Публічныя рэсурсы праграм</string>
+    <string name="area_type_private_data_label">Прыватныя даныя праграм</string>
+    <string name="area_type_portable_label">Партатыўнае сховішча</string>
 </resources>

@@ -643,10 +643,10 @@
     <string name="review_app_body">想给 SD Maid 写一条评论吗？❤️</string>
     <string name="stats_label">历史</string>
     <plurals name="stats_dash_body_size">
-        <item quantity="other">已释放 %s 空间</item>
+        <item quantity="other">已释放 %s 空间。</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-        <item quantity="other">自 SD Maid 安装以来，已处理 %s 个项目</item>
+        <item quantity="other">自 SD Maid 安装以来，已处理 %s 个项目。</item>
     </plurals>
     <string name="stats_report_status_success">成功</string>
     <string name="stats_report_status_partial_success">部分成功</string>
