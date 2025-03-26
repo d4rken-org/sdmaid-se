@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">דורש SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">שדרוג SD Maid</string>
+    <string name="upgrades_dashcard_body">בטל נעילה של תכונות נוספות והפוך לפטרון לתמיכה בהמשך הפיתוח!</string>
     <string name="upgrades_dashcard_upgrade_action">שדרוג</string>
+    <string name="upgrade_screen_title">שפר את SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid ללא מודעות ואינה מוכרת נתוני משתמשים. המשך הפיתוח מתאפשר רק על ידך.</string>
+    <string name="upgrade_screen_how_title">איך לעזור</string>
+    <string name="upgrade_screen_how_body">הפוך לפטרון ונותן חסות לפיתוח! הקש על הלחצן למטה כדי להפעיל את כל התכונות הנוספות ולפתוח את פרופיל הנותנים של GitHub שלי.</string>
+    <string name="upgrade_screen_why_title">This conjures 🪄</string>
+    <string name="upgrade_screen_why_body">• פונקציונליות המחיקה של AppCleaner 💯\n• פעולות מתוזמנות ⏰\n• אפשרויות נוספות לכל הכלים ⚙️\n• כללי המחיקה שלך ✍️\n• מפתח בעל מוטיבציה 🧙\nועוד...</string>
     <string name="upgrade_screen_sponsor_action">תמוך בפיתוח</string>
+    <string name="upgrade_screen_sponsor_action_hint">האלטרנטיבה הן מודעות, אנליטיקס ו-Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">תודה שתמכת בפיתוח קוד פתוח ❤️</string>
 </resources>
