@@ -9,7 +9,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
-import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve
+import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve2
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -20,107 +20,110 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium.Mode.Ancestor
 import javax.inject.Inject
 import javax.inject.Provider
 
 @Reusable
 class TelegramFilter @Inject constructor(
-    private val dynamicSieveFactory: DynamicAppSieve.Factory,
+    private val dynamicSieveFactory: DynamicAppSieve2.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseExpendablesFilter() {
 
-    private lateinit var sieve: DynamicAppSieve
+    private lateinit var sieve: DynamicAppSieve2
 
     override suspend fun initialize() {
         log(TAG) { "initialize()" }
-        val configs = mutableSetOf<DynamicAppSieve.MatchConfig>()
+        val configs = mutableSetOf<DynamicAppSieve2.MatchConfig>()
 
-        DynamicAppSieve.MatchConfig(
+        DynamicAppSieve2.MatchConfig(
             pkgNames = setOf("org.telegram.messenger".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
-            ancestors = setOf(
-                "Telegram/Telegram Audio",
-                "Telegram/Telegram Documents",
-                "Telegram/Telegram Images",
-                "Telegram/Telegram Video",
-                "Telegram/Telegram Stories",
-                "org.telegram.messenger/files/Telegram/Telegram Audio",
-                "org.telegram.messenger/files/Telegram/Telegram Documents",
-                "org.telegram.messenger/files/Telegram/Telegram Images",
-                "org.telegram.messenger/files/Telegram/Telegram Video",
-                "org.telegram.messenger/files/Telegram/Telegram Stories",
+            pfpCriteria = setOf(
+                SegmentCriterium("Telegram/Telegram Audio", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Documents", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Images", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Video", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Stories", Ancestor()),
+                SegmentCriterium("org.telegram.messenger/files/Telegram/Telegram Audio", Ancestor()),
+                SegmentCriterium("org.telegram.messenger/files/Telegram/Telegram Documents", Ancestor()),
+                SegmentCriterium("org.telegram.messenger/files/Telegram/Telegram Images", Ancestor()),
+                SegmentCriterium("org.telegram.messenger/files/Telegram/Telegram Video", Ancestor()),
+                SegmentCriterium("org.telegram.messenger/files/Telegram/Telegram Stories", Ancestor()),
             ),
-            exclusions = setOf(".nomedia"),
+            pfpExclusions = setOf(NameCriterium(".nomedia", mode = NameCriterium.Mode.Equal())),
         ).let { configs.add(it) }
 
-        DynamicAppSieve.MatchConfig(
+        DynamicAppSieve2.MatchConfig(
             pkgNames = setOf("org.telegram.plus".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD),
-            ancestors = setOf(
-                "Telegram/Telegram Audio",
-                "Telegram/Telegram Documents",
-                "Telegram/Telegram Images",
-                "Telegram/Telegram Video",
-                "Telegram/Telegram Stories",
+            pfpCriteria = setOf(
+                SegmentCriterium("Telegram/Telegram Audio", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Documents", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Images", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Video", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Stories", Ancestor()),
             ),
-            exclusions = setOf(".nomedia"),
+            pfpExclusions = setOf(NameCriterium(".nomedia", mode = NameCriterium.Mode.Equal())),
         ).let { configs.add(it) }
 
-        DynamicAppSieve.MatchConfig(
+        DynamicAppSieve2.MatchConfig(
             pkgNames = setOf("org.thunderdog.challegram".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
-            ancestors = setOf(
-                "Telegram/Telegram Audio",
-                "Telegram/Telegram Documents",
-                "Telegram/Telegram Images",
-                "Telegram/Telegram Video",
-                "Telegram/Telegram Stories",
-                "org.thunderdog.challegram/files/documents",
-                "org.thunderdog.challegram/files/music",
-                "org.thunderdog.challegram/files/videos",
-                "org.thunderdog.challegram/files/video_notes",
-                "org.thunderdog.challegram/files/animations",
-                "org.thunderdog.challegram/files/voice",
-                "org.thunderdog.challegram/files/photos",
-                "org.thunderdog.challegram/files/stories",
+            pfpCriteria = setOf(
+                SegmentCriterium("Telegram/Telegram Audio", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Documents", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Images", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Video", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Stories", Ancestor()),
+                SegmentCriterium("org.thunderdog.challegram/files/documents", Ancestor()),
+                SegmentCriterium("org.thunderdog.challegram/files/music", Ancestor()),
+                SegmentCriterium("org.thunderdog.challegram/files/videos", Ancestor()),
+                SegmentCriterium("org.thunderdog.challegram/files/video_notes", Ancestor()),
+                SegmentCriterium("org.thunderdog.challegram/files/animations", Ancestor()),
+                SegmentCriterium("org.thunderdog.challegram/files/voice", Ancestor()),
+                SegmentCriterium("org.thunderdog.challegram/files/photos", Ancestor()),
+                SegmentCriterium("org.thunderdog.challegram/files/stories", Ancestor()),
             ),
-            exclusions = setOf(".nomedia"),
+            pfpExclusions = setOf(NameCriterium(".nomedia", mode = NameCriterium.Mode.Equal())),
         ).let { configs.add(it) }
 
-        DynamicAppSieve.MatchConfig(
+        DynamicAppSieve2.MatchConfig(
             pkgNames = setOf("ir.ilmili.telegraph".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
-            ancestors = setOf(
-                "Telegram/Telegram Audio",
-                "Telegram/Telegram Documents",
-                "Telegram/Telegram Images",
-                "Telegram/Telegram Video",
-                "Telegram/Telegram Stories",
-                "ir.ilmili.telegraph/files/Telegram/Telegram Audio",
-                "ir.ilmili.telegraph/files/Telegram/Telegram Documents",
-                "ir.ilmili.telegraph/files/Telegram/Telegram Images",
-                "ir.ilmili.telegraph/files/Telegram/Telegram Video",
-                "ir.ilmili.telegraph/files/Telegram/Telegram Stories",
+            pfpCriteria = setOf(
+                SegmentCriterium("Telegram/Telegram Audio", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Documents", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Images", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Video", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Stories", Ancestor()),
+                SegmentCriterium("ir.ilmili.telegraph/files/Telegram/Telegram Audio", Ancestor()),
+                SegmentCriterium("ir.ilmili.telegraph/files/Telegram/Telegram Documents", Ancestor()),
+                SegmentCriterium("ir.ilmili.telegraph/files/Telegram/Telegram Images", Ancestor()),
+                SegmentCriterium("ir.ilmili.telegraph/files/Telegram/Telegram Video", Ancestor()),
+                SegmentCriterium("ir.ilmili.telegraph/files/Telegram/Telegram Stories", Ancestor()),
             ),
-            exclusions = setOf(".nomedia"),
+            pfpExclusions = setOf(NameCriterium(".nomedia", mode = NameCriterium.Mode.Equal())),
         ).let { configs.add(it) }
 
-        DynamicAppSieve.MatchConfig(
+        DynamicAppSieve2.MatchConfig(
             pkgNames = setOf("org.telegram.messenger.web".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_DATA),
-            ancestors = setOf(
-                "Telegram/Telegram Audio",
-                "Telegram/Telegram Documents",
-                "Telegram/Telegram Images",
-                "Telegram/Telegram Video",
-                "Telegram/Telegram Stories",
-                "org.telegram.messenger.web/files/Telegram/Telegram Audio",
-                "org.telegram.messenger.web/files/Telegram/Telegram Documents",
-                "org.telegram.messenger.web/files/Telegram/Telegram Images",
-                "org.telegram.messenger.web/files/Telegram/Telegram Video",
-                "org.telegram.messenger.web/files/Telegram/Telegram Stories",
+            pfpCriteria = setOf(
+                SegmentCriterium("Telegram/Telegram Audio", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Documents", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Images", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Video", Ancestor()),
+                SegmentCriterium("Telegram/Telegram Stories", Ancestor()),
+                SegmentCriterium("org.telegram.messenger.web/files/Telegram/Telegram Audio", Ancestor()),
+                SegmentCriterium("org.telegram.messenger.web/files/Telegram/Telegram Documents", Ancestor()),
+                SegmentCriterium("org.telegram.messenger.web/files/Telegram/Telegram Images", Ancestor()),
+                SegmentCriterium("org.telegram.messenger.web/files/Telegram/Telegram Video", Ancestor()),
+                SegmentCriterium("org.telegram.messenger.web/files/Telegram/Telegram Stories", Ancestor()),
             ),
-            exclusions = setOf(".nomedia"),
+            pfpExclusions = setOf(NameCriterium(".nomedia", mode = NameCriterium.Mode.Equal())),
         ).let { configs.add(it) }
 
         sieve = dynamicSieveFactory.create(configs)
@@ -131,14 +134,10 @@ class TelegramFilter @Inject constructor(
         target: APathLookup<APath>,
         areaType: DataArea.Type,
         pfpSegs: Segments
-    ): ExpendablesFilter.Match? {
-        if (pfpSegs.isNotEmpty() && IGNORED_FILES.contains(pfpSegs[pfpSegs.size - 1])) return null
-
-        return if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, areaType, pfpSegs)) {
-            target.toDeletionMatch()
-        } else {
-            null
-        }
+    ): ExpendablesFilter.Match? = if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, target, areaType, pfpSegs)) {
+        target.toDeletionMatch()
+    } else {
+        null
     }
 
     override suspend fun process(
@@ -168,9 +167,6 @@ class TelegramFilter @Inject constructor(
     }
 
     companion object {
-        private val IGNORED_FILES: Collection<String> = listOf(
-            ".nomedia",
-        )
         private val TAG = logTag("AppCleaner", "Scanner", "Filter", "Telegram")
     }
 }

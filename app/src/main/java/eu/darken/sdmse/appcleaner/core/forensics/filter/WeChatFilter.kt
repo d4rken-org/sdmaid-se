@@ -9,7 +9,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
-import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve
+import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve2
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -20,60 +20,69 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.sieve.CriteriaOperator
+import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
 import javax.inject.Inject
 import javax.inject.Provider
 
 @Reusable
 class WeChatFilter @Inject constructor(
-    private val dynamicSieveFactory: DynamicAppSieve.Factory,
+    private val dynamicSieveFactory: DynamicAppSieve2.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseExpendablesFilter() {
 
-    private lateinit var sieve: DynamicAppSieve
+    private lateinit var sieve: DynamicAppSieve2
 
     override suspend fun initialize() {
         log(TAG) { "initialize()" }
-        val configSD = DynamicAppSieve.MatchConfig(
+        val configSD = DynamicAppSieve2.MatchConfig(
             pkgNames = setOf("com.tencent.mm".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD),
-            startsWith = setOf(
-                "tencent/MicroMsg",
+            pfpCriteria = setOf(
+                CriteriaOperator.And(
+                    SegmentCriterium("tencent/MicroMsg", SegmentCriterium.Mode.Ancestor()),
+                    CriteriaOperator.Or(
+                        SegmentCriterium("sns", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                        SegmentCriterium("video", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                        SegmentCriterium("image2", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                        SegmentCriterium("voice2", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                    )
+                )
             ),
-            patterns = setOf(
-                "^(?>tencent\\/MicroMsg\\/[0-9a-z-]{32}\\/sns\\/)(?>.+)$",
-                "^(?>tencent\\/MicroMsg\\/[0-9a-z-]{32}\\/video\\/)(?>.+)$",
-                "^(?>tencent\\/MicroMsg\\/[0-9a-z-]{32}\\/image2\\/)(?>.+)$",
-                "^(?>tencent\\/MicroMsg\\/[0-9a-z-]{32}\\/voice2\\/)(?>.+)$",
-            ),
-            exclusions = setOf(".nomedia"),
+            pfpExclusions = setOf(NameCriterium(".nomedia", NameCriterium.Mode.Equal())),
         )
-        val configPub = DynamicAppSieve.MatchConfig(
+        val configPub = DynamicAppSieve2.MatchConfig(
             pkgNames = setOf("com.tencent.mm".toPkgId()),
             areaTypes = setOf(DataArea.Type.PUBLIC_DATA),
-            startsWith = setOf(
-                "com.tencent.mm/MicroMsg",
+            pfpCriteria = setOf(
+                CriteriaOperator.And(
+                    SegmentCriterium("com.tencent.mm/MicroMsg", SegmentCriterium.Mode.Ancestor()),
+                    CriteriaOperator.Or(
+                        SegmentCriterium("sns", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                        SegmentCriterium("video", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                        SegmentCriterium("image2", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                        SegmentCriterium("voice2", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                    )
+                )
             ),
-            patterns = setOf(
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/sns\\/)(?>.+)$",
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/video\\/)(?>.+)$",
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/image2\\/)(?>.+)$",
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/voice2\\/)(?>.+)$",
-            ),
-            exclusions = setOf(".nomedia"),
+            pfpExclusions = setOf(NameCriterium(".nomedia", NameCriterium.Mode.Equal())),
         )
-        val configPriv = DynamicAppSieve.MatchConfig(
+        val configPriv = DynamicAppSieve2.MatchConfig(
             pkgNames = setOf("com.tencent.mm".toPkgId()),
             areaTypes = setOf(DataArea.Type.PRIVATE_DATA),
-            startsWith = setOf(
-                "com.tencent.mm/MicroMsg",
+            pfpCriteria = setOf(
+                CriteriaOperator.And(
+                    SegmentCriterium("com.tencent.mm/MicroMsg", SegmentCriterium.Mode.Ancestor()),
+                    CriteriaOperator.Or(
+                        SegmentCriterium("sns", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                        SegmentCriterium("video", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                        SegmentCriterium("image2", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                        SegmentCriterium("voice2", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                    )
+                )
             ),
-            patterns = setOf(
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/sns\\/)(?>.+)$",
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/video\\/)(?>.+)$",
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/image2\\/)(?>.+)$",
-                "^(?>com.tencent.mm\\/MicroMsg\\/[0-9a-z-]{32}\\/voice2\\/)(?>.+)$",
-            ),
-            exclusions = setOf(".nomedia"),
+            pfpExclusions = setOf(NameCriterium(".nomedia", NameCriterium.Mode.Equal())),
         )
 
         sieve = dynamicSieveFactory.create(setOf(configSD, configPub, configPriv))
@@ -84,14 +93,10 @@ class WeChatFilter @Inject constructor(
         target: APathLookup<APath>,
         areaType: DataArea.Type,
         pfpSegs: Segments
-    ): ExpendablesFilter.Match? {
-        if (pfpSegs.isNotEmpty() && IGNORED_FILES.contains(pfpSegs[pfpSegs.size - 1])) return null
-
-        return if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, areaType, pfpSegs)) {
-            target.toDeletionMatch()
-        } else {
-            null
-        }
+    ): ExpendablesFilter.Match? = if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, target, areaType, pfpSegs)) {
+        target.toDeletionMatch()
+    } else {
+        null
     }
 
     override suspend fun process(
@@ -121,9 +126,6 @@ class WeChatFilter @Inject constructor(
     }
 
     companion object {
-        private val IGNORED_FILES: Collection<String> = listOf(
-            ".nomedia",
-        )
         private val TAG = logTag("AppCleaner", "Scanner", "Filter", "WeChat")
     }
 }

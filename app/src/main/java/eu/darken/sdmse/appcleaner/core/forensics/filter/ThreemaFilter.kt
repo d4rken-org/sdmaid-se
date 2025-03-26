@@ -9,7 +9,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.forensics.BaseExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
-import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve
+import eu.darken.sdmse.appcleaner.core.forensics.sieves.DynamicAppSieve2
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -20,29 +20,30 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
 import javax.inject.Inject
 import javax.inject.Provider
 
 @Reusable
 class ThreemaFilter @Inject constructor(
-    private val dynamicSieveFactory: DynamicAppSieve.Factory,
+    private val dynamicSieveFactory: DynamicAppSieve2.Factory,
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseExpendablesFilter() {
 
-    private lateinit var sieve: DynamicAppSieve
+    private lateinit var sieve: DynamicAppSieve2
 
     override suspend fun initialize() {
         log(TAG) { "initialize()" }
-        val config = DynamicAppSieve.MatchConfig(
+        val config = DynamicAppSieve2.MatchConfig(
             pkgNames = setOf("ch.threema.app".toPkgId()),
             areaTypes = setOf(DataArea.Type.SDCARD),
-            contains = setOf("Threema/Threema "),
-            startsWith = setOf(
-                "Threema/Threema Audio",
-                "Threema/Threema Pictures",
-                "Threema/Threema Videos",
+            pfpCriteria = setOf(
+                SegmentCriterium("Threema/Threema Audio", SegmentCriterium.Mode.Ancestor()),
+                SegmentCriterium("Threema/Threema Pictures", SegmentCriterium.Mode.Ancestor()),
+                SegmentCriterium("Threema/Threema Videos", SegmentCriterium.Mode.Ancestor()),
             ),
-            exclusions = setOf(".nomedia"),
+            pfpExclusions = setOf(NameCriterium(".nomedia", NameCriterium.Mode.Equal())),
         )
         sieve = dynamicSieveFactory.create(setOf(config))
     }
@@ -52,14 +53,10 @@ class ThreemaFilter @Inject constructor(
         target: APathLookup<APath>,
         areaType: DataArea.Type,
         pfpSegs: Segments
-    ): ExpendablesFilter.Match? {
-        if (pfpSegs.isNotEmpty() && IGNORED_FILES.contains(pfpSegs[pfpSegs.size - 1])) return null
-
-        return if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, areaType, pfpSegs)) {
-            target.toDeletionMatch()
-        } else {
-            null
-        }
+    ): ExpendablesFilter.Match? = if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, target, areaType, pfpSegs)) {
+        target.toDeletionMatch()
+    } else {
+        null
     }
 
     override suspend fun process(
@@ -89,9 +86,6 @@ class ThreemaFilter @Inject constructor(
     }
 
     companion object {
-        private val IGNORED_FILES: Collection<String> = listOf(
-            ".nomedia",
-        )
         private val TAG = logTag("AppCleaner", "Scanner", "Filter", "Threema")
     }
 }

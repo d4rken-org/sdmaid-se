@@ -25,7 +25,7 @@ class WeChatFilterTest : BaseFilterTest() {
     }
 
     private fun create() = WeChatFilter(
-        dynamicSieveFactory = createDynamicSieveFactory(),
+        dynamicSieveFactory = createDynamicSieve2Factory(),
         gatewaySwitch = gatewaySwitch,
     )
 
@@ -42,6 +42,7 @@ class WeChatFilterTest : BaseFilterTest() {
         neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/video")
         pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/video/$rngString")
         neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image2")
+        neg("com.tencent.mm", SDCARD, "asd/def/efda91e6a3cd8c46008e42a3d3d614a3/image2/$rngString")
         pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image2/$rngString")
         neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/voice2")
         pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/voice2/$rngString")

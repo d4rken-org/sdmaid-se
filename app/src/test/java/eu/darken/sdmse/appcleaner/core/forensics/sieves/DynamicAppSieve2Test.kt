@@ -9,7 +9,6 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.sieve.CriteriaOperator
 import eu.darken.sdmse.common.sieve.NameCriterium
 import eu.darken.sdmse.common.sieve.SegmentCriterium
-import eu.darken.sdmse.common.sieve.wrap
 import io.kotest.assertions.throwables.shouldThrowAny
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
@@ -64,7 +63,7 @@ class DynamicAppSieve2Test : BaseTest() {
         val config = DynamicAppSieve2.MatchConfig(
             areaTypes = setOf(Type.SDCARD),
             pfpCriteria = setOf(
-                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Contain()).wrap()
+                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Contain())
             )
         )
 
@@ -78,7 +77,7 @@ class DynamicAppSieve2Test : BaseTest() {
         val config = DynamicAppSieve2.MatchConfig(
             areaTypes = setOf(Type.SDCARD),
             pfpCriteria = setOf(
-                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Contain()).wrap()
+                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Contain())
             ),
         )
 
@@ -92,7 +91,7 @@ class DynamicAppSieve2Test : BaseTest() {
         val config = DynamicAppSieve2.MatchConfig(
             areaTypes = setOf(Type.SDCARD, Type.PRIVATE_DATA),
             pfpCriteria = setOf(
-                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Contain()).wrap()
+                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Contain())
             ),
         )
         create(setOf(config)).apply {
@@ -105,7 +104,7 @@ class DynamicAppSieve2Test : BaseTest() {
         val config = DynamicAppSieve2.MatchConfig(
             areaTypes = setOf(Type.SDCARD),
             pfpCriteria = setOf(
-                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Start()).wrap()
+                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Start())
             ),
         )
 
@@ -120,7 +119,7 @@ class DynamicAppSieve2Test : BaseTest() {
         val config = DynamicAppSieve2.MatchConfig(
             areaTypes = setOf(Type.SDCARD),
             pfpCriteria = setOf(
-                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Ancestor()).wrap()
+                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Ancestor())
             ),
         )
 
@@ -135,7 +134,7 @@ class DynamicAppSieve2Test : BaseTest() {
         val config = DynamicAppSieve2.MatchConfig(
             areaTypes = setOf(Type.SDCARD, Type.PRIVATE_DATA, Type.SYSTEM),
             pfpCriteria = setOf(
-                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Contain(allowPartial = true)).wrap()
+                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Contain(allowPartial = true))
             ),
         )
 
@@ -151,7 +150,7 @@ class DynamicAppSieve2Test : BaseTest() {
         val config = DynamicAppSieve2.MatchConfig(
             areaTypes = setOf(Type.SDCARD, Type.PRIVATE_DATA, Type.SYSTEM),
             pfpCriteria = setOf(
-                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Contain(allowPartial = true)).wrap()
+                SegmentCriterium("a/test/path", SegmentCriterium.Mode.Contain(allowPartial = true))
             ),
             pfpRegexes = setOf(Regex("^(?>a*/[0-9a-z-]+/pa.+)$")),
         )
@@ -167,7 +166,7 @@ class DynamicAppSieve2Test : BaseTest() {
     @Test fun `name criteria`() {
         val config = DynamicAppSieve2.MatchConfig(
             areaTypes = setOf(Type.SDCARD, Type.PRIVATE_DATA, Type.SYSTEM),
-            nameCriteria = setOf(
+            pfpCriteria = setOf(
                 NameCriterium("testname", NameCriterium.Mode.Equal()),
             ),
         )
@@ -182,10 +181,10 @@ class DynamicAppSieve2Test : BaseTest() {
     @Test fun `name exclusion`() {
         val config = DynamicAppSieve2.MatchConfig(
             areaTypes = setOf(Type.SDCARD, Type.PRIVATE_DATA, Type.SYSTEM),
-            nameCriteria = setOf(
+            pfpCriteria = setOf(
                 NameCriterium("test", NameCriterium.Mode.Contain()),
             ),
-            nameExclusion = setOf(
+            pfpExclusions = setOf(
                 NameCriterium("name", NameCriterium.Mode.Contain()),
             )
         )
@@ -214,6 +213,32 @@ class DynamicAppSieve2Test : BaseTest() {
             matches("any.pkg", Type.SDCARD, "abc/test") shouldBe false
             matches("any.pkg", Type.SDCARD, "bc/test/pat") shouldBe false
             matches("any.pkg", Type.SDCARD, "abc/folder/test/path") shouldBe true
+        }
+    }
+
+    @Test fun `nested criteria operator`() {
+        val config = DynamicAppSieve2.MatchConfig(
+            areaTypes = setOf(Type.SDCARD),
+            pfpCriteria = setOf(
+                CriteriaOperator.And(
+                    SegmentCriterium("test/path", SegmentCriterium.Mode.Ancestor()),
+                    CriteriaOperator.Or(
+                        SegmentCriterium("abc", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                        SegmentCriterium("def", SegmentCriterium.Mode.Specific(1, backwards = true)),
+                    )
+                )
+            ),
+        )
+
+        create(setOf(config)).apply {
+            matches("any.pkg", Type.SDCARD, "test/path/abc") shouldBe false
+            matches("any.pkg", Type.SDCARD, "test/path/abc/file") shouldBe true
+            matches("any.pkg", Type.SDCARD, "asd/path/abc/file") shouldBe false
+            matches("any.pkg", Type.SDCARD, "test/path/def") shouldBe false
+            matches("any.pkg", Type.SDCARD, "test/path/def/file") shouldBe true
+            matches("any.pkg", Type.SDCARD, "asd/path/def/file") shouldBe false
+            matches("any.pkg", Type.SDCARD, "test/path/ghi") shouldBe false
+            matches("any.pkg", Type.SDCARD, "test/path/ghi/file") shouldBe false
         }
     }
 }

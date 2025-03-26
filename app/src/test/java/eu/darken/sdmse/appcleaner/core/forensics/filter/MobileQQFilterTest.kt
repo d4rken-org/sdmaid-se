@@ -24,7 +24,7 @@ class MobileQQFilterTest : BaseFilterTest() {
     }
 
     private fun create() = MobileQQFilter(
-        dynamicSieveFactory = createDynamicSieveFactory(),
+        dynamicSieveFactory = createDynamicSieve2Factory(),
         gatewaySwitch = gatewaySwitch,
     )
 

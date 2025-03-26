@@ -1,12 +1,8 @@
 package eu.darken.sdmse.appcleaner.core.forensics.filter
 
 import eu.darken.sdmse.appcleaner.core.forensics.BaseFilterTest
-import eu.darken.sdmse.appcleaner.core.forensics.addCandidate
-import eu.darken.sdmse.appcleaner.core.forensics.locs
 import eu.darken.sdmse.appcleaner.core.forensics.neg
-import eu.darken.sdmse.appcleaner.core.forensics.pkgs
 import eu.darken.sdmse.appcleaner.core.forensics.pos
-import eu.darken.sdmse.appcleaner.core.forensics.prefixFree
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
@@ -26,33 +22,27 @@ class ThreemaFilterTest : BaseFilterTest() {
     }
 
     private fun create() = ThreemaFilter(
-        dynamicSieveFactory = createDynamicSieveFactory(),
+        dynamicSieveFactory = createDynamicSieve2Factory(),
         gatewaySwitch = gatewaySwitch,
     )
 
-    // TODO refactor to non-legacy test methods
     @Test fun testFilter() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("ch.threema.app").locs(SDCARD).prefixFree("Threema"))
-        addCandidate(neg().pkgs("ch.threema.app").locs(SDCARD).prefixFree("Threema/Threema "))
-        addCandidate(neg().pkgs("ch.threema.app").locs(SDCARD).prefixFree("WhatsApp/Threema Audio"))
-        addCandidate(neg().pkgs("ch.threema.app").locs(SDCARD).prefixFree("WhatsApp/Threema Images"))
-        addCandidate(neg().pkgs("ch.threema.app").locs(SDCARD).prefixFree("WhatsApp/Threema Videos"))
-        addCandidate(neg().pkgs("ch.threema.app").locs(SDCARD).prefixFree("Threema"))
-        addCandidate(neg().pkgs("ch.threema.app").locs(SDCARD).prefixFree("Threema/.nomedia"))
-        addCandidate(neg().pkgs("ch.threema.app").locs(SDCARD).prefixFree("Threema/Threema "))
-        addCandidate(neg().pkgs("ch.threema.app").locs(SDCARD).prefixFree("Threema/Threema Audio/.nomedia"))
-        addCandidate(neg().pkgs("ch.threema.app").locs(SDCARD).prefixFree("Threema/Threema Pictures/.nomedia"))
-        addCandidate(neg().pkgs("ch.threema.app").locs(SDCARD).prefixFree("Threema/Threema Videos/.nomedia"))
-        addCandidate(
-            pos().pkgs("ch.threema.app").locs(SDCARD).prefixFree("Threema/Threema Audio/1213123123_123123123asdasd.ogg")
-        )
-        addCandidate(
-            pos().pkgs("ch.threema.app").locs(SDCARD).prefixFree("Threema/Threema Pictures/425705794_239071.jpg")
-        )
-        addCandidate(
-            pos().pkgs("ch.threema.app").locs(SDCARD).prefixFree("Threema/Threema Videos/1_376646255079588440.mp4")
-        )
+        val pkg = "ch.threema.app"
+        pos(pkg, SDCARD, "Threema/Threema Audio/1213123123_123123123asdasd.ogg")
+        pos(pkg, SDCARD, "Threema/Threema Pictures/425705794_239071.jpg")
+        pos(pkg, SDCARD, "Threema/Threema Videos/1_376646255079588440.mp4")
+
+        neg(pkg, SDCARD, "Threema")
+        neg(pkg, SDCARD, "Threema/.nomedia")
+        neg(pkg, SDCARD, "Threema/Threema ")
+        neg(pkg, SDCARD, "Threema/Threema Audio/.nomedia")
+        neg(pkg, SDCARD, "Threema/Threema Pictures/.nomedia")
+        neg(pkg, SDCARD, "Threema/Threema Videos/.nomedia")
+        neg(pkg, SDCARD, "WhatsApp/Threema Audio")
+        neg(pkg, SDCARD, "WhatsApp/Threema Images")
+        neg(pkg, SDCARD, "WhatsApp/Threema Videos")
+
         confirm(create())
     }
 }

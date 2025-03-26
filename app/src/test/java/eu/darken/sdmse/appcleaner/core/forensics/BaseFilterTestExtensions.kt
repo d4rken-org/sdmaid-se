@@ -14,7 +14,7 @@ fun BaseFilterTest.pos(pkgs: Set<String>, areaTypes: Set<DataArea.Type>, vararg 
         matchType = BaseFilterTest.Candidate.Type.POSITIVE,
         pkgs = pkgs.map { it.toPkgId() },
         areaTypes = areaTypes,
-        prefixFreePaths = setOf(segments.map { it.split(File.separatorChar) }.flatten())
+        pfpSegs = segments.map { it.split(File.separatorChar) }.flatten()
     ).let { addCandidate(it) }
 }
 
@@ -27,7 +27,7 @@ fun BaseFilterTest.neg(pkgs: Set<String>, areaTypes: Set<DataArea.Type>, vararg 
         matchType = BaseFilterTest.Candidate.Type.NEGATIVE,
         pkgs = pkgs.map { it.toPkgId() },
         areaTypes = areaTypes,
-        prefixFreePaths = setOf(segments.map { it.split(File.separatorChar) }.flatten())
+        pfpSegs = segments.map { it.split(File.separatorChar) }.flatten()
     ).let { addCandidate(it) }
 }
 
@@ -36,7 +36,7 @@ fun BaseFilterTest.pos(pkg: String, areaType: DataArea.Type, lastModified: Insta
         matchType = BaseFilterTest.Candidate.Type.POSITIVE,
         pkgs = setOf(pkg.toPkgId()),
         areaTypes = setOf(areaType),
-        prefixFreePaths = setOf(segments.map { it.split(File.separatorChar) }.flatten()),
+        pfpSegs = segments.map { it.split(File.separatorChar) }.flatten(),
         lastModified = lastModified,
     ).let { addCandidate(it) }
 }
@@ -46,7 +46,7 @@ fun BaseFilterTest.neg(pkg: String, areaType: DataArea.Type, lastModified: Insta
         matchType = BaseFilterTest.Candidate.Type.NEGATIVE,
         pkgs = setOf(pkg.toPkgId()),
         areaTypes = setOf(areaType),
-        prefixFreePaths = setOf(segments.map { it.split(File.separatorChar) }.flatten()),
+        pfpSegs = segments.map { it.split(File.separatorChar) }.flatten(),
         lastModified = lastModified,
     ).let { addCandidate(it) }
 }
