@@ -40,7 +40,7 @@ class DebugTaskModule @AssistedInject constructor(
         host.changeOptions { old ->
             old
                 .copy(
-                    showOverlay = true,
+                    showVeil = true,
                     accessibilityServiceInfo = AccessibilityServiceInfo().apply {
                         flags = AccessibilityServiceInfo.DEFAULT or
                                 AccessibilityServiceInfo.FLAG_INCLUDE_NOT_IMPORTANT_VIEWS or

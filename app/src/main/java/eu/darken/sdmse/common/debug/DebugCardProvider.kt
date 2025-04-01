@@ -1,15 +1,19 @@
 package eu.darken.sdmse.common.debug
 
+import eu.darken.sdmse.automation.core.AutomationManager
+import eu.darken.sdmse.automation.core.debug.DebugTask
 import eu.darken.sdmse.common.adb.AdbSettings
 import eu.darken.sdmse.common.adb.service.AdbServiceClient
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.navigation.navVia
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.root.RootManager
@@ -19,17 +23,21 @@ import eu.darken.sdmse.common.sharedresource.runSessionAction
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.DashboardFragmentDirections
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
 import java.util.UUID
 import javax.inject.Inject
 import kotlin.system.measureTimeMillis
 
 class DebugCardProvider @Inject constructor(
+    @AppScope private val appScope: CoroutineScope,
     private val debugSettings: DebugSettings,
     private val rootSettings: RootSettings,
     private val rootManager: RootManager,
@@ -41,18 +49,22 @@ class DebugCardProvider @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val shellOps: ShellOps,
     private val shizukuClient: AdbServiceClient,
+    private val automation: AutomationManager,
+    private val taskManager: TaskManager,
 ) {
 
     private val rootTestState = MutableStateFlow<RootTestResult?>(null)
     private val shizukuTestState = MutableStateFlow<ShizukuTestResult?>(null)
+    private val acsDebugJobState = MutableStateFlow<Job?>(null)
 
     fun create(vm: ViewModel3) = combine(
         debugSettings.isDebugMode.flow.distinctUntilChanged(),
         debugSettings.isTraceMode.flow.distinctUntilChanged(),
         debugSettings.isDryRunMode.flow.distinctUntilChanged(),
         rootTestState,
-        shizukuTestState
-    ) { isDebug, isTrace, isDryRun, rootState, shizukuState ->
+        shizukuTestState,
+        acsDebugJobState,
+    ) { isDebug, isTrace, isDryRun, rootState, shizukuState, acsDebugJob ->
         if (!isDebug) return@combine null
         DebugCardVH.Item(
             isDryRunEnabled = isDryRun,
@@ -143,7 +155,16 @@ class DebugCardProvider @Inject constructor(
                         }
                     }
                 }
-            }
+            },
+            onAcsDebug = {
+                if (acsDebugJob != null) {
+                    acsDebugJob.cancel()
+                    acsDebugJobState.value = null
+                } else {
+                    acsDebugJobState.value = appScope.launch { automation.submit(DebugTask()) }
+                }
+            },
+            acsTask = acsDebugJob,
         )
     }
 

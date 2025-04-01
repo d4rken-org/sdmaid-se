@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.databinding.DashboardDebugItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
+import kotlinx.coroutines.Job
 
 
 class DebugCardVH(parent: ViewGroup) :
@@ -67,6 +68,11 @@ class DebugCardVH(parent: ViewGroup) :
         testAction.isVisible = BuildConfigWrap.DEBUG
         logviewAction.isVisible = BuildConfigWrap.DEBUG
         logviewAction.setOnClickListener { item.onViewLog() }
+
+        acsDebugAction.apply {
+            setOnClickListener { item.onAcsDebug() }
+            text = if (item.acsTask != null) "Stop ACS debug" else "Start ACS debug"
+        }
     }
 
     data class Item(
@@ -82,6 +88,8 @@ class DebugCardVH(parent: ViewGroup) :
         val shizukuTestResult: DebugCardProvider.ShizukuTestResult?,
         val onTestShizuku: () -> Unit,
         val onViewLog: () -> Unit,
+        val onAcsDebug: () -> Unit,
+        val acsTask: Job?,
     ) : DashboardAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }
