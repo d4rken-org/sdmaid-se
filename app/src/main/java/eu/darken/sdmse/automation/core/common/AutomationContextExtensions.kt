@@ -78,27 +78,27 @@ fun AutomationExplorer.Context.defaultClick(
 
 suspend fun AutomationExplorer.Context.gestureClick(node: AccessibilityNodeInfo): Boolean {
     val rect = Rect().apply { node.getBoundsInScreen(this) }
-    return gestureClick(rect.centerX(), rect.centerY())
+    return gestureClick(rect.centerX().toFloat(), rect.centerY().toFloat())
 }
 
-suspend fun AutomationExplorer.Context.gestureClick(x: Int, y: Int): Boolean {
+suspend fun AutomationExplorer.Context.gestureClick(x: Float, y: Float): Boolean {
     val path = Path().apply {
-        moveTo(x.toFloat(), y.toFloat())
+        moveTo(x, y)
         lineTo(x + 1f, y + 1f)
     }
     val gesture = GestureDescription.Builder().apply {
         addStroke(GestureDescription.StrokeDescription(path, 0, ViewConfiguration.getTapTimeout().toLong()))
     }.build()
 
-    log(TAG, VERBOSE) { "gestureClick(): Waiting for overlay to hide..." }
-    host.changeOptions { it.copy(hideOverlay = true) }
-    host.state.filter { !it.hasOverlay }.first()
+    log(TAG, VERBOSE) { "gestureClick(): Waiting for passthrough..." }
+    host.changeOptions { it.copy(passthrough = true) }
+    host.state.filter { it.passthrough }.first()
 
     log(TAG) { "gestureClick(): Performing CLICK gesture at X=$x,Y=$y" }
     val success = host.dispatchGesture(gesture)
 
-    host.changeOptions { it.copy(hideOverlay = false) }
-    host.state.filter { it.hasOverlay }.first()
+    host.changeOptions { it.copy(passthrough = false) }
+    host.state.filter { !it.passthrough }.first()
 
     return success
 }

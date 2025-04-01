@@ -105,8 +105,10 @@ class ClearCacheModule @AssistedInject constructor(
         task as ClearCacheTask
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
 
-        host.changeOptions { old ->
-            old.copy(
+        host.changeOptions {
+            AutomationHost.Options(
+                controlPanelTitle = R.string.appcleaner_automation_title.toCaString(),
+                controlPanelSubtitle = R.string.appcleaner_automation_subtitle_default_caches.toCaString(),
                 accessibilityServiceInfo = AccessibilityServiceInfo().apply {
                     flags = (
                             AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS
@@ -117,8 +119,6 @@ class ClearCacheModule @AssistedInject constructor(
                     feedbackType = AccessibilityServiceInfo.FEEDBACK_GENERIC
                     notificationTimeout = 250L
                 },
-                controlPanelTitle = R.string.appcleaner_automation_title.toCaString(),
-                controlPanelSubtitle = R.string.appcleaner_automation_subtitle_default_caches.toCaString(),
             )
         }
 

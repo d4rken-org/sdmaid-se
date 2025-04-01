@@ -37,20 +37,17 @@ class DebugTaskModule @AssistedInject constructor(
         log(TAG) { "process(): $task" }
         updateProgressPrimary("Debug: Accessibility service")
         updateProgressSecondary("Setting host options...")
-        host.changeOptions { old ->
-            old
-                .copy(
-                    showVeil = true,
-                    accessibilityServiceInfo = AccessibilityServiceInfo().apply {
-                        flags = AccessibilityServiceInfo.DEFAULT or
-                                AccessibilityServiceInfo.FLAG_INCLUDE_NOT_IMPORTANT_VIEWS or
-                                AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS
-                        eventTypes = AccessibilityEvent.TYPES_ALL_MASK
-                        feedbackType = AccessibilityServiceInfo.FEEDBACK_GENERIC
-                    },
-                    controlPanelSubtitle = caString { "Debug module is active" }
-                )
-                .also { log(TAG) { "Updating options from $old to $it" } }
+        host.changeOptions {
+            AutomationHost.Options(
+                controlPanelSubtitle = caString { "Debug module is active" },
+                accessibilityServiceInfo = AccessibilityServiceInfo().apply {
+                    flags = AccessibilityServiceInfo.DEFAULT or
+                            AccessibilityServiceInfo.FLAG_INCLUDE_NOT_IMPORTANT_VIEWS or
+                            AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS
+                    eventTypes = AccessibilityEvent.TYPES_ALL_MASK
+                    feedbackType = AccessibilityServiceInfo.FEEDBACK_GENERIC
+                },
+            )
         }
 
         log(TAG) { "process(): Host options adjusted" }

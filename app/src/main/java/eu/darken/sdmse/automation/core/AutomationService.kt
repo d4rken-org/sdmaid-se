@@ -11,6 +11,7 @@ import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.annotation.Keep
 import androidx.appcompat.view.ContextThemeWrapper
+import androidx.core.view.isVisible
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.automation.core.common.toStringShort
@@ -43,9 +44,11 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.sync.Mutex
@@ -57,12 +60,6 @@ import kotlin.coroutines.resume
 @Keep
 @AndroidEntryPoint
 class AutomationService : AccessibilityService(), AutomationHost, Progress.Host, Progress.Client {
-
-    private val progressPub = MutableStateFlow<Progress.Data?>(null)
-    override val progress: Flow<Progress.Data?> = progressPub
-    override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
-        progressPub.value = update(progressPub.value)
-    }
 
     @Inject lateinit var dispatcher: DispatcherProvider
     private val serviceScope: CoroutineScope by lazy { CoroutineScope(dispatcher.Default + SupervisorJob()) }
@@ -80,25 +77,13 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     private val automationEvents = MutableSharedFlow<AccessibilityEvent>()
     override val events: Flow<AccessibilityEvent> = automationEvents
 
-    private val controlView = MutableStateFlow<AutomationControlView?>(null)
-    override val state = controlView.map {
-        AutomationHost.State(hasOverlay = it != null)
-    }
+    private val hostState = MutableStateFlow(AutomationHost.State())
+    override val state = hostState
 
-    private val controlLp: WindowManager.LayoutParams = WindowManager.LayoutParams().apply {
-        type = WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY
-        format = PixelFormat.TRANSLUCENT
-        flags = flags or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-        width = WindowManager.LayoutParams.MATCH_PARENT
-        height = WindowManager.LayoutParams.MATCH_PARENT
-        gravity = Gravity.BOTTOM
-    }
-    private val currentOptions = MutableStateFlow(AutomationHost.Options())
-
-    override suspend fun changeOptions(action: (AutomationHost.Options) -> AutomationHost.Options) {
-        val newOptions = action(currentOptions.value)
-        if (Bugs.isTrace) log(TAG, VERBOSE) { "New options: $newOptions" }
-        currentOptions.value = newOptions
+    private val progressPub = MutableStateFlow<Progress.Data?>(null)
+    override val progress: Flow<Progress.Data?> = progressPub
+    override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
+        progressPub.value = update(progressPub.value)
     }
 
     private fun checkLaunch(): Boolean = if (!isValidAndroidEntryPoint()) {
@@ -109,6 +94,8 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     } else {
         true
     }
+
+    private lateinit var controlView: AutomationControlView
 
     override fun onCreate() {
         log(TAG) { "onCreate(application=$application)" }
@@ -125,98 +112,32 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             generalSettings.hasPassedAppOpsRestrictions.valueBlocking = true
         }
 
+        controlView = AutomationControlView(ContextThemeWrapper(this@AutomationService, R.style.AppTheme)).apply {
+            setCancelListener {
+                serviceScope.launch {
+                    changeOptions { it.copy(showOverlay = false) }
+                }
+                currentTaskJob?.cancel(cause = UserCancelledAutomationException())
+            }
+        }
+
         serviceScope.launch {
             delay(2000)
             automationSetupModule.refresh()
         }
 
-        combine(
-            progress,
-            currentOptions,
-            screenState.state,
-        ) { progressData, options, screenState ->
-            val acv = controlView.value
-            log(TAG, VERBOSE) {
-                "ControlView update: options=$options, screenState=$screenState, progres=$progressData, view=$acv"
+        progress
+            .onEach { pd -> withContext(dispatcher.Main) { controlView.setProgress(pd) } }
+            .launchIn(serviceScope)
+
+        screenState.state
+            .map { it.isScreenAvailable }
+            .distinctUntilChanged()
+            .onEach { available ->
+                log(TAG, INFO) { "Updating controllview isVisible=$available" }
+                withContext(dispatcher.Main) { controlView.isVisible = available }
             }
-
-            serviceInfo = options.accessibilityServiceInfo
-
-            controlLp.apply {
-                gravity = options.panelGravity
-                height = if (options.showVeil) {
-                    WindowManager.LayoutParams.MATCH_PARENT
-                } else {
-                    WindowManager.LayoutParams.WRAP_CONTENT
-                }
-            }
-
-            if (acv != null) {
-                withContext(dispatcher.Main) {
-                    windowManager.updateViewLayout(acv, controlLp)
-                    acv.apply {
-                        setTitle(options.controlPanelTitle, options.controlPanelSubtitle)
-                        showVeil(options.showVeil)
-                    }
-                }
-            }
-
-            when {
-                (progressData == null || options.hideOverlay) && acv != null -> try {
-                    log(TAG) { "Removing controlview: $acv" }
-                    val detached = CompletableDeferred<Unit>()
-                    withContext(dispatcher.Main) {
-                        acv.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
-                            override fun onViewDetachedFromWindow(v: View) {
-                                v.removeOnAttachStateChangeListener(this)
-                                log(TAG) { "controlview removed: $v" }
-                                detached.complete(Unit)
-                            }
-
-                            override fun onViewAttachedToWindow(v: View) {}
-                        })
-                        windowManager.removeView(acv)
-                    }
-                    detached.await()
-                    // Wait for SurfaceFlinger / WM to update
-                    delay(50)
-                    log(TAG) { "Updating controlview state" }
-                    controlView.value = null
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "Failed to remove controlview, not added? $acv" }
-                    controlView.value = null
-                }
-
-                !options.hideOverlay && progressData != null && acv == null -> withContext(dispatcher.Main) {
-                    log(TAG) { "Adding controlview" }
-                    val view = AutomationControlView(ContextThemeWrapper(this@AutomationService, R.style.AppTheme))
-                    log(TAG) { "Adding new controlview: $view" }
-                    view.setCancelListener {
-                        view.showVeil(false)
-                        currentTaskJob?.cancel(cause = UserCancelledAutomationException())
-                    }
-
-                    try {
-                        windowManager.addView(view, controlLp)
-                        controlView.value = view
-                    } catch (e: Exception) {
-                        log(TAG, ERROR) { "Failed to add control view to window: ${e.asLog()}" }
-                    }
-                }
-
-                acv != null -> withContext(dispatcher.Main) {
-                    if (screenState.isScreenAvailable) {
-                        log(TAG, VERBOSE) { "Updating progress $progress" }
-                        acv.setProgress(progressData)
-                    } else {
-                        log(TAG, WARN) { "NULLing control view, screen is unavailable!" }
-                        acv.setProgress(null)
-                    }
-                }
-
-                else -> {}
-            }
-        }.launchIn(serviceScope)
+            .launchIn(serviceScope)
     }
 
     override fun onInterrupt() {
@@ -254,6 +175,12 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         super.onDestroy()
     }
 
+    override suspend fun windowRoot(): AccessibilityNodeInfo? = suspendCancellableCoroutine {
+        val rootNode: AccessibilityNodeInfo? = rootInActiveWindow
+        log(TAG, VERBOSE) { "Providing windowRoot: ${rootNode?.toStringShort()}" }
+        it.resume(rootNode)
+    }
+
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
         if (!checkLaunch()) return
 
@@ -264,7 +191,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
         if (!automationProcessor.hasTask) return
 
-        log(TAG, VERBOSE) { "onAccessibilityEvent(eventType=${event.eventType})" }
+        if (Bugs.isTrace) log(TAG, VERBOSE) { "onAccessibilityEvent(eventType=${event.eventType})" }
 
         val eventCopy = if (hasApiLevel(30)) {
             @Suppress("NewApi")
@@ -281,15 +208,94 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
         // TODO use a queue here?
         serviceScope.launch {
-            if (Bugs.isDebug) log(TAG) { "Providing: $eventCopy" }
+            log(TAG, VERBOSE) { "Providing: $eventCopy" }
             automationEvents.emit(eventCopy)
         }
     }
 
-    override suspend fun windowRoot(): AccessibilityNodeInfo? = suspendCancellableCoroutine {
-        val rootNode: AccessibilityNodeInfo? = rootInActiveWindow
-        log(TAG, VERBOSE) { "Providing windowRoot: ${rootNode?.toStringShort()}" }
-        it.resume(rootNode)
+    private val controlLp: WindowManager.LayoutParams = WindowManager.LayoutParams().apply {
+        type = WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY
+        format = PixelFormat.TRANSLUCENT
+        flags = flags or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+        width = WindowManager.LayoutParams.MATCH_PARENT
+        height = WindowManager.LayoutParams.MATCH_PARENT
+        gravity = Gravity.BOTTOM
+    }
+
+    private var currentOptions: AutomationHost.Options = AutomationHost.Options()
+    private val optionsLock = Mutex()
+
+    override suspend fun changeOptions(
+        action: (AutomationHost.Options) -> AutomationHost.Options
+    ) = optionsLock.withLock {
+        val newOptions = action(currentOptions)
+        if (Bugs.isTrace) {
+            log(TAG, VERBOSE) { "changeOptions(): Old options: $currentOptions" }
+            log(TAG, VERBOSE) { "changeOptions(): New options: $newOptions" }
+        }
+
+        serviceInfo = newOptions.accessibilityServiceInfo
+
+        controlView.setTitle(newOptions.controlPanelTitle, newOptions.controlPanelSubtitle)
+
+        controlLp.apply {
+            flags = if (newOptions.passthrough) {
+                flags or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+            } else {
+                flags and WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE.inv()
+            }
+        }
+        val isControlViewAdded = controlView.windowToken != null && controlView.isAttachedToWindow
+        when {
+            newOptions.showOverlay && isControlViewAdded -> try {
+                log(TAG) { "changeOptions(): Updating controlview" }
+                withContext(dispatcher.Main) {
+                    windowManager.updateViewLayout(controlView, controlLp)
+                }
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "changeOptions(): Failed to update control view: ${e.asLog()}" }
+            }
+
+            newOptions.showOverlay && !isControlViewAdded -> try {
+                log(TAG, INFO) { "changeOptions(): Adding controlview" }
+                withContext(dispatcher.Main) {
+                    windowManager.addView(controlView, controlLp)
+                }
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "changeOptions(): Failed to add control view to window: ${e.asLog()}" }
+            }
+
+            !newOptions.showOverlay && isControlViewAdded -> try {
+                log(TAG, INFO) { "changeOptions(): Removing controlview: $controlView" }
+                val isDetached = CompletableDeferred<Unit>()
+                withContext(dispatcher.Main) {
+                    controlView.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
+                        override fun onViewDetachedFromWindow(v: View) {
+                            v.removeOnAttachStateChangeListener(this)
+                            log(TAG) { "changeOptions(): controlview removed: $v" }
+                            isDetached.complete(Unit)
+                        }
+
+                        override fun onViewAttachedToWindow(v: View) {}
+                    })
+                    windowManager.removeView(controlView)
+                }
+                isDetached.await()
+            } catch (e: Exception) {
+                log(TAG, WARN) { "changeOptions(): Failed to remove controlview, not added? $controlView" }
+            }
+        }
+
+        delay(80) // approx ~3 frames
+        log(TAG, VERBOSE) { "changeOptions(): Updating new hostState" }
+        currentOptions = newOptions
+        hostState.update {
+            it.copy(
+                passthrough = newOptions.passthrough,
+                hasOverlay = newOptions.showOverlay
+            )
+        }
+        log(TAG, VERBOSE) { "changeOptions(): New options applied." }
     }
 
     private var currentTaskJob: Job? = null

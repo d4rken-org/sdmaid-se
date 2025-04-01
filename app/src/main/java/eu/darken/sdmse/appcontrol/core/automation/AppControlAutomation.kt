@@ -90,9 +90,10 @@ class AppControlAutomation @AssistedInject constructor(
 
     override suspend fun process(task: AutomationTask): AutomationTask.Result {
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
-        host.changeOptions { old ->
-            old.copy(
-                showVeil = true,
+        host.changeOptions {
+            AutomationHost.Options(
+                controlPanelTitle = R.string.appcontrol_automation_title.toCaString(),
+                controlPanelSubtitle = R.string.appcontrol_automation_subtitle_force_stopping.toCaString(),
                 accessibilityServiceInfo = AccessibilityServiceInfo().apply {
                     flags = (
                             AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS
@@ -102,8 +103,6 @@ class AppControlAutomation @AssistedInject constructor(
                     eventTypes = AccessibilityEvent.TYPES_ALL_MASK
                     feedbackType = AccessibilityServiceInfo.FEEDBACK_GENERIC
                 },
-                controlPanelTitle = R.string.appcontrol_automation_title.toCaString(),
-                controlPanelSubtitle = R.string.appcontrol_automation_subtitle_force_stopping.toCaString(),
             )
         }
 

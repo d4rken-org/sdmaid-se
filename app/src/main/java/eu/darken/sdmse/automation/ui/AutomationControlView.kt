@@ -12,6 +12,7 @@ import androidx.core.view.isVisible
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.Progress.Count
@@ -28,7 +29,7 @@ class AutomationControlView @JvmOverloads constructor(
     private val ui = AutomationControlViewBinding.inflate(layoutInflator, this)
 
     fun setProgress(data: Progress.Data?) {
-        log(VERBOSE) { "setProgress($data)" }
+        log(TAG, VERBOSE) { "setProgress($data)" }
         isVisible = data != null
 
         if (data == null) {
@@ -84,17 +85,19 @@ class AutomationControlView @JvmOverloads constructor(
     }
 
     fun setTitle(title: CaString, subtitle: CaString) {
-        ui.title.text = title.get(context)
-        ui.subtitle.text = subtitle.get(context)
-    }
-
-    fun showVeil(show: Boolean) {
-        ui.clickScreen.isVisible = show
-        ui.clickScreenExplanation.isVisible = show
-        ui.clickScreenMascotContainer.isVisible = show
+        val t = title.get(context)
+        val s = subtitle.get(context)
+        log(TAG, VERBOSE) { "setTitle($t,$s)" }
+        ui.title.text = t
+        ui.subtitle.text = s
     }
 
     fun setCancelListener(listener: OnClickListener?) {
+        log(TAG) { "setCancelListener($listener)" }
         ui.cancelAction.setOnClickListener(listener)
+    }
+
+    companion object {
+        val TAG: String = logTag("Automation", "Service", "ControlView")
     }
 }
