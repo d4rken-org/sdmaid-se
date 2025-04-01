@@ -31,12 +31,15 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.vivo.VivoSpecs
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
+import eu.darken.sdmse.automation.core.animation.AnimationState
+import eu.darken.sdmse.automation.core.animation.AnimationTool
 import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.core.finishAutomation
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.common.OpsCounter
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -61,7 +64,9 @@ import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.withContext
 import javax.inject.Provider
 
 class ClearCacheModule @AssistedInject constructor(
@@ -74,6 +79,7 @@ class ClearCacheModule @AssistedInject constructor(
     private val userManager2: UserManager2,
     private val labelDebugger: LabelDebugger,
     private val deviceDetective: DeviceDetective,
+    private val animationTool: AnimationTool,
 ) : AutomationModule(automationHost) {
 
     private fun getPriotizedSpecGenerators(): List<AppCleanerSpecGenerator> = specGenerators
@@ -124,6 +130,49 @@ class ClearCacheModule @AssistedInject constructor(
 
         labelDebugger.logAllLabels()
 
+        var prevAnimState: AnimationState? = null
+
+        val result = try {
+            if (animationTool.canChangeState()) {
+                log(TAG) { "Changing animation state" }
+                prevAnimState = animationTool.getState()
+                animationTool.setState(AnimationState.DISABLED)
+            }
+
+            processTask(task)
+
+        } finally {
+            if (prevAnimState != null) {
+                log(TAG) { "Restoring previous animation state" }
+                withContext(NonCancellable) { animationTool.setState(prevAnimState) }
+            }
+        }
+
+        finishAutomation(
+            userCancelled = result.cancelledByUser,
+            returnToApp = task.returnToApp,
+            deviceDetective = deviceDetective,
+        )
+
+        if (result.timeoutCount != 0 && result.successful.isEmpty()) {
+            log(TAG, ERROR) { "Continued timeout errors, no successes so far, possible compatbility issue?" }
+            throw AutomationCompatibilityException()
+        }
+
+        return ClearCacheTask.Result(
+            successful = result.successful,
+            failed = result.failed
+        )
+    }
+
+    private data class ProcessedTask(
+        val successful: Collection<InstallId>,
+        val failed: Collection<InstallId>,
+        val cancelledByUser: Boolean,
+        val timeoutCount: Int,
+    )
+
+    private suspend fun processTask(task: ClearCacheTask): ProcessedTask {
         val successful = mutableSetOf<InstallId>()
         val failed = mutableSetOf<InstallId>()
 
@@ -132,6 +181,10 @@ class ClearCacheModule @AssistedInject constructor(
         var cancelledByUser = false
         val currentUserHandle = userManager2.currentUser().handle
         var timeoutCount = 0
+
+        val opsCounter = OpsCounter { opsRate, lastOps ->
+            log(TAG, VERBOSE) { "Processing performance $opsRate pkgs/s (last ${lastOps}ms)" }
+        }
 
         for (target in task.targets) {
             if (target.userHandle != currentUserHandle) {
@@ -179,22 +232,14 @@ class ClearCacheModule @AssistedInject constructor(
                 log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
                 failed.add(target)
             }
+            opsCounter.tick()
         }
 
-        finishAutomation(
-            userCancelled = cancelledByUser,
-            returnToApp = task.returnToApp,
-            deviceDetective = deviceDetective,
-        )
-
-        if (timeoutCount != 0 && successful.isEmpty()) {
-            log(TAG, ERROR) { "Continued timeout errors, no successes so far, possible compatbility issue?" }
-            throw AutomationCompatibilityException()
-        }
-
-        return ClearCacheTask.Result(
+        return ProcessedTask(
             successful = successful,
             failed = failed,
+            cancelledByUser = cancelledByUser,
+            timeoutCount = timeoutCount,
         )
     }
 
