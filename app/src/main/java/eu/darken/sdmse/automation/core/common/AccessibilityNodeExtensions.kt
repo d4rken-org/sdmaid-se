@@ -1,5 +1,6 @@
 package eu.darken.sdmse.automation.core.common
 
+import android.graphics.Rect
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.automation.core.errors.AutomationException
@@ -16,7 +17,8 @@ private val TAG: String = logTag("Automation", "Crawler", "Common")
 
 fun AccessibilityNodeInfo.toStringShort(): String {
     val identity = Integer.toHexString(System.identityHashCode(this))
-    return "text='${this.text}', className=${this.className}, isClickable=${this.isClickable}, isEnabled=${this.isEnabled}, viewIdResourceName=${this.viewIdResourceName}, pkgName=${this.packageName}, identity=$identity"
+    val bounds = Rect().apply { getBoundsInScreen(this) }
+    return "text='${this.text}', class=${this.className}, clickable=${this.isClickable}, enabled=${this.isEnabled}, id=${this.viewIdResourceName}, pkg=${this.packageName}, identity=$identity, bounds=$bounds}"
 }
 
 val AccessibilityNodeInfo.textVariants: Set<String>
@@ -70,6 +72,10 @@ fun AccessibilityNodeInfo.isClickyButton(): Boolean {
 
 fun AccessibilityNodeInfo.isTextView(): Boolean {
     return className == "android.widget.TextView"
+}
+
+fun AccessibilityNodeInfo.isRadioButton(): Boolean {
+    return className == "android.widget.RadioButton"
 }
 
 fun AccessibilityNodeInfo.children() = (0 until childCount).mapNotNull { getChild(it) }

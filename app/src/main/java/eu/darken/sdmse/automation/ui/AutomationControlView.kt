@@ -88,14 +88,10 @@ class AutomationControlView @JvmOverloads constructor(
         ui.subtitle.text = subtitle.get(context)
     }
 
-    fun showOverlay(show: Boolean) {
+    fun showVeil(show: Boolean) {
         ui.clickScreen.isVisible = show
         ui.clickScreenExplanation.isVisible = show
         ui.clickScreenMascotContainer.isVisible = show
-    }
-
-    fun setTranslucent(translucent: Boolean) {
-        ui.root.alpha = if (translucent) 0.1f else 1.0f
     }
 
     fun setCancelListener(listener: OnClickListener?) {

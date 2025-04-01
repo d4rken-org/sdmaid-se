@@ -92,7 +92,7 @@ class AppControlAutomation @AssistedInject constructor(
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
         host.changeOptions { old ->
             old.copy(
-                showOverlay = true,
+                showVeil = true,
                 accessibilityServiceInfo = AccessibilityServiceInfo().apply {
                     flags = (
                             AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS
