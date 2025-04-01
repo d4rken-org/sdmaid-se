@@ -232,6 +232,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">來自整部裝置的空白資料夾，巢狀目錄可能需要多次通過。</string>
     <string name="systemcleaner_filter_screenshots_label">截圖</string>
     <string name="systemcleaner_filter_screenshots_summary">來自多個應用程式和位置的螢幕截圖，時間早於 %s。</string>
+    <string name="systemcleaner_filter_trashed_label">垃圾檔案</string>
+    <string name="systemcleaner_filter_trashed_summary">來自各種應用程式和位置的回收桶中的檔案，這些檔案已標記為刪除，但尚未被永久移除。</string>
     <string name="systemcleaner_filter_screenshots_age_label">螢幕截圖年齡</string>
     <string name="systemcleaner_filter_screenshots_age_summary">設定螢幕截圖可考慮刪除的最小年齡。</string>
     <string name="systemcleaner_filter_superfluosapks_label">非必要的 APK 檔案</string>
@@ -389,6 +391,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">使「全部刪除」成為可能</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">顯示允許您刪除一組重複檔案中的所有檔案的選項，以便不留下任何檔案。</string>
+    <string name="deduplicator_search_locations_title">搜尋位置</string>
+    <string name="deduplicator_search_locations_all_summary">所有可存取區域</string>
     <string name="deduplicator_skip_minsize_title">最小大小</string>
     <string name="deduplicator_skip_minsize_description">跳過低於最小大小的檔案。</string>
     <string name="deduplicator_skip_uncommon_title">跳過不常用的檔案類型</string>
@@ -444,6 +448,8 @@
     <string name="appcontrol_tag_apk_bundle">組合包</string>
     <string name="appcontrol_tag_system">系統</string>
     <string name="appcontrol_tag_archived">已封存</string>
+    <string name="appcontrol_tag_uninstalled">僅資料</string>
+    <string name="appcontrol_tag_not_installed">未安裝</string>
     <string name="appcontrol_tag_enabled">已啟用</string>
     <string name="appcontrol_tag_disabled">已停用</string>
     <string name="appcontrol_progress_enabling_package">正在啟用應用程式</string>
@@ -580,6 +586,7 @@
     <string name="automation_error_not_running_body">無障礙服務未在執行，請嘗試重新啟動裝置。</string>
     <string name="automation_error_screen_unavailable_title">螢幕無法使用</string>
     <string name="automation_error_screen_unavailable_body">作業已中止，因為螢幕無法使用 (例如顯示器已關閉或處於鎖定畫面)。</string>
+    <string name="automation_error_compatibility_body">SD Maid 無法辨識螢幕佈局。如果這種情況持續發生，可能是因為您的語言或設定尚未完全支援。請檢查是否有更新，或聯絡我以便修復問題。</string>
     <string name="history_label">歷史記錄</string>
     <string name="history_description">依照時間順序列出最近的動作和受影響的資料。</string>
     <string name="scheduler_label">排程器</string>
@@ -657,4 +664,17 @@
     <string name="stats_settings_reset_all_desc">刪除所有報告並將所有統計數據歸零。</string>
     <string name="stats_affected_paths_label">受影響的路徑</string>
     <string name="stats_affected_pkgs_label">受影響的應用程式</string>
+    <string name="picker_select_paths_title">選取路徑</string>
+    <string name="picker_selected_paths_title">已選取的路徑</string>
+    <string name="picker_unsaved_confirmation_message">要放棄變更嗎？</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="other">已選取 %d 個路徑</item>
+    </plurals>
+    <string name="picker_home_action">資料區域</string>
+    <string name="area_type_sdcard_label">公共儲存空間</string>
+    <string name="area_type_public_media_label">公共應用程式媒體</string>
+    <string name="area_type_public_data_label">公共應用程式資料</string>
+    <string name="area_type_public_obb_label">公共應用程式資源</string>
+    <string name="area_type_private_data_label">私人應用程式資料</string>
+    <string name="area_type_portable_label">可攜式儲存空間</string>
 </resources>
