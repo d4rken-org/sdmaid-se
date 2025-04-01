@@ -2,7 +2,6 @@ package eu.darken.sdmse.automation.core
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
-import android.view.Gravity
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.R
@@ -26,15 +25,15 @@ interface AutomationHost : Progress.Client {
     val events: Flow<AccessibilityEvent>
 
     data class State(
-        val hasOverlay: Boolean
+        val hasOverlay: Boolean = false,
+        val passthrough: Boolean = false,
     )
 
     val state: Flow<State>
 
     data class Options(
-        val hideOverlay: Boolean = Bugs.isTrace,
-        val showVeil: Boolean = true,
-        val panelGravity: Int = Gravity.BOTTOM,
+        val showOverlay: Boolean = !Bugs.isTrace,
+        val passthrough: Boolean = false,
         val accessibilityServiceInfo: AccessibilityServiceInfo = AccessibilityServiceInfo(),
         val controlPanelTitle: CaString = R.string.automation_active_title.toCaString(),
         val controlPanelSubtitle: CaString = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
@@ -49,7 +48,7 @@ interface AutomationHost : Progress.Client {
             } catch (e: NullPointerException) {
                 "NPE"
             }
-            return "AutomationHost.Options(hideOverlay=$hideOverlay, showVeil=$showVeil, acsInfo=$acsInfo)"
+            return "AutomationHost.Options(showOverlay=$showOverlay, acsInfo=$acsInfo)"
         }
     }
 }
