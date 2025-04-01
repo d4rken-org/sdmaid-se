@@ -1,6 +1,7 @@
 package eu.darken.sdmse.automation.core
 
 import android.accessibilityservice.AccessibilityService
+import android.accessibilityservice.GestureDescription
 import android.content.Intent
 import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.common.debug.Bugs
@@ -16,8 +17,10 @@ import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import kotlin.coroutines.EmptyCoroutineContext
+import kotlin.coroutines.resume
 
 suspend fun AutomationManager.canUseAcsNow(): Boolean = useAcs.first()
 
@@ -34,6 +37,19 @@ suspend fun AutomationHost.waitForWindowRoot(delayMs: Long = 250): Accessibility
 
     return root ?: throw CancellationException("Cancelled while waiting for windowRoot")
 }
+
+suspend fun AutomationHost.dispatchGesture(gesture: GestureDescription): Boolean =
+    suspendCancellableCoroutine { cont ->
+        service.dispatchGesture(gesture, object : AccessibilityService.GestureResultCallback() {
+            override fun onCompleted(gestureDescription: GestureDescription?) {
+                cont.resume(true)
+            }
+
+            override fun onCancelled(gestureDescription: GestureDescription?) {
+                cont.resume(false)
+            }
+        }, null)
+    }
 
 suspend fun AutomationModule.finishAutomation(
     // If we aborted due to an exception and the reason is "User has cancelled", then still clean up

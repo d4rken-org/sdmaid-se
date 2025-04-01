@@ -1,6 +1,8 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.hyperos
 
+import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
+import androidx.core.content.pm.PackageInfoCompat
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -16,16 +18,19 @@ import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.defaultClick
 import eu.darken.sdmse.automation.core.common.defaultWindowIntent
+import eu.darken.sdmse.automation.core.common.gestureClick
 import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
 import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.isClickyButton
+import eu.darken.sdmse.automation.core.common.isRadioButton
 import eu.darken.sdmse.automation.core.common.isTextView
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.textEndsWithAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.waitUntilSettled
 import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
 import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
@@ -43,6 +48,7 @@ import eu.darken.sdmse.common.deviceadmin.DeviceAdminManager
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.getPackageInfo2
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
@@ -232,9 +238,17 @@ class HyperOsSpecs @Inject constructor(
                 if (node.pkgId != SETTINGS_PKG_HYPEROS) return false
                 return node.crawl().map { it.node }.any { it.idContains("id/alertTitle") }
             }
-            val entryFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isClickable || !node.isTextView()) return false
-                return node.textMatchesAny(clearCacheLabels)
+
+            val versionCode = androidContext.packageManager.getPackageInfo2(SETTINGS_PKG_HYPEROS)?.let {
+                PackageInfoCompat.getLongVersionCode(it)
+            }
+            val isWeird = versionCode?.let { it >= 40001065 } ?: false
+            log(TAG) { "$SETTINGS_PKG_HYPEROS versionCode is $versionCode, isWeird=$isWeird" }
+
+            val entryFilter = fun(node: AccessibilityNodeInfo): Boolean = when {
+                isWeird && node.isRadioButton() -> node.textMatchesAny(clearCacheLabels)
+                node.isTextView() && node.isClickable -> node.textMatchesAny(clearCacheLabels)
+                else -> false
             }
 
             val step = StepProcessor.Step(
@@ -242,8 +256,20 @@ class HyperOsSpecs @Inject constructor(
                 descriptionInternal = "Clear cache button (security center plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheLabels),
                 windowNodeTest = windowCriteria,
+                windowEventFilter = when {
+                    isWeird -> waitUntilSettled {
+                        it.eventType == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED
+                                && it.className == "android.widget.FrameLayout"
+                                && it.pkgId == SETTINGS_PKG_HYPEROS
+                    }
+
+                    else -> null
+                },
                 nodeTest = entryFilter,
-                action = defaultClick()
+                action = when {
+                    isWeird -> { node, _ -> gestureClick(node) }
+                    else -> defaultClick()
+                }
             )
             stepper.withProgress(this) { process(step) }
         }

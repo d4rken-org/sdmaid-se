@@ -25,26 +25,31 @@ interface AutomationHost : Progress.Client {
 
     val events: Flow<AccessibilityEvent>
 
+    data class State(
+        val hasOverlay: Boolean
+    )
+
+    val state: Flow<State>
+
     data class Options(
-        val showOverlay: Boolean = !Bugs.isTrace,
-        val translucent: Boolean = Bugs.isTrace,
+        val hideOverlay: Boolean = Bugs.isTrace,
+        val showVeil: Boolean = true,
         val panelGravity: Int = Gravity.BOTTOM,
         val accessibilityServiceInfo: AccessibilityServiceInfo = AccessibilityServiceInfo(),
         val controlPanelTitle: CaString = R.string.automation_active_title.toCaString(),
         val controlPanelSubtitle: CaString = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
     ) {
-        /*
-            java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.ComponentName.flattenToShortString()' on a null object reference
-            at android.accessibilityservice.AccessibilityServiceInfo.getId(AccessibilityServiceInfo.java:759)
-            at android.accessibilityservice.AccessibilityServiceInfo.toString(AccessibilityServiceInfo.java:1105)
-            at java.lang.String.valueOf(String.java:2924)
-            at java.lang.StringBuilder.append(StringBuilder.java:132)
-            at eu.darken.sdmse.automation.core.AccessibilityConfig.toString(Unknown Source:12)
-        */
-        override fun toString(): String = try {
-            super.toString()
-        } catch (e: Exception) {
-            "AutomationHost.Options(accessibilityServiceInfo=ERROR, showOverlay=$showOverlay, panelGravity=$panelGravity)"
+
+        override fun toString(): String {
+            val acsInfo = try {
+                //    java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.ComponentName.flattenToShortString()' on a null object reference
+                //    at android.accessibilityservice.AccessibilityServiceInfo.getId(AccessibilityServiceInfo.java:759)
+                //    at android.accessibilityservice.AccessibilityServiceInfo.toString(AccessibilityServiceInfo.java:1105)
+                accessibilityServiceInfo.toString()
+            } catch (e: NullPointerException) {
+                "NPE"
+            }
+            return "AutomationHost.Options(hideOverlay=$hideOverlay, showVeil=$showVeil, acsInfo=$acsInfo)"
         }
     }
 }

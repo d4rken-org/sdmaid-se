@@ -136,7 +136,7 @@ class StepProcessor @AssistedInject constructor(
 
         val targetWindowRoot: AccessibilityNodeInfo = withTimeout(4000) {
             // Wait for correct window
-            if (step.windowIntent != null && step.windowEventFilter != null) {
+            if (step.windowEventFilter != null) {
                 log(TAG) { "Waiting for window event filter to pass..." }
                 host.events.filter {
                     log(TAG, VERBOSE) { "Testing window event $it" }

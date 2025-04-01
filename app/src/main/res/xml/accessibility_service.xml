@@ -4,5 +4,6 @@
     android:accessibilityFeedbackType=""
     android:accessibilityFlags=""
     android:canRetrieveWindowContent="true"
+    android:canPerformGestures="true"
     android:description="@string/automation_accessibility_service_description"
     android:notificationTimeout="1000" />

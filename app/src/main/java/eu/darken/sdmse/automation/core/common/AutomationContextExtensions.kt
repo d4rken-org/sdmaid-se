@@ -2,11 +2,16 @@
 
 package eu.darken.sdmse.automation.core.common
 
+import android.accessibilityservice.GestureDescription
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Resources
+import android.graphics.Path
+import android.graphics.Rect
+import android.view.ViewConfiguration
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
+import eu.darken.sdmse.automation.core.dispatchGesture
 import eu.darken.sdmse.automation.core.errors.AutomationException
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
@@ -28,6 +33,10 @@ import eu.darken.sdmse.common.pkgs.getPackageInfo2
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
+import java.time.Duration
+import java.time.Instant
 import java.util.Locale
 
 private val TAG: String = logTag("Automation", "Crawler", "Common")
@@ -57,7 +66,7 @@ fun AutomationExplorer.Context.defaultClick(
     isDryRun: Boolean = false,
     onDisabled: ((AccessibilityNodeInfo) -> Boolean)? = null,
 ): suspend (AccessibilityNodeInfo, Int) -> Boolean = clickFunc@{ node: AccessibilityNodeInfo, _: Int ->
-    log(TAG, VERBOSE) { "Clicking (isDryRun=$isDryRun) on ${node.toStringShort()}" }
+    log(TAG, VERBOSE) { "defaultClick(isDryRun=$isDryRun): Clicking on ${node.toStringShort()}" }
 
     when {
         !node.isEnabled -> onDisabled?.invoke(node) ?: throw DisabledTargetException("Clickable target is disabled.")
@@ -65,6 +74,33 @@ fun AutomationExplorer.Context.defaultClick(
         node.isClickable -> node.performAction(AccessibilityNodeInfo.ACTION_CLICK)
         else -> throw UnclickableTargetException("Target is not clickable")
     }
+}
+
+suspend fun AutomationExplorer.Context.gestureClick(node: AccessibilityNodeInfo): Boolean {
+    val rect = Rect().apply { node.getBoundsInScreen(this) }
+    return gestureClick(rect.centerX(), rect.centerY())
+}
+
+suspend fun AutomationExplorer.Context.gestureClick(x: Int, y: Int): Boolean {
+    val path = Path().apply {
+        moveTo(x.toFloat(), y.toFloat())
+        lineTo(x + 1f, y + 1f)
+    }
+    val gesture = GestureDescription.Builder().apply {
+        addStroke(GestureDescription.StrokeDescription(path, 0, ViewConfiguration.getTapTimeout().toLong()))
+    }.build()
+
+    log(TAG, VERBOSE) { "gestureClick(): Waiting for overlay to hide..." }
+    host.changeOptions { it.copy(hideOverlay = true) }
+    host.state.filter { !it.hasOverlay }.first()
+
+    log(TAG) { "gestureClick(): Performing CLICK gesture at X=$x,Y=$y" }
+    val success = host.dispatchGesture(gesture)
+
+    host.changeOptions { it.copy(hideOverlay = false) }
+    host.state.filter { it.hasOverlay }.first()
+
+    return success
 }
 
 fun AutomationExplorer.Context.clickableSelfOrParent(
@@ -212,4 +248,39 @@ fun AutomationExplorer.Context.getSysLocale(): Locale {
     val locales = Resources.getSystem().configuration.locales
     log(INFO) { "getSysLocale(): $locales" }
     return locales[0]
+}
+
+fun AutomationExplorer.Context.waitUntilSettled(
+    settleDelay: Duration = Duration.ofMillis(150),
+    timeout: Duration = Duration.ofMillis(1500),
+    target: (AccessibilityEvent) -> Boolean,
+): suspend (AccessibilityEvent) -> Boolean {
+    log(TAG) { "waitUntilSettled($settleDelay,$timeout,$target)" }
+    var isSettled = false
+    val start = Instant.now()
+    var lastChange = start
+
+    return waiter@{ event ->
+        if (isSettled) {
+            log(TAG, INFO) { "waitUntilSettled(): Settled!" }
+            return@waiter true
+        }
+
+        val now = Instant.now()
+
+        if (target(event)) {
+            log(TAG, VERBOSE) { "waitUntilSettled(): Target had an event, updating lastChange=$lastChange" }
+            lastChange = now
+        }
+
+        if (Duration.between(lastChange, now) > settleDelay) {
+            log(TAG, VERBOSE) { "waitUntilSettled(): Settle delay reached!" }
+            isSettled = true
+        } else if (Duration.between(start, now) > timeout) {
+            log(TAG) { "waitUntilSettled(): Timeout :(" }
+            isSettled = true
+        }
+
+        false
+    }
 }
