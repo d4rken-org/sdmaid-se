@@ -20,10 +20,10 @@
     <string name="upgrade_screen_subscription_action_hint">המנוי עולה %s לשנה.</string>
     <string name="upgrade_screen_iap_action">רכישה חד-פעמית</string>
     <string name="upgrade_screen_iap_action_hint">רכישה חד-פעמית עולה %s.</string>
-    <string name="upgrade_screen_thanks_toast">אתם הכי טובים בעולם ❤️</string>
-    <string name="upgrade_screen_restore_purchase_action">שחזור קנייה</string>
+    <string name="upgrade_screen_thanks_toast">אתה הכי טוב! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">שחזור רכישה</string>
     <string name="upgrade_screen_restore_purchase_message">השדרוג שלך תקף בכל המכשירים המחוברים לחשבון Google זה.</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">עצות לפתרון בעיות עבור שדרוגים לא מזוהים:</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">הסנכרון של חנות Play עשוי לקחת זמן. נסה לאתחל מחדש, לנקות את המטמון של Google Play או פשוט המתן.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">הסנכרון של גוגל פליי עשוי לקחת זמן. נסה לאתחל מחדש, לנקות את המטמון של גוגל פליי או פשוט המתן.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">חשבונות מרובים יכולים לבלבל את Google Play. התנתק מחשבונות אחרים או התקן דרך אתר Google Play, מה שמאלץ שיוכים עם חשבון ספציפי.</string>
 </resources>

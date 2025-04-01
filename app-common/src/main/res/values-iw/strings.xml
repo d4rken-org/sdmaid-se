@@ -53,17 +53,18 @@
     <string name="general_progress_loading_data_areas">טעינת אזורי נתונים</string>
     <string name="general_progress_loading_egg_0">עדין מהיר יותר מאייפון</string>
     <string name="general_progress_loading_egg_1">מוריד עוד זיכרון RAM</string>
-    <string name="general_progress_loading_egg_2">בקרוב™</string>
+    <string name="general_progress_loading_egg_2">בקרוב</string>
     <string name="general_progress_loading_egg_3">המעבד בהפסקת קפה</string>
     <string name="general_progress_loading_egg_4">ממתין לנתונים מפפה סילביה</string>
     <string name="general_progress_loading_egg_5">אנבלטור טורבו מופעל</string>
     <string name="general_progress_loading_egg_6">מעבירים את החמאה</string>
     <string name="general_progress_loading_egg_7">נו. איך אתה מחזיק מעמד?</string>
+    <string name="general_progress_loading_egg_8">ביפ בוופ בופ</string>
     <string name="general_progress_loading_egg_9">טוען בחירות גורליות</string>
     <string name="general_progress_loading_egg_10">מזמן את קטהולו</string>
     <string name="general_progress_loading_egg_11">הכל בסדר</string>
-    <string name="general_progress_loading_egg_12">המתינו בבקשה</string>
-    <string name="general_progress_loading_egg_13">לפחות אתם לא על ממתינה</string>
+    <string name="general_progress_loading_egg_12">המתן בבקשה</string>
+    <string name="general_progress_loading_egg_13">לפחות אתה לא על ממתינה</string>
     <string name="general_help_action">עזרה</string>
     <string name="general_continue">המשך</string>
     <string name="general_progress_queued">בתור</string>
@@ -74,21 +75,39 @@
     <string name="general_tag_filter_label">סנן לפי תגיות</string>
     <string name="general_result_success_message">הפעולה בוצעה בהצלחה</string>
     <string name="general_result_failure_message">הפעולה נכשלה</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">שחרר שטח %s.</item>
+        <item quantity="two">שחרר שטחים %s.</item>
+        <item quantity="many">שחרר שטחים %s.</item>
+        <item quantity="other">שחרר שטחים %s.</item>
+    </plurals>
     <string name="general_options_label">הגדרות</string>
     <string name="general_details_label">פרטים</string>
     <string name="general_view_action">הצג</string>
     <string name="general_update_action">עדכן</string>
-    <string name="general_scan_action">סרוק</string>
-    <string name="general_delete_action">מחק</string>
+    <string name="general_scan_action">סריקה</string>
+    <string name="general_delete_action">הסר</string>
     <string name="general_delete_selected_action">מחק נבחרים</string>
-    <string name="general_show_details_action">הראה פרטים</string>
+    <string name="general_show_details_action">הצג פרטים</string>
     <string name="general_show_all_action">הצג הכל</string>
     <string name="general_toggle_layout_mode">שנה מצב תצוגה</string>
     <string name="general_delete_confirmation_title">אשר מחיקה</string>
     <string name="general_delete_confirmation_message_x">למחוק את \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">למחוק את %d הפריטים שנבחרו?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">פריט %d נמחק.</item>
+        <item quantity="two">נמחקו %d פריטים.</item>
+        <item quantity="many">נמחקו %d פריטים.</item>
+        <item quantity="other">נמחקו %d פריטים.</item>
+    </plurals>
     <string name="general_remove_action">הסרה</string>
     <string name="general_remove_selected_action">הסר נבחרים</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">פריט אחד הוסר</item>
+        <item quantity="two">%d פריטים הוסרו</item>
+        <item quantity="many">%d פריטים הוסרו</item>
+        <item quantity="other">%d פריטים הוסרו</item>
+    </plurals>
     <string name="general_root_required_label">מצריך גישת רוט</string>
     <string name="general_root_required_message">מצריך מכשיר עם הרשאת רוט</string>
     <string name="general_search_action">חפש</string>
@@ -99,6 +118,24 @@
         <item quantity="two">%s פריטים</item>
         <item quantity="many">%s פריטים</item>
         <item quantity="other">%s פריטים</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d הצליח</item>
+        <item quantity="two">%d מוצלחים</item>
+        <item quantity="many">%d הצליחו</item>
+        <item quantity="other">%d מוצלחים</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d נכשל</item>
+        <item quantity="two">%d נכשלו</item>
+        <item quantity="many">%d נכשלו</item>
+        <item quantity="other">%d נכשלו</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">ניתן לשחרר %s</item>
+        <item quantity="two">ניתנים לשיחרור %s</item>
+        <item quantity="many">ניתנים לשיחרור %s</item>
+        <item quantity="other">ניתנים לשיחרור %s</item>
     </plurals>
     <string name="general_info_label">מידע</string>
     <string name="general_count_label">ספירה</string>
@@ -111,8 +148,8 @@
     <string name="general_path_label">נתיב</string>
     <string name="general_type_label">סוג</string>
     <string name="general_size_label">גודל</string>
-    <string name="general_exclude_action">לא לכלול</string>
-    <string name="general_exclude_selected_action">אל תכלול את הנבחרים</string>
+    <string name="general_exclude_action">החרג</string>
+    <string name="general_exclude_selected_action">החרג נבחרים</string>
     <string name="general_device_label">מכשיר</string>
     <string name="general_settings_title">הגדרות</string>
     <string name="general_help_title">עזרה</string>
@@ -123,4 +160,24 @@
     <string name="general_progress_ready">מוכן</string>
     <string name="general_progress_done">בוצע</string>
     <string name="general_rom_type_auto_label">אוטומטי (ברירת מחדל)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d יום</item>
+        <item quantity="two">%d ימים</item>
+        <item quantity="many">%d ימים</item>
+        <item quantity="other">%d ימים</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d שעה</item>
+        <item quantity="two">%d שעות</item>
+        <item quantity="many">%d שעות</item>
+        <item quantity="other">%d שעות</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">קובץ %s</item>
+        <item quantity="two">%s קבצים</item>
+        <item quantity="many">%s קבצים</item>
+        <item quantity="other">%s קבצים</item>
+    </plurals>
+    <string name="general_advice_title">עצה</string>
+    <string name="general_error_invalid_input_label">קלט לא חוקי</string>
 </resources>
