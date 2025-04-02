@@ -40,7 +40,7 @@ class ReportBaseRowVH(parent: ViewGroup) :
                 executionState.apply {
                     setImageResource(R.drawable.ic_check_circle)
                     imageTintList = ColorStateList.valueOf(
-                        getColorForAttr(com.google.android.material.R.attr.colorPrimary)
+                        getColorForAttr(androidx.appcompat.R.attr.colorPrimary)
                     )
                 }
                 infoPrimary.text = report.primaryMessage
@@ -62,7 +62,7 @@ class ReportBaseRowVH(parent: ViewGroup) :
                 executionState.apply {
                     setImageResource(R.drawable.ic_alert_octagon_outline_24)
                     imageTintList = ColorStateList.valueOf(
-                        getColorForAttr(com.google.android.material.R.attr.colorError)
+                        getColorForAttr(androidx.appcompat.R.attr.colorError)
                     )
                 }
                 infoPrimary.setText(R.string.stats_report_status_partial_failure)

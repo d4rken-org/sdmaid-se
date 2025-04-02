@@ -52,7 +52,7 @@ class LocalPathCardAdapter @Inject constructor() :
                     if (item.pathAccess.hasAccess) R.drawable.folder_lock_open else R.drawable.folder_lock
                 )
                 imageTintList = if (item.pathAccess.hasAccess) {
-                    ColorStateList.valueOf(context.getColorForAttr(com.google.android.material.R.attr.colorPrimary))
+                    ColorStateList.valueOf(context.getColorForAttr(androidx.appcompat.R.attr.colorPrimary))
                 } else {
                     ColorStateList.valueOf(context.getColorForAttr(androidx.appcompat.R.attr.colorControlNormal))
                 }

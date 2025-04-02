@@ -27,8 +27,8 @@ class InventorySetupCardVH(parent: ViewGroup) :
             setTextColor(
                 getColorForAttr(
                     when {
-                        state.isAccessFaked -> com.google.android.material.R.attr.colorError
-                        else -> com.google.android.material.R.attr.colorPrimary
+                        state.isAccessFaked -> androidx.appcompat.R.attr.colorError
+                        else -> androidx.appcompat.R.attr.colorPrimary
                     }
                 )
             )
@@ -40,12 +40,12 @@ class InventorySetupCardVH(parent: ViewGroup) :
             when {
                 state.isAccessFaked -> setLeftIcon(
                     R.drawable.ic_error_onsurface,
-                    com.google.android.material.R.attr.colorError
+                    androidx.appcompat.R.attr.colorError
                 )
 
                 else -> setLeftIcon(
                     R.drawable.ic_check_circle,
-                    com.google.android.material.R.attr.colorPrimary
+                    androidx.appcompat.R.attr.colorPrimary
                 )
             }
 
