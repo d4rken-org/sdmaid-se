@@ -239,15 +239,23 @@ class HyperOsSpecs @Inject constructor(
                 return node.crawl().map { it.node }.any { it.idContains("id/alertTitle") }
             }
 
-            val versionCode = androidContext.packageManager.getPackageInfo2(SETTINGS_PKG_HYPEROS)?.let {
-                PackageInfoCompat.getLongVersionCode(it)
-            }
-            val isWeird = versionCode?.let { it >= 40001065 } ?: false
-            log(TAG) { "$SETTINGS_PKG_HYPEROS versionCode is $versionCode, isWeird=$isWeird" }
+            val settingsPkgInfo = androidContext.packageManager.getPackageInfo2(SETTINGS_PKG_HYPEROS)
+            val versionCode = settingsPkgInfo?.let { PackageInfoCompat.getLongVersionCode(it) }
+            val versionName = settingsPkgInfo?.versionName
+            var needsClickGesture = false
 
             val entryFilter = fun(node: AccessibilityNodeInfo): Boolean = when {
-                isWeird && node.isRadioButton() -> node.textMatchesAny(clearCacheLabels)
-                node.isTextView() && node.isClickable -> node.textMatchesAny(clearCacheLabels)
+                node.isRadioButton() && node.isCheckable && node.textMatchesAny(clearCacheLabels) -> {
+                    needsClickGesture = true
+                    log(TAG) { "ClickGesture is required! Version is $versionName ($versionCode)" }
+                    true
+                }
+
+                node.isTextView() && node.isClickable && node.textMatchesAny(clearCacheLabels) -> {
+                    log(TAG) { "ClickGesture NOT required! Version is $versionName ($versionCode)" }
+                    true
+                }
+
                 else -> false
             }
 
@@ -256,19 +264,17 @@ class HyperOsSpecs @Inject constructor(
                 descriptionInternal = "Clear cache button (security center plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheLabels),
                 windowNodeTest = windowCriteria,
-                windowEventFilter = when {
-                    isWeird -> waitUntilSettled {
-                        it.eventType == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED
-                                && it.className == "android.widget.FrameLayout"
-                                && it.pkgId == SETTINGS_PKG_HYPEROS
-                    }
-
-                    else -> null
+                windowEventFilter = waitUntilSettled {
+                    it.eventType == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED
+                            && it.className == "android.widget.FrameLayout"
+                            && it.pkgId == SETTINGS_PKG_HYPEROS
                 },
                 nodeTest = entryFilter,
-                action = when {
-                    isWeird -> { node, _ -> gestureClick(node) }
-                    else -> defaultClick()
+                action = { node, attempt ->
+                    when {
+                        needsClickGesture -> gestureClick(node)
+                        else -> defaultClick().invoke(node, attempt)
+                    }
                 }
             )
             stepper.withProgress(this) { process(step) }

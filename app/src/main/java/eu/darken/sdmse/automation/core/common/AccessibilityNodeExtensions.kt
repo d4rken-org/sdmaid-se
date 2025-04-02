@@ -18,7 +18,7 @@ private val TAG: String = logTag("Automation", "Crawler", "Common")
 fun AccessibilityNodeInfo.toStringShort(): String {
     val identity = Integer.toHexString(System.identityHashCode(this))
     val bounds = Rect().apply { getBoundsInScreen(this) }
-    return "text='${this.text}', class=${this.className}, clickable=${this.isClickable}, enabled=${this.isEnabled}, id=${this.viewIdResourceName}, pkg=${this.packageName}, identity=$identity, bounds=$bounds}"
+    return "text='${this.text}', class=${this.className}, clickable=$isClickable, checkable=$isCheckable enabled=$isEnabled, id=$viewIdResourceName} pkg=$packageName, identity=$identity, bounds=$bounds}"
 }
 
 val AccessibilityNodeInfo.textVariants: Set<String>
