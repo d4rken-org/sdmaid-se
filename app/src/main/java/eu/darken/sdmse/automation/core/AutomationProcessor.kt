@@ -50,11 +50,11 @@ class AutomationProcessor @AssistedInject constructor(
         } finally {
             log(TAG, VERBOSE) { "process(): Canceling module scope..." }
             moduleScope.cancel()
+            hasTask = false
         }
 
         log(TAG) { "process(): Result is $result" }
 
-        hasTask = false
         result
     }
 
