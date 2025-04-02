@@ -1,7 +1,6 @@
 package eu.darken.sdmse.automation.ui
 
 import android.content.Context
-import android.graphics.Color
 import android.util.AttributeSet
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
@@ -13,7 +12,6 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.Progress.Count
 import eu.darken.sdmse.common.ui.layoutInflator
@@ -57,21 +55,18 @@ class AutomationControlView @JvmOverloads constructor(
             when (data.count) {
                 is Count.Counter -> {
                     isIndeterminate = false
-                    trackColor = context.getColorForAttr(com.google.android.material.R.attr.colorPrimaryContainer)
                     progress = data.count.current.toInt()
                     max = data.count.max.toInt()
                 }
 
                 is Count.Percent -> {
                     isIndeterminate = false
-                    trackColor = context.getColorForAttr(com.google.android.material.R.attr.colorPrimaryContainer)
                     progress = data.count.current.toInt()
                     max = data.count.max.toInt()
                 }
 
                 is Count.Indeterminate -> {
                     isIndeterminate = true
-                    trackColor = Color.TRANSPARENT
                 }
 
                 is Count.Size -> {}

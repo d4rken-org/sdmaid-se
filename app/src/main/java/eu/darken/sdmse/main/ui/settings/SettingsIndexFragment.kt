@@ -43,7 +43,7 @@ class SettingsIndexFragment : PreferenceFragment2() {
             sponsorPref.isVisible = BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.FOSS && !state.isPro
             setupPref.tintIcon(
                 requireContext().getColorForAttr(
-                    if (state.setupDone) com.google.android.material.R.attr.colorControlNormal
+                    if (state.setupDone) androidx.appcompat.R.attr.colorControlNormal
                     else com.google.android.material.R.attr.colorTertiary
                 )
             )

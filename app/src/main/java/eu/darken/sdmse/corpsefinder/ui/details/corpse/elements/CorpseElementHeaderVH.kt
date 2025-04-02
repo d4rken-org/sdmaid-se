@@ -53,7 +53,7 @@ class CorpseElementHeaderVH(parent: ViewGroup) :
         when (corpse.riskLevel) {
             RiskLevel.NORMAL -> hintsValue.apply {
                 text = ""
-                setTextColor(getColorForAttr(com.google.android.material.R.attr.colorPrimary))
+                setTextColor(getColorForAttr(androidx.appcompat.R.attr.colorPrimary))
             }
 
             RiskLevel.KEEPER -> hintsValue.apply {

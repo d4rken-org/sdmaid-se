@@ -44,7 +44,7 @@ class StatsDashCardVH(parent: ViewGroup) :
             val startFreed = wholeText.indexOf(space)
             val endFreed = startFreed + space.length
             setSpan(
-                ForegroundColorSpan(getColorForAttr(com.google.android.material.R.attr.colorPrimary)),
+                ForegroundColorSpan(getColorForAttr(androidx.appcompat.R.attr.colorPrimary)),
                 startFreed,
                 endFreed,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
@@ -52,7 +52,7 @@ class StatsDashCardVH(parent: ViewGroup) :
             val startProcessed = wholeText.indexOf(processedFormatted)
             val endProcessed = startProcessed + processed.length
             setSpan(
-                ForegroundColorSpan(getColorForAttr(com.google.android.material.R.attr.colorPrimary)),
+                ForegroundColorSpan(getColorForAttr(androidx.appcompat.R.attr.colorPrimary)),
                 startProcessed,
                 endProcessed,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
