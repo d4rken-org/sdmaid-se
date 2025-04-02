@@ -4,17 +4,17 @@ runs:
   using: "composite"
   steps:
     - name: Set up JDK 17
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@3a4f6e1af504cf6a31855fa899c6aa5355ba6c12 #v4.7.0
       with:
         java-version: '17'
-        distribution: 'adopt'
+        distribution: 'temurin'
 
     - name: Grant execute permission for gradlew
       shell: bash
       run: chmod +x gradlew
 
     - name: Cache Gradle Wrapper
-      uses: actions/cache@v3
+      uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 #v4.2.3
       with:
         path: |
           ~/.gradle/wrapper
@@ -24,7 +24,7 @@ runs:
           ${{ runner.os }}-gradle-wrapper-
 
     - name: Cache Gradle Dependencies
-      uses: actions/cache@v3
+      uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 #v4.2.3
       with:
         path: |
           ~/.gradle/caches
@@ -33,7 +33,7 @@ runs:
           ${{ runner.os }}-gradle-caches-
 
     - name: Cache Android Global Build-Cache
-      uses: actions/cache@v3
+      uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 #v4.2.3
       with:
         path: |
           ~/.android/build-cache
