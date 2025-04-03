@@ -5,6 +5,7 @@ import android.content.Context
 import android.text.format.Formatter
 import android.view.accessibility.AccessibilityNodeInfo
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.automation.core.common.Stepper.StepContext
 import eu.darken.sdmse.automation.core.common.findParentOrNull
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.isTextView
@@ -117,7 +118,7 @@ class OnTheFlyLabler @Inject constructor(
     fun getAOSPStorageFilter(
         labels: Collection<String>,
         pkg: Installed,
-    ): suspend (AccessibilityNodeInfo) -> Boolean {
+    ): suspend StepContext.(AccessibilityNodeInfo) -> Boolean {
         var storageMatcher: ((AccessibilityNodeInfo) -> Boolean)? = null
 
         val matchStorage: suspend ((AccessibilityNodeInfo) -> Boolean) = {

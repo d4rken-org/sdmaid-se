@@ -51,6 +51,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.funnel.IPCFunnel
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -182,11 +183,15 @@ class ClearCacheModule @AssistedInject constructor(
         val currentUserHandle = userManager2.currentUser().handle
         var timeoutCount = 0
 
+        var lastTarget: Pkg.Id? = null
         val opsCounter = OpsCounter { opsRate, lastOps ->
-            log(TAG, VERBOSE) { "Processing performance $opsRate pkgs/s (last ${lastOps}ms)" }
+            log(TAG, if (lastOps > 3000) WARN else VERBOSE) {
+                "Processing performance $opsRate pkgs/s (${lastOps}ms for $lastTarget)"
+            }
         }
 
         for (target in task.targets) {
+            lastTarget = target.pkgId
             if (target.userHandle != currentUserHandle) {
                 throw UnsupportedOperationException("ACS based deletion is not support for other users ($target)")
             }

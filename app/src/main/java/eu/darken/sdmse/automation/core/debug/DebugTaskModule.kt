@@ -39,7 +39,8 @@ class DebugTaskModule @AssistedInject constructor(
         updateProgressSecondary("Setting host options...")
         host.changeOptions {
             AutomationHost.Options(
-                controlPanelSubtitle = caString { "Debug module is active" },
+                showOverlay = false,
+                controlPanelTitle = caString { "Debug module is active" },
                 accessibilityServiceInfo = AccessibilityServiceInfo().apply {
                     flags = AccessibilityServiceInfo.DEFAULT or
                             AccessibilityServiceInfo.FLAG_INCLUDE_NOT_IMPORTANT_VIEWS or

@@ -1,5 +1,8 @@
 package eu.darken.sdmse.common.debug
 
+import android.content.Context
+import android.content.Intent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.debug.DebugTask
 import eu.darken.sdmse.common.adb.AdbSettings
@@ -9,13 +12,13 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.navigation.navVia
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.current
+import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.common.root.service.RootServiceClient
@@ -34,10 +37,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
 import java.util.UUID
 import javax.inject.Inject
-import kotlin.system.measureTimeMillis
 
 class DebugCardProvider @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
+    @ApplicationContext private val context: Context,
     private val debugSettings: DebugSettings,
     private val rootSettings: RootSettings,
     private val rootManager: RootManager,
@@ -147,13 +150,17 @@ class DebugCardProvider @Inject constructor(
             },
             onRunTest = {
                 vm.launch {
-                    gatewaySwitch.useRes {
-                        measureTimeMillis {
-
-                        }.also {
-                            log(TAG, INFO) { "Deletion took $it" }
+                    pkgRepo.current()
+                        .filter { it.applicationInfo?.sourceDir?.contains("apex") == true }
+                        .map { pkg ->
+                            pkg.getSettingsIntent(context).apply {
+                                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            }
                         }
-                    }
+                        .forEach {
+                            context.startActivity(it)
+                        }
+
                 }
             },
             onAcsDebug = {

@@ -4,5 +4,5 @@ import eu.darken.sdmse.common.debug.Bugs
 
 object FlowShellDebug {
     var isDebug: Boolean = Bugs.isTrace
-    var tag = "SDMSE:FS"
+    internal var tag = "SDMSE:FS"
 }
