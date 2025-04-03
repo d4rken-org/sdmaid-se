@@ -51,31 +51,6 @@ fun SpecGenerator.windowLauncherDefaultSettings(
     host.service.startActivity(intent)
 }
 
-fun SpecGenerator.clickableSelfOrParent(
-    maxNesting: Int = 6
-): suspend StepContext.(AccessibilityNodeInfo) -> AccessibilityNodeInfo = { us ->
-    if (us.isClickable) {
-        us
-    } else {
-        us.findParentOrNull(maxNesting = maxNesting) {
-            it.isClickable
-        } ?: throw AutomationException("No clickable self or parent found (within $maxNesting)")
-    }
-}
-
-fun SpecGenerator.clickableParent(
-    maxNesting: Int = 6
-): suspend StepContext.(AccessibilityNodeInfo) -> AccessibilityNodeInfo = { us ->
-    us.findParentOrNull(maxNesting = maxNesting) {
-        log(tag, VERBOSE) { "isClickable? ${it.toStringShort()}" }
-        it.isClickable
-    } ?: throw AutomationException("No clickable parent found (within $maxNesting)")
-}
-
-fun SpecGenerator.clickableSibling(): (AccessibilityNodeInfo) -> AccessibilityNodeInfo = { us ->
-    us.searchUp(maxNesting = 2) { it.isClickable }
-}
-
 fun SpecGenerator.windowCheck(
     condition: suspend StepContext.(event: AccessibilityEvent?, root: AccessibilityNodeInfo) -> Boolean,
 ): suspend StepContext.() -> AccessibilityNodeInfo = {
@@ -145,30 +120,6 @@ suspend fun SpecGenerator.checkAppIdentifier(
 
     root.crawl().map { it.node }.any { toTest ->
         candidates.any { candidate -> toTest.text == candidate || toTest.text?.contains(candidate) == true }
-    }
-}
-
-fun SpecGenerator.getDefaultNodeRecovery(
-    pkg: Installed
-): suspend StepContext.(AccessibilityNodeInfo) -> Boolean = { root ->
-    val busyNode = root.crawl().firstOrNull { it.node.textMatchesAny(listOf("...", "…")) }
-    if (busyNode != null) {
-        log(tag, VERBOSE) { "Found a busy-node, attempting recovery via delay: $busyNode" }
-        delay(1000)
-        root.refresh()
-        true
-    } else {
-        var scrolled = false
-        root.crawl()
-            .filter { it.node.isScrollable }
-            .forEach {
-                val success = it.node.scrollNode()
-                if (success) {
-                    scrolled = true
-                    it.node.refresh()
-                }
-            }
-        scrolled
     }
 }
 
@@ -250,5 +201,54 @@ fun SpecGenerator.getAospClearCacheClick(
                 true
             }
         }
+    }
+}
+
+fun SpecGenerator.clickableSelfOrParent(
+    maxNesting: Int = 6
+): suspend StepContext.(AccessibilityNodeInfo) -> AccessibilityNodeInfo = { us ->
+    if (us.isClickable) {
+        us
+    } else {
+        us.findParentOrNull(maxNesting = maxNesting) {
+            it.isClickable
+        } ?: throw AutomationException("No clickable self or parent found (within $maxNesting)")
+    }
+}
+
+fun SpecGenerator.clickableParent(
+    maxNesting: Int = 6
+): suspend StepContext.(AccessibilityNodeInfo) -> AccessibilityNodeInfo = { us ->
+    us.findParentOrNull(maxNesting = maxNesting) {
+        log(tag, VERBOSE) { "isClickable? ${it.toStringShort()}" }
+        it.isClickable
+    } ?: throw AutomationException("No clickable parent found (within $maxNesting)")
+}
+
+fun SpecGenerator.clickableSibling(): (AccessibilityNodeInfo) -> AccessibilityNodeInfo = { us ->
+    us.searchUp(maxNesting = 2) { it.isClickable }
+}
+
+fun SpecGenerator.getDefaultNodeRecovery(
+    pkg: Installed
+): suspend StepContext.(AccessibilityNodeInfo) -> Boolean = { root ->
+    val busyNode = root.crawl().firstOrNull { it.node.textMatchesAny(listOf("...", "…")) }
+    if (busyNode != null) {
+        log(tag, VERBOSE) { "Found a busy-node, attempting recovery via delay: $busyNode" }
+        delay(1000)
+        root.refresh()
+        true
+    } else {
+        var scrolled = false
+        root.crawl()
+            .filter { it.node.isScrollable }
+            .forEach {
+                val success = it.node.scrollNode()
+                if (success) {
+                    scrolled = true
+                    it.node.refresh()
+                }
+            }
+        scrolled
     }
 }
