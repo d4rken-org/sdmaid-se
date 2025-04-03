@@ -104,15 +104,15 @@ class RealmeSpecs @Inject constructor(
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             var isUnclickableButton = false
-            val buttonFilter = when {
-                hasApiLevel(35) -> fun(node: AccessibilityNodeInfo): Boolean {
-                    if (!node.textMatchesAny(clearCacheButtonLabels)) return false
+            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = when {
+                hasApiLevel(35) -> filter@{ node ->
+                    if (!node.textMatchesAny(clearCacheButtonLabels)) return@filter false
                     isUnclickableButton = !node.isClickyButton()
-                    return true
+                    true
                 }
 
-                else -> fun(node: AccessibilityNodeInfo): Boolean {
-                    return node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
+                else -> { node ->
+                    node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
                 }
             }
 
@@ -128,7 +128,7 @@ class RealmeSpecs @Inject constructor(
                         // Function that is evaluated later, has access to vars in this scope
                         { node ->
                             when {
-                                isUnclickableButton -> clickableParent().invoke(node)
+                                isUnclickableButton -> clickableParent().invoke(this, node)
                                 else -> node
                             }
                         }

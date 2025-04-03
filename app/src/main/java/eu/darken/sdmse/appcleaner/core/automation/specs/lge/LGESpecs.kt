@@ -97,9 +97,9 @@ class LGESpecs @Inject constructor(
         run {
             val clearCacheButtonLabels = lgeLabels.getClearCacheDynamic() + lgeLabels.getClearCacheLabels(lang, script)
 
-            val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isClickyButton()) return false
-                return node.textMatchesAny(clearCacheButtonLabels)
+            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
+                if (!node.isClickyButton()) false
+                else node.textMatchesAny(clearCacheButtonLabels)
             }
 
             val step = Stepper.Step(

@@ -83,11 +83,11 @@ class FlymeSpecs @Inject constructor(
                 throw UnsupportedOperationException("This system language is not supported")
             }
 
-            val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isClickable) return false
+            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = filter@{ node ->
+                if (!node.isClickable) return@filter false
                 // viewIdResName: com.android.settings:id/right_text
-                if (!node.idContains("right_text")) return false
-                return node.textMatchesAny(clearCacheButtonLabels)
+                if (!node.idContains("right_text")) return@filter false
+                node.textMatchesAny(clearCacheButtonLabels)
             }
 
             val step = Stepper.Step(

@@ -120,26 +120,26 @@ class ColorOSSpecs @Inject constructor(
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             var isUnclickableButton = false
-            val buttonFilter = when {
+            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = when {
                 //------------12: text='null', className=android.widget.FrameLayout, isClickable=false, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings, identity=ebb882b
                 //-------------13: text='null', className=android.widget.LinearLayout, isClickable=false, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings, identity=7f41bda
                 //--------------14: text='null', className=android.widget.RelativeLayout, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/content_rl, pkgName=com.android.settings, identity=808780b
                 //---------------15: text='Clear cache', className=android.widget.Button, isClickable=false, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings, identity=3b0a6e8
-                hasApiLevel(35) -> fun(node: AccessibilityNodeInfo): Boolean {
-                    if (!node.textMatchesAny(clearCacheButtonLabels)) return false
+                hasApiLevel(35) -> filter@{ node ->
+                    if (!node.textMatchesAny(clearCacheButtonLabels)) return@filter false
                     isUnclickableButton = !node.isClickyButton()
-                    return true
+                    true
                 }
 
                 // 16: className=android.widget.Button, text=Clear Cache, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings
-                else -> fun(node: AccessibilityNodeInfo): Boolean {
-                    return node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
+                else -> { node ->
+                    node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
                 }
             }
 
             val windowCheck = windowCheck { _, root ->
                 if (root.pkgId != SETTINGS_PKG) return@windowCheck false
-                if (checkAppIdentifier(ipcFunnel, pkg, root)) return@windowCheck true
+                if (checkAppIdentifier(ipcFunnel, pkg)(root)) return@windowCheck true
 
                 // https://github.com/d4rken/sdmaid-public/issues/4939
                 val hasClearCacheButton = root.crawl().map { it.node }.any { toTest ->
@@ -161,7 +161,7 @@ class ColorOSSpecs @Inject constructor(
                         // Function that is evaluated later, has access to vars in this scope
                         { node ->
                             when {
-                                isUnclickableButton -> clickableParent().invoke(node)
+                                isUnclickableButton -> clickableParent().invoke(this, node)
                                 else -> node
                             }
                         }
