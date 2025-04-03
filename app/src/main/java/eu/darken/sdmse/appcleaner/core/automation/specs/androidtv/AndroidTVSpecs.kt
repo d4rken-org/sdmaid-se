@@ -11,19 +11,19 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
-import eu.darken.sdmse.automation.core.common.StepProcessor
+import eu.darken.sdmse.automation.core.common.Stepper
 import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.defaultClick
-import eu.darken.sdmse.automation.core.common.defaultWindowFilter
-import eu.darken.sdmse.automation.core.common.defaultWindowIntent
 import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.scrollNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
+import eu.darken.sdmse.automation.core.common.windowCheck
+import eu.darken.sdmse.automation.core.common.windowCheckDefaultSettings
+import eu.darken.sdmse.automation.core.common.windowLauncherDefaultSettings
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.ca.toCaString
@@ -49,6 +49,7 @@ open class AndroidTVSpecs @Inject constructor(
     private val deviceDetective: DeviceDetective,
     private val androidTVLabels: AndroidTVLabels,
     private val generalSettings: GeneralSettings,
+    private val stepper: Stepper,
 ) : AppCleanerSpecGenerator {
 
     override val tag: String = TAG
@@ -68,7 +69,7 @@ open class AndroidTVSpecs @Inject constructor(
         }
     }
 
-    private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = { pkg ->
+    private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
         val locale = getSysLocale()
@@ -91,28 +92,27 @@ open class AndroidTVSpecs @Inject constructor(
                 return node.textMatchesAny(clearCacheButtonLabels)
             }
 
-            val step = StepProcessor.Step(
+            val step = Stepper.Step(
                 source = TAG,
                 descriptionInternal = "Clear cache button",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
-                windowIntent = defaultWindowIntent(pkg),
-                windowEventFilter = defaultWindowFilter(SETTINGS_PKG),
-                windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
+                windowLaunch = windowLauncherDefaultSettings(pkg),
+                windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeTest = buttonFilter,
                 nodeRecovery = { it.scrollNode() },
                 nodeMapping = clickableParent(),
                 action = getAospClearCacheClick(pkg, TAG)
             )
-            stepper.withProgress(this) { process(step) }
+            stepper.withProgress(this) { process(this@plan, step) }
         }
 
         run {
             val clearCacheTexts = androidTVLabels.getClearCacheLabels(lang, script)
             log(TAG) { "clearCacheTexts=$clearCacheTexts" }
 
-            val windowCriteria = fun(node: AccessibilityNodeInfo): Boolean {
-                if (node.pkgId != SETTINGS_PKG) return false
-                return node.crawl().map { it.node }.any { subNode ->
+            val windowCheck = windowCheck { event, root ->
+                if (root.pkgId != SETTINGS_PKG) return@windowCheck false
+                root.crawl().map { it.node }.any { subNode ->
                     when {
                         subNode.idMatches("com.android.tv.settings:id/guidance_title") -> when {
                             subNode.textMatchesAny(clearCacheTexts) -> true
@@ -139,16 +139,16 @@ open class AndroidTVSpecs @Inject constructor(
                 }
             }
 
-            val step = StepProcessor.Step(
+            val step = Stepper.Step(
                 source = TAG,
                 descriptionInternal = "Confirm action",
                 label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(buttonLabels),
-                windowNodeTest = windowCriteria,
+                windowCheck = windowCheck,
                 nodeTest = buttonFilter,
                 nodeMapping = clickableParent(),
                 action = defaultClick()
             )
-            stepper.withProgress(this) { process(step) }
+            stepper.withProgress(this) { process(this@plan, step) }
         }
     }
 

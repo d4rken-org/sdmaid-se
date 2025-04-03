@@ -1,6 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.hyperos
 
-import android.view.accessibility.AccessibilityEvent
+import android.graphics.Rect
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.core.content.pm.PackageInfoCompat
 import dagger.Binds
@@ -13,11 +13,12 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
-import eu.darken.sdmse.automation.core.common.StepProcessor
+import eu.darken.sdmse.automation.core.common.Stepper
+import eu.darken.sdmse.automation.core.common.Stepper.Context
+import eu.darken.sdmse.automation.core.common.checkAppIdentifier
 import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.defaultClick
-import eu.darken.sdmse.automation.core.common.defaultWindowIntent
 import eu.darken.sdmse.automation.core.common.gestureClick
 import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
 import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
@@ -30,11 +31,13 @@ import eu.darken.sdmse.automation.core.common.isTextView
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.textEndsWithAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.common.waitUntilSettled
-import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
+import eu.darken.sdmse.automation.core.common.windowCheck
+import eu.darken.sdmse.automation.core.common.windowCheckDefaultSettings
+import eu.darken.sdmse.automation.core.common.windowLauncherDefaultSettings
 import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
@@ -52,6 +55,12 @@ import eu.darken.sdmse.common.pkgs.getPackageInfo2
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import javax.inject.Inject
 
 
@@ -64,6 +73,7 @@ class HyperOsSpecs @Inject constructor(
     private val deviceAdminManager: DeviceAdminManager,
     private val onTheFlyLabler: OnTheFlyLabler,
     private val generalSettings: GeneralSettings,
+    private val stepper: Stepper,
 ) : AppCleanerSpecGenerator {
 
     override val tag: String = TAG
@@ -83,40 +93,42 @@ class HyperOsSpecs @Inject constructor(
         }
     }
 
-    private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = { pkg ->
+    private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
         var windowPkg: Pkg.Id? = null
 
-        val step = StepProcessor.Step(
+        val step = Stepper.Step(
             source = TAG,
             descriptionInternal = "Storage entry (main plan)",
             label = R.string.appcleaner_automation_progress_find_storage.toCaString(""),
-            windowIntent = defaultWindowIntent(pkg),
-            windowEventFilter = { event ->
-                // Some MIUI14 devices send the change event for the system settings app
-                event.pkgId == SETTINGS_PKG_HYPEROS || event.pkgId == SETTINGS_PKG_AOSP
-            },
-            windowNodeTest = {
-                when {
-                    windowCriteriaAppIdentifier(SETTINGS_PKG_HYPEROS, ipcFunnel, pkg)(it) -> {
-                        windowPkg = SETTINGS_PKG_HYPEROS
-                        true
-                    }
+            windowLaunch = windowLauncherDefaultSettings(pkg),
+            windowCheck = {
+                // Wait for correct base window
+                host.events
+                    .filter { event -> event.pkgId == SETTINGS_PKG_HYPEROS || event.pkgId == SETTINGS_PKG_AOSP }
+                    .mapNotNull { host.windowRoot() }
+                    .first { root ->
+                        when {
+                            root.pkgId == SETTINGS_PKG_HYPEROS && checkAppIdentifier(ipcFunnel, pkg, root) -> {
+                                windowPkg = SETTINGS_PKG_HYPEROS
+                                true
+                            }
 
-                    windowCriteriaAppIdentifier(SETTINGS_PKG_AOSP, ipcFunnel, pkg)(it) -> {
-                        windowPkg = SETTINGS_PKG_AOSP
-                        true
-                    }
+                            root.pkgId == SETTINGS_PKG_AOSP && checkAppIdentifier(ipcFunnel, pkg, root) -> {
+                                windowPkg = SETTINGS_PKG_AOSP
+                                true
+                            }
 
-                    else -> {
-                        log(TAG) { "Unknown window: ${it.pkgId}" }
-                        false
+                            else -> {
+                                log(TAG) { "Unknown window: ${root.pkgId}" }
+                                false
+                            }
+                        }
                     }
-                }
             },
         )
-        stepper.withProgress(this) { process(step) }
+        stepper.withProgress(this) { process(this@plan, step) }
 
         log(TAG) { "Launched window pkg was $windowPkg" }
         when (windowPkg) {
@@ -126,7 +138,7 @@ class HyperOsSpecs @Inject constructor(
         }
     }
 
-    private val settingsPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = { pkg ->
+    private val settingsPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing AOSP settings plan for ${pkg.installId} with context $this" }
 
         val locale = getSysLocale()
@@ -139,7 +151,7 @@ class HyperOsSpecs @Inject constructor(
 
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
-            val step = StepProcessor.Step(
+            val step = Stepper.Step(
                 source = TAG,
                 descriptionInternal = "Storage entry (settings plan)",
                 label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
@@ -148,7 +160,7 @@ class HyperOsSpecs @Inject constructor(
                 nodeMapping = clickableParent(),
                 action = defaultClick()
             )
-            stepper.withProgress(this) { process(step) }
+            stepper.withProgress(this) { process(this@plan, step) }
         }
 
         run {
@@ -160,18 +172,18 @@ class HyperOsSpecs @Inject constructor(
                 return node.textMatchesAny(clearCacheButtonLabels)
             }
 
-            val step = StepProcessor.Step(
+            val step = Stepper.Step(
                 source = TAG,
                 descriptionInternal = "Clear cache (settings plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 nodeTest = buttonFilter,
                 action = getAospClearCacheClick(pkg, tag)
             )
-            stepper.withProgress(this) { process(step) }
+            stepper.withProgress(this) { process(this@plan, step) }
         }
     }
 
-    private val securityCenterPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = { pkg ->
+    private val securityCenterPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing MIUI security center plan for ${pkg.installId} with context $this" }
 
         val locale = getSysLocale()
@@ -202,30 +214,30 @@ class HyperOsSpecs @Inject constructor(
                 }
                 return@filter false
             }
-            val step = StepProcessor.Step(
+            val step = Stepper.Step(
                 source = TAG,
                 descriptionInternal = "Clear data button (security center plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_data.toCaString(clearDataLabels),
-                windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG_HYPEROS, ipcFunnel, pkg),
+                windowCheck = windowCheckDefaultSettings(SETTINGS_PKG_HYPEROS, ipcFunnel, pkg),
                 nodeTest = clearDataFilter,
                 nodeRecovery = getDefaultNodeRecovery(pkg),
                 nodeMapping = clickableParent(),
                 action = defaultClick()
             )
-            stepper.withProgress(this) { process(step) }
+            stepper.withProgress(this) { process(this@plan, step) }
         }
 
         if (useAlternativeStep) {
-            val alternativeStep: StepProcessor.Step = StepProcessor.Step(
+            val alternativeStep: Stepper.Step = Stepper.Step(
                 source = TAG,
                 descriptionInternal = "Clear cache button (alternative security center plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheLabels),
-                windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG_HYPEROS, ipcFunnel, pkg),
+                windowCheck = windowCheckDefaultSettings(SETTINGS_PKG_HYPEROS, ipcFunnel, pkg),
                 nodeTest = { it.isTextView() && it.textMatchesAny(clearCacheLabels) },
                 nodeMapping = clickableParent(),
                 action = defaultClick()
             )
-            stepper.withProgress(this) { process(alternativeStep) }
+            stepper.withProgress(this) { process(this@plan, alternativeStep) }
         } else {
             // This may be skipped when MIUI just shows a 'Clear cache' option
 
@@ -234,9 +246,26 @@ class HyperOsSpecs @Inject constructor(
             // -> Clear cache
             // -> Cancel
 
-            val windowCriteria = fun(node: AccessibilityNodeInfo): Boolean {
-                if (node.pkgId != SETTINGS_PKG_HYPEROS) return false
-                return node.crawl().map { it.node }.any { it.idContains("id/alertTitle") }
+            val windowCheck: suspend Context.() -> AccessibilityNodeInfo = {
+                // Wait till the dialog is shown
+                host.events.first { event ->
+                    val root = host.windowRoot() ?: return@first false
+                    if (root.pkgId != SETTINGS_PKG_HYPEROS) return@first false
+                    root.crawl().map { it.node }.any { it.idContains("id/alertTitle") }
+                }
+                // Now we have to make sure the BottomSheetDialog animation is settled
+                host.events
+                    .mapNotNull { host.windowRoot() }
+                    .mapNotNull { root ->
+                        root.crawl().map { it.node }.singleOrNull {
+                            it.isRadioButton() && it.isCheckable && it.textMatchesAny(clearCacheLabels)
+                        }
+                    }
+                    .map { Rect().apply { it.getBoundsInScreen(this) } }
+                    .distinctUntilChanged()
+                    .debounce(100)
+                    .first()
+                host.waitForWindowRoot()
             }
 
             val settingsPkgInfo = androidContext.packageManager.getPackageInfo2(SETTINGS_PKG_HYPEROS)
@@ -259,16 +288,11 @@ class HyperOsSpecs @Inject constructor(
                 else -> false
             }
 
-            val step = StepProcessor.Step(
+            val step = Stepper.Step(
                 source = TAG,
                 descriptionInternal = "Clear cache button (security center plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheLabels),
-                windowNodeTest = windowCriteria,
-                windowEventFilter = waitUntilSettled {
-                    it.eventType == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED
-                            && it.className == "android.widget.FrameLayout"
-                            && it.pkgId == SETTINGS_PKG_HYPEROS
-                },
+                windowCheck = windowCheck,
                 nodeTest = entryFilter,
                 action = { node, attempt ->
                     when {
@@ -277,15 +301,15 @@ class HyperOsSpecs @Inject constructor(
                     }
                 }
             )
-            stepper.withProgress(this) { process(step) }
+            stepper.withProgress(this) { process(this@plan, step) }
         }
 
         // Clear cache?
         // -> Cancel        -> Ok
         run {
-            val windowCriteria = fun(node: AccessibilityNodeInfo): Boolean {
-                if (node.pkgId != SETTINGS_PKG_HYPEROS) return false
-                return node.crawl().map { it.node }.any { subNode ->
+            val windowCheck = windowCheck { event, root ->
+                if (root.pkgId != SETTINGS_PKG_HYPEROS) return@windowCheck false
+                return@windowCheck root.crawl().map { it.node }.any { subNode ->
                     // This is required to relax the match on the dialog texts
                     // Otherwise it could detect the clear cache button as match
                     if (!subNode.idContains("id/alertTitle")) return@any false
@@ -308,15 +332,15 @@ class HyperOsSpecs @Inject constructor(
                 }
             }
 
-            val step = StepProcessor.Step(
+            val step = Stepper.Step(
                 source = TAG,
                 descriptionInternal = "Confirm clear cache (security center plan)",
                 label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(""),
-                windowNodeTest = windowCriteria,
+                windowCheck = windowCheck,
                 nodeTest = buttonFilter,
                 action = defaultClick()
             )
-            stepper.withProgress(this) { process(step) }
+            stepper.withProgress(this) { process(this@plan, step) }
         }
     }
 

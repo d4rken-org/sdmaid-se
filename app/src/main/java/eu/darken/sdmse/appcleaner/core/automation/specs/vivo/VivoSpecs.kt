@@ -10,17 +10,16 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
-import eu.darken.sdmse.automation.core.common.StepProcessor
+import eu.darken.sdmse.automation.core.common.Stepper
 import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.defaultClick
-import eu.darken.sdmse.automation.core.common.defaultWindowFilter
-import eu.darken.sdmse.automation.core.common.defaultWindowIntent
 import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
 import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
+import eu.darken.sdmse.automation.core.common.windowCheckDefaultSettings
+import eu.darken.sdmse.automation.core.common.windowLauncherDefaultSettings
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.ca.toCaString
@@ -46,6 +45,7 @@ class VivoSpecs @Inject constructor(
     private val vivoLabels: VivoLabels,
     private val onTheFlyLabler: OnTheFlyLabler,
     private val generalSettings: GeneralSettings,
+    private val stepper: Stepper,
 ) : AppCleanerSpecGenerator {
 
     override val tag: String = TAG
@@ -65,7 +65,7 @@ class VivoSpecs @Inject constructor(
         }
     }
 
-    private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = { pkg ->
+    private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
         val locale = getSysLocale()
@@ -81,13 +81,12 @@ class VivoSpecs @Inject constructor(
 
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
-            val step = StepProcessor.Step(
+            val step = Stepper.Step(
                 source = TAG,
                 descriptionInternal = "Storage entry",
                 label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
-                windowIntent = defaultWindowIntent(pkg),
-                windowEventFilter = defaultWindowFilter(SETTINGS_PKG),
-                windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
+                windowLaunch = windowLauncherDefaultSettings(pkg),
+                windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeTest = storageFilter,
                 nodeRecovery = getDefaultNodeRecovery(pkg),
                 nodeMapping = clickableParent(
@@ -98,7 +97,7 @@ class VivoSpecs @Inject constructor(
                 ),
                 action = defaultClick()
             )
-            stepper.withProgress(this) { process(step) }
+            stepper.withProgress(this) { process(this@plan, step) }
         }
 
         run {
@@ -124,11 +123,11 @@ class VivoSpecs @Inject constructor(
                 }
             }
 
-            val step = StepProcessor.Step(
+            val step = Stepper.Step(
                 source = TAG,
                 descriptionInternal = "Clear cache",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
-                windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
+                windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeTest = buttonFilter,
                 nodeMapping = when {
                     hasApiLevel(34) -> {
@@ -145,7 +144,7 @@ class VivoSpecs @Inject constructor(
                 },
                 action = getAospClearCacheClick(pkg, tag)
             )
-            stepper.withProgress(this) { process(step) }
+            stepper.withProgress(this) { process(this@plan, step) }
         }
     }
 

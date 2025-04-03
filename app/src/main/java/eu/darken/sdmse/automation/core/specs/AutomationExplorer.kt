@@ -4,7 +4,6 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.automation.core.AutomationHost
-import eu.darken.sdmse.automation.core.common.StepProcessor
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.toCaString
@@ -25,7 +24,6 @@ import kotlinx.coroutines.withTimeout
 
 class AutomationExplorer @AssistedInject constructor(
     @Assisted private val host: AutomationHost,
-    private val stepProcessorFactory: StepProcessor.Factory,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -56,9 +54,7 @@ class AutomationExplorer @AssistedInject constructor(
 
             override val host: AutomationHost = this@AutomationExplorer.host
 
-            override val stepper: StepProcessor = stepProcessorFactory.create(host)
-
-            override fun toString(): String = "AutomationContext(host=$host, stepper=$stepper, attempts=$attempts)"
+            override fun toString(): String = "AutomationContext(host=$host, attempts=$attempts)"
         }
 
         log(TAG, VERBOSE) { "Creating plan..." }
@@ -91,8 +87,6 @@ class AutomationExplorer @AssistedInject constructor(
 
         val androidContext: android.content.Context
             get() = host.service
-
-        val stepper: StepProcessor
     }
 
     companion object {

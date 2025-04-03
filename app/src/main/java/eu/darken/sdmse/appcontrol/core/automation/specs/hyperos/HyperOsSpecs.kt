@@ -9,17 +9,17 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
-import eu.darken.sdmse.automation.core.common.StepProcessor
+import eu.darken.sdmse.automation.core.common.Stepper
 import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.defaultClick
-import eu.darken.sdmse.automation.core.common.defaultWindowFilter
-import eu.darken.sdmse.automation.core.common.defaultWindowIntent
 import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.common.windowCriteriaAppIdentifier
+import eu.darken.sdmse.automation.core.common.windowCheck
+import eu.darken.sdmse.automation.core.common.windowCheckDefaultSettings
+import eu.darken.sdmse.automation.core.common.windowLauncherDefaultSettings
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.ca.toCaString
@@ -44,6 +44,7 @@ class HyperOsSpecs @Inject constructor(
     private val deviceDetective: DeviceDetective,
     private val hyperOsLabels: HyperOsLabels,
     private val generalSettings: GeneralSettings,
+    private val stepper: Stepper,
 ) : AppControlSpecGenerator {
 
     override val tag: String = TAG
@@ -76,13 +77,12 @@ class HyperOsSpecs @Inject constructor(
         var wasDisabled = false
 
         run {
-            val step = StepProcessor.Step(
+            val step = Stepper.Step(
                 source = TAG,
                 descriptionInternal = "Force stop button",
                 label = R.string.appcontrol_automation_progress_find_force_stop.toCaString(forceStopLabels),
-                windowIntent = defaultWindowIntent(pkg),
-                windowEventFilter = defaultWindowFilter(SETTINGS_PKG),
-                windowNodeTest = windowCriteriaAppIdentifier(SETTINGS_PKG, ipcFunnel, pkg),
+                windowLaunch = windowLauncherDefaultSettings(pkg),
+                windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeTest = storageFilter@{ node ->
                     node.textMatchesAny(forceStopLabels)
                 },
@@ -93,7 +93,7 @@ class HyperOsSpecs @Inject constructor(
                     true
                 }),
             )
-            stepper.withProgress(this) { process(step) }
+            stepper.withProgress(this) { process(this@plan, step) }
         }
 
         if (wasDisabled) {
@@ -106,11 +106,9 @@ class HyperOsSpecs @Inject constructor(
             val okLbl = hyperOsLabels.getForceStopDialogOkDynamic()
             val cancelLbl = hyperOsLabels.getForceStopDialogCancelDynamic()
 
-            val windowCriteria = fun(node: AccessibilityNodeInfo): Boolean {
-                if (node.pkgId != SETTINGS_PKG) return false
-                return node.crawl().map { it.node }.any { subNode ->
-                    return@any subNode.textMatchesAny(titleLbl)
-                }
+            val windowCheck = windowCheck { _, root ->
+                if (root.pkgId != SETTINGS_PKG) return@windowCheck false
+                root.crawl().map { it.node }.any { subNode -> subNode.textMatchesAny(titleLbl) }
             }
 
             val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean = when (Bugs.isDryRun) {
@@ -118,16 +116,16 @@ class HyperOsSpecs @Inject constructor(
                 false -> node.textMatchesAny(okLbl)
             }
 
-            val step = StepProcessor.Step(
+            val step = Stepper.Step(
                 source = TAG,
                 descriptionInternal = "Confirm force stop",
                 label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(titleLbl + okLbl),
-                windowNodeTest = windowCriteria,
+                windowCheck = windowCheck,
                 nodeTest = buttonFilter,
                 nodeMapping = clickableParent(),
                 action = defaultClick(),
             )
-            stepper.withProgress(this) { process(step) }
+            stepper.withProgress(this) { process(this@plan, step) }
         }
     }
 
