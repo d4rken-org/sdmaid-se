@@ -57,9 +57,19 @@ class DeviceDetective @Inject constructor(
         checkManufactor("meizu") && hasApp(FLYME_PKGS) -> RomType.FLYME
         checkManufactor("huawei") && hasApp(MIUI_PKGS) -> RomType.HUAWEI
         checkManufactor("lge") -> RomType.LGE
-        // HyperOS 1.0 is based on Android 14 / API34, so anything lower is likely a false positive of MIUI
-        checkManufactor("Xiaomi") && hasApiLevel(34) && hasApp(HYPEROS_PKGS) && hasFingerPrint(HYPEROS_VERSION_STARTS) -> RomType.HYPEROS
-        checkManufactor("Xiaomi") && hasApp(MIUI_PKGS) && hasFingerPrint(MIUI_VERSION_STARTS) -> RomType.MIUI
+
+        checkManufactor("Xiaomi") -> when {
+            hasApp(HYPEROS_PKGS) && hasFingerPrint(HYPEROS_VERSION_STARTS) -> when {
+                // HyperOS 1.0 is based on Android 14 / API34, some backports exist (e.g. pissarropro)
+                hasApiLevel(33) -> RomType.HYPEROS
+                // Otherwise it is likely a false positive MIUI detection
+                else -> RomType.MIUI
+            }
+
+            hasApp(MIUI_PKGS) && hasFingerPrint(MIUI_VERSION_STARTS) -> RomType.MIUI
+            else -> null
+        }
+
         checkManufactor("nubia") -> RomType.NUBIA
         checkManufactor("OnePlus") -> RomType.ONEPLUS
         checkManufactor("POCO") -> RomType.POCO
@@ -67,8 +77,8 @@ class DeviceDetective @Inject constructor(
         checkManufactor("samsung") -> RomType.SAMSUNG
         checkManufactor("vivo") -> RomType.VIVO
         checkManufactor("HONOR") -> RomType.HONOR
-        else -> RomType.AOSP
-    }
+        else -> null
+    } ?: RomType.AOSP
 
     companion object {
         private val MIUI_VERSION_STARTS_LEGACY = setOf(
