@@ -17,6 +17,7 @@ import eu.darken.sdmse.automation.core.errors.DisabledTargetException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.errors.UnclickableTargetException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
+import eu.darken.sdmse.automation.core.specs.SpecGenerator
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -33,34 +34,28 @@ import eu.darken.sdmse.common.pkgs.getPackageInfo2
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
-import java.time.Duration
-import java.time.Instant
+import kotlinx.coroutines.flow.mapNotNull
+import kotlinx.coroutines.flow.onStart
 import java.util.Locale
 
 private val TAG: String = logTag("Automation", "Crawler", "Common")
 
-fun AutomationExplorer.Context.defaultWindowIntent(
+fun SpecGenerator.windowLauncherDefaultSettings(
     pkgInfo: Installed
-): Intent = pkgInfo.getSettingsIntent(androidContext).apply {
-    flags = Intent.FLAG_ACTIVITY_NEW_TASK or
-            Intent.FLAG_ACTIVITY_CLEAR_TASK or
-            Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS or
-            Intent.FLAG_ACTIVITY_NO_ANIMATION
+): suspend Stepper.Context.() -> Unit = {
+    val intent = pkgInfo.getSettingsIntent(androidContext).apply {
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                Intent.FLAG_ACTIVITY_CLEAR_TASK or
+                Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS or
+                Intent.FLAG_ACTIVITY_NO_ANIMATION
+    }
+    log(tag, INFO) { "Launching $intent" }
+    host.service.startActivity(intent)
 }
 
-fun AutomationExplorer.Context.defaultWindowFilter(
-    pkgId: Pkg.Id
-): (AccessibilityEvent) -> Boolean = fun(event: AccessibilityEvent): Boolean {
-    // We want to know that the settings window is open now
-    if (event.pkgId != pkgId) return false
-    return when (event.eventType) {
-        AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED -> true
-        AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED -> true
-        else -> false
-    }
-}
 
 fun AutomationExplorer.Context.defaultClick(
     isDryRun: Boolean = false,
@@ -128,24 +123,48 @@ fun AutomationExplorer.Context.clickableSibling(): (AccessibilityNodeInfo) -> Ac
     us.searchUp(maxNesting = 2) { it.isClickable }
 }
 
-fun AutomationExplorer.Context.windowCriteria(
-    windowPkgId: Pkg.Id,
-    extraTest: (AccessibilityNodeInfo) -> Boolean = { true }
-): suspend (AccessibilityNodeInfo) -> Boolean = { node: AccessibilityNodeInfo ->
-    node.pkgId == windowPkgId && extraTest(node)
+fun SpecGenerator.windowCheck(
+    condition: suspend Stepper.Context.(event: AccessibilityEvent?, root: AccessibilityNodeInfo) -> Boolean,
+): suspend Stepper.Context.() -> AccessibilityNodeInfo = {
+    val events: Flow<AccessibilityEvent?> = host.events
+    val (event, root) = events
+        .onStart {
+            // we may already be ready
+            emit(null as AccessibilityEvent?)
+        }
+        .mapNotNull { event ->
+            // Get a root for us to test
+            val root = host.windowRoot()
+            if (root == null) {
+                log(tag, VERBOSE) { "windowRoot was NULL" }
+                return@mapNotNull null
+            }
+            event to root
+        }
+        .filter { (event, root) -> condition(event, root) }
+        .first()
+    log(tag, VERBOSE) { "Check passed after event $event, root is $root" }
+    root
 }
 
-suspend fun AutomationExplorer.Context.windowCriteriaAppIdentifier(
+fun SpecGenerator.windowCheckDefaultSettings(
     windowPkgId: Pkg.Id,
     ipcFunnel: IPCFunnel,
     pkgInfo: Installed
-): suspend (AccessibilityNodeInfo) -> Boolean {
+) = windowCheck { _, root ->
+    root.pkgId == windowPkgId && checkAppIdentifier(ipcFunnel, pkgInfo, root)
+}
+
+
+suspend fun Stepper.Context.checkAppIdentifier(
+    ipcFunnel: IPCFunnel,
+    pkgInfo: Installed,
+    root: AccessibilityNodeInfo,
+): Boolean {
     val candidates = mutableSetOf(pkgInfo.packageName)
 
     ipcFunnel
-        .use {
-            packageManager.getLabel2(pkgInfo.id)
-        }
+        .use { packageManager.getLabel2(pkgInfo.id) }
         ?.let { candidates.add(it) }
 
     ipcFunnel
@@ -162,7 +181,7 @@ suspend fun AutomationExplorer.Context.windowCriteriaAppIdentifier(
                     ?.loadLabel(packageManager)
                     ?.toString()
             } catch (e: Throwable) {
-                log(TAG) { "windowCriteriaAppIdentifier error for $pkgInfo: ${e.asLog()}" }
+                log(tag) { "windowCriteriaAppIdentifier error for $pkgInfo: ${e.asLog()}" }
                 null
             }
         }
@@ -171,11 +190,10 @@ suspend fun AutomationExplorer.Context.windowCriteriaAppIdentifier(
     pkgInfo.applicationInfo?.className
         ?.let { candidates.add(it) }
 
-    log(TAG, VERBOSE) { "Looking for window identifiers: $candidates" }
-    return windowCriteria(windowPkgId) { node ->
-        node.crawl().map { it.node }.any { toTest ->
-            candidates.any { candidate -> toTest.text == candidate || toTest.text?.contains(candidate) == true }
-        }
+    log(tag, VERBOSE) { "Looking for window identifiers: $candidates" }
+
+    return root.crawl().map { it.node }.any { toTest ->
+        candidates.any { candidate -> toTest.text == candidate || toTest.text?.contains(candidate) == true }
     }
 }
 
@@ -248,39 +266,4 @@ fun AutomationExplorer.Context.getSysLocale(): Locale {
     val locales = Resources.getSystem().configuration.locales
     log(INFO) { "getSysLocale(): $locales" }
     return locales[0]
-}
-
-fun AutomationExplorer.Context.waitUntilSettled(
-    settleDelay: Duration = Duration.ofMillis(150),
-    timeout: Duration = Duration.ofMillis(1500),
-    target: (AccessibilityEvent) -> Boolean,
-): suspend (AccessibilityEvent) -> Boolean {
-    log(TAG) { "waitUntilSettled($settleDelay,$timeout,$target)" }
-    var isSettled = false
-    val start = Instant.now()
-    var lastChange = start
-
-    return waiter@{ event ->
-        if (isSettled) {
-            log(TAG, INFO) { "waitUntilSettled(): Settled!" }
-            return@waiter true
-        }
-
-        val now = Instant.now()
-
-        if (target(event)) {
-            log(TAG, VERBOSE) { "waitUntilSettled(): Target had an event, updating lastChange=$lastChange" }
-            lastChange = now
-        }
-
-        if (Duration.between(lastChange, now) > settleDelay) {
-            log(TAG, VERBOSE) { "waitUntilSettled(): Settle delay reached!" }
-            isSettled = true
-        } else if (Duration.between(start, now) > timeout) {
-            log(TAG) { "waitUntilSettled(): Timeout :(" }
-            isSettled = true
-        }
-
-        false
-    }
 }
