@@ -111,9 +111,11 @@ class AOSPSpecs @Inject constructor(
                 root.crawl().map { it.node }.any { subNode -> subNode.textMatchesAny(titleLbl) }
             }
 
-            val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean = when (Bugs.isDryRun) {
-                true -> node.textMatchesAny(cancelLbl)
-                false -> node.textMatchesAny(okLbl)
+            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
+                when (Bugs.isDryRun) {
+                    true -> node.textMatchesAny(cancelLbl)
+                    false -> node.textMatchesAny(okLbl)
+                }
             }
 
             val step = Stepper.Step(

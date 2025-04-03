@@ -101,12 +101,12 @@ class MIUISpecs @Inject constructor(
                         || event?.pkgId == SETTINGS_PKG_MIUI || event?.pkgId == SETTINGS_PKG_AOSP
                 if (!isCorrectWindow) return@windowCheck false
                 when {
-                    root.pkgId == SETTINGS_PKG_MIUI && checkAppIdentifier(ipcFunnel, pkg, root) -> {
+                    root.pkgId == SETTINGS_PKG_MIUI && checkAppIdentifier(ipcFunnel, pkg)(root) -> {
                         windowPkg = SETTINGS_PKG_MIUI
                         true
                     }
 
-                    root.pkgId == SETTINGS_PKG_AOSP && checkAppIdentifier(ipcFunnel, pkg, root) -> {
+                    root.pkgId == SETTINGS_PKG_AOSP && checkAppIdentifier(ipcFunnel, pkg)(root) -> {
                         windowPkg = SETTINGS_PKG_AOSP
                         true
                     }
@@ -157,9 +157,9 @@ class MIUISpecs @Inject constructor(
             val clearCacheButtonLabels =
                 aospLabels.getClearCacheDynamic() + aospLabels.getClearCacheStatic(lang, script)
 
-            val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isClickyButton()) return false
-                return node.textMatchesAny(clearCacheButtonLabels)
+            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
+                if (!node.isClickyButton()) false
+                else node.textMatchesAny(clearCacheButtonLabels)
             }
 
             val step = Stepper.Step(
@@ -195,7 +195,7 @@ class MIUISpecs @Inject constructor(
         }
 
         if (!useAlternativeStep) {
-            val clearDataFilter: suspend (AccessibilityNodeInfo) -> Boolean = filter@{ node ->
+            val clearDataFilter: suspend Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = filter@{ node ->
                 when {
                     // MIUI 12+
                     isMiui12Plus -> if (!node.isTextView()) return@filter false
@@ -263,9 +263,9 @@ class MIUISpecs @Inject constructor(
                 root.crawl().map { it.node }.any { it.idContains("id/alertTitle") }
             }
 
-            val entryFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isClickable || !node.isTextView()) return false
-                return node.textMatchesAny(clearCacheLabels)
+            val entryFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
+                if (!node.isClickable || !node.isTextView()) false
+                else node.textMatchesAny(clearCacheLabels)
             }
 
             val step = Stepper.Step(
@@ -299,9 +299,9 @@ class MIUISpecs @Inject constructor(
                 }
             }
 
-            val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isClickyButton()) return false
-                return when (Bugs.isDryRun) {
+            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
+                if (!node.isClickyButton()) false
+                else when (Bugs.isDryRun) {
                     true -> node.idMatches("android:id/button2")
                     false -> node.idMatches("android:id/button1")
                 }

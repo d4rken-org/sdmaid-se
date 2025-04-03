@@ -87,9 +87,9 @@ open class AndroidTVSpecs @Inject constructor(
                 throw UnsupportedOperationException("This system language is not supported")
             }
 
-            val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.idMatches("android:id/title")) return false
-                return node.textMatchesAny(clearCacheButtonLabels)
+            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
+                if (!node.idMatches("android:id/title")) false
+                else node.textMatchesAny(clearCacheButtonLabels)
             }
 
             val step = Stepper.Step(
@@ -128,8 +128,8 @@ open class AndroidTVSpecs @Inject constructor(
             }
 
             val buttonLabels = setOf(context.getString(android.R.string.ok))
-            val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                return when {
+            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
+                when {
                     node.idMatches("com.android.tv.settings:id/guidedactions_item_content") -> true
                     node.idMatches("com.android.tv.settings:id/guidedactions_item_title") -> {
                         node.textMatchesAny(buttonLabels)

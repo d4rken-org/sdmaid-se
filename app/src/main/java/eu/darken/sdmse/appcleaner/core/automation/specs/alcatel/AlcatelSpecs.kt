@@ -11,6 +11,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
 import eu.darken.sdmse.automation.core.common.Stepper
+import eu.darken.sdmse.automation.core.common.Stepper.StepContext
 import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.defaultClick
 import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
@@ -103,9 +104,9 @@ class AlcatelSpecs @Inject constructor(
                 alcatelLabels.getClearCacheDynamic() + alcatelLabels.getClearCacheStatic(lang, script)
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
-            val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isClickyButton()) return false
-                return node.textMatchesAny(clearCacheButtonLabels)
+            val buttonFilter: StepContext.(AccessibilityNodeInfo) -> Boolean = { node: AccessibilityNodeInfo ->
+                if (!node.isClickyButton()) false
+                else node.textMatchesAny(clearCacheButtonLabels)
             }
 
             val step = Stepper.Step(

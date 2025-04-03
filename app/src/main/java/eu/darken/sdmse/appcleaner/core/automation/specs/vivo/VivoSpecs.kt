@@ -106,11 +106,11 @@ class VivoSpecs @Inject constructor(
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             var isUnclickableLabelButton = false
-            val buttonFilter = when {
-                hasApiLevel(34) -> fun(node: AccessibilityNodeInfo): Boolean {
-                    if (!node.textMatchesAny(clearCacheButtonLabels)) return false
+            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = when {
+                hasApiLevel(34) -> filter@{ node ->
+                    if (!node.textMatchesAny(clearCacheButtonLabels)) return@filter false
 
-                    return if (node.idContains("id/vbutton_title")) {
+                    if (node.idContains("id/vbutton_title")) {
                         isUnclickableLabelButton = true
                         true
                     } else {
@@ -118,8 +118,8 @@ class VivoSpecs @Inject constructor(
                     }
                 }
 
-                else -> fun(node: AccessibilityNodeInfo): Boolean {
-                    return node.isClickable && node.textMatchesAny(clearCacheButtonLabels)
+                else -> { node ->
+                    node.isClickable && node.textMatchesAny(clearCacheButtonLabels)
                 }
             }
 
@@ -134,7 +134,7 @@ class VivoSpecs @Inject constructor(
                         // Pass a function that is evaluated later, and has access to vars in this scope
                         { node ->
                             when {
-                                isUnclickableLabelButton -> clickableParent().invoke(node)
+                                isUnclickableLabelButton -> clickableParent().invoke(this, node)
                                 else -> node
                             }
                         }

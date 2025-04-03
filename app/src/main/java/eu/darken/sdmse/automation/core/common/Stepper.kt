@@ -74,7 +74,7 @@ class Stepper @Inject constructor(
             try {
                 while (currentCoroutineContext().isActive) {
                     try {
-                        val stepContext = Context(
+                        val stepContext = StepContext(
                             hostContext = context,
                             tag = step.source,
                             attempt = attempts++,
@@ -104,24 +104,24 @@ class Stepper @Inject constructor(
         }
     }
 
-    private suspend fun doCrawl(context: Context, step: Step) {
-        val tag = context.tag + ":Stepper"
-        log(tag, VERBOSE) { "doCrawl(): context=$context for $step" }
+    private suspend fun doCrawl(stepContext: StepContext, step: Step) {
+        val tag = stepContext.tag + ":Stepper"
+        log(tag, VERBOSE) { "doCrawl(): context=$stepContext for $step" }
 
         when {
-            context.attempt > 1 -> when {
+            stepContext.attempt > 1 -> when {
                 hasApiLevel(31) -> {
                     log(tag) { "To dismiss any notification shade" }
                     @Suppress("NewApi")
-                    context.host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DISMISS_NOTIFICATION_SHADE)
+                    stepContext.host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DISMISS_NOTIFICATION_SHADE)
                 }
 
                 !hasApiLevel(31) -> {
-                    log(tag) { "Clearing system dialogs (retryCount=${context.attempt})." }
+                    log(tag) { "Clearing system dialogs (retryCount=${stepContext.attempt})." }
                     @Suppress("DEPRECATION")
                     val closeIntent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
                     try {
-                        context.host.service.sendBroadcast(closeIntent)
+                        stepContext.host.service.sendBroadcast(closeIntent)
                     } catch (e: Exception) {
                         log(tag, WARN) { "Sending ACTION_CLOSE_SYSTEM_DIALOGS failed: ${e.asLog()}" }
                     }
@@ -132,7 +132,7 @@ class Stepper @Inject constructor(
 
         if (step.windowLaunch != null) {
             log(tag, INFO) { "Executing windowLaunch: ${step.windowLaunch}" }
-            step.windowLaunch.invoke(context)
+            step.windowLaunch.invoke(stepContext)
             log(tag) { "Window launched!" }
         }
 
@@ -142,10 +142,10 @@ class Stepper @Inject constructor(
         val targetWindowRoot: AccessibilityNodeInfo = withTimeout(4000) {
             if (step.windowCheck != null) {
                 log(tag) { "Executing windowCheck and determining root window..." }
-                step.windowCheck.invoke(context)
+                step.windowCheck.invoke(stepContext)
             } else {
                 log(tag) { "No window check set, waiting for any root window..." }
-                context.host.waitForWindowRoot()
+                stepContext.host.waitForWindowRoot()
             }
         }
         log(tag, DEBUG) { "Current window root node is ${targetWindowRoot.toStringShort()}" }
@@ -161,7 +161,7 @@ class Stepper @Inject constructor(
                         currentRootNode.crawl().forEach { log(tag, VERBOSE) { it.infoShort } }
                     }
 
-                    target = currentRootNode.crawl().map { it.node }.find { step.nodeTest.invoke(it) }
+                    target = currentRootNode.crawl().map { it.node }.find { step.nodeTest.invoke(stepContext, it) }
 
                     if (target != null) {
                         log(tag, INFO) { "Target node found: ${target.toStringShort()}" }
@@ -173,31 +173,31 @@ class Stepper @Inject constructor(
                     if (step.nodeRecovery != null) {
                         log(tag, VERBOSE) { "Trying node recovery!" }
                         // Should we care about whether the recovery thinks it was successful?
-                        step.nodeRecovery.invoke(currentRootNode)
+                        step.nodeRecovery.invoke(stepContext, currentRootNode)
                         delay(200)
                     } else {
                         // Timeout will hit here and cancel if necessary
                         delay(100)
                     }
                     // Let's try a new one
-                    currentRootNode = context.host.waitForWindowRoot()
+                    currentRootNode = stepContext.host.waitForWindowRoot()
                 }
                 target!!
             }
 
-            else -> context.host.waitForWindowRoot()
+            else -> stepContext.host.waitForWindowRoot()
         }
 
         // e.g. find a clickable parent based on the target node
         val mappedNode = step.nodeMapping
             ?.also { log(tag, DEBUG) { "Trying to map ${targetNode.toStringShort()} using $it" } }
-            ?.invoke(targetNode)
+            ?.invoke(stepContext, targetNode)
             ?.also { log(tag, INFO) { "Mapped node is ${it.toStringShort()}" } }
             ?: targetNode.also { log(tag, VERBOSE) { "No mapping to be done." } }
 
         // Perform action, e.g. clicking a button
         log(tag, INFO) { "Performing action on $mappedNode" }
-        val success = step.action?.invoke(mappedNode, context.attempt) != false
+        val success = step.action?.invoke(stepContext, mappedNode) != false
 
         if (success) {
             log(tag, INFO) { "Crawl was successful :)" }
@@ -206,7 +206,7 @@ class Stepper @Inject constructor(
         }
     }
 
-    data class Context(
+    data class StepContext(
         val hostContext: AutomationExplorer.Context,
         val tag: String,
         val attempt: Int,
@@ -217,12 +217,12 @@ class Stepper @Inject constructor(
         val descriptionInternal: String,
         val label: CaString,
         val icon: CaDrawable? = null,
-        val windowLaunch: (suspend Context.() -> Unit)? = null,
-        val windowCheck: (suspend Context.() -> AccessibilityNodeInfo)? = null,
-        val nodeTest: (suspend (node: AccessibilityNodeInfo) -> Boolean)? = null,
-        val nodeRecovery: (suspend (node: AccessibilityNodeInfo) -> Boolean)? = null,
-        val nodeMapping: (suspend (node: AccessibilityNodeInfo) -> AccessibilityNodeInfo)? = null,
-        val action: (suspend (node: AccessibilityNodeInfo, retryCount: Int) -> Boolean)? = null,
+        val windowLaunch: (suspend StepContext.() -> Unit)? = null,
+        val windowCheck: (suspend StepContext.() -> AccessibilityNodeInfo)? = null,
+        val nodeTest: (suspend StepContext.(node: AccessibilityNodeInfo) -> Boolean)? = null,
+        val nodeRecovery: (suspend StepContext.(AccessibilityNodeInfo) -> Boolean)? = null,
+        val nodeMapping: (suspend StepContext.(node: AccessibilityNodeInfo) -> AccessibilityNodeInfo)? = null,
+        val action: (suspend StepContext.(AccessibilityNodeInfo) -> Boolean)? = null,
         val timeout: Long = 15 * 1000,
     ) {
         override fun toString(): String = "Step(source=$source, description=$descriptionInternal)"

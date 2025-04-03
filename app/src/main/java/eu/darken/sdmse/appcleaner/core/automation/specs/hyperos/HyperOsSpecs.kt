@@ -14,7 +14,7 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.automation.core.common.Stepper
-import eu.darken.sdmse.automation.core.common.Stepper.Context
+import eu.darken.sdmse.automation.core.common.Stepper.StepContext
 import eu.darken.sdmse.automation.core.common.checkAppIdentifier
 import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.crawl
@@ -110,12 +110,12 @@ class HyperOsSpecs @Inject constructor(
                     .mapNotNull { host.windowRoot() }
                     .first { root ->
                         when {
-                            root.pkgId == SETTINGS_PKG_HYPEROS && checkAppIdentifier(ipcFunnel, pkg, root) -> {
+                            root.pkgId == SETTINGS_PKG_HYPEROS && checkAppIdentifier(ipcFunnel, pkg)(root) -> {
                                 windowPkg = SETTINGS_PKG_HYPEROS
                                 true
                             }
 
-                            root.pkgId == SETTINGS_PKG_AOSP && checkAppIdentifier(ipcFunnel, pkg, root) -> {
+                            root.pkgId == SETTINGS_PKG_AOSP && checkAppIdentifier(ipcFunnel, pkg)(root) -> {
                                 windowPkg = SETTINGS_PKG_AOSP
                                 true
                             }
@@ -167,9 +167,9 @@ class HyperOsSpecs @Inject constructor(
             val clearCacheButtonLabels =
                 aospLabels.getClearCacheDynamic() + aospLabels.getClearCacheStatic(lang, script)
 
-            val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isClickyButton()) return false
-                return node.textMatchesAny(clearCacheButtonLabels)
+            val buttonFilter: StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
+                if (!node.isClickyButton()) false
+                else node.textMatchesAny(clearCacheButtonLabels)
             }
 
             val step = Stepper.Step(
@@ -205,7 +205,7 @@ class HyperOsSpecs @Inject constructor(
         }
 
         if (!useAlternativeStep) {
-            val clearDataFilter: suspend (AccessibilityNodeInfo) -> Boolean = filter@{ node ->
+            val clearDataFilter: suspend StepContext.(AccessibilityNodeInfo) -> Boolean = filter@{ node ->
                 if (!node.isTextView()) return@filter false
                 if (node.textMatchesAny(clearDataLabels)) return@filter true
                 if (node.textMatchesAny(clearCacheLabels)) {
@@ -246,7 +246,7 @@ class HyperOsSpecs @Inject constructor(
             // -> Clear cache
             // -> Cancel
 
-            val windowCheck: suspend Context.() -> AccessibilityNodeInfo = {
+            val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
                 // Wait till the dialog is shown
                 host.events.first { event ->
                     val root = host.windowRoot() ?: return@first false
@@ -273,19 +273,21 @@ class HyperOsSpecs @Inject constructor(
             val versionName = settingsPkgInfo?.versionName
             var needsClickGesture = false
 
-            val entryFilter = fun(node: AccessibilityNodeInfo): Boolean = when {
-                node.isRadioButton() && node.isCheckable && node.textMatchesAny(clearCacheLabels) -> {
-                    needsClickGesture = true
-                    log(TAG) { "ClickGesture is required! Version is $versionName ($versionCode)" }
-                    true
-                }
+            val entryFilter: StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
+                when {
+                    node.isRadioButton() && node.isCheckable && node.textMatchesAny(clearCacheLabels) -> {
+                        needsClickGesture = true
+                        log(TAG) { "ClickGesture is required! Version is $versionName ($versionCode)" }
+                        true
+                    }
 
-                node.isTextView() && node.isClickable && node.textMatchesAny(clearCacheLabels) -> {
-                    log(TAG) { "ClickGesture NOT required! Version is $versionName ($versionCode)" }
-                    true
-                }
+                    node.isTextView() && node.isClickable && node.textMatchesAny(clearCacheLabels) -> {
+                        log(TAG) { "ClickGesture NOT required! Version is $versionName ($versionCode)" }
+                        true
+                    }
 
-                else -> false
+                    else -> false
+                }
             }
 
             val step = Stepper.Step(
@@ -294,10 +296,10 @@ class HyperOsSpecs @Inject constructor(
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheLabels),
                 windowCheck = windowCheck,
                 nodeTest = entryFilter,
-                action = { node, attempt ->
+                action = { node ->
                     when {
-                        needsClickGesture -> gestureClick(node)
-                        else -> defaultClick().invoke(node, attempt)
+                        needsClickGesture -> gestureClick()(node)
+                        else -> defaultClick()(node)
                     }
                 }
             )
@@ -324,9 +326,9 @@ class HyperOsSpecs @Inject constructor(
                 }
             }
 
-            val buttonFilter = fun(node: AccessibilityNodeInfo): Boolean {
-                if (!node.isClickyButton()) return false
-                return when (Bugs.isDryRun) {
+            val buttonFilter: StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
+                if (!node.isClickyButton()) false
+                else when (Bugs.isDryRun) {
                     true -> node.idMatches("android:id/button2")
                     false -> node.idMatches("android:id/button1")
                 }
