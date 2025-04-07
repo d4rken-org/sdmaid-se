@@ -1,7 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.androidtv
 
 import android.content.Context
-import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -11,23 +10,27 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
-import eu.darken.sdmse.automation.core.common.Stepper
-import eu.darken.sdmse.automation.core.common.clickableParent
+import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.crawl
-import eu.darken.sdmse.automation.core.common.defaultClick
-import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.scrollNode
+import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
+import eu.darken.sdmse.automation.core.common.stepper.StepContext
+import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
+import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.common.windowCheck
-import eu.darken.sdmse.automation.core.common.windowCheckDefaultSettings
-import eu.darken.sdmse.automation.core.common.windowLauncherDefaultSettings
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
+import eu.darken.sdmse.automation.core.specs.windowCheck
+import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
+import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -87,21 +90,23 @@ open class AndroidTVSpecs @Inject constructor(
                 throw UnsupportedOperationException("This system language is not supported")
             }
 
-            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
-                if (!node.idMatches("android:id/title")) false
-                else node.textMatchesAny(clearCacheButtonLabels)
-            }
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = findNode {
+                    if (!it.idMatches("android:id/title")) false else it.textMatchesAny(clearCacheButtonLabels)
+                } ?: return@action false
 
-            val step = Stepper.Step(
+                val mapped = findClickableParent(node = target) ?: return@action false
+
+                clickClearCache(isDryRun = false, pkg, node = mapped)
+            }
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear cache button",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
-                nodeTest = buttonFilter,
                 nodeRecovery = { it.scrollNode() },
-                nodeMapping = clickableParent(),
-                action = getAospClearCacheClick(pkg, TAG)
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -128,7 +133,8 @@ open class AndroidTVSpecs @Inject constructor(
             }
 
             val buttonLabels = setOf(context.getString(android.R.string.ok))
-            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
+
+            val action = defaultFindAndClick(isDryRun = Bugs.isDryRun) { node ->
                 when {
                     node.idMatches("com.android.tv.settings:id/guidedactions_item_content") -> true
                     node.idMatches("com.android.tv.settings:id/guidedactions_item_title") -> {
@@ -139,14 +145,12 @@ open class AndroidTVSpecs @Inject constructor(
                 }
             }
 
-            val step = Stepper.Step(
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Confirm action",
                 label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(buttonLabels),
                 windowCheck = windowCheck,
-                nodeTest = buttonFilter,
-                nodeMapping = clickableParent(),
-                action = defaultClick()
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }

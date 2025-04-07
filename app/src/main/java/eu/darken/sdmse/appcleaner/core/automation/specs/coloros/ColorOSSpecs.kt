@@ -1,6 +1,5 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.coloros
 
-import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -10,25 +9,29 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
-import eu.darken.sdmse.automation.core.common.Stepper
-import eu.darken.sdmse.automation.core.common.checkAppIdentifier
-import eu.darken.sdmse.automation.core.common.clickableParent
+import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.crawl
-import eu.darken.sdmse.automation.core.common.defaultClick
-import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
-import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.pkgId
+import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
+import eu.darken.sdmse.automation.core.common.stepper.StepContext
+import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
+import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.common.windowCheck
-import eu.darken.sdmse.automation.core.common.windowCheckDefaultSettings
-import eu.darken.sdmse.automation.core.common.windowLauncherDefaultSettings
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.automation.core.specs.checkAppIdentifier
+import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
+import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
+import eu.darken.sdmse.automation.core.specs.windowCheck
+import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
+import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -99,16 +102,14 @@ class ColorOSSpecs @Inject constructor(
 
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
-            val step = Stepper.Step(
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Storage entry",
                 label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
-                nodeTest = storageFilter,
-                nodeRecovery = getDefaultNodeRecovery(pkg),
-                nodeMapping = clickableParent(),
-                action = defaultClick()
+                nodeRecovery = defaultNodeRecovery(pkg),
+                nodeAction = defaultFindAndClick(predicate = storageFilter),
             )
 
             stepper.withProgress(this) { process(this@plan, step) }
@@ -118,24 +119,6 @@ class ColorOSSpecs @Inject constructor(
             val clearCacheButtonLabels =
                 colorOSLabels.getClearCacheDynamic() + colorOSLabels.getClearCacheLabels(lang, script)
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
-
-            var isUnclickableButton = false
-            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = when {
-                //------------12: text='null', className=android.widget.FrameLayout, isClickable=false, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings, identity=ebb882b
-                //-------------13: text='null', className=android.widget.LinearLayout, isClickable=false, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings, identity=7f41bda
-                //--------------14: text='null', className=android.widget.RelativeLayout, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/content_rl, pkgName=com.android.settings, identity=808780b
-                //---------------15: text='Clear cache', className=android.widget.Button, isClickable=false, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings, identity=3b0a6e8
-                hasApiLevel(35) -> filter@{ node ->
-                    if (!node.textMatchesAny(clearCacheButtonLabels)) return@filter false
-                    isUnclickableButton = !node.isClickyButton()
-                    true
-                }
-
-                // 16: className=android.widget.Button, text=Clear Cache, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings
-                else -> { node ->
-                    node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
-                }
-            }
 
             val windowCheck = windowCheck { _, root ->
                 if (root.pkgId != SETTINGS_PKG) return@windowCheck false
@@ -150,27 +133,43 @@ class ColorOSSpecs @Inject constructor(
                 false
             }
 
-            val step = Stepper.Step(
+
+            val action: suspend StepContext.() -> Boolean = action@{
+                var isUnclickableButton = false
+                val target = findNode { node ->
+                    when {
+                        //------------12: text='null', className=android.widget.FrameLayout, isClickable=false, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings, identity=ebb882b
+                        //-------------13: text='null', className=android.widget.LinearLayout, isClickable=false, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings, identity=7f41bda
+                        //--------------14: text='null', className=android.widget.RelativeLayout, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/content_rl, pkgName=com.android.settings, identity=808780b
+                        //---------------15: text='Clear cache', className=android.widget.Button, isClickable=false, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings, identity=3b0a6e8
+                        hasApiLevel(35) -> {
+                            if (!node.textMatchesAny(clearCacheButtonLabels)) return@findNode false
+                            isUnclickableButton = !node.isClickyButton()
+                            true
+                        }
+
+                        // 16: className=android.widget.Button, text=Clear Cache, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings
+                        else -> {
+                            node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
+                        }
+                    }
+                } ?: return@action false
+
+                val mapped = when {
+                    hasApiLevel(35) && isUnclickableButton -> findClickableParent(node = target)
+                    else -> target
+                } ?: return@action false
+
+                clickClearCache(isDryRun = Bugs.isDryRun, pkg, node = mapped)
+            }
+
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear cache button",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowCheck = windowCheck,
-                nodeTest = buttonFilter,
-                nodeMapping = when {
-                    hasApiLevel(35) -> {
-                        // Function that is evaluated later, has access to vars in this scope
-                        { node ->
-                            when {
-                                isUnclickableButton -> clickableParent().invoke(this, node)
-                                else -> node
-                            }
-                        }
-                    }
-
-                    else -> null
-                },
-                nodeRecovery = getDefaultNodeRecovery(pkg),
-                action = getAospClearCacheClick(pkg, TAG)
+                nodeRecovery = defaultNodeRecovery(pkg),
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }

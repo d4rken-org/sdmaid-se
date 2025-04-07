@@ -1,6 +1,5 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.alcatel
 
-import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -10,21 +9,21 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
-import eu.darken.sdmse.automation.core.common.Stepper
-import eu.darken.sdmse.automation.core.common.Stepper.StepContext
-import eu.darken.sdmse.automation.core.common.clickableParent
-import eu.darken.sdmse.automation.core.common.defaultClick
-import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
-import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
+import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.isClickyButton
+import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
+import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.common.windowCheckDefaultSettings
-import eu.darken.sdmse.automation.core.common.windowLauncherDefaultSettings
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
+import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
+import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
+import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -85,16 +84,14 @@ class AlcatelSpecs @Inject constructor(
 
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
-            val step = Stepper.Step(
+            val step = AutomationStep(
                 source = tag,
                 descriptionInternal = "Storage entry",
                 label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
-                nodeTest = storageFilter,
-                nodeRecovery = getDefaultNodeRecovery(pkg),
-                nodeMapping = clickableParent(),
-                action = defaultClick()
+                nodeRecovery = defaultNodeRecovery(pkg),
+                nodeAction = defaultFindAndClick { storageFilter(it) }
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -104,18 +101,14 @@ class AlcatelSpecs @Inject constructor(
                 alcatelLabels.getClearCacheDynamic() + alcatelLabels.getClearCacheStatic(lang, script)
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
-            val buttonFilter: StepContext.(AccessibilityNodeInfo) -> Boolean = { node: AccessibilityNodeInfo ->
-                if (!node.isClickyButton()) false
-                else node.textMatchesAny(clearCacheButtonLabels)
-            }
-
-            val step = Stepper.Step(
+            val step = AutomationStep(
                 source = tag,
                 descriptionInternal = "Clear cache button",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
-                nodeTest = buttonFilter,
-                action = getAospClearCacheClick(pkg, tag)
+                nodeAction = defaultFindAndClickClearCache(isDryRun = Bugs.isDryRun, pkg) {
+                    if (!it.isClickyButton()) false else it.textMatchesAny(clearCacheButtonLabels)
+                }
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }

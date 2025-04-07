@@ -1,7 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.miui
 
 import android.os.Build
-import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -12,27 +11,31 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
-import eu.darken.sdmse.automation.core.common.Stepper
-import eu.darken.sdmse.automation.core.common.checkAppIdentifier
-import eu.darken.sdmse.automation.core.common.clickableParent
+import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
 import eu.darken.sdmse.automation.core.common.crawl
-import eu.darken.sdmse.automation.core.common.defaultClick
-import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
-import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.isTextView
 import eu.darken.sdmse.automation.core.common.pkgId
+import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
+import eu.darken.sdmse.automation.core.common.stepper.StepContext
+import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.common.stepper.clickNormal
+import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
+import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textEndsWithAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.common.windowCheck
-import eu.darken.sdmse.automation.core.common.windowCheckDefaultSettings
-import eu.darken.sdmse.automation.core.common.windowLauncherDefaultSettings
 import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.automation.core.specs.checkAppIdentifier
+import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
+import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
+import eu.darken.sdmse.automation.core.specs.windowCheck
+import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
+import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
@@ -90,7 +93,7 @@ class MIUISpecs @Inject constructor(
 
         var windowPkg: Pkg.Id? = null
 
-        val step = Stepper.Step(
+        val step = AutomationStep(
             source = TAG,
             descriptionInternal = "Storage entry (main plan)",
             label = R.string.appcleaner_automation_progress_find_storage.toCaString(""),
@@ -141,14 +144,12 @@ class MIUISpecs @Inject constructor(
 
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
-            val step = Stepper.Step(
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Storage entry (settings plan)",
                 label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
-                nodeTest = storageFilter,
-                nodeRecovery = getDefaultNodeRecovery(pkg),
-                nodeMapping = clickableParent(),
-                action = defaultClick()
+                nodeRecovery = defaultNodeRecovery(pkg),
+                nodeAction = defaultFindAndClick(predicate = storageFilter),
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -157,17 +158,13 @@ class MIUISpecs @Inject constructor(
             val clearCacheButtonLabels =
                 aospLabels.getClearCacheDynamic() + aospLabels.getClearCacheStatic(lang, script)
 
-            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
-                if (!node.isClickyButton()) false
-                else node.textMatchesAny(clearCacheButtonLabels)
-            }
-
-            val step = Stepper.Step(
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear cache (settings plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
-                nodeTest = buttonFilter,
-                action = getAospClearCacheClick(pkg, tag)
+                nodeAction = defaultFindAndClickClearCache(isDryRun = Bugs.isDryRun, pkg) {
+                    if (!it.isClickyButton()) false else it.textMatchesAny(clearCacheButtonLabels)
+                },
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -195,59 +192,67 @@ class MIUISpecs @Inject constructor(
         }
 
         if (!useAlternativeStep) {
-            val clearDataFilter: suspend Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = filter@{ node ->
-                when {
-                    // MIUI 12+
-                    isMiui12Plus -> if (!node.isTextView()) return@filter false
-                    // MIUI 10/11
-                    else -> if (!node.isClickyButton()) return@filter false
-                }
 
-                if (node.textMatchesAny(clearDataLabels)) return@filter true
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = findNode { node ->
+                    when {
+                        // MIUI 12+
+                        isMiui12Plus -> if (!node.isTextView()) return@findNode false
+                        // MIUI 10/11
+                        else -> if (!node.isClickyButton()) return@findNode false
+                    }
 
-                if (node.textMatchesAny(clearCacheLabels)) {
-                    useAlternativeStep = true
-                    throw StepAbortException("Got 'Clear cache' instead of 'Clear data' skip the action dialog step.")
-                }
-                return@filter false
+                    if (node.textMatchesAny(clearDataLabels)) return@findNode true
+
+                    if (node.textMatchesAny(clearCacheLabels)) {
+                        useAlternativeStep = true
+                        throw StepAbortException("Got 'Clear cache' instead of 'Clear data' skip the action dialog step.")
+                    }
+                    false
+                } ?: return@action false
+
+                val mapped = when {
+                    // MIUI 12 needs a node mapping, while in MIUI 11 the text is directly clickable.
+                    isMiui12Plus -> findClickableParent(node = target)
+                    else -> target
+                } ?: return@action false
+
+                clickNormal(node = mapped)
             }
-            val step = Stepper.Step(
+
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear data (security center plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_data.toCaString(clearDataLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG_MIUI, ipcFunnel, pkg),
-                nodeTest = clearDataFilter,
-                nodeRecovery = getDefaultNodeRecovery(pkg),
-                nodeMapping = when {
-                    // MIUI 12 needs a node mapping, while in MIUI 11 the text is directly clickable.
-                    isMiui12Plus -> clickableParent()
-                    else -> null
-                },
-                action = defaultClick()
+                nodeRecovery = defaultNodeRecovery(pkg),
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
 
         if (useAlternativeStep) {
-            val alternativeStep: Stepper.Step = Stepper.Step(
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = findNode {
+                    when {
+                        isMiui12Plus -> it.isTextView() && it.textMatchesAny(clearCacheLabels)
+                        else -> it.isClickyButton() && it.textMatchesAny(clearCacheLabels)
+                    }
+                } ?: return@action false
+
+                val mapped = when {
+                    isMiui12Plus -> findClickableParent(node = target)
+                    else -> target
+                } ?: return@action false
+
+                clickNormal(node = mapped)
+            }
+            val alternativeStep = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear cache (alternative security center plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG_MIUI, ipcFunnel, pkg),
-                nodeTest = when {
-                    isMiui12Plus -> {
-                        { it.isTextView() && it.textMatchesAny(clearCacheLabels) }
-                    }
-
-                    else -> {
-                        { it.isClickyButton() && it.textMatchesAny(clearCacheLabels) }
-                    }
-                },
-                nodeMapping = when {
-                    isMiui12Plus -> clickableParent()
-                    else -> null
-                },
-                action = defaultClick()
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, alternativeStep) }
         } else {
@@ -263,18 +268,21 @@ class MIUISpecs @Inject constructor(
                 root.crawl().map { it.node }.any { it.idContains("id/alertTitle") }
             }
 
-            val entryFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
-                if (!node.isClickable || !node.isTextView()) false
-                else node.textMatchesAny(clearCacheLabels)
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = findNode {
+                    if (!it.isClickable || !it.isTextView()) false
+                    else it.textMatchesAny(clearCacheLabels)
+                } ?: return@action false
+
+                clickNormal(node = target)
             }
 
-            val step = Stepper.Step(
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear cache (security center plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheLabels),
                 windowCheck = windowCheck,
-                nodeTest = entryFilter,
-                action = defaultClick()
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -299,21 +307,23 @@ class MIUISpecs @Inject constructor(
                 }
             }
 
-            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
-                if (!node.isClickyButton()) false
-                else when (Bugs.isDryRun) {
-                    true -> node.idMatches("android:id/button2")
-                    false -> node.idMatches("android:id/button1")
-                }
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = findNode { node ->
+                    if (!node.isClickyButton()) false
+                    else when (Bugs.isDryRun) {
+                        true -> node.idMatches("android:id/button2")
+                        false -> node.idMatches("android:id/button1")
+                    }
+                } ?: return@action false
+                clickNormal(node = target)
             }
 
-            val step = Stepper.Step(
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Confirm clear cache (security center plan)",
                 label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(""),
                 windowCheck = windowCheck,
-                nodeTest = buttonFilter,
-                action = defaultClick()
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }

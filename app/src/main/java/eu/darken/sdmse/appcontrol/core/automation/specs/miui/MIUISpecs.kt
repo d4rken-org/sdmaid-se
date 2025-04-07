@@ -1,6 +1,5 @@
 package eu.darken.sdmse.appcontrol.core.automation.specs.miui
 
-import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -9,19 +8,23 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
-import eu.darken.sdmse.automation.core.common.Stepper
-import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.crawl
-import eu.darken.sdmse.automation.core.common.defaultClick
-import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.pkgId
+import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
+import eu.darken.sdmse.automation.core.common.stepper.StepContext
+import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.common.stepper.clickNormal
+import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
+import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.common.windowCheck
-import eu.darken.sdmse.automation.core.common.windowCheckDefaultSettings
-import eu.darken.sdmse.automation.core.common.windowLauncherDefaultSettings
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
+import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
+import eu.darken.sdmse.automation.core.specs.windowCheck
+import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
+import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
@@ -77,21 +80,25 @@ class MIUISpecs @Inject constructor(
         var wasDisabled = false
 
         run {
-            val step = Stepper.Step(
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = findNode { it.textMatchesAny(forceStopLabels) } ?: return@action false
+                val mapped = findClickableParent(node = target) ?: return@action false
+                if (mapped.isEnabled) {
+                    clickNormal(node = mapped)
+                } else {
+                    wasDisabled = true
+                    true
+                }
+            }
+
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Force stop button",
                 label = R.string.appcontrol_automation_progress_find_force_stop.toCaString(forceStopLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
-                nodeTest = storageFilter@{ node ->
-                    node.textMatchesAny(forceStopLabels)
-                },
-                nodeRecovery = getDefaultNodeRecovery(pkg),
-                nodeMapping = clickableParent(),
-                action = defaultClick(onDisabled = {
-                    wasDisabled = true
-                    true
-                }),
+                nodeRecovery = defaultNodeRecovery(pkg),
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -111,21 +118,19 @@ class MIUISpecs @Inject constructor(
                 root.crawl().map { it.node }.any { subNode -> subNode.textMatchesAny(titleLbl) }
             }
 
-            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
+            val action = defaultFindAndClick { node ->
                 when (Bugs.isDryRun) {
                     true -> node.textMatchesAny(cancelLbl)
                     false -> node.textMatchesAny(okLbl)
                 }
             }
 
-            val step = Stepper.Step(
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Confirm force stop",
                 label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(titleLbl + okLbl),
                 windowCheck = windowCheck,
-                nodeTest = buttonFilter,
-                nodeMapping = clickableParent(),
-                action = defaultClick(),
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }

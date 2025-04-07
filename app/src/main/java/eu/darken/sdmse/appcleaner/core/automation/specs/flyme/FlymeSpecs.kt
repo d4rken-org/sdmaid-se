@@ -1,6 +1,5 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.flyme
 
-import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -9,18 +8,20 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
-import eu.darken.sdmse.automation.core.common.Stepper
-import eu.darken.sdmse.automation.core.common.getAospClearCacheClick
-import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
+import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idContains
+import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
+import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.common.windowCheckDefaultSettings
-import eu.darken.sdmse.automation.core.common.windowLauncherDefaultSettings
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
+import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
+import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -83,22 +84,21 @@ class FlymeSpecs @Inject constructor(
                 throw UnsupportedOperationException("This system language is not supported")
             }
 
-            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = filter@{ node ->
-                if (!node.isClickable) return@filter false
+            val action = defaultFindAndClickClearCache(isDryRun = Bugs.isDryRun, pkg) { node ->
+                if (!node.isClickable) return@defaultFindAndClickClearCache false
                 // viewIdResName: com.android.settings:id/right_text
-                if (!node.idContains("right_text")) return@filter false
+                if (!node.idContains("right_text")) return@defaultFindAndClickClearCache false
                 node.textMatchesAny(clearCacheButtonLabels)
             }
 
-            val step = Stepper.Step(
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear cache button",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
-                nodeTest = buttonFilter,
-                nodeRecovery = getDefaultNodeRecovery(pkg),
-                action = getAospClearCacheClick(pkg, TAG)
+                nodeRecovery = defaultNodeRecovery(pkg),
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
