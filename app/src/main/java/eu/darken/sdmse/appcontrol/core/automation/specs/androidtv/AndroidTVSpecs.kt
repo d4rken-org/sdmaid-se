@@ -1,30 +1,31 @@
 package eu.darken.sdmse.appcontrol.core.automation.specs.androidtv
 
-import android.content.Context
-import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.alcatel.AlcatelSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
-import eu.darken.sdmse.automation.core.common.Stepper
-import eu.darken.sdmse.automation.core.common.clickableParent
 import eu.darken.sdmse.automation.core.common.crawl
-import eu.darken.sdmse.automation.core.common.defaultClick
-import eu.darken.sdmse.automation.core.common.getDefaultNodeRecovery
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.pkgId
+import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
+import eu.darken.sdmse.automation.core.common.stepper.StepContext
+import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.common.stepper.clickNormal
+import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
+import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.common.windowCheck
-import eu.darken.sdmse.automation.core.common.windowCheckDefaultSettings
-import eu.darken.sdmse.automation.core.common.windowLauncherDefaultSettings
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
+import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
+import eu.darken.sdmse.automation.core.specs.windowCheck
+import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
+import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
@@ -44,7 +45,6 @@ import javax.inject.Inject
 @Reusable
 open class AndroidTVSpecs @Inject constructor(
     private val ipcFunnel: IPCFunnel,
-    @ApplicationContext private val context: Context,
     private val deviceDetective: DeviceDetective,
     private val tvLabels: AndroidTVLabels,
     private val generalSettings: GeneralSettings,
@@ -77,25 +77,30 @@ open class AndroidTVSpecs @Inject constructor(
 
         log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
 
-        val forceStopLabels = tvLabels.getForceStopButtonDynamic()
         var wasDisabled = false
 
         run {
-            val step = Stepper.Step(
+            val forceStopLabels = tvLabels.getForceStopButtonDynamic()
+
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = findNode { it.textMatchesAny(forceStopLabels) } ?: return@action false
+                val mapped = findClickableParent(node = target) ?: return@action false
+                if (mapped.isEnabled) {
+                    clickNormal(node = mapped)
+                } else {
+                    wasDisabled = true
+                    true
+                }
+            }
+
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Force stop button",
                 label = R.string.appcontrol_automation_progress_find_force_stop.toCaString(forceStopLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(AlcatelSpecs.SETTINGS_PKG, ipcFunnel, pkg),
-                nodeTest = storageFilter@{ node ->
-                    node.textMatchesAny(forceStopLabels)
-                },
-                nodeRecovery = getDefaultNodeRecovery(pkg),
-                nodeMapping = clickableParent(),
-                action = defaultClick(onDisabled = {
-                    wasDisabled = true
-                    true
-                }),
+                nodeRecovery = defaultNodeRecovery(pkg),
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -116,21 +121,19 @@ open class AndroidTVSpecs @Inject constructor(
                 }
             }
 
-            val buttonFilter: Stepper.StepContext.(AccessibilityNodeInfo) -> Boolean = { node ->
+            val action = defaultFindAndClick { node ->
                 when (Bugs.isDryRun) {
                     true -> node.textMatchesAny(cancelLbl)
                     false -> node.textMatchesAny(okLbl)
                 }
             }
 
-            val step = Stepper.Step(
+            val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Confirm force stop",
                 label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(okLbl),
                 windowCheck = windowCheck,
-                nodeTest = buttonFilter,
-                nodeMapping = clickableParent(),
-                action = defaultClick(),
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }

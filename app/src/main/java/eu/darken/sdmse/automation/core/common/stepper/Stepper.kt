@@ -1,10 +1,12 @@
-package eu.darken.sdmse.automation.core.common
+package eu.darken.sdmse.automation.core.common.stepper
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Intent
 import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Reusable
 import eu.darken.sdmse.automation.core.ScreenState
+import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.common.toStringShort
 import eu.darken.sdmse.automation.core.errors.AutomationException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
@@ -12,8 +14,6 @@ import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.R
-import eu.darken.sdmse.common.ca.CaDrawable
-import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
@@ -55,7 +55,7 @@ class Stepper @Inject constructor(
         progressPub.value = update(progressPub.value)
     }
 
-    suspend fun process(context: AutomationExplorer.Context, step: Step): Unit = withTimeout(step.timeout) {
+    suspend fun process(context: AutomationExplorer.Context, step: AutomationStep): Unit = withTimeout(step.timeout) {
         val tag = step.source + ":Stepper"
         log(tag) { "crawl(): $step" }
         updateProgressPrimary(step.label)
@@ -104,7 +104,7 @@ class Stepper @Inject constructor(
         }
     }
 
-    private suspend fun doCrawl(stepContext: StepContext, step: Step) {
+    private suspend fun doCrawl(stepContext: StepContext, step: AutomationStep) {
         val tag = stepContext.tag + ":Stepper"
         log(tag, VERBOSE) { "doCrawl(): context=$stepContext for $step" }
 
@@ -150,82 +150,38 @@ class Stepper @Inject constructor(
         }
         log(tag, DEBUG) { "Current window root node is ${targetWindowRoot.toStringShort()}" }
 
-        val targetNode: AccessibilityNodeInfo = when {
-            step.nodeTest != null -> {
-                var target: AccessibilityNodeInfo? = null
-                var currentRootNode = targetWindowRoot
-
-                while (currentCoroutineContext().isActive) {
-                    if (Bugs.isDebug) {
-                        log(tag, VERBOSE) { "Checking current nodes:" }
-                        currentRootNode.crawl().forEach { log(tag, VERBOSE) { it.infoShort } }
-                    }
-
-                    target = currentRootNode.crawl().map { it.node }.find { step.nodeTest.invoke(stepContext, it) }
-
-                    if (target != null) {
-                        log(tag, INFO) { "Target node found: ${target.toStringShort()}" }
-                        break
-                    } else {
-                        log(tag, WARN) { "Target node not found" }
-                    }
-
-                    if (step.nodeRecovery != null) {
-                        log(tag, VERBOSE) { "Trying node recovery!" }
-                        // Should we care about whether the recovery thinks it was successful?
-                        step.nodeRecovery.invoke(stepContext, currentRootNode)
-                        delay(200)
-                    } else {
-                        // Timeout will hit here and cancel if necessary
-                        delay(100)
-                    }
-                    // Let's try a new one
-                    currentRootNode = stepContext.host.waitForWindowRoot()
-                }
-                target!!
+        if (step.nodeAction != null) {
+            // Perform action, e.g. clicking a button
+            log(tag, INFO) { "Performing action... ${step.nodeAction}" }
+            if (Bugs.isDebug) {
+                log(tag, VERBOSE) { "Checking current nodes:" }
+                targetWindowRoot.crawl().forEach { log(tag, VERBOSE) { it.infoShort } }
             }
 
-            else -> stepContext.host.waitForWindowRoot()
+            var success = false
+            while (currentCoroutineContext().isActive) {
+                success = step.nodeAction.invoke(stepContext)
+                if (success) {
+                    break
+                } else if (step.nodeRecovery != null) {
+                    log(tag, VERBOSE) { "Trying node recovery!" }
+                    // TODO Should we care about whether the recovery thinks it was successful?
+                    step.nodeRecovery.invoke(stepContext, stepContext.host.waitForWindowRoot())
+                    delay(200)
+                } else {
+                    // Timeout will hit here and cancel if necessary
+                    delay(100)
+                }
+            }
+
+            if (success) {
+                log(tag, INFO) { "nodeAction was successful :)" }
+            } else {
+                throw AutomationException("nodeAction failed (spec=$step, context=$stepContext)")
+            }
         }
 
-        // e.g. find a clickable parent based on the target node
-        val mappedNode = step.nodeMapping
-            ?.also { log(tag, DEBUG) { "Trying to map ${targetNode.toStringShort()} using $it" } }
-            ?.invoke(stepContext, targetNode)
-            ?.also { log(tag, INFO) { "Mapped node is ${it.toStringShort()}" } }
-            ?: targetNode.also { log(tag, VERBOSE) { "No mapping to be done." } }
-
-        // Perform action, e.g. clicking a button
-        log(tag, INFO) { "Performing action on $mappedNode" }
-        val success = step.action?.invoke(stepContext, mappedNode) != false
-
-        if (success) {
-            log(tag, INFO) { "Crawl was successful :)" }
-        } else {
-            throw AutomationException("Action failed on $mappedNode (spec=$step)")
-        }
-    }
-
-    data class StepContext(
-        val hostContext: AutomationExplorer.Context,
-        val tag: String,
-        val attempt: Int,
-    ) : AutomationExplorer.Context by hostContext
-
-    data class Step(
-        val source: String,
-        val descriptionInternal: String,
-        val label: CaString,
-        val icon: CaDrawable? = null,
-        val windowLaunch: (suspend StepContext.() -> Unit)? = null,
-        val windowCheck: (suspend StepContext.() -> AccessibilityNodeInfo)? = null,
-        val nodeTest: (suspend StepContext.(node: AccessibilityNodeInfo) -> Boolean)? = null,
-        val nodeRecovery: (suspend StepContext.(AccessibilityNodeInfo) -> Boolean)? = null,
-        val nodeMapping: (suspend StepContext.(node: AccessibilityNodeInfo) -> AccessibilityNodeInfo)? = null,
-        val action: (suspend StepContext.(AccessibilityNodeInfo) -> Boolean)? = null,
-        val timeout: Long = 15 * 1000,
-    ) {
-        override fun toString(): String = "Step(source=$source, description=$descriptionInternal)"
+        log(tag, INFO) { "Step ended without error" }
     }
 
     data class Result(val success: Boolean, val exception: Exception? = null)
