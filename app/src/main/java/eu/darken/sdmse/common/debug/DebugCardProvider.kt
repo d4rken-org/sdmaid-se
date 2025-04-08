@@ -10,10 +10,10 @@ import eu.darken.sdmse.common.adb.service.AdbServiceClient
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.navigation.navVia
 import eu.darken.sdmse.common.pkgs.PkgRepo
@@ -26,14 +26,14 @@ import eu.darken.sdmse.common.sharedresource.runSessionAction
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.uix.ViewModel3
-import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.dashboard.DashboardFragmentDirections
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
 import java.util.UUID
 import javax.inject.Inject
@@ -41,6 +41,7 @@ import javax.inject.Inject
 class DebugCardProvider @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     @ApplicationContext private val context: Context,
+    private val dispatcherProvider: DispatcherProvider,
     private val debugSettings: DebugSettings,
     private val rootSettings: RootSettings,
     private val rootManager: RootManager,
@@ -49,16 +50,13 @@ class DebugCardProvider @Inject constructor(
     private val rootClient: RootServiceClient,
     private val pkgRepo: PkgRepo,
     private val dataAreaManager: DataAreaManager,
-    private val gatewaySwitch: GatewaySwitch,
     private val shellOps: ShellOps,
     private val shizukuClient: AdbServiceClient,
     private val automation: AutomationManager,
-    private val taskManager: TaskManager,
 ) {
 
     private val rootTestState = MutableStateFlow<RootTestResult?>(null)
     private val shizukuTestState = MutableStateFlow<ShizukuTestResult?>(null)
-    private val acsDebugJobState = MutableStateFlow<Job?>(null)
 
     fun create(vm: ViewModel3) = combine(
         debugSettings.isDebugMode.flow.distinctUntilChanged(),
@@ -66,8 +64,8 @@ class DebugCardProvider @Inject constructor(
         debugSettings.isDryRunMode.flow.distinctUntilChanged(),
         rootTestState,
         shizukuTestState,
-        acsDebugJobState,
-    ) { isDebug, isTrace, isDryRun, rootState, shizukuState, acsDebugJob ->
+        automation.currentTask,
+    ) { isDebug, isTrace, isDryRun, rootState, shizukuState, acsTask ->
         if (!isDebug) return@combine null
         DebugCardVH.Item(
             isDryRunEnabled = isDryRun,
@@ -164,14 +162,21 @@ class DebugCardProvider @Inject constructor(
                 }
             },
             onAcsDebug = {
-                if (acsDebugJob != null) {
-                    acsDebugJob.cancel()
-                    acsDebugJobState.value = null
+                if (acsTask != null) {
+                    automation.cancelTask()
                 } else {
-                    acsDebugJobState.value = appScope.launch { automation.submit(DebugTask()) }
+                    appScope.launch {
+                        try {
+                            automation.submit(DebugTask())
+                        } catch (e: Exception) {
+                            if (e !is CancellationException) {
+                                withContext(dispatcherProvider.Main) { vm.errorEvents.value = e }
+                            }
+                        }
+                    }
                 }
             },
-            acsTask = acsDebugJob,
+            acsTask = acsTask,
         )
     }
 
