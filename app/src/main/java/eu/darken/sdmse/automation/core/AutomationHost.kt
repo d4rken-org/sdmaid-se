@@ -7,7 +7,6 @@ import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.progress.Progress
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -32,8 +31,8 @@ interface AutomationHost : Progress.Client {
     val state: Flow<State>
 
     data class Options(
-        val showOverlay: Boolean = !Bugs.isTrace,
-        val passthrough: Boolean = false,
+        val showOverlay: Boolean = false,
+        val passthrough: Boolean = true,
         val accessibilityServiceInfo: AccessibilityServiceInfo = AccessibilityServiceInfo(),
         val controlPanelTitle: CaString = R.string.automation_active_title.toCaString(),
         val controlPanelSubtitle: CaString = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),

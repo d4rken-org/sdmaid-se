@@ -3,7 +3,6 @@ package eu.darken.sdmse.automation.core.common
 import android.graphics.Rect
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
-import eu.darken.sdmse.automation.core.errors.AutomationException
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -80,28 +79,6 @@ fun AccessibilityNodeInfo.isRadioButton(): Boolean {
 
 fun AccessibilityNodeInfo.children() = (0 until childCount).mapNotNull { getChild(it) }
 
-fun AccessibilityNodeInfo.searchUp(
-    maxNesting: Int = 1,
-    predicate: (AccessibilityNodeInfo) -> Boolean
-): AccessibilityNodeInfo {
-    var curParent = this.parent
-
-    for (i in 0 until maxNesting) {
-        val desiredSibling = curParent.children().firstOrNull { relative ->
-            if (relative == this) {
-                false
-            } else {
-                predicate(relative)
-            }
-        }
-        if (desiredSibling != null) return desiredSibling
-
-        if (curParent.parent != null) curParent = curParent.parent
-    }
-
-    throw AutomationException("No sibling found.")
-}
-
 fun AccessibilityNodeInfo.findParentOrNull(
     maxNesting: Int = 3,
     predicate: (AccessibilityNodeInfo) -> Boolean
@@ -139,7 +116,7 @@ fun AccessibilityNodeInfo.crawl(debug: Boolean = false): Sequence<CrawledNode> =
     while (!queue.isEmpty()) {
         val cur = queue.poll()!!
 
-        if (debug) log(TAG) { cur.infoShort }
+        if (debug) log(TAG, VERBOSE) { cur.infoShort }
 
         yield(cur)
 

@@ -5,13 +5,13 @@ import android.graphics.Typeface
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
+import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.DebugCardProvider
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.databinding.DashboardDebugItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
-import kotlinx.coroutines.Job
 
 
 class DebugCardVH(parent: ViewGroup) :
@@ -89,7 +89,7 @@ class DebugCardVH(parent: ViewGroup) :
         val onTestShizuku: () -> Unit,
         val onViewLog: () -> Unit,
         val onAcsDebug: () -> Unit,
-        val acsTask: Job?,
+        val acsTask: AutomationTask?,
     ) : DashboardAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }

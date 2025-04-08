@@ -17,6 +17,7 @@ import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.ca.caString
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.funnel.IPCFunnel
@@ -58,8 +59,9 @@ class DebugTaskModule @AssistedInject constructor(
         updateProgressSecondary("Listening to events...")
         val eventJob = host.events
             .onEach {
-                log(TAG) { "Event: $it" }
-                val crawled = host.waitForWindowRoot().crawl(debug = true).toList()
+                log(TAG, VERBOSE) { "Event: $it" }
+                val crawled = host.waitForWindowRoot().crawl().toList()
+                crawled.forEach { log(TAG, VERBOSE) { it.infoShort } }
                 updateProgressSecondary("Event: ${it.eventType} (depth: ${crawled.last().level})")
             }
             .launchIn(moduleScope)

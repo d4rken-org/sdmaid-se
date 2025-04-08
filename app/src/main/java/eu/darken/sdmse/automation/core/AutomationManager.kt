@@ -27,6 +27,7 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.isActive
@@ -43,6 +44,18 @@ class AutomationManager @Inject constructor(
     private val setupHelper: SetupHelper,
     private val settingsProvider: SystemSettingsProvider,
 ) {
+
+    private val currentTaskHolder = MutableStateFlow<AutomationTask?>(null)
+    val currentTask: Flow<AutomationTask?> = currentTaskHolder
+
+    internal fun setCurrentTask(task: AutomationTask?) {
+        log(TAG, VERBOSE) { "setCurrentTask($task)" }
+        currentTaskHolder.value = task
+    }
+
+    fun cancelTask(): Boolean {
+        return currentService()?.cancelTask() ?: false
+    }
 
     val useAcs: Flow<Boolean> = settings.hasAcsConsent.flow
         .mapLatest { consent ->

@@ -114,6 +114,7 @@ class ClearCacheModule @AssistedInject constructor(
 
         host.changeOptions {
             AutomationHost.Options(
+                showOverlay = true,
                 controlPanelTitle = R.string.appcleaner_automation_title.toCaString(),
                 controlPanelSubtitle = R.string.appcleaner_automation_subtitle_default_caches.toCaString(),
                 accessibilityServiceInfo = AccessibilityServiceInfo().apply {

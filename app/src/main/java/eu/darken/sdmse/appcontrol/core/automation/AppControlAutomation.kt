@@ -92,6 +92,7 @@ class AppControlAutomation @AssistedInject constructor(
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
         host.changeOptions {
             AutomationHost.Options(
+                showOverlay = true,
                 controlPanelTitle = R.string.appcontrol_automation_title.toCaString(),
                 controlPanelSubtitle = R.string.appcontrol_automation_subtitle_force_stopping.toCaString(),
                 accessibilityServiceInfo = AccessibilityServiceInfo().apply {
