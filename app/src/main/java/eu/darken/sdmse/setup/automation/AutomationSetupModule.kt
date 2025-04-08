@@ -10,7 +10,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.automation.core.AutomationManager
-import eu.darken.sdmse.automation.core.AutomationService
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -26,6 +25,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import java.time.Instant
@@ -102,7 +102,7 @@ class AutomationSetupModule @Inject constructor(
     suspend fun setAllow(allowed: Boolean) {
         log(TAG) { "setAllow($allowed)" }
         if (!allowed) {
-            AutomationService.instance?.let {
+            automationManager.currentService.first()?.let {
                 log(TAG) { "Disabling active accessibility service" }
                 it.disableSelf()
             }

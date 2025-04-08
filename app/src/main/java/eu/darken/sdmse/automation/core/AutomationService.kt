@@ -87,15 +87,6 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         progressPub.value = update(progressPub.value)
     }
 
-    private fun checkLaunch(): Boolean = if (!isValidAndroidEntryPoint()) {
-        log(TAG, ERROR) { "Invalid launch: Launched by foreign application: $application" }
-        // stopSelf()/disableSelf() doesn't work in onCreate()
-        disableSelf()
-        false
-    } else {
-        true
-    }
-
     private var controlView: AutomationControlView? = null
 
     override val service: AccessibilityService get() = this
@@ -107,7 +98,12 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         try {
             super.onCreate()
         } catch (e: IllegalStateException) {
-            if (checkLaunch()) throw e else return
+            if (isValidAndroidEntryPoint()) throw e
+
+            log(TAG, ERROR) { "Invalid launch: Launched by foreign application: $application" }
+            // stopSelf()/disableSelf() doesn't work in onCreate()
+            disableSelf()
+            return
         }
 
         if (mightBeRestrictedDueToSideload() && !generalSettings.hasPassedAppOpsRestrictions.valueBlocking) {
@@ -155,9 +151,8 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
     override fun onServiceConnected() {
         log(TAG) { "onServiceConnected()" }
-        if (!checkLaunch()) return
-
         instance = this
+        automationManager.setCurrentService(this)
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
 
         if (generalSettings.hasAcsConsent.valueBlocking != true) {
@@ -171,15 +166,13 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     override fun onUnbind(intent: Intent?): Boolean {
         log(TAG) { "onUnbind(intent=$intent)" }
         instance = null
+        automationManager.setCurrentService(null)
         return super.onUnbind(intent)
     }
 
     override fun onDestroy() {
         log(TAG) { "onDestroy()" }
         Bugs.leaveBreadCrumb("Automation service destroyed")
-
-        if (!checkLaunch()) return
-
         serviceScope.cancel()
         super.onDestroy()
     }
@@ -191,8 +184,6 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
-        if (!checkLaunch()) return
-
         if (generalSettings.hasAcsConsent.valueBlocking != true) {
             log(TAG, WARN) { "Missing consent for accessibility service, skipping event." }
             return
