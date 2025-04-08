@@ -57,7 +57,7 @@ suspend fun StepContext.clickClearCache(
             allButtonsAreDisabled -> {
                 // https://github.com/d4rken/sdmaid-public/issues/3121
                 log(tag, WARN) { "Clear cache button disabled (others are too), assuming size calculation " }
-                val sleepTime = 250L * (attempt + 1)
+                val sleepTime = 250L * (stepAttempts + 1)
                 log(tag) { "Sleeping for $sleepTime to wait for calculation." }
                 delay(sleepTime)
                 false

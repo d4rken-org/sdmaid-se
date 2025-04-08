@@ -5,5 +5,5 @@ import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 data class StepContext(
     val hostContext: AutomationExplorer.Context,
     val tag: String,
-    val attempt: Int,
+    val stepAttempts: Int,
 ) : AutomationExplorer.Context by hostContext

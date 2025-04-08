@@ -1,5 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 
+import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -13,8 +14,10 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClear
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
+import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
@@ -78,6 +81,13 @@ class AOSPSpecs @Inject constructor(
                 aospLabels.getStorageEntryDynamic() + aospLabels.getStorageEntryStatic(lang, script)
             log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
+            val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
+                if (stepAttempts >= 1 && WITHOUT_SETTINGS.contains(pkg.id)) {
+                    throw PlanAbortException("${pkg.packageName} has no settings window.")
+                }
+                windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg)()
+            }
+
             val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
 
             val step = AutomationStep(
@@ -85,7 +95,7 @@ class AOSPSpecs @Inject constructor(
                 descriptionInternal = "Storage entry",
                 label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
-                windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
+                windowCheck = windowCheck,
                 nodeRecovery = defaultNodeRecovery(pkg),
                 nodeAction = defaultFindAndClick(predicate = storageFilter),
             )
@@ -117,6 +127,15 @@ class AOSPSpecs @Inject constructor(
 
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
+        val WITHOUT_SETTINGS = setOf(
+            "com.google.android.bluetooth",
+            "com.google.android.photopicker",
+            "com.google.android.rkpdapp",
+            "com.google.android.cellbroadcastreceiver",
+            "com.google.android.providers.media.module",
+            "com.google.android.networkstack.tethering",
+            "com.google.android.cellbroadcastservice",
+        ).map { it.toPkgId() }
 
         val TAG: String = logTag("AppCleaner", "Automation", "AOSP", "Specs")
     }

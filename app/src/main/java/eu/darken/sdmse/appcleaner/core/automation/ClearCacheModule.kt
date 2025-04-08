@@ -213,7 +213,6 @@ class ClearCacheModule @AssistedInject constructor(
                 log(TAG, INFO) { "Successfully cleared cache for for $target" }
                 task.onSuccess(target)
                 successful.add(target)
-                increaseProgress()
             } catch (e: ScreenUnavailableException) {
                 log(TAG, WARN) { "Cancelled because screen become unavailable: ${e.asLog()}" }
                 // TODO We don't have to abort here, but this is not a normal state and should show an error?
@@ -237,8 +236,10 @@ class ClearCacheModule @AssistedInject constructor(
             } catch (e: Exception) {
                 log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
                 failed.add(target)
+            } finally {
+                increaseProgress()
+                opsCounter.tick()
             }
-            opsCounter.tick()
         }
 
         return ProcessedTask(

@@ -38,9 +38,6 @@ class AutomationExplorer @AssistedInject constructor(
 
     suspend fun process(spec: AutomationSpec.Explorer) {
         log(TAG) { "process(): ${spec.tag}" }
-
-        var attempts = 0
-
         val context = object : Context {
 
             override val progress: Flow<Progress.Data?> = this@AutomationExplorer.progress
@@ -49,12 +46,9 @@ class AutomationExplorer @AssistedInject constructor(
                 this@AutomationExplorer.updateProgress(update)
             }
 
-            override val attempts: Int
-                get() = attempts
-
             override val host: AutomationHost = this@AutomationExplorer.host
 
-            override fun toString(): String = "AutomationContext(host=$host, attempts=$attempts)"
+            override fun toString(): String = "AutomationContext(host=$host)"
         }
 
         log(TAG, VERBOSE) { "Creating plan..." }
@@ -71,17 +65,14 @@ class AutomationExplorer @AssistedInject constructor(
                     log(TAG, WARN) { "ABORT Plan due to ${e.asLog()}" }
                     throw e
                 } catch (e: Exception) {
-                    log(TAG, WARN) { "Plan failed, retrying (attempts=$attempts):\n${e.asLog()}" }
+                    log(TAG, WARN) { "Plan failed, retrying:\n${e.asLog()}" }
                     delay(300)
-                    attempts++
                 }
             }
         }
     }
 
     interface Context : Progress.Host, Progress.Client {
-
-        val attempts: Int
 
         val host: AutomationHost
 
