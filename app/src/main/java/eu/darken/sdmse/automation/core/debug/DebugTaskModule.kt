@@ -41,6 +41,7 @@ class DebugTaskModule @AssistedInject constructor(
         host.changeOptions {
             AutomationHost.Options(
                 showOverlay = false,
+                passthrough = true,
                 controlPanelTitle = caString { "Debug module is active" },
                 accessibilityServiceInfo = AccessibilityServiceInfo().apply {
                     flags = AccessibilityServiceInfo.DEFAULT or

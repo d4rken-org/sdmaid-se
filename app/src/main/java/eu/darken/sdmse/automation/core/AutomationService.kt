@@ -125,15 +125,17 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             .distinctUntilChanged()
             .onEach { available ->
                 optionsLock.withLock {
-                    val desiredState = currentOptions.showOverlay
+                    val desiredVis = currentOptions.showOverlay
+                    val desiredPass = currentOptions.passthrough
+                    log(TAG) { "ScreenState: desiredVis=$desiredPass, desiredPass=$desiredPass" }
                     if (!available) {
-                        log(TAG, INFO) { "Controlview should be hidden, screen unavailable (desired=$desiredState)" }
-                        isOverlayExtraHidden = true
-                        setOverlayVisibility(false)
+                        log(TAG, INFO) { "ScreenState: Controlview should be hidden" }
+                        isOverlayBlocked = true
+                        updateOverlay(visible = false, passthrough = true)
                     } else if (automationProcessor.hasTask) {
-                        log(TAG, INFO) { "Controlview can be visible, screen available again (desired=$desiredState)" }
-                        isOverlayExtraHidden = false
-                        setOverlayVisibility(desiredState)
+                        log(TAG, INFO) { "ScreenState: Controlview can be visible, screen available" }
+                        isOverlayBlocked = false
+                        updateOverlay(visible = desiredVis, passthrough = desiredPass)
                     }
                 }
             }
@@ -228,20 +230,25 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     private var currentOptions: AutomationHost.Options = AutomationHost.Options()
     private val optionsLock = Mutex()
 
-    private var isOverlayExtraHidden: Boolean = false
+    private var isOverlayBlocked: Boolean = false
 
-    private suspend fun setOverlayVisibility(visible: Boolean) = withContext(dispatcher.Main) {
-        log(TAG) { "setOverlayVisibility($visible)" }
+    private suspend fun updateOverlay(
+        visible: Boolean,
+        passthrough: Boolean,
+    ) = withContext(dispatcher.Main) {
+        log(TAG) { "setOverlayVisibility(visible=$visible, passthrough=$passthrough)" }
         val cv = controlView
         if (cv == null) {
-            log(TAG, WARN) { "setOverlayVisibility($visible) controlView was null" }
+            log(TAG, WARN) { "setOverlayVisibility(...) controlView was null" }
             return@withContext
         }
+
         cv.alpha = if (visible) 1f else 0f
-        overlayParams.flags = if (visible) {
-            overlayParams.flags and WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE.inv()
-        } else {
+
+        overlayParams.flags = if (passthrough) {
             overlayParams.flags or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+        } else {
+            overlayParams.flags and WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE.inv()
         }
         windowManager.updateViewLayout(cv, overlayParams)
     }
@@ -250,26 +257,19 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         action: (AutomationHost.Options) -> AutomationHost.Options
     ) = optionsLock.withLock {
         val newOptions = action(currentOptions)
-        if (Bugs.isTrace) {
-            log(TAG, VERBOSE) { "changeOptions(): Old options: $currentOptions" }
-            log(TAG, VERBOSE) { "changeOptions(): New options: $newOptions" }
-        }
+
+        log(TAG, VERBOSE) { "changeOptions(): Old options: $currentOptions" }
+        log(TAG, VERBOSE) { "changeOptions(): New options: $newOptions" }
 
         serviceInfo = newOptions.accessibilityServiceInfo
 
-        overlayParams.flags = if (newOptions.passthrough) {
-            overlayParams.flags or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
-        } else {
-            overlayParams.flags and WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE.inv()
-        }
-
         withContext(dispatcher.Main) {
-            val cv = controlView!!
-            windowManager.updateViewLayout(cv, overlayParams)
-            cv.setTitle(newOptions.controlPanelTitle, newOptions.controlPanelSubtitle)
+            controlView?.setTitle(newOptions.controlPanelTitle, newOptions.controlPanelSubtitle)
         }
 
-        if (!isOverlayExtraHidden) setOverlayVisibility(newOptions.showOverlay)
+        if (!isOverlayBlocked) {
+            updateOverlay(visible = newOptions.showOverlay, passthrough = newOptions.passthrough)
+        }
 
         delay(80) // approx ~3 frames
         log(TAG, VERBOSE) { "changeOptions(): Updating new hostState" }

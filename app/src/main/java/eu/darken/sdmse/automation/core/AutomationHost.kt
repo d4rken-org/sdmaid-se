@@ -47,7 +47,7 @@ interface AutomationHost : Progress.Client {
             } catch (e: NullPointerException) {
                 "NPE"
             }
-            return "AutomationHost.Options(showOverlay=$showOverlay, acsInfo=$acsInfo)"
+            return "AutomationHost.Options(showOverlay=$showOverlay, passthrough=$passthrough, acsInfo=$acsInfo)"
         }
     }
 }
