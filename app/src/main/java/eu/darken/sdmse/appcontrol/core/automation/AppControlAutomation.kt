@@ -93,6 +93,7 @@ class AppControlAutomation @AssistedInject constructor(
         host.changeOptions {
             AutomationHost.Options(
                 showOverlay = true,
+                passthrough = false,
                 controlPanelTitle = R.string.appcontrol_automation_title.toCaString(),
                 controlPanelSubtitle = R.string.appcontrol_automation_subtitle_force_stopping.toCaString(),
                 accessibilityServiceInfo = AccessibilityServiceInfo().apply {

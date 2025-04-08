@@ -57,7 +57,7 @@ class Stepper @Inject constructor(
 
     suspend fun process(context: AutomationExplorer.Context, step: AutomationStep): Unit = withTimeout(step.timeout) {
         val tag = step.source + ":Stepper"
-        log(tag) { "crawl(): $step" }
+        log(tag, INFO) { "process(): $step" }
         updateProgressPrimary(step.label)
         var stepAttempts = 0
 
@@ -81,7 +81,7 @@ class Stepper @Inject constructor(
                     try {
                         withTimeout(5 * 1000) {
                             val stepTime = measureTimeMillis {
-                                doCrawl(stepContext, step)
+                                doProcess(stepContext, step)
                             }
                             log(tag) { "Step took ${stepTime}ms to execute" }
                         }
@@ -104,14 +104,14 @@ class Stepper @Inject constructor(
         }
     }
 
-    private suspend fun doCrawl(stepContext: StepContext, step: AutomationStep) {
+    private suspend fun doProcess(stepContext: StepContext, step: AutomationStep) {
         val tag = stepContext.tag + ":Stepper"
-        log(tag, VERBOSE) { "doCrawl(): context=$stepContext for $step" }
+        log(tag, VERBOSE) { "doProcess(): context=$stepContext for $step" }
 
         when {
             stepContext.stepAttempts > 1 -> when {
                 hasApiLevel(31) -> {
-                    log(tag) { "To dismiss any notification shade" }
+                    log(tag) { "Trying to dismiss any notification shade" }
                     @Suppress("NewApi")
                     stepContext.host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DISMISS_NOTIFICATION_SHADE)
                 }
