@@ -59,7 +59,7 @@ class Stepper @Inject constructor(
         val tag = step.source + ":Stepper"
         log(tag) { "crawl(): $step" }
         updateProgressPrimary(step.label)
-        var attempts = 0
+        var stepAttempts = 0
 
         // If the lock screen becomes active, immediately cancel any ACS operations
         // The user probably needs the phone. Normally, the screen does not turn off while our automation is active.
@@ -73,12 +73,12 @@ class Stepper @Inject constructor(
 
             try {
                 while (currentCoroutineContext().isActive) {
+                    val stepContext = StepContext(
+                        hostContext = context,
+                        tag = step.source,
+                        stepAttempts = stepAttempts++,
+                    )
                     try {
-                        val stepContext = StepContext(
-                            hostContext = context,
-                            tag = step.source,
-                            attempt = attempts++,
-                        )
                         withTimeout(5 * 1000) {
                             val stepTime = measureTimeMillis {
                                 doCrawl(stepContext, step)
@@ -94,7 +94,7 @@ class Stepper @Inject constructor(
                         log(tag, WARN) { "ABORT Step due to ${e.asLog()}" }
                         break
                     } catch (e: Exception) {
-                        log(tag, WARN) { "crawl(): Attempt $attempts failed on $step:\n${e.asLog()}" }
+                        log(tag, WARN) { "crawl(): Attempt $stepAttempts failed on $step:\n${e.asLog()}" }
                         delay(300)
                     }
                 }
@@ -109,7 +109,7 @@ class Stepper @Inject constructor(
         log(tag, VERBOSE) { "doCrawl(): context=$stepContext for $step" }
 
         when {
-            stepContext.attempt > 1 -> when {
+            stepContext.stepAttempts > 1 -> when {
                 hasApiLevel(31) -> {
                     log(tag) { "To dismiss any notification shade" }
                     @Suppress("NewApi")
@@ -117,7 +117,7 @@ class Stepper @Inject constructor(
                 }
 
                 !hasApiLevel(31) -> {
-                    log(tag) { "Clearing system dialogs (retryCount=${stepContext.attempt})." }
+                    log(tag) { "Clearing system dialogs (retryCount=${stepContext.stepAttempts})." }
                     @Suppress("DEPRECATION")
                     val closeIntent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
                     try {
