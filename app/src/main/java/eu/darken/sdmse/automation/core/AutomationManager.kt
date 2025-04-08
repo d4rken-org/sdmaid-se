@@ -29,7 +29,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeoutOrNull
@@ -45,24 +47,21 @@ class AutomationManager @Inject constructor(
     private val settingsProvider: SystemSettingsProvider,
 ) {
 
-    private val currentTaskHolder = MutableStateFlow<AutomationTask?>(null)
-    val currentTask: Flow<AutomationTask?> = currentTaskHolder
+    private val serviceHolder = MutableStateFlow(AutomationService.instance)
+    val currentService: Flow<AutomationService?> = serviceHolder
 
-    internal fun setCurrentTask(task: AutomationTask?) {
-        log(TAG, VERBOSE) { "setCurrentTask($task)" }
-        currentTaskHolder.value = task
+    internal fun setCurrentService(service: AutomationService?) {
+        log(TAG) { "setCurrentService($service)" }
+        serviceHolder.value = service
     }
 
-    fun cancelTask(): Boolean {
-        return currentService()?.cancelTask() ?: false
-    }
-
-    val useAcs: Flow<Boolean> = settings.hasAcsConsent.flow
-        .mapLatest { consent ->
-            if (consent != true) return@mapLatest false
-            (isServiceEnabled() && isServiceLaunched()) || canSelfEnable()
-        }
-        .shareLatest(appScope)
+    val useAcs: Flow<Boolean> = combine(
+        settings.hasAcsConsent.flow,
+        currentService,
+    ) { consent, _ ->
+        if (consent != true) return@combine false
+        (isServiceEnabled() && isServiceLaunched()) || canSelfEnable()
+    }.shareLatest(appScope)
 
     private val ourServiceComp: ComponentName by lazy {
         ComponentName(context, AutomationService::class.java)
@@ -92,23 +91,15 @@ class AutomationManager @Inject constructor(
         log(TAG) { "setAutomationServices($services) -> $after" }
     }
 
-    private fun currentService(): AutomationService? = AutomationService.instance
-
     suspend fun isServiceEnabled(): Boolean = getAutomationServices().contains(ourServiceComp)
 
-    fun isServiceLaunched() = currentService() != null
+    fun isServiceLaunched() = serviceHolder.value != null
 
     suspend fun canSelfEnable() = Permission.WRITE_SECURE_SETTINGS.isGranted(context)
 
-    suspend fun submit(task: AutomationTask): AutomationTask.Result {
-        log(TAG) { "submit(): $task" }
-
-        return serviceResource.useRes { it.submit(task) }
-    }
-
     private suspend fun startService(): AutomationService {
         log(TAG, VERBOSE) { "startService()" }
-        var service = currentService()
+        var service = serviceHolder.value
 
         if (service != null) {
             log(TAG) { "startService(): ACS is already running" }
@@ -142,7 +133,7 @@ class AutomationManager @Inject constructor(
         }
 
         while (currentCoroutineContext().isActive) {
-            service = currentService()
+            service = serviceHolder.value
             if (service != null) break
             log(TAG, VERBOSE) { "startService(): Waiting for service to start" }
             delay(500)
@@ -167,11 +158,8 @@ class AutomationManager @Inject constructor(
 
         setAutomationServices(newServices)
 
-        while (currentCoroutineContext().isActive) {
-            if (currentService() == null) break
-            log(TAG, VERBOSE) { "stopService(): Waiting for service to stop" }
-            delay(500)
-        }
+        log(TAG, VERBOSE) { "stopService(): Waiting for service to stop" }
+        serviceHolder.filter { it == null }.first()
         log(TAG, INFO) { "stopService(): Service stopped!" }
     }
 
@@ -190,7 +178,7 @@ class AutomationManager @Inject constructor(
         val service = if (canToggle) {
             withTimeoutOrNull(10 * 1000L) { startService() }
         } else {
-            currentService()
+            serviceHolder.value
         }
 
         if (service == null) throw AutomationNotRunningException()
@@ -211,6 +199,24 @@ class AutomationManager @Inject constructor(
         .setupCommonEventHandlers(TAG) { "serviceLauncher" }
 
     private val serviceResource = SharedResource(TAG, appScope, serviceLauncher)
+
+    suspend fun submit(task: AutomationTask): AutomationTask.Result {
+        log(TAG) { "submit(): $task" }
+
+        return serviceResource.useRes { it.submit(task) }
+    }
+
+    private val currentTaskHolder = MutableStateFlow<AutomationTask?>(null)
+    val currentTask: Flow<AutomationTask?> = currentTaskHolder
+
+    internal fun setCurrentTask(task: AutomationTask?) {
+        log(TAG, VERBOSE) { "setCurrentTask($task)" }
+        currentTaskHolder.value = task
+    }
+
+    fun cancelTask(): Boolean {
+        return serviceHolder.value?.cancelTask() ?: false
+    }
 
     data class ServiceWrapper(
         private val service: AutomationService,
