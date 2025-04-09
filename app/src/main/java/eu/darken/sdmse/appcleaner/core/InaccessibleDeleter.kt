@@ -128,6 +128,8 @@ class InaccessibleDeleter @Inject constructor(
             val remainingTargets = targets.filter { !successTargets.contains(it.identifier) }
 
             log(TAG) { "Processing ${remainingTargets.size} remaining inaccessible caches" }
+            remainingTargets.forEach { log(TAG, VERBOSE) { "Remaining ACS target: $it" } }
+
             val successFullLive = mutableSetOf<InstallId>()
             val acsTask = ClearCacheTask(
                 targets = remainingTargets.map { it.identifier },

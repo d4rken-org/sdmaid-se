@@ -283,6 +283,13 @@ class HyperOsLabels @Inject constructor(
             else -> emptySet<String>().also { log(TAG) { "Unmapped locale: $lang $script" } }
         }
 
+    fun getManageSpaceButtonLabels(lang: String, script: String, country: String?): Set<String> =
+        getManageSpaceButtonLabelsDynamic()
+
+    private fun getManageSpaceButtonLabelsDynamic() = setOf(
+        "app_manager_manage_space"
+    ).getAsStringResources(context, SETTINGS_PKG)
+
     companion object {
         val TAG: String = logTag("AppCleaner", "Automation", "HyperOs", "Labels")
         private val SETTINGS_PKG = "com.miui.securitycenter".toPkgId()
