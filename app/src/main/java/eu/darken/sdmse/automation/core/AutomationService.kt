@@ -125,17 +125,24 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             .distinctUntilChanged()
             .onEach { available ->
                 optionsLock.withLock {
-                    val desiredVis = currentOptions.showOverlay
-                    val desiredPass = currentOptions.passthrough
-                    log(TAG) { "ScreenState: desiredVis=$desiredPass, desiredPass=$desiredPass" }
-                    if (!available) {
-                        log(TAG, INFO) { "ScreenState: Controlview should be hidden" }
-                        isOverlayBlocked = true
+                    val hasTask = automationProcessor.hasTask
+                    val opts = currentOptions
+                    log(TAG) { "ScreenState: available=$available, hasTask=$hasTask, options=$opts" }
+
+                    if (isOverlayBlocked != !available) log(TAG, WARN) { "ScreenState: isOverlayBlocked=${!available}" }
+                    isOverlayBlocked = !available
+
+                    if (!hasTask) {
+                        log(TAG, INFO) { "ScreenState: No task active, not changing overlay state" }
+                        return@withLock
+                    }
+
+                    if (available) {
+                        log(TAG, INFO) { "ScreenState: Restoring desired overlay state" }
+                        updateOverlay(visible = opts.showOverlay, passthrough = opts.passthrough)
+                    } else {
+                        log(TAG, INFO) { "ScreenState: Hiding overlay if visible" }
                         updateOverlay(visible = false, passthrough = true)
-                    } else if (automationProcessor.hasTask) {
-                        log(TAG, INFO) { "ScreenState: Controlview can be visible, screen available" }
-                        isOverlayBlocked = false
-                        updateOverlay(visible = desiredVis, passthrough = desiredPass)
                     }
                 }
             }
@@ -236,21 +243,28 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         visible: Boolean,
         passthrough: Boolean,
     ) = withContext(dispatcher.Main) {
-        log(TAG) { "updateOverlay(visible=$visible, passthrough=$passthrough)" }
+        log(TAG) { "updateOverlay(visible=$visible, passthrough=$passthrough, isOverlayBlocked=$isOverlayBlocked)" }
         val cv = controlView
         if (cv == null) {
             log(TAG, WARN) { "updateOverlay(...) controlView was null" }
             return@withContext
         }
 
-        cv.alpha = if (visible) 1f else 0f
+        try {
+            cv.alpha = if (visible) 1f else 0f
+            log(TAG, INFO) { "Updated controlView alpha to ${cv.alpha}" }
 
-        overlayParams.flags = if (passthrough) {
-            overlayParams.flags or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
-        } else {
-            overlayParams.flags and WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE.inv()
+            overlayParams.flags = if (passthrough) {
+                overlayParams.flags or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+            } else {
+                overlayParams.flags and WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE.inv()
+            }
+            log(TAG, INFO) { "Updating view layout with flags=${overlayParams.flags}" }
+            windowManager.updateViewLayout(cv, overlayParams)
+            log(TAG, INFO) { "View layout updated successfully" }
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "Failed to update overlay: ${e.asLog()}" }
         }
-        windowManager.updateViewLayout(cv, overlayParams)
     }
 
     override suspend fun changeOptions(
@@ -267,6 +281,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             controlView?.setTitle(newOptions.controlPanelTitle, newOptions.controlPanelSubtitle)
         }
 
+        log(TAG) { "changeOptions(): isOverlayBlocked=$isOverlayBlocked" }
         if (!isOverlayBlocked) {
             updateOverlay(visible = newOptions.showOverlay, passthrough = newOptions.passthrough)
         }
