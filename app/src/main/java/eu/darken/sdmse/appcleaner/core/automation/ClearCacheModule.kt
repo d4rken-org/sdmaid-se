@@ -34,6 +34,7 @@ import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.animation.AnimationState
 import eu.darken.sdmse.automation.core.animation.AnimationTool
 import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
+import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.core.finishAutomation
@@ -235,8 +236,13 @@ class ClearCacheModule @AssistedInject constructor(
                     throw e
                 }
             } catch (e: Exception) {
-                log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
-                failed.add(target)
+                if (e is PlanAbortException && e.treatAsSuccess) {
+                    log(TAG, INFO) { "Treating aborted plan as success for $target:\n${e.asLog()}" }
+                    successful.add(target)
+                } else {
+                    log(TAG, WARN) { "Failure for $target:\n${e.asLog()}" }
+                    failed.add(target)
+                }
             } finally {
                 increaseProgress()
                 opsCounter.tick()

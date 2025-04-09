@@ -236,10 +236,10 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         visible: Boolean,
         passthrough: Boolean,
     ) = withContext(dispatcher.Main) {
-        log(TAG) { "setOverlayVisibility(visible=$visible, passthrough=$passthrough)" }
+        log(TAG) { "updateOverlay(visible=$visible, passthrough=$passthrough)" }
         val cv = controlView
         if (cv == null) {
-            log(TAG, WARN) { "setOverlayVisibility(...) controlView was null" }
+            log(TAG, WARN) { "updateOverlay(...) controlView was null" }
             return@withContext
         }
 

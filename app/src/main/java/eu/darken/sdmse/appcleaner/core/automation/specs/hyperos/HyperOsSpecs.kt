@@ -27,9 +27,11 @@ import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.clickGesture
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
+import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textEndsWithAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
@@ -42,7 +44,7 @@ import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
 import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.Bugs.isDryRun
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -173,7 +175,7 @@ class HyperOsSpecs @Inject constructor(
                 source = TAG,
                 descriptionInternal = "Clear cache (settings plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
-                nodeAction = defaultFindAndClickClearCache(isDryRun = Bugs.isDryRun, pkg) {
+                nodeAction = defaultFindAndClickClearCache(isDryRun = isDryRun, pkg) {
                     if (!it.isClickyButton()) false else it.textMatchesAny(clearCacheButtonLabels)
                 },
             )
@@ -197,28 +199,46 @@ class HyperOsSpecs @Inject constructor(
         log(TAG) { "clearCacheLabels=$clearCacheLabels" }
         val dialogTitles = hyperOsLabels.getDialogTitles(lang, script, country)
         log(TAG) { "clearCacheLabels=$clearCacheLabels" }
+        val manageSpaceLabels = hyperOsLabels.getManageSpaceButtonLabels(lang, script, country)
+        log(TAG) { "manageSpaceLabels=$manageSpaceLabels" }
 
         var useAlternativeStep = deviceAdminManager.getDeviceAdmins().contains(pkg.id).also {
             if (it) log(TAG) { "${pkg.id} is a device admin, using alternative step directly." }
         }
 
         if (!useAlternativeStep) {
-            val clearDataFilter: (AccessibilityNodeInfo) -> Boolean = filter@{ node ->
-                if (!node.isTextView()) return@filter false
-                if (node.textMatchesAny(clearDataLabels)) return@filter true
-                if (node.textMatchesAny(clearCacheLabels)) {
-                    useAlternativeStep = true
-                    throw StepAbortException("Got 'Clear cache' instead of 'Clear data' skip the action dialog step.")
+            val action: suspend StepContext.() -> Boolean = action@{
+                val clearDataTarget = findNode { it.isTextView() && it.textMatchesAny(clearDataLabels) }
+
+                if (clearDataTarget == null) {
+                    findNode { it.isTextView() && it.textMatchesAny(clearCacheLabels) }?.let {
+                        useAlternativeStep = true
+                        throw StepAbortException("Got 'Clear cache' instead of 'Clear data' skip the action dialog step.")
+                    }
+
+                    findNode { it.isTextView() && it.textMatchesAny(manageSpaceLabels) }?.let {
+                        if (pkg.applicationInfo?.manageSpaceActivityName != null) {
+                            throw PlanAbortException(
+                                message = "Got 'Manage space'. App has no cache, skipping.",
+                                treatAsSuccess = true,
+                            )
+                        }
+                    }
+
+                    return@action false
                 }
-                return@filter false
+
+                val mapped = findClickableParent(node = clearDataTarget) ?: return@action false
+                clickNormal(isDryRun = isDryRun, mapped)
             }
+
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear data button (security center plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_data.toCaString(clearDataLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG_HYPEROS, ipcFunnel, pkg),
                 nodeRecovery = defaultNodeRecovery(pkg),
-                nodeAction = defaultFindAndClick { clearDataFilter(it) },
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -326,13 +346,13 @@ class HyperOsSpecs @Inject constructor(
             val action: suspend StepContext.() -> Boolean = action@{
                 val target = findNode { node ->
                     if (!node.isClickyButton()) false
-                    else when (Bugs.isDryRun) {
+                    else when (isDryRun) {
                         true -> node.idMatches("android:id/button2")
                         false -> node.idMatches("android:id/button1")
                     }
 
                 } ?: return@action false
-                clickNormal(isDryRun = Bugs.isDryRun, node = target)
+                clickNormal(isDryRun = isDryRun, node = target)
             }
 
             val step = AutomationStep(
