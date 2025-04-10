@@ -160,7 +160,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="dataarea_warningcard_label">איזורי מידע</string>
     <string name="dataarea_warningcard_reload_action">טען מחדש אזורי נתונים</string>
     <string name="debug_mode_label">מצב דיבאג</string>
-    <string name="debug_mode_explanation">אפשר אפשרויות בדיקה ופלט רב יותר. האפליקציה תפעל לאט יותר ותפעל אחרת.</string>
+    <string name="debug_mode_explanation">מפעיל אפשרויות בדיקה ופלט מפורט יותר. האפליקציה תפעל לאט יותר ובצורה שונה מהרגיל.</string>
     <string name="debug_bugreporter_label">דוחות קריסה אוטומטים</string>
     <string name="debug_bugreporter_summary">דיווח אוטומטית על בעיות, למשל. פרטים על קריסת האפליקציה כדי שאוכל להבין מה צריך לתקן.</string>
     <string name="settings_category_tools_label">כלים</string>
@@ -197,7 +197,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="corpsefinder_filter_publicdata_label">נתוני אפליקציה משוטף</string>
     <string name="corpsefinder_filter_publicdata_summary">מידע לא רגיש, לדוגמה קבצי מטמון של מפות.</string>
     <string name="corpsefinder_filter_sdcard_label">כרטיס SD</string>
-    <string name="corpsefinder_filter_sdcard_summary">אחסון משוטף כללי, פנימי וחיצוני (למשל כרטיסי SD).</string>
+    <string name="corpsefinder_filter_sdcard_summary">אחסון ציבורי כללי, פנימי וחיצוני (למשל כרטיסי SD).</string>
     <string name="corpsefinder_filter_privatedata_label">נתוני אפליקציה פרטיים</string>
     <string name="corpsefinder_filter_privatedata_summary">נתוני אפליקציה פרטיים, למשל אישורים, הגדרות אפליקציה אבל גם מטמון דפדפן.</string>
     <string name="corpsefinder_filter_dalvik_label">מטמון Dalvik</string>
@@ -356,9 +356,9 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcleaner_filter_hiddencaches_label">מטמונים מוסתרים</string>
     <string name="appcleaner_filter_hiddencaches_summary">מטמונים לשימוש כללי המאוחסנים מחוץ להישג ידה של המערכת.</string>
     <string name="appcleaner_filter_thumbnails_label">תמונות ממוזערות של מדיה</string>
-    <string name="appcleaner_filter_thumbnails_summary">תמונות ממוזערות של תצוגה מקדימה של תמונה, וידאו ואודיו.</string>
+    <string name="appcleaner_filter_thumbnails_summary">תמונות תצוגה מקדימה של תמונה, וידאו ואודיו.</string>
     <string name="appcleaner_filter_gamefiles_label">קבצי משחק</string>
-    <string name="appcleaner_filter_gamefiles_summary">משאבים הקשורים למשחק שהמשחק יטען מחדש בהשקה הבאה במידת הצורך.</string>
+    <string name="appcleaner_filter_gamefiles_summary">משאבים הקשורים למשחק וגורמים לו להיטען מחדש מהר יותר בהשקה הבאה במידת הצורך.</string>
     <string name="appcleaner_filter_offlinecache_label">מטמון לא מקוון</string>
     <string name="appcleaner_filter_offlinecache_summary">קבצים המאוחסנים לשימוש במצב לא מקוון, למשל. אריחי מפה.</string>
     <string name="appcleaner_filter_recyclebins_label">סלי מיחזור</string>
@@ -424,10 +424,10 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
         <item quantity="other">%d כפילויות נמחקו</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
-        <item quantity="one">נמצאה ערכה כפולה %d</item>
-        <item quantity="two">נמצאו %d ערכות כפולות</item>
-        <item quantity="many">נמצאו %d ערכות כפולות</item>
-        <item quantity="other">נמצאו %d ערכות כפולות</item>
+        <item quantity="one">נמצאה קובץ %d כפול</item>
+        <item quantity="two">נמצאו %d קבצים כפולים</item>
+        <item quantity="many">נמצאו %d קבצים כפולים</item>
+        <item quantity="other">נמצאו %d קבצים כפולים</item>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">הפוך את \"מחק הכל\" לאפשרי</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">הצג אפשרויות המאפשרות לך למחוק את כל הקבצים בסט של כפילויות כך שלא יישאר קובץ.</string>
@@ -440,8 +440,8 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="deduplicator_detection_method_label">שיטת זיהוי</string>
     <string name="deduplicator_detection_method_checksum_title">בדיקת תוכן</string>
     <string name="deduplicator_detection_method_checksum_summary">קבע כפילויות על ידי חישוב סכומי ביקורת עבור קבצים. לקבצים עם סכומי ביקורת תואמים יש את אותו תוכן בדיוק.</string>
-    <string name="deduplicator_detection_method_phash_title">Hash תפיסתי</string>
-    <string name="deduplicator_detection_method_phash_summary">מצא קבצים דומים על ידי ניתוח תכונות תוכן והשוואת ערכי גיבוב תפיסתיים.</string>
+    <string name="deduplicator_detection_method_phash_title">זיהוי גיבוב</string>
+    <string name="deduplicator_detection_method_phash_summary">מצא קבצים דומים על ידי ניתוח תכונות תוכן והשוואת ערכי גיבוב זההים.</string>
     <string name="deduplicator_occupied_space_label">נפח אחסון תפוס</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s תפוס על ידי כפילויות</item>
@@ -477,7 +477,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcontrol_toggle_app_disable_description">השבתת אפליקציה מונעת ממנה לפעול ומסתירה אותה מתפריטים. אין אובדן נתונים.</string>
     <string name="appcontrol_appstore_open_title">פתח בחנות האפליקציות</string>
     <string name="appcontrol_appstore_open_description">פתח את האפליקציה הזו בחנות האפליקציות ממנה היא הותקנה.</string>
-    <string name="appcontrol_systemsettings_open_title">הצג הגדרות</string>
+    <string name="appcontrol_systemsettings_open_title">הגדרות האפליקציה</string>
     <string name="appcontrol_systemsettings_open_description">פתח את הגדרות המערכת לאפליקציה זו.</string>
     <string name="appcontrol_app_launch_title">פתח אפליקציה</string>
     <string name="appcontrol_app_launch_description">פתח את המסך העיקרי של אפליקציה זו.</string>
@@ -506,7 +506,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcontrol_list_sortmode_installed_label">מותקן לראשונה</string>
     <string name="appcontrol_list_sortmode_packagename_label">שם חבילה</string>
     <string name="appcontrol_list_sortmode_size_label">גודל</string>
-    <string name="appcontrol_list_sortmode_size_caveat_msg">גדלי אפליקציות מוערכים מסיבות ביצועים. השתמש בכלי מנתח אחסון לקבלת נתונים מדויקים יותר.</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">גדלי האפליקציות משוערים מסיבות של ביצועים. השתמש בכלי מנתח אחסון לקבלת נתונים מדויקים יותר.</string>
     <string name="appcontrol_progress_uninstalling_app">מסיר התקנה של אפליקציה</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">אפליקציה %d הוסרה</item>
@@ -619,7 +619,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="data_areas_short_summary">אזורים ש-SD Maid יכולה לגשת אליהם בהתבסס על ההרשאות המוענקות כעת.</string>
     <string name="exclusion_manager_title">מנהל חריגים</string>
     <string name="exclusion_manager_desc">נהל החרגות קבצים.</string>
-    <string name="exclusion_explanation_body1">אל תכלול קבצים ואפליקציות מהפעולות של SD Maid.</string>
+    <string name="exclusion_explanation_body1">החרג קבצים ואפליקציות מהפעולות של SD Maid.</string>
     <string name="exclusion_add_new_hint">הוסף חריגים חדשים תחילה על ידי חיפוש בעזרתSD Maid ולאחר מכן שימוש בתפריט ההקשר של התוצאה שברצונך להחריג.</string>
     <string name="exclusion_create_action">צור החרגה</string>
     <string name="exclusion_edit_action">ערוך חריגים</string>
@@ -690,7 +690,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="scheduler_setting_nopowersaving_title">דלג אם הסוללה חלשה</string>
     <string name="scheduler_setting_nopowersaving_summary">אם המכשיר נמצא במצב חיסכון בסוללה, ביצוע התזמון לא יבוצע.</string>
     <string name="scheduler_setting_charging_title">דלג אם אין שינוי</string>
-    <string name="scheduler_setting_charging_summary">אם המכשיר אינו נטען, ידלג על הביצוע המתוכנן.</string>
+    <string name="scheduler_setting_charging_summary">אם המכשיר לא מוטען, הביצוע המתוכנן ידולג.</string>
     <string name="scheduler_setting_automation_title">שירות נגישות</string>
     <string name="scheduler_setting_automation_summary">כלול פעולות המשתמשות בשירות נגישות. זה מחייב ש-SD Maid תוכל לקיים אינטראקציה עם המסך שלך (כלומר, הוא פתוח) כאשר המשימות מבוצעות.</string>
     <string name="scheduler_notification_channel_label">מתזמן</string>
@@ -704,8 +704,8 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="scheduler_battery_optimization_hint">שקול להשבית את אופטימיזציית הסוללה עבור SD Maid אם אתה נתקל בבעיות בביצוע ברקע.</string>
     <string name="updates_dashcard_title">קיים עדכון</string>
     <string name="updates_dashcard_body">עדכון זמין. מותקן לך %1$s והגרסה האחרונה היא %2$s.</string>
-    <string name="translation_encourage_title">עזור לתרגם לשפה שלך</string>
-    <string name="translation_encourage_body">SD Maid מתורגם על ידי מתנדבים. תרגום, סקירה או הגהה, עזרתכם מוערכת!</string>
+    <string name="translation_encourage_title">עזור לתרגם</string>
+    <string name="translation_encourage_body">האפליקציה תורגמה על ידי מתנדבים. תרגום, סקירה או הגהה - העזרה שלך מוערכת!</string>
     <string name="translation_translators_title">המתגרמים של גרסה זו</string>
     <string name="translation_translators_people">Elid1; SiiiE</string>
     <string name="motd_setting_enabled_label">הודעות חשובות</string>
