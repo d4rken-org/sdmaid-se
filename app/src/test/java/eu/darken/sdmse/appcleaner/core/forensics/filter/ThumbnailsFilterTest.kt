@@ -1,12 +1,8 @@
 package eu.darken.sdmse.appcleaner.core.forensics.filter
 
 import eu.darken.sdmse.appcleaner.core.forensics.BaseFilterTest
-import eu.darken.sdmse.appcleaner.core.forensics.addCandidate
-import eu.darken.sdmse.appcleaner.core.forensics.locs
 import eu.darken.sdmse.appcleaner.core.forensics.neg
-import eu.darken.sdmse.appcleaner.core.forensics.pkgs
 import eu.darken.sdmse.appcleaner.core.forensics.pos
-import eu.darken.sdmse.appcleaner.core.forensics.prefixFree
 import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
@@ -34,128 +30,100 @@ class ThumbnailsFilterTest : BaseFilterTest() {
         gatewaySwitch = gatewaySwitch,
     )
 
-    @Test fun testHiddenCacheDefaults() = runTest {
+    @Test fun `test hidden cache defaults`() = runTest {
         addDefaultNegatives()
 
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/.thumbnails")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/.thumbnails/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/.thumbnails")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs(testPkg).prefixFree("$testPkg/files/.thumbnails/file")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
+        neg(testPkg, SDCARD, "$testPkg/.thumbnails")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/.thumbnails")
+        neg(testPkg, PRIVATE_DATA, "$testPkg/.thumbnails")
+
+        pos(testPkg, SDCARD, "$testPkg/.thumbnails/file")
+        pos(testPkg, PUBLIC_DATA, "$testPkg/.thumbnails/file")
+        pos(testPkg, PRIVATE_DATA, "$testPkg/.thumbnails/file")
+
+        neg(testPkg, SDCARD, "$testPkg/files/.thumbnails")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/files/.thumbnails")
+        neg(testPkg, PRIVATE_DATA, "$testPkg/files/.thumbnails")
+
+        pos(testPkg, SDCARD, "$testPkg/files/.thumbnails/file")
+        pos(testPkg, PUBLIC_DATA, "$testPkg/files/.thumbnails/file")
+        pos(testPkg, PRIVATE_DATA, "$testPkg/files/.thumbnails/file")
+        
         confirm(create())
     }
 
-    @Test fun testFilterQuickOffice() = runTest {
+    @Test fun `test quickoffice filter`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.quickoffice.android").locs(PRIVATE_DATA).prefixFree("com.quickoffice.android/files")
-        )
-        addCandidate(
-            neg().pkgs("com.quickoffice.android").locs(PRIVATE_DATA).prefixFree("com.quickoffice.android/files/asdasd")
-        )
-        addCandidate(
-            pos().pkgs("com.quickoffice.android").locs(PRIVATE_DATA)
-                .prefixFree("com.quickoffice.android/files/kljalskdjlkjasd.thumb.panel")
-        )
-        addCandidate(
-            pos().pkgs("com.quickoffice.android").locs(PRIVATE_DATA)
-                .prefixFree("com.quickoffice.android/files/kljalskdjlkjasd.thumb.home")
-        )
+        neg("com.quickoffice.android", PRIVATE_DATA, "com.quickoffice.android/files")
+        neg("com.quickoffice.android", PRIVATE_DATA, "com.quickoffice.android/files/asdasd")
+        pos("com.quickoffice.android", PRIVATE_DATA, "com.quickoffice.android/files/kljalskdjlkjasd.thumb.panel")
+        pos("com.quickoffice.android", PRIVATE_DATA, "com.quickoffice.android/files/kljalskdjlkjasd.thumb.home")
         confirm(create())
     }
 
-    @Test fun testFilterNextAppFx() = runTest {
+    @Test fun `test nextapp fx filter`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("nextapp.fx").locs(SDCARD).prefixFree(".FX/CloudThumbnail"))
-        addCandidate(
-            pos().pkgs("nextapp.fx").locs(SDCARD).prefixFree(".FX/CloudThumbnail/$rngString")
-        )
-        addCandidate(neg().pkgs("nextapp.fx").locs(SDCARD).prefixFree(".FX/ImageThumbnail"))
-        addCandidate(
-            pos().pkgs("nextapp.fx").locs(SDCARD).prefixFree(".FX/ImageThumbnail/$rngString")
-        )
+        neg("nextapp.fx", SDCARD, ".FX/CloudThumbnail")
+        pos("nextapp.fx", SDCARD, ".FX/CloudThumbnail/$rngString")
+        neg("nextapp.fx", SDCARD, ".FX/ImageThumbnail")
+        pos("nextapp.fx", SDCARD, ".FX/ImageThumbnail/$rngString")
         confirm(create())
     }
 
-    @Test fun testFilterInfzmReader() = runTest {
+    @Test fun `test infzm reader filter`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("net.coollet.infzmreader").locs(SDCARD).prefixFree("infzm/thumb_image"))
-        addCandidate(
-            pos().pkgs("net.coollet.infzmreader").locs(SDCARD)
-                .prefixFree("infzm/thumb_image/$rngString")
-        )
+        neg("net.coollet.infzmreader", SDCARD, "infzm/thumb_image")
+        pos("net.coollet.infzmreader", SDCARD, "infzm/thumb_image/$rngString")
         confirm(create())
     }
 
-    @Test fun testFilterKascendVideo() = runTest {
+    @Test fun `test kascend video filter`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.kascend.video").locs(SDCARD).prefixFree("kascend/videoshow/.thumbcache"))
-        addCandidate(
-            pos().pkgs("com.kascend.video").locs(SDCARD)
-                .prefixFree("kascend/videoshow/.thumbcache/$rngString")
-        )
+        neg("com.kascend.video", SDCARD, "kascend/videoshow/.thumbcache")
+        pos("com.kascend.video", SDCARD, "kascend/videoshow/.thumbcache/$rngString")
         confirm(create())
     }
 
-    @Test fun testFilterWalloid() = runTest {
+    @Test fun `test walloid filter`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.hashcode.walloidpro", "com.hashcode.walloid").locs(SDCARD).prefixFree("Walloid/.Thumbnail")
-        )
-        addCandidate(
-            pos().pkgs("com.hashcode.walloidpro", "com.hashcode.walloid").locs(SDCARD)
-                .prefixFree("Walloid/.Thumbnail/$rngString")
-        )
+        val pkgs = listOf("com.hashcode.walloidpro", "com.hashcode.walloid")
+        pkgs.forEach { pkg ->
+            neg(pkg, SDCARD, "Walloid/.Thumbnail")
+            pos(pkg, SDCARD, "Walloid/.Thumbnail/$rngString")
+        }
         confirm(create())
     }
 
-    @Test fun testVideoPlayer() = runTest {
+    @Test fun `test video player`() = runTest {
         neg("com.sec.android.app.videoplayer", SDCARD, ".thumbnails")
         pos("com.sec.android.app.videoplayer", SDCARD, ".thumbnails/$rngString")
         confirm(create())
     }
 
-    @Test fun testSamsungMyFilesThumbnails() = runTest {
-        addCandidate(neg().pkgs("com.sec.android.app.myfiles").locs(SDCARD).prefixFree("Movies/.thumbnails"))
-        addCandidate(pos().pkgs("com.sec.android.app.myfiles").locs(SDCARD).prefixFree("Movies/.thumbnails/something"))
+    @Test fun `test samsung my files thumbnails`() = runTest {
+        neg("com.sec.android.app.myfiles", SDCARD, "Movies/.thumbnails")
+        pos("com.sec.android.app.myfiles", SDCARD, "Movies/.thumbnails/something")
         confirm(create())
     }
 
-    @Test fun testMiuiPlayer() = runTest {
+    @Test fun `test miui player`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.miui.player").locs(SDCARD).prefixFree("MIUI/music/album/.player_thumb"))
-        addCandidate(
-            pos().pkgs("com.miui.player").locs(SDCARD).prefixFree("MIUI/music/album/.player_thumb/file")
-        )
+        neg("com.miui.player", SDCARD, "MIUI/music/album/.player_thumb")
+        pos("com.miui.player", SDCARD, "MIUI/music/album/.player_thumb/file")
         confirm(create())
     }
 
-    @Test fun testMIUIVideoThumbs() = runTest {
+    @Test fun `test miui video thumbs`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.miui.videoplayer").locs(SDCARD).prefixFree("MIUI/Video/thumb/"))
-        addCandidate(
-            pos().pkgs("com.miui.videoplayer").locs(SDCARD)
-                .prefixFree("MIUI/Video/thumb/6ba49cfe32916e890491ee101f97424d.thumb")
-        )
+        neg("com.miui.videoplayer", SDCARD, "MIUI/Video/thumb/")
+        pos("com.miui.videoplayer", SDCARD, "MIUI/Video/thumb/6ba49cfe32916e890491ee101f97424d.thumb")
         confirm(create())
     }
 
-    @Test fun testMovieFx() = runTest {
-        addCandidate(neg().pkgs("tv.waterston.movieridefx").locs(SDCARD).prefixFree("MovieRideFX/thumbs"))
-        addCandidate(pos().pkgs("tv.waterston.movieridefx").locs(SDCARD).prefixFree("MovieRideFX/thumbs/test"))
+    @Test fun `test movie fx`() = runTest {
+        neg("tv.waterston.movieridefx", SDCARD, "MovieRideFX/thumbs")
+        pos("tv.waterston.movieridefx", SDCARD, "MovieRideFX/thumbs/test")
         confirm(create())
-
     }
 
     @Test fun `Viber thumbs`() = runTest {

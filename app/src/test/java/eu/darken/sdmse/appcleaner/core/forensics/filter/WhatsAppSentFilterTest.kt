@@ -29,7 +29,7 @@ class WhatsAppSentFilterTest : BaseFilterTest() {
     )
 
     // @formatter:off
-    @Test fun testWhatsAppSentFilter() = runTest{
+    @Test fun `test whatsapp sent filter`() = runTest{
         addDefaultNegatives()
         for (p in PKGS) {
             neg(p.first, SDCARD, p.second)

@@ -26,7 +26,7 @@ class CodeCacheFilterTest : BaseFilterTest() {
         gatewaySwitch = gatewaySwitch,
     )
 
-    @Test fun testDefaultFilter() = runTest {
+    @Test fun `test code cache filter`() = runTest {
         neg(testPkg, Type.PRIVATE_DATA, "com.tumblr", "code_cache")
         pos(testPkg, Type.PRIVATE_DATA, "com.tumblr", "code_cache", "test")
 

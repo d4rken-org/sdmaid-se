@@ -26,7 +26,7 @@ class ThreemaFilterTest : BaseFilterTest() {
         gatewaySwitch = gatewaySwitch,
     )
 
-    @Test fun testFilter() = runTest {
+    @Test fun `test threema filter`() = runTest {
         addDefaultNegatives()
         val pkg = "ch.threema.app"
         pos(pkg, SDCARD, "Threema/Threema Audio/1213123123_123123123asdasd.ogg")

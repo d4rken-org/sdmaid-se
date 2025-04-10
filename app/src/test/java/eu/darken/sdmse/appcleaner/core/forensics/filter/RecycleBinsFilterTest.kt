@@ -1,12 +1,8 @@
 package eu.darken.sdmse.appcleaner.core.forensics.filter
 
 import eu.darken.sdmse.appcleaner.core.forensics.BaseFilterTest
-import eu.darken.sdmse.appcleaner.core.forensics.addCandidate
-import eu.darken.sdmse.appcleaner.core.forensics.locs
 import eu.darken.sdmse.appcleaner.core.forensics.neg
-import eu.darken.sdmse.appcleaner.core.forensics.pkgs
 import eu.darken.sdmse.appcleaner.core.forensics.pos
-import eu.darken.sdmse.appcleaner.core.forensics.prefixFree
 import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_MEDIA
@@ -34,169 +30,133 @@ class RecycleBinsFilterTest : BaseFilterTest() {
         gatewaySwitch = gatewaySwitch,
     )
 
-    @Test fun testDefaults() = runTest {
+    @Test fun `test defaults`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().prefixFree("$testPkg/.trash/"))
-        addCandidate(pos().prefixFree("$testPkg/.trash/$rngString"))
-        addCandidate(neg().prefixFree("$testPkg/.trashfiles/"))
-        addCandidate(pos().prefixFree("$testPkg/.trashfiles/$rngString"))
-        addCandidate(neg().prefixFree("$testPkg/.trashbin/"))
-        addCandidate(pos().prefixFree("$testPkg/.trashbin/$rngString"))
-        addCandidate(neg().prefixFree("$testPkg/.recycle/"))
-        addCandidate(pos().prefixFree("$testPkg/.recycle/$rngString"))
-        addCandidate(neg().prefixFree("$testPkg/.recyclebin/"))
-        addCandidate(pos().prefixFree("$testPkg/.recyclebin/$rngString"))
-        addCandidate(neg().prefixFree("$testPkg/files/.trash/"))
-        addCandidate(pos().prefixFree("$testPkg/files/.trash/$rngString"))
-        addCandidate(neg().prefixFree("$testPkg/files/.trashfiles/"))
-        addCandidate(pos().prefixFree("$testPkg/files/.trashfiles/$rngString"))
-        addCandidate(neg().prefixFree("$testPkg/files/.trashbin/"))
-        addCandidate(pos().prefixFree("$testPkg/files/.trashbin/$rngString"))
-        addCandidate(neg().prefixFree("$testPkg/files/.recycle/"))
-        addCandidate(pos().prefixFree("$testPkg/files/.recycle/$rngString"))
-        addCandidate(neg().prefixFree("$testPkg/files/.recyclebin/"))
-        addCandidate(pos().prefixFree("$testPkg/files/.recyclebin/$rngString"))
-        addCandidate(neg().prefixFree("$testPkg/files/.trash/.nomedia"))
-        addCandidate(neg().prefixFree("$testPkg/.trash/.nomedia"))
-        addCandidate(neg().prefixFree("$testPkg/.trashfiles/.nomedia"))
-
+        neg(testPkg, PUBLIC_DATA, "$testPkg/.trash")
+        pos(testPkg, PUBLIC_DATA, "$testPkg/.trash/$rngString")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/.trashfiles")
+        pos(testPkg, PUBLIC_DATA, "$testPkg/.trashfiles/$rngString")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/.trashbin")
+        pos(testPkg, PUBLIC_DATA, "$testPkg/.trashbin/$rngString")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/.recycle")
+        pos(testPkg, PUBLIC_DATA, "$testPkg/.recycle/$rngString")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/.recyclebin")
+        pos(testPkg, PUBLIC_DATA, "$testPkg/.recyclebin/$rngString")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/files/.trash")
+        pos(testPkg, PUBLIC_DATA, "$testPkg/files/.trash/$rngString")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/files/.trashfiles")
+        pos(testPkg, PUBLIC_DATA, "$testPkg/files/.trashfiles/$rngString")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/files/.trashbin")
+        pos(testPkg, PUBLIC_DATA, "$testPkg/files/.trashbin/$rngString")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/files/.recycle")
+        pos(testPkg, PUBLIC_DATA, "$testPkg/files/.recycle/$rngString")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/files/.recyclebin")
+        pos(testPkg, PUBLIC_DATA, "$testPkg/files/.recyclebin/$rngString")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/files/.trash/.nomedia")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/.trash/.nomedia")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/.trashfiles/.nomedia")
         pos(testPkg, PUBLIC_MEDIA, "$testPkg/.trashfiles/${rngString}")
         confirm(create())
     }
 
-    @Test fun testOnePlusGallery() = runTest {
+    @Test fun `test oneplus gallery`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.oneplus.gallery").locs(PRIVATE_DATA).prefixFree("com.oneplus.gallery/databases/")
-        )
-        addCandidate(
-            neg().pkgs("com.oneplus.gallery").locs(PRIVATE_DATA)
-                .prefixFree("com.oneplus.gallery/databases/someother.db")
-        )
-        addCandidate(
-            pos().pkgs("com.oneplus.gallery").locs(PRIVATE_DATA)
-                .prefixFree("com.oneplus.gallery/databases/recyclebin.db")
-        )
-        addCandidate(
-            neg().pkgs("com.oneplus.gallery").locs(PUBLIC_DATA)
-                .prefixFree("com.oneplus.gallery/files/recyclebin")
-        )
-        addCandidate(
-            pos().pkgs("com.oneplus.gallery").locs(PUBLIC_DATA)
-                .prefixFree("com.oneplus.gallery/files/recyclebin/somefiles")
-        )
+        neg("com.oneplus.gallery", PRIVATE_DATA, "com.oneplus.gallery/databases/")
+        neg("com.oneplus.gallery", PRIVATE_DATA, "com.oneplus.gallery/databases/someother.db")
+        pos("com.oneplus.gallery", PRIVATE_DATA, "com.oneplus.gallery/databases/recyclebin.db")
+        neg("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/recyclebin")
+        pos("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/recyclebin/somefiles")
         confirm(create())
     }
 
-    @Test fun testMeizuGallery() = runTest {
+    @Test fun `test meizu gallery`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.meizu.media.gallery").locs(PUBLIC_DATA).prefixFree(".MeizuGalleryTrashBin")
-        )
-        addCandidate(
-            neg().pkgs("com.meizu.media.gallery").locs(PUBLIC_DATA).prefixFree(".MeizuGallery/something")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.media.gallery").locs(PUBLIC_DATA)
-                .prefixFree(".MeizuGalleryTrashBin/something123")
-        )
+        neg("com.meizu.media.gallery", PUBLIC_DATA, ".MeizuGalleryTrashBin")
+        neg("com.meizu.media.gallery", PUBLIC_DATA, ".MeizuGallery/something")
+        pos("com.meizu.media.gallery", PUBLIC_DATA, ".MeizuGalleryTrashBin/something123")
         confirm(create())
     }
 
-    @Test fun testComputerLauncher() = runTest {
+    @Test fun `test computer launcher`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.vietbm.computerlauncher").locs(SDCARD).prefixFree("RecycleBin"))
-        addCandidate(
-            pos().pkgs("com.vietbm.computerlauncher").locs(SDCARD).prefixFree("RecycleBin/something123")
-        )
+        neg("com.vietbm.computerlauncher", SDCARD, "RecycleBin")
+        pos("com.vietbm.computerlauncher", SDCARD, "RecycleBin/something123")
         confirm(create())
     }
 
-    @Test fun testESFileExplorer() = runTest {
+    @Test fun `test es file explorer`() = runTest {
         val pkgs = arrayOf(
             "com.estrongs.android.pop",
             "com.estrongs.android.pop.cupcake",
             "com.estrongs.android.pop.app.shortcut",
             "com.estrongs.android.pop.pro"
         )
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree(".estrongs/"))
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree(".estrongs/something"))
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree(".estrongs/recycle"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree(".estrongs/recycle/$rngString"))
+        pkgs.forEach { pkg ->
+            neg(pkg, SDCARD, ".estrongs/")
+            neg(pkg, SDCARD, ".estrongs/something")
+            neg(pkg, SDCARD, ".estrongs/recycle")
+            pos(pkg, SDCARD, ".estrongs/recycle/$rngString")
+        }
         confirm(create())
     }
 
-    @Test fun testCXInventorFileExplorer() = runTest {
+    @Test fun `test cx inventor file explorer`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.cxinventor.file.explorer").locs(SDCARD).prefixFree(".\$recycle_bin$"))
-        addCandidate(
-            pos().pkgs("com.cxinventor.file.explorer").locs(SDCARD).prefixFree(".\$recycle_bin$/something123")
-        )
+        neg("com.cxinventor.file.explorer", SDCARD, ".\$recycle_bin$")
+        pos("com.cxinventor.file.explorer", SDCARD, ".\$recycle_bin$/something123")
         confirm(create())
     }
 
-    @Test fun testAlphaInventorFileManager() = runTest {
+    @Test fun `test alpha inventor file manager`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.alphainventor.filemanager").locs(SDCARD).prefixFree(".\$recycle_bin$"))
-        addCandidate(
-            pos().pkgs("com.alphainventor.filemanager").locs(SDCARD)
-                .prefixFree(".\$recycle_bin$/something123")
-        )
+        neg("com.alphainventor.filemanager", SDCARD, ".\$recycle_bin$")
+        pos("com.alphainventor.filemanager", SDCARD, ".\$recycle_bin$/something123")
         confirm(create())
     }
 
-    @Test fun testMeizuGarbage() = runTest {
+    @Test fun `test meizu garbage`() = runTest {
         addDefaultNegatives()
         neg("com.meizu.filemanager", PUBLIC_DATA, ".com.meizu.filemanager/.garbage")
         pos("com.meizu.filemanager", PUBLIC_DATA, ".com.meizu.filemanager/.garbage/something")
-
         neg("com.meizu.filemanager", SDCARD, ".recycle")
         pos("com.meizu.filemanager", SDCARD, ".recycle/something")
         confirm(create())
     }
 
-    @Test fun testSmartFileManager() = runTest {
+    @Test fun `test smart file manager`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.cvinfo.filemanager").locs(SDCARD).prefixFree(".SFM_trash"))
-        addCandidate(pos().pkgs("com.cvinfo.filemanager").locs(SDCARD).prefixFree(".SFM_trash/something"))
+        neg("com.cvinfo.filemanager", SDCARD, ".SFM_trash")
+        pos("com.cvinfo.filemanager", SDCARD, ".SFM_trash/something")
         confirm(create())
     }
 
-    @Test fun testMIUIGalleryCloudTrashBin() = runTest {
-        addCandidate(neg().pkgs("com.miui.gallery").locs(SDCARD).prefixFree("MIUI/Gallery/cloud/.trashBin"))
-        addCandidate(pos().pkgs("com.miui.gallery").locs(SDCARD).prefixFree("MIUI/Gallery/cloud/.trashBin/something"))
+    @Test fun `test miui gallery cloud trash bin`() = runTest {
+        neg("com.miui.gallery", SDCARD, "MIUI/Gallery/cloud/.trashBin")
+        pos("com.miui.gallery", SDCARD, "MIUI/Gallery/cloud/.trashBin/something")
         confirm(create())
     }
 
-    @Test fun testViskyGallery() = runTest {
-        addCandidate(
-            neg().pkgs("com.visky.gallery").locs(SDCARD)
-                .prefixFree(".Android/.data/com.visky.gallery.data/.data/.secure/.recyclebin")
-        )
-        addCandidate(
-            pos().pkgs("com.visky.gallery").locs(SDCARD)
-                .prefixFree(".Android/.data/com.visky.gallery.data/.data/.secure/.recyclebin/something")
-        )
+    @Test fun `test visky gallery`() = runTest {
+        neg("com.visky.gallery", SDCARD, ".Android/.data/com.visky.gallery.data/.data/.secure/.recyclebin")
+        pos("com.visky.gallery", SDCARD, ".Android/.data/com.visky.gallery.data/.data/.secure/.recyclebin/something")
         confirm(create())
     }
 
-    @Test fun testColorOsFileManager() = runTest {
-        addCandidate(neg().pkgs("com.coloros.filemanager").locs(SDCARD).prefixFree(".FileManagerRecycler"))
-        addCandidate(pos().pkgs("com.coloros.filemanager").locs(SDCARD).prefixFree(".FileManagerRecycler/something"))
+    @Test fun `test coloros file manager`() = runTest {
+        neg("com.coloros.filemanager", SDCARD, ".FileManagerRecycler")
+        pos("com.coloros.filemanager", SDCARD, ".FileManagerRecycler/something")
         confirm(create())
     }
 
-    @Test fun testSolidExplorer() = runTest {
-        addCandidate(neg().pkgs("pl.solidexplorer2").locs(SDCARD).prefixFree(".\$Trash$"))
-        addCandidate(pos().pkgs("pl.solidexplorer2").locs(SDCARD).prefixFree(".\$Trash$/something"))
+    @Test fun `test solid explorer`() = runTest {
+        neg("pl.solidexplorer2", SDCARD, ".\$Trash$")
+        pos("pl.solidexplorer2", SDCARD, ".\$Trash$/something")
         confirm(create())
     }
 
-    @Test fun testFilesByGoogle() = runTest {
-        addCandidate(neg().pkgs("com.google.android.apps.nbu.files").locs(SDCARD).prefixFree(".FilesByGoogleTrash"))
-        addCandidate(
-            pos().pkgs("com.google.android.apps.nbu.files").locs(SDCARD).prefixFree(".FilesByGoogleTrash/something")
-        )
+    @Test fun `test files by google`() = runTest {
+        neg("com.google.android.apps.nbu.files", SDCARD, ".FilesByGoogleTrash")
+        pos("com.google.android.apps.nbu.files", SDCARD, ".FilesByGoogleTrash/something")
         confirm(create())
     }
 

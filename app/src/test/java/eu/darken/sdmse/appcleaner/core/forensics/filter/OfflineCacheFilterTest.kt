@@ -1,12 +1,8 @@
 package eu.darken.sdmse.appcleaner.core.forensics.filter
 
 import eu.darken.sdmse.appcleaner.core.forensics.BaseFilterTest
-import eu.darken.sdmse.appcleaner.core.forensics.addCandidate
-import eu.darken.sdmse.appcleaner.core.forensics.locs
 import eu.darken.sdmse.appcleaner.core.forensics.neg
-import eu.darken.sdmse.appcleaner.core.forensics.pkgs
 import eu.darken.sdmse.appcleaner.core.forensics.pos
-import eu.darken.sdmse.appcleaner.core.forensics.prefixFree
 import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
@@ -33,107 +29,77 @@ class OfflineCacheFilterTest : BaseFilterTest() {
         gatewaySwitch = gatewaySwitch,
     )
 
-    @Test fun testDefaults() = runTest {
+    @Test fun `test defaults`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().prefixFree("com.some.app/offlinecache/"))
-        addCandidate(pos().prefixFree("com.some.app/offlinecache/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/offline-cache/"))
-        addCandidate(pos().prefixFree("com.some.app/offline-cache/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/offline_cache/"))
-        addCandidate(pos().prefixFree("com.some.app/offline_cache/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/.offlinecache/"))
-        addCandidate(pos().prefixFree("com.some.app/.offlinecache/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/.offline-cache/"))
-        addCandidate(pos().prefixFree("com.some.app/.offline-cache/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/.offline-cache/"))
-        addCandidate(pos().prefixFree("com.some.app/.offline_cache/$rngString"))
-        addCandidate(neg().prefixFree("com.some.app/.offline_cache/.nomedia"))
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/UnityCache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs(testPkg).prefixFree("$testPkg/files/UnityCache/$rngString")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
+        neg(testPkg, PUBLIC_DATA, "com.some.app/offlinecache")
+        pos(testPkg, PUBLIC_DATA, "com.some.app/offlinecache/$rngString")
+        neg(testPkg, PUBLIC_DATA, "com.some.app/offline-cache")
+        pos(testPkg, PUBLIC_DATA, "com.some.app/offline-cache/$rngString")
+        neg(testPkg, PUBLIC_DATA, "com.some.app/offline_cache")
+        pos(testPkg, PUBLIC_DATA, "com.some.app/offline_cache/$rngString")
+        neg(testPkg, PUBLIC_DATA, "com.some.app/.offlinecache")
+        pos(testPkg, PUBLIC_DATA, "com.some.app/.offlinecache/$rngString")
+        neg(testPkg, PUBLIC_DATA, "com.some.app/.offline-cache")
+        pos(testPkg, PUBLIC_DATA, "com.some.app/.offline-cache/$rngString")
+        neg(testPkg, PUBLIC_DATA, "com.some.app/.offline-cache")
+        pos(testPkg, PUBLIC_DATA, "com.some.app/.offline_cache/$rngString")
+        neg(testPkg, PUBLIC_DATA, "com.some.app/.offline_cache/.nomedia")
+        neg(testPkg, SDCARD, "$testPkg/files/UnityCache")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/files/UnityCache")
+        neg(testPkg, PRIVATE_DATA, "$testPkg/files/UnityCache")
+        neg(testPkg, SDCARD, "$testPkg/files/UnityCache/$rngString")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/files/UnityCache/$rngString")
+        neg(testPkg, PRIVATE_DATA, "$testPkg/files/UnityCache/$rngString")
         confirm(create())
     }
 
-    @Test fun testWebViewFilter() = runTest {
+    @Test fun `test webview filter`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.spotify.music").prefixFree("com.spotify.music/files/spotifycache")
-                .locs(PUBLIC_DATA)
-        )
-        addCandidate(
-            pos().pkgs("com.spotify.music").prefixFree("com.spotify.music/files/spotifycache/$rngString")
-                .locs(PUBLIC_DATA)
-        )
+        neg("com.spotify.music", PUBLIC_DATA, "com.spotify.music/files/spotifycache")
+        pos("com.spotify.music", PUBLIC_DATA, "com.spotify.music/files/spotifycache/$rngString")
         confirm(create())
     }
 
-    @Test fun testSpotifyCache() = runTest {
+    @Test fun `test spotify cache`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().prefixFree("com.spotify.music/files/spotifycache").locs(PUBLIC_DATA))
-        addCandidate(pos().prefixFree("com.spotify.music/files/spotifycache/$rngString").locs(PUBLIC_DATA))
+        neg("com.spotify.music", PUBLIC_DATA, "com.spotify.music/files/spotifycache")
+        pos("com.spotify.music", PUBLIC_DATA, "com.spotify.music/files/spotifycache/$rngString")
         confirm(create())
     }
 
-    @Test fun testNaviKing() = runTest {
+    @Test fun `test navi king`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.kingwaytek.naviking").prefixFree("LocalKingMapN5").locs(SDCARD))
-        addCandidate(
-            pos().pkgs("com.kingwaytek.naviking").prefixFree("LocalKingMapN5/$rngString").locs(SDCARD)
-        )
+        neg("com.kingwaytek.naviking", SDCARD, "LocalKingMapN5")
+        pos("com.kingwaytek.naviking", SDCARD, "LocalKingMapN5/$rngString")
         confirm(create())
     }
 
-    @Test fun testXDALabs() = runTest {
+    @Test fun `test xda labs`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.xda.labs").prefixFree("com.xda.labs/files/something").locs(PUBLIC_DATA))
-        addCandidate(
-            pos().pkgs("com.xda.labs")
-                .prefixFree("com.xda.labs/files/8bc11e76-2d70-4270-8615-c0a40a29ba09_2020070801.apk")
-                .locs(PUBLIC_DATA)
-        )
-        addCandidate(
-            pos().pkgs("com.xda.labs").prefixFree("com.xda.labs/files/78d77e4c-08d2-47b4-a804-7785d8eb9a8a_1.apk")
-                .locs(PUBLIC_DATA)
-        )
+        neg("com.xda.labs", PUBLIC_DATA, "com.xda.labs/files/something")
+        pos("com.xda.labs", PUBLIC_DATA, "com.xda.labs/files/8bc11e76-2d70-4270-8615-c0a40a29ba09_2020070801.apk")
+        pos("com.xda.labs", PUBLIC_DATA, "com.xda.labs/files/78d77e4c-08d2-47b4-a804-7785d8eb9a8a_1.apk")
         confirm(create())
     }
 
-    @Test fun testInshot() = runTest {
+    @Test fun `test inshot`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.camerasideas.instashot").prefixFree("inshot/.sound").locs(SDCARD))
-        addCandidate(
-            pos().pkgs("com.camerasideas.instashot").prefixFree("inshot/.sound/$rngString").locs(SDCARD)
-        )
+        neg("com.camerasideas.instashot", SDCARD, "inshot/.sound")
+        pos("com.camerasideas.instashot", SDCARD, "inshot/.sound/$rngString")
         confirm(create())
     }
 
-    @Test fun testVlc() = runTest {
+    @Test fun `test vlc`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("org.videolan.vlc").prefixFree("org.videolan.vlc/files/subtitles").locs(PUBLIC_DATA)
-        )
-        addCandidate(
-            pos().pkgs("org.videolan.vlc").prefixFree("org.videolan.vlc/files/subtitles/$rngString")
-                .locs(PUBLIC_DATA)
-        )
+        neg("org.videolan.vlc", PUBLIC_DATA, "org.videolan.vlc/files/subtitles")
+        pos("org.videolan.vlc", PUBLIC_DATA, "org.videolan.vlc/files/subtitles/$rngString")
         confirm(create())
     }
 
-    @Test fun gplayInstantApps() = runTest {
+    @Test fun `test gplay instant apps`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.android.vending").prefixFree("com.android.vending/files/dna_data/something")
-                .locs(PUBLIC_DATA)
-        )
-        addCandidate(
-            pos().pkgs("com.android.vending").prefixFree("com.android.vending/files/dna_data/FullArchive-403076282")
-                .locs(PUBLIC_DATA)
-        )
+        neg("com.android.vending", PUBLIC_DATA, "com.android.vending/files/dna_data/something")
+        pos("com.android.vending", PUBLIC_DATA, "com.android.vending/files/dna_data/FullArchive-403076282")
         confirm(create())
     }
 
