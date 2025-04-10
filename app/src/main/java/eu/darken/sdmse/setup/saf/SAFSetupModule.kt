@@ -15,7 +15,9 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -147,7 +149,7 @@ class SAFSetupModule @Inject constructor(
          */
         if (hasApiLevel(30) && !hasApiLevel(33)) {
             val documentsPkg = pkgOps.queryAppInfos("com.google.android.documentsui".toPkgId())
-            log(TAG) { "Files-DocumentsUI: $documentsPkg" }
+            log(TAG) { "Files-DocumentsUI: $documentsPkg targetSdkVersion=${documentsPkg?.targetSdkVersion}" }
 
             storageEnvironment.externalDirs
                 .map { baseDir ->
