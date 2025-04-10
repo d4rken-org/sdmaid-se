@@ -27,6 +27,7 @@ import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textEndsWithAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
@@ -93,33 +94,38 @@ class MIUISpecs @Inject constructor(
 
         var windowPkg: Pkg.Id? = null
 
+        val windowCheck = windowCheck { event, root ->
+            if (stepAttempts >= 1 && pkg.hasNoSettings) {
+                throw PlanAbortException("${pkg.packageName} has no settings window.")
+            }
+            // Some MIUI14 devices send the change event for the system settings app
+            val isCorrectWindow = root.pkgId == SETTINGS_PKG_MIUI || root.pkgId == SETTINGS_PKG_AOSP
+                    || event?.pkgId == SETTINGS_PKG_MIUI || event?.pkgId == SETTINGS_PKG_AOSP
+            if (!isCorrectWindow) return@windowCheck false
+            when {
+                root.pkgId == SETTINGS_PKG_MIUI && checkAppIdentifier(ipcFunnel, pkg)(root) -> {
+                    windowPkg = SETTINGS_PKG_MIUI
+                    true
+                }
+
+                root.pkgId == SETTINGS_PKG_AOSP && checkAppIdentifier(ipcFunnel, pkg)(root) -> {
+                    windowPkg = SETTINGS_PKG_AOSP
+                    true
+                }
+
+                else -> {
+                    log(TAG) { "Unknown window: ${root.pkgId}" }
+                    false
+                }
+            }
+        }
+
         val step = AutomationStep(
             source = TAG,
             descriptionInternal = "Storage entry (main plan)",
             label = R.string.appcleaner_automation_progress_find_storage.toCaString(""),
             windowLaunch = windowLauncherDefaultSettings(pkg),
-            windowCheck = windowCheck { event, root ->
-                // Some MIUI14 devices send the change event for the system settings app
-                val isCorrectWindow = root.pkgId == SETTINGS_PKG_MIUI || root.pkgId == SETTINGS_PKG_AOSP
-                        || event?.pkgId == SETTINGS_PKG_MIUI || event?.pkgId == SETTINGS_PKG_AOSP
-                if (!isCorrectWindow) return@windowCheck false
-                when {
-                    root.pkgId == SETTINGS_PKG_MIUI && checkAppIdentifier(ipcFunnel, pkg)(root) -> {
-                        windowPkg = SETTINGS_PKG_MIUI
-                        true
-                    }
-
-                    root.pkgId == SETTINGS_PKG_AOSP && checkAppIdentifier(ipcFunnel, pkg)(root) -> {
-                        windowPkg = SETTINGS_PKG_AOSP
-                        true
-                    }
-
-                    else -> {
-                        log(TAG) { "Unknown window: ${root.pkgId}" }
-                        false
-                    }
-                }
-            },
+            windowCheck = windowCheck,
         )
         stepper.withProgress(this) { process(this@plan, step) }
 

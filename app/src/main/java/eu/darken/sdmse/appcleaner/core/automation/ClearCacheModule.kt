@@ -222,7 +222,7 @@ class ClearCacheModule @AssistedInject constructor(
             } catch (e: TimeoutCancellationException) {
                 log(TAG, WARN) { "Timeout while processing $installed" }
                 failed.add(target)
-                if (timeoutCount > 2 && successful.isEmpty()) break else timeoutCount++
+                if (timeoutCount > 8 && successful.isEmpty()) break else timeoutCount++
             } catch (e: CancellationException) {
                 log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
                 updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)

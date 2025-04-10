@@ -103,6 +103,9 @@ class HyperOsSpecs @Inject constructor(
         var windowPkg: Pkg.Id? = null
 
         val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
+            if (stepAttempts >= 1 && pkg.hasNoSettings) {
+                throw PlanAbortException("${pkg.packageName} has no settings window.")
+            }
             // Wait for correct base window
             host.events
                 .filter { event -> event.pkgId == SETTINGS_PKG_HYPEROS || event.pkgId == SETTINGS_PKG_AOSP }
@@ -229,7 +232,7 @@ class HyperOsSpecs @Inject constructor(
                 }
 
                 val mapped = findClickableParent(node = clearDataTarget) ?: return@action false
-                clickNormal(isDryRun = isDryRun, mapped)
+                clickNormal(node = mapped)
             }
 
             val step = AutomationStep(

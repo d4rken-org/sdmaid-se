@@ -1,6 +1,8 @@
 package eu.darken.sdmse.automation.core.errors
 
+import android.os.Build
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
@@ -12,7 +14,16 @@ open class AutomationCompatibilityException(
     override fun getLocalizedError(): LocalizedError = LocalizedError(
         throwable = this,
         label = R.string.automation_error_no_consent_title.toCaString(),
-        description = R.string.automation_error_compatibility_body.toCaString(),
+        description = caString {
+            """
+                ${getString(R.string.automation_error_compatibility_body)}
+                
+               
+                ${getString(eu.darken.sdmse.common.R.string.general_information_for_the_developer)}:
+                
+                ${Build.FINGERPRINT}
+            """.trimIndent()
+        },
     )
 
 }
