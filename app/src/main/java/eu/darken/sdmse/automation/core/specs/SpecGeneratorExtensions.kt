@@ -14,6 +14,7 @@ import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -72,8 +73,13 @@ fun SpecGenerator.windowCheckDefaultSettings(
     windowPkgId: Pkg.Id,
     ipcFunnel: IPCFunnel,
     pkgInfo: Installed
-) = windowCheck { _, root ->
-    root.pkgId == windowPkgId && checkAppIdentifier(ipcFunnel, pkgInfo)(root)
+): suspend StepContext.() -> AccessibilityNodeInfo = {
+    if (stepAttempts >= 1 && pkgInfo.hasNoSettings) {
+        throw PlanAbortException("${pkgInfo.packageName} has no settings window.")
+    }
+    windowCheck { _, root ->
+        root.pkgId == windowPkgId && checkAppIdentifier(ipcFunnel, pkgInfo)(root)
+    }()
 }
 
 suspend fun SpecGenerator.checkAppIdentifier(
