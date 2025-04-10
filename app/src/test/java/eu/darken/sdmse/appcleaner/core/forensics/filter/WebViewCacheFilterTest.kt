@@ -1,12 +1,8 @@
 package eu.darken.sdmse.appcleaner.core.forensics.filter
 
 import eu.darken.sdmse.appcleaner.core.forensics.BaseFilterTest
-import eu.darken.sdmse.appcleaner.core.forensics.addCandidate
-import eu.darken.sdmse.appcleaner.core.forensics.locs
 import eu.darken.sdmse.appcleaner.core.forensics.neg
-import eu.darken.sdmse.appcleaner.core.forensics.pkgs
 import eu.darken.sdmse.appcleaner.core.forensics.pos
-import eu.darken.sdmse.appcleaner.core.forensics.prefixFree
 import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
@@ -32,80 +28,103 @@ class WebViewCacheFilterTest : BaseFilterTest() {
         gatewaySwitch = gatewaySwitch,
     )
 
-    @Test fun testGeneral() = runTest {
+    @Test fun `test general`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("eu.thedarken.sdm.test")
-                .prefixFree("eu.thedarken.sdm.test/files/.Fabric/io.fabric.sdk.android:fabric/com.crashlytics.settings.json")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
+        neg(
+            "eu.thedarken.sdm.test",
+            SDCARD,
+            "eu.thedarken.sdm.test/files/.Fabric/io.fabric.sdk.android:fabric/com.crashlytics.settings.json"
         )
-        addCandidate(
-            neg().pkgs("eu.thedarken.sdm.test")
-                .prefixFree("eu.thedarken.sdm.test/files/.Fabric/io.fabric.sdk.android:fabric")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
+        neg(
+            "eu.thedarken.sdm.test",
+            PUBLIC_DATA,
+            "eu.thedarken.sdm.test/files/.Fabric/io.fabric.sdk.android:fabric/com.crashlytics.settings.json"
         )
-        addCandidate(
-            neg().pkgs("eu.thedarken.sdm.test").prefixFree("eu.thedarken.sdm.test/files/.Fabric")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
+        neg(
+            "eu.thedarken.sdm.test",
+            PRIVATE_DATA,
+            "eu.thedarken.sdm.test/files/.Fabric/io.fabric.sdk.android:fabric/com.crashlytics.settings.json"
         )
-        addCandidate(
-            neg().pkgs("eu.thedarken.sdm.test").prefixFree("eu.thedarken.sdm.test/files")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
+
+        neg("eu.thedarken.sdm.test", SDCARD, "eu.thedarken.sdm.test/files/.Fabric/io.fabric.sdk.android:fabric")
+        neg("eu.thedarken.sdm.test", PUBLIC_DATA, "eu.thedarken.sdm.test/files/.Fabric/io.fabric.sdk.android:fabric")
+        neg("eu.thedarken.sdm.test", PRIVATE_DATA, "eu.thedarken.sdm.test/files/.Fabric/io.fabric.sdk.android:fabric")
+
+        neg("eu.thedarken.sdm.test", SDCARD, "eu.thedarken.sdm.test/files/.Fabric")
+        neg("eu.thedarken.sdm.test", PUBLIC_DATA, "eu.thedarken.sdm.test/files/.Fabric")
+        neg("eu.thedarken.sdm.test", PRIVATE_DATA, "eu.thedarken.sdm.test/files/.Fabric")
+
+        neg("eu.thedarken.sdm.test", SDCARD, "eu.thedarken.sdm.test/files")
+        neg("eu.thedarken.sdm.test", PUBLIC_DATA, "eu.thedarken.sdm.test/files")
+        neg("eu.thedarken.sdm.test", PRIVATE_DATA, "eu.thedarken.sdm.test/files")
+
+        neg("eu.thedarken.sdm.test", SDCARD, "eu.thedarken.sdm.test/app_webview/Cache")
+        neg("eu.thedarken.sdm.test", PUBLIC_DATA, "eu.thedarken.sdm.test/app_webview/Cache")
+        neg("eu.thedarken.sdm.test", PRIVATE_DATA, "eu.thedarken.sdm.test/app_webview/Cache")
+
+        pos("eu.thedarken.sdm.test", SDCARD, "eu.thedarken.sdm.test/app_webview/Cache/asdkjalsjdlasdasd")
+        pos("eu.thedarken.sdm.test", PUBLIC_DATA, "eu.thedarken.sdm.test/app_webview/Cache/asdkjalsjdlasdasd")
+        pos("eu.thedarken.sdm.test", PRIVATE_DATA, "eu.thedarken.sdm.test/app_webview/Cache/asdkjalsjdlasdasd")
+
+        pos("eu.thedarken.sdm.test", SDCARD, "eu.thedarken.sdm.test/app_webview/Cache/asdkjalsjdlasdasd/asdasd/Cache")
+        pos(
+            "eu.thedarken.sdm.test",
+            PUBLIC_DATA,
+            "eu.thedarken.sdm.test/app_webview/Cache/asdkjalsjdlasdasd/asdasd/Cache"
         )
-        addCandidate(
-            neg().pkgs("eu.thedarken.sdm.test").prefixFree("eu.thedarken.sdm.test/app_webview/Cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
+        pos(
+            "eu.thedarken.sdm.test",
+            PRIVATE_DATA,
+            "eu.thedarken.sdm.test/app_webview/Cache/asdkjalsjdlasdasd/asdasd/Cache"
         )
-        addCandidate(
-            pos().pkgs("eu.thedarken.sdm.test").prefixFree("eu.thedarken.sdm.test/app_webview/Cache/asdkjalsjdlasdasd")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs("eu.thedarken.sdm.test")
-                .prefixFree("eu.thedarken.sdm.test/app_webview/Cache/asdkjalsjdlasdasd/asdasd/Cache")
-                .locs(SDCARD, PUBLIC_DATA, PRIVATE_DATA)
-        )
+        
         confirm(create())
     }
 
-    @Test fun testAmazon() = runTest {
+    @Test fun `test amazon`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.amazon.mShop.android.shopping")
-                .prefixFree("com.amazon.mShop.android.shopping/app_mashWebViewState")
-                .locs(PUBLIC_DATA, PRIVATE_DATA)
+        neg("com.amazon.mShop.android.shopping", PUBLIC_DATA, "com.amazon.mShop.android.shopping/app_mashWebViewState")
+        neg("com.amazon.mShop.android.shopping", PRIVATE_DATA, "com.amazon.mShop.android.shopping/app_mashWebViewState")
+
+        pos(
+            "com.amazon.mShop.android.shopping",
+            PUBLIC_DATA,
+            "com.amazon.mShop.android.shopping/app_mashWebViewState/1531151908029MASHWebFragment1.0"
         )
-        addCandidate(
-            pos().pkgs("com.amazon.mShop.android.shopping")
-                .prefixFree("com.amazon.mShop.android.shopping/app_mashWebViewState/1531151908029MASHWebFragment1.0")
-                .locs(PUBLIC_DATA, PRIVATE_DATA)
+        pos(
+            "com.amazon.mShop.android.shopping",
+            PRIVATE_DATA,
+            "com.amazon.mShop.android.shopping/app_mashWebViewState/1531151908029MASHWebFragment1.0"
         )
-        addCandidate(
-            pos().pkgs("com.amazon.mShop.android.shopping")
-                .prefixFree("com.amazon.mShop.android.shopping/app_mashWebViewState/asdasd/Cache")
-                .locs(PUBLIC_DATA, PRIVATE_DATA)
+
+        pos(
+            "com.amazon.mShop.android.shopping",
+            PUBLIC_DATA,
+            "com.amazon.mShop.android.shopping/app_mashWebViewState/asdasd/Cache"
         )
+        pos(
+            "com.amazon.mShop.android.shopping",
+            PRIVATE_DATA,
+            "com.amazon.mShop.android.shopping/app_mashWebViewState/asdasd/Cache"
+        )
+        
         confirm(create())
     }
 
-    @Test fun testPuffin() = runTest {
+    @Test fun `test puffin`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.cloudmosa.puffin").prefixFree("com.cloudmosa.puffin/app_favicon_cache")
-                .locs(PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs("com.cloudmosa.puffin").prefixFree("com.cloudmosa.puffin/app_favicon_cache/html5test.com")
-                .locs(PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            pos().pkgs("com.cloudmosa.puffin").prefixFree("com.cloudmosa.puffin/app_favicon_cache/something/else")
-                .locs(PUBLIC_DATA, PRIVATE_DATA)
-        )
-        addCandidate(
-            neg().pkgs("com.cloudmosa.puffin").prefixFree("com.cloudmosa.puffin/app_favicon_cache/something/.nomedia")
-                .locs(PUBLIC_DATA, PRIVATE_DATA)
-        )
+        neg("com.cloudmosa.puffin", PUBLIC_DATA, "com.cloudmosa.puffin/app_favicon_cache")
+        neg("com.cloudmosa.puffin", PRIVATE_DATA, "com.cloudmosa.puffin/app_favicon_cache")
+
+        pos("com.cloudmosa.puffin", PUBLIC_DATA, "com.cloudmosa.puffin/app_favicon_cache/html5test.com")
+        pos("com.cloudmosa.puffin", PRIVATE_DATA, "com.cloudmosa.puffin/app_favicon_cache/html5test.com")
+
+        pos("com.cloudmosa.puffin", PUBLIC_DATA, "com.cloudmosa.puffin/app_favicon_cache/something/else")
+        pos("com.cloudmosa.puffin", PRIVATE_DATA, "com.cloudmosa.puffin/app_favicon_cache/something/else")
+
+        neg("com.cloudmosa.puffin", PUBLIC_DATA, "com.cloudmosa.puffin/app_favicon_cache/something/.nomedia")
+        neg("com.cloudmosa.puffin", PRIVATE_DATA, "com.cloudmosa.puffin/app_favicon_cache/something/.nomedia")
+        
         confirm(create())
     }
 }

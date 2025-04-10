@@ -1,12 +1,8 @@
 package eu.darken.sdmse.appcleaner.core.forensics.filter
 
 import eu.darken.sdmse.appcleaner.core.forensics.BaseFilterTest
-import eu.darken.sdmse.appcleaner.core.forensics.addCandidate
-import eu.darken.sdmse.appcleaner.core.forensics.locs
 import eu.darken.sdmse.appcleaner.core.forensics.neg
-import eu.darken.sdmse.appcleaner.core.forensics.pkgs
 import eu.darken.sdmse.appcleaner.core.forensics.pos
-import eu.darken.sdmse.appcleaner.core.forensics.prefixFree
 import eu.darken.sdmse.common.areas.DataArea.Type.DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
@@ -35,264 +31,212 @@ class BugReportingFilterTest : BaseFilterTest() {
         gatewaySwitch = gatewaySwitch,
     )
 
-    @Test fun testFilterFabric() = runTest {
+    @Test fun `test fabric crashlytics files`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs(testPkg).locs(PRIVATE_DATA)
-                .prefixFree("eu.thedarken.sdm.test/files/.Fabric/io.fabric.sdk.android:fabric/com.crashlytics.settings.json")
+        neg(
+            testPkg,
+            PRIVATE_DATA,
+            "eu.thedarken.sdm.test/files/.Fabric/io.fabric.sdk.android:fabric/com.crashlytics.settings.json"
         )
-        addCandidate(
-            neg().pkgs(testPkg).locs(PRIVATE_DATA)
-                .prefixFree("eu.thedarken.sdm.test/files/.Fabric/io.fabric.sdk.android:fabric")
+        neg(testPkg, PRIVATE_DATA, "eu.thedarken.sdm.test/files/.Fabric/io.fabric.sdk.android:fabric")
+        neg(testPkg, PRIVATE_DATA, "eu.thedarken.sdm.test/files/.Fabric")
+        neg(testPkg, PRIVATE_DATA, "eu.thedarken.sdm.test/files")
+        pos(testPkg, PRIVATE_DATA, "eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core")
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core/57176A330373-0001-3113-B40FA339CFB5SessionDevice.cls"
         )
-        addCandidate(neg().pkgs(testPkg).locs(PRIVATE_DATA).prefixFree("eu.thedarken.sdm.test/files/.Fabric"))
-        addCandidate(neg().pkgs(testPkg).locs(PRIVATE_DATA).prefixFree("eu.thedarken.sdm.test/files"))
-        addCandidate(
-            pos().pkgs(testPkg).locs(PRIVATE_DATA)
-                .prefixFree("eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core")
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core/57176A5E0162-0001-3571-B40FA339CFB5BeginSession.cls"
         )
-        addCandidate(
-            pos().pkgs(testPkg).locs(PRIVATE_DATA)
-                .prefixFree("eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core/57176A330373-0001-3113-B40FA339CFB5SessionDevice.cls")
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core/57176A5E0162-0001-3571-B40FA339CFB5SessionApp.cls"
         )
-        addCandidate(
-            pos().pkgs(testPkg).locs(PRIVATE_DATA)
-                .prefixFree("eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core/57176A5E0162-0001-3571-B40FA339CFB5BeginSession.cls")
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core/571829D30162-0001-773C-9E7740B51B59user.meta"
         )
-        addCandidate(
-            pos().pkgs(testPkg).locs(PRIVATE_DATA)
-                .prefixFree("eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core/57176A5E0162-0001-3571-B40FA339CFB5SessionApp.cls")
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core/57176A5E0162-0001-3571-B40FA339CFB5SessionOS.cls"
         )
-        addCandidate(
-            pos().pkgs(testPkg).locs(PRIVATE_DATA)
-                .prefixFree("eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core/571829D30162-0001-773C-9E7740B51B59user.meta")
-        )
-        addCandidate(
-            pos().pkgs(testPkg).locs(PRIVATE_DATA)
-                .prefixFree("eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core/57176A5E0162-0001-3571-B40FA339CFB5SessionOS.cls")
-        )
-        addCandidate(
-            pos().pkgs(testPkg).locs(PRIVATE_DATA)
-                .prefixFree("eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core/log-files/crashlytics-userlog-5655D3DD0195-0002-6DD3-D2E9215735D2.temp")
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "eu.thedarken.sdm.test/files/.Fabric/com.crashlytics.sdk.android.crashlytics-core/log-files/crashlytics-userlog-5655D3DD0195-0002-6DD3-D2E9215735D2.temp"
         )
 
         confirm(create())
     }
 
-    @Test fun testFilterFirefox() = runTest {
+    @Test fun `test firefox crash reports`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("org.mozilla.firefox", "org.mozilla.firefox_beta")
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.firefox_beta/files/mozilla/Crash Reports")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.firefox_beta/files/mozilla/Crash Reports/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("org.mozilla.firefox/files/mozilla/Crash Reports")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.firefox/files/mozilla/Crash Reports/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.firefox_beta/files/mozilla/sqqj1c1o.default/minidumps")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree(
-                "org.mozilla.firefox_beta/files/mozilla/sqqj1c1o.default/minidumps/$rngString"
-            )
-        )
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.firefox_beta/files/mozilla/Crash Reports")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.firefox_beta/files/mozilla/Crash Reports/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.firefox/files/mozilla/Crash Reports")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.firefox/files/mozilla/Crash Reports/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.firefox_beta/files/mozilla/sqqj1c1o.default/minidumps")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.firefox_beta/files/mozilla/sqqj1c1o.default/minidumps/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testFilterFireFoxNightly() = runTest {
+    @Test fun `test firefox nightly crash reports`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("org.mozilla.fennec_aurora")
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.fennec_aurora/files/mozilla/Crash Reports")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.fennec_aurora/files/mozilla/Crash Reports/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/minidumps")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree(
-                "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/minidumps/$rngString"
-            )
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/crashes")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree(
-                "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/crashes/$rngString"
-            )
-        )
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.fennec_aurora/files/mozilla/Crash Reports")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fennec_aurora/files/mozilla/Crash Reports/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/minidumps")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/minidumps/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/crashes")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/crashes/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testFilterMozillaFocus() = runTest {
+    @Test fun `test mozilla focus crash reports`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("org.mozilla.focus")
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("org.mozilla.focus/files/mozilla/Crash Reports")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.focus/files/mozilla/Crash Reports/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.focus/files/mozilla/sqqj1c1o.default/minidumps")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree(
-                "org.mozilla.focus/files/mozilla/sqqj1c1o.default/minidumps/$rngString"
-            )
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.focus/files/mozilla/sqqj1c1o.default/crashes")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("org.mozilla.focus/files/mozilla/sqqj1c1o.default/crashes/$rngString")
-        )
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.focus/files/mozilla/Crash Reports")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.focus/files/mozilla/Crash Reports/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.focus/files/mozilla/sqqj1c1o.default/minidumps")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.focus/files/mozilla/sqqj1c1o.default/minidumps/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.focus/files/mozilla/sqqj1c1o.default/crashes")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.focus/files/mozilla/sqqj1c1o.default/crashes/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testFilterMozillaClone() = runTest {
+    @Test fun `test mozilla clone crash reports`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("strawberry")
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("strawberry/files/mozilla/Crash Reports")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("strawberry/files/mozilla/Crash Reports/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("strawberry/files/mozilla/sqqj1c1o.default/minidumps")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("strawberry/files/mozilla/sqqj1c1o.default/minidumps/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("strawberry/files/mozilla/sqqj1c1o.default/crashes")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA)
-                .prefixFree("strawberry/files/mozilla/sqqj1c1o.default/crashes/$rngString")
-        )
+        neg(pkgs[0], PRIVATE_DATA, "strawberry/files/mozilla/Crash Reports")
+        pos(pkgs[0], PRIVATE_DATA, "strawberry/files/mozilla/Crash Reports/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "strawberry/files/mozilla/sqqj1c1o.default/minidumps")
+        pos(pkgs[0], PRIVATE_DATA, "strawberry/files/mozilla/sqqj1c1o.default/minidumps/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "strawberry/files/mozilla/sqqj1c1o.default/crashes")
+        pos(pkgs[0], PRIVATE_DATA, "strawberry/files/mozilla/sqqj1c1o.default/crashes/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testFilterShell() = runTest {
+    @Test fun `test shell bug reports`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.android.shell").locs(PRIVATE_DATA)
-                .prefixFree("com.android.shell/files/bugreports/")
-        )
-        addCandidate(
-            pos().pkgs("com.android.shell").locs(PRIVATE_DATA)
-                .prefixFree("com.android.shell/files/bugreports/bugreport-dasdasdasd")
-        )
+        neg("com.android.shell", PRIVATE_DATA, "com.android.shell/files/bugreports/")
+        pos("com.android.shell", PRIVATE_DATA, "com.android.shell/files/bugreports/bugreport-dasdasdasd")
 
         confirm(create())
     }
 
-    @Test fun testFilterSplashTop() = runTest {
+    @Test fun `test splashtop logs`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.splashtop.remote.pad.v2").locs(SDCARD).prefixFree("Splashtop.log"))
-        addCandidate(
-            pos().pkgs("com.splashtop.remote.pad.v2").locs(SDCARD).prefixFree("Splashtop.log.12312312312")
-        )
+        neg("com.splashtop.remote.pad.v2", SDCARD, "Splashtop.log")
+        pos("com.splashtop.remote.pad.v2", SDCARD, "Splashtop.log.12312312312")
 
         confirm(create())
     }
 
-    @Test fun testFilterGoWiper() = runTest {
+    @Test fun `test filter firefox nightly`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.gowiper.android").locs(PUBLIC_DATA).prefixFree("com.gowiper.android/files/logs")
-        )
-        addCandidate(
-            pos().pkgs("com.gowiper.android").locs(PUBLIC_DATA)
-                .prefixFree("com.gowiper.android/files/logs/$rngString")
-        )
+        val pkgs = arrayOf("org.mozilla.fennec_aurora")
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.fennec_aurora/files/mozilla/Crash Reports")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fennec_aurora/files/mozilla/Crash Reports/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/minidumps")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/minidumps/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/crashes")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fennec_aurora/files/mozilla/sqqj1c1o.default/crashes/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testFilterIranApp() = runTest {
+    @Test fun `test filter mozilla focus`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("ir.tgbs.android.iranapp").locs(PUBLIC_DATA)
-                .prefixFree("ir.tgbs.android.iranapp/files/log")
-        )
-        addCandidate(
-            pos().pkgs("ir.tgbs.android.iranapp").locs(PUBLIC_DATA)
-                .prefixFree("ir.tgbs.android.iranapp/files/log/$rngString")
-        )
+        val pkgs = arrayOf("org.mozilla.focus")
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.focus/files/mozilla/Crash Reports")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.focus/files/mozilla/Crash Reports/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.focus/files/mozilla/sqqj1c1o.default/minidumps")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.focus/files/mozilla/sqqj1c1o.default/minidumps/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.focus/files/mozilla/sqqj1c1o.default/crashes")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.focus/files/mozilla/sqqj1c1o.default/crashes/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testFilterLauncherEx() = runTest {
+    @Test fun `test filter mozilla clone`() = runTest {
+        addDefaultNegatives()
+        val pkgs = arrayOf("strawberry")
+        neg(pkgs[0], PRIVATE_DATA, "strawberry/files/mozilla/Crash Reports")
+        pos(pkgs[0], PRIVATE_DATA, "strawberry/files/mozilla/Crash Reports/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "strawberry/files/mozilla/sqqj1c1o.default/minidumps")
+        pos(pkgs[0], PRIVATE_DATA, "strawberry/files/mozilla/sqqj1c1o.default/minidumps/$rngString")
+        neg(pkgs[0], PRIVATE_DATA, "strawberry/files/mozilla/sqqj1c1o.default/crashes")
+        pos(pkgs[0], PRIVATE_DATA, "strawberry/files/mozilla/sqqj1c1o.default/crashes/$rngString")
+
+        confirm(create())
+    }
+
+    @Test fun `test filter shell`() = runTest {
+        addDefaultNegatives()
+        neg("com.android.shell", PRIVATE_DATA, "com.android.shell/files/bugreports/")
+        pos("com.android.shell", PRIVATE_DATA, "com.android.shell/files/bugreports/bugreport-dasdasdasd")
+
+        confirm(create())
+    }
+
+    @Test fun `test filter splash top`() = runTest {
+        addDefaultNegatives()
+        neg("com.splashtop.remote.pad.v2", SDCARD, "Splashtop.log")
+        pos("com.splashtop.remote.pad.v2", SDCARD, "Splashtop.log.12312312312")
+
+        confirm(create())
+    }
+
+    @Test fun `test filter go wiper`() = runTest {
+        addDefaultNegatives()
+        neg("com.gowiper.android", PUBLIC_DATA, "com.gowiper.android/files/logs")
+        pos("com.gowiper.android", PUBLIC_DATA, "com.gowiper.android/files/logs/$rngString")
+
+        confirm(create())
+    }
+
+    @Test fun `test filter iran app`() = runTest {
+        addDefaultNegatives()
+        neg("ir.tgbs.android.iranapp", PUBLIC_DATA, "ir.tgbs.android.iranapp/files/log")
+        pos("ir.tgbs.android.iranapp", PUBLIC_DATA, "ir.tgbs.android.iranapp/files/log/$rngString")
+
+        confirm(create())
+    }
+
+    @Test fun `test filter launcher ex`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("com.gau.go.launcherex", "com.gau.go.launcherex.os")
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("GOLauncherEX/log"))
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("GOLauncherEXOS/log"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("GOLauncherEX/log/$rngString")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("GOLauncherEXOS/log/$rngString")
-        )
+        neg(pkgs[0], SDCARD, "GOLauncherEX/log")
+        neg(pkgs[0], SDCARD, "GOLauncherEXOS/log")
+        pos(pkgs[0], SDCARD, "GOLauncherEX/log/$rngString")
+        pos(pkgs[0], SDCARD, "GOLauncherEXOS/log/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testFilterCleanMasterGuard() = runTest {
+    @Test fun `test filter clean master guard`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.cleanmaster.mguard").locs(PUBLIC_DATA)
-                .prefixFree("com.cleanmaster.mguard/files/logs")
-        )
-        addCandidate(
-            neg().pkgs("com.cleanmaster.mguard").locs(PUBLIC_DATA)
-                .prefixFree("com.cleanmaster.mguard/files/minidump")
-        )
-        addCandidate(
-            pos().pkgs("com.cleanmaster.mguard").locs(PUBLIC_DATA)
-                .prefixFree("com.cleanmaster.mguard/files/logs/$rngString")
-        )
-        addCandidate(
-            pos().pkgs("com.cleanmaster.mguard").locs(PUBLIC_DATA)
-                .prefixFree("com.cleanmaster.mguard/files/minidump/$rngString")
-        )
+        neg("com.cleanmaster.mguard", PUBLIC_DATA, "com.cleanmaster.mguard/files/logs")
+        neg("com.cleanmaster.mguard", PUBLIC_DATA, "com.cleanmaster.mguard/files/minidump")
+        pos("com.cleanmaster.mguard", PUBLIC_DATA, "com.cleanmaster.mguard/files/logs/$rngString")
+        pos("com.cleanmaster.mguard", PUBLIC_DATA, "com.cleanmaster.mguard/files/minidump/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testFilterYahoo() = runTest {
+    @Test fun `test filter yahoo`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf(
             "com.yahoo.mobile.client.android.atom",
@@ -307,777 +251,492 @@ class BugReportingFilterTest : BaseFilterTest() {
             "com.yahoo.mobile.client.android.weather",
             "com.yahoo.mobile.client.android.cricket"
         )
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/atom/Debug"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/atom/Debug/$rngString")
-        )
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/mail/Debug"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/mail/Debug/$rngString")
-        )
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/yeti/Debug"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/yeti/Debug/$rngString")
-        )
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/ecauction/Debug"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/ecauction/Debug/$rngString")
-        )
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/fantasyfootball/Debug"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/fantasyfootball/Debug/$rngString")
-        )
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/search/Debug"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/search/Debug/$rngString")
-        )
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/finance/Debug"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/finance/Debug/$rngString")
-        )
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/im/Debug"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/im/Debug/$rngString")
-        )
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/flickr/Debug"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/flickr/Debug/$rngString")
-        )
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/weather/Debug"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/weather/Debug/$rngString")
-        )
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/cricket/Debug"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/cricket/Debug/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.atom/Debug")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.atom/Debug/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.mail/Debug")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.mail/Debug/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.yeti/Debug")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.yeti/Debug/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.ecauction/Debug")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.ecauction/Debug/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.fantasyfootball/Debug")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree(
-                "yahoo/com.yahoo.mobile.client.android.fantasyfootball/Debug/$rngString"
-            )
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.search/Debug")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.search/Debug/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.finance/Debug")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.finance/Debug/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.im/Debug")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.im/Debug/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.flickr/Debug")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.flickr/Debug/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.weather/Debug")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.weather/Debug/$rngString")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(SDCARD).prefixFree("yahoo/com.yahoo.mobile.client.android.cricket/Debug")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("yahoo/com.yahoo.mobile.client.android.cricket/Debug/$rngString")
-        )
+        neg(pkgs[0], SDCARD, "yahoo/atom/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/atom/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/mail/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/mail/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/yeti/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/yeti/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/ecauction/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/ecauction/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/fantasyfootball/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/fantasyfootball/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/search/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/search/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/finance/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/finance/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/im/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/im/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/flickr/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/flickr/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/weather/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/weather/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/cricket/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/cricket/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.atom/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.atom/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.mail/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.mail/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.yeti/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.yeti/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.ecauction/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.ecauction/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.fantasyfootball/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.fantasyfootball/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.search/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.search/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.finance/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.finance/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.im/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.im/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.flickr/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.flickr/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.weather/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.weather/Debug/$rngString")
+        neg(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.cricket/Debug")
+        pos(pkgs[0], SDCARD, "yahoo/com.yahoo.mobile.client.android.cricket/Debug/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testFilterAudials() = runTest {
+    @Test fun `test filter audials`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("com.audials", "com.audials.paid")
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("Audials/log"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("Audials/log/$rngString"))
+        neg(pkgs[0], SDCARD, "Audials/log")
+        pos(pkgs[0], SDCARD, "Audials/log/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testFilterTapatalk() = runTest {
+    @Test fun `test filter tapatalk`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.quoord.tapatalkpro.activity").locs(SDCARD).prefixFree("tapatalkLog"))
-        addCandidate(
-            pos().pkgs("com.quoord.tapatalkpro.activity").locs(SDCARD)
-                .prefixFree("tapatalkLog/123-4567-Log.txt")
-        )
+        neg("com.quoord.tapatalkpro.activity", SDCARD, "tapatalkLog")
+        pos("com.quoord.tapatalkpro.activity", SDCARD, "tapatalkLog/123-4567-Log.txt")
 
         confirm(create())
     }
 
-    @Test fun testFilterAmazonMp3() = runTest {
+    @Test fun `test filter amazon mp3`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("com.amazon.mp3", "com.amazon.bueller.music")
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("amazonmp3/temp"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("amazonmp3/temp/log.txt"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("amazonmp3/temp/AMPmetrics_v2.txt"))
+        neg(pkgs[0], SDCARD, "amazonmp3/temp")
+        pos(pkgs[0], SDCARD, "amazonmp3/temp/log.txt")
+        pos(pkgs[0], SDCARD, "amazonmp3/temp/AMPmetrics_v2.txt")
 
         confirm(create())
     }
 
-    @Test fun testFilterMobileCare() = runTest {
+    @Test fun `test filter mobile care`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.frostwire.android").locs(SDCARD).prefixFree("FrostWire/.azureus/logs"))
-        addCandidate(
-            pos().pkgs("com.frostwire.android").locs(SDCARD).prefixFree("FrostWire/.azureus/logs/debug_4.log")
-        )
-        addCandidate(
-            pos().pkgs("com.frostwire.android").locs(SDCARD).prefixFree("FrostWire/.azureus/logs/UPnP_4.log")
-        )
+        neg("com.frostwire.android", SDCARD, "FrostWire/.azureus/logs")
+        pos("com.frostwire.android", SDCARD, "FrostWire/.azureus/logs/debug_4.log")
+        pos("com.frostwire.android", SDCARD, "FrostWire/.azureus/logs/UPnP_4.log")
 
         confirm(create())
     }
 
-    @Test fun testFilterSkype() = runTest {
+    @Test fun `test filter skype`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.skype.rover", "com.skype.raider").locs(PRIVATE_DATA)
-                .prefixFree("com.skype.rover/files/something/logs")
-        )
-        addCandidate(
-            neg().pkgs("com.skype.rover", "com.skype.raider").locs(PRIVATE_DATA)
-                .prefixFree("com.skype.raider/files/something/logs")
-        )
-        addCandidate(
-            pos().pkgs("com.skype.rover", "com.skype.raider").locs(PRIVATE_DATA)
-                .prefixFree("com.skype.rover/files/something/logs/$rngString")
-        )
-        addCandidate(
-            pos().pkgs("com.skype.rover", "com.skype.raider").locs(PRIVATE_DATA)
-                .prefixFree("com.skype.rover/files/something/logs/$rngString")
-        )
-        addCandidate(
-            pos().pkgs("com.skype.rover", "com.skype.raider").locs(PRIVATE_DATA)
-                .prefixFree("com.skype.raider/files/something/logs/$rngString")
-        )
-        addCandidate(
-            pos().pkgs("com.skype.rover", "com.skype.raider").locs(PRIVATE_DATA)
-                .prefixFree("com.skype.raider/files/something/logs/$rngString")
-        )
+        val pkgs = arrayOf("com.skype.rover", "com.skype.raider")
+        neg(pkgs[0], PRIVATE_DATA, "com.skype.rover/files/something/logs")
+        neg(pkgs[1], PRIVATE_DATA, "com.skype.raider/files/something/logs")
+        pos(pkgs[0], PRIVATE_DATA, "com.skype.rover/files/something/logs/$rngString")
+        pos(pkgs[0], PRIVATE_DATA, "com.skype.rover/files/something/logs/$rngString")
+        pos(pkgs[1], PRIVATE_DATA, "com.skype.raider/files/something/logs/$rngString")
+        pos(pkgs[1], PRIVATE_DATA, "com.skype.raider/files/something/logs/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testFilterKanjianMusic() = runTest {
+    @Test fun `test kanjian music`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.kanjian.music").locs(SDCARD).prefixFree("com.kanjian.radio_.log"))
-        addCandidate(
-            pos().pkgs("com.kanjian.music").locs(SDCARD).prefixFree("com.kanjian.radio_123123123.log")
-        )
+        neg("com.kanjian.music", SDCARD, "com.kanjian.radio_.log")
+        pos("com.kanjian.music", SDCARD, "com.kanjian.radio_123123123.log")
 
         confirm(create())
     }
 
-    @Test fun testApp2SD() = runTest {
+    @Test fun `test app2sd`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("in.co.pricealert.apps2sd").locs(DATA)
-                .prefixFree("apps2sd-log/$rngString")
-        )
-        addCandidate(neg().pkgs("in.co.pricealert.apps2sd").locs(DATA).prefixFree("apps2sd-mount-script.log"))
-        addCandidate(
-            pos().pkgs("in.co.pricealert.apps2sd").locs(DATA)
-                .prefixFree("apps2sd-log/apps2sd-mount-script.log")
-        )
+        neg("in.co.pricealert.apps2sd", DATA, "apps2sd-log/$rngString")
+        neg("in.co.pricealert.apps2sd", DATA, "apps2sd-mount-script.log")
+        pos("in.co.pricealert.apps2sd", DATA, "apps2sd-log/apps2sd-mount-script.log")
 
         confirm(create())
     }
 
-    @Test fun testLogsFilter() = runTest {
+    @Test fun `test logs filter`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Logs"))
-        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/logs"))
-        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/logfiles"))
-        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Logfiles"))
-        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Log"))
-        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/log"))
-        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Logs"))
-        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/logs"))
-        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/logfiles"))
-        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Logfiles"))
-        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Log"))
-        addCandidate(neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/log"))
-        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/Logs/file"))
-        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/logs/file"))
-        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/logfiles/file"))
-        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/Logfiles/file"))
-        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/Log/file"))
-        addCandidate(neg().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/files/log/file"))
-        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Logs/$rngString"))
-        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/logs/$rngString"))
-        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/logfiles/$rngString"))
-        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Logfiles/$rngString"))
-        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/Log/$rngString"))
-        addCandidate(pos().pkgs(testPkg).locs(SDCARD).prefixFree("someapp/log/$rngString"))
-        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Logs/$rngString"))
-        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/logs/$rngString"))
-        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/logfiles/$rngString"))
-        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Logfiles/$rngString"))
-        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/Log/$rngString"))
-        addCandidate(pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("someapp/files/log/$rngString"))
+        neg(testPkg, SDCARD, "someapp/Logs")
+        neg(testPkg, SDCARD, "someapp/logs")
+        neg(testPkg, SDCARD, "someapp/logfiles")
+        neg(testPkg, SDCARD, "someapp/Logfiles")
+        neg(testPkg, SDCARD, "someapp/Log")
+        neg(testPkg, SDCARD, "someapp/log")
+        neg(testPkg, PUBLIC_DATA, "someapp/files/Logs")
+        neg(testPkg, PUBLIC_DATA, "someapp/files/logs")
+        neg(testPkg, PUBLIC_DATA, "someapp/files/logfiles")
+        neg(testPkg, PUBLIC_DATA, "someapp/files/Logfiles")
+        neg(testPkg, PUBLIC_DATA, "someapp/files/Log")
+        neg(testPkg, PUBLIC_DATA, "someapp/files/log")
+        neg(testPkg, SDCARD, "someapp/files/Logs/file")
+        neg(testPkg, SDCARD, "someapp/files/logs/file")
+        neg(testPkg, SDCARD, "someapp/files/logfiles/file")
+        neg(testPkg, SDCARD, "someapp/files/Logfiles/file")
+        neg(testPkg, SDCARD, "someapp/files/Log/file")
+        neg(testPkg, SDCARD, "someapp/files/log/file")
+        pos(testPkg, SDCARD, "someapp/Logs/$rngString")
+        pos(testPkg, SDCARD, "someapp/logs/$rngString")
+        pos(testPkg, SDCARD, "someapp/logfiles/$rngString")
+        pos(testPkg, SDCARD, "someapp/Logfiles/$rngString")
+        pos(testPkg, SDCARD, "someapp/Log/$rngString")
+        pos(testPkg, SDCARD, "someapp/log/$rngString")
+        pos(testPkg, PUBLIC_DATA, "someapp/files/Logs/$rngString")
+        pos(testPkg, PUBLIC_DATA, "someapp/files/logs/$rngString")
+        pos(testPkg, PUBLIC_DATA, "someapp/files/logfiles/$rngString")
+        pos(testPkg, PUBLIC_DATA, "someapp/files/Logfiles/$rngString")
+        pos(testPkg, PUBLIC_DATA, "someapp/files/Log/$rngString")
+        pos(testPkg, PUBLIC_DATA, "someapp/files/log/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testMaleWorkout() = runTest {
-        addCandidate(
-            neg().pkgs("homeworkout.homeworkouts.noequipment").locs(SDCARD).prefixFree("MaleWorkout/crash")
-        )
-        addCandidate(
-            pos().pkgs("homeworkout.homeworkouts.noequipment").locs(SDCARD)
-                .prefixFree("MaleWorkout/crash/$rngString")
-        )
+    @Test fun `test male workout`() = runTest {
+        addDefaultNegatives()
+        neg("homeworkout.homeworkouts.noequipment", SDCARD, "MaleWorkout/crash")
+        pos("homeworkout.homeworkouts.noequipment", SDCARD, "MaleWorkout/crash/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testKingSoftOffice() = runTest {
+    @Test fun `test kingsoft office`() = runTest {
+        addDefaultNegatives()
         val pkgs = arrayOf(
             "cn.wps.moffice_i18n",
             "cn.wps.moffice_i18n_hd",
             "cn.wps.moffice",
             "cn.wps.moffice_eng"
         )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PUBLIC_DATA).prefixFree("cn.wps.moffice_eng/.cache/KingsoftOffice")
-        )
-        addCandidate(
-            neg().pkgs(*pkgs).locs(PUBLIC_DATA)
-                .prefixFree("cn.wps.moffice_eng/.cache/KingsoftOffice/$rngString")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PUBLIC_DATA)
-                .prefixFree("cn.wps.moffice_eng/.cache/KingsoftOffice/log/$rngString")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PUBLIC_DATA)
-                .prefixFree("cn.wps.moffice_eng/.cache/KingsoftOffice/.temp/$rngString")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PUBLIC_DATA)
-                .prefixFree("cn.wps.moffice/.cache/KingsoftOffice/log/$rngString")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PUBLIC_DATA)
-                .prefixFree("cn.wps.moffice/.cache/KingsoftOffice/.temp/$rngString")
-        )
+        neg(pkgs[0], PUBLIC_DATA, "cn.wps.moffice_eng/.cache/KingsoftOffice")
+        neg(pkgs[0], PUBLIC_DATA, "cn.wps.moffice_eng/.cache/KingsoftOffice/$rngString")
+        pos(pkgs[0], PUBLIC_DATA, "cn.wps.moffice_eng/.cache/KingsoftOffice/log/$rngString")
+        pos(pkgs[0], PUBLIC_DATA, "cn.wps.moffice_eng/.cache/KingsoftOffice/.temp/$rngString")
+        pos(pkgs[0], PUBLIC_DATA, "cn.wps.moffice/.cache/KingsoftOffice/log/$rngString")
+        pos(pkgs[0], PUBLIC_DATA, "cn.wps.moffice/.cache/KingsoftOffice/.temp/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testArchosDebug() = runTest {
+    @Test fun `test archos debug`() = runTest {
+        addDefaultNegatives()
         val pkgs = arrayOf(
             "com.archos.mediacenter.videofree",
             "com.archos.mediacenter.video"
         )
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("archos_debug"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD).prefixFree("archos_debug/$rngString")
-        )
+        neg(pkgs[0], SDCARD, "archos_debug")
+        pos(pkgs[0], SDCARD, "archos_debug/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testTencentMicroMsg() = runTest {
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg"))
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/sns/$rngString")
-        )
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image/$rngString")
-        )
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image2/$rngString")
-        )
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/video/$rngString")
-        )
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/voice2/$rngString")
-        )
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/crash"))
-        addCandidate(
-            pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/crash/$rngString")
-        )
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/xlog"))
-        addCandidate(
-            pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/xlog/$rngString")
-        )
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/locallog"))
-        addCandidate(
-            pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/locallog/$rngString")
-        )
-        addCandidate(neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/watchdog"))
-        addCandidate(
-            pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/watchdog/$rngString")
-        )
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/failmsgfilecache")
-        )
-        addCandidate(
-            pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/failmsgfilecache/$rngString")
-        )
-        addCandidate(
-            pos().pkgs("com.tencent.mm").locs(SDCARD).prefixFree("tencent/MicroMsg/FTS5IndexMicroMsgInfo.txt")
-        )
-        addCandidate(
-            neg().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/logcat")
-        )
-        addCandidate(
-            pos().pkgs("com.tencent.mm").locs(SDCARD)
-                .prefixFree("tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/logcat/$rngString")
-        )
+    @Test fun `test tencent micromsg`() = runTest {
+        addDefaultNegatives()
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/sns/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/image2/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/video/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/voice2/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/crash")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/crash/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/xlog")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/xlog/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/locallog")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/locallog/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/watchdog")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/watchdog/$rngString")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/failmsgfilecache")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/failmsgfilecache/$rngString")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/FTS5IndexMicroMsgInfo.txt")
+        neg("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/logcat")
+        pos("com.tencent.mm", SDCARD, "tencent/MicroMsg/efda91e6a3cd8c46008e42a3d3d614a3/logcat/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testAirDroid() = runTest {
-        addCandidate(neg().pkgs("com.sand.airdroid").locs(SDCARD).prefixFree("AirDroid"))
-        addCandidate(pos().pkgs("com.sand.airdroid").locs(SDCARD).prefixFree("AirDroid/exception.log"))
+    @Test fun `test airdroid`() = runTest {
+        addDefaultNegatives()
+        neg("com.sand.airdroid", SDCARD, "AirDroid")
+        pos("com.sand.airdroid", SDCARD, "AirDroid/exception.log")
 
         confirm(create())
     }
 
-    @Test fun testTencentEncryptedLogs() = runTest {
-        addCandidate(neg().pkgs("some.pkg").locs(SDCARD).prefixFree("tencent/wns/EncryptLogs/some.pkg"))
-        addCandidate(
-            pos().pkgs("some.pkg").locs(SDCARD).prefixFree("tencent/wns/EncryptLogs/some.pkg/11-1111")
-        )
-        addCandidate(
-            pos().pkgs("some.pkg").locs(SDCARD)
-                .prefixFree("tencent/wns/EncryptLogs/some.pkg/11-1111/1.wns.log")
-        )
+    @Test fun `test tencent encrypted logs`() = runTest {
+        addDefaultNegatives()
+        neg("some.pkg", SDCARD, "tencent/wns/EncryptLogs/some.pkg")
+        pos("some.pkg", SDCARD, "tencent/wns/EncryptLogs/some.pkg/11-1111")
+        pos("some.pkg", SDCARD, "tencent/wns/EncryptLogs/some.pkg/11-1111/1.wns.log")
 
         confirm(create())
     }
 
-    @Test fun testTencentMsflogs() = runTest {
-        addCandidate(neg().pkgs("some.test.pkg").locs(SDCARD).prefixFree("tencent/msflogs"))
-        addCandidate(neg().pkgs("some.test.pkg").locs(SDCARD).prefixFree("tencent/msflogs/some"))
-        addCandidate(neg().pkgs("some.test.pkg").locs(SDCARD).prefixFree("tencent/msflogs/some/test"))
-        addCandidate(neg().pkgs("some.test.pkg").locs(SDCARD).prefixFree("tencent/msflogs/some/test/pkg"))
-        addCandidate(
-            pos().pkgs("some.test.pkg").locs(SDCARD).prefixFree("tencent/msflogs/some/test/pkg/something")
-        )
+    @Test fun `test tencent msflogs`() = runTest {
+        addDefaultNegatives()
+        neg("some.test.pkg", SDCARD, "tencent/msflogs")
+        neg("some.test.pkg", SDCARD, "tencent/msflogs/some")
+        neg("some.test.pkg", SDCARD, "tencent/msflogs/some/test")
+        neg("some.test.pkg", SDCARD, "tencent/msflogs/some/test/pkg")
+        pos("some.test.pkg", SDCARD, "tencent/msflogs/some/test/pkg/something")
 
         confirm(create())
     }
 
-    @Test fun testMusicolet() = runTest {
-        addCandidate(neg().pkgs("in.krosbits.musicolet").locs(SDCARD).prefixFree("Musicolet"))
-        addCandidate(neg().pkgs("in.krosbits.musicolet").locs(SDCARD).prefixFree("Musicolet/logs"))
-        addCandidate(neg().pkgs("in.krosbits.musicolet").locs(SDCARD).prefixFree("Musicolet/logs/.nomedia"))
-        addCandidate(pos().pkgs("in.krosbits.musicolet").locs(SDCARD).prefixFree("Musicolet/logs/last.crash"))
+    @Test fun `test musicolet`() = runTest {
+        addDefaultNegatives()
+        neg("in.krosbits.musicolet", SDCARD, "Musicolet")
+        neg("in.krosbits.musicolet", SDCARD, "Musicolet/logs")
+        neg("in.krosbits.musicolet", SDCARD, "Musicolet/logs/.nomedia")
+        pos("in.krosbits.musicolet", SDCARD, "Musicolet/logs/last.crash")
 
         confirm(create())
     }
 
-    @Test fun testDuplicateFileRemover() = runTest {
-        val pkg = "com.duplicatefile.remover.duplicatefilefinder.duplicatefileremover"
-        addCandidate(neg().pkgs(pkg).locs(SDCARD).prefixFree("DuplicateFileRemover"))
-        addCandidate(neg().pkgs(pkg).locs(SDCARD).prefixFree("DuplicateFileRemover/strawberry"))
-        addCandidate(pos().pkgs(pkg).locs(SDCARD).prefixFree("DuplicateFileRemover/log/something"))
+    @Test fun `test duplicates cleaner`() = runTest {
+        addDefaultNegatives()
+        neg("com.kaerosduplicatescleaner", SDCARD, "KaerosLogs")
+        pos("com.kaerosduplicatescleaner", SDCARD, "KaerosLogs/something")
 
         confirm(create())
     }
 
-    @Test fun testGearLog() = runTest {
+    @Test fun `test gear log`() = runTest {
+        addDefaultNegatives()
         val pkg = "com.samsung.android.app.watchmanager"
-        addCandidate(neg().pkgs(pkg).locs(SDCARD).prefixFree("log/GearLog"))
-        addCandidate(pos().pkgs(pkg).locs(SDCARD).prefixFree("log/GearLog/dumpState-UHM.log"))
-        addCandidate(
-            pos().pkgs(pkg).locs(SDCARD).prefixFree("log/GearLog/dumpState_FOTA_PROVIDER_GEARO0.log")
-        )
+        neg(pkg, SDCARD, "log/GearLog")
+        pos(pkg, SDCARD, "log/GearLog/dumpState-UHM.log")
+        pos(pkg, SDCARD, "log/GearLog/dumpState_FOTA_PROVIDER_GEARO0.log")
 
         confirm(create())
     }
 
-    @Test fun testMozillaFenix() = runTest {
+    @Test fun `test mozilla fenix`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("org.mozilla.fenix")
-        addCandidate(neg().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("org.mozilla.fenix/gv_measurements"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("org.mozilla.fenix/gv_measurements.json")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("org.mozilla.fenix/gv_measurements-0.json")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("org.mozilla.fenix/gv_measurements-1.json")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("org.mozilla.fenix/gv_measurements-22.json")
-        )
-        addCandidate(neg().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("org.mozilla.fenix/glean_data"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("org.mozilla.fenix/glean_data/pending_pings")
-        )
-        addCandidate(pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("org.mozilla.fenix/glean_data/events"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("org.mozilla.fenix/glean_data/events/events")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(PRIVATE_DATA).prefixFree("org.mozilla.fenix/glean_data/glean_already_ran")
-        )
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.fenix/gv_measurements")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fenix/gv_measurements.json")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fenix/gv_measurements-0.json")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fenix/gv_measurements-1.json")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fenix/gv_measurements-22.json")
+        neg(pkgs[0], PRIVATE_DATA, "org.mozilla.fenix/glean_data")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fenix/glean_data/pending_pings")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fenix/glean_data/events")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fenix/glean_data/events/events")
+        pos(pkgs[0], PRIVATE_DATA, "org.mozilla.fenix/glean_data/glean_already_ran")
 
         confirm(create())
     }
 
-    @Test fun testTencentTbs() = runTest {
+    @Test fun `test tencent tbs`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("com.x.browser.x5", "com.tencent.something")
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("tbs"))
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("tbs/.logTmp"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("tbs/.logTmp/something"))
+        neg(pkgs[0], SDCARD, "tbs")
+        neg(pkgs[0], SDCARD, "tbs/.logTmp")
+        pos(pkgs[0], SDCARD, "tbs/.logTmp/something")
 
         confirm(create())
     }
 
-    @Test fun testBixby() = runTest {
+    @Test fun `test bixby`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("com.samsung.android.bixby.service")
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("log"))
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("log/0_something"))
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("log/0_com.samsung.android.bixby.service_bixbysearch_index.log.lck")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("log/0_com.samsung.android.bixby.service_bixbysearch_index.log")
-        )
-        addCandidate(
-            pos().pkgs(*pkgs).locs(SDCARD)
-                .prefixFree("log/0_com.samsung.android.bixby.service/some other stuff")
-        )
+        neg(pkgs[0], SDCARD, "log")
+        neg(pkgs[0], SDCARD, "log/0_something")
+        pos(pkgs[0], SDCARD, "log/0_com.samsung.android.bixby.service_bixbysearch_index.log.lck")
+        pos(pkgs[0], SDCARD, "log/0_com.samsung.android.bixby.service_bixbysearch_index.log")
+        pos(pkgs[0], SDCARD, "log/0_com.samsung.android.bixby.service/some other stuff")
 
         confirm(create())
     }
 
-    @Test fun testSmartHome() = runTest {
+    @Test fun `test smart home`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("com.xiaomi.smarthome", "com.xiaomi.something")
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("wifi_config"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("wifi_config.log"))
+        neg(pkgs[0], SDCARD, "wifi_config")
+        pos(pkgs[0], SDCARD, "wifi_config.log")
 
         confirm(create())
     }
 
-    @Test fun testICBCWAPLog() = runTest {
+    @Test fun `test icbc wap log`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("com.icbc")
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("ICBCWAPLog"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("ICBCWAPLog/junk.log"))
+        neg(pkgs[0], SDCARD, "ICBCWAPLog")
+        pos(pkgs[0], SDCARD, "ICBCWAPLog/junk.log")
 
         confirm(create())
     }
 
-    @Test fun testWDFileHub() = runTest {
+    @Test fun `test wd file hub`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("filehubplus.wd.activities")
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("FileHub Plus/log"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("FileHub Plus/log/something"))
+        neg(pkgs[0], SDCARD, "FileHub Plus/log")
+        pos(pkgs[0], SDCARD, "FileHub Plus/log/something")
 
         confirm(create())
     }
 
-    @Test fun testVMLOG() = runTest {
+    @Test fun `test vmlog`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("com.vmos.glb")
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("vmlog/"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("vmlog/something"))
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("log.tx"))
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("log.txt/test"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("log.txt"))
+        neg(pkgs[0], SDCARD, "vmlog/")
+        pos(pkgs[0], SDCARD, "vmlog/something")
+        neg(pkgs[0], SDCARD, "log.tx")
+        neg(pkgs[0], SDCARD, "log.txt/test")
+        pos(pkgs[0], SDCARD, "log.txt")
 
         confirm(create())
     }
 
-    @Test fun testMicrosoftFeedback() = runTest {
+    @Test fun `test microsoft feedback`() = runTest {
         addDefaultNegatives()
         val pkgs = arrayOf("com.microsoft.emmx")
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("Pictures"))
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("Pictures/"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("Pictures/Microsoft Edge feedback.jpg"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("Pictures/Microsoft Edge feedback (1).jpg"))
+        neg(pkgs[0], SDCARD, "Pictures")
+        neg(pkgs[0], SDCARD, "Pictures/")
+        pos(pkgs[0], SDCARD, "Pictures/Microsoft Edge feedback.jpg")
+        pos(pkgs[0], SDCARD, "Pictures/Microsoft Edge feedback (1).jpg")
 
         confirm(create())
     }
 
-    @Test fun testLuumi() = runTest {
-        addCandidate(
-            neg().pkgs("photo.editor.photoeditor.filtersforpictures").locs(SDCARD).prefixFree("Lumii/.log")
-        )
-        addCandidate(
-            pos().pkgs("photo.editor.photoeditor.filtersforpictures").locs(SDCARD)
-                .prefixFree("Lumii/.log/something")
-        )
-
-        confirm(create())
-    }
-
-    @Test fun testBodyEditor() = runTest {
-        addCandidate(
-            neg().pkgs("breastenlarger.bodyeditor.photoeditor").prefixFree("Body Editor/.log").locs(SDCARD)
-        )
-        addCandidate(
-            pos().pkgs("breastenlarger.bodyeditor.photoeditor").prefixFree("Body Editor/.log/something")
-                .locs(SDCARD)
-        )
-
-        confirm(create())
-    }
-
-    @Test fun testMeizuFlyme() = runTest {
+    @Test fun `test luumi`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.meizu.flyme.service.find").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.flyme.service.find/files")
-        )
-        addCandidate(
-            neg().pkgs("com.meizu.flyme.service.find").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.flyme.service.find/files/log")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.flyme.service.find").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.flyme.service.find/files/log.txt")
-        )
+        neg("photo.editor.photoeditor.filtersforpictures", SDCARD, "Lumii/.log")
+        pos("photo.editor.photoeditor.filtersforpictures", SDCARD, "Lumii/.log/$rngString")
 
         confirm(create())
     }
 
-    @Test fun testMeizuPPS() = runTest {
+    @Test fun `test body editor`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.meizu.pps").locs(PUBLIC_DATA).prefixFree("dcms"))
-        addCandidate(neg().pkgs("com.meizu.pps").locs(PUBLIC_DATA).prefixFree("dcms/log"))
-        addCandidate(pos().pkgs("com.meizu.pps").locs(PUBLIC_DATA).prefixFree("dcms/log/test"))
+        neg("breastenlarger.bodyeditor.photoeditor", SDCARD, "Body Editor/.log")
+        pos("breastenlarger.bodyeditor.photoeditor", SDCARD, "Body Editor/.log/something")
 
         confirm(create())
     }
 
-    @Test fun testFlymeSyncLog() = runTest {
+    @Test fun `test meizu flyme`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.meizu.mzsyncservice").locs(SDCARD).prefixFree("Android"))
-        addCandidate(neg().pkgs("com.meizu.mzsyncservice").locs(SDCARD).prefixFree("Android/something"))
-        addCandidate(
-            neg().pkgs("com.meizu.mzsyncservice").locs(SDCARD).prefixFree("Android/flyme_sync_sdk_log.txt12")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.mzsyncservice").locs(SDCARD).prefixFree("Android/flyme_sync_sdk_log.txt")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.mzsyncservice").locs(SDCARD)
-                .prefixFree("Android/flyme_sync_sdk_log.txt/logs_v2.txt")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.mzsyncservice").locs(SDCARD)
-                .prefixFree("Android/flyme_sync_sdk_log.txt/something")
-        )
-        addCandidate(
-            neg().pkgs("com.meizu.mzsyncservice").locs(PUBLIC_DATA).prefixFree("com.meizu.mzsyncservice")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.mzsyncservice").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.mzsyncservice/2020-09-19.log.txt")
-        )
+        neg("com.meizu.flyme.service.find", PUBLIC_DATA, "com.meizu.flyme.service.find/files")
+        neg("com.meizu.flyme.service.find", PUBLIC_DATA, "com.meizu.flyme.service.find/files/log")
+        pos("com.meizu.flyme.service.find", PUBLIC_DATA, "com.meizu.flyme.service.find/files/log.txt")
 
         confirm(create())
     }
 
-    @Test fun testMeizuCustomizer() = runTest {
-        addCandidate(neg().pkgs("com.meizu.customizecenter").locs(SDCARD).prefixFree("Customize/Log"))
-        addCandidate(pos().pkgs("com.meizu.customizecenter").locs(SDCARD).prefixFree("Customize/Log/test"))
-        addCandidate(pos().pkgs("com.meizu.customizecenter").locs(SDCARD).prefixFree("Customize/Log/1234567"))
-
-        confirm(create())
-    }
-
-    @Test fun testAndroidBrowser() = runTest {
-        addCandidate(neg().pkgs("com.android.browser").locs(PUBLIC_DATA).prefixFree("com.android.browser"))
-        addCandidate(
-            pos().pkgs("com.android.browser").locs(PUBLIC_DATA).prefixFree("com.android.browser/gslb_sdk_log")
-        )
-        addCandidate(
-            pos().pkgs("com.android.browser").locs(PUBLIC_DATA)
-                .prefixFree("com.android.browser/update_component_log")
-        )
-        addCandidate(
-            neg().pkgs("com.android.browser").locs(PUBLIC_DATA).prefixFree("com.android.browser/files")
-        )
-        addCandidate(
-            pos().pkgs("com.android.browser").locs(PUBLIC_DATA)
-                .prefixFree("com.android.browser/files/usage_logs_v2.txt")
-        )
-
-        confirm(create())
-    }
-
-    @Test fun testMeizuToolbox() = runTest {
-        addCandidate(
-            neg().pkgs("com.meizu.flyme.toolbox").locs(PUBLIC_DATA).prefixFree("com.meizu.flyme.toolbox")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.flyme.toolbox").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.flyme.toolbox/update_component_log")
-        )
-
-        confirm(create())
-    }
-
-    @Test fun testDuplicatesCleaner() = runTest {
-        addCandidate(neg().pkgs("com.kaerosduplicatescleaner").locs(SDCARD).prefixFree("KaerosLogs"))
-        addCandidate(
-            pos().pkgs("com.kaerosduplicatescleaner").locs(SDCARD).prefixFree("KaerosLogs/something")
-        )
-
-        confirm(create())
-    }
-
-    @Test fun testMusicFx() = runTest {
-        addCandidate(neg().pkgs("com.android.musicfx").locs(PUBLIC_DATA).prefixFree("com.android.musicfx"))
-        addCandidate(
-            pos().pkgs("com.android.musicfx").locs(PUBLIC_DATA).prefixFree("com.android.musicfx/gslb_log.txt")
-        )
-
-        confirm(create())
-    }
-
-    @Test fun testFlyMeService() = runTest {
-        addCandidate(
-            neg().pkgs("com.meizu.flyme.service.find").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.flyme.service.find/files")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.flyme.service.find").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.flyme.service.find/files/log.txt")
-        )
-
-        confirm(create())
-    }
-
-    @Test fun testFlyMeWeather() = runTest {
-        addCandidate(
-            neg().pkgs("com.meizu.flyme.weather").locs(PUBLIC_DATA).prefixFree("com.meizu.flyme.weather")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.flyme.weather").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.flyme.weather/weather_log.txt")
-        )
-
-        confirm(create())
-    }
-
-    @Test fun testMeizuAccount() = runTest {
+    @Test fun `test meizu pps`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.meizu.account").locs(PUBLIC_DATA).prefixFree("com.meizu.account"))
-        addCandidate(
-            pos().pkgs("com.meizu.account").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.account/2020-09-19.log.txt")
-        )
+        neg("com.meizu.pps", PUBLIC_DATA, "dcms")
+        neg("com.meizu.pps", PUBLIC_DATA, "dcms/log")
+        pos("com.meizu.pps", PUBLIC_DATA, "dcms/log/test")
 
         confirm(create())
     }
 
-    @Test fun testMeizuInput() = runTest {
+    @Test fun `test flyme sync log`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.meizu.flyme.input").locs(PUBLIC_DATA).prefixFree("com.meizu.flyme.input")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.flyme.input").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.flyme.input/2020-09-19.log.txt")
-        )
+        neg("com.meizu.mzsyncservice", SDCARD, "Android")
+        neg("com.meizu.mzsyncservice", SDCARD, "Android/something")
+        neg("com.meizu.mzsyncservice", SDCARD, "Android/flyme_sync_sdk_log.txt12")
+        pos("com.meizu.mzsyncservice", SDCARD, "Android/flyme_sync_sdk_log.txt")
+        pos("com.meizu.mzsyncservice", SDCARD, "Android/flyme_sync_sdk_log.txt/logs_v2.txt")
+        pos("com.meizu.mzsyncservice", SDCARD, "Android/flyme_sync_sdk_log.txt/something")
+        neg("com.meizu.mzsyncservice", PUBLIC_DATA, "com.meizu.mzsyncservice")
+        pos("com.meizu.mzsyncservice", PUBLIC_DATA, "com.meizu.mzsyncservice/2020-09-19.log.txt")
 
         confirm(create())
     }
 
-    @Test fun testMeizuVideo() = runTest {
+    @Test fun `test meizu customizer`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.meizu.media.video").locs(PUBLIC_DATA).prefixFree("com.meizu.media.video")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.media.video").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.media.video/update_component_plugin_log")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.media.video").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.media.video/update_component_plugin_log/something")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.media.video").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.media.video/update_component_log")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.media.video").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.media.video/update_component_log/something")
-        )
+        neg("com.meizu.customizecenter", SDCARD, "Customize/Log")
+        pos("com.meizu.customizecenter", SDCARD, "Customize/Log/test")
+        pos("com.meizu.customizecenter", SDCARD, "Customize/Log/1234567")
 
         confirm(create())
     }
 
-    @Test fun testFlymeCorelog() = runTest {
+    @Test fun `test android browser`() = runTest {
+        addDefaultNegatives()
+        neg("com.android.browser", PUBLIC_DATA, "com.android.browser")
+        pos("com.android.browser", PUBLIC_DATA, "com.android.browser/gslb_sdk_log")
+        pos("com.android.browser", PUBLIC_DATA, "com.android.browser/update_component_log")
+        neg("com.android.browser", PUBLIC_DATA, "com.android.browser/files")
+        pos("com.android.browser", PUBLIC_DATA, "com.android.browser/files/usage_logs_v2.txt")
+
+        confirm(create())
+    }
+
+    @Test fun `test meizu toolbox`() = runTest {
+        addDefaultNegatives()
+        neg("com.meizu.flyme.toolbox", PUBLIC_DATA, "com.meizu.flyme.toolbox")
+        pos("com.meizu.flyme.toolbox", PUBLIC_DATA, "com.meizu.flyme.toolbox/update_component_log")
+
+        confirm(create())
+    }
+
+    @Test fun `test music fx`() = runTest {
+        addDefaultNegatives()
+        neg("com.android.musicfx", PUBLIC_DATA, "com.android.musicfx")
+        pos("com.android.musicfx", PUBLIC_DATA, "com.android.musicfx/gslb_log.txt")
+
+        confirm(create())
+    }
+
+    @Test fun `test fly me service`() = runTest {
+        addDefaultNegatives()
+        neg("com.meizu.flyme.service.find", PUBLIC_DATA, "com.meizu.flyme.service.find/files")
+        pos("com.meizu.flyme.service.find", PUBLIC_DATA, "com.meizu.flyme.service.find/files/log.txt")
+
+        confirm(create())
+    }
+
+    @Test fun `test fly me weather`() = runTest {
+        addDefaultNegatives()
+        neg("com.meizu.flyme.weather", PUBLIC_DATA, "com.meizu.flyme.weather")
+        pos("com.meizu.flyme.weather", PUBLIC_DATA, "com.meizu.flyme.weather/weather_log.txt")
+
+        confirm(create())
+    }
+
+    @Test fun `test meizu account`() = runTest {
+        addDefaultNegatives()
+        neg("com.meizu.account", PUBLIC_DATA, "com.meizu.account")
+        pos("com.meizu.account", PUBLIC_DATA, "com.meizu.account/2020-09-19.log.txt")
+
+        confirm(create())
+    }
+
+    @Test fun `test meizu input`() = runTest {
+        addDefaultNegatives()
+        neg("com.meizu.flyme.input", PUBLIC_DATA, "com.meizu.flyme.input")
+        pos("com.meizu.flyme.input", PUBLIC_DATA, "com.meizu.flyme.input/2020-09-19.log.txt")
+
+        confirm(create())
+    }
+
+    @Test fun `test meizu video`() = runTest {
+        addDefaultNegatives()
+        neg("com.meizu.media.video", PUBLIC_DATA, "com.meizu.media.video")
+        pos("com.meizu.media.video", PUBLIC_DATA, "com.meizu.media.video/update_component_plugin_log")
+        pos("com.meizu.media.video", PUBLIC_DATA, "com.meizu.media.video/update_component_plugin_log/something")
+        pos("com.meizu.media.video", PUBLIC_DATA, "com.meizu.media.video/update_component_log")
+        pos("com.meizu.media.video", PUBLIC_DATA, "com.meizu.media.video/update_component_log/something")
+
+        confirm(create())
+    }
+
+    @Test fun `test flyme corelog`() = runTest {
         addDefaultNegatives()
 
         val pkgs = arrayOf(
@@ -1086,149 +745,95 @@ class BugReportingFilterTest : BaseFilterTest() {
             "com.sohu.inputmethod.sogou.xiaomi"
         )
 
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("sogou"))
-        addCandidate(neg().pkgs(*pkgs).locs(SDCARD).prefixFree("sogou/corelog"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("sogou/corelog/activity_mini.txt"))
-        addCandidate(pos().pkgs(*pkgs).locs(SDCARD).prefixFree("sogou/corelog/activity.txt"))
-
+        neg(pkgs[0], SDCARD, "sogou")
+        neg(pkgs[0], SDCARD, "sogou/corelog")
+        pos(pkgs[0], SDCARD, "sogou/corelog/activity_mini.txt")
+        pos(pkgs[0], SDCARD, "sogou/corelog/activity.txt")
 
         confirm(create())
     }
 
-    @Test fun testVideoEditorPro() = runTest {
+    @Test fun `test video editor pro`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.videoeditorpro.android").locs(SDCARD).prefixFree("logger/logs_"))
-        addCandidate(pos().pkgs("com.videoeditorpro.android").locs(SDCARD).prefixFree("logger/logs_1.csv"))
-        addCandidate(pos().pkgs("com.videoeditorpro.android").locs(SDCARD).prefixFree("logger/logs_2.csv"))
+        neg("com.videoeditorpro.android", SDCARD, "logger/logs_")
+        pos("com.videoeditorpro.android", SDCARD, "logger/logs_1.csv")
+        pos("com.videoeditorpro.android", SDCARD, "logger/logs_2.csv")
 
         confirm(create())
     }
 
-    @Test fun testFlyMeUpgradeLog() = runTest {
+    @Test fun `test fly me upgrade log`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.meizu.flyme.update").locs(PUBLIC_DATA)
-                .prefixFree("com.meizu.flyme.update/app_upgrade_l")
-        )
-        addCandidate(
-            pos().pkgs("com.meizu.flyme.update").locs(SDCARD)
-                .prefixFree("com.meizu.flyme.update/app_upgrade_log")
-        )
 
+        neg("com.meizu.flyme.update", PUBLIC_DATA, "com.meizu.flyme.update/app_upgrade_l")
+        pos("com.meizu.flyme.update", SDCARD, "com.meizu.flyme.update/app_upgrade_log")
+        
         confirm(create())
     }
 
-    @Test fun testMofficeLogs() = runTest {
+    @Test fun `test moffice logs`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("cn.wps.moffice_eng").locs(PUBLIC_DATA).prefixFree("cn.wps.moffice_eng/files/klog")
-        )
-        addCandidate(
-            pos().pkgs("cn.wps.moffice_eng").locs(PUBLIC_DATA).prefixFree("cn.wps.moffice_eng/files/klog/1")
-        )
 
+        neg("cn.wps.moffice_eng", PUBLIC_DATA, "cn.wps.moffice_eng/files/klog")
+        pos("cn.wps.moffice_eng", PUBLIC_DATA, "cn.wps.moffice_eng/files/klog/1")
+        
         confirm(create())
     }
 
-    @Test fun testMiPushLog() = runTest {
+    @Test fun `test mi push log`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("eu.thedarken.sdm.test/files/MiPushLog")
-        )
-        addCandidate(
-            pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("eu.thedarken.sdm.test/files/MiPushLog/log.lock")
-        )
-        addCandidate(
-            pos().pkgs(testPkg).locs(PUBLIC_DATA).prefixFree("eu.thedarken.sdm.test/files/MiPushLog/log1.txt")
-        )
 
+        neg(testPkg, PUBLIC_DATA, "eu.thedarken.sdm.test/files/MiPushLog")
+        pos(testPkg, PUBLIC_DATA, "eu.thedarken.sdm.test/files/MiPushLog/log.lock")
+        pos(testPkg, PUBLIC_DATA, "eu.thedarken.sdm.test/files/MiPushLog/log1.txt")
+        
         confirm(create())
     }
 
-    @Test fun testXMSFLogs() = runTest {
+    @Test fun `test xmsf logs`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.xiaomi.xmsf").locs(PUBLIC_DATA).prefixFree("com.xiaomi.xmsf/files/dump"))
-        addCandidate(
-            neg().pkgs("com.xiaomi.xmsf").locs(PUBLIC_DATA).prefixFree("com.xiaomi.xmsf/files/dump/something")
-        )
-        addCandidate(
-            pos().pkgs("com.xiaomi.xmsf").locs(PUBLIC_DATA).prefixFree("com.xiaomi.xmsf/files/dump/xmsf.log")
-        )
-        addCandidate(
-            pos().pkgs("com.xiaomi.xmsf").locs(PUBLIC_DATA).prefixFree("com.xiaomi.xmsf/files/dump/xmsf.log.")
-        )
-        addCandidate(
-            pos().pkgs("com.xiaomi.xmsf").locs(PUBLIC_DATA)
-                .prefixFree("com.xiaomi.xmsf/files/dump/xmsf.log.1")
-        )
-        addCandidate(
-            pos().pkgs("com.xiaomi.xmsf").locs(PUBLIC_DATA).prefixFree("com.xiaomi.xmsf/files/dump/abc.log.1")
-        )
 
+        neg("com.xiaomi.xmsf", PUBLIC_DATA, "com.xiaomi.xmsf/files/dump")
+        neg("com.xiaomi.xmsf", PUBLIC_DATA, "com.xiaomi.xmsf/files/dump/something")
+        pos("com.xiaomi.xmsf", PUBLIC_DATA, "com.xiaomi.xmsf/files/dump/xmsf.log")
+        pos("com.xiaomi.xmsf", PUBLIC_DATA, "com.xiaomi.xmsf/files/dump/xmsf.log.")
+        pos("com.xiaomi.xmsf", PUBLIC_DATA, "com.xiaomi.xmsf/files/dump/xmsf.log.1")
+        pos("com.xiaomi.xmsf", PUBLIC_DATA, "com.xiaomi.xmsf/files/dump/abc.log.1")
+        
         confirm(create())
     }
 
-    @Test fun testMIUIBugReport() = runTest {
+    @Test fun `test miui gallery vlog`() = runTest {
         addDefaultNegatives()
-        neg("com.miui.bugreport", SDCARD, "MIUI/debug_log")
-        pos("com.miui.bugreport", SDCARD, "MIUI/debug_log/bugrepor")
-        pos("com.miui.bugreport", SDCARD, "MIUI/debug_log/bugreport-2021-03-15-030946.zip")
-        pos("com.miui.bugreport", SDCARD, "MIUI/debug_log/powerinfo/result_reason")
-        pos(
-            "com.miui.bugreport",
-            SDCARD,
-            "MIUI/debug_log/com.miui.bugreport/cache/image/screenshot_0_1618216975622.jpg"
-        )
 
+        neg("com.miui.gallery", PUBLIC_DATA, "com.miui.gallery/files/vlog")
+        pos("com.miui.gallery", PUBLIC_DATA, "com.miui.gallery/files/vlog/files")
+        
         confirm(create())
     }
 
-    @Test fun testMIUIGalleryVlog() = runTest {
+    @Test fun `test miui logger ui`() = runTest {
         addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("com.miui.gallery").locs(PUBLIC_DATA).prefixFree("com.miui.gallery/files/vlog")
-        )
-        addCandidate(
-            pos().pkgs("com.miui.gallery").locs(PUBLIC_DATA).prefixFree("com.miui.gallery/files/vlog/files")
 
-        )
-
+        neg("com.debug.loggerui", SDCARD, "debuglogger")
+        pos("com.debug.loggerui", SDCARD, "debuglogger/files")
+        
         confirm(create())
     }
 
-    @Test fun testMIUILoggerUI() = runTest {
+    @Test fun `test tencent xlog`() = runTest {
         addDefaultNegatives()
-        addCandidate(neg().pkgs("com.debug.loggerui").locs(SDCARD).prefixFree("debuglogger"))
-        addCandidate(pos().pkgs("com.debug.loggerui").locs(SDCARD).prefixFree("debuglogger/files"))
 
+        neg("video.like.lite", PUBLIC_DATA, "video.like.lite/files/xlo")
+        neg("video.like.lite", PUBLIC_DATA, "video.like.lite/files/xlog")
+        neg("video.like.lite", PUBLIC_DATA, "video.like.lite/cache/xlo")
+        neg("video.like.lite", PUBLIC_DATA, "video.like.lite/cache/xlog")
+        pos("video.like.lite", PUBLIC_DATA, "video.like.lite/files/xlog/5381")
+        
         confirm(create())
     }
 
-
-    @Test fun tencentXlog() = runTest {
-        addDefaultNegatives()
-        addCandidate(
-            neg().pkgs("video.like.lite").locs(PUBLIC_DATA).prefixFree("video.like.lite/files/xlo")
-        )
-        addCandidate(
-            neg().pkgs("video.like.lite").locs(PUBLIC_DATA).prefixFree("video.like.lite/files/xlog")
-        )
-        addCandidate(
-            neg().pkgs("video.like.lite").locs(PUBLIC_DATA).prefixFree("video.like.lite/cache/xlo")
-        )
-        addCandidate(
-            neg().pkgs("video.like.lite").locs(PUBLIC_DATA).prefixFree("video.like.lite/cache/xlog")
-        )
-
-        addCandidate(
-            pos().pkgs("video.like.lite").locs(PUBLIC_DATA).prefixFree("video.like.lite/files/xlog/5381")
-
-        )
-
-        confirm(create())
-    }
-
-    @Test fun `meizu contacts db log`() = runTest {
+    @Test fun `test meizu contacts db log`() = runTest {
         addDefaultNegatives()
 
         neg("android", SDCARD, "Android")
@@ -1239,7 +844,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun `meizu PPS dumps`() = runTest {
+    @Test fun `test meizu PPS dumps`() = runTest {
         addDefaultNegatives()
 
         neg("com.meizu.pps", SDCARD, "PPS")
@@ -1249,7 +854,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun `PicsArt debug logs`() = runTest {
+    @Test fun `test pics art debug logs`() = runTest {
         addDefaultNegatives()
 
         neg("com.picsart.studio", SDCARD, "Download")
@@ -1260,7 +865,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun `Viber debug logs`() = runTest {
+    @Test fun `test viber debug logs`() = runTest {
         addDefaultNegatives()
 
         neg("com.viber.voip", PUBLIC_DATA, "com.viber.voip/files/.logs")
@@ -1274,7 +879,7 @@ class BugReportingFilterTest : BaseFilterTest() {
      * https://github.com/FBlackBox/BlackBox/issues/89
      * https://github.com/wangjintao/TLog
      */
-    @Test fun `chinese logging library`() = runTest {
+    @Test fun `test chinese logging library`() = runTest {
         addDefaultNegatives()
 
         neg("com.lazada.android", PUBLIC_DATA, "com.lazada.android/files/tlog_v9")
@@ -1284,7 +889,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun `dont match default caches`() = runTest {
+    @Test fun `test dont match default caches`() = runTest {
         pos("some.pkg", PUBLIC_DATA, "some.pkg/files/log.txt")
         neg("some.pkg", PUBLIC_DATA, "some.pkg/cache/log.txt")
         neg("some.pkg", PUBLIC_DATA, "some.pkg/Cache/log.txt")
@@ -1300,7 +905,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun `netease cloudmusic traces`() = runTest {
+    @Test fun `test netease cloudmusic traces`() = runTest {
         addDefaultNegatives()
 
         neg("com.netease.cloudmusic", SDCARD, "netease/cloudmusic/Stacktrace")
@@ -1312,7 +917,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun `tencent msflogs logs`() = runTest {
+    @Test fun `test tencent msflogs logs`() = runTest {
         addDefaultNegatives()
 
         neg("some.pkg", PUBLIC_DATA, "some.pkg/files/tencent/msflogs")
@@ -1331,7 +936,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun `qq chat crash logs`() = runTest {
+    @Test fun `test qq chat crash logs`() = runTest {
         addDefaultNegatives()
 
         neg("com.tencent.mobileqq", PRIVATE_DATA, "com.tencent.mobileqq/app_crashrecord")
@@ -1343,7 +948,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun `tencent browser service log`() = runTest {
+    @Test fun `test tencent browser service log`() = runTest {
         addDefaultNegatives()
 
         neg("some.pkg", PRIVATE_DATA, "some.pkg/files/tbslog")
@@ -1360,7 +965,7 @@ class BugReportingFilterTest : BaseFilterTest() {
     }
 
 
-    @Test fun `crashlytics v3`() = runTest {
+    @Test fun `test crashlytics v3`() = runTest {
         addDefaultNegatives()
 
         neg(testPkg, PRIVATE_DATA, "some.pkg/files")

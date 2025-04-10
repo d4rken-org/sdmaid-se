@@ -26,7 +26,7 @@ class DefaultCachesPublicTest : BaseFilterTest() {
         gatewaySwitch = gatewaySwitch,
     )
 
-    @Test fun testDefaultFilter() = runTest {
+    @Test fun `test default filter`() = runTest {
         neg("com.tumblr", Type.PUBLIC_DATA, "com.tumblr", "files", "test")
         neg("com.tumblr", Type.PUBLIC_DATA, "com.tumblr", "cache", ".nomedia")
         pos(

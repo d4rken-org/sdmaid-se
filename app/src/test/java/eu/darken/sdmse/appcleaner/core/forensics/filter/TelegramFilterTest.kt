@@ -27,7 +27,7 @@ class TelegramFilterTest : BaseFilterTest() {
         gatewaySwitch = gatewaySwitch,
     )
 
-    @Test fun telegram() = runTest {
+    @Test fun `test telegram`() = runTest {
         addDefaultNegatives()
         val pkg = "org.telegram.messenger"
         neg(pkg, SDCARD, "Telegram")
@@ -72,7 +72,7 @@ class TelegramFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun telegramPlus() = runTest {
+    @Test fun `test telegram plus`() = runTest {
         addDefaultNegatives()
         val pkg = "org.telegram.plus"
         neg(pkg, SDCARD, "Telegram")
@@ -100,7 +100,7 @@ class TelegramFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun testClones() = runTest {
+    @Test fun `test telegram clones`() = runTest {
         addDefaultNegatives()
         val pkg = "org.thunderdog.challegram"
         neg(pkg, SDCARD, "Telegram")
@@ -140,7 +140,7 @@ class TelegramFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
-    @Test fun testGraphMessenger() = runTest {
+    @Test fun `test telegram graph messenger`() = runTest {
         addDefaultNegatives()
         val pkg = "ir.ilmili.telegraph"
         neg(pkg, SDCARD, "Telegram")

@@ -29,7 +29,7 @@ class WeChatFilterTest : BaseFilterTest() {
         gatewaySwitch = gatewaySwitch,
     )
 
-    @Test fun testFilter() = runTest {
+    @Test fun `test wechat filter`() = runTest {
         addDefaultNegatives()
 
         neg("com.tencent.mm", SDCARD, "tencent")

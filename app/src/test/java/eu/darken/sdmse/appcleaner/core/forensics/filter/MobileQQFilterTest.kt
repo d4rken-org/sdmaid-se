@@ -28,7 +28,7 @@ class MobileQQFilterTest : BaseFilterTest() {
         gatewaySwitch = gatewaySwitch,
     )
 
-    @Test fun testFilter() = runTest {
+    @Test fun `test mobile qq filter`() = runTest {
         addDefaultNegatives()
 
         neg("com.tencent.mobileqq", SDCARD, "tencent/MobileQQ/chatpic")
