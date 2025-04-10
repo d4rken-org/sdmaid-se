@@ -6,7 +6,7 @@
     <string name="slogan_message_2">מונע כאוס.</string>
     <string name="slogan_message_3">עושה מה שצריך.</string>
     <string name="slogan_message_5">ללא כתמים.</string>
-    <string name="slogan_message_6">ביטים, העלמו!</string>
+    <string name="slogan_message_6">בייטים, הסתלקו!</string>
     <string name="slogan_message_7">מקום פנוי, מקום שמח.</string>
     <string name="slogan_message_8">לעולם לא אוותר עליך.</string>
     <string name="general_thank_you_label">תודה רבה</string>
@@ -76,10 +76,10 @@
     <string name="general_result_success_message">הפעולה בוצעה בהצלחה</string>
     <string name="general_result_failure_message">הפעולה נכשלה</string>
     <plurals name="general_result_x_space_freed">
-        <item quantity="one">שחרר שטח %s.</item>
-        <item quantity="two">שחרר שטחים %s.</item>
-        <item quantity="many">שחרר שטחים %s.</item>
-        <item quantity="other">שחרר שטחים %s.</item>
+        <item quantity="one">שוחרר %s מהמכשיר.</item>
+        <item quantity="two">שוחררו %s מהמכשיר.</item>
+        <item quantity="many">שוחררו %s מהמכשיר.</item>
+        <item quantity="other">שוחררו %s מהמכשיר.</item>
     </plurals>
     <string name="general_options_label">הגדרות</string>
     <string name="general_details_label">פרטים</string>

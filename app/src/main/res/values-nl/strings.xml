@@ -70,12 +70,12 @@
     <string name="ui_theme_style_setting_explanation">De kleurstijl die wordt gebruikt bij het thema van de app.</string>
     <string name="ui_theme_style_default_label">Standaard</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
-    <string name="ui_previews_title">Voorvertoningen van bestanden</string>
-    <string name="ui_previews_summary">Toon bestandsvoorbeelden in alle tools (bijv. afbeeldings- en videominiaturen).</string>
+    <string name="ui_previews_title">Voorvertoning van bestanden</string>
+    <string name="ui_previews_summary">Toon voorvertoning van bestanden in alle tools (bijv. afbeeldings- en video-weergaven).</string>
     <string name="ui_language_override_label">App-taal</string>
     <string name="ui_language_override_desc">Selecteer een andere taal voor SD Maid, onafhankelijk van de standaardtaal van je systeem. Momenteel: %s</string>
     <string name="settings_support_label">Ondersteuning</string>
-    <string name="settings_support_description">Documentatie lezen, problemen melden, met anderen chatten of logboeken voor foutopsporing opnemen.</string>
+    <string name="settings_support_description">Documentatie lezen, problemen melden, chatten met anderen of logboeken voor foutopsporing opnemen.</string>
     <string name="documentation_label">Documentatie</string>
     <string name="issue_tracker_description">Een openbare probleemtracker voor foutmeldingen en functie verzoeken.</string>
     <string name="issue_tracker_label">Probleemtracker</string>
@@ -114,10 +114,10 @@
     <string name="setup_root_disable_root_use_label">Gebruik geen root toegang</string>
     <string name="setup_root_card_body2">Alleen beschikbaar op geroote apparaten. Als je deze wijziging niet hebt aangebracht, is je apparaat niet geroot en heeft deze instelling geen effect.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
-    <string name="setup_shizuku_card_body">Sta SD Maid toe om Shizuku waar mogelijk te gebruiken om de resultaten te verbeteren en functies in te schakelen.</string>
+    <string name="setup_shizuku_card_body">Sta SD Maid toe om Shizuku te gebruiken waar mogelijk om de resultaten te verbeteren en functies in te schakelen.</string>
     <string name="setup_shizuku_card_body2">Deze instelling heeft geen effect als de Shizuku-app niet is ingesteld op uw apparaat.</string>
     <string name="setup_shizuku_card_root_info">Shizuku in combinatie met root-toegang maakt geen extra functies mogelijk, maar verbetert wel de betrouwbaarheid. SD Maid zal het gebruiken als fallback-methode.</string>
-    <string name="setup_shizuku_state_ready_label">Shizuku-link is klaar.</string>
+    <string name="setup_shizuku_state_ready_label">Shizuku link is klaar.</string>
     <string name="setup_shizuku_state_waiting_label">Wachten op link met Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Gebruik Shizuku indien beschikbaar</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku niet gebruiken</string>
@@ -132,12 +132,12 @@
     <string name="setup_notification_hint">Meldingen worden spaarzaam gebruikt 🤞</string>
     <string name="setup_feature_requires_additional_setup_x">Voor deze functie zijn aanvullende installatie-items vereist: %s</string>
     <string name="setup_acs_card_title">Toegankelijkheidsdienst</string>
-    <string name="setup_acs_card_body">Met de toegankelijkheidsservice kan SD Maid communiceren met je scherm en vervelende acties automatiseren, bijv. klikken op \"Cache wissen\" op meerdere schermen.</string>
+    <string name="setup_acs_card_body">De toegankelijkheidsdienst staat SD Maid toe om met uw scherm te interacteren en saaie acties te automatiseren, bijv. het tikken op \'Cache wissen\' op meerdere schermen.</string>
     <string name="setup_acs_card_body2">SD Maid zal de toegankelijkheidsservice niet gebruiken zonder je toestemming, zal altijd een prominente (annuleerbare) indicator weergeven wanneer deze actief is en zal deze niet gebruiken om informatie te verzamelen.</string>
     <string name="setup_acs_state_enabled">Toegankelijkheidsservice is ingeschakeld</string>
     <string name="setup_acs_state_disabled">Toegankelijkheidsservice is uitgeschakeld</string>
     <string name="setup_acs_state_running">De toegankelijkheidsservice is actief</string>
-    <string name="setup_acs_state_ondemand">De service wordt op verzoek gelanceerd</string>
+    <string name="setup_acs_state_ondemand">Service wordt op verzoek gelanceerd</string>
     <string name="setup_acs_state_stopped">De toegankelijkheidsservice is gestopt</string>
     <string name="setup_acs_state_stopped_hint">De service is ingeschakeld, maar niet actief. Schakel het uit/aan of start je apparaat opnieuw op. Controleer of SD Maid niet wordt \"geoptimaliseerd\" door het systeem.</string>
     <string name="setup_acs_state_stopped_hint_miui">Als de service na een tijdje steeds wordt uitgeschakeld, probeer dan de optie \"Auto Start\" voor SD Maid in de systeeminstellingen in te schakelen.</string>
@@ -177,7 +177,7 @@
         <item quantity="other">%1$d restanten gevonden na het verwijderen van %2$s.</item>
     </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
-        <item quantity="one">Opschonen gelukt (%1$s): %2$s vrijgemaakt en %3$d item verwijderd.</item>
+        <item quantity="one">Opschonen is succesvol (%1$s): %2$s vrijgemaakt en %3$d item verwijderd.</item>
         <item quantity="other">Opschonen gelukt (%1$s): %2$s vrijgemaakt en %3$d items verwijderd.</item>
     </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Verwijder restanten</string>
@@ -209,9 +209,9 @@
     </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">%d restant van app ontdekt</item>
-        <item quantity="other">%d app-restanten ontdekt</item>
+        <item quantity="other">%d restanten van app ontdekt</item>
     </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">Alle app-restanten verwijderen?</string>
+    <string name="corpsefinder_delete_all_confirmation_message">Alle restanten van app verwijderen?</string>
     <string name="corpsefinder_owners_label">Eigenaars</string>
     <string name="corpsefinder_corpse_hints_label">Kennisgeving</string>
     <string name="corpsefinder_owner_unknown">Onbekende eigenaar</string>
@@ -275,21 +275,21 @@
     <string name="systemcleaner_filter_usagestats_label">Gebruiksstatistieken</string>
     <string name="systemcleaner_filter_usagestats_summary">Bestanden met betrekking tot gebruiksstatistieken van applicaties.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Alle filterinhoud verwijderen?</string>
-    <string name="systemcleaner_customfilter_label">Aangepast filter</string>
-    <string name="systemcleaner_customfilter_create_action">Maak een aangepast filter</string>
-    <string name="systemcleaner_customfilter_create_hint">Maak een aangepast filter om extra bestanden te verwijderen die uniek zijn voor je apparaat en gebruiksscenario\'s.</string>
+    <string name="systemcleaner_customfilter_label">Aangepaste filter</string>
+    <string name="systemcleaner_customfilter_create_action">Maak een aangepaste filter</string>
+    <string name="systemcleaner_customfilter_create_hint">Maak een aangepaste filter om extra bestanden te verwijderen die uniek zijn voor je apparaat en gebruiksscenario\'s.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Dit filter verwijderen?</string>
     <string name="systemcleaner_editor_unsaved_confirmation_message">Je hebt niet-opgeslagen wijzigingen!</string>
-    <string name="systemcleaner_customfilter_editor_label_label">Filter op labels</string>
-    <string name="systemcleaner_customfilter_editor_warning">Aangepaste filters kunnen gevaarlijk zijn. Controleer je scanresultaten voordat je ze verwijdert!</string>
+    <string name="systemcleaner_customfilter_editor_label_label">Filter label</string>
+    <string name="systemcleaner_customfilter_editor_warning">Aangepaste filters kunnen gevaarlijk zijn. Controleer je scanresultaten alvorens te verwijderen!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Data zones</string>
     <string name="systemcleaner_customfilter_editor_areas_explanation">Als er geen gebied is geselecteerd, worden alle toegankelijke gegevensgebieden gescand en vergeleken.</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_label">Beperkingen voor het bestandstype</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">Beperkingen op basis van het bestandstype</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Bestanden</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Mappen</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_hint">Als er geen type is geselecteerd, worden alle typen vergeleken.</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">Als er geen soort is geselecteerd, worden alle soorten vergeleken.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Pad criteria</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Het doelpad moet overeenkomen met ten minste één item (bijv. \"Downloads/oldapks/game-\"). Druk lang op de vermeldingen voor meer opties.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Het doelpad moet minstens één invoer overeenkomen (bijv. \"Downloads/oudeapk\'s/game-\"). Houd invoeren lang ingedrukt om meer opties weer te geven.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Benoem criteria</string>
     <string name="systemcleaner_customfilter_editor_name_explanation">De doelnaam moet ten minste één van de trefwoorden bevatten (bijv. \"-ontvangstbewijs\"). Druk lang op de vermeldingen voor meer opties.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Uitsluitingen</string>
@@ -299,14 +299,14 @@
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Pad bevat sleutelwoord</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Pad eindigt met sleutelwoord</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Pad is gelijk aan sleutelwoord</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modus voor padvergelijking</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modus voor naamvergelijking</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Naam begint met trefwoord</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Pad bevat trefwoorden</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Naam bevat trefwoorden</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Naam eindigt met trefwoord</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Naam is gelijk aan trefwoord</string>
     <string name="systemcleaner_customfilter_last_edit">Laatste bewerking: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Live zoeken</string>
-    <string name="systemcleaner_customfilter_import_action">Importeer een nieuw filter</string>
+    <string name="systemcleaner_customfilter_import_action">Importeer nieuw filter</string>
     <string name="systemcleaner_customfilter_export_action">Geselecteerde filter exporteren</string>
     <string name="appcleaner_tool_name">AppReiniger</string>
     <string name="appcleaner_explanation_short">Eenmalige gegevens van specifieke apps.</string>
