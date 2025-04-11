@@ -52,6 +52,7 @@ class AppLibCorpseFilter @Inject constructor(
         }
 
         // TODO needs to be checked on more rooted ROMs
+        // https://github.com/d4rken-org/sdmaid-se/issues/1612
         if (hasApiLevel(35)) {
             log(TAG, WARN) { "Untested API level (35) skipping for safety." }
             return emptySet()

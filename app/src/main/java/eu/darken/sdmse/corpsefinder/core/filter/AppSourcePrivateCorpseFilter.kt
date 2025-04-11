@@ -52,6 +52,7 @@ class AppSourcePrivateCorpseFilter @Inject constructor(
         }
 
         // TODO needs to be checked on more rooted ROMs
+        // https://github.com/d4rken-org/sdmaid-se/issues/1612
         // Have not seen this on API35+ yet
         if (hasApiLevel(35)) {
             log(TAG, WARN) { "Untested API level (35) skipping for safety." }
