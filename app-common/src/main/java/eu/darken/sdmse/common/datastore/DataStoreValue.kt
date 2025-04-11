@@ -7,10 +7,13 @@ import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
+import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.runBlocking
 
 
@@ -20,6 +23,9 @@ class DataStoreValue<T : Any?>(
     val reader: (Any?) -> T,
     val writer: (T) -> Any?
 ) {
+    private val dataStoreTag by lazy {
+        "DataStore-${dataStore.file?.name?.removeSuffix(".preferences_pb")}"
+    }
 
     val keyName: String
         get() = key.name
@@ -28,6 +34,7 @@ class DataStoreValue<T : Any?>(
         .map { prefs -> prefs[this.key] }
         .distinctUntilChanged()
         .map { pref -> reader(pref) }
+        .onEach { if (Bugs.isTrace) log(dataStoreTag) { "read $keyName -> $it" } }
 
     data class Updated<T>(
         val old: T,
@@ -48,7 +55,9 @@ class DataStoreValue<T : Any?>(
             }
 
             prefs.toMutablePreferences().apply {
-                set(this@DataStoreValue.key as Preferences.Key<Any?>, after?.let { writer(it) })
+                val toWrite = after?.let { writer(it) }
+                if (Bugs.isTrace) log(dataStoreTag) { "WRITE $keyName <- $toWrite" }
+                set(this@DataStoreValue.key as Preferences.Key<Any?>, toWrite)
             }.toPreferences()
         }
 
