@@ -16,7 +16,14 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.CSIProcessor
 import eu.darken.sdmse.common.forensics.csi.LocalCSIProcessor
-import eu.darken.sdmse.common.forensics.csi.dalvik.tools.*
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.ApkCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.CustomDexOptCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DalvikCandidateGenerator
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DalvikClutterCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DexStringsCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.ExistCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.OddOnesCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.SourceDirCheck
 import javax.inject.Inject
 
 @Reusable
@@ -29,6 +36,7 @@ class DalvikDexCSI @Inject constructor(
     private val apkCheck: ApkCheck,
     private val existCheck: ExistCheck,
     private val oddOnesCheck: OddOnesCheck,
+    private val dexStringsCheck: DexStringsCheck,
 ) : LocalCSIProcessor {
 
     override suspend fun hasJurisdiction(type: DataArea.Type): Boolean = type == DataArea.Type.DALVIK_DEX
@@ -65,6 +73,10 @@ class DalvikDexCSI @Inject constructor(
 
         clutterCheck.process(areaInfo)
             .takeIf { !it.isEmpty() }
+            ?.let { return CSIProcessor.Result(it.owners, it.hasKnownUnknownOwner) }
+
+        dexStringsCheck.check(areaInfo)
+            ?.takeIf { !it.isEmpty() }
             ?.let { return CSIProcessor.Result(it.owners, it.hasKnownUnknownOwner) }
 
         apkCheck.check(areaInfo, candidates)
