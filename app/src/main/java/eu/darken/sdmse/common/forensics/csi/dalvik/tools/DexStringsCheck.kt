@@ -25,6 +25,7 @@ class DexStringsCheck @Inject constructor(
         val path: String = areaInfo.file.path
         val dexTarget = when {
             path.endsWith(".dex") -> path
+            path.endsWith(".odex") -> path
             path.endsWith(".vdex") -> path.removeSuffix(".vdex") + ".dex"
             path.endsWith(".art") -> path.removeSuffix(".art") + ".dex"
             else -> null
