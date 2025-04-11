@@ -15,9 +15,9 @@ import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 import java.io.File
 
-class DataStoreMoshiExtensionsTest : BaseTest() {
+class DataStoreValueMoshiTest : BaseTest() {
 
-    private val testFile = File(IO_TEST_BASEDIR, DataStoreExtensionsTest::class.java.simpleName + ".preferences_pb")
+    private val testFile = File(IO_TEST_BASEDIR, DataStoreValueTest::class.java.simpleName + ".preferences_pb")
     private fun createDataStore(scope: TestScope) = PreferenceDataStoreFactory.create(
         scope = scope,
         produceFile = { testFile },
