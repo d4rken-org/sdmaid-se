@@ -1,6 +1,9 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.miui
 
+import android.graphics.Rect
 import android.os.Build
+import android.view.accessibility.AccessibilityNodeInfo
+import androidx.core.content.pm.PackageInfoCompat
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -22,6 +25,7 @@ import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.common.stepper.clickGesture
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findNode
@@ -37,6 +41,7 @@ import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
 import eu.darken.sdmse.automation.core.specs.windowCheck
 import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
 import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
+import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
@@ -51,9 +56,15 @@ import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.getPackageInfo2
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import javax.inject.Inject
 
 
@@ -269,23 +280,50 @@ class MIUISpecs @Inject constructor(
             // -> Clear cache
             // -> Cancel
 
-            val windowCheck = windowCheck { _, root ->
-                if (root.pkgId != SETTINGS_PKG_MIUI) return@windowCheck false
-                root.crawl().map { it.node }.any { it.idContains("id/alertTitle") }
+            val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
+                // Wait till the dialog is shown
+                host.events.first { _ ->
+                    val root = host.windowRoot() ?: return@first false
+                    if (root.pkgId != SETTINGS_PKG_MIUI) return@first false
+                    root.crawl().map { it.node }.any { it.idContains("id/alertTitle") }
+                }
+                // Now we have to make sure the BottomSheetDialog animation is settled
+                host.events
+                    .mapNotNull { host.windowRoot() }
+                    .mapNotNull { root ->
+                        root.crawl().map { it.node }.singleOrNull {
+                            it.textMatchesAny(clearCacheLabels)
+                        }
+                    }
+                    .map { Rect().apply { it.getBoundsInScreen(this) } }
+                    .distinctUntilChanged()
+                    .debounce(100)
+                    .first()
+                host.waitForWindowRoot()
             }
 
-            val action: suspend StepContext.() -> Boolean = action@{
-                val target = findNode {
-                    if (!it.isClickable || !it.isTextView()) false
-                    else it.textMatchesAny(clearCacheLabels)
-                } ?: return@action false
+            val settingsPkgInfo = androidContext.packageManager.getPackageInfo2(SETTINGS_PKG_MIUI)
+            val versionCode = settingsPkgInfo?.let { PackageInfoCompat.getLongVersionCode(it) }
+            val versionName = settingsPkgInfo?.versionName
 
-                clickNormal(node = target)
+            val action: suspend StepContext.() -> Boolean = action@{
+                var needsClickGesture = false
+                val target = findNode { node ->
+                    if (!node.textMatchesAny(clearCacheLabels)) return@findNode false
+                    needsClickGesture = !node.isClickable
+                    log(TAG) { "needsClickGesture=$needsClickGesture Version is $versionName ($versionCode)" }
+                    true
+                }
+                if (target == null) return@action false
+                when {
+                    needsClickGesture -> clickGesture(node = target)
+                    else -> clickNormal(node = target)
+                }
             }
 
             val step = AutomationStep(
                 source = TAG,
-                descriptionInternal = "Clear cache (security center plan)",
+                descriptionInternal = "Clear cache button (security center plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheLabels),
                 windowCheck = windowCheck,
                 nodeAction = action,
