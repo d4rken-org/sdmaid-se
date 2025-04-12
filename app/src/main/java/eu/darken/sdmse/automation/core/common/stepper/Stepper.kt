@@ -16,9 +16,7 @@ import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -83,21 +81,21 @@ class Stepper @Inject constructor(
                             val stepTime = measureTimeMillis {
                                 doProcess(stepContext, step)
                             }
-                            log(tag) { "Step took ${stepTime}ms to execute" }
+                            log(tag, INFO) { "Step took ${stepTime}ms to execute" }
                         }
                         // Step was successful :))
                         break
                     } catch (e: PlanAbortException) {
                         log(tag, WARN) { "ABORT Plan due to ${e.asLog()}" }
-                        logCurrentNodes(tag, context)
+                        logFailureNodes(tag, context)
                         throw e
                     } catch (e: StepAbortException) {
                         log(tag, WARN) { "ABORT Step due to ${e.asLog()}" }
-                        logCurrentNodes(tag, context)
+                        logFailureNodes(tag, context)
                         break
                     } catch (e: Exception) {
                         log(tag, WARN) { "crawl(): Attempt $stepAttempts failed on $step:\n${e.asLog()}" }
-                        logCurrentNodes(tag, context)
+                        logFailureNodes(tag, context)
                         delay(300)
                     }
                 }
@@ -109,18 +107,18 @@ class Stepper @Inject constructor(
 
     private suspend fun doProcess(stepContext: StepContext, step: AutomationStep) {
         val tag = stepContext.tag + ":Stepper"
-        log(tag, VERBOSE) { "doProcess(): context=$stepContext for $step" }
+        log(tag, INFO) { "doProcess(): context=$stepContext for $step" }
 
         when {
             stepContext.stepAttempts > 1 -> when {
                 hasApiLevel(31) -> {
-                    log(tag) { "Trying to dismiss any notification shade" }
+                    log(tag, INFO) { "Trying to dismiss any notification shade" }
                     @Suppress("NewApi")
                     stepContext.host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DISMISS_NOTIFICATION_SHADE)
                 }
 
                 !hasApiLevel(31) -> {
-                    log(tag) { "Clearing system dialogs (retryCount=${stepContext.stepAttempts})." }
+                    log(tag, INFO) { "Clearing system dialogs (retryCount=${stepContext.stepAttempts})." }
                     @Suppress("DEPRECATION")
                     val closeIntent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
                     try {
@@ -143,14 +141,14 @@ class Stepper @Inject constructor(
 
         val targetWindowRoot: AccessibilityNodeInfo = withTimeout(4000) {
             if (step.windowCheck != null) {
-                log(tag) { "Executing windowCheck and determining root window..." }
+                log(tag, INFO) { "Executing windowCheck and determining root window..." }
                 step.windowCheck.invoke(stepContext)
             } else {
-                log(tag) { "No window check set, waiting for any root window..." }
+                log(tag, INFO) { "No window check set, waiting for any root window..." }
                 stepContext.host.waitForWindowRoot()
             }
         }
-        log(tag, DEBUG) { "Current window root node is ${targetWindowRoot.toStringShort()}" }
+        log(tag, INFO) { "Target root window node is ${targetWindowRoot.toStringShort()}" }
 
         if (step.nodeAction != null) {
             // Perform action, e.g. clicking a button
@@ -161,7 +159,7 @@ class Stepper @Inject constructor(
                 if (success) {
                     break
                 } else if (step.nodeRecovery != null) {
-                    log(tag, VERBOSE) { "Trying node recovery!" }
+                    log(tag, INFO) { "Trying node recovery!" }
                     // TODO Should we care about whether the recovery thinks it was successful?
                     step.nodeRecovery.invoke(stepContext, stepContext.host.waitForWindowRoot())
                     delay(200)
@@ -181,10 +179,10 @@ class Stepper @Inject constructor(
         log(tag, INFO) { "Step ended without error" }
     }
 
-    private suspend fun logCurrentNodes(tag: String, context: AutomationExplorer.Context) {
+    private suspend fun logFailureNodes(tag: String, context: AutomationExplorer.Context) {
         if (Bugs.isDebug) {
-            log(tag, WARN) { "Current nodes:" }
-            context.host.windowRoot()?.crawl()?.forEach { log(tag, WARN) { it.infoShort } }
+            log(tag, WARN) { "Step failure, current nodes:" }
+            context.host.windowRoot()?.crawl(debug = false)?.forEach { log(tag, WARN) { it.infoShort } }
         }
     }
 
