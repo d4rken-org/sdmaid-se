@@ -30,6 +30,7 @@ class CorpseFinderSettings @Inject constructor(
     val filterSdcardEnabled = dataStore.createValue("filter.sdcard.enabled", true)
     val filterPrivateDataEnabled = dataStore.createValue("filter.privatedata.enabled", true)
     val filterDalvikCacheEnabled = dataStore.createValue("filter.dalvikcache.enabled", false)
+    val filterArtProfilesEnabled = dataStore.createValue("filter.artprofiles.enabled", false)
     val filterAppLibEnabled = dataStore.createValue("filter.applib.enabled", false)
     val filterAppSourceEnabled = dataStore.createValue("filter.appsource.enabled", false)
     val filterAppSourcePrivateEnabled = dataStore.createValue("filter.appsourceprivate.enabled", false)
@@ -53,6 +54,7 @@ class CorpseFinderSettings @Inject constructor(
         filterPrivateDataEnabled,
         filterAppSourceAsecEnabled,
         filterDalvikCacheEnabled,
+        filterArtProfilesEnabled,
         filterAppLibEnabled,
         filterAppSourceEnabled,
         filterAppSourcePrivateEnabled,

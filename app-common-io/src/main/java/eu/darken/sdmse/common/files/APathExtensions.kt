@@ -294,3 +294,5 @@ fun Collection<APath>.filterDistinctRoots(): Set<APath> = this
 
 val APath.extension: String?
     get() = name.substringAfterLast('.', "").takeIf { it.isNotEmpty() }
+
+fun APath.child(segs: Segments) = child(*segs.toTypedArray())

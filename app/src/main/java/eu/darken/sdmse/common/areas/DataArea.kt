@@ -40,6 +40,7 @@ data class DataArea(
         @Json(name = "APP_APP_PRIVATE") APP_APP_PRIVATE("APP_APP_PRIVATE"),
         @Json(name = "DALVIK_DEX") DALVIK_DEX("DALVIK_DEX"),
         @Json(name = "DALVIK_PROFILE") DALVIK_PROFILE("DALVIK_PROFILE"),
+        @Json(name = "ART_PROFILE") ART_PROFILE("ART_PROFILE"),
         @Json(name = "DOWNLOAD_CACHE") DOWNLOAD_CACHE("DOWNLOAD_CACHE"),
         @Json(name = "DATA") DATA("DATA"),
         @Json(name = "DATA_MISC") DATA_MISC("DATA_MISC"),
