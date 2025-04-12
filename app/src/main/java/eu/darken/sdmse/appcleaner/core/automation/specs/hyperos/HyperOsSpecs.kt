@@ -272,12 +272,13 @@ class HyperOsSpecs @Inject constructor(
                     if (root.pkgId != SETTINGS_PKG_HYPEROS) return@first false
                     root.crawl().map { it.node }.any { it.idContains("id/alertTitle") }
                 }
+                log(TAG) { "Got the right window, now waiting for dialog to settle..." }
                 // Now we have to make sure the BottomSheetDialog animation is settled
                 host.events
                     .mapNotNull { host.windowRoot() }
                     .mapNotNull { root ->
                         root.crawl().map { it.node }.singleOrNull {
-                            it.isRadioButton() && it.isCheckable && it.textMatchesAny(clearCacheLabels)
+                            it.textMatchesAny(clearCacheLabels)
                         }
                     }
                     .map { Rect().apply { it.getBoundsInScreen(this) } }
