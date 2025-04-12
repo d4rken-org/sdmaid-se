@@ -8,6 +8,7 @@ import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
 import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
 import eu.darken.sdmse.common.BuildWrap
+import eu.darken.sdmse.common.ModeUnavailableException
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
@@ -52,6 +53,7 @@ import eu.darken.sdmse.common.pkgs.getPrivateDataDirs
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.pkgs.pkgops.PkgOpsException
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -64,7 +66,6 @@ import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.pkgExclusions
 import eu.darken.sdmse.main.core.SDMTool
-import eu.darken.sdmse.setup.isComplete
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -125,14 +126,20 @@ class AppScanner @Inject constructor(
         }
 
         val includeSystemApps = settings.includeSystemAppsEnabled.value()
-        val includeRunningApps = settings.includeRunningAppsEnabled.value() || !usageStatsSetupModule.isComplete()
+        val includeRunningApps = settings.includeRunningAppsEnabled.value()
         val includeOtherUsers = settings.includeOtherUsersEnabled.value()
 
         val pkgExclusions = exclusionManager.pkgExclusions(SDMTool.Type.APPCLEANER)
 
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
 
-        val runningPkgs = pkgOps.getRunningPackages()
+        val runningPkgs = try {
+            if (includeRunningApps) pkgOps.getRunningPackages() else emptySet()
+        } catch (e: PkgOpsException) {
+            if (e.cause !is ModeUnavailableException) throw e
+            log(TAG, WARN) { "No mode available to execute getRunningPackages(): ${e.cause ?: e}" }
+            emptySet()
+        }
 
         val currentUser = userManager.currentUser()
         val allUsers = userManager.allUsers()
