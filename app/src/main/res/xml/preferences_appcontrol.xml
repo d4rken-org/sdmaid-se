@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <CheckBoxPreference
+    <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+        app:enabled="false"
         app:icon="@drawable/ic_weight_24"
         app:key="module.sizing.enabled"
         app:singleLineTitle="false"
         app:summary="@string/appcontrol_settings_module_sizing_enabled_description"
         app:title="@string/appcontrol_settings_module_sizing_enabled_label" />
 
-    <CheckBoxPreference
+    <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+        app:enabled="false"
         app:icon="@drawable/ic_run_24"
         app:key="module.activity.enabled"
         app:singleLineTitle="false"
