@@ -81,7 +81,7 @@ class Stepper @Inject constructor(
                             val stepTime = measureTimeMillis {
                                 doProcess(stepContext, step)
                             }
-                            log(tag, INFO) { "Step took ${stepTime}ms to execute" }
+                            log(tag, INFO) { "Step finished successfully after ${stepTime}ms" }
                         }
                         // Step was successful :))
                         break
@@ -152,7 +152,7 @@ class Stepper @Inject constructor(
 
         if (step.nodeAction != null) {
             // Perform action, e.g. clicking a button
-            log(tag, INFO) { "Performing action... ${step.nodeAction}" }
+            log(tag, INFO) { "Executing nodeAction... ${step.nodeAction}" }
             var success = false
             while (currentCoroutineContext().isActive) {
                 success = step.nodeAction.invoke(stepContext)
@@ -175,8 +175,6 @@ class Stepper @Inject constructor(
                 throw AutomationException("nodeAction failed (spec=$step, context=$stepContext)")
             }
         }
-
-        log(tag, INFO) { "Step ended without error" }
     }
 
     private suspend fun logFailureNodes(tag: String, context: AutomationExplorer.Context) {
