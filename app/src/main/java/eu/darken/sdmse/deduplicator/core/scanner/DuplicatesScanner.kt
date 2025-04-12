@@ -1,5 +1,6 @@
 package eu.darken.sdmse.deduplicator.core.scanner
 
+import eu.darken.sdmse.BuildConfig
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
@@ -134,10 +135,14 @@ class DuplicatesScanner @Inject constructor(
         )
 
         fileForensics.useRes {
+            val testFileName = "${BuildConfig.PACKAGENAME}-testfile-${UUID.randomUUID()}"
             paths.forEach { path ->
-                val area = fileForensics.identifyArea(path)
-                if (!allowedAreas.contains(area?.type)) {
-                    throw IllegalArgumentException("Unsupported area for $path: $area")
+                val testPath = path.child(testFileName)
+                val area = fileForensics.identifyArea(testPath)
+                if (allowedAreas.contains(area?.type)) {
+                    log(TAG) { "Valid search area ${area?.type} -> $testPath" }
+                } else {
+                    throw IllegalArgumentException("Unsupported area for $testPath: $area")
                 }
             }
         }
