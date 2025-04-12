@@ -13,6 +13,8 @@ import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.shell.ShellOps
+import eu.darken.sdmse.common.shell.ipc.ShellOpsResult
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
@@ -39,6 +41,7 @@ abstract class BaseCSITest : BaseTest() {
     @MockK lateinit var userManager2: UserManager2
     @MockK lateinit var storageEnvironment: StorageEnvironment
     @MockK lateinit var pkgOps: PkgOps
+    @MockK lateinit var shellOps: ShellOps
 
     private val pkgs = mutableSetOf<Installed>()
 
@@ -56,6 +59,7 @@ abstract class BaseCSITest : BaseTest() {
         coEvery { pkgRepo.query(any(), any()) } returns emptySet()
         every { pkgRepo.data } answers { flowOf(PkgRepo.PkgData.from(pkgs)) }
         coEvery { pkgOps.viewArchive(any(), any()) } returns null
+        coEvery { shellOps.execute(any(), any()) } returns ShellOpsResult(-1, emptyList(), emptyList())
     }
 
     @AfterEach
