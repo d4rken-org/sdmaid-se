@@ -89,12 +89,15 @@ class Stepper @Inject constructor(
                         break
                     } catch (e: PlanAbortException) {
                         log(tag, WARN) { "ABORT Plan due to ${e.asLog()}" }
+                        logCurrentNodes(tag, context)
                         throw e
                     } catch (e: StepAbortException) {
                         log(tag, WARN) { "ABORT Step due to ${e.asLog()}" }
+                        logCurrentNodes(tag, context)
                         break
                     } catch (e: Exception) {
                         log(tag, WARN) { "crawl(): Attempt $stepAttempts failed on $step:\n${e.asLog()}" }
+                        logCurrentNodes(tag, context)
                         delay(300)
                     }
                 }
@@ -129,7 +132,6 @@ class Stepper @Inject constructor(
             }
         }
 
-
         if (step.windowLaunch != null) {
             log(tag, INFO) { "Executing windowLaunch: ${step.windowLaunch}" }
             step.windowLaunch.invoke(stepContext)
@@ -153,11 +155,6 @@ class Stepper @Inject constructor(
         if (step.nodeAction != null) {
             // Perform action, e.g. clicking a button
             log(tag, INFO) { "Performing action... ${step.nodeAction}" }
-            if (Bugs.isDebug) {
-                log(tag, VERBOSE) { "Checking current nodes:" }
-                targetWindowRoot.crawl().forEach { log(tag, VERBOSE) { it.infoShort } }
-            }
-
             var success = false
             while (currentCoroutineContext().isActive) {
                 success = step.nodeAction.invoke(stepContext)
@@ -182,6 +179,13 @@ class Stepper @Inject constructor(
         }
 
         log(tag, INFO) { "Step ended without error" }
+    }
+
+    private suspend fun logCurrentNodes(tag: String, context: AutomationExplorer.Context) {
+        if (Bugs.isDebug) {
+            log(tag, WARN) { "Current nodes:" }
+            context.host.windowRoot()?.crawl()?.forEach { log(tag, WARN) { it.infoShort } }
+        }
     }
 
     data class Result(val success: Boolean, val exception: Exception? = null)
