@@ -7,6 +7,7 @@ import eu.darken.sdmse.corpsefinder.core.filter.AppAsecFileCorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.AppLibCorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.AppSourceCorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.AppSourcePrivateCorpseFilter
+import eu.darken.sdmse.corpsefinder.core.filter.ArtProfilesCorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.CorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.DalvikCorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.PrivateDataCorpseFilter
@@ -25,6 +26,7 @@ val <T : CorpseFilter> KClass<T>.labelRes: Int
         PublicObbCorpseFilter::class -> R.string.corpsefinder_filter_publicobb_label
         PrivateDataCorpseFilter::class -> R.string.corpsefinder_filter_privatedata_label
         DalvikCorpseFilter::class -> R.string.corpsefinder_filter_dalvik_label
+        ArtProfilesCorpseFilter::class -> R.string.corpsefinder_filter_artprofiles_label
         AppLibCorpseFilter::class -> R.string.corpsefinder_filter_applib_label
         AppSourceCorpseFilter::class -> R.string.corpsefinder_filter_appsource_label
         AppSourcePrivateCorpseFilter::class -> R.string.corpsefinder_filter_appsource_private_label
@@ -41,6 +43,7 @@ val <T : CorpseFilter> KClass<T>.iconRes: Int
         PublicObbCorpseFilter::class -> R.drawable.ic_game_controller_24
         PrivateDataCorpseFilter::class -> R.drawable.ic_incognito_circle_24
         DalvikCorpseFilter::class -> R.drawable.ic_turbine_24
+        ArtProfilesCorpseFilter::class -> R.drawable.ic_artboard_24
         AppLibCorpseFilter::class -> eu.darken.sdmse.common.io.R.drawable.ic_baseline_local_library_24
         AppSourceCorpseFilter::class -> R.drawable.ic_app_extra_24
         AppSourcePrivateCorpseFilter::class -> R.drawable.ic_folder_key_24
