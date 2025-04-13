@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.forensics.csi.dalvik.tools.ApkCheck
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.CustomDexOptCheck
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DalvikCandidateGenerator
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DalvikClutterCheck
+import eu.darken.sdmse.common.forensics.csi.dalvik.tools.DexStringsCheck
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.ExistCheck
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.OddOnesCheck
 import eu.darken.sdmse.common.forensics.csi.dalvik.tools.RuntimeTool
@@ -142,6 +143,7 @@ class CSIDalvikDexTest : BaseCSITest() {
                 )
             }
         ),
+        dexStringsCheck = DexStringsCheck(shellOps, pkgRepo)
     )
 
     @Test override fun `test jurisdiction`() = runTest {
