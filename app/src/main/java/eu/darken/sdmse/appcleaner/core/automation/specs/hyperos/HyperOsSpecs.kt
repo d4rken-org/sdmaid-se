@@ -19,7 +19,6 @@ import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.isClickyButton
-import eu.darken.sdmse.automation.core.common.isRadioButton
 import eu.darken.sdmse.automation.core.common.isTextView
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
@@ -292,23 +291,18 @@ class HyperOsSpecs @Inject constructor(
             val versionCode = settingsPkgInfo?.let { PackageInfoCompat.getLongVersionCode(it) }
             val versionName = settingsPkgInfo?.versionName
 
+            /**
+             * First it was a clickable TextView
+             * Then an unclickable RadioButton
+             * Now it is usually an unclickable TextView, wtf Xiaomi
+             */
             val action: suspend StepContext.() -> Boolean = action@{
                 var needsClickGesture = false
                 val target = findNode { node ->
-                    when {
-                        node.isRadioButton() && node.isCheckable && node.textMatchesAny(clearCacheLabels) -> {
-                            needsClickGesture = true
-                            log(TAG) { "ClickGesture is required! Version is $versionName ($versionCode)" }
-                            true
-                        }
-
-                        node.isTextView() && node.isClickable && node.textMatchesAny(clearCacheLabels) -> {
-                            log(TAG) { "ClickGesture NOT required! Version is $versionName ($versionCode)" }
-                            true
-                        }
-
-                        else -> false
-                    }
+                    if (!node.textMatchesAny(clearCacheLabels)) return@findNode false
+                    needsClickGesture = !node.isClickable
+                    log(TAG) { "needsClickGesture=$needsClickGesture Version is $versionName ($versionCode)" }
+                    true
                 }
                 if (target == null) return@action false
                 when {
