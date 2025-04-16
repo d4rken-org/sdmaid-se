@@ -72,7 +72,6 @@ class DeviceDetective @Inject constructor(
 
         checkManufactor("nubia") -> RomType.NUBIA
         checkManufactor("OnePlus") -> RomType.ONEPLUS
-        checkManufactor("POCO") -> RomType.POCO
         checkManufactor("realme") -> RomType.REALME
         checkManufactor("samsung") -> RomType.SAMSUNG
         checkManufactor("vivo") -> RomType.VIVO
