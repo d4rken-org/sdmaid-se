@@ -48,7 +48,7 @@ suspend fun StepContext.clickClearCache(
         }
 
         when {
-            hasApiLevel(31) && pkg.isSystemApp && allButtonsAreDisabled -> {
+            hasApiLevel(30) && pkg.isSystemApp && allButtonsAreDisabled -> {
                 // https://github.com/d4rken-org/sdmaid-se/issues/1178
                 log(tag, WARN) { "Locked system app, can't click clear cache for ${pkg.installId}" }
                 throw PlanAbortException("Locked system app, can't clear cache: ${pkg.installId}")
