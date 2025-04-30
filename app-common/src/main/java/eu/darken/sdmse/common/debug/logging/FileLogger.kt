@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common.debug.logging
 
-import android.annotation.SuppressLint
 import android.util.Log
 import eu.darken.sdmse.common.debug.Bugs
 import java.io.File
@@ -13,7 +12,7 @@ import java.time.Instant
 class FileLogger(private val logFile: File) : Logging.Logger {
     private var logWriter: OutputStreamWriter? = null
 
-    @SuppressLint("SetWorldReadable")
+    @Suppress("SetWorldWritable", "SetWorldReadable")
     @Synchronized
     fun start() {
         if (logWriter != null) return
@@ -26,12 +25,9 @@ class FileLogger(private val logFile: File) : Logging.Logger {
                 parentDir.delete()
             }
             logFile.parentFile!!.mkdirs()
-            if (logFile.createNewFile()) {
-                Log.i(TAG, "File logger writing to ${logFile.path}")
-            }
-            if (logFile.setReadable(true, false)) {
-                Log.i(TAG, "Debug run log read permission set")
-            }
+            if (logFile.createNewFile()) Log.i(TAG, "File logger writing to ${logFile.path}")
+            if (logFile.setReadable(true, false)) Log.i(TAG, "Debug run log read permission set")
+            if (logFile.setWritable(true, false)) Log.i(TAG, "Debug run log write permission set")
         } catch (e: IOException) {
             Log.e(TAG, "Log writer failed to init log file", e)
             e.printStackTrace()
