@@ -14,16 +14,12 @@ class Recorder @Inject constructor() {
     private val mutex = Mutex()
     private var fileLogger: FileLogger? = null
 
-    val isRecording: Boolean
-        get() = path != null
+    private var path: File? = null
 
-    var path: File? = null
-        private set
-
-    suspend fun start(path: File) = mutex.withLock {
+    suspend fun start(baseDir: File) = mutex.withLock {
         if (fileLogger != null) return@withLock
-        this.path = path
-        fileLogger = FileLogger(path)
+        path = File(baseDir, "core.log")
+        fileLogger = FileLogger(path!!)
         fileLogger?.let {
             it.start()
             Logging.install(it)

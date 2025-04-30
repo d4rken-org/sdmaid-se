@@ -17,13 +17,24 @@ class FileLogger(private val logFile: File) : Logging.Logger {
     @Synchronized
     fun start() {
         if (logWriter != null) return
-
-        logFile.parentFile!!.mkdirs()
-        if (logFile.createNewFile()) {
-            Log.i(TAG, "File logger writing to " + logFile.path)
-        }
-        if (logFile.setReadable(true, false)) {
-            Log.i(TAG, "Debug run log read permission set")
+        Log.i(TAG, "Starting logger for " + logFile.path)
+        try {
+            val parentDir = logFile.parentFile!!
+            if (parentDir.isFile) {
+                // TODO Remove in a future version
+                Log.w(TAG, "Pre v1.4.8 logging, active, deleting $parentDir")
+                parentDir.delete()
+            }
+            logFile.parentFile!!.mkdirs()
+            if (logFile.createNewFile()) {
+                Log.i(TAG, "File logger writing to ${logFile.path}")
+            }
+            if (logFile.setReadable(true, false)) {
+                Log.i(TAG, "Debug run log read permission set")
+            }
+        } catch (e: IOException) {
+            Log.e(TAG, "Log writer failed to init log file", e)
+            e.printStackTrace()
         }
 
         try {

@@ -94,7 +94,7 @@ class RecorderService : Service2() {
                 if (it.isRecording) {
                     builder.apply {
                         setContentTitle(getString(R.string.debug_debuglog_recording_progress))
-                        setContentText("${it.currentLogPath?.path}")
+                        setContentText("${it.currentLogDir?.path}/")
                     }
                     notificationManager.notify(NOTIFICATION_ID, builder.build())
                 } else {

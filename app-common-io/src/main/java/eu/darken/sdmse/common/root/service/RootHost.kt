@@ -68,9 +68,8 @@ class RootHost(_args: List<String>) : HasSharedResource<Any>, BaseRootHost("$TAG
                 }
 
                 if (options.recorderPath != null && currentFileLogger == null) {
-                    val ogPath = options.recorderPath!!
-                    val newPath = ogPath.replace(".log", "_root.log")
-                    val logger = FileLogger(File(newPath)).also {
+                    val path = File(options.recorderPath!!, "root.log")
+                    val logger = FileLogger(path).also {
                         currentFileLogger = it
                         it.start()
                     }

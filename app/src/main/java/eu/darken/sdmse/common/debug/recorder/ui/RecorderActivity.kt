@@ -9,10 +9,13 @@ import android.text.format.Formatter
 import android.text.style.URLSpan
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
+import eu.darken.sdmse.common.lists.differ.update
+import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Activity2
 import eu.darken.sdmse.databinding.DebugRecorderActivityBinding
 
@@ -30,25 +33,24 @@ class RecorderActivity : Activity2() {
             return
         }
 
+        vm.errorEvents.observe2 { it.asErrorDialogBuilder(this).show() }
+
         ui = DebugRecorderActivityBinding.inflate(layoutInflater)
         setContentView(ui.root)
 
+        val adapter = LogFileAdapter()
+        ui.list.setupDefaults(adapter, verticalDividers = false)
+
         vm.state.observe2 { state ->
-            ui.loadingIndicator.isInvisible = !state.loading
+            ui.loadingIndicator.isGone = !state.loading
             ui.shareAction.isInvisible = state.loading
-
-            ui.recordingPath.text = state.normalPath?.path
-
-            if (state.normalSize != -1L) {
-                ui.recordingSize.text = Formatter.formatShortFileSize(this, state.normalSize)
+            ui.recordingPath.text = "${state.logDir.path}/"
+            ui.listCaption.apply {
+                isGone = state.loading
+                val sizeText = state.compressedSize?.let { Formatter.formatShortFileSize(this@RecorderActivity, it) }
+                text = "Log files ready (ZIP: $sizeText)"
             }
-            if (state.compressedSize != -1L) {
-                ui.recordingSizeCompressed.text = Formatter.formatShortFileSize(this, state.compressedSize)
-            }
-        }
-
-        vm.errorEvents.observe2 {
-            it.asErrorDialogBuilder(this).show()
+            adapter.update(state.logEntries)
         }
 
         ui.shareAction.setOnClickListener { vm.share() }

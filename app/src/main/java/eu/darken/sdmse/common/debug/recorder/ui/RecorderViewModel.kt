@@ -14,21 +14,10 @@ import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.compression.Zipper
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.DynamicStateFlow
-import eu.darken.sdmse.common.flow.combine
-import eu.darken.sdmse.common.flow.onError
-import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.uix.ViewModel3
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.plus
 import java.io.File
 import javax.inject.Inject
 
@@ -40,82 +29,42 @@ class RecorderViewModel @Inject constructor(
     private val webpageTool: WebpageTool,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val recordedPath = handle.get<String>(RecorderActivity.RECORD_PATH)!!
-    private val pathCache = MutableStateFlow(recordedPath)
+    private val recordedPath = File(handle.get<String>(RecorderActivity.RECORD_PATH)!!)
 
-    data class LogData(
-        val file: File,
-        val size: Long,
-    )
-
-    private val logObsDefault = pathCache
-        .map { File(it) }
-        .map { LogData(it, it.length()) }
-        .onEach { log(TAG) { "Base log: $it" } }
-        .catch { log(TAG, ERROR) { "Failed to get default log size: ${it.asLog()}" } }
-        .replayingShare(vmScope)
-
-    private val logObsAdb = pathCache
-        .map { File(it.replace(".log", "_adb.log")) }
-        .map { if (it.exists()) LogData(it, it.length()) else null }
-        .onEach { log(TAG) { "ADB log: $it" } }
-        .catch { log(TAG, ERROR) { "Failed to get ADB log size: ${it.asLog()}" } }
-        .replayingShare(vmScope)
-
-    private val logObsRoot = pathCache
-        .map { File(it.replace(".log", "_root.log")) }
-        .map { if (it.exists()) LogData(it, it.length()) else null }
-        .onEach { log(TAG) { "Root log: $it" } }
-        .catch { log(TAG, ERROR) { "Failed to get root log size: ${it.asLog()}" } }
-        .replayingShare(vmScope)
-
-    private val resultCacheCompressedObs = combine(
-        logObsDefault,
-        logObsAdb,
-        logObsRoot,
-    ) { default, adb, root ->
-        val zipContent = listOfNotNull(
-            default.file.path,
-            adb?.file?.path,
-            root?.file?.path
-        )
-        log(TAG) { "Compressing files: $zipContent" }
-        val zipFile = File("${default.file.path.dropLast(4)}.zip")
-        Zipper().zip(zipContent, zipFile.path)
-        zipFile to zipFile.length()
+    private val stater = DynamicStateFlow(TAG, vmScope) {
+        State(logDir = recordedPath)
     }
-        .catch { log(TAG, ERROR) { "Failed to compress log: ${it.asLog()}" } }
-        .replayingShare(vmScope + dispatcherProvider.IO)
-
-    private val stater = DynamicStateFlow(TAG, vmScope) { State() }
     val state = stater.asLiveData2()
 
     val shareEvent = SingleLiveEvent<Intent>()
 
     init {
-        logObsDefault
-            .onEach { (path, size) ->
-                stater.updateBlocking { copy(normalPath = path, normalSize = size) }
-            }
-            .launchInViewModel()
+        launch {
+            log(TAG) { "Getting log files in dir: $recordedPath" }
+            val logFiles = recordedPath.listFiles()!!
+            log(TAG) { "Found ${logFiles.size} logfiles: $logFiles" }
+            var entries = logFiles.map { LogFileAdapter.Entry.Item(path = it) }
+            stater.updateBlocking { copy(logEntries = entries) }
 
-        resultCacheCompressedObs
-            .onEach { (path, size) ->
-                stater.updateBlocking {
-                    copy(
-                        compressedPath = path,
-                        compressedSize = size,
-                        loading = false
-                    )
-                }
-            }
-            .onError { errorEvents.postValue(it) }
-            .launchInViewModel()
+            log(TAG) { "Determining log file size..." }
+            entries = entries.map { entry -> entry.copy(size = entry.path.length()) }.sortedByDescending { it.size }
+            stater.updateBlocking { copy(logEntries = entries) }
 
+            log(TAG) { "Compressing log files..." }
+            val zipFile = File(recordedPath.parentFile, "${recordedPath.name}.zip")
+            log(TAG) { "Writing zip file to $zipFile" }
+            Zipper().zip(
+                entries.map { it.path.path },
+                zipFile.path
+            )
+            val zippedSize = zipFile.length()
+            log(TAG) { "Zip file created ${zippedSize}B at $zipFile" }
+            stater.updateBlocking { copy(compressedFile = zipFile, compressedSize = zippedSize) }
+        }
     }
 
     fun share() = launch {
-        val (file, size) = resultCacheCompressedObs.first()
+        val file = stater.value().compressedFile ?: throw IllegalStateException("compressedFile is null")
 
         val intent = Intent(Intent.ACTION_SEND).apply {
             val uri = FileProvider.getUriForFile(
@@ -148,12 +97,14 @@ class RecorderViewModel @Inject constructor(
     }
 
     data class State(
-        val normalPath: File? = null,
-        val normalSize: Long = -1L,
-        val compressedPath: File? = null,
-        val compressedSize: Long = -1L,
-        val loading: Boolean = true
-    )
+        val logDir: File,
+        val logEntries: List<LogFileAdapter.Entry.Item> = emptyList(),
+        val compressedFile: File? = null,
+        val compressedSize: Long? = null
+    ) {
+        val loading: Boolean
+            get() = compressedSize == null
+    }
 
     companion object {
         private val TAG = logTag("Debug", "Recorder", "ViewModel")

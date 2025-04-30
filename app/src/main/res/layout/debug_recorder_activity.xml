@@ -13,53 +13,20 @@
         android:minWidth="320dp">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/label_path"
-            style="@style/TextAppearance.Material3.LabelMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textColor="?colorOnPrimaryContainer"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:text="Recorded file"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="HardcodedText" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/recording_path"
-            style="@style/TextAppearance.Material3.BodyMedium"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="?colorOnPrimaryContainer"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_path"
-            tools:text="/storage/emulated/0/Android/data/.../cache/log_files/some_log_file_123124.log" />
-
-        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/sensitive_info_warning"
             style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:textColor="?colorOnPrimaryContainer"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="@string/debug_debuglog_sensitive_information_message"
+            android:textColor="?colorOnPrimaryContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recording_path" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/privacy_policy_action"
@@ -67,79 +34,73 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textStyle="bold"
-            android:textColor="?colorOnPrimaryContainer"
+            android:padding="8dp"
             android:text="@string/settings_privacy_policy_label"
+            android:textColor="?colorOnPrimaryContainer"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sensitive_info_warning" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/label_size"
+            android:id="@+id/label_path"
             style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:textColor="?colorOnPrimaryContainer"
-            android:layout_marginEnd="32dp"
-            android:text="@string/debug_debuglog_size_label"
-            app:layout_constraintEnd_toStartOf="@+id/label_compressed_size"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/privacy_policy_action" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/recording_size"
-            style="@style/TextAppearance.Material3.BodyMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="?colorOnPrimaryContainer"
-            android:layout_marginEnd="32dp"
-            app:layout_constraintEnd_toStartOf="@+id/recording_size_compressed"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="@+id/label_size"
-            app:layout_constraintTop_toBottomOf="@+id/label_size"
-            tools:text="72 MB" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/label_compressed_size"
-            style="@style/TextAppearance.Material3.LabelMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textColor="?colorOnPrimaryContainer"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/debug_debuglog_size_compressed_label"
+            android:layout_marginRight="16dp"
+            android:text="Debug session path:"
+            android:textColor="?colorOnPrimaryContainer"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/label_size"
-            app:layout_constraintTop_toBottomOf="@+id/privacy_policy_action" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/privacy_policy_action"
+            tools:ignore="HardcodedText" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/recording_size_compressed"
-            style="@style/TextAppearance.Material3.BodyMedium"
+            android:id="@+id/recording_path"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:textColor="?colorOnPrimaryContainer"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_path"
+            tools:text="/storage/emulated/0/Android/data/eu.darken.sdmse/cache/debug/logs/eu.darken.sdmse_10407000_2025-04-30_16-46-47-867" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            app:layout_constraintBottom_toTopOf="@id/list_caption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recording_path" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/list_caption"
+            style="@style/TextAppearance.Material3.BodySmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="?colorOnPrimaryContainer"
-            app:layout_constraintEnd_toEndOf="@+id/label_compressed_size"
-            app:layout_constraintStart_toEndOf="@+id/recording_size"
-            app:layout_constraintTop_toBottomOf="@+id/label_compressed_size"
-            tools:text="745 KB" />
-
-        <androidx.core.widget.ContentLoadingProgressBar
-            android:id="@+id/loading_indicator"
-            style="@style/Widget.Material3.CircularProgressIndicator.Medium"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/share_action"
-            app:layout_constraintEnd_toEndOf="@+id/share_action"
-            app:layout_constraintStart_toStartOf="@+id/share_action"
-            app:layout_constraintTop_toTopOf="@+id/share_action" />
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintBottom_toTopOf="@id/cancel_action"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/list"
+            tools:text="Log files ready (zipped: 96,91KB)" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/cancel_action"
-            style="@style/Widget.Material3.Button.OutlinedButton"
+            style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -148,11 +109,11 @@
             android:text="@string/general_cancel_action"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recording_size_compressed" />
+            app:layout_constraintTop_toBottomOf="@id/list_caption" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/share_action"
-            style="@style/Widget.Material3.Button.TonalButton"
+            style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -160,10 +121,22 @@
             android:layout_marginBottom="16dp"
             android:text="@string/general_share_action"
             android:visibility="invisible"
-            tools:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:icon="@drawable/ic_email_onsurface"
+            app:layout_constraintBottom_toBottomOf="@id/cancel_action"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recording_size_compressed" />
+            app:layout_constraintTop_toTopOf="@id/cancel_action"
+            tools:visibility="visible" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/loading_indicator"
+            style="@style/Widget.Material3.CircularProgressIndicator.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="@+id/share_action"
+            app:layout_constraintEnd_toEndOf="@+id/share_action"
+            app:layout_constraintStart_toStartOf="@+id/share_action"
+            app:layout_constraintTop_toTopOf="@+id/share_action" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
