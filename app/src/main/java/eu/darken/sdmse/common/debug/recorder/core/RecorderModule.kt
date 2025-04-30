@@ -129,7 +129,12 @@ class RecorderModule @Inject constructor(
             .ofPattern("yyyy-MM-dd_HH-mm-ss-SSS")
             .withZone(ZoneId.systemDefault())
             .format(Instant.now())
-        return File(File(context.externalCacheDir, "debug/logs"), "${pkg}_${version}_${timestamp}")
+        @Suppress("SetWorldWritable", "SetWorldReadable")
+        return File(File(context.externalCacheDir, "debug/logs"), "${pkg}_${version}_${timestamp}").apply {
+            mkdirs()
+            if (setReadable(true, false)) log(TAG) { "Session dir is readable" }
+            if (setWritable(true, false)) log(TAG) { "Session dir is writeable" }
+        }
     }
 
     suspend fun startRecorder(): File {
