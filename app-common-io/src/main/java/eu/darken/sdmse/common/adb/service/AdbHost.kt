@@ -72,9 +72,8 @@ class AdbHost(
                 }
 
                 if (options.recorderPath != null && currentFileLogger == null) {
-                    val ogPath = options.recorderPath!!
-                    val newPath = ogPath.replace(".log", "_adb.log")
-                    val logger = FileLogger(File(newPath)).also {
+                    val path = File(options.recorderPath!!, "adb.log")
+                    val logger = FileLogger(path).also {
                         currentFileLogger = it
                         it.start()
                     }

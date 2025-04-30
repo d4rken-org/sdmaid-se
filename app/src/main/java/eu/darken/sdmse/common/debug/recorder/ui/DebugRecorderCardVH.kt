@@ -26,7 +26,7 @@ class DebugRecorderCardVH(parent: ViewGroup) :
             else R.string.support_debuglog_label
         )
         body.text = when {
-            item.state.isRecording -> item.state.currentLogPath?.path
+            item.state.isRecording -> item.state.currentLogDir?.let { it.path + "/" }
             else -> getString(R.string.support_debuglog_desc)
         }
         toggleRecordingAction.apply {

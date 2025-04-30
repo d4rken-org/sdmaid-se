@@ -34,6 +34,9 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import java.io.File
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -72,16 +75,15 @@ class RecorderModule @Inject constructor(
 
                 internalState.updateBlocking {
                     if (!isRecording && shouldRecord) {
-
-                        val logPath = debugSettings.recorderPath.value()?.let {
+                        val logDir = debugSettings.recorderPath.value()?.let {
                             log(TAG) { "Continuing existing log: $it" }
                             File(it)
-                        } ?: createRecordingFilePath().also {
-                            log(TAG) { "Starting new log: ${it.path}" }
+                        } ?: createRecordingDir().also {
+                            log(TAG) { "Starting new log: $it" }
                             debugSettings.recorderPath.value(it.path)
                         }
 
-                        val newRecorder = Recorder().apply { start(logPath) }
+                        val newRecorder = Recorder().apply { start(logDir) }
 
                         if (!triggerFile.exists()) triggerFile.createNewFile()
 
@@ -90,26 +92,26 @@ class RecorderModule @Inject constructor(
                         context.startServiceCompat(Intent(context, RecorderService::class.java))
 
                         copy(
-                            recorder = newRecorder
+                            recorder = newRecorder,
+                            currentLogDir = logDir,
                         )
                     } else if (!shouldRecord && isRecording) {
-                        val currentLog = recorder!!.path!!
-                        log(TAG) { "Stopping log recorder for: $currentLog" }
-                        recorder.stop()
+                        log(TAG) { "Stopping log recorder for: $currentLogDir" }
+                        recorder!!.stop()
 
                         debugSettings.recorderPath.value(null)
                         if (triggerFile.exists() && !triggerFile.delete()) {
                             log(TAG, ERROR) { "Failed to delete trigger file" }
                         }
 
-                        val intent = RecorderActivity.getLaunchIntent(context, currentLog.path).apply {
+                        val intent = RecorderActivity.getLaunchIntent(context, currentLogDir!!.path).apply {
                             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         }
                         context.startActivity(intent)
 
                         copy(
                             recorder = null,
-                            lastLogPath = currentLog
+                            lastLogDir = currentLogDir,
                         )
                     } else {
                         this
@@ -120,20 +122,25 @@ class RecorderModule @Inject constructor(
             .launchIn(appScope)
     }
 
-    private fun createRecordingFilePath() = File(
-        File(context.externalCacheDir, "debug/logs"),
-        "${BuildConfigWrap.APPLICATION_ID}_logfile_${System.currentTimeMillis()}.log"
-    )
+    private fun createRecordingDir(): File {
+        val pkg = BuildConfigWrap.APPLICATION_ID
+        val version = BuildConfigWrap.VERSION_CODE
+        val timestamp = DateTimeFormatter
+            .ofPattern("yyyy-MM-dd_HH-mm-ss-SSS")
+            .withZone(ZoneId.systemDefault())
+            .format(Instant.now())
+        return File(File(context.externalCacheDir, "debug/logs"), "${pkg}_${version}_${timestamp}")
+    }
 
     suspend fun startRecorder(): File {
         internalState.updateBlocking {
             copy(shouldRecord = true)
         }
-        return internalState.flow.filter { it.isRecording }.first().currentLogPath!!
+        return internalState.flow.filter { it.isRecording }.first().currentLogDir!!
     }
 
     suspend fun stopRecorder(): File? {
-        val currentPath = internalState.value().currentLogPath ?: return null
+        val currentPath = internalState.value().currentLogDir ?: return null
         internalState.updateBlocking {
             copy(shouldRecord = false)
         }
@@ -168,13 +175,11 @@ class RecorderModule @Inject constructor(
     data class State(
         val shouldRecord: Boolean = false,
         internal val recorder: Recorder? = null,
-        val lastLogPath: File? = null,
+        val currentLogDir: File? = null,
+        val lastLogDir: File? = null,
     ) {
         val isRecording: Boolean
             get() = recorder != null
-
-        val currentLogPath: File?
-            get() = recorder?.path
     }
 
     companion object {
