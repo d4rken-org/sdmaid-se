@@ -12,7 +12,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
-import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
+import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
 import eu.darken.sdmse.automation.core.common.crawl
@@ -75,7 +75,7 @@ class MIUISpecs @Inject constructor(
     private val miuiLabels: MIUILabels,
     private val aospLabels: AOSPLabels,
     private val deviceAdminManager: DeviceAdminManager,
-    private val onTheFlyLabler: OnTheFlyLabler,
+    private val storageEntryFinder: StorageEntryFinder,
     private val generalSettings: GeneralSettings,
     private val stepper: Stepper,
 ) : AppCleanerSpecGenerator {
@@ -159,14 +159,14 @@ class MIUISpecs @Inject constructor(
             val storageEntryLabels =
                 aospLabels.getStorageEntryDynamic() + aospLabels.getStorageEntryStatic(lang, script)
 
-            val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
+            val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
 
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Storage entry (settings plan)",
                 label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
                 nodeRecovery = defaultNodeRecovery(pkg),
-                nodeAction = defaultFindAndClick(predicate = storageFilter),
+                nodeAction = defaultFindAndClick(finder = storageFinder),
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }

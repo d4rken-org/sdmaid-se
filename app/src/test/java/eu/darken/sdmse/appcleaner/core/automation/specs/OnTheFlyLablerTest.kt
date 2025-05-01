@@ -35,19 +35,15 @@ class OnTheFlyLablerTest : BaseTest() {
         every { installId } returns InstallId("test.pkg".toPkgId(), UserHandle2(0))
     }
 
-    fun create(
-        labels: Set<String> = emptySet(),
+    suspend fun create(
         size: Long = 0,
         sizeTexts: Set<String> = emptySet(),
-    ): suspend (AccessibilityNodeInfo) -> Boolean {
-        val spy = spyk(OnTheFlyLabler(context, statsManager)).apply {
+    ): StorageEntryFinder {
+        val spy = spyk(StorageEntryFinder(context, statsManager)).apply {
             coEvery { determineTargetSize(testPkg) } returns size
             coEvery { generateTargetTexts(size) } returns sizeTexts
         }
-        return spy.getAOSPStorageFilter(
-            labels,
-            testPkg
-        )
+        return spy
     }
 
     fun node(
@@ -61,44 +57,18 @@ class OnTheFlyLablerTest : BaseTest() {
     }
 
     @Test
-    fun `no match on empty`() = runTest {
-        val matcher = create(
-            labels = setOf("Storage"),
-        )
-        matcher.invoke(
-            node(
-                text = "",
-                id = "android:id/title"
-            )
-        ) shouldBe false
-    }
-
-    @Test
-    fun `match on storage`() = runTest {
-        val matcher = create(
-            labels = setOf("Storage"),
-        )
-        matcher.invoke(
-            node(
-                "Storage",
-                id = "android:id/title"
-            )
-        ) shouldBe true
-    }
-
-    @Test
     fun `match via summary`() = runTest {
-        val matcher = create(
+        val finder = create(
             size = 79627776,
             sizeTexts = setOf("79.63 MB", "80 MB", "79,63 MB", "79.63 MB", "80 MB", "79,63 MB"),
         )
-        matcher.invoke(
+        finder.createSizeMatcher(testPkg)!!.invoke(
             node(
                 text = "80 MB interner Speicher belegt",
                 id = "android:id/summary"
             )
         ) shouldBe true
-        matcher.invoke(
+        finder.createSizeMatcher(testPkg)!!.invoke(
             node(
                 text = "Im internen Speicher, 80 MB belegt",
                 id = "android:id/summary"
@@ -108,17 +78,17 @@ class OnTheFlyLablerTest : BaseTest() {
 
     @Test
     fun `do not match partial numbers via summary`() = runTest {
-        val matcher = create(
+        val finder = create(
             size = 79627776,
             sizeTexts = setOf("79.63 MB", "80 MB", "79,63 MB", "79.63 MB", "80 MB", "79,63 MB"),
         )
-        matcher.invoke(
+        finder.createSizeMatcher(testPkg)!!.invoke(
             node(
                 text = "1.80 MB used since Jan 21",
                 id = "android:id/summary"
             )
         ) shouldBe false
-        matcher.invoke(
+        finder.createSizeMatcher(testPkg)!!.invoke(
             node(
                 text = "Used 1.80 MB since Jan 21",
                 id = "android:id/summary"

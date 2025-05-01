@@ -12,7 +12,6 @@ import eu.darken.sdmse.automation.core.common.scrollNode
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
-import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -125,9 +124,9 @@ suspend fun SpecGenerator.checkAppIdentifier(
 fun SpecGenerator.defaultFindAndClick(
     isDryRun: Boolean = false,
     maxNesting: Int = 6,
-    predicate: suspend (AccessibilityNodeInfo) -> Boolean,
+    finder: suspend StepContext.() -> AccessibilityNodeInfo?,
 ): suspend StepContext.() -> Boolean = action@{
-    val target = findNode { predicate(it) } ?: return@action false
+    val target = finder(this) ?: return@action false
     val mapped = findClickableParent(maxNesting = maxNesting, node = target) ?: return@action false
     clickNormal(isDryRun = isDryRun, mapped)
 }

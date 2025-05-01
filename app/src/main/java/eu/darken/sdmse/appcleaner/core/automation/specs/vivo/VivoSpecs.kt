@@ -8,7 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
-import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
+import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idContains
@@ -46,7 +46,7 @@ class VivoSpecs @Inject constructor(
     private val ipcFunnel: IPCFunnel,
     private val deviceDetective: DeviceDetective,
     private val vivoLabels: VivoLabels,
-    private val onTheFlyLabler: OnTheFlyLabler,
+    private val storageEntryFinder: StorageEntryFinder,
     private val generalSettings: GeneralSettings,
     private val stepper: Stepper,
 ) : AppCleanerSpecGenerator {
@@ -82,10 +82,10 @@ class VivoSpecs @Inject constructor(
                 vivoLabels.getStorageEntryDynamic() + vivoLabels.getStorageEntryStatic(lang, script)
             log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
-            val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
+            val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
 
             val action: suspend StepContext.() -> Boolean = action@{
-                val target = findNode { storageFilter(it) } ?: return@action false
+                val target = storageFinder() ?: return@action false
                 val mapped = findClickableParent(
                     maxNesting = when {
                         hasApiLevel(29) -> 4

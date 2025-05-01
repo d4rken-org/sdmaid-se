@@ -11,7 +11,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
-import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
+import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
 import eu.darken.sdmse.automation.core.common.crawl
@@ -74,7 +74,7 @@ class HyperOsSpecs @Inject constructor(
     private val hyperOsLabels: HyperOsLabels,
     private val aospLabels: AOSPLabels,
     private val deviceAdminManager: DeviceAdminManager,
-    private val onTheFlyLabler: OnTheFlyLabler,
+    private val storageEntryFinder: StorageEntryFinder,
     private val generalSettings: GeneralSettings,
     private val stepper: Stepper,
 ) : AppCleanerSpecGenerator {
@@ -157,14 +157,14 @@ class HyperOsSpecs @Inject constructor(
             val storageEntryLabels =
                 aospLabels.getStorageEntryDynamic() + aospLabels.getStorageEntryStatic(lang, script)
 
-            val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
+            val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
 
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Storage entry (settings plan)",
                 label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
                 nodeRecovery = defaultNodeRecovery(pkg),
-                nodeAction = defaultFindAndClick { storageFilter(it) },
+                nodeAction = defaultFindAndClick(finder = storageFinder),
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -251,9 +251,11 @@ class HyperOsSpecs @Inject constructor(
                 descriptionInternal = "Clear cache button (alternative security center plan)",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG_HYPEROS, ipcFunnel, pkg),
-                nodeAction = defaultFindAndClick {
-                    it.isTextView() && it.textMatchesAny(clearCacheLabels)
-                },
+                nodeAction = defaultFindAndClick(
+                    finder = {
+                        findNode { it.isTextView() && it.textMatchesAny(clearCacheLabels) }
+                    }
+                ),
             )
             stepper.withProgress(this) { process(this@plan, alternativeStep) }
         } else {

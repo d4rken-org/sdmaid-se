@@ -134,16 +134,21 @@ open class AndroidTVSpecs @Inject constructor(
 
             val buttonLabels = setOf(context.getString(android.R.string.ok))
 
-            val action = defaultFindAndClick(isDryRun = Bugs.isDryRun) { node ->
-                when {
-                    node.idMatches("com.android.tv.settings:id/guidedactions_item_content") -> true
-                    node.idMatches("com.android.tv.settings:id/guidedactions_item_title") -> {
-                        node.textMatchesAny(buttonLabels)
-                    }
+            val action = defaultFindAndClick(
+                isDryRun = Bugs.isDryRun,
+                finder = {
+                    findNode { node ->
+                        when {
+                            node.idMatches("com.android.tv.settings:id/guidedactions_item_content") -> true
+                            node.idMatches("com.android.tv.settings:id/guidedactions_item_title") -> {
+                                node.textMatchesAny(buttonLabels)
+                            }
 
-                    else -> false
+                            else -> false
+                        }
+                    }
                 }
-            }
+            )
 
             val step = AutomationStep(
                 source = TAG,

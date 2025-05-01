@@ -8,7 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
-import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
+import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.isClickyButton
@@ -42,7 +42,7 @@ class HuaweiSpecs @Inject constructor(
     private val ipcFunnel: IPCFunnel,
     private val deviceDetective: DeviceDetective,
     private val huaweiLabels: HuaweiLabels,
-    private val onTheFlyLabler: OnTheFlyLabler,
+    private val storageEntryFinder: StorageEntryFinder,
     private val generalSettings: GeneralSettings,
     private val stepper: Stepper,
 ) : AppCleanerSpecGenerator {
@@ -76,7 +76,7 @@ class HuaweiSpecs @Inject constructor(
                 huaweiLabels.getStorageEntryDynamic() + huaweiLabels.getStorageEntryLabels(lang, script)
             log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
-            val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
+            val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
 
             val step = AutomationStep(
                 source = tag,
@@ -85,7 +85,7 @@ class HuaweiSpecs @Inject constructor(
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeRecovery = defaultNodeRecovery(pkg),
-                nodeAction = defaultFindAndClick(maxNesting = 7, predicate = storageFilter),
+                nodeAction = defaultFindAndClick(maxNesting = 7, finder = storageFinder),
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
