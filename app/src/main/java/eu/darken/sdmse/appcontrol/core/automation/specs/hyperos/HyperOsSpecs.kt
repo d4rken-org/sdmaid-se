@@ -118,12 +118,16 @@ class HyperOsSpecs @Inject constructor(
                 root.crawl().map { it.node }.any { subNode -> subNode.textMatchesAny(titleLbl) }
             }
 
-            val action = defaultFindAndClick { node ->
-                when (Bugs.isDryRun) {
-                    true -> node.textMatchesAny(cancelLbl)
-                    false -> node.textMatchesAny(okLbl)
+            val action = defaultFindAndClick(
+                finder = {
+                    findNode { node ->
+                        when (Bugs.isDryRun) {
+                            true -> node.textMatchesAny(cancelLbl)
+                            false -> node.textMatchesAny(okLbl)
+                        }
+                    }
                 }
-            }
+            )
 
             val step = AutomationStep(
                 source = TAG,

@@ -65,6 +65,31 @@ class DebugTaskModule @AssistedInject constructor(
                 crawled.forEach { log(TAG, VERBOSE) { it.infoShort } }
                 updateProgressSecondary("Event: ${it.eventType} (depth: ${crawled.last().level})")
             }
+            .onEach {
+//                host.waitForWindowRoot().crawl()
+//                    .map { it.node }
+//                    .filter { it.textContainsAny(listOf("Storage")) }
+//                    .forEach { node ->
+//                        fun AccessibilityNodeInfo.getPanePosition(
+//                            margin: Int = 50
+//                        ): String {
+//                            val metrics = service.resources.displayMetrics
+//                            val screenMidX = metrics.widthPixels / 2
+//
+//                            val nodeBounds = Rect()
+//                            getBoundsInScreen(nodeBounds)
+//
+//                            return when {
+//                                nodeBounds.right < screenMidX - margin -> "left"
+//                                nodeBounds.left > screenMidX + margin -> "right"
+//                                else -> "full"
+//                            }
+//                        }
+//
+//                        val paneInfo = node.getPanePosition()
+//                        log(TAG) { "ACS-DEBUG: ${node.text} is $paneInfo" }
+//                    }
+            }
             .launchIn(moduleScope)
 
         eventJob.join()

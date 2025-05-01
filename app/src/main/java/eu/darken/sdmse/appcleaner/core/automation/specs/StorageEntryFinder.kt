@@ -2,15 +2,21 @@ package eu.darken.sdmse.appcleaner.core.automation.specs
 
 import android.app.usage.StorageStats
 import android.content.Context
+import android.graphics.Rect
 import android.text.format.Formatter
 import android.view.accessibility.AccessibilityNodeInfo
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.findParentOrNull
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.isTextView
+import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.textVariants
+import eu.darken.sdmse.automation.core.common.toStringShort
+import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -27,12 +33,12 @@ import javax.inject.Inject
 import kotlin.math.ln
 import kotlin.math.pow
 
-class OnTheFlyLabler @Inject constructor(
+class StorageEntryFinder @Inject constructor(
     @ApplicationContext private val context: Context,
     private val statsManager: StorageStatsManager2,
 ) {
-    private suspend fun createStorageEntryMatcher(pkg: Installed): ((AccessibilityNodeInfo) -> Boolean)? {
-        log(TAG) { "createStorageEntryMatcher(${pkg.installId} initialising..." }
+    internal suspend fun createSizeMatcher(pkg: Installed): ((AccessibilityNodeInfo) -> Boolean)? {
+        log(TAG) { "createSizeMatcher(${pkg.installId} initialising..." }
 
         val targetSize = determineTargetSize(pkg) ?: return null
         val targetTexts = generateTargetTexts(targetSize)
@@ -63,7 +69,7 @@ class OnTheFlyLabler @Inject constructor(
 
     internal suspend fun determineTargetSize(pkg: Installed): Long? {
         if (!Permission.PACKAGE_USAGE_STATS.isGranted(context)) {
-            log(TAG) { "createStorageEntryMatcher(...): Missing PACKAGE_USAGE_STATS" }
+            log(TAG) { "determineTargetSize(...): Missing PACKAGE_USAGE_STATS" }
             return null
         }
 
@@ -130,18 +136,13 @@ class OnTheFlyLabler @Inject constructor(
         return targetTexts
     }
 
-    fun getAOSPStorageFilter(
+    suspend fun storageFinderAOSP(
         labels: Collection<String>,
         pkg: Installed,
-    ): suspend (AccessibilityNodeInfo) -> Boolean {
-        var storageMatcher: ((AccessibilityNodeInfo) -> Boolean)? = null
+    ): suspend StepContext.() -> AccessibilityNodeInfo? = {
+        val matchStorage = createSizeMatcher(pkg) ?: { false }
 
-        val matchStorage: suspend ((AccessibilityNodeInfo) -> Boolean) = {
-            if (storageMatcher == null) storageMatcher = createStorageEntryMatcher(pkg)
-            storageMatcher?.invoke(it) ?: false
-        }
-
-        return when {
+        val storageFilter: (AccessibilityNodeInfo) -> Boolean = when {
             hasApiLevel(33) -> storageFilter@{ node ->
                 if (!node.isTextView()) return@storageFilter false
                 node.textMatchesAny(labels) || matchStorage(node)
@@ -149,31 +150,77 @@ class OnTheFlyLabler @Inject constructor(
 
             else -> storageFilter@{ node ->
                 if (!node.isTextView()) return@storageFilter false
-
-                val match = if (node.idContains("android:id/title")) {
+                if (node.idContains("android:id/title")) {
                     node.textMatchesAny(labels)
                 } else if (node.idContains("android:id/summary")) {
                     matchStorage(node)
                 } else {
                     false
                 }
-
-                // In some multipane layouts the "Storage" text can appear in the left menu pane
-                // If we find out that our matched node has the wrong parent, then it's a false positive
-                val isFalsePositive = node.findParentOrNull(
-                    // crawl():------6: className=android.widget.LinearLayout, text='null', isClickable=false, isEnabled=true, viewIdResourceName=com.android.settings:id/ll_landleft, pkgName=com.android.settings, identity=75f034b
-                    // crawl():----------------16: className=android.widget.TextView, text='Speicher', isClickable=false, isEnabled=true, viewIdResourceName=android:id/title, pkgName=com.android.settings, identity=8aa3292
-                    maxNesting = 11,
-                ) {
-                    // On a Lenovo M10 Plus we identify the panes
-                    // Left pane (main menu) has parent: com.android.settings:id/ll_landleft
-                    // Right pane (app setting details) has parent: com.android.settings:id/ll_landright
-                    //
-                    it.idContains("ll_landleft")
-                } != null
-
-                match && !isFalsePositive
             }
+        }
+
+        val matches = host.waitForWindowRoot().crawl()
+            .map { it.node }
+            .filter { storageFilter(it) }
+            .toList()
+        log(TAG, if (matches.size > 1) WARN else DEBUG) { "Got ${matches.size} matches" }
+        matches.forEachIndexed { index, nodeInfo -> log(TAG) { "#$index - ${nodeInfo.toStringShort()}" } }
+
+        val sanityChecked = matches.toMutableList()
+
+        // Siblings in storage entry
+        if (sanityChecked.size == 2) {
+            val first = sanityChecked[0]
+            val second = sanityChecked[1]
+            if (first.parent == second.parent) {
+                log(TAG, WARN) { "Double match on entry summary, removing summary: ${second.toStringShort()}" }
+                sanityChecked.remove(second)
+            }
+        }
+
+        // In some multipane layouts the "Storage" text can appear in the left menu pane
+        // If we find out that our matched node has the wrong parent, then it's a false positive
+        // crawl():------6: className=android.widget.LinearLayout, text='null', isClickable=false, isEnabled=true, viewIdResourceName=com.android.settings:id/ll_landleft, pkgName=com.android.settings, identity=75f034b
+        // crawl():----------------16: className=android.widget.TextView, text='Speicher', isClickable=false, isEnabled=true, viewIdResourceName=android:id/title, pkgName=com.android.settings, identity=8aa3292
+        // On a Lenovo M10 Plus we identify the panes
+        // Left pane (main menu) has parent: com.android.settings:id/ll_landleft
+        // Right pane (app setting details) has parent: com.android.settings:id/ll_landright
+        // Also see https://github.com/d4rken-org/sdmaid-se/issues/1720
+        sanityChecked.removeIf { node ->
+            if (matches.size < 2) return@removeIf false
+            val remove = node.findParentOrNull(maxNesting = 11) { parent ->
+                setOf("ll_landleft", "left_fragment").any { parent.idContains(it) }
+            } != null
+            if (remove) log(TAG, WARN) { "Removed false-positive left pane entry by ID: $node" }
+            remove
+        }
+
+        sanityChecked.removeIf { node ->
+            if (matches.size < 2) return@removeIf false
+            val remove = determinePane(node) == ACSNodePaneState.LEFT
+            if (remove) log(TAG, WARN) { "Removed false-positive left pane by position: $node" }
+            remove
+
+        }
+
+        sanityChecked.firstOrNull()
+    }
+
+    enum class ACSNodePaneState {
+        LEFT, RIGHT, FULL
+    }
+
+    private fun StepContext.determinePane(node: AccessibilityNodeInfo, margin: Int = 50): ACSNodePaneState {
+        val metrics = host.service.resources.displayMetrics
+        val screenMidX = metrics.widthPixels / 2
+
+        val nodeBounds = Rect().apply { node.getBoundsInScreen(this) }
+
+        return when {
+            nodeBounds.right < screenMidX - margin -> ACSNodePaneState.LEFT
+            nodeBounds.left > screenMidX + margin -> ACSNodePaneState.RIGHT
+            else -> ACSNodePaneState.FULL
         }
     }
 
@@ -186,6 +233,6 @@ class OnTheFlyLabler @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "OnTheFlyLabler")
+        val TAG: String = logTag("AppCleaner", "Automation", "StorageEntryFinder")
     }
 }

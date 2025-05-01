@@ -8,7 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
-import eu.darken.sdmse.appcleaner.core.automation.specs.OnTheFlyLabler
+import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.isClickyButton
@@ -48,7 +48,7 @@ class RealmeSpecs @Inject constructor(
     ipcFunnel: IPCFunnel,
     private val deviceDetective: DeviceDetective,
     private val realmeLabels: RealmeLabels,
-    private val onTheFlyLabler: OnTheFlyLabler,
+    private val storageEntryFinder: StorageEntryFinder,
     private val generalSettings: GeneralSettings,
     private val stepper: Stepper,
 ) : AppCleanerSpecGenerator {
@@ -85,7 +85,7 @@ class RealmeSpecs @Inject constructor(
                 realmeLabels.getStorageEntryDynamic() + realmeLabels.getStorageEntryLabels(lang, script)
             log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
-            val storageFilter = onTheFlyLabler.getAOSPStorageFilter(storageEntryLabels, pkg)
+            val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
 
             val step = AutomationStep(
                 source = TAG,
@@ -94,7 +94,7 @@ class RealmeSpecs @Inject constructor(
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeRecovery = defaultNodeRecovery(pkg),
-                nodeAction = defaultFindAndClick(predicate = storageFilter),
+                nodeAction = defaultFindAndClick(finder = storageFinder),
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
