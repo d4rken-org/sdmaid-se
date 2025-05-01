@@ -8,7 +8,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.common.findParentOrNull
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.isTextView
-import eu.darken.sdmse.automation.core.common.textContainsAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.textVariants
 import eu.darken.sdmse.common.debug.Bugs
@@ -35,6 +34,34 @@ class OnTheFlyLabler @Inject constructor(
     private suspend fun createStorageEntryMatcher(pkg: Installed): ((AccessibilityNodeInfo) -> Boolean)? {
         log(TAG) { "createStorageEntryMatcher(${pkg.installId} initialising..." }
 
+        val targetSize = determineTargetSize(pkg) ?: return null
+        val targetTexts = generateTargetTexts(targetSize)
+
+        log(TAG) {
+            val distinguisable = targetTexts.map { it.replace("\u00A0", "\\u00A0") }
+            "Loaded ${targetTexts.size} targets from $targetSize for ${pkg.installId}: $distinguisable"
+        }
+
+        return { node ->
+            // target needs to be either at index 0 or be preceeded by a space
+            // OK: "80 MB lorem ipsum", "lorem 80 MB ipsum"
+            // NOT OKAY: "1.80 MB lorem ipsum", "lorem 1.80 MB ipsum"
+            node.textVariants.any outer@{ candidate ->
+                targetTexts.any inner@{ target ->
+                    val index = candidate.indexOf(target)
+                    if (index == -1) return@inner false
+                    index == 0 || candidate.getOrNull(index - 1)?.isWhitespace() == true
+                }
+            }.also {
+                if (Bugs.isDebug) {
+                    if (it) log(TAG) { "Matched for $targetTexts on ${node.textVariants} from ${pkg.installId}" }
+                    else log(TAG, VERBOSE) { "Miss for $targetTexts on ${node.textVariants} from ${pkg.installId}" }
+                }
+            }
+        }
+    }
+
+    internal suspend fun determineTargetSize(pkg: Installed): Long? {
         if (!Permission.PACKAGE_USAGE_STATS.isGranted(context)) {
             log(TAG) { "createStorageEntryMatcher(...): Missing PACKAGE_USAGE_STATS" }
             return null
@@ -58,8 +85,10 @@ class OnTheFlyLabler @Inject constructor(
             return null
         }
 
-        val targetSize = stats1.appBytes + stats1.dataBytes
+        return stats1.appBytes + stats1.dataBytes
+    }
 
+    internal fun generateTargetTexts(targetSize: Long): Set<String> {
         val targetTexts = mutableSetOf<String>()
 
         // https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/packages/SettingsLib/SpaPrivileged/src/com/android/settingslib/spaprivileged/template/app/AppStorageSize.kt
@@ -98,20 +127,7 @@ class OnTheFlyLabler @Inject constructor(
             }
         }.forEach { targetTexts.addAll(it) }
 
-        log(TAG) {
-            val distinguisable = targetTexts.map { it.replace("\u00A0", "\\u00A0") }
-            "Loaded ${targetTexts.size} targets from $targetSize for ${pkg.installId}: $distinguisable"
-        }
-
-        return { node ->
-            node.textContainsAny(targetTexts).also {
-                if (Bugs.isDebug) {
-                    if (it) log(TAG) { "Matched for $targetTexts on ${node.textVariants} from ${pkg.installId}" }
-                    else log(TAG, VERBOSE) { "Miss for $targetTexts on ${node.textVariants} from ${pkg.installId}" }
-                }
-
-            }
-        }
+        return targetTexts
     }
 
     fun getAOSPStorageFilter(
