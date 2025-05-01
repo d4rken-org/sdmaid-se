@@ -13,6 +13,7 @@ import androidx.annotation.Keep
 import androidx.appcompat.view.ContextThemeWrapper
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.toStringShort
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
@@ -200,8 +201,6 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
         if (!automationProcessor.hasTask) return
 
-        if (Bugs.isTrace) log(TAG, VERBOSE) { "onAccessibilityEvent(eventType=${event.eventType})" }
-
         val eventCopy = if (hasApiLevel(30)) {
             @Suppress("NewApi")
             AccessibilityEvent(event)
@@ -213,6 +212,12 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
                 log(TAG, ERROR) { "Failed to obtain accessibility event copy $event" }
                 return
             }
+        }
+
+        if (Bugs.isDebug) {
+            log(TAG, VERBOSE) { "ACS-DEBUG -- START -- $eventCopy" }
+            rootInActiveWindow?.crawl()?.forEach { log(TAG, VERBOSE) { "ACS-DEBUG: ${it.infoShort}" } }
+            log(TAG, VERBOSE) { "ACS-DEBUG -- STOP -- -------------------------------------------------------------" }
         }
 
         // TODO use a queue here?

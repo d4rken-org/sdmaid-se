@@ -7,7 +7,7 @@ data class CrawledNode(
     val level: Int
 ) {
 
-    private val levelPrefix = "crawl():${INDENT.substring(0, level)}${level}"
+    private val levelPrefix = "${INDENT.substring(0, level)}${level}"
 
     val infoFull: String = "$levelPrefix: $node"
 
