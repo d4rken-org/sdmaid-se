@@ -6,9 +6,9 @@ Tiada yang sempurna dan itu termasuk Android.
 * Penyimpananmu mengumpulkan file dan folder yang tidak kamu kenali.
 * Foto-foto duplikat yang ada dalam galeri mu.
 
-Mari sudahi... Biarkan SD Maid2/SE membantu mu!
+Mari sudahi... Biarkan SD Maid 2/SE membantumu!
 
-SD Maid 2/SE adalah pengelola aplikasi dan file yang dapat mengetahui aplikasi apa yang telah membuat file-file tertentu di perangkat mu. SD Maid 2/SE mencari dan membandingkan file-file dengan aplikasi yang terpasang dan menawarkan pilihan untuk mengosongkan ruang penyimpanan dengan aman.
+SD Maid 2/SE adalah pengelola aplikasi dan file yang dapat mengetahui aplikasi apa yang telah membuat file-file tertentu di perangkatmu. SD Maid 2/SE mencari dan membandingkan file-file dengan aplikasi yang terpasang dan menawarkan pilihan untuk mengosongkan ruang penyimpanan dengan aman.
 
 ✨ Bersih-bersih setelah menghapus aplikasi
 Jika aplikasi membuat file diluar folder yang telah ditentukan, file-file tersebut akan tetap ada bahkan setelah aplikasi tersebut dihapus. Alat "PencariMayat" menemukan sisa-sisa aplikasi, memberi tahu aplikasi mana yang memilikinya, dan membantu Anda menghapusnya.
