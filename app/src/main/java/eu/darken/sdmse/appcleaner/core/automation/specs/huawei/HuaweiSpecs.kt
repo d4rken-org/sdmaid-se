@@ -10,7 +10,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
-import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
@@ -67,13 +66,9 @@ class HuaweiSpecs @Inject constructor(
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
-        val locale = getSysLocale()
-        val lang = locale.language
-        val script = locale.script
-
         run {
             val storageEntryLabels =
-                huaweiLabels.getStorageEntryDynamic() + huaweiLabels.getStorageEntryLabels(lang, script)
+                huaweiLabels.getStorageEntryDynamic(this) + huaweiLabels.getStorageEntryLabels(this)
             log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
@@ -92,7 +87,7 @@ class HuaweiSpecs @Inject constructor(
 
         run {
             val clearCacheButtonLabels =
-                huaweiLabels.getClearCacheDynamic() + huaweiLabels.getClearCacheLabels(lang, script)
+                huaweiLabels.getClearCacheDynamic(this) + huaweiLabels.getClearCacheLabels(this)
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             val step = AutomationStep(

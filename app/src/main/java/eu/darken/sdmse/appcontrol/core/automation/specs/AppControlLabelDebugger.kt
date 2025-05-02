@@ -1,11 +1,13 @@
 package eu.darken.sdmse.appcontrol.core.automation.specs
 
 import android.content.Context
+import android.content.res.Resources
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.common.AutomationLabelSource
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.isInstalled
+import eu.darken.sdmse.common.locale.toList
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 
@@ -19,8 +21,10 @@ class AppControlLabelDebugger @Inject constructor(
             .filter { context.isInstalled(it.name) }
             .forEach { pkgId ->
                 ALL_RES_IDS.forEach { resId ->
-                    val label = context.get3rdPartyString(pkgId, resId)
-                    log(TAG) { "$pkgId: '$resId' -> '$label'" }
+                    Resources.getSystem().configuration.locales.toList().forEach { locale ->
+                        val label = context.get3rdPartyString(pkgId, resId, locale)
+                        log(TAG) { "$pkgId: '$resId' -> '$label'" }
+                    }
                 }
             }
     }

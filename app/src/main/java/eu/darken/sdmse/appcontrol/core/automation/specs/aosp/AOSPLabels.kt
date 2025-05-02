@@ -1,35 +1,30 @@
 package eu.darken.sdmse.appcontrol.core.automation.specs.aosp
 
-import android.content.Context
 import dagger.Reusable
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlLabelSource
+import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 
 @Reusable
-class AOSPLabels @Inject constructor(
-    @ApplicationContext private val context: Context,
-) : AppControlLabelSource {
+class AOSPLabels @Inject constructor() : AppControlLabelSource {
 
-    fun getForceStopButtonDynamic(): Set<String> = setOf(
-        "force_stop",
-    ).getAsStringResources(context, SETTINGS_PKG)
+    fun getForceStopButtonDynamic(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("force_stop"))
 
-    fun getForceStopDialogTitleDynamic(): Set<String> = setOf(
-        "force_stop_dlg_title",
-    ).getAsStringResources(context, SETTINGS_PKG)
+    fun getForceStopDialogTitleDynamic(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("force_stop_dlg_title"))
 
-    fun getForceStopDialogOkDynamic(): Set<String> = setOf(
-        "okay",
-        "dlg_ok",
-    ).getAsStringResources(context, SETTINGS_PKG)
+    fun getForceStopDialogOkDynamic(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("okay", "dlg_ok"))
 
-    fun getForceStopDialogCancelDynamic(): Set<String> = setOf(
-        "cancel",
-        "dlg_cancel",
-    ).getAsStringResources(context, SETTINGS_PKG)
+    fun getForceStopDialogCancelDynamic(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("cancel", "dlg_cancel"))
 
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()

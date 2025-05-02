@@ -11,7 +11,6 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.crawl
-import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.pkgId
@@ -33,7 +32,6 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -78,12 +76,6 @@ class ColorOSSpecs @Inject constructor(
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
-        val locale = getSysLocale()
-        val lang = locale.language
-        val script = locale.script
-
-        log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
-
         run {
             /**
              * 13: className=android.widget.LinearLayout, text=null, isClickable=true, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings
@@ -97,7 +89,7 @@ class ColorOSSpecs @Inject constructor(
              */
 
             val storageEntryLabels =
-                colorOSLabels.getStorageEntryDynamic() + colorOSLabels.getStorageEntryLabels(lang, script)
+                colorOSLabels.getStorageEntryDynamic(this) + colorOSLabels.getStorageEntryLabels(this)
             log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
@@ -117,7 +109,7 @@ class ColorOSSpecs @Inject constructor(
 
         run {
             val clearCacheButtonLabels =
-                colorOSLabels.getClearCacheDynamic() + colorOSLabels.getClearCacheLabels(lang, script)
+                colorOSLabels.getClearCacheDynamic(this) + colorOSLabels.getClearCacheLabels(this)
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             val windowCheck = windowCheck { _, root ->

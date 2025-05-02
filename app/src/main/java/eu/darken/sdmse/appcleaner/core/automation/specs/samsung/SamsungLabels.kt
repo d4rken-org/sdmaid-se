@@ -2,7 +2,7 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.samsung
 
 import dagger.Reusable
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
-import eu.darken.sdmse.common.BuildWrap
+import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import javax.inject.Inject
@@ -13,28 +13,24 @@ open class SamsungLabels @Inject constructor(
     private val labels29Plus: SamsungLabels29Plus,
 ) : AppCleanerLabelSource {
 
-    fun getStorageEntryDynamic(): Set<String> = when {
-        hasApiLevel(29) -> labels29Plus.getStorageEntryDynamic()
-        hasApiLevel(14) -> labels14Plus.getStorageEntryDynamic()
-        else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
+    fun getStorageEntryDynamic(acsContext: AutomationExplorer.Context): Set<String> = when {
+        hasApiLevel(29) -> labels29Plus.getStorageEntryDynamic(acsContext)
+        else -> labels14Plus.getStorageEntryDynamic(acsContext)
     }
 
-    fun getStorageEntryLabels(lang: String, script: String): Set<String> = when {
-        hasApiLevel(29) -> labels29Plus.getStorageEntryLabels(lang, script)
-        hasApiLevel(14) -> labels14Plus.getStorageEntryLabels(lang, script)
-        else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
+    fun getStorageEntryLabels(acsContext: AutomationExplorer.Context): Set<String> = when {
+        hasApiLevel(29) -> labels29Plus.getStorageEntryLabels(acsContext)
+        else -> labels14Plus.getStorageEntryLabels(acsContext)
     }
 
-    fun getClearCacheDynamic(): Set<String> = when {
-        hasApiLevel(29) -> labels29Plus.getClearCacheDynamic()
-        hasApiLevel(14) -> labels14Plus.getClearCacheDynamic()
-        else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
+    fun getClearCacheDynamic(acsContext: AutomationExplorer.Context): Set<String> = when {
+        hasApiLevel(29) -> labels29Plus.getClearCacheDynamic(acsContext)
+        else -> labels14Plus.getClearCacheDynamic(acsContext)
     }
 
-    fun getClearCacheLabels(lang: String, script: String): Set<String> = when {
-        hasApiLevel(29) -> labels29Plus.getClearCacheLabels(lang, script)
-        hasApiLevel(14) -> labels14Plus.getClearCacheLabels(lang, script)
-        else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
+    fun getClearCacheLabels(acsContext: AutomationExplorer.Context): Set<String> = when {
+        hasApiLevel(29) -> labels29Plus.getClearCacheLabels(acsContext)
+        else -> labels14Plus.getClearCacheLabels(acsContext)
     }
 
     companion object {

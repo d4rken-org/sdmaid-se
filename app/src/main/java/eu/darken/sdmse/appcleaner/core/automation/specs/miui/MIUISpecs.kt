@@ -16,7 +16,6 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
 import eu.darken.sdmse.automation.core.common.crawl
-import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.isClickyButton
@@ -46,7 +45,6 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -151,13 +149,9 @@ class MIUISpecs @Inject constructor(
     private val settingsPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing AOSP settings plan for ${pkg.installId} with context $this" }
 
-        val locale = getSysLocale()
-        val lang = locale.language
-        val script = locale.script
-
         run {
             val storageEntryLabels =
-                aospLabels.getStorageEntryDynamic() + aospLabels.getStorageEntryStatic(lang, script)
+                aospLabels.getStorageEntryDynamic(this) + aospLabels.getStorageEntryStatic(this)
 
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
 
@@ -173,7 +167,7 @@ class MIUISpecs @Inject constructor(
 
         run {
             val clearCacheButtonLabels =
-                aospLabels.getClearCacheDynamic() + aospLabels.getClearCacheStatic(lang, script)
+                aospLabels.getClearCacheDynamic(this) + aospLabels.getClearCacheStatic(this)
 
             val step = AutomationStep(
                 source = TAG,
@@ -190,18 +184,12 @@ class MIUISpecs @Inject constructor(
     private val securityCenterPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing MIUI security center plan for ${pkg.installId} with context $this" }
 
-        val locale = getSysLocale()
-        val lang = locale.language
-        val script = locale.script
-        val country = locale.country
 
-        log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script, country=$country)" }
-
-        val clearDataLabels = miuiLabels.getClearDataButtonLabels(lang, script, country)
+        val clearDataLabels = miuiLabels.getClearDataButtonLabels(this)
         log(TAG) { "clearDataLabels=$clearDataLabels" }
-        val clearCacheLabels = miuiLabels.getClearCacheButtonLabels(lang, script, country)
+        val clearCacheLabels = miuiLabels.getClearCacheButtonLabels(this)
         log(TAG) { "clearCacheLabels=$clearCacheLabels" }
-        val dialogTitles = miuiLabels.getDialogTitles(lang, script, country)
+        val dialogTitles = miuiLabels.getDialogTitles(this)
         log(TAG) { "clearCacheLabels=$clearCacheLabels" }
 
         var useAlternativeStep = deviceAdminManager.getDeviceAdmins().contains(pkg.id).also {

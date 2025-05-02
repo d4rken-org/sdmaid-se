@@ -2,7 +2,7 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.vivo
 
 import dagger.Reusable
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
-import eu.darken.sdmse.common.BuildWrap
+import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import javax.inject.Inject
@@ -13,28 +13,24 @@ open class VivoLabels @Inject constructor(
     private val vivoLabels29Plus: VivoLabels29Plus,
 ) : AppCleanerLabelSource {
 
-    fun getStorageEntryDynamic(): Set<String> = when {
-        hasApiLevel(29) -> vivoLabels29Plus.getStorageEntryDynamic()
-        hasApiLevel(14) -> vivoLabels14Plus.getStorageEntryDynamic()
-        else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
+    fun getStorageEntryDynamic(acsContext: AutomationExplorer.Context): Set<String> = when {
+        hasApiLevel(29) -> vivoLabels29Plus.getStorageEntryDynamic(acsContext)
+        else -> vivoLabels14Plus.getStorageEntryDynamic(acsContext)
     }
 
-    fun getStorageEntryStatic(lang: String, script: String): Set<String> = when {
-        hasApiLevel(29) -> vivoLabels29Plus.getStorageEntryStatic(lang, script)
-        hasApiLevel(14) -> vivoLabels14Plus.getStorageEntryStatic(lang, script)
-        else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
+    fun getStorageEntryStatic(acsContext: AutomationExplorer.Context): Set<String> = when {
+        hasApiLevel(29) -> vivoLabels29Plus.getStorageEntryStatic(acsContext)
+        else -> vivoLabels14Plus.getStorageEntryStatic(acsContext)
     }
 
-    fun getClearCacheDynamic(): Set<String> = when {
-        hasApiLevel(29) -> vivoLabels29Plus.getClearCacheDynamic()
-        hasApiLevel(14) -> vivoLabels14Plus.getClearCacheDynamic()
-        else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
+    fun getClearCacheDynamic(acsContext: AutomationExplorer.Context): Set<String> = when {
+        hasApiLevel(29) -> vivoLabels29Plus.getClearCacheDynamic(acsContext)
+        else -> vivoLabels14Plus.getClearCacheDynamic(acsContext)
     }
 
-    fun getClearCacheStatic(lang: String, script: String): Set<String> = when {
-        hasApiLevel(29) -> vivoLabels29Plus.getClearCacheStatic(lang, script)
-        hasApiLevel(14) -> vivoLabels14Plus.getClearCacheStatic(lang, script)
-        else -> throw UnsupportedOperationException("Api level not supported: ${BuildWrap.VERSION.SDK_INT}")
+    fun getClearCacheStatic(acsContext: AutomationExplorer.Context): Set<String> = when {
+        hasApiLevel(29) -> vivoLabels29Plus.getClearCacheStatic(acsContext)
+        else -> vivoLabels14Plus.getClearCacheStatic(acsContext)
     }
 
     companion object {

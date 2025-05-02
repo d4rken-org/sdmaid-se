@@ -10,7 +10,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.alcatel.AlcatelSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.automation.core.common.crawl
-import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
@@ -30,7 +29,6 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -71,16 +69,10 @@ open class AndroidTVSpecs @Inject constructor(
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
-        val locale = getSysLocale()
-        val lang = locale.language
-        val script = locale.script
-
-        log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
-
         var wasDisabled = false
 
         run {
-            val forceStopLabels = tvLabels.getForceStopButtonDynamic()
+            val forceStopLabels = tvLabels.getForceStopButtonDynamic(this)
 
             val action: suspend StepContext.() -> Boolean = action@{
                 val target = findNode { it.textMatchesAny(forceStopLabels) } ?: return@action false
@@ -111,8 +103,8 @@ open class AndroidTVSpecs @Inject constructor(
         }
 
         run {
-            val okLbl = tvLabels.getForceStopDialogOkDynamic()
-            val cancelLbl = tvLabels.getForceStopDialogCancelDynamic()
+            val okLbl = tvLabels.getForceStopDialogOkDynamic(this)
+            val cancelLbl = tvLabels.getForceStopDialogCancelDynamic(this)
 
             val windowCheck = windowCheck { _, root ->
                 if (root.pkgId != SETTINGS_PKG) return@windowCheck false
