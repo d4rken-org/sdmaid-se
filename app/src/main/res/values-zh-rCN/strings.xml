@@ -4,7 +4,7 @@
     <string name="dashboard_settings_category">控制面板</string>
     <string name="dashboard_motd_title">来自开发者的消息</string>
     <string name="dashboard_settings_oneclick_title">一键模式</string>
-    <string name="dashboard_settings_oneclick_summary">通过控制面板上的操作按钮轻松开始扫描和删除所有工具，无需额外确认。</string>
+    <string name="dashboard_settings_oneclick_summary">通过控制面板上的操作按钮轻松地开始扫描和删除所有工具，无需额外确认。</string>
     <string name="dashboard_settings_oneclick_tools_title">一键式工具</string>
     <string name="dashboard_settings_oneclick_tools_desc">要将哪些工具添加至一键式操作？</string>
     <string name="debug_debuglog_size_label">大小</string>
@@ -33,7 +33,7 @@
     <string name="onboarding_welcome_continue_action">继续</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE（又名 SD Maid 2）是 SD Maid 的续作，是一款专门优化现代 Android 系统的全新应用。</string>
-    <string name="onboarding_versus_body2">它的前身架构已经超过 7 年了，不再适用于新版 Android 系统，所以采用全新设计迫在眉睫。</string>
+    <string name="onboarding_versus_body2">它的前身架构使用超过了 7 年，不再适用于新版 Android 系统，所以采用全新设计迫在眉睫。</string>
     <string name="onboarding_versus_body3">您可以考虑转用 SD Maid SE 以获得更好的效果。</string>
     <string name="onboarding_versus_body4">很不幸，SD Maid 1 的 “专业版授权” 无法转移到 SD Maid 2/SE。我们已经提供了 12 年的免费更新，请购买新的产品来维持我们的发展（以支持开发者）。</string>
     <string name="onboarding_versus_continue_action">继续</string>

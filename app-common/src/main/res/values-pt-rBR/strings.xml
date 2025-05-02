@@ -6,7 +6,7 @@
     <string name="slogan_message_2">Prevenindo o caos.</string>
     <string name="slogan_message_3">Fazendo o necessário.</string>
     <string name="slogan_message_5">Impecável.</string>
-    <string name="slogan_message_6">Bytes, desapareça!</string>
+    <string name="slogan_message_6">Bytes, desapareçam!</string>
     <string name="slogan_message_7">Espaço livre, lugar feliz.</string>
     <string name="slogan_message_8">Nunca vou desistir de você.</string>
     <string name="general_thank_you_label">Obrigado</string>
@@ -75,6 +75,10 @@
     <string name="general_tag_filter_label">Filtrar por tags</string>
     <string name="general_result_success_message">Operação bem sucedida</string>
     <string name="general_result_failure_message">Operação falhou</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s de espaço liberado.</item>
+        <item quantity="other">%s de espaço liberado.</item>
+    </plurals>
     <string name="general_options_label">Opções</string>
     <string name="general_details_label">Detalhes</string>
     <string name="general_view_action">Ver</string>
@@ -88,6 +92,10 @@
     <string name="general_delete_confirmation_title">Confirmar exclusão</string>
     <string name="general_delete_confirmation_message_x">Apagar \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Deletar %d itens selecionados?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d item excluído.</item>
+        <item quantity="other">%d itens excluídos.</item>
+    </plurals>
     <string name="general_remove_action">Remover</string>
     <string name="general_remove_selected_action">Remover selecionados</string>
     <plurals name="general_remove_success_x_items">
@@ -110,6 +118,10 @@
     <plurals name="result_x_failed">
         <item quantity="one">%d falhou</item>
         <item quantity="other">%d falharam</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s podem ser liberados</item>
+        <item quantity="other">%s podem ser liberados</item>
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Contar</string>

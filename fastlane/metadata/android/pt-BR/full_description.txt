@@ -2,7 +2,7 @@
 
 Ninguém é perfeito e nem o Android.
 * Os aplicativos que você já removeu deixam algo para trás.
-* Logs, crash reports e outros arquivos os quais você não quer que sejam constantemente criados.
+* Registros, relatórios de erro e outros arquivos que você não deseja estão sendo constantemente criados.
 * Seu armazenamento está coletando arquivos e pastas que você não reconhece.
 * Fotos duplicadas em sua galeria.
 
@@ -13,28 +13,28 @@ SD Maid 2/SE é um aplicativo e gerenciador de arquivos que se especializa em id
 ✨ Limpeza após desinstalar aplicativos
 Se os apps criarem arquivos fora de suas pastas designadas, então os arquivos poderão permanecer mesmo depois de desinstalar os apps. A ferramenta "CorpseFinder" encontra arquivos residuais de aplicativos, diz a que aplicativo pertencia e ajuda a excluí-los.
 
-🔍 Search your device the smart way
-Filtro para pastas vazias, arquivos temporários, apps já instalados e muito mais. You can even create your own search criteria. The "SystemCleaner" tool allows you to automatically search your device and delete files based on various criteria.
+🔍 Pesquise o seu dispositivo da maneira inteligente
+Filtro para pastas vazias, arquivos temporários, apps já instalados e muito mais. Você pode até criar seus próprios critérios de pesquisa. A ferramenta "Limpador do sistema" permite que você faça uma busca automática em seu dispositivo e exclua arquivos com base em vários critérios.
 
-🧹 Delete expendable files and hidden caches
-Thumbnails, trash bins, offline caches and more: If apps don't clean up after themselves, then this app will. The "AppCleaner" tool finds apps with expendable files.
+🧹 Exclua arquivos descartáveis ​​e caches ocultos
+Miniaturas, lixeiras, caches offline e muito mais: se os aplicativos não se limparem por eles mesmos, este aplicativo irá fazer o trabalho. A ferramenta "Limpador de aplicativos" encontra aplicativos com arquivos descartáveis.
 
-📦 Manage all of your apps
-Get a comprehensive list of all apps installed on your device. Enabled, disabled, user or system app: no app can hide from you. The "AppControl" tool is an app manager that allows you to search, sort and control your apps.
+📦 Gerencie todos os seus aplicativos
+Obtenha uma lista abrangente de todos os aplicativos instalados no seu dispositivo. Aplicativo ativado, desativado, do usuário ou do sistema: nenhum aplicativo poderá se esconder de você. A ferramenta "Gerenciamento de aplicativos" é um gerenciador de aplicativos que permite pesquisar, classificar e controlar seus aplicativos.
 
-📊 What is using all your space
-Storage management can be complex with apps, media, system, and other files across phone storage, SD cards, and USB devices. "StorageAnalyzer" is a file manager that displays how space is used on your device, simplifying your storage management.
+📊 O que está ocupando todo o seu espaço
+O gerenciamento de armazenamento pode ser complexo com aplicativos, mídia, sistema e outros arquivos no armazenamento do celular, cartões SD e dispositivos USB. "Analisador de armazenamento" é um gerenciador de arquivos que exibe como o espaço está sendo usado em seu dispositivo, simplificando o gerenciamento do armazenamento.
 
-📷 Find duplicate data
-Duplicate downloads, photos sent through social media or just similar pictures of the same scene: Over time copies can accumulate. The "Deduplicator" tool finds files that are exactly the same or similar and helps you delete extra copies.
+📷 Encontre dados duplicados
+Downloads duplicados, fotos enviadas em redes sociais ou apenas fotos semelhantes do mesmo cenário: com o tempo, as cópias podem se acumular. A ferramenta "Desduplicador" encontra arquivos exatamente iguais ou semelhantes e ajuda você a excluir as cópias extras.
 
-This app is ad-free. Alguns recursos exigem uma atualização paga.
+Este aplicativo não contém anúncios. Alguns recursos exigem uma atualização paga.
 
 O SD Maid 2/SE é o sucessor do SD Maid 1/Legacy.
 Otimizado para versões mais recentes do Android e focado na limpeza.
 
-This app has optional features that utilize the AccessibilityService API to automate tedious actions.
-Using the AccessibilityService API, this app can click buttons for you to perform operations on multiple apps, e.g. excluindo caches.
-This app does not use the AccessibilityService API to collect information.
+O SD Maid possui recursos opcionais que utilizam a API AccessibilityService para automatizar ações tediosas.
+Usando a API de Serviço de Acessibilidade, este aplicativo pode clicar em botões para você executar operações em vários aplicativos, como, por exemplo excluindo caches.
+Este aplicativo não usa a API do Serviço de Acessibilidade para coletar informações.
 
-SD Maid 2/SE is a File Manager & Cleaner App.
+O SD Maid 2/SE é um Gerenciador de Arquivos e um Limpador de Aplicativos.
