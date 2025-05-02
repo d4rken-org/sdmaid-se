@@ -291,7 +291,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             updateOverlay(visible = newOptions.showOverlay, passthrough = newOptions.passthrough)
         }
 
-        delay(80) // approx ~3 frames
+        delay(200)
         log(TAG, VERBOSE) { "changeOptions(): Updating new hostState" }
         currentOptions = newOptions
         hostState.update {
