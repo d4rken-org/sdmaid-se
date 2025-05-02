@@ -9,7 +9,6 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.automation.core.common.crawl
-import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
@@ -29,7 +28,6 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -70,13 +68,7 @@ class AOSPSpecs @Inject constructor(
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
-        val locale = getSysLocale()
-        val lang = locale.language
-        val script = locale.script
-
-        log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
-
-        val forceStopLabels = aospLabels.getForceStopButtonDynamic()
+        val forceStopLabels = aospLabels.getForceStopButtonDynamic(this)
         var wasDisabled = false
 
         run {
@@ -113,9 +105,9 @@ class AOSPSpecs @Inject constructor(
         }
 
         run {
-            val titleLbl = aospLabels.getForceStopDialogTitleDynamic() + forceStopLabels.map { "$it?" }
-            val okLbl = aospLabels.getForceStopDialogOkDynamic()
-            val cancelLbl = aospLabels.getForceStopDialogCancelDynamic()
+            val titleLbl = aospLabels.getForceStopDialogTitleDynamic(this) + forceStopLabels.map { "$it?" }
+            val okLbl = aospLabels.getForceStopDialogOkDynamic(this)
+            val cancelLbl = aospLabels.getForceStopDialogCancelDynamic(this)
 
             val windowCheck = windowCheck { _, root ->
                 if (root.pkgId != SETTINGS_PKG) return@windowCheck false

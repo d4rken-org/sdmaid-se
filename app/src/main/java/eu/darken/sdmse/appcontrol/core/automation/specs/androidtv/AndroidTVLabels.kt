@@ -1,36 +1,33 @@
 package eu.darken.sdmse.appcontrol.core.automation.specs.androidtv
 
-import android.content.Context
 import dagger.Reusable
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlLabelSource
+import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 
 @Reusable
-open class AndroidTVLabels @Inject constructor(
-    @ApplicationContext private val context: Context,
-) : AppControlLabelSource {
+open class AndroidTVLabels @Inject constructor() : AppControlLabelSource {
 
-    fun getForceStopButtonDynamic(): Set<String> = setOf(
-        "device_apps_app_management_force_stop",
-    ).getAsStringResources(context, AndroidTVSpecs.SETTINGS_PKG)
+    fun getForceStopButtonDynamic(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("device_apps_app_management_force_stop"))
 
-    fun getForceStopDialogText(): Set<String> = setOf(
-        "device_apps_app_management_force_stop_desc",
-    ).getAsStringResources(context, AndroidTVSpecs.SETTINGS_PKG)
+    fun getForceStopDialogText(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("device_apps_app_management_force_stop_desc"))
 
-    fun getForceStopDialogOkDynamic(): Set<String> = setOf(
-        "okay",
-        "dlg_ok",
-    ).getAsStringResources(context, AndroidTVSpecs.SETTINGS_PKG)
+    fun getForceStopDialogOkDynamic(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("okay", "dlg_ok"))
 
-    fun getForceStopDialogCancelDynamic(): Set<String> = setOf(
-        "cancel",
-        "dlg_cancel",
-    ).getAsStringResources(context, AndroidTVSpecs.SETTINGS_PKG)
+    fun getForceStopDialogCancelDynamic(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("cancel", "dlg_cancel"))
 
     companion object {
+        val SETTINGS_PKG = "com.android.tv.settings".toPkgId()
         val TAG: String = logTag("AppControl", "Automation", "AndroidTV", "Specs")
     }
 }

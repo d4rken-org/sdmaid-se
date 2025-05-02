@@ -1,10 +1,10 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.huawei
 
-import android.content.Context
 import dagger.Reusable
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
+import eu.darken.sdmse.automation.core.specs.AutomationExplorer
+import eu.darken.sdmse.automation.core.specs.getLocales
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -12,64 +12,77 @@ import javax.inject.Inject
 @Suppress("IntroduceWhenSubject")
 @Reusable
 class HuaweiLabels @Inject constructor(
-    @ApplicationContext private val context: Context,
     private val aospLabels: AOSPLabels,
 ) : AppCleanerLabelSource {
 
 
-    fun getStorageEntryDynamic(): Set<String> = setOf(
-        "storage_settings"
-    ).getAsStringResources(context, SETTINGS_PKG)
+    fun getStorageEntryDynamic(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("storage_settings"))
 
-    fun getStorageEntryLabels(lang: String, script: String) = when {
-        "en".toLang() == lang -> setOf(
-            // https://github.com/d4rken/sdmaid-public/issues/3576
-            // HONOR/PCT-L29RU/HWPCT:10/HUAWEIPCT-L29/10.0.0.195C10:user/release-keys
-            "Storage"
-        ).tryPrepend { aospLabels.getStorageEntryStatic(lang, script) }
+    fun getStorageEntryLabels(acsContext: AutomationExplorer.Context) = acsContext.getLocales()
+        .map { it.language to it.script }
+        .mapNotNull { (lang, _) ->
+            when {
+                "en".toLang() == lang -> setOf(
+                    // https://github.com/d4rken/sdmaid-public/issues/3576
+                    // HONOR/PCT-L29RU/HWPCT:10/HUAWEIPCT-L29/10.0.0.195C10:user/release-keys
+                    "Storage"
+                )
 
-        "ru".toLang() == lang -> setOf(
-            // https://github.com/d4rken/sdmaid-public/issues/3576
-            // HONOR/PCT-L29RU/HWPCT:10/HUAWEIPCT-L29/10.0.0.195C10:user/release-keys
-            "Память"
-        ).tryPrepend { aospLabels.getStorageEntryStatic(lang, script) }
+                "ru".toLang() == lang -> setOf(
+                    // https://github.com/d4rken/sdmaid-public/issues/3576
+                    // HONOR/PCT-L29RU/HWPCT:10/HUAWEIPCT-L29/10.0.0.195C10:user/release-keys
+                    "Память"
+                )
 
-        "de".toLang() == lang -> setOf(
-            // HUAWEI/VOG-L29EEA/HWVOG:10/HUAWEIVOG-L29/10.0.0.168C431:user/release-keys
-            "Speicher"
-        )
+                "de".toLang() == lang -> setOf(
+                    // HUAWEI/VOG-L29EEA/HWVOG:10/HUAWEIVOG-L29/10.0.0.168C431:user/release-keys
+                    "Speicher"
+                )
 
-        "pl".toLang() == lang -> setOf(
-            // HUAWEI/VOG-L29EEA/HWVOG:10/HUAWEIVOG-L29/10.0.0.178C431:user/release-keys
-            "Pamięć"
-        )
+                "pl".toLang() == lang -> setOf(
+                    // HUAWEI/VOG-L29EEA/HWVOG:10/HUAWEIVOG-L29/10.0.0.178C431:user/release-keys
+                    "Pamięć"
+                )
 
-        "it".toLang() == lang -> setOf(
-            "Spazio di archiviazione e cache",
-            // HONOR/JSN-L21/HWJSN-H:10/HONORJSN-L21/10.0.0.175C432:user/release-keys
-            "Memoria"
-        )
+                "it".toLang() == lang -> setOf(
+                    "Spazio di archiviazione e cache",
+                    // HONOR/JSN-L21/HWJSN-H:10/HONORJSN-L21/10.0.0.175C432:user/release-keys
+                    "Memoria"
+                )
 
-        "ca".toLang() == lang -> setOf(
-            // EMUI 11 (Android 10) [Huawei Mate 20 Pro]
-            "Emmagatzematge"
-        )
+                "ca".toLang() == lang -> setOf(
+                    // EMUI 11 (Android 10) [Huawei Mate 20 Pro]
+                    "Emmagatzematge"
+                )
 
-        else -> emptySet()
-    }.tryAppend { aospLabels.getStorageEntryStatic(lang, script) }
+                else -> null
+            }
+        }
+        .flatten()
+        .append { aospLabels.getStorageEntryStatic(acsContext) }
+        .toSet()
 
-    fun getClearCacheDynamic(): Set<String> = setOf(
-        "clear_cache_btn_text"
-    ).getAsStringResources(context, SETTINGS_PKG)
+    fun getClearCacheDynamic(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("clear_cache_btn_text"))
 
-    fun getClearCacheLabels(lang: String, script: String): Collection<String> = when {
-        "ca".toLang() == lang -> setOf(
-            // EMUI 11 (Android 10) [Huawei Mate 20 Pro]
-            "Esborrar la memòria cau"
-        )
+    fun getClearCacheLabels(acsContext: AutomationExplorer.Context): Collection<String> = acsContext.getLocales()
+        .map { it.language to it.script }
+        .mapNotNull { (lang, _) ->
+            when {
+                "ca".toLang() == lang -> setOf(
+                    // EMUI 11 (Android 10) [Huawei Mate 20 Pro]
+                    "Esborrar la memòria cau"
+                )
 
-        else -> emptySet()
-    }.tryAppend { aospLabels.getClearCacheStatic(lang, script) }
+                else -> null
+            }
+        }
+        .flatten()
+        .append { aospLabels.getClearCacheStatic(acsContext) }
+        .toSet()
 
     companion object {
         val TAG: String = logTag("AppCleaner", "Automation", "Huawei", "Labels")

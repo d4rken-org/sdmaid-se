@@ -10,7 +10,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
-import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
@@ -25,7 +24,6 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -67,15 +65,9 @@ class SamsungSpecs @Inject constructor(
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
-        val locale = getSysLocale()
-        val lang = locale.language
-        val script = locale.script
-
-        log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
-
         run {
             val storageEntryLabels =
-                samsungLabels.getStorageEntryDynamic() + samsungLabels.getStorageEntryLabels(lang, script)
+                samsungLabels.getStorageEntryDynamic(this) + samsungLabels.getStorageEntryLabels(this)
             log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
@@ -94,7 +86,7 @@ class SamsungSpecs @Inject constructor(
 
         run {
             val clearCacheButtonLabels =
-                samsungLabels.getClearCacheDynamic() + samsungLabels.getClearCacheLabels(lang, script)
+                samsungLabels.getClearCacheDynamic(this) + samsungLabels.getClearCacheLabels(this)
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             val step = AutomationStep(

@@ -12,7 +12,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.crawl
-import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.scrollNode
@@ -32,7 +31,6 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -75,14 +73,8 @@ open class AndroidTVSpecs @Inject constructor(
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
-        val locale = getSysLocale()
-        val lang = locale.language
-        val script = locale.script
-
-        log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
-
         run {
-            val clearCacheButtonLabels = androidTVLabels.getClearCacheLabels(lang, script)
+            val clearCacheButtonLabels = androidTVLabels.getClearCacheLabels(this)
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             if (clearCacheButtonLabels.isEmpty()) {
@@ -112,10 +104,10 @@ open class AndroidTVSpecs @Inject constructor(
         }
 
         run {
-            val clearCacheTexts = androidTVLabels.getClearCacheLabels(lang, script)
+            val clearCacheTexts = androidTVLabels.getClearCacheLabels(this)
             log(TAG) { "clearCacheTexts=$clearCacheTexts" }
 
-            val windowCheck = windowCheck { event, root ->
+            val windowCheck = windowCheck { _, root ->
                 if (root.pkgId != SETTINGS_PKG) return@windowCheck false
                 root.crawl().map { it.node }.any { subNode ->
                     when {

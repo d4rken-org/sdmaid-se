@@ -10,7 +10,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
-import eu.darken.sdmse.automation.core.common.getSysLocale
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
@@ -28,7 +27,6 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -71,15 +69,9 @@ class OnePlusSpecs @Inject constructor(
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
-        val locale = getSysLocale()
-        val lang = locale.language
-        val script = locale.script
-
-        log(VERBOSE) { "Getting specs for ${pkg.packageName} (lang=$lang, script=$script)" }
-
         run {
             val storageEntryLabels =
-                onePlusLabels.getStorageEntryDynamic() + onePlusLabels.getStorageEntryLabels(lang, script)
+                onePlusLabels.getStorageEntryDynamic(this) + onePlusLabels.getStorageEntryLabels(this)
             log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
@@ -98,7 +90,7 @@ class OnePlusSpecs @Inject constructor(
 
         run {
             val clearCacheButtonLabels =
-                onePlusLabels.getClearCacheDynamic() + onePlusLabels.getClearCacheStatic(lang, script)
+                onePlusLabels.getClearCacheDynamic(this) + onePlusLabels.getClearCacheStatic(this)
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
 
             val action: suspend StepContext.() -> Boolean = action@{
