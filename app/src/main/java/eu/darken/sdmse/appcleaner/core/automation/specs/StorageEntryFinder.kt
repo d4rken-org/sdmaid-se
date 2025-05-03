@@ -164,9 +164,9 @@ class StorageEntryFinder @Inject constructor(
             .map { it.node }
             .filter { storageFilter(it) }
             .toMutableList()
+
         log(TAG, if (matches.size > 1) WARN else DEBUG) { "Got ${matches.size} matches" }
         matches.forEachIndexed { index, nodeInfo -> log(TAG) { "#$index - ${nodeInfo.toStringShort()}" } }
-
 
         // Siblings in storage entry
         if (matches.size == 2) {
@@ -180,16 +180,19 @@ class StorageEntryFinder @Inject constructor(
 
         // In some multipane layouts the "Storage" text can appear in the left menu pane
         // If we find out that our matched node has the wrong parent, then it's a false positive
-        // crawl():------6: className=android.widget.LinearLayout, text='null', isClickable=false, isEnabled=true, viewIdResourceName=com.android.settings:id/ll_landleft, pkgName=com.android.settings, identity=75f034b
-        // crawl():----------------16: className=android.widget.TextView, text='Speicher', isClickable=false, isEnabled=true, viewIdResourceName=android:id/title, pkgName=com.android.settings, identity=8aa3292
-        // On a Lenovo M10 Plus we identify the panes
-        // Left pane (main menu) has parent: com.android.settings:id/ll_landleft
-        // Right pane (app setting details) has parent: com.android.settings:id/ll_landright
-        // Also see https://github.com/d4rken-org/sdmaid-se/issues/1720
         matches.removeIf { node ->
             if (matches.size < 2) return@removeIf false
             val remove = node.findParentOrNull(maxNesting = 11) { parent ->
-                setOf("ll_landleft", "left_fragment").any { parent.idContains(it) }
+                setOf(
+                    // crawl():------6: className=android.widget.LinearLayout, text='null', isClickable=false, isEnabled=true, viewIdResourceName=com.android.settings:id/ll_landleft, pkgName=com.android.settings, identity=75f034b
+                    // crawl():----------------16: className=android.widget.TextView, text='Speicher', isClickable=false, isEnabled=true, viewIdResourceName=android:id/title, pkgName=com.android.settings, identity=8aa3292
+                    // On a Lenovo M10 Plus we identify the panes
+                    // Left pane (main menu) has parent: com.android.settings:id/ll_landleft
+                    // Right pane (app setting details) has parent: com.android.settings:id/ll_landright
+                    "ll_landleft",
+                    // See https://github.com/d4rken-org/sdmaid-se/issues/1720
+                    "left_fragment"
+                ).any { parent.idContains(it) }
             } != null
             if (remove) log(TAG, WARN) { "Removed false-positive left pane entry by ID: $node" }
             remove
@@ -197,10 +200,12 @@ class StorageEntryFinder @Inject constructor(
 
         matches.removeIf { node ->
             if (matches.size < 2) return@removeIf false
-            val remove = determinePane(node) == ACSNodePaneState.LEFT
+            log(TAG) { "PanePosition: Checking $node" }
+            val gp = node.parent?.parent
+            log(TAG) { "PanePosition: Grand-Parent is $gp" }
+            val remove = gp?.let { determinePane(it) == ACSNodePaneState.LEFT } ?: false
             if (remove) log(TAG, WARN) { "Removed false-positive left pane by position: $node" }
             remove
-
         }
 
         matches.firstOrNull()
