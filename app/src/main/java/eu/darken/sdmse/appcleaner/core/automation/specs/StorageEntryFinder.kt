@@ -163,19 +163,18 @@ class StorageEntryFinder @Inject constructor(
         val matches = host.waitForWindowRoot().crawl()
             .map { it.node }
             .filter { storageFilter(it) }
-            .toList()
+            .toMutableList()
         log(TAG, if (matches.size > 1) WARN else DEBUG) { "Got ${matches.size} matches" }
         matches.forEachIndexed { index, nodeInfo -> log(TAG) { "#$index - ${nodeInfo.toStringShort()}" } }
 
-        val sanityChecked = matches.toMutableList()
 
         // Siblings in storage entry
-        if (sanityChecked.size == 2) {
-            val first = sanityChecked[0]
-            val second = sanityChecked[1]
+        if (matches.size == 2) {
+            val first = matches[0]
+            val second = matches[1]
             if (first.parent == second.parent) {
                 log(TAG, WARN) { "Double match on entry summary, removing summary: ${second.toStringShort()}" }
-                sanityChecked.remove(second)
+                matches.remove(second)
             }
         }
 
@@ -187,7 +186,7 @@ class StorageEntryFinder @Inject constructor(
         // Left pane (main menu) has parent: com.android.settings:id/ll_landleft
         // Right pane (app setting details) has parent: com.android.settings:id/ll_landright
         // Also see https://github.com/d4rken-org/sdmaid-se/issues/1720
-        sanityChecked.removeIf { node ->
+        matches.removeIf { node ->
             if (matches.size < 2) return@removeIf false
             val remove = node.findParentOrNull(maxNesting = 11) { parent ->
                 setOf("ll_landleft", "left_fragment").any { parent.idContains(it) }
@@ -196,7 +195,7 @@ class StorageEntryFinder @Inject constructor(
             remove
         }
 
-        sanityChecked.removeIf { node ->
+        matches.removeIf { node ->
             if (matches.size < 2) return@removeIf false
             val remove = determinePane(node) == ACSNodePaneState.LEFT
             if (remove) log(TAG, WARN) { "Removed false-positive left pane by position: $node" }
@@ -204,7 +203,7 @@ class StorageEntryFinder @Inject constructor(
 
         }
 
-        sanityChecked.firstOrNull()
+        matches.firstOrNull()
     }
 
     enum class ACSNodePaneState {
