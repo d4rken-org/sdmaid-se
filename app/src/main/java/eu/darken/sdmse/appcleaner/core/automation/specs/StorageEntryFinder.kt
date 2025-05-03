@@ -198,14 +198,21 @@ class StorageEntryFinder @Inject constructor(
             remove
         }
 
-        matches.removeIf { node ->
-            if (matches.size < 2) return@removeIf false
-            log(TAG) { "PanePosition: Checking $node" }
-            val gp = node.parent?.parent
-            log(TAG) { "PanePosition: Grand-Parent is $gp" }
-            val remove = gp?.let { determinePane(it) == ACSNodePaneState.LEFT } ?: false
-            if (remove) log(TAG, WARN) { "Removed false-positive left pane by position: $node" }
-            remove
+        val metrics = host.service.resources.displayMetrics
+        val widthDp = metrics.widthPixels / metrics.density
+        val isLargeScreen = widthDp >= 600
+        log(TAG) { "PanePosition: widthDp=$widthDp isLargeScreen=$isLargeScreen" }
+
+        if (isLargeScreen) {
+            matches.removeIf { node ->
+                if (matches.size < 2) return@removeIf false
+                log(TAG) { "PanePosition: Checking $node" }
+                val gp = node.parent?.parent
+                log(TAG) { "PanePosition: Grand-Parent is $gp" }
+                val remove = gp?.let { determinePane(it) == ACSNodePaneState.LEFT } ?: false
+                if (remove) log(TAG, WARN) { "Removed false-positive left pane by position: $node" }
+                remove
+            }
         }
 
         matches.firstOrNull()
