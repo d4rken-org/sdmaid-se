@@ -274,6 +274,7 @@ class HyperOsSpecs @Inject constructor(
                     .distinctUntilChanged()
                     .debounce(100)
                     .first()
+                log(TAG) { "Window has settled" }
                 host.waitForWindowRoot()
             }
 
