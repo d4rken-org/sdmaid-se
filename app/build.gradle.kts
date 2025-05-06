@@ -155,6 +155,12 @@ android {
     androidResources {
         generateLocaleConfig = true
     }
+
+    packaging {
+        resources {
+            excludes.add("attach_hotspot_windows.dll")
+        }
+    }
 }
 
 afterEvaluate {
