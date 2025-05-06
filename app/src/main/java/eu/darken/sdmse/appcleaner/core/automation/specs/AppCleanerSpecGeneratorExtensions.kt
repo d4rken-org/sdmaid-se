@@ -15,6 +15,7 @@ import eu.darken.sdmse.automation.core.errors.DisabledTargetException
 import eu.darken.sdmse.automation.core.specs.SpecGenerator
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -39,16 +40,16 @@ suspend fun StepContext.clickClearCache(
     return try {
         clickNormal(isDryRun = isDryRun, node)
     } catch (e: DisabledTargetException) {
-        log(tag) { "Can't click on the clear cache button because it was disabled, but why..." }
+        log(tag) { "Can't click on the clear cache button because it was disabled, but why... $e" }
         val allButtonsAreDisabled = try {
             node.getRoot(maxNesting = 4).crawl().map { it.node }.all { !it.isClickyButton() || !it.isEnabled }
         } catch (e: Exception) {
-            log(tag, WARN) { "Error while trying to determine why the clear cache button is not enabled." }
+            log(tag, WARN) { "Error while trying to determine why the clear cache button is not enabled: ${e.asLog()}" }
             false
         }
 
         when {
-            hasApiLevel(30) && pkg.isSystemApp && allButtonsAreDisabled -> {
+            hasApiLevel(30) && pkg.isSystemApp -> {
                 // https://github.com/d4rken-org/sdmaid-se/issues/1178
                 log(tag, WARN) { "Locked system app, can't click clear cache for ${pkg.installId}" }
                 throw LockedAppCacheException("Locked system app, can't clear cache: ${pkg.installId}")
