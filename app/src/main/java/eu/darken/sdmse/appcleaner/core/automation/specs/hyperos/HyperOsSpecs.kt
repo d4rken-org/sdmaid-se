@@ -10,6 +10,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.appcleaner.core.automation.errors.NoSettingsWindowException
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
@@ -101,7 +102,7 @@ class HyperOsSpecs @Inject constructor(
 
         val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
             if (stepAttempts >= 1 && pkg.hasNoSettings) {
-                throw PlanAbortException("${pkg.packageName} has no settings window.")
+                throw NoSettingsWindowException("${pkg.packageName} has no settings window.")
             }
             // Wait for correct base window
             host.events

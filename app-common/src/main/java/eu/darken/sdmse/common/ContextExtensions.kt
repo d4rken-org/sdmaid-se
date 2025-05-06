@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
-import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.util.TypedValue
 import androidx.annotation.AttrRes
@@ -61,10 +60,6 @@ fun Context.getQuantityString2(
 
 fun Context.openAsset(path: String): Source {
     return assets.open(path).source()
-}
-
-fun Context.getColorStateListFor(@ColorRes colorRes: Int): ColorStateList {
-    return ColorStateList.valueOf(ContextCompat.getColor(this, colorRes))
 }
 
 fun Context.isInstalled(pkgName: String) = try {

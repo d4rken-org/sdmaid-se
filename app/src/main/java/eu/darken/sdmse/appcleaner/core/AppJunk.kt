@@ -15,6 +15,7 @@ data class AppJunk(
     val userProfile: UserProfile2?,
     val expendables: Map<ExpendablesFilterIdentifier, Collection<ExpendablesFilter.Match>>?,
     val inaccessibleCache: InaccessibleCache?,
+    val acsError: Exception? = null,
 ) {
 
     val identifier: InstallId

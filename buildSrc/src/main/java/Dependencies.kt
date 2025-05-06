@@ -1,12 +1,23 @@
+import org.gradle.api.Action
 import org.gradle.api.artifacts.Dependency
+import org.gradle.api.artifacts.ExternalModuleDependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.DependencyHandlerScope
+import org.gradle.kotlin.dsl.accessors.runtime.addDependencyTo
+import org.gradle.kotlin.dsl.exclude
 
 private fun DependencyHandler.implementation(dependencyNotation: Any): Dependency? =
     add("implementation", dependencyNotation)
 
 private fun DependencyHandler.testImplementation(dependencyNotation: Any): Dependency? =
     add("testImplementation", dependencyNotation)
+
+private fun DependencyHandler.testImplementation(
+    dependencyNotation: String,
+    dependencyConfiguration: Action<ExternalModuleDependency>
+): ExternalModuleDependency = addDependencyTo(
+    this, "androidTestImplementation", dependencyNotation, dependencyConfiguration
+)
 
 private fun DependencyHandler.kapt(dependencyNotation: Any): Dependency? =
     add("kapt", dependencyNotation)
@@ -19,6 +30,13 @@ private fun DependencyHandler.kaptTest(dependencyNotation: Any): Dependency? =
 
 private fun DependencyHandler.androidTestImplementation(dependencyNotation: Any): Dependency? =
     add("androidTestImplementation", dependencyNotation)
+
+private fun DependencyHandler.androidTestImplementation(
+    dependencyNotation: String,
+    dependencyConfiguration: Action<ExternalModuleDependency>
+): ExternalModuleDependency = addDependencyTo(
+    this, "androidTestImplementation", dependencyNotation, dependencyConfiguration
+)
 
 private fun DependencyHandler.kaptAndroidTest(dependencyNotation: Any): Dependency? =
     add("kaptAndroidTest", dependencyNotation)
@@ -56,12 +74,14 @@ fun DependencyHandlerScope.addCoroutines() {
     implementation("org.jetbrains.kotlin:kotlin-reflect:${Versions.Kotlin.core}")
 
     testImplementation("org.jetbrains.kotlin:kotlin-reflect:${Versions.Kotlin.core}")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.coroutines}")
-    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.coroutines}")
-//    {
-//        // conflicts with mockito due to direct inclusion of byte buddy
-//        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-debug")
-//    }
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.coroutines}") {
+        // 2 files found with path 'win32-x86-64/attach_hotspot_windows.dll'
+        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-debug")
+    }
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.coroutines}") {
+        // 2 files found with path 'win32-x86-64/attach_hotspot_windows.dll'
+        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-debug")
+    }
 }
 
 fun DependencyHandlerScope.addCoil() {

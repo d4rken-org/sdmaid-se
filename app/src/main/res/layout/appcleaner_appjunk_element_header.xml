@@ -67,58 +67,74 @@
             app:layout_constraintTop_toBottomOf="@id/size_label"
             tools:text="120,78 MB" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/user_label"
-            style="@style/TextAppearance.Material3.LabelMedium"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/info_container"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/appcleaner_junk_userprofile_label"
-            android:visibility="gone"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/size_value"
-            tools:visibility="visible" />
+            app:layout_constraintTop_toBottomOf="@id/size_value">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/user_value"
-            style="@style/TextAppearance.Material3.BodyMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@id/user_label"
-            app:layout_constraintTop_toBottomOf="@id/user_label"
-            tools:text="Owner (0)"
-            tools:visibility="visible" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/user_label"
+                style="@style/TextAppearance.Material3.LabelSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/appcleaner_junk_userprofile_label"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/hints_label"
-            style="@style/TextAppearance.Material3.LabelMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/corpsefinder_corpse_hints_label"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/user_value"
-            tools:visibility="visible" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/user_value"
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                tools:text="Owner (0)"
+                tools:visibility="visible" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/hints_value"
-            style="@style/TextAppearance.Material3.BodyMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@id/hints_label"
-            app:layout_constraintTop_toBottomOf="@id/hints_label"
-            tools:text="Contains caches that can only be deleted via accessibility service."
-            tools:visibility="visible" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/hints_label"
+                style="@style/TextAppearance.Material3.LabelMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/corpsefinder_corpse_hints_label"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/action_barrier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="hints_value,size_value" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/hints_value"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                tools:text="Contains caches that can only be deleted via accessibility service."
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/error_label"
+                style="@style/TextAppearance.Material3.LabelMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/general_error_label"
+                android:textColor="?colorError"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/error_value"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="?colorError"
+                android:visibility="gone"
+                tools:text="@string/appcleaner_automation_error_no_settings_body"
+                tools:visibility="visible" />
+        </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/exclude_action"
@@ -133,7 +149,7 @@
             app:layout_constraintEnd_toStartOf="@id/delete_action"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/action_barrier" />
+            app:layout_constraintTop_toBottomOf="@id/info_container" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/delete_action"
@@ -150,7 +166,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/exclude_action"
-            app:layout_constraintTop_toBottomOf="@id/action_barrier" />
+            app:layout_constraintTop_toBottomOf="@id/info_container" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

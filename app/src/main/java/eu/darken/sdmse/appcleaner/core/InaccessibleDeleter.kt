@@ -111,12 +111,12 @@ class InaccessibleDeleter @Inject constructor(
         if (targets.isEmpty()) return InaccDelResult()
 
         val successTargets = mutableListOf<InstallId>()
-        val failedTargets = mutableListOf<InstallId>()
+        val failedTargets = mutableMapOf<InstallId, Exception>()
 
         if (adbManager.canUseAdbNow() && isAllApps) {
             val adbResult = trimCachesWithAdb(targets)
             successTargets.addAll(adbResult.succesful)
-            failedTargets.addAll(adbResult.failed)
+            failedTargets.putAll(adbResult.failed)
         }
 
         if (useAutomation && targets.size != successTargets.size) {
@@ -144,19 +144,19 @@ class InaccessibleDeleter @Inject constructor(
                 log(TAG, WARN) { "User has cancelled, forwarding live progress: $successFullLive" }
                 ClearCacheTask.Result(
                     successful = successFullLive,
-                    failed = emptySet(),
+                    failed = emptyMap(),
                 )
             }
 
             successTargets.addAll(result.successful)
-            failedTargets.addAll(result.failed)
+            failedTargets.putAll(result.failed)
         } else if (!useAutomation) {
             log(TAG, INFO) { "useAutomation=false" }
         }
 
         return InaccDelResult(
             succesful = successTargets.toSet(),
-            failed = failedTargets.toSet(),
+            failed = failedTargets,
         )
     }
 
@@ -169,7 +169,7 @@ class InaccessibleDeleter @Inject constructor(
         updateProgressCount(Progress.Count.Counter(trimCandidates.size))
 
         val successTargets = mutableSetOf<InstallId>()
-        val failedTargets = mutableSetOf<InstallId>()
+        val failedTargets = mutableMapOf<InstallId, Exception>()
 
         try {
             pkgOps.trimCaches(Long.MAX_VALUE)
@@ -224,12 +224,15 @@ class InaccessibleDeleter @Inject constructor(
                     successTargets.add(junk.identifier)
                 } else {
                     log(TAG, WARN) { "trimCache failed for ${junk.identifier}" }
-                    failedTargets.add(junk.identifier)
+                    failedTargets[junk.identifier] =
+                        IllegalStateException("trimCache failed, single:${junk.identifier}")
                 }
             }
         } catch (e: Exception) {
             log(TAG, ERROR) { "Trimming caches failed: ${e.asLog()}" }
-            failedTargets.addAll(trimCandidates.map { it.identifier })
+            trimCandidates.forEach {
+                failedTargets[it.identifier] = IllegalStateException("trimCache failed, multi:${it.identifier}")
+            }
         }
 
         return InaccDelResult(
@@ -240,7 +243,7 @@ class InaccessibleDeleter @Inject constructor(
 
     data class InaccDelResult(
         val succesful: Set<InstallId> = emptySet(),
-        val failed: Set<InstallId> = emptySet(),
+        val failed: Map<InstallId, Exception> = emptyMap(),
     )
 
     companion object {

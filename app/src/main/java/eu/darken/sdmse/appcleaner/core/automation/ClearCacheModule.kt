@@ -171,14 +171,14 @@ class ClearCacheModule @AssistedInject constructor(
 
     private data class ProcessedTask(
         val successful: Collection<InstallId>,
-        val failed: Collection<InstallId>,
+        val failed: Map<InstallId, Exception>,
         val cancelledByUser: Boolean,
         val timeoutCount: Int,
     )
 
     private suspend fun processTask(task: ClearCacheTask): ProcessedTask {
         val successful = mutableSetOf<InstallId>()
-        val failed = mutableSetOf<InstallId>()
+        val failed = mutableMapOf<InstallId, Exception>()
 
         updateProgressCount(Progress.Count.Percent(task.targets.size))
 
@@ -203,7 +203,7 @@ class ClearCacheModule @AssistedInject constructor(
 
             if (installed == null) {
                 log(TAG, WARN) { "$target is not in package repo" }
-                failed.add(target)
+                failed[target] = IllegalStateException("$target is not in package repo")
                 continue
             }
 
@@ -221,7 +221,7 @@ class ClearCacheModule @AssistedInject constructor(
                 throw e
             } catch (e: TimeoutCancellationException) {
                 log(TAG, WARN) { "Timeout while processing $installed" }
-                failed.add(target)
+                failed[target] = e
                 if (timeoutCount > 8 && successful.isEmpty()) break else timeoutCount++
             } catch (e: CancellationException) {
                 log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
@@ -241,7 +241,7 @@ class ClearCacheModule @AssistedInject constructor(
                     successful.add(target)
                 } else {
                     log(TAG, WARN) { "Failure for $target:\n${e.asLog()}" }
-                    failed.add(target)
+                    failed[target] = e
                 }
             } finally {
                 increaseProgress()

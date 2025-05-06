@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
+import eu.darken.sdmse.appcleaner.core.automation.errors.NoSettingsWindowException
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.scrollNode
@@ -13,7 +14,6 @@ import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -74,7 +74,7 @@ fun SpecGenerator.windowCheckDefaultSettings(
     pkgInfo: Installed
 ): suspend StepContext.() -> AccessibilityNodeInfo = {
     if (stepAttempts >= 1 && pkgInfo.hasNoSettings) {
-        throw PlanAbortException("${pkgInfo.packageName} has no settings window.")
+        throw NoSettingsWindowException("${pkgInfo.packageName} has no settings window.")
     }
     windowCheck { _, root ->
         root.pkgId == windowPkgId && checkAppIdentifier(ipcFunnel, pkgInfo)(root)
