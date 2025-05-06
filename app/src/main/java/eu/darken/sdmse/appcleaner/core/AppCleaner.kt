@@ -267,7 +267,8 @@ class AppCleaner @Inject constructor(
             emptyMap()
         }
 
-        val inaccessibleSuccesses = if (task.includeInaccessible) {
+
+        val acsResult = if (task.includeInaccessible) {
             inaccessibleDeleterProvider.get().withProgress(
                 this,
                 onCompletion = { it }
@@ -277,11 +278,9 @@ class AppCleaner @Inject constructor(
                     targetPkgs = task.targetPkgs,
                     useAutomation = task.useAutomation,
                     isBackground = task.isBackground
-                ).succesful
+                )
             }
-        } else {
-            emptySet()
-        }
+        } else null
 
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_filtering)
         updateProgressSecondary(CaString.EMPTY)
@@ -296,7 +295,7 @@ class AppCleaner @Inject constructor(
                 val deletedInaccessible = mutableSetOf<ExpendablesFilter.Match>()
 
                 val updatedExpendables = appJunk.expendables?.mapValues { (type, matches) ->
-                    if (type == DefaultCachesPublicFilter::class && inaccessibleSuccesses.contains(appJunk.identifier)) {
+                    if (type == DefaultCachesPublicFilter::class && acsResult?.succesful?.contains(appJunk.identifier) == true) {
                         // It's inaccessible caches were deleted, this included the default public caches
                         return@mapValues emptySet<ExpendablesFilter.Match>()
                     }
@@ -317,7 +316,7 @@ class AppCleaner @Inject constructor(
                 }?.filterValues { it.isNotEmpty() }
 
                 val updatedInaccessible = appJunk.inaccessibleCache?.let { inacc ->
-                    if (inaccessibleSuccesses.contains(appJunk.identifier)) {
+                    if (acsResult?.succesful?.contains(appJunk.identifier) == true) {
                         // Inaccessible were deleted, `expendables` should have been updated correctly by above code
                         deleted.addAll(inacc.theoreticalPaths)
                         return@let null
@@ -335,15 +334,16 @@ class AppCleaner @Inject constructor(
                 appJunk.copy(
                     expendables = updatedExpendables,
                     inaccessibleCache = updatedInaccessible,
+                    acsError = acsResult?.failed?.get(appJunk.identifier),
                 )
             }.filter { !it.isEmpty() }
         )
 
         // Force check via !! because we should not have ran automation for any junk without inaccessible data
-        val automationSize = inaccessibleSuccesses
-            .map { inaccessible -> snapshot.junks.single { it.identifier == inaccessible }.inaccessibleCache!! }
-            .sumOf { it.totalSize }
-
+        val automationSize = acsResult?.succesful
+            ?.map { inaccessible -> snapshot.junks.single { it.identifier == inaccessible }.inaccessibleCache!! }
+            ?.sumOf { it.totalSize }
+            ?: 0L
         return AppCleanerProcessingTask.Success(
             affectedSpace = accessibleDeletionMap.values.sumOf { contents -> contents.sumOf { it.expectedGain } } + automationSize,
             affectedPaths = deleted,

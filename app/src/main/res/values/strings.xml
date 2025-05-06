@@ -431,6 +431,10 @@
         <item quantity="other">Delete expendable files for %d selected apps?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Deleting caches by using Shizuku</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Clear cache unavailable</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">The system has disabled the "Clear cache" button for this app. Create an exclusion for this app.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Settings screen unavailable</string>
+    <string name="appcleaner_automation_error_no_settings_body">This system app has no settings screen. Cache clearing via accessibility service is not possible. Create an exclusion for this app.</string>
 
     <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">Find duplicate data on your device.</string>

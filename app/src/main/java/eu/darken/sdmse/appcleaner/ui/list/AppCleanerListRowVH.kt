@@ -1,5 +1,6 @@
 package eu.darken.sdmse.appcleaner.ui.list
 
+import android.content.res.ColorStateList
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.R
@@ -11,7 +12,6 @@ import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.common.ui.performClickWithRipple
 import eu.darken.sdmse.databinding.AppcleanerListItemBinding
-
 
 class AppCleanerListRowVH(parent: ViewGroup) :
     AppCleanerListAdapter.BaseVH<AppCleanerListRowVH.Item, AppcleanerListItemBinding>(
@@ -54,7 +54,19 @@ class AppCleanerListRowVH(parent: ViewGroup) :
         size.text = Formatter.formatShortFileSize(context, junk.size)
 
         root.setOnClickListener { item.onItemClicked(item) }
-        detailsAction.setOnClickListener { item.onDetailsClicked(item) }
+        detailsAction.apply {
+            setIconResource(
+                when {
+                    junk.acsError != null -> R.drawable.ic_folder_alert_24
+                    else -> R.drawable.ic_folder_info_24
+                }
+            )
+            iconTint = when {
+                junk.acsError != null -> ColorStateList.valueOf(getColorForAttr(androidx.appcompat.R.attr.colorError))
+                else -> ColorStateList.valueOf(getColorForAttr(com.google.android.material.R.attr.colorPrimaryFixed))
+            }
+            setOnClickListener { item.onDetailsClicked(item) }
+        }
     }
 
     data class Item(

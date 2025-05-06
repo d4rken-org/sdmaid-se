@@ -10,6 +10,7 @@ import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkElementsAdapter
 import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.error.localized
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.databinding.AppcleanerAppjunkElementHeaderBinding
@@ -56,6 +57,10 @@ class AppJunkElementHeaderVH(parent: ViewGroup) :
         hintsLabel.isGone = !hasHint
         hintsValue.isGone = !hasHint
         hintsValue.text = ""
+
+        errorLabel.isGone = junk.acsError == null
+        errorValue.isGone = junk.acsError == null
+        errorValue.text = junk.acsError?.localized(context)?.description?.get(context) ?: ""
 
         deleteAction.setOnClickListener { item.onDeleteAllClicked(item) }
         excludeAction.setOnClickListener { item.onExcludeClicked(item) }
