@@ -656,7 +656,7 @@
     <string name="translation_encourage_title">Μετάφραση του SD Maid</string>
     <string name="translation_encourage_body">Το SD Maid μεταφράστηκε απο εθελοντές. Η βοήθεια σας για μετάφραση, κριτική ή διόρθωση είναι ευπρόσδεκτη!</string>
     <string name="translation_translators_title">Αυτή η έκδοση μεταφράστηκε από</string>
-    <string name="translation_translators_people">Theodoros Asimakopoulos(theoasima@gmail.com);iplayradio;gogoboss_stampolidis;Vagelis1608;Nick Komninos, Retrial</string>
+    <string name="translation_translators_people">Theodoros;Asimakopoulos(theoasima@gmail.com);iplayradio;ggb_st;Vagelis1608;Nick Komninos;Retrial</string>
     <string name="motd_setting_enabled_label">Σημαντικά μηνύματα</string>
     <string name="motd_setting_enabled_explanation">Να επιτρέπεται στο SD Maid να ελέγχει για σημαντικά μηνύματα από τον προγραμματιστή.</string>
     <string name="updatecheck_setting_enabled_label">Έλεγχος ενημερώσεων</string>
