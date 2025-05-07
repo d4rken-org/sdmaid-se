@@ -15,6 +15,9 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
+import eu.darken.sdmse.automation.core.AutomationService
+import eu.darken.sdmse.automation.core.animation.AnimationState
+import eu.darken.sdmse.automation.core.animation.AnimationTool
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.idMatches
@@ -63,6 +66,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 
@@ -76,6 +80,7 @@ class HyperOsSpecs @Inject constructor(
     private val storageEntryFinder: StorageEntryFinder,
     private val generalSettings: GeneralSettings,
     private val stepper: Stepper,
+    private val animationTool: AnimationTool,
 ) : AppCleanerSpecGenerator {
 
     override val tag: String = TAG
@@ -247,7 +252,7 @@ class HyperOsSpecs @Inject constructor(
             )
             stepper.withProgress(this) { process(this@plan, alternativeStep) }
         } else {
-            // This may be skipped when MIUI just shows a 'Clear cache' option
+            // This may be skipped when HyperOS just shows a 'Clear cache' option
 
             // Clear data
             // -> Clear data
@@ -261,20 +266,29 @@ class HyperOsSpecs @Inject constructor(
                     if (root.pkgId != SETTINGS_PKG_HYPEROS) return@first false
                     root.crawl().map { it.node }.any { it.idContains("id/alertTitle") }
                 }
-                log(TAG) { "Got the right window, now waiting for dialog to settle..." }
+                log(TAG) { "Settling-Check:  Got the right window, now waiting for dialog to settle..." }
+                val noAnimations: Boolean = animationTool.getState() == AnimationState.DISABLED
+                if (noAnimations) log(TAG) { "Settling-Check: Animations are disabled, using short debounce." }
+
                 // Now we have to make sure the BottomSheetDialog animation is settled
-                host.events
+                val settledTargetPosition = host.events
                     .mapNotNull { host.windowRoot() }
                     .mapNotNull { root ->
+                        val rect = Rect()
+                        (host.service as AutomationService).windowRoot()?.getBoundsInScreen(rect)
+                        log(TAG) { "Settling-Check0: Window Root: $rect" }
                         root.crawl().map { it.node }.singleOrNull {
                             it.textMatchesAny(clearCacheLabels)
                         }
                     }
                     .map { Rect().apply { it.getBoundsInScreen(this) } }
+                    .onEach { log(TAG) { "Settling-Check1: $it" } }
                     .distinctUntilChanged()
-                    .debounce(100)
+                    .onEach { log(TAG) { "Settling-Check2: $it" } }
+                    .debounce(if (noAnimations) 100 else 500)
+                    .onEach { log(TAG) { "Settling-Check3: $it" } }
                     .first()
-                log(TAG) { "Window has settled" }
+                log(TAG) { "Settling-Check: Target has settled on $settledTargetPosition" }
                 host.waitForWindowRoot()
             }
 
