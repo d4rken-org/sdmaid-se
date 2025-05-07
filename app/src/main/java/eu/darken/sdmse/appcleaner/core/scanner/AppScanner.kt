@@ -501,19 +501,30 @@ class AppScanner @Inject constructor(
             return emptyList()
         }
 
+        updateProgressPrimary(eu.darken.sdmse.R.string.appcleaner_progress_determining_inaccessible_caches)
+        updateProgressSecondary(CaString.EMPTY)
+        updateProgressCount(Progress.Count.Indeterminate())
+
         // If we skip detection if ACS is disable, users might not be aware of the ACS option's capabilities?
-        val acsEnabled = settings.useAccessibilityService.value()
+        settings.useAccessibilityService.value()
         val isSamsungRom = BuildWrap.MANUFACTOR == "Samsung"
         val currentUser = userManager.currentUser()
 
-        return pkgs
+        val targets = pkgs
             .filter { it.userHandle == currentUser.handle }
             .filter { pkg ->
                 // On Samsung ROMs, we can't open the settings page for disabled apps
                 !isSamsungRom || pkg.isEnabled
             }
             .filterIsInstance<NormalPkg>()
-            .mapNotNull { inaccessibleCacheProvider.determineCache(it) }
+
+        updateProgressCount(Progress.Count.Percent(pkgs.size))
+
+        return targets
+            .mapNotNull {
+                updateProgressSecondary(it.label)
+                inaccessibleCacheProvider.determineCache(it).also { increaseProgress() }
+            }
             .filter { !it.isEmpty }
             .onEach { if (Bugs.isTrace) log(TAG, VERBOSE) { "determineInaccessibleCaches(...) -> $it" } }
     }
