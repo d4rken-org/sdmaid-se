@@ -50,8 +50,8 @@ class AppAsecFileCorpseFilter @Inject constructor(
             return emptySet()
         }
 
-        // TODO needs to be checked on more rooted ROMs
-        // Not seen this on API35+ yet
+        // Unseen (exists, but empty) on Android 15+
+        // https://github.com/d4rken-org/sdmaid-se/issues/1612
         if (hasApiLevel(35)) {
             log(TAG, WARN) { "Untested API level (35) skipping for safety." }
             return emptySet()
