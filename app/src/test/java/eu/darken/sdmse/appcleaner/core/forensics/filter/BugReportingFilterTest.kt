@@ -767,7 +767,7 @@ class BugReportingFilterTest : BaseFilterTest() {
 
         neg("com.meizu.flyme.update", PUBLIC_DATA, "com.meizu.flyme.update/app_upgrade_l")
         pos("com.meizu.flyme.update", SDCARD, "com.meizu.flyme.update/app_upgrade_log")
-        
+
         confirm(create())
     }
 
@@ -776,7 +776,7 @@ class BugReportingFilterTest : BaseFilterTest() {
 
         neg("cn.wps.moffice_eng", PUBLIC_DATA, "cn.wps.moffice_eng/files/klog")
         pos("cn.wps.moffice_eng", PUBLIC_DATA, "cn.wps.moffice_eng/files/klog/1")
-        
+
         confirm(create())
     }
 
@@ -786,7 +786,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         neg(testPkg, PUBLIC_DATA, "eu.thedarken.sdm.test/files/MiPushLog")
         pos(testPkg, PUBLIC_DATA, "eu.thedarken.sdm.test/files/MiPushLog/log.lock")
         pos(testPkg, PUBLIC_DATA, "eu.thedarken.sdm.test/files/MiPushLog/log1.txt")
-        
+
         confirm(create())
     }
 
@@ -799,7 +799,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         pos("com.xiaomi.xmsf", PUBLIC_DATA, "com.xiaomi.xmsf/files/dump/xmsf.log.")
         pos("com.xiaomi.xmsf", PUBLIC_DATA, "com.xiaomi.xmsf/files/dump/xmsf.log.1")
         pos("com.xiaomi.xmsf", PUBLIC_DATA, "com.xiaomi.xmsf/files/dump/abc.log.1")
-        
+
         confirm(create())
     }
 
@@ -808,7 +808,7 @@ class BugReportingFilterTest : BaseFilterTest() {
 
         neg("com.miui.gallery", PUBLIC_DATA, "com.miui.gallery/files/vlog")
         pos("com.miui.gallery", PUBLIC_DATA, "com.miui.gallery/files/vlog/files")
-        
+
         confirm(create())
     }
 
@@ -817,7 +817,7 @@ class BugReportingFilterTest : BaseFilterTest() {
 
         neg("com.debug.loggerui", SDCARD, "debuglogger")
         pos("com.debug.loggerui", SDCARD, "debuglogger/files")
-        
+
         confirm(create())
     }
 
@@ -829,7 +829,7 @@ class BugReportingFilterTest : BaseFilterTest() {
         neg("video.like.lite", PUBLIC_DATA, "video.like.lite/cache/xlo")
         neg("video.like.lite", PUBLIC_DATA, "video.like.lite/cache/xlog")
         pos("video.like.lite", PUBLIC_DATA, "video.like.lite/files/xlog/5381")
-        
+
         confirm(create())
     }
 
@@ -964,13 +964,88 @@ class BugReportingFilterTest : BaseFilterTest() {
         confirm(create())
     }
 
+    @Test
+    fun `test crashlytics v2`() = runTest {
+        addDefaultNegatives()
+
+
+        neg(testPkg, PRIVATE_DATA, "$testPkg/files")
+        neg(testPkg, PRIVATE_DATA, "$testPkg/files/.com.google.firebase.crashlytics.files.v2")
+        neg(testPkg, PRIVATE_DATA, "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg")
+        pos(testPkg, PRIVATE_DATA, "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/open-sessions")
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/open-sessions/681C8CFB0050000152690FC22AD30334"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/open-sessions/681C8CFB0050000152690FC22AD30334/report"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/open-sessions/681C8CFB0050000152690FC22AD30334/start-time"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/open-sessions/681C8CFB0050000152690FC22AD30334/aqs.1d48885e5465466aaff05984e33f3c64"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/open-sessions/681C8CFB0050000152690FC22AD30334/native"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/open-sessions/681C8CFB0050000152690FC22AD30334/native/session.json"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/open-sessions/681C8CFB0050000152690FC22AD30334/native/app.json"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/open-sessions/681C8CFB0050000152690FC22AD30334/native/os.json"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/open-sessions/681C8CFB0050000152690FC22AD30334/native/device.json"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/open-sessions/681C8CFB0050000152690FC22AD30334/keys"
+        )
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/open-sessions/681C8CFB0050000152690FC22AD30334/userlog"
+        )
+        pos(testPkg, PRIVATE_DATA, "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/reports")
+        pos(testPkg, PRIVATE_DATA, "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/priority-reports")
+        pos(testPkg, PRIVATE_DATA, "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/native-reports")
+        pos(
+            testPkg,
+            PRIVATE_DATA,
+            "$testPkg/files/.com.google.firebase.crashlytics.files.v2:$testPkg/com.crashlytics.settings.json"
+        )
+
+        confirm(create())
+    }
 
     @Test fun `test crashlytics v3`() = runTest {
         addDefaultNegatives()
 
         neg(testPkg, PRIVATE_DATA, "some.pkg/files")
         neg(testPkg, PRIVATE_DATA, "some.pkg/files/.crashlytics.v3")
-        pos(testPkg, PRIVATE_DATA, "$testPkg/files/.crashlytics.v3/$testPkg")
+        neg(testPkg, PRIVATE_DATA, "$testPkg/files/.crashlytics.v3/$testPkg")
         pos(testPkg, PRIVATE_DATA, "$testPkg/files/.crashlytics.v3/$testPkg/open-sessions")
         pos(
             testPkg,

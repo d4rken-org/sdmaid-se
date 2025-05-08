@@ -105,13 +105,15 @@ class BugReportingFilter @Inject constructor(
                 target.toDeletionMatch()
             }
 
-            pfpSegs.isDescendentOf("${pkgId.name}/files/.crashlytics.v3".toSegs()) -> {
+            pfpSegs.isDescendentOf("${pkgId.name}/files/.com.google.firebase.crashlytics.files.v2:${pkgId.name}".toSegs()) -> {
                 target.toDeletionMatch()
             }
 
-            else -> {
-                null
+            pfpSegs.isDescendentOf("${pkgId.name}/files/.crashlytics.v3/${pkgId.name}".toSegs()) -> {
+                target.toDeletionMatch()
             }
+
+            else -> null
         }
     }
 
