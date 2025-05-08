@@ -228,4 +228,11 @@ class AdvertisementFilterTest : BaseFilterTest() {
         }
         confirm(create())
     }
+
+    @Test fun `Mintegral SDK`() = runTest {
+        addDefaultNegatives()
+        neg("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/mb/res/.mbridge")
+        pos("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/mb/res/.mbridge/$rngString")
+        confirm(create())
+    }
 }
