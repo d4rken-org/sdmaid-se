@@ -18,7 +18,9 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.Segments
+import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.lowercase
+import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import javax.inject.Inject
@@ -85,6 +87,13 @@ class AdvertisementFilter @Inject constructor(
             return target.toDeletionMatch()
         }
 
+        //  drop    0      1      2
+        // topdir/files/adcache/...
+        val subDir = lcsegments.drop(1)
+        if (HIDDEN_CACHE_SEGS.any { it.isAncestorOf(subDir) }) {
+            return target.toDeletionMatch()
+        }
+
         return if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, areaType, pfpSegs)) {
             target.toDeletionMatch()
         } else {
@@ -132,6 +141,10 @@ class AdvertisementFilter @Inject constructor(
             "GoAdSdk",
             "IFlyAdImgCache",
         ).lowercase()
+
+        private val HIDDEN_CACHE_SEGS: Collection<Segments> = listOf(
+            "files/mb/res/.mbridge".toSegs()
+        )
         private val HIDDEN_CACHE_FILES: Collection<String> = listOf(
 
         )
