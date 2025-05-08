@@ -33,6 +33,8 @@ class CorpseFinderSettingsFragment : PreferenceFragment2() {
         get() = findPreference(settings.filterAppSourceAsecEnabled.keyName)!!
     private val filterDalvikCacheEnabled: BadgedCheckboxPreference
         get() = findPreference(settings.filterDalvikCacheEnabled.keyName)!!
+    private val filterArtProfilesEnabled: BadgedCheckboxPreference
+        get() = findPreference(settings.filterArtProfilesEnabled.keyName)!!
     private val filterAppLibEnabled: BadgedCheckboxPreference
         get() = findPreference(settings.filterAppLibEnabled.keyName)!!
     private val filterAppSourceEnabled: BadgedCheckboxPreference
@@ -51,6 +53,7 @@ class CorpseFinderSettingsFragment : PreferenceFragment2() {
         filterPrivateDataEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
         filterAppSourceAsecEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
         filterDalvikCacheEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
+        filterArtProfilesEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
         filterAppLibEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
         filterAppSourceEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
         filterAppSourcePrivateEnabled.badgedAction = { setOf(SetupModule.Type.ROOT).showFixSetupHint(this) }
@@ -84,6 +87,7 @@ class CorpseFinderSettingsFragment : PreferenceFragment2() {
             filterPrivateDataEnabled.isRestricted = !state.state.isFilterPrivateDataAvailable
             filterAppSourceAsecEnabled.isRestricted = !state.state.isFilterAppSourcesAvailable
             filterDalvikCacheEnabled.isRestricted = !state.state.isFilterDalvikCacheAvailable
+            filterArtProfilesEnabled.isRestricted = !state.state.isFilterArtProfilesAvailable
             filterAppLibEnabled.isRestricted = !state.state.isFilterAppLibrariesAvailable
             filterAppSourceEnabled.isRestricted = !state.state.isFilterAppSourcesAvailable
             filterAppSourcePrivateEnabled.isRestricted = !state.state.isFilterPrivateAppSourcesAvailable

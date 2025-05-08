@@ -225,6 +225,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Private app data, e.g. credentials, app settings but also browser caches.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
     <string name="corpsefinder_filter_dalvik_summary">Cached app execution data.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profiles</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART profiles are used by Android to optimize app performance.</string>
     <string name="corpsefinder_filter_applib_label">App libraries</string>
     <string name="corpsefinder_filter_applib_summary">App related library data.</string>
     <string name="corpsefinder_filter_appsource_label">App sources</string>
