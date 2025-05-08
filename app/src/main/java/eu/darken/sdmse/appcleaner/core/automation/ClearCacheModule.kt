@@ -143,6 +143,8 @@ class ClearCacheModule @AssistedInject constructor(
                 animationTool.setState(AnimationState.DISABLED)
             }
 
+            log(TAG, INFO) { "Current animation state: ${animationTool.getState()}" }
+
             processTask(task)
 
         } finally {
