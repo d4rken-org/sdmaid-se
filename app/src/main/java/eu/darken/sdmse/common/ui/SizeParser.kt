@@ -4,13 +4,15 @@ import android.content.Context
 import android.text.format.Formatter
 import eu.darken.sdmse.common.debug.logging.log
 import java.text.DecimalFormatSymbols
-import java.util.Locale
 
 class SizeParser(private val context: Context) {
-
+    private val locale by lazy { context.resources.configuration.locales[0] }
+    private val decimalSeperator by lazy { DecimalFormatSymbols(locale).decimalSeparator }
     private val sizeUnitsRegex by lazy {
-        val ds = DecimalFormatSymbols(Locale.getDefault()).decimalSeparator
-        Regex("(\\d+(?:[$ds]\\d+)?)\\s*(\\w+)", RegexOption.IGNORE_CASE)
+        Regex(
+            """(\p{Nd}+(?:[$decimalSeperator]\p{Nd}+)?)\s*([\p{L}.]+)""",
+            RegexOption.IGNORE_CASE
+        )
     }
     private val sizeUnitsLocalized by lazy {
         val unitDelimiterRegex = Regex("\\s")
@@ -26,12 +28,22 @@ class SizeParser(private val context: Context) {
         ).also { log { "Size lookup map: $it" } }
     }
 
+    private fun normalizeDigits(input: String): String = input.map {
+        when {
+            Character.isDigit(it) -> Character.getNumericValue(it).toString()
+            else -> it.toString()
+        }
+    }.joinToString("")
+
     fun parse(input: String): Long? {
         val match = sizeUnitsRegex.matchEntire(input.trim()) ?: return null
         val (value, unit) = match.destructured
+        val valueNormalized = normalizeDigits(value)
+            .replace(decimalSeperator, '.')
+            .toDoubleOrNull()
         val factor = sizeUnitsLocalized[unit.uppercase()] ?: return null
-        return (value.replace(',', '.').toDoubleOrNull()?.times(factor))?.toLong()?.also {
-            log { "Parsed size '$input' to: $it" }
-        }
+        return valueNormalized
+            ?.times(factor)?.toLong()
+            .also { log { "Parsed size '$input' to: $it Byte" } }
     }
 }
