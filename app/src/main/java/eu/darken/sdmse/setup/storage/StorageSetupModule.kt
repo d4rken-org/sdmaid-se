@@ -73,12 +73,27 @@ class StorageSetupModule @Inject constructor(
         .onStart { emit(Loading()) }
         .replayingShare(appScope)
 
-    private fun getRequiredPermission(): Set<Permission> {
-        return when {
-            hasApiLevel(30) && deviceDetective.getROMType() != RomType.ANDROID_TV -> setOf(Permission.MANAGE_EXTERNAL_STORAGE)
+    private fun getRequiredPermission(): Set<Permission> = when {
+        deviceDetective.getROMType() == RomType.ANDROID_TV -> when {
+            hasApiLevel(33) -> setOf(
+                @Suppress("NewApi")
+                Permission.MANAGE_EXTERNAL_STORAGE,
+            )
+
             else -> setOf(
                 Permission.WRITE_EXTERNAL_STORAGE,
-                Permission.READ_EXTERNAL_STORAGE
+                Permission.READ_EXTERNAL_STORAGE,
+            )
+        }
+
+        else -> when {
+            hasApiLevel(30) -> setOf(
+                @Suppress("NewApi")
+                Permission.MANAGE_EXTERNAL_STORAGE,
+            )
+            else -> setOf(
+                Permission.WRITE_EXTERNAL_STORAGE,
+                Permission.READ_EXTERNAL_STORAGE,
             )
         }
     }
