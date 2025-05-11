@@ -52,11 +52,16 @@ class DeviceDetective @Inject constructor(
     fun getROMType(): RomType = when {
         isAndroidTV() -> RomType.ANDROID_TV
         checkDisplay("lineage") || checkProduct("lineage") || hasApp(LINEAGE_PKGS) -> RomType.LINEAGE
+        // run mostly near-stock Android
         checkBrand("alcatel") -> RomType.ALCATEL
+        // Oppo uses ColorOS globally
         checkManufactor("oppo") && hasApp(COLOROS_PKGS) -> RomType.COLOROS
-        checkManufactor("meizu") && hasApp(FLYME_PKGS) -> RomType.FLYME
+        // Flyme OS
+        checkManufactor("meizu") && hasApp(FLYME_PKGS) -> RomType.FLYMEOS
+        // EMUI (global), HarmonyOS (China)
         checkManufactor("huawei") && hasApp(MIUI_PKGS) -> RomType.HUAWEI
-        checkManufactor("lge") -> RomType.LGE
+        // LG UX, last devices run Android, close to AOSP
+        checkManufactor("lge") -> RomType.LGUX
 
         checkManufactor("Xiaomi") -> when {
             hasApp(HYPEROS_PKGS) && hasFingerPrint(HYPEROS_VERSION_STARTS) -> when {
@@ -71,10 +76,15 @@ class DeviceDetective @Inject constructor(
         }
 
         checkManufactor("nubia") -> RomType.NUBIA
-        checkManufactor("OnePlus") -> RomType.ONEPLUS
-        checkManufactor("realme") -> RomType.REALME
-        checkManufactor("samsung") -> RomType.SAMSUNG
+        // Should be OxygenOS on earlier versions, and later based on ColorOS
+        checkManufactor("OnePlus") -> RomType.OXYGENOS
+        // runs Realme UI, which is a fork of ColorOS with minor changes.
+        checkManufactor("realme") -> RomType.REALMEUI
+        // One UI
+        checkManufactor("samsung") -> RomType.ONEUI
+        // Vivo is either Funtouch OS (global), which is AOSP like, or OriginOS (China), more modified
         checkManufactor("vivo") -> RomType.VIVO
+        // Earlier ROMs pre Android 12 run EMUI, Android 13+ is MagicOS
         checkManufactor("HONOR") -> RomType.HONOR
         else -> null
     } ?: RomType.AOSP

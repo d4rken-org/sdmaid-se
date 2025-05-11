@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.automation.specs.oneplus
+package eu.darken.sdmse.appcleaner.core.automation.specs.oxygenos
 
 import dagger.Reusable
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
@@ -9,7 +9,7 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 
 @Reusable
-class OnePlusLabels14Plus @Inject constructor(
+class OxygenOSLabels14Plus @Inject constructor(
     private val aospLabels14Plus: AOSPLabels14Plus,
 ) : AppCleanerLabelSource {
 

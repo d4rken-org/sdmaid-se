@@ -52,10 +52,10 @@ class SamsungSpecs @Inject constructor(
 
     override suspend fun isResponsible(pkg: Installed): Boolean {
         val romType = generalSettings.romTypeDetection.value()
-        if (romType == RomType.SAMSUNG) return true
+        if (romType == RomType.ONEUI) return true
         if (romType != RomType.AUTO) return false
 
-        return deviceDetective.getROMType() == RomType.SAMSUNG
+        return deviceDetective.getROMType() == RomType.ONEUI
     }
 
     override suspend fun getForceStop(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {

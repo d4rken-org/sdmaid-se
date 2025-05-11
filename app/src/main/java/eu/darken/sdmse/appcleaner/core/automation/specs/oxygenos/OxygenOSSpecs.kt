@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.automation.specs.samsung
+package eu.darken.sdmse.appcleaner.core.automation.specs.oxygenos
 
 import dagger.Binds
 import dagger.Module
@@ -9,10 +9,13 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
-import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
+import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
+import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
+import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
@@ -29,6 +32,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
@@ -36,10 +40,10 @@ import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
 
 @Reusable
-class SamsungSpecs @Inject constructor(
+class OxygenOSSpecs @Inject constructor(
     private val ipcFunnel: IPCFunnel,
     private val deviceDetective: DeviceDetective,
-    private val samsungLabels: SamsungLabels,
+    private val oxygenOSLabels: OxygenOSLabels,
     private val storageEntryFinder: StorageEntryFinder,
     private val generalSettings: GeneralSettings,
     private val stepper: Stepper,
@@ -49,10 +53,10 @@ class SamsungSpecs @Inject constructor(
 
     override suspend fun isResponsible(pkg: Installed): Boolean {
         val romType = generalSettings.romTypeDetection.value()
-        if (romType == RomType.SAMSUNG) return true
+        if (romType == RomType.OXYGENOS) return true
         if (romType != RomType.AUTO) return false
 
-        return deviceDetective.getROMType() == RomType.SAMSUNG
+        return deviceDetective.getROMType() == RomType.OXYGENOS
     }
 
     override suspend fun getClearCache(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
@@ -67,7 +71,7 @@ class SamsungSpecs @Inject constructor(
 
         run {
             val storageEntryLabels =
-                samsungLabels.getStorageEntryDynamic(this) + samsungLabels.getStorageEntryLabels(this)
+                oxygenOSLabels.getStorageEntryDynamic(this) + oxygenOSLabels.getStorageEntryLabels(this)
             log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
@@ -86,17 +90,39 @@ class SamsungSpecs @Inject constructor(
 
         run {
             val clearCacheButtonLabels =
-                samsungLabels.getClearCacheDynamic(this) + samsungLabels.getClearCacheLabels(this)
+                oxygenOSLabels.getClearCacheDynamic(this) + oxygenOSLabels.getClearCacheStatic(this)
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
+
+            val action: suspend StepContext.() -> Boolean = action@{
+                var isUnclickableButton = false
+                val target = findNode { node ->
+                    when {
+                        hasApiLevel(34) -> {
+                            if (!node.textMatchesAny(clearCacheButtonLabels)) return@findNode false
+                            isUnclickableButton = !node.isClickyButton()
+                            true
+                        }
+
+                        else -> {
+                            node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
+                        }
+                    }
+                } ?: return@action false
+
+                val mapped = when {
+                    hasApiLevel(34) && isUnclickableButton -> findClickableParent(node = target)
+                    else -> target
+                } ?: return@action false
+
+                clickClearCache(isDryRun = Bugs.isDryRun, pkg, node = mapped)
+            }
 
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear cache",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
-                nodeAction = defaultFindAndClickClearCache(isDryRun = Bugs.isDryRun, pkg) {
-                    if (!it.isClickyButton()) false else it.textMatchesAny(clearCacheButtonLabels)
-                },
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -104,13 +130,13 @@ class SamsungSpecs @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: SamsungSpecs): AppCleanerSpecGenerator
+        @Binds @IntoSet abstract fun mod(mod: OxygenOSSpecs): AppCleanerSpecGenerator
     }
 
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
 
-        val TAG: String = logTag("AppCleaner", "Automation", "Samsung", "Specs")
+        val TAG: String = logTag("AppCleaner", "Automation", "OnePlus", "Specs")
     }
 
 }

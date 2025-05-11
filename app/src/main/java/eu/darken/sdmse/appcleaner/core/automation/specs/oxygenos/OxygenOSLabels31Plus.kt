@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.automation.specs.oneplus
+package eu.darken.sdmse.appcleaner.core.automation.specs.oxygenos
 
 import dagger.Reusable
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
@@ -9,8 +9,8 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 
 @Reusable
-class OnePlusLabels31Plus @Inject constructor(
-    private val onePlusLabels29Plus: OnePlusLabels29Plus,
+class OxygenOSLabels31Plus @Inject constructor(
+    private val oxygenOSLabels29Plus: OxygenOSLabels29Plus,
 ) : AppCleanerLabelSource {
 
     fun getStorageEntryDynamic(
@@ -43,16 +43,16 @@ class OnePlusLabels31Plus @Inject constructor(
             }
         }
         .flatten()
-        .append { onePlusLabels29Plus.getStorageEntryLabels(acsContext) }
+        .append { oxygenOSLabels29Plus.getStorageEntryLabels(acsContext) }
         .toSet()
 
     fun getClearCacheDynamic(
         acsContext: AutomationExplorer.Context
-    ): Set<String> = onePlusLabels29Plus.getClearCacheDynamic(acsContext)
+    ): Set<String> = oxygenOSLabels29Plus.getClearCacheDynamic(acsContext)
 
     fun getClearCacheStatic(
         acsContext: AutomationExplorer.Context
-    ): Set<String> = onePlusLabels29Plus.getClearCacheStatic(acsContext)
+    ): Set<String> = oxygenOSLabels29Plus.getClearCacheStatic(acsContext)
 
     companion object {
         val TAG: String = logTag("AppCleaner", "Automation", "OnePlus", "Labels", "31Plus")

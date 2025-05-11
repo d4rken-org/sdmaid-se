@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.automation.specs.samsung
+package eu.darken.sdmse.appcleaner.core.automation.specs.oneui
 
 import dagger.Reusable
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
@@ -10,7 +10,7 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 
 @Reusable
-class SamsungLabels14Plus @Inject constructor(
+class OneUILabels14Plus @Inject constructor(
     private val aospLabels14Plus: AOSPLabels14Plus,
 ) : AppCleanerLabelSource {
 

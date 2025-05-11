@@ -50,10 +50,10 @@ class LGESpecs @Inject constructor(
 
     override suspend fun isResponsible(pkg: Installed): Boolean {
         val romType = generalSettings.romTypeDetection.value()
-        if (romType == RomType.LGE) return true
+        if (romType == RomType.LGUX) return true
         if (romType != RomType.AUTO) return false
 
-        return hasApiLevel(29) && deviceDetective.getROMType() == RomType.LGE
+        return hasApiLevel(29) && deviceDetective.getROMType() == RomType.LGUX
     }
 
     override suspend fun getClearCache(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {

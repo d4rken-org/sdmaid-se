@@ -24,9 +24,9 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.HyperOsSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.lge.LGESpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.miui.MIUISpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.nubia.NubiaSpecs
-import eu.darken.sdmse.appcleaner.core.automation.specs.oneplus.OnePlusSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.oneui.OneUISpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.oxygenos.OxygenOSSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.realme.RealmeSpecs
-import eu.darken.sdmse.appcleaner.core.automation.specs.samsung.SamsungSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.vivo.VivoSpecs
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
@@ -92,7 +92,7 @@ class ClearCacheModule @AssistedInject constructor(
             when (generator) {
                 is MIUISpecs -> 190
                 is HyperOsSpecs -> 180
-                is SamsungSpecs -> 170
+                is OneUISpecs -> 170
                 is AlcatelSpecs -> 160
                 is RealmeSpecs -> 150
                 is HuaweiSpecs -> 140
@@ -102,7 +102,7 @@ class ClearCacheModule @AssistedInject constructor(
                 is VivoSpecs -> 80
                 is AndroidTVSpecs -> 70
                 is NubiaSpecs -> 60
-                is OnePlusSpecs -> 30
+                is OxygenOSSpecs -> 30
                 is HonorSpecs -> 20
                 is AOSPSpecs -> -5
                 else -> 0

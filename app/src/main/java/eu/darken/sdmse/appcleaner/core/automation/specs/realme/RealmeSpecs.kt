@@ -56,10 +56,10 @@ class RealmeSpecs @Inject constructor(
     // https://github.com/d4rken/sdmaid-public/issues/3040
     override suspend fun isResponsible(pkg: Installed): Boolean {
         val romType = generalSettings.romTypeDetection.value()
-        if (romType == RomType.REALME) return true
+        if (romType == RomType.REALMEUI) return true
         if (romType != RomType.AUTO) return false
 
-        return deviceDetective.getROMType() == RomType.REALME
+        return deviceDetective.getROMType() == RomType.REALMEUI
     }
 
     override suspend fun getClearCache(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
