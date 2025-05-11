@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.automation.specs.oneplus
+package eu.darken.sdmse.appcleaner.core.automation.specs.oneui
 
 import dagger.Binds
 import dagger.Module
@@ -9,13 +9,10 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
-import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
+import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
-import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
-import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
-import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
@@ -32,7 +29,6 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
-import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
@@ -40,10 +36,10 @@ import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
 
 @Reusable
-class OnePlusSpecs @Inject constructor(
+class OneUISpecs @Inject constructor(
     private val ipcFunnel: IPCFunnel,
     private val deviceDetective: DeviceDetective,
-    private val onePlusLabels: OnePlusLabels,
+    private val oneUILabels: OneUILabels,
     private val storageEntryFinder: StorageEntryFinder,
     private val generalSettings: GeneralSettings,
     private val stepper: Stepper,
@@ -53,10 +49,10 @@ class OnePlusSpecs @Inject constructor(
 
     override suspend fun isResponsible(pkg: Installed): Boolean {
         val romType = generalSettings.romTypeDetection.value()
-        if (romType == RomType.ONEPLUS) return true
+        if (romType == RomType.ONEUI) return true
         if (romType != RomType.AUTO) return false
 
-        return deviceDetective.getROMType() == RomType.ONEPLUS
+        return deviceDetective.getROMType() == RomType.ONEUI
     }
 
     override suspend fun getClearCache(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
@@ -71,7 +67,7 @@ class OnePlusSpecs @Inject constructor(
 
         run {
             val storageEntryLabels =
-                onePlusLabels.getStorageEntryDynamic(this) + onePlusLabels.getStorageEntryLabels(this)
+                oneUILabels.getStorageEntryDynamic(this) + oneUILabels.getStorageEntryLabels(this)
             log(TAG) { "storageEntryLabels=$storageEntryLabels" }
 
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
@@ -90,39 +86,17 @@ class OnePlusSpecs @Inject constructor(
 
         run {
             val clearCacheButtonLabels =
-                onePlusLabels.getClearCacheDynamic(this) + onePlusLabels.getClearCacheStatic(this)
+                oneUILabels.getClearCacheDynamic(this) + oneUILabels.getClearCacheLabels(this)
             log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
-
-            val action: suspend StepContext.() -> Boolean = action@{
-                var isUnclickableButton = false
-                val target = findNode { node ->
-                    when {
-                        hasApiLevel(34) -> {
-                            if (!node.textMatchesAny(clearCacheButtonLabels)) return@findNode false
-                            isUnclickableButton = !node.isClickyButton()
-                            true
-                        }
-
-                        else -> {
-                            node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
-                        }
-                    }
-                } ?: return@action false
-
-                val mapped = when {
-                    hasApiLevel(34) && isUnclickableButton -> findClickableParent(node = target)
-                    else -> target
-                } ?: return@action false
-
-                clickClearCache(isDryRun = Bugs.isDryRun, pkg, node = mapped)
-            }
 
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear cache",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
-                nodeAction = action,
+                nodeAction = defaultFindAndClickClearCache(isDryRun = Bugs.isDryRun, pkg) {
+                    if (!it.isClickyButton()) false else it.textMatchesAny(clearCacheButtonLabels)
+                },
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -130,13 +104,13 @@ class OnePlusSpecs @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: OnePlusSpecs): AppCleanerSpecGenerator
+        @Binds @IntoSet abstract fun mod(mod: OneUISpecs): AppCleanerSpecGenerator
     }
 
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
 
-        val TAG: String = logTag("AppCleaner", "Automation", "OnePlus", "Specs")
+        val TAG: String = logTag("AppCleaner", "Automation", "Samsung", "Specs")
     }
 
 }

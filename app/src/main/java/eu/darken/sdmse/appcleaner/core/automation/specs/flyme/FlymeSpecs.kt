@@ -48,11 +48,11 @@ class FlymeSpecs @Inject constructor(
     // https://github.com/d4rken/sdmaid-public/issues/2910
     override suspend fun isResponsible(pkg: Installed): Boolean {
         val romType = generalSettings.romTypeDetection.value()
-        if (romType == RomType.FLYME) return true
+        if (romType == RomType.FLYMEOS) return true
         if (romType != RomType.AUTO) return false
 
         // Meizu/meizu_M8/meizuM8:8.1.0/O11019/1540458380:user/release-keys
-        return deviceDetective.getROMType() == RomType.FLYME
+        return deviceDetective.getROMType() == RomType.FLYMEOS
     }
 
     override suspend fun getClearCache(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {

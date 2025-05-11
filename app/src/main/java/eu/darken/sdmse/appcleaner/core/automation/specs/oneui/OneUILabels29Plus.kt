@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.automation.specs.samsung
+package eu.darken.sdmse.appcleaner.core.automation.specs.oneui
 
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
@@ -7,8 +7,8 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 
-class SamsungLabels29Plus @Inject constructor(
-    private val samsungLabels14Plus: SamsungLabels14Plus,
+class OneUILabels29Plus @Inject constructor(
+    private val oneUILabels14Plus: OneUILabels14Plus,
 ) : AppCleanerLabelSource {
 
     fun getStorageEntryDynamic(
@@ -76,7 +76,7 @@ class SamsungLabels29Plus @Inject constructor(
             }
         }
         .flatten()
-        .append { samsungLabels14Plus.getStorageEntryLabels(acsContext) }
+        .append { oneUILabels14Plus.getStorageEntryLabels(acsContext) }
         .toSet()
 
     fun getClearCacheDynamic(
@@ -131,7 +131,7 @@ class SamsungLabels29Plus @Inject constructor(
             }
         }
         .flatten()
-        .append { samsungLabels14Plus.getClearCacheLabels(acsContext) }
+        .append { oneUILabels14Plus.getClearCacheLabels(acsContext) }
         .toSet()
 
     companion object {

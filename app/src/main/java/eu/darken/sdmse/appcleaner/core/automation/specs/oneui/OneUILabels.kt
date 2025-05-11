@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.automation.specs.samsung
+package eu.darken.sdmse.appcleaner.core.automation.specs.oneui
 
 import dagger.Reusable
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
@@ -8,9 +8,9 @@ import eu.darken.sdmse.common.hasApiLevel
 import javax.inject.Inject
 
 @Reusable
-open class SamsungLabels @Inject constructor(
-    private val labels14Plus: SamsungLabels14Plus,
-    private val labels29Plus: SamsungLabels29Plus,
+open class OneUILabels @Inject constructor(
+    private val labels14Plus: OneUILabels14Plus,
+    private val labels29Plus: OneUILabels29Plus,
 ) : AppCleanerLabelSource {
 
     fun getStorageEntryDynamic(acsContext: AutomationExplorer.Context): Set<String> = when {

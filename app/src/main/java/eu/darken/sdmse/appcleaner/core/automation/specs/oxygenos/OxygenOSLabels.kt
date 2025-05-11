@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.automation.specs.oneplus
+package eu.darken.sdmse.appcleaner.core.automation.specs.oxygenos
 
 import dagger.Reusable
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
@@ -8,10 +8,10 @@ import eu.darken.sdmse.common.hasApiLevel
 import javax.inject.Inject
 
 @Reusable
-open class OnePlusLabels @Inject constructor(
-    private val labels14Plus: OnePlusLabels14Plus,
-    private val labels29Plus: OnePlusLabels29Plus,
-    private val labels31Plus: OnePlusLabels31Plus,
+open class OxygenOSLabels @Inject constructor(
+    private val labels14Plus: OxygenOSLabels14Plus,
+    private val labels29Plus: OxygenOSLabels29Plus,
+    private val labels31Plus: OxygenOSLabels31Plus,
 ) : AppCleanerLabelSource {
 
     fun getStorageEntryDynamic(acsContext: AutomationExplorer.Context): Set<String> = when {
