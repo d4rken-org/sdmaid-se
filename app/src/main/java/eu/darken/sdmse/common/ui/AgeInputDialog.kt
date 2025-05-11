@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.slider.Slider
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.databinding.ViewPreferenceInputAgeBinding
 import java.time.Duration
@@ -52,6 +53,7 @@ class AgeInputDialog(
 
         ageText.addTextChangedListener { rawAge ->
             val parsedAge = durationParser.parse(rawAge.toString())
+            log { "Parsed $rawAge to $parsedAge" }
             when {
                 parsedAge != null && parsedAge in minimumAge..maximumAge -> {
                     ageText.error = null
