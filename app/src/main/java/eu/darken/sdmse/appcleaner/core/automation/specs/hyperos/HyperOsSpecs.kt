@@ -1,5 +1,7 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.hyperos
 
+import android.app.AppOpsManager
+import android.content.Context
 import android.graphics.Rect
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.core.content.pm.PackageInfoCompat
@@ -7,6 +9,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.Reusable
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
@@ -33,6 +36,7 @@ import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textEndsWithAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.errors.DisabledTargetException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
@@ -47,7 +51,10 @@ import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs.isDryRun
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -72,6 +79,7 @@ import javax.inject.Inject
 
 @Reusable
 class HyperOsSpecs @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val ipcFunnel: IPCFunnel,
     private val deviceDetective: DeviceDetective,
     private val hyperOsLabels: HyperOsLabels,
@@ -150,6 +158,20 @@ class HyperOsSpecs @Inject constructor(
         }
     }
 
+    private fun isSecurityCenterMissingPermission(): Boolean = try {
+        val appOps = context.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
+        val mode = appOps.checkOp(
+            AppOpsManager.OPSTR_GET_USAGE_STATS,
+            context.packageManager.getApplicationInfo(SETTINGS_PKG_HYPEROS.name, 0).uid,
+            SETTINGS_PKG_HYPEROS.name,
+        )
+        log(TAG) { "${SETTINGS_PKG_HYPEROS}.GET_USAGE_STATS = $mode" }
+        mode != AppOpsManager.MODE_ALLOWED
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "Failed to determine if security center is missing permission:${e.asLog()}" }
+        false
+    }
+
     private val settingsPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing AOSP settings plan for ${pkg.installId} with context $this" }
 
@@ -224,7 +246,18 @@ class HyperOsSpecs @Inject constructor(
                 }
 
                 val mapped = findClickableParent(node = clearDataTarget) ?: return@action false
-                clickNormal(node = mapped)
+                try {
+                    clickNormal(node = mapped)
+                } catch (e: DisabledTargetException) {
+                    throw when {
+                        isSecurityCenterMissingPermission() -> {
+                            log(TAG, WARN) { "`com.miui.securitycenter` is missing permissions: $e" }
+                            SecurityCenterMissingPermissionException()
+                        }
+
+                        else -> e
+                    }
+                }
             }
 
             val step = AutomationStep(

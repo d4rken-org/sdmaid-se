@@ -34,8 +34,8 @@ import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.animation.AnimationState
 import eu.darken.sdmse.automation.core.animation.AnimationTool
 import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
+import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
-import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.core.finishAutomation
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
@@ -217,9 +217,8 @@ class ClearCacheModule @AssistedInject constructor(
                 log(TAG, INFO) { "Successfully cleared cache for for $target" }
                 task.onSuccess(target)
                 successful.add(target)
-            } catch (e: ScreenUnavailableException) {
-                log(TAG, WARN) { "Cancelled because screen become unavailable: ${e.asLog()}" }
-                // TODO We don't have to abort here, but this is not a normal state and should show an error?
+            } catch (e: InvalidSystemStateException) {
+                log(TAG, WARN) { "Invalid system state for ACS based cache deletion: ${e.asLog()}" }
                 throw e
             } catch (e: TimeoutCancellationException) {
                 log(TAG, WARN) { "Timeout while processing $installed" }
