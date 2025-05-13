@@ -41,10 +41,10 @@ private fun DependencyHandler.androidTestImplementation(
 private fun DependencyHandler.kaptAndroidTest(dependencyNotation: Any): Dependency? =
     add("kaptAndroidTest", dependencyNotation)
 
-private fun DependencyHandler.`testRuntimeOnly`(dependencyNotation: Any): Dependency? =
+private fun DependencyHandler.testRuntimeOnly(dependencyNotation: Any): Dependency? =
     add("testRuntimeOnly", dependencyNotation)
 
-private fun DependencyHandler.`debugImplementation`(dependencyNotation: Any): Dependency? =
+private fun DependencyHandler.debugImplementation(dependencyNotation: Any): Dependency? =
     add("debugImplementation", dependencyNotation)
 
 fun DependencyHandlerScope.addDI() {
@@ -124,9 +124,9 @@ fun DependencyHandlerScope.addAndroidCore() {
 }
 
 fun DependencyHandlerScope.addRoomDb() {
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-runtime:2.7.1")
+    implementation("androidx.room:room-ktx:2.7.1")
+    kapt("androidx.room:room-compiler:2.7.1")
 }
 
 fun DependencyHandlerScope.addWorkerManager() {
