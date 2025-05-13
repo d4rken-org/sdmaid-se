@@ -5,12 +5,12 @@ object Versions {
     }
 
     object Dagger {
-        const val core = "2.51.1"
+        const val core = "2.56.2"
     }
 
     object AndroidX {
         object Navigation {
-            const val core = "2.7.7"
+            const val core = "2.9.0"
         }
     }
 
