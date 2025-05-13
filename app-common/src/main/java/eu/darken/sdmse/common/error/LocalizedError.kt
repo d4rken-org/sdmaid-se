@@ -17,6 +17,7 @@ data class LocalizedError(
     val description: CaString,
     val fixActionLabel: CaString? = null,
     val fixAction: ((Activity) -> Unit)? = null,
+    val infoActionLabel: CaString? = null,
     val infoAction: ((Activity) -> Unit)? = null,
 ) {
     fun asText() = caString { "${label.get(it)}:\n${description.get(it)}" }

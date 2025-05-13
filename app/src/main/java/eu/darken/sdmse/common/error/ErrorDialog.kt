@@ -54,7 +54,10 @@ fun Throwable.asErrorDialogBuilder(
 
         when {
             localizedError.infoAction != null -> {
-                setNeutralButton(R.string.general_show_details_action) { _, _ ->
+                setNeutralButton(
+                    localizedError.infoActionLabel?.get(context)
+                        ?: context.getString(R.string.general_show_details_action)
+                ) { _, _ ->
                     localizedError.infoAction!!.invoke(context)
                 }
             }
