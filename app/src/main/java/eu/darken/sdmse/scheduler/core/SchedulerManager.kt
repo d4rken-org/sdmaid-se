@@ -27,6 +27,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
@@ -107,7 +108,7 @@ class SchedulerManager @Inject constructor(
         get() = "worker-schedule-$id"
 
     private suspend fun Schedule.isScheduled(): Boolean =
-        workManager.getWorkInfosForUniqueWork(workName).await()
+        workManager.getWorkInfosForUniqueWorkFlow(workName).firstOrNull()
             ?.any { infos -> infos.state == WorkInfo.State.ENQUEUED || infos.state == WorkInfo.State.RUNNING }
             ?: false
 
