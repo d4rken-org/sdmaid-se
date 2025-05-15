@@ -26,6 +26,7 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.toVisualStrings
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
@@ -68,7 +69,7 @@ class AOSPSpecs @Inject constructor(
         run {
             val storageEntryLabels =
                 aospLabels.getStorageEntryDynamic(this) + aospLabels.getStorageEntryStatic(this)
-            log(TAG) { "storageEntryLabels=$storageEntryLabels" }
+            log(TAG) { "storageEntryLabels=${storageEntryLabels.toVisualStrings()}" }
 
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
 
@@ -87,7 +88,7 @@ class AOSPSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels =
                 aospLabels.getClearCacheDynamic(this) + aospLabels.getClearCacheStatic(this)
-            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
+            log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             val step = AutomationStep(
                 source = tag,

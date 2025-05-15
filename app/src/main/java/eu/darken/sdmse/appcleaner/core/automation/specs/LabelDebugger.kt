@@ -6,6 +6,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.common.AutomationLabelSource
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.toVisualString
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.isInstalled
 import eu.darken.sdmse.common.locale.toList
@@ -27,7 +28,7 @@ class LabelDebugger @Inject constructor(
                 Resources.getSystem().configuration.locales.toList().forEach { locale ->
                     ALL_RES_IDS.forEach { resId ->
                         val label = context.get3rdPartyString(pkgId, resId, locale)
-                        log(TAG) { "$pkgId: '$resId' -> '$label'" }
+                        log(TAG) { "$pkgId: '$resId' -> '${label?.toVisualString()}'" }
                     }
                 }
             }

@@ -34,6 +34,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.toVisualStrings
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
@@ -75,7 +76,7 @@ open class AndroidTVSpecs @Inject constructor(
 
         run {
             val clearCacheButtonLabels = androidTVLabels.getClearCacheLabels(this)
-            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
+            log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             if (clearCacheButtonLabels.isEmpty()) {
                 log(TAG, WARN) { "clearCacheButtonLabels was empty" }
@@ -105,7 +106,7 @@ open class AndroidTVSpecs @Inject constructor(
 
         run {
             val clearCacheTexts = androidTVLabels.getClearCacheLabels(this)
-            log(TAG) { "clearCacheTexts=$clearCacheTexts" }
+            log(TAG) { "clearCacheTexts=${clearCacheTexts.toVisualStrings()}" }
 
             val windowCheck = windowCheck { _, root ->
                 if (root.pkgId != SETTINGS_PKG) return@windowCheck false

@@ -26,6 +26,7 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.toVisualStrings
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
@@ -72,7 +73,7 @@ class AlcatelSpecs @Inject constructor(
         run {
             val storageEntryLabels =
                 alcatelLabels.getStorageEntryDynamic(this) + alcatelLabels.getStorageEntryStatic(this)
-            log(TAG) { "storageEntryLabels=$storageEntryLabels" }
+            log(TAG) { "storageEntryLabels=${storageEntryLabels.toVisualStrings()}" }
 
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
 
@@ -91,7 +92,7 @@ class AlcatelSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels =
                 alcatelLabels.getClearCacheDynamic(this) + alcatelLabels.getClearCacheStatic(this)
-            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
+            log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             val step = AutomationStep(
                 source = tag,

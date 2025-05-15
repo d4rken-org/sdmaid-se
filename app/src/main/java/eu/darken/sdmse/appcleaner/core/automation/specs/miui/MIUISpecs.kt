@@ -47,6 +47,7 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.toVisualStrings
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.deviceadmin.DeviceAdminManager
@@ -186,11 +187,11 @@ class MIUISpecs @Inject constructor(
 
 
         val clearDataLabels = miuiLabels.getClearDataButtonLabels(this)
-        log(TAG) { "clearDataLabels=$clearDataLabels" }
+        log(TAG) { "clearDataLabels=${clearDataLabels.toVisualStrings()}" }
         val clearCacheLabels = miuiLabels.getClearCacheButtonLabels(this)
-        log(TAG) { "clearCacheLabels=$clearCacheLabels" }
+        log(TAG) { "clearCacheLabels=${clearCacheLabels.toVisualStrings()}" }
         val dialogTitles = miuiLabels.getDialogTitles(this)
-        log(TAG) { "clearCacheLabels=$clearCacheLabels" }
+        log(TAG) { "clearCacheLabels=${clearCacheLabels.toVisualStrings()}" }
 
         var useAlternativeStep = deviceAdminManager.getDeviceAdmins().contains(pkg.id).also {
             if (it) log(TAG) { "${pkg.id} is a device admin, using alternative step directly." }

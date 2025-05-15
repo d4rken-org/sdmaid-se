@@ -26,6 +26,7 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.toVisualStrings
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
@@ -72,7 +73,7 @@ class NubiaSpecs @Inject constructor(
         run {
             val storageEntryLabels =
                 nubiaLabels.getStorageEntryDynamic(this) + nubiaLabels.getStorageEntryLabels(this)
-            log(TAG) { "storageEntryLabels=$storageEntryLabels" }
+            log(TAG) { "storageEntryLabels=${storageEntryLabels.toVisualStrings()}" }
 
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
 
@@ -91,7 +92,7 @@ class NubiaSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels =
                 nubiaLabels.getClearCacheDynamic(this) + nubiaLabels.getClearCacheLabels(this)
-            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
+            log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             val step = AutomationStep(
                 source = TAG,

@@ -57,6 +57,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.toVisualStrings
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.deviceadmin.DeviceAdminManager
@@ -211,13 +212,13 @@ class HyperOsSpecs @Inject constructor(
         log(TAG, INFO) { "Executing MIUI security center plan for ${pkg.installId} with context $this" }
 
         val clearDataLabels = hyperOsLabels.getClearDataButtonLabels(this)
-        log(TAG) { "clearDataLabels=$clearDataLabels" }
+        log(TAG) { "clearDataLabels=${clearDataLabels.toVisualStrings()}" }
         val clearCacheLabels = hyperOsLabels.getClearCacheButtonLabels(this)
-        log(TAG) { "clearCacheLabels=$clearCacheLabels" }
+        log(TAG) { "clearCacheLabels=${clearCacheLabels.toVisualStrings()}" }
         val dialogTitles = hyperOsLabels.getDialogTitles(this)
-        log(TAG) { "clearCacheLabels=$clearCacheLabels" }
+        log(TAG) { "clearCacheLabels=${clearCacheLabels.toVisualStrings()}" }
         val manageSpaceLabels = hyperOsLabels.getManageSpaceButtonLabels(this)
-        log(TAG) { "manageSpaceLabels=$manageSpaceLabels" }
+        log(TAG) { "manageSpaceLabels=${manageSpaceLabels.toVisualStrings()}" }
 
         var useAlternativeStep = deviceAdminManager.getDeviceAdmins().contains(pkg.id).also {
             if (it) log(TAG) { "${pkg.id} is a device admin, using alternative step directly." }

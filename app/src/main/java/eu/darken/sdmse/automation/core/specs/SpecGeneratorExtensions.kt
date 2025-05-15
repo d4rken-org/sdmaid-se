@@ -4,6 +4,8 @@ package eu.darken.sdmse.automation.core.specs
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.appcleaner.core.automation.errors.NoSettingsWindowException
@@ -16,8 +18,10 @@ import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.toVisualString
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -93,14 +97,42 @@ suspend fun SpecGenerator.checkAppIdentifier(
 
     ipcFunnel
         .use {
-            try {
-                val activityInfo = packageManager.getPackageInfo2(pkgInfo.id, PackageManager.GET_ACTIVITIES)
+            val ai = try {
+                packageManager.getApplicationInfo(pkgInfo.packageName, 0)
+            } catch (_: PackageManager.NameNotFoundException) {
+                null
+            }
+            if (ai == null) {
+                log(tag, WARN) { "PackageName not found: $pkgInfo" }
+                return@use null
+            }
+            if (ai.labelRes == 0) {
+                log(tag) { "labelRes was 0 for $pkgInfo" }
+                return@use null
+            }
 
+            getLocales().map { locale ->
+                val res = packageManager.getResourcesForApplication(ai)
+                val localRes = Resources(
+                    res.assets,
+                    res.displayMetrics,
+                    Configuration().apply { setLocale(locale) }
+                )
+                localRes.getString(ai.labelRes)
+            }
+        }
+        ?.let { candidates.addAll(it) }
+
+
+    ipcFunnel
+        .use {
+            try {
                 packageManager.getLaunchIntentForPackage(pkgInfo.packageName)?.component
                     ?.let { comp ->
-                        activityInfo?.activities?.singleOrNull {
-                            it.packageName == comp.packageName && it.name == comp.className
-                        }
+                        packageManager
+                            .getPackageInfo2(pkgInfo.id, PackageManager.GET_ACTIVITIES)
+                            ?.activities
+                            ?.singleOrNull { it.packageName == comp.packageName && it.name == comp.className }
                     }
                     ?.loadLabel(packageManager)
                     ?.toString()
@@ -114,7 +146,7 @@ suspend fun SpecGenerator.checkAppIdentifier(
     pkgInfo.applicationInfo?.className
         ?.let { candidates.add(it) }
 
-    log(tag, VERBOSE) { "Looking for window identifiers: $candidates" }
+    log(tag, VERBOSE) { "Looking for window identifiers: ${candidates.map { it.toVisualString() }}" }
 
     root.crawl().map { it.node }.any { toTest ->
         candidates.any { candidate -> toTest.text == candidate || toTest.text?.contains(candidate) == true }
