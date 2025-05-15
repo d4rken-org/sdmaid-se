@@ -25,6 +25,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.toVisualStrings
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
@@ -69,7 +70,7 @@ class FlymeSpecs @Inject constructor(
             // Do this beforehand so we crash early if unsupported
             val clearCacheButtonLabels =
                 flymeLabels.getClearCacheDynamic(this) + flymeLabels.getClearCacheLabels(this)
-            log(TAG) { "clearCacheButtonLabels=$clearCacheButtonLabels" }
+            log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             if (clearCacheButtonLabels.isNotEmpty()) {
                 log(TAG, WARN) { "clearCacheButtonLabels was empty" }
