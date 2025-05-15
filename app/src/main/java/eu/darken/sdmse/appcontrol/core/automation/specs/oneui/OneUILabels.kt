@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcontrol.core.automation.specs.samsung
+package eu.darken.sdmse.appcontrol.core.automation.specs.oneui
 
 import dagger.Reusable
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlLabelSource
@@ -8,7 +8,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import javax.inject.Inject
 
 @Reusable
-open class SamsungLabels @Inject constructor() : AppControlLabelSource {
+open class OneUILabels @Inject constructor() : AppControlLabelSource {
     fun getForceStopButtonDynamic(
         acsContext: AutomationExplorer.Context
     ): Set<String> = acsContext.getStrings(AOSPLabels.SETTINGS_PKG, setOf("force_stop"))
