@@ -142,27 +142,36 @@ class StorageEntryFinder @Inject constructor(
     ): suspend StepContext.() -> AccessibilityNodeInfo? = {
         val matchStorage = createSizeMatcher(pkg) ?: { false }
 
-        val storageFilter: (AccessibilityNodeInfo) -> Boolean = when {
+        val storageFilter: (AccessibilityNodeInfo) -> Int? = when {
             hasApiLevel(33) -> storageFilter@{ node ->
-                if (!node.isTextView()) return@storageFilter false
-                node.textMatchesAny(labels) || matchStorage(node)
+                if (!node.isTextView()) return@storageFilter null
+                when {
+                    node.textMatchesAny(labels) -> 0
+                    matchStorage(node) -> 1
+                    else -> null
+                }
             }
 
             else -> storageFilter@{ node ->
-                if (!node.isTextView()) return@storageFilter false
-                if (node.idContains("android:id/title")) {
-                    node.textMatchesAny(labels)
-                } else if (node.idContains("android:id/summary")) {
-                    matchStorage(node)
-                } else {
-                    false
+                if (!node.isTextView()) return@storageFilter null
+                when {
+                    node.idContains("android:id/title") && node.textMatchesAny(labels) -> 0
+                    node.idContains("android:id/summary") && matchStorage(node) -> 1
+                    else -> null
                 }
             }
         }
 
         val matches = host.waitForWindowRoot().crawl()
             .map { it.node }
-            .filter { storageFilter(it) }
+            .mapNotNull { node ->
+                val priority = storageFilter(node)
+                if (priority == null) return@mapNotNull null
+                log(TAG, VERBOSE) { "Priority $priority: ${node.toStringShort()}" }
+                node to priority
+            }
+            .sortedBy { it.second }
+            .map { it.first }
             .toMutableList()
 
         log(TAG, if (matches.size > 1) WARN else DEBUG) { "Got ${matches.size} matches" }
