@@ -7,6 +7,8 @@ import android.content.res.Configuration
 import android.os.Build
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.isInstalled
@@ -16,6 +18,10 @@ import javax.inject.Inject
 class DeviceDetective @Inject constructor(
     @ApplicationContext private val context: Context,
 ) {
+
+    init {
+        log(TAG, VERBOSE) { "Loaded." }
+    }
 
     private fun isAndroidTV(): Boolean {
         val uiManager = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
@@ -86,6 +92,8 @@ class DeviceDetective @Inject constructor(
         checkManufactor("vivo") -> RomType.VIVO
         // Earlier ROMs pre Android 12 run EMUI, Android 13+ is MagicOS
         checkManufactor("HONOR") -> RomType.HONOR
+        // Minimal skin, some preinstalled apps and tweaks, overall, it's near-stock Android.
+        checkManufactor("DOOGEE") -> RomType.DOOGEE
         else -> null
     } ?: RomType.AOSP
 
