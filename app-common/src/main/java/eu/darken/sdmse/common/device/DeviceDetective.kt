@@ -86,6 +86,9 @@ class DeviceDetective @Inject constructor(
         checkManufactor("vivo") -> RomType.VIVO
         // Earlier ROMs pre Android 12 run EMUI, Android 13+ is MagicOS
         checkManufactor("HONOR") -> RomType.HONOR
+        // OUKITEL/OT5_EEA/OT5:13/TP1A.220624.014/20240528:user/release-keys
+        // Stock ROM for the OUKITEL OT5 (European variant)
+        checkManufactor("OUKITEL") -> RomType.OUKITEL
         else -> null
     } ?: RomType.AOSP
 
