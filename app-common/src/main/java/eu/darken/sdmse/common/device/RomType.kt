@@ -27,5 +27,6 @@ enum class RomType(override val label: CaString) : EnumPreference<RomType> {
     @Json(name = "VIVO") VIVO("VIVO".toCaString()),
     @Json(name = "HONOR") HONOR("HONOR".toCaString()),
     @Json(name = "DOOGEE") DOOGEE("DOOGEE".toCaString()),
+    @Json(name = "OUKITEL") OUKITEL("OUKITEL".toCaString()),
     ;
 }

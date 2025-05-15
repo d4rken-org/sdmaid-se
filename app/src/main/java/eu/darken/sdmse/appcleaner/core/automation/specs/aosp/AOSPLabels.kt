@@ -13,6 +13,10 @@ class AOSPLabels @Inject constructor(
     private val labels29Plus: AOSPLabels29Plus,
 ) : AppCleanerLabelSource {
 
+    fun getSettingsTitleDynamic(
+        acsContext: AutomationExplorer.Context,
+    ): Set<String> = labels29Plus.getSettingsTitleDynamic(acsContext)
+
     fun getStorageEntryDynamic(acsContext: AutomationExplorer.Context): Set<String> = when {
         hasApiLevel(29) -> labels29Plus.getStorageEntryDynamic(acsContext)
         else -> labels14Plus.getStorageEntryDynamic(acsContext)
