@@ -34,7 +34,7 @@ import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
-import eu.darken.sdmse.automation.core.specs.checkAppIdentifier
+import eu.darken.sdmse.automation.core.specs.checkIdentifiers
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
 import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
 import eu.darken.sdmse.automation.core.specs.windowCheck
@@ -113,12 +113,12 @@ class MIUISpecs @Inject constructor(
                     || event?.pkgId == SETTINGS_PKG_MIUI || event?.pkgId == SETTINGS_PKG_AOSP
             if (!isCorrectWindow) return@windowCheck false
             when {
-                root.pkgId == SETTINGS_PKG_MIUI && checkAppIdentifier(ipcFunnel, pkg)(root) -> {
+                root.pkgId == SETTINGS_PKG_MIUI && checkIdentifiers(ipcFunnel, pkg)(root) -> {
                     windowPkg = SETTINGS_PKG_MIUI
                     true
                 }
 
-                root.pkgId == SETTINGS_PKG_AOSP && checkAppIdentifier(ipcFunnel, pkg)(root) -> {
+                root.pkgId == SETTINGS_PKG_AOSP && checkIdentifiers(ipcFunnel, pkg)(root) -> {
                     windowPkg = SETTINGS_PKG_AOSP
                     true
                 }
