@@ -55,7 +55,11 @@ class LabelDebugger @Inject constructor(
         private val RES_IDS_DIALOGTITLES = setOf(
             "app_manager_dlg_clear_cache_title",
         )
-        private val ALL_RES_IDS = RES_IDS_STORAGE + RES_IDS_CLEARDATA + RES_IDS_CLEARCACHE + RES_IDS_DIALOGTITLES
+        private val RES_IDS_WINDOW_TITLES = setOf(
+            "application_info_label",
+        )
+        private val ALL_RES_IDS =
+            RES_IDS_STORAGE + RES_IDS_CLEARDATA + RES_IDS_CLEARCACHE + RES_IDS_DIALOGTITLES + RES_IDS_WINDOW_TITLES
         private val TAG = logTag("Automation", "LabelDebugger")
     }
 }
