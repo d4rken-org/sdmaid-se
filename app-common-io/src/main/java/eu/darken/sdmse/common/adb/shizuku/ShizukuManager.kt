@@ -106,7 +106,7 @@ class ShizukuManager @Inject constructor(
         try {
             context.packageManager.getPackageInfo(PKG_ID.name, 0)
             true
-        } catch (e: PackageManager.NameNotFoundException) {
+        } catch (_: PackageManager.NameNotFoundException) {
             false
         }.also {
             isInstalledCache = it
@@ -164,7 +164,7 @@ class ShizukuManager @Inject constructor(
         .filterNotNull()
 
     companion object {
-        private val TAG = logTag("Shizuku", "Manager")
+        private val TAG = logTag("ADB", "Shizuku", "Manager")
         internal val PKG_ID = "moe.shizuku.privileged.api".toPkgId()
     }
 }

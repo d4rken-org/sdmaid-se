@@ -155,6 +155,6 @@ class ShizukuSetupModule @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("Setup", "Shizuku", "Module")
+        private val TAG = logTag("Setup", "ADB", "Shizuku", "Module")
     }
 }
