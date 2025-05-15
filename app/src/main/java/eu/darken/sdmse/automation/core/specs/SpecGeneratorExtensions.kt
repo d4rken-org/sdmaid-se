@@ -16,6 +16,7 @@ import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.toStringShort
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -81,11 +82,11 @@ fun SpecGenerator.windowCheckDefaultSettings(
         throw NoSettingsWindowException("${pkgInfo.packageName} has no settings window.")
     }
     windowCheck { _, root ->
-        root.pkgId == windowPkgId && checkAppIdentifier(ipcFunnel, pkgInfo)(root)
+        root.pkgId == windowPkgId && checkIdentifiers(ipcFunnel, pkgInfo)(root)
     }()
 }
 
-suspend fun SpecGenerator.checkAppIdentifier(
+suspend fun SpecGenerator.checkIdentifiers(
     ipcFunnel: IPCFunnel,
     pkgInfo: Installed,
 ): suspend StepContext.(AccessibilityNodeInfo) -> Boolean = { root ->
@@ -103,11 +104,11 @@ suspend fun SpecGenerator.checkAppIdentifier(
                 null
             }
             if (ai == null) {
-                log(tag, WARN) { "PackageName not found: $pkgInfo" }
+                log(tag, WARN) { "checkIdentifiers: PackageName not found: $pkgInfo" }
                 return@use null
             }
             if (ai.labelRes == 0) {
-                log(tag) { "labelRes was 0 for $pkgInfo" }
+                log(tag) { "checkIdentifiers: labelRes was 0 for $pkgInfo" }
                 return@use null
             }
 
@@ -139,7 +140,7 @@ suspend fun SpecGenerator.checkAppIdentifier(
                     ?.loadLabel(packageManager)
                     ?.toString()
             } catch (e: Throwable) {
-                log(tag) { "windowCriteriaAppIdentifier error for $pkgInfo: ${e.asLog()}" }
+                log(tag) { "checkIdentifiers: error for $pkgInfo: ${e.asLog()}" }
                 null
             }
         }
@@ -148,14 +149,16 @@ suspend fun SpecGenerator.checkAppIdentifier(
     pkgInfo.applicationInfo?.className
         ?.let { candidates.add(it) }
 
-    log(tag, VERBOSE) { "Looking for window identifiers: ${candidates.map { it.toVisualString() }}" }
+    log(tag, VERBOSE) { "checkIdentifiers: Looking for: ${candidates.map { it.toVisualString() }}" }
 
     val passed = root.crawl().map { it.node }.any { toTest ->
-        candidates.any { candidate -> toTest.text == candidate || toTest.text?.contains(candidate) == true }
+        candidates.any { candidate ->
+            val match = toTest.text == candidate || toTest.text?.contains(candidate) == true
+            if (match) log(tag, INFO) { "checkIdentifiers: Passed ('$candidate' on ${toTest.toStringShort()})" }
+            match
+        }
     }
-
-    if (passed) log(tag) { "Window check passed!" } else log(tag, WARN) { "Window check failed!" }
-
+    if (!passed) log(tag, WARN) { "checkIdentifiers: Window check failed." }
     passed
 }
 

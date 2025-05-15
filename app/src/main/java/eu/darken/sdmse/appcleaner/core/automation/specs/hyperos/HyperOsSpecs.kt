@@ -41,7 +41,7 @@ import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
-import eu.darken.sdmse.automation.core.specs.checkAppIdentifier
+import eu.darken.sdmse.automation.core.specs.checkIdentifiers
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
 import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
 import eu.darken.sdmse.automation.core.specs.windowCheck
@@ -124,12 +124,12 @@ class HyperOsSpecs @Inject constructor(
                 .mapNotNull { host.windowRoot() }
                 .first { root ->
                     when {
-                        root.pkgId == SETTINGS_PKG_HYPEROS && checkAppIdentifier(ipcFunnel, pkg)(root) -> {
+                        root.pkgId == SETTINGS_PKG_HYPEROS && checkIdentifiers(ipcFunnel, pkg)(root) -> {
                             windowPkg = SETTINGS_PKG_HYPEROS
                             true
                         }
 
-                        root.pkgId == SETTINGS_PKG_AOSP && checkAppIdentifier(ipcFunnel, pkg)(root) -> {
+                        root.pkgId == SETTINGS_PKG_AOSP && checkIdentifiers(ipcFunnel, pkg)(root) -> {
                             windowPkg = SETTINGS_PKG_AOSP
                             true
                         }

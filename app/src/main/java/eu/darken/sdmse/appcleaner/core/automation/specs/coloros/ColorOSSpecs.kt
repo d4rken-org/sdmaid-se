@@ -22,7 +22,7 @@ import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
-import eu.darken.sdmse.automation.core.specs.checkAppIdentifier
+import eu.darken.sdmse.automation.core.specs.checkIdentifiers
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
 import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
 import eu.darken.sdmse.automation.core.specs.windowCheck
@@ -115,7 +115,7 @@ class ColorOSSpecs @Inject constructor(
 
             val windowCheck = windowCheck { _, root ->
                 if (root.pkgId != SETTINGS_PKG) return@windowCheck false
-                if (checkAppIdentifier(ipcFunnel, pkg)(root)) return@windowCheck true
+                if (checkIdentifiers(ipcFunnel, pkg)(root)) return@windowCheck true
 
                 // https://github.com/d4rken/sdmaid-public/issues/4939
                 val hasClearCacheButton = root.crawl().map { it.node }.any { toTest ->
