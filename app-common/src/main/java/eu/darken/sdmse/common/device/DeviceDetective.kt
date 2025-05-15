@@ -94,6 +94,9 @@ class DeviceDetective @Inject constructor(
         checkManufactor("HONOR") -> RomType.HONOR
         // Minimal skin, some preinstalled apps and tweaks, overall, it's near-stock Android.
         checkManufactor("DOOGEE") -> RomType.DOOGEE
+        // OUKITEL/OT5_EEA/OT5:13/TP1A.220624.014/20240528:user/release-keys
+        // Stock ROM for the OUKITEL OT5 (European variant)
+        checkManufactor("OUKITEL") -> RomType.OUKITEL
         else -> null
     } ?: RomType.AOSP
 

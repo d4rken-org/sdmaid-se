@@ -10,6 +10,11 @@ import javax.inject.Inject
 @Reusable
 class AOSPLabels @Inject constructor() : AppControlLabelSource {
 
+    // Something like "App info"
+    fun getSettingsTitleDynamic(
+        acsContext: AutomationExplorer.Context,
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("application_info_label"))
+
     fun getForceStopButtonDynamic(
         acsContext: AutomationExplorer.Context
     ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("force_stop"))
