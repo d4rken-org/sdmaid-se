@@ -17,7 +17,7 @@ import eu.darken.sdmse.appcontrol.core.automation.specs.androidtv.AndroidTVSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.hyperos.HyperOsSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.miui.MIUISpecs
-import eu.darken.sdmse.appcontrol.core.automation.specs.samsung.SamsungSpecs
+import eu.darken.sdmse.appcontrol.core.automation.specs.oneui.OneUISpecs
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopAutomationTask
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
@@ -71,7 +71,7 @@ class AppControlAutomation @AssistedInject constructor(
             when (generator) {
                 is MIUISpecs -> 190
                 is HyperOsSpecs -> 180
-                is SamsungSpecs -> 170
+                is OneUISpecs -> 170
 //                is AlcatelSpecs -> 160
 //                is RealmeSpecs -> 150
 //                is HuaweiSpecs -> 140
@@ -148,7 +148,7 @@ class AppControlAutomation @AssistedInject constructor(
                 log(TAG, WARN) { "Cancelled because screen become unavailable: ${e.asLog()}" }
                 // TODO We don't have to abort here, but this is not a normal state and should show an error?
                 throw e
-            } catch (e: TimeoutCancellationException) {
+            } catch (_: TimeoutCancellationException) {
                 log(TAG, WARN) { "Timeout while processing $installed" }
                 failed.add(target)
             } catch (e: CancellationException) {

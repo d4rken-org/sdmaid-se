@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcontrol.core.automation.specs.samsung
+package eu.darken.sdmse.appcontrol.core.automation.specs.oneui
 
 import dagger.Binds
 import dagger.Module
@@ -40,10 +40,10 @@ import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
 
 @Reusable
-class SamsungSpecs @Inject constructor(
+class OneUISpecs @Inject constructor(
     private val ipcFunnel: IPCFunnel,
     private val deviceDetective: DeviceDetective,
-    private val samsungLabels: SamsungLabels,
+    private val oneUILabels: OneUILabels,
     private val generalSettings: GeneralSettings,
     private val stepper: Stepper,
 ) : AppControlSpecGenerator {
@@ -68,7 +68,7 @@ class SamsungSpecs @Inject constructor(
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
-        val forceStopLabels = samsungLabels.getForceStopButtonDynamic(this)
+        val forceStopLabels = oneUILabels.getForceStopButtonDynamic(this)
         var wasDisabled = false
 
         run {
@@ -101,9 +101,9 @@ class SamsungSpecs @Inject constructor(
         }
 
         run {
-            val titleLbl = samsungLabels.getForceStopDialogTitleDynamic(this) + forceStopLabels.map { "$it?" }
-            val okLbl = samsungLabels.getForceStopDialogOkDynamic(this)
-            val cancelLbl = samsungLabels.getForceStopDialogCancelDynamic(this)
+            val titleLbl = oneUILabels.getForceStopDialogTitleDynamic(this) + forceStopLabels.map { "$it?" }
+            val okLbl = oneUILabels.getForceStopDialogOkDynamic(this)
+            val cancelLbl = oneUILabels.getForceStopDialogCancelDynamic(this)
 
             val windowCheck = windowCheck { _, root ->
                 if (root.pkgId != SETTINGS_PKG) return@windowCheck false
@@ -134,7 +134,7 @@ class SamsungSpecs @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: SamsungSpecs): AppControlSpecGenerator
+        @Binds @IntoSet abstract fun mod(mod: OneUISpecs): AppControlSpecGenerator
     }
 
     companion object {
