@@ -113,6 +113,8 @@ suspend fun SpecGenerator.checkAppIdentifier(
 
             getLocales().map { locale ->
                 val res = packageManager.getResourcesForApplication(ai)
+
+                @Suppress("DEPRECATION")
                 val localRes = Resources(
                     res.assets,
                     res.displayMetrics,
@@ -148,9 +150,13 @@ suspend fun SpecGenerator.checkAppIdentifier(
 
     log(tag, VERBOSE) { "Looking for window identifiers: ${candidates.map { it.toVisualString() }}" }
 
-    root.crawl().map { it.node }.any { toTest ->
+    val passed = root.crawl().map { it.node }.any { toTest ->
         candidates.any { candidate -> toTest.text == candidate || toTest.text?.contains(candidate) == true }
     }
+
+    if (passed) log(tag) { "Window check passed!" } else log(tag, WARN) { "Window check failed!" }
+
+    passed
 }
 
 fun SpecGenerator.defaultFindAndClick(
@@ -166,6 +172,7 @@ fun SpecGenerator.defaultFindAndClick(
 fun SpecGenerator.defaultNodeRecovery(
     pkg: Installed
 ): suspend StepContext.(AccessibilityNodeInfo) -> Boolean = { root ->
+    log(tag) { "Performing node recovery for ${pkg.id}" }
     val busyNode = root.crawl().firstOrNull { it.node.textMatchesAny(listOf("...", "…")) }
     if (busyNode != null) {
         log(tag, VERBOSE) { "Found a busy-node, attempting recovery via delay: $busyNode" }
