@@ -63,7 +63,7 @@ class DebugTaskModule @AssistedInject constructor(
                 log(TAG, VERBOSE) { "Event: $it" }
                 val crawled = host.waitForWindowRoot().crawl().toList()
                 crawled.forEach { log(TAG, VERBOSE) { it.infoShort } }
-                updateProgressSecondary("Event: ${it.eventType} (depth: ${crawled.last().level})")
+                updateProgressSecondary("Event: ${it.event.eventType} (depth: ${crawled.last().level})")
             }
             .onEach {
 //                host.waitForWindowRoot().crawl()
