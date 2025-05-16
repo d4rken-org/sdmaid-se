@@ -33,6 +33,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onStart
 
@@ -52,7 +53,7 @@ fun SpecGenerator.windowLauncherDefaultSettings(
 fun SpecGenerator.windowCheck(
     condition: suspend StepContext.(event: AccessibilityEvent?, root: AccessibilityNodeInfo) -> Boolean,
 ): suspend StepContext.() -> AccessibilityNodeInfo = {
-    val events: Flow<AccessibilityEvent?> = host.events
+    val events: Flow<AccessibilityEvent?> = host.events.map { it.event }
     val (event, root) = events
         .onStart {
             // we may already be ready

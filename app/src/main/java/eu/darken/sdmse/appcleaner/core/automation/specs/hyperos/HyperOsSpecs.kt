@@ -120,6 +120,7 @@ class HyperOsSpecs @Inject constructor(
             }
             // Wait for correct base window
             host.events
+                .map { it.event }
                 .filter { event -> event.pkgId == SETTINGS_PKG_HYPEROS || event.pkgId == SETTINGS_PKG_AOSP }
                 .mapNotNull { host.windowRoot() }
                 .first { root ->
@@ -161,6 +162,8 @@ class HyperOsSpecs @Inject constructor(
 
     private fun isSecurityCenterMissingPermission(): Boolean = try {
         val appOps = context.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
+
+        @Suppress("DEPRECATION")
         val mode = appOps.checkOp(
             AppOpsManager.OPSTR_GET_USAGE_STATS,
             context.packageManager.getApplicationInfo(SETTINGS_PKG_HYPEROS.name, 0).uid,

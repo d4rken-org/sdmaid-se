@@ -2,9 +2,9 @@ package eu.darken.sdmse.automation.core
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
-import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.R
+import eu.darken.sdmse.automation.core.AutomationService.Snapshot
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.progress.Progress
@@ -21,7 +21,7 @@ interface AutomationHost : Progress.Client {
 
     suspend fun changeOptions(action: (Options) -> Options)
 
-    val events: Flow<AccessibilityEvent>
+    val events: Flow<Snapshot>
 
     data class State(
         val hasOverlay: Boolean = false,
@@ -44,7 +44,7 @@ interface AutomationHost : Progress.Client {
                 //    at android.accessibilityservice.AccessibilityServiceInfo.getId(AccessibilityServiceInfo.java:759)
                 //    at android.accessibilityservice.AccessibilityServiceInfo.toString(AccessibilityServiceInfo.java:1105)
                 accessibilityServiceInfo.toString()
-            } catch (e: NullPointerException) {
+            } catch (_: NullPointerException) {
                 "NPE"
             }
             return "AutomationHost.Options(showOverlay=$showOverlay, passthrough=$passthrough, acsInfo=$acsInfo)"
