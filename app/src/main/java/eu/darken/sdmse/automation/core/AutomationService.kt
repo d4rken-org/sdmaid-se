@@ -1,7 +1,6 @@
 package eu.darken.sdmse.automation.core
 
 import android.accessibilityservice.AccessibilityService
-import android.content.Context
 import android.content.Intent
 import android.graphics.PixelFormat
 import android.view.Gravity
@@ -41,20 +40,25 @@ import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.retry
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
+import java.util.UUID
 import javax.inject.Inject
 import kotlin.coroutines.resume
 
@@ -76,8 +80,10 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
     private lateinit var windowManager: WindowManager
 
-    private val automationEvents = MutableSharedFlow<AccessibilityEvent>()
-    override val events: Flow<AccessibilityEvent> = automationEvents
+    private val automationEvents = MutableSharedFlow<Snapshot>(
+        extraBufferCapacity = 10,
+    )
+    override val events: Flow<Snapshot> = automationEvents
 
     private val hostState = MutableStateFlow(AutomationHost.State())
     override val state = hostState
@@ -91,6 +97,16 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     private var controlView: AutomationControlView? = null
 
     override val service: AccessibilityService get() = this
+
+    private val screenLogger = MutableSharedFlow<Snapshot>(
+        extraBufferCapacity = 5,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST,
+    )
+
+    data class Snapshot(
+        val id: UUID = UUID.randomUUID(),
+        val event: AccessibilityEvent,
+    )
 
     override fun onCreate() {
         log(TAG) { "onCreate(application=$application)" }
@@ -153,6 +169,21 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
             .map { it?.first }
             .onEach { automationManager.setCurrentTask(it) }
             .launchIn(serviceScope)
+
+        screenLogger
+            .filter { Bugs.isDebug }
+            .onEach { (id, event) ->
+                log(TAG, VERBOSE) { "ACS-DEBUG -- $id -- START -- $event" }
+                withTimeout(3_000) { windowRoot() }
+                    ?.crawl()
+                    ?.forEach { log(TAG, VERBOSE) { "ACS-DEBUG: ${it.infoShort}" } }
+                log(TAG, VERBOSE) { "ACS-DEBUG -- $id -- STOP -- ------------------------------" }
+            }
+            .retry {
+                log(TAG, ERROR) { "Failed to log screen: ${it.asLog()}" }
+                true
+            }
+            .launchIn(serviceScope)
     }
 
     override fun onInterrupt() {
@@ -163,7 +194,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         log(TAG) { "onServiceConnected()" }
         instance = this
         automationManager.setCurrentService(this)
-        windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
 
         if (generalSettings.hasAcsConsent.valueBlocking != true) {
             log(TAG, WARN) { "Missing consent for accessibility service, stopping service." }
@@ -209,21 +240,18 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
                 @Suppress("DEPRECATION")
                 AccessibilityEvent.obtain(event)
             } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to obtain accessibility event copy $event" }
+                log(TAG, ERROR) { "Failed to obtain accessibility event copy $event: ${e.asLog()}" }
                 return
             }
         }
 
-        if (Bugs.isDebug) {
-            log(TAG, VERBOSE) { "ACS-DEBUG -- START -- $eventCopy" }
-            rootInActiveWindow?.crawl()?.forEach { log(TAG, VERBOSE) { "ACS-DEBUG: ${it.infoShort}" } }
-            log(TAG, VERBOSE) { "ACS-DEBUG -- STOP -- -------------------------------------------------------------" }
-        }
+        val snapshot = Snapshot(event = eventCopy)
 
-        // TODO use a queue here?
+        screenLogger.tryEmit(snapshot)
+
         serviceScope.launch {
-            log(TAG, VERBOSE) { "Providing: $eventCopy" }
-            automationEvents.emit(eventCopy)
+            log(TAG, VERBOSE) { "Providing: $snapshot" }
+            automationEvents.emit(snapshot)
         }
     }
 
