@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.UriPermission
 import android.net.Uri
 import android.provider.DocumentsContract
+import androidx.core.content.pm.PackageInfoCompat
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -37,6 +38,7 @@ import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
+import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -148,8 +150,23 @@ class SAFSetupModule @Inject constructor(
          * On Android 13 this trick no longer works :(
          */
         if (hasApiLevel(30) && !hasApiLevel(33)) {
-            val documentsPkg = pkgOps.queryAppInfos("com.google.android.documentsui".toPkgId())
-            log(TAG) { "Files-DocumentsUI: $documentsPkg targetSdkVersion=${documentsPkg?.targetSdkVersion}" }
+            val isRestricted = pkgOps.queryPkg(
+                pkgName = "com.google.android.documentsui".toPkgId(),
+                flags = 0,
+                userHandle = UserHandle2()
+            )?.let { pkg ->
+                log(TAG) { "Files-DocumentsUI: appInfos=$pkg" }
+                log(TAG) { "Files-DocumentsUI: targetSdkVersion=${pkg.applicationInfo?.targetSdkVersion}" }
+                log(TAG) { "Files-DocumentsUI: versionName=${pkg.versionName}" }
+                val versionCode = PackageInfoCompat.getLongVersionCode(pkg)
+                log(TAG) { "Files-DocumentsUI: versionCode=$versionCode" }
+                // Commit 901f1d6044aade190bb943ccc18d26244132648e with changes first seen in tag 'aml_doc_331120000'
+                val isTooNew = versionCode >= 331120000L
+                val hasKnownMarker = (pkg.applicationInfo?.targetSdkVersion ?: 0) >= 34
+                hasKnownMarker || isTooNew
+            } ?: true
+
+            log(TAG) { "Files-DocumentsUI: is restricted? $isRestricted" }
 
             storageEnvironment.externalDirs
                 .map { baseDir ->
@@ -157,7 +174,7 @@ class SAFSetupModule @Inject constructor(
 
                     // The newer `Files` app if updates through Google Play system updates, no longer supports selecting this
                     // https://cs.android.com/android/platform/superproject/main/+/main:packages/apps/DocumentsUI/src/com/android/documentsui/picker/ActionHandler.java;l=84;bpv=1;bpt=0;drc=901f1d6044aade190bb943ccc18d26244132648e;dlc=306a2b606a1f01498d2d83a1d8362962f114e6e8
-                    if ((documentsPkg?.targetSdkVersion ?: 0) < 34) {
+                    if (!isRestricted) {
                         viableTargets.add(baseDir.child("Android", "data"))
                         viableTargets.add(baseDir.child("Android", "obb"))
                     }
