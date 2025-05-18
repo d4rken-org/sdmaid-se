@@ -14,7 +14,6 @@ import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.findContent
-import eu.darken.sdmse.appcontrol.core.*
 import eu.darken.sdmse.common.MimeTypeTool
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.ca.CaString
@@ -36,7 +35,11 @@ import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
 import eu.darken.sdmse.systemcleaner.core.filter.custom.EditorOptionsCreator
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combineTransform
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
 import javax.inject.Inject
 
 @HiltViewModel
@@ -217,7 +220,7 @@ class ContentViewModel @Inject constructor(
 
     fun exclude(items: List<ContentAdapter.Item>) = launch {
         log(TAG) { "exclude(${items.size})" }
-        val targets = items
+        val contentItems = items
             .map {
                 when (it) {
                     is ContentItemVH.Item -> setOf(it.content)
@@ -226,10 +229,10 @@ class ContentViewModel @Inject constructor(
                 }
             }
             .flatten()
-            .map { PathExclusion(path = it.path) }
-            .toSet()
-        val createdExclusions = exclusionManager.save(targets)
-        events.postValue(ContentItemEvents.ExclusionsCreated(createdExclusions.size))
+        val newExclusions = contentItems.map { PathExclusion(path = it.path) }.toSet()
+        exclusionManager.save(newExclusions)
+        val affectedContentItems = newExclusions.map { excl -> contentItems.single { it.path == excl.path } }
+        events.postValue(ContentItemEvents.ExclusionsCreated(affectedContentItems))
     }
 
     fun createFilter(items: List<ContentAdapter.Item>) = launch {
