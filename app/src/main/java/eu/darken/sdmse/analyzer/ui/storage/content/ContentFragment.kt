@@ -74,6 +74,13 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
         installListSelection(
             adapter = adapter,
             cabMenuRes = R.menu.menu_analyzer_content_list_cab,
+            onPrepare = { tracker, mode, menu ->
+                val selectedItems = tracker.selection.map { key -> adapter.data.first { it.itemSelectionKey == key } }
+                val hasInaccessible = selectedItems.any { it !is ContentItemVH.Item || it.content.inaccessible }
+                menu.findItem(R.id.action_delete_selected)?.isVisible = !hasInaccessible
+                menu.findItem(R.id.action_create_filter_selected)?.isVisible = !hasInaccessible
+                true
+            },
             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<ContentAdapter.Item> ->
                 when (item.itemId) {
                     R.id.action_exclude_selected -> {
@@ -131,11 +138,15 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                 is ContentItemEvents.ExclusionsCreated -> Snackbar
                     .make(
                         requireView(),
-                        getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.count),
+                        getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.items.size),
                         Snackbar.LENGTH_LONG
                     )
                     .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
-                        ContentFragmentDirections.goToExclusions().navigate()
+                        if (event.items.size == 1) {
+                            vm.openExclusion(event.items.single())
+                        } else {
+                            ContentFragmentDirections.goToExclusions().navigate()
+                        }
                     }
                     .show()
 
