@@ -10,7 +10,7 @@ object Versions {
 
     object AndroidX {
         object Navigation {
-            const val core = "2.9.0"
+            const val core = "2.8.9"
         }
     }
 
