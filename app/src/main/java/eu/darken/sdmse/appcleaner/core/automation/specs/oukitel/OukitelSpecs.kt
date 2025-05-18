@@ -70,20 +70,18 @@ class OukitelSpecs @Inject constructor(
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
-        val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
-            if (stepAttempts >= 1 && pkg.hasNoSettings) {
-                throw NoSettingsWindowException("${pkg.packageName} has no settings window.")
-            }
-            val candidates = aospLabels.getSettingsTitleDynamic(hostContext)
-            windowCheck { _, root ->
-                if (root.pkgId != SETTINGS_PKG) return@windowCheck false
-                root.crawl()
-                    .map { it.node }
-                    .any { toTest -> candidates.any { candidate -> toTest.text == candidate } }
-            }()
-        }
-
         run {
+            val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
+                if (stepAttempts >= 1 && pkg.hasNoSettings) {
+                    throw NoSettingsWindowException("${pkg.packageName} has no settings window.")
+                }
+                val candidates = aospLabels.getSettingsTitleDynamic(hostContext)
+                windowCheck { _, root ->
+                    if (root.pkgId != SETTINGS_PKG) return@windowCheck false
+                    root.crawl().map { it.node }.any { it.textMatchesAny(candidates) }
+                }()
+            }
+
             val storageEntryLabels =
                 aospLabels.getStorageEntryDynamic(this) + aospLabels.getStorageEntryStatic(this)
             log(TAG) { "storageEntryLabels=${storageEntryLabels.toVisualStrings()}" }
@@ -106,6 +104,13 @@ class OukitelSpecs @Inject constructor(
             val clearCacheButtonLabels =
                 aospLabels.getClearCacheDynamic(this) + aospLabels.getClearCacheStatic(this)
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
+
+            val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
+                windowCheck { _, root ->
+                    if (root.pkgId != SETTINGS_PKG) return@windowCheck false
+                    root.crawl().map { it.node }.any { it.textMatchesAny(clearCacheButtonLabels) }
+                }()
+            }
 
             val step = AutomationStep(
                 source = tag,
