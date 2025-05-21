@@ -9,11 +9,15 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
-import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
+import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
+import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
+import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.toStringShort
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
@@ -24,6 +28,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.toVisualStrings
@@ -90,14 +95,39 @@ class AOSPSpecs @Inject constructor(
                 aospLabels.getClearCacheDynamic(this) + aospLabels.getClearCacheStatic(this)
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
+            val nodeAction: suspend StepContext.() -> Boolean = action@{
+                var target = findNode { it.textMatchesAny(clearCacheButtonLabels) }
+                log(tag) { "Potential target is ${target?.toStringShort()}" }
+                if (target == null) return@action false
+
+                target = when {
+                    // ----------10: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null
+                    // -----------11: text='Clear storage', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=com.android.settings:id/button1
+                    // -----------11: text='null', class=android.view.View, clickable=false, checkable=false enabled=true, id=com.android.settings:id/divider1
+                    // -----------11: text='Clear cache', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=com.android.settings:id/button2
+                    target.isClickyButton() -> target.also { log(tag) { "Target is clicky button" } }
+
+                    // -----------11: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/action2
+                    // ------------12: text='null', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=com.android.settings:id/button2
+                    // ------------12: text='Clear cache', class=android.widget.TextView, clickable=true, checkable=false enabled=true, id=com.android.settings:id/text2
+                    else -> findClickableParent(node = target).also { log(tag) { "Target is clickable parent" } }
+                }
+
+                if (target == null) {
+                    log(tag, WARN) { "Mapped target for 'Clear cache' is null?" }
+                    return@action false
+                }
+
+                log(tag) { "Clicking 'Clear cache' target ${target.toStringShort()} for $pkg:" }
+                clickClearCache(isDryRun = Bugs.isDryRun, pkg = pkg, node = target)
+            }
+
             val step = AutomationStep(
                 source = tag,
                 descriptionInternal = "Clear cache button",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
-                nodeAction = defaultFindAndClickClearCache(isDryRun = Bugs.isDryRun, pkg) {
-                    if (!it.isClickyButton()) false else it.textMatchesAny(clearCacheButtonLabels)
-                },
+                nodeAction = nodeAction,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
