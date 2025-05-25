@@ -130,21 +130,24 @@ class InaccessibleDeleter @Inject constructor(
             log(TAG) { "Processing ${remainingTargets.size} remaining inaccessible caches" }
             remainingTargets.forEach { log(TAG, VERBOSE) { "Remaining ACS target: $it" } }
 
-            val successFullLive = mutableSetOf<InstallId>()
+            val successLive = mutableSetOf<InstallId>()
+            val failedLive = mutableMapOf<InstallId, Exception>()
+
             val acsTask = ClearCacheTask(
                 targets = remainingTargets.map { it.identifier },
                 returnToApp = !isBackground,
-                onSuccess = { successFullLive.add(it) }
+                onSuccess = { successLive.add(it) },
+                onError = { id, error -> failedLive[id] = error }
             )
             val result = try {
                 automationManager.submit(acsTask) as ClearCacheTask.Result
             } catch (e: AutomationUnavailableException) {
                 throw InaccessibleDeletionException(e)
             } catch (e: UserCancelledAutomationException) {
-                log(TAG, WARN) { "User has cancelled, forwarding live progress: $successFullLive" }
+                log(TAG, WARN) { "User has cancelled ($e), forwarding live progress: $successLive" }
                 ClearCacheTask.Result(
-                    successful = successFullLive,
-                    failed = emptyMap(),
+                    successful = successLive,
+                    failed = failedLive,
                 )
             }
 

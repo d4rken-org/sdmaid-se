@@ -7,6 +7,7 @@ class ClearCacheTask(
     val targets: List<InstallId>,
     val returnToApp: Boolean,
     val onSuccess: (InstallId) -> Unit,
+    val onError: (InstallId, Exception) -> Unit,
 ) : AutomationTask {
 
     data class Result(

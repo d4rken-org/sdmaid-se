@@ -4,6 +4,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.automation.core.AutomationHost
+import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.toCaString
@@ -14,6 +15,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
+import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -55,20 +57,25 @@ class AutomationExplorer @AssistedInject constructor(
         val plan = spec.createPlan()
         log(TAG) { "Plan created: $plan" }
 
-        withTimeout(spec.executionTimeout.toMillis()) {
-            while (currentCoroutineContext().isActive) {
-                try {
-                    plan(context)
-                    // Success :)
-                    return@withTimeout
-                } catch (e: PlanAbortException) {
-                    log(TAG, WARN) { "ABORT Plan due to ${e.asLog()}" }
-                    throw e
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "Plan failed, retrying:\n${e.asLog()}" }
-                    delay(300)
+        try {
+            withTimeout(spec.executionTimeout.toMillis()) {
+                while (currentCoroutineContext().isActive) {
+                    try {
+                        plan(context)
+                        // Success :)
+                        return@withTimeout
+                    } catch (e: PlanAbortException) {
+                        log(TAG, WARN) { "ABORT Plan due to ${e.asLog()}" }
+                        throw e
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "Plan failed, retrying:\n${e.asLog()}" }
+                        delay(300)
+                    }
                 }
             }
+        } catch (e: TimeoutCancellationException) {
+            log(TAG, WARN) { "Automation timed out: $e" }
+            throw AutomationTimeoutException(e)
         }
     }
 

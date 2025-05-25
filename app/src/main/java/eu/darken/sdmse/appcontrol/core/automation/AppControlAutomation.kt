@@ -22,6 +22,7 @@ import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopAutomationTask
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
+import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.core.finishAutomation
@@ -48,7 +49,6 @@ import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.delay
 import javax.inject.Provider
 
@@ -146,10 +146,9 @@ class AppControlAutomation @AssistedInject constructor(
                 successful.add(target)
             } catch (e: ScreenUnavailableException) {
                 log(TAG, WARN) { "Cancelled because screen become unavailable: ${e.asLog()}" }
-                // TODO We don't have to abort here, but this is not a normal state and should show an error?
                 throw e
-            } catch (_: TimeoutCancellationException) {
-                log(TAG, WARN) { "Timeout while processing $installed" }
+            } catch (e: AutomationTimeoutException) {
+                log(TAG, WARN) { "Timeout while processing $installed: $e" }
                 failed.add(target)
             } catch (e: CancellationException) {
                 log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }

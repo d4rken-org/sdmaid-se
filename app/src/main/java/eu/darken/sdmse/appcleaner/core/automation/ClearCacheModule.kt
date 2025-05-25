@@ -34,6 +34,7 @@ import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.animation.AnimationState
 import eu.darken.sdmse.automation.core.animation.AnimationTool
 import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
+import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
 import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
@@ -43,6 +44,7 @@ import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.OpsCounter
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -67,7 +69,6 @@ import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.NonCancellable
-import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.withContext
 import javax.inject.Provider
 
@@ -160,7 +161,12 @@ class ClearCacheModule @AssistedInject constructor(
             deviceDetective = deviceDetective,
         )
 
-        if (result.timeoutCount != 0 && result.successful.isEmpty()) {
+        if (Bugs.isDebug) {
+            result.failed.forEach { (id, e) -> log(TAG, WARN) { "$id failed with $e" } }
+        }
+
+        val timeoutCount = result.failed.count { it.value is AutomationTimeoutException }
+        if (timeoutCount >= TIMEOUT_LIMIT && result.successful.isEmpty()) {
             log(TAG, ERROR) { "Continued timeout errors, no successes so far, possible compatbility issue?" }
             throw AutomationCompatibilityException()
         }
@@ -175,7 +181,6 @@ class ClearCacheModule @AssistedInject constructor(
         val successful: Collection<InstallId>,
         val failed: Map<InstallId, Exception>,
         val cancelledByUser: Boolean,
-        val timeoutCount: Int,
     )
 
     private suspend fun processTask(task: ClearCacheTask): ProcessedTask {
@@ -186,7 +191,6 @@ class ClearCacheModule @AssistedInject constructor(
 
         var cancelledByUser = false
         val currentUserHandle = userManager2.currentUser().handle
-        var timeoutCount = 0
 
         var lastTarget: Pkg.Id? = null
         val opsCounter = OpsCounter { opsRate, lastOps ->
@@ -196,6 +200,7 @@ class ClearCacheModule @AssistedInject constructor(
         }
 
         for (target in task.targets) {
+            @Suppress("AssignedValueIsNeverRead")
             lastTarget = target.pkgId
             if (target.userHandle != currentUserHandle) {
                 throw UnsupportedOperationException("ACS based deletion is not support for other users ($target)")
@@ -220,10 +225,12 @@ class ClearCacheModule @AssistedInject constructor(
             } catch (e: InvalidSystemStateException) {
                 log(TAG, WARN) { "Invalid system state for ACS based cache deletion: ${e.asLog()}" }
                 throw e
-            } catch (e: TimeoutCancellationException) {
+            } catch (e: AutomationTimeoutException) {
                 log(TAG, WARN) { "Timeout while processing $installed" }
+                task.onError(target, e)
                 failed[target] = e
-                if (timeoutCount > 8 && successful.isEmpty()) break else timeoutCount++
+                val timeouts = failed.count { it.value is AutomationTimeoutException }
+                if (successful.isEmpty() && timeouts > TIMEOUT_LIMIT) break
             } catch (e: CancellationException) {
                 log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
                 updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
@@ -242,6 +249,7 @@ class ClearCacheModule @AssistedInject constructor(
                     successful.add(target)
                 } else {
                     log(TAG, WARN) { "Failure for $target:\n${e.asLog()}" }
+                    task.onError(target, e)
                     failed[target] = e
                 }
             } finally {
@@ -254,7 +262,6 @@ class ClearCacheModule @AssistedInject constructor(
             successful = successful,
             failed = failed,
             cancelledByUser = cancelledByUser,
-            timeoutCount = timeoutCount,
         )
     }
 
@@ -304,6 +311,7 @@ class ClearCacheModule @AssistedInject constructor(
     }
 
     companion object {
+        private const val TIMEOUT_LIMIT = 8
         val TAG: String = logTag("Automation", "AppCleaner", "ClearCacheModule")
     }
 }
