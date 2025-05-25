@@ -230,8 +230,10 @@
     <string name="systemcleaner_filter_custom_label">Aangepast filter</string>
     <string name="systemcleaner_filter_custom_manage_label">Beheer aangepaste filters</string>
     <string name="systemcleaner_filter_custom_manage_summary">Maak, verwijder, importeer en exporteer je aangepaste filters.</string>
-    <string name="systemcleaner_filter_logfiles_label">Logbestanden</string>
-    <string name="systemcleaner_filter_logfiles_summary">Logbestanden (*.log) van over het hele apparaat.</string>
+    <string name="systemcleaner_filter_logfiles_label">Systeemlogbestanden</string>
+    <string name="systemcleaner_filter_logfiles_summary">Systeem- en systeemdienstlogbestanden (bijv. *.log) op verschillende locaties.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Installatiecache</string>
+    <string name="systemcleaner_filter_packagecaches_summary">In het cachegeheugen opgeslagen gegevens met betrekking tot geïnstalleerde apps die worden gebruikt door het pakketbeheer van het systeem.</string>
     <string name="systemcleaner_filter_advertisements_label">Advertentie bestanden</string>
     <string name="systemcleaner_filter_advertisements_summary">Bestanden die zijn gemaakt voor of door advertenties.</string>
     <string name="systemcleaner_filter_anr_label">ANR-fouten</string>
@@ -256,8 +258,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Gegevens die de Windows-bestandsverkenner kan maken op aangesloten opslag."</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatuurafbeeldingen</string>
     <string name="systemcleaner_filter_thumbnails_summary">In cache opgeslagen voorbeelden voor afbeeldingen en video\'s.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Tijdelijke bestanden</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Tijdelijke bestanden, meestal tijdelijke caches voor actieve bewerkingen.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Tijdelijke systeembestanden</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Systeemgerelateerde tijdelijke bestanden, meestal caches met een korte levensduur voor actieve bewerkingen.</string>
     <string name="systemcleaner_filter_analytics_label">Analyse bestanden</string>
     <string name="systemcleaner_filter_analytics_summary">Gegevens met betrekking tot analyse en het opsporen van bugs.</string>
     <string name="systemcleaner_filter_downloadcache_label">Cache downloaden</string>
@@ -392,6 +394,11 @@
         <item quantity="other">Verwijderbare bestanden voor %d geselecteerde apps verwijderen?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Cachegeheugens verwijderen met Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Ontoegankelijke caches bepalen</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Cache wissen niet beschikbaar</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Het systeem heeft de knop \'Cache wissen\' voor deze app uitgeschakeld. Maak een uitsluiting voor deze app.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Instellingenscherm niet beschikbaar</string>
+    <string name="appcleaner_automation_error_no_settings_body">Deze systeem-app heeft geen instellingenscherm. Het wissen van de cache via de toegankelijkheidsservice is niet mogelijk. Maak een uitsluiting voor deze app.</string>
     <string name="deduplicator_tool_name">Ontdubbelaar</string>
     <string name="deduplicator_explanation_short">Zoek dubbele gegevens op je toestel.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -475,6 +482,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Eerst geïnstalleerd</string>
     <string name="appcontrol_list_sortmode_packagename_label">Pakketnaam</string>
     <string name="appcontrol_list_sortmode_size_label">Grootte</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Schermtijd</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">App-grootes worden geschat om prestatieredenen. Gebruik de StorageAnalyzer-tool voor nauwkeurigere gegevens.</string>
     <string name="appcontrol_progress_uninstalling_app">App verwijderen</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -522,6 +530,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Geforceerd stoppen…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Ik zoek naar de knop \'Geforceerd stoppen\' (trefwoorden: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Probeert eerdere actie te bevestigen (trefwoorden: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Schermtijd: %1$s sinds %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Laatst bijgewerkt: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Geïnstalleerd op: %s</string>
     <string name="analyzer_tool_name">OpslagAnalyzer</string>
     <string name="analyzer_explanation_short">Ontdek wat ruimte in beslag neemt op uw apparaat.</string>
     <string name="analyzer_progress_scanning_device">Zoeken naar opslagapparaten</string>

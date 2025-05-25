@@ -231,8 +231,10 @@ Recursos dos jogos.</string>
     <string name="systemcleaner_filter_custom_label">Filtro personalizado</string>
     <string name="systemcleaner_filter_custom_manage_label">Gerir filtros personalizados</string>
     <string name="systemcleaner_filter_custom_manage_summary">Criar, apagar, importar e exportar os seus filtros personalizados.</string>
-    <string name="systemcleaner_filter_logfiles_label">Ficheiros de registo</string>
-    <string name="systemcleaner_filter_logfiles_summary">Ficheiros de registo (*.log) de todo o dispositivo.</string>
+    <string name="systemcleaner_filter_logfiles_label">Arquivos de log do sistema</string>
+    <string name="systemcleaner_filter_logfiles_summary">Arquivos de log de sistema e de serviço de sistema (por exemplo, *.log) em vários locais.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Cache do instalador</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Dados em cache relacionados as apps instaladas que são usadas pelo gestor de pacotes do sistema.</string>
     <string name="systemcleaner_filter_advertisements_label">Ficheiros de anúncios</string>
     <string name="systemcleaner_filter_advertisements_summary">Ficheiros que foram criados por aplicações de publicidade.</string>
     <string name="systemcleaner_filter_anr_label">ANR errors</string>
@@ -257,7 +259,7 @@ Recursos dos jogos.</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Dados que o explorador de ficheiros Windows pode criar no armazenamento conectado."</string>
     <string name="systemcleaner_filter_thumbnails_label">Imagens em miniatura</string>
     <string name="systemcleaner_filter_thumbnails_summary">Visualizações em cache para imagens e vídeos.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Ficheiros temporários</string>
+    <string name="systemcleaner_filter_tempfiles_label">Arquivos temporários do sistema</string>
     <string name="systemcleaner_filter_tempfiles_summary">Ficheiros temporários, geralmente pequenas caches para operações ativas.</string>
     <string name="systemcleaner_filter_analytics_label">Ficheiros analíticos</string>
     <string name="systemcleaner_filter_analytics_summary">Dados relacionados à análise e rastreamento de erros.</string>
@@ -393,6 +395,11 @@ Recursos dos jogos.</string>
         <item quantity="other">Apagar ficheiros dispensáveis para %d aplicativos selecionados?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Apagando caches usando o Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">A determinar caches inacessíveis</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Limpar cache indisponível</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">O sistema desativou o botão \"Limpar cache\" para este aplicativo. Crie uma exclusão para este aplicativo.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Tela de configurações indisponível</string>
+    <string name="appcleaner_automation_error_no_settings_body">Este app do sistema não tem tela de configurações. A limpeza de cache através do serviço de acessibilidade não é possível. Crie uma exclusão para este app.</string>
     <string name="deduplicator_tool_name">Des-duplicador</string>
     <string name="deduplicator_explanation_short">Encontre dados duplicados no seu dispositivo.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -476,6 +483,7 @@ Recursos dos jogos.</string>
     <string name="appcontrol_list_sortmode_installed_label">Primeira Instalação</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nome do pacote</string>
     <string name="appcontrol_list_sortmode_size_label">Tamanho</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Tempo de Ecrã Ligado</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Tamanhos das apps são estimados pelo desempenho. Use a ferramenta de Análise de Armazenamento para dados mais precisos.</string>
     <string name="appcontrol_progress_uninstalling_app">Desinstalando a aplicação</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -523,6 +531,9 @@ Recursos dos jogos.</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Forçar paragem…</string>
     <string name="appcontrol_automation_progress_find_force_stop">À procura do botão \"Limpar dados\" (palavras-chave: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">A tentar confirmar a ação anterior (palavras-chave: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Tempo de ecrã: %1$s desde %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Última atualização %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instalado em: %s</string>
     <string name="analyzer_tool_name">Analisador de armazenamento</string>
     <string name="analyzer_explanation_short">Descubra o que está ocupando espaço no seu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Procurando dispositivos de armazenamento</string>

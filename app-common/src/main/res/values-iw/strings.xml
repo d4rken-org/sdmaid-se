@@ -60,7 +60,7 @@
     <string name="general_progress_loading_egg_6">מעבירים את החמאה</string>
     <string name="general_progress_loading_egg_7">נו. איך אתה מחזיק מעמד?</string>
     <string name="general_progress_loading_egg_8">ביפ בוופ בופ</string>
-    <string name="general_progress_loading_egg_9">טוען בחירות גורליות</string>
+    <string name="general_progress_loading_egg_9">הפרדת בחירות בחיים</string>
     <string name="general_progress_loading_egg_10">מזמן את קטהולו</string>
     <string name="general_progress_loading_egg_11">הכל בסדר</string>
     <string name="general_progress_loading_egg_12">המתן בבקשה</string>
@@ -180,4 +180,5 @@
     </plurals>
     <string name="general_advice_title">עצה</string>
     <string name="general_error_invalid_input_label">קלט לא חוקי</string>
+    <string name="general_information_for_the_developer">מידע למפתח</string>
 </resources>

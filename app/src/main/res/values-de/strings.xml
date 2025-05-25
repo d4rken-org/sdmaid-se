@@ -230,8 +230,10 @@
     <string name="systemcleaner_filter_custom_label">Benutzerdefinierte Filter</string>
     <string name="systemcleaner_filter_custom_manage_label">Benutzerdefinierte Filter verwalten</string>
     <string name="systemcleaner_filter_custom_manage_summary">Erstellen, löschen, importieren und exportieren Deiner benutzerdefinierten Filter.</string>
-    <string name="systemcleaner_filter_logfiles_label">Protokolldateien</string>
-    <string name="systemcleaner_filter_logfiles_summary">Protokolldateien (*.log) vom gesamten Gerät.</string>
+    <string name="systemcleaner_filter_logfiles_label">Systemlog Dateien</string>
+    <string name="systemcleaner_filter_logfiles_summary">System- und Systemlogdateien (z.B. *.log) an verschiedenen Standorten.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Installer-Cache</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Zwischengespeicherte Daten zu installierten Apps, die von der Paketverwaltung des Systems verwendet werden.</string>
     <string name="systemcleaner_filter_advertisements_label">Werbungsdateien</string>
     <string name="systemcleaner_filter_advertisements_summary">Dateien, die für oder von Anzeigen erstellt wurden.</string>
     <string name="systemcleaner_filter_anr_label">ANR Fehler</string>
@@ -256,8 +258,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Daten, die der Windows-Datei-Explorer auf einem angeschlossenen Speicher erstellen kann."</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniaturbilder</string>
     <string name="systemcleaner_filter_thumbnails_summary">Zwischengespeicherte Vorschauen für Bilder und Videos.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Temporäre Dateien</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Temporäre Dateien, normalerweise kurzlebige Caches für aktive Vorgänge.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Temporäre Systemdateien</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Systembezogene temporäre Dateien, normalerweise kurze Caches für aktive Operationen.</string>
     <string name="systemcleaner_filter_analytics_label">Analytik-Dateien</string>
     <string name="systemcleaner_filter_analytics_summary">Daten im Zusammenhang mit Analysen und Fehlerverfolgung.</string>
     <string name="systemcleaner_filter_downloadcache_label">Download-Cache</string>
@@ -392,6 +394,11 @@
         <item quantity="other">Überflüssige Dateien für %d ausgewählte Apps löschen?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Caches mit Shizuku löschen</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Ermitteln nicht zugänglicher Caches</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Cache leeren nicht möglich</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Das System hat die Schaltfläche „Cache leeren“ für diese App deaktiviert. Erstelle eine Ausnahme für diese App.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Einstellungsbildschirm nicht verfügbar</string>
+    <string name="appcleaner_automation_error_no_settings_body">Diese System-App verfügt über keinen Einstellungsbildschirm. Das Leeren des Caches über den Bedienungshilfedienst ist nicht möglich. Erstelle eine Ausnahme für diese App.</string>
     <string name="deduplicator_tool_name">Duplikat-Entferner</string>
     <string name="deduplicator_explanation_short">Finde doppelte Daten auf deinem Gerät.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -475,6 +482,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Erstmals installiert</string>
     <string name="appcontrol_list_sortmode_packagename_label">Paketname</string>
     <string name="appcontrol_list_sortmode_size_label">Größe</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Bildschirmzeit</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">App-Größen werden aus Leistungsgründen geschätzt. Verwende das Storage Analysator-Tool für genauere Daten.</string>
     <string name="appcontrol_progress_uninstalling_app">Deinstalliert App</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -522,6 +530,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Beenden erzwingen…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Suche nach \"Beenden erzwingen\" Button (Schlüsselwörter: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Versuche die vorherige Aktion zu bestätigen (Schlüsselwörter: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Bildschirmzeit: %1$s seit %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Zuletzt aktualisiert: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Installiert am: %s</string>
     <string name="analyzer_tool_name">Speicheranalyse</string>
     <string name="analyzer_explanation_short">Finde heraus, was auf Deinem Gerät Speicherplatz beansprucht.</string>
     <string name="analyzer_progress_scanning_device">Suche nach Speichermedien</string>

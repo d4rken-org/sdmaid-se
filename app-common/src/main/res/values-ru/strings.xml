@@ -180,4 +180,5 @@
     </plurals>
     <string name="general_advice_title">Совет</string>
     <string name="general_error_invalid_input_label">Недопустимое значение</string>
+    <string name="general_information_for_the_developer">Информация для разработчика</string>
 </resources>

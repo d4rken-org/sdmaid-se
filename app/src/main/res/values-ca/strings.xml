@@ -230,8 +230,10 @@
     <string name="systemcleaner_filter_custom_label">Filtre personalitzat</string>
     <string name="systemcleaner_filter_custom_manage_label">Gestioneu els filtres personalitzats</string>
     <string name="systemcleaner_filter_custom_manage_summary">Creeu, suprimiu, importeu i exporteu els vostres filtres personalitzats.</string>
-    <string name="systemcleaner_filter_logfiles_label">Fitxers de registre</string>
-    <string name="systemcleaner_filter_logfiles_summary">Fitxers de registre (*.log) de tot el dispositiu.</string>
+    <string name="systemcleaner_filter_logfiles_label">Fitxers de registre del sistema</string>
+    <string name="systemcleaner_filter_logfiles_summary">Fitxers de registre del sistema i del servei del sistema (p. ex. *.log) en diverses ubicacions.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Memòria cau de l\'instal·lador</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Dades emmagatzemades a la memòria cau relacionades amb les aplicacions instal·lades que utilitza la gestió de paquets del sistema.</string>
     <string name="systemcleaner_filter_advertisements_label">Fitxers d\'anuncis</string>
     <string name="systemcleaner_filter_advertisements_summary">Fitxers que s\'han creat per a o per anuncis.</string>
     <string name="systemcleaner_filter_anr_label">Errors ANR</string>
@@ -256,8 +258,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Dades que l'explorador de fitxers de Windows pot crear a l'emmagatzematge connectat."</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatures</string>
     <string name="systemcleaner_filter_thumbnails_summary">Previsualitzacions a la memòria cau d\'imatges i vídeos.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Fitxers temporals</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Fitxers temporals, normalment la memòria cau de curta durada per a operacions actives.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Fitxers temporals del sistema</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Fitxers temporals relacionats amb el sistema, normalment memòries cau de curta durada per a operacions actives.</string>
     <string name="systemcleaner_filter_analytics_label">Fitxers analítics</string>
     <string name="systemcleaner_filter_analytics_summary">Dades relacionades amb l\'anàlisi i el seguiment d\'errors.</string>
     <string name="systemcleaner_filter_downloadcache_label">Memoria cau de baixades</string>
@@ -392,6 +394,11 @@
         <item quantity="other">Voleu suprimir els fitxers prescindibles de %d aplicacions seleccionades?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Eliminació de memòria cau mitjançant Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Determinació de memòries cau inaccessibles</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">No es pot esborrar la memòria cau</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">El sistema ha desactivat el botó «Esborra la memòria cau» per a aquesta aplicació. Creeu una exclusió per a aquesta aplicació.</string>
+    <string name="appcleaner_automation_error_no_settings_title">La pantalla de configuració no està disponible</string>
+    <string name="appcleaner_automation_error_no_settings_body">Aquesta aplicació de sistema no té cap pantalla de configuració. No és possible esborrar la memòria cau mitjançant el servei d\'accessibilitat. Creeu una exclusió per a aquesta aplicació.</string>
     <string name="deduplicator_tool_name">Deduplicador</string>
     <string name="deduplicator_explanation_short">Troba dades duplicades al vostre dispositiu.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -475,6 +482,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Primera instal·lació</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nom del paquet</string>
     <string name="appcontrol_list_sortmode_size_label">Mida</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Temps de pantalla</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Les mides de les aplicacions s\'estimen per raons de rendiment. Utilitzeu l\'eina Analitzador d\'emmagatzematge per obtenir dades més precises.</string>
     <string name="appcontrol_progress_uninstalling_app">Desinstal·lant l\'aplicació</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -522,6 +530,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">S\'està forçant l\'aturada…</string>
     <string name="appcontrol_automation_progress_find_force_stop">S\'està buscant el botó «Força l\'aturada» (paraules clau: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">S\'està intentant confirmar l\'acció anterior (paraules clau: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Temps de pantalla: %1$s des de %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Darrera actualització: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instal·lada a: %s</string>
     <string name="analyzer_tool_name">Analitzador d\'emmagatzematge</string>
     <string name="analyzer_explanation_short">Descobriu què ocupa espai al vostre dispositiu.</string>
     <string name="analyzer_progress_scanning_device">Cerca de dispositius d\'emmagatzematge</string>

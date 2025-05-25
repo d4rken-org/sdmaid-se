@@ -160,4 +160,5 @@
     </plurals>
     <string name="general_advice_title">Tavsiye</string>
     <string name="general_error_invalid_input_label">Geçersiz giriş</string>
+    <string name="general_information_for_the_developer">Geliştirici için bilgiler</string>
 </resources>

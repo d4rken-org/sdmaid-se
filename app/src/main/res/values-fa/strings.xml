@@ -230,8 +230,10 @@
     <string name="systemcleaner_filter_custom_label">فیلتر سفارشی</string>
     <string name="systemcleaner_filter_custom_manage_label">مدیریت فیلترهای سفارشی</string>
     <string name="systemcleaner_filter_custom_manage_summary">ایجاد، حذف، وارد کردن و صادر کردن فیلترهای سفارشی خود.</string>
-    <string name="systemcleaner_filter_logfiles_label">فايلهاي گزارش‌ها</string>
-    <string name="systemcleaner_filter_logfiles_summary">فایل های وقایع (log.*) مربوط به سراسر دستگاه.</string>
+    <string name="systemcleaner_filter_logfiles_label">فایل‌های گزارش سیستم</string>
+    <string name="systemcleaner_filter_logfiles_summary">فایل‌های گزارش سیستم و سرویس‌های سیستم (مثلاً *.log) در مکان‌های مختلف.</string>
+    <string name="systemcleaner_filter_packagecaches_label">کش نصب‌کننده</string>
+    <string name="systemcleaner_filter_packagecaches_summary">داده‌های ذخیره‌شده مربوط به برنامه‌های نصب‌شده که توسط مدیریت بسته سیستم استفاده می‌شوند.</string>
     <string name="systemcleaner_filter_advertisements_label">فایلهای تبلیغات</string>
     <string name="systemcleaner_filter_advertisements_summary">فایل هایی که برای تبلیغات یا توسط تبلیغات ایجاد شده اند.</string>
     <string name="systemcleaner_filter_anr_label">خطاهای ANR</string>
@@ -256,8 +258,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"این فایل‌ها و پوشه‌ها هنگام مرور فضای ذخیره‌سازی با استفاده از کامپیوترهای ویندوز ایجاد می‌شوند."</string>
     <string name="systemcleaner_filter_thumbnails_label">تصاویر بندانگشتی</string>
     <string name="systemcleaner_filter_thumbnails_summary">تصاویر پیش‌نمایش کش شده برای تصاویر و ویدئوها.</string>
-    <string name="systemcleaner_filter_tempfiles_label">فایل های موقت</string>
-    <string name="systemcleaner_filter_tempfiles_summary">فایل‌های موقت، که معمولاً حافظه‌های موقتی کوتاه‌مدت برای عملیات‌های فعال هستند.</string>
+    <string name="systemcleaner_filter_tempfiles_label">فایل‌های سیستمی موقت</string>
+    <string name="systemcleaner_filter_tempfiles_summary">فایل‌های موقت مربوط به سیستم، معمولاً حافظه‌های پنهان کوتاه‌مدت برای عملیات فعال.</string>
     <string name="systemcleaner_filter_analytics_label">فایل‌های تحلیلی</string>
     <string name="systemcleaner_filter_analytics_summary">داده‌های مرتبط با تحلیل‌ها و ردیابی اشکالات</string>
     <string name="systemcleaner_filter_downloadcache_label">حافظه پنهان دانلود</string>
@@ -392,6 +394,11 @@
         <item quantity="other">آیا فایل‌های قابل حذف برای %d برنامه انتخاب شده حذف شوند؟</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">حذف حافظه پنهان با استفاده از Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">تعیین حافظه‌های پنهان غیرقابل دسترس</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">پاک کردن حافظه پنهان در دسترس نیست</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">سیستم دکمه «پاک کردن حافظه پنهان» را برای این برنامه غیرفعال کرده است. برای این برنامه یک استثنا ایجاد کنید.</string>
+    <string name="appcleaner_automation_error_no_settings_title">صفحه تنظیمات در دسترس نیست</string>
+    <string name="appcleaner_automation_error_no_settings_body">این برنامه سیستمی صفحه تنظیمات ندارد. پاکسازی حافظه پنهان از طریق سرویس دسترسی امکان‌پذیر نیست. برای این برنامه یک استثنا ایجاد کنید.</string>
     <string name="deduplicator_tool_name">حذف تکراری</string>
     <string name="deduplicator_explanation_short">پیدا کردن داده‌های تکراری در دستگاه شما.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -475,6 +482,7 @@
     <string name="appcontrol_list_sortmode_installed_label">اولین به‌روز رسانی</string>
     <string name="appcontrol_list_sortmode_packagename_label">نام بسته</string>
     <string name="appcontrol_list_sortmode_size_label">اندازه‌</string>
+    <string name="appcontrol_list_sortmode_screentime_label">مدت زمان نمایش</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">اندازه‌های برنامه به دلایل عملکردی تخمین زده می‌شوند. از ابزار آنالیز حافظه برای داده‌های دقیق‌تر استفاده کنید.</string>
     <string name="appcontrol_progress_uninstalling_app">حذف کردن برنامه</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -522,6 +530,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">توقف اجباری...</string>
     <string name="appcontrol_automation_progress_find_force_stop">به دنبال دکمه \"توقف اجباری\" (کلید واژه‌ها: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">در حال تلاش برای تأیید عمل قبلی (کلید واژه‌ها: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">مدت زمان نمایش: %1$s از %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">آخرین به‌روزرسانی: %s</string>
+    <string name="appcontrol_item_installedat_x_label">نصب‌شده در: %s</string>
     <string name="analyzer_tool_name">آنالایزر ذخیره‌سازی</string>
     <string name="analyzer_explanation_short">برای پیدا کردن اینکه چه چیزی فضای دستگاه شما را اشغال کرده است.</string>
     <string name="analyzer_progress_scanning_device">جستجو برای دستگاه های ذخیره‌سازی</string>

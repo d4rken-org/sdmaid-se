@@ -150,4 +150,5 @@
     </plurals>
     <string name="general_advice_title">建議</string>
     <string name="general_error_invalid_input_label">無效的輸入</string>
+    <string name="general_information_for_the_developer">開發人員資訊</string>
 </resources>

@@ -180,4 +180,5 @@
     </plurals>
     <string name="general_advice_title">Doporučení</string>
     <string name="general_error_invalid_input_label">Neplatný vstup</string>
+    <string name="general_information_for_the_developer">Informace pro vývojáře</string>
 </resources>
