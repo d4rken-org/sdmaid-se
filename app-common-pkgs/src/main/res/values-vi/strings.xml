@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Ứng dụng không hợp lệ</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Hệ thống cung cấp danh sách các ứng dụng đã cài đặt không hợp lệ cho SD Maid.</string>
+</resources>
