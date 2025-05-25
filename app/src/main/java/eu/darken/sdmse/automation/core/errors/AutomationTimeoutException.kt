@@ -1,33 +1,25 @@
 package eu.darken.sdmse.automation.core.errors
 
 import android.content.Intent
-import android.os.Build
 import androidx.core.net.toUri
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
+import kotlinx.coroutines.TimeoutCancellationException
 
-open class AutomationCompatibilityException(
-    override val message: String = "SD Maid couldn’t figure out the screen layout. If this keeps happening, your language or setup might not be fully supported. Check for updates or reach out to me so I can fix it."
-) : AutomationException(), HasLocalizedError {
+open class AutomationTimeoutException(
+    cause: TimeoutCancellationException,
+) : AutomationException(
+    "SD Maid couldn't complete the necessary steps within the timelimit. This could mean that I need to adjust the app for your device. Consider reaching out to me so I can fix it.",
+    cause,
+), HasLocalizedError {
 
     override fun getLocalizedError(): LocalizedError = LocalizedError(
         throwable = this,
-        label = R.string.automation_error_compatibility_title.toCaString(),
-        description = caString {
-            """
-                ${getString(R.string.automation_error_compatibility_body)}
-                
-               
-                ${getString(eu.darken.sdmse.common.R.string.general_information_for_the_developer)}:
-                v${BuildConfigWrap.VERSION_NAME} (${BuildConfigWrap.VERSION_CODE}) ${BuildConfigWrap.FLAVOR} [${BuildConfigWrap.BUILD_TYPE}]
-                ${Build.FINGERPRINT}
-            """.trimIndent()
-        },
+        label = R.string.automation_error_timeout_title.toCaString(),
+        description = R.string.automation_error_timeout_body.toCaString(),
         infoActionLabel = eu.darken.sdmse.common.R.string.general_error_report_bug_action.toCaString(),
         infoAction = {
             try {
