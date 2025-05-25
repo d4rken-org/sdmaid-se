@@ -672,6 +672,8 @@
     <string name="automation_error_compatibility_body">SD Maid couldn’t figure out the screen layout. If this keeps happening, your language or setup might not be fully supported. Check for updates or reach out to me so I can fix it.</string>
     <string name="automation_error_timeout_title">Automation timeout</string>
     <string name="automation_error_timeout_body">SD Maid did not complete all steps within the time limit. If this keeps happening, I might need to adjust the app for your device. Check for updates or reach out to me so I can fix it.</string>
+    <string name="automation_error_overlay_title">Automation overlay</string>
+    <string name="automation_error_overlay_body">SD Maid could not show the automation overlay. Check permissions and try rebooting your device.</string>
 
     <string name="history_label">History</string>
     <string name="history_description">A chronological list of recent actions and affected data.</string>

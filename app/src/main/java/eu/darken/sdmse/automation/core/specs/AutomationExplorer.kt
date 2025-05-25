@@ -1,13 +1,16 @@
 package eu.darken.sdmse.automation.core.specs
 
+import android.view.WindowManager
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.automation.core.AutomationHost
+import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
 import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -73,9 +76,20 @@ class AutomationExplorer @AssistedInject constructor(
                     }
                 }
             }
-        } catch (e: TimeoutCancellationException) {
-            log(TAG, WARN) { "Automation timed out: $e" }
-            throw AutomationTimeoutException(e)
+        } catch (e: Exception) {
+            when (e) {
+                is TimeoutCancellationException -> {
+                    log(TAG, WARN) { "Automation timed out: $e" }
+                    throw AutomationTimeoutException(e)
+                }
+
+                is WindowManager.BadTokenException -> {
+                    log(TAG, ERROR) { "Couldn't add overlay: $e" }
+                    throw AutomationOverlayException(e)
+                }
+
+                else -> throw e
+            }
         }
     }
 
