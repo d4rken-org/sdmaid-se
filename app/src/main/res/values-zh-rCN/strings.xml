@@ -45,7 +45,7 @@
     <string name="onboarding_privacy_continue_action">继续</string>
     <string name="onboarding_setup_title">设置</string>
     <string name="onboarding_setup_body1">SD Maid 将扫描所有可访问的存储空间。</string>
-    <string name="onboarding_setup_body2">可以访问的内容取决于您的设备、Android 版本和 SD Maid 已被授予的权限。</string>
+    <string name="onboarding_setup_body2">可访问的内容因您的设备、Android 版本及已授予的权限而异。</string>
     <string name="onboarding_setup_body3">设置可被扫描的存储空间后，开始使用 SD Maid。</string>
     <string name="onboarding_setup_continue_action">设置访问权限</string>
     <string name="settings_privacy_policy_label">隐私政策</string>
@@ -222,8 +222,10 @@
     <string name="systemcleaner_filter_custom_label">自定义过滤器</string>
     <string name="systemcleaner_filter_custom_manage_label">管理自定义过滤器</string>
     <string name="systemcleaner_filter_custom_manage_summary">创建、删除、导入和导出自定义过滤器</string>
-    <string name="systemcleaner_filter_logfiles_label">日志文件</string>
-    <string name="systemcleaner_filter_logfiles_summary">设备上的所有日志文件 (*.log)</string>
+    <string name="systemcleaner_filter_logfiles_label">系统日志文件</string>
+    <string name="systemcleaner_filter_logfiles_summary">不同位置的系统和系统服务日志文件（例如 *.log）。</string>
+    <string name="systemcleaner_filter_packagecaches_label">安装器缓存</string>
+    <string name="systemcleaner_filter_packagecaches_summary">与已安装应用程序相关的缓存数据，由系统的包管理使用。</string>
     <string name="systemcleaner_filter_advertisements_label">广告文件</string>
     <string name="systemcleaner_filter_advertisements_summary">用于广告或创建自广告的文件。</string>
     <string name="systemcleaner_filter_anr_label">ANR 报错</string>
@@ -248,8 +250,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"连接至 Windows 资源管理器时生成的数据"</string>
     <string name="systemcleaner_filter_thumbnails_label">略缩图</string>
     <string name="systemcleaner_filter_thumbnails_summary">图片和视频的预览图缓存。</string>
-    <string name="systemcleaner_filter_tempfiles_label">临时文件</string>
-    <string name="systemcleaner_filter_tempfiles_summary">通常是由正在进行的操作生成的短期缓存文件。</string>
+    <string name="systemcleaner_filter_tempfiles_label">临时系统文件</string>
+    <string name="systemcleaner_filter_tempfiles_summary">系统相关的临时文件，通常是活跃操作的短期缓存。</string>
     <string name="systemcleaner_filter_analytics_label">分析文件</string>
     <string name="systemcleaner_filter_analytics_summary">与分析和问题追踪有关的数据。</string>
     <string name="systemcleaner_filter_downloadcache_label">下载缓存</string>
@@ -381,6 +383,11 @@
         <item quantity="other">删除 %d 个所选应用的可删除文件？</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">使用 Shizuku 删除缓存</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">确认不可访问缓存</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">清除不可用缓存</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">系统已禁用此应用的“清除缓存”按钮。请为该应用创建一个排除项。</string>
+    <string name="appcleaner_automation_error_no_settings_title">设置屏幕不可用</string>
+    <string name="appcleaner_automation_error_no_settings_body">该系统应用没有设置界面。无法通过无障碍服务清除缓存。请为该应用创建排除项。</string>
     <string name="deduplicator_tool_name">去重工具</string>
     <string name="deduplicator_explanation_short">查找设备上的重复数据。</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -460,6 +467,7 @@
     <string name="appcontrol_list_sortmode_installed_label">安装日期</string>
     <string name="appcontrol_list_sortmode_packagename_label">包名</string>
     <string name="appcontrol_list_sortmode_size_label">大小</string>
+    <string name="appcontrol_list_sortmode_screentime_label">屏幕使用时间</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">出于性能考虑，应用大小为估算所得。请使用「存储分析器」工具获取更准确的数据</string>
     <string name="appcontrol_progress_uninstalling_app">正在卸载应用</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -501,6 +509,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">正在强制停止…</string>
     <string name="appcontrol_automation_progress_find_force_stop">正在查找“强制停止”按钮（关键字：%s）</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">正在尝试确认先前的操作（关键词：%s）</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">屏幕使用时间：%1$s，自 %2$s 起</string>
+    <string name="appcontrol_item_lastupdate_x_label">最后更新于 %s</string>
+    <string name="appcontrol_item_installedat_x_label">安装于: %s</string>
     <string name="analyzer_tool_name">存储分析器</string>
     <string name="analyzer_explanation_short">探究占用您设备存储空间的内容。</string>
     <string name="analyzer_progress_scanning_device">正在搜索存储设备</string>

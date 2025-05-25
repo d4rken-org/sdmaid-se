@@ -246,8 +246,10 @@
     <string name="systemcleaner_filter_custom_label">Vlastní filtr</string>
     <string name="systemcleaner_filter_custom_manage_label">Spravovat vlastní filtry</string>
     <string name="systemcleaner_filter_custom_manage_summary">Vytvářejte, odstraňujte, importujte a exportujte vlastní filtry.</string>
-    <string name="systemcleaner_filter_logfiles_label">Soubory záznamů</string>
-    <string name="systemcleaner_filter_logfiles_summary">Soubory záznamů (*.log) z celého zařízení.</string>
+    <string name="systemcleaner_filter_logfiles_label">Soubory systémových logů</string>
+    <string name="systemcleaner_filter_logfiles_summary">Soubory s logy systému a systémových služeb (např. *.log) na různých místech.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Mezipaměť instalátoru</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Data v mezipaměti související s nainstalovanými aplikacemi, které používá správa balíčků.</string>
     <string name="systemcleaner_filter_advertisements_label">Reklamní soubory</string>
     <string name="systemcleaner_filter_advertisements_summary">Soubory které byly vytvořeny reklamami nebo pro ně.</string>
     <string name="systemcleaner_filter_anr_label">Chyby ANR</string>
@@ -272,8 +274,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Data, která může průzkumník souborů systému Windows vytvořit v připojeném úložišti."</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatury obrázků</string>
     <string name="systemcleaner_filter_thumbnails_summary">Náhledy obrázků a videí uložené v mezipaměti.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Dočasné soubory</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Dočasné soubory, obvykle krátkodobé mezipaměti pro aktivní operace.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Dočasné systémové soubory</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Dočasné soubory související se systémem, obvykle krátkodobá mezipaměť pro aktivní operace.</string>
     <string name="systemcleaner_filter_analytics_label">Analytické soubory</string>
     <string name="systemcleaner_filter_analytics_summary">Data související s analýzou a sledováním chyb.</string>
     <string name="systemcleaner_filter_downloadcache_label">Mezipaměť stahování</string>
@@ -414,6 +416,11 @@
         <item quantity="other">Smazat nepotřebné soubory pro %d vybraných aplikací?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Mazání mezipaměti pomocí Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Zjišťování nedostupné mezipaměti</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Nedostupné vyčištění mezipaměti</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Systém pro tuto aplikaci zakázal tlačítko \"Vyčistit mezipaměť\". Vytvořte výjimku pro tuto aplikaci.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Obrazovka nastavení není k dispozici</string>
+    <string name="appcleaner_automation_error_no_settings_body">Tato systémová aplikace nemá žádnou obrazovku nastavení. Vyčištění mezipaměti prostřednictvím služby usnadnění přístupu není možné. Vytvořte výjimku pro tuto aplikaci.</string>
     <string name="deduplicator_tool_name">Odstraňovač duplikátů</string>
     <string name="deduplicator_explanation_short">Vyhledejte duplicitní data v zařízení.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -505,6 +512,7 @@
     <string name="appcontrol_list_sortmode_installed_label">První instalace</string>
     <string name="appcontrol_list_sortmode_packagename_label">Název balíčku</string>
     <string name="appcontrol_list_sortmode_size_label">Velikost</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Doba používání obrazovky</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Velikosti aplikací jsou z výkonnostních důvodů odhadovány. Pro přesnější údaje použijte Analyzátor úložiště.</string>
     <string name="appcontrol_progress_uninstalling_app">Odinstalování aplikace</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -564,6 +572,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Vynuceně ukončuji…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Hledání tlačítka \"Vynutit ukončení\" (klíčová slova: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Pokus o potvrzení předchozí akce (klíčová slova: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Doba používání obrazovky: %1$s od %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Poslední aktualizace: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Nainstalováno: %s</string>
     <string name="analyzer_tool_name">Analyzátor úložiště</string>
     <string name="analyzer_explanation_short">Zjistěte, co zabírá místo ve vašem zařízení.</string>
     <string name="analyzer_progress_scanning_device">Vyhledávání úložných zařízení</string>

@@ -246,8 +246,10 @@
     <string name="systemcleaner_filter_custom_label">Filtr niestandardowy</string>
     <string name="systemcleaner_filter_custom_manage_label">Zarządzaj filtrami niestandardowymi</string>
     <string name="systemcleaner_filter_custom_manage_summary">Twórz, usuwaj, importuj i eksportuj własne filtry.</string>
-    <string name="systemcleaner_filter_logfiles_label">Pliki dziennika</string>
-    <string name="systemcleaner_filter_logfiles_summary">Pliki dziennika (*.log) z całego urządzenia.</string>
+    <string name="systemcleaner_filter_logfiles_label">Pliki dziennika systemowego</string>
+    <string name="systemcleaner_filter_logfiles_summary">Pliki dziennika systemu oraz usług systemowych (np. *.log) w różnych lokalizacjach.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Pamięć podręczna instalatora</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Buforowane dane związane z zainstalowanymi aplikacjami, które są używane przez zarządzanie pakietami systemu.</string>
     <string name="systemcleaner_filter_advertisements_label">Pliki reklam</string>
     <string name="systemcleaner_filter_advertisements_summary">Pliki, które zostały utworzone dla lub przez reklamy.</string>
     <string name="systemcleaner_filter_anr_label">Błędy ANR</string>
@@ -272,8 +274,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Dane, które eksplorator plików systemu Windows może tworzyć na podłączonym nośniku."</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatury obrazów</string>
     <string name="systemcleaner_filter_thumbnails_summary">Zapisane w pamięci podręcznej podglądy obrazów i filmów.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Pliki tymczasowe</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Pliki tymczasowe, zwykle krótkotrwałe pamięci podręczne dla aktywnych operacji.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Tymczasowe pliki systemowe</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Pliki tymczasowe związane z systemem, zwykle krótkotrwałe pamięci podręczne dla aktywnych operacji.</string>
     <string name="systemcleaner_filter_analytics_label">Pliki analityki</string>
     <string name="systemcleaner_filter_analytics_summary">Dane związane z analizą i śledzeniem błędów.</string>
     <string name="systemcleaner_filter_downloadcache_label">Pamięć podręczna pobierania</string>
@@ -414,6 +416,11 @@
         <item quantity="other">Usunąć zbędne pliki dla %d wybranych aplikacji?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Usuwanie danych podręcznych, które wykorzystuje Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Określanie niedostępnych pamięci podręcznych</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Oczyszczanie pamięci podręcznej niedostępne</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">System wyłączył przycisk \"Wyczyść pamięć podręczną\" dla tej aplikacji. Utwórz wyłączenie dla tej aplikacji.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Ekran ustawień niedostępny</string>
+    <string name="appcleaner_automation_error_no_settings_body">Aplikacja systemowa nie ma ekranu ustawień. Oczyszczenie pamięci podręcznej za pomocą usługi dostępności nie jest możliwe. Utwórz wyłączenie dla tej aplikacji.</string>
     <string name="deduplicator_tool_name">Deduplikator</string>
     <string name="deduplicator_explanation_short">Znajdź zduplikowane dane na swoim urządzeniu.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -505,6 +512,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Pierwsza instalacja</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nazwa pakietu</string>
     <string name="appcontrol_list_sortmode_size_label">Rozmiar</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Czas używania</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Rozmiary aplikacji są szacowane ze względów wydajności. Użyj narzędzia Analizator magazynu, aby uzyskać dokładniejsze dane.</string>
     <string name="appcontrol_progress_uninstalling_app">Odinstalowywanie aplikacji</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -564,6 +572,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Wymuszanie zatrzymania…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Szukam przycisku \"Wymuś zatrzymanie\" (słowa kluczowe: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Czas ekranu: %1$s od %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Ostatnia aktualizacja: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Zainstalowano: %s</string>
     <string name="analyzer_tool_name">Analizator pamięci</string>
     <string name="analyzer_explanation_short">Dowiedz się, co zajmuje miejsce na urządzeniu.</string>
     <string name="analyzer_progress_scanning_device">Wyszukiwanie urządzeń pamięci</string>

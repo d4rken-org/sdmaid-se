@@ -160,4 +160,5 @@
     </plurals>
     <string name="general_advice_title">Tipps</string>
     <string name="general_error_invalid_input_label">Ungültige Eingabe</string>
+    <string name="general_information_for_the_developer">Informationen für den Entwickler</string>
 </resources>

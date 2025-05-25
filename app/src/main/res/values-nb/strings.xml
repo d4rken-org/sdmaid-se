@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Registrer feilsøkingslogg</string>
     <string name="debug_debuglog_stop_action">Stopp opptak</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererte filen inneholder sensitiv informasjon (f.eks. filnavn og installerte apper). Del den kun med pålitelige parter.</string>
+    <string name="settings_debuglog_explanation">Denne funksjonen registrerer alt appen gjør i en fil som kan deles. Den genererte filen inneholder sensitiv informasjon (f.eks. filnavn og installerte apper). Del den kun med pålitelige parter (f.eks. en utvikler som feilsøker et problem).</string>
     <string name="tasks_activity_notification_channel_label">Aktive oppgaver</string>
     <string name="tasks_activity_working_notification_title">SD Maid jobber</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -122,6 +123,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Ikke bruk Shizuku</string>
     <string name="setup_dismiss_hint">Du finner skjermen for oppsett igjen via innstillingsmenyen.</string>
     <string name="setup_permission_granted_label">Tillatelse gitt</string>
+    <string name="setup_permission_error_label">Tillatelsesfeil</string>
     <string name="setup_usagestats_title">Bruksstatistikk</string>
     <string name="setup_usagestats_body">Tillatelsen for bruksstatistikk gir tilgang til flere appdetaljer. SD Maid bruker den for å fastslå størrelser på flere hurtigbuffere.</string>
     <string name="setup_usagestats_hint">Kreves for tilgjengelighetstjeneste-basert sletting av hurtigbuffere.</string>
@@ -148,6 +150,7 @@
     <string name="setup_inventory_card_title">App-beholdning</string>
     <string name="setup_inventory_card_body">SD Maid må vite hvilke apper du har for å finne filer som ikke tilhører noen installerte apper.</string>
     <string name="setup_inventory_card_extra">Se etter en tillatelse kalt \"App-liste\" eller \"Bred pakketilgang\".</string>
+    <string name="setup_inventory_invalid_message">Systemet ga en ugyldig liste over installerte apper (f.eks. for få eller noen som manglet). Gå til systeminnstillinger og gi SD Maid tilgang til \"Appliste\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid fant ingen dataområder for skanning. Fullførte du oppsettet?</string>
     <string name="dataarea_warningcard_label">Dataområder</string>
     <string name="dataarea_warningcard_reload_action">Last inn dataområder på nytt</string>
@@ -227,14 +230,22 @@
     <string name="systemcleaner_filter_custom_label">Egendefinert filter</string>
     <string name="systemcleaner_filter_custom_manage_label">Behandle egendefinerte filtre</string>
     <string name="systemcleaner_filter_custom_manage_summary">Opprett, slett, importer og eksporter dine egne filtre.</string>
-    <string name="systemcleaner_filter_logfiles_label">Loggfiler</string>
-    <string name="systemcleaner_filter_logfiles_summary">Loggfiler (*.log) fra hele enheten.</string>
+    <string name="systemcleaner_filter_logfiles_label">System loggfiler</string>
+    <string name="systemcleaner_filter_logfiles_summary">System- og systemtjeneste-loggfiler (f.eks. *.log) på forskjellige steder.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Hurtigbuffer fra installasjon</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Bufret data relatert til installerte apper som brukes av systemets pakkehåndtering.</string>
     <string name="systemcleaner_filter_advertisements_label">Reklamefiler</string>
     <string name="systemcleaner_filter_advertisements_summary">Filer som er opprettet for eller av annonser.</string>
     <string name="systemcleaner_filter_anr_label">ANR-feil</string>
     <string name="systemcleaner_filter_anr_summary">Spor fra \'app svarer ikke\' hendelser.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Tomme mapper</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Tomme mapper fra hele enheten. Mapper i mapper kan kreve flere gjennomganger.</string>
+    <string name="systemcleaner_filter_screenshots_label">Skjermbilder</string>
+    <string name="systemcleaner_filter_screenshots_summary">Skjermbilder eldre enn %s fra flere apper og plasseringer.</string>
+    <string name="systemcleaner_filter_trashed_label">Søppelfiler</string>
+    <string name="systemcleaner_filter_trashed_summary">Filer i papirkurver fra forskjellige apper og steder som er merket for sletting, men som ennå ikke er permanent fjernet.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Alder på skjermbilde</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Minimumsalder for at skjermbilder skal vurderes for sletting.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Overflødige APK-filer</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Installasjonsfiler som er eldre eller lik appversjoner som allerede er installert.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mapper</string>
@@ -244,10 +255,11 @@
     <string name="systemcleaner_filter_macfiles_label">Mac-filer</string>
     <string name="systemcleaner_filter_macfiles_summary">Filer og mapper som opprettes når du blar gjennom lagringen med Apples finder-app.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows-filer</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Data som filutforskeren i Windows kan opprette når tilkoblet lagring."</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatyrbilder</string>
     <string name="systemcleaner_filter_thumbnails_summary">Bufret forhåndsvisning av bilder og videoer.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Midlertidige filer</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Midlertidige filer, vanligvis kortvarige buffere for aktive operasjoner.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Midlertidige systemfiler</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Systemrelaterte midlertidige filer, vanligvis kortvarige buffere for aktive operasjoner.</string>
     <string name="systemcleaner_filter_analytics_label">Statistikk-filer</string>
     <string name="systemcleaner_filter_analytics_summary">Data relatert til statistikk og feilsporing.</string>
     <string name="systemcleaner_filter_downloadcache_label">Nedlastingsbuffer</string>
@@ -285,6 +297,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Ekskludering</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Resultatet vil bli ekskludert hvis banen samsvarer med en oppføring (f.eks. \"DCIM\"). Hold inne på oppføringer for flere alternativer.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modus for banesammenligning</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Banen starter med nøkkelord</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Banen inneholder nøkkelord</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Banen slutter med nøkkelord</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Banen er lik nøkkelord</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modus for navnesammenligning</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Navn starter med nøkkelord</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Navn inneholder nøkkelord</string>
@@ -336,6 +352,8 @@
     <string name="appcleaner_filter_webview_summary">Filer bufret av Webview-forekomster brukt i apper.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp sikkerhetskopier</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Slett ekstra kopier av WhatsApp sikkerhetskopier og kun behold de nyeste.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Filer mottatt fra personer i WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp mottatte filer</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp sendte filer</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Filer sendt fra WhatsApp til andre.</string>
     <string name="appcleaner_filter_telegram_label">Telegram mediefiler</string>
@@ -346,6 +364,8 @@
     <string name="appcleaner_filter_wechat_summary">Filer sendt eller mottatt i WeChat samtaler og øyeblikk.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Bufret mediefiler som lastes ned igjen når de vises i chatten.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ chat</string>
+    <string name="appcleaner_filter_qqchat_summary">Sendt eller mottatt filer fra samtaler i QQ chat.</string>
     <string name="appcleaner_delete_all_confirmation_message">Slette unødvendige elementer for alle apper?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">%d ubetydelig element slettet</item>
@@ -374,6 +394,11 @@
         <item quantity="other">Slette unødvendige filer for %d valgte apper?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Sletter buffere ved hjelp av Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Oppdager utilgjengelige buffere</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Tømming av hurtigbufferen er utilgjengelig</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Systemet har deaktivert knappen «Tøm hurtigbuffer» for denne appen. Opprett en unntakelse for denne appen.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Innstillingsskjermen er utilgjengelig</string>
+    <string name="appcleaner_automation_error_no_settings_body">Denne systemappen har ingen innstillingsskjerm. Det er ikke mulig å tømme hurtigbufferen via tilgjengelighetstjenesten. Opprett en unntakelse for denne appen.</string>
     <string name="deduplicator_tool_name">Deduplisering</string>
     <string name="deduplicator_explanation_short">Finn dupliserte data på enheten din.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -386,6 +411,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Gjør \"Slett alle\" mulig</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Vis alternativer som lar deg slette alle filer i et sett med duplikater, slik at ingen filer blir igjen.</string>
+    <string name="deduplicator_search_locations_title">Søkeplasseringer</string>
+    <string name="deduplicator_search_locations_all_summary">Alle tilgjengelige områder</string>
     <string name="deduplicator_skip_minsize_title">Minste størrelse</string>
     <string name="deduplicator_skip_minsize_description">Hopp over filer som er under minste størrelse.</string>
     <string name="deduplicator_skip_uncommon_title">Hopp over uvanlige filtyper</string>
@@ -396,6 +423,10 @@
     <string name="deduplicator_detection_method_phash_title">Perseptuell hasj</string>
     <string name="deduplicator_detection_method_phash_summary">Finn lignende filer ved å analysere innholdselementer og sammenligne perseptuelle hash-verdier.</string>
     <string name="deduplicator_occupied_space_label">Brukt lagringsplass</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s er brukt av duplikater</item>
+        <item quantity="other">%s er brukt av duplikater</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Filstørrelse</string>
     <string name="deduplicator_average_size_label">Gjennomsnittlig størrelse</string>
     <string name="deduplicator_cluster_x_label">Klynge %s</string>
@@ -439,6 +470,8 @@
     <string name="appcontrol_tag_apk_bundle">Pakke</string>
     <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_archived">Arkivert</string>
+    <string name="appcontrol_tag_uninstalled">Kun data</string>
+    <string name="appcontrol_tag_not_installed">Ikke installert</string>
     <string name="appcontrol_tag_enabled">Aktivert</string>
     <string name="appcontrol_tag_disabled">Deaktivert</string>
     <string name="appcontrol_progress_enabling_package">Aktiverer app</string>
@@ -449,6 +482,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Først installert</string>
     <string name="appcontrol_list_sortmode_packagename_label">Pakkenavn</string>
     <string name="appcontrol_list_sortmode_size_label">Størrelse</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Skjermtid</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">App-størrelser er estimert av ytelsesgrunner. Bruk Lagringsanalysator-verktøyet for mer nøyaktig data.</string>
     <string name="appcontrol_progress_uninstalling_app">Avinstallerer app</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -496,6 +530,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Tvinger avslutning…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Ser etter \"Tving avslutning\"-knapp (nøkkelord: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Prøver å bekrefte forrige handling (nøkkelord: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Skjermtid: %1$s siden %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Sist oppdatert: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Installert på: %s</string>
     <string name="analyzer_tool_name">Lagringsanalysator</string>
     <string name="analyzer_explanation_short">Finn ut hva som tar opp plass på enheten din.</string>
     <string name="analyzer_progress_scanning_device">Søker etter lagringsenheter</string>
@@ -572,6 +609,7 @@
         <item quantity="one">En ekskludering opprettet</item>
         <item quantity="other">%d ekskluderinger opprettet</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Vis standarder</string>
     <string name="automation_accessibility_service_description">Brukere med spesielle behov for tilgjengelighet kan aktivere denne tjenesten for å la SD Maid automatisere oppgaver som ellers ville kreve kjedelig manuell brukerhandling (f.eks. sletting av hurtigbuffere).\n\nEksempel: Hvis du instruerer SD Maid til å stoppe flere apper, kan SD Maid bruke denne tjenesten for å åpne instillingsskjermen til hver app, finne \"Tving stopp\"-knappen og trykke på den.\n\nSD Maid vil alltid vise tydelig ved bruk av denne tjenesten, og gir brukeren en enkel måte å avbryte enhver handling umiddelbart.\n\nIngen handlinger vil bli utført uten godkjenning fra brukeren på forhånd. Denne tjenesten kan deaktiveres igjen når som helst uten negative effekter.</string>
     <string name="automation_screenoverlay_explanation">SD Maid samhandler med enheten din. Det er ikke mulig å bruke skjermen samtidig. Vent til operasjonen er fullført eller avbryt den.</string>
     <string name="automation_active_title">SD Maid jobber</string>
@@ -583,6 +621,7 @@
     <string name="automation_error_not_running_body">Tilgjengelighetstjenesten kjører ikke. Prøv å starte enheten på nytt.</string>
     <string name="automation_error_screen_unavailable_title">Skjerm utilgjengelig</string>
     <string name="automation_error_screen_unavailable_body">Operasjonen ble avbrutt fordi skjermen ble utilgjengelig (f.eks. skjerm av eller låseskjerm aktiv).</string>
+    <string name="automation_error_compatibility_body">SD Maid fant ikke ut av skjermoppsettet. Hvis dette fortsetter å skje, kan det hende at språket eller oppsettet ditt ikke støttes helt. Se etter oppdateringer eller kontakt meg så jeg kan fikse det.</string>
     <string name="history_label">Historie</string>
     <string name="history_description">En kronologisk liste over nylige handlinger og berørt data.</string>
     <string name="scheduler_label">Planlegger</string>
@@ -639,6 +678,14 @@
     <string name="review_app_dismiss_action">Kanskje senere</string>
     <string name="review_app_body">Vil du gi SD Maid en anmeldelse? ❤️</string>
     <string name="stats_label">Historie</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s har blitt frigjort.</item>
+        <item quantity="other">%s har blitt frigjort.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s element har blitt behandlet siden du inviterte SD Maid til enheten din.</item>
+        <item quantity="other">%s elementer har blitt behandlet siden du inviterte SD Maid til enheten din.</item>
+    </plurals>
     <string name="stats_report_status_success">Vellykket</string>
     <string name="stats_report_status_partial_success">Delvis vellykket</string>
     <string name="stats_report_status_partial_failure">Mislykket</string>
@@ -656,4 +703,18 @@
     <string name="stats_settings_reset_all_desc">Slett alle rapporter og sett all statistikk til null.</string>
     <string name="stats_affected_paths_label">Berørte baner</string>
     <string name="stats_affected_pkgs_label">Berørte apper</string>
+    <string name="picker_select_paths_title">Velg søkestier</string>
+    <string name="picker_selected_paths_title">Valgte søkestier</string>
+    <string name="picker_unsaved_confirmation_message">Forkaste endringer?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d bane valgt</item>
+        <item quantity="other">%d baner valgt</item>
+    </plurals>
+    <string name="picker_home_action">Dataområder</string>
+    <string name="area_type_sdcard_label">Offentlig lagring</string>
+    <string name="area_type_public_media_label">Offentlige appmedier</string>
+    <string name="area_type_public_data_label">Offentlig appdata</string>
+    <string name="area_type_public_obb_label">Offentlige appressurser</string>
+    <string name="area_type_private_data_label">Privat appdata</string>
+    <string name="area_type_portable_label">Bærbar lagring</string>
 </resources>

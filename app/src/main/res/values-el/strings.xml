@@ -230,8 +230,10 @@
     <string name="systemcleaner_filter_custom_label">Προσαρμοσμένο φίλτρο</string>
     <string name="systemcleaner_filter_custom_manage_label">Διαχείριση προσαρμοσμένων φίλτρων</string>
     <string name="systemcleaner_filter_custom_manage_summary">Δημιουργία, διαγραφή, εισαγωγή και εξαγωγή προσαρμοσμένων φίλτρων σας.</string>
-    <string name="systemcleaner_filter_logfiles_label">Αρχεία καταγραφής</string>
-    <string name="systemcleaner_filter_logfiles_summary">Αρχεία καταγραφής (*.log) από όλη τη συσκευή.</string>
+    <string name="systemcleaner_filter_logfiles_label">Αρχεία καταγραφής συστήματος</string>
+    <string name="systemcleaner_filter_logfiles_summary">Αρχεία καταγραφής υπηρεσιών συστήματος και συστήματος (π.χ. *.log) σε διάφορες τοποθεσίες.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Προσωρινή μνήμη εγκατάστασης</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Προσωρινά αποθηκευμένα δεδομένα σχετικά με εγκατεστημένες εφαρμογές που χρησιμοποιούνται από τη διαχείριση πακέτων του συστήματος.</string>
     <string name="systemcleaner_filter_advertisements_label">Αρχεία διαφήμισης</string>
     <string name="systemcleaner_filter_advertisements_summary">Αρχεία που έχουν δημιουργηθεί για ή από διαφημίσεις.</string>
     <string name="systemcleaner_filter_anr_label">ANR σφάλματα</string>
@@ -256,8 +258,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Δεδομένα που μπορεί να δημιουργήσει η Εξερεύνηση αρχείων των Windows σε συνδεδεμένο χώρο αποθήκευσης."</string>
     <string name="systemcleaner_filter_thumbnails_label">Εικόνες μικρογραφίας</string>
     <string name="systemcleaner_filter_thumbnails_summary">Προσωρινά αποθηκευμένες προεπισκοπήσεις για εικόνες και βίντεο.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Προσωρινά αρχεία</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Προσωρινά αρχεία, συνήθως βραχύβιες κρυφές μνήμες για ενεργές λειτουργίες.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Προσωρινά αρχεία συστήματος</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Προσωρινά αρχεία που σχετίζονται με το σύστημα, συνήθως προσωρινές μνήμες μικρής διάρκειας για ενεργές λειτουργίες.</string>
     <string name="systemcleaner_filter_analytics_label">Αρχεία ανάλυσης</string>
     <string name="systemcleaner_filter_analytics_summary">Δεδομένα που σχετίζονται με την ανάλυση και την παρακολούθηση σφαλμάτων.</string>
     <string name="systemcleaner_filter_downloadcache_label">Λήψη προσωρινής μνήμης</string>
@@ -392,6 +394,11 @@
         <item quantity="other">Διαγραφή επεκτάσιμων αρχείων για %d επιλεγμένες εφαρμογές;</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Διαγραφή κρυφής προσωρινής μνήμης χρησιμοποιώντας το Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Προσδιορισμός μη προσβάσιμων προσωρινών μνήμων</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Εκκαθάριση προσωρινής μνήμης μη διαθέσιμη</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Το σύστημα έχει απενεργοποιήσει το κουμπί \"Εκκαθάριση προσωρινής μνήμης\" για αυτήν την εφαρμογή. Δημιουργήστε μια εξαίρεση για αυτήν την εφαρμογή.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Μη διαθέσιμη οθόνη ρυθμίσεων</string>
+    <string name="appcleaner_automation_error_no_settings_body">Αυτή η εφαρμογή συστήματος δεν έχει οθόνη ρυθμίσεων. Δεν είναι δυνατή η εκκαθάριση προσωρινής μνήμης μέσω της υπηρεσίας προσβασιμότητας. Δημιουργήστε μια εξαίρεση για αυτήν την εφαρμογή.</string>
     <string name="deduplicator_tool_name">Αποδιπλοποιητής</string>
     <string name="deduplicator_explanation_short">Βρείτε διπλότυπα δεδομένα στη συσκευή σας.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -475,6 +482,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Πρώτη εγκατάσταση</string>
     <string name="appcontrol_list_sortmode_packagename_label">Όνομα πακέτου</string>
     <string name="appcontrol_list_sortmode_size_label">Μέγεθος</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Χρόνος χρήσης ανοικτής οθόνης</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Τα μεγέθη των εφαρμογών εκτιμώνται για λόγους απόδοσης. Χρησιμοποιήστε το εργαλείο StorageAnalyzer για πιο ακριβή δεδομένα.</string>
     <string name="appcontrol_progress_uninstalling_app">Απεγκατάσταση εφαρμογής</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -522,6 +530,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Επιβολή διακοπής…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Αναζήτηση για το κουμπί \"Αναγκαστική διακοπή\" (λέξεις-κλειδιά: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Προσπάθεια επιβεβαίωσης προηγούμενης ενέργειας (λέξεις-κλειδιά: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Χρόνος χρήσης ανοικτής οθόνης: %1$s από %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Τελευταία ενημέρωση: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Εγκαταστάθηκε στις: %s</string>
     <string name="analyzer_tool_name">Ανάλυση αποθηκευτικού χώρου</string>
     <string name="analyzer_explanation_short">Μάθετε τι καταλαμβάνει χώρο στη συσκευή σας.</string>
     <string name="analyzer_progress_scanning_device">Αναζήτηση για συσκευές αποθηκευτικού χώρου</string>

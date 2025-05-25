@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Ghi nhật ký gỡ lỗi</string>
     <string name="debug_debuglog_stop_action">Dừng ghi</string>
     <string name="debug_debuglog_sensitive_information_message">Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ nó với các bên đáng tin cậy.</string>
+    <string name="settings_debuglog_explanation">Tính năng này ghi lại mọi thứ ứng dụng đang làm vào một tệp có thể chia sẻ. Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ với các bên đáng tin cậy (ví dụ: nhà phát triển đang khắc phục sự cố).</string>
     <string name="tasks_activity_notification_channel_label">Tác vụ đang chạy</string>
     <string name="tasks_activity_working_notification_title">SD Maid đang hoạt động</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -120,6 +121,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Không sử dụng Shizuku</string>
     <string name="setup_dismiss_hint">Bạn có thể tìm lại màn hình thiết lập thông qua menu cài đặt.</string>
     <string name="setup_permission_granted_label">Đã được cấp quyền</string>
+    <string name="setup_permission_error_label">Lỗi quyền truy cập</string>
     <string name="setup_usagestats_title">Thống kê sử dụng</string>
     <string name="setup_usagestats_body">Quyền thống kê sử dụng cấp quyền truy cập vào nhiều chi tiết ứng dụng hơn. SD Maid sử dụng nó để xác định kích thước bộ đệm bổ sung.</string>
     <string name="setup_usagestats_hint">Cần thiết để xóa bộ nhớ cache dựa trên dịch vụ trợ năng.</string>
@@ -146,6 +148,7 @@
     <string name="setup_inventory_card_title">Khoảng không quảng cáo ứng dụng</string>
     <string name="setup_inventory_card_body">SD Maid cần biết bạn có ứng dụng nào để tìm các tệp không thuộc về bất kỳ ứng dụng đã cài đặt nào.</string>
     <string name="setup_inventory_card_extra">Hãy tìm quyền có tên \"Danh sách ứng dụng\" hoặc \"Truy vấn tất cả các gói\".</string>
+    <string name="setup_inventory_invalid_message">Hệ thống cung cấp danh sách ứng dụng đã cài đặt không hợp lệ (ví dụ: quá ít hoặc một số ứng dụng bị thiếu). Hãy vào cài đặt hệ thống và cho phép SD Maid truy cập vào \"Danh sách ứng dụng\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid không tìm thấy bất kỳ vùng dữ liệu nào có thể quét được. Bạn đã hoàn thành thiết lập?</string>
     <string name="dataarea_warningcard_label">Vùng dữ liệu</string>
     <string name="dataarea_warningcard_reload_action">Tải lại vùng dữ liệu</string>
@@ -219,14 +222,22 @@
     <string name="systemcleaner_filter_custom_label">Bộ lọc tùy chỉnh</string>
     <string name="systemcleaner_filter_custom_manage_label">Quản lý bộ lọc tùy chỉnh</string>
     <string name="systemcleaner_filter_custom_manage_summary">Tạo, xóa, nhập và xuất các bộ lọc tùy chỉnh của bạn.</string>
-    <string name="systemcleaner_filter_logfiles_label">Tệp nhật ký</string>
-    <string name="systemcleaner_filter_logfiles_summary">Tệp nhật ký (*.log) từ khắp nơi trên thiết bị.</string>
+    <string name="systemcleaner_filter_logfiles_label">Tệp nhật ký hệ thống</string>
+    <string name="systemcleaner_filter_logfiles_summary">Tệp nhật ký hệ thống và dịch vụ hệ thống (ví dụ: *.log) ở nhiều vị trí khác nhau.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Bộ nhớ đệm cài đặt</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Dữ liệu được lưu trong bộ nhớ đệm liên quan đến các ứng dụng đã cài đặt được quản lý gói của hệ thống sử dụng.</string>
     <string name="systemcleaner_filter_advertisements_label">Tệp quảng cáo</string>
     <string name="systemcleaner_filter_advertisements_summary">Các tệp đã được tạo cho hoặc bởi quảng cáo.</string>
     <string name="systemcleaner_filter_anr_label">Lỗi ANR</string>
     <string name="systemcleaner_filter_anr_summary">Dấu vết từ sự kiện \'ứng dụng không phản hồi\'.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Thư mục trống</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Thư mục trống từ khắp nơi trên thiết bị. Các thư mục lồng nhau có thể yêu cầu nhiều lượt.</string>
+    <string name="systemcleaner_filter_screenshots_label">Ảnh chụp màn hình</string>
+    <string name="systemcleaner_filter_screenshots_summary">Ảnh chụp màn hình cũ hơn %s từ nhiều ứng dụng và vị trí.</string>
+    <string name="systemcleaner_filter_trashed_label">Các tập tin đã xóa</string>
+    <string name="systemcleaner_filter_trashed_summary">Các tệp trong thùng rác từ nhiều ứng dụng và vị trí khác nhau được đánh dấu để xóa nhưng chưa bị xóa vĩnh viễn.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Tuổi ảnh chụp màn hình</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Thời gian tối thiểu để xem xét xóa ảnh chụp màn hình.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK thừa</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Thiết lập các tệp cũ hơn hoặc bằng phiên bản ứng dụng đã được cài đặt.</string>
     <string name="systemcleaner_filter_lostdir_label">Các thư mục LOST.DIR</string>
@@ -236,10 +247,11 @@
     <string name="systemcleaner_filter_macfiles_label">Mac files</string>
     <string name="systemcleaner_filter_macfiles_summary">Các tệp và thư mục được tạo khi duyệt bộ nhớ bằng ứng dụng tìm kiếm của Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Tệp Windows</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Dữ liệu mà trình duyệt tệp Windows có thể tạo trên bộ lưu trữ được kết nối."</string>
     <string name="systemcleaner_filter_thumbnails_label">Hình thu nhỏ</string>
     <string name="systemcleaner_filter_thumbnails_summary">Bản xem trước được lưu trong bộ nhớ cache cho hình ảnh và video.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Tẹp tin tạm</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Các tệp tạm thời, thường là các bộ đệm tồn tại trong thời gian ngắn cho các tác vụ đang hoạt động.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Các tập tin hệ thống tạm thời</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Các tệp tạm thời liên quan đến hệ thống, thường là bộ nhớ đệm tồn tại trong thời gian ngắn cho các hoạt động đang diễn ra.</string>
     <string name="systemcleaner_filter_analytics_label">Tệp phân tích</string>
     <string name="systemcleaner_filter_analytics_summary">Dữ liệu liên quan đến phân tích và theo dõi lỗi.</string>
     <string name="systemcleaner_filter_downloadcache_label">Bộ đệm tải xuống</string>
@@ -277,6 +289,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Loại trừ</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Kết quả sẽ bị loại trừ nếu đường dẫn khớp với bất kỳ mục nhập nào (ví dụ: \"DCIM\"). Nhấn và giữ các mục để có thêm tùy chọn.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Chế độ so sánh đường dẫn</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Đường dẫn bắt đầu bằng từ khóa</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Đường dẫn chứa từ khóa</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Đường dẫn kết thúc bằng từ khóa</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Đường dẫn với từ khóa</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Chế độ so sánh tên</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Tên bắt đầu bằng từ khóa</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Tên chứa từ khóa</string>
@@ -328,6 +344,8 @@
     <string name="appcleaner_filter_webview_summary">Các tệp được lưu vào bộ đệm ẩn bởi các phiên bản Webview được sử dụng trong các ứng dụng.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Sao lưu WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Xóa các bản sao lưu bổ sung của WhatsApp và chỉ giữ bản mới nhất.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Các tập tin bạn nhận được từ mọi người qua WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Tệp WhatsApp đã nhận</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Tệp WhatsApp đã gửi</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Các tập tin được gửi từ WhatsApp cho người khác.</string>
     <string name="appcleaner_filter_telegram_label">Tệp phương tiện Telegram</string>
@@ -338,6 +356,8 @@
     <string name="appcleaner_filter_wechat_summary">Tệp đã gửi hoặc nhận trong các cuộc trò chuyện và khoảnh khắc WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Các tệp phương tiện đã lưu trong bộ nhớ cache được tải xuống lại khi xem trong cuộc trò chuyện.</string>
+    <string name="appcleaner_filter_qqchat_label">Trò chuyện QQ</string>
+    <string name="appcleaner_filter_qqchat_summary">Tệp đã gửi hoặc nhận trong các cuộc trò chuyện trên QQ.</string>
     <string name="appcleaner_delete_all_confirmation_message">Xóa các mục có thể sử dụng cho tất cả các ứng dụng?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="other">%d thành phần có thể sử dụng đã bị xóa</item>
@@ -363,6 +383,11 @@
         <item quantity="other">Xóa các tệp có thể sử dụng cho %d ứng dụng đã chọn?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Xóa bộ đệm bằng cách sử dụng Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Xác định bộ nhớ đệm không thể truy cập</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Xóa bộ nhớ đệm không khả dụng</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Hệ thống đã vô hiệu hóa nút \"Xóa bộ nhớ đệm\" cho ứng dụng này. Tạo một loại trừ cho ứng dụng này.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Màn hình cài đặt không khả dụng</string>
+    <string name="appcleaner_automation_error_no_settings_body">Ứng dụng hệ thống này không có màn hình cài đặt. Không thể xóa bộ nhớ đệm thông qua dịch vụ trợ năng. Tạo loại trừ cho ứng dụng này.</string>
     <string name="deduplicator_tool_name">Quản lý tệp trùng lặp</string>
     <string name="deduplicator_explanation_short">Tìm dữ liệu trùng lặp trên thiết bị của bạn.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -373,6 +398,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Làm có thể \"Xóa tất cả\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Hiển thị các tùy chọn cho phép bạn xóa tất cả các tệp trong một tập hợp các bản sao để không còn tệp nào.</string>
+    <string name="deduplicator_search_locations_title">Vị trí tìm kiếm</string>
+    <string name="deduplicator_search_locations_all_summary">Tất cả các khu vực có thể tiếp cận</string>
     <string name="deduplicator_skip_minsize_title">Kích thước tối thiểu</string>
     <string name="deduplicator_skip_minsize_description">Bỏ qua các tập tin có kích thước dưới kích thước tối thiểu.</string>
     <string name="deduplicator_skip_uncommon_title">Bỏ qua các loại tệp không phổ biến</string>
@@ -383,6 +410,9 @@
     <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
     <string name="deduplicator_detection_method_phash_summary">Tìm các tệp tương tự bằng cách phân tích các tính năng nội dung và so sánh các giá trị.</string>
     <string name="deduplicator_occupied_space_label">Lưu trữ bị chiếm dụng</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%s bị chiếm bởi các bản sao</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Kích thước tệp</string>
     <string name="deduplicator_average_size_label">Kích thước trung bình</string>
     <string name="deduplicator_cluster_x_label">Cụm %s</string>
@@ -425,6 +455,8 @@
     <string name="appcontrol_tag_apk_bundle">Đóng gói</string>
     <string name="appcontrol_tag_system">Hệ thống</string>
     <string name="appcontrol_tag_archived">Lưu trữ</string>
+    <string name="appcontrol_tag_uninstalled">Chỉ dữ liệu</string>
+    <string name="appcontrol_tag_not_installed">Chưa cài đặt</string>
     <string name="appcontrol_tag_enabled">Đã bật</string>
     <string name="appcontrol_tag_disabled">Đã tắt</string>
     <string name="appcontrol_progress_enabling_package">Kích hoạt ứng dụng</string>
@@ -435,6 +467,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Cài đặt lần đầu</string>
     <string name="appcontrol_list_sortmode_packagename_label">Tên gói</string>
     <string name="appcontrol_list_sortmode_size_label">Kích thước</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Thời gian sử dụng màn hình</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Kích thước ứng dụng được ước tính vì lý do hiệu suất. Sử dụng công cụ StorageAnalyzer để có dữ liệu chính xác hơn.</string>
     <string name="appcontrol_progress_uninstalling_app">Đang gỡ cài đặt ứng dụng</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -476,6 +509,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Đang buộc dừng…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Đang tìm nút \"Buộc dừng\" (từ khóa: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Thời gian sử dụng màn hình: %1$s kể từ %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Cập nhật lần cuối: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Đã cài đặt:%s</string>
     <string name="analyzer_tool_name">Phân tích bộ nhớ</string>
     <string name="analyzer_explanation_short">Tìm hiểu những gì đang chiếm dung lượng trên thiết bị của bạn.</string>
     <string name="analyzer_progress_scanning_device">Tìm kiếm bộ nhớ thiết bị</string>
@@ -549,6 +585,7 @@
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">Đã tạo %d loại trừ</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Hiển thị mặc định</string>
     <string name="automation_accessibility_service_description">Người dùng có nhu cầu trợ năng đặc biệt có thể kích hoạt dịch vụ này để cho phép SD Maid tự động hóa các tác vụ mà nếu không sẽ yêu cầu tương tác thủ công tẻ nhạt của người dùng (ví dụ: xóa bộ nhớ đệm).\n\nVí dụ: Nếu bạn hướng dẫn SD Maid dừng nhiều ứng dụng thì SD Maid có thể sử dụng dịch vụ này để mở từng màn hình cài đặt ứng dụng, hãy tìm nút \'Buộc dừng\' và nhấn vào nút đó.\n\nSD Maid sẽ luôn hiển thị nổi bật khi sử dụng dịch vụ này và cung cấp một cách dễ dàng để người dùng hủy mọi tương tác ngay lập tức.\n\nKhông các hành động sẽ được thực hiện mà không có sự chấp thuận trước của người dùng. Dịch vụ này có thể bị vô hiệu hóa lại bất cứ lúc nào mà không có tác dụng phụ.</string>
     <string name="automation_screenoverlay_explanation">SD Maid đang tương tác với thiết bị của bạn. Không thể sử dụng màn hình cùng một lúc. Chờ cho đến khi hoạt động kết thúc hoặc hủy bỏ nó.</string>
     <string name="automation_active_title">SD Maid đang hoạt động</string>
@@ -560,6 +597,7 @@
     <string name="automation_error_not_running_body">Dịch vụ trợ năng đang không chạy. Hãy thử khởi động lại thiết bị.</string>
     <string name="automation_error_screen_unavailable_title">Màn hình không có sẵn</string>
     <string name="automation_error_screen_unavailable_body">Thao tác đã bị hủy vì màn hình không khả dụng (ví dụ: tắt màn hình hoặc kích hoạt màn hình khóa).</string>
+    <string name="automation_error_compatibility_body">SD Maid không thể tìm ra bố cục màn hình. Nếu điều này tiếp tục xảy ra, ngôn ngữ hoặc thiết lập của bạn có thể không được hỗ trợ đầy đủ. Kiểm tra bản cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
     <string name="history_label">Lịch sử</string>
     <string name="history_description">Một danh sách theo trình tự thời gian của các hành động gần đây và dữ liệu bị ảnh hưởng.</string>
     <string name="scheduler_label">Lịch trình</string>
@@ -615,6 +653,12 @@
     <string name="review_app_dismiss_action">Để sau</string>
     <string name="review_app_body">Bạn có muốn để lại đánh giá cho SD Maid không?️ ❤️</string>
     <string name="stats_label">Lịch sử</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="other">%s đã được giải phóng.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="other">%s mục đã được xử lý kể từ khi bạn cài SD Maid vào thiết bị của mình.</item>
+    </plurals>
     <string name="stats_report_status_success">Thành công</string>
     <string name="stats_report_status_partial_success">Thành công một phần</string>
     <string name="stats_report_status_partial_failure">Thất bại</string>
@@ -631,4 +675,17 @@
     <string name="stats_settings_reset_all_desc">Xóa tất cả các báo cáo và đặt tất cả số liệu thống kê về 0.</string>
     <string name="stats_affected_paths_label">Đường dẫn bị ảnh hưởng</string>
     <string name="stats_affected_pkgs_label">Ứng dụng bị ảnh hưởng</string>
+    <string name="picker_select_paths_title">Chọn đường dẫn</string>
+    <string name="picker_selected_paths_title">Chọn đường dẫn</string>
+    <string name="picker_unsaved_confirmation_message">Huỷ bỏ thay đổi?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="other">%d đường dẫn đã chọn</item>
+    </plurals>
+    <string name="picker_home_action">Vùng dữ liệu</string>
+    <string name="area_type_sdcard_label">Lưu trữ công khai</string>
+    <string name="area_type_public_media_label">Phương tiện ứng dụng công khai</string>
+    <string name="area_type_public_data_label">Dữ liệu ứng dụng công khai</string>
+    <string name="area_type_public_obb_label">Tài nguyên ứng dụng công khai</string>
+    <string name="area_type_private_data_label">Dữ liệu ứng dụng riêng tư</string>
+    <string name="area_type_portable_label">Bộ lưu trữ di động</string>
 </resources>

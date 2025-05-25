@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <string name="slogan_message_0">为你服务</string>
+    <string name="slogan_message_0">为你服务。</string>
     <string name="slogan_message_1">干净整洁</string>
-    <string name="slogan_message_2">预防于乱。</string>
-    <string name="slogan_message_3">只做必行之事。</string>
+    <string name="slogan_message_2">预防于乱</string>
+    <string name="slogan_message_3">只做必行之事</string>
     <string name="slogan_message_5">一尘不染。</string>
     <string name="slogan_message_6">字节，滚开！</string>
-    <string name="slogan_message_7">释放空间，乐似神仙</string>
+    <string name="slogan_message_7">空间清爽，心情舒畅。</string>
     <string name="slogan_message_8">你不会被骗。</string>
     <string name="general_thank_you_label">感谢</string>
     <string name="general_error_type_mismatch_msg">类型不匹配：目标 %1$s ，却得到 %2$s 。</string>
@@ -150,4 +150,5 @@
     </plurals>
     <string name="general_advice_title">建议</string>
     <string name="general_error_invalid_input_label">输入无效</string>
+    <string name="general_information_for_the_developer">开发者信息</string>
 </resources>

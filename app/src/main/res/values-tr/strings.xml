@@ -107,8 +107,8 @@
     <string name="setup_manage_storage_card_body">SD Maid\'e depolama alanınızı yönetmesi için izin verin.</string>
     <string name="setup_manage_storage_card_body2">Genel depolamaya temel erişim, örn. \"İndirilenler/\" ve \"DCIM/\", ancak \"Android/data\" için her zaman mümkün değil.</string>
     <string name="setup_root_card_title">Kök erişimi</string>
-    <string name="setup_root_card_body">SD Maid mevcutsa root erişimini kullansın mı? Kök erişimi, ek sistem klasörlerini ve özel uygulama verilerini kontrol etmek için kullanılabilir.</string>
-    <string name="setup_root_state_ready_label">Root erişimi hazır.</string>
+    <string name="setup_root_card_body">SD Maid mevcutsa kök erişimini kullansın mı? Kök erişimi, ek sistem klasörlerini ve özel uygulama verilerini kontrol etmek için kullanılabilir.</string>
+    <string name="setup_root_state_ready_label">Kök erişimi hazır.</string>
     <string name="setup_root_state_waiting_label">Root erişimi için bekleniyor.</string>
     <string name="setup_root_enable_root_use_label">Varsa kök erişimi kullan</string>
     <string name="setup_root_disable_root_use_label">Kök erişimi kullanma</string>
@@ -217,7 +217,7 @@
     <string name="corpsefinder_owner_unknown">Bilinmeyen sahip</string>
     <string name="corpsefinder_corpse_hint_keeper">Bu öge sahibi kaldırılmış olsa da, silmek istemeyebileceğin veriler içeriyor olabilir; fotoğraflar ya da yedekler gibi.</string>
     <string name="corpsefinder_corpse_hint_common">Bu öge çok yaygın bir isme sahip, bu yüzden SD Maid\'in haberinin olmadığı, hâlâ yüklü bir uygulamaya ait olabilir.</string>
-    <string name="systemcleaner_tool_name">SistemTemizleyicisi</string>
+    <string name="systemcleaner_tool_name">Sistem Temizleyicisi</string>
     <string name="systemcleaner_explanation_short">Belli bir uygulamaya ait olmayan gereksiz veriler.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d eşleşen dosya silindi</item>
@@ -230,8 +230,10 @@
     <string name="systemcleaner_filter_custom_label">Özel filtre</string>
     <string name="systemcleaner_filter_custom_manage_label">Özel filtreleri yönet</string>
     <string name="systemcleaner_filter_custom_manage_summary">Özel filtrelerinizi oluşturun, silin, içe ve dışa aktarın.</string>
-    <string name="systemcleaner_filter_logfiles_label">Günlük dosyaları</string>
-    <string name="systemcleaner_filter_logfiles_summary">Cihazın her yerinden günlük dosyaları (*.log).</string>
+    <string name="systemcleaner_filter_logfiles_label">Sistem günlük dosyaları</string>
+    <string name="systemcleaner_filter_logfiles_summary">Çeşitli konumlardaki sistem ve sistem hizmeti günlük dosyaları (örn. *.log).</string>
+    <string name="systemcleaner_filter_packagecaches_label">Yükleyici önbelleği</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Sistemin paket yönetimi tarafından kullanılan yüklü uygulamalarla ilgili önbelleğe alınmış veriler.</string>
     <string name="systemcleaner_filter_advertisements_label">Reklam dosyaları</string>
     <string name="systemcleaner_filter_advertisements_summary">Reklamlar için veya reklamlar tarafından oluşturulan dosyalar.</string>
     <string name="systemcleaner_filter_anr_label">ANR hataları</string>
@@ -256,8 +258,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Windows dosya gezgininin bağlı depolama alanında oluşturabileceği veriler."</string>
     <string name="systemcleaner_filter_thumbnails_label">Önizleme resimleri</string>
     <string name="systemcleaner_filter_thumbnails_summary">Resimler ve videolar için önbelleğe alınmış önizlemeler.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Geçici dosyalar</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Geçici dosyalar, genellikle etkin işlemler için kısa ömürlü önbelleklerdir.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Geçici sistem dosyaları</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Sistemle ilgili geçici dosyalar, genellikle etkin işlemler için kısa ömürlü önbellekler.</string>
     <string name="systemcleaner_filter_analytics_label">Analiz dosyaları</string>
     <string name="systemcleaner_filter_analytics_summary">Analiz ve hata izleme ile ilgili veriler.</string>
     <string name="systemcleaner_filter_downloadcache_label">İndirme önbelleği</string>
@@ -308,7 +310,7 @@
     <string name="systemcleaner_customfilter_editor_livesearch_label">Canlı arama</string>
     <string name="systemcleaner_customfilter_import_action">Yeni filtreyi içe aktar</string>
     <string name="systemcleaner_customfilter_export_action">Seçili filtreyi dışa aktar</string>
-    <string name="appcleaner_tool_name">Uygulama temizleyici</string>
+    <string name="appcleaner_tool_name">Uygulama Temizleyici</string>
     <string name="appcleaner_explanation_short">Belirli uygulamalara ait silinebilir veriler.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Genel varsayılan önbellekler</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Varsayılan genel uygulama önbellekleri. Eski Android sürümlerinde Android/data altından erişilebilir. Sistem ayarlarında \"Önbelleği temizle\" seçeneğine dokunulduğunda silinir.</string>
@@ -392,6 +394,11 @@
         <item quantity="other">Seçilen %d uygulamanın gereksiz dosyaları silinsin mi?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku kullanılarak önbellekler siliniyor</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Erişilemeyen önbellekler belirleniyor</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Önbellek temizleme kullanılamıyor</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Sistem bu uygulama için \"Önbelleği temizle\" düğmesini devre dışı bıraktı. Bu uygulama için bir dışlama oluşturun.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Ayarlar ekranı kullanılamıyor</string>
+    <string name="appcleaner_automation_error_no_settings_body">Bu sistem uygulamasının ayarlar ekranı yoktur. Erişilebilirlik hizmeti aracılığıyla önbellek temizleme mümkün değildir. Bu uygulama için bir dışlama oluşturun.</string>
     <string name="deduplicator_tool_name">Tekilleyici</string>
     <string name="deduplicator_explanation_short">Cihazındaki birbirinin aynısı olan verileri bul.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -475,6 +482,7 @@
     <string name="appcontrol_list_sortmode_installed_label">İlk kurulum</string>
     <string name="appcontrol_list_sortmode_packagename_label">Paket adı</string>
     <string name="appcontrol_list_sortmode_size_label">Boyut</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Ekran süresi</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Uygulama boyutları performans nedeniyle tahmini olarak verilmiştir. Daha doğru veriler için StorageAnalyzer aracını kullanın.</string>
     <string name="appcontrol_progress_uninstalling_app">Uygulama kaldırılıyor</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -522,7 +530,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Durmaya zorlanıyor…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"Durdurmaya zorla\" düğmesi aranıyor (anahtar kelimeler: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Önceki eylem onaylanmaya çalışılıyor (anahtar kelimeler: %s)</string>
-    <string name="analyzer_tool_name">DepolamaAnalizcisi</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Ekran süresi: %2$s\'den beri %1$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Son güncelleme: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Yüklenme zamanı: %s</string>
+    <string name="analyzer_tool_name">Depolama Analizcisi</string>
     <string name="analyzer_explanation_short">Cihazınızda neyin yer kapladığını öğrenin.</string>
     <string name="analyzer_progress_scanning_device">Depolama aygıtları aranıyor</string>
     <string name="analyzer_progress_scanning_storage">Depolama taranıyor</string>
@@ -594,7 +605,7 @@
     <string name="exclusion_import_action">İstisnaları dışa aktar</string>
     <string name="exclusion_export_action">İstisnaları içe aktar</string>
     <string name="exclusion_create_pkg_hint">Uygulama Kontrolü aracını kullanarak uygulamalar için hariç tutmalar oluşturun.</string>
-    <string name="exclusion_create_path_hint">Yol hariç tutmaları oluşturmak için DepolamaAnalizcisini kullan.</string>
+    <string name="exclusion_create_path_hint">Yol hariç tutmaları oluşturmak için Depolama Analizcisi\'ni kullan.</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Bir hariç tutma oluşturuldu</item>
         <item quantity="other">%d hariç tutma oluşturuldu</item>

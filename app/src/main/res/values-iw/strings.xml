@@ -247,8 +247,10 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="systemcleaner_filter_custom_label">סינון מותאם אישית</string>
     <string name="systemcleaner_filter_custom_manage_label">נהל מסננים מותאמים אישית</string>
     <string name="systemcleaner_filter_custom_manage_summary">צור, מחק, ייבא וייצא את המסננים המותאמים אישית שלך.</string>
-    <string name="systemcleaner_filter_logfiles_label">קבצי לוג</string>
-    <string name="systemcleaner_filter_logfiles_summary">קבצי תיעוד (*.log) מכל רחבי המכשיר.</string>
+    <string name="systemcleaner_filter_logfiles_label">קבצי יומן מערכת</string>
+    <string name="systemcleaner_filter_logfiles_summary">קבצי יומן של המערכת ושירותי המערכת (למשל *.log) במיקומים שונים.</string>
+    <string name="systemcleaner_filter_packagecaches_label">התקנת מטמון</string>
+    <string name="systemcleaner_filter_packagecaches_summary">נתונים שמורים במטמון הקשורים לאפליקציות מותקנות המשמשים את ניהול החבילות של המערכת.</string>
     <string name="systemcleaner_filter_advertisements_label">קבצי פרסומות</string>
     <string name="systemcleaner_filter_advertisements_summary">קבצים שנוצרו על ידי או עבור אפליקציות פרסום.</string>
     <string name="systemcleaner_filter_anr_label">שגיאות ANR</string>
@@ -273,8 +275,8 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"נתונים שסייר הקבצים של ווינדוס יכול ליצור באחסון מחובר."</string>
     <string name="systemcleaner_filter_thumbnails_label">תמונות ממוזערות</string>
     <string name="systemcleaner_filter_thumbnails_summary">תצוגות מקדימות במטמון עבור תמונות וסרטונים.</string>
-    <string name="systemcleaner_filter_tempfiles_label">קבצים זמניים</string>
-    <string name="systemcleaner_filter_tempfiles_summary">קבצים זמניים, בדרך כלל מטמונים קצרים לפעולות אקטיביות.</string>
+    <string name="systemcleaner_filter_tempfiles_label">קבצי מערכת זמניים</string>
+    <string name="systemcleaner_filter_tempfiles_summary">קבצים זמניים הקשורים למערכת, בדרך כלל מטמונים קצרי מועד לפעולות פעילות.</string>
     <string name="systemcleaner_filter_analytics_label">קבצי אנליטיקה</string>
     <string name="systemcleaner_filter_analytics_summary">נתונים הקשורים לניתוח ומעקב אחר באגים.</string>
     <string name="systemcleaner_filter_downloadcache_label">הורד מטמון</string>
@@ -415,6 +417,11 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
         <item quantity="other">האם למחוק קבצים שניתנים להרחבה עבור %d אפליקציות שנבחרו?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">מחיקת מטמונים באמצעות Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">זיהוי מטמונים בלתי נגישים</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">ניקוי מטמון אינו זמין</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">המערכת השביתה את כפתור \"ניקוי מטמון\" עבור אפליקציה זו. צור החרגה עבור אפליקציה זו.</string>
+    <string name="appcleaner_automation_error_no_settings_title">מסך ההגדרות אינו זמין</string>
+    <string name="appcleaner_automation_error_no_settings_body">לאפליקציית מערכת זו אין מסך הגדרות. ניקוי מטמון באמצעות שירות נגישות אינו אפשרי. צור החרגה עבור אפליקציה זו.</string>
     <string name="deduplicator_tool_name">מסיר כפילות</string>
     <string name="deduplicator_explanation_short">מצא נתונים כפולים במכשיר שלך.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -506,6 +513,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcontrol_list_sortmode_installed_label">מותקן לראשונה</string>
     <string name="appcontrol_list_sortmode_packagename_label">שם חבילה</string>
     <string name="appcontrol_list_sortmode_size_label">גודל</string>
+    <string name="appcontrol_list_sortmode_screentime_label">זמן מסך</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">גדלי האפליקציות משוערים מסיבות של ביצועים. השתמש בכלי מנתח אחסון לקבלת נתונים מדויקים יותר.</string>
     <string name="appcontrol_progress_uninstalling_app">מסיר התקנה של אפליקציה</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -565,6 +573,9 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcontrol_automation_subtitle_force_stopping">כופה עצירה...</string>
     <string name="appcontrol_automation_progress_find_force_stop">מחפש כפתור \"אילוץ עצירה\" (מילות מפתח: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">מנסה לאמת פעולה קודמת (מילות מפתח: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">זמן מסך: %1$s מאז %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">העדכון האחרון: %s</string>
+    <string name="appcontrol_item_installedat_x_label">הותקן ב: %s</string>
     <string name="analyzer_tool_name">מנתח אחסון</string>
     <string name="analyzer_explanation_short">גלה מה תופס מקום במכשיר שלך.</string>
     <string name="analyzer_progress_scanning_device">מחפש התקני אחסון</string>

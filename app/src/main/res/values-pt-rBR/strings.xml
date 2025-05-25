@@ -230,8 +230,10 @@
     <string name="systemcleaner_filter_custom_label">Filtro personalizado</string>
     <string name="systemcleaner_filter_custom_manage_label">Gerenciar filtros personalizados</string>
     <string name="systemcleaner_filter_custom_manage_summary">Criar, excluir, importar e exportar seus filtros personalizados.</string>
-    <string name="systemcleaner_filter_logfiles_label">Arquivos de registro</string>
-    <string name="systemcleaner_filter_logfiles_summary">Arquivos de registro (*.log) de todo o dispositivo.</string>
+    <string name="systemcleaner_filter_logfiles_label">Arquivos de log do sistema</string>
+    <string name="systemcleaner_filter_logfiles_summary">Arquivos de log de sistema e de serviço de sistema (por exemplo, *.log) em vários locais.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Cache do instalador</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Dados em cache relacionados a apps instalados que são usados pelo gerenciamento de pacotes do sistema.</string>
     <string name="systemcleaner_filter_advertisements_label">Arquivos de anúncios</string>
     <string name="systemcleaner_filter_advertisements_summary">Os arquivos criados por softwares de propaganda.</string>
     <string name="systemcleaner_filter_anr_label">Erros de ANR</string>
@@ -256,7 +258,7 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Dados que o explorador de arquivos Windows pode criar no armazenamento conectado."</string>
     <string name="systemcleaner_filter_thumbnails_label">Imagens em miniatura</string>
     <string name="systemcleaner_filter_thumbnails_summary">Pré-visualizações em cache para imagens e vídeos.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Arquivos temporários</string>
+    <string name="systemcleaner_filter_tempfiles_label">Arquivos temporários do sistema</string>
     <string name="systemcleaner_filter_tempfiles_summary">Arquivos temporários, geralmente caches de curta duração para operações ativas.</string>
     <string name="systemcleaner_filter_analytics_label">Arquivos de análise</string>
     <string name="systemcleaner_filter_analytics_summary">Dados relacionados à análise e rastreamento de bugs.</string>
@@ -392,6 +394,11 @@
         <item quantity="other">Deletar arquivos desnecessários para %d aplicativos selecionados?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Excluindo caches usando Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Determinar caches inacessíveis</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Limpar cache indisponível</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">O sistema desativou o botão \"Limpar cache\" para este aplicativo. Crie uma exclusão para este aplicativo.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Tela de configurações indisponível</string>
+    <string name="appcleaner_automation_error_no_settings_body">Este app do sistema não tem tela de configurações. A limpeza de cache através do serviço de acessibilidade não é possível. Crie uma exclusão para este app.</string>
     <string name="deduplicator_tool_name">Desduplicador</string>
     <string name="deduplicator_explanation_short">Encontrar dados duplicados no seu dispositivo.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -475,6 +482,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Primeira instalada</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nome do pacote</string>
     <string name="appcontrol_list_sortmode_size_label">Tamanho</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Tempo da tela</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Os tamanhos de apps são estimados por razões de desempenho. Use a ferramenta Analisador de Armazenamento para dados mais precisos.</string>
     <string name="appcontrol_progress_uninstalling_app">Desinstalar aplicativo</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -522,6 +530,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Forçando parada…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Procurando pelo botão \"Forçar parada\" (palavras-chave: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Tentando confirmar a ação anterior (palavras-chave: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Tempo de tela: %1$s desde %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Última atualização: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instalado em: %s</string>
     <string name="analyzer_tool_name">Analisador de Armazenamento</string>
     <string name="analyzer_explanation_short">Descubra o que está ocupando espaço no seu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Procurando dispositivos de armazenamento</string>
