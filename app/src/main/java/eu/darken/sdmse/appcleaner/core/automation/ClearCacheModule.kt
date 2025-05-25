@@ -34,6 +34,7 @@ import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.animation.AnimationState
 import eu.darken.sdmse.automation.core.animation.AnimationTool
 import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
+import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
 import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
 import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
@@ -243,6 +244,9 @@ class ClearCacheModule @AssistedInject constructor(
                 } else {
                     throw e
                 }
+            } catch (e: AutomationOverlayException) {
+                log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
+                throw e
             } catch (e: Exception) {
                 if (e is PlanAbortException && e.treatAsSuccess) {
                     log(TAG, INFO) { "Treating aborted plan as success for $target:\n${e.asLog()}" }
