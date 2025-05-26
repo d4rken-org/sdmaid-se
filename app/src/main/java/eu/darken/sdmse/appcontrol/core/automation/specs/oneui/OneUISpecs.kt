@@ -85,7 +85,7 @@ class OneUISpecs @Inject constructor(
 
             val step = AutomationStep(
                 source = TAG,
-                descriptionInternal = "Force stop button",
+                descriptionInternal = "Force stop button for $pkg",
                 label = R.string.appcontrol_automation_progress_find_force_stop.toCaString(forceStopLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
@@ -123,7 +123,7 @@ class OneUISpecs @Inject constructor(
 
             val step = AutomationStep(
                 source = TAG,
-                descriptionInternal = "Confirm force stop",
+                descriptionInternal = "Confirm force stop for $pkg",
                 label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(titleLbl + okLbl),
                 windowCheck = windowCheck,
                 nodeAction = action,

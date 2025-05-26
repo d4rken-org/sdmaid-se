@@ -145,7 +145,7 @@ class HyperOsSpecs @Inject constructor(
 
         val step = AutomationStep(
             source = TAG,
-            descriptionInternal = "Storage entry (main plan)",
+            descriptionInternal = "Storage entry (main plan) for $pkg",
             label = R.string.appcleaner_automation_progress_find_storage.toCaString(""),
             windowLaunch = windowLauncherDefaultSettings(pkg),
             windowCheck = windowCheck,
@@ -187,7 +187,7 @@ class HyperOsSpecs @Inject constructor(
 
             val step = AutomationStep(
                 source = TAG,
-                descriptionInternal = "Storage entry (settings plan)",
+                descriptionInternal = "Storage entry (settings plan) for $pkg",
                 label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
                 nodeRecovery = defaultNodeRecovery(pkg),
                 nodeAction = defaultFindAndClick(finder = storageFinder),
@@ -201,7 +201,7 @@ class HyperOsSpecs @Inject constructor(
 
             val step = AutomationStep(
                 source = TAG,
-                descriptionInternal = "Clear cache (settings plan)",
+                descriptionInternal = "Clear cache (settings plan) for $pkg",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 nodeAction = defaultFindAndClickClearCache(isDryRun = isDryRun, pkg) {
                     if (!it.isClickyButton()) false else it.textMatchesAny(clearCacheButtonLabels)
@@ -266,7 +266,7 @@ class HyperOsSpecs @Inject constructor(
 
             val step = AutomationStep(
                 source = TAG,
-                descriptionInternal = "Clear data button (security center plan)",
+                descriptionInternal = "Clear data button (security center plan) for $pkg",
                 label = R.string.appcleaner_automation_progress_find_clear_data.toCaString(clearDataLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG_HYPEROS, ipcFunnel, pkg),
                 nodeRecovery = defaultNodeRecovery(pkg),
@@ -278,7 +278,7 @@ class HyperOsSpecs @Inject constructor(
         if (useAlternativeStep) {
             val alternativeStep = AutomationStep(
                 source = TAG,
-                descriptionInternal = "Clear cache button (alternative security center plan)",
+                descriptionInternal = "Clear cache button (alternative security center plan) for $pkg",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG_HYPEROS, ipcFunnel, pkg),
                 nodeAction = defaultFindAndClick(
@@ -355,7 +355,7 @@ class HyperOsSpecs @Inject constructor(
 
             val step = AutomationStep(
                 source = TAG,
-                descriptionInternal = "Clear cache button (security center plan)",
+                descriptionInternal = "Clear cache button (security center plan) for $pkg",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheLabels),
                 windowCheck = windowCheck,
                 nodeAction = action,
@@ -397,7 +397,7 @@ class HyperOsSpecs @Inject constructor(
 
             val step = AutomationStep(
                 source = TAG,
-                descriptionInternal = "Confirm clear cache (security center plan)",
+                descriptionInternal = "Confirm clear cache (security center plan) for $pkg",
                 label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(""),
                 windowCheck = windowCheck,
                 nodeAction = action,
