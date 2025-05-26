@@ -33,6 +33,7 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
@@ -250,7 +251,9 @@ class CustomFilterEditorViewModel @Inject constructor(
                 crawlerJobFlow,
             ) { matches, progress, isWorking ->
                 LiveSearchState(matches, if (isWorking) progress else null)
-            }.throttleLatest(200)
+            }
+                .flowOn(dispatcherProvider.IO)
+                .throttleLatest(200)
         }
         .onStart { emit(LiveSearchState(firstInit = true)) }
         .asLiveData2()
