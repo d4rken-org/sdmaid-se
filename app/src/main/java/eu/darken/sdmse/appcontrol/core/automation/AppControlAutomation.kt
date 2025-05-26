@@ -22,14 +22,16 @@ import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopAutomationTask
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
+import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
 import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
-import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
+import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.core.finishAutomation
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -144,28 +146,47 @@ class AppControlAutomation @AssistedInject constructor(
                 processSpecForPkg(installed)
                 log(TAG, INFO) { "Successfully force-stopped $target" }
                 successful.add(target)
-            } catch (e: ScreenUnavailableException) {
-                log(TAG, WARN) { "Cancelled because screen become unavailable: ${e.asLog()}" }
-                throw e
-            } catch (e: AutomationTimeoutException) {
-                log(TAG, WARN) { "Timeout while processing $installed: $e" }
-                failed.add(target)
-            } catch (e: CancellationException) {
-                log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
-                updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
-                updateProgressSecondary(CaString.EMPTY)
-                updateProgressCount(Progress.Count.Indeterminate())
-                if (e is UserCancelledAutomationException) {
-                    log(TAG, INFO) { "User has cancelled automation process, aborting..." }
-                    cancelledByUser = true
-                    break
-                } else {
-                    throw e
-                }
             } catch (e: Exception) {
-                log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
-                if (e is UnsupportedOperationException) throw e
-                failed.add(target)
+                when {
+                    e is InvalidSystemStateException -> {
+                        log(TAG, WARN) { "Invalid system state: ${e.asLog()}" }
+                        throw e
+                    }
+
+                    e is AutomationTimeoutException -> {
+                        log(TAG, WARN) { "Timeout while processing $installed: $e" }
+                        failed.add(target)
+                    }
+
+                    e is AutomationOverlayException -> {
+                        log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
+                        throw e
+                    }
+
+                    e is UnsupportedOperationException -> {
+                        log(TAG, ERROR) { "Unsupported operation error: ${e.asLog()}" }
+                        throw e
+                    }
+
+                    e is CancellationException -> {
+                        log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
+                        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
+                        updateProgressSecondary(CaString.EMPTY)
+                        updateProgressCount(Progress.Count.Indeterminate())
+                        if (e is UserCancelledAutomationException) {
+                            log(TAG, INFO) { "User has cancelled automation process, aborting..." }
+                            cancelledByUser = true
+                            break
+                        } else {
+                            throw e
+                        }
+                    }
+
+                    else -> {
+                        log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
+                        failed.add(target)
+                    }
+                }
             } finally {
                 updateProgressCount(Progress.Count.Percent(task.targets.indexOf(target), task.targets.size))
             }
