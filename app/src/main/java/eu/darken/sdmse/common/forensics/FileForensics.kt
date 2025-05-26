@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
+import eu.darken.sdmse.common.shell.ShellOps
 import kotlinx.coroutines.CoroutineScope
 import javax.inject.Inject
 import javax.inject.Provider
@@ -31,9 +32,10 @@ class FileForensics @Inject constructor(
     private val csiProcessorsProvider: Provider<Set<@JvmSuppressWildcards CSIProcessor>>,
     gatewaySwitch: GatewaySwitch,
     pkgOps: PkgOps,
+    shellOps: ShellOps,
 ) : HasSharedResource<Any> {
 
-    private val commonResources = setOf(gatewaySwitch, pkgOps)
+    private val commonResources = setOf(gatewaySwitch, pkgOps, shellOps)
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
