@@ -74,7 +74,7 @@ class LGESpecs @Inject constructor(
 
             val step = AutomationStep(
                 source = TAG,
-                descriptionInternal = "Storage entry",
+                descriptionInternal = "Storage entry for $pkg",
                 label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
@@ -89,7 +89,7 @@ class LGESpecs @Inject constructor(
 
             val step = AutomationStep(
                 source = TAG,
-                descriptionInternal = "Clear cache",
+                descriptionInternal = "Clear cache for $pkg",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeAction = defaultFindAndClickClearCache(isDryRun = Bugs.isDryRun, pkg) {

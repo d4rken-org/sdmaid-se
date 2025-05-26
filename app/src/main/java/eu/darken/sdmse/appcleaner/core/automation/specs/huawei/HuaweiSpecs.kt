@@ -76,7 +76,7 @@ class HuaweiSpecs @Inject constructor(
 
             val step = AutomationStep(
                 source = tag,
-                descriptionInternal = "Storage entry",
+                descriptionInternal = "Storage entry for $pkg",
                 label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
@@ -93,7 +93,7 @@ class HuaweiSpecs @Inject constructor(
 
             val step = AutomationStep(
                 source = tag,
-                descriptionInternal = "Clear cache button",
+                descriptionInternal = "Clear cache button for $pkg",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeAction = defaultFindAndClickClearCache(isDryRun = Bugs.isDryRun, pkg) {
