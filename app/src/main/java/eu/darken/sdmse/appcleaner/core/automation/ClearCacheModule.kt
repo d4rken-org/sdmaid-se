@@ -223,38 +223,50 @@ class ClearCacheModule @AssistedInject constructor(
                 log(TAG, INFO) { "Successfully cleared cache for for $target" }
                 task.onSuccess(target)
                 successful.add(target)
-            } catch (e: InvalidSystemStateException) {
-                log(TAG, WARN) { "Invalid system state for ACS based cache deletion: ${e.asLog()}" }
-                throw e
-            } catch (e: AutomationTimeoutException) {
-                log(TAG, WARN) { "Timeout while processing $installed" }
-                task.onError(target, e)
-                failed[target] = e
-                val timeouts = failed.count { it.value is AutomationTimeoutException }
-                if (successful.isEmpty() && timeouts > TIMEOUT_LIMIT) break
-            } catch (e: CancellationException) {
-                log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
-                updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
-                updateProgressSecondary(CaString.EMPTY)
-                updateProgressCount(Progress.Count.Indeterminate())
-                if (e is UserCancelledAutomationException) {
-                    log(TAG, INFO) { "User has cancelled automation process, aborting..." }
-                    cancelledByUser = true
-                    break
-                } else {
-                    throw e
-                }
-            } catch (e: AutomationOverlayException) {
-                log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
-                throw e
             } catch (e: Exception) {
-                if (e is PlanAbortException && e.treatAsSuccess) {
-                    log(TAG, INFO) { "Treating aborted plan as success for $target:\n${e.asLog()}" }
-                    successful.add(target)
-                } else {
-                    log(TAG, WARN) { "Failure for $target:\n${e.asLog()}" }
-                    task.onError(target, e)
-                    failed[target] = e
+                when {
+                    e is InvalidSystemStateException -> {
+                        log(TAG, WARN) { "Invalid system state for ACS based cache deletion: ${e.asLog()}" }
+                        throw e
+                    }
+
+                    e is AutomationTimeoutException -> {
+                        log(TAG, WARN) { "Timeout while processing $installed" }
+                        task.onError(target, e)
+                        failed[target] = e
+                        val timeouts = failed.count { it.value is AutomationTimeoutException }
+                        if (successful.isEmpty() && timeouts > TIMEOUT_LIMIT) break
+                    }
+
+                    e is AutomationOverlayException -> {
+                        log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
+                        throw e
+                    }
+
+                    e is PlanAbortException && e.treatAsSuccess -> {
+                        log(TAG, INFO) { "Treating aborted plan as success for $target:\n${e.asLog()}" }
+                        successful.add(target)
+                    }
+
+                    e is CancellationException -> {
+                        log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
+                        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
+                        updateProgressSecondary(CaString.EMPTY)
+                        updateProgressCount(Progress.Count.Indeterminate())
+                        if (e is UserCancelledAutomationException) {
+                            log(TAG, INFO) { "User has cancelled automation process, aborting..." }
+                            cancelledByUser = true
+                            break
+                        } else {
+                            throw e
+                        }
+                    }
+
+                    else -> {
+                        log(TAG, WARN) { "Failure for $target:\n${e.asLog()}" }
+                        task.onError(target, e)
+                        failed[target] = e
+                    }
                 }
             } finally {
                 increaseProgress()
