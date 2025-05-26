@@ -324,7 +324,6 @@ class AppCleaner @Inject constructor(
 
                     val deletedSize = deletedInaccessible.sumOf { it.expectedGain }
                     inacc.copy(
-                        itemCount = 1,
                         totalSize = inacc.totalSize - deletedSize,
                         publicSize = inacc.publicSize?.let { it - deletedSize }?.coerceAtLeast(0L),
                     )
