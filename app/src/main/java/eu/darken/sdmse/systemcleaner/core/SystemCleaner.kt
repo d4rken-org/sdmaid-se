@@ -55,16 +55,14 @@ import javax.inject.Singleton
 @Singleton
 class SystemCleaner @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    fileForensics: FileForensics,
-    gatewaySwitch: GatewaySwitch,
+    private val fileForensics: FileForensics,
+    private val gatewaySwitch: GatewaySwitch,
     private val crawler: SystemCrawler,
     private val exclusionManager: ExclusionManager,
     private val filterSourceProvider: Provider<FilterSource>,
-    pkgOps: PkgOps,
+    private val pkgOps: PkgOps,
     rootManager: RootManager,
 ) : SDMTool, Progress.Client {
-
-    private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
@@ -97,7 +95,7 @@ class SystemCleaner @Inject constructor(
         updateProgress { Progress.Data() }
 
         try {
-            val result = keepResourceHoldersAlive(usedResources) {
+            val result = keepResourceHoldersAlive(fileForensics, gatewaySwitch, pkgOps) {
                 when (task) {
                     is SystemCleanerScanTask -> performScan(task)
                     is SystemCleanerProcessingTask -> performProcessing(task)

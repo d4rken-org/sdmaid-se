@@ -78,7 +78,6 @@ class AppControl @Inject constructor(
     private val appScan: AppScan,
 ) : SDMTool, Progress.Client {
 
-    private val usedResources = setOf(appScan)
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
     private val progressPub = MutableStateFlow<Progress.Data?>(null)
@@ -118,7 +117,7 @@ class AppControl @Inject constructor(
         log(TAG) { "submit($task) starting..." }
         updateProgress { Progress.Data() }
         try {
-            val result = keepResourceHoldersAlive(usedResources) {
+            val result = keepResourceHoldersAlive(appScan) {
                 when (task) {
                     is AppControlScanTask -> performScan(task)
                     is AppControlToggleTask -> performToggle(task)

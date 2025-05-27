@@ -1,8 +1,33 @@
 package eu.darken.sdmse.common.sharedresource
 
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
-suspend fun <T : Any, R> SharedResource<T>.useRes(block: suspend (T) -> R): R = get().use { res ->
-    block(res.item)
+@OptIn(ExperimentalContracts::class)
+suspend fun <T : Any, R> SharedResource<T>.useRes(block: suspend (T) -> R): R {
+    contract {
+        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
+    }
+    return get().use { res -> block(res.item) }
+}
+
+@OptIn(ExperimentalContracts::class)
+suspend inline fun <T : SharedResource<*>, R> Collection<T>.useRes(block: (Collection<*>) -> R): R {
+    contract {
+        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
+    }
+    val resources = mutableListOf<Resource<*>>()
+    return try {
+        forEach { resources.add(it.get()) }
+        block(resources.map { it.item })
+    } finally {
+        resources.forEach { it.close() }
+    }
+}
+
+suspend inline fun <T : HasSharedResource<*>, R> List<T>.useRes(block: (Collection<*>) -> R): R {
+    return map { it.sharedResource }.useRes(block)
 }
 
 suspend inline fun <C : HasSharedResource<Any>> C.adoptChildResource(child: HasSharedResource<*>) = apply {
@@ -13,21 +38,26 @@ suspend inline fun <C : HasSharedResource<*>> C.adoptChildResource(child: Shared
     sharedResource.addChild(child)
 }
 
-suspend fun <C : HasSharedResource<*>> Collection<C>.getAllResources() = map { it.sharedResource.get() }
-
 fun Collection<KeepAlive>.closeAll() = forEach { it.close() }
 
 suspend inline fun <C : HasSharedResource<*>, R> C.keepResourceHoldersAlive(
-    children: Collection<HasSharedResource<*>>,
+    vararg children: HasSharedResource<*>,
     block: () -> R
 ): R {
-    return keepResourcesAlive(children.map { it.sharedResource }, block)
+    return keepResourcesAlive(
+        children = children.map { it.sharedResource }.toTypedArray(),
+        block = block,
+    )
 }
 
+@OptIn(ExperimentalContracts::class)
 suspend inline fun <C : HasSharedResource<*>, R> C.keepResourcesAlive(
-    children: Collection<SharedResource<*>>,
+    vararg children: SharedResource<*>,
     block: () -> R
 ): R {
+    contract {
+        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
+    }
     val keepAlives = mutableSetOf<Resource<out Any>>()
     return try {
         children

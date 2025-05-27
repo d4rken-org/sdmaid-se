@@ -29,11 +29,9 @@ class FileForensics @Inject constructor(
     @ApplicationContext val context: Context,
     private val pkgRepo: PkgRepo,
     private val csiProcessorsProvider: Provider<Set<@JvmSuppressWildcards CSIProcessor>>,
-    gatewaySwitch: GatewaySwitch,
-    pkgOps: PkgOps,
+    private val gatewaySwitch: GatewaySwitch,
+    private val pkgOps: PkgOps,
 ) : HasSharedResource<Any> {
-
-    private val commonResources = setOf(gatewaySwitch, pkgOps)
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
@@ -44,7 +42,7 @@ class FileForensics @Inject constructor(
         }
     }
 
-    suspend fun identifyArea(file: APath): AreaInfo? = keepResourceHoldersAlive(commonResources) {
+    suspend fun identifyArea(file: APath): AreaInfo? = keepResourceHoldersAlive(gatewaySwitch, pkgOps) {
         if (file is LocalPath && !file.file.isAbsolute) throw IllegalArgumentException("Not absolute: ${file.path}")
 
         csiProcessors.firstNotNullOfOrNull { it.identifyArea(file) }
@@ -56,7 +54,7 @@ class FileForensics @Inject constructor(
         return identifyArea(file)?.let { findOwners(it) }
     }
 
-    suspend fun findOwners(areaInfo: AreaInfo): OwnerInfo = keepResourceHoldersAlive(commonResources) {
+    suspend fun findOwners(areaInfo: AreaInfo): OwnerInfo = keepResourceHoldersAlive(gatewaySwitch, pkgOps) {
         val startFindingOwner = System.currentTimeMillis()
 
         val result = csiProcessors

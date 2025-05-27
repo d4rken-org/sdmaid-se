@@ -43,14 +43,14 @@ class ShellOps @Inject constructor(
 
     private suspend fun <T> adbOps(action: suspend (ShellOpsClient) -> T): T {
         if (!adbManager.canUseAdbNow()) throw AdbUnavailableException()
-        return keepResourcesAlive(setOf(adbManager.serviceClient)) {
+        return keepResourcesAlive(adbManager.serviceClient) {
             adbManager.serviceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
         }
     }
 
     private suspend fun <T> rootOps(action: suspend (ShellOpsClient) -> T): T {
         if (!rootManager.canUseRootNow()) throw RootUnavailableException()
-        return keepResourcesAlive(setOf(rootManager.serviceClient)) {
+        return keepResourcesAlive(rootManager.serviceClient) {
             rootManager.serviceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
         }
     }
