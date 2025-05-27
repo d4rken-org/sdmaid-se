@@ -85,6 +85,12 @@
             app:summary="@string/systemcleaner_filter_tempfiles_summary"
             app:title="@string/systemcleaner_filter_tempfiles_label" />
         <CheckBoxPreference
+            app:icon="@drawable/ic_thumb_up_24"
+            app:key="filter.thumbnails.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/systemcleaner_filter_thumbnails_summary"
+            app:title="@string/systemcleaner_filter_thumbnails_label" />
+        <CheckBoxPreference
             app:icon="@drawable/ic_analytics_onsurface"
             app:key="filter.analytics.enabled"
             app:singleLineTitle="false"
