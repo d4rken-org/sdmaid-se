@@ -67,7 +67,6 @@ class Analyzer @Inject constructor(
 
     override val type: SDMTool.Type = SDMTool.Type.ANALYZER
 
-    private val usedResources = setOf(gatewaySwitch)
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
     private val progressPub = MutableStateFlow<Progress.Data?>(null)
@@ -116,7 +115,7 @@ class Analyzer @Inject constructor(
         log(TAG) { "submit($task) starting..." }
         updateProgress { Progress.Data() }
         try {
-            val result = keepResourceHoldersAlive(usedResources) {
+            val result = keepResourceHoldersAlive(gatewaySwitch) {
                 when (task) {
                     is DeviceStorageScanTask -> scanStorageDevices(task)
                     is StorageScanTask -> scanStorageContents(task)

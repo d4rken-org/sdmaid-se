@@ -43,7 +43,7 @@ import javax.inject.Singleton
 @Singleton
 class Deduplicator @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    gatewaySwitch: GatewaySwitch,
+    private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
     private val scanner: Provider<DuplicatesScanner>,
     private val deleter: Provider<DuplicatesDeleter>,
@@ -52,7 +52,6 @@ class Deduplicator @Inject constructor(
 
     override val type: SDMTool.Type = SDMTool.Type.DEDUPLICATOR
 
-    private val usedResources = setOf(gatewaySwitch)
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
     private val progressPub = MutableStateFlow<Progress.Data?>(null)
@@ -83,7 +82,7 @@ class Deduplicator @Inject constructor(
         updateProgress { Progress.Data() }
 
         try {
-            val result = keepResourceHoldersAlive(usedResources) {
+            val result = keepResourceHoldersAlive(gatewaySwitch) {
                 when (task) {
                     is DeduplicatorScanTask -> performScan(task)
                     is DeduplicatorDeleteTask -> performDelete(task)

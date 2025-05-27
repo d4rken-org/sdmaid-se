@@ -65,7 +65,7 @@ import javax.inject.Singleton
 class CorpseFinder @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val filterFactories: Set<@JvmSuppressWildcards CorpseFilter.Factory>,
-    fileForensics: FileForensics,
+    private val fileForensics: FileForensics,
     private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
     private val userManager: UserManager2,
@@ -78,7 +78,6 @@ class CorpseFinder @Inject constructor(
 
     override val type: SDMTool.Type = SDMTool.Type.CORPSEFINDER
 
-    private val usedResources = setOf(fileForensics, gatewaySwitch, pkgOps)
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
     private val progressPub = MutableStateFlow<Progress.Data?>(null)
@@ -114,7 +113,7 @@ class CorpseFinder @Inject constructor(
         updateProgress { Progress.Data() }
 
         try {
-            val result = keepResourceHoldersAlive(usedResources) {
+            val result = keepResourceHoldersAlive(fileForensics, gatewaySwitch, pkgOps) {
                 when (task) {
                     is CorpseFinderScanTask -> performScan(task)
                     is CorpseFinderDeleteTask -> deleteCorpses(task)

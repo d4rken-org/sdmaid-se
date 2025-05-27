@@ -26,6 +26,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
+import eu.darken.sdmse.common.sharedresource.useRes
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.types.match
@@ -91,7 +92,7 @@ class SystemCrawler @Inject constructor(
 
         val sieveContents = mutableMapOf<FilterIdentifier, Set<SystemCleanerFilter.Match>>()
 
-        gatewaySwitch.useRes {
+        listOf(gatewaySwitch, forensics).useRes {
             targetAreas
                 .asFlow()
                 .flowOn(dispatcherProvider.Default)
