@@ -85,6 +85,8 @@ class DataPartitionCSI @Inject constructor(
             DataArea.Type.APP_LIB,
             DataArea.Type.PRIVATE_DATA,
             DataArea.Type.DATA_SYSTEM,
+            DataArea.Type.DATA_MISC,
+            DataArea.Type.ART_PROFILE,
             DataArea.Type.DATA_SYSTEM_DE,
             DataArea.Type.DATA_SYSTEM_CE,
             DataArea.Type.DATA_SDEXT2,
