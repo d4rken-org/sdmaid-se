@@ -18,6 +18,7 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.androidtv.AndroidTVSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.coloros.ColorOSSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.flyme.FlymeSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.funtouchos.FuntouchOSSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.honor.HonorSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.huawei.HuaweiSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.HyperOsSpecs
@@ -27,7 +28,6 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.nubia.NubiaSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.oneui.OneUISpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.oxygenos.OxygenOSSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.realme.RealmeSpecs
-import eu.darken.sdmse.appcleaner.core.automation.specs.vivo.VivoSpecs
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
@@ -101,7 +101,7 @@ class ClearCacheModule @AssistedInject constructor(
                 is LGESpecs -> 130
                 is ColorOSSpecs -> 110
                 is FlymeSpecs -> 100
-                is VivoSpecs -> 80
+                is FuntouchOSSpecs -> 80
                 is AndroidTVSpecs -> 70
                 is NubiaSpecs -> 60
                 is OxygenOSSpecs -> 30

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.automation.specs.vivo
+package eu.darken.sdmse.appcleaner.core.automation.specs.originos
 
 import dagger.Binds
 import dagger.Module
@@ -10,7 +10,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
-import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
@@ -33,7 +32,6 @@ import eu.darken.sdmse.common.debug.toVisualStrings
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
-import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
@@ -41,10 +39,10 @@ import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
 
 @Reusable
-class VivoSpecs @Inject constructor(
+class OriginOSSpecs @Inject constructor(
     private val ipcFunnel: IPCFunnel,
     private val deviceDetective: DeviceDetective,
-    private val vivoLabels: VivoLabels,
+    private val funtouchLabels: OriginOSLabels,
     private val storageEntryFinder: StorageEntryFinder,
     private val generalSettings: GeneralSettings,
     private val stepper: Stepper,
@@ -54,10 +52,10 @@ class VivoSpecs @Inject constructor(
 
     override suspend fun isResponsible(pkg: Installed): Boolean {
         val romType = generalSettings.romTypeDetection.value()
-        if (romType == RomType.VIVO) return true
+        if (romType == RomType.ORIGINOS) return true
         if (romType != RomType.AUTO) return false
 
-        return deviceDetective.getROMType() == RomType.VIVO
+        return deviceDetective.getROMType() == RomType.ORIGINOS
     }
 
     override suspend fun getClearCache(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
@@ -72,7 +70,7 @@ class VivoSpecs @Inject constructor(
 
         run {
             val storageEntryLabels =
-                vivoLabels.getStorageEntryDynamic(this) + vivoLabels.getStorageEntryStatic(this)
+                funtouchLabels.getStorageEntryDynamic(this) + funtouchLabels.getStorageEntryStatic(this)
             log(TAG) { "storageEntryLabels=${storageEntryLabels.toVisualStrings()}" }
 
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
@@ -80,10 +78,7 @@ class VivoSpecs @Inject constructor(
             val action: suspend StepContext.() -> Boolean = action@{
                 val target = storageFinder() ?: return@action false
                 val mapped = findClickableParent(
-                    maxNesting = when {
-                        hasApiLevel(29) -> 4
-                        else -> 6
-                    },
+                    maxNesting = 4,
                     node = target
                 ) ?: return@action false
                 clickNormal(node = mapped)
@@ -103,37 +98,21 @@ class VivoSpecs @Inject constructor(
 
         run {
             val clearCacheButtonLabels =
-                vivoLabels.getClearCacheDynamic(this) + vivoLabels.getClearCacheStatic(this)
+                funtouchLabels.getClearCacheDynamic(this) + funtouchLabels.getClearCacheStatic(this)
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             val action: suspend StepContext.() -> Boolean = action@{
-                var isUnclickableLabelButton = false
-                val target = findNode { node ->
-                    when {
-                        hasApiLevel(34) -> {
-                            if (!node.textMatchesAny(clearCacheButtonLabels)) return@findNode false
-
-                            if (node.idContains("id/vbutton_title")) {
-                                isUnclickableLabelButton = true
-                                true
-                            } else {
-                                node.isClickable
-                            }
-                        }
-
-                        else -> {
-                            node.isClickable && node.textMatchesAny(clearCacheButtonLabels)
-                        }
-                    }
-
+                var target = findNode { node ->
+                    node.textMatchesAny(clearCacheButtonLabels)
                 } ?: return@action false
 
-                val mapped = when {
-                    hasApiLevel(34) && isUnclickableLabelButton -> findClickableParent(node = target)
-                    else -> target
-                } ?: return@action false
+                if (!target.isClickable) {
+                    log(tag) { "'Clear cache' element was not clickable: $target" }
+                    target = findClickableParent(node = target) ?: return@action false
+                    log(tag) { "Using clickable parent: $target" }
+                }
 
-                clickClearCache(isDryRun = Bugs.isDryRun, pkg, node = mapped)
+                clickClearCache(isDryRun = Bugs.isDryRun, pkg, node = target)
             }
 
             val step = AutomationStep(
@@ -149,13 +128,13 @@ class VivoSpecs @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: VivoSpecs): AppCleanerSpecGenerator
+        @Binds @IntoSet abstract fun mod(mod: OriginOSSpecs): AppCleanerSpecGenerator
     }
 
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
 
-        val TAG: String = logTag("AppCleaner", "Automation", "Vivo", "Spec")
+        val TAG: String = logTag("AppCleaner", "Automation", "OriginOS", "Spec")
     }
 
 }

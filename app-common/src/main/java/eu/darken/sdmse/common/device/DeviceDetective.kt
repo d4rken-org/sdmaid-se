@@ -33,70 +33,79 @@ class DeviceDetective @Inject constructor(
         return pm.hasSystemFeature(PackageManager.FEATURE_LEANBACK)
     }
 
-    private fun checkManufactor(name: String): Boolean {
+    private fun manufactor(name: String): Boolean {
         return Build.MANUFACTURER.lowercase() == name.lowercase()
     }
 
-    private fun checkBrand(name: String): Boolean {
+    private fun brand(name: String): Boolean {
         return Build.BRAND?.lowercase() == name.lowercase()
     }
 
-    private fun checkDisplay(name: String): Boolean {
+    private fun display(name: String): Boolean {
         return Build.DISPLAY?.lowercase()?.contains(name.lowercase()) == true
     }
 
-    private fun checkProduct(name: String): Boolean {
+    private fun product(name: String): Boolean {
         return Build.PRODUCT?.lowercase()?.contains(name.lowercase()) == true
     }
 
-    private fun hasApp(pkgs: Set<String>) = pkgs.any { context.isInstalled(it) }
+    private fun apps(pkgs: Set<String>) = pkgs.any { context.isInstalled(it) }
 
-    private fun hasFingerPrint(prints: Set<String>) = prints.any {
+    private fun versionStarts(prints: Set<String>) = prints.any {
         Build.VERSION.INCREMENTAL.startsWith(it)
     }
 
     fun getROMType(): RomType = when {
         isAndroidTV() -> RomType.ANDROID_TV
-        checkDisplay("lineage") || checkProduct("lineage") || hasApp(LINEAGE_PKGS) -> RomType.LINEAGE
+        display("lineage") || product("lineage") || apps(LINEAGE_PKGS) -> RomType.LINEAGE
         // run mostly near-stock Android
-        checkBrand("alcatel") -> RomType.ALCATEL
+        brand("alcatel") -> RomType.ALCATEL
         // Oppo uses ColorOS globally
-        checkManufactor("oppo") && hasApp(COLOROS_PKGS) -> RomType.COLOROS
+        manufactor("oppo") && apps(COLOROS_PKGS) -> RomType.COLOROS
         // Flyme OS
-        checkManufactor("meizu") && hasApp(FLYME_PKGS) -> RomType.FLYMEOS
+        manufactor("meizu") && apps(FLYME_PKGS) -> RomType.FLYMEOS
         // EMUI (global), HarmonyOS (China)
-        checkManufactor("huawei") && hasApp(MIUI_PKGS) -> RomType.HUAWEI
+        manufactor("huawei") && apps(MIUI_PKGS) -> RomType.HUAWEI
         // LG UX, last devices run Android, close to AOSP
-        checkManufactor("lge") -> RomType.LGUX
+        manufactor("lge") -> RomType.LGUX
 
-        checkManufactor("Xiaomi") -> when {
-            hasApp(HYPEROS_PKGS) && hasFingerPrint(HYPEROS_VERSION_STARTS) -> when {
+        manufactor("Xiaomi") -> when {
+            apps(HYPEROS_PKGS) && versionStarts(HYPEROS_VERSION_STARTS) -> when {
                 // HyperOS 1.0 is based on Android 14 / API34, some backports exist (e.g. pissarropro)
                 hasApiLevel(33) -> RomType.HYPEROS
                 // Otherwise it is likely a false positive MIUI detection
                 else -> RomType.MIUI
             }
 
-            hasApp(MIUI_PKGS) && hasFingerPrint(MIUI_VERSION_STARTS) -> RomType.MIUI
+            apps(MIUI_PKGS) && versionStarts(MIUI_VERSION_STARTS) -> RomType.MIUI
             else -> null
         }
 
-        checkManufactor("nubia") -> RomType.NUBIA
+        manufactor("nubia") -> RomType.NUBIA
         // Should be OxygenOS on earlier versions, and later based on ColorOS
-        checkManufactor("OnePlus") -> RomType.OXYGENOS
+        manufactor("OnePlus") -> RomType.OXYGENOS
         // runs Realme UI, which is a fork of ColorOS with minor changes.
-        checkManufactor("realme") -> RomType.REALMEUI
+        manufactor("realme") -> RomType.REALMEUI
         // One UI
-        checkManufactor("samsung") -> RomType.ONEUI
+        manufactor("samsung") -> RomType.ONEUI
         // Vivo is either Funtouch OS (global), which is AOSP like, or OriginOS (China), more modified
-        checkManufactor("vivo") -> RomType.VIVO
+        manufactor("vivo") -> when {
+            // FUNTOUCH: vivo/V2413_EEA/V2413:15/AP3A.240905.015.A2_V000L1/compiler03201816:user/release-keys
+            !hasApiLevel(30) // First origin version was with API30/Android11
+                    || apps(FUNTOUCH_PKGS)
+                    || product("EEA") -> RomType.FUNTOUCHOS
+
+            // ORIGIN: vivo/PD2366/PD2366:14/UP1A.231005.007_MOD1/compiler07161632:user/release-keys
+            // ORIGIN: vivo/PD2454/PD2454:15/AP3A.240905.015.A2_V000L1/compiler250517195248:user/release-keys
+            else -> RomType.ORIGINOS
+        }
         // Earlier ROMs pre Android 12 run EMUI, Android 13+ is MagicOS
-        checkManufactor("HONOR") -> RomType.HONOR
+        manufactor("HONOR") -> RomType.HONOR
         // Minimal skin, some preinstalled apps and tweaks, overall, it's near-stock Android.
-        checkManufactor("DOOGEE") -> RomType.DOOGEE
+        manufactor("DOOGEE") -> RomType.DOOGEE
         // OUKITEL/OT5_EEA/OT5:13/TP1A.220624.014/20240528:user/release-keys
         // Stock ROM for the OUKITEL OT5 (European variant)
-        checkManufactor("OUKITEL") -> RomType.OUKITEL
+        manufactor("OUKITEL") -> RomType.OUKITEL
         else -> null
     } ?: RomType.AOSP
 
@@ -130,7 +139,6 @@ class DeviceDetective @Inject constructor(
         private val HYPEROS_PKGS = setOf(
             "com.miui.securitycenter"
         )
-
         private val FLYME_PKGS = setOf(
             "com.meizu.flyme.update"
         )
@@ -143,6 +151,9 @@ class DeviceDetective @Inject constructor(
             "org.lineageos.lineagesettings",
             "lineageos.platform",
             "org.lineageos.settings.device",
+        )
+        private val FUNTOUCH_PKGS = setOf(
+            "com.funtouch.uiengine"
         )
         private val TAG = logTag("DeviceDetective")
     }

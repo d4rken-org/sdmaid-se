@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.automation.specs.vivo
+package eu.darken.sdmse.appcleaner.core.automation.specs.originos
 
 import dagger.Reusable
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels14Plus
@@ -10,7 +10,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import javax.inject.Inject
 
 @Reusable
-class VivoLabels29Plus @Inject constructor(
+open class OriginOSLabels @Inject constructor(
     private val aospLabels14Plus: AOSPLabels14Plus,
     private val aospLabels29Plus: AOSPLabels29Plus,
 ) : AutomationLabelSource {
@@ -54,6 +54,6 @@ class VivoLabels29Plus @Inject constructor(
     ): Set<String> = aospLabels14Plus.getClearCacheStatic(acsContext)
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Vivo", "Labels", "29Plus")
+        val TAG: String = logTag("AppCleaner", "Automation", "OriginOS", "Labels")
     }
 }
