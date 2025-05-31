@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.automation.specs.vivo
+package eu.darken.sdmse.appcleaner.core.automation.specs.funtouchos
 
 import dagger.Reusable
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels14Plus
@@ -9,7 +9,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import javax.inject.Inject
 
 @Reusable
-class VivoLabels14Plus @Inject constructor(
+class FuntouchOSLabels14Plus @Inject constructor(
     private val labels14Plus: AOSPLabels14Plus,
 ) : AutomationLabelSource {
 
@@ -42,6 +42,6 @@ class VivoLabels14Plus @Inject constructor(
         .toSet()
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Vivo", "Labels", "14Plus")
+        val TAG: String = logTag("AppCleaner", "Automation", "FuntouchOS", "Labels", "14Plus")
     }
 }
