@@ -1,7 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.miui
 
 import android.graphics.Rect
-import android.os.Build
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.core.content.pm.PackageInfoCompat
 import dagger.Binds
@@ -20,7 +19,6 @@ import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.isClickyButton
-import eu.darken.sdmse.automation.core.common.isTextView
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
@@ -45,6 +43,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.toVisualStrings
@@ -52,7 +51,6 @@ import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.deviceadmin.DeviceAdminManager
 import eu.darken.sdmse.common.funnel.IPCFunnel
-import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getPackageInfo2
@@ -95,9 +93,6 @@ class MIUISpecs @Inject constructor(
             mainPlan(pkg)
         }
     }
-
-    private val isMiui12Plus: Boolean =
-        DeviceDetective.MIUI_VERSION_STARTS.any { Build.VERSION.INCREMENTAL.startsWith(it) } || hasApiLevel(34)
 
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
@@ -198,32 +193,20 @@ class MIUISpecs @Inject constructor(
         }
 
         if (!useAlternativeStep) {
-
             val action: suspend StepContext.() -> Boolean = action@{
-                val target = findNode { node ->
-                    when {
-                        // MIUI 12+
-                        isMiui12Plus -> if (!node.isTextView()) return@findNode false
-                        // MIUI 10/11
-                        else -> if (!node.isClickyButton()) return@findNode false
-                    }
+                val altNode = findNode { node -> node.textMatchesAny(clearCacheLabels) }
+                if (altNode != null) {
+                    useAlternativeStep = true
+                    throw StepAbortException("Got 'Clear cache' instead of 'Clear data' skip the action dialog step.")
+                }
 
-                    if (node.textMatchesAny(clearDataLabels)) return@findNode true
-
-                    if (node.textMatchesAny(clearCacheLabels)) {
-                        useAlternativeStep = true
-                        throw StepAbortException("Got 'Clear cache' instead of 'Clear data' skip the action dialog step.")
-                    }
-                    false
-                } ?: return@action false
-
-                val mapped = when {
-                    // MIUI 12 needs a node mapping, while in MIUI 11 the text is directly clickable.
-                    isMiui12Plus -> findClickableParent(node = target)
-                    else -> target
-                } ?: return@action false
-
-                clickNormal(node = mapped)
+                var target = findNode { node -> node.textMatchesAny(clearDataLabels) } ?: return@action false
+                if (!target.isClickable) {
+                    target = findClickableParent(node = target)
+                        .also { if (it == null) log(TAG, WARN) { "No clickable parent found for $target" } }
+                        ?: return@action false
+                }
+                clickNormal(node = target)
             }
 
             val step = AutomationStep(
@@ -239,20 +222,15 @@ class MIUISpecs @Inject constructor(
 
         if (useAlternativeStep) {
             val action: suspend StepContext.() -> Boolean = action@{
-                val target = findNode {
-                    when {
-                        isMiui12Plus -> it.isTextView() && it.textMatchesAny(clearCacheLabels)
-                        else -> it.isClickyButton() && it.textMatchesAny(clearCacheLabels)
-                    }
-                } ?: return@action false
-
-                val mapped = when {
-                    isMiui12Plus -> findClickableParent(node = target)
-                    else -> target
-                } ?: return@action false
-
-                clickNormal(node = mapped)
+                var target = findNode { it.textMatchesAny(clearCacheLabels) } ?: return@action false
+                if (!target.isClickable) {
+                    target = findClickableParent(node = target)
+                        .also { if (it == null) log(TAG, WARN) { "No clickable parent found for $target" } }
+                        ?: return@action false
+                }
+                clickNormal(node = target)
             }
+
             val alternativeStep = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear cache (alternative security center plan) for $pkg",
