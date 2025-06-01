@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.isInstalled
 import javax.inject.Inject
 
+@Suppress("SameParameterValue")
 @Reusable
 class DeviceDetective @Inject constructor(
     @ApplicationContext private val context: Context,
@@ -110,11 +111,11 @@ class DeviceDetective @Inject constructor(
     } ?: RomType.AOSP
 
     companion object {
-        private val MIUI_VERSION_STARTS_LEGACY = setOf(
+
+        private val MIUI_VERSION_STARTS = setOf(
             "V10",
+            // xiaomi/cactus/cactus:9/PPR1.180610.011/V11.0.8.0.PCBMIXM:user/release-keys
             "V11",
-        )
-        private val MIUI_VERSION_STARTS_CURRENT = setOf(
             // Xiaomi/raphael_eea/raphael:10/QKQ1.190825.002/V12.0.1.0.QFKEUXM:user/release-keys
             "V12",
             // Xiaomi/venus_eea/venus:12/SKQ1.211006.001/V13.0.1.0.SKBEUXM:user/release-keys
@@ -122,7 +123,6 @@ class DeviceDetective @Inject constructor(
             // Xiaomi/plato_id/plato:13/TP1A.220624.014/V14.0.1.0.TLQIDXM:user/release-keys
             "V14",
         )
-        val MIUI_VERSION_STARTS = MIUI_VERSION_STARTS_LEGACY + MIUI_VERSION_STARTS_CURRENT
         private val MIUI_PKGS = setOf(
             "com.miui.securitycenter"
         )
