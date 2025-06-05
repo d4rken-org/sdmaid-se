@@ -21,7 +21,7 @@ class ShellOpsClient @AssistedInject constructor(
             connection.execute(cmd)
         }
     } catch (e: Exception) {
-        throw e.unwrapPropagation().also {
+        throw e.refineException().also {
             log(TAG, ERROR) { "execute($cmd) failed: ${it.asLog()}" }
         }
     }

@@ -37,7 +37,7 @@ class ExceptionPropagationTest : BaseTest(), IpcHostModule, IpcClientModule {
                 
                 #STACK#:rO0ABXVyAB5bTGphdmEubGFuZy5TdGFja1RyYWNlRWxlbWVudDsCRio8PP0iOQIAAHhwAAAABXNyABtqYXZhLmxhbmcuU3RhY2tUcmFjZUVsZW1lbnRhCcWaJjbdhQIABEkACmxpbmVOdW1iZXJMAA5kZWNsYXJpbmdDbGFzc3QAEkxqYXZhL2xhbmcvU3RyaW5nO0wACGZpbGVOYW1lcQB+AANMAAptZXRob2ROYW1lcQB+AAN4cAAAAId0ABdjb2lsLmRlY29kZS5EZWNvZGVVdGlsc3B0AA1wZXJmb3JtTG9va3Vwc3EAfgACAAAAdXQAMmV1LmRhcmtlbi5zZG1zZS5jb21tb24uZmlsZXMubG9jYWwuaXBjLkZpbGVPcHNIb3N0cHQAEWxvb2t1cEZpbGVzU3RyZWFtc3EAfgACAAAEn3QAPWV1LmRhcmtlbi5zZG1zZS5jb21tb24uZmlsZXMubG9jYWwuaXBjLkZpbGVPcHNDb25uZWN0aW9uJFN0dWJwdAAKb25UcmFuc2FjdHNxAH4AAgAAA/10ABFhbmRyb2lkLm9zLkJpbmRlcnQAC0JpbmRlci5qYXZhdAAUZXhlY1RyYW5zYWN0SW50ZXJuYWxzcQB+AAIAAAPidAARYW5kcm9pZC5vcy5CaW5kZXJ0AAtCaW5kZXIuamF2YXQADGV4ZWNUcmFuc2FjdA==
             """.trimIndent()
-        ).unwrapPropagation().apply {
+        ).refineException().apply {
             this shouldBe instanceOf<TopLevelException>()
             message shouldBe "Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure"
             stackTraceToString().lines().take(5).joinToString("\n").trimIndent() shouldBe """
@@ -56,7 +56,7 @@ class ExceptionPropagationTest : BaseTest(), IpcHostModule, IpcClientModule {
             """
                 eu.darken.sdmse.common.ipc.ExceptionPropagationTest${'$'}BaseTestException: Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure
             """.trimIndent()
-        ).unwrapPropagation().apply {
+        ).refineException().apply {
             this shouldBe instanceOf<BaseTestException>()
             message shouldBe "Does not exist or can't be read <-> /storage/1F67-A3A5/.android_secure"
         }

@@ -31,7 +31,7 @@ class FileOpsClient @AssistedInject constructor(
             if (Bugs.isTrace) log(TAG) { "listFiles($path) finished streaming, ${it.size} items" }
         }
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     fun lookUp(path: LocalPath): LocalPathLookup = try {
@@ -39,7 +39,7 @@ class FileOpsClient @AssistedInject constructor(
             if (Bugs.isTrace) log(TAG, VERBOSE) { "lookup($path): $it" }
         }
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     /**
@@ -50,7 +50,7 @@ class FileOpsClient @AssistedInject constructor(
             if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFiles($path) finished streaming, ${it.size} items" }
         }
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     /**
@@ -64,7 +64,7 @@ class FileOpsClient @AssistedInject constructor(
             ) { "lookupFilesExtendedStream($path) finished streaming, ${it.size} items" }
         }
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     /**
@@ -82,7 +82,7 @@ class FileOpsClient @AssistedInject constructor(
                 (options.pathDoesNotContain ?: emptyList()).toMutableList(),
             )
         } catch (e: Exception) {
-            throw e.unwrapPropagation()
+            throw e.refineException()
         }
         return output.toLocalPathLookupFlow()
     }
@@ -90,73 +90,73 @@ class FileOpsClient @AssistedInject constructor(
     fun du(path: LocalPath): Long = try {
         fileOpsConnection.du(path)
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     fun file(path: LocalPath, readWrite: Boolean): FileHandle = try {
         fileOpsConnection.file(path, readWrite).fileHandle(readWrite)
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     fun mkdirs(path: LocalPath): Boolean = try {
         fileOpsConnection.mkdirs(path)
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     fun createNewFile(path: LocalPath): Boolean = try {
         fileOpsConnection.createNewFile(path)
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     fun canRead(path: LocalPath): Boolean = try {
         fileOpsConnection.canRead(path)
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     fun canWrite(path: LocalPath): Boolean = try {
         fileOpsConnection.canWrite(path)
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     fun exists(path: LocalPath): Boolean = try {
         fileOpsConnection.exists(path)
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     fun delete(path: LocalPath, recursive: Boolean, dryRun: Boolean): Boolean = try {
         fileOpsConnection.delete(path, recursive, dryRun)
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     fun createSymlink(linkPath: LocalPath, targetPath: LocalPath): Boolean = try {
         fileOpsConnection.createSymlink(linkPath, targetPath)
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     fun setModifiedAt(path: LocalPath, modifiedAt: Instant): Boolean = try {
         fileOpsConnection.setModifiedAt(path, modifiedAt.toEpochMilli())
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     fun setPermissions(path: LocalPath, permissions: Permissions): Boolean = try {
         fileOpsConnection.setPermissions(path, permissions)
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     fun setOwnership(path: LocalPath, ownership: Ownership): Boolean = try {
         fileOpsConnection.setOwnership(path, ownership)
     } catch (e: Exception) {
-        throw e.unwrapPropagation()
+        throw e.refineException()
     }
 
     companion object {

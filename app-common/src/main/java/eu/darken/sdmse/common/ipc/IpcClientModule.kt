@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.ipc
 
+import android.os.DeadObjectException
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -20,8 +21,13 @@ interface IpcClientModule {
             @Suppress("UNCHECKED_CAST")
             it.readObject() as Array<StackTraceElement>
         }
-    } catch (e: Exception) {
+    } catch (_: Exception) {
         null
+    }
+
+    fun Throwable.refineException(): Throwable = when (this) {
+        is DeadObjectException -> ServiceConnectionLostException(this)
+        else -> unwrapPropagation()
     }
 
     fun Throwable.unwrapPropagation(): Throwable {
