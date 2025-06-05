@@ -179,4 +179,6 @@
     <string name="general_error_invalid_input_label">Invalid input</string>
     <string name="general_information_for_the_developer">Information for the developer</string>
     <string name="general_error_report_bug_action">Report bug</string>
+    <string name="general_error_ipc_deadobject_title">Service Connection Lost</string>
+    <string name="general_error_ipc_deadobject_description">The connection to a critical service (e.g., Magisk, Shizuku, or other system-level services) was unexpectedly lost. Please reboot your device. If the issue persists, check for updates or reach out to me so I can fix it.</string>
 </resources>

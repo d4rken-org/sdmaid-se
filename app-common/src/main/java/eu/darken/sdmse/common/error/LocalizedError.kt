@@ -46,7 +46,7 @@ fun Throwable.localized(c: Context): LocalizedError = when {
     )
 }
 
-private fun Throwable.getStackTracePeek() = this.stackTraceToString()
+internal fun Throwable.getStackTracePeek() = this.stackTraceToString()
     .lines()
     .filterIndexed { index, _ -> index > 1 }
     .take(3)
