@@ -396,9 +396,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku kullanılarak önbellekler siliniyor</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Erişilemeyen önbellekler belirleniyor</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Önbellek temizleme kullanılamıyor</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">Sistem bu uygulama için \"Önbelleği temizle\" düğmesini devre dışı bıraktı. Bu uygulama için bir dışlama oluşturun.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Sistem bu uygulama için \"Önbelleği temizle\" düğmesini devre dışı bıraktı. Önbelleği temizlemeyi hızlandırmak için bunu hariç tutun.</string>
     <string name="appcleaner_automation_error_no_settings_title">Ayarlar ekranı kullanılamıyor</string>
-    <string name="appcleaner_automation_error_no_settings_body">Bu sistem uygulamasının ayarlar ekranı yoktur. Erişilebilirlik hizmeti aracılığıyla önbellek temizleme mümkün değildir. Bu uygulama için bir dışlama oluşturun.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Bu sistem uygulamasının ayarlar ekranı yok. Erişilebilirlik hizmeti aracılığıyla önbellek temizleme mümkün değil. Önbellek temizlemeyi hızlandırmak için bunu hariç tutun.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Sistem uygulaması yanlış yapılandırılmış</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'un Güvenlik uygulamasında (com.miui.securitycenter) Kullanım İstatistikleri izni (GET_USAGE_STATS) eksik. Bu, uygulama ayrıntılarındaki \"Verileri Temizle\" ve erişilebilirlik yoluyla önbellek temizleme gibi özellikleri bozar. Tam işlevselliği geri yükleme iznini verin.</string>
     <string name="deduplicator_tool_name">Tekilleyici</string>
     <string name="deduplicator_explanation_short">Cihazındaki birbirinin aynısı olan verileri bul.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -622,7 +624,12 @@
     <string name="automation_error_not_running_body">Erişilebilirlik hizmeti çalışmıyor. Cihazı yeniden başlatmayı deneyin.</string>
     <string name="automation_error_screen_unavailable_title">Ekran kullanılamıyor</string>
     <string name="automation_error_screen_unavailable_body">Ekran kullanılamaz hale geldiği için işlem iptal edildi (örn. ekran kapalı veya ekran kilidi etkin).</string>
+    <string name="automation_error_compatibility_title">Otomasyon uyumluluğu</string>
     <string name="automation_error_compatibility_body">SD Maid ekran düzenini çözemedi. Bu durum devam ederse, diliniz veya kurulumunuz tam olarak desteklenmiyor olabilir. Güncellemeleri kontrol edin veya düzeltebilmem için bana ulaşın.</string>
+    <string name="automation_error_timeout_title">Otomasyon zaman aşımı</string>
+    <string name="automation_error_timeout_body">SD Maid tüm adımları zaman sınırı içinde tamamlamadı. Bu durum devam ederse, uygulamayı cihazınız için ayarlamam gerekebilir. Güncellemeleri kontrol edin veya bana ulaşın, böylece düzeltebilirim.</string>
+    <string name="automation_error_overlay_title">Otomasyon katmanı</string>
+    <string name="automation_error_overlay_body">SD Maid otomasyon katmanını gösteremedi. İzinleri kontrol edin ve cihazınızı yeniden başlatmayı deneyin.</string>
     <string name="history_label">Geçmiş</string>
     <string name="history_description">Son eylemlerin ve etkilenen verilerin kronolojik listesi.</string>
     <string name="scheduler_label">Zamanlayıcı</string>

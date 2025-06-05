@@ -396,9 +396,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Sletter buffere ved hjelp av Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Oppdager utilgjengelige buffere</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Tømming av hurtigbufferen er utilgjengelig</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">Systemet har deaktivert knappen «Tøm hurtigbuffer» for denne appen. Opprett en unntakelse for denne appen.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Systemet har deaktivert knappen «Tøm hurtigbuffer» for denne appen. Ekskluder den for raskere tømming av hurtigbufferen.</string>
     <string name="appcleaner_automation_error_no_settings_title">Innstillingsskjermen er utilgjengelig</string>
-    <string name="appcleaner_automation_error_no_settings_body">Denne systemappen har ingen innstillingsskjerm. Det er ikke mulig å tømme hurtigbufferen via tilgjengelighetstjenesten. Opprett en unntakelse for denne appen.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Denne systemappen har ingen innstillingsskjerm. Det er ikke mulig å tømme hurtigbufferen via tilgjengelighetstjenesten. Ekskluder den for raskere tømming av hurtigbufferen.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Systemapp feilkonfigurert</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS sin sikkerhetsapp (com.miui.securitycenter) mangler tillatelsen for bruksstatistikk (GET_USAGE_STATS). Dette forhindrer funksjoner som «Slett data» i appdetaljer og sletting av hurtigbuffer via tilgjengelighet. Gi tillatelsen for å gjenopprette full funksjonalitet.</string>
     <string name="deduplicator_tool_name">Deduplisering</string>
     <string name="deduplicator_explanation_short">Finn dupliserte data på enheten din.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -621,7 +623,12 @@
     <string name="automation_error_not_running_body">Tilgjengelighetstjenesten kjører ikke. Prøv å starte enheten på nytt.</string>
     <string name="automation_error_screen_unavailable_title">Skjerm utilgjengelig</string>
     <string name="automation_error_screen_unavailable_body">Operasjonen ble avbrutt fordi skjermen ble utilgjengelig (f.eks. skjerm av eller låseskjerm aktiv).</string>
+    <string name="automation_error_compatibility_title">Automatiseringskompatibilitet</string>
     <string name="automation_error_compatibility_body">SD Maid fant ikke ut av skjermoppsettet. Hvis dette fortsetter å skje, kan det hende at språket eller oppsettet ditt ikke støttes helt. Se etter oppdateringer eller kontakt meg så jeg kan fikse det.</string>
+    <string name="automation_error_timeout_title">Tidsavbrudd for automatisering</string>
+    <string name="automation_error_timeout_body">SD Maid fullførte ikke alle stegene innen tidsfristen. Hvis dette fortsetter å skje, må jeg kanskje justere appen for enheten din. Se etter oppdateringer eller kontakt meg så jeg kan fikse det.</string>
+    <string name="automation_error_overlay_title">Automatiseringsoverlegg</string>
+    <string name="automation_error_overlay_body">SD Maid kunne ikke vise automatiseringsoverlegget. Sjekk tillatelsene og prøv å starte enheten på nytt.</string>
     <string name="history_label">Historie</string>
     <string name="history_description">En kronologisk liste over nylige handlinger og berørt data.</string>
     <string name="scheduler_label">Planlegger</string>

@@ -181,4 +181,5 @@
     <string name="general_advice_title">Porada</string>
     <string name="general_error_invalid_input_label">Nieprawidłowe dane</string>
     <string name="general_information_for_the_developer">Informacje dla programisty</string>
+    <string name="general_error_report_bug_action">Zgłoś błąd</string>
 </resources>

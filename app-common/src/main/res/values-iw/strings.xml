@@ -22,7 +22,7 @@
     <string name="general_wipe_action">מחק</string>
     <string name="general_cancel_action">ביטול</string>
     <string name="general_discard_action">ביטול</string>
-    <string name="general_reset_action">אפס</string>
+    <string name="general_reset_action">איפוס</string>
     <string name="general_save_action">שמור</string>
     <string name="general_thanks_action">תודה</string>
     <string name="general_gotit_action">הבנתי</string>
@@ -86,12 +86,12 @@
     <string name="general_view_action">הצג</string>
     <string name="general_update_action">עדכן</string>
     <string name="general_scan_action">סריקה</string>
-    <string name="general_delete_action">הסר</string>
+    <string name="general_delete_action">מחיקה</string>
     <string name="general_delete_selected_action">מחק נבחרים</string>
     <string name="general_show_details_action">הצג פרטים</string>
     <string name="general_show_all_action">הצג הכל</string>
     <string name="general_toggle_layout_mode">שנה מצב תצוגה</string>
-    <string name="general_delete_confirmation_title">אשר מחיקה</string>
+    <string name="general_delete_confirmation_title">אישור מחיקה</string>
     <string name="general_delete_confirmation_message_x">למחוק את \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">למחוק את %d הפריטים שנבחרו?</string>
     <plurals name="general_delete_success_deleted_x">
@@ -110,7 +110,7 @@
     </plurals>
     <string name="general_root_required_label">מצריך גישת רוט</string>
     <string name="general_root_required_message">מצריך מכשיר עם הרשאת רוט</string>
-    <string name="general_search_action">חפש</string>
+    <string name="general_search_action">חיפוש</string>
     <string name="general_scan_device_action">סרוק מכשיר</string>
     <string name="general_open_system_settings_action">פתח הגדרות מכשיר</string>
     <plurals name="result_x_items">
@@ -181,4 +181,5 @@
     <string name="general_advice_title">עצה</string>
     <string name="general_error_invalid_input_label">קלט לא חוקי</string>
     <string name="general_information_for_the_developer">מידע למפתח</string>
+    <string name="general_error_report_bug_action">דווח על באג</string>
 </resources>

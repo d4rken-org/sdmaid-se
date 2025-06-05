@@ -161,4 +161,5 @@
     <string name="general_advice_title">Conselho</string>
     <string name="general_error_invalid_input_label">Entrada inválida</string>
     <string name="general_information_for_the_developer">Informações para o desenvolvedor</string>
+    <string name="general_error_report_bug_action">Reportar erro</string>
 </resources>

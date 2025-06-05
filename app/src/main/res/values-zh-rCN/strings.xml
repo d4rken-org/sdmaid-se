@@ -385,9 +385,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">使用 Shizuku 删除缓存</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">确认不可访问缓存</string>
     <string name="appcleaner_automation_error_locked_appcache_title">清除不可用缓存</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">系统已禁用此应用的“清除缓存”按钮。请为该应用创建一个排除项。</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">系统已禁用此应用的 “清除缓存” 按钮。将它添加到排除列表以加快缓存清除速度。</string>
     <string name="appcleaner_automation_error_no_settings_title">设置屏幕不可用</string>
-    <string name="appcleaner_automation_error_no_settings_body">该系统应用没有设置界面。无法通过无障碍服务清除缓存。请为该应用创建排除项。</string>
+    <string name="appcleaner_automation_error_no_settings_body">该系统应用没有设置界面。无法通过无障碍服务清除缓存。请手动将该应用添加到排除列表。</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">系统应用配置错误</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS 的手机管家 (com.miui.securitycenter) 缺少使用统计权限 (GET_USAGE_STATS) 。 这会让通过无障碍在应用程序的详细信息中 “清除数据” 的功能出现问题。请授予权限以恢复全部功能。</string>
     <string name="deduplicator_tool_name">去重工具</string>
     <string name="deduplicator_explanation_short">查找设备上的重复数据。</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -427,7 +429,7 @@
     <string name="deduplicator_matches_exact_label">完全相同</string>
     <string name="deduplicator_matches_similar_label">相似文件</string>
     <string name="appcontrol_tool_name">应用控制</string>
-    <string name="appcontrol_explanation_short">安装在您的设备上的应用程序。</string>
+    <string name="appcontrol_explanation_short">管理安装在您的设备上的应用程序。</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="other">检测到 %d 个应用</item>
     </plurals>
@@ -597,7 +599,12 @@
     <string name="automation_error_not_running_body">无障碍服务未运行。请尝试重启设备。</string>
     <string name="automation_error_screen_unavailable_title">屏幕不可用</string>
     <string name="automation_error_screen_unavailable_body">操作已中止，原因为屏幕不可用（例如息屏或锁屏状态）</string>
+    <string name="automation_error_compatibility_title">自动操作兼容性</string>
     <string name="automation_error_compatibility_body">SD Maid 无法确定您的屏幕布局大小。 如果这种情况持续发生，可能是您的语言或系统设置不能完全支持。 请检查更新应用或联系我让我解决这个问题。</string>
+    <string name="automation_error_timeout_title">自动操作超时</string>
+    <string name="automation_error_timeout_body">SD Maid 未能在时间限制内完成所有步骤。 如果这种情况多次发生，开发者可能需要为您的设备调整应用程序。 检查应用更新或联系开发者，以便开发者能够修复它。</string>
+    <string name="automation_error_overlay_title">自动操作叠加层</string>
+    <string name="automation_error_overlay_body">SD Maid 无法显示自动操作叠加层。检查权限问题并尝试重启您的设备。</string>
     <string name="history_label">历史</string>
     <string name="history_description">将最近操作和涉及数据按时间排序的列表。</string>
     <string name="scheduler_label">计划任务</string>

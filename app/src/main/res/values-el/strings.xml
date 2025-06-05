@@ -396,9 +396,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Διαγραφή κρυφής προσωρινής μνήμης χρησιμοποιώντας το Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Προσδιορισμός μη προσβάσιμων προσωρινών μνήμων</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Εκκαθάριση προσωρινής μνήμης μη διαθέσιμη</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">Το σύστημα έχει απενεργοποιήσει το κουμπί \"Εκκαθάριση προσωρινής μνήμης\" για αυτήν την εφαρμογή. Δημιουργήστε μια εξαίρεση για αυτήν την εφαρμογή.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Το σύστημα έχει απενεργοποιήσει το κουμπί \"Εκκαθάριση μνήμης cache\" για αυτήν την εφαρμογή. Εξαιρέστε το για να επιταχύνετε την εκκαθάριση της μνήμης cache.</string>
     <string name="appcleaner_automation_error_no_settings_title">Μη διαθέσιμη οθόνη ρυθμίσεων</string>
-    <string name="appcleaner_automation_error_no_settings_body">Αυτή η εφαρμογή συστήματος δεν έχει οθόνη ρυθμίσεων. Δεν είναι δυνατή η εκκαθάριση προσωρινής μνήμης μέσω της υπηρεσίας προσβασιμότητας. Δημιουργήστε μια εξαίρεση για αυτήν την εφαρμογή.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Αυτή η εφαρμογή συστήματος δεν έχει οθόνη ρυθμίσεων. Η εκκαθάριση της μνήμης cache μέσω της υπηρεσίας προσβασιμότητας δεν είναι δυνατή. Εξαιρέστε την για να επιταχύνετε την εκκαθάριση της μνήμης cache.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Η εφαρμογή συστήματος δεν έχει ρυθμιστεί σωστά</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Η εφαρμογή ασφαλείας του HyperOS (com.miui.securitycenter) δεν έχει το δικαίωμα Στατιστικά χρήσης (GET_USAGE_STATS). Αυτό διακόπτει λειτουργίες όπως η \"Εκκαθάριση δεδομένων\" στις λεπτομέρειες της εφαρμογής και η εκκαθάριση της προσωρινής μνήμης μέσω προσβασιμότητας. Παραχωρήστε το δικαίωμα για να επαναφέρετε την πλήρη λειτουργικότητα.</string>
     <string name="deduplicator_tool_name">Αποδιπλοποιητής</string>
     <string name="deduplicator_explanation_short">Βρείτε διπλότυπα δεδομένα στη συσκευή σας.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -621,7 +623,12 @@
     <string name="automation_error_not_running_body">Η υπηρεσία προσβασιμότητας δεν εκτελείται. Δοκιμάστε να επανεκκινήσετε τη συσκευή.</string>
     <string name="automation_error_screen_unavailable_title">Μη διαθέσιμη οθόνη</string>
     <string name="automation_error_screen_unavailable_body">Η λειτουργία ματαιώθηκε επειδή η οθόνη δεν ήταν διαθέσιμη (π.χ. απενεργοποιημένη οθόνη ή ενεργή οθόνη κλειδώματος).</string>
+    <string name="automation_error_compatibility_title">Συμβατότητα αυτοματισμού</string>
     <string name="automation_error_compatibility_body">Το SD Maid δεν μπόρεσε να καταλάβει τη διάταξη της οθόνης. Αν αυτό συνεχίσει να συμβαίνει, η γλώσσα ή η ρύθμιση σας ενδέχεται να μην υποστηρίζονται πλήρως. Ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου ώστε να μπορώ να το διορθώσω.</string>
+    <string name="automation_error_timeout_title">Λήξη χρονικού ορίου αυτοματισμού</string>
+    <string name="automation_error_timeout_body">Το SD Maid δεν ολοκλήρωσε όλα τα βήματα εντός του χρονικού ορίου. Εάν συνεχιστεί αυτό, ίσως χρειαστεί να προσαρμόσω την εφαρμογή για τη συσκευή σας. Ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου για να το διορθώσω.</string>
+    <string name="automation_error_overlay_title">Επικάλυψη αυτοματισμού</string>
+    <string name="automation_error_overlay_body">Το SD Maid δεν μπόρεσε να εμφανίσει την επικάλυψη αυτοματισμού. Ελέγξτε τα δικαιώματα και δοκιμάστε να επανεκκινήσετε τη συσκευή σας.</string>
     <string name="history_label">Ιστορικό</string>
     <string name="history_description">Μια χρονολογική λίστα των πρόσφατων ενεργειών και των επηρεαζόμενων δεδομένων.</string>
     <string name="scheduler_label">Χρονοδιάγραμμα</string>
