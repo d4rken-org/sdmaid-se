@@ -418,9 +418,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Usuwanie danych podręcznych, które wykorzystuje Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Określanie niedostępnych pamięci podręcznych</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Oczyszczanie pamięci podręcznej niedostępne</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">System wyłączył przycisk \"Wyczyść pamięć podręczną\" dla tej aplikacji. Utwórz wyłączenie dla tej aplikacji.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">System wyłączył przycisk \"Wyczyść pamięć podręczną\" dla tej aplikacji. Wyklucz go, aby przyspieszyć czyszczenie pamięci podręcznej.</string>
     <string name="appcleaner_automation_error_no_settings_title">Ekran ustawień niedostępny</string>
-    <string name="appcleaner_automation_error_no_settings_body">Aplikacja systemowa nie ma ekranu ustawień. Oczyszczenie pamięci podręcznej za pomocą usługi dostępności nie jest możliwe. Utwórz wyłączenie dla tej aplikacji.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Ta aplikacja systemowa nie ma ekranu ustawień. Czyszczenie pamięci podręcznej za pomocą usługi ułatwień dostępu nie jest możliwa. Wyklucz ją, aby przyspieszyć czyszczenie pamięci podręcznej.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Aplikacja systemowa nieprawidłowo skonfigurowana</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Panel sterowania systemu HyperOS (com.miui.securitycenter) nie posiada uprawnień do statystyki użytkowania (GET_USAGE_STATS). Funkcja \"Wyczyść dane\" w szczegółach aplikacji oraz czyszczenie pamięci podręcznej za pomocą usługi dostępności są niedostępne. Udziel uprawnień do przywrócenia pełnej funkcjonalności.</string>
     <string name="deduplicator_tool_name">Deduplikator</string>
     <string name="deduplicator_explanation_short">Znajdź zduplikowane dane na swoim urządzeniu.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -669,7 +671,12 @@
     <string name="automation_error_not_running_body">Usługa ułatwień nie jest uruchomiona. Spróbuj ponownie uruchomić urządzenie.</string>
     <string name="automation_error_screen_unavailable_title">Ekran niedostępny</string>
     <string name="automation_error_screen_unavailable_body">Operacja została przerwana ponieważ ekran stał się niedostępny (np. wyłączony wyświetlacz lub aktywna blokada ekranu).</string>
+    <string name="automation_error_compatibility_title">Zgodność z automatyzacją</string>
     <string name="automation_error_compatibility_body">SD Maid nie może rozpoznać układu ekranu. Jeśli będzie się to powtarzać, Twój język lub konfiguracja mogą nie być w pełni obsługiwane. Sprawdź aktualizacje lub skontaktuj się ze mną, aby móc je naprawić.</string>
+    <string name="automation_error_timeout_title">Limit czasu automatyzacji</string>
+    <string name="automation_error_timeout_body">SD Maid nie zakończył wszystkich etapów w wyznaczonym terminie. Jeśli będzie się to powtarzać, to może być wymagane dostosowanie aplikacji do twojego urządzenia. Sprawdź aktualizacje lub skontaktuj się ze mną, abym mógł to naprawić.</string>
+    <string name="automation_error_overlay_title">Nakładka automatyzacyjna</string>
+    <string name="automation_error_overlay_body">SD Maid nie może pokazać nakładki na automatyzację. Sprawdź uprawnienia i spróbuj ponownie uruchomić urządzenie.</string>
     <string name="history_label">Historia</string>
     <string name="history_description">Chronologiczna lista ostatnich działań i dotyczących ich danych.</string>
     <string name="scheduler_label">Harmonogram</string>

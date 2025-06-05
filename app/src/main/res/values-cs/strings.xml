@@ -418,9 +418,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Mazání mezipaměti pomocí Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Zjišťování nedostupné mezipaměti</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Nedostupné vyčištění mezipaměti</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">Systém pro tuto aplikaci zakázal tlačítko \"Vyčistit mezipaměť\". Vytvořte výjimku pro tuto aplikaci.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Systém zakázal tlačítko \"Vyčistit mezipaměť\" pro tuto aplikaci. Vylučte aplikaci pro urychlení vyčištění mezipaměti.</string>
     <string name="appcleaner_automation_error_no_settings_title">Obrazovka nastavení není k dispozici</string>
-    <string name="appcleaner_automation_error_no_settings_body">Tato systémová aplikace nemá žádnou obrazovku nastavení. Vyčištění mezipaměti prostřednictvím služby usnadnění přístupu není možné. Vytvořte výjimku pro tuto aplikaci.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Tato systémová aplikace nemá žádnou obrazovku nastavení. Vyčištění mezipaměti pomocí služby usnadnění přístupu není možné. Vylučte aplikaci pro urychlení vyčištění mezipaměti.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Chybně nakonfigurovaná systémová aplikace</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Bezpečností aplikaci v HyperOS (com.miui.securitycenter) schází oprávnění Statistika využití (GET_USAGE_STATS). Toto zamezí funkcím jako \"Vymazat data\" v detailech aplikace a vyčištění mezipaměti pomocí služby přístupnosti. Udělte oprávnění pro obnovení plné funkčnosti.</string>
     <string name="deduplicator_tool_name">Odstraňovač duplikátů</string>
     <string name="deduplicator_explanation_short">Vyhledejte duplicitní data v zařízení.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -669,7 +671,12 @@
     <string name="automation_error_not_running_body">Služba přístupnosti neběží. Zkuste restartovat zařízení.</string>
     <string name="automation_error_screen_unavailable_title">Obrazovka je nedostupná</string>
     <string name="automation_error_screen_unavailable_body">Operace byla přerušena, protože obrazovka se stala nedostupnou (např. vypnutý displej nebo aktivní zámek obrazovky).</string>
+    <string name="automation_error_compatibility_title">Kompatibilita automatizace</string>
     <string name="automation_error_compatibility_body">Aplikace SD Maid nedokázala rozeznat rozložení obrazovky. Pokud se toto opakuje, nemusí být váš jazyk nebo nastavení plně podporované. Zkontrolujte aktualizace nebo se mi ozvěte, abych to opravil.</string>
+    <string name="automation_error_timeout_title">Časový limit automatizace</string>
+    <string name="automation_error_timeout_body">Aplikace SD Maid nedokončila všechny kroky v časovém limitu. Pokud se to bude opakovat, možná bude nutné aplikaci pro vaše zařízení upravit. Zkontrolujte aktualizace nebo mě kontaktujte, abych to mohl opravit.</string>
+    <string name="automation_error_overlay_title">Překrytí automatizace</string>
+    <string name="automation_error_overlay_body">Aplikace SD Maid nemůže zobrazit překrytí automatizace. Zkontrolujte oprávnění a zkuste restartovat zařízení.</string>
     <string name="history_label">Historie</string>
     <string name="history_description">Chronologický seznam nedávných akcí a dotčených dat.</string>
     <string name="scheduler_label">Plánovač</string>

@@ -396,9 +396,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Excluindo caches usando Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Determinar caches inacessíveis</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Limpar cache indisponível</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">O sistema desativou o botão \"Limpar cache\" para este aplicativo. Crie uma exclusão para este aplicativo.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">O sistema desativou o botão \"Limpar cache\" para este aplicativo. Exclua-o para acelerar a limpeza de cache.</string>
     <string name="appcleaner_automation_error_no_settings_title">Tela de configurações indisponível</string>
-    <string name="appcleaner_automation_error_no_settings_body">Este app do sistema não tem tela de configurações. A limpeza de cache através do serviço de acessibilidade não é possível. Crie uma exclusão para este app.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Este aplicativo do sistema não tem tela de configurações. A limpeza de cache através do serviço de acessibilidade não é possível. Excluí-lo para acelerar a limpeza de cache.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">App do sistema mal configurado</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">O app Segurança do HyperOS (com.miui.securitycenter) está faltando a permissão de estatísticas de uso (GET_USAGE_STATS). Isso quebra recursos como \"Limpar dados\" nos detalhes do aplicativo e limpar o cache através de acessibilidade. Conceda permissão para restaurar todas as funcionalidades.</string>
     <string name="deduplicator_tool_name">Desduplicador</string>
     <string name="deduplicator_explanation_short">Encontrar dados duplicados no seu dispositivo.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -621,7 +623,12 @@
     <string name="automation_error_not_running_body">O serviço de acessibilidade não está funcionando. Tente reiniciar o dispositivo.</string>
     <string name="automation_error_screen_unavailable_title">Tela indisponível</string>
     <string name="automation_error_screen_unavailable_body">A operação foi abortada porque a tela tornou-se indisponível (por exemplo, tela desligada ou tela de bloqueio ativa).</string>
+    <string name="automation_error_compatibility_title">Compatibilidade de automação</string>
     <string name="automation_error_compatibility_body">O SD Maid não conseguiu descobrir o layout da tela. Se isso continuar acontecendo, seu idioma ou instalação pode não ser totalmente suportado. Verifique se há atualizações ou entre em contato comigo para que eu possa corrigi-lo.</string>
+    <string name="automation_error_timeout_title">Tempo limite de automação</string>
+    <string name="automation_error_timeout_body">O SD Maid não completou todas as etapas dentro do limite de tempo. Se isso continuar acontecendo, talvez precise ajustar o aplicativo para o seu dispositivo. Verifique se há atualizações ou entre em contato comigo para que eu possa corrigi-lo.</string>
+    <string name="automation_error_overlay_title">Sobreposição de automação</string>
+    <string name="automation_error_overlay_body">O SD Maid não pôde mostrar a sobreposição de automação. Verifique as permissões e tente reiniciar o seu dispositivo.</string>
     <string name="history_label">Histórico</string>
     <string name="history_description">Uma lista cronológica de ações recentes e dados afetados.</string>
     <string name="scheduler_label">Agendador</string>

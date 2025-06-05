@@ -396,9 +396,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Suppression des caches avec Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Détermination des caches inaccessibles</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Impossible de vider le cache</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">Le système a désactivé le bouton « Vider le cache » pour cette appli. Créez une exclusion pour cette appli.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Le système a désactivé le bouton « Vider le cache » pour cette appli. L’exclure accélère le vidage du cache.</string>
     <string name="appcleaner_automation_error_no_settings_title">Il n’y a pas d’écran de paramétrage</string>
-    <string name="appcleaner_automation_error_no_settings_body">Cette appli n’a pas d’écran de paramétrage. Le vidage du cache avec le service d’accessibilité est impossible. Créez une exclusion pour cette appli.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Cette appli système n’a pas d’écran de paramètres. Le service d’accessibilité ne peut pas en vider le cache. L’exclure accélère le vidage du cache.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Une appli système est mal configurée</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">L’autorisation d’accès aux statistiques d’utilisation (GET_USAGE_STATS) manque pour l’appli de sécurité d’HyperOS (com.miui.securitycenter). Par conséquent, « Effacer les données » des détails des applis et vider le cache grâce au service d’accessibilité ne fonctionneront pas. Pour rétablir la fonctionnalité, accordez l’autorisation.</string>
     <string name="deduplicator_tool_name">Déduplicateur</string>
     <string name="deduplicator_explanation_short">Trouver les données dupliquées présentes sur votre appareil.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -621,7 +623,12 @@
     <string name="automation_error_not_running_body">Le service d’accessibilité ne s’exécute pas. Essayez de redémarrer l’appareil.</string>
     <string name="automation_error_screen_unavailable_title">Écran inaccessible</string>
     <string name="automation_error_screen_unavailable_body">L’opération a été interrompue, car l’écran est devenu inaccessible (p. ex. éteint ou verrouillé).</string>
+    <string name="automation_error_compatibility_title">Compatibilité avec l’automatisation</string>
     <string name="automation_error_compatibility_body">SD Maid n’a pas réussi à déterminer l’agencement de l’écran. Si cela se produit régulièrement, il se peut que votre langue ou votre configuration ne soit pas entièrement prise en charge. Vérifiez la présence de mises à jour ou contactez-moi afin que je corrige la situation.</string>
+    <string name="automation_error_timeout_title">Expiration de l’automatisation</string>
+    <string name="automation_error_timeout_body">SD Maid n’a pas effectué toutes les étapes dans le temps imparti. Si cela se reproduit, je devrais peut-être ajuster l’appli pour votre appareil. Vérifiez la présence de mises à jour ou contactez-moi pour que je corrige la situation.</string>
+    <string name="automation_error_overlay_title">Surcouche d’automatisation</string>
+    <string name="automation_error_overlay_body">SD Maid ne peut pas afficher la surcouche d’automatisation. Vérifiez les autorisations et tentez de redémarrer votre appareil.</string>
     <string name="history_label">Historique</string>
     <string name="history_description">Liste chronologique des actions récentes et des données affectées.</string>
     <string name="scheduler_label">Programmateur</string>

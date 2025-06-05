@@ -224,7 +224,7 @@
         <item quantity="other">%d tulemust kustutatud</item>
     </plurals>
     <plurals name="systemcleaner_result_x_items_found">
-        <item quantity="one">%d filtri kattuvus</item>
+        <item quantity="one">%d filtri tulemus</item>
         <item quantity="other">%d filtri tulemust</item>
     </plurals>
     <string name="systemcleaner_filter_custom_label">Enda koostatud filter</string>
@@ -396,9 +396,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Vahemälude kustutamine Shizukuga</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Juurdepääsmatu vahemälu tuvastamine</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Vahemälu pole võimalik tühjendada</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">Süsteem keelab selles rakenduses kasutada „Tühjenda vahemälu“ nuppu. Looge selle rakenduse jaoks erand.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Süsteem ei lase vajutada selle rakenduse „Tühjenda vahemälu“ nuppu. Kiiremaks vahemälu tühjendamiseks jätke see vahele.</string>
     <string name="appcleaner_automation_error_no_settings_title">Seadete ekraan juurdepääsmatu</string>
-    <string name="appcleaner_automation_error_no_settings_body">Sellel süsteemirakendusel puudub seadete ekraan. Juurdepääsu teenuse kaudu pole võimalik tühjendada vahemälu. Looge sellele rakendusele erand.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Sellel süsteemirakendusel puudub seadete ekraan. Juurdepääsu teenuse kaudu pole võimalik tühjendada vahemälu. Kiiremaks vahemälu tühjendamiseks jätke see vahele.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Süsteemi rakendus seadistatud valesti</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'s Security rakendusel (com.miui.securitycenter) puudub kasutamisstatistikale juurdepääs (GET_USAGE_STATS). See segab andmete tühjendamist rakenduse seadetest ja vahemälu tühjendamist juurdepääsu teenuse kaudu. Kõikide võimaluste kasutamiseks andke vastav luba.</string>
     <string name="deduplicator_tool_name">Koopiate eemaldaja</string>
     <string name="deduplicator_explanation_short">Leidke seadmest samad andmed.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -591,7 +593,7 @@
     <string name="exclusion_type_path">Asukoha erand</string>
     <string name="exclusion_type_segment">Segmendi erand</string>
     <string name="exclusion_tags_alltools">Kõik tööriistad</string>
-    <string name="exclusion_target_label">Erandite sihtkoht</string>
+    <string name="exclusion_target_label">Erandi </string>
     <string name="exclusion_option_allow_partial">Kõik osalised leiud</string>
     <string name="exclusion_option_ignore_casing">Eira tähesuurust</string>
     <string name="exclusion_editor_affected_tools_label">Mõjutatud tööriistad</string>
@@ -621,7 +623,12 @@
     <string name="automation_error_not_running_body">Juurdepääsetavusteenus ei tööta. Üritage seadet taaskäivitada.</string>
     <string name="automation_error_screen_unavailable_title">Ekraan puhkab</string>
     <string name="automation_error_screen_unavailable_body">Toiming tühistati, kuna ekraan lülitus välja või lukustus.</string>
+    <string name="automation_error_compatibility_title">Automatiseerimise ühilduvus</string>
     <string name="automation_error_compatibility_body">SD Maid ei suutnud tuvastada ekraani suurust. Selle kordumisel ei pruugi teie keel või seadistus olla toetatud. Kontrollige uuendusi või suhelge minuga, et saaksin seda lahendada.</string>
+    <string name="automation_error_timeout_title">Automatiseerimise ajalõpp</string>
+    <string name="automation_error_timeout_body">SD Maid lõpetas ajavahemikus vaid osad etapid. Niiviisi jätkates peaksin võib-olla kohandama rakendust teie seadme järgi. Selle lahendamiseks kontrollige uuenduste olemasolu või suhelge minuga.</string>
+    <string name="automation_error_overlay_title">Automatiseerimise ülekate</string>
+    <string name="automation_error_overlay_body">SD Maid ei suutnud kuvada automatiseerimise ülekatet. Kontrollige lube ja üritage taaskäivitada oma seade.</string>
     <string name="history_label">Ajalugu</string>
     <string name="history_description">Hiljutised toimingud ja mõjutatud andmed kronoloogilises loendis.</string>
     <string name="scheduler_label">Ajastaja</string>

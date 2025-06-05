@@ -396,9 +396,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Eliminació de memòria cau mitjançant Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Determinació de memòries cau inaccessibles</string>
     <string name="appcleaner_automation_error_locked_appcache_title">No es pot esborrar la memòria cau</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">El sistema ha desactivat el botó «Esborra la memòria cau» per a aquesta aplicació. Creeu una exclusió per a aquesta aplicació.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">El sistema ha desactivat el botó «Esborra la memòria cau» per a aquesta aplicació. Excloeu-la per accelerar l\'esborrat de la memòria cau.</string>
     <string name="appcleaner_automation_error_no_settings_title">La pantalla de configuració no està disponible</string>
-    <string name="appcleaner_automation_error_no_settings_body">Aquesta aplicació de sistema no té cap pantalla de configuració. No és possible esborrar la memòria cau mitjançant el servei d\'accessibilitat. Creeu una exclusió per a aquesta aplicació.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Aquesta aplicació del sistema no té cap pantalla de configuració. No és possible esborrar la memòria cau mitjançant el servei d\'accessibilitat. Excloeu-la per accelerar l\'esborrat de la memòria cau.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Aplicació del sistema mal configurada</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">L\'aplicació de seguretat d\'HyperOS (com.miui.securitycenter) no té el permís d\'estadístiques d\'ús (GET_USAGE_STATS). Això trenca funcions com ara «Esborrar dades» als detalls de l\'aplicació i l\'esborrat de la memòria cau mitjançant l\'accessibilitat. Concediu el permís per restaurar la funcionalitat completa.</string>
     <string name="deduplicator_tool_name">Deduplicador</string>
     <string name="deduplicator_explanation_short">Troba dades duplicades al vostre dispositiu.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -621,7 +623,12 @@
     <string name="automation_error_not_running_body">El servei d\'accessibilitat no s\'està executant. Proveu de reiniciar el dispositiu.</string>
     <string name="automation_error_screen_unavailable_title">Pantalla no disponible</string>
     <string name="automation_error_screen_unavailable_body">L\'operació s\'ha cancel·lat perquè la pantalla no estava disponible (p. ex. pantalla apagada o pantalla de bloqueig activa).</string>
+    <string name="automation_error_compatibility_title">Compatibilitat d\'automatització</string>
     <string name="automation_error_compatibility_body">L\'SD Maid no ha pogut esbrinar la disposició de la pantalla. Si això continua passant, és possible que el vostre idioma o configuració no siguin totalment compatibles. Comproveu si hi ha actualitzacions o poseu-vos en contacte amb mi per poder solucionar-ho.</string>
+    <string name="automation_error_timeout_title">Temps d\'espera d\'automatització</string>
+    <string name="automation_error_timeout_body">L\'SD Maid no ha completat tots els passos dins del límit de temps. Si això continua passant, potser hauré d\'ajustar l\'aplicació per al vostre dispositiu. Comproveu si hi ha actualitzacions o contacteu amb mi perquè ho pugui solucionar.</string>
+    <string name="automation_error_overlay_title">Superposició d\'automatització</string>
+    <string name="automation_error_overlay_body">L\'SD Maid no ha pogut mostrar la superposició d\'automatització. Comproveu els permisos i proveu de reiniciar el dispositiu.</string>
     <string name="history_label">Historial</string>
     <string name="history_description">Una llista cronològica d\'accions recents i dades afectades.</string>
     <string name="scheduler_label">Programador</string>

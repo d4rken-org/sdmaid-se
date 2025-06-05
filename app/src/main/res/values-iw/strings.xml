@@ -79,7 +79,7 @@
     <string name="ui_language_override_label">שפת האפליקציה</string>
     <string name="ui_language_override_desc">בחר שפה אחרת עבור SD Maid, ללא תלות בשפת ברירת המחדל של המערכת שלך. כרגע: %s</string>
     <string name="settings_support_label">תמיכה</string>
-    <string name="settings_support_description">קראו מסמכי תיעוד, דווחו על בעיות, שוחחו עם אחרים או הקליטו לוג דיבוג.</string>
+    <string name="settings_support_description">קרא תיעוד, דווח על בעיות, שוחח עם אחרים או הקלט יומני ניפוי באגים.</string>
     <string name="documentation_label">תיעוד</string>
     <string name="issue_tracker_description">מעקב בעיות פומבי לדיווחי באגים ובקשת יכולות חדשות.</string>
     <string name="issue_tracker_label">מעקב בעיות</string>
@@ -169,12 +169,12 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="corpsefinder_tool_name">איתור קבצים \"מתים\"</string>
     <string name="corpsefinder_explanation_short">מידע השייך לאפליקציות שהוסרו כבר.</string>
     <string name="corpsefinder_settings_summary">התאמה של מסנני הסריקה ורמות הסיכון.</string>
-    <string name="corpsefinder_settings_risk_keeper_title">לכלול שאריות רצויות</string>
+    <string name="corpsefinder_settings_risk_keeper_title">כלול שאריות רצויות</string>
     <string name="corpsefinder_settings_risk_keeper_summary">קבצים שאולי תרצו לשמור, גם אם האפליקציה כבר הוסרה, למשל. תמונות שצילמת או גיבויים שיצרת.</string>
     <string name="corpsefinder_settings_risk_common_title">לכלול שמות נפוצים</string>
     <string name="corpsefinder_settings_risk_common_summary">נתונים עם שמות נפוצים, למשל. תיקייה \"הערות\" נמצאת בבעלות יותר מדי אפליקציות לא ידועות.</string>
-    <string name="corpsefinder_watcher_title">מאזין להסרת אפליקציות</string>
-    <string name="corpsefinder_watcher_summary">סרוק אוטומטית לאיתור שאריות כאשר אפליקציה מוסרת.</string>
+    <string name="corpsefinder_watcher_title">ההאזנה להסרת אפליקציות</string>
+    <string name="corpsefinder_watcher_summary">סרוק אוטומטית לאיתור שאריות כאשר אפליקציה מוסרת מהמכשיר.</string>
     <string name="corpsefinder_watcher_autodelete_title">מחיקה אוטומטית</string>
     <string name="corpsefinder_watcher_autodelete_summary">מחק אוטומטית את כל השאריות הקשורות לאפליקציה שהוסרה.</string>
     <plurals name="corpsefinder_watcher_notification_scan_result">
@@ -194,7 +194,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="corpsefinder_filter_publicmedia_summary">מדיה ציבורית, לדוגמה קבצים שהתקבלו דרך אפליקציות מסרים.</string>
     <string name="corpsefinder_filter_publicobb_label">משאבי OBB</string>
     <string name="corpsefinder_filter_publicobb_summary">משאבי אפליקציה נוספים, למשל. נכסי משחק.</string>
-    <string name="corpsefinder_filter_publicdata_label">נתוני אפליקציה משוטף</string>
+    <string name="corpsefinder_filter_publicdata_label">נתוני אפליקציה ציבוריים</string>
     <string name="corpsefinder_filter_publicdata_summary">מידע לא רגיש, לדוגמה קבצי מטמון של מפות.</string>
     <string name="corpsefinder_filter_sdcard_label">כרטיס SD</string>
     <string name="corpsefinder_filter_sdcard_summary">אחסון ציבורי כללי, פנימי וחיצוני (למשל כרטיסי SD).</string>
@@ -296,14 +296,14 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="systemcleaner_delete_all_confirmation_message">למחוק את כל תוכן המסנן?</string>
     <string name="systemcleaner_customfilter_label">סינון מותאם אישית</string>
     <string name="systemcleaner_customfilter_create_action">צור מסנן מותאם אישית</string>
-    <string name="systemcleaner_customfilter_create_hint">צור מסנן מותאם אישית כדי למחוק קבצים נוספים שהם ייחודיים למכשיר ולמקרי השימוש שלך.</string>
+    <string name="systemcleaner_customfilter_create_hint">צור מסנן מותאם אישית כדי למחוק קבצים נוספים ייחודיים למכשיר ולמקרי השימוש שלך.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">להסיר מסנן זה?</string>
     <string name="systemcleaner_editor_unsaved_confirmation_message">יש לך שינויים לא שמורים!</string>
     <string name="systemcleaner_customfilter_editor_label_label">תווית סינון</string>
     <string name="systemcleaner_customfilter_editor_warning">מסננים מותאמים אישית יכולים להיות מסוכנים. בדוק את תוצאות הסריקה שלך לפני המחיקה!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">אזורי נתונים</string>
     <string name="systemcleaner_customfilter_editor_areas_explanation">אם לא נבחר אזור, כל אזורי הנתונים הנגישים ייסרקו ויותאמו.</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_label">הגבלות על סוג הקובץ</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">הגבלות סוג הקובץ</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">קבצים</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">תיקיות</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">אם לא נבחר סוג, כל הסוגים יותאמו.</string>
@@ -419,9 +419,11 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">מחיקת מטמונים באמצעות Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">זיהוי מטמונים בלתי נגישים</string>
     <string name="appcleaner_automation_error_locked_appcache_title">ניקוי מטמון אינו זמין</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">המערכת השביתה את כפתור \"ניקוי מטמון\" עבור אפליקציה זו. צור החרגה עבור אפליקציה זו.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">המערכת השביתה את כפתור \"ניקוי מטמון\" עבור אפליקציה זו. מומלץ לא לכלול אותו כדי להאיץ את ניקוי המטמון.</string>
     <string name="appcleaner_automation_error_no_settings_title">מסך ההגדרות אינו זמין</string>
-    <string name="appcleaner_automation_error_no_settings_body">לאפליקציית מערכת זו אין מסך הגדרות. ניקוי מטמון באמצעות שירות נגישות אינו אפשרי. צור החרגה עבור אפליקציה זו.</string>
+    <string name="appcleaner_automation_error_no_settings_body">לאפליקציית מערכת זו אין מסך הגדרות. ניקוי מטמון באמצעות שירות נגישות אינו אפשרי. יש להחריג אותה כדי להאיץ את ניקוי המטמון.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">אפליקציית המערכת מוגדרת בצורה שגויה</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">באפליקציית האבטחה (com.miui.securitycenter) של HyperOS חסרה הרשאת נתוני השימוש (GET_USAGE_STATS). זה משבית תכונות כמו \"נקה נתונים\" בפרטי אפליקציה וניקוי מטמון באמצעות נגישות. הענק את ההרשאה כדי לאפשר פונקציונליות מלאה.</string>
     <string name="deduplicator_tool_name">מסיר כפילות</string>
     <string name="deduplicator_explanation_short">מצא נתונים כפולים במכשיר שלך.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -448,7 +450,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="deduplicator_detection_method_checksum_title">בדיקת תוכן</string>
     <string name="deduplicator_detection_method_checksum_summary">קבע כפילויות על ידי חישוב סכומי ביקורת עבור קבצים. לקבצים עם סכומי ביקורת תואמים יש את אותו תוכן בדיוק.</string>
     <string name="deduplicator_detection_method_phash_title">זיהוי גיבוב</string>
-    <string name="deduplicator_detection_method_phash_summary">מצא קבצים דומים על ידי ניתוח תכונות תוכן והשוואת ערכי גיבוב זההים.</string>
+    <string name="deduplicator_detection_method_phash_summary">מצא קבצים דומים על ידי ניתוח תוכן הקובץ והשוואת ערכי גיבוב.</string>
     <string name="deduplicator_occupied_space_label">נפח אחסון תפוס</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s תפוס על ידי כפילויות</item>
@@ -539,7 +541,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
         <item quantity="many">%d אפליקציות שונו</item>
         <item quantity="other">%d אפליקציות שונו</item>
     </plurals>
-    <string name="appcontrol_settings_module_sizing_enabled_label">קבע גדלים</string>
+    <string name="appcontrol_settings_module_sizing_enabled_label">קביעת גדלים</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">קבל הערכה גסה של גודל כל אפליקציה.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">גילוי פעילות</string>
     <string name="appcontrol_settings_module_activity_enabled_description">גלה אם אפליקציה פעילה (או הייתה לאחרונה) פעילה.</string>
@@ -575,7 +577,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">מנסה לאמת פעולה קודמת (מילות מפתח: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">זמן מסך: %1$s מאז %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">העדכון האחרון: %s</string>
-    <string name="appcontrol_item_installedat_x_label">הותקן ב: %s</string>
+    <string name="appcontrol_item_installedat_x_label">הותקן בתאריך: %s</string>
     <string name="analyzer_tool_name">מנתח אחסון</string>
     <string name="analyzer_explanation_short">גלה מה תופס מקום במכשיר שלך.</string>
     <string name="analyzer_progress_scanning_device">מחפש התקני אחסון</string>
@@ -629,9 +631,9 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="data_areas_description">אזורי נתונים מייצגים מיקומים במכשיר שלך שנגישים ל-SD Maid. אזורי נתונים שונים עשויים להיות זמינים בהתאם לגרסת האנדרואיד שלך ולהרשאות שניתנו.</string>
     <string name="data_areas_short_summary">אזורים ש-SD Maid יכולה לגשת אליהם בהתבסס על ההרשאות המוענקות כעת.</string>
     <string name="exclusion_manager_title">מנהל חריגים</string>
-    <string name="exclusion_manager_desc">נהל החרגות קבצים.</string>
+    <string name="exclusion_manager_desc">נהל החרגות קבצים ואפליקציות.</string>
     <string name="exclusion_explanation_body1">החרג קבצים ואפליקציות מהפעולות של SD Maid.</string>
-    <string name="exclusion_add_new_hint">הוסף חריגים חדשים תחילה על ידי חיפוש בעזרתSD Maid ולאחר מכן שימוש בתפריט ההקשר של התוצאה שברצונך להחריג.</string>
+    <string name="exclusion_add_new_hint">הוסף חריגים חדשים תחילה על ידי חיפוש בעזרת -SD Maid ולאחר מכן שימוש בתפריט ההקשר של התוצאה שברצונך להחריג.</string>
     <string name="exclusion_create_action">צור החרגה</string>
     <string name="exclusion_edit_action">ערוך חריגים</string>
     <string name="exclusion_type_package">החרגת אפליקציות</string>
@@ -670,7 +672,12 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="automation_error_not_running_body">שירות הנגישות אינו פועל. נסה לאתחל את המכשיר.</string>
     <string name="automation_error_screen_unavailable_title">מסך לא זמין</string>
     <string name="automation_error_screen_unavailable_body">הפעולה בוטלה מכיוון שהמסך לא זמין (למשל, תצוגה כבויה או מסך נעילה פעיל).</string>
+    <string name="automation_error_compatibility_title">אוטומציה תאימות</string>
     <string name="automation_error_compatibility_body">SD Maid לא הצליחה להבין את פריסת המסך. אם זה ממשיך לקרות, ייתכן שהשפה או ההגדרה שלך לא נתמכים באופן מלא. בדוק אם יש עדכונים או פנה אליי כדי שאוכל לתקן את זה.</string>
+    <string name="automation_error_timeout_title">פסק זמן לאוטומציה</string>
+    <string name="automation_error_timeout_body">SD Maid לא השלימה את כל השלבים בתוך מגבלת הזמן. אם זה ממשיך לקרות, ייתכן שאצטרך להתאים את האפליקציה למכשיר שלך. בדוק אם יש עדכונים או צור איתי קשר כדי שאוכל לתקן את זה.</string>
+    <string name="automation_error_overlay_title">שכבת-על אוטומציה</string>
+    <string name="automation_error_overlay_body">SD Maid לא הצליח להציג את שכבת האוטומציה. בדוק את ההרשאות ונסה לאתחל את המכשיר.</string>
     <string name="history_label">היסטוריה</string>
     <string name="history_description">רשימה כרונולוגית של פעולות אחרונות ונתונים מושפעים.</string>
     <string name="scheduler_label">מתזמן</string>
@@ -703,7 +710,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="scheduler_setting_charging_title">דלג אם אין שינוי</string>
     <string name="scheduler_setting_charging_summary">אם המכשיר לא מוטען, הביצוע המתוכנן ידולג.</string>
     <string name="scheduler_setting_automation_title">שירות נגישות</string>
-    <string name="scheduler_setting_automation_summary">כלול פעולות המשתמשות בשירות נגישות. זה מחייב ש-SD Maid תוכל לקיים אינטראקציה עם המסך שלך (כלומר, הוא פתוח) כאשר המשימות מבוצעות.</string>
+    <string name="scheduler_setting_automation_summary">כלול פעולות המשתמשות בשירות נגישות. זה מחייב ש-SD Maid תוכל לקיים אינטראקציה עם המסך שלך (כלומר, שיהיה פתוח) כאשר המשימות מבוצעות.</string>
     <string name="scheduler_notification_channel_label">מתזמן</string>
     <string name="scheduler_notification_title">משימה מתוזמנת</string>
     <string name="scheduler_notification_message">מבצע: \"%s\"</string>
@@ -715,7 +722,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="scheduler_battery_optimization_hint">שקול להשבית את אופטימיזציית הסוללה עבור SD Maid אם אתה נתקל בבעיות בביצוע ברקע.</string>
     <string name="updates_dashcard_title">קיים עדכון</string>
     <string name="updates_dashcard_body">עדכון זמין. מותקן לך %1$s והגרסה האחרונה היא %2$s.</string>
-    <string name="translation_encourage_title">עזור לתרגם</string>
+    <string name="translation_encourage_title">עזרה בתרגום</string>
     <string name="translation_encourage_body">האפליקציה תורגמה על ידי מתנדבים. תרגום, סקירה או הגהה - העזרה שלך מוערכת!</string>
     <string name="translation_translators_title">המתגרמים של גרסה זו</string>
     <string name="translation_translators_people">Elid1; SiiiE</string>
@@ -756,7 +763,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
         <item quantity="many">%d ימים</item>
         <item quantity="other">%d ימים</item>
     </plurals>
-    <string name="stats_settings_reset_all_label">אפס הכל</string>
+    <string name="stats_settings_reset_all_label">איפוס הכל</string>
     <string name="stats_settings_reset_all_desc">מחק את כל הדוחות והגדר את כל הנתונים הסטטיסטיים לאפס.</string>
     <string name="stats_affected_paths_label">נתיבים מושפעים</string>
     <string name="stats_affected_pkgs_label">יישומים מושפעים</string>
