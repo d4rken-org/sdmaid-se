@@ -1,6 +1,5 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.hyperos
 
-import android.app.AppOpsManager
 import android.content.Context
 import android.graphics.Rect
 import android.view.accessibility.AccessibilityNodeInfo
@@ -51,10 +50,8 @@ import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs.isDryRun
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.toVisualStrings
@@ -160,22 +157,6 @@ class HyperOsSpecs @Inject constructor(
         }
     }
 
-    private fun isSecurityCenterMissingPermission(): Boolean = try {
-        val appOps = context.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
-
-        @Suppress("DEPRECATION")
-        val mode = appOps.checkOp(
-            AppOpsManager.OPSTR_GET_USAGE_STATS,
-            context.packageManager.getApplicationInfo(SETTINGS_PKG_HYPEROS.name, 0).uid,
-            SETTINGS_PKG_HYPEROS.name,
-        )
-        log(TAG) { "${SETTINGS_PKG_HYPEROS}.GET_USAGE_STATS = $mode" }
-        mode != AppOpsManager.MODE_ALLOWED
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "Failed to determine if security center is missing permission:${e.asLog()}" }
-        false
-    }
-
     private val settingsPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing AOSP settings plan for ${pkg.installId} with context $this" }
 
@@ -254,7 +235,7 @@ class HyperOsSpecs @Inject constructor(
                     clickNormal(node = mapped)
                 } catch (e: DisabledTargetException) {
                     throw when {
-                        isSecurityCenterMissingPermission() -> {
+                        isSecurityCenterMissingPermission(context, SETTINGS_PKG_HYPEROS, TAG) -> {
                             log(TAG, WARN) { "`com.miui.securitycenter` is missing permissions: $e" }
                             SecurityCenterMissingPermissionException()
                         }
