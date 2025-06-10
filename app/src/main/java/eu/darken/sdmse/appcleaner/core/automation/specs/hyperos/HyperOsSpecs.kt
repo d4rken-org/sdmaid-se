@@ -222,6 +222,8 @@ class HyperOsSpecs @Inject constructor(
         log(TAG) { "clearCacheLabels=${clearCacheLabels.toVisualStrings()}" }
         val manageSpaceLabels = hyperOsLabels.getManageSpaceButtonLabels(this)
         log(TAG) { "manageSpaceLabels=${manageSpaceLabels.toVisualStrings()}" }
+        val clearAllDataLabels = hyperOsLabels.getClearAllDataButtonLabels(this)
+        log(TAG) { "clearAllDataLabels=${clearAllDataLabels.toVisualStrings()}" }
 
         var useAlternativeStep = deviceAdminManager.getDeviceAdmins().contains(pkg.id).also {
             if (it) log(TAG) { "${pkg.id} is a device admin, using alternative step directly." }
@@ -235,6 +237,10 @@ class HyperOsSpecs @Inject constructor(
                     findNode { it.isTextView() && it.textMatchesAny(clearCacheLabels) }?.let {
                         useAlternativeStep = true
                         throw StepAbortException("Got 'Clear cache' instead of 'Clear data' skip the action dialog step.")
+                    }
+                    findNode { it.isTextView() && it.textMatchesAny(clearAllDataLabels) }?.let {
+                        useAlternativeStep = true
+                        throw StepAbortException("Got 'Clear all data' instead of 'Clear data' no 'Clear cache' action available.")
                     }
 
                     findNode { it.isTextView() && it.textMatchesAny(manageSpaceLabels) }?.let {

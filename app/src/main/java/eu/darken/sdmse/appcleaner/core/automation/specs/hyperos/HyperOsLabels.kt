@@ -313,6 +313,13 @@ class HyperOsLabels @Inject constructor() : AppCleanerLabelSource {
         acsContext: AutomationExplorer.Context
     ) = acsContext.getStrings(SETTINGS_PKG, setOf("app_manager_manage_space"))
 
+    fun getClearAllDataButtonLabels(acsContext: AutomationExplorer.Context): Set<String> =
+        getManageSpaceButtonLabelsDynamic(acsContext)
+
+    private fun getClearAllDataLabelsDynamic(
+        acsContext: AutomationExplorer.Context
+    ) = acsContext.getStrings(SETTINGS_PKG, setOf("storage_app_detail_clear_all_data"))
+
     companion object {
         val TAG: String = logTag("AppCleaner", "Automation", "HyperOs", "Labels")
         private val SETTINGS_PKG = "com.miui.securitycenter".toPkgId()
