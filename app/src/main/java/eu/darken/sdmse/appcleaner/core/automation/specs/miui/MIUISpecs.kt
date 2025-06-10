@@ -1,5 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.miui
 
+import android.content.Context
 import android.graphics.Rect
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.core.content.pm.PackageInfoCompat
@@ -7,6 +8,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.Reusable
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
@@ -15,6 +17,9 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
+import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.HyperOsSpecs
+import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.SecurityCenterMissingPermissionException
+import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.isSecurityCenterMissingPermission
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.idMatches
@@ -29,6 +34,7 @@ import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textEndsWithAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.errors.DisabledTargetException
 import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
@@ -67,6 +73,7 @@ import javax.inject.Inject
 
 @Reusable
 class MIUISpecs @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val ipcFunnel: IPCFunnel,
     private val deviceDetective: DeviceDetective,
     private val miuiLabels: MIUILabels,
@@ -180,7 +187,6 @@ class MIUISpecs @Inject constructor(
     private val securityCenterPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing MIUI security center plan for ${pkg.installId} with context $this" }
 
-
         val clearDataLabels = miuiLabels.getClearDataButtonLabels(this)
         log(TAG) { "clearDataLabels=${clearDataLabels.toVisualStrings()}" }
         val clearCacheLabels = miuiLabels.getClearCacheButtonLabels(this)
@@ -206,7 +212,21 @@ class MIUISpecs @Inject constructor(
                         .also { if (it == null) log(TAG, WARN) { "No clickable parent found for $target" } }
                         ?: return@action false
                 }
-                clickNormal(node = target)
+                try {
+                    clickNormal(node = target)
+                } catch (e: DisabledTargetException) {
+                    throw when {
+                        isSecurityCenterMissingPermission(context, SETTINGS_PKG_MIUI, TAG) -> {
+                            log(
+                                HyperOsSpecs.Companion.TAG,
+                                WARN
+                            ) { "`com.miui.securitycenter` is missing permissions: $e" }
+                            SecurityCenterMissingPermissionException()
+                        }
+
+                        else -> e
+                    }
+                }
             }
 
             val step = AutomationStep(
