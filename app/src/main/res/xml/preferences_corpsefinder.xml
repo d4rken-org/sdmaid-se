@@ -75,6 +75,13 @@
             app:title="@string/corpsefinder_filter_dalvik_label" />
         <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
             app:enabled="false"
+            app:icon="@drawable/ic_artboard_24"
+            app:key="filter.artprofiles.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/corpsefinder_filter_artprofiles_summary"
+            app:title="@string/corpsefinder_filter_artprofiles_label" />
+        <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+            app:enabled="false"
             app:icon="@drawable/ic_baseline_local_library_24"
             app:key="filter.applib.enabled"
             app:singleLineTitle="false"
