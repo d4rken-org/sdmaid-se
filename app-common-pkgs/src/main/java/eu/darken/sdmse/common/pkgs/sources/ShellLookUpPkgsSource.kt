@@ -28,7 +28,7 @@ import javax.inject.Singleton
 
 
 @Singleton
-class HiddenPkgsSource @Inject constructor(
+class ShellLookUpPkgsSource @Inject constructor(
     private val pkgOps: PkgOps,
     private val rootManager: RootManager,
     private val adbManager: AdbManager,
@@ -105,12 +105,12 @@ class HiddenPkgsSource @Inject constructor(
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
-        @Binds @IntoSet abstract fun mod(mod: HiddenPkgsSource): PkgDataSource
+        @Binds @IntoSet abstract fun mod(mod: ShellLookUpPkgsSource): PkgDataSource
     }
 
     companion object {
 
         private val PATTERN = Regex("^package:(.+?)=([\\w._]+)$")
-        private val TAG = logTag("Pkg", "Repo", "Source", "HiddenPkgs")
+        private val TAG = logTag("Pkg", "Repo", "Source", "ShellLookUp")
     }
 }
