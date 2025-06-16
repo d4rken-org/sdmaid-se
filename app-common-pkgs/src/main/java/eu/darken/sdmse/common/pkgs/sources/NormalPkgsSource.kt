@@ -74,7 +74,7 @@ class NormalPkgsSource @Inject constructor(
         }
 
         // FYI: MATCH_ALL does not include MATCH_UNINSTALLED_PACKAGES
-        val pkgInfos = pkgOps.queryPkgs(PackageManager.MATCH_ALL)
+        val pkgInfos = pkgOps.queryPkgs(PackageManager.MATCH_ALL.toLong())
         if (pkgInfos.isEmpty()) {
             throw InvalidPkgInventoryException("Could not retrieve list of installed packages")
         }
@@ -109,7 +109,7 @@ class NormalPkgsSource @Inject constructor(
         val result = userManager.allUsers()
             .map { profile ->
                 // FYI: MATCH_ALL does not include MATCH_UNINSTALLED_PACKAGES
-                val pkgInfos = pkgOps.queryPkgs(PackageManager.MATCH_ALL, profile.handle)
+                val pkgInfos = pkgOps.queryPkgs(PackageManager.MATCH_ALL.toLong(), profile.handle)
                 val installerData = pkgOps.getInstallerData(pkgInfos)
 
                 val userPkgs = pkgInfos.map {

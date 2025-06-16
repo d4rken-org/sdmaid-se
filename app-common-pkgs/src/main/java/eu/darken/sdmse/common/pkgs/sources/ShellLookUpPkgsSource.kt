@@ -53,7 +53,7 @@ class ShellLookUpPkgsSource @Inject constructor(
         log(TAG) { "Using shell mode $mode" }
 
         val alreadyKnown = try {
-            pkgOps.queryPkgs(0).map { it.packageName }
+            pkgOps.queryPkgs(0L).map { it.packageName }
         } catch (e: Exception) {
             log(TAG, ERROR) { "Failed to grab default packages: ${e.asLog()}" }
             emptySet()
