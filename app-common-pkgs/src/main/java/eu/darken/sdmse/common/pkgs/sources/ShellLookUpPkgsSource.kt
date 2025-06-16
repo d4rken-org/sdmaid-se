@@ -62,7 +62,7 @@ class HiddenPkgsSource @Inject constructor(
         userManager.allUsers()
             .mapNotNull { user ->
                 val result = shellOps.execute(
-                    ShellOpsCmd("pm list packages -f --user ${user.handle.handleId}"),
+                    ShellOpsCmd("pm list packages -f -u --user ${user.handle.handleId}"),
                     mode,
                 )
                 if (!result.isSuccess) return@mapNotNull null
