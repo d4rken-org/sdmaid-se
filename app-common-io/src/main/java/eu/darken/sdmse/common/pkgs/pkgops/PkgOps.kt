@@ -7,12 +7,10 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER
 import android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-import android.content.pm.PackageManager.GET_UNINSTALLED_PACKAGES
 import android.content.pm.PackageManager.NameNotFoundException
 import android.content.pm.PackageManager.PackageInfoFlags
 import android.content.pm.PackageManager.SYNCHRONOUS
 import android.content.pm.SharedLibraryInfo
-import android.graphics.drawable.Drawable
 import android.os.storage.StorageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.ModeUnavailableException
@@ -197,24 +195,12 @@ class PkgOps @Inject constructor(
         false
     }
 
-    suspend fun queryAppInfos(
-        pkg: Pkg.Id,
-        flags: Int = GET_UNINSTALLED_PACKAGES
-    ): ApplicationInfo? = ipcFunnel.use {
-        try {
-            packageManager.getApplicationInfo(pkg.name, flags)
-        } catch (e: NameNotFoundException) {
-            log(TAG, WARN) { "queryAppInfos($pkg=pkg,flags=$flags) packageName not found." }
-            null
-        }
-    }
-
     suspend fun getLabel(pkgId: Pkg.Id): String? = ipcFunnel.use {
         try {
             ipcFunnel.use {
                 packageManager.getLabel2(pkgId)
             }
-        } catch (e: NameNotFoundException) {
+        } catch (_: NameNotFoundException) {
             log(TAG, WARN) { "getLabel(packageName=$pkgId) packageName not found." }
             null
         }
@@ -223,7 +209,7 @@ class PkgOps @Inject constructor(
     suspend fun getLabel(applicationInfo: ApplicationInfo): String? = ipcFunnel.use {
         try {
             applicationInfo.loadLabel(packageManager).toString()
-        } catch (e: NameNotFoundException) {
+        } catch (_: NameNotFoundException) {
             log(TAG, WARN) { "getLabel(applicationInfo=$applicationInfo) packageName not found." }
             null
         }
@@ -239,20 +225,6 @@ class PkgOps @Inject constructor(
                 id = it.packageName.toPkgId(),
                 packageInfo = it,
             )
-        }
-    }
-
-    suspend fun getIcon(pkg: Pkg.Id): Drawable? {
-        val appInfo = queryAppInfos(pkg, GET_UNINSTALLED_PACKAGES)
-        return appInfo?.let { getIcon(it) }
-    }
-
-    suspend fun getIcon(appInfo: ApplicationInfo): Drawable? = ipcFunnel.use {
-        try {
-            appInfo.loadIcon(packageManager)
-        } catch (e: Exception) {
-            log(TAG) { "Failed to get icon ${e.asLog()}" }
-            null
         }
     }
 
@@ -303,30 +275,6 @@ class PkgOps @Inject constructor(
                 log(TAG, WARN) { "changePackageState($id, enabled=$enabled, mode=$mode) failed: $e" }
             }
             throw PkgOpsException(message = "changePackageState($id, $enabled, $mode) failed", cause = e)
-        }
-    }
-
-    suspend fun clearCache(id: InstallId, mode: Mode = Mode.AUTO) {
-        log(TAG) { "clearCache($id, $mode)" }
-        try {
-            if (mode == Mode.NORMAL) throw PkgOpsException("clearCache($id) does not support mode=NORMAL")
-
-            if (mode == Mode.ADB) throw PkgOpsException("clearCache($id) does not support mode=ADB")
-
-            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
-                log(TAG) { "clearCache($id, $mode->ROOT)" }
-                rootOps { it.clearCache(id, dryRun = Bugs.isDryRun) }
-                return
-            }
-
-            throw ModeUnavailableException("Mode $mode is unavailable")
-        } catch (e: Exception) {
-            if (e is ModeUnavailableException) {
-                log(TAG, DEBUG) { "clearCache(...): $mode unavailable for $id" }
-            } else {
-                log(TAG, WARN) { "clearCache($id,$mode) failed: ${e.asLog()}" }
-            }
-            throw PkgOpsException(message = "clearCache($id, $mode) failed", cause = e)
         }
     }
 
@@ -516,7 +464,7 @@ class PkgOps @Inject constructor(
             } else null,
             dataBytes = stats.dataBytes,
         ).also { log(TAG, VERBOSE) { "querySizeStats($installId,$storageUUID) -> $it" } }
-    } catch (e: NameNotFoundException) {
+    } catch (_: NameNotFoundException) {
         null
     } catch (e: Exception) {
         log(TAG, ERROR) { "Failed to querySizeStats for $installId: ${e.asLog()}" }
