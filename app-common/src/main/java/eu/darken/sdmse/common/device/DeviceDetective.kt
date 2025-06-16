@@ -57,7 +57,12 @@ class DeviceDetective @Inject constructor(
     }
 
     fun getROMType(): RomType = when {
-        isAndroidTV() -> RomType.ANDROID_TV
+        isAndroidTV() -> when {
+            // #1826, it's a "tv box" but runs a phone-style ROM
+            manufactor("UGOOS") -> RomType.AOSP
+            else -> RomType.ANDROID_TV
+        }
+
         display("lineage") || product("lineage") || apps(LINEAGE_PKGS) -> RomType.LINEAGE
         // run mostly near-stock Android
         brand("alcatel") -> RomType.ALCATEL
