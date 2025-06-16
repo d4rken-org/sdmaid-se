@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.pkgs.deleteApplicationCacheFilesAsUser
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.freeStorageAndNotify
 import eu.darken.sdmse.common.pkgs.getInstalledPackagesAsUser
+import eu.darken.sdmse.common.pkgs.getPackageInfosAsUser
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.pkgs.pkgops.ProcessScanner
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -132,6 +133,19 @@ class PkgOpsHost @Inject constructor(
         }
     } catch (e: Exception) {
         log(TAG, ERROR) { "trimCaches(desiredBytes=$desiredBytes, storageId=$storageId) failed: ${e.asLog()}" }
+        throw e.wrapToPropagate()
+    }
+
+    override fun getPackageInfoAsUser(packageName: String, flags: Long, handleId: Int): PackageInfo? = try {
+        log(TAG, VERBOSE) { "getPackageInfoAsUser($packageName, $flags, $handleId)..." }
+
+        pm.getPackageInfosAsUser(packageName, flags, UserHandle2(handleId)).also {
+            log(TAG) { "getPackageInfoAsUser($packageName, $flags, $handleId): $it" }
+        }
+    } catch (e: Exception) {
+        log(TAG, ERROR) {
+            "getPackageInfoAsUser(packageName=$packageName, flags=$flags, handleId=$handleId) failed: ${e.asLog()}"
+        }
         throw e.wrapToPropagate()
     }
 

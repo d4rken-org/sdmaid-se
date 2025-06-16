@@ -23,10 +23,12 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.PkgDataSource
 import eu.darken.sdmse.common.pkgs.container.ArchivedPkg
+import eu.darken.sdmse.common.pkgs.container.HiddenPkg
 import eu.darken.sdmse.common.pkgs.container.UninstalledPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.user.UserHandle2
@@ -105,22 +107,30 @@ class NotInstalledPkgsSource @Inject constructor(
     }
 
     private suspend fun Collection<PackageInfo>.toPkgs(handle: UserHandle2): Collection<Installed> {
+        log(TAG, VERBOSE) { "Before conversion: ${this.size} `PackageInfo` items" }
         val installerData = pkgOps.getInstallerData(this)
-        return this.mapNotNull { it.toPkg(handle, installerData[it]) }
+        val converted = mapNotNull { it.toPkg(handle, installerData[it]) }
+        log(TAG, VERBOSE) { "After conversion: ${converted.size} `Installed` items" }
+        return converted
     }
 
-    private fun PackageInfo.toPkg(handle: UserHandle2, installerInfo: InstallerInfo?): Installed? = when {
+    private suspend fun PackageInfo.toPkg(handle: UserHandle2, installerInfo: InstallerInfo?): Installed? = when {
         // Order matters
-        isUninstalled -> UninstalledPkg(
+        isUninstalled() -> UninstalledPkg(
             packageInfo = this,
             userHandle = handle
-        )
+        ).also { log(TAG, VERBOSE) { "UninstalledPkg: $it" } }
 
-        isArchived -> ArchivedPkg(
+        isArchived() -> ArchivedPkg(
             packageInfo = this,
             userHandle = handle,
             installerInfo = installerInfo ?: InstallerInfo()
-        )
+        ).also { log(TAG, VERBOSE) { "ArchivedPkg: $it" } }
+
+        isHidden(handle) -> HiddenPkg(
+            packageInfo = this,
+            userHandle = handle,
+        ).also { log(TAG, VERBOSE) { "HiddenPkg: $it" } }
 
         else -> null
     }
@@ -133,31 +143,30 @@ class NotInstalledPkgsSource @Inject constructor(
                     isAccessible = true
                 }
                 privateFlagsField.getInt(applicationInfo)
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 log(TAG, WARN) { "Failed to get privateFlags for ${this.packageName}" }
                 0
             }
         }
 
-    private val PackageInfo.isArchived: Boolean
-        get() {
-            return hasApiLevel(35) && applicationInfo?.sourceDir == null
-        }
+    private suspend fun PackageInfo.isArchived(): Boolean = hasApiLevel(35) && applicationInfo?.sourceDir == null
 
-    private val PackageInfo.isUninstalled: Boolean
-        get() = when {
-            !hasApiLevel(29) -> {
-                val sourceDir = applicationInfo?.sourceDir
-                try {
-                    sourceDir?.let { !File(it).exists() } ?: true
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "Failed to check if $sourceDir exists for $packageName:\n${e.asLog()}" }
-                    false
-                }
+    private suspend fun PackageInfo.isUninstalled(): Boolean = when {
+        !hasApiLevel(29) -> {
+            val sourceDir = applicationInfo?.sourceDir
+            try {
+                sourceDir?.let { !File(it).exists() } ?: true
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to check if $sourceDir exists for $packageName:\n${e.asLog()}" }
+                false
             }
-
-            else -> (privateFlags and PRIVATE_FLAG_HAS_FRAGILE_USER_DATA) != 0
         }
+
+        else -> (privateFlags and PRIVATE_FLAG_HAS_FRAGILE_USER_DATA) != 0
+    }
+
+    private suspend fun PackageInfo.isHidden(handle: UserHandle2): Boolean =
+        pkgOps.queryPkg(packageName.toPkgId(), 0L, handle) == null
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {

@@ -13,7 +13,6 @@ import android.content.pm.PackageManager.PackageInfoFlags
 import android.content.pm.PackageManager.SYNCHRONOUS
 import android.content.pm.SharedLibraryInfo
 import android.graphics.drawable.Drawable
-import android.os.Process
 import android.os.storage.StorageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.ModeUnavailableException
@@ -90,24 +89,6 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun getUserNameForUID(uid: Int): String? = rootOps { client ->
-        client.getUserNameForUID(uid)
-    }
-
-    suspend fun getGroupNameforGID(gid: Int): String? = rootOps { client ->
-        client.getGroupNameforGID(gid)
-    }
-
-    fun getUIDForUserName(userName: String): Int? = when (val gid = Process.getUidForName(userName)) {
-        -1 -> null
-        else -> gid
-    }
-
-    fun getGIDForGroupName(groupName: String): Int? = when (val gid = Process.getGidForName(groupName)) {
-        -1 -> null
-        else -> gid
-    }
-
     suspend fun forceStop(pkgId: Pkg.Id, mode: Mode = Mode.AUTO): Boolean {
         log(TAG, VERBOSE) { "forceStop($pkgId, mode=$mode)" }
         try {
@@ -137,47 +118,67 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun queryPkg(pkgName: Pkg.Id, flags: Long, userHandle: UserHandle2): PackageInfo? = ipcFunnel.use {
-        try {
-            ipcFunnel.use {
-                if (hasApiLevel(33)) {
-                    @Suppress("NewApi")
-                    packageManager.getPackageInfo(pkgName.name, PackageInfoFlags.of(flags))
-                } else {
-                    packageManager.getPackageInfo(pkgName.name, flags.toInt())
+    suspend fun queryPkg(id: Pkg.Id, flags: Long, userHandle: UserHandle2, mode: Mode = Mode.AUTO): PackageInfo? {
+        log(TAG) { "queryPkg($id, $flags, $userHandle, $mode)" }
+        return when {
+            mode == Mode.NORMAL -> ipcFunnel.use {
+                try {
+                    ipcFunnel.use {
+                        if (hasApiLevel(33)) {
+                            @Suppress("NewApi")
+                            packageManager.getPackageInfo(id.name, PackageInfoFlags.of(flags))
+                        } else {
+                            packageManager.getPackageInfo(id.name, flags.toInt())
+                        }
+                    }
+                } catch (_: NameNotFoundException) {
+                    log(TAG, VERBOSE) { "queryPkg($id, $flags): null" }
+                    null
                 }
             }
-        } catch (e: NameNotFoundException) {
-            log(TAG, VERBOSE) { "queryPkg($pkgName, $flags): null" }
-            null
+
+            mode == Mode.ROOT || (mode == Mode.AUTO && rootManager.canUseRootNow()) -> {
+                rootOps { it.getPackageInfoAsUser(id, flags, userHandle) }
+            }
+
+            mode == Mode.ADB || (mode == Mode.AUTO && adbManager.canUseAdbNow()) -> {
+                adbOps { it.getPackageInfoAsUser(id, flags, userHandle) }
+            }
+
+            else -> {
+                throw IllegalStateException("Can't get user specific packages (neither root nor adb) access available")
+            }
         }
     }
 
-    suspend fun queryPkgs(flags: Int) = queryPkgs(flags.toLong())
+    suspend fun queryPkgs(
+        flags: Long,
+        userHandle: UserHandle2? = null,
+        mode: Mode = Mode.AUTO
+    ): Collection<PackageInfo> {
+        log(TAG) { "queryPkgs($flags, $userHandle, $mode)" }
+        val targetHandle = userHandle ?: userManager2.currentUser().handle
+        return when {
+            mode == Mode.NORMAL || (mode == Mode.AUTO && targetHandle == userManager2.currentUser().handle) -> ipcFunnel.use {
+                if (hasApiLevel(33)) {
+                    @Suppress("NewApi")
+                    packageManager.getInstalledPackages(PackageInfoFlags.of(flags))
+                } else {
+                    packageManager.getInstalledPackages(flags.toInt())
+                }
+            }
 
-    @Suppress("QueryPermissionsNeeded")
-    suspend fun queryPkgs(flags: Long): Collection<PackageInfo> = ipcFunnel.use {
-        if (hasApiLevel(33)) {
-            @Suppress("NewApi")
-            packageManager.getInstalledPackages(PackageInfoFlags.of(flags))
-        } else {
-            packageManager.getInstalledPackages(flags.toInt())
-        }
-    }
+            mode == Mode.ROOT || (mode == Mode.AUTO && rootManager.canUseRootNow()) -> {
+                rootOps { it.getInstalledPackagesAsUserStream(flags, targetHandle) }
+            }
 
-    suspend fun queryPkgs(flags: Int, userHandle: UserHandle2) = queryPkgs(flags.toLong(), userHandle)
+            mode == Mode.ADB || mode == Mode.AUTO && adbManager.canUseAdbNow() -> {
+                adbOps { it.getInstalledPackagesAsUserStream(flags, targetHandle) }
+            }
 
-    suspend fun queryPkgs(flags: Long, userHandle: UserHandle2): Collection<PackageInfo> = when {
-        rootManager.canUseRootNow() -> {
-            rootOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
-        }
-
-        adbManager.canUseAdbNow() -> {
-            adbOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
-        }
-
-        else -> {
-            throw IllegalStateException("Can't get user specific packages (neither root nor adb) access available")
+            else -> {
+                throw IllegalStateException("Can't get user specific packages (neither root nor adb) access available")
+            }
         }
     }
 
@@ -192,7 +193,7 @@ class PkgOps @Inject constructor(
             packageManager.getPackageUid(pkg.name, 0)
         }
         true
-    } catch (e: NameNotFoundException) {
+    } catch (_: NameNotFoundException) {
         false
     }
 
