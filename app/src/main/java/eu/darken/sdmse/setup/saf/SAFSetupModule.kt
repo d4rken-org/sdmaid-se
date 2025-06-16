@@ -151,7 +151,7 @@ class SAFSetupModule @Inject constructor(
          */
         if (hasApiLevel(30) && !hasApiLevel(33)) {
             val isRestricted = pkgOps.queryPkg(
-                pkgName = "com.google.android.documentsui".toPkgId(),
+                id = "com.google.android.documentsui".toPkgId(),
                 flags = 0,
                 userHandle = UserHandle2()
             )?.let { pkg ->
