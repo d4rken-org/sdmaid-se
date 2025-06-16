@@ -7,10 +7,6 @@ import eu.darken.sdmse.common.pkgs.pkgops.ipc.RunningPackagesResult;
 
 interface PkgOpsConnection {
 
-    String getUserNameForUID(int uid);
-
-    String getGroupNameforGID(int gid);
-
     RunningPackagesResult getRunningPackages();
 
     boolean forceStop(String packageName);

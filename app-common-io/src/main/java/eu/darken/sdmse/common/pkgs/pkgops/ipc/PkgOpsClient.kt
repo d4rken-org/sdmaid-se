@@ -18,22 +18,6 @@ class PkgOpsClient @AssistedInject constructor(
     @Assisted private val connection: PkgOpsConnection
 ) : IpcClientModule {
 
-    fun getUserNameForUID(uid: Int): String? = try {
-        connection.getUserNameForUID(uid)
-    } catch (e: Exception) {
-        throw e.refineException().also {
-            log(TAG, ERROR) { "getUserNameForUID(uid=$uid) failed: ${it.asLog()}" }
-        }
-    }
-
-    fun getGroupNameforGID(gid: Int): String? = try {
-        connection.getGroupNameforGID(gid)
-    } catch (e: Exception) {
-        throw e.refineException().also {
-            log(TAG, ERROR) { "getGroupNameforGID(gid=$gid) failed: ${it.asLog()}" }
-        }
-    }
-
     fun forceStop(packageName: String): Boolean = try {
         connection.forceStop(packageName)
     } catch (e: Exception) {
@@ -55,14 +39,6 @@ class PkgOpsClient @AssistedInject constructor(
     } catch (e: Exception) {
         throw e.refineException().also {
             log(TAG, ERROR) { "clearCache(installId=$installId) failed: ${it.asLog()}" }
-        }
-    }
-
-    suspend fun clearCache(pkgId: Pkg.Id, dryRun: Boolean): Boolean = try {
-        connection.clearCache(pkgId.name, dryRun)
-    } catch (e: Exception) {
-        throw e.refineException().also {
-            log(TAG, ERROR) { "clearCache(pkgId=$pkgId) failed: ${it.asLog()}" }
         }
     }
 

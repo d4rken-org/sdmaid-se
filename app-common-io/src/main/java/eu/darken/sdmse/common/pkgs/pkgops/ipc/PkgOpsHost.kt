@@ -24,7 +24,6 @@ import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.freeStorageAndNotify
 import eu.darken.sdmse.common.pkgs.getInstalledPackagesAsUser
 import eu.darken.sdmse.common.pkgs.getPackageInfosAsUser
-import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.pkgs.pkgops.ProcessScanner
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.shell.SharedShell
@@ -36,7 +35,6 @@ import javax.inject.Inject
 
 class PkgOpsHost @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val libcoreTool: LibcoreTool,
     private val sharedShell: SharedShell,
     private val processScanner: ProcessScanner,
 ) : PkgOpsConnection.Stub(), IpcHostModule {
@@ -46,20 +44,6 @@ class PkgOpsHost @Inject constructor(
 
     private val am: ActivityManager
         get() = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-
-    override fun getUserNameForUID(uid: Int): String? = try {
-        libcoreTool.getNameForUid(uid)
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "getUserNameForUID(uid=$uid) failed: ${e.asLog()}" }
-        throw e.wrapToPropagate()
-    }
-
-    override fun getGroupNameforGID(gid: Int): String? = try {
-        libcoreTool.getNameForGid(gid)
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "getGroupNameforGID(gid=$gid) failed: ${e.asLog()}" }
-        throw e.wrapToPropagate()
-    }
 
     override fun getRunningPackages(): RunningPackagesResult = try {
         val result = try {
