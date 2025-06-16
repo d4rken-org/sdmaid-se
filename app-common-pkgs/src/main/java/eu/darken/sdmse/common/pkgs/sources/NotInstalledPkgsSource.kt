@@ -28,7 +28,6 @@ import eu.darken.sdmse.common.pkgs.container.UninstalledPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
-import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.user.UserHandle2
@@ -48,6 +47,7 @@ class NotInstalledPkgsSource @Inject constructor(
 ) : PkgDataSource {
 
     private val targetFlags = MATCH_ARCHIVED_PACKAGES or PackageManager.MATCH_UNINSTALLED_PACKAGES.toLong()
+    private val cachedZeroFlagPkgs = mutableMapOf<UserHandle2, Set<PackageInfo>>()
 
     override suspend fun getPkgs(): Collection<Installed> = pkgOps.useRes {
         log(TAG) { "getPkgs()" }
@@ -56,6 +56,8 @@ class NotInstalledPkgsSource @Inject constructor(
             log(TAG, ERROR) { "QUERY_ALL_PACKAGES is not granted !?" }
             throw QueryAllPkgsPermissionMissing()
         }
+
+        cachedZeroFlagPkgs.clear()
 
         val pkgs = mutableListOf<Installed>().apply { addAll(coreList()) }
 
@@ -72,11 +74,21 @@ class NotInstalledPkgsSource @Inject constructor(
             pkgs.addAll(extraPkgs)
         }
 
+        cachedZeroFlagPkgs.clear()
+
         log(TAG, VERBOSE) { "getPkgs(): Total ${pkgs.size}" }
 
         pkgs
             .distinctBy { "${it.packageName}:${it.userHandle.handleId}" }
             .also { log(TAG, VERBOSE) { "getPkgs(): Unique ${it.size}" } }
+    }
+
+    // Faster than doing single pkg queries to determine if an app is hidden
+    private suspend fun getNormalApps(userHandle2: UserHandle2): Map<String, PackageInfo> {
+        if (cachedZeroFlagPkgs.containsKey(userHandle2)) return cachedZeroFlagPkgs[userHandle2]!!.associateBy { it.packageName }
+        val newLookUp = pkgOps.queryPkgs(0L, userHandle2).toSet()
+        cachedZeroFlagPkgs[userHandle2] = newLookUp
+        return newLookUp.associateBy { it.packageName }
     }
 
     private suspend fun coreList(): Collection<Installed> {
@@ -94,7 +106,7 @@ class NotInstalledPkgsSource @Inject constructor(
         log(TAG, VERBOSE) { "userSpecific()" }
 
         return userManager
-            .allUsers()
+            .otherUsers()
             .map { profile ->
                 pkgOps.queryPkgs(targetFlags, profile.handle).toPkgs(profile.handle).also {
                     log(TAG, VERBOSE) { "userSpecific(): ${it.size} pkgs for $profile" }
@@ -109,30 +121,30 @@ class NotInstalledPkgsSource @Inject constructor(
     private suspend fun Collection<PackageInfo>.toPkgs(handle: UserHandle2): Collection<Installed> {
         log(TAG, VERBOSE) { "Before conversion: ${this.size} `PackageInfo` items" }
         val installerData = pkgOps.getInstallerData(this)
-        val converted = mapNotNull { it.toPkg(handle, installerData[it]) }
+        val converted = mapNotNull { pkgInfo ->
+            when {
+                // Order matters
+                pkgInfo.isUninstalled() -> UninstalledPkg(
+                    packageInfo = pkgInfo,
+                    userHandle = handle
+                ).also { log(TAG, VERBOSE) { "UninstalledPkg: $it" } }
+
+                pkgInfo.isArchived() -> ArchivedPkg(
+                    packageInfo = pkgInfo,
+                    userHandle = handle,
+                    installerInfo = installerData[pkgInfo] ?: InstallerInfo()
+                ).also { log(TAG, VERBOSE) { "ArchivedPkg: $it" } }
+
+                pkgInfo.isHidden(handle) -> HiddenPkg(
+                    packageInfo = pkgInfo,
+                    userHandle = handle,
+                ).also { log(TAG, VERBOSE) { "HiddenPkg: $it" } }
+
+                else -> null
+            }
+        }
         log(TAG, VERBOSE) { "After conversion: ${converted.size} `Installed` items" }
         return converted
-    }
-
-    private suspend fun PackageInfo.toPkg(handle: UserHandle2, installerInfo: InstallerInfo?): Installed? = when {
-        // Order matters
-        isUninstalled() -> UninstalledPkg(
-            packageInfo = this,
-            userHandle = handle
-        ).also { log(TAG, VERBOSE) { "UninstalledPkg: $it" } }
-
-        isArchived() -> ArchivedPkg(
-            packageInfo = this,
-            userHandle = handle,
-            installerInfo = installerInfo ?: InstallerInfo()
-        ).also { log(TAG, VERBOSE) { "ArchivedPkg: $it" } }
-
-        isHidden(handle) -> HiddenPkg(
-            packageInfo = this,
-            userHandle = handle,
-        ).also { log(TAG, VERBOSE) { "HiddenPkg: $it" } }
-
-        else -> null
     }
 
     private val PackageInfo.privateFlags: Int
@@ -166,7 +178,7 @@ class NotInstalledPkgsSource @Inject constructor(
     }
 
     private suspend fun PackageInfo.isHidden(handle: UserHandle2): Boolean =
-        pkgOps.queryPkg(packageName.toPkgId(), 0L, handle) == null
+        getNormalApps(handle)[packageName] == null
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {

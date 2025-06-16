@@ -94,6 +94,8 @@ class UserManager2 @Inject constructor(
         return profiles
     }
 
+    suspend fun otherUsers() = allUsers() - currentUser()
+
     suspend fun isAdminUser(userHandle: UserHandle2): Boolean = !hasMultiUserSupport || userHandle.handleId == 0
 
     val hasMultiUserSupport: Boolean by lazy {
