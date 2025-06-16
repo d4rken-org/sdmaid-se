@@ -396,9 +396,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Caches mit Shizuku löschen</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Ermitteln nicht zugänglicher Caches</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Cache leeren nicht möglich</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">Das System hat die Schaltfläche „Cache leeren“ für diese App deaktiviert. Erstelle eine Ausnahme für diese App.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Das System hat den \"Cache löschen\"-Button für diese App deaktiviert. Schließe sie aus, um das Löschen des Caches zu beschleunigen.</string>
     <string name="appcleaner_automation_error_no_settings_title">Einstellungsbildschirm nicht verfügbar</string>
-    <string name="appcleaner_automation_error_no_settings_body">Diese System-App verfügt über keinen Einstellungsbildschirm. Das Leeren des Caches über den Bedienungshilfedienst ist nicht möglich. Erstelle eine Ausnahme für diese App.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Diese System-App verfügt über keinen Einstellungsbildschirm. Das Leeren des Caches über den Bedienungshilfedienst ist nicht möglich. Erstelle eine Ausnahme für diese App, um das Cacheleeren zu beschleunigen.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">System-App falsch konfiguriert</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Der HyperOS-Sicherheits-App (com.miui.securitycenter) fehlt die Berechtigung zur Nutzung von Statistiken (GET_USAGE_STATS). Dies behindert Funktionen wie \"Daten löschen\" in den App-Details und Cache-Clearing über den Barrierefreiheitsdienst. Gewähre die Berechtigung, um die volle Funktionalität wiederherzustellen.</string>
     <string name="deduplicator_tool_name">Duplikat-Entferner</string>
     <string name="deduplicator_explanation_short">Finde doppelte Daten auf deinem Gerät.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -621,7 +623,12 @@
     <string name="automation_error_not_running_body">Der Barrierefreiheitsdienst wird nicht ausgeführt. Versuche das Gerät neu zu starten.</string>
     <string name="automation_error_screen_unavailable_title">Bildschirm nicht verfügbar</string>
     <string name="automation_error_screen_unavailable_body">Der Vorgang wurde abgebrochen, da der Bildschirm nicht mehr verfügbar war (z.B. Bildschirm aus oder Sperrbildschirm).</string>
+    <string name="automation_error_compatibility_title">Automatisierungskompatibilität</string>
     <string name="automation_error_compatibility_body">SD-Maid konnte das Bildschirmlayout nicht ermitteln. Wenn dies wiederholend geschieht, wird Ihre Sprache oder das Setup möglicherweise nicht vollständig unterstützt. Suchen Sie nach Updates oder wenden Sie sich an mich, damit ich es beheben kann.</string>
+    <string name="automation_error_timeout_title">Automatisierungs-Timeout</string>
+    <string name="automation_error_timeout_body">SD Maid hat nicht alle Schritte innerhalb des Zeitlimits abgeschlossen. Wenn dies weiterhin passiert, könnte es sein, dass ich die App für dein Gerät anpassen muss. Suche nach Updates oder wenden dich an mich, damit ich es beheben kann.</string>
+    <string name="automation_error_overlay_title">Automatisierungs-Overlay</string>
+    <string name="automation_error_overlay_body">SD Maid konnte das Automatisierungs-Overlay nicht anzeigen. Überprüfe die Berechtigungen und versuche dein Gerät neu zu starten.</string>
     <string name="history_label">Verlauf</string>
     <string name="history_description">Eine chronologische Liste der letzten Aktionen und betroffenen Daten.</string>
     <string name="scheduler_label">Planer</string>

@@ -162,4 +162,6 @@
     <string name="general_error_invalid_input_label">Μη έγκυρη εισαγωγή</string>
     <string name="general_information_for_the_developer">Πληροφορίες για τον προγραμματιστή</string>
     <string name="general_error_report_bug_action">Αναφορά σφάλματος</string>
+    <string name="general_error_ipc_deadobject_title">Η Σύνδεση Υπηρεσίας Χάθηκε</string>
+    <string name="general_error_ipc_deadobject_description">Η σύνδεση με μια κρίσιμη υπηρεσία (π.χ. Magisk, Shizuku ή άλλες υπηρεσίες σε επίπεδο συστήματος) χάθηκε απροσδόκητα. Επανεκκινήστε τη συσκευή σας. Εάν το πρόβλημα επιμένει, ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου για να το διορθώσω.</string>
 </resources>

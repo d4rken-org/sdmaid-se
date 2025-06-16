@@ -152,4 +152,6 @@
     <string name="general_error_invalid_input_label">输入无效</string>
     <string name="general_information_for_the_developer">开发者信息</string>
     <string name="general_error_report_bug_action">报告错误</string>
+    <string name="general_error_ipc_deadobject_title">服务连接丢失</string>
+    <string name="general_error_ipc_deadobject_description">与关键服务（如 Magisk、Shizuku 或其他系统级服务）的连接意外丢失。请重启您的设备。如果问题仍然存在，请检查更新或与我联系，以便我可以修复它。</string>
 </resources>

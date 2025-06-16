@@ -1,2 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">Kræver SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Opgrader SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro giver bedre resultater, flere funktioner og muligheder for superbrugere.</string>
+    <string name="upgrades_dashcard_upgrade_action">Opgrader</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play er utilgængelig</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid kan ikke forbinde til Google Play. Er Google Play installeret og opdateret? Er din Google-konto logget ind? Prøv at rydde cachen i Google Play-appen og genstarte din enhed.</string>
+    <string name="upgrades_no_purchases_found_check_account">Ingen køb fundet. Bruger du den rigtige konto?</string>
+    <string name="upgrade_screen_title">Få SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid har ingen reklamer og sælger ikke brugerdata. Mit arbejde er finansieret af jer ❤️</string>
+    <string name="upgrade_screen_benefits_title">Fordele</string>
+    <string name="upgrade_screen_benefits_body">• App-rensning 💯\n• Planlagte operationer ⏰\n• Ekstra muligheder for alle værktøjer ⚙️\n• Dine egne sletteregler ✍️\n• En motiveret udvikler 🧙\nog mere…</string>
+    <string name="upgrade_screen_how_title">Muligheder</string>
+    <string name="upgrade_screen_how_body">Du kan vælge mellem et engangskøb eller et billigere årsabonnement.\nAbonnementet starter med en gratis prøveperiode på 14 dage, hvorefter du opkræves én gang om året. Prøveperiode og abonnement kan opsiges når som helst.\nSamme funktioner, bare forskellige prismodeller.</string>
+    <string name="upgrade_screen_subscription_trial_action">Start gratis 14-dages prøveperiode</string>
+    <string name="upgrade_screen_subscription_action">Abonner</string>
+    <string name="upgrade_screen_subscription_action_hint">Abonnementet koster %s pr. år.</string>
+    <string name="upgrade_screen_iap_action">Engangskøb</string>
+    <string name="upgrade_screen_iap_action_hint">Engangskøbet koster %s.</string>
+    <string name="upgrade_screen_thanks_toast">Du er den bedste! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Gendan køb</string>
+    <string name="upgrade_screen_restore_purchase_message">Din opgradering er gyldig på tværs af enheder på den samme Google-konto.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Fejlfindingstips til ukendte opgraderinger:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Synkronisering af Play Butik kan tage tid. Prøv at genstarte, rydde Google Play-cachen eller bare vent.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Flere konti kan forvirre Google Play. Log ud af andre konti, eller installer via Google Play-hjemmesiden, som fremtvinger tilknytning til en bestemt konto.</string>
+</resources>

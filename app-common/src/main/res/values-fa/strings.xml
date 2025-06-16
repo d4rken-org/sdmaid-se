@@ -161,4 +161,7 @@
     <string name="general_advice_title">پیشنهاد</string>
     <string name="general_error_invalid_input_label">ورودی نامعتبر</string>
     <string name="general_information_for_the_developer">اطلاعات برای توسعه‌دهنده</string>
+    <string name="general_error_report_bug_action">گزارش اشکال</string>
+    <string name="general_error_ipc_deadobject_title">اتصال سرویس قطع شد</string>
+    <string name="general_error_ipc_deadobject_description">اتصال به یک سرویس حیاتی (مثلاً Magisk، Shizuku یا سایر سرویس‌های سطح سیستم) به طور غیرمنتظره‌ای قطع شد. لطفاً دستگاه خود را مجدداً راه‌اندازی کنید. اگر مشکل همچنان ادامه داشت، به‌روزرسانی‌ها را بررسی کنید یا با من تماس بگیرید تا بتوانم آن را برطرف کنم.</string>
 </resources>

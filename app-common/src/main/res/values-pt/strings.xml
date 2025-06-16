@@ -162,4 +162,6 @@
     <string name="general_error_invalid_input_label">Entrada inválida</string>
     <string name="general_information_for_the_developer">Informações para o desenvolvedor</string>
     <string name="general_error_report_bug_action">Reportar erro</string>
+    <string name="general_error_ipc_deadobject_title">Conexão de serviço perdida</string>
+    <string name="general_error_ipc_deadobject_description">A conexão com um serviço crítico (por exemplo, Magisk, Shizuku, ou outros serviços ao nível do sistema) foi inesperadamente perdida. Por favor, reinicie o seu dispositivo. Se o problema persistir, verifique se há atualizações ou entre em contacto comigo para que possa corrigi-lo.</string>
 </resources>

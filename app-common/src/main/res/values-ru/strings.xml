@@ -182,4 +182,6 @@
     <string name="general_error_invalid_input_label">Недопустимое значение</string>
     <string name="general_information_for_the_developer">Информация для разработчика</string>
     <string name="general_error_report_bug_action">Сообщить об ошибке</string>
+    <string name="general_error_ipc_deadobject_title">Потеряно соединение с сервисом</string>
+    <string name="general_error_ipc_deadobject_description">Соединение с необходимой службой (например, Magisk, Shizuku или другой службой системного уровня) потеряно. Пожалуйста, перезагрузите Ваше устройство. Если проблема не исчезает, проверьте наличие обновлений или свяжитесь со мной, чтобы я мог это исправить.</string>
 </resources>

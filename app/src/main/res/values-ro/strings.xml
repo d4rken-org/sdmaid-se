@@ -238,8 +238,10 @@
     <string name="systemcleaner_filter_custom_label">Filtru personalizat</string>
     <string name="systemcleaner_filter_custom_manage_label">Gestionează filtrele personalizate</string>
     <string name="systemcleaner_filter_custom_manage_summary">Creează, șterge, importă și exportă filtrele tale personalizate.</string>
-    <string name="systemcleaner_filter_logfiles_label">Fișiere de jurnal</string>
-    <string name="systemcleaner_filter_logfiles_summary">Fișiere de jurnal (*.log) de pe tot dispozitivul.</string>
+    <string name="systemcleaner_filter_logfiles_label">Fișiere jurnal de sistem</string>
+    <string name="systemcleaner_filter_logfiles_summary">Fișiere jurnal de sistem și serviciu (de exemplu, *.log) în diferite locații.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Instalator cache</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Date stocate în cache legate de aplicațiile instalate care sunt utilizate de gestionarea pachetelor sistemului.</string>
     <string name="systemcleaner_filter_advertisements_label">Fișiere publicitare</string>
     <string name="systemcleaner_filter_advertisements_summary">Fișiere care au fost create pentru sau de reclame.</string>
     <string name="systemcleaner_filter_anr_label">Erori ANR</string>
@@ -264,8 +266,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Date pe care exploratorul de fișiere Windows le poate crea în spațiul de stocare conectat."</string>
     <string name="systemcleaner_filter_thumbnails_label">Imagini miniatură</string>
     <string name="systemcleaner_filter_thumbnails_summary">Previzualizări prin cache pentru imagini și videoclipuri.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Fișiere temporare</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Fișiere temporare, de obicei, cache de scurtă durată pentru operațiuni active.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Fișiere de sistem temporare</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Fișiere temporare legate de sistem, de obicei cache-uri de scurtă durată pentru operațiuni active.</string>
     <string name="systemcleaner_filter_analytics_label">Fișiere de analize</string>
     <string name="systemcleaner_filter_analytics_summary">Date legate de analiză și de urmărire a erorilor.</string>
     <string name="systemcleaner_filter_downloadcache_label">Memoria cache descărcată</string>
@@ -403,6 +405,13 @@
         <item quantity="other">Ștergeți fișierele consumabile pentru aplicațiile selectate %d?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Ştergerea cache-urilor folosind Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Determinarea cache-urilor inaccesibile</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Curățare cache indisponibil</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Sistemul a dezactivat butonul \"Curățare cache\" pentru această aplicație. Excludeți-o pentru a accelera curățarea cache-ului.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Setări ecran indisponibil</string>
+    <string name="appcleaner_automation_error_no_settings_body">Această aplicație de sistem nu are ecran de setări. Nu este posibilă compensarea cache-ului prin intermediul serviciului de accesibilitate. Excludeți-o pentru a accelera curățarea cache-ului.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Aplicație de sistem configurată greșit</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Aplicația de securitate HyperOS (com.miui.securitycenter) nu are permisiunea de utilizare a statisticilor (GET_USAGE_STATS). Acest lucru rupe caracteristici precum \"Curățare Date\" în detaliile aplicației și ștergerea cache-ului prin accesibilitate. Acordați permisiunea de a restabili funcționalitatea completă.</string>
     <string name="deduplicator_tool_name">Curățitor de duplicate</string>
     <string name="deduplicator_explanation_short">Găsiți date duplicat pe dispozitivul dvs.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -490,6 +499,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Prima dată instalată</string>
     <string name="appcontrol_list_sortmode_packagename_label">Numele pachetului</string>
     <string name="appcontrol_list_sortmode_size_label">Dimensiune</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Timp ecran pornit</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Dimensiunile aplicației sunt estimate din motive de performanță. Utilizați unealta de analiză a stocării pentru date mai exacte.</string>
     <string name="appcontrol_progress_uninstalling_app">Dezinstalare aplicație</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -543,6 +553,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Oprirea forțată…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Se caută butonul „Oprire forțată” (cuvinte cheie: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Timp ecran: %1$s din %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Ultima actualizare: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instalat la: %s</string>
     <string name="analyzer_tool_name">Analizator de stocare</string>
     <string name="analyzer_explanation_short">Aflați ce ocupă spațiu pe dispozitivul dvs.</string>
     <string name="analyzer_progress_scanning_device">Se caută dispozitive de stocare</string>
@@ -634,7 +647,12 @@
     <string name="automation_error_not_running_body">Serviciul de accesibilitate nu rulează. Încercați să reporniți dispozitivul.</string>
     <string name="automation_error_screen_unavailable_title">Ecran indisponibil</string>
     <string name="automation_error_screen_unavailable_body">Operația a fost anulată deoarece ecranul a devenit indisponibil (de exemplu, afișare oprită sau ecranul de blocare activ).</string>
+    <string name="automation_error_compatibility_title">Compatibilitate automată</string>
     <string name="automation_error_compatibility_body">SD Maid nu și-a putut da seama de aspectul ecranului. Dacă acest lucru se întâmplă în continuare, este posibil ca limba sau configurația dvs. să nu fie pe deplin acceptate. Verificați actualizările sau contactați-mă ca să pot remedia.</string>
+    <string name="automation_error_timeout_title">Automatizarea a expirat</string>
+    <string name="automation_error_timeout_body">SD Maid nu a parcurs toți pașii în termenul limită. Dacă acest lucru continuă să se întâmple, ar putea fi necesar să ajustați aplicația pentru dispozitivul dvs. Verificați dacă există actualizări sau contactați-mă pentru a le putea repara.</string>
+    <string name="automation_error_overlay_title">Suprapunere automată</string>
+    <string name="automation_error_overlay_body">SD Maid nu a putut arăta suprapunerea automatizării. Verificați permisiunile și încercați să reporniți dispozitivul.</string>
     <string name="history_label">Istoric</string>
     <string name="history_description">O listă cronologică cu acțiuni recente și date afectate.</string>
     <string name="scheduler_label">Programator</string>

@@ -162,4 +162,6 @@
     <string name="general_error_invalid_input_label">Entrada incorrecta</string>
     <string name="general_information_for_the_developer">Información para el desarrollador</string>
     <string name="general_error_report_bug_action">Informar de un error</string>
+    <string name="general_error_ipc_deadobject_title">Se ha perdido la conexión con el servidor</string>
+    <string name="general_error_ipc_deadobject_description">Se ha perdido inesperadamente la conexión con un servicio esencial (por ejemplo, Magisk, Shizuku u otros servicios del sistema). Reinicia tu dispositivo. Si el problema persiste, busca actualizaciones o ponte en contacto conmigo para que pueda solucionarlo.</string>
 </resources>

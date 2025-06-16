@@ -162,4 +162,6 @@
     <string name="general_error_invalid_input_label">Vigane sisend</string>
     <string name="general_information_for_the_developer">Teave arendajale</string>
     <string name="general_error_report_bug_action">Teata veast</string>
+    <string name="general_error_ipc_deadobject_title">Ühendus teenusega katkes</string>
+    <string name="general_error_ipc_deadobject_description">Ühendus olulise teenusega (nt Magisk, Shizuku või muu süsteemi tasemel oleva teenusega) katkes ootamatult. Taaskäivitage oma seade. Probleemi kordumisel kontrollige uuendusi või suhelge minuga, et saaksin seda parandada.</string>
 </resources>
