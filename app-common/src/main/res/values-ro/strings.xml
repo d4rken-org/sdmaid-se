@@ -170,4 +170,8 @@
     </plurals>
     <string name="general_advice_title">Sfat</string>
     <string name="general_error_invalid_input_label">Intrare nevalidă</string>
+    <string name="general_information_for_the_developer">Informații pentru dezvoltator</string>
+    <string name="general_error_report_bug_action">Raportare problemă</string>
+    <string name="general_error_ipc_deadobject_title">Conexiune la servicii pierdută</string>
+    <string name="general_error_ipc_deadobject_description">Conexiunea la un serviciu critic (de ex. Magisk, Shizuku sau alte servicii la nivel de sistem) au fost pierdute în mod neașteptat. Vă rugăm să reporniți dispozitivul. Dacă problema persistă, verificați dacă există actualizări sau contactați-mă, astfel încât să o pot rezolva.</string>
 </resources>

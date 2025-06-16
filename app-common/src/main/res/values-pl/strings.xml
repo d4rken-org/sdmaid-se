@@ -182,4 +182,6 @@
     <string name="general_error_invalid_input_label">Nieprawidłowe dane</string>
     <string name="general_information_for_the_developer">Informacje dla programisty</string>
     <string name="general_error_report_bug_action">Zgłoś błąd</string>
+    <string name="general_error_ipc_deadobject_title">Połączenie usługi zostało utracone</string>
+    <string name="general_error_ipc_deadobject_description">Połączenie z usługą krytyczną (np. Magisk, Shizuku, lub innymi usługami na poziomie systemowym) zostało niespodziewanie utracone. Uruchom ponownie urządzenie. Jeśli problem będzie się powtarzał, sprawdź dostępność aktualizacji lub skontaktuj się ze mną, abym mógł to naprawić.</string>
 </resources>

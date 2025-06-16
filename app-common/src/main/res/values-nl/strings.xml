@@ -162,4 +162,6 @@
     <string name="general_error_invalid_input_label">Ongeldige invoer</string>
     <string name="general_information_for_the_developer">Informatie voor de ontwikkelaar</string>
     <string name="general_error_report_bug_action">Bug melden</string>
+    <string name="general_error_ipc_deadobject_title">Serviceverbinding verbroken</string>
+    <string name="general_error_ipc_deadobject_description">De verbinding met een kritieke service (bijv. Magisk, Shizuku of andere services op systeemniveau) is onverwacht verbroken. Start je apparaat opnieuw op. Als het probleem aanhoudt, controleer dan op updates of neem contact met mij op zodat ik het kan oplossen.</string>
 </resources>

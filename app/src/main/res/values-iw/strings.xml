@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">מחיקת התוצאות בכל הכלים?</string>
+    <string name="dashboard_delete_all_message">למחוק תוצאות בכל הכלים?</string>
     <string name="dashboard_settings_category">לוח בקרה</string>
     <string name="dashboard_motd_title">הודעה מהמפתח</string>
-    <string name="dashboard_settings_oneclick_title">מצב לחיצה אחת</string>
+    <string name="dashboard_settings_oneclick_title">מצב לחיצה-אחת</string>
     <string name="dashboard_settings_oneclick_summary">התחלת סריקה ומחיקה עבור כל הכלים בלחיצה על כפתור הפעולה בלוח הבקרה, ללא אישורים נוספים.</string>
-    <string name="dashboard_settings_oneclick_tools_title">כלים בלחיצה אחת</string>
-    <string name="dashboard_settings_oneclick_tools_desc">אילו כלים צריכים להיכלל בפעולות בלחיצה אחת?</string>
+    <string name="dashboard_settings_oneclick_tools_title">כלים בלחיצה-אחת</string>
+    <string name="dashboard_settings_oneclick_tools_desc">אילו כלים צריכים להיכלל בפעולות בלחיצה-אחת?</string>
     <string name="debug_debuglog_size_label">גודל</string>
     <string name="debug_debuglog_size_compressed_label">גודל דחוס</string>
     <string name="debug_notification_channel_label">התראות ניפוי באגים</string>
@@ -33,7 +33,7 @@
     <string name="tasks_result_notification_channel_label">תוצאות המשימה</string>
     <string name="tasks_result_subtext">תוצאת המשימה</string>
     <string name="onboarding_welcome_title">ברוכים הבאים</string>
-    <string name="onboarding_welcome_body1">SD Maid SE מנהלת קבצים, אפליקציות ואחסון.</string>
+    <string name="onboarding_welcome_body1">SD Maid SE - מנהל קבצים, אפליקציות ואחסון.</string>
     <string name="onboarding_welcome_body2">השג שטח אחסון בעזרת ניקוי שאריות של אפליקציות אחרות. מחק קבצים לא נחוצים או זמניים והסר שאריות של נתונים.</string>
     <string name="onboarding_welcome_body_beta">זוהי גרסאת בטא (בדיקות), השתמשו בה עם חוש הומור ותכנית גיבוי. דווחו בבקשה על בעיות שנתקלתם בהן.</string>
     <string name="onboarding_welcome_continue_action">המשך</string>

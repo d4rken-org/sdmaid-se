@@ -162,4 +162,6 @@
     <string name="general_error_invalid_input_label">Geçersiz giriş</string>
     <string name="general_information_for_the_developer">Geliştirici için bilgiler</string>
     <string name="general_error_report_bug_action">Hata bildir</string>
+    <string name="general_error_ipc_deadobject_title">Servis bağlantısı kesildi</string>
+    <string name="general_error_ipc_deadobject_description">Kritik bir hizmetle (örneğin Magisk, Shizuku veya diğer sistem düzeyi hizmetler) bağlantı beklenmedik bir şekilde kesildi. Lütfen cihazınızı yeniden başlatın. Sorun devam ederse, güncellemeleri kontrol edin veya düzeltebilmem için bana ulaşın.</string>
 </resources>

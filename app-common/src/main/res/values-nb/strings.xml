@@ -162,4 +162,6 @@
     <string name="general_error_invalid_input_label">Ugyldig inndata</string>
     <string name="general_information_for_the_developer">Informasjon til utvikleren</string>
     <string name="general_error_report_bug_action">Rapporter feil</string>
+    <string name="general_error_ipc_deadobject_title">Tjenestetilkobling brutt</string>
+    <string name="general_error_ipc_deadobject_description">Tilkoblingen til en kritisk tjeneste (f.eks. Magisk, Shizuku eller andre tjenester på systemnivå) ble uventet brutt. Start enheten på nytt. Hvis problemet vedvarer, kan du se etter oppdateringer eller kontakte meg slik at jeg kan fikse det.</string>
 </resources>

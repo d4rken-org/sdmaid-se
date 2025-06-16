@@ -161,4 +161,7 @@
     <string name="general_advice_title">Tipps</string>
     <string name="general_error_invalid_input_label">Ungültige Eingabe</string>
     <string name="general_information_for_the_developer">Informationen für den Entwickler</string>
+    <string name="general_error_report_bug_action">Fehler melden</string>
+    <string name="general_error_ipc_deadobject_title">Verbindung zum Dienst verloren</string>
+    <string name="general_error_ipc_deadobject_description">Die Verbindung zu einem kritischen Dienst (z.B. Magisk, Shizuku oder anderen System-Level-Diensten) wurde unerwartet verloren. Bitte starten Sie Ihr Gerät neu. Wenn das Problem weiterhin besteht, prüfen Sie nach Updates oder wenden Sie sich an mich, damit ich es beheben kann.</string>
 </resources>

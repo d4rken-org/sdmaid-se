@@ -182,4 +182,6 @@
     <string name="general_error_invalid_input_label">קלט לא חוקי</string>
     <string name="general_information_for_the_developer">מידע למפתח</string>
     <string name="general_error_report_bug_action">דווח על באג</string>
+    <string name="general_error_ipc_deadobject_title">החיבור לשירות נותק</string>
+    <string name="general_error_ipc_deadobject_description">החיבור לשירות קריטי (למשל Magisk, Shizuku או שירותים מערכתיים אחרים) נותק באופן בלתי צפוי. אנא אתחל את המכשיר שלך. אם הבעיה נמשכת, בדוק אם קיימים עדכונים או פנה אליי כדי שאוכל לתקן זאת.</string>
 </resources>
