@@ -21,6 +21,8 @@ interface PkgOpsConnection {
 
     boolean trimCaches(long desiredBytes, String storageId, boolean dryRun);
 
+    PackageInfo getPackageInfoAsUser(String packageName, long flags, int handleId);
+
     List<PackageInfo> getInstalledPackagesAsUser(long flags, int handleId);
 
     RemoteInputStream getInstalledPackagesAsUserStream(long flags, int handleId);

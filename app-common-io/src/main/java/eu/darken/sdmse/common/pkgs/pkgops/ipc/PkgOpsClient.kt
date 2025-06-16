@@ -1,7 +1,6 @@
 package eu.darken.sdmse.common.pkgs.pkgops.ipc
 
 import android.content.pm.PackageInfo
-import android.os.DeadObjectException
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -72,6 +71,16 @@ class PkgOpsClient @AssistedInject constructor(
     } catch (e: Exception) {
         throw e.refineException().also {
             log(TAG, ERROR) { "trimCaches(desiredBytes=$desiredBytes, storageId=$storageId) failed: ${it.asLog()}" }
+        }
+    }
+
+    fun getPackageInfoAsUser(id: Pkg.Id, flags: Long, userHandle: UserHandle2): PackageInfo? = try {
+        connection.getPackageInfoAsUser(id.name, flags, userHandle.handleId)
+    } catch (e: Exception) {
+        throw e.refineException().also {
+            log(TAG, ERROR) {
+                "getPackageInfoAsUser(id=$id, flags=$flags, userHandle=$userHandle) failed: ${it.asLog()}"
+            }
         }
     }
 

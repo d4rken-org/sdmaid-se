@@ -47,6 +47,25 @@ fun PackageManager.getIcon2(
     ?.applicationInfo
     ?.let { if (it.icon != 0) it.loadIcon(this) else null }
 
+fun PackageManager.getPackageInfosAsUser(
+    packageName: String,
+    flags: Long,
+    userHandle: UserHandle2,
+) = try {
+    val functions = PackageManager::class.memberFunctions.filter { it.name == "getPackageInfoAsUser" }
+    functions
+        .first {
+            val params = it.parameters
+            params.size == 4 && // this, packageName, flags, userId
+                    String::class.isSubclassOf(params[1].type.jvmErasure) &&
+                    Int::class.isSubclassOf(params[2].type.jvmErasure) &&
+                    Int::class.isSubclassOf(params[3].type.jvmErasure)
+        }
+        .call(this, packageName, flags.toInt(), userHandle.handleId) as PackageInfo?
+} catch (e: Exception) {
+    log(ERROR) { e.asLog() }
+    null
+}
 
 fun PackageManager.getInstalledPackagesAsUser(
     flags: Long,
