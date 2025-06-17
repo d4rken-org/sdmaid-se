@@ -119,7 +119,7 @@ class PkgOps @Inject constructor(
     suspend fun queryPkg(id: Pkg.Id, flags: Long, userHandle: UserHandle2, mode: Mode = Mode.AUTO): PackageInfo? {
         log(TAG) { "queryPkg($id, $flags, $userHandle, $mode)" }
         return when {
-            mode == Mode.NORMAL -> ipcFunnel.use {
+            mode == Mode.NORMAL || (mode == Mode.AUTO && userHandle == userManager2.currentUser().handle) -> ipcFunnel.use {
                 try {
                     ipcFunnel.use {
                         if (hasApiLevel(33)) {
