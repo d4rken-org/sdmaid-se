@@ -38,7 +38,7 @@ import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
-import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -61,6 +61,7 @@ class SAFSetupModule @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val deviceDetective: DeviceDetective,
     private val pkgOps: PkgOps,
+    private val userManager: UserManager2,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -153,7 +154,7 @@ class SAFSetupModule @Inject constructor(
             val isRestricted = pkgOps.queryPkg(
                 id = "com.google.android.documentsui".toPkgId(),
                 flags = 0,
-                userHandle = UserHandle2()
+                userHandle = userManager.currentUser().handle,
             )?.let { pkg ->
                 log(TAG) { "Files-DocumentsUI: appInfos=$pkg" }
                 log(TAG) { "Files-DocumentsUI: targetSdkVersion=${pkg.applicationInfo?.targetSdkVersion}" }
