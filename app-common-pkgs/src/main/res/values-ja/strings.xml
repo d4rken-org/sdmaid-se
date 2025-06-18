@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">無効なアプリ インベントリ</string>
+    <string name="pkgrepo_invalid_inventory_error_description">システムがSD Maidにインストール済みのアプリの無効なリストを提供しました。</string>
+</resources>

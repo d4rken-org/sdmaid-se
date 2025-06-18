@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">မမှန်ကန်သောအက်ပ်စာရင်း</string>
+    <string name="pkgrepo_invalid_inventory_error_description">စနစ်မှ SD Maid သို့ ထည့်သွင်းထားသောအက်ပ်များ၏ မမှန်ကန်သောစာရင်းကို ပေးထားသည်။</string>
+</resources>

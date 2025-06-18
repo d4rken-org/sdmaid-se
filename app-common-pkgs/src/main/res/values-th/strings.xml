@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">รายการแอปไม่ถูกต้อง</string>
+    <string name="pkgrepo_invalid_inventory_error_description">ระบบได้ให้รายการแอปที่ติดตั้งไม่ถูกต้องแก่ SD Maid</string>
+</resources>

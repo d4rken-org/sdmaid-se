@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Di-wasto ang imbentaryo ng app</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Nagbigay ang system ng di-wastong listahan ng mga naka-install na app sa SD Maid.</string>
+</resources>

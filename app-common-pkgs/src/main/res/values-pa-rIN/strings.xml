@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">ਅਵੈਧ ਐਪ ਸੂਚੀ</string>
+    <string name="pkgrepo_invalid_inventory_error_description">ਸਿਸਟਮ ਨੇ SD Maid ਨੂੰ ਸਥਾਪਤ ਐਪਾਂ ਦੀ ਇੱਕ ਅਵੈਧ ਸੂਚੀ ਪ੍ਰਦਾਨ ਕੀਤੀ।</string>
+</resources>

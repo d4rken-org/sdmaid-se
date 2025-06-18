@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Netinkamas programų sąrašas</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Sistema pateikė SD Maid netinkamą įdiegtų programų sąrašą.</string>
+</resources>

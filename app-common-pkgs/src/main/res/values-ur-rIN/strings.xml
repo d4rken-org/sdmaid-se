@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">غلط ایپ انوینٹری</string>
+    <string name="pkgrepo_invalid_inventory_error_description">سسٹم نے SD Maid کو نصب شدہ ایپس کی ایک غلط فہرست فراہم کی۔</string>
+</resources>

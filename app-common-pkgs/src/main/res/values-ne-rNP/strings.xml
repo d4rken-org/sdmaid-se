@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">अमान्य एप सूची</string>
+    <string name="pkgrepo_invalid_inventory_error_description">प्रणालीले SD Maid लाई स्थापित एपहरूको अमान्य सूची प्रदान गर्‍यो।</string>
+</resources>

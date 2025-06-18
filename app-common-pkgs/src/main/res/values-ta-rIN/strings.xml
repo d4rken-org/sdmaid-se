@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">தவறான பயன்பாட்டு இருப்பு</string>
+    <string name="pkgrepo_invalid_inventory_error_description">நிறுவப்பட்ட பயன்பாடுகளின் தவறான பட்டியலை கணினி SD Maidக்கு வழங்கியது.</string>
+</resources>
