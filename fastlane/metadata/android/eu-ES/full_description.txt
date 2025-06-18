@@ -1,24 +1,40 @@
-<i>SD Maid SE</i> zure Androiden konfiantzazko laguntzailea da, garbi eta txukun mantentzeko.
+<i>SD Maid 2/SE</i> zure Androiderako konfiantzazko laguntzailea da, garbi eta txukun mantentzeko.
 
 Inor ez da perfektua, eta Android ere ez.
 * Aurretik ezabatutako aplikazioek zeozer uzten dute atzean.
-* Erregistroak, istripu-txostenak eta benetan nahi ez dituzun beste artxibo batzuk etengabe sortzen ari dira.
-* Zure biltegia ezagutzen ez dituzun fitxategiak eta direktorioak biltzen ari da.
+* Nahi ez dituzun erregistroak, kraskatze-txostenak eta bestelako fitxategiak etengabe sortzen dira.
+* Zure biltegiratzeak ezagutzen ez dituzun fitxategi eta karpetak biltzen ditu.
+* Argazki bikoiztuak zure galerian.
 
-Ez dezagun hemen gelditu... SD Maid SE-k honekin lagun ahal dizu:
+Ez dezagun hemen jarraitu… Utzi SD Maid 2/SE laguntzen!
 
-* Garbitu dagoeneko desinstalatutako aplikazioen datuak
-* Ezaba daitezkeen artxiboak eta ezkutuko cache-memoria ezabatu
-* Erabiltzen ez diren sistemako fitxategiak ezabatu
-* Sortu zure iragazkiak ausazko fitxategietarako
-* Bikoiztutako informazioa aurkitu eta ezabatu
-* Zure biltegiratzea aztertu eta fitxategi handiak ezabatu espazioa liberatuz
+SD Maid 2/SE aplikazio eta fitxategi-kudeatzaile bat da, zure gailuan aplikazio zehatzek fitxategi espezifikoak sortu dituzten jakiten espezializatua. SD Maid 2/SE zure gailua arakatzen du eta fitxategiak instalatutako aplikazioekin konparatzen ditu biltegiratze-lekua segurtasunez askatzeko aukerak eskaintzeko.
 
-SD Maid SE ez dauka inolako iragarkirik. Funtzio batzuk erabiltzeko ordainketa-igoera behar da.
+✨ Garbitu aplikazioak desinstalatu ondoren
+Aplikazioek izendatutako karpetetatik kanpo fitxategiak sortzen badituzte, aplikazioak desinstalatu ondoren ere fitxategiak gera daitezke. "CorpseFinder" tresnak aplikazioen aztarnak aurkitzen ditu, zein aplikaziotakoak ziren esaten dizu eta ezabatzen laguntzen dizu.
 
-SD Maid 2/SE SD Maid 1/Leged-en ondorengoa da.
+🔍 Bilatu zure gailua modu adimentsuan
+Iragazi karpeta hutsak, aldi baterako fitxategiak, dagoeneko instalatutako aplikazioak eta gehiago. Zure bilaketa-irizpideak ere sor ditzakezu. "SystemCleaner" tresnak zure gailua automatikoki arakatzeko eta hainbat irizpideren arabera fitxategiak ezabatzeko aukera ematen dizu.
+
+🧹 Ezabatu gastagarriak diren fitxategiak eta ezkutuko cacheak
+Miniaturak, zakarrontziak, lineaz kanpoko cacheak eta gehiago: aplikazioek beren kabuz garbitzen ez badute, aplikazio honek egingo du. "AppCleaner" tresnak gastagarriak diren fitxategiak dituzten aplikazioak aurkitzen ditu.
+
+📦 Kudeatu zure aplikazio guztiak
+Lortu zure gailuan instalatutako aplikazio guztien zerrenda osoa. Gaituta, desgaituta, erabiltzaile- edo sistema-aplikazioa: ezin da aplikaziorik ezkutatu. "AppControl" tresna zure aplikazioak bilatu, ordenatu eta kontrolatzeko aukera ematen duen aplikazio-kudeatzailea da.
+
+📊 Zerk erabiltzen du zure espazio guztia
+Biltegiratzearen kudeaketa konplexua izan daiteke telefonoaren biltegiratzean, SD txarteletan eta USB gailuetan dauden aplikazioekin, euskarriekin, sistemarekin eta bestelako fitxategiekin. "StorageAnalyzer" zure gailuan espazioa nola erabiltzen den erakusten duen fitxategi-kudeatzailea da, zure biltegiratzearen kudeaketa erraztuz.
+
+📷 Aurkitu datu bikoiztuak
+Deskarga bikoiztuak, sare sozialen bidez bidalitako argazkiak edo eszena beraren antzeko argazkiak: denborarekin kopiak pila daitezke. "Deduplicator" tresnak berdin-berdinak edo antzekoak diren fitxategiak aurkitzen ditu eta kopia gehigarriak ezabatzen laguntzen dizu.
+
+Aplikazio honek ez du iragarkirik. Funtzio batzuk erabiltzeko ordainketa-igoera behar da.
+
+SD Maid 2/SE SD Maid 1/Legacy-ren ondorengoa da.
 Android bertsio berriagoetarako optimizatua eta garbiketan zentratua.
 
-SD Maid SEk AccessibilityService API erabiltzen duten aukerako ezaugarriak ditu ekintza aspergarriak automatizatzeko.
-Irisgarritasun Zerbitzuko APIa erabiliz, SD Maid SEk botoiak klikatu ditzake hainbat aplikaziotan eragiketak egin ahal izateko. cache-memoriak ezabatzen.
-SD Maid SEk ez du AccessibilityService API erabiltzen informazioa biltzeko.
+Aplikazio honek aukerako funtzioak ditu, AccessibilityService APIa erabiltzen dutenak zeregin nekagarriak automatizatzeko.
+AccessibilityService APIa erabiliz, aplikazio honek botoiak sakatu ditzake zuregatik aplikazio anitzetan eragiketak egiteko, adibidez, cache-memoriak ezabatzen.
+Aplikazio honek ez du AccessibilityService APIa erabiltzen informazioa biltzeko.
+
+SD Maid 2/SE Fitxategi Kudeatzailea eta Garbitzailea Aplikazioa da.

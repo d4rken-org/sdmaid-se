@@ -1,40 +1,40 @@
-<i>SD Maid 2/SE</i> is your Android’s trusted assistant, to keep it clean and tidy.
+<i>SD Maid 2/SE</i> ir jūsu Android uzticamais palīgs, lai uzturētu to tīru un kārtīgu.
 
-Neviens nav perfekts, arī ne Android.
-* Apps you have already removed leave something behind.
-* Logs, crash reports and other files you don't want are constantly being created.
-* Your storage is collecting files and folders you don't recognize.
-* Duplicate photos in your gallery.
+Neviens nav ideāls, un arī Android nav.
+* Lietotnes, kuras jau esat noņēmis, atstāj kaut ko aiz sevis.
+* Žurnāli, avāriju ziņojumi un citi nevēlami faili tiek pastāvīgi veidoti.
+* Jūsu krātuve vāc failus un mapes, kuras jūs neatpazīstat.
+* Dublētas fotogrāfijas jūsu galerijā.
 
-Let’s not go on here… Let SD Maid 2/SE help you!
+Neturpināsim šeit… Ļaujiet SD Maid 2/SE jums palīdzēt!
 
-SD Maid 2/SE is an app and file manager that specializes in knowing which apps have created specific files on your device. SD Maid 2/SE searches your device and compares files with installed apps to offer options for safely freeing up storage space.
+SD Maid 2/SE ir lietotņu un failu pārvaldnieks, kas specializējas zināšanās par to, kuras lietotnes ir izveidojušas konkrētus failus jūsu ierīcē. SD Maid 2/SE meklē jūsu ierīcē un salīdzina failus ar instalētajām lietotnēm, lai piedāvātu iespējas droši atbrīvot krātuves vietu.
 
-✨ Clean up after uninstalling apps
-If apps create files outside their designated folders then files can remain even after uninstalling the apps. The "CorpseFinder" tool finds app remnants, tells you to which app they belonged and helps you delete them.
+✨ Sakopiet pēc lietotņu atinstalēšanas
+Ja lietotnes izveido failus ārpus tām paredzētajām mapēm, faili var palikt pat pēc lietotņu atinstalēšanas. Rīks "CorpseFinder" (Mirstošo failu meklētājs) atrod lietotņu paliekas, norāda, kurai lietotnei tās piederēja, un palīdz tās izdzēst.
 
-🔍 Search your device the smart way
-Filter for empty folders, temporary files, already installed apps and more. You can even create your own search criteria. The "SystemCleaner" tool allows you to automatically search your device and delete files based on various criteria.
+🔍 Pārmeklējiet ierīci gudri
+Filtrējiet tukšas mapes, pagaidu failus, jau instalētas lietotnes un daudz ko citu. Jūs pat varat izveidot savus meklēšanas kritērijus. Rīks "SystemCleaner" (Sistēmas tīrītājs) ļauj automātiski pārmeklēt ierīci un dzēst failus, pamatojoties uz dažādiem kritērijiem.
 
-🧹 Delete expendable files and hidden caches
-Thumbnails, trash bins, offline caches and more: If apps don't clean up after themselves, then this app will. The "AppCleaner" tool finds apps with expendable files.
+🧹 Dzēsiet izlietojamos failus un slēptās kešatmiņas
+Sīktēli, miskastes, bezsaistes kešatmiņas un daudz kas cits: ja lietotnes pašas nesakopj aiz sevis, šī lietotne to izdarīs. Rīks "AppCleaner" (Lietotņu tīrītājs) atrod lietotnes ar izlietojamiem failiem.
 
-📦 Manage all of your apps
-Get a comprehensive list of all apps installed on your device. Enabled, disabled, user or system app: no app can hide from you. The "AppControl" tool is an app manager that allows you to search, sort and control your apps.
+📦 Pārvaldiet visas savas lietotnes
+Iegūstiet visaptverošu sarakstu ar visām jūsu ierīcē instalētajām lietotnēm. Iespējota, atspējota, lietotāja vai sistēmas lietotne: neviena lietotne nevar no jums paslēpties. Rīks "AppControl" (Lietotņu kontrole) ir lietotņu pārvaldnieks, kas ļauj meklēt, kārtot un kontrolēt savas lietotnes.
 
-📊 What is using all your space
-Storage management can be complex with apps, media, system, and other files across phone storage, SD cards, and USB devices. "StorageAnalyzer" is a file manager that displays how space is used on your device, simplifying your storage management.
+📊 Kas aizņem visu jūsu vietu
+Krātuves pārvaldība var būt sarežģīta ar lietotnēm, multivides failiem, sistēmas failiem un citiem failiem tālruņa krātuvē, SD kartēs un USB ierīcēs. "StorageAnalyzer" (Krātuves analizators) ir failu pārvaldnieks, kas parāda, kā tiek izmantota vieta jūsu ierīcē, vienkāršojot krātuves pārvaldību.
 
-📷 Find duplicate data
-Duplicate downloads, photos sent through social media or just similar pictures of the same scene: Over time copies can accumulate. The "Deduplicator" tool finds files that are exactly the same or similar and helps you delete extra copies.
+📷 Atrodiet dublētus datus
+Dublētas lejupielādes, sociālajos medijos nosūtītas fotogrāfijas vai vienkārši līdzīgas bildes no tās pašas ainas: laika gaitā kopijas var uzkrāties. Rīks "Deduplicator" (Dublikātu noņēmējs) atrod failus, kas ir tieši tādi paši vai līdzīgi, un palīdz izdzēst papildu kopijas.
 
-This app is ad-free. Some features require a paid upgrade.
+Šī lietotne ir bez reklāmām. Dažām funkcijām ir nepieciešams maksas jauninājums.
 
-SD Maid 2/SE is the successor to SD Maid 1/Legacy.
-Optimized for newer Android versions and focused on cleaning up.
+SD Maid 2/SE ir SD Maid 1/Legacy pēctecis.
+Optimizēts jaunākām Android versijām un koncentrējas uz tīrīšanu.
 
-This app has optional features that utilize the AccessibilityService API to automate tedious actions.
-Using the AccessibilityService API, this app can click buttons for you to perform operations on multiple apps, e.g. deleting caches.
-This app does not use the AccessibilityService API to collect information.
+Šai lietotnei ir izvēles funkcijas, kas izmanto AccessibilityService API, lai automatizētu nogurdinošas darbības.
+Izmantojot AccessibilityService API, šī lietotne var nospiest pogas jūsu vietā, lai veiktu darbības vairākās lietotnēs, piemēram, dzēstu kešatmiņas.
+Šī lietotne neizmanto AccessibilityService API informācijas vākšanai.
 
-SD Maid 2/SE is a File Manager & Cleaner App.
+SD Maid 2/SE ir failu pārvaldnieka un tīrīšanas lietotne.
