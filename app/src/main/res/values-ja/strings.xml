@@ -219,8 +219,6 @@
     <string name="systemcleaner_filter_custom_label">カスタムフィルタ</string>
     <string name="systemcleaner_filter_custom_manage_label">カスタムフィルタを管理</string>
     <string name="systemcleaner_filter_custom_manage_summary">カスタム フィルターを作成、削除、インポート、エクスポートします。</string>
-    <string name="systemcleaner_filter_logfiles_label">ログファイル</string>
-    <string name="systemcleaner_filter_logfiles_summary">端末内のすべてのログファイル(*.log)</string>
     <string name="systemcleaner_filter_advertisements_label">広告のファイル</string>
     <string name="systemcleaner_filter_advertisements_summary">広告のために、または広告によって作成されたファイル。</string>
     <string name="systemcleaner_filter_anr_label">ANRエラー</string>
@@ -238,8 +236,6 @@
     <string name="systemcleaner_filter_windowsfiles_label">Windowsのファイル</string>
     <string name="systemcleaner_filter_thumbnails_label">サムネイル画像</string>
     <string name="systemcleaner_filter_thumbnails_summary">キャッシュされた画像とビデオのプレビュー。</string>
-    <string name="systemcleaner_filter_tempfiles_label">一時ファイル</string>
-    <string name="systemcleaner_filter_tempfiles_summary">一時的なファイルで、通常はアクティブな操作のための短期間のキャッシュ。</string>
     <string name="systemcleaner_filter_analytics_label">アナリティクスファイル</string>
     <string name="systemcleaner_filter_analytics_summary">分析とバグ追跡に関連するデータ。</string>
     <string name="systemcleaner_filter_downloadcache_label">ダウンロードキャッシュ</string>

@@ -396,9 +396,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">حذف حافظه پنهان با استفاده از Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">تعیین حافظه‌های پنهان غیرقابل دسترس</string>
     <string name="appcleaner_automation_error_locked_appcache_title">پاک کردن حافظه پنهان در دسترس نیست</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">سیستم دکمه «پاک کردن حافظه پنهان» را برای این برنامه غیرفعال کرده است. برای این برنامه یک استثنا ایجاد کنید.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">.</string>
     <string name="appcleaner_automation_error_no_settings_title">صفحه تنظیمات در دسترس نیست</string>
-    <string name="appcleaner_automation_error_no_settings_body">این برنامه سیستمی صفحه تنظیمات ندارد. پاکسازی حافظه پنهان از طریق سرویس دسترسی امکان‌پذیر نیست. برای این برنامه یک استثنا ایجاد کنید.</string>
+    <string name="appcleaner_automation_error_no_settings_body">فارسی.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title"></string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">.</string>
     <string name="deduplicator_tool_name">حذف تکراری</string>
     <string name="deduplicator_explanation_short">پیدا کردن داده‌های تکراری در دستگاه شما.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -621,6 +623,7 @@
     <string name="automation_error_not_running_body">سرویس دسترسی در حال اجرا نیست. دستگاه را دوباره راه‌اندازی کنید.</string>
     <string name="automation_error_screen_unavailable_title">صفحه نمایش در دسترس نیست</string>
     <string name="automation_error_screen_unavailable_body">عملیات متوقف شد زیرا صفحه نمایش در دسترس نبود (مانند خاموش شدن نمایشگر یا فعال بودن قفل صفحه).</string>
+    <string name="automation_error_compatibility_title">Automation compatibility</string>
     <string name="automation_error_compatibility_body">به نظر می‌رسد SD Maid با مشکل تشخیص طرح صفحه روبرو است. اگر این مشکل همچنان ادامه دارد، ممکن است زبان یا تنظیمات دستگاه شما به طور کامل پشتیبانی نشود. پیشنهاد می‌کنم ابتدا بررسی کنید که آیا بروزرسانی برای برنامه وجود دارد یا خیر.</string>
     <string name="history_label">تاریخچه</string>
     <string name="history_description">یک لیست زمانی از اقدامات اخیر و داده‌های تأثیر پذیرفته.</string>

@@ -111,7 +111,6 @@
     <string name="systemcleaner_tool_name">Sistema</string>
     <string name="systemcleaner_filter_custom_label">Arnawlı filtrler</string>
     <string name="systemcleaner_filter_custom_manage_label">Arnawlı filtrlerdi basqarıń</string>
-    <string name="systemcleaner_filter_logfiles_label">Jurnal faylları</string>
     <string name="systemcleaner_filter_advertisements_label">Reklama faylları</string>
     <string name="systemcleaner_filter_anr_label">ANR qátelikleri</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR papkaları</string>

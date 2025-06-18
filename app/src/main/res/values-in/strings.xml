@@ -222,8 +222,10 @@
     <string name="systemcleaner_filter_custom_label">Filter khusus</string>
     <string name="systemcleaner_filter_custom_manage_label">Kelola filter khusus</string>
     <string name="systemcleaner_filter_custom_manage_summary">Buat, hapus, impor dan ekspor filter khusus Anda.</string>
-    <string name="systemcleaner_filter_logfiles_label">Berkas log</string>
-    <string name="systemcleaner_filter_logfiles_summary">Berkas log (*.log) dari semua perangkat.</string>
+    <string name="systemcleaner_filter_logfiles_label">Berkas log sistem</string>
+    <string name="systemcleaner_filter_logfiles_summary">Berkas log sistem dan layanan sistem (misalnya *.log) di berbagai lokasi.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Cache instalasi</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Data cache terkait aplikasi yang terpasang yang digunakan oleh manajemen paket sistem.</string>
     <string name="systemcleaner_filter_advertisements_label">Berkas iklan</string>
     <string name="systemcleaner_filter_advertisements_summary">Berkas yang dibuat untuk atau oleh iklan.</string>
     <string name="systemcleaner_filter_anr_label">Kesalahan ANR</string>
@@ -248,8 +250,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Data yang dapat dibuat oleh Windows file explorer pada penyimpanan yang terhubung."</string>
     <string name="systemcleaner_filter_thumbnails_label">Gambar pratinjau</string>
     <string name="systemcleaner_filter_thumbnails_summary">Tampilan cache gambar dan video.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Berkas sementara</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Berkas sementara, biasanya cache yang berusia pendek untuk operasi aktif.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Berkas sementara sistem</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Berkas sementara yang terkait dengan sistem, biasanya berupa cache jangka pendek untuk operasi yang sedang berjalan.</string>
     <string name="systemcleaner_filter_analytics_label">Berkas analitik</string>
     <string name="systemcleaner_filter_analytics_summary">Data berhubungan dengan analitik dan pelacak bug.</string>
     <string name="systemcleaner_filter_downloadcache_label">Cache unduhan</string>
@@ -381,6 +383,8 @@
         <item quantity="other">Hapus berkas-berkas yang tidak penting untuk %d aplikasi yang terpilih?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Menghapus tembolok menggunakan Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Menentukan cache yang tidak dapat diakses</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Hapus cache tidak tersedia</string>
     <string name="deduplicator_tool_name">Deduplikator</string>
     <string name="deduplicator_explanation_short">Temukan data duplikat pada perangkat Anda.</string>
     <plurals name="deduplicator_result_x_clusters_processed">

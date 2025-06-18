@@ -230,8 +230,6 @@
     <string name="systemcleaner_filter_custom_label">কাস্টম ফিল্টার</string>
     <string name="systemcleaner_filter_custom_manage_label">কাস্টম ফিল্টার পরিচালনা করুন</string>
     <string name="systemcleaner_filter_custom_manage_summary">আপনার কাস্টম ফিল্টার তৈরি করুন, মুছুন, ইমপোর্ট করুন এবং এক্সপোর্ট করুন।</string>
-    <string name="systemcleaner_filter_logfiles_label">লগ ফাইলসমূহ</string>
-    <string name="systemcleaner_filter_logfiles_summary">সমস্ত ডিভাইস থেকে ফাইলগুলি (*.log) লগ করুন৷</string>
     <string name="systemcleaner_filter_advertisements_label">বিজ্ঞাপন ফাইলসমূহ</string>
     <string name="systemcleaner_filter_advertisements_summary">যে ফাইলগুলি বিজ্ঞাপনের জন্য বা দ্বারা তৈরি করা হয়েছে৷</string>
     <string name="systemcleaner_filter_anr_label">ANR errors</string>
@@ -256,8 +254,6 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"সংযুক্ত স্টোরেজে উইন্ডোজ ফাইল এক্সপ্লোরার তৈরি করতে পারে এমন ডেটা৷"</string>
     <string name="systemcleaner_filter_thumbnails_label">থাম্বনেল ছবি</string>
     <string name="systemcleaner_filter_thumbnails_summary">ছবি এবং ভিডিওর জন্য ক্যাশ প্রিভিউ।</string>
-    <string name="systemcleaner_filter_tempfiles_label">অস্থায়ী ফাইল</string>
-    <string name="systemcleaner_filter_tempfiles_summary">অস্থায়ী ফাইল, সাধারণত সক্রিয় অপারেশনের জন্য স্বল্পকালীন ক্যাশ।</string>
     <string name="systemcleaner_filter_analytics_label">বিশ্লেষণী ফাইল</string>
     <string name="systemcleaner_filter_analytics_summary">অ্যানালাইটস এবং বাগ ট্র্যাকিং সম্পর্কিত ডেটা।</string>
     <string name="systemcleaner_filter_downloadcache_label">ডাউনলোড ক্যাশ</string>

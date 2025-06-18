@@ -204,8 +204,6 @@
     <string name="systemcleaner_filter_custom_label">自訂過濾器</string>
     <string name="systemcleaner_filter_custom_manage_label">管理自訂過濾器</string>
     <string name="systemcleaner_filter_custom_manage_summary">建立、刪除、匯入或匯出您的自訂過濾器。</string>
-    <string name="systemcleaner_filter_logfiles_label">記錄檔案</string>
-    <string name="systemcleaner_filter_logfiles_summary">來自整部裝置的記錄檔案 (*.log)。</string>
     <string name="systemcleaner_filter_advertisements_label">廣告檔案</string>
     <string name="systemcleaner_filter_advertisements_summary">為廣告或由廣告建立的檔案。</string>
     <string name="systemcleaner_filter_anr_label">ANR 錯誤</string>
@@ -221,8 +219,6 @@
     <string name="systemcleaner_filter_windowsfiles_label">Windows 檔案</string>
     <string name="systemcleaner_filter_thumbnails_label">縮圖影像</string>
     <string name="systemcleaner_filter_thumbnails_summary">圖片和影片的快取預覽。</string>
-    <string name="systemcleaner_filter_tempfiles_label">暫存檔案</string>
-    <string name="systemcleaner_filter_tempfiles_summary">暫存檔案，通常用於進行中作業的短期快取。</string>
     <string name="systemcleaner_filter_analytics_label">分析檔案</string>
     <string name="systemcleaner_filter_analytics_summary">與分析和錯誤追縱相關的資料。</string>
     <string name="systemcleaner_filter_downloadcache_label">下載快取</string>

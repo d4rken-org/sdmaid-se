@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-    <string name="upgrade_feature_requires_pro">Memerlukan SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Naik tarafkan SD Maid</string>
     <string name="upgrades_dashcard_body">Buka kunci ciri tambahan dan menjadi penaung untuk menyokong pembangunan berterusan!</string>
     <string name="upgrades_dashcard_upgrade_action">Naik taraf</string>

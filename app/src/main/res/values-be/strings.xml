@@ -246,8 +246,6 @@
     <string name="systemcleaner_filter_custom_label">Карыстальніцкі фільтр</string>
     <string name="systemcleaner_filter_custom_manage_label">Кіраванне карыстальніцкімі фільтрамі</string>
     <string name="systemcleaner_filter_custom_manage_summary">Стварайце, выдаляйце, імпартуйце і экспартуйце вашы карыстальніцкія фільтры.</string>
-    <string name="systemcleaner_filter_logfiles_label">Файлы журналаў</string>
-    <string name="systemcleaner_filter_logfiles_summary">Файлы журналаў (*.log) з усёй прылады.</string>
     <string name="systemcleaner_filter_advertisements_label">Файлы рэкламы</string>
     <string name="systemcleaner_filter_advertisements_summary">Файлы, якія былі створаны для або з дапамогай рэкламы.</string>
     <string name="systemcleaner_filter_anr_label">Памылкі адказу праграм (ANR)</string>
@@ -272,8 +270,6 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Даныя, якія праграма Windows Explorer можа ствараць на падключаным сховішчы."</string>
     <string name="systemcleaner_filter_thumbnails_label">Эскізы выяў</string>
     <string name="systemcleaner_filter_thumbnails_summary">Кэшаваныя эскізы выяў і відэафайлаў.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Часовыя файлы</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Часовыя файлы, якія звычайна змяшчаюць кароткачасовы кэш для актыўных аперацый.</string>
     <string name="systemcleaner_filter_analytics_label">Файлы аналітыкі</string>
     <string name="systemcleaner_filter_analytics_summary">Даныя, звязаныя з аналітыкай і адсочваннем памылак.</string>
     <string name="systemcleaner_filter_downloadcache_label">Кэш спамповак</string>

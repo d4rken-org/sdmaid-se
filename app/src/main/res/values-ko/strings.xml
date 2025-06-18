@@ -113,12 +113,14 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">SD Maid가 가능하다면 Shizuku를 사용해 일부 기능을 활성화하고 더 좋은 결과를 얻을 수 있게 허용합니다.</string>
     <string name="setup_shizuku_card_body2">기기에 Shizuku 앱이 없다면 설정을 활성화할 때 효과가 없습니다.</string>
+    <string name="setup_shizuku_card_root_info">루팅과 Shizuku를 쓰면 추가적 기능보다는 안정성이 증가합니다. SD Maid는 그것을 보조 방법으로 사용할 것입니다.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku 연결이 준비되었습니다.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku의 연결을 기다리고 있습니다.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">가능하다면 Shizuku 사용하기</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku 사용하지 않음</string>
     <string name="setup_dismiss_hint">본 초기 설정은 앱 내 설정 메뉴에서 다시 볼 수 있습니다.</string>
     <string name="setup_permission_granted_label">권한 부여 완료</string>
+    <string name="setup_permission_error_label">권한 오류</string>
     <string name="setup_usagestats_title">사용 통계</string>
     <string name="setup_usagestats_body">사용 통계 권한을 부여하면 SD Maid가 각 앱의 추가적 세부 정보를 확인할 수 있습니다. SD Maid는 캐시 크기 정보를 사용합니다.</string>
     <string name="setup_usagestats_hint">접근성 서비스를 통한 캐시 삭제 기능을 위해 필요합니다.</string>
@@ -145,6 +147,7 @@
     <string name="setup_inventory_card_title">앱 보관소</string>
     <string name="setup_inventory_card_body">설치한 어떤 앱에도 속하지 않은 파일을 찾으려면 어떤 앱이 필요한지 알아야 해요.</string>
     <string name="setup_inventory_card_extra">“앱 목록”이나 “폭 넓은 패키지 가시성”이라는 권한을 찾으세요.</string>
+    <string name="setup_inventory_invalid_message">시스템은 설치된 앱 목록을 잘못 제공합니다 (예/ 너무 적거나 뭔가 빠져있는). 시스템 설정에서, SD Maid가 \"앱 목록\"에 접근할 수 있도록 해주세요.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid에서 스캔할 수 있는 저장 공간이 없습니다. 초기 설정을 끝마치셨나요?</string>
     <string name="dataarea_warningcard_label">데이터 영역</string>
     <string name="dataarea_warningcard_reload_action">데이터 영역 새로고침</string>
@@ -212,13 +215,13 @@
     <string name="systemcleaner_filter_custom_label">사용자 지정 필터</string>
     <string name="systemcleaner_filter_custom_manage_label">사용자 정의 필터 관리</string>
     <string name="systemcleaner_filter_custom_manage_summary">사용자 지정 필터를 만들거나, 삭제하거나, 불러오고 내보내세요.</string>
-    <string name="systemcleaner_filter_logfiles_label">로그 파일</string>
-    <string name="systemcleaner_filter_logfiles_summary">기기에서 찾은 로그 (*.log) 파일입니다.</string>
     <string name="systemcleaner_filter_advertisements_label">광고 파일</string>
     <string name="systemcleaner_filter_advertisements_summary">광고에 의해, 또는 광고를 위해 생성한 파일입니다.</string>
     <string name="systemcleaner_filter_anr_label">응답 없음 에러</string>
     <string name="systemcleaner_filter_anr_summary">애플리케이션이 응답이 없을 때 생성되는 추적용 파일입니다.</string>
     <string name="systemcleaner_filter_emptydirectories_label">빈 폴더</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">기기에 퍼져있는 빈 폴더들입니다. 다중 폴더의 경우 여러 번의 시도가 필요할 수 있습니다.</string>
+    <string name="systemcleaner_filter_screenshots_label">스크린샷</string>
     <string name="systemcleaner_filter_superfluosapks_label">불필요한 APK 파일</string>
     <string name="systemcleaner_filter_superfluosapks_summary">설치된 앱 버젼보다 낮거나 같은 버젼의 APK 파일입니다.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 폴더</string>
@@ -230,8 +233,6 @@
     <string name="systemcleaner_filter_windowsfiles_label">윈도우 파일</string>
     <string name="systemcleaner_filter_thumbnails_label">썸네일 이미지</string>
     <string name="systemcleaner_filter_thumbnails_summary">사진과 영상의 미리보기 파일입니다.</string>
-    <string name="systemcleaner_filter_tempfiles_label">임시 파일</string>
-    <string name="systemcleaner_filter_tempfiles_summary">작업 중 임시로 생성되는 파일입니다.</string>
     <string name="systemcleaner_filter_analytics_label">분석 파일</string>
     <string name="systemcleaner_filter_analytics_summary">버그 추적과 분석에 사용되는 파일입니다.</string>
     <string name="systemcleaner_filter_downloadcache_label">다운로드 캐시</string>
@@ -409,6 +410,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">번들</string>
     <string name="appcontrol_tag_system">시스템</string>
+    <string name="appcontrol_tag_not_installed">설치되지 않음</string>
     <string name="appcontrol_tag_enabled">사용하고 있습니다</string>
     <string name="appcontrol_tag_disabled">사용하지 않고 있습니다</string>
     <string name="appcontrol_progress_enabling_package">앱 활성화 중</string>
@@ -439,9 +441,11 @@
     <string name="appcontrol_export_app_selection_action">앱들 내보내기</string>
     <string name="appcontrol_export_title">앱 내보내기</string>
     <string name="appcontrol_progress_exporting_x">%s 내보내는 중</string>
+    <string name="appcontrol_force_stop_action">강제 종료</string>
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="other">%d 앱을 중지했습니다.</item>
     </plurals>
+    <string name="appcontrol_automation_subtitle_force_stopping">강제 종료 중…</string>
     <string name="analyzer_tool_name">저장소 분석기</string>
     <string name="analyzer_explanation_short">무엇이 저장 공간을 차지하고 있는지 확인합니다.</string>
     <string name="analyzer_progress_scanning_device">저장 장치 검색 중</string>
@@ -569,9 +573,11 @@
     <string name="motd_setting_enabled_explanation">SD Maid가 개발자의 중요한 메시지를 확인하도록 하용합니다.</string>
     <string name="updatecheck_setting_enabled_label">업데이트 확인</string>
     <string name="updatecheck_setting_enabled_explanation">새로운 버전을 사용할 수 있으면 알 수 있도록 SD Maid가 업데이트를 확인하도록 허용하세요.</string>
+    <string name="device_settings_category">기기</string>
     <string name="beta_version_indicator_desc">프리-릴리즈 버전에서는 시작 화면에 작은 리본을 보입니다. 이는 조금 더 자주 업데이트하고, 더 많은 기능이 있을 수 있지만, 그만큼 더 많은 버그도 있을 수 있습니다.</string>
     <string name="review_app_review_action">리뷰</string>
     <string name="review_app_dismiss_action">다음에 해요</string>
     <string name="review_app_body">SD Maid 리뷰를 남겨주시겠어요?️ ❤️</string>
+    <string name="stats_label">이력</string>
     <string name="stats_settings_reset_all_label">모두 초기화</string>
 </resources>

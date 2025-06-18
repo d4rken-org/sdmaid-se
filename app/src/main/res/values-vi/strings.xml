@@ -385,9 +385,10 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Xóa bộ đệm bằng cách sử dụng Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Xác định bộ nhớ đệm không thể truy cập</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Xóa bộ nhớ đệm không khả dụng</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">Hệ thống đã vô hiệu hóa nút \"Xóa bộ nhớ đệm\" cho ứng dụng này. Tạo một loại trừ cho ứng dụng này.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Hệ thống đã tắt nút \"Xóa bộ nhớ đệm\" cho ứng dụng này. Loại bỏ nó để tăng tốc độ xóa bộ nhớ đệm.</string>
     <string name="appcleaner_automation_error_no_settings_title">Màn hình cài đặt không khả dụng</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ứng dụng hệ thống này không có màn hình cài đặt. Không thể xóa bộ nhớ đệm thông qua dịch vụ trợ năng. Tạo loại trừ cho ứng dụng này.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Màn hình cài đặt không có sẵn trên ứng dụng hệ thống này. Không thể xóa bộ nhớ đệm thông qua dịch vụ trợ năng. Loại bỏ nó để tăng tốc độ xóa bộ nhớ đệm.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Ứng dụng hệ thống bị cấu hình sai</string>
     <string name="deduplicator_tool_name">Quản lý tệp trùng lặp</string>
     <string name="deduplicator_explanation_short">Tìm dữ liệu trùng lặp trên thiết bị của bạn.</string>
     <plurals name="deduplicator_result_x_clusters_processed">

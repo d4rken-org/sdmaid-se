@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="tasks_activity_working_notification_title">SD Maid is working</string>
+    <string name="onboarding_welcome_body1">SD Maid SE manages files, apps and storage.</string>
+    <string name="onboarding_welcome_body2"></string>
+    <string name="onboarding_versus_body1">SD Maid SE (aka. SD Maid 2) is the successor to SD Maid (aka. SD Maid 1). A new app, optimized for modern Android.</string>
+    <string name="onboarding_versus_body3"></string>
+    <string name="settings_privacy_policy_label">Privacy policy</string>
     <string name="automation_error_screen_unavailable_title">A képernyő nem elérhető</string>
     <string name="automation_error_screen_unavailable_body">A művelet megszakadt, mert a képernyő elérhetetlenné vált (pl. a kijelző kikapcsolva vagy a képernyőzár aktív).</string>
 </resources>

@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Zaznamenajte denník ladenia</string>
     <string name="debug_debuglog_stop_action">Ukončiť nahrávanie</string>
     <string name="debug_debuglog_sensitive_information_message">Vygenerovaný súbor obsahuje citlivé informácie (napr. názvy súborov a nainštalované aplikácie). Zdieľajte ho iba s dôveryhodnými stranami.</string>
+    <string name="settings_debuglog_explanation">Táto funkcia zaznamenáva všetko, čo aplikácia robí, do zdieľaného súboru. Vygenerovaný súbor obsahuje citlivé informácie (napr. názvy súborov a nainštalované aplikácie). Zdieľajte ho iba s dôveryhodnými stranami (napr. vývojár, ktorý rieši problém).</string>
     <string name="tasks_activity_notification_channel_label">Aktívne úlohy</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -76,6 +77,7 @@
     <string name="ui_previews_title">Náhľady súborov</string>
     <string name="ui_previews_summary">Zobrazte náhľady súborov vo všetkých nástrojoch (napr. miniatúry obrázkov a videí).</string>
     <string name="ui_language_override_label">Jazyk aplikácie</string>
+    <string name="ui_language_override_desc">Vyberte iný jazyk pre SD Maid, nezávisle od predvoleného jazyka vášho systému. Aktuálne: %s</string>
     <string name="settings_support_label">Podpora</string>
     <string name="settings_support_description">Čítajte dokumentáciu, hláste problémy, chatujte s ostatnými alebo zaznamenávajte denníky ladenia.</string>
     <string name="documentation_label">Dokumentácia</string>
@@ -97,7 +99,9 @@
     <string name="setup_incomplete_card_continue_action">Pokračovať v nastavení</string>
     <string name="setup_title">Nastavenie</string>
     <string name="setup_forcedshow_summary">Znova zobraziť obrazovku nastavenia vrátane už dokončených položiek.</string>
+    <string name="setup_checking_card_body">Overenie dokončenia nastavenia a funkčnosti.</string>
     <string name="general_error_setup_require_label">Nastavenie je neúplné</string>
+    <string name="general_error_setup_require_msg">Na používanie tejto funkcie je potrebné ďalšie nastavenie. Dokončite zostávajúce kroky nastavenia.</string>
     <string name="setup_saf_card_title">Framework prístupu k úložisku</string>
     <string name="setup_saf_card_body">Zlepšite výsledky udelením prístupu SD Maid do ďalších oblastí.</string>
     <string name="setup_saf_card_body2">Vo väčšine prípadov sa otvorí okno so správnou predvolenou cestou. Po udelení prístupu sa položky rozsvietia na zeleno. </string>
@@ -116,12 +120,14 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Povoľte SD Maid používať Shizuku tam, kde je to možné, na zlepšenie výsledkov a aktiváciu funkcií.</string>
     <string name="setup_shizuku_card_body2">Toto nastavenie nemá žiadny vplyv, ak na vašom zariadení nie je nastavená aplikácia Shizuku.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku v kombinácii s prístupom root neumožňuje ďalšie funkcie, ale zvyšuje spoľahlivosť. SD Maid ju použije ako záložnú metódu.</string>
     <string name="setup_shizuku_state_ready_label">Prepojenie na Shizuku je pripravené.</string>
     <string name="setup_shizuku_state_waiting_label">Čaká sa na spojenie so Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Použite Shizuku, ak je k dispozícii</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Nepoužiť Shizuku</string>
     <string name="setup_dismiss_hint">Obrazovku úvodného nastavenia môžete znova nájsť cez ponuku nastavení.</string>
     <string name="setup_permission_granted_label">Povolenie udelené</string>
+    <string name="setup_permission_error_label">Chyba oprávnenia</string>
     <string name="setup_usagestats_title">Štatistiky používania</string>
     <string name="setup_usagestats_body">Povolenie štatistiky používania poskytuje prístup k ďalším podrobnostiam aplikácie. SD Maid ju používa na určenie dodatočných veľkostí vyrovnávacej pamäte.</string>
     <string name="setup_usagestats_hint">Vyžaduje sa na vymazanie vyrovnávacej pamäte na základe služby dostupnosti.</string>
@@ -145,6 +151,10 @@
     <string name="setup_acs_disallow_hint">Ak si to rozmyslíte, môžete túto možnosť opäť zmeniť tak, že prejdete do nastavení a reštartujete nastavenie.</string>
     <string name="setup_acs_appops_restriction_title">Obmedzené nastavenia</string>
     <string name="setup_acs_appops_restriction_body">Nemôžete povoliť službu dostupnosti SD Maid? Android 13+ môže uplatňovať obmedzenia na aplikácie, ktoré nie sú nainštalované prostredníctvom služby Google Play. Zrušte tieto obmedzenia zo stránky s podrobnosťami o systéme pre SD Maid. Možnosť je v kontextovom menu v pravom hornom rohu.</string>
+    <string name="setup_inventory_card_title">Inventár aplikácií</string>
+    <string name="setup_inventory_card_body">SD Maid potrebuje vedieť, ktoré aplikácie máte na nájdenie súborov, ktoré nepatria k žiadnym nainštalovaným aplikáciám.</string>
+    <string name="setup_inventory_card_extra">Vyhľadajte povolenie s názvom „Zoznam aplikácií“ alebo „Dopyt na všetky balíky“.</string>
+    <string name="setup_inventory_invalid_message">Systém poskytol neplatný zoznam nainštalovaných aplikácií (napr. príliš málo alebo niektoré chýbali). Prejdite do nastavení systému a povoľte SD Maid prístup k \"Zoznamu aplikácií\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nenašiel žiadne dátové oblasti, ktoré by bolo možné skenovať. Dokončili ste nastavenie?</string>
     <string name="dataarea_warningcard_label">Dátové oblasti</string>
     <string name="dataarea_warningcard_reload_action">Znovu načítajte dátové oblasti</string>
@@ -224,12 +234,16 @@
     <string name="systemcleaner_filter_custom_label">Vlastný filter</string>
     <string name="systemcleaner_filter_custom_manage_label">Spravovať vlastné filtre</string>
     <string name="systemcleaner_filter_custom_manage_summary">Vytvorte, odstráňte, importujte a exportujte svoje vlastné filtre.</string>
-    <string name="systemcleaner_filter_logfiles_label">Log súbory</string>
-    <string name="systemcleaner_filter_logfiles_summary">Súbory záznamov (*.log) z celého zariadenia.</string>
     <string name="systemcleaner_filter_advertisements_label">Reklamné súbory</string>
     <string name="systemcleaner_filter_advertisements_summary">Súbory, ktoré boli vytvorené pre reklamy alebo prostredníctvom reklám.</string>
     <string name="systemcleaner_filter_anr_label">ANR chyby</string>
     <string name="systemcleaner_filter_anr_summary">Sledovanie udalostí typu „aplikácia nereaguje“.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Prázdne priečinky</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Vyprázdnite priečinky z celého zariadenia. Vnorené priečinky môžu vyžadovať viacero prechodov.</string>
+    <string name="systemcleaner_filter_screenshots_label">Snímky obrazovky</string>
+    <string name="systemcleaner_filter_screenshots_summary">Snímky obrazovky staršie ako %s z viacerých aplikácií a umiestnení.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Vek snímky obrazovky</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Minimálny vek pre snímky obrazovky, ktoré je potrebné zvážiť na odstránenie.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Nadbytočné súbory APK</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Inštalačné súbory, ktoré sú staršie alebo rovnaké ako verzie aplikácií, ktoré sú už nainštalované.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR priečinky</string>
@@ -239,10 +253,9 @@
     <string name="systemcleaner_filter_macfiles_label">Mac súbory</string>
     <string name="systemcleaner_filter_macfiles_summary">Súbory a priečinky, ktoré sa vytvárajú pri prehliadaní úložiska pomocou aplikácie Apple Finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows súbory</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Údaje, ktoré môže prieskumník súborov systému Windows vytvoriť na pripojenom úložisku."</string>
     <string name="systemcleaner_filter_thumbnails_label">Náhľady obrázkov</string>
     <string name="systemcleaner_filter_thumbnails_summary">Ukážky obrázkov a videí uložené vo vyrovnávacej pamäti.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Dočasné súbory</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Dočasné súbory, zvyčajne krátkodobé vyrovnávacie pamäte pre aktívne operácie.</string>
     <string name="systemcleaner_filter_analytics_label">Analytické súbory</string>
     <string name="systemcleaner_filter_analytics_summary">Údaje súvisiace s analytikou a sledovaním chýb.</string>
     <string name="systemcleaner_filter_downloadcache_label">Vyrovnávacia pamäť sťahovania</string>
@@ -280,6 +293,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Vylúčenia</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Výsledok bude vylúčený, ak sa cesta zhoduje s akoukoľvek položkou (napr. „DCIM“). Dlhým stlačením položiek získate ďalšie možnosti.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Režim porovnávania ciest</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Cesta začína kľúčovým slovom</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Cesta obsahuje kľúčové slovo</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Cesta končí kľúčovým slovom</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Cesta je rovnaká ako kľúčové slovo</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Režim porovnávania mien</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Názov začína kľúčovým slovom</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Názov obsahuje kľúčové slovo</string>
@@ -331,6 +348,8 @@
     <string name="appcleaner_filter_webview_summary">Súbory uložené vo vyrovnávacej pamäti inštanciami Webview používané v aplikáciách.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Zálohy WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Odstráňte nadbytočné kópie záloh WhatsApp a ponechajte si iba najnovšie.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Súbory, ktoré ste dostali od ľudí cez WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp prijaté súbory</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp odoslané súbory</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Súbory odoslané z WhatsApp ostatným.</string>
     <string name="appcleaner_filter_telegram_label">Mediálne súbory Telegramu</string>
@@ -341,6 +360,8 @@
     <string name="appcleaner_filter_wechat_summary">Odoslané alebo prijaté súbory v konverzáciách a WeChat momentoch.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Mediálne súbory uložené vo vyrovnávacej pamäti, ktoré sa pri zobrazení v rozhovore znova stiahnu.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ chat</string>
+    <string name="appcleaner_filter_qqchat_summary">Odoslané alebo prijaté súbory v chatových konverzáciách QQ.</string>
     <string name="appcleaner_delete_all_confirmation_message">Odstrániť nepotrebné položky pre všetky aplikácie?</string>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d nepotrebná položka nájdená</item>
@@ -351,6 +372,11 @@
     <string name="appcleaner_automation_loading">Príprava automatizácie prostredníctvom služby dostupnosti</string>
     <string name="appcleaner_automation_title">Automatizácia Čističa aplikácií</string>
     <string name="appcleaner_automation_subtitle_default_caches">Vymazáva sa predvolená vyrovnávacia pamäť…</string>
+    <string name="appcleaner_automation_progress_open_settings">Otvára sa obrazovka nastavení (kľúčové slová: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Hľadá sa položka \"Úložisko\" (kľúčové slová: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Hľadá sa tlačidlo \"Vymazať údaje\" (kľúčové slová: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Hľadá sa tlačidlo „Vymazať vyrovnávaciu pamäť“ (kľúčové slová: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Pokúšam sa potvrdiť predchádzajúcu akciu (kľúčové slová: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Predvolená vyrovnávacia pamäť</string>
     <string name="appcleaner_item_caches_inaccessible_body">Verejné a súkromné predvolené vyrovnávacie pamäte. Nie je priamo prístupné, ale možno ho vymazať nepriamo (napr. prostredníctvom služby dostupnosti).</string>
     <string name="appcleaner_automation_unavailable_title">Služba dostupnosti nie je k dispozícii</string>
@@ -417,6 +443,7 @@
     <string name="appcontrol_app_launch_title">Spustiť aplikáciu</string>
     <string name="appcontrol_app_launch_description">Spustite hlavnú aktivitu tejto aplikácie.</string>
     <string name="appcontrol_app_forcestop_title">Vynútiť zastavenie</string>
+    <string name="appcontrol_app_forcestop_description">Zastaví aplikáciu. Zabraňuje jej samotnému spusteniu, kým ju neotvoríte alebo kým sa zariadenie nereštartuje.</string>
     <string name="appcontrol_app_uninstall_description">Odinštalujte túto aplikáciu zo svojho zariadenia.</string>
     <string name="appcontrol_app_exclude_add_title">Vylúčiť aplikáciu</string>
     <string name="appcontrol_app_exclude_add_description">Vylúčte túto aplikáciu z iných operácií v SD Maid.</string>
@@ -427,6 +454,7 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Balík</string>
     <string name="appcontrol_tag_system">Systém</string>
+    <string name="appcontrol_tag_archived">Archivované</string>
     <string name="appcontrol_tag_enabled">Povolené</string>
     <string name="appcontrol_tag_disabled">Zakázané</string>
     <string name="appcontrol_progress_enabling_package">Aktivácia aplikácie</string>
@@ -444,9 +472,22 @@
     <string name="appcontrol_app_sizes_data_label">Dáta</string>
     <string name="appcontrol_app_sizes_cache_label">Vyrovnávacia pamäť</string>
     <string name="appcontrol_toggle_confirmation_title">Potvrdiť akciu</string>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Určte veľkosti</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Získajte hrubý odhad veľkosti každej aplikácie.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Určiť aktivitu</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Zistite, či je aplikácia (alebo nedávno bola) aktívna.</string>
     <string name="appcontrol_export_app_selection_action">Exportovať aplikácie</string>
     <string name="appcontrol_export_title">Exportovať aplikáciu</string>
+    <string name="appcontrol_export_description">Uložte inštalačné súbory tejto aplikácie. Nezahŕňa to údaje aplikácie.</string>
+    <string name="appcontrol_progress_exporting_x">Exportovanie %s</string>
+    <string name="appcontrol_force_stop_selection_action">Vynútiť zastavenie aplikácií</string>
     <string name="appcontrol_force_stop_action">Vynútiť zastavenie</string>
+    <string name="appcontrol_force_stop_confirm_title">Potvrďte vynútené zastavenie</string>
+    <string name="appcontrol_automation_loading">Príprava automatizácie prostredníctvom služby dostupnosti</string>
+    <string name="appcontrol_automation_title">Automatizácia Správcu aplikácií</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Vynútené zastavenie…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Hľadá sa tlačidlo „Vynútiť zastavenie“ (kľúčové slová: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Pokúšam sa potvrdiť predchádzajúcu akciu (kľúčové slová: %s)</string>
     <string name="analyzer_tool_name">Analyzátor úložiska</string>
     <string name="analyzer_explanation_short">Zistite, čo zaberá miesto na vašom zariadení.</string>
     <string name="analyzer_progress_scanning_device">Vyhľadávanie úložných zariadení</string>
@@ -473,6 +514,7 @@
     <string name="analyzer_storage_type_secondary_title">Sekundárne úložisko</string>
     <string name="analyzer_storage_type_secondary_description">Sekundárne úložisko, zvyčajne vymeniteľná SD karta. Obsahuje mediálne súbory a údaje z aplikácií, ktoré to podporujú.</string>
     <string name="analyzer_storage_type_tertiary_title">Prenosné úložisko</string>
+    <string name="analyzer_storage_type_tertiary_description">Prenosné úložisko, napr. flash disk zapojený do portu USB.</string>
     <string name="analyzer_storage_content_title">Obsah úložiska</string>
     <string name="analyzer_storage_content_type_app_label">Aplikácie</string>
     <string name="analyzer_storage_content_type_app_description">Priestor, ktorý zaberajú nainštalované aplikácie a ich údaje (t. j. súbory aplikácie, údaje a vyrovnávacie pamäte).</string>
@@ -482,6 +524,7 @@
     <string name="analyzer_storage_content_type_system_label">Systémové údaje</string>
     <string name="analyzer_storage_content_type_system_description">Systémové aplikácie a systémové údaje. Aplikácie a údaje od iných používateľov, ak je na tomto zariadení nastavených niekoľko používateľských účtov.</string>
     <string name="analyzer_storage_content_app_code_label">Kód aplikácie</string>
+    <string name="analyzer_storage_content_app_code_description">Aplikačné súbory, knižnice a zdroje. Tento priestor je možné uvoľniť odinštalovaním aplikácie alebo jej archiváciou (k dispozícii v novšej verzii Androidu).</string>
     <string name="analyzer_storage_content_app_data_label">Dáta aplikácie</string>
     <string name="analyzer_storage_content_app_data_description">Dáta, nastavenia a vyrovnávacie pamäte.</string>
     <string name="analyzer_storage_content_app_media_label">Médiá aplikácie</string>
@@ -489,6 +532,7 @@
     <string name="analyzer_storage_content_app_extra_label">Dodatočné súbory aplikácií</string>
     <string name="analyzer_storage_content_app_extra_description">Ďalšie údaje, ktoré táto aplikácia umiestnila mimo predvolených ciest, napr. fotografie alebo stiahnuté súbory.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Táto aplikácia zaberá %1$s na „%2$s“.</string>
+    <string name="analyzer_app_details_app_is_archived">Táto aplikácia bola archivovaná.</string>
     <string name="data_area_public_app_data_official_label">Predvolené verejné údaje aplikácie</string>
     <string name="data_area_public_app_assets_official_label">Predvolené verejné údaje aplikácie</string>
     <string name="data_area_public_storage_label">Verejné úložisko</string>
@@ -510,6 +554,7 @@
     <string name="exclusion_option_allow_partial">Povoliť čiastočné zhody</string>
     <string name="exclusion_option_ignore_casing">Ignorovať veľkosť písmen</string>
     <string name="exclusion_editor_affected_tools_label">Ovplyvnené nástroje</string>
+    <string name="exclusion_editor_path_explanation">Vylúčenie cesty bráni SD Maid v ďalšom spracovaní akýchkoľvek zodpovedajúcich ciest. Týka sa to súborov, priečinkov a podpriečinkov.</string>
     <string name="exclusion_editor_pkg_explanation">Vylúčenie aplikácie bráni SD Maid v spracovaní akýchkoľvek zodpovedajúcich balíkov.</string>
     <string name="exclusion_editor_segment_explanation">Vylúčenie na základe segmentu je podobné vylúčeniu cesty, ale umožňuje čiastočné zhody. Príklad: „DCIM/Camera“ nezahŕňa „/sdcard/DCIM/Camera/photo.png“.</string>
     <string name="exclusion_editor_remove_confirmation_message">Odstrániť túto výnimku?</string>
@@ -525,6 +570,7 @@
         <item quantity="many">%d vylúčení vytvorených</item>
         <item quantity="other">%d vylúčení vytvorených</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Zobraziť predvolené</string>
     <string name="automation_accessibility_service_description">Užívatelia s potrebou špeciálneho prístupu môžu túto službu povoliť, aby SD Maid mohlo automatizovať úlohy, ktoré by inak vyžadovali ručný zásah užívatela(napr. čistenie medzipamäte).\n\nPríklad: Ak zadáte aplikácii SD Maid príkaz, aby zastavila niekoľko aplikácií, môže SD Maid túto službu použiť k otvoreniu obrazovky nastavenia každej aplikácie, k nájdeniu tlačidla \"Vynútiť zastavenie\" a klepnúť naň.\n\nSD Maid vám vždy zobrazí používanie tejto služby, aby ste v prípade potreby mohli kedykoľvek zrušiť danú akciu.\n\nŽiadna akcia sa nevykoná bez predchádzajúceho súhlasu užívateľa. Táto služba môže byť kedykoľvek zakázaná bez nežiadúcich účinkov.</string>
     <string name="automation_screenoverlay_explanation">SD Maid komunikuje s vaším zariadením. Nie je možné súčasne používať obrazovku. Počkajte na dokončenie operácie alebo ju zrušte.</string>
     <string name="automation_active_title">SD Maid pracuje</string>
@@ -577,6 +623,7 @@
     <string name="scheduler_notification_result_failure_message">Niektoré naplánované úlohy zlyhali alebo sa vyskytli chyby. Skúste ich spustiť manuálne.</string>
     <string name="scheduler_commands_after_schedule_label">Príkazy po rozvrhu</string>
     <string name="scheduler_commands_after_schedule_desc">Príkazy prostredia Android, ktoré sa vykonajú na konci plánu.</string>
+    <string name="scheduler_battery_optimization_hint">Ak máte problémy so spustením na pozadí, zvážte vypnutie optimalizácie batérie pre SD Maid.</string>
     <string name="updates_dashcard_title">Aktualizácia je k dispozícii</string>
     <string name="updates_dashcard_body">K dispozícii je aktualizácia. Máte %1$s a najnovšia verzia je %2$s.</string>
     <string name="translation_encourage_title">Preložiť SD Maid</string>
@@ -588,5 +635,28 @@
     <string name="updatecheck_setting_enabled_label">Kontrola aktualizácií</string>
     <string name="updatecheck_setting_enabled_explanation">Umožnite aplikácii SD Maid skontrolovať aktualizácie, aby ste vedeli, či je k dispozícii novšia verzia.</string>
     <string name="device_settings_category">Zariadenie</string>
+    <string name="beta_version_indicator_desc">Predbežné verzie zobrazujú na úvodnej obrazovke malú stuhu. Aktualizujú sa častejšie, môžu mať viac funkcií, ale môžu mať aj viac chýb.</string>
+    <string name="review_app_review_action">Ohodnotiť</string>
     <string name="review_app_dismiss_action">Možno pozdejšie</string>
+    <string name="review_app_body">Chceli by ste zanechať recenziu SD Maid?️ ❤️</string>
+    <string name="stats_label">História</string>
+    <string name="stats_report_status_success">Úspech</string>
+    <string name="stats_report_status_partial_success">Čiastočný úspech</string>
+    <string name="stats_report_status_partial_failure">Zlyhanie</string>
+    <string name="stats_settings_desc">Nakonfigurujte štatistiky, správy a uchovávanie údajov SD Maid.</string>
+    <string name="stats_settings_retention_category">Zachovanie</string>
+    <string name="stats_settings_retention_reports_label">Všeobecné správy</string>
+    <string name="stats_settings_retention_reports_desc">Počet dní pred odstránením základných správ o prevádzke SD Maid.</string>
+    <string name="stats_settings_retention_paths_label">Podrobné informácie o ceste</string>
+    <string name="stats_settings_retention_paths_desc">Počet dní uchovávania podrobností o cestách ovplyvnených službou SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d deň</item>
+        <item quantity="few">%d dni</item>
+        <item quantity="many">%d dní</item>
+        <item quantity="other">%d dní</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Obnoviť všetko</string>
+    <string name="stats_settings_reset_all_desc">Odstráňte všetky prehľady a nastavte všetky štatistiky na nulu.</string>
+    <string name="stats_affected_paths_label">Ovplyvnené cesty</string>
+    <string name="stats_affected_pkgs_label">Ovplyvnené aplikácie</string>
 </resources>

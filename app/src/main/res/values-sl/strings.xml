@@ -246,8 +246,6 @@
     <string name="systemcleaner_filter_custom_label">Filter po meri</string>
     <string name="systemcleaner_filter_custom_manage_label">Upravljaj s filtri po meri</string>
     <string name="systemcleaner_filter_custom_manage_summary">Ustvarite, izbrišite, uvozite ali izvozite filtre po meri.</string>
-    <string name="systemcleaner_filter_logfiles_label">Dnevniške datoteke</string>
-    <string name="systemcleaner_filter_logfiles_summary">Dnevniške datoteke (*.log) s celotne naprave.</string>
     <string name="systemcleaner_filter_advertisements_label">Oglasne datoteke</string>
     <string name="systemcleaner_filter_advertisements_summary">Datoteke, ki so bile ustvarjene za ali z oglasi.</string>
     <string name="systemcleaner_filter_anr_label">Napake ANR</string>
@@ -272,8 +270,6 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Podatki, ki jih lahko ustvari Raziskovalec Windows, ko priklopite napravo."</string>
     <string name="systemcleaner_filter_thumbnails_label">Sličice</string>
     <string name="systemcleaner_filter_thumbnails_summary">Predpomnjeni predogledi slik in videoposnetkov.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Začasne datoteke</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Začasne datoteke in običajno kratkotrajni predpomnilniki dejavnih opravil.</string>
     <string name="systemcleaner_filter_analytics_label">Analitične datoteke</string>
     <string name="systemcleaner_filter_analytics_summary">Podatki, ki so povezani z analitiko in sledenjem hroščev.</string>
     <string name="systemcleaner_filter_downloadcache_label">Predpomnilnik prenosov</string>
