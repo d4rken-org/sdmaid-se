@@ -2,13 +2,10 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-
     <string name="upgrade_feature_requires_pro">SD Maid SE FOSS ਦੀ ਲੋੜ ਹੈ</string>
-
     <string name="upgrades_dashcard_title">SD Maid ਨੂੰ ਅੱਪਗ੍ਰੇਡ ਕਰੋ</string>
     <string name="upgrades_dashcard_body">ਵਾਧੂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਅਨਲੌਕ ਕਰੋ ਅਤੇ ਨਿਰੰਤਰ ਵਿਕਾਸ ਦਾ ਸਮਰਥਨ ਕਰਨ ਲਈ ਸਰਪ੍ਰਸਤ ਬਣੋ!</string>
     <string name="upgrades_dashcard_upgrade_action">ਅੱਪਗ੍ਰੇਡ ਕਰੋ</string>
-
     <string name="upgrade_screen_title">SD Maid ਨੂੰ ਬਿਹਤਰ ਬਣਾਓ</string>
     <string name="upgrade_screen_preamble">SD Maid ਵਿੱਚ ਕੋਈ ਵਿਗਿਆਪਨ ਨਹੀਂ ਹਨ ਅਤੇ ਇਹ ਉਪਭੋਗਤਾ ਡੇਟਾ ਨਹੀਂ ਵੇਚਦਾ। ਨਿਰੰਤਰ ਵਿਕਾਸ ਸਿਰਫ਼ ਤੁਹਾਡੇ ਦੁਆਰਾ ਹੀ ਸੰਭਵ ਹੈ।</string>
     <string name="upgrade_screen_how_title">ਮਦਦ ਕਿਵੇਂ ਕਰੀਏ</string>

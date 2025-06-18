@@ -7,7 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">پشکنین و سڕینەوە بۆ هەموو ئامرازەکان بە کرتەکردن لەسەر دوگمەی کردار لە دیمەنی سەرەکیدا دەست پێ بکە، بەبێ پشتڕاستکردنەوەی زیادە.</string>
     <string name="dashboard_settings_oneclick_tools_title">ئامرازەکانی یەک-کرتە</string>
     <string name="dashboard_settings_oneclick_tools_desc">کام ئامرازەکان دەبێت لە کردارەکانی یەک-کرتەدا بگیرێنە بەر؟</string>
-
     <string name="debug_debuglog_size_label">قەبارە</string>
     <string name="debug_debuglog_size_compressed_label">قەبارەی پەستکراو</string>
     <string name="debug_notification_channel_label">ئاگاداری چاکسازی</string>
@@ -17,7 +16,6 @@
     <string name="debug_debuglog_stop_action">وەستاندنی تۆمارکردن</string>
     <string name="debug_debuglog_sensitive_information_message">فایلی دروستکراو زانیاری هەستیار لەخۆدەگرێت (بۆ نموونە ناوی فایلەکان و ئەپە دامەزراوەکان). تەنها لەگەڵ لایەنە متمانەپێکراوەکاندا هاوبەشی بکە.</string>
     <string name="settings_debuglog_explanation">ئەم تایبەتمەندیەی هەموو ئەوەی ئەپەکە دەیکات لە فایلێکی هاوبەشکراودا تۆمار دەکات. فایلی دروستکراو زانیاری هەستیار لەخۆدەگرێت (بۆ نموونە ناوی فایلەکان و ئەپە دامەزراوەکان). تەنها لەگەڵ لایەنە متمانەپێکراوەکاندا هاوبەشی بکە (بۆ نموونە پەرەپێدەرێک کە کێشەیەک چارەسەر دەکات).</string>
-
     <string name="tasks_activity_notification_channel_label">ئەرکە چالاکەکان</string>
     <string name="tasks_activity_working_notification_title">SD Maid کار دەکات</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -30,33 +28,28 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">ئەنجامەکانی ئەرک</string>
     <string name="tasks_result_subtext">ئەنجامی ئەرک</string>
-
     <string name="onboarding_welcome_title">بەخێرهاتن</string>
     <string name="onboarding_welcome_body1">SD Maid SE فایل، ئەپ و کۆگا بەڕێوە دەبات.</string>
     <string name="onboarding_welcome_body2">شوێنی کۆگا بەدەست بهێنە بە پاککردنەوە لە دوای ئەپەکانی دیکە. فایلە بێ پێویستەکان بسڕەوە و داتا ماوەکان لاببە.</string>
     <string name="onboarding_welcome_body_beta">ئەمە بیلدێکی بێتا (تاقیکردنەوە)یە. بە هەستی گاڵتەجاڕی و پلانی پاڵپشتەوە بەردەوام بە. تکایە ئەو کێشانە ڕاپۆرت بکە کە تووشیان دەبیت.</string>
     <string name="onboarding_welcome_continue_action">بەردەوامبە</string>
-
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (واتە SD Maid 2) جێگرەوەی SD Maid (واتە SD Maid 1)ـە. ئەپێکی نوێ، باشکراو بۆ ئەندرۆیدی نوێ.</string>
     <string name="onboarding_versus_body2">تەلارسازی پێشووەکەی زیاتر لە 7 ساڵ کۆنە و بۆ ئاستەنگەکانی وەشانە نوێیەکانی ئەندرۆید دامەزراو نییە. دووبارە دیزاینکردنێکی تەواو پێویست بوو بۆ بەردەوامی پەرەپێدان.</string>
     <string name="onboarding_versus_body3">بیر لە گۆڕین بۆ SD Maid SE بکەرەوە بۆ ئەنجامی باشتر.</string>
-    <string name="onboarding_versus_body4">"دۆخی پرۆ"ی SD Maid 1 بەداخەوە ناگوازرێتەوە بۆ SD Maid 2/SE. دوای 12 ساڵ نوێکردنەوەی خۆڕایی، کڕینێکی نوێ پێویستە بۆ بەردەوامی پەرەپێدان (خواردنی پەرەپێدەر).</string>
+    <string name="onboarding_versus_body4">\"دۆخی پرۆ\"ی SD Maid 1 بەداخەوە ناگوازرێتەوە بۆ SD Maid 2/SE. دوای 12 ساڵ نوێکردنەوەی خۆڕایی، کڕینێکی نوێ پێویستە بۆ بەردەوامی پەرەپێدان (خواردنی پەرەپێدەر).</string>
     <string name="onboarding_versus_continue_action">بەردەوامبە</string>
-
     <string name="onboarding_privacy_title">تایبەتمەندی</string>
     <string name="onboarding_privacy_body1">SD Maid هیچ ڕیکلامێکی نییە و داتای بەکارهێنەر نافرۆشێت.</string>
     <string name="onboarding_privacy_bugreport_toggle_body">ڕاپۆرتی هەڵە دەنێردرێن کاتێک هەڵەکان ڕوودەدەن و ڕەنگە وردەکاری دەربارەی ئەپ و فایلەکانی سەر ئامێرەکەت لەخۆبگرن. ڕاپۆرتەکان یارمەتیم دەدەن هەڵەکان چاک بکەمەوە و ئەپەکە باشتر بکەم.</string>
     <string name="onboarding_privacy_bugreport_toggle">ڕێگە بە ڕاپۆرتی خۆکاری هەڵە بدە</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">ئەم بژاردانە دەکرێت لە ڕێکخستنەکاندا بگۆڕدرێت.</string>
     <string name="onboarding_privacy_continue_action">بەردەوامبە</string>
-
     <string name="onboarding_setup_title">دامەزراندن</string>
     <string name="onboarding_setup_body1">SD Maid هەموو ناوچە دەستڕاگەیشتنکراوەکانی داتا بەدوادا دەگەڕێت.</string>
     <string name="onboarding_setup_body2">چی دەستڕاگەیشتنە بەندە بە ئامێرەکەت، وەشانی ئەندرۆید و مۆڵەتە ڕەزامەندکراوەکانەوە.</string>
     <string name="onboarding_setup_body3">دەست بکە بە بەکارهێنانی SD Maid بە دامەزراندنی دەستڕاگەیشتن بۆ ئەو ناوچانەی کە دەبێت بگەڕێدرێن.</string>
     <string name="onboarding_setup_continue_action">دامەزراندنی دەستڕاگەیشتن</string>
-
     <string name="settings_privacy_policy_label">سیاسەتی تایبەتمەندی</string>
     <string name="settings_privacy_policy_desc">مامەڵەکردن لەگەڵ داتا بە بەرپرسیارێتییەوە.</string>
     <string name="settings_licenses_label">مۆڵەتنامەکان</string>
