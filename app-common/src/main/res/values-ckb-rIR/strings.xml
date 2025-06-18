@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">لە خزمەتتداین.</string>
+    <string name="slogan_message_1">خاوێن و ڕێکخراو.</string>
+    <string name="slogan_message_2">ڕێگرتن لە پشێوی.</string>
+    <string name="slogan_message_3">ئەنجامدانی ئەوەی پێویستە.</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_5">بێ پەڵە.</string>
+    <string name="slogan_message_6">بایتەکان، بڕۆن!</string>
+    <string name="slogan_message_7">شوێنی بەتاڵ، شوێنی دڵخۆشی.</string>
+    <string name="slogan_message_8">هەرگیز دەستبەرداری نابم.</string>
+
+    <string name="general_thank_you_label">سوپاس</string>
+
+    <string name="general_error_type_mismatch_msg">ناتەبایی جۆر: %1$s دەویسترا، بەڵام %2$s بەدەستهات.</string>
+    <string name="general_error_cant_access_msg">ناتوانرێت دەستڕاگەیشتن بە %s بکرێت.</string>
+    <string name="general_error_root_unavailable">دەستڕاگەیشتنی ڕووت بەردەست نییە.</string>
+    <string name="general_error_empty_result_msg">ئەنجامەکە بەتاڵ بوو.</string>
+    <string name="general_error_no_compatible_app_found_msg">هیچ ئەپێکی گونجاو بۆ مامەڵەکردن لەگەڵ ئەم داواکارییە نەدۆزرایەوە.</string>
+    <string name="general_todo_msg">ئەم تایبەتمەندییە هێشتا لەسەری کاردەکرێت و لە ئێستادا بەردەست نییە.</string>
+    <string name="general_share_action">هاوبەشکردن</string>
+    <string name="general_done_action">تەواو بوو</string>
+    <string name="general_copy_action">کۆپیکردن</string>
+    <string name="general_wipe_action">سڕینەوە</string>
+    <string name="general_cancel_action">پاشگەزبوونەوە</string>
+    <string name="general_discard_action">فڕێدان</string>
+    <string name="general_reset_action">ڕیستکردنەوە</string>
+    <string name="general_save_action">پاشەکەوتکردن</string>
+    <string name="general_thanks_action">سوپاس</string>
+    <string name="general_gotit_action">تێگەیشتم</string>
+    <string name="general_fix_action">چاککردن</string>
+    <string name="general_set_up_action">دامەزراندن</string>
+    <string name="general_edit_action">دەستکاریکردن</string>
+    <string name="general_na_label">بەردەست نییە</string>
+    <string name="general_empty_label">بەتاڵ</string>
+    <string name="general_dismiss_action">پشتگوێخستن</string>
+    <string name="general_maybe_later_action">ڕەنگە دواتر</string>
+    <string name="general_manage_action">بەڕێوەبردن</string>
+    <string name="general_sync_action">هاوسەنگکردن</string>
+    <string name="general_error_label">هەڵە</string>
+    <string name="general_tap_hint_msg">پەنجە دابنێ بۆ بژاردەی زیاتر</string>
+    <string name="general_upgrade_action">نوێکردنەوە</string>
+    <string name="general_donate_action">بەخشین</string>
+    <string name="general_check_action">پشکنین</string>
+    <string name="general_filter_action">پاڵاوتن</string>
+    <string name="general_internal_not_available_msg">پەیوەندی ئینتەرنێت بەردەست نییە</string>
+    <string name="general_refresh_action">نوێکردنەوە</string>
+    <string name="general_progress_searching">گەڕان</string>
+    <string name="general_progress_generating_searchpaths">دروستکردنی ڕێڕەوی گەڕان</string>
+    <string name="general_progress_filtering">پاڵاوتن</string>
+    <string name="general_progress_preparing">ئامادەکردن</string>
+    <string name="general_progress_processing_x">پرۆسێسکردنی %s</string>
+    <string name="general_progress_loading">بارکردن</string>
+    <string name="general_progress_loading_app_data">بارکردنی داتای ئەپ</string>
+    <string name="general_progress_loading_data_areas">بارکردنی ناوچەکانی داتا</string>
+    <string name="general_progress_loading_egg_0">هێشتا خێراترە لە ئایفۆن</string>
+    <string name="general_progress_loading_egg_1">داگرتنی ڕام زیاتر</string>
+    <string name="general_progress_loading_egg_2">بەم زووانە™</string>
+    <string name="general_progress_loading_egg_3">CPU لە پشووی قاوەدایە</string>
+    <string name="general_progress_loading_egg_4">چاوەڕێی داتای پپێ سیلڤیایە</string>
+    <string name="general_progress_loading_egg_5">تێربۆ ئینکاوبولەیتەر دەستپێدەکات</string>
+    <string name="general_progress_loading_egg_6">تێپەڕاندنی کەرە</string>
+    <string name="general_progress_loading_egg_7">باشە. چۆنی؟</string>
+    <string name="general_progress_loading_egg_8">بیپینگ بووپ بۆپ</string>
+    <string name="general_progress_loading_egg_9">بارکردنی بژاردەکانی ژیان</string>
+    <string name="general_progress_loading_egg_10">بانگکردنی کتوولهو</string>
+    <string name="general_progress_loading_egg_11">ئەمە باشە</string>
+    <string name="general_progress_loading_egg_12">تکایە بوەستە</string>
+    <string name="general_progress_loading_egg_13">لانیکەم لەسەر هۆڵد نیت</string>
+    <string name="general_help_action">یارمەتی</string>
+    <string name="general_continue">بەردەوامبە</string>
+    <string name="general_progress_queued">لە ڕیزدا</string>
+    <string name="general_progress_deleting">سڕینەوە</string>
+    <string name="general_progress_deleting_x">سڕینەوەی %s</string>
+    <string name="general_sort_options_label">بژاردەکانی ڕێکخستن</string>
+    <string name="general_sort_reverse_action">شێوازی ڕێکخستنی پێچەوانە</string>
+    <string name="general_tag_filter_label">پاڵاوتن بەپێی تاگەکان</string>
+
+    <string name="general_result_success_message">کارپێکردن سەرکەوتوو بوو</string>
+    <string name="general_result_failure_message">کارپێکردن شکستی هێنا</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s شوێن ئازادکرا.</item>
+        <item quantity="other">%s شوێن ئازادکرا.</item>
+    </plurals>
+
+    <string name="general_options_label">بژاردەکان</string>
+    <string name="general_details_label">وردەکارییەکان</string>
+    <string name="general_view_action">بینین</string>
+    <string name="general_update_action">نوێکردنەوە</string>
+    <string name="general_scan_action">پشکنین</string>
+    <string name="general_delete_action">سڕینەوە</string>
+    <string name="general_delete_selected_action">سڕینەوەی هەڵبژێردراوەکان</string>
+    <string name="general_show_details_action">پیشاندانی وردەکارییەکان</string>
+    <string name="general_show_all_action">پیشاندانی هەموو</string>
+    <string name="general_toggle_layout_mode">گۆڕینی شێوازی بینین</string>
+
+    <string name="general_delete_confirmation_title">پشتڕاستکردنەوەی سڕینەوە</string>
+    <string name="general_delete_confirmation_message_x">\"%s\" بسڕدرێتەوە؟</string>
+    <string name="general_delete_confirmation_message_selected_x_items">%d بابەتی هەڵبژێردراو بسڕدرێتەوە؟</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d بابەت سڕایەوە.</item>
+        <item quantity="other">%d بابەت سڕایەوە.</item>
+    </plurals>
+
+    <string name="general_remove_action">لابردن</string>
+    <string name="general_remove_selected_action">لابردنی هەڵبژێردراوەکان</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">یەک بابەت لادرا</item>
+        <item quantity="other">%d بابەت لادرا</item>
+    </plurals>
+
+    <string name="general_root_required_label">پێویستی بە ڕووتە</string>
+    <string name="general_root_required_message">پێویستی بە ئامێرێکی ڕووتکراوە هەیە</string>
+
+    <string name="general_search_action">گەڕان</string>
+    <string name="general_scan_device_action">پشکنینی ئامێر</string>
+    <string name="general_open_system_settings_action">کردنەوەی ڕێکخستنەکانی سیستەم</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">%s بابەت</item>
+        <item quantity="other">%s بابەت</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d سەرکەوتوو</item>
+        <item quantity="other">%d سەرکەوتوو</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d شکستی هێنا</item>
+        <item quantity="other">%d شکستی هێنا</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s دەکرێت ئازاد بکرێت</item>
+        <item quantity="other">%s دەکرێت ئازاد بکرێت</item>
+    </plurals>
+    <string name="general_info_label">زانیاری</string>
+    <string name="general_count_label">ژماردن</string>
+    <string name="general_app_label">ئەپ</string>
+    <string name="general_more_info_action">زانیاری زیاتر</string>
+    <string name="general_grant_access_action">مۆڵەتی دەستڕاگەیشتن بدە</string>
+    <string name="general_enable_service_action">خزمەتگوزاری چالاک بکە</string>
+    <string name="general_undo_action">پاشگەزبوونەوە</string>
+
+    <string name="general_list_select_all_action">هەموو هەڵبژێرە</string>
+
+    <string name="general_path_label">ڕێڕەو</string>
+    <string name="general_type_label">جۆر</string>
+    <string name="general_size_label">قەبارە</string>
+    <string name="general_exclude_action">دەرکردن</string>
+    <string name="general_exclude_selected_action">دەرکردنی هەڵبژێردراوەکان</string>
+
+    <string name="general_device_label">ئامێر</string>
+
+    <string name="general_settings_title">ڕێکخستنەکان</string>
+    <string name="general_help_title">یارمەتی</string>
+
+    <string name="file_type_symbolic_link">بەستەر</string>
+    <string name="file_type_directory">دایرێکتۆری</string>
+    <string name="file_type_file">فایل</string>
+    <string name="file_type_unknown">نەناسراو</string>
+
+    <string name="general_progress_ready">ئامادە</string>
+    <string name="general_progress_done">تەواو بوو</string>
+
+    <string name="general_rom_type_auto_label">خۆکار (بنەڕەتی)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d ڕۆژ</item>
+        <item quantity="other">%d ڕۆژ</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d کاتژمێر</item>
+        <item quantity="other">%d کاتژمێر</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s فایل</item>
+        <item quantity="other">%s فایل</item>
+    </plurals>
+    <string name="general_advice_title">ئامۆژگاری</string>
+    <string name="general_error_invalid_input_label">داتای نادروست</string>
+    <string name="general_information_for_the_developer">زانیاری بۆ پەرەپێدەر</string>
+    <string name="general_error_report_bug_action">ڕاپۆرتکردنی هەڵە</string>
+    <string name="general_error_ipc_deadobject_title">پەیوەندی خزمەتگوزاری پچڕا</string>
+    <string name="general_error_ipc_deadobject_description">پەیوەندی بە خزمەتگوزارییەکی گرنگەوە (بۆ نموونە ماجیسک، شیزوکو، یان خزمەتگوزارییەکانی ئاستی سیستەمی دیکە) بە شێوەیەکی چاوەڕواننەکراو پچڕا. تکایە ئامێرەکەت ڕیستارت بکە. ئەگەر کێشەکە بەردەوام بوو، نوێکردنەوەکان بپشکنە یان پەیوەندیم پێوە بکە تا بتوانم چاکی بکەمەوە.</string>
+</resources>

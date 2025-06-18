@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">پێویستی بە SD Maid SE Pro هەیە</string>
+
+    <string name="upgrades_dashcard_title">نوێکردنەوەی SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro ئەنجامی باشتر، تایبەتمەندی و بژاردەی زیاتر بۆ بەکارهێنەرانی پێشکەوتوو پێشکەش دەکات.</string>
+    <string name="upgrades_dashcard_upgrade_action">نوێکردنەوە</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">گوگڵ پلەی بەردەست نییە</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid ناتوانێت بە گوگڵ پلەیەوە پەیوەست بێت. ئایا گوگڵ پلەی دامەزراوە و نوێکراوەتەوە؟ ئایا هەژماری گوگڵەکەت چونەتە ژوورەوە؟ هەوڵبدە کاشەی ئەپی گوگڵ پلەی بسڕیتەوە و ئامێرەکەت ڕیستارت بکەیتەوە.</string>
+    <string name="upgrades_no_purchases_found_check_account">هیچ کڕینێک نەدۆزرایەوە. ئایا هەژماری دروست بەکاردەهێنیت؟</string>
+    <string name="upgrade_screen_title">SD Maid SE Pro بەدەستبهێنە</string>
+    <string name="upgrade_screen_preamble">SD Maid هیچ ڕێکلامێکی نییە و زانیاری بەکارهێنەر نافرۆشێت. کارەکانی من لەلایەن ئێوەوە پشتگیری دارایی دەکرێت ❤️.</string>
+    <string name="upgrade_screen_benefits_title">سوودەکان</string>
+    <string name="upgrade_screen_benefits_body">• پاککردنەوەی ئەپەکان 💯\\n• کارپێکردنی بە کات ⏰\\n• بژاردەی زیادە بۆ هەموو ئامرازەکان ⚙️\\n• یاساکانی سڕینەوەی خۆت ✍️\\n• پەرەپێدەرێکی پەرۆش 🧙\\nو زیاتر…</string>
+    <string name="upgrade_screen_how_title">بژاردەکان</string>
+    <string name="upgrade_screen_how_body">دەتوانیت لە نێوان کڕینی یەکجارەکی و بەشداریکردنی ساڵانەی هەرزانتردا یەکێکیان هەڵبژێریت.\\nبەشداریکردنەکە بە تاقیکردنەوەی خۆڕایی 14 ڕۆژە دەستپێدەکات، دوای ئەوە ساڵی یەکجار پارەت لێ وەردەگیرێت. تاقیکردنەوە و بەشداریکردنەکە دەکرێت لە هەر کاتێکدا هەڵبوەشێنرێتەوە.\\nهەمان تایبەتمەندی، تەنها مۆدێلی نرخگذاری جیاواز.</string>
+    <string name="upgrade_screen_subscription_trial_action">دەستپێکردنی تاقیکردنەوەی خۆڕایی 14 ڕۆژە</string>
+    <string name="upgrade_screen_subscription_action">بەشداریکردن</string>
+    <string name="upgrade_screen_subscription_action_hint">نرخی بەشداریکردن %s ساڵانەیە.</string>
+    <string name="upgrade_screen_iap_action">کڕینی یەکجارەکی</string>
+    <string name="upgrade_screen_iap_action_hint">نرخی کڕینی یەکجارەکی %sـە.</string>
+    <string name="upgrade_screen_thanks_toast">تۆ باشترینی! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">گەڕاندنەوەی کڕین</string>
+    <string name="upgrade_screen_restore_purchase_message">نوێکردنەوەکەت لە سەرجەم ئامێرەکاندا کە هەمان هەژماری گوگڵ بەکاردەهێنن بەردەوامە.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">ڕێنماییەکانی چارەسەرکردنی کێشە بۆ نوێکردنەوە ناسێنراوەکان:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">ڕێکخستنی پلەی ستۆر ڕەنگە کات ببات. هەوڵبدە ئامێرەکە ڕیستارت بکەیتەوە، کاشەی گوگڵ پلەی بسڕیتەوە یان تەنها چاوەڕێ بکە.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">هەژمارە فرەکان دەتوانن گوگڵ پلەی تێکبشێوێنن. لە هەژمارەکانی دیکە بچۆرە دەرەوە یان لە ڕێگەی وێبسایتی گوگڵ پلەیەوە دایبمەزرێنە، کە پەیوەندی بە هەژمارێکی دیاریکراوەوە زۆرەملێ دەکات.</string>
+</resources>
