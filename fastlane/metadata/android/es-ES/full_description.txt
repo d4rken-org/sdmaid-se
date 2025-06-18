@@ -11,30 +11,30 @@ No sigamos... ¡Deja que SD Maid 2/SE te ayude!
 SD Maid 2/SE es un gestor de aplicaciones y archivos especializado en saber qué aplicaciones han creado archivos específicos en tu dispositivo. SD Maid 2/SE busca en tu dispositivo y compara los archivos con las aplicaciones instaladas para ofrecerte opciones para liberar espacio de almacenamiento de forma segura.
 
 ✨ Limpia después de desinstalar las aplicaciones
-Si las aplicaciones crean archivos fuera de tus carpetas designadas, los archivos pueden permanecer incluso después de desinstalar las aplicaciones. La herramienta "CorpseFinder" encuentra los restos de aplicaciones, te dice a qué aplicación pertenecían y te ayuda a eliminarlos.
+Si las aplicaciones crean archivos fuera de tus carpetas designadas, los archivos pueden permanecer incluso después de desinstalar las aplicaciones. La herramienta "Buscador de Restos" encuentra los restos de aplicaciones, te dice a qué aplicación pertenecían y te ayuda a eliminarlos.
 
 🔍 Busca en tu dispositivo de forma inteligente
-Filtra las carpetas vacías, los archivos temporales, las aplicaciones ya instaladas y mucho más. Incluso puede crear sus propios criterios de búsqueda. La herramienta "Limpiador del sistema" te permite buscar automáticamente en tu dispositivo y eliminar archivos en función de varios criterios.
+Filtra las carpetas vacías, los archivos temporales, las aplicaciones ya instaladas y mucho más. Incluso puede crear sus propios criterios de búsqueda. La herramienta "Limpiador del Sistema" te permite buscar automáticamente en tu dispositivo y eliminar archivos en función de varios criterios.
 
 🧹 Eliminar archivos prescindibles y cachés ocultos
-Miniaturas, papeleras, cachés sin conexión y mucho más: Si las aplicaciones no se limpian solas, esta aplicación lo hará. La herramienta "AppCleaner" encuentra aplicaciones con archivos prescindibles.
+Miniaturas, papeleras, cachés sin conexión y mucho más: Si las aplicaciones no se limpian solas, esta aplicación lo hará. La herramienta "Limpiador de Aplicaciones" encuentra aplicaciones con archivos prescindibles.
 
 📦 Gestiona todas tus aplicaciones
-Obtén una lista completa de todas las aplicaciones instaladas en tu dispositivo. Aplicación activada, desactivada, de usuario o de sistema: ninguna aplicación puede esconderse de ti. La herramienta "Control de las aplicaciones" es un gestor de aplicaciones que te permite buscar, ordenar y controlar tus aplicaciones.
+Obtén una lista completa de todas las aplicaciones instaladas en tu dispositivo. Aplicación activada, desactivada, de usuario o de sistema: ninguna aplicación puede esconderse de ti. La herramienta "Control de Aplicaciones" es un gestor de aplicaciones que te permite buscar, ordenar y controlar tus aplicaciones.
 
 📊 ¿Qué es lo que ocupa todo tu espacio?
-La gestión del almacenamiento puede ser compleja, con aplicaciones, medios, sistema y otros archivos en el almacenamiento del teléfono, tarjetas SD y dispositivos USB. "StorageAnalyzer" es un gestor de archivos que muestra cómo se utiliza el espacio en tu dispositivo, simplificando la gestión de tu almacenamiento.
+La gestión del almacenamiento puede ser compleja, con aplicaciones, medios, sistema y otros archivos en el almacenamiento del teléfono, tarjetas SD y dispositivos USB. "Analizador de Almacenamiento" es un gestor de archivos que muestra cómo se utiliza el espacio en tu dispositivo, simplificando la gestión de tu almacenamiento.
 
 📷  Encontrar datos duplicados
-Descargas duplicadas, fotos enviadas a través de las redes sociales o simplemente fotos similares de la misma escena: Con el tiempo pueden acumularse copias. La herramienta "Deduplicador" encuentra archivos exactamente iguales o similares y te ayuda a eliminar las copias sobrantes.
+Descargas duplicadas, fotos enviadas a través de las redes sociales o simplemente fotos similares de la misma escena: Con el tiempo pueden acumularse copias. La herramienta "Eliminador de Duplicados" encuentra archivos exactamente iguales o similares y te ayuda a eliminar las copias sobrantes.
 
 Esta aplicación no tiene publicidad. Algunas funciones requieren la versión de pago.
 
 SD Maid 2/SE es el sucesor de SD Maid 1/Legacy.
 Optimizado para nuevas versiones de Android y enfocado en la limpieza.
 
-Esta aplicación tiene funciones opcionales que utilizan la API AccessibilityService para automatizar acciones tediosas.
-Mediante la API AccessibilityService, esta aplicación puede pulsar botones para que realices operaciones en varias aplicaciones, por ejemplo borrando la memoria caché.
-Esta aplicación no utiliza la API AccessibilityService para recopilar información.
+Esta aplicación tiene funciones opcionales que utilizan la API del Servicio de Accesibilidad para automatizar acciones tediosas.
+Mediante la API del Servicio de Accesibilidad, esta aplicación puede pulsar botones para que realices operaciones en varias aplicaciones, por ejemplo borrando la memoria caché.
+Esta aplicación no utiliza la API del Servicio de Accesibilidad para recopilar información.
 
 SD Maid 2/SE es una aplicación de limpieza y gestión de archivos.

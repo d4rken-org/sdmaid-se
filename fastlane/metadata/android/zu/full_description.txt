@@ -1,4 +1,4 @@
-<i>I-SD Maid 2/SE</i> ingumsizi othembekile we-Android yakho, ukuyigcina ihlanzekile futhi icocekile.
+<i>SD Maid 2/SE</i> ingumsizi othembekile we-Android yakho, ukuyigcina ihlanzekile futhi icocekile.
 
 Akekho umuntu ophelele futhi ne-Android ayiphelele.
 * Izinhlelo zokusebenza osuvele uzisusile zishiya okuthile ngemuva.
@@ -11,30 +11,30 @@ Masingaqhubeki lapha... Vumela i-SD Maid 2/SE ikusize!
 I-SD Maid 2/SE iyi-app nomphathi wefayela ogxile ekwazini ukuthi yiziphi izinhlelo zokusebenza ezidale amafayela athile kudivayisi yakho. I-SD Maid 2/SE isesha idivayisi yakho futhi iqhathanisa amafayela nezinhlelo zokusebenza ezifakiwe ukuze ikunikeze izinketho zokukhulula indawo yesitoreji ngokuphepha.
 
 ✨ Hlanza ngemva kokukhipha izinhlelo zokusebenza
-Uma izinhlelo zokusebenza zakha amafayela ngaphandle kwamafolda azo aqokiwe, amafayela angasala ngisho nangemva kokukhipha izinhlelo zokusebenza. Ithuluzi le-"CorpseFinder" lithola izinsalela zohlelo lokusebenza, likutshele ukuthi zaziyiziphi izinhlelo zokusebenza, futhi likusize ukuzisusa.
+Uma izinhlelo zokusebenza zakha amafayela ngaphandle kwamafolda azo aqokiwe, amafayela angasala ngisho nangemva kokukhipha izinhlelo zokusebenza. Ithuluzi "Lokuthola Izinsalela" lithola izinsalela zohlelo lokusebenza, likutshele ukuthi zaziyiziphi izinhlelo zokusebenza, futhi likusize ukuzisusa.
 
 🔍 Sesha idivayisi yakho ngendlela ehlakaniphile
-Hlunga amafolda angenalutho, amafayela esikhashana, izinhlelo zokusebenza esezifakiwe nokunye. Ungazakhela ngisho nezindlela zakho zokusesha. Ithuluzi le-"SystemCleaner" likuvumela ukuthi useshe ngokuzenzakalelayo idivayisi yakho futhi ususe amafayela ngokusekelwe ezindleleni ezahlukahlukene.
+Hlunga amafolda angenalutho, amafayela esikhashana, izinhlelo zokusebenza esezifakiwe nokunye. Ungazakhela ngisho nezindlela zakho zokusesha. Ithuluzi "Lokuhlanza Isistimu" likuvumela ukuthi useshe ngokuzenzakalelayo idivayisi yakho futhi ususe amafayela ngokusekelwe ezindleleni ezahlukahlukene.
 
 🧹 Susa amafayela angadingeki nama-cache afihliwe
-Izithonjana, imigqomo kadoti, ama-cache angaxhunyiwe ku-inthanethi nokunye: Uma izinhlelo zokusebenza zingazihlanzi zona, lolu hlelo lokusebenza luzokwenza. Ithuluzi le-"AppCleaner" lithola izinhlelo zokusebenza ezinamafayela angadingeki.
+Izithonjana, imigqomo kadoti, ama-cache angaxhunyiwe ku-inthanethi nokunye: Uma izinhlelo zokusebenza zingazihlanzi zona, lolu hlelo lokusebenza luzokwenza. Ithuluzi "Lokuhlanza Izinhlelo Zokusebenza" lithola izinhlelo zokusebenza ezinamafayela angadingeki.
 
 📦 Phatha zonke izinhlelo zakho zokusebenza
-Thola uhlu oluphelele lwazo zonke izinhlelo zokusebenza ezifakwe kudivayisi yakho. Uhlelo lokusebenza olunikiwe amandla, olukhutshaziwe, lomsebenzisi noma lwesistimu: alukho uhlelo lokusebenza olungakufihlela. Ithuluzi le-"AppControl" lingumphathi wohlelo lokusebenza okuvumela ukuthi useshe, uhlele futhi ulawule izinhlelo zakho zokusebenza.
+Thola uhlu oluphelele lwazo zonke izinhlelo zokusebenza ezifakwe kudivayisi yakho. Uhlelo lokusebenza olunikiwe amandla, olukhutshaziwe, lomsebenzisi noma lwesistimu: alukho uhlelo lokusebenza olungakufihlela. Ithuluzi "Lokulawula Izinhlelo Zokusebenza" lingumphathi wohlelo lokusebenza okuvumela ukuthi useshe, uhlele futhi ulawule izinhlelo zakho zokusebenza.
 
 📊 Yini esebenzisa sonke isikhala sakho
-Ukuphathwa kwesitoreji kungaba yinkimbinkimbi ngezinhlelo zokusebenza, imidiya, isistimu namanye amafayela kusitoreji sefoni, amakhadi e-SD namadivayisi e-USB. I-"StorageAnalyzer" ingumphathi wefayela obonisa ukuthi isikhala sisetshenziswa kanjani kudivayisi yakho, okwenza ukuphathwa kwesitoreji sakho kube lula.
+Ukuphathwa kwesitoreji kungaba yinkimbinkimbi ngezinhlelo zokusebenza, imidiya, isistimu namanye amafayela kusitoreji sefoni, amakhadi e-SD namadivayisi e-USB. "Isihlaziyi Sesitoreji" ingumphathi wefayela obonisa ukuthi isikhala sisetshenziswa kanjani kudivayisi yakho, okwenza ukuphathwa kwesitoreji sakho kube lula.
 
 📷 Thola idatha ephindwe kabili
-Ukulanda okuphindwe kabili, izithombe ezithunyelwe ngezinkundla zokuxhumana noma nje izithombe ezifanayo zesigameko esisodwa: Ngokuhamba kwesikhathi amakhophi angakheka. Ithuluzi le-"Deduplicator" lithola amafayela afana ncamashi noma afanayo futhi likusize ususe amakhophi angeziwe.
+Ukulanda okuphindwe kabili, izithombe ezithunyelwe ngezinkundla zokuxhumana noma nje izithombe ezifanayo zesigameko esisodwa: Ngokuhamba kwesikhathi amakhophi angakheka. Ithuluzi "Lokususa Okuphindwe Kabili" lithola amafayela afana ncamashi noma afanayo futhi likusize ususe amakhophi angeziwe.
 
 Lolu hlelo lokusebenza alunazo izikhangiso. Ezinye izici zidinga ukuthuthukiswa okukhokhelwayo.
 
 I-SD Maid 2/SE ingumlandeli we-SD Maid 1/Legacy.
 Yenzelwe izinguqulo ezintsha ze-Android futhi igxile ekuhlanzeni.
 
-Lolu hlelo lokusebenza lunezici ozikhethela zona ezisebenzisa i-AccessibilityService API ukuze zenze imisebenzi eyisicefe ngokuzenzakalelayo.
-Ngokusebenzisa i-AccessibilityService API, lolu hlelo lokusebenza lungakuchofozela izinkinobho ukuze wenze imisebenzi kuzinhlelo zokusebenza eziningi, isb. ukususa ama-cache.
-Lolu hlelo lokusebenza alusebenzisi i-AccessibilityService API ukuqoqa ulwazi.
+Lolu hlelo lokusebenza lunezici ozikhethela zona ezisebenzisa i-API Yesevisi Yokufinyeleleka ukuze zenze imisebenzi eyisicefe ngokuzenzakalelayo.
+Ngokusebenzisa i-API Yesevisi Yokufinyeleleka, lolu hlelo lokusebenza lungakuchofozela izinkinobho ukuze wenze imisebenzi kuzinhlelo zokusebenza eziningi, isb. ukususa ama-cache.
+Lolu hlelo lokusebenza alusebenzisi i-API Yesevisi Yokufinyeleleka ukuqoqa ulwazi.
 
 I-SD Maid 2/SE iyi-App yoMphathi Wefayela Nokuhlanza.

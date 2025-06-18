@@ -11,30 +11,30 @@ Tusiendelee hapa… Acha SD Maid 2/SE ikusaidie!
 SD Maid 2/SE ni programu na kidhibiti faili ambacho kina utaalam wa kujua ni programu zipi zimeunda faili maalum kwenye kifaa chako. SD Maid 2/SE hutafuta kifaa chako na kulinganisha faili na programu zilizosakinishwa ili kutoa chaguo za kuongeza nafasi ya hifadhi kwa usalama.
 
 ✨ Safisha baada ya kusanidua programu
-Ikiwa programu huunda faili nje ya folda zao zilizoteuliwa basi faili zinaweza kubaki hata baada ya kusanidua programu. Zana ya "CorpseFinder" hupata mabaki ya programu, hukueleza ni programu ipi iliyokuwa nayo na hukusaidia kuyafuta.
+Ikiwa programu huunda faili nje ya folda zao zilizoteuliwa basi faili zinaweza kubaki hata baada ya kusanidua programu. Zana ya "Kitafuta Mabaki" hupata mabaki ya programu, hukueleza ni programu ipi iliyokuwa nayo na hukusaidia kuyafuta.
 
 🔍 Tafuta kifaa chako kwa njia bora
-Chuia folda tupu, faili za muda, programu zilizosakinishwa tayari na zaidi. Unaweza hata kuunda vigezo vyako vya utafutaji. Zana ya "SystemCleaner" hukuruhusu kutafuta kifaa chako kiotomatiki na kufuta faili kulingana na vigezo mbalimbali.
+Chuia folda tupu, faili za muda, programu zilizosakinishwa tayari na zaidi. Unaweza hata kuunda vigezo vyako vya utafutaji. Zana ya "Kisafishaji Mfumo" hukuruhusu kutafuta kifaa chako kiotomatiki na kufuta faili kulingana na vigezo mbalimbali.
 
 🧹 Futa faili zinazoweza kutumika na kashe zilizofichwa
-Vijipicha, mapipa ya taka, kashe za nje ya mtandao na zaidi: Ikiwa programu hazijisafishi zenyewe, basi programu hii itafanya hivyo. Zana ya "AppCleaner" hupata programu zilizo na faili zinazoweza kutumika.
+Vijipicha, mapipa ya taka, kashe za nje ya mtandao na zaidi: Ikiwa programu hazijisafishi zenyewe, basi programu hii itafanya hivyo. Zana ya "Kisafishaji Programu" hupata programu zilizo na faili zinazoweza kutumika.
 
 📦 Dhibiti programu zako zote
-Pata orodha kamili ya programu zote zilizosakinishwa kwenye kifaa chako. Programu iliyowezeshwa, iliyolemazwa, ya mtumiaji au ya mfumo: hakuna programu inayoweza kujificha kwako. Zana ya "AppControl" ni kidhibiti programu kinachokuruhusu kutafuta, kupanga na kudhibiti programu zako.
+Pata orodha kamili ya programu zote zilizosakinishwa kwenye kifaa chako. Programu iliyowezeshwa, iliyolemazwa, ya mtumiaji au ya mfumo: hakuna programu inayoweza kujificha kwako. Zana ya "Udhibiti wa Programu" ni kidhibiti programu kinachokuruhusu kutafuta, kupanga na kudhibiti programu zako.
 
 📊 Ni nini kinachotumia nafasi yako yote
-Udhibiti wa hifadhi unaweza kuwa mgumu kwa programu, midia, mfumo, na faili zingine kwenye hifadhi ya simu, kadi za SD, na vifaa vya USB. "StorageAnalyzer" ni kidhibiti faili kinachoonyesha jinsi nafasi inavyotumika kwenye kifaa chako, kurahisisha udhibiti wako wa hifadhi.
+Udhibiti wa hifadhi unaweza kuwa mgumu kwa programu, midia, mfumo, na faili zingine kwenye hifadhi ya simu, kadi za SD, na vifaa vya USB. "Kichanganuzi cha Hifadhi" ni kidhibiti faili kinachoonyesha jinsi nafasi inavyotumika kwenye kifaa chako, kurahisisha udhibiti wako wa hifadhi.
 
 📷 Pata data rudufu
-Upakuaji rudufu, picha zilizotumwa kupitia mitandao ya kijamii au picha zinazofanana tu za tukio lile lile: Baada ya muda nakala zinaweza kujilimbikiza. Zana ya "Deduplicator" hupata faili ambazo ni sawa kabisa au zinazofanana na hukusaidia kufuta nakala za ziada.
+Upakuaji rudufu, picha zilizotumwa kupitia mitandao ya kijamii au picha zinazofanana tu za tukio lile lile: Baada ya muda nakala zinaweza kujilimbikiza. Zana ya "Kiondoa Urudufu" hupata faili ambazo ni sawa kabisa au zinazofanana na hukusaidia kufuta nakala za ziada.
 
 Programu hii haina matangazo. Baadhi ya vipengele vinahitaji toleo jipya la kulipia.
 
 SD Maid 2/SE ndiye mrithi wa SD Maid 1/Legacy.
 Imeboreshwa kwa matoleo mapya zaidi ya Android na inalenga kusafisha.
 
-Programu hii ina vipengele vya hiari vinavyotumia API ya AccessibilityService ili kuendesha vitendo vya kuchosha kiotomatiki.
-Kwa kutumia API ya AccessibilityService, programu hii inaweza kubofya vitufe ili ufanye shughuli kwenye programu nyingi, k.m. kufuta kashe.
-Programu hii haitumii API ya AccessibilityService kukusanya taarifa.
+Programu hii ina vipengele vya hiari vinavyotumia API ya Huduma ya Ufikivu ili kuendesha vitendo vya kuchosha kiotomatiki.
+Kwa kutumia API ya Huduma ya Ufikivu, programu hii inaweza kubofya vitufe ili ufanye shughuli kwenye programu nyingi, k.m. kufuta kashe.
+Programu hii haitumii API ya Huduma ya Ufikivu kukusanya taarifa.
 
 SD Maid 2/SE ni Kidhibiti Faili na Programu ya Kusafisha.

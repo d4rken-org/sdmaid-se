@@ -11,22 +11,22 @@ Ei jatketa tästä… Anna SD Maid 2/SE:n auttaa sinua!
 SD Maid 2/SE on sovellus- ja tiedostonhallintaohjelma, joka on erikoistunut tunnistamaan, mitkä sovellukset ovat luoneet tietyt tiedostot laitteellesi. SD Maid 2/SE etsii laitteeltasi ja vertaa tiedostoja asennettuihin sovelluksiin tarjotakseen vaihtoehtoja tallennustilan turvalliseen vapauttamiseen.
 
 ✨ Siivoa sovellusten poiston jälkeen
-Jos sovellukset luovat tiedostoja niiden määriteltyjen kansioiden ulkopuolelle, tiedostot voivat jäädä laitteelle jopa sovellusten poiston jälkeen. "CorpseFinder"-työkalu löytää sovellusten jäänteet, kertoo mihin sovellukseen ne kuuluivat ja auttaa sinua poistamaan ne.
+Jos sovellukset luovat tiedostoja niiden määriteltyjen kansioiden ulkopuolelle, tiedostot voivat jäädä laitteelle jopa sovellusten poiston jälkeen. "JäännöstenEtsijä"-työkalu löytää sovellusten jäänteet, kertoo mihin sovellukseen ne kuuluivat ja auttaa sinua poistamaan ne.
 
 🔍 Etsi laitteeltasi älykkäästi
-Suodata tyhjiä kansioita, väliaikaistiedostoja, jo asennettuja sovelluksia ja paljon muuta. Voit jopa luoda omat hakuehtosi. "SystemCleaner"-työkalu antaa sinun automaattisesti etsiä laitteeltasi ja poistaa tiedostoja eri kriteerien perusteella.
+Suodata tyhjiä kansioita, väliaikaistiedostoja, jo asennettuja sovelluksia ja paljon muuta. Voit jopa luoda omat hakuehtosi. "JärjestelmäPuhdistaja"-työkalu antaa sinun automaattisesti etsiä laitteeltasi ja poistaa tiedostoja eri kriteerien perusteella.
 
 🧹 Poista tarpeettomat tiedostot ja piilotetut välimuistit
-Pikkukuvat, roskakorit, offline-välimuistit ja paljon muuta: Jos sovellukset eivät siivoa jälkiään, tämä sovellus tekee sen. "AppCleaner"-työkalu löytää sovelluksia, joilla on tarpeettomia tiedostoja.
+Pikkukuvat, roskakorit, offline-välimuistit ja paljon muuta: Jos sovellukset eivät siivoa jälkiään, tämä sovellus tekee sen. "SovellusPuhdistaja"-työkalu löytää sovelluksia, joilla on tarpeettomia tiedostoja.
 
 📦 Hallitse kaikkia sovelluksiasi
-Hanki kattava luettelo kaikista laitteellesi asennetuista sovelluksista. Käytössä, poissa käytöstä, käyttäjä- tai järjestelmäsovellus: mikään sovellus ei voi piiloutua sinulta. "AppControl"-työkalu on sovellustenhallinta, jonka avulla voit etsiä, lajitella ja hallita sovelluksiasi.
+Hanki kattava luettelo kaikista laitteellesi asennetuista sovelluksista. Käytössä, poissa käytöstä, käyttäjä- tai järjestelmäsovellus: mikään sovellus ei voi piiloutua sinulta. "SovellusHallinta"-työkalu on sovellustenhallinta, jonka avulla voit etsiä, lajitella ja hallita sovelluksiasi.
 
 📊 Mikä vie kaiken tilasi
-Tallennustilan hallinta voi olla monimutkaista sovellusten, median, järjestelmän ja muiden tiedostojen kanssa puhelimen tallennustilassa, SD-korteilla ja USB-laitteilla. "StorageAnalyzer" on tiedostonhallinta, joka näyttää, miten tilaa käytetään laitteellasi, yksinkertaistaen tallennustilan hallintaa.
+Tallennustilan hallinta voi olla monimutkaista sovellusten, median, järjestelmän ja muiden tiedostojen kanssa puhelimen tallennustilassa, SD-korteilla ja USB-laitteilla. "TallennusAnalysoija"-työkalu on tiedostonhallinta, joka näyttää, miten tilaa käytetään laitteellasi, yksinkertaistaen tallennustilan hallintaa.
 
 📷 Löydä kaksoiskappaleet
-Kaksoiskappaleina ladatut tiedostot, sosiaalisen median kautta lähetetyt kuvat tai vain samankaltaiset kuvat samasta näkymästä: Ajan myötä kopioita voi kertyä. "Deduplicator"-työkalu löytää täsmälleen samat tai samankaltaiset tiedostot ja auttaa sinua poistamaan ylimääräiset kopiot.
+Kaksoiskappaleina ladatut tiedostot, sosiaalisen median kautta lähetetyt kuvat tai vain samankaltaiset kuvat samasta näkymästä: Ajan myötä kopioita voi kertyä. "KaksoiskopioidenPoistaja"-työkalu löytää täsmälleen samat tai samankaltaiset tiedostot ja auttaa sinua poistamaan ylimääräiset kopiot.
 
 Tämä sovellus on mainokseton. Jotkin ominaisuudet vaativat maksullisen päivityksen.
 
