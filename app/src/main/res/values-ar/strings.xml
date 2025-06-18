@@ -432,10 +432,6 @@
         <item quantity="other">حذف الملفات المستهلكة لـ %d تطبيقات مختارة؟</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">حذف الملفات المؤقتة باستخدام شيزوكو</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">A.</string>
-    <string name="appcleaner_automation_error_no_settings_body">A.</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_title"></string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">A.</string>
     <string name="deduplicator_tool_name">النسخة المتكررة</string>
     <string name="deduplicator_explanation_short">ابحث عن النسخة المكررة على جهازك.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -706,7 +702,6 @@
     <string name="automation_error_not_running_body">خدمة الوصول ليست قيد التشغيل. حاول إعادة تشغيل الجهاز.</string>
     <string name="automation_error_screen_unavailable_title">الشاشة غير متوفرة</string>
     <string name="automation_error_screen_unavailable_body">تم إلغاء العملية لأن الشاشة أصبحت غير متاحة (على سبيل المثال ، إيقاف تشغيل الشاشة أو تنشيط شاشة القفل).</string>
-    <string name="automation_error_compatibility_title">A</string>
     <string name="automation_error_compatibility_body">تعذر على SD Maid معرفة تخطيط الشاشة. إذا استمر هذا في الحدوث، قد لا تكون لغتك أو إعدادك مدعومة بالكامل. تحقق من وجود تحديثات أو الاتصال بي حتى يمكنني إصلاحها.</string>
     <string name="history_label">السجل</string>
     <string name="history_description">قائمة مرتبة ترتيبًا زمنيًا للإجراءات الأخيرة والبيانات المتأثرة.</string>
