@@ -1,0 +1,40 @@
+<i>SD Maid 2/SE</i> Android qurilmangizni toza va tartibli saqlash uchun ishonchli yordamchingizdir.
+
+Hech kim mukammal emas, Android ham shunday.
+* Siz oʻchirib tashlagan ilovalar ortidan qandaydir qoldiqlarni qoldiradi.
+* Keraksiz jurnallar, xatoliklar hisobotlari va boshqa fayllar doimiy ravishda yaratiladi.
+* Xotirangiz siz tanimaydigan fayllar va papkalarni toʻplaydi.
+* Galereyangizda takrorlanuvchi suratlar.
+
+Keling, bu yerda toʻxtamaylik... SD Maid 2/SE sizga yordam bersin!
+
+SD Maid 2/SE – bu qurilmangizda qaysi ilovalar maxsus fayllarni yaratganini bilishga ixtisoslashgan ilova va fayl menejeri. SD Maid 2/SE qurilmangizni qidiradi va oʻrnatilgan ilovalar bilan fayllarni solishtirib, xotira joyini xavfsiz boʻshatish uchun imkoniyatlarni taklif qiladi.
+
+✨ Ilovalarni oʻchirgandan keyin tozalash
+Agar ilovalar belgilangan papkalaridan tashqarida fayllar yaratsa, ilovalarni oʻchirgandan keyin ham fayllar qolishi mumkin. "CorpseFinder" (Murda topuvchi) vositasi ilova qoldiqlarini topadi, ular qaysi ilovaga tegishli ekanligini aytadi va ularni oʻchirishga yordam beradi.
+
+🔍 Qurilmangizni aqlli usulda qidiring
+Boʻsh papkalar, vaqtinchalik fayllar, allaqachon oʻrnatilgan ilovalar va boshqalar uchun filtrlang. Siz hatto oʻzingizning qidiruv mezonlaringizni yaratishingiz mumkin. "SystemCleaner" (Tizim tozalagich) vositasi qurilmangizni avtomatik ravishda qidirishga va turli mezonlar asosida fayllarni oʻchirishga imkon beradi.
+
+🧹 Sarflanadigan fayllar va yashirin keshlarni oʻchirish
+Miniatyuralar, chiqindi qutilari, oflayn keshlar va boshqalar: agar ilovalar oʻzidan keyin tozalamasa, bu ilova buni qiladi. "AppCleaner" (Ilova tozalagich) vositasi sarflanadigan fayllarga ega ilovalarni topadi.
+
+📦 Barcha ilovalaringizni boshqaring
+Qurilmangizga oʻrnatilgan barcha ilovalarning toʻliq roʻyxatini oling. Yoqilgan, oʻchirilgan, foydalanuvchi yoki tizim ilovasi: hech bir ilova sizdan yashirina olmaydi. "AppControl" (Ilova boshqaruvi) vositasi ilovalaringizni qidirish, saralash va boshqarish imkonini beruvchi ilova menejeridir.
+
+📊 Barcha joyingizni nima egallaydi?
+Xotirani boshqarish telefon xotirasi, SD-kartalar va USB qurilmalaridagi ilovalar, media, tizim va boshqa fayllar bilan murakkab boʻlishi mumkin. "StorageAnalyzer" (Xotira tahlilchisi) qurilmangizda joy qanday ishlatilayotganini koʻrsatadigan fayl menejeri boʻlib, xotirangizni boshqarishni soddalashtiradi.
+
+📷 Takrorlanuvchi maʼlumotlarni toping
+Takroriy yuklab olishlar, ijtimoiy tarmoqlar orqali yuborilgan fotosuratlar yoki bir xil sahnaning shunga oʻxshash suratlari: vaqt oʻtishi bilan nusxalar toʻplanishi mumkin. "Deduplicator" (Takrorlanishni yoʻqotuvchi) vositasi bir xil yoki oʻxshash fayllarni topadi va ortiqcha nusxalarni oʻchirishga yordam beradi.
+
+Ushbu ilova reklamalarsiz. Baʼzi funksiyalar pullik yangilanishni talab qiladi.
+
+SD Maid 2/SE SD Maid 1/Legacy (Eskirgan) ning vorisidir.
+Yangi Android versiyalari uchun optimallashtirilgan va tozalashga qaratilgan.
+
+Ushbu ilovada zerikarli harakatlarni avtomatlashtirish uchun AccessibilityService API-dan foydalanadigan ixtiyoriy funksiyalar mavjud.
+AccessibilityService API yordamida ushbu ilova siz uchun bir nechta ilovalarda amallarni bajarish uchun tugmalarni bosishi mumkin, masalan, keshlarni oʻchirish.
+Ushbu ilova maʼlumot toʻplash uchun AccessibilityService API-dan foydalanmaydi.
+
+SD Maid 2/SE - bu Fayl Menejeri va Tozalagich Ilovasi.

@@ -1,0 +1,40 @@
+<i>SD Maid 2/SE</i> er traustur aðstoðarmaður Android símans þíns, til að halda honum hreinum og snyrtilegum.
+
+Enginn er fullkominn og Android er það ekki heldur.
+* Forrit sem þú hefur þegar fjarlægt skilja eitthvað eftir sig.
+* Annálar, villuskýrslur og aðrar skrár sem þú vilt ekki eru stöðugt að myndast.
+* Geymslan þín safnar skrám og möppum sem þú þekkir ekki.
+* Tvöfaldar myndir í myndasafninu þínu.
+
+Höfum þetta ekki lengra… Leyfðu SD Maid 2/SE að hjálpa þér!
+
+SD Maid 2/SE er forrita- og skráastjóri sem sérhæfir sig í að vita hvaða forrit hafa búið til tilteknar skrár í tækinu þínu. SD Maid 2/SE leitar í tækinu þínu og ber saman skrár við uppsett forrit til að bjóða upp á valkosti til að losa um geymslupláss á öruggan hátt.
+
+✨ Hreinsaðu til eftir að hafa fjarlægt forrit
+Ef forrit búa til skrár utan tilgreindra mappa geta skrárnar verið eftir jafnvel eftir að forritin hafa verið fjarlægð. „Líkleitarinn“ (CorpseFinder) finnur leifar af forritum, segir þér hvaða forriti þær tilheyrðu og hjálpar þér að eyða þeim.
+
+🔍 Leitaðu í tækinu þínu á snjallan hátt
+Síaðu eftir tómum möppum, tímabundnum skrám, þegar uppsettum forritum og fleiru. Þú getur jafnvel búið til þín eigin leitarskilyrði. „Kerfishreinsirinn“ (SystemCleaner) gerir þér kleift að leita sjálfkrafa í tækinu þínu og eyða skrám byggt á ýmsum skilyrðum.
+
+🧹 Eyða óþarfa skrám og földum skyndiminnum
+Smámyndir, ruslafötur, skyndiminni án nettengingar og fleira: Ef forrit hreinsa ekki upp eftir sig, þá gerir þetta forrit það. „Forritahreinsirinn“ (AppCleaner) finnur forrit með óþarfa skrár.
+
+📦 Hafðu umsjón með öllum forritunum þínum
+Fáðu yfirgripsmikinn lista yfir öll forrit sem eru uppsett í tækinu þínu. Virkt, óvirkt, notenda- eða kerfisforrit: ekkert forrit getur falið sig fyrir þér. „Forritastjórnun“ (AppControl) er forritastjóri sem gerir þér kleift að leita, flokka og stjórna forritunum þínum.
+
+📊 Hvað notar allt plássið þitt
+Geymslustjórnun getur verið flókin með forritum, miðlum, kerfi og öðrum skrám á símanum, SD kortum og USB tækjum. „Geymslugreining“ (StorageAnalyzer) er skráastjóri sem sýnir hvernig pláss er notað í tækinu þínu og einfaldar geymslustjórnunina.
+
+📷 Finndu tvítekin gögn
+Tvöföld niðurhöl, myndir sendar í gegnum samfélagsmiðla eða bara svipaðar myndir af sama atriði: Með tímanum geta eintök safnast upp. „Aftvöfaldarinn“ (Deduplicator) finnur skrár sem eru nákvæmlega eins eða svipaðar og hjálpar þér að eyða auka eintökum.
+
+Þetta forrit er án auglýsinga. Sumir eiginleikar krefjast greiddrar uppfærslu.
+
+SD Maid 2/SE er arftaki SD Maid 1/Legacy.
+Bjartsýni fyrir nýrri Android útgáfur og með áherslu á hreinsun.
+
+Þetta forrit hefur valfrjálsa eiginleika sem nýta AccessibilityService API til að gera sjálfvirkar leiðinlegar aðgerðir.
+Með því að nota AccessibilityService API getur þetta forrit smellt á hnappa fyrir þig til að framkvæma aðgerðir á mörgum forritum, t.d. að eyða skyndiminni.
+Þetta forrit notar ekki AccessibilityService API til að safna upplýsingum.
+
+SD Maid 2/SE er skráastjóri og hreinsiforrit.
