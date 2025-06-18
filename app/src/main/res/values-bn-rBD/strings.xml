@@ -230,6 +230,10 @@
     <string name="systemcleaner_filter_custom_label">কাস্টম ফিল্টার</string>
     <string name="systemcleaner_filter_custom_manage_label">কাস্টম ফিল্টার পরিচালনা করুন</string>
     <string name="systemcleaner_filter_custom_manage_summary">আপনার কাস্টম ফিল্টার তৈরি করুন, মুছুন, ইমপোর্ট করুন এবং এক্সপোর্ট করুন।</string>
+    <string name="systemcleaner_filter_logfiles_label">সিস্টেম লগ ফাইল</string>
+    <string name="systemcleaner_filter_logfiles_summary">বিভিন্ন স্থানে সিস্টেম এবং সিস্টেম পরিষেবা লগ ফাইল (যেমন *.log)।</string>
+    <string name="systemcleaner_filter_packagecaches_label">ইনস্টলার ক্যাশ</string>
+    <string name="systemcleaner_filter_packagecaches_summary">সিস্টেমের প্যাকেজ ব্যবস্থাপনা দ্বারা ব্যবহৃত ইনস্টল করা অ্যাপ সম্পর্কিত ক্যাশেড ডেটা।</string>
     <string name="systemcleaner_filter_advertisements_label">বিজ্ঞাপন ফাইলসমূহ</string>
     <string name="systemcleaner_filter_advertisements_summary">যে ফাইলগুলি বিজ্ঞাপনের জন্য বা দ্বারা তৈরি করা হয়েছে৷</string>
     <string name="systemcleaner_filter_anr_label">ANR errors</string>
@@ -254,6 +258,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"সংযুক্ত স্টোরেজে উইন্ডোজ ফাইল এক্সপ্লোরার তৈরি করতে পারে এমন ডেটা৷"</string>
     <string name="systemcleaner_filter_thumbnails_label">থাম্বনেল ছবি</string>
     <string name="systemcleaner_filter_thumbnails_summary">ছবি এবং ভিডিওর জন্য ক্যাশ প্রিভিউ।</string>
+    <string name="systemcleaner_filter_tempfiles_label">অস্থায়ী সিস্টেম ফাইল</string>
+    <string name="systemcleaner_filter_tempfiles_summary">সিস্টেম সম্পর্কিত অস্থায়ী ফাইল, সাধারণত সক্রিয় ক্রিয়াকলাপের জন্য স্বল্পস্থায়ী ক্যাশ</string>
     <string name="systemcleaner_filter_analytics_label">বিশ্লেষণী ফাইল</string>
     <string name="systemcleaner_filter_analytics_summary">অ্যানালাইটস এবং বাগ ট্র্যাকিং সম্পর্কিত ডেটা।</string>
     <string name="systemcleaner_filter_downloadcache_label">ডাউনলোড ক্যাশ</string>
@@ -388,6 +394,13 @@
         <item quantity="other">%d নির্বাচিত অ্যাপের জন্য ব্যয়যোগ্য ফাইল মুছবেন?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku ব্যবহার করে ক্যাশ মুছে ফেলা হচ্ছে।</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">অ্যাক্সেসযোগ্য ক্যাশ নির্ধারণ করা</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">ক্যাশ সাফ করার সুবিধা অনুপলব্ধ</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">সিস্টেমটি এই অ্যাপের জন্য \"ক্যাশ সাফ করুন\" বোতামটি অক্ষম করেছে। ক্যাশে সাফ করার গতি বাড়ানোর জন্য এটি বাদ দিন।</string>
+    <string name="appcleaner_automation_error_no_settings_title">সেটিংস স্ক্রিন অনুপলব্ধ</string>
+    <string name="appcleaner_automation_error_no_settings_body">এই সিস্টেম অ্যাপটিতে কোনও সেটিংস স্ক্রিন নেই। অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে ক্যাশ সাফ করা সম্ভব নয়। ক্যাশ সাফ করার গতি বাড়ানোর জন্য এটি বাদ দিন।</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">সিস্টেম অ্যাপটি ভুলভাবে কনফিগার করা হয়েছে</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS এর নিরাপত্তা অ্যাপ (com.miui.securitycenter) তে ব্যবহারের পরিসংখ্যান অনুমতি (GET_USAGE_STATS) অনুপস্থিত। এটি অ্যাপের বিবরণে \"ডেটা সাফ করুন\" এবং অ্যাক্সেসিবিলিটির মাধ্যমে ক্যাশ সাফ করার মতো বৈশিষ্ট্যগুলিকে ভেঙে দেয়। সম্পূর্ণ কার্যকারিতা পুনরুদ্ধার করার অনুমতি দিন।</string>
     <string name="deduplicator_tool_name">ডিডুপ্লিকেটর</string>
     <string name="deduplicator_explanation_short">আপনার ডিভাইসে ডুপ্লিকেট ডেটা খুঁজুন।</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -471,6 +484,7 @@
     <string name="appcontrol_list_sortmode_installed_label">প্রথমবার ইনস্টল করা</string>
     <string name="appcontrol_list_sortmode_packagename_label">প্যাকেজের নাম</string>
     <string name="appcontrol_list_sortmode_size_label">আকার</string>
+    <string name="appcontrol_list_sortmode_screentime_label">স্ক্রিন সময়</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">অ্যাপ্লিকেশান আকার কর্মক্ষমতা কারণে অনুমান করা হয়. আরও সঠিক তথ্যের জন্য স্টোরেজ অ্যানালাইজার টুল ব্যবহার করুন।</string>
     <string name="appcontrol_progress_uninstalling_app">অ্যাপ আনইনস্টল করা হচ্ছে</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -518,6 +532,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">জোর করে থামানো হচ্ছে...</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"ফোর্স স্টপ\" বাটন খুঁজছেন (কীওয়ার্ড: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">পূর্ববর্তী কর্ম নিশ্চিত করার চেষ্টা করা হচ্ছে (কীওয়ার্ড: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">স্ক্রিন টাইম: %2$s থেকে %1$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">সর্বশেষ আপডেট হয়েছে: %s</string>
+    <string name="appcontrol_item_installedat_x_label">ইনস্টল করা হয়েছে: %s</string>
     <string name="analyzer_tool_name">স্টোরেজ বিশ্লেষক</string>
     <string name="analyzer_explanation_short">আপনার ডিভাইসে কী কী জিনিস স্টোরেজের কতটুকু যায়গা দখল করছে তা খুঁজে বের করুন।</string>
     <string name="analyzer_progress_scanning_device">স্টোরেজ ডিভাইসের জন্য অনুসন্ধান করা হচ্ছে</string>
@@ -606,7 +623,12 @@
     <string name="automation_error_not_running_body">অ্যাক্সেসিবিলিটি পরিষেবা চলছে না। ডিভাইসটি রিবুট করার চেষ্টা করুন।</string>
     <string name="automation_error_screen_unavailable_title">স্ক্রীন অনুপলব্ধ</string>
     <string name="automation_error_screen_unavailable_body">স্ক্রীনটি অনুপলব্ধ হওয়ার কারণে অপারেশনটি বাতিল করা হয়েছে (যেমন ডিসপ্লে বন্ধ বা লকস্ক্রিন সক্রিয়)।</string>
+    <string name="automation_error_compatibility_title">অটোমেশন সামঞ্জস্য</string>
     <string name="automation_error_compatibility_body">SD Maid স্ক্রিন লেআউটটি বুঝতে পারেনি। যদি এটি চলতে থাকে, তাহলে আপনার ভাষা বা সেটআপ সম্পূর্ণরূপে সমর্থিত নাও হতে পারে। আপডেটগুলি পরীক্ষা করুন অথবা আমার সাথে যোগাযোগ করুন যাতে আমি এটি ঠিক করতে পারি।</string>
+    <string name="automation_error_timeout_title">অটোমেশন টাইমআউট</string>
+    <string name="automation_error_timeout_body">SD Maid নির্ধারিত সময়ের মধ্যে সব ধাপ সম্পন্ন করতে পারেনি। যদি এটি চলতে থাকে, তাহলে আপনার ডিভাইসের জন্য অ্যাপটি সামঞ্জস্য করতে হতে পারে। আপডেটের জন্য চেক করুন অথবা আমার সাথে যোগাযোগ করুন যাতে আমি এটি ঠিক করতে পারি।</string>
+    <string name="automation_error_overlay_title">অটোমেশন ওভারলে</string>
+    <string name="automation_error_overlay_body">SD Maid অটোমেশন ওভারলে দেখাতে পারেনি। অনুমতি পরীক্ষা করে আপনার ডিভাইস রিবুট করার চেষ্টা করুন।</string>
     <string name="history_label">ইতিহাস</string>
     <string name="history_description">সাম্প্রতিক ক্রিয়াকলাপ এবং প্রভাবিত ডেটার একটি কালানুক্রমিক তালিকা।</string>
     <string name="scheduler_label">সময়সূচী</string>

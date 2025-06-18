@@ -160,4 +160,8 @@
     </plurals>
     <string name="general_advice_title">উপদেশ</string>
     <string name="general_error_invalid_input_label">অবৈধ ইনপুট</string>
+    <string name="general_information_for_the_developer">ডেভেলপারের জন্য তথ্য</string>
+    <string name="general_error_report_bug_action">বাগ রিপোর্ট করুন</string>
+    <string name="general_error_ipc_deadobject_title">পরিষেবা সংযোগ বিচ্ছিন্ন হয়েছে</string>
+    <string name="general_error_ipc_deadobject_description">একটি গুরুত্বপূর্ণ পরিষেবার (যেমন Magisk, Shizuku, অথবা অন্যান্য সিস্টেম-স্তরের পরিষেবা) সাথে সংযোগ অপ্রত্যাশিতভাবে বিচ্ছিন্ন হয়ে গেছে। আপনার ডিভাইসটি রিবুট করুন। যদি সমস্যাটি থেকে যায়, তাহলে আপডেটগুলি পরীক্ষা করুন অথবা আমার সাথে যোগাযোগ করুন যাতে আমি এটি ঠিক করতে পারি।</string>
 </resources>
