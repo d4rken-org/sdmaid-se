@@ -529,7 +529,7 @@
     </plurals>
     <string name="appcontrol_automation_loading">অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে অটোমেশন প্রস্তুত করা হচ্ছে</string>
     <string name="appcontrol_automation_title">AppControl অটোমোশন</string>
-    <string name="appcontrol_automation_subtitle_force_stopping">জোর করে থামানো হচ্ছে...</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">জোর করে থামানো হচ্ছে…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"ফোর্স স্টপ\" বাটন খুঁজছেন (কীওয়ার্ড: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">পূর্ববর্তী কর্ম নিশ্চিত করার চেষ্টা করা হচ্ছে (কীওয়ার্ড: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">স্ক্রিন টাইম: %2$s থেকে %1$s</string>
