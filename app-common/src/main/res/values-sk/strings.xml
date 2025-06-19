@@ -8,6 +8,7 @@
     <string name="slogan_message_5">Bez poškvrny.</string>
     <string name="slogan_message_6">Bajty, zmiznite!</string>
     <string name="slogan_message_7">Voľný miesto, šťastné miesto.</string>
+    <string name="slogan_message_8">Nikdy sa ťa nevzdám.</string>
     <string name="general_thank_you_label">Ďakujem</string>
     <string name="general_error_type_mismatch_msg">Nezhoda typu: Chceli ste %1$s, ale dostali ste %2$s.</string>
     <string name="general_error_cant_access_msg">Nedá sa získať prístup k %s.</string>
@@ -62,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Ukladanie životných rozhodnutí</string>
     <string name="general_progress_loading_egg_10">Povolávam Cthulhu</string>
     <string name="general_progress_loading_egg_11">Toto je fajn</string>
+    <string name="general_progress_loading_egg_12">Prosím vydržte</string>
+    <string name="general_progress_loading_egg_13">Aspoň nie ste na čakačke</string>
     <string name="general_help_action">Pomoc</string>
     <string name="general_continue">Pokračovať</string>
     <string name="general_progress_queued">V poradí</string>
@@ -85,6 +88,12 @@
     <string name="general_delete_confirmation_title">Potvrďte vymazanie</string>
     <string name="general_delete_confirmation_message_x">Vymazať \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Odstrániť %d vybraté položky?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Zmazaná %d položka.</item>
+        <item quantity="few">Zmazané %d položky.</item>
+        <item quantity="many">Zmazaných %d položiek.</item>
+        <item quantity="other">Zmazaných %d položiek.</item>
+    </plurals>
     <string name="general_remove_action">Odstrániť</string>
     <string name="general_remove_selected_action">Odstrániť vybrané</string>
     <plurals name="general_remove_success_x_items">
@@ -127,10 +136,24 @@
     <string name="general_progress_ready">Pripravené</string>
     <string name="general_progress_done">Hotovo</string>
     <string name="general_rom_type_auto_label">Automaticky (predvolené)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d deň</item>
+        <item quantity="few">%d dni</item>
+        <item quantity="many">%d dní</item>
+        <item quantity="other">%d dní</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d hodina</item>
+        <item quantity="few">%d hodiny</item>
+        <item quantity="many">%d hodín</item>
+        <item quantity="other">%d hodín</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s súbor</item>
         <item quantity="few">%s súbory</item>
         <item quantity="many">%s súborov</item>
         <item quantity="other">%s súborov</item>
     </plurals>
+    <string name="general_advice_title">Rada</string>
+    <string name="general_error_invalid_input_label">Neplatný vstup</string>
 </resources>

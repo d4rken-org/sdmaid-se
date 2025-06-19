@@ -5,6 +5,7 @@
     <string name="dashboard_motd_title">ข้อความจากผู้พัฒนา</string>
     <string name="dashboard_settings_oneclick_title">One-Tap Mode</string>
     <string name="dashboard_settings_oneclick_summary">เริ่มการสแกนและการลบสำหรับเครื่องมือทั้งหมดด้วยการคลิกปุ่มในแดชบอร์ด โดยไม่มีการยืนยันเพิ่มเติม</string>
+    <string name="dashboard_settings_oneclick_tools_title">Thai</string>
     <string name="debug_debuglog_size_label">ขนาด</string>
     <string name="debug_debuglog_size_compressed_label">ขนาดที่ถูกบีบอัด</string>
     <string name="debug_notification_channel_label">การแจ้งเตือนการดีบัค</string>
@@ -67,6 +68,7 @@
     <string name="ui_theme_style_materialyou_label">วัสดุ ของคุณ</string>
     <string name="ui_previews_title">ตัวอย่างไฟล์</string>
     <string name="ui_previews_summary">แสดงตัวอย่างไฟล์ในทุกเครื่องมือ (เช่น ภาพขนาดย่อของรูปภาพและวิดีโอ)</string>
+    <string name="ui_language_override_label">ภาษาของแอป</string>
     <string name="settings_support_label">การสนับสนุน</string>
     <string name="settings_support_description">อ่านเอกสาร รายงานปัญหา สนทนากับผู้อื่น หรือบันทึกดีบัค</string>
     <string name="documentation_label">เอกสารต่างๆ</string>

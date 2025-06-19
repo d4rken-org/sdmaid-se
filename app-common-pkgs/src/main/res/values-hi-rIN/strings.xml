@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">अमान्य ऐप इन्वेंट्री</string>
+    <string name="pkgrepo_invalid_inventory_error_description">सिस्टम ने SD Maid को इंस्टॉल किए गए ऐप्स की एक अमान्य सूची प्रदान की।</string>
+</resources>

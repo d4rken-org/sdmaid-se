@@ -234,8 +234,10 @@
     <string name="systemcleaner_filter_custom_label">Власний фільтр</string>
     <string name="systemcleaner_filter_custom_manage_label">Керування власними фільтрами</string>
     <string name="systemcleaner_filter_custom_manage_summary">Створюйте, видаляйте, імпортуйте та експортуйте власні фільтри.</string>
-    <string name="systemcleaner_filter_logfiles_label">Файли журналу</string>
-    <string name="systemcleaner_filter_logfiles_summary">Файли журналів (*.log) з усього пристрою.</string>
+    <string name="systemcleaner_filter_logfiles_label">Файли системного журналу</string>
+    <string name="systemcleaner_filter_logfiles_summary">Файли журналів системи та системних служб (наприклад, *.log) у різних місцях.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Кеш встановлювача додатків</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Кешовані дані, пов’язані з установленими додатками, які використовуються системою керування пакетами.</string>
     <string name="systemcleaner_filter_advertisements_label">Рекламні файли</string>
     <string name="systemcleaner_filter_advertisements_summary">Файли, що створені рекламними додатками.</string>
     <string name="systemcleaner_filter_anr_label">Помилки ANR</string>
@@ -244,6 +246,8 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Порожні папки з усього пристрою. Для вкладених папок може знадобитися кілька проходів.</string>
     <string name="systemcleaner_filter_screenshots_label">Знімки екрану</string>
     <string name="systemcleaner_filter_screenshots_summary">Знімки екрану старші за %s з різних додатків і місць.</string>
+    <string name="systemcleaner_filter_trashed_label">Видалені файли</string>
+    <string name="systemcleaner_filter_trashed_summary">Файли в кошику з різних додатків і місць, які позначені для видалення, але ще не видалені остаточно.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Вік знімка екрану</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Мінімальний вік для знімків екрану, які можуть бути видалені.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Зайві додатки APK</string>
@@ -258,8 +262,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Дані, які провідник файлів Windows може створювати на підключеному сховищі."</string>
     <string name="systemcleaner_filter_thumbnails_label">Ескізи зображень</string>
     <string name="systemcleaner_filter_thumbnails_summary">Кешовані прев\'ю для зображень та відео.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Тимчасові файли</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Тимчасові файли, зазвичай короткочасні кеші для активних операцій.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Тимчасові системні файли</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Системні тимчасові файли, як правило, короткочасні кеші для активних операцій.</string>
     <string name="systemcleaner_filter_analytics_label">Файли аналітики</string>
     <string name="systemcleaner_filter_analytics_summary">Дані, пов\'язані з аналітикою та відстеженням помилок.</string>
     <string name="systemcleaner_filter_downloadcache_label">Завантаження кешу</string>
@@ -394,6 +398,13 @@
         <item quantity="other">Видалити витратні файли для %d вибраних додатків?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Видалення кешу за допомогою Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Визначення недоступних кешів</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Очистити кеш неможливо</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Система вимкнула кнопку «Очистити кеш» для цього додатка. Вимкніть її, щоб пришвидшити очищення кешу.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Екран налаштувань недоступний</string>
+    <string name="appcleaner_automation_error_no_settings_body">Цей системний додаток не має екрана налаштувань. Очищення кешу за допомогою служби доступності неможливе. Вимкніть її, щоб пришвидшити очищення кешу.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Системний додаток неправильно налаштовано</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">У додатку безпеки HyperOS (com.miui.securitycenter) відсутній дозвіл «Статистика використання» (GET_USAGE_STATS). Це порушує такі функції, як «Очистити дані» у деталях додатку та очищення кешу через доступ. Надайте дозвіл, щоб відновити повну функціональність.</string>
     <string name="deduplicator_tool_name">Дублікати</string>
     <string name="deduplicator_explanation_short">Знайдіть дублікати даних на вашому пристрої.</string>
     <plurals name="deduplicator_result_x_clusters_found">
@@ -404,6 +415,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Зробити можливим «Видалити все»</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Показати опції, які дозволяють видалити всі файли в наборі дублікатів так, щоб не залишилося жодного файлу.</string>
+    <string name="deduplicator_search_locations_title">Місця пошуку</string>
+    <string name="deduplicator_search_locations_all_summary">Усі доступні місця</string>
     <string name="deduplicator_skip_minsize_title">Мінімальний розмір</string>
     <string name="deduplicator_skip_minsize_description">Пропускати файли, розмір яких менший за мінімальний.</string>
     <string name="deduplicator_skip_uncommon_title">Пропускати рідкісні типи файлів</string>
@@ -456,9 +469,11 @@
     <string name="appcontrol_tag_user">Користувач</string>
     <string name="appcontrol_tag_active">Нещодавно активний</string>
     <string name="appcontrol_tag_apk_base">APK</string>
-    <string name="appcontrol_tag_apk_bundle">Набір</string>
+    <string name="appcontrol_tag_apk_bundle">Пакет</string>
     <string name="appcontrol_tag_system">Системна</string>
     <string name="appcontrol_tag_archived">Заархівовано</string>
+    <string name="appcontrol_tag_uninstalled">Тільки дані</string>
+    <string name="appcontrol_tag_not_installed">Не встановлено</string>
     <string name="appcontrol_tag_enabled">Увімкнено</string>
     <string name="appcontrol_tag_disabled">Вимкнено</string>
     <string name="appcontrol_progress_enabling_package">Увімкнення додатка</string>
@@ -469,6 +484,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Вперше встановлено</string>
     <string name="appcontrol_list_sortmode_packagename_label">Назва пакету</string>
     <string name="appcontrol_list_sortmode_size_label">Розмір</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Екранний час</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Розміри додатків оцінюються з міркувань продуктивності. Використовуйте інструмент Аналізатор сховища для отримання більш точних даних.</string>
     <string name="appcontrol_progress_uninstalling_app">Видалення додатка</string>
     <string name="appcontrol_app_sizes_title">Розмір додатка</string>
@@ -504,6 +520,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Примусова зупинка…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Шукаємо кнопку \"Примусово зупинити\" (ключові слова: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Спроба підтвердити попередню дію (ключові слова: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Час використання екрана: %1$s з %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Останнє оновлення: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Встановлено: %s</string>
     <string name="analyzer_tool_name">Аналізатор сховища</string>
     <string name="analyzer_explanation_short">Дізнайтеся, що займає місце на вашому пристрої.</string>
     <string name="analyzer_progress_scanning_device">Пошук пристроїв для зберігання даних</string>
@@ -598,6 +617,12 @@
     <string name="automation_error_not_running_body">Сервіс спеціальних можливостей не запущений. Спробуйте перезавантажити пристрій.</string>
     <string name="automation_error_screen_unavailable_title">Екран недоступний</string>
     <string name="automation_error_screen_unavailable_body">Операцію було перервано, оскільки екран став недоступним (наприклад, вимкнено дисплей або активовано екран блокування).</string>
+    <string name="automation_error_compatibility_title">Сумісність з автоматизацією</string>
+    <string name="automation_error_compatibility_body">SD Maid не вдалося визначити розкладку екрана. Якщо це повторюється, можливо, ваша мова або налаштування підтримуються не повністю. Перевірте наявність оновлень або зв\'яжіться зі мною, щоб я міг це виправити.</string>
+    <string name="automation_error_timeout_title">Час очікування автоматизації</string>
+    <string name="automation_error_timeout_body">SD Maid не виконала всі кроки в межах встановленого часу. Якщо це повторюється, можливо, мені доведеться налаштувати додаток для вашого пристрою. Перевірте наявність оновлень або зв\'яжіться зі мною, щоб я міг це виправити.</string>
+    <string name="automation_error_overlay_title">Накладання автоматизації</string>
+    <string name="automation_error_overlay_body">SD Maid не змогла показати накладення автоматизації. Перевірте дозволи та спробуйте перезавантажити пристрій.</string>
     <string name="history_label">Історія</string>
     <string name="history_description">Хронологічний список нещодавніх дій та даних, на які вони вплинули.</string>
     <string name="scheduler_label">Планувальник</string>
@@ -669,4 +694,14 @@
     <string name="stats_settings_reset_all_desc">Видаліть усі звіти та обнулить усю статистику.</string>
     <string name="stats_affected_paths_label">Пошкоджені шляхи</string>
     <string name="stats_affected_pkgs_label">Пошкоджені додатки</string>
+    <string name="picker_select_paths_title">Виберіть шляхи</string>
+    <string name="picker_selected_paths_title">Вибрані шляхи</string>
+    <string name="picker_unsaved_confirmation_message">Скасувати зміни?</string>
+    <string name="picker_home_action">Області даних</string>
+    <string name="area_type_sdcard_label">Загальне сховище</string>
+    <string name="area_type_public_media_label">Загальнодоступні дані додатку</string>
+    <string name="area_type_public_data_label">Загальнодоступні дані додатку</string>
+    <string name="area_type_public_obb_label">Загальнодоступні ресурси додатків</string>
+    <string name="area_type_private_data_label">Особисті дані додатку</string>
+    <string name="area_type_portable_label">Портативне сховище</string>
 </resources>

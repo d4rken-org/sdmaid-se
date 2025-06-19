@@ -230,8 +230,6 @@
     <string name="systemcleaner_filter_custom_label">Egyedi szűrő</string>
     <string name="systemcleaner_filter_custom_manage_label">Egyedi szűrők kezelése</string>
     <string name="systemcleaner_filter_custom_manage_summary">Egyedi szűrők létrehozása, törlése, importálása és exportálása.</string>
-    <string name="systemcleaner_filter_logfiles_label">Naplófájlok</string>
-    <string name="systemcleaner_filter_logfiles_summary">Naplófájlok (*.log) az egész eszközről.</string>
     <string name="systemcleaner_filter_advertisements_label">Hirdetésfájlok</string>
     <string name="systemcleaner_filter_advertisements_summary">Reklámokhoz vagy hirdetések által létrehozott fájlok.</string>
     <string name="systemcleaner_filter_anr_label">ANR hibák</string>
@@ -256,8 +254,6 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"A Windows fájlkezelő által létrehozott adatok a csatlakoztatott adattárolón."</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatűr képek</string>
     <string name="systemcleaner_filter_thumbnails_summary">Gyorsítótárazott előnézetek a képekhez és videókhoz.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Ideiglenes fájlok</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Ideiglenes fájlok, általában rövid élettartamú gyorsítótárak az aktív műveletekhez.</string>
     <string name="systemcleaner_filter_analytics_label">Analitika fáljok</string>
     <string name="systemcleaner_filter_analytics_summary">Az elemzéshez és a hibakövetéshez kapcsolódó adatok.</string>
     <string name="systemcleaner_filter_downloadcache_label">Letöltési gyorsítótár</string>

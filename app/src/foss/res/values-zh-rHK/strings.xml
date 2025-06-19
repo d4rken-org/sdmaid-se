@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name_upgraded">SD 女僕 SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-    <string name="upgrade_feature_requires_pro">需要 SD 女僕 SE 專業版</string>
     <string name="upgrades_dashcard_title">升級 SD 女僕</string>
     <string name="upgrades_dashcard_body">解鎖額外功能，並成為贊助者，以支持持續開發！</string>
     <string name="upgrades_dashcard_upgrade_action">升級</string>

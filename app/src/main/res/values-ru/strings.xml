@@ -246,8 +246,9 @@
     <string name="systemcleaner_filter_custom_label">Пользовательские фильтры</string>
     <string name="systemcleaner_filter_custom_manage_label">Управление пользовательскими фильтрами</string>
     <string name="systemcleaner_filter_custom_manage_summary">Создание, удаление, импорт и экспорт пользовательских фильтров.</string>
-    <string name="systemcleaner_filter_logfiles_label">Файлы журналов</string>
-    <string name="systemcleaner_filter_logfiles_summary">Файлы журналов (*.log) со всего устройства.</string>
+    <string name="systemcleaner_filter_logfiles_label">Системные логи</string>
+    <string name="systemcleaner_filter_logfiles_summary">Файлы журнала системных и системных служб (например, *.log) в различных местах.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Кэш установщика</string>
     <string name="systemcleaner_filter_advertisements_label">Файлы рекламы</string>
     <string name="systemcleaner_filter_advertisements_summary">Файлы, созданные для или с помощью рекламы.</string>
     <string name="systemcleaner_filter_anr_label">Ошибки ANR</string>
@@ -272,8 +273,7 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Данные, которые проводник Windows может создавать на подключенном хранилище."</string>
     <string name="systemcleaner_filter_thumbnails_label">Эскизы изображений</string>
     <string name="systemcleaner_filter_thumbnails_summary">Кэшированный предпросмотр для изображений и видео.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Временные файлы</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Временные файлы, обычно краткосрочный кэш для активных операций.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Временные системные файлы</string>
     <string name="systemcleaner_filter_analytics_label">Файлы аналитики</string>
     <string name="systemcleaner_filter_analytics_summary">Данные, связанные с аналитикой и отслеживанием ошибок.</string>
     <string name="systemcleaner_filter_downloadcache_label">Кэш загрузок</string>
@@ -414,6 +414,10 @@
         <item quantity="other">Удалить ненужные данные для %d выбранных приложений?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Удаление кэша с помощью Shizuku</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Система отключила кнопку \"Очистить кэш\" для этого приложения. Добавьте в исключения, чтобы ускорить очистку кэша.</string>
+    <string name="appcleaner_automation_error_no_settings_body">У этого системного приложения нет экрана настроек. Очистка кэша через службу специальных возможностей невозможна. Добавьте в исключения, чтобы ускорить очистку кэша.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Системное приложение не настроено</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Приложение HyperOS Security (com.miui.securitycenter) не имеет разрешения статистики использования (GET_USAGE_STATS). Это препятствует работе таких функций, как «Очистить данные» в деталях приложения и не позволяет очистить кэш через службу специальных возможностей. Предоставьте разрешение для восстановление полной функциональности.</string>
     <string name="deduplicator_tool_name">Дедупликатор</string>
     <string name="deduplicator_explanation_short">Найти дубликаты данных на Вашем устройстве.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -564,6 +568,8 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Принудительное завершение…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Поиск кнопки \"Принудительное завершение\" (ключевые слова: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Попытка подтвердить предыдущее действие (ключевые слова: %s)</string>
+    <string name="appcontrol_item_lastupdate_x_label">Последнее обновление: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Установлено: %s</string>
     <string name="analyzer_tool_name">Анализ памяти</string>
     <string name="analyzer_explanation_short">Узнайте, что занимает место на Вашем устройстве.</string>
     <string name="analyzer_progress_scanning_device">Поиск хранилищ</string>
@@ -658,7 +664,12 @@
     <string name="automation_error_not_running_body">Служба специальных возможностей не запущена. Попробуйте перезагрузить устройство.</string>
     <string name="automation_error_screen_unavailable_title">Экран недоступен</string>
     <string name="automation_error_screen_unavailable_body">Операция была прервана, потому что экран стал недоступным (например, экран выключен или активен экран блокировки).</string>
+    <string name="automation_error_compatibility_title">Совместимость автоматизации</string>
     <string name="automation_error_compatibility_body">SD Maid не удалось определить макет экрана. Если это происходит, Ваш язык или настройки могут поддерживаться не полностью. Проверьте наличие обновлений или свяжитесь со мной, чтобы я мог это исправить.</string>
+    <string name="automation_error_timeout_title">Таймаут автоматизации</string>
+    <string name="automation_error_timeout_body">SD Maid не завершила все шаги в течение установленного времени. Если это происходит постоянно, может потребоваться настройка приложения для Вашего устройства. Проверяйте наличие обновлений или свяжитесь со мной, чтобы я мог это исправить.</string>
+    <string name="automation_error_overlay_title">Наложение автоматизации</string>
+    <string name="automation_error_overlay_body">SD Maid не удалось отобразить наложение автоматизации. Проверьте разрешения и попробуйте перезагрузить устройство.</string>
     <string name="history_label">История</string>
     <string name="history_description">Хронологический список последних действий и затронутых данных.</string>
     <string name="scheduler_label">Расписание</string>

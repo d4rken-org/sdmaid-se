@@ -1,0 +1,40 @@
+<i>SD Maid 2/SE</i> Android cihazınızı təmiz və səliqəli saxlamaq üçün etibarlı köməkçinizdir.
+
+Heç kim mükəmməl deyil, Android də həmçinin.
+* Artıq sildiyiniz tətbiqlər arxada nəsə buraxır.
+* İstəmədiyiniz qeydlər, qəza hesabatları və digər fayllar daim yaradılır.
+* Yaddaşınız tanımadığınız faylları və qovluqları toplayır.
+* Qalereyanızda təkrarlanan şəkillər.
+
+Burada davam etməyək... Qoy SD Maid 2/SE sizə kömək etsin!
+
+SD Maid 2/SE, hansı tətbiqlərin cihazınızda xüsusi fayllar yaratdığını bilməkdə ixtisaslaşmış bir tətbiq və fayl meneceridir. SD Maid 2/SE cihazınızı axtarır və yaddaş yerini təhlükəsiz şəkildə boşaltmaq üçün seçimlər təklif etmək məqsədilə faylları quraşdırılmış tətbiqlərlə müqayisə edir.
+
+✨ Tətbiqləri sildikdən sonra təmizləyin
+Əgər tətbiqlər təyin olunmuş qovluqlarından kənarda fayllar yaradırsa, tətbiqləri sildikdən sonra da fayllar qala bilər. "QalıqAxtaran" aləti tətbiq qalıqlarını tapır, onların hansı tətbiqə aid olduğunu sizə bildirir və onları silməyə kömək edir.
+
+🔍 Cihazınızı ağıllı şəkildə axtarın
+Boş qovluqlar, müvəqqəti fayllar, artıq quraşdırılmış tətbiqlər və daha çoxu üçün filtrləyin. Hətta öz axtarış meyarlarınızı da yarada bilərsiniz. "SistemTəmizləyicisi" aləti cihazınızı avtomatik olaraq axtarmağa və müxtəlif meyarlara əsasən faylları silməyə imkan verir.
+
+🧹 Xərclənə bilən faylları və gizli keşləri silin
+Kiçik şəkillər, zibil qutuları, oflayn keşlər və daha çoxu: Əgər tətbiqlər özlərindən sonra təmizləmirsə, bu tətbiq edəcək. "TətbiqTəmizləyicisi" aləti xərclənə bilən faylları olan tətbiqləri tapır.
+
+📦 Bütün tətbiqlərinizi idarə edin
+Cihazınızda quraşdırılmış bütün tətbiqlərin əhatəli siyahısını əldə edin. Aktivləşdirilmiş, deaktiv edilmiş, istifadəçi və ya sistem tətbiqi: heç bir tətbiq sizdən gizlənə bilməz. "TətbiqNəzarəti" aləti tətbiqlərinizi axtarmağa, çeşidləməyə və idarə etməyə imkan verən bir tətbiq meneceridir.
+
+📊 Bütün yerinizi nə istifadə edir
+Yaddaşın idarə edilməsi telefon yaddaşı, SD kartlar və USB cihazlardakı tətbiqlər, media, sistem və digər fayllarla mürəkkəb ola bilər. "YaddaşAnalizatoru" cihazınızda yerin necə istifadə olunduğunu göstərən, yaddaş idarəçiliyinizi sadələşdirən bir fayl meneceridir.
+
+📷 Təkrarlanan məlumatları tapın
+Təkrarlanan yükləmələr, sosial media vasitəsilə göndərilən şəkillər və ya eyni səhnənin sadəcə oxşar şəkilləri: Zamanla nüsxələr toplana bilər. "DublikatSilən" aləti tamamilə eyni və ya oxşar olan faylları tapır və əlavə nüsxələri silməyə kömək edir.
+
+Bu tətbiq reklamsızdır. Bəzi xüsusiyyətlər pullu təkmilləşdirmə tələb edir.
+
+SD Maid 2/SE, SD Maid 1/Legacy-nin davamçısıdır.
+Daha yeni Android versiyaları üçün optimallaşdırılıb və təmizləməyə fokuslanıb.
+
+Bu tətbiqdə yorucu hərəkətləri avtomatlaşdırmaq üçün Əlçatanlıq Xidməti API-sindən istifadə edən isteğe bağlı xüsusiyyətlər var.
+Əlçatanlıq Xidməti API-sindən istifadə edərək, bu tətbiq çoxsaylı tətbiqlərdə əməliyyatlar yerinə yetirmək üçün sizin üçün düymələrə basa bilər, məsələn, keşləri silmək.
+Bu tətbiq məlumat toplamaq üçün Əlçatanlıq Xidməti API-sindən istifadə etmir.
+
+SD Maid 2/SE bir Fayl Meneceri və Təmizləyici Tətbiqidir.

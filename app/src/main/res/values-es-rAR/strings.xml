@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Grabar un registro de depuración</string>
     <string name="debug_debuglog_stop_action">Detener la grabación</string>
     <string name="debug_debuglog_sensitive_information_message">El archivo generado contiene información sensible (por ejemplo, nombres de archivos y aplicaciones instaladas). Únicamente compartilo con personas de confianza.</string>
+    <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo que se puede compartir. El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártalo solo con terceros de confianza (por ejemplo, un desarrollador que soluciona un problema).</string>
     <string name="tasks_activity_notification_channel_label">Tareas activas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está trabajando</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -219,8 +220,6 @@
     <string name="systemcleaner_filter_custom_label">Filtro personalizado</string>
     <string name="systemcleaner_filter_custom_manage_label">Administrar filtros personalizados</string>
     <string name="systemcleaner_filter_custom_manage_summary">Crea, elimina, importa y exporta tus filtros personalizados.</string>
-    <string name="systemcleaner_filter_logfiles_label">Archivos de registro</string>
-    <string name="systemcleaner_filter_logfiles_summary">Archivos de registro (*.log) de todo el dispositivo.</string>
     <string name="systemcleaner_filter_advertisements_label">Archivos de anuncios</string>
     <string name="systemcleaner_filter_advertisements_summary">Archivos que han sido creados para o por anuncios.</string>
     <string name="systemcleaner_filter_anr_label">Errores ANR</string>
@@ -238,8 +237,6 @@
     <string name="systemcleaner_filter_windowsfiles_label">Archivos de Windows</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniaturas</string>
     <string name="systemcleaner_filter_thumbnails_summary">Vista previa en caché para imágenes y videos.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Archivos temporales</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Archivos temporales, generalmente las cachés de corta duración de las operaciones activas.</string>
     <string name="systemcleaner_filter_analytics_label">Archivos de análisis</string>
     <string name="systemcleaner_filter_analytics_summary">Datos relacionados con el análisis y el seguimiento de los errores.</string>
     <string name="systemcleaner_filter_downloadcache_label">Caché de descargas</string>

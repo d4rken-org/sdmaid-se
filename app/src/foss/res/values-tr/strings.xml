@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name_upgraded">SD Hizmetçi SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-    <string name="upgrade_feature_requires_pro">SD Maid SE Pro gerektirir</string>
     <string name="upgrades_dashcard_title">SD Maid\'i Yükselt</string>
     <string name="upgrades_dashcard_body">Ek özelliklerin kilidini açın ve sürekli gelişimi desteklemek için bir patron olun!</string>
     <string name="upgrades_dashcard_upgrade_action">Yükselt</string>

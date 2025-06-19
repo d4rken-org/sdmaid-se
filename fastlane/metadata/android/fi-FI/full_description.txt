@@ -1,0 +1,40 @@
+<i>SD Maid 2/SE</i> on Androidisi luotettu apulainen, joka pitää sen puhtaana ja siistinä.
+
+Kukaan ei ole täydellinen, eikä myöskään Android.
+* Jo poistamasi sovellukset jättävät jälkeensä tiedostoja.
+* Lokeja, kaatumisraportteja ja muita tarpeettomia tiedostoja luodaan jatkuvasti.
+* Tallennustilaasi kertyy tiedostoja ja kansioita, joita et tunnista.
+* Kaksoiskappaleita kuvia galleriassasi.
+
+Ei jatketa tästä… Anna SD Maid 2/SE:n auttaa sinua!
+
+SD Maid 2/SE on sovellus- ja tiedostonhallintaohjelma, joka on erikoistunut tunnistamaan, mitkä sovellukset ovat luoneet tietyt tiedostot laitteellesi. SD Maid 2/SE etsii laitteeltasi ja vertaa tiedostoja asennettuihin sovelluksiin tarjotakseen vaihtoehtoja tallennustilan turvalliseen vapauttamiseen.
+
+✨ Siivoa sovellusten poiston jälkeen
+Jos sovellukset luovat tiedostoja niiden määriteltyjen kansioiden ulkopuolelle, tiedostot voivat jäädä laitteelle jopa sovellusten poiston jälkeen. "JäännöstenEtsijä"-työkalu löytää sovellusten jäänteet, kertoo mihin sovellukseen ne kuuluivat ja auttaa sinua poistamaan ne.
+
+🔍 Etsi laitteeltasi älykkäästi
+Suodata tyhjiä kansioita, väliaikaistiedostoja, jo asennettuja sovelluksia ja paljon muuta. Voit jopa luoda omat hakuehtosi. "JärjestelmäPuhdistaja"-työkalu antaa sinun automaattisesti etsiä laitteeltasi ja poistaa tiedostoja eri kriteerien perusteella.
+
+🧹 Poista tarpeettomat tiedostot ja piilotetut välimuistit
+Pikkukuvat, roskakorit, offline-välimuistit ja paljon muuta: Jos sovellukset eivät siivoa jälkiään, tämä sovellus tekee sen. "SovellusPuhdistaja"-työkalu löytää sovelluksia, joilla on tarpeettomia tiedostoja.
+
+📦 Hallitse kaikkia sovelluksiasi
+Hanki kattava luettelo kaikista laitteellesi asennetuista sovelluksista. Käytössä, poissa käytöstä, käyttäjä- tai järjestelmäsovellus: mikään sovellus ei voi piiloutua sinulta. "SovellusHallinta"-työkalu on sovellustenhallinta, jonka avulla voit etsiä, lajitella ja hallita sovelluksiasi.
+
+📊 Mikä vie kaiken tilasi
+Tallennustilan hallinta voi olla monimutkaista sovellusten, median, järjestelmän ja muiden tiedostojen kanssa puhelimen tallennustilassa, SD-korteilla ja USB-laitteilla. "TallennusAnalysoija"-työkalu on tiedostonhallinta, joka näyttää, miten tilaa käytetään laitteellasi, yksinkertaistaen tallennustilan hallintaa.
+
+📷 Löydä kaksoiskappaleet
+Kaksoiskappaleina ladatut tiedostot, sosiaalisen median kautta lähetetyt kuvat tai vain samankaltaiset kuvat samasta näkymästä: Ajan myötä kopioita voi kertyä. "KaksoiskopioidenPoistaja"-työkalu löytää täsmälleen samat tai samankaltaiset tiedostot ja auttaa sinua poistamaan ylimääräiset kopiot.
+
+Tämä sovellus on mainokseton. Jotkin ominaisuudet vaativat maksullisen päivityksen.
+
+SD Maid 2/SE on SD Maid 1/Legacyn seuraaja.
+Optimoitu uudemmille Android-versioille ja keskittyy siivoamiseen.
+
+Tässä sovelluksessa on valinnaisia ominaisuuksia, jotka hyödyntävät Esteettömyyspalvelu API:a (AccessibilityService API) automatisoidakseen työläitä toimintoja.
+Esteettömyyspalvelu API:n avulla tämä sovellus voi napsauttaa painikkeita puolestasi suorittaakseen toimintoja useissa sovelluksissa, esim. välimuistien poistaminen.
+Tämä sovellus ei käytä Esteettömyyspalvelu API:a tietojen keräämiseen.
+
+SD Maid 2/SE on tiedostonhallinta- ja siivoussovellus.

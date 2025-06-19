@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">잘못된 앱 인벤토리</string>
+    <string name="pkgrepo_invalid_inventory_error_description">시스템이 SD Maid에 잘못된 설치된 앱 목록을 제공했습니다.</string>
+</resources>

@@ -230,8 +230,6 @@
     <string name="systemcleaner_filter_custom_label">Filtro personalizzato</string>
     <string name="systemcleaner_filter_custom_manage_label">Gestisci filtri personalizzati</string>
     <string name="systemcleaner_filter_custom_manage_summary">Crea, elimina, importa ed esporta i tuoi filtri personalizzati.</string>
-    <string name="systemcleaner_filter_logfiles_label">File di log</string>
-    <string name="systemcleaner_filter_logfiles_summary">File di log (*.log) da tutto il dispositivo.</string>
     <string name="systemcleaner_filter_advertisements_label">File di pubblicità</string>
     <string name="systemcleaner_filter_advertisements_summary">File che sono stati creati per o da pubblicità.</string>
     <string name="systemcleaner_filter_anr_label">Errori ANR</string>
@@ -256,8 +254,6 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Dati che Esplora file di Windows può creare nell'archivio connesso"</string>
     <string name="systemcleaner_filter_thumbnails_label">Anteprime</string>
     <string name="systemcleaner_filter_thumbnails_summary">Anteprime nella cache per immagini e video.</string>
-    <string name="systemcleaner_filter_tempfiles_label">File temporanei</string>
-    <string name="systemcleaner_filter_tempfiles_summary">File temporanei, solitamente con vita breve nella cache per operazioni attive.</string>
     <string name="systemcleaner_filter_analytics_label">File di analisi</string>
     <string name="systemcleaner_filter_analytics_summary">Dati relativi all\'analisi e al tracciamento dei bug.</string>
     <string name="systemcleaner_filter_downloadcache_label">Cache di download</string>

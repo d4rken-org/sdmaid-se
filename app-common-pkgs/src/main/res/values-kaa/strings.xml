@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Qáte programma inventarizatsiyası</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Sistema SD Maid\'ke ornatılǵan programmalar diziminiń qáte nusqasın berdi.</string>
+</resources>

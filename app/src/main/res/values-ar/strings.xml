@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">تسجيل سجل التصحيح</string>
     <string name="debug_debuglog_stop_action">إيقاف التسجيل</string>
     <string name="debug_debuglog_sensitive_information_message">يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل أسماء الملفات والتطبيقات المثبتة). شاركها فقط مع الأطراف الموثوقة.</string>
+    <string name="settings_debuglog_explanation">تسجل هذه الميزة كل ما يفعله التطبيق في ملف قابل للمشاركة. يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل أسماء الملفات والتطبيقات المثبتة). شاركها فقط مع أطراف موثوقة (على سبيل المثال ، مطور يقوم باستكشاف مشكلة ما).</string>
     <string name="tasks_activity_notification_channel_label">المهام النشطة</string>
     <string name="tasks_activity_working_notification_title">SD Maid يعمل</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -130,6 +131,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">لا تستخدم شيزوكو</string>
     <string name="setup_dismiss_hint">يمكنك العثور على شاشة الإعداد مرة أخرى عبر قائمة الإعدادات.</string>
     <string name="setup_permission_granted_label">تم منح الصَّلاحِيَة</string>
+    <string name="setup_permission_error_label">خطأ في الإذن</string>
     <string name="setup_usagestats_title">بيانات الاستخدام</string>
     <string name="setup_usagestats_body">يمنح إذن إحصائيات الاستخدام إمكانية الوصول إلى مزيد من تفاصيل التطبيق. يستخدم SD Maid لتحديد أحجام ذاكرة التخزين المؤقت الإضافية.</string>
     <string name="setup_usagestats_hint">مطلوب لحذف ذاكرة التخزين المؤقت المستندة إلى خدمة الوصول.</string>
@@ -156,6 +158,7 @@
     <string name="setup_inventory_card_title">مخزون التطبيق</string>
     <string name="setup_inventory_card_body">يحتاج SD Maid إلى معرفة أي تطبيقات لديك حتى يتم العثور على ملفات لا تنتمي إلى أي تطبيقات مثبتة.</string>
     <string name="setup_inventory_card_extra">ابحث عن إذن يسمى \"قائمة التطبيقات\" أو \"الاستعلام عن جميع الحزم\".</string>
+    <string name="setup_inventory_invalid_message">يوفر النظام قائمة غير صالحة للتطبيقات المثبتة (على سبيل المثال عدد قليل جدا أو بعضها مفقود). انتقل إلى إعدادات النظام و قم بالسماح بالوصول إلى \"قائمة التطبيقات\".</string>
     <string name="dataarea_warningcard_empty_message">لم تجد SD Maid أي مناطق بيانات يمكن مسحها. هل أكملت الإعداد؟</string>
     <string name="dataarea_warningcard_label">مناطق البيانات</string>
     <string name="dataarea_warningcard_reload_action">إعادة تحميل مناطق البيانات</string>
@@ -259,14 +262,18 @@
     <string name="systemcleaner_filter_custom_label">مرشح خاص</string>
     <string name="systemcleaner_filter_custom_manage_label">إدارة المرشح المخصص</string>
     <string name="systemcleaner_filter_custom_manage_summary">إنشاء وحذف واستيراد وتصدير عوامل التصفية المخصصة الخاصة بك.</string>
-    <string name="systemcleaner_filter_logfiles_label">ملفات السجلات</string>
-    <string name="systemcleaner_filter_logfiles_summary">ملفات السجل (*.log) من جميع أنحاء الجهاز.</string>
     <string name="systemcleaner_filter_advertisements_label">ملفات الإعلانات</string>
     <string name="systemcleaner_filter_advertisements_summary">الملفات التي تم إنشاؤها من أجل أو عن طريق الإعلانات.</string>
     <string name="systemcleaner_filter_anr_label">سجلات الأخطاء</string>
     <string name="systemcleaner_filter_anr_summary">تتبعات من أحداث \"التطبيق لا يستجيب\".</string>
     <string name="systemcleaner_filter_emptydirectories_label">مجلدات فارغة</string>
     <string name="systemcleaner_filter_emptydirectories_summary">مجلدات فارغة من جميع أنحاء الجهاز. المجلدات المتداخلة قد تتطلب تصاريح متعددة.</string>
+    <string name="systemcleaner_filter_screenshots_label">لقطات الشّاشة</string>
+    <string name="systemcleaner_filter_screenshots_summary">لقطات الشاشة أقدم من %s من تطبيقات ومواقع متعددة.</string>
+    <string name="systemcleaner_filter_trashed_label">الملفات المحذوفة</string>
+    <string name="systemcleaner_filter_trashed_summary">الملفات الموجودة في سلة إعادة التدوير من مختلف التطبيقات والمواقع التي تم وضع علامة لحذفها ولكن لم تتم إزالتها بشكل دائم.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">عمر لقطة الشاشة</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">الحد الأدنى لعمر لقطات الشاشة التي سيتم النظر في حذفها.</string>
     <string name="systemcleaner_filter_superfluosapks_label">ملفات APK زائدة</string>
     <string name="systemcleaner_filter_superfluosapks_summary">ملفات الإعداد الأقدم أو المساوية لإصدارات التطبيق المثبتة بالفعل.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR مجلدات</string>
@@ -276,10 +283,9 @@
     <string name="systemcleaner_filter_macfiles_label">ملفات ماك</string>
     <string name="systemcleaner_filter_macfiles_summary">الملفات والمجلدات التي يتم إنشاؤها عند تصفح وحدة التخزين مع تطبيق آبل الباحث.</string>
     <string name="systemcleaner_filter_windowsfiles_label">ملفات ويندوز</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"البيانات التي يمكن لمستكشف ملفات ويندوز إنشاؤها على وحدة تخزين متصلة."</string>
     <string name="systemcleaner_filter_thumbnails_label">صور مصغرة</string>
     <string name="systemcleaner_filter_thumbnails_summary">المعاينات المخبأة للصور ومقاطع الفيديو.</string>
-    <string name="systemcleaner_filter_tempfiles_label">ملفات مؤقتة</string>
-    <string name="systemcleaner_filter_tempfiles_summary">الملفات المؤقتة ، وعادة ما تكون مخبأة قصيرة الأجل للعمليات النشطة.</string>
     <string name="systemcleaner_filter_analytics_label">ملفات التحليل</string>
     <string name="systemcleaner_filter_analytics_summary">البيانات المتعلقة بالتحليلات وتتبع الأخطاء.</string>
     <string name="systemcleaner_filter_downloadcache_label">تخزين التنزيل المؤقت</string>
@@ -317,6 +323,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">الاستثناءات</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">سيتم استبعاد النتيجة إذا كان المسار يتطابق مع أي مدخل (مثل \"DCIM\"). اضغط مطولاً على الإدخالات لمزيد من الخيارات.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">وضع مقارنة المسار</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">المسار يبدأ بكلمة رئيسية</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">المسار يحتوي على كلمة مفتاحية</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">المسار ينتهي بكلمة رئيسية</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">المسار يساوي الكلمة المفتاحية</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">وضع مقارنة الاسم</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">يبدأ الاسم بالكلمة المفتاحية</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">الاسم يحتوي على كلمة مفتاحية</string>
@@ -368,6 +378,8 @@
     <string name="appcleaner_filter_webview_summary">الملفات المخزنة مؤقتًا بواسطة مثيلات عرض الويب المستخدمة داخل التطبيقات.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">نسخ وأتساب الاحتياطية</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">احذف النسخ الإضافية من نسخ WhatsApp الاحتياطية واحتفظ بالأحدث فقط.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">الملفات التي تلقيتها من أي شخص عبر WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">ملفات وأتساب المستلمة</string>
     <string name="appcleaner_filter_whatsapp_sent_label">ملفات وأتساب المرسلة</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">الملفات المرسلة من واتساب للآخرين.</string>
     <string name="appcleaner_filter_telegram_label">ملفات وسائط Telegram</string>
@@ -378,6 +390,8 @@
     <string name="appcleaner_filter_wechat_summary">الملفات المرسلة والمستلمة في المحادثات ولحظات WeChat.</string>
     <string name="appcleaner_filter_viber_label">فايبر</string>
     <string name="appcleaner_filter_viber_summary">ملفات الوسائط المخزنة مؤقتاً والتي يتم تنزيلها مرة أخرى عند عرضها في المحادثة.</string>
+    <string name="appcleaner_filter_qqchat_label">دردشة QQ</string>
+    <string name="appcleaner_filter_qqchat_summary">الملفات المرسلة والمستلمة في محادثات الدردشة QQ.</string>
     <string name="appcleaner_delete_all_confirmation_message">هل تريد حذف العناصر المستهلكة لكافة التطبيقات؟</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="zero">تم حذف %d من العناصر المستهلكة</item>
@@ -438,6 +452,8 @@
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">تمكين \"حذف الكل\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">اعرض الخيارات التي تسمح لك بحذف جميع الملفات في مجموعة من التكرارات بحيث لا يبقى أي مِلَفّ بعد الآن.</string>
+    <string name="deduplicator_search_locations_title">أماكن البحث</string>
+    <string name="deduplicator_search_locations_all_summary">جميع المناطق التي يمكن الوصول إليها</string>
     <string name="deduplicator_skip_minsize_title">الحجم الأدنى</string>
     <string name="deduplicator_skip_minsize_description">تخطي الملفات التي تقل عن الحد الأدنى للحجم.</string>
     <string name="deduplicator_skip_uncommon_title">تخطي أنواع الملفات الغير شائعة</string>
@@ -448,6 +464,14 @@
     <string name="deduplicator_detection_method_phash_title">التجزئة المفهومة</string>
     <string name="deduplicator_detection_method_phash_summary">العثور على ملفات مماثلة عن طريق تحليل ميزات المحتوى ومقارنة قيم التجزئة الإدراكية.</string>
     <string name="deduplicator_occupied_space_label">المساحة المستخدمة</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="zero">%s مشغولة بالنسخ المكررة</item>
+        <item quantity="one">%s مشغولة بالنسخ المكررة</item>
+        <item quantity="two">%s مشغولة بالنسخ المكررة</item>
+        <item quantity="few">%s مشغولة بالنسخ المكررة</item>
+        <item quantity="many">%s مشغولة بالنسخ المكررة</item>
+        <item quantity="other">%s مشغولة بالنسخ المكررة</item>
+    </plurals>
     <string name="deduplicator_file_size_label">حجم الملف</string>
     <string name="deduplicator_average_size_label">متوسط الحجم</string>
     <string name="deduplicator_cluster_x_label">المجموعة %s</string>
@@ -495,6 +519,8 @@
     <string name="appcontrol_tag_apk_bundle">حزمة</string>
     <string name="appcontrol_tag_system">النظام</string>
     <string name="appcontrol_tag_archived">مؤرشف</string>
+    <string name="appcontrol_tag_uninstalled">البيانات فقط</string>
+    <string name="appcontrol_tag_not_installed">غير مثبت</string>
     <string name="appcontrol_tag_enabled">مفعل</string>
     <string name="appcontrol_tag_disabled">معطل</string>
     <string name="appcontrol_progress_enabling_package">تفعيل التطبيق</string>
@@ -664,6 +690,7 @@
         <item quantity="many">تم إنشاء %d استبعادات</item>
         <item quantity="other">تم إنشاء %d استبعادات</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">إظهار الافتراضي</string>
     <string name="automation_accessibility_service_description">يمكن للمستخدمين ذوي الاحتياجات الخاصة بإمكانية الوصول تمكين هذه الخدمة للسماح لـ SD Maid بأتمتة المهام التي تتطلب بخلاف ذلك تفاعلًا يدويًا مملاً من المستخدم (مثل حذف ذاكرة التخزين المؤقت). \ n \ n مثال: إذا طلبت SD Maid لإيقاف تطبيقات متعددة ، فيمكن لـ SD Maid استخدام هذا خدمة لفتح كل شاشة من شاشات إعدادات التطبيقات ، ابحث عن زر \"فرض الإيقاف\" وانقر فوقه. \ n \ n ستظهر SD Maid دائمًا بشكل بارز عند استخدام هذه الخدمة وتوفر طريقة سهلة للمستخدم لإلغاء أي تفاعل على الفور. \ n \ n لا سيتم تنفيذ الإجراءات دون موافقة مسبقة من المستخدم. يمكن تعطيل هذه الخدمة مرة أخرى في أي وقت دون آثار سلبية.</string>
     <string name="automation_screenoverlay_explanation">SD Maid يتفاعل مع جهازك. لا يمكن استخدام الشاشة في نفس الوقت. انتظر حتى تنتهي العملية أو قم بإلغائها.</string>
     <string name="automation_active_title">SD Maid يعمل</string>
@@ -675,6 +702,7 @@
     <string name="automation_error_not_running_body">خدمة الوصول ليست قيد التشغيل. حاول إعادة تشغيل الجهاز.</string>
     <string name="automation_error_screen_unavailable_title">الشاشة غير متوفرة</string>
     <string name="automation_error_screen_unavailable_body">تم إلغاء العملية لأن الشاشة أصبحت غير متاحة (على سبيل المثال ، إيقاف تشغيل الشاشة أو تنشيط شاشة القفل).</string>
+    <string name="automation_error_compatibility_body">تعذر على SD Maid معرفة تخطيط الشاشة. إذا استمر هذا في الحدوث، قد لا تكون لغتك أو إعدادك مدعومة بالكامل. تحقق من وجود تحديثات أو الاتصال بي حتى يمكنني إصلاحها.</string>
     <string name="history_label">السجل</string>
     <string name="history_description">قائمة مرتبة ترتيبًا زمنيًا للإجراءات الأخيرة والبيانات المتأثرة.</string>
     <string name="scheduler_label">الجدولة</string>
@@ -735,6 +763,14 @@
     <string name="review_app_dismiss_action">ربما لاحقًا</string>
     <string name="review_app_body">هل ترغب في ترك تعليق لـ SD Med؟ ❤️</string>
     <string name="stats_label">السجل</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="zero">تم تحرير %s.</item>
+        <item quantity="one">تم تحرير %s.</item>
+        <item quantity="two">تم تحرير %s.</item>
+        <item quantity="few">تم تحرير %s.</item>
+        <item quantity="many">تم تحرير %s.</item>
+        <item quantity="other">%s تم تحريره.</item>
+    </plurals>
     <string name="stats_report_status_success">تم بنجاح</string>
     <string name="stats_report_status_partial_success">تم بنجاح جزئي</string>
     <string name="stats_report_status_partial_failure">فشل</string>
@@ -756,4 +792,22 @@
     <string name="stats_settings_reset_all_desc">حذف كافة التقارير وتعيين كافة الإحصائيات وتصفيرها.</string>
     <string name="stats_affected_paths_label">المسارات المتأثرة</string>
     <string name="stats_affected_pkgs_label">التطبيقات المتأثرة</string>
+    <string name="picker_select_paths_title">حدد المسار</string>
+    <string name="picker_selected_paths_title">المسارات المحددة</string>
+    <string name="picker_unsaved_confirmation_message">تجاهل التغييرات؟</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="zero">تم تحديد المسار %d</item>
+        <item quantity="one">تم تحديد المسار %d</item>
+        <item quantity="two">تم تحديد المسار %d</item>
+        <item quantity="few">تم تحديد المسار %d</item>
+        <item quantity="many">تم تحديد المسار %d</item>
+        <item quantity="other">تم تحديد مسارات %d</item>
+    </plurals>
+    <string name="picker_home_action">مناطق البيانات</string>
+    <string name="area_type_sdcard_label">التخزين العام</string>
+    <string name="area_type_public_media_label">وسائط التطبيق العامة</string>
+    <string name="area_type_public_data_label">بيانات التطبيق العامة</string>
+    <string name="area_type_public_obb_label">موارد التطبيقات العامة</string>
+    <string name="area_type_private_data_label">بيانات التطبيق الخاص</string>
+    <string name="area_type_portable_label">وحدة تخزين محمولة</string>
 </resources>

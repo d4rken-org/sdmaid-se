@@ -377,7 +377,7 @@
     </plurals>
     <string name="appcleaner_automation_loading">در حال آماده‌سازی خودکارسازی از طریق سرویس دسترسی</string>
     <string name="appcleaner_automation_title">خودکارسازی پاک کننده برنامه</string>
-    <string name="appcleaner_automation_subtitle_default_caches">پاک کردن حافظه‌های نهان پیش‌فرض...</string>
+    <string name="appcleaner_automation_subtitle_default_caches">پاک کردن حافظه‌های نهان پیش‌فرض…</string>
     <string name="appcleaner_automation_progress_open_settings">باز کردن صفحه تنظیمات (کلید‌واژه: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">در حال جستجو برای دکمه \"Storage\" (کلید‌واژه: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">در حال جستجو برای دکمه \"Clear data\" (کلید‌واژه: %s)</string>
@@ -396,9 +396,7 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">حذف حافظه پنهان با استفاده از Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">تعیین حافظه‌های پنهان غیرقابل دسترس</string>
     <string name="appcleaner_automation_error_locked_appcache_title">پاک کردن حافظه پنهان در دسترس نیست</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">سیستم دکمه «پاک کردن حافظه پنهان» را برای این برنامه غیرفعال کرده است. برای این برنامه یک استثنا ایجاد کنید.</string>
     <string name="appcleaner_automation_error_no_settings_title">صفحه تنظیمات در دسترس نیست</string>
-    <string name="appcleaner_automation_error_no_settings_body">این برنامه سیستمی صفحه تنظیمات ندارد. پاکسازی حافظه پنهان از طریق سرویس دسترسی امکان‌پذیر نیست. برای این برنامه یک استثنا ایجاد کنید.</string>
     <string name="deduplicator_tool_name">حذف تکراری</string>
     <string name="deduplicator_explanation_short">پیدا کردن داده‌های تکراری در دستگاه شما.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -527,7 +525,7 @@
     </plurals>
     <string name="appcontrol_automation_loading">در حال آماده‌سازی خودکارسازی از طریق سرویس دسترسی</string>
     <string name="appcontrol_automation_title">خودکار سازی کنترل برنامه</string>
-    <string name="appcontrol_automation_subtitle_force_stopping">توقف اجباری...</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">توقف اجباری…</string>
     <string name="appcontrol_automation_progress_find_force_stop">به دنبال دکمه \"توقف اجباری\" (کلید واژه‌ها: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">در حال تلاش برای تأیید عمل قبلی (کلید واژه‌ها: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">مدت زمان نمایش: %1$s از %2$s</string>

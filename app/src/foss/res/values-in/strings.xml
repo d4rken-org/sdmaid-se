@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">Perangkat Lunak Gratis dan Sumber Terbuka SD Maid SE</string>
-    <string name="app_name_upgrade_postfix">Perangkat Lunak Gratis dan Sumber Terbuka</string>
-    <string name="upgrade_feature_requires_pro">Membutuhkan SD Maid SE Pro</string>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
     <string name="upgrades_dashcard_title">Tingkatkan SD Maid</string>
     <string name="upgrades_dashcard_body">Buka fitur-fitur tambahan dan jadilah penyokong yang mendukung pengembangan yang berkelanjutan!</string>
     <string name="upgrades_dashcard_upgrade_action">Tingkatkan</string>

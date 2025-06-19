@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">അസാധുവായ അപ്ലിക്കേഷൻ ഇൻവെൻ്ററി</string>
+    <string name="pkgrepo_invalid_inventory_error_description">സിസ്റ്റം SD Maid-ന് ഇൻസ്റ്റാൾ ചെയ്ത അപ്ലിക്കേഷനുകളുടെ ഒരു അസാധുവായ ലിസ്റ്റ് നൽകി.</string>
+</resources>

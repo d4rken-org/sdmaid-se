@@ -75,6 +75,12 @@
     <string name="general_tag_filter_label">Фільтрувати за тегами</string>
     <string name="general_result_success_message">Операція успішна</string>
     <string name="general_result_failure_message">Операція не вдалася</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Звільніть %s місця.</item>
+        <item quantity="few">Звільніть%s місця.</item>
+        <item quantity="many">Звільніть%s місця.</item>
+        <item quantity="other">Звільніть %s місця.</item>
+    </plurals>
     <string name="general_options_label">Параметри</string>
     <string name="general_details_label">Подробиці</string>
     <string name="general_view_action">Дивитися</string>
@@ -88,6 +94,12 @@
     <string name="general_delete_confirmation_title">Підтвердити видалення</string>
     <string name="general_delete_confirmation_message_x">Видалити \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Видалити %d вибраних елементів?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Видалено елемент %d.</item>
+        <item quantity="few">Видалено%d елемент.</item>
+        <item quantity="many">Видалено %d елементи.</item>
+        <item quantity="other">Видалено %d елементів.</item>
+    </plurals>
     <string name="general_remove_action">Видалити</string>
     <string name="general_remove_selected_action">Видалити вибране</string>
     <plurals name="general_remove_success_x_items">
@@ -150,4 +162,8 @@
     </plurals>
     <string name="general_advice_title">Поради</string>
     <string name="general_error_invalid_input_label">Невірне введення</string>
+    <string name="general_information_for_the_developer">Інформація для розробника</string>
+    <string name="general_error_report_bug_action">Повідомити про помилку</string>
+    <string name="general_error_ipc_deadobject_title">Сервісне з’єднання втрачено</string>
+    <string name="general_error_ipc_deadobject_description">Несподівано було втрачено зв\'язок з критично важливою службою (наприклад, Magisk, Shizuku або іншими службами системного рівня). Будь ласка, перезавантажте пристрій. Якщо проблема не зникне, перевірте наявність оновлень або зв\'яжіться зі мною, щоб я міг її виправити.</string>
 </resources>

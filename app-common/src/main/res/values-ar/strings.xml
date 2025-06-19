@@ -200,4 +200,6 @@
     </plurals>
     <string name="general_advice_title">نصيحة</string>
     <string name="general_error_invalid_input_label">إدخال خاطئ</string>
+    <string name="general_error_ipc_deadobject_title">فقد الاتصال في الخدمات</string>
+    <string name="general_error_ipc_deadobject_description">انقطع الاتصال بخدمة مهمة (مثل ماجكسً أو شيزوكو أو خِدْمَات أخرى على مستوى النظام) بشكل غير متوقع. يُرجى إعادة تشغيل جهازك. إذا استمرت المشكلة، فتحقق من وجود تحديثات أو تواصل معي لحلها.</string>
 </resources>

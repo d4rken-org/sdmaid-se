@@ -173,8 +173,6 @@
     <string name="systemcleaner_filter_custom_label">Pasirinktinis filtras</string>
     <string name="systemcleaner_filter_custom_manage_label">Tvarkykite pasirinktinius filtrus</string>
     <string name="systemcleaner_filter_custom_manage_summary">Kurkite, šalinkite, importuokite ir eksportuokite pasirinktinius filtrus.</string>
-    <string name="systemcleaner_filter_logfiles_label">Žurnalo failai</string>
-    <string name="systemcleaner_filter_logfiles_summary">Žurnalo failai (*.log) iš viso įrenginio.</string>
     <string name="systemcleaner_filter_advertisements_summary">Failai, kurie buvo sukurti reklamai arba pagal skelbimus.</string>
     <string name="systemcleaner_filter_anr_label">ANR klaidos</string>
     <string name="systemcleaner_filter_lostdir_summary">Laikinieji failai, kurie sukuriami perduodant duomenis iš vieno \"Android\" prietaiso į kitą.</string>
@@ -184,8 +182,6 @@
     <string name="systemcleaner_filter_macfiles_summary">Failai ir aplankai, kurie sukuriami naršant saugyklą naudojant \"Apple\" programą \"Finder\".</string>
     <string name="systemcleaner_filter_windowsfiles_label">\"Windows\" failai</string>
     <string name="systemcleaner_filter_thumbnails_summary">Į talpyklą įrašytos vaizdų ir vaizdo įrašų peržiūros.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Laikinieji failai</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Laikini failai, paprastai trumpalaikės aktyvių operacijų talpyklos.</string>
     <string name="systemcleaner_filter_analytics_summary">Duomenys, susiję su analitika ir klaidų stebėjimu.</string>
     <string name="systemcleaner_filter_downloadcache_label">Atsisiųsti talpyklą</string>
     <string name="systemcleaner_filter_downloadcache_summary">Sistemos talpyklos aplankas, naudojamas įvairiems dalykams (pvz., OTA atnaujinimams).</string>

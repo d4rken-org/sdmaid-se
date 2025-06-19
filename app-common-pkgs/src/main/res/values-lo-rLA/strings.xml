@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">ລາຍການແອັບບໍ່ຖືກຕ້ອງ</string>
+    <string name="pkgrepo_invalid_inventory_error_description">ລະບົບໄດ້ສະໜອງລາຍການແອັບທີ່ຕິດຕັ້ງບໍ່ຖືກຕ້ອງໃຫ້ກັບ SD Maid.</string>
+</resources>

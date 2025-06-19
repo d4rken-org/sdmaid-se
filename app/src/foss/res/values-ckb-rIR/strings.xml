@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">پێویستی بە SD Maid SE FOSS هەیە</string>
+    <string name="upgrades_dashcard_title">نوێکردنەوەی SD Maid</string>
+    <string name="upgrades_dashcard_body">تایبەتمەندی زیاتر بکەرەوە و ببە بە سپۆنسەر بۆ پشتگیریکردنی پەرەپێدانی بەردەوام!</string>
+    <string name="upgrades_dashcard_upgrade_action">نوێکردنەوە</string>
+    <string name="upgrade_screen_title">باشترکردنی SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid هیچ ڕێکلامێکی نییە و زانیاری بەکارهێنەر نافرۆشێت. پەرەپێدانی بەردەوام تەنها بە هۆی ئێوەوە دەکرێت.</string>
+    <string name="upgrade_screen_how_title">چۆنیەتی یارمەتیدان</string>
+    <string name="upgrade_screen_how_body">ببە بە سپۆنسەر و پشتگیری پەرەپێدان بکە! دوگمەی خوارەوە داگرە بۆ کاراکردنی هەموو تایبەتمەندییە زیادەکان و کردنەوەی پڕۆفایلی سپۆنسەرانی گیتھەبی من.</string>
+    <string name="upgrade_screen_why_title">ئەمە دەخوڵقێنێت 🪄</string>
+    <string name="upgrade_screen_why_body">• کارایی سڕینەوەی AppCleaner 💯\n• کارپێکردنی بە کات ⏰\n• بژاردەی زیادە بۆ هەموو ئامرازەکان ⚙️\n• یاساکانی سڕینەوەی خۆت ✍️\n• پەرەپێدەرێکی پەرۆش 🧙\nو زیاتر…</string>
+    <string name="upgrade_screen_sponsor_action">سپۆنسەریکردنی پەرەپێدان</string>
+    <string name="upgrade_screen_sponsor_action_hint">بژاردەی دیکە بریتین لە ڕێکلام، شیکاری و گوگڵ پلەی 🙁</string>
+    <string name="upgrade_screen_thanks_toast">سوپاس بۆ پشتگیریکردنی پەرەپێدانی سەرچاوە کراوە ❤️</string>
+</resources>

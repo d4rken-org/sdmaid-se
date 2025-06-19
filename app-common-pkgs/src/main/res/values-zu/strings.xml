@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Uhlu lwezinhlelo zokusebenza olungavumelekile</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Isistimu inikeze i-SD Maid uhlu olungavumelekile lwezinhlelo zokusebenza ezifakiwe.</string>
+</resources>

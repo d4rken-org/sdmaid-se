@@ -1,0 +1,40 @@
+<i>SD Maid 2/SE</i> ir jūsu Android uzticamais palīgs, lai uzturētu to tīru un kārtīgu.
+
+Neviens nav ideāls, un arī Android nav.
+* Lietotnes, kuras jau esat noņēmis, atstāj kaut ko aiz sevis.
+* Žurnāli, avāriju ziņojumi un citi nevēlami faili tiek pastāvīgi veidoti.
+* Jūsu krātuve vāc failus un mapes, kuras jūs neatpazīstat.
+* Dublētas fotogrāfijas jūsu galerijā.
+
+Neturpināsim šeit… Ļaujiet SD Maid 2/SE jums palīdzēt!
+
+SD Maid 2/SE ir lietotņu un failu pārvaldnieks, kas specializējas zināšanās par to, kuras lietotnes ir izveidojušas konkrētus failus jūsu ierīcē. SD Maid 2/SE meklē jūsu ierīcē un salīdzina failus ar instalētajām lietotnēm, lai piedāvātu iespējas droši atbrīvot krātuves vietu.
+
+✨ Sakopiet pēc lietotņu atinstalēšanas
+Ja lietotnes izveido failus ārpus tām paredzētajām mapēm, faili var palikt pat pēc lietotņu atinstalēšanas. Rīks "CorpseFinder" (Mirstošo failu meklētājs) atrod lietotņu paliekas, norāda, kurai lietotnei tās piederēja, un palīdz tās izdzēst.
+
+🔍 Pārmeklējiet ierīci gudri
+Filtrējiet tukšas mapes, pagaidu failus, jau instalētas lietotnes un daudz ko citu. Jūs pat varat izveidot savus meklēšanas kritērijus. Rīks "SystemCleaner" (Sistēmas tīrītājs) ļauj automātiski pārmeklēt ierīci un dzēst failus, pamatojoties uz dažādiem kritērijiem.
+
+🧹 Dzēsiet izlietojamos failus un slēptās kešatmiņas
+Sīktēli, miskastes, bezsaistes kešatmiņas un daudz kas cits: ja lietotnes pašas nesakopj aiz sevis, šī lietotne to izdarīs. Rīks "AppCleaner" (Lietotņu tīrītājs) atrod lietotnes ar izlietojamiem failiem.
+
+📦 Pārvaldiet visas savas lietotnes
+Iegūstiet visaptverošu sarakstu ar visām jūsu ierīcē instalētajām lietotnēm. Iespējota, atspējota, lietotāja vai sistēmas lietotne: neviena lietotne nevar no jums paslēpties. Rīks "AppControl" (Lietotņu kontrole) ir lietotņu pārvaldnieks, kas ļauj meklēt, kārtot un kontrolēt savas lietotnes.
+
+📊 Kas aizņem visu jūsu vietu
+Krātuves pārvaldība var būt sarežģīta ar lietotnēm, multivides failiem, sistēmas failiem un citiem failiem tālruņa krātuvē, SD kartēs un USB ierīcēs. "StorageAnalyzer" (Krātuves analizators) ir failu pārvaldnieks, kas parāda, kā tiek izmantota vieta jūsu ierīcē, vienkāršojot krātuves pārvaldību.
+
+📷 Atrodiet dublētus datus
+Dublētas lejupielādes, sociālajos medijos nosūtītas fotogrāfijas vai vienkārši līdzīgas bildes no tās pašas ainas: laika gaitā kopijas var uzkrāties. Rīks "Deduplicator" (Dublikātu noņēmējs) atrod failus, kas ir tieši tādi paši vai līdzīgi, un palīdz izdzēst papildu kopijas.
+
+Šī lietotne ir bez reklāmām. Dažām funkcijām ir nepieciešams maksas jauninājums.
+
+SD Maid 2/SE ir SD Maid 1/Legacy pēctecis.
+Optimizēts jaunākām Android versijām un koncentrējas uz tīrīšanu.
+
+Šai lietotnei ir izvēles funkcijas, kas izmanto AccessibilityService API, lai automatizētu nogurdinošas darbības.
+Izmantojot AccessibilityService API, šī lietotne var nospiest pogas jūsu vietā, lai veiktu darbības vairākās lietotnēs, piemēram, dzēstu kešatmiņas.
+Šī lietotne neizmanto AccessibilityService API informācijas vākšanai.
+
+SD Maid 2/SE ir failu pārvaldnieka un tīrīšanas lietotne.

@@ -186,8 +186,6 @@
     <string name="systemcleaner_filter_custom_label">Penapis tersuai</string>
     <string name="systemcleaner_filter_custom_manage_label">Urus penapis tersuai</string>
     <string name="systemcleaner_filter_custom_manage_summary">Cipta, padam, import dan eksport penapis tersuai anda.</string>
-    <string name="systemcleaner_filter_logfiles_label">Log fail</string>
-    <string name="systemcleaner_filter_logfiles_summary">Log fail (*.log) dari seluruh peranti.</string>
     <string name="systemcleaner_filter_advertisements_label">Fail iklan</string>
     <string name="systemcleaner_filter_advertisements_summary">Fail yang telah dibuat untuk atau oleh iklan.</string>
     <string name="systemcleaner_filter_anr_label">Ralat ANR</string>
@@ -203,8 +201,6 @@
     <string name="systemcleaner_filter_windowsfiles_label">Fail Windows</string>
     <string name="systemcleaner_filter_thumbnails_label">Imej Thumbnail</string>
     <string name="systemcleaner_filter_thumbnails_summary">Pratonton cache untuk imej dan video.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Fail sementara</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Fail sementara, biasanya cache jangka pendek untuk operasi aktif.</string>
     <string name="systemcleaner_filter_analytics_label">Fail analitis</string>
     <string name="systemcleaner_filter_analytics_summary">Data yang berkaitan dengan analitis dan penjejakan pepijat.</string>
     <string name="systemcleaner_filter_downloadcache_label">Muat turun cache</string>

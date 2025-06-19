@@ -219,8 +219,6 @@
     <string name="systemcleaner_filter_custom_label">Filtra te kostumizuar</string>
     <string name="systemcleaner_filter_custom_manage_label">Menaxho filtrat e personalizuar</string>
     <string name="systemcleaner_filter_custom_manage_summary">Krijoni, fshini, importoni dhe eksportoni filtrat tuaj të personalizuar.</string>
-    <string name="systemcleaner_filter_logfiles_label">Skedarët e regjistrit</string>
-    <string name="systemcleaner_filter_logfiles_summary">Skedarët e regjistrit (*.log) nga e gjithë pajisja.</string>
     <string name="systemcleaner_filter_advertisements_label">Skedarët e reklamave</string>
     <string name="systemcleaner_filter_advertisements_summary">Skedarët që janë krijuar për ose nga reklamat.</string>
     <string name="systemcleaner_filter_anr_label">Gabime ANR</string>
@@ -238,8 +236,6 @@
     <string name="systemcleaner_filter_windowsfiles_label">Skedarët Windows</string>
     <string name="systemcleaner_filter_thumbnails_label">Imazhe miniaturë</string>
     <string name="systemcleaner_filter_thumbnails_summary">Pamje paraprake të ruajtura në memorie për imazhe dhe video.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Skedarët e përkohshëm</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Skedarë të përkohshëm, zakonisht memorie të shkurtra për operacione aktive.</string>
     <string name="systemcleaner_filter_analytics_label">Skedarët e analitikës</string>
     <string name="systemcleaner_filter_analytics_summary">Të dhëna në lidhje me analitikën dhe gjurmimin e gabimeve.</string>
     <string name="systemcleaner_filter_downloadcache_label">Shkarkoni cache</string>
