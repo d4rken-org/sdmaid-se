@@ -1,8 +1,9 @@
-Hai 👋
-SD Maid 2/SE sedang dalam pengembangan aktif. Saya bekerja pada fitur-fitur baru setiap hari.
-Kalau kamu punya ide bagus, beri tahu saya ya 😊!
+Halo 👋
+SD Maid 2/SE sedang dikembangkan secara aktif—saya terus menambahkan hal-hal baru!
+Punya ide? Beri tahu saya 😊
 
-Pembaruan mencakup perbaikan bug, peningkatan kinerja, dan mungkin fitur baru.
-Catatan perubahan yang terperinci selalu tersedia di GitHub.
+🐛 Perbaikan bug, 🚀 peningkatan performa, mungkin bahkan ✨ fitur baru.
 
-FYI: Saya hanya sendiri di sini, jadi kadang balasan mungkin memakan waktu. Maaf ya!
+Changelog: https://sdmse.darken.eu/changelog
+
+FYI: Hanya saya di sini, terkadang balasan mungkin agak lama. Maaf ya!

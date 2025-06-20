@@ -1,8 +1,9 @@
 Merhaba 👋
-SD Maid 2/SE aktif olarak geliştiriliyor. Her gün yeni özellikler üzerinde çalışıyorum.
-Eğer iyi fikirlerin varsa, lütfen benimle paylaş 😊!
+SD Maid 2/SE aktif olarak geliştiriliyor—sürekli yeni şeyler ekliyorum!
+Fikirleriniz var mı? Bana bildirin 😊
 
-Güncellemeler hata düzeltmeleri, performans iyileştirmeleri ve belki yeni özellikler içeriyor.
-Detaylı değişiklik günlüğü her zaman GitHub'da mevcut.
+🐛 Hata düzeltmeleri, 🚀 performans iyileştirmeleri, belki de ✨ yeni özellikler.
 
-Bilgi: Burada sadece ben varım, bu yüzden bazen yanıtlar biraz gecikebilir. Bunun için üzgünüm!
+Değişiklik günlüğü: https://sdmse.darken.eu/changelog
+
+Bilgi: Burada sadece benim, bazen yanıtlar biraz zaman alabilir. Bunun için özür dilerim!
