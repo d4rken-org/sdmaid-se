@@ -1,6 +1,9 @@
 theme: minima
 plugins:
   - jekyll-relative-links
+  - jekyll-github-metadata
+  - jemoji
+
 relative_links:
   enabled: true
   collections: true
