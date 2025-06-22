@@ -10,6 +10,8 @@
     #    "update_option" : "update_without_changes",
     "languages_mapping": &stringmapping {
       "android_code": {
+        "sc": "sc-rIT",
+        "sq": "sq-rAL",
         "ar": "ar",
         "am": "am",
         "hy-AM": "hy-rAM",
