@@ -1,2 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">Reikia SD Maid SE Pro</string>
+
+    <string name="upgrades_dashcard_title">Atnaujinti SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro siūlo geresnius rezultatus, daugiau funkcijų ir galimybių pažengusiems naudotojams.</string>
+    <string name="upgrades_dashcard_upgrade_action">Atnaujinti</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">Google Play nepasiekiamas</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid negali prisijungti prie Google Play. Ar Google Play įdiegtas ir atnaujintas? Ar jūsų Google paskyra prisijungusi? Pabandykite išvalyti Google Play programos talpyklą ir paleisti įrenginį iš naujo.</string>
+    <string name="upgrades_no_purchases_found_check_account">Pirkimų nerasta. Ar naudojate tinkamą paskyrą?</string>
+    <string name="upgrade_screen_title">Gaukite SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid neturi reklamų ir neparduoda naudotojų duomenų. Mano darbas finansuojamas jūsų ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Privalumai</string>
+    <string name="upgrade_screen_benefits_body">• Programų valymas 💯\n• Suplanuotos operacijos ⏰\n• Papildomi parametrai visiems įrankiams ⚙️\n• Jūsų trynimo taisyklės ✍️\n• Motyvuotas kūrėjas 🧙\nir daugiau…</string>
+    <string name="upgrade_screen_how_title">Parinktys</string>
+    <string name="upgrade_screen_how_body">Galite rinktis tarp vienkartinio pirkimo ir pigesnės metinės prenumeratos.\nPrenumerata prasideda nemokamuoju 14 dienų bandomuoju laikotarpiu, po kurio jums bus imamas mokestis kartą per metus. Bandomasis laikotarpis ir prenumerata gali būti atšaukti bet kada.\nTos pačios funkcijos, tik skirtingi kainų modeliai.</string>
+    <string name="upgrade_screen_subscription_trial_action">Pradėti nemokamą 14 dienų bandomąjį laikotarpį</string>
+    <string name="upgrade_screen_subscription_action">Prenumeruoti</string>
+    <string name="upgrade_screen_subscription_action_hint">Prenumerata kainuoja %s per metus.</string>
+    <string name="upgrade_screen_iap_action">Vienkartinis pirkimas</string>
+    <string name="upgrade_screen_iap_action_hint">Vienkartinis pirkimas kainuoja %s.</string>
+    <string name="upgrade_screen_thanks_toast">Jūs geriausi! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Atkurti pirkimą</string>
+    <string name="upgrade_screen_restore_purchase_message">Jūsų naujinimas galioja įrenginiuose su ta pačia Google paskyra.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Trikčių šalinimo patarimai neatpažintiems naujinimams:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinchronizacija gali užtrukti. Pabandykite paleisti iš naujo, išvalyti Google Play talpyklą arba tiesiog palaukti.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Kelios paskyros gali supainioti Google Play. Atsijunkite nuo kitų paskyrų arba įdiekite per Google Play svetainę, kuri priverčia susieti su konkrečia paskyra.</string>
+</resources>

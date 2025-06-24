@@ -1,2 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">Nepieciešams SD Maid SE Pro</string>
+
+    <string name="upgrades_dashcard_title">Uzlabot SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro piedāvā labākus rezultātus, vairāk funkciju un iespējas pieredzējušiem lietotājiem.</string>
+    <string name="upgrades_dashcard_upgrade_action">Uzlabot</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">Google Play nav pieejams</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid nevar izveidot savienojumu ar Google Play. Vai Google Play ir instalēts un atjaunināts? Vai jūsu Google konts ir pieteicies? Mēģiniet notīrīt Google Play lietotnes kešatmiņu un restartēt ierīci.</string>
+    <string name="upgrades_no_purchases_found_check_account">Pirkumi nav atrasti. Vai izmantojat pareizo kontu?</string>
+    <string name="upgrade_screen_title">Iegūstiet SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid nav reklāmu un nepārdod lietotāju datus. Mans darbs tiek finansēts no jūsu puses ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Priekšrocības</string>
+    <string name="upgrade_screen_benefits_body">• Lietotņu tīrīšana 💯\n• Ieplānotas darbības ⏰\n• Papildu opcijas visiem rīkiem ⚙️\n• Jūsu dzēšanas noteikumi ✍️\n• Motivēts izstrādātājs 🧙\nun vēl vairāk…</string>
+    <string name="upgrade_screen_how_title">Opcijas</string>
+    <string name="upgrade_screen_how_body">Varat izvēlēties starp vienreizēju pirkumu un lētāku gada abonementu.\nAbonements sākas ar bezmaksas 14 dienu izmēģinājuma periodu, pēc kura jums tiks iekasēta maksa reizi gadā. Izmēģinājumu un abonementu var atcelt jebkurā laikā.\nTas pašas funkcijas, tikai dažādi cenu modeļi.</string>
+    <string name="upgrade_screen_subscription_trial_action">Sāciet bezmaksas 14 dienu izmēģinājumu</string>
+    <string name="upgrade_screen_subscription_action">Abonēt</string>
+    <string name="upgrade_screen_subscription_action_hint">Abonements maksā %s gadā.</string>
+    <string name="upgrade_screen_iap_action">Vienreizējs pirkums</string>
+    <string name="upgrade_screen_iap_action_hint">Vienreizējais pirkums maksā %s.</string>
+    <string name="upgrade_screen_thanks_toast">Jūs esat labākais! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Atjaunot pirkumu</string>
+    <string name="upgrade_screen_restore_purchase_message">Jūsu uzlabojums ir derīgs ierīcēs ar to pašu Google kontu.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Problēmu risināšanas padomi neatpazītiem uzlabojumiem:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinhronizācija var aizņemt laiku. Mēģiniet restartēt, notīrīt Google Play kešatmiņu vai vienkārši uzgaidīt.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Vairāki konti var sajaukt Google Play. Izejiet no citiem kontiem vai instalējiet caur Google Play tīmekļa vietni, kas piespiedu kārtā izveido asociācijas ar konkrētu kontu.</string>
+</resources>

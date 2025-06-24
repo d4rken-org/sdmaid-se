@@ -1,2 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">Изисква SD Maid SE Pro</string>
+
+    <string name="upgrades_dashcard_title">Надстройте SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro предлага по-добри резултати, повече функции и опции за напреднали потребители.</string>
+    <string name="upgrades_dashcard_upgrade_action">Надстройване</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">Google Play не е достъпен</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid не може да се свърже с Google Play. Инсталиран ли е Google Play и актуален ли е? Влязъл ли е вашият Google акаунт? Опитайте да изчистите кеша на приложението Google Play и да рестартирате устройството си.</string>
+    <string name="upgrades_no_purchases_found_check_account">Не са намерени покупки. Използвате ли правилния акаунт?</string>
+    <string name="upgrade_screen_title">Получете SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid няма реклами и не продава потребителски данни. Работата ми се финансира от вас ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Предимства</string>
+    <string name="upgrade_screen_benefits_body">• Почистване на приложения 💯\n• Планирани операции ⏰\n• Допълнителни опции за всички инструменти ⚙️\n• Вашите собствени правила за изтриване ✍️\n• Мотивиран разработчик 🧙\nи още…</string>
+    <string name="upgrade_screen_how_title">Опции</string>
+    <string name="upgrade_screen_how_body">Можете да избирате между еднократна покупка и по-евтин годишен абонамент.\nАбонаментът започва с безплатен 14-дневен пробен период, след което ще бъдете таксувани веднъж годишно. Пробният период и абонаментът могат да бъдат анулирани по всяко време.\nСъщи функции, просто различни ценови модели.</string>
+    <string name="upgrade_screen_subscription_trial_action">Започнете безплатен 14-дневен пробен период</string>
+    <string name="upgrade_screen_subscription_action">Абонирайте се</string>
+    <string name="upgrade_screen_subscription_action_hint">Абонаментът струва %s годишно.</string>
+    <string name="upgrade_screen_iap_action">Еднократна покупка</string>
+    <string name="upgrade_screen_iap_action_hint">Еднократната покупка струва %s.</string>
+    <string name="upgrade_screen_thanks_toast">Вие сте най-добрите! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Възстановете покупката</string>
+    <string name="upgrade_screen_restore_purchase_message">Вашето надстройване е валидно на устройства със същия Google акаунт.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Съвети за отстраняване на проблеми за неразпознати надстройвания:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Синхронизацията на Play Store може да отнеме време. Опитайте рестартиране, изчистване на кеша на Google Play или просто изчакайте.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Множествените акаунти могат да объркат Google Play. Излезте от други акаунти или инсталирайте чрез уебсайта на Google Play, който принуждава асоциации с конкретен акаунт.</string>
+</resources>

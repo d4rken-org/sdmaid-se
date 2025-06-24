@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid PRO</string>
-    <string name="app_name_upgrade_postfix">Expert</string>
-    <string name="upgrade_feature_requires_pro">Kräver SD Maid Pro</string>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">Kräver SD Maid SE Pro</string>
+
     <string name="upgrades_dashcard_title">Uppgradera SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro ger bättre resultat, fler funktioner och alternativ för strömanvändare.</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro erbjuder bättre resultat, fler funktioner och alternativ för avancerade användare.</string>
     <string name="upgrades_dashcard_upgrade_action">Uppgradera</string>
-    <string name="upgrades_gplay_unavailable_error_title">Google Play är inte tillgänglig</string>
-    <string name="upgrades_gplay_unavailable_error_description">SD Maid kan inte ansluta till Google Play. Är Google Play installerat och uppdaterat? Är ditt Google-konto inloggat? Prova att rensa cachen i Google Play-appen och starta om enheten.</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">Google Play är inte tillgängligt</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid kan inte ansluta till Google Play. Är Google Play installerat och uppdaterat? Är ditt Google-konto inloggat? Försök rensa cachen för Google Play-appen och starta om enheten.</string>
     <string name="upgrades_no_purchases_found_check_account">Inga köp hittades. Använder du rätt konto?</string>
     <string name="upgrade_screen_title">Skaffa SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid har inga annonser och säljer inte användardata. Mitt arbete finansieras av dig ❤️.</string>
     <string name="upgrade_screen_benefits_title">Fördelar</string>
     <string name="upgrade_screen_benefits_body">• Apprengöring 💯\n• Schemalagda operationer ⏰\n• Extra alternativ för alla verktyg ⚙️\n• Dina egna raderingsregler ✍️\n• En motiverad utvecklare 🧙\noch mer…</string>
     <string name="upgrade_screen_how_title">Alternativ</string>
-    <string name="upgrade_screen_how_body">Du kan välja mellan ett engångsköp och ett billigare årsprenumeration.\nPrenumerationen börjar med en gratis 14-dagars provperiod, varefter du kommer att debiteras en gång per år. Trial och prenumeration kan sägas upp när som helst.\nSamma funktioner, bara olika prismodeller.</string>
-    <string name="upgrade_screen_subscription_trial_action">Starta gratis 14-dagars provperiod</string>
+    <string name="upgrade_screen_how_body">Du kan välja mellan ett engångsköp och en billigare årlig prenumeration.\nPrenumerationen börjar med en gratis 14-dagars testperiod, varefter du debiteras en gång per år. Test och prenumeration kan avbrytas när som helst.\nSamma funktioner, bara olika prismodeller.</string>
+    <string name="upgrade_screen_subscription_trial_action">Starta gratis 14-dagars test</string>
     <string name="upgrade_screen_subscription_action">Prenumerera</string>
     <string name="upgrade_screen_subscription_action_hint">Prenumerationen kostar %s per år.</string>
     <string name="upgrade_screen_iap_action">Engångsköp</string>
-    <string name="upgrade_screen_iap_action_hint">Engångsköp kostar %s.</string>
+    <string name="upgrade_screen_iap_action_hint">Engångsköpet kostar %s.</string>
     <string name="upgrade_screen_thanks_toast">Du är bäst! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Återställ köp</string>
+    <string name="upgrade_screen_restore_purchase_message">Din uppgradering gäller för enheter på samma Google-konto.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Felsökningstips för okända uppgraderingar:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Store-synkronisering kan ta tid. Försök starta om, rensa Google Play-cache eller bara vänta.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Flera konton kan förvirra Google Play. Logga ut från andra konton eller installera via Google Play-webbplatsen, vilket tvingar associationer med ett specifikt konto.</string>
 </resources>

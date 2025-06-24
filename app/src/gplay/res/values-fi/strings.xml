@@ -1,2 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">Vaatii SD Maid SE Pro:n</string>
+
+    <string name="upgrades_dashcard_title">Päivitä SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro tarjoaa parempia tuloksia, enemmän ominaisuuksia ja vaihtoehtoja tehokäyttäjille.</string>
+    <string name="upgrades_dashcard_upgrade_action">Päivitä</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">Google Play ei ole käytettävissä</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid ei voi yhdistää Google Playhin. Onko Google Play asennettu ja ajan tasalla? Onko Google-tilisi kirjautunut sisään? Kokeile tyhjentää Google Play -sovelluksen välimuisti ja käynnistä laitteesi uudelleen.</string>
+    <string name="upgrades_no_purchases_found_check_account">Ostoja ei löytynyt. Käytätkö oikeaa tiliä?</string>
+    <string name="upgrade_screen_title">Hanki SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maidissa ei ole mainoksia eikä se myy käyttäjätietoja. Työni rahoitetaan sinun toimestasi ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Edut</string>
+    <string name="upgrade_screen_benefits_body">• Sovellusten siivous 💯\n• Ajoitetut toiminnot ⏰\n• Lisävaihtoehdot kaikille työkaluille ⚙️\n• Omat poistosäännöt ✍️\n• Motivoitunut kehittäjä 🧙\nja paljon muuta…</string>
+    <string name="upgrade_screen_how_title">Vaihtoehdot</string>
+    <string name="upgrade_screen_how_body">Voit valita kertaostoksen ja halvemman vuositilauksen välillä.\nTilaus alkaa ilmaisella 14 päivän kokeilujaksolla, jonka jälkeen sinua veloitetaan kerran vuodessa. Kokeilu ja tilaus voidaan peruuttaa milloin tahansa.\nSamat ominaisuudet, vain eri hinnoittelumallit.</string>
+    <string name="upgrade_screen_subscription_trial_action">Aloita ilmainen 14 päivän kokeilu</string>
+    <string name="upgrade_screen_subscription_action">Tilaa</string>
+    <string name="upgrade_screen_subscription_action_hint">Tilaus maksaa %s vuodessa.</string>
+    <string name="upgrade_screen_iap_action">Kertaostos</string>
+    <string name="upgrade_screen_iap_action_hint">Kertaostos maksaa %s.</string>
+    <string name="upgrade_screen_thanks_toast">Olet paras! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Palauta ostos</string>
+    <string name="upgrade_screen_restore_purchase_message">Päivityksesi on voimassa laitteissa samalla Google-tilillä.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Vianmääritysvinkkejä tunnistamattomille päivityksille:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Store -synkronointi voi kestää. Kokeile uudelleenkäynnistystä, Google Play -välimuistin tyhjentämistä tai vain odottamista.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Useat tilit voivat hämmentää Google Playta. Kirjaudu ulos muista tileistä tai asenna Google Play -verkkosivuston kautta, joka pakottaa yhteydet tiettyyn tiliin.</string>
+</resources>

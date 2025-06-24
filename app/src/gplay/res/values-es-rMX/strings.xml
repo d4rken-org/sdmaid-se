@@ -1,2 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">Requiere SD Maid SE Pro</string>
+
+    <string name="upgrades_dashcard_title">Actualizar SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro ofrece mejores resultados, más funciones y opciones para usuarios avanzados.</string>
+    <string name="upgrades_dashcard_upgrade_action">Actualizar</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">Google Play no está disponible</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid no puede conectarse a Google Play. ¿Está Google Play instalado y actualizado? ¿Tu cuenta de Google está conectada? Intenta limpiar el caché de la aplicación Google Play y reiniciar tu dispositivo.</string>
+    <string name="upgrades_no_purchases_found_check_account">No se encontraron compras. ¿Estás usando la cuenta correcta?</string>
+    <string name="upgrade_screen_title">Obtener SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid no tiene anuncios y no vende datos de usuarios. Mi trabajo está financiado por ti ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Ventajas</string>
+    <string name="upgrade_screen_benefits_body">• Limpieza de aplicaciones 💯\n• Operaciones programadas ⏰\n• Opciones extras para todas las herramientas ⚙️\n• Tus propias reglas de eliminación ✍️\n• Un desarrollador motivado 🧙\ny más…</string>
+    <string name="upgrade_screen_how_title">Opciones</string>
+    <string name="upgrade_screen_how_body">Puedes elegir entre una compra única y una suscripción anual más barata.\nLa suscripción comienza con una prueba gratuita de 14 días, después de la cual se te cobrará una vez al año. La prueba y suscripción se pueden cancelar en cualquier momento.\nMismas funciones, solo modelos de precios diferentes.</string>
+    <string name="upgrade_screen_subscription_trial_action">Iniciar prueba gratuita de 14 días</string>
+    <string name="upgrade_screen_subscription_action">Suscribirse</string>
+    <string name="upgrade_screen_subscription_action_hint">La suscripción cuesta %s por año.</string>
+    <string name="upgrade_screen_iap_action">Compra única</string>
+    <string name="upgrade_screen_iap_action_hint">La compra única cuesta %s.</string>
+    <string name="upgrade_screen_thanks_toast">¡Eres el mejor! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Restaurar compra</string>
+    <string name="upgrade_screen_restore_purchase_message">Tu actualización es válida en dispositivos con la misma cuenta de Google.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Consejos de solución de problemas para actualizaciones no reconocidas:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">La sincronización de Play Store puede tomar tiempo. Intenta reiniciar, limpiar el caché de Google Play o simplemente esperar.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Las múltiples cuentas pueden confundir a Google Play. Cierra sesión en otras cuentas o instala a través del sitio web de Google Play, que fuerza asociaciones con una cuenta específica.</string>
+</resources>
