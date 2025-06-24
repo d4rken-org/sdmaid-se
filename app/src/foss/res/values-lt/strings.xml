@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+
+    <string name="upgrade_feature_requires_pro">Reikia SD Maid SE FOSS</string>
+
+    <string name="upgrades_dashcard_title">Atnaujinti SD Maid</string>
+    <string name="upgrades_dashcard_body">Atrakinkite papildomas funkcijas ir tapkite globėju, kad palaikytumėte tolesnį plėtojimą!</string>
+    <string name="upgrades_dashcard_upgrade_action">Atnaujinti</string>
+
+    <string name="upgrade_screen_title">Tobulinti SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid neturi reklamų ir neparduoda vartotojų duomenų. Tolesnė plėtra įmanoma tik dėka jūsų.</string>
+    <string name="upgrade_screen_how_title">Kaip padėti</string>
+    <string name="upgrade_screen_how_body">Tapkite globėju ir rėmėju plėtros! Palieskite žemiau esantį mygtuką, kad suaktyvintumėte visas papildomas funkcijas ir atidarytumėte mano GitHub Sponsors profilį.</string>
+    <string name="upgrade_screen_why_title">Tai sukuria stebuklą 🪄</string>
+    <string name="upgrade_screen_why_body">• AppCleaner trynimo funkcionalumas 💯\n• Suplanuotos operacijos ⏰\n• Papildomi parametrai visiems įrankiams ⚙️\n• Jūsų trynimo taisyklės ✍️\n• Motyvuotas kūrėjas 🧙\nir daugiau…</string>
+    <string name="upgrade_screen_sponsor_action">Remti plėtrą</string>
+    <string name="upgrade_screen_sponsor_action_hint">Alternatyva yra reklamos, analitika ir Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Ačiū, kad remiате atvirojo kodo plėtrą ❤️</string>
+</resources>

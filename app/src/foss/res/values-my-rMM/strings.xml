@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+
+    <string name="upgrade_feature_requires_pro">SD Maid SE FOSS လိုအပ်သည်</string>
+
+    <string name="upgrades_dashcard_title">SD Maid ကို အဆင့်မြှင့်ရန်</string>
+    <string name="upgrades_dashcard_body">အပိုဝန်ဆောင်မှုများကို ဖွင့်ပြီး ဆက်လက်ဖွံ့ဖြိုးတိုးတက်မှုကို ပံ့ပိုးရန် ကူညီသူဖြစ်လာပါ!</string>
+    <string name="upgrades_dashcard_upgrade_action">အဆင့်မြှင့်ရန်</string>
+
+    <string name="upgrade_screen_title">SD Maid ကို တိုးတက်စေရန်</string>
+    <string name="upgrade_screen_preamble">SD Maid တွင် ကြော်ငြာများမရှိပြီး အသုံးပြုသူဒေတာများကို မရောင်းချပါ။ ဆက်လက်ဖွံ့ဖြိုးတိုးတက်မှုသည် သင့်ကြောင့်သာ ဖြစ်နိုင်သည်။</string>
+    <string name="upgrade_screen_how_title">ကူညီနည်းလမ်း</string>
+    <string name="upgrade_screen_how_body">ကူညီသူဖြစ်ပြီး ဖွံ့ဖြိုးတိုးတက်မှုကို ကမကထပံ့ပိုးပါ! အပိုဝန်ဆောင်မှုများအားလုံးကို ဖွင့်ပြီး ကျွန်ုပ်၏ GitHub Sponsors ပရိုဖိုင်းကို ဖွင့်ရန် အောက်ပါခလုတ်ကို နှိပ်ပါ။</string>
+    <string name="upgrade_screen_why_title">ဤအရာသည် မှော်ဆန်သည် 🪄</string>
+    <string name="upgrade_screen_why_body">• AppCleaner ပယ်ဖျက်ခြင်းဝန်ဆောင်မှု 💯\n• စီစဉ်ထားသော လုပ်ငန်းများ ⏰\n• ကိရိယာအားလုံးအတွက် အပိုရွေးချယ်စရာများ ⚙️\n• သင့်ကိုယ်ပိုင် ပယ်ဖျက်ခြင်းစည်းမျဉ်းများ ✍️\n• စိတ်အားထက်သန်သော ရေးသားသူ 🧙\nနှင့် အခြားများ…</string>
+    <string name="upgrade_screen_sponsor_action">ဖွံ့ဖြိုးတိုးတက်မှုကို ကမကထပံ့ပိုးရန်</string>
+    <string name="upgrade_screen_sponsor_action_hint">အခြားရွေးချယ်စရာမှာ ကြော်ငြာများ၊ ခွဲခြမ်းစိတ်ဖြာခြင်းနှင့် Google Play တို့ဖြစ်သည် 🙁</string>
+    <string name="upgrade_screen_thanks_toast">ပွင့်လင်းရင်းမြစ် ဖွံ့ဖြိုးတိုးတက်မှုကို ပံ့ပိုးပေးသည့်အတွက် ကျေးဇူးတင်ပါသည် ❤️</string>
+</resources>

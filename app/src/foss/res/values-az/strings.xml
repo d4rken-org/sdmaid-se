@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+
+    <string name="upgrade_feature_requires_pro">SD Maid SE FOSS tələb olunur</string>
+
+    <string name="upgrades_dashcard_title">SD Maid-i yüksəldin</string>
+    <string name="upgrades_dashcard_body">Əlavə xüsusiyyətləri açın və davamlı inkişafı dəstəkləmək üçün himayədar olun!</string>
+    <string name="upgrades_dashcard_upgrade_action">Yüksəlt</string>
+
+    <string name="upgrade_screen_title">SD Maid-i təkmilləşdirin</string>
+    <string name="upgrade_screen_preamble">SD Maid-də reklam yoxdur və istifadəçi məlumatları satmır. Davamlı inkişaf yalnız sizin vasitənizlə mümkündür.</string>
+    <string name="upgrade_screen_how_title">Necə kömək etmək</string>
+    <string name="upgrade_screen_how_body">Himayədar olun və inkişafı sponsor edin! Bütün əlavə xüsusiyyətləri aktivləşdirmək və mənim GitHub Sponsors profilimi açmaq üçün aşağıdakı düyməni toxunun.</string>
+    <string name="upgrade_screen_why_title">Bu sehrdir 🪄</string>
+    <string name="upgrade_screen_why_body">• AppCleaner silmə funksiyası 💯\n• Planlaşdırılmış əməliyyatlar ⏰\n• Bütün alətlər üçün əlavə seçimlər ⚙️\n• Öz silmə qaydalarınız ✍️\n• Motivasiyalı tərtibatçı 🧙\nvə daha çox…</string>
+    <string name="upgrade_screen_sponsor_action">İnkişafı sponsor edin</string>
+    <string name="upgrade_screen_sponsor_action_hint">Alternativ reklamlar, analitika və Google Play-dir 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Açıq mənbə inkişafını dəstəklədiyiniz üçün təşəkkür edirik ❤️</string>
+</resources>

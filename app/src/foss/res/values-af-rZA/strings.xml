@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+
+    <string name="upgrade_feature_requires_pro">Vereis SD Maid SE FOSS</string>
+
+    <string name="upgrades_dashcard_title">Gradeer SD Maid op</string>
+    <string name="upgrades_dashcard_body">Ontsluit addisionele funksies en word \'n beskermheer om voortgesette ontwikkeling te ondersteun!</string>
+    <string name="upgrades_dashcard_upgrade_action">Gradeer op</string>
+
+    <string name="upgrade_screen_title">Verbeter SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid het geen advertensies nie en verkoop nie gebruikersdata nie. Voortgesette ontwikkeling word slegs deur jou moontlik gemaak.</string>
+    <string name="upgrade_screen_how_title">Hoe om te help</string>
+    <string name="upgrade_screen_how_body">Word \'n beskermheer en borg ontwikkeling! Tik die knoppie hieronder om alle ekstra funksies te aktiveer en my GitHub Sponsors profiel oop te maak.</string>
+    <string name="upgrade_screen_why_title">Dit toor 🪄</string>
+    <string name="upgrade_screen_why_body">• AppCleaner uitvee funksionaliteit 💯\n• Geskeduleerde bewerkings ⏰\n• Ekstra opsies vir alle gereedskap ⚙️\n• Jou eie uitvee reëls ✍️\n• \'n Gemotiveerde ontwikkelaar 🧙\nen meer…</string>
+    <string name="upgrade_screen_sponsor_action">Borg ontwikkeling</string>
+    <string name="upgrade_screen_sponsor_action_hint">Die alternatief is advertensies, analitiek en Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Dankie dat jy oopbron ontwikkeling ondersteun ❤️</string>
+</resources>

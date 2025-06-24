@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+
+    <string name="upgrade_feature_requires_pro">Изисква SD Maid SE FOSS</string>
+
+    <string name="upgrades_dashcard_title">Надстройте SD Maid</string>
+    <string name="upgrades_dashcard_body">Отключете допълнителни функции и станете покровител, за да подкрепите непрекъснатото развитие!</string>
+    <string name="upgrades_dashcard_upgrade_action">Надстройване</string>
+
+    <string name="upgrade_screen_title">Подобрете SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid няма реклами и не продава потребителски данни. Непрекъснатото развитие е възможно само благодарение на вас.</string>
+    <string name="upgrade_screen_how_title">Как да помогнете</string>
+    <string name="upgrade_screen_how_body">Станете покровител и спонсорирайте разработката! Докоснете бутона по-долу, за да активирате всички допълнителни функции и да отворите моя GitHub Sponsors профил.</string>
+    <string name="upgrade_screen_why_title">Това прави магия 🪄</string>
+    <string name="upgrade_screen_why_body">• Функционалност за изтриване на AppCleaner 💯\n• Планирани операции ⏰\n• Допълнителни опции за всички инструменти ⚙️\n• Вашите собствени правила за изтриване ✍️\n• Мотивиран разработчик 🧙\nи още…</string>
+    <string name="upgrade_screen_sponsor_action">Спонсорирайте разработката</string>
+    <string name="upgrade_screen_sponsor_action_hint">Алтернативата са реклами, анализи и Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Благодаря ви, че подкрепяте разработката с отворен код ❤️</string>
+</resources>

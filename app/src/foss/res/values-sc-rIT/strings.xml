@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+
+    <string name="upgrade_feature_requires_pro">Rechedet SD Maid SE FOSS</string>
+
+    <string name="upgrades_dashcard_title">Atualizare SD Maid</string>
+    <string name="upgrades_dashcard_body">Aberri funtzionalidades addizionales e diventa patronu pro sustènnere su isvilupu continuadu!</string>
+    <string name="upgrades_dashcard_upgrade_action">Atualizare</string>
+
+    <string name="upgrade_screen_title">Menzorare SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid no tenet pubblicidade e no vendet datos de s'usuàriu. S'isvilupu continuadu est possìbile solamente gràtzias a tene.</string>
+    <string name="upgrade_screen_how_title">Comente agiudare</string>
+    <string name="upgrade_screen_how_body">Diventa patronu e sponsoriza s'isvilupu! Tocca su butone in bassu pro ativare totu sas funtzionalidades addizionales e abèrrere su profilu meu de GitHub Sponsors.</string>
+    <string name="upgrade_screen_why_title">Custu fait màgia 🪄</string>
+    <string name="upgrade_screen_why_body">• Funtzionalidade de cantzelladura de AppCleaner 💯\n• Operatziones programadas ⏰\n• Optziones addizionales pro totu sos ainas ⚙️\n• Règulas tuas de cantzelladura ✍️\n• Isviluppadore motivadu 🧙\ne àteru…</string>
+    <string name="upgrade_screen_sponsor_action">Sponsoriza s'isvilupu</string>
+    <string name="upgrade_screen_sponsor_action_hint">S'alternativa sunt sa pubblicidade, s'anàlisi e Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Gràtzias pro sustènnere s'isvilupu de còdighe abertu ❤️</string>
+</resources>

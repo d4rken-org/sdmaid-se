@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+
+    <string name="upgrade_feature_requires_pro">Require SD Maid SE FOSS</string>
+
+    <string name="upgrades_dashcard_title">Actualizar SD Maid</string>
+    <string name="upgrades_dashcard_body">Desbloquea características adicionais e convértete en mecenas para apoiar o desenvolvemento continuo!</string>
+    <string name="upgrades_dashcard_upgrade_action">Actualizar</string>
+
+    <string name="upgrade_screen_title">Mellorar SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid non ten anuncios e non vende datos de usuario. O desenvolvemento continuo só é posible grazas a ti.</string>
+    <string name="upgrade_screen_how_title">Como axudar</string>
+    <string name="upgrade_screen_how_body">Convértete en mecenas e patrocina o desenvolvemento! Toca o botón de abaixo para activar todas as características extra e abrir o meu perfil de GitHub Sponsors.</string>
+    <string name="upgrade_screen_why_title">Isto conxura 🪄</string>
+    <string name="upgrade_screen_why_body">• Funcionalidade de eliminación de AppCleaner 💯\n• Operacións programadas ⏰\n• Opcións extra para todas as ferramentas ⚙️\n• As túas propias regras de eliminación ✍️\n• Un desenvolvedor motivado 🧙\ne máis…</string>
+    <string name="upgrade_screen_sponsor_action">Patrocinar desenvolvemento</string>
+    <string name="upgrade_screen_sponsor_action_hint">A alternativa son anuncios, análises e Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Grazas por apoiar o desenvolvemento de código aberto ❤️</string>
+</resources>
