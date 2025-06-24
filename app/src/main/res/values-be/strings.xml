@@ -760,4 +760,26 @@
     <string name="area_type_public_obb_label">Публічныя рэсурсы праграм</string>
     <string name="area_type_private_data_label">Прыватныя даныя праграм</string>
     <string name="area_type_portable_label">Партатыўнае сховішча</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Сістэма адключыла кнопку "Ачысціць кэш" для гэтай праграмы. Выключыце яе, каб паскорыць ачыстку кэша.</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Ачыстка кэша недаступная</string>
+    <string name="appcleaner_automation_error_no_settings_body">Гэтая сістэмная праграма не мае экрана налад. Ачыстка кэша праз службу даступнасці немагчымая. Выключыце яе, каб паскорыць ачыстку кэша.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Экран налад недаступны</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Праграме бяспекі HyperOS (com.miui.securitycenter) не хапае дазволу на статыстыку выкарыстання (GET_USAGE_STATS). Гэта парушае такія функцыі, як "Ачысціць даныя" ў дэталях праграмы і ачыстку кэша праз даступнасць. Дайце дазвол для аднаўлення поўнай функцыянальнасці.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Сістэмная праграма няправільна наладжаная</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Вызначэнне недаступных кэшаў</string>
+    <string name="appcontrol_item_installedat_x_label">Усталявана ў: %s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Апошняе абнаўленне: %s</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Час экрана: %1$s з %2$s</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Час экрана</string>
+    <string name="automation_error_compatibility_title">Сумяшчальнасць аўтаматызацыі</string>
+    <string name="automation_error_overlay_body">SD Maid не змог паказаць накладку аўтаматызацыі. Праверце дазволы і паспрабуйце перазагрузіць прыладу.</string>
+    <string name="automation_error_overlay_title">Накладка аўтаматызацыі</string>
+    <string name="automation_error_timeout_body">SD Maid не завяршыў усе крокі ў межах часавых абмежаванняў. Калі гэта працягваецца, мне можа спатрэбіцца наладзіць праграму для вашай прылады. Праверце абнаўленні або звярніцеся да мяне, каб я мог гэта выправіць.</string>
+    <string name="automation_error_timeout_title">Тайм-аўт аўтаматызацыі</string>
+    <string name="systemcleaner_filter_logfiles_label">Файлы журнала сістэмы</string>
+    <string name="systemcleaner_filter_logfiles_summary">Файлы журнала сістэмы і сістэмных сервісаў (напр. *.log) у розных месцах.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Кэш усталёўшчыка</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Кэшаваныя даныя, звязаныя з усталяванымі праграмамі, якія выкарыстоўваюцца сістэмай кіравання пакетамі.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Часовыя файлы сістэмы</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Звязаныя з сістэмай часовыя файлы, звычайна кароткачасовыя кэшы для актыўных аперацый.</string>
 </resources>

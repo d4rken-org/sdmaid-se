@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- This file is intentionally minimal for the Kurdish (Turkey) locale -->
+    <!-- It will inherit most strings from the default values/strings.xml -->
+    <!-- Only add specific Kurdish translations here when available -->
+</resources>

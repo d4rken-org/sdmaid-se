@@ -580,4 +580,119 @@
     <string name="review_app_body">SD Maid 리뷰를 남겨주시겠어요?️ ❤️</string>
     <string name="stats_label">이력</string>
     <string name="stats_settings_reset_all_label">모두 초기화</string>
+    <string name="stats_settings_reset_all_desc">모든 보고서를 삭제하고 모든 통계를 0으로 설정합니다.</string>
+    <string name="stats_affected_paths_label">영향을 받은 경로</string>
+    <string name="stats_affected_pkgs_label">영향을 받은 앱</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">시스템이 이 앱의 "캐시 지우기" 버튼을 비활성화했습니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">캐시 지우기를 사용할 수 없음</string>
+    <string name="appcleaner_automation_error_no_settings_body">이 시스템 앱에는 설정 화면이 없습니다. 접근성 서비스를 통한 캐시 지우기가 불가능합니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>
+    <string name="appcleaner_automation_error_no_settings_title">설정 화면을 사용할 수 없음</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS의 보안 앱(com.miui.securitycenter)에 사용 통계 권한(GET_USAGE_STATS)이 없습니다. 이로 인해 앱 세부정보의 "데이터 지우기"와 접근성을 통한 캐시 지우기 등의 기능이 손상됩니다. 전체 기능을 복원하려면 권한을 부여하세요.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">시스템 앱이 잘못 구성됨</string>
+    <string name="appcleaner_filter_qqchat_label">QQ 채팅</string>
+    <string name="appcleaner_filter_qqchat_summary">QQ 채팅 대화에서 보내거나 받은 파일입니다.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp 수신 파일</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp을 통해 다른 사람으로부터 받은 파일입니다.</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">접근할 수 없는 캐시 확인 중</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="other">%d개의 불필요한 항목을 삭제했습니다</item>
+    </plurals>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="other">%d개의 앱을 내보냈습니다</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="other">%d개의 앱을 강제 중지하시겠습니까?</item>
+    </plurals>
+    <string name="appcontrol_item_installedat_x_label">설치됨: %s</string>
+    <string name="appcontrol_item_lastupdate_x_label">마지막 업데이트: %s</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">화면 시간: %2$s부터 %1$s</string>
+    <string name="appcontrol_list_sortmode_screentime_label">화면 시간</string>
+    <string name="appcontrol_tag_uninstalled">데이터만</string>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="other">%d개의 앱을 전환했습니다</item>
+    </plurals>
+    <string name="automation_error_compatibility_body">SD Maid가 화면 레이아웃을 파악할 수 없었습니다. 이 문제가 계속 발생하면 사용하시는 언어나 설정이 완전히 지원되지 않을 수 있습니다. 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
+    <string name="automation_error_compatibility_title">자동화 호환성</string>
+    <string name="automation_error_overlay_body">SD Maid가 자동화 오버레이를 표시할 수 없었습니다. 권한을 확인하고 기기를 재부팅해 보세요.</string>
+    <string name="automation_error_overlay_title">자동화 오버레이</string>
+    <string name="automation_error_timeout_body">SD Maid가 시간 제한 내에 모든 단계를 완료하지 못했습니다. 이 문제가 계속 발생하면 사용자의 기기에 맞게 앱을 조정해야 할 수 있습니다. 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
+    <string name="automation_error_timeout_title">자동화 시간 초과</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">%d개의 앱 잔해를 삭제했습니다</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">%d개의 중복 파일을 삭제했습니다</item>
+    </plurals>
+    <string name="deduplicator_search_locations_all_summary">모든 접근 가능한 영역</string>
+    <string name="deduplicator_search_locations_title">검색 위치</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%s가 중복 파일로 점유되고 있습니다</item>
+    </plurals>
+    <string name="exclusion_show_defaults_action">기본값 표시</string>
+    <string name="picker_select_paths_title">경로 선택</string>
+    <string name="picker_selected_paths_title">선택된 경로</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="other">%d개 경로가 선택됨</item>
+    </plurals>
+    <string name="picker_unsaved_confirmation_message">변경사항을 취소하시겠습니까?</string>
+    <string name="picker_home_action">데이터 영역</string>
+    <string name="settings_debuglog_explanation">이 기능은 앱이 수행하는 모든 작업을 공유 가능한 파일에 기록합니다. 생성된 파일에는 민감한 정보(예: 파일 이름 및 설치된 앱)가 포함됩니다. 신뢰할 수 있는 당사자(예: 문제를 해결하는 개발자)와만 공유하세요.</string>
+    <plurals name="stats_dash_body_count">
+        <item quantity="other">SD Maid를 기기에 초대한 이후 %s개의 항목이 처리되었습니다.</item>
+    </plurals>
+    <plurals name="stats_dash_body_size">
+        <item quantity="other">%s가 확보되었습니다.</item>
+    </plurals>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="other">%d일</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="other">%d개의 항목을 삭제했습니다</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">경로에 키워드 포함</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">경로가 키워드로 끝남</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">경로가 키워드와 같음</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">경로가 키워드로 시작</string>
+    <string name="systemcleaner_filter_logfiles_label">시스템 로그 파일</string>
+    <string name="systemcleaner_filter_logfiles_summary">여러 위치의 시스템 및 시스템 서비스 로그 파일(예: *.log)입니다.</string>
+    <string name="systemcleaner_filter_packagecaches_label">설치 프로그램 캐시</string>
+    <string name="systemcleaner_filter_packagecaches_summary">시스템의 패키지 관리에서 사용하는 설치된 앱과 관련된 캐시된 데이터입니다.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">스크린샷 기간</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">삭제 대상으로 간주할 스크린샷의 최소 기간입니다.</string>
+    <string name="systemcleaner_filter_screenshots_summary">여러 앱과 위치에서 %s보다 오래된 스크린샷입니다.</string>
+    <string name="systemcleaner_filter_tempfiles_label">임시 시스템 파일</string>
+    <string name="systemcleaner_filter_tempfiles_summary">시스템 관련 임시 파일로, 일반적으로 활성 작업을 위한 단기 캐시입니다.</string>
+    <string name="systemcleaner_filter_trashed_label">휴지통 파일</string>
+    <string name="systemcleaner_filter_trashed_summary">삭제 표시되었지만 아직 영구적으로 제거되지 않은 다양한 앱과 위치의 휴지통에 있는 파일입니다.</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">연결된 저장소에서 Windows 파일 탐색기가 만들 수 있는 데이터입니다.</string>
+    <string name="area_type_sdcard_label">공용 저장소</string>
+    <string name="area_type_public_media_label">공용 앱 미디어</string>
+    <string name="area_type_public_data_label">공용 앱 데이터</string>
+    <string name="area_type_public_obb_label">공용 앱 리소스</string>
+    <string name="area_type_private_data_label">개인 앱 데이터</string>
+    <string name="area_type_portable_label">휴대용 저장소</string>
+    <string name="analyzer_app_details_app_is_archived">보관됨</string>
+    <string name="analyzer_storage_content_app_code_description">APK 파일 및 기타 설치 관련 파일</string>
+    <string name="analyzer_storage_type_tertiary_description">3차 저장소는 추가 저장 장치입니다(예: USB 드라이브).</string>
+    <string name="analyzer_storage_type_tertiary_title">3차 저장소</string>
+    <string name="appcontrol_app_forcestop_description">앱이 백그라운드에서 실행 중지됩니다. 앱을 다시 시작할 때까지 알림이나 업데이트를 받지 못할 수 있습니다.</string>
+    <string name="appcontrol_automation_loading">자동화 준비 중</string>
+    <string name="appcontrol_automation_progress_find_force_stop">"강제 중지" 버튼 찾는 중 (키워드: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">이전 작업 확인 시도 중 (키워드: %s)</string>
+    <string name="appcontrol_automation_title">자동화</string>
+    <string name="appcontrol_export_description">이 앱의 설치 파일을 저장합니다. 앱 데이터는 포함되지 않습니다.</string>
+    <string name="appcontrol_force_stop_confirm_title">강제 중지</string>
+    <string name="appcontrol_force_stop_selection_action">강제 중지</string>
+    <string name="appcontrol_tag_archived">보관됨</string>
+    <string name="exclusion_editor_path_explanation">경로 제외는 SD Maid가 지정된 위치를 처리하지 못하도록 합니다. 이는 파일, 폴더 및 중첩된 폴더에 적용됩니다.</string>
+    <string name="scheduler_battery_optimization_hint">이 기능이 제대로 작동하려면 SD Maid에 대한 배터리 최적화를 비활성화해야 할 수 있습니다.</string>
+    <string name="stats_report_status_partial_failure">부분 실패</string>
+    <string name="stats_report_status_partial_success">부분 성공</string>
+    <string name="stats_report_status_success">성공</string>
+    <string name="stats_settings_desc">SD Maid의 작업에 대한 기록을 보관하고 통계를 생성합니다.</string>
+    <string name="stats_settings_retention_category">보존</string>
+    <string name="stats_settings_retention_paths_desc">SD Maid가 영향을 준 경로에 대한 세부 정보를 보관할 일수입니다.</string>
+    <string name="stats_settings_retention_paths_label">세부 경로 정보</string>
+    <string name="stats_settings_retention_reports_desc">개별 작업 보고서를 보관할 일수입니다.</string>
+    <string name="stats_settings_retention_reports_label">작업 보고서</string>
 </resources>

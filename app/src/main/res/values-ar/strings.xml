@@ -810,4 +810,34 @@
     <string name="area_type_public_obb_label">موارد التطبيقات العامة</string>
     <string name="area_type_private_data_label">بيانات التطبيق الخاص</string>
     <string name="area_type_portable_label">وحدة تخزين محمولة</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">قامت النظام بتعطيل زر "مسح ذاكرة التخزين المؤقت" لهذا التطبيق. استثنه لتسريع مسح ذاكرة التخزين المؤقت.</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">مسح ذاكرة التخزين المؤقت غير متاح</string>
+    <string name="appcleaner_automation_error_no_settings_body">هذا التطبيق النظام ليس له شاشة إعدادات. مسح ذاكرة التخزين المؤقت عبر خدمة إمكانية الوصول غير ممكن. استثنه لتسريع مسح ذاكرة التخزين المؤقت.</string>
+    <string name="appcleaner_automation_error_no_settings_title">شاشة الإعدادات غير متاحة</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">تطبيق الأمان في HyperOS (com.miui.securitycenter) يفتقد إذن إحصائيات الاستخدام (GET_USAGE_STATS). هذا يكسر ميزات مثل "مسح البيانات" في تفاصيل التطبيق ومسح ذاكرة التخزين المؤقت عبر إمكانية الوصول. امنح الإذن لاستعادة الوظائف الكاملة.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">تطبيق النظام مكون بشكل خاطئ</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">تحديد ذاكرة التخزين المؤقت التي لا يمكن الوصول إليها</string>
+    <string name="appcontrol_item_installedat_x_label">مثبت في: %s</string>
+    <string name="appcontrol_item_lastupdate_x_label">آخر تحديث: %s</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">وقت الشاشة: %1$s منذ %2$s</string>
+    <string name="appcontrol_list_sortmode_screentime_label">وقت الشاشة</string>
+    <string name="automation_error_compatibility_title">توافق الأتمتة</string>
+    <string name="automation_error_overlay_body">لم يتمكن SD Maid من إظهار تراكب الأتمتة. تحقق من الأذونات وحاول إعادة تشغيل جهازك.</string>
+    <string name="automation_error_overlay_title">تراكب الأتمتة</string>
+    <string name="automation_error_timeout_body">لم يكمل SD Maid جميع الخطوات ضمن الحد الزمني. إذا استمر هذا في الحدوث، قد أحتاج إلى تعديل التطبيق لجهازك. تحقق من التحديثات أو تواصل معي حتى أتمكن من إصلاحه.</string>
+    <string name="automation_error_timeout_title">انتهاء مهلة الأتمتة</string>
+    <plurals name="stats_dash_body_count">
+        <item quantity="zero">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="one">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="two">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="few">تم معالجة %s عناصر منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="many">تم معالجة %s عنصراً منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="other">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
+    </plurals>
+    <string name="systemcleaner_filter_logfiles_label">ملفات سجل النظام</string>
+    <string name="systemcleaner_filter_logfiles_summary">ملفات سجل النظام وخدمة النظام (مثل *.log) في مواقع مختلفة.</string>
+    <string name="systemcleaner_filter_packagecaches_label">ذاكرة تخزين مؤقت للمثبت</string>
+    <string name="systemcleaner_filter_packagecaches_summary">البيانات المؤقتة المتعلقة بالتطبيقات المثبتة والمستخدمة من قبل إدارة حزم النظام.</string>
+    <string name="systemcleaner_filter_tempfiles_label">ملفات النظام المؤقتة</string>
+    <string name="systemcleaner_filter_tempfiles_summary">ملفات مؤقتة متعلقة بالنظام، عادة ذاكرة تخزين مؤقت قصيرة المدى للعمليات النشطة.</string>
 </resources>

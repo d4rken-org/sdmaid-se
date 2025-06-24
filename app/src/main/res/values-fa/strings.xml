@@ -715,4 +715,13 @@
     <string name="area_type_public_obb_label">منابع برنامه عمومی</string>
     <string name="area_type_private_data_label">اطلاعات خصوصی برنامه </string>
     <string name="area_type_portable_label">فضای ذخیره‌سازی قابل‌حمل</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">سیستم دکمه "پاک کردن کش" را برای این برنامه غیرفعال کرده است. آن را حذف کنید تا پاک کردن کش سریع‌تر شود.</string>
+    <string name="appcleaner_automation_error_no_settings_body">این برنامه سیستمی صفحه تنظیماتی ندارد. پاک کردن کش از طریق سرویس دسترسی امکان‌پذیر نیست. آن را حذف کنید تا پاک کردن کش سریع‌تر شود.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">برنامه سیستمی اشتباه پیکربندی شده</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">برنامه امنیتی HyperOS (com.miui.securitycenter) فاقد مجوز آمار استفاده (GET_USAGE_STATS) است. این امر ویژگی‌هایی مانند "پاک کردن داده" در جزئیات برنامه و پاک کردن کش از طریق دسترسی را می‌شکند. مجوز را اعطا کنید تا عملکرد کامل بازیابی شود.</string>
+    <string name="automation_error_compatibility_title">سازگاری اتوماسیون</string>
+    <string name="automation_error_timeout_title">پایان زمان اتوماسیون</string>
+    <string name="automation_error_timeout_body">SD Maid تمام مراحل را در محدوده زمانی تکمیل نکرد. اگر این اتفاق ادامه یابد، ممکن است نیاز باشد برنامه را برای دستگاه شما تنظیم کنم. به‌روزرسانی‌ها را بررسی کنید یا با من تماس بگیرید تا بتوانم آن را برطرف کنم.</string>
+    <string name="automation_error_overlay_title">پوشش اتوماسیون</string>
+    <string name="automation_error_overlay_body">SD Maid نتوانست پوشش اتوماسیون را نمایش دهد. مجوزها را بررسی کنید و دستگاه خود را مجدداً راه‌اندازی کنید.</string>
 </resources>

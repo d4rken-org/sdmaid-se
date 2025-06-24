@@ -704,4 +704,82 @@
     <string name="area_type_public_obb_label">Загальнодоступні ресурси додатків</string>
     <string name="area_type_private_data_label">Особисті дані додатку</string>
     <string name="area_type_portable_label">Портативне сховище</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d зайвий елемент видалено</item>
+        <item quantity="few">%d зайвих елементи видалено</item>
+        <item quantity="many">%d зайвих елементів видалено</item>
+        <item quantity="other">%d зайвих елементів видалено</item>
+    </plurals>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d додаток був експортований</item>
+        <item quantity="few">%d додатки були експортовані</item>
+        <item quantity="many">%d додатків було експортовано</item>
+        <item quantity="other">%d додатків було експортовано</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d додаток було зупинено</item>
+        <item quantity="few">%d додатки було зупинено</item>
+        <item quantity="many">%d додатків було зупинено</item>
+        <item quantity="other">%d додатків було зупинено</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d додаток було перемкнуто</item>
+        <item quantity="few">%d додатки було перемкнуто</item>
+        <item quantity="many">%d додатків було перемкнуто</item>
+        <item quantity="other">%d додатків було перемкнуто</item>
+    </plurals>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d додаток було видалено</item>
+        <item quantity="few">%d додатки було видалено</item>
+        <item quantity="many">%d додатків було видалено</item>
+        <item quantity="other">%d додатків було видалено</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d залишок додатку видалено</item>
+        <item quantity="few">%d залишки додатків видалено</item>
+        <item quantity="many">%d залишків додатків видалено</item>
+        <item quantity="other">%d залишків додатків видалено</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d дублікат видалено</item>
+        <item quantity="few">%d дублікати видалено</item>
+        <item quantity="many">%d дублікатів видалено</item>
+        <item quantity="other">%d дублікатів видалено</item>
+    </plurals>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s зайнято дублікатами</item>
+        <item quantity="few">%s зайнято дублікатами</item>
+        <item quantity="many">%s зайнято дублікатами</item>
+        <item quantity="other">%s зайнято дублікатами</item>
+    </plurals>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d шлях вибрано</item>
+        <item quantity="few">%d шляхи вибрано</item>
+        <item quantity="many">%d шляхів вибрано</item>
+        <item quantity="other">%d шляхів вибрано</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s елемент оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
+        <item quantity="few">%s елементи оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
+        <item quantity="many">%s елементів оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
+        <item quantity="other">%s елементів оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
+    </plurals>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s було звільнено.</item>
+        <item quantity="few">%s було звільнено.</item>
+        <item quantity="many">%s було звільнено.</item>
+        <item quantity="other">%s було звільнено.</item>
+    </plurals>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d день</item>
+        <item quantity="few">%d дні</item>
+        <item quantity="many">%d днів</item>
+        <item quantity="other">%d днів</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d збіг видалено</item>
+        <item quantity="few">%d збіги видалено</item>
+        <item quantity="many">%d збігів видалено</item>
+        <item quantity="other">%d збігів видалено</item>
+    </plurals>
 </resources>

@@ -760,4 +760,26 @@
     <string name="area_type_public_obb_label">Javni programski viri</string>
     <string name="area_type_private_data_label">Zasebni programski podatki</string>
     <string name="area_type_portable_label">Prenosna pomnilniška naprava</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Sistem je onemogočil gumb "Počisti predpomnilnik" za to aplikacijo. Izključite jo za hitrejše čiščenje predpomnilnika.</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Čiščenje predpomnilnika ni na voljo</string>
+    <string name="appcleaner_automation_error_no_settings_body">Ta sistemska aplikacija nima zaslona z nastavitvami. Čiščenje predpomnilnika prek storitve dostopnosti ni mogoče. Izključite jo za hitrejše čiščenje predpomnilnika.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Zaslon nastavitev ni na voljo</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Varnostni aplikaciji HyperOS (com.miui.securitycenter) manjka dovoljenje za statistike uporabe (GET_USAGE_STATS). To pokvari funkcije, kot je "Počisti podatke" v podrobnostih aplikacije in čiščenje predpomnilnika prek dostopnosti. Dodelite dovoljenje za obnovitev polne funkcionalnosti.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Sistemska aplikacija je napačno konfigurirana</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Določanje nedostopnih predpomnilnikov</string>
+    <string name="appcontrol_item_installedat_x_label">Nameščeno ob: %s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Nazadnje posodobljeno: %s</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Čas zaslona: %1$s od %2$s</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Čas zaslona</string>
+    <string name="automation_error_compatibility_title">Združljivost avtomatizacije</string>
+    <string name="automation_error_overlay_body">SD Maid ni mogel prikazati prekrivnega sloja avtomatizacije. Preverite dovoljenja in poskusite znova zagnati napravo.</string>
+    <string name="automation_error_overlay_title">Prekrivni sloj avtomatizacije</string>
+    <string name="automation_error_timeout_body">SD Maid ni dokončal vseh korakov v časovnem okviru. Če se to nadaljuje, bo morda potrebno prilagoditi aplikacijo za vašo napravo. Preverite posodobitve ali se obrnite name, da lahko to popravim.</string>
+    <string name="automation_error_timeout_title">Časovna omejitev avtomatizacije</string>
+    <string name="systemcleaner_filter_logfiles_label">Sistemske dnevniške datoteke</string>
+    <string name="systemcleaner_filter_logfiles_summary">Sistemske in sistemske storitve dnevniške datoteke (npr. *.log) na različnih lokacijah.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Predpomnilnik namestitelja</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Predpomnjeni podatki, povezani s nameščenimi aplikacijami, ki jih uporablja sistemsko upravljanje paketov.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Začasne sistemske datoteke</string>
+    <string name="systemcleaner_filter_tempfiles_summary">S sistemom povezane začasne datoteke, običajno kratkoživi predpomnilniki za aktivne operacije.</string>
 </resources>

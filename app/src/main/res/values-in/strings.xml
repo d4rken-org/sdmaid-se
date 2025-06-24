@@ -681,4 +681,18 @@
     <string name="area_type_public_obb_label">Sumber apl umum</string>
     <string name="area_type_private_data_label">Data apl pribadi</string>
     <string name="area_type_portable_label">Penyimpanan eksternal</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Sistem telah menonaktifkan tombol "Hapus cache" untuk aplikasi ini. Kecualikan untuk mempercepat penghapusan cache.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Aplikasi sistem ini tidak memiliki layar pengaturan. Penghapusan cache melalui layanan aksesibilitas tidak memungkinkan. Kecualikan untuk mempercepat penghapusan cache.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Layar pengaturan tidak tersedia</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Aplikasi Keamanan HyperOS (com.miui.securitycenter) kehilangan izin Statistik Penggunaan (GET_USAGE_STATS). Ini merusak fitur seperti "Hapus Data" di detail aplikasi dan penghapusan cache melalui aksesibilitas. Berikan izin untuk memulihkan fungsionalitas penuh.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Aplikasi sistem salah dikonfigurasi</string>
+    <string name="appcontrol_item_installedat_x_label">Diinstal pada: %s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Terakhir diperbarui: %s</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Waktu layar: %1$s sejak %2$s</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Waktu layar</string>
+    <string name="automation_error_compatibility_title">Kompatibilitas otomasi</string>
+    <string name="automation_error_overlay_body">SD Maid tidak dapat menampilkan overlay otomasi. Periksa izin dan coba reboot perangkat Anda.</string>
+    <string name="automation_error_overlay_title">Overlay otomasi</string>
+    <string name="automation_error_timeout_body">SD Maid tidak menyelesaikan semua langkah dalam batas waktu. Jika ini terus terjadi, saya mungkin perlu menyesuaikan aplikasi untuk perangkat Anda. Periksa pembaruan atau hubungi saya agar saya dapat memperbaikinya.</string>
+    <string name="automation_error_timeout_title">Timeout otomasi</string>
 </resources>

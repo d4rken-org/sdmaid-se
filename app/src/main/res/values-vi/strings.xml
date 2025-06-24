@@ -689,4 +689,10 @@
     <string name="area_type_public_obb_label">Tài nguyên ứng dụng công khai</string>
     <string name="area_type_private_data_label">Dữ liệu ứng dụng riêng tư</string>
     <string name="area_type_portable_label">Bộ lưu trữ di động</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Ứng dụng Bảo mật của HyperOS (com.miui.securitycenter) thiếu quyền Thống kê Sử dụng (GET_USAGE_STATS). Điều này làm hỏng các tính năng như "Xóa Dữ liệu" trong chi tiết ứng dụng và xóa bộ nhớ cache qua dịch vụ trợ năng. Cấp quyền để khôi phục đầy đủ chức năng.</string>
+    <string name="automation_error_compatibility_title">Tương thích tự động hóa</string>
+    <string name="automation_error_timeout_title">Hết thời gian tự động hóa</string>
+    <string name="automation_error_timeout_body">SD Maid đã không hoàn thành tất cả các bước trong giới hạn thời gian. Nếu điều này tiếp tục xảy ra, tôi có thể cần điều chỉnh ứng dụng cho thiết bị của bạn. Kiểm tra cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
+    <string name="automation_error_overlay_title">Lớp phủ tự động hóa</string>
+    <string name="automation_error_overlay_body">SD Maid không thể hiển thị lớp phủ tự động hóa. Kiểm tra quyền và thử khởi động lại thiết bị của bạn.</string>
 </resources>

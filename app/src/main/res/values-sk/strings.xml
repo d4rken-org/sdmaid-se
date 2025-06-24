@@ -659,4 +659,127 @@
     <string name="stats_settings_reset_all_desc">Odstráňte všetky prehľady a nastavte všetky štatistiky na nulu.</string>
     <string name="stats_affected_paths_label">Ovplyvnené cesty</string>
     <string name="stats_affected_pkgs_label">Ovplyvnené aplikácie</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Systém zakázal tlačidlo „Vymazať vyrovnávaciu pamäť" pre túto aplikáciu. Vylúčte ju na zrýchlenie vymazávania vyrovnávacej pamäte.</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Vymazanie vyrovnávacej pamäte nie je k dispozícii</string>
+    <string name="appcleaner_automation_error_no_settings_body">Táto systémová aplikácia nemá obrazovku nastavení. Vymazanie vyrovnávacej pamäte cez službu prístupnosti nie je možné. Vylúčte ju na zrýchlenie vymazávania vyrovnávacej pamäte.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Obrazovka nastavení nie je k dispozícii</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Bezpečnostnej aplikácii HyperOS (com.miui.securitycenter) chýba povolenie Štatistiky používania (GET_USAGE_STATS). Toto narúša funkcie ako „Vymazať údaje" v podrobnostiach aplikácie a vymazávanie vyrovnávacej pamäte cez prístupnosť. Udeľte povolenie na obnovenie plnej funkčnosti.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Systémová aplikácia je nesprávne nakonfigurovaná</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Určovanie neprístupných vyrovnávacích pamätí</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d zbytočná položka odstránená</item>
+        <item quantity="few">%d zbytočné položky odstránené</item>
+        <item quantity="many">%d zbytočných položiek odstránených</item>
+        <item quantity="other">%d zbytočných položiek odstránených</item>
+    </plurals>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d aplikácia bola exportovaná</item>
+        <item quantity="few">%d aplikácie boli exportované</item>
+        <item quantity="many">%d aplikácií bolo exportovaných</item>
+        <item quantity="other">%d aplikácií bolo exportovaných</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Vynútiť zastavenie %d aplikácie?</item>
+        <item quantity="few">Vynútiť zastavenie %d aplikácií?</item>
+        <item quantity="many">Vynútiť zastavenie %d aplikácií?</item>
+        <item quantity="other">Vynútiť zastavenie %d aplikácií?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d aplikácia bola zastavená</item>
+        <item quantity="few">%d aplikácie boli zastavené</item>
+        <item quantity="many">%d aplikácií bolo zastavených</item>
+        <item quantity="other">%d aplikácií bolo zastavených</item>
+    </plurals>
+    <string name="appcontrol_item_installedat_x_label">Nainštalované: %s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Naposledy aktualizované: %s</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Čas obrazovky: %1$s od %2$s</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Čas obrazovky</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Zmeniť povolený/zakázaný stav pre %d aplikáciu?</item>
+        <item quantity="few">Zmeniť povolený/zakázaný stav pre %d aplikácie?</item>
+        <item quantity="many">Zmeniť povolený/zakázaný stav pre %d aplikácií?</item>
+        <item quantity="other">Zmeniť povolený/zakázaný stav pre %d aplikácií?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d aplikácia bola prepnutá</item>
+        <item quantity="few">%d aplikácie boli prepnuté</item>
+        <item quantity="many">%d aplikácií bolo prepnutých</item>
+        <item quantity="other">%d aplikácií bolo prepnutých</item>
+    </plurals>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d aplikácia bola odinštalovaná</item>
+        <item quantity="few">%d aplikácie boli odinštalované</item>
+        <item quantity="many">%d aplikácií bolo odinštalovaných</item>
+        <item quantity="other">%d aplikácií bolo odinštalovaných</item>
+    </plurals>
+    <string name="automation_error_compatibility_body">SD Maid nedokázal zistiť rozloženie obrazovky. Ak sa to stále deje, váš jazyk alebo nastavenie možno nie je plne podporované. Skontrolujte aktualizácie alebo ma kontaktujte, aby som to mohol opraviť.</string>
+    <string name="automation_error_compatibility_title">Kompatibilita automatizácie</string>
+    <string name="automation_error_overlay_body">SD Maid nedokázal zobraziť prekrytie automatizácie. Skontrolujte povolenia a skúste reštartovať zariadenie.</string>
+    <string name="automation_error_overlay_title">Prekrytie automatizácie</string>
+    <string name="automation_error_timeout_body">SD Maid nedokončil všetky kroky v časovom limite. Ak sa to stále deje, možno budem musieť upraviť aplikáciu pre vaše zariadenie. Skontrolujte aktualizácie alebo ma kontaktujte, aby som to mohol opraviť.</string>
+    <string name="automation_error_timeout_title">Časový limit automatizácie</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d zvyšok aplikácie odstránený</item>
+        <item quantity="few">%d zvyšky aplikácií odstránené</item>
+        <item quantity="many">%d zvyškov aplikácií odstránených</item>
+        <item quantity="other">%d zvyškov aplikácií odstránených</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d duplikát odstránený</item>
+        <item quantity="few">%d duplikáty odstránené</item>
+        <item quantity="many">%d duplikátov odstránených</item>
+        <item quantity="other">%d duplikátov odstránených</item>
+    </plurals>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s je obsadené duplikátmi</item>
+        <item quantity="few">%s sú obsadené duplikátmi</item>
+        <item quantity="many">%s je obsadených duplikátmi</item>
+        <item quantity="other">%s je obsadených duplikátmi</item>
+    </plurals>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d cesta vybraná</item>
+        <item quantity="few">%d cesty vybrané</item>
+        <item quantity="many">%d ciest vybraných</item>
+        <item quantity="other">%d ciest vybraných</item>
+    </plurals>
+    <string name="picker_home_action">Dátové oblasti</string>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s položka spracovaná od pozvania SD Maid na vaše zariadenie.</item>
+        <item quantity="few">%s položky spracované od pozvania SD Maid na vaše zariadenie.</item>
+        <item quantity="many">%s položiek spracovaných od pozvania SD Maid na vaše zariadenie.</item>
+        <item quantity="other">%s položiek spracovaných od pozvania SD Maid na vaše zariadenie.</item>
+    </plurals>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s bol uvoľnený.</item>
+        <item quantity="few">%s boli uvoľnené.</item>
+        <item quantity="many">%s bolo uvoľnených.</item>
+        <item quantity="other">%s bolo uvoľnených.</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d zhoda odstránená</item>
+        <item quantity="few">%d zhody odstránené</item>
+        <item quantity="many">%d zhôd odstránených</item>
+        <item quantity="other">%d zhôd odstránených</item>
+    </plurals>
+    <string name="systemcleaner_filter_logfiles_label">Súbory systémového protokolu</string>
+    <string name="systemcleaner_filter_logfiles_summary">Súbory protokolu systému a systémových služieb (napr. *.log) na rôznych miestach.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Vyrovnávacia pamäť inštalátora</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Údaje vo vyrovnávacej pamäti súvisiace s nainštalovanými aplikáciami, ktoré používa správa balíkov systému.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Dočasné systémové súbory</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Dočasné súbory súvisiace so systémom, zvyčajne krátkodobé vyrovnávacie pamäte pre aktívne operácie.</string>
+    <string name="area_type_sdcard_label">Verejné úložisko</string>
+    <string name="area_type_public_media_label">Verejné médiá aplikácií</string>
+    <string name="area_type_public_data_label">Verejné údaje aplikácií</string>
+    <string name="area_type_public_obb_label">Verejné zdroje aplikácií</string>
+    <string name="area_type_private_data_label">Súkromné údaje aplikácií</string>
+    <string name="area_type_portable_label">Prenosné úložisko</string>
+    <string name="appcontrol_tag_not_installed">Nie je nainštalovaná</string>
+    <string name="appcontrol_tag_uninstalled">Iba údaje</string>
+    <string name="deduplicator_search_locations_all_summary">Všetky prístupné oblasti</string>
+    <string name="deduplicator_search_locations_title">Miesta vyhľadávania</string>
+    <string name="picker_selected_paths_title">Vybrané cesty</string>
+    <string name="picker_select_paths_title">Vybrať cesty</string>
+    <string name="picker_unsaved_confirmation_message">Zahodiť zmeny?</string>
+    <string name="systemcleaner_filter_trashed_label">Súbory v koši</string>
+    <string name="systemcleaner_filter_trashed_summary">Súbory v odpadkových košoch z rôznych aplikácií a miest, ktoré are označené na odstránenie, ale ešte neboli natrvalo odstránené.</string>
 </resources>

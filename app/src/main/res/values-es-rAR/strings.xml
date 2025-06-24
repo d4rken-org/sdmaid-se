@@ -416,12 +416,12 @@
     <string name="appcontrol_app_exclude_edit_description">Esta aplicación actualmente está excluida de una o más herramientas.</string>
     <string name="appcontrol_tag_user">Usuario</string>
     <string name="appcontrol_tag_active">Activo recientemente</string>
-    <string name="appcontrol_tag_apk_base">Identificador (clave): 
+    <string name="appcontrol_tag_apk_base">Identificador (clave):
 appcontrol_tag_apk_base
 appcontrol_tag_apk_base
 
  Archivo: Textos de la aplicación (aplicación principal)</string>
-    <string name="appcontrol_tag_apk_bundle">Identificador (Clave): 
+    <string name="appcontrol_tag_apk_bundle">Identificador (Clave):
 appcontrol_tag_apk_bundle appcontrol_tag_apk_bundle
 
 Archivo: Textos de la aplicación (aplicación principal)</string>
@@ -448,10 +448,10 @@ Archivo: Textos de la aplicación (aplicación principal)</string>
         <item quantity="one">¿Cambiar el estado habilitado/deshabilitado para %d aplicación?</item>
         <item quantity="other">¿Cambiar los estados habilitados/deshabilitados para %d aplicaciones?</item>
     </plurals>
-    <string name="appcontrol_settings_module_sizing_enabled_label">Identificador (Clave): 
+    <string name="appcontrol_settings_module_sizing_enabled_label">Identificador (Clave):
 appcontrol_settings_module_sizing_enabled_label
 appcontrol_settings_module_sizing_enabled_label
- 
+
 Archivo: Textos de la aplicación (aplicación principal)</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Obtenga una estimación aproximada del tamaño de cada aplicación.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determinar actividad</string>
@@ -617,4 +617,116 @@ Archivo: Textos de la aplicación (aplicación principal)</string>
     <string name="stats_settings_reset_all_desc">Eliminar todos los reportes y establecer todas las estadísticas a cero.</string>
     <string name="stats_affected_paths_label">Directorios afectados</string>
     <string name="stats_affected_pkgs_label">Apps afectadas</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">El sistema ha deshabilitado el botón "Borrar caché" para esta aplicación. Excluila para acelerar la limpieza de caché.</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Borrar caché no disponible</string>
+    <string name="appcleaner_automation_error_no_settings_body">Esta aplicación del sistema no tiene pantalla de configuración. La limpieza de caché a través del servicio de accesibilidad no es posible. Excluila para acelerar la limpieza de caché.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Pantalla de configuración no disponible</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">La aplicación de Seguridad de HyperOS (com.miui.securitycenter) carece del permiso de Estadísticas de Uso (GET_USAGE_STATS). Esto rompe funciones como "Borrar Datos" en los detalles de la aplicación y la limpieza de caché a través de accesibilidad. Otorgá el permiso para restaurar la funcionalidad completa.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Aplicación del sistema mal configurada</string>
+    <string name="appcleaner_filter_qqchat_label">Chat QQ</string>
+    <string name="appcleaner_filter_qqchat_summary">Archivos enviados o recibidos en conversaciones de chat QQ.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Archivos recibidos de WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Archivos que recibiste de personas a través de WhatsApp.</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Determinando cachés inaccesibles</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d elemento prescindible eliminado</item>
+        <item quantity="other">%d elementos prescindibles eliminados</item>
+    </plurals>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d aplicación fue exportada</item>
+        <item quantity="other">%d aplicaciones fueron exportadas</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d aplicación fue detenida</item>
+        <item quantity="other">%d aplicaciones fueron detenidas</item>
+    </plurals>
+    <string name="appcontrol_item_installedat_x_label">Instalada en: %s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Última actualización: %s</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Tiempo de pantalla: %1$s desde %2$s</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Tiempo de pantalla</string>
+    <string name="appcontrol_tag_not_installed">No instalada</string>
+    <string name="appcontrol_tag_uninstalled">Solo datos</string>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d aplicación fue cambiada</item>
+        <item quantity="other">%d aplicaciones fueron cambiadas</item>
+    </plurals>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d aplicación fue desinstalada</item>
+        <item quantity="other">%d aplicaciones fueron desinstaladas</item>
+    </plurals>
+    <string name="automation_error_compatibility_body">SD Maid no pudo determinar el diseño de la pantalla. Si esto sigue pasando, tu idioma o configuración podría no estar completamente soportado. Verificá las actualizaciones o contactame para que pueda arreglarlo.</string>
+    <string name="automation_error_compatibility_title">Compatibilidad de automatización</string>
+    <string name="automation_error_overlay_body">SD Maid no pudo mostrar la superposición de automatización. Verificá los permisos e intentá reiniciar tu dispositivo.</string>
+    <string name="automation_error_overlay_title">Superposición de automatización</string>
+    <string name="automation_error_timeout_body">SD Maid no completó todos los pasos dentro del límite de tiempo. Si esto sigue pasando, podría necesitar ajustar la aplicación para tu dispositivo. Verificá las actualizaciones o contactame para que pueda arreglarlo.</string>
+    <string name="automation_error_timeout_title">Tiempo de espera de automatización agotado</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d remanente de aplicación eliminado</item>
+        <item quantity="other">%d remanentes de aplicación eliminados</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d duplicado eliminado</item>
+        <item quantity="other">%d duplicados eliminados</item>
+    </plurals>
+    <string name="deduplicator_search_locations_all_summary">Todas las áreas accesibles</string>
+    <string name="deduplicator_search_locations_title">Ubicaciones de búsqueda</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s está ocupado por duplicados</item>
+        <item quantity="other">%s están ocupados por duplicados</item>
+    </plurals>
+    <string name="exclusion_show_defaults_action">Mostrar predeterminados</string>
+    <string name="picker_select_paths_title">Seleccionar rutas</string>
+    <string name="picker_selected_paths_title">Rutas seleccionadas</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d ruta seleccionada</item>
+        <item quantity="other">%d rutas seleccionadas</item>
+    </plurals>
+    <string name="picker_unsaved_confirmation_message">¿Descartar cambios?</string>
+    <string name="picker_home_action">Áreas de datos</string>
+    <string name="setup_inventory_invalid_message">El sistema proporcionó una lista inválida de aplicaciones instaladas (ej. muy pocas o algunas faltaban). Andá a la configuración del sistema y permitile a SD Maid acceso a "Lista de aplicaciones".</string>
+    <string name="setup_permission_error_label">Error de permiso</string>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s elemento procesado desde que invitaste a SD Maid a tu dispositivo.</item>
+        <item quantity="other">%s elementos procesados desde que invitaste a SD Maid a tu dispositivo.</item>
+    </plurals>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s ha sido liberado.</item>
+        <item quantity="other">%s han sido liberados.</item>
+    </plurals>
+    <string name="stats_settings_retention_category">Retención</string>
+    <string name="stats_settings_retention_paths_desc">El número de días para mantener detalles sobre rutas afectadas por SD Maid.</string>
+    <string name="stats_settings_retention_paths_label">Información detallada de rutas</string>
+    <string name="stats_settings_retention_reports_desc">El número de días para mantener reportes de tareas individuales.</string>
+    <string name="stats_settings_retention_reports_label">Reportes de tareas</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d día</item>
+        <item quantity="other">%d días</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d coincidencia eliminada</item>
+        <item quantity="other">%d coincidencias eliminadas</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">La ruta contiene palabra clave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">La ruta termina con palabra clave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">La ruta es igual a palabra clave</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">La ruta comienza con palabra clave</string>
+    <string name="systemcleaner_filter_logfiles_label">Archivos de registro del sistema</string>
+    <string name="systemcleaner_filter_logfiles_summary">Archivos de registro del sistema y servicios del sistema (ej. *.log) en varias ubicaciones.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Caché del instalador</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Datos en caché relacionados con aplicaciones instaladas que son usados por la gestión de paquetes del sistema.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Antigüedad de capturas</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Antigüedad mínima para que las capturas de pantalla sean consideradas para eliminación.</string>
+    <string name="systemcleaner_filter_screenshots_label">Capturas de pantalla</string>
+    <string name="systemcleaner_filter_screenshots_summary">Capturas de pantalla más antiguas que %s de múltiples aplicaciones y ubicaciones.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Archivos temporales del sistema</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Archivos temporales relacionados con el sistema, usualmente cachés de corta duración para operaciones activas.</string>
+    <string name="systemcleaner_filter_trashed_label">Archivos en papelera</string>
+    <string name="systemcleaner_filter_trashed_summary">Archivos en papeleras de reciclaje de varias aplicaciones y ubicaciones que están marcados para eliminación pero aún no removidos permanentemente.</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">Datos que el explorador de archivos de Windows puede crear en almacenamiento conectado.</string>
+    <string name="area_type_sdcard_label">Almacenamiento público</string>
+    <string name="area_type_public_media_label">Medios de aplicación pública</string>
+    <string name="area_type_public_data_label">Datos de aplicación pública</string>
+    <string name="area_type_public_obb_label">Recursos de aplicación pública</string>
+    <string name="area_type_private_data_label">Datos de aplicación privada</string>
+    <string name="area_type_portable_label">Almacenamiento portátil</string>
 </resources>

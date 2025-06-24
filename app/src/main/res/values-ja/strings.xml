@@ -627,4 +627,75 @@
     <string name="stats_settings_reset_all_desc">レポートをすべて削除し、統計をリセットします。</string>
     <string name="stats_affected_paths_label">操作対象パス</string>
     <string name="stats_affected_pkgs_label">操作対象のアプリ</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">システムがこのアプリの「キャッシュを削除」ボタンを無効にしました。キャッシュクリアの高速化のため除外してください。</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">キャッシュクリアが利用できません</string>
+    <string name="appcleaner_automation_error_no_settings_body">このシステムアプリには設定画面がありません。アクセシビリティサービスによるキャッシュクリアはできません。キャッシュクリアの高速化のため除外してください。</string>
+    <string name="appcleaner_automation_error_no_settings_title">設定画面が利用できません</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOSのセキュリティアプリ（com.miui.securitycenter）に使用統計権限（GET_USAGE_STATS）がありません。これによりアプリ詳細の「データを削除」やアクセシビリティによるキャッシュクリアなどの機能が破損します。完全な機能を復元するため権限を許可してください。</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">システムアプリの設定が間違っています</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">アクセスできないキャッシュを判定中</string>
+
+    <string name="appcontrol_item_installedat_x_label">インストール日時: %s</string>
+    <string name="appcontrol_item_lastupdate_x_label">最終更新: %s</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">スクリーンタイム: %2$sから%1$s</string>
+    <string name="appcontrol_list_sortmode_screentime_label">スクリーンタイム</string>
+    <string name="appcontrol_tag_not_installed">インストールされていません</string>
+    <string name="appcontrol_tag_uninstalled">データのみ</string>
+
+    <string name="automation_error_compatibility_body">SD Maidは画面レイアウトを判別できませんでした。これが続く場合、お使いの言語や設定が完全にサポートされていない可能性があります。更新を確認するか、修正できるよう私にご連絡ください。</string>
+    <string name="automation_error_compatibility_title">自動化の互換性</string>
+    <string name="automation_error_overlay_body">SD Maidは自動化オーバーレイを表示できませんでした。権限を確認し、デバイスの再起動を試してください。</string>
+    <string name="automation_error_overlay_title">自動化オーバーレイ</string>
+    <string name="automation_error_timeout_body">SD Maidは時間制限内にすべての手順を完了できませんでした。これが続く場合、お使いのデバイス用にアプリを調整する必要があるかもしれません。更新を確認するか、修正できるよう私にご連絡ください。</string>
+    <string name="automation_error_timeout_title">自動化タイムアウト</string>
+
+    <string name="deduplicator_search_locations_all_summary">すべてのアクセス可能な領域</string>
+    <string name="deduplicator_search_locations_title">検索場所</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%sが重複により占有されています</item>
+    </plurals>
+    <string name="picker_select_paths_title">パスを選択</string>
+    <string name="picker_selected_paths_title">選択されたパス</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="other">%d個のパスが選択されました</item>
+    </plurals>
+    <string name="picker_unsaved_confirmation_message">変更を破棄しますか？</string>
+    <string name="picker_home_action">データ領域</string>
+    <plurals name="stats_dash_body_count">
+        <item quantity="other">SD Maidをデバイスに招待してから%s個のアイテムが処理されました。</item>
+    </plurals>
+    <plurals name="stats_dash_body_size">
+        <item quantity="other">%sが解放されました。</item>
+    </plurals>
+    <string name="systemcleaner_filter_logfiles_label">システムログファイル</string>
+    <string name="systemcleaner_filter_logfiles_summary">様々な場所にあるシステムおよびシステムサービスのログファイル（例：*.log）。</string>
+    <string name="systemcleaner_filter_packagecaches_label">インストーラーキャッシュ</string>
+    <string name="systemcleaner_filter_packagecaches_summary">システムのパッケージ管理で使用される、インストール済みアプリに関連するキャッシュデータ。</string>
+    <string name="systemcleaner_filter_tempfiles_label">一時的なシステムファイル</string>
+    <string name="systemcleaner_filter_tempfiles_summary">システム関連の一時ファイル、通常はアクティブな操作用の短期間キャッシュ。</string>
+    <string name="systemcleaner_filter_trashed_label">ゴミ箱のファイル</string>
+    <string name="systemcleaner_filter_trashed_summary">様々なアプリや場所のゴミ箱にある、削除マークが付いているがまだ完全に削除されていないファイル。</string>
+    <string name="area_type_sdcard_label">パブリックストレージ</string>
+    <string name="area_type_public_media_label">パブリックアプリメディア</string>
+    <string name="area_type_public_data_label">パブリックアプリデータ</string>
+    <string name="area_type_public_obb_label">パブリックアプリリソース</string>
+    <string name="area_type_private_data_label">プライベートアプリデータ</string>
+    <string name="area_type_portable_label">ポータブルストレージ</string>
+    <string name="appcleaner_filter_qqchat_label">QQチャット</string>
+    <string name="appcleaner_filter_qqchat_summary">QQチャット会話で送受信されたファイル。</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp受信ファイル</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp経由で他の人から受信したファイル。</string>
+    <string name="exclusion_show_defaults_action">デフォルトを表示</string>
+    <string name="settings_debuglog_explanation">この機能はアプリが行っているすべてのことを共有可能なファイルに記録します。生成されたファイルには機密情報（ファイル名やインストール済みアプリなど）が含まれています。信頼できる相手（問題をトラブルシューティングしている開発者など）とのみ共有してください。</string>
+    <string name="setup_inventory_invalid_message">システムが無効なインストール済みアプリのリストを提供しました（例：少なすぎる、または一部が欠落している）。システム設定に移動し、SD Maidに「アプリリスト」へのアクセスを許可してください。</string>
+    <string name="setup_permission_error_label">権限エラー</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">パスにキーワードが含まれる</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">パスがキーワードで終わる</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">パスがキーワードと等しい</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">パスがキーワードで始まる</string>
+    <string name="systemcleaner_filter_screenshots_age_label">スクリーンショットの期間</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">削除対象と見なされるスクリーンショットの最小経過期間。</string>
+    <string name="systemcleaner_filter_screenshots_label">スクリーンショット</string>
+    <string name="systemcleaner_filter_screenshots_summary">複数のアプリや場所から%sより古いスクリーンショット。</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">接続されたストレージでWindowsファイルエクスプローラーが作成できるデータ。</string>
 </resources>

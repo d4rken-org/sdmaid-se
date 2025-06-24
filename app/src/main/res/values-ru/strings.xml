@@ -775,4 +775,11 @@
     <string name="area_type_public_obb_label">Общие ресурсы приложений</string>
     <string name="area_type_private_data_label">Общие данные приложений</string>
     <string name="area_type_portable_label">Съёмный накопитель</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Очистка кэша недоступна</string>
+    <string name="appcleaner_automation_error_no_settings_title">Экран настроек недоступен</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Определение недоступных кэшей</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Время экрана: %1$s с %2$s</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Время экрана</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Кэшированные данные, связанные с установленными приложениями, используемые системой управления пакетами.</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Системные временные файлы, обычно кратковременные кэши для активных операций.</string>
 </resources>
