@@ -1,6 +1,7 @@
 #!/bin/sh
 echo "Removing unsupported languages..."
 echo `pwd`
+rm -rv ./metadata/android/ckb-IR
 rm -rv ./metadata/android/es-AR
 rm -rv ./metadata/android/sc-IT
 rm -rv ./metadata/android/sq-AL
