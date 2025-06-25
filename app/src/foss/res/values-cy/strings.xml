@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+
+    <string name="upgrade_feature_requires_pro">Mae angen SD Maid SE FOSS</string>
+
+    <string name="upgrades_dashcard_title">Uwchraddio SD Maid</string>
+    <string name="upgrades_dashcard_body">Datgloi nodweddion ychwanegol a dod yn noddwr i gefnogi datblygiad parhaus!</string>
+    <string name="upgrades_dashcard_upgrade_action">Uwchraddio</string>
+
+    <string name="upgrade_screen_title">Gwella SD Maid</string>
+    <string name="upgrade_screen_preamble">Nid oes gan SD Maid hysbysebion ac nid yw\'n gwerthu data defnyddwyr. Dim ond chi sy\'n ei gwneud yn bosibl i barhau â\'r datblygiad.</string>
+    <string name="upgrade_screen_how_title">Sut i helpu</string>
+    <string name="upgrade_screen_how_body">Byddwch yn noddwr a noddi datblygiad! Tapiwch y botwm isod i actifadu\'r holl nodweddion ychwanegol ac agor fy mhroffil Noddwyr GitHub.</string>
+    <string name="upgrade_screen_why_title">Mae hyn yn creu 🪄</string>
+    <string name="upgrade_screen_why_body">• Swyddogaeth dileu AppCleaner 💯\n• Gweithrediadau wedi\'u hamserlennu ⏰\n• Opsiynau ychwanegol ar gyfer pob offeryn ⚙️\n• Eich rheolau dileu eich hun ✍️\n• Datblygwr brwdfrydig 🧙\na mwy…</string>
+    <string name="upgrade_screen_sponsor_action">Noddi datblygiad</string>
+    <string name="upgrade_screen_sponsor_action_hint">Yr opsiwn arall yw hysbysebion, dadansoddeg a Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Diolch am gefnogi datblygiad ffynhonnell agored ❤️</string>
+</resources>

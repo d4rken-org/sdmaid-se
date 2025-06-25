@@ -1,2 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">SD Maid SE Pro کی ضرورت ہے</string>
+
+    <string name="upgrades_dashcard_title">SD Maid کو اپ گریڈ کریں</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro بہتر نتائج، زیادہ فیچرز اور پاور صارفین کے لیے اختیارات فراہم کرتا ہے۔</string>
+    <string name="upgrades_dashcard_upgrade_action">اپ گریڈ</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">Google Play دستیاب نہیں ہے</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play سے رابطہ نہیں کر سکتا۔ کیا Google Play انسٹال اور اپ ڈیٹ ہے؟ کیا آپ کا Google اکاؤنٹ لاگ ان ہے؟ Google Play ایپ کی کیش صاف کرنے اور اپنا ڈیوائس ری بوٹ کرنے کی کوشش کریں۔</string>
+    <string name="upgrades_no_purchases_found_check_account">کوئی خریداری نہیں ملی۔ کیا آپ صحیح اکاؤنٹ استعمال کر رہے ہیں؟</string>
+    <string name="upgrade_screen_title">SD Maid SE Pro حاصل کریں</string>
+    <string name="upgrade_screen_preamble">SD Maid میں کوئی اشتہارات نہیں ہیں اور صارف کا ڈیٹا نہیں بیچتا۔ میرا کام آپ کی طرف سے مالی اعانت فراہم کیا جاتا ہے ❤️۔</string>
+    <string name="upgrade_screen_benefits_title">فوائد</string>
+    <string name="upgrade_screen_benefits_body">• ایپ کی صفائی 💯\n• شیڈول شدہ آپریشنز ⏰\n• تمام ٹولز کے لیے اضافی اختیارات ⚙️\n• آپ کے اپنے حذف کرنے کے اصول ✍️\n• ایک متحرک ڈیولپر 🧙\nاور مزید…</string>
+    <string name="upgrade_screen_how_title">اختیارات</string>
+    <string name="upgrade_screen_how_body">آپ ایک بار کی خریداری اور سستی سالانہ سبسکرپشن کے درمیان انتخاب کر سکتے ہیں۔\nسبسکرپشن 14 دن کی مفت آزمائش کے ساتھ شروع ہوتی ہے، جس کے بعد آپ سے سال میں ایک بار چارج کیا جائے گا۔ آزمائش اور سبسکرپشن کسی بھی وقت منسوخ کی جا سکتی ہے۔\nیکساں فیچرز، صرف مختلف قیمتوں کے ماڈل۔</string>
+    <string name="upgrade_screen_subscription_trial_action">14 دن کی مفت آزمائش شروع کریں</string>
+    <string name="upgrade_screen_subscription_action">سبسکرائب کریں</string>
+    <string name="upgrade_screen_subscription_action_hint">سبسکرپشن کی قیمت %s سالانہ ہے۔</string>
+    <string name="upgrade_screen_iap_action">ایک بار کی خریداری</string>
+    <string name="upgrade_screen_iap_action_hint">ایک بار کی خریداری کی قیمت %s ہے۔</string>
+    <string name="upgrade_screen_thanks_toast">آپ بہترین ہیں! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">خریداری بحال کریں</string>
+    <string name="upgrade_screen_restore_purchase_message">آپ کی اپ گریڈ ایک ہی Google اکاؤنٹ پر ڈیوائسز پر درست ہے۔</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">غیر تسلیم شدہ اپ گریڈز کے لیے ٹربل شوٹنگ ٹپس:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Store سنک میں وقت لگ سکتا ہے۔ ری بوٹ کرنے، Google Play کیش صاف کرنے یا صرف انتظار کرنے کی کوشش کریں۔</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">متعدد اکاؤنٹس Google Play کو الجھا سکتے ہیں۔ دیگر اکاؤنٹس سے لاگ آوٹ کریں یا Google Play ویب سائٹ کے ذریعے انسٹال کریں، جو مخصوص اکاؤنٹ کے ساتھ ایسوسی ایشن کو مجبور کرتا ہے۔</string>
+</resources>

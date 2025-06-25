@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+
+    <string name="upgrade_feature_requires_pro">Teastaíonn SD Maid SE FOSS</string>
+
+    <string name="upgrades_dashcard_title">Uasghrádú SD Maid</string>
+    <string name="upgrades_dashcard_body">Díghlasáil gnéithe breise agus bí i do phátrún chun tacú le forbairt leanúnach!</string>
+    <string name="upgrades_dashcard_upgrade_action">Uasghrádú</string>
+
+    <string name="upgrade_screen_title">Feabhsaigh SD Maid</string>
+    <string name="upgrade_screen_preamble">Níl aon fhógraí ag SD Maid agus ní dhíolann sé sonraí úsáideoirí. Ní féidir forbairt leanúnach ach le do chabhair.</string>
+    <string name="upgrade_screen_how_title">Conas cabhrú</string>
+    <string name="upgrade_screen_how_body">Bí i do phátrún agus urraigh forbairt! Tapáil an cnaipe thíos chun na gnéithe breise go léir a ghníomhachtú agus mo phróifíl Urraitheoirí GitHub a oscailt.</string>
+    <string name="upgrade_screen_why_title">Cruthaíonn sé seo 🪄</string>
+    <string name="upgrade_screen_why_body">• Feidhmiúlacht scriosta AppCleaner 💯\n• Oibríochtaí sceidealta ⏰\n• Roghanna breise do gach uirlis ⚙️\n• Do rialacha scriosta féin ✍️\n• Forbróir spreagtha 🧙\nagus níos mó…</string>
+    <string name="upgrade_screen_sponsor_action">Urraigh forbairt</string>
+    <string name="upgrade_screen_sponsor_action_hint">Is iad fógraí, anailísíocht agus Google Play an rogha eile 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Go raibh maith agat as tacú le forbairt foinse oscailte ❤️</string>
+</resources>

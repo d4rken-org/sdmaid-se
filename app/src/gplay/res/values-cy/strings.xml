@@ -1,2 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">Mae angen SD Maid SE Pro</string>
+
+    <string name="upgrades_dashcard_title">Uwchraddio SD Maid</string>
+    <string name="upgrades_dashcard_body">Mae SD Maid Pro yn cynnig gwell canlyniadau, mwy o nodweddion ac opsiynau ar gyfer defnyddwyr uwch.</string>
+    <string name="upgrades_dashcard_upgrade_action">Uwchraddio</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">Nid yw Google Play ar gael</string>
+    <string name="upgrades_gplay_unavailable_error_description">Ni all SD Maid gysylltu â Google Play. A yw Google Play wedi\'i osod a\'i ddiweddaru? A yw eich Cyfrif Google wedi mewngofnodi? Ceisiwch glirio storfa ap Google Play ac ailgychwyn eich dyfais.</string>
+    <string name="upgrades_no_purchases_found_check_account">Ni chanfuwyd unrhyw bryniadau. Ydych chi\'n defnyddio\'r cyfrif cywir?</string>
+    <string name="upgrade_screen_title">Cael SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">Nid oes gan SD Maid hysbysebion ac nid yw\'n gwerthu data defnyddwyr. Mae fy ngwaith yn cael ei ariannu gennych chi ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Manteision</string>
+    <string name="upgrade_screen_benefits_body">• Glanhau apiau 💯\n• Gweithrediadau wedi\'u hamserlennu ⏰\n• Opsiynau ychwanegol ar gyfer pob offeryn ⚙️\n• Eich rheolau dileu eich hun ✍️\n• Datblygwr brwdfrydig 🧙\na mwy…</string>
+    <string name="upgrade_screen_how_title">Opsiynau</string>
+    <string name="upgrade_screen_how_body">Gallwch ddewis rhwng pryniant un-amser a thanysgrifiad blynyddol rhatach.\nMae\'r tanysgrifiad yn dechrau gyda phrawf 14 diwrnod am ddim, ac ar ôl hynny byddwch yn cael eich codi tâl unwaith y flwyddyn. Gellir canslo\'r prawf a\'r tanysgrifiad ar unrhyw adeg.\nYr un nodweddion, modelau prisio gwahanol yn unig.</string>
+    <string name="upgrade_screen_subscription_trial_action">Dechrau prawf 14 diwrnod am ddim</string>
+    <string name="upgrade_screen_subscription_action">Tanysgrifio</string>
+    <string name="upgrade_screen_subscription_action_hint">Mae\'r tanysgrifiad yn costio %s y flwyddyn.</string>
+    <string name="upgrade_screen_iap_action">Pryniant un-amser</string>
+    <string name="upgrade_screen_iap_action_hint">Mae\'r pryniant un-amser yn costio %s.</string>
+    <string name="upgrade_screen_thanks_toast">Chi yw\'r gorau! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Adfer pryniant</string>
+    <string name="upgrade_screen_restore_purchase_message">Mae eich uwchraddiad yn ddilys ar draws dyfeisiau ar yr un cyfrif Google.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Awgrymiadau datrys problemau ar gyfer uwchraddiadau heb eu hadnabod:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Gall cydamseru Play Store gymryd amser. Ceisiwch ailgychwyn, clirio storfa Google Play neu aros yn syml.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Gall cyfrifon lluosog ddrysu Google Play. Allgofnodwch o gyfrifon eraill neu gosodwch drwy wefan Google Play, sy\'n gorfodi cysylltiadau â chyfrif penodol.</string>
+</resources>

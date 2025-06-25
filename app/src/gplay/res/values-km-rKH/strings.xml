@@ -1,2 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">ត្រូវការ SD Maid SE Pro</string>
+
+    <string name="upgrades_dashcard_title">ដំឡើង SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro ផ្តល់លទ្ធផលល្អជាង មុខងារច្រើនជាង និងជម្រើសសម្រាប់អ្នកប្រើប្រាស់ជំនាញ។</string>
+    <string name="upgrades_dashcard_upgrade_action">ដំឡើង</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">Google Play មិនអាចប្រើបាន</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid មិនអាចភ្ជាប់ទៅ Google Play បានទេ។ តើ Google Play បានដំឡើង និងធ្វើបច្ចុប្បន្នភាពឬទេ? តើគណនី Google របស់អ្នកបានចូលហើយឬនៅ? សាកល្បងសម្អាតឃ្លាំងសម្ងាត់កម្មវិធី Google Play និងចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ។</string>
+    <string name="upgrades_no_purchases_found_check_account">រកមិនឃើញការទិញ។ តើអ្នកកំពុងប្រើគណនីត្រឹមត្រូវទេ?</string>
+    <string name="upgrade_screen_title">ទទួលបាន SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid មិនមានការផ្សាយពាណិជ្ជកម្ម និងមិនលក់ទិន្នន័យអ្នកប្រើប្រាស់ទេ។ ការងាររបស់ខ្ញុំត្រូវបានផ្តល់មូលនិធិដោយអ្នក ❤️។</string>
+    <string name="upgrade_screen_benefits_title">អត្ថប្រយោជន៍</string>
+    <string name="upgrade_screen_benefits_body">• សម្អាតកម្មវិធី 💯\n• ប្រតិបត្តិការដែលបានកំណត់ពេល ⏰\n• ជម្រើសបន្ថែមសម្រាប់ឧបករណ៍ទាំងអស់ ⚙️\n• ច្បាប់លុបផ្ទាល់ខ្លួនរបស់អ្នក ✍️\n• អ្នកអភិវឌ្ឍន៍ដែលមានការលើកទឹកចិត្ត 🧙\nនិងច្រើនទៀត…</string>
+    <string name="upgrade_screen_how_title">ជម្រើស</string>
+    <string name="upgrade_screen_how_body">អ្នកអាចជ្រើសរើសរវាងការទិញម្តង និងការជាវប្រចាំឆ្នាំដែលថោកជាង។\nការជាវចាប់ផ្តើមជាមួយការសាកល្បង 14 ថ្ងៃដោយឥតគិតថ្លៃ បន្ទាប់ពីនោះអ្នកនឹងត្រូវគិតថ្លៃម្តងក្នុងមួយឆ្នាំ។ ការសាកល្បង និងការជាវអាចលុបចោលបានគ្រប់ពេល។\nមុខងារដូចគ្នា គ្រាន់តែម៉ូដែលតម្លៃខុសគ្នា។</string>
+    <string name="upgrade_screen_subscription_trial_action">ចាប់ផ្តើមការសាកល្បង 14 ថ្ងៃដោយឥតគិតថ្លៃ</string>
+    <string name="upgrade_screen_subscription_action">ជាវ</string>
+    <string name="upgrade_screen_subscription_action_hint">ការជាវមានតម្លៃ %s ក្នុងមួយឆ្នាំ។</string>
+    <string name="upgrade_screen_iap_action">ការទិញម្តង</string>
+    <string name="upgrade_screen_iap_action_hint">ការទិញម្តងមានតម្លៃ %s។</string>
+    <string name="upgrade_screen_thanks_toast">អ្នកជាមនុស្សល្អបំផុត! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">ស្តារការទិញ</string>
+    <string name="upgrade_screen_restore_purchase_message">ការដំឡើងរបស់អ្នកមានសុពលភាពនៅលើឧបករណ៍នានានៅលើគណនី Google ដូចគ្នា។</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">គន្លឹះដោះស្រាយបញ្ហាសម្រាប់ការដំឡើងដែលមិនបានទទួលស្គាល់៖</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">ការធ្វើសមកាលកម្ម Play Store អាចចំណាយពេល។ សាកល្បងចាប់ផ្តើមឡើងវិញ សម្អាតឃ្លាំងសម្ងាត់ Google Play ឬគ្រាន់តែរង់ចាំ។</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">គណនីច្រើនអាចធ្វើឱ្យ Google Play ច្រឡំ។ ចេញពីគណនីផ្សេងទៀត ឬដំឡើងតាមរយៈគេហទំព័រ Google Play ដែលបង្ខំការភ្ជាប់ជាមួយគណនីជាក់លាក់។</string>
+</resources>

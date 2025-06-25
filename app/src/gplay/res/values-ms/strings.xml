@@ -19,4 +19,11 @@
     <string name="upgrade_screen_iap_action">Belian sekali</string>
     <string name="upgrade_screen_iap_action_hint">Kos pembelian sekali ialah %s.</string>
     <string name="upgrade_screen_thanks_toast">Anda lah yang terbaik! ❤️</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play tidak tersedia</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid tidak dapat menyambung ke Google Play. Adakah Google Play dipasang dan dikemaskini? Adakah Akaun Google anda log masuk? Cuba kosongkan cache aplikasi Google Play dan but semula peranti anda.</string>
+    <string name="upgrade_screen_restore_purchase_action">Pulihkan pembelian</string>
+    <string name="upgrade_screen_restore_purchase_message">Naik taraf anda sah merentasi peranti pada akaun Google yang sama.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Petua penyelesaian masalah untuk naik taraf yang tidak diiktiraf:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Penyegerakan Play Store mungkin mengambil masa. Cuba but semula, kosongkan cache Google Play atau tunggu sahaja.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Pelbagai akaun boleh mengelirukan Google Play. Log keluar dari akaun lain atau pasang melalui laman web Google Play, yang memaksa perkaitan dengan akaun tertentu.</string>
 </resources>

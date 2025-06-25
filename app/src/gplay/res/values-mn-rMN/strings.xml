@@ -1,2 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">SD Maid SE Pro шаардлагатай</string>
+
+    <string name="upgrades_dashcard_title">SD Maid-г шинэчлэх</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro илүү сайн үр дүн, илүү олон боломжууд болон мэргэжлийн хэрэглэгчдэд зориулсан сонголтуудыг санал болгодог.</string>
+    <string name="upgrades_dashcard_upgrade_action">Шинэчлэх</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">Google Play боломжгүй байна</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play-тэй холбогдож чадахгүй байна. Google Play суулгасан бөгөөд шинэчлэгдсэн үү? Таны Google бүртгэл нэвтэрсэн үү? Google Play аппын кэшийг цэвэрлэж, төхөөрөмжөө дахин эхлүүлэхийг оролдоно уу.</string>
+    <string name="upgrades_no_purchases_found_check_account">Худалдан авалт олдсонгүй. Та зөв бүртгэл ашиглаж байна уу?</string>
+    <string name="upgrade_screen_title">SD Maid SE Pro авах</string>
+    <string name="upgrade_screen_preamble">SD Maid зар сурталчилгаагүй бөгөөд хэрэглэгчийн өгөгдлийг зардаггүй. Миний ажлыг та санхүүжүүлдэг ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Давуу талууд</string>
+    <string name="upgrade_screen_benefits_body">• Апп цэвэрлэгээ 💯\n• Төлөвлөсөн үйлдлүүд ⏰\n• Бүх багаж хэрэгсэлд зориулсан нэмэлт сонголтууд ⚙️\n• Өөрийн устгах дүрмүүд ✍️\n• Урам зоригтой хөгжүүлэгч 🧙\nбусад…</string>
+    <string name="upgrade_screen_how_title">Сонголтууд</string>
+    <string name="upgrade_screen_how_body">Та нэг удаагийн худалдан авалт болон хямд жилийн захиалгын хооронд сонгох боломжтой.\nЗахиалга нь 14 хоногийн үнэ төлбөргүй туршилтаар эхэлдэг бөгөөд үүний дараа танаас жилд нэг удаа төлбөр авна. Туршилт болон захиалгыг хүссэн үедээ цуцалж болно.\nИжил боломжууд, зөвхөн өөр үнийн загварууд.</string>
+    <string name="upgrade_screen_subscription_trial_action">14 хоногийн үнэ төлбөргүй туршилт эхлүүлэх</string>
+    <string name="upgrade_screen_subscription_action">Захиалах</string>
+    <string name="upgrade_screen_subscription_action_hint">Захиалга жилд %s өртөгтэй.</string>
+    <string name="upgrade_screen_iap_action">Нэг удаагийн худалдан авалт</string>
+    <string name="upgrade_screen_iap_action_hint">Нэг удаагийн худалдан авалт %s өртөгтэй.</string>
+    <string name="upgrade_screen_thanks_toast">Та хамгийн шилдэг нь! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Худалдан авалтыг сэргээх</string>
+    <string name="upgrade_screen_restore_purchase_message">Таны шинэчлэлт ижил Google бүртгэл дээрх төхөөрөмжүүдэд хүчинтэй.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Танигдаагүй шинэчлэлтүүдийн асуудал шийдвэрлэх зөвлөмжүүд:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Store синк хийхэд хугацаа шаардагдаж магадгүй. Дахин эхлүүлэх, Google Play кэшийг цэвэрлэх эсвэл зүгээр хүлээхийг оролдоно уу.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Олон бүртгэл Google Play-г төөрөгдүүлж болно. Бусад бүртгэлээс гарах эсвэл Google Play вэбсайтаар дамжуулан суулгах нь тодорхой бүртгэлтэй холбоосыг албадаж өгдөг.</string>
+</resources>

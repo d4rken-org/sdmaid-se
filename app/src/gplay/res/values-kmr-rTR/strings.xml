@@ -1,2 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">SD Maid SE Pro pêwîst e</string>
+
+    <string name="upgrades_dashcard_title">SD Maid nûve bike</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro encamên çêtir, taybetmendiyên zêdetir û vebijarkên ji bo bikarhênerên pispor pêşkêş dike.</string>
+    <string name="upgrades_dashcard_upgrade_action">Nûve bike</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">Google Play ne berdest e</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid nikare bi Google Play re têkiliyê saz bike. Google Play sazkirî û nûvekirî ye? Hesabê te yê Google têketî ye? Hewl bide pêşbîra sepana Google Play paqij bikî û cîhaza xwe ji nû ve bidî destpêkirin.</string>
+    <string name="upgrades_no_purchases_found_check_account">Ti kirîn nehat dîtin. Tu hesabê rast bi kar tînî?</string>
+    <string name="upgrade_screen_title">SD Maid SE Pro bistîne</string>
+    <string name="upgrade_screen_preamble">SD Maid ti reklam tune ye û daneyên bikarhêner nafiroşe. Xebata min ji aliyê te ve tê fînansekirin ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Berjewendî</string>
+    <string name="upgrade_screen_benefits_body">• Paqijkirina sepanan 💯\n• Operasyonên plansazkirî ⏰\n• Vebijarkên zêde ji bo hemû amûran ⚙️\n• Qaîdeyên jêbirinê yên xwe ✍️\n• Pêşvebirek motîvekirî 🧙\nû zêdetir…</string>
+    <string name="upgrade_screen_how_title">Vebijark</string>
+    <string name="upgrade_screen_how_body">Tu dikarî di navbera kirîna yek-carî û abonetiya salane ya erzantir de hilbijêrî.\nAbonetî bi ceribandina 14-rojan a belaş dest pê dike, piştî wê tu dê salê carekê bêyî pere. Ceribandina û abonetî her dem dikare were betalkirin.\nHeman taybetmendî, tenê modelên bihayê cuda.</string>
+    <string name="upgrade_screen_subscription_trial_action">Ceribandina 14-rojan a belaş dest pê bike</string>
+    <string name="upgrade_screen_subscription_action">Abone bibe</string>
+    <string name="upgrade_screen_subscription_action_hint">Abonetî salê %s e.</string>
+    <string name="upgrade_screen_iap_action">Kirîna yek-carî</string>
+    <string name="upgrade_screen_iap_action_hint">Kirîna yek-carî %s e.</string>
+    <string name="upgrade_screen_thanks_toast">Tu çêtirîn î! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Kirînê vegerîne</string>
+    <string name="upgrade_screen_restore_purchase_message">Nûvekirina te li ser cîhazên cuda yên bi heman hesabê Google derbasdar e.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Şîretên çareserkirinê ji bo nûvekirinên nenas:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Hevdemkirina Play Store dibe ku dem bigire. Hewl bide ji nû ve bidî destpêkirin, pêşbîra Google Play paqij bikî an tenê bisekine.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Hesabên pirjimar dikarin Google Play tevlihev bikin. Ji hesabên din derkeve an bi rêya malpera Google Play saz bike, ku têkiliyên bi hesabekî taybetî re mecbûr dike.</string>
+</resources>

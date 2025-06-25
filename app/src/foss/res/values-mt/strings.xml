@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+
+    <string name="upgrade_feature_requires_pro">Jeħtieġ SD Maid SE FOSS</string>
+
+    <string name="upgrades_dashcard_title">Aġġorna SD Maid</string>
+    <string name="upgrades_dashcard_body">Iftaħ karatteristiċi addizzjonali u sir patrun biex tappoġġja l-iżvilupp kontinwu!</string>
+    <string name="upgrades_dashcard_upgrade_action">Aġġorna</string>
+
+    <string name="upgrade_screen_title">Itjeb SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid m\'għandux reklami u ma jbigħx data tal-utenti. L-iżvilupp kontinwu huwa possibbli biss minnek.</string>
+    <string name="upgrade_screen_how_title">Kif tgħin</string>
+    <string name="upgrade_screen_how_body">Sir patrun u isponsorja l-iżvilupp! Agħfas il-buttuna t\'isfel biex tattiva l-karatteristiċi extra kollha u tiftaħ il-profil GitHub Sponsors tiegħi.</string>
+    <string name="upgrade_screen_why_title">Dan joħloq 🪄</string>
+    <string name="upgrade_screen_why_body">• Funzjonalità ta\' tħassir AppCleaner 💯\n• Operazzjonijiet skedati ⏰\n• Għażliet extra għall-għodod kollha ⚙️\n• Ir-regoli ta\' tħassir tiegħek stess ✍️\n• Żviluppatur motivat 🧙\nu aktar…</string>
+    <string name="upgrade_screen_sponsor_action">Isponsorja l-iżvilupp</string>
+    <string name="upgrade_screen_sponsor_action_hint">L-alternattiva hija reklami, analitika u Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Grazzi talli tappoġġja l-iżvilupp open-source ❤️</string>
+</resources>

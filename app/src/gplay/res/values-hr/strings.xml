@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Zahtijeva SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Nadogradite SD Maid</string>
     <string name="upgrades_dashcard_body">SD Maid Pro nudi bolje rezultate, više značajki i opcija za napredne korisnike.</string>
@@ -17,4 +19,11 @@
     <string name="upgrade_screen_iap_action">Jednokratna kupnja</string>
     <string name="upgrade_screen_iap_action_hint">Jednokratna kupnja košta %s.</string>
     <string name="upgrade_screen_thanks_toast">Najbolji ste! ❤️</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play nije dostupan</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid se ne može povezati s Google Playem. Je li Google Play instaliran i ažuriran? Je li vaš Google račun prijavljen? Pokušajte očistiti predmemoriju Google Play aplikacije i ponovno pokrenuti uređaj.</string>
+    <string name="upgrade_screen_restore_purchase_action">Vrati kupnju</string>
+    <string name="upgrade_screen_restore_purchase_message">Vaša nadogradnja vrijedi na svim uređajima s istim Google računom.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Savjeti za rješavanje problema s neprepoznatim nadogradnjama:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Sinkronizacija Play trgovine može potrajati. Pokušajte ponovno pokrenuti, očistiti Google Play predmemoriju ili jednostavno pričekajte.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Više računa može zbuniti Google Play. Odjavite se s drugih računa ili instalirajte putem Google Play web stranice, što prisiljavaju pridruživanja određenom računu.</string>
 </resources>
