@@ -1,2 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="dashboard_delete_all_message">Cantzellare is risultados in totu is ainas?</string>
+    <string name="dashboard_settings_category">Pannellu de controllu</string>
+    <string name="dashboard_motd_title">Messàgiu dae su isviluppadore</string>
+    <string name="dashboard_settings_oneclick_title">Modalidade Unu-Tinticu</string>
+    <string name="dashboard_settings_oneclick_summary">Cumintzare sa iscansione e sa cantzelladura pro totu is ainas cun unu tinticu in su butone de atzione de su pannellu de controllu, chene confirmatziones additzionales.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Ainas Unu-Tinticu</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Cales ainas depent èssere incluidas in is operatziones unu-tinticu?</string>
+
+    <string name="debug_debuglog_size_label">Mannària</string>
+    <string name="debug_debuglog_size_compressed_label">Mannària cumprimida</string>
+    <string name="debug_notification_channel_label">Notificatziones de debug</string>
+    <string name="debug_debuglog_file_label">Documentu de registru registradu</string>
+    <string name="debug_debuglog_recording_progress">Registrende su registru de debug</string>
+    <string name="debug_debuglog_record_action">Registrare su registru de debug</string>
+    <string name="debug_debuglog_stop_action">Firmmare sa registratzione</string>
+    <string name="debug_debuglog_sensitive_information_message">Su documentu generadu cuntenet informatziones sensìbiles (es. nòmenes de documentos e aplicatziones installadas). Cumpartie·ddu petzi cun partes de fidùtzia.</string>
+    <string name="settings_debuglog_explanation">Custa caraterìstica registrat totu su chi s\'aplicatzione est faghende in unu documentu chi podet èssere cumpartidu. Su documentu generadu cuntenet informatziones sensìbiles (es. nòmenes de documentos e aplicatziones installadas). Cumpartie·ddu petzi cun partes de fidùtzia (es. unu isviluppadore chi est risolvende unu problema).</string>
+
+    <string name="tasks_activity_notification_channel_label">Traballos ativos</string>
+    <string name="tasks_activity_working_notification_title">SD Maid est trabalende</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="one">%d traballu ativu</item>
+        <item quantity="other">%d traballos ativos</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="one">%d traballu in cua</item>
+        <item quantity="other">%d traballos in cua</item>
+    </plurals>
+    <string name="tasks_result_notification_channel_label">Risultados de traballos</string>
+    <string name="tasks_result_subtext">Risultadu de traballu</string>
+
+    <string name="onboarding_welcome_title">Bene bènnidos</string>
+    <string name="onboarding_welcome_body1">SD Maid SE gestionat documentos, aplicatziones e archìviu.</string>
+    <string name="onboarding_welcome_body2">Ottenere ispàtziu de archìviu limpende a pustis de àteras aplicatziones. Cantzellare documentos chi si podent ispentzare e bogare datos chi abarrant.</string>
+    <string name="onboarding_welcome_body_beta">Custa est una versione beta (de proa). Andare innantis cun sensu de umor e unu piano de resèrvia. Pro praghere, raporta is problemas chi incontras.</string>
+    <string name="onboarding_welcome_continue_action">Continuare</string>
+
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (o semmo SD Maid 2) est s\'erede de SD Maid (o semmo SD Maid 1). Una aplicatzione noa, otimizada pro Android moderno.</string>
+    <string name="onboarding_versus_body2">S\'architetura de s\'antecessore suo tenet prus de 7 annos e no est istada progetada pro is isfidas de is versiones noas de Android. Una riprogetatzione cumpleta est istada netzessària pro continuare su isviluppu.</string>
+    <string name="onboarding_versus_body3">Cunsidera de cambiare a SD Maid SE pro risultados mègius.</string>
+    <string name="onboarding_versus_body4">Su \"istadu pro\" de SD Maid 1 pro disgratzina no podet èssere trasferidu a SD Maid 2/SE. A pustis de 12 annos de agiornamentos gratuitos, una compra noa est netzessària pro mantenner su isviluppu (nutrire s\'isviluppadore).</string>
+    <string name="onboarding_versus_continue_action">Continuare</string>
+
+    <string name="onboarding_privacy_title">Riservadesa</string>
+    <string name="onboarding_privacy_body1">SD Maid no tenet pubblicidades e no bendet datos de s\'usuàriu.</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">Is rapòrtos de errores benit imbiados cando si presentant errores e podent cuntenner detàllios a subra de aplicatziones e documentos in su dispositivu tuo. Is rapòrtos m\'agiudant a currigere is errores e megiorare s\'aplicatzione.</string>
+    <string name="onboarding_privacy_bugreport_toggle">Permitere rapòrtos de errores automàticos</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">Custas optziones podent èssere cambiadas in is impostatziones.</string>
+
+    <string name="onboarding_permissions_title">Permissos</string>
+    <string name="onboarding_permissions_body">SD Maid SE necessitat is permissos chi sighint pro funtzionare cumplitamente:</string>
+    <string name="onboarding_permissions_continue_action">Continuare</string>
+
+    <string name="onboarding_setup_title">Cunfiguratzione</string>
+    <string name="onboarding_setup_body">Impreare totu is capacidades de SD Maid SE podet richìdere una cunfiguratzione additzionale.</string>
+    <string name="onboarding_setup_continue_action">Continuare</string>
+
+    <string name="onboarding_finished_title">Prontu!</string>
+    <string name="onboarding_finished_body">SD Maid SE est prontu pro s\'impreu. Bae a su pannellu de controllu e cumintza sa prima iscansione tua!</string>
+    <string name="onboarding_finished_continue_action">Andare a su pannellu de controllu</string>
+
+    <string name="systemcleaner_title">Limpiadore de Sistema</string>
+    <string name="systemcleaner_subtitle">Cantzellare cache de sistema e documentos temporàneos</string>
+    <string name="systemcleaner_scan_action">Iscansiare</string>
+    <string name="systemcleaner_delete_action">Cantzellare</string>
+    <string name="systemcleaner_progress_scanning">Iscansende...</string>
+    <string name="systemcleaner_progress_deleting">Cantzellende...</string>
+    <string name="systemcleaner_result_nothing_found">Nudda agatadu</string>
+    <string name="systemcleaner_result_found_files">%d documentos agatados</string>
+    <string name="systemcleaner_result_deleted_files">%d documentos cantzellados</string>
+
+    <string name="appcleaner_title">Limpiadore de Aplicatziones</string>
+    <string name="appcleaner_subtitle">Cantzellare cache de aplicatziones e documentos temporàneos</string>
+    <string name="appcleaner_scan_action">Iscansiare</string>
+    <string name="appcleaner_delete_action">Cantzellare</string>
+    <string name="appcleaner_progress_scanning">Iscansende...</string>
+    <string name="appcleaner_progress_deleting">Cantzellende...</string>
+    <string name="appcleaner_result_nothing_found">Nudda agatadu</string>
+
+    <string name="analyzer_title">Analizadore</string>
+    <string name="analyzer_subtitle">Analizare s\'impreu de s\'archìviu</string>
+    <string name="analyzer_scan_action">Iscansiare</string>
+    <string name="analyzer_progress_scanning">Iscansende...</string>
+
+    <string name="corpsefinder_title">Acatadore de Cadàveres</string>
+    <string name="corpsefinder_subtitle">Agatare documentos abarrantes dae aplicatziones disinstalladas</string>
+    <string name="corpsefinder_scan_action">Iscansiare</string>
+    <string name="corpsefinder_delete_action">Cantzellare</string>
+
+    <string name="deduplicator_title">Bogadore de Duplicados</string>
+    <string name="deduplicator_subtitle">Agatare e cantzellare documentos duplicados</string>
+    <string name="deduplicator_scan_action">Iscansiare</string>
+    <string name="deduplicator_delete_action">Cantzellare</string>
+
+    <string name="settings_title">Impostatziones</string>
+    <string name="settings_general_category">Generale</string>
+    <string name="settings_theme_title">Tema</string>
+    <string name="settings_theme_auto">Automàticu</string>
+    <string name="settings_theme_light">Craru</string>
+    <string name="settings_theme_dark">Iscuru</string>
+    <string name="settings_language_title">Limba</string>
+    <string name="settings_language_auto">Automàticu</string>
+
+    <string name="settings_privacy_category">Riservadesa</string>
+    <string name="settings_bugreports_title">Rapòrtos de errores</string>
+    <string name="settings_bugreports_summary">Imbiare rapòrtos automàticos cando si presentant errores</string>
+
+    <string name="settings_advanced_category">Avantzadu</string>
+    <string name="settings_debug_title">Debug</string>
+    <string name="settings_debug_summary">Abilitare caraterìsticas de debug</string>
+
+    <string name="general_yes">Eja</string>
+    <string name="general_no">Nono</string>
+    <string name="general_cancel">Annullare</string>
+    <string name="general_ok">OK</string>
+    <string name="general_delete">Cantzellare</string>
+    <string name="general_share">Cumpartire</string>
+    <string name="general_close">Serrare</string>
+    <string name="general_continue">Continuare</string>
+    <string name="general_skip">Saltare</string>
+    <string name="general_refresh">Agiornare</string>
+    <string name="general_loading">Carrighende...</string>
+    <string name="general_working">Trabalende...</string>
+    <string name="general_done">Fattu</string>
+    <string name="general_error">Errore</string>
+    <string name="general_warning">Avisu</string>
+    <string name="general_info">Informatzione</string>
+
+    <string name="general_progress_loading">Carrighende...</string>
+    <string name="general_progress_deleting">Cantzellende...</string>
+    <string name="general_progress_working">Trabalende...</string>
+
+    <string name="general_ms_format">%d ms</string>
+    <string name="general_kb_format">%.1f KB</string>
+    <string name="general_mb_format">%.1f MB</string>
+    <string name="general_gb_format">%.1f GB</string>
+
+    <string name="general_result_success_format">Èssidu bene: %s</string>
+    <string name="general_result_failure_format">Fallidu: %s</string>
+
+    <plurals name="general_result_x_items">
+        <item quantity="one">%d elementu</item>
+        <item quantity="other">%d elementos</item>
+    </plurals>
+    <plurals name="general_result_x_files">
+        <item quantity="one">%d documentu</item>
+        <item quantity="other">%d documentos</item>
+    </plurals>
+    <plurals name="general_result_x_folders">
+        <item quantity="one">%d cartella</item>
+        <item quantity="other">%d cartellas</item>
+    </plurals>
+
+    <string name="storage_space_free">Ispàtziu lìberu</string>
+    <string name="storage_space_used">Impreadu</string>
+    <string name="storage_space_total">Totale</string>
+
+    <string name="permission_request_title">Rechesta de Permissu</string>
+    <string name="permission_request_body">SD Maid SE necessitat custu permissu pro funtzionare in manera curreta.</string>
+    <string name="permission_grant_action">Concèdere Permissu</string>
+
+    <string name="error_no_root_access">Perunu atzessu root</string>
+    <string name="error_root_access_failed">Atzessu root fallidu</string>
+    <string name="error_permission_denied">Permissu rifiutadu</string>
+    <string name="error_storage_not_accessible">Archìviu no atzessìbile</string>
+    <string name="error_operation_failed">Operatzione fallida</string>
+    <string name="error_file_not_found">Documentu no agatadu</string>
+    <string name="error_insufficient_space">Ispàtziu insufitziente</string>
+    <string name="error_unknown">Errore disconnotu</string>
+</resources>

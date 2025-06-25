@@ -1,2 +1,818 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="dashboard_delete_all_message">በሁሉም መሳሪያዎች ውስጥ ያሉ ውጤቶችን ይሰረዙ?</string>
+    <string name="dashboard_settings_category">ዳሽቦርድ</string>
+    <string name="dashboard_motd_title">ከገንቢው የመጣ መልእክት</string>
+    <string name="dashboard_settings_oneclick_title">አንድ-ነክ ሁነታ</string>
+    <string name="dashboard_settings_oneclick_summary">በዳሽቦርዱ የተግባር ቁልፍ ላይ በመንካት ለሁሉም መሳሪያዎች ስካንና ስርዛት ይጀምሩ፣ ተጨማሪ ማረጋገጫዎች የሉም።</string>
+    <string name="dashboard_settings_oneclick_tools_title">አንድ-ነክ መሳሪያዎች</string>
+    <string name="dashboard_settings_oneclick_tools_desc">በአንድ-ነክ ስራዎች ውስጥ የትኞቹ መሳሪያዎች መካተት አለባቸው?</string>
+
+    <string name="debug_debuglog_size_label">መጠን</string>
+    <string name="debug_debuglog_size_compressed_label">የተጨመቀ መጠን</string>
+    <string name="debug_notification_channel_label">የመለያ ማስታወቂያዎች</string>
+    <string name="debug_debuglog_file_label">የተቀዳ ምዝግብ ማስታወሻ ፋይል</string>
+    <string name="debug_debuglog_recording_progress">የመለያ ምዝግብ ማስታወሻ በመቅዳት ላይ</string>
+    <string name="debug_debuglog_record_action">የመለያ ምዝግብ ማስታወሻ ቅዳ</string>
+    <string name="debug_debuglog_stop_action">መቅዳትን አቁም</string>
+    <string name="debug_debuglog_sensitive_information_message">የተፈጠረው ፋይል ስሜታዊ መረጃዎችን ይዟል (ለምሳሌ የፋይል ስሞችና የተጫኑ መተግበሪያዎች)። ከታመኑ ወገኖች ጋር ብቻ ያጋሩ።</string>
+    <string name="settings_debuglog_explanation">ይህ ባህሪ መተግበሪያው እያደረገው ያለውን ሁሉ ወደ ሊካፈል የሚችል ፋይል ይቀዳል። የተፈጠረው ፋይል ስሜታዊ መረጃዎችን ይዟል (ለምሳሌ የፋይል ስሞችና የተጫኑ መተግበሪያዎች)። ከታመኑ ወገኖች ጋር ብቻ ያጋሩ (ለምሳሌ ችግርን እየፈታ ያለ ገንቢ)።</string>
+
+    <string name="tasks_activity_notification_channel_label">ንቁ ተግባራት</string>
+    <string name="tasks_activity_working_notification_title">SD Maid በመስራት ላይ ነው</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="one">%d ንቁ ተግባር</item>
+        <item quantity="other">%d ንቁ ተግባራት</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="one">%d ተግባር በተራ ውስጥ</item>
+        <item quantity="other">%d የተሰለፉ ተግባራት</item>
+    </plurals>
+    <string name="tasks_result_notification_channel_label">የተግባር ውጤቶች</string>
+    <string name="tasks_result_subtext">የተግባር ውጤት</string>
+
+    <string name="onboarding_welcome_title">እንኳን ደህና መጡ</string>
+    <string name="onboarding_welcome_body1">SD Maid SE ፋይሎችን፣ መተግበሪያዎችንና ማከማቻን ያስተዳድራል።</string>
+    <string name="onboarding_welcome_body2">ከሌሎች መተግበሪያዎች በኋላ በማጽዳት የማከማቻ ቦታ ያገኙ። የሚወገዱ ፋይሎችን ሰርዝና የቀሩ ውሂቦችን ያስወግዱ።</string>
+    <string name="onboarding_welcome_body_beta">ይህ የቤታ (ሙከራ) ግንባታ ነው። ከመዝናኛ ስሜትና ከመጠባበቂያ እቅድ ጋር ይቀጥሉ። የሚያገኟቸውን ችግሮች እባክዎ ያሳውቁ።</string>
+    <string name="onboarding_welcome_continue_action">ቀጥል</string>
+
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (ወይም SD Maid 2) የSD Maid (ወይም SD Maid 1) ተተኪ ነው። አዲስ መተግበሪያ፣ ለዘመናዊ አንድሮይድ የተሻሻለ።</string>
+    <string name="onboarding_versus_body2">የቀደምተኛው አርክቴክቸር ከ7 አመት በላይ እድሜ ያለው ሲሆን ለአዲሶቹ አንድሮይድ ስሪቶች ፈተናዎች የተነደፈ አይደለም። ልማትን ለመቀጠል ሙሉ በሙሉ እንደገና መንደፍ አስፈላጊ ነበር።</string>
+    <string name="onboarding_versus_body3">ለተሻሻሉ ውጤቶች ወደ SD Maid SE መቀየርን ያስቡበት።</string>
+    <string name="onboarding_versus_body4">የSD Maid 1 \"ፕሮ ደረጃ\" ስለሚያስተላልፍ ወደ SD Maid 2/SE ሊተላለፍ አይችልም። ከ12 አመታት ነፃ ማሻሻያዎች በኋላ፣ ልማትን ለመቀጠል (ገንቢውን ለመመገብ) አዲስ ግዢ ያስፈልጋል።</string>
+    <string name="onboarding_versus_continue_action">ቀጥል</string>
+
+    <string name="onboarding_privacy_title">ግላዊነት</string>
+    <string name="onboarding_privacy_body1">SD Maid ማስታወቂያዎች የሉትም እንዲሁም የተጠቃሚ ውሂብ አይሸጥም།</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">ስህተቶች ሲከሰቱ የሳህተት ሪፖርቶች ይላካሉ እንዲሁም ስለመተግበሪያዎችና ስለመሣሪያዎ ላይ ያሉ ፋይሎች ዝርዝሮችን ሊያካትት ይችላል። ሪፖርቶች ሳህተቶችን እንድጠግነና መተግበሪያውን እንድማሻሽል ይረዱኛል።</string>
+    <string name="onboarding_privacy_bugreport_toggle">ራሳዊ የሳህተት ሪፖርቶችን ፍቀድ</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">እነዚህ አማራጮች በቅንብሮች ውስጥ ሊቀየሩ ይችላሉ።</string>
+    <string name="onboarding_privacy_continue_action">ቀጥል</string>
+
+    <string name="onboarding_setup_title">ማዋቀሪያ</string>
+    <string name="onboarding_setup_body1">SD Maid ሁሉንም ሊደረስባቸው የሚችሉ የውሂብ አካባቢዎች ይፈልጋል།</string>
+    <string name="onboarding_setup_body2">ሊደረስባቸው የሚችሉት በመሣሪያዎ፣ በአንድሮይድ ስሪትና በተሰጡ ፈቃዶች ላይ ይወሰናል།</string>
+    <string name="onboarding_setup_body3">መፈለግ ያለባቸው አካባቢዎች መዳረሻ በማዋቀር SD Maidን መጠቀም ይጀምሩ።</string>
+    <string name="onboarding_setup_continue_action">መዳረሻ አዋቅ</string>
+
+    <string name="settings_privacy_policy_label">የግላዊነት ፖሊሲ</string>
+    <string name="settings_privacy_policy_desc">ውሂቡን በኃላፊነት መያዝ።</string>
+    <string name="settings_licenses_label">ፈቃዶች</string>
+    <string name="settings_category_other_label">ሌላ</string>
+
+    <string name="settings_category_filter_generic">አጠቃላይ ማጣሪያ</string>
+    <string name="settings_category_filter_specific">ልዩ ማጣሪያ</string>
+    <string name="settings_sponsor_development_title">ልማትን ስፖንሰር አድርግ</string>
+    <string name="settings_sponsor_development_summary">ፓትሮን ሁንና ቀጣይነት ያለው ልማት ይቻል እንዲሆን አድርግ።</string>
+
+    <string name="general_settings_label">አጠቃላይ</string>
+    <string name="general_settings_desc">መሙሉ መተግበሪያ የሚነኩ አጠቃላይ ማስተካከያዎች።</string>
+    <string name="settings_category_ui_label">የተጠቃሚ በይነገጽ</string>
+
+    <string name="ui_theme_mode_setting_label">የወጭታ ሁነታ</string>
+    <string name="ui_theme_mode_setting_explanation">መተግበሪያውን በሚወጣበት ጊዜ የሚጠቀመው ሁነታ (ለምሳሌ ሌሊት ወይም ቀን)።</string>
+    <string name="ui_theme_mode_dark_label">ጥቁር</string>
+    <string name="ui_theme_mode_light_label">ብርሃን</string>
+    <string name="ui_theme_mode_system_label">ሲስተም</string>
+
+    <string name="ui_theme_style_setting_label">የወጭታ ዘይቤ</string>
+    <string name="ui_theme_style_setting_explanation">መተግበሪያውን በሚወጣበት ጊዜ የሚጠቀመው የቀለም ዘይቤ።</string>
+    <string name="ui_theme_style_default_label">ነባሪ</string>
+    <string name="ui_theme_style_materialyou_label">ማቴሪያል ዩ</string>
+
+    <string name="ui_previews_title">የፋይል ቅድመ እይታዎች</string>
+    <string name="ui_previews_summary">በሁሉም መሳሪያዎች ውስጥ የፋይል ቅድመ እይታዎችን አሳይ (ለምሳሌ የምስልና ቪዲዮ ትንንሽ ምስሎች)።</string>
+
+    <string name="ui_language_override_label">የመተግበሪያ ቋንቋ</string>
+    <string name="ui_language_override_desc">ለSD Maid ከእርስዎ ሲስተም ነባሪ ቋንቋ ነፃ የሆነ የተለየ ቋንቋ ምረጡ። አሁን: %s</string>
+
+    <string name="settings_support_label">ድጋፍ</string>
+    <string name="settings_support_description">ሰነዶችን ያንብቡ፣ ችግሮችን ያሳውቁ፣ ከሌሎች ጋር ይወያዩ ወይም የመለያ ምዝግብ ማስታወሻዎችን ይቅዱ።</string>
+    <string name="documentation_label">ሰነዶች</string>
+    <string name="issue_tracker_description">ለሳህተት ሪፖርቶችና ባህሪ ጥያቄዎች የሕዝብ ቁጥጥር ሰሌዳ።</string>
+    <string name="issue_tracker_label">ችግር ተከታዩ</string>
+    <string name="support_installid_label">የመጫን መለያ</string>
+    <string name="support_installid_desc">ራሳዊ የስህተት ሪፖርቶች ስውር ናቸው። ገንቢው የስህተት ሪፖርቶችዎን ማግኘት ከፈለገ የመጫን መለያዎን ያጋሩ።</string>
+    <string name="support_debuglog_label">የመለያ ምዝግብ ማስታወሻ</string>
+    <string name="support_debuglog_desc">መተግበሪያው እያደረገው ያለውን ሁሉ ወደ ሊካፈሉት የሚችሉ የጽሑፍ ፋይል ይቅዱ።</string>
+    <string name="discord_label">ዲስኮርድ</string>
+    <string name="discord_description">ሊቀመጡባቸውና ጥያቄዎችን ሊጠይቁባቸው የሚችሉባቸው ቦታ።</string>
+
+    <string name="analyzer_settings_category">ተንታኝ</string>
+    <string name="analyzer_settings_show_hidden_files_title">የተደበቁ ፋይሎች</string>
+    <string name="analyzer_settings_show_hidden_files_summary">በስካን ውጤት ውስጥ የተደበቁ ፋይሎችን አሳይ።</string>
+    <string name="analyzer_settings_show_system_files_title">የሲስተም ፋይሎች</string>
+    <string name="analyzer_settings_show_system_files_summary">በስካን ውጤት ውስጥ የሲስተም ፋይሎችን አሳይ።</string>
+
+    <string name="analyzer_progress_modal_loading">ይጫናል...</string>
+    <string name="analyzer_progress_modal_details">%1$s / %2$s</string>
+
+    <string name="analyzer_storage_empty_msg">ምንም ውሂብ አልተገኘም</string>
+    <string name="analyzer_storage_empty_hint">በተቻለ መጠን ወደ SD Maid መዳረሻ ሰጥ። ቀድሞውኑ ሁሉንም ፈቅደዋል? ይህ ማለት ሁሉም ነገር ጠርቷል!</string>
+
+    <string name="analyzer_list_header_label">%1$s ፋይሎች (%2$s)</string>
+    <string name="analyzer_list_item_count">%s ንጥሎች</string>
+    <string name="analyzer_list_details_action">ዝርዝሮች</string>
+
+    <string name="analyzer_details_title">ዝርዝር መረጃ</string>
+    <string name="analyzer_details_empty_hint">ምንም ዝርዝሮች አልተገኙም</string>
+
+    <string name="analyzer_action_scan">ስካን</string>
+    <string name="analyzer_action_cancelled">ተሰርዟል</string>
+
+    <string name="systemcleaner_settings_category">የሲስተም ጽዳት ባለሙያ</string>
+    <string name="systemcleaner_settings_include_other_users_title">ሌሎች ተጠቃሚዎች</string>
+    <string name="systemcleaner_settings_include_other_users_summary">ሌሎች ተጠቃሚዎችን ያሳተትና ከተለያዩ ቦታዎች ውስጥ ፋይሎችን ይፈልጉ།</string>
+
+    <string name="systemcleaner_progress_searching">በመፈልግ ላይ...</string>
+    <string name="systemcleaner_progress_modal_searching">%1$s ዝርዝሮች በመፈትሽ ላይ</string>
+
+    <string name="systemcleaner_filter_empty_directories_label">ባዶ ድርደሮች</string>
+    <string name="systemcleaner_filter_empty_directories_summary">ውስጥ ምንም የሌላቸው ባዶ ድርደሮች</string>
+
+    <string name="systemcleaner_filter_user_cache_label">የተጠቃሚ መሸፈኛ</string>
+    <string name="systemcleaner_filter_user_cache_summary">የተጠቃሚ መተግበሪያዎች መሸፈኛ ፋይሎች</string>
+
+    <string name="systemcleaner_filter_system_cache_label">የሲስተም መሸፈኛ</string>
+    <string name="systemcleaner_filter_system_cache_summary">የሲስተም መተግበሪያዎች መሸፈኛ ፋይሎች</string>
+
+    <string name="systemcleaner_filter_downloaded_files_label">የተወረዱ ፋይሎች</string>
+    <string name="systemcleaner_filter_downloaded_files_summary">ወደ ዳውንሎድ ድርደር የተወረዱ ፋይሎች</string>
+
+    <string name="systemcleaner_filter_recycle_bin_label">የቆሻሻ ዳውል</string>
+    <string name="systemcleaner_filter_recycle_bin_summary">በቆሻሻ ዳውል ውስጥ ያሉ ፋይሎች</string>
+
+    <string name="systemcleaner_filter_advertisement_label">ማስታወቂያ</string>
+    <string name="systemcleaner_filter_advertisement_summary">ከማስታወቂያ አውታረ መረቦች ፋይሎች</string>
+
+    <string name="systemcleaner_filter_analytics_label">ትንተና</string>
+    <string name="systemcleaner_filter_analytics_summary">ከትንተና አውታረ መረቦች ፋይሎች</string>
+
+    <string name="systemcleaner_filter_bug_reporting_label">የሳህተት ሪፖርት</string>
+    <string name="systemcleaner_filter_bug_reporting_summary">ከሳህተት ሪፖርት ስርዓቶች ፋይሎች</string>
+
+    <string name="systemcleaner_filter_machine_learning_label">የማሽን ትምህርት</string>
+    <string name="systemcleaner_filter_machine_learning_summary">ከማሽን ትምህርት ስርዓቶች ፋይሎች</string>
+
+    <string name="systemcleaner_filter_offline_maps_label">የወጣ-መስመር ካርታዎች</string>
+    <string name="systemcleaner_filter_offline_maps_summary">ከካርታ መተግበሪያዎች የወጣ-መስመር ካርታ ውሂብ</string>
+
+    <string name="systemcleaner_filter_temporary_files_label">ጊዜያዊ ፋይሎች</string>
+    <string name="systemcleaner_filter_temporary_files_summary">ጊዜያዊ ፋይሎችና ድርደሮች</string>
+
+    <string name="systemcleaner_filter_log_files_label">የመዛግብ ፋይሎች</string>
+    <string name="systemcleaner_filter_log_files_summary">የመዛግብ ፋይሎችና ድርደሮች</string>
+
+    <string name="systemcleaner_filter_generic_hidden_caches_label">የተደበቁ መሸፈኛዎች</string>
+    <string name="systemcleaner_filter_generic_hidden_caches_summary">የተደበቁ መሸፈኛ ድርደሮች</string>
+
+    <string name="systemcleaner_empty_msg">ምንም አልተገኘም</string>
+    <string name="systemcleaner_empty_hint">የሚያጸዱ ንጥሎች አልተገኙም።</string>
+
+    <string name="systemcleaner_result_x_space_freed">%s ቦታ ተልቋል</string>
+    <string name="systemcleaner_result_done_title">ጽዳት ተጠናቅቋል</string>
+    <string name="systemcleaner_result_done_message">የሲስተም ጽዳት ባለሙያ ተጠናቅቋል</string>
+
+    <string name="systemcleaner_action_scan">ስካን</string>
+    <string name="systemcleaner_action_delete">ስረዝ</string>
+    <string name="systemcleaner_action_delete_all">ሁሉንም ስረዝ</string>
+    <string name="systemcleaner_action_cancelled">ተሰርዟል</string>
+
+    <string name="appcleaner_settings_category">የመተግበሪያ ጽዳት ባለሙያ</string>
+    <string name="appcleaner_settings_include_other_users_title">ሌሎች ተጠቃሚዎች</string>
+    <string name="appcleaner_settings_include_other_users_summary">ሌሎች ተጠቃሚዎችን ያሳተትና መተግበሪያዎችን ያጣራ።</string>
+    <string name="appcleaner_settings_include_running_apps_title">በመሄድ ላይ ያሉ መተግበሪያዎች</string>
+    <string name="appcleaner_settings_include_running_apps_summary">በመሄድ ላይ ያሉ መተግበሪያዎችን ያጣራ።</string>
+
+    <string name="appcleaner_progress_scanning">ስካን በመስራት ላይ...</string>
+    <string name="appcleaner_progress_modal_scanning">%s ዝርዝሮች በመስራት ላይ</string>
+
+    <string name="appcleaner_filter_code_caches_label">የኮድ መሸፈኛዎች</string>
+    <string name="appcleaner_filter_code_caches_summary">የART/Dalvik መሸፈኛ ፋይሎች</string>
+
+    <string name="appcleaner_filter_hidden_caches_label">የተደበቁ መሸፈኛዎች</string>
+    <string name="appcleaner_filter_hidden_caches_summary">የሚደበቁ የመተግበሪያ መሸፈኛ ድርደሮች</string>
+
+    <string name="appcleaner_filter_bug_reporting_label">የሳህተት ሪፖርት</string>
+    <string name="appcleaner_filter_bug_reporting_summary">ከሳህተት ሪፖርት ስርዓቶች ፋይሎች</string>
+
+    <string name="appcleaner_filter_analytics_label">ትንተና</string>
+    <string name="appcleaner_filter_analytics_summary">ከትንተና ስርዓቶች ፋይሎች</string>
+
+    <string name="appcleaner_filter_advertisement_label">ማስታወቂያ</string>
+    <string name="appcleaner_filter_advertisement_summary">ከማስታወቂያ አውታረ መረቦች ፋይሎች</string>
+
+    <string name="appcleaner_filter_webview_caches_label">የWebView መሸፈኛዎች</string>
+    <string name="appcleaner_filter_webview_caches_summary">የWebView መሸፈኛ ድርደሮች</string>
+
+    <string name="appcleaner_empty_msg">ምንም አልተገኘም</string>
+    <string name="appcleaner_empty_hint">የሚያጸዱ ንጥሎች አልተገኙም።</string>
+
+    <string name="appcleaner_result_x_space_freed">%s ቦታ ተልቋል</string>
+    <string name="appcleaner_result_done_title">ጽዳት ተጠናቅቋል</string>
+    <string name="appcleaner_result_done_message">የመተግበሪያ ጽዳት ባለሙያ ተጠናቅቋል</string>
+
+    <string name="appcleaner_action_scan">ስካን</string>
+    <string name="appcleaner_action_delete">ስረዝ</string>
+    <string name="appcleaner_action_delete_all">ሁሉንም ስረዝ</string>
+    <string name="appcleaner_action_cancelled">ተሰርዟል</string>
+
+    <string name="corpsefinder_settings_category">የአስከሬን ፈላጊ</string>
+    <string name="corpsefinder_settings_include_other_users_title">ሌሎች ተጠቃሚዎች</string>
+    <string name="corpsefinder_settings_include_other_users_summary">ለሌሎች ተጠቃሚዎች የቀሩ ፋይሎችን ፈልግ።</string>
+    <string name="corpsefinder_settings_uninstalled_apps_title">ያልተጫኑ መተግበሪያዎች</string>
+    <string name="corpsefinder_settings_uninstalled_apps_summary">የቀሩ ፋይሎች ለያልተጫኑ መተግበሪያዎች ይጠቁሙ።</string>
+    <string name="corpsefinder_settings_known_apptype_filter_title">የታወቁ የመተግበሪያ ዓይነቶች</string>
+    <string name="corpsefinder_settings_known_apptype_filter_summary">በተለያዩ የመተግበሪያ ዓይነቶች ላይ ተመሥርተው የማጣሪያ ውጤቶች።</string>
+
+    <string name="corpsefinder_progress_searching">በመፈልግ ላይ...</string>
+    <string name="corpsefinder_progress_modal_searching">%1$s ዝርዝሮች በመፈትሽ ላይ</string>
+
+    <string name="corpsefinder_keepers_title">አስጠባቂዎች</string>
+    <string name="corpsefinder_keepers_summary">የሚመኩት ፋይሎች ተዎች አስቀምጠው ይቆሙታል።</string>
+    <string name="corpsefinder_settings_risk_common_title">የተለመዱ ስሞችን አካትት</string>
+    <string name="corpsefinder_settings_risk_common_summary">በተለመዱ ስሞች ያላቸው ውሂቦች፣ ለምሳሌ "ማስታወሻዎች" የሚባል ፎልደር በብዙ የማይታወቁ መተግበሪያዎች ይጠቀማል።</string>
+    <string name="corpsefinder_watcher_title">ማጥፋት ተከታታዩ</string>
+    <string name="corpsefinder_watcher_summary">መተግበሪያ ሲወገድ የቀረውን ራሳዊ በፈለግ።</string>
+    <string name="corpsefinder_watcher_autodelete_title">ራሳዊ ስረዛ</string>
+    <string name="corpsefinder_watcher_autodelete_summary">ከተወገደው መተግበሪያ ጋር የተዛመዱ ማንኛቸውንም ቀሪዎች ራሳዊ ስረዝ።</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$sን ከማጥፋት በኋላ %1$d ቀሪ ተገኝቷል።</item>
+        <item quantity="other">%2$sን ከማጥፋት በኋላ %1$d ቀሪዎች ተገኝተዋል።</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">ፅዳት ተሳክቷል (%1$s): %2$s ተልቋል እንዲሁም %3$d ንጥል ተወግዷል።</item>
+        <item quantity="other">ፅዳት ተሳክቷል (%1$s): %2$s ተልቋል እንዲሁም %3$d ንጥሎች ተወግደዋል።</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">ቀሪዎችን ስረዝ</string>
+
+    <string name="corpsefinder_filter_publicmedia_label">ሕዝባዊ ሚዲያ</string>
+    <string name="corpsefinder_filter_publicmedia_summary">ሕዝባዊ ሚዲያ ፋይሎች፣ ለምሳሌ በመልክተኛ መተግበሪያዎች የተቀበሉ ፋይሎች።</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB ሀብቶች</string>
+    <string name="corpsefinder_filter_publicobb_summary">ተጨማሪ የመተግበሪያ ሀብቶች፣ ለምሳሌ የጨዋታ ንብረቶች।</string>
+    <string name="corpsefinder_filter_publicdata_label">ሕዝባዊ የመተግበሪያ ውሂብ</string>
+    <string name="corpsefinder_filter_publicdata_summary">ሚስጥራዊ ያልሆነ የመተግበሪያ ውሂብ፣ ለምሳሌ የካርታ መሸፈኛዎች།</string>
+    <string name="corpsefinder_filter_sdcard_label">SD ካርድ</string>
+    <string name="corpsefinder_filter_sdcard_summary">አጠቃላይ ሕዝባዊ ማጠራቀሚያ፣ ውስጣዊና ውጫዊ (ለምሳሌ SD ካርዶች)።</string>
+    <string name="corpsefinder_filter_privatedata_label">ግላዊ የመተግበሪያ ውሂብ</string>
+    <string name="corpsefinder_filter_privatedata_summary">ግላዊ የመተግበሪያ ውሂብ፣ ለምሳሌ ምስክርዎች፣ የመተግበሪያ ቅንብሮች ሆነ ደግሞ የአሳሽ መሸፈኛዎች።</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik መሸፈኛ</string>
+    <string name="corpsefinder_filter_dalvik_summary">የተሸፈነ የመተግበሪያ ሂደት ውሂብ።</string>
+    <string name="corpsefinder_filter_applib_label">የመተግበሪያ ቤተ-መጻሕፍት</string>
+    <string name="corpsefinder_filter_applib_summary">ከመተግበሪያ ጋር የተያያዘ የቤተ-መጻሕፍት ውሂብ።</string>
+    <string name="corpsefinder_filter_appsource_label">የመተግበሪያ ምንጮች</string>
+    <string name="corpsefinder_filter_appsource_summary">የመተግበሪያ መጫኛ ውሂብ፣ ማለትም APKs የሚሄዱበት።</string>
+    <string name="corpsefinder_filter_appsource_private_label">ግላዊ የመተግበሪያ ምንጮች</string>
+    <string name="corpsefinder_filter_appsource_private_summary">የተገደበ የመተግበሪያ መጫኛ ውሂብ፣ ለምሳሌ የተጠበቁ የሶስተኛ ወገን መተግበሪያዎች።</string>
+    <string name="corpsefinder_filter_appasec_label">የተመሰጠሩ የመተግበሪያ ሀብቶች</string>
+    <string name="corpsefinder_filter_appasec_summary">የተመሰጠሩ የመተግበሪያ ሀብቶች፣ ለምሳሌ የጨዋታ ንብረቶች።</string>
+    <string name="corpsefinder_filter_app2sd_summary">በApp2Sd ማሻሻያዎች ወደ ውጫዊ ማጠራቀሚያ የተወሰደ ውሂብ።</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d የመተግበሪያ ቀሪ ተሰርዟል</item>
+        <item quantity="other">%d የመተግበሪያ ቀሪዎች ተሰርዘዋል</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d የመተግበሪያ ቀሪ ተገኝቷል</item>
+        <item quantity="other">%d የመተግበሪያ ቀሪዎች ተገኝተዋል</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">ሁሉንም የመተግበሪያ ቀሪዎች ይሰረዙ?</string>
+    <string name="corpsefinder_owners_label">ባለቤቶች</string>
+    <string name="corpsefinder_corpse_hints_label">ማስታወሻ</string>
+    <string name="corpsefinder_owner_unknown">ያልታወቀ ባለቤት</string>
+    <string name="corpsefinder_corpse_hint_keeper">ይህ ንጥል ባለቤቱ ባይጫንም ማቆየት የሚፈልጉት ውሂብ ሊይዝ ይችላል፣ ለምሳሌ ፎቶዎች ወይም መጠባበቂያዎች።</string>
+    <string name="corpsefinder_corpse_hint_common">ይህ ንጥል በጣም የተለመደ ስም ያለው ሲሆን አሁንም ለተጫኑ የSD Maid ማያውቋቸው መተግበሪያዎች ሊሆን ይችላል።</string>
+
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="systemcleaner_explanation_short">ለምንም ልዩ መተግበሪያ የማያምር ተጨማሪ ውሂብ።</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d ተመሳሳይ ተሰርዟል</item>
+        <item quantity="other">%d ተመሳሳዮች ተሰርዘዋል</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d የማጣሪያ ተመሳሳይ</item>
+        <item quantity="other">%d የማጣሪያ ተመሳሳዮች</item>
+    </plurals>
+    <string name="systemcleaner_filter_custom_label">ሰው ሰራሽ ማጣሪያ</string>
+    <string name="systemcleaner_filter_custom_manage_label">ሰው ሰራሽ ማጣሪያዎችን አቆም</string>
+    <string name="systemcleaner_filter_custom_manage_summary">የሰው ሰራሽ ማጣሪያዎችዎን ይፍጠሩ፣ ይሰርዙ፣ ያስመጡ እና ይላኩ።</string>
+    <string name="systemcleaner_filter_logfiles_label">የሲስተም ምዝግብ ማስታወሻ ፋይሎች</string>
+    <string name="systemcleaner_filter_logfiles_summary">በተለያዩ ቦታዎች ያሉ የሲስተምና የሲስተም አገልግሎት ምዝግብ ማስታወሻ ፋይሎች (ለምሳሌ *.log)።</string>
+    <string name="systemcleaner_filter_packagecaches_label">የመጫኛ መሸፈኛ</string>
+    <string name="systemcleaner_filter_packagecaches_summary">በሲስተሙ የጥቅል አያያዝ የሚጠቀመው ከተጫኑ መተግበሪያዎች ጋር የተያያዘ የተሸፈነ ውሂብ።</string>
+    <string name="systemcleaner_filter_advertisements_label">የማስታወቂያ ፋይሎች</string>
+    <string name="systemcleaner_filter_advertisements_summary">ለማስታወቂያዎች ወይም በማስታወቂያዎች የተፈጠሩ ፋይሎች።</string>
+    <string name="systemcleaner_filter_anr_label">ANR ስህተቶች</string>
+    <string name="systemcleaner_filter_anr_summary">ከ\'መተግበሪያ አይመልስም\' ክስተቶች መርዳቶች።</string>
+    <string name="systemcleaner_filter_emptydirectories_label">ባዶ ፎልደሮች</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">ከመሣሪያው ዙሪያ ሁሉ ባዶ ፎልደሮች። የተጣራ ፎልደሮች ብዙ ዙር ሊፈልጉ ይችላሉ።</string>
+    <string name="systemcleaner_filter_screenshots_label">የማያ ገጽ ልወጣዎች</string>
+    <string name="systemcleaner_filter_screenshots_summary">ከ%s ያረጁ ከብዙ መተግበሪያዎችና ቦታዎች የማያ ገጽ ልወጣዎች።</string>
+    <string name="systemcleaner_filter_trashed_label">የተጣሉ ፋይሎች</string>
+    <string name="systemcleaner_filter_trashed_summary">ለመሰረዝ የተጠቁ ግን ገና በቋሚነት ያልተወገዱ ከተለያዩ መተግበሪያዎችና ቦታዎች የአጠቃቀም ቃጭሎች ውስጥ ያሉ ፋይሎች።</string>
+    <string name="systemcleaner_filter_screenshots_age_label">የማያ ገጽ ልወጣ እድሜ</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">የማያ ገጽ ልወጣዎች ለመሰረዝ የሚታሰቡበት ዝቅተኛ እድሜ።</string>
+    <string name="systemcleaner_filter_superfluosapks_label">ትርፍ APKs</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">ቀደም ባሉ ወይም ለተጫኑ የመተግበሪያ ስሪቶች እኩል የሆኑ የማዋቀሪያ ፋይሎች።</string>
+    <string name="systemcleaner_filter_lostdir_label">LOST.DIR ፎልደሮች</string>
+    <string name="systemcleaner_filter_lostdir_summary">በአንድሮይድ መሣሪያዎች መካከል ውሂብ በሚተላለፍበት ጊዜ የተፈጠሩ ጊዜያዊ ፋይሎች።</string>
+    <string name="systemcleaner_filter_linuxfiles_label">Linux ፋይሎች</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">ማጠራቀሚያ ከLinux ኮምፒዩተር ጋር በተያያዘ ጊዜ የተፈጠሩ ፋይሎችና ፎልደሮች።</string>
+    <string name="systemcleaner_filter_macfiles_label">Mac ፋይሎች</string>
+    <string name="systemcleaner_filter_macfiles_summary">ማጠራቀሚያን በApple finder መተግበሪያ በማሰስ ጊዜ የተፈጠሩ ፋይሎችና ፎልደሮች።</string>
+    <string name="systemcleaner_filter_windowsfiles_label">Windows ፋይሎች</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"የWindows ፋይል ማሰሻ በተያያዘ ማጠራቀሚያ ላይ ሊፈጥር የሚችለው ውሂብ።"</string>
+    <string name="systemcleaner_filter_thumbnails_label">ትንንሽ ምስሎች</string>
+    <string name="systemcleaner_filter_thumbnails_summary">ለምሳሌዎችና ቪዲዮዎች የተሸፈኑ ቅድመ እይታዎች።</string>
+    <string name="systemcleaner_filter_tempfiles_label">ጊዜያዊ የሲስተም ፋይሎች</string>
+    <string name="systemcleaner_filter_tempfiles_summary">ከሲስተም ጋር የተያያዙ ጊዜያዊ ፋይሎች፣ በተለምዶ ለንቁ ሂደቶች አጭር ጊዜ መሸፈኛዎች።</string>
+    <string name="systemcleaner_filter_analytics_label">የትንተና ፋይሎች</string>
+    <string name="systemcleaner_filter_analytics_summary">ከትንተናና ሳህተት ክትትል ጋር የተያያዘ ውሂብ።</string>
+    <string name="systemcleaner_filter_downloadcache_label">ዳውንሎድ መሸፈኛ</string>
+    <string name="systemcleaner_filter_downloadcache_summary">ለተለያዩ ነገሮች (ለምሳሌ OTA ማሻሻያዎች) የሚጠቀም የሲስተም መሸፈኛ ፎልደር።</string>
+    <string name="systemcleaner_filter_localtmp_label">አካባቢያዊ ጊዜያዊ ፋይሎች</string>
+    <string name="systemcleaner_filter_localtmp_summary">ከሲስተም ጋር የተያያዙ ጊዜያዊ ፋይሎች (ለምሳሌ ከAndroid Studio)።</string>
+    <string name="systemcleaner_filter_datalogger_label">የሲስተም ምዝግብ ማስታወሻ ፋይሎች</string>
+    <string name="systemcleaner_filter_datalogger_summary">የሲስተም አገልግሎት ልዩ ምዝግብ ማስታወሻ ፋይሎች።</string>
+    <string name="systemcleaner_filter_logdropbox_label">ምዝግብ ማስታወሻ ሳጥን</string>
+    <string name="systemcleaner_filter_logdropbox_summary">ሲስተሙ ምዝግብ ማስታወሻ ፋይሎችን እንዲጥል ቦታ።</string>
+    <string name="systemcleaner_filter_recenttasks_label">የቅርብ ተግባራት</string>
+    <string name="systemcleaner_filter_recenttasks_summary">በሲስተሙ ተግባር መቀየሪያ ውስጥ ከተግባራት ታሪክ ጋር የተያያዘ ውሂብ።</string>
+    <string name="systemcleaner_filter_tombstones_label">የሲስተም ድንገተኛ ስብራት ቅሪት</string>
+    <string name="systemcleaner_filter_tombstones_summary">ተፈጥሯዊ ሂደቶች ቢሰበሩ (ለምሳሌ ጨዋታዎች)፣ እዚህ ፋይሎች ይፈጠራሉ።</string>
+    <string name="systemcleaner_filter_usagestats_label">የአጠቃቀም ስታቲስቲክ</string>
+    <string name="systemcleaner_filter_usagestats_summary">ከመተግበሪያ አጠቃቀም ስታቲስቲክ ጋር የተያያዙ ፋይሎች።</string>
+    <string name="systemcleaner_delete_all_confirmation_message">ሁሉንም የማጣሪያ ይዘቶች ይሰረዙ?</string>
+
+    <string name="systemcleaner_customfilter_label">ሰው ሰራሽ ማጣሪያ</string>
+    <string name="systemcleaner_customfilter_create_action">ሰው ሰራሽ ማጣሪያ ፍጠር</string>
+    <string name="systemcleaner_customfilter_create_hint">በመሣሪያዎና በአጠቃቀም ሁኔታዎ ልዩ የሆኑ ተጨማሪ ፋይሎችን ለመሰረዝ ሰው ሰራሽ ማጣሪያ ይፍጠሩ።</string>
+    <string name="systemcleaner_editor_remove_confirmation_message">ይህንን ማጣሪያ ያስወግዱ?</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">ያልተቀመጡ ለውጦች አለዎት!</string>
+    <string name="systemcleaner_customfilter_editor_label_label">የማጣሪያ መለያ</string>
+    <string name="systemcleaner_customfilter_editor_warning">ሰው ሰራሽ ማጣሪያዎች አደገኛ ሊሆኑ ይችላሉ። ከመሰረዝ በፊት የስካን ውጤቶችዎን ይመርምሩ!</string>
+    <string name="systemcleaner_customfilter_editor_areas_label">የውሂብ አካባቢዎች</string>
+    <string name="systemcleaner_customfilter_editor_areas_explanation">ምንም አካባቢ ካልተመረጠ፣ ሁሉም ሊደረስባቸው የሚችሉ የውሂብ አካባቢዎች ይመረመራሉ እንዲሁም ይመሳሰላሉ።</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">የፋይል ዓይነት ገደቦች</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_files_label">ፋይሎች</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">ፎልደሮች</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">ምንም ዓይነት ካልተመረጠ፣ ሁሉም ዓይነቶች ይመሳሰላሉ።</string>
+    <string name="systemcleaner_customfilter_editor_path_label">የመንገድ መመዘኛዎች</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">ዒላማው መንገድ ቢያንስ አንድ ግቤት ማየት አለበት (ለምሳሌ "Downloads/oldapks/game-")። ለተጨማሪ አማራጮች ግቤቶች ረጅም ተጭነዋል።</string>
+    <string name="systemcleaner_customfilter_editor_name_label">የስም መመዘኛዎች</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">ዒላማው ስም ቢያንስ አንድ ቁልፍ ቃል ይዘት አለገት (ለምሳሌ "-receipt")። ለተጨማሪ አማራጮች ግቤቶች ረጅም ተጭነዋል።</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_label">ማስወገጃዎች</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">መንገዱ ማንኛውንም ግቤት ሲያመለክት ውጤቱ ይወገዳል (ለምሳሌ "DCIM")። ለተጨማሪ አማራጮች ግቤቶች ረጅም ተጭነዋል።</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">የመንገድ ማወዳደሪያ ሁነታ</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">መንገድ በቁልፍ ቃሉ ይጀምራል</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">መንገድ ቁልፍ ቃሉን ይዟል</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">መንገድ በቁልፍ ቃሉ ያልቃል</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">መንገድ ከቁልፍ ቃሉ ጋር እኩል ነው</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">የስም ማወዳደሪያ ሁነታ</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">ስም በቁልፍ ቃሉ ይጀምራል</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">ስም ቁልፍ ቃሉን ይዟል</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">ስም በቁልፍ ቃሉ ያልቃል</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">ስም ከቁልፍ ቃሉ ጋር እኩል ነው</string>
+    <string name="systemcleaner_customfilter_last_edit">ቀዳሚ ማረሚያ: %s</string>
+    <string name="systemcleaner_customfilter_editor_livesearch_label">ቀጥታ ፍለጋ</string>
+    <string name="systemcleaner_customfilter_import_action">አዲስ ማጣሪያ አስመጣ</string>
+    <string name="systemcleaner_customfilter_export_action">የተመረጠ ማጣሪያ ላክ</string>
+
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="appcleaner_explanation_short">ለተወሰኑ መተግበሪያዎች የሚያምር ወጪ ውሂብ።</string>
+    <string name="appcleaner_filter_defaultcachespublic_label">ሕዝባዊ ነባሪ መሸፈኛዎች</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">ነባሪ ሕዝባዊ የመተግበሪያ መሸፈኛዎች። በቆሽቶ አንድሮይድ ስሪቶች ላይ በAndroid/data ሥር ሊደረስባቸው ይችላል። በሲስተም ቅንብሮች ውስጥ "መሸፈኛ አጽዳ"ን በመንካት ይሰረዛሉ።</string>
+    <string name="appcleaner_filter_defaultcachesprivate_label">ግላዊ ነባሪ መሸፈኛዎች</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">ነባሪ ግላዊ የመተግበሪያ መሸፈኛዎች። በሲስተም ቅንብሮች ውስጥ "መሸፈኛ አጽዳ"ን በመንካት ይሰረዛሉ።</string>
+    <string name="appcleaner_include_systemapps_label">የሲስተም መተግበሪያዎችን አካትት</string>
+    <string name="appcleaner_include_systemapps_summary">የሲስተም መተግበሪያዎችን በስካን ውስጥ አካትት።</string>
+    <string name="appcleaner_include_runningapps_label">በመሄድ ላይ ያሉ መተግበሪያዎችን አካትት</string>
+    <string name="appcleaner_include_runningapps_summary">አሁን በመሄድ ላይ ያሉ ጣልቃገብነት ሊያስከትሉ የሚችሉ መተግበሪያዎችን አካትት។</string>
+    <string name="appcleaner_include_inaccessible_label">ሊደረስባቸው የማይችሉ መሸፈኛዎችን አካትት</string>
+    <string name="appcleaner_include_inaccessible_summary">በቀጥታ ሊደረስባቸው የማይችሉ ግን በሲስተም ቅንብሮች አማካኝነት ሊሰረዙና ተደራሽነት አገልግሎት በመጠቀም ራሳዊ ሊሆኑ የሚችሉ ውሂቦችን አካትት።</string>
+    <string name="appcleaner_include_multiuser_label">ሌሎች ተጠቃሚዎችን አካትት</string>
+    <string name="appcleaner_include_multiuser_summary">በዚህ መሣሪያ ላይ ከሌሎች የተጠቃሚ መገለጫዎች መተግበሪያዎችን አካትት།</string>
+    <string name="appcleaner_include_minimumsize_label">ዝቅተኛ መጠን</string>
+    <string name="appcleaner_include_minimumsize_summary">የወጪ ውሂብ ድምር ከዝቅተኛው በታች ያሉ መተግበሪያዎችን ዝለል።</string>
+    <string name="appcleaner_include_minimumage_label">ዝቅተኛ እድሜ</string>
+    <string name="appcleaner_include_minimumage_summary">ከዝቅተኛ እድሜ ያነሱ ፋይሎችን ዝለል።</string>
+    <string name="appcleaner_automation_romtype_detection_label">የአሰራር ሲስተም ፈላጊ</string>
+    <string name="appcleaner_automation_romtype_detection_summary">SD Maid የእርስዎን ኦኤስ በትክክል ካልፈለገ በተደራሽነት የተመሠረተ ራሳዊነት ሊያተር ይችላል። ያገኘውን ኦኤስ ለመለወጥ ይህንን ቅንብር ይጠቀሙ።</string>
+    <string name="appcleaner_filter_codecache_label">የኮድ መሸፈኛ</string>
+    <string name="appcleaner_filter_codecache_summary">JVM ኮድ መሸፈኛ። ወደ ተፈጥሯዊ ኮድ የተፃፉ የbytecode ክፍሎች።</string>
+    <string name="appcleaner_filter_advertisement_label">የማስታወቂያ ውሂብ</string>
+    <string name="appcleaner_filter_advertisement_summary">ከማስታወቂያዎች ጋር የተያያዙ ፋይሎች፣ ለምሳሌ የተሸፈነ ሚዲያ።</string>
+    <string name="appcleaner_filter_bugreporting_label">ሳህተት ሪፖርት</string>
+    <string name="appcleaner_filter_bugreporting_summary">ከሳህተት ሪፖርት ጋር የተያያዘ ውሂብ፣ ለምሳሌ የስህተት ምዝግብ ማስታወሻዎች ወይም ከቅድ ቢርሽ ዝርዝሮች።</string>
+    <string name="appcleaner_filter_analytics_label">ትንተና</string>
+    <string name="appcleaner_filter_analytics_summary">ከትንተና ጋር የተያያዘ ውሂብ፣ ለምሳሌ በመተግበሪያ ውስጥ የሚነኩዋቸው ለተመለሱ ስታቲስቲክ።</string>
+    <string name="appcleaner_filter_hiddencaches_label">የተደበቁ መሸፈኛዎች</string>
+    <string name="appcleaner_filter_hiddencaches_summary">ከሲስተሙ ደረሳ ውጭ የተመዘገቡ አጠቃላይ አላማ መሸፈኛዎች።</string>
+    <string name="appcleaner_filter_thumbnails_label">የሚዲያ ትንንሽ ስዕሎች</string>
+    <string name="appcleaner_filter_thumbnails_summary">የምስል፣ ቪዲዮና የድምፅ ቅድመ እይታ ትንንሽ ስዕሎች።</string>
+    <string name="appcleaner_filter_gamefiles_label">የጨዋታ ፋይሎች</string>
+    <string name="appcleaner_filter_gamefiles_summary">ጨዋታው በሚቀጥለው ማስጀመሪያ ላይ አስፈላጊ ሆኖ ሲገኝ እንደገና የሚጫን ከጨዋታ ጋር የተያያዙ ሀብቶች።</string>
+    <string name="appcleaner_filter_offlinecache_label">ከመስመር ውጭ መሸፈኛ</string>
+    <string name="appcleaner_filter_offlinecache_summary">ከመስመር ውጭ ሲሆን ለመጠቀም የተመዘገቡ ፋይሎች፣ ለምሳሌ የካርታ ሰቆች።</string>
+    <string name="appcleaner_filter_recyclebins_label">መልሶ ጥቅም ላይ ማዋል ዳውሎች</string>
+    <string name="appcleaner_filter_recyclebins_summary">የተሰረዙ ግን መልሶ ማግበር እንዲችሉ ወደ ልዩ ፎልደር የተጣሉ ፋይሎች។</string>
+    <string name="appcleaner_filter_webview_label">Webview ፋይሎች</string>
+    <string name="appcleaner_filter_webview_summary">በመተግበሪያዎች ውስጥ በሚጠቀሙ Webview ስጋዎች የተሸፈኑ ፋይሎች።</string>
+    <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp መጠባበቂያዎች</string>
+    <string name="appcleaner_filter_whatsapp_backups_summary">ተጨማሪ የWhatsApp መጠባበቂያዎች ኮፒዎችን ስረዝና ቅርቡን ብቻ አቆይ።</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">በWhatsApp አማካኝነት ከሰዎች የተቀበሏቸው ፋይሎች።</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp የተቀበሉ ፋይሎች</string>
+    <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp የተላኩ ፋይሎች</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">ከWhatsApp ወደ ሌሎች የተላኩ ፋይሎች।</string>
+    <string name="appcleaner_filter_telegram_label">Telegram ሚዲያ ፋይሎች</string>
+    <string name="appcleaner_filter_telegram_summary">በTelegram የተቀበሉ ወይም የተላኩ ፋይሎች።</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
+    <string name="appcleaner_filter_threema_summary">በThreema የተቀበሉ ፋይሎች።</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
+    <string name="appcleaner_filter_wechat_summary">በንግግሮችና በWeChat ጊዜዎች የተላኩ ወይም የተቀበሉ ፋይሎች።</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">በቻት ውስጥ በሚታይበት ጊዜ እንደገና የሚወርዱ የተሸፈኑ ሚዲያ ፋይሎች።</string>
+    <string name="appcleaner_filter_qqchat_label">QQ ቻት</string>
+    <string name="appcleaner_filter_qqchat_summary">በQQ ቻት ንግግሮች የተላኩ ወይም የተቀበሉ ፋይሎች።</string>
+    <string name="appcleaner_delete_all_confirmation_message">ለሁሉም መተግበሪያዎች ወጪ ንጥሎችን ይሰረዙ?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d ወጪ ንጥል ተሰርዟል</item>
+        <item quantity="other">%d ወጪ ንጥሎች ተሰርዘዋል</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="one">%d ወጪ ንጥል ተገኝቷል</item>
+        <item quantity="other">%d ወጪ ንጥሎች ተገኝተዋል</item>
+    </plurals>
+    <string name="appcleaner_automation_loading">ራሳዊነትን በተደራሽነት አገልግሎት ዝግጁ በማድረግ ላይ</string>
+    <string name="appcleaner_automation_title">AppCleaner ራሳዊነት</string>
+    <string name="appcleaner_automation_subtitle_default_caches">ነባሪ መሸፈኛዎችን በማጽዳት ላይ…</string>
+
+    <string name="appcleaner_automation_progress_open_settings">የቅንብሮች ማያ በመክፈት ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">ለ"ማጠራቀሚያ" ግቤት በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">ለ"ውሂብ አጽዳ" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">ለ"መሸፈኛ አጽዳ" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">ቀደም ያለውን ተግባር ለማረጋገጥ እየሞከረ ነው (ቁልፍ ቃላት: %s)</string>
+
+    <string name="appcleaner_item_caches_inaccessible_title">ነባሪ መሸፈኛዎች</string>
+    <string name="appcleaner_item_caches_inaccessible_body">ሕዝባዊና ግላዊ ነባሪ መሸፈኛዎች። በቀጥታ ሊደረስባቸው አይችሉም፣ ግን በተዘዋዋሪ ሊሰረዙ ይችላሉ (ለምሳሌ በተደራሽነት አገልግሎት)።</string>
+    <string name="appcleaner_automation_unavailable_title">ተደራሽነት አገልግሎት አልተገኘም</string>
+    <string name="appcleaner_automation_unavailable_body">ሊደረስባቸው የማይችሉ መሸፈኛዎችን ማጽዳት የSD Maidን ተደራሽነት አገልግሎት ይፈልጋል፣ ግን አልተገኘም። መጠቀም ካልፈለጉ: "ሊደረስባቸው የማይችሉ መሸፈኛዎችን አካትት" አማራጭን ያሰናክሉ።</string>
+    <string name="appcleaner_junk_userprofile_label">ተጠቃሚ</string>
+    <string name="appcleaner_delete_confirmation_message_x">ለ%s ወጪ ፋይሎች ይሰረዙ?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">ለ%d የተመረጠ መተግበሪያ ወጪ ፋይሎች ይሰረዙ?</item>
+        <item quantity="other">ለ%d የተመረጡ መተግበሪያዎች ወጪ ፋይሎች ይሰረዙ?</item>
+    </plurals>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Shizukuን በመጠቀም መሸፈኛዎችን በማጥፋት ላይ</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">ሊደረስባቸው የማይችሉ መሸፈኛዎችን በመወሰን ላይ</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">መሸፈኛ አጽዳ አልተገኘም</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">ሲስተሙ ለዚህ መተግበሪያ "መሸፈኛ አጽዳ" ቁልፍን አሰናክሏል። የመሸፈኛ ማጽዳት ፍጥነት ለመጨመር ያስወግዱት።</string>
+    <string name="appcleaner_automation_error_no_settings_title">የቅንብሮች ማያ አልተገኘም</string>
+    <string name="appcleaner_automation_error_no_settings_body">ይህ የሲስተም መተግበሪያ ምንም የቅንብሮች ማያ የለውም። በተደራሽነት አገልግሎት መሸፈኛ ማጽዳት አይችልም። የመሸፈኛ ማጽዳት ፍጥነት ለመጨመር ያስወግዱት።</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">የሲስተም መተግበሪያ በተሳሳተ መንገድ ተዋቅሯል</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">የHyperOS ደህንነት መተግበሪያ (com.miui.securitycenter) የአጠቃቀም ስታቲስቲክ ፈቃድ (GET_USAGE_STATS) ላይደርስበት ነው። ይህ በመተግበሪያ ዝርዝሮች ውስጥ "ውሂብ አጽዳ" እንደሚሳሳት ባህሪዎችን ይሰብራል እንዲሁም በተደራሽነት መሸፈኛ ማጽዳት። ሙሉ ተግባርን መልሶ ለማስጀመር ፈቃዱን ይስጡ።</string>
+
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="deduplicator_explanation_short">በመሣሪያዎ ላይ ተመሳሳይ ውሂብ ያግኙ።</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d ተመሳሳይ ተሰርዟል</item>
+        <item quantity="other">%d ተመሳሳዮች ተሰርዘዋል</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d ተመሳሳይ ስብስብ ተገኝቷል</item>
+        <item quantity="other">%d ተመሳሳይ ስብስቦች ተገኝተዋል</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">"ሁሉንም ስረዝ"ን ሊቻል አድርግ</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">በተመሳሳዩ ስብስብ ውስጥ ያሉ ሁሉንም ፋይሎች መሰረዝ የሚያስችሉ አማራጮችን አሳይ፣ ስለዚህ ምንም ፋይል አይቀርም።</string>
+    <string name="deduplicator_search_locations_title">የፍለጋ ቦታዎች</string>
+    <string name="deduplicator_search_locations_all_summary">ሁሉም ሊደረስባቸው የሚችሉ አካባቢዎች</string>
+    <string name="deduplicator_skip_minsize_title">ዝቅተኛ መጠን</string>
+    <string name="deduplicator_skip_minsize_description">ከዝቅተኛ መጠን በታች ያሉ ፋይሎችን ዝለል።</string>
+    <string name="deduplicator_skip_uncommon_title">ያልተለመዱ የፋይል ዓይነቶችን ዝለል</string>
+    <string name="deduplicator_skip_uncommon_description">የተለመዱ ሚዲያ ፋይሎች፣ ሰነዶችና ማህደሮችን ብቻ አካትት።</string>
+    <string name="deduplicator_detection_method_label">የፈላጊ ዘዴ</string>
+    <string name="deduplicator_detection_method_checksum_title">የይዘት ማረጋገጫ ድምር</string>
+    <string name="deduplicator_detection_method_checksum_summary">ለፋይሎች ማረጋገጫ ድምሮችን በማስላት ተመሳሳዮችን ወስን። ተመሳሳይ ማረጋገጫ ድምሮች ያላቸው ፋይሎች ፍጹም ተመሳሳይ ይዘት አላቸው።</string>
+    <string name="deduplicator_detection_method_phash_title">የእይታ ሃሽ</string>
+    <string name="deduplicator_detection_method_phash_summary">የይዘት ባህሪያትን በመተንተንና የእይታ ሃሽ ዋጋዎችን በማወዳደር ተመሳሳይ ፋይሎችን ያግኙ።</string>
+    <string name="deduplicator_occupied_space_label">የተያዘ ማጠራቀሚያ</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s በተመሳሳዮች ተይዟል</item>
+        <item quantity="other">%s በተመሳሳዮች ተይዘዋል</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">የፋይል መጠን</string>
+    <string name="deduplicator_average_size_label">አማካይ መጠን</string>
+    <string name="deduplicator_cluster_x_label">ክስተር %s</string>
+    <string name="deduplicator_delete_confirmation_message">በሁሉም የተመሳሳይ ፋይሎች ስብስቦች ውስጥ ከአንድ ኮፒ በስተቀር ሁሉንም ይሰረዙ?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">በዚህ የተመሳሳይ ፋይሎች ስብስብ ውስጥ ከአንድ ኮፒ በስተቀር ሁሉንም ይሰረዙ?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">በዚህ የተመሳሳይ ፋይሎች ስብስብ ውስጥ ያሉ ሁሉንም ፋይሎች ይሰረዙ? ምንም ፋይል አይቀርም!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">በእያንዳንዱ የተመረጠ የተመሳሳይ ፋይሎች ስብስብ ውስጥ ከአንድ ኮፒ በስተቀር ሁሉንም ይሰረዙ?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">በእያንዳንዱ የተመረጠ የተመሳሳይ ፋይሎች ስብስብ ውስጥ ያሉ ሁሉንም ፋይሎች ይሰረዙ? ምንም ፋይል አይቀርም!</string>
+    <string name="deduplicator_delete_all_toggle_msg">ሁሉንም ኮፒዎች ስረዝ። ምንም ፋይል አይቀርም!</string>
+    <string name="deduplicator_progress_comparing_files">ፋይሎችን በማወዳደር ላይ</string>
+    <string name="deduplicator_details_cluster_title">የተመሳሳዮች ስብስብ</string>
+    <string name="deduplicator_matches_exact_label">ትክክለኛ ኮፒዎች</string>
+    <string name="deduplicator_matches_similar_label">ተመሳሳይ ፋይሎች</string>
+
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_explanation_short">በመሣሪያዎ ላይ የተጫኑ መተግበሪያዎች።</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d መተግበሪያ ተፈለጋል</item>
+        <item quantity="other">%d መተግበሪያዎች ተፈለጉ</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">መተግበሪያዎችን ቀይር</string>
+    <string name="appcontrol_toggle_app_enable_action">መተግበሪያ አስችል</string>
+    <string name="appcontrol_toggle_app_disable_action">መተግበሪያ አሰናክል</string>
+    <string name="appcontrol_toggle_app_enable_description">መተግበሪያን ማስቻል እንዲሄድ ያስችለዋል እንዲሁም ተግባር ቢኖረው በማስጀመሪያዎ ውስጥ እንዲታይ ያደርገዋል።</string>
+    <string name="appcontrol_toggle_app_disable_description">መተግበሪያን ማሰናከል እንዳይሄድ ይከላከለዋል እንዲሁም ከዝርዝሮች ይደብቀዋል። ምንም የውሂብ ብክነት የለም።</string>
+    <string name="appcontrol_appstore_open_title">በመተግበሪያ መደብር ውስጥ ክፈት</string>
+    <string name="appcontrol_appstore_open_description">ይህንን መተግበሪያ ከተጫነበት መተግበሪያ መደብር ውስጥ ይክፈቱ።</string>
+    <string name="appcontrol_systemsettings_open_title">ቅንብሮችን አሳይ</string>
+    <string name="appcontrol_systemsettings_open_description">ለዚህ መተግበሪያ የመሣሪያዎን የሲስተም ቅንብሮች ይክፈቱ።</string>
+    <string name="appcontrol_app_launch_title">መተግበሪያን ያስጀምሩ</string>
+    <string name="appcontrol_app_launch_description">የዚህ መተግበሪያ ዋና ተግባር ያስጀምሩ።</string>
+    <string name="appcontrol_app_forcestop_title">በግዳጅ አቁም</string>
+    <string name="appcontrol_app_forcestop_description">መተግበሪያውን ያቁሙ። እስከሚከፈት ወይም መሣሪያው እስከሚዳስ ድረስ እራሱን እንዳይጀምር ይከላከላል።</string>
+    <string name="appcontrol_app_uninstall_description">ይህንን መተግበሪያ ከመሣሪያዎ ያጥፉ።</string>
+    <string name="appcontrol_app_exclude_add_title">መተግበሪያን አስወግድ</string>
+    <string name="appcontrol_app_exclude_add_description">ይህንን መተግበሪያ ከሌሎች SD Maid ተግባራት አስወግድ።</string>
+    <string name="appcontrol_app_exclude_edit_title">ማስወገጃን አርም</string>
+    <string name="appcontrol_app_exclude_edit_description">ይህ መተግበሪያ አሁን ከአንድ ወይም ከብዙ መሳሪያዎች ተወግዷል።</string>
+    <string name="appcontrol_tag_user">ተጠቃሚ</string>
+    <string name="appcontrol_tag_active">በቅርቡ ንቁ</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">ጥቅል</string>
+    <string name="appcontrol_tag_system">ሲስተም</string>
+    <string name="appcontrol_tag_archived">ተደርሷል</string>
+    <string name="appcontrol_tag_uninstalled">ውሂብ ብቻ</string>
+    <string name="appcontrol_tag_not_installed">አልተጫነም</string>
+    <string name="appcontrol_tag_enabled">ተችሏል</string>
+    <string name="appcontrol_tag_disabled">ተሰናክሏል</string>
+    <string name="appcontrol_progress_enabling_package">መተግበሪያን በማስቻል ላይ</string>
+    <string name="appcontrol_progress_disabling_package">መተግበሪያን በማሰናከል ላይ</string>
+    <string name="appcontrol_list_filteroptions_label">የማጣሪያ አማራጮች</string>
+    <string name="appcontrol_list_sortmode_name_label">የመተግበሪያ ስም</string>
+    <string name="appcontrol_list_sortmode_updated_label">በመጨረሻ ተዘምኗል</string>
+    <string name="appcontrol_list_sortmode_installed_label">መጀመሪያ ተጫኗል</string>
+    <string name="appcontrol_list_sortmode_packagename_label">የጥቅል ስም</string>
+    <string name="appcontrol_list_sortmode_size_label">መጠን</string>
+    <string name="appcontrol_list_sortmode_screentime_label">የማያ ጊዜ</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">የመተግበሪያ መጠኖች ለአፈጻጸም ምክንያቶች ይገመታሉ። ለተጨማሪ ትክክለኛ ውሂብ StorageAnalyzer መሳሪያን ይጠቀሙ።</string>
+    <string name="appcontrol_progress_uninstalling_app">መተግበሪያን በማጥፋት ላይ</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d መተግበሪያ ተጥፏል</item>
+        <item quantity="other">%d መተግበሪያዎች ተጥፈዋል</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">የመተግበሪያ መጠን</string>
+    <string name="appcontrol_app_sizes_apk_label">መተግበሪያ</string>
+    <string name="appcontrol_app_sizes_data_label">ውሂብ</string>
+    <string name="appcontrol_app_sizes_cache_label">መሸፈኛ</string>
+    <string name="appcontrol_toggle_confirmation_title">ተግባር አረጋግጥ</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">የ%d መተግበሪያ የተቻለ/የተሰናከለ ሁኔታ ይቀየር?</item>
+        <item quantity="other">ለ%d መተግበሪያዎች የተቻሉ/የተሰናከሉ ሁኔታዎች ይቀየሩ?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d መተግበሪያ ተቀይሯል</item>
+        <item quantity="other">%d መተግበሪያዎች ተቀይረዋል</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">መጠኖችን ወስን</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">የእያንዳንዱ መተግበሪያ መጠን ግምታዊ ገመታ ያግኙ።</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">እንቅስቃሴን ወስን</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">መተግበሪያ ንቁ (ወይም በቅርቡ ነበር) እንደሆነ ያውቁ።</string>
+    <string name="appcontrol_export_app_selection_action">መተግበሪያዎችን ላክ</string>
+    <string name="appcontrol_export_title">መተግበሪያ ላክ</string>
+    <string name="appcontrol_export_description">የዚህ መተግበሪያ መጫኛ ፋይሎች ያስቀምጡ። ይህ የመተግበሪያ ውሂብ አያካትትም።</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d መተግበሪያ ተልኳል</item>
+        <item quantity="other">%d መተግበሪያዎች ተልከዋል</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">%sን በመላክ ላይ</string>
+    <string name="appcontrol_force_stop_selection_action">መተግበሪያዎችን በግዳጅ አቁም</string>
+    <string name="appcontrol_force_stop_action">በግዳጅ አቁም</string>
+    <string name="appcontrol_force_stop_confirm_title">በግዳጅ ማቆም አረጋግጥ</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d መተግበሪያን በግዳጅ ታቆማለህ?</item>
+        <item quantity="other">%d መተግበሪያዎችን በግዳጅ ታቆማለህ?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d መተግበሪያ ቆሟል</item>
+        <item quantity="other">%d መተግበሪያዎች ቆመዋል</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">ራሳዊነትን በተደራሽነት አገልግሎት ዝግጁ በማድረግ ላይ</string>
+    <string name="appcontrol_automation_title">AppControl ራሳዊነት</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">በግዳጅ በማቆም ላይ…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">ለ"በግዳጅ አቁም" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">ቀደም ያለውን ተግባር ለማረጋገጥ እየሞከረ ነው (ቁልፍ ቃላት: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">የማያ ጊዜ: %1$s ከ%2$s ጀምሮ</string>
+    <string name="appcontrol_item_lastupdate_x_label">በመጨረሻ ተዘምኗል: %s</string>
+    <string name="appcontrol_item_installedat_x_label">ተጫኗል በ: %s</string>
+
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="analyzer_explanation_short">በመሣሪያዎ ላይ ምን ቦታ እንደሚወስድ ያውቁ።</string>
+    <string name="analyzer_progress_scanning_device">የማጠራቀሚያ መሣሪያዎችን በመፈልግ ላይ</string>
+    <string name="analyzer_progress_scanning_storage">ማጠራቀሚያን በመመርመር ላይ</string>
+    <string name="analyzer_progress_scanning_apps">መተግበሪያዎችን በመመርመር ላይ</string>
+    <string name="analyzer_progress_scanning_userfiles">የተጠቃሚ ፋይሎችን በመፈልግ ላይ</string>
+    <string name="analyzer_progress_scanning_system">የሲስተም ውሂብን በመመርመር ላይ</string>
+    <string name="analyzer_device_storage_title">የመሣሪያ ማጠራቀሚያ</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s ይገኛል</item>
+        <item quantity="other">%s ይገኛል</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s ተጠቅሟል</item>
+        <item quantity="other">%s ተጠቅሟል</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">ምንም ቀጥታ መዳረሻ አይገኝም</string>
+    <string name="analyzer_storage_type_primary_title">ዋና ማጠራቀሚያ</string>
+    <string name="analyzer_storage_type_primary_description">የመሣሪያዎ ዋና ማጠራቀሚያ። ውስጣዊ SD ካርድ፣ ለመተግበሪያዎች ግላዊ ማጠራቀሚያና የሲስተም ውሂብ ይዟል።</string>
+    <string name="analyzer_storage_type_secondary_title">ሁለተኛ ማጠራቀሚያ</string>
+    <string name="analyzer_storage_type_secondary_description">ሁለተኛ ማጠራቀሚያ፣ በተለምዶ ተወገዳ SD ካርድ። የሚዲያ ፋይሎችና የሚደግፉ መተግበሪያዎች ውሂብ ይዟል።</string>
+    <string name="analyzer_storage_type_tertiary_title">ተለዋዋጭ ማጠራቀሚያ</string>
+    <string name="analyzer_storage_type_tertiary_description">ተለዋዋጭ ማጠራቀሚያ፣ ለምሳሌ ወደ USB ወደብዎ የተሰካ ፍላሽ ድራይቭ።</string>
+    <string name="analyzer_storage_content_title">የማጠራቀሚያ ይዘት</string>
+    <string name="analyzer_storage_content_type_app_label">መተግበሪያዎች</string>
+    <string name="analyzer_storage_content_type_app_description">በተጫኑ መተግበሪያዎችና በውሂባቸው የተያዘ ቦታ (ማለትም የመተግበሪያ ፋይሎች፣ ውሂብና መሸፈኛዎች)།</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">ፈቃዶች ጎድለዋል</string>
+    <string name="analyzer_storage_content_type_media_label">የተጠቃሚ ፋይሎች</string>
+    <string name="analyzer_storage_content_type_media_description">የተወሰዱ ምስሎች፣ የተቀዱ ቪዲዮዎች ወይም የተወረዱ ውሂቦች። ለተወሰነ መተግበሪያ የማያመሩ ማንኛቸውም ውሂቦች።</string>
+    <string name="analyzer_storage_content_type_system_label">የሲስተም ውሂብ</string>
+    <string name="analyzer_storage_content_type_system_description">የሲስተም መተግበሪያዎችና የሲስተም ውሂብ። ብዙ የተጠቃሚ መለያዎች በዚህ መሣሪያ ላይ ከተሰናዱ የሌሎች ተጠቃሚዎች መተግበሪያዎችና ውሂብ።</string>
+    <string name="analyzer_storage_content_app_code_label">የመተግበሪያ ኮድ</string>
+    <string name="analyzer_storage_content_app_code_description">የመተግበሪያ ፋይሎች፣ ቤተ-መጻሕፍትና ሀብቶች። ይህ ቦታ መተግበሪያውን በማጥፋት ወይም በማከማቸት (በአዲሶቹ አንድሮይድ ስሪቶች ላይ ይገኛል) ሊለቀቅ ይችላል።</string>
+    <string name="analyzer_storage_content_app_data_label">የመተግበሪያ ውሂብ</string>
+    <string name="analyzer_storage_content_app_data_description">ውሂብ፣ ቅንብሮችና መሸፈኛዎች።</string>
+    <string name="analyzer_storage_content_app_media_label">የመተግበሪያ ሚዲያ</string>
+    <string name="analyzer_storage_content_app_media_description">ከዚህ መተግበሪያ የሚዲያ ፋይሎች፣ ለምሳሌ የተቀበሉ WhatsApp ፎቶዎች።</string>
+    <string name="analyzer_storage_content_app_extra_label">ተጨማሪ የመተግበሪያ ፋይሎች</string>
+    <string name="analyzer_storage_content_app_extra_description">ይህ መተግበሪያ ከነባሪ መንገዶች ውጭ ያስቀመጠው ተጨማሪ ውሂብ፣ ለምሳሌ ፎቶዎች ወይም ዳውንሎዶች።</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">ይህ መተግበሪያ %1$sን በ\"%2$s\" ላይ ይይዛል።</string>
+    <string name="analyzer_app_details_app_is_archived">ይህ መተግበሪያ ተደርሷል።</string>
+
+    <string name="data_area_public_app_data_official_label">ነባሪ ሕዝባዊ የመተግበሪያ ውሂብ</string>
+    <string name="data_area_public_app_assets_official_label">ነባሪ ሕዝባዊ የመተግበሪያ ንብረቶች</string>
+    <string name="data_area_public_storage_label">ሕዝባዊ ማጠራቀሚያ</string>
+    <string name="data_area_sdcard_label">SD ካርድ</string>
+    <string name="data_areas_label">የውሂብ አካባቢዎች</string>
+    <string name="data_areas_description">የውሂብ አካባቢዎች በመሣሪያዎ ላይ SD Maid ሊደርስባቸው የሚችሉ ቦታዎችን ይወክላሉ። በአንድሮይድ ስሪትዎና በተሰጡ ፈቃዶች ላይ ተመስርተው የተለያዩ የውሂብ አካባቢዎች ሊገኙ ይችላሉ።</string>
+    <string name="data_areas_short_summary">SD Maid በአሁን የተሰጡ ፈቃዶች ላይ ተመስርቶ ሊደርስባቸው የሚችላቸው አካባቢዎች።</string>
+
+    <string name="exclusion_manager_title">የማስወገጃ አስተዳዳሪ</string>
+    <string name="exclusion_manager_desc">የፋይልና የመተግበሪያ ማስወገጃዎችን አስተዳድር።</string>
+    <string name="exclusion_explanation_body1">ፋይሎችንና መተግበሪያዎችን ከSD Maid ተግባራት አስወግድ।</string>
+    <string name="exclusion_add_new_hint">አዲስ ማስወገጃዎችን በማስወገድ SD Maidን መጀመሪያ እንዲፈልግ እንዲሁም በማስወገድ የሚፈልጉትን ውጤት ላይ የሁኔታ ሜኑን በመጠቀም ይጨምሩ።</string>
+    <string name="exclusion_create_action">ማስወገጃ ፍጠር</string>
+    <string name="exclusion_edit_action">ማስወገጃን አርም</string>
+    <string name="exclusion_type_package">የመተግበሪያ ማስወገጃ</string>
+    <string name="exclusion_type_path">የመንገድ ማስወገጃ</string>
+    <string name="exclusion_type_segment">የክፍል ማስወገጃ</string>
+    <string name="exclusion_tags_alltools">ሁሉም መሳሪያዎች</string>
+    <string name="exclusion_target_label">የማስወገጃ ኢላማ</string>
+    <string name="exclusion_option_allow_partial">ከፊል ተመሳሳዮችን ፍቀድ</string>
+    <string name="exclusion_option_ignore_casing">መንገድን ተወው</string>
+    <string name="exclusion_editor_affected_tools_label">የተጎዱ መሳሪያዎች</string>
+    <string name="exclusion_editor_path_explanation">የመንገድ ማስወገጃ SD Maidን ተመሳሳይ መንገዶችን ከተጨማሪ ሂደት ይከላከላል። ይህ ለፋይሎች፣ ፎልደሮችና ንዑስ-ፎልደሮች ይሠራል።</string>
+    <string name="exclusion_editor_pkg_explanation">የመተግበሪያ ማስወገጃ SD Maidን ተመሳሳይ ጥቅሎችን ከማስኬድ ይከላከላል།</string>
+    <string name="exclusion_editor_segment_explanation">በክፍል ላይ የተመሠረተ ማስወገጃ ከመንገድ ማስወገጃ ጋር ተመሳሳይ ነው ግን ከፊል ተመሳሳዮችን ይፈቅዳል። ምሳሌ: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\"ን ያስወግዳል።</string>
+    <string name="exclusion_editor_remove_confirmation_message">ይህንን ማስወገጃ ያስወግዱ?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">ያልተቀመጡ ለውጦች አለዎት!</string>
+    <string name="exclusion_reset_default_exclusions">ነባሪ ማስወገጃዎችን መልስ</string>
+    <string name="exclusion_import_action">ማስወገጃዎችን አስመጣ</string>
+    <string name="exclusion_export_action">ማስወገጃዎችን ላክ</string>
+
+    <string name="exclusion_create_pkg_hint">የመተግበሪያ ማስወገጃዎችን ለመፍጠር AppControl መሳሪያን ይጠቀሙ።</string>
+    <string name="exclusion_create_path_hint">የመንገድ ማስወገጃዎችን ለመፍጠር StorageAnalyzer መሳሪያን ይጠቀሙ።</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">አንድ ማስወገጃ ተፈጠረ</item>
+        <item quantity="other">%d ማስወገጃዎች ተፈጠሩ</item>
+    </plurals>
+    <string name="exclusion_show_defaults_action">ነባሪዎችን አሳይ</string>
+
+    <string name="automation_accessibility_service_description">ልዩ የተደራሽነት ፍላጎቶች ያላቸው ተጠቃሚዎች SD Maidን ያለዚያ ደካማ የእጅ ተጠቃሚ ጣልቃ ገብነት የሚፈልጉ ተግባራትን (ለምሳሌ የመሸፈኛ ስረዛ) ራሱን እንዲያደርግ ለመፍቀድ ይህንን አገልግሎት ማስቻል ይችላሉ።\n\nምሳሌ: SD Maidን ብዙ መተግበሪያዎችን እንዲያቆም ካዘዙ ማለት SD Maid ይህንን አገልግሎት ለመጠቀም የእያንዳንዱን መተግበሪያ ቅንብሮች ማያ ሊከፍት፣ \'በግዳጅ አቁም\' ቁልፍን ሊያገኝና ሊነካው ይችላል።\n\nSD Maid ይህንን አገልግሎት በሚጠቀምበት ጊዜ ሁልጊዜ በግልጽ ያሳያል እንዲሁም ተጠቃሚው ማንኛውንም ጣልቃ ገብነት ወዲያውኑ ለመተው ቀላል መንገድ ይሰጣል።\n\nያለቀደሙ የተጠቃሚ ፍቃድ ምንም ተግባራት አይከናወኑም። ይህ አገልግሎት ያለምንም አሉታዊ ውጤቶች በማንኛውም ጊዜ እንደገና ሊሰናከል ይችላል።</string>
+    <string name="automation_screenoverlay_explanation">SD Maid ከመሣሪያዎ ጋር እየተገናኘ ነው። በተመሳሳይ ጊዜ ማያውን መጠቀም አይቻልም። ተግባሩ እስከሚጠናቀቅ ይጠብቁ ወይም ይሰርዙት።</string>
+    <string name="automation_active_title">SD Maid በመስራት ላይ ነው</string>
+    <string name="automation_error_no_consent_title">የራሳዊነት ስህተት</string>
+    <string name="automation_error_no_consent_body">ተደራሽነት አገልግሎት አልተቀናጀም። ማዋቀሪያውን ያጠናቅቁና ስምምነት ይስጡ።</string>
+    <string name="automation_error_not_enabled_title">አገልግሎቱ አልተችልም</string>
+    <string name="automation_error_not_enabled_body">ተደራሽነት አገልግሎት ተሰናክሏል። እንደገና ያብሩት።</string>
+    <string name="automation_error_not_running_title">አገልግሎቱ እየሄደ አይደለም</string>
+    <string name="automation_error_not_running_body">ተደራሽነት አገልግሎት እየሄደ አይደለም። መሣሪያውን ዳግም ማስጀመር ይሞክሩ።</string>
+    <string name="automation_error_screen_unavailable_title">ማያ አልተገኘም</string>
+    <string name="automation_error_screen_unavailable_body">ማያው ስላልተገኘ ተግባሩ ተቋርጧል (ለምሳሌ ማያ ከተዘጋ ወይም መቆለፊያ ማያ ንቁ)።</string>
+    <string name="automation_error_compatibility_title">የራሳዊነት ተኳኋኝነት</string>
+    <string name="automation_error_compatibility_body">SD Maid የማያ አቀማመጥን ሊገነዘብ አልቻለም። ይህ መቀጠሉ ከሆነ የእርስዎ ቋንቋ ወይም ማዋቀሪያ ሙሉ በሙሉ ያልተደገፈ ሊሆን ይችላል። ማሻሻያዎችን ይመርምሩ ወይም እኔ እንድጠግነው እኔን ያናግሩ።</string>
+    <string name="automation_error_timeout_title">የራሳዊነት ጊዜ ማብቂያ</string>
+    <string name="automation_error_timeout_body">SD Maid ሁሉንም ደረጃዎች በጊዜ ገደብ ውስጥ አላጠናቀቀም። ይህ መቀጠሉ ከሆነ መተግበሪያውን ለመሣሪያዎ ማስተካከል ያስፈልገኝ ይሆናል። ማሻሻያዎችን ይመርምሩ ወይም እኔ እንድጠግነው እኔን ያናግሩ።</string>
+    <string name="automation_error_overlay_title">የራሳዊነት መክተት</string>
+    <string name="automation_error_overlay_body">SD Maid የራሳዊነት መክተትን ማሳየት አልቻለም። ፈቃዶችን ይመርምሩና መሣሪያዎን ዳግም ማስጀመር ይሞክሩ።</string>
+
+    <string name="history_label">ታሪክ</string>
+    <string name="history_description">የቅርብ ተግባራትና የተጎዱ ውሂቦች ቀን በቀን ዝርዝር።</string>
+
+    <string name="scheduler_label">መርሃ ግብር አዘጋጅ</string>
+    <string name="scheduler_execution_label">ቀጣይ አፈጻጸም (ግምታዊ)</string>
+    <string name="scheduler_execution_last_label">የመጨረሻ አፈጻጸም</string>
+    <string name="scheduler_settings_label">መርሃ ግብር አዘጋጅ</string>
+    <string name="scheduler_settings_summary">ከመርሃ ግብር አዘጋጅ ጋር የተያያዙ ቅንብሮችን ማስተካከል።</string>
+    <string name="scheduler_new_schedule_action">መርሃ ግብር ፍጠር</string>
+    <string name="scheduler_schedule_name_label">የመርሃ ግብር ስም</string>
+    <string name="scheduler_schedule_toggle_enabled">መርሃ ግብር ተችሏል</string>
+    <string name="scheduler_schedule_toggle_disabled">መርሃ ግብር ተሰናክሏል</string>
+    <string name="scheduler_edit_schedule_action">መርሃ ግብር አርም</string>
+    <string name="scheduler_schedule_time_label">ግምታዊ ጊዜ</string>
+    <string name="scheduler_schedule_repeat_label">በቀኖች ውስጥ የመድገሚያ ክፍተት</string>
+    <string name="scheduler_schedule_default_name">ነባሪ መርሃ ግብር</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s በ%2$s አካባቢ</string>
+    <string name="scheduler_schedule_next_at_x">ለ%s ታቅዷል</string>
+    <string name="scheduler_schedule_last_at_x">በመጨረሻ ተሠርቷል በ%s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">ዕለታዊ</item>
+        <item quantity="other">በየ%d ቀኖች</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">የመድገሚያ ክፍተት</string>
+    <string name="scheduler_inaccurate_execution_hint">የሚጠበቁ የአፈጻጸም ጊዜዎች ግምታዊ ናቸው። ባትሪን ለመቆጠብ ከሆነ መርሃ ግብሮች ሊዘገዩ ወይም ሊፋጠኑ ይችላሉ።</string>
+    <string name="scheduler_no_active_schedules_subtitle">ንቁ መርሃ ግብሮች የሉም</string>
+    <string name="scheduler_setting_nopowersaving_title">በዝቅተኛ ባትሪ ላይ ዝለል</string>
+    <string name="scheduler_setting_nopowersaving_summary">መሣሪያው በኃይል-ማቆጠቢያ ሁነታ ውስጥ ከሆነ የታቀደው አፈጻጸም ይዘለላል።</string>
+    <string name="scheduler_setting_charging_title">በማይሞላበት ጊዜ ዝለል</string>
+    <string name="scheduler_setting_charging_summary">መሣሪያው በማይሞላበት ጊዜ የታቀደው አፈጻጸም ይዘለላል።</string>
+    <string name="scheduler_setting_automation_title">ተደራሽነት አገልግሎት</string>
+    <string name="scheduler_setting_automation_summary">ተደራሽነት አገልግሎት የሚጠቀሙ ተግባራትን አካትት። ይህ SD Maid ተግባራቱ በሚሠሩበት ጊዜ ከማያዎ ጋር መገናኘት እንዲችል (ማለትም ያልተቆለፈ) ይጠይቃል።</string>
+    <string name="scheduler_notification_channel_label">መርሃ ግብር አዘጋጅ</string>
+    <string name="scheduler_notification_title">የታቀደ ተግባር</string>
+    <string name="scheduler_notification_message">በአፈጻጸም ላይ: \"%s\"</string>
+    <string name="scheduler_notification_result_title">መርሃ ግብር አዘጋጅ ተጠናቅቋል</string>
+    <string name="scheduler_notification_result_success_message">ሁሉም የታቀዱ ተግባራት በተሳካ ሁኔታ ተሠርተዋል።</string>
+    <string name="scheduler_notification_result_failure_message">አንዳንድ የታቀዱ ተግባራት ተሳሽተዋል ወይም ስህተቶች አጋጥመዋቸዋል። በእጅ ማስኬድ ይሞክሩ።</string>
+    <string name="scheduler_commands_after_schedule_label">ከመርሃ-ግብር በኋላ ትዕዛዞች</string>
+    <string name="scheduler_commands_after_schedule_desc">በመርሃ ግብር መጨረሻ ላይ የሚከናወኑ የአንድሮይድ ሼል ትዕዛዞች።</string>
+    <string name="scheduler_battery_optimization_hint">የበስተጀርባ አፈጻጸም ችግሮች ካጋጠሙዎት ለSD Maid ባትሪ ማሻሻያዎችን ማሰናከል ያስቡበት።</string>
+
+    <string name="updates_dashcard_title">ማሻሻያ ይገኛል</string>
+    <string name="updates_dashcard_body">ማሻሻያ ይገኛል። እርስዎ %1$s አለዎት እንዲሁም የቅርቡ ስሪት %2$s ነው።</string>
+
+    <string name="translation_encourage_title">SD Maidን ተርጉም</string>
+    <string name="translation_encourage_body">SD Maid በበጎ ፈቃደኞች ይተረጎማል። ትርጉም፣ ግምገማ ወይም ማረም፣ እርዳታዎ ይደነቃል!</string>
+    <string name="translation_translators_title">ይህ ስሪት የተተረጎመው</string>
+    <string name="translation_translators_people">ሰው1;ሰው2(አማራጭ@ኢሜይል.com)</string>
+
+    <string name="motd_setting_enabled_label">አስፈላጊ መልእክቶች</string>
+    <string name="motd_setting_enabled_explanation">SD Maid ከገንቢው አስፈላጊ መልእክቶችን እንዲመረምር ፍቀድ።</string>
+
+    <string name="updatecheck_setting_enabled_label">ማሻሻያ መረመራ</string>
+    <string name="updatecheck_setting_enabled_explanation">SD Maid አዲስ ስሪት እንዳለ ለማሳወቅ ማሻሻያዎችን እንዲመረምር ፍቀድ።</string>
+    <string name="device_settings_category">መሣሪያ</string>
+
+    <string name="beta_version_indicator_desc">የቅድመ-ልቀት ስሪቶች በጅምር ማያ ላይ ትንሽ ጥቅላይ ያሳያሉ። በተደጋጋሚ ይዘምናሉ፣ ተጨማሪ ባህሪዎች ሊኖራቸው ይችላል፣ ግን ተጨማሪ ችግሮችም ሊኖራቸው ይችላል።</string>
+
+    <string name="review_app_review_action">ግምገማ</string>
+    <string name="review_app_dismiss_action">ምናልባት በኋላ</string>
+    <string name="review_app_body">ለSD Maid ግምገማ ማስቀመጥ ይፈልጋሉ?️ ❤️</string>
+
+    <string name="stats_label">ታሪክ</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s ተልቋል።</item>
+        <item quantity="other">%s ተልቀዋል።</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">SD Maidን ወደ መሣሪያዎ ከጋበዙ ጀምሮ %s ንጥል ተሠርቷል።</item>
+        <item quantity="other">SD Maidን ወደ መሣሪያዎ ከጋበዙ ጀምሮ %s ንጥሎች ተሠርተዋል።</item>
+    </plurals>
+    <string name="stats_report_status_success">ተሳክቷል</string>
+    <string name="stats_report_status_partial_success">ከፊል ተሳክቷል</string>
+    <string name="stats_report_status_partial_failure">አልተሳካም</string>
+    <string name="stats_settings_desc">የSD Maid ስታቲስቲክ፣ ሪፖርቶችና የውሂብ ማቆያ ያዋቅሩ።</string>
+    <string name="stats_settings_retention_category">ማቆያ</string>
+    <string name="stats_settings_retention_reports_label">አጠቃላይ ሪፖርቶች</string>
+    <string name="stats_settings_retention_reports_desc">መሠረታዊ SD Maid ተግባር ሪፖርቶችን ከመሰረዝ በፊት የቀኖች ቁጥር።</string>
+    <string name="stats_settings_retention_paths_label">ዝርዝር የመንገድ መረጃ</string>
+    <string name="stats_settings_retention_paths_desc">በSD Maid የተጎዱ መንገዶች ዝርዝሮችን የማቆየት የቀኖች ቁጥር።</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d ቀን</item>
+        <item quantity="other">%d ቀኖች</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">ሁሉንም ዳግም አስጀምር</string>
+    <string name="stats_settings_reset_all_desc">ሁሉንም ሪፖርቶች ስረዝና ሁሉንም ስታቲስቲክ ወደ ዜሮ አስቀምጥ።</string>
+    <string name="stats_affected_paths_label">የተጎዱ መንገዶች</string>
+    <string name="stats_affected_pkgs_label">የተጎዱ መተግበሪያዎች</string>
+
+    <string name="picker_select_paths_title">መንገዶችን ምረጥ</string>
+    <string name="picker_selected_paths_title">የተመረጡ መንገዶች</string>
+    <string name="picker_unsaved_confirmation_message">ለውጦችን ትተዋለህ?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d መንገድ ተመርጧል</item>
+        <item quantity="other">%d መንገዶች ተመርጠዋል</item>
+    </plurals>
+    <string name="picker_home_action">የውሂብ አካባቢዎች</string>
+
+    <string name="area_type_sdcard_label">ሕዝባዊ ማጠራቀሚያ</string>
+    <string name="area_type_public_media_label">ሕዝባዊ የመተግበሪያ ሚዲያ</string>
+    <string name="area_type_public_data_label">ሕዝባዊ የመተግበሪያ ውሂብ</string>
+    <string name="area_type_public_obb_label">ሕዝባዊ የመተግበሪያ ሀብቶች</string>
+    <string name="area_type_private_data_label">ግላዊ የመተግበሪያ ውሂብ</string>
+    <string name="area_type_portable_label">ተለዋዋጭ ማጠራቀሚያ</string>
+</resources>
+

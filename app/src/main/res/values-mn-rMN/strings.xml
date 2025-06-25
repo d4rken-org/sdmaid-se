@@ -1,2 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="dashboard_delete_all_message">Бүх хэрэгслийн үр дүнг устгах уу?</string>
+    <string name="dashboard_settings_category">Хяналтын самбар</string>
+    <string name="dashboard_motd_title">Хөгжүүлэгчийн мессеж</string>
+    <string name="dashboard_settings_oneclick_title">Нэг товшилтын горим</string>
+    <string name="dashboard_settings_oneclick_summary">Хяналтын самбарын үйлдлийн товчийг дарснаар бүх хэрэгслийн сканнинг болон устгалтыг эхлүүлэх, нэмэлт баталгаа шаарддаггүй.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Нэг товшилтын хэрэгслүүд</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Ямар хэрэгслүүдийг нэг товшилтын үйлдэлд оруулах вэ?</string>
+
+    <string name="debug_debuglog_size_label">Хэмжээ</string>
+    <string name="debug_debuglog_size_compressed_label">Шахсан хэмжээ</string>
+    <string name="debug_notification_channel_label">Дебаг мэдэгдэл</string>
+    <string name="debug_debuglog_file_label">Бичсэн лог файл</string>
+    <string name="debug_debuglog_recording_progress">Дебаг лог бичиж байна</string>
+    <string name="debug_debuglog_record_action">Дебаг лог бичих</string>
+    <string name="debug_debuglog_stop_action">Бичлэгийг зогсоох</string>
+    <string name="debug_debuglog_sensitive_information_message">Үүсгэсэн файл нь эмзэг мэдээлэл агуулдаг (жишээ нь файлын нэр, суулгасан аппликешн). Зөвхөн итгэмжлэгдсэн талуудтай хуваалцана уу.</string>
+    <string name="settings_debuglog_explanation">Энэ функц нь аппликешний бүх үйлдлийг хуваалцах боломжтой файлд бичдэг. Үүсгэсэн файл нь эмзэг мэдээлэл агуулдаг (жишээ нь файлын нэр, суулгасан аппликешн). Зөвхөн итгэмжлэгдсэн талуудтай хуваалцана уу (жишээ нь асуудлыг шийдэж байгаа хөгжүүлэгч).</string>
+
+    <string name="tasks_activity_notification_channel_label">Идэвхтэй даалгаврууд</string>
+    <string name="tasks_activity_working_notification_title">SD Maid ажиллаж байна</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="other">%d идэвхтэй даалгавар</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="other">%d даалгавар дарааллд</item>
+    </plurals>
+    <string name="tasks_result_notification_channel_label">Даалгаврын үр дүн</string>
+    <string name="tasks_result_subtext">Даалгаврын үр дүн</string>
+
+    <string name="onboarding_welcome_title">Тавтай морил</string>
+    <string name="onboarding_welcome_body1">SD Maid SE нь файл, аппликешн, хадгалах санг удирддаг.</string>
+    <string name="onboarding_welcome_body2">Бусад аппликешний ард цэвэрлэгээ хийж хадгалах орон зай олоорой. Хэрэггүй файлуудыг устгаж, үлдсэн өгөгдлийг арилгаарай.</string>
+    <string name="onboarding_welcome_body_beta">Энэ бол бета (туршилтын) хувилбар юм. Хошин шогийн сэтгэлгээ, нөөц төлөвлөгөөтэй үргэлжлүүлээрэй. Тохиолдсон асуудлуудыг мэдэггэрэй.</string>
+    <string name="onboarding_welcome_continue_action">Үргэлжлүүлэх</string>
+
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (өөрөөр хэлбэл SD Maid 2) нь SD Maid (өөрөөр хэлбэл SD Maid 1)-ийн өв залгамжлагч юм. Орчин үеийн Android-д зориулсан шинэ апп.</string>
+    <string name="onboarding_versus_body2">Өмнөх хувилбарын архитектур нь 7 жилээс дээш настай бөгөөд шинэ Android хувилбаруудын сорилтод зориулж хийгдээгүй байна. Хөгжүүлэлтийг үргэлжлүүлэхийн тулд бүрэн дахин зохион байгуулах шаардлагатай байсан.</string>
+    <string name="onboarding_versus_body3">Илүү сайн үр дүнгийн тулд SD Maid SE руу шилжихийг бодоорой.</string>
+    <string name="onboarding_versus_body4">SD Maid 1-ийн "про төлөв" нь харамсалтай нь SD Maid 2/SE руу шилжүүлэх боломжгүй. 12 жилийн үнэгүй шинэчлэлтүүдийн дараа хөгжүүлэлтийг үргэлжлүүлэхийн тулд (хөгжүүлэгчийг тэжээхийн тулд) шинэ худалдан авалт шаардлагатай.</string>
+    <string name="onboarding_versus_continue_action">Үргэлжлүүлэх</string>
+
+    <string name="onboarding_privacy_title">Нууцлал</string>
+    <string name="onboarding_privacy_body1">SD Maid-д зар сурталчилгаа байхгүй бөгөөд хэрэглэгчийн өгөгдлийг зардаггүй.</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">Алдаа гарах үед алдааны тайлан илгээгддэг бөгөөд таны төхөөрөмж дээрх аппликешн, файлуудын дэлгэрэнгүй мэдээлэл агуулж болно. Тайлангууд нь надад алдааг засч, аппыг сайжруулахад тусалдаг.</string>
+    <string name="onboarding_privacy_bugreport_toggle">Автомат алдааны тайлан зөвшөөрөх</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">Эдгээр сонголтыг тохиргоонд өөрчлөх боломжтой.</string>
+
+    <string name="onboarding_permissions_title">Зөвшөөрлүүд</string>
+    <string name="onboarding_permissions_body">SD Maid SE-г бүрэн ажиллуулахын тулд дараах зөвшөөрлүүд хэрэгтэй:</string>
+    <string name="onboarding_permissions_continue_action">Үргэлжлүүлэх</string>
+
+    <string name="onboarding_setup_title">Тохиргоо</string>
+    <string name="onboarding_setup_body">SD Maid SE-ийн бүх чадварыг ашиглахын тулд нэмэлт тохиргоо шаардлагатай байж болно.</string>
+    <string name="onboarding_setup_continue_action">Үргэлжлүүлэх</string>
+
+    <string name="onboarding_finished_title">Бэлэн!</string>
+    <string name="onboarding_finished_body">SD Maid SE ашиглахад бэлэн байна. Хяналтын самбар руу очоод эхний сканнингыг эхлүүлээрэй!</string>
+    <string name="onboarding_finished_continue_action">Хяналтын самбар руу очих</string>
+
+    <string name="systemcleaner_title">Системийн цэвэрлэгч</string>
+    <string name="systemcleaner_subtitle">Системийн кэш болон түр файлуудыг устгах</string>
+    <string name="systemcleaner_scan_action">Сканнинг</string>
+    <string name="systemcleaner_delete_action">Устгах</string>
+    <string name="systemcleaner_progress_scanning">Сканнинг хийж байна...</string>
+    <string name="systemcleaner_progress_deleting">Устгаж байна...</string>
+    <string name="systemcleaner_result_nothing_found">Юу ч олдсонгүй</string>
+    <string name="systemcleaner_result_found_files">%d файл олдлоо</string>
+    <string name="systemcleaner_result_deleted_files">%d файл устгалаа</string>
+
+    <string name="appcleaner_title">Аппликешн цэвэрлэгч</string>
+    <string name="appcleaner_subtitle">Аппликешний кэш болон түр файлуудыг устгах</string>
+    <string name="appcleaner_scan_action">Сканнинг</string>
+    <string name="appcleaner_delete_action">Устгах</string>
+    <string name="appcleaner_progress_scanning">Сканнинг хийж байна...</string>
+    <string name="appcleaner_progress_deleting">Устгаж байна...</string>
+    <string name="appcleaner_result_nothing_found">Юу ч олдсонгүй</string>
+
+    <string name="analyzer_title">Шинжээч</string>
+    <string name="analyzer_subtitle">Хадгалах сангийн хэрэглээг шинжлэх</string>
+    <string name="analyzer_scan_action">Сканнинг</string>
+    <string name="analyzer_progress_scanning">Сканнинг хийж байна...</string>
+
+    <string name="corpsefinder_title">Үлдэгдэл хайгч</string>
+    <string name="corpsefinder_subtitle">Устгасан аппликешнуудаас үлдсэн файлуудыг олох</string>
+    <string name="corpsefinder_scan_action">Сканнинг</string>
+    <string name="corpsefinder_delete_action">Устгах</string>
+
+    <string name="deduplicator_title">Давхардсан файл устгагч</string>
+    <string name="deduplicator_subtitle">Давхардсан файлуудыг олж устгах</string>
+    <string name="deduplicator_scan_action">Сканнинг</string>
+    <string name="deduplicator_delete_action">Устгах</string>
+
+    <string name="settings_title">Тохиргоо</string>
+    <string name="settings_general_category">Ерөнхий</string>
+    <string name="settings_theme_title">Сэдэв</string>
+    <string name="settings_theme_auto">Автоматаар</string>
+    <string name="settings_theme_light">Гэрэл</string>
+    <string name="settings_theme_dark">Харанхуй</string>
+    <string name="settings_language_title">Хэл</string>
+    <string name="settings_language_auto">Автоматаар</string>
+
+    <string name="settings_privacy_category">Нууцлал</string>
+    <string name="settings_bugreports_title">Алдааны тайлан</string>
+    <string name="settings_bugreports_summary">Алдаа гарах үед автомат тайлан илгээх</string>
+
+    <string name="settings_advanced_category">Дэвшилтэт</string>
+    <string name="settings_debug_title">Дебаг</string>
+    <string name="settings_debug_summary">Дебаг функцуудыг идэвхжүүлэх</string>
+
+    <string name="general_yes">Тийм</string>
+    <string name="general_no">Үгүй</string>
+    <string name="general_cancel">Цуцлах</string>
+    <string name="general_ok">Тийм</string>
+    <string name="general_delete">Устгах</string>
+    <string name="general_share">Хуваалцах</string>
+    <string name="general_close">Хаах</string>
+    <string name="general_continue">Үргэлжлүүлэх</string>
+    <string name="general_skip">Алгасах</string>
+    <string name="general_refresh">Сэргээх</string>
+    <string name="general_loading">Ачаалж байна...</string>
+    <string name="general_working">Ажиллаж байна...</string>
+    <string name="general_done">Дууслаа</string>
+    <string name="general_error">Алдаа</string>
+    <string name="general_warning">Анхааруулга</string>
+    <string name="general_info">Мэдээлэл</string>
+
+    <string name="general_progress_loading">Ачаалж байна...</string>
+    <string name="general_progress_deleting">Устгаж байна...</string>
+    <string name="general_progress_working">Ажиллаж байна...</string>
+
+    <string name="general_ms_format">%d ms</string>
+    <string name="general_kb_format">%.1f KB</string>
+    <string name="general_mb_format">%.1f MB</string>
+    <string name="general_gb_format">%.1f GB</string>
+
+    <string name="general_result_success_format">Амжилттай: %s</string>
+    <string name="general_result_failure_format">Амжилтгүй: %s</string>
+
+    <plurals name="general_result_x_items">
+        <item quantity="other">%d зүйл</item>
+    </plurals>
+    <plurals name="general_result_x_files">
+        <item quantity="other">%d файл</item>
+    </plurals>
+    <plurals name="general_result_x_folders">
+        <item quantity="other">%d фолдер</item>
+    </plurals>
+
+    <string name="storage_space_free">Сул зай</string>
+    <string name="storage_space_used">Ашиглагдсан</string>
+    <string name="storage_space_total">Нийт</string>
+
+    <string name="permission_request_title">Зөвшөөрлийн хүсэлт</string>
+    <string name="permission_request_body">SD Maid SE-г зөв ажиллуулахын тулд энэ зөвшөөрөл хэрэгтэй.</string>
+    <string name="permission_grant_action">Зөвшөөрөл өгөх</string>
+
+    <string name="error_no_root_access">Root хандалт байхгүй</string>
+    <string name="error_root_access_failed">Root хандалт амжилтгүй</string>
+    <string name="error_permission_denied">Зөвшөөрөл татгалзсан</string>
+    <string name="error_storage_not_accessible">Хадгалах санд хандах боломжгүй</string>
+    <string name="error_operation_failed">Үйлдэл амжилтгүй</string>
+    <string name="error_file_not_found">Файл олдсонгүй</string>
+    <string name="error_insufficient_space">Зай хүрэлцэхгүй</string>
+    <string name="error_unknown">Үл мэдэгдэх алдаа</string>
+</resources>

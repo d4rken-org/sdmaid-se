@@ -1,2 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="dashboard_delete_all_message">Futa matokeo katika zana zote?</string>
+    <string name="dashboard_settings_category">Dashibodi</string>
+    <string name="dashboard_motd_title">Ujumbe kutoka kwa msanidi programu</string>
+    <string name="dashboard_settings_oneclick_title">Hali ya Kubofya Mara Moja</string>
+    <string name="dashboard_settings_oneclick_summary">Anza uchunguzi na kufuta kwa zana zote kwa kubofya kitufe cha kitendo cha dashibodi, bila uthibitisho wa ziada.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Zana za Kubofya Mara Moja</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Ni zana zipi zinapaswa kujumuishwa katika shughuli za kubofya mara moja?</string>
+
+    <string name="debug_debuglog_size_label">Ukubwa</string>
+    <string name="debug_debuglog_size_compressed_label">Ukubwa uliobanwa</string>
+    <string name="debug_notification_channel_label">Arifa za marekebisho</string>
+    <string name="debug_debuglog_file_label">Faili la rekodi lililoandikwa</string>
+    <string name="debug_debuglog_recording_progress">Inaandika rekodi ya marekebisho</string>
+    <string name="debug_debuglog_record_action">Andika rekodi ya marekebisho</string>
+    <string name="debug_debuglog_stop_action">Acha kuandika</string>
+    <string name="debug_debuglog_sensitive_information_message">Faili lililotengenezwa lina maelezo ya siri (k.m. majina ya mafaili na programu zilizosakiniwa). Shiriki tu na wahusika wanaoweza kuaminika.</string>
+    <string name="settings_debuglog_explanation">Kipengele hiki kinarekodi kila kitu programu inachofanya katika faili linaweza kushirikishwa. Faili lililotengenezwa lina maelezo ya siri (k.m. majina ya mafaili na programu zilizosakiniwa). Shiriki tu na wahusika wanaoweza kuaminika (k.m. msanidi programu anayetatua tatizo).</string>
+
+    <string name="tasks_activity_notification_channel_label">Kazi zinazofanya kazi</string>
+    <string name="tasks_activity_working_notification_title">SD Maid inafanya kazi</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="one">kazi %d inayofanya kazi</item>
+        <item quantity="other">kazi %d zinazofanya kazi</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="one">kazi %d kwenye foleni</item>
+        <item quantity="other">kazi %d kwenye foleni</item>
+    </plurals>
+    <string name="tasks_result_notification_channel_label">Matokeo ya kazi</string>
+    <string name="tasks_result_subtext">Tokeo la kazi</string>
+
+    <string name="onboarding_welcome_title">Karibu</string>
+    <string name="onboarding_welcome_body1">SD Maid SE inasimamia mafaili, programu na hifadhi.</string>
+    <string name="onboarding_welcome_body2">Pata nafasi ya kuhifadhi kwa kusafisha nyuma ya programu nyingine. Futa mafaili yanayoweza kutumika na ondoa data iliyobaki.</string>
+    <string name="onboarding_welcome_body_beta">Hii ni toleo la beta (la majaribio). Endelea na hali ya kicheko na mpango wa kuhifadhi. Tafadhali ripoti matatizo unayokutana nayo.</string>
+    <string name="onboarding_welcome_continue_action">Endelea</string>
+
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (yaani SD Maid 2) ni mrithi wa SD Maid (yaani SD Maid 1). Programu mpya, iliyoboresha kwa Android ya kisasa.</string>
+    <string name="onboarding_versus_body2">Muundo wa kale una umri wa zaidi ya miaka 7 na haukunundwa kwa changamoto za matoleo mapya ya Android. Muundo mpya kamili ulikuwa muhimu ili kuendelea na maendeleo.</string>
+    <string name="onboarding_versus_body3">Fikiria kubadilisha kwenda SD Maid SE kwa matokeo bora zaidi.</string>
+    <string name="onboarding_versus_body4">Hali ya \"pro\" ya SD Maid 1 kwa bahati mbaya haiwezi kuhamishiwa kwenda SD Maid 2/SE. Baada ya miaka 12 ya masasisho ya bure, ununuzi mpya unahitajika kudumisha maendeleo (kulisha msanidi programu).</string>
+    <string name="onboarding_versus_continue_action">Endelea</string>
+
+    <string name="onboarding_privacy_title">Faragha</string>
+    <string name="onboarding_privacy_body1">SD Maid haina matangazo na haiuzi data ya watumiaji.</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">Ripoti za makosa zinatumwa makosa yanapotokea na zinaweza kuwa na maelezo kuhusu programu na mafaili kwenye kifaa chako. Ripoti zinanisaidia kurekebisha makosa na kuboresha programu.</string>
+    <string name="onboarding_privacy_bugreport_toggle">Ruhusu ripoti za makosa za kiotomatiki</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">Chaguo hizi zinaweza kubadilishwa katika mipangilio.</string>
+
+    <string name="onboarding_permissions_title">Ruhusa</string>
+    <string name="onboarding_permissions_body">SD Maid SE inahitaji ruhusa zifuatazo ili kufanya kazi kikamilifu:</string>
+    <string name="onboarding_permissions_continue_action">Endelea</string>
+
+    <string name="onboarding_setup_title">Usanidi</string>
+    <string name="onboarding_setup_body">Kutumia uwezo wote wa SD Maid SE kunaweza kuhitaji usanidi wa ziada.</string>
+    <string name="onboarding_setup_continue_action">Endelea</string>
+
+    <string name="onboarding_finished_title">Tayari!</string>
+    <string name="onboarding_finished_body">SD Maid SE iko tayari kutumika. Nenda kwenye dashibodi na anze uchunguzi wako wa kwanza!</string>
+    <string name="onboarding_finished_continue_action">Nenda kwenye dashibodi</string>
+
+    <string name="systemcleaner_title">Kisafishaji cha Mfumo</string>
+    <string name="systemcleaner_subtitle">Futa kache za mfumo na mafaili ya muda</string>
+    <string name="systemcleaner_scan_action">Chunguza</string>
+    <string name="systemcleaner_delete_action">Futa</string>
+    <string name="systemcleaner_progress_scanning">Inachunguza...</string>
+    <string name="systemcleaner_progress_deleting">Inafuta...</string>
+    <string name="systemcleaner_result_nothing_found">Hakuna kilikopatikana</string>
+    <string name="systemcleaner_result_found_files">Mafaili %d yamepatikana</string>
+    <string name="systemcleaner_result_deleted_files">Mafaili %d yamefutwa</string>
+
+    <string name="appcleaner_title">Kisafishaji cha Programu</string>
+    <string name="appcleaner_subtitle">Futa kache za programu na mafaili ya muda</string>
+    <string name="appcleaner_scan_action">Chunguza</string>
+    <string name="appcleaner_delete_action">Futa</string>
+    <string name="appcleaner_progress_scanning">Inachunguza...</string>
+    <string name="appcleaner_progress_deleting">Inafuta...</string>
+    <string name="appcleaner_result_nothing_found">Hakuna kilikopatikana</string>
+
+    <string name="analyzer_title">Kichambua</string>
+    <string name="analyzer_subtitle">Chambua matumizi ya hifadhi</string>
+    <string name="analyzer_scan_action">Chunguza</string>
+    <string name="analyzer_progress_scanning">Inachunguza...</string>
+
+    <string name="corpsefinder_title">Kitafuta Mizoga</string>
+    <string name="corpsefinder_subtitle">Pata mafaili yaliyobaki kutoka programu zilizoondolewa</string>
+    <string name="corpsefinder_scan_action">Chunguza</string>
+    <string name="corpsefinder_delete_action">Futa</string>
+
+    <string name="deduplicator_title">Kiondoa Nakala</string>
+    <string name="deduplicator_subtitle">Pata na ufute mafaili yaliyonakiliwa</string>
+    <string name="deduplicator_scan_action">Chunguza</string>
+    <string name="deduplicator_delete_action">Futa</string>
+
+    <string name="settings_title">Mipangilio</string>
+    <string name="settings_general_category">Jumla</string>
+    <string name="settings_theme_title">Mandhari</string>
+    <string name="settings_theme_auto">Kiotomatiki</string>
+    <string name="settings_theme_light">Nyepesi</string>
+    <string name="settings_theme_dark">Nyeusi</string>
+    <string name="settings_language_title">Lugha</string>
+    <string name="settings_language_auto">Kiotomatiki</string>
+
+    <string name="settings_privacy_category">Faragha</string>
+    <string name="settings_bugreports_title">Ripoti za makosa</string>
+    <string name="settings_bugreports_summary">Tuma ripoti za kiotomatiki makosa yanapotokea</string>
+
+    <string name="settings_advanced_category">Ya juu</string>
+    <string name="settings_debug_title">Marekebisho</string>
+    <string name="settings_debug_summary">Wezesha vipengele vya marekebisho</string>
+
+    <string name="general_yes">Ndiyo</string>
+    <string name="general_no">Hapana</string>
+    <string name="general_cancel">Ghairi</string>
+    <string name="general_ok">Sawa</string>
+    <string name="general_delete">Futa</string>
+    <string name="general_share">Shiriki</string>
+    <string name="general_close">Funga</string>
+    <string name="general_continue">Endelea</string>
+    <string name="general_skip">Ruka</string>
+    <string name="general_refresh">Onyesha upya</string>
+    <string name="general_loading">Inapakia...</string>
+    <string name="general_working">Inafanya kazi...</string>
+    <string name="general_done">Imekamilika</string>
+    <string name="general_error">Kosa</string>
+    <string name="general_warning">Onyo</string>
+    <string name="general_info">Maelezo</string>
+
+    <string name="general_progress_loading">Inapakia...</string>
+    <string name="general_progress_deleting">Inafuta...</string>
+    <string name="general_progress_working">Inafanya kazi...</string>
+
+    <string name="general_ms_format">%d ms</string>
+    <string name="general_kb_format">%.1f KB</string>
+    <string name="general_mb_format">%.1f MB</string>
+    <string name="general_gb_format">%.1f GB</string>
+
+    <string name="general_result_success_format">Imefanikiwa: %s</string>
+    <string name="general_result_failure_format">Imeshindwa: %s</string>
+
+    <plurals name="general_result_x_items">
+        <item quantity="one">kipengele %d</item>
+        <item quantity="other">vipengele %d</item>
+    </plurals>
+    <plurals name="general_result_x_files">
+        <item quantity="one">faili %d</item>
+        <item quantity="other">mafaili %d</item>
+    </plurals>
+    <plurals name="general_result_x_folders">
+        <item quantity="one">folda %d</item>
+        <item quantity="other">mafolda %d</item>
+    </plurals>
+
+    <string name="storage_space_free">Nafasi iliyo wazi</string>
+    <string name="storage_space_used">Imetumika</string>
+    <string name="storage_space_total">Jumla</string>
+
+    <string name="permission_request_title">Ombi la Ruhusa</string>
+    <string name="permission_request_body">SD Maid SE inahitaji ruhusa hii ili kufanya kazi vizuri.</string>
+    <string name="permission_grant_action">Toa Ruhusa</string>
+
+    <string name="error_no_root_access">Hakuna ufikiaji wa root</string>
+    <string name="error_root_access_failed">Ufikiaji wa root umeshindwa</string>
+    <string name="error_permission_denied">Ruhusa imekataliwa</string>
+    <string name="error_storage_not_accessible">Hifadhi haifikieki</string>
+    <string name="error_operation_failed">Shughuli imeshindwa</string>
+    <string name="error_file_not_found">Faili halijapatikana</string>
+    <string name="error_insufficient_space">Nafasi haitoshi</string>
+    <string name="error_unknown">Kosa lisilojulikana</string>
+</resources>

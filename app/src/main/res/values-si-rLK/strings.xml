@@ -1,17 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="dashboard_delete_all_message">සියලුම මෙවලම්වල ප්‍රතිඵල මකා දමන්නද?</string>
     <string name="dashboard_settings_category">උපකරණ පුවරුව</string>
+    <string name="dashboard_motd_title">සංවර්ධකයෙන් පණිවිඩයක්</string>
+    <string name="dashboard_settings_oneclick_title">එක්-ස්පර්ශ ආකාරය</string>
+    <string name="dashboard_settings_oneclick_summary">උපකරණ පුවරුවේ ක්‍රියා බොත්තමේ ස්පර්ශයකින් සියලුම මෙවලම් සඳහා ස්කෑන් කිරීම සහ මකාදැමීම ආරම්භ කරන්න, අමතර තහවුරු කිරීම් නැත.</string>
+    <string name="dashboard_settings_oneclick_tools_title">එක්-ස්පර්ශ මෙවලම්</string>
+    <string name="dashboard_settings_oneclick_tools_desc">එක්-ස්පර්ශ මෙහෙයුම්වලට කුමන මෙවලම් ඇතුළත් කළ යුතුද?</string>
+
     <string name="debug_debuglog_size_label">ප්‍රමාණය</string>
+    <string name="debug_debuglog_size_compressed_label">සම්පීඩිත ප්‍රමාණය</string>
+    <string name="debug_notification_channel_label">දෝෂ නිරාකරණ දැනුම්දීම්</string>
+    <string name="debug_debuglog_file_label">රේඛගත කරන ලද ලොග් ගොනුව</string>
+    <string name="debug_debuglog_recording_progress">දෝෂ නිරාකරණ ලොගය රේඛගත කරමින්</string>
+    <string name="debug_debuglog_record_action">දෝෂ නිරාකරණ ලොගය රේඛගත කරන්න</string>
+    <string name="debug_debuglog_stop_action">රේඛගත කිරීම නවත්වන්න</string>
+    <string name="debug_debuglog_sensitive_information_message">ජනනය කරන ලද ගොනුවේ සංවේදී තොරතුරු (උදා. ගොනු නම් සහ ස්ථාපිත යෙදුම්) අඩංගු වේ. විශ්වාසදායක පාර්ශ්වයන් සමඟ පමණක් බෙදාගන්න.</string>
+    <string name="settings_debuglog_explanation">මෙම විශේෂාංගය යෙදුම කරන සියල්ල බෙදාගත හැකි ගොනුවකට රේඛගත කරයි. ජනනය කරන ලද ගොනුවේ සංවේදී තොරතුරු (උදා. ගොනු නම් සහ ස්ථාපිත යෙදුම්) අඩංගු වේ. විශ්වාසදායක පාර්ශ්වයන් සමඟ පමණක් බෙදාගන්න (උදා. ගැටලුවක් විසඳන සංවර්ධකයෙකු).</string>
+
+    <string name="tasks_activity_notification_channel_label">සක්‍රිය කාර්යයන්</string>
+    <string name="tasks_activity_working_notification_title">SD Maid ක්‍රියාත්මක වෙමින්</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="one">%d සක්‍රිය කාර්යය</item>
+        <item quantity="other">%d සක්‍රිය කාර්යයන්</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="one">%d කාර්යය පෝලිමේ</item>
+        <item quantity="other">%d කාර්යයන් පෝලිමේ</item>
+    </plurals>
+    <string name="tasks_result_notification_channel_label">කාර්ය ප්‍රතිඵල</string>
+    <string name="tasks_result_subtext">කාර්ය ප්‍රතිඵලය</string>
+
+    <string name="onboarding_welcome_title">සාදරයෙන් පිළිගනිමු</string>
+    <string name="onboarding_welcome_body1">SD Maid SE ගොනු, යෙදුම් සහ ආචයනය කළමනාකරණය කරයි.</string>
+    <string name="onboarding_welcome_body2">වෙනත් යෙදුම් පිටුපස පිරිසිදු කිරීමෙන් ආචයන ඉඩ ලබාගන්න. වියදම් කළ හැකි ගොනු මකා ඉතිරි දත්ත ඉවත් කරන්න.</string>
+    <string name="onboarding_welcome_body_beta">මෙය beta (පරීක්ෂණ) ගොඩනැගීමකි. හාස්‍යමය හැඟීමක් සහ උපස්ථ සැලසුමක් සහිතව ඉදිරියට යන්න. ඔබට මුහුණ දෙන ගැටලු වාර්තා කරන්න.</string>
+    <string name="onboarding_welcome_continue_action">ඉදිරියට</string>
+
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (SD Maid 2 ලෙසද හඳුන්වනු ලබයි) SD Maid (SD Maid 1 ලෙසද හඳුන්වනු ලබයි) හි අනුප්‍රාප්තිකයා වේ. නවීන Android සඳහා ප්‍රශස්ත කරන ලද නව යෙදුමකි.</string>
+    <string name="onboarding_versus_body2">එහි පූර්වගාමියාගේ ගෘහ නිර්මාණ ශිල්පය වසර 7කට වඩා පැරණි වන අතර නවීන Android අනුවාදවල අභියෝගයන් සඳහා සැලසුම් කර නොමැත. සංවර්ධනය ඉදිරියට ගෙන යාම සඳහා සම්පූර්ණ ප්‍රතිසැකසුමක් අවශ්‍ය විය.</string>
+    <string name="onboarding_versus_body3">වැඩි දියුණු ප්‍රතිඵල සඳහා SD Maid SE වෙත මාරුවීම සලකා බලන්න.</string>
+    <string name="onboarding_versus_body4">SD Maid 1 හි \"pro status\" අවාසනාවකට මෙන් SD Maid 2/SE වෙත හුවමාරු කළ නොහැක. වසර 12ක නොමිලේ යාවත්කාලීන කිරීම්වලින් පසුව, සංවර්ධනය පවත්වා ගැනීම සඳහා (සංවර්ධකයා පෝෂණය කිරීම) නව මිලදී ගැනීමක් අවශ්‍ය වේ.</string>
+    <string name="onboarding_versus_continue_action">ඉදිරියට</string>
+
+    <string name="onboarding_privacy_title">පෞද්ගලිකත්වය</string>
+    <string name="onboarding_privacy_body1">SD Maid හි වෙළඳ දැන්වීම් නොමැති අතර පරිශීලක දත්ත විකුණන්නේ නැත.</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">දෝෂ ඇති වූ විට දෝෂ වාර්තා යවනු ලබන අතර ඔබේ උපකරණයේ යෙදුම් සහ ගොනු පිළිබඳ විස්තර අඩංගු විය හැක. වාර්තා මට දෝෂ නිවැරදි කිරීමට සහ යෙදුම වැඩිදියුණු කිරීමට උපකාරී වේ.</string>
+    <string name="onboarding_privacy_bugreport_toggle">ස්වයංක්‍රීය දෝෂ වාර්තාවලට ඉඩ දෙන්න</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">මෙම විකල්ප සැකසීම්වලින් වෙනස් කළ හැක.</string>
     <string name="onboarding_privacy_continue_action">ඉදිරියට</string>
+
+    <string name="onboarding_setup_title">පිහිටුවීම</string>
+    <string name="onboarding_setup_body1">SD Maid සියලුම ප්‍රවේශ විය හැකි දත්ත ප්‍රදේශ සොයනු ඇත.</string>
+    <string name="onboarding_setup_body2">ප්‍රවේශ විය හැකි දේ ඔබේ උපකරණය, Android අනුවාදය සහ ලබා දී ඇති අවසර මත රඳා පවතී.</string>
+    <string name="onboarding_setup_body3">සෙවිය යුතු ප්‍රදේශ සඳහා ප්‍රවේශය පිහිටුවීමෙන් SD Maid භාවිතා කිරීම ආරම්භ කරන්න.</string>
+    <string name="onboarding_setup_continue_action">ප්‍රවේශය පිහිටුවන්න</string>
+
+    <string name="settings_privacy_policy_label">පෞද්ගලිකත්ව ප්‍රතිපත්තිය</string>
+    <string name="settings_privacy_policy_desc">දත්ත වගකීමෙන් හැසිරවීම.</string>
     <string name="settings_licenses_label">බලපත්‍ර</string>
     <string name="settings_category_other_label">වෙනත්</string>
+    <string name="settings_category_filter_generic">සාමාන්‍ය පෙරණය</string>
+    <string name="settings_category_filter_specific">විශේෂිත පෙරණය</string>
+    <string name="settings_sponsor_development_title">සංවර්ධනයට අනුග්‍රාහකත්වය</string>
+    <string name="settings_sponsor_development_summary">අනුග්‍රාහකයෙකු වන්න සහ අඛණ්ඩ සංවර්ධනය සුළු කරන්න.</string>
+    <string name="general_settings_label">සාමාන්‍ය</string>
+    <string name="general_settings_desc">සමස්ත යෙදුම බලපාන සාමාන්‍ය සකසන.</string>
+    <string name="settings_category_ui_label">පරිශීලක අතුරුමුඛය</string>
+    <string name="ui_theme_mode_setting_label">තේමා ප්‍රකාරය</string>
+    <string name="ui_theme_mode_setting_explanation">යෙදුම තේමා කිරීමේදී භාවිතා කරන ප්‍රකාරය (උදා. රාත්‍රිය හෝ දිවා).</string>
+    <string name="ui_theme_mode_dark_label">අඳුරු</string>
+    <string name="ui_theme_mode_light_label">ආලෝකමත්</string>
+    <string name="ui_theme_mode_system_label">පද්ධතිය</string>
+    <string name="ui_theme_style_setting_label">තේමා මෝදය</string>
+    <string name="ui_theme_style_setting_explanation">යෙදුම තේමා කිරීමේදී භාවිතා කරන වර්ණ මෝදය.</string>
+    <string name="ui_theme_style_default_label">පෙරනිමි</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_previews_title">ගොනු පූර්ව දසුන්</string>
+    <string name="ui_previews_summary">සියලුම මෙවලම්වල ගොනු පූර්ව දසුන් පෙන්වන්න (උදා. රූප සහ වීඩියෝ සිඟිති රූප).</string>
+    <string name="ui_language_override_label">යෙදුම් භාෂාව</string>
+    <string name="ui_language_override_desc">ඔබේ පද්ධතියේ පෙරනිමි භාෂාවෙන් ස්වාධීනව SD Maid සඳහා වෙනස් භාෂාවක් තෝරන්න. දැනට: %s</string>
     <string name="settings_support_label">සහාය</string>
+    <string name="settings_support_description">ප්‍රලේඛන කියවන්න, ගැටලු වාර්තා කරන්න, අන්‍යයන් සමඟ කතාබහ කරන්න හෝ දෝෂ නිරාකරණ ලොග් වාර්තා කරන්න.</string>
     <string name="documentation_label">ප්‍රලේඛනය</string>
+    <string name="issue_tracker_description">දෝෂ වාර්තා සහ විශේෂාංග ඉල්ලීම් සඳහා පොදු ගැටලු ට්‍රැකර්.</string>
+    <string name="issue_tracker_label">ගැටලු ට්‍රැකර්</string>
     <string name="support_installid_label">ස්ථාපන හැඳු.</string>
+    <string name="support_installid_desc">ස්වයංක්‍රීය දෝෂ වාර්තා නිර්නාමික ය. සංවර්ධකයාට ඔබේ දෝෂ වාර්තා සොයා ගැනීමට අවශ්‍ය නම් ඔබේ ස්ථාපන හැඳුනුම්පත බෙදාගන්න.</string>
+    <string name="support_debuglog_label">දෝෂ නිරාකරණ ලොගය</string>
+    <string name="support_debuglog_desc">යෙදුම කරන සියල්ල ඔබට බෙදාගත හැකි පෙළ ගොනුවකට වාර්තා කරන්න.</string>
     <string name="discord_label">ඩිස්කෝඩ්</string>
+    <string name="discord_description">සැරිසැරීමට සහ ප්‍රශ්න ඇසීමට තැනක්.</string>
     <string name="changelog_label">වෙනස්කම් සටහන</string>
     <string name="setup_label">පිහිටුවීම</string>
     <string name="setup_title">පිහිටුවීම</string>
     <string name="setup_notification_title">දැනුම්දීම්</string>
     <string name="settings_category_tools_label">මෙවලම්</string>
+    <string name="settings_category_filter">පෙරණය</string>
+    <string name="settings_category_risklevel">අවදානම් මට්ටම</string>
 </resources>

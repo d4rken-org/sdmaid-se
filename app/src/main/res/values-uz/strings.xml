@@ -1,2 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="dashboard_delete_all_message">Barcha vositalardan natijalarni o\'chirish kerakmi?</string>
+    <string name="dashboard_settings_category">Boshqaruv paneli</string>
+    <string name="dashboard_motd_title">Ishlab chiqaruvchidan xabar</string>
+    <string name="dashboard_settings_oneclick_title">Bir marta bosish rejimi</string>
+    <string name="dashboard_settings_oneclick_summary">Boshqaruv panelining harakat tugmasini bir marta bosish bilan barcha vositalar uchun skanerlash va o\'chirishni boshlang, qo\'shimcha tasdiqlarsiz.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Bir marta bosish vositalari</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Qaysi vositalar bir marta bosish operatsiyalariga kiritilishi kerak?</string>
+
+    <string name="debug_debuglog_size_label">Hajmi</string>
+    <string name="debug_debuglog_size_compressed_label">Siqilgan hajmi</string>
+    <string name="debug_notification_channel_label">Nosozliklarni tuzatish bildirishlari</string>
+    <string name="debug_debuglog_file_label">Yozib olingan jurnal fayli</string>
+    <string name="debug_debuglog_recording_progress">Nosozliklarni tuzatish jurnali yozilmoqda</string>
+    <string name="debug_debuglog_record_action">Nosozliklarni tuzatish jurnalini yozish</string>
+    <string name="debug_debuglog_stop_action">Yozishni to\'xtatish</string>
+    <string name="debug_debuglog_sensitive_information_message">Yaratilgan fayl maxfiy ma\'lumotlarni o\'z ichiga oladi (masalan, fayl nomlari va o\'rnatilgan ilovalar). Uni faqat ishonchli tomonlar bilan baham ko\'ring.</string>
+    <string name="settings_debuglog_explanation">Bu xususiyat ilovaning barcha faoliyatini baham ko\'rish mumkin bo\'lgan faylga yozadi. Yaratilgan fayl maxfiy ma\'lumotlarni o\'z ichiga oladi (masalan, fayl nomlari va o\'rnatilgan ilovalar). Uni faqat ishonchli tomonlar bilan baham ko\'ring (masalan, muammoni hal qilayotgan ishlab chiqaruvchi).</string>
+
+    <string name="tasks_activity_notification_channel_label">Faol vazifalar</string>
+    <string name="tasks_activity_working_notification_title">SD Maid ishlayapti</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="one">%d faol vazifa</item>
+        <item quantity="other">%d faol vazifa</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="one">%d vazifa navbatda</item>
+        <item quantity="other">%d vazifa navbatda</item>
+    </plurals>
+    <string name="tasks_result_notification_channel_label">Vazifa natijalari</string>
+    <string name="tasks_result_subtext">Vazifa natijasi</string>
+
+    <string name="onboarding_welcome_title">Xush kelibsiz</string>
+    <string name="onboarding_welcome_body1">SD Maid SE fayllar, ilovalar va xotirani boshqaradi.</string>
+    <string name="onboarding_welcome_body2">Boshqa ilovalar ortidagi axlatni tozalash orqali xotira joyini bo\'shating. Keraksiz fayllarni o\'chiring va qolgan ma\'lumotlarni olib tashlang.</string>
+    <string name="onboarding_welcome_body_beta">Bu beta (sinov) versiyasidir. Hazil tuyg\'usi va zaxira reja bilan davom eting. Iltimos, duch kelgan muammolarni xabar qiling.</string>
+    <string name="onboarding_welcome_continue_action">Davom etish</string>
+
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+    <string name="onboarding_versus_body1">SD Maid SE (ya\'ni SD Maid 2) SD Maid (ya\'ni SD Maid 1)ning vorisi hisoblanadi. Zamonaviy Android uchun optimallashtirilgan yangi ilova.</string>
+    <string name="onboarding_versus_body2">Uning oldingi versiyasining arxitekturasi 7 yoshdan oshiq va yangi Android versiyalarining qiyinchiliklari uchun mo\'ljallanmagan. Rivojlanishni davom ettirish uchun to\'liq qayta loyihalash zarur edi.</string>
+    <string name="onboarding_versus_body3">Yaxshiroq natijalar uchun SD Maid SE ga o\'tishni ko\'rib chiqing.</string>
+    <string name="onboarding_versus_body4">SD Maid 1ning \"pro holati\" afsuski SD Maid 2/SE ga o\'tkazib bo\'lmaydi. 12 yillik bepul yangilanishlardan so\'ng, rivojlanishni davom ettirish uchun (ishlab chiqaruvchini boqish) yangi xarid talab qilinadi.</string>
+    <string name="onboarding_versus_continue_action">Davom etish</string>
+
+    <string name="onboarding_privacy_title">Maxfiylik</string>
+    <string name="onboarding_privacy_body1">SD Maid da reklamalar yo\'q va foydalanuvchi ma\'lumotlarini sotmaydi.</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">Xatolar yuz berganda xato hisobotlari yuboriladi va qurilmangizdagi ilovalar va fayllar haqida tafsilotlarni o\'z ichiga olishi mumkin. Hisobotlar menga xatolarni tuzatish va ilovani yaxshilashga yordam beradi.</string>
+    <string name="onboarding_privacy_bugreport_toggle">Avtomatik xato hisobotlariga ruxsat berish</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">Bu variantlarni sozlamalarda o\'zgartirish mumkin.</string>
+
+    <string name="onboarding_permissions_title">Ruxsatlar</string>
+    <string name="onboarding_permissions_body">SD Maid SE ning to\'liq funksional bo\'lishi uchun quyidagi ruxsatlar kerak:</string>
+    <string name="onboarding_permissions_continue_action">Davom etish</string>
+
+    <string name="onboarding_setup_title">O\'rnatish</string>
+    <string name="onboarding_setup_body">SD Maid SE ning barcha imkoniyatlaridan foydalanish uchun ba\'zi qo\'shimcha sozlamalar kerak bo\'lishi mumkin.</string>
+    <string name="onboarding_setup_continue_action">Davom etish</string>
+
+    <string name="onboarding_finished_title">Tayyor!</string>
+    <string name="onboarding_finished_body">SD Maid SE ishlatishga tayyor. Boshqaruv paneliga o\'ting va birinchi skanerlashni boshlang!</string>
+    <string name="onboarding_finished_continue_action">Boshqaruv paneliga o\'tish</string>
+
+    <string name="systemcleaner_title">Tizim tozalagichi</string>
+    <string name="systemcleaner_subtitle">Tizim keshlarini va vaqtincha fayllarni o\'chirish</string>
+    <string name="systemcleaner_scan_action">Skanerlash</string>
+    <string name="systemcleaner_delete_action">O\'chirish</string>
+    <string name="systemcleaner_progress_scanning">Skanerlashda...</string>
+    <string name="systemcleaner_progress_deleting">O\'chirilmoqda...</string>
+    <string name="systemcleaner_result_nothing_found">Hech narsa topilmadi</string>
+    <string name="systemcleaner_result_found_files">%d fayl topildi</string>
+    <string name="systemcleaner_result_deleted_files">%d fayl o\'chirildi</string>
+
+    <string name="appcleaner_title">Ilova tozalagichi</string>
+    <string name="appcleaner_subtitle">Ilovalar keshlarini va vaqtincha fayllarini o\'chirish</string>
+    <string name="appcleaner_scan_action">Skanerlash</string>
+    <string name="appcleaner_delete_action">O\'chirish</string>
+    <string name="appcleaner_progress_scanning">Skanerlashda...</string>
+    <string name="appcleaner_progress_deleting">O\'chirilmoqda...</string>
+    <string name="appcleaner_result_nothing_found">Hech narsa topilmadi</string>
+
+    <string name="analyzer_title">Tahlilchi</string>
+    <string name="analyzer_subtitle">Xotira foydalanishini tahlil qilish</string>
+    <string name="analyzer_scan_action">Skanerlash</string>
+    <string name="analyzer_progress_scanning">Skanerlashda...</string>
+
+    <string name="corpsefinder_title">Qoldiq topuvchi</string>
+    <string name="corpsefinder_subtitle">O\'chirilgan ilovalardan qolgan fayllarni topish</string>
+    <string name="corpsefinder_scan_action">Skanerlash</string>
+    <string name="corpsefinder_delete_action">O\'chirish</string>
+
+    <string name="deduplicator_title">Dublikat o\'chiruvchi</string>
+    <string name="deduplicator_subtitle">Takroriy fayllarni topish va o\'chirish</string>
+    <string name="deduplicator_scan_action">Skanerlash</string>
+    <string name="deduplicator_delete_action">O\'chirish</string>
+
+    <string name="settings_title">Sozlamalar</string>
+    <string name="settings_general_category">Umumiy</string>
+    <string name="settings_theme_title">Mavzu</string>
+    <string name="settings_theme_auto">Avtomatik</string>
+    <string name="settings_theme_light">Yorqin</string>
+    <string name="settings_theme_dark">Qorong\'i</string>
+    <string name="settings_language_title">Til</string>
+    <string name="settings_language_auto">Avtomatik</string>
+
+    <string name="settings_privacy_category">Maxfiylik</string>
+    <string name="settings_bugreports_title">Xato hisobotlari</string>
+    <string name="settings_bugreports_summary">Xatolar yuz berganda avtomatik hisobotlar yuborish</string>
+
+    <string name="settings_advanced_category">Kengaytirilgan</string>
+    <string name="settings_debug_title">Nosozliklarni tuzatish</string>
+    <string name="settings_debug_summary">Nosozliklarni tuzatish imkoniyatlarini yoqish</string>
+
+    <string name="general_yes">Ha</string>
+    <string name="general_no">Yo\'q</string>
+    <string name="general_cancel">Bekor qilish</string>
+    <string name="general_ok">OK</string>
+    <string name="general_delete">O\'chirish</string>
+    <string name="general_share">Baham ko\'rish</string>
+    <string name="general_close">Yopish</string>
+    <string name="general_continue">Davom etish</string>
+    <string name="general_skip">O\'tkazib yuborish</string>
+    <string name="general_refresh">Yangilash</string>
+    <string name="general_loading">Yuklanmoqda...</string>
+    <string name="general_working">Ishlayapti...</string>
+    <string name="general_done">Bajarildi</string>
+    <string name="general_error">Xato</string>
+    <string name="general_warning">Ogohlantirish</string>
+    <string name="general_info">Ma\'lumot</string>
+
+    <string name="general_progress_loading">Yuklanmoqda...</string>
+    <string name="general_progress_deleting">O\'chirilmoqda...</string>
+    <string name="general_progress_working">Ishlayapti...</string>
+
+    <string name="general_ms_format">%d ms</string>
+    <string name="general_kb_format">%.1f KB</string>
+    <string name="general_mb_format">%.1f MB</string>
+    <string name="general_gb_format">%.1f GB</string>
+
+    <string name="general_result_success_format">Muvaffaqiyatli: %s</string>
+    <string name="general_result_failure_format">Muvaffaqiyatsiz: %s</string>
+
+    <plurals name="general_result_x_items">
+        <item quantity="one">%d element</item>
+        <item quantity="other">%d element</item>
+    </plurals>
+    <plurals name="general_result_x_files">
+        <item quantity="one">%d fayl</item>
+        <item quantity="other">%d fayl</item>
+    </plurals>
+    <plurals name="general_result_x_folders">
+        <item quantity="one">%d papka</item>
+        <item quantity="other">%d papka</item>
+    </plurals>
+
+    <string name="storage_space_free">Bo\'sh joy</string>
+    <string name="storage_space_used">Ishlatilgan</string>
+    <string name="storage_space_total">Jami</string>
+
+    <string name="permission_request_title">Ruxsat so\'rovi</string>
+    <string name="permission_request_body">SD Maid SE ning to\'g\'ri ishlashi uchun bu ruxsat kerak.</string>
+    <string name="permission_grant_action">Ruxsat berish</string>
+
+    <string name="error_no_root_access">Root ruxsatiga ega emas</string>
+    <string name="error_root_access_failed">Root ruxsatiga kirish muvaffaqiyatsiz</string>
+    <string name="error_permission_denied">Ruxsat rad etildi</string>
+    <string name="error_storage_not_accessible">Xotiraga kirish mumkin emas</string>
+    <string name="error_operation_failed">Operatsiya muvaffaqiyatsiz</string>
+    <string name="error_file_not_found">Fayl topilmadi</string>
+    <string name="error_insufficient_space">Yetarli joy yo\'q</string>
+    <string name="error_unknown">Noma\'lum xato</string>
+</resources>
