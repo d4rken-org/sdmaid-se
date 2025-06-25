@@ -20,6 +20,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.memory.MemoryMonitor
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.common.updater.UpdateService
@@ -48,6 +49,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var updateService: UpdateService
     @Inject lateinit var theming: Theming
     @Inject lateinit var coilTempFiles: CoilTempFiles
+    @Inject lateinit var memoryMonitor: MemoryMonitor
 
     private val logCatLogger = LogCatLogger()
 
@@ -86,6 +88,8 @@ open class App : Application(), Configuration.Provider {
 
         theming.setup()
 
+        memoryMonitor.register()
+
         appScope.launch { coilTempFiles.cleanUp() }
         Coil.setImageLoader(imageLoaderFactory)
 
@@ -94,6 +98,12 @@ open class App : Application(), Configuration.Provider {
         val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
             log(TAG, ERROR) { "UNCAUGHT EXCEPTION: ${throwable.asLog()}" }
+
+            if (throwable is OutOfMemoryError) {
+                log(TAG, ERROR) { "OutOfMemoryError detected! Memory risk: ${memoryMonitor.getMemoryPressureRisk()}" }
+                memoryMonitor.logCurrentMemoryState()
+            }
+
             if (oldHandler != null) oldHandler.uncaughtException(thread, throwable) else exitProcess(1)
             Thread.sleep(100)
         }
@@ -117,6 +127,5 @@ open class App : Application(), Configuration.Provider {
 
     companion object {
         internal val TAG = logTag("App")
-        val INIT_AT = System.currentTimeMillis()
     }
 }
