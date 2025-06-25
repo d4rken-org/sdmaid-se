@@ -1,2 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">Til þjónustu.</string>
+    <string name="slogan_message_1">Hreint og snyrtilegur.</string>
+    <string name="slogan_message_2">Kemur í veg fyrir óreiðu.</string>
+    <string name="slogan_message_3">Gerir það sem þarf.</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_5">Blettlaus.</string>
+    <string name="slogan_message_6">Bæti, farið!</string>
+    <string name="slogan_message_7">Laust pláss, glaður staður.</string>
+    <string name="slogan_message_8">Mun aldrei gefast upp á þér.</string>
+
+    <string name="general_thank_you_label">Takk fyrir</string>
+
+    <string name="general_error_type_mismatch_msg">Tegund misræmi: Vildi %1$s, en fékk %2$s.</string>
+    <string name="general_error_cant_access_msg">Get ekki nálgast %s.</string>
+    <string name="general_error_root_unavailable">Root aðgangur er ekki tiltækur.</string>
+    <string name="general_error_empty_result_msg">Niðurstaðan var tóm.</string>
+    <string name="general_error_no_compatible_app_found_msg">Ekkert samhæft forrit fannst til að meðhöndla þessa beiðni.</string>
+    <string name="general_todo_msg">Þessi eiginleiki er enn í vinnslu og ekki tiltækur eins og er.</string>
+    <string name="general_share_action">Deila</string>
+    <string name="general_done_action">Lokið</string>
+    <string name="general_copy_action">Afrita</string>
+    <string name="general_wipe_action">Þurrka</string>
+    <string name="general_cancel_action">Hætta við</string>
+    <string name="general_discard_action">Henda</string>
+    <string name="general_reset_action">Endurstilla</string>
+    <string name="general_save_action">Vista</string>
+    <string name="general_thanks_action">Takk</string>
+    <string name="general_gotit_action">Ég skil</string>
+    <string name="general_fix_action">Laga</string>
+    <string name="general_set_up_action">Setja upp</string>
+    <string name="general_edit_action">Breyta</string>
+    <string name="general_na_label">Á.v.</string>
+    <string name="general_empty_label">Tómt</string>
+    <string name="general_dismiss_action">Hafna</string>
+    <string name="general_maybe_later_action">Kannski síðar</string>
+    <string name="general_manage_action">Stjórna</string>
+    <string name="general_sync_action">Samstilla</string>
+    <string name="general_error_label">Villa</string>
+    <string name="general_tap_hint_msg">Smelltu fyrir fleiri valkosti</string>
+    <string name="general_upgrade_action">Uppfæra</string>
+    <string name="general_donate_action">Gefa</string>
+    <string name="general_check_action">Athuga</string>
+    <string name="general_filter_action">Sía</string>
+    <string name="general_internal_not_available_msg">Nettenging ekki tiltæk</string>
+    <string name="general_refresh_action">Endurnýja</string>
+    <string name="general_progress_searching">Leitar</string>
+    <string name="general_progress_generating_searchpaths">Býr til leitarslóðir</string>
+    <string name="general_progress_filtering">Síar</string>
+    <string name="general_progress_preparing">Undirbýr</string>
+    <string name="general_progress_processing_x">Vinnur úr %s</string>
+    <string name="general_progress_loading">Hleður</string>
+    <string name="general_progress_loading_app_data">Hleður forritsupplýsingum</string>
+    <string name="general_progress_loading_data_areas">Hleður gagnasvæðum</string>
+    <string name="general_progress_loading_egg_0">Enn hraðari en iPhone</string>
+    <string name="general_progress_loading_egg_1">Sækir meira vinnsluminni</string>
+    <string name="general_progress_loading_egg_2">Bráðlega™</string>
+    <string name="general_progress_loading_egg_3">Örgjörvinn er í kaffíhlé</string>
+    <string name="general_progress_loading_egg_4">Bíður eftir gögnum frá Pepe Silvia</string>
+    <string name="general_progress_loading_egg_5">Turbo encabulator er að ræsa</string>
+    <string name="general_progress_loading_egg_6">Sendir smjörið</string>
+    <string name="general_progress_loading_egg_7">Svo. Hvernig þolir þú þetta?</string>
+    <string name="general_progress_loading_egg_8">Bíp búp bop</string>
+    <string name="general_progress_loading_egg_9">Biðminni á lífsvali</string>
+    <string name="general_progress_loading_egg_10">Kallar á Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Þetta er í lagi</string>
+    <string name="general_progress_loading_egg_12">Vinsamlegast bíddu</string>
+    <string name="general_progress_loading_egg_13">Að minnsta kosti ertu ekki í bið</string>
+    <string name="general_help_action">Hjálp</string>
+    <string name="general_continue">Halda áfram</string>
+    <string name="general_progress_queued">Í biðröð</string>
+    <string name="general_progress_deleting">Eyðir</string>
+    <string name="general_progress_deleting_x">Eyðir %s</string>
+    <string name="general_sort_options_label">Röðunarvalkostir</string>
+    <string name="general_sort_reverse_action">Öfug röðunarham</string>
+    <string name="general_tag_filter_label">Sía eftir merkjum</string>
+
+    <string name="general_result_success_message">Aðgerð tókst</string>
+    <string name="general_result_failure_message">Aðgerð mistókst</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s pláss losað.</item>
+        <item quantity="other">%s pláss losað.</item>
+    </plurals>
+
+    <string name="general_options_label">Valkostir</string>
+    <string name="general_details_label">Smáatriði</string>
+    <string name="general_view_action">Skoða</string>
+    <string name="general_update_action">Uppfæra</string>
+    <string name="general_scan_action">Skanna</string>
+    <string name="general_delete_action">Eyða</string>
+    <string name="general_delete_selected_action">Eyða völdum</string>
+    <string name="general_show_details_action">Sýna smáatriði</string>
+    <string name="general_show_all_action">Sýna allt</string>
+    <string name="general_toggle_layout_mode">Skipta um útsýnisham</string>
+
+    <string name="general_delete_confirmation_title">Staðfesta eyðingu</string>
+    <string name="general_delete_confirmation_message_x">Eyða "%s"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Eyða %d völdum hlutum?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d hlut eytt.</item>
+        <item quantity="other">%d hlutum eytt.</item>
+    </plurals>
+
+    <string name="general_remove_action">Fjarlægja</string>
+    <string name="general_remove_selected_action">Fjarlægja valið</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Einum hlut fjarlægt</item>
+        <item quantity="other">%d hlutum fjarlægt</item>
+    </plurals>
+
+    <string name="general_root_required_label">Krefst root</string>
+    <string name="general_root_required_message">Krefst root-aðgangs tækis</string>
+
+    <string name="general_search_action">Leita</string>
+    <string name="general_scan_device_action">Skanna tæki</string>
+    <string name="general_open_system_settings_action">Opna kerfisstillingar</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">%s hlutur</item>
+        <item quantity="other">%s hlutir</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d tókst</item>
+        <item quantity="other">%d tókust</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d mistókst</item>
+        <item quantity="other">%d mistókust</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s má losa</item>
+        <item quantity="other">%s má losa</item>
+    </plurals>
+    <string name="general_info_label">Upplýsingar</string>
+    <string name="general_count_label">Fjöldi</string>
+    <string name="general_app_label">Forrit</string>
+    <string name="general_more_info_action">Frekari upplýsingar</string>
+    <string name="general_grant_access_action">Veita aðgang</string>
+    <string name="general_enable_service_action">Virkja þjónustu</string>
+    <string name="general_undo_action">Afturkalla</string>
+
+    <string name="general_list_select_all_action">Velja allt</string>
+
+    <string name="general_path_label">Slóð</string>
+    <string name="general_type_label">Tegund</string>
+    <string name="general_size_label">Stærð</string>
+    <string name="general_exclude_action">Útiloka</string>
+    <string name="general_exclude_selected_action">Útiloka valið</string>
+
+    <string name="general_device_label">Tæki</string>
+
+    <string name="general_settings_title">Stillingar</string>
+    <string name="general_help_title">Hjálp</string>
+
+    <string name="file_type_symbolic_link">Tengill</string>
+    <string name="file_type_directory">Möppu</string>
+    <string name="file_type_file">Skrá</string>
+    <string name="file_type_unknown">Óþekkt</string>
+
+    <string name="general_progress_ready">Tilbúið</string>
+    <string name="general_progress_done">Lokið</string>
+
+    <string name="general_rom_type_auto_label">Sjálfvirkt (sjálfgefið)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d dagur</item>
+        <item quantity="other">%d dagar</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d klukkustund</item>
+        <item quantity="other">%d klukkustundir</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s skrá</item>
+        <item quantity="other">%s skrár</item>
+    </plurals>
+    <string name="general_advice_title">Ráð</string>
+    <string name="general_error_invalid_input_label">Ógild inntak</string>
+    <string name="general_information_for_the_developer">Upplýsingar fyrir forritara</string>
+    <string name="general_error_report_bug_action">Tilkynna villu</string>
+    <string name="general_error_ipc_deadobject_title">Þjónustutengingu tapað</string>
+    <string name="general_error_ipc_deadobject_description">Tenging við mikilvæga þjónustu (t.d. Magisk, Shizuku eða aðra kerfisstigs þjónustu) tapaðist óvænt. Vinsamlegast endurræstu tækið þitt. Ef vandamálið helst áfram skaltu athuga uppfærslur eða hafa samband við mig svo ég geti lagað það.</string>
+</resources>

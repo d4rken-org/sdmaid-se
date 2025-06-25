@@ -75,6 +75,10 @@
     <string name="general_tag_filter_label">Filtro sipas etiketave</string>
     <string name="general_result_success_message">Operation successful</string>
     <string name="general_result_failure_message">Operacioni dështoi</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Çliroi %s hapësirë.</item>
+        <item quantity="other">Çliroi %s hapësirë.</item>
+    </plurals>
     <string name="general_options_label">Opsione</string>
     <string name="general_details_label">Detajet</string>
     <string name="general_view_action">Pamje</string>
@@ -88,6 +92,10 @@
     <string name="general_delete_confirmation_title">Konfirmo fshirjen</string>
     <string name="general_delete_confirmation_message_x">Të fshihet \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Të fshihen %d artikuj të zgjedhur?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Fshinë %d artikull.</item>
+        <item quantity="other">Fshinë %d artikuj.</item>
+    </plurals>
     <string name="general_remove_action">Hiq</string>
     <string name="general_remove_selected_action">Hiq të zgjedhurin</string>
     <plurals name="general_remove_success_x_items">
@@ -110,6 +118,10 @@
     <plurals name="result_x_failed">
         <item quantity="one">%d dështoi</item>
         <item quantity="other">%d dështoi</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s mund të çlirohet</item>
+        <item quantity="other">%s mund të çlirohet</item>
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Numëroni</string>
@@ -134,8 +146,22 @@
     <string name="general_progress_ready">Gati</string>
     <string name="general_progress_done">E sosur</string>
     <string name="general_rom_type_auto_label">Automatik (bazë)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d ditë</item>
+        <item quantity="other">%d ditë</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d orë</item>
+        <item quantity="other">%d orë</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s skedar</item>
         <item quantity="other">%s skedarë</item>
     </plurals>
+    <string name="general_advice_title">Këshillë</string>
+    <string name="general_error_invalid_input_label">Hyrje e pavlefshme</string>
+    <string name="general_information_for_the_developer">Informacion për zhvilluesin</string>
+    <string name="general_error_report_bug_action">Raporto gabim</string>
+    <string name="general_error_ipc_deadobject_title">Lidhja e shërbimit u ndërpre</string>
+    <string name="general_error_ipc_deadobject_description">Lidhja me një shërbim kritik (p.sh. Magisk, Shizuku, ose shërbime të tjera të nivelit të sistemit) u ndërpre papritur. Ju lutemi rinisni pajisjen tuaj. Nëse problemi vazhdon, kontrolloni për përditësime ose më kontaktoni që ta rregulloj.</string>
 </resources>

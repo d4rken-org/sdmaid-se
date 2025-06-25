@@ -1,2 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">На ваше разположение.</string>
+    <string name="slogan_message_1">Чисто и подредено.</string>
+    <string name="slogan_message_2">Предотвратява хаоса.</string>
+    <string name="slogan_message_3">Прави необходимото.</string>
+    <string name="slogan_message_5">Безупречно.</string>
+    <string name="slogan_message_6">Байтове, изчезнете!</string>
+    <string name="slogan_message_7">Свободно място, щастливо място.</string>
+    <string name="slogan_message_8">Никога няма да се откажа от теб.</string>
+
+    <string name="general_thank_you_label">Благодаря</string>
+
+    <string name="general_error_type_mismatch_msg">Несъответствие на типа: Искаше се %1$s, но получи %2$s.</string>
+    <string name="general_error_cant_access_msg">Не може да се достъпи %s.</string>
+    <string name="general_error_root_unavailable">Root достъпът не е наличен.</string>
+    <string name="general_error_empty_result_msg">Резултатът беше празен.</string>
+    <string name="general_error_no_compatible_app_found_msg">Не е намерено съвместимо приложение за обработка на тази заявка.</string>
+    <string name="general_todo_msg">Тази функция все още се разработва и в момента не е достъпна.</string>
+    <string name="general_share_action">Споделяне</string>
+    <string name="general_done_action">Готово</string>
+    <string name="general_copy_action">Копиране</string>
+    <string name="general_wipe_action">Изтриване</string>
+    <string name="general_cancel_action">Отказ</string>
+    <string name="general_discard_action">Отхвърляне</string>
+    <string name="general_reset_action">Нулиране</string>
+    <string name="general_save_action">Запазване</string>
+    <string name="general_thanks_action">Благодаря</string>
+    <string name="general_gotit_action">Разбрах</string>
+    <string name="general_fix_action">Поправяне</string>
+    <string name="general_set_up_action">Настройване</string>
+    <string name="general_edit_action">Редактиране</string>
+    <string name="general_na_label">Н/П</string>
+    <string name="general_empty_label">Празно</string>
+    <string name="general_dismiss_action">Отхвърляне</string>
+    <string name="general_maybe_later_action">Може би по-късно</string>
+    <string name="general_manage_action">Управление</string>
+    <string name="general_sync_action">Синхронизиране</string>
+    <string name="general_error_label">Грешка</string>
+    <string name="general_tap_hint_msg">Докоснете за повече опции</string>
+    <string name="general_upgrade_action">Надграждане</string>
+    <string name="general_donate_action">Дарение</string>
+    <string name="general_check_action">Проверяване</string>
+    <string name="general_filter_action">Филтриране</string>
+    <string name="general_internal_not_available_msg">Интернет връзката не е налична</string>
+    <string name="general_refresh_action">Обновяване</string>
+    <string name="general_progress_searching">Търсене</string>
+    <string name="general_progress_generating_searchpaths">Генериране на пътища за търсене</string>
+    <string name="general_progress_filtering">Филтриране</string>
+    <string name="general_progress_preparing">Подготвяне</string>
+    <string name="general_progress_processing_x">Обработване на %s</string>
+    <string name="general_progress_loading">Зареждане</string>
+    <string name="general_progress_loading_app_data">Зареждане на данни за приложението</string>
+    <string name="general_progress_loading_data_areas">Зареждане на области с данни</string>
+    <string name="general_progress_loading_egg_0">Все още по-бързо от iPhone</string>
+    <string name="general_progress_loading_egg_1">Изтегля още RAM</string>
+    <string name="general_progress_loading_egg_2">Скоро™</string>
+    <string name="general_progress_loading_egg_3">Процесорът е на кафе пауза</string>
+    <string name="general_progress_loading_egg_4">Изчаква данни от Пепе Силвия</string>
+    <string name="general_progress_loading_egg_5">Турбо енкабулаторът се инициализира</string>
+    <string name="general_progress_loading_egg_6">Предава маслото</string>
+    <string name="general_progress_loading_egg_7">И така. Как се справяш?</string>
+    <string name="general_progress_loading_egg_8">Бийпинг буп боп</string>
+    <string name="general_progress_loading_egg_9">Буфериране на жизнените избори</string>
+    <string name="general_progress_loading_egg_10">Призовава Ктулху</string>
+    <string name="general_progress_loading_egg_11">Това е наред</string>
+    <string name="general_progress_loading_egg_12">Моля, изчакайте</string>
+    <string name="general_progress_loading_egg_13">Поне не си на линия</string>
+    <string name="general_help_action">Помощ</string>
+    <string name="general_continue">Продължаване</string>
+    <string name="general_progress_queued">В опашката</string>
+    <string name="general_progress_deleting">Изтриване</string>
+    <string name="general_progress_deleting_x">Изтриване на %s</string>
+    <string name="general_sort_options_label">Опции за сортиране</string>
+    <string name="general_sort_reverse_action">Обратен режим на сортиране</string>
+    <string name="general_tag_filter_label">Филтриране по тагове</string>
+
+    <string name="general_result_success_message">Операцията е успешна</string>
+    <string name="general_result_failure_message">Операцията е неуспешна</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Освободено %s място.</item>
+        <item quantity="other">Освободено %s място.</item>
+    </plurals>
+
+    <string name="general_options_label">Опции</string>
+    <string name="general_details_label">Подробности</string>
+    <string name="general_view_action">Преглед</string>
+    <string name="general_update_action">Актуализиране</string>
+    <string name="general_scan_action">Сканиране</string>
+    <string name="general_delete_action">Изтриване</string>
+    <string name="general_delete_selected_action">Изтриване на избраните</string>
+    <string name="general_show_details_action">Показване на подробности</string>
+    <string name="general_show_all_action">Показване на всички</string>
+    <string name="general_toggle_layout_mode">Превключване на режима на изглед</string>
+
+    <string name="general_delete_confirmation_title">Потвърждаване на изтриването</string>
+    <string name="general_delete_confirmation_message_x">Изтриване на \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Изтриване на %d избрани елемента?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Изтрит %d елемент.</item>
+        <item quantity="other">Изтрити %d елемента.</item>
+    </plurals>
+
+    <string name="general_remove_action">Премахване</string>
+    <string name="general_remove_selected_action">Премахване на избраните</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Един елемент беше премахнат</item>
+        <item quantity="other">%d елемента бяха премахнати</item>
+    </plurals>
+
+    <string name="general_root_required_label">Изисква root</string>
+    <string name="general_root_required_message">Изисква root устройство</string>
+
+    <string name="general_search_action">Търсене</string>
+    <string name="general_scan_device_action">Сканиране на устройството</string>
+    <string name="general_open_system_settings_action">Отваряне на системните настройки</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">%s елемент</item>
+        <item quantity="other">%s елемента</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d успешен</item>
+        <item quantity="other">%d успешни</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d неуспешен</item>
+        <item quantity="other">%d неуспешни</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s може да бъде освободено</item>
+        <item quantity="other">%s може да бъде освободено</item>
+    </plurals>
+    <string name="general_info_label">Информация</string>
+    <string name="general_count_label">Брой</string>
+    <string name="general_app_label">Приложение</string>
+    <string name="general_more_info_action">Повече информация</string>
+    <string name="general_grant_access_action">Даване на достъп</string>
+    <string name="general_enable_service_action">Активиране на услугата</string>
+    <string name="general_undo_action">Отмяна</string>
+
+    <string name="general_list_select_all_action">Избиране на всички</string>
+
+    <string name="general_path_label">Път</string>
+    <string name="general_type_label">Тип</string>
+    <string name="general_size_label">Размер</string>
+    <string name="general_exclude_action">Изключване</string>
+    <string name="general_exclude_selected_action">Изключване на избраните</string>
+
+    <string name="general_device_label">Устройство</string>
+
+    <string name="general_settings_title">Настройки</string>
+    <string name="general_help_title">Помощ</string>
+
+    <string name="file_type_symbolic_link">Връзка</string>
+    <string name="file_type_directory">Директория</string>
+    <string name="file_type_file">Файл</string>
+    <string name="file_type_unknown">Неизвестен</string>
+
+    <string name="general_progress_ready">Готов</string>
+    <string name="general_progress_done">Завършено</string>
+
+    <string name="general_rom_type_auto_label">Автоматично (по подразбиране)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d ден</item>
+        <item quantity="other">%d дни</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d час</item>
+        <item quantity="other">%d часа</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s файл</item>
+        <item quantity="other">%s файла</item>
+    </plurals>
+    <string name="general_advice_title">Съвет</string>
+    <string name="general_error_invalid_input_label">Невалиден вход</string>
+    <string name="general_information_for_the_developer">Информация за разработчика</string>
+    <string name="general_error_report_bug_action">Докладване на грешка</string>
+    <string name="general_error_ipc_deadobject_title">Връзката с услугата е загубена</string>
+    <string name="general_error_ipc_deadobject_description">Връзката с критична услуга (напр. Magisk, Shizuku или други услуги на системно ниво) беше неочаквано загубена. Моля, рестартирайте устройството си. Ако проблемът продължи, проверете за актуализации или се свържете с мен, за да го поправя.</string>
+</resources>

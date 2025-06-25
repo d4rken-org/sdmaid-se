@@ -1,2 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">သင့်ကိုအစေခံပါ။</string>
+    <string name="slogan_message_1">သန့်ရှင်းပြီး စနစ်တကျ။</string>
+    <string name="slogan_message_2">ရှုပ်ထွေးမှုကို ကာကွယ်ပါ။</string>
+    <string name="slogan_message_3">လိုအပ်သောကိစ្စကို လုပ်ဆောင်ပါ။</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_5">အပြစ်အနာအဆာမရှိ။</string>
+    <string name="slogan_message_6">ဘိုက်များ၊ ပျောက်သွားပါ!</string>
+    <string name="slogan_message_7">နေရာလွတ်၊ ပျော်ရွှင်သောနေရာ။</string>
+    <string name="slogan_message_8">ဘယ်တော့မှ မစွန့်ပစ်ပါ။</string>
+
+    <string name="general_thank_you_label">ကျေးဇူးတင်ပါသည်</string>
+
+    <string name="general_error_type_mismatch_msg">အမျိုးအစားမကိုက်ညီပါ: %1$s လိုချင်သော်လည်း %2$s ရရှိခဲ့သည်။</string>
+    <string name="general_error_cant_access_msg">%s ကို အသုံးပြုမရပါ။</string>
+    <string name="general_error_root_unavailable">Root သုံးစွဲမှုမရနိုင်ပါ။</string>
+    <string name="general_error_empty_result_msg">ရလဒ်သည် ဗလာဖြစ်နေပါသည်။</string>
+    <string name="general_error_no_compatible_app_found_msg">ဤတောင်းဆိုမှုကိုကိုင်တွယ်ရန် သင့်လျော်သောအက်ပ်မတွေ့ရပါ။</string>
+    <string name="general_todo_msg">ဤလုပ်ဆောင်ချက်ကို လက်ရှိတွင် ကိုင်တွယ်နေသေးသောကြောင့် အသုံးပြုမရနိုင်သေးပါ။</string>
+    <string name="general_share_action">မျှဝေပါ</string>
+    <string name="general_done_action">ပြီးပါပြီ</string>
+    <string name="general_copy_action">ကူးယူပါ</string>
+    <string name="general_wipe_action">သုတ်သင်ပါ</string>
+    <string name="general_cancel_action">ပယ်ဖျက်ပါ</string>
+    <string name="general_discard_action">စွန့်ပစ်ပါ</string>
+    <string name="general_reset_action">ပြန်လည်သတ်မှတ်ပါ</string>
+    <string name="general_save_action">သိမ်းပါ</string>
+    <string name="general_thanks_action">ကျေးဇူးတင်ပါသည်</string>
+    <string name="general_gotit_action">နား လည်ပါပြီ</string>
+    <string name="general_fix_action">ပြင်ဆင်ပါ</string>
+    <string name="general_set_up_action">စနစ်ထည့်သွင်းပါ</string>
+    <string name="general_edit_action">တည်းဖြတ်ပါ</string>
+    <string name="general_na_label">မရှိပါ</string>
+    <string name="general_empty_label">ဗလာ</string>
+    <string name="general_dismiss_action">ပယ်ဖျက်ပါ</string>
+    <string name="general_maybe_later_action">နောက်မှလုပ်မည်</string>
+    <string name="general_manage_action">စီမံခန့်ခွဲပါ</string>
+    <string name="general_sync_action">ညီညွတ်စေပါ</string>
+    <string name="general_error_label">အမှား</string>
+    <string name="general_tap_hint_msg">နောက်ထပ်ရွေးချယ်မှုများအတွက် တို့ပါ</string>
+    <string name="general_upgrade_action">အဆင့်မြှင့်ပါ</string>
+    <string name="general_donate_action">လှူဒါန်းပါ</string>
+    <string name="general_check_action">စစ်ဆေးပါ</string>
+    <string name="general_filter_action">စစ်ထုတ်ပါ</string>
+    <string name="general_internal_not_available_msg">အင်တာနက်ချိတ်ဆက်မှုမရရှိပါ</string>
+    <string name="general_refresh_action">ပြန်လည်ရယူပါ</string>
+    <string name="general_progress_searching">ရှာဖွေနေပါသည်</string>
+    <string name="general_progress_generating_searchpaths">ရှာဖွေရန်လမ်းကြောင်းများ ဖန်တီးနေပါသည်</string>
+    <string name="general_progress_filtering">စစ်ထုတ်နေပါသည်</string>
+    <string name="general_progress_preparing">ပြင်ဆင်နေပါသည်</string>
+    <string name="general_progress_processing_x">%s ကိုဆောင်ရွက်နေပါသည်</string>
+    <string name="general_progress_loading">တင်နေပါသည်</string>
+    <string name="general_progress_loading_app_data">အက်ပ်ဒေတာတင်နေပါသည်</string>
+    <string name="general_progress_loading_data_areas">ဒေတာနယ်ပယ်များတင်နေပါသည်</string>
+    <string name="general_progress_loading_egg_0">iPhone ထက်ပင်မြန်သည်</string>
+    <string name="general_progress_loading_egg_1">RAM ထပ်ဆောင်းဒေါင်းလုပ်နေပါသည်</string>
+    <string name="general_progress_loading_egg_2">မကြာခင်™</string>
+    <string name="general_progress_loading_egg_3">CPU က ကော်ဖီနားနေပါသည်</string>
+    <string name="general_progress_loading_egg_4">Pepe Silvia ထံမှ ဒေတာစောင့်နေပါသည်</string>
+    <string name="general_progress_loading_egg_5">Turbo encabulator စတင်နေပါသည်</string>
+    <string name="general_progress_loading_egg_6">ထောပတ်ကို ပေးပို့နေပါသည်</string>
+    <string name="general_progress_loading_egg_7">အခု ဘယ်လိုနေလဲ?</string>
+    <string name="general_progress_loading_egg_8">ဘိပ် ဘုပ် ဘေါ့ပ်</string>
+    <string name="general_progress_loading_egg_9">ဘဝရွေးချယ်မှုများ buffer လုပ်နေပါသည်</string>
+    <string name="general_progress_loading_egg_10">Cthulhu ကို ခေါ်နေပါသည်</string>
+    <string name="general_progress_loading_egg_11">ဒါကအရင်းအမြစ်ပါပဲ</string>
+    <string name="general_progress_loading_egg_12">ခဏစောင့်ပါ</string>
+    <string name="general_progress_loading_egg_13">အနည်းဆုံး စောင့်ဆိုင်းခြင်းမှုမရှိပါ</string>
+    <string name="general_help_action">အကူအညီ</string>
+    <string name="general_continue">ဆက်လက်လုပ်ဆောင်ပါ</string>
+    <string name="general_progress_queued">အစီအစဉ်တွင်</string>
+    <string name="general_progress_deleting">ဖျက်နေပါသည်</string>
+    <string name="general_progress_deleting_x">%s ကိုဖျက်နေပါသည်</string>
+    <string name="general_sort_options_label">စီစဉ်ရန်ရွေးချယ်မှုများ</string>
+    <string name="general_sort_reverse_action">ပြောင်းပြန်စီစဉ်ရန်မုဒ်</string>
+    <string name="general_tag_filter_label">အမှတ်အသားများဖြင့် စစ်ထုတ်ပါ</string>
+
+    <string name="general_result_success_message">အောင်မြင်စွာ လုပ်ဆောင်ပြီးပါပြီ</string>
+    <string name="general_result_failure_message">လုပ်ဆောင်မှု မအောင်မြင်ပါ</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s နေရာလွတ်ပြီးပါပြီ။</item>
+        <item quantity="other">%s နေရာလွတ်ပြီးပါပြီ။</item>
+    </plurals>
+
+    <string name="general_options_label">ရွေးချယ်မှုများ</string>
+    <string name="general_details_label">အသေးစိတ်</string>
+    <string name="general_view_action">ကြည့်ပါ</string>
+    <string name="general_update_action">အပ်ဒိတ်လုပ်ပါ</string>
+    <string name="general_scan_action">စကင်န်လုပ်ပါ</string>
+    <string name="general_delete_action">ဖျက်ပါ</string>
+    <string name="general_delete_selected_action">ရွေးချယ်ထားသည်ကို ဖျက်ပါ</string>
+    <string name="general_show_details_action">အသေးစိတ်ပြပါ</string>
+    <string name="general_show_all_action">အားလုံးပြပါ</string>
+    <string name="general_toggle_layout_mode">ကြည့်မုဒ်လဲပါ</string>
+
+    <string name="general_delete_confirmation_title">ဖျက်ခြင်းကို အတည်ပြုပါ</string>
+    <string name="general_delete_confirmation_message_x">\"%s\" ကို ဖျက်မလား?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">ရွေးချယ်ထားသော %d ခုကို ဖျက်မလား?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d ခုကို ဖျက်ပြီးပါပြီ။</item>
+        <item quantity="other">%d ခုကို ဖျက်ပြီးပါပြီ။</item>
+    </plurals>
+
+    <string name="general_remove_action">ဖယ်ရှားပါ</string>
+    <string name="general_remove_selected_action">ရွေးချယ်ထားသည်ကို ဖယ်ရှားပါ</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">တစ်ခုကို ဖယ်ရှားပြီးပါပြီ</item>
+        <item quantity="other">%d ခုကို ဖယ်ရှားပြီးပါပြီ</item>
+    </plurals>
+
+    <string name="general_root_required_label">Root လိုအပ်ပါသည်</string>
+    <string name="general_root_required_message">Root လုပ်ထားသော စက်ပစ္စည်းလိုအပ်ပါသည်</string>
+
+    <string name="general_search_action">ရှာဖွေပါ</string>
+    <string name="general_scan_device_action">စက်ပစ္စည်းစကင်န်လုပ်ပါ</string>
+    <string name="general_open_system_settings_action">စနစ်ဆက်တင်းဖွင့်ပါ</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">%s ခု</item>
+        <item quantity="other">%s ခု</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d ခု အောင်မြင်ခဲ့သည်</item>
+        <item quantity="other">%d ခု အောင်မြင်ခဲ့သည်</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d ခု မအောင်မြင်ခဲ့ပါ</item>
+        <item quantity="other">%d ခု မအောင်မြင်ခဲ့ပါ</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s ကို လွတ်လပ်စေနိုင်ပါသည်</item>
+        <item quantity="other">%s ကို လွတ်လပ်စေနိုင်ပါသည်</item>
+    </plurals>
+    <string name="general_info_label">အချက်အလက်</string>
+    <string name="general_count_label">အရေအတွက်</string>
+    <string name="general_app_label">အက်ပ်</string>
+    <string name="general_more_info_action">နောက်ထပ်အချက်အလက်</string>
+    <string name="general_grant_access_action">အသုံးပြုခွင့်ပေးပါ</string>
+    <string name="general_enable_service_action">ဝန်ဆောင်မှုကို ဖွင့်ပါ</string>
+    <string name="general_undo_action">ပြန်လုပ်ပါ</string>
+
+    <string name="general_list_select_all_action">အားလုံးရွေးချယ်ပါ</string>
+
+    <string name="general_path_label">လမ်းကြောင်း</string>
+    <string name="general_type_label">အမျိုးအစား</string>
+    <string name="general_size_label">အရွယ်အစား</string>
+    <string name="general_exclude_action">ချန်လှပ်ပါ</string>
+    <string name="general_exclude_selected_action">ရွေးချယ်ထားသည်ကို ချန်လှပ်ပါ</string>
+
+    <string name="general_device_label">စက်ပစ္စည်း</string>
+
+    <string name="general_settings_title">ဆက်တင်းများ</string>
+    <string name="general_help_title">အကူအညီ</string>
+
+    <string name="file_type_symbolic_link">လင့်ခ်</string>
+    <string name="file_type_directory">ဒါရိုက်တိုရီ</string>
+    <string name="file_type_file">ဖိုင်</string>
+    <string name="file_type_unknown">မသိရှိသော</string>
+
+    <string name="general_progress_ready">အဆင်သင့်</string>
+    <string name="general_progress_done">ပြီးပါပြီ</string>
+
+    <string name="general_rom_type_auto_label">အလိုအလျောက် (မူလ)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d ရက်</item>
+        <item quantity="other">%d ရက်</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d နာရီ</item>
+        <item quantity="other">%d နာရီ</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s ဖိုင်</item>
+        <item quantity="other">%s ဖိုင်</item>
+    </plurals>
+    <string name="general_advice_title">အကြံဉာဏ်</string>
+    <string name="general_error_invalid_input_label">မမှန်ကန်သော ထည့်သွင်းမှု</string>
+    <string name="general_information_for_the_developer">ဖွံ့ဖြိုးတိုးတက်စေသူအတွက် အချက်အလက်</string>
+    <string name="general_error_report_bug_action">အမှားတင်ပြပါ</string>
+    <string name="general_error_ipc_deadobject_title">ဝန်ဆောင်မှုချိတ်ဆက်မှု ပြတ်တောက်သွားပါသည်</string>
+    <string name="general_error_ipc_deadobject_description">အရေးကြီးသောဝန်ဆောင်မှု (ဥပမာ - Magisk, Shizuku, သို့မဟုတ် အခြားစနစ်အဆင့် ဝန်ဆောင်မှုများ) နှင့် ချိတ်ဆက်မှုသည် မျှော်လင့်မထားစွာ ပြတ်တောက်သွားပါသည်။ သင့်စက်ပစ္စည်းကို ပြန်လည်စတင်ပါ။ အကယ်၍ ပြဿနာ ဆက်လက်ဖြစ်ပေါ်နေပါက အပ်ဒိတ်များကို စစ်ဆေးပါ သို့မဟုတ် ကျွန်ုပ်နှင့် ဆက်သွယ်ပါ။</string>
+</resources>

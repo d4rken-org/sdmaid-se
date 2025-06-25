@@ -1,2 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">Zure zerbitzutan.</string>
+    <string name="slogan_message_1">Garbi eta txukun.</string>
+    <string name="slogan_message_2">Kaosa saihesten.</string>
+    <string name="slogan_message_3">Beharrezkoa egiten.</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_5">Orbain gabe.</string>
+    <string name="slogan_message_6">Byteak, joan zaitezte!</string>
+    <string name="slogan_message_7">Leku librea, leku zoriontsua.</string>
+    <string name="slogan_message_8">Inoiz ez zaitut utziko.</string>
+
+    <string name="general_thank_you_label">Eskerrik asko</string>
+
+    <string name="general_error_type_mismatch_msg">Mota desadostasuna: %1$s nahi zen, baina %2$s lortu da.</string>
+    <string name="general_error_cant_access_msg">Ezin da %s atzitu.</string>
+    <string name="general_error_root_unavailable">Root sarbidea ez dago eskuragarri.</string>
+    <string name="general_error_empty_result_msg">Emaitza hutsik zegoen.</string>
+    <string name="general_error_no_compatible_app_found_msg">Ez da eskaera hau kudeatzeko aplikazio bateragarririk aurkitu.</string>
+    <string name="general_todo_msg">Eginbide hau oraindik lanean dago eta une honetan ez dago eskuragarri.</string>
+    <string name="general_share_action">Partekatu</string>
+    <string name="general_done_action">Eginda</string>
+    <string name="general_copy_action">Kopiatu</string>
+    <string name="general_wipe_action">Garbitu</string>
+    <string name="general_cancel_action">Utzi</string>
+    <string name="general_discard_action">Baztertu</string>
+    <string name="general_reset_action">Berrezarri</string>
+    <string name="general_save_action">Gorde</string>
+    <string name="general_thanks_action">Esker</string>
+    <string name="general_gotit_action">Ulertuta</string>
+    <string name="general_fix_action">Konpondu</string>
+    <string name="general_set_up_action">Konfiguratu</string>
+    <string name="general_edit_action">Editatu</string>
+    <string name="general_na_label">E/E</string>
+    <string name="general_empty_label">Hutsik</string>
+    <string name="general_dismiss_action">Baztertu</string>
+    <string name="general_maybe_later_action">Agian geroago</string>
+    <string name="general_manage_action">Kudeatu</string>
+    <string name="general_sync_action">Sinkronizatu</string>
+    <string name="general_error_label">Errorea</string>
+    <string name="general_tap_hint_msg">Sakatu aukera gehiagorako</string>
+    <string name="general_upgrade_action">Eguneratu</string>
+    <string name="general_donate_action">Dohaintza egin</string>
+    <string name="general_check_action">Egiaztatu</string>
+    <string name="general_filter_action">Iragazki</string>
+    <string name="general_internal_not_available_msg">Internet konexioa ez dago eskuragarri</string>
+    <string name="general_refresh_action">Freskatu</string>
+    <string name="general_progress_searching">Bilatzen</string>
+    <string name="general_progress_generating_searchpaths">Bilaketa-bideak sortzen</string>
+    <string name="general_progress_filtering">Iragazten</string>
+    <string name="general_progress_preparing">Prestatzen</string>
+    <string name="general_progress_processing_x">%s prozesatzen</string>
+    <string name="general_progress_loading">Kargatzen</string>
+    <string name="general_progress_loading_app_data">Aplikazioaren datuak kargatzen</string>
+    <string name="general_progress_loading_data_areas">Datu-eremuak kargatzen</string>
+    <string name="general_progress_loading_egg_0">iPhone baino azkarragoa oraindik</string>
+    <string name="general_progress_loading_egg_1">RAM gehiago deskargatzen</string>
+    <string name="general_progress_loading_egg_2">Laster™</string>
+    <string name="general_progress_loading_egg_3">CPU kafea hartzen ari da</string>
+    <string name="general_progress_loading_egg_4">Pepe Silvia-ren datuak itxaroten</string>
+    <string name="general_progress_loading_egg_5">Turbo encabulator hasieratzen</string>
+    <string name="general_progress_loading_egg_6">Gurina pasatzen</string>
+    <string name="general_progress_loading_egg_7">Beraz. Nola ari zara jasaten?</string>
+    <string name="general_progress_loading_egg_8">Bip bup bop</string>
+    <string name="general_progress_loading_egg_9">Bizitzako aukerak buffer egiten</string>
+    <string name="general_progress_loading_egg_10">Cthulhu dei egiten</string>
+    <string name="general_progress_loading_egg_11">Hau ondo dago</string>
+    <string name="general_progress_loading_egg_12">Mesedez itxaron</string>
+    <string name="general_progress_loading_egg_13">Gutxienez ez zaude zain</string>
+    <string name="general_help_action">Laguntza</string>
+    <string name="general_continue">Jarraitu</string>
+    <string name="general_progress_queued">Ilaran</string>
+    <string name="general_progress_deleting">Ezabatzen</string>
+    <string name="general_progress_deleting_x">%s ezabatzen</string>
+    <string name="general_sort_options_label">Ordenatzeko aukerak</string>
+    <string name="general_sort_reverse_action">Alderantzizko ordenazio modua</string>
+    <string name="general_tag_filter_label">Etiketez iragazki</string>
+
+    <string name="general_result_success_message">Eragiketa arrakastatsua</string>
+    <string name="general_result_failure_message">Eragiketa huts egin du</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s leku askatu da.</item>
+        <item quantity="other">%s leku askatu da.</item>
+    </plurals>
+
+    <string name="general_options_label">Aukerak</string>
+    <string name="general_details_label">Xehetasunak</string>
+    <string name="general_view_action">Ikusi</string>
+    <string name="general_update_action">Eguneratu</string>
+    <string name="general_scan_action">Eskaneatu</string>
+    <string name="general_delete_action">Ezabatu</string>
+    <string name="general_delete_selected_action">Hautatutakoak ezabatu</string>
+    <string name="general_show_details_action">Xehetasunak erakutsi</string>
+    <string name="general_show_all_action">Denak erakutsi</string>
+    <string name="general_toggle_layout_mode">Ikuste modua aldatu</string>
+
+    <string name="general_delete_confirmation_title">Ezabatzea berretsi</string>
+    <string name="general_delete_confirmation_message_x">"%s" ezabatu?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">%d hautatutako elementu ezabatu?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d elementu ezabatu da.</item>
+        <item quantity="other">%d elementu ezabatu dira.</item>
+    </plurals>
+
+    <string name="general_remove_action">Kendu</string>
+    <string name="general_remove_selected_action">Hautatutakoak kendu</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Elementu bat kendu da</item>
+        <item quantity="other">%d elementu kendu dira</item>
+    </plurals>
+
+    <string name="general_root_required_label">Root behar da</string>
+    <string name="general_root_required_message">Root duen gailua behar da</string>
+
+    <string name="general_search_action">Bilatu</string>
+    <string name="general_scan_device_action">Gailua eskaneatu</string>
+    <string name="general_open_system_settings_action">Sistemaren ezarpenak ireki</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">%s elementu</item>
+        <item quantity="other">%s elementu</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d arrakastatsua</item>
+        <item quantity="other">%d arrakastatsua</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d huts egin du</item>
+        <item quantity="other">%d huts egin dute</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s askatu daiteke</item>
+        <item quantity="other">%s askatu daiteke</item>
+    </plurals>
+    <string name="general_info_label">Informazioa</string>
+    <string name="general_count_label">Kontaketa</string>
+    <string name="general_app_label">Aplikazioa</string>
+    <string name="general_more_info_action">Informazio gehiago</string>
+    <string name="general_grant_access_action">Sarbidea eman</string>
+    <string name="general_enable_service_action">Zerbitzua gaitu</string>
+    <string name="general_undo_action">Desegin</string>
+
+    <string name="general_list_select_all_action">Denak hautatu</string>
+
+    <string name="general_path_label">Bidea</string>
+    <string name="general_type_label">Mota</string>
+    <string name="general_size_label">Tamaina</string>
+    <string name="general_exclude_action">Kanpoan utzi</string>
+    <string name="general_exclude_selected_action">Hautatutakoak kanpoan utzi</string>
+
+    <string name="general_device_label">Gailua</string>
+
+    <string name="general_settings_title">Ezarpenak</string>
+    <string name="general_help_title">Laguntza</string>
+
+    <string name="file_type_symbolic_link">Esteka</string>
+    <string name="file_type_directory">Direktorioa</string>
+    <string name="file_type_file">Fitxategia</string>
+    <string name="file_type_unknown">Ezezaguna</string>
+
+    <string name="general_progress_ready">Prest</string>
+    <string name="general_progress_done">Eginda</string>
+
+    <string name="general_rom_type_auto_label">Automatikoa (lehenetsia)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">Egun %d</item>
+        <item quantity="other">%d egun</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">Ordu %d</item>
+        <item quantity="other">%d ordu</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s fitxategi</item>
+        <item quantity="other">%s fitxategi</item>
+    </plurals>
+    <string name="general_advice_title">Aholkua</string>
+    <string name="general_error_invalid_input_label">Sarrera baliogabea</string>
+    <string name="general_information_for_the_developer">Garatzailearentzako informazioa</string>
+    <string name="general_error_report_bug_action">Errore txostena</string>
+    <string name="general_error_ipc_deadobject_title">Zerbitzuaren konexioa galdu da</string>
+    <string name="general_error_ipc_deadobject_description">Zerbitzu kritiko batekin (adib. Magisk, Shizuku edo bestelako sistema-mailako zerbitzuak) konexioa ustekabean galdu da. Mesedez berrabiarazi zure gailua. Arazoa jarraitzen badu, eguneraketak egiaztatu edo nirekin harremanetan jarri konpon dezadan.</string>
+</resources>

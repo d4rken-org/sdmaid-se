@@ -1,2 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">Ekusizeni kwakho.</string>
+    <string name="slogan_message_1">Kuhlanzekile futhi kuhlelekile.</string>
+    <string name="slogan_message_2">Kuvimbela isiphithiphithi.</string>
+    <string name="slogan_message_3">Kenza lokho okudingekayo.</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_5">Akunamabala.</string>
+    <string name="slogan_message_6">Ama-bytes, hambani!</string>
+    <string name="slogan_message_7">Isikhala esikhululekile, indawo ejabulisayo.</string>
+    <string name="slogan_message_8">Angikaze ngikushiye.</string>
+
+    <string name="general_thank_you_label">Ngiyabonga</string>
+
+    <string name="general_error_type_mismatch_msg">Uhlobo alufani: Belufuna %1$s, kodwa lwathola %2$s.</string>
+    <string name="general_error_cant_access_msg">Ayikwazi ukufinyelela ku-%s.</string>
+    <string name="general_error_root_unavailable">Ukufinyelela kwe-root akutholakali.</string>
+    <string name="general_error_empty_result_msg">Umphumela bewungenalutho.</string>
+    <string name="general_error_no_compatible_app_found_msg">Akukho nhlelo yokusebenza evumelana nayo etholakele ukuze isingatha lesisicelo.</string>
+    <string name="general_todo_msg">Lesi sici sisasebenza futhi njengamanje asitholakali.</string>
+    <string name="general_share_action">Yabelana</string>
+    <string name="general_done_action">Kwenziwe</string>
+    <string name="general_copy_action">Kopisha</string>
+    <string name="general_wipe_action">Sula</string>
+    <string name="general_cancel_action">Yekisa</string>
+    <string name="general_discard_action">Lahla</string>
+    <string name="general_reset_action">Setha kabusha</string>
+    <string name="general_save_action">Londoloza</string>
+    <string name="general_thanks_action">Ngiyabonga</string>
+    <string name="general_gotit_action">Ngiyaqonda</string>
+    <string name="general_fix_action">Lungisa</string>
+    <string name="general_set_up_action">Setha</string>
+    <string name="general_edit_action">Hlela</string>
+    <string name="general_na_label">Akutholakali</string>
+    <string name="general_empty_label">Akunalutho</string>
+    <string name="general_dismiss_action">Lahla</string>
+    <string name="general_maybe_later_action">Mhlawumbe kamuva</string>
+    <string name="general_manage_action">Phatha</string>
+    <string name="general_sync_action">Vumelanisa</string>
+    <string name="general_error_label">Iphutha</string>
+    <string name="general_tap_hint_msg">Thepha ukuze uthole izinketho eziningi</string>
+    <string name="general_upgrade_action">Thuthukisa</string>
+    <string name="general_donate_action">Nikela</string>
+    <string name="general_check_action">Hlola</string>
+    <string name="general_filter_action">Hlola</string>
+    <string name="general_internal_not_available_msg">Ukuxhumana ne-inthanethi akutholakali</string>
+    <string name="general_refresh_action">Vuselela</string>
+    <string name="general_progress_searching">Iyasesha</string>
+    <string name="general_progress_generating_searchpaths">Yakha indlela zokusesha</string>
+    <string name="general_progress_filtering">Iyahlola</string>
+    <string name="general_progress_preparing">Iyalungiselela</string>
+    <string name="general_progress_processing_x">Icubungula %s</string>
+    <string name="general_progress_loading">Iyalayisha</string>
+    <string name="general_progress_loading_app_data">Layisha idatha ye-app</string>
+    <string name="general_progress_loading_data_areas">Layisha izindawo zedatha</string>
+    <string name="general_progress_loading_egg_0">Isishesha kune-iPhone</string>
+    <string name="general_progress_loading_egg_1">Idownloda i-RAM eyengeziwe</string>
+    <string name="general_progress_loading_egg_2">Maduze™</string>
+    <string name="general_progress_loading_egg_3">I-CPU iphumule ikhofi</string>
+    <string name="general_progress_loading_egg_4">Ilinde idatha evela ku-Pepe Silvia</string>
+    <string name="general_progress_loading_egg_5">I-turbo encabulator iyaqala</string>
+    <string name="general_progress_loading_egg_6">Idlulisa ibhotela</string>
+    <string name="general_progress_loading_egg_7">Unjani?</string>
+    <string name="general_progress_loading_egg_8">Beep boop bop</string>
+    <string name="general_progress_loading_egg_9">I-buffer amasu empilo</string>
+    <string name="general_progress_loading_egg_10">Ibiza u-Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Lokhu kulungile</string>
+    <string name="general_progress_loading_egg_12">Sicela ulinde</string>
+    <string name="general_progress_loading_egg_13">Okungenani awukho emgqeni</string>
+    <string name="general_help_action">Usizo</string>
+    <string name="general_continue">Qhubeka</string>
+    <string name="general_progress_queued">Emgqeni</string>
+    <string name="general_progress_deleting">Iyasusa</string>
+    <string name="general_progress_deleting_x">Susa %s</string>
+    <string name="general_sort_options_label">Izinketho zokuhlunga</string>
+    <string name="general_sort_reverse_action">Imodi yokuhlungana okuphambene</string>
+    <string name="general_tag_filter_label">Hlola ngama-tag</string>
+
+    <string name="general_result_success_message">Kuqedwe ngempumelelo</string>
+    <string name="general_result_failure_message">Umsebenzi uhlulekile</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Isikhala se-%s sikhululiwe.</item>
+        <item quantity="other">Isikhala se-%s sikhululiwe.</item>
+    </plurals>
+
+    <string name="general_options_label">Izinketho</string>
+    <string name="general_details_label">Imininingwane</string>
+    <string name="general_view_action">Buka</string>
+    <string name="general_update_action">Buyekeza</string>
+    <string name="general_scan_action">Scanna</string>
+    <string name="general_delete_action">Susa</string>
+    <string name="general_delete_selected_action">Susa okukhethiwe</string>
+    <string name="general_show_details_action">Bonisa imininingwane</string>
+    <string name="general_show_all_action">Bonisa konke</string>
+    <string name="general_toggle_layout_mode">Shintsha imodi yokubuka</string>
+
+    <string name="general_delete_confirmation_title">Qinisekisa ukususa</string>
+    <string name="general_delete_confirmation_message_x">Susa \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Susa izinto ezikhethiwe ezingu-%d?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Isuswe into eyi-%d.</item>
+        <item quantity="other">Kususiwe izinto ezingu-%d.</item>
+    </plurals>
+
+    <string name="general_remove_action">Susa</string>
+    <string name="general_remove_selected_action">Susa okukhethiwe</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Into eyodwa isusiwe</item>
+        <item quantity="other">Izinto ezingu-%d zisusiwe</item>
+    </plurals>
+
+    <string name="general_root_required_label">I-root iyadingeka</string>
+    <string name="general_root_required_message">Kudingeka idivayisi ene-root</string>
+
+    <string name="general_search_action">Sesha</string>
+    <string name="general_scan_device_action">Scanna idivayisi</string>
+    <string name="general_open_system_settings_action">Vula izilungiselelo zesistimu</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">Into eyi-%s</item>
+        <item quantity="other">Izinto ezingu-%s</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d ephumelelayo</item>
+        <item quantity="other">%d eziphumelelayo</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d ehlulekile</item>
+        <item quantity="other">%d ezihlulekile</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s ingakhululwa</item>
+        <item quantity="other">%s ingakhululwa</item>
+    </plurals>
+    <string name="general_info_label">Ulwazi</string>
+    <string name="general_count_label">Inombolo</string>
+    <string name="general_app_label">Uhlelo lokusebenza</string>
+    <string name="general_more_info_action">Olunye ulwazi</string>
+    <string name="general_grant_access_action">Nikeza ukufinyelela</string>
+    <string name="general_enable_service_action">Nika amandla insizakalo</string>
+    <string name="general_undo_action">Hlehlisa</string>
+
+    <string name="general_list_select_all_action">Khetha konke</string>
+
+    <string name="general_path_label">Indlela</string>
+    <string name="general_type_label">Uhlobo</string>
+    <string name="general_size_label">Usayizi</string>
+    <string name="general_exclude_action">Khipha</string>
+    <string name="general_exclude_selected_action">Khipha okukhethiwe</string>
+
+    <string name="general_device_label">Idivayisi</string>
+
+    <string name="general_settings_title">Izilungiselelo</string>
+    <string name="general_help_title">Usizo</string>
+
+    <string name="file_type_symbolic_link">Isixhumanisi</string>
+    <string name="file_type_directory">Uhla lwemibhalo</string>
+    <string name="file_type_file">Ifayela</string>
+    <string name="file_type_unknown">Okungaziwa</string>
+
+    <string name="general_progress_ready">Kulungile</string>
+    <string name="general_progress_done">Kwenziwe</string>
+
+    <string name="general_rom_type_auto_label">Okuzenzakalelayo (okuzenzakalelayo)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">Usuku olwu-%d</item>
+        <item quantity="other">Izinsuku ezingu-%d</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">Ihora eli-%d</item>
+        <item quantity="other">Amahora angu-%d</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">Ifayela eli-%s</item>
+        <item quantity="other">Amafayela angu-%s</item>
+    </plurals>
+    <string name="general_advice_title">Iseluleko</string>
+    <string name="general_error_invalid_input_label">Okokufaka okungalungile</string>
+    <string name="general_information_for_the_developer">Ulwazi lomthuthukisi</string>
+    <string name="general_error_report_bug_action">Bika iphutha</string>
+    <string name="general_error_ipc_deadobject_title">Ukuxhuma Kwensizakalo Kulahlekile</string>
+    <string name="general_error_ipc_deadobject_description">Ukuxhuma ensizakalweni ebalulekile (isib. Magisk, Shizuku, noma ezinye izinsizakalo zezinga lesistimu) kulahleke ngendlela engalindelekile. Sicela uphinde uqalise idivayisi yakho. Uma inkinga iqhubeka, hlola izibuyekezo noma xhumana nami ukuze ngiyilungise.</string>
+</resources>

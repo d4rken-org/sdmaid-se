@@ -134,4 +134,25 @@
         <item quantity="other">%s ファイル</item>
     </plurals>
     <string name="general_advice_title">アドバイス</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="general_error_invalid_input_label">無効な入力</string>
+    <string name="general_information_for_the_developer">開発者向け情報</string>
+    <string name="general_error_report_bug_action">バグ報告</string>
+    <string name="general_error_ipc_deadobject_title">サービス接続が失われました</string>
+    <string name="general_error_ipc_deadobject_description">重要なサービス（Magisk、Shizuku、その他のシステムレベルサービスなど）への接続が予期せず失われました。デバイスを再起動してください。問題が解決しない場合は、アップデートを確認するか、私に連絡して修正できるようにしてください。</string>
+    <plurals name="general_age_days">
+        <item quantity="other">%d日</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="other">%d時間</item>
+    </plurals>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="other">%d項目を削除しました。</item>
+    </plurals>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="other">%sの容量を解放しました。</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="other">%sを解放できます</item>
+    </plurals>
 </resources>

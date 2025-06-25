@@ -8,6 +8,7 @@
     <string name="slogan_message_5">Skinande rent.</string>
     <string name="slogan_message_6">Bytes, försvinn!</string>
     <string name="slogan_message_7">Ledig rymd, lyckligt rum.</string>
+    <string name="slogan_message_8">Aldrig kommer ge upp dig.</string>
     <string name="general_thank_you_label">Tack</string>
     <string name="general_error_type_mismatch_msg">Typ som inte matchar: Ville ha %1$s, men fick %2$s.</string>
     <string name="general_error_cant_access_msg">Kan inte komma åt %s.</string>
@@ -62,6 +63,8 @@
     <string name="general_progress_loading_egg_9">Buffrar livsval</string>
     <string name="general_progress_loading_egg_10">Kallar Cthulhu</string>
     <string name="general_progress_loading_egg_11">Det här är okej</string>
+    <string name="general_progress_loading_egg_12">Vänligen vänta</string>
+    <string name="general_progress_loading_egg_13">Åtminstone är du inte i väntekö</string>
     <string name="general_help_action">Hjälp</string>
     <string name="general_continue">Fortsätta</string>
     <string name="general_progress_queued">I kö</string>
@@ -72,6 +75,10 @@
     <string name="general_tag_filter_label">Filtrera efter taggar</string>
     <string name="general_result_success_message">Operationen lyckades</string>
     <string name="general_result_failure_message">Operationen misslyckades</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Frigjorde %s utrymme.</item>
+        <item quantity="other">Frigjorde %s utrymme.</item>
+    </plurals>
     <string name="general_options_label">Alternativ</string>
     <string name="general_details_label">Detaljer</string>
     <string name="general_view_action">Se</string>
@@ -85,6 +92,10 @@
     <string name="general_delete_confirmation_title">Bekräfta radering</string>
     <string name="general_delete_confirmation_message_x">Ta bort \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Ta bort %d markerade objekt?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Raderade %d objekt.</item>
+        <item quantity="other">Raderade %d objekt.</item>
+    </plurals>
     <string name="general_remove_action">Avlägsna</string>
     <string name="general_remove_selected_action">Ta bort valda</string>
     <plurals name="general_remove_success_x_items">
@@ -99,6 +110,18 @@
     <plurals name="result_x_items">
         <item quantity="one">%s objekt</item>
         <item quantity="other">%s objekt</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d lyckades</item>
+        <item quantity="other">%d lyckades</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d misslyckades</item>
+        <item quantity="other">%d misslyckades</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s kan frigöras</item>
+        <item quantity="other">%s kan frigöras</item>
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Räkna</string>
@@ -122,8 +145,23 @@
     <string name="file_type_unknown">Okänd</string>
     <string name="general_progress_ready">Redo</string>
     <string name="general_progress_done">Klar</string>
+    <string name="general_rom_type_auto_label">Automatisk (standard)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d dag</item>
+        <item quantity="other">%d dagar</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d timme</item>
+        <item quantity="other">%d timmar</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s fil</item>
         <item quantity="other">%s filer</item>
     </plurals>
+    <string name="general_advice_title">Råd</string>
+    <string name="general_error_invalid_input_label">Ogiltig inmatning</string>
+    <string name="general_information_for_the_developer">Information för utvecklaren</string>
+    <string name="general_error_report_bug_action">Rapportera fel</string>
+    <string name="general_error_ipc_deadobject_title">Tjänstanslutning förlorad</string>
+    <string name="general_error_ipc_deadobject_description">Anslutningen till en kritisk tjänst (t.ex. Magisk, Shizuku eller andra tjänster på systemnivå) förlorades oväntat. Starta om din enhet. Om problemet kvarstår, sök efter uppdateringar eller kontakta mig så att jag kan åtgärda det.</string>
 </resources>

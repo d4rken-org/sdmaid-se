@@ -93,4 +93,72 @@
         <item quantity="other">%sଟି ଫାଇଲ୍</item>
     </plurals>
     <string name="general_error_invalid_input_label">ଅଵୈଧ ଇନ୍‌ପୁଟ୍</string>
+    <string name="app_name">SD Maid SE</string>
+    <string name="slogan_message_6">ବାଇଟ୍ସ୍, ଚାଲିଯାଅ!</string>
+    <string name="slogan_message_7">ମୁକ୍ତ ସ୍ଥାନ, ସନ୍ତୁଷ୍ଟ ସ୍ଥାନ।</string>
+    <string name="slogan_message_8">କେବେ ହାର ମାନିବନି।</string>
+    <string name="general_error_type_mismatch_msg">ପ୍ରକାର ଅସମତା: %1$s ଚାହୁଁଥିଲା, କିନ୍ତୁ %2$s ପାଇଲା।</string>
+    <string name="general_error_cant_access_msg">%s କୁ ପହଞ୍ଚିପାରିବ ନାହିଁ।</string>
+    <string name="general_error_root_unavailable">ରୁଟ୍ ପରିଚୟ ଉପଲବ୍ଧ ନୁହେଁ।</string>
+    <string name="general_error_no_compatible_app_found_msg">ଏହି ଅନୁରୋଧକୁ ସମ୍ପାଦନା କରିବା ପାଇଁ କୌଣସି ସୁସଙ୍ଗତ ଆପ୍‌ ମିଳିଲା ନାହିଁ।</string>
+    <string name="general_todo_msg">ଏହି ସୁବିଧାଟି ଏବେ ବି କାମ ଚାଲିଛି ଏବଂ ବର୍ତ୍ତମାନ ଉପଲବ୍ଧ ନୁହେଁ।</string>
+    <string name="general_share_action">ସାଝାକରିବା</string>
+    <string name="general_reset_action">ପୁନଃସେଟ୍ କରିବା</string>
+    <string name="general_set_up_action">ସେଟ୍ ଅପ୍ କରିବା</string>
+    <string name="general_sync_action">ସିଙ୍କ୍ରୋନାଇଜ୍ କରିବା</string>
+    <string name="general_upgrade_action">ଅପଗ୍ରେଡ୍ କରିବା</string>
+    <string name="general_progress_loading">ଲୋଡ୍ ହେଉଛି</string>
+    <string name="general_progress_loading_app_data">ଆପ୍ ଡାଟା ଲୋଡ୍ ହେଉଛି</string>
+    <string name="general_progress_loading_data_areas">ଡାଟା କ୍ଷେତ୍ର ଲୋଡ୍ ହେଉଛି</string>
+    <string name="general_progress_loading_egg_0">iPhone ଠାରୁ ଏଯାବତ୍ ଦ୍ରୁତ</string>
+    <string name="general_progress_loading_egg_1">ଅଧିକ RAM ଡାଉନଲୋଡ୍ କରୁଛି</string>
+    <string name="general_progress_loading_egg_4">Pepe Silvia ରୁ ଡାଟା ଅପେକ୍ଷା କରୁଛି</string>
+    <string name="general_progress_loading_egg_5">Turbo encabulator ଆରମ୍ଭ ହେଉଛି</string>
+    <string name="general_progress_loading_egg_6">ମାଖନ ପାସ୍ କରୁଛି</string>
+    <string name="general_progress_loading_egg_7">ତେଣୁ। ତୁମେ କେମିତି ଚାଲିଛ?</string>
+    <string name="general_progress_loading_egg_8">ବିପ୍ ବୁପ୍ ବୋପ୍</string>
+    <string name="general_progress_loading_egg_9">ଜୀବନ ପସନ୍ଦ ବଫରିଂ</string>
+    <string name="general_progress_loading_egg_10">Cthulhu ଡାକୁଛି</string>
+    <string name="general_progress_loading_egg_11">ଏହା ଠିକ୍</string>
+    <string name="general_progress_loading_egg_12">ଦୟାକରି ଧରି ରଖନ୍ତୁ</string>
+    <string name="general_progress_loading_egg_13">ଅନ୍ତତଃ ତୁମେ ଧରି ନାହଁ</string>
+    <string name="general_continue">ଆଗକୁ ବଢ଼ିବା</string>
+    <string name="general_progress_deleting">ବିଲୋପ କରାଯାଉଛି</string>
+    <string name="general_progress_deleting_x">%s ବିଲୋପ କରାଯାଉଛି</string>
+    <string name="general_sort_options_label">ସର୍ଟ୍ ବିକଳ୍ପ</string>
+    <string name="general_sort_reverse_action">ରିଭର୍ସ ସର୍ଟ୍ ମୋଡ୍</string>
+    <string name="general_tag_filter_label">ଟ୍ୟାଗ ଦ୍ୱାରା ଫିଲ୍ଟର୍ କରିବା</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s ସ୍ଥାନ ମୁକ୍ତ କରାଗଲା।</item>
+        <item quantity="other">%s ସ୍ଥାନ ମୁକ୍ତ କରାଗଲା।</item>
+    </plurals>
+    <string name="general_delete_selected_action">ମନୋନୀତ ବିଲୋପ କରିବା</string>
+    <string name="general_show_all_action">ସବୁ ଦେଖାଇବା</string>
+    <string name="general_toggle_layout_mode">ଦୃଶ୍ୟ ମୋଡ୍ ବଦଳାଇବା</string>
+    <string name="general_delete_confirmation_title">ବିଲୋପ ନିଶ୍ଚିତ କରିବା</string>
+    <string name="general_delete_confirmation_message_x">\"%s\" ବିଲୋପ କରିବେ?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">%d ମନୋନୀତ ଦ୍ରବ୍ୟ ବିଲୋପ କରିବେ?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d ଦ୍ରବ୍ୟ ବିଲୋପ କରାଗଲା।</item>
+        <item quantity="other">%d ଦ୍ରବ୍ୟ ବିଲୋପ କରାଗଲା।</item>
+    </plurals>
+    <string name="general_remove_action">ଅପସାରଣ କରିବା</string>
+    <string name="general_remove_selected_action">ମନୋନୀତ ଅପସାରଣ କରିବା</string>
+    <string name="general_root_required_label">ରୁଟ୍ ଆବଶ୍ୟକ</string>
+    <string name="general_root_required_message">ରୁଟ୍ ହୋଇଥିବା ଡିଭାଇସ୍ ଆବଶ୍ୟକ</string>
+    <string name="general_open_system_settings_action">ସିସ୍ଟମ୍ ସେଟିଂ ଖୋଲିବା</string>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d ସଫଳ</item>
+        <item quantity="other">%d ସଫଳ</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d ବିଫଳ</item>
+        <item quantity="other">%d ବିଫଳ</item>
+    </plurals>
+    <string name="general_grant_access_action">ପରିଚୟ ଦେବା</string>
+    <string name="general_path_label">ପଥ</string>
+    <string name="general_information_for_the_developer">ଡେଭେଲପରଙ୍କ ପାଇଁ ସୂଚନା</string>
+    <string name="general_error_report_bug_action">ବଗ୍ ରିପୋର୍ଟ କରିବା</string>
+    <string name="general_error_ipc_deadobject_title">ସେବା ସଂଯୋଗ ହଜିଗଲା</string>
+    <string name="general_error_ipc_deadobject_description">ଏକ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସେବାକୁ (ଯେପରିକି Magisk, Shizuku, କିମ୍ବା ଅନ୍ୟାନ୍ୟ ସିସ୍ଟମ୍-ସ୍ତରୀୟ ସେବା) ସଂଯୋଗ ଅନପେକ୍ଷିତ ଭାବେ ହଜିଗଲା। ଦୟାକରି ଆପଣଙ୍କ ଡିଭାଇସ୍ ରିବୁଟ୍ କରନ୍ତୁ। ଯଦି ସମସ୍ୟା ଚାଲୁଥାଏ, ଅପଡେଟ୍ ଯାଞ୍ଚ କରନ୍ତୁ କିମ୍ବା ମୋତେ ସମ୍ପର୍କ କରନ୍ତୁ ଯାହାଫଳରେ ମୁଁ ଏହାକୁ ସମାଧାନ କରିପାରିବି।</string>
 </resources>

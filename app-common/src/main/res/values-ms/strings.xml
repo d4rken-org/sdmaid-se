@@ -114,4 +114,44 @@
     <plurals name="result_x_files">
         <item quantity="other">%s fail</item>
     </plurals>
+    <string name="slogan_message_7">Ruang kosong, tempat gembira.</string>
+    <string name="slogan_message_8">Takkan pernah melepaskan awak.</string>
+    <string name="general_set_up_action">Sediakan</string>
+    <string name="general_progress_loading_egg_9">Menimbal pilihan hidup</string>
+    <string name="general_progress_loading_egg_10">Memanggil Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Ini baik</string>
+    <string name="general_progress_loading_egg_12">Sila tunggu</string>
+    <string name="general_progress_loading_egg_13">Sekurang-kurangnya anda tidak menunggu</string>
+    <string name="general_progress_deleting">Memadam</string>
+    <string name="general_progress_deleting_x">Memadam %s</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="other">Membebaskan %s ruang.</item>
+    </plurals>
+    <string name="general_show_all_action">Tunjukkan semua</string>
+    <string name="general_toggle_layout_mode">Tukar mod paparan</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="other">Memadam %d item.</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="other">%d berjaya</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="other">%d gagal</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="other">%s boleh dibebaskan</item>
+    </plurals>
+    <string name="general_rom_type_auto_label">Automatik (lalai)</string>
+    <plurals name="general_age_days">
+        <item quantity="other">%d hari</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="other">%d jam</item>
+    </plurals>
+    <string name="general_advice_title">Nasihat</string>
+    <string name="general_error_invalid_input_label">Input tidak sah</string>
+    <string name="general_information_for_the_developer">Maklumat untuk pembangun</string>
+    <string name="general_error_report_bug_action">Laporkan pepijat</string>
+    <string name="general_error_ipc_deadobject_title">Sambungan Perkhidmatan Terputus</string>
+    <string name="general_error_ipc_deadobject_description">Sambungan ke perkhidmatan kritikal (contoh: Magisk, Shizuku, atau perkhidmatan tahap sistem lain) telah terputus secara tidak dijangka. Sila but semula peranti anda. Jika isu ini berterusan, semak kemas kini atau hubungi saya untuk pembaikan.</string>
 </resources>

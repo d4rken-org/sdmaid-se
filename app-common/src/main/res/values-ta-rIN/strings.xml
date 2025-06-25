@@ -1,2 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">உங்கள் சேவையில்.</string>
+    <string name="slogan_message_1">சுத்தமான மற்றும் ஒழுங்கான.</string>
+    <string name="slogan_message_2">குழப்பத்தைத் தடுக்கிறது.</string>
+    <string name="slogan_message_3">தேவையானதைச் செய்கிறது.</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_5">கறையற்ற.</string>
+    <string name="slogan_message_6">பைட்கள், போங்கள்!</string>
+    <string name="slogan_message_7">இலவச இடம், மகிழ்ச்சியான இடம்.</string>
+    <string name="slogan_message_8">உங்களை ஒருபோதும் விட்டுவிடமாட்டேன்.</string>
+
+    <string name="general_thank_you_label">நன்றி</string>
+
+    <string name="general_error_type_mismatch_msg">வகை பொருந்தவில்லை: %1$s விரும்பினார், ஆனால் %2$s கிடைத்தது.</string>
+    <string name="general_error_cant_access_msg">%s ஐ அணுக முடியவில்லை.</string>
+    <string name="general_error_root_unavailable">Root அணுகல் கிடைக்கவில்லை.</string>
+    <string name="general_error_empty_result_msg">முடிவு காலியாக இருந்தது.</string>
+    <string name="general_error_no_compatible_app_found_msg">இந்த கோரிக்கையைக் கையாள பொருந்தக்கூடிய பயன்பாடு எதுவும் காணப்படவில்லை.</string>
+    <string name="general_todo_msg">இந்த அம்சம் இன்னும் பணிக்கப்பட்டு வருகிறது மற்றும் தற்போது கிடைக்கவில்லை.</string>
+    <string name="general_share_action">பகிர்</string>
+    <string name="general_done_action">முடிந்தது</string>
+    <string name="general_copy_action">நகலெடு</string>
+    <string name="general_wipe_action">துடை</string>
+    <string name="general_cancel_action">ரத்து செய்</string>
+    <string name="general_discard_action">நிராகரி</string>
+    <string name="general_reset_action">மீட்டமை</string>
+    <string name="general_save_action">சேமி</string>
+    <string name="general_thanks_action">நன்றி</string>
+    <string name="general_gotit_action">புரிந்தது</string>
+    <string name="general_fix_action">சரிசெய்</string>
+    <string name="general_set_up_action">அமைக்கவும்</string>
+    <string name="general_edit_action">திருத்து</string>
+    <string name="general_na_label">பொ/இ</string>
+    <string name="general_empty_label">காலி</string>
+    <string name="general_dismiss_action">நிராகரி</string>
+    <string name="general_maybe_later_action">ஒருவேளை பின்னர்</string>
+    <string name="general_manage_action">நிர்வகி</string>
+    <string name="general_sync_action">ஒத்திசைக்க</string>
+    <string name="general_error_label">பிழை</string>
+    <string name="general_tap_hint_msg">மேலும் விருப்பங்களுக்கு தட்டவும்</string>
+    <string name="general_upgrade_action">மேம்படுத்து</string>
+    <string name="general_donate_action">நன்கொடை</string>
+    <string name="general_check_action">சரிபார்</string>
+    <string name="general_filter_action">வடிகட்டு</string>
+    <string name="general_internal_not_available_msg">இணைய இணைப்பு கிடைக்கவில்லை</string>
+    <string name="general_refresh_action">புதுப்பி</string>
+    <string name="general_progress_searching">தேடுகிறது</string>
+    <string name="general_progress_generating_searchpaths">தேடல் பாதைகளை உருவாக்குகிறது</string>
+    <string name="general_progress_filtering">வடிகட்டுகிறது</string>
+    <string name="general_progress_preparing">தயார் செய்கிறது</string>
+    <string name="general_progress_processing_x">%s ஐ செயல்படுத்துகிறது</string>
+    <string name="general_progress_loading">ஏற்றுகிறது</string>
+    <string name="general_progress_loading_app_data">பயன்பாட்டு தரவை ஏற்றுகிறது</string>
+    <string name="general_progress_loading_data_areas">தரவு பகுதிகளை ஏற்றுகிறது</string>
+    <string name="general_progress_loading_egg_0">iPhone ஐ விட வேகமாக</string>
+    <string name="general_progress_loading_egg_1">கூடுதல் RAM பதிவிறக்குகிறது</string>
+    <string name="general_progress_loading_egg_2">விரைவில்™</string>
+    <string name="general_progress_loading_egg_3">CPU காபி இடைவேளையில் உள்ளது</string>
+    <string name="general_progress_loading_egg_4">Pepe Silvia இடமிருந்து தரவுக்காக காத்திருக்கிறது</string>
+    <string name="general_progress_loading_egg_5">Turbo encabulator தொடங்குகிறது</string>
+    <string name="general_progress_loading_egg_6">வெண்ணெய் அனுப்புகிறது</string>
+    <string name="general_progress_loading_egg_7">எப்படி இருக்கிறீர்கள்?</string>
+    <string name="general_progress_loading_egg_8">பீப் பூப் பாப்</string>
+    <string name="general_progress_loading_egg_9">வாழ்க்கை தேர்வுகளை பஃபர் செய்கிறது</string>
+    <string name="general_progress_loading_egg_10">Cthulhu ஐ அழைக்கிறது</string>
+    <string name="general_progress_loading_egg_11">இது நல்லது</string>
+    <string name="general_progress_loading_egg_12">தயவுசெய்து காத்திருக்கவும்</string>
+    <string name="general_progress_loading_egg_13">குறைந்தபட்சம் நீங்கள் காத்திருப்பில் இல்லை</string>
+    <string name="general_help_action">உதவி</string>
+    <string name="general_continue">தொடர்</string>
+    <string name="general_progress_queued">வரிசையில்</string>
+    <string name="general_progress_deleting">நீக்குகிறது</string>
+    <string name="general_progress_deleting_x">%s ஐ நீக்குகிறது</string>
+    <string name="general_sort_options_label">வரிசைப்படுத்தும் விருப்பங்கள்</string>
+    <string name="general_sort_reverse_action">வெல்-வரிசைப்படுத்தும் பயன்முறை</string>
+    <string name="general_tag_filter_label">குறிகளால் வடிகட்டு</string>
+
+    <string name="general_result_success_message">வெற்றிகரமாக முடிக்கப்பட்டது</string>
+    <string name="general_result_failure_message">செயல்பாடு தோல்வியுற்றது</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s இடம் விடுவிக்கப்பட்டது.</item>
+        <item quantity="other">%s இடம் விடுவிக்கப்பட்டது.</item>
+    </plurals>
+
+    <string name="general_options_label">விருப்பங்கள்</string>
+    <string name="general_details_label">விவரங்கள்</string>
+    <string name="general_view_action">பார்</string>
+    <string name="general_update_action">புதுப்பி</string>
+    <string name="general_scan_action">ஸ்கேன் செய்</string>
+    <string name="general_delete_action">நீக்கு</string>
+    <string name="general_delete_selected_action">தேர்ந்தெடுத்தவற்றை நீக்கு</string>
+    <string name="general_show_details_action">விவரங்களைக் காட்டு</string>
+    <string name="general_show_all_action">அனைத்தையும் காட்டு</string>
+    <string name="general_toggle_layout_mode">பார்வை முறையை மாற்று</string>
+
+    <string name="general_delete_confirmation_title">நீக்குதலை உறுதிப்படுத்து</string>
+    <string name="general_delete_confirmation_message_x">\"%s\" ஐ நீக்கவா?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">தேர்ந்தெடுக்கப்பட்ட %d பொருட்களை நீக்கவா?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d பொருள் நீக்கப்பட்டது.</item>
+        <item quantity="other">%d பொருட்கள் நீக்கப்பட்டன.</item>
+    </plurals>
+
+    <string name="general_remove_action">அகற்று</string>
+    <string name="general_remove_selected_action">தேர்ந்தெடுத்தவற்றை அகற்று</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">ஒரு பொருள் அகற்றப்பட்டது</item>
+        <item quantity="other">%d பொருட்கள் அகற்றப்பட்டன</item>
+    </plurals>
+
+    <string name="general_root_required_label">Root தேவை</string>
+    <string name="general_root_required_message">Root செய்யப்பட்ட சாதனம் தேவை</string>
+
+    <string name="general_search_action">தேடு</string>
+    <string name="general_scan_device_action">சாதனத்தை ஸ்கேன் செய்</string>
+    <string name="general_open_system_settings_action">கணினி அமைப்புகளைத் திற</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">%s பொருள்</item>
+        <item quantity="other">%s பொருட்கள்</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d வெற்றிகரமான</item>
+        <item quantity="other">%d வெற்றிகரமான</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d தோல்வியுற்ற</item>
+        <item quantity="other">%d தோல்வியுற்ற</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s விடுவிக்கப்படலாம்</item>
+        <item quantity="other">%s விடுவிக்கப்படலாம்</item>
+    </plurals>
+    <string name="general_info_label">தகவல்</string>
+    <string name="general_count_label">எண்ணிக்கை</string>
+    <string name="general_app_label">பயன்பாடு</string>
+    <string name="general_more_info_action">மேலும் தகவல்</string>
+    <string name="general_grant_access_action">அணுகலை வழங்கு</string>
+    <string name="general_enable_service_action">சேவையை இயக்கு</string>
+    <string name="general_undo_action">செயல்தவிர்</string>
+
+    <string name="general_list_select_all_action">அனைத்தையும் தேர்ந்தெடு</string>
+
+    <string name="general_path_label">பாதை</string>
+    <string name="general_type_label">வகை</string>
+    <string name="general_size_label">அளவு</string>
+    <string name="general_exclude_action">விலக்கு</string>
+    <string name="general_exclude_selected_action">தேர்ந்தெடுத்தவற்றை விலக்கு</string>
+
+    <string name="general_device_label">சாதனம்</string>
+
+    <string name="general_settings_title">அமைப்புகள்</string>
+    <string name="general_help_title">உதவி</string>
+
+    <string name="file_type_symbolic_link">இணைப்பு</string>
+    <string name="file_type_directory">டைரக்டரி</string>
+    <string name="file_type_file">கோப்பு</string>
+    <string name="file_type_unknown">தெரியாத</string>
+
+    <string name="general_progress_ready">தயார்</string>
+    <string name="general_progress_done">முடிந்தது</string>
+
+    <string name="general_rom_type_auto_label">தானியங்கி (இயல்புநிலை)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d நாள்</item>
+        <item quantity="other">%d நாட்கள்</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d மணிநேரம்</item>
+        <item quantity="other">%d மணிநேரங்கள்</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s கோப்பு</item>
+        <item quantity="other">%s கோப்புகள்</item>
+    </plurals>
+    <string name="general_advice_title">ஆலோசனை</string>
+    <string name="general_error_invalid_input_label">தவறான உள்ளீடு</string>
+    <string name="general_information_for_the_developer">டெவலப்பருக்கான தகவல்</string>
+    <string name="general_error_report_bug_action">பிழையைப் புகாரளி</string>
+    <string name="general_error_ipc_deadobject_title">சேவை இணைப்பு இழந்தது</string>
+    <string name="general_error_ipc_deadobject_description">முக்கியமான சேவைக்கான இணைப்பு (உதா. Magisk, Shizuku, அல்லது பிற கணினி-நிலை சேவைகள்) எதிர்பாராதவிதமாக இழக்கப்பட்டது. உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும். சிக்கல் தொடர்ந்தால், புதுப்பிப்புகளைச் சரிபார்க்கவும் அல்லது அதை சரிசெய்வதற்காக என்னைத் தொடர்பு கொள்ளவும்.</string>
+</resources>

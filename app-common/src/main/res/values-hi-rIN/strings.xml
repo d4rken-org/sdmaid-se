@@ -100,4 +100,68 @@
     <string name="file_type_directory">निर्देशिका</string>
     <string name="file_type_file">फाइल</string>
     <string name="file_type_unknown">अज्ञात</string>
+    <string name="slogan_message_6">बाइट्स, चले जाओ!</string>
+    <string name="slogan_message_7">खाली जगह, खुशहाल जगह।</string>
+    <string name="slogan_message_8">कभी आपको छोड़ने नहीं जा रहा।</string>
+    <string name="general_error_no_compatible_app_found_msg">इस अनुरोध को संभालने के लिए कोई संगत ऐप नहीं मिला।</string>
+    <string name="general_fix_action">ठीक करें</string>
+    <string name="general_set_up_action">सेट अप करें</string>
+    <string name="general_progress_loading_egg_8">बीपिंग बूप बॉप</string>
+    <string name="general_progress_loading_egg_9">जीवन विकल्पों को बफरिंग</string>
+    <string name="general_progress_loading_egg_10">सीथुल्हू को बुला रहे हैं</string>
+    <string name="general_progress_loading_egg_11">यह ठीक है</string>
+    <string name="general_progress_loading_egg_12">कृपया प्रतीक्षा करें</string>
+    <string name="general_progress_loading_egg_13">कम से कम आप होल्ड पर नहीं हैं</string>
+    <string name="general_progress_deleting">डिलीट कर रहा है</string>
+    <string name="general_progress_deleting_x">डिलीट कर रहा है %s</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s स्थान मुक्त किया।</item>
+        <item quantity="other">%s स्थान मुक्त किया।</item>
+    </plurals>
+    <string name="general_show_all_action">सभी दिखाएं</string>
+    <string name="general_toggle_layout_mode">व्यू मोड स्विच करें</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d आइटम डिलीट किया।</item>
+        <item quantity="other">%d आइटम डिलीट किए।</item>
+    </plurals>
+    <string name="general_remove_selected_action">चयनित को हटाएं</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">एक आइटम हटाया गया</item>
+        <item quantity="other">%d आइटम हटाए गए</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d सफल</item>
+        <item quantity="other">%d सफल</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d विफल</item>
+        <item quantity="other">%d विफल</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s मुक्त किया जा सकता है</item>
+        <item quantity="other">%s मुक्त किया जा सकता है</item>
+    </plurals>
+    <string name="general_list_select_all_action">सभी चुनें</string>
+    <string name="general_exclude_selected_action">चयनित को बाहर करें</string>
+    <string name="general_progress_ready">तैयार</string>
+    <string name="general_progress_done">पूर्ण</string>
+    <string name="general_rom_type_auto_label">स्वचालित (डिफ़ॉल्ट)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d दिन</item>
+        <item quantity="other">%d दिन</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d घंटा</item>
+        <item quantity="other">%d घंटे</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s फ़ाइल</item>
+        <item quantity="other">%s फ़ाइलें</item>
+    </plurals>
+    <string name="general_advice_title">सलाह</string>
+    <string name="general_error_invalid_input_label">अमान्य इनपुट</string>
+    <string name="general_information_for_the_developer">डेवलपर के लिए जानकारी</string>
+    <string name="general_error_report_bug_action">बग रिपोर्ट करें</string>
+    <string name="general_error_ipc_deadobject_title">सेवा कनेक्शन खो गया</string>
+    <string name="general_error_ipc_deadobject_description">एक महत्वपूर्ण सेवा (जैसे Magisk, Shizuku, या अन्य सिस्टम-स्तर सेवाओं) का कनेक्शन अप्रत्याशित रूप से खो गया था। कृपया अपने डिवाइस को रीबूट करें। यदि समस्या बनी रहती है, तो अपडेट की जांच करें या मुझसे संपर्क करें ताकि मैं इसे ठीक कर सकूं।</string>
 </resources>

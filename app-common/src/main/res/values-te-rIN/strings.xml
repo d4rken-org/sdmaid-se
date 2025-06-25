@@ -1,2 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">మీ సేవలో.</string>
+    <string name="slogan_message_1">శుభ్రంగా మరియు క్రమబద్ధంగా.</string>
+    <string name="slogan_message_2">గందరగోళాన్ని నివారిస్తుంది.</string>
+    <string name="slogan_message_3">అవసరమైనది చేస్తుంది.</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_5">నిర్మలమైనది.</string>
+    <string name="slogan_message_6">బైట్లు, వెళ్లండి!</string>
+    <string name="slogan_message_7">ఖాళీ స్థలం, సంతోషకరమైన స్థలం.</string>
+    <string name="slogan_message_8">ఎప్పటికీ విడిచిపెట్టను.</string>
+
+    <string name="general_thank_you_label">ధన్యవాదాలు</string>
+
+    <string name="general_error_type_mismatch_msg">రకం సరిపోలేదు: %1$s కావాలి, కానీ %2$s వచ్చింది.</string>
+    <string name="general_error_cant_access_msg">%s ని యాక్సెస్ చేయలేకపోయింది.</string>
+    <string name="general_error_root_unavailable">రూట్ యాక్సెస్ అందుబాటులో లేదు.</string>
+    <string name="general_error_empty_result_msg">ఫలితం ఖాళీగా ఉంది.</string>
+    <string name="general_error_no_compatible_app_found_msg">ఈ అభ్యర్థనను నిర్వహించడానికి అనుకూలమైన యాప్ కనుగొనబడలేదు.</string>
+    <string name="general_todo_msg">ఈ ఫీచర్ ఇంకా పని చేయబడుతూంది మరియు ప్రస్తుతం అందుబాటులో లేదు.</string>
+    <string name="general_share_action">భాగస్వామ్యం</string>
+    <string name="general_done_action">పూర్తయింది</string>
+    <string name="general_copy_action">కాపీ</string>
+    <string name="general_wipe_action">తుడిచివేయండి</string>
+    <string name="general_cancel_action">రద్దు చేయండి</string>
+    <string name="general_discard_action">విస్మరించండి</string>
+    <string name="general_reset_action">రీసెట్ చేయండి</string>
+    <string name="general_save_action">సేవ్ చేయండి</string>
+    <string name="general_thanks_action">ధన్యవాదాలు</string>
+    <string name="general_gotit_action">అర్థమైంది</string>
+    <string name="general_fix_action">పరిష్కరించండి</string>
+    <string name="general_set_up_action">సెటప్ చేయండి</string>
+    <string name="general_edit_action">సవరించండి</string>
+    <string name="general_na_label">అ/లే</string>
+    <string name="general_empty_label">ఖాళీ</string>
+    <string name="general_dismiss_action">తీసివేయండి</string>
+    <string name="general_maybe_later_action">బహుశా తరువాత</string>
+    <string name="general_manage_action">నిర్వహించండి</string>
+    <string name="general_sync_action">సింక్రొనైజ్ చేయండి</string>
+    <string name="general_error_label">లోపం</string>
+    <string name="general_tap_hint_msg">మరిన్ని ఎంపికల కోసం నొక్కండి</string>
+    <string name="general_upgrade_action">అప్‌గ్రేడ్ చేయండి</string>
+    <string name="general_donate_action">దానం చేయండి</string>
+    <string name="general_check_action">తనిఖీ చేయండి</string>
+    <string name="general_filter_action">ఫిల్టర్ చేయండి</string>
+    <string name="general_internal_not_available_msg">ఇంటర్నెట్ కనెక్షన్ అందుబాటులో లేదు</string>
+    <string name="general_refresh_action">రిఫ్రెష్ చేయండి</string>
+    <string name="general_progress_searching">వెతుకుతూంది</string>
+    <string name="general_progress_generating_searchpaths">వెతుకుట మార్గాలను రూపొందిస్తుంది</string>
+    <string name="general_progress_filtering">ఫిల్టర్ చేస్తుంది</string>
+    <string name="general_progress_preparing">సిద్ధం చేస్తుంది</string>
+    <string name="general_progress_processing_x">%s ప్రాసెస్ చేస్తుంది</string>
+    <string name="general_progress_loading">లోడ్ చేస్తుంది</string>
+    <string name="general_progress_loading_app_data">యాప్ డేటాను లోడ్ చేస్తుంది</string>
+    <string name="general_progress_loading_data_areas">డేటా ప్రాంతాలను లోడ్ చేస్తుంది</string>
+    <string name="general_progress_loading_egg_0">iPhone కంటే వేగంగా</string>
+    <string name="general_progress_loading_egg_1">అదనపు RAM డౌన్‌లోడ్ చేస్తుంది</string>
+    <string name="general_progress_loading_egg_2">త్వరలో™</string>
+    <string name="general_progress_loading_egg_3">CPU కాఫీ విరామంలో ఉంది</string>
+    <string name="general_progress_loading_egg_4">Pepe Silvia నుండి డేటా కోసం వేచి ఉంది</string>
+    <string name="general_progress_loading_egg_5">టర్బో ఎన్‌కాబులేటర్ ప్రారంభించబడుతోంది</string>
+    <string name="general_progress_loading_egg_6">వెన్న పాస్ చేస్తుంది</string>
+    <string name="general_progress_loading_egg_7">ఎలా ఉన్నారు?</string>
+    <string name="general_progress_loading_egg_8">బీప్ బూప్ బాప్</string>
+    <string name="general_progress_loading_egg_9">జీవిత ఎంపికలను బఫర్ చేస్తుంది</string>
+    <string name="general_progress_loading_egg_10">Cthulhu ని పిలుస్తుంది</string>
+    <string name="general_progress_loading_egg_11">ఇది సరే</string>
+    <string name="general_progress_loading_egg_12">దయచేసి వేచి ఉండండి</string>
+    <string name="general_progress_loading_egg_13">కనీసం మీరు హోల్డ్‌లో లేరు</string>
+    <string name="general_help_action">సహాయం</string>
+    <string name="general_continue">కొనసాగించండి</string>
+    <string name="general_progress_queued">వరుసలో</string>
+    <string name="general_progress_deleting">తొలగిస్తుంది</string>
+    <string name="general_progress_deleting_x">%s తొలగిస్తుంది</string>
+    <string name="general_sort_options_label">క్రమబద్ధీకరణ ఎంపికలు</string>
+    <string name="general_sort_reverse_action">రివర్స్ సార్ట్ మోడ్</string>
+    <string name="general_tag_filter_label">ట్యాగ్‌ల ద్వారా ఫిల్టర్ చేయండి</string>
+
+    <string name="general_result_success_message">విజయవంతంగా పూర్తయింది</string>
+    <string name="general_result_failure_message">ఆపరేషన్ విఫలమైంది</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s స్థలం ఖాళీ చేయబడింది.</item>
+        <item quantity="other">%s స్థలం ఖాళీ చేయబడింది.</item>
+    </plurals>
+
+    <string name="general_options_label">ఎంపికలు</string>
+    <string name="general_details_label">వివరాలు</string>
+    <string name="general_view_action">చూడండి</string>
+    <string name="general_update_action">అప్‌డేట్ చేయండి</string>
+    <string name="general_scan_action">స్కాన్ చేయండి</string>
+    <string name="general_delete_action">తొలగించండి</string>
+    <string name="general_delete_selected_action">ఎంచుకున్నవి తొలగించండి</string>
+    <string name="general_show_details_action">వివరాలు చూపించండి</string>
+    <string name="general_show_all_action">అన్నిటినీ చూపించండి</string>
+    <string name="general_toggle_layout_mode">వీక్షణ మోడ్‌ను మార్చండి</string>
+
+    <string name="general_delete_confirmation_title">తొలగింపును నిర్ధారించండి</string>
+    <string name="general_delete_confirmation_message_x">\"%s\" ను తొలగించాలా?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">ఎంచుకున్న %d వస్తువులను తొలగించాలా?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d వస్తువు తొలగించబడింది.</item>
+        <item quantity="other">%d వస్తువులు తొలగించబడ్డాయి.</item>
+    </plurals>
+
+    <string name="general_remove_action">తీసివేయండి</string>
+    <string name="general_remove_selected_action">ఎంచుకున్నవి తీసివేయండి</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">ఒక వస్తువు తీసివేయబడింది</item>
+        <item quantity="other">%d వస్తువులు తీసివేయబడ్డాయి</item>
+    </plurals>
+
+    <string name="general_root_required_label">రూట్ అవసరం</string>
+    <string name="general_root_required_message">రూట్ చేయబడిన పరికరం అవసరం</string>
+
+    <string name="general_search_action">వెతకండి</string>
+    <string name="general_scan_device_action">పరికరాన్ని స్కాన్ చేయండి</string>
+    <string name="general_open_system_settings_action">సిస్టమ్ సెట్టింగ్‌లను తెరవండి</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">%s వస్తువు</item>
+        <item quantity="other">%s వస్తువులు</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d విజయవంతమైన</item>
+        <item quantity="other">%d విజయవంతమైన</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d విఫలమైన</item>
+        <item quantity="other">%d విఫలమైన</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s ఖాళీ చేయవచ్చు</item>
+        <item quantity="other">%s ఖాళీ చేయవచ్చు</item>
+    </plurals>
+    <string name="general_info_label">సమాచారం</string>
+    <string name="general_count_label">గణన</string>
+    <string name="general_app_label">యాప్</string>
+    <string name="general_more_info_action">మరిన్ని సమాచారం</string>
+    <string name="general_grant_access_action">యాక్సెస్ మంజూరు చేయండి</string>
+    <string name="general_enable_service_action">సేవను ప్రారంభించండి</string>
+    <string name="general_undo_action">రద్దుచేయండి</string>
+
+    <string name="general_list_select_all_action">అన్నింటినీ ఎంచుకోండి</string>
+
+    <string name="general_path_label">మార్గం</string>
+    <string name="general_type_label">రకం</string>
+    <string name="general_size_label">పరిమాణం</string>
+    <string name="general_exclude_action">మినహాయించండి</string>
+    <string name="general_exclude_selected_action">ఎంచుకున్నవి మినహాయించండి</string>
+
+    <string name="general_device_label">పరికరం</string>
+
+    <string name="general_settings_title">సెట్టింగులు</string>
+    <string name="general_help_title">సహాయం</string>
+
+    <string name="file_type_symbolic_link">లింక్</string>
+    <string name="file_type_directory">డైరెక్టరీ</string>
+    <string name="file_type_file">ఫైల్</string>
+    <string name="file_type_unknown">తెలియని</string>
+
+    <string name="general_progress_ready">సిద్ధం</string>
+    <string name="general_progress_done">పూర్తయింది</string>
+
+    <string name="general_rom_type_auto_label">ఆటోమేటిక్ (డిఫాల్ట్)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d రోజు</item>
+        <item quantity="other">%d రోజులు</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d గంట</item>
+        <item quantity="other">%d గంటలు</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s ఫైల్</item>
+        <item quantity="other">%s ఫైళ్లు</item>
+    </plurals>
+    <string name="general_advice_title">సలహా</string>
+    <string name="general_error_invalid_input_label">చెల్లని ఇన్‌పుట్</string>
+    <string name="general_information_for_the_developer">డెవలపర్ కోసం సమాచారం</string>
+    <string name="general_error_report_bug_action">బగ్ రిపోర్ట్ చేయండి</string>
+    <string name="general_error_ipc_deadobject_title">సేవా కనెక్షన్ కోల్పోయింది</string>
+    <string name="general_error_ipc_deadobject_description">క్రిటికల్ సేవకు (ఉదా. Magisk, Shizuku, లేదా ఇతర సిస్టమ్-స్థాయి సేవలు) కనెక్షన్ అనుకోకుండా కోల్పోయింది. దయచేసి మీ పరికరాన్ని రీస్టార్ట్ చేయండి. సమస్య కొనసాగితే, అప్‌డేట్‌లను తనిఖీ చేయండి లేదా దాన్ని పరిష్కరించడానికి నన్ను సంప్రదించండి.</string>
+</resources>

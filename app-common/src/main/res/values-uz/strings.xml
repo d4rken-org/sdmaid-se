@@ -1,2 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">Sizning xizmatingizda.</string>
+    <string name="slogan_message_1">Toza va tartibli.</string>
+    <string name="slogan_message_2">Betartiblikni oldini olish.</string>
+    <string name="slogan_message_3">Kerakli ishlarni qilish.</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_5">Dog'siz.</string>
+    <string name="slogan_message_6">Baytlar, keting!</string>
+    <string name="slogan_message_7">Bo'sh joy, xursand joy.</string>
+    <string name="slogan_message_8">Hech qachon tashlab ketmayman.</string>
+
+    <string name="general_thank_you_label">Rahmat</string>
+
+    <string name="general_error_type_mismatch_msg">Turdagi nomuvofiqlik: %1$s kerak edi, lekin %2$s olindi.</string>
+    <string name="general_error_cant_access_msg">%s ga kirish mumkin emas.</string>
+    <string name="general_error_root_unavailable">Root kirish imkoni yo'q.</string>
+    <string name="general_error_empty_result_msg">Natija bo'sh edi.</string>
+    <string name="general_error_no_compatible_app_found_msg">Ushbu so'rovni amalga oshirish uchun mos dastur topilmadi.</string>
+    <string name="general_todo_msg">Ushbu xususiyat hali ishlab chiqilmoqda va hozircha mavjud emas.</string>
+    <string name="general_share_action">Ulashish</string>
+    <string name="general_done_action">Tayyor</string>
+    <string name="general_copy_action">Nusxalash</string>
+    <string name="general_wipe_action">Tozalash</string>
+    <string name="general_cancel_action">Bekor qilish</string>
+    <string name="general_discard_action">Rad etish</string>
+    <string name="general_reset_action">Qayta o'rnatish</string>
+    <string name="general_save_action">Saqlash</string>
+    <string name="general_thanks_action">Rahmat</string>
+    <string name="general_gotit_action">Tushundim</string>
+    <string name="general_fix_action">Tuzatish</string>
+    <string name="general_set_up_action">O'rnatish</string>
+    <string name="general_edit_action">Tahrirlash</string>
+    <string name="general_na_label">Mavjud emas</string>
+    <string name="general_empty_label">Bo'sh</string>
+    <string name="general_dismiss_action">Yopish</string>
+    <string name="general_maybe_later_action">Balki keyinroq</string>
+    <string name="general_manage_action">Boshqarish</string>
+    <string name="general_sync_action">Sinxronlashtirish</string>
+    <string name="general_error_label">Xato</string>
+    <string name="general_tap_hint_msg">Qo'shimcha variantlar uchun bosing</string>
+    <string name="general_upgrade_action">Yangilash</string>
+    <string name="general_donate_action">Xayriya qilish</string>
+    <string name="general_check_action">Tekshirish</string>
+    <string name="general_filter_action">Filtrlash</string>
+    <string name="general_internal_not_available_msg">Internet aloqasi mavjud emas</string>
+    <string name="general_refresh_action">Yangilash</string>
+    <string name="general_progress_searching">Qidiruv</string>
+    <string name="general_progress_generating_searchpaths">Qidiruv yo'llarini yaratish</string>
+    <string name="general_progress_filtering">Filtrlash</string>
+    <string name="general_progress_preparing">Tayyorlash</string>
+    <string name="general_progress_processing_x">%s ishlov berilmoqda</string>
+    <string name="general_progress_loading">Yuklanmoqda</string>
+    <string name="general_progress_loading_app_data">Ilova ma'lumotlari yuklanmoqda</string>
+    <string name="general_progress_loading_data_areas">Ma'lumotlar sohasi yuklanmoqda</string>
+    <string name="general_progress_loading_egg_0">iPhone dan tezroq</string>
+    <string name="general_progress_loading_egg_1">Qo'shimcha RAM yuklab olmoqda</string>
+    <string name="general_progress_loading_egg_2">Tez orada™</string>
+    <string name="general_progress_loading_egg_3">CPU kofe tanaffusida</string>
+    <string name="general_progress_loading_egg_4">Pepe Silvia dan ma'lumot kutmoqda</string>
+    <string name="general_progress_loading_egg_5">Turbo encabulator ishga tushmoqda</string>
+    <string name="general_progress_loading_egg_6">Sariyog' uzatmoqda</string>
+    <string name="general_progress_loading_egg_7">Qalaysiz?</string>
+    <string name="general_progress_loading_egg_8">Bip bup bop</string>
+    <string name="general_progress_loading_egg_9">Hayot tanlovlarini buferlashtirmoqda</string>
+    <string name="general_progress_loading_egg_10">Cthulhu ni chaqirmoqda</string>
+    <string name="general_progress_loading_egg_11">Bu yaxshi</string>
+    <string name="general_progress_loading_egg_12">Iltimos kuting</string>
+    <string name="general_progress_loading_egg_13">Hech bo'lmasa navbatda emasmiz</string>
+    <string name="general_help_action">Yordam</string>
+    <string name="general_continue">Davom etish</string>
+    <string name="general_progress_queued">Navbatda</string>
+    <string name="general_progress_deleting">O'chirilmoqda</string>
+    <string name="general_progress_deleting_x">%s o'chirilmoqda</string>
+    <string name="general_sort_options_label">Saralash variantlari</string>
+    <string name="general_sort_reverse_action">Teskari saralash rejimi</string>
+    <string name="general_tag_filter_label">Teglar bo'yicha filtrlash</string>
+
+    <string name="general_result_success_message">Muvaffaqiyatli bajarildi</string>
+    <string name="general_result_failure_message">Operatsiya muvaffaqiyatsiz</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s joy bo'shatildi.</item>
+        <item quantity="other">%s joy bo'shatildi.</item>
+    </plurals>
+
+    <string name="general_options_label">Variantlar</string>
+    <string name="general_details_label">Tafsilotlar</string>
+    <string name="general_view_action">Ko'rish</string>
+    <string name="general_update_action">Yangilash</string>
+    <string name="general_scan_action">Skanerlash</string>
+    <string name="general_delete_action">O'chirish</string>
+    <string name="general_delete_selected_action">Tanlanganlarni o'chirish</string>
+    <string name="general_show_details_action">Tafsilotlarni ko'rsatish</string>
+    <string name="general_show_all_action">Barchasini ko'rsatish</string>
+    <string name="general_toggle_layout_mode">Ko'rish rejimini almashtirish</string>
+
+    <string name="general_delete_confirmation_title">O'chirishni tasdiqlash</string>
+    <string name="general_delete_confirmation_message_x">\"%s\"ni o'chirasizmi?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Tanlangan %d narsani o'chirasizmi?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d narsa o'chirildi.</item>
+        <item quantity="other">%d narsa o'chirildi.</item>
+    </plurals>
+
+    <string name="general_remove_action">Olib tashlash</string>
+    <string name="general_remove_selected_action">Tanlanganlarni olib tashlash</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Bitta narsa olib tashlandi</item>
+        <item quantity="other">%d narsa olib tashlandi</item>
+    </plurals>
+
+    <string name="general_root_required_label">Root kerak</string>
+    <string name="general_root_required_message">Root qilingan qurilma kerak</string>
+
+    <string name="general_search_action">Qidirish</string>
+    <string name="general_scan_device_action">Qurilmani skanerlash</string>
+    <string name="general_open_system_settings_action">Tizim sozlamalarini ochish</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">%s narsa</item>
+        <item quantity="other">%s narsa</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d muvaffaqiyatli</item>
+        <item quantity="other">%d muvaffaqiyatli</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d muvaffaqiyatsiz</item>
+        <item quantity="other">%d muvaffaqiyatsiz</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s bo'shatish mumkin</item>
+        <item quantity="other">%s bo'shatish mumkin</item>
+    </plurals>
+    <string name="general_info_label">Ma'lumot</string>
+    <string name="general_count_label">Soni</string>
+    <string name="general_app_label">Ilova</string>
+    <string name="general_more_info_action">Qo'shimcha ma'lumot</string>
+    <string name="general_grant_access_action">Ruxsat berish</string>
+    <string name="general_enable_service_action">Xizmatni yoqish</string>
+    <string name="general_undo_action">Bekor qilish</string>
+
+    <string name="general_list_select_all_action">Barchasini tanlash</string>
+
+    <string name="general_path_label">Yo'l</string>
+    <string name="general_type_label">Turi</string>
+    <string name="general_size_label">Hajmi</string>
+    <string name="general_exclude_action">Istisno qilish</string>
+    <string name="general_exclude_selected_action">Tanlanganlarni istisno qilish</string>
+
+    <string name="general_device_label">Qurilma</string>
+
+    <string name="general_settings_title">Sozlamalar</string>
+    <string name="general_help_title">Yordam</string>
+
+    <string name="file_type_symbolic_link">Havola</string>
+    <string name="file_type_directory">Katalog</string>
+    <string name="file_type_file">Fayl</string>
+    <string name="file_type_unknown">Noma'lum</string>
+
+    <string name="general_progress_ready">Tayyor</string>
+    <string name="general_progress_done">Tayyor</string>
+
+    <string name="general_rom_type_auto_label">Avtomatik (standart)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d kun</item>
+        <item quantity="other">%d kun</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d soat</item>
+        <item quantity="other">%d soat</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s fayl</item>
+        <item quantity="other">%s fayl</item>
+    </plurals>
+    <string name="general_advice_title">Maslahat</string>
+    <string name="general_error_invalid_input_label">Noto'g'ri ma'lumot</string>
+    <string name="general_information_for_the_developer">Dasturchi uchun ma'lumot</string>
+    <string name="general_error_report_bug_action">Xato haqida xabar berish</string>
+    <string name="general_error_ipc_deadobject_title">Xizmat aloqasi uzildi</string>
+    <string name="general_error_ipc_deadobject_description">Muhim xizmat (masalan, Magisk, Shizuku yoki boshqa tizim darajasidagi xizmatlar) bilan aloqa kutilmaganda uzildi. Iltimos, qurilmangizni qayta ishga tushiring. Agar muammo davom etsa, yangilanishlarni tekshiring yoki uni tuzatish uchun men bilan bog'laning.</string>
+</resources>

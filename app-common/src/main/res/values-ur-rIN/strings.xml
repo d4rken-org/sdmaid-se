@@ -1,2 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">آپ کی خدمت میں۔</string>
+    <string name="slogan_message_1">صاف اور منظم۔</string>
+    <string name="slogan_message_2">افراتفری سے بچانا۔</string>
+    <string name="slogan_message_3">ضروری کام کرنا۔</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_5">بے داغ۔</string>
+    <string name="slogan_message_6">بائٹس، جاؤ!</string>
+    <string name="slogan_message_7">آزاد جگہ، خوش جگہ۔</string>
+    <string name="slogan_message_8">کبھی آپ کو نہیں چھوڑوں گا۔</string>
+
+    <string name="general_thank_you_label">شکریہ</string>
+
+    <string name="general_error_type_mismatch_msg">قسم میں بے میل: %1$s چاہیے تھی، لیکن %2$s ملا۔</string>
+    <string name="general_error_cant_access_msg">%s تک رسائی نہیں ہو سکتی۔</string>
+    <string name="general_error_root_unavailable">Root رسائی دستیاب نہیں۔</string>
+    <string name="general_error_empty_result_msg">نتیجہ خالی تھا۔</string>
+    <string name="general_error_no_compatible_app_found_msg">اس درخواست کو سنبھالنے کے لیے کوئی مطابقت پزیر ایپ نہیں ملا۔</string>
+    <string name="general_todo_msg">یہ فیچر ابھی بھی بنایا جا رہا ہے اور فلحال دستیاب نہیں۔</string>
+    <string name="general_share_action">شیئر کریں</string>
+    <string name="general_done_action">مکمل</string>
+    <string name="general_copy_action">کاپی</string>
+    <string name="general_wipe_action">صاف کریں</string>
+    <string name="general_cancel_action">منسوخ کریں</string>
+    <string name="general_discard_action">رد کریں</string>
+    <string name="general_reset_action">ری سیٹ کریں</string>
+    <string name="general_save_action">محفوظ کریں</string>
+    <string name="general_thanks_action">شکریہ</string>
+    <string name="general_gotit_action">سمجھ گیا</string>
+    <string name="general_fix_action">حل کریں</string>
+    <string name="general_set_up_action">سیٹ اپ کریں</string>
+    <string name="general_edit_action">تبدیلی کریں</string>
+    <string name="general_na_label">دستیاب نہیں</string>
+    <string name="general_empty_label">خالی</string>
+    <string name="general_dismiss_action">بار کریں</string>
+    <string name="general_maybe_later_action">شاید بعد میں</string>
+    <string name="general_manage_action">مینج کریں</string>
+    <string name="general_sync_action">ہم آہنگ کریں</string>
+    <string name="general_error_label">غلطی</string>
+    <string name="general_tap_hint_msg">مزید اختیارات کے لیے ٹیپ کریں</string>
+    <string name="general_upgrade_action">اپ گریڈ کریں</string>
+    <string name="general_donate_action">عطیہ کریں</string>
+    <string name="general_check_action">جانچیں</string>
+    <string name="general_filter_action">فلٹر کریں</string>
+    <string name="general_internal_not_available_msg">انٹرنیٹ کنکشن دستیاب نہیں</string>
+    <string name="general_refresh_action">تازہ کریں</string>
+    <string name="general_progress_searching">تلاش کر رہا ہے</string>
+    <string name="general_progress_generating_searchpaths">تلاشی راستے بنا رہا ہے</string>
+    <string name="general_progress_filtering">فلٹر کر رہا ہے</string>
+    <string name="general_progress_preparing">تیاری کر رہا ہے</string>
+    <string name="general_progress_processing_x">%s پر کارروائی</string>
+    <string name="general_progress_loading">لوڈ کر رہا ہے</string>
+    <string name="general_progress_loading_app_data">ایپ ڈیٹا لوڈ کر رہا ہے</string>
+    <string name="general_progress_loading_data_areas">ڈیٹا علاقے لوڈ کر رہا ہے</string>
+    <string name="general_progress_loading_egg_0">iPhone سے تیز</string>
+    <string name="general_progress_loading_egg_1">اضافی RAM ڈاؤن لوڈ کر رہا ہے</string>
+    <string name="general_progress_loading_egg_2">جلدی™</string>
+    <string name="general_progress_loading_egg_3">CPU کافی بریک پر ہے</string>
+    <string name="general_progress_loading_egg_4">Pepe Silvia سے ڈیٹا کا انتظار</string>
+    <string name="general_progress_loading_egg_5">ٹربو اینکابولیٹر شروع ہو رہا ہے</string>
+    <string name="general_progress_loading_egg_6">بٹر پاس کر رہا ہے</string>
+    <string name="general_progress_loading_egg_7">کیا حال ہے؟</string>
+    <string name="general_progress_loading_egg_8">بیپ بوپ باپ</string>
+    <string name="general_progress_loading_egg_9">زندگی کے انتخاب بفر کر رہا ہے</string>
+    <string name="general_progress_loading_egg_10">Cthulhu کو بلا رہا ہے</string>
+    <string name="general_progress_loading_egg_11">یہ ٹھیک ہے</string>
+    <string name="general_progress_loading_egg_12">براہ کرم انتظار کریں</string>
+    <string name="general_progress_loading_egg_13">کم از کم آپ ہولڈ پر نہیں ہیں</string>
+    <string name="general_help_action">مدد</string>
+    <string name="general_continue">جاری رکھیں</string>
+    <string name="general_progress_queued">قطار میں</string>
+    <string name="general_progress_deleting">حذف کر رہا ہے</string>
+    <string name="general_progress_deleting_x">%s حذف کر رہا ہے</string>
+    <string name="general_sort_options_label">ترتیب کے اختیارات</string>
+    <string name="general_sort_reverse_action">ریورس سارٹ موڈ</string>
+    <string name="general_tag_filter_label">ٹیگز کے ذریعے فلٹر کریں</string>
+
+    <string name="general_result_success_message">کامیابی سے مکمل</string>
+    <string name="general_result_failure_message">آپریشن ناکام</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s جگہ آزاد کی گئی۔</item>
+        <item quantity="other">%s جگہ آزاد کی گئی۔</item>
+    </plurals>
+
+    <string name="general_options_label">اختیارات</string>
+    <string name="general_details_label">تفصیلات</string>
+    <string name="general_view_action">دیکھیں</string>
+    <string name="general_update_action">اپ ڈیٹ کریں</string>
+    <string name="general_scan_action">اسکین کریں</string>
+    <string name="general_delete_action">حذف کریں</string>
+    <string name="general_delete_selected_action">منتخب کو حذف کریں</string>
+    <string name="general_show_details_action">تفصیلات دکھائیں</string>
+    <string name="general_show_all_action">سب دکھائیں</string>
+    <string name="general_toggle_layout_mode">دیکھنے کی موڈ تبدیل کریں</string>
+
+    <string name="general_delete_confirmation_title">حذف کی تصدیق کریں</string>
+    <string name="general_delete_confirmation_message_x">\"%s\" کو حذف کریں؟</string>
+    <string name="general_delete_confirmation_message_selected_x_items">منتخب %d اشیاء کو حذف کریں؟</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d آئٹم حذف کیا گیا۔</item>
+        <item quantity="other">%d آئٹمز حذف کیے گئے۔</item>
+    </plurals>
+
+    <string name="general_remove_action">ہٹائیں</string>
+    <string name="general_remove_selected_action">منتخب کو ہٹائیں</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">ایک آئٹم ہٹایا گیا</item>
+        <item quantity="other">%d آئٹمز ہٹاے گئے</item>
+    </plurals>
+
+    <string name="general_root_required_label">Root کی ضرورت</string>
+    <string name="general_root_required_message">Root کی گئی ڈیوائس کی ضرورت</string>
+
+    <string name="general_search_action">تلاش کریں</string>
+    <string name="general_scan_device_action">ڈیوائس اسکین کریں</string>
+    <string name="general_open_system_settings_action">سسٹم سیٹنگز کھولیں</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">%s آئٹم</item>
+        <item quantity="other">%s آئٹمز</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d کامیاب</item>
+        <item quantity="other">%d کامیاب</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d ناکام</item>
+        <item quantity="other">%d ناکام</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s آزاد کیا جا سکتا ہے</item>
+        <item quantity="other">%s آزاد کیا جا سکتا ہے</item>
+    </plurals>
+    <string name="general_info_label">معلومات</string>
+    <string name="general_count_label">شمار</string>
+    <string name="general_app_label">ایپ</string>
+    <string name="general_more_info_action">مزید معلومات</string>
+    <string name="general_grant_access_action">رسائی فراہم کریں</string>
+    <string name="general_enable_service_action">سروس فعال کریں</string>
+    <string name="general_undo_action">واپس کریں</string>
+
+    <string name="general_list_select_all_action">سب منتخب کریں</string>
+
+    <string name="general_path_label">راستہ</string>
+    <string name="general_type_label">قسم</string>
+    <string name="general_size_label">سائز</string>
+    <string name="general_exclude_action">خارج کریں</string>
+    <string name="general_exclude_selected_action">منتخب کو خارج کریں</string>
+
+    <string name="general_device_label">ڈیوائس</string>
+
+    <string name="general_settings_title">سیٹنگز</string>
+    <string name="general_help_title">مدد</string>
+
+    <string name="file_type_symbolic_link">لنک</string>
+    <string name="file_type_directory">ڈائریکٹری</string>
+    <string name="file_type_file">فائل</string>
+    <string name="file_type_unknown">نامعلوم</string>
+
+    <string name="general_progress_ready">تیار</string>
+    <string name="general_progress_done">مکمل</string>
+
+    <string name="general_rom_type_auto_label">خودکار (ڈیفالٹ)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d دن</item>
+        <item quantity="other">%d دن</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d گھنٹہ</item>
+        <item quantity="other">%d گھنٹے</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s فائل</item>
+        <item quantity="other">%s فائلز</item>
+    </plurals>
+    <string name="general_advice_title">مشورہ</string>
+    <string name="general_error_invalid_input_label">غلط ان پٹ</string>
+    <string name="general_information_for_the_developer">ڈویلپر کے لیے معلومات</string>
+    <string name="general_error_report_bug_action">بگ کی رپورٹ کریں</string>
+    <string name="general_error_ipc_deadobject_title">سروس کنکشن ضائع</string>
+    <string name="general_error_ipc_deadobject_description">اہم سروس (جیسے Magisk، Shizuku، یا دیگر سسٹم لیول سروسز) کے ساتھ کنکشن غیر متوقع طور پر ضائع ہو گیا ہے۔ براہ کرم اپنی ڈیوائس ری اسٹارٹ کریں۔ اگر مسئلہ برقرار رہتا ہے، تو اپ ڈیٹس کی جانچ کریں یا اسے حل کرنے کے لیے مجھ سے رابطہ کریں۔</string>
+</resources>

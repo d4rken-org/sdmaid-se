@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Na usluzi.</string>
     <string name="slogan_message_1">Čisto i uredno.</string>
     <string name="slogan_message_2">Sprječava kaos.</string>
     <string name="slogan_message_3">Radi ono što je potrebno.</string>
     <string name="slogan_message_5">Besprijekoran.</string>
     <string name="slogan_message_6">Bajtovi, nestanite!</string>
+    <string name="slogan_message_7">Slobodan prostor, sretno mjesto.</string>
+    <string name="slogan_message_8">Nikad te neću razočarati.</string>
     <string name="general_thank_you_label">Hvala vam</string>
     <string name="general_error_type_mismatch_msg">Nepodudaranje tipa: Htio sam %1$s, ali sam dobio %2$s.</string>
     <string name="general_error_cant_access_msg">Nije moguće pristupiti %s.</string>
@@ -26,6 +29,7 @@
     <string name="general_fix_action">Popravi</string>
     <string name="general_set_up_action">Postavljanje</string>
     <string name="general_edit_action">Uredi</string>
+    <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Prazno</string>
     <string name="general_dismiss_action">Odbaci</string>
     <string name="general_maybe_later_action">Možda kasnije</string>
@@ -55,8 +59,12 @@
     <string name="general_progress_loading_egg_5">Turbo enkabulator se pokreće</string>
     <string name="general_progress_loading_egg_6">Dodavanje maslaca</string>
     <string name="general_progress_loading_egg_7">Tako. Kako se držiš?</string>
+    <string name="general_progress_loading_egg_8">Bip bup bop</string>
+    <string name="general_progress_loading_egg_9">Spremanje životnih izbora</string>
     <string name="general_progress_loading_egg_10">Prizivanje Cthulhua</string>
     <string name="general_progress_loading_egg_11">Ovo je u redu</string>
+    <string name="general_progress_loading_egg_12">Molimo pričekajte</string>
+    <string name="general_progress_loading_egg_13">Barem niste na čekanju</string>
     <string name="general_help_action">Pomoć</string>
     <string name="general_continue">Nastavi</string>
     <string name="general_progress_queued">U redu čekanja</string>
@@ -67,6 +75,11 @@
     <string name="general_tag_filter_label">Filtriraj po oznakama</string>
     <string name="general_result_success_message">Operacija je uspjela</string>
     <string name="general_result_failure_message">Operacija nije uspjela</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Oslobođeno %s prostora.</item>
+        <item quantity="few">Oslobođeno %s prostora.</item>
+        <item quantity="other">Oslobođeno %s prostora.</item>
+    </plurals>
     <string name="general_options_label">Mogućnosti</string>
     <string name="general_details_label">Detalji</string>
     <string name="general_view_action">Prikaz</string>
@@ -80,6 +93,11 @@
     <string name="general_delete_confirmation_title">Potvrdite brisanje</string>
     <string name="general_delete_confirmation_message_x">Izbrisati \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Izbrisati %d odabranih stavki?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Izbrisana %d stavka.</item>
+        <item quantity="few">Izbrisane %d stavke.</item>
+        <item quantity="other">Izbrisano %d stavki.</item>
+    </plurals>
     <string name="general_remove_action">Ukloni</string>
     <string name="general_remove_selected_action">Ukloni odabrano</string>
     <plurals name="general_remove_success_x_items">
@@ -96,6 +114,21 @@
         <item quantity="one">%s stavka</item>
         <item quantity="few">%s stavke</item>
         <item quantity="other">%s stavki</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d uspješan</item>
+        <item quantity="few">%d uspješna</item>
+        <item quantity="other">%d uspješnih</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d neuspješan</item>
+        <item quantity="few">%d neuspješna</item>
+        <item quantity="other">%d neuspješnih</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s može biti oslobođeno</item>
+        <item quantity="few">%s može biti oslobođeno</item>
+        <item quantity="other">%s može biti oslobođeno</item>
     </plurals>
     <string name="general_info_label">Informacije</string>
     <string name="general_count_label">Količina</string>
@@ -119,9 +152,26 @@
     <string name="file_type_unknown">Nepoznato</string>
     <string name="general_progress_ready">Spremno</string>
     <string name="general_progress_done">Gotovo</string>
+    <string name="general_rom_type_auto_label">Automatski (zadano)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d dan</item>
+        <item quantity="few">%d dana</item>
+        <item quantity="other">%d dana</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d sat</item>
+        <item quantity="few">%d sata</item>
+        <item quantity="other">%d sati</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s datoteka</item>
         <item quantity="few">%s datoteke</item>
         <item quantity="other">%s datoteka</item>
     </plurals>
+    <string name="general_advice_title">Savjet</string>
+    <string name="general_error_invalid_input_label">Neispravni unos</string>
+    <string name="general_information_for_the_developer">Informacije za razvojnog programera</string>
+    <string name="general_error_report_bug_action">Prijavite grešku</string>
+    <string name="general_error_ipc_deadobject_title">Veza s uslugom izgubljena</string>
+    <string name="general_error_ipc_deadobject_description">Veza s kritičnom uslugom (npr. Magisk, Shizuku ili druge usluge na razini sustava) neočekivano je izgubljena. Ponovno pokrenite uređaj. Ako se problem nastavi, provjerite ima li ažuriranja ili me kontaktirajte kako bih to mogao popraviti.</string>
 </resources>

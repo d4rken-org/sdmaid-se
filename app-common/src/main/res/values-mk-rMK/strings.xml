@@ -75,6 +75,10 @@
     <string name="general_tag_filter_label">Филтрирајте по ознаки</string>
     <string name="general_result_success_message">Operation successful</string>
     <string name="general_result_failure_message">Неуспешна операција</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Ослободен %s простор.</item>
+        <item quantity="other">Ослободен %s простор.</item>
+    </plurals>
     <string name="general_options_label">Опции</string>
     <string name="general_details_label">Детали</string>
     <string name="general_view_action">Прикажи</string>
@@ -88,6 +92,10 @@
     <string name="general_delete_confirmation_title">Потврдете го бришењето</string>
     <string name="general_delete_confirmation_message_x">Да се ​​избрише „%s“?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Да се избришат селектираните елементи %d?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Избришана %d ставка.</item>
+        <item quantity="other">Избришани %d ставки.</item>
+    </plurals>
     <string name="general_remove_action">Отстрани</string>
     <string name="general_remove_selected_action">Отстранете го избраното</string>
     <plurals name="general_remove_success_x_items">
@@ -110,6 +118,10 @@
     <plurals name="result_x_failed">
         <item quantity="one">%d успешно</item>
         <item quantity="other">%d успешно</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s може да се ослободи</item>
+        <item quantity="other">%s може да се ослободи</item>
     </plurals>
     <string name="general_info_label">Инфо</string>
     <string name="general_count_label">Брои</string>
@@ -134,8 +146,22 @@
     <string name="general_progress_ready">Подготвени</string>
     <string name="general_progress_done">Готово</string>
     <string name="general_rom_type_auto_label">Автоматско (стандардно)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d ден</item>
+        <item quantity="other">%d дена</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d час</item>
+        <item quantity="other">%d часа</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s датотека</item>
         <item quantity="other">%s датотеки</item>
     </plurals>
+    <string name="general_advice_title">Совет</string>
+    <string name="general_error_invalid_input_label">Невалиден внес</string>
+    <string name="general_information_for_the_developer">Информации за програмерот</string>
+    <string name="general_error_report_bug_action">Пријави грешка</string>
+    <string name="general_error_ipc_deadobject_title">Врската со услугата е изгубена</string>
+    <string name="general_error_ipc_deadobject_description">Врската со критична услуга (на пр. Magisk, Shizuku или други услуги на системско ниво) неочекувано беше изгубена. Ве молиме рестартирајте го вашиот уред. Ако проблемот продолжи, проверете за ажурирања или контактирајте ме за да го поправам.</string>
 </resources>

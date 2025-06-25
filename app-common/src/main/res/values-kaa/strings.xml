@@ -62,4 +62,106 @@
     <string name="file_type_directory">Papka</string>
     <string name="file_type_file">Fayl</string>
     <string name="file_type_unknown">Belgisiz</string>
+    <string name="slogan_message_0">Xızmetińizde.</string>
+    <string name="slogan_message_1">Taza hám retli.</string>
+    <string name="slogan_message_2">Bulaǵannı aldın alaw.</string>
+    <string name="slogan_message_3">Keregli nárseni etetiw.</string>
+    <string name="slogan_message_6">Baytlar, ketetiń!</string>
+    <string name="slogan_message_7">Bos orın, baxıtlı orın.</string>
+    <string name="slogan_message_8">Ashań sıźdı tashlamayman.</string>
+    <string name="general_error_type_mismatch_msg">Túr mas kelmeýdi: %1$s qáledi, biraq %2$s aldı.</string>
+    <string name="general_error_cant_access_msg">%s-qa kiriw múmkin emes.</string>
+    <string name="general_error_root_unavailable">Root qatnaswı joq.</string>
+    <string name="general_error_no_compatible_app_found_msg">Bul ótinishti islew ushın úýlesetiń baǵdarlama tabılmadı.</string>
+    <string name="general_todo_msg">Bul mümkinshilik áli islenip atır hám házir joq.</string>
+    <string name="general_dismiss_action">Jabıw</string>
+    <string name="general_maybe_later_action">Moǵdan kiyın</string>
+    <string name="general_tap_hint_msg">Kóbirek tańlawlar ushın basıń</string>
+    <string name="general_internal_not_available_msg">Internet baylanısı joq</string>
+    <string name="general_progress_generating_searchpaths">Izlew jollardı jasaw</string>
+    <string name="general_progress_filtering">Filtrlew</string>
+    <string name="general_progress_processing_x">%s ińdew</string>
+    <string name="general_progress_loading_app_data">Baǵdarlama maǵlıwmatların júklew</string>
+    <string name="general_progress_loading_data_areas">Maǵlıwmat rayonların júklew</string>
+    <string name="general_progress_loading_egg_0">iPhone-dan tez hálle</string>
+    <string name="general_progress_loading_egg_1">Kóbirek RAM júklew</string>
+    <string name="general_progress_loading_egg_3">CPU qahwa tanıslıǵında</string>
+    <string name="general_progress_loading_egg_4">Pepe Silvia-dan maǵlıwmat kútiw</string>
+    <string name="general_progress_loading_egg_5">Turbo encabulator baslanapaq</string>
+    <string name="general_progress_loading_egg_6">Maynı beriw</string>
+    <string name="general_progress_loading_egg_7">Atın. Qalay shıdapaq?</string>
+    <string name="general_progress_loading_egg_8">Bip bup bop</string>
+    <string name="general_progress_loading_egg_9">Ómir tańlawların buffer etew</string>
+    <string name="general_progress_loading_egg_10">Cthulhu-nı shaqırıw</string>
+    <string name="general_progress_loading_egg_11">Bul jaqsı</string>
+    <string name="general_progress_loading_egg_12">Kútetiń</string>
+    <string name="general_progress_loading_egg_13">Ámgen kútipliwde joqsız</string>
+    <string name="general_progress_deleting">Óshiriw</string>
+    <string name="general_progress_deleting_x">%s óshiriw</string>
+    <string name="general_sort_options_label">Tartıplew tańlawları</string>
+    <string name="general_sort_reverse_action">Tartıplew modesin teskers etew</string>
+    <string name="general_tag_filter_label">Teglar boyınsha filtrlew</string>
+    <string name="general_result_success_message">Amal jetiskerli</string>
+    <string name="general_result_failure_message">Amal jetiskersiz</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s orın bostatıldı.</item>
+        <item quantity="other">%s orın bostatıldı.</item>
+    </plurals>
+    <string name="general_options_label">Tańlawlar</string>
+    <string name="general_details_label">Egjeyli maǵlıwmatlar</string>
+    <string name="general_scan_action">Skanerlew</string>
+    <string name="general_show_details_action">Egjeyli maǵlıwmatlardı kórsetew</string>
+    <string name="general_show_all_action">Barlıǵın kórsetew</string>
+    <string name="general_toggle_layout_mode">Kóriw modesin ózgertew</string>
+    <string name="general_delete_confirmation_message_selected_x_items">%d tańlanǵan elementti óshiretiń be?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d element óshirildi.</item>
+        <item quantity="other">%d element óshirildi.</item>
+    </plurals>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Bir element alıp taslaldı</item>
+        <item quantity="other">%d element alıp taslaldı</item>
+    </plurals>
+    <string name="general_root_required_label">Root kerek</string>
+    <string name="general_root_required_message">Root qurılması kerek</string>
+    <string name="general_scan_device_action">Qurılmanı skanerlew</string>
+    <plurals name="result_x_items">
+        <item quantity="one">%s element</item>
+        <item quantity="other">%s element</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d jetiskerli</item>
+        <item quantity="other">%d jetiskerli</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d jetiskersiz</item>
+        <item quantity="other">%d jetiskersiz</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s bostatıla alması múmkin</item>
+        <item quantity="other">%s bostatıla alması múmkin</item>
+    </plurals>
+    <string name="general_exclude_action">Ashqa shıǵarıw</string>
+    <string name="general_exclude_selected_action">Tańlanǵanlardı ashqa shıǵarıw</string>
+    <string name="general_progress_ready">Tayar</string>
+    <string name="general_progress_done">Tayar</string>
+    <string name="general_rom_type_auto_label">Avtomatikalıq (ádepki)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d kún</item>
+        <item quantity="other">%d kún</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d saǵat</item>
+        <item quantity="other">%d saǵat</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s fayl</item>
+        <item quantity="other">%s fayl</item>
+    </plurals>
+    <string name="general_advice_title">Keńes</string>
+    <string name="general_error_invalid_input_label">Jarmamas kiriw</string>
+    <string name="general_information_for_the_developer">Islep shıǵarıwshı ushın maǵlıwmat</string>
+    <string name="general_error_report_bug_action">Qáte haqqında xabar beriw</string>
+    <string name="general_error_ipc_deadobject_title">Xızmet baylanısı úzildi</string>
+    <string name="general_error_ipc_deadobject_description">Mánisli xızmetke (masalan, Magisk, Shizuku, yamasa basqa sistema darajasındaǵı xızmetler) baylanıs kútilmegen túrde úzildi. Qurılmańızdı qayta júklań. Eger máselerni dawam etse, jańartıwlardı tekseriń yamasa mańa ádepki ústinde ózi sheshimni tapıw ushın xabar beriń.</string>
 </resources>

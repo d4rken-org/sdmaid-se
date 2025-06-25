@@ -1,2 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">នៅសេវាកម្មរបស់អ្នក។</string>
+    <string name="slogan_message_1">ស្អាត និងរៀបរយ។</string>
+    <string name="slogan_message_2">ការពារភាពច្របូកច្របល់។</string>
+    <string name="slogan_message_3">ធ្វើអ្វីដែលចាំបាច់។</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_5">គ្មានកំណះ។</string>
+    <string name="slogan_message_6">បៃត៍ ទៅ!</string>
+    <string name="slogan_message_7">កន្លែងទំនេរ កន្លែងរីករាយ។</string>
+    <string name="slogan_message_8">មិនដែលបោះបង់អ្នកទេ។</string>
+
+    <string name="general_thank_you_label">អរគុណ</string>
+
+    <string name="general_error_type_mismatch_msg">ប្រភេទមិនត្រូវគ្នា៖ ចង់បាន %1$s ប៉ុន្តែបានទទួល %2$s។</string>
+    <string name="general_error_cant_access_msg">មិនអាចចូលដំណើរការ %s បាន។</string>
+    <string name="general_error_root_unavailable">មិនមានការចូលប្រើ Root បាន។</string>
+    <string name="general_error_empty_result_msg">លទ្ធផលទទេ។</string>
+    <string name="general_error_no_compatible_app_found_msg">រកមិនឃើញកម្មវិធីស្រប់ស្រួលក្នុងការដោះស្រាយសំណើនេះ។</string>
+    <string name="general_todo_msg">មុខងារនេះនៅកំពុងដំណើរការ និងមិនទាន់មានបច្ចុប្បន្ន។</string>
+    <string name="general_share_action">ចែករំលែក</string>
+    <string name="general_done_action">រួចរាល់</string>
+    <string name="general_copy_action">ចម្លង</string>
+    <string name="general_wipe_action">លុបចំព្យាប</string>
+    <string name="general_cancel_action">បោះបង់</string>
+    <string name="general_discard_action">បោះបង់</string>
+    <string name="general_reset_action">កំណត់ឡើងវិញ</string>
+    <string name="general_save_action">រក្សាទុក</string>
+    <string name="general_thanks_action">អរគុណ</string>
+    <string name="general_gotit_action">យល់ហើយ</string>
+    <string name="general_fix_action">ជួសជុល</string>
+    <string name="general_set_up_action">រៀបចំ</string>
+    <string name="general_edit_action">កែសម្រួល</string>
+    <string name="general_na_label">គ/ម</string>
+    <string name="general_empty_label">ទទេ</string>
+    <string name="general_dismiss_action">បដិសេធ</string>
+    <string name="general_maybe_later_action">ប្រហែលពេលក្រោយ</string>
+    <string name="general_manage_action">គ្រប់គ្រង</string>
+    <string name="general_sync_action">ស្រមុះ</string>
+    <string name="general_error_label">កំហុស</string>
+    <string name="general_tap_hint_msg">ចុចសម្រាប់ជម្រើសបន្ថែម</string>
+    <string name="general_upgrade_action">ដំឡើងកំណែថ្មី</string>
+    <string name="general_donate_action">បរិច្ចាគ</string>
+    <string name="general_check_action">ពិនិត្យ</string>
+    <string name="general_filter_action">តម្រង</string>
+    <string name="general_internal_not_available_msg">មិនមានការភ្ជាប់អ៊ីនធឺណិត</string>
+    <string name="general_refresh_action">ផ្ទុកឡើងវិញ</string>
+    <string name="general_progress_searching">កំពុងស្វែងរក</string>
+    <string name="general_progress_generating_searchpaths">កំពុងបង្កើតផ្លូវស្វែងរក</string>
+    <string name="general_progress_filtering">កំពុងតម្រង</string>
+    <string name="general_progress_preparing">កំពុងរៀបចំ</string>
+    <string name="general_progress_processing_x">កំពុងដំណើរការ %s</string>
+    <string name="general_progress_loading">កំពុងផ្ទុក</string>
+    <string name="general_progress_loading_app_data">កំពុងផ្ទុកទិន្នន័យកម្មវិធី</string>
+    <string name="general_progress_loading_data_areas">កំពុងផ្ទុកតំបន់ទិន្នន័យ</string>
+    <string name="general_progress_loading_egg_0">នៅតែលឿនជាង iPhone</string>
+    <string name="general_progress_loading_egg_1">កំពុងទាញយក RAM បន្ថែម</string>
+    <string name="general_progress_loading_egg_2">ឆាប់ៗ™</string>
+    <string name="general_progress_loading_egg_3">CPU កំពុងសម្រាកផឹកកាហ្វេ</string>
+    <string name="general_progress_loading_egg_4">កំពុងរង់ចាំទិន្នន័យពី Pepe Silvia</string>
+    <string name="general_progress_loading_egg_5">Turbo encabulator កំពុងចាប់ផ្តើម</string>
+    <string name="general_progress_loading_egg_6">កំពុងបញ្ជូនប៊ឺ</string>
+    <string name="general_progress_loading_egg_7">ចុះ។ តើអ្នកទ្រាំបានទេ?</string>
+    <string name="general_progress_loading_egg_8">Bip bup bop</string>
+    <string name="general_progress_loading_egg_9">កំពុង buffer ការជ្រើសរើសក្នុងជីវិត</string>
+    <string name="general_progress_loading_egg_10">កំពុងហៅ Cthulhu</string>
+    <string name="general_progress_loading_egg_11">នេះល្អ</string>
+    <string name="general_progress_loading_egg_12">សូមរង់ចាំ</string>
+    <string name="general_progress_loading_egg_13">យ៉ាងហោចណាស់អ្នកមិនកំពុងរង់ចាំ</string>
+    <string name="general_help_action">ជំនួយ</string>
+    <string name="general_continue">បន្ត</string>
+    <string name="general_progress_queued">កំពុងចាំជួរ</string>
+    <string name="general_progress_deleting">កំពុងលុប</string>
+    <string name="general_progress_deleting_x">កំពុងលុប %s</string>
+    <string name="general_sort_options_label">ជម្រើសការតម្រៀប</string>
+    <string name="general_sort_reverse_action">ម៉ូតការតម្រៀបបញ្ច្រាស</string>
+    <string name="general_tag_filter_label">តម្រងតាមស្លាក</string>
+
+    <string name="general_result_success_message">ប្រតិបត្តិការជោគជ័យ</string>
+    <string name="general_result_failure_message">ប្រតិបត្តិការបរាជ័យ</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">បានបំភ្លេចកន្លែង %s។</item>
+        <item quantity="other">បានបំភ្លេចកន្លែង %s។</item>
+    </plurals>
+
+    <string name="general_options_label">ជម្រើស</string>
+    <string name="general_details_label">ព័ត៌មានលម្អិត</string>
+    <string name="general_view_action">មើល</string>
+    <string name="general_update_action">ធ្វើបច្ចុប្បន្នភាព</string>
+    <string name="general_scan_action">ស្កេន</string>
+    <string name="general_delete_action">លុប</string>
+    <string name="general_delete_selected_action">លុបធាតុដែលបានជ្រើស</string>
+    <string name="general_show_details_action">បង្ហាញព័ត៌មានលម្អិត</string>
+    <string name="general_show_all_action">បង្ហាញទាំងអស់</string>
+    <string name="general_toggle_layout_mode">ប្តូរម៉ូតទិដ្ឋភាព</string>
+
+    <string name="general_delete_confirmation_title">បញ្ជាក់ការលុប</string>
+    <string name="general_delete_confirmation_message_x">លុប "%s"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">លុបធាតុដែលបានជ្រើស %d?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">បានលុបធាតុ %d។</item>
+        <item quantity="other">បានលុបធាតុ %d។</item>
+    </plurals>
+
+    <string name="general_remove_action">លុបចេញ</string>
+    <string name="general_remove_selected_action">លុបចេញធាតុដែលបានជ្រើស</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">បានលុបចេញធាតុមួយ</item>
+        <item quantity="other">បានលុបចេញធាតុ %d</item>
+    </plurals>
+
+    <string name="general_root_required_label">ត្រូវការ root</string>
+    <string name="general_root_required_message">ត្រូវការឧបករណ៍ដែលមាន root</string>
+
+    <string name="general_search_action">ស្វែងរក</string>
+    <string name="general_scan_device_action">ស្កេនឧបករណ៍</string>
+    <string name="general_open_system_settings_action">បើកការកំណត់ប្រព័ន្ធ</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">ធាតុ %s</item>
+        <item quantity="other">ធាតុ %s</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d ជោគជ័យ</item>
+        <item quantity="other">%d ជោគជ័យ</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d បរាជ័យ</item>
+        <item quantity="other">%d បរាជ័យ</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s អាចបំភ្លេចបាន</item>
+        <item quantity="other">%s អាចបំភ្លេចបាន</item>
+    </plurals>
+    <string name="general_info_label">ព័ត៌មាន</string>
+    <string name="general_count_label">រាប់</string>
+    <string name="general_app_label">កម្មវិធី</string>
+    <string name="general_more_info_action">ព័ត៌មានបន្ថែម</string>
+    <string name="general_grant_access_action">ផ្តល់សិទ្ធិចូលប្រើ</string>
+    <string name="general_enable_service_action">បើកសេវាកម្ម</string>
+    <string name="general_undo_action">មិនធ្វើវិញ</string>
+
+    <string name="general_list_select_all_action">ជ្រើសទាំងអស់</string>
+
+    <string name="general_path_label">ផ្លូវ</string>
+    <string name="general_type_label">ប្រភេទ</string>
+    <string name="general_size_label">ទំហំ</string>
+    <string name="general_exclude_action">មិនរាប់បញ្ចូល</string>
+    <string name="general_exclude_selected_action">មិនរាប់បញ្ចូលធាតុដែលបានជ្រើស</string>
+
+    <string name="general_device_label">ឧបករណ៍</string>
+
+    <string name="general_settings_title">ការកំណត់</string>
+    <string name="general_help_title">ជំនួយ</string>
+
+    <string name="file_type_symbolic_link">តំណ</string>
+    <string name="file_type_directory">ថត</string>
+    <string name="file_type_file">ឯកសារ</string>
+    <string name="file_type_unknown">មិនស្គាល់</string>
+
+    <string name="general_progress_ready">រួចរាល់</string>
+    <string name="general_progress_done">រួចរាល់</string>
+
+    <string name="general_rom_type_auto_label">ស្វ័យប្រវត្តិ (លំនាំដើម)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d ថ្ងៃ</item>
+        <item quantity="other">%d ថ្ងៃ</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d ម៉ោង</item>
+        <item quantity="other">%d ម៉ោង</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">ឯកសារ %s</item>
+        <item quantity="other">ឯកសារ %s</item>
+    </plurals>
+    <string name="general_advice_title">ដំបូន្មាន</string>
+    <string name="general_error_invalid_input_label">ការបញ្ចូលមិនត្រឹមត្រូវ</string>
+    <string name="general_information_for_the_developer">ព័ត៌មានសម្រាប់អ្នកអភិវឌ្ឍន៍</string>
+    <string name="general_error_report_bug_action">រាយការណ៍កំហុស</string>
+    <string name="general_error_ipc_deadobject_title">បានបាត់បង់ការភ្ជាប់សេវាកម្ម</string>
+    <string name="general_error_ipc_deadobject_description">ការភ្ជាប់ទៅសេវាកម្មសំខាន់ (ឧ. Magisk, Shizuku ឬសេវាកម្មកម្រិតប្រព័ន្ធផ្សេងទៀត) បានបាត់បង់ដោយមិនបានរំពឹង។ សូមចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ។ ប្រសិនបើបញ្ហានេះនៅតែកើតឡើង សូមពិនិត្យមើលការធ្វើបច្ចុប្បន្នភាព ឬទាក់ទងមកខ្ញុំដើម្បីអាចដោះស្រាយវាបាន។</string>
+</resources>
