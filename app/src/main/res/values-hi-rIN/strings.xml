@@ -205,7 +205,6 @@
     <string name="systemcleaner_filter_tombstones_summary">यदि मूल कार्य क्रैश होता है (जैसे कि गेम्स), तब फाइलें यहां बनाई जाती हैं।</string>
     <string name="systemcleaner_filter_usagestats_label">उपयोग के आँकड़े</string>
     <string name="systemcleaner_filter_usagestats_summary">एप्लिकेशन उपयोग आंकड़ों से संबंधित फ़ाइलें।</string>
-    <string name="systemcleaner_delete_all_confirmation_message">सभी फ़िल्टर सामग्री मिटाएं?</string>
     <string name="appcleaner_tool_name">ऐप स्वच्छक</string>
     <string name="appcleaner_explanation_short">विशिष्ट ऐप्स से संबंधित खर्च करने योग्य डेटा।</string>
     <string name="appcleaner_filter_defaultcachespublic_label">सार्वजनिक डिफ़ॉल्ट कैश</string>
@@ -381,4 +380,417 @@
     <string name="translation_translators_title">यह संस्करण इन सभी द्वारा अनुवादित है</string>
     <string name="translation_translators_people">Yogesh KaushiK
 (KaushikYogesh@yahoo.com)</string>
+
+
+    <string name="analyzer_app_details_app_is_archived">यह ऐप संग्रहीत किया गया है।</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s उपलब्ध</item>
+        <item quantity="other">%s उपलब्ध</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s उपयोग में</item>
+        <item quantity="other">%s उपयोग में</item>
+    </plurals>
+    <string name="analyzer_storage_content_app_code_description">एप्लिकेशन फ़ाइलें, लाइब्रेरी और संसाधन। ऐप को अनइंस्टॉल करके या संग्रहीत करके (नए Android संस्करण पर उपलब्ध) इस स्थान को मुक्त किया जा सकता है।</string>
+    <string name="analyzer_storage_content_type_app_description">इंस्टॉल किए गए ऐप्स और उनके डेटा द्वारा कब्जाया गया स्थान (यानी एप्लिकेशन फ़ाइलें, डेटा और कैश)।</string>
+    <string name="analyzer_storage_content_type_system_description">सिस्टम ऐप्स और सिस्टम डेटा। अन्य उपयोगकर्ताओं के ऐप्स और डेटा, यदि इस डिवाइस पर कई उपयोगकर्ता खाते सेट हैं।</string>
+    <string name="analyzer_storage_type_primary_description">मुख्य आंतरिक संग्रहण स्थान।</string>
+    <string name="analyzer_storage_type_secondary_description">द्वितीयक संग्रहण स्थान जैसे SD कार्ड।</string>
+    <string name="analyzer_storage_type_tertiary_description">तृतीयक संग्रहण स्थान जैसे USB ड्राइव।</string>
+    <string name="analyzer_storage_type_tertiary_title">तृतीयक संग्रहण</string>
+
+
+    <string name="appcleaner_automation_error_locked_appcache_title">कैश साफ़ करना उपलब्ध नहीं</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">सिस्टम ने इस ऐप के लिए "कैश साफ़ करें" बटन को अक्षम कर दिया है। कैश साफ़ करने की गति बढ़ाने के लिए इसे बाहर करें।</string>
+    <string name="appcleaner_automation_error_no_settings_title">सेटिंग्स स्क्रीन उपलब्ध नहीं</string>
+    <string name="appcleaner_automation_error_no_settings_body">इस सिस्टम ऐप की कोई सेटिंग्स स्क्रीन नहीं है। पहुंच सेवा के माध्यम से कैश साफ़ करना संभव नहीं है। कैश साफ़ करने की गति बढ़ाने के लिए इसे बाहर करें।</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">सिस्टम ऐप गलत कॉन्फ़िगर किया गया</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS की सुरक्षा ऐप (com.miui.securitycenter) में उपयोग आंकड़े अनुमति (GET_USAGE_STATS) गुम है। यह ऐप विवरण में "डेटा साफ़ करें" और पहुंच के माध्यम से कैश साफ़ करने जैसी सुविधाओं को तोड़ता है। पूर्ण कार्यक्षमता बहाल करने के लिए अनुमति दें।</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">कैश साफ़ करें बटन ढूंढा जा रहा है</string>
+    <string name="appcleaner_automation_progress_find_clear_data">डेटा साफ़ करें बटन ढूंढा जा रहा है</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">पुष्टिकरण बटन ढूंढा जा रहा है</string>
+    <string name="appcleaner_automation_progress_find_storage">संग्रहण सेटिंग्स ढूंढी जा रही हैं</string>
+    <string name="appcleaner_automation_progress_open_settings">सेटिंग्स खोली जा रही हैं</string>
+    <string name="appcleaner_automation_romtype_detection_label">ROM प्रकार का पता लगाना</string>
+    <string name="appcleaner_automation_romtype_detection_summary">स्वचालन के लिए ROM प्रकार का स्वचालित पता लगाना सक्षम करें। यह ऐप को विभिन्न Android फ़र्मवेयर के साथ बेहतर संगतता प्रदान करता है।</string>
+    <string name="appcleaner_automation_unavailable_body">आपके डिवाइस पर स्वचालन समर्थित नहीं है या यह अक्षम है।</string>
+
+
+    <string name="appcleaner_delete_all_confirmation_message">सभी ऐप्स के लिए खर्च होने वाली वस्तुओं को मिटाएं?</string>
+    <string name="appcleaner_delete_confirmation_message_x">%s के लिए खर्च होने वाली फ़ाइलों को मिटाएं?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d चयनित ऐप के लिए खर्च होने वाली फ़ाइलों को मिटाएं?</item>
+        <item quantity="other">%d चयनित ऐप्स के लिए खर्च होने वाली फ़ाइलों को मिटाएं?</item>
+    </plurals>
+    <string name="appcleaner_filter_analytics_summary">एनालिटिक्स संबंधित डेटा, जैसे ऐप में आपके द्वारा टैप किए गए आंकड़ों का कैश।</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">डिफ़ॉल्ट निजी ऐप कैश। सिस्टम सेटिंग्स में "कैश साफ़ करें" टैप करने पर मिट जाते हैं।</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">डिफ़ॉल्ट सार्वजनिक ऐप कैश। पुराने Android संस्करणों पर Android/data के तहत पहुंच योग्य। सिस्टम सेटिंग्स में "कैश साफ़ करें" टैप करने पर मिट जाते हैं।</string>
+
+    <!-- Additional appcleaner filter translations -->
+    <string name="appcleaner_filter_hiddencaches_summary">सिस्टम की पहुंच के बाहर संग्रहीत सामान्य उद्देश्य कैश।</string>
+    <string name="appcleaner_filter_qqchat_label">QQ चैट</string>
+    <string name="appcleaner_filter_qqchat_summary">QQ चैट वार्तालापों में भेजी या प्राप्त की गई फ़ाइलें।</string>
+    <string name="appcleaner_filter_webview_summary">ऐप्स के भीतर उपयोग किए जाने वाले Webview इंस्टेंसेज द्वारा कैश की गई फ़ाइलें।</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp प्राप्त फ़ाइलें</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp के माध्यम से लोगों से प्राप्त की गई फ़ाइलें।</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp से दूसरों को भेजी गई फ़ाइलें।</string>
+    <string name="appcleaner_include_inaccessible_label">दुर्गम कैश शामिल करें</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">दुर्गम कैश निर्धारित किए जा रहे हैं</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku का उपयोग करके कैश मिटाए जा रहे हैं</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d खर्च होने वाली वस्तु मिटाई गई</item>
+        <item quantity="other">%d खर्च होने वाली वस्तुएं मिटाई गईं</item>
+    </plurals>
+
+
+    <string name="appcontrol_app_forcestop_description">ऐप को रोकता है। डिवाइस रीबूट होने या आपके द्वारा खोले जाने तक इसे स्वयं शुरू होने से रोकता है।</string>
+    <string name="appcontrol_app_forcestop_title">बलपूर्वक रोकें</string>
+    <string name="appcontrol_app_sizes_apk_label">ऐप</string>
+    <string name="appcontrol_app_sizes_cache_label">कैश</string>
+    <string name="appcontrol_app_sizes_data_label">डेटा</string>
+    <string name="appcontrol_app_sizes_title">ऐप का आकार</string>
+    <string name="appcontrol_automation_loading">पहुंच सेवा के माध्यम से स्वचालन तैयार किया जा रहा है</string>
+    <string name="appcontrol_automation_progress_find_force_stop">"बलपूर्वक रोकें" बटन ढूंढा जा रहा है (कीवर्ड: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">पिछली कार्रवाई की पुष्टि करने का प्रयास (कीवर्ड: %s)</string>
+
+
+    <string name="corpsefinder_delete_all_confirmation_message">सभी ऐप अवशेषों को मिटाएं?</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d ऐप अवशेष मिटाया गया</item>
+        <item quantity="other">%d ऐप अवशेष मिटाए गए</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d ऐप अवशेष खोजा गया</item>
+        <item quantity="other">%d ऐप अवशेष खोजे गए</item>
+    </plurals>
+    <string name="corpsefinder_settings_risk_common_summary">सामान्यतः उपयोग किए जाने वाले नामों वाला डेटा, जैसे "Notes" फ़ोल्डर कई अज्ञात ऐप्स के स्वामित्व में है।</string>
+    <string name="corpsefinder_watcher_autodelete_summary">अनइंस्टॉल किए गए ऐप से संबंधित किसी भी अवशेष को स्वचालित रूप से मिटाएं।</string>
+    <string name="corpsefinder_watcher_notification_delete_action">अवशेष मिटाएं</string>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">सफाई सफल (%1$s): %2$s मुक्त किया और %3$d वस्तु हटाई।</item>
+        <item quantity="other">सफाई सफल (%1$s): %2$s मुक्त किया और %3$d वस्तुएं हटाईं।</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s अनइंस्टॉल करने के बाद %1$d अवशेष मिला।</item>
+        <item quantity="other">%2$s अनइंस्टॉल करने के बाद %1$d अवशेष मिले।</item>
+    </plurals>
+    <string name="corpsefinder_watcher_summary">ऐप हटाए जाने पर अवशेषों के लिए स्वचालित रूप से स्कैन करें।</string>
+
+
+    <string name="deduplicator_average_size_label">औसत आकार</string>
+    <string name="deduplicator_cluster_x_label">क्लस्टर %s</string>
+    <string name="deduplicator_delete_all_toggle_msg">सभी प्रतियां मिटाएं। कोई फ़ाइल शेष नहीं रहती!</string>
+    <string name="deduplicator_delete_confirmation_message">डुप्लिकेट फ़ाइलों के सभी सेट में एक को छोड़कर सभी प्रतियां मिटाएं?</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">डुप्लिकेट फ़ाइलों के प्रत्येक चयनित सेट में एक को छोड़कर सभी प्रतियां मिटाएं?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">डुप्लिकेट फ़ाइलों के प्रत्येक चयनित सेट में सभी फ़ाइलें मिटाएं? कोई फ़ाइल शेष नहीं रहती!</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">डुप्लिकेट फ़ाइलों के इस सेट में एक को छोड़कर सभी प्रतियां मिटाएं?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">डुप्लिकेट फ़ाइलों के इस सेट में सभी फ़ाइलें मिटाएं? कोई फ़ाइल शेष नहीं रहती!</string>
+    <string name="deduplicator_details_cluster_title">डुप्लिकेट का सेट</string>
+    <string name="deduplicator_detection_method_checksum_summary">फ़ाइल सामग्री की तुलना करने के लिए चेकसम का उपयोग करें। अधिक सटीक लेकिन धीमा।</string>
+    <string name="deduplicator_detection_method_hash_summary">फ़ाइल सामग्री की तुलना करने के लिए हैश का उपयोग करें। तेज़ लेकिन कम सटीक।</string>
+    <string name="deduplicator_detection_method_phash_summary">समान छवियों को खोजने के लिए परसेप्चुअल हैशिंग का उपयोग करें।</string>
+    <string name="deduplicator_filter_duplicates_minimum_size_summary">न्यूनतम फ़ाइल आकार जिसे डुप्लिकेट माना जाना चाहिए।</string>
+    <string name="deduplicator_filter_emptyfiles_summary">0 बाइट आकार वाली फ़ाइलें।</string>
+    <string name="deduplicator_progress_comparing_files">फ़ाइलों की तुलना की जा रही है</string>
+    <string name="deduplicator_progress_hashing_files">फ़ाइलों को हैश किया जा रहा है</string>
+    <plurals name="deduplicator_result_x_files_deleted">
+        <item quantity="one">%d डुप्लिकेट फ़ाइल मिटाई गई</item>
+        <item quantity="other">%d डुप्लिकेट फ़ाइलें मिटाई गईं</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_sets_found">
+        <item quantity="one">%d डुप्लिकेट सेट मिला</item>
+        <item quantity="other">%d डुप्लिकेट सेट मिले</item>
+    </plurals>
+
+
+    <string name="systemcleaner_customfilter_create_action">कस्टम फ़िल्टर बनाएं</string>
+    <string name="systemcleaner_customfilter_create_hint">आपके डिवाइस और उपयोग-मामलों के लिए अनूठी अतिरिक्त फ़ाइलों को मिटाने के लिए एक कस्टम फ़िल्टर बनाएं।</string>
+    <string name="systemcleaner_customfilter_editor_areas_explanation">यदि कोई क्षेत्र चयनित नहीं है, तो सभी पहुंच योग्य डेटा क्षेत्रों को स्कैन और मिलान किया जाएगा।</string>
+    <string name="systemcleaner_customfilter_editor_areas_label">डेटा क्षेत्र</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">यदि पथ किसी प्रविष्टि से मेल खाता है तो परिणाम को बाहर कर दिया जाएगा (जैसे "DCIM")। अधिक विकल्पों के लिए प्रविष्टियों को लंबे समय तक दबाएं।</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_label">बहिष्करण</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">डायरेक्टरी</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_files_label">फ़ाइलें</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">फ़ाइल प्रकार प्रतिबंध केवल उस प्रकार के लिए मैचिंग को सीमित करते हैं। यदि कोई चयन नहीं किया गया है, तो दोनों प्रकार मैच करेंगे।</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">फ़ाइल प्रकार प्रतिबंध</string>
+    <string name="systemcleaner_customfilter_editor_label_label">फ़िल्टर लेबल</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">लक्ष्य नाम में कम से कम एक कीवर्ड होना चाहिए (जैसे "-receipt")। अधिक विकल्पों के लिए प्रविष्टियों को लंबे समय तक दबाएं।</string>
+    <string name="systemcleaner_customfilter_editor_name_label">नाम मानदंड</string>
+    <string name="systemcleaner_customfilter_editor_regex_explanation">रेगुलर एक्सप्रेशन इंजन का उपयोग करके फ़ाइल नामों का मिलान। अधिक जानकारी के लिए लंबे समय तक दबाएं।</string>
+    <string name="systemcleaner_customfilter_editor_regex_label">रेगुलर एक्सप्रेशन</string>
+    <string name="systemcleaner_customfilter_editor_warning">कस्टम फ़िल्टर जोखिम भरे हो सकते हैं। मिटाने से पहले अपने स्कैन परिणामों की जांच करें!</string>
+    <string name="systemcleaner_delete_all_confirmation_message">सभी सिस्टम जंक मिटाएं?</string>
+    <string name="systemcleaner_filter_advertisement_summary">विज्ञापन प्रदाताओं द्वारा बनाई गई फ़ाइलें।</string>
+    <string name="systemcleaner_filter_emptyfolders_summary">खाली फ़ोल्डर जो जगह नहीं लेते।</string>
+    <string name="systemcleaner_filter_logfiles_summary">डिबगिंग या लॉगिंग के लिए उत्पन्न की गई फ़ाइलें।</string>
+    <string name="systemcleaner_filter_tempfiles_summary">अस्थायी फ़ाइलें जो आमतौर पर ऐप बंद होने पर मिट जाती हैं।</string>
+    <string name="systemcleaner_filter_trashcans_summary">रीसायकल बिन और कचरा फ़ोल्डर।</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d सिस्टम जंक आइटम मिटाया गया</item>
+        <item quantity="other">%d सिस्टम जंक आइटम मिटाए गए</item>
+    </plurals>
+
+
+    <string name="general_error_setup_require_label">सेटअप अधूरा है</string>
+    <string name="general_error_setup_require_msg">इस सुविधा का उपयोग करने के लिए आगे सेटअप की आवश्यकता है। शेष सेटअप चरणों को पूरा करें।</string>
+    <string name="setup_feature_requires_additional_setup_x">इस सुविधा के लिए अतिरिक्त सेटअप आइटम पूरे करने की आवश्यकता है: %s</string>
+    <string name="ui_language_override_desc">आपकी सिस्टम की डिफ़ॉल्ट भाषा से स्वतंत्र, SD Maid के लिए एक अलग भाषा चुनें। वर्तमान में: %s</string>
+    <string name="ui_language_override_label">ऐप भाषा</string>
+    <string name="ui_theme_mode_setting_explanation">ऐप को थीम करते समय उपयोग किया जाने वाला मोड (जैसे रात या दिन)।</string>
+    <string name="ui_theme_style_setting_explanation">ऐप को थीम करते समय उपयोग की जाने वाली रंग शैली।</string>
+    <string name="ui_theme_style_setting_label">थीम शैली</string>
+    <string name="appcontrol_progress_exporting_x">%s निर्यात किया जा रहा है</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">ऐप गतिविधि और स्क्रीन समय की जानकारी दिखाएं।</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">गतिविधि जानकारी</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">ऐप आकार की जानकारी दिखाएं।</string>
+    <string name="appcontrol_settings_module_sizing_enabled_label">आकार जानकारी</string>
+    <string name="device_settings_category">डिवाइस सेटिंग्स</string>
+    <string name="setup_acs_card_body">SD Maid की पहुंच सेवा ऐप्स को स्वचालित रूप से साफ़ करने के लिए उपयोग की जाती है।</string>
+    <string name="setup_acs_state_ondemand">मांग पर</string>
+    <string name="setup_acs_state_stopped_hint">सेवा बंद है। इसे पुनः चालू करने के लिए डिवाइस को रीस्टार्ट करें।</string>
+    <string name="setup_checking_card_body">सेटअप पूर्णता और कार्यक्षमता की जांच की जा रही है।</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">सेटअप समस्याओं का स्वतः समाधान हो रहा है।</string>
+    <string name="setup_inventory_card_body">स्थापित ऐप्स और डेटा क्षेत्रों की सूची बनाई जा रही है।</string>
+
+
+    <string name="appcontrol_automation_subtitle_force_stopping">बलपूर्वक रोका जा रहा है…</string>
+    <string name="appcontrol_automation_title">AppControl स्वचालन</string>
+    <string name="appcontrol_export_app_selection_action">ऐप्स निर्यात करें</string>
+    <string name="appcontrol_export_description">इस ऐप की इंस्टॉलेशन फ़ाइलों को सेव करें। इसमें ऐप डेटा शामिल नहीं है।</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d ऐप निर्यात किया गया</item>
+        <item quantity="other">%d ऐप्स निर्यात किए गए</item>
+    </plurals>
+    <string name="appcontrol_export_title">ऐप निर्यात करें</string>
+    <string name="appcontrol_force_stop_action">बलपूर्वक रोकें</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d ऐप को बलपूर्वक रोकें?</item>
+        <item quantity="other">%d ऐप्स को बलपूर्वक रोकें?</item>
+    </plurals>
+    <string name="appcontrol_force_stop_confirm_title">बलपूर्वक रोकने की पुष्टि करें</string>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d ऐप रोका गया</item>
+        <item quantity="other">%d ऐप्स रोके गए</item>
+    </plurals>
+    <string name="appcontrol_force_stop_selection_action">ऐप्स को बलपूर्वक रोकें</string>
+    <string name="appcontrol_item_installedat_x_label">इंस्टॉल किया गया: %s</string>
+    <string name="appcontrol_item_lastupdate_x_label">अंतिम अद्यतन: %s</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">स्क्रीन समय: %2$s से %1$s</string>
+    <string name="appcontrol_list_sortmode_installed_label">इंस्टॉल की तारीख</string>
+    <string name="appcontrol_list_sortmode_screentime_label">स्क्रीन समय</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">आकार की जानकारी उपलब्ध नहीं है।</string>
+    <string name="appcontrol_list_sortmode_size_label">आकार</string>
+    <string name="appcontrol_list_sortmode_updated_label">अद्यतन की तारीख</string>
+    <string name="appcontrol_tag_active">सक्रिय</string>
+
+
+    <string name="data_area_public_app_assets_official_label">डिफ़ॉल्ट सार्वजनिक ऐप संपत्ति</string>
+    <string name="data_area_public_app_data_official_label">डिफ़ॉल्ट सार्वजनिक ऐप डेटा</string>
+    <string name="data_area_public_storage_label">सार्वजनिक संग्रहण</string>
+    <string name="data_area_sdcard_label">SD कार्ड</string>
+
+
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">बंडल</string>
+    <string name="appcontrol_tag_archived">संग्रहीत</string>
+    <string name="appcontrol_tag_not_installed">इंस्टॉल नहीं</string>
+    <string name="appcontrol_tag_uninstalled">केवल डेटा</string>
+    <string name="appcontrol_toggle_app_selection_action">ऐप्स टॉगल करें</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d ऐप को टॉगल करें?</item>
+        <item quantity="other">%d ऐप्स को टॉगल करें?</item>
+    </plurals>
+    <string name="appcontrol_toggle_confirmation_title">कार्रवाई की पुष्टि करें</string>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d ऐप टॉगल किया गया</item>
+        <item quantity="other">%d ऐप्स टॉगल किए गए</item>
+    </plurals>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d ऐप अनइंस्टॉल किया गया</item>
+        <item quantity="other">%d ऐप्स अनइंस्टॉल किए गए</item>
+    </plurals>
+
+
+    <string name="area_type_portable_label">पोर्टेबल संग्रहण</string>
+    <string name="area_type_private_data_label">निजी ऐप डेटा</string>
+    <string name="area_type_public_data_label">सार्वजनिक ऐप डेटा</string>
+    <string name="area_type_public_media_label">सार्वजनिक ऐप मीडिया</string>
+    <string name="area_type_public_obb_label">सार्वजनिक ऐप संसाधन</string>
+    <string name="area_type_sdcard_label">सार्वजनिक संग्रहण</string>
+
+
+    <string name="automation_accessibility_service_description">विशेष पहुंच आवश्यकताओं वाले उपयोगकर्ता इस सेवा को सक्षम कर सकते हैं ताकि SD Maid उन कार्यों को स्वचालित कर सके जिन्हें अन्यथा थकाऊ मैन्युअल उपयोगकर्ता इंटरेक्शन की आवश्यकता होगी (जैसे कैश मिटाना)।\n\nउदाहरण: यदि आप SD Maid को कई ऐप्स को रोकने का निर्देश देते हैं तो SD Maid इस सेवा का उपयोग करके प्रत्येक ऐप की सेटिंग्स स्क्रीन खोल सकता है, \'Force Stop\' बटन ढूंढ सकता है और उसे टैप कर सकता है।\n\nSD Maid हमेशा इस सेवा के उपयोग को स्पष्ट रूप से दिखाएगा और उपयोगकर्ता को तुरंत किसी भी इंटरेक्शन को रद्द करने का आसान तरीका प्रदान करेगा।\n\nउपयोगकर्ता की पूर्व स्वीकृति के बिना कोई कार्रवाई नहीं की जाएगी। इस सेवा को किसी भी समय बिना किसी प्रतिकूल प्रभाव के फिर से अक्षम किया जा सकता है।</string>
+    <string name="automation_error_compatibility_body">SD Maid स्क्रीन लेआउट का पता नहीं लगा सका। यदि यह होता रहता है, तो आपकी भाषा या सेटअप पूरी तरह से समर्थित नहीं हो सकती है। अपडेट की जांच करें या मुझसे संपर्क करें ताकि मैं इसे ठीक कर सकूं।</string>
+    <string name="automation_error_compatibility_title">स्वचालन संगतता</string>
+    <string name="automation_error_overlay_body">SD Maid स्वचालन ओवरले नहीं दिखा सका। अनुमतियों की जांच करें और अपना डिवाइस रीबूट करने का प्रयास करें।</string>
+
+
+    <string name="automation_error_overlay_title">स्वचालन ओवरले</string>
+    <string name="automation_error_screen_unavailable_body">ऑपरेशन रद्द कर दिया गया क्योंकि स्क्रीन अनुपलब्ध हो गई (जैसे डिस्प्ले बंद या लॉकस्क्रीन सक्रिय)।</string>
+    <string name="automation_error_screen_unavailable_title">स्क्रीन अनुपलब्ध</string>
+    <string name="automation_error_timeout_body">SD Maid ने समय सीमा के भीतर सभी चरण पूरे नहीं किए। यदि यह होता रहता है, तो मुझे आपके डिवाइस के लिए ऐप को समायोजित करने की आवश्यकता हो सकती है। अपडेट की जांच करें या मुझसे संपर्क करें ताकि मैं इसे ठीक कर सकूं।</string>
+    <string name="automation_error_timeout_title">स्वचालन समयसीमा</string>
+    <string name="beta_version_indicator_desc">प्री-रिलीज़ संस्करण प्रारंभ स्क्रीन पर एक छोटा रिबन प्रदर्शित करते हैं। वे अधिक बार अपडेट किए जाते हैं, उनमें अधिक सुविधाएं हो सकती हैं, लेकिन अधिक बग भी हो सकते हैं।</string>
+
+
+    <string name="deduplicator_detection_method_checksum_title">चेकसम</string>
+    <string name="deduplicator_detection_method_label">खोज विधि</string>
+    <string name="deduplicator_detection_method_phash_title">पर्सेप्चुअल हैश</string>
+    <string name="deduplicator_explanation_short">डुप्लिकेट फ़ाइलें</string>
+    <string name="deduplicator_file_size_label">फ़ाइल का आकार</string>
+    <string name="deduplicator_matches_exact_label">बिल्कुल मेल</string>
+    <string name="deduplicator_matches_similar_label">समान मेल</string>
+    <string name="deduplicator_occupied_space_label">कब्जाया गया स्थान</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">सभी फ़ाइलों को मिटाने की अनुमति दें, भले ही कोई प्रति न बची हो।</string>
+
+    <!-- More deduplicator translations -->
+    <string name="deduplicator_protection_deleteall_allowed_title">"सभी मिटाएं" को संभव बनाएं</string>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d डुप्लिकेट सेट मिला</item>
+        <item quantity="other">%d डुप्लिकेट सेट मिले</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d डुप्लिकेट मिटाया गया</item>
+        <item quantity="other">%d डुप्लिकेट मिटाए गए</item>
+    </plurals>
+    <string name="deduplicator_search_locations_all_summary">सभी पहुंच योग्य क्षेत्र</string>
+    <string name="deduplicator_search_locations_title">खोज स्थान</string>
+    <string name="deduplicator_skip_minsize_description">न्यूनतम आकार से कम फ़ाइलों को छोड़ें।</string>
+    <string name="deduplicator_skip_minsize_title">न्यूनतम आकार</string>
+    <string name="deduplicator_skip_uncommon_description">केवल सामान्य मीडिया फ़ाइलें, दस्तावेज़ और संग्रह शामिल करें।</string>
+    <string name="deduplicator_skip_uncommon_title">असामान्य फ़ाइल प्रकार छोड़ें</string>
+    <string name="deduplicator_tool_name">डुप्लिकेटर</string>
+    <string name="deduplicator_x_space_occupied_by_duplicates_msg">डुप्लिकेट द्वारा %s स्थान कब्जाया गया</string>
+
+    <!-- Exclusion translations -->
+    <string name="exclusion_editor_path_explanation">पथ आधारित बहिष्करण SD Maid को किसी भी मैचिंग पथ को प्रोसेस करने से रोकता है।</string>
+    <string name="exclusion_export_action">बहिष्करण निर्यात करें</string>
+    <string name="exclusion_import_action">बहिष्करण आयात करें</string>
+    <string name="exclusion_reset_default_exclusions">डिफ़ॉल्ट बहिष्करण रीसेट करें</string>
+    <string name="exclusion_show_defaults_action">डिफ़ॉल्ट दिखाएं</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">%d नया बहिष्करण</item>
+        <item quantity="other">%d नए बहिष्करण</item>
+    </plurals>
+
+    <!-- Additional settings -->
+    <string name="motd_setting_enabled_explanation">डैशबोर्ड पर डेवलपर संदेश दिखाएं।</string>
+    <string name="motd_setting_enabled_label">डेवलपर संदेश</string>
+    <string name="picker_home_action">डेटा क्षेत्र</string>
+
+    <!-- Picker translations -->
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d पथ चयनित</item>
+        <item quantity="other">%d पथ चयनित</item>
+    </plurals>
+    <string name="picker_selected_paths_title">चयनित पथ</string>
+    <string name="picker_select_paths_title">पथ चुनें</string>
+    <string name="picker_unsaved_confirmation_message">परिवर्तन छोड़ें?</string>
+
+    <!-- Review app translations -->
+    <string name="review_app_body">क्या आप SD Maid को एक समीक्षा देना चाहेंगे? ❤️</string>
+    <string name="review_app_dismiss_action">शायद बाद में</string>
+    <string name="review_app_review_action">समीक्षा करें</string>
+
+    <!-- Scheduler notifications and settings -->
+    <string name="scheduler_battery_optimization_hint">यदि आप बैकग्राउंड निष्पादन के साथ समस्याओं का सामना करते हैं तो SD Maid के लिए बैटरी अनुकूलन अक्षम करने पर विचार करें।</string>
+    <string name="scheduler_commands_after_schedule_desc">Android शेल कमांड जो एक शेड्यूल के अंत में निष्पादित की जाएंगी।</string>
+    <string name="scheduler_commands_after_schedule_label">पोस्ट-शेड्यूल कमांड</string>
+    <string name="scheduler_current_schedule_x_at_x">वर्तमान शेड्यूल: %1$s %2$s पर</string>
+    <string name="scheduler_notification_channel_label">शेड्यूलर</string>
+    <string name="scheduler_notification_message">निष्पादित किया जा रहा है: "%s"</string>
+    <string name="scheduler_notification_result_failure_message">कुछ शेड्यूल किए गए कार्य असफल हुए या त्रुटियों का सामना करना पड़ा। उन्हें मैन्युअल रूप से चलाने का प्रयास करें।</string>
+    <string name="scheduler_notification_result_success_message">सभी शेड्यूल किए गए कार्य सफलतापूर्वक चले।</string>
+    <string name="scheduler_notification_result_title">शेड्यूलर समाप्त</string>
+    <string name="scheduler_notification_title">शेड्यूल किया गया कार्य</string>
+    <string name="scheduler_setting_charging_summary">यदि डिवाइस चार्ज नहीं हो रहा है, तो शेड्यूल किया गया निष्पादन छोड़ दिया जाएगा।</string>
+    <string name="scheduler_setting_charging_title">चार्ज नहीं होने पर छोड़ें</string>
+    <string name="scheduler_setting_nopowersaving_summary">यदि SD Maid बैटरी अनुकूलन से छूट प्राप्त है तो शेड्यूल का निष्पादन अधिक विश्वसनीय है।</string>
+
+    <!-- Final setup translations -->
+    <string name="setup_inventory_card_extra">\"App list\" या \"Query all packages\" नामक अनुमति देखें।</string>
+    <string name="setup_inventory_card_title">ऐप सूची</string>
+    <string name="setup_inventory_invalid_message">सिस्टम ने इंस्टॉल किए गए ऐप्स की एक अमान्य सूची प्रदान की (जैसे बहुत कम या कुछ गुम थे)। सिस्टम सेटिंग्स में जाएं और SD Maid को \"App list\" तक पहुंच की अनुमति दें।</string>
+    <string name="setup_permission_error_label">अनुमति त्रुटि</string>
+    <string name="setup_root_state_ready_label">रूट एक्सेस तैयार है।</string>
+    <string name="setup_root_state_waiting_label">रूट एक्सेस की प्रतीक्षा में।</string>
+    <string name="setup_shizuku_card_body">SD Maid को परिणामों में सुधार और सुविधाओं को सक्षम करने के लिए जहां संभव हो Shizuku का उपयोग करने की अनुमति दें।</string>
+    <string name="setup_shizuku_card_body2">यदि आपके डिवाइस पर Shizuku ऐप सेट अप नहीं है तो इस सेटिंग का कोई प्रभाव नहीं है।</string>
+    <string name="setup_shizuku_card_root_info">रूट एक्सेस के साथ Shizuku अतिरिक्त सुविधाएं सक्षम नहीं करता है, लेकिन यह विश्वसनीयता में सुधार करता है। SD Maid इसे फॉलबैक विधि के रूप में उपयोग करेगा।</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Shizuku का उपयोग न करें</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">यदि उपलब्ध हो तो Shizuku का उपयोग करें</string>
+    <string name="setup_shizuku_state_ready_label">Shizuku लिंक तैयार है।</string>
+    <string name="setup_shizuku_state_waiting_label">Shizuku के साथ लिंक की प्रतीक्षा में।</string>
+
+    <!-- Stats translations -->
+    <string name="stats_affected_paths_label">प्रभावित पथ</string>
+    <string name="stats_affected_pkgs_label">प्रभावित ऐप्स</string>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">SD Maid को आपके डिवाइस में आमंत्रित करने के बाद से %s आइटम प्रोसेस किया गया।</item>
+        <item quantity="other">SD Maid को आपके डिवाइस में आमंत्रित करने के बाद से %s आइटम प्रोसेस किए गए।</item>
+    </plurals>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s मुक्त किया गया है।</item>
+        <item quantity="other">%s मुक्त किए गए हैं।</item>
+    </plurals>
+    <string name="stats_label">इतिहास</string>
+    <string name="stats_report_status_partial_failure">असफलता</string>
+    <string name="stats_report_status_partial_success">आंशिक सफलता</string>
+    <string name="stats_report_status_success">सफलता</string>
+    <string name="stats_settings_desc">SD Maid के आंकड़े, रिपोर्ट और डेटा प्रतिधारण को कॉन्फ़िगर करें।</string>
+    <string name="stats_settings_reset_all_desc">सभी रिपोर्ट मिटाएं और सभी आंकड़े शून्य पर सेट करें।</string>
+    <string name="stats_settings_reset_all_label">सभी रीसेट करें</string>
+    <string name="stats_settings_retention_category">प्रतिधारण</string>
+    <string name="stats_settings_retention_paths_desc">SD Maid द्वारा प्रभावित पथों के बारे में विवरण रखने के दिनों की संख्या।</string>
+    <string name="stats_settings_retention_paths_label">विस्तृत पथ जानकारी</string>
+    <string name="stats_settings_retention_reports_desc">बुनियादी SD Maid ऑपरेशन रिपोर्ट मिटाने से पहले दिनों की संख्या।</string>
+    <string name="stats_settings_retention_reports_label">सामान्य रिपोर्ट</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d दिन</item>
+        <item quantity="other">%d दिन</item>
+    </plurals>
+
+    <!-- SystemCleaner custom filter editor translations -->
+    <string name="systemcleaner_customfilter_editor_livesearch_label">लाइव खोज</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">नाम में कीवर्ड शामिल है</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">नाम कीवर्ड पर समाप्त होता है</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">नाम कीवर्ड के बराबर है</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">नाम तुलना मोड</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">नाम कीवर्ड से शुरू होता है</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">लक्ष्य पथ को कम से कम एक प्रविष्टि से मेल खाना चाहिए (जैसे "Downloads/oldapks/game-")। अधिक विकल्पों के लिए प्रविष्टियों को लंबे समय तक दबाएं।</string>
+    <string name="systemcleaner_customfilter_editor_path_label">पथ मानदंड</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">पथ में कीवर्ड शामिल है</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">पथ कीवर्ड पर समाप्त होता है</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">पथ कीवर्ड के बराबर है</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">पथ तुलना मोड</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">पथ कीवर्ड से शुरू होता है</string>
+    <string name="systemcleaner_customfilter_export_action">चयनित फ़िल्टर निर्यात करें</string>
+    <string name="systemcleaner_customfilter_import_action">नया फ़िल्टर आयात करें</string>
+    <string name="systemcleaner_customfilter_label">कस्टम फ़िल्टर</string>
+    <string name="systemcleaner_customfilter_last_edit">अंतिम संपादन: %s</string>
+    <string name="systemcleaner_editor_remove_confirmation_message">इस फ़िल्टर को हटाएं?</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">आपके पास असेव परिवर्तन हैं!</string>
+
+    <!-- SystemCleaner filter translations -->
+    <string name="systemcleaner_filter_emptydirectories_label">खाली फ़ोल्डर</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">डिवाइस भर से खाली फ़ोल्डर। नेस्टेड फ़ोल्डर के लिए कई पास की आवश्यकता हो सकती है।</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">फ़ाइलें और फ़ोल्डर जो तब बनते हैं जब स्टोरेज को Linux कंप्यूटर से जोड़ा जाता है।</string>
+    <string name="systemcleaner_filter_logfiles_label">सिस्टम लॉग फ़ाइलें</string>
+    <string name="systemcleaner_filter_macfiles_summary">फ़ाइलें और फ़ोल्डर जो Apple के finder ऐप के साथ स्टोरेज ब्राउज़ करते समय बनते हैं।</string>
+    <string name="systemcleaner_filter_packagecaches_label">इंस्टॉलर कैश</string>
+    <string name="systemcleaner_filter_packagecaches_summary">इंस्टॉल किए गए ऐप्स से संबंधित कैश डेटा जो सिस्टम के पैकेज प्रबंधन द्वारा उपयोग किया जाता है।</string>
+    <string name="systemcleaner_filter_screenshots_age_label">स्क्रीनशॉट की आयु</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">स्क्रीनशॉट को मिटाने के लिए विचार करने के लिए न्यूनतम आयु।</string>
+    <string name="systemcleaner_filter_screenshots_label">स्क्रीनशॉट</string>
+    <string name="systemcleaner_filter_screenshots_summary">कई ऐप्स और स्थानों से %s से पुराने स्क्रीनशॉट।</string>
+    <string name="systemcleaner_filter_tempfiles_label">अस्थायी सिस्टम फ़ाइलें</string>
+    <string name="systemcleaner_filter_tombstones_label">सिस्टम क्रैश अवशेष</string>
+    <string name="systemcleaner_filter_trashed_label">कचरे में डाली गई फ़ाइलें</string>
+    <string name="systemcleaner_filter_trashed_summary">विभिन्न ऐप्स और स्थानों से रीसायकल बिन में फ़ाइलें जो मिटाने के लिए चिह्नित हैं लेकिन अभी तक स्थायी रूप से हटाई नहीं गई हैं।</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">डेटा जो Windows फ़ाइल एक्सप्लोरर कनेक्टेड स्टोरेज पर बना सकता है।</string>
+
+    <!-- Update check setting -->
+    <string name="updatecheck_setting_enabled_explanation">SD Maid को अपडेट की जांच करने की अनुमति दें ताकि आपको पता चल सके कि कोई नया संस्करण उपलब्ध है या नहीं।</string>
+    <string name="updatecheck_setting_enabled_label">अपडेट जांच</string>
 </resources>

@@ -729,4 +729,10 @@ Archivo: Textos de la aplicación (aplicación principal)</string>
     <string name="area_type_public_obb_label">Recursos de aplicación pública</string>
     <string name="area_type_private_data_label">Datos de aplicación privada</string>
     <string name="area_type_portable_label">Almacenamiento portátil</string>
+    <string name="scheduler_battery_optimization_hint">Esta función podría requerir desactivar la optimización de batería para SD Maid para funcionar correctamente.</string>
+    <string name="stats_label">Historial</string>
+    <string name="stats_report_status_partial_failure">Fallo parcial</string>
+    <string name="stats_report_status_partial_success">Éxito parcial</string>
+    <string name="stats_report_status_success">Éxito</string>
+    <string name="stats_settings_reset_all_label">Reiniciar todo</string>
 </resources>
