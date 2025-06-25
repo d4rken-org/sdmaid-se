@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="dashboard_delete_all_message">Ta bort resultat i alla verktyg?</string>
     <string name="dashboard_settings_category">Kontrollpanel</string>
@@ -57,7 +57,6 @@
     <string name="settings_category_filter_specific">Specifikt filter</string>
     <string name="translation_translators_title">Denna version är översatt av</string>
     <string name="translation_translators_people">Gamechanger181;Google Översätt</string>
-
     <string name="settings_sponsor_development_title">Sponsra utveckling</string>
     <string name="settings_sponsor_development_summary">Bli en beskyddare och gör fortsatt utveckling möjlig.</string>
     <string name="general_settings_label">Allmänt</string>
@@ -124,8 +123,29 @@
     <string name="settings_category_tools_label">Verktyg</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risknivå</string>
-
     <string name="systemcleaner_filter_analytics_label">Analys</string>
     <string name="systemcleaner_filter_analytics_summary">Filer från analysnätverk</string>
+    <string name="settings_acknowledgements_label">Erkännanden</string>
+    <string name="setup_forcedshow_summary">Visa installationsskärmen igen, inklusive redan slutförda objekt.</string>
+    <string name="general_error_setup_require_msg">Ytterligare installation krävs för att använda denna funktion. Slutför de återstående installationsstegen.</string>
+    <string name="setup_saf_card_title">Lagringsåtkomstramverk</string>
+    <string name="setup_saf_card_body">Förbättra resultaten genom att ge SD Maid åtkomst till ytterligare områden.</string>
+    <string name="setup_saf_card_body2">I de flesta fall öppnas fönstret med rätt sökväg förvald. Poster blir gröna när åtkomst beviljas. </string>
+    <string name="setup_saf_error_wrong_path">Du valde fel sökväg</string>
+    <string name="setup_root_card_body2">Endast tillgängligt på rotade enheter. Om du inte gjorde denna ändring, så är din enhet inte rotad och denna inställning har ingen effekt.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku i kombination med root-åtkomst aktiverar inte ytterligare funktioner, men det förbättrar tillförlitligheten. SD Maid kommer att använda det som reservmetod.</string>
+    <string name="setup_permission_error_label">Tillståndsfel</string>
+    <string name="setup_usagestats_body">Tillståndet för användningsstatistik ger åtkomst till fler appdetaljer. SD Maid använder det för att bestämma ytterligare cachestorlekar.</string>
+    <string name="setup_usagestats_hint">Krävs för tillgänglighetsservice-baserad cache-borttagning.</string>
+    <string name="setup_notification_body">Tillåt SD Maid att skicka meddelanden för att informera dig om pågående operationer eller viktiga händelser.</string>
+    <string name="setup_notification_hint">Meddelanden används sparsamt 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Denna funktion kräver att ytterligare installationsobjekt slutförs: %s</string>
+    <string name="setup_acs_card_title">Tillgänglighetstjänst</string>
+    <string name="setup_acs_card_body">Tillgänglighetstjänsten tillåter SD Maid att interagera med din skärm och automatisera tråkiga åtgärder, t.ex. trycka på \"Rensa cache\" på flera skärmar.</string>
+    <string name="setup_acs_card_body2">SD Maid kommer inte att använda tillgänglighetstjänsten utan ditt samtycke, kommer alltid att visa en framträdande (avbrytbar) indikator när den är aktiv och kommer inte att använda den för att samla information.</string>
+    <string name="setup_acs_state_enabled">Tillgänglighetstjänsten är aktiverad</string>
+    <string name="setup_acs_state_disabled">Tillgänglighetstjänsten är inaktiverad</string>
+    <string name="setup_acs_state_running">Tillgänglighetstjänsten körs</string>
+    <string name="setup_acs_state_ondemand">Tjänsten kommer att startas på begäran</string>
 
 </resources>
