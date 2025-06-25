@@ -280,18 +280,18 @@
     <string name="systemcleaner_filter_trashed_summary">Lêers in herwinning bakkies van verskeie toepassings en liggings wat gemerk is vir skrapping maar nog nie permanent verwyder nie.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Skermkiekie Ouderdom</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimum ouderdom vir skermkiekies om oorweeg te word vir skrapping.</string>
-    <string name="systemcleaner_filter_superfluosapks_label">Oorbodigе APK's</string>
+    <string name="systemcleaner_filter_superfluosapks_label">Oorbodigе APK\'s</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Opstelling lêers wat ouer of gelyk is aan toepassing weergawes wat reeds geïnstalleer is.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR gidse</string>
     <string name="systemcleaner_filter_lostdir_summary">Tydelike lêers wat geskep word wanneer data tussen Android toestelle oorgedra word.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux lêers</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Lêers en gidse wat geskep word wanneer berging aan 'n linux rekenaar gekoppel was.</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">Lêers en gidse wat geskep word wanneer berging aan \'n linux rekenaar gekoppel was.</string>
     <string name="systemcleaner_filter_macfiles_label">Mac lêers</string>
     <string name="systemcleaner_filter_macfiles_summary">Lêers en gidse wat geskep word wanneer berging met Apple se soeker toepassing deurgeblader word.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows lêers</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"Data wat die Windows lêer verkenner kan skep op gekoppelde berging."</string>
     <string name="systemcleaner_filter_thumbnails_label">Duimnael beelde</string>
-    <string name="systemcleaner_filter_thumbnails_summary">Gekasde voorsiening vir beelde en video's.</string>
+    <string name="systemcleaner_filter_thumbnails_summary">Gekasde voorsiening vir beelde en video\'s.</string>
     <string name="systemcleaner_filter_tempfiles_label">Tydelike stelsel lêers</string>
     <string name="systemcleaner_filter_tempfiles_summary">Stelsel verwante tydelike lêers, gewoonlik kort lewende kas vir aktiewe bewerkings.</string>
     <string name="systemcleaner_filter_analytics_label">Analitiek lêers</string>
@@ -303,7 +303,7 @@
     <string name="systemcleaner_filter_datalogger_label">Stelsel log lêers</string>
     <string name="systemcleaner_filter_datalogger_summary">Stelsel diens spesifieke log lêers.</string>
     <string name="systemcleaner_filter_logdropbox_label">Log drop boks</string>
-    <string name="systemcleaner_filter_logdropbox_summary">'n Area vir die stelsel om log lêers in te gooi.</string>
+    <string name="systemcleaner_filter_logdropbox_summary">\'n Area vir die stelsel om log lêers in te gooi.</string>
     <string name="systemcleaner_filter_recenttasks_label">Onlangse take</string>
     <string name="systemcleaner_filter_recenttasks_summary">Data verwant aan die take geskiedenis in die stelsel se taak skakelaar.</string>
     <string name="systemcleaner_filter_tombstones_label">Stelsel ongeluk oorblyfsels</string>
@@ -314,7 +314,7 @@
 
     <string name="systemcleaner_customfilter_label">Aangepaste filter</string>
     <string name="systemcleaner_customfilter_create_action">Skep aangepaste filter</string>
-    <string name="systemcleaner_customfilter_create_hint">Skep 'n aangepaste filter om ekstra lêers te skrap wat uniek is aan jou toestel en gebruik-gevalle.</string>
+    <string name="systemcleaner_customfilter_create_hint">Skep \'n aangepaste filter om ekstra lêers te skrap wat uniek is aan jou toestel en gebruik-gevalle.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Verwyder hierdie filter?</string>
     <string name="systemcleaner_editor_unsaved_confirmation_message">Jy het ongestoorde veranderinge!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filter etiket</string>
@@ -357,7 +357,7 @@
     <string name="appcleaner_include_runningapps_label">Sluit lopende toepassings in</string>
     <string name="appcleaner_include_runningapps_summary">Sluit toepassings wat tans loop wat inmenging kan veroorsaak in.</string>
     <string name="appcleaner_include_inaccessible_label">Sluit ontoeganklike kas in</string>
-    <string name="appcleaner_include_inaccessible_summary">Sluit data wat nie direk toegang kan kry nie maar geskrap kan word via stelsel instellings en geoutomatiseer gebruik 'n toeganklikheid diens in.</string>
+    <string name="appcleaner_include_inaccessible_summary">Sluit data wat nie direk toegang kan kry nie maar geskrap kan word via stelsel instellings en geoutomatiseer gebruik \'n toeganklikheid diens in.</string>
     <string name="appcleaner_include_multiuser_label">Sluit ander gebruikers in</string>
     <string name="appcleaner_include_multiuser_summary">Sluit toepassings van ander gebruiker profiele op hierdie toestel in.</string>
     <string name="appcleaner_include_minimumsize_label">Minimum grootte</string>
@@ -373,7 +373,7 @@
     <string name="appcleaner_filter_bugreporting_label">Fout rapportering</string>
     <string name="appcleaner_filter_bugreporting_summary">Fout rapportering verwante data, bv. fout logs of ongeluk stortings.</string>
     <string name="appcleaner_filter_analytics_label">Analitiek</string>
-    <string name="appcleaner_filter_analytics_summary">Analitiek verwante data, bv. gekasde stats vir wat jy in 'n toepassing tik.</string>
+    <string name="appcleaner_filter_analytics_summary">Analitiek verwante data, bv. gekasde stats vir wat jy in \'n toepassing tik.</string>
     <string name="appcleaner_filter_hiddencaches_label">Versteekte kas</string>
     <string name="appcleaner_filter_hiddencaches_summary">Algemene doel kas gestoor buite die stelsel se bereik.</string>
     <string name="appcleaner_filter_thumbnails_label">Media duimnaels</string>
@@ -383,7 +383,7 @@
     <string name="appcleaner_filter_offlinecache_label">Aflyn kas</string>
     <string name="appcleaner_filter_offlinecache_summary">Lêers gestoor vir gebruik wanneer aflyn, bv. kaart teëls.</string>
     <string name="appcleaner_filter_recyclebins_label">Herwinning bakkies</string>
-    <string name="appcleaner_filter_recyclebins_summary">Lêers wat geskrap is maar in 'n spesiale gids geplaas is om toe te laat om hulle te herstel.</string>
+    <string name="appcleaner_filter_recyclebins_summary">Lêers wat geskrap is maar in \'n spesiale gids geplaas is om toe te laat om hulle te herstel.</string>
     <string name="appcleaner_filter_webview_label">Webview lêers</string>
     <string name="appcleaner_filter_webview_summary">Lêers gekash deur Webview gevalle wat binne toepassings gebruik word.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp rugsteune</string>
@@ -451,7 +451,7 @@
         <item quantity="other">%d duplikaat stelle gevind</item>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Maak "Skrap alles" moontlik</string>
-    <string name="deduplicator_protection_deleteall_allowed_summary">Wys opsies wat jou toelaat om alle lêers in 'n stel duplikate te skrap sodat geen lêer oorgebly word nie.</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Wys opsies wat jou toelaat om alle lêers in \'n stel duplikate te skrap sodat geen lêer oorgebly word nie.</string>
     <string name="deduplicator_search_locations_title">Soek liggings</string>
     <string name="deduplicator_search_locations_all_summary">Alle toeganklike areas</string>
     <string name="deduplicator_skip_minsize_title">Minimum grootte</string>
@@ -491,8 +491,8 @@
     <string name="appcontrol_toggle_app_selection_action">Skakel toepassings</string>
     <string name="appcontrol_toggle_app_enable_action">Aktiveer toepassing</string>
     <string name="appcontrol_toggle_app_disable_action">Deaktiveer toepassing</string>
-    <string name="appcontrol_toggle_app_enable_description">Aktivering van 'n toepassing laat dit toe om te loop en kan dit sigbaar maak in jou lanseerder as dit 'n aktiwiteit het.</string>
-    <string name="appcontrol_toggle_app_disable_description">Deaktivering van 'n toepassing verhoed dit om te loop en versteek dit van menus. Daar is geen data verlies nie.</string>
+    <string name="appcontrol_toggle_app_enable_description">Aktivering van \'n toepassing laat dit toe om te loop en kan dit sigbaar maak in jou lanseerder as dit \'n aktiwiteit het.</string>
+    <string name="appcontrol_toggle_app_disable_description">Deaktivering van \'n toepassing verhoed dit om te loop en versteek dit van menus. Daar is geen data verlies nie.</string>
     <string name="appcontrol_appstore_open_title">Maak oop in toepassing winkel</string>
     <string name="appcontrol_appstore_open_description">Maak hierdie toepassing oop in die toepassing winkel waarvanaf dit geïnstalleer was.</string>
     <string name="appcontrol_systemsettings_open_title">Wys instellings</string>
@@ -545,9 +545,9 @@
         <item quantity="other">%d toepassings was geskakel</item>
     </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Bepaal groottes</string>
-    <string name="appcontrol_settings_module_sizing_enabled_description">Kry 'n growwe skatting van elke toepassing se grootte.</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Kry \'n growwe skatting van elke toepassing se grootte.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bepaal aktiwiteit</string>
-    <string name="appcontrol_settings_module_activity_enabled_description">Vind uit of 'n toepassing is (of onlangs was) aktief.</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Vind uit of \'n toepassing is (of onlangs was) aktief.</string>
     <string name="appcontrol_export_app_selection_action">Uitvoer toepassings</string>
     <string name="appcontrol_export_title">Uitvoer toepassing</string>
     <string name="appcontrol_export_description">Stoor hierdie toepassing se installasie lêers. Dit sluit nie toepassing data in nie.</string>
@@ -596,15 +596,15 @@
     <string name="analyzer_storage_type_primary_title">Primêre berging</string>
     <string name="analyzer_storage_type_primary_description">Die primêre berging van jou toestel. Bevat die interne SD kaart, private berging vir toepassings en stelsel data.</string>
     <string name="analyzer_storage_type_secondary_title">Sekondêre berging</string>
-    <string name="analyzer_storage_type_secondary_description">'n Sekondêre berging, gewoonlik 'n verwyderde SD kaart. Bevat media lêers en data van toepassings wat dit ondersteun.</string>
+    <string name="analyzer_storage_type_secondary_description">\'n Sekondêre berging, gewoonlik \'n verwyderde SD kaart. Bevat media lêers en data van toepassings wat dit ondersteun.</string>
     <string name="analyzer_storage_type_tertiary_title">Draagbare berging</string>
-    <string name="analyzer_storage_type_tertiary_description">'n Draagbare berging, bv. 'n flits skyf ingeprop in jou USB poort.</string>
+    <string name="analyzer_storage_type_tertiary_description">\'n Draagbare berging, bv. \'n flits skyf ingeprop in jou USB poort.</string>
     <string name="analyzer_storage_content_title">Berging inhoud</string>
     <string name="analyzer_storage_content_type_app_label">Toepassings</string>
     <string name="analyzer_storage_content_type_app_description">Ruimte beset deur geïnstalleerde toepassings en hul data (d.w.s. toepassing lêers, data en kas).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Toestemmings ontbreek</string>
     <string name="analyzer_storage_content_type_media_label">Gebruiker lêers</string>
-    <string name="analyzer_storage_content_type_media_description">Gevangde foto's, opgenome video's of afgelaai data. Enige data wat nie aan 'n spesifieke toepassing behoort nie.</string>
+    <string name="analyzer_storage_content_type_media_description">Gevangde foto\'s, opgenome video\'s of afgelaai data. Enige data wat nie aan \'n spesifieke toepassing behoort nie.</string>
     <string name="analyzer_storage_content_type_system_label">Stelsel data</string>
     <string name="analyzer_storage_content_type_system_description">Stelsel toepassings en stelsel data. Toepassings en data van ander gebruikers, as verskeie gebruiker rekeninge op hierdie toestel gestel is.</string>
     <string name="analyzer_storage_content_app_code_label">Toepassing kode</string>
@@ -612,9 +612,9 @@
     <string name="analyzer_storage_content_app_data_label">Toepassing data</string>
     <string name="analyzer_storage_content_app_data_description">Data, instellings en kas.</string>
     <string name="analyzer_storage_content_app_media_label">Toepassing media</string>
-    <string name="analyzer_storage_content_app_media_description">Media lêers van hierdie toepassing, bv. ontvang WhatsApp foto's.</string>
+    <string name="analyzer_storage_content_app_media_description">Media lêers van hierdie toepassing, bv. ontvang WhatsApp foto\'s.</string>
     <string name="analyzer_storage_content_app_extra_label">Ekstra toepassing lêers</string>
-    <string name="analyzer_storage_content_app_extra_description">Ekstra data wat hierdie toepassing buite die verstek paaie geplaas het, bv. foto's of aflaaie.</string>
+    <string name="analyzer_storage_content_app_extra_description">Ekstra data wat hierdie toepassing buite die verstek paaie geplaas het, bv. foto\'s of aflaaie.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Hierdie toepassing beset %1$s op "%2$s".</string>
     <string name="analyzer_app_details_app_is_archived">Hierdie toepassing is geargiveer.</string>
 
@@ -640,9 +640,9 @@
     <string name="exclusion_option_allow_partial">Laat gedeeltelike ooreenkomste toe</string>
     <string name="exclusion_option_ignore_casing">Ignoreer hoofletter gebruik</string>
     <string name="exclusion_editor_affected_tools_label">Geaffekteerde gereedskap</string>
-    <string name="exclusion_editor_path_explanation">'n Pad uitsluiting verhoed SD Maid om verder enige passende paaie te verwerk. Dit geld vir lêers, gidse en sub-gidse.</string>
-    <string name="exclusion_editor_pkg_explanation">'n Toepassing uitsluiting verhoed SD Maid om enige passende pakkette te verwerk.</string>
-    <string name="exclusion_editor_segment_explanation">'n Segment gebaseerde uitsluiting is soortgelyk aan 'n pad uitsluiting maar laat gedeeltelike ooreenkomste toe. Voorbeeld: "DCIM/Camera" sluit "/sdcard/DCIM/Camera/photo.png" uit.</string>
+    <string name="exclusion_editor_path_explanation">\'n Pad uitsluiting verhoed SD Maid om verder enige passende paaie te verwerk. Dit geld vir lêers, gidse en sub-gidse.</string>
+    <string name="exclusion_editor_pkg_explanation">\'n Toepassing uitsluiting verhoed SD Maid om enige passende pakkette te verwerk.</string>
+    <string name="exclusion_editor_segment_explanation">\'n Segment gebaseerde uitsluiting is soortgelyk aan \'n pad uitsluiting maar laat gedeeltelike ooreenkomste toe. Voorbeeld: "DCIM/Camera" sluit "/sdcard/DCIM/Camera/photo.png" uit.</string>
     <string name="exclusion_editor_remove_confirmation_message">Verwyder hierdie uitsluiting?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Jy het ongestoorde veranderinge!</string>
     <string name="exclusion_reset_default_exclusions">Herstel verstek uitsluitings</string>
@@ -657,7 +657,7 @@
     </plurals>
     <string name="exclusion_show_defaults_action">Wys versteks</string>
 
-    <string name="automation_accessibility_service_description">Gebruikers met spesiale toeganklikheid behoeftes kan hierdie diens aktiveer om SD Maid toe te laat om take te outomatiseer wat andersins vervelige handmatige gebruiker interaksie sou vereis (bv. kas skrapping).\n\nVoorbeeld: As jy SD Maid opdrag gee om verskeie toepassings te stop dan kan SD Maid hierdie diens gebruik om elke toepassing se instellings skerm oop te maak, die 'Dwing Stop' knoppie te vind en dit te tik.\n\nSD Maid sal altyd prominent wys wanneer hierdie diens gebruik word en 'n maklike manier vir die gebruiker voorsien om enige interaksie onmiddellik te kanselleer.\n\nGeen aksies sal uitgevoer word sonder voorafgaande gebruiker goedkeuring nie. Hierdie diens kan te eniger tyd weer gedeaktiveer word sonder nadelige gevolge.</string>
+    <string name="automation_accessibility_service_description">Gebruikers met spesiale toeganklikheid behoeftes kan hierdie diens aktiveer om SD Maid toe te laat om take te outomatiseer wat andersins vervelige handmatige gebruiker interaksie sou vereis (bv. kas skrapping).\n\nVoorbeeld: As jy SD Maid opdrag gee om verskeie toepassings te stop dan kan SD Maid hierdie diens gebruik om elke toepassing se instellings skerm oop te maak, die \'Dwing Stop\' knoppie te vind en dit te tik.\n\nSD Maid sal altyd prominent wys wanneer hierdie diens gebruik word en \'n maklike manier vir die gebruiker voorsien om enige interaksie onmiddellik te kanselleer.\n\nGeen aksies sal uitgevoer word sonder voorafgaande gebruiker goedkeuring nie. Hierdie diens kan te eniger tyd weer gedeaktiveer word sonder nadelige gevolge.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interaksie met jou toestel. Dit is nie moontlik om die skerm terselfdertyd te gebruik nie. Wag totdat die bewerking klaar is of kanselleer dit.</string>
     <string name="automation_active_title">SD Maid werk</string>
     <string name="automation_error_no_consent_title">Outomatisering fout</string>
@@ -676,7 +676,7 @@
     <string name="automation_error_overlay_body">SD Maid kon nie die outomatisering oorlegger wys nie. Kontroleer toestemmings en probeer om jou toestel te herlaai.</string>
 
     <string name="history_label">Geskiedenis</string>
-    <string name="history_description">'n Chronologiese lys van onlangse aksies en geaffekteerde data.</string>
+    <string name="history_description">\'n Chronologiese lys van onlangse aksies en geaffekteerde data.</string>
 
     <string name="scheduler_label">Skeduleerder</string>
     <string name="scheduler_execution_label">Volgende uitvoering (ongeveer)</string>
@@ -706,7 +706,7 @@
     <string name="scheduler_setting_charging_title">Slaan oor wanneer nie laai nie</string>
     <string name="scheduler_setting_charging_summary">As die toestel nie laai nie, sal die geskeduleerde uitvoering oorgeslaan word.</string>
     <string name="scheduler_setting_automation_title">Toeganklikheid diens</string>
-    <string name="scheduler_setting_automation_summary">Sluit aksies in wat 'n toeganklikheid diens gebruik. Dit vereis dat SD Maid met jou skerm kan interaksie (d.w.s. dit is ontsluit) wanneer die take uitgevoer word.</string>
+    <string name="scheduler_setting_automation_summary">Sluit aksies in wat \'n toeganklikheid diens gebruik. Dit vereis dat SD Maid met jou skerm kan interaksie (d.w.s. dit is ontsluit) wanneer die take uitgevoer word.</string>
     <string name="scheduler_notification_channel_label">Skeduleerder</string>
     <string name="scheduler_notification_title">Geskeduleerde taak</string>
     <string name="scheduler_notification_message">Voer uit: "%s"</string>
@@ -714,11 +714,11 @@
     <string name="scheduler_notification_result_success_message">Alle geskeduleerde take het suksesvol geloop.</string>
     <string name="scheduler_notification_result_failure_message">Sommige geskeduleerde take het gefaal of foute ondervind. Probeer om hulle handmatig te loop.</string>
     <string name="scheduler_commands_after_schedule_label">Post-skedule opdragte</string>
-    <string name="scheduler_commands_after_schedule_desc">Android shell opdragte wat aan die einde van 'n skedule uitgevoer sal word.</string>
+    <string name="scheduler_commands_after_schedule_desc">Android shell opdragte wat aan die einde van \'n skedule uitgevoer sal word.</string>
     <string name="scheduler_battery_optimization_hint">Oorweeg om battery optimiserings vir SD Maid te deaktiveer as jy probleme met agtergrond uitvoering ondervind.</string>
 
     <string name="updates_dashcard_title">Opdatering beskikbaar</string>
-    <string name="updates_dashcard_body">'n Opdatering is beskikbaar. Jy het %1$s en die nuutste weergawe is %2$s.</string>
+    <string name="updates_dashcard_body">\'n Opdatering is beskikbaar. Jy het %1$s en die nuutste weergawe is %2$s.</string>
 
     <string name="translation_encourage_title">Vertaal SD Maid</string>
     <string name="translation_encourage_body">SD Maid word deur vrywilligers vertaal. Vertaling, hersiening of proeflees, jou hulp word waardeer!</string>
@@ -729,14 +729,14 @@
     <string name="motd_setting_enabled_explanation">Laat SD Maid toe om te kyk vir belangrike boodskappe van die ontwikkelaar.</string>
 
     <string name="updatecheck_setting_enabled_label">Opdatering kontrole</string>
-    <string name="updatecheck_setting_enabled_explanation">Laat SD Maid toe om te kyk vir opdaterings om jou te laat weet as 'n nuwer weergawe beskikbaar is.</string>
+    <string name="updatecheck_setting_enabled_explanation">Laat SD Maid toe om te kyk vir opdaterings om jou te laat weet as \'n nuwer weergawe beskikbaar is.</string>
     <string name="device_settings_category">Toestel</string>
 
-    <string name="beta_version_indicator_desc">Voor-vrystelling weergawes wys 'n klein lint op die begin skerm. Hulle word meer gereeld opgedateer, mag meer kenmerke hê, maar kan ook meer foute hê.</string>
+    <string name="beta_version_indicator_desc">Voor-vrystelling weergawes wys \'n klein lint op die begin skerm. Hulle word meer gereeld opgedateer, mag meer kenmerke hê, maar kan ook meer foute hê.</string>
 
     <string name="review_app_review_action">Hersien</string>
     <string name="review_app_dismiss_action">Miskien later</string>
-    <string name="review_app_body">Wil jy graag vir SD Maid 'n hersiening los?️ ❤️</string>
+    <string name="review_app_body">Wil jy graag vir SD Maid \'n hersiening los?️ ❤️</string>
 
     <string name="stats_label">Geskiedenis</string>
     <plurals name="stats_dash_body_size">

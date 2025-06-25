@@ -75,7 +75,6 @@
 
     <string name="settings_debuglog_explanation">Naitala ng feature na ito ang lahat ng ginagawa ng app sa isang file na maaaring ibahagi. Naglalaman ng sensitibong impormasyon ang nalikhang file (hal. pangalan ng mga file at mga naka-install na app). Ibahagi lamang ito sa mga pinagkakatiwalaan mo (hal. developer na nag-aayos ng problema).</string>
 
-    <string name="onboarding_welcome_body_beta">Isa itong beta (pagsubok) na build. Magpatuloy nang may pagkamapagpatawa at backup na plano. Mangyaring iulat ang mga problemang mararanasan mo.</string>
     <string name="onboarding_versus_body2">Ang arkitektura ng predecessor nito ay mahigit 7 taong gulang na at hindi ginawa para sa mga pagkakaiba ng mga bagong bersyon ng Android. Kinailangan ang kumpletong redesign para maipagpatuloy ang development.</string>
     <string name="onboarding_versus_body4">Ang "pro status" ng SD Maid 1 ay hindi maaaring mailipat sa SD Maid 2/SE. Pagkatapos ng 12 taong libre na pag-update, kailangan ng bagong pagbili para sa pagpapatuloy ng development (pagpapakain sa developer).</string>
 
@@ -84,111 +83,4 @@
     <string name="onboarding_privacy_bugreport_toggle">Pahintulutan ang awtomatikong bug reports</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">Maaaring baguhin ang mga pagpipiliang ito sa mga setting.</string>
 
-    <string name="onboarding_permissions_title">Mga Pahintulot</string>
-    <string name="onboarding_permissions_body">Kailangan ng SD Maid SE ang mga sumusunod na pahintulot para gumana nang maayos:</string>
-    <string name="onboarding_permissions_continue_action">Magpatuloy</string>
-
-    <string name="onboarding_setup_title">Pag-setup</string>
-    <string name="onboarding_setup_body">Ang paggamit ng lahat ng kakayahan ng SD Maid SE ay maaaring mangailangan ng karagdagang pag-setup.</string>
-    <string name="onboarding_setup_continue_action">Magpatuloy</string>
-
-    <string name="onboarding_finished_title">Handa na!</string>
-    <string name="onboarding_finished_body">Handa nang gamitin ang SD Maid SE. Pumunta sa dashboard at simulan ang inyong unang pag-scan!</string>
-    <string name="onboarding_finished_continue_action">Pumunta sa dashboard</string>
-
-    <string name="systemcleaner_title">System Cleaner</string>
-    <string name="systemcleaner_subtitle">Burahin ang mga system cache at pansamantalang file</string>
-    <string name="systemcleaner_scan_action">I-scan</string>
-    <string name="systemcleaner_delete_action">Burahin</string>
-    <string name="systemcleaner_progress_scanning">Nag-s-scan...</string>
-    <string name="systemcleaner_progress_deleting">Binubura...</string>
-    <string name="systemcleaner_result_nothing_found">Walang nahanap</string>
-    <string name="systemcleaner_result_found_files">Nahanap ang %d file</string>
-    <string name="systemcleaner_result_deleted_files">Nabura ang %d file</string>
-
-    <string name="appcleaner_title">App Cleaner</string>
-    <string name="appcleaner_subtitle">Burahin ang mga app cache at pansamantalang file</string>
-    <string name="appcleaner_scan_action">I-scan</string>
-    <string name="appcleaner_delete_action">Burahin</string>
-    <string name="appcleaner_progress_scanning">Nag-s-scan...</string>
-    <string name="appcleaner_progress_deleting">Binubura...</string>
-    <string name="appcleaner_result_nothing_found">Walang nahanap</string>
-
-    <string name="analyzer_title">Analyzer</string>
-    <string name="analyzer_subtitle">Suriin ang paggamit ng storage</string>
-    <string name="analyzer_scan_action">I-scan</string>
-    <string name="analyzer_progress_scanning">Nag-s-scan...</string>
-
-    <string name="corpsefinder_title">CorpseFinder</string>
-    <string name="corpsefinder_subtitle">Hanapin ang mga natitirang file mula sa mga na-uninstall na app</string>
-    <string name="corpsefinder_scan_action">I-scan</string>
-    <string name="corpsefinder_delete_action">Burahin</string>
-
-    <string name="deduplicator_title">Deduplicator</string>
-    <string name="deduplicator_subtitle">Hanapin at burahin ang mga duplicate na file</string>
-    <string name="deduplicator_scan_action">I-scan</string>
-    <string name="deduplicator_delete_action">Burahin</string>
-
-    <string name="settings_title">Mga Setting</string>
-    <string name="settings_general_category">Pangkalahatan</string>
-    <string name="settings_theme_title">Theme</string>
-    <string name="settings_theme_auto">Awtomatik</string>
-    <string name="settings_theme_light">Maliwanag</string>
-    <string name="settings_theme_dark">Madilim</string>
-    <string name="settings_language_title">Wika</string>
-    <string name="settings_language_auto">Awtomatik</string>
-
-    <string name="settings_privacy_category">Pribasidad</string>
-    <string name="settings_bugreports_title">Mga Bug Report</string>
-    <string name="settings_bugreports_summary">Magpadala ng awtomatikong mga report kapag may nangyaring mga error</string>
-
-    <string name="settings_advanced_category">Advanced</string>
-    <string name="settings_debug_title">Debug</string>
-    <string name="settings_debug_summary">I-enable ang mga debug feature</string>
-
-    <string name="general_yes">Oo</string>
-    <string name="general_no">Hindi</string>
-    <string name="general_cancel">Kanselahin</string>
-    <string name="general_ok">OK</string>
-    <string name="general_delete">Burahin</string>
-    <string name="general_share">Ibahagi</string>
-    <string name="general_close">Isara</string>
-    <string name="general_continue">Magpatuloy</string>
-    <string name="general_skip">Laktawan</string>
-    <string name="general_refresh">I-refresh</string>
-    <string name="general_loading">Nag-lo-load...</string>
-    <string name="general_working">Nagtatrabaho...</string>
-    <string name="general_done">Tapos na</string>
-    <string name="general_error">Error</string>
-    <string name="general_warning">Babala</string>
-    <string name="general_info">Impormasyon</string>
-
-    <string name="general_progress_loading">Nag-lo-load...</string>
-    <string name="general_progress_deleting">Binubura...</string>
-    <string name="general_progress_working">Nagtatrabaho...</string>
-
-    <string name="general_ms_format">%d ms</string>
-    <string name="general_kb_format">%.1f KB</string>
-    <string name="general_mb_format">%.1f MB</string>
-    <string name="general_gb_format">%.1f GB</string>
-
-    <string name="general_result_success_format">Nagtagumpay: %s</string>
-    <string name="general_result_failure_format">Nabigo: %s</string>
-
-    <string name="storage_space_free">Libreng espasyo</string>
-    <string name="storage_space_used">Nagamit</string>
-    <string name="storage_space_total">Kabuuan</string>
-
-    <string name="permission_request_title">Hiling ng Pahintulot</string>
-    <string name="permission_request_body">Kailangan ng SD Maid SE ang pahintulot na ito para gumana nang maayos.</string>
-    <string name="permission_grant_action">Bigyan ng Pahintulot</string>
-
-    <string name="error_no_root_access">Walang root access</string>
-    <string name="error_root_access_failed">Nabigo ang root access</string>
-    <string name="error_permission_denied">Tinanggihan ang pahintulot</string>
-    <string name="error_storage_not_accessible">Hindi ma-access ang storage</string>
-    <string name="error_operation_failed">Nabigo ang operasyon</string>
-    <string name="error_file_not_found">Hindi nahanap ang file</string>
-    <string name="error_insufficient_space">Kulang ang espasyo</string>
-    <string name="error_unknown">Hindi kilalang error</string>
 </resources>

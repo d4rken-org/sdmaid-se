@@ -113,8 +113,6 @@
     <string name="setup_root_enable_root_use_label">Използвайте root, ако е наличен</string>
     <string name="setup_root_disable_root_use_label">Не използвайте root</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
-    <string name="setup_shizuku_card_body">Трябва ли SD Maid да използва Shizuku, когато е достъпен? Shizuku може да предостави достъп до допълнителни данни без root разрешения.</string>
-    <string name="setup_shizuku_card_body2">Ако Shizuku не е инсталиран на вашето устройство, тази настройка няма ефект</string>
     <string name="setup_shizuku_state_ready_label">Връзката с Shizuku е готова</string>
     <string name="setup_shizuku_state_waiting_label">Изчакване за връзка с Shizuku</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Използвайте Shizuku, ако е наличен</string>
@@ -142,71 +140,8 @@
     <string name="setup_shizuku_card_root_info">Shizuku в комбинация с root достъп не активира допълнителни функции, но подобрява надеждността. SD Maid ще го използва като резервен метод.</string>
     <string name="setup_permission_error_label">Грешка в разрешението</string>
     <string name="setup_usagestats_body">Разрешението за статистики за използване предоставя достъп до повече подробности за приложенията. SD Maid го използва за определяне на допълнителни размери на кеш.</string>
-    <string name="setup_notification_body">Разрешете на SD Maid да показва уведомления за активни задачи и резултати от операции.</string>
-    <string name="setup_notification_body2">Можете да персонализирате кои уведомления да се показват чрез настройките на Android.</string>
-    <string name="setup_acs_title">Услуги за достъпност</string>
-    <string name="setup_acs_body">Разрешете на SD Maid да използва услуги за достъпност, за да автоматизира някои задачи.</string>
-    <string name="setup_acs_body2">Това може да се използва за автоматично предоставяне на разрешения или изчистване на данни на приложения.</string>
-    <string name="setup_acs_appops_restriction_body">Операциите за приложения са ограничени на вашето устройство. Някои функции може да не работят правилно.</string>
-    <string name="setup_acs_appops_restriction_body2">Това ограничение може да бъде премахнато чрез root достъп или ADB команди.</string>
 
-    <string name="analyzer_settings_category">Анализатор</string>
-    <string name="analyzer_settings_show_hidden_files_title">Скрити файлове</string>
-    <string name="analyzer_settings_show_hidden_files_summary">Показване на скрити файлове в резултатите от сканирането.</string>
-    <string name="analyzer_settings_show_system_files_title">Системни файлове</string>
-    <string name="analyzer_settings_show_system_files_summary">Показване на системни файлове в резултатите от сканирането.</string>
-    <string name="analyzer_progress_modal_loading">Зарежда се...</string>
-    <string name="analyzer_progress_modal_details">%1$s / %2$s</string>
-    <string name="analyzer_storage_empty_msg">Не са намерени данни</string>
-    <string name="analyzer_storage_empty_hint">Предоставете на SD Maid възможно най-много достъп. Вече сте дали всички разрешения? Това означава, че всичко е чисто!</string>
-    <string name="analyzer_list_header_label">%1$s файлове (%2$s)</string>
-    <string name="analyzer_list_item_count">%s елемента</string>
-    <string name="analyzer_list_details_action">Подробности</string>
-    <string name="analyzer_details_title">Подробни данни</string>
-    <string name="analyzer_details_empty_hint">Не са намерени подробности</string>
-    <string name="analyzer_action_scan">Сканиране</string>
-    <string name="analyzer_action_cancelled">Отменено</string>
 
-    <string name="systemcleaner_settings_category">Системен почистител</string>
-    <string name="systemcleaner_settings_include_other_users_title">Други потребители</string>
-    <string name="systemcleaner_settings_include_other_users_summary">Включване на други потребители и търсене на файлове от различни места.</string>
-    <string name="systemcleaner_progress_searching">Търси се...</string>
-    <string name="systemcleaner_progress_modal_searching">Търсят се %1$s подробности</string>
-    <string name="systemcleaner_filter_empty_directories_label">Празни директории</string>
-    <string name="systemcleaner_filter_empty_directories_summary">Празни директории, които не съдържат нищо</string>
-    <string name="systemcleaner_filter_user_cache_label">Потребителски кеш</string>
-    <string name="systemcleaner_filter_user_cache_summary">Кеш файлове от потребителски приложения</string>
-    <string name="systemcleaner_filter_system_cache_label">Системен кеш</string>
-    <string name="systemcleaner_filter_system_cache_summary">Кеш файлове от системни приложения</string>
-    <string name="systemcleaner_filter_downloaded_files_label">Изтеглени файлове</string>
-    <string name="systemcleaner_filter_downloaded_files_summary">Файлове, изтеглени в папката за изтегляния</string>
-    <string name="systemcleaner_filter_recycle_bin_label">Кошче за отпадъци</string>
-    <string name="systemcleaner_filter_recycle_bin_summary">Файлове в кошчето за отпадъци</string>
-    <string name="systemcleaner_filter_advertisement_label">Реклама</string>
-    <string name="systemcleaner_filter_advertisement_summary">Файлове от рекламни мрежи</string>
-    <string name="systemcleaner_filter_analytics_label">Аналитика</string>
-    <string name="systemcleaner_filter_analytics_summary">Файлове от аналитични мрежи</string>
-    <string name="systemcleaner_filter_bug_reporting_label">Докладване на грешки</string>
-    <string name="systemcleaner_filter_bug_reporting_summary">Файлове от системи за докладване на грешки</string>
-    <string name="systemcleaner_filter_machine_learning_label">Машинно обучение</string>
-    <string name="systemcleaner_filter_machine_learning_summary">Файлове от системи за машинно обучение</string>
-    <string name="systemcleaner_filter_offline_maps_label">Офлайн карти</string>
-    <string name="systemcleaner_filter_offline_maps_summary">Данни за офлайн карти от картографски приложения</string>
-    <string name="systemcleaner_filter_temporary_files_label">Временни файлове</string>
-    <string name="systemcleaner_filter_temporary_files_summary">Временни файлове и директории</string>
-    <string name="systemcleaner_filter_log_files_label">Лог файлове</string>
-    <string name="systemcleaner_filter_log_files_summary">Лог файлове и директории</string>
-    <string name="systemcleaner_filter_generic_hidden_caches_label">Скрити кешове</string>
-    <string name="systemcleaner_filter_generic_hidden_caches_summary">Скрити кеш директории</string>
-    <string name="systemcleaner_empty_msg">Нищо не е намерено</string>
-    <string name="systemcleaner_empty_hint">Не са намерени елементи за почистване.</string>
-    <string name="systemcleaner_result_x_space_freed">%s място е освободено</string>
-    <string name="systemcleaner_result_done_title">Почистването е завършено</string>
-    <string name="systemcleaner_result_done_message">Системният почистител е завършен</string>
-    <string name="systemcleaner_action_scan">Сканиране</string>
-    <string name="systemcleaner_action_delete">Изтриване</string>
-    <string name="systemcleaner_action_delete_all">Изтриване на всички</string>
-    <string name="systemcleaner_action_cancelled">Отменено</string>
 
     <string name="setup_usagestats_hint">Необходимо за изтриване на кеш базирано на услуги за достъпност.</string>
     <string name="setup_notification_body">Позволете на SD Maid да публикува уведомления, за да ви информира за текущи операции или важни събития.</string>
@@ -293,11 +228,6 @@
     <string name="corpsefinder_owner_unknown">Неизвестен собственик</string>
     <string name="corpsefinder_corpse_hint_keeper">Този елемент може да съдържа данни, които искате да запазите, въпреки че собственикът му е деинсталиран, напр. снимки или резервни копия.</string>
 
-    <string name="appcleaner_settings_category">Почистител на приложения</string>
-    <string name="appcleaner_settings_include_other_users_title">Други потребители</string>
-    <string name="appcleaner_settings_include_other_users_summary">Включване на други потребители и филтриране на приложения.</string>
-    <string name="appcleaner_settings_include_running_apps_title">Работещи приложения</string>
-    <string name="appcleaner_settings_include_running_apps_summary">Филтриране на приложения, които са в момента в действие.</string>
 
     <string name="corpsefinder_corpse_hint_common">Този елемент има много често срещано име и може да принадлежи на все още инсталирани приложения, които SD Maid не знае.</string>
 

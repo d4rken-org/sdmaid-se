@@ -37,7 +37,7 @@
     <string name="onboarding_privacy_body1">SD Maid-də reklamlar yoxdur və istifadəçi məlumatlarını satmır.</string>
     <string name="onboarding_privacy_bugreport_toggle_body">Xəta hesabatları xətalar baş verdikdə göndərilir və buraya cihazınızdakı tətbiq və fayllar barədə detallar aid ola bilər.</string>
     <string name="onboarding_privacy_bugreport_toggle">Avtomatik xəta hesabatlarına icazə ver</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Bu </string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">Bu seçimlər tənzimləmələrdə dəyişdirilə bilər.</string>
     <string name="onboarding_privacy_continue_action">Davam edin</string>
     <string name="onboarding_setup_title">Quraşdır</string>
     <string name="onboarding_setup_body1">SD Maid bütün əlçatan məlumat sahələrinində axtarış edəcəkdir.</string>
@@ -46,7 +46,7 @@
     <string name="settings_category_other_label">Digər</string>
     <string name="settings_category_filter_generic">Ümumi filter</string>
     <string name="settings_category_filter_specific">Xüsusi filter</string>
-    <string name="settings_sponsor_development_title"></string>
+    <string name="settings_sponsor_development_title">İnkişafı dəstəklə</string>
     <string name="general_settings_label">Ümumi</string>
     <string name="settings_category_ui_label">İstifadəçi interfeysi</string>
     <string name="ui_theme_mode_setting_label">Tema modu</string>
@@ -76,7 +76,7 @@
     <string name="setup_title">Quraşdır</string>
     <string name="setup_checking_card_body">Funksionallığın və quraşdırmanın tamamlanmasının təsdiqlənməsi.</string>
     <string name="general_error_setup_require_label">Quraşdırma tamamlanmadı</string>
-    <string name="setup_saf_missing_app_error"></string>
+    <string name="setup_saf_missing_app_error">Sənədlər UI tətbiqi əlçatan deyil. Bu, daxili sistem tətbiqi olub bütün Android cihazlarında mövcud olmalıdır.</string>
     <string name="setup_manage_storage_card_title">Yaddaşı idarə et</string>
     <string name="setup_manage_storage_card_body">SD Maid-ə yaddaşınızı idarə etməsinə icazə verin.</string>
     <string name="setup_manage_storage_card_body2">\"Yüklənənlər/\" və \"DCİM/\" kimi ümumi yaddaşa icazə verilir, lakin \"Android/data\" qovluğuna həmişə icazə verilmir.</string>
@@ -112,7 +112,6 @@
 
     <string name="onboarding_welcome_body2">Digər tətbiqlərin arxasında təmizlik edərək yaddaş yeri qazanın. Xərcləyə bilən faylları silin və qalan məlumatları götürün.</string>
 
-    <string name="onboarding_privacy_bugreport_toggle_hint">Bu seçimlər parametrlərdə dəyişdirilə bilər.</string>
     <string name="onboarding_setup_body2">Nəyə daxil olmaq mümkün olduğu cihazınıza, Android versiyanıza və verilən icazələrə bağlıdır.</string>
     <string name="onboarding_setup_body3">Axtarılmalı olan sahələrə giriş quraşdıraraq SD Maid istifadə etməyə başlayın.</string>
     <string name="onboarding_setup_continue_action">Girişi quraşdır</string>
@@ -518,7 +517,6 @@
 
     <string name="automation_screenoverlay_explanation">SD Maid cihazınızla qarşılıqlı əlaqədədir. Eyni vaxtda ekranı istifadə etmək mümkün deyil. Əməliyyat bitənə qədər gözləyin və ya ləğv edin.</string>
     <string name="automation_error_no_consent_body">Əlçatanlıq xidməti qurulmayıb. Quraşdırmanı tamamlayın və razılıq verin.</string>
-    <string name="automation_error_not_enabled_title">Xidmət aktiv deyil</string>
     <string name="automation_error_not_enabled_body">Əlçatanlıq xidməti deaktivdir. Onu yenidən açın.</string>
     <string name="automation_error_not_running_title">Xidmət işləmir</string>
     <string name="automation_error_not_running_body">Əlçatanlıq xidməti işləmir. Cihazı yenidən başlatmağı cəhd edin.</string>
@@ -594,15 +592,12 @@
     <string name="systemcleaner_filter_packagecaches_label">Quraşdırıcı keşi</string>
     <string name="systemcleaner_filter_packagecaches_summary">Sistemin paket idarəçiliyi tərəfindən istifadə edilən quraşdırılmış tətbiqlərlə əlaqəli keşlənmiş məlumatlar.</string>
     <string name="systemcleaner_filter_anr_label">ANR xətaları</string>
-    <string name="systemcleaner_filter_anr_summary">'Tətbiq cavab vermir' hadisələrindən izlər.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Artıq APK-lər</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Artıq quraşdırılmış tətbiq versiyalarından köhnə və ya bərabər olan quraşdırma faylları.</string>
     <string name="systemcleaner_filter_thumbnails_label">Kiçik şəkillər</string>
     <string name="systemcleaner_filter_thumbnails_summary">Şəkil və videolar üçün keşlənmiş ön baxışlar.</string>
     <string name="systemcleaner_filter_tempfiles_label">Müvəqqəti sistem faylları</string>
     <string name="systemcleaner_filter_tempfiles_summary">Sistemlə əlaqəli müvəqqəti fayllar, adətən aktiv əməliyyatlar üçün qısa müddətli keşlər.</string>
-    <string name="systemcleaner_filter_analytics_label">Analitika faylları</string>
-    <string name="systemcleaner_filter_analytics_summary">Analitika və xəta izləmə ilə əlaqəli məlumatlar.</string>
     <string name="systemcleaner_filter_downloadcache_label">Yükləmə keşi</string>
     <string name="systemcleaner_filter_downloadcache_summary">Müxtəlif şeylər üçün istifadə edilən sistem keş qovluğu (məsələn OTA yeniləmələri).</string>
     <string name="systemcleaner_filter_localtmp_label">Yerli müvəqqəti fayllar</string>
@@ -806,3 +801,6 @@
     <string name="scheduler_commands_after_schedule_label">Plan sonrası əmrlər</string>
     <string name="scheduler_commands_after_schedule_desc">Planın sonunda icra ediləcək Android shell əmrləri.</string>
     <string name="scheduler_battery_optimization_hint">Arxa plan icra problemləri yaşayırsınızsa SD Maid üçün batareya optimallaşdırmalarını deaktiv etməyi dü
+şünün.
+</string>
+</resources>

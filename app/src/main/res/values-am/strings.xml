@@ -100,138 +100,43 @@
     <string name="discord_label">ዲስኮርድ</string>
     <string name="discord_description">ሊቀመጡባቸውና ጥያቄዎችን ሊጠይቁባቸው የሚችሉባቸው ቦታ።</string>
 
-    <string name="analyzer_settings_category">ተንታኝ</string>
-    <string name="analyzer_settings_show_hidden_files_title">የተደበቁ ፋይሎች</string>
-    <string name="analyzer_settings_show_hidden_files_summary">በስካን ውጤት ውስጥ የተደበቁ ፋይሎችን አሳይ።</string>
-    <string name="analyzer_settings_show_system_files_title">የሲስተም ፋይሎች</string>
-    <string name="analyzer_settings_show_system_files_summary">በስካን ውጤት ውስጥ የሲስተም ፋይሎችን አሳይ።</string>
 
-    <string name="analyzer_progress_modal_loading">ይጫናል...</string>
-    <string name="analyzer_progress_modal_details">%1$s / %2$s</string>
 
-    <string name="analyzer_storage_empty_msg">ምንም ውሂብ አልተገኘም</string>
-    <string name="analyzer_storage_empty_hint">በተቻለ መጠን ወደ SD Maid መዳረሻ ሰጥ። ቀድሞውኑ ሁሉንም ፈቅደዋል? ይህ ማለት ሁሉም ነገር ጠርቷል!</string>
 
-    <string name="analyzer_list_header_label">%1$s ፋይሎች (%2$s)</string>
-    <string name="analyzer_list_item_count">%s ንጥሎች</string>
-    <string name="analyzer_list_details_action">ዝርዝሮች</string>
 
-    <string name="analyzer_details_title">ዝርዝር መረጃ</string>
-    <string name="analyzer_details_empty_hint">ምንም ዝርዝሮች አልተገኙም</string>
 
-    <string name="analyzer_action_scan">ስካን</string>
-    <string name="analyzer_action_cancelled">ተሰርዟል</string>
 
-    <string name="systemcleaner_settings_category">የሲስተም ጽዳት ባለሙያ</string>
-    <string name="systemcleaner_settings_include_other_users_title">ሌሎች ተጠቃሚዎች</string>
-    <string name="systemcleaner_settings_include_other_users_summary">ሌሎች ተጠቃሚዎችን ያሳተትና ከተለያዩ ቦታዎች ውስጥ ፋይሎችን ይፈልጉ།</string>
 
-    <string name="systemcleaner_progress_searching">በመፈልግ ላይ...</string>
-    <string name="systemcleaner_progress_modal_searching">%1$s ዝርዝሮች በመፈትሽ ላይ</string>
 
-    <string name="systemcleaner_filter_empty_directories_label">ባዶ ድርደሮች</string>
-    <string name="systemcleaner_filter_empty_directories_summary">ውስጥ ምንም የሌላቸው ባዶ ድርደሮች</string>
 
-    <string name="systemcleaner_filter_user_cache_label">የተጠቃሚ መሸፈኛ</string>
-    <string name="systemcleaner_filter_user_cache_summary">የተጠቃሚ መተግበሪያዎች መሸፈኛ ፋይሎች</string>
 
-    <string name="systemcleaner_filter_system_cache_label">የሲስተም መሸፈኛ</string>
-    <string name="systemcleaner_filter_system_cache_summary">የሲስተም መተግበሪያዎች መሸፈኛ ፋይሎች</string>
 
-    <string name="systemcleaner_filter_downloaded_files_label">የተወረዱ ፋይሎች</string>
-    <string name="systemcleaner_filter_downloaded_files_summary">ወደ ዳውንሎድ ድርደር የተወረዱ ፋይሎች</string>
 
-    <string name="systemcleaner_filter_recycle_bin_label">የቆሻሻ ዳውል</string>
-    <string name="systemcleaner_filter_recycle_bin_summary">በቆሻሻ ዳውል ውስጥ ያሉ ፋይሎች</string>
 
-    <string name="systemcleaner_filter_advertisement_label">ማስታወቂያ</string>
-    <string name="systemcleaner_filter_advertisement_summary">ከማስታወቂያ አውታረ መረቦች ፋይሎች</string>
 
-    <string name="systemcleaner_filter_analytics_label">ትንተና</string>
-    <string name="systemcleaner_filter_analytics_summary">ከትንተና አውታረ መረቦች ፋይሎች</string>
 
-    <string name="systemcleaner_filter_bug_reporting_label">የሳህተት ሪፖርት</string>
-    <string name="systemcleaner_filter_bug_reporting_summary">ከሳህተት ሪፖርት ስርዓቶች ፋይሎች</string>
 
-    <string name="systemcleaner_filter_machine_learning_label">የማሽን ትምህርት</string>
-    <string name="systemcleaner_filter_machine_learning_summary">ከማሽን ትምህርት ስርዓቶች ፋይሎች</string>
 
-    <string name="systemcleaner_filter_offline_maps_label">የወጣ-መስመር ካርታዎች</string>
-    <string name="systemcleaner_filter_offline_maps_summary">ከካርታ መተግበሪያዎች የወጣ-መስመር ካርታ ውሂብ</string>
 
-    <string name="systemcleaner_filter_temporary_files_label">ጊዜያዊ ፋይሎች</string>
-    <string name="systemcleaner_filter_temporary_files_summary">ጊዜያዊ ፋይሎችና ድርደሮች</string>
 
-    <string name="systemcleaner_filter_log_files_label">የመዛግብ ፋይሎች</string>
-    <string name="systemcleaner_filter_log_files_summary">የመዛግብ ፋይሎችና ድርደሮች</string>
 
-    <string name="systemcleaner_filter_generic_hidden_caches_label">የተደበቁ መሸፈኛዎች</string>
-    <string name="systemcleaner_filter_generic_hidden_caches_summary">የተደበቁ መሸፈኛ ድርደሮች</string>
 
-    <string name="systemcleaner_empty_msg">ምንም አልተገኘም</string>
-    <string name="systemcleaner_empty_hint">የሚያጸዱ ንጥሎች አልተገኙም።</string>
 
-    <string name="systemcleaner_result_x_space_freed">%s ቦታ ተልቋል</string>
-    <string name="systemcleaner_result_done_title">ጽዳት ተጠናቅቋል</string>
-    <string name="systemcleaner_result_done_message">የሲስተም ጽዳት ባለሙያ ተጠናቅቋል</string>
 
-    <string name="systemcleaner_action_scan">ስካን</string>
-    <string name="systemcleaner_action_delete">ስረዝ</string>
-    <string name="systemcleaner_action_delete_all">ሁሉንም ስረዝ</string>
-    <string name="systemcleaner_action_cancelled">ተሰርዟል</string>
 
-    <string name="appcleaner_settings_category">የመተግበሪያ ጽዳት ባለሙያ</string>
-    <string name="appcleaner_settings_include_other_users_title">ሌሎች ተጠቃሚዎች</string>
-    <string name="appcleaner_settings_include_other_users_summary">ሌሎች ተጠቃሚዎችን ያሳተትና መተግበሪያዎችን ያጣራ።</string>
-    <string name="appcleaner_settings_include_running_apps_title">በመሄድ ላይ ያሉ መተግበሪያዎች</string>
-    <string name="appcleaner_settings_include_running_apps_summary">በመሄድ ላይ ያሉ መተግበሪያዎችን ያጣራ።</string>
 
-    <string name="appcleaner_progress_scanning">ስካን በመስራት ላይ...</string>
-    <string name="appcleaner_progress_modal_scanning">%s ዝርዝሮች በመስራት ላይ</string>
 
-    <string name="appcleaner_filter_code_caches_label">የኮድ መሸፈኛዎች</string>
-    <string name="appcleaner_filter_code_caches_summary">የART/Dalvik መሸፈኛ ፋይሎች</string>
 
-    <string name="appcleaner_filter_hidden_caches_label">የተደበቁ መሸፈኛዎች</string>
-    <string name="appcleaner_filter_hidden_caches_summary">የሚደበቁ የመተግበሪያ መሸፈኛ ድርደሮች</string>
 
-    <string name="appcleaner_filter_bug_reporting_label">የሳህተት ሪፖርት</string>
-    <string name="appcleaner_filter_bug_reporting_summary">ከሳህተት ሪፖርት ስርዓቶች ፋይሎች</string>
 
-    <string name="appcleaner_filter_analytics_label">ትንተና</string>
-    <string name="appcleaner_filter_analytics_summary">ከትንተና ስርዓቶች ፋይሎች</string>
 
-    <string name="appcleaner_filter_advertisement_label">ማስታወቂያ</string>
-    <string name="appcleaner_filter_advertisement_summary">ከማስታወቂያ አውታረ መረቦች ፋይሎች</string>
 
-    <string name="appcleaner_filter_webview_caches_label">የWebView መሸፈኛዎች</string>
-    <string name="appcleaner_filter_webview_caches_summary">የWebView መሸፈኛ ድርደሮች</string>
 
-    <string name="appcleaner_empty_msg">ምንም አልተገኘም</string>
-    <string name="appcleaner_empty_hint">የሚያጸዱ ንጥሎች አልተገኙም።</string>
 
-    <string name="appcleaner_result_x_space_freed">%s ቦታ ተልቋል</string>
-    <string name="appcleaner_result_done_title">ጽዳት ተጠናቅቋል</string>
-    <string name="appcleaner_result_done_message">የመተግበሪያ ጽዳት ባለሙያ ተጠናቅቋል</string>
 
-    <string name="appcleaner_action_scan">ስካን</string>
-    <string name="appcleaner_action_delete">ስረዝ</string>
-    <string name="appcleaner_action_delete_all">ሁሉንም ስረዝ</string>
-    <string name="appcleaner_action_cancelled">ተሰርዟል</string>
 
-    <string name="corpsefinder_settings_category">የአስከሬን ፈላጊ</string>
-    <string name="corpsefinder_settings_include_other_users_title">ሌሎች ተጠቃሚዎች</string>
-    <string name="corpsefinder_settings_include_other_users_summary">ለሌሎች ተጠቃሚዎች የቀሩ ፋይሎችን ፈልግ።</string>
-    <string name="corpsefinder_settings_uninstalled_apps_title">ያልተጫኑ መተግበሪያዎች</string>
-    <string name="corpsefinder_settings_uninstalled_apps_summary">የቀሩ ፋይሎች ለያልተጫኑ መተግበሪያዎች ይጠቁሙ።</string>
-    <string name="corpsefinder_settings_known_apptype_filter_title">የታወቁ የመተግበሪያ ዓይነቶች</string>
-    <string name="corpsefinder_settings_known_apptype_filter_summary">በተለያዩ የመተግበሪያ ዓይነቶች ላይ ተመሥርተው የማጣሪያ ውጤቶች።</string>
 
-    <string name="corpsefinder_progress_searching">በመፈልግ ላይ...</string>
-    <string name="corpsefinder_progress_modal_searching">%1$s ዝርዝሮች በመፈትሽ ላይ</string>
 
-    <string name="corpsefinder_keepers_title">አስጠባቂዎች</string>
-    <string name="corpsefinder_keepers_summary">የሚመኩት ፋይሎች ተዎች አስቀምጠው ይቆሙታል።</string>
     <string name="corpsefinder_settings_risk_common_title">የተለመዱ ስሞችን አካትት</string>
     <string name="corpsefinder_settings_risk_common_summary">በተለመዱ ስሞች ያላቸው ውሂቦች፣ ለምሳሌ "ማስታወሻዎች" የሚባል ፎልደር በብዙ የማይታወቁ መተግበሪያዎች ይጠቀማል።</string>
     <string name="corpsefinder_watcher_title">ማጥፋት ተከታታዩ</string>

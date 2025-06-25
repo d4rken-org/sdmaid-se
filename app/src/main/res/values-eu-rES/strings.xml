@@ -154,21 +154,12 @@
     <string name="error_file_not_found">Ez da fitxategia aurkitu</string>
     <string name="error_insufficient_space">Ez dago nahikoa lekurik</string>
     <string name="error_unknown">Errore ezezaguna</string>
-    <string name="onboarding_versus_body4">SD Maid 1-en "pro egoera" ezin da transferitu SD Maid 2/SE-ra zoritxarrez. 12 urteko eguneraketa doakien ondoren, erosketa berri bat beharrezkoa da garapena mantentzeko (garatzailea elikatzeko).</string>
-    <string name="onboarding_versus_continue_action">Jarraitu</string>
 
-    <string name="onboarding_privacy_title">Pribatutasuna</string>
-    <string name="onboarding_privacy_body1">SD Maid-ek ez du iragarkiurik eta ez ditu erabiltzaileen datuak saltzen.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Akats-txostenak bidaltzen dira akatsak gertatzen direnean eta zure gailuko aplikazio eta fitxategiei buruzko xehetasunak izan ditzakete. Txostenek akatsak konpontzen eta aplikazioa hobetzen laguntzen didate.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Baimendu akats-txosten automatikoak</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Aukera hauek ezarpenetan alda daitezke.</string>
     <string name="onboarding_privacy_continue_action">Jarraitu</string>
 
-    <string name="onboarding_setup_title">Konfigurazioa</string>
     <string name="onboarding_setup_body1">SD Maid-ek atzitu daitezkeen datu-eremu guztiak bilatuko ditu.</string>
     <string name="onboarding_setup_body2">Zer den atzitgarria zure gailua, Android bertsioa eta emandako baimenen araberakoa da.</string>
     <string name="onboarding_setup_body3">Hasi SD Maid erabiltzen bilatu beharreko eremuetarako sarbidea konfiguratuz.</string>
-    <string name="onboarding_setup_continue_action">Konfiguratu sarbidea</string>
 
     <string name="settings_privacy_policy_label">Pribatutasun-politika</string>
     <string name="settings_privacy_policy_desc">Datuak erantzunkidetasunez kudeatzea.</string>

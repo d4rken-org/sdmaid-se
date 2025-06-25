@@ -7,7 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">ဒက်ရှ်ဘုတ်၏ လုပ်ဆောင်ချက်ခလုတ်ကို နှိပ်ခြင်းဖြင့် ကိရိယာအားလုံးအတွက် စကင်န်ဖတ်ခြင်းနှင့် ဖျက်ခြင်းတို့ကို စတင်ပါ၊ အပိုအတည်ပြုချက်မရှိပါ။</string>
     <string name="dashboard_settings_oneclick_tools_title">တစ်ခါနှိပ် ကိရိယာများ</string>
     <string name="dashboard_settings_oneclick_tools_desc">တစ်ခါနှိပ် လုပ်ဆောင်မှုများတွင် မည်သည့်ကိရိယာများကို ထည့်သွင်းရမည်နည်း?</string>
-
     <string name="debug_debuglog_size_label">အရွယ်အစား</string>
     <string name="debug_debuglog_size_compressed_label">ချုံ့ထားသောအရွယ်အစား</string>
     <string name="debug_notification_channel_label">အမှားရှာဖွေမှု အကြောင်းကြားချက်များ</string>
@@ -17,49 +16,35 @@
     <string name="debug_debuglog_stop_action">ဖမ်ယူခြင်းကို ရပ်ပါ</string>
     <string name="debug_debuglog_sensitive_information_message">ထုတ်လုပ်ထားသော ဖိုင်တွင် အရေးကြီးသော အချက်အလက်များ (ဥပမာ- ဖိုင်အမည်များနှင့် တပ်ဆင်ထားသော အက်ပ်များ) ပါဝင်သည်။ ယုံကြည်ရသော ကုမ္ပဏီများနှင့်သာ မျှဝေပါ။</string>
     <string name="settings_debuglog_explanation">ဤ feature သည် အက်ပ်လုပ်နေသမျှကို မျှဝေနိုင်သော ဖိုင်တွင် မှတ်တမ်းတင်သည်။ ထုတ်လုပ်ထားသော ဖိုင်တွင် အရေးကြီးသော အချက်အလက်များ (ဥပမာ- ဖိုင်အမည်များနှင့် တပ်ဆင်ထားသော အက်ပ်များ) ပါဝင်သည်။ ယုံကြည်ရသော ကုမ္ပဏီများနှင့်သာ မျှဝေပါ (ဥပမာ- ပြဿနာဖြေရှင်းနေသော developer)။</string>
-
     <string name="tasks_activity_notification_channel_label">လှုပ်ရှားနေသော အလုပ်များ</string>
     <string name="tasks_activity_working_notification_title">SD Maid လုပ်ဆောင်နေသည်</string>
-    <plurals name="tasks_activity_active_notification_message">
-        <item quantity="other">%d လှုပ်ရှားနေသော အလုပ်များ</item>
-    </plurals>
-    <plurals name="tasks_activity_queued_notification_message">
-        <item quantity="other">%d အလုပ်များ စောင့်နေသည်</item>
-    </plurals>
     <string name="tasks_result_notification_channel_label">အလုပ် ရလဒ်များ</string>
     <string name="tasks_result_subtext">အလုပ် ရလဒ်</string>
-
     <string name="onboarding_welcome_title">ကြိုဆိုပါသည်</string>
     <string name="onboarding_welcome_body1">SD Maid SE သည် ဖိုင်များ၊ အက်ပ်များနှင့် သိမ်းဆည်းမှုကို စီမံခန့်ခွဲသည်။</string>
     <string name="onboarding_welcome_body2">အခြားအက်ပ်များ၏နောက်တွင် သန့်ရှင်းရေးလုပ်ခြင်းဖြင့် သိမ်းဆည်းမှုနေရာရပါ။ မလိုအပ်သောဖိုင်များကို ဖျက်ပြီး ကျန်ရှိနေသောဒေတာများကို ဖယ်ရှားပါ။</string>
     <string name="onboarding_welcome_body_beta">ဤသည်မှာ beta (စမ်းသပ်) တည်ဆောက်မှုတစ်ခုဖြစ်သည်။ ရယ်မောမှုသဘောထားနှင့် အရန်အစီအစဉ်ဖြင့် ဆက်လက်လုပ်ဆောင်ပါ။ တွေ့ကြုံရသော ပြဿနာများကို သတင်းပို့ပါ။</string>
     <string name="onboarding_welcome_continue_action">ဆက်လက်လုပ်ဆောင်ပါ</string>
-
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (ဆိုလိုသည်မှာ SD Maid 2) သည် SD Maid (ဆိုလိုသည်မှာ SD Maid 1) ၏ဆက်ခံသူဖြစ်သည်။ ခေတ်မီ Android အတွက် အကောင်းဆုံးဖြစ်အောင် ပြုလုပ်ထားသော အက်ပ်အသစ်။</string>
     <string name="onboarding_versus_body2">၎င်း၏ ယခင်ဗားရှင်း၏ architecture သည် ၇ နှစ်ကျော်ဟောင်းပြီး Android ဗားရှင်းအသစ်များ၏ စိန်ခေါ်မှုများအတွက် ဒီဇိုင်းမပြုလုပ်ထားပါ။ ဖွံ့ဖြိုးတိုးတက်မှုကို ဆက်လက်လုပ်ဆောင်ရန် အပြည့်အဝ ပြန်လည်ဒီဇိုင်းပြုလုပ်ရန် လိုအပ်သည်။</string>
     <string name="onboarding_versus_body3">ပိုမိုကောင်းမွန်သော ရလဒ်များအတွက် SD Maid SE သို့ ပြောင်းလဲခြင်းကို စဉ်းစားပါ။</string>
     <string name="onboarding_versus_body4">SD Maid 1 ၏ "pro အခြေအနေ" သည် ကံမကောင်းစွာဖြင့် SD Maid 2/SE သို့ လွှဲပြောင်းနိုင်ခြင်းမရှိပါ။ ၁၂ နှစ်ကြာ အခမဲ့ အပ်ဒိတ်များပြီးနောက်၊ ဖွံ့ဖြိုးတိုးတက်မှုကို ဆက်လက်လုပ်ဆောင်ရန် (developer ကို ကျွေးမွေးရန်) ဝယ်ယူမှုအသစ် လိုအပ်သည်။</string>
     <string name="onboarding_versus_continue_action">ဆက်လက်လုပ်ဆောင်ပါ</string>
-
     <string name="onboarding_privacy_title">ကိုယ်ရေးကိုယ်တာ</string>
     <string name="onboarding_privacy_body1">SD Maid တွင် ကြော်ငြာများမရှိပြီး အသုံးပြုသူဒေတာများကို မရောင်းချပါ။</string>
     <string name="onboarding_privacy_bugreport_toggle_body">အမှားများဖြစ်ပေါ်လာသောအခါ bug အစီရင်ခံစာများကို ပေးပို့ပြီး သင့်ကိရိယာရှိ အက်ပ်များနှင့် ဖိုင်များ အကြောင်း အသေးစိတ်များ ပါဝင်နိုင်သည်။ အစီရင်ခံစာများသည် ကျွန်ုပ်ကို အမှားများ ပြုပြင်ရန်နှင့် အက်ပ်ကို တိုးတက်စေရန် ကူညီပေးသည်။</string>
     <string name="onboarding_privacy_bugreport_toggle">အလိုအလျောက် bug အစီရင်ခံစာများကို ခွင့်ပြုပါ</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">ဤရွေးချယ်မှုများကို ဆက်တင်များတွင် ပြောင်းလဲနိုင်သည်။</string>
-
     <string name="onboarding_permissions_title">ခွင့်ပြုချက်များ</string>
     <string name="onboarding_permissions_body">SD Maid SE သည် အပြည့်အဝလုပ်ဆောင်ရန် အောက်ပါခွင့်ပြုချက်များ လိုအပ်သည်:</string>
     <string name="onboarding_permissions_continue_action">ဆက်လက်လုပ်ဆောင်ပါ</string>
-
     <string name="onboarding_setup_title">ပြင်ဆင်ခြင်း</string>
     <string name="onboarding_setup_body">SD Maid SE ၏ စွမ်းရည်အားလုံးကို အသုံးပြုရန် နောက်ထပ် ပြင်ဆင်မှု လိုအပ်နိုင်သည်။</string>
     <string name="onboarding_setup_continue_action">ဆက်လက်လုပ်ဆောင်ပါ</string>
-
     <string name="onboarding_finished_title">အဆင်သင့်ဖြစ်ပြီ!</string>
     <string name="onboarding_finished_body">SD Maid SE အသုံးပြုရန် အဆင်သင့်ဖြစ်ပြီ။ ဒက်ရှ်ဘုတ်သို့ သွားပြီး သင့်ပထမဆုံး စကင်န်ဖတ်ခြင်းကို စတင်ပါ!</string>
     <string name="onboarding_finished_continue_action">ဒက်ရှ်ဘုတ်သို့ သွားပါ</string>
-
     <string name="systemcleaner_title">စနစ်သန့်ရှင်းရေးကိရိယာ</string>
     <string name="systemcleaner_subtitle">စနစ် cache များနှင့် ယာယီဖိုင်များကို ဖျက်ပါ</string>
     <string name="systemcleaner_scan_action">စကင်န်ဖတ်ပါ</string>
@@ -69,7 +54,6 @@
     <string name="systemcleaner_result_nothing_found">ဘာမှ မတွေ့ရှိပါ</string>
     <string name="systemcleaner_result_found_files">%d ဖိုင်များ တွေ့ရှိသည်</string>
     <string name="systemcleaner_result_deleted_files">%d ဖိုင်များ ဖျက်လိုက်သည်</string>
-
     <string name="appcleaner_title">အက်ပ်သန့်ရှင်းရေးကိရိယာ</string>
     <string name="appcleaner_subtitle">အက်ပ် cache များနှင့် ယာယီဖိုင်များကို ဖျက်ပါ</string>
     <string name="appcleaner_scan_action">စကင်န်ဖတ်ပါ</string>
@@ -77,22 +61,18 @@
     <string name="appcleaner_progress_scanning">စကင်န်ဖတ်နေသည်...</string>
     <string name="appcleaner_progress_deleting">ဖျက်နေသည်...</string>
     <string name="appcleaner_result_nothing_found">ဘာမှ မတွေ့ရှိပါ</string>
-
     <string name="analyzer_title">ခွဲခြမ်းစိတ်ဖြာသူ</string>
     <string name="analyzer_subtitle">သိမ်းဆည်းမှု အသုံးပြုမှုကို ခွဲခြမ်းစိတ်ဖြာပါ</string>
     <string name="analyzer_scan_action">စကင်န်ဖတ်ပါ</string>
     <string name="analyzer_progress_scanning">စကင်န်ဖတ်နေသည်...</string>
-
     <string name="corpsefinder_title">အကြွင်းအကျန်ရှာဖွေသူ</string>
     <string name="corpsefinder_subtitle">ဖြုတ်လိုက်သော အက်ပ်များမှ ကျန်ရှိနေသော ဖိုင်များကို ရှာဖွေပါ</string>
     <string name="corpsefinder_scan_action">စကင်န်ဖတ်ပါ</string>
     <string name="corpsefinder_delete_action">ဖျက်ပါ</string>
-
     <string name="deduplicator_title">ပွားကျ ဖယ်ရှားသူ</string>
     <string name="deduplicator_subtitle">ပွားကျဖိုင်များကို ရှာဖွေပြီး ဖျက်ပါ</string>
     <string name="deduplicator_scan_action">စကင်န်ဖတ်ပါ</string>
     <string name="deduplicator_delete_action">ဖျက်ပါ</string>
-
     <string name="settings_title">ဆက်တင်များ</string>
     <string name="settings_general_category">ယေဘုယျ</string>
     <string name="settings_theme_title">အပြင်အဆင်</string>
@@ -101,15 +81,12 @@
     <string name="settings_theme_dark">မှောင်သည်</string>
     <string name="settings_language_title">ဘာသာစကား</string>
     <string name="settings_language_auto">အလိုအလျောက်</string>
-
     <string name="settings_privacy_category">ကိုယ်ရေးကိုယ်တာ</string>
     <string name="settings_bugreports_title">Bug အစီရင်ခံစာများ</string>
     <string name="settings_bugreports_summary">အမှားများဖြစ်ပေါ်သောအခါ အလိုအလျောက် အစီရင်ခံစာများ ပေးပို့ပါ</string>
-
     <string name="settings_advanced_category">အဆင့်မြင့်</string>
     <string name="settings_debug_title">Debug</string>
     <string name="settings_debug_summary">Debug လုပ်ဆောင်ချက်များကို ဖွင့်ပါ</string>
-
     <string name="general_yes">ဟုတ်ကဲ့</string>
     <string name="general_no">မဟုတ်ပါ</string>
     <string name="general_cancel">ပယ်ဖျက်ပါ</string>
@@ -126,27 +103,21 @@
     <string name="general_error">အမှား</string>
     <string name="general_warning">သတိပေးချက်</string>
     <string name="general_info">အချက်အလက်</string>
-
     <string name="general_progress_loading">တင်နေသည်...</string>
     <string name="general_progress_deleting">ဖျက်နေသည်...</string>
     <string name="general_progress_working">လုပ်ဆောင်နေသည်...</string>
-
     <string name="general_ms_format">%d ms</string>
     <string name="general_kb_format">%.1f KB</string>
     <string name="general_mb_format">%.1f MB</string>
     <string name="general_gb_format">%.1f GB</string>
-
     <string name="general_result_success_format">အောင်မြင်သည်: %s</string>
     <string name="general_result_failure_format">မအောင်မြင်ပါ: %s</string>
-
     <string name="storage_space_free">လွတ်လပ်သောနေရာ</string>
     <string name="storage_space_used">အသုံးပြုပြီး</string>
     <string name="storage_space_total">စုစုပေါင်း</string>
-
     <string name="permission_request_title">ခွင့်ပြုချက် တောင်းခံချက်</string>
     <string name="permission_request_body">SD Maid SE သည် စနစ်တကျလုပ်ဆောင်ရန် ဤခွင့်ပြုချက် လိုအပ်သည်။</string>
     <string name="permission_grant_action">ခွင့်ပြုချက် ပေးပါ</string>
-
     <string name="error_no_root_access">Root အသုံးပြုခွင့် မရှိပါ</string>
     <string name="error_root_access_failed">Root အသုံးပြုခွင့် မအောင်မြင်ပါ</string>
     <string name="error_permission_denied">ခွင့်ပြုချက် ငြင်းပယ်သည်</string>
@@ -155,13 +126,44 @@
     <string name="error_file_not_found">ဖိုင် မတွေ့ရှိပါ</string>
     <string name="error_insufficient_space">နေရာ မလုံလောက်ပါ</string>
     <string name="error_unknown">မသိသော အမှား</string>
-</resources><string name="onboarding_welcome_continue_action">ဆက်လက်လုပ်ဆောင်ပါ</string>
-
-<string name="onboarding_versus_title">SD Maid / SD Maid SE</string><string name="onboarding_versus_body1">SD Maid SE (SD Maid 2 ဟုလည်းခေါ်သည်) သည် SD Maid (SD Maid 1 ဟုလည်းခေါ်သည်) ၏ ဆက်ခံရသူဖြစ်သည်။ ခေတ်သစ် Android အတွက် ပိုမိုကောင်းမွန်အောင် ပြုလုပ်ထားသော အက်ပ်အသစ်ဖြစ်သည်။</string><string name="onboarding_versus_body2">၎င်း၏ ယခင်ဗားရှင်း၏ တည်ဆောက်ပုံသည် ၇ နှစ်ကျော် ဟောင်းနွမ်းပြီး Android ဗားရှင်းအသစ်များ၏ စိန်ခေါ်မှုများအတွက် ဒီဇိုင်းမပြုလုပ်ထားပါ။ ဆက်လက်ဖွံ့ဖြိုးတိုးတက်ရန် လုံးဝ ပြန်လည်ဒီဇိုင်းပြုလုပ်ရန် လိုအပ်ခဲ့သည်။</string><string name="onboarding_versus_body3">တိုးတက်သော ရလဒ်များအတွက် SD Maid SE သို့ ပြောင်းလဲရန် စဉ်းစားပါ။</string><string name="onboarding_versus_body4">SD Maid 1 ၏ \"pro status\" ကို နိမ့်ကျစွာဖြင့် SD Maid 2/SE သို့ လွှဲပြောင်း၍မရပါ။ ၁၂ နှစ်ကြာ အခမဲ့ update များပြီးနောက်၊ ဖွံ့ဖြိုးတိုးတက်မှုကို ထိန်းသိမ်းရန် (developer ကို ကျွေးမွေးရန်) ဝယ်ယူမှုအသစ် လိုအပ်သည်။</string><string name="onboarding_versus_continue_action">ဆက်လက်လုပ်ဆောင်ပါ</string>
-
-<string name="onboarding_privacy_title">ကိုယ်ပိုင်လုံခြုံမှု</string><string name="onboarding_privacy_body1">SD Maid တွင် ကြော်ငြာများမရှိ၊ အသုံးပြုသူ၏ ဒေတာများကို မရောင်းချပါ။</string><string name="onboarding_privacy_bugreport_toggle_body">အမှားများ ဖြစ်ပေါ်သောအခါ bug report များ ပို့သည်၊ သင့်စက်ပေါ်ရှိ အက်ပ်များနှင့် ဖိုင်များအကြောင်း အသေးစိတ်များ ပါဝင်နိုင်သည်။ Report များသည် အမှားများ ပြုပြင်ရန်နှင့် အက်ပ်ကို တိုးတက်အောင် ကူညီသည်။</string><string name="onboarding_privacy_bugreport_toggle">အလိုအလျှောက် bug report များ ခွင့်ပြုပါ</string><string name="onboarding_privacy_bugreport_toggle_hint">ဤ ရွေးချယ်မှုများကို ဆက်တင်များတွင် ပြောင်းလဲနိုင်သည်။</string><string name="onboarding_privacy_continue_action">ဆက်လက်လုပ်ဆောင်ပါ</string>
-
-<string name="onboarding_setup_title">တပ်ဆင်မှု</string><string name="onboarding_setup_body1">SD Maid သည် ရယူနိုင်သော ဒေတာနယ်ပယ်အားလုံးကို ရှာဖွေမည်။</string><string name="onboarding_setup_body2">ရယူနိုင်သည့်အရာသည် သင့်စက်၊ Android ဗားရှင်းနှင့် ပေးထားသော ခွင့်ပြုချက်များပေါ် မူတည်သည်။</string><string name="onboarding_setup_body3">ရှာဖွေရမည့် နယ်ပယ်များအတွက် ဝင်ရောက်ခွင့် စီစဉ်ခြင်းဖြင့် SD Maid ကို စတင်အသုံးပြုပါ။</string><string name="onboarding_setup_continue_action">ဝင်ရောက်ခွင့် စီစဉ်ပါ</string>
-
-<string name="settings_privacy_policy_label">ကိုယ်ပိုင်လုံခြုံမှု မူဝါဒ</string><string name="settings_privacy_policy_desc">ဒေတာကို တာဝန်ယူစွာ ကိုင်တွယ်ခြင်း။</string><string name="settings_licenses_label">လိုင်စင်များ</string><string name="settings_category_other_label">အခြား</string><string name="settings_category_filter_generic">ယေဘူယျ filter</string><string name="settings_category_filter_specific">သီးခြား filter</string><string name="settings_sponsor_development_title">ဖွံ့ဖြိုးတိုးတက်မှုကို ပံ့ပိုးပါ</string><string name="settings_sponsor_development_summary">ပံ့ပိုးသူ ဖြစ်လာပြီး ဆက်လက်ဖွံ့ဖြိုးတိုးတက်မှုကို ဖြစ်နိုင်အောင် ပြုလုပ်ပါ။</string><string name="general_settings_label">ယေဘူယျ</string><string name="general_settings_desc">အက်ပ်တစ်ခုလုံးကို ထိခိုက်စေသော ယေဘူယျ ချိန်ညှိမှုများ။</string><string name="settings_category_ui_label">အသုံးပြုသူ အင်တာဖေ့စ်</string><string name="ui_theme_mode_setting_label">ပုံစံ မုဒ်</string><string name="ui_theme_mode_setting_explanation">အက်ပ်ကို ပုံစံပြုလုပ်သောအခါ အသုံးပြုသော မုဒ် (ဥပမာ- ညဘက် သို့မဟုတ် နေ့ခင်း)။</string><string name="ui_theme_mode_dark_label">မှောင်မိုက်</string><string name="ui_theme_mode_light_label">လင်းလက်</string><string name="ui_theme_mode_system_label">စနစ်</string><string name="ui_theme_style_setting_label">ပုံစံ ပုံရုပ်</string><string name="ui_theme_style_setting_explanation">အက်ပ်ကို ပုံစံပြုလုပ်သောအခါ အသုံးပြုသော အရောင် ပုံရုပ်။</string><string name="ui_theme_style_default_label">မူလ</string><string name="ui_theme_style_materialyou_label">Material You</string><string name="ui_previews_title">ဖိုင် ကြိုကြည့်ခြင်းများ</string><string name="ui_previews_summary">ကိရိယာအားလုံးတွင် ဖိုင် ကြိုကြည့်ခြင်းများကို ပြသပါ (ဥပမာ- ပုံနှင့် ဗီဒီယို thumbnail များ)။</string><string name="ui_language_override_label">အက်ပ် ဘာသာစကား</string><string name="ui_language_override_desc">သင့်စနစ်၏ မူလဘာသာစကားနှင့် လွတ်လပ်စွာ SD Maid အတွက် မတူညီသော ဘာသာစကားကို ရွေးချယ်ပါ။ လက်ရှိ: %s</string><string name="settings_support_label">ပံ့ပိုးမှု</string><string name="settings_support_description">စာရွက်စာတန်းများ ဖတ်ရှုခြင်း၊ ပြဿနာများ သတင်းပို့ခြင်း၊ အခြားသူများနှင့် စကားပြောခြင်း သို့မဟုတ် debug log များ မှတ်တမ်းတင်ခြင်း။</string><string name="documentation_label">စာရွက်စာတန်းများ</string><string name="issue_tracker_description">Bug report များနှင့် feature တောင်းဆိုမှုများအတွက် အများပြည်သူ issue tracker။</string><string name="issue_tracker_label">Issue tracker</string><string name="support_installid_label">တပ်ဆင်မှု ID</string><string name="support_installid_desc">အလိုအလျှောက် အမှား report များသည် အမည်မသိဖြစ်သည်။ Developer သည် သင့် အမှား report များကို ရှာဖွေရန် လိုအပ်ပါက သင့် တပ်ဆင်မှု ID ကို မျှဝေပါ။</string><string name="support_debuglog_label">Debug log</string><string name="support_debuglog_desc">အက်ပ်လုပ်နေသမျှကို သင်မျှဝေနိုင်သော စာသား ဖိုင်တွင် မှတ်တမ်းတင်ပါ။</string><string name="discord_label">Discord</string><string name="discord_description">လှည့်လည်နေရန်နှင့် မေးခွန်းများ မေးရန် နေရာ။</string><string name="changelog_label">ပြောင်းလဲမှုများ စာရင်း</string>
+    <string name="onboarding_privacy_continue_action">ဆက်လက်လုပ်ဆောင်ပါ</string>
+    <string name="onboarding_setup_body1">SD Maid သည် ရယူနိုင်သော ဒေတာနယ်ပယ်အားလုံးကို ရှာဖွေမည်။</string>
+    <string name="onboarding_setup_body2">ရယူနိုင်သည့်အရာသည် သင့်စက်၊ Android ဗားရှင်းနှင့် ပေးထားသော ခွင့်ပြုချက်များပေါ် မူတည်သည်။</string>
+    <string name="onboarding_setup_body3">ရှာဖွေရမည့် နယ်ပယ်များအတွက် ဝင်ရောက်ခွင့် စီစဉ်ခြင်းဖြင့် SD Maid ကို စတင်အသုံးပြုပါ။</string>
+    <string name="settings_privacy_policy_label">ကိုယ်ပိုင်လုံခြုံမှု မူဝါဒ</string>
+    <string name="settings_privacy_policy_desc">ဒေတာကို တာဝန်ယူစွာ ကိုင်တွယ်ခြင်း။</string>
+    <string name="settings_licenses_label">လိုင်စင်များ</string>
+    <string name="settings_category_other_label">အခြား</string>
+    <string name="settings_category_filter_generic">ယေဘူယျ filter</string>
+    <string name="settings_category_filter_specific">သီးခြား filter</string>
+    <string name="settings_sponsor_development_title">ဖွံ့ဖြိုးတိုးတက်မှုကို ပံ့ပိုးပါ</string>
+    <string name="settings_sponsor_development_summary">ပံ့ပိုးသူ ဖြစ်လာပြီး ဆက်လက်ဖွံ့ဖြိုးတိုးတက်မှုကို ဖြစ်နိုင်အောင် ပြုလုပ်ပါ။</string>
+    <string name="general_settings_label">ယေဘူယျ</string>
+    <string name="general_settings_desc">အက်ပ်တစ်ခုလုံးကို ထိခိုက်စေသော ယေဘူယျ ချိန်ညှိမှုများ။</string>
+    <string name="settings_category_ui_label">အသုံးပြုသူ အင်တာဖေ့စ်</string>
+    <string name="ui_theme_mode_setting_label">ပုံစံ မုဒ်</string>
+    <string name="ui_theme_mode_setting_explanation">အက်ပ်ကို ပုံစံပြုလုပ်သောအခါ အသုံးပြုသော မုဒ် (ဥပမာ- ညဘက် သို့မဟုတ် နေ့ခင်း)။</string>
+    <string name="ui_theme_mode_dark_label">မှောင်မိုက်</string>
+    <string name="ui_theme_mode_light_label">လင်းလက်</string>
+    <string name="ui_theme_mode_system_label">စနစ်</string>
+    <string name="ui_theme_style_setting_label">ပုံစံ ပုံရုပ်</string>
+    <string name="ui_theme_style_setting_explanation">အက်ပ်ကို ပုံစံပြုလုပ်သောအခါ အသုံးပြုသော အရောင် ပုံရုပ်။</string>
+    <string name="ui_theme_style_default_label">မူလ</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_previews_title">ဖိုင် ကြိုကြည့်ခြင်းများ</string>
+    <string name="ui_previews_summary">ကိရိယာအားလုံးတွင် ဖိုင် ကြိုကြည့်ခြင်းများကို ပြသပါ (ဥပမာ- ပုံနှင့် ဗီဒီယို thumbnail များ)။</string>
+    <string name="ui_language_override_label">အက်ပ် ဘာသာစကား</string>
+    <string name="ui_language_override_desc">သင့်စနစ်၏ မူလဘာသာစကားနှင့် လွတ်လပ်စွာ SD Maid အတွက် မတူညီသော ဘာသာစကားကို ရွေးချယ်ပါ။ လက်ရှိ: %s</string>
+    <string name="settings_support_label">ပံ့ပိုးမှု</string>
+    <string name="settings_support_description">စာရွက်စာတန်းများ ဖတ်ရှုခြင်း၊ ပြဿနာများ သတင်းပို့ခြင်း၊ အခြားသူများနှင့် စကားပြောခြင်း သို့မဟုတ် debug log များ မှတ်တမ်းတင်ခြင်း။</string>
+    <string name="documentation_label">စာရွက်စာတန်းများ</string>
+    <string name="issue_tracker_description">Bug report များနှင့် feature တောင်းဆိုမှုများအတွက် အများပြည်သူ issue tracker။</string>
+    <string name="issue_tracker_label">Issue tracker</string>
+    <string name="support_installid_label">တပ်ဆင်မှု ID</string>
+    <string name="support_installid_desc">အလိုအလျှောက် အမှား report များသည် အမည်မသိဖြစ်သည်။ Developer သည် သင့် အမှား report များကို ရှာဖွေရန် လိုအပ်ပါက သင့် တပ်ဆင်မှု ID ကို မျှဝေပါ။</string>
+    <string name="support_debuglog_label">Debug log</string>
+    <string name="support_debuglog_desc">အက်ပ်လုပ်နေသမျှကို သင်မျှဝေနိုင်သော စာသား ဖိုင်တွင် မှတ်တမ်းတင်ပါ။</string>
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">လှည့်လည်နေရန်နှင့် မေးခွန်းများ မေးရန် နေရာ။</string>
+    <string name="changelog_label">ပြောင်းလဲမှုများ စာရင်း</string>
 </resources>
