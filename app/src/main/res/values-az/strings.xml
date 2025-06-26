@@ -128,109 +128,12 @@
     <string name="support_installid_desc">Avtomatik xəta hesabatları anonimdir. Tərtibatçının xəta hesabatlarınızı tapmasına ehtiyacı varsa quraşdırma ID-nizi paylaşın.</string>
     <string name="support_debuglog_desc">Tətbiqin etdiyi hər şeyi paylaşa biləcəyiniz mətn faylına qeyd edin.</string>
     <string name="discord_description">Vaxt keçirmək və suallar vermək üçün yer.</string>
-
-    <string name="analyzer_settings_category">Analizator</string>
-    <string name="analyzer_settings_show_hidden_files_title">Gizli fayllar</string>
-    <string name="analyzer_settings_show_hidden_files_summary">Skan nəticələrində gizli faylları göstər.</string>
-    <string name="analyzer_settings_show_system_files_title">Sistem faylları</string>
-    <string name="analyzer_settings_show_system_files_summary">Skan nəticələrində sistem fayllarını göstər.</string>
-
-    <string name="analyzer_progress_modal_loading">Yüklənir...</string>
-    <string name="analyzer_progress_modal_details">%1$s / %2$s</string>
-    <string name="analyzer_storage_empty_msg">Heç bir məlumat tapılmadı</string>
-    <string name="analyzer_storage_empty_hint">Mümkün qədər SD Maid-ə giriş verin. Artıq hamısına icazə vermisiniz? Bu o deməkdir ki, hər şey təmizdir!</string>
-
-    <string name="analyzer_list_header_label">%1$s fayllar (%2$s)</string>
-    <string name="analyzer_list_item_count">%s element</string>
-    <string name="analyzer_list_details_action">Təfərrüatlar</string>
-    <string name="analyzer_details_title">Təfərrüatlı məlumat</string>
-    <string name="analyzer_details_empty_hint">Heç bir təfərrüat tapılmadı</string>
-    <string name="analyzer_action_scan">Skan</string>
-    <string name="analyzer_action_cancelled">Ləğv edildi</string>
-
-    <string name="systemcleaner_settings_category">Sistem təmizləyicisi</string>
-    <string name="systemcleaner_settings_include_other_users_title">Digər istifadəçilər</string>
-    <string name="systemcleaner_settings_include_other_users_summary">Digər istifadəçiləri daxil edin və müxtəlif yerlərdən faylları axtarın.</string>
-
-    <string name="systemcleaner_progress_searching">Axtarır...</string>
-    <string name="systemcleaner_progress_modal_searching">%1$s təfərrüatları axtarılır</string>
-
-    <string name="systemcleaner_filter_empty_directories_label">Boş qovluqlar</string>
-    <string name="systemcleaner_filter_empty_directories_summary">İçində heç nə olmayan boş qovluqlar</string>
-    <string name="systemcleaner_filter_user_cache_label">İstifadəçi keşi</string>
-    <string name="systemcleaner_filter_user_cache_summary">İstifadəçi tətbiqləri keş faylları</string>
-    <string name="systemcleaner_filter_system_cache_label">Sistem keşi</string>
-    <string name="systemcleaner_filter_system_cache_summary">Sistem tətbiqləri keş faylları</string>
-    <string name="systemcleaner_filter_downloaded_files_label">Yüklənmiş fayllar</string>
-    <string name="systemcleaner_filter_downloaded_files_summary">Yükləmələr qovluğuna yüklənmiş fayllar</string>
-    <string name="systemcleaner_filter_recycle_bin_label">Zibil qutusu</string>
-    <string name="systemcleaner_filter_recycle_bin_summary">Zibil qutusunda olan fayllar</string>
-    <string name="systemcleaner_filter_advertisement_label">Reklam</string>
-    <string name="systemcleaner_filter_advertisement_summary">Reklam şəbəkələrindən fayllar</string>
     <string name="systemcleaner_filter_analytics_label">Analitika</string>
     <string name="systemcleaner_filter_analytics_summary">Analitika şəbəkələrindən fayllar</string>
-    <string name="systemcleaner_filter_bug_reporting_label">Xəta hesabatı</string>
-    <string name="systemcleaner_filter_bug_reporting_summary">Xəta hesabat sistemlərindən fayllar</string>
-    <string name="systemcleaner_filter_machine_learning_label">Maşın öyrənməsi</string>
-    <string name="systemcleaner_filter_machine_learning_summary">Maşın öyrənmə sistemlərindən fayllar</string>
-    <string name="systemcleaner_filter_offline_maps_label">Oflayn xəritələr</string>
-    <string name="systemcleaner_filter_offline_maps_summary">Xəritə tətbiqlərindən oflayn xəritə məlumatları</string>
-    <string name="systemcleaner_filter_temporary_files_label">Müvəqqəti fayllar</string>
-    <string name="systemcleaner_filter_temporary_files_summary">Müvəqqəti fayllar və qovluqlar</string>
-    <string name="systemcleaner_filter_log_files_label">Log faylları</string>
-    <string name="systemcleaner_filter_log_files_summary">Log faylları və qovluqlar</string>
-    <string name="systemcleaner_filter_generic_hidden_caches_label">Gizli keşlər</string>
-    <string name="systemcleaner_filter_generic_hidden_caches_summary">Gizli keş qovluqları</string>
-
-    <string name="systemcleaner_empty_msg">Heç nə tapılmadı</string>
-    <string name="systemcleaner_empty_hint">Təmizlənəcək elementlər tapılmadı.</string>
-    <string name="systemcleaner_result_x_space_freed">%s yer azad edildi</string>
-    <string name="systemcleaner_result_done_title">Təmizlik tamamlandı</string>
-    <string name="systemcleaner_result_done_message">Sistem təmizləyicisi tamamlandı</string>
-    <string name="systemcleaner_action_scan">Skan</string>
-    <string name="systemcleaner_action_delete">Sil</string>
-    <string name="systemcleaner_action_delete_all">Hamısını sil</string>
-    <string name="systemcleaner_action_cancelled">Ləğv edildi</string>
-
-    <string name="appcleaner_settings_category">Tətbiq təmizləyicisi</string>
-    <string name="appcleaner_settings_include_other_users_title">Digər istifadəçilər</string>
-    <string name="appcleaner_settings_include_other_users_summary">Digər istifadəçiləri daxil edin və tətbiqləri filtrləyin.</string>
-    <string name="appcleaner_settings_include_running_apps_title">İşləyən tətbiqlər</string>
-    <string name="appcleaner_settings_include_running_apps_summary">Hazırda işləyən tətbiqləri filtrləyin.</string>
-
-    <string name="appcleaner_progress_scanning">Skan işləyir...</string>
-    <string name="appcleaner_progress_modal_scanning">%s təfərrüatları skan edilir</string>
-    <string name="appcleaner_filter_code_caches_label">Kod keşləri</string>
-    <string name="appcleaner_filter_code_caches_summary">ART/Dalvik keş faylları</string>
-    <string name="appcleaner_filter_hidden_caches_label">Gizli keşlər</string>
-    <string name="appcleaner_filter_hidden_caches_summary">Gizlənən tətbiq keş qovluqları</string>
-    <string name="appcleaner_filter_bug_reporting_label">Xəta hesabatı</string>
-    <string name="appcleaner_filter_bug_reporting_summary">Xəta hesabat sistemlərindən fayllar</string>
     <string name="appcleaner_filter_analytics_label">Analitika</string>
     <string name="appcleaner_filter_analytics_summary">Analitika sistemlərindən fayllar</string>
     <string name="appcleaner_filter_advertisement_label">Reklam</string>
     <string name="appcleaner_filter_advertisement_summary">Reklam şəbəkələrindən fayllar</string>
-    <string name="appcleaner_filter_webview_caches_label">WebView keşləri</string>
-    <string name="appcleaner_filter_webview_caches_summary">WebView keş qovluqları</string>
-
-    <string name="appcleaner_empty_msg">Heç nə tapılmadı</string>
-    <string name="appcleaner_empty_hint">Təmizlənəcək elementlər tapılmadı.</string>
-    <string name="appcleaner_result_x_space_freed">%s yer azad edildi</string>
-    <string name="appcleaner_result_done_title">Təmizlik tamamlandı</string>
-    <string name="appcleaner_result_done_message">Tətbiq təmizləyicisi tamamlandı</string>
-    <string name="appcleaner_action_scan">Skan</string>
-    <string name="appcleaner_action_delete">Sil</string>
-    <string name="appcleaner_action_delete_all">Hamısını sil</string>
-    <string name="appcleaner_action_cancelled">Ləğv edildi</string>
-
-    <string name="corpsefinder_settings_category">Cəsəd axtarıcısı</string>
-    <string name="corpsefinder_settings_include_other_users_title">Digər istifadəçilər</string>
-    <string name="corpsefinder_settings_include_other_users_summary">Digər istifadəçilər üçün qalan faylları axtarın.</string>
-    <string name="corpsefinder_settings_uninstalled_apps_title">Silinmiş tətbiqlər</string>
-    <string name="corpsefinder_settings_uninstalled_apps_summary">Silinmiş tətbiqlər üçün qalan faylları göstər.</string>
-
-    <string name="corpsefinder_progress_searching">Axtarır...</string>
-    <string name="corpsefinder_progress_modal_searching">%1$s təfərrüatları axtarılır</string>
 
     <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Heç bir xüsusi tətbiqə aid olmayan lazımsız məlumatlar.</string>
@@ -454,9 +357,6 @@
     <string name="appcleaner_include_inaccessible_label">Əlçatmaz keşləri daxil et</string>
     <string name="appcleaner_include_inaccessible_summary">Birbaşa əlçatan olmayan, lakin sistem parametrləri vasitəsilə silinə bilən və əlçatanlıq xidməti istifadə edərək avtomatlaşdırıla bilən məlumatları daxil et.</string>
 
-    <string name="corpsefinder_settings_known_apptype_filter_title">Məlum tətbiq növləri</string>
-    <string name="corpsefinder_settings_known_apptype_filter_summary">Müxtəlif tətbiq növlərinə əsaslanan filter nəticələri.</string>
-    <string name="corpsefinder_keepers_title">Saxlayanlar</string>
     <string name="corpsefinder_owners_label">Sahiblər</string>
     <string name="corpsefinder_corpse_hints_label">Bildiriş</string>
     <string name="corpsefinder_owner_unknown">Naməlum sahib</string>
@@ -800,7 +700,123 @@
     <string name="scheduler_notification_result_failure_message">Bəzi planlaşdırılmış tapşırıqlar uğursuz oldu və ya xətalarla qarşılaşdı. Onları əl ilə işlətməyi cəhd edin.</string>
     <string name="scheduler_commands_after_schedule_label">Plan sonrası əmrlər</string>
     <string name="scheduler_commands_after_schedule_desc">Planın sonunda icra ediləcək Android shell əmrləri.</string>
-    <string name="scheduler_battery_optimization_hint">Arxa plan icra problemləri yaşayırsınızsa SD Maid üçün batareya optimallaşdırmalarını deaktiv etməyi dü
-şünün.
-</string>
+    <string name="scheduler_battery_optimization_hint">Arxa plan icra problemləri yaşayırsınızsa SD Maid üçün batareya optimallaşdırmalarını deaktiv etməyi düşünün.</string>
+
+    <string name="settings_acknowledgements_label">Acknowledgements</string>
+    <string name="setup_forcedshow_summary">Quraşdırma ekranını artıq tamamlanmış elementlərlə birlikdə yenidən göstər.</string>
+    <string name="general_error_setup_require_msg">Further set up is required to use this feature. Complete the remaining setup steps.</string>
+    <string name="setup_saf_card_title">Storage access framework</string>
+    <string name="setup_saf_card_body">Improve results by granting SD Maid access to additional areas.</string>
+    <string name="setup_saf_card_body2">In most cases the window will open with the correct path preselected. Entries turn green when access is granted. </string>
+    <string name="setup_saf_error_wrong_path">Yanlış yol seçdiniz</string>
+
+    <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted and this setting has no effect.</string>
+    <string name="setup_shizuku_card_body">Nəticələri yaxşılaşdırmaq və funksiyaları aktivləşdirmək üçün SD Maid-ə mümkün olan yerlərdə Shizuku istifadə etməyə icazə verin.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku in combination with root access does not enable additional features, but it improves reliability. SD Maid will use it as fallback method.</string>
+    <string name="setup_permission_error_label">Permission error</string>
+    <string name="setup_usagestats_body">İstifadə statistikası icazəsi daha çox tətbiq təfərrüatına giriş imkanı verir. SD Maid bunu əlavə keş ölçülərini müəyyən etmək üçün istifadə edir.</string>
+    <string name="setup_usagestats_hint">Əlçatanlılıq xidməti əsasında keş silmə üçün tələb olunur.</string>
+    <string name="setup_notification_body">Davam edən əməliyyatlar və ya vacıb hadisələr haqqında sizi məlumatlandırmaq üçün SD Maid-ə bildirişlər göndərməyə icazə verin.</string>
+    <string name="setup_notification_hint">Notifications are used sparingly 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">Bu funksiya əlavə quraşdırma elementlərini tamamlamaq tələb edir: %s</string>
+    <string name="setup_acs_card_title">Accessibility service</string>
+    <string name="setup_acs_card_body">Əlçatanlılıq xidməti SD Maid-ə ekranınızla qarşılıqlı əlaqədə olmaq və yorucu hərəkətləri avtomatlaşdırmaq imkanı verir, məsələn, bir neçə ekranda \"Keşi təmizlə\" düyməsinə toxunmaq.</string>
+    <string name="setup_acs_card_body2">SD Maid sizin razılığınız olmadan əlçatanlılıq xidmətini istifadə etməyəcək, aktiv olduğu müddətdə həmişə görünən (ləğv edilə bilən) göstərici göstərəcək və məlumat toplamaq üçün istifadə etməyəcək.</string>
+    <string name="setup_acs_state_enabled">Accessibility service is enabled</string>
+    <string name="setup_acs_state_disabled">Accessibility service is disabled</string>
+
+    <string name="setup_acs_state_running">Accessibility service is running</string>
+    <string name="setup_acs_state_ondemand">Xidmət tələb olunduqda işə salınacaq</string>
+    <string name="setup_acs_state_stopped">Accessibility service is stopped</string>
+    <string name="setup_acs_state_stopped_hint">Xidmət aktivdir, lakin işləmir. Onu söndürüb/yanın və ya cihazınızı yenidən başladın. SD Maid-in sistem tərəfindən "optimalizaşdırılmadığını" yoxlayın.</string>
+    <string name="setup_acs_state_stopped_hint_miui">Xidmət bir müddətdən sonra deaktiv edilməyə davam edərsə, sistem parametrlərində SD Maid üçün "Avtomatik Başlama" seçimini aktivləşdirməyə çalışın.</string>
+    <string name="setup_acs_consent_positive_action">Xidməti aktivləşdir və girişə icazə ver</string>
+    <string name="setup_acs_consent_negative_action">Don\'t use accessibility service</string>
+    <string name="setup_acs_allow_hint">If you see a little icon on the screen edge, then you accidentally enabled the "shortcut" option.</string>
+    <string name="setup_acs_disallow_hint">If you change your mind, you can alter this option again by going into settings and restarting the setup.</string>
+    <string name="setup_acs_appops_restriction_body">SD Maid-in əlçatanlılıq xidmətini aktivləşdirə bilmirsiz? Android 13+ Google Play vasitəsilə quraşdırılmayan tətbiqlərə məhdudiyyətlər tətbiq edə bilər. Bu məhdudiyyətləri SD Maid üçün sistemin təfərrüat səhifəsindən qaldırın. Seçim yuxarı sağ küncdəki kontekst menyudadır.</string>
+    <string name="setup_inventory_card_title">Tətbiq siyahısı</string>
+    <string name="setup_inventory_card_body">SD Maid heç bir quraşdırılmış tətbiqə aid olmayan faylları tapmaq üçün hansı tətbiqlərinizin olduğunu bilməlidir.</string>
+    <string name="setup_inventory_card_extra">\"Tətbiq siyahısı\" və ya \"Bütün paketləri sorğula\" adlanan icazəni axtarın.</string>
+    <string name="setup_inventory_invalid_message">Sistem quraşdırılmış tətbiqlərin etibarsız siyahısını təqdim etdi (məsələn, çox az və ya bəziləri çatışmır). Sistem parametrlərinə keçin və SD Maid-ə \"Tətbiq siyahısı\"na girişə icazə verin.</string>
+    <string name="dataarea_warningcard_empty_message">SD Maid skan edilə bilən heç bir məlumat sahəsi tapmadı. Quraşdırmanı tamamladınız?</string>
+    <string name="dataarea_warningcard_label">Məlumat sahələri</string>
+    <string name="dataarea_warningcard_reload_action">Məlumat sahələrini yenidən yüklə</string>
+    <string name="debug_mode_explanation">Test seçimlərini və daha ətraflı çıxışı aktivləşdir. Tətbiq daha yavaş işləyəcək və fərqli çalışacaq.</string>
+    <string name="debug_bugreporter_summary">Problemləri avtomatik bildirir, məsələn, tətbiq çökmələri haqqında təfərrüatları, beləliklə səbəbini anlaya və düzəldə bilərəm.</string>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+
+    <string name="corpsefinder_explanation_short">Artıq silinmiş tətbiqlərə aid məlumatlar.</string>
+    <string name="corpsefinder_settings_summary">Adjust scan filters and risk levels.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Include desirable remnants</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Tətbiq silinsə belə saxlamaq istəyə biləcəyiniz fayllar, məsələn, çəkdiyiniz şəkillər və ya yaratdığınız yedekləmələr.</string>
+    <string name="corpsefinder_settings_risk_common_title">Include common names</string>
+    <string name="corpsefinder_settings_risk_common_summary">Təz-təz istifadə edilən adları olan məlumatlar, məsələn, \"Qeydlər\" qovluğu çox sayıda naməlum tətbiqlərə məxsusdur.</string>
+    <string name="corpsefinder_watcher_title">Silmə izləyicisi</string>
+    <string name="corpsefinder_watcher_summary">Tətbiq silindikdə qalıqları avtomatik skan et.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Avtomatik silmə</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Silinmiş tətbiqlə bağlı bütün qalıqları avtomatik sil.</string>
+    <string name="corpsefinder_watcher_notification_delete_action">Qalıqları sil</string>
+    <string name="corpsefinder_filter_publicmedia_summary">İctimai media faylları, məsələn, mesajlaşma tətbiqləri vasitəsilə alınan fayllar.</string>
+    <string name="corpsefinder_filter_publicobb_summary">Additional app resources, e.g. game assets.</string>
+    <string name="corpsefinder_filter_publicdata_summary">Non-sensitive app data, e.g. map caches.</string>
+    <string name="corpsefinder_filter_sdcard_summary">General public storage, internal and external (e.g. SD cards).</string>
+    <string name="corpsefinder_filter_privatedata_summary">Məxfi tətbiq məlumatları, məsələn, giriş məlumatları, tətbiq parametrləri, həmçinin brauzer keşləri.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
+    <string name="corpsefinder_filter_dalvik_summary">Cached app execution data.</string>
+    <string name="corpsefinder_filter_applib_label">Tətbiq kitabxanaları</string>
+
+    <string name="corpsefinder_filter_applib_summary">Tətbiqlə bağlı kitabxana məlumatları.</string>
+    <string name="corpsefinder_filter_appsource_label">Tətbiq mənbələri</string>
+    <string name="corpsefinder_filter_appsource_summary">Tətbiq quraşdırma məlumatları, yəni APK-ların yerində getdiyi yer.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Məxfi tətbiq mənbələri</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Məhdudlaşdırılmış tətbiq quraşdırma məlumatları, məsələn, qorunan üçüncü tərəf tətbiqləri.</string>
+    <string name="corpsefinder_filter_appasec_label">Şifrələnmiş tətbiq resursları</string>
+    <string name="corpsefinder_filter_appasec_summary">Şifrələnmiş tətbiq resursları, məsələn, oyun aktivləri.</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2SD modları tərəfindən xarici yaddaşa köçürülən məlumatlar.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="corpsefinder_corpse_hint_keeper">Bu element sahıbi silinməsinə baxmayaraq saxlamaq istəyə biləcəyiniz məlumatları əhatə edə bilər, məsələn, şəkillər və ya yedekləmələr.</string>
+    <string name="corpsefinder_corpse_hint_common">Bu elementin çox ümumi adı var və SD Maid-in tanımadığı hələ də quraşdırılmış tətbiqlərə aid ola bilər.</string>
+    <string name="systemcleaner_filter_custom_manage_label">Manage custom filters</string>
+    <string name="systemcleaner_filter_custom_manage_summary">Create, delete, import and export your custom filters.</string>
+    <string name="systemcleaner_filter_logfiles_summary">Müxtəlif yerlərdəki sistem və sistem xidməti qeyd faylları (məs. *.log).</string>
+
+    <string name="systemcleaner_filter_advertisements_summary">Reklamlar üçün və ya reklamlar tərəfindən yaradılan fayllar.</string>
+    <string name="systemcleaner_filter_anr_summary">\"Tətbiq cavab vermir\" hadisələrindən qalan izlər.</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Cihazın hər yerindən boş qovluqlar. İç-içə qovluqlar bir neçə keçid tələb edə bilər.</string>
+    <string name="systemcleaner_filter_screenshots_summary">Screenshots older than %s from multiple apps and locations.</string>
+    <string name="systemcleaner_filter_trashed_summary">Müxtəlif tətbiqlər və yerlərdən zıbil qutusundakı silinmək üçün işarələnmiş, lakin hələ kalıcı olaraq silinməmiş fayllar.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Screenshot Age</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Ekran görüntülərinin silinmə üçün nəzərə alınacağı minimum yaş.</string>
+
+    <string name="systemcleaner_customfilter_editor_path_label">Path criteria</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Hədəf yolu ən azı bir girişlə uyğunlaşmalıdır (məs. \"Downloads/oldapks/game-\"). Daha çox seçim üçün girişləri uzun basın.</string>
+    <string name="systemcleaner_customfilter_editor_name_label">Name criteria</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Hədəf adı ən azı bir açar sözü əhatə etməlidir (məs. \"-receipt\"). Daha çox seçim üçün girişləri uzun basın.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusions</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Yol hər hansı bir girişlə uyğunlaşarsa nəticə istisna ediləcək (məs. \"DCIM\"). Daha çox seçim üçün girişləri uzun basın.</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Yol müqayisə rejimi</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Yol açar sözlə başlayır</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Yol açar sözü ehtiva edir</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Yol açar sözlə bitir</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Yol açar sözə bərabərdir</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Ad müqayisə rejimi</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Ad açar sözlə başlayır</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Ad açar sözü ehtiva edir</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Ad açar sözlə bitir</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Ad açar sözə bərabərdir</string>
+    <string name="systemcleaner_customfilter_editor_livesearch_label">Canlı axtarış</string>
+
+    <string name="appcleaner_filter_defaultcachespublic_summary">Standart ictimai tətbiq keşləri. Köhnə Android versiyalarında Android/data altında əlçatandır. Sistem parametrlərində "Keşi təmizlə" toxunduqda silinir.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Standart məxfi tətbiq keşləri. Sistem parametrlərində "Keşi təmizlə" toxunduqda silinir.</string>
+    <string name="appcleaner_filter_codecache_summary">JVM kod keşi. Yerli koda tərtıb edilən bayt kodu blokları.</string>
+
+    <string name="appcleaner_filter_thumbnails_summary">Şəkil, video və səs ön baxış kiçik şəkilləri.</string>
+    <string name="appcleaner_filter_gamefiles_summary">Oyunun zəruri hallarda növbəti başlatmada yenidən yükləyəcəyi oyunla bağlı resurslar.</string>
+    <string name="appcleaner_filter_offlinecache_summary">Oflayn istifadə üçün saxlanılan fayllar, məsələn, xəritə elementləri.</string>
+    <string name="appcleaner_filter_webview_label">Webview files</string>
+    <string name="appcleaner_filter_webview_summary">Tətbiqlər daxilində istifadə edilən WebView nümunələri tərəfindən keşə alınan fayllar.</string>
+
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Sistem tətbiqi düzgün konfiqurasiya edilməyib</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS-un Təhlükəsizlik tətbiqi (com.miui.securitycenter) İstifadə Statistikası icazəsindən (GET_USAGE_STATS) məhrumdur. Bu, tətbiq təfərrüatlarında "Məlumatları Təmizlə" və əlçatanlılıq vasitəsilə keş təmizləmə kimi funksiyaları poza. Tam funksionallığı bərpa etmək üçün icazə verin.</string>
 </resources>
