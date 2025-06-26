@@ -1,178 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">Dzēst rezultātus visos rīkos?</string>
-    <string name="dashboard_settings_category">Informācijas panelis</string>
-    <string name="dashboard_motd_title">Ziņojums no izstrādātāja</string>
-    <string name="dashboard_settings_oneclick_title">Viena pieskāriena režīms</string>
-    <string name="dashboard_settings_oneclick_summary">Sākt skenēšanu un dzēšanu visiem rīkiem, pieskaroties informācijas paneļa darbības pogai, bez papildu apstiprinājumiem.</string>
-    <string name="dashboard_settings_oneclick_tools_title">Viena pieskāriena rīki</string>
-    <string name="dashboard_settings_oneclick_tools_desc">Kurus rīkus iekļaut viena pieskāriena darbībās?</string>
-
-    <string name="debug_debuglog_size_label">Izmērs</string>
-    <string name="debug_debuglog_size_compressed_label">Saspiestais izmērs</string>
-    <string name="debug_notification_channel_label">Atkļūdošanas paziņojumi</string>
-    <string name="debug_debuglog_file_label">Ierakstītais žurnāla fails</string>
-    <string name="debug_debuglog_recording_progress">Ieraksta atkļūdošanas žurnālu</string>
-    <string name="debug_debuglog_record_action">Ierakstīt atkļūdošanas žurnālu</string>
-    <string name="debug_debuglog_stop_action">Apturēt ierakstīšanu</string>
-    <string name="debug_debuglog_sensitive_information_message">Izveidotais fails satur sensitīvu informāciju (piem. failu nosaukumus un instalētās lietotnes). Dalieties tikai ar uzticamām pusēm.</string>
-    <string name="settings_debuglog_explanation">Šī funkcija ieraksta visu, ko lietotne dara, koplietojamā failā. Izveidotais fails satur sensitīvu informāciju (piem. failu nosaukumus un instalētās lietotnes). Dalieties tikai ar uzticamām pusēm (piem. izstrādātāju, kas risina problēmu).</string>
-
-    <string name="tasks_activity_notification_channel_label">Aktīvie uzdevumi</string>
-    <string name="tasks_activity_working_notification_title">SD Maid strādā</string>
-    <plurals name="tasks_activity_active_notification_message">
-        <item quantity="zero">%d aktīvu uzdevumu</item>
-        <item quantity="one">%d aktīvs uzdevums</item>
-        <item quantity="other">%d aktīvi uzdevumi</item>
-    </plurals>
-    <plurals name="tasks_activity_queued_notification_message">
-        <item quantity="zero">%d uzdevumu rindā</item>
-        <item quantity="one">%d uzdevums rindā</item>
-        <item quantity="other">%d uzdevumi rindā</item>
-    </plurals>
-    <string name="tasks_result_notification_channel_label">Uzdevumu rezultāti</string>
-    <string name="tasks_result_subtext">Uzdevuma rezultāts</string>
-
-    <string name="onboarding_welcome_title">Laipni lūdzam</string>
-    <string name="onboarding_welcome_body1">SD Maid SE pārvalda failus, lietotnes un krātuvi.</string>
-    <string name="onboarding_welcome_body2">Iegūstiet krātuves vietu, sakopjot pēc citām lietotnēm. Dzēsiet izlietojamus failus un noņemiet atlikušos datus.</string>
-    <string name="onboarding_welcome_body_beta">Šī ir beta (testēšanas) versija. Turpiniet ar humora izjūtu un rezerves plānu. Lūdzu, ziņojiet par problēmām, ar kurām saskariesties.</string>
-    <string name="onboarding_welcome_continue_action">Turpināt</string>
-
-    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (t.i., SD Maid 2) ir SD Maid (t.i., SD Maid 1) pēctece. Jauna lietotne, optimizēta mūsdienu Android ierīcēm.</string>
-    <string name="onboarding_versus_body2">Tās priekšgājēja arhitektūra ir vairāk nekā 7 gadus veca un nav paredzēta jaunāko Android versiju izaicinājumiem. Pilnīga pārprojektēšana bija nepieciešama, lai turpinātu attīstību.</string>
-    <string name="onboarding_versus_body3">Apsveriet pārslēgšanos uz SD Maid SE labāku rezultātu sasniegšanai.</string>
-    <string name="onboarding_versus_body4">SD Maid 1 "pro statuss" diemžēl nav pārnesams uz SD Maid 2/SE. Pēc 12 gadu bezmaksas atjauninājumiem ir nepieciešams jauns pirkums, lai uzturētu attīstību (pabarot izstrādātāju).</string>
-    <string name="onboarding_versus_continue_action">Turpināt</string>
-
-    <string name="onboarding_privacy_title">Privātums</string>
-    <string name="onboarding_privacy_body1">SD Maid nav reklāmu un nepārdod lietotāju datus.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Kļūdu ziņojumi tiek nosūtīti, kad rodas kļūdas, un var saturēt informāciju par lietotnēm un failiem jūsu ierīcē. Ziņojumi palīdz man labot kļūdas un uzlabot lietotni.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Atļaut automātiskos kļūdu ziņojumus</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Šīs opcijas var mainīt iestatījumos.</string>
-
-    <string name="onboarding_permissions_title">Atļaujas</string>
-    <string name="onboarding_permissions_body">SD Maid SE vajag šādas atļaujas, lai pilnībā darbotos:</string>
-    <string name="onboarding_permissions_continue_action">Turpināt</string>
-
-    <string name="onboarding_setup_title">Iestatīšana</string>
-    <string name="onboarding_setup_body">SD Maid SE visu iespēju izmantošanai var būt nepieciešama papildu iestatīšana.</string>
-    <string name="onboarding_setup_continue_action">Turpināt</string>
-
-    <string name="onboarding_finished_title">Gatavs!</string>
-    <string name="onboarding_finished_body">SD Maid SE ir gatavs lietošanai. Dodieties uz informācijas paneli un sāciet savu pirmo skenēšanu!</string>
-    <string name="onboarding_finished_continue_action">Doties uz informācijas paneli</string>
-
-    <string name="systemcleaner_title">Sistēmas tīrītājs</string>
-    <string name="systemcleaner_subtitle">Dzēst sistēmas kešatmiņu un pagaidu failus</string>
-    <string name="systemcleaner_scan_action">Skenēt</string>
-    <string name="systemcleaner_delete_action">Dzēst</string>
-    <string name="systemcleaner_progress_scanning">Skenē...</string>
-    <string name="systemcleaner_progress_deleting">Dzēš...</string>
-    <string name="systemcleaner_result_nothing_found">Nekas nav atrasts</string>
-    <string name="systemcleaner_result_found_files">Atrasti %d faili</string>
-    <string name="systemcleaner_result_deleted_files">Izdzēsti %d faili</string>
-
-    <string name="appcleaner_title">Lietotņu tīrītājs</string>
-    <string name="appcleaner_subtitle">Dzēst lietotņu kešatmiņu un pagaidu failus</string>
-    <string name="appcleaner_scan_action">Skenēt</string>
-    <string name="appcleaner_delete_action">Dzēst</string>
-    <string name="appcleaner_progress_scanning">Skenē...</string>
-    <string name="appcleaner_progress_deleting">Dzēš...</string>
-    <string name="appcleaner_result_nothing_found">Nekas nav atrasts</string>
-
-    <string name="analyzer_title">Analizētājs</string>
-    <string name="analyzer_subtitle">Analizēt krātuves izmantošanu</string>
-    <string name="analyzer_scan_action">Skenēt</string>
-    <string name="analyzer_progress_scanning">Skenē...</string>
-
-    <string name="corpsefinder_title">Līķu meklētājs</string>
-    <string name="corpsefinder_subtitle">Atrast atlikušos failus no atinstalētajām lietotnēm</string>
-    <string name="corpsefinder_scan_action">Skenēt</string>
-    <string name="corpsefinder_delete_action">Dzēst</string>
-
-    <string name="deduplicator_title">Dublikātu noņēmējs</string>
-    <string name="deduplicator_subtitle">Atrast un dzēst dublējošos failus</string>
-    <string name="deduplicator_scan_action">Skenēt</string>
-    <string name="deduplicator_delete_action">Dzēst</string>
-
-    <string name="settings_title">Iestatījumi</string>
-    <string name="settings_general_category">Vispārīgi</string>
-    <string name="settings_theme_title">Motīvs</string>
-    <string name="settings_theme_auto">Automātiski</string>
-    <string name="settings_theme_light">Gaišs</string>
-    <string name="settings_theme_dark">Tumšs</string>
-    <string name="settings_language_title">Valoda</string>
-    <string name="settings_language_auto">Automātiski</string>
-
-    <string name="settings_privacy_category">Privātums</string>
-    <string name="settings_bugreports_title">Kļūdu ziņojumi</string>
-    <string name="settings_bugreports_summary">Sūtīt automātiskos ziņojumus, kad rodas kļūdas</string>
-
-    <string name="settings_advanced_category">Papildu</string>
-    <string name="settings_debug_title">Atkļūdošana</string>
-    <string name="settings_debug_summary">Iespējot atkļūdošanas funkcijas</string>
-
-    <string name="general_yes">Jā</string>
-    <string name="general_no">Nē</string>
-    <string name="general_cancel">Atcelt</string>
-    <string name="general_ok">Labi</string>
-    <string name="general_delete">Dzēst</string>
-    <string name="general_share">Dalīties</string>
-    <string name="general_close">Aizvērt</string>
-    <string name="general_continue">Turpināt</string>
-    <string name="general_skip">Izlaist</string>
-    <string name="general_refresh">Atsvaidzināt</string>
-    <string name="general_loading">Ielādē...</string>
-    <string name="general_working">Strādā...</string>
-    <string name="general_done">Pabeigts</string>
-    <string name="general_error">Kļūda</string>
-    <string name="general_warning">Brīdinājums</string>
-    <string name="general_info">Informācija</string>
-
-    <string name="general_progress_loading">Ielādē...</string>
-    <string name="general_progress_deleting">Dzēš...</string>
-    <string name="general_progress_working">Strādā...</string>
-
-    <string name="general_ms_format">%d ms</string>
-    <string name="general_kb_format">%.1f KB</string>
-    <string name="general_mb_format">%.1f MB</string>
-    <string name="general_gb_format">%.1f GB</string>
-
-    <string name="general_result_success_format">Sekmīgi: %s</string>
-    <string name="general_result_failure_format">Nesekmīgi: %s</string>
-
-    <plurals name="general_result_x_items">
-        <item quantity="zero">%d vienumu</item>
-        <item quantity="one">%d vienums</item>
-        <item quantity="other">%d vienumi</item>
-    </plurals>
-    <plurals name="general_result_x_files">
-        <item quantity="zero">%d failu</item>
-        <item quantity="one">%d fails</item>
-        <item quantity="other">%d faili</item>
-    </plurals>
-    <plurals name="general_result_x_folders">
-        <item quantity="zero">%d mapju</item>
-        <item quantity="one">%d mape</item>
-        <item quantity="other">%d mapes</item>
-    </plurals>
-
-    <string name="storage_space_free">Brīva vieta</string>
-    <string name="storage_space_used">Izmantots</string>
-    <string name="storage_space_total">Kopā</string>
-
-    <string name="permission_request_title">Atļaujas pieprasījums</string>
-    <string name="permission_request_body">SD Maid SE vajag šo atļauju, lai pareizi darbotos.</string>
-    <string name="permission_grant_action">Piešķirt atļauju</string>
-
-    <string name="error_no_root_access">Nav root piekļuves</string>
-    <string name="error_root_access_failed">Root piekļuve neizdevās</string>
-    <string name="error_permission_denied">Atļauja liegta</string>
-    <string name="error_storage_not_accessible">Krātuve nav pieejama</string>
-    <string name="error_operation_failed">Darbība neizdevās</string>
-    <string name="error_file_not_found">Fails nav atrasts</string>
-    <string name="error_insufficient_space">Nepietiekama vieta</string>
-    <string name="error_unknown">Nezināma kļūda</string>
+  <string name="dashboard_delete_all_message">Dzēst rezultātus visos rīkos?</string>
+  <string name="dashboard_settings_category">Informācijas panelis</string>
+  <string name="dashboard_motd_title">Ziņojums no izstrādātāja</string>
+  <string name="dashboard_settings_oneclick_title">Viena pieskāriena režīms</string>
+  <string name="dashboard_settings_oneclick_summary">Sākt skenēšanu un dzēšanu visiem rīkiem, pieskaroties informācijas paneļa darbības pogai, bez papildu apstiprinājumiem.</string>
+  <string name="dashboard_settings_oneclick_tools_title">Viena pieskāriena rīki</string>
+  <string name="dashboard_settings_oneclick_tools_desc">Kurus rīkus iekļaut viena pieskāriena darbībās?</string>
+  <string name="debug_debuglog_size_label">Izmērs</string>
+  <string name="debug_debuglog_size_compressed_label">Saspiestais izmērs</string>
+  <string name="debug_notification_channel_label">Atkļūdošanas paziņojumi</string>
+  <string name="debug_debuglog_file_label">Ierakstītais žurnāla fails</string>
+  <string name="debug_debuglog_recording_progress">Ieraksta atkļūdošanas žurnālu</string>
+  <string name="debug_debuglog_record_action">Ierakstīt atkļūdošanas žurnālu</string>
+  <string name="debug_debuglog_stop_action">Apturēt ierakstīšanu</string>
+  <string name="debug_debuglog_sensitive_information_message">Izveidotais fails satur sensitīvu informāciju (piem. failu nosaukumus un instalētās lietotnes). Dalieties tikai ar uzticamām pusēm.</string>
+  <string name="settings_debuglog_explanation">Šī funkcija ieraksta visu, ko lietotne dara, koplietojamā failā. Izveidotais fails satur sensitīvu informāciju (piem. failu nosaukumus un instalētās lietotnes). Dalieties tikai ar uzticamām pusēm (piem. izstrādātāju, kas risina problēmu).</string>
+  <string name="tasks_activity_notification_channel_label">Aktīvie uzdevumi</string>
+  <string name="tasks_activity_working_notification_title">SD Maid strādā</string>
+  <plurals name="tasks_activity_active_notification_message">
+    <item quantity="zero">%d aktīvu uzdevumu</item>
+    <item quantity="one">%d aktīvs uzdevums</item>
+    <item quantity="other">%d aktīvi uzdevumi</item>
+  </plurals>
+  <plurals name="tasks_activity_queued_notification_message">
+    <item quantity="zero">%d uzdevumu rindā</item>
+    <item quantity="one">%d uzdevums rindā</item>
+    <item quantity="other">%d uzdevumi rindā</item>
+  </plurals>
+  <string name="tasks_result_notification_channel_label">Uzdevumu rezultāti</string>
+  <string name="tasks_result_subtext">Uzdevuma rezultāts</string>
+  <string name="onboarding_welcome_title">Laipni lūdzam</string>
+  <string name="onboarding_welcome_body1">SD Maid SE pārvalda failus, lietotnes un krātuvi.</string>
+  <string name="onboarding_welcome_body2">Iegūstiet krātuves vietu, sakopjot pēc citām lietotnēm. Dzēsiet izlietojamus failus un noņemiet atlikušos datus.</string>
+  <string name="onboarding_welcome_body_beta">Šī ir beta (testēšanas) versija. Turpiniet ar humora izjūtu un rezerves plānu. Lūdzu, ziņojiet par problēmām, ar kurām saskariesties.</string>
+  <string name="onboarding_welcome_continue_action">Turpināt</string>
+  <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+  <string name="onboarding_versus_body1">SD Maid SE (t.i., SD Maid 2) ir SD Maid (t.i., SD Maid 1) pēctece. Jauna lietotne, optimizēta mūsdienu Android ierīcēm.</string>
+  <string name="onboarding_versus_body2">Tās priekšgājēja arhitektūra ir vairāk nekā 7 gadus veca un nav paredzēta jaunāko Android versiju izaicinājumiem. Pilnīga pārprojektēšana bija nepieciešama, lai turpinātu attīstību.</string>
+  <string name="onboarding_versus_body3">Apsveriet pārslēgšanos uz SD Maid SE labāku rezultātu sasniegšanai.</string>
+  <string name="onboarding_versus_body4">SD Maid 1 "pro statuss" diemžēl nav pārnesams uz SD Maid 2/SE. Pēc 12 gadu bezmaksas atjauninājumiem ir nepieciešams jauns pirkums, lai uzturētu attīstību (pabarot izstrādātāju).</string>
+  <string name="onboarding_versus_continue_action">Turpināt</string>
+  <string name="onboarding_privacy_title">Privātums</string>
+  <string name="onboarding_privacy_body1">SD Maid nav reklāmu un nepārdod lietotāju datus.</string>
+  <string name="onboarding_privacy_bugreport_toggle_body">Kļūdu ziņojumi tiek nosūtīti, kad rodas kļūdas, un var saturēt informāciju par lietotnēm un failiem jūsu ierīcē. Ziņojumi palīdz man labot kļūdas un uzlabot lietotni.</string>
+  <string name="onboarding_privacy_bugreport_toggle">Atļaut automātiskos kļūdu ziņojumus</string>
+  <string name="onboarding_privacy_bugreport_toggle_hint">Šīs opcijas var mainīt iestatījumos.</string>
+  <string name="onboarding_setup_title">Iestatīšana</string>
+  <string name="onboarding_setup_continue_action">Turpināt</string>
+  <string name="general_continue">Turpināt</string>
+  <string name="general_progress_loading">Ielādē...</string>
+  <string name="general_progress_deleting">Dzēš...</string>
+  <string name="analyzer_app_details_app_is_archived">Šī lietotne ir arhivēta.</string>
+  <string name="analyzer_app_details_app_occupies_x_on_y">Šī lietotne aizņem %1$s uz \"%2$s\".</string>
+  <string name="analyzer_content_access_opaque">Tiešā piekļuve nav pieejama</string>
+  <string name="analyzer_device_storage_title">Ierīces krātuve</string>
+  <string name="analyzer_explanation_short">Noskaidrojiet, kas aizņem vietu jūsu ierīcē.</string>
 </resources>
