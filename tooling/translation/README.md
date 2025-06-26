@@ -4,11 +4,12 @@ AI-assisted translation workflow for SD Maid SE Android application with 64+ sup
 
 ## Quick Start
 
-The script supports three main operations:
+The script supports these main operations:
 
 - **Cleanup**: Remove obsolete entries from target files
 - **Extract**: Generate translation batch files for missing strings
 - **Apply**: Insert completed translations into target files
+- **Cleanup-backups**: Remove old backup files from target directories
 
 ## Files
 
@@ -98,6 +99,14 @@ This will:
 ### 5. Repeat for All Batches
 
 Continue translating and applying batch files until all are processed.
+
+### 6. Clean Up Backup Files (Optional)
+
+The script automatically removes backup files after successful operations. To manually clean up old backup files:
+
+```bash
+python3 tooling/translation/ai_translate.py --source app/src/main/res/values/strings.xml --target app/src/main/res/values-lv/strings.xml --cleanup-backups
+```
 
 ## Tips for AI Translation
 

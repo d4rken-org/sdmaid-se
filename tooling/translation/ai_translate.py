@@ -45,13 +45,35 @@ class AndroidStringTranslator:
             return parent_dir[7:]  # Remove 'values-' prefix
         return 'unknown'
     
-    def _backup_file(self, file_path: Path) -> None:
+    def _backup_file(self, file_path: Path) -> Path:
         """Create a backup of the file before modification"""
         if file_path.exists():
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             backup_path = file_path.with_suffix(f'.backup_{timestamp}.xml')
             shutil.copy2(file_path, backup_path)
             print(f"Backup created: {backup_path}")
+            return backup_path
+        return None
+    
+    def _cleanup_backup(self, backup_path: Path) -> None:
+        """Remove backup file after successful operation"""
+        if backup_path and backup_path.exists():
+            backup_path.unlink()
+            print(f"Backup cleaned up: {backup_path}")
+    
+    def cleanup_old_backups(self) -> None:
+        """Remove all old backup files in the target directory"""
+        target_dir = self.target_file.parent
+        backup_pattern = f"{self.target_file.stem}.backup_*.xml"
+        
+        backup_files = list(target_dir.glob(backup_pattern))
+        if backup_files:
+            for backup_file in backup_files:
+                backup_file.unlink()
+                print(f"Removed old backup: {backup_file}")
+            print(f"Cleaned up {len(backup_files)} backup files")
+        else:
+            print("No backup files found to clean up")
     
     def _parse_xml(self, file_path: Path) -> Tuple[ET.Element, ET.ElementTree]:
         """Parse XML file and return root element and tree"""
@@ -197,9 +219,10 @@ class AndroidStringTranslator:
                 obsolete_count += 1
         
         if obsolete_count > 0:
-            self._backup_file(self.target_file)
+            backup_path = self._backup_file(self.target_file)
             self._write_formatted_xml(target_tree, self.target_file)
             print(f"Removed {obsolete_count} obsolete entries")
+            self._cleanup_backup(backup_path)
         else:
             print("No obsolete entries found")
     
@@ -301,7 +324,7 @@ class AndroidStringTranslator:
         # Parse target file
         target_root, target_tree = self._parse_xml(self.target_file)
         
-        self._backup_file(self.target_file)
+        backup_path = self._backup_file(self.target_file)
         
         applied_count = 0
         
@@ -333,6 +356,7 @@ class AndroidStringTranslator:
         if applied_count > 0:
             self._write_formatted_xml(target_tree, self.target_file)
             print(f"Applied {applied_count} translations")
+            self._cleanup_backup(backup_path)
         else:
             print("No translations found in batch file")
 
@@ -346,12 +370,13 @@ def main():
     parser.add_argument('--cleanup', action='store_true', help='Remove obsolete entries from target')
     parser.add_argument('--extract', action='store_true', help='Extract missing translations to batch files')
     parser.add_argument('--apply', help='Apply translations from batch file')
+    parser.add_argument('--cleanup-backups', action='store_true', help='Remove old backup files in target directory')
     
     args = parser.parse_args()
     
     # Validate arguments
-    if not (args.cleanup or args.extract or args.apply):
-        parser.error("Must specify one of: --cleanup, --extract, or --apply")
+    if not (args.cleanup or args.extract or args.apply or args.cleanup_backups):
+        parser.error("Must specify one of: --cleanup, --extract, --apply, or --cleanup-backups")
     
     try:
         translator = AndroidStringTranslator(args.source, args.target)
@@ -364,6 +389,9 @@ def main():
         
         elif args.apply:
             translator.apply_translations(args.apply)
+        
+        elif args.cleanup_backups:
+            translator.cleanup_old_backups()
         
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)
