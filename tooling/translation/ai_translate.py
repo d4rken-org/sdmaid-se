@@ -334,7 +334,9 @@ class AndroidStringTranslator:
                     # Create new string element
                     string_elem = ET.SubElement(target_root, 'string')
                     string_elem.set('name', entry['name'])
-                    string_elem.text = entry['translated_text']
+                    # Escape single quotes for Android strings
+                    escaped_text = entry['translated_text'].replace("'", "\\'")
+                    string_elem.text = escaped_text
                     applied_count += 1
                     print(f"Applied string: {entry['name']}")
             
@@ -348,7 +350,9 @@ class AndroidStringTranslator:
                         if text:
                             item_elem = ET.SubElement(plural_elem, 'item')
                             item_elem.set('quantity', quantity)
-                            item_elem.text = text
+                            # Escape single quotes for Android strings
+                            escaped_text = text.replace("'", "\\'")
+                            item_elem.text = escaped_text
                     
                     applied_count += 1
                     print(f"Applied plural: {entry['name']}")
