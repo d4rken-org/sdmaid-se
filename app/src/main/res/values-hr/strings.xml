@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="dashboard_delete_all_message">Izbrisati rezultate u svim alatima?</string>
     <string name="dashboard_settings_category">Nadzorna ploča</string>
@@ -474,7 +474,7 @@
     <string name="exclusion_create_pkg_hint">Upotrijebite alat AppControl za stvaranje izuzetaka aplikacija.</string>
     <string name="exclusion_create_path_hint">Upotrijebite alat StorageAnalyzer za stvaranje izuzetaka putanja.</string>
     <plurals name="exclusion_x_new_exclusions">
-        <item quantity="one">Stvoren je jedan izuzetak</item>
+        <item quantity="one">Stvoren je %d izuzetak</item>
         <item quantity="few">Stvorena %d izuzetka</item>
         <item quantity="other">Stvoreno %d izuzetaka</item>
     </plurals>
@@ -505,7 +505,7 @@
     <string name="scheduler_schedule_next_at_x">Planirano za %s</string>
     <string name="scheduler_schedule_last_at_x">Zadnji put izvršeno u %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
-        <item quantity="one">Dnevno</item>
+        <item quantity="one">Svakih %d dan</item>
         <item quantity="few">Svaka %d dana</item>
         <item quantity="other">Svakih %d dana</item>
     </plurals>
@@ -521,7 +521,6 @@
     <string name="translation_encourage_body">SD Maid prevode volonteri. Prijevod, recenzija ili lektura, cijenimo vašu pomoć!</string>
     <string name="translation_translators_title">Ovu verziju preveli su</string>
     <string name="translation_translators_people">Tarik Hadžirović (tarik.hadzirovic.official@gmail.com);MatijaThe245th</string>
-
     <string name="analyzer_tool_name">Analizator pohrane</string>
     <plurals name="analyzer_space_available">
         <item quantity="one">%s dostupan</item>
@@ -540,7 +539,6 @@
     <string name="analyzer_storage_content_type_system_description">Sistemske aplikacije i sistemski podaci. Aplikacije i podaci drugih korisnika, ako je na ovom uređaju postavljeno nekoliko korisničkih računa.</string>
     <string name="analyzer_storage_content_app_code_description">Datoteke aplikacije, biblioteke i resursi. Ovaj se prostor može osloboditi deinstaliranjem aplikacije ili njenim arhiviranjem (dostupno u novijim verzijama Androida).</string>
     <string name="analyzer_app_details_app_is_archived">Ova je aplikacija arhivirana.</string>
-
     <string name="appcleaner_progress_determining_inaccessible_caches">Određivanje nedostupnih međuspremnika</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Čišćenje međuspremnika nedostupno</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Sistem je onemogućio gumb "Očisti međuspremnik" za ovu aplikaciju. Isključite je za ubrzavanje čišćenja međuspremnika.</string>
@@ -550,8 +548,6 @@
     <string name="appcleaner_automation_error_securitycenter_permission_body">Sigurnosni centar blokira SD Maid. Dopustite SD Maidu da koristi uslugu pristupačnosti u sigurnosnom centru.</string>
     <string name="appcleaner_automation_progress_find_ok_confirmation">Pronalaženje gumba za potvrdu</string>
     <string name="appcleaner_automation_unavailable_body">Automatsko čišćenje međuspremnika zahtijeva uslugu pristupačnosti.</string>
-    <string name="appcleaner_delete_confirmation_message_selected_x_items">Izbrisati %d odabranih stavki?</string>
-
     <string name="appcontrol_app_forcestop_title">Prisilno zaustavi</string>
     <string name="appcontrol_app_forcestop_description">Zaustavlja aplikaciju. Sprječava je od pokretanja sve dok je ne otvorite ili dok se uređaj ne restartira.</string>
     <string name="appcontrol_app_sizes_title">Veličine aplikacije</string>
@@ -562,7 +558,6 @@
     <string name="appcontrol_automation_progress_find_force_stop">Pronalaženje gumba za prisilno zaustavljanje</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Pronalaženje gumba za potvrdu</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Prisilno zaustavljanje aplikacija</string>
-
     <string name="scheduler_notification_channel_label">Raspored zadataka</string>
     <string name="scheduler_notification_title">Zakazani zadatak</string>
     <string name="scheduler_notification_message">Izvršava se: "%s"</string>
@@ -576,19 +571,16 @@
     <string name="scheduler_setting_charging_summary">Izvršava zakazane zadatke samo kad se uređaj puni.</string>
     <string name="scheduler_setting_nopowersaving_summary">Preskoče zakazane zadatke ako je uređaj u načinu rada za uštedu energije.</string>
     <string name="scheduler_current_schedule_x_at_x">Trenutni raspored \"%1$s\" u %2$s</string>
-
     <string name="area_type_portable_label">Prijenosna pohrana</string>
     <string name="area_type_private_data_label">Privatni podaci aplikacije</string>
     <string name="area_type_public_data_label">Javni podaci aplikacije</string>
     <string name="area_type_public_media_label">Javni mediji aplikacije</string>
     <string name="area_type_public_obb_label">Javni OBB aplikacije</string>
     <string name="area_type_sdcard_label">SD kartica</string>
-
     <string name="data_area_public_app_data_official_label">Zadani javni podaci aplikacije</string>
     <string name="data_area_public_app_assets_official_label">Javni resursi aplikacije</string>
     <string name="data_area_public_storage_label">Javna pohrana</string>
     <string name="data_area_sdcard_label">SD kartica</string>
-
     <string name="automation_error_compatibility_title">Greška kompatibilnosti</string>
     <string name="automation_error_compatibility_body">Ova značajka nije kompatibilna s vašom verzijom Androida ili uređajem.</string>
     <string name="automation_error_overlay_title">Preklapajući sadržaj</string>
@@ -597,9 +589,7 @@
     <string name="automation_error_screen_unavailable_body">Operacija je prekinuta jer zaslon nije dostupan (npr. displej je isključen ili se nalazi na zaključanom zaslonu).</string>
     <string name="automation_error_timeout_title">Istek vremena</string>
     <string name="automation_error_timeout_body">Operacija je prekašena jer je isteklo vrijeme čekanja. Pokušajte ponovno ili isključite automatizaciju.</string>
-
     <string name="beta_version_indicator_desc">Ovo je beta verzija SD Maida.</string>
-
     <string name="deduplicator_explanation_short">Pronađite dupliranu podatke na vašem uređaju.</string>
     <string name="deduplicator_average_size_label">Prosječna veličina</string>
     <string name="deduplicator_cluster_x_label">Grupa %s</string>
@@ -615,23 +605,18 @@
     <string name="deduplicator_detection_method_checksum_summary">Određuje duplikate izračunavanjem kontrolnih zbrojeva za datoteke. Datoteke s odgovarajućim kontrolnim zbrojevima imaju potpuno isti sadržaj.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptualni hash</string>
     <string name="deduplicator_detection_method_phash_summary">Pronalazi slične datoteke analizom značajki sadržaja i usporedbom perceptualnih hash vrijednosti.</string>
-
     <string name="systemcleaner_filter_logfiles_label">Sistemske datoteke zapisnika</string>
     <string name="systemcleaner_filter_logfiles_summary">Datoteke zapisnika sistema i sistemskih usluga (npr. *.log) na različitim lokacijama.</string>
     <string name="systemcleaner_filter_packagecaches_label">Međuspremnik instalatora</string>
     <string name="systemcleaner_filter_packagecaches_summary">Međuspremni podaci vezani uz instalirane aplikacije koje koristi sistemsko upravljanje paketima.</string>
     <string name="systemcleaner_filter_tempfiles_label">Privremene sistemske datoteke</string>
     <string name="systemcleaner_filter_tempfiles_summary">Sistemske privremene datoteke, obično kratkotrajni međuspremnici za aktivne operacije.</string>
-
     <string name="appcontrol_automation_title">Automatizacija</string>
     <string name="appcontrol_export_title">Izvoz</string>
     <string name="appcontrol_export_description">Izvozi informacije o aplikaciji u datoteku</string>
     <string name="appcontrol_export_app_selection_action">Izvezi odabrane aplikacije</string>
-    <string name="appcontrol_export_result_message_x">Izvezeno je %d aplikacija</string>
     <string name="appcontrol_force_stop_action">Prisilno zaustavi</string>
-    <string name="appcontrol_force_stop_confirmation_message_x">Prisilno zaustaviti %d aplikacija?</string>
     <string name="appcontrol_force_stop_confirm_title">Prisilno zaustavljanje</string>
-    <string name="appcontrol_force_stop_result_message_x">Prisilno je zaustavljeno %d aplikacija</string>
     <string name="appcontrol_force_stop_selection_action">Prisilno zaustavi</string>
     <string name="appcontrol_item_installedat_x_label">Instalirano u: %s</string>
     <string name="appcontrol_item_lastupdate_x_label">Zadnje ažuriranje: %s</string>
@@ -653,10 +638,6 @@
     <string name="appcontrol_tag_not_installed">Nije instalirano</string>
     <string name="appcontrol_tag_uninstalled">Samo podaci</string>
     <string name="appcontrol_toggle_confirmation_title">Prebacivanje</string>
-    <string name="appcontrol_toggle_confirmation_message_x">Prebaciti %d aplikacija?</string>
-    <string name="appcontrol_toggle_result_message_x">Prebačeno je %d aplikacija</string>
-    <string name="appcontrol_uninstall_result_message_x">Deinstalirano je %d aplikacija</string>
-
     <string name="deduplicator_file_size_label">Veličina datoteke</string>
     <string name="deduplicator_matches_exact_label">Točne kopije</string>
     <string name="deduplicator_matches_similar_label">Slične datoteke</string>
@@ -664,7 +645,6 @@
     <string name="deduplicator_progress_comparing_files">Usporedba datoteka</string>
     <string name="deduplicator_protection_deleteall_allowed_title">Omogući "Izbriši sve"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Prikaži opcije koje vam omogućavaju brisanje svih datoteka u setu dupliciranih datoteka tako da ne ostane nijedna datoteka.</string>
-
     <string name="deduplicator_tool_name">Deduplicator</string>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">Pronađen je %d set duplikata</item>
@@ -687,18 +667,14 @@
         <item quantity="few">%s su zauzeta duplikatima</item>
         <item quantity="other">%s je zauzeto duplikatima</item>
     </plurals>
-
     <string name="device_settings_category">Uređaj</string>
-
     <string name="exclusion_editor_path_explanation">Isključivanje putanje sprječava SD Maid da dalje obrađuje sve odgovarajuće putanje. To se odnosi na datoteke, mape i podmape.</string>
     <string name="exclusion_export_action">Izvezi isključivanja</string>
     <string name="exclusion_import_action">Uvezi isključivanja</string>
     <string name="exclusion_reset_default_exclusions">Vrati zadana isključivanja</string>
     <string name="exclusion_show_defaults_action">Prikaži zadane</string>
-
     <string name="motd_setting_enabled_label">Važne poruke</string>
     <string name="motd_setting_enabled_explanation">Dopusti SD Maidu da provjeri važne poruke od razvojnog programera.</string>
-
     <string name="picker_home_action">Početna</string>
     <plurals name="picker_selected_paths_subtitle">
         <item quantity="one">%d odabrana putanja</item>
@@ -708,16 +684,11 @@
     <string name="picker_selected_paths_title">Odabrane putanje</string>
     <string name="picker_select_paths_title">Odaberi putanje</string>
     <string name="picker_unsaved_confirmation_message">Imate nespremljene promjene!</string>
-
     <string name="review_app_body">Uživate li u SD Maidu? Razmotrili biste ostavljanje recenzije?</string>
     <string name="review_app_dismiss_action">Ne, hvala</string>
     <string name="review_app_review_action">Ocijeni aplikaciju</string>
-
     <string name="stats_affected_paths_label">Putanje</string>
     <string name="stats_affected_pkgs_label">Aplikacije</string>
-    <string name="stats_dash_body_count">Stavke</string>
-    <string name="stats_dash_body_size">Veličina</string>
-
     <string name="stats_label">Statistike</string>
     <string name="stats_report_status_success">Uspjeh</string>
     <string name="stats_report_status_partial_success">Djelomični uspjeh</string>
@@ -735,7 +706,51 @@
         <item quantity="few">%d dana</item>
         <item quantity="other">%d dana</item>
     </plurals>
-
     <string name="updatecheck_setting_enabled_label">Provjera ažuriranja</string>
     <string name="updatecheck_setting_enabled_explanation">Dopusti SD Maidu da provjeri ažuriranja kako bi te obavijestio ako je dostupna novija verzija.</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Izbrisati potrošne datoteke za %d odabranu aplikaciju?</item>
+        <item quantity="few">Izbrisati potrošne datoteke za %d odabrane aplikacije?</item>
+        <item quantity="other">Izbrisati potrošne datoteke za %d odabranih aplikacija?</item>
+    </plurals>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d aplikacija je deinstalirana</item>
+        <item quantity="few">%d aplikacije su deinstalirane</item>
+        <item quantity="other">%d aplikacija je deinstalirano</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Promijeniti omogućeno/onemogućeno stanje za %d aplikaciju?</item>
+        <item quantity="few">Promijeniti omogućeno/onemogućeno stanje za %d aplikacije?</item>
+        <item quantity="other">Promijeniti omogućeno/onemogućeno stanje za %d aplikacija?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d aplikacija je prebačena</item>
+        <item quantity="few">%d aplikacije su prebačene</item>
+        <item quantity="other">%d aplikacija je prebačeno</item>
+    </plurals>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d aplikacija je izvezena</item>
+        <item quantity="few">%d aplikacije su izvezene</item>
+        <item quantity="other">%d aplikacija je izvezeno</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Prisilno zaustaviti %d aplikaciju?</item>
+        <item quantity="few">Prisilno zaustaviti %d aplikacije?</item>
+        <item quantity="other">Prisilno zaustaviti %d aplikacija?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d aplikacija je zaustavljena</item>
+        <item quantity="few">%d aplikacije su zaustavljene</item>
+        <item quantity="other">%d aplikacija je zaustavljeno</item>
+    </plurals>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s je oslobođen.</item>
+        <item quantity="few">%s su oslobođena.</item>
+        <item quantity="other">%s je oslobođeno.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s stavka obrađena otkako ste pozvali SD Maid na svoj uređaj.</item>
+        <item quantity="few">%s stavke obrađene otkako ste pozvali SD Maid na svoj uređaj.</item>
+        <item quantity="other">%s stavki obrađeno otkako ste pozvali SD Maid na svoj uređaj.</item>
+    </plurals>
 </resources>
