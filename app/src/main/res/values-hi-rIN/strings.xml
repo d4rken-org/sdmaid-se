@@ -721,4 +721,8 @@
   <string name="systemcleaner_filter_windowsfiles_summary">डेटा जो Windows फ़ाइल एक्सप्लोरर कनेक्टेड स्टोरेज पर बना सकता है।</string>
   <string name="updatecheck_setting_enabled_explanation">SD Maid को अपडेट की जांच करने की अनुमति दें ताकि आपको पता चल सके कि कोई नया संस्करण उपलब्ध है या नहीं।</string>
   <string name="updatecheck_setting_enabled_label">अपडेट जांच</string>
+  <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+    <item quantity="one">%s डुप्लिकेट्स द्वारा कब्जा किया गया है</item>
+    <item quantity="other">%s डुप्लिकेट्स द्वारा कब्जा किया गया है</item>
+  </plurals>
 </resources>

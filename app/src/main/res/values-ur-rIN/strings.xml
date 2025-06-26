@@ -1,675 +1,727 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">تمام ٹولز میں نتائج کو حذف کریں؟</string>
-    <string name="dashboard_settings_category">ڈیش بورڈ</string>
-    <string name="dashboard_motd_title">ڈیولپر کی طرف سے پیغام</string>
-    <string name="dashboard_settings_oneclick_title">ون ٹیپ موڈ</string>
-    <string name="dashboard_settings_oneclick_summary">ڈیش بورڈ کے ایکشن بٹن پر ایک ٹیپ سے تمام ٹولز کے لیے اسکین اور ڈیلیٹ شروع کریں، کوئی اضافی تصدیق نہیں۔</string>
-    <string name="dashboard_settings_oneclick_tools_title">ون ٹیپ ٹولز</string>
-    <string name="dashboard_settings_oneclick_tools_desc">ون ٹیپ آپریشنز میں کون سے ٹولز شامل ہونے چاہیے؟</string>
-    <string name="debug_debuglog_size_label">سائز</string>
-    <string name="debug_debuglog_size_compressed_label">کمپریسڈ سائز</string>
-    <string name="debug_notification_channel_label">ڈیبگ نوٹیفکیشنز</string>
-    <string name="debug_debuglog_file_label">ریکارڈ شدہ لاگ فائل</string>
-    <string name="debug_debuglog_recording_progress">ڈیبگ لاگ ریکارڈ کر رہا ہے</string>
-    <string name="debug_debuglog_record_action">ڈیبگ لاگ ریکارڈ کریں</string>
-    <string name="debug_debuglog_stop_action">ریکارڈنگ بند کریں</string>
-    <string name="debug_debuglog_sensitive_information_message">بنایا گیا فائل حساس معلومات پر مشتمل ہے (جیسے فائل نام اور انسٹال شدہ ایپس)۔ صرف قابل اعتماد افراد کے ساتھ شیئر کریں۔</string>
-    <string name="settings_debuglog_explanation">یہ فیچر ایپ کی تمام کارروائیوں کو ایک شیئر کرنے والی فائل میں ریکارڈ کرتا ہے۔ بنایا گیا فائل حساس معلومات پر مشتمل ہے (جیسے فائل نام اور انسٹال شدہ ایپس)۔ صرف قابل اعتماد افراد کے ساتھ شیئر کریں (جیسے کسی مسئلے کو حل کرنے والا ڈیولپر)۔</string>
-    <string name="tasks_activity_notification_channel_label">فعال کام</string>
-    <string name="tasks_activity_working_notification_title">SD Maid کام کر رہا ہے</string>
-    <plurals name="tasks_activity_active_notification_message">
-        <item quantity="one">%d فعال کام</item>
-        <item quantity="other">%d فعال کام</item>
-    </plurals>
-    <plurals name="tasks_activity_queued_notification_message">
-        <item quantity="one">%d کام قطار میں</item>
-        <item quantity="other">%d کام قطار میں</item>
-    </plurals>
-    <string name="tasks_result_notification_channel_label">کام کے نتائج</string>
-    <string name="tasks_result_subtext">کام کا نتیجہ</string>
-    <string name="onboarding_welcome_title">خوش آمدید</string>
-    <string name="onboarding_welcome_body1">SD Maid SE فائلوں، ایپس اور اسٹوریج کا انتظام کرتا ہے۔</string>
-    <string name="onboarding_welcome_body2">دوسرے ایپس کے پیچھے صفائی کرکے اسٹوریج کی جگہ حاصل کریں۔ غیر ضروری فائلوں کو حذف کریں اور بقایا ڈیٹا کو ہٹا دیں۔</string>
-    <string name="onboarding_welcome_body_beta">یہ بیٹا (ٹیسٹنگ) بلڈ ہے۔ مزاحیہ انداز میں اور بیک اپ پلان کے ساتھ آگے بڑھیں۔ کرپیا آپ کو جو مسائل کا سامنا ہو ان کی رپورٹ کریں۔</string>
-    <string name="discord_description">گفتگو کرنے اور سوالات پوچھنے کی جگہ۔</string>
-    <string name="changelog_label">تبدیلیوں کی فہرست</string>
-    <string name="settings_acknowledgements_label">تسلیم و تشکر</string>
-    <string name="setup_label">سیٹ اپ</string>
-    <string name="setup_incomplete_card_title">سیٹ اپ نامکمل ہے</string>
-    <string name="setup_incomplete_card_body">بہتر نتائج حاصل کرنے کے لیے SD Maid کا سیٹ اپ مکمل کریں۔</string>
-    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid سیٹ اپ کے مسائل ٹھیک کرنے کی کوشش کر رہا ہے۔</string>
-    <string name="setup_incomplete_card_dismiss_action">برخاست کریں</string>
-    <string name="setup_incomplete_card_continue_action">سیٹ اپ جاری رکھیں</string>
-    <string name="setup_title">سیٹ اپ</string>
-    <string name="setup_forcedshow_summary">پہلے سے مکمل ازافہ مدوں سمیت سیٹ اپ سکرین دوبارہ دکھائیں۔</string>
-    <string name="setup_checking_card_body">سیٹ اپ کی تکمیل اور فعالیت کی تصدیق کر رہے ہیں۔</string>
-    <string name="general_error_setup_require_label">سیٹ اپ نامکمل ہے</string>
-    <string name="general_error_setup_require_msg">اس فیچر کو استعمال کرنے کے لیے مزید سیٹ اپ درکار ہے۔ باقی سیٹ اپ مراحل مکمل کریں۔</string>
-    <string name="setup_saf_card_title">اسٹوریج رسائی فریم ورک</string>
-    <string name="setup_saf_card_body">SD Maid کو اضافی علاقوں تک رسائی دے کر نتائج بہتر بنائیں۔</string>
-    <string name="setup_saf_card_body2">زیادہ تر حالات میں ونڈو صحیح پاتھ کے ساتھ پہلے سے منتخب ہوگی۔ رسائی دینے پر انٹریز سبز ہو جاتی ہیں۔ </string>
-    <string name="setup_saf_error_wrong_path">آپ نے غلط پاتھ منتخب کیا</string>
-    <string name="setup_saf_missing_app_error">Documents UI ایپ دستیاب نہیں ہے۔ یہ انتظار ساختہ سسٹم ایپ ہے اور تمام اینڈروئیڈ ڈیوائسیز پر دستیاب ہونا چاھیے۔</string>
-    <string name="setup_manage_storage_card_title">اسٹوریج کا انتظام</string>
-    <string name="setup_manage_storage_card_body">SD Maid کو آپ کے اسٹوریج کا انتظام کرنے کی اجازت دیں۔</string>
-    <string name="setup_manage_storage_card_body2">پبلک اسٹوریج تک بنیادی رسائی، جیسے "Download/" اور "DCIM/"، لیکن ہمیشہ "Android/data" نہیں۔</string>
-    <string name="setup_root_card_title">روٹ رسائی</string>
-    <string name="setup_root_card_body">کیا SD Maid کو روٹ رسائی کا استعمال کرنا چاھیے اگر یہ دستیاب ہے؟ روٹ رسائی کا استعمال اضافی سسٹم فولڈرز اور پرائیویٹ ایپلیکیشن ڈیٹا کو چیک کرنے کے لیے کیا جا سکتا ہے۔</string>
-    <string name="setup_root_state_ready_label">روٹ رسائی تیار ہے۔</string>
-    <string name="setup_root_state_waiting_label">روٹ رسائی کا انتظار۔</string>
-    <string name="setup_root_enable_root_use_label">اگر دستیاب ہے تو روٹ رسائی استعمال کریں</string>
-    <string name="setup_root_disable_root_use_label">روٹ رسائی استعمال نہ کریں</string>
-    <string name="setup_root_card_body2">صرف روٹ شدہ ڈیوائسیز پر دستیاب۔ اگر آپ نے یہ تبدیلی نہیں کی، تو آپ کا ڈیوائس روٹ شدہ نہیں ہے اور اس سیٹنگ کا کوئی اثر نہیں۔</string>
-    <string name="setup_shizuku_card_title">Shizuku</string>
-    <string name="setup_shizuku_card_body">SD Maid کو نتائج بہتر بنانے اور فیچرز فعال کرنے کے لیے جہاں ممکن ہو Shizuku استعمال کرنے کی اجازت دیں۔</string>
-    <string name="setup_shizuku_card_body2">اگر آپ کے ڈیوائس پر Shizuku ایپ نہیں ہے تو اس سیٹنگ کا کوئی اثر نہیں۔</string>
-    <string name="setup_shizuku_card_root_info">روٹ رسائی کے ساتھ Shizuku کا امتزاج اضافی فیچرز فعال نہیں کرتا، لیکن یہ قابلیت بہتر بناتا ہے۔ SD Maid اسے فال بیک طریقہ کے طور پر استعمال کرے گا۔</string>
-    <string name="setup_shizuku_state_ready_label">Shizuku لنک تیار ہے۔</string>
-    <string name="setup_shizuku_state_waiting_label">Shizuku کے ساتھ لنک کا انتظار۔</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">اگر دستیاب ہے تو Shizuku استعمال کریں</string>
-    <string name="setup_shizuku_disable_shizuku_use_label">Shizuku استعمال نہ کریں</string>
-    <string name="setup_dismiss_hint">آپ سیٹنگز مینو کے ذریعے سیٹ اپ سکرین دوبارہ تلاش کر سکتے ہیں۔</string>
-    <string name="setup_permission_granted_label">اجازت دی گئی</string>
-    <string name="setup_permission_error_label">اجازت کی خرابی</string>
-    <string name="setup_usagestats_title">استعمال کے شماریات</string>
-    <string name="setup_usagestats_body">استعمال کے شماریات کی اجازت زیادہ ایپ تفصیلات تک رسائی فراہم کرتی ہے۔ SD Maid اسے اضافی کیش سائز کا تعین کرنے کے لیے استعمال کرتا ہے۔</string>
-    <string name="setup_usagestats_hint">رسائی سروس پر مبنی کیش ڈیلیٹ کے لیے ضروری۔</string>
-    <string name="setup_notification_title">نوٹیفکیشنز</string>
-    <string name="setup_notification_body">SD Maid کو جاری عملیات یا اہم واقعات کے بارے میں آپ کو آگاہ کرنے کے لیے نوٹیفکیشن بھیجنے کی اجازت دیں۔</string>
-    <string name="setup_notification_hint">نوٹیفکیشنز کا بہت کم استعمال ہوتا ہے 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">اس فیچر کے لیے اضافی سیٹ اپ اجزاء کی تکمیل درکار ہے: %s</string>
-    <string name="setup_acs_card_title">رسائی سروس</string>
-    <string name="setup_acs_card_body">رسائی سروس SD Maid کو آپ کی سکرین کے ساتھ بات چیت کرنے اور تھکا دینے والے کاموں کو خود کار بنانے کی اجازت دیتی ہے، جیسے متعدد سکرینوں پر \"کیش صاف کریں\" کو ٹیپ کرنا۔</string>
-    <string name="setup_acs_card_body2">SD Maid آپ کی رضامندی کے بغیر رسائی سروس استعمال نہیں کرے گا، فعال ہونے پر ہمیشہ ایک بڑا (منسوخ کرنے کے قابل) اشارہ دکھائے گا اور معلومات جمع کرنے کے لیے اسے استعمال نہیں کرے گا۔</string>
-    <string name="setup_acs_state_enabled">رسائی سروس فعال ہے</string>
-    <string name="setup_acs_state_disabled">رسائی سروس غیر فعال ہے</string>
-    <string name="setup_acs_state_running">رسائی سروس چل رہی ہے</string>
-    <string name="setup_acs_state_ondemand">سروس طلب کے وقت شروع ہوگی</string>
-    <string name="setup_acs_state_stopped">رسائی سروس رک گئی ہے</string>
-    <string name="setup_acs_state_stopped_hint">سروس فعال ہے، لیکن چل نہیں رہی۔ اسے آف/آن کریں یا اپنے ڈیوائس کو ری بوٹ کریں۔ چیک کریں کہ SD Maid کو سسٹم کی طرف سے \"آپٹیمائز\" نہیں کیا جا رہا۔</string>
-    <string name="setup_acs_state_stopped_hint_miui">اگر سروس کچھ دیر بعد غیر فعال ہوتی رہتی ہے، تو سسٹم سیٹنگز میں SD Maid کے لیے \"آٹو اسٹارٹ\" آپشن فعال کرنے کی کوشش کریں۔</string>
-    <string name="setup_acs_consent_positive_action">سروس فعال کریں اور رسائی دیں</string>
-    <string name="setup_acs_consent_negative_action">رسائی سروس استعمال نہ کریں</string>
-    <string name="setup_acs_allow_hint">اگر آپ کو سکرین کے کنارے ایک چھوٹا آئیکن نظر آرہا ہے، تو آپ نے علتی طور پر \"شارٹ کٹ\" آپشن فعال کر دیا ہے۔</string>
-    <string name="setup_acs_disallow_hint">اگر آپ اپنا من بدلتے ہیں، تو آپ سیٹنگز میں جا کر اور سیٹ اپ دوبارہ شروع کرکے اس آپشن کو دوبارہ تبدیل کر سکتے ہیں۔</string>
-    <string name="setup_acs_appops_restriction_title">محدود سیٹنگز</string>
-    <string name="setup_acs_appops_restriction_body">SD Maid کی رسائی سروس فعال نہیں کر سکتے؟ Android 13+ ان ایپس پر پابندیاں لگا سکتا ہے جو Google Play کے ذریعے انسٹال نہیں ہوئے۔ SD Maid کے سسٹم کے تفصیلی صفحے سے یہ پابندیاں ہٹائیں۔ یہ آپشن اوپر دائیں کونے میں کنٹیکسٹ مینو میں ہے۔</string>
-    <string name="setup_inventory_card_title">ایپ انوینٹری</string>
-    <string name="setup_inventory_card_body">SD Maid کو یہ جاننے کی ضرورت ہے کہ آپ کے پاس کون سے ایپس ہیں تاکہ ایسی فائلوں کو تلاش کر سکے جو کسی انسٹال شدہ ایپ سے تعلق نہیں رکھتیں۔</string>
-    <string name="setup_inventory_card_extra">\"ایپ فہرست\" یا \"تمام پیکج کا سوال\" کے نام سے اجازت تلاش کریں۔</string>
-    <string name="setup_inventory_invalid_message">سسٹم نے انسٹال شدہ ایپس کی غلط فہرست فراہم کی (جیسے بہت کم یا کچھ غائب)۔ سسٹم سیٹنگز میں جائیں اور SD Maid کو \"ایپ فہرست\" تک رسائی دیں۔</string>
-    <string name="dataarea_warningcard_empty_message">SD Maid کو کوئی ڈیٹا ایریا نہیں ملا جس کا اسکین کیا جا سکے۔ کیا آپ نے سیٹ اپ مکمل کیا؟</string>
-    <string name="dataarea_warningcard_label">ڈیٹا ایریا</string>
-    <string name="dataarea_warningcard_reload_action">ڈیٹا ایریا دوبارہ لوڈ کریں</string>
-    <string name="debug_mode_label">ڈیبگ موڈ</string>
-    <string name="debug_mode_explanation">ٹیسٹ آپشنز اور زیادہ تفصیلی آؤٹ پٹ فعال کریں۔ ایپ سست چلے گا اور مختلف عمل کرے گا۔</string>
-    <string name="debug_bugreporter_label">خود کار بگ رپورٹس</string>
-    <string name="debug_bugreporter_summary">خود کار طور پر مسائل کی رپورٹ کرتا ہے، جیسے ایپ کریش کی تفصیلات تاکہ میں اس کی وجہ معلوم کر سکوں اور اسے ٹھیک کر سکوں۔</string>
-    <string name="settings_category_tools_label">ٹولز</string>
-    <string name="settings_category_filter">فلٹر</string>
-    <string name="settings_category_risklevel">خطرے کی سطح</string>
-    <string name="corpsefinder_tool_name">CorpseFinder</string>
-    <string name="corpsefinder_explanation_short">پہلے سے ہٹائے گئے ایپس سے تعلق رکھنے والا ڈیٹا۔</string>
-    <string name="corpsefinder_settings_summary">اسکین فلٹرز اور خطرے کی سطح کو ایڈجسٹ کریں۔</string>
-    <string name="corpsefinder_settings_risk_keeper_title">مرغوب بقایا شامل کریں</string>
-    <string name="corpsefinder_settings_risk_keeper_summary">ایسی فائلیں جنہیں آپ رکھنا چاہیںگے، حتیٰ کہ ایپ انانسٹال ہو گیا ہو، جیسے آپ کے کھینچے گئے فوٹوز یا بنائے گئے بیک اپس۔</string>
-    <string name="corpsefinder_settings_risk_common_title">عام نام شامل کریں</string>
-    <string name="corpsefinder_settings_risk_common_summary">عام طور پر استعمال ہونے والے ناموں والا ڈیٹا، جیسے ایک فولڈر \"نوٹس\" جو بہت سے نامعلوم ایپس کا ہے۔</string>
-    <string name="corpsefinder_watcher_title">انانسٹال واچر</string>
-    <string name="corpsefinder_watcher_summary">جب کوئی ایپ ہٹائی جائے تو خود کار طور پر بقایا کا اسکین کریں۔</string>
-    <string name="corpsefinder_watcher_autodelete_title">خود کار ڈیلیٹ</string>
-    <string name="corpsefinder_watcher_autodelete_summary">انانسٹال شدہ ایپ سے متعلق کوئی بھی بقایا خود کار طور پر حذف کریں۔</string>
-    <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="one">%2$s کو انانسٹال کرنے کے بعد %1$d بقایا ملا۔</item>
-        <item quantity="other">%2$s کو انانسٹال کرنے کے بعد %1$d بقایا ملے۔</item>
-    </plurals>
-    <plurals name="corpsefinder_watcher_notification_delete_result">
-        <item quantity="one">صفائی کامیاب (%1$s): %2$s آزاد کیا اور %3$d آئٹم ہٹایا۔</item>
-        <item quantity="other">صفائی کامیاب (%1$s): %2$s آزاد کیا اور %3$d آئٹمز ہٹائے۔</item>
-    </plurals>
-    <string name="corpsefinder_watcher_notification_delete_action">بقایا ڈیلیٹ کریں</string>
-    <string name="corpsefinder_filter_publicmedia_label">پبلک میڈیا</string>
-    <string name="corpsefinder_filter_publicmedia_summary">پبلک میڈیا فائلیں، جیسے میسنجر ایپس کے ذریعے موصولہ فائلیں۔</string>
-    <string name="corpsefinder_filter_publicobb_label">OBB ریسورس</string>
-    <string name="corpsefinder_filter_publicobb_summary">اضافی ایپ ریسورس، جیسے گیم کے اثاث۔</string>
-    <string name="corpsefinder_filter_publicdata_label">پبلک ایپ ڈیٹا</string>
-    <string name="corpsefinder_filter_publicdata_summary">غیر حساس ایپ ڈیٹا، جیسے نقشے کے کیشیز۔</string>
-    <string name="corpsefinder_filter_sdcard_label">SD کارڈ</string>
-    <string name="corpsefinder_filter_sdcard_summary">عام پبلک اسٹوریج، اندرونی اور بیرونی (جیسے SD کارڈز)۔</string>
-    <string name="corpsefinder_filter_privatedata_label">پرائیویٹ ایپ ڈیٹا</string>
-    <string name="corpsefinder_filter_privatedata_summary">پرائیویٹ ایپ ڈیٹا، جیسے اسناد، ایپ سیٹنگز اور براؤزر کیشیز۔</string>
-    <string name="corpsefinder_filter_dalvik_label">Dalvik کیش</string>
-    <string name="corpsefinder_filter_dalvik_summary">کیش شدہ ایپ ایکزیکیوشن ڈیٹا۔</string>
-    <string name="corpsefinder_filter_applib_label">ایپ لائبریریز</string>
-    <string name="corpsefinder_filter_applib_summary">ایپ سے متعلق لائبریری ڈیٹا۔</string>
-    <string name="corpsefinder_filter_appsource_label">ایپ سورس</string>
-    <string name="corpsefinder_filter_appsource_summary">ایپ انسٹالیشن ڈیٹا، یعنی جہاں APK جاتے ہیں۔</string>
-    <string name="corpsefinder_filter_appsource_private_label">پرائیویٹ ایپ سورس</string>
-    <string name="corpsefinder_filter_appsource_private_summary">محدود ایپ انسٹالیشن ڈیٹا، جیسے محفوظ تھرڈ پارٹی ایپس۔</string>
-    <string name="corpsefinder_filter_appasec_label">اینکرپٹیڈ ایپ ریسورس</string>
-    <string name="corpsefinder_filter_appasec_summary">اینکرپٹیڈ ایپ ریسورس، جیسے گیم کے اثاث۔</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2Sd موڈز کے ذریعے بیرونی اسٹوریج میں منتقل کیا گیا ڈیٹا۔</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <plurals name="corpsefinder_result_x_corpses_deleted">
-        <item quantity="one">%d ایپ بقایا ڈیلیٹ ہوا</item>
-        <item quantity="other">%d ایپ بقایا ڈیلیٹ ہوئے</item>
-    </plurals>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d ایپ بقایا دریافت</item>
-        <item quantity="other">%d ایپ بقایا دریافت</item>
-    </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">تمام ایپ بقایا ڈیلیٹ کریں؟</string>
-    <string name="corpsefinder_owners_label">مالکان</string>
-    <string name="corpsefinder_corpse_hints_label">نوٹس</string>
-    <string name="corpsefinder_owner_unknown">نامعلوم مالک</string>
-    <string name="corpsefinder_corpse_hint_keeper">اس آئٹم میں ایسا ڈیٹا ہو سکتا ہے جسے آپ رکھنا چاہیں حالانکہ اس کا مالک انانسٹال ہو گیا ہے، جیسے فوٹوز یا بیک اپس۔</string>
-    <string name="corpsefinder_corpse_hint_common">اس آئٹم کا بہت عام نام ہے اور یہ ابھی بھی انسٹال شدہ ایپس سے تعلق رکھ سکتا ہے جن کے بارے میں SD Maid کو علم نہیں۔</string>
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
-    <string name="systemcleaner_explanation_short">فالتو ڈیٹا جو کسی مخصوص ایپ سے تعلق نہیں رکھتا۔</string>
-    <plurals name="systemcleaner_result_x_items_deleted">
-        <item quantity="one">%d میچ ڈیلیٹ ہوا</item>
-        <item quantity="other">%d میچیز ڈیلیٹ ہوئے</item>
-    </plurals>
-    <plurals name="systemcleaner_result_x_items_found">
-        <item quantity="one">%d فلٹر میچ</item>
-        <item quantity="other">%d فلٹر میچیز</item>
-    </plurals>
-    <string name="systemcleaner_filter_custom_label">کسٹم فلٹر</string>
-    <string name="systemcleaner_filter_custom_manage_label">کسٹم فلٹرز کا انتظام</string>
-    <string name="systemcleaner_filter_custom_manage_summary">اپنے کسٹم فلٹرز بنائیں، ڈیلیٹ کریں، امپورٹ اور ایکسپورٹ کریں۔</string>
-    <string name="systemcleaner_filter_logfiles_label">سسٹم لاگ فائلز</string>
-    <string name="systemcleaner_filter_logfiles_summary">مختلف جگہوں پر سسٹم اور سسٹم سروس کی لاگ فائلز (جیسے *.log)۔</string>
-    <string name="systemcleaner_filter_packagecaches_label">انسٹالر کیش</string>
-    <string name="systemcleaner_filter_packagecaches_summary">انسٹال شدہ ایپس سے متعلق کیش ڈیٹا جو سسٹم کے پیکج مینجمنٹ میں استعمال ہوتا ہے۔</string>
-    <string name="systemcleaner_filter_advertisements_label">اشتہاری فائلز</string>
-    <string name="systemcleaner_filter_advertisements_summary">ایسی فائلیں جو اشتہارات کے لیے یا ان کے ذریعے بنائی گئی ہیں۔</string>
-    <string name="systemcleaner_filter_anr_label">ANR ایررز</string>
-    <string name="systemcleaner_filter_anr_summary">\'application not responding\' واقعات کے ٹریسیز۔</string>
-    <string name="systemcleaner_filter_emptydirectories_label">خالی فولڈرز</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">پورے ڈیوائس سے خالی فولڈرز۔ نیسٹیڈ فولڈرز کے لیے متعدد پاس درکار ہو سکتے ہیں۔</string>
-    <string name="systemcleaner_filter_screenshots_label">سکرین شاٹس</string>
-    <string name="systemcleaner_filter_screenshots_summary">%s سے پرانے متعدد ایپس اور جگہوں سے سکرین شاٹس۔</string>
-    <string name="systemcleaner_filter_trashed_label">ٹریش فائلز</string>
-    <string name="systemcleaner_filter_trashed_summary">مختلف ایپس اور جگہوں کے ریسائکل بنز میں فائلیں جو حذف کے لیے نشان زد ہیں لیکن ابھی تک مستقل طور پر ہٹائی نہیں گئیں۔</string>
-    <string name="systemcleaner_filter_screenshots_age_label">سکرین شاٹ کی عمر</string>
-    <string name="systemcleaner_filter_screenshots_age_summary">سکرین شاٹس کے حذف کے لیے زیر غور لانے کے لیے کم سے کم عمر۔</string>
-    <string name="systemcleaner_filter_superfluosapks_label">فالتو APKز</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">سیٹ اپ فائلیں جو پہلے سے انسٹال شدہ ایپ ورژنز سے پرانی یا برابر ہیں۔</string>
-    <string name="systemcleaner_filter_lostdir_label">LOST.DIR فولڈرز</string>
-    <string name="systemcleaner_filter_lostdir_summary">عارضی فائلیں جو Android ڈیوائسیز کے درمیان ڈیٹا منتقل کرتے وقت بنائی جاتی ہیں۔</string>
-    <string name="systemcleaner_filter_linuxfiles_label">Linux فائلز</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">فائلیں اور فولڈرز جو اسٹوریج کو Linux کمپیوٹر سے جوڑنے پر بنتے ہیں۔</string>
-    <string name="systemcleaner_filter_macfiles_label">Mac فائلیں</string>
-    <string name="systemcleaner_filter_macfiles_summary">فائلیں اور فولڈرز جو Apple کی finder ایپ کے ساتھ اسٹوریج براؤز کرتے وقت بنتے ہیں۔</string>
-    <string name="systemcleaner_filter_windowsfiles_label">Windows فائلیں</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"ڈیٹا جو Windows فائل ایکسپلورر جڑے ہوئے اسٹوریج پر بنا سکتا ہے۔"</string>
-    <string name="systemcleaner_filter_thumbnails_label">تھمب نیل امیجز</string>
-    <string name="systemcleaner_filter_thumbnails_summary">امیجز اور ویڈیوز کے لیے کیش شدہ پریویوز۔</string>
-    <string name="systemcleaner_filter_tempfiles_label">عارضی سسٹم فائلز</string>
-    <string name="systemcleaner_filter_tempfiles_summary">سسٹم سے متعلق عارضی فائلیں، عام طور پر فعال عملیات کے لیے مختصر زندگی کیشیز۔</string>
-    <string name="systemcleaner_filter_analytics_label">اینالائٹکس فائلز</string>
-    <string name="systemcleaner_filter_analytics_summary">اینالائٹکس اور بگ ٹریکنگ سے متعلق ڈیٹا۔</string>
-    <string name="systemcleaner_filter_downloadcache_label">Download کیش</string>
-    <string name="systemcleaner_filter_downloadcache_summary">سسٹم کیش فولڈر جو مختلف چیزوں کے لیے استعمال ہوتا ہے (جیسے OTA اپڈیٹس)۔</string>
-    <string name="systemcleaner_filter_localtmp_label">لوکل عارضی فائلز</string>
-    <string name="systemcleaner_filter_localtmp_summary">سسٹم سے متعلق عارضی فائلیں (مثل Android Studio سے)۔</string>
-    <string name="systemcleaner_filter_datalogger_label">سسٹم لاگ فائلیں</string>
-    <string name="systemcleaner_filter_datalogger_summary">سسٹم سروس کی مخصوص لاگ فائلیں۔</string>
-    <string name="systemcleaner_filter_logdropbox_label">لاگ ڈراپ باکس</string>
-    <string name="systemcleaner_filter_logdropbox_summary">سسٹم کے لیے لاگ فائلیں ڈالنے کا علاقہ۔</string>
-    <string name="systemcleaner_filter_recenttasks_label">حالیہ کام</string>
-    <string name="systemcleaner_filter_recenttasks_summary">سسٹم کے ٹاسک سوچر میں ٹاسک کی تاریخ سے متعلق ڈیٹا۔</string>
-    <string name="systemcleaner_filter_tombstones_label">سسٹم کریش کے بقایا</string>
-    <string name="systemcleaner_filter_tombstones_summary">اگر مقامی پروسیسز کریش ہوتے ہیں (جیسے گیمز)، تو یہاں فائلیں بنائی جاتی ہیں۔</string>
-    <string name="systemcleaner_filter_usagestats_label">استعمال کے شماریات</string>
-    <string name="systemcleaner_filter_usagestats_summary">ایپلیکیشن کے استعمال کے شماریات سے متعلق فائلیں۔</string>
-    <string name="systemcleaner_delete_all_confirmation_message">تمام فلٹر کنٹینٹس ڈیلیٹ کریں؟</string>
-    <string name="systemcleaner_customfilter_label">کسٹم فلٹر</string>
-    <string name="systemcleaner_customfilter_create_action">کسٹم فلٹر بنائیں</string>
-    <string name="systemcleaner_customfilter_create_hint">اضافی فائلوں کو حذف کرنے کے لیے ایک کسٹم فلٹر بنائیں جو آپ کے ڈیوائس اور استعمال کے حالات کے لیے منفرد ہیں۔</string>
-    <string name="systemcleaner_editor_remove_confirmation_message">یہ فلٹر ہٹائیں؟</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">آپ کے پاس غیر محفوظ تبدیلیاں ہیں!</string>
-    <string name="systemcleaner_customfilter_editor_label_label">فلٹر لیبل</string>
-    <string name="systemcleaner_customfilter_editor_warning">کسٹم فلٹرز خطرناک ہو سکتے ہیں۔ ڈیلیٹ کرنے سے پہلے اپنے سکین کے نتائج چیک کریں!</string>
-    <string name="systemcleaner_customfilter_editor_areas_label">ڈیٹا ایریاز</string>
-    <string name="systemcleaner_customfilter_editor_areas_explanation">اگر کوئی علاقہ منتخب نہیں ہے، تو تمام قابل رسائی ڈیٹا علاقوں کو اسکین اور میچ کیا جائے گا۔</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_label">فائل قسم کی پابندیاں</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_files_label">فائلیں</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">فولڈرز</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_hint">اگر کوئی قسم منتخب نہیں ہے، تو تمام قسمیں میچ ہوں گی۔</string>
-    <string name="systemcleaner_customfilter_editor_path_label">پاتھ کے معیار</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">ہدف پاتھ کو کم از کم ایک انٹری سے میل کھانا ضروری ہے (مثل \"Downloads/oldapks/game-\")۔ مزید آپشنز کے لیے انٹریز کو لمبا دبائیں۔</string>
-    <string name="systemcleaner_customfilter_editor_name_label">نام کے معیار</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ہدف کے نام میں کم از کم ایک کلیدی لفظ ہونا ضروری ہے (مثل \"-receipt\")۔ مزید آپشنز کے لیے انٹریز کو لمبا دبائیں۔</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_label">استثنائات</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">اگر پاتھ کسی انٹری سے میل کھاتا ہے تو نتیجہ خارج کر دیا جائے گا (مثل \"DCIM\")۔ مزید آپشنز کے لیے انٹریز کو لمبا دبائیں۔</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">پاتھ موازنہ موڈ</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">پاتھ کلیدی لفظ سے شروع ہوتا ہے</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">پاتھ میں کلیدی لفظ شامل ہے</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">پاتھ کلیدی لفظ پر ختم ہوتا ہے</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">پاتھ کلیدی لفظ کے برابر ہے</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">نام موازنہ موڈ</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">نام کلیدی لفظ سے شروع ہوتا ہے</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">نام میں کلیدی لفظ شامل ہے</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">نام کلیدی لفظ پر ختم ہوتا ہے</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">نام کلیدی لفظ کے برابر ہے</string>
-    <string name="systemcleaner_customfilter_last_edit">آخری ترمیم: %s</string>
-    <string name="systemcleaner_customfilter_editor_livesearch_label">لائیو سرچ</string>
-    <string name="systemcleaner_customfilter_import_action">نیا فلٹر امپورٹ کریں</string>
-    <string name="systemcleaner_customfilter_export_action">منتخب فلٹر ایکسپورٹ کریں</string>
-    <string name="appcleaner_tool_name">AppCleaner</string>
-    <string name="appcleaner_explanation_short">مخصوص ایپس سے تعلق رکھنے والا ضروری غیر ڈیٹا۔</string>
-    <string name="appcleaner_filter_defaultcachespublic_label">پبلک ڈیفالٹ کیشیز</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">ڈیفالٹ پبلک ایپ کیشیز۔ پرانے Android ورژنز پر Android/data کے تحت قابل رسائی۔ سسٹم سیٹنگز میں "Clear cache" ٹیپ کرنے پر ڈیلیٹ ہو جاتے ہیں۔</string>
-    <string name="appcleaner_filter_defaultcachesprivate_label">پرائیویٹ ڈیفالٹ کیشیز</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">ڈیفالٹ پرائیویٹ ایپ کیشیز۔ سسٹم سیٹنگز میں "Clear cache" ٹیپ کرنے پر ڈیلیٹ ہو جاتے ہیں۔</string>
-    <string name="appcleaner_include_systemapps_label">سسٹم ایپس شامل کریں</string>
-    <string name="appcleaner_include_systemapps_summary">اسکین میں سسٹم ایپس شامل کریں۔</string>
-    <string name="appcleaner_include_runningapps_label">چلنے والے ایپس شامل کریں</string>
-    <string name="appcleaner_include_runningapps_summary">ایسے ایپس شامل کریں جو فی الوقت چل رہے ہیں جو مداخلت کا باعث بن سکتے ہیں۔</string>
-    <string name="appcleaner_include_inaccessible_label">ناقابل رسائی کیشیز شامل کریں</string>
-    <string name="appcleaner_include_inaccessible_summary">ایسا ڈیٹا شامل کریں جس تک براہ راست رسائی نہیں لیکن سسٹم سیٹنگز کے ذریعے ڈیلیٹ کیا جا سکتا ہے اور رسائی سروس کا استعمال کرکے خود کار بنایا جا سکتا ہے۔ </string>
-    <string name="appcleaner_include_multiuser_label">دوسرے صارفین شامل کریں</string>
-    <string name="appcleaner_include_multiuser_summary">اس ڈیوائس پر دوسرے یوزر پروفائلز کے ایپس شامل کریں۔</string>
-    <string name="appcleaner_include_minimumsize_label">کم سے کم سائز</string>
-    <string name="appcleaner_include_minimumsize_summary">ایسے ایپس چھوڑیں جہاں قابل حذف ڈیٹا کا مجموعہ کم سے کم سے کم ہے۔</string>
-    <string name="appcleaner_include_minimumage_label">کم سے کم عمر</string>
-    <string name="appcleaner_include_minimumage_summary">ایسی فائلیں چھوڑیں جو کم سے کم عمر سے چھوٹی ہیں۔</string>
-    <string name="appcleaner_automation_romtype_detection_label">آپریٹنگ سسٹم کی شناخت</string>
-    <string name="appcleaner_automation_romtype_detection_summary">اگر SD Maid آپ کے OS کو صحیح طریقے سے شناخت نہیں کرتا تو رسائی پر مبنی آٹومیشن ناکام ہو سکتی ہے۔ شناخت شدہ OS کو اوور رائڈ کرنے کے لیے اس سیٹنگ کا استعمال کریں۔</string>
-    <string name="appcleaner_filter_codecache_label">کوڈ کیش</string>
-    <string name="appcleaner_filter_codecache_summary">JVM کوڈ کیش۔ بائی کوڈ کے بلاکس جو نیٹو کوڈ میں کمپائل ہوتے ہیں۔</string>
-    <string name="appcleaner_filter_advertisement_label">اشتہاری ڈیٹا</string>
-    <string name="appcleaner_filter_advertisement_summary">اشتہارات سے متعلق فائلیں، جیسے کیش شدہ میڈیا۔</string>
-    <string name="appcleaner_filter_bugreporting_label">بگ رپورٹنگ</string>
-    <string name="appcleaner_filter_bugreporting_summary">بگ رپورٹنگ سے متعلق ڈیٹا، جیسے ایرر لاگز یا کریش ڈمپز۔</string>
-    <string name="appcleaner_filter_analytics_label">اینالائٹکس</string>
-    <string name="appcleaner_filter_analytics_summary">اینالائٹکس سے متعلق ڈیٹا، جیسے ایپ میں آپ کے ٹیپ کرنے کے کیش شدہ شماریات۔</string>
-    <string name="appcleaner_filter_hiddencaches_label">چھپے ہوئے کیشیز</string>
-    <string name="appcleaner_filter_hiddencaches_summary">عام مقصد کیشیز جو سسٹم کی پہنچ سے باہر محفوظ ہیں۔</string>
-    <string name="appcleaner_filter_thumbnails_label">میڈیا تھمب نیلز</string>
-    <string name="appcleaner_filter_thumbnails_summary">امیج، ویڈیو اور آڈیو پریویو تھمب نیل تصاویر۔</string>
-    <string name="appcleaner_filter_gamefiles_label">گیم فائلز</string>
-    <string name="appcleaner_filter_gamefiles_summary">گیم سے متعلق ریسورس جو گیم اگلی بار لانچ پر ضرورت کے مطابق دوبارہ لوڈ کرے گا۔</string>
-    <string name="appcleaner_filter_offlinecache_label">آف لائن کیش</string>
-    <string name="appcleaner_filter_offlinecache_summary">آف لائن استعمال کے لیے محفوظ فائلیں، جیسے نقشے کی ٹائلز۔</string>
-    <string name="appcleaner_filter_recyclebins_label">ری سائکل بنز</string>
-    <string name="appcleaner_filter_recyclebins_summary">فائلیں جو حذف کر دی گئی ہیں لیکن انہیں بحالی کی اجازت دینے کے لیے خاص فولڈر میں رکھا گیا ہے۔</string>
-    <string name="appcleaner_filter_webview_label">Webview فائلز</string>
-    <string name="appcleaner_filter_webview_summary">ایپس میں استعمال ہونے والے Webview انسٹنسیز کے ذریعے کیش شدہ فائلیں۔</string>
-    <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp بیک اپس</string>
-    <string name="appcleaner_filter_whatsapp_backups_summary">WhatsApp بیک اپس کی اضافی کاپیز ڈیلیٹ کریں اور صرف تازہ ترین رکھیں۔</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">فائلیں جو آپ نے WhatsApp کے ذریعے لوگوں سے موصول کیں۔</string>
-    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp موصولہ فائلز</string>
-    <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp بھیجی گئی فائلز</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp سے دوسروں کو بھیجی گئی فائلیں۔</string>
-    <string name="appcleaner_filter_telegram_label">Telegram میڈیا فائلیں</string>
-    <string name="appcleaner_filter_telegram_summary">Telegram کے ذریعے موصولہ یا بھیجی گئی فائلیں۔</string>
-    <string name="appcleaner_filter_threema_label">Threema</string>
-    <string name="appcleaner_filter_threema_summary">Threema کے ذریعے موصولہ فائلیں۔</string>
-    <string name="appcleaner_filter_wechat_label">WeChat</string>
-    <string name="appcleaner_filter_wechat_summary">گفتگو اور WeChat مومنٹس میں بھیجی یا موصولہ فائلیں۔</string>
-    <string name="appcleaner_filter_viber_label">Viber</string>
-    <string name="appcleaner_filter_viber_summary">کیش شدہ میڈیا فائلیں جو چیٹ میں دیکھنے پر دوبارہ ڈاؤن لوڈ ہوتی ہیں۔</string>
-    <string name="appcleaner_filter_qqchat_label">QQ chat</string>
-    <string name="appcleaner_filter_qqchat_summary">QQ چیٹ گفتگو میں بھیجی یا موصولہ فائلیں۔</string>
-    <string name="appcleaner_delete_all_confirmation_message">تمام ایپس کے لیے قابل حذف اجزاء ڈیلیٹ کریں؟</string>
-    <plurals name="appcleaner_result_x_items_deleted">
-        <item quantity="one">%d قابل حذف آئٹم ڈیلیٹ ہوا</item>
-        <item quantity="other">%d قابل حذف آئٹمز ڈیلیٹ ہوئے</item>
-    </plurals>
-    <plurals name="appcleaner_result_x_items_found">
-        <item quantity="one">%d قابل حذف آئٹم ملا</item>
-        <item quantity="other">%d قابل حذف آئٹمز ملے</item>
-    </plurals>
-    <string name="appcleaner_automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>
-    <string name="appcleaner_automation_title">AppCleaner آٹومیشن</string>
-    <string name="appcleaner_automation_subtitle_default_caches">ڈیفالٹ کیشیز صاف کر رہے ہیں…</string>
-    <string name="appcleaner_automation_progress_open_settings">سیٹنگز سکرین کھول رہے ہیں (کلیدی الفاظ: %s)</string>
-    <string name="appcleaner_automation_progress_find_storage">\"Storage\" انٹری تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_data">\"Clear data\" بٹن تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" بٹن تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">پچھلے عمل کی تصدیق کرنے کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
-    <string name="appcleaner_item_caches_inaccessible_title">ڈیفالٹ کیشیز</string>
-    <string name="appcleaner_item_caches_inaccessible_body">پبلک اور پرائیویٹ ڈیفالٹ کیشیز۔ براہ راست قابل رسائی نہیں، لیکن بالواسطہ ڈیلیٹ کیا جا سکتا ہے (جیسے رسائی سروس کے ذریعے)۔</string>
-    <string name="appcleaner_automation_unavailable_title">رسائی سروس دستیاب نہیں</string>
-    <string name="appcleaner_automation_unavailable_body">ناقابل رسائی کیشیز صاف کرنے کے لیے SD Maid کی رسائی سروس درکار ہے، لیکن یہ دستیاب نہیں تھی۔ اگر آپ اسے استعمال نہیں کرنا چاہتے: \"ناقابل رسائی کیشیز شامل کریں\" آپشن کو غیر فعال کریں۔</string>
-    <string name="appcleaner_junk_userprofile_label">صارف</string>
-    <string name="appcleaner_delete_confirmation_message_x">%s کے لیے قابل حذف فائلیں ڈیلیٹ کریں؟</string>
-    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
-        <item quantity="one">%d منتخب ایپ کے لیے قابل حذف فائلیں ڈیلیٹ کریں؟</item>
-        <item quantity="other">%d منتخب ایپس کے لیے قابل حذف فائلیں ڈیلیٹ کریں؟</item>
-    </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku استعمال کرکے کیشیز ڈیلیٹ کر رہے ہیں</string>
-    <string name="appcleaner_progress_determining_inaccessible_caches">ناقابل رسائی کیشیز کا تعین کر رہے ہیں</string>
-    <string name="appcleaner_automation_error_locked_appcache_title">کیش صاف کرنا دستیاب نہیں</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">سسٹم نے اس ایپ کے لیے "Clear cache" بٹن کو غیر فعال کر دیا ہے۔ کیش صاف کرنے کی رفتار بڑھانے کے لیے اسے خارج کریں۔</string>
-    <string name="appcleaner_automation_error_no_settings_title">سیٹنگز سکرین دستیاب نہیں</string>
-    <string name="appcleaner_automation_error_no_settings_body">اس سسٹم ایپ کی کوئی سیٹنگز سکرین نہیں ہے۔ رسائی سروس کے ذریعے کیش صفائی ممکن نہیں۔ کیش صفائی کی رفتار بڑھانے کے لیے اسے خارج کریں۔</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_title">سسٹم ایپ غلط کنفیگر ہے</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS کی Security ایپ (com.miui.securitycenter) میں Usage Stats permission (GET_USAGE_STATS) غائب ہے۔ یہ ایپ کی تفصیلات میں "Clear Data" اور رسائی کے ذریعے کیش صفائی جیسے فیچرز کو خراب کرتا ہے۔ مکمل فعالیت بحال کرنے کے لیے اجازت دیں۔</string>
-    <string name="deduplicator_tool_name">Deduplicator</string>
-    <string name="deduplicator_explanation_short">اپنے ڈیوائس پر ڈپلیکیٹ ڈیٹا تلاش کریں۔</string>
-    <plurals name="deduplicator_result_x_clusters_processed">
-        <item quantity="one">%d ڈپلیکیٹ ڈیلیٹ ہوا</item>
-        <item quantity="other">%d ڈپلیکیٹس ڈیلیٹ ہوئے</item>
-    </plurals>
-    <plurals name="deduplicator_result_x_clusters_found">
-        <item quantity="one">%d ڈپلیکیٹ سیٹ ملا</item>
-        <item quantity="other">%d ڈپلیکیٹ سیٹس ملے</item>
-    </plurals>
-    <string name="deduplicator_protection_deleteall_allowed_title">\"تمام ڈیلیٹ کریں\" کو ممکن بنائیں</string>
-    <string name="deduplicator_protection_deleteall_allowed_summary">ایسے آپشنز دکھائیں جو آپ کو ڈپلیکیٹس کے سیٹ میں تمام فائلیں ڈیلیٹ کرنے کی اجازت دیں تاکہ کوئی فائل باقی نہ رہے۔</string>
-    <string name="deduplicator_search_locations_title">تلاش کے مقامات</string>
-    <string name="deduplicator_search_locations_all_summary">تمام قابل رسائی علاقے</string>
-    <string name="deduplicator_skip_minsize_title">کم سے کم سائز</string>
-    <string name="deduplicator_skip_minsize_description">ایسی فائلیں چھوڑیں جو کم سے کم سائز سے کم ہیں۔</string>
-    <string name="deduplicator_skip_uncommon_title">غیر عام فائل اقسام چھوڑیں</string>
-    <string name="deduplicator_skip_uncommon_description">صرف عام میڈیا فائلیں، دستاویز اور آرکائوز شامل کریں۔</string>
-    <string name="deduplicator_detection_method_label">شناخت کا طریقہ</string>
-    <string name="deduplicator_detection_method_checksum_title">مواد چیک سم</string>
-    <string name="deduplicator_detection_method_checksum_summary">فائلوں کے لیے چیک سم کی گنتی کرکے ڈپلیکیٹس کا تعین کریں۔ میچنگ چیک سم والی فائلوں میں بالکل وہی مواد ہوتا ہے۔</string>
-    <string name="deduplicator_detection_method_phash_title">ادراکی ہیش</string>
-    <string name="deduplicator_detection_method_phash_summary">مواد کی خصوصیات کا تجزیہ کرکے اور ادراکی ہیش قیمتوں کی موازنہ کرکے مشابہ فائلیں تلاش کریں۔</string>
-    <string name="deduplicator_occupied_space_label">قبضہ شدہ سٹوریج</string>
-    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
-        <item quantity="one">%s ڈپلیکیٹس کے ذریعے قبضہ میں ہے</item>
-        <item quantity="other">%s ڈپلیکیٹس کے ذریعے قبضہ میں ہیں</item>
-    </plurals>
-    <string name="deduplicator_file_size_label">فائل سائز</string>
-    <string name="deduplicator_average_size_label">اوسط سائز</string>
-    <string name="deduplicator_cluster_x_label">کلسٹر %s</string>
-    <string name="deduplicator_delete_confirmation_message">ڈپلیکیٹ فائلوں کے تمام سیٹس میں ایک کاپی چھوڑ کر باقی تمام ڈیلیٹ کریں؟</string>
-    <string name="deduplicator_delete_single_set_confirmation_message">ڈپلیکیٹ فائلوں کے اس سیٹ میں ایک کاپی چھوڑ کر باقی تمام ڈیلیٹ کریں؟</string>
-    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">ڈپلیکیٹ فائلوں کے اس سیٹ میں تمام فائلیں ڈیلیٹ کریں؟ کوئی فائل باقی نہیں رہے گی!</string>
-    <string name="deduplicator_delete_multiple_sets_confirmation_message">ڈپلیکیٹ فائلوں کے ہر منتخب سیٹ میں ایک کاپی چھوڑ کر باقی تمام ڈیلیٹ کریں؟</string>
-    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ڈپلیکیٹ فائلوں کے ہر منتخب سیٹ میں تمام فائلیں ڈیلیٹ کریں؟ کوئی فائل باقی نہیں رہے گی!</string>
-    <string name="deduplicator_delete_all_toggle_msg">تمام کاپیاں ڈیلیٹ کریں۔ کوئی فائل باقی نہیں رہے گی!</string>
-    <string name="deduplicator_progress_comparing_files">فائلوں کی موازنہ</string>
-    <string name="deduplicator_details_cluster_title">ڈپلیکیٹس کا سیٹ</string>
-    <string name="deduplicator_matches_exact_label">بالکل طور پر کاپیاں</string>
-    <string name="deduplicator_matches_similar_label">مشابہ فائلیں</string>
-    <string name="appcontrol_tool_name">AppControl</string>
-    <string name="appcontrol_explanation_short">آپ کے ڈیوائس پر انسٹال شدہ ایپس۔</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d ایپ کا پتہ لگا</item>
-        <item quantity="other">%d ایپس کا پتہ لگا</item>
-    </plurals>
-    <string name="appcontrol_toggle_app_selection_action">ایپس ٹوگل کریں</string>
-    <string name="appcontrol_toggle_app_enable_action">ایپ فعال کریں</string>
-    <string name="appcontrol_toggle_app_disable_action">ایپ غیر فعال کریں</string>
-    <string name="appcontrol_toggle_app_enable_description">ایپ فعال کرنے سے اسے چلنے کی اجازت ملتی ہے اور اگر اس کی کوئی ایکٹوٹی ہے تو یہ آپ کے لانچر میں نظر آ سکتی ہے۔</string>
-    <string name="appcontrol_toggle_app_disable_description">ایپ غیر فعال کرنے سے یہ چلنے سے رک جاتی ہے اور مینیوز سے چھپ جاتی ہے۔ کوئی ڈیٹا کمی نہیں ہوتی۔</string>
-    <string name="appcontrol_appstore_open_title">ایپ سٹور میں کھولیں</string>
-    <string name="appcontrol_appstore_open_description">اس ایپ کو اس ایپ سٹور میں کھولیں جہاں سے یہ انسٹال ہوئی تھی۔</string>
-    <string name="appcontrol_systemsettings_open_title">سیٹنگز دکھائیں</string>
-    <string name="appcontrol_systemsettings_open_description">اس ایپ کے لیے آپ کے ڈیوائس کی سسٹم سیٹنگز کھولیں۔</string>
-    <string name="appcontrol_app_launch_title">ایپ لانچ کریں</string>
-    <string name="appcontrol_app_launch_description">اس ایپ کی بنیادی سرگرمی لانچ کریں۔</string>
-    <string name="appcontrol_app_forcestop_title">زبردستی بند کریں</string>
-    <string name="appcontrol_app_forcestop_description">ایپ کو بند کرتا ہے۔ اسے خود شروع ہونے سے روکتا ہے جب تک آپ اسے نہیں کھولتے یا ڈیوائس کو ری بوٹ نہیں کرتے۔</string>
-    <string name="appcontrol_app_uninstall_description">اس ایپ کو آپ کے ڈیوائس سے ان انسٹال کریں۔</string>
-    <string name="appcontrol_app_exclude_add_title">ایپ کو خارج کریں</string>
-    <string name="appcontrol_app_exclude_add_description">اس ایپ کو SD Maid کی دیگر کارروائیوں سے خارج کریں۔</string>
-    <string name="appcontrol_app_exclude_edit_title">استثنا کو تبدیل کریں</string>
-    <string name="appcontrol_app_exclude_edit_description">یہ ایپ فی الوقت ایک یا زیادہ ٹولز سے خارج ہے۔</string>
-    <string name="appcontrol_tag_user">صارف</string>
-    <string name="appcontrol_tag_active">حال ہی میں فعال</string>
-    <string name="appcontrol_tag_apk_base">APK</string>
-    <string name="appcontrol_tag_apk_bundle">Bundle</string>
-    <string name="appcontrol_tag_system">سسٹم</string>
-    <string name="appcontrol_tag_archived">آرکائیو شدہ</string>
-    <string name="appcontrol_tag_uninstalled">صرف ڈیٹا</string>
-    <string name="appcontrol_tag_not_installed">انسٹال نہیں</string>
-    <string name="appcontrol_tag_enabled">فعال</string>
-    <string name="appcontrol_tag_disabled">غیر فعال</string>
-    <string name="appcontrol_progress_enabling_package">ایپ فعال کر رہے ہیں</string>
-    <string name="appcontrol_progress_disabling_package">ایپ غیر فعال کر رہے ہیں</string>
-    <string name="appcontrol_list_filteroptions_label">فلٹر آپشنز</string>
-    <string name="appcontrol_list_sortmode_name_label">ایپ کا نام</string>
-    <string name="appcontrol_list_sortmode_updated_label">آخری اپڈیٹ</string>
-    <string name="appcontrol_list_sortmode_installed_label">پہلی انسٹالیشن</string>
-    <string name="appcontrol_list_sortmode_packagename_label">پیکج نام</string>
-    <string name="appcontrol_list_sortmode_size_label">سائز</string>
-    <string name="appcontrol_list_sortmode_screentime_label">سکرین ٹائم</string>
-    <string name="appcontrol_list_sortmode_size_caveat_msg">ایپ کے سائز کارکردگی کی وجہ سے تخمینی ہیں۔ زیادہ درست ڈیٹا کے لیے StorageAnalyzer ٹول استعمال کریں۔</string>
-    <string name="appcontrol_progress_uninstalling_app">ایپ ان انسٹال کر رہے ہیں</string>
-    <plurals name="appcontrol_uninstall_result_message_x">
-        <item quantity="one">%d ایپ ان انسٹال ہوئی</item>
-        <item quantity="other">%d ایپس ان انسٹال ہوئے</item>
-    </plurals>
-    <string name="appcontrol_app_sizes_title">ایپ سائز</string>
-    <string name="appcontrol_app_sizes_apk_label">ایپ</string>
-    <string name="appcontrol_app_sizes_data_label">ڈیٹا</string>
-    <string name="appcontrol_app_sizes_cache_label">کیش</string>
-    <string name="appcontrol_toggle_confirmation_title">عمل کی تصدیق کریں</string>
-    <plurals name="appcontrol_toggle_confirmation_message_x">
-        <item quantity="one">%d ایپ کی فعال/غیر فعال حالت تبدیل کریں؟</item>
-        <item quantity="other">%d ایپس کی فعال/غیر فعال حالات تبدیل کریں؟</item>
-    </plurals>
-    <plurals name="appcontrol_toggle_result_message_x">
-        <item quantity="one">%d ایپ ٹوگل ہوئی</item>
-        <item quantity="other">%d ایپس ٹوگل ہوئے</item>
-    </plurals>
-    <string name="appcontrol_settings_module_sizing_enabled_label">سائز کا تعین</string>
-    <string name="appcontrol_settings_module_sizing_enabled_description">ہر ایپ کے سائز کا تخمینی اندازہ لگائیں۔</string>
-    <string name="appcontrol_settings_module_activity_enabled_label">سرگرمی کا تعین</string>
-    <string name="appcontrol_settings_module_activity_enabled_description">پتہ کریں کہ کیا ایپ فعال ہے (یا حال ہی میں تھی)۔</string>
-    <string name="appcontrol_export_app_selection_action">ایپس ایکسپورٹ کریں</string>
-    <string name="appcontrol_export_title">ایپ ایکسپورٹ کریں</string>
-    <string name="appcontrol_export_description">اس ایپ کی انسٹالیشن فائلیں محفوظ کریں۔ اس میں ایپ ڈیٹا شامل نہیں۔</string>
-    <plurals name="appcontrol_export_result_message_x">
-        <item quantity="one">%d ایپ ایکسپورٹ ہوئی</item>
-        <item quantity="other">%d ایپس ایکسپورٹ ہوئے</item>
-    </plurals>
-    <string name="appcontrol_progress_exporting_x">%s ایکسپورٹ کر رہے ہیں</string>
-    <string name="appcontrol_force_stop_selection_action">ایپس کو زبردستی بند کریں</string>
-    <string name="appcontrol_force_stop_action">زبردستی بند کریں</string>
-    <string name="appcontrol_force_stop_confirm_title">زبردستی بند کرنے کی تصدیق</string>
-    <plurals name="appcontrol_force_stop_confirmation_message_x">
-        <item quantity="one">%d ایپ کو زبردستی بند کریں؟</item>
-        <item quantity="other">%d ایپس کو زبردستی بند کریں؟</item>
-    </plurals>
-    <plurals name="appcontrol_force_stop_result_message_x">
-        <item quantity="one">%d ایپ بند کیا گیا</item>
-        <item quantity="other">%d ایپس بند کیے گئے</item>
-    </plurals>
-    <string name="appcontrol_automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>
-    <string name="appcontrol_automation_title">AppControl آٹومیشن</string>
-    <string name="appcontrol_automation_subtitle_force_stopping">زبردستی بند کر رہے ہیں…</string>
-    <string name="appcontrol_automation_progress_find_force_stop">\"Force stop\" بٹن تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">پچھلی کارروائی کی تصدیق کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
-    <string name="appcontrol_item_screentime_x_since_y_label">سکرین ٹائم: %1$s بعد %2$s</string>
-    <string name="appcontrol_item_lastupdate_x_label">آخری اپڈیٹ: %s</string>
-    <string name="appcontrol_item_installedat_x_label">انسٹال کیا گیا: %s</string>
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
-    <string name="analyzer_explanation_short">معلوم کریں کہ آپ کے ڈیوائس پر کیا جگہ این کر رہا ہے۔</string>
-    <string name="analyzer_progress_scanning_device">اسٹوریج ڈیوائسز کی تلاش</string>
-    <string name="analyzer_progress_scanning_storage">اسٹوریج سکین کر رہے ہیں</string>
-    <string name="analyzer_progress_scanning_apps">ایپس سکین کر رہے ہیں</string>
-    <string name="analyzer_progress_scanning_userfiles">صارف فائلیں تلاش کر رہے ہیں</string>
-    <string name="analyzer_progress_scanning_system">سسٹم ڈیٹا سکین کر رہے ہیں</string>
-    <string name="analyzer_device_storage_title">ڈیوائس اسٹوریج</string>
-    <plurals name="analyzer_space_available">
-        <item quantity="one">%s دستیاب</item>
-        <item quantity="other">%s دستیاب</item>
-    </plurals>
-    <plurals name="analyzer_space_used">
-        <item quantity="one">%s استعمال شدہ</item>
-        <item quantity="other">%s استعمال شدہ</item>
-    </plurals>
-    <string name="analyzer_content_access_opaque">کوئی براہ راست رسائی دستیاب نہیں</string>
-    <string name="analyzer_storage_type_primary_title">بنیادی اسٹوریج</string>
-    <string name="analyzer_storage_type_primary_description">آپ کے ڈیوائس کا بنیادی اسٹوریج۔ اندرونی SD کارڈ، ایپس کے لیے پرائیویٹ اسٹوریج اور سسٹم ڈیٹا پر مشتمل۔</string>
-    <string name="analyzer_storage_type_secondary_title">ثانوی اسٹوریج</string>
-    <string name="analyzer_storage_type_secondary_description">ثانوی اسٹوریج، عام طور پر ہٹانے کے قابل SD کارڈ۔ میڈیا فائلیں اور ایپس کا ڈیٹا جو اس کی حمایت کرتے ہیں پر مشتمل۔</string>
-    <string name="analyzer_storage_type_tertiary_title">پورٹابل اسٹوریج</string>
-    <string name="analyzer_storage_type_tertiary_description">پورٹابل اسٹوریج، جیسے آپ کے USB پورٹ میں لگائی گئی فلیش ڈرائیو۔</string>
-    <string name="analyzer_storage_content_title">اسٹوریج کا مواد</string>
-    <string name="analyzer_storage_content_type_app_label">ایپس</string>
-    <string name="analyzer_storage_content_type_app_description">انسٹال شدہ ایپس اور ان کے ڈیٹا کے ذریعے قبضہ میں لی گئی جگہ (یعنی ایپلیکیشن فائلیں، ڈیٹا اور کیشیز)۔</string>
-    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">اجازات غائب ہیں</string>
-    <string name="analyzer_storage_content_type_media_label">صارف فائلیں</string>
-    <string name="analyzer_storage_content_type_media_description">کیپچر شدہ تصاویر، ریکارڈ شدہ ویڈیوز یا ڈاؤن لوڈ شدہ ڈیٹا۔ کوئی بھی ڈیٹا جو کسی مخصوص ایپ سے تعلق نہیں رکھتا۔</string>
-    <string name="analyzer_storage_content_type_system_label">سسٹم ڈیٹا</string>
-    <string name="analyzer_storage_content_type_system_description">سسٹم ایپس اور سسٹم ڈیٹا۔ دوسرے صارفین کے ایپس اور ڈیٹا، اگر اس ڈیوائس پر کئی صارف اکاؤنٹس سیٹ ہیں۔</string>
-    <string name="analyzer_storage_content_app_code_label">ایپ کوڈ</string>
-    <string name="analyzer_storage_content_app_code_description">ایپلیکیشن فائلیں، لائبریریز اور ریسورسز۔ یہ جگہ ایپ کو ان انسٹال کرنے یا آرکائیو کرنے سے آزاد کی جا سکتی ہے (نئے Android ورژن پر دستیاب)۔</string>
-    <string name="analyzer_storage_content_app_data_label">ایپ ڈیٹا</string>
-    <string name="analyzer_storage_content_app_data_description">ڈیٹا، سیٹنگز اور کیشیز۔</string>
-    <string name="analyzer_storage_content_app_media_label">ایپ میڈیا</string>
-    <string name="analyzer_storage_content_app_media_description">اس ایپ سے میڈیا فائلیں، جیسے موصولہ WhatsApp فوٹوز۔</string>
-    <string name="analyzer_storage_content_app_extra_label">اضافی ایپ فائلیں</string>
-    <string name="analyzer_storage_content_app_extra_description">اضافی ڈیٹا جو اس ایپ نے ڈیفالٹ پاتھز کے باہر رکھا ہے، جیسے فوٹوز یا ڈاؤن لوڈز۔</string>
-    <string name="analyzer_app_details_app_occupies_x_on_y">یہ ایپ \"%2$s\" پر %1$s قبضہ میں لیے ہوئے ہے۔</string>
-    <string name="analyzer_app_details_app_is_archived">یہ ایپ آرکائیو کیا گیا ہے۔</string>
-    <string name="data_area_public_app_data_official_label">ڈیفالٹ پبلک ایپ ڈیٹا</string>
-    <string name="data_area_public_app_assets_official_label">ڈیفالٹ پبلک ایپ ایسیٹس</string>
-    <string name="data_area_public_storage_label">پبلک اسٹوریج</string>
-    <string name="data_area_sdcard_label">SD کارڈ</string>
-    <string name="data_areas_label">ڈیٹا ایریاز</string>
-    <string name="data_areas_description">ڈیٹا ایریاز آپ کے ڈیوائس پر ان مقامات کی نمائندگی کرتے ہیں جو SD Maid کے لیے قابل رسائی ہیں۔ آپ کے Android ورژن اور دی گئی اجازات کے مطابق مختلف ڈیٹا ایریاز دستیاب ہو سکتے ہیں۔</string>
-    <string name="data_areas_short_summary">وہ علاقے جن تک SD Maid فی الوقت دی گئی اجازات کے بنیاد پر رسائی حاصل کر سکتا ہے۔</string>
-    <string name="exclusion_manager_title">استثنا مینیجر</string>
-    <string name="exclusion_manager_desc">فائل اور ایپ استثنائات کا انتظام کریں۔</string>
-    <string name="exclusion_explanation_body1">فائلوں اور ایپس کو SD Maid کی کارروائیوں سے خارج کریں۔</string>
-    <string name="exclusion_add_new_hint">پہلے SD Maid کو تلاش کرنے دیں اور پھر اس نتیجے پر کنٹیکسٹ مینو استعمال کرکے نئے استثنائات شامل کریں جسے آپ خارج کرنا چاہتے ہیں۔</string>
-    <string name="exclusion_create_action">استثنا بنائیں</string>
-    <string name="exclusion_edit_action">استثنا تبدیل کریں</string>
-    <string name="exclusion_type_package">ایپ استثنا</string>
-    <string name="exclusion_type_path">پاتھ استثنا</string>
-    <string name="exclusion_type_segment">سیگمنٹ استثنا</string>
-    <string name="exclusion_tags_alltools">تمام ٹولز</string>
-    <string name="exclusion_target_label">استثنا کا ہدف</string>
-    <string name="exclusion_option_allow_partial">جزوی مماثلت کی اجازت دیں</string>
-    <string name="exclusion_option_ignore_casing">کیسنگ نظر انداز کریں</string>
-    <string name="exclusion_editor_affected_tools_label">متاثر ٹولز</string>
-    <string name="exclusion_editor_path_explanation">پاتھ استثنا SD Maid کو کسی بھی مماثل پاتھ کی مزید پروسیسنگ سے روکتا ہے۔ یہ فائلوں، فولڈرز اور ذیلی فولڈرز پر لاگو ہوتا ہے۔</string>
-    <string name="exclusion_editor_pkg_explanation">ایپ استثنا SD Maid کو کسی بھی مماثل پیکجز کی پروسیسنگ سے روکتا ہے۔</string>
-    <string name="exclusion_editor_segment_explanation">سیگمنٹ پر مبنی استثنا پاتھ استثنا کی طرح ہے لیکن جزوی مماثلات کی اجازت دیتا ہے۔ مثال: \"DCIM/Camera\" سے \"/sdcard/DCIM/Camera/photo.png\" باہر ہو جاتا ہے۔</string>
-    <string name="exclusion_editor_remove_confirmation_message">اس استثنا کو ہٹائیں؟</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">آپ کی غیر محفوظ تبدیلیاں ہیں!</string>
-    <string name="exclusion_reset_default_exclusions">ڈیفالٹ استثنائات بحال کریں</string>
-    <string name="exclusion_import_action">استثنائات امپورٹ کریں</string>
-    <string name="exclusion_export_action">استثنائات ایکسپورٹ کریں</string>
-    <string name="exclusion_create_pkg_hint">ایپ استثنائات بنانے کے لیے AppControl ٹول استعمال کریں۔</string>
-    <string name="exclusion_create_path_hint">پاتھ استثنائات بنانے کے لیے StorageAnalyzer ٹول استعمال کریں۔</string>
-    <plurals name="exclusion_x_new_exclusions">
-        <item quantity="one">ایک استثنا بنایا گیا</item>
-        <item quantity="other">%d استثنائات بنائے گئے</item>
-    </plurals>
-    <string name="exclusion_show_defaults_action">ڈیفالٹس دکھائیں</string>
-    <string name="automation_accessibility_service_description">خاص رسائی ضروریات والے صارفین اس سروس کو فعال کر سکتے ہیں تاکہ SD Maid کو ایسے کام شامل کرنے کی اجازت دی جا سکے جو بصورت دیگر بوریॅ دستی صارف برقراری کی ضرورت ہوگی (مثل کیش ڈیلیٹ)۔\n\nمثال: اگر آپ SD Maid کو متعدد ایپس بند کرنے کا کہیں تو SD Maid اس سروس کا استعمال کرکے ہر ایپ کی سیٹنگز سکرین کھول سکتا ہے، \'Force Stop\' بٹن تلاش کر سکتا ہے اور اسے ٹیپ کر سکتا ہے۔\n\nSD Maid ہمیشہ اس سروس کا استعمال کرتے وقت نمایاں نظر آئے گا اور صارف کو فوری طور پر کوئی بھی برقراری منسوخ کرنے کا آسان طریقہ فراہم کرے گا۔\n\nبنا صارف کی پیشین منظوری کے کوئی عمل انجام نہیں دیا جائے گا۔ یہ سروس کسی بھی وقت دوبارہ بنا نقصان اثرات کے بند کی جا سکتی ہے۔</string>
-    <string name="automation_screenoverlay_explanation">SD Maid آپ کے ڈیوائس کے ساتھ برقراری کر رہا ہے۔ اسی وقت سکرین کا استعمال ممکن نہیں۔ آپریشن مکمل ہونے کا انتظار کریں یا اسے منسوخ کریں۔</string>
-    <string name="automation_active_title">SD Maid کام کر رہا ہے</string>
-    <string name="automation_error_no_consent_title">آٹومیشن کی خرابی</string>
-    <string name="automation_error_no_consent_body">رسائی سروس سیٹ اپ نہیں ہے۔ سیٹ اپ مکمل کریں اور رضامندی دیں۔</string>
-    <string name="automation_error_not_enabled_title">سروس فعال نہیں ہے</string>
-    <string name="automation_error_not_enabled_body">رسائی سروس غیر فعال ہے۔ اسے دوبارہ آن کریں۔</string>
-    <string name="automation_error_not_running_title">سروس چل نہیں رہی</string>
-    <string name="automation_error_not_running_body">رسائی سروس چل نہیں رہی۔ ڈیوائس کو ری بوٹ کرنے کی کوشش کریں۔</string>
-    <string name="automation_error_screen_unavailable_title">سکرین دستیاب نہیں</string>
-    <string name="automation_error_screen_unavailable_body">آپریشن منسوخ کر دیا گیا کیونکہ سکرین دستیاب نہیں ہو گئی (مثل ڈسپلے بند یا لاک سکرین فعال)۔</string>
-    <string name="automation_error_compatibility_title">آٹومیشن کی موافقت</string>
-    <string name="automation_error_compatibility_body">SD Maid سکرین لے آؤٹ سمجھ نہیں سکا۔ اگر یہ مسلسل ہوتا رہے، تو آپ کی زبان یا سیٹ اپ مکمل طور پر مدد شدہ نہیں ہو سکتا۔ اپڈیٹس تلاش کریں یا مجھ سے رابطہ کریں تاکہ میں اسے ٹھیک کر سکوں۔</string>
-    <string name="automation_error_timeout_title">آٹومیشن ٹائم آؤٹ</string>
-    <string name="automation_error_timeout_body">SD Maid نے مقررہ وقت کی حد میں تمام مراحل مکمل نہیں کیے۔ اگر یہ مسلسل ہوتا رہے، تو مجھے آپ کے ڈیوائس کے لیے ایپ کو اڈجسٹ کرنے کی ضرورت ہو سکتی ہے۔ اپڈیٹس تلاش کریں یا مجھ سے رابطہ کریں تاکہ میں اسے ٹھیک کر سکوں۔</string>
-    <string name="automation_error_overlay_title">آٹومیشن اوورلے</string>
-    <string name="automation_error_overlay_body">SD Maid آٹومیشن اوورلے نہیں دکھا سکا۔ اجازات چیک کریں اور اپنے ڈیوائس کو ری بوٹ کرنے کی کوشش کریں۔</string>
-    <string name="history_label">تاریخ</string>
-    <string name="history_description">حالیہ کارروائیوں اور متاثر ڈیٹا کی تاریخی فہرست۔</string>
-    <string name="scheduler_label">شیڈیولر</string>
-    <string name="scheduler_execution_label">اگلی تکمیل (تقریباً)</string>
-    <string name="scheduler_execution_last_label">آخری تکمیل</string>
-    <string name="scheduler_settings_label">شیڈیولر</string>
-    <string name="scheduler_settings_summary">شیڈیولر سے متعلق سیٹنگز میں تبدیلی کریں۔</string>
-    <string name="scheduler_new_schedule_action">شیڈیول بنائیں</string>
-    <string name="scheduler_schedule_name_label">شیڈیول کا نام</string>
-    <string name="scheduler_schedule_toggle_enabled">شیڈیول فعال ہے</string>
-    <string name="scheduler_schedule_toggle_disabled">شیڈیول غیر فعال ہے</string>
-    <string name="scheduler_edit_schedule_action">شیڈیول تبدیل کریں</string>
-    <string name="scheduler_schedule_time_label">تخمینی وقت</string>
-    <string name="scheduler_schedule_repeat_label">دنوں میں تکرار کا وقفہ</string>
-    <string name="scheduler_schedule_default_name">ڈیفالٹ شیڈیول</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s تقریباً %2$s</string>
-    <string name="scheduler_schedule_next_at_x">%s کے لیے منصوبہ</string>
-    <string name="scheduler_schedule_last_at_x">%s پر آخری بار عمل کیا گیا</string>
-    <string name="scheduler_schedule_repeat_interval">تکرار کا وقفہ</string>
-    <string name="scheduler_inaccurate_execution_hint">متوقع تکمیل کے اوقات تخمینی ہیں۔ اگر بیٹری بچانے کے لیے ضروری ہو تو شیڈیولز موخر یا جلدی ہو سکتے ہیں۔</string>
-    <string name="scheduler_no_active_schedules_subtitle">کوئی فعال شیڈیول نہیں</string>
-    <string name="scheduler_setting_nopowersaving_title">کم بیٹری پر چھوڑیں</string>
-    <string name="scheduler_setting_nopowersaving_summary">اگر ڈیوائس پاور سیونگ موڈ میں ہے، تو شیڈیول شدہ تکمیل چھوڑ دی جائے گی۔</string>
-    <string name="scheduler_setting_charging_title">چارجنگ نہ ہونے پر چھوڑیں</string>
-    <string name="scheduler_setting_charging_summary">اگر ڈیوائس چارج نہیں ہو رہا، تو شیڈیول شدہ تکمیل چھوڑ دی جائے گی۔</string>
-    <string name="scheduler_setting_automation_title">رسائی سروس</string>
-    <string name="scheduler_setting_automation_summary">رسائی سروس استعمال کرنے والی کارروائیاں شامل کریں۔ اس کے لیے ضروری ہے کہ کام سرانجام ہونے کے وقت SD Maid آپ کی سکرین کے ساتھ برقراری کر سکے (یعنی یہ غیر مقفل ہو)۔</string>
-    <string name="scheduler_notification_channel_label">شیڈیولر</string>
-    <string name="scheduler_notification_title">مقررہ کام</string>
-    <string name="scheduler_notification_message">عمل کر رہے ہیں: \"%s\"</string>
-    <string name="scheduler_notification_result_title">شیڈیولر مکمل</string>
-    <string name="scheduler_notification_result_success_message">تمام شیڈیول شدہ کام کامیابی سے چلے۔</string>
-    <string name="scheduler_notification_result_failure_message">کچھ شیڈیول شدہ کام ناکام ہوئے یا خرابی کا سامنا کیا۔ انھیں دستی طور پر چلانے کی کوشش کریں۔</string>
-    <string name="scheduler_commands_after_schedule_label">شیڈیول کے بعد کے کمانڈز</string>
-    <string name="scheduler_commands_after_schedule_desc">Android شیل کمانڈز جو شیڈیول کے اختتام پر تعین کیے جائیں گے۔</string>
-    <string name="scheduler_battery_optimization_hint">اگر آپ کو پس منظر کی تکمیل میں مسائل کا سامنا ہو تو SD Maid کے لیے بیٹری آپٹیمائزیشن بند کرنے پر غور کریں۔</string>
-    <string name="updates_dashcard_title">اپڈیٹ دستیاب ہے</string>
-    <string name="updates_dashcard_body">ایک اپڈیٹ دستیاب ہے۔ آپ کے پاس %1$s ہے اور تازہ ترین ورژن %2$s ہے۔</string>
-    <string name="translation_encourage_title">SD Maid کا ترجمہ</string>
-    <string name="translation_encourage_body">SD Maid کا ترجمہ رضاکاروں کے ذریعے کیا جاتا ہے۔ ترجمہ، جائزہ یا پروف ریڈنگ، آپ کی مدد کی قدر کی جاتی ہے!</string>
-    <string name="translation_translators_title">اس ورژن کا ترجمہ کیا گیا ہے</string>
-    <string name="translation_translators_people">شخص1;شخص2(optional@email.com)</string>
-    <string name="motd_setting_enabled_label">اہم پیغامات</string>
-    <string name="motd_setting_enabled_explanation">SD Maid کو ڈیویلپر کی جانب سے اہم پیغامات تلاش کرنے کی اجازت دیں۔</string>
-    <string name="updatecheck_setting_enabled_label">اپڈیٹ چیک</string>
-    <string name="updatecheck_setting_enabled_explanation">SD Maid کو اپڈیٹس تلاش کرنے کی اجازت دیں تاکہ اگر جدید ورژن دستیاب ہو تو آپ کو بتایا جا سکے۔</string>
-    <string name="device_settings_category">ڈیوائس</string>
-    <string name="beta_version_indicator_desc">قبل از ریلیز ورژنز ابتدائی سکرین پر ایک چھوٹا ربن دکھاتے ہیں۔ یہ زیادہ بار اپڈیٹ ہوتے ہیں، زیادہ فیچرز ہو سکتے ہیں، لیکن زیادہ بگز بھی ہو سکتے ہیں۔</string>
-    <string name="review_app_review_action">ریویو</string>
-    <string name="review_app_dismiss_action">شاید بعد میں</string>
-    <string name="review_app_body">کیا آپ SD Maid کے لیے ریویو چھوڑنا چاہیں گے؟️ ❤️</string>
-    <string name="stats_label">عافیتاریخ</string>
-    <string name="stats_report_status_success">کامیاب</string>
-    <string name="stats_report_status_partial_success">جزوی کامیابی</string>
-    <string name="stats_report_status_partial_failure">ناکامی</string>
-    <string name="stats_settings_desc">SD Maid کے شماریات، رپورٹس اور ڈیٹا برقراری کا نظم بنائیں۔</string>
-    <string name="stats_settings_retention_category">برقراری</string>
-    <string name="stats_settings_retention_reports_label">عام رپورٹس</string>
-    <string name="stats_settings_retention_reports_desc">بنیادی SD Maid آپریشن رپورٹس کو حذف کرنے سے پہلے دنوں کی تعداد۔</string>
-    <string name="stats_settings_retention_paths_label">تفصیلی پاتھ کی معلومات</string>
-    <string name="stats_settings_retention_paths_desc">SD Maid کے ذریعے متاثر پاتھز کی تفصیلات رکھنے کے لیے دنوں کی تعداد۔</string>
-    <string name="stats_settings_reset_all_label">تمام ری سیٹ کریں</string>
-    <string name="stats_settings_reset_all_desc">تمام رپورٹس حذف کریں اور تمام شماریات صفر پر رکھیں۔</string>
-    <string name="stats_affected_paths_label">متاثر پاتھز</string>
-    <string name="stats_affected_pkgs_label">متاثر ایپس</string>
-    <string name="picker_select_paths_title">پاتھز منتخب کریں</string>
-    <string name="picker_selected_paths_title">منتخب پاتھز</string>
-    <string name="picker_unsaved_confirmation_message">تبدیلیاں رد کریں؟</string>
-    <string name="picker_home_action">ڈیٹا ایریاز</string>
-    <string name="area_type_sdcard_label">پبلک اسٹوریج</string>
-    <string name="area_type_public_media_label">پبلک ایپ میڈیا</string>
-    <string name="area_type_public_data_label">پبلک ایپ ڈیٹا</string>
-    <string name="area_type_public_obb_label">پبلک ایپ ریسورسز</string>
-    <string name="area_type_private_data_label">پرائیویٹ ایپ ڈیٹا</string>
-    <string name="area_type_portable_label">پورٹابل اسٹوریج</string>
-    <plurals name="scheduler_schedule_repeat_x_days">
-        <item quantity="one">روزانہ</item>
-        <item quantity="other">ہر %d دن</item>
-    </plurals>
-    <plurals name="stats_dash_body_size">
-        <item quantity="one">%s آزاد کیا گیا ہے۔</item>
-        <item quantity="other">%s آزاد کیا گیا ہے۔</item>
-    </plurals>
-    <plurals name="stats_dash_body_count">
-        <item quantity="one">%s آئٹم پر کارروائی کی گئی جب سے آپ نے SD Maid کو اپنے ڈیوائس میں دعوت دی۔</item>
-        <item quantity="other">%s آئٹمز پر کارروائی کی گئی جب سے آپ نے SD Maid کو اپنے ڈیوائس میں دعوت دی۔</item>
-    </plurals>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d دن</item>
-        <item quantity="other">%d دن</item>
-    </plurals>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d پاتھ منتخب</item>
-        <item quantity="other">%d پاتھز منتخب</item>
-    </plurals>
+  <string name="dashboard_delete_all_message">تمام ٹولز میں نتائج کو حذف کریں؟</string>
+  <string name="dashboard_settings_category">ڈیش بورڈ</string>
+  <string name="dashboard_motd_title">ڈیولپر کی طرف سے پیغام</string>
+  <string name="dashboard_settings_oneclick_title">ون ٹیپ موڈ</string>
+  <string name="dashboard_settings_oneclick_summary">ڈیش بورڈ کے ایکشن بٹن پر ایک ٹیپ سے تمام ٹولز کے لیے اسکین اور ڈیلیٹ شروع کریں، کوئی اضافی تصدیق نہیں۔</string>
+  <string name="dashboard_settings_oneclick_tools_title">ون ٹیپ ٹولز</string>
+  <string name="dashboard_settings_oneclick_tools_desc">ون ٹیپ آپریشنز میں کون سے ٹولز شامل ہونے چاہیے؟</string>
+  <string name="debug_debuglog_size_label">سائز</string>
+  <string name="debug_debuglog_size_compressed_label">کمپریسڈ سائز</string>
+  <string name="debug_notification_channel_label">ڈیبگ نوٹیفکیشنز</string>
+  <string name="debug_debuglog_file_label">ریکارڈ شدہ لاگ فائل</string>
+  <string name="debug_debuglog_recording_progress">ڈیبگ لاگ ریکارڈ کر رہا ہے</string>
+  <string name="debug_debuglog_record_action">ڈیبگ لاگ ریکارڈ کریں</string>
+  <string name="debug_debuglog_stop_action">ریکارڈنگ بند کریں</string>
+  <string name="debug_debuglog_sensitive_information_message">بنایا گیا فائل حساس معلومات پر مشتمل ہے (جیسے فائل نام اور انسٹال شدہ ایپس)۔ صرف قابل اعتماد افراد کے ساتھ شیئر کریں۔</string>
+  <string name="settings_debuglog_explanation">یہ فیچر ایپ کی تمام کارروائیوں کو ایک شیئر کرنے والی فائل میں ریکارڈ کرتا ہے۔ بنایا گیا فائل حساس معلومات پر مشتمل ہے (جیسے فائل نام اور انسٹال شدہ ایپس)۔ صرف قابل اعتماد افراد کے ساتھ شیئر کریں (جیسے کسی مسئلے کو حل کرنے والا ڈیولپر)۔</string>
+  <string name="tasks_activity_notification_channel_label">فعال کام</string>
+  <string name="tasks_activity_working_notification_title">SD Maid کام کر رہا ہے</string>
+  <plurals name="tasks_activity_active_notification_message">
+    <item quantity="one">%d فعال کام</item>
+    <item quantity="other">%d فعال کام</item>
+  </plurals>
+  <plurals name="tasks_activity_queued_notification_message">
+    <item quantity="one">%d کام قطار میں</item>
+    <item quantity="other">%d کام قطار میں</item>
+  </plurals>
+  <string name="tasks_result_notification_channel_label">کام کے نتائج</string>
+  <string name="tasks_result_subtext">کام کا نتیجہ</string>
+  <string name="onboarding_welcome_title">خوش آمدید</string>
+  <string name="onboarding_welcome_body1">SD Maid SE فائلوں، ایپس اور اسٹوریج کا انتظام کرتا ہے۔</string>
+  <string name="onboarding_welcome_body2">دوسرے ایپس کے پیچھے صفائی کرکے اسٹوریج کی جگہ حاصل کریں۔ غیر ضروری فائلوں کو حذف کریں اور بقایا ڈیٹا کو ہٹا دیں۔</string>
+  <string name="onboarding_welcome_body_beta">یہ بیٹا (ٹیسٹنگ) بلڈ ہے۔ مزاحیہ انداز میں اور بیک اپ پلان کے ساتھ آگے بڑھیں۔ کرپیا آپ کو جو مسائل کا سامنا ہو ان کی رپورٹ کریں۔</string>
+  <string name="discord_description">گفتگو کرنے اور سوالات پوچھنے کی جگہ۔</string>
+  <string name="changelog_label">تبدیلیوں کی فہرست</string>
+  <string name="settings_acknowledgements_label">تسلیم و تشکر</string>
+  <string name="setup_label">سیٹ اپ</string>
+  <string name="setup_incomplete_card_title">سیٹ اپ نامکمل ہے</string>
+  <string name="setup_incomplete_card_body">بہتر نتائج حاصل کرنے کے لیے SD Maid کا سیٹ اپ مکمل کریں۔</string>
+  <string name="setup_incomplete_card_healing_in_progress_body">SD Maid سیٹ اپ کے مسائل ٹھیک کرنے کی کوشش کر رہا ہے۔</string>
+  <string name="setup_incomplete_card_dismiss_action">برخاست کریں</string>
+  <string name="setup_incomplete_card_continue_action">سیٹ اپ جاری رکھیں</string>
+  <string name="setup_title">سیٹ اپ</string>
+  <string name="setup_forcedshow_summary">پہلے سے مکمل ازافہ مدوں سمیت سیٹ اپ سکرین دوبارہ دکھائیں۔</string>
+  <string name="setup_checking_card_body">سیٹ اپ کی تکمیل اور فعالیت کی تصدیق کر رہے ہیں۔</string>
+  <string name="general_error_setup_require_label">سیٹ اپ نامکمل ہے</string>
+  <string name="general_error_setup_require_msg">اس فیچر کو استعمال کرنے کے لیے مزید سیٹ اپ درکار ہے۔ باقی سیٹ اپ مراحل مکمل کریں۔</string>
+  <string name="setup_saf_card_title">اسٹوریج رسائی فریم ورک</string>
+  <string name="setup_saf_card_body">SD Maid کو اضافی علاقوں تک رسائی دے کر نتائج بہتر بنائیں۔</string>
+  <string name="setup_saf_card_body2">زیادہ تر حالات میں ونڈو صحیح پاتھ کے ساتھ پہلے سے منتخب ہوگی۔ رسائی دینے پر انٹریز سبز ہو جاتی ہیں۔ </string>
+  <string name="setup_saf_error_wrong_path">آپ نے غلط پاتھ منتخب کیا</string>
+  <string name="setup_saf_missing_app_error">Documents UI ایپ دستیاب نہیں ہے۔ یہ انتظار ساختہ سسٹم ایپ ہے اور تمام اینڈروئیڈ ڈیوائسیز پر دستیاب ہونا چاھیے۔</string>
+  <string name="setup_manage_storage_card_title">اسٹوریج کا انتظام</string>
+  <string name="setup_manage_storage_card_body">SD Maid کو آپ کے اسٹوریج کا انتظام کرنے کی اجازت دیں۔</string>
+  <string name="setup_manage_storage_card_body2">پبلک اسٹوریج تک بنیادی رسائی، جیسے "Download/" اور "DCIM/"، لیکن ہمیشہ "Android/data" نہیں۔</string>
+  <string name="setup_root_card_title">روٹ رسائی</string>
+  <string name="setup_root_card_body">کیا SD Maid کو روٹ رسائی کا استعمال کرنا چاھیے اگر یہ دستیاب ہے؟ روٹ رسائی کا استعمال اضافی سسٹم فولڈرز اور پرائیویٹ ایپلیکیشن ڈیٹا کو چیک کرنے کے لیے کیا جا سکتا ہے۔</string>
+  <string name="setup_root_state_ready_label">روٹ رسائی تیار ہے۔</string>
+  <string name="setup_root_state_waiting_label">روٹ رسائی کا انتظار۔</string>
+  <string name="setup_root_enable_root_use_label">اگر دستیاب ہے تو روٹ رسائی استعمال کریں</string>
+  <string name="setup_root_disable_root_use_label">روٹ رسائی استعمال نہ کریں</string>
+  <string name="setup_root_card_body2">صرف روٹ شدہ ڈیوائسیز پر دستیاب۔ اگر آپ نے یہ تبدیلی نہیں کی، تو آپ کا ڈیوائس روٹ شدہ نہیں ہے اور اس سیٹنگ کا کوئی اثر نہیں۔</string>
+  <string name="setup_shizuku_card_title">Shizuku</string>
+  <string name="setup_shizuku_card_body">SD Maid کو نتائج بہتر بنانے اور فیچرز فعال کرنے کے لیے جہاں ممکن ہو Shizuku استعمال کرنے کی اجازت دیں۔</string>
+  <string name="setup_shizuku_card_body2">اگر آپ کے ڈیوائس پر Shizuku ایپ نہیں ہے تو اس سیٹنگ کا کوئی اثر نہیں۔</string>
+  <string name="setup_shizuku_card_root_info">روٹ رسائی کے ساتھ Shizuku کا امتزاج اضافی فیچرز فعال نہیں کرتا، لیکن یہ قابلیت بہتر بناتا ہے۔ SD Maid اسے فال بیک طریقہ کے طور پر استعمال کرے گا۔</string>
+  <string name="setup_shizuku_state_ready_label">Shizuku لنک تیار ہے۔</string>
+  <string name="setup_shizuku_state_waiting_label">Shizuku کے ساتھ لنک کا انتظار۔</string>
+  <string name="setup_shizuku_enable_shizuku_use_label">اگر دستیاب ہے تو Shizuku استعمال کریں</string>
+  <string name="setup_shizuku_disable_shizuku_use_label">Shizuku استعمال نہ کریں</string>
+  <string name="setup_dismiss_hint">آپ سیٹنگز مینو کے ذریعے سیٹ اپ سکرین دوبارہ تلاش کر سکتے ہیں۔</string>
+  <string name="setup_permission_granted_label">اجازت دی گئی</string>
+  <string name="setup_permission_error_label">اجازت کی خرابی</string>
+  <string name="setup_usagestats_title">استعمال کے شماریات</string>
+  <string name="setup_usagestats_body">استعمال کے شماریات کی اجازت زیادہ ایپ تفصیلات تک رسائی فراہم کرتی ہے۔ SD Maid اسے اضافی کیش سائز کا تعین کرنے کے لیے استعمال کرتا ہے۔</string>
+  <string name="setup_usagestats_hint">رسائی سروس پر مبنی کیش ڈیلیٹ کے لیے ضروری۔</string>
+  <string name="setup_notification_title">نوٹیفکیشنز</string>
+  <string name="setup_notification_body">SD Maid کو جاری عملیات یا اہم واقعات کے بارے میں آپ کو آگاہ کرنے کے لیے نوٹیفکیشن بھیجنے کی اجازت دیں۔</string>
+  <string name="setup_notification_hint">نوٹیفکیشنز کا بہت کم استعمال ہوتا ہے 🤞</string>
+  <string name="setup_feature_requires_additional_setup_x">اس فیچر کے لیے اضافی سیٹ اپ اجزاء کی تکمیل درکار ہے: %s</string>
+  <string name="setup_acs_card_title">رسائی سروس</string>
+  <string name="setup_acs_card_body">رسائی سروس SD Maid کو آپ کی سکرین کے ساتھ بات چیت کرنے اور تھکا دینے والے کاموں کو خود کار بنانے کی اجازت دیتی ہے، جیسے متعدد سکرینوں پر \"کیش صاف کریں\" کو ٹیپ کرنا۔</string>
+  <string name="setup_acs_card_body2">SD Maid آپ کی رضامندی کے بغیر رسائی سروس استعمال نہیں کرے گا، فعال ہونے پر ہمیشہ ایک بڑا (منسوخ کرنے کے قابل) اشارہ دکھائے گا اور معلومات جمع کرنے کے لیے اسے استعمال نہیں کرے گا۔</string>
+  <string name="setup_acs_state_enabled">رسائی سروس فعال ہے</string>
+  <string name="setup_acs_state_disabled">رسائی سروس غیر فعال ہے</string>
+  <string name="setup_acs_state_running">رسائی سروس چل رہی ہے</string>
+  <string name="setup_acs_state_ondemand">سروس طلب کے وقت شروع ہوگی</string>
+  <string name="setup_acs_state_stopped">رسائی سروس رک گئی ہے</string>
+  <string name="setup_acs_state_stopped_hint">سروس فعال ہے، لیکن چل نہیں رہی۔ اسے آف/آن کریں یا اپنے ڈیوائس کو ری بوٹ کریں۔ چیک کریں کہ SD Maid کو سسٹم کی طرف سے \"آپٹیمائز\" نہیں کیا جا رہا۔</string>
+  <string name="setup_acs_state_stopped_hint_miui">اگر سروس کچھ دیر بعد غیر فعال ہوتی رہتی ہے، تو سسٹم سیٹنگز میں SD Maid کے لیے \"آٹو اسٹارٹ\" آپشن فعال کرنے کی کوشش کریں۔</string>
+  <string name="setup_acs_consent_positive_action">سروس فعال کریں اور رسائی دیں</string>
+  <string name="setup_acs_consent_negative_action">رسائی سروس استعمال نہ کریں</string>
+  <string name="setup_acs_allow_hint">اگر آپ کو سکرین کے کنارے ایک چھوٹا آئیکن نظر آرہا ہے، تو آپ نے علتی طور پر \"شارٹ کٹ\" آپشن فعال کر دیا ہے۔</string>
+  <string name="setup_acs_disallow_hint">اگر آپ اپنا من بدلتے ہیں، تو آپ سیٹنگز میں جا کر اور سیٹ اپ دوبارہ شروع کرکے اس آپشن کو دوبارہ تبدیل کر سکتے ہیں۔</string>
+  <string name="setup_acs_appops_restriction_title">محدود سیٹنگز</string>
+  <string name="setup_acs_appops_restriction_body">SD Maid کی رسائی سروس فعال نہیں کر سکتے؟ Android 13+ ان ایپس پر پابندیاں لگا سکتا ہے جو Google Play کے ذریعے انسٹال نہیں ہوئے۔ SD Maid کے سسٹم کے تفصیلی صفحے سے یہ پابندیاں ہٹائیں۔ یہ آپشن اوپر دائیں کونے میں کنٹیکسٹ مینو میں ہے۔</string>
+  <string name="setup_inventory_card_title">ایپ انوینٹری</string>
+  <string name="setup_inventory_card_body">SD Maid کو یہ جاننے کی ضرورت ہے کہ آپ کے پاس کون سے ایپس ہیں تاکہ ایسی فائلوں کو تلاش کر سکے جو کسی انسٹال شدہ ایپ سے تعلق نہیں رکھتیں۔</string>
+  <string name="setup_inventory_card_extra">\"ایپ فہرست\" یا \"تمام پیکج کا سوال\" کے نام سے اجازت تلاش کریں۔</string>
+  <string name="setup_inventory_invalid_message">سسٹم نے انسٹال شدہ ایپس کی غلط فہرست فراہم کی (جیسے بہت کم یا کچھ غائب)۔ سسٹم سیٹنگز میں جائیں اور SD Maid کو \"ایپ فہرست\" تک رسائی دیں۔</string>
+  <string name="dataarea_warningcard_empty_message">SD Maid کو کوئی ڈیٹا ایریا نہیں ملا جس کا اسکین کیا جا سکے۔ کیا آپ نے سیٹ اپ مکمل کیا؟</string>
+  <string name="dataarea_warningcard_label">ڈیٹا ایریا</string>
+  <string name="dataarea_warningcard_reload_action">ڈیٹا ایریا دوبارہ لوڈ کریں</string>
+  <string name="debug_mode_label">ڈیبگ موڈ</string>
+  <string name="debug_mode_explanation">ٹیسٹ آپشنز اور زیادہ تفصیلی آؤٹ پٹ فعال کریں۔ ایپ سست چلے گا اور مختلف عمل کرے گا۔</string>
+  <string name="debug_bugreporter_label">خود کار بگ رپورٹس</string>
+  <string name="debug_bugreporter_summary">خود کار طور پر مسائل کی رپورٹ کرتا ہے، جیسے ایپ کریش کی تفصیلات تاکہ میں اس کی وجہ معلوم کر سکوں اور اسے ٹھیک کر سکوں۔</string>
+  <string name="settings_category_tools_label">ٹولز</string>
+  <string name="settings_category_filter">فلٹر</string>
+  <string name="settings_category_risklevel">خطرے کی سطح</string>
+  <string name="corpsefinder_tool_name">CorpseFinder</string>
+  <string name="corpsefinder_explanation_short">پہلے سے ہٹائے گئے ایپس سے تعلق رکھنے والا ڈیٹا۔</string>
+  <string name="corpsefinder_settings_summary">اسکین فلٹرز اور خطرے کی سطح کو ایڈجسٹ کریں۔</string>
+  <string name="corpsefinder_settings_risk_keeper_title">مرغوب بقایا شامل کریں</string>
+  <string name="corpsefinder_settings_risk_keeper_summary">ایسی فائلیں جنہیں آپ رکھنا چاہیںگے، حتیٰ کہ ایپ انانسٹال ہو گیا ہو، جیسے آپ کے کھینچے گئے فوٹوز یا بنائے گئے بیک اپس۔</string>
+  <string name="corpsefinder_settings_risk_common_title">عام نام شامل کریں</string>
+  <string name="corpsefinder_settings_risk_common_summary">عام طور پر استعمال ہونے والے ناموں والا ڈیٹا، جیسے ایک فولڈر \"نوٹس\" جو بہت سے نامعلوم ایپس کا ہے۔</string>
+  <string name="corpsefinder_watcher_title">انانسٹال واچر</string>
+  <string name="corpsefinder_watcher_summary">جب کوئی ایپ ہٹائی جائے تو خود کار طور پر بقایا کا اسکین کریں۔</string>
+  <string name="corpsefinder_watcher_autodelete_title">خود کار ڈیلیٹ</string>
+  <string name="corpsefinder_watcher_autodelete_summary">انانسٹال شدہ ایپ سے متعلق کوئی بھی بقایا خود کار طور پر حذف کریں۔</string>
+  <plurals name="corpsefinder_watcher_notification_scan_result">
+    <item quantity="one">%2$s کو انانسٹال کرنے کے بعد %1$d بقایا ملا۔</item>
+    <item quantity="other">%2$s کو انانسٹال کرنے کے بعد %1$d بقایا ملے۔</item>
+  </plurals>
+  <plurals name="corpsefinder_watcher_notification_delete_result">
+    <item quantity="one">صفائی کامیاب (%1$s): %2$s آزاد کیا اور %3$d آئٹم ہٹایا۔</item>
+    <item quantity="other">صفائی کامیاب (%1$s): %2$s آزاد کیا اور %3$d آئٹمز ہٹائے۔</item>
+  </plurals>
+  <string name="corpsefinder_watcher_notification_delete_action">بقایا ڈیلیٹ کریں</string>
+  <string name="corpsefinder_filter_publicmedia_label">پبلک میڈیا</string>
+  <string name="corpsefinder_filter_publicmedia_summary">پبلک میڈیا فائلیں، جیسے میسنجر ایپس کے ذریعے موصولہ فائلیں۔</string>
+  <string name="corpsefinder_filter_publicobb_label">OBB ریسورس</string>
+  <string name="corpsefinder_filter_publicobb_summary">اضافی ایپ ریسورس، جیسے گیم کے اثاث۔</string>
+  <string name="corpsefinder_filter_publicdata_label">پبلک ایپ ڈیٹا</string>
+  <string name="corpsefinder_filter_publicdata_summary">غیر حساس ایپ ڈیٹا، جیسے نقشے کے کیشیز۔</string>
+  <string name="corpsefinder_filter_sdcard_label">SD کارڈ</string>
+  <string name="corpsefinder_filter_sdcard_summary">عام پبلک اسٹوریج، اندرونی اور بیرونی (جیسے SD کارڈز)۔</string>
+  <string name="corpsefinder_filter_privatedata_label">پرائیویٹ ایپ ڈیٹا</string>
+  <string name="corpsefinder_filter_privatedata_summary">پرائیویٹ ایپ ڈیٹا، جیسے اسناد، ایپ سیٹنگز اور براؤزر کیشیز۔</string>
+  <string name="corpsefinder_filter_dalvik_label">Dalvik کیش</string>
+  <string name="corpsefinder_filter_dalvik_summary">کیش شدہ ایپ ایکزیکیوشن ڈیٹا۔</string>
+  <string name="corpsefinder_filter_applib_label">ایپ لائبریریز</string>
+  <string name="corpsefinder_filter_applib_summary">ایپ سے متعلق لائبریری ڈیٹا۔</string>
+  <string name="corpsefinder_filter_appsource_label">ایپ سورس</string>
+  <string name="corpsefinder_filter_appsource_summary">ایپ انسٹالیشن ڈیٹا، یعنی جہاں APK جاتے ہیں۔</string>
+  <string name="corpsefinder_filter_appsource_private_label">پرائیویٹ ایپ سورس</string>
+  <string name="corpsefinder_filter_appsource_private_summary">محدود ایپ انسٹالیشن ڈیٹا، جیسے محفوظ تھرڈ پارٹی ایپس۔</string>
+  <string name="corpsefinder_filter_appasec_label">اینکرپٹیڈ ایپ ریسورس</string>
+  <string name="corpsefinder_filter_appasec_summary">اینکرپٹیڈ ایپ ریسورس، جیسے گیم کے اثاث۔</string>
+  <string name="corpsefinder_filter_app2sd_summary">App2Sd موڈز کے ذریعے بیرونی اسٹوریج میں منتقل کیا گیا ڈیٹا۔</string>
+  <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+  <plurals name="corpsefinder_result_x_corpses_deleted">
+    <item quantity="one">%d ایپ بقایا ڈیلیٹ ہوا</item>
+    <item quantity="other">%d ایپ بقایا ڈیلیٹ ہوئے</item>
+  </plurals>
+  <plurals name="corpsefinder_result_x_corpses_found">
+    <item quantity="one">%d ایپ بقایا دریافت</item>
+    <item quantity="other">%d ایپ بقایا دریافت</item>
+  </plurals>
+  <string name="corpsefinder_delete_all_confirmation_message">تمام ایپ بقایا ڈیلیٹ کریں؟</string>
+  <string name="corpsefinder_owners_label">مالکان</string>
+  <string name="corpsefinder_corpse_hints_label">نوٹس</string>
+  <string name="corpsefinder_owner_unknown">نامعلوم مالک</string>
+  <string name="corpsefinder_corpse_hint_keeper">اس آئٹم میں ایسا ڈیٹا ہو سکتا ہے جسے آپ رکھنا چاہیں حالانکہ اس کا مالک انانسٹال ہو گیا ہے، جیسے فوٹوز یا بیک اپس۔</string>
+  <string name="corpsefinder_corpse_hint_common">اس آئٹم کا بہت عام نام ہے اور یہ ابھی بھی انسٹال شدہ ایپس سے تعلق رکھ سکتا ہے جن کے بارے میں SD Maid کو علم نہیں۔</string>
+  <string name="systemcleaner_tool_name">SystemCleaner</string>
+  <string name="systemcleaner_explanation_short">فالتو ڈیٹا جو کسی مخصوص ایپ سے تعلق نہیں رکھتا۔</string>
+  <plurals name="systemcleaner_result_x_items_deleted">
+    <item quantity="one">%d میچ ڈیلیٹ ہوا</item>
+    <item quantity="other">%d میچیز ڈیلیٹ ہوئے</item>
+  </plurals>
+  <plurals name="systemcleaner_result_x_items_found">
+    <item quantity="one">%d فلٹر میچ</item>
+    <item quantity="other">%d فلٹر میچیز</item>
+  </plurals>
+  <string name="systemcleaner_filter_custom_label">کسٹم فلٹر</string>
+  <string name="systemcleaner_filter_custom_manage_label">کسٹم فلٹرز کا انتظام</string>
+  <string name="systemcleaner_filter_custom_manage_summary">اپنے کسٹم فلٹرز بنائیں، ڈیلیٹ کریں، امپورٹ اور ایکسپورٹ کریں۔</string>
+  <string name="systemcleaner_filter_logfiles_label">سسٹم لاگ فائلز</string>
+  <string name="systemcleaner_filter_logfiles_summary">مختلف جگہوں پر سسٹم اور سسٹم سروس کی لاگ فائلز (جیسے *.log)۔</string>
+  <string name="systemcleaner_filter_packagecaches_label">انسٹالر کیش</string>
+  <string name="systemcleaner_filter_packagecaches_summary">انسٹال شدہ ایپس سے متعلق کیش ڈیٹا جو سسٹم کے پیکج مینجمنٹ میں استعمال ہوتا ہے۔</string>
+  <string name="systemcleaner_filter_advertisements_label">اشتہاری فائلز</string>
+  <string name="systemcleaner_filter_advertisements_summary">ایسی فائلیں جو اشتہارات کے لیے یا ان کے ذریعے بنائی گئی ہیں۔</string>
+  <string name="systemcleaner_filter_anr_label">ANR ایررز</string>
+  <string name="systemcleaner_filter_anr_summary">\'application not responding\' واقعات کے ٹریسیز۔</string>
+  <string name="systemcleaner_filter_emptydirectories_label">خالی فولڈرز</string>
+  <string name="systemcleaner_filter_emptydirectories_summary">پورے ڈیوائس سے خالی فولڈرز۔ نیسٹیڈ فولڈرز کے لیے متعدد پاس درکار ہو سکتے ہیں۔</string>
+  <string name="systemcleaner_filter_screenshots_label">سکرین شاٹس</string>
+  <string name="systemcleaner_filter_screenshots_summary">%s سے پرانے متعدد ایپس اور جگہوں سے سکرین شاٹس۔</string>
+  <string name="systemcleaner_filter_trashed_label">ٹریش فائلز</string>
+  <string name="systemcleaner_filter_trashed_summary">مختلف ایپس اور جگہوں کے ریسائکل بنز میں فائلیں جو حذف کے لیے نشان زد ہیں لیکن ابھی تک مستقل طور پر ہٹائی نہیں گئیں۔</string>
+  <string name="systemcleaner_filter_screenshots_age_label">سکرین شاٹ کی عمر</string>
+  <string name="systemcleaner_filter_screenshots_age_summary">سکرین شاٹس کے حذف کے لیے زیر غور لانے کے لیے کم سے کم عمر۔</string>
+  <string name="systemcleaner_filter_superfluosapks_label">فالتو APKز</string>
+  <string name="systemcleaner_filter_superfluosapks_summary">سیٹ اپ فائلیں جو پہلے سے انسٹال شدہ ایپ ورژنز سے پرانی یا برابر ہیں۔</string>
+  <string name="systemcleaner_filter_lostdir_label">LOST.DIR فولڈرز</string>
+  <string name="systemcleaner_filter_lostdir_summary">عارضی فائلیں جو Android ڈیوائسیز کے درمیان ڈیٹا منتقل کرتے وقت بنائی جاتی ہیں۔</string>
+  <string name="systemcleaner_filter_linuxfiles_label">Linux فائلز</string>
+  <string name="systemcleaner_filter_linuxfiles_summary">فائلیں اور فولڈرز جو اسٹوریج کو Linux کمپیوٹر سے جوڑنے پر بنتے ہیں۔</string>
+  <string name="systemcleaner_filter_macfiles_label">Mac فائلیں</string>
+  <string name="systemcleaner_filter_macfiles_summary">فائلیں اور فولڈرز جو Apple کی finder ایپ کے ساتھ اسٹوریج براؤز کرتے وقت بنتے ہیں۔</string>
+  <string name="systemcleaner_filter_windowsfiles_label">Windows فائلیں</string>
+  <string name="systemcleaner_filter_windowsfiles_summary">"ڈیٹا جو Windows فائل ایکسپلورر جڑے ہوئے اسٹوریج پر بنا سکتا ہے۔"</string>
+  <string name="systemcleaner_filter_thumbnails_label">تھمب نیل امیجز</string>
+  <string name="systemcleaner_filter_thumbnails_summary">امیجز اور ویڈیوز کے لیے کیش شدہ پریویوز۔</string>
+  <string name="systemcleaner_filter_tempfiles_label">عارضی سسٹم فائلز</string>
+  <string name="systemcleaner_filter_tempfiles_summary">سسٹم سے متعلق عارضی فائلیں، عام طور پر فعال عملیات کے لیے مختصر زندگی کیشیز۔</string>
+  <string name="systemcleaner_filter_analytics_label">اینالائٹکس فائلز</string>
+  <string name="systemcleaner_filter_analytics_summary">اینالائٹکس اور بگ ٹریکنگ سے متعلق ڈیٹا۔</string>
+  <string name="systemcleaner_filter_downloadcache_label">Download کیش</string>
+  <string name="systemcleaner_filter_downloadcache_summary">سسٹم کیش فولڈر جو مختلف چیزوں کے لیے استعمال ہوتا ہے (جیسے OTA اپڈیٹس)۔</string>
+  <string name="systemcleaner_filter_localtmp_label">لوکل عارضی فائلز</string>
+  <string name="systemcleaner_filter_localtmp_summary">سسٹم سے متعلق عارضی فائلیں (مثل Android Studio سے)۔</string>
+  <string name="systemcleaner_filter_datalogger_label">سسٹم لاگ فائلیں</string>
+  <string name="systemcleaner_filter_datalogger_summary">سسٹم سروس کی مخصوص لاگ فائلیں۔</string>
+  <string name="systemcleaner_filter_logdropbox_label">لاگ ڈراپ باکس</string>
+  <string name="systemcleaner_filter_logdropbox_summary">سسٹم کے لیے لاگ فائلیں ڈالنے کا علاقہ۔</string>
+  <string name="systemcleaner_filter_recenttasks_label">حالیہ کام</string>
+  <string name="systemcleaner_filter_recenttasks_summary">سسٹم کے ٹاسک سوچر میں ٹاسک کی تاریخ سے متعلق ڈیٹا۔</string>
+  <string name="systemcleaner_filter_tombstones_label">سسٹم کریش کے بقایا</string>
+  <string name="systemcleaner_filter_tombstones_summary">اگر مقامی پروسیسز کریش ہوتے ہیں (جیسے گیمز)، تو یہاں فائلیں بنائی جاتی ہیں۔</string>
+  <string name="systemcleaner_filter_usagestats_label">استعمال کے شماریات</string>
+  <string name="systemcleaner_filter_usagestats_summary">ایپلیکیشن کے استعمال کے شماریات سے متعلق فائلیں۔</string>
+  <string name="systemcleaner_delete_all_confirmation_message">تمام فلٹر کنٹینٹس ڈیلیٹ کریں؟</string>
+  <string name="systemcleaner_customfilter_label">کسٹم فلٹر</string>
+  <string name="systemcleaner_customfilter_create_action">کسٹم فلٹر بنائیں</string>
+  <string name="systemcleaner_customfilter_create_hint">اضافی فائلوں کو حذف کرنے کے لیے ایک کسٹم فلٹر بنائیں جو آپ کے ڈیوائس اور استعمال کے حالات کے لیے منفرد ہیں۔</string>
+  <string name="systemcleaner_editor_remove_confirmation_message">یہ فلٹر ہٹائیں؟</string>
+  <string name="systemcleaner_editor_unsaved_confirmation_message">آپ کے پاس غیر محفوظ تبدیلیاں ہیں!</string>
+  <string name="systemcleaner_customfilter_editor_label_label">فلٹر لیبل</string>
+  <string name="systemcleaner_customfilter_editor_warning">کسٹم فلٹرز خطرناک ہو سکتے ہیں۔ ڈیلیٹ کرنے سے پہلے اپنے سکین کے نتائج چیک کریں!</string>
+  <string name="systemcleaner_customfilter_editor_areas_label">ڈیٹا ایریاز</string>
+  <string name="systemcleaner_customfilter_editor_areas_explanation">اگر کوئی علاقہ منتخب نہیں ہے، تو تمام قابل رسائی ڈیٹا علاقوں کو اسکین اور میچ کیا جائے گا۔</string>
+  <string name="systemcleaner_customfilter_editor_filetypes_label">فائل قسم کی پابندیاں</string>
+  <string name="systemcleaner_customfilter_editor_filetypes_files_label">فائلیں</string>
+  <string name="systemcleaner_customfilter_editor_filetypes_directories_label">فولڈرز</string>
+  <string name="systemcleaner_customfilter_editor_filetypes_hint">اگر کوئی قسم منتخب نہیں ہے، تو تمام قسمیں میچ ہوں گی۔</string>
+  <string name="systemcleaner_customfilter_editor_path_label">پاتھ کے معیار</string>
+  <string name="systemcleaner_customfilter_editor_path_explanation">ہدف پاتھ کو کم از کم ایک انٹری سے میل کھانا ضروری ہے (مثل \"Downloads/oldapks/game-\")۔ مزید آپشنز کے لیے انٹریز کو لمبا دبائیں۔</string>
+  <string name="systemcleaner_customfilter_editor_name_label">نام کے معیار</string>
+  <string name="systemcleaner_customfilter_editor_name_explanation">ہدف کے نام میں کم از کم ایک کلیدی لفظ ہونا ضروری ہے (مثل \"-receipt\")۔ مزید آپشنز کے لیے انٹریز کو لمبا دبائیں۔</string>
+  <string name="systemcleaner_customfilter_editor_exclusions_label">استثنائات</string>
+  <string name="systemcleaner_customfilter_editor_exclusions_explanation">اگر پاتھ کسی انٹری سے میل کھاتا ہے تو نتیجہ خارج کر دیا جائے گا (مثل \"DCIM\")۔ مزید آپشنز کے لیے انٹریز کو لمبا دبائیں۔</string>
+  <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">پاتھ موازنہ موڈ</string>
+  <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">پاتھ کلیدی لفظ سے شروع ہوتا ہے</string>
+  <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">پاتھ میں کلیدی لفظ شامل ہے</string>
+  <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">پاتھ کلیدی لفظ پر ختم ہوتا ہے</string>
+  <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">پاتھ کلیدی لفظ کے برابر ہے</string>
+  <string name="systemcleaner_customfilter_editor_name_matching_mode_label">نام موازنہ موڈ</string>
+  <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">نام کلیدی لفظ سے شروع ہوتا ہے</string>
+  <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">نام میں کلیدی لفظ شامل ہے</string>
+  <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">نام کلیدی لفظ پر ختم ہوتا ہے</string>
+  <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">نام کلیدی لفظ کے برابر ہے</string>
+  <string name="systemcleaner_customfilter_last_edit">آخری ترمیم: %s</string>
+  <string name="systemcleaner_customfilter_editor_livesearch_label">لائیو سرچ</string>
+  <string name="systemcleaner_customfilter_import_action">نیا فلٹر امپورٹ کریں</string>
+  <string name="systemcleaner_customfilter_export_action">منتخب فلٹر ایکسپورٹ کریں</string>
+  <string name="appcleaner_tool_name">AppCleaner</string>
+  <string name="appcleaner_explanation_short">مخصوص ایپس سے تعلق رکھنے والا ضروری غیر ڈیٹا۔</string>
+  <string name="appcleaner_filter_defaultcachespublic_label">پبلک ڈیفالٹ کیشیز</string>
+  <string name="appcleaner_filter_defaultcachespublic_summary">ڈیفالٹ پبلک ایپ کیشیز۔ پرانے Android ورژنز پر Android/data کے تحت قابل رسائی۔ سسٹم سیٹنگز میں "Clear cache" ٹیپ کرنے پر ڈیلیٹ ہو جاتے ہیں۔</string>
+  <string name="appcleaner_filter_defaultcachesprivate_label">پرائیویٹ ڈیفالٹ کیشیز</string>
+  <string name="appcleaner_filter_defaultcachesprivate_summary">ڈیفالٹ پرائیویٹ ایپ کیشیز۔ سسٹم سیٹنگز میں "Clear cache" ٹیپ کرنے پر ڈیلیٹ ہو جاتے ہیں۔</string>
+  <string name="appcleaner_include_systemapps_label">سسٹم ایپس شامل کریں</string>
+  <string name="appcleaner_include_systemapps_summary">اسکین میں سسٹم ایپس شامل کریں۔</string>
+  <string name="appcleaner_include_runningapps_label">چلنے والے ایپس شامل کریں</string>
+  <string name="appcleaner_include_runningapps_summary">ایسے ایپس شامل کریں جو فی الوقت چل رہے ہیں جو مداخلت کا باعث بن سکتے ہیں۔</string>
+  <string name="appcleaner_include_inaccessible_label">ناقابل رسائی کیشیز شامل کریں</string>
+  <string name="appcleaner_include_inaccessible_summary">ایسا ڈیٹا شامل کریں جس تک براہ راست رسائی نہیں لیکن سسٹم سیٹنگز کے ذریعے ڈیلیٹ کیا جا سکتا ہے اور رسائی سروس کا استعمال کرکے خود کار بنایا جا سکتا ہے۔ </string>
+  <string name="appcleaner_include_multiuser_label">دوسرے صارفین شامل کریں</string>
+  <string name="appcleaner_include_multiuser_summary">اس ڈیوائس پر دوسرے یوزر پروفائلز کے ایپس شامل کریں۔</string>
+  <string name="appcleaner_include_minimumsize_label">کم سے کم سائز</string>
+  <string name="appcleaner_include_minimumsize_summary">ایسے ایپس چھوڑیں جہاں قابل حذف ڈیٹا کا مجموعہ کم سے کم سے کم ہے۔</string>
+  <string name="appcleaner_include_minimumage_label">کم سے کم عمر</string>
+  <string name="appcleaner_include_minimumage_summary">ایسی فائلیں چھوڑیں جو کم سے کم عمر سے چھوٹی ہیں۔</string>
+  <string name="appcleaner_automation_romtype_detection_label">آپریٹنگ سسٹم کی شناخت</string>
+  <string name="appcleaner_automation_romtype_detection_summary">اگر SD Maid آپ کے OS کو صحیح طریقے سے شناخت نہیں کرتا تو رسائی پر مبنی آٹومیشن ناکام ہو سکتی ہے۔ شناخت شدہ OS کو اوور رائڈ کرنے کے لیے اس سیٹنگ کا استعمال کریں۔</string>
+  <string name="appcleaner_filter_codecache_label">کوڈ کیش</string>
+  <string name="appcleaner_filter_codecache_summary">JVM کوڈ کیش۔ بائی کوڈ کے بلاکس جو نیٹو کوڈ میں کمپائل ہوتے ہیں۔</string>
+  <string name="appcleaner_filter_advertisement_label">اشتہاری ڈیٹا</string>
+  <string name="appcleaner_filter_advertisement_summary">اشتہارات سے متعلق فائلیں، جیسے کیش شدہ میڈیا۔</string>
+  <string name="appcleaner_filter_bugreporting_label">بگ رپورٹنگ</string>
+  <string name="appcleaner_filter_bugreporting_summary">بگ رپورٹنگ سے متعلق ڈیٹا، جیسے ایرر لاگز یا کریش ڈمپز۔</string>
+  <string name="appcleaner_filter_analytics_label">اینالائٹکس</string>
+  <string name="appcleaner_filter_analytics_summary">اینالائٹکس سے متعلق ڈیٹا، جیسے ایپ میں آپ کے ٹیپ کرنے کے کیش شدہ شماریات۔</string>
+  <string name="appcleaner_filter_hiddencaches_label">چھپے ہوئے کیشیز</string>
+  <string name="appcleaner_filter_hiddencaches_summary">عام مقصد کیشیز جو سسٹم کی پہنچ سے باہر محفوظ ہیں۔</string>
+  <string name="appcleaner_filter_thumbnails_label">میڈیا تھمب نیلز</string>
+  <string name="appcleaner_filter_thumbnails_summary">امیج، ویڈیو اور آڈیو پریویو تھمب نیل تصاویر۔</string>
+  <string name="appcleaner_filter_gamefiles_label">گیم فائلز</string>
+  <string name="appcleaner_filter_gamefiles_summary">گیم سے متعلق ریسورس جو گیم اگلی بار لانچ پر ضرورت کے مطابق دوبارہ لوڈ کرے گا۔</string>
+  <string name="appcleaner_filter_offlinecache_label">آف لائن کیش</string>
+  <string name="appcleaner_filter_offlinecache_summary">آف لائن استعمال کے لیے محفوظ فائلیں، جیسے نقشے کی ٹائلز۔</string>
+  <string name="appcleaner_filter_recyclebins_label">ری سائکل بنز</string>
+  <string name="appcleaner_filter_recyclebins_summary">فائلیں جو حذف کر دی گئی ہیں لیکن انہیں بحالی کی اجازت دینے کے لیے خاص فولڈر میں رکھا گیا ہے۔</string>
+  <string name="appcleaner_filter_webview_label">Webview فائلز</string>
+  <string name="appcleaner_filter_webview_summary">ایپس میں استعمال ہونے والے Webview انسٹنسیز کے ذریعے کیش شدہ فائلیں۔</string>
+  <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp بیک اپس</string>
+  <string name="appcleaner_filter_whatsapp_backups_summary">WhatsApp بیک اپس کی اضافی کاپیز ڈیلیٹ کریں اور صرف تازہ ترین رکھیں۔</string>
+  <string name="appcleaner_filter_whatsapp_received_summary">فائلیں جو آپ نے WhatsApp کے ذریعے لوگوں سے موصول کیں۔</string>
+  <string name="appcleaner_filter_whatsapp_received_label">WhatsApp موصولہ فائلز</string>
+  <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp بھیجی گئی فائلز</string>
+  <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp سے دوسروں کو بھیجی گئی فائلیں۔</string>
+  <string name="appcleaner_filter_telegram_label">Telegram میڈیا فائلیں</string>
+  <string name="appcleaner_filter_telegram_summary">Telegram کے ذریعے موصولہ یا بھیجی گئی فائلیں۔</string>
+  <string name="appcleaner_filter_threema_label">Threema</string>
+  <string name="appcleaner_filter_threema_summary">Threema کے ذریعے موصولہ فائلیں۔</string>
+  <string name="appcleaner_filter_wechat_label">WeChat</string>
+  <string name="appcleaner_filter_wechat_summary">گفتگو اور WeChat مومنٹس میں بھیجی یا موصولہ فائلیں۔</string>
+  <string name="appcleaner_filter_viber_label">Viber</string>
+  <string name="appcleaner_filter_viber_summary">کیش شدہ میڈیا فائلیں جو چیٹ میں دیکھنے پر دوبارہ ڈاؤن لوڈ ہوتی ہیں۔</string>
+  <string name="appcleaner_filter_qqchat_label">QQ chat</string>
+  <string name="appcleaner_filter_qqchat_summary">QQ چیٹ گفتگو میں بھیجی یا موصولہ فائلیں۔</string>
+  <string name="appcleaner_delete_all_confirmation_message">تمام ایپس کے لیے قابل حذف اجزاء ڈیلیٹ کریں؟</string>
+  <plurals name="appcleaner_result_x_items_deleted">
+    <item quantity="one">%d قابل حذف آئٹم ڈیلیٹ ہوا</item>
+    <item quantity="other">%d قابل حذف آئٹمز ڈیلیٹ ہوئے</item>
+  </plurals>
+  <plurals name="appcleaner_result_x_items_found">
+    <item quantity="one">%d قابل حذف آئٹم ملا</item>
+    <item quantity="other">%d قابل حذف آئٹمز ملے</item>
+  </plurals>
+  <string name="appcleaner_automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>
+  <string name="appcleaner_automation_title">AppCleaner آٹومیشن</string>
+  <string name="appcleaner_automation_subtitle_default_caches">ڈیفالٹ کیشیز صاف کر رہے ہیں…</string>
+  <string name="appcleaner_automation_progress_open_settings">سیٹنگز سکرین کھول رہے ہیں (کلیدی الفاظ: %s)</string>
+  <string name="appcleaner_automation_progress_find_storage">\"Storage\" انٹری تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
+  <string name="appcleaner_automation_progress_find_clear_data">\"Clear data\" بٹن تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
+  <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" بٹن تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
+  <string name="appcleaner_automation_progress_find_ok_confirmation">پچھلے عمل کی تصدیق کرنے کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
+  <string name="appcleaner_item_caches_inaccessible_title">ڈیفالٹ کیشیز</string>
+  <string name="appcleaner_item_caches_inaccessible_body">پبلک اور پرائیویٹ ڈیفالٹ کیشیز۔ براہ راست قابل رسائی نہیں، لیکن بالواسطہ ڈیلیٹ کیا جا سکتا ہے (جیسے رسائی سروس کے ذریعے)۔</string>
+  <string name="appcleaner_automation_unavailable_title">رسائی سروس دستیاب نہیں</string>
+  <string name="appcleaner_automation_unavailable_body">ناقابل رسائی کیشیز صاف کرنے کے لیے SD Maid کی رسائی سروس درکار ہے، لیکن یہ دستیاب نہیں تھی۔ اگر آپ اسے استعمال نہیں کرنا چاہتے: \"ناقابل رسائی کیشیز شامل کریں\" آپشن کو غیر فعال کریں۔</string>
+  <string name="appcleaner_junk_userprofile_label">صارف</string>
+  <string name="appcleaner_delete_confirmation_message_x">%s کے لیے قابل حذف فائلیں ڈیلیٹ کریں؟</string>
+  <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+    <item quantity="one">%d منتخب ایپ کے لیے قابل حذف فائلیں ڈیلیٹ کریں؟</item>
+    <item quantity="other">%d منتخب ایپس کے لیے قابل حذف فائلیں ڈیلیٹ کریں؟</item>
+  </plurals>
+  <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku استعمال کرکے کیشیز ڈیلیٹ کر رہے ہیں</string>
+  <string name="appcleaner_progress_determining_inaccessible_caches">ناقابل رسائی کیشیز کا تعین کر رہے ہیں</string>
+  <string name="appcleaner_automation_error_locked_appcache_title">کیش صاف کرنا دستیاب نہیں</string>
+  <string name="appcleaner_automation_error_locked_appcache_body">سسٹم نے اس ایپ کے لیے "Clear cache" بٹن کو غیر فعال کر دیا ہے۔ کیش صاف کرنے کی رفتار بڑھانے کے لیے اسے خارج کریں۔</string>
+  <string name="appcleaner_automation_error_no_settings_title">سیٹنگز سکرین دستیاب نہیں</string>
+  <string name="appcleaner_automation_error_no_settings_body">اس سسٹم ایپ کی کوئی سیٹنگز سکرین نہیں ہے۔ رسائی سروس کے ذریعے کیش صفائی ممکن نہیں۔ کیش صفائی کی رفتار بڑھانے کے لیے اسے خارج کریں۔</string>
+  <string name="appcleaner_automation_error_securitycenter_permission_title">سسٹم ایپ غلط کنفیگر ہے</string>
+  <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS کی Security ایپ (com.miui.securitycenter) میں Usage Stats permission (GET_USAGE_STATS) غائب ہے۔ یہ ایپ کی تفصیلات میں "Clear Data" اور رسائی کے ذریعے کیش صفائی جیسے فیچرز کو خراب کرتا ہے۔ مکمل فعالیت بحال کرنے کے لیے اجازت دیں۔</string>
+  <string name="deduplicator_tool_name">Deduplicator</string>
+  <string name="deduplicator_explanation_short">اپنے ڈیوائس پر ڈپلیکیٹ ڈیٹا تلاش کریں۔</string>
+  <plurals name="deduplicator_result_x_clusters_processed">
+    <item quantity="one">%d ڈپلیکیٹ ڈیلیٹ ہوا</item>
+    <item quantity="other">%d ڈپلیکیٹس ڈیلیٹ ہوئے</item>
+  </plurals>
+  <plurals name="deduplicator_result_x_clusters_found">
+    <item quantity="one">%d ڈپلیکیٹ سیٹ ملا</item>
+    <item quantity="other">%d ڈپلیکیٹ سیٹس ملے</item>
+  </plurals>
+  <string name="deduplicator_protection_deleteall_allowed_title">\"تمام ڈیلیٹ کریں\" کو ممکن بنائیں</string>
+  <string name="deduplicator_protection_deleteall_allowed_summary">ایسے آپشنز دکھائیں جو آپ کو ڈپلیکیٹس کے سیٹ میں تمام فائلیں ڈیلیٹ کرنے کی اجازت دیں تاکہ کوئی فائل باقی نہ رہے۔</string>
+  <string name="deduplicator_search_locations_title">تلاش کے مقامات</string>
+  <string name="deduplicator_search_locations_all_summary">تمام قابل رسائی علاقے</string>
+  <string name="deduplicator_skip_minsize_title">کم سے کم سائز</string>
+  <string name="deduplicator_skip_minsize_description">ایسی فائلیں چھوڑیں جو کم سے کم سائز سے کم ہیں۔</string>
+  <string name="deduplicator_skip_uncommon_title">غیر عام فائل اقسام چھوڑیں</string>
+  <string name="deduplicator_skip_uncommon_description">صرف عام میڈیا فائلیں، دستاویز اور آرکائوز شامل کریں۔</string>
+  <string name="deduplicator_detection_method_label">شناخت کا طریقہ</string>
+  <string name="deduplicator_detection_method_checksum_title">مواد چیک سم</string>
+  <string name="deduplicator_detection_method_checksum_summary">فائلوں کے لیے چیک سم کی گنتی کرکے ڈپلیکیٹس کا تعین کریں۔ میچنگ چیک سم والی فائلوں میں بالکل وہی مواد ہوتا ہے۔</string>
+  <string name="deduplicator_detection_method_phash_title">ادراکی ہیش</string>
+  <string name="deduplicator_detection_method_phash_summary">مواد کی خصوصیات کا تجزیہ کرکے اور ادراکی ہیش قیمتوں کی موازنہ کرکے مشابہ فائلیں تلاش کریں۔</string>
+  <string name="deduplicator_occupied_space_label">قبضہ شدہ سٹوریج</string>
+  <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+    <item quantity="one">%s ڈپلیکیٹس کے ذریعے قبضہ میں ہے</item>
+    <item quantity="other">%s ڈپلیکیٹس کے ذریعے قبضہ میں ہیں</item>
+  </plurals>
+  <string name="deduplicator_file_size_label">فائل سائز</string>
+  <string name="deduplicator_average_size_label">اوسط سائز</string>
+  <string name="deduplicator_cluster_x_label">کلسٹر %s</string>
+  <string name="deduplicator_delete_confirmation_message">ڈپلیکیٹ فائلوں کے تمام سیٹس میں ایک کاپی چھوڑ کر باقی تمام ڈیلیٹ کریں؟</string>
+  <string name="deduplicator_delete_single_set_confirmation_message">ڈپلیکیٹ فائلوں کے اس سیٹ میں ایک کاپی چھوڑ کر باقی تمام ڈیلیٹ کریں؟</string>
+  <string name="deduplicator_delete_single_set_keep_none_confirmation_message">ڈپلیکیٹ فائلوں کے اس سیٹ میں تمام فائلیں ڈیلیٹ کریں؟ کوئی فائل باقی نہیں رہے گی!</string>
+  <string name="deduplicator_delete_multiple_sets_confirmation_message">ڈپلیکیٹ فائلوں کے ہر منتخب سیٹ میں ایک کاپی چھوڑ کر باقی تمام ڈیلیٹ کریں؟</string>
+  <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ڈپلیکیٹ فائلوں کے ہر منتخب سیٹ میں تمام فائلیں ڈیلیٹ کریں؟ کوئی فائل باقی نہیں رہے گی!</string>
+  <string name="deduplicator_delete_all_toggle_msg">تمام کاپیاں ڈیلیٹ کریں۔ کوئی فائل باقی نہیں رہے گی!</string>
+  <string name="deduplicator_progress_comparing_files">فائلوں کی موازنہ</string>
+  <string name="deduplicator_details_cluster_title">ڈپلیکیٹس کا سیٹ</string>
+  <string name="deduplicator_matches_exact_label">بالکل طور پر کاپیاں</string>
+  <string name="deduplicator_matches_similar_label">مشابہ فائلیں</string>
+  <string name="appcontrol_tool_name">AppControl</string>
+  <string name="appcontrol_explanation_short">آپ کے ڈیوائس پر انسٹال شدہ ایپس۔</string>
+  <plurals name="appcontrol_x_apps_detected_label">
+    <item quantity="one">%d ایپ کا پتہ لگا</item>
+    <item quantity="other">%d ایپس کا پتہ لگا</item>
+  </plurals>
+  <string name="appcontrol_toggle_app_selection_action">ایپس ٹوگل کریں</string>
+  <string name="appcontrol_toggle_app_enable_action">ایپ فعال کریں</string>
+  <string name="appcontrol_toggle_app_disable_action">ایپ غیر فعال کریں</string>
+  <string name="appcontrol_toggle_app_enable_description">ایپ فعال کرنے سے اسے چلنے کی اجازت ملتی ہے اور اگر اس کی کوئی ایکٹوٹی ہے تو یہ آپ کے لانچر میں نظر آ سکتی ہے۔</string>
+  <string name="appcontrol_toggle_app_disable_description">ایپ غیر فعال کرنے سے یہ چلنے سے رک جاتی ہے اور مینیوز سے چھپ جاتی ہے۔ کوئی ڈیٹا کمی نہیں ہوتی۔</string>
+  <string name="appcontrol_appstore_open_title">ایپ سٹور میں کھولیں</string>
+  <string name="appcontrol_appstore_open_description">اس ایپ کو اس ایپ سٹور میں کھولیں جہاں سے یہ انسٹال ہوئی تھی۔</string>
+  <string name="appcontrol_systemsettings_open_title">سیٹنگز دکھائیں</string>
+  <string name="appcontrol_systemsettings_open_description">اس ایپ کے لیے آپ کے ڈیوائس کی سسٹم سیٹنگز کھولیں۔</string>
+  <string name="appcontrol_app_launch_title">ایپ لانچ کریں</string>
+  <string name="appcontrol_app_launch_description">اس ایپ کی بنیادی سرگرمی لانچ کریں۔</string>
+  <string name="appcontrol_app_forcestop_title">زبردستی بند کریں</string>
+  <string name="appcontrol_app_forcestop_description">ایپ کو بند کرتا ہے۔ اسے خود شروع ہونے سے روکتا ہے جب تک آپ اسے نہیں کھولتے یا ڈیوائس کو ری بوٹ نہیں کرتے۔</string>
+  <string name="appcontrol_app_uninstall_description">اس ایپ کو آپ کے ڈیوائس سے ان انسٹال کریں۔</string>
+  <string name="appcontrol_app_exclude_add_title">ایپ کو خارج کریں</string>
+  <string name="appcontrol_app_exclude_add_description">اس ایپ کو SD Maid کی دیگر کارروائیوں سے خارج کریں۔</string>
+  <string name="appcontrol_app_exclude_edit_title">استثنا کو تبدیل کریں</string>
+  <string name="appcontrol_app_exclude_edit_description">یہ ایپ فی الوقت ایک یا زیادہ ٹولز سے خارج ہے۔</string>
+  <string name="appcontrol_tag_user">صارف</string>
+  <string name="appcontrol_tag_active">حال ہی میں فعال</string>
+  <string name="appcontrol_tag_apk_base">APK</string>
+  <string name="appcontrol_tag_apk_bundle">Bundle</string>
+  <string name="appcontrol_tag_system">سسٹم</string>
+  <string name="appcontrol_tag_archived">آرکائیو شدہ</string>
+  <string name="appcontrol_tag_uninstalled">صرف ڈیٹا</string>
+  <string name="appcontrol_tag_not_installed">انسٹال نہیں</string>
+  <string name="appcontrol_tag_enabled">فعال</string>
+  <string name="appcontrol_tag_disabled">غیر فعال</string>
+  <string name="appcontrol_progress_enabling_package">ایپ فعال کر رہے ہیں</string>
+  <string name="appcontrol_progress_disabling_package">ایپ غیر فعال کر رہے ہیں</string>
+  <string name="appcontrol_list_filteroptions_label">فلٹر آپشنز</string>
+  <string name="appcontrol_list_sortmode_name_label">ایپ کا نام</string>
+  <string name="appcontrol_list_sortmode_updated_label">آخری اپڈیٹ</string>
+  <string name="appcontrol_list_sortmode_installed_label">پہلی انسٹالیشن</string>
+  <string name="appcontrol_list_sortmode_packagename_label">پیکج نام</string>
+  <string name="appcontrol_list_sortmode_size_label">سائز</string>
+  <string name="appcontrol_list_sortmode_screentime_label">سکرین ٹائم</string>
+  <string name="appcontrol_list_sortmode_size_caveat_msg">ایپ کے سائز کارکردگی کی وجہ سے تخمینی ہیں۔ زیادہ درست ڈیٹا کے لیے StorageAnalyzer ٹول استعمال کریں۔</string>
+  <string name="appcontrol_progress_uninstalling_app">ایپ ان انسٹال کر رہے ہیں</string>
+  <plurals name="appcontrol_uninstall_result_message_x">
+    <item quantity="one">%d ایپ ان انسٹال ہوئی</item>
+    <item quantity="other">%d ایپس ان انسٹال ہوئے</item>
+  </plurals>
+  <string name="appcontrol_app_sizes_title">ایپ سائز</string>
+  <string name="appcontrol_app_sizes_apk_label">ایپ</string>
+  <string name="appcontrol_app_sizes_data_label">ڈیٹا</string>
+  <string name="appcontrol_app_sizes_cache_label">کیش</string>
+  <string name="appcontrol_toggle_confirmation_title">عمل کی تصدیق کریں</string>
+  <plurals name="appcontrol_toggle_confirmation_message_x">
+    <item quantity="one">%d ایپ کی فعال/غیر فعال حالت تبدیل کریں؟</item>
+    <item quantity="other">%d ایپس کی فعال/غیر فعال حالات تبدیل کریں؟</item>
+  </plurals>
+  <plurals name="appcontrol_toggle_result_message_x">
+    <item quantity="one">%d ایپ ٹوگل ہوئی</item>
+    <item quantity="other">%d ایپس ٹوگل ہوئے</item>
+  </plurals>
+  <string name="appcontrol_settings_module_sizing_enabled_label">سائز کا تعین</string>
+  <string name="appcontrol_settings_module_sizing_enabled_description">ہر ایپ کے سائز کا تخمینی اندازہ لگائیں۔</string>
+  <string name="appcontrol_settings_module_activity_enabled_label">سرگرمی کا تعین</string>
+  <string name="appcontrol_settings_module_activity_enabled_description">پتہ کریں کہ کیا ایپ فعال ہے (یا حال ہی میں تھی)۔</string>
+  <string name="appcontrol_export_app_selection_action">ایپس ایکسپورٹ کریں</string>
+  <string name="appcontrol_export_title">ایپ ایکسپورٹ کریں</string>
+  <string name="appcontrol_export_description">اس ایپ کی انسٹالیشن فائلیں محفوظ کریں۔ اس میں ایپ ڈیٹا شامل نہیں۔</string>
+  <plurals name="appcontrol_export_result_message_x">
+    <item quantity="one">%d ایپ ایکسپورٹ ہوئی</item>
+    <item quantity="other">%d ایپس ایکسپورٹ ہوئے</item>
+  </plurals>
+  <string name="appcontrol_progress_exporting_x">%s ایکسپورٹ کر رہے ہیں</string>
+  <string name="appcontrol_force_stop_selection_action">ایپس کو زبردستی بند کریں</string>
+  <string name="appcontrol_force_stop_action">زبردستی بند کریں</string>
+  <string name="appcontrol_force_stop_confirm_title">زبردستی بند کرنے کی تصدیق</string>
+  <plurals name="appcontrol_force_stop_confirmation_message_x">
+    <item quantity="one">%d ایپ کو زبردستی بند کریں؟</item>
+    <item quantity="other">%d ایپس کو زبردستی بند کریں؟</item>
+  </plurals>
+  <plurals name="appcontrol_force_stop_result_message_x">
+    <item quantity="one">%d ایپ بند کیا گیا</item>
+    <item quantity="other">%d ایپس بند کیے گئے</item>
+  </plurals>
+  <string name="appcontrol_automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>
+  <string name="appcontrol_automation_title">AppControl آٹومیشن</string>
+  <string name="appcontrol_automation_subtitle_force_stopping">زبردستی بند کر رہے ہیں…</string>
+  <string name="appcontrol_automation_progress_find_force_stop">\"Force stop\" بٹن تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
+  <string name="appcontrol_automation_progress_find_ok_confirmation">پچھلی کارروائی کی تصدیق کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
+  <string name="appcontrol_item_screentime_x_since_y_label">سکرین ٹائم: %1$s بعد %2$s</string>
+  <string name="appcontrol_item_lastupdate_x_label">آخری اپڈیٹ: %s</string>
+  <string name="appcontrol_item_installedat_x_label">انسٹال کیا گیا: %s</string>
+  <string name="analyzer_tool_name">StorageAnalyzer</string>
+  <string name="analyzer_explanation_short">معلوم کریں کہ آپ کے ڈیوائس پر کیا جگہ این کر رہا ہے۔</string>
+  <string name="analyzer_progress_scanning_device">اسٹوریج ڈیوائسز کی تلاش</string>
+  <string name="analyzer_progress_scanning_storage">اسٹوریج سکین کر رہے ہیں</string>
+  <string name="analyzer_progress_scanning_apps">ایپس سکین کر رہے ہیں</string>
+  <string name="analyzer_progress_scanning_userfiles">صارف فائلیں تلاش کر رہے ہیں</string>
+  <string name="analyzer_progress_scanning_system">سسٹم ڈیٹا سکین کر رہے ہیں</string>
+  <string name="analyzer_device_storage_title">ڈیوائس اسٹوریج</string>
+  <plurals name="analyzer_space_available">
+    <item quantity="one">%s دستیاب</item>
+    <item quantity="other">%s دستیاب</item>
+  </plurals>
+  <plurals name="analyzer_space_used">
+    <item quantity="one">%s استعمال شدہ</item>
+    <item quantity="other">%s استعمال شدہ</item>
+  </plurals>
+  <string name="analyzer_content_access_opaque">کوئی براہ راست رسائی دستیاب نہیں</string>
+  <string name="analyzer_storage_type_primary_title">بنیادی اسٹوریج</string>
+  <string name="analyzer_storage_type_primary_description">آپ کے ڈیوائس کا بنیادی اسٹوریج۔ اندرونی SD کارڈ، ایپس کے لیے پرائیویٹ اسٹوریج اور سسٹم ڈیٹا پر مشتمل۔</string>
+  <string name="analyzer_storage_type_secondary_title">ثانوی اسٹوریج</string>
+  <string name="analyzer_storage_type_secondary_description">ثانوی اسٹوریج، عام طور پر ہٹانے کے قابل SD کارڈ۔ میڈیا فائلیں اور ایپس کا ڈیٹا جو اس کی حمایت کرتے ہیں پر مشتمل۔</string>
+  <string name="analyzer_storage_type_tertiary_title">پورٹابل اسٹوریج</string>
+  <string name="analyzer_storage_type_tertiary_description">پورٹابل اسٹوریج، جیسے آپ کے USB پورٹ میں لگائی گئی فلیش ڈرائیو۔</string>
+  <string name="analyzer_storage_content_title">اسٹوریج کا مواد</string>
+  <string name="analyzer_storage_content_type_app_label">ایپس</string>
+  <string name="analyzer_storage_content_type_app_description">انسٹال شدہ ایپس اور ان کے ڈیٹا کے ذریعے قبضہ میں لی گئی جگہ (یعنی ایپلیکیشن فائلیں، ڈیٹا اور کیشیز)۔</string>
+  <string name="analyzer_storage_content_type_app_setup_incomplete_hint">اجازات غائب ہیں</string>
+  <string name="analyzer_storage_content_type_media_label">صارف فائلیں</string>
+  <string name="analyzer_storage_content_type_media_description">کیپچر شدہ تصاویر، ریکارڈ شدہ ویڈیوز یا ڈاؤن لوڈ شدہ ڈیٹا۔ کوئی بھی ڈیٹا جو کسی مخصوص ایپ سے تعلق نہیں رکھتا۔</string>
+  <string name="analyzer_storage_content_type_system_label">سسٹم ڈیٹا</string>
+  <string name="analyzer_storage_content_type_system_description">سسٹم ایپس اور سسٹم ڈیٹا۔ دوسرے صارفین کے ایپس اور ڈیٹا، اگر اس ڈیوائس پر کئی صارف اکاؤنٹس سیٹ ہیں۔</string>
+  <string name="analyzer_storage_content_app_code_label">ایپ کوڈ</string>
+  <string name="analyzer_storage_content_app_code_description">ایپلیکیشن فائلیں، لائبریریز اور ریسورسز۔ یہ جگہ ایپ کو ان انسٹال کرنے یا آرکائیو کرنے سے آزاد کی جا سکتی ہے (نئے Android ورژن پر دستیاب)۔</string>
+  <string name="analyzer_storage_content_app_data_label">ایپ ڈیٹا</string>
+  <string name="analyzer_storage_content_app_data_description">ڈیٹا، سیٹنگز اور کیشیز۔</string>
+  <string name="analyzer_storage_content_app_media_label">ایپ میڈیا</string>
+  <string name="analyzer_storage_content_app_media_description">اس ایپ سے میڈیا فائلیں، جیسے موصولہ WhatsApp فوٹوز۔</string>
+  <string name="analyzer_storage_content_app_extra_label">اضافی ایپ فائلیں</string>
+  <string name="analyzer_storage_content_app_extra_description">اضافی ڈیٹا جو اس ایپ نے ڈیفالٹ پاتھز کے باہر رکھا ہے، جیسے فوٹوز یا ڈاؤن لوڈز۔</string>
+  <string name="analyzer_app_details_app_occupies_x_on_y">یہ ایپ \"%2$s\" پر %1$s قبضہ میں لیے ہوئے ہے۔</string>
+  <string name="analyzer_app_details_app_is_archived">یہ ایپ آرکائیو کیا گیا ہے۔</string>
+  <string name="data_area_public_app_data_official_label">ڈیفالٹ پبلک ایپ ڈیٹا</string>
+  <string name="data_area_public_app_assets_official_label">ڈیفالٹ پبلک ایپ ایسیٹس</string>
+  <string name="data_area_public_storage_label">پبلک اسٹوریج</string>
+  <string name="data_area_sdcard_label">SD کارڈ</string>
+  <string name="data_areas_label">ڈیٹا ایریاز</string>
+  <string name="data_areas_description">ڈیٹا ایریاز آپ کے ڈیوائس پر ان مقامات کی نمائندگی کرتے ہیں جو SD Maid کے لیے قابل رسائی ہیں۔ آپ کے Android ورژن اور دی گئی اجازات کے مطابق مختلف ڈیٹا ایریاز دستیاب ہو سکتے ہیں۔</string>
+  <string name="data_areas_short_summary">وہ علاقے جن تک SD Maid فی الوقت دی گئی اجازات کے بنیاد پر رسائی حاصل کر سکتا ہے۔</string>
+  <string name="exclusion_manager_title">استثنا مینیجر</string>
+  <string name="exclusion_manager_desc">فائل اور ایپ استثنائات کا انتظام کریں۔</string>
+  <string name="exclusion_explanation_body1">فائلوں اور ایپس کو SD Maid کی کارروائیوں سے خارج کریں۔</string>
+  <string name="exclusion_add_new_hint">پہلے SD Maid کو تلاش کرنے دیں اور پھر اس نتیجے پر کنٹیکسٹ مینو استعمال کرکے نئے استثنائات شامل کریں جسے آپ خارج کرنا چاہتے ہیں۔</string>
+  <string name="exclusion_create_action">استثنا بنائیں</string>
+  <string name="exclusion_edit_action">استثنا تبدیل کریں</string>
+  <string name="exclusion_type_package">ایپ استثنا</string>
+  <string name="exclusion_type_path">پاتھ استثنا</string>
+  <string name="exclusion_type_segment">سیگمنٹ استثنا</string>
+  <string name="exclusion_tags_alltools">تمام ٹولز</string>
+  <string name="exclusion_target_label">استثنا کا ہدف</string>
+  <string name="exclusion_option_allow_partial">جزوی مماثلت کی اجازت دیں</string>
+  <string name="exclusion_option_ignore_casing">کیسنگ نظر انداز کریں</string>
+  <string name="exclusion_editor_affected_tools_label">متاثر ٹولز</string>
+  <string name="exclusion_editor_path_explanation">پاتھ استثنا SD Maid کو کسی بھی مماثل پاتھ کی مزید پروسیسنگ سے روکتا ہے۔ یہ فائلوں، فولڈرز اور ذیلی فولڈرز پر لاگو ہوتا ہے۔</string>
+  <string name="exclusion_editor_pkg_explanation">ایپ استثنا SD Maid کو کسی بھی مماثل پیکجز کی پروسیسنگ سے روکتا ہے۔</string>
+  <string name="exclusion_editor_segment_explanation">سیگمنٹ پر مبنی استثنا پاتھ استثنا کی طرح ہے لیکن جزوی مماثلات کی اجازت دیتا ہے۔ مثال: \"DCIM/Camera\" سے \"/sdcard/DCIM/Camera/photo.png\" باہر ہو جاتا ہے۔</string>
+  <string name="exclusion_editor_remove_confirmation_message">اس استثنا کو ہٹائیں؟</string>
+  <string name="exclusion_editor_unsaved_confirmation_message">آپ کی غیر محفوظ تبدیلیاں ہیں!</string>
+  <string name="exclusion_reset_default_exclusions">ڈیفالٹ استثنائات بحال کریں</string>
+  <string name="exclusion_import_action">استثنائات امپورٹ کریں</string>
+  <string name="exclusion_export_action">استثنائات ایکسپورٹ کریں</string>
+  <string name="exclusion_create_pkg_hint">ایپ استثنائات بنانے کے لیے AppControl ٹول استعمال کریں۔</string>
+  <string name="exclusion_create_path_hint">پاتھ استثنائات بنانے کے لیے StorageAnalyzer ٹول استعمال کریں۔</string>
+  <plurals name="exclusion_x_new_exclusions">
+    <item quantity="one">ایک استثنا بنایا گیا</item>
+    <item quantity="other">%d استثنائات بنائے گئے</item>
+  </plurals>
+  <string name="exclusion_show_defaults_action">ڈیفالٹس دکھائیں</string>
+  <string name="automation_accessibility_service_description">خاص رسائی ضروریات والے صارفین اس سروس کو فعال کر سکتے ہیں تاکہ SD Maid کو ایسے کام شامل کرنے کی اجازت دی جا سکے جو بصورت دیگر بوریॅ دستی صارف برقراری کی ضرورت ہوگی (مثل کیش ڈیلیٹ)۔\n\nمثال: اگر آپ SD Maid کو متعدد ایپس بند کرنے کا کہیں تو SD Maid اس سروس کا استعمال کرکے ہر ایپ کی سیٹنگز سکرین کھول سکتا ہے، \'Force Stop\' بٹن تلاش کر سکتا ہے اور اسے ٹیپ کر سکتا ہے۔\n\nSD Maid ہمیشہ اس سروس کا استعمال کرتے وقت نمایاں نظر آئے گا اور صارف کو فوری طور پر کوئی بھی برقراری منسوخ کرنے کا آسان طریقہ فراہم کرے گا۔\n\nبنا صارف کی پیشین منظوری کے کوئی عمل انجام نہیں دیا جائے گا۔ یہ سروس کسی بھی وقت دوبارہ بنا نقصان اثرات کے بند کی جا سکتی ہے۔</string>
+  <string name="automation_screenoverlay_explanation">SD Maid آپ کے ڈیوائس کے ساتھ برقراری کر رہا ہے۔ اسی وقت سکرین کا استعمال ممکن نہیں۔ آپریشن مکمل ہونے کا انتظار کریں یا اسے منسوخ کریں۔</string>
+  <string name="automation_active_title">SD Maid کام کر رہا ہے</string>
+  <string name="automation_error_no_consent_title">آٹومیشن کی خرابی</string>
+  <string name="automation_error_no_consent_body">رسائی سروس سیٹ اپ نہیں ہے۔ سیٹ اپ مکمل کریں اور رضامندی دیں۔</string>
+  <string name="automation_error_not_enabled_title">سروس فعال نہیں ہے</string>
+  <string name="automation_error_not_enabled_body">رسائی سروس غیر فعال ہے۔ اسے دوبارہ آن کریں۔</string>
+  <string name="automation_error_not_running_title">سروس چل نہیں رہی</string>
+  <string name="automation_error_not_running_body">رسائی سروس چل نہیں رہی۔ ڈیوائس کو ری بوٹ کرنے کی کوشش کریں۔</string>
+  <string name="automation_error_screen_unavailable_title">سکرین دستیاب نہیں</string>
+  <string name="automation_error_screen_unavailable_body">آپریشن منسوخ کر دیا گیا کیونکہ سکرین دستیاب نہیں ہو گئی (مثل ڈسپلے بند یا لاک سکرین فعال)۔</string>
+  <string name="automation_error_compatibility_title">آٹومیشن کی موافقت</string>
+  <string name="automation_error_compatibility_body">SD Maid سکرین لے آؤٹ سمجھ نہیں سکا۔ اگر یہ مسلسل ہوتا رہے، تو آپ کی زبان یا سیٹ اپ مکمل طور پر مدد شدہ نہیں ہو سکتا۔ اپڈیٹس تلاش کریں یا مجھ سے رابطہ کریں تاکہ میں اسے ٹھیک کر سکوں۔</string>
+  <string name="automation_error_timeout_title">آٹومیشن ٹائم آؤٹ</string>
+  <string name="automation_error_timeout_body">SD Maid نے مقررہ وقت کی حد میں تمام مراحل مکمل نہیں کیے۔ اگر یہ مسلسل ہوتا رہے، تو مجھے آپ کے ڈیوائس کے لیے ایپ کو اڈجسٹ کرنے کی ضرورت ہو سکتی ہے۔ اپڈیٹس تلاش کریں یا مجھ سے رابطہ کریں تاکہ میں اسے ٹھیک کر سکوں۔</string>
+  <string name="automation_error_overlay_title">آٹومیشن اوورلے</string>
+  <string name="automation_error_overlay_body">SD Maid آٹومیشن اوورلے نہیں دکھا سکا۔ اجازات چیک کریں اور اپنے ڈیوائس کو ری بوٹ کرنے کی کوشش کریں۔</string>
+  <string name="history_label">تاریخ</string>
+  <string name="history_description">حالیہ کارروائیوں اور متاثر ڈیٹا کی تاریخی فہرست۔</string>
+  <string name="scheduler_label">شیڈیولر</string>
+  <string name="scheduler_execution_label">اگلی تکمیل (تقریباً)</string>
+  <string name="scheduler_execution_last_label">آخری تکمیل</string>
+  <string name="scheduler_settings_label">شیڈیولر</string>
+  <string name="scheduler_settings_summary">شیڈیولر سے متعلق سیٹنگز میں تبدیلی کریں۔</string>
+  <string name="scheduler_new_schedule_action">شیڈیول بنائیں</string>
+  <string name="scheduler_schedule_name_label">شیڈیول کا نام</string>
+  <string name="scheduler_schedule_toggle_enabled">شیڈیول فعال ہے</string>
+  <string name="scheduler_schedule_toggle_disabled">شیڈیول غیر فعال ہے</string>
+  <string name="scheduler_edit_schedule_action">شیڈیول تبدیل کریں</string>
+  <string name="scheduler_schedule_time_label">تخمینی وقت</string>
+  <string name="scheduler_schedule_repeat_label">دنوں میں تکرار کا وقفہ</string>
+  <string name="scheduler_schedule_default_name">ڈیفالٹ شیڈیول</string>
+  <string name="scheduler_current_schedule_x_at_x">%1$s تقریباً %2$s</string>
+  <string name="scheduler_schedule_next_at_x">%s کے لیے منصوبہ</string>
+  <string name="scheduler_schedule_last_at_x">%s پر آخری بار عمل کیا گیا</string>
+  <string name="scheduler_schedule_repeat_interval">تکرار کا وقفہ</string>
+  <string name="scheduler_inaccurate_execution_hint">متوقع تکمیل کے اوقات تخمینی ہیں۔ اگر بیٹری بچانے کے لیے ضروری ہو تو شیڈیولز موخر یا جلدی ہو سکتے ہیں۔</string>
+  <string name="scheduler_no_active_schedules_subtitle">کوئی فعال شیڈیول نہیں</string>
+  <string name="scheduler_setting_nopowersaving_title">کم بیٹری پر چھوڑیں</string>
+  <string name="scheduler_setting_nopowersaving_summary">اگر ڈیوائس پاور سیونگ موڈ میں ہے، تو شیڈیول شدہ تکمیل چھوڑ دی جائے گی۔</string>
+  <string name="scheduler_setting_charging_title">چارجنگ نہ ہونے پر چھوڑیں</string>
+  <string name="scheduler_setting_charging_summary">اگر ڈیوائس چارج نہیں ہو رہا، تو شیڈیول شدہ تکمیل چھوڑ دی جائے گی۔</string>
+  <string name="scheduler_setting_automation_title">رسائی سروس</string>
+  <string name="scheduler_setting_automation_summary">رسائی سروس استعمال کرنے والی کارروائیاں شامل کریں۔ اس کے لیے ضروری ہے کہ کام سرانجام ہونے کے وقت SD Maid آپ کی سکرین کے ساتھ برقراری کر سکے (یعنی یہ غیر مقفل ہو)۔</string>
+  <string name="scheduler_notification_channel_label">شیڈیولر</string>
+  <string name="scheduler_notification_title">مقررہ کام</string>
+  <string name="scheduler_notification_message">عمل کر رہے ہیں: \"%s\"</string>
+  <string name="scheduler_notification_result_title">شیڈیولر مکمل</string>
+  <string name="scheduler_notification_result_success_message">تمام شیڈیول شدہ کام کامیابی سے چلے۔</string>
+  <string name="scheduler_notification_result_failure_message">کچھ شیڈیول شدہ کام ناکام ہوئے یا خرابی کا سامنا کیا۔ انھیں دستی طور پر چلانے کی کوشش کریں۔</string>
+  <string name="scheduler_commands_after_schedule_label">شیڈیول کے بعد کے کمانڈز</string>
+  <string name="scheduler_commands_after_schedule_desc">Android شیل کمانڈز جو شیڈیول کے اختتام پر تعین کیے جائیں گے۔</string>
+  <string name="scheduler_battery_optimization_hint">اگر آپ کو پس منظر کی تکمیل میں مسائل کا سامنا ہو تو SD Maid کے لیے بیٹری آپٹیمائزیشن بند کرنے پر غور کریں۔</string>
+  <string name="updates_dashcard_title">اپڈیٹ دستیاب ہے</string>
+  <string name="updates_dashcard_body">ایک اپڈیٹ دستیاب ہے۔ آپ کے پاس %1$s ہے اور تازہ ترین ورژن %2$s ہے۔</string>
+  <string name="translation_encourage_title">SD Maid کا ترجمہ</string>
+  <string name="translation_encourage_body">SD Maid کا ترجمہ رضاکاروں کے ذریعے کیا جاتا ہے۔ ترجمہ، جائزہ یا پروف ریڈنگ، آپ کی مدد کی قدر کی جاتی ہے!</string>
+  <string name="translation_translators_title">اس ورژن کا ترجمہ کیا گیا ہے</string>
+  <string name="translation_translators_people">شخص1;شخص2(optional@email.com)</string>
+  <string name="motd_setting_enabled_label">اہم پیغامات</string>
+  <string name="motd_setting_enabled_explanation">SD Maid کو ڈیویلپر کی جانب سے اہم پیغامات تلاش کرنے کی اجازت دیں۔</string>
+  <string name="updatecheck_setting_enabled_label">اپڈیٹ چیک</string>
+  <string name="updatecheck_setting_enabled_explanation">SD Maid کو اپڈیٹس تلاش کرنے کی اجازت دیں تاکہ اگر جدید ورژن دستیاب ہو تو آپ کو بتایا جا سکے۔</string>
+  <string name="device_settings_category">ڈیوائس</string>
+  <string name="beta_version_indicator_desc">قبل از ریلیز ورژنز ابتدائی سکرین پر ایک چھوٹا ربن دکھاتے ہیں۔ یہ زیادہ بار اپڈیٹ ہوتے ہیں، زیادہ فیچرز ہو سکتے ہیں، لیکن زیادہ بگز بھی ہو سکتے ہیں۔</string>
+  <string name="review_app_review_action">ریویو</string>
+  <string name="review_app_dismiss_action">شاید بعد میں</string>
+  <string name="review_app_body">کیا آپ SD Maid کے لیے ریویو چھوڑنا چاہیں گے؟️ ❤️</string>
+  <string name="stats_label">عافیتاریخ</string>
+  <string name="stats_report_status_success">کامیاب</string>
+  <string name="stats_report_status_partial_success">جزوی کامیابی</string>
+  <string name="stats_report_status_partial_failure">ناکامی</string>
+  <string name="stats_settings_desc">SD Maid کے شماریات، رپورٹس اور ڈیٹا برقراری کا نظم بنائیں۔</string>
+  <string name="stats_settings_retention_category">برقراری</string>
+  <string name="stats_settings_retention_reports_label">عام رپورٹس</string>
+  <string name="stats_settings_retention_reports_desc">بنیادی SD Maid آپریشن رپورٹس کو حذف کرنے سے پہلے دنوں کی تعداد۔</string>
+  <string name="stats_settings_retention_paths_label">تفصیلی پاتھ کی معلومات</string>
+  <string name="stats_settings_retention_paths_desc">SD Maid کے ذریعے متاثر پاتھز کی تفصیلات رکھنے کے لیے دنوں کی تعداد۔</string>
+  <string name="stats_settings_reset_all_label">تمام ری سیٹ کریں</string>
+  <string name="stats_settings_reset_all_desc">تمام رپورٹس حذف کریں اور تمام شماریات صفر پر رکھیں۔</string>
+  <string name="stats_affected_paths_label">متاثر پاتھز</string>
+  <string name="stats_affected_pkgs_label">متاثر ایپس</string>
+  <string name="picker_select_paths_title">پاتھز منتخب کریں</string>
+  <string name="picker_selected_paths_title">منتخب پاتھز</string>
+  <string name="picker_unsaved_confirmation_message">تبدیلیاں رد کریں؟</string>
+  <string name="picker_home_action">ڈیٹا ایریاز</string>
+  <string name="area_type_sdcard_label">پبلک اسٹوریج</string>
+  <string name="area_type_public_media_label">پبلک ایپ میڈیا</string>
+  <string name="area_type_public_data_label">پبلک ایپ ڈیٹا</string>
+  <string name="area_type_public_obb_label">پبلک ایپ ریسورسز</string>
+  <string name="area_type_private_data_label">پرائیویٹ ایپ ڈیٹا</string>
+  <string name="area_type_portable_label">پورٹابل اسٹوریج</string>
+  <plurals name="scheduler_schedule_repeat_x_days">
+    <item quantity="one">روزانہ</item>
+    <item quantity="other">ہر %d دن</item>
+  </plurals>
+  <plurals name="stats_dash_body_size">
+    <item quantity="one">%s آزاد کیا گیا ہے۔</item>
+    <item quantity="other">%s آزاد کیا گیا ہے۔</item>
+  </plurals>
+  <plurals name="stats_dash_body_count">
+    <item quantity="one">%s آئٹم پر کارروائی کی گئی جب سے آپ نے SD Maid کو اپنے ڈیوائس میں دعوت دی۔</item>
+    <item quantity="other">%s آئٹمز پر کارروائی کی گئی جب سے آپ نے SD Maid کو اپنے ڈیوائس میں دعوت دی۔</item>
+  </plurals>
+  <plurals name="stats_settings_retention_x_days">
+    <item quantity="one">%d دن</item>
+    <item quantity="other">%d دن</item>
+  </plurals>
+  <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">%d پاتھ منتخب</item>
+    <item quantity="other">%d پاتھز منتخب</item>
+  </plurals>
+  <string name="onboarding_welcome_continue_action">جاری رکھیں</string>
+  <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+  <string name="onboarding_versus_body1">SD Maid SE (یعنی SD Maid 2) SD Maid (یعنی SD Maid 1) کا جانشین ہے۔ یہ ایک نئی ایپ ہے جو جدید Android کے لیے بہتر بنائی گئی ہے۔</string>
+  <string name="onboarding_versus_body2">اس کے پیشرو کا ڈھانچہ 7 سال سے زیادہ پرانا ہے اور نئے Android ورژن کے چیلنجز کے لیے ڈیزائن نہیں کیا گیا تھا۔ ترقی جاری رکھنے کے لیے مکمل نئے انداز میں ڈیزائن کرنا ضروری تھا۔</string>
+  <string name="onboarding_versus_body3">بہتر نتائج کے لیے SD Maid SE کی طرف تبدیل ہونے پر غور کریں۔</string>
+  <string name="onboarding_versus_body4">بدقسمتی سے SD Maid 1 کا "پرو اسٹیٹس" SD Maid 2/SE میں منتقل نہیں ہو سکتا۔ 12 سال مفت اپڈیٹ کے بعد، ترقی کو برقرار رکھنے کے لیے (ڈویلپر کو سپورٹ کرنے کے لیے) نئی خریداری ضروری ہے۔</string>
+  <string name="onboarding_versus_continue_action">جاری رکھیں</string>
+  <string name="onboarding_privacy_title">پرائیویسی</string>
+  <string name="onboarding_privacy_body1">SD Maid میں کوئی اشتہارات نہیں ہیں اور یہ صارف کا ڈیٹا فروخت نہیں کرتا۔</string>
+  <string name="onboarding_privacy_bugreport_toggle_body">جب خرابیاں پیش آتی ہیں تو بگ رپورٹس بھیجی جاتی ہیں اور ان میں آپ کے ڈیوائس پر موجود ایپس اور فائلوں کی تفصیلات ہو سکتی ہیں۔ یہ رپورٹس مجھے بگز ٹھیک کرنے اور ایپ بہتر بنانے میں مدد کرتی ہیں۔</string>
+  <string name="onboarding_privacy_bugreport_toggle">خودکار بگ رپورٹس کی اجازت دیں</string>
+  <string name="onboarding_privacy_bugreport_toggle_hint">یہ اختیارات سیٹنگز میں تبدیل کیے جا سکتے ہیں۔</string>
+  <string name="onboarding_privacy_continue_action">جاری رکھیں</string>
+  <string name="onboarding_setup_title">سیٹ اپ</string>
+  <string name="onboarding_setup_body1">SD Maid تمام قابل رسائی ڈیٹا علاقوں کو تلاش کرے گا۔</string>
+  <string name="onboarding_setup_body2">کیا قابل رسائی ہے یہ آپ کے ڈیوائس، Android ورژن اور دی گئی اجازات پر منحصر ہے۔</string>
+  <string name="onboarding_setup_body3">ان علاقوں تک رسائی قائم کر کے SD Maid کا استعمال شروع کریں جن کو تلاش کرنا چاہیے۔</string>
+  <string name="onboarding_setup_continue_action">رسائی سیٹ اپ کریں</string>
+  <string name="settings_privacy_policy_label">پرائیویسی پالیسی</string>
+  <string name="settings_privacy_policy_desc">ڈیٹا کو ذمہ داری سے سنبھالنا۔</string>
+  <string name="settings_licenses_label">لائسنسز</string>
+  <string name="settings_category_other_label">دیگر</string>
+  <string name="settings_category_filter_generic">عمومی فلٹر</string>
+  <string name="settings_category_filter_specific">مخصوص فلٹر</string>
+  <string name="settings_sponsor_development_title">ڈیولپمنٹ کو سپانسر کریں</string>
+  <string name="settings_sponsor_development_summary">سرپرست بنیں اور مسلسل ترقی کو ممکن بنائیں۔</string>
+  <string name="general_settings_label">عمومی</string>
+  <string name="general_settings_desc">عمومی تبدیلیاں جو پوری ایپ کو متاثر کرتی ہیں۔</string>
+  <string name="settings_category_ui_label">یوزر انٹرفیس</string>
+  <string name="ui_theme_mode_setting_label">تھیم موڈ</string>
+  <string name="ui_theme_mode_setting_explanation">ایپ کی تھیمنگ کے لیے استعمال ہونے والا موڈ (مثلاً رات یا دن)۔</string>
+  <string name="ui_theme_mode_dark_label">ڈارک</string>
+  <string name="ui_theme_mode_light_label">لائٹ</string>
+  <string name="ui_theme_mode_system_label">سسٹم</string>
+  <string name="ui_theme_style_setting_label">تھیم اسٹائل</string>
+  <string name="ui_theme_style_setting_explanation">ایپ کی تھیمنگ کے لیے استعمال ہونے والا رنگ اسٹائل۔</string>
+  <string name="ui_theme_style_default_label">ڈیفالٹ</string>
+  <string name="ui_theme_style_materialyou_label">Material You</string>
+  <string name="ui_previews_title">فائل پیش نظارہ</string>
+  <string name="ui_previews_summary">تمام ٹولز میں فائل پیش نظارہ دکھائیں (جیسے تصویری اور ویڈیو تھمب نیلز)۔</string>
+  <string name="ui_language_override_label">ایپ کی زبان</string>
+  <string name="ui_language_override_desc">SD Maid کے لیے مختلف زبان منتخب کریں، اپنے سسٹم کی ڈیفالٹ زبان سے آزاد۔ فی الوقت: %s</string>
+  <string name="settings_support_label">سپورٹ</string>
+  <string name="settings_support_description">دستاویزات پڑھیں، مسائل کی اطلاع دیں، دوسروں کے ساتھ بات چیت کریں یا ڈیبگ لاگز ریکارڈ کریں۔</string>
+  <string name="documentation_label">دستاویزات</string>
+  <string name="issue_tracker_description">بگ رپورٹس اور فیچر کی درخواستوں کے لیے عوامی ایشو ٹریکر۔</string>
+  <string name="issue_tracker_label">ایشو ٹریکر</string>
+  <string name="support_installid_label">انسٹال ID</string>
+  <string name="support_installid_desc">خودکار ایرر رپورٹس گمنام ہیں۔ اگر ڈویلپر کو آپ کی ایرر رپورٹس تلاش کرنی ہوں تو اپنا انسٹال ID شیئر کریں۔</string>
+  <string name="support_debuglog_label">ڈیبگ لاگ</string>
+  <string name="support_debuglog_desc">ایپ جو کچھ بھی کر رہی ہے اس کا تمام ریکارڈ ایک ٹیکسٹ فائل میں محفوظ کریں جسے آپ شیئر کر سکتے ہیں۔</string>
+  <string name="discord_label">Discord</string>
 </resources>
