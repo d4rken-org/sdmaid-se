@@ -1,173 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">सबै उपकरणहरूमा परिणामहरू मेटाउने?</string>
-    <string name="dashboard_settings_category">ड्यासबोर्ड</string>
-    <string name="dashboard_motd_title">विकासकर्ताबाट सन्देश</string>
-    <string name="dashboard_settings_oneclick_title">एक-ट्याप मोड</string>
-    <string name="dashboard_settings_oneclick_summary">ड्यासबोर्डको कार्य बटनमा ट्याप गरेर सबै उपकरणहरूको लागि स्क्यान र मेटाउने सुरु गर्नुहोस्, कुनै अतिरिक्त पुष्टिकरण बिना।</string>
-    <string name="dashboard_settings_oneclick_tools_title">एक-ट्याप उपकरणहरू</string>
-    <string name="dashboard_settings_oneclick_tools_desc">कुन उपकरणहरू एक-ट्याप सञ्चालनमा समावेश गर्नुपर्छ?</string>
-
-    <string name="debug_debuglog_size_label">आकार</string>
-    <string name="debug_debuglog_size_compressed_label">सम्पीडित आकार</string>
-    <string name="debug_notification_channel_label">डिबग सूचनाहरू</string>
-    <string name="debug_debuglog_file_label">रेकर्ड गरिएको लग फाइल</string>
-    <string name="debug_debuglog_recording_progress">डिबग लग रेकर्ड गर्दै</string>
-    <string name="debug_debuglog_record_action">डिबग लग रेकर्ड गर्नुहोस्</string>
-    <string name="debug_debuglog_stop_action">रेकर्डिङ रोक्नुहोस्</string>
-    <string name="debug_debuglog_sensitive_information_message">उत्पन्न फाइलमा संवेदनशील जानकारी छ (जस्तै फाइल नामहरू र स्थापना गरिएका एपहरू)। यसलाई केवल विश्वसनीय पक्षहरूसँग साझा गर्नुहोस्।</string>
-    <string name="settings_debuglog_explanation">यो सुविधाले एपले गरिरहेको सबै कुरा साझा गर्न मिल्ने फाइलमा रेकर्ड गर्छ। उत्पन्न फाइलमा संवेदनशील जानकारी छ (जस्तै फाइल नामहरू र स्थापना गरिएका एपहरू)। यसलाई केवल विश्वसनीय पक्षहरूसँग साझा गर्नुहोस् (जस्तै समस्या समाधान गर्ने विकासकर्ता)।</string>
-
-    <string name="tasks_activity_notification_channel_label">सक्रिय कार्यहरू</string>
-    <string name="tasks_activity_working_notification_title">SD Maid काम गरिरहेको छ</string>
-    <plurals name="tasks_activity_active_notification_message">
-        <item quantity="one">%d सक्रिय कार्य</item>
-        <item quantity="other">%d सक्रिय कार्यहरू</item>
-    </plurals>
-    <plurals name="tasks_activity_queued_notification_message">
-        <item quantity="one">%d कार्य पङ्क्तिमा</item>
-        <item quantity="other">%d कार्यहरू पङ्क्तिमा</item>
-    </plurals>
-    <string name="tasks_result_notification_channel_label">कार्य परिणामहरू</string>
-    <string name="tasks_result_subtext">कार्य परिणाम</string>
-
-    <string name="onboarding_welcome_title">स्वागत</string>
-    <string name="onboarding_welcome_body1">SD Maid SE ले फाइलहरू, एपहरू र भण्डारण व्यवस्थापन गर्छ।</string>
-    <string name="onboarding_welcome_body2">अन्य एपहरूको पछाडि सफाई गरेर भण्डारण ठाउँ प्राप्त गर्नुहोस्। खर्च गर्न मिल्ने फाइलहरू मेटाउनुहोस् र बाँकी डेटा हटाउनुहोस्।</string>
-    <string name="onboarding_welcome_body_beta">यो बेटा (परीक्षण) निर्माण हो। हास्यको भावना र बैकअप योजनाको साथ अगाडि बढ्नुहोस्। कृपया तपाईंले सामना गर्ने समस्याहरू रिपोर्ट गर्नुहोस्।</string>
-    <string name="onboarding_welcome_continue_action">जारी राख्नुहोस्</string>
-
-    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (अर्थात् SD Maid 2) SD Maid (अर्थात् SD Maid 1) को उत्तराधिकारी हो। आधुनिक Android को लागि अनुकूलित नयाँ एप।</string>
-    <string name="onboarding_versus_body2">यसको पूर्ववर्तीको आर्किटेक्चर 7 वर्षभन्दा पुरानो छ र नयाँ Android संस्करणहरूको चुनौतीहरूको लागि डिजाइन गरिएको छैन। विकास जारी राख्न पूर्ण पुनःडिजाइन आवश्यक थियो।</string>
-    <string name="onboarding_versus_body3">राम्रो परिणामहरूको लागि SD Maid SE मा स्विच गर्ने विचार गर्नुहोस्।</string>
-    <string name="onboarding_versus_body4">SD Maid 1 को \"प्रो स्थिति\" दुर्भाग्यवश SD Maid 2/SE मा स्थानान्तरण गर्न मिल्दैन। 12 वर्षको निःशुल्क अपडेटहरू पछि, विकास कायम राख्न (विकासकर्तालाई खुवाउन) नयाँ खरिद आवश्यक छ।</string>
-    <string name="onboarding_versus_continue_action">जारी राख्नुहोस्</string>
-
-    <string name="onboarding_privacy_title">गोपनीयता</string>
-    <string name="onboarding_privacy_body1">SD Maid मा कुनै विज्ञापनहरू छैनन् र प्रयोगकर्ता डेटा बेच्दैन।</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">त्रुटिहरू देखा पर्दा बग रिपोर्टहरू पठाइन्छन् र तपाईंको उपकरणमा एपहरू र फाइलहरूको बारेमा विवरणहरू हुन सक्छन्। रिपोर्टहरूले मलाई बगहरू ठीक गर्न र एप सुधार गर्न मद्दत गर्छ।</string>
-    <string name="onboarding_privacy_bugreport_toggle">स्वचालित बग रिपोर्टहरूलाई अनुमति दिनुहोस्</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">यी विकल्पहरू सेटिङहरूमा परिवर्तन गर्न सकिन्छ।</string>
-
-    <string name="onboarding_permissions_title">अनुमतिहरू</string>
-    <string name="onboarding_permissions_body">SD Maid SE लाई पूर्ण रूपमा कार्य गर्न निम्न अनुमतिहरू चाहिन्छ:</string>
-    <string name="onboarding_permissions_continue_action">जारी राख्नुहोस्</string>
-
-    <string name="onboarding_setup_title">सेटअप</string>
-    <string name="onboarding_setup_body">SD Maid SE का सबै क्षमताहरू प्रयोग गर्न केही अतिरिक्त सेटअप आवश्यक हुन सक्छ।</string>
-    <string name="onboarding_setup_continue_action">जारी राख्नुहोस्</string>
-
-    <string name="onboarding_finished_title">तयार!</string>
-    <string name="onboarding_finished_body">SD Maid SE प्रयोगको लागि तयार छ। ड्यासबोर्डमा जानुहोस् र तपाईंको पहिलो स्क्यान सुरु गर्नुहोस्!</string>
-    <string name="onboarding_finished_continue_action">ड्यासबोर्डमा जानुहोस्</string>
-
-    <string name="systemcleaner_title">सिस्टम क्लिनर</string>
-    <string name="systemcleaner_subtitle">सिस्टम क्यासहरू र अस्थायी फाइलहरू मेटाउनुहोस्</string>
-    <string name="systemcleaner_scan_action">स्क्यान</string>
-    <string name="systemcleaner_delete_action">मेटाउनुहोस्</string>
-    <string name="systemcleaner_progress_scanning">स्क्यान गर्दै...</string>
-    <string name="systemcleaner_progress_deleting">मेटाउँदै...</string>
-    <string name="systemcleaner_result_nothing_found">केही फेला परेन</string>
-    <string name="systemcleaner_result_found_files">%d फाइलहरू फेला पारियो</string>
-    <string name="systemcleaner_result_deleted_files">%d फाइलहरू मेटाइयो</string>
-
-    <string name="appcleaner_title">एप क्लिनर</string>
-    <string name="appcleaner_subtitle">एपहरूको क्यासहरू र अस्थायी फाइलहरू मेटाउनुहोस्</string>
-    <string name="appcleaner_scan_action">स्क्यान</string>
-    <string name="appcleaner_delete_action">मेटाउनुहोस्</string>
-    <string name="appcleaner_progress_scanning">स्क्यान गर्दै...</string>
-    <string name="appcleaner_progress_deleting">मेटाउँदै...</string>
-    <string name="appcleaner_result_nothing_found">केही फेला परेन</string>
-
-    <string name="analyzer_title">विश्लेषक</string>
-    <string name="analyzer_subtitle">भण्डारण प्रयोगको विश्लेषण गर्नुहोस्</string>
-    <string name="analyzer_scan_action">स्क्यान</string>
-    <string name="analyzer_progress_scanning">स्क्यान गर्दै...</string>
-
-    <string name="corpsefinder_title">शव खोजकर्ता</string>
-    <string name="corpsefinder_subtitle">अनइन्स्टल गरेका एपहरूबाट बाँकी फाइलहरू फेला पार्नुहोस्</string>
-    <string name="corpsefinder_scan_action">स्क्यान</string>
-    <string name="corpsefinder_delete_action">मेटाउनुहोस्</string>
-
-    <string name="deduplicator_title">डुप्लिकेट हटाउने</string>
-    <string name="deduplicator_subtitle">डुप्लिकेट फाइलहरू फेला पारेर मेटाउनुहोस्</string>
-    <string name="deduplicator_scan_action">स्क्यान</string>
-    <string name="deduplicator_delete_action">मेटाउनुहोस्</string>
-
-    <string name="settings_title">सेटिङहरू</string>
-    <string name="settings_general_category">सामान्य</string>
-    <string name="settings_theme_title">थीम</string>
-    <string name="settings_theme_auto">स्वचालित</string>
-    <string name="settings_theme_light">उज्यालो</string>
-    <string name="settings_theme_dark">अँध्यारो</string>
-    <string name="settings_language_title">भाषा</string>
-    <string name="settings_language_auto">स्वचालित</string>
-
-    <string name="settings_privacy_category">गोपनीयता</string>
-    <string name="settings_bugreports_title">बग रिपोर्टहरू</string>
-    <string name="settings_bugreports_summary">त्रुटिहरू देखा पर्दा स्वचालित रिपोर्टहरू पठाउनुहोस्</string>
-
-    <string name="settings_advanced_category">उन्नत</string>
-    <string name="settings_debug_title">डिबग</string>
-    <string name="settings_debug_summary">डिबग सुविधाहरू सक्षम गर्नुहोस्</string>
-
-    <string name="general_yes">हो</string>
-    <string name="general_no">होइन</string>
-    <string name="general_cancel">रद्द गर्नुहोस्</string>
-    <string name="general_ok">ठिक छ</string>
-    <string name="general_delete">मेटाउनुहोस्</string>
-    <string name="general_share">साझा गर्नुहोस्</string>
-    <string name="general_close">बन्द गर्नुहोस्</string>
-    <string name="general_continue">जारी राख्नुहोस्</string>
-    <string name="general_skip">छोड्नुहोस्</string>
-    <string name="general_refresh">रिफ्रेस गर्नुहोस्</string>
-    <string name="general_loading">लोड गर्दै...</string>
-    <string name="general_working">काम गर्दै...</string>
-    <string name="general_done">सकियो</string>
-    <string name="general_error">त्रुटि</string>
-    <string name="general_warning">चेतावनी</string>
-    <string name="general_info">जानकारी</string>
-
-    <string name="general_progress_loading">लोड गर्दै...</string>
-    <string name="general_progress_deleting">मेटाउँदै...</string>
-    <string name="general_progress_working">काम गर्दै...</string>
-
-    <string name="general_ms_format">%d ms</string>
-    <string name="general_kb_format">%.1f KB</string>
-    <string name="general_mb_format">%.1f MB</string>
-    <string name="general_gb_format">%.1f GB</string>
-
-    <string name="general_result_success_format">सफल: %s</string>
-    <string name="general_result_failure_format">असफल: %s</string>
-
-    <plurals name="general_result_x_items">
-        <item quantity="one">%d वस्तु</item>
-        <item quantity="other">%d वस्तुहरू</item>
-    </plurals>
-    <plurals name="general_result_x_files">
-        <item quantity="one">%d फाइल</item>
-        <item quantity="other">%d फाइलहरू</item>
-    </plurals>
-    <plurals name="general_result_x_folders">
-        <item quantity="one">%d फोल्डर</item>
-        <item quantity="other">%d फोल्डरहरू</item>
-    </plurals>
-
-    <string name="storage_space_free">खाली ठाउँ</string>
-    <string name="storage_space_used">प्रयोग भएको</string>
-    <string name="storage_space_total">कुल</string>
-
-    <string name="permission_request_title">अनुमति अनुरोध</string>
-    <string name="permission_request_body">SD Maid SE लाई सही तरिकाले काम गर्न यो अनुमति चाहिन्छ।</string>
-    <string name="permission_grant_action">अनुमति दिनुहोस्</string>
-
-    <string name="error_no_root_access">रूट पहुँच छैन</string>
-    <string name="error_root_access_failed">रूट पहुँच असफल</string>
-    <string name="error_permission_denied">अनुमति अस्वीकृत</string>
-    <string name="error_storage_not_accessible">भण्डारण पहुँचयोग्य छैन</string>
-    <string name="error_operation_failed">अपरेशन असफल</string>
-    <string name="error_file_not_found">फाइल फेला परेन</string>
-    <string name="error_insufficient_space">अपर्याप्त ठाउँ</string>
-    <string name="error_unknown">अज्ञात त्रुटि</string>
+  <string name="dashboard_delete_all_message">सबै उपकरणहरूमा परिणामहरू मेटाउने?</string>
+  <string name="dashboard_settings_category">ड्यासबोर्ड</string>
+  <string name="dashboard_motd_title">विकासकर्ताबाट सन्देश</string>
+  <string name="dashboard_settings_oneclick_title">एक-ट्याप मोड</string>
+  <string name="dashboard_settings_oneclick_summary">ड्यासबोर्डको कार्य बटनमा ट्याप गरेर सबै उपकरणहरूको लागि स्क्यान र मेटाउने सुरु गर्नुहोस्, कुनै अतिरिक्त पुष्टिकरण बिना।</string>
+  <string name="dashboard_settings_oneclick_tools_title">एक-ट्याप उपकरणहरू</string>
+  <string name="dashboard_settings_oneclick_tools_desc">कुन उपकरणहरू एक-ट्याप सञ्चालनमा समावेश गर्नुपर्छ?</string>
+  <string name="debug_debuglog_size_label">आकार</string>
+  <string name="debug_debuglog_size_compressed_label">सम्पीडित आकार</string>
+  <string name="debug_notification_channel_label">डिबग सूचनाहरू</string>
+  <string name="debug_debuglog_file_label">रेकर्ड गरिएको लग फाइल</string>
+  <string name="debug_debuglog_recording_progress">डिबग लग रेकर्ड गर्दै</string>
+  <string name="debug_debuglog_record_action">डिबग लग रेकर्ड गर्नुहोस्</string>
+  <string name="debug_debuglog_stop_action">रेकर्डिङ रोक्नुहोस्</string>
+  <string name="debug_debuglog_sensitive_information_message">उत्पन्न फाइलमा संवेदनशील जानकारी छ (जस्तै फाइल नामहरू र स्थापना गरिएका एपहरू)। यसलाई केवल विश्वसनीय पक्षहरूसँग साझा गर्नुहोस्।</string>
+  <string name="settings_debuglog_explanation">यो सुविधाले एपले गरिरहेको सबै कुरा साझा गर्न मिल्ने फाइलमा रेकर्ड गर्छ। उत्पन्न फाइलमा संवेदनशील जानकारी छ (जस्तै फाइल नामहरू र स्थापना गरिएका एपहरू)। यसलाई केवल विश्वसनीय पक्षहरूसँग साझा गर्नुहोस् (जस्तै समस्या समाधान गर्ने विकासकर्ता)।</string>
+  <string name="tasks_activity_notification_channel_label">सक्रिय कार्यहरू</string>
+  <string name="tasks_activity_working_notification_title">SD Maid काम गरिरहेको छ</string>
+  <plurals name="tasks_activity_active_notification_message">
+    <item quantity="one">%d सक्रिय कार्य</item>
+    <item quantity="other">%d सक्रिय कार्यहरू</item>
+  </plurals>
+  <plurals name="tasks_activity_queued_notification_message">
+    <item quantity="one">%d कार्य पङ्क्तिमा</item>
+    <item quantity="other">%d कार्यहरू पङ्क्तिमा</item>
+  </plurals>
+  <string name="tasks_result_notification_channel_label">कार्य परिणामहरू</string>
+  <string name="tasks_result_subtext">कार्य परिणाम</string>
+  <string name="onboarding_welcome_title">स्वागत</string>
+  <string name="onboarding_welcome_body1">SD Maid SE ले फाइलहरू, एपहरू र भण्डारण व्यवस्थापन गर्छ।</string>
+  <string name="onboarding_welcome_body2">अन्य एपहरूको पछाडि सफाई गरेर भण्डारण ठाउँ प्राप्त गर्नुहोस्। खर्च गर्न मिल्ने फाइलहरू मेटाउनुहोस् र बाँकी डेटा हटाउनुहोस्।</string>
+  <string name="onboarding_welcome_body_beta">यो बेटा (परीक्षण) निर्माण हो। हास्यको भावना र बैकअप योजनाको साथ अगाडि बढ्नुहोस्। कृपया तपाईंले सामना गर्ने समस्याहरू रिपोर्ट गर्नुहोस्।</string>
+  <string name="onboarding_welcome_continue_action">जारी राख्नुहोस्</string>
+  <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+  <string name="onboarding_versus_body1">SD Maid SE (अर्थात् SD Maid 2) SD Maid (अर्थात् SD Maid 1) को उत्तराधिकारी हो। आधुनिक Android को लागि अनुकूलित नयाँ एप।</string>
+  <string name="onboarding_versus_body2">यसको पूर्ववर्तीको आर्किटेक्चर 7 वर्षभन्दा पुरानो छ र नयाँ Android संस्करणहरूको चुनौतीहरूको लागि डिजाइन गरिएको छैन। विकास जारी राख्न पूर्ण पुनःडिजाइन आवश्यक थियो।</string>
+  <string name="onboarding_versus_body3">राम्रो परिणामहरूको लागि SD Maid SE मा स्विच गर्ने विचार गर्नुहोस्।</string>
+  <string name="onboarding_versus_body4">SD Maid 1 को \"प्रो स्थिति\" दुर्भाग्यवश SD Maid 2/SE मा स्थानान्तरण गर्न मिल्दैन। 12 वर्षको निःशुल्क अपडेटहरू पछि, विकास कायम राख्न (विकासकर्तालाई खुवाउन) नयाँ खरिद आवश्यक छ।</string>
+  <string name="onboarding_versus_continue_action">जारी राख्नुहोस्</string>
+  <string name="onboarding_privacy_title">गोपनीयता</string>
+  <string name="onboarding_privacy_body1">SD Maid मा कुनै विज्ञापनहरू छैनन् र प्रयोगकर्ता डेटा बेच्दैन।</string>
+  <string name="onboarding_privacy_bugreport_toggle_body">त्रुटिहरू देखा पर्दा बग रिपोर्टहरू पठाइन्छन् र तपाईंको उपकरणमा एपहरू र फाइलहरूको बारेमा विवरणहरू हुन सक्छन्। रिपोर्टहरूले मलाई बगहरू ठीक गर्न र एप सुधार गर्न मद्दत गर्छ।</string>
+  <string name="onboarding_privacy_bugreport_toggle">स्वचालित बग रिपोर्टहरूलाई अनुमति दिनुहोस्</string>
+  <string name="onboarding_privacy_bugreport_toggle_hint">यी विकल्पहरू सेटिङहरूमा परिवर्तन गर्न सकिन्छ।</string>
+  <string name="onboarding_setup_title">सेटअप</string>
+  <string name="onboarding_setup_continue_action">जारी राख्नुहोस्</string>
 </resources>

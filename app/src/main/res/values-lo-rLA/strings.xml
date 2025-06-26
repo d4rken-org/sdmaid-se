@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">ລຶບຜົນລັບໃນທຸກເຄື່ອງມືບໍ?</string>
     <string name="dashboard_settings_category">ກະດານຄວບຄຸມ</string>
@@ -7,7 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">ເລີ່ມການສະແກນ ແລະ ການລຶບສຳລັບທຸກເຄື່ອງມືດ້ວຍການແຕະປຸ່ມດຳເນີນການຂອງກະດານຄວບຄຸມ, ໂດຍບໍ່ມີການຢືນຢັນເພີ່ມເຕີມ.</string>
     <string name="dashboard_settings_oneclick_tools_title">ເຄື່ອງມືແຕະຄັ້ງດຽວ</string>
     <string name="dashboard_settings_oneclick_tools_desc">ເຄື່ອງມືໃດທີ່ຄວນຖືກລວມເຂົ້າໃນການດຳເນີນງານແຕະຄັ້ງດຽວ?</string>
-
     <string name="debug_debuglog_size_label">ຂະໜາດ</string>
     <string name="debug_debuglog_size_compressed_label">ຂະໜາດບີບອັດ</string>
     <string name="debug_notification_channel_label">ການແຈ້ງເຕືອນດີບັກ</string>
@@ -17,7 +16,6 @@
     <string name="debug_debuglog_stop_action">ຢຸດການບັນທຶກ</string>
     <string name="debug_debuglog_sensitive_information_message">ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ລະອຽດອ່ອນ (ເຊັ່ນ: ຊື່ໄຟລ໌ ແລະ ແອັບທີ່ຕິດຕັ້ງ). ແບ່ງປັນກັບພາກສ່ວນທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ.</string>
     <string name="settings_debuglog_explanation">ຄຸນສົມບັດນີ້ບັນທຶກທຸກສິ່ງທີ່ແອັບກຳລັງເຮັດໃສ່ໄຟລ໌ທີ່ສາມາດແບ່ງປັນໄດ້. ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ລະອຽດອ່ອນ (ເຊັ່ນ: ຊື່ໄຟລ໌ ແລະ ແອັບທີ່ຕິດຕັ້ງ). ແບ່ງປັນກັບພາກສ່ວນທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ (ເຊັ່ນ: ນັກພັດທະນາທີ່ແກ້ໄຂບັນຫາ).</string>
-
     <string name="tasks_activity_notification_channel_label">ໜ້າວຽກທີ່ກຳລັງດຳເນີນການ</string>
     <string name="tasks_activity_working_notification_title">SD Maid ກຳລັງເຮັດວຽກ</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -28,141 +26,22 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">ຜົນລັບຂອງໜ້າວຽກ</string>
     <string name="tasks_result_subtext">ຜົນລັບຂອງໜ້າວຽກ</string>
-
     <string name="onboarding_welcome_title">ຍິນດີຕ້ອນຮັບ</string>
     <string name="onboarding_welcome_body1">SD Maid SE ຈັດການໄຟລ໌, ແອັບ ແລະ ການເກັບຮັກສາ.</string>
     <string name="onboarding_welcome_body2">ໄດ້ຮັບພື້ນທີ່ເກັບຮັກສາໂດຍການທຳຄວາມສະອາດຫລັງຈາກແອັບອື່ນໆ. ລຶບໄຟລ໌ທີ່ບໍ່ຈຳເປັນ ແລະ ເອົາຂໍ້ມູນທີ່ເຫຼືອອອກ.</string>
     <string name="onboarding_welcome_body_beta">ນີ້ແມ່ນສ້າງເບຕ້າ (ທົດສອບ). ດຳເນີນຕໍ່ດ້ວຍໄວຍາກອນແຫ່ງອາລົມຂັນ ແລະ ແຜນສຳຮອງ. ກະລຸນາລາຍງານບັນຫາທີ່ທ່ານພົບ.</string>
     <string name="onboarding_welcome_continue_action">ສືບຕໍ່</string>
-
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (ຄື SD Maid 2) ແມ່ນຜູ້ສືບທອດຂອງ SD Maid (ຄື SD Maid 1). ແອັບໃໝ່ທີ່ປັບປຸງສຳລັບ Android ທີ່ທັນສະໄໝ.</string>
     <string name="onboarding_versus_body2">ສະຖາປັດຕະຍະກຳຂອງບັນພະບູລຸດມີອາຍຸເກີນ 7 ປີແລ້ວ ແລະ ບໍ່ໄດ້ຖືກອອກແບບສຳລັບສິ່ງທ້າທາຍຂອງ Android ເວີຊັນໃໝ່. ການອອກແບບໃໝ່ທັງໝົດແມ່ນຈຳເປັນເພື່ອສືບຕໍ່ການພັດທະນາ.</string>
     <string name="onboarding_versus_body3">ພິຈາລະນາເປັນ SD Maid SE ເພື່ອຜົນລັບທີ່ດີກວ່າ.</string>
     <string name="onboarding_versus_body4">ສະຖານະ \"pro\" ຂອງ SD Maid 1 ໂຊກບໍ່ດີທີ່ບໍ່ສາມາດໂອນໄປ SD Maid 2/SE ໄດ້. ຫລັງຈາກ 12 ປີແຫ່ງການອັບເດດຟຣີ, ການຊື້ໃໝ່ແມ່ນຈຳເປັນເພື່ອສືບຕໍ່ການພັດທະນາ (ລ່ຽງດູນັກພັດທະນາ).</string>
     <string name="onboarding_versus_continue_action">ສືບຕໍ່</string>
-
     <string name="onboarding_privacy_title">ຄວາມເປັນສ່ວນຕົວ</string>
     <string name="onboarding_privacy_body1">SD Maid ບໍ່ມີໂຄສະນາ ແລະ ບໍ່ຂາຍຂໍ້ມູນຜູ້ໃຊ້.</string>
     <string name="onboarding_privacy_bugreport_toggle_body">ບົດລາຍງານຂໍ້ຜິດພາດຖືກສົ່ງເມື່ອມີຂໍ້ຜິດພາດເກີດຂຶ້ນ ແລະ ອາດມີລາຍລະອຽດກ່ຽວກັບແອັບ ແລະ ໄຟລ໌ໃນອຸປະກອນຂອງທ່ານ. ບົດລາຍງານຊ່ວຍຂ້ອຍແກ້ໄຂຂໍ້ຜິດພາດ ແລະ ປັບປຸງແອັບ.</string>
     <string name="onboarding_privacy_bugreport_toggle">ອະນຸຍາດໃຫ້ລາຍງານຂໍ້ຜິດພາດອັດຕະໂນມັດ</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">ທາງເລືອກເຫລົ່ານີ້ສາມາດປ່ຽນແປງໄດ້ໃນການຕັ້ງຄ່າ.</string>
-
-    <string name="onboarding_permissions_title">ການອະນຸຍາດ</string>
-    <string name="onboarding_permissions_body">SD Maid SE ຕ້ອງການການອະນຸຍາດຕໍ່ໄປນີ້ເພື່ອເຮັດວຽກຢ່າງເຕັມທີ່:</string>
-    <string name="onboarding_permissions_continue_action">ສືບຕໍ່</string>
-
     <string name="onboarding_setup_title">ການຕັ້ງຄ່າ</string>
-    <string name="onboarding_setup_body">ການໃຊ້ຄວາມສາມາດທັງໝົດຂອງ SD Maid SE ອາດຕ້ອງການການຕັ້ງຄ່າເພີ່ມເຕີມ.</string>
     <string name="onboarding_setup_continue_action">ສືບຕໍ່</string>
-
-    <string name="onboarding_finished_title">ພ້ອມແລ້ວ!</string>
-    <string name="onboarding_finished_body">SD Maid SE ພ້ອມໃຊ້ງານແລ້ວ. ໄປຫາກະດານຄວບຄຸມ ແລະ ເລີ່ມການສະແກນຄັ້ງທຳອິດຂອງທ່ານ!</string>
-    <string name="onboarding_finished_continue_action">ໄປຫາກະດານຄວບຄຸມ</string>
-
-    <string name="systemcleaner_title">ເຄື່ອງມືທຳຄວາມສະອາດລະບົບ</string>
-    <string name="systemcleaner_subtitle">ລຶບແຄດລະບົບ ແລະ ໄຟລ໌ຊົ່ວຄາວ</string>
-    <string name="systemcleaner_scan_action">ສະແກນ</string>
-    <string name="systemcleaner_delete_action">ລຶບ</string>
-    <string name="systemcleaner_progress_scanning">ກຳລັງສະແກນ...</string>
-    <string name="systemcleaner_progress_deleting">ກຳລັງລຶບ...</string>
-    <string name="systemcleaner_result_nothing_found">ບໍ່ພົບສິ່ງໃດ</string>
-    <string name="systemcleaner_result_found_files">ພົບ %d ໄຟລ໌</string>
-    <string name="systemcleaner_result_deleted_files">ລຶບ %d ໄຟລ໌ແລ້ວ</string>
-
-    <string name="appcleaner_title">ເຄື່ອງມືທຳຄວາມສະອາດແອັບ</string>
-    <string name="appcleaner_subtitle">ລຶບແຄດແອັບ ແລະ ໄຟລ໌ຊົ່ວຄາວ</string>
-    <string name="appcleaner_scan_action">ສະແກນ</string>
-    <string name="appcleaner_delete_action">ລຶບ</string>
-    <string name="appcleaner_progress_scanning">ກຳລັງສະແກນ...</string>
-    <string name="appcleaner_progress_deleting">ກຳລັງລຶບ...</string>
-    <string name="appcleaner_result_nothing_found">ບໍ່ພົບສິ່ງໃດ</string>
-
-    <string name="analyzer_title">ເຄື່ອງມືວິເຄາະ</string>
-    <string name="analyzer_subtitle">ວິເຄາະການນຳໃຊ້ພື້ນທີ່ເກັບຮັກສາ</string>
-    <string name="analyzer_scan_action">ສະແກນ</string>
-    <string name="analyzer_progress_scanning">ກຳລັງສະແກນ...</string>
-
-    <string name="corpsefinder_title">ເຄື່ອງມືຊອກຫາເສດ</string>
-    <string name="corpsefinder_subtitle">ຊອກຫາໄຟລ໌ທີ່ເຫຼືອຈາກແອັບທີ່ຖອນການຕິດຕັ້ງແລ້ວ</string>
-    <string name="corpsefinder_scan_action">ສະແກນ</string>
-    <string name="corpsefinder_delete_action">ລຶບ</string>
-
-    <string name="deduplicator_title">ເຄື່ອງມືລຶບຊໍ້າ</string>
-    <string name="deduplicator_subtitle">ຊອກຫາ ແລະ ລຶບໄຟລ໌ຊໍ້າ</string>
-    <string name="deduplicator_scan_action">ສະແກນ</string>
-    <string name="deduplicator_delete_action">ລຶບ</string>
-
-    <string name="settings_title">ການຕັ້ງຄ່າ</string>
-    <string name="settings_general_category">ທົ່ວໄປ</string>
-    <string name="settings_theme_title">ຫົວຂໍ້</string>
-    <string name="settings_theme_auto">ອັດຕະໂນມັດ</string>
-    <string name="settings_theme_light">ສະຫວ່າງ</string>
-    <string name="settings_theme_dark">ມືດ</string>
-    <string name="settings_language_title">ພາສາ</string>
-    <string name="settings_language_auto">ອັດຕະໂນມັດ</string>
-
-    <string name="settings_privacy_category">ຄວາມເປັນສ່ວນຕົວ</string>
-    <string name="settings_bugreports_title">ບົດລາຍງານຂໍ້ຜິດພາດ</string>
-    <string name="settings_bugreports_summary">ສົ່ງບົດລາຍງານອັດຕະໂນມັດເມື່ອມີຂໍ້ຜິດພາດເກີດຂຶ້ນ</string>
-
-    <string name="settings_advanced_category">ຂັ້ນສູງ</string>
-    <string name="settings_debug_title">ດີບັກ</string>
-    <string name="settings_debug_summary">ເປີດໃຊ້ຄຸນສົມບັດດີບັກ</string>
-
-    <string name="general_yes">ແມ່ນ</string>
-    <string name="general_no">ບໍ່</string>
-    <string name="general_cancel">ຍົກເລີກ</string>
-    <string name="general_ok">ຕົກລົງ</string>
-    <string name="general_delete">ລຶບ</string>
-    <string name="general_share">ແບ່ງປັນ</string>
-    <string name="general_close">ປິດ</string>
-    <string name="general_continue">ສືບຕໍ່</string>
-    <string name="general_skip">ຂ້າມ</string>
-    <string name="general_refresh">ໂຫລດໃໝ່</string>
-    <string name="general_loading">ກຳລັງໂຫລດ...</string>
-    <string name="general_working">ກຳລັງເຮັດວຽກ...</string>
-    <string name="general_done">ເສັດແລ້ວ</string>
-    <string name="general_error">ຂໍ້ຜິດພາດ</string>
-    <string name="general_warning">ເຕືອນ</string>
-    <string name="general_info">ຂໍ້ມູນ</string>
-
-    <string name="general_progress_loading">ກຳລັງໂຫລດ...</string>
-    <string name="general_progress_deleting">ກຳລັງລຶບ...</string>
-    <string name="general_progress_working">ກຳລັງເຮັດວຽກ...</string>
-
-    <string name="general_ms_format">%d ms</string>
-    <string name="general_kb_format">%.1f KB</string>
-    <string name="general_mb_format">%.1f MB</string>
-    <string name="general_gb_format">%.1f GB</string>
-
-    <string name="general_result_success_format">ສຳເລັດ: %s</string>
-    <string name="general_result_failure_format">ລົ້ມເຫຼວ: %s</string>
-
-    <plurals name="general_result_x_items">
-        <item quantity="other">%d ລາຍການ</item>
-    </plurals>
-    <plurals name="general_result_x_files">
-        <item quantity="other">%d ໄຟລ໌</item>
-    </plurals>
-    <plurals name="general_result_x_folders">
-        <item quantity="other">%d ໂຟນເດີ</item>
-    </plurals>
-
-    <string name="storage_space_free">ພື້ນທີ່ຫວ່າງ</string>
-    <string name="storage_space_used">ໃຊ້ແລ້ວ</string>
-    <string name="storage_space_total">ທັງໝົດ</string>
-
-    <string name="permission_request_title">ຄຳຂໍການອະນຸຍາດ</string>
-    <string name="permission_request_body">SD Maid SE ຕ້ອງການການອະນຸຍາດນີ້ເພື່ອເຮັດວຽກຢ່າງຖືກຕ້ອງ.</string>
-    <string name="permission_grant_action">ອະນຸຍາດ</string>
-
-    <string name="error_no_root_access">ບໍ່ມີສິດ Root</string>
-    <string name="error_root_access_failed">ການເຂົ້າເຖິງ Root ລົ້ມເຫຼວ</string>
-    <string name="error_permission_denied">ການອະນຸຍາດຖືກປະຕິເສດ</string>
-    <string name="error_storage_not_accessible">ບໍ່ສາມາດເຂົ້າເຖິງບ່ອນເກັບຮັກສາໄດ້</string>
-    <string name="error_operation_failed">ການດຳເນີນການລົ້ມເຫຼວ</string>
-    <string name="error_file_not_found">ບໍ່ພົບໄຟລ໌</string>
-    <string name="error_insufficient_space">ພື້ນທີ່ບໍ່ພຽງພໍ</string>
-    <string name="error_unknown">ຂໍ້ຜິດພາດທີ່ບໍ່ຮູ້ຈັກ</string>
 </resources>

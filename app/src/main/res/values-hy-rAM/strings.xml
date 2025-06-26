@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Ջնջե՞լ բոլոր գործիքների արդյունքները:</string>
     <string name="dashboard_settings_category">Վահանակ</string>
@@ -7,7 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Սկսել սկանավորումը և ջնջումը բոլոր գործիքների համար վահանակի գործողության կոճակը հպելով՝ առանց լրացուցիչ հաստատումների:</string>
     <string name="dashboard_settings_oneclick_tools_title">Մեկ հպման գործիքներ</string>
     <string name="dashboard_settings_oneclick_tools_desc">Որ գործիքները պետք է ներառվեն մեկ հպման գործողություններում:</string>
-
     <string name="debug_debuglog_size_label">Չափ</string>
     <string name="debug_debuglog_size_compressed_label">Սեղմված չափ</string>
     <string name="debug_notification_channel_label">Վրիպազերծման ծանուցումներ</string>
@@ -17,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Կանգնացնել գրանցումը</string>
     <string name="debug_debuglog_sensitive_information_message">Ստեղծված ֆայլը պարունակում է կարևոր տեղեկություններ (օր. ֆայլերի անուններ և տեղադրված հավելվածներ): Կիսվեք միայն վստահելի կողմերի հետ:</string>
     <string name="settings_debuglog_explanation">Այս հատկությունը գրանցում է հավելվածի բոլոր գործողությունները կիսվող ֆայլում: Ստեղծված ֆայլը պարունակում է կարևոր տեղեկություններ (օր. ֆայլերի անուններ և տեղադրված հավելվածներ): Կիսվեք միայն վստահելի կողմերի հետ (օր. խնդիր լուծող մշակողի հետ):</string>
-
     <string name="tasks_activity_notification_channel_label">Ակտիվ առաջադրանքներ</string>
     <string name="tasks_activity_working_notification_title">SD Maid-ը աշխատում է</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -30,144 +28,22 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Առաջադրանքների արդյունքներ</string>
     <string name="tasks_result_subtext">Առաջադրանքի արդյունք</string>
-
     <string name="onboarding_welcome_title">Բարի գալուստ</string>
     <string name="onboarding_welcome_body1">SD Maid SE-ն կառավարում է ֆայլերը, հավելվածները և պահոցը:</string>
     <string name="onboarding_welcome_body2">Ստացեք պահոցային տարածք՝ մաքրելով այլ հավելվածների հետքերը: Ջնջեք ավելորդ ֆայլերը և հեռացրեք մնացած տվյալները:</string>
     <string name="onboarding_welcome_body_beta">Սա բետա (փորձարկման) տարբերակ է: Առաջ գնացեք հումորի զգացմամբ և պահուստային պլանով: Խնդրում ենք զեկուցել ձեր հանդիպած խնդիրների մասին:</string>
     <string name="onboarding_welcome_continue_action">Շարունակել</string>
-
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE-ն (այսինքն SD Maid 2) SD Maid-ի (այսինքն SD Maid 1) հաջորդողն է: Նոր հավելված, օպտիմալացված ժամանակակից Android-ի համար:</string>
     <string name="onboarding_versus_body2">Նրա նախորդի ճարտարապետությունը 7 տարվանից ավելի հին է և նախագծված չէ նոր Android տարբերակների մարտահրավերների համար: Ամբողջական վերանախագծում անհրաժեշտ էր զարգացումը շարունակելու համար:</string>
     <string name="onboarding_versus_body3">Նկատի առեք SD Maid SE-ին անցնելը ավելի լավ արդյունքների համար:</string>
     <string name="onboarding_versus_body4">SD Maid 1-ի \"pro կարգավիճակը\" դժբախտաբար չի կարող փոխանցվել SD Maid 2/SE-ին: 12 տարվա անվճար թարմացումներից հետո, նոր գնում անհրաժեշտ է զարգացումը հաստատելու համար (մշակողին սնելու համար):</string>
     <string name="onboarding_versus_continue_action">Շարունակել</string>
-
     <string name="onboarding_privacy_title">Գաղտնիություն</string>
     <string name="onboarding_privacy_body1">SD Maid-ը գովազդներ չունի և չի վաճառում օգտատերերի տվյալները:</string>
     <string name="onboarding_privacy_bugreport_toggle_body">Վրիպակների զեկույցները ուղարկվում են սխալների ժամանակ և կարող են պարունակել մանրամասներ ձեր սարքի հավելվածների և ֆայլերի մասին: Զեկույցները օգնում են ինձ ուղղել վրիպակները և բարելավել հավելվածը:</string>
     <string name="onboarding_privacy_bugreport_toggle">Թույլատրել ավտոմատ վրիպակների զեկույցները</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">Այս ընտրանքները կարող են փոխվել կարգավորումներում:</string>
-
-    <string name="onboarding_permissions_title">Թույլտվություններ</string>
-    <string name="onboarding_permissions_body">SD Maid SE-ն ամբողջությամբ աշխատելու համար կարիք ունի հետևյալ թույլտվություններին:</string>
-    <string name="onboarding_permissions_continue_action">Շարունակել</string>
-
     <string name="onboarding_setup_title">Կարգավորում</string>
-    <string name="onboarding_setup_body">SD Maid SE-ի բոլոր հնարավորությունները օգտագործելը կարող է ստիպել լրացուցիչ կարգավորում:</string>
     <string name="onboarding_setup_continue_action">Շարունակել</string>
-
-    <string name="onboarding_finished_title">Պատրաստ է!</string>
-    <string name="onboarding_finished_body">SD Maid SE-ն պատրաստ է օգտագործման: Գնացեք վահանակ և սկսեք ձեր առաջին սկանավորումը:</string>
-    <string name="onboarding_finished_continue_action">Գնալ վահանակ</string>
-
-    <string name="systemcleaner_title">Համակարգի մաքրիչ</string>
-    <string name="systemcleaner_subtitle">Ջնջել համակարգի քեշները և ժամանակավոր ֆայլերը</string>
-    <string name="systemcleaner_scan_action">Սկանավորել</string>
-    <string name="systemcleaner_delete_action">Ջնջել</string>
-    <string name="systemcleaner_progress_scanning">Սկանավորում...</string>
-    <string name="systemcleaner_progress_deleting">Ջնջում...</string>
-    <string name="systemcleaner_result_nothing_found">Ոչինչ չի գտնվել</string>
-    <string name="systemcleaner_result_found_files">Գտնվել է %d ֆայլ</string>
-    <string name="systemcleaner_result_deleted_files">Ջնջվել է %d ֆայլ</string>
-
-    <string name="appcleaner_title">Հավելվածների մաքրիչ</string>
-    <string name="appcleaner_subtitle">Ջնջել հավելվածների քեշները և ժամանակավոր ֆայլերը</string>
-    <string name="appcleaner_scan_action">Սկանավորել</string>
-    <string name="appcleaner_delete_action">Ջնջել</string>
-    <string name="appcleaner_progress_scanning">Սկանավորում...</string>
-    <string name="appcleaner_progress_deleting">Ջնջում...</string>
-    <string name="appcleaner_result_nothing_found">Ոչինչ չի գտնվել</string>
-
-    <string name="analyzer_title">Վերլուծիչ</string>
-    <string name="analyzer_subtitle">Վերլուծել պահոցի օգտագործումը</string>
-    <string name="analyzer_scan_action">Սկանավորել</string>
-    <string name="analyzer_progress_scanning">Սկանավորում...</string>
-
-    <string name="corpsefinder_title">Դի փնտրիչ</string>
-    <string name="corpsefinder_subtitle">Գտնել հեռացված հավելվածներից մնացած ֆայլերը</string>
-    <string name="corpsefinder_scan_action">Սկանավորել</string>
-    <string name="corpsefinder_delete_action">Ջնջել</string>
-
-    <string name="deduplicator_title">Կրկնօրինակների հեռացում</string>
-    <string name="deduplicator_subtitle">Գտնել և ջնջել կրկնօրինակ ֆայլերը</string>
-    <string name="deduplicator_scan_action">Սկանավորել</string>
-    <string name="deduplicator_delete_action">Ջնջել</string>
-
-    <string name="settings_title">Կարգավորումներ</string>
-    <string name="settings_general_category">Ընդհանուր</string>
-    <string name="settings_theme_title">Թեմա</string>
-    <string name="settings_theme_auto">Ավտոմատ</string>
-    <string name="settings_theme_light">Բարձր</string>
-    <string name="settings_theme_dark">Մուգ</string>
-    <string name="settings_language_title">Լեզու</string>
-    <string name="settings_language_auto">Ավտոմատ</string>
-
-    <string name="settings_privacy_category">Գաղտնիություն</string>
-    <string name="settings_bugreports_title">Վրիպակների զեկույցներ</string>
-    <string name="settings_bugreports_summary">Ուղարկել ավտոմատ զեկույցներ սխալների ժամանակ</string>
-
-    <string name="settings_advanced_category">Առաջադեմ</string>
-    <string name="settings_debug_title">Վրիպազերծում</string>
-    <string name="settings_debug_summary">Ակտիվացնել վրիպազերծման հատկությունները</string>
-
-    <string name="general_yes">Այո</string>
-    <string name="general_no">Ոչ</string>
-    <string name="general_cancel">Չեղարկել</string>
-    <string name="general_ok">Լավ</string>
-    <string name="general_delete">Ջնջել</string>
-    <string name="general_share">Կիսվել</string>
-    <string name="general_close">Փակել</string>
-    <string name="general_continue">Շարունակել</string>
-    <string name="general_skip">Բաց թողնել</string>
-    <string name="general_refresh">Թարմացնել</string>
-    <string name="general_loading">Բեռնվում է...</string>
-    <string name="general_working">Աշխատում է...</string>
-    <string name="general_done">Կատարված է</string>
-    <string name="general_error">Սխال</string>
-    <string name="general_warning">Նախազգուշացում</string>
-    <string name="general_info">Տեղեկություն</string>
-
-    <string name="general_progress_loading">Բեռնվում է...</string>
-    <string name="general_progress_deleting">Ջնջվում է...</string>
-    <string name="general_progress_working">Աշխատում է...</string>
-
-    <string name="general_ms_format">%d ms</string>
-    <string name="general_kb_format">%.1f KB</string>
-    <string name="general_mb_format">%.1f MB</string>
-    <string name="general_gb_format">%.1f GB</string>
-
-    <string name="general_result_success_format">Հաջողված: %s</string>
-    <string name="general_result_failure_format">Ձախողված: %s</string>
-
-    <plurals name="general_result_x_items">
-        <item quantity="one">%d տարր</item>
-        <item quantity="other">%d տարր</item>
-    </plurals>
-    <plurals name="general_result_x_files">
-        <item quantity="one">%d ֆայլ</item>
-        <item quantity="other">%d ֆայլ</item>
-    </plurals>
-    <plurals name="general_result_x_folders">
-        <item quantity="one">%d թղթապանակ</item>
-        <item quantity="other">%d թղթապանակ</item>
-    </plurals>
-
-    <string name="storage_space_free">Ազատ տարածք</string>
-    <string name="storage_space_used">Օգտագործված</string>
-    <string name="storage_space_total">Ընդամենը</string>
-
-    <string name="permission_request_title">Թույլտվության հայցում</string>
-    <string name="permission_request_body">SD Maid SE-ի ճիշտ աշխատանքի համար այս թույլտվությունը անհրաժեշտ է:</string>
-    <string name="permission_grant_action">Տալ թույլտվություն</string>
-
-    <string name="error_no_root_access">Root մուտքը չկա</string>
-    <string name="error_root_access_failed">Root մուտքը ձախողվեց</string>
-    <string name="error_permission_denied">Թույլտվությունը մերժված է</string>
-    <string name="error_storage_not_accessible">Պահոցը հասանելի չէ</string>
-    <string name="error_operation_failed">Գործողությունը ձախողվեց</string>
-    <string name="error_file_not_found">Ֆայլը չի գտնվել</string>
-    <string name="error_insufficient_space">Անբավարար տարածք</string>
-    <string name="error_unknown">Անհայտ սխալ</string>
 </resources>

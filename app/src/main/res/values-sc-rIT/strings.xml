@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Cantzellare is risultados in totu is ainas?</string>
     <string name="dashboard_settings_category">Pannellu de controllu</string>
@@ -46,10 +46,6 @@
     <string name="onboarding_privacy_bugreport_toggle_hint">Custas optziones podent èssere cambiadas in is impostatziones.</string>
     <string name="onboarding_setup_title">Cunfiguratzione</string>
     <string name="onboarding_setup_continue_action">Continuare</string>
-    <string name="general_continue">Continuare</string>
-
-    <string name="general_progress_loading">Carrighende...</string>
-    <string name="general_progress_deleting">Cantzellende...</string>
     <string name="discord_description">Unu logu pro si riunire e faghere preguntas.</string>
     <string name="changelog_label">Registru de cambiamentos</string>
     <string name="settings_acknowledgements_label">Arregonoschentos</string>

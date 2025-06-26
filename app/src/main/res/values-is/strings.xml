@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Eyða niðurstöðum í öllum tækjum?</string>
     <string name="dashboard_settings_category">Stjórnborð</string>
@@ -7,7 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Byrja skönnun og eyðingu fyrir öll tæki með því að snerta aðgerðahnapp stjórnborðsins, án viðbótar staðfestinga.</string>
     <string name="dashboard_settings_oneclick_tools_title">Einn-snerting tæki</string>
     <string name="dashboard_settings_oneclick_tools_desc">Hvaða tæki ætti að vera með í einn-snerting aðgerðum?</string>
-
     <string name="debug_debuglog_size_label">Stærð</string>
     <string name="debug_debuglog_size_compressed_label">Þjöppuð stærð</string>
     <string name="debug_notification_channel_label">Villuleit tilkynningar</string>
@@ -17,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Stoppa upptöku</string>
     <string name="debug_debuglog_sensitive_information_message">Búna skráin inniheldur viðkvæmar upplýsingar (t.d. skráarnöfn og uppsett forrit). Deildu henni aðeins með áreiðanlegum aðilum.</string>
     <string name="settings_debuglog_explanation">Þessi eiginleiki skráir allt sem forritið er að gera í deilanlega skrá. Búna skráin inniheldur viðkvæmar upplýsingar (t.d. skráarnöfn og uppsett forrit). Deildu henni aðeins með áreiðanlegum aðilum (t.d. þróunaraðila sem er að leysa vandamál).</string>
-
     <string name="tasks_activity_notification_channel_label">Virk verkefni</string>
     <string name="tasks_activity_working_notification_title">SD Maid er að vinna</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -30,144 +28,21 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Verkefnaniðurstöður</string>
     <string name="tasks_result_subtext">Verkefnaniðurstaða</string>
-
     <string name="onboarding_welcome_title">Velkomin</string>
     <string name="onboarding_welcome_body1">SD Maid SE stjórnar skrám, forritum og geymslu.</string>
     <string name="onboarding_welcome_body2">Fáðu geymslupláss með því að hreinsa upp á eftir öðrum forritum. Eyddu óþarfa skrám og fjarlægðu afgangsgögn.</string>
-    <string name="onboarding_welcome_body2_beta">Þetta er beta (prófunar) útgáfa. Haltu áfram með húmor og varaáætlun. Vinsamlegast tilkynntu vandamál sem þú rekst á.</string>
     <string name="onboarding_welcome_continue_action">Halda áfram</string>
-
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (þ.e. SD Maid 2) er arftaki SD Maid (þ.e. SD Maid 1). Nýtt forrit, fínstillt fyrir nútíma Android.</string>
     <string name="onboarding_versus_body2">Arkitektúr forvera þess er yfir 7 ára gamall og ekki hannaður fyrir áskoranir nýrri Android útgáfna. Algjör enduruppbygging var nauðsynleg til að halda þróun áfram.</string>
     <string name="onboarding_versus_body3">Íhugaðu að skipta yfir í SD Maid SE fyrir betri niðurstöður.</string>
     <string name="onboarding_versus_body4">\"Pro staða\" SD Maid 1 er því miður ekki flutningshæf yfir í SD Maid 2/SE. Eftir 12 ár af ókeypis uppfærslum þarf nýtt kaup til að viðhalda þróun (fæða þróunaraðilann).</string>
     <string name="onboarding_versus_continue_action">Halda áfram</string>
-
     <string name="onboarding_privacy_title">Friðhelgi</string>
     <string name="onboarding_privacy_body1">SD Maid hefur engar auglýsingar og selur ekki notendagögn.</string>
     <string name="onboarding_privacy_bugreport_toggle_body">Villuskýrslur eru sendar þegar villur koma upp og kunna að innihalda upplýsingar um forrit og skrár á tækinu þínu. Skýrslur hjálpa mér að laga villur og bæta forritið.</string>
     <string name="onboarding_privacy_bugreport_toggle">Leyfa sjálfvirkar villuskýrslur</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">Þessa valkosti er hægt að breyta í stillingunum.</string>
-
-    <string name="onboarding_permissions_title">Heimildir</string>
-    <string name="onboarding_permissions_body">SD Maid SE þarf eftirfarandi heimildir til að virka að fullu:</string>
-    <string name="onboarding_permissions_continue_action">Halda áfram</string>
-
     <string name="onboarding_setup_title">Uppsetning</string>
-    <string name="onboarding_setup_body">Notkun allra möguleika SD Maid SE gæti þurft viðbótar uppsetningu.</string>
     <string name="onboarding_setup_continue_action">Halda áfram</string>
-
-    <string name="onboarding_finished_title">Tilbúið!</string>
-    <string name="onboarding_finished_body">SD Maid SE er tilbúið til notkunar. Farðu á stjórnborðið og byrjaðu fyrstu skönnunina þína!</string>
-    <string name="onboarding_finished_continue_action">Fara á stjórnborð</string>
-
-    <string name="systemcleaner_title">Kerfishreinsi</string>
-    <string name="systemcleaner_subtitle">Eyða kerfisflýtiminni og tímabundnum skrám</string>
-    <string name="systemcleaner_scan_action">Skanna</string>
-    <string name="systemcleaner_delete_action">Eyða</string>
-    <string name="systemcleaner_progress_scanning">Skannar...</string>
-    <string name="systemcleaner_progress_deleting">Eyðir...</string>
-    <string name="systemcleaner_result_nothing_found">Ekkert fannst</string>
-    <string name="systemcleaner_result_found_files">%d skrár fundust</string>
-    <string name="systemcleaner_result_deleted_files">%d skrár eytt</string>
-
-    <string name="appcleaner_title">Forritahreinsi</string>
-    <string name="appcleaner_subtitle">Eyða flýtiminni forrita og tímabundnum skrám</string>
-    <string name="appcleaner_scan_action">Skanna</string>
-    <string name="appcleaner_delete_action">Eyða</string>
-    <string name="appcleaner_progress_scanning">Skannar...</string>
-    <string name="appcleaner_progress_deleting">Eyðir...</string>
-    <string name="appcleaner_result_nothing_found">Ekkert fannst</string>
-
-    <string name="analyzer_title">Greiningatæki</string>
-    <string name="analyzer_subtitle">Greina geymslunotkun</string>
-    <string name="analyzer_scan_action">Skanna</string>
-    <string name="analyzer_progress_scanning">Skannar...</string>
-
-    <string name="corpsefinder_title">Leifaleit</string>
-    <string name="corpsefinder_subtitle">Finna skrár sem eftir eru frá afinnstöllum forritum</string>
-    <string name="corpsefinder_scan_action">Skanna</string>
-    <string name="corpsefinder_delete_action">Eyða</string>
-
-    <string name="deduplicator_title">Afriteyðir</string>
-    <string name="deduplicator_subtitle">Finna og eyða afrituðum skrám</string>
-    <string name="deduplicator_scan_action">Skanna</string>
-    <string name="deduplicator_delete_action">Eyða</string>
-
-    <string name="settings_title">Stillingar</string>
-    <string name="settings_general_category">Almennt</string>
-    <string name="settings_theme_title">Þema</string>
-    <string name="settings_theme_auto">Sjálfvirkt</string>
-    <string name="settings_theme_light">Ljóst</string>
-    <string name="settings_theme_dark">Dökkt</string>
-    <string name="settings_language_title">Tungumál</string>
-    <string name="settings_language_auto">Sjálfvirkt</string>
-
-    <string name="settings_privacy_category">Friðhelgi</string>
-    <string name="settings_bugreports_title">Villuskýrslur</string>
-    <string name="settings_bugreports_summary">Senda sjálfvirkar skýrslur þegar villur koma upp</string>
-
-    <string name="settings_advanced_category">Ítarlegt</string>
-    <string name="settings_debug_title">Villuleit</string>
-    <string name="settings_debug_summary">Virkja villuleitareiginleika</string>
-
-    <string name="general_yes">Já</string>
-    <string name="general_no">Nei</string>
-    <string name="general_cancel">Hætta við</string>
-    <string name="general_ok">Í lagi</string>
-    <string name="general_delete">Eyða</string>
-    <string name="general_share">Deila</string>
-    <string name="general_close">Loka</string>
-    <string name="general_continue">Halda áfram</string>
-    <string name="general_skip">Sleppa</string>
-    <string name="general_refresh">Endurhlaða</string>
-    <string name="general_loading">Hleður...</string>
-    <string name="general_working">Vinnur...</string>
-    <string name="general_done">Lokið</string>
-    <string name="general_error">Villa</string>
-    <string name="general_warning">Viðvörun</string>
-    <string name="general_info">Upplýsingar</string>
-
-    <string name="general_progress_loading">Hleður...</string>
-    <string name="general_progress_deleting">Eyðir...</string>
-    <string name="general_progress_working">Vinnur...</string>
-
-    <string name="general_ms_format">%d ms</string>
-    <string name="general_kb_format">%.1f KB</string>
-    <string name="general_mb_format">%.1f MB</string>
-    <string name="general_gb_format">%.1f GB</string>
-
-    <string name="general_result_success_format">Tókst: %s</string>
-    <string name="general_result_failure_format">Mistókst: %s</string>
-
-    <plurals name="general_result_x_items">
-        <item quantity="one">%d hlutur</item>
-        <item quantity="other">%d hlutir</item>
-    </plurals>
-    <plurals name="general_result_x_files">
-        <item quantity="one">%d skrá</item>
-        <item quantity="other">%d skrár</item>
-    </plurals>
-    <plurals name="general_result_x_folders">
-        <item quantity="one">%d mappa</item>
-        <item quantity="other">%d möppur</item>
-    </plurals>
-
-    <string name="storage_space_free">Laust pláss</string>
-    <string name="storage_space_used">Notað</string>
-    <string name="storage_space_total">Samtals</string>
-
-    <string name="permission_request_title">Heimildarbeiðni</string>
-    <string name="permission_request_body">SD Maid SE þarf þessa heimild til að virka rétt.</string>
-    <string name="permission_grant_action">Veita heimild</string>
-
-    <string name="error_no_root_access">Enginn root aðgangur</string>
-    <string name="error_root_access_failed">Root aðgangur mistókst</string>
-    <string name="error_permission_denied">Heimild hafnað</string>
-    <string name="error_storage_not_accessible">Geymsla ekki aðgengileg</string>
-    <string name="error_operation_failed">Aðgerð mistókst</string>
-    <string name="error_file_not_found">Skrá fannst ekki</string>
-    <string name="error_insufficient_space">Ófullnægjandi pláss</string>
-    <string name="error_unknown">Óþekkt villa</string>
 </resources>
