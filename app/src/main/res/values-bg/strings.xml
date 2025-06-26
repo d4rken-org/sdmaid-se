@@ -758,4 +758,6 @@
     <string name="area_type_public_obb_label">Публични ресурси на приложения</string>
     <string name="area_type_private_data_label">Частни данни на приложения</string>
     <string name="area_type_portable_label">Преносимо хранилище</string>
+
+    <string name="setup_shizuku_card_body2">Тази настройка няма ефект, ако Shizuku приложението не е настроено на вашето устройство.</string>
 </resources>
