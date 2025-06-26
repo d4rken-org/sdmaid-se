@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="dashboard_delete_all_message">Padamkan hasil dalam semua alatan?</string>
     <string name="dashboard_settings_category">Papan pemuka</string>
     <string name="dashboard_settings_oneclick_title">Mod Satu Ketik</string>
     <string name="dashboard_settings_oneclick_summary">Mulakan imbasan dan pemadaman untuk semua alatan dengan satu ketikan pada butang tindakan papan pemuka, tiada pengesahan tambahan.</string>
-    <string name="dashboard_settings_oneclick_tools_desc">\?</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Alatan mana yang perlu disertakan dalam operasi satu ketikan?</string>
     <string name="debug_debuglog_size_label">Saiz</string>
     <string name="debug_debuglog_size_compressed_label">Saiz termampat</string>
     <string name="debug_notification_channel_label">Pemberitahuan nyahpepijat</string>
@@ -400,7 +400,6 @@
     <string name="translation_encourage_body">SD Maid dialih bahasakan oleh sukarelawan. Terjemahan, semakan atau semakan proof, bantuan anda amat dihargai!</string>
     <string name="translation_translators_title">Versi ini diterjemahkan oleh</string>
     <string name="translation_translators_people">Orang1;Orang2(optional@email.com)</string>
-
     <string name="analyzer_tool_name">Penganalisis Storan</string>
     <string name="analyzer_explanation_short">Ketahui apa yang menggunakan ruang pada peranti anda.</string>
     <string name="analyzer_progress_scanning_device">Mencari peranti storan</string>
@@ -417,7 +416,6 @@
     <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika beberapa akaun pengguna ditetapkan pada peranti ini.</string>
     <string name="analyzer_storage_content_app_code_description">Fail aplikasi, perpustakaan dan sumber. Ruang ini boleh dibebaskan dengan menyahpasang aplikasi atau mengarkibkannya (tersedia pada versi Android yang lebih baharu).</string>
     <string name="analyzer_app_details_app_is_archived">Aplikasi ini telah diarkibkan.</string>
-
     <string name="appcontrol_app_forcestop_title">Paksa berhenti</string>
     <string name="appcontrol_app_forcestop_description">Menghentikan aplikasi. Menghalangnya daripada memulakan sendiri sehingga anda membukanya atau peranti dimulakan semula.</string>
     <string name="appcontrol_app_sizes_title">Saiz aplikasi</string>
@@ -432,11 +430,8 @@
     <string name="appcontrol_export_title">Eksport</string>
     <string name="appcontrol_export_description">Eksport maklumat aplikasi ke fail</string>
     <string name="appcontrol_export_app_selection_action">Eksport aplikasi terpilih</string>
-    <string name="appcontrol_export_result_message_x">%d aplikasi dieksport</string>
     <string name="appcontrol_force_stop_action">Paksa berhenti</string>
-    <string name="appcontrol_force_stop_confirmation_message_x">Paksa berhenti %d aplikasi?</string>
     <string name="appcontrol_force_stop_confirm_title">Paksa berhenti</string>
-    <string name="appcontrol_force_stop_result_message_x">%d aplikasi dipaksa berhenti</string>
     <string name="appcontrol_force_stop_selection_action">Paksa berhenti</string>
     <string name="appcontrol_item_installedat_x_label">Dipasang pada: %s</string>
     <string name="appcontrol_item_lastupdate_x_label">Kemaskini terakhir: %s</string>
@@ -458,10 +453,6 @@
     <string name="appcontrol_tag_not_installed">Tidak dipasang</string>
     <string name="appcontrol_tag_uninstalled">Data sahaja</string>
     <string name="appcontrol_toggle_confirmation_title">Togol</string>
-    <string name="appcontrol_toggle_confirmation_message_x">Togol %d aplikasi?</string>
-    <string name="appcontrol_toggle_result_message_x">%d aplikasi ditogol</string>
-    <string name="appcontrol_uninstall_result_message_x">%d aplikasi dinyahpasang</string>
-
     <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">Cari data pendua pada peranti anda.</string>
     <string name="deduplicator_average_size_label">Saiz purata</string>
@@ -485,14 +476,12 @@
     <string name="deduplicator_progress_comparing_files">Membandingkan fail</string>
     <string name="deduplicator_protection_deleteall_allowed_title">Membolehkan "Padam semua"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Tunjukkan pilihan yang membolehkan anda memadam semua fail dalam set pendua supaya tiada fail yang tinggal.</string>
-
     <string name="setup_checking_card_body">Mengesahkan penyiapan lengkap dan kefungsian.</string>
     <string name="general_error_setup_require_label">Persediaan tidak lengkap</string>
     <string name="general_error_setup_require_msg">Persediaan lanjut diperlukan untuk menggunakan ciri ini. Lengkapkan langkah persediaan yang tinggal.</string>
     <string name="setup_shizuku_card_root_info">Shizuku dalam kombinasi dengan akses root tidak membolehkan ciri tambahan, tetapi ia meningkatkan kebolehpercayaan. SD Maid akan menggunakannya sebagai kaedah sandaran.</string>
     <string name="setup_inventory_card_title">Inventori aplikasi</string>
     <string name="setup_inventory_card_body">SD Maid perlu tahu aplikasi yang anda miliki untuk mencari fail yang tidak tergolong dalam mana-mana aplikasi yang dipasang.</string>
-
     <string name="scheduler_notification_channel_label">Penjadual</string>
     <string name="scheduler_notification_title">Tugas berjadual</string>
     <string name="scheduler_notification_message">Melaksanakan: "%s"</string>
@@ -502,19 +491,16 @@
     <string name="scheduler_commands_after_schedule_label">Arahan selepas jadual</string>
     <string name="scheduler_commands_after_schedule_desc">Arahan shell Android yang akan dilaksanakan pada akhir jadual.</string>
     <string name="scheduler_battery_optimization_hint">Pertimbangkan untuk melumpuhkan pengoptimuman bateri untuk SD Maid jika anda menghadapi masalah dengan pelaksanaan latar belakang.</string>
-
     <string name="area_type_portable_label">Storan mudah alih</string>
     <string name="area_type_private_data_label">Data aplikasi peribadi</string>
     <string name="area_type_public_data_label">Data aplikasi awam</string>
     <string name="area_type_public_media_label">Media aplikasi awam</string>
     <string name="area_type_public_obb_label">OBB aplikasi awam</string>
     <string name="area_type_sdcard_label">Kad SD</string>
-
     <string name="data_area_public_app_data_official_label">Data aplikasi awam lalai</string>
     <string name="data_area_public_app_assets_official_label">Aset aplikasi awam</string>
     <string name="data_area_public_storage_label">Storan awam</string>
     <string name="data_area_sdcard_label">Kad SD</string>
-
     <string name="automation_error_compatibility_title">Ralat keserasian</string>
     <string name="automation_error_compatibility_body">Ciri ini tidak serasi dengan versi Android atau peranti anda.</string>
     <string name="automation_error_overlay_title">Kandungan tindihan</string>
@@ -523,20 +509,15 @@
     <string name="automation_error_screen_unavailable_body">Operasi dibatalkan kerana skrin tidak tersedia (cth. paparan dimatikan atau berada pada skrin berkunci).</string>
     <string name="automation_error_timeout_title">Masa tamat</string>
     <string name="automation_error_timeout_body">Operasi telah dihentikan kerana masa tamat telah luput. Cuba lagi atau lumpuhkan automasi.</string>
-
     <string name="beta_version_indicator_desc">Ini adalah versi beta SD Maid.</string>
-
     <string name="device_settings_category">Peranti</string>
-
     <string name="exclusion_editor_path_explanation">Pengecualian laluan menghalang SD Maid daripada memproses lebih lanjut mana-mana laluan yang sepadan. Ini terpakai untuk fail, folder dan sub-folder.</string>
     <string name="exclusion_export_action">Eksport pengecualian</string>
     <string name="exclusion_import_action">Import pengecualian</string>
     <string name="exclusion_reset_default_exclusions">Pulihkan pengecualian lalai</string>
     <string name="exclusion_show_defaults_action">Tunjukkan lalai</string>
-
     <string name="motd_setting_enabled_label">Mesej penting</string>
     <string name="motd_setting_enabled_explanation">Benarkan SD Maid memeriksa mesej penting daripada pembangun.</string>
-
     <string name="picker_home_action">Rumah</string>
     <plurals name="picker_selected_paths_subtitle">
         <item quantity="other">%d laluan dipilih</item>
@@ -544,15 +525,11 @@
     <string name="picker_selected_paths_title">Laluan dipilih</string>
     <string name="picker_select_paths_title">Pilih laluan</string>
     <string name="picker_unsaved_confirmation_message">Anda mempunyai perubahan yang tidak disimpan!</string>
-
     <string name="review_app_body">Adakah anda ingin meninggalkan ulasan untuk SD Maid? ❤️</string>
     <string name="review_app_dismiss_action">Tidak, terima kasih</string>
     <string name="review_app_review_action">Ulas aplikasi</string>
-
     <string name="stats_affected_paths_label">Laluan</string>
     <string name="stats_affected_pkgs_label">Aplikasi</string>
-    <string name="stats_dash_body_count">Item</string>
-    <string name="stats_dash_body_size">Saiz</string>
     <string name="stats_label">Statistik</string>
     <string name="stats_report_status_success">Berjaya</string>
     <string name="stats_report_status_partial_success">Berjaya sebahagian</string>
@@ -568,20 +545,15 @@
     <plurals name="stats_settings_retention_x_days">
         <item quantity="other">%d hari</item>
     </plurals>
-
     <string name="updatecheck_setting_enabled_label">Semakan kemaskini</string>
     <string name="updatecheck_setting_enabled_explanation">Benarkan SD Maid memeriksa kemaskini untuk memberitahu anda jika versi yang lebih baharu tersedia.</string>
-
     <string name="onboarding_versus_body1">SD Maid SE (atau SD Maid 2) adalah pengganti kepada SD Maid (atau SD Maid 1). Aplikasi baharu yang dioptimumkan untuk Android moden.</string>
     <string name="onboarding_versus_body4">Status "pro" SD Maid 1 malangnya tidak boleh dipindahkan ke SD Maid 2/SE. Selepas 12 tahun kemaskini percuma, pembelian baharu diperlukan untuk mengekalkan pembangunan (memberi makan pembangun).</string>
-
     <string name="scheduler_current_schedule_x_at_x">%1$s sekitar %2$s</string>
     <string name="scheduler_setting_charging_title">Langkau apabila tidak mengecas</string>
     <string name="scheduler_setting_charging_summary">Jika peranti tidak mengecas, pelaksanaan berjadual akan dilangkau.</string>
     <string name="scheduler_setting_nopowersaving_summary">Jika peranti berada dalam mod penjimatan kuasa, pelaksanaan berjadual akan dilangkau.</string>
-
     <string name="settings_debuglog_explanation">Ciri ini merekodkan semua yang dilakukan aplikasi ke dalam fail yang boleh dikongsi. Fail yang dijana mengandungi maklumat sensitif (cth. nama fail dan aplikasi yang dipasang). Kongsi hanya dengan pihak yang dipercayai (cth. pembangun yang menyelesaikan masalah).</string>
-
     <string name="setup_feature_requires_additional_setup_x">Ciri ini memerlukan persediaan tambahan: %s</string>
     <string name="setup_inventory_card_extra">Cari kebenaran yang dipanggil "Senarai aplikasi" atau "Pertanyaan semua pakej".</string>
     <string name="setup_inventory_invalid_message">Kebenaran inventori aplikasi diperlukan untuk menggunakan ciri ini.</string>
@@ -589,7 +561,6 @@
     <string name="setup_root_state_ready_label">Akses root sedia.</string>
     <string name="setup_root_state_waiting_label">Menunggu kebenaran root.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Gunakan Shizuku (jika tersedia)</string>
-
     <string name="systemcleaner_customfilter_create_action">Cipta penapis tersuai</string>
     <string name="systemcleaner_customfilter_create_hint">Tiada penapis tersuai</string>
     <string name="systemcleaner_customfilter_editor_areas_explanation">Kawasan yang akan dicari oleh penapis ini.</string>
@@ -633,8 +604,6 @@
     <string name="systemcleaner_filter_screenshots_age_summary">Hanya padam tangkapan skrin yang lebih lama dari usia yang ditetapkan.</string>
     <string name="systemcleaner_filter_tempfiles_label">Fail sistem sementara</string>
     <string name="systemcleaner_filter_tempfiles_summary">Fail sementara berkaitan sistem, biasanya cache jangka pendek untuk operasi aktif.</string>
-    <string name="systemcleaner_progress_scanning">Mengimbas: %s</string>
-    <string name="systemcleaner_settings_summary">Laraskan tetapan berkaitan SystemCleaner.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="other">%d item dipadam</item>
     </plurals>
@@ -643,8 +612,7 @@
     <string name="systemcleaner_filter_trashed_label">Fail dalam tong sampah</string>
     <string name="systemcleaner_filter_trashed_summary">Fail yang telah dibuang ke tong sampah sistem atau aplikasi.</string>
     <string name="systemcleaner_filter_windowsfiles_summary">Fail yang dicipta oleh sistem Windows semasa mengakses storan Android.</string>
-
-    <string name="ui_language_override_desc">Ganti bahasa sistem dengan bahasa yang dipilih untuk aplikasi ini.</string>
+    <string name="ui_language_override_desc">Ganti bahasa sistem dengan bahasa yang dipilih untuk aplikasi ini. Semasa: %s</string>
     <string name="ui_language_override_label">Ganti bahasa</string>
     <string name="ui_theme_mode_dark_label">Gelap</string>
     <string name="ui_theme_mode_light_label">Cerah</string>
@@ -655,7 +623,6 @@
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_setting_explanation">Gaya warna yang digunakan semasa menema aplikasi.</string>
     <string name="ui_theme_style_setting_label">Gaya tema</string>
-
     <string name="appcleaner_automation_error_locked_appcache_title">Kosongkan cache tidak tersedia</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Sistem telah melumpuhkan butang "Kosongkan cache" untuk aplikasi ini. Kecualikan ia untuk mempercepatkan pembersihan cache.</string>
     <string name="appcleaner_automation_error_no_settings_title">Skrin tetapan tidak tersedia</string>
@@ -683,15 +650,12 @@
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="other">%d item dipadam</item>
     </plurals>
-
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="other">%d bangkai dipadam</item>
     </plurals>
     <string name="corpsefinder_settings_risk_common_summary">Fail yang sepadan dengan nama pakej aplikasi yang dipasang akan dikecualikan secara automatik.</string>
-
     <string name="dashboard_motd_title">Mesej daripada pembangun</string>
     <string name="dashboard_settings_oneclick_tools_title">Alat satu-ketik</string>
-
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="other">%d set pendua ditemui</item>
     </plurals>
@@ -706,5 +670,37 @@
     <string name="deduplicator_skip_uncommon_title">Langkau jenis fail yang jarang</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s diduduki oleh pendua</item>
+    </plurals>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d aplikasi telah dinyahpasang</item>
+        <item quantity="other">%d aplikasi telah dinyahpasang</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Tukar keadaan dibolehkan/dilumpuhkan bagi %d aplikasi?</item>
+        <item quantity="other">Tukar keadaan dibolehkan/dilumpuhkan untuk %d aplikasi?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d aplikasi telah ditogol</item>
+        <item quantity="other">%d aplikasi telah ditogol</item>
+    </plurals>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d aplikasi telah dieksport</item>
+        <item quantity="other">%d aplikasi telah dieksport</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Paksa berhenti %d aplikasi?</item>
+        <item quantity="other">Paksa berhenti %d aplikasi?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d aplikasi telah dihentikan</item>
+        <item quantity="other">%d aplikasi telah dihentikan</item>
+    </plurals>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s telah dibebaskan.</item>
+        <item quantity="other">%s telah dibebaskan.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s item diproses sejak anda menjemput SD Maid ke peranti anda.</item>
+        <item quantity="other">%s item diproses sejak anda menjemput SD Maid ke peranti anda.</item>
     </plurals>
 </resources>
