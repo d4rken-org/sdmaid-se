@@ -2,9 +2,7 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-
-    <string name="upgrade_feature_requires_pro">Патрабуе SD Maid SE FOSS</string>
-
+    <string name="upgrade_feature_requires_pro">Патрабуецца SD Maid SE FOSS</string>
     <string name="upgrades_dashcard_title">Абнавіць SD Maid</string>
     <string name="upgrades_dashcard_body">Адкрыйце дадатковыя функцыі і станьце спонсарам, каб падтрымаць далейшую распрацоўку!</string>
     <string name="upgrades_dashcard_upgrade_action">Абнавіць</string>

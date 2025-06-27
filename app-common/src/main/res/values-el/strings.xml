@@ -6,7 +6,7 @@
     <string name="slogan_message_2">Αποτροπή χάους.</string>
     <string name="slogan_message_3">Κάνουμε ότι είναι αναγκαίο.</string>
     <string name="slogan_message_5">Πεντακάθαρο.</string>
-    <string name="slogan_message_6">Bytes, εξαφανιστείτε!</string>
+    <string name="slogan_message_6">Bytes, φύγετε!</string>
     <string name="slogan_message_7">Ελεύθερος χώρος, ευτυχισμένος τόπος.</string>
     <string name="slogan_message_8">Never Gonna Give You Up.</string>
     <string name="general_thank_you_label">Σας ευχαριστώ</string>
@@ -14,7 +14,7 @@
     <string name="general_error_cant_access_msg">Δεν είναι δυνατή η πρόσβαση στο %s.</string>
     <string name="general_error_root_unavailable">Η πρόσβαση root δεν είναι διαθέσιμη.</string>
     <string name="general_error_empty_result_msg">Δεν υπήρξε αποτέλεσμα.</string>
-    <string name="general_error_no_compatible_app_found_msg">Δε βρέθηκε συμβατή εφαρμογή για να χειριστεί αυτό το αίτημα.</string>
+    <string name="general_error_no_compatible_app_found_msg">Δεν βρέθηκε συμβατή εφαρμογή να χειριστεί αυτό το αίτημα.</string>
     <string name="general_todo_msg">Αυτή η δυνατότητα είναι ακόμα υπό επεξεργασία και δεν είναι διαθέσιμη προς το παρόν.</string>
     <string name="general_share_action">Κοινοποίηση</string>
     <string name="general_done_action">Τέλος</string>
@@ -27,7 +27,7 @@
     <string name="general_thanks_action">Ευχαριστούμε</string>
     <string name="general_gotit_action">Το κατάλαβα</string>
     <string name="general_fix_action">Διόρθωση</string>
-    <string name="general_set_up_action">Εγκατάσταση</string>
+    <string name="general_set_up_action">Ρύθμιση</string>
     <string name="general_edit_action">Επεξεργασία</string>
     <string name="general_na_label">Μη διαθέσιμο</string>
     <string name="general_empty_label">Κενό</string>
@@ -56,9 +56,9 @@
     <string name="general_progress_loading_egg_2">Σύντομα™</string>
     <string name="general_progress_loading_egg_3">Ο επεξεργαστής είναι σε ένα διάλειμμα για καφέ</string>
     <string name="general_progress_loading_egg_4">Αναμονή δεδομένων από Pepe Silvia</string>
-    <string name="general_progress_loading_egg_5">Εκκίνηση Turbo encabulator</string>
-    <string name="general_progress_loading_egg_6">Μοιράζοντας το βούτυρο</string>
-    <string name="general_progress_loading_egg_7">Πώς πας;</string>
+    <string name="general_progress_loading_egg_5">Το turbo encabulator ξεκινά</string>
+    <string name="general_progress_loading_egg_6">Περνάμε το βούτυρο</string>
+    <string name="general_progress_loading_egg_7">Λοιπόν. Πώς τα περνάτε;</string>
     <string name="general_progress_loading_egg_8">Beeping boop bop</string>
     <string name="general_progress_loading_egg_9">Buffering life choices</string>
     <string name="general_progress_loading_egg_10">Κλήση Cthulhu</string>
@@ -67,11 +67,11 @@
     <string name="general_progress_loading_egg_13">Τουλάχιστον δεν είσαι σε αναμονή</string>
     <string name="general_help_action">Βοήθεια</string>
     <string name="general_continue">Συνέχεια</string>
-    <string name="general_progress_queued">Σε ουρά</string>
+    <string name="general_progress_queued">Σε αναμονή</string>
     <string name="general_progress_deleting">Διαγραφή</string>
     <string name="general_progress_deleting_x">Διαγραφή %s</string>
     <string name="general_sort_options_label">Επιλογές ταξινόμησης</string>
-    <string name="general_sort_reverse_action">Λειτουργία αντίστροφης ταξινόμησης</string>
+    <string name="general_sort_reverse_action">Αντιστροφή λειτουργίας ταξινόμησης</string>
     <string name="general_tag_filter_label">Φιλτράρισμα με ετικέτες</string>
     <string name="general_result_success_message">Λειτουργία επιτυχής</string>
     <string name="general_result_failure_message">Η λειτουργία απέτυχε</string>
@@ -162,6 +162,6 @@
     <string name="general_error_invalid_input_label">Μη έγκυρη εισαγωγή</string>
     <string name="general_information_for_the_developer">Πληροφορίες για τον προγραμματιστή</string>
     <string name="general_error_report_bug_action">Αναφορά σφάλματος</string>
-    <string name="general_error_ipc_deadobject_title">Η Σύνδεση Υπηρεσίας Χάθηκε</string>
+    <string name="general_error_ipc_deadobject_title">Απώλεια Σύνδεσης Υπηρεσίας</string>
     <string name="general_error_ipc_deadobject_description">Η σύνδεση με μια κρίσιμη υπηρεσία (π.χ. Magisk, Shizuku ή άλλες υπηρεσίες σε επίπεδο συστήματος) χάθηκε απροσδόκητα. Επανεκκινήστε τη συσκευή σας. Εάν το πρόβλημα επιμένει, ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου για να το διορθώσω.</string>
 </resources>
