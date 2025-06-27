@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">Katika huduma yako.</string>
     <string name="slogan_message_1">Safi na mpangilio.</string>
     <string name="slogan_message_2">Kuzuia machafuko.</string>
     <string name="slogan_message_3">Kufanya kile kinachohitajika.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">Bila madoa.</string>
     <string name="slogan_message_6">Bytes, ondoka!</string>
     <string name="slogan_message_7">Nafasi ya bure, mahali pazuri.</string>
     <string name="slogan_message_8">Kamwe sitakuacha.</string>
-
     <string name="general_thank_you_label">Asante</string>
-
     <string name="general_error_type_mismatch_msg">Aina haifanani: Ilitarajia %1$s, lakini ilipata %2$s.</string>
     <string name="general_error_cant_access_msg">Haiwezi kufikia %s.</string>
     <string name="general_error_root_unavailable">Ufikiaji wa root haupatikani.</string>
@@ -77,14 +72,12 @@
     <string name="general_sort_options_label">Chaguo za kupanga</string>
     <string name="general_sort_reverse_action">Hali ya kupanga kinyume</string>
     <string name="general_tag_filter_label">Chuja kwa lebo</string>
-
     <string name="general_result_success_message">Imekamilika kwa mafanikio</string>
     <string name="general_result_failure_message">Uendeshaji umeshindwa</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Nafasi ya %s imeachiliwa.</item>
         <item quantity="other">Nafasi ya %s imeachiliwa.</item>
     </plurals>
-
     <string name="general_options_label">Chaguo</string>
     <string name="general_details_label">Maelezo</string>
     <string name="general_view_action">Tazama</string>
@@ -95,7 +88,6 @@
     <string name="general_show_details_action">Onyesha maelezo</string>
     <string name="general_show_all_action">Onyesha vyote</string>
     <string name="general_toggle_layout_mode">Badilisha hali ya kuona</string>
-
     <string name="general_delete_confirmation_title">Thibitisha kufuta</string>
     <string name="general_delete_confirmation_message_x">Futa \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Futa vitu %d vilivyochaguliwa?</string>
@@ -103,21 +95,17 @@
         <item quantity="one">Kimefuta kitu %d.</item>
         <item quantity="other">Kimefuta vitu %d.</item>
     </plurals>
-
     <string name="general_remove_action">Ondoa</string>
     <string name="general_remove_selected_action">Ondoa vilichochaguliwa</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Kitu kimoja kimeondolewa</item>
         <item quantity="other">Vitu %d vimeondolewa</item>
     </plurals>
-
     <string name="general_root_required_label">Root inahitajika</string>
     <string name="general_root_required_message">Inahitaji kifaa kilichofungwa root</string>
-
     <string name="general_search_action">Tafuta</string>
     <string name="general_scan_device_action">Changanua kifaa</string>
     <string name="general_open_system_settings_action">Fungua mipangilio ya mfumo</string>
-
     <plurals name="result_x_items">
         <item quantity="one">kitu %s</item>
         <item quantity="other">vitu %s</item>
@@ -141,28 +129,21 @@
     <string name="general_grant_access_action">Ruhusu ufikiaji</string>
     <string name="general_enable_service_action">Wezesha huduma</string>
     <string name="general_undo_action">Rejesha</string>
-
     <string name="general_list_select_all_action">Chagua vyote</string>
-
     <string name="general_path_label">Njia</string>
     <string name="general_type_label">Aina</string>
     <string name="general_size_label">Ukubwa</string>
     <string name="general_exclude_action">Tenga</string>
     <string name="general_exclude_selected_action">Tenga vilichochaguliwa</string>
-
     <string name="general_device_label">Kifaa</string>
-
     <string name="general_settings_title">Mipangilio</string>
     <string name="general_help_title">Msaada</string>
-
     <string name="file_type_symbolic_link">Kiungo</string>
     <string name="file_type_directory">Saraka</string>
     <string name="file_type_file">Faili</string>
     <string name="file_type_unknown">Haijulikani</string>
-
     <string name="general_progress_ready">Tayari</string>
     <string name="general_progress_done">Imekamilika</string>
-
     <string name="general_rom_type_auto_label">Otomatiki (chaguo-msingi)</string>
     <plurals name="general_age_days">
         <item quantity="one">siku %d</item>

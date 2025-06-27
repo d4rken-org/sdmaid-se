@@ -2,13 +2,10 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-
     <string name="upgrade_feature_requires_pro">SD Maid SE FOSS kerek</string>
-
     <string name="upgrades_dashcard_title">SD Maid-ti jańalaw</string>
     <string name="upgrades_dashcard_body">Qosımsha mümkinliklerdi ashıń hám uzlıksız rawajlanıwdı qollap-quwatlawshı úshin homiyshı bolıń!</string>
     <string name="upgrades_dashcard_upgrade_action">Jańalaw</string>
-
     <string name="upgrade_screen_title">SD Maid-ti jaqsılaw</string>
     <string name="upgrade_screen_preamble">SD Maid-te jaríyalar joq hám paydalanıwshı maǵlıwmatların satpaydı. Uzlıksız rawajlanıw tek sizdiń arqalı múmkin.</string>
     <string name="upgrade_screen_how_title">Járdem beriwdiń jolı</string>

@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">Ao teu servizo.</string>
     <string name="slogan_message_1">Limpo e ordenado.</string>
     <string name="slogan_message_2">Previnindo o caos.</string>
     <string name="slogan_message_3">Facendo o necesario.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">Impecable.</string>
     <string name="slogan_message_6">Bytes, fóra!</string>
     <string name="slogan_message_7">Espazo libre, lugar feliz.</string>
     <string name="slogan_message_8">Nunca te vou abandonar.</string>
-
     <string name="general_thank_you_label">Grazas</string>
-
     <string name="general_error_type_mismatch_msg">Desacordo de tipo: Quería %1$s, pero obtívose %2$s.</string>
     <string name="general_error_cant_access_msg">Non se pode acceder a %s.</string>
     <string name="general_error_root_unavailable">O acceso root non está dispoñible.</string>
@@ -33,7 +28,6 @@
     <string name="general_fix_action">Arranxar</string>
     <string name="general_set_up_action">Configurar</string>
     <string name="general_edit_action">Editar</string>
-    <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Baleiro</string>
     <string name="general_dismiss_action">Descartar</string>
     <string name="general_maybe_later_action">Quizais máis tarde</string>
@@ -77,14 +71,12 @@
     <string name="general_sort_options_label">Opcións de ordenación</string>
     <string name="general_sort_reverse_action">Modo de ordenación inversa</string>
     <string name="general_tag_filter_label">Filtrar por etiquetas</string>
-
     <string name="general_result_success_message">Operación exitosa</string>
     <string name="general_result_failure_message">A operación fallou</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Liberáronse %s de espazo.</item>
         <item quantity="other">Liberáronse %s de espazo.</item>
     </plurals>
-
     <string name="general_options_label">Opcións</string>
     <string name="general_details_label">Detalles</string>
     <string name="general_view_action">Ver</string>
@@ -95,29 +87,24 @@
     <string name="general_show_details_action">Mostrar detalles</string>
     <string name="general_show_all_action">Mostrar todo</string>
     <string name="general_toggle_layout_mode">Cambiar modo de vista</string>
-
     <string name="general_delete_confirmation_title">Confirmar eliminación</string>
-    <string name="general_delete_confirmation_message_x">Eliminar "%s"?</string>
+    <string name="general_delete_confirmation_message_x">Eliminar \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Eliminar %d elementos seleccionados?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Eliminouse %d elemento.</item>
         <item quantity="other">Elimináronse %d elementos.</item>
     </plurals>
-
     <string name="general_remove_action">Quitar</string>
     <string name="general_remove_selected_action">Quitar seleccionados</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Quitouse un elemento</item>
         <item quantity="other">Quitáronse %d elementos</item>
     </plurals>
-
     <string name="general_root_required_label">Require root</string>
     <string name="general_root_required_message">Require un dispositivo con root</string>
-
     <string name="general_search_action">Buscar</string>
     <string name="general_scan_device_action">Escanear dispositivo</string>
     <string name="general_open_system_settings_action">Abrir configuración do sistema</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s elemento</item>
         <item quantity="other">%s elementos</item>
@@ -141,28 +128,21 @@
     <string name="general_grant_access_action">Conceder acceso</string>
     <string name="general_enable_service_action">Habilitar servizo</string>
     <string name="general_undo_action">Desfacer</string>
-
     <string name="general_list_select_all_action">Seleccionar todo</string>
-
     <string name="general_path_label">Ruta</string>
     <string name="general_type_label">Tipo</string>
     <string name="general_size_label">Tamaño</string>
     <string name="general_exclude_action">Excluír</string>
     <string name="general_exclude_selected_action">Excluír seleccionados</string>
-
     <string name="general_device_label">Dispositivo</string>
-
     <string name="general_settings_title">Configuración</string>
     <string name="general_help_title">Axuda</string>
-
     <string name="file_type_symbolic_link">Enlace</string>
     <string name="file_type_directory">Directorio</string>
     <string name="file_type_file">Arquivo</string>
     <string name="file_type_unknown">Descoñecido</string>
-
     <string name="general_progress_ready">Listo</string>
     <string name="general_progress_done">Feito</string>
-
     <string name="general_rom_type_auto_label">Automático (predeterminado)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d día</item>

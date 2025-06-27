@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE FOSS</string>
-    <string name="app_name_upgrade_postfix">FOSS</string>
-
     <string name="upgrade_feature_requires_pro">Vereis SD Maid SE FOSS</string>
-
     <string name="upgrades_dashcard_title">Gradeer SD Maid op</string>
     <string name="upgrades_dashcard_body">Ontsluit addisionele funksies en word \'n beskermheer om voortgesette ontwikkeling te ondersteun!</string>
     <string name="upgrades_dashcard_upgrade_action">Gradeer op</string>
-
     <string name="upgrade_screen_title">Verbeter SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid het geen advertensies nie en verkoop nie gebruikersdata nie. Voortgesette ontwikkeling word slegs deur jou moontlik gemaak.</string>
     <string name="upgrade_screen_how_title">Hoe om te help</string>

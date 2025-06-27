@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">لە خزمەتتداین.</string>
     <string name="slogan_message_1">خاوێن و ڕێکخراو.</string>
     <string name="slogan_message_2">ڕێگرتن لە پشێوی.</string>
     <string name="slogan_message_3">ئەنجامدانی ئەوەی پێویستە.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">بێ پەڵە.</string>
     <string name="slogan_message_6">بایتەکان، بڕۆن!</string>
     <string name="slogan_message_7">شوێنی بەتاڵ، شوێنی دڵخۆشی.</string>
     <string name="slogan_message_8">هەرگیز دەستبەرداری نابم.</string>
-
     <string name="general_thank_you_label">سوپاس</string>
-
     <string name="general_error_type_mismatch_msg">ناتەبایی جۆر: %1$s دەویسترا، بەڵام %2$s بەدەستهات.</string>
     <string name="general_error_cant_access_msg">ناتوانرێت دەستڕاگەیشتن بە %s بکرێت.</string>
     <string name="general_error_root_unavailable">دەستڕاگەیشتنی ڕووت بەردەست نییە.</string>
@@ -77,14 +73,12 @@
     <string name="general_sort_options_label">بژاردەکانی ڕێکخستن</string>
     <string name="general_sort_reverse_action">شێوازی ڕێکخستنی پێچەوانە</string>
     <string name="general_tag_filter_label">پاڵاوتن بەپێی تاگەکان</string>
-
     <string name="general_result_success_message">کارپێکردن سەرکەوتوو بوو</string>
     <string name="general_result_failure_message">کارپێکردن شکستی هێنا</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s شوێن ئازادکرا.</item>
         <item quantity="other">%s شوێن ئازادکرا.</item>
     </plurals>
-
     <string name="general_options_label">بژاردەکان</string>
     <string name="general_details_label">وردەکارییەکان</string>
     <string name="general_view_action">بینین</string>
@@ -95,7 +89,6 @@
     <string name="general_show_details_action">پیشاندانی وردەکارییەکان</string>
     <string name="general_show_all_action">پیشاندانی هەموو</string>
     <string name="general_toggle_layout_mode">گۆڕینی شێوازی بینین</string>
-
     <string name="general_delete_confirmation_title">پشتڕاستکردنەوەی سڕینەوە</string>
     <string name="general_delete_confirmation_message_x">\"%s\" بسڕدرێتەوە؟</string>
     <string name="general_delete_confirmation_message_selected_x_items">%d بابەتی هەڵبژێردراو بسڕدرێتەوە؟</string>
@@ -103,21 +96,17 @@
         <item quantity="one">%d بابەت سڕایەوە.</item>
         <item quantity="other">%d بابەت سڕایەوە.</item>
     </plurals>
-
     <string name="general_remove_action">لابردن</string>
     <string name="general_remove_selected_action">لابردنی هەڵبژێردراوەکان</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">یەک بابەت لادرا</item>
         <item quantity="other">%d بابەت لادرا</item>
     </plurals>
-
     <string name="general_root_required_label">پێویستی بە ڕووتە</string>
     <string name="general_root_required_message">پێویستی بە ئامێرێکی ڕووتکراوە هەیە</string>
-
     <string name="general_search_action">گەڕان</string>
     <string name="general_scan_device_action">پشکنینی ئامێر</string>
     <string name="general_open_system_settings_action">کردنەوەی ڕێکخستنەکانی سیستەم</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s بابەت</item>
         <item quantity="other">%s بابەت</item>
@@ -141,28 +130,21 @@
     <string name="general_grant_access_action">مۆڵەتی دەستڕاگەیشتن بدە</string>
     <string name="general_enable_service_action">خزمەتگوزاری چالاک بکە</string>
     <string name="general_undo_action">پاشگەزبوونەوە</string>
-
     <string name="general_list_select_all_action">هەموو هەڵبژێرە</string>
-
     <string name="general_path_label">ڕێڕەو</string>
     <string name="general_type_label">جۆر</string>
     <string name="general_size_label">قەبارە</string>
     <string name="general_exclude_action">دەرکردن</string>
     <string name="general_exclude_selected_action">دەرکردنی هەڵبژێردراوەکان</string>
-
     <string name="general_device_label">ئامێر</string>
-
     <string name="general_settings_title">ڕێکخستنەکان</string>
     <string name="general_help_title">یارمەتی</string>
-
     <string name="file_type_symbolic_link">بەستەر</string>
     <string name="file_type_directory">دایرێکتۆری</string>
     <string name="file_type_file">فایل</string>
     <string name="file_type_unknown">نەناسراو</string>
-
     <string name="general_progress_ready">ئامادە</string>
     <string name="general_progress_done">تەواو بوو</string>
-
     <string name="general_rom_type_auto_label">خۆکار (بنەڕەتی)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d ڕۆژ</item>

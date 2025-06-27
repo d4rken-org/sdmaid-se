@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Ջնջե՞լ բոլոր գործիքների արդյունքները:</string>
     <string name="dashboard_settings_category">Վահանակ</string>
@@ -33,7 +33,6 @@
     <string name="onboarding_welcome_body2">Ստացեք պահոցային տարածք՝ մաքրելով այլ հավելվածների հետքերը: Ջնջեք ավելորդ ֆայլերը և հեռացրեք մնացած տվյալները:</string>
     <string name="onboarding_welcome_body_beta">Սա բետա (փորձարկման) տարբերակ է: Առաջ գնացեք հումորի զգացմամբ և պահուստային պլանով: Խնդրում ենք զեկուցել ձեր հանդիպած խնդիրների մասին:</string>
     <string name="onboarding_welcome_continue_action">Շարունակել</string>
-    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE-ն (այսինքն SD Maid 2) SD Maid-ի (այսինքն SD Maid 1) հաջորդողն է: Նոր հավելված, օպտիմալացված ժամանակակից Android-ի համար:</string>
     <string name="onboarding_versus_body2">Նրա նախորդի ճարտարապետությունը 7 տարվանից ավելի հին է և նախագծված չէ նոր Android տարբերակների մարտահրավերների համար: Ամբողջական վերանախագծում անհրաժեշտ էր զարգացումը շարունակելու համար:</string>
     <string name="onboarding_versus_body3">Նկատի առեք SD Maid SE-ին անցնելը ավելի լավ արդյունքների համար:</string>

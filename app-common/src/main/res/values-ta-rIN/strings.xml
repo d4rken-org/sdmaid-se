@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">உங்கள் சேவையில்.</string>
     <string name="slogan_message_1">சுத்தமான மற்றும் ஒழுங்கான.</string>
     <string name="slogan_message_2">குழப்பத்தைத் தடுக்கிறது.</string>
     <string name="slogan_message_3">தேவையானதைச் செய்கிறது.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">கறையற்ற.</string>
     <string name="slogan_message_6">பைட்கள், போங்கள்!</string>
     <string name="slogan_message_7">இலவச இடம், மகிழ்ச்சியான இடம்.</string>
     <string name="slogan_message_8">உங்களை ஒருபோதும் விட்டுவிடமாட்டேன்.</string>
-
     <string name="general_thank_you_label">நன்றி</string>
-
     <string name="general_error_type_mismatch_msg">வகை பொருந்தவில்லை: %1$s விரும்பினார், ஆனால் %2$s கிடைத்தது.</string>
     <string name="general_error_cant_access_msg">%s ஐ அணுக முடியவில்லை.</string>
     <string name="general_error_root_unavailable">Root அணுகல் கிடைக்கவில்லை.</string>
@@ -77,14 +72,12 @@
     <string name="general_sort_options_label">வரிசைப்படுத்தும் விருப்பங்கள்</string>
     <string name="general_sort_reverse_action">வெல்-வரிசைப்படுத்தும் பயன்முறை</string>
     <string name="general_tag_filter_label">குறிகளால் வடிகட்டு</string>
-
     <string name="general_result_success_message">வெற்றிகரமாக முடிக்கப்பட்டது</string>
     <string name="general_result_failure_message">செயல்பாடு தோல்வியுற்றது</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s இடம் விடுவிக்கப்பட்டது.</item>
         <item quantity="other">%s இடம் விடுவிக்கப்பட்டது.</item>
     </plurals>
-
     <string name="general_options_label">விருப்பங்கள்</string>
     <string name="general_details_label">விவரங்கள்</string>
     <string name="general_view_action">பார்</string>
@@ -95,7 +88,6 @@
     <string name="general_show_details_action">விவரங்களைக் காட்டு</string>
     <string name="general_show_all_action">அனைத்தையும் காட்டு</string>
     <string name="general_toggle_layout_mode">பார்வை முறையை மாற்று</string>
-
     <string name="general_delete_confirmation_title">நீக்குதலை உறுதிப்படுத்து</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ஐ நீக்கவா?</string>
     <string name="general_delete_confirmation_message_selected_x_items">தேர்ந்தெடுக்கப்பட்ட %d பொருட்களை நீக்கவா?</string>
@@ -103,21 +95,17 @@
         <item quantity="one">%d பொருள் நீக்கப்பட்டது.</item>
         <item quantity="other">%d பொருட்கள் நீக்கப்பட்டன.</item>
     </plurals>
-
     <string name="general_remove_action">அகற்று</string>
     <string name="general_remove_selected_action">தேர்ந்தெடுத்தவற்றை அகற்று</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ஒரு பொருள் அகற்றப்பட்டது</item>
         <item quantity="other">%d பொருட்கள் அகற்றப்பட்டன</item>
     </plurals>
-
     <string name="general_root_required_label">Root தேவை</string>
     <string name="general_root_required_message">Root செய்யப்பட்ட சாதனம் தேவை</string>
-
     <string name="general_search_action">தேடு</string>
     <string name="general_scan_device_action">சாதனத்தை ஸ்கேன் செய்</string>
     <string name="general_open_system_settings_action">கணினி அமைப்புகளைத் திற</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s பொருள்</item>
         <item quantity="other">%s பொருட்கள்</item>
@@ -141,28 +129,21 @@
     <string name="general_grant_access_action">அணுகலை வழங்கு</string>
     <string name="general_enable_service_action">சேவையை இயக்கு</string>
     <string name="general_undo_action">செயல்தவிர்</string>
-
     <string name="general_list_select_all_action">அனைத்தையும் தேர்ந்தெடு</string>
-
     <string name="general_path_label">பாதை</string>
     <string name="general_type_label">வகை</string>
     <string name="general_size_label">அளவு</string>
     <string name="general_exclude_action">விலக்கு</string>
     <string name="general_exclude_selected_action">தேர்ந்தெடுத்தவற்றை விலக்கு</string>
-
     <string name="general_device_label">சாதனம்</string>
-
     <string name="general_settings_title">அமைப்புகள்</string>
     <string name="general_help_title">உதவி</string>
-
     <string name="file_type_symbolic_link">இணைப்பு</string>
     <string name="file_type_directory">டைரக்டரி</string>
     <string name="file_type_file">கோப்பு</string>
     <string name="file_type_unknown">தெரியாத</string>
-
     <string name="general_progress_ready">தயார்</string>
     <string name="general_progress_done">முடிந்தது</string>
-
     <string name="general_rom_type_auto_label">தானியங்கி (இயல்புநிலை)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d நாள்</item>

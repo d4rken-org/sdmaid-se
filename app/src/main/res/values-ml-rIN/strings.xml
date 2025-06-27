@@ -7,7 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">ഡാഷ്‌ബോർഡിന്റെ ആക്ഷൻ ബട്ടണിൽ ഒരു ടാപ്പിലൂടെ എല്ലാ ടൂളുകൾക്കും സ്കാൻ, ഡിലീഷൻ ആരംഭിക്കുക, അധിക സ്ഥിരീകരണങ്ങളൊന്നുമില്ല.</string>
     <string name="dashboard_settings_oneclick_tools_title">വൺ-ടാപ്പ് ടൂളുകൾ</string>
     <string name="dashboard_settings_oneclick_tools_desc">വൺ-ടാപ്പ് പ്രവർത്തനങ്ങളിൽ ഏതെല്ലാം ടൂളുകൾ ഉൾപ്പെടുത്തണം?</string>
-
     <string name="debug_debuglog_size_label">വലുപ്പം</string>
     <string name="debug_debuglog_size_compressed_label">കംപ്രസ്ഡ് വലുപ്പം</string>
     <string name="debug_notification_channel_label">ഡീബഗ് അറിയിപ്പുകൾ</string>
@@ -17,7 +16,6 @@
     <string name="debug_debuglog_stop_action">രേഖപ്പെടുത്തൽ നിർത്തുക</string>
     <string name="debug_debuglog_sensitive_information_message">സൃഷ്ടിക്കപ്പെട്ട ഫയലിൽ സെൻസിറ്റീവ് വിവരങ്ങൾ അടങ്ങിയിരിക്കുന്നു (ഉദാ. ഫയൽ പേരുകൾ, ഇൻസ്റ്റാൾ ചെയ്ത ആപ്പുകൾ). വിശ്വസ്ത കക്ഷികളുമായി മാത്രം പങ്കിടുക.</string>
     <string name="settings_debuglog_explanation">ഈ ഫീച്ചർ ആപ്പ് ചെയ്യുന്ന എല്ലാം പങ്കിടാവുന്ന ഫയലിലേക്ക് രേഖപ്പെടുത്തുന്നു. സൃഷ്ടിക്കപ്പെട്ട ഫയലിൽ സെൻസിറ്റീവ് വിവരങ്ങൾ അടങ്ങിയിരിക്കുന്നു (ഉദാ. ഫയൽ പേരുകൾ, ഇൻസ്റ്റാൾ ചെയ്ത ആപ്പുകൾ). വിശ്വസ്ത കക്ഷികളുമായി മാത്രം പങ്കിടുക (ഉദാ. പ്രശ്നം പരിഹരിക്കുന്ന ഡെവലപ്പർ).</string>
-
     <string name="tasks_activity_notification_channel_label">സജീവ ടാസ്കുകൾ</string>
     <string name="tasks_activity_working_notification_title">SD Maid പ്രവർത്തിക്കുന്നു</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -30,33 +28,27 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">ടാസ്ക് ഫലങ്ങൾ</string>
     <string name="tasks_result_subtext">ടാസ്ക് ഫലം</string>
-
     <string name="onboarding_welcome_title">സ്വാഗതം</string>
     <string name="onboarding_welcome_body1">SD Maid SE ഫയലുകൾ, ആപ്പുകൾ, സ്റ്റോറേജ് കൈകാര്യം ചെയ്യുന്നു.</string>
     <string name="onboarding_welcome_body2">മറ്റ് ആപ്പുകൾക്ക് പിന്നിൽ വൃത്തിയാക്കി സ്റ്റോറേജ് സ്പേസ് നേടുക. ചെലവാക്കാവുന്ന ഫയലുകൾ ഇല്ലാതാക്കി ശേഷിക്കുന്ന ഡാറ്റ നീക്കം ചെയ്യുക.</string>
     <string name="onboarding_welcome_body_beta">ഇത് ഒരു ബീറ്റ (ടെസ്റ്റിംഗ്) ബിൽഡാണ്. ഹാസ്യബോധത്തോടെയും ബാക്കപ്പ് പ്ലാനുമായി മുന്നോട്ട് പോകുക. നിങ്ങൾ നേരിടുന്ന പ്രശ്നങ്ങൾ റിപ്പോർട്ട് ചെയ്യുക.</string>
     <string name="onboarding_welcome_continue_action">തുടരുക</string>
-
-    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (SD Maid 2 എന്നറിയപ്പെടുന്നത്) SD Maid (SD Maid 1 എന്നറിയപ്പെടുന്നത്) ന്റെ പിൻഗാമിയാണ്. ആധുനിക Android നു ഒപ്റ്റിമൈസ് ചെയ്ത പുതിയ ആപ്പ്.</string>
     <string name="onboarding_versus_body2">അതിന്റെ മുൻഗാമിയുടെ ആർക്കിടെക്ചർ 7 വർഷത്തിലേറെ പഴക്കമുള്ളതാണ്, പുതിയ Android വേർഷനുകളുടെ വെല്ലുവിളികൾക്കായി രൂപകൽപ്പന ചെയ്തിട്ടില്ല. വികസനം തുടരാൻ പൂർണ്ണമായ പുനർരൂപകൽപ്പന ആവശ്യമായിരുന്നു.</string>
     <string name="onboarding_versus_body3">മെച്ചപ്പെട്ട ഫലങ്ങൾക്കായി SD Maid SE ലേക്ക് മാറാൻ പരിഗണിക്കുക.</string>
     <string name="onboarding_versus_body4">SD Maid 1 ന്റെ \"പ്രോ സ്റ്റാറ്റസ്\" നിർഭാഗ്യവശാൽ SD Maid 2/SE ലേക്ക് കൈമാറാൻ കഴിയില്ല. 12 വർഷത്തെ സൗജന്യ അപ്ഡേറ്റുകൾക്ക് ശേഷം, വികസനം നിലനിർത്താൻ (ഡെവലപ്പറെ പോറ്റാൻ) പുതിയ വാങ്ങൽ ആവശ്യമാണ്.</string>
     <string name="onboarding_versus_continue_action">തുടരുക</string>
-
     <string name="onboarding_privacy_title">സ്വകാര്യത</string>
     <string name="onboarding_privacy_body1">SD Maid ൽ പരസ്യങ്ങളില്ല, ഉപയോക്തൃ ഡാറ്റ വിൽക്കുന്നില്ല.</string>
     <string name="onboarding_privacy_bugreport_toggle_body">പിശകുകൾ സംഭവിക്കുമ്പോൾ ബഗ് റിപ്പോർട്ടുകൾ അയയ്ക്കുന്നു, നിങ്ങളുടെ ഉപകരണത്തിലെ ആപ്പുകൾ, ഫയലുകൾ എന്നിവയെക്കുറിച്ചുള്ള വിശദാംശങ്ങൾ അടങ്ങിയിരിക്കാം. റിപ്പോർട്ടുകൾ ബഗുകൾ പരിഹരിക്കാനും ആപ്പ് മെച്ചപ്പെടുത്താനും എന്നെ സഹായിക്കുന്നു.</string>
     <string name="onboarding_privacy_bugreport_toggle">ഓട്ടോമാറ്റിക് ബഗ് റിപ്പോർട്ടുകൾ അനുവദിക്കുക</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">ഈ ഓപ്ഷനുകൾ ക്രമീകരണങ്ങളിൽ മാറ്റാനാകും.</string>
     <string name="onboarding_privacy_continue_action">തുടരുക</string>
-
     <string name="onboarding_setup_title">സെറ്റപ്പ്</string>
     <string name="onboarding_setup_body1">SD Maid എല്ലാ ആക്സസ് ചെയ്യാവുന്ന ഡാറ്റ ഏരിയകളിലും തിരയും.</string>
     <string name="onboarding_setup_body2">എന്താണ് ആക്സസ് ചെയ്യാവുന്നത് എന്നത് നിങ്ങളുടെ ഉപകരണം, Android വേർഷൻ, നൽകിയ അനുമതികൾ എന്നിവയെ ആശ്രയിച്ചിരിക്കുന്നു.</string>
     <string name="onboarding_setup_body3">തിരയേണ്ട ഏരിയകളിലേക്കുള്ള ആക്സസ് സെറ്റപ്പ് ചെയ്തുകൊണ്ട് SD Maid ഉപയോഗിക്കാൻ ആരംഭിക്കുക.</string>
     <string name="onboarding_setup_continue_action">ആക്സസ് സെറ്റപ്പ് ചെയ്യുക</string>
-
     <string name="settings_privacy_policy_label">സ്വകാര്യതാ നയം</string>
     <string name="settings_privacy_policy_desc">ഡാറ്റ ഉത്തരവാദിത്തത്തോടെ കൈകാര്യം ചെയ്യുന്നു.</string>
     <string name="settings_licenses_label">ലൈസൻസുകൾ</string>
@@ -76,7 +68,6 @@
     <string name="ui_theme_style_setting_label">തീം സ്റ്റൈൽ</string>
     <string name="ui_theme_style_setting_explanation">ആപ്പിന് തീമിംഗ് ചെയ്യുമ്പോൾ ഉപയോഗിക്കുന്ന വർണ്ണ ശൈലി.</string>
     <string name="ui_theme_style_default_label">ഡിഫോൾട്ട്</string>
-    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">ഫയൽ പ്രിവ്യൂകൾ</string>
     <string name="ui_previews_summary">എല്ലാ ടൂളുകളിലും ഫയൽ പ്രിവ്യൂകൾ പ്രദർശിപ്പിക്കുക (ഉദാ. ഇമേജ്, വിഡിയോ തമ്നെയിലുകൾ).</string>
     <string name="ui_language_override_label">ആപ്പ് ഭാഷ</string>
@@ -90,7 +81,6 @@
     <string name="support_installid_desc">ഓട്ടോമാറ്റിക് എറർ റിപ്പോർട്ടുകൾ അജ്ഞാതമാണ്. ഡെവലപ്പറിന് നിങ്ങളുടെ എറർ റിപ്പോർട്ടുകൾ കണ്ടെത്തേണ്ടതുണ്ടെങ്കിൽ നിങ്ങളുടെ ഇൻസ്റ്റാൾ ID പങ്കിടുക.</string>
     <string name="support_debuglog_label">ഡീബഗ് ലോഗ്</string>
     <string name="support_debuglog_desc">ആപ്പ് ചെയ്യുന്ന എല്ലാം നിങ്ങൾക്ക് പങ്കിടാനാകുന്ന ടെക്സ്റ്റ് ഫയലിലേക്ക് രേഖപ്പെടുത്തുക.</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">ചുറ്റിക്കറങ്ങാനും ചോദ്യങ്ങൾ ചോദിക്കാനുമുള്ള ഇടം.</string>
     <string name="changelog_label">മാറ്റങ്ങളുടെ പട്ടിക</string>
     <string name="setup_label">സെറ്റപ്പ്</string>
@@ -112,7 +102,6 @@
     <string name="setup_root_state_waiting_label">Root അനുമതികൾക്കായി കാത്തിരിക്കുന്നു.</string>
     <string name="setup_root_enable_root_use_label">ലഭ്യമെങ്കിൽ root ഉപയോഗിക്കുക</string>
     <string name="setup_root_disable_root_use_label">Root ഉപയോഗിക്കരുത്</string>
-    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">ലഭ്യമാകുമ്പോൾ SD Maid Shizuku ഉപയോഗിക്കണോ? Root അനുമതികളില്ലാതെ Shizuku അധിക ഡാറ്റയിലേക്കുള്ള ആക്സസ് നൽകാൻ കഴിയും.</string>
     <string name="setup_shizuku_card_body2">നിങ്ങളുടെ ഉപകരണത്തിൽ Shizuku ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ലെങ്കിൽ ഈ ക്രമീകരണത്തിന് ഫലമില്ല</string>
     <string name="setup_shizuku_state_ready_label">Shizuku ലിങ്ക് തയ്യാറാണ്</string>

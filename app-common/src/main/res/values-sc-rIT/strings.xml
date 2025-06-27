@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">A su servìtziu tuo.</string>
     <string name="slogan_message_1">Lìmpia e ordinada.</string>
     <string name="slogan_message_2">Impedende su caos.</string>
     <string name="slogan_message_3">Faghende su chi serbit.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">Ispollida.</string>
     <string name="slogan_message_6">Bytes, andaidé!</string>
     <string name="slogan_message_7">Logu lìberu, logu allegru.</string>
     <string name="slogan_message_8">Mai t\'amus a lassare.</string>
-
     <string name="general_thank_you_label">Gratzie</string>
-
     <string name="general_error_type_mismatch_msg">Tipu non coìntzidente: Chèriat %1$s, ma apo retzìu %2$s.</string>
     <string name="general_error_cant_access_msg">Non si podet atzèdere a %s.</string>
     <string name="general_error_root_unavailable">S\'atzessu root non est disponìbile.</string>
@@ -77,14 +72,12 @@
     <string name="general_sort_options_label">Optzionis de ordinamentu</string>
     <string name="general_sort_reverse_action">Modalidade de ordinamentu inversu</string>
     <string name="general_tag_filter_label">Filtrare pro etichetas</string>
-
     <string name="general_result_success_message">Operatzione cumpletada cun èsitu</string>
     <string name="general_result_failure_message">Operatzione fallida</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Isberaiu %s ispàtziu.</item>
         <item quantity="other">Isberaiu %s ispàtziu.</item>
     </plurals>
-
     <string name="general_options_label">Optzionis</string>
     <string name="general_details_label">Detàllios</string>
     <string name="general_view_action">Bìdere</string>
@@ -95,7 +88,6 @@
     <string name="general_show_details_action">Ammustrare detàllios</string>
     <string name="general_show_all_action">Ammustrare totu</string>
     <string name="general_toggle_layout_mode">Cambiar modalidade de visualizatzione</string>
-
     <string name="general_delete_confirmation_title">Cunfirmare s\'iscancellatzione</string>
     <string name="general_delete_confirmation_message_x">Iscancellare \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Iscancellare %d elementos seletus?</string>
@@ -103,21 +95,17 @@
         <item quantity="one">Iscancellau %d elementu.</item>
         <item quantity="other">Iscancellau %d elementos.</item>
     </plurals>
-
     <string name="general_remove_action">Bogare</string>
     <string name="general_remove_selected_action">Bogare su selettu</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Un elementu est istàu bogau</item>
         <item quantity="other">%d elementos sunt istaus bogaus</item>
     </plurals>
-
     <string name="general_root_required_label">Root rechèdidu</string>
     <string name="general_root_required_message">Rechèdit unu dispositivu root</string>
-
     <string name="general_search_action">Chircare</string>
     <string name="general_scan_device_action">Iscansire su dispositivu</string>
     <string name="general_open_system_settings_action">Abèrrere sas impostatzonis de sistema</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s elementu</item>
         <item quantity="other">%s elementos</item>
@@ -141,28 +129,19 @@
     <string name="general_grant_access_action">Cuncèdere s\'atzessu</string>
     <string name="general_enable_service_action">Abilitare su servìtziu</string>
     <string name="general_undo_action">Annullare</string>
-
     <string name="general_list_select_all_action">Seletzionare totu</string>
-
     <string name="general_path_label">Percursu</string>
     <string name="general_type_label">Tipu</string>
     <string name="general_size_label">Mannària</string>
     <string name="general_exclude_action">Escluere</string>
     <string name="general_exclude_selected_action">Escluere su selettu</string>
-
     <string name="general_device_label">Dispositivu</string>
-
     <string name="general_settings_title">Impostatzonis</string>
     <string name="general_help_title">Agiudu</string>
-
-    <string name="file_type_symbolic_link">Link</string>
     <string name="file_type_directory">Diretòriu</string>
-    <string name="file_type_file">File</string>
     <string name="file_type_unknown">Isconnotu</string>
-
     <string name="general_progress_ready">Prontu</string>
     <string name="general_progress_done">Acabadu</string>
-
     <string name="general_rom_type_auto_label">Automàticu (default)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d die</item>
@@ -171,10 +150,6 @@
     <plurals name="general_age_hours">
         <item quantity="one">%d ora</item>
         <item quantity="other">%d oras</item>
-    </plurals>
-    <plurals name="result_x_files">
-        <item quantity="one">%s file</item>
-        <item quantity="other">%s files</item>
     </plurals>
     <string name="general_advice_title">Cunzillu</string>
     <string name="general_error_invalid_input_label">Input non vàlidu</string>

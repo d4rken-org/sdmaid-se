@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE FOSS</string>
-    <string name="app_name_upgrade_postfix">FOSS</string>
-
     <string name="upgrade_feature_requires_pro">Kudinga SD Maid SE FOSS</string>
-
     <string name="upgrades_dashcard_title">Thuthukisa SD Maid</string>
     <string name="upgrades_dashcard_body">Vula izici ezengeziwe futhi ube ngumnikazi ukuze usekele ukuthuthukiswa okuqhubekayo!</string>
     <string name="upgrades_dashcard_upgrade_action">Thuthukisa</string>
-
     <string name="upgrade_screen_title">Thuthukisa SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid ayinayo izikhangiso futhi ayithengisi idatha yabasebenzisi. Ukuthuthukiswa okuqhubekayo kwenzeka kuphela ngawe.</string>
     <string name="upgrade_screen_how_title">Indlela yokusiza</string>

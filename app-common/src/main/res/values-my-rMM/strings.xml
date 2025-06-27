@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">သင့်ကိုအစေခံပါ။</string>
     <string name="slogan_message_1">သန့်ရှင်းပြီး စနစ်တကျ။</string>
     <string name="slogan_message_2">ရှုပ်ထွေးမှုကို ကာကွယ်ပါ။</string>
     <string name="slogan_message_3">လိုအပ်သောကိစ្စကို လုပ်ဆောင်ပါ။</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">အပြစ်အနာအဆာမရှိ။</string>
     <string name="slogan_message_6">ဘိုက်များ၊ ပျောက်သွားပါ!</string>
     <string name="slogan_message_7">နေရာလွတ်၊ ပျော်ရွှင်သောနေရာ။</string>
     <string name="slogan_message_8">ဘယ်တော့မှ မစွန့်ပစ်ပါ။</string>
-
     <string name="general_thank_you_label">ကျေးဇူးတင်ပါသည်</string>
-
     <string name="general_error_type_mismatch_msg">အမျိုးအစားမကိုက်ညီပါ: %1$s လိုချင်သော်လည်း %2$s ရရှိခဲ့သည်။</string>
     <string name="general_error_cant_access_msg">%s ကို အသုံးပြုမရပါ။</string>
     <string name="general_error_root_unavailable">Root သုံးစွဲမှုမရနိုင်ပါ။</string>
@@ -77,14 +72,11 @@
     <string name="general_sort_options_label">စီစဉ်ရန်ရွေးချယ်မှုများ</string>
     <string name="general_sort_reverse_action">ပြောင်းပြန်စီစဉ်ရန်မုဒ်</string>
     <string name="general_tag_filter_label">အမှတ်အသားများဖြင့် စစ်ထုတ်ပါ</string>
-
     <string name="general_result_success_message">အောင်မြင်စွာ လုပ်ဆောင်ပြီးပါပြီ</string>
     <string name="general_result_failure_message">လုပ်ဆောင်မှု မအောင်မြင်ပါ</string>
     <plurals name="general_result_x_space_freed">
-        <item quantity="one">%s နေရာလွတ်ပြီးပါပြီ။</item>
         <item quantity="other">%s နေရာလွတ်ပြီးပါပြီ။</item>
     </plurals>
-
     <string name="general_options_label">ရွေးချယ်မှုများ</string>
     <string name="general_details_label">အသေးစိတ်</string>
     <string name="general_view_action">ကြည့်ပါ</string>
@@ -95,43 +87,32 @@
     <string name="general_show_details_action">အသေးစိတ်ပြပါ</string>
     <string name="general_show_all_action">အားလုံးပြပါ</string>
     <string name="general_toggle_layout_mode">ကြည့်မုဒ်လဲပါ</string>
-
     <string name="general_delete_confirmation_title">ဖျက်ခြင်းကို အတည်ပြုပါ</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ကို ဖျက်မလား?</string>
     <string name="general_delete_confirmation_message_selected_x_items">ရွေးချယ်ထားသော %d ခုကို ဖျက်မလား?</string>
     <plurals name="general_delete_success_deleted_x">
-        <item quantity="one">%d ခုကို ဖျက်ပြီးပါပြီ။</item>
         <item quantity="other">%d ခုကို ဖျက်ပြီးပါပြီ။</item>
     </plurals>
-
     <string name="general_remove_action">ဖယ်ရှားပါ</string>
     <string name="general_remove_selected_action">ရွေးချယ်ထားသည်ကို ဖယ်ရှားပါ</string>
     <plurals name="general_remove_success_x_items">
-        <item quantity="one">တစ်ခုကို ဖယ်ရှားပြီးပါပြီ</item>
         <item quantity="other">%d ခုကို ဖယ်ရှားပြီးပါပြီ</item>
     </plurals>
-
     <string name="general_root_required_label">Root လိုအပ်ပါသည်</string>
     <string name="general_root_required_message">Root လုပ်ထားသော စက်ပစ္စည်းလိုအပ်ပါသည်</string>
-
     <string name="general_search_action">ရှာဖွေပါ</string>
     <string name="general_scan_device_action">စက်ပစ္စည်းစကင်န်လုပ်ပါ</string>
     <string name="general_open_system_settings_action">စနစ်ဆက်တင်းဖွင့်ပါ</string>
-
     <plurals name="result_x_items">
-        <item quantity="one">%s ခု</item>
         <item quantity="other">%s ခု</item>
     </plurals>
     <plurals name="result_x_successful">
-        <item quantity="one">%d ခု အောင်မြင်ခဲ့သည်</item>
         <item quantity="other">%d ခု အောင်မြင်ခဲ့သည်</item>
     </plurals>
     <plurals name="result_x_failed">
-        <item quantity="one">%d ခု မအောင်မြင်ခဲ့ပါ</item>
         <item quantity="other">%d ခု မအောင်မြင်ခဲ့ပါ</item>
     </plurals>
     <plurals name="x_space_can_be_freed">
-        <item quantity="one">%s ကို လွတ်လပ်စေနိုင်ပါသည်</item>
         <item quantity="other">%s ကို လွတ်လပ်စေနိုင်ပါသည်</item>
     </plurals>
     <string name="general_info_label">အချက်အလက်</string>
@@ -141,39 +122,29 @@
     <string name="general_grant_access_action">အသုံးပြုခွင့်ပေးပါ</string>
     <string name="general_enable_service_action">ဝန်ဆောင်မှုကို ဖွင့်ပါ</string>
     <string name="general_undo_action">ပြန်လုပ်ပါ</string>
-
     <string name="general_list_select_all_action">အားလုံးရွေးချယ်ပါ</string>
-
     <string name="general_path_label">လမ်းကြောင်း</string>
     <string name="general_type_label">အမျိုးအစား</string>
     <string name="general_size_label">အရွယ်အစား</string>
     <string name="general_exclude_action">ချန်လှပ်ပါ</string>
     <string name="general_exclude_selected_action">ရွေးချယ်ထားသည်ကို ချန်လှပ်ပါ</string>
-
     <string name="general_device_label">စက်ပစ္စည်း</string>
-
     <string name="general_settings_title">ဆက်တင်းများ</string>
     <string name="general_help_title">အကူအညီ</string>
-
     <string name="file_type_symbolic_link">လင့်ခ်</string>
     <string name="file_type_directory">ဒါရိုက်တိုရီ</string>
     <string name="file_type_file">ဖိုင်</string>
     <string name="file_type_unknown">မသိရှိသော</string>
-
     <string name="general_progress_ready">အဆင်သင့်</string>
     <string name="general_progress_done">ပြီးပါပြီ</string>
-
     <string name="general_rom_type_auto_label">အလိုအလျောက် (မူလ)</string>
     <plurals name="general_age_days">
-        <item quantity="one">%d ရက်</item>
         <item quantity="other">%d ရက်</item>
     </plurals>
     <plurals name="general_age_hours">
-        <item quantity="one">%d နာရီ</item>
         <item quantity="other">%d နာရီ</item>
     </plurals>
     <plurals name="result_x_files">
-        <item quantity="one">%s ဖိုင်</item>
         <item quantity="other">%s ဖိုင်</item>
     </plurals>
     <string name="general_advice_title">အကြံဉာဏ်</string>

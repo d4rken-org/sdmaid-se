@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE FOSS</string>
-    <string name="app_name_upgrade_postfix">FOSS</string>
-
     <string name="upgrade_feature_requires_pro">Потребно е SD Maid SE FOSS</string>
-
     <string name="upgrades_dashcard_title">Надградете го SD Maid</string>
     <string name="upgrades_dashcard_body">Отклучете дополнителни функции и станете покровител за да го поддржите континуираниот развој!</string>
     <string name="upgrades_dashcard_upgrade_action">Надградете</string>
-
     <string name="upgrade_screen_title">Подобрете го SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid нема реклами и не продава кориснички податоци. Континуираниот развој е можен само благодарение на вас.</string>
     <string name="upgrade_screen_how_title">Како да помогнете</string>

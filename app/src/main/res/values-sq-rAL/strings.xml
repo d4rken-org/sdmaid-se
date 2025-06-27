@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Inçizimi i regjistrit të korrigjimit</string>
     <string name="debug_debuglog_stop_action">Ndalo inçizimin</string>
     <string name="debug_debuglog_sensitive_information_message">Skedari i krijuar përmban informacione të ndjeshme (p.sh. emrat e skedarëve dhe aplikacionet e instaluara). Ndani atë vetëm me palët e besuara.</string>
+    <string name="settings_debuglog_explanation">Kjo veçori regjistron çdo gjë që bën aplikacioni në një skedar të ndarshëm. Skedari i gjeneruar përmban informacion të ndjeshëm (p.sh. emrat e skedarëve dhe aplikacionet e instaluara). Ndajeni vetëm me palë të besuara (p.sh. një zhvillues që po zgjidh një problem).</string>
     <string name="tasks_activity_notification_channel_label">Detyra aktive</string>
     <string name="tasks_activity_working_notification_title">SD Maid po punon</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -122,6 +123,7 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Mos përdorni Shizuku</string>
     <string name="setup_dismiss_hint">Mund ta gjeni sërish ekranin e konfigurimit nëpërmjet menysë së cilësimeve.</string>
     <string name="setup_permission_granted_label">Leja e dhënë</string>
+    <string name="setup_permission_error_label">Gabim leje</string>
     <string name="setup_usagestats_title">Statistikat e përdorimit</string>
     <string name="setup_usagestats_body">Leja e statistikave të përdorimit jep akses në më shumë detaje të aplikacionit. SD Maid e përdor atë për të përcaktuar madhësitë shtesë të cache-it.</string>
     <string name="setup_usagestats_hint">Kërkohet për fshirjen e cache-it të bazuar në shërbimin e aksesueshmërisë.</string>
@@ -148,6 +150,7 @@
     <string name="setup_inventory_card_title">Inventari i aplikacionit</string>
     <string name="setup_inventory_card_body">SD Maid duhet të dijë se cilat aplikacione keni për të gjetur skedarë që nuk i përkasin asnjë aplikacioni të instaluar.</string>
     <string name="setup_inventory_card_extra">Kërkoni një leje të quajtur \"Lista e aplikacioneve\" ose \"Kërkoni të gjitha paketat\".</string>
+    <string name="setup_inventory_invalid_message">Sistemi dha një listë të pavlefshme të aplikacioneve të instaluara (p.sh. shumë pak ose disa mungonin). Shkoni te cilësimet e sistemit dhe lejojeni SD Maid të qaset te \"Lista e aplikacioneve\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nuk gjeti asnjë zonë të dhënash që mund të skanohej. E keni përfunduar konfigurimin?</string>
     <string name="dataarea_warningcard_label">Zonat e të dhënave</string>
     <string name="dataarea_warningcard_reload_action">Ringarko zonat e të dhënave</string>
@@ -200,6 +203,10 @@
     <string name="corpsefinder_filter_appasec_summary">Burimet e koduara të aplikacionit, p.sh. asetet e lojës.</string>
     <string name="corpsefinder_filter_app2sd_summary">Të dhënat u zhvendosën në memorien e jashtme nga modalitetet App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d mbetje aplikacioni u fshi</item>
+        <item quantity="other">%d mbetje aplikacionesh u fshinë</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">U zbulua %d mbetje e aplikacionit</item>
         <item quantity="other">U zbuluan %d mbetje të aplikacionit</item>
@@ -212,6 +219,10 @@
     <string name="corpsefinder_corpse_hint_common">Ky artikull ka një emër shumë të zakonshëm dhe mund t\'u përkasë aplikacioneve ende të instaluara që SD Maid nuk i njeh.</string>
     <string name="systemcleaner_tool_name">Pastruesi i Sistemit</string>
     <string name="systemcleaner_explanation_short">Të dhëna të tepërta dhe të panevojshme që nuk i përkasin ndonjë aplikacioni specifik.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d përputhje u fshi</item>
+        <item quantity="other">%d përputhje u fshinë</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d përputhje filtri</item>
         <item quantity="other">%d përputhet filtrash</item>
@@ -219,12 +230,22 @@
     <string name="systemcleaner_filter_custom_label">Filtra te kostumizuar</string>
     <string name="systemcleaner_filter_custom_manage_label">Menaxho filtrat e personalizuar</string>
     <string name="systemcleaner_filter_custom_manage_summary">Krijoni, fshini, importoni dhe eksportoni filtrat tuaj të personalizuar.</string>
+    <string name="systemcleaner_filter_logfiles_label">Skedarët e log-ut të sistemit</string>
+    <string name="systemcleaner_filter_logfiles_summary">Skedarët e log-ut të sistemit dhe shërbimeve të sistemit (p.sh. *.log) në vende të ndryshme.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Cache-i i instaluesit</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Të dhëna të cache-uara lidhur me aplikacionet e instaluara që përdoren nga menaxhimi i paketave të sistemit.</string>
     <string name="systemcleaner_filter_advertisements_label">Skedarët e reklamave</string>
     <string name="systemcleaner_filter_advertisements_summary">Skedarët që janë krijuar për ose nga reklamat.</string>
     <string name="systemcleaner_filter_anr_label">Gabime ANR</string>
     <string name="systemcleaner_filter_anr_summary">Gjurmët nga ngjarjet \"aplikacioni nuk përgjigjet\".</string>
     <string name="systemcleaner_filter_emptydirectories_label">Dosjet bosh</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Zbrazni dosjet nga e gjithë pajisja. Dosjet e mbivendosura mund të kërkojnë kalime të shumta.</string>
+    <string name="systemcleaner_filter_screenshots_label">Pamjet e ekranit</string>
+    <string name="systemcleaner_filter_screenshots_summary">Pamje ekrani më të vjetra se %s nga aplikacione dhe vende të shumta.</string>
+    <string name="systemcleaner_filter_trashed_label">Skedarët në kosh</string>
+    <string name="systemcleaner_filter_trashed_summary">Skedarë në koshet e riciklimit nga aplikacione dhe vende të ndryshme që janë shënuar për fshirje por ende nuk janë hequr përgjithmonë.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Mosha e pamjeve të ekranit</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Mosha minimale për pamjet e ekranit që të konsiderohen për fshirje.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK të tepërta ose të panevojshme</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Konfiguro skedarët që janë më të vjetër ose të barabartë me versionet e aplikacionit që janë instaluar tashmë.</string>
     <string name="systemcleaner_filter_lostdir_label">Dosjet LOST.DIR</string>
@@ -234,8 +255,11 @@
     <string name="systemcleaner_filter_macfiles_label">Skedarët Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">Skedarët dhe dosjet që krijohen kur shfletoni hapësirën ruajtëse me aplikacionin gjetës të Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Skedarët Windows</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Të dhëna që eksploreri i skedarëve të Windows mund të krijojë në ruajtjen e lidhur."</string>
     <string name="systemcleaner_filter_thumbnails_label">Imazhe miniaturë</string>
     <string name="systemcleaner_filter_thumbnails_summary">Pamje paraprake të ruajtura në memorie për imazhe dhe video.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Skedarët e përkohshëm të sistemit</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Skedarë të përkohshëm të lidhur me sistemin, zakonisht cache-e të shkurtra për operacione aktive.</string>
     <string name="systemcleaner_filter_analytics_label">Skedarët e analitikës</string>
     <string name="systemcleaner_filter_analytics_summary">Të dhëna në lidhje me analitikën dhe gjurmimin e gabimeve.</string>
     <string name="systemcleaner_filter_downloadcache_label">Shkarkoni cache</string>
@@ -273,6 +297,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">Përjashtimet</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezultati do të përjashtohet nëse ruga përputhet me ndonjë hyrje (p.sh. \"DCIM\"). Shtypni gjatë shënimet për më shumë opsione.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Ruga modus krahasor (Mënyra e krahasimit të rrugës)</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Shtegu fillon me fjalën kyçe</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Shtegu përmban fjalën kyçe</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Shtegu përfundon me fjalën kyçe</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Shtegu është i barabartë me fjalën kyçe</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Mënyra e krahasimit të emrit</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Emri fillon me fjalen kyçe</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Emri përmban fjalë kyçe</string>
@@ -324,6 +352,8 @@
     <string name="appcleaner_filter_webview_summary">Skedarët e ruajtur në memorie të fshehtë nga rastet e Webview të përdorura brenda aplikacioneve.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp të dhëna të ruajtura</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Fshini kopjet shtesë të kopjeve rezervë të WhatsApp dhe mbani vetëm më të fundit.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Skedarë që keni marrë nga njerëzit përmes WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Skedarë të marrë nga WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp skedarë të dërguar</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Skedarët e dërguar nga WhatsApp te të tjerët.</string>
     <string name="appcleaner_filter_telegram_label">Skedarët mediatikë të Telegramit</string>
@@ -334,7 +364,13 @@
     <string name="appcleaner_filter_wechat_summary">Dërguar ose marrë skedarë në biseda dhe momente WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Skedarët e mediave të ruajtura në memorie të fshehtë që shkarkohen përsëri kur shikohen në bisedë.</string>
+    <string name="appcleaner_filter_qqchat_label">Chat QQ</string>
+    <string name="appcleaner_filter_qqchat_summary">Skedarë të dërguar ose të marrë në bisedat e chat-it QQ.</string>
     <string name="appcleaner_delete_all_confirmation_message">Të fshihen artikujt e panevojshëm për të gjitha aplikacionet?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d artikull i panevojshëm u fshi</item>
+        <item quantity="other">%d artikuj të panevojshëm u fshinë</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d artikull i shpenzuar u gjet</item>
         <item quantity="other">%d artikuj të shpenzuar u gjetën</item>
@@ -358,14 +394,27 @@
         <item quantity="other">Të fshihen skedarët e shpenzuar për %d aplikacione të zgjedhura?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Fshirja e cache-ve duke përdorur Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Përcaktimi i cache-eve të pa-qasshme</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Pastrimi i cache-it nuk është i disponueshëm</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Sistemi ka çaktivizuar butonin \"Pastro cache-in\" për këtë aplikacion. Përjashtojeni për të përshpejtuar pastrimin e cache-it.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Ekrani i cilësimeve nuk është i disponueshëm</string>
+    <string name="appcleaner_automation_error_no_settings_body">Ky aplikacion sistemi nuk ka ekran cilësimesh. Pastrimi i cache-it përmes shërbimit të aksesueshmërisë nuk është i mundur. Përjashtojeni për të përshpejtuar pastrimin e cache-it.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Aplikacioni i sistemit është konfiguruar gabimisht</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Aplikacionit të Sigurisë së HyperOS (com.miui.securitycenter) i mungon leja e Statistikave të Përdorimit (GET_USAGE_STATS). Kjo dëmton funksione si \"Pastro të Dhënat\" në detajet e aplikacionit dhe pastrimin e cache-it përmes aksesueshmërisë. Jepni lejen për të rivendosur funksionalitetin e plotë.</string>
     <string name="deduplicator_tool_name">Fshirja e skedarëve duplikat</string>
     <string name="deduplicator_explanation_short">Gjeni të dhëna të kopjuara në pajisjen tuaj.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d dublikatë u fshi</item>
+        <item quantity="other">%d dublikata u fshinë</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">U gjet %d grup dublikatë</item>
         <item quantity="other">U gjetën %d grupe dublikate</item>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Bëni të mundur \"Fshi të gjitha\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Trego opsionet që ju lejojnë të fshini të gjithë skedarët në një grup dublikate në mënyrë që të mos mbetet asnjë skedar.</string>
+    <string name="deduplicator_search_locations_title">Vendet e kërkimit</string>
+    <string name="deduplicator_search_locations_all_summary">Të gjitha zonat e qasshme</string>
     <string name="deduplicator_skip_minsize_title">Madhësia minimale</string>
     <string name="deduplicator_skip_minsize_description">Kapërceni skedarët që janë nën madhësinë minimale.</string>
     <string name="deduplicator_skip_uncommon_title">Kapërceni llojet e pazakonta të skedarëve</string>
@@ -376,6 +425,10 @@
     <string name="deduplicator_detection_method_phash_title">Hash perceptues</string>
     <string name="deduplicator_detection_method_phash_summary">Gjeni skedarë të ngjashëm duke analizuar veçoritë e përmbajtjes dhe duke krahasuar vlerat perceptuese hash.</string>
     <string name="deduplicator_occupied_space_label">Magazina e zënë</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s është zënë nga dublikata</item>
+        <item quantity="other">%s janë zënë nga dublikata</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Madhësia e skedarit</string>
     <string name="deduplicator_average_size_label">Madhësia mesatare</string>
     <string name="deduplicator_cluster_x_label">Tog %s</string>
@@ -419,6 +472,8 @@
     <string name="appcontrol_tag_apk_bundle">Pako</string>
     <string name="appcontrol_tag_system">Sistemi</string>
     <string name="appcontrol_tag_archived">Arkivuar</string>
+    <string name="appcontrol_tag_uninstalled">Vetëm të dhëna</string>
+    <string name="appcontrol_tag_not_installed">Nuk është instaluar</string>
     <string name="appcontrol_tag_enabled">Aktivizuar</string>
     <string name="appcontrol_tag_disabled">Çaktivizuar</string>
     <string name="appcontrol_progress_enabling_package">Aktivizimi i aplikacionit</string>
@@ -429,8 +484,13 @@
     <string name="appcontrol_list_sortmode_installed_label">Instaluar për herë të parë në</string>
     <string name="appcontrol_list_sortmode_packagename_label">Emri i paketës</string>
     <string name="appcontrol_list_sortmode_size_label">Madhësia</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Koha e ekranit</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Madhësitë e aplikacioneve vlerësohen për arsye të performancës. Përdorni mjetin StorageAnalyzer për të dhëna më të sakta.</string>
     <string name="appcontrol_progress_uninstalling_app">Po çinstalon aplikacionin</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d aplikacion u çinstalua</item>
+        <item quantity="other">%d aplikacione u çinstaluan</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Madhësia e aplikacionit</string>
     <string name="appcontrol_app_sizes_apk_label">Aplikacioni</string>
     <string name="appcontrol_app_sizes_data_label">Të dhëna</string>
@@ -440,6 +500,10 @@
         <item quantity="one">Ndryshoe gjendjen e aktivizuar/e çaktivizuar e %d të aplikacionit?</item>
         <item quantity="other">Të ndryshohen gjendjet e aktivizuara/çaktivizuara për %d e aplikacioneve?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d aplikacion u ndërrua</item>
+        <item quantity="other">%d aplikacione u ndërruan</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Përcakton madhësitë</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Merrni një vlerësim të përafërt të madhësisë së secilit aplikacion.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Përcaktoni aktivitetin</string>
@@ -447,6 +511,10 @@
     <string name="appcontrol_export_app_selection_action">Eksporto aplikacione</string>
     <string name="appcontrol_export_title">Eksporto aplikacion</string>
     <string name="appcontrol_export_description">Ruani skedarët e instalimit të këtij aplikacioni. Kjo nuk përfshin të dhënat e aplikacionit.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d aplikacion u eksportua</item>
+        <item quantity="other">%d aplikacione u eksportuan</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Po eksporton %s</string>
     <string name="appcontrol_force_stop_selection_action">Ndaloni me forcë aplikacionet</string>
     <string name="appcontrol_force_stop_action">Ndalim me forcë</string>
@@ -455,11 +523,18 @@
         <item quantity="one">Të ndalohet me forcë %d aplikacioni?</item>
         <item quantity="other">Të ndalohen me forcë %d aplikacionet?</item>
     </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d aplikacion u ndërpre</item>
+        <item quantity="other">%d aplikacione u ndërprenë</item>
+    </plurals>
     <string name="appcontrol_automation_loading">Përgatitja e automatizimit nëpërmjet shërbimit të aksesueshmërisë</string>
     <string name="appcontrol_automation_title">Automatizimi i AppControl</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Ndalimi me forcë…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Duke kërkuar për butonin \"Ndalimi i detyruar\" (fjalë kyçe: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Po përpiqet të konfirmojë veprimin e mëparshëm (fjalë kyçe: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Koha e ekranit: %1$s që nga %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Përditësuar për herë të fundit: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instaluar në: %s</string>
     <string name="analyzer_tool_name">Analizuesi i magazinës</string>
     <string name="analyzer_explanation_short">Zbuloni se çfarë po zë hapësirë ​​në pajisjen tuaj.</string>
     <string name="analyzer_progress_scanning_device">Duke kërkuar për pajisje ruajtëse</string>
@@ -536,6 +611,7 @@
         <item quantity="one">U krijua një përjashtim</item>
         <item quantity="other">%d përjashtime u krijuan</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">Shfaq parazgjedhjet</string>
     <string name="automation_accessibility_service_description">Përdoruesit me nevoja të veçanta aksesueshmërie mund ta mundësojnë këtë shërbim që të lejojë SD Maid të automatizojë detyrat që përndryshe do të kërkonin ndërveprim manual të lodhshëm të përdoruesit (p.sh. fshirjen e memories së fshehtë).\n\nShembull: Nëse e udhëzon SD Maid të ndalojë shumë aplikacione, atëherë SD Maid mund ta përdorë këtë shërbimi për të hapur ekranin e cilësimeve të çdo aplikacioni, gjeni butonin \"Ndalo me forcë\" dhe prekeni lehtë.\n\nSD Maid do të shfaqet gjithmonë në mënyrë të dukshme kur përdor këtë shërbim dhe do të ofrojë një mënyrë të thjeshtë për përdoruesin që të anulojë menjëherë çdo ndërveprim.\n\nAsnjë veprim do të kryhen pa miratimin paraprak të përdoruesit. Ky shërbim mund të çaktivizohet përsëri në çdo kohë pa efekte negative.</string>
     <string name="automation_screenoverlay_explanation">SD Maid po ndërvepron me pajisjen tuaj. Nuk është e mundur të përdoret ekrani në të njëjtën kohë. Prisni derisa operacioni të përfundojë ose anuloni atë.</string>
     <string name="automation_active_title">SD Maid po punon</string>
@@ -547,6 +623,12 @@
     <string name="automation_error_not_running_body">Shërbimi i aksesueshmërisë nuk funksionon. Provoni të rindizni pajisjen.</string>
     <string name="automation_error_screen_unavailable_title">Ekrani nuk disponohet</string>
     <string name="automation_error_screen_unavailable_body">Operacioni u ndërpre sepse ekrani u bë i padisponueshëm (p.sh. ekrani i fikur ose ekrani i kyçur aktiv).</string>
+    <string name="automation_error_compatibility_title">Përputhshmëria e automatizimit</string>
+    <string name="automation_error_compatibility_body">SD Maid nuk mund të kuptonte strukturën e ekranit. Nëse kjo vazhdon të ndodhë, gjuha ose konfigurimi juaj mund të mos mbështetet plotësisht. Kontrolloni për përditësime ose kontaktoni me mua që të mund ta rregulloj.</string>
+    <string name="automation_error_timeout_title">Koha e automatizimit mbaroi</string>
+    <string name="automation_error_timeout_body">SD Maid nuk përfundoi të gjitha hapat brenda kufirit kohor. Nëse kjo vazhdon të ndodhë, mund të duhet të rregulloj aplikacionin për pajisjen tuaj. Kontrolloni për përditësime ose kontaktoni me mua që të mund ta rregulloj.</string>
+    <string name="automation_error_overlay_title">Mbivendosja e automatizimit</string>
+    <string name="automation_error_overlay_body">SD Maid nuk mund të shfaqte mbivendosjen e automatizimit. Kontrolloni lejet dhe provoni të rindizni pajisjen tuaj.</string>
     <string name="history_label">Historia</string>
     <string name="history_description">Një listë kronologjike e veprimeve të fundit dhe të dhënave të prekura.</string>
     <string name="scheduler_label">Programuesi</string>
@@ -586,6 +668,7 @@
     <string name="scheduler_notification_result_failure_message">Disa detyra të planifikuara dështuan ose hasën në gabime. Provoni t\'i ekzekutoni ato manualisht.</string>
     <string name="scheduler_commands_after_schedule_label">Komandat pas orarit</string>
     <string name="scheduler_commands_after_schedule_desc">Komandat e guaskës Android që do të ekzekutohen në fund të një plani.</string>
+    <string name="scheduler_battery_optimization_hint">Kjo veçori mund të kërkojë çaktivizimin e optimizimit të baterisë për SD Maid për të funksionuar si duhet.</string>
     <string name="updates_dashcard_title">Përditësimi është gati</string>
     <string name="updates_dashcard_body">Ekziston një përditësim. Ju keni %1$s dhe versioni më i fundit është %2$s.</string>
     <string name="translation_encourage_title">Përkthim i SD Maid</string>
@@ -602,126 +685,43 @@
     <string name="review_app_dismiss_action">Ndoshta më vonë</string>
     <string name="review_app_body">Dëshironi t\'i lini një koment SD Maid? ❤️</string>
     <string name="stats_label">Historiku</string>
-    <string name="stats_settings_desc">Konfiguro statistikat, raportet dhe ruajtjen e të dhënave të SD Maid.</string>
-    <string name="stats_settings_reset_all_label">Rivendos të gjitha</string>
-    <string name="stats_settings_reset_all_desc">Hiq të gjitha raportet dhe vendos të gjitha statistikat në zero.</string>
-    <string name="stats_affected_paths_label">Shtegjet e prekura</string>
-    <string name="stats_affected_pkgs_label">Aplikacionet e prekura</string>
-    <string name="appcleaner_automation_error_locked_appcache_title">Pastrimi i cache-it nuk është i disponueshëm</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">Sistemi ka çaktivizuar butonin "Pastro cache-in" për këtë aplikacion. Përjashtojeni për të përshpejtuar pastrimin e cache-it.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Ekrani i cilësimeve nuk është i disponueshëm</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ky aplikacion sistemi nuk ka ekran cilësimesh. Pastrimi i cache-it përmes shërbimit të aksesueshmërisë nuk është i mundur. Përjashtojeni për të përshpejtuar pastrimin e cache-it.</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_title">Aplikacioni i sistemit është konfiguruar gabimisht</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">Aplikacionit të Sigurisë së HyperOS (com.miui.securitycenter) i mungon leja e Statistikave të Përdorimit (GET_USAGE_STATS). Kjo dëmton funksione si "Pastro të Dhënat" në detajet e aplikacionit dhe pastrimin e cache-it përmes aksesueshmërisë. Jepni lejen për të rivendosur funksionalitetin e plotë.</string>
-    <string name="appcleaner_filter_qqchat_label">Chat QQ</string>
-    <string name="appcleaner_filter_qqchat_summary">Skedarë të dërguar ose të marrë në bisedat e chat-it QQ.</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Skedarë të marrë nga WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Skedarë që keni marrë nga njerëzit përmes WhatsApp.</string>
-    <string name="appcleaner_progress_determining_inaccessible_caches">Përcaktimi i cache-eve të pa-qasshme</string>
-    <plurals name="appcleaner_result_x_items_deleted">
-        <item quantity="one">%d artikull i panevojshëm u fshi</item>
-        <item quantity="other">%d artikuj të panevojshëm u fshinë</item>
-    </plurals>
-    <plurals name="appcontrol_export_result_message_x">
-        <item quantity="one">%d aplikacion u eksportua</item>
-        <item quantity="other">%d aplikacione u eksportuan</item>
-    </plurals>
-    <plurals name="appcontrol_force_stop_result_message_x">
-        <item quantity="one">%d aplikacion u ndërpre</item>
-        <item quantity="other">%d aplikacione u ndërprenë</item>
-    </plurals>
-    <string name="appcontrol_item_installedat_x_label">Instaluar në: %s</string>
-    <string name="appcontrol_item_lastupdate_x_label">Përditësuar për herë të fundit: %s</string>
-    <string name="appcontrol_item_screentime_x_since_y_label">Koha e ekranit: %1$s që nga %2$s</string>
-    <string name="appcontrol_list_sortmode_screentime_label">Koha e ekranit</string>
-    <string name="appcontrol_tag_not_installed">Nuk është instaluar</string>
-    <string name="appcontrol_tag_uninstalled">Vetëm të dhëna</string>
-    <plurals name="appcontrol_toggle_result_message_x">
-        <item quantity="one">%d aplikacion u ndërrua</item>
-        <item quantity="other">%d aplikacione u ndërruan</item>
-    </plurals>
-    <plurals name="appcontrol_uninstall_result_message_x">
-        <item quantity="one">%d aplikacion u çinstalua</item>
-        <item quantity="other">%d aplikacione u çinstaluan</item>
-    </plurals>
-    <string name="automation_error_compatibility_title">Përputhshmëria e automatizimit</string>
-    <string name="automation_error_compatibility_body">SD Maid nuk mund të kuptonte strukturën e ekranit. Nëse kjo vazhdon të ndodhë, gjuha ose konfigurimi juaj mund të mos mbështetet plotësisht. Kontrolloni për përditësime ose kontaktoni me mua që të mund ta rregulloj.</string>
-    <string name="automation_error_overlay_title">Mbivendosja e automatizimit</string>
-    <string name="automation_error_overlay_body">SD Maid nuk mund të shfaqte mbivendosjen e automatizimit. Kontrolloni lejet dhe provoni të rindizni pajisjen tuaj.</string>
-    <string name="automation_error_timeout_title">Koha e automatizimit mbaroi</string>
-    <string name="automation_error_timeout_body">SD Maid nuk përfundoi të gjitha hapat brenda kufirit kohor. Nëse kjo vazhdon të ndodhë, mund të duhet të rregulloj aplikacionin për pajisjen tuaj. Kontrolloni për përditësime ose kontaktoni me mua që të mund ta rregulloj.</string>
-    <plurals name="corpsefinder_result_x_corpses_deleted">
-        <item quantity="one">%d mbetje aplikacioni u fshi</item>
-        <item quantity="other">%d mbetje aplikacionesh u fshinë</item>
-    </plurals>
-    <plurals name="deduplicator_result_x_clusters_processed">
-        <item quantity="one">%d dublikatë u fshi</item>
-        <item quantity="other">%d dublikata u fshinë</item>
-    </plurals>
-    <string name="deduplicator_search_locations_title">Vendet e kërkimit</string>
-    <string name="deduplicator_search_locations_all_summary">Të gjitha zonat e qasshme</string>
-    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
-        <item quantity="one">%s është zënë nga dublikata</item>
-        <item quantity="other">%s janë zënë nga dublikata</item>
-    </plurals>
-    <string name="exclusion_show_defaults_action">Shfaq parazgjedhjet</string>
-    <string name="picker_select_paths_title">Zgjidhni shtegjet</string>
-    <string name="picker_selected_paths_title">Shtegjet e zgjedhura</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d shteg i zgjedhur</item>
-        <item quantity="other">%d shtegje të zgjedhura</item>
-    </plurals>
-    <string name="picker_unsaved_confirmation_message">Hedh ndryshimet?</string>
-    <string name="picker_home_action">Zonat e të dhënave</string>
-    <string name="settings_debuglog_explanation">Kjo veçori regjistron çdo gjë që bën aplikacioni në një skedar të ndarshëm. Skedari i gjeneruar përmban informacion të ndjeshëm (p.sh. emrat e skedarëve dhe aplikacionet e instaluara). Ndajeni vetëm me palë të besuara (p.sh. një zhvillues që po zgjidh një problem).</string>
-    <string name="setup_inventory_invalid_message">Sistemi dha një listë të pavlefshme të aplikacioneve të instaluara (p.sh. shumë pak ose disa mungonin). Shkoni te cilësimet e sistemit dhe lejojeni SD Maid të qaset te "Lista e aplikacioneve".</string>
-    <string name="setup_permission_error_label">Gabim leje</string>
-    <plurals name="stats_dash_body_count">
-        <item quantity="one">%s artikull u përpunua që kur ftuat SD Maid në pajisjen tuaj.</item>
-        <item quantity="other">%s artikuj u përpunuan që kur ftuat SD Maid në pajisjen tuaj.</item>
-    </plurals>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s është liruar.</item>
         <item quantity="other">%s janë liruar.</item>
     </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s artikull u përpunua që kur ftuat SD Maid në pajisjen tuaj.</item>
+        <item quantity="other">%s artikuj u përpunuan që kur ftuat SD Maid në pajisjen tuaj.</item>
+    </plurals>
     <string name="stats_report_status_success">Sukses</string>
     <string name="stats_report_status_partial_success">Sukses i pjesshëm</string>
     <string name="stats_report_status_partial_failure">Dështim i pjesshëm</string>
+    <string name="stats_settings_desc">Konfiguro statistikat, raportet dhe ruajtjen e të dhënave të SD Maid.</string>
     <string name="stats_settings_retention_category">Ruajtja</string>
-    <string name="stats_settings_retention_paths_label">Informacioni i detajuar i shtegut</string>
-    <string name="stats_settings_retention_paths_desc">Numri i ditëve për të mbajtur detajet për shtegjet e prekura nga SD Maid.</string>
     <string name="stats_settings_retention_reports_label">Raportet e detyrave</string>
     <string name="stats_settings_retention_reports_desc">Numri i ditëve për të mbajtur raportet e detyrave individuale.</string>
+    <string name="stats_settings_retention_paths_label">Informacioni i detajuar i shtegut</string>
+    <string name="stats_settings_retention_paths_desc">Numri i ditëve për të mbajtur detajet për shtegjet e prekura nga SD Maid.</string>
     <plurals name="stats_settings_retention_x_days">
         <item quantity="one">%d ditë</item>
         <item quantity="other">%d ditë</item>
     </plurals>
-    <plurals name="systemcleaner_result_x_items_deleted">
-        <item quantity="one">%d përputhje u fshi</item>
-        <item quantity="other">%d përputhje u fshinë</item>
+    <string name="stats_settings_reset_all_label">Rivendos të gjitha</string>
+    <string name="stats_settings_reset_all_desc">Hiq të gjitha raportet dhe vendos të gjitha statistikat në zero.</string>
+    <string name="stats_affected_paths_label">Shtegjet e prekura</string>
+    <string name="stats_affected_pkgs_label">Aplikacionet e prekura</string>
+    <string name="picker_select_paths_title">Zgjidhni shtegjet</string>
+    <string name="picker_selected_paths_title">Shtegjet e zgjedhura</string>
+    <string name="picker_unsaved_confirmation_message">Hedh ndryshimet?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d shteg i zgjedhur</item>
+        <item quantity="other">%d shtegje të zgjedhura</item>
     </plurals>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Shtegu fillon me fjalën kyçe</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Shtegu përmban fjalën kyçe</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Shtegu përfundon me fjalën kyçe</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Shtegu është i barabartë me fjalën kyçe</string>
-    <string name="systemcleaner_filter_logfiles_label">Skedarët e log-ut të sistemit</string>
-    <string name="systemcleaner_filter_logfiles_summary">Skedarët e log-ut të sistemit dhe shërbimeve të sistemit (p.sh. *.log) në vende të ndryshme.</string>
-    <string name="systemcleaner_filter_packagecaches_label">Cache-i i instaluesit</string>
-    <string name="systemcleaner_filter_packagecaches_summary">Të dhëna të cache-uara lidhur me aplikacionet e instaluara që përdoren nga menaxhimi i paketave të sistemit.</string>
-    <string name="systemcleaner_filter_screenshots_label">Pamjet e ekranit</string>
-    <string name="systemcleaner_filter_screenshots_summary">Pamje ekrani më të vjetra se %s nga aplikacione dhe vende të shumta.</string>
-    <string name="systemcleaner_filter_screenshots_age_label">Mosha e pamjeve të ekranit</string>
-    <string name="systemcleaner_filter_screenshots_age_summary">Mosha minimale për pamjet e ekranit që të konsiderohen për fshirje.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Skedarët e përkohshëm të sistemit</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Skedarë të përkohshëm të lidhur me sistemin, zakonisht cache-e të shkurtra për operacione aktive.</string>
-    <string name="systemcleaner_filter_trashed_label">Skedarët në kosh</string>
-    <string name="systemcleaner_filter_trashed_summary">Skedarë në koshet e riciklimit nga aplikacione dhe vende të ndryshme që janë shënuar për fshirje por ende nuk janë hequr përgjithmonë.</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">Të dhëna që eksploreri i skedarëve të Windows mund të krijojë në ruajtjen e lidhur.</string>
+    <string name="picker_home_action">Zonat e të dhënave</string>
     <string name="area_type_sdcard_label">Ruajtja publike</string>
     <string name="area_type_public_media_label">Media e aplikacionit publik</string>
     <string name="area_type_public_data_label">Të dhënat e aplikacionit publik</string>
     <string name="area_type_public_obb_label">Burimet e aplikacionit publik</string>
     <string name="area_type_private_data_label">Të dhënat e aplikacionit privat</string>
     <string name="area_type_portable_label">Ruajtja e lëvizshme</string>
-    <string name="scheduler_battery_optimization_hint">Kjo veçori mund të kërkojë çaktivizimin e optimizimit të baterisë për SD Maid për të funksionuar si duhet.</string>
 </resources>

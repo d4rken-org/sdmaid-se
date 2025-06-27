@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">На вашој услузи.</string>
     <string name="slogan_message_1">Чисто и уредно.</string>
     <string name="slogan_message_2">Спречава хаос.</string>
@@ -10,9 +8,7 @@
     <string name="slogan_message_6">Бајтови, одлазите!</string>
     <string name="slogan_message_7">Слободан простор, срећно место.</string>
     <string name="slogan_message_8">Никад те нећу напустити.</string>
-
     <string name="general_thank_you_label">Хвала</string>
-
     <string name="general_error_type_mismatch_msg">Неподударност типа: Желело се %1$s, али је добијено %2$s.</string>
     <string name="general_error_cant_access_msg">Не могу приступити %s.</string>
     <string name="general_error_root_unavailable">Root приступ није доступан.</string>
@@ -62,7 +58,6 @@
     <string name="general_progress_loading_egg_5">Турбо енкабулатор се иницијализује</string>
     <string name="general_progress_loading_egg_6">Прослеђивање путера</string>
     <string name="general_progress_loading_egg_7">Па, како се носиш?</string>
-    <string name="general_progress_loading_egg_8">Beeping boop bop</string>
     <string name="general_progress_loading_egg_9">Баферовање животних избора</string>
     <string name="general_progress_loading_egg_10">Призивање Ктулуа</string>
     <string name="general_progress_loading_egg_11">Ово је у реду</string>
@@ -76,7 +71,6 @@
     <string name="general_sort_options_label">Опције сортирања</string>
     <string name="general_sort_reverse_action">Обрнути режим сортирања</string>
     <string name="general_tag_filter_label">Филтрирај по таговима</string>
-
     <string name="general_result_success_message">Операција успешна</string>
     <string name="general_result_failure_message">Операција неуспешна</string>
     <plurals name="general_result_x_space_freed">
@@ -84,7 +78,6 @@
         <item quantity="few">Ослобођен %s простор.</item>
         <item quantity="other">Ослобођен %s простор.</item>
     </plurals>
-
     <string name="general_options_label">Опције</string>
     <string name="general_details_label">Детаљи</string>
     <string name="general_view_action">Прикажи</string>
@@ -95,7 +88,6 @@
     <string name="general_show_details_action">Прикажи детаље</string>
     <string name="general_show_all_action">Прикажи све</string>
     <string name="general_toggle_layout_mode">Промени режим приказа</string>
-
     <string name="general_delete_confirmation_title">Потврди брисање</string>
     <string name="general_delete_confirmation_message_x">Обриши \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Обриши %d изабраних ставки?</string>
@@ -104,7 +96,6 @@
         <item quantity="few">Обрисане %d ставке.</item>
         <item quantity="other">Обрисано %d ставки.</item>
     </plurals>
-
     <string name="general_remove_action">Уклони</string>
     <string name="general_remove_selected_action">Уклони изабране</string>
     <plurals name="general_remove_success_x_items">
@@ -112,14 +103,11 @@
         <item quantity="few">%d ставке су уклоњене</item>
         <item quantity="other">%d ставки је уклоњено</item>
     </plurals>
-
     <string name="general_root_required_label">Потребан root</string>
     <string name="general_root_required_message">Потребан root уређај</string>
-
     <string name="general_search_action">Претражи</string>
     <string name="general_scan_device_action">Скенирај уређај</string>
     <string name="general_open_system_settings_action">Отвори системска подешавања</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s ставка</item>
         <item quantity="few">%s ставке</item>
@@ -147,28 +135,21 @@
     <string name="general_grant_access_action">Додели приступ</string>
     <string name="general_enable_service_action">Омогући услугу</string>
     <string name="general_undo_action">Опозови</string>
-
     <string name="general_list_select_all_action">Изабери све</string>
-
     <string name="general_path_label">Путања</string>
     <string name="general_type_label">Тип</string>
     <string name="general_size_label">Величина</string>
     <string name="general_exclude_action">Искључи</string>
     <string name="general_exclude_selected_action">Искључи изабране</string>
-
     <string name="general_device_label">Уређај</string>
-
     <string name="general_settings_title">Подешавања</string>
     <string name="general_help_title">Помоћ</string>
-
     <string name="file_type_symbolic_link">Веза</string>
     <string name="file_type_directory">Директоријум</string>
     <string name="file_type_file">Фајл</string>
     <string name="file_type_unknown">Непознато</string>
-
     <string name="general_progress_ready">Спреман</string>
     <string name="general_progress_done">Готово</string>
-
     <string name="general_rom_type_auto_label">Аутоматски (подразумевано)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d дан</item>

@@ -6,12 +6,14 @@
     <string name="upgrades_dashcard_title">გაარემონტეთ SD Maid</string>
     <string name="upgrades_dashcard_body">SD Maid Pro გთავაზობთ უკეთეს შედეგებს, მეტ ფუნქციებს და ვარიანტებს ძლიერი მომხმარებლებისთვის.</string>
     <string name="upgrades_dashcard_upgrade_action">გარემონტება</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play მიუწვდომელია</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid ვერ უკავშირდება Google Play-ს. დაინსტალირებულია და განახლებულია Google Play? შესულია თქვენი Google ანგარიში? სცადეთ Google Play აპლიკაციის ქეშის გასუფთავება და თქვენი მოწყობილობის გადატვირთვა.</string>
     <string name="upgrades_no_purchases_found_check_account">შესყიდვები ვერ მოიძებნა. სწორ ანგარიშს იყენებთ?</string>
     <string name="upgrade_screen_title">მიიღეთ SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid-ს არ აქვს რეკლამები და არ ყიდის მომხმარებლის მონაცემებს. ჩემი სამუშაო თქვენ აფინანსებთ ❤️.</string>
     <string name="upgrade_screen_benefits_title">უპირატესობები</string>
     <string name="upgrade_screen_benefits_body">• აპლიკაციის გაწმენდა 💯\n• დაგეგმილი ოპერაციები ⏰\n• დამატებითი ვარიანტები ყველა ხელსაწყოსთვის ⚙️\n• თქვენი წაშლის წესები ✍️\n• მოტივირებული დეველოპერი 🧙\nდა სხვა…</string>
     <string name="upgrade_screen_how_title">ვარიანტები</string>
-    <string name="upgrade_screen_preamble">SD Maid-ს არ აქვს რეკლამები და არ ყიდის მომხმარებლის მონაცემებს. ჩემი სამუშაო თქვენ აფინანსებთ ❤️.</string>
     <string name="upgrade_screen_how_body">თქვენ შეგიძლიათ აირჩიოთ ერთჯერად შეძენასა და უფრო იაფ წლიურ გამოწერას შორის.\nგამოწერა იწყება უფასო 14-დღიანი საცდელი პერიოდით, რის შემდეგაც წელიწადში ერთხელ დაგეკისრებათ გადახდა. საცდელი და გამოწერა ნებისმიერ დროს შეიძლება გაუქმდეს.\nიგივე ფუნქციები, უბრალოდ განსხვავებული ფასების მოდელები.</string>
     <string name="upgrade_screen_subscription_trial_action">დაიწყეთ უფასო 14-დღიანი საცდელი</string>
     <string name="upgrade_screen_subscription_action">გამოწერა</string>
@@ -19,8 +21,6 @@
     <string name="upgrade_screen_iap_action">ერთჯერადი შეძენა</string>
     <string name="upgrade_screen_iap_action_hint">ერთჯერადი შეძენა ღირს %s.</string>
     <string name="upgrade_screen_thanks_toast">Საუკეთესო ხარ! ❤️</string>
-    <string name="upgrades_gplay_unavailable_error_title">Google Play მიუწვდომელია</string>
-    <string name="upgrades_gplay_unavailable_error_description">SD Maid ვერ უკავშირდება Google Play-ს. დაინსტალირებულია და განახლებულია Google Play? შესულია თქვენი Google ანგარიში? სცადეთ Google Play აპლიკაციის ქეშის გასუფთავება და თქვენი მოწყობილობის გადატვირთვა.</string>
     <string name="upgrade_screen_restore_purchase_action">შეძენის აღდგენა</string>
     <string name="upgrade_screen_restore_purchase_message">თქვენი განახლება მოქმედებს ყველა მოწყობილობაზე იმავე Google ანგარიშით.</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">ამოუცნობი განახლებების პრობლემების მოგვარების რჩევები:</string>

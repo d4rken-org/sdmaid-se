@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">तपाईंको सेवामा।</string>
     <string name="slogan_message_1">सफा र व्यवस्थित।</string>
     <string name="slogan_message_2">अराजकता रोक्दै।</string>
     <string name="slogan_message_3">आवश्यक कुराहरू गर्दै।</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">दागरहित।</string>
     <string name="slogan_message_6">बाइटहरू, जानुहोस्!</string>
     <string name="slogan_message_7">खाली ठाउँ, खुशी ठाउँ।</string>
     <string name="slogan_message_8">कहिल्यै छोड्दिन।</string>
-
     <string name="general_thank_you_label">धन्यवाद</string>
-
     <string name="general_error_type_mismatch_msg">प्रकार मेल खाएन: %1$s चाहिएको थियो, तर %2$s पाइयो।</string>
     <string name="general_error_cant_access_msg">%s पहुँच गर्न सकिएन।</string>
     <string name="general_error_root_unavailable">रूट पहुँच उपलब्ध छैन।</string>
@@ -77,14 +72,12 @@
     <string name="general_sort_options_label">क्रमबद्ध विकल्पहरू</string>
     <string name="general_sort_reverse_action">उल्टो क्रमबद्ध मोड</string>
     <string name="general_tag_filter_label">ट्यागहरूद्वारा फिल्टर गर्नुहोस्</string>
-
     <string name="general_result_success_message">सफलतापूर्वक सम्पन्न</string>
     <string name="general_result_failure_message">कार्य असफल</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ठाउँ खाली गरियो।</item>
         <item quantity="other">%s ठाउँ खाली गरियो।</item>
     </plurals>
-
     <string name="general_options_label">विकल्पहरू</string>
     <string name="general_details_label">विवरणहरू</string>
     <string name="general_view_action">हेर्नुहोस्</string>
@@ -95,7 +88,6 @@
     <string name="general_show_details_action">विवरणहरू देखाउनुहोस्</string>
     <string name="general_show_all_action">सबै देखाउनुहोस्</string>
     <string name="general_toggle_layout_mode">हेर्ने मोड बदल्नुहोस्</string>
-
     <string name="general_delete_confirmation_title">मेटाउने पुष्टि गर्नुहोस्</string>
     <string name="general_delete_confirmation_message_x">\"%s\" मेटाउने?</string>
     <string name="general_delete_confirmation_message_selected_x_items">चयन गरिएका %d वस्तुहरू मेटाउने?</string>
@@ -103,21 +95,17 @@
         <item quantity="one">%d वस्तु मेटाइयो।</item>
         <item quantity="other">%d वस्तुहरू मेटाइए।</item>
     </plurals>
-
     <string name="general_remove_action">हटाउनुहोस्</string>
     <string name="general_remove_selected_action">चयन गरिएको हटाउनुहोस्</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">एक वस्तु हटाइयो</item>
         <item quantity="other">%d वस्तुहरू हटाइए</item>
     </plurals>
-
     <string name="general_root_required_label">रूट आवश्यक</string>
     <string name="general_root_required_message">रूट गरिएको उपकरण आवश्यक</string>
-
     <string name="general_search_action">खोज्नुहोस्</string>
     <string name="general_scan_device_action">उपकरण स्क्यान गर्नुहोस्</string>
     <string name="general_open_system_settings_action">सिस्टम सेटिङहरू खोल्नुहोस्</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s वस्तु</item>
         <item quantity="other">%s वस्तुहरू</item>
@@ -141,28 +129,21 @@
     <string name="general_grant_access_action">पहुँच दिनुहोस्</string>
     <string name="general_enable_service_action">सेवा सक्षम गर्नुहोस्</string>
     <string name="general_undo_action">पूर्ववत गर्नुहोस्</string>
-
     <string name="general_list_select_all_action">सबै चयन गर्नुहोस्</string>
-
     <string name="general_path_label">पथ</string>
     <string name="general_type_label">प्रकार</string>
     <string name="general_size_label">साइज</string>
     <string name="general_exclude_action">बहिष्कार गर्नुहोस्</string>
     <string name="general_exclude_selected_action">चयन गरिएको बहिष्कार गर्नुहोस्</string>
-
     <string name="general_device_label">उपकरण</string>
-
     <string name="general_settings_title">सेटिङहरू</string>
     <string name="general_help_title">मद्दत</string>
-
     <string name="file_type_symbolic_link">लिङ्क</string>
     <string name="file_type_directory">डाइरेक्टरी</string>
     <string name="file_type_file">फाइल</string>
     <string name="file_type_unknown">अज्ञात</string>
-
     <string name="general_progress_ready">तयार</string>
     <string name="general_progress_done">सकियो</string>
-
     <string name="general_rom_type_auto_label">स्वचालित (पूर्वनिर्धारित)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d दिन</item>

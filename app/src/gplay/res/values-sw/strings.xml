@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
-    <string name="app_name_upgrade_postfix">Pro</string>
-
     <string name="upgrade_feature_requires_pro">Inahitaji SD Maid SE Pro</string>
-
     <string name="upgrades_dashcard_title">Boresha SD Maid</string>
     <string name="upgrades_dashcard_body">SD Maid Pro inatoa matokeo bora zaidi, vipengele zaidi na chaguo kwa watumiaji wa kiwango cha juu.</string>
     <string name="upgrades_dashcard_upgrade_action">Boresha</string>
-
     <string name="upgrades_gplay_unavailable_error_title">Google Play haipo</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid haiwezi kuunganisha na Google Play. Je, Google Play imesakinishwa na imesasishwa? Je, akaunti yako ya Google imeingia? Jaribu kusafisha akiba ya programu ya Google Play na uanzishe upya kifaa chako.</string>
     <string name="upgrades_no_purchases_found_check_account">Hakuna ununuzi uliopatikana. Je, unatumia akaunti sahihi?</string>

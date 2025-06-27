@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">Zure zerbitzutan.</string>
     <string name="slogan_message_1">Garbi eta txukun.</string>
     <string name="slogan_message_2">Kaosa saihesten.</string>
     <string name="slogan_message_3">Beharrezkoa egiten.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">Orbain gabe.</string>
     <string name="slogan_message_6">Byteak, joan zaitezte!</string>
     <string name="slogan_message_7">Leku librea, leku zoriontsua.</string>
     <string name="slogan_message_8">Inoiz ez zaitut utziko.</string>
-
     <string name="general_thank_you_label">Eskerrik asko</string>
-
     <string name="general_error_type_mismatch_msg">Mota desadostasuna: %1$s nahi zen, baina %2$s lortu da.</string>
     <string name="general_error_cant_access_msg">Ezin da %s atzitu.</string>
     <string name="general_error_root_unavailable">Root sarbidea ez dago eskuragarri.</string>
@@ -77,14 +72,12 @@
     <string name="general_sort_options_label">Ordenatzeko aukerak</string>
     <string name="general_sort_reverse_action">Alderantzizko ordenazio modua</string>
     <string name="general_tag_filter_label">Etiketez iragazki</string>
-
     <string name="general_result_success_message">Eragiketa arrakastatsua</string>
     <string name="general_result_failure_message">Eragiketa huts egin du</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s leku askatu da.</item>
         <item quantity="other">%s leku askatu da.</item>
     </plurals>
-
     <string name="general_options_label">Aukerak</string>
     <string name="general_details_label">Xehetasunak</string>
     <string name="general_view_action">Ikusi</string>
@@ -95,29 +88,24 @@
     <string name="general_show_details_action">Xehetasunak erakutsi</string>
     <string name="general_show_all_action">Denak erakutsi</string>
     <string name="general_toggle_layout_mode">Ikuste modua aldatu</string>
-
     <string name="general_delete_confirmation_title">Ezabatzea berretsi</string>
-    <string name="general_delete_confirmation_message_x">"%s" ezabatu?</string>
+    <string name="general_delete_confirmation_message_x">\"%s\" ezabatu?</string>
     <string name="general_delete_confirmation_message_selected_x_items">%d hautatutako elementu ezabatu?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d elementu ezabatu da.</item>
         <item quantity="other">%d elementu ezabatu dira.</item>
     </plurals>
-
     <string name="general_remove_action">Kendu</string>
     <string name="general_remove_selected_action">Hautatutakoak kendu</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Elementu bat kendu da</item>
         <item quantity="other">%d elementu kendu dira</item>
     </plurals>
-
     <string name="general_root_required_label">Root behar da</string>
     <string name="general_root_required_message">Root duen gailua behar da</string>
-
     <string name="general_search_action">Bilatu</string>
     <string name="general_scan_device_action">Gailua eskaneatu</string>
     <string name="general_open_system_settings_action">Sistemaren ezarpenak ireki</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s elementu</item>
         <item quantity="other">%s elementu</item>
@@ -141,28 +129,21 @@
     <string name="general_grant_access_action">Sarbidea eman</string>
     <string name="general_enable_service_action">Zerbitzua gaitu</string>
     <string name="general_undo_action">Desegin</string>
-
     <string name="general_list_select_all_action">Denak hautatu</string>
-
     <string name="general_path_label">Bidea</string>
     <string name="general_type_label">Mota</string>
     <string name="general_size_label">Tamaina</string>
     <string name="general_exclude_action">Kanpoan utzi</string>
     <string name="general_exclude_selected_action">Hautatutakoak kanpoan utzi</string>
-
     <string name="general_device_label">Gailua</string>
-
     <string name="general_settings_title">Ezarpenak</string>
     <string name="general_help_title">Laguntza</string>
-
     <string name="file_type_symbolic_link">Esteka</string>
     <string name="file_type_directory">Direktorioa</string>
     <string name="file_type_file">Fitxategia</string>
     <string name="file_type_unknown">Ezezaguna</string>
-
     <string name="general_progress_ready">Prest</string>
     <string name="general_progress_done">Eginda</string>
-
     <string name="general_rom_type_auto_label">Automatikoa (lehenetsia)</string>
     <plurals name="general_age_days">
         <item quantity="one">Egun %d</item>

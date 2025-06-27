@@ -383,6 +383,13 @@
         <item quantity="other">為 %d 個已選取的應用程式刪除無關緊要的檔案？</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">正在透過使用 Shizuku 刪除快取</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">正在判斷無法存取的快取</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">清除快取不可用</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">系統已停用此應用程式的「清除快取」按鈕。排除它以加快快取清除速度。</string>
+    <string name="appcleaner_automation_error_no_settings_title">設定畫面不可用</string>
+    <string name="appcleaner_automation_error_no_settings_body">此系統應用程式沒有設定畫面。無法透過無障礙服務清除快取。排除它以加快快取清除速度。</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">系統應用程式配置錯誤</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS 的安全應用程式 (com.miui.securitycenter) 缺少使用統計權限 (GET_USAGE_STATS)。這會破壞應用程式詳細資訊中的「清除資料」等功能和透過無障礙清除快取。授予權限以恢復完整功能。</string>
     <string name="deduplicator_tool_name">除重程式</string>
     <string name="deduplicator_explanation_short">找出您裝置上的重複資料。</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -592,7 +599,12 @@
     <string name="automation_error_not_running_body">無障礙服務未在執行，請嘗試重新啟動裝置。</string>
     <string name="automation_error_screen_unavailable_title">螢幕無法使用</string>
     <string name="automation_error_screen_unavailable_body">作業已中止，因為螢幕無法使用 (例如顯示器已關閉或處於鎖定畫面)。</string>
+    <string name="automation_error_compatibility_title">自動化相容性</string>
     <string name="automation_error_compatibility_body">SD Maid 無法辨識螢幕佈局。如果這種情況持續發生，可能是因為您的語言或設定尚未完全支援。請檢查是否有更新，或聯絡我以便修復問題。</string>
+    <string name="automation_error_timeout_title">自動化逾時</string>
+    <string name="automation_error_timeout_body">SD Maid 未在時間限制內完成所有步驟。如果這種情況持續發生，我可能需要為您的裝置調整應用程式。檢查更新或聯絡我，以便我修復它。</string>
+    <string name="automation_error_overlay_title">自動化覆蓋層</string>
+    <string name="automation_error_overlay_body">SD Maid 無法顯示自動化覆蓋層。檢查權限並嘗試重新啟動您的裝置。</string>
     <string name="history_label">歷史記錄</string>
     <string name="history_description">依照時間順序列出最近的動作和受影響的資料。</string>
     <string name="scheduler_label">排程器</string>
@@ -683,16 +695,4 @@
     <string name="area_type_public_obb_label">公共應用程式資源</string>
     <string name="area_type_private_data_label">私人應用程式資料</string>
     <string name="area_type_portable_label">可攜式儲存空間</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">系統已停用此應用程式的「清除快取」按鈕。排除它以加快快取清除速度。</string>
-    <string name="appcleaner_automation_error_locked_appcache_title">清除快取不可用</string>
-    <string name="appcleaner_automation_error_no_settings_body">此系統應用程式沒有設定畫面。無法透過無障礙服務清除快取。排除它以加快快取清除速度。</string>
-    <string name="appcleaner_automation_error_no_settings_title">設定畫面不可用</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS 的安全應用程式 (com.miui.securitycenter) 缺少使用統計權限 (GET_USAGE_STATS)。這會破壞應用程式詳細資訊中的「清除資料」等功能和透過無障礙清除快取。授予權限以恢復完整功能。</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_title">系統應用程式配置錯誤</string>
-    <string name="appcleaner_progress_determining_inaccessible_caches">正在判斷無法存取的快取</string>
-    <string name="automation_error_compatibility_title">自動化相容性</string>
-    <string name="automation_error_overlay_body">SD Maid 無法顯示自動化覆蓋層。檢查權限並嘗試重新啟動您的裝置。</string>
-    <string name="automation_error_overlay_title">自動化覆蓋層</string>
-    <string name="automation_error_timeout_body">SD Maid 未在時間限制內完成所有步驟。如果這種情況持續發生，我可能需要為您的裝置調整應用程式。檢查更新或聯絡我，以便我修復它。</string>
-    <string name="automation_error_timeout_title">自動化逾時</string>
 </resources>

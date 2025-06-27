@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">Til þjónustu.</string>
     <string name="slogan_message_1">Hreint og snyrtilegur.</string>
     <string name="slogan_message_2">Kemur í veg fyrir óreiðu.</string>
     <string name="slogan_message_3">Gerir það sem þarf.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">Blettlaus.</string>
     <string name="slogan_message_6">Bæti, farið!</string>
     <string name="slogan_message_7">Laust pláss, glaður staður.</string>
     <string name="slogan_message_8">Mun aldrei gefast upp á þér.</string>
-
     <string name="general_thank_you_label">Takk fyrir</string>
-
     <string name="general_error_type_mismatch_msg">Tegund misræmi: Vildi %1$s, en fékk %2$s.</string>
     <string name="general_error_cant_access_msg">Get ekki nálgast %s.</string>
     <string name="general_error_root_unavailable">Root aðgangur er ekki tiltækur.</string>
@@ -77,14 +72,12 @@
     <string name="general_sort_options_label">Röðunarvalkostir</string>
     <string name="general_sort_reverse_action">Öfug röðunarham</string>
     <string name="general_tag_filter_label">Sía eftir merkjum</string>
-
     <string name="general_result_success_message">Aðgerð tókst</string>
     <string name="general_result_failure_message">Aðgerð mistókst</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s pláss losað.</item>
         <item quantity="other">%s pláss losað.</item>
     </plurals>
-
     <string name="general_options_label">Valkostir</string>
     <string name="general_details_label">Smáatriði</string>
     <string name="general_view_action">Skoða</string>
@@ -95,29 +88,24 @@
     <string name="general_show_details_action">Sýna smáatriði</string>
     <string name="general_show_all_action">Sýna allt</string>
     <string name="general_toggle_layout_mode">Skipta um útsýnisham</string>
-
     <string name="general_delete_confirmation_title">Staðfesta eyðingu</string>
-    <string name="general_delete_confirmation_message_x">Eyða "%s"?</string>
+    <string name="general_delete_confirmation_message_x">Eyða \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Eyða %d völdum hlutum?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d hlut eytt.</item>
         <item quantity="other">%d hlutum eytt.</item>
     </plurals>
-
     <string name="general_remove_action">Fjarlægja</string>
     <string name="general_remove_selected_action">Fjarlægja valið</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Einum hlut fjarlægt</item>
         <item quantity="other">%d hlutum fjarlægt</item>
     </plurals>
-
     <string name="general_root_required_label">Krefst root</string>
     <string name="general_root_required_message">Krefst root-aðgangs tækis</string>
-
     <string name="general_search_action">Leita</string>
     <string name="general_scan_device_action">Skanna tæki</string>
     <string name="general_open_system_settings_action">Opna kerfisstillingar</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s hlutur</item>
         <item quantity="other">%s hlutir</item>
@@ -141,28 +129,21 @@
     <string name="general_grant_access_action">Veita aðgang</string>
     <string name="general_enable_service_action">Virkja þjónustu</string>
     <string name="general_undo_action">Afturkalla</string>
-
     <string name="general_list_select_all_action">Velja allt</string>
-
     <string name="general_path_label">Slóð</string>
     <string name="general_type_label">Tegund</string>
     <string name="general_size_label">Stærð</string>
     <string name="general_exclude_action">Útiloka</string>
     <string name="general_exclude_selected_action">Útiloka valið</string>
-
     <string name="general_device_label">Tæki</string>
-
     <string name="general_settings_title">Stillingar</string>
     <string name="general_help_title">Hjálp</string>
-
     <string name="file_type_symbolic_link">Tengill</string>
     <string name="file_type_directory">Möppu</string>
     <string name="file_type_file">Skrá</string>
     <string name="file_type_unknown">Óþekkt</string>
-
     <string name="general_progress_ready">Tilbúið</string>
     <string name="general_progress_done">Lokið</string>
-
     <string name="general_rom_type_auto_label">Sjálfvirkt (sjálfgefið)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d dagur</item>

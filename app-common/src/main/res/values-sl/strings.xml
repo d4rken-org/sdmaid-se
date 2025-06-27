@@ -9,7 +9,6 @@
     <string name="slogan_message_6">Bajti, pojdite stran!</string>
     <string name="slogan_message_7">Prosti prostor, srečen prostor.</string>
     <string name="slogan_message_8">Te nikoli ne bom razočaral.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="general_thank_you_label">Hvala!</string>
     <string name="general_error_type_mismatch_msg">Neujemanje vrste: zahtevano %1$s, dobljeno %2$s.</string>
     <string name="general_error_cant_access_msg">Dostop do %s ni mogoč.</string>

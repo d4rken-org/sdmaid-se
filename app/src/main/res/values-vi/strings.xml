@@ -389,6 +389,7 @@
     <string name="appcleaner_automation_error_no_settings_title">Màn hình cài đặt không khả dụng</string>
     <string name="appcleaner_automation_error_no_settings_body">Màn hình cài đặt không có sẵn trên ứng dụng hệ thống này. Không thể xóa bộ nhớ đệm thông qua dịch vụ trợ năng. Loại bỏ nó để tăng tốc độ xóa bộ nhớ đệm.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Ứng dụng hệ thống bị cấu hình sai</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Ứng dụng Bảo mật của HyperOS (com.miui.securitycenter) thiếu quyền Thống kê Sử dụng (GET_USAGE_STATS). Điều này làm hỏng các tính năng như \"Xóa Dữ liệu\" trong chi tiết ứng dụng và xóa bộ nhớ cache qua dịch vụ trợ năng. Cấp quyền để khôi phục đầy đủ chức năng.</string>
     <string name="deduplicator_tool_name">Quản lý tệp trùng lặp</string>
     <string name="deduplicator_explanation_short">Tìm dữ liệu trùng lặp trên thiết bị của bạn.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -598,7 +599,12 @@
     <string name="automation_error_not_running_body">Dịch vụ trợ năng đang không chạy. Hãy thử khởi động lại thiết bị.</string>
     <string name="automation_error_screen_unavailable_title">Màn hình không có sẵn</string>
     <string name="automation_error_screen_unavailable_body">Thao tác đã bị hủy vì màn hình không khả dụng (ví dụ: tắt màn hình hoặc kích hoạt màn hình khóa).</string>
+    <string name="automation_error_compatibility_title">Tương thích tự động hóa</string>
     <string name="automation_error_compatibility_body">SD Maid không thể tìm ra bố cục màn hình. Nếu điều này tiếp tục xảy ra, ngôn ngữ hoặc thiết lập của bạn có thể không được hỗ trợ đầy đủ. Kiểm tra bản cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
+    <string name="automation_error_timeout_title">Hết thời gian tự động hóa</string>
+    <string name="automation_error_timeout_body">SD Maid đã không hoàn thành tất cả các bước trong giới hạn thời gian. Nếu điều này tiếp tục xảy ra, tôi có thể cần điều chỉnh ứng dụng cho thiết bị của bạn. Kiểm tra cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
+    <string name="automation_error_overlay_title">Lớp phủ tự động hóa</string>
+    <string name="automation_error_overlay_body">SD Maid không thể hiển thị lớp phủ tự động hóa. Kiểm tra quyền và thử khởi động lại thiết bị của bạn.</string>
     <string name="history_label">Lịch sử</string>
     <string name="history_description">Một danh sách theo trình tự thời gian của các hành động gần đây và dữ liệu bị ảnh hưởng.</string>
     <string name="scheduler_label">Lịch trình</string>
@@ -689,10 +695,4 @@
     <string name="area_type_public_obb_label">Tài nguyên ứng dụng công khai</string>
     <string name="area_type_private_data_label">Dữ liệu ứng dụng riêng tư</string>
     <string name="area_type_portable_label">Bộ lưu trữ di động</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">Ứng dụng Bảo mật của HyperOS (com.miui.securitycenter) thiếu quyền Thống kê Sử dụng (GET_USAGE_STATS). Điều này làm hỏng các tính năng như "Xóa Dữ liệu" trong chi tiết ứng dụng và xóa bộ nhớ cache qua dịch vụ trợ năng. Cấp quyền để khôi phục đầy đủ chức năng.</string>
-    <string name="automation_error_compatibility_title">Tương thích tự động hóa</string>
-    <string name="automation_error_timeout_title">Hết thời gian tự động hóa</string>
-    <string name="automation_error_timeout_body">SD Maid đã không hoàn thành tất cả các bước trong giới hạn thời gian. Nếu điều này tiếp tục xảy ra, tôi có thể cần điều chỉnh ứng dụng cho thiết bị của bạn. Kiểm tra cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
-    <string name="automation_error_overlay_title">Lớp phủ tự động hóa</string>
-    <string name="automation_error_overlay_body">SD Maid không thể hiển thị lớp phủ tự động hóa. Kiểm tra quyền và thử khởi động lại thiết bị của bạn.</string>
 </resources>

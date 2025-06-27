@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
-    <string name="app_name_upgrade_postfix">Pro</string>
-
     <string name="upgrade_feature_requires_pro">Kudinga SD Maid SE Pro</string>
-
     <string name="upgrades_dashcard_title">Thuthukisa SD Maid</string>
     <string name="upgrades_dashcard_body">SD Maid Pro inikeza imiphumela engcono, izici eziningi kanye nezinketho zabasebenzisi abahlakaniphile.</string>
     <string name="upgrades_dashcard_upgrade_action">Thuthukisa</string>
-
     <string name="upgrades_gplay_unavailable_error_title">Google Play ayitholakali</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid ayikwazi ukuxhuma ku-Google Play. Ingabe Google Play ifakiwe futhi isesikhathini? Ingabe i-akhawunti yakho ye-Google ingene? Zama ukusula i-cache yohlelo lokusebenza lwe-Google Play futhi uphinde uqalise idivayisi yakho.</string>
     <string name="upgrades_no_purchases_found_check_account">Akukho ukuthenga okutholiwe. Ingabe usebenzisa i-akhawunti efanele?</string>

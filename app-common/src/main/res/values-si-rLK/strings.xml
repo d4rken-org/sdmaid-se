@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">ඔබගේ සේවයේ.</string>
     <string name="slogan_message_1">පිරිසිදු සහ තබා.</string>
     <string name="slogan_message_2">අවුල් වීම වළක්වමින්.</string>
     <string name="slogan_message_3">අවශ්‍ය දේ කරමින්.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">කැළලක් නැත.</string>
     <string name="slogan_message_6">බයිට්, යන්න!</string>
     <string name="slogan_message_7">නිදහස් ඉඩ, සන්තෝෂවත් ස්ථානය.</string>
     <string name="slogan_message_8">කිසි දිනෙක අත්හරන්නේ නැහැ.</string>
-
     <string name="general_thank_you_label">ස්තූතියි</string>
-
     <string name="general_error_type_mismatch_msg">වර්ගයේ නොගැලපීම: %1$s අවශ්‍ය වූ නමුත් %2$s ලැබුණි.</string>
     <string name="general_error_cant_access_msg">%s වෙත ප්‍රවේශ වීමට නොහැක.</string>
     <string name="general_error_root_unavailable">Root ප්‍රවේශය නොමැත.</string>
@@ -77,14 +72,12 @@
     <string name="general_sort_options_label">වර්ග විකල්ප</string>
     <string name="general_sort_reverse_action">ප්‍රතිලෝම වර්ග ක්‍රමය</string>
     <string name="general_tag_filter_label">ටැග අනුව පෙරන්න</string>
-
     <string name="general_result_success_message">සාර්ථකව සම්පූර්ණ කළා</string>
     <string name="general_result_failure_message">ක්‍රියාව අසාර්ථක විය</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ඉඩ නිදහස් කළා.</item>
         <item quantity="other">%s ඉඩ නිදහස් කළා.</item>
     </plurals>
-
     <string name="general_options_label">විකල්ප</string>
     <string name="general_details_label">විස්තර</string>
     <string name="general_view_action">බලන්න</string>
@@ -95,7 +88,6 @@
     <string name="general_show_details_action">විස්තර පෙන්වන්න</string>
     <string name="general_show_all_action">සියල්ල පෙන්වන්න</string>
     <string name="general_toggle_layout_mode">බැලීමේ ක්‍රමය මාරු කරන්න</string>
-
     <string name="general_delete_confirmation_title">මකා දැමීම තහවුරු කරන්න</string>
     <string name="general_delete_confirmation_message_x">\"%s\" මකන්න ද?</string>
     <string name="general_delete_confirmation_message_selected_x_items">තෝරාගත් අයිතම %d ක් මකන්න ද?</string>
@@ -103,21 +95,17 @@
         <item quantity="one">අයිතම %d ක් මකා දමන ලදී.</item>
         <item quantity="other">අයිතම %d ක් මකා දමන ලදී.</item>
     </plurals>
-
     <string name="general_remove_action">ඉවත් කරන්න</string>
     <string name="general_remove_selected_action">තෝරාගත් ඒවා ඉවත් කරන්න</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">එක් අයිතමක් ඉවත් කරන ලදී</item>
         <item quantity="other">අයිතම %d ක් ඉවත් කරන ලදී</item>
     </plurals>
-
     <string name="general_root_required_label">Root අවශ්‍යයි</string>
     <string name="general_root_required_message">Root කරන ලද උපකරණයක් අවශ්‍යයි</string>
-
     <string name="general_search_action">සොයන්න</string>
     <string name="general_scan_device_action">උපකරණය ස්කෑන් කරන්න</string>
     <string name="general_open_system_settings_action">පද්ධති සැකසීම් විවෘත කරන්න</string>
-
     <plurals name="result_x_items">
         <item quantity="one">අයිතම %s ක්</item>
         <item quantity="other">අයිතම %s ක්</item>
@@ -141,28 +129,21 @@
     <string name="general_grant_access_action">ප්‍රවේශය ලබාදෙන්න</string>
     <string name="general_enable_service_action">සේවාව සක්‍රිය කරන්න</string>
     <string name="general_undo_action">අහෝසි කරන්න</string>
-
     <string name="general_list_select_all_action">සියල්ල තෝරන්න</string>
-
     <string name="general_path_label">මාර්ගය</string>
     <string name="general_type_label">වර්ගය</string>
     <string name="general_size_label">ප්‍රමාණය</string>
     <string name="general_exclude_action">බැහැර කරන්න</string>
     <string name="general_exclude_selected_action">තෝරාගත් ඒවා බැහැර කරන්න</string>
-
     <string name="general_device_label">උපකරණය</string>
-
     <string name="general_settings_title">සැකසීම්</string>
     <string name="general_help_title">උදව්</string>
-
     <string name="file_type_symbolic_link">සම්බන්ධකය</string>
     <string name="file_type_directory">ඩිරෙක්ටරි</string>
     <string name="file_type_file">ගොනුව</string>
     <string name="file_type_unknown">නොදන්නා</string>
-
     <string name="general_progress_ready">සූදානම්</string>
     <string name="general_progress_done">කළා</string>
-
     <string name="general_rom_type_auto_label">ස්වයංක්‍රීය (පෙරනිමි)</string>
     <plurals name="general_age_days">
         <item quantity="one">දින %d ක්</item>

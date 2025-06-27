@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">នៅសេវាកម្មរបស់អ្នក។</string>
     <string name="slogan_message_1">ស្អាត និងរៀបរយ។</string>
     <string name="slogan_message_2">ការពារភាពច្របូកច្របល់។</string>
     <string name="slogan_message_3">ធ្វើអ្វីដែលចាំបាច់។</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">គ្មានកំណះ។</string>
     <string name="slogan_message_6">បៃត៍ ទៅ!</string>
     <string name="slogan_message_7">កន្លែងទំនេរ កន្លែងរីករាយ។</string>
     <string name="slogan_message_8">មិនដែលបោះបង់អ្នកទេ។</string>
-
     <string name="general_thank_you_label">អរគុណ</string>
-
     <string name="general_error_type_mismatch_msg">ប្រភេទមិនត្រូវគ្នា៖ ចង់បាន %1$s ប៉ុន្តែបានទទួល %2$s។</string>
     <string name="general_error_cant_access_msg">មិនអាចចូលដំណើរការ %s បាន។</string>
     <string name="general_error_root_unavailable">មិនមានការចូលប្រើ Root បាន។</string>
@@ -77,14 +72,11 @@
     <string name="general_sort_options_label">ជម្រើសការតម្រៀប</string>
     <string name="general_sort_reverse_action">ម៉ូតការតម្រៀបបញ្ច្រាស</string>
     <string name="general_tag_filter_label">តម្រងតាមស្លាក</string>
-
     <string name="general_result_success_message">ប្រតិបត្តិការជោគជ័យ</string>
     <string name="general_result_failure_message">ប្រតិបត្តិការបរាជ័យ</string>
     <plurals name="general_result_x_space_freed">
-        <item quantity="one">បានបំភ្លេចកន្លែង %s។</item>
         <item quantity="other">បានបំភ្លេចកន្លែង %s។</item>
     </plurals>
-
     <string name="general_options_label">ជម្រើស</string>
     <string name="general_details_label">ព័ត៌មានលម្អិត</string>
     <string name="general_view_action">មើល</string>
@@ -95,43 +87,32 @@
     <string name="general_show_details_action">បង្ហាញព័ត៌មានលម្អិត</string>
     <string name="general_show_all_action">បង្ហាញទាំងអស់</string>
     <string name="general_toggle_layout_mode">ប្តូរម៉ូតទិដ្ឋភាព</string>
-
     <string name="general_delete_confirmation_title">បញ្ជាក់ការលុប</string>
-    <string name="general_delete_confirmation_message_x">លុប "%s"?</string>
+    <string name="general_delete_confirmation_message_x">លុប \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">លុបធាតុដែលបានជ្រើស %d?</string>
     <plurals name="general_delete_success_deleted_x">
-        <item quantity="one">បានលុបធាតុ %d។</item>
         <item quantity="other">បានលុបធាតុ %d។</item>
     </plurals>
-
     <string name="general_remove_action">លុបចេញ</string>
     <string name="general_remove_selected_action">លុបចេញធាតុដែលបានជ្រើស</string>
     <plurals name="general_remove_success_x_items">
-        <item quantity="one">បានលុបចេញធាតុមួយ</item>
         <item quantity="other">បានលុបចេញធាតុ %d</item>
     </plurals>
-
     <string name="general_root_required_label">ត្រូវការ root</string>
     <string name="general_root_required_message">ត្រូវការឧបករណ៍ដែលមាន root</string>
-
     <string name="general_search_action">ស្វែងរក</string>
     <string name="general_scan_device_action">ស្កេនឧបករណ៍</string>
     <string name="general_open_system_settings_action">បើកការកំណត់ប្រព័ន្ធ</string>
-
     <plurals name="result_x_items">
-        <item quantity="one">ធាតុ %s</item>
         <item quantity="other">ធាតុ %s</item>
     </plurals>
     <plurals name="result_x_successful">
-        <item quantity="one">%d ជោគជ័យ</item>
         <item quantity="other">%d ជោគជ័យ</item>
     </plurals>
     <plurals name="result_x_failed">
-        <item quantity="one">%d បរាជ័យ</item>
         <item quantity="other">%d បរាជ័យ</item>
     </plurals>
     <plurals name="x_space_can_be_freed">
-        <item quantity="one">%s អាចបំភ្លេចបាន</item>
         <item quantity="other">%s អាចបំភ្លេចបាន</item>
     </plurals>
     <string name="general_info_label">ព័ត៌មាន</string>
@@ -141,39 +122,29 @@
     <string name="general_grant_access_action">ផ្តល់សិទ្ធិចូលប្រើ</string>
     <string name="general_enable_service_action">បើកសេវាកម្ម</string>
     <string name="general_undo_action">មិនធ្វើវិញ</string>
-
     <string name="general_list_select_all_action">ជ្រើសទាំងអស់</string>
-
     <string name="general_path_label">ផ្លូវ</string>
     <string name="general_type_label">ប្រភេទ</string>
     <string name="general_size_label">ទំហំ</string>
     <string name="general_exclude_action">មិនរាប់បញ្ចូល</string>
     <string name="general_exclude_selected_action">មិនរាប់បញ្ចូលធាតុដែលបានជ្រើស</string>
-
     <string name="general_device_label">ឧបករណ៍</string>
-
     <string name="general_settings_title">ការកំណត់</string>
     <string name="general_help_title">ជំនួយ</string>
-
     <string name="file_type_symbolic_link">តំណ</string>
     <string name="file_type_directory">ថត</string>
     <string name="file_type_file">ឯកសារ</string>
     <string name="file_type_unknown">មិនស្គាល់</string>
-
     <string name="general_progress_ready">រួចរាល់</string>
     <string name="general_progress_done">រួចរាល់</string>
-
     <string name="general_rom_type_auto_label">ស្វ័យប្រវត្តិ (លំនាំដើម)</string>
     <plurals name="general_age_days">
-        <item quantity="one">%d ថ្ងៃ</item>
         <item quantity="other">%d ថ្ងៃ</item>
     </plurals>
     <plurals name="general_age_hours">
-        <item quantity="one">%d ម៉ោង</item>
         <item quantity="other">%d ម៉ោង</item>
     </plurals>
     <plurals name="result_x_files">
-        <item quantity="one">ឯកសារ %s</item>
         <item quantity="other">ឯកសារ %s</item>
     </plurals>
     <string name="general_advice_title">ដំបូន្មាន</string>

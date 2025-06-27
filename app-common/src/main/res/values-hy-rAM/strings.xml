@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">Ձեր ծառայության մեջ:</string>
     <string name="slogan_message_1">Մաքուր և կարգավորված:</string>
     <string name="slogan_message_2">Խառնաշփոթը կանխելով:</string>
     <string name="slogan_message_3">Անհրաժեշտը կատարելով:</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">Անարատ:</string>
     <string name="slogan_message_6">Բայթեր, գնացեք!</string>
     <string name="slogan_message_7">Ազատ տեղ, երջանիկ տեղ:</string>
     <string name="slogan_message_8">Երբեք ձեզ չեմ լքի:</string>
-
     <string name="general_thank_you_label">Շնորհակալություն</string>
-
     <string name="general_error_type_mismatch_msg">Տիպի անհամապատասխանություն. Ուզում էր %1$s, բայց ստացավ %2$s:</string>
     <string name="general_error_cant_access_msg">Չի կարող մուտք գործել %s:</string>
     <string name="general_error_root_unavailable">Root մուտքը հասանելի չէ:</string>
@@ -77,14 +72,12 @@
     <string name="general_sort_options_label">Դասակարգման տարբերակներ</string>
     <string name="general_sort_reverse_action">Հակառակ դասակարգման ռեժիմ</string>
     <string name="general_tag_filter_label">Պիտակներով զտիչ</string>
-
     <string name="general_result_success_message">Գործողությունը հաջողակ</string>
     <string name="general_result_failure_message">Գործողությունը ձախողվեց</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s տարածք ազատվեց:</item>
         <item quantity="other">%s տարածք ազատվեց:</item>
     </plurals>
-
     <string name="general_options_label">Տարբերակներ</string>
     <string name="general_details_label">Մանրամասներ</string>
     <string name="general_view_action">Դիտել</string>
@@ -95,29 +88,24 @@
     <string name="general_show_details_action">Ցույց տալ մանրամասները</string>
     <string name="general_show_all_action">Ցույց տալ բոլորը</string>
     <string name="general_toggle_layout_mode">Փոխել դիտարկման ռեժիմը</string>
-
     <string name="general_delete_confirmation_title">Հաստատել ջնջումը</string>
-    <string name="general_delete_confirmation_message_x">Ջնջե՞լ "%s":</string>
+    <string name="general_delete_confirmation_message_x">Ջնջե՞լ \"%s\":</string>
     <string name="general_delete_confirmation_message_selected_x_items">Ջնջե՞լ %d ընտրված տարրեր:</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d տարր ջնջվեց:</item>
         <item quantity="other">%d տարր ջնջվեց:</item>
     </plurals>
-
     <string name="general_remove_action">Հեռացնել</string>
     <string name="general_remove_selected_action">Հեռացնել ընտրվածները</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Մեկ տարր հեռացվեց</item>
         <item quantity="other">%d տարր հեռացվեց</item>
     </plurals>
-
     <string name="general_root_required_label">Պահանջում է root</string>
     <string name="general_root_required_message">Պահանջում է root մուտքով սարք</string>
-
     <string name="general_search_action">Որոնել</string>
     <string name="general_scan_device_action">Սկանավորել սարքը</string>
     <string name="general_open_system_settings_action">Բացել համակարգային կարգավորումները</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s տարր</item>
         <item quantity="other">%s տարր</item>
@@ -141,28 +129,21 @@
     <string name="general_grant_access_action">Մուտք տալ</string>
     <string name="general_enable_service_action">Միացնել ծառայությունը</string>
     <string name="general_undo_action">Հետ դարձնել</string>
-
     <string name="general_list_select_all_action">Ընտրել բոլորը</string>
-
     <string name="general_path_label">Ուղի</string>
     <string name="general_type_label">Տիպ</string>
     <string name="general_size_label">Չափս</string>
     <string name="general_exclude_action">Բացառել</string>
     <string name="general_exclude_selected_action">Բացառել ընտրվածները</string>
-
     <string name="general_device_label">Սարք</string>
-
     <string name="general_settings_title">Կարգավորումներ</string>
     <string name="general_help_title">Օգնություն</string>
-
     <string name="file_type_symbolic_link">Հղում</string>
     <string name="file_type_directory">Թղթապանակ</string>
     <string name="file_type_file">Ֆայլ</string>
     <string name="file_type_unknown">Անհայտ</string>
-
     <string name="general_progress_ready">Պատրաստ</string>
     <string name="general_progress_done">Կատարված</string>
-
     <string name="general_rom_type_auto_label">Ավտոմատ (լռությամբ)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d օր</item>

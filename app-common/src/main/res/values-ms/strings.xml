@@ -7,6 +7,8 @@
     <string name="slogan_message_3">Melakukan apa yang perlu.</string>
     <string name="slogan_message_5">Tanpa noda.</string>
     <string name="slogan_message_6">Terhapuslah, bait!</string>
+    <string name="slogan_message_7">Ruang kosong, tempat gembira.</string>
+    <string name="slogan_message_8">Takkan pernah melepaskan awak.</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_error_type_mismatch_msg">Jenis tidak sepadan: Inginkan %1$s, tetapi mendapat %2$s.</string>
     <string name="general_error_cant_access_msg">Tidak dapat mengakses %s.</string>
@@ -25,6 +27,7 @@
     <string name="general_thanks_action">Terima kasih</string>
     <string name="general_gotit_action">Faham</string>
     <string name="general_fix_action">Baiki</string>
+    <string name="general_set_up_action">Sediakan</string>
     <string name="general_edit_action">Edit</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Kosong</string>
@@ -57,14 +60,24 @@
     <string name="general_progress_loading_egg_6">Melepasi mentega</string>
     <string name="general_progress_loading_egg_7">Jadi. Bagaimana anda bertahan?</string>
     <string name="general_progress_loading_egg_8">Bip bip bup bup</string>
+    <string name="general_progress_loading_egg_9">Menimbal pilihan hidup</string>
+    <string name="general_progress_loading_egg_10">Memanggil Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Ini baik</string>
+    <string name="general_progress_loading_egg_12">Sila tunggu</string>
+    <string name="general_progress_loading_egg_13">Sekurang-kurangnya anda tidak menunggu</string>
     <string name="general_help_action">Bantuan</string>
     <string name="general_continue">Teruskan</string>
     <string name="general_progress_queued">Dalam barisan</string>
+    <string name="general_progress_deleting">Memadam</string>
+    <string name="general_progress_deleting_x">Memadam %s</string>
     <string name="general_sort_options_label">Isih pilihan</string>
     <string name="general_sort_reverse_action">Mod isihan terbalik</string>
     <string name="general_tag_filter_label">Tapis mengikut tag</string>
     <string name="general_result_success_message">Operasi berjaya</string>
     <string name="general_result_failure_message">Operasi gagal</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="other">Membebaskan %s ruang.</item>
+    </plurals>
     <string name="general_options_label">Pilihan</string>
     <string name="general_details_label">Butiran</string>
     <string name="general_view_action">Lihat</string>
@@ -73,9 +86,14 @@
     <string name="general_delete_action">Padam</string>
     <string name="general_delete_selected_action">Padam yang dipilih</string>
     <string name="general_show_details_action">Tunjukkan butiran</string>
+    <string name="general_show_all_action">Tunjukkan semua</string>
+    <string name="general_toggle_layout_mode">Tukar mod paparan</string>
     <string name="general_delete_confirmation_title">Sahkan pemadaman</string>
     <string name="general_delete_confirmation_message_x">Padamkan \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Padamkan %d item yang dipilih?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="other">Memadam %d item.</item>
+    </plurals>
     <string name="general_remove_action">Alih keluar</string>
     <string name="general_remove_selected_action">Buang yang dipilih</string>
     <plurals name="general_remove_success_x_items">
@@ -88,6 +106,15 @@
     <string name="general_open_system_settings_action">Buka tetapan sistem</string>
     <plurals name="result_x_items">
         <item quantity="other">%s butiran</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="other">%d berjaya</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="other">%d gagal</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="other">%s boleh dibebaskan</item>
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Kira</string>
@@ -111,42 +138,15 @@
     <string name="file_type_unknown">Tidak diketahui</string>
     <string name="general_progress_ready">Sedia</string>
     <string name="general_progress_done">Selesai</string>
-    <plurals name="result_x_files">
-        <item quantity="other">%s fail</item>
-    </plurals>
-    <string name="slogan_message_7">Ruang kosong, tempat gembira.</string>
-    <string name="slogan_message_8">Takkan pernah melepaskan awak.</string>
-    <string name="general_set_up_action">Sediakan</string>
-    <string name="general_progress_loading_egg_9">Menimbal pilihan hidup</string>
-    <string name="general_progress_loading_egg_10">Memanggil Cthulhu</string>
-    <string name="general_progress_loading_egg_11">Ini baik</string>
-    <string name="general_progress_loading_egg_12">Sila tunggu</string>
-    <string name="general_progress_loading_egg_13">Sekurang-kurangnya anda tidak menunggu</string>
-    <string name="general_progress_deleting">Memadam</string>
-    <string name="general_progress_deleting_x">Memadam %s</string>
-    <plurals name="general_result_x_space_freed">
-        <item quantity="other">Membebaskan %s ruang.</item>
-    </plurals>
-    <string name="general_show_all_action">Tunjukkan semua</string>
-    <string name="general_toggle_layout_mode">Tukar mod paparan</string>
-    <plurals name="general_delete_success_deleted_x">
-        <item quantity="other">Memadam %d item.</item>
-    </plurals>
-    <plurals name="result_x_successful">
-        <item quantity="other">%d berjaya</item>
-    </plurals>
-    <plurals name="result_x_failed">
-        <item quantity="other">%d gagal</item>
-    </plurals>
-    <plurals name="x_space_can_be_freed">
-        <item quantity="other">%s boleh dibebaskan</item>
-    </plurals>
     <string name="general_rom_type_auto_label">Automatik (lalai)</string>
     <plurals name="general_age_days">
         <item quantity="other">%d hari</item>
     </plurals>
     <plurals name="general_age_hours">
         <item quantity="other">%d jam</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="other">%s fail</item>
     </plurals>
     <string name="general_advice_title">Nasihat</string>
     <string name="general_error_invalid_input_label">Input tidak sah</string>

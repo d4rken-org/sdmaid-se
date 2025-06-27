@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">Jums tarnauju.</string>
     <string name="slogan_message_1">Švariai ir tvarkingai.</string>
     <string name="slogan_message_2">Užkertame kelią chaosui.</string>
     <string name="slogan_message_3">Darome tai, kas būtina.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">Nepriekaištingai.</string>
     <string name="slogan_message_6">Baitai, nykite!</string>
     <string name="slogan_message_7">Laisva vieta - laiminga vieta.</string>
     <string name="slogan_message_8">Niekada tavęs nepaliksiu.</string>
-
     <string name="general_thank_you_label">Ačiū</string>
-
     <string name="general_error_type_mismatch_msg">Tipo neatitikimas: norėjome %1$s, bet gavome %2$s.</string>
     <string name="general_error_cant_access_msg">Negalima pasiekti %s.</string>
     <string name="general_error_root_unavailable">Šaknies prieiga nepasiekiama.</string>
@@ -77,15 +72,14 @@
     <string name="general_sort_options_label">Rūšiavimo parinktys</string>
     <string name="general_sort_reverse_action">Atvirkštinis rūšiavimo režimas</string>
     <string name="general_tag_filter_label">Filtruoti pagal žymes</string>
-
     <string name="general_result_success_message">Operacija sėkminga</string>
     <string name="general_result_failure_message">Operacija nepavyko</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Atlaisvinta %s vietos.</item>
         <item quantity="few">Atlaisvinta %s vietos.</item>
+        <item quantity="many">Atlaisvinta %s vietos.</item>
         <item quantity="other">Atlaisvinta %s vietos.</item>
     </plurals>
-
     <string name="general_options_label">Parinktys</string>
     <string name="general_details_label">Išsamiau</string>
     <string name="general_view_action">Peržiūrėti</string>
@@ -96,49 +90,50 @@
     <string name="general_show_details_action">Rodyti išsamiau</string>
     <string name="general_show_all_action">Rodyti visus</string>
     <string name="general_toggle_layout_mode">Perjungti peržiūros režimą</string>
-
     <string name="general_delete_confirmation_title">Patvirtinti trynimą</string>
     <string name="general_delete_confirmation_message_x">Trinti \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Trinti %d pažymėtus elementus?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Ištrintas %d elementas.</item>
         <item quantity="few">Ištrinti %d elementai.</item>
+        <item quantity="many">Ištrinta %d elementų.</item>
         <item quantity="other">Ištrinta %d elementų.</item>
     </plurals>
-
     <string name="general_remove_action">Pašalinti</string>
     <string name="general_remove_selected_action">Pašalinti pažymėtus</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Pašalintas vienas elementas</item>
         <item quantity="few">Pašalinti %d elementai</item>
+        <item quantity="many">Pašalinta %d elementų</item>
         <item quantity="other">Pašalinta %d elementų</item>
     </plurals>
-
     <string name="general_root_required_label">Reikia šaknies prieigos</string>
     <string name="general_root_required_message">Reikia įrenginys su šaknies prieiga</string>
-
     <string name="general_search_action">Ieškoti</string>
     <string name="general_scan_device_action">Skenuoti įrenginį</string>
     <string name="general_open_system_settings_action">Atidaryti sistemos nustatymus</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s elementas</item>
         <item quantity="few">%s elementai</item>
+        <item quantity="many">%s elementų</item>
         <item quantity="other">%s elementų</item>
     </plurals>
     <plurals name="result_x_successful">
         <item quantity="one">%d sėkmingas</item>
         <item quantity="few">%d sėkmingi</item>
+        <item quantity="many">%d sėkmingų</item>
         <item quantity="other">%d sėkmingų</item>
     </plurals>
     <plurals name="result_x_failed">
         <item quantity="one">%d nepavyko</item>
         <item quantity="few">%d nepavyko</item>
+        <item quantity="many">%d nepavyko</item>
         <item quantity="other">%d nepavyko</item>
     </plurals>
     <plurals name="x_space_can_be_freed">
         <item quantity="one">%s gali būti atlaisvinta</item>
         <item quantity="few">%s gali būti atlaisvinta</item>
+        <item quantity="many">%s gali būti atlaisvinta</item>
         <item quantity="other">%s gali būti atlaisvinta</item>
     </plurals>
     <string name="general_info_label">Informacija</string>
@@ -148,42 +143,38 @@
     <string name="general_grant_access_action">Suteikti prieigą</string>
     <string name="general_enable_service_action">Įjungti paslaugą</string>
     <string name="general_undo_action">Atšaukti</string>
-
     <string name="general_list_select_all_action">Žymėti visus</string>
-
     <string name="general_path_label">Kelias</string>
     <string name="general_type_label">Tipas</string>
     <string name="general_size_label">Dydis</string>
     <string name="general_exclude_action">Išskirti</string>
     <string name="general_exclude_selected_action">Išskirti pažymėtus</string>
-
     <string name="general_device_label">Įrenginys</string>
-
     <string name="general_settings_title">Nustatymai</string>
     <string name="general_help_title">Pagalba</string>
-
     <string name="file_type_symbolic_link">Nuoroda</string>
     <string name="file_type_directory">Katalogas</string>
     <string name="file_type_file">Failas</string>
     <string name="file_type_unknown">Nežinoma</string>
-
     <string name="general_progress_ready">Pasiruošęs</string>
     <string name="general_progress_done">Atlikta</string>
-
     <string name="general_rom_type_auto_label">Automatinis (numatytasis)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d diena</item>
         <item quantity="few">%d dienos</item>
+        <item quantity="many">%d dienų</item>
         <item quantity="other">%d dienų</item>
     </plurals>
     <plurals name="general_age_hours">
         <item quantity="one">%d valanda</item>
         <item quantity="few">%d valandos</item>
+        <item quantity="many">%d valandų</item>
         <item quantity="other">%d valandų</item>
     </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s failas</item>
         <item quantity="few">%s failai</item>
+        <item quantity="many">%s failų</item>
         <item quantity="other">%s failų</item>
     </plurals>
     <string name="general_advice_title">Patarimas</string>

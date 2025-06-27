@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">ለአገልግሎትዎ ዝግጁ።</string>
     <string name="slogan_message_1">ንፁህ እና ተደራጅቶ።</string>
     <string name="slogan_message_2">ትርምስ መከላከል።</string>
     <string name="slogan_message_3">አስፈላጊውን ማድረግ።</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">ንፁህ።</string>
     <string name="slogan_message_6">ባይቶች፣ ሂዱ!</string>
     <string name="slogan_message_7">ነፃ ቦታ፣ ደስተኛ ቦታ።</string>
     <string name="slogan_message_8">አፈር ማደንዘዝ አልነበርም።</string>
-
     <string name="general_thank_you_label">አመሰግናለሁ</string>
-
     <string name="general_error_type_mismatch_msg">አይነት አለመጣጣም፡ %1$s ይፈልጋል፣ ግን %2$s አገኘሁ።</string>
     <string name="general_error_cant_access_msg">%s ላይ መድረስ አልችልም።</string>
     <string name="general_error_root_unavailable">የሩት መዳረሻ የለም።</string>
@@ -77,14 +72,12 @@
     <string name="general_sort_options_label">የአደባባይ አማራጮች</string>
     <string name="general_sort_reverse_action">የእድገት ሁነታ ማሽከርከር</string>
     <string name="general_tag_filter_label">በመለያዎች ማጣራት</string>
-
     <string name="general_result_success_message">ክንዋኔ ተሳክቷል</string>
     <string name="general_result_failure_message">ክንዋኔ አልተሳካም</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ቦታ ነፃ ተደርጓል።</item>
         <item quantity="other">%s ቦታ ነፃ ተደርጓል።</item>
     </plurals>
-
     <string name="general_options_label">አማራጮች</string>
     <string name="general_details_label">ዝርዝሮች</string>
     <string name="general_view_action">ይመልከቱ</string>
@@ -95,29 +88,24 @@
     <string name="general_show_details_action">ዝርዝሮች አሳይ</string>
     <string name="general_show_all_action">ሁሉንም አሳይ</string>
     <string name="general_toggle_layout_mode">የእይታ ሁነታ ቀይር</string>
-
     <string name="general_delete_confirmation_title">መሰረዝን አረጋግጥ</string>
-    <string name="general_delete_confirmation_message_x">"%s" ይሰረዝ?</string>
+    <string name="general_delete_confirmation_message_x">\"%s\" ይሰረዝ?</string>
     <string name="general_delete_confirmation_message_selected_x_items">%d የተመረጡ ንጥሎች ይሰረዙ?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d ንጥል ተሰርዟል።</item>
         <item quantity="other">%d ንጥሎች ተሰርዘዋል።</item>
     </plurals>
-
     <string name="general_remove_action">አስወግድ</string>
     <string name="general_remove_selected_action">የተመረጡትን አስወግድ</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">አንድ ንጥል ተወግዷል</item>
         <item quantity="other">%d ንጥሎች ተወግደዋል</item>
     </plurals>
-
     <string name="general_root_required_label">ሩት ይፈልጋል</string>
     <string name="general_root_required_message">ለቀመር የሮት መሳሪያ ይፈልጋል</string>
-
     <string name="general_search_action">ፈልግ</string>
     <string name="general_scan_device_action">መሳሪያ ስካን ያድርጉ</string>
     <string name="general_open_system_settings_action">የስርዓት ቅንብሮች ክፈት</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s ንጥል</item>
         <item quantity="other">%s ንጥሎች</item>
@@ -141,28 +129,21 @@
     <string name="general_grant_access_action">መዳረሻ ስጥ</string>
     <string name="general_enable_service_action">አገልግሎት አንቃ</string>
     <string name="general_undo_action">መልስ</string>
-
     <string name="general_list_select_all_action">ሁሉንም ምረጥ</string>
-
     <string name="general_path_label">መንገድ</string>
     <string name="general_type_label">አይነት</string>
     <string name="general_size_label">መጠን</string>
     <string name="general_exclude_action">አካተት</string>
     <string name="general_exclude_selected_action">የተመረጡትን አካተት</string>
-
     <string name="general_device_label">መሳሪያ</string>
-
     <string name="general_settings_title">ቅንብሮች</string>
     <string name="general_help_title">እርዳታ</string>
-
     <string name="file_type_symbolic_link">ሊንክ</string>
     <string name="file_type_directory">ዳይሬክተሪ</string>
     <string name="file_type_file">ፋይል</string>
     <string name="file_type_unknown">የማይታወቅ</string>
-
     <string name="general_progress_ready">ዝግጁ</string>
     <string name="general_progress_done">ተከናውኗል</string>
-
     <string name="general_rom_type_auto_label">ራሱ-ባራሱ (ነባሪ)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d ቀን</item>

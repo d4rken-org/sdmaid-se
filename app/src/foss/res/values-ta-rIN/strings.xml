@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE FOSS</string>
-    <string name="app_name_upgrade_postfix">FOSS</string>
-
     <string name="upgrade_feature_requires_pro">SD Maid SE FOSS தேவை</string>
-
     <string name="upgrades_dashcard_title">SD Maid ஐ மேம்படுத்தவும்</string>
     <string name="upgrades_dashcard_body">கூடுதல் அம்சங்களைத் திறக்கவும் மற்றும் தொடர்ச்சியான மேம்பாட்டை ஆதரிக்க புரவலராக மாறவும்!</string>
     <string name="upgrades_dashcard_upgrade_action">மேம்படுத்தவும்</string>
-
     <string name="upgrade_screen_title">SD Maid ஐ மேம்படுத்தவும்</string>
     <string name="upgrade_screen_preamble">SD Maid இல் விளம்பரங்கள் இல்லை மற்றும் பயனர் தரவை விற்பனை செய்யாது. தொடர்ச்சியான மேம்பாடு உங்களால் மட்டுமே சாத்தியமாகும்.</string>
     <string name="upgrade_screen_how_title">எப்படி உதவுவது</string>

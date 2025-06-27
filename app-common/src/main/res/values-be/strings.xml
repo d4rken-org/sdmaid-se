@@ -180,4 +180,8 @@
     </plurals>
     <string name="general_advice_title">Парада</string>
     <string name="general_error_invalid_input_label">Няправільнае значэнне</string>
+    <string name="general_information_for_the_developer">Інфармацыя для распрацоўшчыкаў</string>
+    <string name="general_error_report_bug_action">Паведаміць пра памылку</string>
+    <string name="general_error_ipc_deadobject_title">Страчана падключэнне да службы</string>
+    <string name="general_error_ipc_deadobject_description">Падключэнне да важнай службы (напрыклад, Magisk, Shizuku або іншымі службамі сістэмнага ўзроўню) было нечакана страчана. Перазагрузіце прыладу. Калі праблема не знікне, праверце наяўнасць абнаўленняў або звяжыцеся са мной, каб я мог яе выправіць.</string>
 </resources>

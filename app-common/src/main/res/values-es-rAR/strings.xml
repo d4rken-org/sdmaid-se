@@ -9,7 +9,6 @@
     <string name="slogan_message_6">Bytes, ¡desaparezcan!</string>
     <string name="slogan_message_7">Espacio libre, espacio feliz.</string>
     <string name="slogan_message_8">Nunca voy a abandonarte.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_error_type_mismatch_msg">Ocurrió una discordancia: Se quiso %1$s, pero se obtuvo %2$s.</string>
     <string name="general_error_cant_access_msg">No se puede acceder a %s.</string>
@@ -93,6 +92,10 @@
     <string name="general_delete_confirmation_title">Confirmá la eliminación</string>
     <string name="general_delete_confirmation_message_x">¿Borrar «%s»?</string>
     <string name="general_delete_confirmation_message_selected_x_items">¿Borrar los %d elementos seleccionados?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Se eliminó %d elemento.</item>
+        <item quantity="other">Se eliminaron %d elementos.</item>
+    </plurals>
     <string name="general_remove_action">Quitar</string>
     <string name="general_remove_selected_action">Eliminar seleccionados</string>
     <plurals name="general_remove_success_x_items">
@@ -115,6 +118,10 @@
     <plurals name="result_x_failed">
         <item quantity="one">%d ha fallado</item>
         <item quantity="other">%d ha fallado</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s puede ser liberado</item>
+        <item quantity="other">%s puede ser liberado</item>
     </plurals>
     <string name="general_info_label">Información</string>
     <string name="general_count_label">Contar</string>
@@ -139,6 +146,14 @@
     <string name="general_progress_ready">Listo</string>
     <string name="general_progress_done">Hecho</string>
     <string name="general_rom_type_auto_label">Automático (por defecto)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d día</item>
+        <item quantity="other">%d días</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d hora</item>
+        <item quantity="other">%d horas</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s Archivo</item>
         <item quantity="other">%s archivos</item>
@@ -149,20 +164,4 @@
     <string name="general_error_report_bug_action">Reportar error</string>
     <string name="general_error_ipc_deadobject_title">Conexión de servicio perdida</string>
     <string name="general_error_ipc_deadobject_description">La conexión a un servicio crítico (por ejemplo, Magisk, Shizuku u otros servicios del sistema) se perdió inesperadamente. Por favor, reinicia tu dispositivo. Si el problema persiste, busca actualizaciones o contáctame para que pueda solucionarlo.</string>
-    <plurals name="general_age_days">
-        <item quantity="one">%d día</item>
-        <item quantity="other">%d días</item>
-    </plurals>
-    <plurals name="general_age_hours">
-        <item quantity="one">%d hora</item>
-        <item quantity="other">%d horas</item>
-    </plurals>
-    <plurals name="general_delete_success_deleted_x">
-        <item quantity="one">Se eliminó %d elemento.</item>
-        <item quantity="other">Se eliminaron %d elementos.</item>
-    </plurals>
-    <plurals name="x_space_can_be_freed">
-        <item quantity="one">%s puede ser liberado</item>
-        <item quantity="other">%s puede ser liberado</item>
-    </plurals>
 </resources>

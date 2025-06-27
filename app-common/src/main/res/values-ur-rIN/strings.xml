@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">آپ کی خدمت میں۔</string>
     <string name="slogan_message_1">صاف اور منظم۔</string>
     <string name="slogan_message_2">افراتفری سے بچانا۔</string>
     <string name="slogan_message_3">ضروری کام کرنا۔</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">بے داغ۔</string>
     <string name="slogan_message_6">بائٹس، جاؤ!</string>
     <string name="slogan_message_7">آزاد جگہ، خوش جگہ۔</string>
     <string name="slogan_message_8">کبھی آپ کو نہیں چھوڑوں گا۔</string>
-
     <string name="general_thank_you_label">شکریہ</string>
-
     <string name="general_error_type_mismatch_msg">قسم میں بے میل: %1$s چاہیے تھی، لیکن %2$s ملا۔</string>
     <string name="general_error_cant_access_msg">%s تک رسائی نہیں ہو سکتی۔</string>
     <string name="general_error_root_unavailable">Root رسائی دستیاب نہیں۔</string>
@@ -77,14 +72,12 @@
     <string name="general_sort_options_label">ترتیب کے اختیارات</string>
     <string name="general_sort_reverse_action">ریورس سارٹ موڈ</string>
     <string name="general_tag_filter_label">ٹیگز کے ذریعے فلٹر کریں</string>
-
     <string name="general_result_success_message">کامیابی سے مکمل</string>
     <string name="general_result_failure_message">آپریشن ناکام</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s جگہ آزاد کی گئی۔</item>
         <item quantity="other">%s جگہ آزاد کی گئی۔</item>
     </plurals>
-
     <string name="general_options_label">اختیارات</string>
     <string name="general_details_label">تفصیلات</string>
     <string name="general_view_action">دیکھیں</string>
@@ -95,7 +88,6 @@
     <string name="general_show_details_action">تفصیلات دکھائیں</string>
     <string name="general_show_all_action">سب دکھائیں</string>
     <string name="general_toggle_layout_mode">دیکھنے کی موڈ تبدیل کریں</string>
-
     <string name="general_delete_confirmation_title">حذف کی تصدیق کریں</string>
     <string name="general_delete_confirmation_message_x">\"%s\" کو حذف کریں؟</string>
     <string name="general_delete_confirmation_message_selected_x_items">منتخب %d اشیاء کو حذف کریں؟</string>
@@ -103,21 +95,17 @@
         <item quantity="one">%d آئٹم حذف کیا گیا۔</item>
         <item quantity="other">%d آئٹمز حذف کیے گئے۔</item>
     </plurals>
-
     <string name="general_remove_action">ہٹائیں</string>
     <string name="general_remove_selected_action">منتخب کو ہٹائیں</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ایک آئٹم ہٹایا گیا</item>
         <item quantity="other">%d آئٹمز ہٹاے گئے</item>
     </plurals>
-
     <string name="general_root_required_label">Root کی ضرورت</string>
     <string name="general_root_required_message">Root کی گئی ڈیوائس کی ضرورت</string>
-
     <string name="general_search_action">تلاش کریں</string>
     <string name="general_scan_device_action">ڈیوائس اسکین کریں</string>
     <string name="general_open_system_settings_action">سسٹم سیٹنگز کھولیں</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s آئٹم</item>
         <item quantity="other">%s آئٹمز</item>
@@ -141,28 +129,21 @@
     <string name="general_grant_access_action">رسائی فراہم کریں</string>
     <string name="general_enable_service_action">سروس فعال کریں</string>
     <string name="general_undo_action">واپس کریں</string>
-
     <string name="general_list_select_all_action">سب منتخب کریں</string>
-
     <string name="general_path_label">راستہ</string>
     <string name="general_type_label">قسم</string>
     <string name="general_size_label">سائز</string>
     <string name="general_exclude_action">خارج کریں</string>
     <string name="general_exclude_selected_action">منتخب کو خارج کریں</string>
-
     <string name="general_device_label">ڈیوائس</string>
-
     <string name="general_settings_title">سیٹنگز</string>
     <string name="general_help_title">مدد</string>
-
     <string name="file_type_symbolic_link">لنک</string>
     <string name="file_type_directory">ڈائریکٹری</string>
     <string name="file_type_file">فائل</string>
     <string name="file_type_unknown">نامعلوم</string>
-
     <string name="general_progress_ready">تیار</string>
     <string name="general_progress_done">مکمل</string>
-
     <string name="general_rom_type_auto_label">خودکار (ڈیفالٹ)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d دن</item>

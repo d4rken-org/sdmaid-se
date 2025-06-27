@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
-    <string name="app_name_upgrade_postfix">Pro</string>
-
     <string name="upgrade_feature_requires_pro">Vereis SD Maid SE Pro</string>
-
     <string name="upgrades_dashcard_title">Gradeer SD Maid op</string>
     <string name="upgrades_dashcard_body">SD Maid Pro bied beter resultate, meer funksies en opsies vir kraggebruikers.</string>
     <string name="upgrades_dashcard_upgrade_action">Gradeer op</string>
-
     <string name="upgrades_gplay_unavailable_error_title">Google Play is nie beskikbaar nie</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid kan nie aan Google Play koppel nie. Is Google Play geïnstalleer en opgedateer? Is jou Google-rekening aangemeld? Probeer om die kas van die Google Play-toepassing skoon te maak en jou toestel herlaai.</string>
     <string name="upgrades_no_purchases_found_check_account">Geen aankope gevind nie. Gebruik jy die regte rekening?</string>

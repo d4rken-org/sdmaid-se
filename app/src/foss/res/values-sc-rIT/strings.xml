@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE FOSS</string>
-    <string name="app_name_upgrade_postfix">FOSS</string>
-
     <string name="upgrade_feature_requires_pro">Rechedet SD Maid SE FOSS</string>
-
     <string name="upgrades_dashcard_title">Atualizare SD Maid</string>
     <string name="upgrades_dashcard_body">Aberri funtzionalidades addizionales e diventa patronu pro sustènnere su isvilupu continuadu!</string>
     <string name="upgrades_dashcard_upgrade_action">Atualizare</string>
-
     <string name="upgrade_screen_title">Menzorare SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid no tenet pubblicidade e no vendet datos de s\'usuàriu. S\'isvilupu continuadu est possìbile solamente gràtzias a tene.</string>
     <string name="upgrade_screen_how_title">Comente agiudare</string>

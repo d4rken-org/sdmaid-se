@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
-    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro தேவைப்படுகிறது</string>
     <string name="upgrades_dashcard_title">SD Maid-ஐ மேம்படுத்துங்கள்</string>
     <string name="upgrades_dashcard_body">SD Maid Pro சிறந்த முடிவுகள், அதிக அம்சங்கள் மற்றும் சக்தி பயனர்களுக்கான விருப்பங்களை வழங்குகிறது.</string>

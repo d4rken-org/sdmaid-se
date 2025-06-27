@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">Xidmətinizdə.</string>
     <string name="slogan_message_1">Təmiz və səliqəli.</string>
     <string name="slogan_message_2">Xaosun qarşısını alma.</string>
     <string name="slogan_message_3">Lazım olanı etmək.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">Ləkəsiz.</string>
     <string name="slogan_message_6">Baytlar, gedin!</string>
     <string name="slogan_message_7">Sərbəst yer, xoşbəxt yer.</string>
     <string name="slogan_message_8">Heç vaxt səni atmayacağam.</string>
-
     <string name="general_thank_you_label">Təşəkkür edirəm</string>
-
     <string name="general_error_type_mismatch_msg">Tip uyğunsuzluğu: %1$s istənilir, amma %2$s alındı.</string>
     <string name="general_error_cant_access_msg">%s-ə giriş edilə bilmir.</string>
     <string name="general_error_root_unavailable">Root girişi mövcud deyil.</string>
@@ -77,14 +72,12 @@
     <string name="general_sort_options_label">Sıralama seçimləri</string>
     <string name="general_sort_reverse_action">Tərsinə sıralama rejimi</string>
     <string name="general_tag_filter_label">Etiketlərə görə filtr</string>
-
     <string name="general_result_success_message">Əməliyyat uğurlu oldu</string>
     <string name="general_result_failure_message">Əməliyyat uğursuz oldu</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s yer azad edildi.</item>
         <item quantity="other">%s yer azad edildi.</item>
     </plurals>
-
     <string name="general_options_label">Seçimlər</string>
     <string name="general_details_label">Təfərrüatlar</string>
     <string name="general_view_action">Baxış</string>
@@ -95,29 +88,24 @@
     <string name="general_show_details_action">Təfərrüatları göstər</string>
     <string name="general_show_all_action">Hamısını göstər</string>
     <string name="general_toggle_layout_mode">Görünüş rejimini dəyiş</string>
-
     <string name="general_delete_confirmation_title">Silməni təsdiqlə</string>
-    <string name="general_delete_confirmation_message_x">"%s" silinsin?</string>
+    <string name="general_delete_confirmation_message_x">\"%s\" silinsin?</string>
     <string name="general_delete_confirmation_message_selected_x_items">%d seçilmiş element silinsin?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d element silindi.</item>
         <item quantity="other">%d element silindi.</item>
     </plurals>
-
     <string name="general_remove_action">Çıxar</string>
     <string name="general_remove_selected_action">Seçilənləri çıxar</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Bir element çıxarıldı</item>
         <item quantity="other">%d element çıxarıldı</item>
     </plurals>
-
     <string name="general_root_required_label">Root tələb olunur</string>
     <string name="general_root_required_message">Root edilmiş cihaz tələb olunur</string>
-
     <string name="general_search_action">Axtar</string>
     <string name="general_scan_device_action">Cihazı skan et</string>
     <string name="general_open_system_settings_action">Sistem parametrlərini aç</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s element</item>
         <item quantity="other">%s element</item>
@@ -141,28 +129,21 @@
     <string name="general_grant_access_action">Giriş icazəsi ver</string>
     <string name="general_enable_service_action">Xidməti aktiv et</string>
     <string name="general_undo_action">Geri al</string>
-
     <string name="general_list_select_all_action">Hamısını seç</string>
-
     <string name="general_path_label">Yol</string>
     <string name="general_type_label">Növ</string>
     <string name="general_size_label">Ölçü</string>
     <string name="general_exclude_action">İstisna et</string>
     <string name="general_exclude_selected_action">Seçilənləri istisna et</string>
-
     <string name="general_device_label">Cihaz</string>
-
     <string name="general_settings_title">Parametrlər</string>
     <string name="general_help_title">Kömək</string>
-
     <string name="file_type_symbolic_link">Bağlantı</string>
     <string name="file_type_directory">Qovluq</string>
     <string name="file_type_file">Fayl</string>
     <string name="file_type_unknown">Naməlum</string>
-
     <string name="general_progress_ready">Hazır</string>
     <string name="general_progress_done">Tamamlandı</string>
-
     <string name="general_rom_type_auto_label">Avtomatik (default)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d gün</item>

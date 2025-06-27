@@ -315,7 +315,7 @@
     <string name="appcleaner_filter_defaultcachespublic_label">Publieke standaard caches</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Standaard openbare app-caches. Toegankelijk via Android/data op oudere Android-versies. Verwijderd wanneer je op \'Cache wissen\' tikt in de systeeminstellingen.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Publieke standaard caches</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Standaard caches voor privé-apps. Verwijderd bij het tikken op \"Cache wissen\" in de systeeminstellingen.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Standaard privé-appcaches. Deze worden verwijderd wanneer je in de systeeminstellingen op \'Cache wissen\' tikt.</string>
     <string name="appcleaner_include_systemapps_label">Inclusief systeem-apps</string>
     <string name="appcleaner_include_systemapps_summary">Systeemapps opnemen in de scan.</string>
     <string name="appcleaner_include_runningapps_label">Inclusief actieve apps</string>
@@ -337,9 +337,9 @@
     <string name="appcleaner_filter_bugreporting_label">Foutrapportage</string>
     <string name="appcleaner_filter_bugreporting_summary">Foutrapportage gerelateerde gegevens, bijv. foutenlogboeken of crashdumps.</string>
     <string name="appcleaner_filter_analytics_label">Analyses</string>
-    <string name="appcleaner_filter_analytics_summary">Analytics-gerelateerde gegevens, bijv. in de cache opgeslagen statistieken voor waarop je in een app klikt.</string>
+    <string name="appcleaner_filter_analytics_summary">Gegevens met betrekking tot analyses, bijv. gecachte statistieken over wat je in een app tikt.</string>
     <string name="appcleaner_filter_hiddencaches_label">Verborgen caches</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Caches voor algemeen gebruik die buiten het bereik van het systeem zijn opgeslagen.</string>
+    <string name="appcleaner_filter_hiddencaches_summary">Algemene caches die buiten het bereik van het systeem worden opgeslagen.</string>
     <string name="appcleaner_filter_thumbnails_label">Media miniaturen</string>
     <string name="appcleaner_filter_thumbnails_summary">Afbeelding, video en audio voorbeeld van miniatuurafbeeldingen.</string>
     <string name="appcleaner_filter_gamefiles_label">Spel bestanden</string>
@@ -368,8 +368,8 @@
     <string name="appcleaner_filter_qqchat_summary">Verzonden of ontvangen bestanden in QQ-chatgesprekken.</string>
     <string name="appcleaner_delete_all_confirmation_message">Verbruiksartikelen voor alle apps verwijderen?</string>
     <plurals name="appcleaner_result_x_items_deleted">
-        <item quantity="one">%d vervangbaar item verwijderd</item>
-        <item quantity="other">%d vervangbare items verwijderd</item>
+        <item quantity="one">%d wegwerpbaar artikel verwijderd</item>
+        <item quantity="other">%d wegwerpbare artikelen verwijderd</item>
     </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d vervangbaar item gevonden</item>
@@ -386,14 +386,14 @@
     <string name="appcleaner_item_caches_inaccessible_title">Standaard caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publieke en private standaardcaches. Niet direct toegankelijk, maar wel indirect te verwijderen (bijv. via toegankelijkheidsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Toegankelijkheidsservice niet beschikbaar</string>
-    <string name="appcleaner_automation_unavailable_body">Voor het wissen van ontoegankelijke caches is de toegankelijkheidsservice van SD Maid vereist, maar deze was niet beschikbaar. Als je er geen gebruik van wilt maken: Schakel de optie \"Include unaccessible caches\" uit.</string>
+    <string name="appcleaner_automation_unavailable_body">Voor het wissen van ontoegankelijke caches is de toegankelijkheidsservice van SD Maid nodig, maar deze was niet beschikbaar. Als je deze niet wilt gebruiken: schakel de optie \'Inclusief ontoegankelijke caches\' uit.</string>
     <string name="appcleaner_junk_userprofile_label">Gebruiker</string>
-    <string name="appcleaner_delete_confirmation_message_x">Verwijderbare bestanden voor %s verwijderen?</string>
+    <string name="appcleaner_delete_confirmation_message_x">Wegwerpbare bestanden verwijderen voor %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Verwijderbare bestanden voor %d geselecteerde app verwijderen?</item>
         <item quantity="other">Verwijderbare bestanden voor %d geselecteerde apps verwijderen?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Cachegeheugens verwijderen met Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Caches verwijderen met Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Ontoegankelijke caches bepalen</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Cache wissen niet beschikbaar</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Het systeem heeft de knop \'Cache wissen\' voor deze app uitgeschakeld. Schakel de app uit om het wissen van de cache te versnellen.</string>
@@ -507,7 +507,7 @@
     <string name="appcontrol_settings_module_sizing_enabled_label">Bepaal grootte</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Krijg een ruwe schatting van de grootte van elke app.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Activiteit bepalen</string>
-    <string name="appcontrol_settings_module_activity_enabled_description">Ontdek of een app actief is (of recentelijk was).</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Ontdek of een app actief is (of onlangs actief was).</string>
     <string name="appcontrol_export_app_selection_action">Apps exporteren</string>
     <string name="appcontrol_export_title">App exporteren</string>
     <string name="appcontrol_export_description">Sla de installatiebestanden van deze app op. Dit omvat geen app-gegevens.</string>
@@ -524,8 +524,8 @@
         <item quantity="other">%d apps geforceerd stoppen?</item>
     </plurals>
     <plurals name="appcontrol_force_stop_result_message_x">
-        <item quantity="one">%d app werd gestopt</item>
-        <item quantity="other">%d apps werden gestopt</item>
+        <item quantity="one">%d app is gestopt</item>
+        <item quantity="other">%d apps zijn gestopt</item>
     </plurals>
     <string name="appcontrol_automation_loading">Voorbereiden van automatisering via toegankelijkheidsdienst</string>
     <string name="appcontrol_automation_title">AppControl automatisering</string>
@@ -535,13 +535,13 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Schermtijd: %1$s sinds %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Laatst bijgewerkt: %s</string>
     <string name="appcontrol_item_installedat_x_label">Geïnstalleerd op: %s</string>
-    <string name="analyzer_tool_name">OpslagAnalyzer</string>
-    <string name="analyzer_explanation_short">Ontdek wat ruimte in beslag neemt op uw apparaat.</string>
+    <string name="analyzer_tool_name">Opslag Analyzer</string>
+    <string name="analyzer_explanation_short">Ontdek wat ruimte inneemt op je apparaat.</string>
     <string name="analyzer_progress_scanning_device">Zoeken naar opslagapparaten</string>
-    <string name="analyzer_progress_scanning_storage">Opslag scannen</string>
-    <string name="analyzer_progress_scanning_apps">Apps scannen</string>
-    <string name="analyzer_progress_scanning_userfiles">Gebruikersbestanden zoeken</string>
-    <string name="analyzer_progress_scanning_system">Systeemgegevens scannen</string>
+    <string name="analyzer_progress_scanning_storage">Scant opslag</string>
+    <string name="analyzer_progress_scanning_apps">Scant apps</string>
+    <string name="analyzer_progress_scanning_userfiles">Gebruikersbestanden doorzoeken</string>
+    <string name="analyzer_progress_scanning_system">Scant systeemgegevens</string>
     <string name="analyzer_device_storage_title">Apparaat opslag</string>
     <plurals name="analyzer_space_available">
         <item quantity="one">%s beschikbaar</item>
@@ -560,7 +560,7 @@
     <string name="analyzer_storage_type_tertiary_description">Een draagbare opslag, bijv. een USB-stick die op je USB-poort is aangesloten.</string>
     <string name="analyzer_storage_content_title">Inhoud van de opslag</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
-    <string name="analyzer_storage_content_type_app_description">Ruimte die wordt ingenomen door geïnstalleerde apps en hun gegevens (d.w.z. installatiebestanden, gegevens en caches).</string>
+    <string name="analyzer_storage_content_type_app_description">Ruimte die wordt ingenomen door geïnstalleerde apps en hun gegevens (d.w.z. toepassingsbestanden, gegevens en caches).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Machtigingen ontbreken</string>
     <string name="analyzer_storage_content_type_media_label">Gebruikers bestanden</string>
     <string name="analyzer_storage_content_type_media_description">Gemaakte foto\'s, opgenomen video\'s of gedownloade gegevens. Alle gegevens die niet bij een specifieke app horen.</string>

@@ -7,7 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">በዳሽቦርዱ የተግባር ቁልፍ ላይ በመንካት ለሁሉም መሳሪያዎች ስካንና ስርዛት ይጀምሩ፣ ተጨማሪ ማረጋገጫዎች የሉም።</string>
     <string name="dashboard_settings_oneclick_tools_title">አንድ-ነክ መሳሪያዎች</string>
     <string name="dashboard_settings_oneclick_tools_desc">በአንድ-ነክ ስራዎች ውስጥ የትኞቹ መሳሪያዎች መካተት አለባቸው?</string>
-
     <string name="debug_debuglog_size_label">መጠን</string>
     <string name="debug_debuglog_size_compressed_label">የተጨመቀ መጠን</string>
     <string name="debug_notification_channel_label">የመለያ ማስታወቂያዎች</string>
@@ -17,7 +16,6 @@
     <string name="debug_debuglog_stop_action">መቅዳትን አቁም</string>
     <string name="debug_debuglog_sensitive_information_message">የተፈጠረው ፋይል ስሜታዊ መረጃዎችን ይዟል (ለምሳሌ የፋይል ስሞችና የተጫኑ መተግበሪያዎች)። ከታመኑ ወገኖች ጋር ብቻ ያጋሩ።</string>
     <string name="settings_debuglog_explanation">ይህ ባህሪ መተግበሪያው እያደረገው ያለውን ሁሉ ወደ ሊካፈል የሚችል ፋይል ይቀዳል። የተፈጠረው ፋይል ስሜታዊ መረጃዎችን ይዟል (ለምሳሌ የፋይል ስሞችና የተጫኑ መተግበሪያዎች)። ከታመኑ ወገኖች ጋር ብቻ ያጋሩ (ለምሳሌ ችግርን እየፈታ ያለ ገንቢ)።</string>
-
     <string name="tasks_activity_notification_channel_label">ንቁ ተግባራት</string>
     <string name="tasks_activity_working_notification_title">SD Maid በመስራት ላይ ነው</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -30,64 +28,51 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">የተግባር ውጤቶች</string>
     <string name="tasks_result_subtext">የተግባር ውጤት</string>
-
     <string name="onboarding_welcome_title">እንኳን ደህና መጡ</string>
     <string name="onboarding_welcome_body1">SD Maid SE ፋይሎችን፣ መተግበሪያዎችንና ማከማቻን ያስተዳድራል።</string>
     <string name="onboarding_welcome_body2">ከሌሎች መተግበሪያዎች በኋላ በማጽዳት የማከማቻ ቦታ ያገኙ። የሚወገዱ ፋይሎችን ሰርዝና የቀሩ ውሂቦችን ያስወግዱ።</string>
     <string name="onboarding_welcome_body_beta">ይህ የቤታ (ሙከራ) ግንባታ ነው። ከመዝናኛ ስሜትና ከመጠባበቂያ እቅድ ጋር ይቀጥሉ። የሚያገኟቸውን ችግሮች እባክዎ ያሳውቁ።</string>
     <string name="onboarding_welcome_continue_action">ቀጥል</string>
-
-    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (ወይም SD Maid 2) የSD Maid (ወይም SD Maid 1) ተተኪ ነው። አዲስ መተግበሪያ፣ ለዘመናዊ አንድሮይድ የተሻሻለ።</string>
     <string name="onboarding_versus_body2">የቀደምተኛው አርክቴክቸር ከ7 አመት በላይ እድሜ ያለው ሲሆን ለአዲሶቹ አንድሮይድ ስሪቶች ፈተናዎች የተነደፈ አይደለም። ልማትን ለመቀጠል ሙሉ በሙሉ እንደገና መንደፍ አስፈላጊ ነበር።</string>
     <string name="onboarding_versus_body3">ለተሻሻሉ ውጤቶች ወደ SD Maid SE መቀየርን ያስቡበት።</string>
     <string name="onboarding_versus_body4">የSD Maid 1 \"ፕሮ ደረጃ\" ስለሚያስተላልፍ ወደ SD Maid 2/SE ሊተላለፍ አይችልም። ከ12 አመታት ነፃ ማሻሻያዎች በኋላ፣ ልማትን ለመቀጠል (ገንቢውን ለመመገብ) አዲስ ግዢ ያስፈልጋል።</string>
     <string name="onboarding_versus_continue_action">ቀጥል</string>
-
     <string name="onboarding_privacy_title">ግላዊነት</string>
     <string name="onboarding_privacy_body1">SD Maid ማስታወቂያዎች የሉትም እንዲሁም የተጠቃሚ ውሂብ አይሸጥም།</string>
     <string name="onboarding_privacy_bugreport_toggle_body">ስህተቶች ሲከሰቱ የሳህተት ሪፖርቶች ይላካሉ እንዲሁም ስለመተግበሪያዎችና ስለመሣሪያዎ ላይ ያሉ ፋይሎች ዝርዝሮችን ሊያካትት ይችላል። ሪፖርቶች ሳህተቶችን እንድጠግነና መተግበሪያውን እንድማሻሽል ይረዱኛል።</string>
     <string name="onboarding_privacy_bugreport_toggle">ራሳዊ የሳህተት ሪፖርቶችን ፍቀድ</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">እነዚህ አማራጮች በቅንብሮች ውስጥ ሊቀየሩ ይችላሉ።</string>
     <string name="onboarding_privacy_continue_action">ቀጥል</string>
-
     <string name="onboarding_setup_title">ማዋቀሪያ</string>
     <string name="onboarding_setup_body1">SD Maid ሁሉንም ሊደረስባቸው የሚችሉ የውሂብ አካባቢዎች ይፈልጋል།</string>
     <string name="onboarding_setup_body2">ሊደረስባቸው የሚችሉት በመሣሪያዎ፣ በአንድሮይድ ስሪትና በተሰጡ ፈቃዶች ላይ ይወሰናል།</string>
     <string name="onboarding_setup_body3">መፈለግ ያለባቸው አካባቢዎች መዳረሻ በማዋቀር SD Maidን መጠቀም ይጀምሩ።</string>
     <string name="onboarding_setup_continue_action">መዳረሻ አዋቅ</string>
-
     <string name="settings_privacy_policy_label">የግላዊነት ፖሊሲ</string>
     <string name="settings_privacy_policy_desc">ውሂቡን በኃላፊነት መያዝ።</string>
     <string name="settings_licenses_label">ፈቃዶች</string>
     <string name="settings_category_other_label">ሌላ</string>
-
     <string name="settings_category_filter_generic">አጠቃላይ ማጣሪያ</string>
     <string name="settings_category_filter_specific">ልዩ ማጣሪያ</string>
     <string name="settings_sponsor_development_title">ልማትን ስፖንሰር አድርግ</string>
     <string name="settings_sponsor_development_summary">ፓትሮን ሁንና ቀጣይነት ያለው ልማት ይቻል እንዲሆን አድርግ።</string>
-
     <string name="general_settings_label">አጠቃላይ</string>
     <string name="general_settings_desc">መሙሉ መተግበሪያ የሚነኩ አጠቃላይ ማስተካከያዎች።</string>
     <string name="settings_category_ui_label">የተጠቃሚ በይነገጽ</string>
-
     <string name="ui_theme_mode_setting_label">የወጭታ ሁነታ</string>
     <string name="ui_theme_mode_setting_explanation">መተግበሪያውን በሚወጣበት ጊዜ የሚጠቀመው ሁነታ (ለምሳሌ ሌሊት ወይም ቀን)።</string>
     <string name="ui_theme_mode_dark_label">ጥቁር</string>
     <string name="ui_theme_mode_light_label">ብርሃን</string>
     <string name="ui_theme_mode_system_label">ሲስተም</string>
-
     <string name="ui_theme_style_setting_label">የወጭታ ዘይቤ</string>
     <string name="ui_theme_style_setting_explanation">መተግበሪያውን በሚወጣበት ጊዜ የሚጠቀመው የቀለም ዘይቤ።</string>
     <string name="ui_theme_style_default_label">ነባሪ</string>
     <string name="ui_theme_style_materialyou_label">ማቴሪያል ዩ</string>
-
     <string name="ui_previews_title">የፋይል ቅድመ እይታዎች</string>
     <string name="ui_previews_summary">በሁሉም መሳሪያዎች ውስጥ የፋይል ቅድመ እይታዎችን አሳይ (ለምሳሌ የምስልና ቪዲዮ ትንንሽ ምስሎች)።</string>
-
     <string name="ui_language_override_label">የመተግበሪያ ቋንቋ</string>
     <string name="ui_language_override_desc">ለSD Maid ከእርስዎ ሲስተም ነባሪ ቋንቋ ነፃ የሆነ የተለየ ቋንቋ ምረጡ። አሁን: %s</string>
-
     <string name="settings_support_label">ድጋፍ</string>
     <string name="settings_support_description">ሰነዶችን ያንብቡ፣ ችግሮችን ያሳውቁ፣ ከሌሎች ጋር ይወያዩ ወይም የመለያ ምዝግብ ማስታወሻዎችን ይቅዱ።</string>
     <string name="documentation_label">ሰነዶች</string>
@@ -99,8 +84,89 @@
     <string name="support_debuglog_desc">መተግበሪያው እያደረገው ያለውን ሁሉ ወደ ሊካፈሉት የሚችሉ የጽሑፍ ፋይል ይቅዱ።</string>
     <string name="discord_label">ዲስኮርድ</string>
     <string name="discord_description">ሊቀመጡባቸውና ጥያቄዎችን ሊጠይቁባቸው የሚችሉባቸው ቦታ።</string>
+    <string name="changelog_label">የለውጥ ዝርዝር</string>
+    <string name="settings_acknowledgements_label">አመስጋኝነቶች</string>
+    <string name="setup_label">ማዋቀሪያ</string>
+    <string name="setup_incomplete_card_title">ማዋቀሩ ያልተጠናቀቀ ነው</string>
+    <string name="setup_incomplete_card_body">የኤስዲ ሜይድ ማዋቀር በማጠናቀቅ የተሻሉ ውጤቶች ያገኛሉ።</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">ኤስዲ ሜይድ የማዋቀሪያ ችግሮችን ለማስተካከል እየሞከረ ነው።</string>
+    <string name="setup_incomplete_card_dismiss_action">አሰናብት</string>
+    <string name="setup_incomplete_card_continue_action">ማዋቀሩን ቀጥል</string>
+    <string name="setup_title">ማዋቀሪያ</string>
+    <string name="setup_forcedshow_summary">ቀደም ሲል የተጠናቀቁትንም ጨምሮ የማዋቀሪያ ስክሪኑን እንደገና አሳይ።</string>
+    <string name="setup_checking_card_body">የማዋቀሪያ ጥናቶች እና ተግባር ያረጋግጣል።</string>
+    <string name="general_error_setup_require_label">ማዋቀሩ ያልተጠናቀቀ ነው</string>
+    <string name="general_error_setup_require_msg">ይህንን ባህሪ ለመጠቀም ተጨማሪ ማዋቀር ያስፈልጋል። የቀሩትን የማዋቀሪያ ደረጃዎች ይጨርሱ።</string>
+    <string name="setup_saf_card_title">የማጠራቀሚያ መዳረሻ ማዕቀፍ</string>
+    <string name="setup_saf_card_body">ኤስዲ ሜይድ ወደ ተጨማሪ አካባቢዎች መዳረሻ በመስጠት ውጤቶችን ያሻሽሉ።</string>
+    <string name="setup_saf_card_body2">በአብዛኛው ሁኔታዎች መስኮቱ ትክክለኛውን መንገድ አስቀድሞ በመምረጥ ይከፈታል። መዳረሻ ሲሰጥ ግቤቶች አረንጓዴ ይሆናሉ።</string>
+    <string name="setup_saf_error_wrong_path">የተሳሳተ መንገድ መርጠዋል</string>
+    <string name="setup_saf_missing_app_error">የሰነዶች UI መተግበሪያ አይገኝም። ተገንብቶ የመጣ የሲስተም መተግበሪያ ነው እና በሁሉም አንድሮይድ መሳሪያዎች ላይ መገኘት አለበት።</string>
+    <string name="setup_manage_storage_card_title">ማጠራቀሚያ አቀናይ</string>
+    <string name="setup_manage_storage_card_body">ኤስዲ ሜይድ ማጠራቀሚያዎን እንዲያቀኝ ያስችሉ።</string>
+    <string name="setup_manage_storage_card_body2">ወደ ሕዝባዊ ማጠራቀሚያ መሰረታዊ መዳረሻ፤ ለምሳሌ \"ዳውንሎድ/\" እና \"DCIM/\"፤ ግን ሁልጊዜ \"Android/data\" አይደለም።</string>
+    <string name="setup_root_card_title">የሩት መዳረሻ</string>
+    <string name="setup_root_card_body">ኤስዲ ሜይድ ይገኛል ከሆነ የሩት መዳረሻን ይጠቀም? የሩት መዳረሻ ተጨማሪ የሲስተም አቃቂጆች እና ግላዊ የመተግበሪያ ውሂብን ለመፈተሽ ሊያገለግል ይችላል።</string>
+    <string name="setup_root_state_ready_label">የሩት መዳረሻ ዝግጁ ነው።</string>
+    <string name="setup_root_state_waiting_label">ለሩት መዳረሻ እየተጠበቀ ነው።</string>
+    <string name="setup_root_enable_root_use_label">ይገኛል ከሆነ የሩት መዳረሻን ተጠቀም</string>
+    <string name="setup_root_disable_root_use_label">የሩት መዳረሻን አትጠቀም</string>
+    <string name="setup_root_card_body2">በሩት የተደረጉ መሳሪያዎች ላይ ብቻ ይገኛል። ይህንን ለውጥ ካላደረጉ፤ መሳሪያዎ ሩት አልሆነምና ይህ ቅንብር ተጽዕኖ የለውም።</string>
+    <string name="setup_shizuku_card_title">ሺዙኩ</string>
+    <string name="setup_shizuku_card_body">ኤስዲ ሜይድ በተቻለ ቦታ ሺዙኩን እንዲጠቀም ውጤቶችን ለማሻሻል እና ባህሪያትን ለማንቃት ያስችሉ።</string>
+    <string name="setup_shizuku_card_body2">የሺዙኩ መተግበሪያ በመሳሪያዎ ላይ ካልተዘጋጀ ይህ ቅንብር ተጽዕኖ የለውም።</string>
+    <string name="setup_shizuku_card_root_info">ሺዙኩ ከሩት መዳረሻ ጋር ተጨማሪ ባህሪያትን አያስችልም፤ ግን አስተማማኝነትን ያሻሽላል። ኤስዲ ሜይድ እንደ አማራጭ ዘዴ ይጠቀምበታል።</string>
+    <string name="setup_shizuku_state_ready_label">የሺዙኩ ሊንክ ዝግጁ ነው።</string>
+    <string name="setup_shizuku_state_waiting_label">ከሺዙኩ ጋር ለመገናኘት እየተጠበቀ ነው።</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">ይገኛል ከሆነ ሺዙኩን ተጠቀም</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">ሺዙኩን አትጠቀም</string>
+    <string name="setup_dismiss_hint">የማዋቀሪያ ስክሪኑን ከቅንብሮች ምናሌ በኩል እንደገና ማግኘት ይችላሉ।</string>
+    <string name="setup_permission_granted_label">ፈቃድ ተሰጥቷል</string>
+    <string name="setup_permission_error_label">የፈቃድ ስህተት</string>
+    <string name="setup_usagestats_title">የአጠቃቀም ስታቲስቲክስ</string>
+    <string name="setup_usagestats_body">የአጠቃቀም ስታቲስቲክስ ፈቃድ ወደ ተጨማሪ የመተግበሪያ ዝርዝሮች መዳረሻን ይሰጣል። ኤስዲ ሜይድ ተጨማሪ የመሸጎጫ መጠኖችን ለመለካት ይጠቀምበታል።</string>
+    <string name="setup_usagestats_hint">በተደራሽነት አገልግሎት ላይ ለተመሰረተ የመሸጎጫ ማጥፋት ያስፈልጋል።</string>
+    <string name="setup_notification_title">ማሳወቂያዎች</string>
+    <string name="setup_notification_body">ኤስዲ ሜይድ ስለ ቀጣይ ተግባሮች ወይም አስፈላጊ ክስተቶች ለማሳወቅ ማሳወቂያዎችን እንዲለጥፍ ያስችሉ።</string>
+    <string name="setup_notification_hint">ማሳወቂያዎች በጥንቃቄ ይጠቀማሉ 🤞</string>
+    <string name="setup_feature_requires_additional_setup_x">ይህ ባህሪ ተጨማሪ የማዋቀሪያ ንጥሎችን ማጠናቀቅ ይፈልጋል፦ %s</string>
+    <string name="setup_acs_card_title">የተደራሽነት አገልግሎት</string>
+    <string name="setup_acs_card_body">የተደራሽነት አገልግሎት ኤስዲ ሜይድ ከስክሪንዎ ጋር እንዲግባባ እና ደካማ ድርጊቶችን እንዲያውቅ ያስችለዋል፤ ለምሳሌ በብዙ ስክሪኖች ላይ \"መሸጎጫ አጽዳ\" መጫን።</string>
+    <string name="setup_acs_card_body2">ኤስዲ ሜይድ ያለእርስዎ ፈቃድ የተደራሽነት አገልግሎቱን አይጠቀምም፤ እንቅስቃሴ ሲኖረው ሁልጊዜ ግልጽ (ሊሰረዝ የሚችል) አመላካች ያሳያል እና መረጃ ለመሰብሰብ አይጠቀምበትም።</string>
+    <string name="setup_acs_state_enabled">የተደራሽነት አገልግሎት ነቅቷል</string>
+    <string name="setup_acs_state_disabled">የተደራሽነት አገልግሎት ተሰናክሏል</string>
+    <string name="setup_acs_state_running">የተደራሽነት አገልግሎት እየሮጠ ነው</string>
+    <string name="setup_acs_state_ondemand">አገልግሎቱ በፍላጎት ይጀመራል</string>
+    <string name="setup_acs_state_stopped">የተደራሽነት አገልግሎት ቆምዷል</string>
+    <string name="setup_acs_state_stopped_hint">አገልግሎቱ ነቅቷል፤ ግን እየሮጠ አይደለም። ዝጋ/ክፈት ያድርጉት ወይም መሳሪያዎን እንደገና ያስጀምሩ። ኤስዲ ሜይድ በሲስተሙ \"የተመሻሻለ\" እንዳልሆነ ያረጋግጡ።</string>
+    <string name="setup_acs_state_stopped_hint_miui">አገልግሎቱ ከጊዜ በኋላ እየተሰናከለ ከሆነ፤ በሲስተም ቅንብሮች ውስጥ ለኤስዲ ሜይድ \"በራስ ጀመር\" አማራጭን ማንቃት ይሞክሩ።</string>
+    <string name="setup_acs_consent_positive_action">አገልግሎቱን አንቅ እና ፈቃድ ስጥ</string>
+    <string name="setup_acs_consent_negative_action">የተደራሽነት አገልግሎት አትጠቀም</string>
+    <string name="setup_acs_allow_hint">በስክሪኑ ጠርዝ ላይ ትንሽ አዶ ካዩ፤ ባልተጠበቀ ሁኔታ \"አቋራጭ\" አማራጭን አንቅተዋል።</string>
+    <string name="setup_acs_disallow_hint">ሀሳብዎን ከቀየሩ፤ ወደ ቅንብሮች በመሄድ እና ማዋቀሩን እንደገና በመጀመር ይህንን አማራጭ ከደንስ ልቀይሩት ይችላሉ።</string>
+    <string name="setup_acs_appops_restriction_title">የተገደቡ ቅንብሮች</string>
+    <string name="setup_acs_appops_restriction_body">የኤስዲ ሜይድ ተደራሽነት አገልግሎት ማንቃት አይቻልም? አንድሮይድ 13+ በጉግል ፕሌይ አማካኝነት ላልተጫኑ መተግበሪያዎች ገደቦችን ሊተገብር ይችላል። እነዚህ ገደቦችን ከኤስዲ ሜይድ የሲስተም ዝርዝር ገጽ ላይ ይንሱ። አማራጩ በላይኛው ቀኝ ጥግ ላይ በሰንጠረዥ ምናሌ ውስጥ ነው።</string>
+    <string name="setup_inventory_card_title">የመተግበሪያዎች ዝርዝር</string>
+    <string name="setup_inventory_card_body">ኤስዲ ሜይድ ለተጫኑ መተግበሪያዎች የማይንቁ ፋይሎችን ለማግኘት የትኞቹ መተግበሪያዎች እንዳሉዎት ማወቅ ያስፈልገዋል።</string>
+    <string name="setup_inventory_card_extra">\"መተግበሪያ ዝርዝር\" ወይም \"ሁሉንም ጥቅሎች ጠይቅ\" የሚባል ፈቃድ ይፈልጉ።</string>
+    <string name="setup_inventory_invalid_message">ሲስተሙ ልክ ያልሆነ የተጫኑ መተግበሪያዎች ዝርዝር ሰጥቷል (ለምሳሌ በጣም ጥቂት ወይም አንዳንዶቹ አልተገኙም). ወደ ሲስተም ቅንብሮች ሄደው ኤስዲ ሜይድ \"መተግበሪያ ዝርዝርን\" እንዲደርስ ያስችሉ።</string>
+    <string name="dataarea_warningcard_empty_message">ኤስዲ ሜይድ መፈተሽ የሚቻሉ የውሂብ አካባቢዎችን አላገኘም። ማዋቀሩን ጨርሰዋል?</string>
+    <string name="dataarea_warningcard_label">የውሂብ አካባቢዎች</string>
+    <string name="dataarea_warningcard_reload_action">የውሂብ አካባቢዎችን እንደገና ጫን</string>
+    <string name="debug_mode_label">ዲበግ ሁነታ</string>
+    <string name="debug_mode_explanation">የሙከራ አማራጮችን እና ተጨማሪ ዝርዝር ውጤት ያነቃል። መተግበሪያው ቀርፎ ይሮጣል እና በተለያየ መንገድ ይሰራል።</string>
+    <string name="debug_bugreporter_label">ራስ-አዮሽ የችግር ሪፖርቶች</string>
+    <string name="debug_bugreporter_summary">ችግሮችን በራስ-አዮሽ ሪፖርት ያደርጋል፤ ለምሳሌ መተግበሪያው በሚወድቅበት ጊዜ ዝርዝሮች እንዲ ምክንያቱን ለመረዳት እና ለማስተካከል።</string>
+    <string name="settings_category_tools_label">መሳሪያዎች</string>
+    <string name="settings_category_filter">ማጣሪያ</string>
+    <string name="settings_category_risklevel">የአደጋ ደረጃ</string>
+    <string name="corpsefinder_tool_name">ኮርፕስ ፋይንደር</string>
+    <string name="corpsefinder_explanation_short">ቀደም ሲል ከተወገዱ መተግበሪያዎች የተረፈ ውሂብ።</string>
+    <string name="corpsefinder_settings_summary">የመፈለጊያ ማጣሪያዎችን እና የአደጋ ደረጃዎችን ያስተካክሉ።</string>
+    <string name="corpsefinder_settings_risk_keeper_title">የሚፈለጉ ቅሪቶችን ያካትቱ</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">መተግበሪያው ቢወገድም ሊያቆዩት የሚፈልጉት ፋይሎች፤ ለምሳሌ የወሰዱት ፎቶዎች ወይም የፈጠሩት ምትኬዎች።</string>
     <string name="corpsefinder_settings_risk_common_title">የተለመዱ ስሞችን አካትት</string>
-    <string name="corpsefinder_settings_risk_common_summary">በተለመዱ ስሞች ያላቸው ውሂቦች፣ ለምሳሌ "ማስታወሻዎች" የሚባል ፎልደር በብዙ የማይታወቁ መተግበሪያዎች ይጠቀማል።</string>
+    <string name="corpsefinder_settings_risk_common_summary">በተለመዱ ስሞች ያላቸው ውሂቦች፣ ለምሳሌ \"ማስታወሻዎች\" የሚባል ፎልደር በብዙ የማይታወቁ መተግበሪያዎች ይጠቀማል።</string>
     <string name="corpsefinder_watcher_title">ማጥፋት ተከታታዩ</string>
     <string name="corpsefinder_watcher_summary">መተግበሪያ ሲወገድ የቀረውን ራሳዊ በፈለግ።</string>
     <string name="corpsefinder_watcher_autodelete_title">ራሳዊ ስረዛ</string>
@@ -135,7 +201,6 @@
     <string name="corpsefinder_filter_appasec_label">የተመሰጠሩ የመተግበሪያ ሀብቶች</string>
     <string name="corpsefinder_filter_appasec_summary">የተመሰጠሩ የመተግበሪያ ሀብቶች፣ ለምሳሌ የጨዋታ ንብረቶች።</string>
     <string name="corpsefinder_filter_app2sd_summary">በApp2Sd ማሻሻያዎች ወደ ውጫዊ ማጠራቀሚያ የተወሰደ ውሂብ።</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d የመተግበሪያ ቀሪ ተሰርዟል</item>
         <item quantity="other">%d የመተግበሪያ ቀሪዎች ተሰርዘዋል</item>
@@ -150,8 +215,6 @@
     <string name="corpsefinder_owner_unknown">ያልታወቀ ባለቤት</string>
     <string name="corpsefinder_corpse_hint_keeper">ይህ ንጥል ባለቤቱ ባይጫንም ማቆየት የሚፈልጉት ውሂብ ሊይዝ ይችላል፣ ለምሳሌ ፎቶዎች ወይም መጠባበቂያዎች።</string>
     <string name="corpsefinder_corpse_hint_common">ይህ ንጥል በጣም የተለመደ ስም ያለው ሲሆን አሁንም ለተጫኑ የSD Maid ማያውቋቸው መተግበሪያዎች ሊሆን ይችላል።</string>
-
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">ለምንም ልዩ መተግበሪያ የማያምር ተጨማሪ ውሂብ።</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d ተመሳሳይ ተሰርዟል</item>
@@ -211,7 +274,6 @@
     <string name="systemcleaner_filter_usagestats_label">የአጠቃቀም ስታቲስቲክ</string>
     <string name="systemcleaner_filter_usagestats_summary">ከመተግበሪያ አጠቃቀም ስታቲስቲክ ጋር የተያያዙ ፋይሎች።</string>
     <string name="systemcleaner_delete_all_confirmation_message">ሁሉንም የማጣሪያ ይዘቶች ይሰረዙ?</string>
-
     <string name="systemcleaner_customfilter_label">ሰው ሰራሽ ማጣሪያ</string>
     <string name="systemcleaner_customfilter_create_action">ሰው ሰራሽ ማጣሪያ ፍጠር</string>
     <string name="systemcleaner_customfilter_create_hint">በመሣሪያዎና በአጠቃቀም ሁኔታዎ ልዩ የሆኑ ተጨማሪ ፋይሎችን ለመሰረዝ ሰው ሰራሽ ማጣሪያ ይፍጠሩ።</string>
@@ -226,11 +288,11 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">ፎልደሮች</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">ምንም ዓይነት ካልተመረጠ፣ ሁሉም ዓይነቶች ይመሳሰላሉ።</string>
     <string name="systemcleaner_customfilter_editor_path_label">የመንገድ መመዘኛዎች</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">ዒላማው መንገድ ቢያንስ አንድ ግቤት ማየት አለበት (ለምሳሌ "Downloads/oldapks/game-")። ለተጨማሪ አማራጮች ግቤቶች ረጅም ተጭነዋል።</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">ዒላማው መንገድ ቢያንስ አንድ ግቤት ማየት አለበት (ለምሳሌ \"Downloads/oldapks/game-\")። ለተጨማሪ አማራጮች ግቤቶች ረጅም ተጭነዋል።</string>
     <string name="systemcleaner_customfilter_editor_name_label">የስም መመዘኛዎች</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ዒላማው ስም ቢያንስ አንድ ቁልፍ ቃል ይዘት አለገት (ለምሳሌ "-receipt")። ለተጨማሪ አማራጮች ግቤቶች ረጅም ተጭነዋል።</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">ዒላማው ስም ቢያንስ አንድ ቁልፍ ቃል ይዘት አለገት (ለምሳሌ \"-receipt\")። ለተጨማሪ አማራጮች ግቤቶች ረጅም ተጭነዋል።</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">ማስወገጃዎች</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">መንገዱ ማንኛውንም ግቤት ሲያመለክት ውጤቱ ይወገዳል (ለምሳሌ "DCIM")። ለተጨማሪ አማራጮች ግቤቶች ረጅም ተጭነዋል።</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">መንገዱ ማንኛውንም ግቤት ሲያመለክት ውጤቱ ይወገዳል (ለምሳሌ \"DCIM\")። ለተጨማሪ አማራጮች ግቤቶች ረጅም ተጭነዋል።</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">የመንገድ ማወዳደሪያ ሁነታ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">መንገድ በቁልፍ ቃሉ ይጀምራል</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">መንገድ ቁልፍ ቃሉን ይዟል</string>
@@ -245,13 +307,11 @@
     <string name="systemcleaner_customfilter_editor_livesearch_label">ቀጥታ ፍለጋ</string>
     <string name="systemcleaner_customfilter_import_action">አዲስ ማጣሪያ አስመጣ</string>
     <string name="systemcleaner_customfilter_export_action">የተመረጠ ማጣሪያ ላክ</string>
-
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">ለተወሰኑ መተግበሪያዎች የሚያምር ወጪ ውሂብ።</string>
     <string name="appcleaner_filter_defaultcachespublic_label">ሕዝባዊ ነባሪ መሸፈኛዎች</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">ነባሪ ሕዝባዊ የመተግበሪያ መሸፈኛዎች። በቆሽቶ አንድሮይድ ስሪቶች ላይ በAndroid/data ሥር ሊደረስባቸው ይችላል። በሲስተም ቅንብሮች ውስጥ "መሸፈኛ አጽዳ"ን በመንካት ይሰረዛሉ።</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">ነባሪ ሕዝባዊ የመተግበሪያ መሸፈኛዎች። በቆሽቶ አንድሮይድ ስሪቶች ላይ በAndroid/data ሥር ሊደረስባቸው ይችላል። በሲስተም ቅንብሮች ውስጥ \"መሸፈኛ አጽዳ\"ን በመንካት ይሰረዛሉ።</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">ግላዊ ነባሪ መሸፈኛዎች</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">ነባሪ ግላዊ የመተግበሪያ መሸፈኛዎች። በሲስተም ቅንብሮች ውስጥ "መሸፈኛ አጽዳ"ን በመንካት ይሰረዛሉ።</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">ነባሪ ግላዊ የመተግበሪያ መሸፈኛዎች። በሲስተም ቅንብሮች ውስጥ \"መሸፈኛ አጽዳ\"ን በመንካት ይሰረዛሉ።</string>
     <string name="appcleaner_include_systemapps_label">የሲስተም መተግበሪያዎችን አካትት</string>
     <string name="appcleaner_include_systemapps_summary">የሲስተም መተግበሪያዎችን በስካን ውስጥ አካትት።</string>
     <string name="appcleaner_include_runningapps_label">በመሄድ ላይ ያሉ መተግበሪያዎችን አካትት</string>
@@ -294,11 +354,8 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">ከWhatsApp ወደ ሌሎች የተላኩ ፋይሎች।</string>
     <string name="appcleaner_filter_telegram_label">Telegram ሚዲያ ፋይሎች</string>
     <string name="appcleaner_filter_telegram_summary">በTelegram የተቀበሉ ወይም የተላኩ ፋይሎች።</string>
-    <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">በThreema የተቀበሉ ፋይሎች።</string>
-    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">በንግግሮችና በWeChat ጊዜዎች የተላኩ ወይም የተቀበሉ ፋይሎች።</string>
-    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">በቻት ውስጥ በሚታይበት ጊዜ እንደገና የሚወርዱ የተሸፈኑ ሚዲያ ፋይሎች።</string>
     <string name="appcleaner_filter_qqchat_label">QQ ቻት</string>
     <string name="appcleaner_filter_qqchat_summary">በQQ ቻት ንግግሮች የተላኩ ወይም የተቀበሉ ፋይሎች።</string>
@@ -314,17 +371,15 @@
     <string name="appcleaner_automation_loading">ራሳዊነትን በተደራሽነት አገልግሎት ዝግጁ በማድረግ ላይ</string>
     <string name="appcleaner_automation_title">AppCleaner ራሳዊነት</string>
     <string name="appcleaner_automation_subtitle_default_caches">ነባሪ መሸፈኛዎችን በማጽዳት ላይ…</string>
-
     <string name="appcleaner_automation_progress_open_settings">የቅንብሮች ማያ በመክፈት ላይ (ቁልፍ ቃላት: %s)</string>
-    <string name="appcleaner_automation_progress_find_storage">ለ"ማጠራቀሚያ" ግቤት በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_data">ለ"ውሂብ አጽዳ" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_cache">ለ"መሸፈኛ አጽዳ" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">ለ\"ማጠራቀሚያ\" ግቤት በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">ለ\"ውሂብ አጽዳ\" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">ለ\"መሸፈኛ አጽዳ\" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
     <string name="appcleaner_automation_progress_find_ok_confirmation">ቀደም ያለውን ተግባር ለማረጋገጥ እየሞከረ ነው (ቁልፍ ቃላት: %s)</string>
-
     <string name="appcleaner_item_caches_inaccessible_title">ነባሪ መሸፈኛዎች</string>
     <string name="appcleaner_item_caches_inaccessible_body">ሕዝባዊና ግላዊ ነባሪ መሸፈኛዎች። በቀጥታ ሊደረስባቸው አይችሉም፣ ግን በተዘዋዋሪ ሊሰረዙ ይችላሉ (ለምሳሌ በተደራሽነት አገልግሎት)።</string>
     <string name="appcleaner_automation_unavailable_title">ተደራሽነት አገልግሎት አልተገኘም</string>
-    <string name="appcleaner_automation_unavailable_body">ሊደረስባቸው የማይችሉ መሸፈኛዎችን ማጽዳት የSD Maidን ተደራሽነት አገልግሎት ይፈልጋል፣ ግን አልተገኘም። መጠቀም ካልፈለጉ: "ሊደረስባቸው የማይችሉ መሸፈኛዎችን አካትት" አማራጭን ያሰናክሉ።</string>
+    <string name="appcleaner_automation_unavailable_body">ሊደረስባቸው የማይችሉ መሸፈኛዎችን ማጽዳት የSD Maidን ተደራሽነት አገልግሎት ይፈልጋል፣ ግን አልተገኘም። መጠቀም ካልፈለጉ: \"ሊደረስባቸው የማይችሉ መሸፈኛዎችን አካትት\" አማራጭን ያሰናክሉ።</string>
     <string name="appcleaner_junk_userprofile_label">ተጠቃሚ</string>
     <string name="appcleaner_delete_confirmation_message_x">ለ%s ወጪ ፋይሎች ይሰረዙ?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
@@ -334,13 +389,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizukuን በመጠቀም መሸፈኛዎችን በማጥፋት ላይ</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">ሊደረስባቸው የማይችሉ መሸፈኛዎችን በመወሰን ላይ</string>
     <string name="appcleaner_automation_error_locked_appcache_title">መሸፈኛ አጽዳ አልተገኘም</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">ሲስተሙ ለዚህ መተግበሪያ "መሸፈኛ አጽዳ" ቁልፍን አሰናክሏል። የመሸፈኛ ማጽዳት ፍጥነት ለመጨመር ያስወግዱት።</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">ሲስተሙ ለዚህ መተግበሪያ \"መሸፈኛ አጽዳ\" ቁልፍን አሰናክሏል። የመሸፈኛ ማጽዳት ፍጥነት ለመጨመር ያስወግዱት።</string>
     <string name="appcleaner_automation_error_no_settings_title">የቅንብሮች ማያ አልተገኘም</string>
     <string name="appcleaner_automation_error_no_settings_body">ይህ የሲስተም መተግበሪያ ምንም የቅንብሮች ማያ የለውም። በተደራሽነት አገልግሎት መሸፈኛ ማጽዳት አይችልም። የመሸፈኛ ማጽዳት ፍጥነት ለመጨመር ያስወግዱት።</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">የሲስተም መተግበሪያ በተሳሳተ መንገድ ተዋቅሯል</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">የHyperOS ደህንነት መተግበሪያ (com.miui.securitycenter) የአጠቃቀም ስታቲስቲክ ፈቃድ (GET_USAGE_STATS) ላይደርስበት ነው። ይህ በመተግበሪያ ዝርዝሮች ውስጥ "ውሂብ አጽዳ" እንደሚሳሳት ባህሪዎችን ይሰብራል እንዲሁም በተደራሽነት መሸፈኛ ማጽዳት። ሙሉ ተግባርን መልሶ ለማስጀመር ፈቃዱን ይስጡ።</string>
-
-    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">የHyperOS ደህንነት መተግበሪያ (com.miui.securitycenter) የአጠቃቀም ስታቲስቲክ ፈቃድ (GET_USAGE_STATS) ላይደርስበት ነው። ይህ በመተግበሪያ ዝርዝሮች ውስጥ \"ውሂብ አጽዳ\" እንደሚሳሳት ባህሪዎችን ይሰብራል እንዲሁም በተደራሽነት መሸፈኛ ማጽዳት። ሙሉ ተግባርን መልሶ ለማስጀመር ፈቃዱን ይስጡ።</string>
     <string name="deduplicator_explanation_short">በመሣሪያዎ ላይ ተመሳሳይ ውሂብ ያግኙ።</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d ተመሳሳይ ተሰርዟል</item>
@@ -350,7 +403,7 @@
         <item quantity="one">%d ተመሳሳይ ስብስብ ተገኝቷል</item>
         <item quantity="other">%d ተመሳሳይ ስብስቦች ተገኝተዋል</item>
     </plurals>
-    <string name="deduplicator_protection_deleteall_allowed_title">"ሁሉንም ስረዝ"ን ሊቻል አድርግ</string>
+    <string name="deduplicator_protection_deleteall_allowed_title">\"ሁሉንም ስረዝ\"ን ሊቻል አድርግ</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">በተመሳሳዩ ስብስብ ውስጥ ያሉ ሁሉንም ፋይሎች መሰረዝ የሚያስችሉ አማራጮችን አሳይ፣ ስለዚህ ምንም ፋይል አይቀርም።</string>
     <string name="deduplicator_search_locations_title">የፍለጋ ቦታዎች</string>
     <string name="deduplicator_search_locations_all_summary">ሁሉም ሊደረስባቸው የሚችሉ አካባቢዎች</string>
@@ -381,8 +434,6 @@
     <string name="deduplicator_details_cluster_title">የተመሳሳዮች ስብስብ</string>
     <string name="deduplicator_matches_exact_label">ትክክለኛ ኮፒዎች</string>
     <string name="deduplicator_matches_similar_label">ተመሳሳይ ፋይሎች</string>
-
-    <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">በመሣሪያዎ ላይ የተጫኑ መተግበሪያዎች።</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d መተግበሪያ ተፈለጋል</item>
@@ -408,7 +459,6 @@
     <string name="appcontrol_app_exclude_edit_description">ይህ መተግበሪያ አሁን ከአንድ ወይም ከብዙ መሳሪያዎች ተወግዷል።</string>
     <string name="appcontrol_tag_user">ተጠቃሚ</string>
     <string name="appcontrol_tag_active">በቅርቡ ንቁ</string>
-    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">ጥቅል</string>
     <string name="appcontrol_tag_system">ሲስተም</string>
     <string name="appcontrol_tag_archived">ተደርሷል</string>
@@ -470,13 +520,11 @@
     <string name="appcontrol_automation_loading">ራሳዊነትን በተደራሽነት አገልግሎት ዝግጁ በማድረግ ላይ</string>
     <string name="appcontrol_automation_title">AppControl ራሳዊነት</string>
     <string name="appcontrol_automation_subtitle_force_stopping">በግዳጅ በማቆም ላይ…</string>
-    <string name="appcontrol_automation_progress_find_force_stop">ለ"በግዳጅ አቁም" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcontrol_automation_progress_find_force_stop">ለ\"በግዳጅ አቁም\" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">ቀደም ያለውን ተግባር ለማረጋገጥ እየሞከረ ነው (ቁልፍ ቃላት: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">የማያ ጊዜ: %1$s ከ%2$s ጀምሮ</string>
     <string name="appcontrol_item_lastupdate_x_label">በመጨረሻ ተዘምኗል: %s</string>
     <string name="appcontrol_item_installedat_x_label">ተጫኗል በ: %s</string>
-
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">በመሣሪያዎ ላይ ምን ቦታ እንደሚወስድ ያውቁ።</string>
     <string name="analyzer_progress_scanning_device">የማጠራቀሚያ መሣሪያዎችን በመፈልግ ላይ</string>
     <string name="analyzer_progress_scanning_storage">ማጠራቀሚያን በመመርመር ላይ</string>
@@ -517,7 +565,6 @@
     <string name="analyzer_storage_content_app_extra_description">ይህ መተግበሪያ ከነባሪ መንገዶች ውጭ ያስቀመጠው ተጨማሪ ውሂብ፣ ለምሳሌ ፎቶዎች ወይም ዳውንሎዶች።</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">ይህ መተግበሪያ %1$sን በ\"%2$s\" ላይ ይይዛል።</string>
     <string name="analyzer_app_details_app_is_archived">ይህ መተግበሪያ ተደርሷል።</string>
-
     <string name="data_area_public_app_data_official_label">ነባሪ ሕዝባዊ የመተግበሪያ ውሂብ</string>
     <string name="data_area_public_app_assets_official_label">ነባሪ ሕዝባዊ የመተግበሪያ ንብረቶች</string>
     <string name="data_area_public_storage_label">ሕዝባዊ ማጠራቀሚያ</string>
@@ -525,7 +572,6 @@
     <string name="data_areas_label">የውሂብ አካባቢዎች</string>
     <string name="data_areas_description">የውሂብ አካባቢዎች በመሣሪያዎ ላይ SD Maid ሊደርስባቸው የሚችሉ ቦታዎችን ይወክላሉ። በአንድሮይድ ስሪትዎና በተሰጡ ፈቃዶች ላይ ተመስርተው የተለያዩ የውሂብ አካባቢዎች ሊገኙ ይችላሉ።</string>
     <string name="data_areas_short_summary">SD Maid በአሁን የተሰጡ ፈቃዶች ላይ ተመስርቶ ሊደርስባቸው የሚችላቸው አካባቢዎች።</string>
-
     <string name="exclusion_manager_title">የማስወገጃ አስተዳዳሪ</string>
     <string name="exclusion_manager_desc">የፋይልና የመተግበሪያ ማስወገጃዎችን አስተዳድር።</string>
     <string name="exclusion_explanation_body1">ፋይሎችንና መተግበሪያዎችን ከSD Maid ተግባራት አስወግድ।</string>
@@ -548,7 +594,6 @@
     <string name="exclusion_reset_default_exclusions">ነባሪ ማስወገጃዎችን መልስ</string>
     <string name="exclusion_import_action">ማስወገጃዎችን አስመጣ</string>
     <string name="exclusion_export_action">ማስወገጃዎችን ላክ</string>
-
     <string name="exclusion_create_pkg_hint">የመተግበሪያ ማስወገጃዎችን ለመፍጠር AppControl መሳሪያን ይጠቀሙ።</string>
     <string name="exclusion_create_path_hint">የመንገድ ማስወገጃዎችን ለመፍጠር StorageAnalyzer መሳሪያን ይጠቀሙ።</string>
     <plurals name="exclusion_x_new_exclusions">
@@ -556,7 +601,6 @@
         <item quantity="other">%d ማስወገጃዎች ተፈጠሩ</item>
     </plurals>
     <string name="exclusion_show_defaults_action">ነባሪዎችን አሳይ</string>
-
     <string name="automation_accessibility_service_description">ልዩ የተደራሽነት ፍላጎቶች ያላቸው ተጠቃሚዎች SD Maidን ያለዚያ ደካማ የእጅ ተጠቃሚ ጣልቃ ገብነት የሚፈልጉ ተግባራትን (ለምሳሌ የመሸፈኛ ስረዛ) ራሱን እንዲያደርግ ለመፍቀድ ይህንን አገልግሎት ማስቻል ይችላሉ።\n\nምሳሌ: SD Maidን ብዙ መተግበሪያዎችን እንዲያቆም ካዘዙ ማለት SD Maid ይህንን አገልግሎት ለመጠቀም የእያንዳንዱን መተግበሪያ ቅንብሮች ማያ ሊከፍት፣ \'በግዳጅ አቁም\' ቁልፍን ሊያገኝና ሊነካው ይችላል።\n\nSD Maid ይህንን አገልግሎት በሚጠቀምበት ጊዜ ሁልጊዜ በግልጽ ያሳያል እንዲሁም ተጠቃሚው ማንኛውንም ጣልቃ ገብነት ወዲያውኑ ለመተው ቀላል መንገድ ይሰጣል።\n\nያለቀደሙ የተጠቃሚ ፍቃድ ምንም ተግባራት አይከናወኑም። ይህ አገልግሎት ያለምንም አሉታዊ ውጤቶች በማንኛውም ጊዜ እንደገና ሊሰናከል ይችላል።</string>
     <string name="automation_screenoverlay_explanation">SD Maid ከመሣሪያዎ ጋር እየተገናኘ ነው። በተመሳሳይ ጊዜ ማያውን መጠቀም አይቻልም። ተግባሩ እስከሚጠናቀቅ ይጠብቁ ወይም ይሰርዙት።</string>
     <string name="automation_active_title">SD Maid በመስራት ላይ ነው</string>
@@ -574,10 +618,8 @@
     <string name="automation_error_timeout_body">SD Maid ሁሉንም ደረጃዎች በጊዜ ገደብ ውስጥ አላጠናቀቀም። ይህ መቀጠሉ ከሆነ መተግበሪያውን ለመሣሪያዎ ማስተካከል ያስፈልገኝ ይሆናል። ማሻሻያዎችን ይመርምሩ ወይም እኔ እንድጠግነው እኔን ያናግሩ።</string>
     <string name="automation_error_overlay_title">የራሳዊነት መክተት</string>
     <string name="automation_error_overlay_body">SD Maid የራሳዊነት መክተትን ማሳየት አልቻለም። ፈቃዶችን ይመርምሩና መሣሪያዎን ዳግም ማስጀመር ይሞክሩ።</string>
-
     <string name="history_label">ታሪክ</string>
     <string name="history_description">የቅርብ ተግባራትና የተጎዱ ውሂቦች ቀን በቀን ዝርዝር።</string>
-
     <string name="scheduler_label">መርሃ ግብር አዘጋጅ</string>
     <string name="scheduler_execution_label">ቀጣይ አፈጻጸም (ግምታዊ)</string>
     <string name="scheduler_execution_last_label">የመጨረሻ አፈጻጸም</string>
@@ -616,28 +658,21 @@
     <string name="scheduler_commands_after_schedule_label">ከመርሃ-ግብር በኋላ ትዕዛዞች</string>
     <string name="scheduler_commands_after_schedule_desc">በመርሃ ግብር መጨረሻ ላይ የሚከናወኑ የአንድሮይድ ሼል ትዕዛዞች።</string>
     <string name="scheduler_battery_optimization_hint">የበስተጀርባ አፈጻጸም ችግሮች ካጋጠሙዎት ለSD Maid ባትሪ ማሻሻያዎችን ማሰናከል ያስቡበት።</string>
-
     <string name="updates_dashcard_title">ማሻሻያ ይገኛል</string>
     <string name="updates_dashcard_body">ማሻሻያ ይገኛል። እርስዎ %1$s አለዎት እንዲሁም የቅርቡ ስሪት %2$s ነው።</string>
-
     <string name="translation_encourage_title">SD Maidን ተርጉም</string>
     <string name="translation_encourage_body">SD Maid በበጎ ፈቃደኞች ይተረጎማል። ትርጉም፣ ግምገማ ወይም ማረም፣ እርዳታዎ ይደነቃል!</string>
     <string name="translation_translators_title">ይህ ስሪት የተተረጎመው</string>
     <string name="translation_translators_people">ሰው1;ሰው2(አማራጭ@ኢሜይል.com)</string>
-
     <string name="motd_setting_enabled_label">አስፈላጊ መልእክቶች</string>
     <string name="motd_setting_enabled_explanation">SD Maid ከገንቢው አስፈላጊ መልእክቶችን እንዲመረምር ፍቀድ።</string>
-
     <string name="updatecheck_setting_enabled_label">ማሻሻያ መረመራ</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid አዲስ ስሪት እንዳለ ለማሳወቅ ማሻሻያዎችን እንዲመረምር ፍቀድ።</string>
     <string name="device_settings_category">መሣሪያ</string>
-
     <string name="beta_version_indicator_desc">የቅድመ-ልቀት ስሪቶች በጅምር ማያ ላይ ትንሽ ጥቅላይ ያሳያሉ። በተደጋጋሚ ይዘምናሉ፣ ተጨማሪ ባህሪዎች ሊኖራቸው ይችላል፣ ግን ተጨማሪ ችግሮችም ሊኖራቸው ይችላል።</string>
-
     <string name="review_app_review_action">ግምገማ</string>
     <string name="review_app_dismiss_action">ምናልባት በኋላ</string>
     <string name="review_app_body">ለSD Maid ግምገማ ማስቀመጥ ይፈልጋሉ?️ ❤️</string>
-
     <string name="stats_label">ታሪክ</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s ተልቋል።</item>
@@ -664,7 +699,6 @@
     <string name="stats_settings_reset_all_desc">ሁሉንም ሪፖርቶች ስረዝና ሁሉንም ስታቲስቲክ ወደ ዜሮ አስቀምጥ።</string>
     <string name="stats_affected_paths_label">የተጎዱ መንገዶች</string>
     <string name="stats_affected_pkgs_label">የተጎዱ መተግበሪያዎች</string>
-
     <string name="picker_select_paths_title">መንገዶችን ምረጥ</string>
     <string name="picker_selected_paths_title">የተመረጡ መንገዶች</string>
     <string name="picker_unsaved_confirmation_message">ለውጦችን ትተዋለህ?</string>
@@ -673,94 +707,10 @@
         <item quantity="other">%d መንገዶች ተመርጠዋል</item>
     </plurals>
     <string name="picker_home_action">የውሂብ አካባቢዎች</string>
-
     <string name="area_type_sdcard_label">ሕዝባዊ ማጠራቀሚያ</string>
     <string name="area_type_public_media_label">ሕዝባዊ የመተግበሪያ ሚዲያ</string>
     <string name="area_type_public_data_label">ሕዝባዊ የመተግበሪያ ውሂብ</string>
     <string name="area_type_public_obb_label">ሕዝባዊ የመተግበሪያ ሀብቶች</string>
     <string name="area_type_private_data_label">ግላዊ የመተግበሪያ ውሂብ</string>
     <string name="area_type_portable_label">ተለዋዋጭ ማጠራቀሚያ</string>
-
-    <string name="changelog_label">የለውጥ ዝርዝር</string>
-    <string name="corpsefinder_explanation_short">ቀደም ሲል ከተወገዱ መተግበሪያዎች የተረፈ ውሂብ።</string>
-    <string name="corpsefinder_settings_risk_keeper_summary">መተግበሪያው ቢወገድም ሊያቆዩት የሚፈልጉት ፋይሎች፤ ለምሳሌ የወሰዱት ፎቶዎች ወይም የፈጠሩት ምትኬዎች።</string>
-    <string name="corpsefinder_settings_risk_keeper_title">የሚፈለጉ ቅሪቶችን ያካትቱ</string>
-    <string name="corpsefinder_settings_summary">የመፈለጊያ ማጣሪያዎችን እና የአደጋ ደረጃዎችን ያስተካክሉ።</string>
-    <string name="corpsefinder_tool_name">ኮርፕስ ፋይንደር</string>
-    <string name="dataarea_warningcard_empty_message">ኤስዲ ሜይድ መፈተሽ የሚቻሉ የውሂብ አካባቢዎችን አላገኘም። ማዋቀሩን ጨርሰዋል?</string>
-    <string name="dataarea_warningcard_label">የውሂብ አካባቢዎች</string>
-    <string name="dataarea_warningcard_reload_action">የውሂብ አካባቢዎችን እንደገና ጫን</string>
-    <string name="debug_bugreporter_label">ራስ-አዮሽ የችግር ሪፖርቶች</string>
-    <string name="debug_bugreporter_summary">ችግሮችን በራስ-አዮሽ ሪፖርት ያደርጋል፤ ለምሳሌ መተግበሪያው በሚወድቅበት ጊዜ ዝርዝሮች እንዲ ምክንያቱን ለመረዳት እና ለማስተካከል።</string>
-    <string name="debug_mode_explanation">የሙከራ አማራጮችን እና ተጨማሪ ዝርዝር ውጤት ያነቃል። መተግበሪያው ቀርፎ ይሮጣል እና በተለያየ መንገድ ይሰራል።</string>
-    <string name="debug_mode_label">ዲበግ ሁነታ</string>
-    <string name="general_error_setup_require_label">ማዋቀሩ ያልተጠናቀቀ ነው</string>
-    <string name="general_error_setup_require_msg">ይህንን ባህሪ ለመጠቀም ተጨማሪ ማዋቀር ያስፈልጋል። የቀሩትን የማዋቀሪያ ደረጃዎች ይጨርሱ።</string>
-    <string name="settings_acknowledgements_label">አመስጋኝነቶች</string>
-    <string name="settings_category_filter">ማጣሪያ</string>
-    <string name="settings_category_risklevel">የአደጋ ደረጃ</string>
-    <string name="settings_category_tools_label">መሳሪያዎች</string>
-    <string name="setup_acs_allow_hint">በስክሪኑ ጠርዝ ላይ ትንሽ አዶ ካዩ፤ ባልተጠበቀ ሁኔታ \"አቋራጭ\" አማራጭን አንቅተዋል።</string>
-    <string name="setup_acs_appops_restriction_body">የኤስዲ ሜይድ ተደራሽነት አገልግሎት ማንቃት አይቻልም? አንድሮይድ 13+ በጉግል ፕሌይ አማካኝነት ላልተጫኑ መተግበሪያዎች ገደቦችን ሊተገብር ይችላል። እነዚህ ገደቦችን ከኤስዲ ሜይድ የሲስተም ዝርዝር ገጽ ላይ ይንሱ። አማራጩ በላይኛው ቀኝ ጥግ ላይ በሰንጠረዥ ምናሌ ውስጥ ነው።</string>
-    <string name="setup_acs_appops_restriction_title">የተገደቡ ቅንብሮች</string>
-    <string name="setup_acs_card_body">የተደራሽነት አገልግሎት ኤስዲ ሜይድ ከስክሪንዎ ጋር እንዲግባባ እና ደካማ ድርጊቶችን እንዲያውቅ ያስችለዋል፤ ለምሳሌ በብዙ ስክሪኖች ላይ \"መሸጎጫ አጽዳ\" መጫን።</string>
-    <string name="setup_acs_card_body2">ኤስዲ ሜይድ ያለእርስዎ ፈቃድ የተደራሽነት አገልግሎቱን አይጠቀምም፤ እንቅስቃሴ ሲኖረው ሁልጊዜ ግልጽ (ሊሰረዝ የሚችል) አመላካች ያሳያል እና መረጃ ለመሰብሰብ አይጠቀምበትም።</string>
-    <string name="setup_acs_card_title">የተደራሽነት አገልግሎት</string>
-    <string name="setup_acs_consent_negative_action">የተደራሽነት አገልግሎት አትጠቀም</string>
-    <string name="setup_acs_consent_positive_action">አገልግሎቱን አንቅ እና ፈቃድ ስጥ</string>
-    <string name="setup_acs_disallow_hint">ሀሳብዎን ከቀየሩ፤ ወደ ቅንብሮች በመሄድ እና ማዋቀሩን እንደገና በመጀመር ይህንን አማራጭ ከደንስ ልቀይሩት ይችላሉ።</string>
-    <string name="setup_acs_state_disabled">የተደራሽነት አገልግሎት ተሰናክሏል</string>
-    <string name="setup_acs_state_enabled">የተደራሽነት አገልግሎት ነቅቷል</string>
-    <string name="setup_acs_state_ondemand">አገልግሎቱ በፍላጎት ይጀመራል</string>
-    <string name="setup_acs_state_running">የተደራሽነት አገልግሎት እየሮጠ ነው</string>
-    <string name="setup_acs_state_stopped">የተደራሽነት አገልግሎት ቆምዷል</string>
-    <string name="setup_acs_state_stopped_hint">አገልግሎቱ ነቅቷል፤ ግን እየሮጠ አይደለም። ዝጋ/ክፈት ያድርጉት ወይም መሳሪያዎን እንደገና ያስጀምሩ። ኤስዲ ሜይድ በሲስተሙ \"የተመሻሻለ\" እንዳልሆነ ያረጋግጡ።</string>
-    <string name="setup_acs_state_stopped_hint_miui">አገልግሎቱ ከጊዜ በኋላ እየተሰናከለ ከሆነ፤ በሲስተም ቅንብሮች ውስጥ ለኤስዲ ሜይድ \"በራስ ጀመር\" አማራጭን ማንቃት ይሞክሩ።</string>
-    <string name="setup_checking_card_body">የማዋቀሪያ ጥናቶች እና ተግባር ያረጋግጣል።</string>
-    <string name="setup_dismiss_hint">የማዋቀሪያ ስክሪኑን ከቅንብሮች ምናሌ በኩል እንደገና ማግኘት ይችላሉ।</string>
-    <string name="setup_feature_requires_additional_setup_x">ይህ ባህሪ ተጨማሪ የማዋቀሪያ ንጥሎችን ማጠናቀቅ ይፈልጋል፦ %s</string>
-    <string name="setup_forcedshow_summary">ቀደም ሲል የተጠናቀቁትንም ጨምሮ የማዋቀሪያ ስክሪኑን እንደገና አሳይ።</string>
-    <string name="setup_incomplete_card_body">የኤስዲ ሜይድ ማዋቀር በማጠናቀቅ የተሻሉ ውጤቶች ያገኛሉ።</string>
-    <string name="setup_incomplete_card_continue_action">ማዋቀሩን ቀጥል</string>
-    <string name="setup_incomplete_card_dismiss_action">አሰናብት</string>
-    <string name="setup_incomplete_card_healing_in_progress_body">ኤስዲ ሜይድ የማዋቀሪያ ችግሮችን ለማስተካከል እየሞከረ ነው።</string>
-    <string name="setup_incomplete_card_title">ማዋቀሩ ያልተጠናቀቀ ነው</string>
-    <string name="setup_inventory_card_body">ኤስዲ ሜይድ ለተጫኑ መተግበሪያዎች የማይንቁ ፋይሎችን ለማግኘት የትኞቹ መተግበሪያዎች እንዳሉዎት ማወቅ ያስፈልገዋል።</string>
-    <string name="setup_inventory_card_extra">\"መተግበሪያ ዝርዝር\" ወይም \"ሁሉንም ጥቅሎች ጠይቅ\" የሚባል ፈቃድ ይፈልጉ።</string>
-    <string name="setup_inventory_card_title">የመተግበሪያዎች ዝርዝር</string>
-    <string name="setup_inventory_invalid_message">ሲስተሙ ልክ ያልሆነ የተጫኑ መተግበሪያዎች ዝርዝር ሰጥቷል (ለምሳሌ በጣም ጥቂት ወይም አንዳንዶቹ አልተገኙም). ወደ ሲስተም ቅንብሮች ሄደው ኤስዲ ሜይድ \"መተግበሪያ ዝርዝርን\" እንዲደርስ ያስችሉ።</string>
-    <string name="setup_label">ማዋቀሪያ</string>
-    <string name="setup_manage_storage_card_body">ኤስዲ ሜይድ ማጠራቀሚያዎን እንዲያቀኝ ያስችሉ።</string>
-    <string name="setup_manage_storage_card_body2">ወደ ሕዝባዊ ማጠራቀሚያ መሰረታዊ መዳረሻ፤ ለምሳሌ \"ዳውንሎድ/\" እና \"DCIM/\"፤ ግን ሁልጊዜ \"Android/data\" አይደለም።</string>
-    <string name="setup_manage_storage_card_title">ማጠራቀሚያ አቀናይ</string>
-    <string name="setup_notification_body">ኤስዲ ሜይድ ስለ ቀጣይ ተግባሮች ወይም አስፈላጊ ክስተቶች ለማሳወቅ ማሳወቂያዎችን እንዲለጥፍ ያስችሉ።</string>
-    <string name="setup_notification_hint">ማሳወቂያዎች በጥንቃቄ ይጠቀማሉ 🤞</string>
-    <string name="setup_notification_title">ማሳወቂያዎች</string>
-    <string name="setup_permission_error_label">የፈቃድ ስህተት</string>
-    <string name="setup_permission_granted_label">ፈቃድ ተሰጥቷል</string>
-    <string name="setup_root_card_body">ኤስዲ ሜይድ ይገኛል ከሆነ የሩት መዳረሻን ይጠቀም? የሩት መዳረሻ ተጨማሪ የሲስተም አቃቂጆች እና ግላዊ የመተግበሪያ ውሂብን ለመፈተሽ ሊያገለግል ይችላል።</string>
-    <string name="setup_root_card_body2">በሩት የተደረጉ መሳሪያዎች ላይ ብቻ ይገኛል። ይህንን ለውጥ ካላደረጉ፤ መሳሪያዎ ሩት አልሆነምና ይህ ቅንብር ተጽዕኖ የለውም።</string>
-    <string name="setup_root_card_title">የሩት መዳረሻ</string>
-    <string name="setup_root_disable_root_use_label">የሩት መዳረሻን አትጠቀም</string>
-    <string name="setup_root_enable_root_use_label">ይገኛል ከሆነ የሩት መዳረሻን ተጠቀም</string>
-    <string name="setup_root_state_ready_label">የሩት መዳረሻ ዝግጁ ነው።</string>
-    <string name="setup_root_state_waiting_label">ለሩት መዳረሻ እየተጠበቀ ነው።</string>
-    <string name="setup_saf_card_body">ኤስዲ ሜይድ ወደ ተጨማሪ አካባቢዎች መዳረሻ በመስጠት ውጤቶችን ያሻሽሉ።</string>
-    <string name="setup_saf_card_body2">በአብዛኛው ሁኔታዎች መስኮቱ ትክክለኛውን መንገድ አስቀድሞ በመምረጥ ይከፈታል። መዳረሻ ሲሰጥ ግቤቶች አረንጓዴ ይሆናሉ።</string>
-    <string name="setup_saf_card_title">የማጠራቀሚያ መዳረሻ ማዕቀፍ</string>
-    <string name="setup_saf_error_wrong_path">የተሳሳተ መንገድ መርጠዋል</string>
-    <string name="setup_saf_missing_app_error">የሰነዶች UI መተግበሪያ አይገኝም። ተገንብቶ የመጣ የሲስተም መተግበሪያ ነው እና በሁሉም አንድሮይድ መሳሪያዎች ላይ መገኘት አለበት።</string>
-    <string name="setup_shizuku_card_body">ኤስዲ ሜይድ በተቻለ ቦታ ሺዙኩን እንዲጠቀም ውጤቶችን ለማሻሻል እና ባህሪያትን ለማንቃት ያስችሉ።</string>
-    <string name="setup_shizuku_card_body2">የሺዙኩ መተግበሪያ በመሳሪያዎ ላይ ካልተዘጋጀ ይህ ቅንብር ተጽዕኖ የለውም።</string>
-    <string name="setup_shizuku_card_root_info">ሺዙኩ ከሩት መዳረሻ ጋር ተጨማሪ ባህሪያትን አያስችልም፤ ግን አስተማማኝነትን ያሻሽላል። ኤስዲ ሜይድ እንደ አማራጭ ዘዴ ይጠቀምበታል።</string>
-    <string name="setup_shizuku_card_title">ሺዙኩ</string>
-    <string name="setup_shizuku_disable_shizuku_use_label">ሺዙኩን አትጠቀም</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">ይገኛል ከሆነ ሺዙኩን ተጠቀም</string>
-    <string name="setup_shizuku_state_ready_label">የሺዙኩ ሊንክ ዝግጁ ነው።</string>
-    <string name="setup_shizuku_state_waiting_label">ከሺዙኩ ጋር ለመገናኘት እየተጠበቀ ነው።</string>
-    <string name="setup_title">ማዋቀሪያ</string>
-    <string name="setup_usagestats_body">የአጠቃቀም ስታቲስቲክስ ፈቃድ ወደ ተጨማሪ የመተግበሪያ ዝርዝሮች መዳረሻን ይሰጣል። ኤስዲ ሜይድ ተጨማሪ የመሸጎጫ መጠኖችን ለመለካት ይጠቀምበታል።</string>
-    <string name="setup_usagestats_hint">በተደራሽነት አገልግሎት ላይ ለተመሰረተ የመሸጎጫ ማጥፋት ያስፈልጋል።</string>
-    <string name="setup_usagestats_title">የአጠቃቀም ስታቲስቲክስ</string>
 </resources>
-

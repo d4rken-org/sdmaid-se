@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
-    <string name="app_name_upgrade_postfix">Pro</string>
-
-    <string name="upgrade_feature_requires_pro">需要 SD Maid SE Pro</string>
-
-    <string name="upgrades_dashcard_title">升級 SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro 提供更好的結果、更多功能和進階用戶選項。</string>
+    <string name="app_name_upgraded">SD 女僕 SE 專業版</string>
+    <string name="app_name_upgrade_postfix">專業版</string>
+    <string name="upgrade_feature_requires_pro">需要 SD 女僕 SE 專業版</string>
+    <string name="upgrades_dashcard_title">升級 SD 女僕</string>
+    <string name="upgrades_dashcard_body">SD 女僕專業版提供更佳的結果、更多的功能和選項，適用於進階使用者。</string>
     <string name="upgrades_dashcard_upgrade_action">升級</string>
-
     <string name="upgrades_gplay_unavailable_error_title">Google Play 無法使用</string>
-    <string name="upgrades_gplay_unavailable_error_description">SD Maid 無法連接到 Google Play。Google Play 是否已安裝並且是最新的？您的 Google 帳戶是否已登錄？嘗試清除 Google Play 應用程式的快取並重新啟動裝置。</string>
-    <string name="upgrades_no_purchases_found_check_account">未找到購買記錄。您使用的是正確的帳戶嗎？</string>
-    <string name="upgrade_screen_title">獲取 SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid 沒有廣告，不會出售用戶數據。我的工作由你資助 ❤️。</string>
-    <string name="upgrade_screen_benefits_title">優勢</string>
-    <string name="upgrade_screen_benefits_body">• 應用程式清理 💯\n• 計劃操作 ⏰\n• 所有工具的額外選項 ⚙️\n• 您自己的刪除規則 ✍️\n• 一個有動力的開發者 🧙\n還有更多…</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD 女僕無法連線至 Google Play。請確認 Google Play 已安裝且為最新版本，同時確保已經登入 Google 帳戶。您可以嘗試清除 Google Play 應用程式的快取或重新啟動您的裝置以修正此問題。</string>
+    <string name="upgrades_no_purchases_found_check_account">找不到購買，您正在使用正確的帳戶嗎？</string>
+    <string name="upgrade_screen_title">取得 SD 女僕 SE 專業版</string>
+    <string name="upgrade_screen_preamble">SD 女僕沒有廣告，也不會出售使用者資料。我的工作由你們資助❤️。</string>
+    <string name="upgrade_screen_benefits_title">優點</string>
+    <string name="upgrade_screen_benefits_body">• 應用程式清理 💯\n• 編排作業 ⏰\n• 所有工具的額外選項 ⚙️\n• 您的專屬刪除規則 ✍️\n• 一位積極的開發人員 🧙\n以及更多…</string>
     <string name="upgrade_screen_how_title">選項</string>
-    <string name="upgrade_screen_how_body">您可以在一次性購買和更便宜的年度訂閱之間進行選擇。\n訂閱從免費的 14 天試用開始，之後每年向您收費一次。試用和訂閱可以隨時取消。\n相同的功能，只是不同的定價模式。</string>
-    <string name="upgrade_screen_subscription_trial_action">開始免費 14 天試用</string>
+    <string name="upgrade_screen_how_body">您可以選擇單次購買，也可以選擇更便宜的每年訂閱。\n訂閱開始時有 14 天的免費試用，之後每年計費。試用和訂閱可隨時取消。\n功能相同，僅有定價模式不同。</string>
+    <string name="upgrade_screen_subscription_trial_action">開始 14 天免費試用</string>
     <string name="upgrade_screen_subscription_action">訂閱</string>
-    <string name="upgrade_screen_subscription_action_hint">訂閱每年費用為 %s。</string>
-    <string name="upgrade_screen_iap_action">一次性購買</string>
-    <string name="upgrade_screen_iap_action_hint">一次性購買費用為 %s。</string>
-    <string name="upgrade_screen_thanks_toast">你是最棒的！ ❤️</string>
+    <string name="upgrade_screen_subscription_action_hint">訂閱費用為 %s 每年。</string>
+    <string name="upgrade_screen_iap_action">一次購買</string>
+    <string name="upgrade_screen_iap_action_hint">一次購買的費用為 %s。</string>
+    <string name="upgrade_screen_thanks_toast">您是最棒的！❤️</string>
     <string name="upgrade_screen_restore_purchase_action">恢復購買</string>
     <string name="upgrade_screen_restore_purchase_message">您的升級在同一 Google 帳戶的裝置上有效。</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">無法識別升級的故障排除提示：</string>

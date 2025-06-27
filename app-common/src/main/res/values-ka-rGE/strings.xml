@@ -2,24 +2,32 @@
 <resources>
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Თქვენს სერვისში.</string>
+    <string name="slogan_message_1">სუფთა და კოხტა.</string>
     <string name="slogan_message_2">Ქაოსის პრევენცია.</string>
     <string name="slogan_message_3">Აკეთებს იმას, რაც საჭიროა.</string>
     <string name="slogan_message_5">უნაკლო.</string>
+    <string name="slogan_message_6">ბაიტები, წადით!</string>
+    <string name="slogan_message_7">თავისუფალი ადგილი, ბედნიერი ადგილი.</string>
+    <string name="slogan_message_8">არასოდეს არ მოგატოვებთ.</string>
     <string name="general_thank_you_label">Გმადლობთ</string>
     <string name="general_error_type_mismatch_msg">ტიპის შეუსაბამობა: სურდა %1$s, მაგრამ მიიღო %2$s.</string>
     <string name="general_error_cant_access_msg">%s-ზე წვდომა შეუძლებელია.</string>
     <string name="general_error_root_unavailable">Root წვდომა მიუწვდომელია.</string>
     <string name="general_error_empty_result_msg">შედეგი ცარიელი იყო.</string>
+    <string name="general_error_no_compatible_app_found_msg">ამ მოთხოვნის დასამუშავებლად თავსებადი აპლიკაცია ვერ მოიძებნა.</string>
     <string name="general_todo_msg">ამ ფუნქციაზე ჯერ კიდევ მუშაობს და ამჟამად მიუწვდომელია.</string>
     <string name="general_share_action">გააზიარება</string>
     <string name="general_done_action">შესრულებულია</string>
     <string name="general_copy_action">კოპირება</string>
     <string name="general_wipe_action">წაშლა</string>
     <string name="general_cancel_action">გაუქმება</string>
+    <string name="general_discard_action">უარყოფა</string>
     <string name="general_reset_action">გადატვირთვა</string>
     <string name="general_save_action">შენახვა</string>
     <string name="general_thanks_action">მადლობა</string>
     <string name="general_gotit_action">Გავიგე</string>
+    <string name="general_fix_action">შეკეთება</string>
+    <string name="general_set_up_action">კონფიგურაცია</string>
     <string name="general_edit_action">რედაქტირება</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">ცარიელი</string>
@@ -43,22 +51,6 @@
     <string name="general_progress_loading">იტვირთება</string>
     <string name="general_progress_loading_app_data">მიმდინარეობს აპის მონაცემების ჩატვირთვა</string>
     <string name="general_progress_loading_data_areas">მონაცემთა ზონების ჩატვირთვა</string>
-    <string name="general_remove_action">ამოშლა</string>
-    <string name="general_settings_title">პარამეტრები</string>
-    <string name="general_help_title">დახმარება</string>
-    <string name="file_type_symbolic_link">Ბმული</string>
-    <string name="file_type_directory">დირექტორია</string>
-    <string name="file_type_file">ფაილი</string>
-    <string name="file_type_unknown">უცნობი</string>
-    <string name="slogan_message_1">სუფთა და კოხტა.</string>
-    <string name="slogan_message_6">ბაიტები, წადით!</string>
-    <string name="slogan_message_7">თავისუფალი ადგილი, ბედნიერი ადგილი.</string>
-    <string name="slogan_message_8">არასოდეს არ მოგატოვებთ.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
-    <string name="general_error_no_compatible_app_found_msg">ამ მოთხოვნის დასამუშავებლად თავსებადი აპლიკაცია ვერ მოიძებნა.</string>
-    <string name="general_discard_action">უარყოფა</string>
-    <string name="general_fix_action">შეკეთება</string>
-    <string name="general_set_up_action">კონფიგურაცია</string>
     <string name="general_progress_loading_egg_0">მაინც iPhone-ზე სწრაფია</string>
     <string name="general_progress_loading_egg_1">მეტი RAM-ის ჩამოტვირთვა</string>
     <string name="general_progress_loading_egg_2">მალე™</string>
@@ -104,6 +96,7 @@
         <item quantity="one">%d ელემენტი წაიშალა.</item>
         <item quantity="other">%d ელემენტი წაიშალა.</item>
     </plurals>
+    <string name="general_remove_action">ამოშლა</string>
     <string name="general_remove_selected_action">მონიშნულის მოშორება</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ერთი ელემენტი მოიშორა</item>
@@ -111,7 +104,6 @@
     </plurals>
     <string name="general_root_required_label">საჭიროებს root-ს</string>
     <string name="general_root_required_message">საჭიროებს root მოწყობილობას</string>
-
     <string name="general_search_action">ძებნა</string>
     <string name="general_scan_device_action">მოწყობილობის სკანირება</string>
     <string name="general_open_system_settings_action">სისტემის პარამეტრების გახსნა</string>
@@ -145,6 +137,12 @@
     <string name="general_exclude_action">გამორიცხვა</string>
     <string name="general_exclude_selected_action">მონიშნულის გამორიცხვა</string>
     <string name="general_device_label">მოწყობილობა</string>
+    <string name="general_settings_title">პარამეტრები</string>
+    <string name="general_help_title">დახმარება</string>
+    <string name="file_type_symbolic_link">Ბმული</string>
+    <string name="file_type_directory">დირექტორია</string>
+    <string name="file_type_file">ფაილი</string>
+    <string name="file_type_unknown">უცნობი</string>
     <string name="general_progress_ready">მზად</string>
     <string name="general_progress_done">დასრულდა</string>
     <string name="general_rom_type_auto_label">ავტომატური (ნაგულისხმევი)</string>

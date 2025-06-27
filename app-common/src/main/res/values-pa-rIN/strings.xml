@@ -9,7 +9,6 @@
     <string name="slogan_message_6">ਖ਼ਾਲੀ ਥਾਵਾਂ ਕਰੋ!</string>
     <string name="slogan_message_7">ਖ਼ਾਲੀ ਥਾਂ, ਸੁੱਖ ਦਾ ਸਾਹ।</string>
     <string name="slogan_message_8">ਨਹੀਂਓ ਹਾਰਦਾ ਹਜੇ ਤਾਂ SD Maid ਪੂਰਾ ਕੈਮ ਓਏ।</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="general_thank_you_label">ਮਿਹਰਬਾਨੀ</string>
     <string name="general_error_type_mismatch_msg">ਕਿਸਮ ਬੇਮੇਲ: %1$s ਚਾਹੁੰਦਾ ਸੀ, ਪਰ %2$s ਪ੍ਰਾਪਤ ਹੋਇਆ।</string>
     <string name="general_error_cant_access_msg">%s ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।</string>
@@ -50,42 +49,6 @@
     <string name="general_progress_preparing">ਤਿਆਰ ਹੋ ਰਿਹੈ...</string>
     <string name="general_progress_processing_x">%s ਦੀ ਪ੍ਰਕਿਰਿਆ ਹੋ ਰਹੀ ਹੈ</string>
     <string name="general_progress_loading">ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ</string>
-    <plurals name="result_x_successful">
-        <item quantity="one">%d ਸਫਲ</item>
-        <item quantity="other">%d ਸਫਲ</item>
-    </plurals>
-    <plurals name="result_x_failed">
-        <item quantity="one">%d ਅਸਫਲ</item>
-        <item quantity="other">%d ਅਸਫਲ</item>
-    </plurals>
-    <string name="general_info_label">ਜਾਣਕਾਰੀ</string>
-    <string name="general_count_label">ਗਿਣਤੀ</string>
-    <string name="general_app_label">ਐਪ</string>
-    <string name="general_more_info_action">ਹੋਰ ਜਾਣਕਾਰੀ</string>
-    <string name="general_grant_access_action">ਪਹੁੰਚ ਦੀ ਮਨਜ਼ੂਰੀ ਦਿਓ</string>
-    <string name="general_enable_service_action">ਸੇਵਾ ਚਾਲੂ ਕਰੋ</string>
-    <string name="general_undo_action">ਅਣਕੀਤਾ ਕਰੋ</string>
-    <string name="general_list_select_all_action">ਸਭ ਚੁਣੋ</string>
-    <string name="general_path_label">ਮਾਰਗ</string>
-    <string name="general_type_label">ਕਿਸਮ</string>
-    <string name="general_size_label">ਆਕਾਰ</string>
-    <string name="general_exclude_action">ਬਾਹਰ ਰੱਖੋ</string>
-    <string name="general_exclude_selected_action">ਚੁਣੇ ਨੂੰ ਬਾਹਰ ਰੱਖੋ</string>
-    <string name="general_device_label">ਯੰਤਰ</string>
-    <string name="general_settings_title">ਸੈਟਿੰਗਾਂ</string>
-    <string name="general_help_title">ਮਦਦ</string>
-    <string name="file_type_symbolic_link">ਲਿੰਕ</string>
-    <string name="file_type_directory">ਡਾਇਰੈਕਟਰੀ</string>
-    <string name="file_type_file">ਫਾਈਲ</string>
-    <string name="file_type_unknown">ਅਗਿਆਤ</string>
-    <string name="general_progress_ready">ਤਿਆਰ</string>
-    <string name="general_progress_done">ਮੁਕੰਮਲ</string>
-    <string name="general_rom_type_auto_label">ਸਵੈਚਾਲਿਤ (ਮੂਲ)</string>
-    <plurals name="result_x_files">
-        <item quantity="one">%s ਫਾਈਲ</item>
-        <item quantity="other">%s ਫਾਈਲਾਂ</item>
-    </plurals>
-    <string name="general_advice_title">ਸਲਾਹ</string>
     <string name="general_progress_loading_app_data">ਐਪ ਡਾਟਾ ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ</string>
     <string name="general_progress_loading_data_areas">ਡਾਟਾ ਖੇਤਰ ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ</string>
     <string name="general_progress_loading_egg_0">ਅਜੇ ਵੀ iPhone ਨਾਲੋਂ ਤੇਜ਼</string>
@@ -141,7 +104,6 @@
     </plurals>
     <string name="general_root_required_label">ਰੂਟ ਦੀ ਲੋੜ ਹੈ</string>
     <string name="general_root_required_message">ਰੂਟ ਕੀਤੇ ਗਏ ਯੰਤਰ ਦੀ ਲੋੜ ਹੈ</string>
-
     <string name="general_search_action">ਖੋਜੋ</string>
     <string name="general_scan_device_action">ਯੰਤਰ ਸਕੈਨ ਕਰੋ</string>
     <string name="general_open_system_settings_action">ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ</string>
@@ -149,10 +111,41 @@
         <item quantity="one">%s ਆਈਟਮ</item>
         <item quantity="other">%s ਆਈਟਮ</item>
     </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d ਸਫਲ</item>
+        <item quantity="other">%d ਸਫਲ</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d ਅਸਫਲ</item>
+        <item quantity="other">%d ਅਸਫਲ</item>
+    </plurals>
     <plurals name="x_space_can_be_freed">
         <item quantity="one">%s ਮੁਫਤ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ</item>
         <item quantity="other">%s ਮੁਫਤ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ</item>
     </plurals>
+    <string name="general_info_label">ਜਾਣਕਾਰੀ</string>
+    <string name="general_count_label">ਗਿਣਤੀ</string>
+    <string name="general_app_label">ਐਪ</string>
+    <string name="general_more_info_action">ਹੋਰ ਜਾਣਕਾਰੀ</string>
+    <string name="general_grant_access_action">ਪਹੁੰਚ ਦੀ ਮਨਜ਼ੂਰੀ ਦਿਓ</string>
+    <string name="general_enable_service_action">ਸੇਵਾ ਚਾਲੂ ਕਰੋ</string>
+    <string name="general_undo_action">ਅਣਕੀਤਾ ਕਰੋ</string>
+    <string name="general_list_select_all_action">ਸਭ ਚੁਣੋ</string>
+    <string name="general_path_label">ਮਾਰਗ</string>
+    <string name="general_type_label">ਕਿਸਮ</string>
+    <string name="general_size_label">ਆਕਾਰ</string>
+    <string name="general_exclude_action">ਬਾਹਰ ਰੱਖੋ</string>
+    <string name="general_exclude_selected_action">ਚੁਣੇ ਨੂੰ ਬਾਹਰ ਰੱਖੋ</string>
+    <string name="general_device_label">ਯੰਤਰ</string>
+    <string name="general_settings_title">ਸੈਟਿੰਗਾਂ</string>
+    <string name="general_help_title">ਮਦਦ</string>
+    <string name="file_type_symbolic_link">ਲਿੰਕ</string>
+    <string name="file_type_directory">ਡਾਇਰੈਕਟਰੀ</string>
+    <string name="file_type_file">ਫਾਈਲ</string>
+    <string name="file_type_unknown">ਅਗਿਆਤ</string>
+    <string name="general_progress_ready">ਤਿਆਰ</string>
+    <string name="general_progress_done">ਮੁਕੰਮਲ</string>
+    <string name="general_rom_type_auto_label">ਸਵੈਚਾਲਿਤ (ਮੂਲ)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d ਦਿਨ</item>
         <item quantity="other">%d ਦਿਨ</item>
@@ -161,6 +154,11 @@
         <item quantity="one">%d ਘੰਟਾ</item>
         <item quantity="other">%d ਘੰਟੇ</item>
     </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s ਫਾਈਲ</item>
+        <item quantity="other">%s ਫਾਈਲਾਂ</item>
+    </plurals>
+    <string name="general_advice_title">ਸਲਾਹ</string>
     <string name="general_error_invalid_input_label">ਗਲਤ ਇਨਪੁਟ</string>
     <string name="general_information_for_the_developer">ਡਿਵੈਲਪਰ ਲਈ ਜਾਣਕਾਰੀ</string>
     <string name="general_error_report_bug_action">ਬੱਗ ਰਿਪੋਰਟ ਕਰੋ</string>

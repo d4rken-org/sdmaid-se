@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
-    <string name="app_name_upgrade_postfix">Pro</string>
-
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro आवश्यक छ</string>
-
     <string name="upgrades_dashcard_title">SD Maid अपग्रेड गर्नुहोस्</string>
     <string name="upgrades_dashcard_body">SD Maid Pro ले राम्रो नतिजाहरू, थप सुविधाहरू र पावर युजरहरूका लागि विकल्पहरू प्रदान गर्दछ।</string>
     <string name="upgrades_dashcard_upgrade_action">अपग्रेड</string>
-
     <string name="upgrades_gplay_unavailable_error_title">Google Play उपलब्ध छैन</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play सँग जडान गर्न सक्दैन। के Google Play स्थापना र अद्यावधिक गरिएको छ? के तपाईंको Google खाता लग इन गरिएको छ? Google Play एपको क्यास खाली गरेर र तपाईंको उपकरण रिबुट गर्ने प्रयास गर्नुहोस्।</string>
     <string name="upgrades_no_purchases_found_check_account">कुनै खरिदहरू फेला परेनन्। के तपाईं सही खाता प्रयोग गर्दै हुनुहुन्छ?</string>

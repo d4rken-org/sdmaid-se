@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">Palveluksessanne.</string>
     <string name="slogan_message_1">Puhdas ja järjestyksessä.</string>
     <string name="slogan_message_2">Estää kaaoksen.</string>
@@ -10,9 +8,7 @@
     <string name="slogan_message_6">Tavut, häipykää!</string>
     <string name="slogan_message_7">Vapaa tila, onnellinen paikka.</string>
     <string name="slogan_message_8">En koskaan luovuta sinusta.</string>
-
     <string name="general_thank_you_label">Kiitos</string>
-
     <string name="general_error_type_mismatch_msg">Tyyppiristiriita: Haluttiin %1$s, mutta saatiin %2$s.</string>
     <string name="general_error_cant_access_msg">Ei voi käyttää %s.</string>
     <string name="general_error_root_unavailable">Root-käyttöoikeus ei ole saatavilla.</string>
@@ -62,7 +58,6 @@
     <string name="general_progress_loading_egg_5">Turbo encabulator käynnistyy</string>
     <string name="general_progress_loading_egg_6">Syöttää voita</string>
     <string name="general_progress_loading_egg_7">No niin. Miten pärjäät?</string>
-    <string name="general_progress_loading_egg_8">Beeping boop bop</string>
     <string name="general_progress_loading_egg_9">Puskuroidaan elämänvalintoja</string>
     <string name="general_progress_loading_egg_10">Kutsutaan Cthulhua</string>
     <string name="general_progress_loading_egg_11">Tämä on hyvä</string>
@@ -76,14 +71,12 @@
     <string name="general_sort_options_label">Lajitteluasetukset</string>
     <string name="general_sort_reverse_action">Käänteinen lajittelutila</string>
     <string name="general_tag_filter_label">Suodata tunnisteiden mukaan</string>
-
     <string name="general_result_success_message">Toiminto onnistui</string>
     <string name="general_result_failure_message">Toiminto epäonnistui</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Vapautettiin %s tilaa.</item>
         <item quantity="other">Vapautettiin %s tilaa.</item>
     </plurals>
-
     <string name="general_options_label">Asetukset</string>
     <string name="general_details_label">Tiedot</string>
     <string name="general_view_action">Näytä</string>
@@ -94,7 +87,6 @@
     <string name="general_show_details_action">Näytä tiedot</string>
     <string name="general_show_all_action">Näytä kaikki</string>
     <string name="general_toggle_layout_mode">Vaihda näkymätilaa</string>
-
     <string name="general_delete_confirmation_title">Vahvista poistaminen</string>
     <string name="general_delete_confirmation_message_x">Poista \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Poista %d valittua kohdetta?</string>
@@ -102,21 +94,17 @@
         <item quantity="one">Poistettiin %d kohde.</item>
         <item quantity="other">Poistettiin %d kohdetta.</item>
     </plurals>
-
     <string name="general_remove_action">Poista</string>
     <string name="general_remove_selected_action">Poista valitut</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Yksi kohde poistettiin</item>
         <item quantity="other">%d kohdetta poistettiin</item>
     </plurals>
-
     <string name="general_root_required_label">Vaatii root-oikeudet</string>
     <string name="general_root_required_message">Vaatii rootatun laitteen</string>
-
     <string name="general_search_action">Etsi</string>
     <string name="general_scan_device_action">Skannaa laite</string>
     <string name="general_open_system_settings_action">Avaa järjestelmäasetukset</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s kohde</item>
         <item quantity="other">%s kohdetta</item>
@@ -140,28 +128,21 @@
     <string name="general_grant_access_action">Myönnä käyttöoikeus</string>
     <string name="general_enable_service_action">Ota palvelu käyttöön</string>
     <string name="general_undo_action">Kumoa</string>
-
     <string name="general_list_select_all_action">Valitse kaikki</string>
-
     <string name="general_path_label">Polku</string>
     <string name="general_type_label">Tyyppi</string>
     <string name="general_size_label">Koko</string>
     <string name="general_exclude_action">Sulje pois</string>
     <string name="general_exclude_selected_action">Sulje pois valitut</string>
-
     <string name="general_device_label">Laite</string>
-
     <string name="general_settings_title">Asetukset</string>
     <string name="general_help_title">Ohje</string>
-
     <string name="file_type_symbolic_link">Linkki</string>
     <string name="file_type_directory">Hakemisto</string>
     <string name="file_type_file">Tiedosto</string>
     <string name="file_type_unknown">Tuntematon</string>
-
     <string name="general_progress_ready">Valmis</string>
     <string name="general_progress_done">Valmis</string>
-
     <string name="general_rom_type_auto_label">Automaattinen (oletus)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d päivä</item>

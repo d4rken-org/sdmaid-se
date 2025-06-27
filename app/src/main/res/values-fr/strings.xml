@@ -50,7 +50,7 @@
     <string name="onboarding_setup_body2">Ce qui est accessible dépend de votre appareil, de la version d’Android et des autorisations accordées.</string>
     <string name="onboarding_setup_body3">Commencez à utiliser SD Maid en configurant l’accès aux emplacements à chercher.</string>
     <string name="onboarding_setup_continue_action">Configurer l’accès</string>
-    <string name="settings_privacy_policy_label">Politique de protection des données personnelles</string>
+    <string name="settings_privacy_policy_label">Politique de confidentialité</string>
     <string name="settings_privacy_policy_desc">Traiter les données de manière responsable.</string>
     <string name="settings_licenses_label">Licences</string>
     <string name="settings_category_other_label">Autre</string>

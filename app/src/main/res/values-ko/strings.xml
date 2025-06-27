@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">디버그 로그 녹화하기</string>
     <string name="debug_debuglog_stop_action">기록 정지</string>
     <string name="debug_debuglog_sensitive_information_message">생성된 파일은 민감한 정보를 포함하고 있습니다. (파일 이름, 설치된 앱 등) 신뢰할 수 있는 이들과만 공유하세요.</string>
+    <string name="settings_debuglog_explanation">이 기능은 앱이 수행하는 모든 작업을 공유 가능한 파일에 기록합니다. 생성된 파일에는 민감한 정보(예: 파일 이름 및 설치된 앱)가 포함됩니다. 신뢰할 수 있는 당사자(예: 문제를 해결하는 개발자)와만 공유하세요.</string>
     <string name="tasks_activity_notification_channel_label">진행 중인 작업</string>
     <string name="tasks_activity_working_notification_title">SD Maid가 작업 중에 있습니다</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -198,6 +199,9 @@
     <string name="corpsefinder_filter_appasec_summary">게임 애셋과 같은 앱 리소스 중 암호화된 것들입니다.</string>
     <string name="corpsefinder_filter_app2sd_summary">App2Sd mods에 의해 데이터를 외부 저장 공간으로 옮겼습니다.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">%d개의 앱 잔해를 삭제했습니다</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="other">앱이 남긴 파일 %d개가 있습니다.</item>
     </plurals>
@@ -209,12 +213,19 @@
     <string name="corpsefinder_corpse_hint_common">이 항목은 매우 흔한 이름을 가집니다. 때문에 SD Maid에서 알 수 없는 아직 설치되어 있는 앱의 파일이 포함될 수 있습니다.</string>
     <string name="systemcleaner_tool_name">시스템 청소</string>
     <string name="systemcleaner_explanation_short">특정 앱에 소유되지 않은 불필요한 데이터입니다.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="other">%d개의 항목을 삭제했습니다</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="other">%d개의 파일 찾음</item>
     </plurals>
     <string name="systemcleaner_filter_custom_label">사용자 지정 필터</string>
     <string name="systemcleaner_filter_custom_manage_label">사용자 정의 필터 관리</string>
     <string name="systemcleaner_filter_custom_manage_summary">사용자 지정 필터를 만들거나, 삭제하거나, 불러오고 내보내세요.</string>
+    <string name="systemcleaner_filter_logfiles_label">시스템 로그 파일</string>
+    <string name="systemcleaner_filter_logfiles_summary">여러 위치의 시스템 및 시스템 서비스 로그 파일(예: *.log)입니다.</string>
+    <string name="systemcleaner_filter_packagecaches_label">설치 프로그램 캐시</string>
+    <string name="systemcleaner_filter_packagecaches_summary">시스템의 패키지 관리에서 사용하는 설치된 앱과 관련된 캐시된 데이터입니다.</string>
     <string name="systemcleaner_filter_advertisements_label">광고 파일</string>
     <string name="systemcleaner_filter_advertisements_summary">광고에 의해, 또는 광고를 위해 생성한 파일입니다.</string>
     <string name="systemcleaner_filter_anr_label">응답 없음 에러</string>
@@ -222,6 +233,11 @@
     <string name="systemcleaner_filter_emptydirectories_label">빈 폴더</string>
     <string name="systemcleaner_filter_emptydirectories_summary">기기에 퍼져있는 빈 폴더들입니다. 다중 폴더의 경우 여러 번의 시도가 필요할 수 있습니다.</string>
     <string name="systemcleaner_filter_screenshots_label">스크린샷</string>
+    <string name="systemcleaner_filter_screenshots_summary">여러 앱과 위치에서 %s보다 오래된 스크린샷입니다.</string>
+    <string name="systemcleaner_filter_trashed_label">휴지통 파일</string>
+    <string name="systemcleaner_filter_trashed_summary">삭제 표시되었지만 아직 영구적으로 제거되지 않은 다양한 앱과 위치의 휴지통에 있는 파일입니다.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">스크린샷 기간</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">삭제 대상으로 간주할 스크린샷의 최소 기간입니다.</string>
     <string name="systemcleaner_filter_superfluosapks_label">불필요한 APK 파일</string>
     <string name="systemcleaner_filter_superfluosapks_summary">설치된 앱 버젼보다 낮거나 같은 버젼의 APK 파일입니다.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 폴더</string>
@@ -231,8 +247,11 @@
     <string name="systemcleaner_filter_macfiles_label">맥 파일</string>
     <string name="systemcleaner_filter_macfiles_summary">애플의 Finder 앱을 이용할 때 생성되는 파일 및 폴더입니다.</string>
     <string name="systemcleaner_filter_windowsfiles_label">윈도우 파일</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"연결된 저장소에서 Windows 파일 탐색기가 만들 수 있는 데이터입니다."</string>
     <string name="systemcleaner_filter_thumbnails_label">썸네일 이미지</string>
     <string name="systemcleaner_filter_thumbnails_summary">사진과 영상의 미리보기 파일입니다.</string>
+    <string name="systemcleaner_filter_tempfiles_label">임시 시스템 파일</string>
+    <string name="systemcleaner_filter_tempfiles_summary">시스템 관련 임시 파일로, 일반적으로 활성 작업을 위한 단기 캐시입니다.</string>
     <string name="systemcleaner_filter_analytics_label">분석 파일</string>
     <string name="systemcleaner_filter_analytics_summary">버그 추적과 분석에 사용되는 파일입니다.</string>
     <string name="systemcleaner_filter_downloadcache_label">다운로드 캐시</string>
@@ -270,6 +289,10 @@
     <string name="systemcleaner_customfilter_editor_exclusions_label">제외 항목</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">경로가 어떤 항목 (예: \"DCIM\")과 일치하는 경우 결과는 제외됩니다. 더 많은 옵션을 보려면 항목을 길게 누르세요.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">경로 비교 모드</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">경로가 키워드로 시작</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">경로에 키워드 포함</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">경로가 키워드로 끝남</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">경로가 키워드와 같음</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">이름 비교 모드</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">이름이 키워드로 시작됩니다.</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">이름에 키워드가 포함되어 있습니다.</string>
@@ -321,6 +344,8 @@
     <string name="appcleaner_filter_webview_summary">인앱 브라우저(웹뷰)에서 만들어진 캐시입니다.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 백업</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">오래된 WhatsApp 백업을 지우고 최신 버전만 남깁니다.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp을 통해 다른 사람으로부터 받은 파일입니다.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp 수신 파일</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp에서 보낸 파일</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp에서 다른 곳으로 파일 보내</string>
     <string name="appcleaner_filter_telegram_label">텔레그램 미디어 파일</string>
@@ -331,7 +356,12 @@
     <string name="appcleaner_filter_wechat_summary">위챗 대화나 모멘트에서 주고받은 파일들입니다.</string>
     <string name="appcleaner_filter_viber_label">바이버</string>
     <string name="appcleaner_filter_viber_summary">채팅을 열게 되면 자동으로 다운로드되는 캐시된 미디어 파일입니다.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ 채팅</string>
+    <string name="appcleaner_filter_qqchat_summary">QQ 채팅 대화에서 보내거나 받은 파일입니다.</string>
     <string name="appcleaner_delete_all_confirmation_message">모든 앱의 임시 파일을 제거할까요?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="other">%d개의 불필요한 항목을 삭제했습니다</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">임시 파일 %d개 감지</item>
     </plurals>
@@ -353,13 +383,25 @@
         <item quantity="other">%d 개의 선택된 앱의 임시 파일을 제거할까요?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku를 이용해 캐시 삭제 중</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">접근할 수 없는 캐시 확인 중</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">캐시 지우기를 사용할 수 없음</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">시스템이 이 앱의 \"캐시 지우기\" 버튼을 비활성화했습니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>
+    <string name="appcleaner_automation_error_no_settings_title">설정 화면을 사용할 수 없음</string>
+    <string name="appcleaner_automation_error_no_settings_body">이 시스템 앱에는 설정 화면이 없습니다. 접근성 서비스를 통한 캐시 지우기가 불가능합니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">시스템 앱이 잘못 구성됨</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS의 보안 앱(com.miui.securitycenter)에 사용 통계 권한(GET_USAGE_STATS)이 없습니다. 이로 인해 앱 세부정보의 \"데이터 지우기\"와 접근성을 통한 캐시 지우기 등의 기능이 손상됩니다. 전체 기능을 복원하려면 권한을 부여하세요.</string>
     <string name="deduplicator_tool_name">중복 파일 제거기</string>
     <string name="deduplicator_explanation_short">기기의 중복된 파일을 찾습니다.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">%d개의 중복 파일을 삭제했습니다</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="other">%d 개의 중복 쌍 찾음</item>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">\"모두 삭제\" 옵션 활성화</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">중복된 파일 세트의 모든 파일을 삭제할 수 있는 옵션을 표시하여 파일이 남지 않도록 합니다.</string>
+    <string name="deduplicator_search_locations_title">검색 위치</string>
+    <string name="deduplicator_search_locations_all_summary">모든 접근 가능한 영역</string>
     <string name="deduplicator_skip_minsize_title">최소 크기</string>
     <string name="deduplicator_skip_minsize_description">최소 크기 미만의 파일은 건너뜁니다.</string>
     <string name="deduplicator_skip_uncommon_title">흔하지 않은 파일 형식 건너뛰기</string>
@@ -370,6 +412,9 @@
     <string name="deduplicator_detection_method_phash_title">인식 해시</string>
     <string name="deduplicator_detection_method_phash_summary">콘텐츠 특징을 분석하고 인식 해시값을 비교하여 유사한 파일을 찾습니다.</string>
     <string name="deduplicator_occupied_space_label">사용 중인 저장공간</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%s가 중복 파일로 점유되고 있습니다</item>
+    </plurals>
     <string name="deduplicator_file_size_label">파일 크기</string>
     <string name="deduplicator_average_size_label">평균 크기</string>
     <string name="deduplicator_cluster_x_label">클러스터 %s</string>
@@ -400,6 +445,7 @@
     <string name="appcontrol_app_launch_title">앱 실행하기</string>
     <string name="appcontrol_app_launch_description">이 앱을 실행합니다.</string>
     <string name="appcontrol_app_forcestop_title">강제 종료하기</string>
+    <string name="appcontrol_app_forcestop_description">앱이 백그라운드에서 실행 중지됩니다. 앱을 다시 시작할 때까지 알림이나 업데이트를 받지 못할 수 있습니다.</string>
     <string name="appcontrol_app_uninstall_description">기기에서 이 앱을 삭제합니다.</string>
     <string name="appcontrol_app_exclude_add_title">앱 제외</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid의 다른 활동으로부터 이 앱을 제외합니다.</string>
@@ -410,6 +456,8 @@
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">번들</string>
     <string name="appcontrol_tag_system">시스템</string>
+    <string name="appcontrol_tag_archived">보관됨</string>
+    <string name="appcontrol_tag_uninstalled">데이터만</string>
     <string name="appcontrol_tag_not_installed">설치되지 않음</string>
     <string name="appcontrol_tag_enabled">사용하고 있습니다</string>
     <string name="appcontrol_tag_disabled">사용하지 않고 있습니다</string>
@@ -421,6 +469,7 @@
     <string name="appcontrol_list_sortmode_installed_label">최초 설치</string>
     <string name="appcontrol_list_sortmode_packagename_label">패키지 이름</string>
     <string name="appcontrol_list_sortmode_size_label">크기</string>
+    <string name="appcontrol_list_sortmode_screentime_label">화면 시간</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">앱 크기는 성능상의 이유로 추정된 것입니다. 보다 정확한 데이터를 확인하려면 StorageAnalyzer tool을 사용하세요.</string>
     <string name="appcontrol_progress_uninstalling_app">앱 제거하기</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -434,18 +483,37 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="other">%d 앱의 활성화/비활성화 상태를 변경하시겠습니까?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="other">%d개의 앱을 전환했습니다</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">크기 추정</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">앱 크기의 대략적인 값을 확인합니다.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">앱 활성 여부 확인</string>
     <string name="appcontrol_settings_module_activity_enabled_description">앱이 실행되고 있는지 (또는 최근에 실행되었는지) 확인합니다.</string>
     <string name="appcontrol_export_app_selection_action">앱들 내보내기</string>
     <string name="appcontrol_export_title">앱 내보내기</string>
+    <string name="appcontrol_export_description">이 앱의 설치 파일을 저장합니다. 앱 데이터는 포함되지 않습니다.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="other">%d개의 앱을 내보냈습니다</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">%s 내보내는 중</string>
+    <string name="appcontrol_force_stop_selection_action">강제 중지</string>
     <string name="appcontrol_force_stop_action">강제 종료</string>
+    <string name="appcontrol_force_stop_confirm_title">강제 중지</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="other">%d개의 앱을 강제 중지하시겠습니까?</item>
+    </plurals>
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="other">%d 앱을 중지했습니다.</item>
     </plurals>
+    <string name="appcontrol_automation_loading">자동화 준비 중</string>
+    <string name="appcontrol_automation_title">자동화</string>
     <string name="appcontrol_automation_subtitle_force_stopping">강제 종료 중…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\"강제 중지\" 버튼 찾는 중 (키워드: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">이전 작업 확인 시도 중 (키워드: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">화면 시간: %2$s부터 %1$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">마지막 업데이트: %s</string>
+    <string name="appcontrol_item_installedat_x_label">설치됨: %s</string>
     <string name="analyzer_tool_name">저장소 분석기</string>
     <string name="analyzer_explanation_short">무엇이 저장 공간을 차지하고 있는지 확인합니다.</string>
     <string name="analyzer_progress_scanning_device">저장 장치 검색 중</string>
@@ -465,6 +533,8 @@
     <string name="analyzer_storage_type_primary_description">기기의 주 저장공간입니다. 기기 내부의 \"sdcard\" 및 앱과 시스템 데이터를 저장하는 공간을 포함합니다.</string>
     <string name="analyzer_storage_type_secondary_title">추가 저장소</string>
     <string name="analyzer_storage_type_secondary_description">외부 SD card 등의 추가 저장소입니다. 사진/영상이나 일부 앱의 데이터를 포함합니다.</string>
+    <string name="analyzer_storage_type_tertiary_title">3차 저장소</string>
+    <string name="analyzer_storage_type_tertiary_description">3차 저장소는 추가 저장 장치입니다(예: USB 드라이브).</string>
     <string name="analyzer_storage_content_title">저장소 내용물</string>
     <string name="analyzer_storage_content_type_app_label">앱</string>
     <string name="analyzer_storage_content_type_app_description">앱 파일과 그 데이터 및 캐시 등이 차지하는 공간입니다.</string>
@@ -474,6 +544,7 @@
     <string name="analyzer_storage_content_type_system_label">시스템 데이터</string>
     <string name="analyzer_storage_content_type_system_description">시스템 앱 및 데이터. 여러 유저가 추가되어 있다면 다른 유저의 앱과 데이터를 포함합니다.</string>
     <string name="analyzer_storage_content_app_code_label">앱 소스</string>
+    <string name="analyzer_storage_content_app_code_description">APK 파일 및 기타 설치 관련 파일</string>
     <string name="analyzer_storage_content_app_data_label">앱 데이터</string>
     <string name="analyzer_storage_content_app_data_description">앱의 데이터, 설정, 캐시 등을 포함하는 공간입니다.</string>
     <string name="analyzer_storage_content_app_media_label">앱 미디어</string>
@@ -481,6 +552,7 @@
     <string name="analyzer_storage_content_app_extra_label">기타 앱 파일</string>
     <string name="analyzer_storage_content_app_extra_description">특정 앱에서 다운로드한 파일 중 기본 폴더(downloads, photos)에 포함되지 않은 파일입니다.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">앱이 \"%2$s\"의 %1$s를 차지하고 있습니다.</string>
+    <string name="analyzer_app_details_app_is_archived">보관됨</string>
     <string name="data_area_public_app_data_official_label">기본 공개 앱 데이터</string>
     <string name="data_area_public_app_assets_official_label">기본 공개 앱 자산</string>
     <string name="data_area_public_storage_label">공개 저장소</string>
@@ -502,6 +574,7 @@
     <string name="exclusion_option_allow_partial">부분 매칭 허용</string>
     <string name="exclusion_option_ignore_casing">대/소문자 무시</string>
     <string name="exclusion_editor_affected_tools_label">영향받은 도구</string>
+    <string name="exclusion_editor_path_explanation">경로 제외는 SD Maid가 지정된 위치를 처리하지 못하도록 합니다. 이는 파일, 폴더 및 중첩된 폴더에 적용됩니다.</string>
     <string name="exclusion_editor_pkg_explanation">앱 제외는 SD Maid가 해당하는 애플리케이션을 처리하는 것을 방지합니다.</string>
     <string name="exclusion_editor_segment_explanation">세그멘트 기반 제외는 경로 제외와 비슷하지만 일부만 해당하는 경우도 적용됩니다. 예시: \"DCIM/Camera\" 를 제외하면 \"/sdcard/DCIM/Camera/photo.png\" 도 제외됩니다.</string>
     <string name="exclusion_editor_remove_confirmation_message">이 제외 항목을 삭제할까요?</string>
@@ -514,6 +587,7 @@
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d개의 제외 생성됨</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">기본값 표시</string>
     <string name="automation_accessibility_service_description">접근성 기능이 필요한 사용자는 이 서비스를 허용하여 일일이 수동으로 작동시켜야 하는 (캐시 삭제 같은) 기능들을 자동화할 수 있습니다.\n\n예를 들어 SD Maid가 여러 개의 앱을 중지해야 할 경우, SD Maid는 이 서비스를 사용하여 각 앱의 설정 화면을 띄운 뒤 강제 중지 버튼을 찾아 자동으로 누르게 됩니다.\n\nSD Maid는 이 기능을 사용할 때마다 이용자에게 이 기능을 실행할지 반드시 물어볼 것이며, 사용자는 언제든지 서비스 동작을 쉽게 중지할 수 있습니다.\n\n사용자의 동의 없이는 어떠한 동작도 실행되지 않습니다. 사용자는 큰 문제 없이 언제든지 이 기능을 끌 수 있습니다.</string>
     <string name="automation_screenoverlay_explanation">SD Maid가 화면과 상호작용하고 있습니다. 사용자가 지금 화면을 사용할 수 없습니다. 작업이 끝날 때까지 기다리거나 작업을 취소하세요.</string>
     <string name="automation_active_title">SD Maid가 동작하고 있습니다</string>
@@ -525,6 +599,12 @@
     <string name="automation_error_not_running_body">접근성 서비스가 실행중이지 않습니다. 기기를 재부팅해보세요.</string>
     <string name="automation_error_screen_unavailable_title">화면을 볼 수 없음</string>
     <string name="automation_error_screen_unavailable_body">화면을 볼 수 없게 되어 작업이 중단되었습니다(예: 디스플레이가 꺼져 있거나 잠금 화면이 활성화되어있음).</string>
+    <string name="automation_error_compatibility_title">자동화 호환성</string>
+    <string name="automation_error_compatibility_body">SD Maid가 화면 레이아웃을 파악할 수 없었습니다. 이 문제가 계속 발생하면 사용하시는 언어나 설정이 완전히 지원되지 않을 수 있습니다. 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
+    <string name="automation_error_timeout_title">자동화 시간 초과</string>
+    <string name="automation_error_timeout_body">SD Maid가 시간 제한 내에 모든 단계를 완료하지 못했습니다. 이 문제가 계속 발생하면 사용자의 기기에 맞게 앱을 조정해야 할 수 있습니다. 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
+    <string name="automation_error_overlay_title">자동화 오버레이</string>
+    <string name="automation_error_overlay_body">SD Maid가 자동화 오버레이를 표시할 수 없었습니다. 권한을 확인하고 기기를 재부팅해 보세요.</string>
     <string name="history_label">이력</string>
     <string name="history_description">최근 활동과 영향을 받은 데이터의 시간순 목록</string>
     <string name="scheduler_label">스케쥴러</string>
@@ -563,6 +643,7 @@
     <string name="scheduler_notification_result_failure_message">일부 예약된 작업이 실패했거나 오류가 발생했습니다. 수동으로 실행해 보세요.</string>
     <string name="scheduler_commands_after_schedule_label">일정 후 명령</string>
     <string name="scheduler_commands_after_schedule_desc">일정이 끝날 때 실행되는 Android shell 명령입니다.</string>
+    <string name="scheduler_battery_optimization_hint">이 기능이 제대로 작동하려면 SD Maid에 대한 배터리 최적화를 비활성화해야 할 수 있습니다.</string>
     <string name="updates_dashcard_title">사용할 수 있는 업데이트</string>
     <string name="updates_dashcard_body">업데이트를 사용할 수 있습니다. 지금은 %1$s(을)를 사용하고 있고 최신 버전은 %2$s입니다.</string>
     <string name="translation_encourage_title">SD Maid 번역하기</string>
@@ -579,120 +660,39 @@
     <string name="review_app_dismiss_action">다음에 해요</string>
     <string name="review_app_body">SD Maid 리뷰를 남겨주시겠어요?️ ❤️</string>
     <string name="stats_label">이력</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="other">%s가 확보되었습니다.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="other">SD Maid를 기기에 초대한 이후 %s개의 항목이 처리되었습니다.</item>
+    </plurals>
+    <string name="stats_report_status_success">성공</string>
+    <string name="stats_report_status_partial_success">부분 성공</string>
+    <string name="stats_report_status_partial_failure">부분 실패</string>
+    <string name="stats_settings_desc">SD Maid의 작업에 대한 기록을 보관하고 통계를 생성합니다.</string>
+    <string name="stats_settings_retention_category">보존</string>
+    <string name="stats_settings_retention_reports_label">작업 보고서</string>
+    <string name="stats_settings_retention_reports_desc">개별 작업 보고서를 보관할 일수입니다.</string>
+    <string name="stats_settings_retention_paths_label">세부 경로 정보</string>
+    <string name="stats_settings_retention_paths_desc">SD Maid가 영향을 준 경로에 대한 세부 정보를 보관할 일수입니다.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="other">%d일</item>
+    </plurals>
     <string name="stats_settings_reset_all_label">모두 초기화</string>
     <string name="stats_settings_reset_all_desc">모든 보고서를 삭제하고 모든 통계를 0으로 설정합니다.</string>
     <string name="stats_affected_paths_label">영향을 받은 경로</string>
     <string name="stats_affected_pkgs_label">영향을 받은 앱</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">시스템이 이 앱의 "캐시 지우기" 버튼을 비활성화했습니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>
-    <string name="appcleaner_automation_error_locked_appcache_title">캐시 지우기를 사용할 수 없음</string>
-    <string name="appcleaner_automation_error_no_settings_body">이 시스템 앱에는 설정 화면이 없습니다. 접근성 서비스를 통한 캐시 지우기가 불가능합니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>
-    <string name="appcleaner_automation_error_no_settings_title">설정 화면을 사용할 수 없음</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS의 보안 앱(com.miui.securitycenter)에 사용 통계 권한(GET_USAGE_STATS)이 없습니다. 이로 인해 앱 세부정보의 "데이터 지우기"와 접근성을 통한 캐시 지우기 등의 기능이 손상됩니다. 전체 기능을 복원하려면 권한을 부여하세요.</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_title">시스템 앱이 잘못 구성됨</string>
-    <string name="appcleaner_filter_qqchat_label">QQ 채팅</string>
-    <string name="appcleaner_filter_qqchat_summary">QQ 채팅 대화에서 보내거나 받은 파일입니다.</string>
-    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp 수신 파일</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp을 통해 다른 사람으로부터 받은 파일입니다.</string>
-    <string name="appcleaner_progress_determining_inaccessible_caches">접근할 수 없는 캐시 확인 중</string>
-    <plurals name="appcleaner_result_x_items_deleted">
-        <item quantity="other">%d개의 불필요한 항목을 삭제했습니다</item>
-    </plurals>
-    <plurals name="appcontrol_export_result_message_x">
-        <item quantity="other">%d개의 앱을 내보냈습니다</item>
-    </plurals>
-    <plurals name="appcontrol_force_stop_confirmation_message_x">
-        <item quantity="other">%d개의 앱을 강제 중지하시겠습니까?</item>
-    </plurals>
-    <string name="appcontrol_item_installedat_x_label">설치됨: %s</string>
-    <string name="appcontrol_item_lastupdate_x_label">마지막 업데이트: %s</string>
-    <string name="appcontrol_item_screentime_x_since_y_label">화면 시간: %2$s부터 %1$s</string>
-    <string name="appcontrol_list_sortmode_screentime_label">화면 시간</string>
-    <string name="appcontrol_tag_uninstalled">데이터만</string>
-    <plurals name="appcontrol_toggle_result_message_x">
-        <item quantity="other">%d개의 앱을 전환했습니다</item>
-    </plurals>
-    <string name="automation_error_compatibility_body">SD Maid가 화면 레이아웃을 파악할 수 없었습니다. 이 문제가 계속 발생하면 사용하시는 언어나 설정이 완전히 지원되지 않을 수 있습니다. 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
-    <string name="automation_error_compatibility_title">자동화 호환성</string>
-    <string name="automation_error_overlay_body">SD Maid가 자동화 오버레이를 표시할 수 없었습니다. 권한을 확인하고 기기를 재부팅해 보세요.</string>
-    <string name="automation_error_overlay_title">자동화 오버레이</string>
-    <string name="automation_error_timeout_body">SD Maid가 시간 제한 내에 모든 단계를 완료하지 못했습니다. 이 문제가 계속 발생하면 사용자의 기기에 맞게 앱을 조정해야 할 수 있습니다. 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
-    <string name="automation_error_timeout_title">자동화 시간 초과</string>
-    <plurals name="corpsefinder_result_x_corpses_deleted">
-        <item quantity="other">%d개의 앱 잔해를 삭제했습니다</item>
-    </plurals>
-    <plurals name="deduplicator_result_x_clusters_processed">
-        <item quantity="other">%d개의 중복 파일을 삭제했습니다</item>
-    </plurals>
-    <string name="deduplicator_search_locations_all_summary">모든 접근 가능한 영역</string>
-    <string name="deduplicator_search_locations_title">검색 위치</string>
-    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
-        <item quantity="other">%s가 중복 파일로 점유되고 있습니다</item>
-    </plurals>
-    <string name="exclusion_show_defaults_action">기본값 표시</string>
     <string name="picker_select_paths_title">경로 선택</string>
     <string name="picker_selected_paths_title">선택된 경로</string>
+    <string name="picker_unsaved_confirmation_message">변경사항을 취소하시겠습니까?</string>
     <plurals name="picker_selected_paths_subtitle">
         <item quantity="other">%d개 경로가 선택됨</item>
     </plurals>
-    <string name="picker_unsaved_confirmation_message">변경사항을 취소하시겠습니까?</string>
     <string name="picker_home_action">데이터 영역</string>
-    <string name="settings_debuglog_explanation">이 기능은 앱이 수행하는 모든 작업을 공유 가능한 파일에 기록합니다. 생성된 파일에는 민감한 정보(예: 파일 이름 및 설치된 앱)가 포함됩니다. 신뢰할 수 있는 당사자(예: 문제를 해결하는 개발자)와만 공유하세요.</string>
-    <plurals name="stats_dash_body_count">
-        <item quantity="other">SD Maid를 기기에 초대한 이후 %s개의 항목이 처리되었습니다.</item>
-    </plurals>
-    <plurals name="stats_dash_body_size">
-        <item quantity="other">%s가 확보되었습니다.</item>
-    </plurals>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="other">%d일</item>
-    </plurals>
-    <plurals name="systemcleaner_result_x_items_deleted">
-        <item quantity="other">%d개의 항목을 삭제했습니다</item>
-    </plurals>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">경로에 키워드 포함</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">경로가 키워드로 끝남</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">경로가 키워드와 같음</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">경로가 키워드로 시작</string>
-    <string name="systemcleaner_filter_logfiles_label">시스템 로그 파일</string>
-    <string name="systemcleaner_filter_logfiles_summary">여러 위치의 시스템 및 시스템 서비스 로그 파일(예: *.log)입니다.</string>
-    <string name="systemcleaner_filter_packagecaches_label">설치 프로그램 캐시</string>
-    <string name="systemcleaner_filter_packagecaches_summary">시스템의 패키지 관리에서 사용하는 설치된 앱과 관련된 캐시된 데이터입니다.</string>
-    <string name="systemcleaner_filter_screenshots_age_label">스크린샷 기간</string>
-    <string name="systemcleaner_filter_screenshots_age_summary">삭제 대상으로 간주할 스크린샷의 최소 기간입니다.</string>
-    <string name="systemcleaner_filter_screenshots_summary">여러 앱과 위치에서 %s보다 오래된 스크린샷입니다.</string>
-    <string name="systemcleaner_filter_tempfiles_label">임시 시스템 파일</string>
-    <string name="systemcleaner_filter_tempfiles_summary">시스템 관련 임시 파일로, 일반적으로 활성 작업을 위한 단기 캐시입니다.</string>
-    <string name="systemcleaner_filter_trashed_label">휴지통 파일</string>
-    <string name="systemcleaner_filter_trashed_summary">삭제 표시되었지만 아직 영구적으로 제거되지 않은 다양한 앱과 위치의 휴지통에 있는 파일입니다.</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">연결된 저장소에서 Windows 파일 탐색기가 만들 수 있는 데이터입니다.</string>
     <string name="area_type_sdcard_label">공용 저장소</string>
     <string name="area_type_public_media_label">공용 앱 미디어</string>
     <string name="area_type_public_data_label">공용 앱 데이터</string>
     <string name="area_type_public_obb_label">공용 앱 리소스</string>
     <string name="area_type_private_data_label">개인 앱 데이터</string>
     <string name="area_type_portable_label">휴대용 저장소</string>
-    <string name="analyzer_app_details_app_is_archived">보관됨</string>
-    <string name="analyzer_storage_content_app_code_description">APK 파일 및 기타 설치 관련 파일</string>
-    <string name="analyzer_storage_type_tertiary_description">3차 저장소는 추가 저장 장치입니다(예: USB 드라이브).</string>
-    <string name="analyzer_storage_type_tertiary_title">3차 저장소</string>
-    <string name="appcontrol_app_forcestop_description">앱이 백그라운드에서 실행 중지됩니다. 앱을 다시 시작할 때까지 알림이나 업데이트를 받지 못할 수 있습니다.</string>
-    <string name="appcontrol_automation_loading">자동화 준비 중</string>
-    <string name="appcontrol_automation_progress_find_force_stop">"강제 중지" 버튼 찾는 중 (키워드: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">이전 작업 확인 시도 중 (키워드: %s)</string>
-    <string name="appcontrol_automation_title">자동화</string>
-    <string name="appcontrol_export_description">이 앱의 설치 파일을 저장합니다. 앱 데이터는 포함되지 않습니다.</string>
-    <string name="appcontrol_force_stop_confirm_title">강제 중지</string>
-    <string name="appcontrol_force_stop_selection_action">강제 중지</string>
-    <string name="appcontrol_tag_archived">보관됨</string>
-    <string name="exclusion_editor_path_explanation">경로 제외는 SD Maid가 지정된 위치를 처리하지 못하도록 합니다. 이는 파일, 폴더 및 중첩된 폴더에 적용됩니다.</string>
-    <string name="scheduler_battery_optimization_hint">이 기능이 제대로 작동하려면 SD Maid에 대한 배터리 최적화를 비활성화해야 할 수 있습니다.</string>
-    <string name="stats_report_status_partial_failure">부분 실패</string>
-    <string name="stats_report_status_partial_success">부분 성공</string>
-    <string name="stats_report_status_success">성공</string>
-    <string name="stats_settings_desc">SD Maid의 작업에 대한 기록을 보관하고 통계를 생성합니다.</string>
-    <string name="stats_settings_retention_category">보존</string>
-    <string name="stats_settings_retention_paths_desc">SD Maid가 영향을 준 경로에 대한 세부 정보를 보관할 일수입니다.</string>
-    <string name="stats_settings_retention_paths_label">세부 경로 정보</string>
-    <string name="stats_settings_retention_reports_desc">개별 작업 보고서를 보관할 일수입니다.</string>
-    <string name="stats_settings_retention_reports_label">작업 보고서</string>
 </resources>

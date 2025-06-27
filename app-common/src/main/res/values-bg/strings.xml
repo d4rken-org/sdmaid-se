@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">На ваше разположение.</string>
     <string name="slogan_message_1">Чисто и подредено.</string>
     <string name="slogan_message_2">Предотвратява хаоса.</string>
@@ -10,9 +8,7 @@
     <string name="slogan_message_6">Байтове, изчезнете!</string>
     <string name="slogan_message_7">Свободно място, щастливо място.</string>
     <string name="slogan_message_8">Никога няма да се откажа от теб.</string>
-
     <string name="general_thank_you_label">Благодаря</string>
-
     <string name="general_error_type_mismatch_msg">Несъответствие на типа: Искаше се %1$s, но получи %2$s.</string>
     <string name="general_error_cant_access_msg">Не може да се достъпи %s.</string>
     <string name="general_error_root_unavailable">Root достъпът не е наличен.</string>
@@ -76,14 +72,12 @@
     <string name="general_sort_options_label">Опции за сортиране</string>
     <string name="general_sort_reverse_action">Обратен режим на сортиране</string>
     <string name="general_tag_filter_label">Филтриране по тагове</string>
-
     <string name="general_result_success_message">Операцията е успешна</string>
     <string name="general_result_failure_message">Операцията е неуспешна</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Освободено %s място.</item>
         <item quantity="other">Освободено %s място.</item>
     </plurals>
-
     <string name="general_options_label">Опции</string>
     <string name="general_details_label">Подробности</string>
     <string name="general_view_action">Преглед</string>
@@ -94,7 +88,6 @@
     <string name="general_show_details_action">Показване на подробности</string>
     <string name="general_show_all_action">Показване на всички</string>
     <string name="general_toggle_layout_mode">Превключване на режима на изглед</string>
-
     <string name="general_delete_confirmation_title">Потвърждаване на изтриването</string>
     <string name="general_delete_confirmation_message_x">Изтриване на \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Изтриване на %d избрани елемента?</string>
@@ -102,21 +95,17 @@
         <item quantity="one">Изтрит %d елемент.</item>
         <item quantity="other">Изтрити %d елемента.</item>
     </plurals>
-
     <string name="general_remove_action">Премахване</string>
     <string name="general_remove_selected_action">Премахване на избраните</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Един елемент беше премахнат</item>
         <item quantity="other">%d елемента бяха премахнати</item>
     </plurals>
-
     <string name="general_root_required_label">Изисква root</string>
     <string name="general_root_required_message">Изисква root устройство</string>
-
     <string name="general_search_action">Търсене</string>
     <string name="general_scan_device_action">Сканиране на устройството</string>
     <string name="general_open_system_settings_action">Отваряне на системните настройки</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s елемент</item>
         <item quantity="other">%s елемента</item>
@@ -140,28 +129,21 @@
     <string name="general_grant_access_action">Даване на достъп</string>
     <string name="general_enable_service_action">Активиране на услугата</string>
     <string name="general_undo_action">Отмяна</string>
-
     <string name="general_list_select_all_action">Избиране на всички</string>
-
     <string name="general_path_label">Път</string>
     <string name="general_type_label">Тип</string>
     <string name="general_size_label">Размер</string>
     <string name="general_exclude_action">Изключване</string>
     <string name="general_exclude_selected_action">Изключване на избраните</string>
-
     <string name="general_device_label">Устройство</string>
-
     <string name="general_settings_title">Настройки</string>
     <string name="general_help_title">Помощ</string>
-
     <string name="file_type_symbolic_link">Връзка</string>
     <string name="file_type_directory">Директория</string>
     <string name="file_type_file">Файл</string>
     <string name="file_type_unknown">Неизвестен</string>
-
     <string name="general_progress_ready">Готов</string>
     <string name="general_progress_done">Завършено</string>
-
     <string name="general_rom_type_auto_label">Автоматично (по подразбиране)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d ден</item>

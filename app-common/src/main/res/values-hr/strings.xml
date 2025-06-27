@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Na usluzi.</string>
     <string name="slogan_message_1">Čisto i uredno.</string>
     <string name="slogan_message_2">Sprječava kaos.</string>
@@ -29,7 +28,6 @@
     <string name="general_fix_action">Popravi</string>
     <string name="general_set_up_action">Postavljanje</string>
     <string name="general_edit_action">Uredi</string>
-    <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Prazno</string>
     <string name="general_dismiss_action">Odbaci</string>
     <string name="general_maybe_later_action">Možda kasnije</string>

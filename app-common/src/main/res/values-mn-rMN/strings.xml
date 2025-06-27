@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">Таны үйлчилгээнд.</string>
     <string name="slogan_message_1">Цэвэр бөгөөд эмх цэгцтэй.</string>
     <string name="slogan_message_2">Эмх замбараагүй байдлаас сэргийлэх.</string>
     <string name="slogan_message_3">Хэрэгтэй зүйлийг хийх.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
     <string name="slogan_message_5">Толигор.</string>
     <string name="slogan_message_6">Байт, явж!</string>
     <string name="slogan_message_7">Чөлөөт зай, баяр баясгалантай газар.</string>
     <string name="slogan_message_8">Хэзээ ч орхихгүй.</string>
-
     <string name="general_thank_you_label">Баярлалаа</string>
-
     <string name="general_error_type_mismatch_msg">Төрөл тохирохгүй: %1$s хүссэн боловч %2$s авсан.</string>
     <string name="general_error_cant_access_msg">%s-д хандах боломжгүй.</string>
     <string name="general_error_root_unavailable">Root эрх хүрэхгүй байна.</string>
@@ -77,14 +72,12 @@
     <string name="general_sort_options_label">Эрэмбэлэх сонголтууд</string>
     <string name="general_sort_reverse_action">Урвуу эрэмбэлэх горим</string>
     <string name="general_tag_filter_label">Шошгоор шүүх</string>
-
     <string name="general_result_success_message">Амжилттай гүйцэтгэгдсэн</string>
     <string name="general_result_failure_message">Үйлдэл амжилтгүй</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s зай чөлөөлөгдсөн.</item>
         <item quantity="other">%s зай чөлөөлөгдсөн.</item>
     </plurals>
-
     <string name="general_options_label">Сонголтууд</string>
     <string name="general_details_label">Дэлгэрэнгүй</string>
     <string name="general_view_action">Харах</string>
@@ -95,7 +88,6 @@
     <string name="general_show_details_action">Дэлгэрэнгүй харуулах</string>
     <string name="general_show_all_action">Бүгдийг харуулах</string>
     <string name="general_toggle_layout_mode">Харах горимыг сэлгэх</string>
-
     <string name="general_delete_confirmation_title">Устгахыг баталгаажуулах</string>
     <string name="general_delete_confirmation_message_x">\"%s\" устгах уу?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Сонгосон %d зүйлийг устгах уу?</string>
@@ -103,21 +95,17 @@
         <item quantity="one">%d зүйл устгасан.</item>
         <item quantity="other">%d зүйл устгасан.</item>
     </plurals>
-
     <string name="general_remove_action">Хасах</string>
     <string name="general_remove_selected_action">Сонгосныг хасах</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Нэг зүйл хасагдсан</item>
         <item quantity="other">%d зүйл хасагдсан</item>
     </plurals>
-
     <string name="general_root_required_label">Root эрх шаардлагатай</string>
     <string name="general_root_required_message">Root эрхтэй төхөөрөмж шаардлагатай</string>
-
     <string name="general_search_action">Хайх</string>
     <string name="general_scan_device_action">Төхөөрөмж скан хийх</string>
     <string name="general_open_system_settings_action">Системийн тохиргоо нээх</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s зүйл</item>
         <item quantity="other">%s зүйл</item>
@@ -141,28 +129,21 @@
     <string name="general_grant_access_action">Хандалт олгох</string>
     <string name="general_enable_service_action">Үйлчилгээ идэвхжүүлэх</string>
     <string name="general_undo_action">Буцаах</string>
-
     <string name="general_list_select_all_action">Бүгдийг сонгох</string>
-
     <string name="general_path_label">Зам</string>
     <string name="general_type_label">Төрөл</string>
     <string name="general_size_label">Хэмжээ</string>
     <string name="general_exclude_action">Хасах</string>
     <string name="general_exclude_selected_action">Сонгосныг хасах</string>
-
     <string name="general_device_label">Төхөөрөмж</string>
-
     <string name="general_settings_title">Тохиргоо</string>
     <string name="general_help_title">Тусламж</string>
-
     <string name="file_type_symbolic_link">Холбоос</string>
     <string name="file_type_directory">Лавлах</string>
     <string name="file_type_file">Файл</string>
     <string name="file_type_unknown">Тодорхойгүй</string>
-
     <string name="general_progress_ready">Бэлэн</string>
     <string name="general_progress_done">Дууссан</string>
-
     <string name="general_rom_type_auto_label">Автомат (анхдагч)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d өдөр</item>
