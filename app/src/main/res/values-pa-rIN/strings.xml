@@ -661,6 +661,7 @@
     <item quantity="other">%d ਡੁਪਲੀਕੇਟ ਸੈੱਟ ਮਿਲੇ</item>
   </plurals>
   <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+    <item quantity="one">%s ਡੁਪਲੀਕੇਟਸ ਦੁਆਰਾ ਲਿਆ ਗਿਆ ਹੈ</item>
     <item quantity="other">%s ਡੁਪਲੀਕੇਟਸ ਦੁਆਰਾ ਲਿਆ ਗਿਆ ਹੈ</item>
   </plurals>
   <plurals name="appcontrol_x_apps_detected_label">
@@ -692,9 +693,11 @@
     <item quantity="other">%d ਐਪਾਂ ਬੰਦ ਕੀਤੀਆਂ ਗਈਆਂ</item>
   </plurals>
   <plurals name="analyzer_space_available">
+    <item quantity="one">%s ਉਪਲਬਧ ਹੈ</item>
     <item quantity="other">%s ਉਪਲਬਧ ਹੈ</item>
   </plurals>
   <plurals name="analyzer_space_used">
+    <item quantity="one">%s ਵਰਤਿਆ ਗਿਆ</item>
     <item quantity="other">%s ਵਰਤਿਆ ਗਿਆ</item>
   </plurals>
   <plurals name="exclusion_x_new_exclusions">
@@ -702,10 +705,11 @@
     <item quantity="other">%d ਬਾਹਰੀਕਰਣ ਬਣਾਏ ਗਏ</item>
   </plurals>
   <plurals name="scheduler_schedule_repeat_x_days">
-    <item quantity="one">ਰੋਜ਼ਾਨਾ</item>
+    <item quantity="one">ਹਰ %d ਦਿਨ</item>
     <item quantity="other">ਹਰ %d ਦਿਨ</item>
   </plurals>
   <plurals name="stats_dash_body_size">
+    <item quantity="one">%s ਮੁਕਤ ਕੀਤਾ ਗਿਆ ਹੈ।</item>
     <item quantity="other">%s ਮੁਕਤ ਕੀਤਾ ਗਿਆ ਹੈ।</item>
   </plurals>
   <plurals name="stats_dash_body_count">
