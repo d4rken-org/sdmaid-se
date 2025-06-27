@@ -75,6 +75,9 @@
     <string name="general_tag_filter_label">태그별로 필터</string>
     <string name="general_result_success_message">작업 성공</string>
     <string name="general_result_failure_message">작업 실패</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="other">%s 공간을 확보했습니다.</item>
+    </plurals>
     <string name="general_options_label">옵션</string>
     <string name="general_details_label">세부사항</string>
     <string name="general_view_action">보기</string>
@@ -88,6 +91,9 @@
     <string name="general_delete_confirmation_title">삭제 확인</string>
     <string name="general_delete_confirmation_message_x">%s 를 삭제할까요?</string>
     <string name="general_delete_confirmation_message_selected_x_items">선택한 항목 %d개를 삭제하시겠습니까?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="other">%d개 항목을 삭제했습니다.</item>
+    </plurals>
     <string name="general_remove_action">제거</string>
     <string name="general_remove_selected_action">선택 사항 삭제하기</string>
     <plurals name="general_remove_success_x_items">
@@ -106,6 +112,9 @@
     </plurals>
     <plurals name="result_x_failed">
         <item quantity="other">%d개 실패</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="other">%s를 확보할 수 있습니다</item>
     </plurals>
     <string name="general_info_label">정보</string>
     <string name="general_count_label">개수</string>
@@ -129,7 +138,20 @@
     <string name="file_type_unknown">알 수 없음</string>
     <string name="general_progress_ready">준비</string>
     <string name="general_progress_done">완료</string>
+    <string name="general_rom_type_auto_label">자동 (기본값)</string>
+    <plurals name="general_age_days">
+        <item quantity="other">%d일</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="other">%d시간</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="other">%s 파일</item>
     </plurals>
+    <string name="general_advice_title">조언</string>
+    <string name="general_error_invalid_input_label">잘못된 입력</string>
+    <string name="general_information_for_the_developer">개발자 정보</string>
+    <string name="general_error_report_bug_action">버그 신고</string>
+    <string name="general_error_ipc_deadobject_title">서비스 연결 끊김</string>
+    <string name="general_error_ipc_deadobject_description">중요한 서비스(예: Magisk, Shizuku 또는 기타 시스템 수준 서비스)와의 연결이 예기치 않게 끊어졌습니다. 기기를 재부팅하십시오. 문제가 지속되면 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
 </resources>

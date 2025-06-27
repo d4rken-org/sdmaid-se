@@ -2,24 +2,32 @@
 <resources>
     <string name="app_name">SD മെയ്ഡ് SE</string>
     <string name="slogan_message_0">നിങ്ങളുടെ സേവനത്തിൽ.</string>
+    <string name="slogan_message_1">വൃത്തിയും വെടിപ്പും.</string>
     <string name="slogan_message_2">അരാജകത്വം തടയുന്നു.</string>
     <string name="slogan_message_3">ആവശ്യമുള്ളത് ചെയ്യുന്നു.</string>
     <string name="slogan_message_5">കളങ്കമില്ലാത്ത.</string>
+    <string name="slogan_message_6">ബൈറ്റുകളേ, പോകൂ!</string>
+    <string name="slogan_message_7">സ്വതന്ത്ര സ്ഥലം, സന്തോഷകരമായ സ്ഥലം.</string>
+    <string name="slogan_message_8">ഒരിക്കലും നിങ്ങളെ ഉപേക്ഷിക്കാൻ പോകുന്നില്ല.</string>
     <string name="general_thank_you_label">നന്ദി</string>
     <string name="general_error_type_mismatch_msg">ടൈപ്പ് പൊരുത്തക്കേട്: %1$s ആവശ്യമാണ്, പക്ഷേ %2$s ലഭിച്ചു.</string>
     <string name="general_error_cant_access_msg">%s ആക്സസ് ചെയ്യാൻ കഴിയില്ല.</string>
     <string name="general_error_root_unavailable">റൂട്ട് ആക്സസ് ലഭ്യമല്ല.</string>
     <string name="general_error_empty_result_msg">ഫലം ശൂന്യമായിരുന്നു.</string>
+    <string name="general_error_no_compatible_app_found_msg">ഈ അഭ്യർത്ഥന കൈകാര്യം ചെയ്യാൻ അനുയോജ്യമായ ആപ്പ് കണ്ടെത്തിയില്ല.</string>
     <string name="general_todo_msg">ഈ ഫീച്ചർ ഇപ്പോഴും നിർമ്മിക്കപ്പെട്ടുകൊണ്ടിരിക്കുകയാണ്, നിലവിൽ ലഭ്യമല്ല.</string>
     <string name="general_share_action">പങ്കിടുക</string>
     <string name="general_done_action">കഴിഞ്ഞു</string>
     <string name="general_copy_action">പകര്‍ത്തുക</string>
     <string name="general_wipe_action">മായ്ക്കുക</string>
     <string name="general_cancel_action">റദ്ദ്ചെയ്യുക</string>
+    <string name="general_discard_action">ഉപേക്ഷിക്കുക</string>
     <string name="general_reset_action">പുനഃക്രമീകരിക്കുക</string>
     <string name="general_save_action">സേവ്</string>
     <string name="general_thanks_action">നന്ദി</string>
     <string name="general_gotit_action">മനസ്സിലായി</string>
+    <string name="general_fix_action">ശരിയാക്കുക</string>
+    <string name="general_set_up_action">സജ്ജീകരിക്കുക</string>
     <string name="general_edit_action">തിരുത്തുക</string>
     <string name="general_na_label">ലഭ്യമല്ല</string>
     <string name="general_empty_label">ശൂന്യം</string>
@@ -51,22 +59,49 @@
     <string name="general_progress_loading_egg_5">ടർബോ എൻകാബുലേറ്റർ ആരംഭിക്കുന്നു</string>
     <string name="general_progress_loading_egg_6">വെണ്ണ കടക്കുന്നു</string>
     <string name="general_progress_loading_egg_7">അപ്പൊ. എന്തൊക്കെയുണ്ട്?</string>
+    <string name="general_progress_loading_egg_8">ബീപ്പിംഗ് ബൂപ് ബോപ്</string>
+    <string name="general_progress_loading_egg_9">ജീവിത തിരഞ്ഞെടുപ്പുകൾ ബഫറിംഗ് ചെയ്യുന്നു</string>
+    <string name="general_progress_loading_egg_10">ക്തുൽഹുവിനെ വിളിക്കുന്നു</string>
+    <string name="general_progress_loading_egg_11">ഇത് ശരിയാണ്</string>
+    <string name="general_progress_loading_egg_12">ദയവായി കാത്തിരിക്കുക</string>
+    <string name="general_progress_loading_egg_13">കുറഞ്ഞത് നിങ്ങൾ ഹോൾഡിലല്ല</string>
     <string name="general_help_action">ഹെല്പ്</string>
     <string name="general_continue">തുടരൂ</string>
     <string name="general_progress_queued">ക്യൂവിൽ</string>
+    <string name="general_progress_deleting">ഡിലീറ്റ് ചെയ്യുന്നു</string>
+    <string name="general_progress_deleting_x">%s ഡിലീറ്റ് ചെയ്യുന്നു</string>
     <string name="general_sort_options_label">ഓപ്‌ഷനുകൾ അടുക്കുക</string>
+    <string name="general_sort_reverse_action">റിവേഴ്സ് സോർട്ട് മോഡ്</string>
     <string name="general_tag_filter_label">ടാഗുകൾ പ്രകാരം ഫിൽട്ടർ ചെയ്യുക</string>
     <string name="general_result_success_message">ഓപ്പറേഷൻ വിജയിച്ചു</string>
     <string name="general_result_failure_message">ഓപ്പറേഷൻ പരാജയപ്പെട്ടു</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s സ്ഥലം സ്വതന്ത്രമാക്കി.</item>
+        <item quantity="other">%s സ്ഥലം സ്വതന്ത്രമാക്കി.</item>
+    </plurals>
+    <string name="general_options_label">ഓപ്ഷനുകൾ</string>
     <string name="general_details_label">വിശദാംശങ്ങൾ</string>
     <string name="general_view_action">കാഴ്ചകൾ</string>
     <string name="general_update_action">അപ്ഡേറ്റ്</string>
     <string name="general_scan_action">സ്കാൻ ചെയ്യുക</string>
     <string name="general_delete_action">ഇല്ലാതാക്കുക</string>
+    <string name="general_delete_selected_action">തിരഞ്ഞെടുത്തവ ഇല്ലാതാക്കുക</string>
     <string name="general_show_details_action">വിശദാംശങ്ങൾ കാണിക്കുക</string>
+    <string name="general_show_all_action">എല്ലാം കാണിക്കുക</string>
+    <string name="general_toggle_layout_mode">കാഴ്ച മോഡ് മാറ്റുക</string>
     <string name="general_delete_confirmation_title">ഇല്ലാതാക്കൽ സ്ഥിരീകരിക്കുക</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ഇല്ലാതാക്കണോ?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">%d തിരഞ്ഞെടുത്ത ഇനങ്ങൾ ഇല്ലാതാക്കണോ?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d ഇനം ഇല്ലാതാക്കി.</item>
+        <item quantity="other">%d ഇനങ്ങൾ ഇല്ലാതാക്കി.</item>
+    </plurals>
     <string name="general_remove_action">നീക്കം ചെയ്യുക</string>
+    <string name="general_remove_selected_action">തിരഞ്ഞെടുത്തവ നീക്കം ചെയ്യുക</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">ഒരു ഇനം നീക്കം ചെയ്തു</item>
+        <item quantity="other">%d ഇനങ്ങൾ നീക്കം ചെയ്തു</item>
+    </plurals>
     <string name="general_root_required_label">റൂട്ട് ആവശ്യമാണ്</string>
     <string name="general_root_required_message">റൂട്ട് ചെയ്‌ത ഉപകരണം ആവശ്യമാണ്</string>
     <string name="general_search_action">തിരയുക</string>
@@ -76,6 +111,18 @@
         <item quantity="one">%s ഇനം</item>
         <item quantity="other">%s items</item>
     </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d വിജയകരം</item>
+        <item quantity="other">%d വിജയകരം</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d പരാജയപ്പെട്ടു</item>
+        <item quantity="other">%d പരാജയപ്പെട്ടു</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s സ്വതന്ത്രമാക്കാം</item>
+        <item quantity="other">%s സ്വതന്ത്രമാക്കാം</item>
+    </plurals>
     <string name="general_info_label">വിവരങ്ങൾ</string>
     <string name="general_count_label">എണ്ണം</string>
     <string name="general_app_label">അപ്ലിക്കേഷൻ</string>
@@ -83,10 +130,12 @@
     <string name="general_grant_access_action">Grant access</string>
     <string name="general_enable_service_action">സേവനം പ്രവർത്തനക്ഷമമാക്കുക</string>
     <string name="general_undo_action">പഴയപടിയാക്കുക</string>
+    <string name="general_list_select_all_action">എല്ലാം തിരഞ്ഞെടുക്കുക</string>
     <string name="general_path_label">പാത</string>
     <string name="general_type_label">ടൈപ്പ്</string>
     <string name="general_size_label">വലുപ്പം</string>
     <string name="general_exclude_action">ഒഴിവാക്കുക</string>
+    <string name="general_exclude_selected_action">തിരഞ്ഞെടുത്തവ ഒഴിവാക്കുക</string>
     <string name="general_device_label">ഉപകരണം</string>
     <string name="general_settings_title">ക്രമീകരണങ്ങൾ</string>
     <string name="general_help_title">ഹെല്പ്</string>
@@ -94,4 +143,25 @@
     <string name="file_type_directory">മേല്‍വിലാസപ്പട്ടിക</string>
     <string name="file_type_file">ഫയൽ</string>
     <string name="file_type_unknown">അജ്ഞാതമാണ്</string>
+    <string name="general_progress_ready">തയ്യാർ</string>
+    <string name="general_progress_done">പൂർത്തിയായി</string>
+    <string name="general_rom_type_auto_label">ഓട്ടോമാറ്റിക് (ഡിഫോൾട്ട്)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d ദിവസം</item>
+        <item quantity="other">%d ദിവസങ്ങൾ</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d മണിക്കൂർ</item>
+        <item quantity="other">%d മണിക്കൂറുകൾ</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s ഫയൽ</item>
+        <item quantity="other">%s ഫയലുകൾ</item>
+    </plurals>
+    <string name="general_advice_title">ഉപദേശം</string>
+    <string name="general_error_invalid_input_label">അസാധുവായ ഇൻപുട്ട്</string>
+    <string name="general_information_for_the_developer">ഡെവലപ്പർക്കുള്ള വിവരങ്ങൾ</string>
+    <string name="general_error_report_bug_action">ബഗ് റിപ്പോർട്ട് ചെയ്യുക</string>
+    <string name="general_error_ipc_deadobject_title">സേവന കണക്ഷൻ നഷ്ടപ്പെട്ടു</string>
+    <string name="general_error_ipc_deadobject_description">ഒരു നിർണായക സേവനത്തിലേക്കുള്ള കണക്ഷൻ (ഉദാ. Magisk, Shizuku, അല്ലെങ്കിൽ മറ്റ് സിസ്റ്റം-ലെവൽ സേവനങ്ങൾ) അപ്രതീക്ഷിതമായി നഷ്ടപ്പെട്ടു. ദയവായി നിങ്ങളുടെ ഉപകരണം റീബൂട്ട് ചെയ്യുക. പ്രശ്നം തുടരുകയാണെങ്കിൽ, അപ്ഡേറ്റുകൾക്കായി പരിശോധിക്കുക അല്ലെങ്കിൽ എന്നെ ബന്ധപ്പെടുക.</string>
 </resources>

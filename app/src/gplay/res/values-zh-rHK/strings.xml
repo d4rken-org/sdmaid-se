@@ -21,4 +21,9 @@
     <string name="upgrade_screen_iap_action">一次購買</string>
     <string name="upgrade_screen_iap_action_hint">一次購買的費用為 %s。</string>
     <string name="upgrade_screen_thanks_toast">您是最棒的！❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">恢復購買</string>
+    <string name="upgrade_screen_restore_purchase_message">您的升級在同一 Google 帳戶的裝置上有效。</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">無法識別升級的故障排除提示：</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Store 同步可能需要時間。嘗試重新啟動、清除 Google Play 快取或只是等待。</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">多個帳戶可能會混淆 Google Play。從其他帳戶登出或透過 Google Play 網站安裝，這會強制與特定帳戶建立關聯。</string>
 </resources>

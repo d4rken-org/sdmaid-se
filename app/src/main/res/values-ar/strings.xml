@@ -262,6 +262,10 @@
     <string name="systemcleaner_filter_custom_label">مرشح خاص</string>
     <string name="systemcleaner_filter_custom_manage_label">إدارة المرشح المخصص</string>
     <string name="systemcleaner_filter_custom_manage_summary">إنشاء وحذف واستيراد وتصدير عوامل التصفية المخصصة الخاصة بك.</string>
+    <string name="systemcleaner_filter_logfiles_label">ملفات سجل النظام</string>
+    <string name="systemcleaner_filter_logfiles_summary">ملفات سجل النظام وخدمة النظام (مثل *.log) في مواقع مختلفة.</string>
+    <string name="systemcleaner_filter_packagecaches_label">ذاكرة تخزين مؤقت للمثبت</string>
+    <string name="systemcleaner_filter_packagecaches_summary">البيانات المؤقتة المتعلقة بالتطبيقات المثبتة والمستخدمة من قبل إدارة حزم النظام.</string>
     <string name="systemcleaner_filter_advertisements_label">ملفات الإعلانات</string>
     <string name="systemcleaner_filter_advertisements_summary">الملفات التي تم إنشاؤها من أجل أو عن طريق الإعلانات.</string>
     <string name="systemcleaner_filter_anr_label">سجلات الأخطاء</string>
@@ -286,6 +290,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"البيانات التي يمكن لمستكشف ملفات ويندوز إنشاؤها على وحدة تخزين متصلة."</string>
     <string name="systemcleaner_filter_thumbnails_label">صور مصغرة</string>
     <string name="systemcleaner_filter_thumbnails_summary">المعاينات المخبأة للصور ومقاطع الفيديو.</string>
+    <string name="systemcleaner_filter_tempfiles_label">ملفات النظام المؤقتة</string>
+    <string name="systemcleaner_filter_tempfiles_summary">ملفات مؤقتة متعلقة بالنظام، عادة ذاكرة تخزين مؤقت قصيرة المدى للعمليات النشطة.</string>
     <string name="systemcleaner_filter_analytics_label">ملفات التحليل</string>
     <string name="systemcleaner_filter_analytics_summary">البيانات المتعلقة بالتحليلات وتتبع الأخطاء.</string>
     <string name="systemcleaner_filter_downloadcache_label">تخزين التنزيل المؤقت</string>
@@ -432,6 +438,13 @@
         <item quantity="other">حذف الملفات المستهلكة لـ %d تطبيقات مختارة؟</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">حذف الملفات المؤقتة باستخدام شيزوكو</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">تحديد ذاكرة التخزين المؤقت التي لا يمكن الوصول إليها</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">مسح ذاكرة التخزين المؤقت غير متاح</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">قامت النظام بتعطيل زر \"مسح ذاكرة التخزين المؤقت\" لهذا التطبيق. استثنه لتسريع مسح ذاكرة التخزين المؤقت.</string>
+    <string name="appcleaner_automation_error_no_settings_title">شاشة الإعدادات غير متاحة</string>
+    <string name="appcleaner_automation_error_no_settings_body">هذا التطبيق النظام ليس له شاشة إعدادات. مسح ذاكرة التخزين المؤقت عبر خدمة إمكانية الوصول غير ممكن. استثنه لتسريع مسح ذاكرة التخزين المؤقت.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">تطبيق النظام مكون بشكل خاطئ</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">تطبيق الأمان في HyperOS (com.miui.securitycenter) يفتقد إذن إحصائيات الاستخدام (GET_USAGE_STATS). هذا يكسر ميزات مثل \"مسح البيانات\" في تفاصيل التطبيق ومسح ذاكرة التخزين المؤقت عبر إمكانية الوصول. امنح الإذن لاستعادة الوظائف الكاملة.</string>
     <string name="deduplicator_tool_name">النسخة المتكررة</string>
     <string name="deduplicator_explanation_short">ابحث عن النسخة المكررة على جهازك.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -531,6 +544,7 @@
     <string name="appcontrol_list_sortmode_installed_label">وقت التثبيت الأول</string>
     <string name="appcontrol_list_sortmode_packagename_label">اسم الحُزْمَة</string>
     <string name="appcontrol_list_sortmode_size_label">الحجم</string>
+    <string name="appcontrol_list_sortmode_screentime_label">وقت الشاشة</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">أحجام التطبيقات مقدرة لأسباب تتعلق بالأداء. استخدم أداة تحليل التخزين للحصول على بيانات أدق.</string>
     <string name="appcontrol_progress_uninstalling_app">إلغاء تثبيت التطبيق</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -602,6 +616,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">فرض إيقاف…</string>
     <string name="appcontrol_automation_progress_find_force_stop">البحث عن زر \"فرض التوقف\" (الكلمات الرئيسية: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">محاولة لتأكيد الإجراء السابق (الكلمات الرئيسية: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">وقت الشاشة: %1$s منذ %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">آخر تحديث: %s</string>
+    <string name="appcontrol_item_installedat_x_label">مثبت في: %s</string>
     <string name="analyzer_tool_name">محلل التخزين</string>
     <string name="analyzer_explanation_short">اكتشف ما الذي يأخذ مساحة على جهازك.</string>
     <string name="analyzer_progress_scanning_device">البحث عن أجهزة تخزين</string>
@@ -702,7 +719,12 @@
     <string name="automation_error_not_running_body">خدمة الوصول ليست قيد التشغيل. حاول إعادة تشغيل الجهاز.</string>
     <string name="automation_error_screen_unavailable_title">الشاشة غير متوفرة</string>
     <string name="automation_error_screen_unavailable_body">تم إلغاء العملية لأن الشاشة أصبحت غير متاحة (على سبيل المثال ، إيقاف تشغيل الشاشة أو تنشيط شاشة القفل).</string>
+    <string name="automation_error_compatibility_title">توافق الأتمتة</string>
     <string name="automation_error_compatibility_body">تعذر على SD Maid معرفة تخطيط الشاشة. إذا استمر هذا في الحدوث، قد لا تكون لغتك أو إعدادك مدعومة بالكامل. تحقق من وجود تحديثات أو الاتصال بي حتى يمكنني إصلاحها.</string>
+    <string name="automation_error_timeout_title">انتهاء مهلة الأتمتة</string>
+    <string name="automation_error_timeout_body">لم يكمل SD Maid جميع الخطوات ضمن الحد الزمني. إذا استمر هذا في الحدوث، قد أحتاج إلى تعديل التطبيق لجهازك. تحقق من التحديثات أو تواصل معي حتى أتمكن من إصلاحه.</string>
+    <string name="automation_error_overlay_title">تراكب الأتمتة</string>
+    <string name="automation_error_overlay_body">لم يتمكن SD Maid من إظهار تراكب الأتمتة. تحقق من الأذونات وحاول إعادة تشغيل جهازك.</string>
     <string name="history_label">السجل</string>
     <string name="history_description">قائمة مرتبة ترتيبًا زمنيًا للإجراءات الأخيرة والبيانات المتأثرة.</string>
     <string name="scheduler_label">الجدولة</string>
@@ -770,6 +792,14 @@
         <item quantity="few">تم تحرير %s.</item>
         <item quantity="many">تم تحرير %s.</item>
         <item quantity="other">%s تم تحريره.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="zero">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="one">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="two">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="few">تم معالجة %s عناصر منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="many">تم معالجة %s عنصراً منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="other">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
     </plurals>
     <string name="stats_report_status_success">تم بنجاح</string>
     <string name="stats_report_status_partial_success">تم بنجاح جزئي</string>

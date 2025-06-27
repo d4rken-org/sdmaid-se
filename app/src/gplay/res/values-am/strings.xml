@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">SD Maid SE Pro ያስፈልጋል</string>
+    <string name="upgrades_dashcard_title">SD Maid ያሻሽሉ</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro የተሻሉ ውጤቶች፣ ተጨማሪ ባህሪያት እና ለኃይለኛ ተጠቃሚዎች አማራጮች ይሰጣል።</string>
+    <string name="upgrades_dashcard_upgrade_action">ያሻሽሉ</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play አይገኝም</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid ከGoogle Play ጋር መገናኘት አይችልም። Google Play ተጭኖ እና ወቅታዊ ነው? የGoogle መለያዎ ገብቷል? የGoogle Play መተግበሪያ መሸጎጫ ማጥራት እና መሳሪያዎን እንደገና ማስጀመር ይሞክሩ።</string>
+    <string name="upgrades_no_purchases_found_check_account">ምንም ግዢዎች አልተገኙም። ትክክለኛውን መለያ እየተጠቀሙ ነው?</string>
+    <string name="upgrade_screen_title">SD Maid SE Pro ያግኙ</string>
+    <string name="upgrade_screen_preamble">SD Maid ማስታወቂያዎች የሉትም እና የተጠቃሚ መረጃ አይሸጥም። የእኔ ስራ በእርስዎ የሚገለገል ነው ❤️።</string>
+    <string name="upgrade_screen_benefits_title">ጥቅሞች</string>
+    <string name="upgrade_screen_benefits_body">• የመተግበሪያ ጽዳት 💯\n• የተመደበ አሠራሮች ⏰\n• ለሁሉም መሣሪያዎች ተጨማሪ አማራጮች ⚙️\n• የራስዎ የመሰረዝ ደንቦች ✍️\n• ተነሳሽ ገንቢ 🧙\nእና ተጨማሪ…</string>
+    <string name="upgrade_screen_how_title">አማራጮች</string>
+    <string name="upgrade_screen_how_body">በአንድ ጊዜ ግዢ እና በርካሽ የዓመታዊ ደንበኝነት መካከል መምረጥ ይችላሉ።\nደንበኝነቱ በነፃ የ14 ቀን ሙከራ ይጀምራል፣ ከዚያ በኋላ በዓመት አንድ ጊዜ ይከፈላሉ። ሙከራ እና ደንበኝነት በማንኛውም ጊዜ ሊሰረዝ ይችላል።\nተመሳሳይ ባህሪያት፣ የተለያዩ የዋጋ አሰጣጥ ሞዴሎች ብቻ።</string>
+    <string name="upgrade_screen_subscription_trial_action">ነፃ የ14 ቀን ሙከራ ይጀምሩ</string>
+    <string name="upgrade_screen_subscription_action">ይመዝገቡ</string>
+    <string name="upgrade_screen_subscription_action_hint">ደንበኝነቱ በዓመት %s ያስከፍላል።</string>
+    <string name="upgrade_screen_iap_action">አንድ ጊዜ ግዢ</string>
+    <string name="upgrade_screen_iap_action_hint">አንድ ጊዜ ግዢው %s ያስከፍላል።</string>
+    <string name="upgrade_screen_thanks_toast">እርስዎ ምርጥ ነዎት! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">ግዢን ወደነበረበት መልስ</string>
+    <string name="upgrade_screen_restore_purchase_message">ማሻሻያዎ በተመሳሳይ Google መለያ ላይ በመሳሪያዎች ላይ ልክ ነው።</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">ለማይታወቁ ማሻሻያዎች የመላ ፍለጋ ምክሮች፡</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">የPlay Store ሲምሪዝሽን ጊዜ ሊወስድ ይችላል። እንደገና ማስጀመር፣ የGoogle Play መሸጎጫ ማጥራት ወይም ብቻ መጠበቅ ይሞክሩ።</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">ብዙ መለያዎች Google Play ማምታታት ይችላሉ። ከሌሎች መለያዎች ይወጡ ወይም በGoogle Play ድርጣቢያ በኩል ይጫኑ፣ ይህም ከተወሰነ መለያ ጋር ግንኙነቶችን ያስገድዳል።</string>
+</resources>

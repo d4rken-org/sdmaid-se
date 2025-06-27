@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">Inahitaji SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Boresha SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro inatoa matokeo bora zaidi, vipengele zaidi na chaguo kwa watumiaji wa kiwango cha juu.</string>
+    <string name="upgrades_dashcard_upgrade_action">Boresha</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play haipo</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid haiwezi kuunganisha na Google Play. Je, Google Play imesakinishwa na imesasishwa? Je, akaunti yako ya Google imeingia? Jaribu kusafisha akiba ya programu ya Google Play na uanzishe upya kifaa chako.</string>
+    <string name="upgrades_no_purchases_found_check_account">Hakuna ununuzi uliopatikana. Je, unatumia akaunti sahihi?</string>
+    <string name="upgrade_screen_title">Pata SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid haina matangazo na hauzuzi data za watumiaji. Kazi yangu inafadhiliwa na wewe ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Faida</string>
+    <string name="upgrade_screen_benefits_body">• Usafishaji wa programu 💯\n• Shughuli zilizoratibiwa ⏰\n• Chaguo za ziada kwa zana zote ⚙️\n• Sheria zako za kufuta ✍️\n• Msanidi programu mwenye motisha 🧙\nna zaidi…</string>
+    <string name="upgrade_screen_how_title">Chaguo</string>
+    <string name="upgrade_screen_how_body">Unaweza kuchagua kati ya ununuzi wa mara moja na usajili wa kila mwaka ulio rahisi zaidi.\nUsajili unaanza na majaribio ya bure ya siku 14, baada ya hapo utalipishwa mara moja kwa mwaka. Majaribio na usajili vinaweza kufutwa wakati wowote.\nVipengele sawa, tu mifano tofauti ya bei.</string>
+    <string name="upgrade_screen_subscription_trial_action">Anza majaribio ya bure ya siku 14</string>
+    <string name="upgrade_screen_subscription_action">Jisajili</string>
+    <string name="upgrade_screen_subscription_action_hint">Usajili ungharimu %s kwa mwaka.</string>
+    <string name="upgrade_screen_iap_action">Ununuzi wa mara moja</string>
+    <string name="upgrade_screen_iap_action_hint">Ununuzi wa mara moja ungharimu %s.</string>
+    <string name="upgrade_screen_thanks_toast">Wewe ni bora zaidi! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Rejesha ununuzi</string>
+    <string name="upgrade_screen_restore_purchase_message">Uboreshaji wako ni halali kwenye vifaa vya akaunti ile ile ya Google.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Vidokezo vya kutatua matatizo kwa uboreshaji usiotambuliwa:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Ulandanishi wa Play Store unaweza kuchukua muda. Jaribu kuanzisha upya, kusafisha akiba ya Google Play au tu subiri.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Akaunti nyingi zinaweza kuchanganya Google Play. Toka kwenye akaunti zingine au sakinisha kupitia tovuti ya Google Play, ambayo inalazimisha uhusiano na akaunti maalum.</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">Teastaíonn SD Maid SE Pro</string>
+
+    <string name="upgrades_dashcard_title">Uasghrádú SD Maid</string>
+    <string name="upgrades_dashcard_body">Cuireann SD Maid Pro torthaí níos fearr, tuilleadh gnéithe agus roghanna d\'úsáideoirí cumhachta ar fáil.</string>
+    <string name="upgrades_dashcard_upgrade_action">Uasghrádú</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">Níl Google Play ar fáil</string>
+    <string name="upgrades_gplay_unavailable_error_description">Ní féidir le SD Maid ceangal le Google Play. An bhfuil Google Play suiteáilte agus cothrom le dáta? An bhfuil do Chuntas Google logáilte isteach? Déan iarracht taisce an aip Google Play a ghlanadh agus do ghléas a atosú.</string>
+    <string name="upgrades_no_purchases_found_check_account">Níor aimsíodh aon cheannacháin. An bhfuil tú ag úsáid an chuntas cheart?</string>
+    <string name="upgrade_screen_title">Faigh SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">Níl aon fhógraí ag SD Maid agus ní dhíolann sé sonraí úsáideoirí. Tá mo chuid oibre maoinithe agat ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Buntáistí</string>
+    <string name="upgrade_screen_benefits_body">• Glanadh aipeanna 💯\n• Oibríochtaí sceidealta ⏰\n• Roghanna breise do gach uirlis ⚙️\n• Do rialacha scriosadh féin ✍️\n• Forbróir spreagtha 🧙\nagus tuilleadh…</string>
+    <string name="upgrade_screen_how_title">Roghanna</string>
+    <string name="upgrade_screen_how_body">Is féidir leat rogha a dhéanamh idir ceannach aon uaire agus síntiús bliantúil níos saoire.\nTosaíonn an síntiús le triail saor in aisce 14 lá, ina dhiaidh sin gearrfar táille ort uair sa bhliain. Is féidir an triail agus an síntiús a chealú ag am ar bith.\nNa gnéithe céanna, samhlacha praghsála difriúla amháin.</string>
+    <string name="upgrade_screen_subscription_trial_action">Tosaigh triail saor in aisce 14 lá</string>
+    <string name="upgrade_screen_subscription_action">Síntiús</string>
+    <string name="upgrade_screen_subscription_action_hint">Cosnaíonn an síntiús %s sa bhliain.</string>
+    <string name="upgrade_screen_iap_action">Ceannach aon uaire</string>
+    <string name="upgrade_screen_iap_action_hint">Cosnaíonn an ceannach aon uaire %s.</string>
+    <string name="upgrade_screen_thanks_toast">Is tusa an duine is fearr! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Athchóirigh ceannach</string>
+    <string name="upgrade_screen_restore_purchase_message">Tá d\'uasghrádú bailí thar ghléasanna ar an gcuntas Google céanna.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Leideanna fabhtcheartaithe le haghaidh uasghráduithe neamhaitheanta:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">D\'fhéadfadh sioncronú Play Store am a thógáil. Déan iarracht atosú, taisce Google Play a ghlanadh nó fanacht go simplí.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Is féidir le cuntais iolracha Google Play a mheascadh. Logáil amach as cuntais eile nó suiteáil tríd an láithreán gréasáin Google Play, a fhorfheidhmeann comhlachais le cuntas ar leith.</string>
+</resources>

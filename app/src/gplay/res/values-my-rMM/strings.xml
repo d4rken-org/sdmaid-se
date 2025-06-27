@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">SD Maid SE Pro လိုအပ်သည်</string>
+    <string name="upgrades_dashcard_title">SD Maid ကို အဆင့်မြှင့်ပါ</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro သည် ပိုမိုကောင်းမွန်သော ရလဒ်များ၊ ပိုမိုများပြားသော လုပ်ဆောင်ချက်များနှင့် ကျွမ်းကျင်အသုံးပြုသူများအတွက် ရွေးချယ်စရာများကို ပေးပါသည်။</string>
+    <string name="upgrades_dashcard_upgrade_action">အဆင့်မြှင့်မည်</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play မရရှိနိုင်ပါ</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid သည် Google Play နှင့် ချိတ်ဆက်၍မရပါ။ Google Play ကို ထည့်သွင်းပြီး အပ်ဒိတ်လုပ်ထားပါသလား။ သင့် Google အကောင့် ဝင်ရောက်ထားပါသလား။ Google Play အက်ပ်၏ cache ကို ရှင်းလင်းပြီး သင့်စက်ကို ပြန်လည်စတင်ကြည့်ပါ။</string>
+    <string name="upgrades_no_purchases_found_check_account">ဝယ်ယူမှုများ ရှာမတွေ့ပါ။ မှန်ကန်သော အကောင့်ကို အသုံးပြုနေပါသလား။</string>
+    <string name="upgrade_screen_title">SD Maid SE Pro ရယူပါ</string>
+    <string name="upgrade_screen_preamble">SD Maid တွင် ကြော်ငြာများမရှိပါ၊ အသုံးပြုသူဒေတာများကိုလည်း မရောင်းချပါ။ ကျွန်ုပ်၏အလုပ်ကို သင်မှ ငွေကြေးထောက်ပံ့ထားပါသည် ❤️။</string>
+    <string name="upgrade_screen_benefits_title">အကျိုးကျေးဇူးများ</string>
+    <string name="upgrade_screen_benefits_body">• အက်ပ်သန့်ရှင်းရေး 💯\n• အချိန်ဇယားချထားသော လုပ်ဆောင်မှုများ ⏰\n• ကိရိယာအားလုံးအတွက် အပိုရွေးချယ်စရာများ ⚙️\n• သင့်ကိုယ်ပိုင် ဖျက်သိမ်းမှု စည်းမျဉ်းများ ✍️\n• စိတ်အားထက်သန်သော developer 🧙\nနှင့် အခြား…</string>
+    <string name="upgrade_screen_how_title">ရွေးချယ်စရာများ</string>
+    <string name="upgrade_screen_how_body">သင်သည် တစ်ကြိမ်တည်းဝယ်ယူမှုနှင့် ပိုမိုစျေးသက်သာသော နှစ်စဉ် subscription အကြား ရွေးချယ်နိုင်ပါသည်။\nSubscription သည် ၁၄ ရက် အခမဲ့အစမ်းသုံးခြင်းဖြင့် စတင်ပြီး၊ ထို့နောက် နှစ်စဉ်တစ်ကြိမ် ငွေကောက်ခံမည်။ အစမ်းသုံးခြင်းနှင့် subscription ကို အချိန်မရွေး ပယ်ဖျက်နိုင်ပါသည်။\nတူညီသော အင်္ဂါရပ်များ၊ စျေးနှုန်းပုံစံများသာ ကွဲပြားပါသည်။</string>
+    <string name="upgrade_screen_subscription_trial_action">၁၄ ရက် အခမဲ့အစမ်းသုံးခြင်း စတင်မည်</string>
+    <string name="upgrade_screen_subscription_action">Subscribe လုပ်မည်</string>
+    <string name="upgrade_screen_subscription_action_hint">Subscription သည် နှစ်စဉ် %s ကျသင့်သည်။</string>
+    <string name="upgrade_screen_iap_action">တစ်ကြိမ်တည်း ဝယ်ယူမှု</string>
+    <string name="upgrade_screen_iap_action_hint">တစ်ကြိမ်တည်း ဝယ်ယူမှုသည် %s ကျသင့်သည်။</string>
+    <string name="upgrade_screen_thanks_toast">သင်သည် အကောင်းဆုံးပါ! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">ဝယ်ယူမှုကို ပြန်လည်ရယူမည်</string>
+    <string name="upgrade_screen_restore_purchase_message">သင်၏အဆင့်မြှင့်မှုသည် တူညီသော Google အကောင့်ရှိ စက်များတွင် အသုံးပြုနိုင်ပါသည်။</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">အသိအမှတ်မပြုသော အဆင့်မြှင့်မှုများအတွက် ပြဿနာဖြေရှင်းခြင်း အကြံပြုချက်များ-</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Store sync လုပ်ရန် အချိန်ယူနိုင်ပါသည်။ ပြန်လည်စတင်ခြင်း၊ Google Play cache ရှင်းလင်းခြင်း သို့မဟုတ် ရိုးရိုးစောင့်ဆိုင်းခြင်း ပြုလုပ်ကြည့်ပါ။</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">အကောင့်များစွာသည် Google Play ကို ရှုပ်ထွေးစေနိုင်သည်။ အခြားအကောင့်များမှ ထွက်ပါ သို့မဟုတ် Google Play ဝဘ်ဆိုဒ်မှတစ်ဆင့် ထည့်သွင်းပါ၊ ၎င်းသည် သတ်မှတ်ထားသော အကောင့်နှင့် ချိတ်ဆက်မှုကို တွန်းအားပေးသည်။</string>
+</resources>

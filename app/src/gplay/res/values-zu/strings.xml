@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">Kudinga SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Thuthukisa SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro inikeza imiphumela engcono, izici eziningi kanye nezinketho zabasebenzisi abahlakaniphile.</string>
+    <string name="upgrades_dashcard_upgrade_action">Thuthukisa</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play ayitholakali</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid ayikwazi ukuxhuma ku-Google Play. Ingabe Google Play ifakiwe futhi isesikhathini? Ingabe i-akhawunti yakho ye-Google ingene? Zama ukusula i-cache yohlelo lokusebenza lwe-Google Play futhi uphinde uqalise idivayisi yakho.</string>
+    <string name="upgrades_no_purchases_found_check_account">Akukho ukuthenga okutholiwe. Ingabe usebenzisa i-akhawunti efanele?</string>
+    <string name="upgrade_screen_title">Thola SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid ayinayo izikhangiso futhi ayithengisi idatha yabasebenzisi. Umsebenzi wami uxhaswa nguwe ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Izinzuzo</string>
+    <string name="upgrade_screen_benefits_body">• Ukuhlanza uhlelo lokusebenza 💯\n• Imisebenzi ehlelelwe ngokulandelana ⏰\n• Izinketho ezengeziwe kuwo wonke amathuluzi ⚙️\n• Imithetho yakho yokususa ✍️\n• Umthuthukisi ogqugquzelayo 🧙\nnokunye…</string>
+    <string name="upgrade_screen_how_title">Izinketho</string>
+    <string name="upgrade_screen_how_body">Ungakhetha phakathi kokuthenga kube kanye kanye nesikhathi sokubhalisela sonyaka esishibhile.\nUkubhalisela kuqala ngesikhathi sokuhlola sezinsuku eziyi-14 samahhala, ngemva kwalokho uzokhokhiswa kanye ngonyaka. Ukuhlola nokubhalisela kungacishwa nganoma yisiphi isikhathi.\nIzici ezifanayo, kuphela amamodeli ezintengo ahlukene.</string>
+    <string name="upgrade_screen_subscription_trial_action">Qala ukuhlola kwamahhala kwezinsuku eziyi-14</string>
+    <string name="upgrade_screen_subscription_action">Bhalisela</string>
+    <string name="upgrade_screen_subscription_action_hint">Ukubhalisela kubiza %s ngonyaka.</string>
+    <string name="upgrade_screen_iap_action">Ukuthenga kube kanye</string>
+    <string name="upgrade_screen_iap_action_hint">Ukuthenga kube kanye kubiza %s.</string>
+    <string name="upgrade_screen_thanks_toast">Ungcono kakhulu! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Buyisela ukuthenga</string>
+    <string name="upgrade_screen_restore_purchase_message">Ukuthuthukiswa kwakho kusebenza emadivayisini ane-akhawunti efanayo ye-Google.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Amathiphu okuxazulula izinkinga zokuthuthukiswa okungamukeleki:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Ukuvumelanisa kwe-Play Store kungathatha isikhathi. Zama ukuphinde uqalise, ukusula i-cache ye-Google Play noma ulinde nje.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Ama-akhawunti amaningi angadunga i-Google Play. Phuma kwamanye ama-akhawunti noma ufake ngewebhusayithi ye-Google Play, ephoqa ukuhlobanisa ne-akhawunti ethile.</string>
+</resources>

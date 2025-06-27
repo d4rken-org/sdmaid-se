@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">Requiere SD Maid SE FOSS</string>
     <string name="upgrades_dashcard_title">Actualizar SD Maid</string>
     <string name="upgrades_dashcard_body">¡Desbloqueá funciones adicionales y hacete patreon para ayudar a continuar el desarrollo!</string>
     <string name="upgrades_dashcard_upgrade_action">Mejorar</string>

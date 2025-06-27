@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="upgrade_feature_requires_pro">Zahtijeva SD Maid SE FOSS</string>
     <string name="upgrades_dashcard_title">Nadogradite SD Maid</string>
     <string name="upgrades_dashcard_body">Otključajte dodatne značajke i postanite pokrovitelj kako biste podržali daljnji razvoj!</string>
     <string name="upgrades_dashcard_upgrade_action">Nadogradnja</string>

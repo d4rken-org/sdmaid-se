@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">Krefst SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Uppfæra SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro býður upp á betri niðurstöður, fleiri eiginleika og valkosti fyrir háþróaða notendur.</string>
+    <string name="upgrades_dashcard_upgrade_action">Uppfæra</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play er ekki tiltækt</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid getur ekki tengst Google Play. Er Google Play uppsett og uppfært? Er Google reikningurinn þinn skráður inn? Reyndu að hreinsa skyndiminni Google Play appsins og endurræstu tækið þitt.</string>
+    <string name="upgrades_no_purchases_found_check_account">Engin kaup fundust. Ertu að nota réttan reikning?</string>
+    <string name="upgrade_screen_title">Fáðu SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid hefur engar auglýsingar og selur ekki notendagögn. Vinna mín er fjármögnuð af þér ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Kostir</string>
+    <string name="upgrade_screen_benefits_body">• App þrif 💯\n• Áætlaðar aðgerðir ⏰\n• Aukavalkostir fyrir öll verkfæri ⚙️\n• Þínar eigin eyðingarreglur ✍️\n• Hvataður þróunaraðili 🧙\nog fleira…</string>
+    <string name="upgrade_screen_how_title">Valkostir</string>
+    <string name="upgrade_screen_how_body">Þú getur valið á milli einskiptiskaupa og ódýrari árlegrar áskriftar.\nÁskriftin byrjar með ókeypis 14 daga prufu, eftir það verður þér rukkað einu sinni á ári. Prufan og áskrift er hægt að hætta við hvenær sem er.\nSömu eiginleikar, bara mismunandi verðlagslíkön.</string>
+    <string name="upgrade_screen_subscription_trial_action">Byrja ókeypis 14 daga prufu</string>
+    <string name="upgrade_screen_subscription_action">Gerast áskrifandi</string>
+    <string name="upgrade_screen_subscription_action_hint">Áskriftin kostar %s á ári.</string>
+    <string name="upgrade_screen_iap_action">Einskiptiskaup</string>
+    <string name="upgrade_screen_iap_action_hint">Einskiptiskaupið kostar %s.</string>
+    <string name="upgrade_screen_thanks_toast">Þú ert bestur! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Endurheimta kaup</string>
+    <string name="upgrade_screen_restore_purchase_message">Uppfærslan þín gildir á tækjum með sama Google reikning.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Úrræðaleitarráð fyrir óþekktar uppfærslur:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Store samstilling getur tekið tíma. Reyndu að endurræsa, hreinsa Google Play skyndiminni eða bara bíða.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Margir reikningar geta ruglað Google Play. Skráðu þig út úr öðrum reikningum eða settu upp í gegnum Google Play vefsíðuna, sem neyðir tengsl við ákveðinn reikning.</string>
+</resources>

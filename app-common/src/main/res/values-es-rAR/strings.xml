@@ -92,6 +92,10 @@
     <string name="general_delete_confirmation_title">Confirmá la eliminación</string>
     <string name="general_delete_confirmation_message_x">¿Borrar «%s»?</string>
     <string name="general_delete_confirmation_message_selected_x_items">¿Borrar los %d elementos seleccionados?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Se eliminó %d elemento.</item>
+        <item quantity="other">Se eliminaron %d elementos.</item>
+    </plurals>
     <string name="general_remove_action">Quitar</string>
     <string name="general_remove_selected_action">Eliminar seleccionados</string>
     <plurals name="general_remove_success_x_items">
@@ -114,6 +118,10 @@
     <plurals name="result_x_failed">
         <item quantity="one">%d ha fallado</item>
         <item quantity="other">%d ha fallado</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s puede ser liberado</item>
+        <item quantity="other">%s puede ser liberado</item>
     </plurals>
     <string name="general_info_label">Información</string>
     <string name="general_count_label">Contar</string>
@@ -138,9 +146,22 @@
     <string name="general_progress_ready">Listo</string>
     <string name="general_progress_done">Hecho</string>
     <string name="general_rom_type_auto_label">Automático (por defecto)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d día</item>
+        <item quantity="other">%d días</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d hora</item>
+        <item quantity="other">%d horas</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s Archivo</item>
         <item quantity="other">%s archivos</item>
     </plurals>
     <string name="general_advice_title">Aviso</string>
+    <string name="general_error_invalid_input_label">Entrada inválida</string>
+    <string name="general_information_for_the_developer">Información para el desarrollador</string>
+    <string name="general_error_report_bug_action">Reportar error</string>
+    <string name="general_error_ipc_deadobject_title">Conexión de servicio perdida</string>
+    <string name="general_error_ipc_deadobject_description">La conexión a un servicio crítico (por ejemplo, Magisk, Shizuku u otros servicios del sistema) se perdió inesperadamente. Por favor, reinicia tu dispositivo. Si el problema persiste, busca actualizaciones o contáctame para que pueda solucionarlo.</string>
 </resources>

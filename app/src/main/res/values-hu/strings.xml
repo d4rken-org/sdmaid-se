@@ -230,6 +230,10 @@
     <string name="systemcleaner_filter_custom_label">Egyedi szűrő</string>
     <string name="systemcleaner_filter_custom_manage_label">Egyedi szűrők kezelése</string>
     <string name="systemcleaner_filter_custom_manage_summary">Egyedi szűrők létrehozása, törlése, importálása és exportálása.</string>
+    <string name="systemcleaner_filter_logfiles_label">Rendszer naplófájlok</string>
+    <string name="systemcleaner_filter_logfiles_summary">Rendszer és rendszerszolgáltatás naplófájlok (pl. *.log) különböző helyeken.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Telepítő gyorsítótár</string>
+    <string name="systemcleaner_filter_packagecaches_summary">A telepített alkalmazásokhoz kapcsolódó gyorsítótárazott adatok, amelyeket a rendszer csomagkezelése használ.</string>
     <string name="systemcleaner_filter_advertisements_label">Hirdetésfájlok</string>
     <string name="systemcleaner_filter_advertisements_summary">Reklámokhoz vagy hirdetések által létrehozott fájlok.</string>
     <string name="systemcleaner_filter_anr_label">ANR hibák</string>
@@ -254,6 +258,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"A Windows fájlkezelő által létrehozott adatok a csatlakoztatott adattárolón."</string>
     <string name="systemcleaner_filter_thumbnails_label">Miniatűr képek</string>
     <string name="systemcleaner_filter_thumbnails_summary">Gyorsítótárazott előnézetek a képekhez és videókhoz.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Ideiglenes rendszerfájlok</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Rendszerhez kapcsolódó ideiglenes fájlok, általában rövid életű gyorsítótárak aktív műveletekhez.</string>
     <string name="systemcleaner_filter_analytics_label">Analitika fáljok</string>
     <string name="systemcleaner_filter_analytics_summary">Az elemzéshez és a hibakövetéshez kapcsolódó adatok.</string>
     <string name="systemcleaner_filter_downloadcache_label">Letöltési gyorsítótár</string>
@@ -388,6 +394,13 @@
         <item quantity="other">Felesleges fájlok törlése %d kiválasztott alkalmazásokhoz?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Cache-ek törlése Shizuku használatával</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Elérhetetlen gyorsítótárak meghatározása</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Gyorsítótár törlése nem érhető el</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">A rendszer letiltotta a \"Gyorsítótár törlése\" gombot ehhez az alkalmazáshoz. Zárja ki a gyorsítótár törlésének felgyorsításához.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Beállítások képernyő nem érhető el</string>
+    <string name="appcleaner_automation_error_no_settings_body">Ennek a rendszeralkalmazásnak nincs beállítások képernyője. A gyorsítótár törlése az akadálymentesítési szolgáltatáson keresztül nem lehetséges. Zárja ki a gyorsítótár törlésének felgyorsításához.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Rendszeralkalmazás rosszul konfigurált</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">A HyperOS biztonsági alkalmazása (com.miui.securitycenter) hiányzik a használati statisztikák engedélye (GET_USAGE_STATS). Ez megsérti az olyan funkciókat, mint az \"Adatok törlése\" az alkalmazás részleteiben és a gyorsítótár törlése az akadálymentesítésen keresztül. Adjon engedélyt a teljes funkcionalitás visszaállításához.</string>
     <string name="deduplicator_tool_name">Duplikált kereső</string>
     <string name="deduplicator_explanation_short">Duplikált adatok keresése a készüléken.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -471,6 +484,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Először telepítve</string>
     <string name="appcontrol_list_sortmode_packagename_label">Csomag név</string>
     <string name="appcontrol_list_sortmode_size_label">Méret</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Képernyőidő</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Az alkalmazások mérete teljesítményi okokból becsült. Pontosabb adatokért használja a StorageAnalyzer eszközt.</string>
     <string name="appcontrol_progress_uninstalling_app">App eltávolítása...</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -518,6 +532,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Kényszerített leállítás…</string>
     <string name="appcontrol_automation_progress_find_force_stop">„Leállítás kényszerítése” gomb keresése (kulcsszavak: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Az előző művelet megerősítésének kísérlete (kulcsszavak: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Képernyőidő: %1$s %2$s óta</string>
+    <string name="appcontrol_item_lastupdate_x_label">Utoljára frissítve: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Telepítve: %s</string>
     <string name="analyzer_tool_name">TárhelyElemző</string>
     <string name="analyzer_explanation_short">Tudja meg, mi foglalja a helyet a készülékén.</string>
     <string name="analyzer_progress_scanning_device">Tárolóeszközök keresése</string>
@@ -606,7 +623,12 @@
     <string name="automation_error_not_running_body">A kisegítő lehetőségek szolgáltatás nem fut. Próbálja újraindítani az eszközt.</string>
     <string name="automation_error_screen_unavailable_title">A képernyő nem elérhető</string>
     <string name="automation_error_screen_unavailable_body">A művelet megszakadt, mert a képernyő nem volt elérhető (pl. a kijelző kikapcsolt vagy a záróképernyő aktív).</string>
+    <string name="automation_error_compatibility_title">Automatizálási kompatibilitás</string>
     <string name="automation_error_compatibility_body">Az SD Maid nem tudott rájönni a képernyő elrendezésére. Ha ez folyamatosan előfordul, akkor lehet, hogy a te nyelved vagy beállításod nem támogatott teljes mértékben. Ellenőrizd a frissítéseket, vagy keress meg engem, hogy megjavíthassam.</string>
+    <string name="automation_error_timeout_title">Automatizálási időtúllépés</string>
+    <string name="automation_error_timeout_body">Az SD Maid nem fejezett be minden lépést az időkorláton belül. Ha ez továbbra is előfordul, lehet, hogy módosítanom kell az alkalmazást az eszközéhez. Ellenőrizze a frissítéseket vagy lépjen kapcsolatba velem, hogy meg tudjam javítani.</string>
+    <string name="automation_error_overlay_title">Automatizálási átfedés</string>
+    <string name="automation_error_overlay_body">Az SD Maid nem tudta megjeleníteni az automatizálási átfedést. Ellenőrizze az engedélyeket és próbálja meg újraindítani az eszközt.</string>
     <string name="history_label">Előzmények</string>
     <string name="history_description">A legutóbbi műveletek és az érintett adatok időrendi listája.</string>
     <string name="scheduler_label">Ütemező</string>
@@ -699,7 +721,7 @@
     <string name="area_type_sdcard_label">Nyilvános tároló</string>
     <string name="area_type_public_media_label">Nyilvános alkalmazás média</string>
     <string name="area_type_public_data_label">Nyilvános alkalmazásadatok</string>
-    <string name="area_type_public_obb_label">Nyilvános alkalmazás erőforrások</string>
-    <string name="area_type_private_data_label">Privát alkalmazás média</string>
-    <string name="area_type_portable_label">Hordozható tárhely</string>
+    <string name="area_type_public_obb_label">Nyilvános alkalmazás-erőforrások</string>
+    <string name="area_type_private_data_label">Privát alkalmazásadatok</string>
+    <string name="area_type_portable_label">Hordozható tárolás</string>
 </resources>

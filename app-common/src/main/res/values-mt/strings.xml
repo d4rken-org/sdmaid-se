@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">Fis-servizz tiegħek.</string>
+    <string name="slogan_message_1">Nadif u mgħaqqad.</string>
+    <string name="slogan_message_2">Jevita l-kaos.</string>
+    <string name="slogan_message_3">Jagħmel dak li huwa meħtieġ.</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_5">Mingħajr tikka.</string>
+    <string name="slogan_message_6">Bytes, morru!</string>
+    <string name="slogan_message_7">Spazju ħieles, post ferrieħ.</string>
+    <string name="slogan_message_8">Qatt ma se nwaqqaf għalik.</string>
+
+    <string name="general_thank_you_label">Grazzi</string>
+
+    <string name="general_error_type_mismatch_msg">Tip ma jaqbilx: Xtaq %1$s, imma ġie %2$s.</string>
+    <string name="general_error_cant_access_msg">Ma nistax naċċessa %s.</string>
+    <string name="general_error_root_unavailable">Aċċess għall-għeruq mhux disponibbli.</string>
+    <string name="general_error_empty_result_msg">Ir-riżultat kien vojt.</string>
+    <string name="general_error_no_compatible_app_found_msg">Ma nstab ebda app kompatibbli biex jimmaniġġja din it-talba.</string>
+    <string name="general_todo_msg">Din il-karatteristika għadha qed tiġi maħduma u għalissa mhix disponibbli.</string>
+    <string name="general_share_action">Aqsam</string>
+    <string name="general_done_action">Lest</string>
+    <string name="general_copy_action">Ikkopja</string>
+    <string name="general_wipe_action">Imħassar</string>
+    <string name="general_cancel_action">Ikkanċella</string>
+    <string name="general_discard_action">Armi</string>
+    <string name="general_reset_action">Irrisettja</string>
+    <string name="general_save_action">Issalva</string>
+    <string name="general_thanks_action">Grazzi</string>
+    <string name="general_gotit_action">Fhimt</string>
+    <string name="general_fix_action">Issewwi</string>
+    <string name="general_set_up_action">Issettja</string>
+    <string name="general_edit_action">Editja</string>
+    <string name="general_na_label">M/A</string>
+    <string name="general_empty_label">Vojt</string>
+    <string name="general_dismiss_action">Ikċaħħad</string>
+    <string name="general_maybe_later_action">Forsi aktar tard</string>
+    <string name="general_manage_action">Immaniġġja</string>
+    <string name="general_sync_action">Issinkronizza</string>
+    <string name="general_error_label">Żball</string>
+    <string name="general_tap_hint_msg">Imiss għal aktar għażliet</string>
+    <string name="general_upgrade_action">Aġġorna</string>
+    <string name="general_donate_action">Agħti donazzjoni</string>
+    <string name="general_check_action">Iċċekkja</string>
+    <string name="general_filter_action">Iffiltra</string>
+    <string name="general_internal_not_available_msg">Konnessjoni tal-internet mhux disponibbli</string>
+    <string name="general_refresh_action">Aġġorna</string>
+    <string name="general_progress_searching">Qed infittex</string>
+    <string name="general_progress_generating_searchpaths">Qed niġġenera mogħdijiet tat-tiftix</string>
+    <string name="general_progress_filtering">Qed niffiltra</string>
+    <string name="general_progress_preparing">Qed nipprepara</string>
+    <string name="general_progress_processing_x">Qed nipproċessa %s</string>
+    <string name="general_progress_loading">Qed nitella\'</string>
+    <string name="general_progress_loading_app_data">Qed nitella\' data tal-app</string>
+    <string name="general_progress_loading_data_areas">Qed nitella\' żoni tad-data</string>
+    <string name="general_progress_loading_egg_0">Aktar mgħaġġel minn iPhone</string>
+    <string name="general_progress_loading_egg_1">Qed niżżel RAM żejjed</string>
+    <string name="general_progress_loading_egg_2">Mgħaġġel™</string>
+    <string name="general_progress_loading_egg_3">Il-CPU qed jieħu break tal-kafè</string>
+    <string name="general_progress_loading_egg_4">Qed nistenna data minn Pepe Silvia</string>
+    <string name="general_progress_loading_egg_5">Qed nibda turbo encabulator</string>
+    <string name="general_progress_loading_egg_6">Qed ngħaddi l-butir</string>
+    <string name="general_progress_loading_egg_7">Kif int?</string>
+    <string name="general_progress_loading_egg_8">Bip bup bap</string>
+    <string name="general_progress_loading_egg_9">Qed nibbufera għażliet tal-ħajja</string>
+    <string name="general_progress_loading_egg_10">Qed insejjaħ Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Dan tajjeb</string>
+    <string name="general_progress_loading_egg_12">Jekk jogħġbok stenna</string>
+    <string name="general_progress_loading_egg_13">Mill-inqas m\'intix fuq hold</string>
+    <string name="general_help_action">Għajnuna</string>
+    <string name="general_continue">Kompli</string>
+    <string name="general_progress_queued">Fil-kju</string>
+    <string name="general_progress_deleting">Qed inħassar</string>
+    <string name="general_progress_deleting_x">Qed inħassar %s</string>
+    <string name="general_sort_options_label">Għażliet tal-issortjar</string>
+    <string name="general_sort_reverse_action">Modalità issortjar kontra</string>
+    <string name="general_tag_filter_label">Iffiltra skont it-tags</string>
+
+    <string name="general_result_success_message">Operazzjoni b\'suċċess</string>
+    <string name="general_result_failure_message">Operazzjoni falliet</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s spazju ċċarat.</item>
+        <item quantity="few">%s spazju ċċarat.</item>
+        <item quantity="many">%s spazju ċċarat.</item>
+        <item quantity="other">%s spazju ċċarat.</item>
+    </plurals>
+
+    <string name="general_options_label">Għażliet</string>
+    <string name="general_details_label">Dettalji</string>
+    <string name="general_view_action">Ara</string>
+    <string name="general_update_action">Aġġorna</string>
+    <string name="general_scan_action">Skenja</string>
+    <string name="general_delete_action">Ħassar</string>
+    <string name="general_delete_selected_action">Ħassar il-magħżula</string>
+    <string name="general_show_details_action">Uri dettalji</string>
+    <string name="general_show_all_action">Uri kollox</string>
+    <string name="general_toggle_layout_mode">Ibdel modalità tal-veduta</string>
+
+    <string name="general_delete_confirmation_title">Ikkonferma t-tħassir</string>
+    <string name="general_delete_confirmation_message_x">Tħassar \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Tħassar il-%d oġġetti magħżula?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d oġġett imħassar.</item>
+        <item quantity="few">%d oġġetti mħassra.</item>
+        <item quantity="many">%d oġġett imħassar.</item>
+        <item quantity="other">%d oġġett imħassar.</item>
+    </plurals>
+
+    <string name="general_remove_action">Neħħi</string>
+    <string name="general_remove_selected_action">Neħħi l-magħżula</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Oġġett wieħed imneħħi</item>
+        <item quantity="few">%d oġġetti mneħħija</item>
+        <item quantity="many">%d oġġett imneħħi</item>
+        <item quantity="other">%d oġġett imneħħi</item>
+    </plurals>
+
+    <string name="general_root_required_label">Għeruq meħtieġa</string>
+    <string name="general_root_required_message">Apparat bil-għeruq meħtieġ</string>
+
+    <string name="general_search_action">Fittex</string>
+    <string name="general_scan_device_action">Skenja l-apparat</string>
+    <string name="general_open_system_settings_action">Iftaħ settings tas-sistema</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">%s oġġett</item>
+        <item quantity="few">%s oġġetti</item>
+        <item quantity="many">%s oġġett</item>
+        <item quantity="other">%s oġġett</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d b\'suċċess</item>
+        <item quantity="few">%d b\'suċċess</item>
+        <item quantity="many">%d b\'suċċess</item>
+        <item quantity="other">%d b\'suċċess</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d falliet</item>
+        <item quantity="few">%d falliet</item>
+        <item quantity="many">%d falliet</item>
+        <item quantity="other">%d falliet</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s jista\' jiġi ċċarat</item>
+        <item quantity="few">%s jista\' jiġi ċċarat</item>
+        <item quantity="many">%s jista\' jiġi ċċarat</item>
+        <item quantity="other">%s jista\' jiġi ċċarat</item>
+    </plurals>
+    <string name="general_info_label">Info</string>
+    <string name="general_count_label">Għadd</string>
+    <string name="general_app_label">App</string>
+    <string name="general_more_info_action">Aktar info</string>
+    <string name="general_grant_access_action">Agħti aċċess</string>
+    <string name="general_enable_service_action">Ippermetti s-servizz</string>
+    <string name="general_undo_action">Annulla</string>
+
+    <string name="general_list_select_all_action">Agħżel kollox</string>
+
+    <string name="general_path_label">Mogħdija</string>
+    <string name="general_type_label">Tip</string>
+    <string name="general_size_label">Daqs</string>
+    <string name="general_exclude_action">Eskludi</string>
+    <string name="general_exclude_selected_action">Eskludi l-magħżula</string>
+
+    <string name="general_device_label">Apparat</string>
+
+    <string name="general_settings_title">Settings</string>
+    <string name="general_help_title">Għajnuna</string>
+
+    <string name="file_type_symbolic_link">Link</string>
+    <string name="file_type_directory">Direttorju</string>
+    <string name="file_type_file">Fajl</string>
+    <string name="file_type_unknown">Mhux magħruf</string>
+
+    <string name="general_progress_ready">Lest</string>
+    <string name="general_progress_done">Lest</string>
+
+    <string name="general_rom_type_auto_label">Awtomatiku (default)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d jum</item>
+        <item quantity="few">%d ijiem</item>
+        <item quantity="many">%d jum</item>
+        <item quantity="other">%d jum</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d siegħa</item>
+        <item quantity="few">%d sigħat</item>
+        <item quantity="many">%d siegħa</item>
+        <item quantity="other">%d siegħa</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s fajl</item>
+        <item quantity="few">%s fajls</item>
+        <item quantity="many">%s fajl</item>
+        <item quantity="other">%s fajl</item>
+    </plurals>
+    <string name="general_advice_title">Parir</string>
+    <string name="general_error_invalid_input_label">Input invalidu</string>
+    <string name="general_information_for_the_developer">Informazzjoni għall-iżviluppatur</string>
+    <string name="general_error_report_bug_action">Irrapporta bug</string>
+    <string name="general_error_ipc_deadobject_title">Konnessjoni tas-servizz mitlufa</string>
+    <string name="general_error_ipc_deadobject_description">Konnessjoni ma\' servizz kritiku (eż. Magisk, Shizuku, jew servizzi oħra fil-livell tas-sistema) mitlufa mhux mistenni. Jekk jogħġbok irristartja l-apparat tiegħek. Jekk il-problema tibqa\', iċċekkja għal aġġornamenti jew ikkuntattjani biex nissolvha.</string>
+</resources>

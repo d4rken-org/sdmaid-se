@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">Je via servo.</string>
+    <string name="slogan_message_1">Pura kaj bona.</string>
+    <string name="slogan_message_2">Malhelpi kaoson.</string>
+    <string name="slogan_message_3">Fari tion kio necesas.</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_5">Senmakula.</string>
+    <string name="slogan_message_6">Bajtoj, foriru!</string>
+    <string name="slogan_message_7">Libera spaco, feliĉa loko.</string>
+    <string name="slogan_message_8">Neniam forlasos vin.</string>
+
+    <string name="general_thank_you_label">Dankon</string>
+
+    <string name="general_error_type_mismatch_msg">Tipo-malkongruo: Volis %1$s, sed ricevis %2$s.</string>
+    <string name="general_error_cant_access_msg">Ne povas aliri %s.</string>
+    <string name="general_error_root_unavailable">Radika aliro ne disponebla.</string>
+    <string name="general_error_empty_result_msg">La rezulto estis malplena.</string>
+    <string name="general_error_no_compatible_app_found_msg">Neniu kongrua aplikaĵo trovita por trakti ĉi tiun peton.</string>
+    <string name="general_todo_msg">Ĉi tiu funkcio ankoraŭ estas prilaborata kaj nuntempe ne disponebla.</string>
+    <string name="general_share_action">Dividi</string>
+    <string name="general_done_action">Preta</string>
+    <string name="general_copy_action">Kopii</string>
+    <string name="general_wipe_action">Viŝi</string>
+    <string name="general_cancel_action">Nuligi</string>
+    <string name="general_discard_action">Forĵeti</string>
+    <string name="general_reset_action">Rekomenci</string>
+    <string name="general_save_action">Konservi</string>
+    <string name="general_thanks_action">Dankoj</string>
+    <string name="general_gotit_action">Komprenis</string>
+    <string name="general_fix_action">Ripari</string>
+    <string name="general_set_up_action">Agordi</string>
+    <string name="general_edit_action">Redakti</string>
+    <string name="general_na_label">N/A</string>
+    <string name="general_empty_label">Malplena</string>
+    <string name="general_dismiss_action">Forigi</string>
+    <string name="general_maybe_later_action">Eble poste</string>
+    <string name="general_manage_action">Administri</string>
+    <string name="general_sync_action">Sinkronigi</string>
+    <string name="general_error_label">Eraro</string>
+    <string name="general_tap_hint_msg">Tuŝu por pli da opcioj</string>
+    <string name="general_upgrade_action">Promocii</string>
+    <string name="general_donate_action">Donaci</string>
+    <string name="general_check_action">Kontroli</string>
+    <string name="general_filter_action">Filtri</string>
+    <string name="general_internal_not_available_msg">Interreta konekto ne disponebla</string>
+    <string name="general_refresh_action">Aktualigi</string>
+    <string name="general_progress_searching">Serĉas</string>
+    <string name="general_progress_generating_searchpaths">Kreas serĉ-vojojn</string>
+    <string name="general_progress_filtering">Filtras</string>
+    <string name="general_progress_preparing">Preparas</string>
+    <string name="general_progress_processing_x">Prilaboras %s</string>
+    <string name="general_progress_loading">Ŝarĝas</string>
+    <string name="general_progress_loading_app_data">Ŝarĝas aplikaĵ-datenojn</string>
+    <string name="general_progress_loading_data_areas">Ŝarĝas daten-regionojn</string>
+    <string name="general_progress_loading_egg_0">Pli rapida ol iPhone</string>
+    <string name="general_progress_loading_egg_1">Elŝutas kromajn RAM</string>
+    <string name="general_progress_loading_egg_2">Rapide™</string>
+    <string name="general_progress_loading_egg_3">CPU estas en kafpaŭzo</string>
+    <string name="general_progress_loading_egg_4">Atendas datenojn de Pepe Silvia</string>
+    <string name="general_progress_loading_egg_5">Startigas turbo-enkabuĽatoron</string>
+    <string name="general_progress_loading_egg_6">Pasas la buteron</string>
+    <string name="general_progress_loading_egg_7">Kiel vi fartas?</string>
+    <string name="general_progress_loading_egg_8">Bip bup bap</string>
+    <string name="general_progress_loading_egg_9">Bufrigas vivajn elektojn</string>
+    <string name="general_progress_loading_egg_10">Vokas Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Ĉi tio estas bone</string>
+    <string name="general_progress_loading_egg_12">Bonvolu atendi</string>
+    <string name="general_progress_loading_egg_13">Almenaŭ vi ne atendas telefone</string>
+    <string name="general_help_action">Helpo</string>
+    <string name="general_continue">Daŭrigi</string>
+    <string name="general_progress_queued">En vico</string>
+    <string name="general_progress_deleting">Forigas</string>
+    <string name="general_progress_deleting_x">Forigas %s</string>
+    <string name="general_sort_options_label">Ordig-opcioj</string>
+    <string name="general_sort_reverse_action">Renversa ordig-reĝimo</string>
+    <string name="general_tag_filter_label">Filtri laŭ etikedoj</string>
+
+    <string name="general_result_success_message">Operacio sukcesis</string>
+    <string name="general_result_failure_message">Operacio malsukcesis</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s spaco liberiĝis.</item>
+        <item quantity="other">%s spaco liberiĝis.</item>
+    </plurals>
+
+    <string name="general_options_label">Opcioj</string>
+    <string name="general_details_label">Detaloj</string>
+    <string name="general_view_action">Vidi</string>
+    <string name="general_update_action">Ĝisdatigi</string>
+    <string name="general_scan_action">Skani</string>
+    <string name="general_delete_action">Forigi</string>
+    <string name="general_delete_selected_action">Forigi elektitajn</string>
+    <string name="general_show_details_action">Montri detalojn</string>
+    <string name="general_show_all_action">Montri ĉion</string>
+    <string name="general_toggle_layout_mode">Ŝanĝi vid-reĝimon</string>
+
+    <string name="general_delete_confirmation_title">Konfirmi forigon</string>
+    <string name="general_delete_confirmation_message_x">Forigi \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Forigi la %d elektitajn erojn?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d ero foriĝis.</item>
+        <item quantity="other">%d eroj foriĝis.</item>
+    </plurals>
+
+    <string name="general_remove_action">Forpreni</string>
+    <string name="general_remove_selected_action">Forpreni elektitajn</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Unu ero forpreniĝis</item>
+        <item quantity="other">%d eroj forpreniĝis</item>
+    </plurals>
+
+    <string name="general_root_required_label">Radika aliro necesa</string>
+    <string name="general_root_required_message">Radikigita aparato necesa</string>
+
+    <string name="general_search_action">Serĉi</string>
+    <string name="general_scan_device_action">Skani aparaton</string>
+    <string name="general_open_system_settings_action">Malfermi sistem-agordojn</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">%s ero</item>
+        <item quantity="other">%s eroj</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d sukcesa</item>
+        <item quantity="other">%d sukcesaj</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d malsukcesa</item>
+        <item quantity="other">%d malsukcesaj</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s povas esti liberigita</item>
+        <item quantity="other">%s povas esti liberigita</item>
+    </plurals>
+    <string name="general_info_label">Informo</string>
+    <string name="general_count_label">Kalkulo</string>
+    <string name="general_app_label">Aplikaĵo</string>
+    <string name="general_more_info_action">Pli da informo</string>
+    <string name="general_grant_access_action">Doni aliron</string>
+    <string name="general_enable_service_action">Ŝalti servon</string>
+    <string name="general_undo_action">Malfari</string>
+
+    <string name="general_list_select_all_action">Elekti ĉion</string>
+
+    <string name="general_path_label">Vojo</string>
+    <string name="general_type_label">Tipo</string>
+    <string name="general_size_label">Grandeco</string>
+    <string name="general_exclude_action">Ekskluzivi</string>
+    <string name="general_exclude_selected_action">Ekskluzivi elektitajn</string>
+
+    <string name="general_device_label">Aparato</string>
+
+    <string name="general_settings_title">Agordoj</string>
+    <string name="general_help_title">Helpo</string>
+
+    <string name="file_type_symbolic_link">Ligilo</string>
+    <string name="file_type_directory">Dosierujo</string>
+    <string name="file_type_file">Dosiero</string>
+    <string name="file_type_unknown">Nekonata</string>
+
+    <string name="general_progress_ready">Preta</string>
+    <string name="general_progress_done">Preta</string>
+
+    <string name="general_rom_type_auto_label">Aŭtomata (defaŭlta)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d tago</item>
+        <item quantity="other">%d tagoj</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d horo</item>
+        <item quantity="other">%d horoj</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s dosiero</item>
+        <item quantity="other">%s dosieroj</item>
+    </plurals>
+    <string name="general_advice_title">Konsilo</string>
+    <string name="general_error_invalid_input_label">Nevalida enigo</string>
+    <string name="general_information_for_the_developer">Informo por la programisto</string>
+    <string name="general_error_report_bug_action">Raporti program-eraron</string>
+    <string name="general_error_ipc_deadobject_title">Serv-konekto perdiĝis</string>
+    <string name="general_error_ipc_deadobject_description">Konekto kun kritika servo (ekz. Magisk, Shizuku, aŭ aliaj sistem-nivelaj servoj) neatendite perdiĝis. Bonvolu restartigii vian aparaton. Se la problemo daŭras, kontrolu ĝisdatigojn aŭ kontaktu min por solvi ĝin.</string>
+</resources>

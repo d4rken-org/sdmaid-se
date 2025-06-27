@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">SD Maid SE Pro talab qilinadi</string>
+    <string name="upgrades_dashcard_title">SD Maid-ni yangilash</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro yaxshiroq natijalar, ko\'proq xususiyatlar va kuchli foydalanuvchilar uchun variantlarni taklif qiladi.</string>
+    <string name="upgrades_dashcard_upgrade_action">Yangilash</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play mavjud emas</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play-ga ulanib bo\'lmaydi. Google Play o\'rnatilgan va yangilanganmi? Google hisobingiz tizimga kirilganmi? Google Play ilovasining keshini tozalashni va qurilmangizni qayta ishga tushirishni sinab ko\'ring.</string>
+    <string name="upgrades_no_purchases_found_check_account">Hech qanday xarid topilmadi. To\'g\'ri hisobdan foydalanyapsizmi?</string>
+    <string name="upgrade_screen_title">SD Maid SE Pro ni oling</string>
+    <string name="upgrade_screen_preamble">SD Maid-da reklama yo\'q va foydalanuvchi ma\'lumotlarini sotmaydi. Mening ishim sizning moliyalashtirishingiz hisobiga amalga oshiriladi ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Afzalliklar</string>
+    <string name="upgrade_screen_benefits_body">• Ilovalarni tozalash 💯\n• Rejalashtirilgan operatsiyalar ⏰\n• Barcha vositalar uchun qo\'shimcha variantlar ⚙️\n• O\'zingizning o\'chirish qoidalaringiz ✍️\n• Motivatsiyalangan dasturchi 🧙\nva yana ko\'p narsalar…</string>
+    <string name="upgrade_screen_how_title">Variantlar</string>
+    <string name="upgrade_screen_how_body">Siz bir martalik xarid va arzonroq yillik obuna o\'rtasida tanlov qilishingiz mumkin.\nObuna bepul 14 kunlik sinov davri bilan boshlanadi, shundan so\'ng sizdan yiliga bir marta to\'lov olinadi. Sinov va obunani istalgan vaqtda bekor qilish mumkin.\nXuddi shu xususiyatlar, faqat turli narx modellari.</string>
+    <string name="upgrade_screen_subscription_trial_action">Bepul 14 kunlik sinovni boshlang</string>
+    <string name="upgrade_screen_subscription_action">Obuna bo\'ling</string>
+    <string name="upgrade_screen_subscription_action_hint">Obuna yiliga %s turadi.</string>
+    <string name="upgrade_screen_iap_action">Bir martalik xarid</string>
+    <string name="upgrade_screen_iap_action_hint">Bir martalik xarid %s turadi.</string>
+    <string name="upgrade_screen_thanks_toast">Siz eng zo\'rsiz! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Xaridni tiklash</string>
+    <string name="upgrade_screen_restore_purchase_message">Sizning yanglanishingiz bir xil Google hisobidagi qurilmalarda amal qiladi.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Tan olinmagan yangilanishlar uchun muammolarni hal qilish maslahatlari:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinxronlashtiruvi vaqt olishi mumkin. Qayta ishga tushirish, Google Play keshini tozalash yoki shunchaki kutishni sinab ko\'ring.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Ko\'p hisoblar Google Play-ni chalkashtirib yuborishi mumkin. Boshqa hisoblardan chiqing yoki Google Play veb-sayti orqali o\'rnating, bu esa ma\'lum bir hisob bilan bog\'lanishni majburiy qiladi.</string>
+</resources>

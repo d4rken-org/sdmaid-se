@@ -1,2 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="dashboard_delete_all_message">លុបលទ្ធផលនៅក្នុងឧបករណ៍ទាំងអស់ឬ?</string>
+    <string name="dashboard_settings_category">ផ្ទាំងគ្រប់គ្រង</string>
+    <string name="dashboard_motd_title">សារពីអ្នកអភិវឌ្ឍន៍</string>
+    <string name="dashboard_settings_oneclick_title">របៀបចុចម្តង</string>
+    <string name="dashboard_settings_oneclick_summary">ចាប់ផ្តើមការស្កេន និងការលុបសម្រាប់ឧបករណ៍ទាំងអស់ដោយចុចប៊ូតុងសកម្មភាពរបស់ផ្ទាំងគ្រប់គ្រង ដោយមិនមានការបញ្ជាក់បន្ថែម។</string>
+    <string name="dashboard_settings_oneclick_tools_title">ឧបករណ៍ចុចម្តង</string>
+    <string name="dashboard_settings_oneclick_tools_desc">ឧបករណ៍ណាខ្លះគួរតែត្រូវបានរួមបញ្ចូលក្នុងប្រតិបត្តិការចុចម្តង?</string>
+    <string name="debug_debuglog_size_label">ទំហំ</string>
+    <string name="debug_debuglog_size_compressed_label">ទំហំបានបង្ហាប់</string>
+    <string name="debug_notification_channel_label">ការជូនដំណឹងកែកំហុស</string>
+    <string name="debug_debuglog_file_label">ឯកសារកំណត់ហេតុដែលត្រូវបានកត់ត្រា</string>
+    <string name="debug_debuglog_recording_progress">កំពុងកត់ត្រាកំណត់ហេតុកែកំហុស</string>
+    <string name="debug_debuglog_record_action">កត់ត្រាកំណត់ហេតុកែកំហុស</string>
+    <string name="debug_debuglog_stop_action">បញ្ឈប់ការកត់ត្រា</string>
+    <string name="debug_debuglog_sensitive_information_message">ឯកសារដែលបានបង្កើតមានព័ត៌មានរសើប (ឧ. ឈ្មោះឯកសារ និងកម្មវិធីដែលបានដំឡើង)។ សូមចែករំលែកជាមួយភាគីដែលអាចជឿទុកចិត្តបានតែប៉ុណ្ណោះ។</string>
+    <string name="settings_debuglog_explanation">លក្ខណៈពិសេសនេះកត់ត្រារាល់អ្វីដែលកម្មវិធីកំពុងធ្វើទៅក្នុងឯកសារដែលអាចចែករំលែកបាន។ ឯកសារដែលបានបង្កើតមានព័ត៌មានរសើប (ឧ. ឈ្មោះឯកសារ និងកម្មវិធីដែលបានដំឡើង)។ សូមចែករំលែកជាមួយភាគីដែលអាចជឿទុកចិត្តបានតែប៉ុណ្ណោះ (ឧ. អ្នកអភិវឌ្ឍន៍ដែលកំពុងដោះស្រាយបញ្ហា)។</string>
+    <string name="tasks_activity_notification_channel_label">កិច្ចការសកម្ម</string>
+    <string name="tasks_activity_working_notification_title">SD Maid កំពុងធ្វើការ</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="other">%d កិច្ចការសកម្ម</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="other">%d កិច្ចការក្នុងជួរ</item>
+    </plurals>
+    <string name="tasks_result_notification_channel_label">លទ្ធផលកិច្ចការ</string>
+    <string name="tasks_result_subtext">លទ្ធផលកិច្ចការ</string>
+    <string name="onboarding_welcome_title">សូមស្វាគមន៍</string>
+    <string name="onboarding_welcome_body1">SD Maid SE គ្រប់គ្រងឯកសារ កម្មវិធី និងការផ្ទុក។</string>
+    <string name="onboarding_welcome_body2">ទទួលបានកន្លែងផ្ទុកដោយការសម្អាតបន្ទាប់ពីកម្មវិធីផ្សេងៗ។ លុបឯកសារដែលអាចចោលបាន និងយកចេញនូវទិន្នន័យដែលនៅសល់។</string>
+    <string name="onboarding_welcome_body_beta">នេះជាការបង្កើតបេតា (សាកល្បង)។ សូមបន្តដោយមានអារម្មណ៍កំប្លែង និងផែនការបម្រុង។ សូមរាយការណ៍បញ្ហាដែលអ្នកជួប។</string>
+    <string name="onboarding_welcome_continue_action">បន្ត</string>
+    <string name="onboarding_versus_body1">SD Maid SE (គឺ SD Maid 2) គឺជាអ្នកស្នងតំណែងរបស់ SD Maid (គឺ SD Maid 1)។ កម្មវិធីថ្មីដែលបានធ្វើឱ្យប្រសើរសម្រាប់ Android សម័យទំនើប។</string>
+    <string name="onboarding_versus_body2">ស្ថាបត្យកម្មរបស់អ្នកកាន់កាប់មុនមានអាយុជាង 7 ឆ្នាំហើយ និងមិនត្រូវបានរចនាសម្រាប់បញ្ហាប្រឈមនៃ Android កំណែថ្មីៗ។ ការរចនាឡើងវិញទាំងស្រុងគឺចាំបាច់ដើម្បីបន្តការអភិវឌ្ឍ។</string>
+    <string name="onboarding_versus_body3">ពិចារណាប្តូរទៅ SD Maid SE សម្រាប់លទ្ធផលប្រសើរជាង។</string>
+    <string name="onboarding_versus_body4">ស្ថានភាព \"pro\" របស់ SD Maid 1 ជាអកុសលមិនអាចផ្ទេរទៅ SD Maid 2/SE បានទេ។ បន្ទាប់ពីការធ្វើបច្ចុប្បន្នភាពឥតគិតថ្លៃរយៈពេល 12 ឆ្នាំ ការទិញថ្មីត្រូវបានទាមទារដើម្បីរក្សាការអភិវឌ្ឍ (ចិញ្ចឹមអ្នកអភិវឌ្ឍន៍)។</string>
+    <string name="onboarding_versus_continue_action">បន្ត</string>
+    <string name="onboarding_privacy_title">ភាពឯកជន</string>
+    <string name="onboarding_privacy_body1">SD Maid មិនមានពាណិជ្ជកម្ម និងមិនលក់ទិន្នន័យអ្នកប្រើប្រាស់។</string>
+    <string name="onboarding_privacy_bugreport_toggle_body">របាយការណ៍កំហុសត្រូវបានផ្ញើនៅពេលកំហុសកើតឡើង និងអាចមានព័ត៌មានលម្អិតអំពីកម្មវិធី និងឯកសារនៅក្នុងឧបករណ៍របស់អ្នក។ របាយការណ៍ជួយខ្ញុំកែកំហុស និងកែលម្អកម្មវិធី។</string>
+    <string name="onboarding_privacy_bugreport_toggle">អនុញ្ញាតរបាយការណ៍កំហុសស្វ័យប្រវត្តិ</string>
+    <string name="onboarding_privacy_bugreport_toggle_hint">ជម្រើសទាំងនេះអាចត្រូវបានផ្លាស់ប្តូរនៅក្នុងការកំណត់។</string>
+    <string name="onboarding_setup_title">ការរៀបចំ</string>
+    <string name="onboarding_setup_continue_action">បន្ត</string>
+</resources>

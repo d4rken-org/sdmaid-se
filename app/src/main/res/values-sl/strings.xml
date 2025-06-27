@@ -246,6 +246,10 @@
     <string name="systemcleaner_filter_custom_label">Filter po meri</string>
     <string name="systemcleaner_filter_custom_manage_label">Upravljaj s filtri po meri</string>
     <string name="systemcleaner_filter_custom_manage_summary">Ustvarite, izbrišite, uvozite ali izvozite filtre po meri.</string>
+    <string name="systemcleaner_filter_logfiles_label">Sistemske dnevniške datoteke</string>
+    <string name="systemcleaner_filter_logfiles_summary">Sistemske in sistemske storitve dnevniške datoteke (npr. *.log) na različnih lokacijah.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Predpomnilnik namestitelja</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Predpomnjeni podatki, povezani s nameščenimi aplikacijami, ki jih uporablja sistemsko upravljanje paketov.</string>
     <string name="systemcleaner_filter_advertisements_label">Oglasne datoteke</string>
     <string name="systemcleaner_filter_advertisements_summary">Datoteke, ki so bile ustvarjene za ali z oglasi.</string>
     <string name="systemcleaner_filter_anr_label">Napake ANR</string>
@@ -270,6 +274,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Podatki, ki jih lahko ustvari Raziskovalec Windows, ko priklopite napravo."</string>
     <string name="systemcleaner_filter_thumbnails_label">Sličice</string>
     <string name="systemcleaner_filter_thumbnails_summary">Predpomnjeni predogledi slik in videoposnetkov.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Začasne sistemske datoteke</string>
+    <string name="systemcleaner_filter_tempfiles_summary">S sistemom povezane začasne datoteke, običajno kratkoživi predpomnilniki za aktivne operacije.</string>
     <string name="systemcleaner_filter_analytics_label">Analitične datoteke</string>
     <string name="systemcleaner_filter_analytics_summary">Podatki, ki so povezani z analitiko in sledenjem hroščev.</string>
     <string name="systemcleaner_filter_downloadcache_label">Predpomnilnik prenosov</string>
@@ -410,6 +416,13 @@
         <item quantity="other">Izbriši odvečne datoteke za %d izbranih programov?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Brisanje prepomnilnikov s Shizukujem</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Določanje nedostopnih predpomnilnikov</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Čiščenje predpomnilnika ni na voljo</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Sistem je onemogočil gumb \"Počisti predpomnilnik\" za to aplikacijo. Izključite jo za hitrejše čiščenje predpomnilnika.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Zaslon nastavitev ni na voljo</string>
+    <string name="appcleaner_automation_error_no_settings_body">Ta sistemska aplikacija nima zaslona z nastavitvami. Čiščenje predpomnilnika prek storitve dostopnosti ni mogoče. Izključite jo za hitrejše čiščenje predpomnilnika.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Sistemska aplikacija je napačno konfigurirana</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Varnostni aplikaciji HyperOS (com.miui.securitycenter) manjka dovoljenje za statistike uporabe (GET_USAGE_STATS). To pokvari funkcije, kot je \"Počisti podatke\" v podrobnostih aplikacije in čiščenje predpomnilnika prek dostopnosti. Dodelite dovoljenje za obnovitev polne funkcionalnosti.</string>
     <string name="deduplicator_tool_name">Odstranjevalec dvojnikov</string>
     <string name="deduplicator_explanation_short">Na napravi poiščite podvojene podatke.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -501,6 +514,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Datum namestitve</string>
     <string name="appcontrol_list_sortmode_packagename_label">Ime paketa</string>
     <string name="appcontrol_list_sortmode_size_label">Velikost</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Čas zaslona</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Velikosti programov se določajo zaradi zmogljivosti.  Za natančnejše podatke uporabite Analizatorja shrambe.</string>
     <string name="appcontrol_progress_uninstalling_app">Odstranjevanje programa</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -560,6 +574,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Prisilno ustavljanje …</string>
     <string name="appcontrol_automation_progress_find_force_stop">Iskanje gumba \"Vsili ustavitev\" (ključne besede: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Poizkušanje potrditve prejšnjega dejanja (ključne besede: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Čas zaslona: %1$s od %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Nazadnje posodobljeno: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Nameščeno ob: %s</string>
     <string name="analyzer_tool_name">Analizator shrambe</string>
     <string name="analyzer_explanation_short">Izvédite, kaj zaseda prostor na napravi.</string>
     <string name="analyzer_progress_scanning_device">Iskanje pomnilniških naprav</string>
@@ -654,7 +671,12 @@
     <string name="automation_error_not_running_body">Storitev dostopnosti se ne izvaja.  Poizkusite s ponovnim zagonom naprave.</string>
     <string name="automation_error_screen_unavailable_title">Zaslon ni na voljo.</string>
     <string name="automation_error_screen_unavailable_body">Opravilo je bilo prekinjeno, ker zaslon ni več na voljo (npr. zaslon se je izklopil ali zaklenil).</string>
+    <string name="automation_error_compatibility_title">Združljivost avtomatizacije</string>
     <string name="automation_error_compatibility_body">SD Maid ni mogel prepoznati razporeditve zaslona.  Če se to stalno dogaja, vaš jezik ali nastavitev morda nista podprta.  Preverite za posodobitve ali stopite v stik z mano, da to lahko popravim.</string>
+    <string name="automation_error_timeout_title">Časovna omejitev avtomatizacije</string>
+    <string name="automation_error_timeout_body">SD Maid ni dokončal vseh korakov v časovnem okviru. Če se to nadaljuje, bo morda potrebno prilagoditi aplikacijo za vašo napravo. Preverite posodobitve ali se obrnite name, da lahko to popravim.</string>
+    <string name="automation_error_overlay_title">Prekrivni sloj avtomatizacije</string>
+    <string name="automation_error_overlay_body">SD Maid ni mogel prikazati prekrivnega sloja avtomatizacije. Preverite dovoljenja in poskusite znova zagnati napravo.</string>
     <string name="history_label">Zgodovina</string>
     <string name="history_description">Časovni seznam nedavnih dejanj in podatki, na katere so dejanja vplivala.</string>
     <string name="scheduler_label">Urnik</string>

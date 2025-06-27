@@ -6,11 +6,15 @@
     <string name="slogan_message_2">防止混亂</string>
     <string name="slogan_message_3">做好必要的工作</string>
     <string name="slogan_message_5">一塵不染</string>
+    <string name="slogan_message_6">位元組，走開！</string>
+    <string name="slogan_message_7">空閒空間，快樂之地。</string>
+    <string name="slogan_message_8">永遠不會放棄你。</string>
     <string name="general_thank_you_label">謝謝您</string>
     <string name="general_error_type_mismatch_msg">類型不相符：想要 %1$s，但卻是 %2$s。</string>
     <string name="general_error_cant_access_msg">無法存取 %s。</string>
     <string name="general_error_root_unavailable">Root 存取無法使用。</string>
     <string name="general_error_empty_result_msg">結果是空白的。</string>
+    <string name="general_error_no_compatible_app_found_msg">找不到相容的應用程式來處理此請求。</string>
     <string name="general_todo_msg">此功能仍在改善中，目前無法使用。</string>
     <string name="general_share_action">分享</string>
     <string name="general_done_action">完成</string>
@@ -55,14 +59,25 @@
     <string name="general_progress_loading_egg_5">渦輪增壓器®起始中</string>
     <string name="general_progress_loading_egg_6">畀我牛油</string>
     <string name="general_progress_loading_egg_7">我們要堅持</string>
+    <string name="general_progress_loading_egg_8">嗶嗶聲</string>
+    <string name="general_progress_loading_egg_9">緩衝人生選擇</string>
+    <string name="general_progress_loading_egg_10">召喚克蘇魯</string>
+    <string name="general_progress_loading_egg_11">一切安好</string>
+    <string name="general_progress_loading_egg_12">請稍候</string>
+    <string name="general_progress_loading_egg_13">至少你不是在等待</string>
     <string name="general_help_action">說明</string>
     <string name="general_continue">繼續</string>
     <string name="general_progress_queued">在佇列中</string>
+    <string name="general_progress_deleting">正在刪除</string>
+    <string name="general_progress_deleting_x">正在刪除 %s</string>
     <string name="general_sort_options_label">排序選項</string>
     <string name="general_sort_reverse_action">反向排序模式</string>
     <string name="general_tag_filter_label">依標籤過濾</string>
     <string name="general_result_success_message">作業成功</string>
     <string name="general_result_failure_message">作業失敗</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="other">已釋放 %s 空間。</item>
+    </plurals>
     <string name="general_options_label">選項</string>
     <string name="general_details_label">詳細資料</string>
     <string name="general_view_action">檢視</string>
@@ -72,9 +87,13 @@
     <string name="general_delete_selected_action">刪除已選取的項目</string>
     <string name="general_show_details_action">顯示詳細資料</string>
     <string name="general_show_all_action">全部顯示</string>
+    <string name="general_toggle_layout_mode">切換檢視模式</string>
     <string name="general_delete_confirmation_title">確認刪除</string>
     <string name="general_delete_confirmation_message_x">刪除「%s」？</string>
     <string name="general_delete_confirmation_message_selected_x_items">刪除 %d 個已選取的項目？</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="other">已刪除 %d 個項目。</item>
+    </plurals>
     <string name="general_remove_action">移除</string>
     <string name="general_remove_selected_action">移除已選取的項目</string>
     <plurals name="general_remove_success_x_items">
@@ -87,6 +106,15 @@
     <string name="general_open_system_settings_action">開啟系統設定</string>
     <plurals name="result_x_items">
         <item quantity="other">%s 個項目</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="other">%d 個成功</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="other">%d 個失敗</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="other">%s 可以釋放</item>
     </plurals>
     <string name="general_info_label">資訊</string>
     <string name="general_count_label">計數</string>
@@ -110,4 +138,20 @@
     <string name="file_type_unknown">未知</string>
     <string name="general_progress_ready">就緒</string>
     <string name="general_progress_done">完成</string>
+    <string name="general_rom_type_auto_label">自動（預設）</string>
+    <plurals name="general_age_days">
+        <item quantity="other">%d 天</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="other">%d 小時</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="other">%s 個檔案</item>
+    </plurals>
+    <string name="general_advice_title">建議</string>
+    <string name="general_error_invalid_input_label">無效輸入</string>
+    <string name="general_information_for_the_developer">開發人員資訊</string>
+    <string name="general_error_report_bug_action">報告錯誤</string>
+    <string name="general_error_ipc_deadobject_title">服務連線中斷</string>
+    <string name="general_error_ipc_deadobject_description">與重要服務（例如 Magisk、Shizuku 或其他系統級服務）的連線意外中斷。請重新啟動您的裝置。如果問題持續存在，請檢查更新或聯絡我以便修復。</string>
 </resources>

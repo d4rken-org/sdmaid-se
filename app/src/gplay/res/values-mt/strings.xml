@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
+    <string name="upgrade_feature_requires_pro">Jeħtieġ SD Maid SE Pro</string>
+
+    <string name="upgrades_dashcard_title">Aġġorna SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro joffri riżultati aħjar, aktar karatteristiċi u għażliet għal utenti avvanzati.</string>
+    <string name="upgrades_dashcard_upgrade_action">Aġġorna</string>
+
+    <string name="upgrades_gplay_unavailable_error_title">Google Play mhuwiex disponibbli</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid ma jistax jikkonnettja ma\' Google Play. Google Play huwa installat u aġġornat? Il-Kont Google tiegħek huwa illoggjat? Ipprova ħassar il-cache tal-app Google Play u erġa\' ixgħel l-apparat tiegħek.</string>
+    <string name="upgrades_no_purchases_found_check_account">Ma nstab l-ebda xiri. Qed tuża l-kont it-tajjeb?</string>
+    <string name="upgrade_screen_title">Ikseb SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid m\'għandux reklami u ma jbigħx id-data tal-utenti. Ix-xogħol tiegħi huwa ffinanzjat minnek ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Vantaġġi</string>
+    <string name="upgrade_screen_benefits_body">• Tindif tal-apps 💯\n• Operazzjonijiet skedati ⏰\n• Għażliet żejda għall-għodod kollha ⚙️\n• Ir-regoli tiegħek stess għat-tħassir ✍️\n• Żviluppatur motivat 🧙\nu aktar…</string>
+    <string name="upgrade_screen_how_title">Għażliet</string>
+    <string name="upgrade_screen_how_body">Tista\' tagħżel bejn xiri ta\' darba u abbonament annwali aktar irħis.\nL-abbonament jibda bi prova b\'xejn ta\' 14-il jum, wara liema titħallas darba fis-sena. Il-prova u l-abbonament jistgħu jiġu kkanċellati fi kwalunkwe ħin.\nL-istess karatteristiċi, mudelli ta\' prezzar differenti biss.</string>
+    <string name="upgrade_screen_subscription_trial_action">Ibda prova b\'xejn ta\' 14-il jum</string>
+    <string name="upgrade_screen_subscription_action">Abbona</string>
+    <string name="upgrade_screen_subscription_action_hint">L-abbonament jiswa %s fis-sena.</string>
+    <string name="upgrade_screen_iap_action">Xiri ta\' darba</string>
+    <string name="upgrade_screen_iap_action_hint">Ix-xiri ta\' darba jiswa %s.</string>
+    <string name="upgrade_screen_thanks_toast">Int l-aħjar! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Irrestawra x-xiri</string>
+    <string name="upgrade_screen_restore_purchase_message">L-aġġornament tiegħek huwa validu fuq apparat differenti bl-istess kont Google.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Suġġerimenti għas-soluzzjoni ta\' problemi għal aġġornamenti mhux rikonoxxuti:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Is-sinkronizzazzjoni tal-Play Store tista\' tieħu ħin. Ipprova erġa\' ixgħel, ħassar il-cache ta\' Google Play jew sempliċement stenna.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Kontijiet multipli jistgħu jikkonfondu Google Play. Illogja \'l barra minn kontijiet oħra jew installa permezz tal-websajt Google Play, li jforza assoċjazzjonijiet ma\' kont speċifiku.</string>
+</resources>

@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">Захтева SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Надогради SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro пружа боље резултате, више функција и опција за напредне кориснике.</string>
+    <string name="upgrades_dashcard_upgrade_action">Надогради</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play није доступан</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid не може да се повеже са Google Play. Да ли је Google Play инсталиран и ажуриран? Да ли је ваш Google налог пријављен? Покушајте да обришете кеш Google Play апликације и поново покрените уређај.</string>
+    <string name="upgrades_no_purchases_found_check_account">Нису пронађене куповине. Користите ли прави налог?</string>
+    <string name="upgrade_screen_title">Набавите SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid нема рекламе и не продаје корисничке податке. Мој рад финансирате ви ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Предности</string>
+    <string name="upgrade_screen_benefits_body">• Чишћење апликација 💯\n• Заказане операције ⏰\n• Додатне опције за све алате ⚙️\n• Ваша правила брисања ✍️\n• Мотивисан програмер 🧙\nи још много тога…</string>
+    <string name="upgrade_screen_how_title">Опције</string>
+    <string name="upgrade_screen_how_body">Можете бирати између једнократне куповине и јефтиније годишње претплате.\nПретплата почиње са бесплатним 14-дневним пробним периодом, након чега ће вам бити наплаћено једном годишње. Пробни период и претплата се могу отказати у било које време.\nИсте функције, само различити модели цена.</string>
+    <string name="upgrade_screen_subscription_trial_action">Започни бесплатни 14-дневни пробни период</string>
+    <string name="upgrade_screen_subscription_action">Претплати се</string>
+    <string name="upgrade_screen_subscription_action_hint">Претплата кошта %s годишње.</string>
+    <string name="upgrade_screen_iap_action">Једнократна куповина</string>
+    <string name="upgrade_screen_iap_action_hint">Једнократна куповина кошта %s.</string>
+    <string name="upgrade_screen_thanks_toast">Ви сте најбољи! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Врати куповину</string>
+    <string name="upgrade_screen_restore_purchase_message">Ваше надоградње важе на уређајима са истим Google налогом.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Савети за решавање проблема за непрепознате надоградње:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Синхронизација Play Store може потрајати. Покушајте поново покретање, брисање Google Play кеша или једноставно сачекајте.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Више налога може збунити Google Play. Одјавите се са других налога или инсталирајте преко Google Play веб сајта, што приморава везе са одређеним налогом.</string>
+</resources>

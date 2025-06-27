@@ -1,2 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="slogan_message_0">ໃຫ້ບໍລິການທ່ານ.</string>
+    <string name="slogan_message_1">ສະອາດ ແລະ ເປັນລະບຽບ.</string>
+    <string name="slogan_message_2">ປ້ອງກັນຄວາມສັບສົນ.</string>
+    <string name="slogan_message_3">ເຮັດສິ່ງທີ່ຈຳເປັນ.</string>
+    <string name="slogan_message_5">ບໍ່ມີຈຸດດ່າງ.</string>
+    <string name="slogan_message_6">Bytes, ໄປ!</string>
+    <string name="slogan_message_7">ພື້ນທີ່ຟຣີ, ສະຖານທີ່ມີຄວາມສຸກ.</string>
+    <string name="slogan_message_8">ຈະບໍ່ວາງເຈົ້າ.</string>
+    <string name="general_thank_you_label">ຂອບໃຈ</string>
+    <string name="general_error_type_mismatch_msg">ປະເພດບໍ່ກົງກັນ: ຕ້ອງການ %1$s, ແຕ່ໄດ້ %2$s.</string>
+    <string name="general_error_cant_access_msg">ບໍ່ສາມາດເຂົ້າເຖິງ %s ໄດ້.</string>
+    <string name="general_error_root_unavailable">ການເຂົ້າເຖິງ root ບໍ່ມີ.</string>
+    <string name="general_error_empty_result_msg">ຜົນໄດ້ບໍ່ມີຫຍັງ.</string>
+    <string name="general_error_no_compatible_app_found_msg">ບໍ່ພົບແອັບທີ່ເຂົ້າກັນໄດ້ເພື່ອຈັດການຄຳຮ້ອງຂໍນີ້.</string>
+    <string name="general_todo_msg">ຄຸນສົມບັດນີ້ຍັງຢູ່ໃນການພັດທະນາ ແລະ ປະຈຸບັນບໍ່ມີ.</string>
+    <string name="general_share_action">ແບ່ງປັນ</string>
+    <string name="general_done_action">ເສັດສິ້ນ</string>
+    <string name="general_copy_action">ສຳເນົາ</string>
+    <string name="general_wipe_action">ລຶບລ້າງ</string>
+    <string name="general_cancel_action">ຍົກເລີກ</string>
+    <string name="general_discard_action">ທິ້ງ</string>
+    <string name="general_reset_action">ຣີເຊັດ</string>
+    <string name="general_save_action">ບັນທຶກ</string>
+    <string name="general_thanks_action">ຂອບໃຈ</string>
+    <string name="general_gotit_action">ເຂົ້າໃຈແລ້ວ</string>
+    <string name="general_fix_action">ແກ້ໄຂ</string>
+    <string name="general_set_up_action">ຕິດຕັ້ງ</string>
+    <string name="general_edit_action">ແກ້ໄຂ</string>
+    <string name="general_na_label">ບ/ມ</string>
+    <string name="general_empty_label">ຫວ່າງເປົ່າ</string>
+    <string name="general_dismiss_action">ປະຕິເສດ</string>
+    <string name="general_maybe_later_action">ບາງທີພາຍຫຼັງ</string>
+    <string name="general_manage_action">ຈັດການ</string>
+    <string name="general_sync_action">ດຽງຂໍ້ມູນ</string>
+    <string name="general_error_label">ຜິດພາດ</string>
+    <string name="general_tap_hint_msg">ແຕະເພື່ອເລືອກເພີ່ມເຕີມ</string>
+    <string name="general_upgrade_action">ອັບເກຣດ</string>
+    <string name="general_donate_action">ບໍລິຈາກ</string>
+    <string name="general_check_action">ກວດສອບ</string>
+    <string name="general_filter_action">ຕອງ</string>
+    <string name="general_internal_not_available_msg">ບໍ່ມີການເຊື່ອມຕໍ່ອິນເຕີເນັດ</string>
+    <string name="general_refresh_action">ໂຫຼດໃໝ່</string>
+    <string name="general_progress_searching">ກຳລັງຄົ້ນຫາ</string>
+    <string name="general_progress_generating_searchpaths">ກຳລັງສ້າງເສັ້ນທາງຄົ້ນຫາ</string>
+    <string name="general_progress_filtering">ກຳລັງຕອງ</string>
+    <string name="general_progress_preparing">ກຳລັງກະກຽມ</string>
+    <string name="general_progress_processing_x">ກຳລັງປະມວນຜົນ %s</string>
+    <string name="general_progress_loading">ກຳລັງໂຫຼດ</string>
+    <string name="general_progress_loading_app_data">ກຳລັງໂຫຼດຂໍ້ມູນແອັບ</string>
+    <string name="general_progress_loading_data_areas">ກຳລັງໂຫຼດພື້ນທີ່ຂໍ້ມູນ</string>
+    <string name="general_help_action">ຊ່ວຍເຫຼືອ</string>
+    <string name="general_continue">ສືບຕໍ່</string>
+    <string name="general_progress_queued">ຢູ່ໃນແຖວ</string>
+    <string name="general_progress_deleting">ກຳລັງລຶບ</string>
+    <string name="general_progress_deleting_x">ກຳລັງລຶບ %s</string>
+    <string name="general_result_success_message">ການດຳເນີນງານສຳເລັດ</string>
+    <string name="general_result_failure_message">ການດຳເນີນງານລົ້ມເຫຼວ</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="other">ພື້ນທີ່ %s ໄດ້ຖືກປົດປ່ອຍ.</item>
+    </plurals>
+    <string name="general_options_label">ທາງເລືອກ</string>
+    <string name="general_details_label">ລາຍລະອຽດ</string>
+    <string name="general_view_action">ເບິ່ງ</string>
+    <string name="general_update_action">ອັບເດດ</string>
+    <string name="general_scan_action">ສະແກນ</string>
+    <string name="general_delete_action">ລຶບ</string>
+    <string name="general_delete_selected_action">ລຶບທີ່ເລືອກ</string>
+    <string name="general_show_details_action">ສະແດງລາຍລະອຽດ</string>
+    <string name="general_show_all_action">ສະແດງທັງໝົດ</string>
+    <string name="general_toggle_layout_mode">ສະຫຼັບໂໝດການສະແດງ</string>
+    <string name="general_delete_confirmation_title">ຢືນຢັນການລຶບ</string>
+    <string name="general_delete_confirmation_message_x">ລຶບ \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">ລຶບ %d ລາຍການທີ່ເລືອກ?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="other">ລຶບ %d ລາຍການແລ້ວ.</item>
+    </plurals>
+    <string name="general_remove_action">ເອົາອອກ</string>
+    <string name="general_remove_selected_action">ເອົາອອກທີ່ເລືອກ</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="other">ເອົາອອກ %d ລາຍການແລ້ວ</item>
+    </plurals>
+    <string name="general_root_required_label">ຕ້ອງການ root</string>
+    <string name="general_root_required_message">ຕ້ອງການອຸປະກອນທີ່ມີ root</string>
+    <string name="general_search_action">ຄົ້ນຫາ</string>
+    <string name="general_scan_device_action">ສະແກນອຸປະກອນ</string>
+    <string name="general_open_system_settings_action">ເປີດການຕັ້ງຄ່າລະບົບ</string>
+    <plurals name="result_x_items">
+        <item quantity="other">%s ລາຍການ</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="other">%d ສຳເລັດ</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="other">%d ລົ້ມເຫຼວ</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="other">%s ສາມາດປົດປ່ອຍໄດ້</item>
+    </plurals>
+    <string name="general_info_label">ຂໍ້ມູນ</string>
+    <string name="general_count_label">ຈຳນວນ</string>
+    <string name="general_app_label">ແອັບ</string>
+    <string name="general_more_info_action">ຂໍ້ມູນເພີ່ມເຕີມ</string>
+    <string name="general_grant_access_action">ໃຫ້ການເຂົ້າເຖິງ</string>
+    <string name="general_enable_service_action">ເປີດໃຊ້ບໍລິການ</string>
+    <string name="general_undo_action">ຍົກເລີກ</string>
+    <string name="general_list_select_all_action">ເລືອກທັງໝົດ</string>
+    <string name="general_path_label">ເສັ້ນທາງ</string>
+    <string name="general_type_label">ປະເພດ</string>
+    <string name="general_size_label">ຂະໜາດ</string>
+    <string name="general_exclude_action">ຍົກເວັ້ນ</string>
+    <string name="general_exclude_selected_action">ຍົກເວັ້ນທີ່ເລືອກ</string>
+    <string name="general_device_label">ອຸປະກອນ</string>
+    <string name="general_settings_title">ການຕັ້ງຄ່າ</string>
+    <string name="general_help_title">ຊ່ວຍເຫຼືອ</string>
+    <string name="file_type_symbolic_link">ລິ້ງ</string>
+    <string name="file_type_directory">ໂຟລເດີ</string>
+    <string name="file_type_file">ໄຟລ໌</string>
+    <string name="file_type_unknown">ບໍ່ຮູ້ຈັກ</string>
+    <string name="general_progress_ready">ພ້ອມ</string>
+    <string name="general_progress_done">ສຳເລັດ</string>
+    <string name="general_rom_type_auto_label">ອັດຕະໂນມັດ (ຄ່າເລີ່ມຕົ້ນ)</string>
+    <plurals name="general_age_days">
+        <item quantity="other">%d ມື້</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="other">%d ຊົ່ວໂມງ</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="other">%s ໄຟລ໌</item>
+    </plurals>
+    <string name="general_advice_title">ຄຳແນະນຳ</string>
+    <string name="general_error_invalid_input_label">ຂໍ້ມູນທີ່ປ້ອນບໍ່ຖືກຕ້ອງ</string>
+    <string name="general_information_for_the_developer">ຂໍ້ມູນສຳລັບນັກພັດທະນາ</string>
+    <string name="general_error_report_bug_action">ລາຍງານຂໍ້ຜິດພາດ</string>
+    <string name="general_error_ipc_deadobject_title">ການເຊື່ອມຕໍ່ບໍລິການສູນເສຍ</string>
+    <string name="general_error_ipc_deadobject_description">ການເຊື່ອມຕໍ່ກັບບໍລິການສຳຄັນ (ເຊັ່ນ Magisk, Shizuku ຫຼື ບໍລິການລະດັບລະບົບອື່ນໆ) ສູນເສຍແບບບໍ່ຄາດຄິດ. ກະລຸນາຣີສະຕາດອຸປະກອນຂອງທ່ານ. ຫາກບັນຫາດັ່ງກ່າວຍັງດຳເນີນຕໍ່ໄປ, ກະລຸນາກວດສອບການອັບເດດ ຫຼື ຕິດຕໍ່ຂ້ອຍເພື່ອແກ້ໄຂ.</string>
+</resources>

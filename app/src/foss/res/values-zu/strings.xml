@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">Kudinga SD Maid SE FOSS</string>
+    <string name="upgrades_dashcard_title">Thuthukisa SD Maid</string>
+    <string name="upgrades_dashcard_body">Vula izici ezengeziwe futhi ube ngumnikazi ukuze usekele ukuthuthukiswa okuqhubekayo!</string>
+    <string name="upgrades_dashcard_upgrade_action">Thuthukisa</string>
+    <string name="upgrade_screen_title">Thuthukisa SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid ayinayo izikhangiso futhi ayithengisi idatha yabasebenzisi. Ukuthuthukiswa okuqhubekayo kwenzeka kuphela ngawe.</string>
+    <string name="upgrade_screen_how_title">Indlela yokusiza</string>
+    <string name="upgrade_screen_how_body">Yiba ngumnikazi futhi uxhase ukuthuthukiswa! Thepha inkinobho engezansi ukuze unike amandla zonke izici ezengeziwe futhi uvule iphrofayili yami ye-GitHub Sponsors.</string>
+    <string name="upgrade_screen_why_title">Lokhu kwenza umlingo 🪄</string>
+    <string name="upgrade_screen_why_body">• Ukusebenza kwe-AppCleaner kokususa 💯\n• Imisebenzi ehlelwe ngokulandelana ⏰\n• Izinketho ezengeziwe kuwo wonke amathuluzi ⚙️\n• Imithetho yakho yokususa ✍️\n• Umthuthukisi ogqugquzelayo 🧙\nnokunye…</string>
+    <string name="upgrade_screen_sponsor_action">Xhasa ukuthuthukiswa</string>
+    <string name="upgrade_screen_sponsor_action_hint">Enye indlela izikhangiso, ukuhlaziya ne-Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Ngiyabonga ngokusekela ukuthuthukiswa komthombo ovulekile ❤️</string>
+</resources>

@@ -75,6 +75,9 @@
     <string name="general_tag_filter_label">タグによるフィルタリング</string>
     <string name="general_result_success_message">実行成功</string>
     <string name="general_result_failure_message">実行失敗</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="other">%sの容量を解放しました。</item>
+    </plurals>
     <string name="general_options_label">オプション</string>
     <string name="general_details_label">詳細</string>
     <string name="general_view_action">表示</string>
@@ -88,6 +91,9 @@
     <string name="general_delete_confirmation_title">削除完了</string>
     <string name="general_delete_confirmation_message_x">\"%s\"を削除しますか？</string>
     <string name="general_delete_confirmation_message_selected_x_items">%d 選択したアイテムを削除しますか？</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="other">%d項目を削除しました。</item>
+    </plurals>
     <string name="general_remove_action">削除</string>
     <string name="general_remove_selected_action">選択した項目を削除</string>
     <plurals name="general_remove_success_x_items">
@@ -106,6 +112,9 @@
     </plurals>
     <plurals name="result_x_failed">
         <item quantity="other">%d に失敗しました</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="other">%sを解放できます</item>
     </plurals>
     <string name="general_info_label">情報</string>
     <string name="general_count_label">カウント</string>
@@ -130,8 +139,19 @@
     <string name="general_progress_ready">準備</string>
     <string name="general_progress_done">完了</string>
     <string name="general_rom_type_auto_label">自動(デフォルト)</string>
+    <plurals name="general_age_days">
+        <item quantity="other">%d日</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="other">%d時間</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="other">%s ファイル</item>
     </plurals>
     <string name="general_advice_title">アドバイス</string>
+    <string name="general_error_invalid_input_label">無効な入力</string>
+    <string name="general_information_for_the_developer">開発者向け情報</string>
+    <string name="general_error_report_bug_action">バグ報告</string>
+    <string name="general_error_ipc_deadobject_title">サービス接続が失われました</string>
+    <string name="general_error_ipc_deadobject_description">重要なサービス（Magisk、Shizuku、その他のシステムレベルサービスなど）への接続が予期せず失われました。デバイスを再起動してください。問題が解決しない場合は、アップデートを確認するか、私に連絡して修正できるようにしてください。</string>
 </resources>

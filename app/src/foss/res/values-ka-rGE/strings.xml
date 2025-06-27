@@ -2,12 +2,14 @@
 <resources>
     <string name="app_name_upgraded">SD maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">საჭიროებს SD Maid SE FOSS</string>
     <string name="upgrades_dashcard_title">გაარემონტეთ SD Maid</string>
     <string name="upgrades_dashcard_body">განბლოკეთ დამატებითი ფუნქციები და გახდით მფარველი მუდმივი განვითარების მხარდასაჭერად!</string>
     <string name="upgrades_dashcard_upgrade_action">გარემონტება</string>
     <string name="upgrade_screen_title">SD Maid-ის გაუმჯობესება</string>
     <string name="upgrade_screen_preamble">SD Maid-ს არ აქვს რეკლამები და არ ყიდის მომხმარებლის მონაცემებს.  უწყვეტი განვითარება მხოლოდ თქვენ მიერ არის შესაძლებელი.</string>
     <string name="upgrade_screen_how_title">როგორ დაგეხმაროთ</string>
+    <string name="upgrade_screen_how_body">გახდით მფარველი და სპონსორობა გაუწიეთ განვითარებას! შეეხეთ ქვემოთ მოცემულ ღილაკს, რათა ააქტიუროთ ყველა დამატებითი ფუნქცია და გახსნათ ჩემი GitHub Sponsors პროფილი.</string>
     <string name="upgrade_screen_why_title">ეს იწვევს 🪄</string>
     <string name="upgrade_screen_why_body">• AppCleaner-ის წაშლის ფუნქცია 💯\n• დაგეგმილი ოპერაციები ⏰\n• დამატებითი ვარიანტები ყველა ხელსაწყოსთვის ⚙️\n• თქვენი წაშლის წესები ✍️\n• მოტივირებული დეველოპერი 🧙\nდა სხვა…</string>
     <string name="upgrade_screen_sponsor_action">სპონსორის განვითარება</string>

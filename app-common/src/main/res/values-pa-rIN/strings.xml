@@ -49,6 +49,68 @@
     <string name="general_progress_preparing">ਤਿਆਰ ਹੋ ਰਿਹੈ...</string>
     <string name="general_progress_processing_x">%s ਦੀ ਪ੍ਰਕਿਰਿਆ ਹੋ ਰਹੀ ਹੈ</string>
     <string name="general_progress_loading">ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="general_progress_loading_app_data">ਐਪ ਡਾਟਾ ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="general_progress_loading_data_areas">ਡਾਟਾ ਖੇਤਰ ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="general_progress_loading_egg_0">ਅਜੇ ਵੀ iPhone ਨਾਲੋਂ ਤੇਜ਼</string>
+    <string name="general_progress_loading_egg_1">ਹੋਰ RAM ਡਾਊਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="general_progress_loading_egg_2">ਜਲਦੀ™</string>
+    <string name="general_progress_loading_egg_3">CPU ਕਾਫੀ ਬ੍ਰੇਕ \'ਤੇ ਹੈ</string>
+    <string name="general_progress_loading_egg_4">Pepe Silvia ਤੋਂ ਡਾਟਾ ਦੀ ਉਡੀਕ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="general_progress_loading_egg_5">Turbo encabulator ਸ਼ੁਰੂ ਹੋ ਰਿਹਾ ਹੈ</string>
+    <string name="general_progress_loading_egg_6">ਮੱਖਣ ਪਾਸ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="general_progress_loading_egg_7">ਸੋ. ਤੁਸੀਂ ਕਿਵੇਂ ਚੱਲ ਰਹੇ ਹੋ?</string>
+    <string name="general_progress_loading_egg_8">ਬੀਪ ਬੂਪ ਬੋਪ</string>
+    <string name="general_progress_loading_egg_9">ਜ਼ਿੰਦਗੀ ਦੇ ਵਿਕਲਪਾਂ ਨੂੰ ਬਫਰ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="general_progress_loading_egg_10">Cthulhu ਨੂੰ ਬੁਲਾ ਰਿਹਾ ਹੈ</string>
+    <string name="general_progress_loading_egg_11">ਇਹ ਠੀਕ ਹੈ</string>
+    <string name="general_progress_loading_egg_12">ਕਿਰਪਾ ਕਰਕੇ ਰੱਖੋ</string>
+    <string name="general_progress_loading_egg_13">ਘੱਟੋ ਘੱਟ ਤੁਸੀਂ ਹੋਲਡ \'ਤੇ ਨਹੀਂ ਹੋ</string>
+    <string name="general_help_action">ਮਦਦ</string>
+    <string name="general_continue">ਜਾਰੀ ਰੱਖੋ</string>
+    <string name="general_progress_queued">ਕਤਾਰ ਵਿੱਚ</string>
+    <string name="general_progress_deleting">ਮਿਟਾ ਰਿਹਾ ਹੈ</string>
+    <string name="general_progress_deleting_x">%s ਮਿਟਾ ਰਿਹਾ ਹੈ</string>
+    <string name="general_sort_options_label">ਸੰਧਿ ਵਿਕਲਪ</string>
+    <string name="general_sort_reverse_action">ਰਿਵਰਸ ਸੰਧਿ ਮੋਡ</string>
+    <string name="general_tag_filter_label">ਟੈਗਾਂ ਦੁਆਰਾ ਫਿਲਟਰ ਕਰੋ</string>
+    <string name="general_result_success_message">ਕਾਰਵਾਈ ਸਫਲ ਹੋਈ</string>
+    <string name="general_result_failure_message">ਕਾਰਵਾਈ ਅਸਫਲ ਹੋਈ</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s ਜਗ੍ਹਾ ਮੁਫਤ ਕੀਤੀ।</item>
+        <item quantity="other">%s ਜਗ੍ਹਾ ਮੁਫਤ ਕੀਤੀ।</item>
+    </plurals>
+    <string name="general_options_label">ਵਿਕਲਪ</string>
+    <string name="general_details_label">ਵੇਰਵੇ</string>
+    <string name="general_view_action">ਵੇਖੋ</string>
+    <string name="general_update_action">ਅਪਡੇਟ</string>
+    <string name="general_scan_action">ਸਕੈਨ ਕਰੋ</string>
+    <string name="general_delete_action">ਮਿਟਾਓ</string>
+    <string name="general_delete_selected_action">ਚੁਣੇ ਮਿਟਾਓ</string>
+    <string name="general_show_details_action">ਵੇਰਵੇ ਦਿਖਾਓ</string>
+    <string name="general_show_all_action">ਸਾਰੇ ਦਿਖਾਓ</string>
+    <string name="general_toggle_layout_mode">ਦੇਖਣ ਦਾ ਮੋਡ ਬਦਲੋ</string>
+    <string name="general_delete_confirmation_title">ਮਿਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ</string>
+    <string name="general_delete_confirmation_message_x">\"%s\" ਮਿਟਾਓ?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">%d ਚੁਣੇ ਹੋਏ ਆਈਟਮ ਮਿਟਾਓ?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d ਆਈਟਮ ਮਿਟਾਇਆ ਗਿਆ।</item>
+        <item quantity="other">%d ਆਈਟਮ ਮਿਟਾਏ ਗਏ।</item>
+    </plurals>
+    <string name="general_remove_action">ਹਟਾਓ</string>
+    <string name="general_remove_selected_action">ਚੁਣੇ ਹਟਾਓ</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">ਇੱਕ ਆਈਟਮ ਹਟਾਇਆ ਗਿਆ</item>
+        <item quantity="other">%d ਆਈਟਮ ਹਟਾਏ ਗਏ</item>
+    </plurals>
+    <string name="general_root_required_label">ਰੂਟ ਦੀ ਲੋੜ ਹੈ</string>
+    <string name="general_root_required_message">ਰੂਟ ਕੀਤੇ ਗਏ ਯੰਤਰ ਦੀ ਲੋੜ ਹੈ</string>
+    <string name="general_search_action">ਖੋਜੋ</string>
+    <string name="general_scan_device_action">ਯੰਤਰ ਸਕੈਨ ਕਰੋ</string>
+    <string name="general_open_system_settings_action">ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ</string>
+    <plurals name="result_x_items">
+        <item quantity="one">%s ਆਈਟਮ</item>
+        <item quantity="other">%s ਆਈਟਮ</item>
+    </plurals>
     <plurals name="result_x_successful">
         <item quantity="one">%d ਸਫਲ</item>
         <item quantity="other">%d ਸਫਲ</item>
@@ -56,6 +118,10 @@
     <plurals name="result_x_failed">
         <item quantity="one">%d ਅਸਫਲ</item>
         <item quantity="other">%d ਅਸਫਲ</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s ਮੁਫਤ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ</item>
+        <item quantity="other">%s ਮੁਫਤ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ</item>
     </plurals>
     <string name="general_info_label">ਜਾਣਕਾਰੀ</string>
     <string name="general_count_label">ਗਿਣਤੀ</string>
@@ -80,9 +146,22 @@
     <string name="general_progress_ready">ਤਿਆਰ</string>
     <string name="general_progress_done">ਮੁਕੰਮਲ</string>
     <string name="general_rom_type_auto_label">ਸਵੈਚਾਲਿਤ (ਮੂਲ)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d ਦਿਨ</item>
+        <item quantity="other">%d ਦਿਨ</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d ਘੰਟਾ</item>
+        <item quantity="other">%d ਘੰਟੇ</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s ਫਾਈਲ</item>
         <item quantity="other">%s ਫਾਈਲਾਂ</item>
     </plurals>
     <string name="general_advice_title">ਸਲਾਹ</string>
+    <string name="general_error_invalid_input_label">ਗਲਤ ਇਨਪੁਟ</string>
+    <string name="general_information_for_the_developer">ਡਿਵੈਲਪਰ ਲਈ ਜਾਣਕਾਰੀ</string>
+    <string name="general_error_report_bug_action">ਬੱਗ ਰਿਪੋਰਟ ਕਰੋ</string>
+    <string name="general_error_ipc_deadobject_title">ਸੇਵਾ ਸੰਪਰਕ ਗੁਆਚ ਗਿਆ</string>
+    <string name="general_error_ipc_deadobject_description">ਇੱਕ ਮਹੱਤਵਪੂਰਨ ਸੇਵਾ (ਜਿਵੇਂ ਕਿ Magisk, Shizuku, ਜਾਂ ਹੋਰ ਸਿਸਟਮ-ਪੱਧਰ ਦੀਆਂ ਸੇਵਾਵਾਂ) ਨਾਲ ਸੰਪਰਕ ਅਚਾਨਕ ਟੁੱਟ ਗਿਆ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਯੰਤਰ ਰੀਬੂਟ ਕਰੋ। ਜੇ ਸਮੱਸਿਆ ਜਾਰੀ ਰਹਿੰਦੀ ਹੈ, ਅਪਡੇਟ ਦੀ ਜਾਂਚ ਕਰੋ ਜਾਂ ਮੇਰੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਤਾਂ ਜੋ ਮੈਂ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
 </resources>

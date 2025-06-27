@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE مفتوح المصدر</string>
     <string name="app_name_upgrade_postfix">البرمجيات الحرة (FOSS)</string>
+    <string name="upgrade_feature_requires_pro">يتطلب SD Maid SE مفتوح المصدر</string>
     <string name="upgrades_dashcard_title">ترقية SD Maid</string>
     <string name="upgrades_dashcard_body">افتح ميزات إضافية وكن راعياً لدعم التطوير المستمر!</string>
     <string name="upgrades_dashcard_upgrade_action">ترقية</string>

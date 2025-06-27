@@ -211,6 +211,12 @@
     <string name="corpsefinder_filter_appasec_summary">Зашифровані ресурси додатків, наприклад, ігрові ресурси.</string>
     <string name="corpsefinder_filter_app2sd_summary">Дані, переміщені на зовнішнє сховище за допомогою App2SD.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d залишок додатку видалено</item>
+        <item quantity="few">%d залишки додатків видалено</item>
+        <item quantity="many">%d залишків додатків видалено</item>
+        <item quantity="other">%d залишків додатків видалено</item>
+    </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">Виявлено залишок додатка %d</item>
         <item quantity="few">Виявлено залишки додатка %d</item>
@@ -225,6 +231,12 @@
     <string name="corpsefinder_corpse_hint_common">Цей елемент має дуже поширену назву і може належати до ще встановлених додатків, про які SD Maid не знає.</string>
     <string name="systemcleaner_tool_name">Очищувач системи</string>
     <string name="systemcleaner_explanation_short">Зайві дані, які не належать жодному додатку.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d збіг видалено</item>
+        <item quantity="few">%d збіги видалено</item>
+        <item quantity="many">%d збігів видалено</item>
+        <item quantity="other">%d збігів видалено</item>
+    </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d збіг фільтрів</item>
         <item quantity="few">%d збіги фільтрів</item>
@@ -371,6 +383,12 @@
     <string name="appcleaner_filter_qqchat_label">QQ чат</string>
     <string name="appcleaner_filter_qqchat_summary">Відправлені або отримані файли в чаті QQ.</string>
     <string name="appcleaner_delete_all_confirmation_message">Видалити розширені елементи для всіх додатків?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d зайвий елемент видалено</item>
+        <item quantity="few">%d зайвих елементи видалено</item>
+        <item quantity="many">%d зайвих елементів видалено</item>
+        <item quantity="other">%d зайвих елементів видалено</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Знайдено %d витратний матеріал</item>
         <item quantity="few">Знайдено %d витратні матеріали</item>
@@ -407,6 +425,12 @@
     <string name="appcleaner_automation_error_securitycenter_permission_body">У додатку безпеки HyperOS (com.miui.securitycenter) відсутній дозвіл «Статистика використання» (GET_USAGE_STATS). Це порушує такі функції, як «Очистити дані» у деталях додатку та очищення кешу через доступ. Надайте дозвіл, щоб відновити повну функціональність.</string>
     <string name="deduplicator_tool_name">Дублікати</string>
     <string name="deduplicator_explanation_short">Знайдіть дублікати даних на вашому пристрої.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d дублікат видалено</item>
+        <item quantity="few">%d дублікати видалено</item>
+        <item quantity="many">%d дублікатів видалено</item>
+        <item quantity="other">%d дублікатів видалено</item>
+    </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">Знайдено дублікатів: %d</item>
         <item quantity="few">Знайдено дублікати: %d</item>
@@ -427,6 +451,12 @@
     <string name="deduplicator_detection_method_phash_title">Хеш сприйняття</string>
     <string name="deduplicator_detection_method_phash_summary">Знаходьте схожі файли, аналізуючи особливості контенту та порівнюючи значення хеш-функції сприйняття.</string>
     <string name="deduplicator_occupied_space_label">Зайняте сховище</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s зайнято дублікатами</item>
+        <item quantity="few">%s зайнято дублікатами</item>
+        <item quantity="many">%s зайнято дублікатами</item>
+        <item quantity="other">%s зайнято дублікатами</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Розмір файлу</string>
     <string name="deduplicator_average_size_label">Середній розмір</string>
     <string name="deduplicator_cluster_x_label">Кластер %s</string>
@@ -487,6 +517,12 @@
     <string name="appcontrol_list_sortmode_screentime_label">Екранний час</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Розміри додатків оцінюються з міркувань продуктивності. Використовуйте інструмент Аналізатор сховища для отримання більш точних даних.</string>
     <string name="appcontrol_progress_uninstalling_app">Видалення додатка</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d додаток було видалено</item>
+        <item quantity="few">%d додатки було видалено</item>
+        <item quantity="many">%d додатків було видалено</item>
+        <item quantity="other">%d додатків було видалено</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Розмір додатка</string>
     <string name="appcontrol_app_sizes_apk_label">Додаток</string>
     <string name="appcontrol_app_sizes_data_label">Дані</string>
@@ -498,6 +534,12 @@
         <item quantity="many">Змінити стани увімкнення/вимкнення програм %d?</item>
         <item quantity="other">Змінити стан увімкнення/вимкнення для %d програм?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d додаток було перемкнуто</item>
+        <item quantity="few">%d додатки було перемкнуто</item>
+        <item quantity="many">%d додатків було перемкнуто</item>
+        <item quantity="other">%d додатків було перемкнуто</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Визначення розмірів</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Отримайте приблизну оцінку розміру кожного додатка.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Визначення активності</string>
@@ -505,6 +547,12 @@
     <string name="appcontrol_export_app_selection_action">Експорт додатків</string>
     <string name="appcontrol_export_title">Експорт додатка</string>
     <string name="appcontrol_export_description">Збережіть інсталяційні файли цього додатка. Сюди не входять дані додатка.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d додаток був експортований</item>
+        <item quantity="few">%d додатки були експортовані</item>
+        <item quantity="many">%d додатків було експортовано</item>
+        <item quantity="other">%d додатків було експортовано</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">Експорт %s</string>
     <string name="appcontrol_force_stop_selection_action">Примусово зупинити додатки</string>
     <string name="appcontrol_force_stop_action">Примусова зупинка</string>
@@ -514,6 +562,12 @@
         <item quantity="few">Примусово зупинити додатки %d?</item>
         <item quantity="many">Примусово зупинити додатки %d?</item>
         <item quantity="other">Примусово зупинити %d додатків?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d додаток було зупинено</item>
+        <item quantity="few">%d додатки було зупинено</item>
+        <item quantity="many">%d додатків було зупинено</item>
+        <item quantity="other">%d додатків було зупинено</item>
     </plurals>
     <string name="appcontrol_automation_loading">Підготовка автоматизації через сервіс спеціальних можливостей</string>
     <string name="appcontrol_automation_title">Автоматизація очищення додатків</string>
@@ -681,6 +735,18 @@
     <string name="review_app_dismiss_action">Можливо пізніше</string>
     <string name="review_app_body">Бажаєте залишити відгук про SD Maid?️ ❤️</string>
     <string name="stats_label">Історія</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s було звільнено.</item>
+        <item quantity="few">%s було звільнено.</item>
+        <item quantity="many">%s було звільнено.</item>
+        <item quantity="other">%s було звільнено.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s елемент оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
+        <item quantity="few">%s елементи оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
+        <item quantity="many">%s елементів оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
+        <item quantity="other">%s елементів оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
+    </plurals>
     <string name="stats_report_status_success">Успіх</string>
     <string name="stats_report_status_partial_success">Частковий успіх</string>
     <string name="stats_report_status_partial_failure">Невдача</string>
@@ -690,6 +756,12 @@
     <string name="stats_settings_retention_reports_desc">Кількість днів до видалення основних звітів про роботу SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Детальна інформація про шлях</string>
     <string name="stats_settings_retention_paths_desc">Кількість днів, протягом яких зберігається інформація про шляхи, на які вплинула SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d день</item>
+        <item quantity="few">%d дні</item>
+        <item quantity="many">%d днів</item>
+        <item quantity="other">%d днів</item>
+    </plurals>
     <string name="stats_settings_reset_all_label">Скинути все</string>
     <string name="stats_settings_reset_all_desc">Видаліть усі звіти та обнулить усю статистику.</string>
     <string name="stats_affected_paths_label">Пошкоджені шляхи</string>
@@ -697,6 +769,12 @@
     <string name="picker_select_paths_title">Виберіть шляхи</string>
     <string name="picker_selected_paths_title">Вибрані шляхи</string>
     <string name="picker_unsaved_confirmation_message">Скасувати зміни?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d шлях вибрано</item>
+        <item quantity="few">%d шляхи вибрано</item>
+        <item quantity="many">%d шляхів вибрано</item>
+        <item quantity="other">%d шляхів вибрано</item>
+    </plurals>
     <string name="picker_home_action">Області даних</string>
     <string name="area_type_sdcard_label">Загальне сховище</string>
     <string name="area_type_public_media_label">Загальнодоступні дані додатку</string>

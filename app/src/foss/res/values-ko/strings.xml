@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">SD Maid SE FOSS가 필요합니다</string>
     <string name="upgrades_dashcard_title">SD Maid 업그레이드</string>
     <string name="upgrades_dashcard_body">후원자가 되어 앱 개발을 지원하고 추가 기능을 잠금해제 하세요!</string>
     <string name="upgrades_dashcard_upgrade_action">업그레이드</string>

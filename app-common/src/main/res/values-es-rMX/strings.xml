@@ -8,21 +8,26 @@
     <string name="slogan_message_5">Impecable.</string>
     <string name="slogan_message_6">¡Bytes, fuera!</string>
     <string name="slogan_message_7">Espacio libre, lugar feliz.</string>
+    <string name="slogan_message_8">Nunca te voy a abandonar.</string>
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_error_type_mismatch_msg">Error tipográfico: Querías %1$s, pero obtuviste %2$s.</string>
     <string name="general_error_cant_access_msg">No se puede acceder a %s.</string>
     <string name="general_error_root_unavailable">El acceso root no está disponible.</string>
     <string name="general_error_empty_result_msg">El resultado estaba vacío.</string>
+    <string name="general_error_no_compatible_app_found_msg">No se encontró ninguna aplicación compatible para manejar esta solicitud.</string>
     <string name="general_todo_msg">Esta función aún está en fase de desarrollo y actualmente no está disponible.</string>
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Hecho</string>
     <string name="general_copy_action">Copiar</string>
     <string name="general_wipe_action">Limpiar</string>
     <string name="general_cancel_action">Cancelar</string>
+    <string name="general_discard_action">Descartar</string>
     <string name="general_reset_action">Restablecer</string>
     <string name="general_save_action">Guardar</string>
     <string name="general_thanks_action">Gracias</string>
     <string name="general_gotit_action">Entendido</string>
+    <string name="general_fix_action">Arreglar</string>
+    <string name="general_set_up_action">Configurar</string>
     <string name="general_edit_action">Editar</string>
     <string name="general_na_label">NO DISPONIBLE</string>
     <string name="general_empty_label">Vacío</string>
@@ -53,23 +58,50 @@
     <string name="general_progress_loading_egg_4">Esperando datos de Pepe Silvia</string>
     <string name="general_progress_loading_egg_5">El turbo encabulator se está iniciando</string>
     <string name="general_progress_loading_egg_6">Pasando la mantequilla</string>
+    <string name="general_progress_loading_egg_7">Entonces. ¿Cómo la estás pasando?</string>
+    <string name="general_progress_loading_egg_8">Bipando bup bup</string>
+    <string name="general_progress_loading_egg_9">Almacenando opciones de vida</string>
+    <string name="general_progress_loading_egg_10">Invocando a Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Esto está bien</string>
+    <string name="general_progress_loading_egg_12">Por favor espera</string>
+    <string name="general_progress_loading_egg_13">Al menos no estás en espera</string>
     <string name="general_help_action">Ayuda</string>
     <string name="general_continue">Continuar</string>
     <string name="general_progress_queued">En espera</string>
+    <string name="general_progress_deleting">Borrando</string>
+    <string name="general_progress_deleting_x">Borrando %s</string>
     <string name="general_sort_options_label">Ordenar opciones</string>
+    <string name="general_sort_reverse_action">Invertir el modo de ordenación</string>
     <string name="general_tag_filter_label">Filtrar por etiquetas</string>
     <string name="general_result_success_message">Operación exitosa</string>
     <string name="general_result_failure_message">Operación fallida</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Se liberó %s de espacio.</item>
+        <item quantity="other">Se liberó %s de espacio.</item>
+    </plurals>
+    <string name="general_options_label">Opciones</string>
     <string name="general_details_label">Detalles</string>
     <string name="general_view_action">Ver</string>
     <string name="general_update_action">Actualizar</string>
     <string name="general_scan_action">Escanear</string>
     <string name="general_delete_action">Borrar</string>
+    <string name="general_delete_selected_action">Borrar seleccionados</string>
     <string name="general_show_details_action">Ver los detalles</string>
     <string name="general_show_all_action">Mostrar todo</string>
+    <string name="general_toggle_layout_mode">Cambiar modo de vista</string>
     <string name="general_delete_confirmation_title">Confirmar el borrado</string>
     <string name="general_delete_confirmation_message_x">¿Borrar \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">¿Borrar %d elementos seleccionados?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Se borró %d elemento.</item>
+        <item quantity="other">Se borraron %d elementos.</item>
+    </plurals>
     <string name="general_remove_action">Quitar</string>
+    <string name="general_remove_selected_action">Quitar seleccionados</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Se quitó un elemento</item>
+        <item quantity="other">Se quitaron %d elementos</item>
+    </plurals>
     <string name="general_root_required_label">Requiere root</string>
     <string name="general_root_required_message">Requiere un dispositivo rooteado</string>
     <string name="general_search_action">Buscar</string>
@@ -79,6 +111,18 @@
         <item quantity="one">%s elemento</item>
         <item quantity="other">%s elementos</item>
     </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d exitoso</item>
+        <item quantity="other">%d exitosos</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d falló</item>
+        <item quantity="other">%d fallaron</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">Se puede liberar %s</item>
+        <item quantity="other">Se puede liberar %s</item>
+    </plurals>
     <string name="general_info_label">Información</string>
     <string name="general_count_label">Contó</string>
     <string name="general_app_label">Aplicación</string>
@@ -86,10 +130,12 @@
     <string name="general_grant_access_action">Permitir el acceso</string>
     <string name="general_enable_service_action">Activar el servicio</string>
     <string name="general_undo_action">Deshacer</string>
+    <string name="general_list_select_all_action">Seleccionar todo</string>
     <string name="general_path_label">Ruta</string>
     <string name="general_type_label">Tipo</string>
     <string name="general_size_label">Tamaño</string>
     <string name="general_exclude_action">Excluir</string>
+    <string name="general_exclude_selected_action">Excluir seleccionados</string>
     <string name="general_device_label">Dispositivo</string>
     <string name="general_settings_title">Ajustes</string>
     <string name="general_help_title">Ayuda</string>
@@ -97,4 +143,25 @@
     <string name="file_type_directory">Directorio</string>
     <string name="file_type_file">Archivo</string>
     <string name="file_type_unknown">Desconocido</string>
+    <string name="general_progress_ready">Listo</string>
+    <string name="general_progress_done">Hecho</string>
+    <string name="general_rom_type_auto_label">Automático (predeterminado)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d día</item>
+        <item quantity="other">%d días</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d hora</item>
+        <item quantity="other">%d horas</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s archivo</item>
+        <item quantity="other">%s archivos</item>
+    </plurals>
+    <string name="general_advice_title">Consejo</string>
+    <string name="general_error_invalid_input_label">Entrada inválida</string>
+    <string name="general_information_for_the_developer">Información para el desarrollador</string>
+    <string name="general_error_report_bug_action">Reportar error</string>
+    <string name="general_error_ipc_deadobject_title">Conexión de Servicio Perdida</string>
+    <string name="general_error_ipc_deadobject_description">La conexión a un servicio crítico (por ejemplo, Magisk, Shizuku u otros servicios a nivel del sistema) se perdió inesperadamente. Por favor reinicia tu dispositivo. Si el problema persiste, busca actualizaciones o contáctame para que pueda solucionarlo.</string>
 </resources>

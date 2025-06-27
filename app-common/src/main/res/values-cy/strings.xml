@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">Wrth eich gwasanaeth.</string>
+    <string name="slogan_message_1">Glân a thaclus.</string>
+    <string name="slogan_message_2">Atal anhrefn.</string>
+    <string name="slogan_message_3">Gwneud yr hyn sy\'n angenrheidiol.</string>
+    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_5">Dinam.</string>
+    <string name="slogan_message_6">Bytes, ewch o\'ma!</string>
+    <string name="slogan_message_7">Lle rhydd, lle hapus.</string>
+    <string name="slogan_message_8">Byth yn mynd i roi\'r gorau i chi.</string>
+
+    <string name="general_thank_you_label">Diolch</string>
+
+    <string name="general_error_type_mismatch_msg">Anghydwedd math: Eisiau %1$s, ond cael %2$s.</string>
+    <string name="general_error_cant_access_msg">Methu cael mynediad at %s.</string>
+    <string name="general_error_root_unavailable">Nid yw mynediad gwraidd ar gael.</string>
+    <string name="general_error_empty_result_msg">Roedd y canlyniad yn wag.</string>
+    <string name="general_error_no_compatible_app_found_msg">Heb ddod o hyd i ap cyfatebol i drin y cais hwn.</string>
+    <string name="general_todo_msg">Mae\'r nodwedd hon yn dal i gael ei gweithio arni ac nid yw ar gael ar hyn o bryd.</string>
+    <string name="general_share_action">Rhannu</string>
+    <string name="general_done_action">Wedi gorffen</string>
+    <string name="general_copy_action">Copïo</string>
+    <string name="general_wipe_action">Sychu</string>
+    <string name="general_cancel_action">Canslo</string>
+    <string name="general_discard_action">Taflu</string>
+    <string name="general_reset_action">Ailosod</string>
+    <string name="general_save_action">Cadw</string>
+    <string name="general_thanks_action">Diolch</string>
+    <string name="general_gotit_action">Deall</string>
+    <string name="general_fix_action">Trwsio</string>
+    <string name="general_set_up_action">Gosod</string>
+    <string name="general_edit_action">Golygu</string>
+    <string name="general_na_label">D/D</string>
+    <string name="general_empty_label">Gwag</string>
+    <string name="general_dismiss_action">Diystyru</string>
+    <string name="general_maybe_later_action">Efallai\'n hwyrach</string>
+    <string name="general_manage_action">Rheoli</string>
+    <string name="general_sync_action">Cysoni</string>
+    <string name="general_error_label">Gwall</string>
+    <string name="general_tap_hint_msg">Tapiwch am ragor o opsiynau</string>
+    <string name="general_upgrade_action">Uwchraddio</string>
+    <string name="general_donate_action">Rhoi</string>
+    <string name="general_check_action">Gwirio</string>
+    <string name="general_filter_action">Hidlo</string>
+    <string name="general_internal_not_available_msg">Nid yw cysylltiad rhyngrwyd ar gael</string>
+    <string name="general_refresh_action">Adnewyddu</string>
+    <string name="general_progress_searching">Chwilio</string>
+    <string name="general_progress_generating_searchpaths">Cynhyrchu llwybrau chwilio</string>
+    <string name="general_progress_filtering">Hidlo</string>
+    <string name="general_progress_preparing">Paratoi</string>
+    <string name="general_progress_processing_x">Prosesu %s</string>
+    <string name="general_progress_loading">Llwytho</string>
+    <string name="general_progress_loading_app_data">Llwytho data ap</string>
+    <string name="general_progress_loading_data_areas">Llwytho ardaloedd data</string>
+    <string name="general_progress_loading_egg_0">Cyflymach nag iPhone</string>
+    <string name="general_progress_loading_egg_1">Lawrlwytho RAM ychwanegol</string>
+    <string name="general_progress_loading_egg_2">Cyflym™</string>
+    <string name="general_progress_loading_egg_3">Mae\'r CPU ar seibiant coffi</string>
+    <string name="general_progress_loading_egg_4">Aros am ddata gan Pepe Silvia</string>
+    <string name="general_progress_loading_egg_5">Cychwyn turbo encabulator</string>
+    <string name="general_progress_loading_egg_6">Pasio\'r menyn</string>
+    <string name="general_progress_loading_egg_7">Sut mae pethau?</string>
+    <string name="general_progress_loading_egg_8">Bip bwp bap</string>
+    <string name="general_progress_loading_egg_9">Byfferu dewisiadau bywyd</string>
+    <string name="general_progress_loading_egg_10">Galw Cthulhu</string>
+    <string name="general_progress_loading_egg_11">Mae hyn yn iawn</string>
+    <string name="general_progress_loading_egg_12">Arhoswch os gwelwch yn dda</string>
+    <string name="general_progress_loading_egg_13">O leiaf nid ydych ar hold</string>
+    <string name="general_help_action">Help</string>
+    <string name="general_continue">Parhau</string>
+    <string name="general_progress_queued">Mewn ciw</string>
+    <string name="general_progress_deleting">Dileu</string>
+    <string name="general_progress_deleting_x">Dileu %s</string>
+    <string name="general_sort_options_label">Opsiynau trefnu</string>
+    <string name="general_sort_reverse_action">Modd trefnu gwrthdroi</string>
+    <string name="general_tag_filter_label">Hidlo yn ôl tagiau</string>
+
+    <string name="general_result_success_message">Llwyddodd y weithred</string>
+    <string name="general_result_failure_message">Methodd y weithred</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="zero">Lle %s wedi\'i ryddhau.</item>
+        <item quantity="one">Lle %s wedi\'i ryddhau.</item>
+        <item quantity="two">Lle %s wedi\'i ryddhau.</item>
+        <item quantity="few">Lle %s wedi\'i ryddhau.</item>
+        <item quantity="many">Lle %s wedi\'i ryddhau.</item>
+        <item quantity="other">Lle %s wedi\'i ryddhau.</item>
+    </plurals>
+
+    <string name="general_options_label">Opsiynau</string>
+    <string name="general_details_label">Manylion</string>
+    <string name="general_view_action">Gweld</string>
+    <string name="general_update_action">Diweddaru</string>
+    <string name="general_scan_action">Sganio</string>
+    <string name="general_delete_action">Dileu</string>
+    <string name="general_delete_selected_action">Dileu\'r dewis</string>
+    <string name="general_show_details_action">Dangos manylion</string>
+    <string name="general_show_all_action">Dangos popeth</string>
+    <string name="general_toggle_layout_mode">Newid modd gweld</string>
+
+    <string name="general_delete_confirmation_title">Cadarnhau dileu</string>
+    <string name="general_delete_confirmation_message_x">Dileu \"%s\"?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">Dileu\'r %d eitem a ddewiswyd?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="zero">Dilëwyd %d eitem.</item>
+        <item quantity="one">Dilëwyd %d eitem.</item>
+        <item quantity="two">Dilëwyd %d eitem.</item>
+        <item quantity="few">Dilëwyd %d eitem.</item>
+        <item quantity="many">Dilëwyd %d eitem.</item>
+        <item quantity="other">Dilëwyd %d eitem.</item>
+    </plurals>
+
+    <string name="general_remove_action">Tynnu</string>
+    <string name="general_remove_selected_action">Tynnu\'r dewis</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="zero">Tynnwyd un eitem</item>
+        <item quantity="one">Tynnwyd un eitem</item>
+        <item quantity="two">Tynnwyd %d eitem</item>
+        <item quantity="few">Tynnwyd %d eitem</item>
+        <item quantity="many">Tynnwyd %d eitem</item>
+        <item quantity="other">Tynnwyd %d eitem</item>
+    </plurals>
+
+    <string name="general_root_required_label">Mae angen gwraidd</string>
+    <string name="general_root_required_message">Mae angen dyfais wreiddiol</string>
+
+    <string name="general_search_action">Chwilio</string>
+    <string name="general_scan_device_action">Sganio\'r ddyfais</string>
+    <string name="general_open_system_settings_action">Agor gosodiadau\'r system</string>
+
+    <plurals name="result_x_items">
+        <item quantity="zero">%s eitem</item>
+        <item quantity="one">%s eitem</item>
+        <item quantity="two">%s eitem</item>
+        <item quantity="few">%s eitem</item>
+        <item quantity="many">%s eitem</item>
+        <item quantity="other">%s eitem</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="zero">%d llwyddiannus</item>
+        <item quantity="one">%d llwyddiannus</item>
+        <item quantity="two">%d llwyddiannus</item>
+        <item quantity="few">%d llwyddiannus</item>
+        <item quantity="many">%d llwyddiannus</item>
+        <item quantity="other">%d llwyddiannus</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="zero">%d methiant</item>
+        <item quantity="one">%d methiant</item>
+        <item quantity="two">%d methiant</item>
+        <item quantity="few">%d methiant</item>
+        <item quantity="many">%d methiant</item>
+        <item quantity="other">%d methiant</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="zero">Gellir rhyddhau %s</item>
+        <item quantity="one">Gellir rhyddhau %s</item>
+        <item quantity="two">Gellir rhyddhau %s</item>
+        <item quantity="few">Gellir rhyddhau %s</item>
+        <item quantity="many">Gellir rhyddhau %s</item>
+        <item quantity="other">Gellir rhyddhau %s</item>
+    </plurals>
+    <string name="general_info_label">Gwybodaeth</string>
+    <string name="general_count_label">Cyfrif</string>
+    <string name="general_app_label">Ap</string>
+    <string name="general_more_info_action">Mwy o wybodaeth</string>
+    <string name="general_grant_access_action">Rhoi mynediad</string>
+    <string name="general_enable_service_action">Galluogi gwasanaeth</string>
+    <string name="general_undo_action">Dadwneud</string>
+
+    <string name="general_list_select_all_action">Dewis popeth</string>
+
+    <string name="general_path_label">Llwybr</string>
+    <string name="general_type_label">Math</string>
+    <string name="general_size_label">Maint</string>
+    <string name="general_exclude_action">Eithrio</string>
+    <string name="general_exclude_selected_action">Eithrio\'r dewis</string>
+
+    <string name="general_device_label">Dyfais</string>
+
+    <string name="general_settings_title">Gosodiadau</string>
+    <string name="general_help_title">Help</string>
+
+    <string name="file_type_symbolic_link">Cyswllt</string>
+    <string name="file_type_directory">Cyfeiriadur</string>
+    <string name="file_type_file">Ffeil</string>
+    <string name="file_type_unknown">Anhysbys</string>
+
+    <string name="general_progress_ready">Barod</string>
+    <string name="general_progress_done">Wedi gorffen</string>
+
+    <string name="general_rom_type_auto_label">Awtomatig (rhagosodiad)</string>
+    <plurals name="general_age_days">
+        <item quantity="zero">%d diwrnod</item>
+        <item quantity="one">%d diwrnod</item>
+        <item quantity="two">%d ddiwrnod</item>
+        <item quantity="few">%d diwrnod</item>
+        <item quantity="many">%d diwrnod</item>
+        <item quantity="other">%d diwrnod</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="zero">%d awr</item>
+        <item quantity="one">%d awr</item>
+        <item quantity="two">%d awr</item>
+        <item quantity="few">%d awr</item>
+        <item quantity="many">%d awr</item>
+        <item quantity="other">%d awr</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="zero">%s ffeil</item>
+        <item quantity="one">%s ffeil</item>
+        <item quantity="two">%s ffeil</item>
+        <item quantity="few">%s ffeil</item>
+        <item quantity="many">%s ffeil</item>
+        <item quantity="other">%s ffeil</item>
+    </plurals>
+    <string name="general_advice_title">Cyngor</string>
+    <string name="general_error_invalid_input_label">Mewnbwn annilys</string>
+    <string name="general_information_for_the_developer">Gwybodaeth i\'r datblygwr</string>
+    <string name="general_error_report_bug_action">Adrodd nam</string>
+    <string name="general_error_ipc_deadobject_title">Cysylltiad gwasanaeth wedi\'i golli</string>
+    <string name="general_error_ipc_deadobject_description">Collwyd cysylltiad â gwasanaeth hanfodol (e.e. Magisk, Shizuku, neu wasanaethau lefel system eraill) yn annisgwyl. Ailgychwynnwch eich dyfais os gwelwch yn dda. Os yw\'r broblem yn parhau, gwiriwch am ddiweddariadau neu cysylltwch â mi i\'w ddatrys.</string>
+</resources>
