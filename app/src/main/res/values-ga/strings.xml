@@ -220,7 +220,7 @@
     <string name="systemcleaner_filter_custom_manage_summary">Cruthaigh, scrios, iompórtáil agus easpórtáil do chuid scagairí saincheaptha.</string>
     <string name="systemcleaner_filter_logfiles_label">Comhaid loga an chórais</string>
     <string name="systemcleaner_filter_logfiles_summary">Comhaid loga an chórais agus seirbhísí an chórais (m.sh. *.log) in áiteanna éagsúla.</string>
-    <string name="systemcleaner_filter_anr_summary">Rianta ó imeachtaí \\'níl an fheidhmchlár ag freagairt\\'.</string>
+    <string name="systemcleaner_filter_anr_summary">Rianta ó imeachtaí \'níl an fheidhmchlár ag freagairt\'.</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Fillteáin fholmha ó gach cearn den ghléas. D\'fhéadfadh fillteáin neadaithe a bheith ag teastáil go leor bealaí.</string>
     <string name="systemcleaner_filter_screenshots_summary">Grianghrafanna scáileáin níos sine ná %s ó aipeanna agus áiteanna iolracha.</string>
     <string name="systemcleaner_filter_trashed_label">Comhaid sa bhruscar</string>
@@ -518,7 +518,7 @@
     <string name="exclusion_create_pkg_hint">Úsáid an uirlis AppControl chun eisiaimh aipeanna a chruthú.</string>
     <string name="exclusion_create_path_hint">Úsáid an uirlis StorageAnalyzer chun eisiaimh conaire a chruthú.</string>
     <string name="exclusion_show_defaults_action">Taispeáin réamhshocruithe</string>
-    <string name="automation_accessibility_service_description">Is féidir le húsáideoirí le riachtanais inrochtaineachta speisialta an tseirbhís seo a chumasú chun ligean do SD Maid tascanna a uathoibriú a mbeadh idirghníomhaíocht láimhe leadránach úsáideora ag teastáil uathu murach sin (m.sh. scriosadh taisce).\n\nSampla: Má ordaíonn tú do SD Maid aipeanna iolracha a stopadh ansin is féidir le SD Maid an tseirbhís seo a úsáid chun scáileán socruithe gach aipe a oscailt, an cnaipe \\'Fórsa Stop\\' a aimsiú agus tap air.\n\nTaispeánfaidh SD Maid i gcónaí go suntasach nuair a bheidh an tseirbhís seo á úsáid agus soláthróidh sé bealach éasca don úsáideoir aon idirghníomhaíocht a chealú láithreach.\n\nNí dhéanfar aon ghníomhartha gan cheadú úsáideora roimh ré. Is féidir an tseirbhís seo a dhíchumasú arís ag am ar bith gan éifeachtaí díobhálacha.</string>
+    <string name="automation_accessibility_service_description">Is féidir le húsáideoirí le riachtanais inrochtaineachta speisialta an tseirbhís seo a chumasú chun ligean do SD Maid tascanna a uathoibriú a mbeadh idirghníomhaíocht láimhe leadránach úsáideora ag teastáil uathu murach sin (m.sh. scriosadh taisce).\n\nSampla: Má ordaíonn tú do SD Maid aipeanna iolracha a stopadh ansin is féidir le SD Maid an tseirbhís seo a úsáid chun scáileán socruithe gach aipe a oscailt, an cnaipe \'Fórsa Stop\' a aimsiú agus tap air.\n\nTaispeánfaidh SD Maid i gcónaí go suntasach nuair a bheidh an tseirbhís seo á úsáid agus soláthróidh sé bealach éasca don úsáideoir aon idirghníomhaíocht a chealú láithreach.\n\nNí dhéanfar aon ghníomhartha gan cheadú úsáideora roimh ré. Is féidir an tseirbhís seo a dhíchumasú arís ag am ar bith gan éifeachtaí díobhálacha.</string>
     <string name="automation_screenoverlay_explanation">Tá SD Maid ag idirghníomhú le do ghléas. Ní féidir an scáileán a úsáid ag an am céanna. Fan go dtí go mbeidh an oibríocht críochnaithe nó cealú é.</string>
     <string name="automation_active_title">Tá SD Maid ag obair</string>
     <string name="automation_error_no_consent_title">Earráid uathoibrithe</string>

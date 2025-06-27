@@ -433,7 +433,7 @@
     <string name="appcontrol_app_sizes_cache_label">Kaŝmemoro</string>
     <string name="appcontrol_toggle_confirmation_title">Konfirmi agon</string>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determini grandecojn</string>
-    <string name="appcontrol_settings_module_sizing_enabled_description">Ricevi proksimuman takson de ĉiu aplikaĵo\\'s grandeco.</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Ricevi proksimuman takson de ĉiu aplikaĵo\'s grandeco.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determini aktivon</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Eltrovi ĉu aplikaĵo estas (aŭ laste estis) aktiva.</string>
     <string name="appcontrol_export_app_selection_action">Eksporti aplikaĵojn</string>
@@ -516,7 +516,7 @@
     <string name="exclusion_create_pkg_hint">Uzi la AplikaĵKontrolan ilon por krei aplikaĵajn ekskluzivajn.</string>
     <string name="exclusion_create_path_hint">Uzi la StokadAnalizilon por krei vojajn ekskluzivajn.</string>
     <string name="exclusion_show_defaults_action">Montri defaŭltojn</string>
-    <string name="automation_accessibility_service_description">Uzantoj kun specialaj alireblecaj bezonoj povas ebligi ĉi tiun servon por permesi al SD Maid aŭtomatigi taskojn kiuj alie postulus tedajn manlabor-uzantajn interagojn (ekz. kaŝmemora forigo).\n\nEkzemplo: Se vi instruas SD Maid haltigi plurajn aplikaĵojn, tiam SD Maid povas uzi ĉi tiun servon por malfermi ĉiu aplikaĵan agordan ekranon, trovi la butonon \\'Perforte Haltigi\\' kaj frapeti ĝin.\n\nSD Maid ĉiam elstare montros kiam uzante ĉi tiun servon kaj provizos facilan manieron por la uzanto nuligi iun ajn interagon tuj.\n\nNeniuj agoj estos plenumitaj sen antaŭa uzanta aprobo. Ĉi tiu servo povas esti malebligita denove iam ajn sen malfavoraj efikoj.</string>
+    <string name="automation_accessibility_service_description">Uzantoj kun specialaj alireblecaj bezonoj povas ebligi ĉi tiun servon por permesi al SD Maid aŭtomatigi taskojn kiuj alie postulus tedajn manlabor-uzantajn interagojn (ekz. kaŝmemora forigo).\n\nEkzemplo: Se vi instruas SD Maid haltigi plurajn aplikaĵojn, tiam SD Maid povas uzi ĉi tiun servon por malfermi ĉiu aplikaĵan agordan ekranon, trovi la butonon \'Perforte Haltigi\' kaj frapeti ĝin.\n\nSD Maid ĉiam elstare montros kiam uzante ĉi tiun servon kaj provizos facilan manieron por la uzanto nuligi iun ajn interagon tuj.\n\nNeniuj agoj estos plenumitaj sen antaŭa uzanta aprobo. Ĉi tiu servo povas esti malebligita denove iam ajn sen malfavoraj efikoj.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interagas kun via aparato. Ne eblas uzi la ekranon samtempe. Atendu ĝis la operacio estas finita aŭ nuligi ĝin.</string>
     <string name="automation_active_title">SD Maid laboras</string>
     <string name="automation_error_no_consent_title">Aŭtomatiga eraro</string>

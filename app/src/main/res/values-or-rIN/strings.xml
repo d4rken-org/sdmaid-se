@@ -494,7 +494,7 @@
   <string name="exclusion_create_pkg_hint">ଆପ୍ ବହିଷ୍କାର ସୃଷ୍ଟି କରିବା ପାଇଁ AppControl ଟୁଲ୍ ବ୍ୟବହାର କରନ୍ତୁ।</string>
   <string name="exclusion_create_path_hint">ପାଥ୍ ବହିଷ୍କାର ସୃଷ୍ଟି କରିବା ପାଇଁ StorageAnalyzer ଟୁଲ୍ ବ୍ୟବହାର କରନ୍ତୁ।</string>
   <string name="exclusion_show_defaults_action">ଡିଫଲ୍ଟ ଦେଖାନ୍ତୁ</string>
-  <string name="automation_accessibility_service_description">ବିଶେଷ ଆକ୍ସେସିବିଲିଟି ଆବଶ୍ୟକତା ଥିବା ଉପଭୋଗକାରୀମାନେ ଏହି ସେବା ସକ୍ଷମ କରି SD Maid କୁ ସେହି କାର୍ଯ୍ୟଗୁଡ଼ିକ ସ୍ୱୟଂଚାଳିତ କରିବାକୁ ଅନୁମତି ଦେଇପାରିବେ ଯାହା ଅନ୍ୟଥା କ୍ଲାନ୍ତକାରୀ ମାନୁଆଲ୍ ଉପଭୋଗକାରୀ ଇଣ୍ଟରାକ୍ସନ୍ ଆବଶ୍ୟକ କରିଥାନ୍ତା (ଯଥା କ୍ୟାଶ୍ ଡିଲିଟ୍)।\n\nଉଦାହରଣ: ଯଦି ଆପଣ SD Maid କୁ ଏକାଧିକ ଆପ୍ ବନ୍ଦ କରିବାକୁ ନିର୍ଦ୍ଦେଶ ଦିଅନ୍ତି ତେବେ SD Maid ଏହି ସେବା ବ୍ୟବହାର କରି ପ୍ରତ୍ୟେକ ଆପ୍ର ସେଟିଂସ୍ ସ୍କ୍ରିନ୍ ଖୋଲିପାରିବ, \\'Force Stop\\' ବଟନ୍ ଖୋଜି ତାକୁ ଟ୍ୟାପ୍ କରିପାରିବ।\n\nSD Maid ଏହି ସେବା ବ୍ୟବହାର କରିବା ସମୟରେ ସର୍ବଦା ସ୍ପଷ୍ଟ ଭାବରେ ଦେଖାଇବ ଏବଂ ଉପଭୋଗକାରୀଙ୍କୁ ତୁରନ୍ତ କୌଣସି ଇଣ୍ଟରାକ୍ସନ୍ ବାତିଲ୍ କରିବା ପାଇଁ ସହଜ ଉପାୟ ପ୍ରଦାନ କରିବ।\n\nପୂର୍ବ ଉପଭୋଗକାରୀ ଅନୁମୋଦନ ବିନା କୌଣସି କାର୍ଯ୍ୟ କରାଯିବ ନାହିଁ। ଏହି ସେବା କୌଣସି ପ୍ରତିକୂଳ ପ୍ରଭାବ ବିନା ଯେକୌଣସି ସମୟରେ ପୁନର୍ବାର ଅକ୍ଷମ କରାଯାଇପାରିବ।</string>
+  <string name="automation_accessibility_service_description">ବିଶେଷ ଆକ୍ସେସିବିଲିଟି ଆବଶ୍ୟକତା ଥିବା ଉପଭୋଗକାରୀମାନେ ଏହି ସେବା ସକ୍ଷମ କରି SD Maid କୁ ସେହି କାର୍ଯ୍ୟଗୁଡ଼ିକ ସ୍ୱୟଂଚାଳିତ କରିବାକୁ ଅନୁମତି ଦେଇପାରିବେ ଯାହା ଅନ୍ୟଥା କ୍ଲାନ୍ତକାରୀ ମାନୁଆଲ୍ ଉପଭୋଗକାରୀ ଇଣ୍ଟରାକ୍ସନ୍ ଆବଶ୍ୟକ କରିଥାନ୍ତା (ଯଥା କ୍ୟାଶ୍ ଡିଲିଟ୍)।\n\nଉଦାହରଣ: ଯଦି ଆପଣ SD Maid କୁ ଏକାଧିକ ଆପ୍ ବନ୍ଦ କରିବାକୁ ନିର୍ଦ୍ଦେଶ ଦିଅନ୍ତି ତେବେ SD Maid ଏହି ସେବା ବ୍ୟବହାର କରି ପ୍ରତ୍ୟେକ ଆପ୍ର ସେଟିଂସ୍ ସ୍କ୍ରିନ୍ ଖୋଲିପାରିବ, \'Force Stop\' ବଟନ୍ ଖୋଜି ତାକୁ ଟ୍ୟାପ୍ କରିପାରିବ।\n\nSD Maid ଏହି ସେବା ବ୍ୟବହାର କରିବା ସମୟରେ ସର୍ବଦା ସ୍ପଷ୍ଟ ଭାବରେ ଦେଖାଇବ ଏବଂ ଉପଭୋଗକାରୀଙ୍କୁ ତୁରନ୍ତ କୌଣସି ଇଣ୍ଟରାକ୍ସନ୍ ବାତିଲ୍ କରିବା ପାଇଁ ସହଜ ଉପାୟ ପ୍ରଦାନ କରିବ।\n\nପୂର୍ବ ଉପଭୋଗକାରୀ ଅନୁମୋଦନ ବିନା କୌଣସି କାର୍ଯ୍ୟ କରାଯିବ ନାହିଁ। ଏହି ସେବା କୌଣସି ପ୍ରତିକୂଳ ପ୍ରଭାବ ବିନା ଯେକୌଣସି ସମୟରେ ପୁନର୍ବାର ଅକ୍ଷମ କରାଯାଇପାରିବ।</string>
   <string name="automation_error_no_consent_title">ଅଟୋମେସନ୍ ତ୍ରୁଟି</string>
   <string name="automation_error_no_consent_body">ଆକ୍ସେସିବିଲିଟି ସେବା ସେଟଅପ୍ ହୋଇନାହିଁ। ସେଟଅପ୍ ସମ୍ପୂର୍ଣ୍ଣ କରନ୍ତୁ ଏବଂ ସମ୍ମତି ଦିଅନ୍ତୁ।</string>
   <string name="automation_error_not_enabled_body">ଆକ୍ସେସିବିଲିଟି ସେବା ଅକ୍ଷମ ଅଛି। ଏହାକୁ ପୁନର୍ବାର ଚାଲୁ କରନ୍ତୁ।</string>
@@ -671,7 +671,7 @@
   <string name="settings_acknowledgements_label">ସ୍ୱୀକୃତି</string>
   <string name="setup_label">ସେଟଅପ</string>
   <string name="setup_incomplete_card_title">ସେଟଅପ ଅସମ୍ପୂର୍ଣ୍ଣ ଅଛି</string>
-  <string name="setup_incomplete_card_body">ଭଲ ଫଳାଫଳ ପାଇବା ପାଇଁ SD Maid\\'s ସେଟଅପ ଶେଷ କରନ୍ତୁ।</string>
+  <string name="setup_incomplete_card_body">ଭଲ ଫଳାଫଳ ପାଇବା ପାଇଁ SD Maid\'s ସେଟଅପ ଶେଷ କରନ୍ତୁ।</string>
   <string name="setup_incomplete_card_healing_in_progress_body">SD Maid ସେଟଅପ ସମସ୍ୟାଗୁଡିକ ଠିକ କରିବାକୁ ଚେଷ୍ଟା କରୁଛି।</string>
   <string name="setup_incomplete_card_dismiss_action">ଖାରଜ କରନ୍ତୁ</string>
   <string name="setup_incomplete_card_continue_action">ସେଟଅପ ଜାରି ରଖନ୍ତୁ</string>

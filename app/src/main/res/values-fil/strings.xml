@@ -212,7 +212,7 @@
   <string name="systemcleaner_filter_custom_manage_label">Pamahalaan ang mga custom filter</string>
   <string name="systemcleaner_filter_custom_manage_summary">Gumawa, tanggalin, mag-import at mag-export ng inyong mga custom filter.</string>
   <string name="systemcleaner_filter_logfiles_label">Mga system log file</string>
-  <string name="systemcleaner_filter_logfiles_summary">Mga system at system service log file (hal. *.log) sa iba\\'t ibang lokasyon.</string>
+  <string name="systemcleaner_filter_logfiles_summary">Mga system at system service log file (hal. *.log) sa iba\'t ibang lokasyon.</string>
   <string name="systemcleaner_filter_packagecaches_label">Installer cache</string>
   <string name="systemcleaner_filter_packagecaches_summary">Naka-cache na data na nauugnay sa mga naka-install na app na ginagamit ng package management ng system.</string>
   <string name="systemcleaner_filter_emptydirectories_label">Mga walang lamang folder</string>
@@ -220,7 +220,7 @@
   <string name="systemcleaner_filter_screenshots_label">Mga screenshot</string>
   <string name="systemcleaner_filter_screenshots_summary">Mga screenshot na mas matanda sa %s mula sa maraming app at lokasyon.</string>
   <string name="systemcleaner_filter_trashed_label">Mga naitapon na file</string>
-  <string name="systemcleaner_filter_trashed_summary">Mga file sa recycle bin mula sa iba\\'t ibang app at lokasyon na namarkahan para sa deletion pero hindi pa permanent na natanggal.</string>
+  <string name="systemcleaner_filter_trashed_summary">Mga file sa recycle bin mula sa iba\'t ibang app at lokasyon na namarkahan para sa deletion pero hindi pa permanent na natanggal.</string>
   <string name="systemcleaner_filter_screenshots_age_label">Edad ng Screenshot</string>
   <string name="systemcleaner_filter_screenshots_age_summary">Minimum na edad para sa mga screenshot na dapat isaalang-alang para sa deletion.</string>
   <string name="systemcleaner_filter_superfluosapks_label">Mga sobrang APK</string>
@@ -239,7 +239,7 @@
   <string name="systemcleaner_filter_analytics_label">Mga analytics file</string>
   <string name="systemcleaner_filter_analytics_summary">Data na nauugnay sa analytics at bug tracking.</string>
   <string name="systemcleaner_filter_downloadcache_label">Download cache</string>
-  <string name="systemcleaner_filter_downloadcache_summary">System cache folder na ginagamit para sa iba\\'t ibang bagay (hal. OTA update).</string>
+  <string name="systemcleaner_filter_downloadcache_summary">System cache folder na ginagamit para sa iba\'t ibang bagay (hal. OTA update).</string>
   <string name="systemcleaner_filter_localtmp_label">Mga lokal na pansamantalang file</string>
   <string name="systemcleaner_filter_localtmp_summary">System-related na pansamantalang file (hal. mula sa Android Studio).</string>
   <string name="systemcleaner_filter_datalogger_label">Mga system log file</string>
