@@ -5,10 +5,10 @@ import com.android.billingclient.api.AcknowledgePurchaseParams
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingFlowParams
 import com.android.billingclient.api.BillingResult
-import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.Purchase.PurchaseState
 import com.android.billingclient.api.QueryProductDetailsParams
+import com.android.billingclient.api.QueryProductDetailsResult
 import com.android.billingclient.api.QueryPurchasesParams
 import com.android.billingclient.api.queryPurchasesAsync
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -131,19 +131,21 @@ data class BillingConnection(
             setProductList(productList)
         }.build()
 
-        val (result, details) = suspendCoroutine<Pair<BillingResult, Collection<ProductDetails>?>> { continuation ->
-            client.queryProductDetailsAsync(params) { result: BillingResult, details: Collection<ProductDetails> ->
-                continuation.resume(result to details)
+        val (result, queryResult) = suspendCoroutine<Pair<BillingResult, QueryProductDetailsResult>> { continuation ->
+            client.queryProductDetailsAsync(params) { result: BillingResult, queryResult: QueryProductDetailsResult ->
+                continuation.resume(result to queryResult)
             }
         }
 
+        val details = queryResult.productDetailsList
+        
         log(TAG) {
             "querySkus(skus=${skus.joinToString { it.print() }}): code=${result.responseCode}, debug=${result.debugMessage}), skuDetails=$details"
         }
 
         if (!result.isSuccess) throw BillingClientException(result)
 
-        if (details.isNullOrEmpty()) {
+        if (details.isEmpty()) {
             throw IllegalStateException("No details available for ${skus.joinToString { "${it.type}-${it.id}" }}")
         }
 
