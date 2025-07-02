@@ -191,8 +191,8 @@ dependencies {
     addIO()
     addRetrofit()
 
-    "gplayImplementation"("com.android.billingclient:billing:6.2.1")
-    "gplayImplementation"("com.android.billingclient:billing-ktx:6.2.1")
+    "gplayImplementation"("com.android.billingclient:billing:8.0.0")
+    "gplayImplementation"("com.android.billingclient:billing-ktx:8.0.0")
 
     "gplayImplementation"("com.google.android.play:review:2.0.1")
     "gplayImplementation"("com.google.android.play:review-ktx:2.0.1")
