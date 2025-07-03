@@ -7,8 +7,8 @@
     <string name="slogan_message_3">Fazendo o necessário.</string>
     <string name="slogan_message_5">Impecável.</string>
     <string name="slogan_message_6">Bytes, desapareçam!</string>
-    <string name="slogan_message_7">Espaço livre, lugar feliz.</string>
-    <string name="slogan_message_8">Nunca vou desistir de você.</string>
+    <string name="slogan_message_7">Livre espaço, e um abraço.</string>
+    <string name="slogan_message_8">Eu Não Existo Longe de Você.</string>
     <string name="general_thank_you_label">Obrigado</string>
     <string name="general_error_type_mismatch_msg">Incompatibilidade de tipo: Procurado %1$s, mas obtive %2$s.</string>
     <string name="general_error_cant_access_msg">Não é possível acessar %s.</string>
@@ -62,7 +62,7 @@
     <string name="general_progress_loading_egg_8">Beeping bop bop</string>
     <string name="general_progress_loading_egg_9">Escolhas de vida acumuladas</string>
     <string name="general_progress_loading_egg_10">Invocando Cthulhu</string>
-    <string name="general_progress_loading_egg_11">Está tudo bem</string>
+    <string name="general_progress_loading_egg_11">Nada de errado por aqui</string>
     <string name="general_progress_loading_egg_12">Por favor, aguarde</string>
     <string name="general_progress_loading_egg_13">Pelo menos você não está aguardando</string>
     <string name="general_help_action">Ajuda</string>
@@ -89,7 +89,7 @@
     <string name="general_show_details_action">Mostrar detalhes</string>
     <string name="general_show_all_action">Exibir tudo</string>
     <string name="general_toggle_layout_mode">Trocar o modo de visualização</string>
-    <string name="general_delete_confirmation_title">Confirmar exclusão</string>
+    <string name="general_delete_confirmation_title">Confirmar a ação</string>
     <string name="general_delete_confirmation_message_x">Apagar \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Deletar %d itens selecionados?</string>
     <plurals name="general_delete_success_deleted_x">
@@ -127,14 +127,14 @@
     <string name="general_count_label">Contar</string>
     <string name="general_app_label">App</string>
     <string name="general_more_info_action">Mais informações</string>
-    <string name="general_grant_access_action">Garantir acesso</string>
+    <string name="general_grant_access_action">Permitir acesso</string>
     <string name="general_enable_service_action">Ativar serviço</string>
     <string name="general_undo_action">Desfazer</string>
     <string name="general_list_select_all_action">Selecionar todos</string>
     <string name="general_path_label">Caminho</string>
     <string name="general_type_label">Tipo</string>
     <string name="general_size_label">Tamanho</string>
-    <string name="general_exclude_action">Excluir</string>
+    <string name="general_exclude_action">Exceções</string>
     <string name="general_exclude_selected_action">Ignorar selecionados</string>
     <string name="general_device_label">Dispositivo</string>
     <string name="general_settings_title">Configurações</string>
