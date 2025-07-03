@@ -31,7 +31,7 @@
     <string name="general_edit_action">Editar</string>
     <string name="general_na_label">Não encontrado</string>
     <string name="general_empty_label">Vazio</string>
-    <string name="general_dismiss_action">Liberar</string>
+    <string name="general_dismiss_action">Dispensar</string>
     <string name="general_maybe_later_action">Talvez mais tarde</string>
     <string name="general_manage_action">Gerenciar</string>
     <string name="general_sync_action">Sincronizar</string>
@@ -53,23 +53,23 @@
     <string name="general_progress_loading_data_areas">Carregando área de dados</string>
     <string name="general_progress_loading_egg_0">Ainda mais rápido que um iPhone</string>
     <string name="general_progress_loading_egg_1">Baixando mais RAM</string>
-    <string name="general_progress_loading_egg_2">Em breve™</string>
+    <string name="general_progress_loading_egg_2">Vem aí™</string>
     <string name="general_progress_loading_egg_3">A CPU está em uma pausa para o café</string>
-    <string name="general_progress_loading_egg_4">Aguardando dados de Pepe Silvia</string>
+    <string name="general_progress_loading_egg_4">Aguardando dados de Pepe Moreno</string>
     <string name="general_progress_loading_egg_5">O Turbo Encabulator está iniciando</string>
     <string name="general_progress_loading_egg_6">Passando a manteiga</string>
-    <string name="general_progress_loading_egg_7">Então. Como você está indo?</string>
+    <string name="general_progress_loading_egg_7">E aí. Segurando firme?</string>
     <string name="general_progress_loading_egg_8">Beeping bop bop</string>
-    <string name="general_progress_loading_egg_9">Escolhas de vida acumuladas</string>
+    <string name="general_progress_loading_egg_9">Carregando dilemas existenciais</string>
     <string name="general_progress_loading_egg_10">Invocando Cthulhu</string>
     <string name="general_progress_loading_egg_11">Nada de errado por aqui</string>
     <string name="general_progress_loading_egg_12">Por favor, aguarde</string>
-    <string name="general_progress_loading_egg_13">Pelo menos você não está aguardando</string>
+    <string name="general_progress_loading_egg_13">Podia ser fila de banco</string>
     <string name="general_help_action">Ajuda</string>
     <string name="general_continue">Continuar</string>
     <string name="general_progress_queued">Na fila</string>
-    <string name="general_progress_deleting">Excluindo</string>
-    <string name="general_progress_deleting_x">Excluindo %s</string>
+    <string name="general_progress_deleting">Apagando</string>
+    <string name="general_progress_deleting_x">Apagando %s</string>
     <string name="general_sort_options_label">Opções de classificação</string>
     <string name="general_sort_reverse_action">Modo de classificação inversa</string>
     <string name="general_tag_filter_label">Filtrar por tags</string>
@@ -112,7 +112,7 @@
         <item quantity="other">%s itens</item>
     </plurals>
     <plurals name="result_x_successful">
-        <item quantity="one">%s com sucesso</item>
+        <item quantity="one">%d com sucesso</item>
         <item quantity="other">%d com sucesso</item>
     </plurals>
     <plurals name="result_x_failed">
@@ -134,7 +134,7 @@
     <string name="general_path_label">Caminho</string>
     <string name="general_type_label">Tipo</string>
     <string name="general_size_label">Tamanho</string>
-    <string name="general_exclude_action">Exceções</string>
+    <string name="general_exclude_action">Ignorar</string>
     <string name="general_exclude_selected_action">Ignorar selecionados</string>
     <string name="general_device_label">Dispositivo</string>
     <string name="general_settings_title">Configurações</string>
