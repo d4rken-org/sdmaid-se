@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.files
 
+import androidx.annotation.Keep
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
@@ -7,12 +8,14 @@ import eu.darken.sdmse.common.error.LocalizedError
 import eu.darken.sdmse.common.error.localized
 import java.io.IOException
 
+@Keep
 open class PathException(
     message: String? = "Error during access.",
     val path: APath?,
     cause: Throwable? = null,
 ) : IOException(if (path != null) "$message <-> ${path.path}" else message, cause)
 
+@Keep
 open class ReadException @JvmOverloads constructor(
     message: String? = "Can't read from path.",
     path: APath? = null,
@@ -42,6 +45,7 @@ open class ReadException @JvmOverloads constructor(
     )
 }
 
+@Keep
 class WriteException @JvmOverloads constructor(
     message: String? = "Can't write to path.",
     path: APath? = null,
