@@ -25,8 +25,12 @@ import okio.ByteString.Companion.toByteString
 import java.io.PipedInputStream
 import java.io.PipedOutputStream
 
+
+private const val CHUNK_COUNT = 100
+private const val LOOKUP_SIZE = 1024
+
 fun RemoteInputStream.toLocalPathLookupFlow(): Flow<LocalPathLookup> = flow {
-    if (Bugs.isTrace) log(FileOpsClient.TAG, VERBOSE) { "RemoteInputStream.toLocalPathLookupFlow() starting..." }
+    if (Bugs.isTrace) log(FileOpsClient.TAG, VERBOSE) { "RemoteInputStream.toLocalPathLookupResultFlow() starting..." }
 
     val buffer = this@toLocalPathLookupFlow.inputStream().reader().buffered(CHUNK_COUNT * LOOKUP_SIZE)
     while (currentCoroutineContext().isActive) {
@@ -38,13 +42,16 @@ fun RemoteInputStream.toLocalPathLookupFlow(): Flow<LocalPathLookup> = flow {
             setDataPosition(0)
         }
 
-        val wrapper = LocalPathLookupsIPCWrapper.createFromParcel(parcel)
+        val wrapper = LocalPathLookupResultsIPCWrapper.createFromParcel(parcel)
 
         if (Bugs.isTrace) {
             log(FileOpsClient.TAG, VERBOSE) { "READCHUNK: ${decodedChunk.size}B to ${wrapper.payload.size} items" }
         }
-        wrapper.payload.forEach {
-            emit(it)
+        wrapper.payload.forEach { result ->
+            when (result) {
+                is LocalPathLookupResult.Success -> emit(result.lookup)
+                is LocalPathLookupResult.Error -> throw result.toException()
+            }
         }
 
         parcel.recycle()
@@ -53,11 +60,8 @@ fun RemoteInputStream.toLocalPathLookupFlow(): Flow<LocalPathLookup> = flow {
     close()
 }
 
-private const val CHUNK_COUNT = 100
-private const val LOOKUP_SIZE = 1024
-
 fun Flow<LocalPathLookup>.toRemoteInputStream(scope: CoroutineScope): RemoteInputStream {
-    if (Bugs.isTrace) log(FileOpsClient.TAG, VERBOSE) { "Flow<LocalPathLookup>.toRemoteInputStream()..." }
+    if (Bugs.isTrace) log(FileOpsHost.TAG, VERBOSE) { "Flow<LocalPathLookup>.toRemoteInputStreamWithExceptions()..." }
 
     val inputStream = PipedInputStream(2 * CHUNK_COUNT * LOOKUP_SIZE)
     val outputStream = PipedOutputStream()
@@ -65,19 +69,31 @@ fun Flow<LocalPathLookup>.toRemoteInputStream(scope: CoroutineScope): RemoteInpu
 
     val buffer = outputStream.writer().buffered(CHUNK_COUNT * LOOKUP_SIZE)
 
-    this@toRemoteInputStream
+    val resultFlow: Flow<LocalPathLookupResult> = flow {
+        try {
+            this@toRemoteInputStream.collect { lookup ->
+                emit(LocalPathLookupResult.Success(lookup))
+            }
+        } catch (exception: Exception) {
+            emit(LocalPathLookupResult.Error(exception))
+        }
+    }
+
+    resultFlow
         .chunked(CHUNK_COUNT)
-        .onEach { chunk ->
+        .onEach { chunk: List<LocalPathLookupResult> ->
             val parcel = Parcel.obtain().apply {
-                LocalPathLookupsIPCWrapper(chunk).writeToParcel(this, 0)
+                LocalPathLookupResultsIPCWrapper(chunk).writeToParcel(this, 0)
             }
 
             val encodedChunk = parcel.marshall().toByteString().base64()
             parcel.recycle()
 
-            buffer.write(encodedChunk)
-            buffer.write('\n'.code)
-            buffer.flush()
+            buffer.apply {
+                write(encodedChunk)
+                write('\n'.code)
+                flush()
+            }
 
             if (Bugs.isTrace) {
                 log(FileOpsHost.TAG, VERBOSE) { "WRITECHUNK: ${chunk.size} items to ${encodedChunk.length}B" }
@@ -88,12 +104,10 @@ fun Flow<LocalPathLookup>.toRemoteInputStream(scope: CoroutineScope): RemoteInpu
             buffer.close()
         }
         .catch {
-            log(FileOpsHost.TAG, ERROR) { "toRemoteInputStream failed: ${it.asLog()}" }
+            log(FileOpsHost.TAG, ERROR) { "toRemoteInputStreamWithExceptions failed: ${it.asLog()}" }
             throw it
         }
         .launchIn(scope)
 
     return inputStream.remoteInputStream()
 }
-
-private const val END_MARKER = "NULL"
