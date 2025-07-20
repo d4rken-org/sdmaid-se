@@ -26,4 +26,4 @@
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=e74c3c,ffd700,16a085&height=120&section=footer"/>
-</p>
+</p> 
