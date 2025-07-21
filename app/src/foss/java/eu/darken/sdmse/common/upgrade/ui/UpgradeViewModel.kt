@@ -37,7 +37,8 @@ class UpgradeViewModel @Inject constructor(
     val state = upgradeRepo.upgradeInfo
         .map { it as UpgradeRepoFoss.Info }
         .map { current ->
-            if (!current.isPro && current.error != null) {
+            val error = current.error
+            if (!current.isPro && error != null) {
                 errorEvents.postValue(current.error)
             }
             State()

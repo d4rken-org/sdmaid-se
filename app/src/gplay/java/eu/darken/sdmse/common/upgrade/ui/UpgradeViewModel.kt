@@ -75,10 +75,11 @@ class UpgradeViewModel @Inject constructor(
             throw GplayServiceUnavailableException(RuntimeException("IAP and SUB data request timed out."))
         }
 
-        if (!current.isPro && current.error != null) {
+        val error = current.error
+        if (!current.isPro && error != null) {
             if (!hasShownError) {
                 hasShownError = true
-                errorEvents.postValue(current.error)
+                errorEvents.postValue(error)
             }
         } else {
             hasShownError = false
