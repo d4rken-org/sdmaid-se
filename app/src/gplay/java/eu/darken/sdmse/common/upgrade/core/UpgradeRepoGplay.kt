@@ -1,7 +1,6 @@
 package eu.darken.sdmse.common.upgrade.core
 
 import android.app.Activity
-import com.android.billingclient.api.BillingResult
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -14,24 +13,25 @@ import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.core.billing.BillingData
-import eu.darken.sdmse.common.upgrade.core.billing.BillingException
 import eu.darken.sdmse.common.upgrade.core.billing.BillingManager
 import eu.darken.sdmse.common.upgrade.core.billing.PurchasedSku
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.math.pow
 
 @Singleton
 class UpgradeRepoGplay @Inject constructor(
@@ -70,17 +70,19 @@ class UpgradeRepoGplay @Inject constructor(
             }
         }
         .distinctUntilChanged()
-        .catch {
+        .retryWhen { error, attempt ->
             // Ignore Google Play errors if the last pro state was recent
             val now = System.currentTimeMillis()
             val lastProStateAt = billingCache.lastProStateAt.value()
-            log(TAG) { "Catch: now=$now, lastProStateAt=$lastProStateAt, error=$it" }
+            log(TAG) { "Catch: now=$now, lastProStateAt=$lastProStateAt, attempt=$attempt, error=$error" }
             if ((now - lastProStateAt) < 7 * 24 * 60 * 1000L) { // 7 days
-                log(TAG, VERBOSE) { "We are not pro, but were recently, and just and an error, what is GPlay doing???" }
+                log(TAG, VERBOSE) { "We are not pro, but were recently, and just got an error, what is GPlay doing???" }
                 emit(Info(gracePeriod = true, billingData = null))
             } else {
-                emit(Info(billingData = null, error = it))
+                emit(Info(billingData = null, error = error))
             }
+            delay(30_000L * 2.0.pow(attempt.toDouble()).toLong())
+            true
         }
         .setupCommonEventHandlers(TAG) { "upgradeInfo2" }
         .shareIn(scope, SharingStarted.WhileSubscribed(3000L, 0L), replay = 1)
