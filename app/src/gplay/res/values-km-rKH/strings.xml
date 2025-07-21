@@ -24,4 +24,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">គន្លឹះដោះស្រាយបញ្ហាសម្រាប់ការដំឡើងដែលមិនបានទទួលស្គាល់៖</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ការធ្វើសមកាលកម្ម Play Store អាចចំណាយពេល។ សាកល្បងចាប់ផ្តើមឡើងវិញ សម្អាតឃ្លាំងសម្ងាត់ Google Play ឬគ្រាន់តែរង់ចាំ។</string>
     <string name="upgrade_screen_restore_multiaccount_hint">គណនីច្រើនអាចធ្វើឱ្យ Google Play ច្រឡំ។ ចេញពីគណនីផ្សេងទៀត ឬដំឡើងតាមរយៈគេហទំព័រ Google Play ដែលបង្ខំការភ្ជាប់ជាមួយគណនីជាក់លាក់។</string>
+    <string name="upgrades_gplay_billing_error_label">បញ្ហា Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">មានបញ្ហាជាមួយ Google Play។ សូមសាកល្បងម្តងទៀតពេលក្រោយ ឬចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ។\n\nព័ត៌មានលម្អិត: %s</string>
 </resources>

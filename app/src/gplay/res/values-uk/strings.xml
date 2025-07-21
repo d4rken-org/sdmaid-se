@@ -21,9 +21,11 @@
     <string name="upgrade_screen_iap_action">Одноразова покупка</string>
     <string name="upgrade_screen_iap_action_hint">Одноразова покупка коштує %s.</string>
     <string name="upgrade_screen_thanks_toast">Ви найкращі! ❤️</string>
-    <string name="upgrade_screen_restore_purchase_action"></string>
-    <string name="upgrade_screen_restore_purchase_message">Your upgrade is valid across devices on the same Google account.</string>
+    <string name="upgrade_screen_restore_purchase_action">Відновити покупку</string>
+    <string name="upgrade_screen_restore_purchase_message">Ваше оновлення дійсне на всіх пристроях з тим самим обліковим записом Google.</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">Поради щодо усунення несправностей у разі нерозпізнаних оновлень:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Синхронізація Play Store може зайняти деякий час. Спробуйте перезавантажитися, очистити кеш Google Play або просто почекати.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Кілька облікових записів можуть заплутати Google Play. Вийдіть з інших облікових записів або встановлюйте через вебсайт Google Play, який примушує асоціювати їх з певним обліковим записом.</string>
+    <string name="upgrades_gplay_billing_error_label">Проблема з Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Виникла проблема з Google Play. Будь ласка, спробуйте пізніше або перезавантажте пристрій.\n\nДеталі: %s</string>
 </resources>

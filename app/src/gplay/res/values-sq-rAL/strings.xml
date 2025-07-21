@@ -26,4 +26,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Këshilla për zgjidhjen e problemeve për përmirësimet e panjohura:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinkronizimi i Play Store-it mund të marrë kohë. Provoni të rindizni, pastroni cache-in e Google Play ose thjesht prisni.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Llogaritë e shumta mund të habisin Google Play. Dilni nga llogaritë e tjera ose instaloni përmes faqes së internetit të Google Play, gjë që detyron lidhjet me një llogari specifike.</string>
+    <string name="upgrades_gplay_billing_error_label">Problem me Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Pati një problem me Google Play. Ju lutemi provoni përsëri më vonë ose rindizni pajisjen tuaj.\n\nDetaje: %s</string>
 </resources>

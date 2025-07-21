@@ -8,6 +8,8 @@
     <string name="upgrades_dashcard_upgrade_action">उन्नत करें</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play अनुपलब्ध है</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play से कनेक्ट नहीं हो सकता। क्या Google Play इंस्टॉल और अप-टू-डेट है? क्या आपका Google खाता लॉग इन है? Google Play ऐप का कैश साफ़ करने और अपने डिवाइस को रीबूट करने का प्रयास करें।</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play समस्या</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play में समस्या आई थी। कृपया बाद में पुनः प्रयास करें या अपने डिवाइस को रीस्टार्ट करें।\n\nविवरण: %s</string>
     <string name="upgrades_no_purchases_found_check_account">कोई खरीदारी जानकारी नहीं मिली। क्या आप सही खाते का उपयोग कर रहे हैं?</string>
     <string name="upgrade_screen_title">SD मेड SE प्रो प्राप्त करें</string>
     <string name="upgrade_screen_preamble">SD Maid के पास कोई विज्ञापन नहीं है और वह उपयोगकर्ता डेटा नहीं बेचती है। मेरा काम आपके द्वारा वित्तपोषित है ❤️।</string>

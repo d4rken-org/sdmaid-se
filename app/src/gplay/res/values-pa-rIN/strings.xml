@@ -6,6 +6,8 @@
     <string name="upgrades_dashcard_upgrade_action">ਅੱਪਗ੍ਰੇਡ ਕਰੋ</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play ਅਣਉਪਲਬਧ ਹੈ</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਕਰ ਸਕਦਾ। ਕੀ Google Play ਇੰਸਟਾਲ ਹੈ ਅਤੇ ਅੱਪ-ਟੂ-ਡੇਟ ਹੈ? ਕੀ ਤੁਹਾਡਾ Google ਖਾਤਾ ਲੌਗਇਨ ਹੈ? Google Play ਐਪ ਦਾ ਕੈਸ਼ ਕਲੀਅਰ ਕਰਨ ਅਤੇ ਆਪਣੀ ਡਿਵਾਈਸ ਨੂੰ ਰੀਬੂਟ ਕਰਨ ਦੀ ਕੋਸ਼ਿਖ ਕਰੋ।</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play ਸਮੱਸਿਆ</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play ਨਾਲ ਇੱਕ ਸਮੱਸਿਆ ਆਈ ਸੀ। ਕਿਰਪਾ ਕਰਕੇ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਜਾਂ ਆਪਣੀ ਡਿਵਾਈਸ ਨੂੰ ਰੀਸਟਾਰਟ ਕਰੋ।\n\nਵੇਰਵੇ: %s</string>
     <string name="upgrades_no_purchases_found_check_account">ਕੋਈ ਖਰੀਦਦਾਰੀ ਨਹੀਂ ਮਿਲੀ। ਕੀ ਤੁਸੀਂ ਸਹੀ ਖਾਤਾ ਵਰਤ ਰਹੇ ਹੋ?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ਪ੍ਰਾਪਤ ਕਰੋ</string>
     <string name="upgrade_screen_preamble">SD Maid ਵਿੱਚ ਕੋਈ ਵਿਗਿਆਪਨ ਨਹੀਂ ਹਨ ਅਤੇ ਇਹ ਉਪਭੋਗਤਾ ਡੇਟਾ ਨਹੀਂ ਵੇਚਦਾ। ਮੇਰਾ ਕੰਮ ਤੁਹਾਡੇ ਦੁਆਰਾ ਵਿੱਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ❤️।</string>

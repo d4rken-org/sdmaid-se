@@ -29,4 +29,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Şîretên çareserkirinê ji bo nûvekirinên nenas:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Hevdemkirina Play Store dibe ku dem bigire. Hewl bide ji nû ve bidî destpêkirin, pêşbîra Google Play paqij bikî an tenê bisekine.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Hesabên pirjimar dikarin Google Play tevlihev bikin. Ji hesabên din derkeve an bi rêya malpera Google Play saz bike, ku têkiliyên bi hesabekî taybetî re mecbûr dike.</string>
+    <string name="upgrades_gplay_billing_error_label">Pirsgirêka Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Bi Google Play re pirsgirêkek çêbû. Ji kerema xwe paşê dîsa biceribîne an cîhaza xwe ji nû ve bidîn destpkirin.\n\nHurîlî: %s</string>
 </resources>

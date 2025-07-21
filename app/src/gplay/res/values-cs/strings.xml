@@ -26,4 +26,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Tipy pro řešení problémů s nerozpoznaným navýšením licence:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synchronizace Obchodu Play může chvíli trvat. Zkuste restartovat, vymazat mezipaměť Google Play nebo prostě počkat.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Více účtů může zmást Google Play. Odhlaste se z ostatních účtů nebo nainstalujte přes webové stránky Google Play, což vynucuje asociace s konkrétním účtem.</string>
+    <string name="upgrades_gplay_billing_error_label">Problém s Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Vyskytl se problém s Google Play. Zkuste to později nebo restartujte zařízení.\n\nPodrobnosti: %s</string>
 </resources>

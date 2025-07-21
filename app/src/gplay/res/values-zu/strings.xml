@@ -24,4 +24,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Amathiphu okuxazulula izinkinga zokuthuthukiswa okungamukeleki:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Ukuvumelanisa kwe-Play Store kungathatha isikhathi. Zama ukuphinde uqalise, ukusula i-cache ye-Google Play noma ulinde nje.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Ama-akhawunti amaningi angadunga i-Google Play. Phuma kwamanye ama-akhawunti noma ufake ngewebhusayithi ye-Google Play, ephoqa ukuhlobanisa ne-akhawunti ethile.</string>
+    <string name="upgrades_gplay_billing_error_label">Inkinga ye-Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Kube nenkinga ne-Google Play. Sicela uzame futhi kamuva noma uqalise kabusha idivayisi yakho.\n\nImininingwane: %s</string>
 </resources>

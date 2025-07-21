@@ -24,4 +24,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Trikčių šalinimo patarimai neatpažintiems naujinimams:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinchronizacija gali užtrukti. Pabandykite paleisti iš naujo, išvalyti Google Play talpyklą arba tiesiog palaukti.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Kelios paskyros gali supainioti Google Play. Atsijunkite nuo kitų paskyrų arba įdiekite per Google Play svetainę, kuri priverčia susieti su konkrečia paskyra.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play problema</string>
+    <string name="upgrades_gplay_billing_error_description">Įvyko problema su Google Play. Prašome pabandyti vėliau arba paleisti įrenginį iš naujo.\n\nDetaliau: %s</string>
 </resources>

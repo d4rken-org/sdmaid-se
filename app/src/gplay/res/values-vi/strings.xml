@@ -26,4 +26,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Mẹo khắc phục sự cố cho các bản nâng cấp không được nhận dạng:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Đồng bộ hóa Cửa hàng Play có thể mất thời gian. Hãy thử khởi động lại, xóa bộ nhớ đệm của Google Play hoặc chỉ cần đợi.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Nhiều tài khoản có thể gây nhầm lẫn cho Google Play. Đăng xuất khỏi các tài khoản khác hoặc cài đặt thông qua trang web Google Play, trang này buộc liên kết với một tài khoản cụ thể.</string>
+    <string name="upgrades_gplay_billing_error_label">Sự cố Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Đã xảy ra sự cố với Google Play. Vui lòng thử lại sau hoặc khởi động lại thiết bị của bạn.\n\nChi tiết: %s</string>
 </resources>

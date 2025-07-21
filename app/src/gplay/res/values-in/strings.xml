@@ -26,4 +26,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Tips untuk memperbaiki peningkatan yang tidak dikenali:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinkronisasi Play Store dapat memakan waktu. Coba restart, bersihkan tembolok Google Play, atau tunggu saja.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Akun yang berbeda-beda dapat membuat pusing Google Play. Keluarlah dari akun-akun yang lain atau pasang aplikasinya dari situs web Google Play yang akan memaksa penghubungan dengan akun tertentu.</string>
+    <string name="upgrades_gplay_billing_error_label">Masalah Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Terjadi masalah dengan Google Play. Silakan coba lagi nanti atau restart perangkat Anda.\n\nDetail: %s</string>
 </resources>

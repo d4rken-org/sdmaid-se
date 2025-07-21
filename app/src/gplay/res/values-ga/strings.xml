@@ -29,4 +29,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Leideanna fabhtcheartaithe le haghaidh uasghráduithe neamhaitheanta:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">D\'fhéadfadh sioncronú Play Store am a thógáil. Déan iarracht atosú, taisce Google Play a ghlanadh nó fanacht go simplí.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Is féidir le cuntais iolracha Google Play a mheascadh. Logáil amach as cuntais eile nó suiteáil tríd an láithreán gréasáin Google Play, a fhorfheidhmeann comhlachais le cuntas ar leith.</string>
+    <string name="upgrades_gplay_billing_error_label">Fadhb Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Bhí fadhb ann le Google Play. Déan iarracht arís níos déanaí nó atosú do ghléas.\n\nSonraí: %s</string>
 </resources>

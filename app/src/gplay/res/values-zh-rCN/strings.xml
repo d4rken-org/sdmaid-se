@@ -8,6 +8,8 @@
     <string name="upgrades_dashcard_upgrade_action">升级</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play 不可用</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid 无法连接到 Google Play 商店。您的Google Play 商店是否已安装并更新至最新版本？您的 Google 账户是否已登录？请尝试清除 Google Play 商店应用的缓存，然后重启您的设备。</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play 问题</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play 出现问题。请稍后重试或重启您的设备。\n\n详细信息：%s</string>
     <string name="upgrades_no_purchases_found_check_account">未找到购买记录。您确定账号正确吗？</string>
     <string name="upgrade_screen_title">获取 SD Maid SE 专业版</string>
     <string name="upgrade_screen_preamble">SD Maid 不含广告，也不出售用户数据。我的工作是由您们资助的 ❤️</string>

@@ -26,4 +26,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Tipy na riešenie problémov s licenciou:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synchronizácia Obchodu Play môže chvíľu trvať. Skúste reštartovať, vymazať vyrovnávaciu pamäť Google Play alebo jednoducho počkajte.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Viaceré účty môžu zmiasť Google Play. Odhláste sa z iných účtov alebo nainštalujte prostredníctvom webovej stránky Google Play, čo si vynúti priradenie ku konkrétnemu účtu.</string>
+    <string name="upgrades_gplay_billing_error_label">Problém s Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Vyskytol sa problém s Google Play. Skúste to znova neskôr alebo reštartujte zariadenie.\n\nPodrobnosti: %s</string>
 </resources>

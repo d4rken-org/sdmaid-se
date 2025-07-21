@@ -24,4 +24,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Vianmääritysvinkkejä tunnistamattomille päivityksille:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store -synkronointi voi kestää. Kokeile uudelleenkäynnistystä, Google Play -välimuistin tyhjentämistä tai vain odottamista.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Useat tilit voivat hämmentää Google Playta. Kirjaudu ulos muista tileistä tai asenna Google Play -verkkosivuston kautta, joka pakottaa yhteydet tiettyyn tiliin.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play -ongelma</string>
+    <string name="upgrades_gplay_billing_error_description">Google Playssa ilmeni ongelma. Yritä myöhemmin uudelleen tai käynnistä laitteesi uudelleen.\n\nTiedot: %s</string>
 </resources>
