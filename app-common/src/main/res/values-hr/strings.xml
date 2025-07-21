@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Na usluzi.</string>
     <string name="slogan_message_1">Čisto i uredno.</string>
     <string name="slogan_message_2">Sprječava kaos.</string>
@@ -7,27 +8,28 @@
     <string name="slogan_message_5">Besprijekoran.</string>
     <string name="slogan_message_6">Bajtovi, nestanite!</string>
     <string name="slogan_message_7">Slobodan prostor, sretno mjesto.</string>
-    <string name="slogan_message_8">Nikad te neću razočarati.</string>
+    <string name="slogan_message_8">Never Gonna Give You Up.</string>
     <string name="general_thank_you_label">Hvala vam</string>
-    <string name="general_error_type_mismatch_msg">Nepodudaranje tipa: Htio sam %1$s, ali sam dobio %2$s.</string>
+    <string name="general_error_type_mismatch_msg">Neslaganje tipa: Traženo %1$s, ali dobiveno %2$s.</string>
     <string name="general_error_cant_access_msg">Nije moguće pristupiti %s.</string>
     <string name="general_error_root_unavailable">Root pristup nije dostupan.</string>
     <string name="general_error_empty_result_msg">Rezultat je bio prazan.</string>
     <string name="general_error_no_compatible_app_found_msg">Nije pronađena kompatibilna aplikacija za obradu ovog zahtjeva.</string>
-    <string name="general_todo_msg">Na ovoj značajci još uvijek se radi i trenutno nije dostupna.</string>
+    <string name="general_todo_msg">Na ovoj značajci se još uvijek radi i trenutno nije dostupna.</string>
     <string name="general_share_action">Dijeli</string>
     <string name="general_done_action">Gotovo</string>
     <string name="general_copy_action">Kopiraj</string>
     <string name="general_wipe_action">Izbriši</string>
     <string name="general_cancel_action">Otkaži</string>
     <string name="general_discard_action">Odbaci</string>
-    <string name="general_reset_action">Ponovno postavljanje</string>
+    <string name="general_reset_action">Ponovno postavi</string>
     <string name="general_save_action">Spremi</string>
     <string name="general_thanks_action">Hvala</string>
-    <string name="general_gotit_action">Shvaćam</string>
+    <string name="general_gotit_action">U redu</string>
     <string name="general_fix_action">Popravi</string>
-    <string name="general_set_up_action">Postavljanje</string>
+    <string name="general_set_up_action">Postavi</string>
     <string name="general_edit_action">Uredi</string>
+    <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Prazno</string>
     <string name="general_dismiss_action">Odbaci</string>
     <string name="general_maybe_later_action">Možda kasnije</string>
@@ -36,12 +38,12 @@
     <string name="general_error_label">Greška</string>
     <string name="general_tap_hint_msg">Dodirnite za više opcija</string>
     <string name="general_upgrade_action">Nadogradnja</string>
-    <string name="general_donate_action">Donirajte</string>
+    <string name="general_donate_action">Doniraj</string>
     <string name="general_check_action">Provjeri</string>
-    <string name="general_filter_action">filtar</string>
-    <string name="general_internal_not_available_msg">Internetska veza nije dostupna</string>
+    <string name="general_filter_action">Filter</string>
+    <string name="general_internal_not_available_msg">Internetska veza nedostupna</string>
     <string name="general_refresh_action">Osvježi</string>
-    <string name="general_progress_searching">Traženje</string>
+    <string name="general_progress_searching">Pretraživanje</string>
     <string name="general_progress_generating_searchpaths">Generiranje putanja pretraživanja</string>
     <string name="general_progress_filtering">Filtriranje</string>
     <string name="general_progress_preparing">Priprema</string>
@@ -56,7 +58,7 @@
     <string name="general_progress_loading_egg_4">Čekaju se podaci od Pepea Silvije</string>
     <string name="general_progress_loading_egg_5">Turbo enkabulator se pokreće</string>
     <string name="general_progress_loading_egg_6">Dodavanje maslaca</string>
-    <string name="general_progress_loading_egg_7">Tako. Kako se držiš?</string>
+    <string name="general_progress_loading_egg_7">Pa, kako se držiš?</string>
     <string name="general_progress_loading_egg_8">Bip bup bop</string>
     <string name="general_progress_loading_egg_9">Spremanje životnih izbora</string>
     <string name="general_progress_loading_egg_10">Prizivanje Cthulhua</string>
@@ -71,8 +73,8 @@
     <string name="general_sort_options_label">Mogućnosti sortiranja</string>
     <string name="general_sort_reverse_action">Obrnuti način sortiranja</string>
     <string name="general_tag_filter_label">Filtriraj po oznakama</string>
-    <string name="general_result_success_message">Operacija je uspjela</string>
-    <string name="general_result_failure_message">Operacija nije uspjela</string>
+    <string name="general_result_success_message">Operacija uspješna</string>
+    <string name="general_result_failure_message">Operacija neuspješna</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Oslobođeno %s prostora.</item>
         <item quantity="few">Oslobođeno %s prostora.</item>
@@ -107,7 +109,7 @@
     <string name="general_root_required_message">Zahtijeva rootani uređaj</string>
     <string name="general_search_action">Traži</string>
     <string name="general_scan_device_action">Skeniraj uređaj</string>
-    <string name="general_open_system_settings_action">Otvorite postavke sustava</string>
+    <string name="general_open_system_settings_action">Otvori postavke sustava</string>
     <plurals name="result_x_items">
         <item quantity="one">%s stavka</item>
         <item quantity="few">%s stavke</item>
@@ -124,9 +126,9 @@
         <item quantity="other">%d neuspješnih</item>
     </plurals>
     <plurals name="x_space_can_be_freed">
-        <item quantity="one">%s može biti oslobođeno</item>
-        <item quantity="few">%s može biti oslobođeno</item>
-        <item quantity="other">%s može biti oslobođeno</item>
+        <item quantity="one">%s se može osloboditi</item>
+        <item quantity="few">%s se može osloboditi</item>
+        <item quantity="other">%s se može osloboditi</item>
     </plurals>
     <string name="general_info_label">Informacije</string>
     <string name="general_count_label">Količina</string>
@@ -139,8 +141,8 @@
     <string name="general_path_label">Putanja</string>
     <string name="general_type_label">Vrsta</string>
     <string name="general_size_label">Veličina</string>
-    <string name="general_exclude_action">Izdvoji</string>
-    <string name="general_exclude_selected_action">Poništi odabir</string>
+    <string name="general_exclude_action">Izuzmi</string>
+    <string name="general_exclude_selected_action">Izuzmi odabrano</string>
     <string name="general_device_label">Uređaj</string>
     <string name="general_settings_title">Postavke</string>
     <string name="general_help_title">Pomoć</string>
@@ -169,7 +171,7 @@
     <string name="general_advice_title">Savjet</string>
     <string name="general_error_invalid_input_label">Neispravni unos</string>
     <string name="general_information_for_the_developer">Informacije za razvojnog programera</string>
-    <string name="general_error_report_bug_action">Prijavite grešku</string>
+    <string name="general_error_report_bug_action">Prijavi grešku</string>
     <string name="general_error_ipc_deadobject_title">Veza s uslugom izgubljena</string>
     <string name="general_error_ipc_deadobject_description">Veza s kritičnom uslugom (npr. Magisk, Shizuku ili druge usluge na razini sustava) neočekivano je izgubljena. Ponovno pokrenite uređaj. Ako se problem nastavi, provjerite ima li ažuriranja ili me kontaktirajte kako bih to mogao popraviti.</string>
 </resources>

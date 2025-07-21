@@ -664,7 +664,7 @@
     <string name="automation_screenoverlay_explanation">SD Maid upravlja z vašo napravo.  Med tem časom ne morete uporabljati zaslona.  Počakajte, da se opravilo konča ali ga prekličite.</string>
     <string name="automation_active_title">SD Maid opravlja naloge</string>
     <string name="automation_error_no_consent_title">Napaka samodejnih dejanj</string>
-    <string name="automation_error_no_consent_body">Storitve dostopnosti no nastavljena.  Dokončajte nastavitev in odobrite uporabo.</string>
+    <string name="automation_error_no_consent_body">Storitev dostopnosti ni nastavljena.  Dokončajte nastavitev in odobrite uporabo.</string>
     <string name="automation_error_not_enabled_title">Storitev in omogočena.</string>
     <string name="automation_error_not_enabled_body">Storitev dostopnosti je onemogočena.  Vklopite jo.</string>
     <string name="automation_error_not_running_title">Storitev se ne izvaja.</string>

@@ -6,11 +6,11 @@
     <string name="slogan_message_2">Prevenindo o caos.</string>
     <string name="slogan_message_3">Fazendo o necessário.</string>
     <string name="slogan_message_5">Impecável.</string>
-    <string name="slogan_message_6">Bytes, desapareçam!</string>
+    <string name="slogan_message_6">Saiam, bytes malditos!</string>
     <string name="slogan_message_7">Livre espaço, e um abraço.</string>
     <string name="slogan_message_8">Eu Não Existo Longe de Você.</string>
     <string name="general_thank_you_label">Obrigado</string>
-    <string name="general_error_type_mismatch_msg">Incompatibilidade de tipo: Procurado %1$s, mas obtive %2$s.</string>
+    <string name="general_error_type_mismatch_msg">Incompatibilidade de Tipo: Procurado %1$s, mas obtive %2$s.</string>
     <string name="general_error_cant_access_msg">Não é possível acessar %s.</string>
     <string name="general_error_root_unavailable">Acesso root não disponível.</string>
     <string name="general_error_empty_result_msg">Sem resultado.</string>
@@ -54,8 +54,8 @@
     <string name="general_progress_loading_egg_0">Ainda mais rápido que um iPhone</string>
     <string name="general_progress_loading_egg_1">Baixando mais RAM</string>
     <string name="general_progress_loading_egg_2">Vem aí™</string>
-    <string name="general_progress_loading_egg_3">A CPU está em uma pausa para o café</string>
-    <string name="general_progress_loading_egg_4">Aguardando dados de Pepe Moreno</string>
+    <string name="general_progress_loading_egg_3">A CPU saiu pra tomar um café</string>
+    <string name="general_progress_loading_egg_4">Aguardando dados de \"Pai do Quico\"</string>
     <string name="general_progress_loading_egg_5">O Turbo Encabulator está iniciando</string>
     <string name="general_progress_loading_egg_6">Passando a manteiga</string>
     <string name="general_progress_loading_egg_7">E aí. Segurando firme?</string>
