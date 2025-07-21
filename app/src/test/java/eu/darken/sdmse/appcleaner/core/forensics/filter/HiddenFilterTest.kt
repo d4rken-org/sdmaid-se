@@ -1598,6 +1598,11 @@ class HiddenFilterTest : BaseFilterTest() {
             PUBLIC_DATA,
             "com.miui.gallery/files/gallery_disk_cache/small_size/a800e51a74e4a3383ed8bf47f2d5a33e016c0dbbbf8043bf7b422274f79ced5a.0"
         )
+        pos(
+            "com.miui.gallery",
+            PUBLIC_DATA,
+            "com.miui.gallery/files/gallery_disk_cache/a800e51a74e4a3383ed8bf47f2d5a33e016c0dbbbf8043bf7b422274f79ced5a.0"
+        )
         confirm(create())
     }
 
