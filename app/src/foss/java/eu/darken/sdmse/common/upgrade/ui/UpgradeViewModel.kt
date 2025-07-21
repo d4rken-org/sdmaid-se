@@ -8,7 +8,11 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoFoss
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
+import java.util.UUID
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,11 +34,25 @@ class UpgradeViewModel @Inject constructor(
         }
     }
 
+    val state = upgradeRepo.upgradeInfo
+        .map { it as UpgradeRepoFoss.Info }
+        .map { current ->
+            if (!current.isPro && current.error != null) {
+                errorEvents.postValue(current.error)
+            }
+            State()
+        }
+        .asLiveData2()
+
     fun goGithubSponsors() {
         log(TAG) { "goGithubSponsors()" }
         upgradeRepo.launchGithubSponsorsUpgrade()
         popNavStack()
     }
+
+    data class State(
+        val tbd: UUID = UUID.randomUUID()
+    )
 
     companion object {
         private val TAG = logTag("Upgrade", "ViewModel")
