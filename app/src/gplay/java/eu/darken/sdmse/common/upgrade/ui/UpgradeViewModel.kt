@@ -33,7 +33,7 @@ class UpgradeViewModel @Inject constructor(
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val navArgs by handle.navArgs<UpgradeFragmentArgs>()
-
+    private var hasShownError: Boolean = false
     val events = SingleLiveEvent<UpgradeEvents>()
 
     init {
@@ -76,7 +76,12 @@ class UpgradeViewModel @Inject constructor(
         }
 
         if (!current.isPro && current.error != null) {
-            errorEvents.postValue(current.error)
+            if (!hasShownError) {
+                hasShownError = true
+                errorEvents.postValue(current.error)
+            }
+        } else {
+            hasShownError = false
         }
 
         Pricing(
