@@ -26,4 +26,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">തിരിച്ചറിയാത്ത അപ്‌ഗ്രേഡുകൾക്കുള്ള ട്രബിൾഷൂട്ടിംഗ് നുറുങ്ങുകൾ:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play സ്റ്റോർ സിൻക്രൊണൈസേഷൻ സമയമെടുത്തേക്കാം. റീബൂട്ട് ചെയ്യുക, Google Play കാഷെ മായ്‌ക്കുക അല്ലെങ്കിൽ കാത്തിരിക്കുക.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ഒന്നിലധികം അക്കൗണ്ടുകൾ Google Play-യെ ആശയക്കുഴപ്പത്തിലാക്കാം. മറ്റ് അക്കൗണ്ടുകളിൽ നിന്ന് ലോഗൗട്ട് ചെയ്യുക അല്ലെങ്കിൽ Google Play വെബ്‌സൈറ്റ് വഴി ഇൻസ്റ്റാൾ ചെയ്യുക, ഇത് ഒരു നിർദ്ദിഷ്ട അക്കൗണ്ടുമായുള്ള ബന്ധം നിർബന്ധമാക്കുന്നു.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play പ്രശ്നം</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play-യിൽ ഒരു പ്രശ്നം ഉണ്ടായി. ദയവായി പിന്നീട് ശ്രമിക്കുക അല്ലെങ്കിൽ നിങ്ങളുടെ ഉപകരണം റീസ്റ്റാർട്ട് ചെയ്യുക.\n\nവിശദാംശങ്ങൾ: %s</string>
 </resources>

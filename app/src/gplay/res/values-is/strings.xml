@@ -24,4 +24,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Úrræðaleitarráð fyrir óþekktar uppfærslur:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store samstilling getur tekið tíma. Reyndu að endurræsa, hreinsa Google Play skyndiminni eða bara bíða.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Margir reikningar geta ruglað Google Play. Skráðu þig út úr öðrum reikningum eða settu upp í gegnum Google Play vefsíðuna, sem neyðir tengsl við ákveðinn reikning.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play vandamál</string>
+    <string name="upgrades_gplay_billing_error_description">Það kom upp vandamál með Google Play. Vinsamlegast reyndu aftur síðar eða endurræstu tækið þitt.\n\nUpplýsingar: %s</string>
 </resources>

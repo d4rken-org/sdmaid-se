@@ -29,4 +29,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Problemsolvaj konsiloj por nerekonitaj ĝisdatigoj:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store-sinkronigado povas daŭri. Provu restartigi, vakigi Google Play-kaŝmemoron aŭ simple atendi.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Pluraj kontoj povas konfuzi Google Play. Elsalutu el aliaj kontoj aŭ instalu per la Google Play-retejo, kiu devigas asociojn kun specifa konto.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play Problemo</string>
+    <string name="upgrades_gplay_billing_error_description">Estis problemo kun Google Play. Bonvolu provi denove poste aŭ restartigi vian aparaton.\n\nDetaloj: %s</string>
 </resources>

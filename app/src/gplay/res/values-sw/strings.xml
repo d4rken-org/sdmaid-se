@@ -24,4 +24,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Vidokezo vya kutatua matatizo kwa uboreshaji usiotambuliwa:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Ulandanishi wa Play Store unaweza kuchukua muda. Jaribu kuanzisha upya, kusafisha akiba ya Google Play au tu subiri.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Akaunti nyingi zinaweza kuchanganya Google Play. Toka kwenye akaunti zingine au sakinisha kupitia tovuti ya Google Play, ambayo inalazimisha uhusiano na akaunti maalum.</string>
+    <string name="upgrades_gplay_billing_error_label">Tatizo la Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Kulikuwa na tatizo na Google Play. Tafadhali jaribu tena baadaye au anzisha upya kifaa chako.\n\nMaelezo: %s</string>
 </resources>

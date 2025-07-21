@@ -24,4 +24,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">غیر تسلیم شدہ اپ گریڈز کے لیے ٹربل شوٹنگ ٹپس:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store سنک میں وقت لگ سکتا ہے۔ ری بوٹ کرنے، Google Play کیش صاف کرنے یا صرف انتظار کرنے کی کوشش کریں۔</string>
     <string name="upgrade_screen_restore_multiaccount_hint">متعدد اکاؤنٹس Google Play کو الجھا سکتے ہیں۔ دیگر اکاؤنٹس سے لاگ آوٹ کریں یا Google Play ویب سائٹ کے ذریعے انسٹال کریں، جو مخصوص اکاؤنٹ کے ساتھ ایسوسی ایشن کو مجبور کرتا ہے۔</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play مسئلہ</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play کے ساتھ ایک مسئلہ تھا۔ براہ کرم بعد میں دوبارہ کوشش کریں یا اپنا ڈیوائس دوبارہ شروع کریں۔\n\nتفصیلات: %s</string>
 </resources>

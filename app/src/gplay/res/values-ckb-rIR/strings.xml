@@ -26,4 +26,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">ڕێنماییەکانی چارەسەرکردنی کێشە بۆ نوێکردنەوە ناسێنراوەکان:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ڕێکخستنی پلەی ستۆر ڕەنگە کات ببات. هەوڵبدە ئامێرەکە ڕیستارت بکەیتەوە، کاشەی گوگڵ پلەی بسڕیتەوە یان تەنها چاوەڕێ بکە.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">هەژمارە فرەکان دەتوانن گوگڵ پلەی تێکبشێوێنن. لە هەژمارەکانی دیکە بچۆرە دەرەوە یان لە ڕێگەی وێبسایتی گوگڵ پلەیەوە دایبمەزرێنە، کە پەیوەندی بە هەژمارێکی دیاریکراوەوە زۆرەملێ دەکات.</string>
+    <string name="upgrades_gplay_billing_error_label">کێشەی گوگڵ پلەی</string>
+    <string name="upgrades_gplay_billing_error_description">کێشەیەک لەگەڵ گوگڵ پلەی هەبوو. تکایە دواتر هەوڵبدەوە یان ئامێرەکەت ڕیستارت بکەوە.\n\nوردەکاری: %s</string>
 </resources>

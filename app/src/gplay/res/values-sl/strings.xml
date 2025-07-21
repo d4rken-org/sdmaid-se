@@ -26,4 +26,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Nasveti za odpravljanje težav pri neprepoznanih nadgradnjah:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinhronizacija s Trgovino Play bo morda trajala nekaj časa.  Poizkusite s ponovnim zagnom naprave, čiščenjem predpomnilnika Googla Play ali preprosto počakajte.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Več računov lahko zmede Google Play.  Odjavite se iz drugih računov ali namestite preko spletne strani Google Play, ki vsili povezavo z določenim računom.</string>
+    <string name="upgrades_gplay_billing_error_label">Težava z Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Prišlo je do težave z Google Play. Prosimo, poskusite znova kasneje ali ponovno zaženite napravo.\n\nPodrobnosti: %s</string>
 </resources>

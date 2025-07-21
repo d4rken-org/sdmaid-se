@@ -29,4 +29,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Suġġerimenti għas-soluzzjoni ta\' problemi għal aġġornamenti mhux rikonoxxuti:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Is-sinkronizzazzjoni tal-Play Store tista\' tieħu ħin. Ipprova erġa\' ixgħel, ħassar il-cache ta\' Google Play jew sempliċement stenna.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Kontijiet multipli jistgħu jikkonfondu Google Play. Illogja \'l barra minn kontijiet oħra jew installa permezz tal-websajt Google Play, li jforza assoċjazzjonijiet ma\' kont speċifiku.</string>
+    <string name="upgrades_gplay_billing_error_label">Problema ta\' Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Kien hemm problema ma\' Google Play. Jekk jogħġbok ipprova mill-ġdid aktar tard jew erġa\' ixgħel l-apparat tiegħek.\n\nDettalji: %s</string>
 </resources>

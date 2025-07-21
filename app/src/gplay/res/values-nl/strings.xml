@@ -26,4 +26,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Tips voor het oplossen van problemen met niet herkende upgrades:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synchronisatie via de Play Store kan enige tijd duren. Probeer opnieuw op te starten, de Google Play cache te wissen of wacht gewoon.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Meerdere accounts kunnen Google Play in verwarring brengen. Meld je af bij andere accounts of installeer deze via de website van Google Play, waardoor koppelingen met een specifiek account worden afgedwongen.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play Probleem</string>
+    <string name="upgrades_gplay_billing_error_description">Er is een probleem opgetreden met Google Play. Probeer het later opnieuw of start uw apparaat opnieuw op.\n\nDetails: %s</string>
 </resources>

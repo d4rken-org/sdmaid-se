@@ -24,4 +24,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">ຄຳແນະນຳການແກ້ໄຂບັນຫາສຳລັບການອັບເກຣດທີ່ບໍ່ຮັບຮູ້:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ການຊິງຄ໌ Play Store ອາດໃຊ້ເວລາ. ລອງຣີບູດ, ລ້າງແຄສ Google Play ຫຼືພຽງແຕ່ລໍຖ້າ.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ບັນຊີຫຼາຍບັນຊີສາມາດເຮັດໃຫ້ Google Play ສັບສົນ. ອອກຈາກລະບົບຈາກບັນຊີອື່ນ ຫຼືຕິດຕັ້ງຜ່ານເວັບໄຊ Google Play, ເຊິ່ງບັງຄັບການເຊື່ອມໂຍງກັບບັນຊີສະເພາະ.</string>
+    <string name="upgrades_gplay_billing_error_label">ບັນຫາ Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">ມີບັນຫາກັບ Google Play. ກະລຸນາລອງອີກຄັ້ງພາຍຫຼັງ ຫຼືຣີສຕາດອຸປະກອນຂອງທ່ານ.\n\nລາຍລະອຽດ: %s</string>
 </resources>

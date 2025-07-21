@@ -24,4 +24,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Танигдаагүй шинэчлэлтүүдийн асуудал шийдвэрлэх зөвлөмжүүд:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store синк хийхэд хугацаа шаардагдаж магадгүй. Дахин эхлүүлэх, Google Play кэшийг цэвэрлэх эсвэл зүгээр хүлээхийг оролдоно уу.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Олон бүртгэл Google Play-г төөрөгдүүлж болно. Бусад бүртгэлээс гарах эсвэл Google Play вэбсайтаар дамжуулан суулгах нь тодорхой бүртгэлтэй холбоосыг албадаж өгдөг.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play асуудал</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play-тэй асуудал гарлаа. Дараа дахин оролдоно уу эсвэл төхөөрөмжөө дахин эхлүүлнэ үү.\n\nДэлгэрэнгүй: %s</string>
 </resources>

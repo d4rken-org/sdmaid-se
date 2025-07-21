@@ -24,4 +24,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">ለማይታወቁ ማሻሻያዎች የመላ ፍለጋ ምክሮች፡</string>
     <string name="upgrade_screen_restore_sync_patience_hint">የPlay Store ሲምሪዝሽን ጊዜ ሊወስድ ይችላል። እንደገና ማስጀመር፣ የGoogle Play መሸጎጫ ማጥራት ወይም ብቻ መጠበቅ ይሞክሩ።</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ብዙ መለያዎች Google Play ማምታታት ይችላሉ። ከሌሎች መለያዎች ይወጡ ወይም በGoogle Play ድርጣቢያ በኩል ይጫኑ፣ ይህም ከተወሰነ መለያ ጋር ግንኙነቶችን ያስገድዳል።</string>
+    <string name="upgrades_gplay_billing_error_label">የGoogle Play ችግር</string>
+    <string name="upgrades_gplay_billing_error_description">በGoogle Play ላይ ችግር ተፈጥሯል። እባክዎ ቆይተው እንደገና ይሞክሩ ወይም መሳሪያዎን እንደገና ያስጀምሩ።\n\nዝርዝሮች: %s</string>
 </resources>

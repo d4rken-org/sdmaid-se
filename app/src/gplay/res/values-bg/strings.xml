@@ -24,4 +24,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Съвети за отстраняване на проблеми за неразпознати надстройвания:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Синхронизацията на Play Store може да отнеме време. Опитайте рестартиране, изчистване на кеша на Google Play или просто изчакайте.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Множествените акаунти могат да объркат Google Play. Излезте от други акаунти или инсталирайте чрез уебсайта на Google Play, който принуждава асоциации с конкретен акаунт.</string>
+    <string name="upgrades_gplay_billing_error_label">Проблем с Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Възникна проблем с Google Play. Моля, опитайте отново по-късно или рестартирайте устройството си.\n\nПодробности: %s</string>
 </resources>

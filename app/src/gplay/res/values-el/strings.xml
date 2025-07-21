@@ -26,4 +26,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Συμβουλές αντιμετώπισης προβλημάτων για μη αναγνωρισμένες αναβαθμίσεις:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Ο συγχρονισμός του Play Store ενδέχεται να πάρει χρόνο. Δοκιμάστε να κάνετε επανεκκίνηση, να καθαρίσετε την προσωρινή μνήμη του Google Play ή απλώς να περιμένετε.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Πολλοί λογαριασμοί μπορεί να μπερδέψουν το Google Play. Αποσυνδεθείτε από άλλους λογαριασμούς ή εγκαταστήστε το μέσω του ιστότοπου Google Play, κάτι που αναγκάζει τους συσχετισμούς με έναν συγκεκριμένο λογαριασμό.</string>
+    <string name="upgrades_gplay_billing_error_label">Πρόβλημα Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Υπήρξε πρόβλημα με το Google Play. Δοκιμάστε ξανά αργότερα ή επανεκκινήστε τη συσκευή σας.\n\nΛεπτομέρειες: %s</string>
 </resources>

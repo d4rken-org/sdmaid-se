@@ -26,4 +26,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Felsökningstips för okända uppgraderingar:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store-synkronisering kan ta tid. Försök starta om, rensa Google Play-cache eller bara vänta.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Flera konton kan förvirra Google Play. Logga ut från andra konton eller installera via Google Play-webbplatsen, vilket tvingar associationer med ett specifikt konto.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play-problem</string>
+    <string name="upgrades_gplay_billing_error_description">Det uppstod ett problem med Google Play. Försök igen senare eller starta om enheten.\n\nDetaljer: %s</string>
 </resources>
