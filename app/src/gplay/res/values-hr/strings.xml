@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Zahtijeva SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Nadogradite SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro nudi bolje rezultate, više značajki i opcija za napredne korisnike.</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro nudi bolje rezultate, više značajki i opcije za napredne korisnike.</string>
     <string name="upgrades_dashcard_upgrade_action">Nadogradnja</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play nije dostupan</string>
-    <string name="upgrades_gplay_unavailable_error_description">SD Maid se ne može povezati s Google Playem. Je li Google Play instaliran i ažuriran? Je li vaš Google račun prijavljen? Pokušajte očistiti predmemoriju Google Play aplikacije i ponovno pokrenuti uređaj.</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid se ne može povezati s Google Playem. Je li Google Play instaliran i ažuriran? Jeste li prijavljeni na svoj Google račun? Pokušajte očistiti predmemoriju Google Play aplikacije i ponovno pokrenuti uređaj.</string>
     <string name="upgrades_no_purchases_found_check_account">Nema pronađenih kupnji. Koristite li pravi račun?</string>
     <string name="upgrade_screen_title">Nabavite SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid nema reklama i ne prodaje korisničke podatke. Moj rad financirate vi ❤️.</string>
+    <string name="upgrade_screen_preamble">SD Maid nema oglasa i ne prodaje korisničke podatke. Moj rad financirate vi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Prednosti</string>
-    <string name="upgrade_screen_benefits_body">• Čišćenje aplikacija 💯\\n• Planirane operacije ⏰\\n• Dodatne mogućnosti za sve alate ⚙️\\n• Vaša vlastita pravila brisanja ✍️\\n• Motivirani programer 🧙\\ni više…</string>
+    <string name="upgrade_screen_benefits_body">• Čišćenje aplikacija 💯\n• Planirane operacije ⏰\n• Dodatne mogućnosti za sve alate ⚙️\n• Vaša vlastita pravila brisanja ✍️\n• Motivirani programer 🧙\ni više…</string>
     <string name="upgrade_screen_how_title">Mogućnosti</string>
-    <string name="upgrade_screen_how_body">Možete birati između jednokratne kupnje i jeftinije godišnje pretplate.\\nPretplata počinje besplatnim probnim razdobljem od 14 dana, nakon čega će vam se naplaćivati ​​jednom godišnje. Probno razdoblje i pretplata mogu se otkazati u bilo kojem trenutku.\\nIste značajke, samo različiti modeli cijena.</string>
+    <string name="upgrade_screen_how_body">Možete birati između jednokratne kupnje i jeftinije godišnje pretplate.\nPretplata počinje besplatnim probnim razdobljem od 14 dana, nakon čega će vam se naplaćivati ​​jednom godišnje. Probno razdoblje i pretplata mogu se otkazati u bilo kojem trenutku.\nIste značajke, samo različiti modeli cijena.</string>
     <string name="upgrade_screen_subscription_trial_action">Započnite besplatno probno razdoblje od 14 dana</string>
     <string name="upgrade_screen_subscription_action">Pretplatite se</string>
     <string name="upgrade_screen_subscription_action_hint">Pretplata košta %s godišnje.</string>
     <string name="upgrade_screen_iap_action">Jednokratna kupnja</string>
     <string name="upgrade_screen_iap_action_hint">Jednokratna kupnja košta %s.</string>
     <string name="upgrade_screen_thanks_toast">Najbolji ste! ❤️</string>
-    <string name="upgrade_screen_restore_purchase_action">Vrati kupnju</string>
+    <string name="upgrade_screen_restore_purchase_action">Obnovi kupnju</string>
     <string name="upgrade_screen_restore_purchase_message">Vaša nadogradnja vrijedi na svim uređajima s istim Google računom.</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">Savjeti za rješavanje problema s neprepoznatim nadogradnjama:</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Sinkronizacija Play trgovine može potrajati. Pokušajte ponovno pokrenuti, očistiti Google Play predmemoriju ili jednostavno pričekajte.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Više računa može zbuniti Google Play. Odjavite se s drugih računa ili instalirajte putem Google Play web stranice, što prisiljavaju pridruživanja određenom računu.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Sinkronizacija Trgovine Play može potrajati. Pokušajte ponovno pokrenuti uređaj, očistiti predmemoriju Google Playa ili jednostavno pričekajte.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Više računa može zbuniti Google Play. Odjavite se s drugih računa ili instalirajte putem Google Play web stranice, što prisiljava povezivanje s određenim računom.</string>
 </resources>

@@ -728,7 +728,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="translation_translators_people">Elid1; SiiiE</string>
     <string name="motd_setting_enabled_label">הודעות חשובות</string>
     <string name="motd_setting_enabled_explanation">אפשר ל-SD Maid לבדוק אם יש הודעות חשובות מהמפתח.</string>
-    <string name="updatecheck_setting_enabled_label">בדיקת עדכון</string>
+    <string name="updatecheck_setting_enabled_label">בדיקת עדכונים</string>
     <string name="updatecheck_setting_enabled_explanation">אפשר ל-SD Maid לחפש עדכונים כדי ליידע אותך אם גרסה חדשה יותר זמינה.</string>
     <string name="device_settings_category">מכשיר</string>
     <string name="beta_version_indicator_desc">גרסאות טרום-הפצה מציגות סרט קטן במסך ההתחלה. הם מתעדכנים בתדירות גבוהה יותר, אולי יהיו להם יותר תכונות, אבל יכולים להיות גם יותר באגים.</string>

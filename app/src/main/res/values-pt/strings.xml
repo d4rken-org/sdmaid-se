@@ -6,14 +6,14 @@
     <string name="dashboard_settings_oneclick_title">Modo um toque</string>
     <string name="dashboard_settings_oneclick_summary">Iniciar verificação e eliminação para todas as ferramentas, com um toque no botão de ação do painel, sem confirmações extras.</string>
     <string name="dashboard_settings_oneclick_tools_title">Ferramentas Um Toque</string>
-    <string name="dashboard_settings_oneclick_tools_desc">Quais ferramentas devem ser incluídas nas operações de um clique?</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Quais ferramentas devem ser incluídas nas operações de um toque?</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
     <string name="debug_debuglog_size_compressed_label">Tamanho comprimido</string>
     <string name="debug_notification_channel_label">Notificações de depuração</string>
     <string name="debug_debuglog_file_label">Ficheiro de registo gravado</string>
     <string name="debug_debuglog_recording_progress">A gravar registo de depuração</string>
     <string name="debug_debuglog_record_action">Gravar registo de depuração</string>
-    <string name="debug_debuglog_stop_action">Parar de gravar o registro de depuração</string>
+    <string name="debug_debuglog_stop_action">Parar de gravar o registo de depuração</string>
     <string name="debug_debuglog_sensitive_information_message">O arquivo criado contém informações confidenciais (por exemplo, nomes de arquivos e aplicações instaladas). Compartilhe apenas com destinatários confiáveis.</string>
     <string name="settings_debuglog_explanation">Este recurso grava tudo o que a aplicação está a fazer num arquivo partilhável. O arquivo criado contém informações confidenciais (por exemplo,. nome dos arquivos e aplicações instaladas). Partilhe apenas com destinatários confiáveis (por exemplo, um programador que possa resolver problemas).</string>
     <string name="tasks_activity_notification_channel_label">Tarefas ativas</string>

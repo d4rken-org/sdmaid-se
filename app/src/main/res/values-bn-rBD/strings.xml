@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">সমস্ত টুল এর ফলাফল মুছবেন?</string>
+    <string name="dashboard_delete_all_message">সব টুলের ফলাফল মুছতে চান?</string>
     <string name="dashboard_settings_category">ড্যাশবোর্ড</string>
-    <string name="dashboard_motd_title">ডেভলপার থেকে একটি বার্তা</string>
-    <string name="dashboard_settings_oneclick_title">এক-ট্যাপ মোড</string>
+    <string name="dashboard_motd_title">বিকাশকারীর থেকে একটি বার্তা</string>
+    <string name="dashboard_settings_oneclick_title">একটিমাত্র চাপের প্রণালী</string>
     <string name="dashboard_settings_oneclick_summary">ড্যাশবোর্ডের অ্যাকশন বোতামে একটি আলতো চাপ দিয়ে সমস্ত টুলের স্ক্যান এবং মুছে ফেলা শুরু করুন, কোনও অতিরিক্ত নিশ্চিতকরণের প্রয়োজন নেই।</string>
     <string name="dashboard_settings_oneclick_tools_title">এক-ট্যাপ টুলস</string>
     <string name="dashboard_settings_oneclick_tools_desc">এক-ট্যাপ অপারেশনে কোন সরঞ্জামগুলি অন্তর্ভুক্ত করা উচিত?</string>

@@ -67,7 +67,7 @@
     <string name="ui_theme_style_setting_label">テーマスタイル</string>
     <string name="ui_theme_style_setting_explanation">アプリをテーマにした際に使用されるカラースタイル。</string>
     <string name="ui_theme_style_default_label">デフォルト</string>
-    <string name="ui_theme_style_materialyou_label">あなたの素材</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">ファイルのプレビュー</string>
     <string name="ui_previews_summary">すべてのツール (画像や動画のサムネイルなど) にファイルのプレビューを表示します。</string>
     <string name="ui_language_override_label">アプリの言語</string>
@@ -551,7 +551,7 @@
     <string name="analyzer_storage_content_app_media_description">このアプリからのメディアファイル、例えばWhatsAppの写真を受信しました。</string>
     <string name="analyzer_storage_content_app_extra_label">追加のアプリファイル</string>
     <string name="analyzer_storage_content_app_extra_description">このアプリがデフォルトのパスの外に配置した追加データ（写真やダウンロードなど）。</string>
-    <string name="analyzer_app_details_app_occupies_x_on_y">このアプリは \" %1$s \" で%2$s を占めています。</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">このアプリは%2$sの \"%1$s\" を占めています。</string>
     <string name="analyzer_app_details_app_is_archived">このアプリはアーカイブ済みです。</string>
     <string name="data_area_public_app_data_official_label">デフォルトのパブリックアプリデータ</string>
     <string name="data_area_public_app_assets_official_label">デフォルトのパブリックアプリアセット</string>
