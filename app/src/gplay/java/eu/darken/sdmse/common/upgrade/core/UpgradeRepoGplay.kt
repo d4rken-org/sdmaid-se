@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.upgrade.core
 
 import android.app.Activity
+import com.android.billingclient.api.BillingResult
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -13,6 +14,7 @@ import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.core.billing.BillingData
+import eu.darken.sdmse.common.upgrade.core.billing.BillingException
 import eu.darken.sdmse.common.upgrade.core.billing.BillingManager
 import eu.darken.sdmse.common.upgrade.core.billing.PurchasedSku
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
@@ -77,7 +79,7 @@ class UpgradeRepoGplay @Inject constructor(
                 log(TAG, VERBOSE) { "We are not pro, but were recently, and just and an error, what is GPlay doing???" }
                 emit(Info(gracePeriod = true, billingData = null))
             } else {
-                throw it
+                emit(Info(billingData = null, error = it))
             }
         }
         .setupCommonEventHandlers(TAG) { "upgradeInfo2" }
@@ -107,6 +109,7 @@ class UpgradeRepoGplay @Inject constructor(
     data class Info(
         private val gracePeriod: Boolean = false,
         private val billingData: BillingData?,
+        override val error: Throwable? = null,
     ) : UpgradeRepo.Info {
 
         override val type: UpgradeRepo.Type = UpgradeRepo.Type.GPLAY

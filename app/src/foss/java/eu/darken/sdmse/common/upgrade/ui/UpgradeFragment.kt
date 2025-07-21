@@ -37,6 +37,10 @@ class UpgradeFragment : Fragment3(R.layout.upgrade_fragment) {
             vm.goGithubSponsors()
         }
 
+        vm.state.observe2 {
+
+        }
+
         super.onViewCreated(view, savedInstanceState)
     }
 

@@ -10,10 +10,12 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
 import java.time.Instant
-import java.util.*
+import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -43,6 +45,7 @@ class UpgradeRepoFoss @Inject constructor(
         }
     }
         .setupCommonEventHandlers(TAG) { "upgradeInfo" }
+        .shareIn(appScope, SharingStarted.WhileSubscribed(3000L, 0L), replay = 1)
 
     fun launchGithubSponsorsUpgrade() = appScope.launch {
         log(TAG) { "launchGithubSponsorsUpgrade()" }
@@ -62,6 +65,7 @@ class UpgradeRepoFoss @Inject constructor(
         override val isPro: Boolean = false,
         override val upgradedAt: Instant? = null,
         val fossUpgradeType: FossUpgrade.Type? = null,
+        override val error: Throwable? = null,
     ) : UpgradeRepo.Info {
         override val type: UpgradeRepo.Type = UpgradeRepo.Type.FOSS
     }
