@@ -37,9 +37,10 @@ class UpgradeViewModel @Inject constructor(
     val state = upgradeRepo.upgradeInfo
         .map { it as UpgradeRepoFoss.Info }
         .map { current ->
-            val error = current.error
-            if (!current.isPro && error != null) {
-                errorEvents.postValue(current.error)
+            if (!current.isPro && current.error != null) {
+                // Linter bug
+                @Suppress("UNNECESSARY_NOT_NULL_ASSERTION")
+                errorEvents.postValue(current.error!!)
             }
             State()
         }
