@@ -75,11 +75,12 @@ class UpgradeViewModel @Inject constructor(
             throw GplayServiceUnavailableException(RuntimeException("IAP and SUB data request timed out."))
         }
 
-        val error = current.error
-        if (!current.isPro && error != null) {
+        if (!current.isPro && current.error != null) {
             if (!hasShownError) {
                 hasShownError = true
-                errorEvents.postValue(error)
+                // Linter bug
+                @Suppress("UNNECESSARY_NOT_NULL_ASSERTION")
+                errorEvents.postValue(current.error!!)
             }
         } else {
             hasShownError = false
