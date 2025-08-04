@@ -99,5 +99,4 @@ class GeneralSettingsFragment : PreferenceFragment3() {
 
         super.onViewCreated(view, savedInstanceState)
     }
-
 }
