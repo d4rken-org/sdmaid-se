@@ -81,6 +81,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
         ui.list.setupDefaults(
             setupAdapter,
             verticalDividers = false,
+            fastscroll = false,
             layouter = GridLayoutManager(context, getSpanCount(widthDp = 720), GridLayoutManager.VERTICAL, false),
         )
 
