@@ -13,13 +13,15 @@ data class TestACSNodeInfo(
     override val isCheckable: Boolean = false,
     override val isScrollable: Boolean = false,
     private val children: MutableList<TestACSNodeInfo> = mutableListOf(),
-    private var parentNode: TestACSNodeInfo? = null
+    private var parentNode: TestACSNodeInfo? = null,
+    private val childrenArray: Array<ACSNodeInfo?>? = null
 ) : ACSNodeInfo {
 
-    override val childCount: Int get() = children.size
+    override val childCount: Int get() = childrenArray?.size ?: children.size
     override val parent: ACSNodeInfo? get() = parentNode
 
-    override fun getChild(index: Int): ACSNodeInfo? = children.getOrNull(index)
+    override fun getChild(index: Int): ACSNodeInfo? =
+        childrenArray?.getOrNull(index) ?: children.getOrNull(index)
 
     private val _performedActions = mutableListOf<Int>()
     val performedActions: List<Int> get() = _performedActions.toList()
@@ -53,21 +55,32 @@ data class TestACSNodeInfo(
         return "TestACSNodeInfo(text='$text', isClickable=$isClickable, childCount=$childCount, hasParent=${parent != null})"
     }
 
-    companion object {
-        fun clickableNode(text: String? = null) = TestACSNodeInfo(
-            text = text,
-            isClickable = true
-        )
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is TestACSNodeInfo) return false
+        return text == other.text &&
+                className == other.className &&
+                packageName == other.packageName &&
+                viewIdResourceName == other.viewIdResourceName &&
+                isClickable == other.isClickable &&
+                isEnabled == other.isEnabled &&
+                isCheckable == other.isCheckable &&
+                isScrollable == other.isScrollable &&
+                children == other.children &&
+                childrenArray?.contentEquals(other.childrenArray) == true
+    }
 
-        fun textNode(text: String) = TestACSNodeInfo(
-            text = text,
-            className = "android.widget.TextView"
-        )
-
-        fun buttonNode(text: String) = TestACSNodeInfo(
-            text = text,
-            className = "android.widget.Button",
-            isClickable = true
-        )
+    override fun hashCode(): Int {
+        var result = text?.hashCode() ?: 0
+        result = 31 * result + (className?.hashCode() ?: 0)
+        result = 31 * result + (packageName?.hashCode() ?: 0)
+        result = 31 * result + (viewIdResourceName?.hashCode() ?: 0)
+        result = 31 * result + isClickable.hashCode()
+        result = 31 * result + isEnabled.hashCode()
+        result = 31 * result + isCheckable.hashCode()
+        result = 31 * result + isScrollable.hashCode()
+        result = 31 * result + children.hashCode()
+        result = 31 * result + (childrenArray?.contentHashCode() ?: 0)
+        return result
     }
 }
