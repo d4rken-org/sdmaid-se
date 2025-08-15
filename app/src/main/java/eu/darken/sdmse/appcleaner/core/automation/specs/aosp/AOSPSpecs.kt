@@ -28,6 +28,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -96,32 +97,33 @@ class AOSPSpecs @Inject constructor(
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             val nodeAction: suspend StepContext.() -> Boolean = action@{
-                var target = findNode { it.textMatchesAny(clearCacheButtonLabels) }
-                log(tag) { "Potential target is $target" }
-                if (target == null) return@action false
+                var candidate = findNode { it.textMatchesAny(clearCacheButtonLabels) }
+                log(tag) { "Potential target is $candidate" }
+                if (candidate == null) return@action false
 
-                target = when {
+                val clickableParent = findClickableParent(node = candidate)
+                log(tag, VERBOSE) { "Clickable parent is $clickableParent" }
+                val clickableSibling = findClickableSibling(node = candidate)
+                log(tag, VERBOSE) { "Clickable sibling is $clickableSibling" }
+
+                val target = when {
                     // ----------10: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null
                     // -----------11: text='Clear storage', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=com.android.settings:id/button1
                     // -----------11: text='null', class=android.view.View, clickable=false, checkable=false enabled=true, id=com.android.settings:id/divider1
                     // -----------11: text='Clear cache', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=com.android.settings:id/button2
-                    target.isClickyButton() -> target.also {
-                        log(tag) { "Target is clicky button: $it" }
-                    }
-
-                    //-----------11: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=com.android.settings:id/action2 pkg=com.android.settings, identity=bfaf7f6, bounds=Rect(540, 959 - 1020, 1239)
-                    //------------12: text='null', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=com.android.settings:id/button2 pkg=com.android.settings, identity=1eadc93, bounds=Rect(691, 959 - 869, 1098)
-                    //------------12: text='Borrar caché', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=com.android.settings:id/text2 pkg=com.android.settings, identity=6d69d82, bounds=Rect(628, 1113 - 931, 1181)
-                    !target.isClickyButton() && target.parent?.isClickable == false -> findClickableSibling(node = target).also {
-                        log(tag) { "Target is clickable sibling: $it" }
-                    }
+                    candidate.isClickyButton() -> candidate.also { log(tag) { "Target is clicky button: $it" } }
 
                     // -----------11: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/action2
                     // ------------12: text='null', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=com.android.settings:id/button2
                     // ------------12: text='Clear cache', class=android.widget.TextView, clickable=true, checkable=false enabled=true, id=com.android.settings:id/text2
-                    else -> findClickableParent(node = target).also {
-                        log(tag) { "Target is clickable parent: $it" }
-                    }
+                    clickableParent != null -> clickableParent.also { log(tag) { "Target is clickable parent: $it" } }
+
+                    //-----------11: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=com.android.settings:id/action2 pkg=com.android.settings, identity=bfaf7f6, bounds=Rect(540, 959 - 1020, 1239)
+                    //------------12: text='null', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=com.android.settings:id/button2 pkg=com.android.settings, identity=1eadc93, bounds=Rect(691, 959 - 869, 1098)
+                    //------------12: text='Borrar caché', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=com.android.settings:id/text2 pkg=com.android.settings, identity=6d69d82, bounds=Rect(628, 1113 - 931, 1181)
+                    clickableSibling != null -> clickableSibling.also { log(tag) { "Target is clickable sibling: $it" } }
+
+                    else -> null
                 }
 
                 if (target == null) {
