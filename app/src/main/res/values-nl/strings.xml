@@ -368,8 +368,8 @@
     <string name="appcleaner_filter_qqchat_summary">Verzonden of ontvangen bestanden in QQ-chatgesprekken.</string>
     <string name="appcleaner_delete_all_confirmation_message">Verbruiksartikelen voor alle apps verwijderen?</string>
     <plurals name="appcleaner_result_x_items_deleted">
-        <item quantity="one">%d wegwerpbaar artikel verwijderd</item>
-        <item quantity="other">%d wegwerpbare artikelen verwijderd</item>
+        <item quantity="one">%d overbodig artikel verwijderd</item>
+        <item quantity="other">%d overbodige artikelen verwijderd</item>
     </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d vervangbaar item gevonden</item>
@@ -388,10 +388,10 @@
     <string name="appcleaner_automation_unavailable_title">Toegankelijkheidsservice niet beschikbaar</string>
     <string name="appcleaner_automation_unavailable_body">Voor het wissen van ontoegankelijke caches is de toegankelijkheidsservice van SD Maid nodig, maar deze was niet beschikbaar. Als je deze niet wilt gebruiken: schakel de optie \'Inclusief ontoegankelijke caches\' uit.</string>
     <string name="appcleaner_junk_userprofile_label">Gebruiker</string>
-    <string name="appcleaner_delete_confirmation_message_x">Wegwerpbare bestanden verwijderen voor %s?</string>
+    <string name="appcleaner_delete_confirmation_message_x">Overbodige bestanden verwijderen voor %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
-        <item quantity="one">Verwijderbare bestanden voor %d geselecteerde app verwijderen?</item>
-        <item quantity="other">Verwijderbare bestanden voor %d geselecteerde apps verwijderen?</item>
+        <item quantity="one">Overbodige bestanden verwijderen voor %d geselecteerde app?</item>
+        <item quantity="other">Overbodige bestanden voor %d geselecteerde apps verwijderen?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Caches verwijderen met Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Ontoegankelijke caches bepalen</string>
