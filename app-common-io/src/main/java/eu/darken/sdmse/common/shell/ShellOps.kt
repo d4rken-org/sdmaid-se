@@ -33,7 +33,7 @@ import javax.inject.Singleton
 
 @Singleton
 class ShellOps @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
+    @param:AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
     private val rootManager: RootManager,
     private val adbManager: AdbManager,

@@ -26,7 +26,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CorpseFinderSettingsViewModel @Inject constructor(
     private val handle: SavedStateHandle,
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
     private val packageManager: PackageManager,
     dispatcherProvider: DispatcherProvider,
     settings: CorpseFinderSettings,

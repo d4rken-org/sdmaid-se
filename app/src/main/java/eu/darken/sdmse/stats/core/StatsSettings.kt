@@ -16,7 +16,7 @@ import javax.inject.Singleton
 
 @Singleton
 class StatsSettings @Inject constructor(
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
     private val moshi: Moshi,
 ) : PreferenceScreenData {
 

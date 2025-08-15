@@ -60,9 +60,9 @@ import javax.inject.Singleton
 
 @Singleton
 class PkgOps @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
+    @param:AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
     private val ipcFunnel: IPCFunnel,
     private val rootManager: RootManager,
     private val adbManager: AdbManager,

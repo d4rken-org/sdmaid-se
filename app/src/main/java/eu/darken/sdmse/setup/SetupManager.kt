@@ -17,7 +17,7 @@ import javax.inject.Singleton
 
 @Singleton
 class SetupManager @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
+    @param:AppScope private val appScope: CoroutineScope,
     private val setupModules: Set<@JvmSuppressWildcards SetupModule>,
     private val generalSettings: GeneralSettings,
     setupHealer: SetupHealer,

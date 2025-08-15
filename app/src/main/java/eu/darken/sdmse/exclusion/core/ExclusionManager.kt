@@ -24,7 +24,7 @@ import javax.inject.Singleton
 
 @Singleton
 class ExclusionManager @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
+    @param:AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
     private val exclusionStorage: ExclusionStorage,
     private val defaultExclusions: DefaultExclusions,

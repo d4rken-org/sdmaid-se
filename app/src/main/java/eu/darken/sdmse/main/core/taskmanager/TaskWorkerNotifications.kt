@@ -23,7 +23,7 @@ import javax.inject.Inject
 
 
 class TaskWorkerNotifications @Inject constructor(
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
     notificationManager: NotificationManager,
 ) {
 

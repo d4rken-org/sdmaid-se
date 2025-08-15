@@ -33,8 +33,8 @@ import javax.inject.Singleton
 
 @Singleton
 class InventorySetupModule @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
-    @ApplicationContext private val context: Context,
+    @param:AppScope private val appScope: CoroutineScope,
+    @param:ApplicationContext private val context: Context,
     private val pkgOps: PkgOps,
 ) : SetupModule {
 

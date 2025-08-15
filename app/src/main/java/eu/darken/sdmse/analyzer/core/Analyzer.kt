@@ -58,7 +58,7 @@ import javax.inject.Singleton
 
 @Singleton
 class Analyzer @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
+    @param:AppScope private val appScope: CoroutineScope,
     private val deviceScanner: Provider<DeviceStorageScanner>,
     private val storageScanner: Provider<StorageScanner>,
     private val gatewaySwitch: GatewaySwitch,

@@ -25,8 +25,8 @@ import javax.inject.Singleton
 
 @Singleton
 class FileForensics @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
-    @ApplicationContext val context: Context,
+    @param:AppScope private val appScope: CoroutineScope,
+    @param:ApplicationContext val context: Context,
     private val pkgRepo: PkgRepo,
     private val csiProcessorsProvider: Provider<Set<@JvmSuppressWildcards CSIProcessor>>,
     private val gatewaySwitch: GatewaySwitch,

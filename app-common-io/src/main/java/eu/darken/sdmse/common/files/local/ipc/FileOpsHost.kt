@@ -39,7 +39,7 @@ import javax.inject.Inject
  * ROOT-side
  */
 class FileOpsHost @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
+    @param:AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
     private val libcoreTool: LibcoreTool,
     private val ipcFunnel: IPCFunnel,

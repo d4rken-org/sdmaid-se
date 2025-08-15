@@ -21,7 +21,7 @@ import javax.inject.Singleton
 
 @Singleton
 class UserManager2 @Inject constructor(
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
     private val userManager: UserManager,
     private val rootManager: RootManager,
     private val adbManager: AdbManager,

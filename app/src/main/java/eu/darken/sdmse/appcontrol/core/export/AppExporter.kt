@@ -41,7 +41,7 @@ import javax.inject.Inject
 
 @Reusable
 class AppExporter @Inject constructor(
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
     private val contentResolver: ContentResolver,
 ) : Progress.Host, Progress.Client {
 

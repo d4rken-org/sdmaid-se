@@ -14,7 +14,7 @@ import javax.inject.Singleton
 
 @Singleton
 class RootSettings @Inject constructor(
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_root")

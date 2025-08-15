@@ -23,7 +23,7 @@ import javax.inject.Singleton
 @Singleton
 @Keep
 class AdbServiceHost @Inject constructor(
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
     private val fileOpsHost: Lazy<FileOpsHost>,
     private val pkgOpsHost: Lazy<PkgOpsHost>,
     private val shellOpsHost: Lazy<ShellOpsHost>,

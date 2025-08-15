@@ -53,7 +53,7 @@ import javax.inject.Singleton
 class LocalGateway @Inject constructor(
     private val ipcFunnel: IPCFunnel,
     private val libcoreTool: LibcoreTool,
-    @AppScope private val appScope: CoroutineScope,
+    @param:AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
     private val storageEnvironment: StorageEnvironment,
     private val rootManager: RootManager,

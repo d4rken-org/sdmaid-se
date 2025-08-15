@@ -28,8 +28,8 @@ import javax.inject.Singleton
 @Suppress("DEPRECATION")
 @Singleton
 class MemoryMonitor @Inject constructor(
-    @ApplicationContext private val context: Context,
-    @AppScope private val appScope: CoroutineScope,
+    @param:ApplicationContext private val context: Context,
+    @param:AppScope private val appScope: CoroutineScope,
 ) : ComponentCallbacks2 {
 
     private val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
