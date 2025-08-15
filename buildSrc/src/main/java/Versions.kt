@@ -5,16 +5,16 @@ object Versions {
     }
 
     object Dagger {
-        const val core = "2.56.2"
+        const val core = "2.57"
     }
 
     object AndroidX {
         object Navigation {
-            const val core = "2.8.9"
+            const val core = "2.9.3"
         }
     }
 
     object Desugar {
-        const val core = "2.0.4"
+        const val core = "2.1.5"
     }
 }
