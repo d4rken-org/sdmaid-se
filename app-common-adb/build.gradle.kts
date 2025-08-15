@@ -24,8 +24,6 @@ android {
 
     setupCompileOptions()
 
-    setupKotlinOptions()
-
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
@@ -36,6 +34,8 @@ android {
         }
     }
 }
+
+setupKotlinOptions()
 
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")

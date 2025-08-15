@@ -131,8 +131,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    setupKotlinOptions()
-
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
@@ -164,6 +162,8 @@ android {
         }
     }
 }
+
+setupKotlinOptions()
 
 afterEvaluate {
     tasks {
