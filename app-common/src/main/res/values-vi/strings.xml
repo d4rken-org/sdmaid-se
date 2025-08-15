@@ -151,4 +151,7 @@
     <string name="general_advice_title">Lời khuyên</string>
     <string name="general_error_invalid_input_label">Dữ liệu nhập không hợp lệ</string>
     <string name="general_information_for_the_developer">Thông tin cho nhà phát triển</string>
+    <string name="general_error_report_bug_action">Báo cáo lỗi</string>
+    <string name="general_error_ipc_deadobject_title">Kết nối dịch vụ bị mất</string>
+    <string name="general_error_ipc_deadobject_description">Kết nối đến một dịch vụ quan trọng (như: Magisk, Shizuku hoặc các dịch vụ cấp hệ thống khác) bị mất kết nối đột ngột. Vui lòng khởi động lại thiết bị. Nếu sự cố vẫn tiếp diễn, hãy kiểm tra bản cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
 </resources>
