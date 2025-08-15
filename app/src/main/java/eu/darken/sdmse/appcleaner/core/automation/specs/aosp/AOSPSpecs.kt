@@ -109,8 +109,11 @@ class AOSPSpecs @Inject constructor(
                         log(tag) { "Target is clicky button: $it" }
                     }
 
+                    //-----------11: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=com.android.settings:id/action2 pkg=com.android.settings, identity=bfaf7f6, bounds=Rect(540, 959 - 1020, 1239)
+                    //------------12: text='null', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=com.android.settings:id/button2 pkg=com.android.settings, identity=1eadc93, bounds=Rect(691, 959 - 869, 1098)
+                    //------------12: text='Borrar caché', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=com.android.settings:id/text2 pkg=com.android.settings, identity=6d69d82, bounds=Rect(628, 1113 - 931, 1181)
                     !target.isClickyButton() && target.parent?.isClickable == false -> findClickableSibling(node = target).also {
-                        log(tag) { "Target is clickable parent: $it" }
+                        log(tag) { "Target is clickable sibling: $it" }
                     }
 
                     // -----------11: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/action2
