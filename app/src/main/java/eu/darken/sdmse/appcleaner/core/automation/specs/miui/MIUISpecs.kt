@@ -2,7 +2,6 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.miui
 
 import android.content.Context
 import android.graphics.Rect
-import android.view.accessibility.AccessibilityNodeInfo
 import androidx.core.content.pm.PackageInfoCompat
 import dagger.Binds
 import dagger.Module
@@ -20,6 +19,7 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClear
 import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.HyperOsSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.SecurityCenterMissingPermissionException
 import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.isSecurityCenterMissingPermission
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.idMatches
@@ -267,7 +267,7 @@ class MIUISpecs @Inject constructor(
             // -> Clear cache
             // -> Cancel
 
-            val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
+            val windowCheck: suspend StepContext.() -> ACSNodeInfo = {
                 // Wait till the dialog is shown
                 host.events.first { _ ->
                     val root = host.windowRoot() ?: return@first false

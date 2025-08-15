@@ -7,13 +7,13 @@ import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
-import android.view.accessibility.AccessibilityNodeInfo
 import androidx.annotation.Keep
 import androidx.appcompat.view.ContextThemeWrapper
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
-import eu.darken.sdmse.automation.core.common.toStringShort
+import eu.darken.sdmse.automation.core.common.toNodeInfo
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.ui.AutomationControlView
@@ -218,9 +218,9 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         super.onDestroy()
     }
 
-    override suspend fun windowRoot(): AccessibilityNodeInfo? = suspendCancellableCoroutine {
-        val rootNode: AccessibilityNodeInfo? = rootInActiveWindow
-        log(TAG, VERBOSE) { "Providing windowRoot: ${rootNode?.toStringShort()}" }
+    override suspend fun windowRoot(): ACSNodeInfo? = suspendCancellableCoroutine {
+        val rootNode: ACSNodeInfo? = rootInActiveWindow?.toNodeInfo()
+        log(TAG, VERBOSE) { "Providing windowRoot: $rootNode" }
         it.resume(rootNode)
     }
 

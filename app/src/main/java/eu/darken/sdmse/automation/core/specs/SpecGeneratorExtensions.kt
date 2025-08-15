@@ -7,8 +7,8 @@ import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.view.accessibility.AccessibilityEvent
-import android.view.accessibility.AccessibilityNodeInfo
 import eu.darken.sdmse.appcleaner.core.automation.errors.NoSettingsWindowException
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.scrollNode
@@ -16,7 +16,6 @@ import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.common.toStringShort
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -51,8 +50,8 @@ fun SpecGenerator.windowLauncherDefaultSettings(
 }
 
 fun SpecGenerator.windowCheck(
-    condition: suspend StepContext.(event: AccessibilityEvent?, root: AccessibilityNodeInfo) -> Boolean,
-): suspend StepContext.() -> AccessibilityNodeInfo = {
+    condition: suspend StepContext.(event: AccessibilityEvent?, root: ACSNodeInfo) -> Boolean,
+): suspend StepContext.() -> ACSNodeInfo = {
     val events: Flow<AccessibilityEvent?> = host.events.map { it.event }
     val (event, root) = events
         .onStart {
@@ -78,7 +77,7 @@ fun SpecGenerator.windowCheckDefaultSettings(
     windowPkgId: Pkg.Id,
     ipcFunnel: IPCFunnel,
     pkgInfo: Installed
-): suspend StepContext.() -> AccessibilityNodeInfo = {
+): suspend StepContext.() -> ACSNodeInfo = {
     if (stepAttempts >= 1 && pkgInfo.hasNoSettings) {
         throw NoSettingsWindowException("${pkgInfo.packageName} has no settings window.")
     }
@@ -90,7 +89,7 @@ fun SpecGenerator.windowCheckDefaultSettings(
 suspend fun SpecGenerator.checkIdentifiers(
     ipcFunnel: IPCFunnel,
     pkgInfo: Installed,
-): suspend StepContext.(AccessibilityNodeInfo) -> Boolean = { root ->
+): suspend StepContext.(ACSNodeInfo) -> Boolean = { root ->
     val candidates = mutableSetOf(pkgInfo.packageName)
 
     ipcFunnel
@@ -155,7 +154,7 @@ suspend fun SpecGenerator.checkIdentifiers(
     val passed = root.crawl().map { it.node }.any { toTest ->
         candidates.any { candidate ->
             val match = toTest.text == candidate || toTest.text?.contains(candidate) == true
-            if (match) log(tag, INFO) { "checkIdentifiers: Passed ('$candidate' on ${toTest.toStringShort()})" }
+            if (match) log(tag, INFO) { "checkIdentifiers: Passed ('$candidate' on ${toTest})" }
             match
         }
     }
@@ -166,7 +165,7 @@ suspend fun SpecGenerator.checkIdentifiers(
 fun SpecGenerator.defaultFindAndClick(
     isDryRun: Boolean = false,
     maxNesting: Int = 6,
-    finder: suspend StepContext.() -> AccessibilityNodeInfo?,
+    finder: suspend StepContext.() -> ACSNodeInfo?,
 ): suspend StepContext.() -> Boolean = action@{
     val target = finder(this) ?: return@action false
     val mapped = findClickableParent(maxNesting = maxNesting, node = target) ?: return@action false
@@ -175,7 +174,7 @@ fun SpecGenerator.defaultFindAndClick(
 
 fun SpecGenerator.defaultNodeRecovery(
     pkg: Installed
-): suspend StepContext.(AccessibilityNodeInfo) -> Boolean = { root ->
+): suspend StepContext.(ACSNodeInfo) -> Boolean = { root ->
     log(tag) { "Performing node recovery for ${pkg.id}" }
     val busyNode = root.crawl().firstOrNull { it.node.textMatchesAny(listOf("...", "…")) }
     if (busyNode != null) {

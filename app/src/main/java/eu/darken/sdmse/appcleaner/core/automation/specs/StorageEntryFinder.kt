@@ -4,8 +4,8 @@ import android.app.usage.StorageStats
 import android.content.Context
 import android.graphics.Rect
 import android.text.format.Formatter
-import android.view.accessibility.AccessibilityNodeInfo
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.findParentOrNull
 import eu.darken.sdmse.automation.core.common.idContains
@@ -13,7 +13,6 @@ import eu.darken.sdmse.automation.core.common.isTextView
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.textVariants
-import eu.darken.sdmse.automation.core.common.toStringShort
 import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
@@ -37,7 +36,7 @@ class StorageEntryFinder @Inject constructor(
     @param:ApplicationContext private val context: Context,
     private val statsManager: StorageStatsManager2,
 ) {
-    internal suspend fun createSizeMatcher(pkg: Installed): ((AccessibilityNodeInfo) -> Boolean)? {
+    internal suspend fun createSizeMatcher(pkg: Installed): ((ACSNodeInfo) -> Boolean)? {
         log(TAG) { "createSizeMatcher(${pkg.installId} initialising..." }
 
         val targetSize = determineTargetSize(pkg) ?: return null
@@ -139,10 +138,10 @@ class StorageEntryFinder @Inject constructor(
     suspend fun storageFinderAOSP(
         labels: Collection<String>,
         pkg: Installed,
-    ): suspend StepContext.() -> AccessibilityNodeInfo? = {
+    ): suspend StepContext.() -> ACSNodeInfo? = {
         val matchStorage = createSizeMatcher(pkg) ?: { false }
 
-        val storageFilter: (AccessibilityNodeInfo) -> Int? = when {
+        val storageFilter: (ACSNodeInfo) -> Int? = when {
             hasApiLevel(33) -> storageFilter@{ node ->
                 if (!node.isTextView()) return@storageFilter null
                 when {
@@ -167,7 +166,7 @@ class StorageEntryFinder @Inject constructor(
             .mapNotNull { node ->
                 val priority = storageFilter(node)
                 if (priority == null) return@mapNotNull null
-                log(TAG, VERBOSE) { "Priority $priority: ${node.toStringShort()}" }
+                log(TAG, VERBOSE) { "Priority $priority: $node" }
                 node to priority
             }
             .sortedBy { it.second }
@@ -175,14 +174,14 @@ class StorageEntryFinder @Inject constructor(
             .toMutableList()
 
         log(TAG, if (matches.size > 1) WARN else DEBUG) { "Got ${matches.size} matches" }
-        matches.forEachIndexed { index, nodeInfo -> log(TAG) { "#$index - ${nodeInfo.toStringShort()}" } }
+        matches.forEachIndexed { index, nodeInfo -> log(TAG) { "#$index - $nodeInfo" } }
 
         // Siblings in storage entry
         if (matches.size == 2) {
             val first = matches[0]
             val second = matches[1]
             if (first.parent == second.parent) {
-                log(TAG, WARN) { "Double match on entry summary, removing summary: ${second.toStringShort()}" }
+                log(TAG, WARN) { "Double match on entry summary, removing summary: $second" }
                 matches.remove(second)
             }
         }
@@ -231,7 +230,7 @@ class StorageEntryFinder @Inject constructor(
         LEFT, RIGHT, FULL
     }
 
-    private fun StepContext.determinePane(node: AccessibilityNodeInfo, margin: Int = 50): ACSNodePaneState {
+    private fun StepContext.determinePane(node: ACSNodeInfo, margin: Int = 50): ACSNodePaneState {
         val metrics = host.service.resources.displayMetrics
         val screenMidX = metrics.widthPixels / 2
 
