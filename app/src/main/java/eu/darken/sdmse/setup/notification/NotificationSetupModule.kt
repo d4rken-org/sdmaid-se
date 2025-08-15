@@ -26,8 +26,8 @@ import javax.inject.Singleton
 
 @Singleton
 class NotificationSetupModule @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
-    @ApplicationContext private val context: Context,
+    @param:AppScope private val appScope: CoroutineScope,
+    @param:ApplicationContext private val context: Context,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)

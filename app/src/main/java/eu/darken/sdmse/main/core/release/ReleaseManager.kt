@@ -16,7 +16,7 @@ import javax.inject.Singleton
 
 @Singleton
 class ReleaseManager @Inject constructor(
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
     private val settings: ReleaseSettings,
     private val curriculumVitae: CurriculumVitae,
 ) {

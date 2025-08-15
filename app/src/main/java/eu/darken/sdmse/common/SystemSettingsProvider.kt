@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @Reusable
 class SystemSettingsProvider @Inject constructor(
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
     val contentResolver: ContentResolver,
 ) {
 

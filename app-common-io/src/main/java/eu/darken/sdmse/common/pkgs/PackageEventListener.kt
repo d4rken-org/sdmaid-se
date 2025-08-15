@@ -25,8 +25,8 @@ import javax.inject.Singleton
 
 @Singleton
 class PackageEventListener @Inject constructor(
-    @ApplicationContext private val context: Context,
-    @AppScope private val appScope: CoroutineScope,
+    @param:ApplicationContext private val context: Context,
+    @param:AppScope private val appScope: CoroutineScope,
 ) {
     sealed class Event {
         data class PackageInstalled(val packageId: Pkg.Id) : Event()

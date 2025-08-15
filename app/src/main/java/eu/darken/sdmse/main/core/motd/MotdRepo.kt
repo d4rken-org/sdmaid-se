@@ -25,7 +25,7 @@ import javax.inject.Singleton
 
 @Singleton
 class MotdRepo @Inject constructor(
-    @AppScope private val scope: CoroutineScope,
+    @param:AppScope private val scope: CoroutineScope,
     private val endpoint: MotdEndpoint,
     private val settings: MotdSettings,
     generalSettings: GeneralSettings,

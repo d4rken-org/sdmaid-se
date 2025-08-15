@@ -34,8 +34,8 @@ import javax.inject.Singleton
 
 @Singleton
 class ReportsDatabase @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
-    @ApplicationContext private val context: Context,
+    @param:AppScope private val appScope: CoroutineScope,
+    @param:ApplicationContext private val context: Context,
     private val statsSettings: StatsSettings,
     private val aPathTypeConverter: APathTypeConverter,
     private val dispatcherProvider: DispatcherProvider,

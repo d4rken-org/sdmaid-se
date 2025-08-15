@@ -39,7 +39,7 @@ import javax.inject.Singleton
 
 @Singleton
 class NotInstalledPkgsSource @Inject constructor(
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
     private val pkgOps: PkgOps,
     private val rootManager: RootManager,
     private val adbManager: AdbManager,

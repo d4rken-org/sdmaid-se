@@ -24,7 +24,7 @@ import javax.inject.Singleton
 
 @Singleton
 class GatewaySwitch @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
+    @param:AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
     private val safGateway: SAFGateway,
     private val localGateway: LocalGateway,

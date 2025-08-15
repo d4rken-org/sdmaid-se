@@ -14,7 +14,7 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 
 class LabelDebugger @Inject constructor(
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
     private val deviceDetective: DeviceDetective,
 ) : AutomationLabelSource {
 

@@ -36,8 +36,8 @@ import java.util.UUID
 import javax.inject.Inject
 
 class DebugCardProvider @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
-    @ApplicationContext private val context: Context,
+    @param:AppScope private val appScope: CoroutineScope,
+    @param:ApplicationContext private val context: Context,
     private val dispatcherProvider: DispatcherProvider,
     private val debugSettings: DebugSettings,
     private val rootSettings: RootSettings,

@@ -30,8 +30,8 @@ import javax.inject.Singleton
 
 @Singleton
 class SetupHealer @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
-    @ApplicationContext private val context: Context,
+    @param:AppScope private val appScope: CoroutineScope,
+    @param:ApplicationContext private val context: Context,
     adbManager: AdbManager,
     rootManager: RootManager,
     private val setupHelper: SetupHelper,

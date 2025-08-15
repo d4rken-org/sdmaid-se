@@ -35,7 +35,7 @@ import kotlin.reflect.KClass
 
 @Singleton
 class PkgRepo @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
+    @param:AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
     pkgEventListener: PackageEventListener,
     private val pkgSources: Set<@JvmSuppressWildcards PkgDataSource>,

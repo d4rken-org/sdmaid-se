@@ -55,7 +55,7 @@ import javax.inject.Inject
 class AppControlListViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
     private val appControl: AppControl,
     private val settings: AppControlSettings,
     private val exclusionManager: ExclusionManager,

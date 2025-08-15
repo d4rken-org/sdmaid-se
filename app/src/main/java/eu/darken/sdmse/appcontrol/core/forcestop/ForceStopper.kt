@@ -36,7 +36,7 @@ import javax.inject.Inject
 
 @Reusable
 class ForceStopper @Inject constructor(
-    @AppScope private val appScope: CoroutineScope,
+    @param:AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
     private val pkgOps: PkgOps,
     private val automation: AutomationManager,

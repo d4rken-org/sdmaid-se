@@ -40,9 +40,9 @@ import javax.inject.Singleton
 
 @Singleton
 class AutomationManager @Inject constructor(
-    @ApplicationContext val context: Context,
+    @param:ApplicationContext val context: Context,
     private val settings: GeneralSettings,
-    @AppScope private val appScope: CoroutineScope,
+    @param:AppScope private val appScope: CoroutineScope,
     private val setupHelper: SetupHelper,
     private val settingsProvider: SystemSettingsProvider,
 ) {

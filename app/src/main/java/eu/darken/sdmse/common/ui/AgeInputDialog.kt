@@ -16,7 +16,7 @@ import java.time.Duration
 
 class AgeInputDialog(
     private val activity: Activity,
-    @StringRes private val titleRes: Int,
+    @param:StringRes private val titleRes: Int,
     private val minimumAge: Duration = Duration.ZERO,
     private val maximumAge: Duration = Duration.ofDays(90),
     private val currentAge: Duration,
