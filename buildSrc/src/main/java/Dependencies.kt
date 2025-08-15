@@ -102,16 +102,16 @@ fun DependencyHandlerScope.addSerialization() {
 }
 
 fun DependencyHandlerScope.addIO() {
-    implementation("com.squareup.okio:okio:3.1.0")
+    implementation("com.squareup.okio:okio:3.15.0")
 }
 
 fun DependencyHandlerScope.addRetrofit() {
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
-    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.retrofit2:converter-moshi:3.0.0")
+    implementation("com.squareup.retrofit2:converter-scalars:3.0.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
-    testImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
 }
 
 fun DependencyHandlerScope.addAndroidCore() {
@@ -143,12 +143,11 @@ fun DependencyHandlerScope.addAndroidUI() {
     implementation("androidx.activity:activity-ktx:1.10.0")
     implementation("androidx.fragment:fragment-ktx:1.8.9")
 
-    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1")
-    implementation("androidx.lifecycle:lifecycle-common-java8:2.5.1")
-    implementation("androidx.lifecycle:lifecycle-process:2.5.1")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.2")
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.9.2")
+    implementation("androidx.lifecycle:lifecycle-process:2.9.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.2")
 
     implementation("androidx.constraintlayout:constraintlayout:2.2.1")
     implementation("com.google.android.material:material:1.13.0-alpha12")
@@ -156,15 +155,15 @@ fun DependencyHandlerScope.addAndroidUI() {
 
 fun DependencyHandlerScope.addTesting() {
     testImplementation("junit:junit:4.13.2")
-    testImplementation("org.junit.vintage:junit-vintage-engine:5.8.2")
+    testImplementation("org.junit.vintage:junit-vintage-engine:5.13.0")
     testImplementation("androidx.test:core-ktx:1.6.1")
 
-    testImplementation("io.mockk:mockk:1.12.4")
-    androidTestImplementation("io.mockk:mockk-android:1.12.4")
+    testImplementation("io.mockk:mockk:1.14.5")
+    androidTestImplementation("io.mockk:mockk-android:1.14.5")
 
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.8.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.13.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.13.0")
 
 
     testImplementation("io.kotest:kotest-runner-junit5:5.9.1")
@@ -173,8 +172,8 @@ fun DependencyHandlerScope.addTesting() {
     androidTestImplementation("io.kotest:kotest-assertions-core-jvm:5.9.1")
     androidTestImplementation("io.kotest:kotest-property-jvm:5.9.1")
 
-    testImplementation("android.arch.core:core-testing:1.1.1")
-    androidTestImplementation("android.arch.core:core-testing:1.1.1")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
     debugImplementation("androidx.test:core-ktx:1.6.1")
 
     androidTestImplementation("androidx.test.ext:junit:1.2.1")

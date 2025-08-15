@@ -1,7 +1,7 @@
 object Versions {
     object Kotlin {
-        const val core = "2.1.21"
-        const val coroutines = "1.8.0"
+        const val core = "2.2.10"
+        const val coroutines = "1.10.2"
     }
 
     object Dagger {
