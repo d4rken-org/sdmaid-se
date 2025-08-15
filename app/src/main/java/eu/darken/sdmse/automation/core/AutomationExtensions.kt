@@ -3,7 +3,7 @@ package eu.darken.sdmse.automation.core
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.GestureDescription
 import android.content.Intent
-import android.view.accessibility.AccessibilityNodeInfo
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -24,8 +24,8 @@ import kotlin.coroutines.resume
 
 suspend fun AutomationManager.canUseAcsNow(): Boolean = useAcs.first()
 
-suspend fun AutomationHost.waitForWindowRoot(delayMs: Long = 250): AccessibilityNodeInfo {
-    var root: AccessibilityNodeInfo? = null
+suspend fun AutomationHost.waitForWindowRoot(delayMs: Long = 250): ACSNodeInfo {
+    var root: ACSNodeInfo? = null
 
     while (currentCoroutineContext().isActive) {
         root = windowRoot()

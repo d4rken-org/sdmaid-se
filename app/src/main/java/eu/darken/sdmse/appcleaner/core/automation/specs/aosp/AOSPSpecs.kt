@@ -15,9 +15,9 @@ import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
+import eu.darken.sdmse.automation.core.common.stepper.findClickableSibling
 import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
-import eu.darken.sdmse.automation.core.common.toStringShort
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
@@ -97,7 +97,7 @@ class AOSPSpecs @Inject constructor(
 
             val nodeAction: suspend StepContext.() -> Boolean = action@{
                 var target = findNode { it.textMatchesAny(clearCacheButtonLabels) }
-                log(tag) { "Potential target is ${target?.toStringShort()}" }
+                log(tag) { "Potential target is $target" }
                 if (target == null) return@action false
 
                 target = when {
@@ -105,12 +105,20 @@ class AOSPSpecs @Inject constructor(
                     // -----------11: text='Clear storage', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=com.android.settings:id/button1
                     // -----------11: text='null', class=android.view.View, clickable=false, checkable=false enabled=true, id=com.android.settings:id/divider1
                     // -----------11: text='Clear cache', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=com.android.settings:id/button2
-                    target.isClickyButton() -> target.also { log(tag) { "Target is clicky button" } }
+                    target.isClickyButton() -> target.also {
+                        log(tag) { "Target is clicky button: $it" }
+                    }
+
+                    !target.isClickyButton() && target.parent?.isClickable == false -> findClickableSibling(node = target).also {
+                        log(tag) { "Target is clickable parent: $it" }
+                    }
 
                     // -----------11: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/action2
                     // ------------12: text='null', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=com.android.settings:id/button2
                     // ------------12: text='Clear cache', class=android.widget.TextView, clickable=true, checkable=false enabled=true, id=com.android.settings:id/text2
-                    else -> findClickableParent(node = target).also { log(tag) { "Target is clickable parent" } }
+                    else -> findClickableParent(node = target).also {
+                        log(tag) { "Target is clickable parent: $it" }
+                    }
                 }
 
                 if (target == null) {
@@ -118,7 +126,7 @@ class AOSPSpecs @Inject constructor(
                     return@action false
                 }
 
-                log(tag) { "Clicking 'Clear cache' target ${target.toStringShort()} for $pkg:" }
+                log(tag) { "Clicking 'Clear cache' target $target for $pkg:" }
                 clickClearCache(isDryRun = Bugs.isDryRun, pkg = pkg, node = target)
             }
 

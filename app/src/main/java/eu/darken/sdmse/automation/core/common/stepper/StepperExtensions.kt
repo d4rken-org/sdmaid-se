@@ -4,10 +4,10 @@ import android.accessibilityservice.GestureDescription
 import android.graphics.Path
 import android.graphics.Rect
 import android.view.ViewConfiguration
-import android.view.accessibility.AccessibilityNodeInfo
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
+import eu.darken.sdmse.automation.core.common.children
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.findParentOrNull
-import eu.darken.sdmse.automation.core.common.toStringShort
 import eu.darken.sdmse.automation.core.dispatchGesture
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
 import eu.darken.sdmse.automation.core.errors.UnclickableTargetException
@@ -19,40 +19,69 @@ import kotlinx.coroutines.flow.first
 
 
 suspend fun StepContext.findNode(
-    predicate: suspend (AccessibilityNodeInfo) -> Boolean
-): AccessibilityNodeInfo? = host.waitForWindowRoot().crawl().map { it.node }.firstOrNull { predicate(it) }
+    predicate: suspend (ACSNodeInfo) -> Boolean
+): ACSNodeInfo? = host.waitForWindowRoot().crawl().map { it.node }.firstOrNull { predicate(it) }
 
 suspend fun StepContext.findClickableParent(
     maxNesting: Int = 6,
     includeSelf: Boolean = false,
-    node: AccessibilityNodeInfo,
-): AccessibilityNodeInfo? = if (includeSelf && node.isClickable) {
+    node: ACSNodeInfo,
+): ACSNodeInfo? = if (includeSelf && node.isClickable) {
     node
 } else {
     node.findParentOrNull(maxNesting = maxNesting) {
-        log(tag, VERBOSE) { "isClickable? ${it.toStringShort()}" }
+        log(tag, VERBOSE) { "isClickable? $it" }
         it.isClickable
     }
+}
+
+suspend fun StepContext.findClickableSibling(
+    maxNesting: Int = 1,
+    includeSelf: Boolean = false,
+    node: ACSNodeInfo,
+): ACSNodeInfo? {
+    if (includeSelf && node.isClickable) {
+        return node
+    }
+
+    var currentParent = node.parent ?: return null
+
+    repeat(maxNesting) {
+        val clickableSibling = currentParent.children().firstOrNull { sibling ->
+            if (sibling == node) {
+                false
+            } else {
+                log(tag, VERBOSE) { "isClickable sibling? $sibling" }
+                sibling.isClickable
+            }
+        }
+
+        if (clickableSibling != null) return clickableSibling
+
+        currentParent = currentParent.parent ?: return null
+    }
+
+    return null
 }
 
 
 fun StepContext.clickNormal(
     isDryRun: Boolean = false,
-    node: AccessibilityNodeInfo,
+    node: ACSNodeInfo,
 ): Boolean {
-    log(tag, VERBOSE) { "clickNormal(isDryRun=$isDryRun): Clicking on ${node.toStringShort()}" }
+    log(tag, VERBOSE) { "clickNormal(isDryRun=$isDryRun): Clicking on $node" }
 
     return when {
         !node.isEnabled -> throw DisabledTargetException("Clickable target is disabled.")
-        isDryRun -> node.performAction(AccessibilityNodeInfo.ACTION_SELECT)
-        node.isClickable -> node.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+        isDryRun -> node.performAction(ACSNodeInfo.ACTION_SELECT)
+        node.isClickable -> node.performAction(ACSNodeInfo.ACTION_CLICK)
         else -> throw UnclickableTargetException("Target is not clickable")
     }
 }
 
 suspend fun StepContext.clickGesture(
     isDryRun: Boolean = false,
-    node: AccessibilityNodeInfo,
+    node: ACSNodeInfo,
 ): Boolean {
     val rect = Rect().apply { node.getBoundsInScreen(this) }
     val x = rect.centerX().toFloat()
