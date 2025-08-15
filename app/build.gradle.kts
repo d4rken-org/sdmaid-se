@@ -137,6 +137,7 @@ android {
         unitTests {
             isIncludeAndroidResources = true
         }
+        //noinspection WrongGradleMethod
         tasks.withType<Test> {
             useJUnitPlatform()
             setupTestLogging()
@@ -153,6 +154,7 @@ android {
     }
 
     androidResources {
+        @Suppress("UnstableApiUsage")
         generateLocaleConfig = true
     }
 
@@ -194,8 +196,8 @@ dependencies {
     "gplayImplementation"("com.android.billingclient:billing:8.0.0")
     "gplayImplementation"("com.android.billingclient:billing-ktx:8.0.0")
 
-    "gplayImplementation"("com.google.android.play:review:2.0.1")
-    "gplayImplementation"("com.google.android.play:review-ktx:2.0.1")
+    "gplayImplementation"("com.google.android.play:review:2.0.2")
+    "gplayImplementation"("com.google.android.play:review-ktx:2.0.2")
 
     addAndroidCore()
     addAndroidUI()
@@ -205,16 +207,16 @@ dependencies {
 
     addTesting()
 
-    implementation("io.github.z4kn4fein:semver:1.4.2")
+    implementation("io.github.z4kn4fein:semver:3.0.0")
 
     addCoil()
     addLottie()
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("com.github.reddit:IndicatorFastScroll:f9576c7") // 1.4.0
-    implementation("me.zhanghai.android.fastscroll:library:1.2.0")
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
-    implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
+    implementation("me.zhanghai.android.fastscroll:library:1.3.0")
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
+    implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
 
     implementation("androidx.core:core-splashscreen:1.0.0")
 
