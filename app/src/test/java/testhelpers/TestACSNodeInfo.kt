@@ -21,7 +21,17 @@ data class TestACSNodeInfo(
 
     override fun getChild(index: Int): ACSNodeInfo? = children.getOrNull(index)
 
-    override fun performAction(action: Int): Boolean = true
+    private val _performedActions = mutableListOf<Int>()
+    val performedActions: List<Int> get() = _performedActions.toList()
+
+    override fun performAction(action: Int): Boolean {
+        _performedActions.add(action)
+        return true
+    }
+
+    fun clearPerformedActions() {
+        _performedActions.clear()
+    }
     override fun refresh(): Boolean = true
     override fun getBoundsInScreen(outBounds: Rect) {
         // Simple implementation for testing - set to a default rectangle

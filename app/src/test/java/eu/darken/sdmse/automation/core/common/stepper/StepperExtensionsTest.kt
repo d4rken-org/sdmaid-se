@@ -1,6 +1,11 @@
 package eu.darken.sdmse.automation.core.common.stepper
 
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
+import eu.darken.sdmse.automation.core.errors.DisabledTargetException
+import eu.darken.sdmse.automation.core.errors.UnclickableTargetException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
+import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.shouldBe
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
@@ -157,5 +162,69 @@ class StepperExtensionsTest : BaseTest() {
 
         // Should return the first (immediate) clickable parent, not the grandparent
         result shouldBe clickableParent
+    }
+
+    // Tests for clickNormal
+    @Test
+    fun `clickNormal performs click action on enabled clickable node`() = runTest {
+        val context = createStepContext()
+        val targetNode = createNode(isClickable = true)
+
+        val result = context.clickNormal(node = targetNode)
+
+        result shouldBe true
+        targetNode.performedActions shouldContain ACSNodeInfo.ACTION_CLICK
+    }
+
+    @Test
+    fun `clickNormal throws DisabledTargetException when node is disabled`() = runTest {
+        val context = createStepContext()
+        val disabledNode = TestACSNodeInfo(isClickable = true, isEnabled = false)
+
+        shouldThrow<DisabledTargetException> {
+            context.clickNormal(node = disabledNode)
+        }
+    }
+
+    @Test
+    fun `clickNormal throws UnclickableTargetException when node is not clickable`() = runTest {
+        val context = createStepContext()
+        val nonClickableNode = createNode(isClickable = false)
+
+        shouldThrow<UnclickableTargetException> {
+            context.clickNormal(node = nonClickableNode)
+        }
+    }
+
+    @Test
+    fun `clickNormal uses ACTION_SELECT in dry run mode`() = runTest {
+        val context = createStepContext()
+        val targetNode = createNode(isClickable = true)
+
+        val result = context.clickNormal(isDryRun = true, node = targetNode)
+
+        result shouldBe true
+        targetNode.performedActions shouldContain ACSNodeInfo.ACTION_SELECT
+    }
+
+    @Test
+    fun `clickNormal dry run mode ignores clickable requirement`() = runTest {
+        val context = createStepContext()
+        val nonClickableNode = createNode(isClickable = false)
+
+        val result = context.clickNormal(isDryRun = true, node = nonClickableNode)
+
+        result shouldBe true
+        nonClickableNode.performedActions shouldContain ACSNodeInfo.ACTION_SELECT
+    }
+
+    @Test
+    fun `clickNormal dry run mode still checks enabled requirement`() = runTest {
+        val context = createStepContext()
+        val disabledNode = TestACSNodeInfo(isClickable = false, isEnabled = false)
+
+        shouldThrow<DisabledTargetException> {
+            context.clickNormal(isDryRun = true, node = disabledNode)
+        }
     }
 }
