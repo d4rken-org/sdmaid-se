@@ -17,7 +17,8 @@
 	  "WebFetch(domain:coil-kt.github.io)",
 	  "WebFetch(domain:mvnrepository.com)",
 	  "WebFetch(domain:kotlinlang.org)",
-	  "WebFetch(domain:developer.android.com)"
+	  "WebFetch(domain:developer.android.com)",
+	  "WebFetch(domain:issuetracker.google.com)"
 	],
 	"deny": []
   }
