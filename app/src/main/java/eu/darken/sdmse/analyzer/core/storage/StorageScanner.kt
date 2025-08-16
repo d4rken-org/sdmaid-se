@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.areas.hasFlags
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -83,11 +84,38 @@ class StorageScanner @Inject constructor(
     private lateinit var currentUser: UserHandle2
 
     suspend fun init(storage: DeviceStorage) {
+        log(TAG) { "init(): $storage" }
         useRoot = rootManager.canUseRootNow()
         useAdb = adbManager.canUseAdbNow()
         currentUser = userManager2.currentUser().handle
 
-        volume = storageManager2.storageVolumes.singleOrNull { it.uuid == storage.id.internalId }
+        val availableVolumes = storageManager2.storageVolumes
+        log(TAG) { "Available volumes:\n${availableVolumes.joinToString("\n")}" }
+
+        val candidates = availableVolumes.filter { it.uuid == storage.id.internalId }
+
+        volume = when {
+            candidates.isEmpty() -> {
+                log(TAG, WARN) { "No volume found for $storage" }
+                null
+            }
+
+            candidates.size == 1 -> {
+                candidates.single()
+            }
+
+            else -> {
+                // Weird behavior on `samsung/beyond1ltexx/beyond1:12/SP1A.210812.016/G973FXXSGHWC1:user/release-keys` with dual apps set up:
+                // scan(DeviceStorage(id=StorageId(internalId=null, externalId=41217664-9172-527a-b3d5-edabb50a7d69), label=CachedCaString("Primary storage"), type=PRIMARY, hardware=BUILT_IN, spaceCapacity=137438953472, spaceFree=36861681664, setupIncomplete=false))
+                // StorageVolumeX(uuid=null, directory=/storage/emulated/0, userlabel=Internal shared storage, volumeX=StorageVolume: Internal shared storage, rootUri=content://com.android.externalstorage.documents/root/primary)
+                // StorageVolumeX(uuid=null, directory=/storage/emulated/95, userlabel=Internal shared storage, volumeX=StorageVolume: Internal shared storage, rootUri=content://com.android.externalstorage.documents/root/primary)
+                log(TAG, WARN) { "Multiple matches for ${storage.id}" }
+                candidates.first()
+            }
+        }
+
+        log(TAG) { "Volume <> Storage mapping:\nVolume: $volume\nfor\nStorage: $storage" }
+
         dataAreaManager.currentAreas()
             .filter { it.hasFlags(DataArea.Flag.PRIMARY) == volume?.isPrimary }
             .let {
@@ -104,13 +132,12 @@ class StorageScanner @Inject constructor(
 
         init(storage)
 
-        log(TAG) { "Target public volume: $volume" }
-
         return gatewaySwitch.useRes {
             fileForensics.useRes {
                 val storageDir = volume?.directory
                     ?.let { LocalPath.build(it) }
                     ?.let { gatewaySwitch.lookup(it, type = GatewaySwitch.Type.AUTO) }
+                log(TAG, INFO) { "Public storage dir is $storageDir for $volume" }
 
                 updateProgressSecondary(R.string.analyzer_progress_scanning_storage)
 
