@@ -196,8 +196,10 @@ dependencies {
     "gplayImplementation"("com.android.billingclient:billing:8.0.0")
     "gplayImplementation"("com.android.billingclient:billing-ktx:8.0.0")
 
-    "gplayImplementation"("com.google.android.play:review:2.0.2")
-    "gplayImplementation"("com.google.android.play:review-ktx:2.0.2")
+    //noinspection GradleDependency See https://issuetracker.google.com/issues/374691245
+    "gplayImplementation"("com.google.android.play:review:2.0.1")
+    //noinspection GradleDependency See https://issuetracker.google.com/issues/374691245
+    "gplayImplementation"("com.google.android.play:review-ktx:2.0.1")
 
     addAndroidCore()
     addAndroidUI()
