@@ -78,16 +78,23 @@ class SAFSetupModule @Inject constructor(
     private suspend fun getAccessObjects(): List<Result.PathAccess> {
         val requestObjects = mutableListOf<Result.PathAccess>()
 
+        val currentUriPerms = contentResolver.persistedUriPermissions
+        log(TAG) { "persistedUriPermissions:\n${currentUriPerms.joinToString("\n")}" }
+
+        val allUsers = userManager.allUsers()
+        log(TAG, VERBOSE) { "allUsers:\n${allUsers.joinToString("\n")}" }
+
+        val storageVolumes = storageManager2.storageVolumes
+        log(TAG, VERBOSE) { "storageVolumes:\n${storageVolumes.joinToString("\n")}" }
+
         // Android TV doesn't have the DocumentsUI app necessary to grant us permissions
         if (deviceDetective.getROMType() == RomType.ANDROID_TV) {
             log(TAG) { "Skipping SAF setup as this is an Android TV device." }
             return requestObjects
         }
 
-        val currentUriPerms = contentResolver.persistedUriPermissions
-
         if (!hasApiLevel(30)) {
-            storageManager2.storageVolumes
+            storageVolumes
                 .filter {
                     if (it.directory == null) {
                         log(TAG, INFO) { "Storage not backed by a path: $it" }
@@ -226,7 +233,7 @@ class SAFSetupModule @Inject constructor(
         // TODO provide some more elaborate lookups for TV boxes that struggle with this?
         // See https://commonsware.com/blog/2017/12/27/storage-access-framework-missing-action.html
 
-        log(TAG) { "Generated: $requestObjects" }
+        log(TAG) { "Generated:\n${requestObjects.joinToString("\n")}" }
         return requestObjects
     }
 
