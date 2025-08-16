@@ -14,6 +14,7 @@ author: "by Matthias Urhahn"
 
 include:
   - PRIVACY_POLICY.md
+  - CHANGELOG.md
 exclude:
   - buildSrc
   - gradle/wrapper
@@ -32,3 +33,4 @@ exclude:
   - motd
   - tooling
   - CONTRIBUTING.md
+  - CLAUDE.md
