@@ -37,8 +37,8 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navArgs
-import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.getLaunchIntent
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -68,15 +68,15 @@ class AppActionViewModel @Inject constructor(
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<AppActionDialogArgs>()
-    private val pkgId: Pkg.Id = navArgs.pkgId
+    private val installId: InstallId = navArgs.installId
 
     init {
         appControl.state
-            .map { state -> state.data?.apps?.singleOrNull { it.pkg.id == pkgId } }
+            .map { state -> state.data?.apps?.singleOrNull { it.installId == installId } }
             .filter { it == null }
             .take(1)
             .onEach {
-                log(TAG) { "App data for $pkgId is no longer available" }
+                log(TAG) { "App data for $installId is no longer available" }
                 popNavStack()
             }
             .launchInViewModel()
@@ -85,7 +85,7 @@ class AppActionViewModel @Inject constructor(
     val events = SingleLiveEvent<AppActionEvents>()
 
     val state = combineTransform(
-        appControl.state.mapNotNull { state -> state.data?.apps?.singleOrNull { it.pkg.id == pkgId } },
+        appControl.state.mapNotNull { state -> state.data?.apps?.singleOrNull { it.installId == installId } },
         appControl.state,
         exclusionManager.exclusions,
         appControl.progress,
