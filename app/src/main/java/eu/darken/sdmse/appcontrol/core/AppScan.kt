@@ -79,13 +79,13 @@ class AppScan @Inject constructor(
     }
 
     suspend fun allApps(
-        user: UserHandle2,
+        user: UserHandle2?,
         includeUsage: Boolean,
         includeActive: Boolean,
         includeSize: Boolean,
     ): Set<AppInfo> = doRun {
-        log(TAG, VERBOSE) { "allApps($user)" }
-        val pkgs = pkgRepo.current().filter { it.userHandle == user }
+        log(TAG, VERBOSE) { "allApps(user=$user)" }
+        val pkgs = pkgRepo.current().filter { user == null || it.userHandle == user }
 
         if (sizeCache == null) {
             sizeCache = pkgs
@@ -97,21 +97,18 @@ class AppScan @Inject constructor(
                 .toList().associate { (id, size) -> id to size }
         }
 
-        pkgs
-            .filter { it.userHandle == user }
-            .map {
-                it.toAppInfo(
-                    includeUsage = includeUsage,
-                    includeActive = includeActive,
-                    includeSize = includeSize,
-                )
-            }
-            .toSet()
+        pkgs.map {
+            it.toAppInfo(
+                includeUsage = includeUsage,
+                includeActive = includeActive,
+                includeSize = includeSize,
+            )
+        }.toSet()
     }
 
     suspend fun app(
         pkgId: Pkg.Id,
-        user: UserHandle2? = null,
+        user: UserHandle2?,
         includeUsage: Boolean,
         includeActive: Boolean,
         includeSize: Boolean,
