@@ -256,7 +256,7 @@ class AppControlListViewModel @Inject constructor(
                         lablrScreenTime = if (listSort.mode == SortSettings.Mode.SCREEN_TIME) content.lablrScreenTime else null,
                         onItemClicked = {
                             AppControlListFragmentDirections.actionAppControlListFragmentToAppActionDialog(
-                                content.pkg.id
+                                content.installId,
                             ).navigate()
                         },
                     )

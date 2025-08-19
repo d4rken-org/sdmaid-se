@@ -217,6 +217,7 @@ class AppControl @Inject constructor(
                 val updatedPkgs = affectedPkgs.map {
                     appScan.app(
                         pkgId = it,
+                        user = userManager.currentUser().handle,
                         includeSize = snapshot.hasInfoSize,
                         includeActive = snapshot.hasInfoActive,
                         includeUsage = snapshot.hasInfoScreenTime
@@ -269,6 +270,7 @@ class AppControl @Inject constructor(
                 val updatedPkgs = affectedPkgs.map {
                     appScan.app(
                         pkgId = it,
+                        user = userManager.currentUser().handle,
                         includeSize = snapshot.hasInfoSize,
                         includeActive = snapshot.hasInfoActive,
                         includeUsage = snapshot.hasInfoScreenTime

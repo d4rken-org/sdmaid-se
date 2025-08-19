@@ -246,8 +246,8 @@
         android:name="eu.darken.sdmse.appcontrol.ui.list.actions.AppActionDialog"
         tools:layout="@layout/appcontrol_action_dialog">
         <argument
-            android:name="pkgId"
-            app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id" />
+            android:name="installId"
+            app:argType="eu.darken.sdmse.common.pkgs.features.InstallId" />
     </dialog>
     <fragment
         android:id="@+id/dataAreasFragment"

@@ -111,13 +111,15 @@ class AppScan @Inject constructor(
 
     suspend fun app(
         pkgId: Pkg.Id,
+        user: UserHandle2? = null,
         includeUsage: Boolean,
         includeActive: Boolean,
         includeSize: Boolean,
     ): Set<AppInfo> = doRun {
-        log(TAG, VERBOSE) { "app($pkgId)" }
+        log(TAG, VERBOSE) { "app($pkgId, user=$user)" }
         pkgRepo.current()
             .filter { it.id == pkgId }
+            .filter { user == null || it.userHandle == user }
             .map {
                 it.toAppInfo(
                     includeUsage = includeUsage,
