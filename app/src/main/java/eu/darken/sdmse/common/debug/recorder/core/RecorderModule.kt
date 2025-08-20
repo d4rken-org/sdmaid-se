@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Build
 import android.os.Environment
+import androidx.core.content.pm.PackageInfoCompat
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.BuildWrap
@@ -160,7 +161,7 @@ class RecorderModule @Inject constructor(
         log(TAG, INFO) { "Build.MANUFACTOR: ${Build.MANUFACTURER}" }
         log(TAG, INFO) { "Build.BRAND: ${Build.BRAND}" }
         log(TAG, INFO) { "Build.PRODUCT: ${Build.PRODUCT}" }
-        val versionInfo = "${pkgInfo.versionName} (${pkgInfo.versionCode})"
+        val versionInfo = "${pkgInfo.versionName} (${PackageInfoCompat.getLongVersionCode(pkgInfo)})"
         log(TAG, INFO) { "App: ${context.packageName} - $versionInfo " }
         log(TAG, INFO) { "Build: ${BuildConfigWrap.FLAVOR}-${BuildConfigWrap.BUILD_TYPE}" }
 
