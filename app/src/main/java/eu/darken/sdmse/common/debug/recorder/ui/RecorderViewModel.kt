@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.debug.recorder.ui
 
 import android.content.Context
 import android.content.Intent
+import android.text.format.Formatter
 import androidx.core.content.FileProvider
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,6 +17,7 @@ import eu.darken.sdmse.common.compression.Zipper
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.local.deleteAll
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.uix.ViewModel3
 import java.io.File
@@ -62,7 +64,7 @@ class RecorderViewModel @Inject constructor(
             )
             val zippedSize = zipFile.length()
             log(TAG) { "Zip file created ${zippedSize}B at $zipFile" }
-            stater.updateBlocking { copy(compressedFile = zipFile, compressedSize = zippedSize) }
+            stater.updateBlocking { copy(compressedFile = zipFile, compressedSize = zippedSize, isWorking = false) }
         }
     }
 
@@ -99,14 +101,23 @@ class RecorderViewModel @Inject constructor(
         webpageTool.open(SdmSeLinks.PRIVACY_POLICY)
     }
 
+    fun discard() = launch {
+        stater.updateBlocking { copy(isWorking = true) }
+        recordedPath?.deleteAll()
+        popNavStack()
+    }
+
     data class State(
         val logDir: File?,
         val logEntries: List<LogFileAdapter.Entry.Item> = emptyList(),
         val compressedFile: File? = null,
-        val compressedSize: Long? = null
+        val compressedSize: Long? = null,
+        val isWorking: Boolean = true,
     ) {
-        val loading: Boolean
-            get() = compressedSize == null
+
+        fun getFormattedCompressedSize(context: Context): String? {
+            return compressedSize?.let { Formatter.formatShortFileSize(context, it) }
+        }
     }
 
     companion object {

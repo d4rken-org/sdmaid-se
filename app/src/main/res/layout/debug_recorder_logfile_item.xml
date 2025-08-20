@@ -1,45 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="4dp">
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="12dp">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/info"
-        style="@style/TextAppearance.Material3.LabelMedium"
+    <!-- File Icon -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:cardBackgroundColor="?attr/colorPrimaryContainer"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        android:layout_marginEnd="16dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_file"
+            app:tint="?attr/colorOnPrimaryContainer" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- File Info -->
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@id/path"
-        app:layout_constraintEnd_toStartOf="@id/size"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Core log" />
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/path"
-        style="@style/TextAppearance.Material3.BodySmall"
-        android:layout_width="0dp"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/info"
+            style="@style/TextAppearance.Material3.BodyLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginBottom="4dp"
+            tools:text="app.log" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/path"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:fontFamily="monospace"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="/storage/emulated/0/Android/data/eu.darken.sdmse/cache/debug/logs/session_123/app.log" />
+
+    </LinearLayout>
+
+    <!-- Size Badge -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/size_badge"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ellipsize="start"
-        android:maxLines="1"
-        app:layout_constraintBottom_toBottomOf="@id/path"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/info"
-        tools:text=".../some/happy/little/file/some/happy/little/file/some/happy/little/file/some/happy/little/file/some/happy/little/file/some/happy/little/file" />
+        app:cardBackgroundColor="?attr/colorSecondaryContainer"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        android:layout_marginStart="16dp">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/size"
-        style="@style/TextAppearance.Material3.LabelSmall"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        tools:text="Size 1.25MB"
-        app:layout_constraintBottom_toTopOf="@id/path"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/size"
+            style="@style/TextAppearance.Material3.LabelSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSecondaryContainer"
+            tools:text="1.25MB" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

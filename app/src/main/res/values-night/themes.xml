@@ -66,18 +66,6 @@
         <item name="dynamicColorThemeOverlay">@style/Theme.Material3.DynamicColors.Dark.NoActionBar</item>
     </style>
 
-    <style name="AppThemeFloating" parent="BaseAppTheme">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:backgroundDimEnabled">true</item>
-
-        <item name="dynamicColorThemeOverlay">@style/Theme.Material3.DynamicColors.Dark.Floating</item>
-    </style>
-
     <style name="AppTheme" parent="BaseAppTheme">
         <item name="windowActionModeOverlay">true</item>
         <item name="actionModeCloseDrawable">@drawable/ic_baseline_close_24</item>
