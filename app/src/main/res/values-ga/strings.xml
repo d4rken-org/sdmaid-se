@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Tosaigh scanadh agus scriosadh do na huirlisí go léir le tapáil ar chnaipe gníomh an phainéil rialaithe, gan deimhnithe breise.</string>
     <string name="dashboard_settings_oneclick_tools_title">Uirlisí Aon Tapáil</string>
     <string name="dashboard_settings_oneclick_tools_desc">Cé na huirlisí ba chóir a chur san áireamh in oibríochtai aon tapáil?</string>
-    <string name="debug_debuglog_size_label">Méid</string>
-    <string name="debug_debuglog_size_compressed_label">Méid comhbhruitte</string>
     <string name="debug_notification_channel_label">Fógraí dífhabhtaithe</string>
     <string name="debug_debuglog_file_label">Comhad loga taifidíte</string>
     <string name="debug_debuglog_recording_progress">Ag taifead loga dífhabhtaithe</string>
