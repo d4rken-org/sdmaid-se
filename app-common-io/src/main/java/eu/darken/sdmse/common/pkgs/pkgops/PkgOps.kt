@@ -87,32 +87,32 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun forceStop(pkgId: Pkg.Id, mode: Mode = Mode.AUTO): Boolean {
-        log(TAG, VERBOSE) { "forceStop($pkgId, mode=$mode)" }
+    suspend fun forceStop(installId: InstallId, mode: Mode = Mode.AUTO): Boolean {
+        log(TAG, VERBOSE) { "forceStop($installId, mode=$mode)" }
         try {
             val opsAction = { opsClient: PkgOpsClient ->
-                opsClient.forceStop(pkgId.name)
+                opsClient.forceStop(installId)
             }
 
             if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
-                log(TAG) { "forceStop($pkgId, $mode->ADB)" }
+                log(TAG) { "forceStop($installId, $mode->ADB)" }
                 return adbOps { opsAction(it) }
 
             }
 
             if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
-                log(TAG) { "forceStop($pkgId, $mode->ROOT)" }
+                log(TAG) { "forceStop($installId, $mode->ROOT)" }
                 return rootOps { opsAction(it) }
             }
 
             throw ModeUnavailableException("Mode $mode is unavailable")
         } catch (e: Exception) {
             if (e is ModeUnavailableException) {
-                log(TAG, DEBUG) { "forceStop(...): $mode unavailable for $pkgId" }
+                log(TAG, DEBUG) { "forceStop(...): $mode unavailable for $installId" }
             } else {
-                log(TAG, WARN) { "forceStop($pkgId, mode=$mode) failed: $e" }
+                log(TAG, WARN) { "forceStop($installId, mode=$mode) failed: $e" }
             }
-            throw PkgOpsException(message = "changePackageState($pkgId, $mode) failed", cause = e)
+            throw PkgOpsException(message = "changePackageState($installId, $mode) failed", cause = e)
         }
     }
 

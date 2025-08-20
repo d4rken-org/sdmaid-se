@@ -18,11 +18,11 @@ class PkgOpsClient @AssistedInject constructor(
     @Assisted private val connection: PkgOpsConnection
 ) : IpcClientModule {
 
-    fun forceStop(packageName: String): Boolean = try {
-        connection.forceStop(packageName)
+    fun forceStop(installId: InstallId): Boolean = try {
+        connection.forceStop(installId)
     } catch (e: Exception) {
         throw e.refineException().also {
-            log(TAG, ERROR) { "forceStop(packageName=$packageName) failed: ${it.asLog()}" }
+            log(TAG, ERROR) { "forceStop($installId) failed: ${it.asLog()}" }
         }
     }
 

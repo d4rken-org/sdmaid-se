@@ -70,15 +70,33 @@ class PkgOpsHost @Inject constructor(
         throw e.wrapToPropagate()
     }
 
-    override fun forceStop(packageName: String): Boolean = try {
+    override fun forceStop(installId: InstallId): Boolean = try {
         val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        val forceStopPackage = am.javaClass.getDeclaredMethod("forceStopPackage", String::class.java).apply {
+
+        @Suppress("DiscouragedPrivateApi")
+        val forceStopPackageAsUser = am.javaClass.getDeclaredMethod(
+            "forceStopPackageAsUser", String::class.java, Int::class.javaPrimitiveType
+        ).apply {
             isAccessible = true
         }
-        forceStopPackage.invoke(am, packageName)
-        true
+        val pkg = installId.pkgId.name
+        val userId = installId.userHandle.handleId
+        log(TAG) { "Force stopping $pkg for user $userId..." }
+        try {
+            forceStopPackageAsUser.invoke(am, pkg, userId)
+            true
+        } catch (e: NoSuchMethodException) {
+            log(TAG, ERROR) { "Method forceStopPackageAsUser was unavailable: ${e.asLog()}" }
+            val result = runBlocking {
+                sharedShell.useRes {
+                    FlowCmd("am force-stop --user ${installId.userHandle.handleId} ${installId.pkgId.name}").execute(it)
+                }
+            }
+            log(TAG, VERBOSE) { "forceStop($installId) result: $result" }
+            result.isSuccessful
+        }
     } catch (e: Exception) {
-        log(TAG, ERROR) { "forceStop(packageName=$packageName) failed: ${e.asLog()}" }
+        log(TAG, ERROR) { "forceStop($installId) failed: ${e.asLog()}" }
         throw e.wrapToPropagate()
     }
 
