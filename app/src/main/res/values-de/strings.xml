@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Starte das Scannen und Löschen aller Tools durch Tippen auf die Aktionsschaltfläche des Dashboards, ohne zusätzliche Bestätigungen.</string>
     <string name="dashboard_settings_oneclick_tools_title">Ein-Tipp-Tools</string>
     <string name="dashboard_settings_oneclick_tools_desc">Welche Werkzeuge soll die Ein-Tipp-Bedienung umfassen?</string>
-    <string name="debug_debuglog_size_label">Größe</string>
-    <string name="debug_debuglog_size_compressed_label">Komprimierte Größe</string>
     <string name="debug_notification_channel_label">Debug-Benachrichtigungen</string>
     <string name="debug_debuglog_file_label">Aufgezeichnete Protokolldatei</string>
     <string name="debug_debuglog_recording_progress">Debug-Protokoll wird aufgezeichnet</string>

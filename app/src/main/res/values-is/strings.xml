@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Byrja skönnun og eyðingu fyrir öll tæki með því að snerta aðgerðahnapp stjórnborðsins, án viðbótar staðfestinga.</string>
     <string name="dashboard_settings_oneclick_tools_title">Einn-snerting tæki</string>
     <string name="dashboard_settings_oneclick_tools_desc">Hvaða tæki ætti að vera með í einn-snerting aðgerðum?</string>
-    <string name="debug_debuglog_size_label">Stærð</string>
-    <string name="debug_debuglog_size_compressed_label">Þjöppuð stærð</string>
     <string name="debug_notification_channel_label">Villuleit tilkynningar</string>
     <string name="debug_debuglog_file_label">Skráð annáll skrá</string>
     <string name="debug_debuglog_recording_progress">Skrái villuleit annál</string>

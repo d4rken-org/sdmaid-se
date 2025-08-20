@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Simulan ang pag-scan at pagbura para sa lahat ng mga kagamitan sa pamamagitan ng pag-pindut ng aksyon buton ng dashboard, walang karagdagang kumpirmasyon.</string>
     <string name="dashboard_settings_oneclick_tools_title">One-Tap Tools</string>
     <string name="dashboard_settings_oneclick_tools_desc">Anong mga kagamitan ang dapat kasama sa one-tap operasyon?</string>
-    <string name="debug_debuglog_size_label">Laki</string>
-    <string name="debug_debuglog_size_compressed_label">Laki pagka-compress</string>
     <string name="debug_notification_channel_label">Mga notipikasyon pang-debug</string>
     <string name="debug_debuglog_file_label">Naitala ang log file</string>
     <string name="debug_debuglog_recording_progress">Nagta-tala ng debug log</string>

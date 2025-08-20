@@ -150,4 +150,10 @@
     </plurals>
     <string name="general_advice_title">Nasihat</string>
     <string name="general_error_invalid_input_label">Input tidak valid</string>
+    <string name="general_information_for_the_developer">Informasi dari Pengembang</string>
+    <string name="general_error_report_bug_action">Lapor masalah</string>
+    <string name="general_error_ipc_deadobject_title">Koneksi Layanan Terputus</string>
+    <string name="general_error_ipc_deadobject_description">Koneksi ke layanan penting (misalnya Magisk, Shizuku, atau layanan tingkat sistem lainnya) terputus secara tidak terduga. Silakan mulai ulang perangkat Anda. Jika masalah masih berlanjut, periksa pembaruan atau hubungi saya agar bisa memperbaikinya.</string>
+    <string name="general_user_label_owner">Pemilik</string>
+    <string name="general_user_label_system">Sistem</string>
 </resources>

@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Inicia l\'escaneig i la supressió de totes les eines amb un toc al botó d\'acció del tauler sense confirmacions addicionals.</string>
     <string name="dashboard_settings_oneclick_tools_title">Eines d\'Un Sol Toc</string>
     <string name="dashboard_settings_oneclick_tools_desc">Quines eines s\'han d\'incloure en les operacions d\'Un Sol Toc?</string>
-    <string name="debug_debuglog_size_label">Mida</string>
-    <string name="debug_debuglog_size_compressed_label">Mida comprimida</string>
     <string name="debug_notification_channel_label">Notificacions de depuració</string>
     <string name="debug_debuglog_file_label">Fitxer de registre desat</string>
     <string name="debug_debuglog_recording_progress">Gravació del registre de depuració</string>

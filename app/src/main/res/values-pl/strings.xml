@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Rozpocznij skanowanie i usuwanie dla wszystkich narzędzi, dotykając przycisku akcji na pulpicie nawigacyjnym, bez dodatkowych potwierdzeń.</string>
     <string name="dashboard_settings_oneclick_tools_title">Narzędzia jednego-dotknięcia</string>
     <string name="dashboard_settings_oneclick_tools_desc">Które narzędzia powinny być zawarte w operacjach jednego dotknięcia?</string>
-    <string name="debug_debuglog_size_label">Rozmiar</string>
-    <string name="debug_debuglog_size_compressed_label">Skompresowany rozmiar</string>
     <string name="debug_notification_channel_label">Powiadomienia debugowania</string>
     <string name="debug_debuglog_file_label">Zapisany plik logu</string>
     <string name="debug_debuglog_recording_progress">Rejestrowanie logu debugowania</string>

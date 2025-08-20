@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">ড্যাশবোর্ডের অ্যাকশন বোতামে একটি আলতো চাপ দিয়ে সমস্ত টুলের স্ক্যান এবং মুছে ফেলা শুরু করুন, কোনও অতিরিক্ত নিশ্চিতকরণের প্রয়োজন নেই।</string>
     <string name="dashboard_settings_oneclick_tools_title">এক-ট্যাপ টুলস</string>
     <string name="dashboard_settings_oneclick_tools_desc">এক-ট্যাপ অপারেশনে কোন সরঞ্জামগুলি অন্তর্ভুক্ত করা উচিত?</string>
-    <string name="debug_debuglog_size_label">আকার</string>
-    <string name="debug_debuglog_size_compressed_label">সংকুচিত আকার</string>
     <string name="debug_notification_channel_label">ডিবাগ নোটিফিকেশন</string>
     <string name="debug_debuglog_file_label">রেকর্ড করা লগ ফাইল</string>
     <string name="debug_debuglog_recording_progress">রেকর্ডিং ডিবাগ লগ</string>

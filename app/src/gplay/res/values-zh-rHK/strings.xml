@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">無法識別升級的故障排除提示：</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store 同步可能需要時間。嘗試重新啟動、清除 Google Play 快取或只是等待。</string>
     <string name="upgrade_screen_restore_multiaccount_hint">多個帳戶可能會混淆 Google Play。從其他帳戶登出或透過 Google Play 網站安裝，這會強制與特定帳戶建立關聯。</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play 問題</string>
-    <string name="upgrades_gplay_billing_error_description">Google Play 出現問題。請稍後再試或重新啟動您的裝置。\n\n詳細資料：%s</string>
 </resources>

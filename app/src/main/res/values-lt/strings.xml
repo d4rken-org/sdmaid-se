@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Pradėkite visų įrankių nuskaitymą ir ištrynimą bakstelėdami prietaisų skydelio veiksmo mygtuką, jokių papildomų patvirtinimų.</string>
     <string name="dashboard_settings_oneclick_tools_title">Vieno bakstelėjimo įrankiai</string>
     <string name="dashboard_settings_oneclick_tools_desc">Kurie įrankiai turėtų būti įtraukti į vieno bakstelėjimo operaciją?</string>
-    <string name="debug_debuglog_size_label">Dydis</string>
-    <string name="debug_debuglog_size_compressed_label">Suspaustas dydis</string>
     <string name="debug_notification_channel_label">Derinimo pranešimai</string>
     <string name="debug_debuglog_file_label">Įrašytas žurnalo failas</string>
     <string name="debug_debuglog_recording_progress">Derinimo žurnalo įrašymas</string>

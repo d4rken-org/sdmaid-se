@@ -24,6 +24,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Tanınmayan yeniləmələr üçün problemlərin həlli məsləhətləri:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinxronlaşdırması vaxt ala bilər. Yenidən başlatmağı, Google Play keşini təmizləməyi və ya sadəcə gözləməyi sınayın.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Çoxlu hesablar Google Play-i çaşdıra bilər. Digər hesablardan çıxın və ya Google Play veb saytı vasitəsilə quraşdırın ki, bu da müəyyən hesabla əlaqələri məcbur edir.</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play Problemi</string>
-    <string name="upgrades_gplay_billing_error_description">Google Play ilə problem yarandı. Zəhmət olmasa daha sonra cəhd edin və ya cihazınızı yenidən başladın.\n\nTəfərrüatlar: %s</string>
 </resources>

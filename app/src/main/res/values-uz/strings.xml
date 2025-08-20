@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Boshqaruv panelining harakat tugmasini bir marta bosish bilan barcha vositalar uchun skanerlash va o\'chirishni boshlang, qo\'shimcha tasdiqlarsiz.</string>
     <string name="dashboard_settings_oneclick_tools_title">Bir marta bosish vositalari</string>
     <string name="dashboard_settings_oneclick_tools_desc">Qaysi vositalar bir marta bosish operatsiyalariga kiritilishi kerak?</string>
-    <string name="debug_debuglog_size_label">Hajmi</string>
-    <string name="debug_debuglog_size_compressed_label">Siqilgan hajmi</string>
     <string name="debug_notification_channel_label">Nosozliklarni tuzatish bildirishlari</string>
     <string name="debug_debuglog_file_label">Yozib olingan jurnal fayli</string>
     <string name="debug_debuglog_recording_progress">Nosozliklarni tuzatish jurnali yozilmoqda</string>

@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Paneldeki eylem butonuna tek bir dokunuşla, ek onay olmaksızın, bütün araçları kullanarak tek seferde tarayın ve silin.</string>
     <string name="dashboard_settings_oneclick_tools_title">Tek-Tık Araçlar</string>
     <string name="dashboard_settings_oneclick_tools_desc">Hangi araçlar tek-tık işlemlerine eklenilsin?</string>
-    <string name="debug_debuglog_size_label">Boyut</string>
-    <string name="debug_debuglog_size_compressed_label">Sıkıştırılmış boyut</string>
     <string name="debug_notification_channel_label">Hata ayıklama bildirimleri</string>
     <string name="debug_debuglog_file_label">Kaydedilmiş günlük dosyası</string>
     <string name="debug_debuglog_recording_progress">Hata ayıklama günlüğü kaydediliyor</string>

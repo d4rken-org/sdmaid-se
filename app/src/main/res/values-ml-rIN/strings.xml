@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">ഡാഷ്‌ബോർഡിന്റെ ആക്ഷൻ ബട്ടണിൽ ഒരു ടാപ്പിലൂടെ എല്ലാ ടൂളുകൾക്കും സ്കാൻ, ഡിലീഷൻ ആരംഭിക്കുക, അധിക സ്ഥിരീകരണങ്ങളൊന്നുമില്ല.</string>
     <string name="dashboard_settings_oneclick_tools_title">വൺ-ടാപ്പ് ടൂളുകൾ</string>
     <string name="dashboard_settings_oneclick_tools_desc">വൺ-ടാപ്പ് പ്രവർത്തനങ്ങളിൽ ഏതെല്ലാം ടൂളുകൾ ഉൾപ്പെടുത്തണം?</string>
-    <string name="debug_debuglog_size_label">വലുപ്പം</string>
-    <string name="debug_debuglog_size_compressed_label">കംപ്രസ്ഡ് വലുപ്പം</string>
     <string name="debug_notification_channel_label">ഡീബഗ് അറിയിപ്പുകൾ</string>
     <string name="debug_debuglog_file_label">രേഖപ്പെടുത്തിയ ലോഗ് ഫയൽ</string>
     <string name="debug_debuglog_recording_progress">ഡീബഗ് ലോഗ് രേഖപ്പെടുത്തുന്നു</string>

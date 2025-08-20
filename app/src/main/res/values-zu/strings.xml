@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Qala ukuskena nokususa kuwo wonke amathuluzi ngokucindezela inkinobho yesenzo yebhodi lokuphatha, ngaphandle kokuqinisekisa okwengeziwe.</string>
     <string name="dashboard_settings_oneclick_tools_title">Amathuluzi Okucindezela Kanye</string>
     <string name="dashboard_settings_oneclick_tools_desc">Yimaphi amathuluzi okufanele afakwe emisebenzini yokucindezela kanye?</string>
-    <string name="debug_debuglog_size_label">Usayizi</string>
-    <string name="debug_debuglog_size_compressed_label">Usayizi olucindezelwe</string>
     <string name="debug_notification_channel_label">Izaziso zokulungisa amaphutha</string>
     <string name="debug_debuglog_file_label">Ifayela lomvala olurekhodewe</string>
     <string name="debug_debuglog_recording_progress">Kurekhoda umvala wokulungisa amaphutha</string>

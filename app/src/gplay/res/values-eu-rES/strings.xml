@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Aitortu gabeko eguneratze-arazoak konpontzeko aholkuak:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Storeren sinkronizazioak denbora behar izan dezake. Saiatu berrabiarazten, Google Play katxea ezabatzen edo, besterik gabe, itxaron.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Kontu anitzek Google Play nahas dezakete. Beste kontu batzuetatik atera edo Google Play webgunearen bidez instalatu, eta horrek elkarteak kontu zehatz batekin behartzen ditu.</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play arazoa</string>
-    <string name="upgrades_gplay_billing_error_description">Google Playrekin arazo bat egon da. Saiatu berriro geroago edo berrabiarazi zure gailua.\n\nXehetasunak: %s</string>
 </resources>

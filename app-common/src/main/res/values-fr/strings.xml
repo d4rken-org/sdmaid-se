@@ -164,4 +164,6 @@
     <string name="general_error_report_bug_action">Signaler un bogue</string>
     <string name="general_error_ipc_deadobject_title">La connexion au serveur est perdue</string>
     <string name="general_error_ipc_deadobject_description">La connexion à un service essentiel (p. ex. Magisk, Shizuku ou d’autres services au niveau du système) a été perdue de manière inattendue. Redémarrez votre appareil. Si le problème persiste, vérifiez la présence de mises à jour ou contactez-moi pour que je puisse le corriger.</string>
+    <string name="general_user_label_owner">Propriétaire</string>
+    <string name="general_user_label_system">Système</string>
 </resources>

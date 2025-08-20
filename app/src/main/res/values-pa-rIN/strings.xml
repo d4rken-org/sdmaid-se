@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">ਡੈਸ਼ਬੋਰਡ ਦੇ ਐਕਸ਼ਨ ਬਟਨ \'ਤੇ ਠੁੰਗ ਮਾਰਕੇ ਸਾਰੇ ਸੰਦਾਂ ਲਈ ਸਕੈਨ ਅਤੇ ਮਿਟਾਉਣਾ ਸ਼ੁਰੂ ਕਰੋ, ਕੋਈ ਵਾਧੂ ਤਸਦੀਕ ਨਹੀਂ</string>
     <string name="dashboard_settings_oneclick_tools_title">ਇੱਕ-ਠੁੰਗ ਸੰਦ</string>
     <string name="dashboard_settings_oneclick_tools_desc">ਇੱਕ-ਠੁੰਗ ਓਪਰੇਸ਼ਨ ਵਿੱਚ ਕਿਹੜੇ ਸਾਧਨ ਸ਼ਾਮਲ ਕੀਤੇ ਜਾਣੇ ਚਾਹੀਦੇ ਹਨ?</string>
-    <string name="debug_debuglog_size_label">ਆਕਾਰ</string>
-    <string name="debug_debuglog_size_compressed_label">ਕੰਪ੍ਰੈਸਡ ਆਕਾਰ</string>
     <string name="debug_notification_channel_label">ਡੀਬੱਗ ਸੂਚਨਾਵਾਂ</string>
     <string name="debug_debuglog_file_label">ਰਿਕਾਰਡ ਕੀਤੀ ਲੌਗ ਫਾਈਲ</string>
     <string name="debug_debuglog_recording_progress">ਡੀਬੱਗ ਲੌਗ ਰਿਕਾਰਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>

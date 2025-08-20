@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">ड्यासबोर्डको कार्य बटनमा ट्याप गरेर सबै उपकरणहरूको लागि स्क्यान र मेटाउने सुरु गर्नुहोस्, कुनै अतिरिक्त पुष्टिकरण बिना।</string>
     <string name="dashboard_settings_oneclick_tools_title">एक-ट्याप उपकरणहरू</string>
     <string name="dashboard_settings_oneclick_tools_desc">कुन उपकरणहरू एक-ट्याप सञ्चालनमा समावेश गर्नुपर्छ?</string>
-    <string name="debug_debuglog_size_label">आकार</string>
-    <string name="debug_debuglog_size_compressed_label">सम्पीडित आकार</string>
     <string name="debug_notification_channel_label">डिबग सूचनाहरू</string>
     <string name="debug_debuglog_file_label">रेकर्ड गरिएको लग फाइल</string>
     <string name="debug_debuglog_recording_progress">डिबग लग रेकर्ड गर्दै</string>

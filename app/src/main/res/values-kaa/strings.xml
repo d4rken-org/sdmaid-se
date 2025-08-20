@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Barlıq qurallardı dashboard basqarmalarınıń bir basqısı menen skanerlew hám oshırıw baslaw, qosımsha tastıyıqlaw joq.</string>
     <string name="dashboard_settings_oneclick_tools_title">Bir-basqısh qurallari</string>
     <string name="dashboard_settings_oneclick_tools_desc">Bir-basqısh operaciyalarına qaysı qurallardı kiritiw kerek?</string>
-    <string name="debug_debuglog_size_label">Kólem</string>
-    <string name="debug_debuglog_size_compressed_label">Qısılǵan ólshem</string>
     <string name="debug_notification_channel_label">Buzılıwlardı ońlaw bildiriw xatları</string>
     <string name="debug_debuglog_file_label">Jazıp alınǵan jurnal faylı</string>
     <string name="debug_debuglog_recording_progress">Buzılıwlardı ońlaw jurnalı jazıwı</string>

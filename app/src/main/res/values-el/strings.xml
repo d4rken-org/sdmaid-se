@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Ξεκινήστε σάρωση και διαγραφή για όλα τα εργαλεία με ένα κλικ στο κουμπί δράσης του πίνακα εργαλείων, χωρίς επιπλέον επιβεβαιώσεις.</string>
     <string name="dashboard_settings_oneclick_tools_title">Εργαλεία με Ένα-Πάτημα</string>
     <string name="dashboard_settings_oneclick_tools_desc">Ποια εργαλεία πρέπει να περιλαμβάνονται στις λειτουργίες με ένα πάτημα;</string>
-    <string name="debug_debuglog_size_label">Μέγεθος</string>
-    <string name="debug_debuglog_size_compressed_label">Συμπιεσμένο μέγεθος</string>
     <string name="debug_notification_channel_label">Ειδοποιήσεις εντοπισμού σφαλμάτων</string>
     <string name="debug_debuglog_file_label">Αρχείο καταγραφής</string>
     <string name="debug_debuglog_recording_progress">Καταγραφή αρχεία εντοπισμού σφαλμάτων</string>
@@ -508,6 +506,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Λάβετε μια πρόχειρη εκτίμηση του μεγέθους κάθε εφαρμογής.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Προσδιορισμός δραστηριότητας</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Μάθετε εάν μια εφαρμογή είναι (ή ήταν πρόσφατα) ενεργή.</string>
+    <string name="appcontrol_include_multiuser_label">Συμπερίληψη άλλων χρηστών</string>
+    <string name="appcontrol_include_multiuser_summary">Συμπερίληψη εφαρμογών από άλλα προφίλ χρηστών σε αυτήν τη συσκευή.</string>
     <string name="appcontrol_export_app_selection_action">Εξαγωγή εφαρμογών</string>
     <string name="appcontrol_export_title">Εξαγωγή εφαρμογής</string>
     <string name="appcontrol_export_description">Αποθηκεύστε τα αρχεία εγκατάστασης αυτής της εφαρμογής. Αυτό δεν περιλαμβάνει δεδομένα εφαρμογής.</string>

@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Begin skandering en skrapping vir alle gereedskap met \'n tik op die paneelbord se aksie knoppie, geen ekstra bevestigings nie.</string>
     <string name="dashboard_settings_oneclick_tools_title">Een-tik gereedskap</string>
     <string name="dashboard_settings_oneclick_tools_desc">Watter gereedskap moet ingesluit word in een-tik bewerkings?</string>
-    <string name="debug_debuglog_size_label">Grootte</string>
-    <string name="debug_debuglog_size_compressed_label">Saamgeperste grootte</string>
     <string name="debug_notification_channel_label">Ontfout kennisgewings</string>
     <string name="debug_debuglog_file_label">Opgenome loglêer</string>
     <string name="debug_debuglog_recording_progress">Neem ontfout log op</string>

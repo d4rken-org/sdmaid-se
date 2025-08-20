@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Hibaelhárítási tippek a fel nem ismert frissítésekhez:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">A Play Áruház szinkronizálása időbe telhet. Próbáld meg az újraindítást, a Google Play gyorsítótárának törlését vagy egyszerűen várj.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">A több fiók összezavarhatja a Google Play-t. Jelentkezz ki más fiókokból, vagy telepítsd a Google Play weboldalán keresztül, amely kikényszeríti a meghatározott fiókkal való társítást.</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play probléma</string>
-    <string name="upgrades_gplay_billing_error_description">Probléma merült fel a Google Play szolgáltatással. Kérjük, próbálja újra később, vagy indítsa újra eszközét.\n\nRészletek: %s</string>
 </resources>

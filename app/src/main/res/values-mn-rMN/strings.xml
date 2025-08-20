@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Хяналтын самбарын үйлдлийн товчийг дарснаар бүх хэрэгслийн сканнинг болон устгалтыг эхлүүлэх, нэмэлт баталгаа шаарддаггүй.</string>
     <string name="dashboard_settings_oneclick_tools_title">Нэг товшилтын хэрэгслүүд</string>
     <string name="dashboard_settings_oneclick_tools_desc">Ямар хэрэгслүүдийг нэг товшилтын үйлдэлд оруулах вэ?</string>
-    <string name="debug_debuglog_size_label">Хэмжээ</string>
-    <string name="debug_debuglog_size_compressed_label">Шахсан хэмжээ</string>
     <string name="debug_notification_channel_label">Дебаг мэдэгдэл</string>
     <string name="debug_debuglog_file_label">Бичсэн лог файл</string>
     <string name="debug_debuglog_recording_progress">Дебаг лог бичиж байна</string>

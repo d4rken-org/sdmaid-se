@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Start søk og sletting for alle verktøy med ett trykk på handlingsknappen i kontrollpanelet, uten ekstra bekreftelser.</string>
     <string name="dashboard_settings_oneclick_tools_title">Ett-trykksverktøy</string>
     <string name="dashboard_settings_oneclick_tools_desc">Hvilke verktøy bør inkluderes i ett-trykksoperasjoner?</string>
-    <string name="debug_debuglog_size_label">Størrelse</string>
-    <string name="debug_debuglog_size_compressed_label">Komprimert størrelse</string>
     <string name="debug_notification_channel_label">Feilsøkingsvarsler</string>
     <string name="debug_debuglog_file_label">Registrert loggfil</string>
     <string name="debug_debuglog_recording_progress">Tar opp feilsøkingslogg</string>
@@ -508,6 +506,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Få et grovt estimat av størrelsen til hver app.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bestem aktivitet</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Finn ut om en app er (eller nylig var) aktiv.</string>
+    <string name="appcontrol_include_multiuser_label">Inkluder andre brukere</string>
+    <string name="appcontrol_include_multiuser_summary">Inkluder apper fra andre brukerprofiler på denne enheten.</string>
     <string name="appcontrol_export_app_selection_action">Eksporter apper</string>
     <string name="appcontrol_export_title">Eksporter app</string>
     <string name="appcontrol_export_description">Lagre installasjonsfilene til denne appen. Dette inkluderer ikke appdata.</string>

@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Запуск сканирования и очистки в одно нажатие с панели управления без дополнительных подтверждений.</string>
     <string name="dashboard_settings_oneclick_tools_title">Инструменты в одно касание</string>
     <string name="dashboard_settings_oneclick_tools_desc">Какие инструменты следует включить в операции одного касания?</string>
-    <string name="debug_debuglog_size_label">Размер</string>
-    <string name="debug_debuglog_size_compressed_label">Сжатый размер</string>
     <string name="debug_notification_channel_label">Отладочные уведомления</string>
     <string name="debug_debuglog_file_label">Записанный файл журнала</string>
     <string name="debug_debuglog_recording_progress">Запись журнала отладки</string>

@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">نصائح استكشاف الأخطاء في الترقيات غير المعترف بها:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">قد تستغرق مزامنة متجر التشغيل وقتاً طويلا. حاول إعادة التشغيل، مسح ذاكرة التخزين المؤقت لـ Google Play أو الانتظار قليلا.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">الحسابات المتعددة يمكنها إرباك Google Play. سجّل الخروج من الحسابات الأخرى أو ثبّت من خلال موقع Google Play، الذي يفرض الرّبط مع حساب معين.</string>
-    <string name="upgrades_gplay_billing_error_label">مشكلة في Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">حدثت مشكلة مع Google Play. يرجى المحاولة مرة أخرى لاحقًا أو إعادة تشغيل جهازك.\n\nالتفاصيل: %s</string>
 </resources>

@@ -8,6 +8,8 @@
     <string name="upgrades_dashcard_upgrade_action">Passer Pro</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play est inaccessible</string>
     <string name="upgrades_gplay_unavailable_error_description">Maid SD ne peut pas se connecter à Google Play. L’appli Google Play est-elle installée et à jour ? Votre compte Google est-il connecté ? Essayez de vider le cache de l’appli Google Play et de redémarrer votre appareil.</string>
+    <string name="upgrades_gplay_billing_error_label">Problème avec Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Un problème est survenu avec Google Play. Réessayez ultérieurement ou redémarrer votre appareil.\n\nDétails : %s</string>
     <string name="upgrades_no_purchases_found_check_account">Aucun achat n’a été trouvé. Utilisez-vous le bon compte ?</string>
     <string name="upgrade_screen_title">Obtenir SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid ne présente aucune publicité et ne vend pas les données des utilisateurs. Mon travail est financé par vous ❤️.</string>
@@ -25,7 +27,5 @@
     <string name="upgrade_screen_restore_purchase_message">Votre surclassement est valide sur tous les appareils connectés au même compte Google.</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">Conseils de dépannage pour les surclassements non reconnus :</string>
     <string name="upgrade_screen_restore_sync_patience_hint">La synchronisation avec Google Play peut prendre du temps. Essayez de redémarrer votre appareil, de vider le cache de Google Play ou simplement d’attendre.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Plusieurs comptes peuvent perturber Google Play. Déconnectez-vous des autres comptes ou installez du site Web de Google Play, ce qui force l\'association avec un compte précis.</string>
-    <string name="upgrades_gplay_billing_error_label">Problème Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">Un problème est survenu avec Google Play. Veuillez réessayer plus tard ou redémarrer votre appareil.\n\nDétails : %s</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Plusieurs comptes peuvent perturber Google Play. Déconnectez-vous des autres comptes ou installez du site Web de Google Play, ce qui force l’association avec un compte précis.</string>
 </resources>

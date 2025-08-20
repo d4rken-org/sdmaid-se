@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">სკანირებისა და წაშლის დაწყება ყველა ხელსაწყოსთვის დაფის მოქმედების ღილაკზე შეხებით, დამატებითი დადასტურების გარეშე.</string>
     <string name="dashboard_settings_oneclick_tools_title">ერთი შეხების ხელსაწყოები</string>
     <string name="dashboard_settings_oneclick_tools_desc">რომელი ხელსაწყოები უნდა იყოს ჩართული ერთი შეხების ოპერაციებში?</string>
-    <string name="debug_debuglog_size_label">ზომა</string>
-    <string name="debug_debuglog_size_compressed_label">შეკუმშული ზომა</string>
     <string name="debug_notification_channel_label">გამართვის შეტყობინებები</string>
     <string name="debug_debuglog_file_label">ჩაწერილი ჟურნალის ფაილი</string>
     <string name="debug_debuglog_recording_progress">გამართვის ჟურნალის ჩაწერა</string>

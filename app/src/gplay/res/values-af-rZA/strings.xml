@@ -24,6 +24,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Foutherstel wenke vir onerkende opgraderings:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinkronisasie kan tyd neem. Probeer herlaai, maak Google Play kas skoon of wag net.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Veelvuldige rekeninge kan Google Play verwar. Meld af van ander rekeninge of installeer deur die Google Play webwerf, wat assosiasies met \'n spesifieke rekening dwing.</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play Probleem</string>
-    <string name="upgrades_gplay_billing_error_description">Daar was \'n probleem met Google Play. Probeer asseblief later weer of herlaai jou toestel.\n\nBesonderhede: %s</string>
 </resources>

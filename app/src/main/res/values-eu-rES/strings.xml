@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Has zaitez tresna guztiak eskaneatzen eta ezabatzen paneleko ekintza-botoian ukitu bat emanez, baieztapen gehigarririk gabe.</string>
     <string name="dashboard_settings_oneclick_tools_title">Tap-bakarreko erramintak</string>
     <string name="dashboard_settings_oneclick_tools_desc">Zer tresna sartu beharko lirateke tap-bakarreko eragiketetan?</string>
-    <string name="debug_debuglog_size_label">Tamaina</string>
-    <string name="debug_debuglog_size_compressed_label">Konprimitutako tamaina</string>
     <string name="debug_notification_channel_label">Arazketa-jakinarazpenak</string>
     <string name="debug_debuglog_file_label">Erregistratutako erregistro-fitxategia</string>
     <string name="debug_debuglog_recording_progress">Arazketa-erregistroa grabatzea</string>

@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Spustite skenovanie a odstraňovanie všetkých nástrojov klepnutím na tlačidlo akcie na ovládacom paneli, žiadne ďalšie potvrdenia.</string>
     <string name="dashboard_settings_oneclick_tools_title">Nástroje na jedno klepnutie</string>
     <string name="dashboard_settings_oneclick_tools_desc">Ktoré nástroje by mali byť zahrnuté do operácií jedným klepnutím?</string>
-    <string name="debug_debuglog_size_label">Veľkosť</string>
-    <string name="debug_debuglog_size_compressed_label">Komprimovaná veľkosť</string>
     <string name="debug_notification_channel_label">Oznámenia ladenia</string>
     <string name="debug_debuglog_file_label">Zaznamenaný súbor denníka</string>
     <string name="debug_debuglog_recording_progress">Zaznamenáva sa denník ladenia</string>

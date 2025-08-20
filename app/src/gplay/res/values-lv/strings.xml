@@ -24,6 +24,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Problēmu risināšanas padomi neatpazītiem uzlabojumiem:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinhronizācija var aizņemt laiku. Mēģiniet restartēt, notīrīt Google Play kešatmiņu vai vienkārši uzgaidīt.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Vairāki konti var sajaukt Google Play. Izejiet no citiem kontiem vai instalējiet caur Google Play tīmekļa vietni, kas piespiedu kārtā izveido asociācijas ar konkrētu kontu.</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play problēma</string>
-    <string name="upgrades_gplay_billing_error_description">Radās problēma ar Google Play. Lūdzu, mēģiniet vēlreiz vēlāk vai restartējiet ierīci.\n\nSīkāka informācija: %s</string>
 </resources>

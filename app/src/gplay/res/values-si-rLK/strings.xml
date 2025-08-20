@@ -24,6 +24,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">හඳුනා නොගත් උත්ශ්‍රේණි සඳහා දෝෂ නිරාකරණ ඉඟි:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store සමමුහුර්ත කිරීමට කාලය ගත විය හැක. නැවත ආරම්භ කිරීම, Google Play හැඹිලිය මැකීම හෝ සරලව රැඳී සිටීමට උත්සාහ කරන්න.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">බහු ගිණුම් Google Play ව්‍යාකූල කළ හැක. වෙනත් ගිණුම් වලින් පිටවන්න හෝ Google Play වෙබ් අඩවිය හරහා ස්ථාපනය කරන්න, එය නිශ්චිත ගිණුමක් සමඟ සම්බන්ධතා බල කරයි.</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play ගැටලුව</string>
-    <string name="upgrades_gplay_billing_error_description">Google Play සමඟ ගැටලුවක් වී තිබේ. කරුණාකර පසුව නැවත උත්සාහ කරන්න හෝ ඔබගේ උපාංගය නැවත ආරම්භ කරන්න.\n\nවිස්තර: %s</string>
 </resources>

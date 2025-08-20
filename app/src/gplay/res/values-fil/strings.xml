@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Mga tip sa pag-troubleshoot para sa mga hindi kinikilalang pag-upgrade:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Ang Play Store synchronization ay maaaring tumagal ng oras. Subukang mag-reboot, i-clear ang Google Play cache o maghintay lamang.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Ang maramihang mga account ay maaaring makalito sa Google Play. Mag-log out mula sa ibang mga account o mag-install sa pamamagitan ng Google Play website, na napipilitang nakipag-ugnayan sa isang partikular na account.</string>
-    <string name="upgrades_gplay_billing_error_label">Isyu sa Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">May problema sa Google Play. Mangyaring subukan muli mamaya o i-restart ang iyong device.\n\nMga detalye: %s</string>
 </resources>

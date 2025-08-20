@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Započnite skeniranje i brisanje za sve alate dodirom akcijskog gumba na nadzornoj ploči, bez dodatnih potvrda.</string>
     <string name="dashboard_settings_oneclick_tools_title">Alati u načinu rada jednim dodirom</string>
     <string name="dashboard_settings_oneclick_tools_desc">Koji bi alati trebali biti uključeni u operacije jednog dodira?</string>
-    <string name="debug_debuglog_size_label">Veličina</string>
-    <string name="debug_debuglog_size_compressed_label">Sažeta veličina</string>
     <string name="debug_notification_channel_label">Obavijesti o otklanjanju pogrešaka</string>
     <string name="debug_debuglog_file_label">Snimljena datoteka zapisnika</string>
     <string name="debug_debuglog_recording_progress">Snimanje zapisnika za otklanjanje pogrešaka</string>

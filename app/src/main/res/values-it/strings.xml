@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Avvia la scansione e l\'eliminazione per tutti gli strumenti con un tocco del bottone principale della dashboard, nessuna richiesta di conferma aggiuntiva.</string>
     <string name="dashboard_settings_oneclick_tools_title">Strumenti A Singolo Tocco</string>
     <string name="dashboard_settings_oneclick_tools_desc">Quali strumenti dovrebbero essere inclusi nelle operazioni a singolo tocco?</string>
-    <string name="debug_debuglog_size_label">Dimensione</string>
-    <string name="debug_debuglog_size_compressed_label">Dimensione compressa</string>
     <string name="debug_notification_channel_label">Notifiche di debug</string>
     <string name="debug_debuglog_file_label">File di log registrato</string>
     <string name="debug_debuglog_recording_progress">Registrando log di debug</string>

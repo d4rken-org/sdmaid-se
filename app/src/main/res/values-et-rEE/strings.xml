@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Skannige ja kustutage kõiki vahendeid esilehel olevat nuppu puudutades, ilma täiendavate nõusolekuteta.</string>
     <string name="dashboard_settings_oneclick_tools_title">Ühepuutelised vahendid</string>
     <string name="dashboard_settings_oneclick_tools_desc">Mis võimalused võiksid olla ühepuutelised?</string>
-    <string name="debug_debuglog_size_label">Maht</string>
-    <string name="debug_debuglog_size_compressed_label">Kokkupakitud maht</string>
     <string name="debug_notification_channel_label">Vigade parandamise teated</string>
     <string name="debug_debuglog_file_label">Salvestatud logifail</string>
     <string name="debug_debuglog_recording_progress">Silumislogi salvestamine</string>

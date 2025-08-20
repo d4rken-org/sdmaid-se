@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Cumintzare sa iscansione e sa cantzelladura pro totu is ainas cun unu tinticu in su butone de atzione de su pannellu de controllu, chene confirmatziones additzionales.</string>
     <string name="dashboard_settings_oneclick_tools_title">Ainas Unu-Tinticu</string>
     <string name="dashboard_settings_oneclick_tools_desc">Cales ainas depent èssere incluidas in is operatziones unu-tinticu?</string>
-    <string name="debug_debuglog_size_label">Mannària</string>
-    <string name="debug_debuglog_size_compressed_label">Mannària cumprimida</string>
     <string name="debug_notification_channel_label">Notificatziones de debug</string>
     <string name="debug_debuglog_file_label">Documentu de registru registradu</string>
     <string name="debug_debuglog_recording_progress">Registrende su registru de debug</string>

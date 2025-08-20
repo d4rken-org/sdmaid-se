@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Starta skanning och borttagning av alla verktyg med ett tryck på instrumentpanelens åtgärdsknapp, inga extra bekräftelser.</string>
     <string name="dashboard_settings_oneclick_tools_title">One-Tap verktyg</string>
     <string name="dashboard_settings_oneclick_tools_desc">Vilka verktyg ska inkluderas i en knapptryckning?</string>
-    <string name="debug_debuglog_size_label">Storlek</string>
-    <string name="debug_debuglog_size_compressed_label">Komprimerad storlek</string>
     <string name="debug_notification_channel_label">Felsök aviseringar</string>
     <string name="debug_debuglog_file_label">Sparad loggfil</string>
     <string name="debug_debuglog_recording_progress">Spelar in felsökningslogg</string>

@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Sfaturi depanare pentru upgrade-uri nerecunoscute:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sincronizarea Magazinului Play poate dura timp. Încercați repornirea, ștergeți memoria cache Google Play sau doar așteptați.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Conturile multiple pot deruta Google Play. Deconectați-vă din alte conturi sau instalați prin site-ul Google Play, care forțează asociațiile cu un anumit cont.</string>
-    <string name="upgrades_gplay_billing_error_label">Problemă Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">A apărut o problemă cu Google Play. Vă rugăm să încercați din nou mai târziu sau să reporniți dispozitivul.\n\nDetalii: %s</string>
 </resources>

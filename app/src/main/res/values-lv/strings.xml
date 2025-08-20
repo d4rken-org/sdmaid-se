@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Sākt skenēšanu un dzēšanu visiem rīkiem, pieskaroties informācijas paneļa darbības pogai, bez papildu apstiprinājumiem.</string>
     <string name="dashboard_settings_oneclick_tools_title">Viena pieskāriena rīki</string>
     <string name="dashboard_settings_oneclick_tools_desc">Kurus rīkus iekļaut viena pieskāriena darbībās?</string>
-    <string name="debug_debuglog_size_label">Izmērs</string>
-    <string name="debug_debuglog_size_compressed_label">Saspiestais izmērs</string>
     <string name="debug_notification_channel_label">Atkļūdošanas paziņojumi</string>
     <string name="debug_debuglog_file_label">Ierakstītais žurnāla fails</string>
     <string name="debug_debuglog_recording_progress">Ieraksta atkļūdošanas žurnālu</string>

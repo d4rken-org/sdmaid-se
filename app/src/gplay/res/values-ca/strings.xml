@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Consells de resolució de problemes per a actualitzacions no reconegudes:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">La sincronització del Play Store pot trigar un temps. Proveu de reiniciar, esborrar la memòria cau del Google Play o simplement espereu.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Diversos comptes poden confondre el Google Play. Tanqueu la sessió d\'altres comptes o instal·leu-lo a través del lloc web del Google Play, que obliga a associar-los amb un compte específic.</string>
-    <string name="upgrades_gplay_billing_error_label">Problema amb Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">S\'ha produït un problema amb Google Play. Si us plau, torneu-ho a provar més tard o reinicieu el dispositiu.\n\nDetalls: %s</string>
 </resources>

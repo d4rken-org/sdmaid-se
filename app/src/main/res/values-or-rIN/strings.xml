@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">ଡ୍ୟାସବୋର୍ଡର କ୍ରିୟା ବଟନ୍‌ରେ ଏକ ଟ୍ୟାପ୍ ସହିତ ସମସ୍ତ ଟୁଲ୍‌ର ଜାଞ୍ଚ ଏବଂ ଡିଲିଟ୍ ଆରମ୍ଭ କରନ୍ତୁ, କୌଣସି ଅତିରିକ୍ତ ନିଶ୍ଚିତକରଣ ନାହିଁ।</string>
     <string name="dashboard_settings_oneclick_tools_title">ଏକ-ଟ୍ୟାପ୍ ଟୁଲ୍ସ</string>
     <string name="dashboard_settings_oneclick_tools_desc">କେଉଁ ଟୁଲ୍‌ଗୁଡିକ ଏକ-ଟ୍ୟାପ୍ ଅପରେସନରେ ଅନ୍ତର୍ଭୁକ୍ତ ହେବା ଉଚିତ?</string>
-    <string name="debug_debuglog_size_label">ଆକାର</string>
-    <string name="debug_debuglog_size_compressed_label">ସଙ୍କୁଚିତ ଆକାର</string>
     <string name="debug_notification_channel_label">ଡିବଗ୍ ବିଜ୍ଞପ୍ତିଗୁଡିକ</string>
     <string name="debug_debuglog_file_label">ରେକର୍ଡ କରାଯାଇଥିବା ଲଗ୍ ଫାଇଲ୍</string>
     <string name="debug_debuglog_recording_progress">ଡିବଗ୍ ଲଗ୍ ରେକର୍ଡ କରୁଛି</string>

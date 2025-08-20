@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">پشکنین و سڕینەوە بۆ هەموو ئامرازەکان بە کرتەکردن لەسەر دوگمەی کردار لە دیمەنی سەرەکیدا دەست پێ بکە، بەبێ پشتڕاستکردنەوەی زیادە.</string>
     <string name="dashboard_settings_oneclick_tools_title">ئامرازەکانی یەک-کرتە</string>
     <string name="dashboard_settings_oneclick_tools_desc">کام ئامرازەکان دەبێت لە کردارەکانی یەک-کرتەدا بگیرێنە بەر؟</string>
-    <string name="debug_debuglog_size_label">قەبارە</string>
-    <string name="debug_debuglog_size_compressed_label">قەبارەی پەستکراو</string>
     <string name="debug_notification_channel_label">ئاگاداری چاکسازی</string>
     <string name="debug_debuglog_file_label">فایلی تۆمارکراوی لۆگ</string>
     <string name="debug_debuglog_recording_progress">تۆمارکردنی لۆگی چاکسازی</string>

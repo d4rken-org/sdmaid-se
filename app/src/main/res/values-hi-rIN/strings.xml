@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">डैशबोर्ड क्रिया बटन पर एक क्लिक के साथ सभी सुविधाओ के लिए स्कैन और मिटाने का कार्य प्रारंभ करें, कोई अतिरिक्त पुष्टिकरण नहीं।</string>
     <string name="dashboard_settings_oneclick_tools_title">वन-टैप टूल्स</string>
     <string name="dashboard_settings_oneclick_tools_desc">वन-टैप उपकरण: वन-टैप ऑपरेशन में कौन से उपकरण शामिल होने चाहिए?</string>
-    <string name="debug_debuglog_size_label">आकार</string>
-    <string name="debug_debuglog_size_compressed_label">संकुचित आकार</string>
     <string name="debug_notification_channel_label">डिबग सूचनाएं</string>
     <string name="debug_debuglog_file_label">रिकॉर्ड की गई लॉग फ़ाइल</string>
     <string name="debug_debuglog_recording_progress">रिकॉर्डिंग डिबग लॉग</string>
