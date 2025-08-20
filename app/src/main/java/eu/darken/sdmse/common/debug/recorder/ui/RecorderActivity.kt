@@ -44,7 +44,7 @@ class RecorderActivity : Activity2() {
         vm.state.observe2 { state ->
             ui.loadingIndicator.isGone = !state.loading
             ui.shareAction.isInvisible = state.loading
-            ui.recordingPath.text = "${state.logDir.path}/"
+            ui.recordingPath.text = state.logDir?.let { "${it.path}/" } ?: "?"
             ui.listCaption.apply {
                 isGone = state.loading
                 val sizeText = state.compressedSize?.let { Formatter.formatShortFileSize(this@RecorderActivity, it) }

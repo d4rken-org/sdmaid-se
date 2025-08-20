@@ -29,7 +29,7 @@ class RecorderViewModel @Inject constructor(
     private val webpageTool: WebpageTool,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val recordedPath = File(handle.get<String>(RecorderActivity.RECORD_PATH)!!)
+    private val recordedPath = handle.get<String>(RecorderActivity.RECORD_PATH)?.let { File(it) }
 
     private val stater = DynamicStateFlow(TAG, vmScope) {
         State(logDir = recordedPath)
@@ -40,8 +40,11 @@ class RecorderViewModel @Inject constructor(
 
     init {
         launch {
+            if (recordedPath == null) throw IllegalStateException("No recorded path found")
+
             log(TAG) { "Getting log files in dir: $recordedPath" }
-            val logFiles = recordedPath.listFiles()!!
+            val logFiles = recordedPath.listFiles() ?: throw IllegalStateException("No log files found")
+
             log(TAG) { "Found ${logFiles.size} logfiles: $logFiles" }
             var entries = logFiles.map { LogFileAdapter.Entry.Item(path = it) }
             stater.updateBlocking { copy(logEntries = entries) }
@@ -97,7 +100,7 @@ class RecorderViewModel @Inject constructor(
     }
 
     data class State(
-        val logDir: File,
+        val logDir: File?,
         val logEntries: List<LogFileAdapter.Entry.Item> = emptyList(),
         val compressedFile: File? = null,
         val compressedSize: Long? = null
