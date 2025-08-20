@@ -28,7 +28,7 @@
 
     <PreferenceCategory app:title="@string/settings_category_other_label">
         <Preference
-            android:icon="@drawable/ic_id_onsurface"
+            android:icon="@drawable/ic_id_onsurface_24"
             android:key="support.installid"
             app:isPreferenceVisible="false"
             android:summary="@string/support_installid_desc"

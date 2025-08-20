@@ -23,7 +23,7 @@ interface PkgOpsConnection {
 
     RemoteInputStream getInstalledPackagesAsUserStream(long flags, int handleId);
 
-    void setApplicationEnabledSetting (String packageName, int newState, int flags);
+    void setApplicationEnabledSetting (in InstallId installId, int newState, int flags);
 
     boolean grantPermission(String packageName, int handleId, String permissionId);
 

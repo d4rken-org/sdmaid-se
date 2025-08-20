@@ -82,12 +82,12 @@ class PkgOpsClient @AssistedInject constructor(
         }
     }
 
-    fun setApplicationEnabledSetting(packageName: String, newState: Int, flags: Int): Unit = try {
-        connection.setApplicationEnabledSetting(packageName, newState, flags)
+    fun setApplicationEnabledSetting(id: InstallId, newState: Int, flags: Int): Unit = try {
+        connection.setApplicationEnabledSetting(id, newState, flags)
     } catch (e: Exception) {
         throw e.refineException().also {
             log(TAG, ERROR) {
-                "setApplicationEnabledSetting(packageName=$packageName, newState=$newState, flags=$flags) failed: ${it.asLog()}"
+                "setApplicationEnabledSetting(id=$id, newState=$newState, flags=$flags) failed: ${it.asLog()}"
             }
         }
     }

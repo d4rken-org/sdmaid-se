@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.user.UserProfile2
 import java.time.Instant
 
 data class AppInfo(
@@ -18,6 +19,7 @@ data class AppInfo(
     val isActive: Boolean?,
     val sizes: PkgOps.SizeStats?,
     val usage: UsageInfo?,
+    val userProfile: UserProfile2?,
     val canBeToggled: Boolean,
     val canBeStopped: Boolean,
     val canBeExported: Boolean,

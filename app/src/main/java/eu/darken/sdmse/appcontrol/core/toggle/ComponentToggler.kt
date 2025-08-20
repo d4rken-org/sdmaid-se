@@ -27,7 +27,7 @@ class ComponentToggler @Inject constructor(
     suspend fun changePackageState(installId: InstallId, enabled: Boolean) {
         log(TAG, INFO) { "changePackageState($installId,$enabled)" }
         adoptChildResource(pkgOps)
-        pkgOps.changePackageState(installId.pkgId, enabled)
+        pkgOps.changePackageState(installId, enabled)
     }
 
     companion object {

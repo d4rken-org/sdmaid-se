@@ -31,6 +31,9 @@ class AppControlSettingsFragment : PreferenceFragment2() {
     private val determineRunning: BadgedCheckboxPreference
         get() = findPreference(settings.moduleActivityEnabled.keyName)!!
 
+    private val includeOtherUsers: BadgedCheckboxPreference
+        get() = findPreference(settings.includeMultiUserEnabled.keyName)!!
+
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
 
@@ -40,12 +43,16 @@ class AppControlSettingsFragment : PreferenceFragment2() {
         determineRunning.badgedAction = {
             setOf(SetupModule.Type.USAGE_STATS).showFixSetupHint(this)
         }
+        includeOtherUsers.badgedAction = {
+            setOf(SetupModule.Type.ROOT, SetupModule.Type.SHIZUKU).showFixSetupHint(this)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.state.observe2(this) { state ->
             determineSizes.isRestricted = !state.state.canInfoSize
             determineRunning.isRestricted = !state.state.canInfoActive
+            includeOtherUsers.isRestricted = !state.state.canIncludeMultiUser
         }
         super.onViewCreated(view, savedInstanceState)
     }

@@ -108,6 +108,7 @@ class AppControl @Inject constructor(
             canInfoScreenTime = usageState.isComplete,
             canToggle = useRoot || useAdb,
             canForceStop = useAcs || useRoot || useAdb,
+            canIncludeMultiUser = useRoot || useAdb,
         )
     }.replayingShare(appScope)
 
@@ -151,7 +152,7 @@ class AppControl @Inject constructor(
         val appInfos = appScan.run {
             if (task.refreshPkgCache) refresh()
             allApps(
-                user = userManager.currentUser().handle,
+                user = if (task.includeMultiUser) null else userManager.currentUser().handle,
                 includeActive = task.loadInfoActive && curState.canInfoActive,
                 includeSize = task.loadInfoSize && curState.canInfoSize,
                 includeUsage = task.loadInfoScreenTime && curState.canInfoScreenTime,
@@ -163,6 +164,7 @@ class AppControl @Inject constructor(
             hasInfoScreenTime = task.loadInfoScreenTime && curState.canInfoScreenTime,
             hasInfoActive = task.loadInfoSize && curState.canInfoSize,
             hasInfoSize = task.loadInfoSize && curState.canInfoSize,
+            hasIncludedMultiUser = task.includeMultiUser && curState.canIncludeMultiUser,
         )
 
         return AppControlScanTask.Result(itemCount = appInfos.size)
@@ -217,10 +219,10 @@ class AppControl @Inject constructor(
                 val updatedPkgs = affectedPkgs.map {
                     appScan.app(
                         pkgId = it,
-                        user = userManager.currentUser().handle,
+                        user = if (snapshot.hasIncludedMultiUser) null else userManager.currentUser().handle,
                         includeSize = snapshot.hasInfoSize,
                         includeActive = snapshot.hasInfoActive,
-                        includeUsage = snapshot.hasInfoScreenTime
+                        includeUsage = snapshot.hasInfoScreenTime,
                     )
                 }.flatten()
                 cleanedSnapshot + updatedPkgs
@@ -361,6 +363,7 @@ class AppControl @Inject constructor(
         val canInfoSize: Boolean,
         val canInfoActive: Boolean,
         val canInfoScreenTime: Boolean,
+        val canIncludeMultiUser: Boolean,
     ) : SDMTool.State
 
     data class Data(
@@ -369,6 +372,7 @@ class AppControl @Inject constructor(
         val hasInfoScreenTime: Boolean,
         val hasInfoActive: Boolean,
         val hasInfoSize: Boolean,
+        val hasIncludedMultiUser: Boolean,
     )
 
     @InstallIn(SingletonComponent::class)

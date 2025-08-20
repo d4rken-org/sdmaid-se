@@ -51,11 +51,33 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:textIsSelectable="true"
-            app:layout_constraintBottom_toTopOf="@id/tertiary"
+            android:drawableStart="@drawable/ic_id_onsurface_16"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toTopOf="@id/user_info"
             app:layout_constraintEnd_toEndOf="@id/primary"
             app:layout_constraintStart_toStartOf="@id/primary"
             app:layout_constraintTop_toBottomOf="@id/primary"
             tools:text="Lorem ipsum dolorum si amet" />
+
+        <TextView
+            android:id="@+id/user_info"
+            style="@style/TextAppearance.Material3.LabelSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="?android:attr/textColorSecondary"
+            android:drawableStart="@drawable/ic_account_group_16"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/tertiary"
+            app:layout_constraintEnd_toEndOf="@id/primary"
+            app:layout_constraintStart_toStartOf="@id/primary"
+            app:layout_constraintTop_toBottomOf="@id/secondary"
+            tools:text="Work Profile"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/tertiary"
@@ -64,10 +86,13 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:singleLine="true"
+            android:drawableStart="@drawable/ic_delta_16"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
             app:layout_constraintBottom_toTopOf="@id/tag_container"
             app:layout_constraintEnd_toEndOf="@id/primary"
             app:layout_constraintStart_toStartOf="@id/primary"
-            app:layout_constraintTop_toBottomOf="@id/secondary"
+            app:layout_constraintTop_toBottomOf="@id/user_info"
             tools:text="v0.0.0-beta99 (0123456789)" />
 
         <eu.darken.sdmse.appcontrol.ui.AppInfoTagView

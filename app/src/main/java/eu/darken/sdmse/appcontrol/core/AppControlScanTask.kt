@@ -12,6 +12,7 @@ data class AppControlScanTask(
     val loadInfoScreenTime: Boolean,
     val loadInfoSize: Boolean,
     val loadInfoActive: Boolean,
+    val includeMultiUser: Boolean,
 ) : AppControlTask {
 
     @Parcelize
