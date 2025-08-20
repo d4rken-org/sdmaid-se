@@ -3,7 +3,6 @@ package eu.darken.sdmse.common.debug.recorder.ui
 
 import android.content.Context
 import android.content.Intent
-import android.text.format.Formatter
 import androidx.core.content.FileProvider
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -113,12 +112,7 @@ class RecorderViewModel @Inject constructor(
         val compressedFile: File? = null,
         val compressedSize: Long? = null,
         val isWorking: Boolean = true,
-    ) {
-
-        fun getFormattedCompressedSize(context: Context): String? {
-            return compressedSize?.let { Formatter.formatShortFileSize(context, it) }
-        }
-    }
+    )
 
     companion object {
         private val TAG = logTag("Debug", "Recorder", "ViewModel")
