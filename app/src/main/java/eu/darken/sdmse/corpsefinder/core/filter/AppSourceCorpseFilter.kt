@@ -66,8 +66,8 @@ class AppSourceCorpseFilter @Inject constructor(
         }
 
         // TODO needs to be checked on more rooted ROMs
-        if (hasApiLevel(36)) {
-            log(TAG, WARN) { "Untested API level (36) skipping for safety." }
+        if (hasApiLevel(37)) {
+            log(TAG, WARN) { "Untested API level (37) skipping for safety." }
             return emptySet()
         }
 
