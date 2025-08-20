@@ -5,6 +5,7 @@ import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppControlSettings
 import eu.darken.sdmse.common.observe2
@@ -52,9 +53,28 @@ class AppControlSettingsFragment : PreferenceFragment2() {
         vm.state.observe2(this) { state ->
             determineSizes.isRestricted = !state.state.canInfoSize
             determineRunning.isRestricted = !state.state.canInfoActive
-            includeOtherUsers.isRestricted = !state.state.canIncludeMultiUser
+            includeOtherUsers.apply {
+                isPersistent = state.isPro
+                if (state.isPro) {
+                    setSummary(R.string.appcleaner_include_multiuser_summary)
+                } else {
+                    summary =
+                        "${getString(R.string.appcleaner_include_multiuser_summary)}\n${getString(R.string.upgrade_feature_requires_pro)}"
+                }
+                setOnPreferenceClickListener {
+                    if (!state.isPro) {
+                        isChecked = false
+                        MainDirections.goToUpgradeFragment().navigate()
+                        true
+                    } else {
+                        false
+                    }
+                }
+                isRestricted = !state.state.canIncludeMultiUser
+            }
+
+            super.onViewCreated(view, savedInstanceState)
         }
-        super.onViewCreated(view, savedInstanceState)
     }
 
 }
