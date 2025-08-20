@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Komenci skanon kaj forigon por ĉiuj iloj per frapeto sur la agbutono de la stirpanelo, sen kromaj konfirmoj.</string>
     <string name="dashboard_settings_oneclick_tools_title">Unuklakaj Iloj</string>
     <string name="dashboard_settings_oneclick_tools_desc">Kiuj iloj estu inkluzivitaj en unuklakaj operacioj?</string>
-    <string name="debug_debuglog_size_label">Grandeco</string>
-    <string name="debug_debuglog_size_compressed_label">Densigita grandeco</string>
     <string name="debug_notification_channel_label">Sencimigaj sciigoj</string>
     <string name="debug_debuglog_file_label">Registrita protokola dosiero</string>
     <string name="debug_debuglog_recording_progress">Registrante sencimigan protokolon</string>

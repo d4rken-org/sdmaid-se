@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Dechreuwch sganio a dileu ar gyfer pob offeryn gydag un tap ar fotwm gweithredu\'r dangosfwrdd, dim cadarnhadau ychwanegol.</string>
     <string name="dashboard_settings_oneclick_tools_title">Offer Un Tap</string>
     <string name="dashboard_settings_oneclick_tools_desc">Pa offer ddylai gael eu cynnwys mewn gweithrediadau un tap?</string>
-    <string name="debug_debuglog_size_label">Maint</string>
-    <string name="debug_debuglog_size_compressed_label">Maint cywasgedig</string>
     <string name="debug_notification_channel_label">Hysbysiadau dadfygio</string>
     <string name="debug_debuglog_file_label">Ffeil log wedi\'i recordio</string>
     <string name="debug_debuglog_recording_progress">Recordio log dadfygio</string>
