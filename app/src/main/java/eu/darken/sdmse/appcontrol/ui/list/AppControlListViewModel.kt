@@ -364,6 +364,7 @@ class AppControlListViewModel @Inject constructor(
         loadInfoSize = settings.moduleSizingEnabled.value(),
         loadInfoActive = settings.moduleActivityEnabled.value(),
         loadInfoScreenTime = settings.listSort.value().mode == SortSettings.Mode.SCREEN_TIME,
+        includeMultiUser = settings.includeMultiUserEnabled.value(),
     )
 
     fun refresh(refreshPkgCache: Boolean = false) = launch {

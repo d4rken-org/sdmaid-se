@@ -8,7 +8,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -30,12 +29,10 @@ class UserManager2 @Inject constructor(
 
     suspend fun currentUser(): UserProfile2 = UserProfile2(
         handle = if (!hasMultiUserSupport) UserHandle2(handleId = 0) else Process.myUserHandle().toUserHandle2(),
-        label = "Owner",
     )
 
     suspend fun systemUser(): UserProfile2 = UserProfile2(
         handle = UserHandle2(handleId = -1),
-        label = "System",
         isRunning = true,
     )
 
@@ -66,7 +63,7 @@ class UserManager2 @Inject constructor(
                         try {
                             UserProfile2(
                                 handle = UserHandle2(match.groupValues[1].toInt()),
-                                label = match.groupValues[2],
+                                label = match.groupValues[2]?.takeIf { it != "null" },
                                 code = match.groupValues[3],
                                 isRunning = match.groupValues[4] == "running",
                             )
@@ -108,13 +105,7 @@ class UserManager2 @Inject constructor(
     }
 
     private fun UserHandle.toUserHandle2(): UserHandle2 {
-        var id: Int? = try {
-            val getIdentifier = this.javaClass.getMethod("getIdentifier")
-            getIdentifier.invoke(this) as Int
-        } catch (e: Exception) {
-            log(TAG, WARN) { "toUserHandle2(): Failed to use reflective access on getIdentifier: ${e.asLog()} " }
-            null
-        }
+        var id: Int? = getIdentifier()
 
         if (id == null) id = userManager.getSerialNumberForUser(this).toInt()
 
@@ -126,7 +117,7 @@ class UserManager2 @Inject constructor(
 
     companion object {
 
-        private val TAG = logTag("UserManager2")
+        internal val TAG = logTag("UserManager2")
     }
 
 }

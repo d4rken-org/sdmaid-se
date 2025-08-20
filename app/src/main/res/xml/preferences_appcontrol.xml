@@ -17,4 +17,10 @@
         app:summary="@string/appcontrol_settings_module_activity_enabled_description"
         app:title="@string/appcontrol_settings_module_activity_enabled_label" />
 
+    <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+        app:icon="@drawable/ic_account_group_24"
+        app:key="include.multiuser.enabled"
+        app:singleLineTitle="false"
+        app:summary="@string/appcleaner_include_multiuser_summary"
+        app:title="@string/appcleaner_include_multiuser_label" />
 </PreferenceScreen>

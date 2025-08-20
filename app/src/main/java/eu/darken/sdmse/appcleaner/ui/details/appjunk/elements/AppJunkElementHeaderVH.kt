@@ -50,7 +50,7 @@ class AppJunkElementHeaderVH(parent: ViewGroup) :
         userLabel.isVisible = junk.userProfile != null
         userValue.apply {
             isVisible = junk.userProfile != null
-            text = junk.userProfile?.label ?: "ID#${junk.userProfile?.handle?.handleId}"
+            text = junk.userProfile?.getHumanLabel()?.get(context)
         }
 
         val hasHint = false

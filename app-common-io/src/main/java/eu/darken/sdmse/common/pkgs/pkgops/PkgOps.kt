@@ -234,7 +234,7 @@ class PkgOps @Inject constructor(
         packageManager.getSharedLibraries2(flags)
     }
 
-    suspend fun changePackageState(id: Pkg.Id, enabled: Boolean, mode: Mode = Mode.AUTO) {
+    suspend fun changePackageState(id: InstallId, enabled: Boolean, mode: Mode = Mode.AUTO) {
         log(TAG, VERBOSE) { "changePackageState($id, enabled=$enabled, mode=$mode)" }
         try {
             if (mode == Mode.NORMAL) throw PkgOpsException("changePackageState($id,$enabled) does not support mode=NORMAL")
@@ -246,7 +246,7 @@ class PkgOps @Inject constructor(
 
             val opsAction = { opsClient: PkgOpsClient ->
                 opsClient.setApplicationEnabledSetting(
-                    packageName = id.name,
+                    id = id,
                     newState = newState,
                     flags = run {
                         @Suppress("NewApi")
@@ -465,6 +465,9 @@ class PkgOps @Inject constructor(
             dataBytes = stats.dataBytes,
         ).also { log(TAG, VERBOSE) { "querySizeStats($installId,$storageUUID) -> $it" } }
     } catch (_: NameNotFoundException) {
+        null
+    } catch (e: SecurityException) {
+        log(TAG, WARN) { "Failed to querySizeStats due to lack of permission: $installId: $e" }
         null
     } catch (e: Exception) {
         log(TAG, ERROR) { "Failed to querySizeStats for $installId: ${e.asLog()}" }

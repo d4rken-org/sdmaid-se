@@ -19,6 +19,8 @@ import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.common.user.UserManager2
+import eu.darken.sdmse.common.user.UserProfile2
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flatMapMerge
@@ -35,6 +37,7 @@ class AppScan @Inject constructor(
     private val pkgRepo: PkgRepo,
     private val pkgOps: PkgOps,
     private val usageTool: UsageTool,
+    private val userManager: UserManager2,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(PkgOps.TAG, appScope + dispatcherProvider.IO)
@@ -43,6 +46,7 @@ class AppScan @Inject constructor(
     private var activeCache: Map<InstallId, Boolean?>? = null
     private var sizeCache: Map<InstallId, PkgOps.SizeStats?>? = null
     private var usageCache: Map<InstallId, UsageInfo?>? = null
+    private var userProfilesCache: Map<UserHandle2, UserProfile2>? = null
 
     private suspend fun <T> doRun(action: suspend () -> T): T = mutex.withLock {
         adoptChildResource(pkgOps.sharedResource)
@@ -53,6 +57,7 @@ class AppScan @Inject constructor(
         activeCache = null
         sizeCache = null
         usageCache = null
+        userProfilesCache = null
         pkgRepo.refresh()
     }
 
@@ -76,6 +81,13 @@ class AppScan @Inject constructor(
             }
         }
         return activeCache!![id]
+    }
+
+    private suspend fun getUserProfile(id: InstallId): UserProfile2? {
+        if (userProfilesCache == null) {
+            userProfilesCache = userManager.allUsers().associateBy { it.handle }
+        }
+        return userProfilesCache!![id.userHandle]
     }
 
     suspend fun allApps(
@@ -102,6 +114,7 @@ class AppScan @Inject constructor(
                 includeUsage = includeUsage,
                 includeActive = includeActive,
                 includeSize = includeSize,
+                includeUserProfiles = user == null,
             )
         }.toSet()
     }
@@ -114,6 +127,7 @@ class AppScan @Inject constructor(
         includeSize: Boolean,
     ): Set<AppInfo> = doRun {
         log(TAG, VERBOSE) { "app($pkgId, user=$user)" }
+
         pkgRepo.current()
             .filter { it.id == pkgId }
             .filter { user == null || it.userHandle == user }
@@ -122,6 +136,7 @@ class AppScan @Inject constructor(
                     includeUsage = includeUsage,
                     includeActive = includeActive,
                     includeSize = includeSize,
+                    includeUserProfiles = user == null,
                 )
             }
             .toSet()
@@ -132,11 +147,13 @@ class AppScan @Inject constructor(
         includeActive: Boolean,
         includeSize: Boolean,
         includeUsage: Boolean,
+        includeUserProfiles: Boolean,
     ) = AppInfo(
         pkg = this,
         isActive = if (includeActive) getActive(installId) ?: false else null,
         sizes = if (includeSize) getSize(installId) else null,
         usage = if (includeUsage) getUsage(installId) else null,
+        userProfile = if (includeUserProfiles) getUserProfile(installId) else null,
         canBeToggled = this is NormalPkg,
         canBeStopped = this is NormalPkg,
         canBeExported = this is SourceAvailable,

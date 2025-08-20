@@ -57,6 +57,12 @@ class AppActionDialog : BottomSheetDialogFragment2() {
             icon.loadAppIcon(appInfo.pkg)
             primary.text = appInfo.label.get(requireContext())
             secondary.text = appInfo.pkg.packageName
+
+            userInfo.apply {
+                isGone = appInfo.userProfile == null
+                text = appInfo?.userProfile?.getHumanLabel()?.get(context)
+            }
+            
             tertiary.text = "${appInfo.pkg.versionName ?: "?"} (${appInfo.pkg.versionCode})"
             adapter.update(actions)
 

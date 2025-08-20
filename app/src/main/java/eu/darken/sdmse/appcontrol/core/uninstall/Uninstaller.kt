@@ -29,8 +29,12 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
+import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withTimeout
 import javax.inject.Inject
@@ -45,6 +49,7 @@ class Uninstaller @Inject constructor(
     private val shellOps: ShellOps,
     private val rootManager: RootManager,
     private val adbManager: AdbManager,
+    private val userManager2: UserManager2,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
@@ -52,6 +57,8 @@ class Uninstaller @Inject constructor(
     // TODO Uninstalling for archived apps
     suspend fun uninstall(app: AppInfo) {
         log(TAG, VERBOSE) { "uninstall($app)" }
+
+        val isCurrentUser = app.installId.userHandle == userManager2.currentUser()
 
         when {
             app.pkg.isUpdatedSystemApp -> {
@@ -119,11 +126,35 @@ class Uninstaller @Inject constructor(
             )
             log(TAG) { "Waiting for system uninstall process (timeout=$timeoutSeconds)" }
             var downgrade: Installed? = null
+
             // Wait until the app or update is no longer installed
             withTimeout(timeoutSeconds * 1000) {
-                val postUninstallPkgs = pkgRepo.pkgs().first { pkgs ->
-                    pkgs.none { it.installId == app.installId && it.versionCode == app.pkg.versionCode }
+                val postUninstallPkgs = if (isCurrentUser) {
+                    pkgRepo.pkgs().first { pkgs ->
+                        pkgs.none { it.installId == app.installId && it.versionCode == app.pkg.versionCode }
+                    }
+                } else {
+                    delay(3000)
+
+                    val getMatchingPackages = suspend {
+                        pkgRepo.refresh()
+                        pkgRepo.pkgs().first().filter {
+                            it.installId == app.installId && it.versionCode == app.pkg.versionCode
+                        }.also {
+                            log(TAG) { "Refreshed: $it" }
+                        }
+                    }
+
+                    val initial = getMatchingPackages()
+                    var current = initial
+
+                    while (currentCoroutineContext().isActive && current == initial && !current.isEmpty()) {
+                        delay(3000)
+                        current = getMatchingPackages()
+                    }
+                    current
                 }
+
                 downgrade = postUninstallPkgs.firstOrNull { it.installId == app.installId }
             }
             log(TAG) { "Successfully uninstalled ${app.installId}" }

@@ -4,6 +4,7 @@ import android.app.ActivityManager
 import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.os.Process
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.flowshell.core.cmd.FlowCmd
 import eu.darken.flowshell.core.cmd.execute
@@ -28,6 +29,7 @@ import eu.darken.sdmse.common.pkgs.pkgops.ProcessScanner
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.shell.SharedShell
 import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.common.user.getIdentifier
 import kotlinx.coroutines.runBlocking
 import java.lang.Thread.sleep
 import javax.inject.Inject
@@ -154,12 +156,34 @@ class PkgOpsHost @Inject constructor(
         throw e.wrapToPropagate()
     }
 
-    override fun setApplicationEnabledSetting(packageName: String, newState: Int, flags: Int) = try {
-        log(TAG, VERBOSE) { "setApplicationEnabledSetting($packageName, $newState, $flags)..." }
-        pm.setApplicationEnabledSetting(packageName, newState, flags)
-        log(TAG, VERBOSE) { "setApplicationEnabledSetting($packageName, $newState, $flags) succesful" }
+    override fun setApplicationEnabledSetting(id: InstallId, newState: Int, flags: Int) = try {
+        log(TAG, VERBOSE) { "setApplicationEnabledSetting($id, $newState, $flags)..." }
+
+        val currentUser = Process.myUserHandle().getIdentifier()
+        log(TAG) { "currentUser: $currentUser" }
+        if (id.userHandle.handleId == currentUser) {
+            pm.setApplicationEnabledSetting(id.pkgId.name, newState, flags)
+        } else {
+            val command = when (newState) {
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED -> "enable"
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED -> "disable-user"
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER -> "disable-user"
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED_UNTIL_USED -> "disable-until-used"
+                PackageManager.COMPONENT_ENABLED_STATE_DEFAULT -> "default-state"
+                else -> throw IllegalArgumentException("Unknown state: $newState")
+            }
+
+            val result = runBlocking {
+                sharedShell.useRes {
+                    FlowCmd("pm $command --user ${id.userHandle.handleId} ${id.pkgId.name}").execute(it)
+                }
+            }
+            log(TAG, INFO) { "setApplicationEnabledSetting result: $result" }
+        }
+
+        log(TAG, VERBOSE) { "setApplicationEnabledSetting($id, $newState, $flags) succesful" }
     } catch (e: Exception) {
-        log(TAG, ERROR) { "setApplicationEnabledSetting($packageName, $newState, $flags) failed: ${e.asLog()}" }
+        log(TAG, ERROR) { "setApplicationEnabledSetting($id, $newState, $flags) failed: ${e.asLog()}" }
         throw e.wrapToPropagate()
     }
 
