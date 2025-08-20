@@ -130,12 +130,32 @@ class RecorderModule @Inject constructor(
             .ofPattern("yyyy-MM-dd_HH-mm-ss-SSS")
             .withZone(ZoneId.systemDefault())
             .format(Instant.now())
-        @Suppress("SetWorldWritable", "SetWorldReadable")
-        return File(File(context.externalCacheDir, "debug/logs"), "${pkg}_${version}_${timestamp}").apply {
-            mkdirs()
-            if (setReadable(true, false)) log(TAG) { "Session dir is readable" }
-            if (setWritable(true, false)) log(TAG) { "Session dir is writeable" }
+
+        var sessionDir: File? = null
+
+        File(File(context.externalCacheDir, "debug/logs"), "${pkg}_${version}_${timestamp}").apply {
+            @Suppress("SetWorldWritable", "SetWorldReadable")
+            if (mkdirs()) {
+                log(TAG) { "Public session dir created" }
+                if (setReadable(true, false)) log(TAG) { "Session dir is readable" }
+                if (setWritable(true, false)) log(TAG) { "Session dir is writeable" }
+                sessionDir = this
+            } else {
+                log(TAG, ERROR) { "Failed to create public session dir" }
+            }
         }
+
+        if (sessionDir == null) {
+            sessionDir = File(File(context.cacheDir, "debug/logs"), "${pkg}_${version}_${timestamp}").apply {
+                if (mkdirs()) {
+                    log(TAG) { "Private session dir created" }
+                } else {
+                    log(TAG, ERROR) { "Failed to create private session dir" }
+                }
+            }
+        }
+
+        return sessionDir
     }
 
     suspend fun startRecorder(): File {
