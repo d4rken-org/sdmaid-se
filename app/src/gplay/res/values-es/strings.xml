@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Consejos para solucionar problemas de actualizaciones no reconocidas:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">La sincronización de Play Store puede tardar. Prueba a reiniciar, borrar la caché de Google Play o simplemente espera.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Varias cuentas pueden confundir a Google Play. Cierra la sesión de otras cuentas o instala a través del sitio web de Google Play, que obliga las asociaciones con una cuenta específica.</string>
-    <string name="upgrades_gplay_billing_error_label">Problema de Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">Hubo un problema con Google Play. Por favor, inténtalo de nuevo más tarde o reinicia tu dispositivo.\n\nDetalles: %s</string>
 </resources>

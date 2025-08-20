@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">僅需輕觸儀表板上的動作按鈕，即可啟動所有工具的掃描與刪除作業，無須額外確認。</string>
     <string name="dashboard_settings_oneclick_tools_title">一鍵式工具</string>
     <string name="dashboard_settings_oneclick_tools_desc">什麼工具應當被包含在一鍵式工具中？</string>
-    <string name="debug_debuglog_size_label">大小</string>
-    <string name="debug_debuglog_size_compressed_label">壓縮大小</string>
     <string name="debug_notification_channel_label">偵錯通知</string>
     <string name="debug_debuglog_file_label">已記錄的記錄檔案</string>
     <string name="debug_debuglog_recording_progress">正在記錄偵錯記錄</string>

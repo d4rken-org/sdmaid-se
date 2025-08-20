@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">התחלת סריקה ומחיקה עבור כל הכלים בלחיצה על כפתור הפעולה בלוח הבקרה, ללא אישורים נוספים.</string>
     <string name="dashboard_settings_oneclick_tools_title">כלים בלחיצה-אחת</string>
     <string name="dashboard_settings_oneclick_tools_desc">אילו כלים צריכים להיכלל בפעולות בלחיצה-אחת?</string>
-    <string name="debug_debuglog_size_label">גודל</string>
-    <string name="debug_debuglog_size_compressed_label">גודל דחוס</string>
     <string name="debug_notification_channel_label">התראות ניפוי באגים</string>
     <string name="debug_debuglog_file_label">קבצי לוג שמורים</string>
     <string name="debug_debuglog_recording_progress">מקליט לוג דיבוג</string>

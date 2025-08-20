@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Bắt đầu quét và xóa tất cả các công cụ bằng một lần nhấn vào nút hành động của bảng điều khiển, không cần xác nhận thêm.</string>
     <string name="dashboard_settings_oneclick_tools_title">Công cụ một chạm</string>
     <string name="dashboard_settings_oneclick_tools_desc">Những công cụ nào nên được đưa vào thao tác một chạm?</string>
-    <string name="debug_debuglog_size_label">Kích thước</string>
-    <string name="debug_debuglog_size_compressed_label">Kích thước nén</string>
     <string name="debug_notification_channel_label">Thông báo gỡ lỗi</string>
     <string name="debug_debuglog_file_label">Tệp nhật ký đã ghi</string>
     <string name="debug_debuglog_recording_progress">Ghi nhật ký gỡ lỗi</string>

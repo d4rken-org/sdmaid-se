@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Запуск працэсу сканіравання і выдалення ва ўсіх інструментах націсканнем кнопкі дзеяння на панэлі кіравання без дадатковых пацвярджэнняў.</string>
     <string name="dashboard_settings_oneclick_tools_title">Інструменты ў рэжыме аднаго націскання</string>
     <string name="dashboard_settings_oneclick_tools_desc">Якія інструменты трэба ўключыць у аперацыі аднаго націскання?</string>
-    <string name="debug_debuglog_size_label">Памер</string>
-    <string name="debug_debuglog_size_compressed_label">Сціснуты памер</string>
     <string name="debug_notification_channel_label">Апавяшчэнні адладкі</string>
     <string name="debug_debuglog_file_label">Запісаны файл журнала</string>
     <string name="debug_debuglog_recording_progress">Запіс журнала адладкі</string>

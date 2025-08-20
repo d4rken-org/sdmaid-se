@@ -24,6 +24,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">अपरिचित अपग्रेडहरूका लागि समस्या निवारण सुझावहरू:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store सिङ्कमा समय लाग्न सक्छ। रिबुट गर्ने, Google Play क्यास खाली गर्ने वा केवल पर्खने प्रयास गर्नुहोस्।</string>
     <string name="upgrade_screen_restore_multiaccount_hint">धेरै खाताहरूले Google Play लाई भ्रमित गर्न सक्छ। अन्य खाताहरूबाट लग आउट गर्नुहोस् वा Google Play वेबसाइट मार्फत स्थापना गर्नुहोस्, जसले विशिष्ट खातासँग सम्बन्धहरू बल गर्दछ।</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play समस्या</string>
-    <string name="upgrades_gplay_billing_error_description">Google Play मा समस्या भयो। कृपया पछि पुन: प्रयास गर्नुहोस् वा आफ्नो उपकरण पुन: सुरु गर्नुहोस्।\n\nविवरण: %s</string>
 </resources>

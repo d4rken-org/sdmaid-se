@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Mulakan imbasan dan pemadaman untuk semua alatan dengan satu ketikan pada butang tindakan papan pemuka, tiada pengesahan tambahan.</string>
     <string name="dashboard_settings_oneclick_tools_title">Alat satu-ketik</string>
     <string name="dashboard_settings_oneclick_tools_desc">Alatan mana yang perlu disertakan dalam operasi satu ketikan?</string>
-    <string name="debug_debuglog_size_label">Saiz</string>
-    <string name="debug_debuglog_size_compressed_label">Saiz termampat</string>
     <string name="debug_notification_channel_label">Pemberitahuan nyahpepijat</string>
     <string name="debug_debuglog_file_label">Fail log yang direkodkan</string>
     <string name="debug_debuglog_recording_progress">Merakam log nyahpepijat</string>

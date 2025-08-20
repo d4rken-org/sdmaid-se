@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Începe scanarea și ștergerea pentru toate uneltele cu o apăsare pe butonul de acțiune al tabloului de bord, fără confirmări suplimentare.</string>
     <string name="dashboard_settings_oneclick_tools_title">Instrumente cu o singură atingere </string>
     <string name="dashboard_settings_oneclick_tools_desc">Ce instrumente ar trebui incluse în operaţiunile cu o singură atingere?</string>
-    <string name="debug_debuglog_size_label">Dimensiune</string>
-    <string name="debug_debuglog_size_compressed_label">Dimensiunea comprimată</string>
     <string name="debug_notification_channel_label">Notificări de depanare</string>
     <string name="debug_debuglog_file_label">Fișier de jurnal înregistrat</string>
     <string name="debug_debuglog_recording_progress">Înregistrează jurnalul de depanare</string>

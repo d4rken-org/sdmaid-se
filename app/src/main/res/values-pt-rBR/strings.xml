@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Iniciar a busca e exclusão em todas as ferramentas com apenas um toque no botão de ação do painel, sem confirmações extras.</string>
     <string name="dashboard_settings_oneclick_tools_title">Ferramentas Um-Toque</string>
     <string name="dashboard_settings_oneclick_tools_desc">Quais ferramentas devem ser incluídas em operações de um clique?</string>
-    <string name="debug_debuglog_size_label">Tamanho</string>
-    <string name="debug_debuglog_size_compressed_label">Tamanho comprimido</string>
     <string name="debug_notification_channel_label">Notificações de depuração</string>
     <string name="debug_debuglog_file_label">Arquivo de log gravado</string>
     <string name="debug_debuglog_recording_progress">Gravando log de depuração</string>
@@ -508,6 +506,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Obtenha uma estimativa aproximada do tamanho de cada aplicativo.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determinar a atividade</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Descubra se um aplicativo está ativo (ou recentemente estava) ativo.</string>
+    <string name="appcontrol_include_multiuser_label">Incluir outros usuários</string>
+    <string name="appcontrol_include_multiuser_summary">Incluir aplicativos de outros perfis de usuário neste dispositivo.</string>
     <string name="appcontrol_export_app_selection_action">Exportar os aplicativos</string>
     <string name="appcontrol_export_title">Exportar o aplicativo</string>
     <string name="appcontrol_export_description">Salvar os arquivos de instalação deste app no seu dispositivo. Isso não inclui os dados do app.</string>

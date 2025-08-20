@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Սկսել սկանավորումը և ջնջումը բոլոր գործիքների համար վահանակի գործողության կոճակը հպելով՝ առանց լրացուցիչ հաստատումների:</string>
     <string name="dashboard_settings_oneclick_tools_title">Մեկ հպման գործիքներ</string>
     <string name="dashboard_settings_oneclick_tools_desc">Որ գործիքները պետք է ներառվեն մեկ հպման գործողություններում:</string>
-    <string name="debug_debuglog_size_label">Չափ</string>
-    <string name="debug_debuglog_size_compressed_label">Սեղմված չափ</string>
     <string name="debug_notification_channel_label">Վրիպազերծման ծանուցումներ</string>
     <string name="debug_debuglog_file_label">Գրանցված մատյանի ֆայլ</string>
     <string name="debug_debuglog_recording_progress">Գրանցվում է վրիպազերծման մատյանը</string>

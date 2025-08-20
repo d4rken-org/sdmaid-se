@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Start het scannen en verwijderen voor alle hulpmiddelen met een klik op de actieknop van het dashboard, geen extra bevestigingen.</string>
     <string name="dashboard_settings_oneclick_tools_title">Hulpmiddelen met één tik</string>
     <string name="dashboard_settings_oneclick_tools_desc">Welke hulpmiddelen moeten worden opgenomen in bewerkingen met één tik?</string>
-    <string name="debug_debuglog_size_label">Grootte</string>
-    <string name="debug_debuglog_size_compressed_label">Gecomprimeerde grootte</string>
     <string name="debug_notification_channel_label">Foutopsporing meldingen</string>
     <string name="debug_debuglog_file_label">Opgenomen logbestand</string>
     <string name="debug_debuglog_recording_progress">Foutopsporingslogboek opnemen</string>

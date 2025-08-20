@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Започни скенирање и брисање свих алатки са кликом на акционо дугме контролне табле, без додатних потврда.</string>
     <string name="dashboard_settings_oneclick_tools_title">Алатке једним кликом</string>
     <string name="dashboard_settings_oneclick_tools_desc">Које алатке би требале бити укључене у операције једним кликом?</string>
-    <string name="debug_debuglog_size_label">Величина</string>
-    <string name="debug_debuglog_size_compressed_label">Компресована величина</string>
     <string name="debug_notification_channel_label">Обавештења о отклањању грешака</string>
     <string name="debug_debuglog_file_label">Снимљена датотека евиденције</string>
     <string name="debug_debuglog_recording_progress">Снимање дневника за отклањање грешака</string>

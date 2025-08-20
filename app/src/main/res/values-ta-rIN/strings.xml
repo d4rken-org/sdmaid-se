@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">டாஷ்போர்டின் செயல் பொத்தானை ஒரு முறை தட்டி அனைத்து கருவிகளுக்கும் ஸ்கேன் மற்றும் நீக்குதலை தொடங்கவும், கூடுதல் உறுதிப்படுத்தல்கள் தேவையில்லை.</string>
     <string name="dashboard_settings_oneclick_tools_title">ஒரு-தட்டல் கருவிகள்</string>
     <string name="dashboard_settings_oneclick_tools_desc">ஒரு-தட்டல் செயல்பாடுகளில் எந்த கருவிகள் சேர்க்கப்பட வேண்டும்?</string>
-    <string name="debug_debuglog_size_label">அளவு</string>
-    <string name="debug_debuglog_size_compressed_label">அழுத்தப்பட்ட அளவு</string>
     <string name="debug_notification_channel_label">பிழைத்திருத்த அறிவிப்புகள்</string>
     <string name="debug_debuglog_file_label">பதிவு செய்யப்பட்ட பதிவு கோப்பு</string>
     <string name="debug_debuglog_recording_progress">பிழைத்திருத்த பதிவை பதிவு செய்கிறது</string>

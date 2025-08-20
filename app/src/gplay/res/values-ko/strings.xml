@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">인식할 수 없는 업그레이드에 대한 문제 해결 팁:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play 스토어 동기화는 시간이 걸릴 수 있습니다. 재부팅하거나 Google Play 캐시를 지우거나 잠시 기다려 보세요.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">기기에 등록된 여러 개의 계정으로 인해 Google Play가 혼동될 수 있습니다. 다른 계정을 로그아웃하거나 Google Play 웹사이트를 통해 설치하면 특정 계정과 강제로 연결됩니다.</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play 문제</string>
-    <string name="upgrades_gplay_billing_error_description">Google Play에 문제가 발생했습니다. 나중에 다시 시도하거나 기기를 재시작하세요.\n\n세부 정보: %s</string>
 </resources>

@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">通过主界面下方的小按钮轻松开始所有扫描和删除步骤，无需二次确认。</string>
     <string name="dashboard_settings_oneclick_tools_title">一键模式执行的操作</string>
     <string name="dashboard_settings_oneclick_tools_desc">要将哪些步骤添加至一键模式执行？</string>
-    <string name="debug_debuglog_size_label">文件大小</string>
-    <string name="debug_debuglog_size_compressed_label">压缩后大小</string>
     <string name="debug_notification_channel_label">Debug 通知</string>
     <string name="debug_debuglog_file_label">已记录的日志文件</string>
     <string name="debug_debuglog_recording_progress">正在记录 Debug 日志</string>

@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Започнете сканиране и изтриване за всички инструменти с докосване на бутона за действие на таблото, без допълнителни потвърждения.</string>
     <string name="dashboard_settings_oneclick_tools_title">Инструменти с едно докосване</string>
     <string name="dashboard_settings_oneclick_tools_desc">Кои инструменти трябва да бъдат включени в операциите с едно докосване?</string>
-    <string name="debug_debuglog_size_label">Размер</string>
-    <string name="debug_debuglog_size_compressed_label">Компресиран размер</string>
     <string name="debug_notification_channel_label">Уведомления за отстраняване на грешки</string>
     <string name="debug_debuglog_file_label">Записан лог файл</string>
     <string name="debug_debuglog_recording_progress">Записване на дебъг лог</string>

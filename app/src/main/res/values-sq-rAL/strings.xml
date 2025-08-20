@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Filloni skanimin dhe fshirjen për të gjitha mjetet me një prekje në butonin e veprimit të pultit, pa konfirmime shtesë.</string>
     <string name="dashboard_settings_oneclick_tools_title">Veglat me një prekje</string>
     <string name="dashboard_settings_oneclick_tools_desc">Cilat mjete duhet të përfshihen në operacionet me një prekje?</string>
-    <string name="debug_debuglog_size_label">Madhësia</string>
-    <string name="debug_debuglog_size_compressed_label">Madhësia e ngjeshur</string>
     <string name="debug_notification_channel_label">Njoftime për rezultatet</string>
     <string name="debug_debuglog_file_label">Skedari i regjistrit të regjistruar</string>
     <string name="debug_debuglog_recording_progress">Inçizimi i regjistrit të korrigjimit</string>

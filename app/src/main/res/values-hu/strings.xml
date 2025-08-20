@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Indítsa el az összes eszköz vizsgálatát és törlését az irányítópult műveletgombjára kattintva, további megerősítések nélkül.</string>
     <string name="dashboard_settings_oneclick_tools_title">Egy-érintéses eszközök</string>
     <string name="dashboard_settings_oneclick_tools_desc">Mely eszközök legyenek még benne az Egy-érintéses műveletekben?</string>
-    <string name="debug_debuglog_size_label">Méret</string>
-    <string name="debug_debuglog_size_compressed_label">Tömörített méret</string>
     <string name="debug_notification_channel_label">Hibakeresési értesítések</string>
     <string name="debug_debuglog_file_label">Rögzített naplófájl</string>
     <string name="debug_debuglog_recording_progress">Hibakeresési napló rögzítése</string>

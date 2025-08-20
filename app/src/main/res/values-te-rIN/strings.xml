@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">డ్యాష్‌బోర్డ్ యాక్షన్ బటన్‌ను ఒకసారి నొక్కడంతో అన్ని టూల్స్ కోసం స్కాన్ మరియు తొలగింపును ప్రారంభించండి, అదనపు నిర్ధారణలు లేకుండా.</string>
     <string name="dashboard_settings_oneclick_tools_title">వన్-టాప్ టూల్స్</string>
     <string name="dashboard_settings_oneclick_tools_desc">వన్-టాప్ ఆపరేషన్లలో ఏ టూల్స్ చేర్చాలి?</string>
-    <string name="debug_debuglog_size_label">పరిమాణం</string>
-    <string name="debug_debuglog_size_compressed_label">కంప్రెస్డ్ పరిమాణం</string>
     <string name="debug_notification_channel_label">డీబగ్ నోటిఫికేషన్లు</string>
     <string name="debug_debuglog_file_label">రికార్డ్ చేయబడిన లాగ్ ఫైల్</string>
     <string name="debug_debuglog_recording_progress">డీబగ్ లాగ్ రికార్డ్ చేస్తోంది</string>

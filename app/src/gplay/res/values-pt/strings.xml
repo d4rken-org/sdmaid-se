@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Dicas de solução de problemas para upgrades:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">A sincronização com Play Store pode demorar. Tente reiniciar, limpar a cache do Google Play ou simplesmente aguarde.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Várias contas podem confundir o Google Play. Sair das outras contas ou instalar através do site do Google Play, forçando associações com uma conta específica.</string>
-    <string name="upgrades_gplay_billing_error_label">Problema do Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">Ocorreu um problema com o Google Play. Tente novamente mais tarde ou reinicie o seu dispositivo.\n\nDetalhes: %s</string>
 </resources>

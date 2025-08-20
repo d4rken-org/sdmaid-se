@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Savjeti za rješavanje problema s neprepoznatim nadogradnjama:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinkronizacija Trgovine Play može potrajati. Pokušajte ponovno pokrenuti uređaj, očistiti predmemoriju Google Playa ili jednostavno pričekajte.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Više računa može zbuniti Google Play. Odjavite se s drugih računa ili instalirajte putem Google Play web stranice, što prisiljava povezivanje s određenim računom.</string>
-    <string name="upgrades_gplay_billing_error_label">Problem s Google Playem</string>
-    <string name="upgrades_gplay_billing_error_description">Došlo je do problema s Google Playem. Molimo pokušajte ponovno kasnije ili ponovno pokrenite uređaj.\n\nDetalji: %s</string>
 </resources>

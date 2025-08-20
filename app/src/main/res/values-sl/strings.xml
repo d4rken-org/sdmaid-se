@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Z dotikom gumba dejanj na nadzorni plošči zaženi pregled in izbris za vsa orodja – brez dodatnih potrjevanj.</string>
     <string name="dashboard_settings_oneclick_tools_title">Orodja za en dotik</string>
     <string name="dashboard_settings_oneclick_tools_desc">Katera orodja želite vključiti med opravila z enim dotikom?</string>
-    <string name="debug_debuglog_size_label">Velikost</string>
-    <string name="debug_debuglog_size_compressed_label">Stisnjena velikost</string>
     <string name="debug_notification_channel_label">Obvestila o razhroščevanju</string>
     <string name="debug_debuglog_file_label">Posneta datoteka dnevnika</string>
     <string name="debug_debuglog_recording_progress">Snemanje dnevnika razhroščevanja</string>

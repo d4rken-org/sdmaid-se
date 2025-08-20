@@ -7,14 +7,16 @@
     <string name="dashboard_settings_oneclick_summary">Bez dalších potvrzení spusťte skenování a odstraňování pro všechny nástroje klepnutím na tlačítko akcí na panelu nástrojů.</string>
     <string name="dashboard_settings_oneclick_tools_title">Nástroje na jedno klepnutí</string>
     <string name="dashboard_settings_oneclick_tools_desc">Které nástroje by měly být zahrnuty do operací na jedno klepnutí?</string>
-    <string name="debug_debuglog_size_label">Velikost</string>
-    <string name="debug_debuglog_size_compressed_label">Komprimovaná velikost</string>
     <string name="debug_notification_channel_label">Oznámení o ladění</string>
     <string name="debug_debuglog_file_label">Zaznamenaný soubor záznamu</string>
     <string name="debug_debuglog_recording_progress">Zaznamenávání soubor záznamu</string>
     <string name="debug_debuglog_record_action">Zaznamenat soubor záznamu</string>
     <string name="debug_debuglog_stop_action">Ukončit záznam</string>
     <string name="debug_debuglog_sensitive_information_message">Vygenerovaný soubor obsahuje citlivé informace (např. názvy souborů a nainstalovaných aplikací). Sdílejte pouze s důvěryhodnými protistranami.</string>
+    <string name="debug_debuglog_screen_title">Protokol ladění</string>
+    <string name="debug_debuglog_screen_discard_action">Zrušit</string>
+    <string name="debug_debuglog_screen_session_path_label">Cesta relace</string>
+    <string name="debug_debuglog_screen_log_files_label">Soubory protokolů</string>
     <string name="settings_debuglog_explanation">Tato funkce zaznamenává vše, co aplikace dělá do souboru, který lze sdílet. Vygenerovaný soubor obsahuje citlivé informace (např. názvy souborů a nainstalovaných aplikací). Sdílejte je pouze s důvěryhodnými stranami (např. s vývojáři, kteří řeší nějaký problém).</string>
     <string name="tasks_activity_notification_channel_label">Aktivní úlohy</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
@@ -544,6 +546,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Získejte hrubý odhad velikosti každé aplikace.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Zjistit aktivitu</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Zjistěte, zda je (nebo nedávno byla) aplikace aktivní.</string>
+    <string name="appcontrol_include_multiuser_label">Zahrnout další uživatele</string>
+    <string name="appcontrol_include_multiuser_summary">Zahrnout aplikace z dalších uživatelských profilů v tomto zařízení.</string>
     <string name="appcontrol_export_app_selection_action">Exportovat aplikace</string>
     <string name="appcontrol_export_title">Exportovat aplikaci</string>
     <string name="appcontrol_export_description">Uloží instalační soubory této aplikace. To nezahrnuje data aplikace.</string>

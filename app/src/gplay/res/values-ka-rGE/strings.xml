@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">ამოუცნობი განახლებების პრობლემების მოგვარების რჩევები:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store სინქრონიზაციას შეიძლება დრო დასჭირდეს. სცადეთ გადატვირთვა, Google Play ქეშის გასუფთავება ან უბრალოდ დაელოდეთ.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">მრავალი ანგარიში შეიძლება აბნევდეს Google Play-ს. გამოდით სხვა ანგარიშებიდან ან დააინსტალირეთ Google Play ვებსაიტის მეშვეობით, რაც აიძულებს კონკრეტულ ანგარიშთან ასოციაციას.</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play პრობლემა</string>
-    <string name="upgrades_gplay_billing_error_description">Google Play-სთან პრობლემა წარმოიშვა. გთხოვთ სცადოთ მოგვიანებით ან გადატვირთეთ თქვენი მოწყობილობა.\n\nდეტალები: %s</string>
 </resources>

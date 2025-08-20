@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">ダッシュボードのアクションボタンをタップすると、追加の確認を行わずにすべてのツールのスキャンと削除を開始します。</string>
     <string name="dashboard_settings_oneclick_tools_title">ワンタップツール</string>
     <string name="dashboard_settings_oneclick_tools_desc">どのツールをワンタップ操作に含める必要がありますか?</string>
-    <string name="debug_debuglog_size_label">サイズ</string>
-    <string name="debug_debuglog_size_compressed_label">圧縮後サイズ</string>
     <string name="debug_notification_channel_label">デバッグの通知</string>
     <string name="debug_debuglog_file_label">記録されたログファイル</string>
     <string name="debug_debuglog_recording_progress">デバッグログの記録中</string>

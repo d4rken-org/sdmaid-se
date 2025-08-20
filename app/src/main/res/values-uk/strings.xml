@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Почніть сканування та видалення для всіх інструментів, натиснувши кнопку дії на інформаційній панелі, без додаткових підтверджень.</string>
     <string name="dashboard_settings_oneclick_tools_title">Інструменти одним дотиком</string>
     <string name="dashboard_settings_oneclick_tools_desc">Які інструменти повинні бути включені в операції в один дотик?</string>
-    <string name="debug_debuglog_size_label">Розмір</string>
-    <string name="debug_debuglog_size_compressed_label">Стиснутий розмір</string>
     <string name="debug_notification_channel_label">Сповіщення про налагодження</string>
     <string name="debug_debuglog_file_label">Записаний файл журналу</string>
     <string name="debug_debuglog_recording_progress">Запис журналу налагодження</string>

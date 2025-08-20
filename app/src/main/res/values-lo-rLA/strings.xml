@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">ເລີ່ມການສະແກນ ແລະ ການລຶບສຳລັບທຸກເຄື່ອງມືດ້ວຍການແຕະປຸ່ມດຳເນີນການຂອງກະດານຄວບຄຸມ, ໂດຍບໍ່ມີການຢືນຢັນເພີ່ມເຕີມ.</string>
     <string name="dashboard_settings_oneclick_tools_title">ເຄື່ອງມືແຕະຄັ້ງດຽວ</string>
     <string name="dashboard_settings_oneclick_tools_desc">ເຄື່ອງມືໃດທີ່ຄວນຖືກລວມເຂົ້າໃນການດຳເນີນງານແຕະຄັ້ງດຽວ?</string>
-    <string name="debug_debuglog_size_label">ຂະໜາດ</string>
-    <string name="debug_debuglog_size_compressed_label">ຂະໜາດບີບອັດ</string>
     <string name="debug_notification_channel_label">ການແຈ້ງເຕືອນດີບັກ</string>
     <string name="debug_debuglog_file_label">ໄຟລ໌ບັນທຶກທີ່ບັນທຶກໄວ້</string>
     <string name="debug_debuglog_recording_progress">ກຳລັງບັນທຶກບັນທຶກດີບັກ</string>

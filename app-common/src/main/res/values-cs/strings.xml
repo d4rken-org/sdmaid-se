@@ -184,4 +184,6 @@
     <string name="general_error_report_bug_action">Nahlásit chybu</string>
     <string name="general_error_ipc_deadobject_title">Ztráta servisního připojení</string>
     <string name="general_error_ipc_deadobject_description">Připojení ke kritické službě (např. Magisk, Shizuku nebo jiné služby na úrovni systému) bylo neočekávaně ztraceno. Restartujte prosím zařízení. Pokud problém přetrvává, zkontrolujte aktualizace nebo se mi ozvěte, abych ho mohl vyřešit.</string>
+    <string name="general_user_label_owner">Vlastník</string>
+    <string name="general_user_label_system">Systém</string>
 </resources>

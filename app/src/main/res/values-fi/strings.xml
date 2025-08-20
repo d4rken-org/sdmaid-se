@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Aloita skannaus ja poisto kaikille työkaluille kojelaudan toimintopainikkeella, ei lisävahvistuksia.</string>
     <string name="dashboard_settings_oneclick_tools_title">Yhden napautuksen työkalut</string>
     <string name="dashboard_settings_oneclick_tools_desc">Mitkä työkalut tulisi sisällyttää yhden napautuksen toimintoihin?</string>
-    <string name="debug_debuglog_size_label">Koko</string>
-    <string name="debug_debuglog_size_compressed_label">Pakattu koko</string>
     <string name="debug_notification_channel_label">Virheenkorjausilmoitukset</string>
     <string name="debug_debuglog_file_label">Tallennettu lokitiedosto</string>
     <string name="debug_debuglog_recording_progress">Tallennetaan virheenkorjauslokia</string>

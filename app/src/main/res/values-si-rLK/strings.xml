@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">උපකරණ පුවරුවේ ක්‍රියා බොත්තමේ ස්පර්ශයකින් සියලුම මෙවලම් සඳහා ස්කෑන් කිරීම සහ මකාදැමීම ආරම්භ කරන්න, අමතර තහවුරු කිරීම් නැත.</string>
     <string name="dashboard_settings_oneclick_tools_title">එක්-ස්පර්ශ මෙවලම්</string>
     <string name="dashboard_settings_oneclick_tools_desc">එක්-ස්පර්ශ මෙහෙයුම්වලට කුමන මෙවලම් ඇතුළත් කළ යුතුද?</string>
-    <string name="debug_debuglog_size_label">ප්‍රමාණය</string>
-    <string name="debug_debuglog_size_compressed_label">සම්පීඩිත ප්‍රමාණය</string>
     <string name="debug_notification_channel_label">දෝෂ නිරාකරණ දැනුම්දීම්</string>
     <string name="debug_debuglog_file_label">රේඛගත කරන ලද ලොග් ගොනුව</string>
     <string name="debug_debuglog_recording_progress">දෝෂ නිරාකරණ ලොගය රේඛගත කරමින්</string>

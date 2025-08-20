@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Start scanning og sletning for alle værktøjer med et tryk på kontrolpanelets handlingsknap uden ekstra bekræftelser.</string>
     <string name="dashboard_settings_oneclick_tools_title">Enkeltkliksværktøjer</string>
     <string name="dashboard_settings_oneclick_tools_desc">Hvilke værktøjer skal inkluderes i enkeltklik-operationer?</string>
-    <string name="debug_debuglog_size_label">Størrelse</string>
-    <string name="debug_debuglog_size_compressed_label">Komprimeret størrelse</string>
     <string name="debug_notification_channel_label">Fejlfindingsmeddelelser</string>
     <string name="debug_debuglog_file_label">Logfil optaget</string>
     <string name="debug_debuglog_recording_progress">Optager fejlfindingslog</string>

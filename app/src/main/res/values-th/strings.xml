@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">เริ่มการสแกนและการลบสำหรับเครื่องมือทั้งหมดด้วยการคลิกปุ่มในแดชบอร์ด โดยไม่มีการยืนยันเพิ่มเติม</string>
     <string name="dashboard_settings_oneclick_tools_title">Thai</string>
     <string name="dashboard_settings_oneclick_tools_desc">เครื่องมือใดที่ควรรวมอยู่ในการดำเนินการแตะครั้งเดียว?</string>
-    <string name="debug_debuglog_size_label">ขนาด</string>
-    <string name="debug_debuglog_size_compressed_label">ขนาดที่ถูกบีบอัด</string>
     <string name="debug_notification_channel_label">การแจ้งเตือนการดีบัค</string>
     <string name="debug_debuglog_file_label">ไฟล์บันทึกที่จัดเก็บไว้</string>
     <string name="debug_debuglog_recording_progress">จัดเก็บบันทึกการดีบัค</string>

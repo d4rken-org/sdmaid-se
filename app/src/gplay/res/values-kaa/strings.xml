@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Tanılmaǵan jańalawlar ushın másele sheshiw keńesleri:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinxronizaciyası waqıt alıwı múmkin. Qayta júklew, Google Play keshin tazalaw yamasa jáne kútiw ushın háreket etiń.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Bir neshe akkawnt Google Play di shatasıwı múmkin. Basqa akkawntlardan shıǵıń yamasa Google Play veb-saytı arqalı ornatıń, bul anıq akkawnt menen baylanıstı májbúr etedi.</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play máselesi</string>
-    <string name="upgrades_gplay_billing_error_description">Google Play menen másele payda boldı. İltimas, keyiniraq qayta háreket etiń yamasa qurılmańızdı qayta jükleń.\n\nTolıq maǵlıwmat: %s</string>
 </resources>

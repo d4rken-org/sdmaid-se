@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">עצות לפתרון בעיות עבור שדרוגים לא מזוהים:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">הסנכרון של גוגל פליי עשוי לקחת זמן. נסה לאתחל מחדש, לנקות את המטמון של גוגל פליי או פשוט המתן.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">חשבונות מרובים יכולים לבלבל את Google Play. התנתק מחשבונות אחרים או התקן דרך אתר Google Play, מה שמאלץ שיוכים עם חשבון ספציפי.</string>
-    <string name="upgrades_gplay_billing_error_label">בעיה ב-Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">הייתה בעיה עם Google Play. אנא נסה שוב מאוחר יותר או הפעל מחדש את המכשיר.\n\nפרטים: %s</string>
 </resources>

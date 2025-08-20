@@ -26,6 +26,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Tundmatute uuenduste lahendamise nõuanded:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play poe ajakohastamine võib võtta aega. Ürita taaskäivitada, tühjendada Google\'i poe vahemälu või lihtsalt oota.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Google\'i pood ei pruugi mitme kontoga toime tulla. Logi teistelt kontodelt välja või paigalda Google\'i poe veebilehe kaudu, mis tuvastab seose kindla kontoga.</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play probleem</string>
-    <string name="upgrades_gplay_billing_error_description">Google Playga tekkis probleem. Palun proovige hiljem uuesti või taaskäivitage oma seade.\n\nÜksikasjad: %s</string>
 </resources>

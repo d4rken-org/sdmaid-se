@@ -24,6 +24,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Cunsigiàdos pro risòlvere problemas cun agiornamentos non reconnotos:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sa sincronizatzione de Play Store podet leare tempus. Proa a torrare a allùghere, limpiare sa cache de Google Play o simplesmente iseta.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Contos mùltiplos podent cunfùndere Google Play. Essi dae àteros contos o installa dae su situ web de Google Play, chi fortza assotziatziones cun unu contu ispetzìficu.</string>
-    <string name="upgrades_gplay_billing_error_label">Problema de Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">B\'est istadu unu problema cun Google Play. Pro praghere proa torra prus tardu o torra a allùghere su dispositivu tuo.\n\nDetàgios: %s</string>
 </resources>

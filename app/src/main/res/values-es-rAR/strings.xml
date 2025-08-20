@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Inicia el escaneo y la eliminación para todas las herramientas con un clic en el botón de acción del panel de control, sin confirmaciones adicionales.</string>
     <string name="dashboard_settings_oneclick_tools_title">Herramientas de un toque</string>
     <string name="dashboard_settings_oneclick_tools_desc">¿Qué herramientas deben incluirse en las operaciones de un solo toque?</string>
-    <string name="debug_debuglog_size_label">Tamaño</string>
-    <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
     <string name="debug_notification_channel_label">Notificaciones de depuración</string>
     <string name="debug_debuglog_file_label">Archivo de registro grabado</string>
     <string name="debug_debuglog_recording_progress">Grabando el registro de depuración</string>

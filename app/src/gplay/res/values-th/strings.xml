@@ -24,6 +24,4 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">เคล็ดลับการแก้ไขปัญหาสำหรับการอัปเกรดที่ไม่ได้รับการยอมรับ:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">การซิงค์ Play Store อาจใช้เวลา ลองรีบูต ล้างแคช Google Play หรือรอสักครู่</string>
     <string name="upgrade_screen_restore_multiaccount_hint">บัญชีหลายบัญชีอาจทำให้ Google Play สับสน ออกจากบัญชีอื่นหรือติดตั้งผ่านเว็บไซต์ Google Play ซึ่งบังคับให้เชื่อมโยงกับบัญชีเฉพาะ</string>
-    <string name="upgrades_gplay_billing_error_label">ปัญหา Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">เกิดปัญหากับ Google Play โปรดลองอีกครั้งในภายหลังหรือรีสตาร์ทอุปกรณ์ของคุณ\n\nรายละเอียด: %s</string>
 </resources>

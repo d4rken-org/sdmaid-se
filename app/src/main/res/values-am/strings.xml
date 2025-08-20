@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">በዳሽቦርዱ የተግባር ቁልፍ ላይ በመንካት ለሁሉም መሳሪያዎች ስካንና ስርዛት ይጀምሩ፣ ተጨማሪ ማረጋገጫዎች የሉም።</string>
     <string name="dashboard_settings_oneclick_tools_title">አንድ-ነክ መሳሪያዎች</string>
     <string name="dashboard_settings_oneclick_tools_desc">በአንድ-ነክ ስራዎች ውስጥ የትኞቹ መሳሪያዎች መካተት አለባቸው?</string>
-    <string name="debug_debuglog_size_label">መጠን</string>
-    <string name="debug_debuglog_size_compressed_label">የተጨመቀ መጠን</string>
     <string name="debug_notification_channel_label">የመለያ ማስታወቂያዎች</string>
     <string name="debug_debuglog_file_label">የተቀዳ ምዝግብ ማስታወሻ ፋይል</string>
     <string name="debug_debuglog_recording_progress">የመለያ ምዝግብ ማስታወሻ በመቅዳት ላይ</string>

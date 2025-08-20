@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">ڈیش بورڈ کے ایکشن بٹن پر ایک ٹیپ سے تمام ٹولز کے لیے اسکین اور ڈیلیٹ شروع کریں، کوئی اضافی تصدیق نہیں۔</string>
     <string name="dashboard_settings_oneclick_tools_title">ون ٹیپ ٹولز</string>
     <string name="dashboard_settings_oneclick_tools_desc">ون ٹیپ آپریشنز میں کون سے ٹولز شامل ہونے چاہیے؟</string>
-    <string name="debug_debuglog_size_label">سائز</string>
-    <string name="debug_debuglog_size_compressed_label">کمپریسڈ سائز</string>
     <string name="debug_notification_channel_label">ڈیبگ نوٹیفکیشنز</string>
     <string name="debug_debuglog_file_label">ریکارڈ شدہ لاگ فائل</string>
     <string name="debug_debuglog_recording_progress">ڈیبگ لاگ ریکارڈ کر رہا ہے</string>

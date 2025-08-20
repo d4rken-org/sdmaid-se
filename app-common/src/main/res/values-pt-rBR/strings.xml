@@ -164,4 +164,6 @@
     <string name="general_error_report_bug_action">Reportar erro</string>
     <string name="general_error_ipc_deadobject_title">Conexão de serviço perdida</string>
     <string name="general_error_ipc_deadobject_description">A conexão com um serviço crítico (por exemplo, Magisk, Shizuku, ou outros serviços ao nível do sistema) foi inesperadamente perdida. Por favor, reinicie seu dispositivo. Se o problema persistir, verifique se há atualizações ou entre em contato comigo para que eu possa corrigi-lo.</string>
+    <string name="general_user_label_owner">Proprietário</string>
+    <string name="general_user_label_system">Sistema</string>
 </resources>

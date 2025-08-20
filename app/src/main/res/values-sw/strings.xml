@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Anza uchunguzi na kufuta kwa zana zote kwa kubofya kitufe cha kitendo cha dashibodi, bila uthibitisho wa ziada.</string>
     <string name="dashboard_settings_oneclick_tools_title">Zana za Kubofya Mara Moja</string>
     <string name="dashboard_settings_oneclick_tools_desc">Ni zana zipi zinapaswa kujumuishwa katika shughuli za kubofya mara moja?</string>
-    <string name="debug_debuglog_size_label">Ukubwa</string>
-    <string name="debug_debuglog_size_compressed_label">Ukubwa uliobanwa</string>
     <string name="debug_notification_channel_label">Arifa za marekebisho</string>
     <string name="debug_debuglog_file_label">Faili la rekodi lililoandikwa</string>
     <string name="debug_debuglog_recording_progress">Inaandika rekodi ya marekebisho</string>

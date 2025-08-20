@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Lancez l’analyse et la suppression pour tous les outils en touchant le bouton d’action du tableau de bord, sans confirmation supplémentaire.</string>
     <string name="dashboard_settings_oneclick_tools_title">Outils à accès direct</string>
     <string name="dashboard_settings_oneclick_tools_desc">Quels outils devraient faire partie des opérations à accès direct ?</string>
-    <string name="debug_debuglog_size_label">Taille</string>
-    <string name="debug_debuglog_size_compressed_label">Taille compressée</string>
     <string name="debug_notification_channel_label">Notifications de débogage</string>
     <string name="debug_debuglog_file_label">Fichier journal enregistré</string>
     <string name="debug_debuglog_recording_progress">Enregistrement du journal de débogage</string>
@@ -508,6 +506,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Obtenez une estimation approximative de la taille de chaque appli.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Déterminer l’activité</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Découvrez si une appli est active ou l’a été récemment.</string>
+    <string name="appcontrol_include_multiuser_label">Inclure d’autres utilisateurs</string>
+    <string name="appcontrol_include_multiuser_summary">Inclure les applis d’autres profil utilisateur sur cet appareil.</string>
     <string name="appcontrol_export_app_selection_action">Exporter les applis</string>
     <string name="appcontrol_export_title">Exporter l’appli</string>
     <string name="appcontrol_export_description">Enregistrez les fichiers d’installation de cette appli, hormis les données de l’appli.</string>

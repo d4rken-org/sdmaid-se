@@ -7,8 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Iniciar verificação e eliminação para todas as ferramentas, com um toque no botão de ação do painel, sem confirmações extras.</string>
     <string name="dashboard_settings_oneclick_tools_title">Ferramentas Um Toque</string>
     <string name="dashboard_settings_oneclick_tools_desc">Quais ferramentas devem ser incluídas nas operações de um toque?</string>
-    <string name="debug_debuglog_size_label">Tamanho</string>
-    <string name="debug_debuglog_size_compressed_label">Tamanho comprimido</string>
     <string name="debug_notification_channel_label">Notificações de depuração</string>
     <string name="debug_debuglog_file_label">Ficheiro de registo gravado</string>
     <string name="debug_debuglog_recording_progress">A gravar registo de depuração</string>
