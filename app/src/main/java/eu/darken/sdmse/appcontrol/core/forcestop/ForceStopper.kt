@@ -73,7 +73,7 @@ class ForceStopper @Inject constructor(
                     ctx.getString(R.string.general_progress_processing_x, it.label.get(ctx))
                 }
                 try {
-                    pkgOps.forceStop(it.pkg.id)
+                    pkgOps.forceStop(it.installId)
                     log(TAG, INFO) { "State successfully force stopped ${it.installId}" }
                     successful.add(it.installId)
                 } catch (e: Exception) {

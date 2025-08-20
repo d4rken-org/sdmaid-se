@@ -9,7 +9,7 @@ interface PkgOpsConnection {
 
     RunningPackagesResult getRunningPackages();
 
-    boolean forceStop(String packageName);
+    boolean forceStop(in InstallId installId);
 
     boolean clearCacheAsUser(String packageName, int handleId, boolean dryRun);
 

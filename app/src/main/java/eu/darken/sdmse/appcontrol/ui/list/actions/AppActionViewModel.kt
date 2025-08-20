@@ -42,6 +42,7 @@ import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.getLaunchIntent
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.current
 import eu.darken.sdmse.exclusion.core.save
@@ -65,6 +66,7 @@ class AppActionViewModel @Inject constructor(
     appControl: AppControl,
     private val taskManager: TaskManager,
     private val exclusionManager: ExclusionManager,
+    private val userManager2: UserManager2,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<AppActionDialogArgs>()
@@ -95,6 +97,8 @@ class AppActionViewModel @Inject constructor(
             progress = progress ?: Progress.Data(),
         )
         emit(baseState)
+
+        val isCurrentUser = appInfo.installId.userHandle == userManager2.currentUser().handle
 
         val sizeAction = appInfo.sizes?.let {
             InfoSizeVH.Item(
@@ -138,6 +142,7 @@ class AppActionViewModel @Inject constructor(
 
         val launchAction = appInfo.pkg.id.getLaunchIntent(context)
             ?.apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
+            ?.takeIf { isCurrentUser }
             ?.let { intent ->
                 LaunchActionVH.Item(
                     appInfo = appInfo,
@@ -167,44 +172,53 @@ class AppActionViewModel @Inject constructor(
             null
         }
 
-        val systemSettingsAction = SystemSettingsActionVH.Item(
-            appInfo = appInfo,
-            onSettings = {
-                val intent = it.createSystemSettingsIntent(context)
-                try {
-                    context.startActivity(intent)
-                } catch (e: Exception) {
-                    log(TAG, ERROR) { "Launching system settings intent failed: ${e.asLog()}" }
-                    errorEvents.postValue(e)
+        val systemSettingsAction = if (isCurrentUser) {
+            SystemSettingsActionVH.Item(
+                appInfo = appInfo,
+                onSettings = {
+                    val intent = it.createSystemSettingsIntent(context)
+                    try {
+                        context.startActivity(intent)
+                    } catch (e: Exception) {
+                        log(TAG, ERROR) { "Launching system settings intent failed: ${e.asLog()}" }
+                        errorEvents.postValue(e)
+                    }
                 }
-            }
-        )
+            )
+        } else {
+            null
+        }
 
         val existingExclusion = exclusionManager
             .current()
             .filterIsInstance<Exclusion.Pkg>()
             .firstOrNull { it.match(appInfo.id) }
 
-        val excludeAction = ExcludeActionVH.Item(
-            appInfo = appInfo,
-            exclusion = existingExclusion,
-            onExclude = {
-                launch {
-                    if (existingExclusion != null) {
-                        MainDirections.goToPkgExclusionEditor(
-                            exclusionId = existingExclusion.id,
-                            initial = null,
-                        ).navigate()
-                    } else {
-                        val newExcl = PkgExclusion(pkgId = appInfo.id)
-                        exclusionManager.save(newExcl)
+        val excludeAction = if (isCurrentUser) {
+            ExcludeActionVH.Item(
+                appInfo = appInfo,
+                exclusion = existingExclusion,
+                onExclude = {
+                    launch {
+                        if (existingExclusion != null) {
+                            MainDirections.goToPkgExclusionEditor(
+                                exclusionId = existingExclusion.id,
+                                initial = null,
+                            ).navigate()
+                        } else {
+                            val newExcl = PkgExclusion(pkgId = appInfo.id)
+                            exclusionManager.save(newExcl)
+                        }
                     }
-                }
-            },
-        )
+                },
+            )
+        } else {
+            null
+        }
 
         val appStoreAction = (appInfo.pkg as? InstallDetails)
             ?.takeIf { it.installerInfo.installer != null }
+            ?.takeIf { isCurrentUser }
             ?.let {
                 AppStoreActionVH.Item(
                     appInfo = appInfo,
@@ -246,7 +260,7 @@ class AppActionViewModel @Inject constructor(
             null
         }
 
-        val exportaction = if (appInfo.canBeExported) {
+        val exportaction = if (appInfo.canBeExported && isCurrentUser) {
             ExportActionVH.Item(
                 appInfo = appInfo,
                 onBackup = {
