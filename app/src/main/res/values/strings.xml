@@ -7,14 +7,17 @@
     <string name="dashboard_settings_oneclick_tools_title">One-Tap Tools</string>
     <string name="dashboard_settings_oneclick_tools_desc">Which tools should be included in one-tap operations?</string>
 
-    <string name="debug_debuglog_size_label">Size</string>
-    <string name="debug_debuglog_size_compressed_label">Compressed size</string>
     <string name="debug_notification_channel_label">Debug notifications</string>
     <string name="debug_debuglog_file_label">Recorded log file</string>
     <string name="debug_debuglog_recording_progress">Recording debug log</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
     <string name="debug_debuglog_stop_action">Stop recording</string>
     <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties.</string>
+    <string name="debug_debuglog_screen_title">Debug Log</string>
+    <string name="debug_debuglog_screen_discard_action">Discard</string>
+    <string name="debug_debuglog_screen_session_path_label">Session Path</string>
+    <string name="debug_debuglog_screen_log_files_label">Log Files</string>
+    <string name="debug_debuglog_screen_log_files_ready">%1$d files ready (%2$s)</string>
     <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties (e.g. a developer troubleshooting an issue).</string>
 
     <string name="tasks_activity_notification_channel_label">Active tasks</string>

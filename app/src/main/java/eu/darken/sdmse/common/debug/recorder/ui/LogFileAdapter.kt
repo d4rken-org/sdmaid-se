@@ -56,10 +56,7 @@ class LogFileAdapter @Inject constructor() :
         ) -> Unit = binding { item ->
             info.text = item.path.name
             path.text = item.path.path
-            size.apply {
-                text = "Size: "
-                append(item.size?.let { Formatter.formatShortFileSize(context, it) } ?: "?")
-            }
+            size.text = item.size?.let { Formatter.formatShortFileSize(context, it) } ?: "?"
         }
 
         data class Item(

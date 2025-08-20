@@ -128,7 +128,7 @@
         <!-- Debug stuff-->
         <activity
             android:name="eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity"
-            android:theme="@style/AppThemeFloating" />
+            android:theme="@style/AppTheme" />
 
         <service
             android:name="eu.darken.sdmse.common.debug.recorder.core.RecorderService"
