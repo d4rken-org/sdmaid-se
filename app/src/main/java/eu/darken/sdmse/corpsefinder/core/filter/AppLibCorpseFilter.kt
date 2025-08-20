@@ -12,21 +12,36 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.*
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.isDirectory
+import eu.darken.sdmse.common.files.listFiles
 import eu.darken.sdmse.common.files.local.LocalGateway
+import eu.darken.sdmse.common.files.lookup
+import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.hasApiLevel
-import eu.darken.sdmse.common.progress.*
+import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.increaseProgress
+import eu.darken.sdmse.common.progress.updateProgressCount
+import eu.darken.sdmse.common.progress.updateProgressPrimary
+import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.main.core.SDMTool
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.flow.toSet
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Provider
@@ -53,8 +68,8 @@ class AppLibCorpseFilter @Inject constructor(
 
         // TODO needs to be checked on more rooted ROMs
         // https://github.com/d4rken-org/sdmaid-se/issues/1612
-        if (hasApiLevel(35)) {
-            log(TAG, WARN) { "Untested API level (35) skipping for safety." }
+        if (hasApiLevel(37)) {
+            log(TAG, WARN) { "Untested API level (37) skipping for safety." }
             return emptySet()
         }
 
