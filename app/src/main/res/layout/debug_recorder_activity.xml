@@ -17,7 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:paddingBottom="88dp"
+            android:clipToPadding="false">
 
             <!-- Hero Section -->
             <LinearLayout
@@ -111,7 +113,6 @@
                         style="@style/TextAppearance.Material3.BodyMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:text="@string/debug_debuglog_sensitive_information_message"
                         android:textColor="?attr/colorOnSecondaryContainer" />
 
@@ -207,7 +208,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp">
 
                     <ImageView
                         android:layout_width="24dp"
