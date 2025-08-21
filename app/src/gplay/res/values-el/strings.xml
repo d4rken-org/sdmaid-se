@@ -8,7 +8,7 @@
     <string name="upgrades_dashcard_upgrade_action">Αναβάθμιση</string>
     <string name="upgrades_gplay_unavailable_error_title">Το Google Play δεν είναι διαθέσιμο</string>
     <string name="upgrades_gplay_unavailable_error_description">Η εφαρμογή SD Maid δεν μπορεί να συνδεθεί με το Google Play. Είναι εγκατεστημένο και ενημερωμένο το Google Play; Είναι συνδεδεμένος ο λογαριασμός σας Google; Δοκιμάστε να καθαρίσετε την προσωρινή μνήμη cache της εφαρμογής Google Play και να επανεκκινήσετε τη συσκευή σας.</string>
-    <string name="upgrades_gplay_billing_error_label">Πρόβλημα στο Google Play</string>
+    <string name="upgrades_gplay_billing_error_label">Πρόβλημα Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Παρουσιάστηκε κάποιο πρόβλημα με το Google Play. Δοκιμάστε ξανά αργότερα ή επανεκκινήστε τη συσκευή σας.\n\nΛεπτομέρειες: %s</string>
     <string name="upgrades_no_purchases_found_check_account">Δε βρέθηκαν αγορές. Χρησιμοποιείτε το σωστό λογαριασμό;</string>
     <string name="upgrade_screen_title">Απόκτησε το SD Maid SE Pro</string>

@@ -8,6 +8,8 @@
     <string name="upgrades_dashcard_upgrade_action">ارتقاء</string>
     <string name="upgrades_gplay_unavailable_error_title">گوگل پلی در دسترس نیست</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid نمی‌تواند به Google Play متصل شود. آیا Google Play نصب شده و به‌روز است؟ آیا حساب Google شما وارد شده است؟ سعی کنید کش برنامه Google Play را پاک کنید و دستگاه خود را مجدداً راه‌اندازی کنید.</string>
+    <string name="upgrades_gplay_billing_error_label">مشکل گوگل پلی</string>
+    <string name="upgrades_gplay_billing_error_description">مشکلی در گوگل پلی پیش آمده است. لطفاً بعداً دوباره امتحان کنید یا دستگاه خود را مجدداً راه‌اندازی کنید.\n\nجزئیات: %s</string>
     <string name="upgrades_no_purchases_found_check_account">هیچ خریدی یافت نشد. آیا از حساب صحیح استفاده می‌کنید؟</string>
     <string name="upgrade_screen_title">گرفتن خدمتکار SD نسخه کامل</string>
     <string name="upgrade_screen_preamble">SD Maid هیچ تبلیغی ندارد و داده‌های کاربران را نمی‌فروشد. کار من توسط شما تأمین مالی می‌شود ❤️.</string>
