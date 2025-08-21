@@ -65,8 +65,8 @@ class ArtProfilesCorpseFilter @Inject constructor(
             return emptySet()
         }
 
-        if (hasApiLevel(36)) {
-            log(TAG, WARN) { "Untested API level (36) skipping for safety." }
+        if (hasApiLevel(37)) {
+            log(TAG, WARN) { "Untested API level (37) skipping for safety." }
             return emptySet()
         }
 
