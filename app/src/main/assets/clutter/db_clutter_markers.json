@@ -12600,5 +12600,11 @@
 }, {
   "pkgs": ["com.android.documentsui"],
   "mrks": [{"loc": "SDCARD", "path": ".picker_transcoded"}]
+}, {
+  "pkgs": ["com.miui.packageinstaller"],
+  "mrks": [
+	{"loc": "APP_APP", "path": "preinstall_history"},
+	{"loc": "APP_APP", "path": "preinstall_package_path"}
+  ]
 }
 ]
