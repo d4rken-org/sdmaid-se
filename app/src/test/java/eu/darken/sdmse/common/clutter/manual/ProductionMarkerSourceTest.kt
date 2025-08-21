@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.clutter.manual
 
+import eu.darken.sdmse.common.areas.DataArea.Type.APP_APP
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
@@ -40,6 +41,12 @@ class ProductionMarkerSourceTest : BaseTest() {
         neg(SDCARD, "Backups/something")
         pos(SDCARD, "dev.imranr.obtainium", "Backups/obtainium-export-2024-01-04T10-55-12.476037-auto.json")
         pos(SDCARD, "dev.imranr.obtainium", "Backups/obtainium-export-something123")
+    }
+
+    @Test fun `MIUI preinstall files`() = testEnv {
+        neg(APP_APP, "random_file")
+        pos(APP_APP, "com.miui.packageinstaller", "preinstall_history")
+        pos(APP_APP, "com.miui.packageinstaller", "preinstall_package_path")
     }
 
 }
