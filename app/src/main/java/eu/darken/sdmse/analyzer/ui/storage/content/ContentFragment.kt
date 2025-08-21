@@ -93,8 +93,9 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                         MaterialAlertDialogBuilder(requireContext()).apply {
                             setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                             setMessage(
-                                getString(
-                                    eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                                resources.getQuantityString(
+                                    eu.darken.sdmse.common.R.plurals.general_delete_confirmation_message_selected_x_items,
+                                    selected.size,
                                     selected.size,
                                 )
                             )

@@ -92,8 +92,9 @@ class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment
                                 event.items.single().content.label.get(context)
                             )
                         } else {
-                            getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                            resources.getQuantityString(
+                                eu.darken.sdmse.common.R.plurals.general_delete_confirmation_message_selected_x_items,
+                                event.items.size,
                                 event.items.size
                             )
                         }

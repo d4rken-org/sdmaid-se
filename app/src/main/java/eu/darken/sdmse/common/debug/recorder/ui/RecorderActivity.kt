@@ -91,8 +91,9 @@ class RecorderActivity : Activity2() {
                 val sizeText = state.compressedSize?.let {
                     Formatter.formatShortFileSize(this@RecorderActivity, it)
                 } ?: "?"
-                text = getString(
-                    R.string.debug_debuglog_screen_log_files_ready,
+                text = resources.getQuantityString(
+                    R.plurals.debug_debuglog_screen_log_files_ready,
+                    state.logEntries.size,
                     state.logEntries.size,
                     sizeText
                 )

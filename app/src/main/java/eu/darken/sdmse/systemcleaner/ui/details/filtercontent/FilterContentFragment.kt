@@ -102,8 +102,9 @@ class FilterContentFragment : Fragment3(R.layout.systemcleaner_filtercontent_fra
                                     .match.lookup.userReadablePath.get(context)
                             )
 
-                            else -> getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                            else -> resources.getQuantityString(
+                                eu.darken.sdmse.common.R.plurals.general_delete_confirmation_message_selected_x_items,
+                                event.items.size,
                                 event.items.size
                             )
                         }

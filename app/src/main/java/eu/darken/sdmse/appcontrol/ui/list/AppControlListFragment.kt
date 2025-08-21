@@ -307,8 +307,9 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(
                         if (event.items.size > 1) {
-                            getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                            resources.getQuantityString(
+                                eu.darken.sdmse.common.R.plurals.general_delete_confirmation_message_selected_x_items,
+                                event.items.size,
                                 event.items.size
                             )
                         } else {
