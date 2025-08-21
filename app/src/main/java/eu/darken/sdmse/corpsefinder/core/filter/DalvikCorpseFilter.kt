@@ -68,10 +68,10 @@ class DalvikCorpseFilter @Inject constructor(
             return emptySet()
         }
 
-        // TODO needs to be checked on more rooted ROMs
         // https://github.com/d4rken-org/sdmaid-se/issues/1612
-        if (hasApiLevel(36)) {
-            log(TAG, WARN) { "Untested API level (35) skipping for safety." }
+        // https://github.com/d4rken-org/sdmaid-se/issues/1896
+        if (hasApiLevel(37)) {
+            log(TAG, WARN) { "Untested API level (37) skipping for safety." }
             return emptySet()
         }
 
@@ -84,6 +84,7 @@ class DalvikCorpseFilter @Inject constructor(
 
         val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.CORPSEFINDER)
 
+        // Android 16 (API36) uses a new structure for Dalvik profiles in /data/misc/profiles (covered by another filter)
         val profileCorpses = areas
             .filter { it.type == DataArea.Type.DALVIK_PROFILE }
             .map { area ->
