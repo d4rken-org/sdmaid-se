@@ -195,8 +195,9 @@ class PreviewDeletionDialog @Inject constructor(
                             mode.duplicates.single().lookup.userReadablePath.get(context),
                         )
 
-                        else -> context.getString(
-                            eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                        else -> context.resources.getQuantityString(
+                            eu.darken.sdmse.common.R.plurals.general_delete_confirmation_message_selected_x_items,
+                            mode.count,
                             mode.count
                         )
                     }

@@ -17,7 +17,10 @@
     <string name="debug_debuglog_screen_discard_action">Discard</string>
     <string name="debug_debuglog_screen_session_path_label">Session Path</string>
     <string name="debug_debuglog_screen_log_files_label">Log Files</string>
-    <string name="debug_debuglog_screen_log_files_ready">%1$d files ready (%2$s)</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d file ready (%2$s)</item>
+        <item quantity="other">%1$d files ready (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties (e.g. a developer troubleshooting an issue).</string>
 
     <string name="tasks_activity_notification_channel_label">Active tasks</string>
