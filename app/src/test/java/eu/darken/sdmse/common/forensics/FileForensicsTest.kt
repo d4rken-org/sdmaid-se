@@ -71,7 +71,7 @@ class FileForensicsTest : BaseTest() {
     }
 
     @Test fun init() = runTest2(autoCancel = true) {
-        val forensics = FileForensics(this, context, pkgRepo, processorsProvider, gatewaySwitch, pkgOps, shellOps)
+        val forensics = FileForensics(this, context, pkgRepo, processorsProvider, gatewaySwitch, pkgOps)
         val testPath = LocalPath.build("/test")
         val areaInfo = forensics.identifyArea(testPath)
         areaInfo shouldBe testAreaInfo
