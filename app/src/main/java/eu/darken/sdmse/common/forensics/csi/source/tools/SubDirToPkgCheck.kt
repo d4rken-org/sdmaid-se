@@ -38,12 +38,17 @@ class SubDirToPkgCheck @Inject constructor(
 
         if (!topDirmatches) return AppSourceCheck.Result()
 
-        val subDir = try {
-            val subDirContent = areaInfo.file.listFiles(gatewaySwitch)
-            subDirContent.singleOrNull()?.name ?: return AppSourceCheck.Result()
-        } catch (e: Exception) {
-            log(TAG) { "Failed to list subdir for ${areaInfo.file}: ${e.asLog()}" }
-            return AppSourceCheck.Result()
+        // For Android 11+ double-hash pattern, we can directly use the second segment if we have it, otherwise fall back to filesystem listing
+        val subDir = if (potPkgNames.size >= 2) {
+            potPkgNames[1]
+        } else {
+            try {
+                val subDirContent = areaInfo.file.listFiles(gatewaySwitch)
+                subDirContent.singleOrNull()?.name ?: return AppSourceCheck.Result()
+            } catch (e: Exception) {
+                log(TAG) { "Failed to list subdir for ${areaInfo.file}: ${e.asLog()}" }
+                return AppSourceCheck.Result()
+            }
         }
 
         val owners = ANDROID11_SUBDIR.matchEntire(subDir)
