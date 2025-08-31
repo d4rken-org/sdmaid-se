@@ -14,7 +14,8 @@ data class TestACSNodeInfo(
     override val isScrollable: Boolean = false,
     private val children: MutableList<TestACSNodeInfo> = mutableListOf(),
     private var parentNode: TestACSNodeInfo? = null,
-    private val childrenArray: Array<ACSNodeInfo?>? = null
+    private val childrenArray: Array<ACSNodeInfo?>? = null,
+    private val bounds: Rect = Rect(0, 0, 100, 50)
 ) : ACSNodeInfo {
 
     override val childCount: Int get() = childrenArray?.size ?: children.size
@@ -36,8 +37,7 @@ data class TestACSNodeInfo(
     }
     override fun refresh(): Boolean = true
     override fun getBoundsInScreen(outBounds: Rect) {
-        // Simple implementation for testing - set to a default rectangle
-        outBounds.set(0, 0, 100, 50)
+        outBounds.set(bounds.left, bounds.top, bounds.right, bounds.bottom)
     }
 
     fun addChild(child: TestACSNodeInfo): TestACSNodeInfo {

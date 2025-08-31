@@ -1,5 +1,6 @@
 package eu.darken.sdmse.automation.core.common
 
+import android.graphics.Rect
 import android.view.accessibility.AccessibilityEvent
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -10,6 +11,8 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
 import java.util.concurrent.LinkedBlockingDeque
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 private val TAG: String = logTag("Automation", "Crawler", "Common")
 
@@ -128,3 +131,15 @@ fun ACSNodeInfo.scrollNode(): Boolean {
 }
 
 val AccessibilityEvent.pkgId: Pkg.Id? get() = packageName.takeIf { !it.isNullOrBlank() }?.toString()?.toPkgId()
+
+fun ACSNodeInfo.distanceTo(other: ACSNodeInfo): Double {
+    val rect1 = Rect().apply { this@distanceTo.getBoundsInScreen(this) }
+    val rect2 = Rect().apply { other.getBoundsInScreen(this) }
+
+    val x1 = rect1.centerX().toDouble()
+    val y1 = rect1.centerY().toDouble()
+    val x2 = rect2.centerX().toDouble()
+    val y2 = rect2.centerY().toDouble()
+
+    return sqrt((x2 - x1).pow(2) + (y2 - y1).pow(2))
+}

@@ -15,6 +15,7 @@ import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
+import eu.darken.sdmse.automation.core.common.stepper.findNearestTo
 import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
@@ -28,11 +29,13 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
@@ -73,18 +76,31 @@ class AOSPSpecs @Inject constructor(
 
         run {
             val action: suspend StepContext.() -> Boolean = action@{
-                val target = findNode { node ->
+                val candidate = findNode { node ->
                     node.textMatchesAny(forceStopLabels)
                 } ?: return@action false
 
-                val mapped = findClickableParent(node = target) ?: return@action false
+                var target = findClickableParent(maxNesting = 3, node = candidate)
 
-                if (mapped.isEnabled) {
-                    clickNormal(node = mapped)
-                } else {
-                    wasDisabled = true
-                    true
+                // Seen on Pixel 8 with Android 16 (beta)
+                // Force stop may consist of a button (no text)) and a textview (unclickable), same layout as everything else
+                if (target == null && hasApiLevel(35)) {
+                    log(TAG, WARN) { "No clickable parent found for $candidate" }
+                    target = findNearestTo(node = candidate) { it.isClickable }
+                    if (target != null) log(TAG, INFO) { "Clickable sibling found: $target" }
                 }
+
+                if (target == null) {
+                    log(TAG, WARN) { "No clickable target found for $candidate" }
+                    return@action false
+                }
+
+                if (!target.isEnabled) {
+                    wasDisabled = true
+                    return@action true
+                }
+
+                clickNormal(node = target)
             }
 
             val step = AutomationStep(
