@@ -42,6 +42,8 @@ class SegmentCriteriumTest : BaseTest() {
         SegmentCriterium("ab", mode = Mode.Start(allowPartial = true)).matchRaw("abc/def") shouldBe true
         SegmentCriterium("abc/d", mode = Mode.Start(allowPartial = false)).matchRaw("abc/def") shouldBe false
         SegmentCriterium("abc/d", mode = Mode.Start(allowPartial = true)).matchRaw("abc/def") shouldBe true
+        SegmentCriterium(segs("abc", ""), mode = Mode.Start(allowPartial = true)).matchRaw("abc/") shouldBe true
+        SegmentCriterium(segs("abc", ""), mode = Mode.Start(allowPartial = true)).match(segs("abc", "")) shouldBe true
     }
 
     @Test
