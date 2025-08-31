@@ -4,7 +4,7 @@ import android.graphics.Rect
 import android.view.accessibility.AccessibilityNodeInfo
 
 private class AccessibilityNodeInfoWrapper(
-    private val node: AccessibilityNodeInfo
+    val node: AccessibilityNodeInfo
 ) : ACSNodeInfo {
 
     override val text: CharSequence? get() = node.text

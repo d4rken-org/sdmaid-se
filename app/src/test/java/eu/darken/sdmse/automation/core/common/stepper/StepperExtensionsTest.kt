@@ -28,6 +28,7 @@ class StepperExtensionsTest : BaseTest() {
         return TestACSNodeInfo(isClickable = isClickable)
     }
 
+
     @Test
     fun `findClickableSibling returns null when node has no parent`() = runTest {
         val context = createStepContext()
@@ -226,5 +227,29 @@ class StepperExtensionsTest : BaseTest() {
         shouldThrow<DisabledTargetException> {
             context.clickNormal(isDryRun = true, node = disabledNode)
         }
+    }
+
+    // Tests for findNearestTo (basic tests without bounds)
+    @Test
+    fun `findNearestTo returns null when node has no parent`() = runTest {
+        val context = createStepContext()
+        val orphanNode = createNode()
+
+        context.findNearestTo(node = orphanNode) shouldBe null
+    }
+
+
+    @Test
+    fun `findNearestTo returns null when no siblings match predicate`() = runTest {
+        val context = createStepContext()
+
+        val targetNode = createNode()
+        val nonClickableSibling1 = createNode(isClickable = false)
+        val nonClickableSibling2 = createNode(isClickable = false)
+        createNode().addChildren(targetNode, nonClickableSibling1, nonClickableSibling2)
+
+        val result = context.findNearestTo(node = targetNode) { it.isClickable }
+
+        result shouldBe null
     }
 }

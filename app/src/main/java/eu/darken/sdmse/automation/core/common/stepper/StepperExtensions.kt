@@ -7,12 +7,14 @@ import android.view.ViewConfiguration
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.children
 import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.common.distanceTo
 import eu.darken.sdmse.automation.core.common.findParentOrNull
 import eu.darken.sdmse.automation.core.dispatchGesture
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
 import eu.darken.sdmse.automation.core.errors.UnclickableTargetException
 import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
@@ -64,6 +66,42 @@ suspend fun StepContext.findClickableSibling(
     return null
 }
 
+suspend fun StepContext.findNearestTo(
+    maxNesting: Int = 1,
+    includeSelf: Boolean = false,
+    node: ACSNodeInfo,
+    predicate: suspend (ACSNodeInfo) -> Boolean = { true }
+): ACSNodeInfo? {
+    log(tag, VERBOSE) { "findNearestTo(max=$maxNesting, self=$includeSelf, node=$node): Searching..." }
+    if (includeSelf && predicate(node)) return node
+
+    var currentParent = node.parent ?: run {
+        log(tag, WARN) { "findNearestTo: Node has no parent, cannot find siblings: $node" }
+        return null
+    }
+    var nearestNode: ACSNodeInfo? = null
+    var minDistance = Double.MAX_VALUE
+    val ancestors = mutableSetOf(node)
+
+    repeat(maxNesting) {
+        ancestors.add(currentParent)
+
+        currentParent.children().forEach { sibling ->
+            if (sibling !in ancestors && predicate(sibling)) {
+                val distance = node.distanceTo(sibling)
+                log(tag, VERBOSE) { "findNearestTo: Distance ${distance}px to sibling $sibling" }
+                if (distance < minDistance) {
+                    minDistance = distance
+                    nearestNode = sibling
+                }
+            }
+        }
+
+        currentParent = currentParent.parent ?: return@repeat
+    }
+
+    return nearestNode
+}
 
 fun StepContext.clickNormal(
     isDryRun: Boolean = false,
