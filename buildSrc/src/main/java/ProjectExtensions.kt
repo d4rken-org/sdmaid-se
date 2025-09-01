@@ -118,30 +118,72 @@ fun Test.setupTests() {
     testLogging {
         events(
             TestLogEvent.FAILED,
-            TestLogEvent.PASSED,
             TestLogEvent.SKIPPED,
-//            TestLogEvent.STANDARD_OUT,
         )
-        exceptionFormat = TestExceptionFormat.FULL
+        exceptionFormat = TestExceptionFormat.SHORT
         showExceptions = true
         showCauses = true
-        showStackTraces = true
+        showStackTraces = false
+    }
 
-        addTestListener(object : TestListener {
-            override fun beforeSuite(suite: TestDescriptor) {}
-            override fun beforeTest(testDescriptor: TestDescriptor) {}
-            override fun afterTest(testDescriptor: TestDescriptor, result: TestResult) {}
-            override fun afterSuite(suite: TestDescriptor, result: TestResult) {
-                if (suite.parent != null) {
-                    val messages = """
-                        ------------------------------------------------------------------------------------------------
-                        | ${result.resultType} ${result.testCount} tests: ${result.successfulTestCount} passed, ${result.failedTestCount} failed, ${result.skippedTestCount} skipped)
-                        ------------------------------------------------------------------------------------------------
-                        
-                    """.trimIndent()
-                    println(messages)
+    val failedTests = mutableListOf<String>()
+    var totalTests = 0
+    var passedTests = 0
+    var failedTestCount = 0
+    var skippedTests = 0
+
+    addTestListener(object : TestListener {
+        override fun beforeSuite(suite: TestDescriptor) {
+            if (suite.parent == null) {
+                println("\n🧪 Starting test suite: ${suite.displayName}")
+            }
+        }
+
+        override fun beforeTest(testDescriptor: TestDescriptor) {}
+
+        override fun afterTest(testDescriptor: TestDescriptor, result: TestResult) {
+            when (result.resultType) {
+                TestResult.ResultType.SUCCESS -> {
+                    print(".")
+                    passedTests++
+                }
+
+                TestResult.ResultType.FAILURE -> {
+                    print("F")
+                    failedTests.add("${testDescriptor.className} > ${testDescriptor.displayName}")
+                    failedTestCount++
+                }
+
+                TestResult.ResultType.SKIPPED -> {
+                    print("S")
+                    skippedTests++
                 }
             }
-        })
-    }
+            totalTests++
+        }
+
+        override fun afterSuite(suite: TestDescriptor, result: TestResult) {
+            // Only show final summary for the root suite
+            if (suite.parent == null) {
+                println("\n")
+                println("=".repeat(80))
+                println("📊 TEST RESULTS SUMMARY")
+                println("=".repeat(80))
+                println("Total: ${result.testCount} | ✅ Passed: ${result.successfulTestCount} | ❌ Failed: ${result.failedTestCount} | ⏭️ Skipped: ${result.skippedTestCount}")
+                println("Duration: ${(result.endTime - result.startTime) / 1000.0}s")
+
+                if (failedTests.isNotEmpty()) {
+                    println("\n❌ FAILED TESTS:")
+                    println("-".repeat(80))
+                    failedTests.forEach { testName ->
+                        println("  • $testName")
+                    }
+                    println("-".repeat(80))
+                }
+
+                println("Result: ${if (result.resultType == TestResult.ResultType.SUCCESS) "✅ PASSED" else "❌ FAILED"}")
+                println("=".repeat(80))
+            }
+        }
+    })
 }
