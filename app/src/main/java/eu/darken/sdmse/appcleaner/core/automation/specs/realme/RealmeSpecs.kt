@@ -86,7 +86,7 @@ class RealmeSpecs @Inject constructor(
                 val target = storageFinder(this) ?: return@action false
                 log(TAG) { "Found target $target" }
                 when {
-                    hasApiLevel(36) -> {
+                    hasApiLevel(35) -> {
                         val mapped = findClickableParent(maxNesting = 3, node = target)
                         if (mapped != null) {
                             clickNormal(node = mapped)
