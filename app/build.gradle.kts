@@ -138,7 +138,7 @@ android {
         //noinspection WrongGradleMethod
         tasks.withType<Test> {
             useJUnitPlatform()
-            setupTestLogging()
+            setupTests()
         }
     }
 

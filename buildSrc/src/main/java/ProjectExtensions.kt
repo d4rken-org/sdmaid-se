@@ -110,7 +110,11 @@ fun com.android.build.api.dsl.SigningConfig.setupCredentials(
     }
 }
 
-fun Test.setupTestLogging() {
+fun Test.setupTests() {
+    maxHeapSize = "2048m"
+    maxParallelForks = 2
+    forkEvery = 100
+
     testLogging {
         events(
             TestLogEvent.FAILED,

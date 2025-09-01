@@ -30,7 +30,7 @@ android {
         }
         tasks.withType<Test> {
             useJUnitPlatform()
-            setupTestLogging()
+            setupTests()
         }
     }
 }
