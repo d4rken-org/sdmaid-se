@@ -68,8 +68,10 @@ class CustomFilter @AssistedInject constructor(
         return SystemCleanerFilter.Match.Deletion(item)
     }
 
-    override suspend fun process(matches: Collection<SystemCleanerFilter.Match>) {
-        matches.deleteAll(gatewaySwitch)
+    override suspend fun process(
+        matches: Collection<SystemCleanerFilter.Match>
+    ): Collection<SystemCleanerFilter.Processed> {
+        return matches.filterIsInstance<SystemCleanerFilter.Match.Deletion>().deleteAll(gatewaySwitch)
     }
 
     override fun toString(): String = "${this::class.simpleName}(${filterConfig.label})"

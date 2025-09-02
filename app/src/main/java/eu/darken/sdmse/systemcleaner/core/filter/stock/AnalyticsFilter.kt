@@ -27,7 +27,7 @@ import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.toDeletion
 import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
-import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve.*
+import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve.Config
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Provider
@@ -109,8 +109,10 @@ class AnalyticsFilter @Inject constructor(
         return match.toDeletion()
     }
 
-    override suspend fun process(matches: Collection<SystemCleanerFilter.Match>) {
-        matches.deleteAll(gatewaySwitch)
+    override suspend fun process(
+        matches: Collection<SystemCleanerFilter.Match>
+    ): Collection<SystemCleanerFilter.Processed> {
+        return matches.filterIsInstance<SystemCleanerFilter.Match.Deletion>().deleteAll(gatewaySwitch)
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"

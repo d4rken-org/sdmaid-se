@@ -77,8 +77,10 @@ class TempFilesFilter @Inject constructor(
         return sieve.match(item).toDeletion()
     }
 
-    override suspend fun process(matches: Collection<SystemCleanerFilter.Match>) {
-        matches.deleteAll(gatewaySwitch)
+    override suspend fun process(
+        matches: Collection<SystemCleanerFilter.Match>
+    ): Collection<SystemCleanerFilter.Processed> {
+        return matches.filterIsInstance<SystemCleanerFilter.Match.Deletion>().deleteAll(gatewaySwitch)
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"
