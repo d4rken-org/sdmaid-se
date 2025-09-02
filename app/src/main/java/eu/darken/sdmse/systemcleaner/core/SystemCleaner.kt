@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -188,9 +189,10 @@ class SystemCleaner @Inject constructor(
                 },
             ) {
                 try {
-                    process(targetMatches)
+                    val results = process(targetMatches)
                     log(TAG) { "Processed ${targetMatches.size} for ${filter.identifier}!" }
-                    processed.addAll(targetMatches)
+                    processed.addAll(results.filter { it.success }.map { it.match })
+                    results.filter { !it.success }.forEach { log(TAG, WARN) { "Failed to process $it" } }
                 } catch (e: PathException) {
                     log(TAG, ERROR) { "Failed to process for ${filter.identifier}: ${e.asLog()}" }
                 }

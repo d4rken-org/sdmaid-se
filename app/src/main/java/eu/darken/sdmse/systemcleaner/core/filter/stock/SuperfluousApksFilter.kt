@@ -163,8 +163,10 @@ class SuperfluousApksFilter @Inject constructor(
         return if (superfluos) SystemCleanerFilter.Match.Deletion(item) else null
     }
 
-    override suspend fun process(matches: Collection<SystemCleanerFilter.Match>) {
-        matches.deleteAll(gatewaySwitch)
+    override suspend fun process(
+        matches: Collection<SystemCleanerFilter.Match>
+    ): Collection<SystemCleanerFilter.Processed> {
+        return matches.filterIsInstance<SystemCleanerFilter.Match.Deletion>().deleteAll(gatewaySwitch)
     }
 
     override fun toString(): String = "${this::class.simpleName}(${hashCode()})"
