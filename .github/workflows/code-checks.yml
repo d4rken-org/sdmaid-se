@@ -49,7 +49,7 @@ jobs:
       fail-fast: false
       matrix:
         variant: [ Debug,Beta,Release ]
-        flavor: [ test,testFoss,testGplay ]
+        flavor: [ testFoss,testGplay ]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout source code
