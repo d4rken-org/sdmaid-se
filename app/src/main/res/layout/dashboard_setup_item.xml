@@ -55,12 +55,14 @@
             android:textColor="?attr/colorOnPrimaryContainer"
             app:iconTint="?attr/colorOnPrimaryContainer"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toStartOf="@id/continue_setup_action"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/continue_setup_action" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/continue_setup_action"
             style="@style/DashboardCardButton.Filled"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/setup_incomplete_card_continue_action"
