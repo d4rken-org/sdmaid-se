@@ -13,6 +13,14 @@
     <string name="debug_debuglog_record_action">Registrer feilsøkingslogg</string>
     <string name="debug_debuglog_stop_action">Stopp opptak</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererte filen inneholder sensitiv informasjon (f.eks. filnavn og installerte apper). Del den kun med pålitelige parter.</string>
+    <string name="debug_debuglog_screen_title">Feilsøkingslogg</string>
+    <string name="debug_debuglog_screen_discard_action">Forkast</string>
+    <string name="debug_debuglog_screen_session_path_label">Øktsti</string>
+    <string name="debug_debuglog_screen_log_files_label">Loggfiler</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fil klar (%2$s)</item>
+        <item quantity="other">%1$d filer klar (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Denne funksjonen registrerer alt appen gjør i en fil som kan deles. Den genererte filen inneholder sensitiv informasjon (f.eks. filnavn og installerte apper). Del den kun med pålitelige parter (f.eks. en utvikler som feilsøker et problem).</string>
     <string name="tasks_activity_notification_channel_label">Aktive oppgaver</string>
     <string name="tasks_activity_working_notification_title">SD Maid jobber</string>

@@ -13,6 +13,14 @@
     <string name="debug_debuglog_record_action">Gravar log de depuração</string>
     <string name="debug_debuglog_stop_action">Parar gravação</string>
     <string name="debug_debuglog_sensitive_information_message">O arquivo gerado contém informações confidenciais (por exemplo, nomes de arquivos e aplicativos instalados). Compartilhe-o apenas com pessoas confiáveis.</string>
+    <string name="debug_debuglog_screen_title">Registro de depuração</string>
+    <string name="debug_debuglog_screen_discard_action">Descartar</string>
+    <string name="debug_debuglog_screen_session_path_label">Caminho da sessão</string>
+    <string name="debug_debuglog_screen_log_files_label">Arquivos de registro</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d arquivo pronto (%2$s)</item>
+        <item quantity="other">%1$d arquivos prontos (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Este recurso grava tudo o que o app está fazendo em um arquivo compartilhável. O arquivo gerado contém informações confidenciais (por exemplo,  nomes de arquivos e apps instalados). Compartilhe apenas com partes confiáveis (por exemplo, uma solução de problemas para um desenvolvedor).</string>
     <string name="tasks_activity_notification_channel_label">Tarefas ativas</string>
     <string name="tasks_activity_working_notification_title">O SD Maid está trabalhando</string>

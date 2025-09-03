@@ -91,7 +91,10 @@
     <string name="general_toggle_layout_mode">Skift visningstilstand</string>
     <string name="general_delete_confirmation_title">Bekræft sletning</string>
     <string name="general_delete_confirmation_message_x">Slet \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Slet %d valgte elementer?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Slet %d valgt fil?</item>
+        <item quantity="other">Slet %d valgte filer?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Slettede %d element.</item>
         <item quantity="other">Slettede %d elementer.</item>
@@ -164,4 +167,6 @@
     <string name="general_error_report_bug_action">Rapportér fejl</string>
     <string name="general_error_ipc_deadobject_title">Tjenesteforbindelse tabt</string>
     <string name="general_error_ipc_deadobject_description">Forbindelsen til en kritisk tjeneste (f.eks. Magisk, Shizuku eller andre systemtjenester) blev uventet afbrudt. Genstart din enhed. Hvis problemet fortsætter, søg efter opdateringer, eller kontakt mig, så jeg kan løse det.</string>
+    <string name="general_user_label_owner">Ejer</string>
+    <string name="general_user_label_system">System</string>
 </resources>

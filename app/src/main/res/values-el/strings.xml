@@ -13,6 +13,14 @@
     <string name="debug_debuglog_record_action">Καταγραφή αρχείου εντοπισμού σφαλμάτων</string>
     <string name="debug_debuglog_stop_action">Διακοπή καταγραφής</string>
     <string name="debug_debuglog_sensitive_information_message">Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π.χ. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με όποιον εμπιστεύεστε.</string>
+    <string name="debug_debuglog_screen_title">Αρχείο καταγραφής εντοπισμού σφαλμάτων</string>
+    <string name="debug_debuglog_screen_discard_action">Απόρριψη</string>
+    <string name="debug_debuglog_screen_session_path_label">Διαδρομή Συνεδρίας</string>
+    <string name="debug_debuglog_screen_log_files_label">Αρχεία καταγραφής</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d αρχείο έτοιμο (%2$s)</item>
+        <item quantity="other">%1$d αρχεία έτοιμα (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Αυτή η λειτουργία καταγράφει όλα όσα κάνει η εφαρμογή σε ένα κοινόχρηστο αρχείο. Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π. χ.. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με αξιόπιστα μέρη (π.χ. σε έναν προγραμματιστή για να διορθώσει προβλήματα και σφάλματα σε ένα ζήτημα).</string>
     <string name="tasks_activity_notification_channel_label">Ενεργές διεργασίες</string>
     <string name="tasks_activity_working_notification_title">Η εφαρμογή SD Maid είναι απασχολημένη</string>
@@ -674,7 +682,7 @@
     <string name="translation_encourage_title">Μετάφραση του SD Maid</string>
     <string name="translation_encourage_body">Το SD Maid μεταφράστηκε απο εθελοντές. Η βοήθεια σας για μετάφραση, κριτική ή διόρθωση είναι ευπρόσδεκτη!</string>
     <string name="translation_translators_title">Αυτή η έκδοση μεταφράστηκε από</string>
-    <string name="translation_translators_people">Vagelis1608;Theodoros;Asimakopoulos(theoasima@gmail.com);iplayradio;ggb_st;Nick Komninos;Retrial</string>
+    <string name="translation_translators_people">Retrial, Vagelis1608;Theodoros;Asimakopoulos(theoasima@gmail.com);iplayradio;ggb_st;Nick Komninos</string>
     <string name="motd_setting_enabled_label">Σημαντικά μηνύματα</string>
     <string name="motd_setting_enabled_explanation">Να επιτρέπεται στο SD Maid να ελέγχει για σημαντικά μηνύματα από τον προγραμματιστή.</string>
     <string name="updatecheck_setting_enabled_label">Έλεγχος ενημερώσεων</string>

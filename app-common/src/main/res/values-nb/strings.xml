@@ -91,7 +91,10 @@
     <string name="general_toggle_layout_mode">Bytt visningsmodus</string>
     <string name="general_delete_confirmation_title">Bekreft sletting</string>
     <string name="general_delete_confirmation_message_x">Slette \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Slett %d valgte elementer?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Slett %d valgt element?</item>
+        <item quantity="other">Slett %d valgte elementer?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Slettet %d element.</item>
         <item quantity="other">Slettet %d elementer.</item>

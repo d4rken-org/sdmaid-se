@@ -8,6 +8,8 @@
     <string name="upgrades_dashcard_upgrade_action">Actualizează</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play nu este disponibil</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid nu se poate conecta la Google Play. Google Play este instalat și actualizat? Este conectat contul dvs. Google? Încercați să curățați memoria cache a aplicației Google Play și reporniți dispozitivul.</string>
+    <string name="upgrades_gplay_billing_error_label">Problemă din partea Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">A fost o problemă cu Google Play. Vă rugăm să încercați din nou mai târziu sau să reporniți dispozitivul.\n\nDetalii: %s</string>
     <string name="upgrades_no_purchases_found_check_account">Nu s-a găsit nicio achiziție. Ești sigur că folosești contul corect?</string>
     <string name="upgrade_screen_title">Obține SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nu are reclame și nu vinde datele utilizatorului. Munca mea este finanțată de tine.</string>

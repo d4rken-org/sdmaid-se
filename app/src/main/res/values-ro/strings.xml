@@ -13,6 +13,15 @@
     <string name="debug_debuglog_record_action">Înregistrează jurnalul de depanare</string>
     <string name="debug_debuglog_stop_action">Oprire înregistrare</string>
     <string name="debug_debuglog_sensitive_information_message">Fișierul generat conține informații sensibile (ex: numele fișierului și aplicații instalate). Partajează-l doar cu părțile de încredere.</string>
+    <string name="debug_debuglog_screen_title">Jurnal de depanare</string>
+    <string name="debug_debuglog_screen_discard_action">Renunțați</string>
+    <string name="debug_debuglog_screen_session_path_label">Cale sesiune</string>
+    <string name="debug_debuglog_screen_log_files_label">Fișiere jurnal</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fișier gata (%2$s)</item>
+        <item quantity="few">%1$d fișiere gata (%2$s)</item>
+        <item quantity="other">%1$d fișiere gata (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Această funcție înregistrează tot ce face aplicația într-un fișier partajabil. Fișierul generat conține informații sensibile (de exemplu, numele fișierelor și aplicațiilor instalate). Distribuiți-l numai persoanelor de încredere (de exemplu, unui dezvoltator care depanează o problemă).</string>
     <string name="tasks_activity_notification_channel_label">Sarcini active</string>
     <string name="tasks_activity_working_notification_title">SD Maid funcționează</string>
@@ -524,6 +533,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Obțineți o estimare aproximativă a dimensiunii fiecărei aplicații.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determină activitatea</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Află dacă o aplicație este (sau a fost recent) activă.</string>
+    <string name="appcontrol_include_multiuser_label">Includeți alți utilizatori</string>
+    <string name="appcontrol_include_multiuser_summary">Includeți aplicații din alte profiluri de utilizator pe acest dispozitiv.</string>
     <string name="appcontrol_export_app_selection_action">Exportă aplicații</string>
     <string name="appcontrol_export_title">Exportă aplicația</string>
     <string name="appcontrol_export_description">Salvați fișierele de instalare ale acestei aplicații. Aceasta nu include datele aplicației.</string>

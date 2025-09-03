@@ -13,6 +13,16 @@
     <string name="debug_debuglog_record_action">Запись журнала отладки</string>
     <string name="debug_debuglog_stop_action">Остановить запись</string>
     <string name="debug_debuglog_sensitive_information_message">Созданный файл содержит конфиденциальную информацию (например, имена файлов и установленные приложения). Передавайте его только доверенным лицам.</string>
+    <string name="debug_debuglog_screen_title">Журнал отладки</string>
+    <string name="debug_debuglog_screen_discard_action">Отклонить</string>
+    <string name="debug_debuglog_screen_session_path_label">Путь сессии</string>
+    <string name="debug_debuglog_screen_log_files_label">Файлы журналов</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">Файлов готово: %1$d (%2$s)</item>
+        <item quantity="few">Файлов готово: %1$d (%2$s)</item>
+        <item quantity="many">Файлов готово: %1$d (%2$s)</item>
+        <item quantity="other">Файлов готово: %1$d (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Эта функция записывает все действия приложения в файл, который может быть выложен в общий доступ. Созданный файл содержит конфиденциальную информацию (например, имена файлов и установленные приложения). Делитесь им только с доверенными лицами (например, с разработчиком, который устраняет проблему).</string>
     <string name="tasks_activity_notification_channel_label">Активные задачи</string>
     <string name="tasks_activity_working_notification_title">SD Maid работает</string>
@@ -244,8 +254,8 @@
     <string name="systemcleaner_filter_custom_label">Пользовательские фильтры</string>
     <string name="systemcleaner_filter_custom_manage_label">Управление пользовательскими фильтрами</string>
     <string name="systemcleaner_filter_custom_manage_summary">Создание, удаление, импорт и экспорт пользовательских фильтров.</string>
-    <string name="systemcleaner_filter_logfiles_label">Системные логи</string>
-    <string name="systemcleaner_filter_logfiles_summary">Файлы журнала системных и системных служб (например, *.log) в различных местах.</string>
+    <string name="systemcleaner_filter_logfiles_label">Файлы системного журнала</string>
+    <string name="systemcleaner_filter_logfiles_summary">Файлы журнала системы и системных служб (например, *.log) в различных местах.</string>
     <string name="systemcleaner_filter_packagecaches_label">Кэш установщика</string>
     <string name="systemcleaner_filter_packagecaches_summary">Кэшированные данные, связанные с установленными приложениями, используемые системой управления пакетами.</string>
     <string name="systemcleaner_filter_advertisements_label">Файлы рекламы</string>
@@ -414,7 +424,7 @@
         <item quantity="other">Удалить ненужные данные для %d выбранных приложений?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Удаление кэша с помощью Shizuku</string>
-    <string name="appcleaner_progress_determining_inaccessible_caches">Определение недоступных кэшей</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Определение недоступного кэша</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Очистка кэша недоступна</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Система отключила кнопку \"Очистить кэш\" для этого приложения. Добавьте в исключения, чтобы ускорить очистку кэша.</string>
     <string name="appcleaner_automation_error_no_settings_title">Экран настроек недоступен</string>
@@ -542,6 +552,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Получите приблизительную оценку размера каждого приложения.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Определение активности</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Узнайте, активно ли приложение (или недавно было активно).</string>
+    <string name="appcontrol_include_multiuser_label">Включать других пользователей</string>
+    <string name="appcontrol_include_multiuser_summary">Включать приложения из других профилей пользователей на этом устройстве.</string>
     <string name="appcontrol_export_app_selection_action">Экспорт приложений</string>
     <string name="appcontrol_export_title">Экспорт приложения</string>
     <string name="appcontrol_export_description">Сохраните файлы установки этого приложения. Это не включает данные приложения.</string>

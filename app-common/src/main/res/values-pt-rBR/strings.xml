@@ -91,7 +91,10 @@
     <string name="general_toggle_layout_mode">Trocar o modo de visualização</string>
     <string name="general_delete_confirmation_title">Confirmar a ação</string>
     <string name="general_delete_confirmation_message_x">Apagar \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Deletar %d itens selecionados?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Excluir %d item selecionado?</item>
+        <item quantity="other">Excluir %d itens selecionados?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d item excluído.</item>
         <item quantity="other">%d itens excluídos.</item>

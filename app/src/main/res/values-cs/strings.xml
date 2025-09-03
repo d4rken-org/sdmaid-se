@@ -17,6 +17,12 @@
     <string name="debug_debuglog_screen_discard_action">Zrušit</string>
     <string name="debug_debuglog_screen_session_path_label">Cesta relace</string>
     <string name="debug_debuglog_screen_log_files_label">Soubory protokolů</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d soubor připraven (%2$s)</item>
+        <item quantity="few">%1$d soubory připraveny (%2$s)</item>
+        <item quantity="many">%1$d souborů připraveno (%2$s)</item>
+        <item quantity="other">%1$d souborů připraveno (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Tato funkce zaznamenává vše, co aplikace dělá do souboru, který lze sdílet. Vygenerovaný soubor obsahuje citlivé informace (např. názvy souborů a nainstalovaných aplikací). Sdílejte je pouze s důvěryhodnými stranami (např. s vývojáři, kteří řeší nějaký problém).</string>
     <string name="tasks_activity_notification_channel_label">Aktivní úlohy</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>

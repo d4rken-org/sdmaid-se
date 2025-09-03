@@ -91,7 +91,10 @@
     <string name="general_toggle_layout_mode">تغییر حالت نمایش</string>
     <string name="general_delete_confirmation_title">تایید حذف</string>
     <string name="general_delete_confirmation_message_x">\"%s\" حذف شود؟</string>
-    <string name="general_delete_confirmation_message_selected_x_items">%d مورد انتخابی حذف شود؟</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">حذف %d مورد انتخابی؟</item>
+        <item quantity="other">حذف %d مورد انتخابی؟</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d مورد حذف شد.</item>
         <item quantity="other">%d مورد حذف شد.</item>
@@ -164,4 +167,6 @@
     <string name="general_error_report_bug_action">گزارش اشکال</string>
     <string name="general_error_ipc_deadobject_title">اتصال سرویس قطع شد</string>
     <string name="general_error_ipc_deadobject_description">اتصال به یک سرویس حیاتی (مثلاً Magisk، Shizuku یا سایر سرویس‌های سطح سیستم) به طور غیرمنتظره‌ای قطع شد. لطفاً دستگاه خود را مجدداً راه‌اندازی کنید. اگر مشکل همچنان ادامه داشت، به‌روزرسانی‌ها را بررسی کنید یا با من تماس بگیرید تا بتوانم آن را برطرف کنم.</string>
+    <string name="general_user_label_owner">مالک</string>
+    <string name="general_user_label_system">سیستم</string>
 </resources>
