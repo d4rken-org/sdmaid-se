@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">हेर्ने मोड बदल्नुहोस्</string>
     <string name="general_delete_confirmation_title">मेटाउने पुष्टि गर्नुहोस्</string>
     <string name="general_delete_confirmation_message_x">\"%s\" मेटाउने?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">चयन गरिएका %d वस्तुहरू मेटाउने?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d वस्तु मेटाइयो।</item>
         <item quantity="other">%d वस्तुहरू मेटाइए।</item>

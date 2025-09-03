@@ -13,6 +13,8 @@
     <string name="debug_debuglog_record_action">Ghi nhật ký gỡ lỗi</string>
     <string name="debug_debuglog_stop_action">Dừng ghi</string>
     <string name="debug_debuglog_sensitive_information_message">Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ nó với các bên đáng tin cậy.</string>
+    <string name="debug_debuglog_screen_discard_action">Bỏ qua</string>
+    <string name="debug_debuglog_screen_log_files_label">Tệp nhật ký</string>
     <string name="settings_debuglog_explanation">Tính năng này ghi lại mọi thứ ứng dụng đang làm vào một tệp có thể chia sẻ. Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ với các bên đáng tin cậy (ví dụ: nhà phát triển đang khắc phục sự cố).</string>
     <string name="tasks_activity_notification_channel_label">Tác vụ đang chạy</string>
     <string name="tasks_activity_working_notification_title">SD Maid đang hoạt động</string>

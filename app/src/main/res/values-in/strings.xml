@@ -13,6 +13,10 @@
     <string name="debug_debuglog_record_action">Rekam log debug</string>
     <string name="debug_debuglog_stop_action">Berhenti merekam</string>
     <string name="debug_debuglog_sensitive_information_message">File yang dihasilkan berisi informasi sensitif (misalnya nama file dan aplikasi yang diinstal). Hanya bagikan dengan pihak tepercaya.</string>
+    <string name="debug_debuglog_screen_title">Log Debug</string>
+    <string name="debug_debuglog_screen_discard_action">Buang</string>
+    <string name="debug_debuglog_screen_session_path_label">Jalur sesi</string>
+    <string name="debug_debuglog_screen_log_files_label">Berkas log</string>
     <string name="settings_debuglog_explanation">Fitur ini merekam semua yang dilakukan aplikasi ke dalam file yang dapat dibagikan. File yang dihasilkan berisi informasi sensitif (misalnya nama file dan aplikasi yang diinstal). Hanya bagikan dengan pihak terpercaya (misalnya pengembang yang sedang memecahkan masalah).</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid bekerja</string>

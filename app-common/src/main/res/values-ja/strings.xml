@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">表示モードを切り替える</string>
     <string name="general_delete_confirmation_title">削除完了</string>
     <string name="general_delete_confirmation_message_x">\"%s\"を削除しますか？</string>
-    <string name="general_delete_confirmation_message_selected_x_items">%d 選択したアイテムを削除しますか？</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">%d項目を削除しました。</item>
     </plurals>

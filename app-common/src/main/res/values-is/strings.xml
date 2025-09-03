@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">Skipta um útsýnisham</string>
     <string name="general_delete_confirmation_title">Staðfesta eyðingu</string>
     <string name="general_delete_confirmation_message_x">Eyða \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Eyða %d völdum hlutum?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d hlut eytt.</item>
         <item quantity="other">%d hlutum eytt.</item>

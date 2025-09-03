@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">切換檢視模式</string>
     <string name="general_delete_confirmation_title">確認刪除</string>
     <string name="general_delete_confirmation_message_x">刪除「%s」？</string>
-    <string name="general_delete_confirmation_message_selected_x_items">刪除 %d 個已選取的項目？</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">已刪除 %d 項。</item>
     </plurals>
@@ -151,4 +150,5 @@
     <string name="general_advice_title">建議</string>
     <string name="general_error_invalid_input_label">無效的輸入</string>
     <string name="general_information_for_the_developer">開發人員資訊</string>
+    <string name="general_error_ipc_deadobject_description">關鍵服務（例如 Magisk、Shizuku 或其他系統層級服務）的連線意外中斷。請重新啟動您的裝置。如果問題持續發生，請檢查是否有可用更新，或聯絡我以協助修復問題。</string>
 </resources>

@@ -92,7 +92,6 @@
     <string name="general_toggle_layout_mode">Promjena načina prikaza</string>
     <string name="general_delete_confirmation_title">Potvrdite brisanje</string>
     <string name="general_delete_confirmation_message_x">Izbrisati \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Izbrisati %d odabranih stavki?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Izbrisana %d stavka.</item>
         <item quantity="few">Izbrisane %d stavke.</item>

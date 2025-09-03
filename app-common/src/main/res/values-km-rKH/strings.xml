@@ -89,7 +89,6 @@
     <string name="general_toggle_layout_mode">ប្តូរម៉ូតទិដ្ឋភាព</string>
     <string name="general_delete_confirmation_title">បញ្ជាក់ការលុប</string>
     <string name="general_delete_confirmation_message_x">លុប \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">លុបធាតុដែលបានជ្រើស %d?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">បានលុបធាតុ %d។</item>
     </plurals>

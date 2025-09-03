@@ -91,7 +91,6 @@
     <string name="general_toggle_layout_mode">Cambiar modo de vista</string>
     <string name="general_delete_confirmation_title">Confirmá la eliminación</string>
     <string name="general_delete_confirmation_message_x">¿Borrar «%s»?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">¿Borrar los %d elementos seleccionados?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Se eliminó %d elemento.</item>
         <item quantity="other">Se eliminaron %d elementos.</item>

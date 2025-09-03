@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">Ganti mode tampilan</string>
     <string name="general_delete_confirmation_title">Konfirmasi penghapusan</string>
     <string name="general_delete_confirmation_message_x">Hapus \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Hapus %d objek yang dipilih?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">%d item dihapus.</item>
     </plurals>

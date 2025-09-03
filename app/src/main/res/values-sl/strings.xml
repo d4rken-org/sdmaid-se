@@ -13,6 +13,10 @@
     <string name="debug_debuglog_record_action">Posneti dnevnik razhroščevanja</string>
     <string name="debug_debuglog_stop_action">Ustavi snemanje</string>
     <string name="debug_debuglog_sensitive_information_message">Ustvarjena datoteka vsebuje občutljive podatke (npr. imena datotek in nameščene programe).  Posredujte jo samo osebam, ki jim zaupate.</string>
+    <string name="debug_debuglog_screen_title">Razhroščevalni dnevnik</string>
+    <string name="debug_debuglog_screen_discard_action">Zavrzi</string>
+    <string name="debug_debuglog_screen_session_path_label">Pot seje</string>
+    <string name="debug_debuglog_screen_log_files_label">Dnevniške datoteke</string>
     <string name="settings_debuglog_explanation">Ta značilnost si v datoteko zabeleži vse, kar počne program.  Ustvarjena datoteka vsebuje občutljive podatke (npr. imena datotek in nameščene programe).  Posredujte jo samo osebam, ki  jim zaupate (npr. razvijalcu, ki poskuša rešiti težavo).</string>
     <string name="tasks_activity_notification_channel_label">Dejavna opravila</string>
     <string name="tasks_activity_working_notification_title">SD Maid opravlja naloge</string>
@@ -542,6 +546,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Približno oceni velikost vsakega programa.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Ugotovi dejavnost</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Ugotovi, ali je (bil nedavno) program dejaven.</string>
+    <string name="appcontrol_include_multiuser_label">Vključi druge uporabnike</string>
+    <string name="appcontrol_include_multiuser_summary">Vključi programe iz drugih uporabniških profilov na napravi.</string>
     <string name="appcontrol_export_app_selection_action">Izvozi programe</string>
     <string name="appcontrol_export_title">Izvozi program</string>
     <string name="appcontrol_export_description">Shrani namestitvene datoteke tega programa.  To ne vključuje podatke programa.</string>

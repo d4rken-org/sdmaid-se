@@ -93,7 +93,6 @@
     <string name="general_toggle_layout_mode">שנה מצב תצוגה</string>
     <string name="general_delete_confirmation_title">אישור מחיקה</string>
     <string name="general_delete_confirmation_message_x">למחוק את \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">למחוק את %d הפריטים שנבחרו?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">פריט %d נמחק.</item>
         <item quantity="two">נמחקו %d פריטים.</item>

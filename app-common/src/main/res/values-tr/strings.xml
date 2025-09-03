@@ -91,7 +91,6 @@
     <string name="general_toggle_layout_mode">Görünüm modunu değiştir</string>
     <string name="general_delete_confirmation_title">Silmeyi onayla</string>
     <string name="general_delete_confirmation_message_x">\"%s\" silinsin mi?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Seçili %d öğe silinsin mi?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d öğe silindi.</item>
         <item quantity="other">%d öğe silindi.</item>
@@ -164,4 +163,6 @@
     <string name="general_error_report_bug_action">Hata bildir</string>
     <string name="general_error_ipc_deadobject_title">Servis bağlantısı kesildi</string>
     <string name="general_error_ipc_deadobject_description">Kritik bir hizmetle (örneğin Magisk, Shizuku veya diğer sistem düzeyi hizmetler) bağlantı beklenmedik bir şekilde kesildi. Lütfen cihazınızı yeniden başlatın. Sorun devam ederse, güncellemeleri kontrol edin veya düzeltebilmem için bana ulaşın.</string>
+    <string name="general_user_label_owner">Sahibi</string>
+    <string name="general_user_label_system">Sistem</string>
 </resources>

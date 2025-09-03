@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">Wissel aansig modus</string>
     <string name="general_delete_confirmation_title">Bevestig skrapping</string>
     <string name="general_delete_confirmation_message_x">Skrap \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Skrap %d geselekteerde items?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d item geskrap.</item>
         <item quantity="other">%d items geskrap.</item>

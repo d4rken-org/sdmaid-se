@@ -93,7 +93,6 @@
     <string name="general_toggle_layout_mode">Перемкнути режим перегляду</string>
     <string name="general_delete_confirmation_title">Підтвердити видалення</string>
     <string name="general_delete_confirmation_message_x">Видалити \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Видалити %d вибраних елементів?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Видалено елемент %d.</item>
         <item quantity="few">Видалено%d елемент.</item>
@@ -166,4 +165,6 @@
     <string name="general_error_report_bug_action">Повідомити про помилку</string>
     <string name="general_error_ipc_deadobject_title">Сервісне з’єднання втрачено</string>
     <string name="general_error_ipc_deadobject_description">Несподівано було втрачено зв\'язок з критично важливою службою (наприклад, Magisk, Shizuku або іншими службами системного рівня). Будь ласка, перезавантажте пристрій. Якщо проблема не зникне, перевірте наявність оновлень або зв\'яжіться зі мною, щоб я міг її виправити.</string>
+    <string name="general_user_label_owner">Власник</string>
+    <string name="general_user_label_system">Система</string>
 </resources>

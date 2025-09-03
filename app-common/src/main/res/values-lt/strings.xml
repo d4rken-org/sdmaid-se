@@ -92,7 +92,6 @@
     <string name="general_toggle_layout_mode">Perjungti peržiūros režimą</string>
     <string name="general_delete_confirmation_title">Patvirtinti trynimą</string>
     <string name="general_delete_confirmation_message_x">Trinti \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Trinti %d pažymėtus elementus?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Ištrintas %d elementas.</item>
         <item quantity="few">Ištrinti %d elementai.</item>

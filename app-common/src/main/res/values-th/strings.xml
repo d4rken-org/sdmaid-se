@@ -88,7 +88,6 @@
     <string name="general_toggle_layout_mode">เปลี่ยนโหมดการแสดงผล</string>
     <string name="general_delete_confirmation_title">ยืนยันการลบ</string>
     <string name="general_delete_confirmation_message_x">ลบ \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">ลบ %d รายการที่เลือก?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">ลบ %d รายการแล้ว</item>
     </plurals>

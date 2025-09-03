@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">Превключване на режима на изглед</string>
     <string name="general_delete_confirmation_title">Потвърждаване на изтриването</string>
     <string name="general_delete_confirmation_message_x">Изтриване на \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Изтриване на %d избрани елемента?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Изтрит %d елемент.</item>
         <item quantity="other">Изтрити %d елемента.</item>

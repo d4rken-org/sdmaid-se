@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">వీక్షణ మోడ్‌ను మార్చండి</string>
     <string name="general_delete_confirmation_title">తొలగింపును నిర్ధారించండి</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ను తొలగించాలా?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">ఎంచుకున్న %d వస్తువులను తొలగించాలా?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d వస్తువు తొలగించబడింది.</item>
         <item quantity="other">%d వస్తువులు తొలగించబడ్డాయి.</item>

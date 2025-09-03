@@ -89,7 +89,6 @@
     <string name="general_toggle_layout_mode">ကြည့်မုဒ်လဲပါ</string>
     <string name="general_delete_confirmation_title">ဖျက်ခြင်းကို အတည်ပြုပါ</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ကို ဖျက်မလား?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">ရွေးချယ်ထားသော %d ခုကို ဖျက်မလား?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">%d ခုကို ဖျက်ပြီးပါပြီ။</item>
     </plurals>

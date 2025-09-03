@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">دیکھنے کی موڈ تبدیل کریں</string>
     <string name="general_delete_confirmation_title">حذف کی تصدیق کریں</string>
     <string name="general_delete_confirmation_message_x">\"%s\" کو حذف کریں؟</string>
-    <string name="general_delete_confirmation_message_selected_x_items">منتخب %d اشیاء کو حذف کریں؟</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d آئٹم حذف کیا گیا۔</item>
         <item quantity="other">%d آئٹمز حذف کیے گئے۔</item>

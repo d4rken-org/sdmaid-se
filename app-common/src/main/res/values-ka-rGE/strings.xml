@@ -91,7 +91,6 @@
     <string name="general_toggle_layout_mode">ნახვის რეჟიმის გადართვა</string>
     <string name="general_delete_confirmation_title">წაშლის დადასტურება</string>
     <string name="general_delete_confirmation_message_x">წავშალოთ \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">წავშალოთ %d მონიშნული ელემენტი?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d ელემენტი წაიშალა.</item>
         <item quantity="other">%d ელემენტი წაიშალა.</item>

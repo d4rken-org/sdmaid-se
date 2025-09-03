@@ -91,7 +91,6 @@
     <string name="general_toggle_layout_mode">Ndëro modusin e pamjes</string>
     <string name="general_delete_confirmation_title">Konfirmo fshirjen</string>
     <string name="general_delete_confirmation_message_x">Të fshihet \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Të fshihen %d artikuj të zgjedhur?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Fshinë %d artikull.</item>
         <item quantity="other">Fshinë %d artikuj.</item>

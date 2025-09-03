@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">Görünüş rejimini dəyiş</string>
     <string name="general_delete_confirmation_title">Silməni təsdiqlə</string>
     <string name="general_delete_confirmation_message_x">\"%s\" silinsin?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">%d seçilmiş element silinsin?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d element silindi.</item>
         <item quantity="other">%d element silindi.</item>

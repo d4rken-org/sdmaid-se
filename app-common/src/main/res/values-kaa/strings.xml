@@ -91,7 +91,6 @@
     <string name="general_toggle_layout_mode">Kóriw modesin ózgertew</string>
     <string name="general_delete_confirmation_title">Óshiriwdi tastıyıqlaw</string>
     <string name="general_delete_confirmation_message_x">\"%s\" óshirilsin be?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">%d tańlanǵan elementti óshiretiń be?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d element óshirildi.</item>
         <item quantity="other">%d element óshirildi.</item>
