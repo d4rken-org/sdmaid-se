@@ -20,6 +20,16 @@
             app:title="@string/dashboard_settings_oneclick_tools_title" />
 
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/shortcuts_settings_category">
+        <CheckBoxPreference
+            app:icon="@drawable/ic_delete_alert_24"
+            app:key="shortcut.oneclick.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/shortcuts_onetap_enabled_summary"
+            app:title="@string/shortcuts_onetap_enabled_title" />
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/settings_category_ui_label">
 
         <eu.darken.sdmse.common.preferences.ListPreference2

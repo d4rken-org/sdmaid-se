@@ -790,4 +790,17 @@
     <string name="area_type_public_obb_label">Public app resources</string>
     <string name="area_type_private_data_label">Private app data</string>
     <string name="area_type_portable_label">Portable storage</string>
+
+    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_long">Manage installed apps</string>
+    <string name="shortcut_scan_short">Scan</string>
+    <string name="shortcut_scan_long">Scan for items to clean</string>
+    <string name="shortcut_delete_short">Delete</string>
+    <string name="shortcut_delete_long">Delete found items</string>
+    <string name="shortcut_onetap_short">Scan + Delete</string>
+    <string name="shortcut_onetap_long">Scan and delete in one action</string>
+
+    <string name="shortcuts_settings_category">Shortcuts</string>
+    <string name="shortcuts_onetap_enabled_title">One-tap shortcut</string>
+    <string name="shortcuts_onetap_enabled_summary">Show \"Scan + Delete\" shortcut when long-pressing the app icon. Uses the same tools as one-tap dashboard.</string>
 </resources>
