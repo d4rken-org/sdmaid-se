@@ -26,6 +26,7 @@ import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.common.updater.UpdateService
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
@@ -50,6 +51,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var theming: Theming
     @Inject lateinit var coilTempFiles: CoilTempFiles
     @Inject lateinit var memoryMonitor: MemoryMonitor
+    @Inject lateinit var shortcutManager: ShortcutManager
 
     private val logCatLogger = LogCatLogger()
 
@@ -94,6 +96,8 @@ open class App : Application(), Configuration.Provider {
         Coil.setImageLoader(imageLoaderFactory)
 
         curriculumVitae.updateAppLaunch()
+
+        shortcutManager.initialize()
 
         val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->

@@ -60,6 +60,17 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="eu.darken.sdmse.ACTION_OPEN_APPCONTROL" />
+                <action android:name="eu.darken.sdmse.ACTION_SCAN_DELETE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <receiver
             android:name=".corpsefinder.core.watcher.UninstallWatcherReceiver"
             android:enabled="false"
