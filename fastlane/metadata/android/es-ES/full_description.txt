@@ -6,7 +6,7 @@ Nadie es perfecto y Android tampoco lo es.
 * Tu almacenamiento está acumulando archivos y carpetas que no reconoces.
 * Fotos duplicadas en tu galería.
 
-No sigamos... ¡Deja que SD Maid 2/SE te ayude!
+¡Deja que SD Maid 2/SE te ayude!
 
 SD Maid 2/SE es un gestor de aplicaciones y archivos especializado en saber qué aplicaciones han creado archivos específicos en tu dispositivo. SD Maid 2/SE busca en tu dispositivo y compara los archivos con las aplicaciones instaladas para ofrecerte opciones para liberar espacio de almacenamiento de forma segura.
 
@@ -34,7 +34,7 @@ SD Maid 2/SE es el sucesor de SD Maid 1/Legacy.
 Optimizado para nuevas versiones de Android y enfocado en la limpieza.
 
 Esta aplicación tiene funciones opcionales que utilizan la API del Servicio de Accesibilidad para automatizar acciones tediosas.
-Mediante la API del Servicio de Accesibilidad, esta aplicación puede pulsar botones para que realices operaciones en varias aplicaciones, por ejemplo borrando la memoria caché.
+Mediante la API del Servicio de Accesibilidad, esta aplicación puede pulsar botones para que realices operaciones en varias aplicaciones, por ejemplo borrando la memoria caché. borrando la memoria caché.
 Esta aplicación no utiliza la API del Servicio de Accesibilidad para recopilar información.
 
 SD Maid 2/SE es una aplicación de limpieza y gestión de archivos.
