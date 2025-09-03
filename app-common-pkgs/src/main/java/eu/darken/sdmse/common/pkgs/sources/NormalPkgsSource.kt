@@ -81,6 +81,9 @@ class NormalPkgsSource @Inject constructor(
         if (pkgInfos.none { it.packageName == BuildConfigWrap.APPLICATION_ID }) {
             throw InvalidPkgInventoryException("Returned package data didn't contain us")
         }
+        if (pkgInfos.none { it.packageName == "android" }) {
+            throw InvalidPkgInventoryException("Returned package data didn't contain `android` core package")
+        }
 
         val currentHandle = userManager.currentUser().handle
         val installerData = pkgOps.getInstallerData(pkgInfos)
