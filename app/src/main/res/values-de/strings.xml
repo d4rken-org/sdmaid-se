@@ -13,6 +13,10 @@
     <string name="debug_debuglog_record_action">Debug-Protokoll aufzeichnen</string>
     <string name="debug_debuglog_stop_action">Aufzeichnung beenden</string>
     <string name="debug_debuglog_sensitive_information_message">Die generierte Datei enthält sensible Informationen (z.B. Dateinamen und installierte Apps). Teile sie nur mit vertrauenswürdigen Personen.</string>
+    <string name="debug_debuglog_screen_title">Debug-Protokoll</string>
+    <string name="debug_debuglog_screen_discard_action">Verwerfen</string>
+    <string name="debug_debuglog_screen_session_path_label">Sitzungspfad</string>
+    <string name="debug_debuglog_screen_log_files_label">Protokolldateien</string>
     <string name="settings_debuglog_explanation">Diese Funktion zeichnet alle Aktivitäten der App in einer gemeinsam nutzbaren Datei auf. Die generierte Datei enthält vertrauliche Informationen (z. B. Dateinamen und installierte Apps). Gebe diese nur an vertrauenswürdige Parteien weiter (z. B. einen Entwickler, der ein Problem behebt).</string>
     <string name="tasks_activity_notification_channel_label">Aktive Aufgaben</string>
     <string name="tasks_activity_working_notification_title">SD Maid arbeitet</string>
@@ -506,6 +510,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Erhalte eine grobe Schätzung der Größe jeder App.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Aktivität bestimmen</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Finde heraus, ob eine App aktiv ist (oder kürzlich aktiv war).</string>
+    <string name="appcontrol_include_multiuser_label">Andere Benutzer einbeziehen</string>
+    <string name="appcontrol_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
     <string name="appcontrol_export_app_selection_action">Apps exportieren</string>
     <string name="appcontrol_export_title">App exportieren</string>
     <string name="appcontrol_export_description">Speichern Sie die Installationsdateien dieser App. Dies beinhaltet keine App-Daten.</string>

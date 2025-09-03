@@ -13,6 +13,10 @@
     <string name="debug_debuglog_record_action">Записати журнал налагодження</string>
     <string name="debug_debuglog_stop_action">Зупинити запис</string>
     <string name="debug_debuglog_sensitive_information_message">Створений файл містить конфіденційну інформацію (наприклад, імена файлів та встановлені програми). Діліться нею лише з довіреними особами.</string>
+    <string name="debug_debuglog_screen_title">Журнал налагодження</string>
+    <string name="debug_debuglog_screen_discard_action">Відмінити</string>
+    <string name="debug_debuglog_screen_session_path_label">Шлях сесії</string>
+    <string name="debug_debuglog_screen_log_files_label">Файли журналів</string>
     <string name="settings_debuglog_explanation">Ця функція записує все, що робить додаток, у файл, до якого можна надати спільний доступ. Створений файл містить конфіденційну інформацію (наприклад, імена файлів і встановлених додатків). Діліться ним лише з довіреними особами (наприклад, з розробником, який вирішує проблему).</string>
     <string name="tasks_activity_notification_channel_label">Активні завдання</string>
     <string name="tasks_activity_working_notification_title">SD Maid працює</string>
@@ -542,6 +546,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Отримайте приблизну оцінку розміру кожного додатка.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Визначення активності</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Дізнайтеся, чи є додаток активним (або нещодавно був активним).</string>
+    <string name="appcontrol_include_multiuser_label">Включити інших користувачів</string>
+    <string name="appcontrol_include_multiuser_summary">Включити додатки з інших профілів користувачів на цьому пристрої.</string>
     <string name="appcontrol_export_app_selection_action">Експорт додатків</string>
     <string name="appcontrol_export_title">Експорт додатка</string>
     <string name="appcontrol_export_description">Збережіть інсталяційні файли цього додатка. Сюди не входять дані додатка.</string>

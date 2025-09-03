@@ -91,7 +91,6 @@
     <string name="general_toggle_layout_mode">Префрлете го режимот на приказ</string>
     <string name="general_delete_confirmation_title">Потврдете го бришењето</string>
     <string name="general_delete_confirmation_message_x">Да се ​​избрише „%s“?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Да се избришат селектираните елементи %d?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Избришана %d ставка.</item>
         <item quantity="other">Избришани %d ставки.</item>

@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">Փոխել դիտարկման ռեժիմը</string>
     <string name="general_delete_confirmation_title">Հաստատել ջնջումը</string>
     <string name="general_delete_confirmation_message_x">Ջնջե՞լ \"%s\":</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Ջնջե՞լ %d ընտրված տարրեր:</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d տարր ջնջվեց:</item>
         <item quantity="other">%d տարր ջնջվեց:</item>

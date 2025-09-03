@@ -91,7 +91,6 @@
     <string name="general_toggle_layout_mode">Palitan ang mode ng view</string>
     <string name="general_delete_confirmation_title">Kumpirmahin ang pagbura</string>
     <string name="general_delete_confirmation_message_x">Burahin ang \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Burahin ang %d na napiling item?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Nabura ang %d item.</item>
         <item quantity="other">Nabura ang %d na item.</item>

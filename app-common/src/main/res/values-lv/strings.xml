@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">Pārslēgt skata režīmu</string>
     <string name="general_delete_confirmation_title">Apstiprināt dzēšanu</string>
     <string name="general_delete_confirmation_message_x">Dzēst \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Dzēst %d izvēlētos vienumus?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="zero">Izdzēsts %d vienums.</item>
         <item quantity="one">Izdzēsts %d vienums.</item>

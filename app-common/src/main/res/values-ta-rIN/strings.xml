@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">பார்வை முறையை மாற்று</string>
     <string name="general_delete_confirmation_title">நீக்குதலை உறுதிப்படுத்து</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ஐ நீக்கவா?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">தேர்ந்தெடுக்கப்பட்ட %d பொருட்களை நீக்கவா?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d பொருள் நீக்கப்பட்டது.</item>
         <item quantity="other">%d பொருட்கள் நீக்கப்பட்டன.</item>

@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">切換檢視模式</string>
     <string name="general_delete_confirmation_title">確認刪除</string>
     <string name="general_delete_confirmation_message_x">刪除「%s」？</string>
-    <string name="general_delete_confirmation_message_selected_x_items">刪除 %d 個已選取的項目？</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">已刪除 %d 個項目。</item>
     </plurals>

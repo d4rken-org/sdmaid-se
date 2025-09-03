@@ -233,7 +233,7 @@
     <string name="systemcleaner_filter_screenshots_label">截圖</string>
     <string name="systemcleaner_filter_screenshots_summary">來自多個應用程式和位置的螢幕截圖，時間早於 %s。</string>
     <string name="systemcleaner_filter_trashed_label">垃圾檔案</string>
-    <string name="systemcleaner_filter_trashed_summary">來自各種應用程式和位置的回收桶中的檔案，這些檔案已標記為刪除，但尚未被永久移除。</string>
+    <string name="systemcleaner_filter_trashed_summary">來自各種應用程式與位置的資源回收桶檔案，這些檔案已標記為刪除，但尚未被永久移除。</string>
     <string name="systemcleaner_filter_screenshots_age_label">螢幕截圖年齡</string>
     <string name="systemcleaner_filter_screenshots_age_summary">設定螢幕截圖可考慮刪除的最小年齡。</string>
     <string name="systemcleaner_filter_superfluosapks_label">非必要的 APK 檔案</string>
@@ -443,7 +443,7 @@
     <string name="appcontrol_app_launch_title">啟動應用程式</string>
     <string name="appcontrol_app_launch_description">啟動這個應用程式的主要活動。</string>
     <string name="appcontrol_app_forcestop_title">強制停止</string>
-    <string name="appcontrol_app_forcestop_description">停止應用程式。防止它自行啟動，直到您打開它或裝置被重新啟動。</string>
+    <string name="appcontrol_app_forcestop_description">停止應用程式。在你手動開啟或重新啟動裝置之前，防止其自動啟動。</string>
     <string name="appcontrol_app_uninstall_description">從您的裝置中解除安裝這個應用程式。</string>
     <string name="appcontrol_app_exclude_add_title">排除應用程式</string>
     <string name="appcontrol_app_exclude_add_description">從 SD 女僕的其他作業中排除這個應用程式。</string>
@@ -488,6 +488,7 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">粗略估計每個應用程式的大小</string>
     <string name="appcontrol_settings_module_activity_enabled_label">確認活動</string>
     <string name="appcontrol_settings_module_activity_enabled_description">查找活動（或最近活動）的應用程式</string>
+    <string name="appcontrol_include_multiuser_summary">包含此裝置上其他使用者設定檔的應用程式。</string>
     <string name="appcontrol_export_app_selection_action">匯出應用程式</string>
     <string name="appcontrol_export_title">匯出應用程式</string>
     <string name="appcontrol_export_description">儲存此應用程式的安裝檔案。這不包括應用程式資料。</string>

@@ -89,7 +89,6 @@
     <string name="general_toggle_layout_mode">Vaihda näkymätilaa</string>
     <string name="general_delete_confirmation_title">Vahvista poistaminen</string>
     <string name="general_delete_confirmation_message_x">Poista \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Poista %d valittua kohdetta?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Poistettiin %d kohde.</item>
         <item quantity="other">Poistettiin %d kohdetta.</item>

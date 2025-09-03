@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">보기 모드 전환</string>
     <string name="general_delete_confirmation_title">삭제 확인</string>
     <string name="general_delete_confirmation_message_x">%s 를 삭제할까요?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">선택한 항목 %d개를 삭제하시겠습니까?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">%d개 항목을 삭제했습니다.</item>
     </plurals>

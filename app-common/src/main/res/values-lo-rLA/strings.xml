@@ -72,7 +72,6 @@
     <string name="general_toggle_layout_mode">ສະຫຼັບໂໝດການສະແດງ</string>
     <string name="general_delete_confirmation_title">ຢືນຢັນການລຶບ</string>
     <string name="general_delete_confirmation_message_x">ລຶບ \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">ລຶບ %d ລາຍການທີ່ເລືອກ?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">ລຶບ %d ລາຍການແລ້ວ.</item>
     </plurals>

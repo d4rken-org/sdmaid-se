@@ -89,7 +89,6 @@
     <string name="general_toggle_layout_mode">ଦୃଶ୍ୟ ମୋଡ୍ ବଦଳାଇବା</string>
     <string name="general_delete_confirmation_title">ବିଲୋପ ନିଶ୍ଚିତ କରିବା</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ବିଲୋପ କରିବେ?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">%d ମନୋନୀତ ଦ୍ରବ୍ୟ ବିଲୋପ କରିବେ?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d ଦ୍ରବ୍ୟ ବିଲୋପ କରାଗଲା।</item>
         <item quantity="other">%d ଦ୍ରବ୍ୟ ବିଲୋପ କରାଗଲା।</item>

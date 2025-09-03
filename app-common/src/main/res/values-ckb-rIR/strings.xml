@@ -91,7 +91,6 @@
     <string name="general_toggle_layout_mode">گۆڕینی شێوازی بینین</string>
     <string name="general_delete_confirmation_title">پشتڕاستکردنەوەی سڕینەوە</string>
     <string name="general_delete_confirmation_message_x">\"%s\" بسڕدرێتەوە؟</string>
-    <string name="general_delete_confirmation_message_selected_x_items">%d بابەتی هەڵبژێردراو بسڕدرێتەوە؟</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d بابەت سڕایەوە.</item>
         <item quantity="other">%d بابەت سڕایەوە.</item>

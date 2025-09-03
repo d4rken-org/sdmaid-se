@@ -91,7 +91,6 @@
     <string name="general_toggle_layout_mode">व्यू मोड स्विच करें</string>
     <string name="general_delete_confirmation_title">मिटाने की पुष्टि</string>
     <string name="general_delete_confirmation_message_x">मिटाएं \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">%d चयनित आइटम मिटाएं?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d आइटम डिलीट किया।</item>
         <item quantity="other">%d आइटम डिलीट किए।</item>

@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">Харах горимыг сэлгэх</string>
     <string name="general_delete_confirmation_title">Устгахыг баталгаажуулах</string>
     <string name="general_delete_confirmation_message_x">\"%s\" устгах уу?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Сонгосон %d зүйлийг устгах уу?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d зүйл устгасан.</item>
         <item quantity="other">%d зүйл устгасан.</item>

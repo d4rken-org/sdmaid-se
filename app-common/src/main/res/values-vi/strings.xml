@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">Chuyển đổi chế độ xem</string>
     <string name="general_delete_confirmation_title">Xác nhận xoá</string>
     <string name="general_delete_confirmation_message_x">Xoá \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Xóa %d mục đã chọn?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">Đã xóa %d mục.</item>
     </plurals>
@@ -154,4 +153,6 @@
     <string name="general_error_report_bug_action">Báo cáo lỗi</string>
     <string name="general_error_ipc_deadobject_title">Kết nối dịch vụ bị mất</string>
     <string name="general_error_ipc_deadobject_description">Kết nối đến một dịch vụ quan trọng (như: Magisk, Shizuku hoặc các dịch vụ cấp hệ thống khác) bị mất kết nối đột ngột. Vui lòng khởi động lại thiết bị. Nếu sự cố vẫn tiếp diễn, hãy kiểm tra bản cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
+    <string name="general_user_label_owner">Người sở hữu</string>
+    <string name="general_user_label_system">Hệ thống</string>
 </resources>

@@ -91,7 +91,6 @@
     <string name="general_toggle_layout_mode">ਦੇਖਣ ਦਾ ਮੋਡ ਬਦਲੋ</string>
     <string name="general_delete_confirmation_title">ਮਿਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ਮਿਟਾਓ?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">%d ਚੁਣੇ ਹੋਏ ਆਈਟਮ ਮਿਟਾਓ?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d ਆਈਟਮ ਮਿਟਾਇਆ ਗਿਆ।</item>
         <item quantity="other">%d ਆਈਟਮ ਮਿਟਾਏ ਗਏ।</item>

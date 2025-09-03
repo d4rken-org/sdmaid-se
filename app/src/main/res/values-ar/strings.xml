@@ -13,6 +13,9 @@
     <string name="debug_debuglog_record_action">تسجيل سجل التصحيح</string>
     <string name="debug_debuglog_stop_action">إيقاف التسجيل</string>
     <string name="debug_debuglog_sensitive_information_message">يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل أسماء الملفات والتطبيقات المثبتة). شاركها فقط مع الأطراف الموثوقة.</string>
+    <string name="debug_debuglog_screen_title">سجل التصحيح</string>
+    <string name="debug_debuglog_screen_discard_action">تجاهل</string>
+    <string name="debug_debuglog_screen_session_path_label">مسار الجلسه</string>
     <string name="settings_debuglog_explanation">تسجل هذه الميزة كل ما يفعله التطبيق في ملف قابل للمشاركة. يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل أسماء الملفات والتطبيقات المثبتة). شاركها فقط مع أطراف موثوقة (على سبيل المثال ، مطور يقوم باستكشاف مشكلة ما).</string>
     <string name="tasks_activity_notification_channel_label">المهام النشطة</string>
     <string name="tasks_activity_working_notification_title">SD Maid يعمل</string>
@@ -36,12 +39,12 @@
     <string name="tasks_result_subtext">نتيجة المهمة</string>
     <string name="onboarding_welcome_title">مرحبا بك</string>
     <string name="onboarding_welcome_body1">SD Maid SE يدير الملفات, التطبيقات والتخزين.</string>
-    <string name="onboarding_welcome_body2">احصل على مساحة تخزين عن طريق التنظيف مخلفات التطبيقات الأخرى. حذف الملفات القابلة للاستهلاك وإزالة البيانات المتبقية.</string>
-    <string name="onboarding_welcome_body_beta">هذا إصدار تجريبي (للاختبار). انطلق بروح الدعابة وخطة احتياطية. الرجاء الإبلاغ عن المشاكل التي تواجهها.</string>
+    <string name="onboarding_welcome_body2">احصل على مساحة تخزين عن طريق تنظيف مخلفات التطبيقات الأخرى. حذف الملفات القابلة للاستهلاك وإزالة البيانات المتبقية.</string>
+    <string name="onboarding_welcome_body_beta">هذا إصدار تجريبي (للاختبار). الرجاء الإبلاغ عن المشاكل التي تواجهها.</string>
     <string name="onboarding_welcome_continue_action">متابعة</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-    <string name="onboarding_versus_body1">SD Maid SE (المعروف أيضًا باسم SD Maid 2) هو خليفة (SD Maid 1). تطبيق جديد مُحسّن لنظام Android الحديث.</string>
-    <string name="onboarding_versus_body2">عمر التصميم السابق له أكثر من 7 سنوات ولم يتم تصميمه لمواجهة تحديات إصدارات Android الأحدث. كان من الضروري إعادة التصميم الكاملة لتطبيق لمواصلة التطوير.</string>
+    <string name="onboarding_versus_body1">SD Maid SE (المعروف أيضًا باسم SD Maid 2) هو خليفة (SD Maid 1). تطبيق جديد مُحسّن لنظام أندرويد الحديث.</string>
+    <string name="onboarding_versus_body2">عمر التصميم السابق له أكثر من 7 سنوات ولم يتم تصميمه لمواجهة تحديات إصدارات أندرويد الأحدث. كان من الضروري إعادة التصميم الكاملة لتطبيق لمواصلة التطوير.</string>
     <string name="onboarding_versus_body3">ضع في اعتبارك التبديل إلى SD Maid SE للحصول على نتائج أفضل.</string>
     <string name="onboarding_versus_body4">للأسف \"الحالة الاحترافية\" ل SD Maid 1\'s غير قابلة للتحويل إلى SD Maid 2/SE بعد 12 عاما من التحديثات المجانية ، يلزم إجراء عملية شراء جديدة للحفاظ على التطوير (دعم المطور).</string>
     <string name="onboarding_versus_continue_action">متابعة</string>
@@ -75,7 +78,7 @@
     <string name="ui_theme_style_setting_label">نمط السمة</string>
     <string name="ui_theme_style_setting_explanation">نمط اللون المستخدم عند تصميم التطبيق.</string>
     <string name="ui_theme_style_default_label">الافتراضي</string>
-    <string name="ui_theme_style_materialyou_label">تصميم Material You</string>
+    <string name="ui_theme_style_materialyou_label">المواد التي تصممها</string>
     <string name="ui_previews_title">معاينة الملفات</string>
     <string name="ui_previews_summary">عرض معاينات الملفات في جميع الأدوات (على سبيل المثال الصور المصغرة والصور الفيديو).</string>
     <string name="ui_language_override_label">لغة التطبيق</string>
@@ -578,6 +581,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">احصل على تقدير تقريبي لحجم كل تطبيق.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">تحديد النشاط</string>
     <string name="appcontrol_settings_module_activity_enabled_description">اكتشف إذا كان التطبيق نشطاً (أو مؤخرًا).</string>
+    <string name="appcontrol_include_multiuser_label">ضم مستعملين آخرين</string>
+    <string name="appcontrol_include_multiuser_summary">قم بتضمين تطبيقات من ملفات تعريف المستخدمين الأخرى على هذا الجهاز.</string>
     <string name="appcontrol_export_app_selection_action">تصدير التطبيقات</string>
     <string name="appcontrol_export_title">تصدير التطبيق</string>
     <string name="appcontrol_export_description">حفظ ملفات تثبيت هذا التطبيق. هذا لا يشمل بيانات التطبيق.</string>

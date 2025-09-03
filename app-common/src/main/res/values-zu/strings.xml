@@ -90,7 +90,6 @@
     <string name="general_toggle_layout_mode">Shintsha imodi yokubuka</string>
     <string name="general_delete_confirmation_title">Qinisekisa ukususa</string>
     <string name="general_delete_confirmation_message_x">Susa \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Susa izinto ezikhethiwe ezingu-%d?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Isuswe into eyi-%d.</item>
         <item quantity="other">Kususiwe izinto ezingu-%d.</item>
