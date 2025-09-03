@@ -793,10 +793,6 @@
 
     <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">Manage installed apps</string>
-    <string name="shortcut_scan_short">Scan</string>
-    <string name="shortcut_scan_long">Scan for items to clean</string>
-    <string name="shortcut_delete_short">Delete</string>
-    <string name="shortcut_delete_long">Delete found items</string>
     <string name="shortcut_onetap_short">Scan + Delete</string>
     <string name="shortcut_onetap_long">Scan and delete in one action</string>
 
