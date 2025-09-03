@@ -6,7 +6,7 @@ Nadie es perfecto y Android tampoco lo es.
 *Tu almacenamiento está colectando archivos y carpetas que no lo reconoces.
 * Fotos duplicadas en tu galería.
 
-No sigamos acá... Deja que SD Maid SE te ayude!
+Deja que SD Maid SE te ayude!
 
 SD Maid 2/SE es un gestor de aplicaciones y archivos especializado en saber qué aplicaciones han creado archivos específicos en tu dispositivo. SD Maid 2/SE busca en tu dispositivo y compara los archivos con las aplicaciones instaladas para ofrecerte opciones para liberar espacio de almacenamiento de forma segura.
 
