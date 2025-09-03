@@ -6,6 +6,7 @@ on:
   pull_request:
     branches: [ main ]
 
+
 jobs:
   lint-vital:
     name: Lint vitals
@@ -59,3 +60,13 @@ jobs:
 
       - name: Test modules
         run: ./gradlew ${{ matrix.flavor }}${{ matrix.variant }}UnitTest
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4.6.2
+        if: always()
+        with:
+          name: test-results-${{ matrix.flavor }}-${{ matrix.variant }}
+          path: |
+            **/build/test-results/**/*.xml
+            **/build/reports/tests/**/*
+          retention-days: 1
