@@ -91,7 +91,10 @@
     <string name="general_toggle_layout_mode">Wijzig de weergavemodus</string>
     <string name="general_delete_confirmation_title">Bevestig verwijdering</string>
     <string name="general_delete_confirmation_message_x">Verwijder \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">%d geselecteerde items verwijderen?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d geselecteerd item verwijderen?</item>
+        <item quantity="other">%d geselecteerde items verwijderen?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d item verwijderd.</item>
         <item quantity="other">%d items verwijderd.</item>
@@ -164,4 +167,6 @@
     <string name="general_error_report_bug_action">Bug melden</string>
     <string name="general_error_ipc_deadobject_title">Serviceverbinding verbroken</string>
     <string name="general_error_ipc_deadobject_description">De verbinding met een kritieke service (bijv. Magisk, Shizuku of andere services op systeemniveau) is onverwacht verbroken. Start je apparaat opnieuw op. Als het probleem aanhoudt, controleer dan op updates of neem contact met mij op zodat ik het kan oplossen.</string>
+    <string name="general_user_label_owner">Eigenaar</string>
+    <string name="general_user_label_system">Systeem</string>
 </resources>

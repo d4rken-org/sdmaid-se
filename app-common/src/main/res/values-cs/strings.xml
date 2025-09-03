@@ -93,7 +93,12 @@
     <string name="general_toggle_layout_mode">Přepnout režim zobrazení</string>
     <string name="general_delete_confirmation_title">Potvrdit vymazání</string>
     <string name="general_delete_confirmation_message_x">Vymazat \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Smazat %d vybraných položek?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Smazat %d vybranou položku?</item>
+        <item quantity="few">Smazat %d vybrané položky?</item>
+        <item quantity="many">Smazat %d vybraných položek?</item>
+        <item quantity="other">Smazat %d vybraných položek?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Smazána %d položka.</item>
         <item quantity="few">Smazány %d položky.</item>

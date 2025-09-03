@@ -13,6 +13,14 @@
     <string name="debug_debuglog_record_action">Grabar el registro de depuración</string>
     <string name="debug_debuglog_stop_action">Finalizar grabación</string>
     <string name="debug_debuglog_sensitive_information_message">El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártalo solo con personas de confianza.</string>
+    <string name="debug_debuglog_screen_title">Registro de depuración</string>
+    <string name="debug_debuglog_screen_discard_action">Descartar</string>
+    <string name="debug_debuglog_screen_session_path_label">Directorio actualmente utilizado para guardar los datos de las sesiones</string>
+    <string name="debug_debuglog_screen_log_files_label">Archivos de registro</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d archivo listo (%2$s)</item>
+        <item quantity="other">%1$d archivos listos (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo que se puede compartir. El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártalo solo con personas de confianza (por ejemplo, un desarrollador que solucione un problema).</string>
     <string name="tasks_activity_notification_channel_label">Tareas activas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está trabajando</string>
@@ -506,6 +514,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Obtenga una estimación aproximada del tamaño de cada aplicación.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determinar la actividad</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Descubra si una aplicación está (o estuvo recientemente) activa.</string>
+    <string name="appcontrol_include_multiuser_label">Incluir a otros usuarios</string>
+    <string name="appcontrol_include_multiuser_summary">Incluir aplicaciones de otros perfiles de usuario usados en este dispositivo.</string>
     <string name="appcontrol_export_app_selection_action">Exportar las aplicaciones</string>
     <string name="appcontrol_export_title">Exportar la aplicación</string>
     <string name="appcontrol_export_description">Guarda los archivos de instalación de esta aplicación. Esto no incluye los datos de la aplicación.</string>

@@ -92,7 +92,11 @@
     <string name="general_toggle_layout_mode">Schimbă modul de vizualizare</string>
     <string name="general_delete_confirmation_title">Confirmă ștergerea</string>
     <string name="general_delete_confirmation_message_x">Ștergi \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Ștergi %d elemente selectate?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Ștergeți %d articol selectat?</item>
+        <item quantity="few">Ștergeți %d articole selectate?</item>
+        <item quantity="other">Ștergeți %d articole selectate?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">S-a șters %d articol.</item>
         <item quantity="few">Au fost șterse %d articole.</item>
@@ -174,4 +178,6 @@
     <string name="general_error_report_bug_action">Raportare problemă</string>
     <string name="general_error_ipc_deadobject_title">Conexiune la servicii pierdută</string>
     <string name="general_error_ipc_deadobject_description">Conexiunea la un serviciu critic (de ex. Magisk, Shizuku sau alte servicii la nivel de sistem) au fost pierdute în mod neașteptat. Vă rugăm să reporniți dispozitivul. Dacă problema persistă, verificați dacă există actualizări sau contactați-mă, astfel încât să o pot rezolva.</string>
+    <string name="general_user_label_owner">Proprietar</string>
+    <string name="general_user_label_system">Sistem</string>
 </resources>

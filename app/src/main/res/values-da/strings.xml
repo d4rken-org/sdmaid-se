@@ -13,6 +13,14 @@
     <string name="debug_debuglog_record_action">Optag fejlfindingslog</string>
     <string name="debug_debuglog_stop_action">Stop optagelse</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererede fil indeholder følsomme oplysninger (f.eks. filnavne og installerede apps). Del den kun med parter, du stoler på.</string>
+    <string name="debug_debuglog_screen_title">Fejlfindingslogs</string>
+    <string name="debug_debuglog_screen_discard_action">Kassér</string>
+    <string name="debug_debuglog_screen_session_path_label">Session Sti</string>
+    <string name="debug_debuglog_screen_log_files_label">Log Filer</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fil klar (%2$s)</item>
+        <item quantity="other">%1$d filer klar (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Denne funktion registrerer alt, appen gør, i en delbar fil. Den genererede fil indeholder følsomme oplysninger (f.eks. filnavne og installerede apps). Del den kun med betroede parter (f.eks. en udvikler, der foretager fejlfinding).</string>
     <string name="tasks_activity_notification_channel_label">Aktive opgaver</string>
     <string name="tasks_activity_working_notification_title">SD Maid arbejder</string>
@@ -506,6 +514,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Få et cirkaestimat af hver apps størrelse.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bestem aktivitet</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Find ud af, om en app er (eller for nylig har været) aktiv.</string>
+    <string name="appcontrol_include_multiuser_label">Inkluder andre brugere</string>
+    <string name="appcontrol_include_multiuser_summary">Inkluder apps fra andre brugerprofiler på denne enhed.</string>
     <string name="appcontrol_export_app_selection_action">Eksportér apps</string>
     <string name="appcontrol_export_title">Eksportér app</string>
     <string name="appcontrol_export_description">Gem denne apps installationsfiler. Dette omfatter ikke appdata.</string>

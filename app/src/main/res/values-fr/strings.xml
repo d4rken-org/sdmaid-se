@@ -13,6 +13,14 @@
     <string name="debug_debuglog_record_action">Enregistrer le journal de débogage</string>
     <string name="debug_debuglog_stop_action">Arrêter l’enregistrement</string>
     <string name="debug_debuglog_sensitive_information_message">Le fichier généré comprend des renseignements sensibles (p. ex. des noms de fichier et les applis installées). Ne le partagez qu’avec des tiers de confiance.</string>
+    <string name="debug_debuglog_screen_title">Journal de débogage</string>
+    <string name="debug_debuglog_screen_discard_action">Supprimer les fichiers journaux et fermer</string>
+    <string name="debug_debuglog_screen_session_path_label">Chemin de la session</string>
+    <string name="debug_debuglog_screen_log_files_label">Fichiers journaux</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fichiers est prêt (%2$s)</item>
+        <item quantity="other">%1$d fichiers sont prêts (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Cette fonction enregistre tout ce que fait l’appli dans un fichier partageable. Le fichier généré comprend des renseignements sensibles (p. ex. des noms de fichier et les applis installées). Ne le partagez qu’avec des tiers de confiance (p. ex. un développeur qui cherche à résoudre un problème).</string>
     <string name="tasks_activity_notification_channel_label">Tâches actives</string>
     <string name="tasks_activity_working_notification_title">SD Maid travaille</string>
@@ -29,7 +37,7 @@
     <string name="onboarding_welcome_title">Bienvenue</string>
     <string name="onboarding_welcome_body1">SD Maid SE gère les fichiers, les applis et la mémoire.</string>
     <string name="onboarding_welcome_body2">Libérez la mémoire de votre appareil en nettoyant derrière les autres applis. Supprimez les fichiers superflus et les données restantes.</string>
-    <string name="onboarding_welcome_body_beta">Ceci est une version bêta (de test). Utilisez-la avec un certain sens de l’humour et un plan de secours. Veuillez signaler les problèmes que vous rencontrez.</string>
+    <string name="onboarding_welcome_body_beta">Ceci est une version bêta (de test). Utilisez-la avec un certain sens de l’humour et un plan de secours. Signalez les problèmes que vous rencontrez.</string>
     <string name="onboarding_welcome_continue_action">Poursuivre</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (aussi appelée SD Maid 2) succède à SD Maid (aussi appelée SD Maid 1). Une nouvelle appli optimisée pour les versions modernes d’Android.</string>
@@ -71,7 +79,7 @@
     <string name="ui_previews_title">Aperçus de fichiers</string>
     <string name="ui_previews_summary">Affichez les aperçus de fichiers dans tous les outils (p. ex. les imagettes d’images et de vidéos).</string>
     <string name="ui_language_override_label">Langue de l’appli</string>
-    <string name="ui_language_override_desc">Sélectionnez une langue différente pour SD Maid, indépendamment de la langue par défaut de votre système. Actuellement : %s</string>
+    <string name="ui_language_override_desc">Choisissez une langue différente pour SD Maid, indépendamment de la langue par défaut de votre système. Actuellement : %s</string>
     <string name="settings_support_label">Assistance</string>
     <string name="settings_support_description">Consultez la documentation, signalez des problèmes, dialoguez avec d\'autres ou enregistrez les journaux de débogage.</string>
     <string name="documentation_label">Documentation</string>
@@ -98,8 +106,8 @@
     <string name="general_error_setup_require_msg">Afin d’utiliser cette fonction, effectuez les étapes de configuration restantes.</string>
     <string name="setup_saf_card_title">Cadre d’accès à la mémoire</string>
     <string name="setup_saf_card_body">Améliorez les résultats en accordant à SD Maid l\'accès à d’autres zones.</string>
-    <string name="setup_saf_card_body2">Dans la plupart des cas, le bon chemin sera présélectionné lors de l’ouverture de la fenêtre. Les éléments deviennent verts si l’accès est accordé. </string>
-    <string name="setup_saf_error_wrong_path">Vous avez sélectionné le mauvais chemin</string>
+    <string name="setup_saf_card_body2">Dans la plupart des cas, le bon chemin sera choisi lors de l’ouverture de la fenêtre. Les éléments deviennent verts si l’accès est accordé. </string>
+    <string name="setup_saf_error_wrong_path">Vous avez choisi le mauvais chemin</string>
     <string name="setup_saf_missing_app_error">L\'appli \"Documents UI\" n\'est pas accessible. Cette appli système intégrée devrait être installée sur tous les appareils Android.</string>
     <string name="setup_manage_storage_card_title">Gérer la mémoire</string>
     <string name="setup_manage_storage_card_body">Autorisez SD Maid à gérer la mémoire de votre appareil.</string>
@@ -283,11 +291,11 @@
     <string name="systemcleaner_customfilter_editor_label_label">Étiquette de filtres</string>
     <string name="systemcleaner_customfilter_editor_warning">Les filtres personnalisés peuvent présenter des risques. Vérifiez les résultats de votre analyse avant de supprimer.</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Zones de données</string>
-    <string name="systemcleaner_customfilter_editor_areas_explanation">Si aucune zone n’est sélectionnée, toutes les zones de données accessibles seront analysées et comparées.</string>
+    <string name="systemcleaner_customfilter_editor_areas_explanation">Si aucune zone n’est choisie, toutes les zones de données accessibles seront analysées et comparées.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Restrictions de types de fichier</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Fichiers</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Dossiers</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_hint">Si aucun type n’est sélectionné, tous les types seront comparés.</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">Si aucun type n’est choisi, tous les types seront comparés.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Critères du chemin</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Le chemin de la cible doit correspondre à au moins une entrée (p. ex. « Downloads/oldapks/game- »). Touchez et maintenez les entrées pour obtenir plus d’options.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Critères du nom</string>
@@ -307,7 +315,7 @@
     <string name="systemcleaner_customfilter_last_edit">Dernière modification : %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Recherche en direct</string>
     <string name="systemcleaner_customfilter_import_action">Importer un nouveau filtre</string>
-    <string name="systemcleaner_customfilter_export_action">Exporter le filtre sélectionné</string>
+    <string name="systemcleaner_customfilter_export_action">Exporter le filtre choisi</string>
     <string name="appcleaner_tool_name">Nettoyeur d’applis</string>
     <string name="appcleaner_explanation_short">Données superflues qui appartiennent à des applis précises.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Caches par défaut publics</string>
@@ -388,8 +396,8 @@
     <string name="appcleaner_junk_userprofile_label">Utilisateur</string>
     <string name="appcleaner_delete_confirmation_message_x">Supprimer les fichiers superflus pour %s ?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
-        <item quantity="one">Supprimer les fichiers superflus pour %d appli sélectionnée ?</item>
-        <item quantity="other">Supprimer les fichiers superflus pour %d applis sélectionnées ?</item>
+        <item quantity="one">Supprimer les fichiers superflus pour %d appli choisie ?</item>
+        <item quantity="other">Supprimer les fichiers superflus pour les %d applis choisies ?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Suppression des caches avec Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Détermination des caches inaccessibles</string>
@@ -430,11 +438,11 @@
     <string name="deduplicator_file_size_label">Taille du fichier</string>
     <string name="deduplicator_average_size_label">Taille moyenne</string>
     <string name="deduplicator_cluster_x_label">Grappe %s</string>
-    <string name="deduplicator_delete_confirmation_message">Supprimer tous les exemplaires de tous les jeux de fichiers dupliqués sauf un ?</string>
-    <string name="deduplicator_delete_single_set_confirmation_message">Supprimer tous les exemplaires de ce jeu de fichiers dupliqués sauf un ?</string>
+    <string name="deduplicator_delete_confirmation_message">Supprimer tous les exemplaires sauf un dans tous les jeux de fichiers dupliqués ?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Supprimer tous les exemplaires sauf un dans ce jeu de fichiers dupliqués ?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Supprimer tous les fichiers de ce jeu de fichiers dupliqués ? Il ne restera aucun fichier !</string>
-    <string name="deduplicator_delete_multiple_sets_confirmation_message">Supprimer tous les exemplaires de chaque jeu de fichiers dupliqués sélectionnés sauf un ?</string>
-    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Supprimer tous les fichiers de chaque jeu de fichiers dupliqués sélectionnés ? Il ne restera aucun fichier !</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Supprimer tous les exemplaires sauf un dans chaque jeu de fichiers dupliqués choisi ?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Supprimer tous les fichiers de chaque jeu de fichiers dupliqués choisi ? Il ne restera aucun fichier !</string>
     <string name="deduplicator_delete_all_toggle_msg">Supprimer tous les exemplaires ? Il ne restera aucun fichier !</string>
     <string name="deduplicator_progress_comparing_files">Comparaison des fichiers</string>
     <string name="deduplicator_details_cluster_title">Jeu de doublons</string>
@@ -602,7 +610,7 @@
     <string name="exclusion_editor_segment_explanation">Une exclusion d’après le segment est semblable à l’exclusion d’un chemin, mais permet des correspondances partielles. Par exemple, « DCIM/Camera » exclut « /sdcard/DCIM/Camera/photo.png ».</string>
     <string name="exclusion_editor_remove_confirmation_message">Supprimer cette exclusion ?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Vous avez des changements non enregistrés.</string>
-    <string name="exclusion_reset_default_exclusions">Restaurer les exclusions par défaut</string>
+    <string name="exclusion_reset_default_exclusions">Rétablir les exclusions par défaut</string>
     <string name="exclusion_import_action">Importer des exclusions</string>
     <string name="exclusion_export_action">Exporter les exclusions</string>
     <string name="exclusion_create_pkg_hint">Utilisez le « Vérificateur d’applis » pour exclure des applis.</string>
@@ -624,9 +632,9 @@
     <string name="automation_error_screen_unavailable_title">Écran inaccessible</string>
     <string name="automation_error_screen_unavailable_body">L’opération a été interrompue, car l’écran est devenu inaccessible (p. ex. éteint ou verrouillé).</string>
     <string name="automation_error_compatibility_title">Compatibilité avec l’automatisation</string>
-    <string name="automation_error_compatibility_body">SD Maid n’a pas réussi à déterminer l’agencement de l’écran. Si cela se produit régulièrement, il se peut que votre langue ou votre configuration ne soit pas entièrement prise en charge. Vérifiez la présence de mises à jour ou contactez-moi afin que je corrige la situation.</string>
+    <string name="automation_error_compatibility_body">SD Maid n’a pas réussi à déterminer l’agencement de l’écran. Si cela se produit régulièrement, il se peut que votre langue ou votre configuration ne soit pas entièrement prise en charge. Cherchez des mises à jour ou contactez-moi afin que je corrige la situation.</string>
     <string name="automation_error_timeout_title">Expiration de l’automatisation</string>
-    <string name="automation_error_timeout_body">SD Maid n’a pas effectué toutes les étapes dans le temps imparti. Si cela se reproduit, je devrais peut-être ajuster l’appli pour votre appareil. Vérifiez la présence de mises à jour ou contactez-moi pour que je corrige la situation.</string>
+    <string name="automation_error_timeout_body">SD Maid n’a pas effectué toutes les étapes dans le temps imparti. Si cela se reproduit, je devrais peut-être ajuster l’appli pour votre appareil. Cherchez des mises à jour ou contactez-moi pour que je corrige la situation.</string>
     <string name="automation_error_overlay_title">Surcouche d’automatisation</string>
     <string name="automation_error_overlay_body">SD Maid ne peut pas afficher la surcouche d’automatisation. Vérifiez les autorisations et tentez de redémarrer votre appareil.</string>
     <string name="history_label">Historique</string>
@@ -677,8 +685,8 @@
     <string name="translation_translators_people">yahoe.001 - Translation Coordinator;V.Oberson;Choukajohn</string>
     <string name="motd_setting_enabled_label">Messages importants</string>
     <string name="motd_setting_enabled_explanation">Permettre à SD Maid de vérifier la présence de messages importants du développeur.</string>
-    <string name="updatecheck_setting_enabled_label">Vérification de la présence de mises à jour</string>
-    <string name="updatecheck_setting_enabled_explanation">Permettre à SD Maid de vérifier la présence de mises à jour pour vous en informer.</string>
+    <string name="updatecheck_setting_enabled_label">Chercher des mises à jour</string>
+    <string name="updatecheck_setting_enabled_explanation">Permettre à SD Maid de chercher les mises à jour pour vous en informer.</string>
     <string name="device_settings_category">Appareil</string>
     <string name="beta_version_indicator_desc">Les préversions affichent un petit ruban sur l’écran de démarrage. Elles sont mises à jour plus fréquemment, peuvent comporter davantage de fonctions, mais aussi plus de bogues.</string>
     <string name="review_app_review_action">Évaluation</string>

@@ -43,7 +43,7 @@
     <string name="general_filter_action">Filtrer</string>
     <string name="general_internal_not_available_msg">Aucune connexion à Internet</string>
     <string name="general_refresh_action">Actualiser</string>
-    <string name="general_progress_searching">Recherche en cours</string>
+    <string name="general_progress_searching">Recherche…</string>
     <string name="general_progress_generating_searchpaths">Génération des chemins de recherche</string>
     <string name="general_progress_filtering">Filtrage</string>
     <string name="general_progress_preparing">Préparation</string>
@@ -63,7 +63,7 @@
     <string name="general_progress_loading_egg_9">Mise en mémoire tampon… des choix de vie</string>
     <string name="general_progress_loading_egg_10">Invocation de Cthulhu</string>
     <string name="general_progress_loading_egg_11">Tout va bien</string>
-    <string name="general_progress_loading_egg_12">Veuillez patienter</string>
+    <string name="general_progress_loading_egg_12">Patientez…</string>
     <string name="general_progress_loading_egg_13">C’est mieux que d’attendre au téléphone</string>
     <string name="general_help_action">Aide</string>
     <string name="general_continue">Poursuivre</string>
@@ -85,19 +85,22 @@
     <string name="general_update_action">Mettre à jour</string>
     <string name="general_scan_action">Analyser</string>
     <string name="general_delete_action">Supprimer</string>
-    <string name="general_delete_selected_action">Supprimer la sélection</string>
+    <string name="general_delete_selected_action">Supprimer les éléments choisis</string>
     <string name="general_show_details_action">Afficher les détails</string>
     <string name="general_show_all_action">Tout afficher</string>
     <string name="general_toggle_layout_mode">Changer le mode d’affichage</string>
     <string name="general_delete_confirmation_title">Confirmer la suppression</string>
     <string name="general_delete_confirmation_message_x">Supprimer « %s » ?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Supprimer les %d éléments sélectionnés ?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Supprimer %d élément choisi ?</item>
+        <item quantity="other">Supprimer les %d éléments choisis ?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d élément a été supprimé.</item>
         <item quantity="other">%d éléments ont été supprimés.</item>
     </plurals>
     <string name="general_remove_action">Supprimer</string>
-    <string name="general_remove_selected_action">Supprimer la sélection</string>
+    <string name="general_remove_selected_action">Supprimer les éléments choisis</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Un élément a été supprimé</item>
         <item quantity="other">%d éléments ont été supprimés</item>
@@ -130,12 +133,12 @@
     <string name="general_grant_access_action">Accorder l’accès</string>
     <string name="general_enable_service_action">Activer le service</string>
     <string name="general_undo_action">Annuler</string>
-    <string name="general_list_select_all_action">Tout sélectionner</string>
+    <string name="general_list_select_all_action">Tout choisir</string>
     <string name="general_path_label">Chemin</string>
     <string name="general_type_label">Type</string>
     <string name="general_size_label">Taille</string>
     <string name="general_exclude_action">Exclure</string>
-    <string name="general_exclude_selected_action">Exclure la sélection</string>
+    <string name="general_exclude_selected_action">Exclure les éléments choisis</string>
     <string name="general_device_label">Appareil</string>
     <string name="general_settings_title">Paramètres</string>
     <string name="general_help_title">Aide</string>
@@ -163,7 +166,7 @@
     <string name="general_information_for_the_developer">Renseignements pour le développeur</string>
     <string name="general_error_report_bug_action">Signaler un bogue</string>
     <string name="general_error_ipc_deadobject_title">La connexion au serveur est perdue</string>
-    <string name="general_error_ipc_deadobject_description">La connexion à un service essentiel (p. ex. Magisk, Shizuku ou d’autres services au niveau du système) a été perdue de manière inattendue. Redémarrez votre appareil. Si le problème persiste, vérifiez la présence de mises à jour ou contactez-moi pour que je puisse le corriger.</string>
+    <string name="general_error_ipc_deadobject_description">La connexion à un service essentiel (p. ex. Magisk, Shizuku ou d’autres services au niveau du système) a été perdue de manière inattendue. Redémarrez votre appareil. Si le problème persiste, cherchez les mises à jour ou contactez-moi pour que je puisse le corriger.</string>
     <string name="general_user_label_owner">Propriétaire</string>
     <string name="general_user_label_system">Système</string>
 </resources>

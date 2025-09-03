@@ -13,6 +13,14 @@
     <string name="debug_debuglog_record_action">Desa el registre de depuració</string>
     <string name="debug_debuglog_stop_action">Atura la gravació</string>
     <string name="debug_debuglog_sensitive_information_message">El fitxer generat conté informació confidencial (p. ex. noms de fitxers i aplicacions instal·lades). Compartiu-ho només amb persones de confiança.</string>
+    <string name="debug_debuglog_screen_title">Registre de depuració</string>
+    <string name="debug_debuglog_screen_discard_action">Descarta</string>
+    <string name="debug_debuglog_screen_session_path_label">Ruta de la sessió</string>
+    <string name="debug_debuglog_screen_log_files_label">Fitxers de registre</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fitxer preparat (%2$s)</item>
+        <item quantity="other">%1$d fitxers preparats (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Aquesta funció registra tot el que fa l\'aplicació en un fitxer que es pot compartir. El fitxer generat conté informació sensible (p. ex., noms de fitxers i aplicacions instal·lades). Compartiu-lo només amb parts de confiança (p. ex., un desenvolupador que resol un problema).</string>
     <string name="tasks_activity_notification_channel_label">Tasques actives</string>
     <string name="tasks_activity_working_notification_title">L\'SD Maid està en execució</string>
@@ -506,6 +514,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Obteniu una estimació aproximada de la mida de cada aplicació.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determina l\'activitat</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Esbrineu si una aplicació està (o ha estat recentment) activa.</string>
+    <string name="appcontrol_include_multiuser_label">Inclou altres usuaris</string>
+    <string name="appcontrol_include_multiuser_summary">Inclou aplicacions d\'altres perfils d\'usuari en aquest dispositiu.</string>
     <string name="appcontrol_export_app_selection_action">Exporta les aplicacions</string>
     <string name="appcontrol_export_title">Exporta l\'aplicació</string>
     <string name="appcontrol_export_description">Desa els fitxers d\'instal·lació d\'aquesta aplicació. Això no inclou les dades de l\'aplicació.</string>

@@ -13,6 +13,14 @@
     <string name="debug_debuglog_record_action">Sla het foutopsporingslogboek op</string>
     <string name="debug_debuglog_stop_action">Stop met opnemen</string>
     <string name="debug_debuglog_sensitive_information_message">Het gegenereerde bestand bevat gevoelige informatie (bijv. bestandsnamen en geïnstalleerde apps). Deel het alleen met vertrouwde partijen.</string>
+    <string name="debug_debuglog_screen_title">Debug-logboek</string>
+    <string name="debug_debuglog_screen_discard_action">Weggooien</string>
+    <string name="debug_debuglog_screen_session_path_label">Sessiepad</string>
+    <string name="debug_debuglog_screen_log_files_label">Logbestanden</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d bestand gereed (%2$s)</item>
+        <item quantity="other">%1$d bestanden gereed (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Deze functie registreert alles wat de app doet in een deelbaar bestand. Het gegenereerde bestand bevat gevoelige informatie (bijv. bestandsnamen en geïnstalleerde apps). Deel het alleen met vertrouwde partijen (bijv. een ontwikkelaar die een probleem oplost).</string>
     <string name="tasks_activity_notification_channel_label">Actieve taken</string>
     <string name="tasks_activity_working_notification_title">SD Maid is aan het werk</string>
@@ -506,6 +514,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Krijg een ruwe schatting van de grootte van elke app.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Activiteit bepalen</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Ontdek of een app actief is (of onlangs actief was).</string>
+    <string name="appcontrol_include_multiuser_label">Inclusief andere gebruikers</string>
+    <string name="appcontrol_include_multiuser_summary">Apps van andere gebruikersprofielen opnemen op dit apparaat.</string>
     <string name="appcontrol_export_app_selection_action">Apps exporteren</string>
     <string name="appcontrol_export_title">App exporteren</string>
     <string name="appcontrol_export_description">Sla de installatiebestanden van deze app op. Dit omvat geen app-gegevens.</string>

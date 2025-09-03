@@ -8,6 +8,8 @@
     <string name="upgrades_dashcard_upgrade_action">Апґрейд</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play недоступний</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid не може підключитися до Google Play. Чи встановлено та оновлено Google Play? Ви ввійшли до свого облікового запису Google? Спробуйте очистити кеш додатку Google Play і перезавантажити пристрій.</string>
+    <string name="upgrades_gplay_billing_error_label">Проблема з Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Виникла проблема з Google Play. Будь ласка, спробуйте пізніше або перезавантажте пристрій.\n\nДеталі: %s</string>
     <string name="upgrades_no_purchases_found_check_account">Покупки не знайдено. Ви використовуєте правильний обліковий запис?</string>
     <string name="upgrade_screen_title">Отримати SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid не має реклами та не продає дані користувачів. Моя робота фінансується вами ❤️.</string>
