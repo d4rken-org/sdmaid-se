@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-permissions:
-  contents: read
-  actions: read
-  checks: write
 
 jobs:
   lint-vital:
@@ -74,15 +70,3 @@ jobs:
             **/build/test-results/**/*.xml
             **/build/reports/tests/**/*
           retention-days: 1
-
-      - name: Test Report
-        uses: dorny/test-reporter@v2.1.1
-        if: always()
-        with:
-          name: 'Unit Tests - ${{ matrix.flavor }} ${{ matrix.variant }}'
-          path: '**/build/test-results/**/*.xml'
-          reporter: java-junit
-          fail-on-error: false
-          list-suites: 'failed'
-          list-tests: 'failed'
-          max-annotations: 10
