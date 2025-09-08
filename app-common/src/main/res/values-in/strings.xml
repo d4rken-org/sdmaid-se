@@ -5,6 +5,7 @@
     <string name="slogan_message_1">Bersih dan rapi.</string>
     <string name="slogan_message_2">Menghindari kekacauan.</string>
     <string name="slogan_message_3">Melakukan apa yang perlu dilakukan.</string>
+    <string name="slogan_message_4">Membariskan bebek-bebek Anda.</string>
     <string name="slogan_message_5">Tak bernoda.</string>
     <string name="slogan_message_6">Bita, habislah kamu!</string>
     <string name="slogan_message_7">Ruang kosong, tempat yang bahagia.</string>
@@ -90,6 +91,9 @@
     <string name="general_toggle_layout_mode">Ganti mode tampilan</string>
     <string name="general_delete_confirmation_title">Konfirmasi penghapusan</string>
     <string name="general_delete_confirmation_message_x">Hapus \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="other">Hapus %d item terpilih?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">%d item dihapus.</item>
     </plurals>
