@@ -20,6 +20,7 @@ import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
+import eu.darken.sdmse.common.replaceLast
 import eu.darken.sdmse.databinding.DeduplicatorListLinearSubItemBinding
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import javax.inject.Inject
@@ -84,7 +85,7 @@ class DeduplicatorListLinearSubAdapter @Inject constructor() :
 
             val fileName = dupe.path.userReadableName.get(context)
             name.text = fileName
-            path.text = dupe.path.userReadablePath.get(context).replace(fileName, "")
+            path.text = dupe.path.userReadablePath.get(context).replaceLast(fileName, "")
 
             secondary.text = Formatter.formatShortFileSize(context, dupe.size)
 

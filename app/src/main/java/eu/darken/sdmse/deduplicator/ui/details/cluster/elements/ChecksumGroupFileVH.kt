@@ -5,6 +5,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
+import eu.darken.sdmse.common.replaceLast
 import eu.darken.sdmse.databinding.DeduplicatorClusterElementChecksumgroupFileBinding
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterAdapter
@@ -31,9 +32,11 @@ class ChecksumGroupFileVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         lastItem = item
-        val duplicate = item.duplicate
+        val dupe = item.duplicate
 
-        primary.text = duplicate.lookup.userReadablePath.get(context)
+        val fileName = dupe.path.userReadableName.get(context)
+        name.text = fileName
+        path.text = dupe.path.userReadablePath.get(context).replaceLast(fileName, "")
 
         root.setOnClickListener { item.onItemClick(item) }
     }
