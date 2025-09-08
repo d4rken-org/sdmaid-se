@@ -8,6 +8,8 @@
     <string name="upgrades_dashcard_upgrade_action">Nadogradnja</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play nije dostupan</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid se ne može povezati s Google Playem. Je li Google Play instaliran i ažuriran? Jeste li prijavljeni na svoj Google račun? Pokušajte očistiti predmemoriju Google Play aplikacije i ponovno pokrenuti uređaj.</string>
+    <string name="upgrades_gplay_billing_error_label">Greška Google Playa</string>
+    <string name="upgrades_gplay_billing_error_description">Došlo je do problema s Google Playom. Pokušajte ponovno kasnije ili ponovno pokrenite uređaj.\n\nDetalji: %s</string>
     <string name="upgrades_no_purchases_found_check_account">Nema pronađenih kupnji. Koristite li pravi račun?</string>
     <string name="upgrade_screen_title">Nabavite SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nema oglasa i ne prodaje korisničke podatke. Moj rad financirate vi ❤️.</string>

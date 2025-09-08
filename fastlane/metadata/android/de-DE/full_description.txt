@@ -6,7 +6,7 @@ Niemand ist perfekt, Android auch nicht.
 * Dein Speicher sammelt Dateien und Verzeichnisse an, die Du nicht kennst.
 * Duplizierte Fotos in deiner Galerie.
 
-Lasse dir von SD Maid 2/SE helfen!
+Das muss nicht sein... Lasse dir von SD Maid 2/SE helfen!
 
 SD Maid 2/SE ist eine App und Dateimanager, der darauf spezialisiert ist, zu wissen, welche Apps bestimmte Dateien auf dem Gerät erstellt haben. SD Maid 2/SE durchsucht Ihr Gerät und vergleicht Dateien mit installierten Apps, um Optionen zur sicheren Speicherplatzgewinnung anzubieten.
 
@@ -23,7 +23,7 @@ Vorschaubilder, Papierkorb, Offline-Caches und mehr: Wenn Apps nicht hinter sich
 Erhalten Sie eine umfassende Liste aller auf Ihrem Gerät installierten Apps. Aktiviert, deaktiviert, Benutzer oder System-App: Keine App kann sich vor Ihnen verstecken. Das Tool "App-Kontrolle" ist ein App-Manager, mit dem Sie Ihre Apps suchen, sortieren und steuern können.
 
 📊 Was nutzt Ihren Speicherplatz
-Apps, Medien, System und anderen Dateien sind über den Telefonspeicher, die SD-Karten und USB-Geräte verstreut. "Speicheranalyse" ist ein Dateimanager, der anzeigt, wie Platz auf Ihrem Gerät genutzt wird, was Ihre Speicherverwaltung vereinfacht.
+Das Speichermanagement ist komplex. Apps, Medien, System und anderen Dateien sind über den Telefonspeicher, die SD-Karten und USB-Geräte verstreut. "Speicheranalyse" ist ein Dateimanager, der anzeigt, wie Platz auf Ihrem Gerät genutzt wird, was Ihre Speicherverwaltung vereinfacht.
 
 📷 Duplikate finden
 Doppelte Downloads, über Social Media gesendete Fotos oder ähnliche Bilder derselben Szene: Im Laufe der Zeit können viele Kopien angesammelt werden. Das Tool "Duplikat-Entferner" findet Dateien, die genau identisch oder ähnlich sind und hilft Ihnen, zusätzliche Kopien zu löschen.
