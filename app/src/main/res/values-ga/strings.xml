@@ -42,7 +42,6 @@
     <string name="onboarding_setup_continue_action">Socraiíh rochtain</string>
     <string name="settings_privacy_policy_label">Beartas príobháideachais</string>
     <string name="settings_privacy_policy_desc">Lámhseail sonraí go freagrúch.</string>
-    <string name="settings_licenses_label">Ceadúnais</string>
     <string name="settings_category_other_label">Eile</string>
     <string name="settings_category_filter_generic">Scagán ginéaralta</string>
     <string name="settings_category_filter_specific">Scagán sainiuil</string>

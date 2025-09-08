@@ -42,7 +42,6 @@
     <string name="onboarding_setup_continue_action">Agordi aliron</string>
     <string name="settings_privacy_policy_label">Privateca politiko</string>
     <string name="settings_privacy_policy_desc">Traktante datumojn respondece.</string>
-    <string name="settings_licenses_label">Licencoj</string>
     <string name="settings_category_other_label">Alia</string>
     <string name="settings_category_filter_generic">Ĝenerala filtrilo</string>
     <string name="settings_category_filter_specific">Specifa filtrilo</string>
