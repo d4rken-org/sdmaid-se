@@ -64,7 +64,6 @@
 
     <string name="settings_privacy_policy_label">Privacy policy</string>
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
-    <string name="settings_licenses_label">Licenses</string>
     <string name="settings_category_other_label">Other</string>
 
     <string name="settings_category_filter_generic">Generic filter</string>
@@ -107,6 +106,12 @@
 
     <string name="changelog_label">Changelog</string>
     <string name="settings_acknowledgements_label">Acknowledgements</string>
+    <string name="settings_acknowledgements_category_translations_title">Translations</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Who translated this?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Thanks</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Special thanks to our friends.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licenses</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Software used by SD Maid.</string>
 
     <string name="setup_label">Setup</string>
     <string name="setup_incomplete_card_title">Setup is incomplete</string>
@@ -508,7 +513,7 @@
     <string name="appcontrol_app_launch_title">Launch app</string>
     <string name="appcontrol_app_launch_description">Launch this app\'s primary activity.</string>
     <string name="appcontrol_app_forcestop_title">Force stop</string>
-    <string name="appcontrol_app_forcestop_description">Stops the app. Prevents it from starting itself until you open it or the device is rebooted.</string>
+    <string name="appcontrol_app_forcestop_description">Stop the app. Prevent it from starting itself until you open it or the device is rebooted.</string>
     <string name="appcontrol_app_uninstall_description">Uninstall this app from your device.</string>
     <string name="appcontrol_app_exclude_add_title">Exclude app</string>
     <string name="appcontrol_app_exclude_add_description">Exclude this app from other operations in SD Maid.</string>
@@ -560,7 +565,7 @@
     <string name="appcontrol_include_multiuser_summary">Include apps from other user profiles on this device.</string>
     <string name="appcontrol_export_app_selection_action">Export apps</string>
     <string name="appcontrol_export_title">Export app</string>
-    <string name="appcontrol_export_description">Save this app\’s installation files. This does not include app data.</string>
+    <string name="appcontrol_export_description">Save this app\'s installation files. This does not include app data.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d app was exported</item>
         <item quantity="other">%d apps were exported</item>
@@ -584,7 +589,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Trying to confirm previous action (keywords: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Screen time: %1$s since %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Last updated: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Installed at: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Installed on: %s</string>
 
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Find out what is taking up space on your device.</string>
