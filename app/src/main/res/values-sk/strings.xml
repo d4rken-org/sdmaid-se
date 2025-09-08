@@ -54,7 +54,6 @@
     <string name="onboarding_setup_continue_action">Nastavte prístup</string>
     <string name="settings_privacy_policy_label">Zásady ochrany osobných údajov</string>
     <string name="settings_privacy_policy_desc">Zodpovedné zaobchádzanie s údajmi.</string>
-    <string name="settings_licenses_label">Licencie</string>
     <string name="settings_category_other_label">Iné</string>
     <string name="settings_category_filter_generic">Všeobecný filter</string>
     <string name="settings_category_filter_specific">Špecifický filter</string>
@@ -488,7 +487,6 @@
     <string name="appcontrol_app_launch_title">Spustiť aplikáciu</string>
     <string name="appcontrol_app_launch_description">Spustite hlavnú aktivitu tejto aplikácie.</string>
     <string name="appcontrol_app_forcestop_title">Vynútiť zastavenie</string>
-    <string name="appcontrol_app_forcestop_description">Zastaví aplikáciu. Zabraňuje jej samotnému spusteniu, kým ju neotvoríte alebo kým sa zariadenie nereštartuje.</string>
     <string name="appcontrol_app_uninstall_description">Odinštalujte túto aplikáciu zo svojho zariadenia.</string>
     <string name="appcontrol_app_exclude_add_title">Vylúčiť aplikáciu</string>
     <string name="appcontrol_app_exclude_add_description">Vylúčte túto aplikáciu z iných operácií v SD Maid.</string>
@@ -544,7 +542,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Zistite, či je aplikácia (alebo nedávno bola) aktívna.</string>
     <string name="appcontrol_export_app_selection_action">Exportovať aplikácie</string>
     <string name="appcontrol_export_title">Exportovať aplikáciu</string>
-    <string name="appcontrol_export_description">Uložte inštalačné súbory tejto aplikácie. Nezahŕňa to údaje aplikácie.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplikácia bola exportovaná</item>
         <item quantity="few">%d aplikácie boli exportované</item>
@@ -574,7 +571,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Pokúšam sa potvrdiť predchádzajúcu akciu (kľúčové slová: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Čas obrazovky: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Naposledy aktualizované: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Nainštalované: %s</string>
     <string name="analyzer_tool_name">Analyzátor úložiska</string>
     <string name="analyzer_explanation_short">Zistite, čo zaberá miesto na vašom zariadení.</string>
     <string name="analyzer_progress_scanning_device">Vyhľadávanie úložných zariadení</string>

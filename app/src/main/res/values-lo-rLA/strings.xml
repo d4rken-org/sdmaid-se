@@ -47,7 +47,6 @@
     <string name="onboarding_setup_continue_action">ສືບຕໍ່</string>
     <string name="settings_privacy_policy_label">ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ</string>
     <string name="settings_privacy_policy_desc">ການຈັດການຂໍ້ມູນຢ່າງມີຄວາມຮັບຜິດຊອບ.</string>
-    <string name="settings_licenses_label">ໃບອະນຸຍາດ</string>
     <string name="settings_category_other_label">ອື່ນໆ</string>
     <string name="settings_category_filter_generic">ຕົວຕອງທົ່ວໄປ</string>
     <string name="settings_category_filter_specific">ຕົວຕອງສະເພາະ</string>

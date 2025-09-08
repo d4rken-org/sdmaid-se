@@ -49,7 +49,6 @@
     <string name="onboarding_setup_continue_action">Stel toegang op</string>
     <string name="settings_privacy_policy_label">Privaatheid beleid</string>
     <string name="settings_privacy_policy_desc">Hanteer data verantwoordelik.</string>
-    <string name="settings_licenses_label">Lisensies</string>
     <string name="settings_category_other_label">Ander</string>
     <string name="settings_category_filter_generic">Generiese filter</string>
     <string name="settings_category_filter_specific">Spesifieke filter</string>
@@ -442,7 +441,6 @@
     <string name="appcontrol_app_launch_title">Lanseer toepassing</string>
     <string name="appcontrol_app_launch_description">Lanseer hierdie toepassing se primêre aktiwiteit.</string>
     <string name="appcontrol_app_forcestop_title">Dwing stop</string>
-    <string name="appcontrol_app_forcestop_description">Stop die toepassing. Verhoed dit om homself te begin totdat jy dit oopmaak of die toestel herlaai word.</string>
     <string name="appcontrol_app_uninstall_description">Deïnstalleer hierdie toepassing van jou toestel.</string>
     <string name="appcontrol_app_exclude_add_title">Sluit toepassing uit</string>
     <string name="appcontrol_app_exclude_add_description">Sluit hierdie toepassing uit van ander bewerkings in SD Maid.</string>
@@ -490,7 +488,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Vind uit of \'n toepassing is (of onlangs was) aktief.</string>
     <string name="appcontrol_export_app_selection_action">Uitvoer toepassings</string>
     <string name="appcontrol_export_title">Uitvoer toepassing</string>
-    <string name="appcontrol_export_description">Stoor hierdie toepassing se installasie lêers. Dit sluit nie toepassing data in nie.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d toepassing was uitgevoer</item>
         <item quantity="other">%d toepassings was uitgevoer</item>
@@ -514,7 +511,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Probeer om vorige aksie te bevestig (sleutelwoorde: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Skerm tyd: %1$s sedert %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Laas opgedateer: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Geïnstalleer by: %s</string>
     <string name="analyzer_explanation_short">Vind uit wat ruimte opneem op jou toestel.</string>
     <string name="analyzer_progress_scanning_device">Soek vir berging toestelle</string>
     <string name="analyzer_progress_scanning_storage">Skandeer berging</string>

@@ -52,7 +52,6 @@
     <string name="onboarding_setup_continue_action">Подесите приступ</string>
     <string name="settings_privacy_policy_label">Политика приватности</string>
     <string name="settings_privacy_policy_desc">Одговорно поступање са подацима.</string>
-    <string name="settings_licenses_label">Лиценце</string>
     <string name="settings_category_other_label">Остало</string>
     <string name="settings_category_filter_generic">Генерички филтер</string>
     <string name="settings_category_filter_specific">Специфични филтер</string>
@@ -471,7 +470,6 @@
     <string name="appcontrol_app_launch_title">Покрени апликацију</string>
     <string name="appcontrol_app_launch_description">Покрени примарну активност ове апликације.</string>
     <string name="appcontrol_app_forcestop_title">Принудно заустављање</string>
-    <string name="appcontrol_app_forcestop_description">Зауставља апликацију. Спречава је да се покрене док је не отворите или поново покренете уређај.</string>
     <string name="appcontrol_app_uninstall_description">Деинсталирај ову апликацију са вашег уређаја.</string>
     <string name="appcontrol_app_exclude_add_title">Искључи апликацију</string>
     <string name="appcontrol_app_exclude_add_description">Искључи ову апликацију из осталих операција у СД Чистачу.</string>
@@ -523,7 +521,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Сазнај да ли је апликација (или је недавно била) активна.</string>
     <string name="appcontrol_export_app_selection_action">Извези апликације</string>
     <string name="appcontrol_export_title">Извези апликацију</string>
-    <string name="appcontrol_export_description">Сачувај инсталационе датотеке ове апликације. Ово не укључује податке апликације.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d апликација је извезена</item>
         <item quantity="few">%d апликације су извезене</item>
@@ -550,7 +547,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Покушава потврду претходне акције (кључне речи: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Време на екрану: %1$s од %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Последње ажурирање: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Инсталирано: %s</string>
     <string name="analyzer_tool_name">Анализатор складишта</string>
     <string name="analyzer_explanation_short">Сазнај шта заузима простор на вашем уређају.</string>
     <string name="analyzer_progress_scanning_device">Претрага уређаја складишта</string>

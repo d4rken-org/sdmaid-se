@@ -49,7 +49,6 @@
     <string name="onboarding_setup_continue_action">ആക്സസ് സെറ്റപ്പ് ചെയ്യുക</string>
     <string name="settings_privacy_policy_label">സ്വകാര്യതാ നയം</string>
     <string name="settings_privacy_policy_desc">ഡാറ്റ ഉത്തരവാദിത്തത്തോടെ കൈകാര്യം ചെയ്യുന്നു.</string>
-    <string name="settings_licenses_label">ലൈസൻസുകൾ</string>
     <string name="settings_category_other_label">മറ്റുള്ളവ</string>
     <string name="settings_category_filter_generic">ജനറിക് ഫിൽട്ടർ</string>
     <string name="settings_category_filter_specific">സ്പെസിഫിക് ഫിൽട്ടർ</string>

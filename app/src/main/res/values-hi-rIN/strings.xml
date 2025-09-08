@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">पहुँच स्थापित करें</string>
     <string name="settings_privacy_policy_label">निजता नीति</string>
     <string name="settings_privacy_policy_desc">डेटा को जिम्मेदारी से संभालना।</string>
-    <string name="settings_licenses_label">अनुज्ञप्ति</string>
     <string name="settings_category_other_label">अन्य</string>
     <string name="settings_category_filter_generic">सामान्य फ़िल्टर</string>
     <string name="settings_category_filter_specific">विशिष्ट फ़िल्टर</string>
@@ -457,7 +456,6 @@
     <string name="appcontrol_app_launch_title">ऐप खोलें</string>
     <string name="appcontrol_app_launch_description">इस ऐप की प्राथमिक गतिविधि चालू करें</string>
     <string name="appcontrol_app_forcestop_title">बलपूर्वक रोकें</string>
-    <string name="appcontrol_app_forcestop_description">ऐप को रोकता है। डिवाइस रीबूट होने या आपके द्वारा खोले जाने तक इसे स्वयं शुरू होने से रोकता है।</string>
     <string name="appcontrol_app_uninstall_description">इस ऐप को अपने डिवाइस से अनइंस्टॉल करें।</string>
     <string name="appcontrol_app_exclude_add_title">बहिष्कृत ऐप्स</string>
     <string name="appcontrol_app_exclude_add_description">SD मेड में अन्य कार्यों से इस ऐप को बाहर करें।</string>
@@ -506,7 +504,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">ऐप गतिविधि और स्क्रीन समय की जानकारी दिखाएं।</string>
     <string name="appcontrol_export_app_selection_action">ऐप्स निर्यात करें</string>
     <string name="appcontrol_export_title">ऐप निर्यात करें</string>
-    <string name="appcontrol_export_description">इस ऐप की इंस्टॉलेशन फ़ाइलों को सेव करें। इसमें ऐप डेटा शामिल नहीं है।</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d ऐप निर्यात किया गया</item>
         <item quantity="other">%d ऐप्स निर्यात किए गए</item>
@@ -530,7 +527,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">पिछली कार्रवाई की पुष्टि करने का प्रयास (कीवर्ड: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">स्क्रीन समय: %2$s से %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">अंतिम अद्यतन: %s</string>
-    <string name="appcontrol_item_installedat_x_label">इंस्टॉल किया गया: %s</string>
     <string name="analyzer_tool_name">संग्रहणविश्लेषक</string>
     <string name="analyzer_explanation_short">पता करें कि आपके डिवाइस में क्या जगह ले रहा है।</string>
     <string name="analyzer_progress_scanning_device">संग्रहण उपकरणों की खोज की जा रही है</string>

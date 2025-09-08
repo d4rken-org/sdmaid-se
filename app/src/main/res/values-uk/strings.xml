@@ -58,7 +58,6 @@
     <string name="onboarding_setup_continue_action">Налаштувати доступ</string>
     <string name="settings_privacy_policy_label">Політика конфіденційності</string>
     <string name="settings_privacy_policy_desc">Відповідальне поводження з даними.</string>
-    <string name="settings_licenses_label">Ліцензії</string>
     <string name="settings_category_other_label">Інше</string>
     <string name="settings_category_filter_generic">Загальний фільтр</string>
     <string name="settings_category_filter_specific">Спеціальний фільтр</string>
@@ -492,7 +491,6 @@
     <string name="appcontrol_app_launch_title">Запустити додаток</string>
     <string name="appcontrol_app_launch_description">Запустіть основну активність цього додатка.</string>
     <string name="appcontrol_app_forcestop_title">Примусова зупинка</string>
-    <string name="appcontrol_app_forcestop_description">Зупиняє додаток. Не дає йому запуститися, доки ви не відкриєте його або не перезавантажите пристрій.</string>
     <string name="appcontrol_app_uninstall_description">Видаліть цей додаток з пристрою.</string>
     <string name="appcontrol_app_exclude_add_title">Виключити додаток</string>
     <string name="appcontrol_app_exclude_add_description">Виключіть цей додаток з інших операцій у SD Maid.</string>
@@ -550,7 +548,6 @@
     <string name="appcontrol_include_multiuser_summary">Включити додатки з інших профілів користувачів на цьому пристрої.</string>
     <string name="appcontrol_export_app_selection_action">Експорт додатків</string>
     <string name="appcontrol_export_title">Експорт додатка</string>
-    <string name="appcontrol_export_description">Збережіть інсталяційні файли цього додатка. Сюди не входять дані додатка.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d додаток був експортований</item>
         <item quantity="few">%d додатки були експортовані</item>
@@ -580,7 +577,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Спроба підтвердити попередню дію (ключові слова: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Час використання екрана: %1$s з %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Останнє оновлення: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Встановлено: %s</string>
     <string name="analyzer_tool_name">Аналізатор сховища</string>
     <string name="analyzer_explanation_short">Дізнайтеся, що займає місце на вашому пристрої.</string>
     <string name="analyzer_progress_scanning_device">Пошук пристроїв для зберігання даних</string>

@@ -49,7 +49,6 @@
     <string name="onboarding_setup_continue_action">Kirish huquqini sozlash</string>
     <string name="settings_privacy_policy_label">Maxfiylik siyosati</string>
     <string name="settings_privacy_policy_desc">Ma\'lumotlar bilan mas\'uliyat bilan ishlash.</string>
-    <string name="settings_licenses_label">Litsenziyalar</string>
     <string name="settings_category_other_label">Boshqa</string>
     <string name="settings_category_filter_generic">Umumiy filtr</string>
     <string name="settings_category_filter_specific">Maxsus filtr</string>
@@ -449,7 +448,6 @@
     <string name="appcontrol_app_launch_title">Ilovani ishga tushirish</string>
     <string name="appcontrol_app_launch_description">Ushbu ilovaning asosiy faoliyatini ishga tushirish.</string>
     <string name="appcontrol_app_forcestop_title">Majburiy to\'xtatish</string>
-    <string name="appcontrol_app_forcestop_description">Ilovani to\'xtatadi. Siz uni ochmaguncha yoki qurilma qayta ishga tushirilmaguncha o\'zini ishga tushirishining oldini oladi.</string>
     <string name="appcontrol_app_uninstall_description">Ushbu ilovani qurilmangizdan o\'chirish.</string>
     <string name="appcontrol_app_exclude_add_title">Ilovani chiqarib tashlash</string>
     <string name="appcontrol_app_exclude_add_description">Ushbu ilovani SD Maid dagi boshqa operatsiyalardan chiqarib tashlash.</string>
@@ -498,7 +496,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Ilova faol ekanligini (yoki yaqinda bo\'lganligini) aniqlash.</string>
     <string name="appcontrol_export_app_selection_action">Ilovalarni eksport qilish</string>
     <string name="appcontrol_export_title">Ilovani eksport qilish</string>
-    <string name="appcontrol_export_description">Ushbu ilovaning o\'rnatish fayllarini saqlash. Bu ilova ma\'lumotlarini o\'z ichiga olmaydi.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d ilova eksport qilindi</item>
         <item quantity="other">%d ilova eksport qilindi</item>
@@ -522,7 +519,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Oldingi harakatni tasdiqlashga harakat qilish (kalit so\'zlar: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Ekran vaqti: %1$s %2$s dan beri</string>
     <string name="appcontrol_item_lastupdate_x_label">Oxirgi yangilanish: %s</string>
-    <string name="appcontrol_item_installedat_x_label">O\'rnatilgan vaqt: %s</string>
     <string name="analyzer_explanation_short">Qurilmangizda nimaning joy egallayotganini aniqlash.</string>
     <string name="analyzer_progress_scanning_device">Xotira qurilmalarini qidirish</string>
     <string name="analyzer_progress_scanning_storage">Xotirani skanerlash</string>

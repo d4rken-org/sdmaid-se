@@ -54,7 +54,6 @@
     <string name="onboarding_setup_continue_action">Nustatykite prieigą</string>
     <string name="settings_privacy_policy_label">Privatumo politika</string>
     <string name="settings_privacy_policy_desc">Atsakingas duomenų tvarkymas.</string>
-    <string name="settings_licenses_label">Licencijos</string>
     <string name="settings_category_other_label">Kita</string>
     <string name="settings_category_filter_generic">Bendrasis filtras</string>
     <string name="settings_category_filter_specific">Specifinis filtras</string>

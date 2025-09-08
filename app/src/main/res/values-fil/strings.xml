@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">I-setup ang access</string>
     <string name="settings_privacy_policy_label">Patakaran sa Pagkapribado</string>
     <string name="settings_privacy_policy_desc">Responsableng hinaawakan ang datos.</string>
-    <string name="settings_licenses_label">Mga Lisensya</string>
     <string name="settings_category_other_label">Iba</string>
     <string name="settings_sponsor_development_title">Mag-sponsor ng development</string>
     <string name="settings_sponsor_development_summary">Maging patron at gawing posible ang patuloy na development.</string>
@@ -405,7 +404,6 @@
     <string name="appcontrol_systemsettings_open_description">Buksan ang system settings ng inyong device para sa app na ito.</string>
     <string name="appcontrol_app_launch_title">I-launch ang app</string>
     <string name="appcontrol_app_launch_description">I-launch ang pangunahing activity ng app na ito.</string>
-    <string name="appcontrol_app_forcestop_description">Titigil sa app. Pumipigil dito na magsimula hanggang sa inyong buksan ito o ma-reboot ang device.</string>
     <string name="appcontrol_app_uninstall_description">I-uninstall ang app na ito sa inyong device.</string>
     <string name="appcontrol_app_exclude_add_title">I-exclude ang app</string>
     <string name="appcontrol_app_exclude_add_description">I-exclude ang app na ito mula sa ibang mga operasyon sa SD Maid.</string>
@@ -447,7 +445,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Alamin kung ang isang app ay aktibo (o kamakailang aktibo).</string>
     <string name="appcontrol_export_app_selection_action">I-export ang mga app</string>
     <string name="appcontrol_export_title">I-export ang app</string>
-    <string name="appcontrol_export_description">I-save ang mga installation file ng app na ito. Hindi kasama ang app data.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d app ay na-export</item>
         <item quantity="other">%d mga app ay na-export</item>
@@ -469,7 +466,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Sinusubukang kumpirmahin ang nakaraang aksyon (keywords: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Screen time: %1$s mula %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Huling na-update: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Naka-install sa: %s</string>
     <string name="analyzer_explanation_short">Alamin kung ano ang kumukuha ng space sa inyong device.</string>
     <string name="analyzer_progress_scanning_device">Naghahanap ng mga storage device</string>
     <string name="analyzer_progress_scanning_storage">Nag-scan ng storage</string>

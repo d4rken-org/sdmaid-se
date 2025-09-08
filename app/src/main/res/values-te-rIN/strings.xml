@@ -49,7 +49,6 @@
     <string name="onboarding_setup_continue_action">యాక్సెస్ సెటప్ చేయండి</string>
     <string name="settings_privacy_policy_label">గోప్యతా విధానం</string>
     <string name="settings_privacy_policy_desc">డేటాను బాధ్యతగా నిర్వహించడం.</string>
-    <string name="settings_licenses_label">లైసెన్సులు</string>
     <string name="settings_category_other_label">ఇతర</string>
     <string name="settings_category_filter_generic">సాధారణ ఫిల్టర్</string>
     <string name="settings_category_filter_specific">నిర్దిష్ట ఫిల్టర్</string>
@@ -446,7 +445,6 @@
     <string name="appcontrol_app_launch_title">యాప్‌ను లాంచ్ చేయండి</string>
     <string name="appcontrol_app_launch_description">ఈ యాప్ ప్రాధాన ఆక్టివిటీని లాంచ్ చేయండి.</string>
     <string name="appcontrol_app_forcestop_title">బలవన్మగా ఆపండి</string>
-    <string name="appcontrol_app_forcestop_description">యాప్‌ను ఆపుతుంది. మీరు దీనిని తెరవడం లేదా పరికరాన్ని రీస్టార్ట్ చేయడం వరకు అది తను తానుగా ప్రారంభం కాకుండా ఇంపేడ్ అవుతుంది.</string>
     <string name="appcontrol_app_uninstall_description">మీ పరికరం నుంచి ఈ యాప్‌ను అనిన్‌స్టాల్ చేయండి.</string>
     <string name="appcontrol_app_exclude_add_title">యాప్‌ను బహిష్కరించండి</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid లో ఇతర ఆపరేషన్‌ల నుంచి ఈ యాప్‌ను బహిష్కరించండి.</string>
@@ -495,7 +493,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">యాప్ సక్రియంగా ఉందే (లేదా ఇద్దరు సక్రియంగా ఉందే) అని తెలుసుకోండి.</string>
     <string name="appcontrol_export_app_selection_action">యాప్‌లను ఎక్స్‌పోర్ట్ చేయండి</string>
     <string name="appcontrol_export_title">యాప్‌ని ఎక్స్‌పోర్ట్ చేయండి</string>
-    <string name="appcontrol_export_description">ఈ యాప్ ఇన్‌స్టాలేషన్ ఫైల్లను సేవ్ చేయండి. ఇది యాప్ డేటాను చేర్చదు.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d యాప్ ఎక్స్‌పోర్ట్ చేయబడింది</item>
         <item quantity="other">%d యాప్‌లు ఎక్స్‌పోర్ట్ చేయబడినాయి</item>
@@ -519,7 +516,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">ముందు కార్యాన్ని నిర్ధారించడానికి ప్రయత్నిస్తోంది (కీవర్డ్లు: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">స్క్రీన్ సమయం: %2$s నుండి %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">చివరిగా అప్‌డేట్ చేయబడింది: %s</string>
-    <string name="appcontrol_item_installedat_x_label">ఇన్‌స్టాల్ చేయబడింది: %s</string>
     <string name="analyzer_explanation_short">మీ పరికరంలో ఏది స్థలాన్ని ఆక్రమిస్తోందో కనుగొనండి.</string>
     <string name="analyzer_progress_scanning_device">స్టోరేజీ పరికరాల కోసం వెతుకుతోంది</string>
     <string name="analyzer_progress_scanning_storage">స్టోరేజీని స్కాన్ చేస్తోంది</string>

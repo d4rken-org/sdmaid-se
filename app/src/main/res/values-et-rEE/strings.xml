@@ -58,7 +58,6 @@
     <string name="onboarding_setup_continue_action">Seadistage juurdepääs</string>
     <string name="settings_privacy_policy_label">Privaatsusteatis</string>
     <string name="settings_privacy_policy_desc">Andmete vastutustundlik haldamine.</string>
-    <string name="settings_licenses_label">Litsensid</string>
     <string name="settings_category_other_label">Muu</string>
     <string name="settings_category_filter_generic">Tavafilter</string>
     <string name="settings_category_filter_specific">Erifilter</string>
@@ -199,6 +198,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Nt sisselogimisandmed, rakenduse seaded ja veebilehitseja vahemälu.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalviku vahemälu</string>
     <string name="corpsefinder_filter_dalvik_summary">Vahemällu salvestatud rakenduse käivitamisandmed.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART-profiilid</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Android optimeerib ART-profiilidega rakenduse jõudlust.</string>
     <string name="corpsefinder_filter_applib_label">Rakenduse kogumid</string>
     <string name="corpsefinder_filter_applib_summary">Rakendusega seotud kogumi andmed.</string>
     <string name="corpsefinder_filter_appsource_label">Rakenduse allikad</string>
@@ -466,7 +467,6 @@
     <string name="appcontrol_app_launch_title">Käivita rakendus</string>
     <string name="appcontrol_app_launch_description">Käivita selle rakenduse peamine tegevus.</string>
     <string name="appcontrol_app_forcestop_title">Sundpeata</string>
-    <string name="appcontrol_app_forcestop_description">Peatab rakenduse. Takistab sel käivitumast ise kuni selle ise avate või seade taaskäivitub.</string>
     <string name="appcontrol_app_uninstall_description">Eemaldab selle rakenduse seadmest.</string>
     <string name="appcontrol_app_exclude_add_title">Eira rakendust</string>
     <string name="appcontrol_app_exclude_add_description">Ära kaasa seda rakendust teistesse SD Maidi toimetustesse.</string>
@@ -518,7 +518,6 @@
     <string name="appcontrol_include_multiuser_summary">Kaasa selle seadme teiste kasutajaprofiilide rakendusi.</string>
     <string name="appcontrol_export_app_selection_action">Ekspordi rakendused</string>
     <string name="appcontrol_export_title">Ekspordi rakendus</string>
-    <string name="appcontrol_export_description">Salvesta selle rakenduse paigaldusfailid. See ei hõlma rakenduse andmeid.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d rakendus eksporditi</item>
         <item quantity="other">%d rakendust eksporditi</item>
@@ -542,7 +541,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Eelmise tegevuse kinnitamise üritamine (märksõnad: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Ekraaniaeg: %1$s alates %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Viimati uuendatud: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Paigaldatud: %s</string>
     <string name="analyzer_tool_name">Hoiustamisruumi analüüsija</string>
     <string name="analyzer_explanation_short">Avasta, mis on seadmes.</string>
     <string name="analyzer_progress_scanning_device">Hoiustamiseks kasutatavate seadmete otsimine</string>
@@ -732,4 +730,11 @@
     <string name="area_type_public_obb_label">Avalikud rakenduse allikad</string>
     <string name="area_type_private_data_label">Isiklikud rakenduse andmed</string>
     <string name="area_type_portable_label">Kaasaskantav mälu</string>
+    <string name="shortcut_appcontrol_short">Rakenduste haldamine</string>
+    <string name="shortcut_appcontrol_long">Paigaldatud rakenduste haldamine</string>
+    <string name="shortcut_onetap_short">Skanni ja kustuta</string>
+    <string name="shortcut_onetap_long">Korraga skannib ja kustutab</string>
+    <string name="shortcuts_settings_category">Otseteed</string>
+    <string name="shortcuts_onetap_enabled_title">Ühepuuteline otsetee</string>
+    <string name="shortcuts_onetap_enabled_summary">Kuva „Skanni ja kustuta\" otseteed, kui hoida kaua all rakenduse ikooni. Kasutab samu vahendeid nagu ühepuuteline töölaud.</string>
 </resources>

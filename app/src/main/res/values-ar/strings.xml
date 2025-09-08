@@ -61,7 +61,6 @@
     <string name="onboarding_setup_continue_action">إعداد الدخول</string>
     <string name="settings_privacy_policy_label">سياسة الخصوصية</string>
     <string name="settings_privacy_policy_desc">التعامل مع البيانات بمسؤولية.</string>
-    <string name="settings_licenses_label">التراخيص</string>
     <string name="settings_category_other_label">أخرى</string>
     <string name="settings_category_filter_generic">مرشح عام</string>
     <string name="settings_category_filter_specific">مرشح خاص</string>
@@ -521,7 +520,6 @@
     <string name="appcontrol_app_launch_title">تشغيل التطبيق</string>
     <string name="appcontrol_app_launch_description">تشغيل النشاط الأساسي لهذا التطبيق.</string>
     <string name="appcontrol_app_forcestop_title">إيقاف إجباري</string>
-    <string name="appcontrol_app_forcestop_description">إيقاف التطبيق. يمنعه من البَدْء حتى تقوم بفتحه أو إعادة تشغيل الجهاز.</string>
     <string name="appcontrol_app_uninstall_description">إلغاء تثبيت هذا التطبيق من جهازك.</string>
     <string name="appcontrol_app_exclude_add_title">استبعاد التطبيق</string>
     <string name="appcontrol_app_exclude_add_description">استبعاد هذا التطبيق من العمليات الأخرى في SD Maid.</string>
@@ -585,7 +583,6 @@
     <string name="appcontrol_include_multiuser_summary">قم بتضمين تطبيقات من ملفات تعريف المستخدمين الأخرى على هذا الجهاز.</string>
     <string name="appcontrol_export_app_selection_action">تصدير التطبيقات</string>
     <string name="appcontrol_export_title">تصدير التطبيق</string>
-    <string name="appcontrol_export_description">حفظ ملفات تثبيت هذا التطبيق. هذا لا يشمل بيانات التطبيق.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="zero">تم تصدير %d من التطبيقات</item>
         <item quantity="one">تم تصدير %d تطبيق</item>
@@ -621,7 +618,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">محاولة لتأكيد الإجراء السابق (الكلمات الرئيسية: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">وقت الشاشة: %1$s منذ %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">آخر تحديث: %s</string>
-    <string name="appcontrol_item_installedat_x_label">مثبت في: %s</string>
     <string name="analyzer_tool_name">محلل التخزين</string>
     <string name="analyzer_explanation_short">اكتشف ما الذي يأخذ مساحة على جهازك.</string>
     <string name="analyzer_progress_scanning_device">البحث عن أجهزة تخزين</string>

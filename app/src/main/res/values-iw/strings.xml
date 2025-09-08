@@ -54,7 +54,6 @@
     <string name="onboarding_setup_continue_action">הגדר גישה</string>
     <string name="settings_privacy_policy_label">מדיניות פרטיות</string>
     <string name="settings_privacy_policy_desc">טיפול בנתונים בצורה אחראית.</string>
-    <string name="settings_licenses_label">רשיונות</string>
     <string name="settings_category_other_label">אחר</string>
     <string name="settings_category_filter_generic">פילטר כללי</string>
     <string name="settings_category_filter_specific">פילטר ספציפי</string>
@@ -489,7 +488,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcontrol_app_launch_title">פתח אפליקציה</string>
     <string name="appcontrol_app_launch_description">פתח את המסך העיקרי של אפליקציה זו.</string>
     <string name="appcontrol_app_forcestop_title">כפה עצירה</string>
-    <string name="appcontrol_app_forcestop_description">עוצר את האפליקציה. מונע ממנה להיפתח מחדש עד שתפתח אותה בעצמך או שהמכשיר יופעל מחדש.</string>
     <string name="appcontrol_app_uninstall_description">הסר התקנת אפליקציה זו.</string>
     <string name="appcontrol_app_exclude_add_title">החרג יישום</string>
     <string name="appcontrol_app_exclude_add_description">החרג את האפליקציה הזו מפעולות אחרות ב-SD Maid.</string>
@@ -545,7 +543,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcontrol_settings_module_activity_enabled_description">גלה אם אפליקציה פעילה (או הייתה לאחרונה) פעילה.</string>
     <string name="appcontrol_export_app_selection_action">ייצוא אפליקציות</string>
     <string name="appcontrol_export_title">ייצוא אפליקציה</string>
-    <string name="appcontrol_export_description">שמור את קובצי ההתקנה של האפליקציה הזו. זה לא כולל נתוני אפליקציה.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">אפליקציה %d יוצאה</item>
         <item quantity="two">%d אפליקציות יוצאו</item>
@@ -575,7 +572,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">מנסה לאמת פעולה קודמת (מילות מפתח: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">זמן מסך: %1$s מאז %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">העדכון האחרון: %s</string>
-    <string name="appcontrol_item_installedat_x_label">הותקן בתאריך: %s</string>
     <string name="analyzer_tool_name">מנתח אחסון</string>
     <string name="analyzer_explanation_short">גלה מה תופס מקום במכשיר שלך.</string>
     <string name="analyzer_progress_scanning_device">מחפש התקני אחסון</string>

@@ -48,7 +48,6 @@
     <string name="onboarding_setup_continue_action">アクセスの設定</string>
     <string name="settings_privacy_policy_label">プライバシーポリシー</string>
     <string name="settings_privacy_policy_desc">責任を持ってデータを扱います。</string>
-    <string name="settings_licenses_label">ライセンス</string>
     <string name="settings_category_other_label">その他</string>
     <string name="settings_category_filter_generic">一般フィルタ</string>
     <string name="settings_category_filter_specific">特定フィルタ</string>
@@ -443,7 +442,6 @@
     <string name="appcontrol_app_launch_title">アプリを起動</string>
     <string name="appcontrol_app_launch_description">このアプリのプライマリアクティビティを起動します。</string>
     <string name="appcontrol_app_forcestop_title">強制停止</string>
-    <string name="appcontrol_app_forcestop_description">アプリを停止します。開くかデバイスが再起動されるまで、アプリが起動しないようにします。</string>
     <string name="appcontrol_app_uninstall_description">端末からこのアプリをアンインストールします。</string>
     <string name="appcontrol_app_exclude_add_title">除外するアプリ</string>
     <string name="appcontrol_app_exclude_add_description">SD Maidの他の操作からこのアプリを除外します。</string>
@@ -490,7 +488,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">アプリがアクティブであるか(または最近アクティブであったか)を確認します。</string>
     <string name="appcontrol_export_app_selection_action">アプリをエクスポート</string>
     <string name="appcontrol_export_title">アプリをエクスポート</string>
-    <string name="appcontrol_export_description">このアプリのインストールファイルを保存します。アプリのデータは含まれません。</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">%d個のアプリをエクスポートしました</item>
     </plurals>
@@ -511,7 +508,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">以前の操作を確認しようとしています(キーワード： %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">スクリーンタイム: %2$sから%1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">最終更新: %s</string>
-    <string name="appcontrol_item_installedat_x_label">インストール日時: %s</string>
     <string name="analyzer_tool_name">ストレージ解析</string>
     <string name="analyzer_explanation_short">お使いのデバイスのスペースを占有しているものをご覧ください。</string>
     <string name="analyzer_progress_scanning_device">ストレージデバイスを検索中</string>

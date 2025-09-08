@@ -13,6 +13,7 @@
     <string name="debug_debuglog_record_action">Spela in felsökningslogg</string>
     <string name="debug_debuglog_stop_action">Avsluta inspelning</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererade filen innehåller känslig information (t.ex. filnamn och installerade appar). Dela den endast med betrodda parter.</string>
+    <string name="debug_debuglog_screen_log_files_label">Loggfiler</string>
     <string name="settings_debuglog_explanation">Denna funktion registrerar allt appen gör i en delbar fil. Den genererade filen innehåller känslig information (t.ex. filnamn och installerade appar). Dela den endast med betrodda parter (t.ex. en utvecklare som felsöker ett problem).</string>
     <string name="tasks_activity_notification_channel_label">Aktiva uppgifter</string>
     <string name="tasks_activity_working_notification_title">SD Maid fungerar</string>
@@ -50,7 +51,6 @@
     <string name="onboarding_setup_continue_action">Ställ in åtkomst</string>
     <string name="settings_privacy_policy_label">Sekretesspolicy</string>
     <string name="settings_privacy_policy_desc">Hantering av uppgifter på ett ansvarsfullt sätt.</string>
-    <string name="settings_licenses_label">Licenser</string>
     <string name="settings_category_other_label">Övriga</string>
     <string name="settings_category_filter_generic">Generellt filter</string>
     <string name="settings_category_filter_specific">Specifikt filter</string>
@@ -63,6 +63,7 @@
     <string name="ui_theme_mode_setting_explanation">Läget som används när appen temas (t.ex. natt eller dag).</string>
     <string name="ui_theme_mode_dark_label">Mörk</string>
     <string name="ui_theme_mode_light_label">Ljus</string>
+    <string name="ui_theme_mode_system_label">System</string>
     <string name="ui_theme_style_setting_label">Tema-stil</string>
     <string name="ui_theme_style_setting_explanation">Färgstilen som används när appen temas.</string>
     <string name="ui_theme_style_default_label">Standard</string>
@@ -78,6 +79,7 @@
     <string name="support_installid_desc">Automatiska felrapporter är anonyma. Dela ditt installations-ID om utvecklaren behöver hitta dina felrapporter.</string>
     <string name="support_debuglog_label">Felsökningslogg</string>
     <string name="support_debuglog_desc">Spela in allt appen gör i en textfil som du kan dela.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">En plats att hänga på och ställa frågor.</string>
     <string name="changelog_label">Ändringslogg</string>
     <string name="settings_acknowledgements_label">Tack till</string>
@@ -107,6 +109,7 @@
     <string name="setup_root_enable_root_use_label">Använd root-åtkomst om tillgängligt</string>
     <string name="setup_root_disable_root_use_label">Använd inte root-åtkomst</string>
     <string name="setup_root_card_body2">Endast tillgängligt på rootade enheter. Om du inte gjorde denna ändring så är din enhet inte rootad och denna inställning har ingen effekt.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Tillåt SD Maid att använda Shizuku där det är möjligt för att förbättra resultat och aktivera funktioner.</string>
     <string name="setup_shizuku_card_body2">Denna inställning har ingen effekt om Shizuku-appen inte är konfigurerad på din enhet.</string>
     <string name="setup_shizuku_card_root_info">Shizuku i kombination med root-åtkomst aktiverar inte ytterligare funktioner, men det förbättrar tillförlitligheten. SD Maid kommer använda det som reservmetod.</string>
@@ -152,7 +155,9 @@
     <string name="debug_bugreporter_label">Automatiska buggrapporter</string>
     <string name="debug_bugreporter_summary">Rapporterar automatiskt problem, t.ex. detaljer om appkrascher så att jag kan förstå varför och fixa det.</string>
     <string name="settings_category_tools_label">Verktyg</string>
+    <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Riskivå</string>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Data som tillhör redan borttagna appar.</string>
     <string name="corpsefinder_settings_summary">Justera skanningsfilter och risknivåer.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Inkludera önskvärda kvarlevor</string>
@@ -183,6 +188,7 @@
     <string name="corpsefinder_filter_privatedata_label">Privat appdata</string>
     <string name="corpsefinder_filter_privatedata_summary">Privat appdata, t.ex. referenser, appinställningar men även webbläsarcache.</string>
     <string name="corpsefinder_filter_dalvik_summary">Cachad appkörningsdata.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART-profiler</string>
     <string name="corpsefinder_filter_applib_label">Appbibliotek</string>
     <string name="corpsefinder_filter_applib_summary">Apprelaterad biblioteksdata.</string>
     <string name="corpsefinder_filter_appsource_label">Appkällor</string>
@@ -192,6 +198,7 @@
     <string name="corpsefinder_filter_appasec_label">Krypterade appresurser</string>
     <string name="corpsefinder_filter_appasec_summary">Krypterade appresurser, t.ex. speltillgångar.</string>
     <string name="corpsefinder_filter_app2sd_summary">Data flyttad till extern lagring av App2Sd-modifikationer.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d appkvarleva borttagen</item>
         <item quantity="other">%d appkvarlevor borttagna</item>
@@ -206,6 +213,7 @@
     <string name="corpsefinder_owner_unknown">Okänd ägare</string>
     <string name="corpsefinder_corpse_hint_keeper">Detta objekt kan innehålla data du vill behålla trots att dess ägare är avinstallerad, t.ex. foton eller säkerhetskopior.</string>
     <string name="corpsefinder_corpse_hint_common">Detta objekt har ett mycket vanligt namn och kan tillhöra fortfarande installerade appar som SD Maid inte känner till.</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Systemskräp och onödiga filer.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d matchning borttagen</item>
@@ -298,6 +306,7 @@
     <string name="systemcleaner_customfilter_editor_livesearch_label">Livesökning</string>
     <string name="systemcleaner_customfilter_import_action">Importera nytt filter</string>
     <string name="systemcleaner_customfilter_export_action">Exportera valt filter</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Överflödig data som tillhör specifika appar.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Offentliga standardcache</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Standard offentliga app-cache. Tillgängliga under Android/data på äldre Android-versioner. Raderas när du trycker på \"Rensa cache\" i systeminställningarna.</string>
@@ -345,8 +354,11 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">Filer skickade från WhatsApp till andra.</string>
     <string name="appcleaner_filter_telegram_label">Telegram-mediafiler</string>
     <string name="appcleaner_filter_telegram_summary">Filer mottagna eller skickade genom Telegram.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Filer mottagna genom Threema.</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Skickade eller mottagna filer i konversationer och WeChat-moment.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Cachade mediafiler som laddas ner igen när de visas i chatten.</string>
     <string name="appcleaner_filter_qqchat_label">QQ-chatt</string>
     <string name="appcleaner_filter_qqchat_summary">Skickade eller mottagna filer i QQ-chattkonversationer.</string>
@@ -425,6 +437,7 @@
     <string name="deduplicator_details_cluster_title">Uppsättning av dubbletter</string>
     <string name="deduplicator_matches_exact_label">Exakta kopior</string>
     <string name="deduplicator_matches_similar_label">Liknande filer</string>
+    <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Hantera installerade appar och deras funktioner.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d app detekterad</item>
@@ -442,7 +455,6 @@
     <string name="appcontrol_app_launch_title">Starta app</string>
     <string name="appcontrol_app_launch_description">Starta denna apps primära aktivitet.</string>
     <string name="appcontrol_app_forcestop_title">Tvinga stopp</string>
-    <string name="appcontrol_app_forcestop_description">Stoppar appen. Förhindrar den från att starta sig själv tills du öppnar den eller enheten startas om.</string>
     <string name="appcontrol_app_uninstall_description">Avinstallera denna app från din enhet.</string>
     <string name="appcontrol_app_exclude_add_title">Uteslut app</string>
     <string name="appcontrol_app_exclude_add_description">Uteslut denna app från andra operationer i SD Maid.</string>
@@ -450,7 +462,9 @@
     <string name="appcontrol_app_exclude_edit_description">Denna app är för närvarande utesluten från ett eller flera verktyg.</string>
     <string name="appcontrol_tag_user">Användare</string>
     <string name="appcontrol_tag_active">Nyligen aktiv</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bunt</string>
+    <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_archived">Arkiverad</string>
     <string name="appcontrol_tag_uninstalled">Endast data</string>
     <string name="appcontrol_tag_not_installed">Inte installerad</string>
@@ -472,6 +486,9 @@
         <item quantity="other">%d appar avinstallerades</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Appstorlek</string>
+    <string name="appcontrol_app_sizes_apk_label">App</string>
+    <string name="appcontrol_app_sizes_data_label">Data</string>
+    <string name="appcontrol_app_sizes_cache_label">Cache</string>
     <string name="appcontrol_toggle_confirmation_title">Bekräfta åtgärd</string>
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="one">Ändra aktiverad/inaktiverad status för %d app?</item>
@@ -485,9 +502,9 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Få en grov uppskattning av varje apps storlek.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bestäm aktivitet</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Ta reda på om en app är (eller nyligen var) aktiv.</string>
+    <string name="appcontrol_include_multiuser_label">Inkludera andra användare</string>
     <string name="appcontrol_export_app_selection_action">Exportera appar</string>
     <string name="appcontrol_export_title">Exportera app</string>
-    <string name="appcontrol_export_description">Spara denna apps installationsfiler. Detta inkluderar inte appdata.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d app exporterades</item>
         <item quantity="other">%d appar exporterades</item>
@@ -511,7 +528,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Försöker bekräfta föregående åtgärd (nyckelord: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Skärmtid: %1$s sedan %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Senast uppdaterad: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Installerat vid: %s</string>
     <string name="analyzer_tool_name">LagringsAnalysator</string>
     <string name="analyzer_explanation_short">Ta reda på vad som tar upp plats på din enhet.</string>
     <string name="analyzer_progress_scanning_device">Söker efter lagringsenheter</string>
@@ -701,4 +717,7 @@
     <string name="area_type_public_obb_label">Offentliga appresurser</string>
     <string name="area_type_private_data_label">Privat appdata</string>
     <string name="area_type_portable_label">Portabel lagring</string>
+    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_long">Hantera installerade appar</string>
+    <string name="shortcuts_settings_category">Genvägar</string>
 </resources>

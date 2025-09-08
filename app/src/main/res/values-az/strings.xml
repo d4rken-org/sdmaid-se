@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">Girişi quraşdır</string>
     <string name="settings_privacy_policy_label">Gizlilik siyasəti</string>
     <string name="settings_privacy_policy_desc">Məlumatları məsuliyyətlə idarə etmək.</string>
-    <string name="settings_licenses_label">Lisenziyalar</string>
     <string name="settings_category_other_label">Digər</string>
     <string name="settings_category_filter_generic">Ümumi filter</string>
     <string name="settings_category_filter_specific">Xüsusi filter</string>
@@ -416,7 +415,6 @@
     <string name="appcontrol_app_launch_title">Tətbiqi işə sal</string>
     <string name="appcontrol_app_launch_description">Bu tətbiqin əsas fəaliyyətini işə salın.</string>
     <string name="appcontrol_app_forcestop_title">Məcburi dayandır</string>
-    <string name="appcontrol_app_forcestop_description">Tətbiqi dayandırır. Siz onu açana və ya cihaz yenidən başlayana qədər özünü işə salmasının qarşısını alır.</string>
     <string name="appcontrol_app_uninstall_description">Bu tətbiqi cihazınızdan silin.</string>
     <string name="appcontrol_app_exclude_add_title">Tətbiqi istisna et</string>
     <string name="appcontrol_app_exclude_add_description">Bu tətbiqi SD Maid-in digər əməliyyatlarından istisna et.</string>
@@ -465,7 +463,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Tətbiqin aktiv (və ya son vaxtlar) olduğunu öyrənin.</string>
     <string name="appcontrol_export_app_selection_action">Tətbiqləri ixrac et</string>
     <string name="appcontrol_export_title">Tətbiq ixrac et</string>
-    <string name="appcontrol_export_description">Bu tətbiqin quraşdırma fayllarını saxlayın. Bu tətbiq məlumatlarını daxil etmir.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d tətbiq ixrac edildi</item>
         <item quantity="other">%d tətbiq ixrac edildi</item>
@@ -489,7 +486,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Əvvəlki hərəkəti təsdiq etməyə çalışır (açar sözlər: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Ekran vaxtı: %2$s-dən bəri %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Son yeniləndi: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Quraşdırıldı: %s</string>
     <string name="analyzer_tool_name">Yaddaş Analizatoru</string>
     <string name="analyzer_explanation_short">Cihazınızda nəyin yer tutduğunu öyrənin.</string>
     <string name="analyzer_progress_scanning_device">Yaddaş cihazları axtarılır</string>

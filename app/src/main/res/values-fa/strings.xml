@@ -58,7 +58,6 @@
     <string name="onboarding_setup_continue_action">تنظیم کردن دسترسی</string>
     <string name="settings_privacy_policy_label">سیاست حفظ حریم خصوصی</string>
     <string name="settings_privacy_policy_desc">رعایت مسئولانه داده‌ها.</string>
-    <string name="settings_licenses_label">مجوزها</string>
     <string name="settings_category_other_label">بقیه</string>
     <string name="settings_category_filter_generic">فیلتر کلی</string>
     <string name="settings_category_filter_specific">فیلتر خاص</string>
@@ -466,7 +465,6 @@
     <string name="appcontrol_app_launch_title">اجرای برنامه</string>
     <string name="appcontrol_app_launch_description">فعالیت اصلی این برنامه را راه‌اندازی کنید.</string>
     <string name="appcontrol_app_forcestop_title">توقف اجباری</string>
-    <string name="appcontrol_app_forcestop_description">برنامه را متوقف می‌کند. از شروع خودکار برنامه جلوگیری می‌کند تا زمانی که خودتان آن را باز کنید یا دستگاه دوباره راه‌اندازی شود.</string>
     <string name="appcontrol_app_uninstall_description">این برنامه را از دستگاه خود حذف نصب کنید.</string>
     <string name="appcontrol_app_exclude_add_title">استثناء کردن برنامه</string>
     <string name="appcontrol_app_exclude_add_description">این برنامه را از سایر عملیات در SD Maid استثنا کنید.</string>
@@ -518,7 +516,6 @@
     <string name="appcontrol_include_multiuser_summary">برنامه‌های موجود در نمایه‌های دیگر کاربران در این دستگاه را شامل کنید.</string>
     <string name="appcontrol_export_app_selection_action">صادرات برنامه‌ها</string>
     <string name="appcontrol_export_title">واردات برنامه‌ها</string>
-    <string name="appcontrol_export_description">پرونده‌های نصب این برنامه را ذخیره کنید. این شامل داده‌های برنامه نمی‌شود.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d برنامه صادر شد</item>
         <item quantity="other">%d برنامه صادر شد</item>
@@ -542,7 +539,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">در حال تلاش برای تأیید عمل قبلی (کلید واژه‌ها: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">مدت زمان نمایش: %1$s از %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">آخرین به‌روزرسانی: %s</string>
-    <string name="appcontrol_item_installedat_x_label">نصب‌شده در: %s</string>
     <string name="analyzer_tool_name">آنالایزر ذخیره‌سازی</string>
     <string name="analyzer_explanation_short">برای پیدا کردن اینکه چه چیزی فضای دستگاه شما را اشغال کرده است.</string>
     <string name="analyzer_progress_scanning_device">جستجو برای دستگاه های ذخیره‌سازی</string>

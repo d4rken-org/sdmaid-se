@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">دامەزراندنی دەستڕاگەیشتن</string>
     <string name="settings_privacy_policy_label">سیاسەتی تایبەتمەندی</string>
     <string name="settings_privacy_policy_desc">مامەڵەکردن لەگەڵ داتا بە بەرپرسیارێتییەوە.</string>
-    <string name="settings_licenses_label">مۆڵەتنامەکان</string>
     <string name="settings_category_other_label">هی تر</string>
     <string name="settings_category_filter_generic">پاڵاوتنی گشتی</string>
     <string name="settings_category_filter_specific">پاڵاوتنی تایبەت</string>
@@ -335,7 +334,6 @@
     <string name="appcontrol_appstore_open_description">کراوە this app in the app store it was installed from.</string>
     <string name="appcontrol_systemsettings_open_title">نیشاندان settings</string>
     <string name="appcontrol_systemsettings_open_description">کراوە your device\'s system settings for this app.</string>
-    <string name="appcontrol_app_forcestop_description">وەستاندنs the app. Prevents it from starting itself until you open it or the device is rebooted.</string>
     <string name="appcontrol_app_uninstall_description">لابردنی دامەزراندن this app from your device.</string>
     <string name="appcontrol_app_exclude_edit_title">دەستکاری exclusion</string>
     <string name="appcontrol_tag_active">نوێly active</string>
@@ -359,11 +357,9 @@
     <string name="appcontrol_app_sizes_cache_label">کاش</string>
     <string name="appcontrol_export_app_selection_action">هەناردن apps</string>
     <string name="appcontrol_export_title">هەناردن app</string>
-    <string name="appcontrol_export_description">Save this app\’s installation فایلs. This does not include app data.</string>
     <string name="appcontrol_progress_exporting_x">هەناردنing %s</string>
     <string name="appcontrol_automation_title">ئەپControl automation</string>
     <string name="appcontrol_item_lastupdate_x_label">دوایین updated: %s</string>
-    <string name="appcontrol_item_installedat_x_label">دامەزراندنed at: %s</string>
     <string name="analyzer_tool_name">ناحیەکانAnalyzer</string>
     <string name="analyzer_progress_scanning_device">گەڕانing for storage devices</string>
     <string name="analyzer_progress_scanning_storage">گەڕانning storage</string>

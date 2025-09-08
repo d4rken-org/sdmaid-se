@@ -58,7 +58,6 @@
     <string name="onboarding_setup_continue_action">Gi tilgang</string>
     <string name="settings_privacy_policy_label">Personvernregler</string>
     <string name="settings_privacy_policy_desc">Håndterer data ansvarlig.</string>
-    <string name="settings_licenses_label">Lisenser</string>
     <string name="settings_category_other_label">Andre</string>
     <string name="settings_category_filter_generic">Generelt filter</string>
     <string name="settings_category_filter_specific">Spesifikt filter</string>
@@ -199,6 +198,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Privat appdata, f.eks. legitimasjon, appinnstillinger, men også nettleserbuffere.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik buffere</string>
     <string name="corpsefinder_filter_dalvik_summary">Bufret data for appkjøring.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART-profiler</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART-profiler brukes av Android for å optimalisere appytelsen.</string>
     <string name="corpsefinder_filter_applib_label">Appbiblioteker</string>
     <string name="corpsefinder_filter_applib_summary">Apprelaterte bibliotekdata.</string>
     <string name="corpsefinder_filter_appsource_label">Appkilder</string>
@@ -466,7 +467,6 @@
     <string name="appcontrol_app_launch_title">Start app</string>
     <string name="appcontrol_app_launch_description">Start denne appens primære aktivitet.</string>
     <string name="appcontrol_app_forcestop_title">Tving avslutning</string>
-    <string name="appcontrol_app_forcestop_description">Stopper appen. Hindrer den fra å starte seg selv, frem til du åpner den eller enheten startes på nytt.</string>
     <string name="appcontrol_app_uninstall_description">Avinstaller denne appen fra enheten din.</string>
     <string name="appcontrol_app_exclude_add_title">Ekskluder app</string>
     <string name="appcontrol_app_exclude_add_description">Ekskluder denne appen fra andre operasjoner i SD Maid.</string>
@@ -518,7 +518,6 @@
     <string name="appcontrol_include_multiuser_summary">Inkluder apper fra andre brukerprofiler på denne enheten.</string>
     <string name="appcontrol_export_app_selection_action">Eksporter apper</string>
     <string name="appcontrol_export_title">Eksporter app</string>
-    <string name="appcontrol_export_description">Lagre installasjonsfilene til denne appen. Dette inkluderer ikke appdata.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d app ble eksportert</item>
         <item quantity="other">%d apper ble eksportert</item>
@@ -542,7 +541,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Prøver å bekrefte forrige handling (nøkkelord: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Skjermtid: %1$s siden %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Sist oppdatert: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Installert på: %s</string>
     <string name="analyzer_tool_name">Lagringsanalysator</string>
     <string name="analyzer_explanation_short">Finn ut hva som tar opp plass på enheten din.</string>
     <string name="analyzer_progress_scanning_device">Søker etter lagringsenheter</string>
@@ -732,4 +730,11 @@
     <string name="area_type_public_obb_label">Offentlige appressurser</string>
     <string name="area_type_private_data_label">Privat appdata</string>
     <string name="area_type_portable_label">Bærbar lagring</string>
+    <string name="shortcut_appcontrol_short">Appkontroll</string>
+    <string name="shortcut_appcontrol_long">Administrer installerte apper</string>
+    <string name="shortcut_onetap_short">Skann + Slett</string>
+    <string name="shortcut_onetap_long">Skann og slett i en handling</string>
+    <string name="shortcuts_settings_category">Snarveier</string>
+    <string name="shortcuts_onetap_enabled_title">Ett-trykk snarvei</string>
+    <string name="shortcuts_onetap_enabled_summary">Vis \"Skann + Slett\" snarvei når app-ikonet holdes inne. Bruker samme verktøy som ett-trykk kontrollpanel.</string>
 </resources>

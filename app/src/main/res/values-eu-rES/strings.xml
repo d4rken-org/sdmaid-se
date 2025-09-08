@@ -49,7 +49,6 @@
     <string name="onboarding_setup_continue_action">Jarraitu</string>
     <string name="settings_privacy_policy_label">Pribatutasun-politika</string>
     <string name="settings_privacy_policy_desc">Datuak erantzunkidetasunez kudeatzea.</string>
-    <string name="settings_licenses_label">Lizentziak</string>
     <string name="settings_category_other_label">Bestelakoak</string>
     <string name="settings_category_filter_generic">Iragazki generikoa</string>
     <string name="settings_category_filter_specific">Iragazki zehatza</string>

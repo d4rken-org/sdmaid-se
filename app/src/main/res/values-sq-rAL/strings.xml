@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">Konfiguro qasjen</string>
     <string name="settings_privacy_policy_label">Politika e privatësisë</string>
     <string name="settings_privacy_policy_desc">Trajtimi i të dhënave me përgjegjësi.</string>
-    <string name="settings_licenses_label">Licenca</string>
     <string name="settings_category_other_label">Tjetër</string>
     <string name="settings_category_filter_generic">Filtër gjenerik</string>
     <string name="settings_category_filter_specific">Filtër specifik</string>
@@ -458,7 +457,6 @@
     <string name="appcontrol_app_launch_title">Nis aplikacionin</string>
     <string name="appcontrol_app_launch_description">Nis aktivitetin kryesor të këtij aplikacioni.</string>
     <string name="appcontrol_app_forcestop_title">Ndalim me forcë</string>
-    <string name="appcontrol_app_forcestop_description">Ndalon aplikacionin. Parandalon që të fillojë vetë derisa ta hapni ose pajisja të rindizet.</string>
     <string name="appcontrol_app_uninstall_description">Çinstaloni këtë aplikacion nga pajisja juaj.</string>
     <string name="appcontrol_app_exclude_add_title">Përjashtoni aplikacionin</string>
     <string name="appcontrol_app_exclude_add_description">Përjashtoni këtë aplikacion nga operacionet e tjera në SD Maid.</string>
@@ -508,7 +506,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Zbuloni nëse një aplikacion është (ose ka qenë kohët e fundit) aktiv.</string>
     <string name="appcontrol_export_app_selection_action">Eksporto aplikacione</string>
     <string name="appcontrol_export_title">Eksporto aplikacion</string>
-    <string name="appcontrol_export_description">Ruani skedarët e instalimit të këtij aplikacioni. Kjo nuk përfshin të dhënat e aplikacionit.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplikacion u eksportua</item>
         <item quantity="other">%d aplikacione u eksportuan</item>
@@ -532,7 +529,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Po përpiqet të konfirmojë veprimin e mëparshëm (fjalë kyçe: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Koha e ekranit: %1$s që nga %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Përditësuar për herë të fundit: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Instaluar në: %s</string>
     <string name="analyzer_tool_name">Analizuesi i magazinës</string>
     <string name="analyzer_explanation_short">Zbuloni se çfarë po zë hapësirë ​​në pajisjen tuaj.</string>
     <string name="analyzer_progress_scanning_device">Duke kërkuar për pajisje ruajtëse</string>

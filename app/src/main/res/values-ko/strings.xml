@@ -48,7 +48,6 @@
     <string name="onboarding_setup_continue_action">권한 설정</string>
     <string name="settings_privacy_policy_label">개인정보보호정책</string>
     <string name="settings_privacy_policy_desc">개인정보를 책임지고 다룹니다.</string>
-    <string name="settings_licenses_label">라이센스</string>
     <string name="settings_category_other_label">기타</string>
     <string name="settings_category_filter_generic">일반 필터</string>
     <string name="settings_category_filter_specific">특정 필터</string>
@@ -443,7 +442,6 @@
     <string name="appcontrol_app_launch_title">앱 실행하기</string>
     <string name="appcontrol_app_launch_description">이 앱을 실행합니다.</string>
     <string name="appcontrol_app_forcestop_title">강제 종료하기</string>
-    <string name="appcontrol_app_forcestop_description">앱이 백그라운드에서 실행 중지됩니다. 앱을 다시 시작할 때까지 알림이나 업데이트를 받지 못할 수 있습니다.</string>
     <string name="appcontrol_app_uninstall_description">기기에서 이 앱을 삭제합니다.</string>
     <string name="appcontrol_app_exclude_add_title">앱 제외</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid의 다른 활동으로부터 이 앱을 제외합니다.</string>
@@ -490,7 +488,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">앱이 실행되고 있는지 (또는 최근에 실행되었는지) 확인합니다.</string>
     <string name="appcontrol_export_app_selection_action">앱들 내보내기</string>
     <string name="appcontrol_export_title">앱 내보내기</string>
-    <string name="appcontrol_export_description">이 앱의 설치 파일을 저장합니다. 앱 데이터는 포함되지 않습니다.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">%d개의 앱을 내보냈습니다</item>
     </plurals>
@@ -511,7 +508,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">이전 작업 확인 시도 중 (키워드: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">화면 시간: %2$s부터 %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">마지막 업데이트: %s</string>
-    <string name="appcontrol_item_installedat_x_label">설치됨: %s</string>
     <string name="analyzer_tool_name">저장소 분석기</string>
     <string name="analyzer_explanation_short">무엇이 저장 공간을 차지하고 있는지 확인합니다.</string>
     <string name="analyzer_progress_scanning_device">저장 장치 검색 중</string>

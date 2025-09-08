@@ -49,7 +49,6 @@
     <string name="onboarding_setup_continue_action">जारी राख्नुहोस्</string>
     <string name="settings_privacy_policy_label">गोपनीयता नीति</string>
     <string name="settings_privacy_policy_desc">डेटा जिम्मेवारीपूर्वक ह्यान्डल गर्दै।</string>
-    <string name="settings_licenses_label">इजाजतपत्रहरू</string>
     <string name="settings_category_other_label">अन्य</string>
     <string name="settings_category_filter_generic">सामान्य फिल्टर</string>
     <string name="settings_category_filter_specific">विशिष्ट फिल्टर</string>
@@ -346,7 +345,6 @@
     <string name="appcontrol_app_launch_title">App सुरु गर्नुहोस्</string>
     <string name="appcontrol_app_launch_description">यस app को मुख्य activity सुरु गर्नुहोस्।</string>
     <string name="appcontrol_app_forcestop_title">जबरजस्ती रोक्नुहोस्</string>
-    <string name="appcontrol_app_forcestop_description">App लाई रोक्छ। तपाईंले यसलाई नखोल्दासम्म वा उपकरण पुनः सुरु नगरेसम्म आफैं सुरु हुनबाट रोक्छ।</string>
     <string name="appcontrol_app_uninstall_description">यस app लाई तपाईंको उपकरणबाट हटाउनुहोस्।</string>
     <string name="appcontrol_app_exclude_add_title">App बहिष्कार गर्नुहोस्</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid का अन्य कार्यहरूबाट यस app लाई बहिष्कार गर्नुहोस्।</string>
@@ -379,7 +377,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">app सक्रिय छ (वा हालै थियो) कि भनेर पत्ता लगाउनुहोस्।</string>
     <string name="appcontrol_export_app_selection_action">Apps निर्यात गर्नुहोस्</string>
     <string name="appcontrol_export_title">App निर्यात गर्नुहोस्</string>
-    <string name="appcontrol_export_description">यस app का स्थापना फाइलहरू सुरक्षित गर्नुहोस्। यसमा app डेटा समावेश छैन।</string>
     <string name="appcontrol_progress_exporting_x">%s निर्यात गर्दै</string>
     <string name="appcontrol_force_stop_selection_action">Apps जबरजस्ती रोक्नुहोस्</string>
     <string name="appcontrol_force_stop_action">जबरजस्ती रोक्नुहोस्</string>
@@ -391,7 +388,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">अघिल्लो कार्य पुष्टि गर्न कोशिस गर्दै (किवर्डहरू: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">स्क्रिन समय: %2$s देखि %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">अन्तिम अपडेट: %s</string>
-    <string name="appcontrol_item_installedat_x_label">स्थापना मिति: %s</string>
     <string name="analyzer_explanation_short">तपाईंको उपकरणमा के कुराले ठाउँ ओगटेको छ भनेर पत्ता लगाउनुहोस्।</string>
     <string name="analyzer_progress_scanning_device">भण्डारण उपकरणहरू खोज्दै</string>
     <string name="analyzer_progress_scanning_storage">भण्डारण स्क्यान गर्दै</string>

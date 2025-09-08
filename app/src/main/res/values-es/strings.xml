@@ -58,7 +58,6 @@
     <string name="onboarding_setup_continue_action">Configurar el acceso</string>
     <string name="settings_privacy_policy_label">Política de privacidad</string>
     <string name="settings_privacy_policy_desc">Tratamiento responsable de los datos.</string>
-    <string name="settings_licenses_label">Licencias</string>
     <string name="settings_category_other_label">Otros</string>
     <string name="settings_category_filter_generic">Filtro genérico</string>
     <string name="settings_category_filter_specific">Filtro específico</string>
@@ -199,6 +198,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Datos privados de las aplicaciones, como credenciales, ajustes de las aplicaciones y cachés de los navegadores.</string>
     <string name="corpsefinder_filter_dalvik_label">Caché Dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">Datos de ejecución de las aplicaciones en caché.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Perfiles ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Los perfiles ART son utilizados por Android para optimizar el rendimiento de las aplicaciones.</string>
     <string name="corpsefinder_filter_applib_label">Bibliotecas de aplicaciones</string>
     <string name="corpsefinder_filter_applib_summary">Datos de la biblioteca relacionados con la aplicación.</string>
     <string name="corpsefinder_filter_appsource_label">Fuentes de la aplicación</string>
@@ -466,7 +467,6 @@
     <string name="appcontrol_app_launch_title">Iniciar aplicación</string>
     <string name="appcontrol_app_launch_description">Iniciar la actividad principal de esta aplicación.</string>
     <string name="appcontrol_app_forcestop_title">Forzar la detención</string>
-    <string name="appcontrol_app_forcestop_description">Detiene la aplicación. Evita que se inicie sola hasta que la abras o se reinicie el dispositivo.</string>
     <string name="appcontrol_app_uninstall_description">Desinstalar esta aplicación de tu dispositivo.</string>
     <string name="appcontrol_app_exclude_add_title">Omitir la aplicación</string>
     <string name="appcontrol_app_exclude_add_description">Excluye esta aplicación de otras operaciones en SD Maid.</string>
@@ -518,7 +518,6 @@
     <string name="appcontrol_include_multiuser_summary">Incluir aplicaciones de otros perfiles de usuario usados en este dispositivo.</string>
     <string name="appcontrol_export_app_selection_action">Exportar las aplicaciones</string>
     <string name="appcontrol_export_title">Exportar la aplicación</string>
-    <string name="appcontrol_export_description">Guarda los archivos de instalación de esta aplicación. Esto no incluye los datos de la aplicación.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">Se ha exportado %d aplicación</item>
         <item quantity="other">Se han exportado %d aplicaciones</item>
@@ -542,7 +541,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Intentando confirmar la acción anterior (palabras clave: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Tiempo de pantalla: %1$s desde %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Última actualización: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Instalado en: %s</string>
     <string name="analyzer_tool_name">Analizador del Almacenamiento</string>
     <string name="analyzer_explanation_short">Averigua qué ocupa espacio en tu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Buscando dispositivos de almacenamiento</string>
@@ -732,4 +730,11 @@
     <string name="area_type_public_obb_label">Recursos de aplicaciones públicas</string>
     <string name="area_type_private_data_label">Datos de aplicaciones privadas</string>
     <string name="area_type_portable_label">Almacenamiento externo</string>
+    <string name="shortcut_appcontrol_short">Control de las aplicaciones</string>
+    <string name="shortcut_appcontrol_long">Gestionar las aplicaciones instaladas</string>
+    <string name="shortcut_onetap_short">Escanear + Eliminar</string>
+    <string name="shortcut_onetap_long">Escanear y eliminar en una sola acción</string>
+    <string name="shortcuts_settings_category">Accesos directos</string>
+    <string name="shortcuts_onetap_enabled_title">Acceso directo a un toque</string>
+    <string name="shortcuts_onetap_enabled_summary">Muestra el acceso directo «Escanear + Eliminar» al pulsar prolongadamente el icono de la aplicación. Utiliza las mismas herramientas que el panel de un solo toque.</string>
 </resources>

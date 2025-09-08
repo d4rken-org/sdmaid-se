@@ -54,7 +54,6 @@
     <string name="onboarding_setup_continue_action">Zugriff einrichten</string>
     <string name="settings_privacy_policy_label">Datenschutz-Bestimmungen</string>
     <string name="settings_privacy_policy_desc">Verantwortungsvoller Umgang mit Daten.</string>
-    <string name="settings_licenses_label">Lizenzen</string>
     <string name="settings_category_other_label">Sonstiges</string>
     <string name="settings_category_filter_generic">Allgemeine Filter</string>
     <string name="settings_category_filter_specific">Spezifische Filter</string>
@@ -462,7 +461,6 @@
     <string name="appcontrol_app_launch_title">App starten</string>
     <string name="appcontrol_app_launch_description">Starte die primäre Aktivität dieser App.</string>
     <string name="appcontrol_app_forcestop_title">Beenden erzwingen</string>
-    <string name="appcontrol_app_forcestop_description">Stoppt die App. Verhindert, dass sie sich selbst startet, bis Sie sie öffnen oder das Gerät neu gestartet wird.</string>
     <string name="appcontrol_app_uninstall_description">Deinstalliere diese App von Deinem Gerät.</string>
     <string name="appcontrol_app_exclude_add_title">App ausschließen</string>
     <string name="appcontrol_app_exclude_add_description">Diese Anwendung von anderen Vorgängen in SD Maid ausschließen.</string>
@@ -514,7 +512,6 @@
     <string name="appcontrol_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
     <string name="appcontrol_export_app_selection_action">Apps exportieren</string>
     <string name="appcontrol_export_title">App exportieren</string>
-    <string name="appcontrol_export_description">Speichern Sie die Installationsdateien dieser App. Dies beinhaltet keine App-Daten.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d App wurde exportiert</item>
         <item quantity="other">%d Apps wurden exportiert</item>
@@ -538,7 +535,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Versuche die vorherige Aktion zu bestätigen (Schlüsselwörter: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Bildschirmzeit: %1$s seit %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Zuletzt aktualisiert: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Installiert am: %s</string>
     <string name="analyzer_tool_name">Speicheranalyse</string>
     <string name="analyzer_explanation_short">Finde heraus, was auf Deinem Gerät Speicherplatz beansprucht.</string>
     <string name="analyzer_progress_scanning_device">Suche nach Speichermedien</string>

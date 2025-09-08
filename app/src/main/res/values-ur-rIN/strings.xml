@@ -49,7 +49,6 @@
     <string name="onboarding_setup_continue_action">رسائی سیٹ اپ کریں</string>
     <string name="settings_privacy_policy_label">پرائیویسی پالیسی</string>
     <string name="settings_privacy_policy_desc">ڈیٹا کو ذمہ داری سے سنبھالنا۔</string>
-    <string name="settings_licenses_label">لائسنسز</string>
     <string name="settings_category_other_label">دیگر</string>
     <string name="settings_category_filter_generic">عمومی فلٹر</string>
     <string name="settings_category_filter_specific">مخصوص فلٹر</string>
@@ -444,7 +443,6 @@
     <string name="appcontrol_app_launch_title">ایپ لانچ کریں</string>
     <string name="appcontrol_app_launch_description">اس ایپ کی بنیادی سرگرمی لانچ کریں۔</string>
     <string name="appcontrol_app_forcestop_title">زبردستی بند کریں</string>
-    <string name="appcontrol_app_forcestop_description">ایپ کو بند کرتا ہے۔ اسے خود شروع ہونے سے روکتا ہے جب تک آپ اسے نہیں کھولتے یا ڈیوائس کو ری بوٹ نہیں کرتے۔</string>
     <string name="appcontrol_app_uninstall_description">اس ایپ کو آپ کے ڈیوائس سے ان انسٹال کریں۔</string>
     <string name="appcontrol_app_exclude_add_title">ایپ کو خارج کریں</string>
     <string name="appcontrol_app_exclude_add_description">اس ایپ کو SD Maid کی دیگر کارروائیوں سے خارج کریں۔</string>
@@ -492,7 +490,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">پتہ کریں کہ کیا ایپ فعال ہے (یا حال ہی میں تھی)۔</string>
     <string name="appcontrol_export_app_selection_action">ایپس ایکسپورٹ کریں</string>
     <string name="appcontrol_export_title">ایپ ایکسپورٹ کریں</string>
-    <string name="appcontrol_export_description">اس ایپ کی انسٹالیشن فائلیں محفوظ کریں۔ اس میں ایپ ڈیٹا شامل نہیں۔</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d ایپ ایکسپورٹ ہوئی</item>
         <item quantity="other">%d ایپس ایکسپورٹ ہوئے</item>
@@ -516,7 +513,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">پچھلی کارروائی کی تصدیق کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">سکرین ٹائم: %1$s بعد %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">آخری اپڈیٹ: %s</string>
-    <string name="appcontrol_item_installedat_x_label">انسٹال کیا گیا: %s</string>
     <string name="analyzer_explanation_short">معلوم کریں کہ آپ کے ڈیوائس پر کیا جگہ این کر رہا ہے۔</string>
     <string name="analyzer_progress_scanning_device">اسٹوریج ڈیوائسز کی تلاش</string>
     <string name="analyzer_progress_scanning_storage">اسٹوریج سکین کر رہے ہیں</string>

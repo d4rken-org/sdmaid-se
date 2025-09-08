@@ -46,7 +46,6 @@
     <string name="onboarding_setup_continue_action">Kirisiwdi sazlaw</string>
     <string name="settings_privacy_policy_label">Qupiyalıq siyasatı</string>
     <string name="settings_privacy_policy_desc">Maǵlıwmatlarǵa juwapkershilik penen qayta islew.</string>
-    <string name="settings_licenses_label">Licenziyalar</string>
     <string name="settings_category_other_label">Basqa</string>
     <string name="settings_category_filter_generic">Ulıwmalıq filtr</string>
     <string name="settings_category_filter_specific">Arnawlı filtr</string>
@@ -403,7 +402,6 @@
     <string name="appcontrol_app_launch_title">Baǵdarlamanı iske túsiriw</string>
     <string name="appcontrol_app_launch_description">Bul qosímshanıń tiykarǵı aktivligin iske túsiriw.</string>
     <string name="appcontrol_app_forcestop_title">Májbúrlep toqtatıw</string>
-    <string name="appcontrol_app_forcestop_description">Qosímshanı toqtatadı. Siz onı ashqanıńızǵa yamasa qurılma qayta júklengenine shekem óz-ózinen baslanıwın toqtatadı.</string>
     <string name="appcontrol_app_uninstall_description">Bul qosímshanı qurılmadan óshiriw.</string>
     <string name="appcontrol_app_exclude_add_title">Qosímshanı shetlew</string>
     <string name="appcontrol_app_exclude_add_description">Bul qosímshanı SD Maidtıń basqa ámellerinen shetlew.</string>
@@ -440,7 +438,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Qosímshanıń aktiv ekenligin (yamasa jaqında aktiv bolǵanın) anıqlaw.</string>
     <string name="appcontrol_export_app_selection_action">Qosímshalardı eksportlaw</string>
     <string name="appcontrol_export_title">Qosímshanı eksportlaw</string>
-    <string name="appcontrol_export_description">Bul qosímshanıń ornatıw faylların saqlaw. Bul qosímsha maǵlıwmatların óz ishine almaydı.</string>
     <string name="appcontrol_progress_exporting_x">%s eksportlanıwda</string>
     <string name="appcontrol_force_stop_selection_action">Baǵdarlamalardı májbúrlep toqtatıw</string>
     <string name="appcontrol_force_stop_action">Májbúrlep toqtatıw</string>
@@ -452,7 +449,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Aldıńǵı háreketti tastıyıqlawǵa háreket etilip atır (gilt sózler: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Ekran waqtı: %2$s baslap %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Aqırǵı jańalanǵan: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Ornatılǵan waqtı: %s</string>
     <string name="analyzer_tool_name">Saqlaw orın analizatori</string>
     <string name="analyzer_explanation_short">Qurılmańızda orın iyelep turǵan nárselerdi anıqlaw.</string>
     <string name="analyzer_progress_scanning_device">Saqlaw qurılmaların izlew</string>

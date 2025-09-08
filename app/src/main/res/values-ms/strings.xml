@@ -48,7 +48,6 @@
     <string name="onboarding_setup_continue_action">Sediakan akses</string>
     <string name="settings_privacy_policy_label">Dasar privasi</string>
     <string name="settings_privacy_policy_desc">Mengendalikan data secara bertanggungjawab.</string>
-    <string name="settings_licenses_label">Lesen</string>
     <string name="settings_category_other_label">Lain-lain</string>
     <string name="settings_category_filter_generic">Penapis generik</string>
     <string name="settings_category_filter_specific">Penapis spesifik</string>
@@ -441,7 +440,6 @@
     <string name="appcontrol_app_launch_title">Lancarkan aplikasi</string>
     <string name="appcontrol_app_launch_description">Lancarkan aktiviti utama aplikasi ini.</string>
     <string name="appcontrol_app_forcestop_title">Paksa berhenti</string>
-    <string name="appcontrol_app_forcestop_description">Menghentikan aplikasi. Menghalangnya daripada memulakan sendiri sehingga anda membukanya atau peranti dimulakan semula.</string>
     <string name="appcontrol_app_uninstall_description">Nyahpasang aplikasi ini daripada peranti anda.</string>
     <string name="appcontrol_app_exclude_add_title">Singkir aplikasi</string>
     <string name="appcontrol_app_exclude_add_description">Asingkan aplikasi ini daripada operasi lain dalam SD Maid.</string>
@@ -484,7 +482,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Membolehkan pengumpulan maklumat penggunaan aplikasi</string>
     <string name="appcontrol_export_app_selection_action">Eksport aplikasi terpilih</string>
     <string name="appcontrol_export_title">Eksport</string>
-    <string name="appcontrol_export_description">Eksport maklumat aplikasi ke fail</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">%d aplikasi telah dieksport</item>
     </plurals>
@@ -505,7 +502,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Mencari butang pengesahan</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Masa skrin: %1$s sejak %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Kemaskini terakhir: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Dipasang pada: %s</string>
     <string name="analyzer_tool_name">Penganalisis Storan</string>
     <string name="analyzer_explanation_short">Ketahui apa yang menggunakan ruang pada peranti anda.</string>
     <string name="analyzer_progress_scanning_device">Mencari peranti storan</string>

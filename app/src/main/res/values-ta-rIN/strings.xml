@@ -49,7 +49,6 @@
     <string name="onboarding_setup_continue_action">அணுகலை அமைக்கவும்</string>
     <string name="settings_privacy_policy_label">தனியுரிமை கொள்கை</string>
     <string name="settings_privacy_policy_desc">தகவலை பொறுப்புடனுடன் கைகாளவது.</string>
-    <string name="settings_licenses_label">இஜையங்கள்</string>
     <string name="settings_category_other_label">மற்றவை</string>
     <string name="settings_category_filter_generic">பொது அரிப்பு</string>
     <string name="settings_category_filter_specific">திறந்த அரிப்பு</string>
@@ -393,7 +392,6 @@
     <string name="appcontrol_app_launch_title">பயன்பாடைத் தொடங்கு</string>
     <string name="appcontrol_app_launch_description">இந்த பயன்பாட்டின் முக்கிய செயல்பாடைத் தொடங்கு.</string>
     <string name="appcontrol_app_forcestop_title">வலையுள்ள நிறுத்தம்</string>
-    <string name="appcontrol_app_forcestop_description">பயன்பாடை நிறுத்துகிறது. நீங்கள் அதைத் திறக்கும் வரை அல்லது சாதனம் மீண்டும் தொடங்கும் வரை அது தவறாக தொடங்காமல் தடுக்குகிறது.</string>
     <string name="appcontrol_app_uninstall_description">இந்த பயன்பாடை உங்கள் சாதனத்திலிருந்து அன்இன்ஸ்டால் செய்வது.</string>
     <string name="appcontrol_app_exclude_add_title">பயன்பாடை விலக்கு</string>
     <string name="appcontrol_app_exclude_add_description">இந்த பயன்பாடை SD Maid இன் மற்ற செயல்பாடுகளிலிருந்து விலக்கு.</string>
@@ -442,7 +440,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">பயன்பாடு (அல்லது இறுதியாக) செயல்பட்டுக் கொண்டிருந்ததா என்று கண்டுபிடிக்கவும்.</string>
     <string name="appcontrol_export_app_selection_action">பயன்பாடுகளை ஏற்றுமதி செய்</string>
     <string name="appcontrol_export_title">பயன்பாடை ஏற்றுமதி செய்</string>
-    <string name="appcontrol_export_description">இந்த பயன்பாட்டின் நிறுவல் கோப்புகளைச் சேமிக்கவும். இதில் பயன்பாட்டு தரவு இல்லை.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d பயன்பாடு ஏற்றுமதி செய்யப்பட்டது</item>
         <item quantity="other">%d பயன்பாடுகள் ஏற்றுமதி செய்யப்பட்டன</item>
@@ -466,7 +463,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">முந்தைய செயலை உறுதிசெய்ய முயற்சிகிறது (சாவி வார்த்தைகள்: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">திரை நேரம்: %2$s இலிருந்து %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">கடைசியாக புதுப்பிக்கப்பட்டது: %s</string>
-    <string name="appcontrol_item_installedat_x_label">நிறுவப்பட்டது: %s</string>
     <string name="analyzer_tool_name">சேமிப்பு பகுப்பாய்வாளர்</string>
     <string name="analyzer_explanation_short">உங்கள் சாதனத்தில் எது இடத்தை ஆக்ரமிக்கிறது என்று கண்டுபிடிக்கவும்.</string>
     <string name="analyzer_progress_scanning_device">சேமிப்பு சாதனங்களைத் தேடுகிறது</string>

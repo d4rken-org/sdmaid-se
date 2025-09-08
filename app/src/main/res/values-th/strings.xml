@@ -48,7 +48,6 @@
     <string name="onboarding_setup_continue_action">ตั้งค่าการเข้าถึง</string>
     <string name="settings_privacy_policy_label">นโยบายความเป็นส่วนตัว</string>
     <string name="settings_privacy_policy_desc">จัดการข้อมูลอย่างมีความรับผิดชอบ</string>
-    <string name="settings_licenses_label">ลิขสิทธิ์</string>
     <string name="settings_category_other_label">อื่นๆ</string>
     <string name="settings_category_filter_generic">ตัวกรองทั่วไป</string>
     <string name="settings_category_filter_specific">ตัวกรองเจาะจง</string>
@@ -439,7 +438,6 @@
     <string name="appcontrol_app_launch_title">เปิดแอพ</string>
     <string name="appcontrol_app_launch_description">เปิดกิจกรรมหลักของแอพนี้</string>
     <string name="appcontrol_app_forcestop_title">บังคับให้หยุด</string>
-    <string name="appcontrol_app_forcestop_description">หยุดการทำงานของแอพ ป้องกันไม่ให้เริ่มต้นเองจนกว่าคุณจะเปิดหรือรีสตาร์ทอุปกรณ์</string>
     <string name="appcontrol_app_uninstall_description">ถอนการติดตั้งแอพนี้ออกจากอุปกรณ์</string>
     <string name="appcontrol_app_exclude_add_title">ยกเว้นแอพ</string>
     <string name="appcontrol_app_exclude_add_description">ยกเว้นแอพนี้จากการดำเนินการอื่นๆ ใน SD Maid</string>
@@ -485,7 +483,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">หาว่าแอพกำลังทำงานอยู่ (หรือเพิ่งทำงานเมื่อเร็วๆ นี้)</string>
     <string name="appcontrol_export_app_selection_action">ส่งออกแอพ</string>
     <string name="appcontrol_export_title">ส่งออกแอพ</string>
-    <string name="appcontrol_export_description">บันทึกไฟล์การติดตั้งของแอพนี้ ไม่รวมข้อมูลแอพ</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">ส่งออกแอพ %d แอพแล้ว</item>
     </plurals>
@@ -506,7 +503,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">พยายามยืนยันการดำเนินการก่อนหน้า (คำสำคัญ: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">เวลาใช้งานหน้าจอ: %1$s ตั้งแต่ %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">อัปเดตครั้งล่าสุด: %s</string>
-    <string name="appcontrol_item_installedat_x_label">ติดตั้งเมื่อ: %s</string>
     <string name="analyzer_tool_name">ตัววิเคราะห์พื้นที่จัดเก็บ</string>
     <string name="analyzer_explanation_short">ค้นหาสิ่งที่ใช้พื้นที่ในอุปกรณ์ของคุณ</string>
     <string name="analyzer_progress_scanning_device">ค้นหาอุปกรณ์จัดเก็บข้อมูล</string>

@@ -58,7 +58,6 @@
     <string name="onboarding_setup_continue_action">Configurar acesso</string>
     <string name="settings_privacy_policy_label">Política de privacidade</string>
     <string name="settings_privacy_policy_desc">Responsabilidade de lidar com dados.</string>
-    <string name="settings_licenses_label">Licenças</string>
     <string name="settings_category_other_label">Outro</string>
     <string name="settings_category_filter_generic">Filtro genérico</string>
     <string name="settings_category_filter_specific">Filtro específico</string>
@@ -199,6 +198,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Dados privados do aplicativo, ex.: credenciais, configurações do aplicativo, mas também caches do navegador.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
     <string name="corpsefinder_filter_dalvik_summary">Dados de execução em cache.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Perfis ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Perfis ART são usados pelo Android para otimizar o desempenho do aplicativo.</string>
     <string name="corpsefinder_filter_applib_label">Bibliotecas de aplicativos</string>
     <string name="corpsefinder_filter_applib_summary">Dados da biblioteca relacionados ao app.</string>
     <string name="corpsefinder_filter_appsource_label">Fontes das apps</string>
@@ -467,7 +468,6 @@ Recursos dos jogos.</string>
     <string name="appcontrol_app_launch_title">Iniciar aplicação</string>
     <string name="appcontrol_app_launch_description">Iniciar atividade primária deste aplicativo.</string>
     <string name="appcontrol_app_forcestop_title">Forçar paragem</string>
-    <string name="appcontrol_app_forcestop_description">Interrompe a aplicação. Impede que se inicie até que você a abra ou que o dispositivo seja reiniciado.</string>
     <string name="appcontrol_app_uninstall_description">Desinstale esta aplicação do seu dispositivo.</string>
     <string name="appcontrol_app_exclude_add_title">Apagar aplicativo</string>
     <string name="appcontrol_app_exclude_add_description">Excluir este aplicativo de outras operações no SD Maid.</string>
@@ -519,7 +519,6 @@ Recursos dos jogos.</string>
     <string name="appcontrol_include_multiuser_summary">Incluir apps de outros perfis de utilizador neste dispositivo.</string>
     <string name="appcontrol_export_app_selection_action">Exportar aplicações</string>
     <string name="appcontrol_export_title">Exportar aplicações</string>
-    <string name="appcontrol_export_description">Guarde arquivos de instalação desta aplicação no seu dispositivo. Isso não inclui os dados.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplicação foi exportada</item>
         <item quantity="other">%d das aplicações foram exportadas</item>
@@ -543,7 +542,6 @@ Recursos dos jogos.</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">A tentar confirmar a ação anterior (palavras-chave: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Tempo de ecrã: %1$s desde %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Última atualização %s</string>
-    <string name="appcontrol_item_installedat_x_label">Instalado em: %s</string>
     <string name="analyzer_tool_name">Analisador de armazenamento</string>
     <string name="analyzer_explanation_short">Descubra o que está ocupando espaço no seu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Procurando dispositivos de armazenamento</string>
@@ -735,4 +733,11 @@ Recursos dos jogos.</string>
     <string name="area_type_public_obb_label">Recursos de aplicações públicos</string>
     <string name="area_type_private_data_label">Dados de apps privados</string>
     <string name="area_type_portable_label">Armazenamento portátil</string>
+    <string name="shortcut_appcontrol_short">Controlo de Aplicações</string>
+    <string name="shortcut_appcontrol_long">Faça a gestão das apps instaladas</string>
+    <string name="shortcut_onetap_short">Varrer + Apagar</string>
+    <string name="shortcut_onetap_long">Varrer e apagar numa ação</string>
+    <string name="shortcuts_settings_category">Atalhos</string>
+    <string name="shortcuts_onetap_enabled_title">Atalho com um toque</string>
+    <string name="shortcuts_onetap_enabled_summary">Mostrar atalho \"varrer + apagar\" pressionar e segurar o ícone do aplicativo. Usa as mesmas ferramentas de um toque.</string>
 </resources>

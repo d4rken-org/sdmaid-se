@@ -5,6 +5,7 @@
     <string name="slogan_message_1">Rent och fint.</string>
     <string name="slogan_message_2">Förhindra kaos.</string>
     <string name="slogan_message_3">Att göra det som behövs.</string>
+    <string name="slogan_message_4">Alla dina ankor i rad.</string>
     <string name="slogan_message_5">Skinande rent.</string>
     <string name="slogan_message_6">Bytes, försvinn!</string>
     <string name="slogan_message_7">Ledig rymd, lyckligt rum.</string>
@@ -163,4 +164,6 @@
     <string name="general_error_report_bug_action">Rapportera fel</string>
     <string name="general_error_ipc_deadobject_title">Tjänstanslutning förlorad</string>
     <string name="general_error_ipc_deadobject_description">Anslutningen till en kritisk tjänst (t.ex. Magisk, Shizuku eller andra tjänster på systemnivå) förlorades oväntat. Starta om din enhet. Om problemet kvarstår, sök efter uppdateringar eller kontakta mig så att jag kan åtgärda det.</string>
+    <string name="general_user_label_owner">Ägare</string>
+    <string name="general_user_label_system">System</string>
 </resources>
