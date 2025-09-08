@@ -41,7 +41,6 @@
     <string name="onboarding_setup_continue_action">ဆက်လက်လုပ်ဆောင်ပါ</string>
     <string name="settings_privacy_policy_label">ကိုယ်ပိုင်လုံခြုံမှု မူဝါဒ</string>
     <string name="settings_privacy_policy_desc">ဒေတာကို တာဝန်ယူစွာ ကိုင်တွယ်ခြင်း။</string>
-    <string name="settings_licenses_label">လိုင်စင်များ</string>
     <string name="settings_category_other_label">အခြား</string>
     <string name="settings_category_filter_generic">ယေဘူယျ filter</string>
     <string name="settings_category_filter_specific">သီးခြား filter</string>

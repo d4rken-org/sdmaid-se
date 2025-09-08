@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">Imposta accesso</string>
     <string name="settings_privacy_policy_label">Informativa sulla privacy</string>
     <string name="settings_privacy_policy_desc">Trattamento responsabile dei dati.</string>
-    <string name="settings_licenses_label">Licenze</string>
     <string name="settings_category_other_label">Altro</string>
     <string name="settings_category_filter_generic">Filtro generico</string>
     <string name="settings_category_filter_specific">Filtro specifico</string>
@@ -459,7 +458,6 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_app_launch_title">Avvia app</string>
     <string name="appcontrol_app_launch_description">Apre l\'applicazione.</string>
     <string name="appcontrol_app_forcestop_title">Arresto forzato</string>
-    <string name="appcontrol_app_forcestop_description">Arresta l\'app. Impedisce che si avvii automaticamente fino a quando non la apri o il dispositivo non viene riavviato.</string>
     <string name="appcontrol_app_uninstall_description">Disinstalla quest\'app dal tuo dispositivo.</string>
     <string name="appcontrol_app_exclude_add_title">Escludi app</string>
     <string name="appcontrol_app_exclude_add_description">Escludi quest\'app dalle operazioni in SD Maid.</string>
@@ -509,7 +507,6 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_settings_module_activity_enabled_description">Scopri se un\'app è in esecuzione (o se lo è stata di recente).</string>
     <string name="appcontrol_export_app_selection_action">Esporta applicazioni</string>
     <string name="appcontrol_export_title">Esporta app</string>
-    <string name="appcontrol_export_description">Salva il file d\'installazione di quest\'app. Non sono inclusi i dati dell\'app.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d app è stata esportata</item>
         <item quantity="other">%d app sono state esportate</item>
@@ -533,7 +530,6 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_automation_progress_find_ok_confirmation">Cercando di confermare l\'azione precedente (parole chiave: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Tempo schermo: %1$s da %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Ultimo aggiornamento: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Installata il: %s</string>
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Scopri cosa sta occupando lo spazio del tuo dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Cercando dispositivi di memoria</string>

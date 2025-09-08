@@ -61,7 +61,6 @@
     <string name="onboarding_setup_continue_action">Configurează accesul</string>
     <string name="settings_privacy_policy_label">Politica de confidențialitate</string>
     <string name="settings_privacy_policy_desc">Gestionarea responsabilă a datelor.</string>
-    <string name="settings_licenses_label">Licențe</string>
     <string name="settings_category_other_label">Altele</string>
     <string name="settings_category_filter_generic">Filtru generic</string>
     <string name="settings_category_filter_specific">Filtru specific</string>
@@ -482,7 +481,6 @@
     <string name="appcontrol_app_launch_title">Lansează aplicația</string>
     <string name="appcontrol_app_launch_description">Lansează activitatea principală a aplicației.</string>
     <string name="appcontrol_app_forcestop_title">Opriți forțat</string>
-    <string name="appcontrol_app_forcestop_description">Oprește aplicația. Îl împiedică să pornească singur până când îl deschideți sau dispozitivul este repornit.</string>
     <string name="appcontrol_app_uninstall_description">Dezinstalați această aplicație de pe dispozitivul dvs.</string>
     <string name="appcontrol_app_exclude_add_title">Exclude aplicația</string>
     <string name="appcontrol_app_exclude_add_description">Exclude această aplicație din alte operații în SD Maid.</string>
@@ -537,7 +535,6 @@
     <string name="appcontrol_include_multiuser_summary">Includeți aplicații din alte profiluri de utilizator pe acest dispozitiv.</string>
     <string name="appcontrol_export_app_selection_action">Exportă aplicații</string>
     <string name="appcontrol_export_title">Exportă aplicația</string>
-    <string name="appcontrol_export_description">Salvați fișierele de instalare ale acestei aplicații. Aceasta nu include datele aplicației.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplicația a fost exportată</item>
         <item quantity="few">%d aplicații au fost exportate</item>
@@ -564,7 +561,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Timp ecran: %1$s din %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Ultima actualizare: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Instalat la: %s</string>
     <string name="analyzer_tool_name">Analizator de stocare</string>
     <string name="analyzer_explanation_short">Aflați ce ocupă spațiu pe dispozitivul dvs.</string>
     <string name="analyzer_progress_scanning_device">Se caută dispozitive de stocare</string>

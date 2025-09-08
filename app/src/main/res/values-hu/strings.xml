@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">Hozzáférés beállítása</string>
     <string name="settings_privacy_policy_label">Adatvédelmi irányelvek</string>
     <string name="settings_privacy_policy_desc">Az adatok felelősségteljes kezelése.</string>
-    <string name="settings_licenses_label">Licencek</string>
     <string name="settings_category_other_label">Egyéb</string>
     <string name="settings_category_filter_generic">Általános szűrő</string>
     <string name="settings_category_filter_specific">Specifikus szűrő</string>
@@ -458,7 +457,6 @@
     <string name="appcontrol_app_launch_title">Alkalmazás indítása</string>
     <string name="appcontrol_app_launch_description">Indítsa el az alkalmazás elsődleges tevékenységét.</string>
     <string name="appcontrol_app_forcestop_title">Leállítás kényszerítése</string>
-    <string name="appcontrol_app_forcestop_description">Leállítja az alkalmazást. Megakadályozza, hogy elindítsa magát, amíg meg nem nyitod, vagy újra nem indítod a készüléket.</string>
     <string name="appcontrol_app_uninstall_description">Alkalmazás eltávolítása az eszközről.</string>
     <string name="appcontrol_app_exclude_add_title">Alkalmazás kizárása</string>
     <string name="appcontrol_app_exclude_add_description">Zárja ki ezt az alkalmazást az SD Maid egyéb műveleteiből.</string>
@@ -508,7 +506,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Nézze meg, hogy egy alkalmazás aktív (vagy nemrégiben volt-e) aktív.</string>
     <string name="appcontrol_export_app_selection_action">Appok exportálása</string>
     <string name="appcontrol_export_title">App exportálása</string>
-    <string name="appcontrol_export_description">Az alkalmazás telepítőfájljainak mentése. Ez nem tartalmazza az alkalmazás adatait.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d alkalmazás exportálásra került</item>
         <item quantity="other">%d alkalmazás exportálásra került</item>
@@ -532,7 +529,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Az előző művelet megerősítésének kísérlete (kulcsszavak: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Képernyőidő: %1$s %2$s óta</string>
     <string name="appcontrol_item_lastupdate_x_label">Utoljára frissítve: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Telepítve: %s</string>
     <string name="analyzer_tool_name">TárhelyElemző</string>
     <string name="analyzer_explanation_short">Tudja meg, mi foglalja a helyet a készülékén.</string>
     <string name="analyzer_progress_scanning_device">Tárolóeszközök keresése</string>

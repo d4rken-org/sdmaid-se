@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">Setha ukufinyelela</string>
     <string name="settings_privacy_policy_label">Inqubomgomo yobumfihlo</string>
     <string name="settings_privacy_policy_desc">Ukuphatha idatha ngokufanele.</string>
-    <string name="settings_licenses_label">Amalayisensi</string>
     <string name="settings_category_other_label">Okunye</string>
     <string name="settings_category_filter_generic">Isihlunga esijwayelekile</string>
     <string name="settings_category_filter_specific">Isihlunga esikhethekile</string>
@@ -455,7 +454,6 @@
     <string name="appcontrol_app_launch_title">Qalisa uhlelo</string>
     <string name="appcontrol_app_launch_description">Qalisa umsebenzi oyinhloko wale nhlelo.</string>
     <string name="appcontrol_app_forcestop_title">Misa ngamandla</string>
-    <string name="appcontrol_app_forcestop_description">Misa uhlelo. Luvimbela ukuziqalisa kuze kube uluula noma idivayisi iqaliswe kabusha.</string>
     <string name="appcontrol_app_uninstall_description">Khipha lolu hlelo kudivayisi yakho.</string>
     <string name="appcontrol_app_exclude_add_title">Khipha uhlelo</string>
     <string name="appcontrol_app_exclude_add_description">Khipha lolu hlelo kwezinye izinqubo ze-SD Maid.</string>
@@ -505,7 +503,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Thola ukuthi uhlelo lusebenza (noma belisebenza kamuva).</string>
     <string name="appcontrol_export_app_selection_action">Khipha izinhlelo zokusebenza</string>
     <string name="appcontrol_export_title">Khipha uhlelo</string>
-    <string name="appcontrol_export_description">Gcina amafayela okufaka alolu hlelo. Lokhu akufaki phakathi idatha yohlelo.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">Uhlelo olu-%d lukhishiwe</item>
         <item quantity="other">Izinhlelo zokusebenza ezingu-%d zikhishiwe</item>
@@ -529,7 +526,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Kuzama ukuqinisekisa isenzo sangaphambilini (amagama angukhiye: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Isikhathi sesikrini: %1$s kusukela %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Kubuyekeziwe kokuqcina: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Kufakwe ngo: %s</string>
     <string name="analyzer_tool_name">I-StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Thola ukuthi yini ethatha isikhala kudivayisi yakho.</string>
     <string name="analyzer_progress_scanning_device">Kusesha amadivayisi esitoreji</string>

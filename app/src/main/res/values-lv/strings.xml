@@ -51,7 +51,6 @@
     <string name="onboarding_setup_continue_action">Turpināt</string>
     <string name="settings_privacy_policy_label">Privātuma politika</string>
     <string name="settings_privacy_policy_desc">Atbildīga datu apstrāde.</string>
-    <string name="settings_licenses_label">Licences</string>
     <string name="settings_category_other_label">Cits</string>
     <string name="settings_category_filter_generic">Vispārīgs filtrs</string>
     <string name="settings_category_filter_specific">Specifisks filtrs</string>

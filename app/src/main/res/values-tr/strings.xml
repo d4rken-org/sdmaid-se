@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">Erişim izni ver</string>
     <string name="settings_privacy_policy_label">Gizlilik politikası</string>
     <string name="settings_privacy_policy_desc">Veriler sorumlu bir şekilde işlenir.</string>
-    <string name="settings_licenses_label">Lisanslar</string>
     <string name="settings_category_other_label">Diğer</string>
     <string name="settings_category_filter_generic">Genel filtre</string>
     <string name="settings_category_filter_specific">Özel filtre</string>
@@ -458,7 +457,6 @@
     <string name="appcontrol_app_launch_title">Uygulamayı başlat</string>
     <string name="appcontrol_app_launch_description">Bu uygulamanın birincil etkinliğini başlat.</string>
     <string name="appcontrol_app_forcestop_title">Durdurmaya zorla</string>
-    <string name="appcontrol_app_forcestop_description">Uygulamayı durdurur. Siz uygulamayı tekrar açana veya cihaz yeniden başlatılana kadar kendi kendine başlamasını engeller.</string>
     <string name="appcontrol_app_uninstall_description">Bu uygulamayı cihazınızdan kaldırın.</string>
     <string name="appcontrol_app_exclude_add_title">Uygulamayı hariç tut</string>
     <string name="appcontrol_app_exclude_add_description">Bu uygulamayı SD Maid\'deki diğer işlemlerden hariç tutun.</string>
@@ -508,7 +506,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Bir uygulamanın etkin olup olmadığını (veya yakın zamanda etkin olup olmadığını) öğrenin.</string>
     <string name="appcontrol_export_app_selection_action">Uygulamaları dışa aktarma</string>
     <string name="appcontrol_export_title">Uygulamayı dışa aktar</string>
-    <string name="appcontrol_export_description">Bu uygulamanın kurulum dosyalarını kaydedin. Bu, uygulama verilerini içermez.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d uygulama dışa aktarıldı</item>
         <item quantity="other">%d uygulama dışa aktarıldı</item>
@@ -532,7 +529,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Önceki eylem onaylanmaya çalışılıyor (anahtar kelimeler: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Ekran süresi: %2$s\'den beri %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Son güncelleme: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Yüklenme zamanı: %s</string>
     <string name="analyzer_tool_name">Depolama Analizcisi</string>
     <string name="analyzer_explanation_short">Cihazınızda neyin yer kapladığını öğrenin.</string>
     <string name="analyzer_progress_scanning_device">Depolama aygıtları aranıyor</string>

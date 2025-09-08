@@ -49,7 +49,6 @@
     <string name="onboarding_setup_continue_action">መዳረሻ አዋቅ</string>
     <string name="settings_privacy_policy_label">የግላዊነት ፖሊሲ</string>
     <string name="settings_privacy_policy_desc">ውሂቡን በኃላፊነት መያዝ።</string>
-    <string name="settings_licenses_label">ፈቃዶች</string>
     <string name="settings_category_other_label">ሌላ</string>
     <string name="settings_category_filter_generic">አጠቃላይ ማጣሪያ</string>
     <string name="settings_category_filter_specific">ልዩ ማጣሪያ</string>
@@ -449,7 +448,6 @@
     <string name="appcontrol_app_launch_title">መተግበሪያን ያስጀምሩ</string>
     <string name="appcontrol_app_launch_description">የዚህ መተግበሪያ ዋና ተግባር ያስጀምሩ።</string>
     <string name="appcontrol_app_forcestop_title">በግዳጅ አቁም</string>
-    <string name="appcontrol_app_forcestop_description">መተግበሪያውን ያቁሙ። እስከሚከፈት ወይም መሣሪያው እስከሚዳስ ድረስ እራሱን እንዳይጀምር ይከላከላል።</string>
     <string name="appcontrol_app_uninstall_description">ይህንን መተግበሪያ ከመሣሪያዎ ያጥፉ።</string>
     <string name="appcontrol_app_exclude_add_title">መተግበሪያን አስወግድ</string>
     <string name="appcontrol_app_exclude_add_description">ይህንን መተግበሪያ ከሌሎች SD Maid ተግባራት አስወግድ።</string>
@@ -498,7 +496,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">መተግበሪያ ንቁ (ወይም በቅርቡ ነበር) እንደሆነ ያውቁ።</string>
     <string name="appcontrol_export_app_selection_action">መተግበሪያዎችን ላክ</string>
     <string name="appcontrol_export_title">መተግበሪያ ላክ</string>
-    <string name="appcontrol_export_description">የዚህ መተግበሪያ መጫኛ ፋይሎች ያስቀምጡ። ይህ የመተግበሪያ ውሂብ አያካትትም።</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d መተግበሪያ ተልኳል</item>
         <item quantity="other">%d መተግበሪያዎች ተልከዋል</item>
@@ -522,7 +519,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">ቀደም ያለውን ተግባር ለማረጋገጥ እየሞከረ ነው (ቁልፍ ቃላት: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">የማያ ጊዜ: %1$s ከ%2$s ጀምሮ</string>
     <string name="appcontrol_item_lastupdate_x_label">በመጨረሻ ተዘምኗል: %s</string>
-    <string name="appcontrol_item_installedat_x_label">ተጫኗል በ: %s</string>
     <string name="analyzer_explanation_short">በመሣሪያዎ ላይ ምን ቦታ እንደሚወስድ ያውቁ።</string>
     <string name="analyzer_progress_scanning_device">የማጠራቀሚያ መሣሪያዎችን በመፈልግ ላይ</string>
     <string name="analyzer_progress_scanning_storage">ማጠራቀሚያን በመመርመር ላይ</string>

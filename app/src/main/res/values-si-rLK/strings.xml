@@ -49,7 +49,6 @@
     <string name="onboarding_setup_continue_action">ප්‍රවේශය පිහිටුවන්න</string>
     <string name="settings_privacy_policy_label">පෞද්ගලිකත්ව ප්‍රතිපත්තිය</string>
     <string name="settings_privacy_policy_desc">දත්ත වගකීමෙන් හැසිරවීම.</string>
-    <string name="settings_licenses_label">බලපත්‍ර</string>
     <string name="settings_category_other_label">වෙනත්</string>
     <string name="settings_category_filter_generic">සාමාන්‍ය පෙරණය</string>
     <string name="settings_category_filter_specific">විශේෂිත පෙරණය</string>
@@ -421,7 +420,6 @@
     <string name="appcontrol_app_launch_title">යෙදුම ආරම්භ කරන්න</string>
     <string name="appcontrol_app_launch_description">මෙම යෙදුමේ මුලික ක්‍රියාකාරිත්වය ආරම්භ කරන්න.</string>
     <string name="appcontrol_app_forcestop_title">ගිහි නවත්වන්න</string>
-    <string name="appcontrol_app_forcestop_description">යෙදුම නවත්වයි. ඔබ එය විවෘත කරන්න අථේ පිකරණය නැවත ආරම්භ වෙන් පර්යන්ත එය ස්වයංව ආරම්භ වීමෙන් මනා කරයි.</string>
     <string name="appcontrol_app_uninstall_description">ඔබේ පිකරණයෙන් මෙම යෙදුම ඉවත් කරන්න.</string>
     <string name="appcontrol_app_exclude_add_title">යෙදුම බැහැර කරන්න</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid හි ඉතර මෙහෙයුම්වලින් මෙම යෙදුම බැහැර කරන්න.</string>
@@ -478,7 +476,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">පෙර ක්‍රියාව තහවුරු කිරීමට උත්සාහ කරමින් (මූල පද: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">තිර කාලය: %2$s ඉපැකි %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">අවසාන වන් වාර යාවත්කාලීන කැරී: %s</string>
-    <string name="appcontrol_item_installedat_x_label">ස්ථාපනය: %s</string>
     <string name="analyzer_explanation_short">ඔබේ පිකරණයම හී ඉඩම පීරුව නෙන් සොයා ගන්න.</string>
     <string name="analyzer_progress_scanning_device">ආචයන පිකරණ සොයමින්</string>
     <string name="analyzer_progress_scanning_storage">ආචයනය ශෝධනය කරමින්</string>

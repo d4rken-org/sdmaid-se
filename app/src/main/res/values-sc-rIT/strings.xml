@@ -49,7 +49,6 @@
     <string name="onboarding_setup_continue_action">Continuare</string>
     <string name="settings_privacy_policy_label">Polìtica de riservadesa</string>
     <string name="settings_privacy_policy_desc">Gestimentu responsàbile de sos datos.</string>
-    <string name="settings_licenses_label">Licentzias</string>
     <string name="settings_category_other_label">Àteru</string>
     <string name="settings_category_filter_generic">Filtru genèricu</string>
     <string name="settings_category_filter_specific">Filtru ispetzìficu</string>
@@ -443,7 +442,6 @@
     <string name="appcontrol_app_launch_title">Abiare aplicatzione</string>
     <string name="appcontrol_app_launch_description">Abiare s\'atividà printzipale de custa aplicatzione.</string>
     <string name="appcontrol_app_forcestop_title">Firmadura forzosa</string>
-    <string name="appcontrol_app_forcestop_description">Firmat s\'aplicatzione. Dd\'impedit de s\'abiare sola finas a chi dda aberres o su dispositivu seghet torradu a abiare.</string>
     <string name="appcontrol_app_uninstall_description">Disinstallare custa aplicatzione dae su dispositivu tuo.</string>
     <string name="appcontrol_app_exclude_add_title">Esclutìghere aplicatzione</string>
     <string name="appcontrol_app_exclude_add_description">Esclutìghere custa aplicatzione dae àteras operatziones in SD Maid.</string>
@@ -513,7 +511,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Provende a cunfirmare s\'atzione in antis (faeddos crae: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Tempus de ischermada: %1$s dae %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Ùrtimu agiornamentu: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Installadu a: %s</string>
     <string name="analyzer_tool_name">Analizadore de Archìviu</string>
     <string name="analyzer_explanation_short">Ischire ite est ocupende ispàtziu in su dispositivu tuo.</string>
     <string name="analyzer_progress_scanning_device">Chirchende dispositivos de archìviu</string>

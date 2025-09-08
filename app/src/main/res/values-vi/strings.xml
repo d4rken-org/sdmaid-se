@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">Thiết lập quyền truy cập</string>
     <string name="settings_privacy_policy_label">Chính sách bảo mật</string>
     <string name="settings_privacy_policy_desc">Xử lý dữ liệu có trách nhiệm.</string>
-    <string name="settings_licenses_label">Giấy phép</string>
     <string name="settings_category_other_label">Khác</string>
     <string name="settings_category_filter_generic">Bộ lọc chung</string>
     <string name="settings_category_filter_specific">Bộ lọc cụ thể</string>
@@ -189,6 +188,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Dữ liệu ứng dụng riêng tư, ví dụ: thông tin đăng nhập, cài đặt ứng dụng cũng bao gồm cả bộ đệm của trình duyệt.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
     <string name="corpsefinder_filter_dalvik_summary">Dữ liệu thực thi ứng dụng được lưu trong bộ nhớ cache.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Cấu hình ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Cấu hình ART được Android sử dụng để tối ưu hóa hiệu suất ứng dụng.</string>
     <string name="corpsefinder_filter_applib_label">Thư viện ứng dụng</string>
     <string name="corpsefinder_filter_applib_summary">Dữ liệu thư viện liên quan đến ứng dụng.</string>
     <string name="corpsefinder_filter_appsource_label">Nguồn ứng dụng</string>
@@ -445,7 +446,6 @@
     <string name="appcontrol_app_launch_title">Chạy ứng dụng</string>
     <string name="appcontrol_app_launch_description">Khởi chạy hoạt động chính của ứng dụng này.</string>
     <string name="appcontrol_app_forcestop_title">Buộc dừng</string>
-    <string name="appcontrol_app_forcestop_description">Dừng ứng dụng. Ngăn chặn nó tự khởi động cho đến khi bạn mở nó hoặc thiết bị được khởi động lại.</string>
     <string name="appcontrol_app_uninstall_description">Gỡ cài đặt ứng dụng này khỏi thiết bị của bạn.</string>
     <string name="appcontrol_app_exclude_add_title">Loại trừ ứng dụng</string>
     <string name="appcontrol_app_exclude_add_description">Loại trừ ứng dụng này khỏi các hoạt động khác trong SD Maid.</string>
@@ -492,7 +492,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Tìm hiểu xem một ứng dụng đang (hoặc gần đây) có hoạt động hay không.</string>
     <string name="appcontrol_export_app_selection_action">Xuất ứng dụng</string>
     <string name="appcontrol_export_title">Xuất ứng dụng</string>
-    <string name="appcontrol_export_description">Lưu tệp cài đặt của ứng dụng này. Điều này không bao gồm dữ liệu ứng dụng.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">%d ứng dụng đã được xuất</item>
     </plurals>
@@ -513,7 +512,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Thời gian sử dụng màn hình: %1$s kể từ %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Cập nhật lần cuối: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Đã cài đặt:%s</string>
     <string name="analyzer_tool_name">Phân tích bộ nhớ</string>
     <string name="analyzer_explanation_short">Tìm hiểu những gì đang chiếm dung lượng trên thiết bị của bạn.</string>
     <string name="analyzer_progress_scanning_device">Tìm kiếm bộ nhớ thiết bị</string>
@@ -695,4 +693,11 @@
     <string name="area_type_public_obb_label">Tài nguyên ứng dụng công khai</string>
     <string name="area_type_private_data_label">Dữ liệu ứng dụng riêng tư</string>
     <string name="area_type_portable_label">Bộ lưu trữ di động</string>
+    <string name="shortcut_appcontrol_short">Kiểm soát ứng dụng</string>
+    <string name="shortcut_appcontrol_long">Quản lý các ứng dụng đã cài đặt</string>
+    <string name="shortcut_onetap_short">Quét + Xóa</string>
+    <string name="shortcut_onetap_long">Quét và xóa trong một thao tác</string>
+    <string name="shortcuts_settings_category">Phím tắt</string>
+    <string name="shortcuts_onetap_enabled_title">Phím tắt một chạm</string>
+    <string name="shortcuts_onetap_enabled_summary">Hiển thị phím tắt \"Quét + Xóa\" khi nhấn và giữ biểu tượng ứng dụng. Sử dụng các công cụ tương tự như bảng điều khiển một chạm.</string>
 </resources>

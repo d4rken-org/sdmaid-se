@@ -48,7 +48,6 @@
     <string name="onboarding_setup_continue_action">設定存取權</string>
     <string name="settings_privacy_policy_label">私隱政策</string>
     <string name="settings_privacy_policy_desc">以負責的態度處理資料。</string>
-    <string name="settings_licenses_label">授權</string>
     <string name="settings_category_other_label">其他</string>
     <string name="settings_category_filter_generic">一般過濾器</string>
     <string name="settings_category_filter_specific">指定過濾器</string>
@@ -443,7 +442,6 @@
     <string name="appcontrol_app_launch_title">啟動應用程式</string>
     <string name="appcontrol_app_launch_description">啟動這個應用程式的主要活動。</string>
     <string name="appcontrol_app_forcestop_title">強制停止</string>
-    <string name="appcontrol_app_forcestop_description">應用程式將停止在背景執行。在重新啟動應用程式之前，您可能不會收到通知或更新。</string>
     <string name="appcontrol_app_uninstall_description">從您的裝置中解除安裝這個應用程式。</string>
     <string name="appcontrol_app_exclude_add_title">排除應用程式</string>
     <string name="appcontrol_app_exclude_add_description">從 SD 女僕的其他作業中排除這個應用程式。</string>
@@ -490,7 +488,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">檢查應用程式是否活動（或最近活動）。</string>
     <string name="appcontrol_export_app_selection_action">導出應用程式</string>
     <string name="appcontrol_export_title">導出應用程式</string>
-    <string name="appcontrol_export_description">儲存此應用程式的安裝檔案。這不包括應用程式資料。</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">已匯出 %d 個應用程式</item>
     </plurals>
@@ -511,7 +508,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">嘗試確認先前動作（關鍵字：%s）</string>
     <string name="appcontrol_item_screentime_x_since_y_label">螢幕時間：%2$s 以來 %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">最後更新：%s</string>
-    <string name="appcontrol_item_installedat_x_label">安裝於：%s</string>
     <string name="analyzer_tool_name">儲存分析器</string>
     <string name="analyzer_explanation_short">找出哪些檔案佔用您的裝置空間。</string>
     <string name="analyzer_progress_scanning_device">正在搜尋儲存裝置</string>

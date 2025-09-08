@@ -48,7 +48,6 @@
     <string name="onboarding_setup_continue_action">设置访问权限</string>
     <string name="settings_privacy_policy_label">隐私政策</string>
     <string name="settings_privacy_policy_desc">以负责任的态度来处理数据。</string>
-    <string name="settings_licenses_label">许可证</string>
     <string name="settings_category_other_label">其他</string>
     <string name="settings_category_filter_generic">通用筛选器</string>
     <string name="settings_category_filter_specific">特定过滤器</string>
@@ -443,7 +442,6 @@
     <string name="appcontrol_app_launch_title">启动应用</string>
     <string name="appcontrol_app_launch_description">启动此应用的主要活动。</string>
     <string name="appcontrol_app_forcestop_title">强行停止</string>
-    <string name="appcontrol_app_forcestop_description">停止应用。在您重新点开或重启设备前阻止其启动。</string>
     <string name="appcontrol_app_uninstall_description">从设备上卸载此应用</string>
     <string name="appcontrol_app_exclude_add_title">排除应用</string>
     <string name="appcontrol_app_exclude_add_description">将此应用排除在 SD Maid 的其他操作之外。</string>
@@ -490,7 +488,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">检查应用程序是否运行（或最近运行）。</string>
     <string name="appcontrol_export_app_selection_action">导出应用</string>
     <string name="appcontrol_export_title">导出应用</string>
-    <string name="appcontrol_export_description">保存此应用的安装文件（不包括应用数据）。</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">已导出 %d 个应用</item>
     </plurals>
@@ -511,7 +508,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">正在尝试确认先前的操作（关键词：%s）</string>
     <string name="appcontrol_item_screentime_x_since_y_label">屏幕使用时间：%1$s，自 %2$s 起</string>
     <string name="appcontrol_item_lastupdate_x_label">最后更新于 %s</string>
-    <string name="appcontrol_item_installedat_x_label">安装于: %s</string>
     <string name="analyzer_tool_name">存储分析器</string>
     <string name="analyzer_explanation_short">探究占用您设备存储空间的内容。</string>
     <string name="analyzer_progress_scanning_device">正在搜索存储设备</string>

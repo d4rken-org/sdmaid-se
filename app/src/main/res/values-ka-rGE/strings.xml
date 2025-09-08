@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">წვდომის დაყენება</string>
     <string name="settings_privacy_policy_label">Კონფიდენციალურობის პოლიტიკა</string>
     <string name="settings_privacy_policy_desc">მონაცემების პასუხისმგებლობით დამუშავება.</string>
-    <string name="settings_licenses_label">ლიცენზიები</string>
     <string name="settings_category_other_label">სხვა</string>
     <string name="settings_category_filter_generic">ზოგადი ფილტრი</string>
     <string name="settings_category_filter_specific">სპეციფიკური ფილტრი</string>
@@ -451,7 +450,6 @@
     <string name="appcontrol_app_launch_title">აპის გაშვება</string>
     <string name="appcontrol_app_launch_description">ამ აპის ძირითადი აქტივობის გაშვება.</string>
     <string name="appcontrol_app_forcestop_title">იძულებითი გაჩერება</string>
-    <string name="appcontrol_app_forcestop_description">აპის გაჩერება. ხელს უშლის თვითგაშვებას, სანამ არ გახსნით ან მოწყობილობა არ გადაიტვირთება.</string>
     <string name="appcontrol_app_uninstall_description">ამ აპის წაშლა თქვენი მოწყობილობიდან.</string>
     <string name="appcontrol_app_exclude_add_title">აპის გამორიცხვა</string>
     <string name="appcontrol_app_exclude_add_description">გამორიცხეთ ეს აპი SD Maid-ის სხვა ოპერაციებიდან.</string>
@@ -499,7 +497,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">გაიგეთ აქტიურია (ან ახლახანს იყო აქტიური) აპი თუ არა.</string>
     <string name="appcontrol_export_app_selection_action">აპების ექსპორტი</string>
     <string name="appcontrol_export_title">აპის ექსპორტი</string>
-    <string name="appcontrol_export_description">ამ აპის ინსტალაციის ფაილების შენახვა. ეს არ მოიცავს აპის მონაცემებს.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d აპი ექსპორტირებულია</item>
         <item quantity="other">%d აპი ექსპორტირებულია</item>
@@ -523,7 +520,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">წინა მოქმედების დადასტურების მცდელობა (საკვანძო სიტყვები: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">ეკრანის დრო: %1$s %2$s-დან</string>
     <string name="appcontrol_item_lastupdate_x_label">ბოლოს განახლდა: %s</string>
-    <string name="appcontrol_item_installedat_x_label">დაინსტალირდა: %s</string>
     <string name="analyzer_explanation_short">გაიგეთ რა იკავებს ადგილს თქვენს მოწყობილობაში.</string>
     <string name="analyzer_progress_scanning_device">მეხსიერების მოწყობილობების ძიება</string>
     <string name="analyzer_progress_scanning_storage">მეხსიერების სკანირება</string>

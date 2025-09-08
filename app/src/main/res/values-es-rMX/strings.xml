@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">Configurar acceso</string>
     <string name="settings_privacy_policy_label">Política de privacidad</string>
     <string name="settings_privacy_policy_desc">Tratamiento responsable de datos.</string>
-    <string name="settings_licenses_label">Licencias</string>
     <string name="settings_category_other_label">Otros</string>
     <string name="settings_category_filter_generic">Filtro genérico</string>
     <string name="settings_category_filter_specific">Filtro específico</string>
@@ -391,7 +390,6 @@
     <string name="appcontrol_app_launch_title">Ejecutar aplicación</string>
     <string name="appcontrol_app_launch_description">Ejecutar la actividad principal de esta aplicación.</string>
     <string name="appcontrol_app_forcestop_title">Forzar detención</string>
-    <string name="appcontrol_app_forcestop_description">Detiene la aplicación. Evita que se inicie por sí misma hasta que la abras o el dispositivo se reinicie.</string>
     <string name="appcontrol_app_uninstall_description">Desinstalar esta aplicación de tu dispositivo.</string>
     <string name="appcontrol_app_exclude_add_title">Excluir aplicación</string>
     <string name="appcontrol_app_exclude_add_description">Excluir esta aplicación de otras operaciones en SD Maid.</string>
@@ -440,7 +438,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Averiguar si una aplicación está (o estuvo recientemente) activa.</string>
     <string name="appcontrol_export_app_selection_action">Exportar aplicaciones</string>
     <string name="appcontrol_export_title">Exportar aplicación</string>
-    <string name="appcontrol_export_description">Guardar los archivos de instalación de esta aplicación. Esto no incluye los datos de la aplicación.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplicación fue exportada</item>
         <item quantity="other">%d aplicaciones fueron exportadas</item>
@@ -464,7 +461,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Intentando confirmar acción anterior (palabras clave: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Tiempo de pantalla: %1$s desde %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Última actualización: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Instalada en: %s</string>
     <string name="analyzer_tool_name">Analizador de Almacenamiento</string>
     <string name="analyzer_explanation_short">Descubre qué está ocupando espacio en tu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Buscando dispositivos de almacenamiento</string>

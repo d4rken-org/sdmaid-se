@@ -64,7 +64,6 @@
     <string name="onboarding_setup_continue_action">Konfiguruj dostęp</string>
     <string name="settings_privacy_policy_label">Polityka prywatności</string>
     <string name="settings_privacy_policy_desc">Odpowiedzialne zarządzanie danymi.</string>
-    <string name="settings_licenses_label">Licencje</string>
     <string name="settings_category_other_label">Inne</string>
     <string name="settings_category_filter_generic">Filtr ogólny</string>
     <string name="settings_category_filter_specific">Filtr szczegółowy</string>
@@ -209,6 +208,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Prywatne dane aplikacji, np. dane uwierzytelniające, ustawienia aplikacji, ale także pamięci podręczne przeglądarek.</string>
     <string name="corpsefinder_filter_dalvik_label">Pamięć podręczna Dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">Pamięć podręczna danych wykonujących aplikacji.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profile ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Profile ART są używane przez Androida do optymalizacji wydajności aplikacji.</string>
     <string name="corpsefinder_filter_applib_label">Biblioteki aplikacji</string>
     <string name="corpsefinder_filter_applib_summary">Dane związane z bibliotekami aplikacji.</string>
     <string name="corpsefinder_filter_appsource_label">Źródła aplikacji</string>
@@ -498,7 +499,6 @@
     <string name="appcontrol_app_launch_title">Uruchom aplikację</string>
     <string name="appcontrol_app_launch_description">Uruchom podstawową aktywność tej aplikacji.</string>
     <string name="appcontrol_app_forcestop_title">Wymuś zatrzymanie</string>
-    <string name="appcontrol_app_forcestop_description">Zatrzymuje aplikację. Zapobiega uruchomieniu aplikacji, dopóki nie otworzysz jej lub urządzenie zostanie zrestartowane.</string>
     <string name="appcontrol_app_uninstall_description">Odinstaluj tę aplikację ze swojego urządzenia.</string>
     <string name="appcontrol_app_exclude_add_title">Wykluczenie aplikacji</string>
     <string name="appcontrol_app_exclude_add_description">Wyklucz tę aplikację z innych operacji w SD Maid.</string>
@@ -556,7 +556,6 @@
     <string name="appcontrol_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
     <string name="appcontrol_export_app_selection_action">Eksportuj aplikacje</string>
     <string name="appcontrol_export_title">Eksportuj aplikację</string>
-    <string name="appcontrol_export_description">Zapisz pliki instalacyjne tej aplikacji. Nie uwzględnia danych aplikacji.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplikacja została wyeksportowana</item>
         <item quantity="few">%d aplikacje zostały wyeksportowane</item>
@@ -586,7 +585,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Czas ekranu: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Ostatnia aktualizacja: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Zainstalowano: %s</string>
     <string name="analyzer_tool_name">Analizator pamięci</string>
     <string name="analyzer_explanation_short">Dowiedz się, co zajmuje miejsce na urządzeniu.</string>
     <string name="analyzer_progress_scanning_device">Wyszukiwanie urządzeń pamięci</string>
@@ -792,4 +790,11 @@
     <string name="area_type_public_obb_label">Ogólnodostępne zasoby aplikacji</string>
     <string name="area_type_private_data_label">Prywatne dane aplikacji</string>
     <string name="area_type_portable_label">Pamięć przenośna</string>
+    <string name="shortcut_appcontrol_short">Kontrola aplikacji</string>
+    <string name="shortcut_appcontrol_long">Zarządzaj zainstalowanymi aplikacjami</string>
+    <string name="shortcut_onetap_short">Skanuj + Usuń</string>
+    <string name="shortcut_onetap_long">Skanuj i usuń w jednej akcji</string>
+    <string name="shortcuts_settings_category">Skróty</string>
+    <string name="shortcuts_onetap_enabled_title">Skrót jednym dotknięciem</string>
+    <string name="shortcuts_onetap_enabled_summary">Pokaż skrót \"Skanuj + Usuń\" po długim naciśnięciu ikony aplikacji. Korzysta z tych samych narzędzi co pulpit jednego dotknięcia.</string>
 </resources>

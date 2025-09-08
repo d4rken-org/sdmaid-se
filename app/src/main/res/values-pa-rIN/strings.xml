@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">ਪਹੁੰਚ ਸਥਾਪਤ ਕਰੋ</string>
     <string name="settings_privacy_policy_label">ਪਰਦੇਦਾਰੀ ਨੀਤੀ</string>
     <string name="settings_privacy_policy_desc">ਡੇਟਾ ਨੂੰ ਜ਼ਿੰਮੇਵਾਰੀ ਨਾਲ ਸੰਭਾਲ ਰਿਹਾ ਹੈ।</string>
-    <string name="settings_licenses_label">ਲਸੰਸ</string>
     <string name="settings_category_other_label">ਹੋਰ</string>
     <string name="settings_category_filter_generic">ਆਮ ਫਿਲਟਰ</string>
     <string name="settings_category_filter_specific">ਖ਼ਾਸ ਫਿਲਟਰ</string>
@@ -448,7 +447,6 @@
     <string name="appcontrol_app_launch_title">ਐਪ ਚਲਾਓ</string>
     <string name="appcontrol_app_launch_description">ਇਸ ਐਪ ਦੀ ਮੁੱਖ ਗਤੀਵਿਧੀ ਨੂੰ ਚਲਾਓ।</string>
     <string name="appcontrol_app_forcestop_title">ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕਰੋ</string>
-    <string name="appcontrol_app_forcestop_description">ਐਪ ਨੂੰ ਬੰਦ ਕਰਦਾ ਹੈ। ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਇਸਨੂੰ ਖੋਲ੍ਹਦੇ ਨਹੀਂ ਜਾਂ ਡਿਵਾਈਸ ਰੀਬੂਟ ਨਹੀਂ ਹੁੰਦਾ ਤਦ ਤੱਕ ਇਸਨੂੰ ਆਪ ਸ਼ੁਰੂ ਹੋਣ ਤੋਂ ਰੋਕਦਾ ਹੈ।</string>
     <string name="appcontrol_app_uninstall_description">ਇਸ ਐਪ ਨੂੰ ਆਪਣੇ ਡਿਵਾਈਸ ਤੋਂ ਅਣਸਥਾਪਿਤ ਕਰੋ।</string>
     <string name="appcontrol_app_exclude_add_title">ਐਪ ਨੂੰ ਬਾਹਰ ਕਰੋ</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid ਵਿੱਚ ਹੋਰ ਕਾਰਵਾਈਆਂ ਤੋਂ ਇਸ ਐਪ ਨੂੰ ਬਾਹਰ ਰੱਖੋ।</string>
@@ -497,7 +495,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">ਪਤਾ ਲਗਾਓ ਕਿ ਕੋਈ ਐਪ ਸਰਗਰਮ ਹੈ (ਜਾਂ ਹਾਲ ਹੀ ਵਿੱਚ ਸੀ)।</string>
     <string name="appcontrol_export_app_selection_action">ਐਪਾਂ ਨੂੰ ਨਿਰਯਾਤ ਕਰੋ</string>
     <string name="appcontrol_export_title">ਐਪ ਨੂੰ ਨਿਰਯਾਤ ਕਰੋ</string>
-    <string name="appcontrol_export_description">ਇਸ ਐਪ ਦੀਆਂ ਸਥਾਪਨਾ ਫਾਈਲਾਂ ਸੰਭਾਲੋ। ਇਸ ਵਿੱਚ ਐਪ ਡਾਟਾ ਸ਼ਾਮਲ ਨਹੀਂ ਹੈ।</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d ਐਪ ਨਿਰਯਾਤ ਕੀਤੀ ਗਈ</item>
         <item quantity="other">%d ਐਪਾਂ ਨਿਰਯਾਤ ਕੀਤੀਆਂ ਗਈਆਂ</item>
@@ -521,7 +518,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">ਪਿਛਲੀ ਕਾਰਵਾਈ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">ਸਕ੍ਰੀਨ ਸਮਾਂ: %2$s ਤੋਂ %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">ਆਖਰੀ ਅੱਪਡੇਟ: %s</string>
-    <string name="appcontrol_item_installedat_x_label">ਸਥਾਪਿਤ ਕੀਤਾ ਗਿਆ: %s</string>
     <string name="analyzer_tool_name">ਸਟੋਰੇਜ ਵਿਸ਼ਲੇਸ਼ਕ</string>
     <string name="analyzer_explanation_short">ਪਤਾ ਲਗਾਓ ਕਿ ਤੁਹਾਡੇ ਡਿਵਾਈਸ \'ਤੇ ਕੀ ਥਾਂ ਲੈ ਰਿਹਾ ਹੈ।</string>
     <string name="analyzer_progress_scanning_device">ਸਟੋਰੇਜ ਡਿਵਾਈਸਾਂ ਦੀ ਖੋਜ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>

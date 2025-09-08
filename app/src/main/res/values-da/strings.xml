@@ -58,7 +58,6 @@
     <string name="onboarding_setup_continue_action">Konfigurer adgang</string>
     <string name="settings_privacy_policy_label">Privatlivspolitik</string>
     <string name="settings_privacy_policy_desc">Håndterer data ansvarligt.</string>
-    <string name="settings_licenses_label">Licenser</string>
     <string name="settings_category_other_label">Andet</string>
     <string name="settings_category_filter_generic">Generelt filter</string>
     <string name="settings_category_filter_specific">Specifikt filter</string>
@@ -466,7 +465,6 @@
     <string name="appcontrol_app_launch_title">Start app</string>
     <string name="appcontrol_app_launch_description">Start denne apps primære aktivitet.</string>
     <string name="appcontrol_app_forcestop_title">Gennemtving stop</string>
-    <string name="appcontrol_app_forcestop_description">Stopper appen. Forhindrer den i at starte af sig selv, indtil du åbner den eller enheden genstartes.</string>
     <string name="appcontrol_app_uninstall_description">Afinstaller denne app fra din enhed.</string>
     <string name="appcontrol_app_exclude_add_title">Ekskluder app</string>
     <string name="appcontrol_app_exclude_add_description">Ekskluder denne app fra andre operationer i SD Maid.</string>
@@ -518,7 +516,6 @@
     <string name="appcontrol_include_multiuser_summary">Inkluder apps fra andre brugerprofiler på denne enhed.</string>
     <string name="appcontrol_export_app_selection_action">Eksportér apps</string>
     <string name="appcontrol_export_title">Eksportér app</string>
-    <string name="appcontrol_export_description">Gem denne apps installationsfiler. Dette omfatter ikke appdata.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d app blev eksporteret</item>
         <item quantity="other">%d apps blev eksporteret</item>
@@ -542,7 +539,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Forsøger at bekræfte tidligere handling (søgeord: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Skærmtid: %1$s siden %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Sidst opdateret: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Installeret: %s</string>
     <string name="analyzer_tool_name">Lageranalyse</string>
     <string name="analyzer_explanation_short">Find ud af, hvad der optager plads på din enhed.</string>
     <string name="analyzer_progress_scanning_device">Søger efter lagerenheder</string>

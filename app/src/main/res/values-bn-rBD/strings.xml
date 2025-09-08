@@ -50,7 +50,6 @@
     <string name="onboarding_setup_continue_action">প্রবেশাধিকার সেটআপ করুন</string>
     <string name="settings_privacy_policy_label">গোপনীয়তার নীতিমালা</string>
     <string name="settings_privacy_policy_desc">দায়িত্বের সাথে ডেটা পরিচালনা করা।</string>
-    <string name="settings_licenses_label">লাইসেন্সসমূহ</string>
     <string name="settings_category_other_label">অন্যান্য</string>
     <string name="settings_category_filter_generic">জেনেরিক ফিল্টার</string>
     <string name="settings_category_filter_specific">নির্দিষ্ট ফিল্টার</string>
@@ -458,7 +457,6 @@
     <string name="appcontrol_app_launch_title">অ্যাপ চালু করুন</string>
     <string name="appcontrol_app_launch_description">এই অ্যাপটির প্রাথমিক কার্যকলাপ চালু করুন।</string>
     <string name="appcontrol_app_forcestop_title">জোর করে বন্ধ করুন</string>
-    <string name="appcontrol_app_forcestop_description">অ্যাপ বন্ধ করে দিন। যতক্ষণ না আপনি এটি খুলছেন বা ডিভাইসটি রিবুট না করা পর্যন্ত এটি নিজে থেকে শুরু হতে বাধা দেয়।</string>
     <string name="appcontrol_app_uninstall_description">আপনার ডিভাইস থেকে এই অ্যাপ্লিকেশন আনইনস্টল করুন।</string>
     <string name="appcontrol_app_exclude_add_title">অ্যাপ বাদ দিন</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid-এর অন্যান্য ক্রিয়াকলাপ থেকে এই অ্যাপটিকে বাদ দিন।</string>
@@ -508,7 +506,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">একটি অ্যাপ সক্রিয় (বা সম্প্রতি ছিল) কিনা তা খুঁজে বের করুন।</string>
     <string name="appcontrol_export_app_selection_action">এক্সপোর্ট অ্যাপস</string>
     <string name="appcontrol_export_title">এক্সপোর্ট অ্যাপ</string>
-    <string name="appcontrol_export_description">এই অ্যাপের ইনস্টলেশন ফাইলগুলি সংরক্ষণ করুন। এটি অ্যাপ ডেটা অন্তর্ভুক্ত করে না।</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d অ্যাপ এক্সপোর্ট করা হয়েছে</item>
         <item quantity="other">%dটি অ্যাপ এক্সপোর্ট করা হয়েছে</item>
@@ -532,7 +529,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">পূর্ববর্তী কর্ম নিশ্চিত করার চেষ্টা করা হচ্ছে (কীওয়ার্ড: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">স্ক্রিন টাইম: %2$s থেকে %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">সর্বশেষ আপডেট হয়েছে: %s</string>
-    <string name="appcontrol_item_installedat_x_label">ইনস্টল করা হয়েছে: %s</string>
     <string name="analyzer_tool_name">স্টোরেজ বিশ্লেষক</string>
     <string name="analyzer_explanation_short">আপনার ডিভাইসে কী কী জিনিস স্টোরেজের কতটুকু যায়গা দখল করছে তা খুঁজে বের করুন।</string>
     <string name="analyzer_progress_scanning_device">স্টোরেজ ডিভাইসের জন্য অনুসন্ধান করা হচ্ছে</string>

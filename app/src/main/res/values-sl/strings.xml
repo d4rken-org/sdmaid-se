@@ -58,7 +58,6 @@
     <string name="onboarding_setup_continue_action">Nastavi dostop</string>
     <string name="settings_privacy_policy_label">Pravilnik o zasebnosti</string>
     <string name="settings_privacy_policy_desc">Odgovorno ravnanje s podatki.</string>
-    <string name="settings_licenses_label">Dovoljenja</string>
     <string name="settings_category_other_label">Drugo</string>
     <string name="settings_category_filter_generic">Splošni filter</string>
     <string name="settings_category_filter_specific">Določeni filter</string>
@@ -492,7 +491,6 @@
     <string name="appcontrol_app_launch_title">Zaženi program</string>
     <string name="appcontrol_app_launch_description">Zaženi glavno dejavnost tega programa.</string>
     <string name="appcontrol_app_forcestop_title">Vsili ustavitev</string>
-    <string name="appcontrol_app_forcestop_description">Ustavi program.  Prepreči njegov samodejni zagon, dokler ga ne odprete ali ponovno zaženete napravo.</string>
     <string name="appcontrol_app_uninstall_description">Odstrani ta program z naprave.</string>
     <string name="appcontrol_app_exclude_add_title">Izključi program</string>
     <string name="appcontrol_app_exclude_add_description">Izključi ta program iz drugih opravil v SD Maidu.</string>
@@ -550,7 +548,6 @@
     <string name="appcontrol_include_multiuser_summary">Vključi programe iz drugih uporabniških profilov na napravi.</string>
     <string name="appcontrol_export_app_selection_action">Izvozi programe</string>
     <string name="appcontrol_export_title">Izvozi program</string>
-    <string name="appcontrol_export_description">Shrani namestitvene datoteke tega programa.  To ne vključuje podatke programa.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d program je bil izvožen.</item>
         <item quantity="two">%d programa sta bila izvožena.</item>
@@ -580,7 +577,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Poizkušanje potrditve prejšnjega dejanja (ključne besede: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Čas zaslona: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Nazadnje posodobljeno: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Nameščeno ob: %s</string>
     <string name="analyzer_tool_name">Analizator shrambe</string>
     <string name="analyzer_explanation_short">Izvédite, kaj zaseda prostor na napravi.</string>
     <string name="analyzer_progress_scanning_device">Iskanje pomnilniških naprav</string>

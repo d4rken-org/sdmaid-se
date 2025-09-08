@@ -58,7 +58,6 @@
     <string name="onboarding_setup_continue_action">Configureu l\'accés</string>
     <string name="settings_privacy_policy_label">Política de privadesa</string>
     <string name="settings_privacy_policy_desc">Tractament responsable de les dades.</string>
-    <string name="settings_licenses_label">Llicències</string>
     <string name="settings_category_other_label">Altres</string>
     <string name="settings_category_filter_generic">Filtre genèric</string>
     <string name="settings_category_filter_specific">Filtre específic</string>
@@ -199,6 +198,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Dades privades de l\'aplicació, p. ex. credencials, configuració de l\'aplicació, però també memòria cau del navegador.</string>
     <string name="corpsefinder_filter_dalvik_label">Memòria cau Dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">Dades d\'execució de l\'aplicació a la memòria cau.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Perfils ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">L\'Android utilitza els perfils ART per optimitzar el rendiment de les aplicacions.</string>
     <string name="corpsefinder_filter_applib_label">Biblioteques d\'aplicacions</string>
     <string name="corpsefinder_filter_applib_summary">Dades de la biblioteca relacionades amb l\'aplicació.</string>
     <string name="corpsefinder_filter_appsource_label">Fonts de l\'aplicació</string>
@@ -466,7 +467,6 @@
     <string name="appcontrol_app_launch_title">Inicia l\'aplicació</string>
     <string name="appcontrol_app_launch_description">Inicia l\'activitat principal d\'aquesta aplicació.</string>
     <string name="appcontrol_app_forcestop_title">Força l\'aturada</string>
-    <string name="appcontrol_app_forcestop_description">Atura l\'aplicació. Impedeix que s\'iniciï fins que l\'obriu o es reiniciï el dispositiu.</string>
     <string name="appcontrol_app_uninstall_description">Desinstal·la aquesta aplicació del dispositiu.</string>
     <string name="appcontrol_app_exclude_add_title">Exclusió d\'aplicacions</string>
     <string name="appcontrol_app_exclude_add_description">Exclou aquesta aplicació d\'altres operacions a l\'SD Maid.</string>
@@ -518,7 +518,6 @@
     <string name="appcontrol_include_multiuser_summary">Inclou aplicacions d\'altres perfils d\'usuari en aquest dispositiu.</string>
     <string name="appcontrol_export_app_selection_action">Exporta les aplicacions</string>
     <string name="appcontrol_export_title">Exporta l\'aplicació</string>
-    <string name="appcontrol_export_description">Desa els fitxers d\'instal·lació d\'aquesta aplicació. Això no inclou les dades de l\'aplicació.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">S\'ha exportat %d aplicació</item>
         <item quantity="other">S\'han exportat %d aplicacions</item>
@@ -542,7 +541,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">S\'està intentant confirmar l\'acció anterior (paraules clau: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Temps de pantalla: %1$s des de %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Darrera actualització: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Instal·lada a: %s</string>
     <string name="analyzer_tool_name">Analitzador d\'emmagatzematge</string>
     <string name="analyzer_explanation_short">Descobriu què ocupa espai al vostre dispositiu.</string>
     <string name="analyzer_progress_scanning_device">Cerca de dispositius d\'emmagatzematge</string>
@@ -732,4 +730,11 @@
     <string name="area_type_public_obb_label">Recursos d\'aplicacions públiques</string>
     <string name="area_type_private_data_label">Dades privades de l\'aplicació</string>
     <string name="area_type_portable_label">Emmagatzematge portàtil</string>
+    <string name="shortcut_appcontrol_short">Control d\'aplicacions</string>
+    <string name="shortcut_appcontrol_long">Gestioneu les aplicacions instal·lades</string>
+    <string name="shortcut_onetap_short">Escaneja + Suprimeix</string>
+    <string name="shortcut_onetap_long">Escaneja i suprimeix en una sola acció</string>
+    <string name="shortcuts_settings_category">Dreceres</string>
+    <string name="shortcuts_onetap_enabled_title">Drecera d\'un sol toc</string>
+    <string name="shortcuts_onetap_enabled_summary">Mostra la drecera «Escaneja + Suprimeix» quan es manté premuda la icona de l\'aplicació. Utilitza les mateixes eines que el tauler de control d\'un sol toc.</string>
 </resources>

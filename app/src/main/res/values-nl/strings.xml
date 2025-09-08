@@ -58,7 +58,6 @@
     <string name="onboarding_setup_continue_action">Toegang instellen</string>
     <string name="settings_privacy_policy_label">Privacybeleid</string>
     <string name="settings_privacy_policy_desc">Verantwoord met gegevens omgaan.</string>
-    <string name="settings_licenses_label">Licenties</string>
     <string name="settings_category_other_label">Andere</string>
     <string name="settings_category_filter_generic">Algemene filter</string>
     <string name="settings_category_filter_specific">Specifieke filter</string>
@@ -199,6 +198,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Privé app-gegevens, bijv. inloggegevens, app instellingen maar ook browsercaches.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
     <string name="corpsefinder_filter_dalvik_summary">Uitvoeringsgegevens van apps in cache.</string>
+    <string name="corpsefinder_filter_artprofiles_label">KUNST profielen</string>
+    <string name="corpsefinder_filter_artprofiles_summary">KUNST profielen worden door Android gebruikt om app-prestaties te optimaliseren.</string>
     <string name="corpsefinder_filter_applib_label">App-bibliotheken</string>
     <string name="corpsefinder_filter_applib_summary">App-gerelateerde bibliotheekdata.</string>
     <string name="corpsefinder_filter_appsource_label">App-bronnen</string>
@@ -466,7 +467,6 @@
     <string name="appcontrol_app_launch_title">Start app</string>
     <string name="appcontrol_app_launch_description">Start de primaire activiteit van deze app.</string>
     <string name="appcontrol_app_forcestop_title">Forceer stop</string>
-    <string name="appcontrol_app_forcestop_description">Stopt de app. Voorkomt dat het programma zichzelf opstart totdat je het opent of het apparaat opnieuw opstart.</string>
     <string name="appcontrol_app_uninstall_description">Verwijder deze app van uw apparaat.</string>
     <string name="appcontrol_app_exclude_add_title">App uitsluiten</string>
     <string name="appcontrol_app_exclude_add_description">Sluit deze app uit van andere bewerkingen in SD Maid.</string>
@@ -518,7 +518,6 @@
     <string name="appcontrol_include_multiuser_summary">Apps van andere gebruikersprofielen opnemen op dit apparaat.</string>
     <string name="appcontrol_export_app_selection_action">Apps exporteren</string>
     <string name="appcontrol_export_title">App exporteren</string>
-    <string name="appcontrol_export_description">Sla de installatiebestanden van deze app op. Dit omvat geen app-gegevens.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d app is geëxporteerd</item>
         <item quantity="other">%d apps zijn geëxporteerd</item>
@@ -542,7 +541,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Probeert eerdere actie te bevestigen (trefwoorden: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Schermtijd: %1$s sinds %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Laatst bijgewerkt: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Geïnstalleerd op: %s</string>
     <string name="analyzer_tool_name">Opslag Analyzer</string>
     <string name="analyzer_explanation_short">Ontdek wat ruimte inneemt op je apparaat.</string>
     <string name="analyzer_progress_scanning_device">Zoeken naar opslagapparaten</string>
@@ -732,4 +730,11 @@
     <string name="area_type_public_obb_label">Openbare app-bronnen</string>
     <string name="area_type_private_data_label">Privé app-gegevens</string>
     <string name="area_type_portable_label">Draagbare opslag</string>
+    <string name="shortcut_appcontrol_short">App-bediening</string>
+    <string name="shortcut_appcontrol_long">Geïnstalleerde apps beheren</string>
+    <string name="shortcut_onetap_short">Scannen + Verwijderen</string>
+    <string name="shortcut_onetap_long">Scannen en verwijderen in één actie</string>
+    <string name="shortcuts_settings_category">Snelkoppelingen</string>
+    <string name="shortcuts_onetap_enabled_title">Snelkoppeling met één tik</string>
+    <string name="shortcuts_onetap_enabled_summary">Toon de snelkoppeling \'Scannen + Verwijderen\' wanneer je het app-pictogram lang ingedrukt houdt. Gebruikt hezelfde gereedschap als het one-tap dashboard.</string>
 </resources>

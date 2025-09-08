@@ -13,6 +13,15 @@
     <string name="debug_debuglog_record_action">Snimi zapisnik za otklanjanje pogrešaka</string>
     <string name="debug_debuglog_stop_action">Zaustavi snimanje</string>
     <string name="debug_debuglog_sensitive_information_message">Generirana datoteka sadrži osjetljive informacije (npr. nazive datoteka i instalirane aplikacije). Dijelite je samo s pouzdanim stranama.</string>
+    <string name="debug_debuglog_screen_title">Zapisnik za otklanjanje pogrešaka</string>
+    <string name="debug_debuglog_screen_discard_action">Odbaci</string>
+    <string name="debug_debuglog_screen_session_path_label">Putanja sesije</string>
+    <string name="debug_debuglog_screen_log_files_label">Datoteke zapisnika</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d datoteka spremna (%2$s)</item>
+        <item quantity="few">%1$d datoteke spremne (%2$s)</item>
+        <item quantity="other">%1$d datoteka spremno (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Ova značajka bilježi sve što aplikacija radi u datoteku koja se može dijeliti. Generirana datoteka sadrži osjetljive informacije (npr. nazive datoteka i instalirane aplikacije). Dijelite je samo s pouzdanim stranama (npr. programerom koji rješava problem).</string>
     <string name="tasks_activity_notification_channel_label">Aktivni zadaci</string>
     <string name="tasks_activity_working_notification_title">SD Maid radi</string>
@@ -52,7 +61,6 @@
     <string name="onboarding_setup_continue_action">Postavite pristup</string>
     <string name="settings_privacy_policy_label">Politika privatnosti</string>
     <string name="settings_privacy_policy_desc">Odgovorno postupanje s podacima.</string>
-    <string name="settings_licenses_label">Licence</string>
     <string name="settings_category_other_label">Ostalo</string>
     <string name="settings_category_filter_generic">Generički filter</string>
     <string name="settings_category_filter_specific">Specifični filter</string>
@@ -195,6 +203,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Privatni podaci aplikacije, npr. vjerodajnice, postavke aplikacije, ali i predmemorija preglednika.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik predmemorija</string>
     <string name="corpsefinder_filter_dalvik_summary">Predmemorirani podaci o izvršavanju aplikacije.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profili</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Android koristi ART profile za optimizaciju performansi aplikacija.</string>
     <string name="corpsefinder_filter_applib_label">Biblioteke aplikacije</string>
     <string name="corpsefinder_filter_applib_summary">Podaci biblioteka vezani uz aplikaciju.</string>
     <string name="corpsefinder_filter_appsource_label">Izvori aplikacije</string>
@@ -473,7 +483,6 @@
     <string name="appcontrol_app_launch_title">Pokreni aplikaciju</string>
     <string name="appcontrol_app_launch_description">Pokreće primarnu aktivnost ove aplikacije.</string>
     <string name="appcontrol_app_forcestop_title">Prisilno zaustavi</string>
-    <string name="appcontrol_app_forcestop_description">Zaustavlja aplikaciju. Sprječava je od pokretanja sve dok ju ne otvorite ili dok se uređaj ne ponovno pokrene.</string>
     <string name="appcontrol_app_uninstall_description">Deinstalirajte ovu aplikaciju sa svog uređaja.</string>
     <string name="appcontrol_app_exclude_add_title">Izuzmi aplikaciju</string>
     <string name="appcontrol_app_exclude_add_description">Izuzima ovu aplikaciju iz drugih operacija u SD Maidu.</string>
@@ -524,9 +533,10 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Dobijte grubu procjenu veličine svake aplikacije.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Odredi aktivnost</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Saznajte je li aplikacija trenutno (ili nedavno bila) aktivna.</string>
+    <string name="appcontrol_include_multiuser_label">Uključi druge korisnike</string>
+    <string name="appcontrol_include_multiuser_summary">Uključuje aplikacije iz drugih korisničkih profila na ovom uređaju.</string>
     <string name="appcontrol_export_app_selection_action">Izvezi aplikacije</string>
     <string name="appcontrol_export_title">Izvezi aplikaciju</string>
-    <string name="appcontrol_export_description">Spremite instalacijske datoteke ove aplikacije. To ne uključuje podatke aplikacije.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplikacija je izvezena</item>
         <item quantity="few">%d aplikacije su izvezene</item>
@@ -553,7 +563,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Pokušaj potvrde prethodne radnje (ključne riječi: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Vrijeme upotrebe: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Zadnje ažuriranje: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Instalirano u: %s</string>
     <string name="analyzer_tool_name">Analizator pohrane</string>
     <string name="analyzer_explanation_short">Saznajte što zauzima prostor na vašem uređaju.</string>
     <string name="analyzer_progress_scanning_device">Traženje uređaja za pohranu</string>
@@ -751,4 +760,11 @@
     <string name="area_type_public_obb_label">Javni resursi aplikacije</string>
     <string name="area_type_private_data_label">Privatni podaci aplikacije</string>
     <string name="area_type_portable_label">Prijenosna pohrana</string>
+    <string name="shortcut_appcontrol_short">Kontrola aplikacija</string>
+    <string name="shortcut_appcontrol_long">Upravljanje instaliranim aplikacijama</string>
+    <string name="shortcut_onetap_short">Skeniraj + Izbriši</string>
+    <string name="shortcut_onetap_long">Skeniraj i izbriši jednom radnjom</string>
+    <string name="shortcuts_settings_category">Prečaci</string>
+    <string name="shortcuts_onetap_enabled_title">Prečac jednim dodirom</string>
+    <string name="shortcuts_onetap_enabled_summary">Prikaže prečac \"Skeniraj + Izbriši\" kada dugo pritisnete ikonu aplikacije. Koristi iste alate kao i nadzorna ploča s jednim dodirom.</string>
 </resources>

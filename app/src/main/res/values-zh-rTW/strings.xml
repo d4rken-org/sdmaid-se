@@ -48,7 +48,6 @@
     <string name="onboarding_setup_continue_action">設定存取權</string>
     <string name="settings_privacy_policy_label">隱私權政策</string>
     <string name="settings_privacy_policy_desc">以負責的態度處理資料。</string>
-    <string name="settings_licenses_label">授權</string>
     <string name="settings_category_other_label">其他</string>
     <string name="settings_category_filter_generic">一般過濾器</string>
     <string name="settings_category_filter_specific">指定過濾器</string>
@@ -443,7 +442,6 @@
     <string name="appcontrol_app_launch_title">啟動應用程式</string>
     <string name="appcontrol_app_launch_description">啟動這個應用程式的主要活動。</string>
     <string name="appcontrol_app_forcestop_title">強制停止</string>
-    <string name="appcontrol_app_forcestop_description">停止應用程式。在你手動開啟或重新啟動裝置之前，防止其自動啟動。</string>
     <string name="appcontrol_app_uninstall_description">從您的裝置中解除安裝這個應用程式。</string>
     <string name="appcontrol_app_exclude_add_title">排除應用程式</string>
     <string name="appcontrol_app_exclude_add_description">從 SD 女僕的其他作業中排除這個應用程式。</string>
@@ -491,7 +489,6 @@
     <string name="appcontrol_include_multiuser_summary">包含此裝置上其他使用者設定檔的應用程式。</string>
     <string name="appcontrol_export_app_selection_action">匯出應用程式</string>
     <string name="appcontrol_export_title">匯出應用程式</string>
-    <string name="appcontrol_export_description">儲存此應用程式的安裝檔案。這不包括應用程式資料。</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">已匯出 %d 個應用程式</item>
     </plurals>
@@ -512,7 +509,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">嘗試確認先前的動作（關鍵詞：%s）</string>
     <string name="appcontrol_item_screentime_x_since_y_label">螢幕時間：%1$s，自從 %2$s 起</string>
     <string name="appcontrol_item_lastupdate_x_label">最後更新：%s</string>
-    <string name="appcontrol_item_installedat_x_label">安裝於：%s</string>
     <string name="analyzer_tool_name">儲存分析器</string>
     <string name="analyzer_explanation_short">找出哪些檔案佔用您的裝置空間。</string>
     <string name="analyzer_progress_scanning_device">正在搜尋儲存裝置</string>

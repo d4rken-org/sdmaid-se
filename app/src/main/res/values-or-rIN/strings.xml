@@ -49,7 +49,6 @@
     <string name="onboarding_setup_continue_action">ଆକ୍ସେସ୍ ସେଟଅପ୍ କରନ୍ତୁ</string>
     <string name="settings_privacy_policy_label">ଗୋପନୀୟତା ନୀତି</string>
     <string name="settings_privacy_policy_desc">ଦାୟିତ୍ୱପୂର୍ଣ୍ଣ ଭାବରେ ତଥ୍ୟ ପରିଚାଳନା କରିବା।</string>
-    <string name="settings_licenses_label">ଲାଇସେନ୍ସ</string>
     <string name="settings_category_other_label">ଅନ୍ୟ</string>
     <string name="settings_category_filter_generic">ସାଧାରଣ ଫିଲ୍ଟର</string>
     <string name="settings_category_filter_specific">ନିର୍ଦ୍ଦିଷ୍ଟ ଫିଲ୍ଟର</string>
@@ -452,7 +451,6 @@
     <string name="appcontrol_app_launch_title">ଆପ୍ ଲଞ୍ଚ କରନ୍ତୁ</string>
     <string name="appcontrol_app_launch_description">ଏହି ଆପ୍ର ପ୍ରାଥମିକ ଆକ୍ଟିଭିଟି ଲଞ୍ଚ କରନ୍ତୁ।</string>
     <string name="appcontrol_app_forcestop_title">ବଳପୂର୍ବକ ବନ୍ଦ କରନ୍ତୁ</string>
-    <string name="appcontrol_app_forcestop_description">ଆପ୍ କୁ ବନ୍ଦ କରେ। ଆପଣ ଏହାକୁ ଖୋଲିବା କିମ୍ବା ଡିଭାଇସ୍ ପୁନଃ ଚାଲୁ କରିବା ପର୍ଯ୍ୟନ୍ତ ଏହାକୁ ନିଜେ ଚାଲୁ ହେବାରୁ ରୋକିଥାଏ।</string>
     <string name="appcontrol_app_uninstall_description">ଆପଣଙ୍କ ଡିଭାଇସରୁ ଏହି ଆପ୍ କୁ ଅନଇନଷ୍ଟଲ କରନ୍ତୁ।</string>
     <string name="appcontrol_app_exclude_add_title">ଆପ୍ କୁ ବାଦ୍ ଦିଅନ୍ତୁ</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid ର ଅନ୍ୟ କାର୍ଯ୍ୟରୁ ଏହି ଆପ୍ କୁ ବାଦ୍ ଦିଅନ୍ତୁ।</string>
@@ -501,7 +499,6 @@
     <string name="appcontrol_settings_module_activity_enabled_description">ଏକ ଆପ୍ ସକ୍ରିୟ (କିମ୍ବା ସମ୍ପ୍ରତି ସକ୍ରିୟ ଥିଲା) କି ନାହିଁ ଜାଣନ୍ତୁ।</string>
     <string name="appcontrol_export_app_selection_action">ଆପ୍ ଗୁଡ଼ିକ ରପ୍ତାନି କରନ୍ତୁ</string>
     <string name="appcontrol_export_title">ଆପ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
-    <string name="appcontrol_export_description">ଏହି ଆପ୍ ର ଇନ୍‌ଷ୍ଟଲେସନ୍ ଫାଇଲଗୁଡ଼ିକ ସଞ୍ଚୟ କରନ୍ତୁ। ଏହା ଆପ୍ ଡାଟା ଅନ୍ତର୍ଭୁକ୍ତ କରେ ନାହିଁ।</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d ଆପ୍ ଏକ୍ସପୋର୍ଟ ହୋଇଛି</item>
         <item quantity="other">%d ଆପ୍ ଏକ୍ସପୋର୍ଟ ହୋଇଛି</item>
@@ -525,7 +522,6 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">ପୂର୍ବ କାର୍ଯ୍ୟକୁ ନିଶ୍ଚିତ କରିବାକୁ ଚେଷ୍ଟା କରୁଛି (କୀୱାର୍ଡ: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">ସ୍କ୍ରିନ୍ ସମୟ: %2$s ପରଠାରୁ %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">ଶେଷ ଅପଡେଟ୍: %s</string>
-    <string name="appcontrol_item_installedat_x_label">ଇନ୍‌ଷ୍ଟଲ୍ ହୋଇଥିବା ସମୟ: %s</string>
     <string name="analyzer_explanation_short">ଜାଣନ୍ତୁ ଆପଣଙ୍କ ଡିଵାଇସ୍‌ରେ କ\'ଣ ଜାଗା ଖାଉଛି।</string>
     <string name="analyzer_progress_scanning_device">ଷ୍ଟୋରେଜ୍ ଉପକରଣ ଖୋଜୁଛି</string>
     <string name="analyzer_progress_scanning_storage">ଷ୍ଟୋରେଜ୍ ସ୍କ୍ୟାନ୍ କରୁଛି</string>
