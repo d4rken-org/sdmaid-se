@@ -42,7 +42,6 @@
     <string name="onboarding_setup_continue_action">Gosod mynediad</string>
     <string name="settings_privacy_policy_label">Polisi preifatrwydd</string>
     <string name="settings_privacy_policy_desc">Trin data yn gyfrifol.</string>
-    <string name="settings_licenses_label">Trwyddedau</string>
     <string name="settings_category_other_label">Arall</string>
     <string name="settings_category_filter_generic">Hidlydd generig</string>
     <string name="settings_category_filter_specific">Hidlydd penodol</string>
