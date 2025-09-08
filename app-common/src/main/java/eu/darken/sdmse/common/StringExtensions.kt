@@ -28,3 +28,14 @@ fun String.toColored(
 ): SpannableString = SpannableString(this).apply {
     setSpan(ForegroundColorSpan(ContextCompat.getColor(context, colorRes)), 0, this.length, 0)
 }
+
+fun String.replaceLast(old: String, new: String): String {
+    if (old.isEmpty()) return this
+    val i = lastIndexOf(old)
+    if (i < 0) return this
+    val sb = StringBuilder(length - old.length + new.length)
+    sb.append(this, 0, i)
+    sb.append(new)
+    sb.append(this, i + old.length, length)
+    return sb.toString()
+}
