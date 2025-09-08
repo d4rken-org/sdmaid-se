@@ -2,7 +2,8 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory
-        android:title="Translation"
+        app:title="@string/settings_acknowledgements_category_translations_title"
+        app:summary="@string/settings_acknowledgements_category_translations_subtitle"
         app:iconSpaceReserved="false">
         <Preference
             android:key="translation.translators"
@@ -20,7 +21,8 @@
         </eu.darken.sdmse.common.preferences.IntentPreference>
     </PreferenceCategory>
     <PreferenceCategory
-        android:title="Thanks"
+        app:title="@string/settings_acknowledgements_category_thanks_title"
+        app:summary="@string/settings_acknowledgements_category_thanks_subtitle"
         app:iconSpaceReserved="false">
         <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="thanks.maxpatchs"
@@ -42,7 +44,8 @@
         </eu.darken.sdmse.common.preferences.IntentPreference>
     </PreferenceCategory>
     <PreferenceCategory
-        android:title="@string/settings_licenses_label"
+        app:title="@string/settings_acknowledgements_category_licenses_title"
+        app:summary="@string/settings_acknowledgements_category_licenses_subtitle"
         app:iconSpaceReserved="false">
         <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.librootjava"
