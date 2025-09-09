@@ -4,10 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask
+import eu.darken.sdmse.common.coroutine.AppCoroutineScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
@@ -38,6 +38,7 @@ class ShortcutActivity : ComponentActivity() {
     @Inject lateinit var systemCleaner: SystemCleaner
     @Inject lateinit var appCleaner: AppCleaner
     @Inject lateinit var deduplicator: Deduplicator
+    @Inject lateinit var appScope: AppCoroutineScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,42 +70,56 @@ class ShortcutActivity : ComponentActivity() {
         startActivity(mainIntent)
     }
 
-    private fun handleScanDeleteShortcut() {
-        lifecycleScope.launch(Dispatchers.Default) {
-            if (!upgradeRepo.isPro()) {
-                log(TAG, INFO) { "Scan/Delete shortcut requires Pro version, opening upgrade screen" }
-                val upgradeIntent = Intent(this@ShortcutActivity, MainActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    putExtra(EXTRA_SHORTCUT_ACTION, ACTION_UPGRADE)
-                }
-                withContext(Dispatchers.Main) {
-                    startActivity(upgradeIntent)
-                }
-                return@launch
+    private fun handleScanDeleteShortcut() = appScope.launch {
+        if (!upgradeRepo.isPro()) {
+            log(TAG, INFO) { "Scan/Delete shortcut requires Pro version, opening upgrade screen" }
+            val upgradeIntent = Intent(this@ShortcutActivity, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtra(EXTRA_SHORTCUT_ACTION, ACTION_UPGRADE)
             }
-
-            log(TAG, INFO) { "Executing scan and delete tasks" }
-
-            if (generalSettings.oneClickCorpseFinderEnabled.value()) {
-                taskManager.submit(CorpseFinderOneClickTask())
-            }
-            if (generalSettings.oneClickSystemCleanerEnabled.value()) {
-                taskManager.submit(SystemCleanerOneClickTask())
-            }
-            if (generalSettings.oneClickAppCleanerEnabled.value()) {
-                taskManager.submit(AppCleanerOneClickTask())
-            }
-            if (generalSettings.oneClickDeduplicatorEnabled.value()) {
-                taskManager.submit(DeduplicatorOneClickTask())
-            }
-
             withContext(Dispatchers.Main) {
-                Toast.makeText(
-                    this@ShortcutActivity,
-                    "Scan & delete started...",
-                    Toast.LENGTH_SHORT
-                ).show()
+                startActivity(upgradeIntent)
             }
+            return@launch
+        }
+
+        log(TAG, INFO) { "Executing scan and delete tasks" }
+
+        if (generalSettings.oneClickCorpseFinderEnabled.value()) {
+            try {
+                taskManager.submit(CorpseFinderOneClickTask())
+            } catch (e: Exception) {
+                log(TAG) { "Failed to submit CorpseFinderOneClickTask: $e" }
+            }
+        }
+        if (generalSettings.oneClickSystemCleanerEnabled.value()) {
+            try {
+                taskManager.submit(SystemCleanerOneClickTask())
+            } catch (e: Exception) {
+                log(TAG) { "Failed to submit SystemCleanerOneClickTask: $e" }
+            }
+        }
+        if (generalSettings.oneClickAppCleanerEnabled.value()) {
+            try {
+                taskManager.submit(AppCleanerOneClickTask())
+            } catch (e: Exception) {
+                log(TAG) { "Failed to submit AppCleanerOneClickTask: $e" }
+            }
+        }
+        if (generalSettings.oneClickDeduplicatorEnabled.value()) {
+            try {
+                taskManager.submit(DeduplicatorOneClickTask())
+            } catch (e: Exception) {
+                log(TAG) { "Failed to submit DeduplicatorOneClickTask: $e" }
+            }
+        }
+
+        withContext(Dispatchers.Main) {
+            Toast.makeText(
+                this@ShortcutActivity,
+                "Scan & delete started...",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
