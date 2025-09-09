@@ -133,7 +133,11 @@ class AppCleaner @Inject constructor(
 
                     is AppCleanerOneClickTask -> {
                         performScan()
-                        performProcessing().let {
+                        performProcessing(
+                            AppCleanerProcessingTask(
+                                isBackground = task.shortcutMode,
+                            )
+                        ).let {
                             AppCleanerOneClickTask.Success(
                                 affectedSpace = it.affectedSpace,
                                 affectedPaths = it.affectedPaths,

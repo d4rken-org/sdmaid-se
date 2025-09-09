@@ -11,7 +11,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class AppCleanerOneClickTask(
-    val noop: Boolean = true
+    val shortcutMode: Boolean = false,
 ) : AppCleanerTask, Reportable {
 
     sealed interface Result : AppCleanerTask.Result
