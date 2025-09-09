@@ -101,7 +101,7 @@ class ShortcutActivity : ComponentActivity() {
         }
         if (generalSettings.oneClickAppCleanerEnabled.value()) {
             try {
-                taskManager.submit(AppCleanerOneClickTask())
+                taskManager.submit(AppCleanerOneClickTask(shortcutMode = true))
             } catch (e: Exception) {
                 log(TAG) { "Failed to submit AppCleanerOneClickTask: $e" }
             }
