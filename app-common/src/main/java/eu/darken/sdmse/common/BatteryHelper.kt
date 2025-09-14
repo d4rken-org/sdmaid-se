@@ -17,7 +17,7 @@ import kotlin.time.Duration.Companion.seconds
 
 @Reusable
 class BatteryHelper @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
 ) {
 
     private val powerManager: PowerManager

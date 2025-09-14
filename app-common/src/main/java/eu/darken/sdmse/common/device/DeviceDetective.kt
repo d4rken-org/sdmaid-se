@@ -17,7 +17,7 @@ import javax.inject.Inject
 @Suppress("SameParameterValue")
 @Reusable
 class DeviceDetective @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
 ) {
 
     init {

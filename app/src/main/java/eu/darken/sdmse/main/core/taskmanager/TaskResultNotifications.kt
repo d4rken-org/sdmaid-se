@@ -21,7 +21,7 @@ import javax.inject.Inject
 
 
 class TaskResultNotifications @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     notificationManager: NotificationManager,
 ) {
 

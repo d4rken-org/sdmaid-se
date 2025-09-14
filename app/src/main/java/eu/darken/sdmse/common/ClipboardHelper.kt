@@ -15,7 +15,7 @@ import kotlin.concurrent.withLock
 
 @Singleton
 class ClipboardHelper @Inject constructor(
-    @param:ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context
 ) {
     private val clipboard: ClipboardManager by lazy {
         return@lazy if (Looper.getMainLooper() == Looper.myLooper()) {

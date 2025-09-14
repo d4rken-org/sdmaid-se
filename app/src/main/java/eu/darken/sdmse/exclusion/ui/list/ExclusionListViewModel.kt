@@ -51,7 +51,7 @@ import javax.inject.Inject
 class ExclusionListViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val exclusionManager: ExclusionManager,
     private val pkgRepo: PkgRepo,
     private val gatewaySwitch: GatewaySwitch,

@@ -63,7 +63,7 @@ import javax.inject.Singleton
 
 @Singleton
 class AppControl @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     private val userManager: UserManager2,
     private val componentToggler: ComponentToggler,
     private val forceStopper: ForceStopper,

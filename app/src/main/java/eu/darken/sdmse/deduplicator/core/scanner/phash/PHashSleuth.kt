@@ -45,7 +45,7 @@ import java.util.UUID
 import javax.inject.Inject
 
 class PHashSleuth @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val dispatcherProvider: DispatcherProvider,
     private val commonFilesCheck: CommonFilesCheck,
 ) : Sleuth {

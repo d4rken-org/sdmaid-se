@@ -16,7 +16,7 @@ import javax.inject.Singleton
 @Singleton
 class ExclusionStorage @Inject constructor(
     dispatcherProvider: DispatcherProvider,
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val moshi: Moshi,
 ) : SerializedStorage<Set<Exclusion>>(dispatcherProvider, TAG) {
 

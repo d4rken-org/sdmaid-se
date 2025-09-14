@@ -35,8 +35,8 @@ import javax.inject.Singleton
 
 @Singleton
 class ShizukuManager @Inject constructor(
-    @param:ApplicationContext private val context: Context,
-    @param:AppScope private val appScope: CoroutineScope,
+    @ApplicationContext private val context: Context,
+    @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
     settings: AdbSettings,
     private val shizukuWrapper: ShizukuWrapper,

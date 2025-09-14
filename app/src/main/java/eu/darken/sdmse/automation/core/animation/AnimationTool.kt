@@ -17,7 +17,7 @@ import javax.inject.Singleton
 
 @Singleton
 class AnimationTool @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val adbManager: AdbManager,
     private val rootManager: RootManager,
     private val shellOps: ShellOps,

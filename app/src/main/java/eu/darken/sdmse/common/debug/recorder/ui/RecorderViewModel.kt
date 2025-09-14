@@ -27,7 +27,7 @@ import javax.inject.Inject
 class RecorderViewModel @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val webpageTool: WebpageTool,
 ) : ViewModel3(dispatcherProvider) {
 

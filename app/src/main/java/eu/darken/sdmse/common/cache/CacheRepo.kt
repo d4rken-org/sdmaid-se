@@ -13,7 +13,7 @@ import javax.inject.Singleton
 @SuppressLint("UsableSpace")
 @Singleton
 class CacheRepo @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
 ) {
 
     private val toplevelDir = context.cacheDir

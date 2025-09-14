@@ -32,7 +32,7 @@ import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
 
 class AppScan @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
     private val pkgRepo: PkgRepo,
     private val pkgOps: PkgOps,

@@ -62,7 +62,7 @@ import javax.inject.Inject
 class AppActionViewModel @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     appControl: AppControl,
     private val taskManager: TaskManager,
     private val exclusionManager: ExclusionManager,

@@ -47,7 +47,7 @@ import javax.inject.Inject
 @Reusable
 open class AndroidTVSpecs @Inject constructor(
     private val ipcFunnel: IPCFunnel,
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val deviceDetective: DeviceDetective,
     private val androidTVLabels: AndroidTVLabels,
     private val generalSettings: GeneralSettings,

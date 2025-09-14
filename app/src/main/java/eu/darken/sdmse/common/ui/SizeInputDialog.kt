@@ -14,7 +14,7 @@ import eu.darken.sdmse.databinding.ViewPreferenceInputSizeBinding
 
 class SizeInputDialog(
     private val activity: Activity,
-    @param:StringRes private val titleRes: Int,
+    @StringRes private val titleRes: Int,
     private val minimumSize: Long = 0,
     private val maximumSize: Long = 100 * 1000 * 1024L,
     private val currentSize: Long,

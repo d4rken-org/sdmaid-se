@@ -12,7 +12,7 @@ import javax.inject.Singleton
 
 @Singleton
 class FossCache @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     moshi: Moshi
 ) {
 

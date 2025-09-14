@@ -35,7 +35,7 @@ import javax.inject.Inject
 class AppDetailsViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    @Suppress("StaticFieldLeak") @param:ApplicationContext private val context: Context,
+    @Suppress("StaticFieldLeak") @ApplicationContext private val context: Context,
     private val analyzer: Analyzer,
 ) : ViewModel3(dispatcherProvider) {
 

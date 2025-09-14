@@ -55,7 +55,7 @@ import javax.inject.Singleton
 
 @Singleton
 class SystemCleaner @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     private val fileForensics: FileForensics,
     private val gatewaySwitch: GatewaySwitch,
     private val crawler: SystemCrawler,

@@ -34,8 +34,8 @@ import javax.inject.Singleton
 
 @Singleton
 class AutomationSetupModule @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
-    @param:ApplicationContext private val context: Context,
+    @AppScope private val appScope: CoroutineScope,
+    @ApplicationContext private val context: Context,
     private val generalSettings: GeneralSettings,
     private val automationManager: AutomationManager,
     private val deviceDetective: DeviceDetective,

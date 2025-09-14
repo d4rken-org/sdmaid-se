@@ -32,7 +32,7 @@ import javax.inject.Singleton
 
 @Singleton
 class NormalPkgsSource @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val pkgOps: PkgOps,
     private val userManager: UserManager2,
     private val rootManager: RootManager,

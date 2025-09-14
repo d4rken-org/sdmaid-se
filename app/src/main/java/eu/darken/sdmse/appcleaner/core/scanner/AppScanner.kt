@@ -78,7 +78,7 @@ class AppScanner @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val filterFactories: Set<@JvmSuppressWildcards ExpendablesFilter.Factory>,
     private val postProcessorModule: PostProcessorModule,
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val fileForensics: FileForensics,
     private val rootManager: RootManager,
     private val exclusionManager: ExclusionManager,

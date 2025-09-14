@@ -73,7 +73,7 @@ import javax.inject.Inject
 
 @Reusable
 class MIUISpecs @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val ipcFunnel: IPCFunnel,
     private val deviceDetective: DeviceDetective,
     private val miuiLabels: MIUILabels,

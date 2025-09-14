@@ -23,7 +23,7 @@ import javax.inject.Inject
 
 @Reusable
 class ScreenState @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val powerManager: PowerManager,
     private val keyguardManager: KeyguardManager,
 ) {

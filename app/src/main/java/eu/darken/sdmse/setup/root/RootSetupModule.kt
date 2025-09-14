@@ -34,7 +34,7 @@ import javax.inject.Singleton
 
 @Singleton
 class RootSetupModule @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     private val rootSettings: RootSettings,
     private val rootManager: RootManager,
     private val dataAreaManager: DataAreaManager,

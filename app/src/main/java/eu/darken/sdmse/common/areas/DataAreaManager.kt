@@ -22,7 +22,7 @@ import javax.inject.Singleton
 
 @Singleton
 class DataAreaManager @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     private val areaFactory: DataAreaFactory,
 ) {
 

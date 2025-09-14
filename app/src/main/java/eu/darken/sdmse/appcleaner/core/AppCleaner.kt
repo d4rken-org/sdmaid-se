@@ -62,7 +62,7 @@ import javax.inject.Singleton
 
 @Singleton
 class AppCleaner @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     private val fileForensics: FileForensics,
     private val appScannerProvider: Provider<AppScanner>,
     private val inaccessibleDeleterProvider: Provider<InaccessibleDeleter>,

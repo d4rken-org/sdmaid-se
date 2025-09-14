@@ -50,7 +50,7 @@ import javax.inject.Provider
 
 @Reusable
 class DalvikCorpseFilter @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val areaManager: DataAreaManager,
     private val gatewaySwitch: GatewaySwitch,
     private val fileForensics: FileForensics,

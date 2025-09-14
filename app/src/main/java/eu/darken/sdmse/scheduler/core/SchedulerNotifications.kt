@@ -22,7 +22,7 @@ import javax.inject.Inject
 
 
 class SchedulerNotifications @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val notificationManager: NotificationManager,
 ) {
 

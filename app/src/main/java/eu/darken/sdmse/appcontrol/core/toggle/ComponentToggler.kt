@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @Reusable
 class ComponentToggler @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
     private val pkgOps: PkgOps,
 ) : HasSharedResource<Any> {

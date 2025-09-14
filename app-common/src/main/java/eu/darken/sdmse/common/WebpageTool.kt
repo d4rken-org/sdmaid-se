@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @Reusable
 class WebpageTool @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
 ) {
 
     fun open(address: String) {

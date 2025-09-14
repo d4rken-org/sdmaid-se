@@ -15,7 +15,7 @@ import javax.inject.Singleton
 @Singleton
 class ScheduleStorage @Inject constructor(
     dispatcherProvider: DispatcherProvider,
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val moshi: Moshi,
 ) : SerializedStorage<Set<Schedule>>(dispatcherProvider, TAG) {
 

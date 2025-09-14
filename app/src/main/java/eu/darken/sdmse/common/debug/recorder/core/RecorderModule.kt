@@ -43,8 +43,8 @@ import javax.inject.Singleton
 
 @Singleton
 class RecorderModule @Inject constructor(
-    @param:ApplicationContext private val context: Context,
-    @param:AppScope private val appScope: CoroutineScope,
+    @ApplicationContext private val context: Context,
+    @AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
     private val dataAreaManager: DataAreaManager,
     private val sdmId: SDMId,

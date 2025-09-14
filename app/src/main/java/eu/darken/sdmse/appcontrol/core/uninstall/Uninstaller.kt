@@ -42,9 +42,9 @@ import kotlin.math.roundToLong
 
 @Reusable
 class Uninstaller @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val pkgRepo: PkgRepo,
     private val shellOps: ShellOps,
     private val rootManager: RootManager,

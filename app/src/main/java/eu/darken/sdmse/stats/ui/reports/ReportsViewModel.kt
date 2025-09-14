@@ -22,7 +22,7 @@ import kotlin.time.Duration.Companion.minutes
 @SuppressLint("StaticFieldLeak")
 @HiltViewModel
 class ReportsViewModel @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val statsRepo: StatsRepo,

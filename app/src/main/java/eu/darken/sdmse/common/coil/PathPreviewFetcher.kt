@@ -25,7 +25,7 @@ import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
 
 class PathPreviewFetcher @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val coilTempFiles: CoilTempFiles,
     private val generalSettings: GeneralSettings,
     private val gatewaySwitch: GatewaySwitch,
@@ -91,7 +91,7 @@ class PathPreviewFetcher @Inject constructor(
     }
 
     class Factory @Inject constructor(
-        @param:ApplicationContext private val context: Context,
+        @ApplicationContext private val context: Context,
         private val coilTempFiles: CoilTempFiles,
         private val generalSettings: GeneralSettings,
         private val gatewaySwitch: GatewaySwitch,

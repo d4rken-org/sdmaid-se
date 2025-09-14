@@ -32,8 +32,8 @@ import javax.inject.Singleton
 
 @Singleton
 class LocaleManager @Inject constructor(
-    @param:ApplicationContext private val context: Context,
-    @param:AppScope private val appScope: CoroutineScope,
+    @ApplicationContext private val context: Context,
+    @AppScope private val appScope: CoroutineScope,
 ) {
 
     private suspend fun getCurrentLocales() = context.resources.configuration.locales
