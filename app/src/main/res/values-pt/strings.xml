@@ -92,6 +92,12 @@
     <string name="discord_description">Um lugar para estar e fazer perguntas.</string>
     <string name="changelog_label">Registo de alterações</string>
     <string name="settings_acknowledgements_label">Agradecimentos</string>
+    <string name="settings_acknowledgements_category_translations_title">Traduções</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Quem traduziu isto?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Agradecimentos</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Um agradecimento especial aos nossos amigos.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licenças</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Software usado pelo SD Maid.</string>
     <string name="setup_label">Configuração</string>
     <string name="setup_incomplete_card_title">Configuração incompleta</string>
     <string name="setup_incomplete_card_body">Termine a configuração do SD Maid para obter melhores resultados.</string>
@@ -468,6 +474,7 @@ Recursos dos jogos.</string>
     <string name="appcontrol_app_launch_title">Iniciar aplicação</string>
     <string name="appcontrol_app_launch_description">Iniciar atividade primária deste aplicativo.</string>
     <string name="appcontrol_app_forcestop_title">Forçar paragem</string>
+    <string name="appcontrol_app_forcestop_description">Interrompa o aplicativo. Previna-o de se iniciar até que você o abra ou que o dispositivo seja reiniciado.</string>
     <string name="appcontrol_app_uninstall_description">Desinstale esta aplicação do seu dispositivo.</string>
     <string name="appcontrol_app_exclude_add_title">Apagar aplicativo</string>
     <string name="appcontrol_app_exclude_add_description">Excluir este aplicativo de outras operações no SD Maid.</string>
@@ -519,6 +526,7 @@ Recursos dos jogos.</string>
     <string name="appcontrol_include_multiuser_summary">Incluir apps de outros perfis de utilizador neste dispositivo.</string>
     <string name="appcontrol_export_app_selection_action">Exportar aplicações</string>
     <string name="appcontrol_export_title">Exportar aplicações</string>
+    <string name="appcontrol_export_description">Guarde arquivos de instalação desta aplicação no seu dispositivo. Isso não inclui os dados.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplicação foi exportada</item>
         <item quantity="other">%d das aplicações foram exportadas</item>
@@ -542,6 +550,7 @@ Recursos dos jogos.</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">A tentar confirmar a ação anterior (palavras-chave: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Tempo de ecrã: %1$s desde %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Última atualização %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instalado em: %s</string>
     <string name="analyzer_tool_name">Analisador de armazenamento</string>
     <string name="analyzer_explanation_short">Descubra o que está ocupando espaço no seu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Procurando dispositivos de armazenamento</string>

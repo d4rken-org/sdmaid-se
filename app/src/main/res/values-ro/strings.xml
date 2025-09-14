@@ -95,6 +95,12 @@
     <string name="discord_description">Un loc în care să stai și să pui întrebări.</string>
     <string name="changelog_label">Jurnal de schimbări</string>
     <string name="settings_acknowledgements_label">Mulțumiri</string>
+    <string name="settings_acknowledgements_category_translations_title">Traduceri</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Cine a tradus asta?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Mulțumiri</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Mulțumiri speciale prietenilor noștrii.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licențe</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Program folosit de SD Maid.</string>
     <string name="setup_label">Partea de configurare</string>
     <string name="setup_incomplete_card_title">Partea de configurare este incompletă</string>
     <string name="setup_incomplete_card_body">Termină partea de configurare al SD Maid pentru a obține rezultate mai bune.</string>
@@ -203,6 +209,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Datele aplicației private, ex: acreditările, setările aplicației, dar și cache-urile browserului.</string>
     <string name="corpsefinder_filter_dalvik_label">Cache dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">Datele de execuție a aplicației stocate în cache.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profile ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Profilele ART sunt folosite de Android pentru optimizarea performanței aplicațiilor.</string>
     <string name="corpsefinder_filter_applib_label">Biblioteci ale aplicației</string>
     <string name="corpsefinder_filter_applib_summary">Date de bibliotecă legate de aplicație.</string>
     <string name="corpsefinder_filter_appsource_label">Sursele aplicației</string>
@@ -481,6 +489,7 @@
     <string name="appcontrol_app_launch_title">Lansează aplicația</string>
     <string name="appcontrol_app_launch_description">Lansează activitatea principală a aplicației.</string>
     <string name="appcontrol_app_forcestop_title">Opriți forțat</string>
+    <string name="appcontrol_app_forcestop_description">Opriți aplicația. Împiedicați-o să pornească singură până când o deschideți sau până când dispozitivul este repornit.</string>
     <string name="appcontrol_app_uninstall_description">Dezinstalați această aplicație de pe dispozitivul dvs.</string>
     <string name="appcontrol_app_exclude_add_title">Exclude aplicația</string>
     <string name="appcontrol_app_exclude_add_description">Exclude această aplicație din alte operații în SD Maid.</string>
@@ -535,6 +544,7 @@
     <string name="appcontrol_include_multiuser_summary">Includeți aplicații din alte profiluri de utilizator pe acest dispozitiv.</string>
     <string name="appcontrol_export_app_selection_action">Exportă aplicații</string>
     <string name="appcontrol_export_title">Exportă aplicația</string>
+    <string name="appcontrol_export_description">Salvați fișierele de instalare ale acestei aplicații. Aceasta nu include datele aplicației.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplicația a fost exportată</item>
         <item quantity="few">%d aplicații au fost exportate</item>
@@ -561,6 +571,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Timp ecran: %1$s din %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Ultima actualizare: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instalat pe: %s</string>
     <string name="analyzer_tool_name">Analizator de stocare</string>
     <string name="analyzer_explanation_short">Aflați ce ocupă spațiu pe dispozitivul dvs.</string>
     <string name="analyzer_progress_scanning_device">Se caută dispozitive de stocare</string>
@@ -758,4 +769,11 @@
     <string name="area_type_public_obb_label">Resursele aplicației publice</string>
     <string name="area_type_private_data_label">Date private ale aplicației</string>
     <string name="area_type_portable_label">Depozitare portabilă</string>
+    <string name="shortcut_appcontrol_short">Controlul Aplicațiilor</string>
+    <string name="shortcut_appcontrol_long">Gestionați aplicațiile instalate</string>
+    <string name="shortcut_onetap_short">Scanare + Ștergere</string>
+    <string name="shortcut_onetap_long">Scanați și ștergeți într-o singură acțiune</string>
+    <string name="shortcuts_settings_category">Scurtături</string>
+    <string name="shortcuts_onetap_enabled_title">Comandă rapidă cu o singură atingere</string>
+    <string name="shortcuts_onetap_enabled_summary">Afișează comanda rapidă „Scanare + Ștergere” atunci când apăsați lung pe pictograma aplicației. Utilizează aceleași instrumente ca și tabloul de bord cu o singură atingere.</string>
 </resources>

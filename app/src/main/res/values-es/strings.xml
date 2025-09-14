@@ -92,6 +92,12 @@
     <string name="discord_description">Un lugar donde pasar el rato y preguntar.</string>
     <string name="changelog_label">Registro de cambios</string>
     <string name="settings_acknowledgements_label">Agradecimientos</string>
+    <string name="settings_acknowledgements_category_translations_title">Traducciones</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">¿Quién ha traducido esto?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Agradecimientos</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Un agradecimiento especial a nuestros amigos.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licencias</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Software utilizado por SD Maid.</string>
     <string name="setup_label">Configuración</string>
     <string name="setup_incomplete_card_title">La configuración está incompleta</string>
     <string name="setup_incomplete_card_body">Termina la configuración de SD Maid para obtener los mejores resultados.</string>
@@ -467,6 +473,7 @@
     <string name="appcontrol_app_launch_title">Iniciar aplicación</string>
     <string name="appcontrol_app_launch_description">Iniciar la actividad principal de esta aplicación.</string>
     <string name="appcontrol_app_forcestop_title">Forzar la detención</string>
+    <string name="appcontrol_app_forcestop_description">Detiene la aplicación. Evita que se inicie sola hasta que la abras o se reinicie el dispositivo.</string>
     <string name="appcontrol_app_uninstall_description">Desinstalar esta aplicación de tu dispositivo.</string>
     <string name="appcontrol_app_exclude_add_title">Omitir la aplicación</string>
     <string name="appcontrol_app_exclude_add_description">Excluye esta aplicación de otras operaciones en SD Maid.</string>
@@ -518,6 +525,7 @@
     <string name="appcontrol_include_multiuser_summary">Incluir aplicaciones de otros perfiles de usuario usados en este dispositivo.</string>
     <string name="appcontrol_export_app_selection_action">Exportar las aplicaciones</string>
     <string name="appcontrol_export_title">Exportar la aplicación</string>
+    <string name="appcontrol_export_description">Guarda los archivos de instalación de esta aplicación. Esto no incluye los datos de la misma.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">Se ha exportado %d aplicación</item>
         <item quantity="other">Se han exportado %d aplicaciones</item>
@@ -541,6 +549,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Intentando confirmar la acción anterior (palabras clave: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Tiempo de pantalla: %1$s desde %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Última actualización: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instalado en: %s</string>
     <string name="analyzer_tool_name">Analizador del Almacenamiento</string>
     <string name="analyzer_explanation_short">Averigua qué ocupa espacio en tu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Buscando dispositivos de almacenamiento</string>

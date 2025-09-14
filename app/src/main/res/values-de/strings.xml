@@ -17,6 +17,10 @@
     <string name="debug_debuglog_screen_discard_action">Verwerfen</string>
     <string name="debug_debuglog_screen_session_path_label">Sitzungspfad</string>
     <string name="debug_debuglog_screen_log_files_label">Protokolldateien</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d Datei bereit (%2$s)</item>
+        <item quantity="other">%1$d Dateien bereit (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Diese Funktion zeichnet alle Aktivitäten der App in einer gemeinsam nutzbaren Datei auf. Die generierte Datei enthält vertrauliche Informationen (z. B. Dateinamen und installierte Apps). Gebe diese nur an vertrauenswürdige Parteien weiter (z. B. einen Entwickler, der ein Problem behebt).</string>
     <string name="tasks_activity_notification_channel_label">Aktive Aufgaben</string>
     <string name="tasks_activity_working_notification_title">SD Maid arbeitet</string>
@@ -88,6 +92,12 @@
     <string name="discord_description">Ein Ort zum Verweilen und Fragen stellen.</string>
     <string name="changelog_label">Änderungsprotokoll</string>
     <string name="settings_acknowledgements_label">Danksagungen</string>
+    <string name="settings_acknowledgements_category_translations_title">Übersetzungen</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Wer hat das übersetzt?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Danke</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Besonderer Dank geht an unsere Freunde.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Lizenzen</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Software, die von SD Maid verwendet wird.</string>
     <string name="setup_label">Einrichtung</string>
     <string name="setup_incomplete_card_title">Die Einrichtung ist unvollständig</string>
     <string name="setup_incomplete_card_body">Vervollständige die Einrichtung von SD Maid, um bessere Ergebnisse zu erzielen.</string>
@@ -194,6 +204,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Private App Daten, z.B. Zugangsdaten, App-Einstellungen, aber auch Browser Caches.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik Cache</string>
     <string name="corpsefinder_filter_dalvik_summary">Zwischengespeicherte App-Ausführungsdaten.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART Profile</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART-Profile werden von Android verwendet, um die App-Leistung zu optimieren.</string>
     <string name="corpsefinder_filter_applib_label">App-Bibliotheken</string>
     <string name="corpsefinder_filter_applib_summary">Bibliotheksdaten, zu einer App gehörend.</string>
     <string name="corpsefinder_filter_appsource_label">App-Quellen</string>
@@ -461,6 +473,7 @@
     <string name="appcontrol_app_launch_title">App starten</string>
     <string name="appcontrol_app_launch_description">Starte die primäre Aktivität dieser App.</string>
     <string name="appcontrol_app_forcestop_title">Beenden erzwingen</string>
+    <string name="appcontrol_app_forcestop_description">Stoppe die App. Verhindere, dass es selbst startet, bis du es öffnest oder das Gerät neu gestartet ist.</string>
     <string name="appcontrol_app_uninstall_description">Deinstalliere diese App von Deinem Gerät.</string>
     <string name="appcontrol_app_exclude_add_title">App ausschließen</string>
     <string name="appcontrol_app_exclude_add_description">Diese Anwendung von anderen Vorgängen in SD Maid ausschließen.</string>
@@ -512,6 +525,7 @@
     <string name="appcontrol_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
     <string name="appcontrol_export_app_selection_action">Apps exportieren</string>
     <string name="appcontrol_export_title">App exportieren</string>
+    <string name="appcontrol_export_description">Speicher die Installationsdateien der App. Das beinhaltet keine App-Daten.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d App wurde exportiert</item>
         <item quantity="other">%d Apps wurden exportiert</item>
@@ -535,6 +549,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Versuche die vorherige Aktion zu bestätigen (Schlüsselwörter: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Bildschirmzeit: %1$s seit %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Zuletzt aktualisiert: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Installiert auf: %s</string>
     <string name="analyzer_tool_name">Speicheranalyse</string>
     <string name="analyzer_explanation_short">Finde heraus, was auf Deinem Gerät Speicherplatz beansprucht.</string>
     <string name="analyzer_progress_scanning_device">Suche nach Speichermedien</string>
@@ -724,4 +739,7 @@
     <string name="area_type_public_obb_label">Öffentliche App-Ressourcen</string>
     <string name="area_type_private_data_label">Private App-Daten</string>
     <string name="area_type_portable_label">Portabler Speicher</string>
+    <string name="shortcut_appcontrol_short">App Steuerung</string>
+    <string name="shortcut_appcontrol_long">Installierte Apps verwalten</string>
+    <string name="shortcut_onetap_short">Scannen + Löschen</string>
 </resources>

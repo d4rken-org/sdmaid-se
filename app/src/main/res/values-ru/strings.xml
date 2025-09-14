@@ -98,6 +98,12 @@
     <string name="discord_description">Место, где можно пообщаться и задать вопросы.</string>
     <string name="changelog_label">Изменения</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
+    <string name="settings_acknowledgements_category_translations_title">Переводы</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Кто это перевёл?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Благодарности</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Особая благодарность нашим друзьям.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Лицензии</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Программное обеспечение, используемое SD Maid.</string>
     <string name="setup_label">Установка</string>
     <string name="setup_incomplete_card_title">Установка не завершена</string>
     <string name="setup_incomplete_card_body">Завершите установку SD Maid, чтобы добиться лучших результатов.</string>
@@ -499,6 +505,7 @@
     <string name="appcontrol_app_launch_title">Запустить приложение</string>
     <string name="appcontrol_app_launch_description">Запуск главной активности этого приложения.</string>
     <string name="appcontrol_app_forcestop_title">Принудительное завершение</string>
+    <string name="appcontrol_app_forcestop_description">Завершение приложения. Предотвращение запуска до тех пор, пока Вы не откроете приложение, или пока устройство не перезагрузится.</string>
     <string name="appcontrol_app_uninstall_description">Удаление этого приложения с устройства.</string>
     <string name="appcontrol_app_exclude_add_title">Исключение приложений</string>
     <string name="appcontrol_app_exclude_add_description">Исключить это приложение из других операций в SD Maid.</string>
@@ -556,6 +563,7 @@
     <string name="appcontrol_include_multiuser_summary">Включать приложения из других профилей пользователей на этом устройстве.</string>
     <string name="appcontrol_export_app_selection_action">Экспорт приложений</string>
     <string name="appcontrol_export_title">Экспорт приложения</string>
+    <string name="appcontrol_export_description">Сохранение файлов установки этого приложения. Это не включает данные приложения.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">Экспортировано приложений: %d</item>
         <item quantity="few">Экспортировано приложений: %d</item>
@@ -585,6 +593,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Попытка подтвердить предыдущее действие (ключевые слова: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Время экрана: %1$s с %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Последнее обновление: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Установлено: %s</string>
     <string name="analyzer_tool_name">Анализ памяти</string>
     <string name="analyzer_explanation_short">Узнайте, что занимает место на Вашем устройстве.</string>
     <string name="analyzer_progress_scanning_device">Поиск хранилищ</string>

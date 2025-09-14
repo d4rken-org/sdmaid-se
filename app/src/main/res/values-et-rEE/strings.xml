@@ -92,6 +92,12 @@
     <string name="discord_description">Vaba aja veetmise ja küsimuste esitamise koht.</string>
     <string name="changelog_label">Muudatuslogi</string>
     <string name="settings_acknowledgements_label">Tänuavaldused</string>
+    <string name="settings_acknowledgements_category_translations_title">Tõlked</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Kes tõlkis selle?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Tänusõnad</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Täname südamest oma sõpru.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Litsentsid</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maidi kasutatav tarkvara.</string>
     <string name="setup_label">Seadistamine</string>
     <string name="setup_incomplete_card_title">Seadistatud</string>
     <string name="setup_incomplete_card_body">Tulemuste täiustamiseks seadistage SD Maid.</string>
@@ -467,6 +473,7 @@
     <string name="appcontrol_app_launch_title">Käivita rakendus</string>
     <string name="appcontrol_app_launch_description">Käivita selle rakenduse peamine tegevus.</string>
     <string name="appcontrol_app_forcestop_title">Sundpeata</string>
+    <string name="appcontrol_app_forcestop_description">Rakenduse seiskamine. Ennetage selle ise käivitumist kuni avad selle või seade taaskäivitub.</string>
     <string name="appcontrol_app_uninstall_description">Eemaldab selle rakenduse seadmest.</string>
     <string name="appcontrol_app_exclude_add_title">Eira rakendust</string>
     <string name="appcontrol_app_exclude_add_description">Ära kaasa seda rakendust teistesse SD Maidi toimetustesse.</string>
@@ -518,6 +525,7 @@
     <string name="appcontrol_include_multiuser_summary">Kaasa selle seadme teiste kasutajaprofiilide rakendusi.</string>
     <string name="appcontrol_export_app_selection_action">Ekspordi rakendused</string>
     <string name="appcontrol_export_title">Ekspordi rakendus</string>
+    <string name="appcontrol_export_description">Salvesta selle rakenduse paigaldusfailid. See ei hõlma rakenduse andmeid.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d rakendus eksporditi</item>
         <item quantity="other">%d rakendust eksporditi</item>
@@ -541,6 +549,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Eelmise tegevuse kinnitamise üritamine (märksõnad: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Ekraaniaeg: %1$s alates %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Viimati uuendatud: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Paigaldatud: %s</string>
     <string name="analyzer_tool_name">Hoiustamisruumi analüüsija</string>
     <string name="analyzer_explanation_short">Avasta, mis on seadmes.</string>
     <string name="analyzer_progress_scanning_device">Hoiustamiseks kasutatavate seadmete otsimine</string>

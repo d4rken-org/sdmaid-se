@@ -91,6 +91,9 @@
     <string name="general_toggle_layout_mode">切换视图模式</string>
     <string name="general_delete_confirmation_title">确认删除</string>
     <string name="general_delete_confirmation_message_x">是否删除“%s”？</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="other">删除选中的 %d 个项目吗？</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">已删除 %d 项</item>
     </plurals>
@@ -154,4 +157,6 @@
     <string name="general_error_report_bug_action">报告错误</string>
     <string name="general_error_ipc_deadobject_title">服务连接丢失</string>
     <string name="general_error_ipc_deadobject_description">与关键服务（如 Magisk、Shizuku 或其他系统级服务）的连接意外丢失。请重启您的设备。如果问题仍然存在，请检查更新或与我联系，以便我可以修复它。</string>
+    <string name="general_user_label_owner">所有者</string>
+    <string name="general_user_label_system">系统</string>
 </resources>
