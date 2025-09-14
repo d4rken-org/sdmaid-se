@@ -3,6 +3,7 @@ package eu.darken.sdmse.main.ui.dashboard
 import androidx.lifecycle.asLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.MainDirections
+import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.ui.AnalyzerDashCardVH
 import eu.darken.sdmse.appcleaner.core.AppCleaner
@@ -54,12 +55,15 @@ import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
+import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.motd.MotdRepo
 import eu.darken.sdmse.main.core.release.ReleaseManager
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.core.taskmanager.getLatestResult
+import eu.darken.sdmse.main.ui.dashboard.items.AnniversaryCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.AnniversaryProvider
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.ErrorDataAreaVH
 import eu.darken.sdmse.main.ui.dashboard.items.MotdCardVH
@@ -91,6 +95,7 @@ import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onStart
 import java.time.Duration
 import java.time.Instant
+import java.time.LocalDate
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.seconds
 
@@ -116,6 +121,7 @@ class DashboardViewModel @Inject constructor(
     private val motdRepo: MotdRepo,
     private val releaseManager: ReleaseManager,
     private val reviewTool: ReviewTool,
+    anniversaryProvider: AnniversaryProvider,
     statsRepo: StatsRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
@@ -434,6 +440,8 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
+    private val anniversaryItem: Flow<AnniversaryCardVH.Item?> = anniversaryProvider.item
+
     private val listStateInternal: Flow<ListState> = eu.darken.sdmse.common.flow.combine(
         recorderModule.state,
         debugCardProvider.create(this),
@@ -451,6 +459,7 @@ class DashboardViewModel @Inject constructor(
         schedulerItem,
         motdItem,
         reviewItem,
+        anniversaryItem,
         statsItem,
         easterEggTriggered,
         refreshTrigger,
@@ -470,6 +479,7 @@ class DashboardViewModel @Inject constructor(
         schedulerItem: SchedulerDashCardVH.Item?,
         motdItem: MotdCardVH.Item?,
         reviewItem: ReviewCardVH.Item?,
+        anniversaryItem: AnniversaryCardVH.Item?,
         statsItem: StatsDashCardVH.Item?,
         easterEggTriggered,
         _ ->
@@ -496,6 +506,7 @@ class DashboardViewModel @Inject constructor(
         updateInfo?.let { items.add(it) }
         setupItem?.let { items.add(it) }
         dataAreaError?.let { items.add(it) }
+        anniversaryItem?.let { items.add(it) }
 
         corpseFinderItem?.let { items.add(it) }
         systemCleanerItem?.let { items.add(it) }

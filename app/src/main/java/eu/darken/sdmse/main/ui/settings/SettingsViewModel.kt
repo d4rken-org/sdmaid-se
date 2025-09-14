@@ -45,7 +45,7 @@ class SettingsViewModel @Inject constructor(
     }
 
     fun openUpgradeWebsite() {
-        webpageTool.open(upgradeRepo.mainWebsite)
+        webpageTool.open(upgradeRepo.upgradeSite)
     }
 
     private suspend fun getVersionText() = """

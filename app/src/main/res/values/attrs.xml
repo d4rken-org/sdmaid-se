@@ -7,4 +7,13 @@
     <declare-styleable name="TaggedInputView">
         <attr name="tivTitle" format="reference" />
     </declare-styleable>
+    <declare-styleable name="MascotView">
+        <attr name="mascotMode" format="enum">
+            <enum name="auto" value="0" />
+            <enum name="none" value="1" />
+            <enum name="christmas" value="2" />
+            <enum name="newyear" value="3" />
+            <enum name="party" value="4" />
+        </attr>
+    </declare-styleable>
 </resources>

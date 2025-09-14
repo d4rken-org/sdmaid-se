@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BaseCardItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="?colorTertiaryContainer">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <eu.darken.sdmse.common.MascotView
+            android:id="@+id/mascot_container"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="-8dp"
+            android:layout_marginTop="-16dp"
+            android:layout_marginBottom="-24dp"
+            app:layout_constraintBottom_toBottomOf="@id/body"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:mascotMode="party" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/anniversary_card_title"
+            android:textColor="?colorOnTertiaryContainer"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@id/install_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/mascot_container"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/install_date"
+            style="@style/TextAppearance.Material3.LabelSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="?colorOnTertiaryContainer"
+            app:layout_constraintBottom_toTopOf="@id/body"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="With you since September 31, 2025" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/body"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="?colorOnTertiaryContainer"
+            app:layout_constraintBottom_toTopOf="@id/share_action"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/install_date"
+            tools:text="5 years side by side -- your device stays tidy with SD Maid at your service.\nThat\'s 100 GB freed!" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/share_action"
+            style="@style/DashboardCardButton.Filled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:singleLine="true"
+            android:text="@string/general_share_action"
+            app:icon="@drawable/outline_share_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dismiss_action"
+            app:layout_constraintTop_toBottomOf="@id/body" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dismiss_action"
+            style="@style/DashboardCardButton.Flat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/general_dismiss_action"
+            app:layout_constraintBottom_toBottomOf="@id/share_action"
+            app:layout_constraintEnd_toStartOf="@id/share_action"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/share_action" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
