@@ -59,6 +59,8 @@ class GeneralSettings @Inject constructor(
 
     val romTypeDetection = dataStore.createValue("core.romtype.detection", RomType.AUTO, moshi)
 
+    val anniversaryDismissedYear = dataStore.createValue<Int?>("core.anniversary.dismissed.year", null, moshi)
+
     override val mapper = PreferenceStoreMapper(
         debugSettings.isDebugMode,
         themeMode,

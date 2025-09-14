@@ -26,7 +26,8 @@ class UpgradeRepoFoss @Inject constructor(
     private val webpageTool: WebpageTool,
 ) : UpgradeRepo {
 
-    override val mainWebsite: String = SITE
+    override val storeSite: String = STORE_SITE
+    override val upgradeSite: String = UPGRADE_SITE
 
     private val refreshTrigger = MutableStateFlow(UUID.randomUUID())
 
@@ -53,7 +54,7 @@ class UpgradeRepoFoss @Inject constructor(
             upgradedAt = Instant.now(),
             upgradeType = FossUpgrade.Type.GITHUB_SPONSORS
         )
-        webpageTool.open(mainWebsite)
+        webpageTool.open(upgradeSite)
     }
 
     override suspend fun refresh() {
@@ -71,7 +72,8 @@ class UpgradeRepoFoss @Inject constructor(
     }
 
     companion object {
-        private const val SITE = "https://github.com/sponsors/d4rken"
+        private const val STORE_SITE = "https://github.com/d4rken-org/sdmaid-se"
+        private const val UPGRADE_SITE = "https://github.com/sponsors/d4rken"
         private val TAG = logTag("Upgrade", "Foss", "Repo")
     }
 }

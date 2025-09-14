@@ -26,9 +26,34 @@ class MascotView @JvmOverloads constructor(
     @StyleRes defStyleRes: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
 
+    enum class MascotMode(val value: Int) {
+        AUTO(0),
+        NONE(1),
+        CHRISTMAS(2),
+        NEWYEAR(3),
+        PARTY(4);
+
+        companion object {
+            fun fromValue(value: Int) = entries.first { it.value == value }
+        }
+    }
+
     private val ui = ViewMascotBinding.inflate(layoutInflator, this)
     private val wiggleAnim = AnimationUtils.loadAnimation(context, R.anim.anim_wiggle)
     private val rotateAnim = AnimationUtils.loadAnimation(context, R.anim.anim_rotate)
+    private var mascotMode = MascotMode.AUTO
+
+    init {
+        context.obtainStyledAttributes(attrs, R.styleable.MascotView).apply {
+            try {
+                mascotMode = MascotMode.fromValue(
+                    getInt(R.styleable.MascotView_mascotMode, MascotMode.AUTO.value)
+                )
+            } finally {
+                recycle()
+            }
+        }
+    }
 
     private val widthScale = 0.7f
     private val heightScale = 0.6f
@@ -80,37 +105,18 @@ class MascotView @JvmOverloads constructor(
             }
         }
 
-        when {
-            isNewYears() -> ui.mascotOverlay.apply {
-                setImageResource(R.drawable.mascot_hat_newyears_crop)
-                rotation = 30f
-                val layoutParams = (layoutParams as ConstraintLayout.LayoutParams).apply {
-                    matchConstraintPercentHeight = 0.38f
-                    matchConstraintPercentWidth = 0.38f
-                    horizontalBias = 0.769f
-                    verticalBias = 0.18f
+        when (mascotMode) {
+            MascotMode.AUTO -> {
+                when {
+                    isNewYears() -> applyNewYearOverlay()
+                    isXmasSeason() -> applyChristmasOverlay()
+                    else -> hideOverlay()
                 }
-                setLayoutParams(layoutParams)
-                isVisible = true
             }
 
-            isXmasSeason() -> ui.mascotOverlay.apply {
-                setImageResource(R.drawable.mascot_hat_xmas_crop)
-                rotation = 31f
-                val layoutParams = (layoutParams as ConstraintLayout.LayoutParams).apply {
-                    matchConstraintPercentHeight = 0.36f
-                    matchConstraintPercentWidth = 0.36f
-                    horizontalBias = 0.73f
-                    verticalBias = 0.25f
-                }
-                setLayoutParams(layoutParams)
-                isVisible = true
-            }
-
-            else -> {
-                ui.mascotOverlay.setImageDrawable(null)
-                ui.mascotOverlay.isVisible = false
-            }
+            MascotMode.NONE -> hideOverlay()
+            MascotMode.CHRISTMAS -> applyChristmasOverlay()
+            MascotMode.NEWYEAR, MascotMode.PARTY -> applyNewYearOverlay()
         }
 
         super.onFinishInflate()
@@ -137,6 +143,38 @@ class MascotView @JvmOverloads constructor(
         val scope = 2
 
         return daysDifferenceThisYear <= scope || daysDifferenceLastYear <= scope
+    }
+
+    private fun applyNewYearOverlay() = ui.mascotOverlay.apply {
+        setImageResource(R.drawable.mascot_hat_newyears_crop)
+        rotation = 30f
+        val layoutParams = (layoutParams as ConstraintLayout.LayoutParams).apply {
+            matchConstraintPercentHeight = 0.38f
+            matchConstraintPercentWidth = 0.38f
+            horizontalBias = 0.769f
+            verticalBias = 0.18f
+        }
+        setLayoutParams(layoutParams)
+        isVisible = true
+    }
+
+
+    private fun applyChristmasOverlay() = ui.mascotOverlay.apply {
+        setImageResource(R.drawable.mascot_hat_xmas_crop)
+        rotation = 31f
+        val layoutParams = (layoutParams as ConstraintLayout.LayoutParams).apply {
+            matchConstraintPercentHeight = 0.36f
+            matchConstraintPercentWidth = 0.36f
+            horizontalBias = 0.73f
+            verticalBias = 0.25f
+        }
+        setLayoutParams(layoutParams)
+        isVisible = true
+    }
+
+    private fun hideOverlay() {
+        ui.mascotOverlay.setImageDrawable(null)
+        ui.mascotOverlay.isVisible = false
     }
 
     val isAnimating: Boolean

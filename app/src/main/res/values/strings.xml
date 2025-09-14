@@ -753,6 +753,18 @@
     <string name="review_app_dismiss_action">Maybe later</string>
     <string name="review_app_body">Would you like to leave SD Maid a review?️ ❤️</string>
 
+    <string name="anniversary_card_title">Happy SD Maid Anniversary ❤️</string>
+    <string name="anniversary_card_install_date">With you since %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">%1$d year together already — thanks for trusting SD Maid to keep things clean and tidy. That\'s %2$s freed.</item>
+        <item quantity="other">%1$d years side by side — your device stays clean and tidy with SD Maid at your service. That\'s %2$s freed.</item>
+    </plurals>
+    <string name="anniversary_share_title">Share your SD Maid anniversary</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d year with SD Maid — %2$s freed. Keeping Android clean and tidy. #SDMaid\nTry it: %3$s</item>
+        <item quantity="other">%1$d years with SD Maid — %2$s freed. Keeping Android clean and tidy. #SDMaid\nTry it: %3$s</item>
+    </plurals>
+
     <string name="stats_label">History</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s has been freed.</item>
