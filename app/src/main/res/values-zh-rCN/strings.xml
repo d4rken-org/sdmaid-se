@@ -13,6 +13,13 @@
     <string name="debug_debuglog_record_action">记录 Debug 日志</string>
     <string name="debug_debuglog_stop_action">停止记录</string>
     <string name="debug_debuglog_sensitive_information_message">生成的文件包含敏感信息（例如文件名称和已安装应用程序），请仅与可信的人共享。</string>
+    <string name="debug_debuglog_screen_title">调试日志</string>
+    <string name="debug_debuglog_screen_discard_action">丢弃</string>
+    <string name="debug_debuglog_screen_session_path_label">会话路径</string>
+    <string name="debug_debuglog_screen_log_files_label">日志文件</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d 文件已准备好(%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">此功能将应用执行的所有操作记录到一个可共享文件中，该文件会包含敏感信息（例如文件名和已安装的应用）。请仅与可信任的人（例如解决问题的开发人员）共享。</string>
     <string name="tasks_activity_notification_channel_label">正在执行的操作</string>
     <string name="tasks_activity_working_notification_title">SD Maid 正在运行</string>
@@ -82,6 +89,12 @@
     <string name="discord_description">一个供闲聊和提问的社区平台</string>
     <string name="changelog_label">更新日志</string>
     <string name="settings_acknowledgements_label">致谢</string>
+    <string name="settings_acknowledgements_category_translations_title">翻译</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">谁翻译了这个应用程序？</string>
+    <string name="settings_acknowledgements_category_thanks_title">致谢</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">特别感谢我们的朋友们。</string>
+    <string name="settings_acknowledgements_category_licenses_title">许可证</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid 使用的软件。</string>
     <string name="setup_label">设置</string>
     <string name="setup_incomplete_card_title">设置未完成</string>
     <string name="setup_incomplete_card_body">完成 SD Maid 的设置以获得更好的效果。</string>
@@ -186,6 +199,8 @@
     <string name="corpsefinder_filter_privatedata_summary">私有程序数据，例如登录凭证、应用设置、浏览器缓存等。</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik 虚拟机缓存</string>
     <string name="corpsefinder_filter_dalvik_summary">已缓存程序的执行数据。</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART 配置文件</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART 配置文件被安卓系统用于优化应用性能。</string>
     <string name="corpsefinder_filter_applib_label">程序库</string>
     <string name="corpsefinder_filter_applib_summary">程序相关的库数据</string>
     <string name="corpsefinder_filter_appsource_label">程序源</string>
@@ -442,6 +457,7 @@
     <string name="appcontrol_app_launch_title">启动应用</string>
     <string name="appcontrol_app_launch_description">启动此应用的主要活动。</string>
     <string name="appcontrol_app_forcestop_title">强行停止</string>
+    <string name="appcontrol_app_forcestop_description">停止应用。在您重新点开或重启设备前阻止其启动。</string>
     <string name="appcontrol_app_uninstall_description">从设备上卸载此应用</string>
     <string name="appcontrol_app_exclude_add_title">排除应用</string>
     <string name="appcontrol_app_exclude_add_description">将此应用排除在 SD Maid 的其他操作之外。</string>
@@ -486,8 +502,11 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">粗略估计每个应用的大小。</string>
     <string name="appcontrol_settings_module_activity_enabled_label">活动识别</string>
     <string name="appcontrol_settings_module_activity_enabled_description">检查应用程序是否运行（或最近运行）。</string>
+    <string name="appcontrol_include_multiuser_label">包括其他用户</string>
+    <string name="appcontrol_include_multiuser_summary">包含此设备上其他用户配置文件的应用。</string>
     <string name="appcontrol_export_app_selection_action">导出应用</string>
     <string name="appcontrol_export_title">导出应用</string>
+    <string name="appcontrol_export_description">保存此应用的安装文件（不包括应用数据）。</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">已导出 %d 个应用</item>
     </plurals>
@@ -508,6 +527,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">正在尝试确认先前的操作（关键词：%s）</string>
     <string name="appcontrol_item_screentime_x_since_y_label">屏幕使用时间：%1$s，自 %2$s 起</string>
     <string name="appcontrol_item_lastupdate_x_label">最后更新于 %s</string>
+    <string name="appcontrol_item_installedat_x_label">安装在: %s</string>
     <string name="analyzer_tool_name">存储分析器</string>
     <string name="analyzer_explanation_short">探究占用您设备存储空间的内容。</string>
     <string name="analyzer_progress_scanning_device">正在搜索存储设备</string>
@@ -689,4 +709,11 @@
     <string name="area_type_public_obb_label">公共应用资源</string>
     <string name="area_type_private_data_label">私有应用数据</string>
     <string name="area_type_portable_label">外置存储</string>
+    <string name="shortcut_appcontrol_short">应用控制</string>
+    <string name="shortcut_appcontrol_long">管理已安装的应用</string>
+    <string name="shortcut_onetap_short">扫描 + 删除</string>
+    <string name="shortcut_onetap_long">一键扫描并删除</string>
+    <string name="shortcuts_settings_category">快捷键</string>
+    <string name="shortcuts_onetap_enabled_title">一键快捷方式</string>
+    <string name="shortcuts_onetap_enabled_summary">长按应用图标时显示“扫描+删除”快捷键。使用与一键控制面板相同的工具。</string>
 </resources>

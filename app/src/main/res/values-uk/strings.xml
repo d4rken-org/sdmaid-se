@@ -92,6 +92,12 @@
     <string name="discord_description">Місце, де можна поспілкуватися і поставити запитання.</string>
     <string name="changelog_label">Список змін</string>
     <string name="settings_acknowledgements_label">Подяки</string>
+    <string name="settings_acknowledgements_category_translations_title">Переклади</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Хто це переклав?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Дякую</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Особлива подяка нашим друзям.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Ліцензії</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Програмне забезпечення, яке використовує SD Maid.</string>
     <string name="setup_label">Налаштування</string>
     <string name="setup_incomplete_card_title">Налаштування не завершено</string>
     <string name="setup_incomplete_card_body">Завершіть налаштування SD Maid, щоб досягти кращих результатів.</string>
@@ -202,6 +208,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Приватні дані додатків, наприклад, облікові дані, налаштування додатків, а також кеш браузера.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik кеш</string>
     <string name="corpsefinder_filter_dalvik_summary">Кешовані дані виконання додатків.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Профілі ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Профілі ART використовуються Android для оптимізації продуктивності додатків.</string>
     <string name="corpsefinder_filter_applib_label">Бібліотеки додатків</string>
     <string name="corpsefinder_filter_applib_summary">Дані бібліотеки, пов\'язані з додатком.</string>
     <string name="corpsefinder_filter_appsource_label">Джерела додатку</string>
@@ -491,6 +499,7 @@
     <string name="appcontrol_app_launch_title">Запустити додаток</string>
     <string name="appcontrol_app_launch_description">Запустіть основну активність цього додатка.</string>
     <string name="appcontrol_app_forcestop_title">Примусова зупинка</string>
+    <string name="appcontrol_app_forcestop_description">Зупиніть додаток. Забороніть йому самостійно запускатися, доки ви його не відкриєте або пристрій не буде перезавантажено.</string>
     <string name="appcontrol_app_uninstall_description">Видаліть цей додаток з пристрою.</string>
     <string name="appcontrol_app_exclude_add_title">Виключити додаток</string>
     <string name="appcontrol_app_exclude_add_description">Виключіть цей додаток з інших операцій у SD Maid.</string>
@@ -548,6 +557,7 @@
     <string name="appcontrol_include_multiuser_summary">Включити додатки з інших профілів користувачів на цьому пристрої.</string>
     <string name="appcontrol_export_app_selection_action">Експорт додатків</string>
     <string name="appcontrol_export_title">Експорт додатка</string>
+    <string name="appcontrol_export_description">Збережіть інсталяційні файли цього додатка. Це не стосується даних додатка.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d додаток був експортований</item>
         <item quantity="few">%d додатки були експортовані</item>
@@ -577,6 +587,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Спроба підтвердити попередню дію (ключові слова: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Час використання екрана: %1$s з %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Останнє оновлення: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Встановлено: %s</string>
     <string name="analyzer_tool_name">Аналізатор сховища</string>
     <string name="analyzer_explanation_short">Дізнайтеся, що займає місце на вашому пристрої.</string>
     <string name="analyzer_progress_scanning_device">Пошук пристроїв для зберігання даних</string>
@@ -782,4 +793,11 @@
     <string name="area_type_public_obb_label">Загальнодоступні ресурси додатків</string>
     <string name="area_type_private_data_label">Особисті дані додатку</string>
     <string name="area_type_portable_label">Портативне сховище</string>
+    <string name="shortcut_appcontrol_short">Контроль додатків</string>
+    <string name="shortcut_appcontrol_long">Керувати встановленими додатками</string>
+    <string name="shortcut_onetap_short">Сканувати + Видалити</string>
+    <string name="shortcut_onetap_long">Сканування та видалення однією дією</string>
+    <string name="shortcuts_settings_category">Швидкі клавіші</string>
+    <string name="shortcuts_onetap_enabled_title">Швидкий доступ одним дотиком</string>
+    <string name="shortcuts_onetap_enabled_summary">Показувати ярлик «Сканувати + Видалити» при довгому натисканні на значок додатка. Використовує ті ж інструменти, що й панель керування одним дотиком.</string>
 </resources>

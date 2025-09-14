@@ -84,6 +84,12 @@
     <string name="discord_description">Một nơi để giải trí và đặt câu hỏi.</string>
     <string name="changelog_label">Nhật ký thay đổi</string>
     <string name="settings_acknowledgements_label">Ghi nhận</string>
+    <string name="settings_acknowledgements_category_translations_title">Bản dịch</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Ai đã dịch cái này?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Cảm ơn bạn</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Cảm ơn đặc biệt bạn bè của chúng ta.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Giấy phép</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Phần mềm được sử dụng bởi SD Maid.</string>
     <string name="setup_label">Thiết lập</string>
     <string name="setup_incomplete_card_title">Thiết lập chưa hoàn tất</string>
     <string name="setup_incomplete_card_body">Kết thúc thiết lập của SD Maid để có kết quả tốt hơn.</string>
@@ -446,6 +452,7 @@
     <string name="appcontrol_app_launch_title">Chạy ứng dụng</string>
     <string name="appcontrol_app_launch_description">Khởi chạy hoạt động chính của ứng dụng này.</string>
     <string name="appcontrol_app_forcestop_title">Buộc dừng</string>
+    <string name="appcontrol_app_forcestop_description">Dừng ứng dụng. Hãy ngăn không cho ứng dụng tự khởi động cho đến khi bạn mở ứng dụng hoặc khởi động lại thiết bị.</string>
     <string name="appcontrol_app_uninstall_description">Gỡ cài đặt ứng dụng này khỏi thiết bị của bạn.</string>
     <string name="appcontrol_app_exclude_add_title">Loại trừ ứng dụng</string>
     <string name="appcontrol_app_exclude_add_description">Loại trừ ứng dụng này khỏi các hoạt động khác trong SD Maid.</string>
@@ -492,6 +499,7 @@
     <string name="appcontrol_settings_module_activity_enabled_description">Tìm hiểu xem một ứng dụng đang (hoặc gần đây) có hoạt động hay không.</string>
     <string name="appcontrol_export_app_selection_action">Xuất ứng dụng</string>
     <string name="appcontrol_export_title">Xuất ứng dụng</string>
+    <string name="appcontrol_export_description">Lưu tệp cài đặt của ứng dụng này. Dữ liệu này không bao gồm.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">%d ứng dụng đã được xuất</item>
     </plurals>
@@ -512,6 +520,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Thời gian sử dụng màn hình: %1$s kể từ %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Cập nhật lần cuối: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Cài đặt theo: %s</string>
     <string name="analyzer_tool_name">Phân tích bộ nhớ</string>
     <string name="analyzer_explanation_short">Tìm hiểu những gì đang chiếm dung lượng trên thiết bị của bạn.</string>
     <string name="analyzer_progress_scanning_device">Tìm kiếm bộ nhớ thiết bị</string>

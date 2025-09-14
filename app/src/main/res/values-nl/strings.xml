@@ -92,6 +92,12 @@
     <string name="discord_description">Een plek om rond te hangen en vragen te stellen.</string>
     <string name="changelog_label">Wijzigingslogboek</string>
     <string name="settings_acknowledgements_label">Dankbetuigingen</string>
+    <string name="settings_acknowledgements_category_translations_title">Vertalingen</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Wie heeft dit vertaald?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Bedankt</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Speciale dank aan onze vrienden.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licenties</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Software gebruikt door SD Maid.</string>
     <string name="setup_label">Instelling</string>
     <string name="setup_incomplete_card_title">Installatie is onvolledig</string>
     <string name="setup_incomplete_card_body">Voltooi de installatie van SD Maid om betere resultaten te krijgen.</string>
@@ -467,6 +473,7 @@
     <string name="appcontrol_app_launch_title">Start app</string>
     <string name="appcontrol_app_launch_description">Start de primaire activiteit van deze app.</string>
     <string name="appcontrol_app_forcestop_title">Forceer stop</string>
+    <string name="appcontrol_app_forcestop_description">Stop de app. Zorg ervoor dat deze niet automatisch start totdat je de app opent of het apparaat opnieuw opstart.</string>
     <string name="appcontrol_app_uninstall_description">Verwijder deze app van uw apparaat.</string>
     <string name="appcontrol_app_exclude_add_title">App uitsluiten</string>
     <string name="appcontrol_app_exclude_add_description">Sluit deze app uit van andere bewerkingen in SD Maid.</string>
@@ -518,6 +525,7 @@
     <string name="appcontrol_include_multiuser_summary">Apps van andere gebruikersprofielen opnemen op dit apparaat.</string>
     <string name="appcontrol_export_app_selection_action">Apps exporteren</string>
     <string name="appcontrol_export_title">App exporteren</string>
+    <string name="appcontrol_export_description">Sla de installatiebestanden van deze app op. Dit omvat geen app-gegevens.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d app is geëxporteerd</item>
         <item quantity="other">%d apps zijn geëxporteerd</item>
@@ -541,6 +549,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Probeert eerdere actie te bevestigen (trefwoorden: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Schermtijd: %1$s sinds %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Laatst bijgewerkt: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Geïnstalleerd op: %s</string>
     <string name="analyzer_tool_name">Opslag Analyzer</string>
     <string name="analyzer_explanation_short">Ontdek wat ruimte inneemt op je apparaat.</string>
     <string name="analyzer_progress_scanning_device">Zoeken naar opslagapparaten</string>

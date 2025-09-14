@@ -92,6 +92,12 @@
     <string name="discord_description">Un lloc on passar l\'estona i fer preguntes.</string>
     <string name="changelog_label">Registre de canvis</string>
     <string name="settings_acknowledgements_label">Agraïments</string>
+    <string name="settings_acknowledgements_category_translations_title">Traduccions</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Qui ha traduït això?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Gràcies</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Un agraïment especial als nostres amics.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Llicències</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Programari utilitzat per l\'SD Maid.</string>
     <string name="setup_label">Configuració</string>
     <string name="setup_incomplete_card_title">La configuració no s\'ha completat</string>
     <string name="setup_incomplete_card_body">Acabeu la configuració de l\'SD Maid per obtenir millors resultats.</string>
@@ -467,6 +473,7 @@
     <string name="appcontrol_app_launch_title">Inicia l\'aplicació</string>
     <string name="appcontrol_app_launch_description">Inicia l\'activitat principal d\'aquesta aplicació.</string>
     <string name="appcontrol_app_forcestop_title">Força l\'aturada</string>
+    <string name="appcontrol_app_forcestop_description">Atura l\'aplicació. Evita que s\'iniciï fins que l\'obriu o es reiniciï el dispositiu.</string>
     <string name="appcontrol_app_uninstall_description">Desinstal·la aquesta aplicació del dispositiu.</string>
     <string name="appcontrol_app_exclude_add_title">Exclusió d\'aplicacions</string>
     <string name="appcontrol_app_exclude_add_description">Exclou aquesta aplicació d\'altres operacions a l\'SD Maid.</string>
@@ -518,6 +525,7 @@
     <string name="appcontrol_include_multiuser_summary">Inclou aplicacions d\'altres perfils d\'usuari en aquest dispositiu.</string>
     <string name="appcontrol_export_app_selection_action">Exporta les aplicacions</string>
     <string name="appcontrol_export_title">Exporta l\'aplicació</string>
+    <string name="appcontrol_export_description">Desa els fitxers d\'instal·lació d\'aquesta aplicació. Això no inclou les dades de l\'aplicació.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">S\'ha exportat %d aplicació</item>
         <item quantity="other">S\'han exportat %d aplicacions</item>
@@ -541,6 +549,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">S\'està intentant confirmar l\'acció anterior (paraules clau: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Temps de pantalla: %1$s des de %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Darrera actualització: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instal·lada a: %s</string>
     <string name="analyzer_tool_name">Analitzador d\'emmagatzematge</string>
     <string name="analyzer_explanation_short">Descobriu què ocupa espai al vostre dispositiu.</string>
     <string name="analyzer_progress_scanning_device">Cerca de dispositius d\'emmagatzematge</string>
