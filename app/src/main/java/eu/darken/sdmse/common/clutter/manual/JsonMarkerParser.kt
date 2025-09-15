@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @Reusable
 class JsonMarkerParser @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     baseMoshi: Moshi,
 ) {
     private val moshi = baseMoshi

@@ -34,8 +34,8 @@ import javax.inject.Singleton
 
 @Singleton
 class StorageSetupModule @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
-    @param:ApplicationContext private val context: Context,
+    @AppScope private val appScope: CoroutineScope,
+    @ApplicationContext private val context: Context,
     private val storageManager2: StorageManager2,
     private val dataAreaManager: DataAreaManager,
     private val deviceDetective: DeviceDetective,

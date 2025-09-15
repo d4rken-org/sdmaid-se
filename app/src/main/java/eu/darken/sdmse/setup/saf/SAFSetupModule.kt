@@ -52,7 +52,7 @@ import javax.inject.Singleton
 
 @Singleton
 class SAFSetupModule @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     private val contentResolver: ContentResolver,
     private val storageManager2: StorageManager2,
     private val storageEnvironment: StorageEnvironment,

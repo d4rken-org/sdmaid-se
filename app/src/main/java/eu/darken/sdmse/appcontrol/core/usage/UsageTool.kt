@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 @Reusable
 class UsageTool @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
     private val statsManager: UsageStatsManager,
     private val userManager2: UserManager2,

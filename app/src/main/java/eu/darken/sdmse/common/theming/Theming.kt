@@ -26,7 +26,7 @@ import javax.inject.Singleton
 @Singleton
 class Theming @Inject constructor(
     private val application: Application,
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
     private val generalSettings: GeneralSettings,
 ) {

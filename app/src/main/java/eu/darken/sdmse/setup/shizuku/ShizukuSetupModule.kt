@@ -38,7 +38,7 @@ import javax.inject.Singleton
 
 @Singleton
 class ShizukuSetupModule @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     private val adbSettings: AdbSettings,
     private val shizukuManager: ShizukuManager,
     private val dataAreaManager: DataAreaManager,

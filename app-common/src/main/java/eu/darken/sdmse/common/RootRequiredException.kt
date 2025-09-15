@@ -8,7 +8,7 @@ import eu.darken.sdmse.common.error.LocalizedError
 class RootRequiredException(
     message: String,
     cause: Throwable? = null,
-    @param:StringRes val errorMsgRes: Int = R.string.general_error_root_unavailable
+    @StringRes val errorMsgRes: Int = R.string.general_error_root_unavailable
 ) : IllegalStateException(message, cause), HasLocalizedError {
 
     override fun getLocalizedError() = LocalizedError(

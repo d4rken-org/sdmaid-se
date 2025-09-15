@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 @Reusable
 class FossUpdateChecker @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val checker: GithubReleaseCheck,
     private val webpageTool: WebpageTool,
     private val settings: FossUpdateSettings,

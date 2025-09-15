@@ -11,9 +11,9 @@ import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 
 sealed class AppShortcut(
     val id: String,
-    @param:StringRes val shortLabel: Int,
-    @param:StringRes val longLabel: Int,
-    @param:DrawableRes val iconRes: Int,
+    @StringRes val shortLabel: Int,
+    @StringRes val longLabel: Int,
+    @DrawableRes val iconRes: Int,
 ) {
     abstract fun createIntent(context: Context): Intent
 

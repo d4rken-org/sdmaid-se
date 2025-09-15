@@ -21,7 +21,7 @@ import javax.inject.Inject
 
 
 class UninstallWatcherNotifications @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val notificationManager: NotificationManager,
 ) {
 

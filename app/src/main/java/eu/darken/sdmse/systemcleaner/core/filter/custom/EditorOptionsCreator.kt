@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 @Reusable
 class EditorOptionsCreator @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val fileForensics: FileForensics,
 ) {
 

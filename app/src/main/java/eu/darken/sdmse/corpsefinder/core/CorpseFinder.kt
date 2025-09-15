@@ -63,7 +63,7 @@ import javax.inject.Singleton
 
 @Singleton
 class CorpseFinder @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     private val filterFactories: Set<@JvmSuppressWildcards CorpseFilter.Factory>,
     private val fileForensics: FileForensics,
     private val gatewaySwitch: GatewaySwitch,

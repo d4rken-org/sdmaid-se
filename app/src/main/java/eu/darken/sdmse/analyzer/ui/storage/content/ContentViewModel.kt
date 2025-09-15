@@ -46,7 +46,7 @@ import javax.inject.Inject
 class ContentViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    @Suppress("StaticFieldLeak") @param:ApplicationContext private val context: Context,
+    @Suppress("StaticFieldLeak") @ApplicationContext private val context: Context,
     private val analyzer: Analyzer,
     private val mimeTypeTool: MimeTypeTool,
     private val exclusionManager: ExclusionManager,

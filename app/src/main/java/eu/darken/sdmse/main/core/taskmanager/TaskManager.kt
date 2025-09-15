@@ -42,7 +42,7 @@ import javax.inject.Singleton
 
 @Singleton
 class TaskManager @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
     private val tools: Set<@JvmSuppressWildcards SDMTool>,
     private val taskWorkerControl: TaskWorkerControl,

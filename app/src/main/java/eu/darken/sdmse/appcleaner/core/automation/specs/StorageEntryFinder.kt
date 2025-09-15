@@ -33,7 +33,7 @@ import kotlin.math.ln
 import kotlin.math.pow
 
 class StorageEntryFinder @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val statsManager: StorageStatsManager2,
 ) {
     internal suspend fun createSizeMatcher(pkg: Installed): ((ACSNodeInfo) -> Boolean)? {

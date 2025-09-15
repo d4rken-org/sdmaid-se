@@ -22,7 +22,7 @@ import okio.buffer
 
 class JsonAppSieve @AssistedInject constructor(
     @Assisted private val assetPath: String,
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val moshi: Moshi
 ) {
 

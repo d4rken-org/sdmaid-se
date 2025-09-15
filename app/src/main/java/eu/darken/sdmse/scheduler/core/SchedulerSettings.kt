@@ -15,7 +15,7 @@ import javax.inject.Singleton
 
 @Singleton
 class SchedulerSettings @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_scheduler")

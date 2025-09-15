@@ -66,7 +66,8 @@ fun Project.setupKotlinOptions() {
                     "-opt-in=kotlin.RequiresOptIn",
                     "-Xjvm-default=all",
                     "-XXLanguage:+DataObjects",
-                    "-Xcontext-receivers"
+                    "-Xcontext-receivers",
+                    "-XXLanguage:+PropertyParamAnnotationDefaultTargetMode",
                 )
             )
         }

@@ -42,7 +42,7 @@ import javax.inject.Singleton
 
 @Singleton
 class Deduplicator @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
     private val scanner: Provider<DuplicatesScanner>,

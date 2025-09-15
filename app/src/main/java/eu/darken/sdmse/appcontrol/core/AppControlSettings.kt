@@ -16,7 +16,7 @@ import javax.inject.Singleton
 
 @Singleton
 class AppControlSettings @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     moshi: Moshi,
 ) : PreferenceScreenData {
 

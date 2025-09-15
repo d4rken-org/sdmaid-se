@@ -36,7 +36,7 @@ import eu.darken.sdmse.deduplicator.core.Duplicate
 import javax.inject.Inject
 
 class PreviewDeletionDialog @Inject constructor(
-    @param:ActivityContext private val context: Context,
+    @ActivityContext private val context: Context,
 ) {
 
     private fun openPreview(options: PreviewOptions) {

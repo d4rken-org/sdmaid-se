@@ -39,7 +39,7 @@ import javax.inject.Singleton
 
 @Singleton
 class SchedulerManager @Inject constructor(
-    @param:AppScope private val appScope: CoroutineScope,
+    @AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
     private val settings: SchedulerSettings,
     private val storage: ScheduleStorage,

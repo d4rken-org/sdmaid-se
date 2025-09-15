@@ -12,7 +12,7 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 
 class AppControlLabelDebugger @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
 ) : AutomationLabelSource {
 
     suspend fun logAllLabels() {

@@ -17,7 +17,7 @@ import javax.inject.Singleton
 
 @Singleton
 class StorageEnvironment @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val storageManager: StorageManager2,
     private val userManager: UserManager2,
 ) {
