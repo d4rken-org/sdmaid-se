@@ -5,6 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppJunk
+import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileCategoryVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileVH
@@ -19,8 +20,13 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
+import kotlin.reflect.KClass
 
 @HiltViewModel
 class AppJunkViewModel @Inject constructor(
@@ -35,13 +41,15 @@ class AppJunkViewModel @Inject constructor(
 
     val events = SingleLiveEvent<AppJunkEvents>()
 
+    private val collapsedCategories = MutableStateFlow<Set<KClass<out ExpendablesFilter>>>(emptySet())
+
     private val currentAppJunk = appCleaner.state
         .map { it.data }
         .filterNotNull()
         .map { data -> data.junks.singleOrNull { it.identifier == args.identifier } }
         .filterNotNull()
 
-    val state = combine(currentAppJunk, appCleaner.progress) { junk, progress ->
+    val state = combine(currentAppJunk, appCleaner.progress, collapsedCategories) { junk, progress, collapsed ->
         val items = mutableListOf<AppJunkElementsAdapter.Item>()
 
         AppJunkElementHeaderVH.Item(
@@ -62,25 +70,30 @@ class AppJunkViewModel @Inject constructor(
             ?.filter { it.value.isNotEmpty() }
             ?.map { (category, matches) ->
                 val categoryGroup = mutableListOf<AppJunkElementsAdapter.Item>()
+                val isCollapsed = collapsed.contains(category)
 
                 AppJunkElementFileCategoryVH.Item(
                     appJunk = junk,
                     category = category,
                     matches = matches,
                     onItemClick = { delete(setOf(it)) },
+                    isCollapsed = isCollapsed,
+                    onCollapseToggle = { toggleCategoryCollapse(category) },
                 ).run { categoryGroup.add(this) }
 
-                matches
-                    .map { match ->
-                        AppJunkElementFileVH.Item(
-                            appJunk = junk,
-                            category = category,
-                            match = match,
-                            onItemClick = { delete(setOf(it)) },
-                        )
-                    }
-                    .sortedByDescending { it.match.expectedGain }
-                    .run { categoryGroup.addAll(this) }
+                if (!isCollapsed) {
+                    matches
+                        .map { match ->
+                            AppJunkElementFileVH.Item(
+                                appJunk = junk,
+                                category = category,
+                                match = match,
+                                onItemClick = { delete(setOf(it)) },
+                            )
+                        }
+                        .sortedByDescending { it.match.expectedGain }
+                        .run { categoryGroup.addAll(this) }
+                }
 
                 categoryGroup
             }
@@ -152,6 +165,15 @@ class AppJunkViewModel @Inject constructor(
         )
 
         taskManager.submit(deleteTask)
+    }
+
+    fun toggleCategoryCollapse(category: KClass<out ExpendablesFilter>) = launch {
+        val current = collapsedCategories.value
+        if (current.contains(category)) {
+            collapsedCategories.value = current - category
+        } else {
+            collapsedCategories.value = current + category
+        }
     }
 
     companion object {
