@@ -42,6 +42,13 @@ class AppJunkElementFileCategoryVH(parent: ViewGroup) :
         }
         description.text = getString(item.category.descriptionRes)
 
+        collapseAction.apply {
+            setIconResource(
+                if (item.isCollapsed) R.drawable.ic_expand_more else R.drawable.ic_expand_less
+            )
+            setOnClickListener { item.onCollapseToggle() }
+        }
+
         root.setOnClickListener { item.onItemClick(item) }
     }
 
@@ -50,6 +57,8 @@ class AppJunkElementFileCategoryVH(parent: ViewGroup) :
         val category: KClass<out ExpendablesFilter>,
         val matches: Collection<ExpendablesFilter.Match>,
         val onItemClick: (Item) -> Unit,
+        val isCollapsed: Boolean,
+        val onCollapseToggle: () -> Unit,
     ) : AppJunkElementsAdapter.Item {
 
         override val itemSelectionKey: String? = null
