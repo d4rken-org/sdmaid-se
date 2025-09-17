@@ -751,6 +751,21 @@
     <string name="review_app_review_action">Ohodnotit</string>
     <string name="review_app_dismiss_action">Možná později</string>
     <string name="review_app_body">Chcete ohodnotit SD Maid? ❤️</string>
+    <string name="anniversary_card_title">Šťastné výročí s aplikací SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">S vámi od %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Již %1$d rok spolu. Děkujeme, že důvěřujete aplikaci SD Maid, aby udržovala váš Android čistý a uklizený. Uvolněné místo: %2$s</item>
+        <item quantity="few">%1$d roky bez problémů. Vaše zařízení zůstane čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
+        <item quantity="many">%1$d let bez problémů. Vaše zařízení zůstane čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
+        <item quantity="other">%1$d let bez problémů. Vaše zařízení zůstane čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Sdílejte své výročí s aplikací SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d rok s aplikací SD Maid — Uvolněné místo: %2$s. Udržuji váš Android čistý a uklizený. #SDMaid\nVyzkoušejte: %3$s</item>
+        <item quantity="few">%1$d roky s aplikací SD Maid — Uvolněné místo: %2$s. Udržuji váš Android čistý a uklizený. #SDMaid\nVyzkoušejte: %3$s</item>
+        <item quantity="many">%1$d let s aplikací SD Maid — Uvolněné místo: %2$s. Udržuji váš Android čistý a uklizený. #SDMaid\nVyzkoušejte: %3$s</item>
+        <item quantity="other">%1$d let s aplikací SD Maid — Uvolněné místo: %2$s. Udržuji váš Android čistý a uklizený. #SDMaid\nVyzkoušejte: %3$s</item>
+    </plurals>
     <string name="stats_label">Historie</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">Bylo uvolněno %s.</item>

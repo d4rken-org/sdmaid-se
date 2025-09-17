@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">সব টুলের ফলাফল মুছতে চান?</string>
+    <string name="dashboard_delete_all_message">সব টুলের ফলাফল মুছে ফেলবেন?</string>
     <string name="dashboard_settings_category">ড্যাশবোর্ড</string>
     <string name="dashboard_motd_title">বিকাশকারীর থেকে একটি বার্তা</string>
     <string name="dashboard_settings_oneclick_title">একটিমাত্র চাপের প্রণালী</string>
@@ -13,6 +13,14 @@
     <string name="debug_debuglog_record_action">ডিবাগ লগ রেকর্ড করুন</string>
     <string name="debug_debuglog_stop_action">রেকর্ডিং বন্ধ করুন</string>
     <string name="debug_debuglog_sensitive_information_message">তৈরি করা ফাইলটিতে সংবেদনশীল তথ্য রয়েছে (যেমন ফাইলের নাম এবং ইনস্টল করা অ্যাপ)। শুধুমাত্র বিশ্বস্ত করো সাথে শেয়ার করুন।</string>
+    <string name="debug_debuglog_screen_title">ডিবাগ লগ</string>
+    <string name="debug_debuglog_screen_discard_action">বাতিল করুন</string>
+    <string name="debug_debuglog_screen_session_path_label">সেশন পাথ</string>
+    <string name="debug_debuglog_screen_log_files_label">লগ ফাইল</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d টি ফাইল প্রস্তুত (%2$s)</item>
+        <item quantity="other">%1$dটি ফাইল প্রস্তুত (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">এই বৈশিষ্ট্যটি অ্যাপটি যা করছে তা একটি শেয়ারযোগ্য ফাইলে রেকর্ড করে। তৈরি হওয়া ফাইলটিতে সংবেদনশীল তথ্য থাকে (যেমন ফাইলের নাম এবং ইনস্টল করা অ্যাপ)। এটি শুধুমাত্র বিশ্বস্ত পক্ষের সাথেই শেয়ার করুন (যেমন, কোনও ডেভেলপার কোনও সমস্যার সমাধান করছেন)।</string>
     <string name="tasks_activity_notification_channel_label">সক্রিয় কাজ</string>
     <string name="tasks_activity_working_notification_title">SD Maid কাজ করছে</string>
@@ -84,6 +92,12 @@
     <string name="discord_description">আড্ডা দেওয়ার এবং প্রশ্ন করার জায়গা।</string>
     <string name="changelog_label">পরিবর্তনসূচী</string>
     <string name="settings_acknowledgements_label">কৃতজ্ঞতা স্বীকার</string>
+    <string name="settings_acknowledgements_category_translations_title">অনুবাদ</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">কে এটা অনুবাদ করেছে?</string>
+    <string name="settings_acknowledgements_category_thanks_title">ধন্যবাদ</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">আমাদের বন্ধুদের বিশেষ ধন্যবাদ।</string>
+    <string name="settings_acknowledgements_category_licenses_title">লাইসেন্স</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid দ্বারা ব্যবহৃত সফটওয়্যার।</string>
     <string name="setup_label">সেটআপ</string>
     <string name="setup_incomplete_card_title">সেটাপ অসম্পূর্ণ</string>
     <string name="setup_incomplete_card_body">আরও ভালো ফলাফল পেতে SD Maid-এর সেটআপ শেষ করুন।</string>
@@ -190,6 +204,8 @@
     <string name="corpsefinder_filter_privatedata_summary">প্রাইভেট অ্যাপ ডেটা, যেমন শংসাপত্র, অ্যাপ সেটিংস বা ব্রাউজার ক্যাশ।</string>
     <string name="corpsefinder_filter_dalvik_label">ডালভিক ক্যাশ</string>
     <string name="corpsefinder_filter_dalvik_summary">ক্যাশেড অ্যাপ এক্সিকিউশন ডেটা।</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART প্রোফাইল</string>
+    <string name="corpsefinder_filter_artprofiles_summary">অ্যাপের কর্মক্ষমতা অপ্টিমাইজ করার জন্য অ্যান্ড্রয়েড ART প্রোফাইল ব্যবহার করে।</string>
     <string name="corpsefinder_filter_applib_label">অ্যাপ লাইব্রেরি</string>
     <string name="corpsefinder_filter_applib_summary">অ্যাপ সম্পর্কিত লাইব্রেরি ডেটা।</string>
     <string name="corpsefinder_filter_appsource_label">অ্যাপ সোর্স</string>
@@ -457,6 +473,7 @@
     <string name="appcontrol_app_launch_title">অ্যাপ চালু করুন</string>
     <string name="appcontrol_app_launch_description">এই অ্যাপটির প্রাথমিক কার্যকলাপ চালু করুন।</string>
     <string name="appcontrol_app_forcestop_title">জোর করে বন্ধ করুন</string>
+    <string name="appcontrol_app_forcestop_description">অ্যাপটি বন্ধ করুন। এটি খোলা বা ডিভাইসটি রিবুট না হওয়া পর্যন্ত এটি নিজে থেকে শুরু হওয়া থেকে বিরত রাখুন।</string>
     <string name="appcontrol_app_uninstall_description">আপনার ডিভাইস থেকে এই অ্যাপ্লিকেশন আনইনস্টল করুন।</string>
     <string name="appcontrol_app_exclude_add_title">অ্যাপ বাদ দিন</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid-এর অন্যান্য ক্রিয়াকলাপ থেকে এই অ্যাপটিকে বাদ দিন।</string>
@@ -504,8 +521,11 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">প্রতিটি অ্যাপের আকারের মোটামুটি অনুমান পান।</string>
     <string name="appcontrol_settings_module_activity_enabled_label">কার্যকলাপ নির্ধারণ</string>
     <string name="appcontrol_settings_module_activity_enabled_description">একটি অ্যাপ সক্রিয় (বা সম্প্রতি ছিল) কিনা তা খুঁজে বের করুন।</string>
+    <string name="appcontrol_include_multiuser_label">অন্যান্য ব্যবহারকারীদের অন্তর্ভুক্ত করুন</string>
+    <string name="appcontrol_include_multiuser_summary">এই ডিভাইসে অন্যান্য ব্যবহারকারীর প্রোফাইল থেকে অ্যাপ অন্তর্ভুক্ত করুন।</string>
     <string name="appcontrol_export_app_selection_action">এক্সপোর্ট অ্যাপস</string>
     <string name="appcontrol_export_title">এক্সপোর্ট অ্যাপ</string>
+    <string name="appcontrol_export_description">এই অ্যাপের ইনস্টলেশন ফাইলগুলি সংরক্ষণ করুন। এতে অ্যাপ ডেটা অন্তর্ভুক্ত নয়।</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d অ্যাপ এক্সপোর্ট করা হয়েছে</item>
         <item quantity="other">%dটি অ্যাপ এক্সপোর্ট করা হয়েছে</item>
@@ -529,6 +549,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">পূর্ববর্তী কর্ম নিশ্চিত করার চেষ্টা করা হচ্ছে (কীওয়ার্ড: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">স্ক্রিন টাইম: %2$s থেকে %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">সর্বশেষ আপডেট হয়েছে: %s</string>
+    <string name="appcontrol_item_installedat_x_label">ইনস্টল করা হয়েছে: %s</string>
     <string name="analyzer_tool_name">স্টোরেজ বিশ্লেষক</string>
     <string name="analyzer_explanation_short">আপনার ডিভাইসে কী কী জিনিস স্টোরেজের কতটুকু যায়গা দখল করছে তা খুঁজে বের করুন।</string>
     <string name="analyzer_progress_scanning_device">স্টোরেজ ডিভাইসের জন্য অনুসন্ধান করা হচ্ছে</string>
@@ -678,6 +699,17 @@
     <string name="review_app_review_action">পর্যালোচনা করুন</string>
     <string name="review_app_dismiss_action">হয়তো পরে</string>
     <string name="review_app_body">আপনি কি এসডি মেইডকে একটি পর্যালোচনা দিতে চান?️ ❤️</string>
+    <string name="anniversary_card_title">SD Maid এর শুভ বার্ষিকী ❤️</string>
+    <string name="anniversary_card_install_date">%s থেকে আপনার সাথে</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">ইতিমধ্যেই %1$d বছর একসাথে। আপনার অ্যান্ড্রয়েড পরিষ্কার-পরিচ্ছন্ন রাখার জন্য SD Maid-এর উপর আস্থা রাখার জন্য ধন্যবাদ। খালি স্থান: %2$s</item>
+        <item quantity="other">%1$d বছর ধরে শক্তিশালী। SD Maid ব্যবহার করে আপনার ডিভাইসটি পরিষ্কার এবং পরিপাটি থাকে। খালি স্থান: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">আপনার SD Maid বার্ষিকী শেয়ার করুন</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">SD Maid-এর সাথে %1$d বছর — খালি জায়গা: %2$s। আপনার Android পরিষ্কার এবং পরিপাটি রাখা। #SDMaid\nএটি ব্যবহার করে দেখুন: %3$s</item>
+        <item quantity="other">SD Maid ব্যবহার করে %1$d বছর — খালি জায়গা: %2$s। আপনার Android পরিষ্কার-পরিচ্ছন্ন রাখা। #SDMaid\nএটি ব্যবহার করে দেখুন: %3$s</item>
+    </plurals>
     <string name="stats_label">ইতিহাস</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s মুক্ত করা হয়েছে।</item>
@@ -718,4 +750,11 @@
     <string name="area_type_public_obb_label">পাবলিক অ্যাপ রিসোর্স</string>
     <string name="area_type_private_data_label">প্রাইভেট অ্যাপ ডেটা</string>
     <string name="area_type_portable_label">পোর্টেবল স্টোরেজ</string>
+    <string name="shortcut_appcontrol_short">অ্যাপ নিয়ন্ত্রণ</string>
+    <string name="shortcut_appcontrol_long">ইনস্টল করা অ্যাপগুলি পরিচালনা করুন</string>
+    <string name="shortcut_onetap_short">স্ক্যান + মুছুন</string>
+    <string name="shortcut_onetap_long">এক ক্রিয়ায় স্ক্যান করুন এবং মুছুন</string>
+    <string name="shortcuts_settings_category">শর্টকাট</string>
+    <string name="shortcuts_onetap_enabled_title">এক-ট্যাপ শর্টকাট</string>
+    <string name="shortcuts_onetap_enabled_summary">অ্যাপ আইকনটি দীর্ঘক্ষণ টিপে রাখলে \"স্ক্যান + ডিলিট\" শর্টকাট দেখান। ওয়ান-ট্যাপ ড্যাশবোর্ডের মতো একই টুল ব্যবহার করে।</string>
 </resources>

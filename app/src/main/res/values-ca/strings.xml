@@ -699,6 +699,17 @@
     <string name="review_app_review_action">Revisió</string>
     <string name="review_app_dismiss_action">Potser després</string>
     <string name="review_app_body">Voleu deixar una ressenya de l\'SD Maid?️ ❤️</string>
+    <string name="anniversary_card_title">Feliç aniversari de l\'SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">Amb vós des del %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Ja portem %1$d any junts. Gràcies per confiar en l\'SD Maid per mantenir el vostre Android net i ordenat. Espai alliberat: %2$s</item>
+        <item quantity="other">Ja portem %1$d anys junts. Gràcies per confiar en l\'SD Maid per mantenir el vostre Android net i ordenat. Espai alliberat: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Compartiu el vostre aniversari de l\'SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d any amb l\'SD Maid: espai alliberat: %2$s. Mantingueu el vostre Android net i ordenat. #SDMaid\nProveu-ho: %3$s</item>
+        <item quantity="other">%1$d anys amb l\'SD Maid: espai alliberat: %2$s. Mantingueu el vostre Android net i ordenat. #SDMaid\nProveu-ho: %3$s</item>
+    </plurals>
     <string name="stats_label">Historial</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">S\'ha alliberat %s.</item>

@@ -699,6 +699,17 @@
     <string name="review_app_review_action">Revisar</string>
     <string name="review_app_dismiss_action">Quizás más tarde</string>
     <string name="review_app_body">¿Te gustaría dejar una reseña de SD Maid?️ ❤️</string>
+    <string name="anniversary_card_title">Feliz aniversario de SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">Contigo desde %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Ya llevamos %1$d años juntos. Gracias por confiar en SD Maid para mantener tu Android limpio y ordenado. Espacio liberado: %2$s</item>
+        <item quantity="other">Durante %1$d años. SD Maid mantuvo tu dispositivo limpio y ordenado. Espacio liberado: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Comparte el aniversario de SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d año con SD Maid — Espacio liberado: %2$s. Mantén tu Android limpio y ordenado. #SDMaid\nPruébalo: %3$st</item>
+        <item quantity="other">%1$d años con SD Maid — Espacio liberado: %2$s. Mantén tu Android limpio y ordenado. #SDMaid\nPruébalo: %3$s</item>
+    </plurals>
     <string name="stats_label">Historial</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">Se ha liberado %s.</item>

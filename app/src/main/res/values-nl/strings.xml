@@ -699,6 +699,17 @@
     <string name="review_app_review_action">Beoordeling</string>
     <string name="review_app_dismiss_action">Misschien later</string>
     <string name="review_app_body">Wil je SD Maid een beoordeling achterlaten? ❤️</string>
+    <string name="anniversary_card_title">Gefeliciteerd met je SD Maid-jubileum ❤️</string>
+    <string name="anniversary_card_install_date">Bij jou sinds %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Al %1$d jaar samen. Bedankt voor het vertrouwen in SD Maid om je Android schoon en opgeruimd te houden. Vrijgemaakte ruimte: %2$s</item>
+        <item quantity="other">%1$d jaar sterk. Je apparaat blijft schoon en opgeruimd met SD Maid. Vrijgemaakte ruimte: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Deel je SD Maid-jubileum</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d jaar met SD Maid — Ruimte vrijgemaakt: %2$s. Houd je Android schoon en opgeruimd. #SDMaid\nProbeer het: %3$s</item>
+        <item quantity="other">%1$d jaar met SD Maid — Ruimte vrijgemaakt: %2$s. Houd je Android schoon en opgeruimd. #SDMaid\nProbeer het eens: %3$s</item>
+    </plurals>
     <string name="stats_label">Geschiedenis</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s is vrijgemaakt.</item>
