@@ -701,6 +701,13 @@ Recursos dos jogos.</string>
     <string name="review_app_review_action">Revisão</string>
     <string name="review_app_dismiss_action">Talvez mais tarde</string>
     <string name="review_app_body">Gostaria de deixar uma avaliação ao SD Maid? ❤️</string>
+    <string name="anniversary_card_title">Feliz Aniversário do SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">Com você desde %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">%1$d ano juntos. Obrigado por confiar no SD Maid para manter o Android limpo e arrumado. Libertou: %2$s</item>
+        <item quantity="other">%1$d anos juntos. O seu dispositivo mantem-se limpo e arrumado com o SD Maid. Espaço liberto: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Partilhe o seu aniversário de SD Maid</string>
     <string name="stats_label">Histórico</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s foram libertos.</item>

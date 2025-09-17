@@ -13,6 +13,10 @@
     <string name="debug_debuglog_record_action">Tallenna virheenkorjausloki</string>
     <string name="debug_debuglog_stop_action">Lopeta tallennus</string>
     <string name="debug_debuglog_sensitive_information_message">Luotu tiedosto sisältää arkaluontoista tietoa (esim. tiedostonimet ja asennetut sovellukset). Jaa se vain luotettujen tahojen kanssa.</string>
+    <string name="debug_debuglog_screen_title">Virheenkorjausloki</string>
+    <string name="debug_debuglog_screen_discard_action">Hylkää</string>
+    <string name="debug_debuglog_screen_session_path_label">Istunnon Polku</string>
+    <string name="debug_debuglog_screen_log_files_label">Loki Tiedostot</string>
     <string name="settings_debuglog_explanation">Tämä ominaisuus tallentaa kaiken sovelluksen tekemän jaettavaan tiedostoon. Luotu tiedosto sisältää arkaluontoisia tietoja (esim. tiedostonimet ja asennetut sovellukset). Jaa se vain luotettujen tahojen kanssa (esim. kehittäjä, joka selvittää ongelmaa).</string>
     <string name="tasks_activity_notification_channel_label">Aktiiviset tehtävät</string>
     <string name="tasks_activity_working_notification_title">SD Maid työskentelee</string>
@@ -31,6 +35,7 @@
     <string name="onboarding_welcome_body2">Vapauta tallennustilaa siivoomalla muiden sovellusten jälkiä. Poista käytettävissä olevia tiedostoja ja poista jäljelle jääneitä tietoja.</string>
     <string name="onboarding_welcome_body_beta">Tämä on beta (testi) versio. Jatka huumorintajulla ja varmuuskopiosuunnitelmalla. Ilmoita kohtaamistasi ongelmista.</string>
     <string name="onboarding_welcome_continue_action">Jatka</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (eli SD Maid 2) on SD Maidin (eli SD Maid 1) seuraaja. Uusi sovellus, optimoitu modernille Androidille.</string>
     <string name="onboarding_versus_body2">Sen edeltäjän arkkitehtuuri on yli 7 vuotta vanha eikä sitä ole suunniteltu uudempien Android-versioiden haasteisiin. Täydellinen uudelleensuunnittelu oli tarpeen kehityksen jatkamiseksi.</string>
     <string name="onboarding_versus_body3">Harkitse siirtymistä SD Maid SE:hen parempia tuloksia varten.</string>
@@ -65,6 +70,7 @@
     <string name="ui_theme_style_setting_label">Teematyyli</string>
     <string name="ui_theme_style_setting_explanation">Sovelluksen teemoituksessa käytettävä värityyli.</string>
     <string name="ui_theme_style_default_label">Oletus</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Tiedostojen esikatselu</string>
     <string name="ui_previews_summary">Näytä tiedostojen esikatselut kaikissa työkaluissa (esim. kuvien ja videoiden pikkukuvat)</string>
     <string name="ui_language_override_label">Sovelluksen kieli</string>
@@ -78,9 +84,16 @@
     <string name="support_installid_desc">Automaattiset virheraportit ovat nimettömiä. Jaa asennustunnuksesi jos kehittäjän tarvitsee löytää virheraporttisi.</string>
     <string name="support_debuglog_label">Virheenkorjausloki</string>
     <string name="support_debuglog_desc">Tallenna kaikki mitä sovellus tekee tekstitiedostoon jonka voit jakaa.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Paikka missä hengailla ja kysyä kysymyksiä.</string>
     <string name="changelog_label">Muutosloki</string>
     <string name="settings_acknowledgements_label">Kiitokset</string>
+    <string name="settings_acknowledgements_category_translations_title">Käännökset</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Kuka käänsi tämän?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Kiitos</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Erityis kiitokset ystävillemme.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Lisenssit</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maidin käyttämä ohjelmisto.</string>
     <string name="setup_label">Asennus</string>
     <string name="setup_incomplete_card_title">Asennus on keskeneräinen</string>
     <string name="setup_incomplete_card_body">Viimeistele SD Maidin asennus parempien tulosten saamiseksi.</string>
@@ -107,6 +120,7 @@
     <string name="setup_root_enable_root_use_label">Käytä pääkäyttäjäoikeuksia jos saatavilla</string>
     <string name="setup_root_disable_root_use_label">Älä käytä pääkäyttäjäoikeuksia</string>
     <string name="setup_root_card_body2">Saatavilla vain root-laitteissa. Jos et ole tehnyt tätä muutosta, laitteesi ei ole root-laitteessa ja tällä asetuksella ei ole vaikutusta.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Salli SD Maidin käyttää Shizukua mahdollisuuksien mukaan tulosten parantamiseksi ja ominaisuuksien käyttöönottamiseksi.</string>
     <string name="setup_shizuku_card_body2">Tällä asetuksella ei ole vaikutusta, jos Shizuku-sovellusta ei ole määritetty laitteellesi.</string>
     <string name="setup_shizuku_card_root_info">Shizuku yhdessä pääkäyttäjäoikeuksien kanssa ei mahdollista lisäominaisuuksia, mutta se parantaa luotettavuutta. SD Maid käyttää sitä varamenetelmänä.</string>
@@ -186,6 +200,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Yksityiset sovellustiedot sisäisestä tallennustilasta.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik-välimuisti</string>
     <string name="corpsefinder_filter_dalvik_summary">Välimuistissa olevat sovelluksen suoritustiedot.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profiilit</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Android käyttää ART profiileja sovelluksen suorituskyvyn optimoimiseksi.</string>
     <string name="corpsefinder_filter_applib_label">Sovelluksen kirjastot</string>
     <string name="corpsefinder_filter_applib_summary">Sovellukseen liittyvät kirjastotiedot.</string>
     <string name="corpsefinder_filter_appsource_label">Sovelluksen lähteet</string>
@@ -195,6 +211,7 @@
     <string name="corpsefinder_filter_appasec_label">Salatut sovelluksen resurssit</string>
     <string name="corpsefinder_filter_appasec_summary">Salatut sovelluksen resurssit.</string>
     <string name="corpsefinder_filter_app2sd_summary">App2SD-tiedostot.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d sovelluksen jäänne poistettu</item>
         <item quantity="other">%d sovelluksen jäännettä poistettu</item>
@@ -449,6 +466,7 @@
     <string name="appcontrol_app_launch_title">Käynnistä sovellus</string>
     <string name="appcontrol_app_launch_description">Käynnistä tämän sovelluksen pääaktiviteetti.</string>
     <string name="appcontrol_app_forcestop_title">Pakota pysäytys</string>
+    <string name="appcontrol_app_forcestop_description">Pysäytä sovellus. Estä se käynnistymästä kunnes avaat sen, tai kunnes laitteesi käynnistetään uudelleen.</string>
     <string name="appcontrol_app_uninstall_description">Poista tämän sovelluksen asennus laitteeltasi.</string>
     <string name="appcontrol_app_exclude_add_title">Sulje sovellus pois</string>
     <string name="appcontrol_app_exclude_add_description">Sulje tämä sovellus pois muista SD Maidin toiminnoista.</string>
@@ -456,6 +474,7 @@
     <string name="appcontrol_app_exclude_edit_description">Tämä sovellus on tällä hetkellä suljettu pois yhdestä tai useammasta työkalusta.</string>
     <string name="appcontrol_tag_user">Käyttäjä</string>
     <string name="appcontrol_tag_active">Äskettäin aktiivinen</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Paketti</string>
     <string name="appcontrol_tag_system">Järjestelmä</string>
     <string name="appcontrol_tag_archived">Arkistoitu</string>

@@ -745,6 +745,9 @@
     <string name="review_app_review_action">Огляд</string>
     <string name="review_app_dismiss_action">Можливо пізніше</string>
     <string name="review_app_body">Бажаєте залишити відгук про SD Maid?️ ❤️</string>
+    <string name="anniversary_card_title">З річницею SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">З вами з %s</string>
+    <string name="anniversary_share_title">Поділіться своєю річницею SD Maid</string>
     <string name="stats_label">Історія</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s було звільнено.</item>

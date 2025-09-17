@@ -92,6 +92,10 @@
     <string name="general_toggle_layout_mode">ভিউ মোড পরিবর্তন করুন</string>
     <string name="general_delete_confirmation_title">মুছে ফেলা নিশ্চিত করুন</string>
     <string name="general_delete_confirmation_message_x">\"%s\" মুছবেন?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%dটি নির্বাচিত আইটেম মুছে ফেলবেন?</item>
+        <item quantity="other">%d টি নির্বাচিত আইটেম মুছে ফেলবেন?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%dটি আইটেম মুছে ফেলা হয়েছে।</item>
         <item quantity="other">%dটি আইটেম মুছে ফেলা হয়েছে।</item>
@@ -164,4 +168,6 @@
     <string name="general_error_report_bug_action">বাগ রিপোর্ট করুন</string>
     <string name="general_error_ipc_deadobject_title">পরিষেবা সংযোগ বিচ্ছিন্ন হয়েছে</string>
     <string name="general_error_ipc_deadobject_description">একটি গুরুত্বপূর্ণ পরিষেবার (যেমন Magisk, Shizuku, অথবা অন্যান্য সিস্টেম-স্তরের পরিষেবা) সাথে সংযোগ অপ্রত্যাশিতভাবে বিচ্ছিন্ন হয়ে গেছে। আপনার ডিভাইসটি রিবুট করুন। যদি সমস্যাটি থেকে যায়, তাহলে আপডেটগুলি পরীক্ষা করুন অথবা আমার সাথে যোগাযোগ করুন যাতে আমি এটি ঠিক করতে পারি।</string>
+    <string name="general_user_label_owner">মালিক</string>
+    <string name="general_user_label_system">সিস্টেম</string>
 </resources>

@@ -699,6 +699,17 @@
     <string name="review_app_review_action">Arvustus</string>
     <string name="review_app_dismiss_action">Võib-olla hiljem</string>
     <string name="review_app_body">Tahate kommenteerida SD Maid? ❤️</string>
+    <string name="anniversary_card_title">Õnnelikku SD Maidi aastapäeva ❤️</string>
+    <string name="anniversary_card_install_date">Teiega alates %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">%1$d aasta koos juba. Aitäh, et usaldate SD Maidil Androidi korras hoida. Vabastatud: %2$s.</item>
+        <item quantity="other">%1$d aastat koos juba. Teie seade püsib SD Maidi hoole all korras. Vabastatud: %2$s.</item>
+    </plurals>
+    <string name="anniversary_share_title">Jagage oma SD Maidi aastapäeva</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d aasta SD Maidiga. Vabastatud: %2$s. Android on puhtam. #SDMaid\nProovige seda: %3$s</item>
+        <item quantity="other">%1$d aastat SD Maidiga. Vabastatud: %2$s. Android on puhtam. #SDMaid\nProovige seda: %3$s</item>
+    </plurals>
     <string name="stats_label">Ajalugu</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s ruumi vabastati.</item>

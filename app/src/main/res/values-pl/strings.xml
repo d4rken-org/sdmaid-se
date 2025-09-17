@@ -751,6 +751,21 @@
     <string name="review_app_review_action">Oceń</string>
     <string name="review_app_dismiss_action">Może później</string>
     <string name="review_app_body">Chcesz wystawić recenzję SD Maid?️ ❤️</string>
+    <string name="anniversary_card_title">Udanej rocznicy SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">Razem z Tobą od %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Już %1$d rok razem. Dziękujemy za ufanie SD Maid do utrzymywania Twojego Androida w dobrym stanie i porządku. Uwolniono: %2$s</item>
+        <item quantity="few">Już %1$d lata razem. Dziękujemy za ufanie do SD Maid, która utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
+        <item quantity="many">Już %1$d lat razem. Dziękujemy za ufanie do SD Maid, która utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
+        <item quantity="other">Już %1$d lat razem. Dziękujemy za ufanie do SD Maid, która utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Udostępnij swoją rocznicę SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d rok razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
+        <item quantity="few">%1$d lata razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
+        <item quantity="many">%1$d lat razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
+        <item quantity="other">%1$d lat razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
+    </plurals>
     <string name="stats_label">Historia</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s zostało zwolnione.</item>

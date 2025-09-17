@@ -699,6 +699,17 @@
     <string name="review_app_review_action">Αξιολόγηση</string>
     <string name="review_app_dismiss_action">Ίσως αργότερα</string>
     <string name="review_app_body">Θα θέλατε να αφήσετε μια αξιολόγηση για το SD Maid;️ ❤️</string>
+    <string name="anniversary_card_title">Ευτυχής Επέτειος SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">Μαζί σας από %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Ήδη %1$d χρόνο μαζί. Σας ευχαριστούμε που εμπιστευτήκατε το SD Maid για να διατηρεί το Android σας καθαρό και τακτοποιημένο. Χώρος που έχει απελευθερωθεί: %2$s</item>
+        <item quantity="other">%1$d χρόνια δυνατά. Η συσκευή σας παραμένει καθαρή και τακτοποιημένη με το SD Maid. Χώρος που έχει απελευθερωθεί: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Μοιραστείτε την επέτειό σας SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d χρόνος με το SD Maid — Απελευθερωμένος χώρος: %2$s. Διατηρεί το Android σας καθαρό και τακτοποιημένο. #SDMaid\nΔοκιμάστε το: %3$s</item>
+        <item quantity="other">%1$d χρόνια με το SD Maid — Απελευθερωμένος χώρος: %2$s. Διατηρεί το Android σας καθαρό και τακτοποιημένο. #SDMaid\nΔοκιμάστε το: %3$s</item>
+    </plurals>
     <string name="stats_label">Ιστορικό</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s έχει απελευθερωθεί.</item>

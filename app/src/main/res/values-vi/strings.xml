@@ -666,6 +666,12 @@
     <string name="review_app_review_action">Đánh giá</string>
     <string name="review_app_dismiss_action">Để sau</string>
     <string name="review_app_body">Bạn có muốn để lại đánh giá cho SD Maid không?️ ❤️</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="other">Đã %1$d năm rồi. Cảm ơn bạn đã tin tưởng SD Maid để giữ cho thiết bị Android của bạn luôn sạch sẽ và gọn gàng. Dung lượng trống: %2$s</item>
+    </plurals>
+    <plurals name="anniversary_share_text">
+        <item quantity="other">%1$d năm với SD Maid — Không gian trống: %2$s. Giữ cho Android của bạn sạch sẽ và gọn gàng. #SDMaid\nHãy thử: %3$s</item>
+    </plurals>
     <string name="stats_label">Lịch sử</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">%s đã được giải phóng.</item>
