@@ -92,6 +92,7 @@ class OxygenOSSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels =
                 oxygenOSLabels.getClearCacheDynamic(this) + oxygenOSLabels.getClearCacheStatic(this)
+
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             val action: suspend StepContext.() -> Boolean = action@{
@@ -101,6 +102,7 @@ class OxygenOSSpecs @Inject constructor(
                         hasApiLevel(34) -> {
                             if (!node.textMatchesAny(clearCacheButtonLabels)) return@findNode false
                             isUnclickableButton = !node.isClickyButton()
+                            log(TAG) { "? isUnclickableButton=$isUnclickableButton: $node" }
                             true
                         }
 
