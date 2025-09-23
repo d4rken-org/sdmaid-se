@@ -39,6 +39,6 @@ open class OxygenOSLabels @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "OnePlus", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "OnePlus", "Labels")
     }
 }

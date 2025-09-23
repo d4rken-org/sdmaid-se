@@ -54,6 +54,6 @@ open class OriginOSLabels @Inject constructor(
     ): Set<String> = aospLabels14Plus.getClearCacheStatic(acsContext)
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "OriginOS", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "OriginOS", "Labels")
     }
 }

@@ -116,7 +116,7 @@ class ColorOSLabels @Inject constructor() : AppCleanerLabelSource {
         .toSet()
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "ColorOS", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "ColorOS", "Labels")
         val SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 }

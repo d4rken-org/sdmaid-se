@@ -111,7 +111,7 @@ class HonorSpecs @Inject constructor(
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
 
-        val TAG: String = logTag("AppCleaner", "Automation", "Honor", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "Honor", "Specs")
     }
 
 }

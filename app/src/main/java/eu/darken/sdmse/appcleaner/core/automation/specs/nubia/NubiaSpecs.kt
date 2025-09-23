@@ -113,7 +113,7 @@ class NubiaSpecs @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Nubia", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "Nubia", "Specs")
         val SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 

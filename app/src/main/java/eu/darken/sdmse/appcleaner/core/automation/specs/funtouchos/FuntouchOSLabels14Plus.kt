@@ -42,6 +42,6 @@ class FuntouchOSLabels14Plus @Inject constructor(
         .toSet()
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "FuntouchOS", "Labels", "14Plus")
+        private val TAG: String = logTag("AppCleaner", "Automation", "FuntouchOS", "Labels", "14Plus")
     }
 }

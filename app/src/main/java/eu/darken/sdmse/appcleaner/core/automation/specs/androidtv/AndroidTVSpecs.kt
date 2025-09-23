@@ -160,7 +160,7 @@ open class AndroidTVSpecs @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "AndroidTV", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "AndroidTV", "Specs")
         val SETTINGS_PKG = "com.android.tv.settings".toPkgId()
 
     }

@@ -252,6 +252,6 @@ class StorageEntryFinder @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "StorageEntryFinder")
+        private val TAG: String = logTag("AppCleaner", "Automation", "StorageEntryFinder")
     }
 }

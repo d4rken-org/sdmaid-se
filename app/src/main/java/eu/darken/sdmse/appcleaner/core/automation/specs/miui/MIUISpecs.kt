@@ -16,7 +16,6 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
-import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.HyperOsSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.SecurityCenterMissingPermissionException
 import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.isSecurityCenterMissingPermission
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
@@ -217,10 +216,7 @@ class MIUISpecs @Inject constructor(
                 } catch (e: DisabledTargetException) {
                     throw when {
                         isSecurityCenterMissingPermission(context, SETTINGS_PKG_MIUI, TAG) -> {
-                            log(
-                                HyperOsSpecs.Companion.TAG,
-                                WARN
-                            ) { "`com.miui.securitycenter` is missing permissions: $e" }
+                            log(TAG, WARN) { "`com.miui.securitycenter` is missing permissions: $e" }
                             SecurityCenterMissingPermissionException()
                         }
 
@@ -366,7 +362,7 @@ class MIUISpecs @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "MIUI", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "MIUI", "Specs")
         private val SETTINGS_PKG_MIUI = "com.miui.securitycenter".toPkgId()
         private val SETTINGS_PKG_AOSP = "com.android.settings".toPkgId()
 

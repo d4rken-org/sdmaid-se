@@ -106,6 +106,6 @@ class LGESpecs @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "LGE", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "LGE", "Specs")
     }
 }

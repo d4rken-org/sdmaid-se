@@ -113,7 +113,7 @@ class AlcatelSpecs @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Alcatel", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "Alcatel", "Specs")
         val SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 }

@@ -34,6 +34,6 @@ open class OneUILabels @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Samsung", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "Samsung", "Labels")
     }
 }
