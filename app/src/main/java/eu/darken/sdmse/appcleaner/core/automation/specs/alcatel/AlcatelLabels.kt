@@ -30,6 +30,6 @@ class AlcatelLabels @Inject constructor(
         labels14Plus.getClearCacheStatic(acsContext)
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Alcatel", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "Alcatel", "Labels")
     }
 }

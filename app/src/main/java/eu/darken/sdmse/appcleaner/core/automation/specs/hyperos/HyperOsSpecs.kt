@@ -393,7 +393,7 @@ class HyperOsSpecs @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "HyperOS", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "HyperOS", "Specs")
         private val SETTINGS_PKG_HYPEROS = "com.miui.securitycenter".toPkgId()
         private val SETTINGS_PKG_AOSP = "com.android.settings".toPkgId()
 

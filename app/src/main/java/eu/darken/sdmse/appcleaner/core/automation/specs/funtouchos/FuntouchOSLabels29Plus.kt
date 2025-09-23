@@ -54,6 +54,6 @@ class FuntouchOSLabels29Plus @Inject constructor(
     ): Set<String> = aospLabels14Plus.getClearCacheStatic(acsContext)
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "FuntouchOS", "Labels", "29Plus")
+        private val TAG: String = logTag("AppCleaner", "Automation", "FuntouchOS", "Labels", "29Plus")
     }
 }

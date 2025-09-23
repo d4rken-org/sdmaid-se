@@ -314,7 +314,7 @@ class HyperOsLabels @Inject constructor() : AppCleanerLabelSource {
     ) = acsContext.getStrings(SETTINGS_PKG, setOf("app_manager_manage_space"))
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "HyperOs", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "HyperOs", "Labels")
         private val SETTINGS_PKG = "com.miui.securitycenter".toPkgId()
     }
 }

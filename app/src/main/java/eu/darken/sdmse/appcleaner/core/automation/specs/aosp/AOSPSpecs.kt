@@ -153,7 +153,7 @@ class AOSPSpecs @Inject constructor(
 
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
-        val TAG: String = logTag("AppCleaner", "Automation", "AOSP", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "AOSP", "Specs")
     }
 
 }

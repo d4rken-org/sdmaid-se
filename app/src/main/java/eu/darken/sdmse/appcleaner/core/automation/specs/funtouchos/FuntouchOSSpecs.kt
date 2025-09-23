@@ -138,7 +138,7 @@ class FuntouchOSSpecs @Inject constructor(
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
 
-        val TAG: String = logTag("AppCleaner", "Automation", "FuntouchOS", "Spec")
+        private val TAG: String = logTag("AppCleaner", "Automation", "FuntouchOS", "Spec")
     }
 
 }

@@ -135,7 +135,7 @@ class OneUILabels29Plus @Inject constructor(
         .toSet()
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Samsung", "Labels", "29Plus")
+        private val TAG: String = logTag("AppCleaner", "Automation", "Samsung", "Labels", "29Plus")
         val SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 }

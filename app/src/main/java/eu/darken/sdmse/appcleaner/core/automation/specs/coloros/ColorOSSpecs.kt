@@ -174,7 +174,7 @@ class ColorOSSpecs @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "ColorOS", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "ColorOS", "Specs")
         val SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 }

@@ -305,7 +305,7 @@ class MIUILabels @Inject constructor() : AppCleanerLabelSource {
         .toSet()
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "MIUI", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "MIUI", "Labels")
         private val SETTINGS_PKG = "com.miui.securitycenter".toPkgId()
     }
 }
