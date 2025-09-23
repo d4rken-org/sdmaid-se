@@ -474,7 +474,7 @@
     <string name="deduplicator_detection_method_checksum_title">Content checksum</string>
     <string name="deduplicator_detection_method_checksum_summary">Determine duplicates by calculating checksums for files. Files with matching checksums have the exact same content.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Find similar files by analyzing content features and comparing perceptual hash values.</string>
+    <string name="deduplicator_detection_method_phash_summary">Find similar files by analyzing content features and comparing perceptual hash values. ⚠️ Similarity-based detection may include false positives requiring manual verification.</string>
     <string name="deduplicator_occupied_space_label">Occupied storage</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s is occupied by duplicates</item>
