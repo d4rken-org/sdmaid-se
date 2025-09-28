@@ -1,0 +1,5 @@
+{
+  "title": "FOSS Release MOTD",
+  "message": "This is a placeholder MOTD used for CI/unit tests (foss/release).",
+  "locale": "en"
+}

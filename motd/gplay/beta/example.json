@@ -1,0 +1,5 @@
+{
+  "title": "GPlay Beta MOTD",
+  "message": "This is a placeholder MOTD used for CI/unit tests (gplay/beta).",
+  "locale": "en"
+}
