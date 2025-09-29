@@ -131,9 +131,10 @@ class RecorderModule @Inject constructor(
             .withZone(ZoneId.systemDefault())
             .format(Instant.now())
 
+        val logId = sdmId.id.take(4)
         var sessionDir: File? = null
 
-        File(File(context.externalCacheDir, "debug/logs"), "${pkg}_${version}_${timestamp}").apply {
+        File(File(context.externalCacheDir, "debug/logs"), "${pkg}_${version}_${timestamp}_$logId").apply {
             @Suppress("SetWorldWritable", "SetWorldReadable")
             if (mkdirs()) {
                 log(TAG) { "Public session dir created" }
