@@ -124,10 +124,15 @@ fun ACSNodeInfo.crawl(debug: Boolean = Bugs.isTrace): Sequence<CrawledNode> = se
 
 // Recursive
 fun ACSNodeInfo.scrollNode(): Boolean {
-    if (!isScrollable) return false
+    if (!isScrollable) {
+        log(TAG, WARN) { "scrollNode(): Not scrollable: $this" }
+        return false
+    }
 
-    log(TAG, VERBOSE) { "Scrolling node: $this" }
-    return performAction(ACSNodeInfo.ACTION_SCROLL_FORWARD)
+    log(TAG, VERBOSE) { "scrollNode(): Scrolling node: $this" }
+    return performAction(ACSNodeInfo.ACTION_SCROLL_FORWARD).also {
+        log(TAG, VERBOSE) { "scrollNode(): Successfully scrolled: $this" }
+    }
 }
 
 val AccessibilityEvent.pkgId: Pkg.Id? get() = packageName.takeIf { !it.isNullOrBlank() }?.toString()?.toPkgId()
