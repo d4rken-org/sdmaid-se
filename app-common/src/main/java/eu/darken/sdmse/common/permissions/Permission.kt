@@ -11,6 +11,10 @@ import android.os.Environment
 import android.provider.Settings
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import kotlin.reflect.full.isSubclassOf
@@ -52,6 +56,9 @@ sealed class Permission(
 
     object PACKAGE_USAGE_STATS
         : Permission("android.permission.PACKAGE_USAGE_STATS"), Specialpermission {
+        private val TAG = logTag("Permission", "UsageStats")
+
+
         override fun isGranted(context: Context): Boolean {
             val applicationInfo = context.packageManager.getApplicationInfo(context.packageName, 0)
             val appOpsManager = context.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
@@ -60,7 +67,31 @@ sealed class Permission(
                 applicationInfo.uid,
                 applicationInfo.packageName
             )
-            return mode == AppOpsManager.MODE_ALLOWED
+            log(TAG, VERBOSE) { "checkOpNoThrow(OPSTR_GET_USAGE_STATS)=$mode" }
+
+            return when (mode) {
+                AppOpsManager.MODE_ALLOWED -> {
+                    log(TAG, VERBOSE) { "MODE_ALLOWED: Permission explicitly allowed via AppOps" }
+                    true
+                }
+
+                AppOpsManager.MODE_IGNORED, AppOpsManager.MODE_ERRORED -> {
+                    log(TAG, VERBOSE) { "MODE_IGNORED|MODE_ERRORED: Permission explicitly denied via AppOps" }
+                    false
+                }
+
+                AppOpsManager.MODE_DEFAULT -> {
+                    log(TAG, VERBOSE) { "MODE_DEFAULT: Has not been changed or errorneous report." }
+                    val result = ContextCompat.checkSelfPermission(context, permissionId)
+                    log(TAG, VERBOSE) { "checkSelfPermission(PACKAGE_USAGE_STATS)=$result" }
+                    result == PackageManager.PERMISSION_GRANTED
+                }
+
+                else -> {
+                    log(TAG, WARN) { "Unknown mode $mode, assuming permission denied" }
+                    false
+                }
+            }
         }
 
         override fun createIntent(context: Context, deviceDetective: DeviceDetective): Intent {
