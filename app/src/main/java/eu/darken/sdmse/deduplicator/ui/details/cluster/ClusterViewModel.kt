@@ -4,9 +4,11 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.previews.PreviewOptions
@@ -37,6 +39,7 @@ class ClusterViewModel @Inject constructor(
     private val settings: DeduplicatorSettings,
     private val taskManager: TaskManager,
     private val upgradeRepo: UpgradeRepo,
+    private val viewIntentTool: ViewIntentTool,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val args = ClusterFragmentArgs.fromSavedStateHandle(handle)
@@ -195,7 +198,12 @@ class ClusterViewModel @Inject constructor(
 
     fun open(item: ClusterAdapter.DuplicateItem) = launch {
         log(TAG, INFO) { "open(): $item" }
-        events.postValue(ClusterEvents.OpenDuplicate(item.duplicate.lookup))
+        val intent = viewIntentTool.create(item.duplicate.lookup)
+        if (intent == null) {
+            log(TAG, WARN) { "open(): Unable to create view intent for ${item.duplicate.lookup}" }
+            return@launch
+        }
+        events.postValue(ClusterEvents.OpenDuplicate(intent))
     }
 
     companion object {

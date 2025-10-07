@@ -1,8 +1,6 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.content.Context
-import android.content.Intent
-import androidx.core.content.FileProvider
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -14,8 +12,8 @@ import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.findContent
-import eu.darken.sdmse.common.MimeTypeTool
 import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -24,8 +22,6 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.common.files.core.local.File
-import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -48,7 +44,7 @@ class ContentViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     @Suppress("StaticFieldLeak") @ApplicationContext private val context: Context,
     private val analyzer: Analyzer,
-    private val mimeTypeTool: MimeTypeTool,
+    private val viewIntentTool: ViewIntentTool,
     private val exclusionManager: ExclusionManager,
     private val editorOptionsCreator: EditorOptionsCreator,
     private val upgradeRepo: UpgradeRepo,
@@ -149,27 +145,14 @@ class ContentViewModel @Inject constructor(
     fun open(lookup: APathLookup<*>) = launch {
         log(TAG) { "open(): Opening $lookup" }
 
-        if (lookup !is LocalPathLookup) {
-            log(TAG) { "open(): Can't open unsupported path type: ${lookup.pathType}" }
+        val intent = viewIntentTool.create(lookup)
+        if (intent == null) {
+            log(TAG, WARN) { "open(): Unable to create view intent for $lookup" }
             return@launch
         }
-        val javaPath = File(lookup.path)
-        val uri = FileProvider.getUriForFile(context, "${context.packageName}.provider", javaPath)
-        val mimeType = mimeTypeTool.determineMimeType(lookup)
-        log(TAG) { "open(): MimeType is $mimeType" }
 
-        val intent = Intent(Intent.ACTION_VIEW).apply {
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
-            setDataAndType(uri, mimeType)
-        }
-
-        val chooserIntent = Intent.createChooser(intent, lookup.name).apply {
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        }
-
-        log(TAG) { "open() launching chooser $chooserIntent" }
-        events.postValue(ContentItemEvents.OpenContent(chooserIntent))
+        log(TAG) { "open(): Launching intent for $lookup" }
+        events.postValue(ContentItemEvents.OpenContent(intent))
     }
 
     fun delete(items: Set<ContentItem>) = launch {
