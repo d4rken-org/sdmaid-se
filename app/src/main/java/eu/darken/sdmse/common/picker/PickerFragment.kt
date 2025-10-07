@@ -105,6 +105,14 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
             if (state.progress != null) toolbar.subtitle = state.current?.lookup?.path ?: ""
             toolbar.menu.iterator().forEach { it.isVisible = state.progress == null }
 
+            toolbar.setNavigationIcon(
+                if (state.current == null) {
+                    R.drawable.ic_baseline_close_24
+                } else {
+                    R.drawable.ic_baseline_arrow_back_24
+                }
+            )
+
             if (state.progress == null) pickerAdapter.update(state.items)
 
             selectedSecondary.text = requireContext().getQuantityString2(
