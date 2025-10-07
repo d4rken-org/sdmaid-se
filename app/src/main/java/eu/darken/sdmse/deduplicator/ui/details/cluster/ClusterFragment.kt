@@ -1,8 +1,6 @@
 package eu.darken.sdmse.deduplicator.ui.details.cluster
 
 import android.content.ActivityNotFoundException
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -150,11 +148,7 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
 
                 is ClusterEvents.OpenDuplicate -> {
                     try {
-                        val intent = Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse(event.lookup.userReadablePath.get(requireContext()))
-                        )
-                        startActivity(intent)
+                        startActivity(event.intent)
                     } catch (e: ActivityNotFoundException) {
                         e.asErrorDialogBuilder(requireActivity()).show()
                     }
