@@ -7,10 +7,10 @@
     <string name="upgrades_dashcard_body">SD Maid 专业版为高级用户提供更好的结果、更多的功能和选项。</string>
     <string name="upgrades_dashcard_upgrade_action">升级</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play 不可用</string>
-    <string name="upgrades_gplay_unavailable_error_description">SD Maid 无法连接到 Google Play 商店。您的Google Play 商店是否已安装并更新至最新版本？您的 Google 账户是否已登录？请尝试清除 Google Play 商店应用的缓存，然后重启您的设备。</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid 无法连接到 Google Play 商店。Google Play 商店是否已安装并更新至最新版本？您的 Google 账户是否已登录？请尝试清除 Google Play 商店应用的缓存，然后重启您的设备。</string>
     <string name="upgrades_gplay_billing_error_label">Google Play 问题</string>
     <string name="upgrades_gplay_billing_error_description">Google Play 出现了问题。请稍后再试或重启您的设备。\n\n详情：%s</string>
-    <string name="upgrades_no_purchases_found_check_account">未找到购买记录。您确定账号正确吗？</string>
+    <string name="upgrades_no_purchases_found_check_account">未找到任何购买记录。您确定账号正确吗？</string>
     <string name="upgrade_screen_title">获取 SD Maid SE 专业版</string>
     <string name="upgrade_screen_preamble">SD Maid 不含广告，也不出售用户数据。我的工作是由您们资助的 ❤️</string>
     <string name="upgrade_screen_benefits_title">优点</string>
@@ -24,7 +24,7 @@
     <string name="upgrade_screen_iap_action_hint">一次性购买费用为 %s。</string>
     <string name="upgrade_screen_thanks_toast">您最棒了！❤️</string>
     <string name="upgrade_screen_restore_purchase_action">恢复购买</string>
-    <string name="upgrade_screen_restore_purchase_message">购买在同一 Google 账户的所有设备上都有效</string>
+    <string name="upgrade_screen_restore_purchase_message">购买在同一 Google 账户的所有设备上都有效。</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">无法识别购买的故障排除提示：</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play 商店同步可能需要一些时间。尝试重启设备、清除 Google Play 缓存或稍作等候。</string>
     <string name="upgrade_screen_restore_multiaccount_hint">多个账户可能会导致 Google Play 混乱。注销其他账户或通过 Google Play 网站进行安装，这可强制与特定账户关联。</string>

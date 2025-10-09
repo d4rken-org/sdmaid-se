@@ -95,6 +95,12 @@
     <string name="discord_description">Mjesto za druženje i postavljanje pitanja.</string>
     <string name="changelog_label">Dnevnik promjena</string>
     <string name="settings_acknowledgements_label">Priznanja</string>
+    <string name="settings_acknowledgements_category_translations_title">Prijevodi</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Tko je ovo preveo?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Zahvale</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Posebna zahvala našim prijateljima.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licence</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Softver koji SD Maid koristi.</string>
     <string name="setup_label">Postavljanje</string>
     <string name="setup_incomplete_card_title">Postavljanje nije dovršeno</string>
     <string name="setup_incomplete_card_body">Završite postavljanje SD Maida za bolje rezultate.</string>
@@ -483,6 +489,7 @@
     <string name="appcontrol_app_launch_title">Pokreni aplikaciju</string>
     <string name="appcontrol_app_launch_description">Pokreće primarnu aktivnost ove aplikacije.</string>
     <string name="appcontrol_app_forcestop_title">Prisilno zaustavi</string>
+    <string name="appcontrol_app_forcestop_description">Zaustavite aplikaciju. Sprječite je od pokretanja sve dok ju ne otvorite ili dok se uređaj ne ponovno pokrene.</string>
     <string name="appcontrol_app_uninstall_description">Deinstalirajte ovu aplikaciju sa svog uređaja.</string>
     <string name="appcontrol_app_exclude_add_title">Izuzmi aplikaciju</string>
     <string name="appcontrol_app_exclude_add_description">Izuzima ovu aplikaciju iz drugih operacija u SD Maidu.</string>
@@ -537,6 +544,7 @@
     <string name="appcontrol_include_multiuser_summary">Uključuje aplikacije iz drugih korisničkih profila na ovom uređaju.</string>
     <string name="appcontrol_export_app_selection_action">Izvezi aplikacije</string>
     <string name="appcontrol_export_title">Izvezi aplikaciju</string>
+    <string name="appcontrol_export_description">Spremite instalacijske datoteke ove aplikacije. To ne uključuje podatke aplikacije.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplikacija je izvezena</item>
         <item quantity="few">%d aplikacije su izvezene</item>
@@ -563,6 +571,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Pokušaj potvrde prethodne radnje (ključne riječi: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Vrijeme upotrebe: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Zadnje ažuriranje: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instalirano: %s</string>
     <string name="analyzer_tool_name">Analizator pohrane</string>
     <string name="analyzer_explanation_short">Saznajte što zauzima prostor na vašem uređaju.</string>
     <string name="analyzer_progress_scanning_device">Traženje uređaja za pohranu</string>
@@ -716,6 +725,19 @@
     <string name="review_app_review_action">Ocijeni</string>
     <string name="review_app_dismiss_action">Možda kasnije</string>
     <string name="review_app_body">Želite li ostaviti recenziju za SD Maid?️ ❤️</string>
+    <string name="anniversary_card_title">Sretna godišnjica SD Maida ❤️</string>
+    <string name="anniversary_card_install_date">S vama od %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Već %1$d godinu zajedno. Hvala što vjerujete SD Maidu da vaš Android održava čistim i urednim. Oslobođen prostor: %2$s</item>
+        <item quantity="few">Već %1$d godine zajedno. Hvala što vjerujete SD Maidu da vaš Android održava čistim i urednim. Oslobođen prostor: %2$s</item>
+        <item quantity="other">%1$d godina snage. Vaš uređaj ostaje čist i uredan uz SD Maid. Oslobođen prostor: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Podijelite svoju godišnjicu SD Maida</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d godina s SD Maidom — Oslobođen prostor: %2$s. Održava vaš Android čistim i urednim. #SDMaid\nIsprobajte: %3$s</item>
+        <item quantity="few">%1$d godine s SD Maidom — Oslobođen prostor: %2$s. Održava vaš Android čistim i urednim. #SDMaid\nIsprobajte: %3$s</item>
+        <item quantity="other">%1$d godina s SD Maidom — Oslobođen prostor: %2$s. Održava vaš Android čistim i urednim. #SDMaid\nIsprobajte: %3$s</item>
+    </plurals>
     <string name="stats_label">Povijest</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s je oslobođeno.</item>
