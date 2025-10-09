@@ -725,6 +725,19 @@
     <string name="review_app_review_action">Revizuire</string>
     <string name="review_app_dismiss_action">Poate mai târziu</string>
     <string name="review_app_body">Doriți să lăsați aplicației SD Maid o recenzie?️ ❤️</string>
+    <string name="anniversary_card_title">Aniversare SD Maid Fericită ❤️</string>
+    <string name="anniversary_card_install_date">Alături de tine din %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Deja %1$d an împreună. Vă mulțumim pentru încrederea în SD Maid pentru a menține Android curat și ordonat. Spațiu liber: %2$s</item>
+        <item quantity="few">%1$d ani puternici. Dispozitivul dumneavoastră rămâne curat și ordonat cu SD Maid. Spațiu liber: %2$s</item>
+        <item quantity="other">%1$d ani puternici. Dispozitivul dumneavoastră rămâne curat și ordonat cu SD Maid. Spațiu liber: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Distribuiți aniversarea SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d an cu SD Maid — Spațiu liber: %2$s. Păstrarea Androidului curat și ordonat. #SDMaid\nÎncearcă: %3$s</item>
+        <item quantity="few">%1$d ani cu SD Maid — Spațiu liber: %2$s. Păstrarea Android curat și ordonat. #SDMaid\nÎncearcă: %3$s</item>
+        <item quantity="other">%1$d ani cu SD Maid — Spațiu liber: %2$s. Păstrarea Android curat și ordonat. #SDMaid\nÎncearcă: %3$s</item>
+    </plurals>
     <string name="stats_label">Istoric</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s a fost eliberat.</item>

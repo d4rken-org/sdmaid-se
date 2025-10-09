@@ -141,7 +141,7 @@
     <string name="setup_feature_requires_additional_setup_x">使用此功能前需要额外设置： %s</string>
     <string name="setup_acs_card_title">无障碍服务</string>
     <string name="setup_acs_card_body">无障碍服务允许 SD Maid 与您的屏幕交互，并自动完成重复性的动作，如在不同页面点击“清除缓存”。</string>
-    <string name="setup_acs_card_body2">SD Maid 只会在您的允许下使用无障碍服务，并会在使用时显示醒目的提示。此过程可以随时取消，并且不会收集信息。</string>
+    <string name="setup_acs_card_body2">SD Maid 只会在您的允许下使用无障碍服务，并会在使用时显示醒目的提示。（此过程可以随时取消），并且不会收集信息。</string>
     <string name="setup_acs_state_enabled">无障碍服务已启用</string>
     <string name="setup_acs_state_disabled">无障碍服务已禁用</string>
     <string name="setup_acs_state_running">无障碍服务正在运行</string>
@@ -158,7 +158,7 @@
     <string name="setup_inventory_card_title">应用列表</string>
     <string name="setup_inventory_card_body">SD Maid 需要读取您的应用列表才能找到不属于任何应用的文件。</string>
     <string name="setup_inventory_card_extra">寻找名为“应用列表”或“查询所有软件包”的权限。</string>
-    <string name="setup_inventory_invalid_message">系统提供的已安装应用列表无效（例如太少或部分缺失），请转至系统设置并允许 SD Maid 访问“应用列表”</string>
+    <string name="setup_inventory_invalid_message">系统提供的已安装应用列表无效（例如，应用数量太少或部分缺失），请转至系统设置并允许 SD Maid 访问“应用列表”。</string>
     <string name="dataarea_warningcard_empty_message">SD Maid 没有找到任何可以扫描的区域。您是否完成了初始设置？</string>
     <string name="dataarea_warningcard_label">数据区域</string>
     <string name="dataarea_warningcard_reload_action">重载数据区域</string>
@@ -267,9 +267,9 @@
     <string name="systemcleaner_filter_analytics_label">分析文件</string>
     <string name="systemcleaner_filter_analytics_summary">与分析和问题追踪有关的数据。</string>
     <string name="systemcleaner_filter_downloadcache_label">下载缓存</string>
-    <string name="systemcleaner_filter_downloadcache_summary">用于不同用途的系统缓存文件夹（如 OTA 更新）。</string>
+    <string name="systemcleaner_filter_downloadcache_summary">用于不同用途的系统缓存文件夹（例如 OTA 更新）。</string>
     <string name="systemcleaner_filter_localtmp_label">本地临时文件</string>
-    <string name="systemcleaner_filter_localtmp_summary">与系统有关的临时文件（如来自 Android Studio 的文件）。</string>
+    <string name="systemcleaner_filter_localtmp_summary">与系统有关的临时文件（例如来自 Android Studio 的文件）。</string>
     <string name="systemcleaner_filter_datalogger_label">系统日志文件</string>
     <string name="systemcleaner_filter_datalogger_summary">系统服务的日志文件。</string>
     <string name="systemcleaner_filter_logdropbox_label">日志投递箱</string>
@@ -277,7 +277,7 @@
     <string name="systemcleaner_filter_recenttasks_label">最近任务</string>
     <string name="systemcleaner_filter_recenttasks_summary">与系统任务切换器的任务历史有关的数据。</string>
     <string name="systemcleaner_filter_tombstones_label">系统崩溃残留文件</string>
-    <string name="systemcleaner_filter_tombstones_summary">若出现本机进程崩溃（如游戏），则会在这里创建文件。</string>
+    <string name="systemcleaner_filter_tombstones_summary">若出现本机进程崩溃（例如游戏），则会在这里创建文件。</string>
     <string name="systemcleaner_filter_usagestats_label">使用情况统计信息</string>
     <string name="systemcleaner_filter_usagestats_summary">与应用使用情况统计信息有关的文件。</string>
     <string name="systemcleaner_delete_all_confirmation_message">删除所有筛选器内容？</string>
@@ -333,7 +333,7 @@
     <string name="appcleaner_include_minimumage_label">最短时间</string>
     <string name="appcleaner_include_minimumage_summary">跳过低于最短时间的文件。</string>
     <string name="appcleaner_automation_romtype_detection_label">操作系统类型</string>
-    <string name="appcleaner_automation_romtype_detection_summary">如果 SD Maid 没有正确识别您的系统环境，基于无障碍功能的自动化可能会无法工作。因此，你需要在此手动选择你的系统类型。</string>
+    <string name="appcleaner_automation_romtype_detection_summary">如果 SD Maid 没有正确识别您的系统环境，基于无障碍功能的自动化可能会无法工作。因此，您需要在此手动选择你的系统类型。</string>
     <string name="appcleaner_filter_codecache_label">代码缓存</string>
     <string name="appcleaner_filter_codecache_summary">JVM 代码缓存。将字节码块编译成本机代码。</string>
     <string name="appcleaner_filter_advertisement_label">广告数据</string>
@@ -341,7 +341,7 @@
     <string name="appcleaner_filter_bugreporting_label">Bug 反馈</string>
     <string name="appcleaner_filter_bugreporting_summary">与 Bug 反馈有关的数据，如错误日志或故障转储。</string>
     <string name="appcleaner_filter_analytics_label">分析</string>
-    <string name="appcleaner_filter_analytics_summary">分析相关数据，例如应用程序中缓存的您所轻敲的统计数据。</string>
+    <string name="appcleaner_filter_analytics_summary">分析相关数据，例如，您在应用中点击内容的缓存统计信息。</string>
     <string name="appcleaner_filter_hiddencaches_label">隐藏缓存</string>
     <string name="appcleaner_filter_hiddencaches_summary">储存在系统范围之外的通用缓存。</string>
     <string name="appcleaner_filter_thumbnails_label">媒体缩略图</string>
@@ -380,14 +380,14 @@
     <string name="appcleaner_automation_loading">通过无障碍服务来配置自动化处理</string>
     <string name="appcleaner_automation_title">自动化应用清理</string>
     <string name="appcleaner_automation_subtitle_default_caches">清理默认缓存…</string>
-    <string name="appcleaner_automation_progress_open_settings">打开设置界面（关键字：%s）</string>
+    <string name="appcleaner_automation_progress_open_settings">打开设置界面（关键词：%s）</string>
     <string name="appcleaner_automation_progress_find_storage">正在搜索“存储”内容（关键词：%s）</string>
     <string name="appcleaner_automation_progress_find_clear_data">正在查找“清除数据”按钮（关键字：%s）</string>
     <string name="appcleaner_automation_progress_find_clear_cache">正在查找“清除缓存”按钮（关键字：%s）</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">正在尝试确认先前的操作（关键词：%s）</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">正在尝试确认先前的操作(关键词：%s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">默认缓存</string>
-    <string name="appcleaner_item_caches_inaccessible_body">公共和私有默认缓存。无法直接访问，但可以间接删除（如通过无障碍服务）。</string>
-    <string name="appcleaner_automation_unavailable_title">无障碍服务无法使用</string>
+    <string name="appcleaner_item_caches_inaccessible_body">公共和私有默认缓存。无法直接访问，但可以间接删除(如通过无障碍服务）。</string>
+    <string name="appcleaner_automation_unavailable_title">无障碍服务不可用</string>
     <string name="appcleaner_automation_unavailable_body">SD Maid 需要无障碍服务来删除无法访问的缓存，但是服务未启动。如果您不想使用这一功能，可关闭选项“包含无法访问的缓存”。</string>
     <string name="appcleaner_junk_userprofile_label">用户</string>
     <string name="appcleaner_delete_confirmation_message_x">删除 %s 的可删除文件？</string>
@@ -401,7 +401,7 @@
     <string name="appcleaner_automation_error_no_settings_title">设置屏幕不可用</string>
     <string name="appcleaner_automation_error_no_settings_body">该系统应用没有设置界面。无法通过无障碍服务清除缓存。请手动将该应用添加到排除列表。</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">系统应用配置错误</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS 的手机管家 (com.miui.securitycenter) 缺少使用统计权限 (GET_USAGE_STATS) 。 这会让通过无障碍在应用程序的详细信息中 “清除数据” 的功能出现问题。请授予权限以恢复全部功能。</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS 的手机管家 (com.miui.securitycenter) 缺少使用使用情况统计权限 (GET_USAGE_STATS) 。这会破坏应用详情中的“清除数据”功能以及通过辅助功能清除缓存等功能。授予此权限可恢复完整功能。</string>
     <string name="deduplicator_tool_name">去重工具</string>
     <string name="deduplicator_explanation_short">查找设备上的重复数据。</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -612,7 +612,7 @@
     <string name="automation_error_not_running_title">服务未运行</string>
     <string name="automation_error_not_running_body">无障碍服务未运行。请尝试重启设备。</string>
     <string name="automation_error_screen_unavailable_title">屏幕不可用</string>
-    <string name="automation_error_screen_unavailable_body">操作已中止，原因为屏幕不可用（例如息屏或锁屏状态）</string>
+    <string name="automation_error_screen_unavailable_body">由于屏幕不可用（例如，息屏或锁屏状态）操作已终止。</string>
     <string name="automation_error_compatibility_title">自动操作兼容性</string>
     <string name="automation_error_compatibility_body">SD Maid 无法确定您的屏幕布局大小。 如果这种情况持续发生，可能是您的语言或系统设置不能完全支持。 请检查更新应用或联系我让我解决这个问题。</string>
     <string name="automation_error_timeout_title">自动操作超时</string>
@@ -622,7 +622,7 @@
     <string name="history_label">历史</string>
     <string name="history_description">将最近操作和涉及数据按时间排序的列表。</string>
     <string name="scheduler_label">计划任务</string>
-    <string name="scheduler_execution_label">预估下次执行</string>
+    <string name="scheduler_execution_label">下次执行（预估）</string>
     <string name="scheduler_execution_last_label">上次执行</string>
     <string name="scheduler_settings_label">计划任务</string>
     <string name="scheduler_settings_summary">调整计划任务相关的设置。</string>
@@ -648,7 +648,7 @@
     <string name="scheduler_setting_charging_title">仅在充电时执行</string>
     <string name="scheduler_setting_charging_summary">如果设备不在充电，计划的任务将会不会被执行。</string>
     <string name="scheduler_setting_automation_title">无障碍服务</string>
-    <string name="scheduler_setting_automation_summary">包含使用无障碍服务的操作，这需要在执行任务时 SD Maid 可以与您的屏幕交互（即它被解锁）</string>
+    <string name="scheduler_setting_automation_summary">包含使用无障碍服务的操作，这要求SD Maid在执行任务时可以与您的屏幕交互（即它被解锁）。</string>
     <string name="scheduler_notification_channel_label">计划任务</string>
     <string name="scheduler_notification_title">计划任务</string>
     <string name="scheduler_notification_message">正在执行: \"%s\"</string>
@@ -658,12 +658,12 @@
     <string name="scheduler_commands_after_schedule_label">计划任务后命令</string>
     <string name="scheduler_commands_after_schedule_desc">将在计划任务结束后执行的 Android shell 命令。</string>
     <string name="scheduler_battery_optimization_hint">如果您遇到后台执行问题，请考虑禁用 SD Maid 电池优化。</string>
-    <string name="updates_dashcard_title">有可用的更新</string>
-    <string name="updates_dashcard_body">有可用更新。当前版本为 %1$s，最新版本为 %2$s。</string>
+    <string name="updates_dashcard_title">更新可用</string>
+    <string name="updates_dashcard_body">更新可用。当前版本为 %1$s，最新版本为 %2$s。</string>
     <string name="translation_encourage_title">为 SD Maid 贡献翻译</string>
     <string name="translation_encourage_body">SD Maid 由志愿者贡献翻译。无论是翻译、审核还是校对，我们都非常感谢您的帮助！</string>
     <string name="translation_translators_title">此版本的翻译贡献者：</string>
-    <string name="translation_translators_people">FrzHrzn;hhh23333</string>
+    <string name="translation_translators_people">FrzHrzn;hhh23333;Edmund.H</string>
     <string name="motd_setting_enabled_label">重要消息</string>
     <string name="motd_setting_enabled_explanation">允许 SD Maid 接收来自开发者的重要消息。</string>
     <string name="updatecheck_setting_enabled_label">检查更新</string>
@@ -673,6 +673,15 @@
     <string name="review_app_review_action">评论</string>
     <string name="review_app_dismiss_action">稍后再说</string>
     <string name="review_app_body">想给 SD Maid 写一条评论吗？❤️</string>
+    <string name="anniversary_card_title">SD Maid周年快乐❤️</string>
+    <string name="anniversary_card_install_date">自%s起与您相伴</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="other">已使用%1$d 年，SD Maid让您的设备保持干净整洁。释放空间：%2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">分享您的SD Maid 周年纪念</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="other">SD Maid已为您服务%1$d年 — 释放空间 %2$s. 让您的桌面干净有序。#SDMaid\n试试它：%3$s</item>
+    </plurals>
     <string name="stats_label">历史</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">已释放 %s 空间。</item>

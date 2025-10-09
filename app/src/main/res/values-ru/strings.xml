@@ -753,7 +753,19 @@
     <string name="review_app_body">Вы хотите оставить отзыв для SD Maid? ❤️</string>
     <string name="anniversary_card_title">С годовщиной SD Maid ❤️</string>
     <string name="anniversary_card_install_date">С Вами с %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Уже %1$d год вместе. Спасибо за доверие к SD Maid, которая помогает содержать Ваш Android в чистоте и порядке. Освобождено %2$s</item>
+        <item quantity="few">Уже %1$d года вместе. Спасибо за доверие к SD Maid, которая помогает содержать Ваш Android в чистоте и порядке. Освобождено %2$s</item>
+        <item quantity="many">Уже %1$d лет вместе. Спасибо за доверие к SD Maid, которая помогает содержать Ваш Android в чистоте и порядке. Освобождено %2$s</item>
+        <item quantity="other">%1$d лет вместе. Ваше устройство остается в чистоте и порядке с SD Maid. Свободное пространство: %2$s</item>
+    </plurals>
     <string name="anniversary_share_title">Поделитесь годовщиной SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d год с SD Maid — %2$s освобождено. Поддерживаем Android в чистоте и порядке. #SDMaid\nПопробуйте: %3$s</item>
+        <item quantity="few">%1$d года с SD Maid — %2$s освобождено. Поддерживаем Android в чистоте и порядке. #SDMaid\nПопробуйте: %3$s</item>
+        <item quantity="many">%1$d лет с SD Maid — %2$s освобождено. Поддерживаем Android в чистоте и порядке. #SDMaid\nПопробуйте: %3$s</item>
+        <item quantity="other">%1$d лет с SD Maid — %2$s освобождено. Поддерживаем Android в чистоте и порядке. #SDMaid\nПопробуйте: %3$s</item>
+    </plurals>
     <string name="stats_label">История</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">Освобождено: %s</item>

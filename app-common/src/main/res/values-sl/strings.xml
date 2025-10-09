@@ -94,6 +94,12 @@
     <string name="general_toggle_layout_mode">Preklopi način pogleda</string>
     <string name="general_delete_confirmation_title">Potrdite izbris</string>
     <string name="general_delete_confirmation_message_x">Izbriši \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Izbriši izbrani predmet?</item>
+        <item quantity="two">Izbriši izbrana predmeta?</item>
+        <item quantity="few">Izbriši %d izbrane predmete?</item>
+        <item quantity="other">Izbriši %d izbranih predmetov?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Izbrisan je bil %d predmet.</item>
         <item quantity="two">Izbrisana sta bila %d predmeta.</item>

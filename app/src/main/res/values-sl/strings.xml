@@ -17,6 +17,12 @@
     <string name="debug_debuglog_screen_discard_action">Zavrzi</string>
     <string name="debug_debuglog_screen_session_path_label">Pot seje</string>
     <string name="debug_debuglog_screen_log_files_label">Dnevniške datoteke</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">Datoteka je pripravljena (%2$s).</item>
+        <item quantity="two">Datoteki sta pripravljeni (%2$s).</item>
+        <item quantity="few">%1$d datoteke so pripravljene (%2$s).</item>
+        <item quantity="other">%1$d datotek je pripravljenih (%2$s).</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Ta značilnost si v datoteko zabeleži vse, kar počne program.  Ustvarjena datoteka vsebuje občutljive podatke (npr. imena datotek in nameščene programe).  Posredujte jo samo osebam, ki  jim zaupate (npr. razvijalcu, ki poskuša rešiti težavo).</string>
     <string name="tasks_activity_notification_channel_label">Dejavna opravila</string>
     <string name="tasks_activity_working_notification_title">SD Maid opravlja naloge</string>
@@ -92,6 +98,12 @@
     <string name="discord_description">Mesto za druženje in vprašanja.</string>
     <string name="changelog_label">Dnevnik sprememb</string>
     <string name="settings_acknowledgements_label">Zasluge</string>
+    <string name="settings_acknowledgements_category_translations_title">Prevodi</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Kdo je to prevedel?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Zahvale</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Posebne zahvale gredo tudi našim prijateljem.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Dovoljenja</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Programska oprema, ki jo uporablja SD Maid:</string>
     <string name="setup_label">Nastavitev</string>
     <string name="setup_incomplete_card_title">Nastavitev ni dokončana.</string>
     <string name="setup_incomplete_card_body">Za boljše rezultate dokončajte nastavitev SD Maida.</string>
@@ -202,6 +214,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Zasebni programski podatki, npr. poverila, nastavitve programov in predpomnilnik brskalnikov.</string>
     <string name="corpsefinder_filter_dalvik_label">Predpomnilnik Dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">Predpomnjeni podatki izvajanja programov.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profili ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Profile ART Android uporablja za optimiziranje zmogljivosti programov.</string>
     <string name="corpsefinder_filter_applib_label">Knjižnice programov</string>
     <string name="corpsefinder_filter_applib_summary">Knjižnični podatki, ki so povezani s programi.</string>
     <string name="corpsefinder_filter_appsource_label">Programski viri</string>
@@ -491,6 +505,7 @@
     <string name="appcontrol_app_launch_title">Zaženi program</string>
     <string name="appcontrol_app_launch_description">Zaženi glavno dejavnost tega programa.</string>
     <string name="appcontrol_app_forcestop_title">Vsili ustavitev</string>
+    <string name="appcontrol_app_forcestop_description">Ustavi program.  Prepreči mu samodejni zagon, dokler ga ne odprete ali ponovno zaženete napravo.</string>
     <string name="appcontrol_app_uninstall_description">Odstrani ta program z naprave.</string>
     <string name="appcontrol_app_exclude_add_title">Izključi program</string>
     <string name="appcontrol_app_exclude_add_description">Izključi ta program iz drugih opravil v SD Maidu.</string>
@@ -548,6 +563,7 @@
     <string name="appcontrol_include_multiuser_summary">Vključi programe iz drugih uporabniških profilov na napravi.</string>
     <string name="appcontrol_export_app_selection_action">Izvozi programe</string>
     <string name="appcontrol_export_title">Izvozi program</string>
+    <string name="appcontrol_export_description">Shrani namestitvene datoteke programa.  To ne vključuje programskih podatkov.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d program je bil izvožen.</item>
         <item quantity="two">%d programa sta bila izvožena.</item>
@@ -577,6 +593,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Poizkušanje potrditve prejšnjega dejanja (ključne besede: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Čas zaslona: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Nazadnje posodobljeno: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Nameščeno dne: %s</string>
     <string name="analyzer_tool_name">Analizator shrambe</string>
     <string name="analyzer_explanation_short">Izvédite, kaj zaseda prostor na napravi.</string>
     <string name="analyzer_progress_scanning_device">Iskanje pomnilniških naprav</string>
@@ -734,6 +751,21 @@
     <string name="review_app_review_action">Oceni</string>
     <string name="review_app_dismiss_action">Morda kasneje</string>
     <string name="review_app_body">Bi radi ocenili SD Maid? ❤️</string>
+    <string name="anniversary_card_title">Vse najboljše za obletnico, SD Maid ❤️!</string>
+    <string name="anniversary_card_install_date">Z vami od %s.</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Skupaj smo že %1$d leto.  Hvala, ker zaupate SD Maidu, da ohranja vaš Android čist in urejen.  Sproščenega prostora: %2$s</item>
+        <item quantity="two">Skupaj smo že %1$d leti.  Hvala, ker zaupate SD Maidu, da ohranja vaš Android čist in urejen.  Sproščenega prostora: %2$s</item>
+        <item quantity="few">Skupaj smo že %1$d leta.  Hvala, ker zaupate SD Maidu, da ohranja vaš Android čist in urejen.  Sproščenega prostora: %2$s</item>
+        <item quantity="other">Skupaj smo že %1$d let.  Hvala, ker zaupate SD Maidu, da ohranja vaš Android čist in urejen.  Sproščenega prostora: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Delite obletnico SD Maida</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d leto z SD Maidom — Sproščenega prostora: %2$s.  Ohranja vaš Android čist in urejen.   #SDMaid\nTry it: %3$s</item>
+        <item quantity="two">%1$d leti z SD Maidom — Sproščenega prostora: %2$s.  Ohranja vaš Android čist in urejen.   #SDMaid\nTry it: %3$s</item>
+        <item quantity="few">%1$d leta z SD Maidom — Sproščenega prostora: %2$s.  Ohranja vaš Android čist in urejen.   #SDMaid\nTry it: %3$s</item>
+        <item quantity="other">%1$d let z SD Maidom — Sproščenega prostora: %2$s.  Ohranja vaš Android čist in urejen.   #SDMaid\nTry it: %3$s</item>
+    </plurals>
     <string name="stats_label">Zgodovina</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">Sproščenih je bilo %s.</item>
@@ -782,4 +814,11 @@
     <string name="area_type_public_obb_label">Javni programski viri</string>
     <string name="area_type_private_data_label">Zasebni programski podatki</string>
     <string name="area_type_portable_label">Prenosna pomnilniška naprava</string>
+    <string name="shortcut_appcontrol_short">Nadzor programov</string>
+    <string name="shortcut_appcontrol_long">Upravljaj z nameščenimi programi</string>
+    <string name="shortcut_onetap_short">Preglej + Izbriši</string>
+    <string name="shortcut_onetap_long">Preglej in izbriši z eno potezo.</string>
+    <string name="shortcuts_settings_category">Bližnjice</string>
+    <string name="shortcuts_onetap_enabled_title">Bližnjica z enim dotikom</string>
+    <string name="shortcuts_onetap_enabled_summary">Prikaži bližnjico \"Preglej + Izbriši\" ob dolgem pritisku na ikono programa.  Uporablja ista orodja, kot nadzorna plošča dejanj z enim dotikom.</string>
 </resources>

@@ -17,6 +17,12 @@
     <string name="debug_debuglog_screen_discard_action">Адхіліць</string>
     <string name="debug_debuglog_screen_session_path_label">Шлях сесіі</string>
     <string name="debug_debuglog_screen_log_files_label">Файлы журналаў</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one"> %1$d файл гатовы (%2$s)</item>
+        <item quantity="few"> %1$d файла гатова (%2$s)</item>
+        <item quantity="many"> %1$d файлаў гатова (%2$s)</item>
+        <item quantity="other">%1$d файлаў гатова (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Гэта функцыя запісвае ўсё, што робіць праграма, у файл, якім можна падзяліцца. Створаны файл змяшчае канфідэнцыяльную інфармацыю (напрыклад, назвы файлаў і спіс усталяваных праграм). Дзяліцеся ім толькі з даверанымі асобамі (напрыклад, з распрацоўшчыкам для вырашэння вашай праблемы).</string>
     <string name="tasks_activity_notification_channel_label">Актыўныя задачы</string>
     <string name="tasks_activity_working_notification_title">SD Maid працуе</string>
@@ -92,6 +98,12 @@
     <string name="discord_description">Месца, дзе можна пагутарыць і задаць пытанні.</string>
     <string name="changelog_label">Журнал змяненняў</string>
     <string name="settings_acknowledgements_label">Падзякі</string>
+    <string name="settings_acknowledgements_category_translations_title">Пераклады</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Хто гэта пераклаў?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Падзякі</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Асаблівая падзяка нашым сябрам.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Ліцэнзіі</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Праграмнае забеспячэнне, якое выкарыстоўваецца SD Maid.</string>
     <string name="setup_label">Наладжванне</string>
     <string name="setup_incomplete_card_title">Наладжванне не завершана</string>
     <string name="setup_incomplete_card_body">Каб дамагчыся лепшых рэзультатаў, завяршыце наладжванне SD Maid.</string>
@@ -493,6 +505,7 @@
     <string name="appcontrol_app_launch_title">Запусціць праграму</string>
     <string name="appcontrol_app_launch_description">Запуск асноўнай дзейнасці гэтай праграмы.</string>
     <string name="appcontrol_app_forcestop_title">Прымусовае спыненне</string>
+    <string name="appcontrol_app_forcestop_description">Спыніць праграму. Засцерагчы яе ад самаадвольнага запуску, пакуль вы яе не адкрыеце або не перазагрузіце прыладу.</string>
     <string name="appcontrol_app_uninstall_description">Выдаліць гэту праграму з вашай прылады.</string>
     <string name="appcontrol_app_exclude_add_title">Выключаныя праграмы</string>
     <string name="appcontrol_app_exclude_add_description">Выключыць гэту праграму з іншых аперацый у SD Maid.</string>
@@ -550,6 +563,7 @@
     <string name="appcontrol_include_multiuser_summary">Уключэнне ў сканіраванне праграм з іншых карыстальніцкіх профіляў на гэтай прыладзе.</string>
     <string name="appcontrol_export_app_selection_action">Экспартаваць праграмы</string>
     <string name="appcontrol_export_title">Экспартаваць праграму</string>
+    <string name="appcontrol_export_description">Захаваць інсталяцыйныя файлы гэтай праграмы на вашай прыладзе. Яны не ўключаюць даныя з праграмы.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">Экспартавана %d праграма</item>
         <item quantity="few">Экспартавана %d праграмы</item>
@@ -579,6 +593,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Спроба пацвердзіць папярэдняе дзеянне (ключавыя словы: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Час выкарыстання: %1$s з %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Апошняе абнаўленне: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Усталявана: %s</string>
     <string name="analyzer_tool_name">Аналіз сховішча</string>
     <string name="analyzer_explanation_short">Даведайцеся, што займае месца на вашай прыладзе.</string>
     <string name="analyzer_progress_scanning_device">Пошук запамінальных прылад</string>
@@ -736,6 +751,21 @@
     <string name="review_app_review_action">Водгук</string>
     <string name="review_app_dismiss_action">Магчыма пазней</string>
     <string name="review_app_body">Ці вы хочаце пакінуць водгук на SD Maid?️ ❤️</string>
+    <string name="anniversary_card_title">З гадавінай, SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">З вамі з %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Ужо %1$d год разам. Дзякуй, што давяраеце SD Maid падтрымліваць чысціню і парадак на вашым Android. Вызвалена месца: %2$s</item>
+        <item quantity="few">%1$d гады працы. Ваша прылада застаецца чыстай і акуратнай з SD Maid. Вызвалена месца: %2$s</item>
+        <item quantity="many">%1$d гадоў працы. Ваша прылада застаецца чыстай і акуратнай з SD Maid. Вызвалена месца: %2$s</item>
+        <item quantity="other">%1$d гадоў працы. Ваша прылада застаецца чыстай і акуратнай з SD Maid. Вызвалена месца: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Падзяліцеся гадавінай SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d год з SD Maid — Вызвалена месца: %2$s. Падтрымлівае чысціню і парадак на вашым Android. #SDMaid\nПаспрабуйце: %3$s</item>
+        <item quantity="few">%1$d гады з SD Maid — Вызвалена месца: %2$s. Падтрымлівае чысціню і парадак на вашым Android. #SDMaid\nПаспрабуйце: %3$s</item>
+        <item quantity="many">%1$d гадоў з SD Maid — Вызвалена месца: %2$s. Падтрымлівае чысціню і парадак на вашым Android. #SDMaid\nПаспрабуйце: %3$s</item>
+        <item quantity="other">%1$d гадоў з SD Maid — Вызвалена месца: %2$s. Падтрымлівае чысціню і парадак на вашым Android. #SDMaid\nПаспрабуйце: %3$s</item>
+    </plurals>
     <string name="stats_label">Гісторыя</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s было вызвалена.</item>

@@ -94,6 +94,12 @@
     <string name="general_toggle_layout_mode">Prepnúť zobrazovací mód</string>
     <string name="general_delete_confirmation_title">Potvrďte vymazanie</string>
     <string name="general_delete_confirmation_message_x">Vymazať \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Odstrániť %d vybratú položku?</item>
+        <item quantity="few">Odstrániť %d vybraté položky?</item>
+        <item quantity="many">Odstrániť %d vybratých položiek?</item>
+        <item quantity="other">Odstrániť %d vybratých položiek?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Zmazaná %d položka.</item>
         <item quantity="few">Zmazané %d položky.</item>
@@ -184,4 +190,6 @@
     <string name="general_error_report_bug_action">Nahlásiť chybu</string>
     <string name="general_error_ipc_deadobject_title">Spojenie so službou sa pretržilo</string>
     <string name="general_error_ipc_deadobject_description">Spojenie s kritickou službou (napr. Magisk, Shizuku alebo iné systémové služby) sa neočakávane pretržilo. Prosím, reštartujte svoje zariadenie. Ak problém pretrváva, skontrolujte aktualizácie alebo ma kontaktujte, aby som to mohol opraviť.</string>
+    <string name="general_user_label_owner">Vlastník</string>
+    <string name="general_user_label_system">Systém</string>
 </resources>
