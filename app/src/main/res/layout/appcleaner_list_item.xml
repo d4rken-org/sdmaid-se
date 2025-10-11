@@ -36,15 +36,32 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"
         style="@style/TextAppearance.Material3.BodySmall"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:singleLine="true"
+        app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toTopOf="@id/items"
-        app:layout_constraintEnd_toEndOf="@id/primary"
+        app:layout_constraintEnd_toStartOf="@id/system_app_indicator"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@id/primary"
         app:layout_constraintTop_toBottomOf="@id/primary"
         tools:text="eu.darken.sdmse" />
+
+    <ImageView
+        android:id="@+id/system_app_indicator"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_apps"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/secondary"
+        app:layout_constraintEnd_toEndOf="@id/primary"
+        app:layout_constraintStart_toEndOf="@id/secondary"
+        app:layout_constraintTop_toTopOf="@id/secondary"
+        tools:visibility="visible" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/items"

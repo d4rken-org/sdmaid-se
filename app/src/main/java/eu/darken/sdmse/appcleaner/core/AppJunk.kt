@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.user.UserProfile2
 
 data class AppJunk(
@@ -23,6 +24,9 @@ data class AppJunk(
 
     val label: CaString
         get() = pkg.label ?: pkg.packageName.toCaString()
+
+    val isSystemApp: Boolean
+        get() = pkg.isSystemApp
 
     val itemCount by lazy {
         var count = 0
