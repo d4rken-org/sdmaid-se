@@ -47,11 +47,12 @@ class AppJunkElementHeaderVH(parent: ViewGroup) :
 
         sizeValue.text = Formatter.formatFileSize(context, junk.size)
 
-        userLabel.isVisible = junk.userProfile != null
-        userValue.apply {
-            isVisible = junk.userProfile != null
-            text = junk.userProfile?.getHumanLabel()?.get(context)
-        }
+        userOwnerContainer.isVisible = junk.userProfile != null || junk.isSystemApp
+
+        userInfoContainer.isVisible = junk.userProfile != null
+        userValue.text = junk.userProfile?.getHumanLabel()?.get(context)
+
+        systemAppContainer.isVisible = junk.isSystemApp
 
         val hasHint = false
         hintsLabel.isGone = !hasHint

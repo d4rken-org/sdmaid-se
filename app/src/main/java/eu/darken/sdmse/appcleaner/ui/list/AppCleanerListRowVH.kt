@@ -3,6 +3,7 @@ package eu.darken.sdmse.appcleaner.ui.list
 import android.content.res.ColorStateList
 import android.text.format.Formatter
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.common.coil.loadAppIcon
@@ -49,6 +50,7 @@ class AppCleanerListRowVH(parent: ViewGroup) :
         }
         primary.text = junk.label.get(context)
         secondary.text = junk.pkg.packageName
+        systemAppIndicator.isVisible = junk.isSystemApp
 
         items.text = getQuantityString(eu.darken.sdmse.common.R.plurals.result_x_items, junk.itemCount)
         size.text = Formatter.formatShortFileSize(context, junk.size)
