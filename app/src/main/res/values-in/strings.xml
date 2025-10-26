@@ -673,6 +673,15 @@
     <string name="review_app_review_action">Pratinjau</string>
     <string name="review_app_dismiss_action">Lain kali</string>
     <string name="review_app_body">Bersediakah Anda menulis ulasan untuk SD Maid? ❤️</string>
+    <string name="anniversary_card_title">Selamat Ulang Tahun SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">Bersamamu sejak %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="other">Sudah %1$d tahun bersama. Terima kasih telah mempercayai SD Maid untuk menjaga Android Anda tetap bersih dan rapi. Ruang kosong: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Bagikan ulang tahun SD Maid Anda</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="other">%1$d tahun dengan SD Maid — ruang kosong: %2$s. Menjaga Android Anda tetap bersih dan rapi. #SDMaid\nCoba: %3$s</item>
+    </plurals>
     <string name="stats_label">Riwayat</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">%s telah dibebaskan.</item>
