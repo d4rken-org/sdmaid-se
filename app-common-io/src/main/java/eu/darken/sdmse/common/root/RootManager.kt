@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -85,7 +86,7 @@ class RootManager @Inject constructor(
                 log(TAG, WARN) { "Error while checking for root: $e" }
                 false
             }
-
+            log(TAG, INFO) { "isRooted=$newState" }
             newState.also { cachedState = it }
         }
     }
@@ -95,6 +96,7 @@ class RootManager @Inject constructor(
      */
     val useRoot: Flow<Boolean> = settings.useRoot.flow
         .mapLatest { (it ?: false) && isRooted() }
+        .setupCommonEventHandlers(TAG) { "useRoot" }
         .stateIn(
             scope = appScope,
             started = SharingStarted.WhileSubscribed(
@@ -106,16 +108,15 @@ class RootManager @Inject constructor(
         .filterNotNull()
 
     suspend fun isInstalled(): Boolean {
-        val installed =
-            KNOWN_ROOT_MANAGERS.any {
-                try {
-                    @Suppress("DEPRECATION")
-                    context.packageManager.getPackageInfo(it, 0)
-                    true
-                } catch (e: PackageManager.NameNotFoundException) {
-                    false
-                }
+        val installed = KNOWN_ROOT_MANAGERS.any {
+            try {
+                @Suppress("DEPRECATION")
+                context.packageManager.getPackageInfo(it, 0)
+                true
+            } catch (_: PackageManager.NameNotFoundException) {
+                false
             }
+        }
 
         log(TAG) { "isInstalled(): $installed" }
         return installed
@@ -124,7 +125,8 @@ class RootManager @Inject constructor(
     companion object {
         internal val TAG = logTag("Root", "Manager")
         private val KNOWN_ROOT_MANAGERS = setOf(
-            "com.topjohnwu.magisk"
+            "com.topjohnwu.magisk",
+            "me.weishu.kernelsu",
         )
     }
 }
