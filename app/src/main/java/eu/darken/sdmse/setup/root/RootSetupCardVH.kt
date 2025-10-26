@@ -20,7 +20,7 @@ class RootSetupCardVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
 
         rootState.apply {
-            isVisible = item.state.useRoot == true && item.state.isInstalled
+            isVisible = item.state.useRoot == true
             text = getString(
                 if (item.state.ourService) R.string.setup_root_state_ready_label
                 else R.string.setup_root_state_waiting_label
@@ -29,6 +29,9 @@ class RootSetupCardVH(parent: ViewGroup) :
                 if (item.state.ourService) context.getColorForAttr(android.R.attr.textColorSecondary)
                 else context.getColorForAttr(android.R.attr.colorError)
             )
+            if (!item.state.isInstalled) {
+                append(" ?")
+            }
         }
 
         allowRootOptions.apply {
