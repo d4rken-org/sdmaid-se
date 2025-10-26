@@ -27,16 +27,16 @@
     <string name="tasks_activity_notification_channel_label">Dejavna opravila</string>
     <string name="tasks_activity_working_notification_title">SD Maid opravlja naloge</string>
     <plurals name="tasks_activity_active_notification_message">
-        <item quantity="one">%d dejavno opravilo</item>
-        <item quantity="two">%d dejavni opravili</item>
-        <item quantity="few">%d dejavna opravila</item>
-        <item quantity="other">%d dejavnih opravil</item>
+        <item quantity="one">Dejavno je %d opravilo.</item>
+        <item quantity="two">Dejavni sta %d opravili.</item>
+        <item quantity="few">Dejavna so %d opravila.</item>
+        <item quantity="other">Dejavnih je %d opravil.</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
-        <item quantity="one">V čakalni vrsti je %d opravilo.</item>
-        <item quantity="two">V čakalni vrsti sta %d opravili.</item>
-        <item quantity="few">V čakalni vrsti so %d opravila.</item>
-        <item quantity="other">V čakalni vrsti je %d opravil.</item>
+        <item quantity="one">V čakalni vrsti je %d.</item>
+        <item quantity="two">V čakalni vrsti sta %d.</item>
+        <item quantity="few">V čakalni vrsti so %d.</item>
+        <item quantity="other">V čakalni vrsti jih je %d.</item>
     </plurals>
     <string name="tasks_result_notification_channel_label">Rezultati opravil</string>
     <string name="tasks_result_subtext">Rezultat opravila</string>
