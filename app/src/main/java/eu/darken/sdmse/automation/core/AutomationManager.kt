@@ -190,8 +190,8 @@ class AutomationManager @Inject constructor(
         log(TAG) { "serviceLauncher: Service provided, waiting for close..." }
         awaitClose {
             log(TAG) { "serviceLauncher: Closing..." }
-            if (!serviceWasRunning) {
-                log(TAG) { "serviceLauncher: Service wasn't running, let's toggle it off again" }
+            if (canToggle) {
+                log(TAG) { "serviceLauncher: Can be launched on demand, stopping it after use..." }
                 runBlocking { stopService() }
             }
         }
