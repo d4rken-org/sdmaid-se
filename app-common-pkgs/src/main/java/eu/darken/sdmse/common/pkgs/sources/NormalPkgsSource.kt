@@ -81,7 +81,7 @@ class NormalPkgsSource @Inject constructor(
         if (pkgInfos.none { it.packageName == BuildConfigWrap.APPLICATION_ID }) {
             throw InvalidPkgInventoryException("Returned package data didn't contain us")
         }
-        if (pkgInfos.none { it.packageName == "android" }) {
+        if (pkgInfos.none { SANITY_PKGS.contains(it.packageName) }) {
             throw InvalidPkgInventoryException("Returned package data didn't contain `android` core package")
         }
 
@@ -142,6 +142,10 @@ class NormalPkgsSource @Inject constructor(
     }
 
     companion object {
+        private val SANITY_PKGS = setOf(
+            "android",
+            "com.android.cts.ctsshim",
+        )
         private val TAG = logTag("Pkg", "Repo", "Source", "NormalPkgs")
     }
 }
