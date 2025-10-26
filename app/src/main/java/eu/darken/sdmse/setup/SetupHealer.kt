@@ -174,7 +174,7 @@ class SetupHealer @Inject constructor(
         }
 
         return setupHelper.setSecureSettings(true).also {
-            log(TAG, INFO) { "AUTOMATION: Heal attempt succes=$it" }
+            log(TAG, INFO) { "AUTOMATION: Heal attempt success=$it" }
         }
     }
 
