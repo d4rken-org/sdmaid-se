@@ -127,6 +127,7 @@ class RootManager @Inject constructor(
         private val KNOWN_ROOT_MANAGERS = setOf(
             "com.topjohnwu.magisk",
             "me.weishu.kernelsu",
+            "com.rifsxd.ksunext",
         )
     }
 }
