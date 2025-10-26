@@ -234,6 +234,17 @@ class AppScanner @Inject constructor(
                 ?.map { fileForensics.identifyArea(it)!! }
                 ?.forEach { interestingPaths.add(it) }
 
+            // Check for shortcut service bitmap caches in system_ce areas
+            currentAreas
+                .filter { it.type == DataArea.Type.DATA_SYSTEM_CE }
+                .map { area ->
+                    // Path: /data/system_ce/{userId}/shortcut_service/bitmaps/{packageName}
+                    area.path.child("shortcut_service", "bitmaps", pkg.packageName)
+                }
+                .filter { it.exists(gatewaySwitch) }
+                .mapNotNull { fileForensics.identifyArea(it) }
+                .forEach { interestingPaths.add(it) }
+
             val clutterMarkerForPkg = clutterRepo.getMarkerForPkg(pkg.id)
 
             dataAreaMap.values

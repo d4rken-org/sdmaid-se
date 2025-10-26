@@ -398,6 +398,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Files that have been deleted but put into a special folder to allow to restore them.</string>
     <string name="appcleaner_filter_webview_label">Webview files</string>
     <string name="appcleaner_filter_webview_summary">Files cached by Webview instances used within apps.</string>
+    <string name="appcleaner_filter_shortcutservice_label">App shortcut icons</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Cached icons for app shortcuts and share menus.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp backups</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Delete extra copies of WhatsApp backups and only keep the latest.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Files you received from people via WhatsApp.</string>

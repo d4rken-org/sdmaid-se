@@ -119,6 +119,12 @@
             app:singleLineTitle="false"
             app:summary="@string/appcleaner_filter_webview_summary"
             app:title="@string/appcleaner_filter_webview_label" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_image_multiple_24"
+            app:key="filter.shortcutservice.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/appcleaner_filter_shortcutservice_summary"
+            app:title="@string/appcleaner_filter_shortcutservice_label" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_filter_specific">
