@@ -412,7 +412,6 @@
     <string name="deduplicator_detection_method_checksum_title">Kontent nazorat yig\'indisi</string>
     <string name="deduplicator_detection_method_checksum_summary">Fayllar uchun nazorat yig\'indilarini hisoblash orqali takrorlanganlarni aniqlash. Mos nazorat yig\'indili fayllar aynan bir xil kontentga ega.</string>
     <string name="deduplicator_detection_method_phash_title">Sezgi hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Kontent xususiyatlarini tahlil qilish va sezgi hash qiymatlarini solishtirish orqali o\'xshash fayllarni topish.</string>
     <string name="deduplicator_occupied_space_label">Band xotira</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s takrorlanganlar tomonidan band qilingan</item>

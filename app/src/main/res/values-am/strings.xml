@@ -412,7 +412,6 @@
     <string name="deduplicator_detection_method_checksum_title">የይዘት ማረጋገጫ ድምር</string>
     <string name="deduplicator_detection_method_checksum_summary">ለፋይሎች ማረጋገጫ ድምሮችን በማስላት ተመሳሳዮችን ወስን። ተመሳሳይ ማረጋገጫ ድምሮች ያላቸው ፋይሎች ፍጹም ተመሳሳይ ይዘት አላቸው።</string>
     <string name="deduplicator_detection_method_phash_title">የእይታ ሃሽ</string>
-    <string name="deduplicator_detection_method_phash_summary">የይዘት ባህሪያትን በመተንተንና የእይታ ሃሽ ዋጋዎችን በማወዳደር ተመሳሳይ ፋይሎችን ያግኙ።</string>
     <string name="deduplicator_occupied_space_label">የተያዘ ማጠራቀሚያ</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s በተመሳሳዮች ተይዟል</item>

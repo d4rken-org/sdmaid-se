@@ -363,6 +363,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Kustutatud failid, mida hoitakse taastamiseks mõeldud erikaustas.</string>
     <string name="appcleaner_filter_webview_label">Veebivaate failid</string>
     <string name="appcleaner_filter_webview_summary">Rakendustes kasutatud veebivaate vahemälus olevad failid.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Rakenduse otsetee ikoonid</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Rakenduse otseteede ja jagatavate menüüde ikoonid vahemälus.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsAppi varundusfailid</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Kustutage WhatsAppi varundusfailide lisakoopiad ja säilitage vaid uusim.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsAppi kasutajatelt saadud failid.</string>
@@ -436,7 +438,7 @@
     <string name="deduplicator_detection_method_checksum_title">Sisu kontrollsumma</string>
     <string name="deduplicator_detection_method_checksum_summary">Tuvasta koopiad failide kontrollsummade arvutamisel. Kattuvate kontrollsummadega failide sisu on sama.</string>
     <string name="deduplicator_detection_method_phash_title">Tajuräsi</string>
-    <string name="deduplicator_detection_method_phash_summary">Sarnaste failide leidmiseks analüüsige sisu omadusi ja võrrelge tajuräsi väärtusi.</string>
+    <string name="deduplicator_detection_method_phash_summary">Leidke sarnaseid faile, analüüsides sisu võimalusi ja võrreldes tajuräsi väärtusi. ⚠️ Sarnasusel põhinev tuvastus võib sisaldada valeteateid, mis vajavad inimese kontrolli.</string>
     <string name="deduplicator_occupied_space_label">Kasutatud salvestusruum</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s kasutab koopiad</item>

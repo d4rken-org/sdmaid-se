@@ -363,6 +363,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Fitxers que s\'han suprimit, però que s\'han posat en una carpeta especial per permetre restaurar-los.</string>
     <string name="appcleaner_filter_webview_label">Fitxers WebView</string>
     <string name="appcleaner_filter_webview_summary">Fitxers desats a la memòria cau per les instàncies WebView utilitzades a les aplicacions.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Icones de dreceres d\'aplicacions</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Icones emmagatzemades a la memòria cau per a dreceres d\'aplicacions i menús per compartir.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Còpies de seguretat de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Suprimeix les còpies addicionals de les còpies de seguretat de WhatsApp i conserva només les més recents.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Fitxers que heu rebut de persones a través de WhatsApp.</string>
@@ -436,7 +438,7 @@
     <string name="deduplicator_detection_method_checksum_title">Suma de comprovació del contingut</string>
     <string name="deduplicator_detection_method_checksum_summary">Determina els duplicats calculant les sumes de control dels fitxers. Els fitxers amb sumes de comprovació coincidents tenen exactament el mateix contingut.</string>
     <string name="deduplicator_detection_method_phash_title">Hash perceptiu</string>
-    <string name="deduplicator_detection_method_phash_summary">Troba fitxers similars analitzant les característiques de contingut i comparant els valors hash perceptius.</string>
+    <string name="deduplicator_detection_method_phash_summary">Troba fitxers similars analitzant les característiques del contingut i comparant els valors hash perceptuals. ⚠️ La detecció basada en la similitud pot incloure falsos positius que requereixen verificació manual.</string>
     <string name="deduplicator_occupied_space_label">Emmagatzematge ocupat</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s està ocupat per duplicats</item>

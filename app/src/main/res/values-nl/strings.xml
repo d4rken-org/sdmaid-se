@@ -363,6 +363,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Bestanden die zijn verwijderd maar in een speciale map zijn geplaatst zodat ze kunnen worden hersteld.</string>
     <string name="appcleaner_filter_webview_label">Webview-bestanden</string>
     <string name="appcleaner_filter_webview_summary">Bestanden die in de cache zijn opgeslagen door Webview-instanties die in apps worden gebruikt.</string>
+    <string name="appcleaner_filter_shortcutservice_label">App-snelkoppelingspictogrammen</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Gecachte pictogrammen voor app-snelkoppelingen en deelmenu\'s.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Back-ups van WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Verwijder extra exemplaren van WhatsApp-back-ups en bewaar alleen de nieuwste.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Bestanden die je via WhatsApp van anderen hebt ontvangen.</string>
@@ -436,7 +438,7 @@
     <string name="deduplicator_detection_method_checksum_title">Inhoudscontrolesom</string>
     <string name="deduplicator_detection_method_checksum_summary">Bepaal dubbele bestanden door controlesommen voor bestanden te berekenen. Bestanden met overeenkomende controlesommen hebben exact dezelfde inhoud.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptie-hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Vind vergelijkbare bestanden door inhoudskenmerken te analyseren en perceptuele hashwaarden te vergelijken.</string>
+    <string name="deduplicator_detection_method_phash_summary">Vind vergelijkbare bestanden door inhoudskenmerken te analyseren en perceptuele hashwaarden te vergelijken. ⚠️ Detectie op basis van gelijkenis kan vals-positieve resultaten opleveren, waarvoor handmatige verificatie vereist is.</string>
     <string name="deduplicator_occupied_space_label">Gebruikte opslag</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s wordt ingenomen door duplicaten</item>

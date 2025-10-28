@@ -407,7 +407,6 @@
     <string name="deduplicator_detection_method_checksum_title">內容校驗和</string>
     <string name="deduplicator_detection_method_checksum_summary">通過計算文件校驗和以確定重複文件。校驗和相同的文件具有完全相同的內容。</string>
     <string name="deduplicator_detection_method_phash_title">感知哈希值</string>
-    <string name="deduplicator_detection_method_phash_summary">通過分析內容特證和感知哈希值查找相似文件</string>
     <string name="deduplicator_occupied_space_label">已佔用空間</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s 被重複項佔用</item>

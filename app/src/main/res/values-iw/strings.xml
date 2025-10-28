@@ -447,7 +447,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="deduplicator_detection_method_checksum_title">בדיקת תוכן</string>
     <string name="deduplicator_detection_method_checksum_summary">קבע כפילויות על ידי חישוב סכומי ביקורת עבור קבצים. לקבצים עם סכומי ביקורת תואמים יש את אותו תוכן בדיוק.</string>
     <string name="deduplicator_detection_method_phash_title">זיהוי גיבוב</string>
-    <string name="deduplicator_detection_method_phash_summary">מצא קבצים דומים על ידי ניתוח תוכן הקובץ והשוואת ערכי גיבוב.</string>
     <string name="deduplicator_occupied_space_label">נפח אחסון תפוס</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s תפוס על ידי כפילויות</item>

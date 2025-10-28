@@ -414,7 +414,6 @@
     <string name="deduplicator_detection_method_checksum_title">შინაარსის კონტროლური ჯამი</string>
     <string name="deduplicator_detection_method_checksum_summary">დუბლიკატების განსაზღვრა ფაილებისთვის კონტროლური ჯამების გამოთვლით. ფაილები შესაბამისი კონტროლური ჯამებით აქვთ ზუსტად იგივე შინაარსი.</string>
     <string name="deduplicator_detection_method_phash_title">პერცეპტუალური ჰეში</string>
-    <string name="deduplicator_detection_method_phash_summary">მსგავსი ფაილების პოვნა შინაარსის ნიშნების ანალიზითა და პერცეპტუალური ჰეშის მნიშვნელობების შედარებით.</string>
     <string name="deduplicator_occupied_space_label">დაკავებული მეხსიერება</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s დაკავებულია დუბლიკატებით</item>

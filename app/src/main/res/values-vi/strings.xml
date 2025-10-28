@@ -422,7 +422,6 @@
     <string name="deduplicator_detection_method_checksum_title">Tổng kiểm tra nội dung</string>
     <string name="deduplicator_detection_method_checksum_summary">Xác định các bản sao bằng cách tính tổng kiểm tra cho các tập tin. Các tệp có tổng kiểm tra phù hợp có nội dung giống hệt nhau.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Tìm các tệp tương tự bằng cách phân tích các tính năng nội dung và so sánh các giá trị.</string>
     <string name="deduplicator_occupied_space_label">Lưu trữ bị chiếm dụng</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s bị chiếm bởi các bản sao</item>

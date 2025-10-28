@@ -407,7 +407,6 @@
     <string name="deduplicator_detection_method_checksum_title">مواد چیک سم</string>
     <string name="deduplicator_detection_method_checksum_summary">فائلوں کے لیے چیک سم کی گنتی کرکے ڈپلیکیٹس کا تعین کریں۔ میچنگ چیک سم والی فائلوں میں بالکل وہی مواد ہوتا ہے۔</string>
     <string name="deduplicator_detection_method_phash_title">ادراکی ہیش</string>
-    <string name="deduplicator_detection_method_phash_summary">مواد کی خصوصیات کا تجزیہ کرکے اور ادراکی ہیش قیمتوں کی موازنہ کرکے مشابہ فائلیں تلاش کریں۔</string>
     <string name="deduplicator_occupied_space_label">قبضہ شدہ سٹوریج</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ڈپلیکیٹس کے ذریعے قبضہ میں ہے</item>

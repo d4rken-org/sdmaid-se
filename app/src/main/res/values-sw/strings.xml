@@ -413,7 +413,6 @@
     <string name="deduplicator_detection_method_checksum_title">Jumla ya kuangalia yaliyomo</string>
     <string name="deduplicator_detection_method_checksum_summary">Tambua nakala kwa kukokotoa jumla za kuangalia za faili. Faili zenye jumla za kuangalia zinazofanana zina maudhui sawa kabisa.</string>
     <string name="deduplicator_detection_method_phash_title">Hash ya utambuzi</string>
-    <string name="deduplicator_detection_method_phash_summary">Tafuta faili zinazofanana kwa kuchambua vipengele vya maudhui na kulinganisha thamani za hash za utambuzi.</string>
     <string name="deduplicator_occupied_space_label">Hifadhi iliyotumika</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s inatumika na nakala</item>

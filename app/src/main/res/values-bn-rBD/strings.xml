@@ -436,7 +436,6 @@
     <string name="deduplicator_detection_method_checksum_title">কন্টেন্ট চেকসাম</string>
     <string name="deduplicator_detection_method_checksum_summary">ফাইলের জন্য চেকসাম গণনা করে ডুপ্লিকেট নির্ধারণ করুন। ম্যাচিং চেকসাম সহ ফাইলগুলিতে একই কন্টেন্ট রয়েছে৷</string>
     <string name="deduplicator_detection_method_phash_title">উপলব্ধিগত হ্যাশ</string>
-    <string name="deduplicator_detection_method_phash_summary">বিষয়বস্তু বৈশিষ্ট্য বিশ্লেষণ করে এবং উপলব্ধিগত হ্যাশ মান তুলনা করে একই ফাইল খুঁজুন।</string>
     <string name="deduplicator_occupied_space_label">সঞ্চয়স্থান দখল</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ডুপ্লিকেট দ্বারা দখল করা আছে</item>

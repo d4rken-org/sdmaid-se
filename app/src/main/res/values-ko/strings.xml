@@ -407,7 +407,6 @@
     <string name="deduplicator_detection_method_checksum_title">콘텐츠 체크썸</string>
     <string name="deduplicator_detection_method_checksum_summary">파일에 대한 체크썸을 계산하여 중복 여부를 확인합니다. 체크썸이 일치하는 파일은 콘텐츠가 완전히 동일합니다.</string>
     <string name="deduplicator_detection_method_phash_title">인식 해시</string>
-    <string name="deduplicator_detection_method_phash_summary">콘텐츠 특징을 분석하고 인식 해시값을 비교하여 유사한 파일을 찾습니다.</string>
     <string name="deduplicator_occupied_space_label">사용 중인 저장공간</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s가 중복 파일로 점유되고 있습니다</item>

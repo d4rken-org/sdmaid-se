@@ -403,7 +403,6 @@
     <string name="deduplicator_detection_method_checksum_title">ค่าตรวจสอบเนื้อหา</string>
     <string name="deduplicator_detection_method_checksum_summary">กำหนดไฟล์ซ้ำโดยการคำนวณค่าตรวจสอบสำหรับไฟล์ ไฟล์ที่มีค่าตรวจสอบตรงกันจะมีเนื้อหาเหมือนกันทุกประการ</string>
     <string name="deduplicator_detection_method_phash_title">แฮชการรับรู้</string>
-    <string name="deduplicator_detection_method_phash_summary">ค้นหาไฟล์ที่คล้ายกันโดยการวิเคราะห์ลักษณะเนื้อหาและเปรียบเทียบค่าแฮชการรับรู้</string>
     <string name="deduplicator_occupied_space_label">พื้นที่ที่ถูกใช้งาน</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s ถูกใช้งานโดยไฟล์ซ้ำ</item>

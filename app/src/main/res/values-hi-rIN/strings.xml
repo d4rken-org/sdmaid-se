@@ -419,7 +419,6 @@
     <string name="deduplicator_detection_method_checksum_title">चेकसम</string>
     <string name="deduplicator_detection_method_checksum_summary">फ़ाइल सामग्री की तुलना करने के लिए चेकसम का उपयोग करें। अधिक सटीक लेकिन धीमा।</string>
     <string name="deduplicator_detection_method_phash_title">पर्सेप्चुअल हैश</string>
-    <string name="deduplicator_detection_method_phash_summary">समान छवियों को खोजने के लिए परसेप्चुअल हैशिंग का उपयोग करें।</string>
     <string name="deduplicator_occupied_space_label">कब्जाया गया स्थान</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s डुप्लिकेट्स द्वारा कब्जा किया गया है</item>

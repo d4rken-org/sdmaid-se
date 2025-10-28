@@ -429,7 +429,6 @@
     <string name="deduplicator_detection_method_checksum_title">Sisällön tarkistussumma</string>
     <string name="deduplicator_detection_method_checksum_summary">Määritä duplikaatit laskemalla tiedostojen tarkistussummat. Tiedostot, joilla on vastaavat tarkistussummat, sisältävät täsmälleen saman sisällön.</string>
     <string name="deduplicator_detection_method_phash_title">Havainnollinen hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Etsi samankaltaisia tiedostoja analysoimalla sisällön ominaisuuksia ja vertaamalla havaintopohjaiset hash-arvot.</string>
     <string name="deduplicator_occupied_space_label">Käytetty tallennustila</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s on kaksoiskappaleiden käyttämää</item>

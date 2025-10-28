@@ -409,7 +409,6 @@
     <string name="deduplicator_detection_method_checksum_title">Suma de verificación de contido</string>
     <string name="deduplicator_detection_method_checksum_summary">Determinar duplicados calculando sumas de verificación para ficheiros. Os ficheiros con sumas de verificación coincidentes teñen o mesmo contido exacto.</string>
     <string name="deduplicator_detection_method_phash_title">Hash perceptual</string>
-    <string name="deduplicator_detection_method_phash_summary">Atopar ficheiros similares analizando características de contido e comparando valores de hash perceptual.</string>
     <string name="deduplicator_occupied_space_label">Almacenamento ocupado</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s está ocupado por duplicados</item>

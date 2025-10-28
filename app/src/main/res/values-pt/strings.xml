@@ -364,6 +364,8 @@ Recursos dos jogos.</string>
     <string name="appcleaner_filter_recyclebins_summary">Ficheiros que foram apagados mas colocados numa pasta especial para permitir restaurá-los.</string>
     <string name="appcleaner_filter_webview_label">Arquivos do Webview</string>
     <string name="appcleaner_filter_webview_summary">Arquivos armazenados na cache pelo webview dentro de apps.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Ícones do atalho</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Ícones em cache para atalhos de aplicativos e menús de partilha.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Backups do WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Apague cópias extras de backups do WhatsApp e mantenha apenas as mais recentes.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Ficheiros recebidos de pessoas via WhatsApp.</string>
@@ -437,7 +439,7 @@ Recursos dos jogos.</string>
     <string name="deduplicator_detection_method_checksum_title">Verificação do conteúdo</string>
     <string name="deduplicator_detection_method_checksum_summary">Encontre duplicados calculando as verificações de ficheiros. Arquivos com valores de verificação correspondentes têm exatamente o mesmo conteúdo.</string>
     <string name="deduplicator_detection_method_phash_title">Hash perceptual</string>
-    <string name="deduplicator_detection_method_phash_summary">Encontre ficheiros semelhantes analisando recursos de conteúdo e comparando valores hash perceptuais.</string>
+    <string name="deduplicator_detection_method_phash_summary">Encontre arquivos similares, analisando recursos de conteúdo e comparando valores hash perceptuais. ⚠️ Detecção baseada em similaridade pode incluir falsos positivos que requerem verificação manual.</string>
     <string name="deduplicator_occupied_space_label">Armazenamento Ocupado</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s está ocupado por duplicados </item>

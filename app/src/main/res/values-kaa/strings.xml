@@ -370,7 +370,6 @@
     <string name="deduplicator_detection_method_checksum_title">Mazmun tekseriw jıyındısı</string>
     <string name="deduplicator_detection_method_checksum_summary">Fayllar ushın tekseriw jıyındıların esaplaw arqalı dublikatlardı anıqlaw. Sáykes tekseriw jıyındısına iye fayllar tap sol mazmunǵa iye.</string>
     <string name="deduplicator_detection_method_phash_title">Qabıllaw xeshi</string>
-    <string name="deduplicator_detection_method_phash_summary">Mazmun ózgesheliklerın analiz qılıp hám qabıllaw xesh máánislerin salıstırıw arqalı uqsas fayllarıdı tabıw.</string>
     <string name="deduplicator_occupied_space_label">Bándelgen saqlawsh</string>
     <string name="deduplicator_file_size_label">Fayl kólemi</string>
     <string name="deduplicator_average_size_label">Ortasha kólem</string>

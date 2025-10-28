@@ -464,7 +464,6 @@
     <string name="deduplicator_detection_method_checksum_title">Кантрольная сума зместу</string>
     <string name="deduplicator_detection_method_checksum_summary">Вызначэнне дублікатаў шляхам разліку кантрольных сум для файлаў. Файлы з супадаючымі кантрольнымі сумамі маюць аднолькавы змест.</string>
     <string name="deduplicator_detection_method_phash_title">Падобныя ўласцівасці</string>
-    <string name="deduplicator_detection_method_phash_summary">Пошук падобных файлаў з дапамогай аналізу асаблівасцей і параўнання ўнікальных уласцівасцяў зместу.</string>
     <string name="deduplicator_occupied_space_label">Занятае сховішча</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s занята дублікатамі</item>

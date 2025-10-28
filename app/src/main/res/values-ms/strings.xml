@@ -405,7 +405,6 @@
     <string name="deduplicator_detection_method_checksum_title">Checksum kandungan</string>
     <string name="deduplicator_detection_method_checksum_summary">Tentukan pendua dengan mengira checksum untuk fail. Fail dengan checksum yang sepadan mempunyai kandungan yang sama persis.</string>
     <string name="deduplicator_detection_method_phash_title">Hash persepsi</string>
-    <string name="deduplicator_detection_method_phash_summary">Cari fail serupa dengan menganalisis ciri kandungan dan membandingkan nilai hash persepsi.</string>
     <string name="deduplicator_occupied_space_label">Storan yang digunakan</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s diduduki oleh pendua</item>

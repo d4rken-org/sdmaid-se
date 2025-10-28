@@ -421,7 +421,6 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="deduplicator_detection_method_checksum_title">Checksum (verifica) del contenuto</string>
     <string name="deduplicator_detection_method_checksum_summary">Determina i duplicati calcolando il checksum dei file. I file con checksum corrispondenti hanno lo stesso identico contenuto.</string>
     <string name="deduplicator_detection_method_phash_title">Hash percettivo</string>
-    <string name="deduplicator_detection_method_phash_summary">Trova file simili analizzando le caratteristiche del contenuto e confrontando i valori degli hash percettivi.</string>
     <string name="deduplicator_occupied_space_label">Spazio occupato</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s è occupato da duplicati</item>

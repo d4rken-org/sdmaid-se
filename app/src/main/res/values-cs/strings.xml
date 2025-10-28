@@ -381,6 +381,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Soubory, které byly smazány, ale i vloženy do speciální složky, aby je bylo možné znovu obnovit.</string>
     <string name="appcleaner_filter_webview_label">Soubory WebView</string>
     <string name="appcleaner_filter_webview_summary">Soubory ukládané do mezipaměti instancemi WebView použité v aplikacích.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Ikony zkratek aplikací</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Ikony v mezipaměti pro zkratky aplikací a menu sdílení.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Zálohy WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Smažte další kopie záloh aplikace WhatsApp a ponechte si pouze nejnovější.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Soubory, které jste obdrželi od osob prostřednictvím aplikace WhatsApp.</string>
@@ -464,7 +466,7 @@
     <string name="deduplicator_detection_method_checksum_title">Kontrolní součet obsahu</string>
     <string name="deduplicator_detection_method_checksum_summary">Určení duplikátů pomocí výpočtu kontrolních součtů souborů. Soubory se shodnými kontrolními součty mají naprosto stejný obsah.</string>
     <string name="deduplicator_detection_method_phash_title">Percepční hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Vyhledávání podobných souborů pomocí analýzy vlastností obsahu a porovnávání percepčních hodnot hash.</string>
+    <string name="deduplicator_detection_method_phash_summary">Vyhledat podobné soubory analýzou obsahu funkcí a porovnáním hodnot percepčního hašování. ⚠️ Detekce na základě podobnosti může zahrnovat falešně pozitivní výsledky vyžadující ruční ověření.</string>
     <string name="deduplicator_occupied_space_label">Obsazené úložiště</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">Obsazeno duplikáty je %s</item>

@@ -381,6 +381,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Pliki, które zostały usunięte, ale przeniesione do specjalnego folderu, aby można je było przywrócić.</string>
     <string name="appcleaner_filter_webview_label">Pliki Webview</string>
     <string name="appcleaner_filter_webview_summary">Pliki buforowane przez instancje Webview używane w aplikacjach.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Ikony skrótu aplikacji</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Podręczne ikony dla skrótów aplikacji i menu udostępniania.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Kopie zapasowe WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Usuń dodatkowe kopie zapasowe WhatsApp i zachowaj tylko najnowszą.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Pliki otrzymane od innych osób za pośrednictwem aplikacji WhatsApp.</string>
@@ -464,7 +466,7 @@
     <string name="deduplicator_detection_method_checksum_title">Suma kontrolna zawartości</string>
     <string name="deduplicator_detection_method_checksum_summary">Określ duplikaty, obliczając sumy kontrolne dla plików. Pliki z pasującymi sumami kontrolnymi mają dokładnie taką samą zawartość.</string>
     <string name="deduplicator_detection_method_phash_title">Percepcyjny hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Znajdź podobne pliki analizując funkcje zawartości i porównując percepcyjne wartości hash.</string>
+    <string name="deduplicator_detection_method_phash_summary">Znajdź podobne pliki analizując funkcje zawartości i porównując percepcyjne wartości haszujące⚠️ Podobne wykrywanie może zawierać fałszywe pozytywne elementy wymagające ręcznej weryfikacji.</string>
     <string name="deduplicator_occupied_space_label">Zajęta pamięć</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s jest zajęty przez duplikaty</item>

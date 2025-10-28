@@ -431,7 +431,6 @@
     <string name="deduplicator_detection_method_checksum_title">Контролна сума садржаја</string>
     <string name="deduplicator_detection_method_checksum_summary">Одреди дупликате израчунавањем контролних сума за датотеке. Датотеке са поклапајућим контролним сумама имају потпуно исти садржај.</string>
     <string name="deduplicator_detection_method_phash_title">Перцептуални хеш</string>
-    <string name="deduplicator_detection_method_phash_summary">Пронађи сличне датотеке анализирањем карактеристика садржаја и поређењем перцептуалних хеш вредности.</string>
     <string name="deduplicator_occupied_space_label">Заузето складиште</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s је заузет дупликатима</item>

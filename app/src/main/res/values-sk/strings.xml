@@ -13,6 +13,10 @@
     <string name="debug_debuglog_record_action">Zaznamenajte denník ladenia</string>
     <string name="debug_debuglog_stop_action">Ukončiť nahrávanie</string>
     <string name="debug_debuglog_sensitive_information_message">Vygenerovaný súbor obsahuje citlivé informácie (napr. názvy súborov a nainštalované aplikácie). Zdieľajte ho iba s dôveryhodnými stranami.</string>
+    <string name="debug_debuglog_screen_title">Režim ladenia</string>
+    <string name="debug_debuglog_screen_discard_action">Zahodiť</string>
+    <string name="debug_debuglog_screen_session_path_label">Cesta relácie</string>
+    <string name="debug_debuglog_screen_log_files_label">Log súbory</string>
     <string name="settings_debuglog_explanation">Táto funkcia zaznamenáva všetko, čo aplikácia robí, do zdieľaného súboru. Vygenerovaný súbor obsahuje citlivé informácie (napr. názvy súborov a nainštalované aplikácie). Zdieľajte ho iba s dôveryhodnými stranami (napr. vývojár, ktorý rieši problém).</string>
     <string name="tasks_activity_notification_channel_label">Aktívne úlohy</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
@@ -88,6 +92,12 @@
     <string name="discord_description">Miesto, kde sa môžete stretnúť a klásť otázky.</string>
     <string name="changelog_label">Zoznam zmien</string>
     <string name="settings_acknowledgements_label">Poďakovanie</string>
+    <string name="settings_acknowledgements_category_translations_title">Preklady</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Kto to prekladal?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Vďaka</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Špeciálne poďakovanie patrí našim priateľom.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licencie</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Softvér používaný SD Maid.</string>
     <string name="setup_label">Nastavenie</string>
     <string name="setup_incomplete_card_title">Nastavenie je neúplné</string>
     <string name="setup_incomplete_card_body">Ak chcete dosiahnuť lepšie výsledky, dokončite nastavenie služby SD Maid.</string>
@@ -198,6 +208,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Súkromné údaje aplikácie, napr. prihlasovacie údaje, nastavenia aplikácie, ale aj vyrovnávaciu pamäť prehliadača.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
     <string name="corpsefinder_filter_dalvik_summary">Údaje o spustení aplikácie vo vyrovnávacej pamäti.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profily</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Profily ART používa systém Android na optimalizáciu výkonu aplikácií.</string>
     <string name="corpsefinder_filter_applib_label">Knižnice aplikácie</string>
     <string name="corpsefinder_filter_applib_summary">Údaje knižnice súvisiace s aplikáciou.</string>
     <string name="corpsefinder_filter_appsource_label">Zdroje aplikácií</string>
@@ -446,7 +458,6 @@
     <string name="deduplicator_detection_method_checksum_title">Kontrolný súčet obsahu</string>
     <string name="deduplicator_detection_method_checksum_summary">Určte duplikáty výpočtom kontrolných súčtov pre súbory. Súbory so zodpovedajúcimi kontrolnými súčtami majú presne rovnaký obsah.</string>
     <string name="deduplicator_detection_method_phash_title">Percepčný hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Nájdite podobné súbory analýzou funkcií obsahu a porovnaním hodnôt hash vnímania.</string>
     <string name="deduplicator_occupied_space_label">Obsadené úložisko</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s je obsadené duplikátmi</item>
@@ -487,6 +498,7 @@
     <string name="appcontrol_app_launch_title">Spustiť aplikáciu</string>
     <string name="appcontrol_app_launch_description">Spustite hlavnú aktivitu tejto aplikácie.</string>
     <string name="appcontrol_app_forcestop_title">Vynútiť zastavenie</string>
+    <string name="appcontrol_app_forcestop_description">Zastavte aplikáciu. Zabráňte jej samovoľnému spusteniu, kým ju neotvoríte alebo kým sa zariadenie nereštartuje.</string>
     <string name="appcontrol_app_uninstall_description">Odinštalujte túto aplikáciu zo svojho zariadenia.</string>
     <string name="appcontrol_app_exclude_add_title">Vylúčiť aplikáciu</string>
     <string name="appcontrol_app_exclude_add_description">Vylúčte túto aplikáciu z iných operácií v SD Maid.</string>
@@ -540,8 +552,11 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Získajte hrubý odhad veľkosti každej aplikácie.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Určiť aktivitu</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Zistite, či je aplikácia (alebo nedávno bola) aktívna.</string>
+    <string name="appcontrol_include_multiuser_label">Zahrnúť ďalších používateľov</string>
+    <string name="appcontrol_include_multiuser_summary">Zahrnúť aplikácie z iných používateľských profilov na tomto zariadení.</string>
     <string name="appcontrol_export_app_selection_action">Exportovať aplikácie</string>
     <string name="appcontrol_export_title">Exportovať aplikáciu</string>
+    <string name="appcontrol_export_description">Uložte inštalačné súbory tejto aplikácie. Nezahŕňa to údaje aplikácie.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplikácia bola exportovaná</item>
         <item quantity="few">%d aplikácie boli exportované</item>
@@ -571,6 +586,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Pokúšam sa potvrdiť predchádzajúcu akciu (kľúčové slová: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Čas obrazovky: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Naposledy aktualizované: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Nainštalované: %s</string>
     <string name="analyzer_tool_name">Analyzátor úložiska</string>
     <string name="analyzer_explanation_short">Zistite, čo zaberá miesto na vašom zariadení.</string>
     <string name="analyzer_progress_scanning_device">Vyhľadávanie úložných zariadení</string>
@@ -728,6 +744,9 @@
     <string name="review_app_review_action">Ohodnotiť</string>
     <string name="review_app_dismiss_action">Možno pozdejšie</string>
     <string name="review_app_body">Chceli by ste zanechať recenziu SD Maid?️ ❤️</string>
+    <string name="anniversary_card_title">Šťastné výročie SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">S vami od %s</string>
+    <string name="anniversary_share_title">Zdieľajte svoje výročie s SD Maid</string>
     <string name="stats_label">História</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s bol uvoľnený.</item>
@@ -776,4 +795,11 @@
     <string name="area_type_public_obb_label">Verejné zdroje aplikácií</string>
     <string name="area_type_private_data_label">Súkromné údaje aplikácií</string>
     <string name="area_type_portable_label">Prenosné úložisko</string>
+    <string name="shortcut_appcontrol_short">Kontrola aplikácií</string>
+    <string name="shortcut_appcontrol_long">Správa nainštalovaných aplikácií</string>
+    <string name="shortcut_onetap_short">Skenovať + Odstrániť</string>
+    <string name="shortcut_onetap_long">Skenujte a odstráňte v jednej akcii</string>
+    <string name="shortcuts_settings_category">Skratky</string>
+    <string name="shortcuts_onetap_enabled_title">Skratka jedným klepnutím</string>
+    <string name="shortcuts_onetap_enabled_summary">Zobraziť skratku „Skenovať + Odstrániť“ pri dlhom stlačení ikony aplikácie. Používa rovnaké nástroje ako ovládací panel s jedným klepnutím.</string>
 </resources>

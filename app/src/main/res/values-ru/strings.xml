@@ -381,6 +381,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Файлы, которые были удалены, но помещены в специальную папку, чтобы их можно было восстановить.</string>
     <string name="appcleaner_filter_webview_label">Файлы Webview</string>
     <string name="appcleaner_filter_webview_summary">Файлы кэша Webview, используемые в приложениях.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Значки ярлыков приложений</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Кэшированные значки ярлыков приложений и меню \"Поделиться\".</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Резервные копии WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Удаление лишних резервных копий WhatsAp и сохранение только последней.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Файлы, которые Вы получили от пользователей через WhatsApp.</string>
@@ -464,7 +466,7 @@
     <string name="deduplicator_detection_method_checksum_title">Контрольная сумма содержимого</string>
     <string name="deduplicator_detection_method_checksum_summary">Выявлять дубликаты вычислением контрольной суммы файлов. Файлы с одинаковой контрольной суммой идентичны по содержимому.</string>
     <string name="deduplicator_detection_method_phash_title">Похожее содержимое</string>
-    <string name="deduplicator_detection_method_phash_summary">Поиск похожих файлов путем анализа и сравнения уникальных свойств содержимого.</string>
+    <string name="deduplicator_detection_method_phash_summary">Поиск похожих файлов посредством анализа свойств содержимого и сравнения значений хэша. ⚠️ Обнаружение на основе схожести может включать неверные позиции, требующие ручной проверки.</string>
     <string name="deduplicator_occupied_space_label">Используемая память</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">Дубликатами занято: %s</item>

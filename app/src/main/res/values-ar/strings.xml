@@ -16,6 +16,15 @@
     <string name="debug_debuglog_screen_title">سجل التصحيح</string>
     <string name="debug_debuglog_screen_discard_action">تجاهل</string>
     <string name="debug_debuglog_screen_session_path_label">مسار الجلسه</string>
+    <string name="debug_debuglog_screen_log_files_label">ملفات السجلّ</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="zero">%1$d ملف جاهز (%2$s)</item>
+        <item quantity="one">ملف جاهز (%2$s)</item>
+        <item quantity="two">ملفان جاهزان (%2$s)</item>
+        <item quantity="few">%1$d ملفات جاهزة (%2$s)</item>
+        <item quantity="many">%1$d ملف جاهز (%2$s)</item>
+        <item quantity="other">%1$d ملف جاهز (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">تسجل هذه الميزة كل ما يفعله التطبيق في ملف قابل للمشاركة. يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل أسماء الملفات والتطبيقات المثبتة). شاركها فقط مع أطراف موثوقة (على سبيل المثال ، مطور يقوم باستكشاف مشكلة ما).</string>
     <string name="tasks_activity_notification_channel_label">المهام النشطة</string>
     <string name="tasks_activity_working_notification_title">SD Maid يعمل</string>
@@ -95,6 +104,12 @@
     <string name="discord_description">مكان للتسكع وطرح الأسئلة.</string>
     <string name="changelog_label">سجل التغييرات</string>
     <string name="settings_acknowledgements_label">شكر وتقدير</string>
+    <string name="settings_acknowledgements_category_translations_title">الترجمات</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">من ترجم هذا؟</string>
+    <string name="settings_acknowledgements_category_thanks_title">شكرًا</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">شكر خاص لأصدقائنا.</string>
+    <string name="settings_acknowledgements_category_licenses_title">التراخيص</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">البرمجيات المستخدمة من قبل SD Maid.</string>
     <string name="setup_label">الإعداد</string>
     <string name="setup_incomplete_card_title">الإعداد غير مكتمل</string>
     <string name="setup_incomplete_card_body">أكمل إعداد SD Maid للحصول على نتائج جيدة.</string>
@@ -209,6 +224,8 @@
     <string name="corpsefinder_filter_privatedata_summary">بيانات التطبيق الخاص ، على سبيل المثال بيانات الاعتماد وإعدادات التطبيق وأيضًا ذاكرة التخزين المؤقت للمتصفح.</string>
     <string name="corpsefinder_filter_dalvik_label">مخبأ Dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">بيانات تنفيذ التطبيق المخزنة مؤقتًا.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ملفات تعريف الـ ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">يتم استخدام ملفات تعريف الـ ART من قبل أندرويد لتحسين أداء التطبيق.</string>
     <string name="corpsefinder_filter_applib_label">مكتبات التطبيقات</string>
     <string name="corpsefinder_filter_applib_summary">بيانات المكتبة ذات الصلة بالتطبيق.</string>
     <string name="corpsefinder_filter_appsource_label">موارد التطبيق</string>
@@ -382,6 +399,8 @@
     <string name="appcleaner_filter_recyclebins_summary">الملفات التي تم حذفها ولكن تم وضعها في مجلد خاص للسماح باستعادتها.</string>
     <string name="appcleaner_filter_webview_label">ملفات عارض الويب</string>
     <string name="appcleaner_filter_webview_summary">الملفات المخزنة مؤقتًا بواسطة مثيلات عرض الويب المستخدمة داخل التطبيقات.</string>
+    <string name="appcleaner_filter_shortcutservice_label">أيقونات اختصار التطبيق</string>
+    <string name="appcleaner_filter_shortcutservice_summary">الرموز المخزنة مؤقتاً لاختصارات التطبيق وقوائم المشاركة.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">نسخ وأتساب الاحتياطية</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">احذف النسخ الإضافية من نسخ WhatsApp الاحتياطية واحتفظ بالأحدث فقط.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">الملفات التي تلقيتها من أي شخص عبر WhatsApp.</string>
@@ -475,7 +494,7 @@
     <string name="deduplicator_detection_method_checksum_title">مجموع اختبار المحتوى</string>
     <string name="deduplicator_detection_method_checksum_summary">تحديد التكرارات عن طريق حساب مقادير الاختبار للملفات. الملفات مع مقاييس الاختبار المطابقة لها نفس المحتوى بالضبط.</string>
     <string name="deduplicator_detection_method_phash_title">التجزئة المفهومة</string>
-    <string name="deduplicator_detection_method_phash_summary">العثور على ملفات مماثلة عن طريق تحليل ميزات المحتوى ومقارنة قيم التجزئة الإدراكية.</string>
+    <string name="deduplicator_detection_method_phash_summary">البحث عن ملفات مشابهة عن طريق تحليل ميزات المحتوى ومقارنة قيم التجزئة الإدراكية. ⚠️ قد يتضمن الكشف القائم على المماثلة إيجابيات خاطئة تتطلب التحقق اليدوي.</string>
     <string name="deduplicator_occupied_space_label">المساحة المستخدمة</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="zero">%s مشغولة بالنسخ المكررة</item>
@@ -520,6 +539,7 @@
     <string name="appcontrol_app_launch_title">تشغيل التطبيق</string>
     <string name="appcontrol_app_launch_description">تشغيل النشاط الأساسي لهذا التطبيق.</string>
     <string name="appcontrol_app_forcestop_title">إيقاف إجباري</string>
+    <string name="appcontrol_app_forcestop_description">أوقف التطبيق. امنعه من البدء حتى تقوم بفتحه أو إعادة تشغيل الجهاز.</string>
     <string name="appcontrol_app_uninstall_description">إلغاء تثبيت هذا التطبيق من جهازك.</string>
     <string name="appcontrol_app_exclude_add_title">استبعاد التطبيق</string>
     <string name="appcontrol_app_exclude_add_description">استبعاد هذا التطبيق من العمليات الأخرى في SD Maid.</string>
@@ -583,6 +603,7 @@
     <string name="appcontrol_include_multiuser_summary">قم بتضمين تطبيقات من ملفات تعريف المستخدمين الأخرى على هذا الجهاز.</string>
     <string name="appcontrol_export_app_selection_action">تصدير التطبيقات</string>
     <string name="appcontrol_export_title">تصدير التطبيق</string>
+    <string name="appcontrol_export_description">حفظ ملفات التثبيت لهذا التطبيق. هذا لا يتضمن بيانات التطبيق.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="zero">تم تصدير %d من التطبيقات</item>
         <item quantity="one">تم تصدير %d تطبيق</item>
@@ -618,6 +639,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">محاولة لتأكيد الإجراء السابق (الكلمات الرئيسية: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">وقت الشاشة: %1$s منذ %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">آخر تحديث: %s</string>
+    <string name="appcontrol_item_installedat_x_label">مثبت في: %s</string>
     <string name="analyzer_tool_name">محلل التخزين</string>
     <string name="analyzer_explanation_short">اكتشف ما الذي يأخذ مساحة على جهازك.</string>
     <string name="analyzer_progress_scanning_device">البحث عن أجهزة تخزين</string>
@@ -783,6 +805,8 @@
     <string name="review_app_review_action">مراجعة</string>
     <string name="review_app_dismiss_action">ربما لاحقًا</string>
     <string name="review_app_body">هل ترغب في ترك تعليق لـ SD Med؟ ❤️</string>
+    <string name="anniversary_card_title">ذكرى الذاكرة SD السعيدة ❤️</string>
+    <string name="anniversary_card_install_date">معك منذ %s</string>
     <string name="stats_label">السجل</string>
     <plurals name="stats_dash_body_size">
         <item quantity="zero">تم تحرير %s.</item>
@@ -839,4 +863,11 @@
     <string name="area_type_public_obb_label">موارد التطبيقات العامة</string>
     <string name="area_type_private_data_label">بيانات التطبيق الخاص</string>
     <string name="area_type_portable_label">وحدة تخزين محمولة</string>
+    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_long">أدر التطبيقات المثبتة</string>
+    <string name="shortcut_onetap_short">فحص + حذف</string>
+    <string name="shortcut_onetap_long">فحص وحذف في إجراء واحد</string>
+    <string name="shortcuts_settings_category">الاختصارات</string>
+    <string name="shortcuts_onetap_enabled_title">اختصار بنقرة واحدة</string>
+    <string name="shortcuts_onetap_enabled_summary">أظهر الاختصار \"فحص + حذف\" عند الضغط المطول على أيقونة التطبيق. يستخدم نفس الأدوات مثل لوحة التحكم بنقرة واحدة.</string>
 </resources>

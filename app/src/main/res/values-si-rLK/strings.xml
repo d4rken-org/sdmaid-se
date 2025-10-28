@@ -384,7 +384,6 @@
     <string name="deduplicator_detection_method_checksum_title">අන්තර්ගත මගොස්තන</string>
     <string name="deduplicator_detection_method_checksum_summary">ගොනු සඳහා මගොස්තන ගණනය කිරීමෙන් බහුපත නිර්ණය කරන්න. සමාන මගොස්තන හෛය ගොනුවල නිවැරදිව එකම අන්තර්ගතය හැදේ.</string>
     <string name="deduplicator_detection_method_phash_title">ඇන්දරිය හැශ්</string>
-    <string name="deduplicator_detection_method_phash_summary">අන්තර්ගත විශේෂාංග විශ්ලේෂණය කිරීමෙන් සහ ඇන්දරිය හැශ් මූල්‍ය සංබන්ධනය කිරීමෙන් සමාන ගොනු සොයා ගන්න.</string>
     <string name="deduplicator_occupied_space_label">අවවන් න් ඇත ආචයනය</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s බහුපත විසින් අවවන් න් වෙ</item>

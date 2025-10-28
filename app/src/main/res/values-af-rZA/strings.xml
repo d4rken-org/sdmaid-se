@@ -405,7 +405,6 @@
     <string name="deduplicator_detection_method_checksum_title">Inhoud checksum</string>
     <string name="deduplicator_detection_method_checksum_summary">Bepaal duplikate deur checksums vir lêers te bereken. Lêers met passende checksums het presies dieselfde inhoud.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptuele hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Vind soortgelyke lêers deur inhoud kenmerke te analiseer en perceptuele hash waardes te vergelyk.</string>
     <string name="deduplicator_occupied_space_label">Besette berging</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s word deur duplikate beset</item>
