@@ -355,7 +355,6 @@
     <string name="deduplicator_detection_method_checksum_title">விஷய செக்சம்</string>
     <string name="deduplicator_detection_method_checksum_summary">கோப்புகளுக்கான செக்சம்களை கணக்கீடு செய்வதன் மூலம் நகல்களை நிர்ணயிக்கவும். பொருந்தும் செக்சம்களை கொண்ட கோப்புகள் சரியான அதே விஷயத்தை கொண்டிருக்கும்.</string>
     <string name="deduplicator_detection_method_phash_title">உணர்வு ஹாஷ்</string>
-    <string name="deduplicator_detection_method_phash_summary">விஷய அம்சங்களை பகுத்தறிந்து மற்றும் உணர்வு ஹாஷ் மதிப்புகளை ஒப்பிடுவதன் மூலம் ஒத்த கோப்புகளைக் கண்டுபிடிக்கவும்.</string>
     <string name="deduplicator_occupied_space_label">ஆக்ரமிக்கப்பட்ட சேமிப்பு</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s நகல்களால் ஆக்ரமிக்கப்பட்டுள்ளது</item>

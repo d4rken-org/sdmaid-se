@@ -379,7 +379,6 @@
     <string name="deduplicator_detection_method_checksum_title">Məzmun checksumu</string>
     <string name="deduplicator_detection_method_checksum_summary">Fayllar üçün checksumları hesablayaraq dublikatları müəyyən et. Uyğun checksumları olan fayllar eyni məzmuna sahibdir.</string>
     <string name="deduplicator_detection_method_phash_title">Qavrayış hash-ı</string>
-    <string name="deduplicator_detection_method_phash_summary">Məzmun xüsusiyyətlərini təhlil edərək və qavrayış hash dəyərlərini müqayisə edərək oxşar faylları tapın.</string>
     <string name="deduplicator_occupied_space_label">Tutulan yaddaş</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s dublikatlar tərəfindən tutulub</item>

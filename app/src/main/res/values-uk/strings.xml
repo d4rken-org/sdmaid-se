@@ -458,7 +458,6 @@
     <string name="deduplicator_detection_method_checksum_title">Контрольна сума вмісту</string>
     <string name="deduplicator_detection_method_checksum_summary">Визначте дублікати, обчисливши контрольні суми для файлів. Файли з однаковими контрольними сумами мають однаковий вміст.</string>
     <string name="deduplicator_detection_method_phash_title">Хеш сприйняття</string>
-    <string name="deduplicator_detection_method_phash_summary">Знаходьте схожі файли, аналізуючи особливості контенту та порівнюючи значення хеш-функції сприйняття.</string>
     <string name="deduplicator_occupied_space_label">Зайняте сховище</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s зайнято дублікатами</item>

@@ -10,7 +10,7 @@
     <string name="debug_notification_channel_label">Obvestila o razhroščevanju</string>
     <string name="debug_debuglog_file_label">Posneta datoteka dnevnika</string>
     <string name="debug_debuglog_recording_progress">Snemanje dnevnika razhroščevanja</string>
-    <string name="debug_debuglog_record_action">Posneti dnevnik razhroščevanja</string>
+    <string name="debug_debuglog_record_action">Posnemi dnevnik razhroščevanja</string>
     <string name="debug_debuglog_stop_action">Ustavi snemanje</string>
     <string name="debug_debuglog_sensitive_information_message">Ustvarjena datoteka vsebuje občutljive podatke (npr. imena datotek in nameščene programe).  Posredujte jo samo osebam, ki jim zaupate.</string>
     <string name="debug_debuglog_screen_title">Razhroščevalni dnevnik</string>
@@ -381,6 +381,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Izbrisane datoteke, ki so bile premaknjene v posebno mapo, iz katere se lahko obnovijo.</string>
     <string name="appcleaner_filter_webview_label">Datoteke Webview</string>
     <string name="appcleaner_filter_webview_summary">Predpomnjene datoteke primerkov programa Webview, ki jih uporabljajo znotraj drugih programov.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Ikone bližnjice programov</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Predpomnjene ikone bližnjic programov in meniji za deljenje.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Varnostne kopije WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Izbrišite odvečne varnostne kopije WhatsApp in obdržite samo zadnjo.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Datoteke, ki ste jih prejeli od oseb preko WhatsAppa.</string>
@@ -464,7 +466,6 @@
     <string name="deduplicator_detection_method_checksum_title">Nadzorna vsota vsebine</string>
     <string name="deduplicator_detection_method_checksum_summary">Zaznaj dvojnike z izračunom nadzornih vsot datotek.  Datoteke, katerih nadzorne vsote se ujemajo, imajo enako vsebino.</string>
     <string name="deduplicator_detection_method_phash_title">Zaznavno razpršilo</string>
-    <string name="deduplicator_detection_method_phash_summary">Poiščite podobne datoteke s preučevanjem značilnosti vsebin in primerjanjem vrednosti njihovih zaznavnih razpršil.</string>
     <string name="deduplicator_occupied_space_label">Zaseden prostor</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s zasedajo dvojniki.</item>

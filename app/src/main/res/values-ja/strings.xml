@@ -407,7 +407,6 @@
     <string name="deduplicator_detection_method_checksum_title">コンテンツのチェックサム</string>
     <string name="deduplicator_detection_method_checksum_summary">ファイルのチェックサムを計算することで重複を決定します。チェックサムに一致するファイルは全く同じ内容を持ちます。</string>
     <string name="deduplicator_detection_method_phash_title">概念ハッシュ</string>
-    <string name="deduplicator_detection_method_phash_summary">コンテンツの特徴を分析し、知覚ハッシュ値を比較することによって、類似したファイルを見つけます。</string>
     <string name="deduplicator_occupied_space_label">占拠されたストレージ</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%sが重複により占有されています</item>

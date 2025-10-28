@@ -407,7 +407,6 @@
     <string name="deduplicator_detection_method_checksum_title">Checksum de cuntentu</string>
     <string name="deduplicator_detection_method_checksum_summary">Determinare duplicados calculende checksums pro documentos. Documentos cun checksums chi currispondent tenent su stessu cuntentu isatu.</string>
     <string name="deduplicator_detection_method_phash_title">Hash percettivu</string>
-    <string name="deduplicator_detection_method_phash_summary">Agatare documentos similares analizende is caraterìsticas de cuntentu e cumparende valores de hash percettivos.</string>
     <string name="deduplicator_occupied_space_label">Archìviu ocupadu</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s est ocupadu dae duplicados</item>

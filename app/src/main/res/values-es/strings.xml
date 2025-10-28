@@ -363,6 +363,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Archivos que se han eliminado pero se han colocado en una carpeta especial para permitir restaurarlos.</string>
     <string name="appcleaner_filter_webview_label">Archivos de Webview</string>
     <string name="appcleaner_filter_webview_summary">Archivos almacenados en la caché por las instancias de Webview utilizadas en las aplicaciones.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Iconos de acceso a las aplicaciones</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Íconos en la caché para los accesos directos a las aplicaciones y a los menús para compartir.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Copias de seguridad de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Elimine las copias adicionales de las copias de seguridad de WhatsApp y conserve solo la más reciente.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Archivos que has recibido de otras personas por WhatsApp.</string>
@@ -436,7 +438,7 @@
     <string name="deduplicator_detection_method_checksum_title">Suma de comprobación del contenido</string>
     <string name="deduplicator_detection_method_checksum_summary">Determina los duplicados calculando las sumas de verificación para los archivos. Los archivos con las sumas de comprobación coincidentes tienen exactamente el mismo contenido.</string>
     <string name="deduplicator_detection_method_phash_title">Hash perceptual</string>
-    <string name="deduplicator_detection_method_phash_summary">Encuentra los archivos similares analizando las características del contenido y comparando los valores hash perceptuales.</string>
+    <string name="deduplicator_detection_method_phash_summary">Encuentra archivos similares analizando el contenido y comparando los valores hash perceptuales. ⚠️ La detección basada en similitudes puede incluir falsos positivos que requieran una verificación manual.</string>
     <string name="deduplicator_occupied_space_label">Almacenamiento ocupado</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s está ocupado por duplicados</item>

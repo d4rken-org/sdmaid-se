@@ -363,6 +363,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Filer som har blitt slettet, men lagt i en spesiell mappe slik at de kan gjenopprettes.</string>
     <string name="appcleaner_filter_webview_label">Webview-filer</string>
     <string name="appcleaner_filter_webview_summary">Filer bufret av Webview-forekomster brukt i apper.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Ikoner for app-snarvei</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Bufrede ikoner for app-snarveier og delingsmenyer.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp sikkerhetskopier</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Slett ekstra kopier av WhatsApp sikkerhetskopier og kun behold de nyeste.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Filer mottatt fra personer i WhatsApp.</string>
@@ -436,7 +438,7 @@
     <string name="deduplicator_detection_method_checksum_title">Sjekksum i innhold</string>
     <string name="deduplicator_detection_method_checksum_summary">Bestem duplikater ved å beregne sjekksummer for filer. Filer med samsvarende sjekksum har nøyaktig samme innhold.</string>
     <string name="deduplicator_detection_method_phash_title">Perseptuell hasj</string>
-    <string name="deduplicator_detection_method_phash_summary">Finn lignende filer ved å analysere innholdselementer og sammenligne perseptuelle hash-verdier.</string>
+    <string name="deduplicator_detection_method_phash_summary">Finn lignende filer ved å analysere innholdsfunksjoner og sammenligne perseptuelle hashverdier. ⚠️ Likhetsbasert deteksjon kan inkludere falske positiver som krever manuell verifisering.</string>
     <string name="deduplicator_occupied_space_label">Brukt lagringsplass</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s er brukt av duplikater</item>

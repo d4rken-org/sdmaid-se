@@ -436,7 +436,6 @@
     <string name="deduplicator_detection_method_checksum_title">Inhaltsprüfsumme</string>
     <string name="deduplicator_detection_method_checksum_summary">Ermittele Duplikate durch die Berechnung von Prüfsummen für Dateien. Dateien mit übereinstimmenden Prüfsummen haben genau den gleichen Inhalt.</string>
     <string name="deduplicator_detection_method_phash_title">Wahrnehmungshash</string>
-    <string name="deduplicator_detection_method_phash_summary">Finde ähnliche Dateien, indem Inhaltsmerkmale analysiert und wahrnehmungsbezogene Hash-Werte verglichen werden.</string>
     <string name="deduplicator_occupied_space_label">Belegter Speicher</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ist von Duplikaten belegt</item>

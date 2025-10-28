@@ -317,7 +317,6 @@
     <string name="deduplicator_detection_method_label">पत्ता लगाउने विधि</string>
     <string name="deduplicator_detection_method_checksum_title">सामग्री checksum</string>
     <string name="deduplicator_detection_method_checksum_summary">फाइलहरूका लागि checksum गणना गरेर डुप्लिकेटहरू पत्ता लगाउनुहोस्। मिल्दो checksum भएका फाइलहरूमा एकदमै उस्तै सामग्री हुन्छ।</string>
-    <string name="deduplicator_detection_method_phash_summary">सामग्री सुविधाहरूको विश्लेषण गरेर र perceptual hash मानहरू तुलना गरेर समान फाइलहरू फेला पार्नुहोस्।</string>
     <string name="deduplicator_occupied_space_label">कब्जा गरिएको भण्डारण</string>
     <string name="deduplicator_file_size_label">फाइल साइज</string>
     <string name="deduplicator_average_size_label">औसत साइज</string>

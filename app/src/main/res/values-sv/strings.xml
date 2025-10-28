@@ -418,7 +418,6 @@
     <string name="deduplicator_detection_method_checksum_title">Innehållskontrollsumma</string>
     <string name="deduplicator_detection_method_checksum_summary">Bestäm dubbletter genom att beräkna kontrollsummor för filer. Filer med matchande kontrollsummor har exakt samma innehåll.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptuell hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Hitta liknande filer genom att analysera innehållsfunktioner och jämföra perceptuella hashvärden.</string>
     <string name="deduplicator_occupied_space_label">Upptagen lagring</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s upptas av dubbletter</item>

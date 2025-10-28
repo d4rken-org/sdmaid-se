@@ -414,7 +414,6 @@
     <string name="deduplicator_detection_method_checksum_title">ବିଷୟବସ୍ତୁ ଚେକସମ</string>
     <string name="deduplicator_detection_method_checksum_summary">ଫାଇଲଗୁଡ଼ିକ ପାଇଁ ଚେକସମ୍ ଗଣନା କରି ନକଲ ନିର୍ଣ୍ଣୟ କରନ୍ତୁ। ମେଳ ଖାଉଥିବା ଚେକସମ୍ ଥିବା ଫାଇଲଗୁଡ଼ିକର ଏକେ ସମାନ ବିଷୟବସ୍ତୁ ରହିଛି।</string>
     <string name="deduplicator_detection_method_phash_title">ପର୍ସେପଚୁଆଲ ହ୍ୟାସ୍</string>
-    <string name="deduplicator_detection_method_phash_summary">ବିଷୟବସ୍ତୁ ଗୁଣଧର୍ମ ବିଶ୍ଳେଷଣ କରି ଏବଂ ପର୍ସେପଚୁଆଲ ହ୍ୟାସ୍ ମୂଲ୍ୟଗୁଡ଼ିକ ତୁଳନା କରି ସମାନ ଫାଇଲଗୁଡ଼ିକ ଖୋଜନ୍ତୁ।</string>
     <string name="deduplicator_occupied_space_label">ଅଧିକୃତ ଷ୍ଟୋରେଜ୍</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ନକଲ ଦ୍ୱାରା ଦଖଲ ହୋଇଛି</item>

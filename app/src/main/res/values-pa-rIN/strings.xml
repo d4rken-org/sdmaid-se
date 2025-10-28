@@ -410,7 +410,6 @@
     <string name="deduplicator_detection_method_checksum_title">ਸਮੱਗਰੀ ਚੈਕਸਮ</string>
     <string name="deduplicator_detection_method_checksum_summary">ਫਾਈਲਾਂ ਲਈ ਚੈਕਸਮ ਗਿਣਤੀ ਕਰਕੇ ਡੁਪਲੀਕੇਟ ਨਿਰਧਾਰਤ ਕਰੋ। ਮੇਲ ਖਾਂਦੇ ਚੈਕਸਮ ਵਾਲੀਆਂ ਫਾਈਲਾਂ ਵਿੱਚ ਬਿਲਕੁਲ ਇੱਕੋ ਜਿਹੀ ਸਮੱਗਰੀ ਹੁੰਦੀ ਹੈ।</string>
     <string name="deduplicator_detection_method_phash_title">ਅਨੁਭਵੀ ਹੈਸ਼</string>
-    <string name="deduplicator_detection_method_phash_summary">ਸਮੱਗਰੀ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਕਰਕੇ ਅਤੇ ਅਨੁਭਵੀ ਹੈਸ਼ ਮੁੱਲਾਂ ਦੀ ਤੁਲਨਾ ਕਰਕੇ ਸਮਾਨ ਫਾਈਲਾਂ ਲੱਭੋ।</string>
     <string name="deduplicator_occupied_space_label">ਵਰਤੀ ਗਈ ਸਟੋਰੇਜ</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ਡੁਪਲੀਕੇਟਸ ਦੁਆਰਾ ਲਿਆ ਗਿਆ ਹੈ</item>

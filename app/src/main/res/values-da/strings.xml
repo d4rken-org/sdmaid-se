@@ -92,6 +92,11 @@
     <string name="discord_description">Et sted at hænge ud og stille spørgsmål.</string>
     <string name="changelog_label">Ændringslog</string>
     <string name="settings_acknowledgements_label">Anerkendelser</string>
+    <string name="settings_acknowledgements_category_translations_title">Oversættelser</string>
+    <string name="settings_acknowledgements_category_thanks_title">Tak</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Særlig tak til vores venner.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licenser</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Software brugt af SD Maid.</string>
     <string name="setup_label">Opsætning</string>
     <string name="setup_incomplete_card_title">Opsætning er ufærdig</string>
     <string name="setup_incomplete_card_body">Fuldfør SD Maid\'s opsætning for bedre resultater.</string>
@@ -198,6 +203,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Private app-data, f.eks. legitimationsoplysninger, app-indstillinger, men også browser-cacher.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik-cache</string>
     <string name="corpsefinder_filter_dalvik_summary">Cachelagrede data om app-kørsel.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profiler</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART-profiler bruges af Android til at optimere appens ydeevne.</string>
     <string name="corpsefinder_filter_applib_label">App-biblioteker</string>
     <string name="corpsefinder_filter_applib_summary">App-relaterede biblioteksdata.</string>
     <string name="corpsefinder_filter_appsource_label">App-kilder</string>
@@ -428,7 +435,6 @@
     <string name="deduplicator_detection_method_checksum_title">Indholdskontrolsum</string>
     <string name="deduplicator_detection_method_checksum_summary">Find duplikater ved at beregne kontrolsummer for filer. Filer med ens kontrolsum har nøjagtigt det samme indhold.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptuel hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Find lignende filer ved at analysere indholdsdetaljer og sammenligne perceptuelle hashværdier.</string>
     <string name="deduplicator_occupied_space_label">Optaget lagerplads</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s er optaget af duplikater</item>
@@ -465,6 +471,7 @@
     <string name="appcontrol_app_launch_title">Start app</string>
     <string name="appcontrol_app_launch_description">Start denne apps primære aktivitet.</string>
     <string name="appcontrol_app_forcestop_title">Gennemtving stop</string>
+    <string name="appcontrol_app_forcestop_description">Stopper appen. Forhindrer den i at starte af sig selv, indtil du åbner den eller enheden genstartes.</string>
     <string name="appcontrol_app_uninstall_description">Afinstaller denne app fra din enhed.</string>
     <string name="appcontrol_app_exclude_add_title">Ekskluder app</string>
     <string name="appcontrol_app_exclude_add_description">Ekskluder denne app fra andre operationer i SD Maid.</string>
@@ -516,6 +523,7 @@
     <string name="appcontrol_include_multiuser_summary">Inkluder apps fra andre brugerprofiler på denne enhed.</string>
     <string name="appcontrol_export_app_selection_action">Eksportér apps</string>
     <string name="appcontrol_export_title">Eksportér app</string>
+    <string name="appcontrol_export_description">Gem denne apps installationsfiler. Dette omfatter ikke appdata.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d app blev eksporteret</item>
         <item quantity="other">%d apps blev eksporteret</item>
@@ -539,6 +547,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Forsøger at bekræfte tidligere handling (søgeord: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Skærmtid: %1$s siden %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Sidst opdateret: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Installeret: %s</string>
     <string name="analyzer_tool_name">Lageranalyse</string>
     <string name="analyzer_explanation_short">Find ud af, hvad der optager plads på din enhed.</string>
     <string name="analyzer_progress_scanning_device">Søger efter lagerenheder</string>
@@ -688,6 +697,8 @@
     <string name="review_app_review_action">Bedøm</string>
     <string name="review_app_dismiss_action">Måske senere</string>
     <string name="review_app_body">Har du lyst til at give SD Maid en anmeldelse? ❤️</string>
+    <string name="anniversary_card_title">Glædelig SD Maid Jubilæum ❤️</string>
+    <string name="anniversary_card_install_date">Med dig siden %s</string>
     <string name="stats_label">Historik</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s er blevet frigjort.</item>
@@ -728,4 +739,9 @@
     <string name="area_type_public_obb_label">Offentlige app-ressourcer</string>
     <string name="area_type_private_data_label">Private app-data</string>
     <string name="area_type_portable_label">Flytbart lager</string>
+    <string name="shortcut_appcontrol_short">App-kontrol</string>
+    <string name="shortcut_appcontrol_long">Håndtér installerede apps</string>
+    <string name="shortcut_onetap_short">Scan + Slet</string>
+    <string name="shortcut_onetap_long">Scan og slet i én handling</string>
+    <string name="shortcuts_settings_category">Genveje</string>
 </resources>

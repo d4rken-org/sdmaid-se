@@ -420,7 +420,6 @@
     <string name="deduplicator_detection_method_checksum_title">Shuma e kontrollit të përmbajtjes</string>
     <string name="deduplicator_detection_method_checksum_summary">Përcaktoni dublikatat duke llogaritur shumat e kontrollit për skedarët. Skedarët me shuma kontrolli që përputhen kanë të njëjtën përmbajtje.</string>
     <string name="deduplicator_detection_method_phash_title">Hash perceptues</string>
-    <string name="deduplicator_detection_method_phash_summary">Gjeni skedarë të ngjashëm duke analizuar veçoritë e përmbajtjes dhe duke krahasuar vlerat perceptuese hash.</string>
     <string name="deduplicator_occupied_space_label">Magazina e zënë</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s është zënë nga dublikata</item>

@@ -13,6 +13,8 @@
     <string name="debug_debuglog_record_action">記錄偵錯記錄</string>
     <string name="debug_debuglog_stop_action">停止記錄</string>
     <string name="debug_debuglog_sensitive_information_message">產生的檔案包含敏感資訊 (例如檔案名稱和已安裝的應用程式)，請僅將它分享至受信任的對象。</string>
+    <string name="debug_debuglog_screen_title">偵錯日誌</string>
+    <string name="debug_debuglog_screen_log_files_label">日誌檔</string>
     <string name="settings_debuglog_explanation">此功能將應用程式正在執行的所有操作記錄到可分享檔案中。 產生的檔案包含敏感資訊(例如檔案名稱和已安裝的應用程式)。 僅與可信任方分享(例如解決問題的開發人員)。</string>
     <string name="tasks_activity_notification_channel_label">進行中的工作</string>
     <string name="tasks_activity_working_notification_title">SD 女僕正在運作</string>
@@ -82,6 +84,9 @@
     <string name="discord_description">一個可以在其中閒逛並提出問題的地方。</string>
     <string name="changelog_label">變更記錄</string>
     <string name="settings_acknowledgements_label">特別感謝</string>
+    <string name="settings_acknowledgements_category_translations_title">翻譯</string>
+    <string name="settings_acknowledgements_category_thanks_title">感謝</string>
+    <string name="settings_acknowledgements_category_licenses_title">授權</string>
     <string name="setup_label">安裝程式</string>
     <string name="setup_incomplete_card_title">設定未完成</string>
     <string name="setup_incomplete_card_body">完成 SD 女僕的設定以取得更佳的結果。</string>
@@ -407,7 +412,6 @@
     <string name="deduplicator_detection_method_checksum_title">內容總和檢查碼</string>
     <string name="deduplicator_detection_method_checksum_summary">透過計算檔案的總和檢查碼來確定重複項目，總和檢查碼相符的檔案具有完全相同的內容。</string>
     <string name="deduplicator_detection_method_phash_title">感知雜湊</string>
-    <string name="deduplicator_detection_method_phash_summary">透過分析內容特徵並比較感知雜湊值來尋找相似檔案。</string>
     <string name="deduplicator_occupied_space_label">佔用儲存空間</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s 被重複項目佔用</item>
@@ -486,6 +490,7 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">粗略估計每個應用程式的大小</string>
     <string name="appcontrol_settings_module_activity_enabled_label">確認活動</string>
     <string name="appcontrol_settings_module_activity_enabled_description">查找活動（或最近活動）的應用程式</string>
+    <string name="appcontrol_include_multiuser_label">包含其他使用者</string>
     <string name="appcontrol_include_multiuser_summary">包含此裝置上其他使用者設定檔的應用程式。</string>
     <string name="appcontrol_export_app_selection_action">匯出應用程式</string>
     <string name="appcontrol_export_title">匯出應用程式</string>
@@ -509,6 +514,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">嘗試確認先前的動作（關鍵詞：%s）</string>
     <string name="appcontrol_item_screentime_x_since_y_label">螢幕時間：%1$s，自從 %2$s 起</string>
     <string name="appcontrol_item_lastupdate_x_label">最後更新：%s</string>
+    <string name="appcontrol_item_installedat_x_label">安裝於：%s</string>
     <string name="analyzer_tool_name">儲存分析器</string>
     <string name="analyzer_explanation_short">找出哪些檔案佔用您的裝置空間。</string>
     <string name="analyzer_progress_scanning_device">正在搜尋儲存裝置</string>
@@ -654,6 +660,7 @@
     <string name="review_app_review_action">評論</string>
     <string name="review_app_dismiss_action">稍後再說</string>
     <string name="review_app_body">您想為 SD Maid 留下評論嗎？❤️</string>
+    <string name="anniversary_card_title">SD Maid 週年快樂❤️</string>
     <string name="stats_label">歷史記錄</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">%s 已被釋放。</item>
@@ -690,4 +697,11 @@
     <string name="area_type_public_obb_label">公共應用程式資源</string>
     <string name="area_type_private_data_label">私人應用程式資料</string>
     <string name="area_type_portable_label">可攜式儲存空間</string>
+    <string name="shortcut_appcontrol_short">程式控制</string>
+    <string name="shortcut_appcontrol_long">管理已安裝的程式</string>
+    <string name="shortcut_onetap_short">掃描 + 刪除</string>
+    <string name="shortcut_onetap_long">一鍵掃描並刪除</string>
+    <string name="shortcuts_settings_category">捷徑</string>
+    <string name="shortcuts_onetap_enabled_title">一鍵捷徑</string>
+    <string name="shortcuts_onetap_enabled_summary">長按應用程式圖示時顯示「掃描 + 刪除」捷徑。使用與一鍵式儀表板相同的工具。</string>
 </resources>

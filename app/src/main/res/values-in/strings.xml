@@ -354,6 +354,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Berkas yang telah dihapus namun disimpan di folder khusus agar bisa dipulihkan.</string>
     <string name="appcleaner_filter_webview_label">Berkas webview</string>
     <string name="appcleaner_filter_webview_summary">Berkas yang di-cache oleh WebView yang digunakan dalam aplikasi.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Ikon pintasan aplikasi</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Cache Ikon untuk pintasan aplikasi dan menu bagikan.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Cadangan WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Hapus salinan ekstra dari cadangan WhatsApp dan hanya terbaru yang disimpan.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Berkas yang Anda diterima dari orang via WhatsApp.</string>
@@ -422,7 +424,7 @@
     <string name="deduplicator_detection_method_checksum_title">Checksum konten</string>
     <string name="deduplicator_detection_method_checksum_summary">Tentukan duplikat dengan menghitung checksum untuk file. File dengan checksum yang cocok memiliki konten yang persis sama.</string>
     <string name="deduplicator_detection_method_phash_title">Hash persepsual</string>
-    <string name="deduplicator_detection_method_phash_summary">Temukan file serupa dengan menganalisis fitur konten dan membandingkan nilai hash perseptual.</string>
+    <string name="deduplicator_detection_method_phash_summary">Temukan berkas serupa dengan menganalisis fitur konten dan membandingkan nilai hash perseptual. ⚠️ Deteksi berbasis kesamaan dapat mencakup positif palsu yang memerlukan verifikasi manual.</string>
     <string name="deduplicator_occupied_space_label">Penyimpanan terpakai</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s ditempati oleh duplikat</item>

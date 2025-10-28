@@ -420,7 +420,6 @@
     <string name="deduplicator_detection_method_checksum_title">Tartalom ellenőrző összeg</string>
     <string name="deduplicator_detection_method_checksum_summary">Duplikátumok meghatározása a fájlok ellenőrző összegének kiszámításával. Az egyező ellenőrzőösszegű fájlok tartalma pontosan megegyezik.</string>
     <string name="deduplicator_detection_method_phash_title">Hasonló hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Hasonló fájlok keresése a tartalmi jellemzők elemzésével és az érzékelési hash-értékek összehasonlításával.</string>
     <string name="deduplicator_occupied_space_label">Foglalt tároló</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s duplikátummal elfoglalva</item>

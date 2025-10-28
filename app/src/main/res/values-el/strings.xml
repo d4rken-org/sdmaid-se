@@ -363,6 +363,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Αρχεία που έχουν διαγραφεί αλλά έχουν τεθεί σε ειδικό φάκελο για να επιτραπεί η επαναφορά τους.</string>
     <string name="appcleaner_filter_webview_label">Αρχεία Webview</string>
     <string name="appcleaner_filter_webview_summary">Αρχεία που αποθηκεύονται προσωρινά από παρουσίες Webview που χρησιμοποιούνται σε εφαρμογές.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Εικονίδια συντόμευσης εφαρμογής</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Προσωρινά αποθηκευμένα εικονίδια για συντομεύσεις εφαρμογών και μενού κοινής χρήσης.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Αντίγραφα ασφαλείας του WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Διαγράψτε επιπλέον αντίγραφα των αντιγράφων ασφαλείας του WhatsApp και διατηρήστε μόνο τα πιο πρόσφατα.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Αρχεία που λάβατε από άτομα μέσω του WhatsApp.</string>
@@ -436,7 +438,7 @@
     <string name="deduplicator_detection_method_checksum_title">Checksum περιεχομένου</string>
     <string name="deduplicator_detection_method_checksum_summary">Προσδιορισμός διπλότυπων υπολογίζοντας τα checksum των αρχείων. Τα αρχεία με ίσα checksums έχουν ακριβώς το ίδιο περιεχόμενο.</string>
     <string name="deduplicator_detection_method_phash_title">Ομοιότητες εικόνων</string>
-    <string name="deduplicator_detection_method_phash_summary">Βρείτε παρόμοια αρχεία αναλύοντας χαρακτηριστικά περιεχομένου και συγκρίνοντας τις ομοιότητες εικόνων.</string>
+    <string name="deduplicator_detection_method_phash_summary">Βρείτε παρόμοια αρχεία αναλύοντας χαρακτηριστικά περιεχομένου και συγκρίνοντας τιμές hash που βασίζονται στην αντίληψη. ⚠️ Η ανίχνευση βάσει ομοιότητας μπορεί να περιλαμβάνει ψευδώς θετικά αποτελέσματα που απαιτούν χειροκίνητη επαλήθευση.</string>
     <string name="deduplicator_occupied_space_label">Αποθηκευτικός χώρος που χρησιμοποιείται</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s καταλαμβάνεται από διπλότυπα</item>

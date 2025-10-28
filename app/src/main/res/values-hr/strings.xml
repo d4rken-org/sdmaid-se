@@ -450,7 +450,6 @@
     <string name="deduplicator_detection_method_checksum_title">Kontrolni zbroj sadržaja</string>
     <string name="deduplicator_detection_method_checksum_summary">Odredite duplikate izračunavanjem kontrolnih zbrojeva za datoteke. Datoteke s podudarajućim kontrolnim zbrojevima imaju potpuno isti sadržaj.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptualni hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Pronađite slične datoteke analizom značajki sadržaja i usporedbom perceptivnih hash vrijednosti.</string>
     <string name="deduplicator_occupied_space_label">Zauzeta pohrana</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s je zauzet duplikatima</item>

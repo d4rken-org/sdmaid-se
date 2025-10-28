@@ -13,6 +13,14 @@
     <string name="debug_debuglog_record_action">Hata ayıklama günlüğünü kaydet</string>
     <string name="debug_debuglog_stop_action">Kaydı durdur</string>
     <string name="debug_debuglog_sensitive_information_message">Oluşturulan dosya hassas bilgiler (dosya isimleri ve yüklü uygulamalar gibi) içermektedir. Sadece güvenilir taraflarla paylaşın.</string>
+    <string name="debug_debuglog_screen_title">Hata Ayıklama Günlüğü</string>
+    <string name="debug_debuglog_screen_discard_action">Yoksay</string>
+    <string name="debug_debuglog_screen_session_path_label">Oturum Yolu</string>
+    <string name="debug_debuglog_screen_log_files_label">Günlük Dosyaları</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d dosya hazır (%2$s)</item>
+        <item quantity="other">%1$d dosya hazır (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Bu özellik, uygulamanın yaptığı her şeyi paylaşılabilir bir dosyaya kaydeder. Oluşturulan dosya hassas bilgiler içerir (örn. dosya adları ve yüklü uygulamalar). Bunu yalnızca güvenilir taraflarla paylaşın (örneğin, bir sorunu gideren bir geliştirici).</string>
     <string name="tasks_activity_notification_channel_label">Etkin görevler</string>
     <string name="tasks_activity_working_notification_title">SD Maid şu an çalışıyor</string>
@@ -84,6 +92,12 @@
     <string name="discord_description">Vakit geçirip soru sorabileceğiniz bir yer.</string>
     <string name="changelog_label">Değişiklik günlüğü</string>
     <string name="settings_acknowledgements_label">Teşekkür Bölümü</string>
+    <string name="settings_acknowledgements_category_translations_title">Çeviriler</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Bunu kim çevirdi?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Teşekkürler</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Arkadaşlarımıza teşekkürler.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Lisanslar</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid tarafından kullanılan yazılım.</string>
     <string name="setup_label">Kur</string>
     <string name="setup_incomplete_card_title">Kurulum tamamlanmadı</string>
     <string name="setup_incomplete_card_body">Daha iyi sonuçlar almak için SD Maid kurulumunu tamamlayın.</string>
@@ -190,6 +204,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Özel uygulama verileri; kimlik doğrulama bilgileri, uygulama ayarları ve ayrıca tarayıcı önbelleği gibi.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik önbellek</string>
     <string name="corpsefinder_filter_dalvik_summary">Önbelleğe alınmış çalıştırma verileri.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profilleri</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART profilleri, Android tarafından uygulama performansını optimize etmek için kullanılır.</string>
     <string name="corpsefinder_filter_applib_label">Uygulama kütüphaneleri</string>
     <string name="corpsefinder_filter_applib_summary">Uygulama ile ilgili kütüphane verileri.</string>
     <string name="corpsefinder_filter_appsource_label">Uygulama kaynakları</string>
@@ -347,6 +363,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Silinen ancak geri yüklenebilmesi için özel bir klasöre konulan dosyalar.</string>
     <string name="appcleaner_filter_webview_label">Web görünümü dosyaları</string>
     <string name="appcleaner_filter_webview_summary">Herhangi bir uygulamada uygulama içi tarayıcı kullanılırken önbelleğe alınan dosyalardır.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Uygulama kısayol simgeleri</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Uygulama kısayolları ve paylaşım menüleri için önbelleğe alınmış simgeler.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp yedekleri</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">WhatsApp yedeklerinin fazladan kopyalarını silin ve yalnızca en yenisini saklayın.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp aracılığıyla herhangi bir kişiden aldığınız dosyalardır.</string>
@@ -420,7 +438,7 @@
     <string name="deduplicator_detection_method_checksum_title">İçerik sağlama toplamı</string>
     <string name="deduplicator_detection_method_checksum_summary">Dosyalar için sağlama toplamlarını hesaplayarak kopyaları belirleyin. Eşleşen sağlama toplamlarına sahip dosyalar tamamen aynı içeriğe sahiptir.</string>
     <string name="deduplicator_detection_method_phash_title">Algısal hash</string>
-    <string name="deduplicator_detection_method_phash_summary">İçerik özelliklerini analiz ederek ve algısal hash değerlerini karşılaştırarak benzer dosyaları bulun.</string>
+    <string name="deduplicator_detection_method_phash_summary">İçerik özelliklerini analiz ederek ve algısal karma değerleri karşılaştırarak benzer dosyaları bulun. ⚠️ Benzerlik tabanlı algılama, manuel doğrulama gerektiren yanlış pozitif sonuçlar içerebilir.</string>
     <string name="deduplicator_occupied_space_label">Kullanılan depolama</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s kopyalar tarafından işgal edilmiş</item>
@@ -457,6 +475,7 @@
     <string name="appcontrol_app_launch_title">Uygulamayı başlat</string>
     <string name="appcontrol_app_launch_description">Bu uygulamanın birincil etkinliğini başlat.</string>
     <string name="appcontrol_app_forcestop_title">Durdurmaya zorla</string>
+    <string name="appcontrol_app_forcestop_description">Uygulamayı durdurun. Siz açana kadar veya cihaz yeniden başlatılana kadar kendi kendine başlamasını engelleyin.</string>
     <string name="appcontrol_app_uninstall_description">Bu uygulamayı cihazınızdan kaldırın.</string>
     <string name="appcontrol_app_exclude_add_title">Uygulamayı hariç tut</string>
     <string name="appcontrol_app_exclude_add_description">Bu uygulamayı SD Maid\'deki diğer işlemlerden hariç tutun.</string>
@@ -504,8 +523,11 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Her uygulamanın boyutu hakkında kabaca bir tahminde bulunun.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Faaliyeti belirleyin</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Bir uygulamanın etkin olup olmadığını (veya yakın zamanda etkin olup olmadığını) öğrenin.</string>
+    <string name="appcontrol_include_multiuser_label">Diğer kullanıcıları dahil edin</string>
+    <string name="appcontrol_include_multiuser_summary">Bu cihazdaki diğer kullanıcı profillerinden uygulamaları dahil edin.</string>
     <string name="appcontrol_export_app_selection_action">Uygulamaları dışa aktarma</string>
     <string name="appcontrol_export_title">Uygulamayı dışa aktar</string>
+    <string name="appcontrol_export_description">Bu uygulamanın yükleme dosyalarını kaydedin. Bu, uygulama verilerini içermez.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d uygulama dışa aktarıldı</item>
         <item quantity="other">%d uygulama dışa aktarıldı</item>
@@ -529,6 +551,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Önceki eylem onaylanmaya çalışılıyor (anahtar kelimeler: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Ekran süresi: %2$s\'den beri %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Son güncelleme: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Yüklenme zamanı: %s</string>
     <string name="analyzer_tool_name">Depolama Analizcisi</string>
     <string name="analyzer_explanation_short">Cihazınızda neyin yer kapladığını öğrenin.</string>
     <string name="analyzer_progress_scanning_device">Depolama aygıtları aranıyor</string>
@@ -679,6 +702,17 @@
     <string name="review_app_review_action">Değerlendir</string>
     <string name="review_app_dismiss_action">Belki daha sonra</string>
     <string name="review_app_body">SD Maid\'e bir inceleme bırakmak ister misiniz? ️ ❤️</string>
+    <string name="anniversary_card_title">Mutlu SD Maid Yıldönümleri ❤️</string>
+    <string name="anniversary_card_install_date">%s\'den beri sizinle birlikte</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">%1$d yıldır birlikteyiz. Android cihazınızı temiz ve düzenli tutmak için SD Maid\'e güvendiğiniz için teşekkür ederiz. Boşaltılan alan: %2$s</item>
+        <item quantity="other">%1$d yıldır birlikteyiz. Android cihazınızı temiz ve düzenli tutmak için SD Maid\'e güvendiğiniz için teşekkür ederiz. Boşaltılan alan: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">SD Maid yıldönümünüzü paylaşın</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">SD Maid ile %1$d yıl — Boşaltılan alan: %2$s. Android cihazınızı temiz ve düzenli tutun. #SDMaid\nDeneyin: %3$s</item>
+        <item quantity="other">SD Maid ile %1$d yıl — Boşaltılan alan: %2$s. Android cihazınızı temiz ve düzenli tutun. #SDMaid\nDeneyin: %3$s</item>
+    </plurals>
     <string name="stats_label">Geçmiş</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s serbest bırakıldı.</item>
@@ -719,4 +753,11 @@
     <string name="area_type_public_obb_label">Genel uygulama kaynakları</string>
     <string name="area_type_private_data_label">Özel uygulama verileri</string>
     <string name="area_type_portable_label">Taşınabilir depolama</string>
+    <string name="shortcut_appcontrol_short">Uygulama Kontrolü</string>
+    <string name="shortcut_appcontrol_long">Yüklü uygulamaları yönet</string>
+    <string name="shortcut_onetap_short">Tara + Sil</string>
+    <string name="shortcut_onetap_long">Tek bir işlemle tarayın ve silin</string>
+    <string name="shortcuts_settings_category">Kısayollar</string>
+    <string name="shortcuts_onetap_enabled_title">Tek dokunuş kısayolu</string>
+    <string name="shortcuts_onetap_enabled_summary">Uygulama simgesine uzun basıldığında \"Tara + Sil\" kısayolunu gösterir. Tek dokunuşla kontrol paneliyle aynı araçları kullanır.</string>
 </resources>

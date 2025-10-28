@@ -363,6 +363,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Fichiers qui ont été supprimés et placés dans un dossier spécial afin de permettre de les restaurer.</string>
     <string name="appcleaner_filter_webview_label">Fichiers Webview</string>
     <string name="appcleaner_filter_webview_summary">Fichiers mis en cache par les instances WebView utilisées dans les applis.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Icônes des raccourcis d’appli</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Icônes mises en cache pour les raccourcis d’appli et les menus de partage.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Sauvegardes de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Supprimer les copies supplémentaires des sauvegardes de WhatsApp et ne garder que la plus récente.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Fichiers que vous avez reçus de personnes dans WhatsApp.</string>
@@ -436,7 +438,7 @@
     <string name="deduplicator_detection_method_checksum_title">Somme de contrôle du contenu</string>
     <string name="deduplicator_detection_method_checksum_summary">Déterminer les doublons en calculant les sommes de contrôle des fichiers. Le contenu des fichiers dont les sommes de contrôle correspondent est identique.</string>
     <string name="deduplicator_detection_method_phash_title">Hachage perceptuel</string>
-    <string name="deduplicator_detection_method_phash_summary">Trouver des fichiers semblables en analysant les caractéristiques de contenu et en comparant les valeurs du hachage perceptuel.</string>
+    <string name="deduplicator_detection_method_phash_summary">Trouvez des fichiers semblables en analysant les caractéristiques du contenu et en comparant les valeurs perceptuelles de hachage. ⚠️ La détection fondée sur la similitude peut comporter de faux positifs qui nécessitent une vérification manuelle.</string>
     <string name="deduplicator_occupied_space_label">Mémoire occupée</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s est occupé par des doublons</item>

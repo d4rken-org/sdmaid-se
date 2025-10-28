@@ -370,7 +370,6 @@
     <string name="deduplicator_skip_uncommon_description">Isama lang ang mga karaniwang media file, dokumento at archive.</string>
     <string name="deduplicator_detection_method_label">Paraan ng pagtukoy</string>
     <string name="deduplicator_detection_method_checksum_summary">Tukuyin ang mga duplicate sa pamamagitan ng pagkakalkula ng mga checksum para sa mga file. Ang mga file na may magkatugang checksum ay may eksaktong magkaparehong nilalaman.</string>
-    <string name="deduplicator_detection_method_phash_summary">Maghanap ng mga katulad na file sa pamamagitan ng pagsusuri sa mga tampok ng nilalaman at paghahambing ng mga perceptual hash values.</string>
     <string name="deduplicator_occupied_space_label">Ginamit na storage</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ay ginagamit ng mga duplicate</item>

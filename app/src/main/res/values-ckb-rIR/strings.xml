@@ -316,7 +316,6 @@
     <string name="deduplicator_skip_uncommon_description">Only include common media فایلs, documents and archives.</string>
     <string name="deduplicator_detection_method_checksum_title">ناوەڕۆک checksum</string>
     <string name="deduplicator_detection_method_checksum_summary">Determine duplicates by calculating checksums for files. فایلs with matching checksums have the exact same content.</string>
-    <string name="deduplicator_detection_method_phash_summary">Find similar فایلs by analyzing content features and comparing perceptual hash values.</string>
     <string name="deduplicator_file_size_label">فایل size</string>
     <string name="deduplicator_delete_confirmation_message">سڕینەوە all but one copy in all sets of duplicate files?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">سڕینەوە all but one copy in this set of duplicate files?</string>

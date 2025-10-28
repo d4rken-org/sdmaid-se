@@ -408,7 +408,6 @@
     <string name="deduplicator_detection_method_checksum_title">Контролна сума на съдържанието</string>
     <string name="deduplicator_detection_method_checksum_summary">Определяне на дубликати чрез изчисляване на контролни суми за файлове. Файлове със съвпадащи контролни суми имат точно същото съдържание.</string>
     <string name="deduplicator_detection_method_phash_title">Перцептуален хеш</string>
-    <string name="deduplicator_detection_method_phash_summary">Намиране на подобни файлове чрез анализиране на характеристики на съдържанието и сравняване на перцептуални хеш стойности.</string>
     <string name="deduplicator_occupied_space_label">Заето хранилище</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s е заето от дубликати</item>

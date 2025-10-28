@@ -409,7 +409,6 @@
     <string name="deduplicator_detection_method_checksum_title">కంటెంట్ చెక్‌సమ్</string>
     <string name="deduplicator_detection_method_checksum_summary">ఫైల్‌ల కోసం చెక్‌సమ్‌లను లెక్కించి డుప్లికేట్‌లను నిర్ణయించండి. సరిపోలిక చెక్‌సమ్‌ల ఉన్న ఫైల్‌లు సరియాగా అను కంటెంట్ ఉంటాయి.</string>
     <string name="deduplicator_detection_method_phash_title">పర్సెప్చుఅల్ హాష్</string>
-    <string name="deduplicator_detection_method_phash_summary">కంటెంట్ ఫీచర్‌లను విశ్లేషించి మరియు పర్సెప్చుఅల్ హాష్ విలువలను పోలుచదాం ద్వారా సమానమైన ఫైల్‌లను కనుగొనండి.</string>
     <string name="deduplicator_occupied_space_label">ఆక్రమించిన స్టోరేజీ</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s డుప్లికేట్‌లు ఆక్రమించాయి</item>

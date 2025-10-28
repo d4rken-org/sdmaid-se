@@ -428,7 +428,6 @@
     <string name="deduplicator_detection_method_checksum_title">محاسبه مجموع چکیده</string>
     <string name="deduplicator_detection_method_checksum_summary">تشخیص تکراری‌ها با محاسبه مجموع چکیده برای فایل‌ها. فایل‌هایی که مجموع چکیده یکسان دارند، محتوای دقیقا یکسانی دارند.</string>
     <string name="deduplicator_detection_method_phash_title">چکیده ادراکی</string>
-    <string name="deduplicator_detection_method_phash_summary">یافتن فایل‌های مشابه با تحلیل ویژگی‌های محتوا و مقایسه چکیده‌های ادراکی.</string>
     <string name="deduplicator_occupied_space_label">حافظه اشغال شده</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s توسط فایل‌های تکراری اشغال شده</item>
