@@ -5,8 +5,8 @@
 
     <string name="upgrade_feature_requires_pro">Requires SD Maid SE Pro</string>
 
-    <string name="upgrades_dashcard_title">Upgrade SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro offers better results, more features and options for power users.</string>
+    <string name="upgrades_dashcard_title">Upgrade SD Maid SE</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro offers better results, more features and options for power users.</string>
     <string name="upgrades_dashcard_upgrade_action">Upgrade</string>
 
     <string name="upgrades_gplay_unavailable_error_title">Google Play is unavailable</string>
