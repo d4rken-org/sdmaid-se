@@ -27,10 +27,13 @@ import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageStatsManager2
+import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.withTimeout
 import java.util.Locale
 import javax.inject.Inject
 import kotlin.math.ln
 import kotlin.math.pow
+import kotlin.time.Duration.Companion.seconds
 
 class StorageEntryFinder @Inject constructor(
     @ApplicationContext private val context: Context,
@@ -78,19 +81,33 @@ class StorageEntryFinder @Inject constructor(
             return null
         }
 
+        val start = System.currentTimeMillis()
+
         val stats1: StorageStats = try {
-            // OS uses queryStatsForPkg and NOT queryStatsForAppUid
-            // https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/packages/SettingsLib/SpaPrivileged/src/com/android/settingslib/spaprivileged/template/app/AppStorageSize.kt;l=51
-            statsManager.queryStatsForPkg(storageId, pkg)
+            // Query on larger apps, e.g. Amazon Prime Video exceeds 15 seconds on a samsung/gts9wifieea/gts9wifi:15/AP3A.240905.015.A2/X710XXS5CYG1:user/release-keys
+            // Default step time out is 30 seconds, so after failing the query we can continue still and try something else
+            withTimeout(20.seconds) {
+                // OS uses queryStatsForPkg and NOT queryStatsForAppUid
+                // https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/packages/SettingsLib/SpaPrivileged/src/com/android/settingslib/spaprivileged/template/app/AppStorageSize.kt;l=51
+                statsManager.queryStatsForPkg(storageId, pkg)
+            }
         } catch (e: SecurityException) {
             log(TAG, WARN) { "Don't have permission to query app size for ${pkg.id}: $e" }
+            return null
+        } catch (e: TimeoutCancellationException) {
+            log(TAG, WARN) { "queryStatsForPkg timed outwhen querying app size for ${pkg.id}: $e" }
             return null
         } catch (e: Exception) {
             log(TAG, ERROR) { "Unexpected error when querying app size for ${pkg.id}: ${e.asLog()}" }
             return null
         }
 
-        return stats1.appBytes + stats1.dataBytes
+        val combined = stats1.appBytes + stats1.dataBytes
+
+        val stop = System.currentTimeMillis() - start
+        log(TAG, VERBOSE) { "queryStatsForPkg($storageId,$pkg) after ${stop}ms: $combined" }
+
+        return combined
     }
 
     internal fun generateTargetTexts(targetSize: Long): Set<String> {
@@ -164,8 +181,7 @@ class StorageEntryFinder @Inject constructor(
         val matches = host.waitForWindowRoot().crawl()
             .map { it.node }
             .mapNotNull { node ->
-                val priority = storageFilter(node)
-                if (priority == null) return@mapNotNull null
+                val priority = storageFilter(node) ?: return@mapNotNull null
                 log(TAG, VERBOSE) { "Priority $priority: $node" }
                 node to priority
             }
