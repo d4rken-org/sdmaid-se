@@ -140,7 +140,7 @@ class OneUISpecs @Inject constructor(
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
 
-        val TAG: String = logTag("AppControl", "Automation", "Samsung", "Specs")
+        val TAG: String = logTag("AppControl", "Automation", "OneUI", "Specs")
     }
 
 }
