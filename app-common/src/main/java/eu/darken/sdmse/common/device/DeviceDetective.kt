@@ -4,9 +4,9 @@ import android.app.UiModeManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Configuration
-import android.os.Build
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -35,25 +35,25 @@ class DeviceDetective @Inject constructor(
     }
 
     private fun manufactor(name: String): Boolean {
-        return Build.MANUFACTURER.lowercase() == name.lowercase()
+        return BuildWrap.MANUFACTOR.lowercase() == name.lowercase()
     }
 
     private fun brand(name: String): Boolean {
-        return Build.BRAND?.lowercase() == name.lowercase()
+        return BuildWrap.BRAND?.lowercase() == name.lowercase()
     }
 
     private fun display(name: String): Boolean {
-        return Build.DISPLAY?.lowercase()?.contains(name.lowercase()) == true
+        return BuildWrap.DISPLAY?.lowercase()?.contains(name.lowercase()) == true
     }
 
     private fun product(name: String): Boolean {
-        return Build.PRODUCT?.lowercase()?.contains(name.lowercase()) == true
+        return BuildWrap.PRODUCT?.lowercase()?.contains(name.lowercase()) == true
     }
 
     private fun apps(pkgs: Set<String>) = pkgs.any { context.isInstalled(it) }
 
     private fun versionStarts(prints: Set<String>) = prints.any {
-        Build.VERSION.INCREMENTAL.startsWith(it)
+        BuildWrap.VERSION.INCREMENTAL.startsWith(it)
     }
 
     fun getROMType(): RomType = when {
