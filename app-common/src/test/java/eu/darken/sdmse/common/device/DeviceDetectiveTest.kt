@@ -628,4 +628,15 @@ class DeviceDetectiveTest : BaseTest() {
 
         detective.getROMType() shouldBe RomType.AOSP
     }
+
+    @Test
+    fun `detect HyperOS from fingerprint - POCO device`() {
+        val context = deviceFromFingerprint(
+            "POCO/miro_eea/miro:16/BP2A.250605.031.A3/OS3.0.3.0.WOMEUXM:user/release-keys",
+            installedPackages = setOf("com.miui.securitycenter")
+        )
+        detective = DeviceDetective(context)
+
+        detective.getROMType() shouldBe RomType.HYPEROS
+    }
 }
