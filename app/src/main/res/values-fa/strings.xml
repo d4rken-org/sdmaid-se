@@ -92,6 +92,12 @@
     <string name="discord_description">یک مکان برای وقت گذرانی و پرسش سوالات.</string>
     <string name="changelog_label">گزارش تغییرات</string>
     <string name="settings_acknowledgements_label">سپاسگزاری‌ها</string>
+    <string name="settings_acknowledgements_category_translations_title">ترجمه‌ها</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">کی اینو ترجمه کرده؟</string>
+    <string name="settings_acknowledgements_category_thanks_title">ممنون</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">تشکر ویژه از دوستانمان.</string>
+    <string name="settings_acknowledgements_category_licenses_title">مجوزها</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">نرم‌افزار مورد استفاده توسط خدمتکار SD.</string>
     <string name="setup_label">راه‌اندازی</string>
     <string name="setup_incomplete_card_title">راه‌اندازی کامل نیست</string>
     <string name="setup_incomplete_card_body">برای دریافت نتایج بهتر، راه‌اندازی SD Maid را تمام کنید.</string>
@@ -198,6 +204,8 @@
     <string name="corpsefinder_filter_privatedata_summary">داده‌های خصوصی برنامه، مانند اعتبارات، تنظیمات برنامه و همچنین کش مرورگر.</string>
     <string name="corpsefinder_filter_dalvik_label">حافظه پنهان دالویک</string>
     <string name="corpsefinder_filter_dalvik_summary">داده‌های اجرایی کش شده برنامه.</string>
+    <string name="corpsefinder_filter_artprofiles_label">پروفایل‌های زمان اجرای اندروید</string>
+    <string name="corpsefinder_filter_artprofiles_summary">پروفایل های زمان‌اجرا توسط اندروید برای بهینه‌سازی عملکرد برنامه استفاده می‌شوند.</string>
     <string name="corpsefinder_filter_applib_label">کتابخانه‌های برنامه</string>
     <string name="corpsefinder_filter_applib_summary">کتابخانه‌های مربوط به برنامه.</string>
     <string name="corpsefinder_filter_appsource_label">منابع برنامه</string>
@@ -355,6 +363,8 @@
     <string name="appcleaner_filter_recyclebins_summary">پرونده‌هایی که حذف شده‌اند اما در یک پوشه خاص قرار داده شده‌اند تا بتوان آن‌ها را بازیابی کرد.</string>
     <string name="appcleaner_filter_webview_label">فایل‌ها نمایش محتوای وب</string>
     <string name="appcleaner_filter_webview_summary">فایل‌های ذخیره شده توسط نمایش محتوای وب که در داخل برنامه‌ها استفاده می‌شوند.</string>
+    <string name="appcleaner_filter_shortcutservice_label">نمادهای میانبر برنامه</string>
+    <string name="appcleaner_filter_shortcutservice_summary">نمادهای ذخیره‌شده برای میانبرهای برنامه‌ها و منوهای اشتراک‌گذاری.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">پشتیبان‌گیری‌های واتساپ</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">نسخه‌های اضافی پشتیبان‌گیری‌های واتساپ را حذف کنید و تنها آخرین نسخه را نگه دارید.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">پرونده‌هایی که از طریق واتساپ از دیگران دریافت کرده‌اید.</string>
@@ -428,6 +438,7 @@
     <string name="deduplicator_detection_method_checksum_title">محاسبه مجموع چکیده</string>
     <string name="deduplicator_detection_method_checksum_summary">تشخیص تکراری‌ها با محاسبه مجموع چکیده برای فایل‌ها. فایل‌هایی که مجموع چکیده یکسان دارند، محتوای دقیقا یکسانی دارند.</string>
     <string name="deduplicator_detection_method_phash_title">چکیده ادراکی</string>
+    <string name="deduplicator_detection_method_phash_summary">با تجزیه و تحلیل ویژگی‌های محتوا و مقایسه مقادیر هش ادراکی، فایل‌های مشابه را پیدا کنید. ⚠️ تشخیص مبتنی بر شباهت ممکن است شامل موارد مثبت کاذب باشد که نیاز به تأیید دستی دارند.</string>
     <string name="deduplicator_occupied_space_label">حافظه اشغال شده</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s توسط فایل‌های تکراری اشغال شده</item>
@@ -464,6 +475,7 @@
     <string name="appcontrol_app_launch_title">اجرای برنامه</string>
     <string name="appcontrol_app_launch_description">فعالیت اصلی این برنامه را راه‌اندازی کنید.</string>
     <string name="appcontrol_app_forcestop_title">توقف اجباری</string>
+    <string name="appcontrol_app_forcestop_description">برنامه را متوقف کنید. از شروع خودکار آن تا زمانی که آن را باز کنید یا دستگاه را دوباره راه‌اندازی کنید، جلوگیری کنید.</string>
     <string name="appcontrol_app_uninstall_description">این برنامه را از دستگاه خود حذف نصب کنید.</string>
     <string name="appcontrol_app_exclude_add_title">استثناء کردن برنامه</string>
     <string name="appcontrol_app_exclude_add_description">این برنامه را از سایر عملیات در SD Maid استثنا کنید.</string>
@@ -515,6 +527,7 @@
     <string name="appcontrol_include_multiuser_summary">برنامه‌های موجود در نمایه‌های دیگر کاربران در این دستگاه را شامل کنید.</string>
     <string name="appcontrol_export_app_selection_action">صادرات برنامه‌ها</string>
     <string name="appcontrol_export_title">واردات برنامه‌ها</string>
+    <string name="appcontrol_export_description">فایل‌های نصب این برنامه را ذخیره کنید. این شامل داده‌های برنامه نمی‌شود.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d برنامه صادر شد</item>
         <item quantity="other">%d برنامه صادر شد</item>
@@ -538,6 +551,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">در حال تلاش برای تأیید عمل قبلی (کلید واژه‌ها: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">مدت زمان نمایش: %1$s از %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">آخرین به‌روزرسانی: %s</string>
+    <string name="appcontrol_item_installedat_x_label">نصب شده در: %s</string>
     <string name="analyzer_tool_name">آنالایزر ذخیره‌سازی</string>
     <string name="analyzer_explanation_short">برای پیدا کردن اینکه چه چیزی فضای دستگاه شما را اشغال کرده است.</string>
     <string name="analyzer_progress_scanning_device">جستجو برای دستگاه های ذخیره‌سازی</string>
@@ -687,6 +701,17 @@
     <string name="review_app_review_action">مرور</string>
     <string name="review_app_dismiss_action">شاید بعداً</string>
     <string name="review_app_body">آیا می خواهید نظری برای SD Maid بگذارید؟️ ❤️</string>
+    <string name="anniversary_card_title">سالگرد خدمتکار SD مبارک ❤️</string>
+    <string name="anniversary_card_install_date">با شما از %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">%1$d سال است که با هم هستیم. از اعتماد شما به خدمتکار SD برای تمیز و مرتب نگه داشتن اندرویدتان متشکریم. فضای آزاد شده: %2$s</item>
+        <item quantity="other">%1$d سال دوام آورده است. دستگاه شما با خدمتکار SD تمیز و مرتب می‌ماند. فضای آزاد شده: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">سالگرد خدمتکار SD خود را به اشتراک بگذارید</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d سال با خدمتکار SD — فضای آزاد شده: %2$s. اندروید شما را تمیز و مرتب نگه می‌دارد. #SDMaid\nامتحانش کنید: %3$s</item>
+        <item quantity="other">%1$d سال با خدمتکار SD — فضای آزاد شده: %2$s. اندروید شما را تمیز و مرتب نگه می‌دارد. #SDMaid\nامتحانش کنید: %3$s</item>
+    </plurals>
     <string name="stats_label">تاریخچه</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">مقدار %s آزاد شده است.</item>
@@ -727,4 +752,11 @@
     <string name="area_type_public_obb_label">منابع برنامه عمومی</string>
     <string name="area_type_private_data_label">اطلاعات خصوصی برنامه </string>
     <string name="area_type_portable_label">فضای ذخیره‌سازی قابل‌حمل</string>
+    <string name="shortcut_appcontrol_short">کنترل برنامه</string>
+    <string name="shortcut_appcontrol_long">مدیریت برنامه‌های نصبی</string>
+    <string name="shortcut_onetap_short">اسکن + حذف</string>
+    <string name="shortcut_onetap_long">اسکن و حذف یکجا</string>
+    <string name="shortcuts_settings_category">میانبر‌ها</string>
+    <string name="shortcuts_onetap_enabled_title">میانبر تک ضربه‌ای</string>
+    <string name="shortcuts_onetap_enabled_summary">نمایش میانبر «اسکن + حذف» هنگام لمس طولانی نماد برنامه. از همان ابزارهای داشبورد تک‌ضربه‌ای استفاده می‌کند.</string>
 </resources>

@@ -372,6 +372,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Datoteke koje su izbrisane, ali stavljene u posebnu mapu kako bi se mogle vratiti.</string>
     <string name="appcleaner_filter_webview_label">Webview datoteke</string>
     <string name="appcleaner_filter_webview_summary">Datoteke koje su predmemorirale instance Webviewa i koriste se unutar aplikacija.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Ikone prečaca aplikacija</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Predmemorirane ikone za prečace aplikacija i izbornike za dijeljenje.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Sigurnosne kopije WhatsAppa</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Izbrišite dodatne kopije sigurnosnih kopija WhatsAppa i zadržite samo najnovije.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Datoteke koje ste primili od osoba putem WhatsAppa.</string>
@@ -450,6 +452,7 @@
     <string name="deduplicator_detection_method_checksum_title">Kontrolni zbroj sadržaja</string>
     <string name="deduplicator_detection_method_checksum_summary">Odredite duplikate izračunavanjem kontrolnih zbrojeva za datoteke. Datoteke s podudarajućim kontrolnim zbrojevima imaju potpuno isti sadržaj.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptualni hash</string>
+    <string name="deduplicator_detection_method_phash_summary">Pronađite slične datoteke analizom značajki sadržaja i usporedbom perceptivnih hash vrijednosti. ⚠️ Detekcija na temelju sličnosti može uključivati ​​lažno pozitivne rezultate koji zahtijevaju ručnu provjeru.</string>
     <string name="deduplicator_occupied_space_label">Zauzeta pohrana</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s je zauzet duplikatima</item>

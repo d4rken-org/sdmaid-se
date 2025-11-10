@@ -466,7 +466,7 @@
     <string name="deduplicator_detection_method_checksum_title">Kontrolní součet obsahu</string>
     <string name="deduplicator_detection_method_checksum_summary">Určení duplikátů pomocí výpočtu kontrolních součtů souborů. Soubory se shodnými kontrolními součty mají naprosto stejný obsah.</string>
     <string name="deduplicator_detection_method_phash_title">Percepční hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Vyhledat podobné soubory analýzou obsahu funkcí a porovnáním hodnot percepčního hašování. ⚠️ Detekce na základě podobnosti může zahrnovat falešně pozitivní výsledky vyžadující ruční ověření.</string>
+    <string name="deduplicator_detection_method_phash_summary">Vyhledejte podobné soubory pomocí analýzy vlastností obsahu a porovnání hodnot percepčního hash. ⚠️ Detekce na základě podobnosti může zahrnovat falešné pozitivní výsledky, které vyžadují ruční ověření.</string>
     <string name="deduplicator_occupied_space_label">Obsazené úložiště</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">Obsazeno duplikáty je %s</item>

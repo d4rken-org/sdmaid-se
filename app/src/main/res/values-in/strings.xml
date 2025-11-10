@@ -13,14 +13,14 @@
     <string name="debug_debuglog_record_action">Rekam log debug</string>
     <string name="debug_debuglog_stop_action">Berhenti merekam</string>
     <string name="debug_debuglog_sensitive_information_message">File yang dihasilkan berisi informasi sensitif (misalnya nama file dan aplikasi yang diinstal). Hanya bagikan dengan pihak tepercaya.</string>
-    <string name="debug_debuglog_screen_title">Log Debug</string>
+    <string name="debug_debuglog_screen_title">Catatan debug</string>
     <string name="debug_debuglog_screen_discard_action">Buang</string>
     <string name="debug_debuglog_screen_session_path_label">Jalur sesi</string>
-    <string name="debug_debuglog_screen_log_files_label">Berkas log</string>
+    <string name="debug_debuglog_screen_log_files_label">Berkas catatan</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
         <item quantity="other">%1$d berkas siap (%2$s)</item>
     </plurals>
-    <string name="settings_debuglog_explanation">Fitur ini merekam semua yang dilakukan aplikasi ke dalam file yang dapat dibagikan. File yang dihasilkan berisi informasi sensitif (misalnya nama file dan aplikasi yang diinstal). Hanya bagikan dengan pihak terpercaya (misalnya pengembang yang sedang memecahkan masalah).</string>
+    <string name="settings_debuglog_explanation">Fitur ini mencatat semua aktivitas aplikasi ke dalam berkas yang dapat dibagikan. Berkas yang dihasilkan berisi informasi sensitif (misalnya nama berkas dan aplikasi yang terpasang). Bagikan hanya kepada pihak tepercaya (misalnya pengembang yang sedang memecahkan masalah).</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid bekerja</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,7 +40,7 @@
     <string name="onboarding_versus_body1">SD Maid SE (alias SD Maid 2) adalah penerus SD Maid (alias SD Maid 1). Sebuah aplikasi baru, yang dioptimalkan untuk versi Android terbaru.</string>
     <string name="onboarding_versus_body2">Arsitektur aplikasi sebelumnya sudah berumur lebih dari 7 tahun dan tidak didesain untuk menyelesaikan tantangan-tantangan pada generasi Android terkini. Desain ulang secara menyeluruh sangat dibutuhkan guna melanjutkan pengembangan aplikasi.</string>
     <string name="onboarding_versus_body3">Harap pindah ke SD Maid SE untuk mendapatkan hasil yang lebih baik.</string>
-    <string name="onboarding_versus_body4">Status \"pro\" SD Maid 1 sayangnya tidak dapat dipindah ke SD Maid 2/SE. Setelah 12 tahun update gratis, diperlukan pembelian baru untuk mendukung pengembangan aplikasi (membiayai developer).</string>
+    <string name="onboarding_versus_body4">Status \"pro\" SD Maid 1 sayangnya tidak dapat dipindahkan ke SD Maid 2/SE. Setelah 12 tahun pembaruan gratis, pembelian baru diperlukan untuk mendukung pengembangan (menghidupi pengembang).</string>
     <string name="onboarding_versus_continue_action">Lanjut</string>
     <string name="onboarding_privacy_title">Privasi</string>
     <string name="onboarding_privacy_body1">SD Maid tidak memiliki iklan dan tidak menjual data pengguna.</string>
@@ -103,8 +103,8 @@
     <string name="setup_incomplete_card_continue_action">Lanjutkan penyiapan</string>
     <string name="setup_title">Pengaturan</string>
     <string name="setup_forcedshow_summary">Tampilkan layar penyiapan lagi, termasuk item yang sudah selesai.</string>
-    <string name="setup_checking_card_body">Memverifikasi kesempurnaan dan ketergunaan penyiapan.</string>
-    <string name="general_error_setup_require_label">Penyiapan belum selesai</string>
+    <string name="setup_checking_card_body">Memverifikasi penyelesaian dan fungsionalitas penyiapan.</string>
+    <string name="general_error_setup_require_label">Penyiapan belum lengkap</string>
     <string name="general_error_setup_require_msg">Pengaturan lebih lanjut diperlukan untuk menggunakan fitur ini. Selesaikan langkah-langkah penyiapan selanjutnya.</string>
     <string name="setup_saf_card_title">Kerangka akses penyimpanan</string>
     <string name="setup_saf_card_body">Tingkatkan hasil dengan memberikan akses SD Maid ke area tambahan.</string>
