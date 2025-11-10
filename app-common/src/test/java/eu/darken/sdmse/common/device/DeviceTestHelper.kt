@@ -109,6 +109,7 @@ fun deviceFromFingerprint(
         13 -> 33
         14 -> 34
         15 -> 35
+        16 -> 36
         else -> androidVersion // Fallback for future versions
     }
 
