@@ -17,7 +17,9 @@ class StatsSettingsViewModel @Inject constructor(
 
     val state = statsRepo.state.map {
         State(
-            reportsCount = it.reportsCount
+            reportsCount = it.reportsCount,
+            totalSpaceFreed = it.totalSpaceFreed,
+            itemsProcessed = it.itemsProcessed,
         )
     }.asLiveData2()
 
@@ -28,6 +30,8 @@ class StatsSettingsViewModel @Inject constructor(
 
     data class State(
         val reportsCount: Int,
+        val totalSpaceFreed: Long,
+        val itemsProcessed: Long,
     )
 
     companion object {

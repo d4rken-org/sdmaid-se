@@ -76,6 +76,7 @@ import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
 import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.stats.core.StatsRepo
+import eu.darken.sdmse.stats.core.StatsSettings
 import eu.darken.sdmse.stats.ui.StatsDashCardVH
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
@@ -123,6 +124,7 @@ class DashboardViewModel @Inject constructor(
     private val reviewTool: ReviewTool,
     anniversaryProvider: AnniversaryProvider,
     statsRepo: StatsRepo,
+    private val statsSettings: StatsSettings,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     init {
@@ -425,7 +427,12 @@ class DashboardViewModel @Inject constructor(
     private val statsItem: Flow<StatsDashCardVH.Item?> = combine(
         statsRepo.state,
         upgradeInfo.map { it?.isPro ?: false },
-    ) { state, isPro ->
+        statsSettings.retentionReports.flow,
+        statsSettings.retentionPaths.flow,
+    ) { state, isPro, retentionReports, retentionPaths ->
+        // Hide card if both retention settings are 0
+        if (retentionReports == Duration.ZERO && retentionPaths == Duration.ZERO) return@combine null
+        // Also hide if there's no data
         if (state.isEmpty) return@combine null
         StatsDashCardVH.Item(
             state = state,

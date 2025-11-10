@@ -7,6 +7,13 @@
 
     </PreferenceCategory>
 
+    <Preference
+        app:icon="@drawable/ic_chartbox_24"
+        app:key="stats.view"
+        app:singleLineTitle="false"
+        app:summary="~"
+        app:title="@string/stats_label" />
+
     <PreferenceCategory android:title="@string/stats_settings_retention_category">
         <Preference
             app:icon="@drawable/chart_box_outline_24"
