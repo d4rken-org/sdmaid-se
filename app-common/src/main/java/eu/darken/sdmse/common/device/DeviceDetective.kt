@@ -140,6 +140,8 @@ class DeviceDetective @Inject constructor(
             "OS1",
             // Xiaomi/corot_global/corot:15/AP3A.240617.008/OS2.0.6.0.VMLMIXM:user/release-keys
             "OS2",
+            // POCO/miro_eea/miro:16/BP2A.250605.031.A3/OS3.0.3.0.WOMEUXM:user/release-keys
+            "OS3",
         )
         private val HYPEROS_PKGS = setOf(
             "com.miui.securitycenter"
