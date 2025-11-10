@@ -1,10 +1,12 @@
 package eu.darken.sdmse.main.ui.settings.support
 
 import android.os.Bundle
+import android.text.format.Formatter
 import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import androidx.preference.Preference
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
@@ -32,6 +34,7 @@ class SupportFragment : PreferenceFragment2() {
 
     private val installIdPref by lazy { findPreference<Preference>("support.installid")!! }
     private val debugLogPref by lazy { findPreference<Preference>("support.debuglog")!! }
+    private val debugLogFolderPref by lazy { findPreference<Preference>("support.debuglog.folder")!! }
 
     override fun onPreferencesCreated() {
         installIdPref.setOnPreferenceClickListener {
@@ -69,6 +72,37 @@ class SupportFragment : PreferenceFragment2() {
                 }
                 true
             }
+            debugLogFolderPref.isEnabled = !isRecording
+        }
+
+        vm.debugLogFolderStats.observe2(this) { stats ->
+            if (stats.fileCount == 0) {
+                debugLogFolderPref.summary = getString(R.string.support_debuglog_folder_empty_desc)
+            } else {
+                val formattedSize = Formatter.formatShortFileSize(requireContext(), stats.totalSizeBytes)
+                debugLogFolderPref.summary = getString(
+                    R.string.support_debuglog_folder_desc,
+                    stats.fileCount,
+                    formattedSize
+                )
+            }
+        }
+
+        debugLogFolderPref.setOnPreferenceClickListener {
+            val stats = vm.debugLogFolderStats.value ?: return@setOnPreferenceClickListener true
+            if (stats.fileCount == 0) {
+                Snackbar.make(requireView(), R.string.support_debuglog_folder_empty_desc, Snackbar.LENGTH_SHORT).show()
+            } else {
+                MaterialAlertDialogBuilder(requireContext()).apply {
+                    setTitle(R.string.support_debuglog_folder_delete_confirmation_title)
+                    setMessage(R.string.support_debuglog_folder_delete_confirmation_message)
+                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
+                        vm.deleteAllDebugLogs()
+                    }
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                }.show()
+            }
+            true
         }
 
         super.onViewCreated(view, savedInstanceState)
