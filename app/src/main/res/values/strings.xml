@@ -101,6 +101,11 @@
     <string name="support_installid_desc">Automatic error reports are anonymous. Share your install ID if the developer needs to find your error reports.</string>
     <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">Record everything the app is doing into a text file that you can share.</string>
+    <string name="support_debuglog_folder_label">Debug log folder</string>
+    <string name="support_debuglog_folder_desc">%1$d files using %2$s</string>
+    <string name="support_debuglog_folder_empty_desc">No debug logs stored</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Delete all debug logs?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">This will permanently delete all stored debug log sessions. This action cannot be undone.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">A place to hang out in and ask questions.</string>
 

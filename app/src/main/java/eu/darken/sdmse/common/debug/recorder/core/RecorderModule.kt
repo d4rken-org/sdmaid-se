@@ -55,7 +55,7 @@ class RecorderModule @Inject constructor(
     private val triggerFile by lazy {
         try {
             File(context.getExternalFilesDir(null), FORCE_FILE)
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             File(
                 Environment.getExternalStorageDirectory(),
                 "/Android/data/${BuildConfigWrap.APPLICATION_ID}/files/$FORCE_FILE"
@@ -134,7 +134,7 @@ class RecorderModule @Inject constructor(
         val logId = sdmId.id.take(4)
         var sessionDir: File? = null
 
-        File(File(context.externalCacheDir, "debug/logs"), "${pkg}_${version}_${timestamp}_$logId").apply {
+        File(File(context.getExternalFilesDir(null), "debug/logs"), "${pkg}_${version}_${timestamp}_$logId").apply {
             @Suppress("SetWorldWritable", "SetWorldReadable")
             if (mkdirs()) {
                 log(TAG) { "Public session dir created" }
@@ -173,6 +173,20 @@ class RecorderModule @Inject constructor(
         }
         internalState.flow.filter { !it.isRecording }.first()
         return currentPath
+    }
+
+    fun getLogDirectories(): List<File> {
+        val dirs = mutableListOf<File>()
+
+        // Primary location: external files dir
+        context.getExternalFilesDir(null)?.let { externalDir ->
+            File(externalDir, "debug/logs").takeIf { it.exists() }?.let { dirs.add(it) }
+        }
+
+        // Fallback location: cache dir
+        File(context.cacheDir, "debug/logs").takeIf { it.exists() }?.let { dirs.add(it) }
+
+        return dirs
     }
 
     private suspend fun logInfos() {

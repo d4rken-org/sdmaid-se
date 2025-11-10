@@ -38,5 +38,10 @@
             android:key="support.debuglog"
             android:summary="@string/support_debuglog_desc"
             android:title="@string/support_debuglog_label" />
+        <Preference
+            android:icon="@drawable/ic_baseline_folder_open_24"
+            android:key="support.debuglog.folder"
+            android:summary="@string/support_debuglog_folder_empty_desc"
+            android:title="@string/support_debuglog_folder_label" />
     </PreferenceCategory>
 </PreferenceScreen>
