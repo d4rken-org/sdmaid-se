@@ -80,7 +80,7 @@ class AOSPSpecs @Inject constructor(
                     node.textMatchesAny(forceStopLabels)
                 } ?: return@action false
 
-                var target = findClickableParent(maxNesting = 3, node = candidate)
+                var target = findClickableParent(maxNesting = 3, includeSelf = true, node = candidate)
 
                 // Seen on Pixel 8 with Android 16 (beta)
                 // Force stop may consist of a button (no text)) and a textview (unclickable), same layout as everything else
