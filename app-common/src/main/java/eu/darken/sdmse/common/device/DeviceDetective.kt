@@ -35,11 +35,11 @@ class DeviceDetective @Inject constructor(
     }
 
     private fun manufactor(name: String): Boolean {
-        return BuildWrap.MANUFACTOR.lowercase() == name.lowercase()
+        return BuildWrap.MANUFACTOR.equals(name, ignoreCase = true)
     }
 
     private fun brand(name: String): Boolean {
-        return BuildWrap.BRAND?.lowercase() == name.lowercase()
+        return BuildWrap.BRAND.equals(name, ignoreCase = true)
     }
 
     private fun display(name: String): Boolean {
