@@ -92,6 +92,10 @@
     <string name="general_toggle_layout_mode">Ansichtsmodus wechseln</string>
     <string name="general_delete_confirmation_title">Löschung bestätigen</string>
     <string name="general_delete_confirmation_message_x">\"%s\" löschen?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d ausgewähltes Element löschen?</item>
+        <item quantity="other">%d ausgewählte Elemente löschen?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d Element wurde gelöscht.</item>
         <item quantity="other">%d Elemente wurden gelöscht.</item>

@@ -354,6 +354,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Các tệp đã bị xóa nhưng được đưa vào một thư mục đặc biệt để cho phép khôi phục chúng.</string>
     <string name="appcleaner_filter_webview_label">Tệp Webview</string>
     <string name="appcleaner_filter_webview_summary">Các tệp được lưu vào bộ đệm ẩn bởi các phiên bản Webview được sử dụng trong các ứng dụng.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Biểu tượng phím tắt ứng dụng</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Biểu tượng được lưu trong bộ nhớ đệm cho các phím tắt ứng dụng và menu chia sẻ.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Sao lưu WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Xóa các bản sao lưu bổ sung của WhatsApp và chỉ giữ bản mới nhất.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Các tập tin bạn nhận được từ mọi người qua WhatsApp.</string>
@@ -422,6 +424,7 @@
     <string name="deduplicator_detection_method_checksum_title">Tổng kiểm tra nội dung</string>
     <string name="deduplicator_detection_method_checksum_summary">Xác định các bản sao bằng cách tính tổng kiểm tra cho các tập tin. Các tệp có tổng kiểm tra phù hợp có nội dung giống hệt nhau.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
+    <string name="deduplicator_detection_method_phash_summary">Tìm các tệp tương tự bằng cách phân tích các tính năng nội dung và so sánh các giá trị Hash. ⚠️ Phát hiện dựa trên sự tương đồng có thể bao gồm các kết qủa không chính xác, cần xác minh thủ công.</string>
     <string name="deduplicator_occupied_space_label">Lưu trữ bị chiếm dụng</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s bị chiếm bởi các bản sao</item>

@@ -363,6 +363,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Dateien, die gelöscht, aber in einem speziellen Ordner abgelegt wurden, damit sie wiederhergestellt werden können.</string>
     <string name="appcleaner_filter_webview_label">Webview-Dateien</string>
     <string name="appcleaner_filter_webview_summary">Von Webview-Instanzen zwischengespeicherte Dateien, die in Apps verwendet werden.</string>
+    <string name="appcleaner_filter_shortcutservice_label">App Verknüpfungssymbole</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Zwischengespeicherte Symbole für App-Verknüpfungen und Freigabemenüs.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp-Sicherungen</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Lösche zusätzliche Kopien von WhatsApp Sicherungen und behalte nur die neuesten.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Dateien, die du von Personen über WhatsApp erhalten hast.</string>
@@ -436,6 +438,7 @@
     <string name="deduplicator_detection_method_checksum_title">Inhaltsprüfsumme</string>
     <string name="deduplicator_detection_method_checksum_summary">Ermittele Duplikate durch die Berechnung von Prüfsummen für Dateien. Dateien mit übereinstimmenden Prüfsummen haben genau den gleichen Inhalt.</string>
     <string name="deduplicator_detection_method_phash_title">Wahrnehmungshash</string>
+    <string name="deduplicator_detection_method_phash_summary">Findet ähnliche Dateien, indem Inhaltsmerkmale analysiert und perzeptive Hashwerte vergleichen werden. ⚠️ Die ähnlichkeitsbasierte Erkennung kann Fehler beinhalten, die manuelle Überprüfung erfordern.</string>
     <string name="deduplicator_occupied_space_label">Belegter Speicher</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ist von Duplikaten belegt</item>
@@ -698,6 +701,17 @@
     <string name="review_app_review_action">Bewerten</string>
     <string name="review_app_dismiss_action">Später vielleicht</string>
     <string name="review_app_body">Möchtest du SD Maid eine Bewertung hinterlassen? ❤️</string>
+    <string name="anniversary_card_title">Fröhliches SD Maid Jubiläum ❤️</string>
+    <string name="anniversary_card_install_date">Mit dir seit %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Bereits %1$d Jahr zusammen. Danke, dass du SD Maid vertraust, um dein Android sauber und ordentlich zu halten. Befreiter Speicher: %2$s</item>
+        <item quantity="other">%1$d Jahre stark. Dein Gerät bleibt sauber und ordentlich mit SD Maid. Befreiter Speicher: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Teile dein SD Maid Jubiläum</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d Jahr mit SD Maid — Befreiter Speicher: %2$s. Halte Dein Android sauber und ordentlich. #SDMaid\nVersuche es: %3$s</item>
+        <item quantity="other">%1$d Jahre mit SD Maid — Befreiter Speicher: %2$s. Halte Dein Android sauber und ordentlich. #SDMaid\nVersuche es: %3$s</item>
+    </plurals>
     <string name="stats_label">Verlauf</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s wurde freigegeben.</item>
@@ -741,4 +755,8 @@
     <string name="shortcut_appcontrol_short">App Steuerung</string>
     <string name="shortcut_appcontrol_long">Installierte Apps verwalten</string>
     <string name="shortcut_onetap_short">Scannen + Löschen</string>
+    <string name="shortcut_onetap_long">Scannen und Löschen in einer Aktion</string>
+    <string name="shortcuts_settings_category">Verknüpfungen</string>
+    <string name="shortcuts_onetap_enabled_title">Ein-Tipp-Verknüpfung</string>
+    <string name="shortcuts_onetap_enabled_summary">Zeige \"Scan + Löschen\"-Verknüpfung bei langem Drücken des App-Symbols. Verwendet die gleichen Werkzeuge wie Ein-Tipp-Dashboard.</string>
 </resources>

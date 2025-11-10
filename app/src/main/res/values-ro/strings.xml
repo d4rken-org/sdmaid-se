@@ -372,6 +372,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Fișiere care sunt șterse, dar puse într-un dosar special pentru a permite să le restaureze.</string>
     <string name="appcleaner_filter_webview_label">Fișiere WebView</string>
     <string name="appcleaner_filter_webview_summary">Fișiere cache de instanțele Webview folosite în aplicații.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Pictograme ale comenzilor rapide pentru aplicații</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Pictograme cache pentru comenzi rapide de aplicații și meniuri de partajare.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Copii de rezervă WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Șterge extra copii al backup-urilor WhatsApp și păstrează numai cel de ultima dată.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Fișierele pe care le-ați primit de la oameni prin WhatsApp.</string>
@@ -450,6 +452,7 @@
     <string name="deduplicator_detection_method_checksum_title">Sumă verificare conținut</string>
     <string name="deduplicator_detection_method_checksum_summary">Determinați duplicate prin calcularea sumelor de verificare pentru fișiere. Fișierele cu sumele corespunzătoare de verificare au exact același conținut.</string>
     <string name="deduplicator_detection_method_phash_title">Hash veșnic</string>
+    <string name="deduplicator_detection_method_phash_summary">Găsiți fișiere similare analizând caracteristicile de conținut și comparând valorile hash perceptuale. ⚠️ Detectarea bazată pe similitudine poate include rezultate fals pozitive care necesită verificare manuală.</string>
     <string name="deduplicator_occupied_space_label">Spațiu de stocare ocupat</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s este ocupat de duplicate</item>

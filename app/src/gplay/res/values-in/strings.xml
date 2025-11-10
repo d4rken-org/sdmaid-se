@@ -7,9 +7,9 @@
     <string name="upgrades_dashcard_body">SD Maid Pro menawarkan hasil yang lebih baik, lebih banyak fitur dan pilihan untuk pengguna mahir.</string>
     <string name="upgrades_dashcard_upgrade_action">Tingkatkan</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play tidak tersedia</string>
-    <string name="upgrades_gplay_unavailable_error_description">SD Maid tidak bisa terhubung ke Google Play. Apakah Google Play sudah terpasang dan termutakhir? Apakah Anda sudah masuk ke Akun Google Anda? Coba bersihkan tembolok aplikasi Google Play Anda dan memulai ulang perangkat Anda.</string>
-    <string name="upgrades_gplay_billing_error_label">Kendala Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">Terjadi masalah dengan Google Play. Harap coba lagi nanti atau mulai ulang perangkat Anda.\n\nRincian: %s</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid tidak dapat terhubung ke Google Play. Apakah Google Play sudah terpasang dan diperbarui? Apakah Akun Google Anda sudah masuk? Coba hapus cache aplikasi Google Play dan mulai ulang perangkat Anda.</string>
+    <string name="upgrades_gplay_billing_error_label">Masalah Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Terjadi masalah dengan Google Play. Silakan coba lagi nanti atau mulai ulang perangkat Anda.\n\nRincian: %s</string>
     <string name="upgrades_no_purchases_found_check_account">Pembelian tidak ditemukan. Apakah Anda menggunakan akun yang benar?</string>
     <string name="upgrade_screen_title">Dapatkan SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid tidak menampilkan iklan dan tidak menjual data pengguna. Pekerjaan saya dibiayai oleh Anda ❤️.</string>
@@ -24,8 +24,8 @@
     <string name="upgrade_screen_iap_action_hint">Sekali bayar harganya %s.</string>
     <string name="upgrade_screen_thanks_toast">Terbaik! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Pulihkan pembelian</string>
-    <string name="upgrade_screen_restore_purchase_message">Peningkatan Anda valid antarperangkat untuk akun Google yang sama.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Tips untuk memperbaiki peningkatan yang tidak dikenali:</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Sinkronisasi Play Store dapat memakan waktu. Coba restart, bersihkan tembolok Google Play, atau tunggu saja.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Akun yang berbeda-beda dapat membuat pusing Google Play. Keluarlah dari akun-akun yang lain atau pasang aplikasinya dari situs web Google Play yang akan memaksa penghubungan dengan akun tertentu.</string>
+    <string name="upgrade_screen_restore_purchase_message">Peningkatan Anda berlaku di semua perangkat dengan akun Google yang sama.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Tips pemecahan masalah untuk peningkatan yang tidak dikenali:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Sinkronisasi Play Store mungkin memerlukan waktu. Coba restart, bersihkan cache Google Play, atau tunggu sebentar.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Beberapa akun dapat membingungkan Google Play. Keluar dari akun lain atau pasang aplikasi melalui situs web Google Play, yang memaksa penghubungan dengan akun tertentu.</string>
 </resources>

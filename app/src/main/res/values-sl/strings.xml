@@ -466,6 +466,7 @@
     <string name="deduplicator_detection_method_checksum_title">Nadzorna vsota vsebine</string>
     <string name="deduplicator_detection_method_checksum_summary">Zaznaj dvojnike z izračunom nadzornih vsot datotek.  Datoteke, katerih nadzorne vsote se ujemajo, imajo enako vsebino.</string>
     <string name="deduplicator_detection_method_phash_title">Zaznavno razpršilo</string>
+    <string name="deduplicator_detection_method_phash_summary">Poišči podobne datoteke s preučevanjem značilnosti vsebine in primerjavo zaznavnih zgoščenih vrednosti. ⚠️ Zaznavanje podobnosti lahko poda lažne podobnosti, kar zahteva ročno preverjanje.</string>
     <string name="deduplicator_occupied_space_label">Zaseden prostor</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s zasedajo dvojniki.</item>
