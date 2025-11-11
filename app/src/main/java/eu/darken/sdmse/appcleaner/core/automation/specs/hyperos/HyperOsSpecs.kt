@@ -276,13 +276,14 @@ class HyperOsSpecs @Inject constructor(
             // -> Clear data
             // -> Clear cache
             // -> Cancel
-
             val windowCheck: suspend StepContext.() -> ACSNodeInfo = {
                 // Wait till the dialog is shown
+                log(TAG) { "Settling-Check: Waiting for the right window..." }
                 host.events.first { _ ->
                     val root = host.windowRoot() ?: return@first false
                     if (root.pkgId != SETTINGS_PKG_HYPEROS) return@first false
-                    root.crawl().map { it.node }.any { it.idContains("id/alertTitle") }
+                    log(TAG) { "Settling-Check: Checking the root node for the right window..." }
+                    root.crawl().map { it.node }.any { node -> ALERT_WINDOW_IDS.any { node.idContains(it) } }
                 }
                 log(TAG) { "Settling-Check:  Got the right window, now waiting for dialog to settle..." }
                 val noAnimations: Boolean = animationTool.getState() == AnimationState.DISABLED
@@ -348,11 +349,12 @@ class HyperOsSpecs @Inject constructor(
         // -> Cancel        -> Ok
         run {
             val windowCheck = windowCheck { event, root ->
+                log(TAG) { "Performing window-check for confirmation window..." }
                 if (root.pkgId != SETTINGS_PKG_HYPEROS) return@windowCheck false
                 return@windowCheck root.crawl().map { it.node }.any { subNode ->
                     // This is required to relax the match on the dialog texts
                     // Otherwise it could detect the clear cache button as match
-                    if (!subNode.idContains("id/alertTitle")) return@any false
+                    if (!ALERT_WINDOW_IDS.any { subNode.idContains(it) }) return@any false
                     return@any when {
                         subNode.textMatchesAny(dialogTitles) -> true
                         subNode.textMatchesAny(dialogTitles.map { it.replace("?", "") }) -> true
@@ -396,6 +398,10 @@ class HyperOsSpecs @Inject constructor(
         private val TAG: String = logTag("AppCleaner", "Automation", "HyperOS", "Specs")
         private val SETTINGS_PKG_HYPEROS = "com.miui.securitycenter".toPkgId()
         private val SETTINGS_PKG_AOSP = "com.android.settings".toPkgId()
-
+        private val ALERT_WINDOW_IDS = setOf(
+            "id/alertTitle",
+            "id/action_sheet_root_view",
+            "id/action_sheet_content",
+        )
     }
 }
