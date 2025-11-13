@@ -6,12 +6,12 @@
     <string name="upgrades_dashcard_title">Tingkatkan SD Maid</string>
     <string name="upgrades_dashcard_body">Buka fitur-fitur tambahan dan jadilah penyokong yang mendukung pengembangan yang berkelanjutan!</string>
     <string name="upgrades_dashcard_upgrade_action">Tingkatkan</string>
-    <string name="upgrade_screen_title">Kembangkan SD Maid</string>
+    <string name="upgrade_screen_title">Tingkatkan SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid tidak menampilkan iklan dan tidak menjual data-data penggunanya. Pengembangan yang berkelanjutan bisa dilakukan karena Anda.</string>
     <string name="upgrade_screen_how_title">Cara membantu</string>
     <string name="upgrade_screen_how_body">Jadilah pelindung dan sponsor pengembangan! Ketuk tombol di bawah untuk mengaktifkan semua fitur tambahan dan membuka profil GitHub Sponsors saya.</string>
     <string name="upgrade_screen_why_title">Ini akan membuka 🪄</string>
-    <string name="upgrade_screen_why_body">• Fungsionalitas hapus pada PembersihAplikasi 💯\n• Pekerjaan yang dijadwalkan⏰\n• Pilihan tambahan untuk semua perangkat ⚙️\n• Aturan penghapusan buatan sendiri ✍️\n• Pengembang termotivasi 🧙\ndan lebih banyak lagi…</string>
+    <string name="upgrade_screen_why_body">• Fungsionalitas hapus pada Pembersih Aplikasi 💯\n• Pekerjaan yang dijadwalkan⏰\n• Pilihan tambahan untuk semua perangkat ⚙️\n• Aturan penghapusan buatan sendiri ✍️\n• Pengembang termotivasi 🧙\ndan lebih banyak lagi…</string>
     <string name="upgrade_screen_sponsor_action">Pengembangan sponsor</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatifnya adalah iklan, analitik, dan Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Terima kasih karena telah mendukung pengembangan sumber terbuka ❤️</string>
