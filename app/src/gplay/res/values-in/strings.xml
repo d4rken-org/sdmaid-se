@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <string name="upgrade_feature_requires_pro">Membutuhkan SD Maid SE Pro</string>
+    <string name="upgrade_feature_requires_pro">Memerlukan SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Tingkatkan SD Maid</string>
     <string name="upgrades_dashcard_body">SD Maid Pro menawarkan hasil yang lebih baik, lebih banyak fitur dan pilihan untuk pengguna mahir.</string>
     <string name="upgrades_dashcard_upgrade_action">Tingkatkan</string>
@@ -16,16 +16,16 @@
     <string name="upgrade_screen_benefits_title">Kelebihan</string>
     <string name="upgrade_screen_benefits_body">• Pembersihan aplikasi 💯\n• Pekerjaan yang dijadwalkan⏰\n• Pilihan tambahan untuk semua perangkat ⚙️\n• Aturan penghapusan buatan sendiri ✍️\n• Pengembang termotivasi 🧙\ndan lebih banyak lagi…</string>
     <string name="upgrade_screen_how_title">Pilihan</string>
-    <string name="upgrade_screen_how_body">Anda bisa memilih antara pembelian satu kali dan langganan tahunan yang lebih murah.\nLangganannya dimulai dengan coba gratis 14 hari. Setelah itu, Anda akan dicas tiap tahun. Masa percobaan dan langganan bisa dibatalkan kapan saja.\nFitur-fiturnya sama, hanya model biayanya saja yang berbeda.</string>
-    <string name="upgrade_screen_subscription_trial_action">Mulai coba gratis 14 hari</string>
+    <string name="upgrade_screen_how_body">Anda bisa memilih antara pembelian satu kali dan langganan tahunan yang lebih murah.\nLangganannya dimulai dengan coba gratis 14 hari. Setelah itu, Anda akan ditagih tiap tahun. Masa percobaan dan langganan bisa dibatalkan kapan saja.\nFitur-fiturnya sama, hanya model biayanya saja yang berbeda.</string>
+    <string name="upgrade_screen_subscription_trial_action">Mulai uji coba gratis 14 hari</string>
     <string name="upgrade_screen_subscription_action">Berlangganan</string>
     <string name="upgrade_screen_subscription_action_hint">Langganan harganya %s per tahun.</string>
     <string name="upgrade_screen_iap_action">Sekali bayar</string>
     <string name="upgrade_screen_iap_action_hint">Sekali bayar harganya %s.</string>
-    <string name="upgrade_screen_thanks_toast">Terbaik! ❤️</string>
+    <string name="upgrade_screen_thanks_toast">Mantap! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Pulihkan pembelian</string>
     <string name="upgrade_screen_restore_purchase_message">Peningkatan Anda berlaku di semua perangkat dengan akun Google yang sama.</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">Tips pemecahan masalah untuk peningkatan yang tidak dikenali:</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Sinkronisasi Play Store mungkin memerlukan waktu. Coba restart, bersihkan cache Google Play, atau tunggu sebentar.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Beberapa akun dapat membingungkan Google Play. Keluar dari akun lain atau pasang aplikasi melalui situs web Google Play, yang memaksa penghubungan dengan akun tertentu.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Sinkronisasi Play Store mungkin memerlukan waktu. Coba mulai ulang, bersihkan cache Google Play, atau tunggu sebentar.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Beberapa akun dapat membingungkan Google Play. Keluar dari akun lain atau pasang aplikasi melalui situs web Google Play, yang akan menghubungkan aplikasi dengan akun tertentu.</string>
 </resources>
