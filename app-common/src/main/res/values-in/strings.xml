@@ -5,13 +5,13 @@
     <string name="slogan_message_1">Bersih dan rapi.</string>
     <string name="slogan_message_2">Menghindari kekacauan.</string>
     <string name="slogan_message_3">Melakukan apa yang perlu dilakukan.</string>
-    <string name="slogan_message_4">Membariskan bebek-bebek Anda.</string>
+    <string name="slogan_message_4">Menata semuanya dengan rapi.</string>
     <string name="slogan_message_5">Tak bernoda.</string>
     <string name="slogan_message_6">Byte, hilang!</string>
     <string name="slogan_message_7">Ruang kosong, tempat yang menyenangkan.</string>
     <string name="slogan_message_8">Tidak akan pernah menyerah padamu.</string>
     <string name="general_thank_you_label">Terima kasih</string>
-    <string name="general_error_type_mismatch_msg">Ketidakcocokan jenis: Menginginkan %1$s, tapi mendapatkan %2$s.</string>
+    <string name="general_error_type_mismatch_msg">Ketidakcocokan jenis: Diharapkan %1$s, tapi mendapatkan %2$s.</string>
     <string name="general_error_cant_access_msg">Tidak dapat mengakses %s.</string>
     <string name="general_error_root_unavailable">Akses root tidak tersedia.</string>
     <string name="general_error_empty_result_msg">Hasilnya kosong.</string>
@@ -63,7 +63,7 @@
     <string name="general_progress_loading_egg_8">Bip bop bop</string>
     <string name="general_progress_loading_egg_9">Memuat pilihan hidup</string>
     <string name="general_progress_loading_egg_10">Memanggil Cthulhu</string>
-    <string name="general_progress_loading_egg_11">Ini tidak apa-apa</string>
+    <string name="general_progress_loading_egg_11">Semua baik-baik saja.</string>
     <string name="general_progress_loading_egg_12">Harap tunggu</string>
     <string name="general_progress_loading_egg_13">Setidaknya kamu tidak sedang menunggu</string>
     <string name="general_help_action">Bantuan</string>
@@ -72,7 +72,7 @@
     <string name="general_progress_deleting">Menghapus</string>
     <string name="general_progress_deleting_x">Menghapus %s</string>
     <string name="general_sort_options_label">Pilihan pengurutan</string>
-    <string name="general_sort_reverse_action">Mode penyortiran terbalik</string>
+    <string name="general_sort_reverse_action">Urutan terbalik</string>
     <string name="general_tag_filter_label">Saring berdasarkan tag</string>
     <string name="general_result_success_message">Pekerjaan selesai</string>
     <string name="general_result_failure_message">Pekerjaan gagal</string>
@@ -100,7 +100,7 @@
     <string name="general_remove_action">Hapus</string>
     <string name="general_remove_selected_action">Hapus yang dipilih</string>
     <plurals name="general_remove_success_x_items">
-        <item quantity="other">%d barang telah dihapus</item>
+        <item quantity="other">%d item telah dihapus</item>
     </plurals>
     <string name="general_root_required_label">Memerlukan root</string>
     <string name="general_root_required_message">Memerlukan perangkat yang di-root</string>
@@ -108,7 +108,7 @@
     <string name="general_scan_device_action">Pindai perangkat</string>
     <string name="general_open_system_settings_action">Buka pengaturan sistem</string>
     <plurals name="result_x_items">
-        <item quantity="other">%s barang</item>
+        <item quantity="other">%s item</item>
     </plurals>
     <plurals name="result_x_successful">
         <item quantity="other">%d sukses</item>
@@ -137,7 +137,7 @@
     <string name="general_help_title">Bantuan</string>
     <string name="file_type_symbolic_link">Tautan</string>
     <string name="file_type_directory">Direktori</string>
-    <string name="file_type_file">Berkas</string>
+    <string name="file_type_file">File</string>
     <string name="file_type_unknown">Tidak diketahui</string>
     <string name="general_progress_ready">Siap</string>
     <string name="general_progress_done">Selesai</string>
@@ -149,11 +149,11 @@
         <item quantity="other">%d jam</item>
     </plurals>
     <plurals name="result_x_files">
-        <item quantity="other">%s berkas</item>
+        <item quantity="other">%s file</item>
     </plurals>
     <string name="general_advice_title">Saran</string>
     <string name="general_error_invalid_input_label">Input tidak valid</string>
-    <string name="general_information_for_the_developer">Informasi dari Pengembang</string>
+    <string name="general_information_for_the_developer">Informasi untuk Pengembang</string>
     <string name="general_error_report_bug_action">Laporkan masalah</string>
     <string name="general_error_ipc_deadobject_title">Koneksi Layanan Terputus</string>
     <string name="general_error_ipc_deadobject_description">Koneksi ke layanan penting (misalnya Magisk, Shizuku, atau layanan tingkat sistem lainnya) terputus secara tidak terduga. Silakan mulai ulang perangkat Anda. Jika masalah masih berlanjut, periksa pembaruan atau hubungi saya agar bisa memperbaikinya.</string>
