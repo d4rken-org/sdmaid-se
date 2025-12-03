@@ -360,6 +360,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Name is equal to keyword</string>
     <string name="systemcleaner_customfilter_last_edit">Last edit: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Live search</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Size restrictions</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimum size</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maximum size</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Limit matches based on file size. Leave unset to match any size.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Age restrictions</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimum age</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maximum age</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Limit matches based on file age (last modified time). Leave unset to match any age.</string>
     <string name="systemcleaner_customfilter_import_action">Import new filter</string>
     <string name="systemcleaner_customfilter_export_action">Export selected filter</string>
 

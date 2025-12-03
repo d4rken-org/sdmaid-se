@@ -2,6 +2,7 @@ package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 
 import android.os.Bundle
 import android.text.Editable
+import android.text.format.Formatter
 import android.view.View
 import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
@@ -25,10 +26,13 @@ import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.sieve.NameCriterium
 import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.ui.AgeInputDialog
+import eu.darken.sdmse.common.ui.SizeInputDialog
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerCustomfilterEditorFragmentBinding
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListAdapter
+import java.time.Duration
 import kotlin.math.roundToInt
 
 
@@ -137,6 +141,50 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             filetypesOptionDirectories.setOnClickListener { vm.toggleFileType(FileType.DIRECTORY) }
         }
 
+        ui.sizeMinimumRow.setOnClickListener {
+            val current = vm.state.value?.current?.sizeMinimum ?: 0L
+            SizeInputDialog(
+                activity = requireActivity(),
+                titleRes = R.string.systemcleaner_customfilter_editor_size_minimum_label,
+                currentSize = current,
+                onReset = { vm.updateSizeMinimum(null) },
+                onSave = { vm.updateSizeMinimum(it) },
+            ).show()
+        }
+
+        ui.sizeMaximumRow.setOnClickListener {
+            val current = vm.state.value?.current?.sizeMaximum ?: 0L
+            SizeInputDialog(
+                activity = requireActivity(),
+                titleRes = R.string.systemcleaner_customfilter_editor_size_maximum_label,
+                currentSize = current,
+                onReset = { vm.updateSizeMaximum(null) },
+                onSave = { vm.updateSizeMaximum(it) },
+            ).show()
+        }
+
+        ui.ageMinimumRow.setOnClickListener {
+            val current = vm.state.value?.current?.ageMinimum ?: Duration.ZERO
+            AgeInputDialog(
+                activity = requireActivity(),
+                titleRes = R.string.systemcleaner_customfilter_editor_age_minimum_label,
+                currentAge = current,
+                onReset = { vm.updateAgeMinimum(null) },
+                onSave = { vm.updateAgeMinimum(it) },
+            ).show()
+        }
+
+        ui.ageMaximumRow.setOnClickListener {
+            val current = vm.state.value?.current?.ageMaximum ?: Duration.ZERO
+            AgeInputDialog(
+                activity = requireActivity(),
+                titleRes = R.string.systemcleaner_customfilter_editor_age_maximum_label,
+                currentAge = current,
+                onReset = { vm.updateAgeMaximum(null) },
+                onSave = { vm.updateAgeMaximum(it) },
+            ).show()
+        }
+
         vm.state.observe2(ui) { state ->
             val config = state.current
             toolbar.menu?.apply {
@@ -162,6 +210,22 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
 
             filetypesOptionFiles.isChecked = config.fileTypes?.contains(FileType.FILE) == true
             filetypesOptionDirectories.isChecked = config.fileTypes?.contains(FileType.DIRECTORY) == true
+
+            sizeMinimumValue.text = config.sizeMinimum?.let {
+                Formatter.formatShortFileSize(requireContext(), it)
+            } ?: getString(eu.darken.sdmse.common.R.string.general_na_label)
+
+            sizeMaximumValue.text = config.sizeMaximum?.let {
+                Formatter.formatShortFileSize(requireContext(), it)
+            } ?: getString(eu.darken.sdmse.common.R.string.general_na_label)
+
+            ageMinimumValue.text = config.ageMinimum?.let {
+                AgeInputDialog.formatAge(requireContext(), it)
+            } ?: getString(eu.darken.sdmse.common.R.string.general_na_label)
+
+            ageMaximumValue.text = config.ageMaximum?.let {
+                AgeInputDialog.formatAge(requireContext(), it)
+            } ?: getString(eu.darken.sdmse.common.R.string.general_na_label)
         }
 
         vm.events.observe2 {
