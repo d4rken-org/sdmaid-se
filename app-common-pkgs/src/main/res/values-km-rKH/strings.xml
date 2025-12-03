@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pkgrepo_invalid_inventory_error_title">បញ្ជីកម្មវិធីមិនត្រឹមត្រូវ</string>
+    <string name="pkgrepo_invalid_inventory_error_title">សន្និធិកម្មវិធីមិនត្រឹមត្រូវ</string>
     <string name="pkgrepo_invalid_inventory_error_description">ប្រព័ន្ធបានផ្ដល់បញ្ជីកម្មវិធីដែលបានដំឡើងមិនត្រឹមត្រូវទៅ SD Maid ។</string>
 </resources>

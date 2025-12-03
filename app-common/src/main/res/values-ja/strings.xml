@@ -6,10 +6,10 @@
     <string name="slogan_message_2">ごちゃごちゃを防ぐ。</string>
     <string name="slogan_message_3">必要なことをする。</string>
     <string name="slogan_message_4">あなたのために準備をしています</string>
-    <string name="slogan_message_5">潔白</string>
+    <string name="slogan_message_5">綺麗な状態です。</string>
     <string name="slogan_message_6">Bytes, be gone!</string>
     <string name="slogan_message_7">自由な空間、幸せな場所。</string>
-    <string name="slogan_message_8">決してギブアップしてはいけない。</string>
+    <string name="slogan_message_8">決して諦めてはいけません。</string>
     <string name="general_thank_you_label">ありがとうごさいます</string>
     <string name="general_error_type_mismatch_msg">タイプ不一致: %1$sを期待しましたが、 %2$s が得られました。</string>
     <string name="general_error_cant_access_msg">%sにアクセスできません。</string>
@@ -48,7 +48,7 @@
     <string name="general_progress_generating_searchpaths">検索パスの生成</string>
     <string name="general_progress_filtering">フィルタリング</string>
     <string name="general_progress_preparing">準備中</string>
-    <string name="general_progress_processing_x"> %sを実行中</string>
+    <string name="general_progress_processing_x">%sを実行中</string>
     <string name="general_progress_loading">読み込み中</string>
     <string name="general_progress_loading_app_data">アプリデータを読み込み中</string>
     <string name="general_progress_loading_data_areas">データエリアを読み込み中</string>
@@ -91,6 +91,9 @@
     <string name="general_toggle_layout_mode">表示モードを切り替える</string>
     <string name="general_delete_confirmation_title">削除完了</string>
     <string name="general_delete_confirmation_message_x">\"%s\"を削除しますか？</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="other">%d 個の選択した項目を削除しますか？</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">%d項目を削除しました。</item>
     </plurals>
@@ -154,4 +157,6 @@
     <string name="general_error_report_bug_action">バグ報告</string>
     <string name="general_error_ipc_deadobject_title">サービス接続が失われました</string>
     <string name="general_error_ipc_deadobject_description">重要なサービス（Magisk、Shizuku、その他のシステムレベルサービスなど）への接続が予期せず失われました。デバイスを再起動してください。問題が解決しない場合は、アップデートを確認するか、私に連絡して修正できるようにしてください。</string>
+    <string name="general_user_label_owner">オーナー</string>
+    <string name="general_user_label_system">システム</string>
 </resources>

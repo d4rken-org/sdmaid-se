@@ -5,7 +5,7 @@
     <string name="dashboard_motd_title">Pesan dari pengembang</string>
     <string name="dashboard_settings_oneclick_title">Mode Satu Ketukan</string>
     <string name="dashboard_settings_oneclick_summary">Mulai scan dan hapus semua alat dengan satu klik pada tombol tindakan dasbor, tanpa konfirmasi tambahan.</string>
-    <string name="dashboard_settings_oneclick_tools_title">Alat Satu Ketuk</string>
+    <string name="dashboard_settings_oneclick_tools_title">Alat Sekali Ketuk</string>
     <string name="dashboard_settings_oneclick_tools_desc">Alat apa saja yang harus disertakan dalam operasi satu ketukan?</string>
     <string name="debug_notification_channel_label">Notifikasi debug</string>
     <string name="debug_debuglog_file_label">File log yang direkam</string>
@@ -16,11 +16,11 @@
     <string name="debug_debuglog_screen_title">Catatan debug</string>
     <string name="debug_debuglog_screen_discard_action">Buang</string>
     <string name="debug_debuglog_screen_session_path_label">Jalur sesi</string>
-    <string name="debug_debuglog_screen_log_files_label">Berkas catatan</string>
+    <string name="debug_debuglog_screen_log_files_label">File log</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="other">%1$d berkas siap (%2$s)</item>
+        <item quantity="other">%1$d file siap (%2$s)</item>
     </plurals>
-    <string name="settings_debuglog_explanation">Fitur ini mencatat semua aktivitas aplikasi ke dalam berkas yang dapat dibagikan. Berkas yang dihasilkan berisi informasi sensitif (misalnya nama berkas dan aplikasi yang terpasang). Bagikan hanya kepada pihak tepercaya (misalnya pengembang yang sedang memecahkan masalah).</string>
+    <string name="settings_debuglog_explanation">Fitur ini mencatat semua yang dilakukan aplikasi ke dalam file yang dapat dibagikan. File yang dibuat berisi informasi sensitif (misalnya nama file dan aplikasi yang terpasang). Bagikan hanya kepada pihak tepercaya (misalnya pengembang yang sedang memecahkan masalah).</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid bekerja</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,7 +40,7 @@
     <string name="onboarding_versus_body1">SD Maid SE (alias SD Maid 2) adalah penerus SD Maid (alias SD Maid 1). Sebuah aplikasi baru, yang dioptimalkan untuk versi Android terbaru.</string>
     <string name="onboarding_versus_body2">Arsitektur aplikasi sebelumnya sudah berumur lebih dari 7 tahun dan tidak didesain untuk menyelesaikan tantangan-tantangan pada generasi Android terkini. Desain ulang secara menyeluruh sangat dibutuhkan guna melanjutkan pengembangan aplikasi.</string>
     <string name="onboarding_versus_body3">Harap pindah ke SD Maid SE untuk mendapatkan hasil yang lebih baik.</string>
-    <string name="onboarding_versus_body4">Status \"pro\" SD Maid 1 sayangnya tidak dapat dipindahkan ke SD Maid 2/SE. Setelah 12 tahun pembaruan gratis, pembelian baru diperlukan untuk mendukung pengembangan (menghidupi pengembang).</string>
+    <string name="onboarding_versus_body4">Status \"pro\" SD Maid 1 sayangnya tidak dapat dipindahkan ke SD Maid 2/SE. Setelah 12 tahun pembaruan gratis, pembelian baru diperlukan untuk mendukung pengembangan berkelanjutan (dukungan untuk pengembang).</string>
     <string name="onboarding_versus_continue_action">Lanjut</string>
     <string name="onboarding_privacy_title">Privasi</string>
     <string name="onboarding_privacy_body1">SD Maid tidak memiliki iklan dan tidak menjual data pengguna.</string>
@@ -75,9 +75,9 @@
     <string name="ui_previews_title">Pratinjau berkas</string>
     <string name="ui_previews_summary">Tampilkan pratinjau berkas di semua peralatan (seperti pratinjau gambar dan video).</string>
     <string name="ui_language_override_label">Bahasa aplikasi</string>
-    <string name="ui_language_override_desc">Pilih bahasa yang berbeda untuk SD Maid, tidak tergantung bahasa bawaan sistem Anda. Saat ini: %s</string>
+    <string name="ui_language_override_desc">Pilih bahasa yang berbeda untuk SD Maid, tidak bergantung pada bahasa bawaan sistem Anda. Saat ini: %s</string>
     <string name="settings_support_label">Bantuan</string>
-    <string name="settings_support_description">Baca dokumentasi, laporan masalah, mengobrol dengan orang lain atau merekam debug logs.</string>
+    <string name="settings_support_description">Baca dokumentasi, laporkan masalah, obrolan dengan orang lain atau rekam log debug.</string>
     <string name="documentation_label">Dokumentasi</string>
     <string name="issue_tracker_description">Pelacak masalah publik untuk laporan bug dan permintaan fitur.</string>
     <string name="issue_tracker_label">Pelacak masalah</string>
@@ -98,14 +98,14 @@
     <string name="setup_label">Pengaturan</string>
     <string name="setup_incomplete_card_title">Penyiapan tidak lengkap</string>
     <string name="setup_incomplete_card_body">Selesaikan penyiapan SD Maid untuk mendapatkan hasil yang lebih baik.</string>
-    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid sedang mencoba memperbaiki masalah-masalah penyiapan.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid sedang mencoba memperbaiki masalah penyiapan.</string>
     <string name="setup_incomplete_card_dismiss_action">Membubarkan</string>
     <string name="setup_incomplete_card_continue_action">Lanjutkan penyiapan</string>
     <string name="setup_title">Pengaturan</string>
     <string name="setup_forcedshow_summary">Tampilkan layar penyiapan lagi, termasuk item yang sudah selesai.</string>
     <string name="setup_checking_card_body">Memverifikasi penyelesaian dan fungsionalitas penyiapan.</string>
-    <string name="general_error_setup_require_label">Penyiapan belum lengkap</string>
-    <string name="general_error_setup_require_msg">Pengaturan lebih lanjut diperlukan untuk menggunakan fitur ini. Selesaikan langkah-langkah penyiapan selanjutnya.</string>
+    <string name="general_error_setup_require_label">Penyiapan tidak lengkap</string>
+    <string name="general_error_setup_require_msg">Penyiapan lebih lanjut diperlukan untuk menggunakan fitur ini. Selesaikan langkah penyiapan yang tersisa.</string>
     <string name="setup_saf_card_title">Kerangka akses penyimpanan</string>
     <string name="setup_saf_card_body">Tingkatkan hasil dengan memberikan akses SD Maid ke area tambahan.</string>
     <string name="setup_saf_card_body2">Dalam kebanyakan kasus, jendela akan terbuka dengan jalur yang benar yang telah dipilih sebelumnya. Entri berubah menjadi hijau saat akses diberikan. </string>
@@ -122,9 +122,9 @@
     <string name="setup_root_disable_root_use_label">Jangan gunakan akses root</string>
     <string name="setup_root_card_body2">Hanya tersedia pada perangkat yang di-root. Jika Anda belum melakukan pengubahan, maka perangkat Anda belum di-root dan pengaturan ini tidak berpengaruh.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
-    <string name="setup_shizuku_card_body">Izinkan SD Maid untuk menggunakan Shizuku jika memungkinkan untuk mendapatkan hasil yang lebih baik dan menyalakan fitur-fitur tertentu.</string>
+    <string name="setup_shizuku_card_body">Izinkan SD Maid untuk menggunakan Shizuku jika memungkinkan untuk mendapatkan hasil yang lebih baik dan mengaktifkan fitur-fitur tertentu.</string>
     <string name="setup_shizuku_card_body2">Pengaturan ini tidak berpengaruh jika aplikasi Shizuku tidak dipasang pada perangkat Anda.</string>
-    <string name="setup_shizuku_card_root_info">Kombinasi Shizuku dan akses root tidak membuka fitur baru, melainkan sebagai jaminan. SD Maid menggunakannya sebagai metode alternatif.</string>
+    <string name="setup_shizuku_card_root_info">Kombinasi Shizuku dan akses root tidak membuka fitur baru, melainkan meningkatkan keandalan. SD Maid menggunakannya sebagai metode alternatif.</string>
     <string name="setup_shizuku_state_ready_label">Hubungan dengan Shizuku sudah siap.</string>
     <string name="setup_shizuku_state_waiting_label">Menunggu penghubungan dengan Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Gunakan Shizuku jika tersedia</string>
@@ -156,7 +156,7 @@
     <string name="setup_acs_appops_restriction_title">Pengaturan terbatas</string>
     <string name="setup_acs_appops_restriction_body">Tidak dapat mengaktifkan layanan aksesibilitas SD Maid? Android 13+ dapat menerapkan batasan untuk aplikasi yang tidak diinstal melalui Google Play. Ubah batasan ini dari halaman detail sistem untuk SD Maid. Pilihannya ada di menu konteks di pojok kanan atas.</string>
     <string name="setup_inventory_card_title">Inventaris aplikasi</string>
-    <string name="setup_inventory_card_body">SD Maid perlu mengetahui aplikasi apa yang anda install untuk mencari berkas yang tidak terasosiasi dengan aplikasi yang anda install.</string>
+    <string name="setup_inventory_card_body">SD Maid perlu mengetahui aplikasi apa yang Anda miliki untuk mencari file yang tidak terkait dengan aplikasi yang terinstal.</string>
     <string name="setup_inventory_card_extra">Cari izin yang disebut \"Daftar Aplikasi\" atau \"Kueri semua paket\".</string>
     <string name="setup_inventory_invalid_message">Sistem memberikan daftar aplikasi terinstal yang tidak valid (misalnya, terlalu sedikit atau ada yang hilang). Buka pengaturan sistem dan izinkan SD Maid mengakses \"Daftar aplikasi\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid tidak menemukan area data yang dapat dipindai. Apakah Anda menyelesaikan penyiapan?</string>
@@ -165,7 +165,7 @@
     <string name="debug_mode_label">Mode debug</string>
     <string name="debug_mode_explanation">Aktifkan opsi pengujian dan lebih banyak keluaran verbose. Aplikasi akan berjalan lebih lambat dan bekerja secara berbeda.</string>
     <string name="debug_bugreporter_label">Laporan bug otomatis</string>
-    <string name="debug_bugreporter_summary">Melaporkan masalah secara otomatis, seperti detail aplikasi saat tidak merespons sehingga saya bisa cepat menemukan masalahnya dan memperbaikinya.</string>
+    <string name="debug_bugreporter_summary">Melaporkan masalah secara otomatis, seperti detail aplikasi saat tidak merespons sehingga saya dapat dengan cepat menemukan dan memperbaikinya.</string>
     <string name="settings_category_tools_label">Peralatan</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Tingkat risiko</string>
@@ -175,13 +175,13 @@
     <string name="corpsefinder_settings_risk_keeper_title">Sertakan sisa-sisa yang diinginkan</string>
     <string name="corpsefinder_settings_risk_keeper_summary">File yang mungkin ingin Anda simpan, meskipun aplikasi dihapus instalasinya, cth. foto yang Anda ambil atau cadangan yang Anda buat.</string>
     <string name="corpsefinder_settings_risk_common_title">Sertakan nama umum</string>
-    <string name="corpsefinder_settings_risk_common_summary">Data-data dengan nama-nama yang umum digunakan, contohnya folder \"Catatan\" dimiliki oleh terlalu banyak aplikasi-aplikasi yang tidak dikenal.</string>
+    <string name="corpsefinder_settings_risk_common_summary">Data dengan nama yang umum digunakan, misalnya folder \"Catatan\" dimiliki oleh terlalu banyak aplikasi yang tidak dikenal.</string>
     <string name="corpsefinder_watcher_title">Pemantau uninstall</string>
     <string name="corpsefinder_watcher_summary">Pindai otomatis sisa-sisa aplikasi yang dihapus.</string>
     <string name="corpsefinder_watcher_autodelete_title">Menghapus otomatis</string>
     <string name="corpsefinder_watcher_autodelete_summary">Secara otomatis menghapus sisa-sisa yang terkait dengan aplikasi yang dihapus.</string>
     <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="other">%1$d sisa ditemukan setelah menghapus %2$s.</item>
+        <item quantity="other">%1$d sisa-sisa ditemukan setelah menghapus %2$s.</item>
     </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="other">Pembersihan berhasil dilakukan (%1$s): Membebaskan %2$s dan menghapus %3$d objek.</item>
@@ -226,7 +226,7 @@
     <string name="systemcleaner_tool_name">Pembersih Sistem</string>
     <string name="systemcleaner_explanation_short">Data berlebihan yang bukan milik aplikasi tertentu.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
-        <item quantity="other">%d cocokan dihapus</item>
+        <item quantity="other">%d kecocokan dihapus</item>
     </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="other">%d filter yang cocok</item>
@@ -235,8 +235,8 @@
     <string name="systemcleaner_filter_custom_manage_label">Kelola filter khusus</string>
     <string name="systemcleaner_filter_custom_manage_summary">Buat, hapus, impor dan ekspor filter khusus Anda.</string>
     <string name="systemcleaner_filter_logfiles_label">Berkas log sistem</string>
-    <string name="systemcleaner_filter_logfiles_summary">Berkas log sistem dan layanan sistem (misalnya *.log) di berbagai lokasi.</string>
-    <string name="systemcleaner_filter_packagecaches_label">Cache instalasi</string>
+    <string name="systemcleaner_filter_logfiles_summary">File log sistem dan layanan sistem (misalnya *.log) di berbagai lokasi.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Cache pemasangan</string>
     <string name="systemcleaner_filter_packagecaches_summary">Data cache terkait aplikasi yang terpasang yang digunakan oleh manajemen paket sistem.</string>
     <string name="systemcleaner_filter_advertisements_label">Berkas iklan</string>
     <string name="systemcleaner_filter_advertisements_summary">Berkas yang dibuat untuk atau oleh iklan.</string>
@@ -245,9 +245,9 @@
     <string name="systemcleaner_filter_emptydirectories_label">Folder kosong</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Seluruh folder kosong di dalam perangkat. Folder bertingkat mungkin memerlukan beberapa tahap.</string>
     <string name="systemcleaner_filter_screenshots_label">Tangkapan layar</string>
-    <string name="systemcleaner_filter_screenshots_summary">Tangkapan layar lebih lama dari %s dari beberapa apl dan lokasi.</string>
-    <string name="systemcleaner_filter_trashed_label">Berkas yang dibuang</string>
-    <string name="systemcleaner_filter_trashed_summary">Berkas di tempat sampah dari berbagai aplikasi dan lokasi yang ditandai untuk dihapus tetapi belum dihapus secara permanen.</string>
+    <string name="systemcleaner_filter_screenshots_summary">Tangkapan layar yang lebih lama dari %s dari beberapa aplikasi dan lokasi.</string>
+    <string name="systemcleaner_filter_trashed_label">File yang dibuang</string>
+    <string name="systemcleaner_filter_trashed_summary">File di tempat sampah dari berbagai aplikasi dan lokasi yang ditandai untuk dihapus tetapi belum dihapus secara permanen.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Lama Tangkapan layar</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Lama tangkapan layar untuk dipertimbangkan dihapus.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Berkas APK tidak digunakan</string>
@@ -257,13 +257,13 @@
     <string name="systemcleaner_filter_linuxfiles_label">Berkas Linux</string>
     <string name="systemcleaner_filter_linuxfiles_summary">Berkas dan folder yang dibuat ketika penyimpanan dihubungkan dengan komputer Linux.</string>
     <string name="systemcleaner_filter_macfiles_label">Berkas Mac</string>
-    <string name="systemcleaner_filter_macfiles_summary">Berkas dan folder yang dibuat ketika menjelajahi penyimpanan menggunakan aplikasi Apple Finder.</string>
+    <string name="systemcleaner_filter_macfiles_summary">File dan folder yang dibuat ketika menjelajahi penyimpanan menggunakan aplikasi Apple Finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Berkas Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Data yang dapat dibuat oleh Windows file explorer pada penyimpanan yang terhubung."</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"\"Data yang dapat dibuat oleh Windows file explorer pada penyimpanan yang terhubung.\""</string>
     <string name="systemcleaner_filter_thumbnails_label">Gambar pratinjau</string>
     <string name="systemcleaner_filter_thumbnails_summary">Tampilan cache gambar dan video.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Berkas sementara sistem</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Berkas sementara yang terkait dengan sistem, biasanya berupa cache jangka pendek untuk operasi yang sedang berjalan.</string>
+    <string name="systemcleaner_filter_tempfiles_label">File sementara sistem</string>
+    <string name="systemcleaner_filter_tempfiles_summary">File sementara yang terkait dengan sistem, biasanya berupa cache jangka pendek untuk operasi yang sedang berjalan.</string>
     <string name="systemcleaner_filter_analytics_label">Berkas analitik</string>
     <string name="systemcleaner_filter_analytics_summary">Data berhubungan dengan analitik dan pelacak bug.</string>
     <string name="systemcleaner_filter_downloadcache_label">Cache unduhan</string>
@@ -299,7 +299,7 @@
     <string name="systemcleaner_customfilter_editor_name_label">Kriteria nama</string>
     <string name="systemcleaner_customfilter_editor_name_explanation">Nama target harus mengandung setidaknya satu kata kunci (seperti \"-resep\"). Tekan lama entri untuk melihat lebih banyak pilihan.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Pengecualian</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Hasil akan dikecualikan jika jalur berkas cocok dengan suatu entri (seperti \"DCIM\"). Tekan lama entri untuk melihat lebih banyak pilihan.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Hasil akan dikecualikan jika jalur file cocok dengan suatu entri (seperti \"DCIM\"). Tekan lama entri untuk melihat lebih banyak pilihan.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Mode perbandingan jalur</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Jalur dimulai dengan kata kunci</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Jalur mengandung kata kunci</string>
@@ -319,7 +319,7 @@
     <string name="appcleaner_filter_defaultcachespublic_label">Cache publik bawaan</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Cache aplikasi publik bawaan. Dapat diakses di Android/data pada versi Android yang lebih lama. Dihapus saat mengetuk \"Hapus cache\" di pengaturan sistem.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Cache privat bawaan</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Cache aplikasi pribadi bawaan. Dihapus saat mengetuk \"Hapus cache\" di pengaturan sistem.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Cache aplikasi privat bawaan. Dihapus saat mengetuk \"Hapus cache\" di pengaturan sistem.</string>
     <string name="appcleaner_include_systemapps_label">Sertakan aplikasi sistem</string>
     <string name="appcleaner_include_systemapps_summary">Menyertakan aplikasi sistem sewaktu memindai.</string>
     <string name="appcleaner_include_runningapps_label">Sertakan aplikasi yang sedang berjalan</string>
@@ -353,15 +353,15 @@
     <string name="appcleaner_filter_recyclebins_label">Kotak sampah</string>
     <string name="appcleaner_filter_recyclebins_summary">Berkas yang telah dihapus namun disimpan di folder khusus agar bisa dipulihkan.</string>
     <string name="appcleaner_filter_webview_label">Berkas webview</string>
-    <string name="appcleaner_filter_webview_summary">Berkas yang di-cache oleh WebView yang digunakan dalam aplikasi.</string>
+    <string name="appcleaner_filter_webview_summary">File yang di-cache oleh WebView yang digunakan dalam aplikasi.</string>
     <string name="appcleaner_filter_shortcutservice_label">Ikon pintasan aplikasi</string>
     <string name="appcleaner_filter_shortcutservice_summary">Cache Ikon untuk pintasan aplikasi dan menu bagikan.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Cadangan WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Hapus salinan ekstra dari cadangan WhatsApp dan hanya terbaru yang disimpan.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Berkas yang Anda diterima dari orang via WhatsApp.</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Berkas diterima WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">File yang Anda terima dari orang via WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">File diterima WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Berkas terkirim WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Berkas-berkas yang dikirim dari WhatsApp ke orang lain.</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">File yang dikirim dari WhatsApp ke orang lain.</string>
     <string name="appcleaner_filter_telegram_label">Berkas media Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Berkas yang diterima atau dikirim melalui Telegram.</string>
     <string name="appcleaner_filter_threema_label">Threema</string>
@@ -369,12 +369,12 @@
     <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Berkas kiriman atau diterima pada percakapan dan momen WeChat.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
-    <string name="appcleaner_filter_viber_summary">Berkas-berkas media yang ditembolok yang diunduh lagi saat dilihat di percakapan.</string>
+    <string name="appcleaner_filter_viber_summary">File media yang di-cache yang diunduh lagi saat dilihat di percakapan.</string>
     <string name="appcleaner_filter_qqchat_label">QQ chat</string>
-    <string name="appcleaner_filter_qqchat_summary">Berkas terkirim atau diterima di percakapan QQ chat.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Hapus item-item yang tidak penting untuk semua aplikasi?</string>
+    <string name="appcleaner_filter_qqchat_summary">File terkirim atau diterima di percakapan QQ chat.</string>
+    <string name="appcleaner_delete_all_confirmation_message">Hapus item tidak penting untuk semua aplikasi?</string>
     <plurals name="appcleaner_result_x_items_deleted">
-        <item quantity="other">%d berkas dapat dibuang telah dihapus</item>
+        <item quantity="other">%d item tidak penting dihapus</item>
     </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d berkas yang bisa dihapus ditemukan</item>
@@ -392,9 +392,9 @@
     <string name="appcleaner_automation_unavailable_title">Layanan aksesibilitas tidak tersedia</string>
     <string name="appcleaner_automation_unavailable_body">Menghapus cache yang tidak dapat diakses membutuhkan layanan aksesibilitas SD Maid, namun tidak tersedia. Jika tidak ingin menggunakannya: Matikan pilihan \"Sertakan cache yang tidak bisa diakses\".</string>
     <string name="appcleaner_junk_userprofile_label">Pengguna</string>
-    <string name="appcleaner_delete_confirmation_message_x">Hapus berkas-berkas yang tidak penting di %s?</string>
+    <string name="appcleaner_delete_confirmation_message_x">Hapus file tidak penting di %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
-        <item quantity="other">Hapus berkas-berkas yang tidak penting untuk %d aplikasi yang terpilih?</item>
+        <item quantity="other">Hapus file tidak penting untuk %d aplikasi yang terpilih?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Menghapus tembolok menggunakan Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Menentukan cache yang tidak dapat diakses</string>
@@ -404,8 +404,8 @@
     <string name="appcleaner_automation_error_no_settings_body">Aplikasi sistem ini tidak memiliki layar pengaturan. Penghapusan cache melalui layanan aksesibilitas tidak memungkinkan. Kecualikan untuk mempercepat penghapusan cache.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplikasi sistem salah dikonfigurasi</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Aplikasi Keamanan HyperOS (com.miui.securitycenter) kehilangan izin Statistik Penggunaan (GET_USAGE_STATS). Ini merusak fitur seperti \"Hapus Data\" di detail aplikasi dan penghapusan cache melalui aksesibilitas. Berikan izin untuk memulihkan fungsionalitas penuh.</string>
-    <string name="deduplicator_tool_name">Deduplikator</string>
-    <string name="deduplicator_explanation_short">Temukan data duplikat pada perangkat Anda.</string>
+    <string name="deduplicator_tool_name">Penghapus Duplikat</string>
+    <string name="deduplicator_explanation_short">Temukan data duplikat di perangkat Anda.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="other">%d duplikat dihapus</item>
     </plurals>
@@ -418,36 +418,36 @@
     <string name="deduplicator_search_locations_all_summary">Semua area yang dapat diakses</string>
     <string name="deduplicator_skip_minsize_title">Ukuran minimum</string>
     <string name="deduplicator_skip_minsize_description">Lewati file yang berada di bawah ukuran minimum.</string>
-    <string name="deduplicator_skip_uncommon_title">Lewati jenis berkas yang tidak umum</string>
-    <string name="deduplicator_skip_uncommon_description">Hanya sertakan berkas media, dokumen, dan arsip yang umum.</string>
+    <string name="deduplicator_skip_uncommon_title">Lewati jenis file yang tidak umum</string>
+    <string name="deduplicator_skip_uncommon_description">Hanya sertakan file media, dokumen, dan arsip yang umum.</string>
     <string name="deduplicator_detection_method_label">Metode deteksi</string>
     <string name="deduplicator_detection_method_checksum_title">Checksum konten</string>
     <string name="deduplicator_detection_method_checksum_summary">Tentukan duplikat dengan menghitung checksum untuk file. File dengan checksum yang cocok memiliki konten yang persis sama.</string>
     <string name="deduplicator_detection_method_phash_title">Hash persepsual</string>
-    <string name="deduplicator_detection_method_phash_summary">Temukan berkas serupa dengan menganalisis fitur konten dan membandingkan nilai hash perseptual. ⚠️ Deteksi berbasis kesamaan dapat mencakup positif palsu yang memerlukan verifikasi manual.</string>
+    <string name="deduplicator_detection_method_phash_summary">Temukan file serupa dengan menganalisis fitur konten dan membandingkan nilai hash perseptual. ⚠️ Deteksi berbasis kesamaan dapat mencakup positif palsu yang memerlukan verifikasi manual.</string>
     <string name="deduplicator_occupied_space_label">Penyimpanan terpakai</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s ditempati oleh duplikat</item>
     </plurals>
-    <string name="deduplicator_file_size_label">Ukuran berkas</string>
+    <string name="deduplicator_file_size_label">Ukuran file</string>
     <string name="deduplicator_average_size_label">Ukuran rata-rata</string>
     <string name="deduplicator_cluster_x_label">Kluster %s</string>
-    <string name="deduplicator_delete_confirmation_message">Delete all but one copy in all sets of duplicate files?</string>
-    <string name="deduplicator_delete_single_set_confirmation_message">Delete all but one copy in all sets of duplicate files?</string>
-    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Hapus semua file dalam set file duplikat ini? Tidak ada file yang tersisa!</string>
-    <string name="deduplicator_delete_multiple_sets_confirmation_message">Menghapus semua salinan kecuali satu dari setiap berkas duplikat yang dipilih?</string>
-    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Hapus semua berkas dalam setiap set berkas duplikat yang dipilih? Tidak ada berkas yang tersisa!</string>
-    <string name="deduplicator_delete_all_toggle_msg">Menghapus semua salinan. Tidak ada berkas lagi yang tersisa!</string>
-    <string name="deduplicator_progress_comparing_files">Membandingkan berkas-berkas</string>
+    <string name="deduplicator_delete_confirmation_message">Hapus semua kecuali satu salinan di semua set file duplikat?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Hapus semua kecuali satu salinan di set file duplikat ini?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Hapus semua file dalam set duplikat ini? Tidak ada file yang tersisa!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Hapus semua kecuali satu salinan dari setiap set file duplikat yang dipilih?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Hapus semua file dari setiap set duplikat yang dipilih? Tidak ada file yang tersisa!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Hapus semua salinan. Tidak ada file lagi yang tersisa!</string>
+    <string name="deduplicator_progress_comparing_files">Membandingkan file</string>
     <string name="deduplicator_details_cluster_title">Set duplikat</string>
     <string name="deduplicator_matches_exact_label">Salinan yang persis</string>
-    <string name="deduplicator_matches_similar_label">Berkas-berkas serupa</string>
+    <string name="deduplicator_matches_similar_label">File serupa</string>
     <string name="appcontrol_tool_name">Pengendali Aplikasi</string>
     <string name="appcontrol_explanation_short">Aplikasi terpasang di perangkat Anda.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="other">%d aplikasi terdeteksi</item>
     </plurals>
-    <string name="appcontrol_toggle_app_selection_action">Beralih ke aplikasi</string>
+    <string name="appcontrol_toggle_app_selection_action">Pilih aplikasi</string>
     <string name="appcontrol_toggle_app_enable_action">Aktifkan aplikasi</string>
     <string name="appcontrol_toggle_app_disable_action">Nonaktifkan aplikasi</string>
     <string name="appcontrol_toggle_app_enable_description">Mengaktifkan aplikasi membuatnya bisa berjalan dan bisa dilihat di launcher Anda jika ada aktifitas.</string>
@@ -464,7 +464,7 @@
     <string name="appcontrol_app_exclude_add_title">Kecualikan aplikasi</string>
     <string name="appcontrol_app_exclude_add_description">Kecualikan aplikasi ini dari operasi-operasi lain di SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Ubah pengecualian</string>
-    <string name="appcontrol_app_exclude_edit_description">Aplikasi ini dikecualikan dari satu atau lebih peralatan.</string>
+    <string name="appcontrol_app_exclude_edit_description">Aplikasi ini dikecualikan dari satu atau lebih alat.</string>
     <string name="appcontrol_tag_user">Pengguna</string>
     <string name="appcontrol_tag_active">Baru-baru ini aktif</string>
     <string name="appcontrol_tag_apk_base">APK</string>
@@ -492,13 +492,13 @@
     <string name="appcontrol_app_sizes_title">Ukuran aplikasi</string>
     <string name="appcontrol_app_sizes_apk_label">Aplikasi</string>
     <string name="appcontrol_app_sizes_data_label">Data</string>
-    <string name="appcontrol_app_sizes_cache_label">Tembolok</string>
+    <string name="appcontrol_app_sizes_cache_label">Cache</string>
     <string name="appcontrol_toggle_confirmation_title">Konfirmasi tindakan</string>
     <plurals name="appcontrol_toggle_confirmation_message_x">
-        <item quantity="other">Ganti keadaan aktif/nonaktif %d aplikasi?</item>
+        <item quantity="other">Ubah status aktif/nonaktif %d aplikasi?</item>
     </plurals>
     <plurals name="appcontrol_toggle_result_message_x">
-        <item quantity="other">%d aplikasi disaklar</item>
+        <item quantity="other">%d aplikasi diubah statusnya</item>
     </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Tentukan ukuran</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Dapatkan perkiraan kasar ukuran masing-masing aplikasi.</string>
@@ -508,7 +508,7 @@
     <string name="appcontrol_include_multiuser_summary">Sertakan aplikasi dari profil pengguna lain pada perangkat ini.</string>
     <string name="appcontrol_export_app_selection_action">Ekspor aplikasi</string>
     <string name="appcontrol_export_title">Ekspor aplikasi</string>
-    <string name="appcontrol_export_description">Simpan berkas instalasi apl. Tidak termasuk data aplikasi.</string>
+    <string name="appcontrol_export_description">Simpan file instalasi aplikasi. Tidak termasuk data aplikasi.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">%d aplikasi diekspor</item>
     </plurals>
@@ -530,12 +530,12 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Waktu layar: %1$s sejak %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Terakhir diperbarui: %s</string>
     <string name="appcontrol_item_installedat_x_label">Dipasang di: %s</string>
-    <string name="analyzer_tool_name">PenganalisisPenyimpanan</string>
-    <string name="analyzer_explanation_short">Mencari apa saja yang memenuhi ruang penyimpanan di perangkat Anda.</string>
+    <string name="analyzer_tool_name">Penganalisis Penyimpanan</string>
+    <string name="analyzer_explanation_short">Cari tahu apa yang menggunakan ruang di perangkat Anda.</string>
     <string name="analyzer_progress_scanning_device">Mencari perangkat penyimpanan</string>
     <string name="analyzer_progress_scanning_storage">Memindai penyimpanan</string>
     <string name="analyzer_progress_scanning_apps">Memindai aplikasi</string>
-    <string name="analyzer_progress_scanning_userfiles">Mencari berkas-berkas pengguna</string>
+    <string name="analyzer_progress_scanning_userfiles">Mencari file pengguna</string>
     <string name="analyzer_progress_scanning_system">Memindai data sistem</string>
     <string name="analyzer_device_storage_title">Penyimpanan perangkat</string>
     <plurals name="analyzer_space_available">
@@ -556,7 +556,7 @@
     <string name="analyzer_storage_content_type_app_description">Ruang yang ditempati oleh aplikasi terinstal dan datanya (yaitu file aplikasi, data, dan cache).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Izin tidak ada</string>
     <string name="analyzer_storage_content_type_media_label">Berkas pengguna</string>
-    <string name="analyzer_storage_content_type_media_description">Gambar yang diambil, video yang direkam, atau data yang diunduh. Semua data yang bukan milik suatu aplikasi.</string>
+    <string name="analyzer_storage_content_type_media_description">Gambar yang diambil, video yang direkam, atau data yang diunduh. Semua data yang bukan milik aplikasi tertentu.</string>
     <string name="analyzer_storage_content_type_system_label">Data sistem</string>
     <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika beberapa akun pengguna lain ada di perangkat ini.</string>
     <string name="analyzer_storage_content_app_code_label">Kode aplikasi</string>
@@ -564,8 +564,8 @@
     <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>
     <string name="analyzer_storage_content_app_data_description">Data, pengaturan, dan tembolok.</string>
     <string name="analyzer_storage_content_app_media_label">Media aplikasi</string>
-    <string name="analyzer_storage_content_app_media_description">Berkas-berkas media dari aplikasi ini, seperti foto-foto WhatsApp yang diterima.</string>
-    <string name="analyzer_storage_content_app_extra_label">Berkas-berkas aplikasi lainnya</string>
+    <string name="analyzer_storage_content_app_media_description">File media dari aplikasi ini, seperti foto-foto WhatsApp yang diterima.</string>
+    <string name="analyzer_storage_content_app_extra_label">File aplikasi lainnya</string>
     <string name="analyzer_storage_content_app_extra_description">Data lain yang ditempatkan di luar jalur umumnya oleh aplikasi ini, seperti foto atau unduhan.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikasi ini menempati %1$s pada \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Aplikasi ini telah diarsipkan.</string>
@@ -590,7 +590,7 @@
     <string name="exclusion_option_allow_partial">Izinkan penyocokan terpisah</string>
     <string name="exclusion_option_ignore_casing">Abaikan kasus</string>
     <string name="exclusion_editor_affected_tools_label">Peralatan yang terpengaruh</string>
-    <string name="exclusion_editor_path_explanation">Pengecualian direktori mencegah SD Maid memproses direktori mana pun yang ditentukan. Ini berlaku untuk berkas, folder, dan subfolder.</string>
+    <string name="exclusion_editor_path_explanation">Pengecualian direktori mencegah SD Maid memproses direktori mana pun yang ditentukan. Ini berlaku untuk file, folder, dan subfolder.</string>
     <string name="exclusion_editor_pkg_explanation">Sebuah pengecualian aplikasi mencegah SD Maid dari memproses setiap paket yang cocok.</string>
     <string name="exclusion_editor_segment_explanation">Pengecualian berbasis segmen mirip dengan pengecualian jalur namun memungkinkan untuk pencocokan sebagian. Misalnya: \"DCIM/Camera\" mengecualikan \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Buang pengecualian ini?</string>
@@ -604,7 +604,7 @@
         <item quantity="other">%d pengecualian telah dibuat</item>
     </plurals>
     <string name="exclusion_show_defaults_action">Tampilkan bawaan</string>
-    <string name="automation_accessibility_service_description">Pengguna dengan kebutuhan aksesibilitas khusus dapat mengaktifkan layanan ini untuk mengizinkan sd maid mengotomatiskan tugas yang jika tidak memerlukan interaksi pengguna manual yang membosankan (mis. penghapusan cache).\n\ncontoh: Jika Anda menginstruksikan SD Maid untuk menghentikan beberapa aplikasi, maka SD Maid dapat menggunakan ini layanan untuk membuka setiap layar pengaturan aplikasi, temukan tombol \'Paksa Berhenti\' dan ketuk.\n\nSD Maid akan selalu ditampilkan dengan jelas saat menggunakan layanan ini dan menyediakan cara mudah bagi pengguna untuk segera membatalkan interaksi apa pun.\n\nTidak tindakan akan dilakukan tanpa persetujuan pengguna sebelumnya. Layanan ini dapat dinonaktifkan kembali sewaktu-waktu tanpa efek samping.</string>
+    <string name="automation_accessibility_service_description">Pengguna dengan kebutuhan aksesibilitas khusus dapat mengaktifkan layanan ini untuk memungkinkan SD Maid mengotomatiskan tugas yang sebaliknya memerlukan interaksi manual pengguna yang membosankan (misalnya penghapusan cache).\n\nContoh: Jika Anda menginstruksikan SD Maid untuk menghentikan beberapa aplikasi, maka SD Maid dapat menggunakan layanan ini untuk membuka setiap layar pengaturan aplikasi, menemukan tombol \'Paksa Berhenti\' dan mengetuknya.\n\nSD Maid akan selalu menampilkan secara menonjol saat menggunakan layanan ini dan menyediakan cara mudah bagi pengguna untuk membatalkan interaksi apa pun dengan segera.\n\nTidak ada tindakan yang akan dilakukan tanpa persetujuan pengguna sebelumnya. Layanan ini dapat dinonaktifkan kembali kapan saja tanpa efek samping.</string>
     <string name="automation_screenoverlay_explanation">SD Maid sedang berinteraksi dengan perangkat Anda. Tidak memungkinkan untuk menggunakan layar secara bersamaan. Tunggu sampai operasi selesai atau dibatalkan.</string>
     <string name="automation_active_title">SD Maid sedang bekerja</string>
     <string name="automation_error_no_consent_title">Kesalahan otomatisasi</string>
@@ -614,9 +614,9 @@
     <string name="automation_error_not_running_title">Layanan tidak dijalankan</string>
     <string name="automation_error_not_running_body">Layanan aksesibilitas tidak berjalan. Coba nyalakan ulang perangkat anda.</string>
     <string name="automation_error_screen_unavailable_title">Layar tidak tersedia</string>
-    <string name="automation_error_screen_unavailable_body">Tindakan dibatalkan karena layar tidak tersedia (tampilan mati atau ponsel terkunci).</string>
+    <string name="automation_error_screen_unavailable_body">Operasi dibatalkan karena layar tidak tersedia (misalnya layar mati atau layar kunci aktif).</string>
     <string name="automation_error_compatibility_title">Kompatibilitas otomasi</string>
-    <string name="automation_error_compatibility_body">SD Maid tidak dapat mengenali tata letak layar. Jika ini terus terjadi, bahasa atau pengaturan Anda mungkin belum sepenuhnya didukung. Periksa pembaruan atau hubungi saya agar saya dapat memperbaikinya.</string>
+    <string name="automation_error_compatibility_body">SD Maid tidak bisa mengetahui tata letak layar. Jika ini terus terjadi, bahasa atau pengaturan Anda mungkin belum sepenuhnya didukung. Periksa pembaruan atau hubungi saya agar saya bisa memperbaikinya.</string>
     <string name="automation_error_timeout_title">Timeout otomasi</string>
     <string name="automation_error_timeout_body">SD Maid tidak menyelesaikan semua langkah dalam batas waktu. Jika ini terus terjadi, saya mungkin perlu menyesuaikan aplikasi untuk perangkat Anda. Periksa pembaruan atau hubungi saya agar saya dapat memperbaikinya.</string>
     <string name="automation_error_overlay_title">Overlay otomasi</string>
@@ -650,7 +650,7 @@
     <string name="scheduler_setting_charging_title">Lewati ketika tidak mengisi daya</string>
     <string name="scheduler_setting_charging_summary">Jika perangkat tidak mengisi daya, jadwal tugas akan dilewati.</string>
     <string name="scheduler_setting_automation_title">Layanan aksesibilitas</string>
-    <string name="scheduler_setting_automation_summary">Menyertakan tindakan yang menggunakan layanan aksesibilitas. Ini mengharuskan SD Maid untuk dapat berinteraksi dengan layar anda (pada saat itu terbuka) saat tugas-tugas telah tereksekusi.</string>
+    <string name="scheduler_setting_automation_summary">Menyertakan tindakan yang menggunakan layanan aksesibilitas. Ini mengharuskan SD Maid untuk dapat berinteraksi dengan layar Anda (saat tidak terkunci) ketika tugas dieksekusi.</string>
     <string name="scheduler_notification_channel_label">Penjadwal</string>
     <string name="scheduler_notification_title">Tugas terjadwal</string>
     <string name="scheduler_notification_message">Menjalankan: \"%s\"</string>
@@ -689,42 +689,42 @@
         <item quantity="other">%s telah dibebaskan.</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-        <item quantity="other">%s item diproses sejak Anda menginstal SD Maid di perangkat Anda.</item>
+        <item quantity="other">%s item diproses sejak Anda memasang SD Maid di perangkat Anda.</item>
     </plurals>
-    <string name="stats_report_status_success">Sukses</string>
-    <string name="stats_report_status_partial_success">Separuh berhasil</string>
+    <string name="stats_report_status_success">Berhasil</string>
+    <string name="stats_report_status_partial_success">Berhasil sebagian</string>
     <string name="stats_report_status_partial_failure">Kegagalan</string>
     <string name="stats_settings_desc">Konfigurasikan statistik, laporan, dan retensi data SD Maid.</string>
     <string name="stats_settings_retention_category">Retensi</string>
     <string name="stats_settings_retention_reports_label">Laporan umum</string>
     <string name="stats_settings_retention_reports_desc">Hitungan hari sebelum menghapus laporan operasi dasar SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Informasi jalur perinci</string>
-    <string name="stats_settings_retention_paths_desc">Berapa hari menyimpan perincian jalur pada SD Maid.</string>
+    <string name="stats_settings_retention_paths_desc">Berapa hari menyimpan detail jalur yang terpengaruh oleh SD Maid.</string>
     <plurals name="stats_settings_retention_x_days">
         <item quantity="other">%d hari</item>
     </plurals>
     <string name="stats_settings_reset_all_label">Atur ulang semua</string>
-    <string name="stats_settings_reset_all_desc">Hapus semua laporan dan semua statistik ke nol.</string>
+    <string name="stats_settings_reset_all_desc">Hapus semua laporan dan atur ulang semua statistik ke nol.</string>
     <string name="stats_affected_paths_label">Jalur terpengaruh</string>
-    <string name="stats_affected_pkgs_label">Apli terpengaruh</string>
-    <string name="picker_select_paths_title">Pilih lokasi</string>
-    <string name="picker_selected_paths_title">Lokasi yang dipilih</string>
+    <string name="stats_affected_pkgs_label">Aplikasi terpengaruh</string>
+    <string name="picker_select_paths_title">Pilih jalur</string>
+    <string name="picker_selected_paths_title">Jalur yang dipilih</string>
     <string name="picker_unsaved_confirmation_message">Buang perubahan?</string>
     <plurals name="picker_selected_paths_subtitle">
-        <item quantity="other">%d lokasi dipilih</item>
+        <item quantity="other">%d jalur dipilih</item>
     </plurals>
     <string name="picker_home_action">Area data</string>
     <string name="area_type_sdcard_label">Penyimpanan umum</string>
-    <string name="area_type_public_media_label">Media apl umum</string>
-    <string name="area_type_public_data_label">Data apl umum</string>
-    <string name="area_type_public_obb_label">Sumber apl umum</string>
-    <string name="area_type_private_data_label">Data apl pribadi</string>
+    <string name="area_type_public_media_label">Media aplikasi publik</string>
+    <string name="area_type_public_data_label">Data aplikasi publik</string>
+    <string name="area_type_public_obb_label">Sumber daya aplikasi publik</string>
+    <string name="area_type_private_data_label">Data aplikasi pribadi</string>
     <string name="area_type_portable_label">Penyimpanan eksternal</string>
-    <string name="shortcut_appcontrol_short">Kontrol Apl</string>
-    <string name="shortcut_appcontrol_long">Kelola apl terpasang</string>
+    <string name="shortcut_appcontrol_short">Kontrol Aplikasi</string>
+    <string name="shortcut_appcontrol_long">Kelola aplikasi terpasang</string>
     <string name="shortcut_onetap_short">Pindai + Hapus</string>
-    <string name="shortcut_onetap_long">Pindai dan hapus sekaligus</string>
+    <string name="shortcut_onetap_long">Pindai dan hapus dalam satu tindakan</string>
     <string name="shortcuts_settings_category">Pintasan</string>
-    <string name="shortcuts_onetap_enabled_title">Pintasan satu ketuk</string>
-    <string name="shortcuts_onetap_enabled_summary">Tampilkan pintasan “Pindai + Hapus” saat tekan-tahan ikon aplikasi. Menggunakan alat yang sama seperti dasbor satu ketuk.</string>
+    <string name="shortcuts_onetap_enabled_title">Pintasan sekali ketuk</string>
+    <string name="shortcuts_onetap_enabled_summary">Tampilkan pintasan “Pindai + Hapus” saat menekan lama ikon aplikasi. Menggunakan alat yang sama seperti dasbor sekali ketuk.</string>
 </resources>
