@@ -125,7 +125,7 @@ class MascotView @JvmOverloads constructor(
     private fun isXmasSeason(): Boolean {
         val now = LocalDate.now()
 
-        val start = LocalDate.of(now.year, Month.DECEMBER, 23)
+        val start = LocalDate.of(now.year, Month.DECEMBER, 21)
         val end = LocalDate.of(now.year, Month.DECEMBER, 29)
 
         return now.isEqual(start) || now.isEqual(end) || (now.isAfter(start) && now.isBefore(end))
