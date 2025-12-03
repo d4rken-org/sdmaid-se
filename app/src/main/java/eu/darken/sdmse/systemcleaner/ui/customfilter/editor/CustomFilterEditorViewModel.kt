@@ -38,6 +38,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.scan
+import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
 
@@ -201,6 +202,34 @@ class CustomFilterEditorViewModel @Inject constructor(
                 setOf(type)
             }
             copy(current = current.copy(fileTypes = newFileTypes.takeIf { it.isNotEmpty() }))
+        }
+    }
+
+    fun updateSizeMinimum(size: Long?) = launch {
+        log(TAG) { "updateSizeMinimum($size)" }
+        currentState.updateBlocking {
+            copy(current = current.copy(sizeMinimum = size))
+        }
+    }
+
+    fun updateSizeMaximum(size: Long?) = launch {
+        log(TAG) { "updateSizeMaximum($size)" }
+        currentState.updateBlocking {
+            copy(current = current.copy(sizeMaximum = size))
+        }
+    }
+
+    fun updateAgeMinimum(age: Duration?) = launch {
+        log(TAG) { "updateAgeMinimum($age)" }
+        currentState.updateBlocking {
+            copy(current = current.copy(ageMinimum = age))
+        }
+    }
+
+    fun updateAgeMaximum(age: Duration?) = launch {
+        log(TAG) { "updateAgeMaximum($age)" }
+        currentState.updateBlocking {
+            copy(current = current.copy(ageMaximum = age))
         }
     }
 
