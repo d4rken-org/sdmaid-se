@@ -9,10 +9,11 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
-import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
-import eu.darken.sdmse.automation.core.common.isClickyButton
+import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
+import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
@@ -95,8 +96,17 @@ class OneUISpecs @Inject constructor(
                 descriptionInternal = "Clear cache for $pkg",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
-                nodeAction = defaultFindAndClickClearCache(isDryRun = Bugs.isDryRun, pkg) {
-                    if (!it.isClickyButton()) false else it.textMatchesAny(clearCacheButtonLabels)
+                nodeAction = action@{
+                    var target = findNode { it.textMatchesAny(clearCacheButtonLabels) } ?: return@action false
+
+                    // On older One UI: text is on the button itself (clickable)
+                    // On One UI 8.5+: text is nested, need to find clickable parent
+                    if (!target.isClickable) {
+                        log(TAG) { "Clear cache element not clickable, finding parent: $target" }
+                        target = findClickableParent(node = target) ?: return@action false
+                    }
+
+                    clickClearCache(isDryRun = Bugs.isDryRun, pkg = pkg, node = target)
                 },
             )
             stepper.withProgress(this) { process(this@plan, step) }
