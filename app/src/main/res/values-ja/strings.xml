@@ -13,6 +13,13 @@
     <string name="debug_debuglog_record_action">デバッグログの記録</string>
     <string name="debug_debuglog_stop_action">記録を停止</string>
     <string name="debug_debuglog_sensitive_information_message">生成されたファイルにはセンシティブな情報(ファイル名やインストールされているアプリなど)が含まれています。信頼できる相手のみと共有してください。</string>
+    <string name="debug_debuglog_screen_title">デバッグログ</string>
+    <string name="debug_debuglog_screen_discard_action">破棄</string>
+    <string name="debug_debuglog_screen_session_path_label">セッションパス</string>
+    <string name="debug_debuglog_screen_log_files_label">ログファイル</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d つのファイルが準備完了 (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">この機能はアプリが行っているすべてのことを共有可能なファイルに記録します。生成されたファイルには機密情報（ファイル名やインストール済みアプリなど）が含まれています。信頼できる相手（問題をトラブルシューティングしている開発者など）とのみ共有してください。</string>
     <string name="tasks_activity_notification_channel_label">実行中のタスク</string>
     <string name="tasks_activity_working_notification_title">SD Maidは稼動中です</string>
@@ -82,6 +89,11 @@
     <string name="discord_description">集まって質問ができる場所です。</string>
     <string name="changelog_label">更新履歴</string>
     <string name="settings_acknowledgements_label">謝辞</string>
+    <string name="settings_acknowledgements_category_translations_title">翻訳</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">誰がこの文章を翻訳しましたか？</string>
+    <string name="settings_acknowledgements_category_thanks_title">謝辞</string>
+    <string name="settings_acknowledgements_category_licenses_title">ライセンス</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maidが使用しているソフトウェア</string>
     <string name="setup_label">セットアップ</string>
     <string name="setup_incomplete_card_title">セットアップが完了していません</string>
     <string name="setup_incomplete_card_body">SD Maidのセットアップを完成させると、利用できる機能が増えます。</string>
@@ -186,6 +198,8 @@
     <string name="corpsefinder_filter_privatedata_summary">プライベートなアプリデータ、例えば資格情報、アプリ設定だけでなく、ブラウザーキャッシュもあります。</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvikキャッシュ</string>
     <string name="corpsefinder_filter_dalvik_summary">キャッシュされたアプリの実行データ。</string>
+    <string name="corpsefinder_filter_artprofiles_label">ARTプロファイル</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ARTプロファイルは、アプリのパフォーマンスを最適化するためにAndroidによって使用されます。</string>
     <string name="corpsefinder_filter_applib_label">アプリのライブラリ</string>
     <string name="corpsefinder_filter_applib_summary">アプリ関連のライブラリデータ。</string>
     <string name="corpsefinder_filter_appsource_label">アプリのソース</string>
@@ -339,6 +353,7 @@
     <string name="appcleaner_filter_recyclebins_summary">削除されているが、それらを復元するために特別なフォルダに置かれたファイル。</string>
     <string name="appcleaner_filter_webview_label">Webviewのファイル</string>
     <string name="appcleaner_filter_webview_summary">アプリ内で使用されるWebviewインスタンスによってキャッシュされたファイル。</string>
+    <string name="appcleaner_filter_shortcutservice_label">アプリのショートカット アイコン</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsAppのバックアップ</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">WhatsAppバックアップの余分なコピーを削除し、最新のものだけを残す。</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp経由で他の人から受信したファイル。</string>
@@ -688,4 +703,8 @@
     <string name="area_type_public_obb_label">パブリックアプリリソース</string>
     <string name="area_type_private_data_label">プライベートアプリデータ</string>
     <string name="area_type_portable_label">ポータブルストレージ</string>
+    <string name="shortcut_appcontrol_short">アプリを管理</string>
+    <string name="shortcut_appcontrol_long">インストールされたアプリを管理</string>
+    <string name="shortcuts_settings_category">ショートカット</string>
+    <string name="shortcuts_onetap_enabled_title">ワンタップショートカット</string>
 </resources>

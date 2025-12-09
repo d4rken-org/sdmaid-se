@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="slogan_message_0">На вашој услузи.</string>
+    <string name="slogan_message_0">Вама на услузи.</string>
     <string name="slogan_message_1">Чисто и уредно.</string>
     <string name="slogan_message_2">Спречава хаос.</string>
     <string name="slogan_message_3">Ради оно што је потребно.</string>
@@ -171,4 +171,6 @@
     <string name="general_error_report_bug_action">Пријави грешку</string>
     <string name="general_error_ipc_deadobject_title">Веза са услугом је изгубљена</string>
     <string name="general_error_ipc_deadobject_description">Веза са критичном услугом (нпр. Magisk, Shizuku или друге услуге системског нивоа) је неочекивано изгубљена. Молимо рестартујте ваш уређај. Ако се проблем настави, проверите ажурирања или ме контактирајте да бих то поправио.</string>
+    <string name="general_user_label_owner">Власник</string>
+    <string name="general_user_label_system">Систем</string>
 </resources>

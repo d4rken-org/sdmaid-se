@@ -17,6 +17,10 @@
     <string name="debug_debuglog_screen_discard_action">Hylkää</string>
     <string name="debug_debuglog_screen_session_path_label">Istunnon Polku</string>
     <string name="debug_debuglog_screen_log_files_label">Loki Tiedostot</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d tiedosto valmiina (%2$s)</item>
+        <item quantity="other">%1$d tiedostoa valmiina (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Tämä ominaisuus tallentaa kaiken sovelluksen tekemän jaettavaan tiedostoon. Luotu tiedosto sisältää arkaluontoisia tietoja (esim. tiedostonimet ja asennetut sovellukset). Jaa se vain luotettujen tahojen kanssa (esim. kehittäjä, joka selvittää ongelmaa).</string>
     <string name="tasks_activity_notification_channel_label">Aktiiviset tehtävät</string>
     <string name="tasks_activity_working_notification_title">SD Maid työskentelee</string>
@@ -359,6 +363,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Tiedostot, jotka on poistettu mutta siirretty erityiskansioon, jotta ne voidaan palauttaa.</string>
     <string name="appcleaner_filter_webview_label">Webview tiedostot</string>
     <string name="appcleaner_filter_webview_summary">Webview-komponenttien tiedostot.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Sovellusten pikakuvakkeet</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Välimuistissa olevat kuvakkeet sovellusten pikakuvakkeille ja jakamisvalikoille.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp-varmuuskopiot</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Poista WhatsApp-varmuuskopioiden ylimääräiset kopiot ja säilytä vain uusin.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Tiedostot, jotka olet vastaanottanut muilta WhatsAppin kautta.</string>
@@ -407,8 +413,8 @@
     <string name="appcleaner_automation_error_no_settings_body">Sovelluksen asetuksia ei löytynyt automaattista siivousta varten.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Käyttöoikeus vaaditaan</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Tietoturvakeskuksen käyttöoikeus vaaditaan automaattiseen siivoukseen.</string>
-    <string name="deduplicator_tool_name">Duplikaattien poistaja</string>
-    <string name="deduplicator_explanation_short">Duplikaattitiedostot.</string>
+    <string name="deduplicator_tool_name">Kaksoiskappaleiden poistaja</string>
+    <string name="deduplicator_explanation_short">Etsi laitteeltasi kaksoistietoja.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d kaksoiskappale poistettu</item>
         <item quantity="other">%d kaksoiskappaletta poistettu</item>
@@ -418,7 +424,7 @@
         <item quantity="other">%d kaksoiskappalejoukkoja löydetty</item>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Tee \"Poista kaikki\" mahdolliseksi</string>
-    <string name="deduplicator_protection_deleteall_allowed_summary">Näytä vaihtoehdot, joiden avulla voit poistaa kaikki tiedostot duplikaattien sarjasta, jotta yhtään tiedostoa ei jää jäljelle.</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Näytä vaihtoehdot, joiden avulla voit poistaa kaikki tiedostot kaksoiskappaleiden joukossa, jotta yhtään tiedostoa ei jää jäljelle.</string>
     <string name="deduplicator_search_locations_title">Hakusijainnit</string>
     <string name="deduplicator_search_locations_all_summary">Kaikki saavutettavat alueet</string>
     <string name="deduplicator_skip_minsize_title">Vähimmäiskoko</string>
@@ -427,8 +433,9 @@
     <string name="deduplicator_skip_uncommon_description">Sisällytä vain yleiset mediatiedostot, asiakirjat ja arkistot.</string>
     <string name="deduplicator_detection_method_label">Tunnistusmenetelmä</string>
     <string name="deduplicator_detection_method_checksum_title">Sisällön tarkistussumma</string>
-    <string name="deduplicator_detection_method_checksum_summary">Määritä duplikaatit laskemalla tiedostojen tarkistussummat. Tiedostot, joilla on vastaavat tarkistussummat, sisältävät täsmälleen saman sisällön.</string>
+    <string name="deduplicator_detection_method_checksum_summary">Määritä kaksoiskappaleet laskemalla tiedostojen tarkistussummat. Tiedostot, joilla on vastaavat tarkistussummat, sisältävät täsmälleen saman sisällön.</string>
     <string name="deduplicator_detection_method_phash_title">Havainnollinen hash</string>
+    <string name="deduplicator_detection_method_phash_summary">Löydä samankaltaisia ​​tiedostoja analysoimalla sisällön ominaisuuksia ja vertaamalla tiivistearvoja. ⚠️ Samankaltaisuuteen perustuva tunnistus voi sisältää vääriä positiivisia tuloksia, jotka vaativat manuaalisen vahvistuksen.</string>
     <string name="deduplicator_occupied_space_label">Käytetty tallennustila</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s on kaksoiskappaleiden käyttämää</item>
@@ -437,14 +444,14 @@
     <string name="deduplicator_file_size_label">Tiedoston koko</string>
     <string name="deduplicator_average_size_label">Keskimääräinen koko</string>
     <string name="deduplicator_cluster_x_label">Klusteri %s</string>
-    <string name="deduplicator_delete_confirmation_message">Poista kaikki paitsi yksi kopio kaikista duplikaattitiedostojen sarjoista?</string>
-    <string name="deduplicator_delete_single_set_confirmation_message">Poista kaikki paitsi yksi kopio tästä duplikaattitiedostojen sarjasta?</string>
-    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Poista kaikki tiedostot tästä duplikaattitiedostojen sarjasta? Yhtään tiedostoa ei jää jäljelle!</string>
-    <string name="deduplicator_delete_multiple_sets_confirmation_message">Poista kaikki paitsi yksi kopio jokaisesta valitusta duplikaattitiedostojen sarjasta?</string>
-    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Poista kaikki tiedostot jokaisesta valitusta duplikaattitiedostojen sarjasta? Yhtään tiedostoa ei jää jäljelle!</string>
+    <string name="deduplicator_delete_confirmation_message">Poista kaikki paitsi yksi kopio kaikista kaksoistiedostojen sarjoista?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Poista kaikki paitsi yksi kopio tästä kaksoistiedostojen sarjasta?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Poistetaanko kaikki tiedostot tästä kaksoistiedostojen sarjasta? Yhtään tiedostoa ei jää jäljelle!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Poistetaanko kaikki paitsi yksi kopio jokaisesta valitusta kaksoistiedostojen sarjasta?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Poistetaanko kaikki tiedostot jokaisesta valitusta kaksoistiedostojen sarjasta? Yhtään tiedostoa ei jää jäljelle!</string>
     <string name="deduplicator_delete_all_toggle_msg">Poista kaikki kopiot. Yhtään tiedostoa ei jää jäljelle!</string>
     <string name="deduplicator_progress_comparing_files">Vertaillaan tiedostoja</string>
-    <string name="deduplicator_details_cluster_title">Duplikaattien sarja</string>
+    <string name="deduplicator_details_cluster_title">Kaksoiskappaleiden sarja</string>
     <string name="deduplicator_matches_exact_label">Tarkat kopiot</string>
     <string name="deduplicator_matches_similar_label">Samankaltaiset tiedostot</string>
     <string name="appcontrol_tool_name">Sovellushallinta</string>
@@ -513,8 +520,11 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Saa karkea arvio kunkin sovelluksen koosta.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Määritä aktiviteetti</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Selvitä onko sovellus (tai oli äskettäin) aktiivinen.</string>
+    <string name="appcontrol_include_multiuser_label">Sisällytä muut käyttäjät</string>
+    <string name="appcontrol_include_multiuser_summary">Sisällytä sovellukset muista tämän laitteen käyttäjäprofiileista.</string>
     <string name="appcontrol_export_app_selection_action">Vie sovellukset</string>
     <string name="appcontrol_export_title">Vie sovellus</string>
+    <string name="appcontrol_export_description">Tallenna tämän sovelluksen asennustiedostot. Tämä ei sisällä sovellustietoja.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d sovellus vietiin</item>
         <item quantity="other">%d sovellusta vietiin</item>
@@ -538,6 +548,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Yritetään vahvistaa edellinen toiminto (avainsanat: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Näyttöaika: %1$s alkaen %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Viimeksi päivitetty: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Tälle asennettu: %s</string>
     <string name="analyzer_tool_name">Analysoi</string>
     <string name="analyzer_explanation_short">Selvitä mikä vie tilaa laitteeltasi.</string>
     <string name="analyzer_progress_scanning_device">Etsitään tallennuslaitteita</string>
@@ -687,6 +698,17 @@
     <string name="review_app_review_action">Arvostele</string>
     <string name="review_app_dismiss_action">Ehkä myöhemmin</string>
     <string name="review_app_body">Haluaisitko jättää SD Maidille arvostelun?️ ❤️</string>
+    <string name="anniversary_card_title">Hyvää SD Maid -vuosipäivää ❤️</string>
+    <string name="anniversary_card_install_date">Kanssasi %s lähtien</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">%1$d vuosi vahvaa. Laitteesi pysyy puhtaana ja siistinä SD Maidin avulla. Vapautettua tilaa: %2$s</item>
+        <item quantity="other">%1$d vuotta vahvaa. Laitteesi pysyy puhtaana ja siistinä SD Maidin avulla. Vapautettua tilaa: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Jaa SD Maid -vuosipäiväsi</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d vuosi SD Maidin kanssa — Vapautettua tilaa: %2$s. Pidä Android-laitteesi puhtaana ja järjestyksessä. #SDMaid\nKokeile: %3$s</item>
+        <item quantity="other">%1$d vuotta SD Maidin kanssa — Vapautettua tilaa: %2$s. Pidä Android-laitteesi puhtaana ja järjestyksessä. #SDMaid\nKokeile: %3$s</item>
+    </plurals>
     <string name="stats_label">Historia</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s on vapautettu.</item>
@@ -727,4 +749,9 @@
     <string name="area_type_public_obb_label">Julkiset sovelluksen resurssit</string>
     <string name="area_type_private_data_label">Yksityiset sovellustiedot</string>
     <string name="area_type_portable_label">Siirrettävä tallennustila</string>
+    <string name="shortcut_appcontrol_short">Sovellussäätö</string>
+    <string name="shortcut_appcontrol_long">Hallinnoi asennettuja sovelluksia</string>
+    <string name="shortcut_onetap_short">Skannaa + Poista</string>
+    <string name="shortcut_onetap_long">Skannaa ja poista yhdellä toimella</string>
+    <string name="shortcuts_settings_category">Pikanäppäimet</string>
 </resources>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="slogan_message_0">Palveluksessanne.</string>
+    <string name="slogan_message_0">Palveluksessasi.</string>
     <string name="slogan_message_1">Puhdas ja järjestyksessä.</string>
     <string name="slogan_message_2">Estää kaaoksen.</string>
     <string name="slogan_message_3">Tekee tarvittavan.</string>
-    <string name="slogan_message_5">Täydellinen.</string>
+    <string name="slogan_message_5">Tahraton.</string>
     <string name="slogan_message_6">Tavut, häipykää!</string>
     <string name="slogan_message_7">Vapaa tila, onnellinen paikka.</string>
     <string name="slogan_message_8">En koskaan luovuta sinusta.</string>
@@ -41,7 +41,7 @@
     <string name="general_check_action">Tarkista</string>
     <string name="general_filter_action">Suodata</string>
     <string name="general_internal_not_available_msg">Internet-yhteys ei ole saatavilla</string>
-    <string name="general_refresh_action">Päivitä</string>
+    <string name="general_refresh_action">Virkistä</string>
     <string name="general_progress_searching">Etsitään</string>
     <string name="general_progress_generating_searchpaths">Luodaan hakupolkuja</string>
     <string name="general_progress_filtering">Suodatetaan</string>
@@ -58,6 +58,7 @@
     <string name="general_progress_loading_egg_5">Turbo encabulator käynnistyy</string>
     <string name="general_progress_loading_egg_6">Syöttää voita</string>
     <string name="general_progress_loading_egg_7">No niin. Miten pärjäät?</string>
+    <string name="general_progress_loading_egg_8">Piippaava bup bup</string>
     <string name="general_progress_loading_egg_9">Puskuroidaan elämänvalintoja</string>
     <string name="general_progress_loading_egg_10">Kutsutaan Cthulhua</string>
     <string name="general_progress_loading_egg_11">Tämä on hyvä</string>
@@ -89,6 +90,10 @@
     <string name="general_toggle_layout_mode">Vaihda näkymätilaa</string>
     <string name="general_delete_confirmation_title">Vahvista poistaminen</string>
     <string name="general_delete_confirmation_message_x">Poista \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Poistetaanko %d valittu kohde?</item>
+        <item quantity="other">Poistetaanko %d valittua kohdetta?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Poistettiin %d kohde.</item>
         <item quantity="other">Poistettiin %d kohdetta.</item>
@@ -161,4 +166,6 @@
     <string name="general_error_report_bug_action">Raportoi virhe</string>
     <string name="general_error_ipc_deadobject_title">Palveluyhteys katosi</string>
     <string name="general_error_ipc_deadobject_description">Yhteys kriittiseen palveluun (esim. Magisk, Shizuku tai muut järjestelmätason palvelut) katkesi odottamattomasti. Käynnistä laitteesi uudelleen. Jos ongelma jatkuu, tarkista päivitykset tai ota yhteyttä minuun, jotta voin korjata sen.</string>
+    <string name="general_user_label_owner">Omistaja</string>
+    <string name="general_user_label_system">Järjestelmä</string>
 </resources>

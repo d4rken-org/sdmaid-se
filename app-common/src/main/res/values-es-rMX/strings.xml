@@ -8,15 +8,15 @@
     <string name="slogan_message_4">Todo en orden.</string>
     <string name="slogan_message_5">Impecable.</string>
     <string name="slogan_message_6">¡Bytes, fuera!</string>
-    <string name="slogan_message_7">Espacio libre, lugar feliz.</string>
-    <string name="slogan_message_8">Nunca te voy a abandonar.</string>
+    <string name="slogan_message_7">Espacio libre, sitio feliz.</string>
+    <string name="slogan_message_8">Nunca te abandonaré.</string>
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_error_type_mismatch_msg">Error tipográfico: Querías %1$s, pero obtuviste %2$s.</string>
     <string name="general_error_cant_access_msg">No se puede acceder a %s.</string>
-    <string name="general_error_root_unavailable">El acceso root no está disponible.</string>
-    <string name="general_error_empty_result_msg">El resultado estaba vacío.</string>
-    <string name="general_error_no_compatible_app_found_msg">No se encontró ninguna aplicación compatible para manejar esta solicitud.</string>
-    <string name="general_todo_msg">Esta función aún está en fase de desarrollo y actualmente no está disponible.</string>
+    <string name="general_error_root_unavailable">El acceso Root no está disponible.</string>
+    <string name="general_error_empty_result_msg">Sin resultados.</string>
+    <string name="general_error_no_compatible_app_found_msg">No se ha encontrado ninguna aplicación compatible para gestionar esta solicitud.</string>
+    <string name="general_todo_msg">Esta función está aún en fase de desarrollo y actualmente no está disponible.</string>
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Hecho</string>
     <string name="general_copy_action">Copiar</string>
@@ -92,6 +92,10 @@
     <string name="general_toggle_layout_mode">Cambiar modo de vista</string>
     <string name="general_delete_confirmation_title">Confirmar el borrado</string>
     <string name="general_delete_confirmation_message_x">¿Borrar \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">¿Eliminar el %d elemento seleccionado?</item>
+        <item quantity="other">¿Eliminar los %d elementos seleccionados?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Se borró %d elemento.</item>
         <item quantity="other">Se borraron %d elementos.</item>
@@ -164,4 +168,6 @@
     <string name="general_error_report_bug_action">Reportar error</string>
     <string name="general_error_ipc_deadobject_title">Conexión de Servicio Perdida</string>
     <string name="general_error_ipc_deadobject_description">La conexión a un servicio crítico (por ejemplo, Magisk, Shizuku u otros servicios a nivel del sistema) se perdió inesperadamente. Por favor reinicia tu dispositivo. Si el problema persiste, busca actualizaciones o contáctame para que pueda solucionarlo.</string>
+    <string name="general_user_label_owner">Propietario</string>
+    <string name="general_user_label_system">Sistema</string>
 </resources>

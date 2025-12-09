@@ -14,7 +14,12 @@
     <string name="debug_debuglog_stop_action">停止記錄</string>
     <string name="debug_debuglog_sensitive_information_message">產生的檔案包含敏感資訊 (例如檔案名稱和已安裝的應用程式)，請僅將它分享至受信任的對象。</string>
     <string name="debug_debuglog_screen_title">偵錯日誌</string>
+    <string name="debug_debuglog_screen_discard_action">Discard</string>
+    <string name="debug_debuglog_screen_session_path_label">工作階段路徑</string>
     <string name="debug_debuglog_screen_log_files_label">日誌檔</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">已準備好 %1$d 個檔案（%2$s）</item>
+    </plurals>
     <string name="settings_debuglog_explanation">此功能將應用程式正在執行的所有操作記錄到可分享檔案中。 產生的檔案包含敏感資訊(例如檔案名稱和已安裝的應用程式)。 僅與可信任方分享(例如解決問題的開發人員)。</string>
     <string name="tasks_activity_notification_channel_label">進行中的工作</string>
     <string name="tasks_activity_working_notification_title">SD 女僕正在運作</string>
@@ -85,8 +90,11 @@
     <string name="changelog_label">變更記錄</string>
     <string name="settings_acknowledgements_label">特別感謝</string>
     <string name="settings_acknowledgements_category_translations_title">翻譯</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">翻譯人員</string>
     <string name="settings_acknowledgements_category_thanks_title">感謝</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">特別感謝各方好友協助。</string>
     <string name="settings_acknowledgements_category_licenses_title">授權</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid 使用的軟體技術。</string>
     <string name="setup_label">安裝程式</string>
     <string name="setup_incomplete_card_title">設定未完成</string>
     <string name="setup_incomplete_card_body">完成 SD 女僕的設定以取得更佳的結果。</string>
@@ -191,6 +199,8 @@
     <string name="corpsefinder_filter_privatedata_summary">私人應用程式資料，例如認證、應用程式設定，但也包括瀏覽器快取。</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik 快取</string>
     <string name="corpsefinder_filter_dalvik_summary">已快取的應用程式執行資料。</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART 設定檔</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Android 系統會利用 ART 設定檔來最佳化應用程式的效能。</string>
     <string name="corpsefinder_filter_applib_label">應用程式庫</string>
     <string name="corpsefinder_filter_applib_summary">與應用程式相關的程式庫資料。</string>
     <string name="corpsefinder_filter_appsource_label">應用程式來源</string>
@@ -344,6 +354,8 @@
     <string name="appcleaner_filter_recyclebins_summary">已被刪除的檔案，但被存放在一個特殊的資料夾中，以允許將它們還原。</string>
     <string name="appcleaner_filter_webview_label">Webview 檔案</string>
     <string name="appcleaner_filter_webview_summary">應用程式中使用 Webview 執行個體所快取的檔案。</string>
+    <string name="appcleaner_filter_shortcutservice_label">應用程式捷徑圖示</string>
+    <string name="appcleaner_filter_shortcutservice_summary">用於應用程式捷徑與分享選單的快取圖示。</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 備份</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">刪除 WhatsApp 備份的額外複本，僅保留最新的備份。</string>
     <string name="appcleaner_filter_whatsapp_received_summary">您透過 WhatsApp 收到的檔案。</string>
@@ -412,6 +424,7 @@
     <string name="deduplicator_detection_method_checksum_title">內容總和檢查碼</string>
     <string name="deduplicator_detection_method_checksum_summary">透過計算檔案的總和檢查碼來確定重複項目，總和檢查碼相符的檔案具有完全相同的內容。</string>
     <string name="deduplicator_detection_method_phash_title">感知雜湊</string>
+    <string name="deduplicator_detection_method_phash_summary">透過分析內容特徵與比對感知雜湊值（Perceptual Hash）來找出相似檔案。⚠️ 基於相似度的偵測可能會出現誤判，請務必進行人工確認。</string>
     <string name="deduplicator_occupied_space_label">佔用儲存空間</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s 被重複項目佔用</item>
@@ -446,6 +459,7 @@
     <string name="appcontrol_app_launch_title">啟動應用程式</string>
     <string name="appcontrol_app_launch_description">啟動這個應用程式的主要活動。</string>
     <string name="appcontrol_app_forcestop_title">強制停止</string>
+    <string name="appcontrol_app_forcestop_description">停止應用程式。在您主動開啟或重新啟動裝置之前，系統將阻止該應用程式自行執行。</string>
     <string name="appcontrol_app_uninstall_description">從您的裝置中解除安裝這個應用程式。</string>
     <string name="appcontrol_app_exclude_add_title">排除應用程式</string>
     <string name="appcontrol_app_exclude_add_description">從 SD 女僕的其他作業中排除這個應用程式。</string>
@@ -494,6 +508,7 @@
     <string name="appcontrol_include_multiuser_summary">包含此裝置上其他使用者設定檔的應用程式。</string>
     <string name="appcontrol_export_app_selection_action">匯出應用程式</string>
     <string name="appcontrol_export_title">匯出應用程式</string>
+    <string name="appcontrol_export_description">備份此應用程式的安裝檔（APK）。此操作不會包含應用程式資料。</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">已匯出 %d 個應用程式</item>
     </plurals>
@@ -661,6 +676,14 @@
     <string name="review_app_dismiss_action">稍後再說</string>
     <string name="review_app_body">您想為 SD Maid 留下評論嗎？❤️</string>
     <string name="anniversary_card_title">SD Maid 週年快樂❤️</string>
+    <string name="anniversary_card_install_date">從 %s 陪伴您至今</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="other">我們已共度了 %1$d 個年頭。感謝您信任 SD Maid，讓我們協助維持您 Android 裝置的整潔。已釋放空間：%2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">分享您的 SD Maid 週年紀念</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="other">與 SD Maid 走過 %1$d 年 — 共釋放空間：%2$s。讓 Android 系統常保潔淨。 #SDMaid\n立即體驗：%3$s</item>
+    </plurals>
     <string name="stats_label">歷史記錄</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">%s 已被釋放。</item>
