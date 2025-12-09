@@ -375,6 +375,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Файли, які були видалені, але поміщені в спеціальну папку, щоб їх можна було відновити.</string>
     <string name="appcleaner_filter_webview_label">Файли вебперегляду</string>
     <string name="appcleaner_filter_webview_summary">Файли, кешовані екземплярами Webview, що використовуються у додатках.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Ярлики додатків</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Кешовані значки для ярликів додатків та меню спільного доступу.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Резервні копії WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Видаліть зайві копії резервних копій WhatsApp і залише лише найновіші.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Файли, які ви отримали від людей через WhatsApp.</string>
@@ -458,6 +460,7 @@
     <string name="deduplicator_detection_method_checksum_title">Контрольна сума вмісту</string>
     <string name="deduplicator_detection_method_checksum_summary">Визначте дублікати, обчисливши контрольні суми для файлів. Файли з однаковими контрольними сумами мають однаковий вміст.</string>
     <string name="deduplicator_detection_method_phash_title">Хеш сприйняття</string>
+    <string name="deduplicator_detection_method_phash_summary">Знаходьте схожі файли, аналізуючи особливості вмісту та порівнюючи сприйнятливі хеш-значення. ⚠️ Виявлення на основі подібності може містити помилкові спрацьовування, які потребують ручної перевірки.</string>
     <string name="deduplicator_occupied_space_label">Зайняте сховище</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s зайнято дублікатами</item>

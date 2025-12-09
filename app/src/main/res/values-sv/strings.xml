@@ -71,6 +71,7 @@
     <string name="ui_previews_summary">Visa filförhandsvisningar i alla verktyg (t.ex. bild- och videominiatyrer).</string>
     <string name="ui_language_override_label">App-språk</string>
     <string name="ui_language_override_desc">Välj ett annat språk för SD Maid, oberoende av systemets standardspråk. För närvarande: %s</string>
+    <string name="settings_support_label">Support</string>
     <string name="settings_support_description">Läs dokumentation, rapportera problem, chatta med andra eller spela in felsökningsloggar.</string>
     <string name="documentation_label">Dokumentation</string>
     <string name="issue_tracker_description">En offentlig problemspårare för felrapporter och funktionsförfrågningar.</string>
@@ -83,6 +84,10 @@
     <string name="discord_description">En plats att hänga på och ställa frågor.</string>
     <string name="changelog_label">Ändringslogg</string>
     <string name="settings_acknowledgements_label">Tack till</string>
+    <string name="settings_acknowledgements_category_translations_title">Översättningar</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Vem översatte detta?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Tack</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licenser</string>
     <string name="setup_label">Inställningar</string>
     <string name="setup_incomplete_card_title">Inställningarna är ofullständiga</string>
     <string name="setup_incomplete_card_body">Slutför SD Maids inställningar för bättre resultat.</string>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE ប្រូ</string>
+    <string name="app_name_upgrade_postfix">ប្រូ</string>
     <string name="upgrade_feature_requires_pro">ត្រូវការ SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">ដំឡើង SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro ផ្តល់លទ្ធផលល្អជាង មុខងារច្រើនជាង និងជម្រើសសម្រាប់អ្នកប្រើប្រាស់ជំនាញ។</string>
-    <string name="upgrades_dashcard_upgrade_action">ដំឡើង</string>
+    <string name="upgrades_dashcard_title">វិសិដ្ឋកម្ម SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid ប្រូផ្តល់នូវលទ្ធផលល្អជាង មុខងារច្រើនជាង និងជម្រើសសម្រាប់អ្នកប្រើដ៏ជំនាញ។</string>
+    <string name="upgrades_dashcard_upgrade_action">វិសិដ្ឋកម្ម</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play មិនអាចប្រើបាន</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid មិនអាចភ្ជាប់ទៅ Google Play បានទេ។ តើ Google Play បានដំឡើង និងធ្វើបច្ចុប្បន្នភាពឬទេ? តើគណនី Google របស់អ្នកបានចូលហើយឬនៅ? សាកល្បងសម្អាតឃ្លាំងសម្ងាត់កម្មវិធី Google Play និងចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ។</string>
     <string name="upgrades_no_purchases_found_check_account">រកមិនឃើញការទិញ។ តើអ្នកកំពុងប្រើគណនីត្រឹមត្រូវទេ?</string>
@@ -16,10 +18,10 @@
     <string name="upgrade_screen_subscription_trial_action">ចាប់ផ្តើមការសាកល្បង 14 ថ្ងៃដោយឥតគិតថ្លៃ</string>
     <string name="upgrade_screen_subscription_action">ជាវ</string>
     <string name="upgrade_screen_subscription_action_hint">ការជាវមានតម្លៃ %s ក្នុងមួយឆ្នាំ។</string>
-    <string name="upgrade_screen_iap_action">ការទិញម្តង</string>
-    <string name="upgrade_screen_iap_action_hint">ការទិញម្តងមានតម្លៃ %s។</string>
+    <string name="upgrade_screen_iap_action">ការជាវតែម្ដងរួច</string>
+    <string name="upgrade_screen_iap_action_hint">ការជាវតែម្ដងរួចតម្លៃ %s។</string>
     <string name="upgrade_screen_thanks_toast">អ្នកជាមនុស្សល្អបំផុត! ❤️</string>
-    <string name="upgrade_screen_restore_purchase_action">ស្តារការទិញ</string>
+    <string name="upgrade_screen_restore_purchase_action">ស្តារការជាវមកវិញ</string>
     <string name="upgrade_screen_restore_purchase_message">ការដំឡើងរបស់អ្នកមានសុពលភាពនៅលើឧបករណ៍នានានៅលើគណនី Google ដូចគ្នា។</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">គន្លឹះដោះស្រាយបញ្ហាសម្រាប់ការដំឡើងដែលមិនបានទទួលស្គាល់៖</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ការធ្វើសមកាលកម្ម Play Store អាចចំណាយពេល។ សាកល្បងចាប់ផ្តើមឡើងវិញ សម្អាតឃ្លាំងសម្ងាត់ Google Play ឬគ្រាន់តែរង់ចាំ។</string>
