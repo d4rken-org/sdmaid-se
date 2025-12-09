@@ -155,8 +155,9 @@ class StorageEntryFinder @Inject constructor(
     suspend fun storageFinderAOSP(
         labels: Collection<String>,
         pkg: Installed,
-    ): suspend StepContext.() -> ACSNodeInfo? = {
-        val matchStorage = createSizeMatcher(pkg) ?: { false }
+    ): suspend StepContext.() -> ACSNodeInfo? {
+        val matchStorage = createSizeMatcher(pkg) ?: { _: ACSNodeInfo -> false }
+        return {
 
         val storageFilter: (ACSNodeInfo) -> Int? = when {
             hasApiLevel(33) -> storageFilter@{ node ->
@@ -240,6 +241,7 @@ class StorageEntryFinder @Inject constructor(
         }
 
         matches.firstOrNull()
+        }
     }
 
     enum class ACSNodePaneState {

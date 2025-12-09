@@ -36,6 +36,7 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withTimeout
 import javax.inject.Inject
 import kotlin.system.measureTimeMillis
+import kotlin.time.Duration.Companion.seconds
 
 @Reusable
 class Stepper @Inject constructor(
@@ -76,7 +77,7 @@ class Stepper @Inject constructor(
                         stepAttempts = stepAttempts++,
                     )
                     try {
-                        withTimeout(5 * 1000) {
+                        withTimeout(10.seconds) {
                             val stepTime = measureTimeMillis {
                                 doProcess(stepContext, step)
                             }
