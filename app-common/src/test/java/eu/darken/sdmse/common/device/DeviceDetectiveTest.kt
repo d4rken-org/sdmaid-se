@@ -639,4 +639,31 @@ class DeviceDetectiveTest : BaseTest() {
 
         detective.getROMType() shouldBe RomType.HYPEROS
     }
+
+    @Test
+    fun `detect HyperOS without securitycenter - POCO duchamp global`() {
+        // POCO/duchamp_global/duchamp:15/AP3A.240905.015.A2/OS2.0.207.0.VNLMIXM:user/release-keys
+        // Some global HyperOS variants don't have com.miui.securitycenter installed
+        val context = deviceFromFingerprint(
+            "POCO/duchamp_global/duchamp:15/AP3A.240905.015.A2/OS2.0.207.0.VNLMIXM:user/release-keys",
+            installedPackages = emptySet()
+        )
+        detective = DeviceDetective(context)
+
+        detective.getROMType() shouldBe RomType.HYPEROS
+    }
+
+    @Test
+    fun `detect HyperOS without securitycenter - Xiaomi device`() {
+        // Xiaomi devices without com.miui.securitycenter should still detect as HyperOS
+        val context = mockDevice {
+            manufacturer = "Xiaomi"
+            versionIncremental = "OS2.0.6.0.VMLMIXM"
+            sdkInt = 35
+            installedPackages = emptySet()
+        }
+        detective = DeviceDetective(context)
+
+        detective.getROMType() shouldBe RomType.HYPEROS
+    }
 }
