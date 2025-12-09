@@ -76,7 +76,7 @@ class DeviceDetective @Inject constructor(
         manufactor("lge") -> RomType.LGUX
 
         manufactor("Xiaomi") || manufactor("POCO") -> when {
-            apps(HYPEROS_PKGS) && versionStarts(HYPEROS_VERSION_STARTS) -> when {
+            versionStarts(HYPEROS_VERSION_STARTS) -> when {
                 // HyperOS 1.0 is based on Android 14 / API34, some backports exist (e.g. pissarropro)
                 hasApiLevel(33) -> RomType.HYPEROS
                 // Otherwise it is likely a false positive MIUI detection
@@ -142,9 +142,6 @@ class DeviceDetective @Inject constructor(
             "OS2",
             // POCO/miro_eea/miro:16/BP2A.250605.031.A3/OS3.0.3.0.WOMEUXM:user/release-keys
             "OS3",
-        )
-        private val HYPEROS_PKGS = setOf(
-            "com.miui.securitycenter"
         )
         private val FLYME_PKGS = setOf(
             "com.meizu.flyme.update"
