@@ -26,32 +26,18 @@ val ACSNodeInfo.textVariants: Set<String>
         )
     }
 
-fun ACSNodeInfo.textMatchesAny(candidates: Collection<String>): Boolean {
-    candidates.forEach { candidate ->
-        if (textVariants.any { it.equals(candidate, ignoreCase = true) }) {
-            return true
-        }
-    }
-    return false
+fun ACSNodeInfo.textMatchesAny(candidates: Collection<String>): Boolean =
+    candidates.any { textMatches(it) }
+
+fun ACSNodeInfo.textMatches(candidate: String): Boolean {
+    return textVariants.any { it.equals(candidate, ignoreCase = true) }
 }
 
-fun ACSNodeInfo.textContainsAny(candidates: Collection<String>): Boolean {
-    candidates.forEach { candidate ->
-        if (textVariants.any { it.contains(candidate, ignoreCase = true) }) {
-            return true
-        }
-    }
-    return false
-}
+fun ACSNodeInfo.textContainsAny(candidates: Collection<String>): Boolean =
+    candidates.any { candidate -> textVariants.any { it.contains(candidate, ignoreCase = true) } }
 
-fun ACSNodeInfo.textEndsWithAny(candidates: Collection<String>): Boolean {
-    candidates.forEach { candidate ->
-        if (textVariants.any { it.endsWith(candidate, ignoreCase = true) }) {
-            return true
-        }
-    }
-    return false
-}
+fun ACSNodeInfo.textEndsWithAny(candidates: Collection<String>): Boolean =
+    candidates.any { candidate -> textVariants.any { it.endsWith(candidate, ignoreCase = true) } }
 
 fun ACSNodeInfo.idMatches(id: String): Boolean {
     return viewIdResourceName == id
