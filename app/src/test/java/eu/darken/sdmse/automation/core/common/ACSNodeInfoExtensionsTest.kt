@@ -2,6 +2,7 @@ package eu.darken.sdmse.automation.core.common
 
 import android.graphics.Rect
 import io.kotest.matchers.doubles.shouldBeExactly
+import io.kotest.matchers.shouldBe
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -113,5 +114,89 @@ class ACSNodeInfoExtensionsTest : BaseTest() {
         val distance = node1.distanceTo(node2)
 
         distance shouldBeExactly expectedDistance
+    }
+
+    // textMatchesAny tests
+
+    @Test
+    fun `textMatchesAny returns true when candidate matches`() {
+        val node = TestACSNodeInfo(text = "Clear Cache")
+        node.textMatchesAny(listOf("Clear Cache", "Delete")) shouldBe true
+    }
+
+    @Test
+    fun `textMatchesAny returns true case insensitively`() {
+        val node = TestACSNodeInfo(text = "Clear Cache")
+        node.textMatchesAny(listOf("clear cache", "DELETE")) shouldBe true
+    }
+
+    @Test
+    fun `textMatchesAny returns false when no candidates match`() {
+        val node = TestACSNodeInfo(text = "Clear Cache")
+        node.textMatchesAny(listOf("Delete", "Remove")) shouldBe false
+    }
+
+    @Test
+    fun `textMatchesAny returns false for empty candidates`() {
+        val node = TestACSNodeInfo(text = "Clear Cache")
+        node.textMatchesAny(emptyList()) shouldBe false
+    }
+
+    @Test
+    fun `textMatchesAny returns false when node text is null`() {
+        val node = TestACSNodeInfo(text = null)
+        node.textMatchesAny(listOf("Clear Cache")) shouldBe false
+    }
+
+    // textContainsAny tests
+
+    @Test
+    fun `textContainsAny returns true when text contains candidate`() {
+        val node = TestACSNodeInfo(text = "Clear Cache Data")
+        node.textContainsAny(listOf("Cache", "Storage")) shouldBe true
+    }
+
+    @Test
+    fun `textContainsAny returns true case insensitively`() {
+        val node = TestACSNodeInfo(text = "Clear Cache Data")
+        node.textContainsAny(listOf("cache", "STORAGE")) shouldBe true
+    }
+
+    @Test
+    fun `textContainsAny returns false when no candidates contained`() {
+        val node = TestACSNodeInfo(text = "Clear Cache Data")
+        node.textContainsAny(listOf("Storage", "Memory")) shouldBe false
+    }
+
+    @Test
+    fun `textContainsAny returns false when node text is null`() {
+        val node = TestACSNodeInfo(text = null)
+        node.textContainsAny(listOf("Cache")) shouldBe false
+    }
+
+    // textEndsWithAny tests
+
+    @Test
+    fun `textEndsWithAny returns true when text ends with candidate`() {
+        val node = TestACSNodeInfo(text = "Clear Cache")
+        node.textEndsWithAny(listOf("Cache", "Data")) shouldBe true
+    }
+
+    @Test
+    fun `textEndsWithAny returns true case insensitively`() {
+        val node = TestACSNodeInfo(text = "Clear Cache")
+        node.textEndsWithAny(listOf("cache", "DATA")) shouldBe true
+    }
+
+    @Test
+    fun `textEndsWithAny returns false when no candidates match ending`() {
+        val node = TestACSNodeInfo(text = "Clear Cache")
+        node.textEndsWithAny(listOf("Clear", "Data")) shouldBe false
+    }
+
+    @Test
+    fun `textEndsWithAny returns false when node text is null`() {
+        val node = TestACSNodeInfo(text = null)
+        node.textEndsWithAny(listOf("Cache")) shouldBe false
     }
 }
