@@ -39,6 +39,7 @@ import kotlinx.coroutines.flow.take
 import java.time.Duration
 import java.time.Instant
 import java.time.LocalTime
+import java.time.ZoneId
 import java.util.UUID
 import javax.inject.Inject
 
@@ -121,8 +122,12 @@ class SchedulerManagerViewModel @Inject constructor(
                 onToggle = {
                     launch {
                         if (upgradeRepo.isPro()) {
+                            val enabling = !schedule.isEnabled
                             schedulerManager.saveSchedule(
-                                schedule.copy(scheduledAt = if (!schedule.isEnabled) Instant.now() else null)
+                                schedule.copy(
+                                    scheduledAt = if (enabling) Instant.now() else null,
+                                    userZone = if (enabling) ZoneId.systemDefault().id else schedule.userZone,
+                                )
                             )
                         } else {
                             MainDirections.goToUpgradeFragment().navigate()
@@ -185,6 +190,7 @@ class SchedulerManagerViewModel @Inject constructor(
             minute = now.minute,
             repeatInterval = Duration.ofDays(1),
             scheduledAt = Instant.now(),
+            userZone = ZoneId.systemDefault().id,
         )
         schedulerManager.saveSchedule(testSchedule)
     }
