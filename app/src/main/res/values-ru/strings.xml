@@ -823,4 +823,12 @@
     <string name="shortcuts_settings_category">Ярлыки</string>
     <string name="shortcuts_onetap_enabled_title">Ярлык в одно нажатие</string>
     <string name="shortcuts_onetap_enabled_summary">Показывать ярлык «Сканирование + Удаление» при удержании нажатия на значке приложения. Использует те же инструменты, что и панель управления в одно нажатие.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Режим отладки включен</string>
+    <string name="debug_card_trace_mode_label">Включить режим трассировки</string>
+    <string name="debug_card_dryrun_mode_label">Режим пробного запуска (отключить удаление)</string>
+    <string name="debug_card_areas_reload_action">Перезагрузить области данных</string>
+    <string name="debug_card_pkgs_reload_action">Перезагрузить приложения</string>
+    <string name="debug_card_root_test_action">Проверить root</string>
+    <string name="debug_card_shizuku_test_action">Проверить Shizuku</string>
 </resources>

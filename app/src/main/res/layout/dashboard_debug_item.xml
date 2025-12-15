@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Debug mode is enabled"
+            android:text="@string/debug_card_title"
             android:textColor="?colorOnSecondaryContainer"
             app:layout_constraintStart_toEndOf="@id/icon"
             app:layout_constraintTop_toTopOf="parent"
@@ -47,7 +47,7 @@
                 style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enable trace mode"
+                android:text="@string/debug_card_trace_mode_label"
                 android:textColor="?colorOnSecondaryContainer" />
 
             <com.google.android.material.materialswitch.MaterialSwitch
@@ -55,7 +55,7 @@
                 style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dry-run mode (disable deletion)"
+                android:text="@string/debug_card_dryrun_mode_label"
                 android:textColor="?colorOnSecondaryContainer" />
 
             <com.google.android.material.button.MaterialButton
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Reload data areas"
+                android:text="@string/debug_card_areas_reload_action"
                 android:textColor="?colorOnSecondaryContainer" />
 
             <com.google.android.material.button.MaterialButton
@@ -72,7 +72,7 @@
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Reload apps"
+                android:text="@string/debug_card_pkgs_reload_action"
                 android:textColor="?colorOnSecondaryContainer" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -89,7 +89,7 @@
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Test root"
+                android:text="@string/debug_card_root_test_action"
                 android:textColor="?colorOnSecondaryContainer" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -106,7 +106,7 @@
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Test Shizuku"
+                android:text="@string/debug_card_shizuku_test_action"
                 android:textColor="?colorOnSecondaryContainer" />
 
             <com.google.android.material.button.MaterialButton

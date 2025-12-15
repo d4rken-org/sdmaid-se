@@ -823,4 +823,12 @@
     <string name="shortcuts_settings_category">Skróty</string>
     <string name="shortcuts_onetap_enabled_title">Skrót jednym dotknięciem</string>
     <string name="shortcuts_onetap_enabled_summary">Pokaż skrót \"Skanuj + Usuń\" po długim naciśnięciu ikony aplikacji. Korzysta z tych samych narzędzi co pulpit jednego dotknięcia.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Tryb debugowania jest włączony</string>
+    <string name="debug_card_trace_mode_label">Włącz tryb śledzenia</string>
+    <string name="debug_card_dryrun_mode_label">Tryb testowy (wyłącz usuwanie)</string>
+    <string name="debug_card_areas_reload_action">Załaduj ponownie obszary danych</string>
+    <string name="debug_card_pkgs_reload_action">Załaduj ponownie aplikacje</string>
+    <string name="debug_card_root_test_action">Testuj root</string>
+    <string name="debug_card_shizuku_test_action">Testuj Shizuku</string>
 </resources>

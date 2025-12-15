@@ -759,4 +759,12 @@
     <string name="shortcuts_settings_category">Accesos directos</string>
     <string name="shortcuts_onetap_enabled_title">Acceso directo a un toque</string>
     <string name="shortcuts_onetap_enabled_summary">Muestra el acceso directo «Escanear + Eliminar» al pulsar prolongadamente el icono de la aplicación. Utiliza las mismas herramientas que el panel de un solo toque.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">El modo de depuración está habilitado</string>
+    <string name="debug_card_trace_mode_label">Habilitar modo de rastreo</string>
+    <string name="debug_card_dryrun_mode_label">Modo de ejecución en seco (desactivar eliminación)</string>
+    <string name="debug_card_areas_reload_action">Recargar áreas de datos</string>
+    <string name="debug_card_pkgs_reload_action">Recargar aplicaciones</string>
+    <string name="debug_card_root_test_action">Probar root</string>
+    <string name="debug_card_shizuku_test_action">Probar Shizuku</string>
 </resources>

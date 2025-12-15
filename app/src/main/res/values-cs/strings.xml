@@ -823,4 +823,12 @@
     <string name="shortcuts_settings_category">Zkratky</string>
     <string name="shortcuts_onetap_enabled_title">Zkratka jedním klepnutím</string>
     <string name="shortcuts_onetap_enabled_summary">Zobrazení zkratky \"Skenovat + smazat\" při dlouhém stisknutí ikony aplikace. Používá stejné nástroje jako ovládací panel jedním klepnutím.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Režim ladění je zapnutý</string>
+    <string name="debug_card_trace_mode_label">Povolit režim stopy</string>
+    <string name="debug_card_dryrun_mode_label">Režim zkoušky (zakázat mazání)</string>
+    <string name="debug_card_areas_reload_action">Znovu načíst datové oblasti</string>
+    <string name="debug_card_pkgs_reload_action">Znovu načíst aplikace</string>
+    <string name="debug_card_root_test_action">Test root</string>
+    <string name="debug_card_shizuku_test_action">Test Shizuku</string>
 </resources>
