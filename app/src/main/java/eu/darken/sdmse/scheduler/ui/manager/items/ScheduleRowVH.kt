@@ -43,8 +43,14 @@ class ScheduleRowVH(parent: ViewGroup) :
 
         val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
         val now = Instant.now()
+
+        val showPrimary = schedule.scheduledAt != null
+        val showSecondary = schedule.executedAt != null
+
+        executionInfoContainer.isVisible = showPrimary || showSecondary
+
         primary.apply {
-            isVisible = schedule.scheduledAt != null
+            isVisible = showPrimary
             text = schedule.calcExecutionEta(now, false)?.let { eta ->
                 val next = now.plus(eta).toSystemTimezone().format(formatter)
                 getString(R.string.scheduler_schedule_next_at_x, next)
@@ -52,7 +58,7 @@ class ScheduleRowVH(parent: ViewGroup) :
         }
 
         secondary.apply {
-            isVisible = schedule.executedAt != null
+            isVisible = showSecondary
             text = schedule.executedAt?.let {
                 val local = it.toSystemTimezone().format(formatter)
                 getString(R.string.scheduler_schedule_last_at_x, local)
