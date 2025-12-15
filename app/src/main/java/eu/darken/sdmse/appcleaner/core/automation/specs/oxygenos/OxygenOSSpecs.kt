@@ -15,8 +15,7 @@ import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
-import eu.darken.sdmse.automation.core.common.stepper.findNode
-import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
@@ -96,24 +95,13 @@ class OxygenOSSpecs @Inject constructor(
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             val action: suspend StepContext.() -> Boolean = action@{
-                var isUnclickableButton = false
-                val target = findNode { node ->
-                    when {
-                        hasApiLevel(34) -> {
-                            if (!node.textMatchesAny(clearCacheButtonLabels)) return@findNode false
-                            isUnclickableButton = !node.isClickyButton()
-                            log(TAG) { "? isUnclickableButton=$isUnclickableButton: $node" }
-                            true
-                        }
-
-                        else -> {
-                            node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
-                        }
-                    }
+                val target = when {
+                    hasApiLevel(34) -> findNodeByLabel(clearCacheButtonLabels)
+                    else -> findNodeByLabel(clearCacheButtonLabels) { it.isClickyButton() }
                 } ?: return@action false
 
                 val mapped = when {
-                    hasApiLevel(34) && isUnclickableButton -> findClickableParent(node = target)
+                    hasApiLevel(34) && !target.isClickyButton() -> findClickableParent(node = target)
                     else -> target
                 } ?: return@action false
 

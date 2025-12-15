@@ -15,7 +15,7 @@ import eu.darken.sdmse.appcleaner.core.automation.errors.NoSettingsWindowExcepti
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
-import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
+import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.AutomationService
 import eu.darken.sdmse.automation.core.animation.AnimationState
 import eu.darken.sdmse.automation.core.animation.AnimationTool
@@ -33,6 +33,7 @@ import eu.darken.sdmse.automation.core.common.stepper.clickGesture
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findNode
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.common.textEndsWithAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
@@ -180,13 +181,16 @@ class HyperOsSpecs @Inject constructor(
             val clearCacheButtonLabels =
                 aospLabels.getClearCacheDynamic(this) + aospLabels.getClearCacheStatic(this)
 
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = findNodeByLabel(clearCacheButtonLabels) { it.isClickyButton() } ?: return@action false
+                clickClearCache(isDryRun = isDryRun, pkg, node = target)
+            }
+
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear cache (settings plan) for $pkg",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
-                nodeAction = defaultFindAndClickClearCache(isDryRun = isDryRun, pkg) {
-                    if (!it.isClickyButton()) false else it.textMatchesAny(clearCacheButtonLabels)
-                },
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }

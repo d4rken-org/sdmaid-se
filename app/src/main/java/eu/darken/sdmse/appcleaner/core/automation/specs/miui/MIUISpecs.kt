@@ -15,7 +15,7 @@ import eu.darken.sdmse.appcleaner.core.automation.errors.NoSettingsWindowExcepti
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
-import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
+import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.SecurityCenterMissingPermissionException
 import eu.darken.sdmse.appcleaner.core.automation.specs.hyperos.isSecurityCenterMissingPermission
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
@@ -31,6 +31,7 @@ import eu.darken.sdmse.automation.core.common.stepper.clickGesture
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findNode
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.common.textEndsWithAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
@@ -171,13 +172,16 @@ class MIUISpecs @Inject constructor(
             val clearCacheButtonLabels =
                 aospLabels.getClearCacheDynamic(this) + aospLabels.getClearCacheStatic(this)
 
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = findNodeByLabel(clearCacheButtonLabels) { it.isClickyButton() } ?: return@action false
+                clickClearCache(isDryRun = Bugs.isDryRun, pkg, node = target)
+            }
+
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear cache (settings plan) for $pkg",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
-                nodeAction = defaultFindAndClickClearCache(isDryRun = Bugs.isDryRun, pkg) {
-                    if (!it.isClickyButton()) false else it.textMatchesAny(clearCacheButtonLabels)
-                },
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -199,13 +203,13 @@ class MIUISpecs @Inject constructor(
 
         if (!useAlternativeStep) {
             val action: suspend StepContext.() -> Boolean = action@{
-                val altNode = findNode { node -> node.textMatchesAny(clearCacheLabels) }
+                val altNode = findNodeByLabel(clearCacheLabels)
                 if (altNode != null) {
                     useAlternativeStep = true
                     throw StepAbortException("Got 'Clear cache' instead of 'Clear data' skip the action dialog step.")
                 }
 
-                var target = findNode { node -> node.textMatchesAny(clearDataLabels) } ?: return@action false
+                var target = findNodeByLabel(clearDataLabels) ?: return@action false
                 if (!target.isClickable) {
                     target = findClickableParent(node = target)
                         .also { if (it == null) log(TAG, WARN) { "No clickable parent found for $target" } }
@@ -238,7 +242,7 @@ class MIUISpecs @Inject constructor(
 
         if (useAlternativeStep) {
             val action: suspend StepContext.() -> Boolean = action@{
-                var target = findNode { it.textMatchesAny(clearCacheLabels) } ?: return@action false
+                var target = findNodeByLabel(clearCacheLabels) ?: return@action false
                 if (!target.isClickable) {
                     target = findClickableParent(node = target)
                         .also { if (it == null) log(TAG, WARN) { "No clickable parent found for $target" } }
@@ -290,14 +294,9 @@ class MIUISpecs @Inject constructor(
             val versionName = settingsPkgInfo?.versionName
 
             val action: suspend StepContext.() -> Boolean = action@{
-                var needsClickGesture = false
-                val target = findNode { node ->
-                    if (!node.textMatchesAny(clearCacheLabels)) return@findNode false
-                    needsClickGesture = !node.isClickable
-                    log(TAG) { "needsClickGesture=$needsClickGesture Version is $versionName ($versionCode)" }
-                    true
-                }
-                if (target == null) return@action false
+                val target = findNodeByLabel(clearCacheLabels) ?: return@action false
+                val needsClickGesture = !target.isClickable
+                log(TAG) { "needsClickGesture=$needsClickGesture Version is $versionName ($versionCode)" }
                 when {
                     needsClickGesture -> clickGesture(node = target)
                     else -> clickNormal(node = target)
