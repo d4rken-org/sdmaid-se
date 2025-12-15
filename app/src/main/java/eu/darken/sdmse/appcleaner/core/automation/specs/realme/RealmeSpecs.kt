@@ -125,10 +125,13 @@ class RealmeSpecs @Inject constructor(
                     else -> findNodeByLabel(clearCacheButtonLabels) { it.isClickyButton() }
                 } ?: return@action false
 
+                // On API 35+, button text may be nested in non-clickable wrapper, find clickable parent.
+                // If no clickable parent exists (e.g., disabled button when cache=0), fall back to target
+                // and let clickClearCache() handle the disabled state.
                 val mapped = when {
-                    hasApiLevel(35) && !target.isClickyButton() -> findClickableParent(node = target)
+                    hasApiLevel(35) && !target.isClickyButton() -> findClickableParent(node = target) ?: target
                     else -> target
-                } ?: return@action false
+                }
 
                 clickClearCache(isDryRun = Bugs.isDryRun, pkg, node = mapped)
             }

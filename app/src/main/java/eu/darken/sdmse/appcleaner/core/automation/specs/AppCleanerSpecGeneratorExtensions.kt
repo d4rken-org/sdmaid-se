@@ -40,6 +40,17 @@ suspend fun StepContext.clickClearCache(
         clickNormal(isDryRun = isDryRun, node)
     } catch (e: DisabledTargetException) {
         log(tag) { "Can't click on the clear cache button because it was disabled, but why... $e" }
+
+        // https://github.com/d4rken-org/sdmaid-se/issues/1889
+        // On some ROMs (OxygenOS, ColorOS, RealmeUI), when cache is 0 bytes, the button is
+        // both not clickable AND not enabled (visually greyed out). This is different from
+        // the size-calculation scenario where buttons are clickable but temporarily disabled.
+        val isZeroCacheButton = node.className == "android.widget.Button" && !node.isClickable && !node.isEnabled
+        if (isZeroCacheButton) {
+            log(tag, WARN) { "Clear cache button is not clickable and disabled, likely 0 bytes cache." }
+            return true
+        }
+
         val allButtonsAreDisabled = try {
             node.getRoot(maxNesting = 4).crawl().map { it.node }.all { !it.isClickyButton() || !it.isEnabled }
         } catch (e: Exception) {

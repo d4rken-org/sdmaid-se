@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcleaner.core.automation.specs.coloros
+package eu.darken.sdmse.appcleaner.core.automation.specs.oxygenos
 
 import eu.darken.sdmse.appcleaner.core.automation.specs.BaseAppCleanerSpecTest
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
@@ -15,16 +15,16 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.TestACSNodeInfo
 
-class ColorOSSpecsTest : BaseAppCleanerSpecTest<ColorOSSpecs, ColorOSLabels>() {
+class OxygenOSSpecsTest : BaseAppCleanerSpecTest<OxygenOSSpecs, OxygenOSLabels>() {
 
-    override val romType = RomType.COLOROS
+    override val romType = RomType.OXYGENOS
 
-    override fun createLabels(): ColorOSLabels = mockk()
+    override fun createLabels(): OxygenOSLabels = mockk()
 
-    override fun createSpec() = ColorOSSpecs(
+    override fun createSpec() = OxygenOSSpecs(
         ipcFunnel = ipcFunnel,
         deviceDetective = deviceDetective,
-        colorOSLabels = labels,
+        oxygenOSLabels = labels,
         storageEntryFinder = storageEntryFinder,
         generalSettings = generalSettings,
         stepper = stepper,
@@ -34,12 +34,11 @@ class ColorOSSpecsTest : BaseAppCleanerSpecTest<ColorOSSpecs, ColorOSLabels>() {
         every { labels.getStorageEntryDynamic(any()) } returns emptySet()
         every { labels.getStorageEntryLabels(any()) } returns setOf("Storage")
         every { labels.getClearCacheDynamic(any()) } returns emptySet()
-        every { labels.getClearCacheLabels(any()) } returns setOf("Clear cache")
+        every { labels.getClearCacheStatic(any()) } returns setOf("Clear cache")
     }
 
     @BeforeEach
     fun setupApiLevel() {
-        // ColorOS requires API 26+
         mockkStatic("eu.darken.sdmse.common.BuildWrapKt")
         every { eu.darken.sdmse.common.hasApiLevel(any()) } returns true
     }
@@ -50,13 +49,13 @@ class ColorOSSpecsTest : BaseAppCleanerSpecTest<ColorOSSpecs, ColorOSLabels>() {
     }
 
     // ============================================================
-    // ColorOS-specific regression tests
+    // OxygenOS-specific regression tests
     // ============================================================
 
     @Test
-    fun `clear cache clicks directly on clicky button - pre API 35`() = runTest {
-        // Before API 35, ColorOS requires isClickyButton()
-        every { eu.darken.sdmse.common.hasApiLevel(35) } returns false
+    fun `clear cache clicks directly on clicky button - pre API 34`() = runTest {
+        // Before API 34, OxygenOS requires isClickyButton()
+        every { eu.darken.sdmse.common.hasApiLevel(34) } returns false
 
         val acsLog = """
             ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
@@ -74,11 +73,9 @@ class ColorOSSpecsTest : BaseAppCleanerSpecTest<ColorOSSpecs, ColorOSLabels>() {
     }
 
     @Test
-    fun `clear cache finds clickable parent when button not clickable - API 35+`() = runTest {
-        // On API 35+, ColorOS finds non-clicky buttons and traverses to clickable parent
-        // This pattern from actual device logs:
-        // RelativeLayout(clickable) → Button(text="Clear cache", clickable=false)
-        every { eu.darken.sdmse.common.hasApiLevel(35) } returns true
+    fun `clear cache finds clickable parent when button not clickable - API 34+`() = runTest {
+        // On API 34+, OxygenOS finds non-clicky buttons and traverses to clickable parent
+        every { eu.darken.sdmse.common.hasApiLevel(34) } returns true
 
         val acsLog = """
             ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
@@ -98,11 +95,11 @@ class ColorOSSpecsTest : BaseAppCleanerSpecTest<ColorOSSpecs, ColorOSLabels>() {
     }
 
     @Test
-    fun `clear cache handles disabled button when cache is 0 bytes - API 35+ - GitHub 1889`() = runTest {
-        // On API 35+, when cache is 0, the clear cache button AND all parents are disabled.
+    fun `clear cache handles disabled button when cache is 0 bytes - API 34+ - GitHub 1889`() = runTest {
+        // On API 34+, when cache is 0, the clear cache button AND all parents are disabled.
         // The automation should detect this and return success (nothing to clear).
         // See: https://github.com/d4rken-org/sdmaid-se/issues/1889
-        every { eu.darken.sdmse.common.hasApiLevel(35) } returns true
+        every { eu.darken.sdmse.common.hasApiLevel(34) } returns true
 
         val acsLog = """
             ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)

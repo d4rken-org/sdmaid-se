@@ -93,4 +93,26 @@ class RealmeSpecsTest : BaseAppCleanerSpecTest<RealmeSpecs, RealmeLabels>() {
         val clickableParent = testRoot.crawl().first { it.node.viewIdResourceName == "com.android.settings:id/btn_container" }.node as TestACSNodeInfo
         clickableParent.performedActions shouldBe listOf(ACSNodeInfo.ACTION_CLICK)
     }
+
+    @Test
+    fun `clear cache handles disabled button when cache is 0 bytes - API 35+ - GitHub 1889`() = runTest {
+        // On API 35+, when cache is 0, the clear cache button AND all parents are disabled.
+        // The automation should detect this and return success (nothing to clear).
+        // See: https://github.com/d4rken-org/sdmaid-se/issues/1889
+        every { eu.darken.sdmse.common.hasApiLevel(35) } returns true
+
+        val acsLog = """
+            ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=layout1, bounds=Rect(0, 0 - 1080, 400)
+            ACS-DEBUG: --2: text='null', class=android.widget.RelativeLayout, clickable=false, checkable=false enabled=false, id=com.android.settings:id/content_rl pkg=com.android.settings, identity=content_rl, bounds=Rect(0, 100 - 1080, 200)
+            ACS-DEBUG: ---3: text='Clear cache', class=android.widget.Button, clickable=false, checkable=false enabled=false, id=com.android.settings:id/button pkg=com.android.settings, identity=btn, bounds=Rect(50, 110 - 500, 190)
+        """.trimIndent()
+
+        testRoot = buildTestTree(acsLog)
+
+        val result = captureAndRunClearCacheAction()
+
+        // Should return true (success) - disabled button with no cache means nothing to clear
+        result shouldBe true
+    }
 }
