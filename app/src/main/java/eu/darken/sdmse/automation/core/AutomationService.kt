@@ -13,7 +13,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.toNodeInfo
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.ui.AutomationControlView
@@ -83,7 +85,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     private val automationEvents = MutableSharedFlow<Snapshot>(
         extraBufferCapacity = 10,
     )
-    override val events: Flow<Snapshot> = automationEvents
+    override val events: Flow<AutomationEvent> = automationEvents
 
     private val hostState = MutableStateFlow(AutomationHost.State())
     override val state = hostState
@@ -104,9 +106,14 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     )
 
     data class Snapshot(
-        val id: UUID = UUID.randomUUID(),
+        override val id: UUID = UUID.randomUUID(),
         val event: AccessibilityEvent,
-    )
+    ) : AutomationEvent {
+        override val pkgId: Pkg.Id?
+            get() = event.pkgId
+        override val eventType: Int
+            get() = event.eventType
+    }
 
     override fun onCreate() {
         log(TAG) { "onCreate(application=$application)" }
