@@ -805,4 +805,13 @@
     <string name="shortcuts_settings_category">Швидкі клавіші</string>
     <string name="shortcuts_onetap_enabled_title">Швидкий доступ одним дотиком</string>
     <string name="shortcuts_onetap_enabled_summary">Показувати ярлик «Сканувати + Видалити» при довгому натисканні на значок додатка. Використовує ті ж інструменти, що й панель керування одним дотиком.</string>
+
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Режим відладки увімкнено</string>
+    <string name="debug_card_trace_mode_label">Увімкнути режим трасування</string>
+    <string name="debug_card_dryrun_mode_label">Режим пробного запуску (відключити видалення)</string>
+    <string name="debug_card_areas_reload_action">Перезавантажити області даних</string>
+    <string name="debug_card_pkgs_reload_action">Перезавантажити додатки</string>
+    <string name="debug_card_root_test_action">Тест root</string>
+    <string name="debug_card_shizuku_test_action">Тест Shizuku</string>
 </resources>

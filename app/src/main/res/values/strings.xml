@@ -203,6 +203,14 @@
     <string name="debug_mode_explanation">Enable test options and more verbose output. App will run slower and perform differently.</string>
     <string name="debug_bugreporter_label">Automatic bug reports</string>
     <string name="debug_bugreporter_summary">Automatically reports issues, e.g. details on the app crashes so I can figure out why and fix it.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Debug mode is enabled</string>
+    <string name="debug_card_trace_mode_label">Enable trace mode</string>
+    <string name="debug_card_dryrun_mode_label">Dry-run mode (disable deletion)</string>
+    <string name="debug_card_areas_reload_action">Reload data areas</string>
+    <string name="debug_card_pkgs_reload_action">Reload apps</string>
+    <string name="debug_card_root_test_action">Test root</string>
+    <string name="debug_card_shizuku_test_action">Test Shizuku</string>
 
     <string name="settings_category_tools_label">Tools</string>
     <string name="settings_category_filter">Filter</string>

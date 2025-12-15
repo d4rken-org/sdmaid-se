@@ -759,4 +759,12 @@
     <string name="shortcuts_settings_category">Raccourcis</string>
     <string name="shortcuts_onetap_enabled_title">Raccourci à accès direct</string>
     <string name="shortcuts_onetap_enabled_summary">Afficher le raccourci « Analyser + supprimer » en touchant et maintenant l’icône de l’appli. Utilise les mêmes outils que le tableau de bord à accès direct.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Le mode débogage est activé</string>
+    <string name="debug_card_trace_mode_label">Activer le mode traçage</string>
+    <string name="debug_card_dryrun_mode_label">Mode simulation (désactiver la suppression)</string>
+    <string name="debug_card_areas_reload_action">Recharger les zones de données</string>
+    <string name="debug_card_pkgs_reload_action">Recharger les applis</string>
+    <string name="debug_card_root_test_action">Tester root</string>
+    <string name="debug_card_shizuku_test_action">Tester Shizuku</string>
 </resources>

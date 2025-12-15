@@ -727,4 +727,12 @@
     <string name="shortcuts_settings_category">Phím tắt</string>
     <string name="shortcuts_onetap_enabled_title">Phím tắt một chạm</string>
     <string name="shortcuts_onetap_enabled_summary">Hiển thị phím tắt \"Quét + Xóa\" khi nhấn và giữ biểu tượng ứng dụng. Sử dụng các công cụ tương tự như bảng điều khiển một chạm.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Chế độ gỡ lỗi đã được bật</string>
+    <string name="debug_card_trace_mode_label">Bật chế độ theo dõi</string>
+    <string name="debug_card_dryrun_mode_label">Chế độ thử nghiệm (tắt xóa)</string>
+    <string name="debug_card_areas_reload_action">Tải lại vùng dữ liệu</string>
+    <string name="debug_card_pkgs_reload_action">Tải lại ứng dụng</string>
+    <string name="debug_card_root_test_action">Kiểm tra root</string>
+    <string name="debug_card_shizuku_test_action">Kiểm tra Shizuku</string>
 </resources>

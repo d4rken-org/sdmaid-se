@@ -759,4 +759,13 @@
     <string name="shortcuts_settings_category">Atalhos</string>
     <string name="shortcuts_onetap_enabled_title">Atalho com um toque</string>
     <string name="shortcuts_onetap_enabled_summary">Mostrar atalho \"Escanear + Excluir\" ao pressionar e segurar o ícone do aplicativo. Usa as mesmas ferramentas que um toque.</string>
+
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Modo de depuração está habilitado</string>
+    <string name="debug_card_trace_mode_label">Ativar modo de rastreamento</string>
+    <string name="debug_card_dryrun_mode_label">Modo de teste (desabilitar exclusão)</string>
+    <string name="debug_card_areas_reload_action">Recarregar áreas de dados</string>
+    <string name="debug_card_pkgs_reload_action">Recarregar aplicativos</string>
+    <string name="debug_card_root_test_action">Testar root</string>
+    <string name="debug_card_shizuku_test_action">Testar Shizuku</string>
 </resources>

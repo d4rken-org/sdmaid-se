@@ -70,6 +70,7 @@ class DebugCardVH(parent: ViewGroup) :
         logviewAction.setOnClickListener { item.onViewLog() }
 
         acsDebugAction.apply {
+            isVisible = BuildConfigWrap.DEBUG
             setOnClickListener { item.onAcsDebug() }
             text = if (item.acsTask != null) "Stop ACS debug" else "Start ACS debug"
         }
