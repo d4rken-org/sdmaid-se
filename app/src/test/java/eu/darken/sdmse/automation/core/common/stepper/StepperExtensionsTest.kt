@@ -1,13 +1,18 @@
 package eu.darken.sdmse.automation.core.common.stepper
 
+import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
 import eu.darken.sdmse.automation.core.errors.UnclickableTargetException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
+import eu.darken.sdmse.common.progress.Progress
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.shouldBe
+import io.mockk.coEvery
 import io.mockk.mockk
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -17,6 +22,23 @@ class StepperExtensionsTest : BaseTest() {
 
     private fun createStepContext(): StepContext {
         val mockHostContext = mockk<AutomationExplorer.Context>()
+        return StepContext(
+            hostContext = mockHostContext,
+            tag = "test",
+            stepAttempts = 1
+        )
+    }
+
+    private fun createStepContextWithTree(root: TestACSNodeInfo): StepContext {
+        val mockHost = mockk<AutomationHost>()
+        coEvery { mockHost.windowRoot() } returns root
+
+        val mockHostContext = object : AutomationExplorer.Context {
+            override val host: AutomationHost = mockHost
+            override val progress: Flow<Progress.Data?> = emptyFlow()
+            override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {}
+        }
+
         return StepContext(
             hostContext = mockHostContext,
             tag = "test",
@@ -249,6 +271,90 @@ class StepperExtensionsTest : BaseTest() {
         createNode().addChildren(targetNode, nonClickableSibling1, nonClickableSibling2)
 
         val result = context.findNearestTo(node = targetNode) { it.isClickable }
+
+        result shouldBe null
+    }
+
+    // Tests for findNodeByLabel
+    @Test
+    fun `findNodeByLabel returns node matching first label with priority`() = runTest {
+        // Build tree: Node1 has "Cache" (appears first in tree), Node2 has "Clear cache"
+        val node1 = TestACSNodeInfo(text = "Cache")
+        val node2 = TestACSNodeInfo(text = "Clear cache")
+        val root = TestACSNodeInfo().addChildren(node1, node2)
+
+        val context = createStepContextWithTree(root)
+
+        // Labels in priority order: "Clear cache" should be preferred
+        val result = context.findNodeByLabel(listOf("Clear cache", "Cache"))
+
+        // Should return node2 (matches first label) not node1 (matches second label but appears first in tree)
+        result shouldBe node2
+    }
+
+    @Test
+    fun `findNodeByLabel falls back to second label when first not found`() = runTest {
+        val node1 = TestACSNodeInfo(text = "Cache")
+        val root = TestACSNodeInfo().addChild(node1)
+
+        val context = createStepContextWithTree(root)
+
+        // First label doesn't match, should fall back to second
+        val result = context.findNodeByLabel(listOf("Clear cache", "Cache"))
+
+        result shouldBe node1
+    }
+
+    @Test
+    fun `findNodeByLabel returns null when no labels match`() = runTest {
+        val node1 = TestACSNodeInfo(text = "Storage")
+        val node2 = TestACSNodeInfo(text = "Data")
+        val root = TestACSNodeInfo().addChildren(node1, node2)
+
+        val context = createStepContextWithTree(root)
+
+        val result = context.findNodeByLabel(listOf("Clear cache", "Cache"))
+
+        result shouldBe null
+    }
+
+    @Test
+    fun `findNodeByLabel respects predicate filter`() = runTest {
+        // Both nodes have matching text, but only one is clickable
+        val node1 = TestACSNodeInfo(text = "Clear cache", isClickable = false)
+        val node2 = TestACSNodeInfo(text = "Clear cache", isClickable = true)
+        val root = TestACSNodeInfo().addChildren(node1, node2)
+
+        val context = createStepContextWithTree(root)
+
+        val result = context.findNodeByLabel(listOf("Clear cache")) { it.isClickable }
+
+        result shouldBe node2
+    }
+
+    @Test
+    fun `findNodeByLabel with predicate falls back to next label`() = runTest {
+        // First label matches but node doesn't pass predicate, second label matches and passes
+        val node1 = TestACSNodeInfo(text = "Clear cache", isClickable = false)
+        val node2 = TestACSNodeInfo(text = "Cache", isClickable = true)
+        val root = TestACSNodeInfo().addChildren(node1, node2)
+
+        val context = createStepContextWithTree(root)
+
+        // First label matches node1 but it's not clickable, should fall back to second label
+        val result = context.findNodeByLabel(listOf("Clear cache", "Cache")) { it.isClickable }
+
+        result shouldBe node2
+    }
+
+    @Test
+    fun `findNodeByLabel returns null for empty labels list`() = runTest {
+        val node1 = TestACSNodeInfo(text = "Clear cache")
+        val root = TestACSNodeInfo().addChild(node1)
+
+        val context = createStepContextWithTree(root)
+
+        val result = context.findNodeByLabel(emptyList())
 
         result shouldBe null
     }
