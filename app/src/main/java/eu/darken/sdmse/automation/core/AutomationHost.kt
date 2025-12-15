@@ -3,7 +3,6 @@ package eu.darken.sdmse.automation.core
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
 import eu.darken.sdmse.R
-import eu.darken.sdmse.automation.core.AutomationService.Snapshot
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
@@ -21,7 +20,7 @@ interface AutomationHost : Progress.Client {
 
     suspend fun changeOptions(action: (Options) -> Options)
 
-    val events: Flow<Snapshot>
+    val events: Flow<AutomationEvent>
 
     data class State(
         val hasOverlay: Boolean = false,

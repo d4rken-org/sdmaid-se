@@ -6,8 +6,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
-import android.view.accessibility.AccessibilityEvent
 import eu.darken.sdmse.appcleaner.core.automation.errors.NoSettingsWindowException
+import eu.darken.sdmse.automation.core.AutomationEvent
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.pkgId
@@ -50,13 +50,13 @@ fun SpecGenerator.windowLauncherDefaultSettings(
 }
 
 fun SpecGenerator.windowCheck(
-    condition: suspend StepContext.(event: AccessibilityEvent?, root: ACSNodeInfo) -> Boolean,
+    condition: suspend StepContext.(event: AutomationEvent?, root: ACSNodeInfo) -> Boolean,
 ): suspend StepContext.() -> ACSNodeInfo = {
-    val events: Flow<AccessibilityEvent?> = host.events.map { it.event }
+    val events: Flow<AutomationEvent?> = host.events
     val (event, root) = events
         .onStart {
             // we may already be ready
-            emit(null as AccessibilityEvent?)
+            emit(null as AutomationEvent?)
         }
         .mapNotNull { event ->
             // Get a root for us to test

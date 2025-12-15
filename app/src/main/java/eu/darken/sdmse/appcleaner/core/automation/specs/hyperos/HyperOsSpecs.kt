@@ -118,8 +118,7 @@ class HyperOsSpecs @Inject constructor(
             }
             // Wait for correct base window
             host.events
-                .map { it.event }
-                .filter { event -> event.pkgId == SETTINGS_PKG_HYPEROS || event.pkgId == SETTINGS_PKG_AOSP }
+                .filter { it.pkgId == SETTINGS_PKG_HYPEROS || it.pkgId == SETTINGS_PKG_AOSP }
                 .mapNotNull { host.windowRoot() }
                 .first { root ->
                     when {
