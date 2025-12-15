@@ -18,8 +18,7 @@ import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
-import eu.darken.sdmse.automation.core.common.stepper.findNode
-import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.checkIdentifiers
@@ -128,28 +127,18 @@ class ColorOSSpecs @Inject constructor(
 
 
             val action: suspend StepContext.() -> Boolean = action@{
-                var isUnclickableButton = false
-                val target = findNode { node ->
-                    when {
-                        //------------12: text='null', className=android.widget.FrameLayout, isClickable=false, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings, identity=ebb882b
-                        //-------------13: text='null', className=android.widget.LinearLayout, isClickable=false, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings, identity=7f41bda
-                        //--------------14: text='null', className=android.widget.RelativeLayout, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/content_rl, pkgName=com.android.settings, identity=808780b
-                        //---------------15: text='Clear cache', className=android.widget.Button, isClickable=false, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings, identity=3b0a6e8
-                        hasApiLevel(35) -> {
-                            if (!node.textMatchesAny(clearCacheButtonLabels)) return@findNode false
-                            isUnclickableButton = !node.isClickyButton()
-                            true
-                        }
-
-                        // 16: className=android.widget.Button, text=Clear Cache, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings
-                        else -> {
-                            node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
-                        }
-                    }
+                //------------12: text='null', className=android.widget.FrameLayout, isClickable=false, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings, identity=ebb882b
+                //-------------13: text='null', className=android.widget.LinearLayout, isClickable=false, isEnabled=true, viewIdResourceName=null, pkgName=com.android.settings, identity=7f41bda
+                //--------------14: text='null', className=android.widget.RelativeLayout, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/content_rl, pkgName=com.android.settings, identity=808780b
+                //---------------15: text='Clear cache', className=android.widget.Button, isClickable=false, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings, identity=3b0a6e8
+                // 16: className=android.widget.Button, text=Clear Cache, isClickable=true, isEnabled=true, viewIdResourceName=com.android.settings:id/button, pkgName=com.android.settings
+                val target = when {
+                    hasApiLevel(35) -> findNodeByLabel(clearCacheButtonLabels)
+                    else -> findNodeByLabel(clearCacheButtonLabels) { it.isClickyButton() }
                 } ?: return@action false
 
                 val mapped = when {
-                    hasApiLevel(35) && isUnclickableButton -> findClickableParent(node = target)
+                    hasApiLevel(35) && !target.isClickyButton() -> findClickableParent(node = target)
                     else -> target
                 } ?: return@action false
 

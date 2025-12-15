@@ -10,18 +10,16 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
-import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
-import eu.darken.sdmse.automation.core.common.textMatches
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
 import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
 import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
 import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
-import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
@@ -98,10 +96,7 @@ class OneUISpecs @Inject constructor(
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeAction = action@{
-                    val tree = host.waitForWindowRoot().crawl().map { it.node }.toList()
-                    var target = clearCacheButtonLabels.firstNotNullOfOrNull { label ->
-                        tree.find { it.textMatches(label) }
-                    } ?: return@action false
+                    var target = findNodeByLabel(clearCacheButtonLabels) ?: return@action false
 
                     // On older One UI: text is on the button itself (clickable)
                     // On One UI 8.5+: text is nested, need to find clickable parent

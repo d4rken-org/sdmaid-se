@@ -18,8 +18,7 @@ import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.clickGesture
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
-import eu.darken.sdmse.automation.core.common.stepper.findNode
-import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
@@ -121,23 +120,13 @@ class RealmeSpecs @Inject constructor(
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             val action: suspend StepContext.() -> Boolean = action@{
-                var isUnclickableButton = false
-                val target = findNode { node ->
-                    when {
-                        hasApiLevel(35) -> {
-                            if (!node.textMatchesAny(clearCacheButtonLabels)) return@findNode false
-                            isUnclickableButton = !node.isClickyButton()
-                            true
-                        }
-
-                        else -> {
-                            node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
-                        }
-                    }
+                val target = when {
+                    hasApiLevel(35) -> findNodeByLabel(clearCacheButtonLabels)
+                    else -> findNodeByLabel(clearCacheButtonLabels) { it.isClickyButton() }
                 } ?: return@action false
 
                 val mapped = when {
-                    hasApiLevel(35) && isUnclickableButton -> findClickableParent(node = target)
+                    hasApiLevel(35) && !target.isClickyButton() -> findClickableParent(node = target)
                     else -> target
                 } ?: return@action false
 

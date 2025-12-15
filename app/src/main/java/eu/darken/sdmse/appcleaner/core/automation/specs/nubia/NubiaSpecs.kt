@@ -9,11 +9,12 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
-import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
+import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
+import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
-import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
@@ -94,14 +95,17 @@ class NubiaSpecs @Inject constructor(
                 nubiaLabels.getClearCacheDynamic(this) + nubiaLabels.getClearCacheLabels(this)
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = findNodeByLabel(clearCacheButtonLabels) { it.isClickyButton() } ?: return@action false
+                clickClearCache(isDryRun = Bugs.isDryRun, pkg, node = target)
+            }
+
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear cache for $pkg",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
-                nodeAction = defaultFindAndClickClearCache(isDryRun = Bugs.isDryRun, pkg) {
-                    if (!it.isClickyButton()) false else it.textMatchesAny(clearCacheButtonLabels)
-                },
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }

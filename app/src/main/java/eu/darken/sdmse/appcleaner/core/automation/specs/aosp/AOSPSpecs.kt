@@ -16,8 +16,7 @@ import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findClickableSibling
-import eu.darken.sdmse.automation.core.common.stepper.findNode
-import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
@@ -97,7 +96,7 @@ class AOSPSpecs @Inject constructor(
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             val nodeAction: suspend StepContext.() -> Boolean = action@{
-                var candidate = findNode { it.textMatchesAny(clearCacheButtonLabels) }
+                var candidate = findNodeByLabel(clearCacheButtonLabels)
                 log(tag) { "Potential target is $candidate" }
                 if (candidate == null) return@action false
 

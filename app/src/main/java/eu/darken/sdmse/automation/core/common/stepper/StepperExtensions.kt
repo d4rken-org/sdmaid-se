@@ -9,6 +9,7 @@ import eu.darken.sdmse.automation.core.common.children
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.distanceTo
 import eu.darken.sdmse.automation.core.common.findParentOrNull
+import eu.darken.sdmse.automation.core.common.textMatches
 import eu.darken.sdmse.automation.core.dispatchGesture
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
 import eu.darken.sdmse.automation.core.errors.UnclickableTargetException
@@ -23,6 +24,23 @@ import kotlinx.coroutines.flow.first
 suspend fun StepContext.findNode(
     predicate: suspend (ACSNodeInfo) -> Boolean
 ): ACSNodeInfo? = host.waitForWindowRoot().crawl().map { it.node }.firstOrNull { predicate(it) }
+
+/**
+ * Finds a node by iterating through labels in priority order.
+ * Unlike [findNode] with `textMatchesAny`, this ensures the first label in the list
+ * has priority over subsequent labels, regardless of node position in the tree.
+ *
+ * This is important for localization fallbacks where specific labels should be preferred.
+ */
+suspend fun StepContext.findNodeByLabel(
+    labels: Collection<String>,
+    predicate: (ACSNodeInfo) -> Boolean = { true },
+): ACSNodeInfo? {
+    val tree = host.waitForWindowRoot().crawl().map { it.node }.toList()
+    return labels.firstNotNullOfOrNull { label ->
+        tree.find { it.textMatches(label) && predicate(it) }
+    }
+}
 
 suspend fun StepContext.findClickableParent(
     maxNesting: Int = 6,
