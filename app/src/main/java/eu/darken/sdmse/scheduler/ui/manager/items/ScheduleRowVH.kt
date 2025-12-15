@@ -1,7 +1,6 @@
 package eu.darken.sdmse.scheduler.ui.manager.items
 
 import android.view.ViewGroup
-import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
@@ -69,27 +68,32 @@ class ScheduleRowVH(parent: ViewGroup) :
             }
         }
 
-        optionsContainer.isGone = schedule.isEnabled
+        val disabledAlpha = if (schedule.isEnabled) 0.38f else 1f
 
         editAction.apply {
-            isGone = schedule.isEnabled
+            isEnabled = !schedule.isEnabled
+            alpha = disabledAlpha
             setOnClickListener { item.onEdit() }
         }
 
         removeAction.apply {
-            isGone = schedule.isEnabled
+            isEnabled = !schedule.isEnabled
+            alpha = disabledAlpha
             setOnClickListener { item.onRemove() }
         }
 
         toolCorpsefinderToggle.apply {
+            isEnabled = !schedule.isEnabled
             setChecked2(schedule.useCorpseFinder)
             setOnCheckedChangeListener { _, _ -> item.onToggleCorpseFinder() }
         }
         toolSystemcleanerToggle.apply {
+            isEnabled = !schedule.isEnabled
             setChecked2(schedule.useSystemCleaner)
             setOnCheckedChangeListener { _, _ -> item.onToggleSystemCleaner() }
         }
         toolAppcleanerToggle.apply {
+            isEnabled = !schedule.isEnabled
             setChecked2(schedule.useAppCleaner)
             setOnCheckedChangeListener { _, _ -> item.onToggleAppCleaner() }
         }
@@ -100,7 +104,11 @@ class ScheduleRowVH(parent: ViewGroup) :
         } else {
             getString(R.string.scheduler_commands_after_schedule_desc)
         }
-        commandsEditAction.setOnClickListener { item.onEditFinalCommands() }
+        commandsEditAction.apply {
+            isEnabled = !schedule.isEnabled
+            alpha = disabledAlpha
+            setOnClickListener { item.onEditFinalCommands() }
+        }
     }
 
     data class Item(

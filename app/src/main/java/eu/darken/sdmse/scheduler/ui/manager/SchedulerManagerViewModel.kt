@@ -110,7 +110,7 @@ class SchedulerManagerViewModel @Inject constructor(
 
         val showCommands = rootManager.canUseRootNow() || adbManager.canUseAdbNow()
 
-        schedulerState.schedules.map { schedule ->
+        schedulerState.schedules.sortedBy { it.label.lowercase() }.map { schedule ->
             ScheduleRowVH.Item(
                 schedule = schedule,
                 onEdit = {
