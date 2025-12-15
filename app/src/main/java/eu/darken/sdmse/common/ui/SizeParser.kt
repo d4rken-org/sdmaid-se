@@ -15,9 +15,11 @@ class SizeParser(private val context: Context) {
         )
     }
     private val sizeUnitsLocalized by lazy {
-        val unitDelimiterRegex = Regex("\\s")
+        // Extract trailing letters/dots as the unit, handles locales without space between number and unit
+        val unitRegex = Regex("""[\p{L}.]+$""")
         val sizeSplitter: (Long, String) -> Pair<String, Long> = { size, fallback ->
-            val unit = Formatter.formatShortFileSize(context, size).split(unitDelimiterRegex).lastOrNull() ?: fallback
+            val formatted = Formatter.formatShortFileSize(context, size)
+            val unit = unitRegex.find(formatted)?.value ?: fallback
             unit.uppercase() to size
         }
         mapOf(
