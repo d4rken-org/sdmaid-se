@@ -39,6 +39,19 @@ fun ACSNodeInfo.textContainsAny(candidates: Collection<String>): Boolean =
 fun ACSNodeInfo.textEndsWithAny(candidates: Collection<String>): Boolean =
     candidates.any { candidate -> textVariants.any { it.endsWith(candidate, ignoreCase = true) } }
 
+val ACSNodeInfo.contentDescVariants: Set<String>
+    get() {
+        val target = contentDescription?.toString() ?: return emptySet()
+        return setOf(target, target.replace(' ', ' '))
+    }
+
+fun ACSNodeInfo.contentDescMatches(candidate: String): Boolean {
+    return contentDescVariants.any { it.equals(candidate, ignoreCase = true) }
+}
+
+fun ACSNodeInfo.contentDescMatchesAny(candidates: Collection<String>): Boolean =
+    candidates.any { contentDescMatches(it) }
+
 fun ACSNodeInfo.idMatches(id: String): Boolean {
     return viewIdResourceName == id
 }

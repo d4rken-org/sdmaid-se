@@ -5,6 +5,7 @@ import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 
 data class TestACSNodeInfo(
     override val text: CharSequence? = null,
+    override val contentDescription: CharSequence? = null,
     override val className: CharSequence? = null,
     override val packageName: CharSequence? = null,
     override val viewIdResourceName: String? = null,
@@ -52,13 +53,14 @@ data class TestACSNodeInfo(
     }
 
     override fun toString(): String {
-        return "TestACSNodeInfo(text='$text', isClickable=$isClickable, childCount=$childCount, hasParent=${parent != null})"
+        return "TestACSNodeInfo(text='$text', contentDesc='$contentDescription', isClickable=$isClickable, childCount=$childCount, hasParent=${parent != null})"
     }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is TestACSNodeInfo) return false
         return text == other.text &&
+                contentDescription == other.contentDescription &&
                 className == other.className &&
                 packageName == other.packageName &&
                 viewIdResourceName == other.viewIdResourceName &&
@@ -72,6 +74,7 @@ data class TestACSNodeInfo(
 
     override fun hashCode(): Int {
         var result = text?.hashCode() ?: 0
+        result = 31 * result + (contentDescription?.hashCode() ?: 0)
         result = 31 * result + (className?.hashCode() ?: 0)
         result = 31 * result + (packageName?.hashCode() ?: 0)
         result = 31 * result + (viewIdResourceName?.hashCode() ?: 0)
