@@ -6,6 +6,7 @@ import android.graphics.Rect
 import android.view.ViewConfiguration
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.children
+import eu.darken.sdmse.automation.core.common.contentDescMatches
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.distanceTo
 import eu.darken.sdmse.automation.core.common.findParentOrNull
@@ -39,6 +40,22 @@ suspend fun StepContext.findNodeByLabel(
     val tree = host.waitForWindowRoot().crawl().map { it.node }.toList()
     return labels.firstNotNullOfOrNull { label ->
         tree.find { it.textMatches(label) && predicate(it) }
+    }
+}
+
+/**
+ * Finds a node by content description, iterating through labels in priority order.
+ * Similar to [findNodeByLabel] but matches against contentDescription instead of text.
+ *
+ * This is useful on Android 16+ where button labels may be in content-desc rather than text.
+ */
+suspend fun StepContext.findNodeByContentDesc(
+    labels: Collection<String>,
+    predicate: (ACSNodeInfo) -> Boolean = { true },
+): ACSNodeInfo? {
+    val tree = host.waitForWindowRoot().crawl().map { it.node }.toList()
+    return labels.firstNotNullOfOrNull { label ->
+        tree.find { it.contentDescMatches(label) && predicate(it) }
     }
 }
 
@@ -142,6 +159,19 @@ suspend fun StepContext.clickGesture(
     val rect = Rect().apply { node.getBoundsInScreen(this) }
     val x = rect.centerX().toFloat()
     val y = rect.centerY().toFloat()
+    log(tag, VERBOSE) { "clickGesture(): node=$node, bounds=$rect" }
+    return clickGestureAtCoords(x, y, isDryRun)
+}
+
+/**
+ * Performs a gesture click at specific screen coordinates.
+ * Used when target nodes are hidden from accessibility tree but position is known.
+ */
+suspend fun StepContext.clickGestureAtCoords(
+    x: Float,
+    y: Float,
+    isDryRun: Boolean = false,
+): Boolean {
     val path = Path().apply {
         moveTo(x, y)
         lineTo(x + 1f, y + 1f)
@@ -154,7 +184,7 @@ suspend fun StepContext.clickGesture(
     host.changeOptions { it.copy(passthrough = true) }
     host.state.filter { it.passthrough }.first()
 
-    log(tag) { "clickGesture(): Performing CLICK gesture at X=$x,Y=$y" }
+    log(tag) { "clickGestureAtCoords(): Performing CLICK gesture at X=$x, Y=$y" }
     val success = if (isDryRun) true else host.dispatchGesture(gesture)
 
     host.changeOptions { it.copy(passthrough = false) }
