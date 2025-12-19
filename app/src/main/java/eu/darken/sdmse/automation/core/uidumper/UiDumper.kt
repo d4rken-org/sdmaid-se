@@ -1,6 +1,7 @@
 package eu.darken.sdmse.automation.core.uidumper
 
 import android.graphics.Rect
+import android.util.Xml
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -12,7 +13,6 @@ import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import org.xmlpull.v1.XmlPullParser
-import org.xmlpull.v1.XmlPullParserFactory
 import java.io.StringReader
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -88,8 +88,7 @@ class UiDumper @Inject constructor(
     }
 
     internal fun parseXml(xml: String): UiNode? {
-        val factory = XmlPullParserFactory.newInstance()
-        val parser = factory.newPullParser()
+        val parser = Xml.newPullParser()
         parser.setInput(StringReader(xml))
 
         var eventType = parser.eventType
