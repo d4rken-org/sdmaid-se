@@ -205,6 +205,7 @@ class AOSPSpecs @Inject constructor(
                 }
 
                 if (hasApiLevel(36)) {
+                    // Use keyboard navigation - uiautomator conflicts with accessibility service
                     return@action tryKeyboardNavigation()
                 }
 

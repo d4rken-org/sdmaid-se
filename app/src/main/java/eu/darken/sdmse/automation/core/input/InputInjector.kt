@@ -58,6 +58,13 @@ class InputInjector @Inject constructor(
         events.forEach { inject(it) }
     }
 
+    suspend fun tap(x: Int, y: Int) {
+        log(TAG) { "tap($x, $y)" }
+        val result = shellOps.execute(ShellOpsCmd(listOf("input tap $x $y")), getShellMode())
+        log(TAG) { "tap($x, $y) result: $result" }
+        delay(100)
+    }
+
     companion object {
         val TAG: String = logTag("Automation", "InputInjector")
     }

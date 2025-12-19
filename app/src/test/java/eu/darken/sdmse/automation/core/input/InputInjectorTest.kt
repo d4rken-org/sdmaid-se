@@ -131,4 +131,36 @@ class InputInjectorTest : BaseTest() {
             "input keyevent 23",
         )
     }
+
+    @Test
+    fun `tap executes correct shell command`() = runTest {
+        useAdbFlow.value = true
+
+        val cmdSlot = slot<ShellOpsCmd>()
+        coEvery { shellOps.execute(capture(cmdSlot), any()) } returns ShellOpsResult(0, emptyList(), emptyList())
+
+        injector.tap(500, 750)
+
+        cmdSlot.captured.cmds shouldBe listOf("input tap 500 750")
+    }
+
+    @Test
+    fun `tap uses ADB mode when available`() = runTest {
+        useAdbFlow.value = true
+        useRootFlow.value = false
+
+        injector.tap(100, 200)
+
+        coVerify { shellOps.execute(any(), ShellOps.Mode.ADB) }
+    }
+
+    @Test
+    fun `tap uses ROOT mode when ADB not available`() = runTest {
+        useAdbFlow.value = false
+        useRootFlow.value = true
+
+        injector.tap(100, 200)
+
+        coVerify { shellOps.execute(any(), ShellOps.Mode.ROOT) }
+    }
 }
