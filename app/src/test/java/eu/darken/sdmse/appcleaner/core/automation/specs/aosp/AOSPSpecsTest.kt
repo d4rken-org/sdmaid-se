@@ -3,17 +3,27 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 import eu.darken.sdmse.appcleaner.core.automation.specs.BaseAppCleanerSpecTest
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.input.InputInjector
 import eu.darken.sdmse.common.device.RomType
+import eu.darken.sdmse.common.hasApiLevel
 import io.kotest.matchers.shouldBe
+import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.mockkStatic
+import io.mockk.unmockkStatic
 import kotlinx.coroutines.test.runTest
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import testhelpers.TestACSNodeInfo
 
 class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
 
     override val romType = RomType.AOSP
+
+    private val inputInjector: InputInjector = mockk<InputInjector>().apply {
+        coEvery { canInject() } returns false
+    }
 
     override fun createLabels(): AOSPLabels = mockk()
 
@@ -24,6 +34,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         storageEntryFinder = storageEntryFinder,
         generalSettings = generalSettings,
         stepper = stepper,
+        inputInjector = inputInjector,
     )
 
     override fun mockLabelDefaults() {
@@ -31,6 +42,11 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         every { labels.getStorageEntryStatic(any()) } returns setOf("Storage")
         every { labels.getClearCacheDynamic(any()) } returns emptySet()
         every { labels.getClearCacheStatic(any()) } returns setOf("Clear cache")
+    }
+
+    @AfterEach
+    fun cleanup() {
+        unmockkStatic(::hasApiLevel)
     }
 
     // ============================================================
@@ -109,6 +125,30 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         // The clickable sibling Button should be clicked, not the TextView
         val clickableSibling = testRoot.crawl().first { it.node.viewIdResourceName == "com.android.settings:id/button2" }.node as TestACSNodeInfo
         clickableSibling.performedActions shouldBe listOf(ACSNodeInfo.ACTION_CLICK)
+    }
+
+    @Test
+    fun `clear cache finds node by content-desc when text is null - Android 16 API 36`() = runTest {
+        // Android 16 Beta pattern: action2 has content-desc="Clear cache" but no text
+        // The node is clickable and should be found by content-desc fallback
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(36) } returns true
+
+        val acsLog = """
+            ACS-DEBUG: 0: text='null', contentDesc='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+            ACS-DEBUG: -1: text='null', contentDesc='Clear storage', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/action1 pkg=com.android.settings, identity=action1, bounds=Rect(60, 861 - 540, 1107)
+            ACS-DEBUG: -1: text='null', contentDesc='Clear cache', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/action2 pkg=com.android.settings, identity=action2, bounds=Rect(540, 861 - 1020, 1107)
+        """.trimIndent()
+
+        testRoot = buildTestTree(acsLog)
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        // The action2 LinearLayout with content-desc="Clear cache" should be clicked
+        val action2 = testRoot.crawl()
+            .first { it.node.viewIdResourceName == "com.android.settings:id/action2" }.node as TestACSNodeInfo
+        action2.performedActions shouldBe listOf(ACSNodeInfo.ACTION_CLICK)
     }
 
     // ============================================================
