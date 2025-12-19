@@ -218,7 +218,12 @@ class HyperOsLabels @Inject constructor() : AppCleanerLabelSource {
 
     private fun getClearDataButtonLabelsDynamic(
         acsContext: AutomationExplorer.Context
-    ) = acsContext.getStrings(SETTINGS_PKG, setOf("app_manager_menu_clear_data"))
+    ) = acsContext.getStrings(SETTINGS_PKG, setOf(
+        "app_manager_menu_clear_data",
+        // HyperOS 2.x uses "Clear all data" instead of "Clear data"
+        // POCO/duchamp_global/duchamp:15/AP3A.240905.015.A2/OS2.0.207.0.VNLMIXM
+        "app_manager_clear_all_data",
+    ))
 
     private fun getClearDataButtonLabelsFallback(
         acsContext: AutomationExplorer.Context
