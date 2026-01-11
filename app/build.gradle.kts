@@ -4,7 +4,6 @@ plugins {
     id("kotlin-parcelize")
     id("projectConfig")
     id("com.google.devtools.ksp")
-    id("kotlin-kapt")
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "androidx.navigation.safeargs.kotlin")
@@ -37,14 +36,6 @@ android {
         buildConfigField("String", "GITSHA", "\"${commitHashProvider.get()}\"")
         buildConfigField("String", "VERSION_CODE", "\"${projectConfig.version.code}\"")
         buildConfigField("String", "VERSION_NAME", "\"${projectConfig.version.name}\"")
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments(
-                    mapOf("room.schemaLocation" to "$projectDir/schemas")
-                )
-            }
-        }
     }
 
     signingConfigs {
@@ -161,6 +152,10 @@ android {
             excludes.add("attach_hotspot_windows.dll")
         }
     }
+}
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
 }
 
 setupKotlinOptions()
