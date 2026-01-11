@@ -19,14 +19,11 @@ private fun DependencyHandler.testImplementation(
     this, "androidTestImplementation", dependencyNotation, dependencyConfiguration
 )
 
-private fun DependencyHandler.kapt(dependencyNotation: Any): Dependency? =
-    add("kapt", dependencyNotation)
-
 private fun DependencyHandler.ksp(dependencyNotation: Any): Dependency? =
     add("ksp", dependencyNotation)
 
-private fun DependencyHandler.kaptTest(dependencyNotation: Any): Dependency? =
-    add("kaptTest", dependencyNotation)
+private fun DependencyHandler.kspTest(dependencyNotation: Any): Dependency? =
+    add("kspTest", dependencyNotation)
 
 private fun DependencyHandler.androidTestImplementation(dependencyNotation: Any): Dependency? =
     add("androidTestImplementation", dependencyNotation)
@@ -38,8 +35,8 @@ private fun DependencyHandler.androidTestImplementation(
     this, "androidTestImplementation", dependencyNotation, dependencyConfiguration
 )
 
-private fun DependencyHandler.kaptAndroidTest(dependencyNotation: Any): Dependency? =
-    add("kaptAndroidTest", dependencyNotation)
+private fun DependencyHandler.kspAndroidTest(dependencyNotation: Any): Dependency? =
+    add("kspAndroidTest", dependencyNotation)
 
 private fun DependencyHandler.testRuntimeOnly(dependencyNotation: Any): Dependency? =
     add("testRuntimeOnly", dependencyNotation)
@@ -51,20 +48,20 @@ fun DependencyHandlerScope.addDI() {
     implementation("com.google.dagger:dagger:${Versions.Dagger.core}")
     implementation("com.google.dagger:dagger-android:${Versions.Dagger.core}")
 
-    kapt("com.google.dagger:dagger-compiler:${Versions.Dagger.core}")
-    kaptTest("com.google.dagger:dagger-compiler:${Versions.Dagger.core}")
+    ksp("com.google.dagger:dagger-compiler:${Versions.Dagger.core}")
+    kspTest("com.google.dagger:dagger-compiler:${Versions.Dagger.core}")
 
-    kapt("com.google.dagger:dagger-android-processor:${Versions.Dagger.core}")
-    kaptTest("com.google.dagger:dagger-android-processor:${Versions.Dagger.core}")
+    ksp("com.google.dagger:dagger-android-processor:${Versions.Dagger.core}")
+    kspTest("com.google.dagger:dagger-android-processor:${Versions.Dagger.core}")
 
     implementation("com.google.dagger:hilt-android:${Versions.Dagger.core}")
-    kapt("com.google.dagger:hilt-android-compiler:${Versions.Dagger.core}")
-    kaptTest("com.google.dagger:hilt-android-compiler:${Versions.Dagger.core}")
+    ksp("com.google.dagger:hilt-android-compiler:${Versions.Dagger.core}")
+    kspTest("com.google.dagger:hilt-android-compiler:${Versions.Dagger.core}")
 
     testImplementation("com.google.dagger:hilt-android-testing:${Versions.Dagger.core}")
 
     androidTestImplementation("com.google.dagger:hilt-android-testing:${Versions.Dagger.core}")
-    kaptAndroidTest("com.google.dagger:hilt-android-compiler:${Versions.Dagger.core}")
+    kspAndroidTest("com.google.dagger:hilt-android-compiler:${Versions.Dagger.core}")
 }
 
 fun DependencyHandlerScope.addCoroutines() {
@@ -98,7 +95,7 @@ fun DependencyHandlerScope.addSerialization() {
     val version = "1.15.2"
     implementation("com.squareup.moshi:moshi:$version")
     implementation("com.squareup.moshi:moshi-adapters:$version")
-    add("ksp", "com.squareup.moshi:moshi-kotlin-codegen:$version")
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:$version")
 }
 
 fun DependencyHandlerScope.addIO() {
@@ -126,7 +123,7 @@ fun DependencyHandlerScope.addAndroidCore() {
 fun DependencyHandlerScope.addRoomDb() {
     implementation("androidx.room:room-runtime:2.7.1")
     implementation("androidx.room:room-ktx:2.7.1")
-    kapt("androidx.room:room-compiler:2.7.1")
+    ksp("androidx.room:room-compiler:2.7.1")
 }
 
 fun DependencyHandlerScope.addWorkerManager() {
@@ -136,7 +133,7 @@ fun DependencyHandlerScope.addWorkerManager() {
     implementation("androidx.work:work-runtime-ktx:$version")
 
     implementation("androidx.hilt:hilt-work:1.2.0")
-    kapt("androidx.hilt:hilt-compiler:1.2.0")
+    ksp("androidx.hilt:hilt-compiler:1.2.0")
 }
 
 fun DependencyHandlerScope.addAndroidUI() {

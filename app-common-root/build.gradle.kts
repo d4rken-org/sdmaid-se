@@ -4,7 +4,6 @@ plugins {
     id("kotlin-android")
     id("kotlin-parcelize")
     id("com.google.devtools.ksp")
-    id("kotlin-kapt")
     id("projectConfig")
 }
 
