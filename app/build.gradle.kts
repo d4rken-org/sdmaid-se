@@ -83,15 +83,15 @@ android {
     }
 
     buildTypes {
-        val customProguardRules = fileTree(File(projectDir, "proguard")) {
-            include("*.pro")
+        all {
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+            )
         }
         debug {
             isMinifyEnabled = false
             isShrinkResources = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
-            proguardFiles(*customProguardRules.toList().toTypedArray())
-            proguardFiles("proguard-rules-debug.pro")
         }
         create("beta") {
             lint {
@@ -100,8 +100,6 @@ android {
             }
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
-            proguardFiles(*customProguardRules.toList().toTypedArray())
         }
         release {
             lint {
@@ -110,8 +108,6 @@ android {
             }
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
-            proguardFiles(*customProguardRules.toList().toTypedArray())
         }
     }
 
