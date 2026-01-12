@@ -89,10 +89,6 @@ android {
                 "proguard-rules.pro",
             )
         }
-        debug {
-            isMinifyEnabled = false
-            isShrinkResources = false
-        }
         create("beta") {
             lint {
                 abortOnError = true
