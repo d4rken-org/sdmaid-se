@@ -50,10 +50,18 @@ android {
     signingConfigs {
         val basePath = File(System.getProperty("user.home"), ".appconfig/${projectConfig.packageName}")
         create("releaseFoss") {
-            setupCredentials(File(basePath, "signing-foss.properties"))
+            if (basePath.exists()) {
+                setupCredentials(File(basePath, "signing-foss.properties"))
+            } else {
+                initWith(signingConfigs["debug"])
+            }
         }
         create("releaseGplay") {
-            setupCredentials(File(basePath, "signing-gplay-upload.properties"))
+            if (basePath.exists()) {
+                setupCredentials(File(basePath, "signing-gplay-upload.properties"))
+            } else {
+                initWith(signingConfigs["debug"])
+            }
         }
     }
 
