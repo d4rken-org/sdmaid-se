@@ -23,6 +23,7 @@ object AcsDebugParser {
     )
 
     private val TEXT_PATTERN = Regex("""text='([^']*)'""")
+    private val CONTENT_DESC_PATTERN = Regex("""contentDesc='([^']*)'""")
     private val CLASS_PATTERN = Regex("""class=([^,]+)""")
     private val CLICKABLE_PATTERN = Regex("""clickable=(true|false)""")
     private val CHECKABLE_PATTERN = Regex("""checkable=(true|false)""")
@@ -34,6 +35,7 @@ object AcsDebugParser {
     data class ParsedNode(
         val level: Int,
         val text: String?,
+        val contentDescription: String?,
         val className: String?,
         val isClickable: Boolean,
         val isEnabled: Boolean,
@@ -72,6 +74,9 @@ object AcsDebugParser {
         val textMatch = TEXT_PATTERN.find(properties)
         val text = textMatch?.groupValues?.get(1)?.let { if (it == "null") null else it }
 
+        val contentDescMatch = CONTENT_DESC_PATTERN.find(properties)
+        val contentDescription = contentDescMatch?.groupValues?.get(1)?.let { if (it == "null") null else it }
+
         val className = CLASS_PATTERN.find(properties)?.groupValues?.get(1)?.trim()
         val isClickable = CLICKABLE_PATTERN.find(properties)?.groupValues?.get(1) == "true"
         val isCheckable = CHECKABLE_PATTERN.find(properties)?.groupValues?.get(1) == "true"
@@ -86,6 +91,7 @@ object AcsDebugParser {
         return ParsedNode(
             level = level,
             text = text,
+            contentDescription = contentDescription,
             className = className,
             isClickable = isClickable,
             isEnabled = isEnabled,
@@ -132,6 +138,7 @@ object AcsDebugParser {
 
     private fun ParsedNode.toTestNodeInfo() = TestACSNodeInfo(
         text = text,
+        contentDescription = contentDescription,
         className = className,
         packageName = packageName,
         viewIdResourceName = viewIdResourceName,
