@@ -122,10 +122,10 @@ android {
 
     sourceSets {
         getByName("test") {
-            resources.srcDirs("src/main/assets")
+            resources.directories.add("src/main/assets")
         }
         getByName("androidTest") {
-            assets.srcDirs(files("$projectDir/schemas"))
+            assets.directories.add("$projectDir/schemas")
         }
     }
 
