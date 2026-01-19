@@ -16,7 +16,7 @@
     <string name="debug_debuglog_screen_title">Log debugowania</string>
     <string name="debug_debuglog_screen_discard_action">Odrzuć</string>
     <string name="debug_debuglog_screen_session_path_label">Ścieżka sesji</string>
-    <string name="debug_debuglog_screen_log_files_label">Pliki logów</string>
+    <string name="debug_debuglog_screen_log_files_label">Pliki dziennika zdarzeń</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
         <item quantity="one">%1$d plik gotowy (%2$s)</item>
         <item quantity="few">%1$d pliki gotowe (%2$s)</item>
@@ -275,7 +275,7 @@
     <string name="systemcleaner_filter_screenshots_summary">Zrzuty ekranu starsze niż %s z wielu aplikacji i lokalizacji.</string>
     <string name="systemcleaner_filter_trashed_label">Pliki w koszu</string>
     <string name="systemcleaner_filter_trashed_summary">Pliki w koszu z różnych aplikacji i lokalizacji, które są oznaczone do usunięcia, ale nie zostały jeszcze trwale usunięte.</string>
-    <string name="systemcleaner_filter_screenshots_age_label">Wiek zrzutu ekranu</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Data zrzutu ekranu</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimalny wiek, od którego zacznie się usuwanie.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Zbędne pliki APK</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Pliki instalacyjne, które są starsze lub równe wersjom już zainstalowanych aplikacji.</string>
@@ -531,7 +531,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Pierwsza instalacja</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nazwa pakietu</string>
     <string name="appcontrol_list_sortmode_size_label">Rozmiar</string>
-    <string name="appcontrol_list_sortmode_screentime_label">Czas używania</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Czas przed ekranem</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Rozmiary aplikacji są szacowane ze względów wydajności. Użyj narzędzia Analizator magazynu, aby uzyskać dokładniejsze dane.</string>
     <string name="appcontrol_progress_uninstalling_app">Odinstalowywanie aplikacji</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -693,9 +693,9 @@
     <string name="automation_error_compatibility_title">Zgodność z automatyzacją</string>
     <string name="automation_error_compatibility_body">SD Maid nie może rozpoznać układu ekranu. Jeśli będzie się to powtarzać, Twój język lub konfiguracja mogą nie być w pełni obsługiwane. Sprawdź aktualizacje lub skontaktuj się ze mną, aby móc je naprawić.</string>
     <string name="automation_error_timeout_title">Limit czasu automatyzacji</string>
-    <string name="automation_error_timeout_body">SD Maid nie zakończył wszystkich etapów w wyznaczonym terminie. Jeśli będzie się to powtarzać, to może być wymagane dostosowanie aplikacji do twojego urządzenia. Sprawdź aktualizacje lub skontaktuj się ze mną, abym mógł to naprawić.</string>
-    <string name="automation_error_overlay_title">Nakładka automatyzacyjna</string>
-    <string name="automation_error_overlay_body">SD Maid nie może pokazać nakładki na automatyzację. Sprawdź uprawnienia i spróbuj ponownie uruchomić urządzenie.</string>
+    <string name="automation_error_timeout_body">SD Maid nie wykonał wszystkich kroków w wyznaczonym czasie. Jeśli problem będzie się powtarzał, być może będzie trzeba dostosować aplikację do twojego urządzenia. Sprawdź dostępność aktualizacji lub skontaktuj się ze mną, abym mógł to naprawić.</string>
+    <string name="automation_error_overlay_title">Nakładka automatyzacji</string>
+    <string name="automation_error_overlay_body">SD Maid nie mógł wyświetlić nakładki automatyzacji. Sprawdź uprawnienia i spróbuj ponownie uruchomić urządzenie.</string>
     <string name="history_label">Historia</string>
     <string name="history_description">Chronologiczna lista ostatnich działań i dotyczących ich danych.</string>
     <string name="scheduler_label">Harmonogram</string>
@@ -754,12 +754,12 @@
     <string name="review_app_dismiss_action">Może później</string>
     <string name="review_app_body">Chcesz wystawić recenzję SD Maid?️ ❤️</string>
     <string name="anniversary_card_title">Udanej rocznicy SD Maid ❤️</string>
-    <string name="anniversary_card_install_date">Razem z Tobą od %s</string>
+    <string name="anniversary_card_install_date">Razem z tobą od %s</string>
     <plurals name="anniversary_card_body">
-        <item quantity="one">Już %1$d rok razem. Dziękujemy za ufanie SD Maid do utrzymywania Twojego Androida w dobrym stanie i porządku. Uwolniono: %2$s</item>
-        <item quantity="few">Już %1$d lata razem. Dziękujemy za ufanie do SD Maid, która utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
-        <item quantity="many">Już %1$d lat razem. Dziękujemy za ufanie do SD Maid, która utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
-        <item quantity="other">Już %1$d lat razem. Dziękujemy za ufanie do SD Maid, która utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
+        <item quantity="one">Już %1$d rok razem. Dziękujemy za ufanie do SD Maid na utrzymanie twojego Androida w dobrym stanie i porządku. Uwolniono: %2$s</item>
+        <item quantity="few">Już %1$d lata razem. Dziękujemy za ufanie do SD Maid, który utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
+        <item quantity="many">Już %1$d lat razem. Dziękujemy za ufanie do SD Maid, który utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
+        <item quantity="other">Już %1$d lat razem. Dziękujemy za ufanie do SD Maid, który utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
     </plurals>
     <string name="anniversary_share_title">Udostępnij swoją rocznicę SD Maid</string>
     <plurals name="anniversary_share_text">
@@ -823,12 +823,4 @@
     <string name="shortcuts_settings_category">Skróty</string>
     <string name="shortcuts_onetap_enabled_title">Skrót jednym dotknięciem</string>
     <string name="shortcuts_onetap_enabled_summary">Pokaż skrót \"Skanuj + Usuń\" po długim naciśnięciu ikony aplikacji. Korzysta z tych samych narzędzi co pulpit jednego dotknięcia.</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">Tryb debugowania jest włączony</string>
-    <string name="debug_card_trace_mode_label">Włącz tryb śledzenia</string>
-    <string name="debug_card_dryrun_mode_label">Tryb testowy (wyłącz usuwanie)</string>
-    <string name="debug_card_areas_reload_action">Załaduj ponownie obszary danych</string>
-    <string name="debug_card_pkgs_reload_action">Załaduj ponownie aplikacje</string>
-    <string name="debug_card_root_test_action">Testuj root</string>
-    <string name="debug_card_shizuku_test_action">Testuj Shizuku</string>
 </resources>

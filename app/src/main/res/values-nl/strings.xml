@@ -759,12 +759,4 @@
     <string name="shortcuts_settings_category">Snelkoppelingen</string>
     <string name="shortcuts_onetap_enabled_title">Snelkoppeling met één tik</string>
     <string name="shortcuts_onetap_enabled_summary">Toon de snelkoppeling \'Scannen + Verwijderen\' wanneer je het app-pictogram lang ingedrukt houdt. Gebruikt hezelfde gereedschap als het one-tap dashboard.</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">Foutopsporingsmodus is ingeschakeld</string>
-    <string name="debug_card_trace_mode_label">Traceringsmodus inschakelen</string>
-    <string name="debug_card_dryrun_mode_label">Droge uitvoering (verwijdering uitschakelen)</string>
-    <string name="debug_card_areas_reload_action">Gegevensgebieden opnieuw laden</string>
-    <string name="debug_card_pkgs_reload_action">Apps opnieuw laden</string>
-    <string name="debug_card_root_test_action">Test root</string>
-    <string name="debug_card_shizuku_test_action">Test Shizuku</string>
 </resources>

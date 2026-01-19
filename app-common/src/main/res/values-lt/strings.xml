@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="slogan_message_0">Jums tarnauju.</string>
+    <string name="app_name">„SD Maid SE“</string>
+    <string name="slogan_message_0">Jūsų paslaugoms.</string>
     <string name="slogan_message_1">Švariai ir tvarkingai.</string>
     <string name="slogan_message_2">Užkertame kelią chaosui.</string>
     <string name="slogan_message_3">Darome tai, kas būtina.</string>

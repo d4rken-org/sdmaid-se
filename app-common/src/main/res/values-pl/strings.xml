@@ -96,7 +96,7 @@
     <string name="general_delete_confirmation_message_x">Usunąć \"%s\"?</string>
     <plurals name="general_delete_confirmation_message_selected_x_items">
         <item quantity="one">Usunąć %d wybrany element?</item>
-        <item quantity="few">Usunąć %d wybrane elemente?</item>
+        <item quantity="few">Usunąć %d wybrane elementy?</item>
         <item quantity="many">Usunąć %d wybranych elementów?</item>
         <item quantity="other">Usunąć %d wybranych elementów?</item>
     </plurals>

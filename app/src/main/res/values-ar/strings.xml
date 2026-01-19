@@ -870,12 +870,4 @@
     <string name="shortcuts_settings_category">الاختصارات</string>
     <string name="shortcuts_onetap_enabled_title">اختصار بنقرة واحدة</string>
     <string name="shortcuts_onetap_enabled_summary">أظهر الاختصار \"فحص + حذف\" عند الضغط المطول على أيقونة التطبيق. يستخدم نفس الأدوات مثل لوحة التحكم بنقرة واحدة.</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">وضع التصحيح مُفعّل</string>
-    <string name="debug_card_trace_mode_label">تفعيل وضع التتبع</string>
-    <string name="debug_card_dryrun_mode_label">وضع المحاكاة (تعطيل الحذف)</string>
-    <string name="debug_card_areas_reload_action">إعادة تحميل مناطق البيانات</string>
-    <string name="debug_card_pkgs_reload_action">إعادة تحميل التطبيقات</string>
-    <string name="debug_card_root_test_action">اختبار root</string>
-    <string name="debug_card_shizuku_test_action">اختبار Shizuku</string>
 </resources>
