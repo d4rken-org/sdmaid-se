@@ -142,12 +142,14 @@ android {
 
     applicationVariants.all {
         val variantName = name
+            .replace(Regex("([a-z])([A-Z])"), "$1-$2")
+            .uppercase()
         if (listOf("release", "beta").any { variantName.lowercase().contains(it) }) {
             outputs.all {
                 val output = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
                 val outputFileName = projectConfig.packageName +
                         "-v${defaultConfig.versionName}-${defaultConfig.versionCode}" +
-                        "-${variantName.uppercase()}.apk"
+                        "-${variantName}.apk"
                 output.outputFileName = outputFileName
             }
         }
