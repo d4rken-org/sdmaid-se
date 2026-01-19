@@ -98,19 +98,6 @@ android {
         }
     }
 
-    buildOutputs.all {
-        val variantOutputImpl = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
-        val variantName: String = variantOutputImpl.name
-
-        if (listOf("release", "beta").any { variantName.lowercase().contains(it) }) {
-            val outputFileName = projectConfig.packageName +
-                    "-v${defaultConfig.versionName}-${defaultConfig.versionCode}" +
-                    "-${variantName.uppercase()}.apk"
-
-            variantOutputImpl.outputFileName = outputFileName
-        }
-    }
-
     buildFeatures {
         viewBinding = true
         buildConfig = true
@@ -150,6 +137,19 @@ android {
     packaging {
         resources {
             excludes.add("attach_hotspot_windows.dll")
+        }
+    }
+
+    applicationVariants.all {
+        val variantName = name
+        if (listOf("release", "beta").any { variantName.lowercase().contains(it) }) {
+            outputs.all {
+                val output = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
+                val outputFileName = projectConfig.packageName +
+                        "-v${defaultConfig.versionName}-${defaultConfig.versionCode}" +
+                        "-${variantName.uppercase()}.apk"
+                output.outputFileName = outputFileName
+            }
         }
     }
 }

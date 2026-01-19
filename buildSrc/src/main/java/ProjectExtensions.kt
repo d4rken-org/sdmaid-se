@@ -1,4 +1,3 @@
-import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -31,14 +30,7 @@ fun LibraryExtension.setupLibraryDefaults(projectConfig: ProjectConfig) {
 val Project.projectConfig: ProjectConfig
     get() = extensions.findByType(ProjectConfig::class.java)!!
 
-fun com.android.build.api.dsl.CommonExtension<
-        com.android.build.api.dsl.LibraryBuildFeatures,
-        com.android.build.api.dsl.LibraryBuildType,
-        com.android.build.api.dsl.LibraryDefaultConfig,
-        com.android.build.api.dsl.LibraryProductFlavor,
-        *,
-        *
-        >.setupModuleBuildTypes() {
+fun LibraryExtension.setupModuleBuildTypes() {
     buildTypes {
         debug {
             consumerProguardFiles("consumer-rules.pro")
@@ -74,7 +66,7 @@ fun Project.setupKotlinOptions() {
     }
 }
 
-fun BaseExtension.setupCompileOptions() {
+fun LibraryExtension.setupCompileOptions() {
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
