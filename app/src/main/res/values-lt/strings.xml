@@ -94,6 +94,7 @@
     <string name="setup_incomplete_card_continue_action">Tęsti sąranką</string>
     <string name="setup_title">Nustatymai</string>
     <string name="setup_forcedshow_summary">Dar kartą parodykite sąrankos ekraną, įskaitant jau atliktus elementus.</string>
+    <string name="general_error_setup_require_label">Sąranka nebaigta</string>
     <string name="setup_saf_card_title">Prieigos prie saugyklos sistema</string>
     <string name="setup_saf_card_body">Pagerinkite rezultatus suteikdami \"SD Maid\" prieigą prie papildomų sričių.</string>
     <string name="setup_saf_card_body2">Daugeliu atvejų langas atsidarys su iš anksto pasirinktu tinkamu keliu. Įrašai nusidažo žaliai, kai suteikiama prieiga. </string>

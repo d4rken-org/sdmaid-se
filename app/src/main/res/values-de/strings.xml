@@ -759,13 +759,4 @@
     <string name="shortcuts_settings_category">Verknüpfungen</string>
     <string name="shortcuts_onetap_enabled_title">Ein-Tipp-Verknüpfung</string>
     <string name="shortcuts_onetap_enabled_summary">Zeige \"Scan + Löschen\"-Verknüpfung bei langem Drücken des App-Symbols. Verwendet die gleichen Werkzeuge wie Ein-Tipp-Dashboard.</string>
-
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">Debug-Modus ist aktiviert</string>
-    <string name="debug_card_trace_mode_label">Trace-Modus aktivieren</string>
-    <string name="debug_card_dryrun_mode_label">Trockentest-Modus (Löschen deaktivieren)</string>
-    <string name="debug_card_areas_reload_action">Datenbereiche neu laden</string>
-    <string name="debug_card_pkgs_reload_action">Apps neu laden</string>
-    <string name="debug_card_root_test_action">root testen</string>
-    <string name="debug_card_shizuku_test_action">Shizuku testen</string>
 </resources>

@@ -707,12 +707,4 @@
     <string name="shortcut_appcontrol_long">インストールされたアプリを管理</string>
     <string name="shortcuts_settings_category">ショートカット</string>
     <string name="shortcuts_onetap_enabled_title">ワンタップショートカット</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">デバッグモードが有効になっています</string>
-    <string name="debug_card_trace_mode_label">トレースモードを有効にする</string>
-    <string name="debug_card_dryrun_mode_label">ドライランモード（削除を無効にする）</string>
-    <string name="debug_card_areas_reload_action">データエリアを再読み込み</string>
-    <string name="debug_card_pkgs_reload_action">アプリを再読み込み</string>
-    <string name="debug_card_root_test_action">Root をテスト</string>
-    <string name="debug_card_shizuku_test_action">Shizuku をテスト</string>
 </resources>

@@ -726,13 +726,5 @@
     <string name="shortcut_onetap_long">Pindai dan hapus dalam satu tindakan</string>
     <string name="shortcuts_settings_category">Pintasan</string>
     <string name="shortcuts_onetap_enabled_title">Pintasan sekali ketuk</string>
-    <string name="shortcuts_onetap_enabled_summary">Tampilkan pintasan "Pindai + Hapus" saat menekan lama ikon aplikasi. Menggunakan alat yang sama seperti dasbor sekali ketuk.</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">Mode debug diaktifkan</string>
-    <string name="debug_card_trace_mode_label">Aktifkan mode trace</string>
-    <string name="debug_card_dryrun_mode_label">Mode dry-run (nonaktifkan penghapusan)</string>
-    <string name="debug_card_areas_reload_action">Muat ulang area data</string>
-    <string name="debug_card_pkgs_reload_action">Muat ulang aplikasi</string>
-    <string name="debug_card_root_test_action">Uji root</string>
-    <string name="debug_card_shizuku_test_action">Uji Shizuku</string>
+    <string name="shortcuts_onetap_enabled_summary">Tampilkan pintasan \"Pindai + Hapus\" saat menekan lama ikon aplikasi. Menggunakan alat yang sama seperti dasbor sekali ketuk.</string>
 </resources>

@@ -688,12 +688,4 @@
     <string name="area_type_public_obb_label">공용 앱 리소스</string>
     <string name="area_type_private_data_label">개인 앱 데이터</string>
     <string name="area_type_portable_label">휴대용 저장소</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">디버그 모드가 활성화되었습니다</string>
-    <string name="debug_card_trace_mode_label">추적 모드 활성화</string>
-    <string name="debug_card_dryrun_mode_label">드라이런 모드 (삭제 비활성화)</string>
-    <string name="debug_card_areas_reload_action">데이터 영역 다시 로드</string>
-    <string name="debug_card_pkgs_reload_action">앱 다시 로드</string>
-    <string name="debug_card_root_test_action">Root 테스트</string>
-    <string name="debug_card_shizuku_test_action">Shizuku 테스트</string>
 </resources>

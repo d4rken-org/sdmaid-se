@@ -723,13 +723,5 @@
     <string name="shortcut_onetap_long">一键扫描并删除</string>
     <string name="shortcuts_settings_category">快捷键</string>
     <string name="shortcuts_onetap_enabled_title">一键快捷方式</string>
-    <string name="shortcuts_onetap_enabled_summary">长按应用图标时显示"扫描+删除"快捷键。使用与一键控制面板相同的工具。</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">调试模式已启用</string>
-    <string name="debug_card_trace_mode_label">启用跟踪模式</string>
-    <string name="debug_card_dryrun_mode_label">演练模式（禁用删除）</string>
-    <string name="debug_card_areas_reload_action">重载数据区域</string>
-    <string name="debug_card_pkgs_reload_action">重载应用</string>
-    <string name="debug_card_root_test_action">测试 Root</string>
-    <string name="debug_card_shizuku_test_action">测试 Shizuku</string>
+    <string name="shortcuts_onetap_enabled_summary">长按应用图标时显示“扫描+删除”快捷键。使用与一键控制面板相同的工具。</string>
 </resources>

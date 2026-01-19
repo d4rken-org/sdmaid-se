@@ -92,7 +92,7 @@
     <string name="settings_acknowledgements_category_translations_title">Bản dịch</string>
     <string name="settings_acknowledgements_category_translations_subtitle">Ai đã dịch cái này?</string>
     <string name="settings_acknowledgements_category_thanks_title">Cảm ơn bạn</string>
-    <string name="settings_acknowledgements_category_thanks_subtitle">Cảm ơn đặc biệt bạn bè của chúng ta.</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Xin gửi lời cảm ơn đặc biệt đến những người bạn của chúng ta.</string>
     <string name="settings_acknowledgements_category_licenses_title">Giấy phép</string>
     <string name="settings_acknowledgements_category_licenses_subtitle">Phần mềm được sử dụng bởi SD Maid.</string>
     <string name="setup_label">Thiết lập</string>
@@ -675,7 +675,7 @@
     <string name="review_app_review_action">Đánh giá</string>
     <string name="review_app_dismiss_action">Để sau</string>
     <string name="review_app_body">Bạn có muốn để lại đánh giá cho SD Maid không?️ ❤️</string>
-    <string name="anniversary_card_title">Mừng kỷ niệm SD Maid❤️</string>
+    <string name="anniversary_card_title">Mừng kỷ niệm SD Maid ❤️</string>
     <string name="anniversary_card_install_date">Với bạn từ %s</string>
     <plurals name="anniversary_card_body">
         <item quantity="other">Đã %1$d năm rồi. Cảm ơn bạn đã tin tưởng SD Maid để giữ cho thiết bị Android của bạn luôn sạch sẽ và gọn gàng. Dung lượng trống: %2$s</item>
@@ -727,12 +727,4 @@
     <string name="shortcuts_settings_category">Phím tắt</string>
     <string name="shortcuts_onetap_enabled_title">Phím tắt một chạm</string>
     <string name="shortcuts_onetap_enabled_summary">Hiển thị phím tắt \"Quét + Xóa\" khi nhấn và giữ biểu tượng ứng dụng. Sử dụng các công cụ tương tự như bảng điều khiển một chạm.</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">Chế độ gỡ lỗi đã được bật</string>
-    <string name="debug_card_trace_mode_label">Bật chế độ theo dõi</string>
-    <string name="debug_card_dryrun_mode_label">Chế độ thử nghiệm (tắt xóa)</string>
-    <string name="debug_card_areas_reload_action">Tải lại vùng dữ liệu</string>
-    <string name="debug_card_pkgs_reload_action">Tải lại ứng dụng</string>
-    <string name="debug_card_root_test_action">Kiểm tra root</string>
-    <string name="debug_card_shizuku_test_action">Kiểm tra Shizuku</string>
 </resources>

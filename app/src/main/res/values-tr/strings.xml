@@ -760,12 +760,4 @@
     <string name="shortcuts_settings_category">Kısayollar</string>
     <string name="shortcuts_onetap_enabled_title">Tek dokunuş kısayolu</string>
     <string name="shortcuts_onetap_enabled_summary">Uygulama simgesine uzun basıldığında \"Tara + Sil\" kısayolunu gösterir. Tek dokunuşla kontrol paneliyle aynı araçları kullanır.</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">Hata ayıklama modu etkinleştirildi</string>
-    <string name="debug_card_trace_mode_label">İzleme modunu etkinleştir</string>
-    <string name="debug_card_dryrun_mode_label">Deneme modu (silmeyi devre dışı bırak)</string>
-    <string name="debug_card_areas_reload_action">Veri alanlarını yeniden yükle</string>
-    <string name="debug_card_pkgs_reload_action">Uygulamaları yeniden yükle</string>
-    <string name="debug_card_root_test_action">Root\'u test et</string>
-    <string name="debug_card_shizuku_test_action">Shizuku\'yu test et</string>
 </resources>
