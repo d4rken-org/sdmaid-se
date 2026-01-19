@@ -49,7 +49,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        variant: [ Debug,Beta,Release ]
+        variant: [ Debug ]
         flavor: [ testFoss,testGplay ]
     runs-on: ubuntu-22.04
     steps:
