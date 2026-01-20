@@ -53,6 +53,7 @@ class SuperfluousApksFilter @Inject constructor(
     private val pkgRepo: PkgRepo,
     private val gatewaySwitch: GatewaySwitch,
     private val cacheRepo: CacheRepo,
+    private val settings: SystemCleanerSettings,
 ) : BaseSystemCleanerFilter() {
 
     override suspend fun getIcon(): CaDrawable = R.drawable.ic_app_extra_24.toCaDrawable()
@@ -77,8 +78,10 @@ class SuperfluousApksFilter @Inject constructor(
     }
 
     private lateinit var sieve: SystemCrawlerSieve
+    private var includeSameVersion: Boolean = true
 
     override suspend fun initialize() {
+        includeSameVersion = settings.filterSuperfluosApksIncludeSameVersion.value()
         val config = SystemCrawlerSieve.Config(
             targetTypes = setOf(TypeCriterium.FILE),
             areaTypes = targetAreas(),
@@ -154,7 +157,11 @@ class SuperfluousApksFilter @Inject constructor(
         // TODO Multiple profiles can't have different versions of the same APK, right?
         val installed = pkgRepo.get(apkInfo.id).firstOrNull() ?: return null
 
-        val superfluos = installed.versionCode >= apkInfo.versionCode
+        val superfluos = if (includeSameVersion) {
+            installed.versionCode >= apkInfo.versionCode
+        } else {
+            installed.versionCode > apkInfo.versionCode
+        }
         if (superfluos) {
             log(TAG, VERBOSE) {
                 "Superfluos: ${installed.packageName} installed=${installed.versionCode}, archive=${apkInfo.versionCode}"
