@@ -675,6 +675,7 @@
     <string name="exclusion_type_segment">Segment exclusion</string>
     <string name="exclusion_tags_alltools">All tools</string>
     <string name="exclusion_target_label">Exclusion target</string>
+    <string name="exclusion_editor_path_change_action">Tap to change path</string>
     <string name="exclusion_option_allow_partial">Allow partial matches</string>
     <string name="exclusion_option_ignore_casing">Ignore casing</string>
     <string name="exclusion_editor_affected_tools_label">Affected tools</string>
