@@ -1,5 +1,7 @@
 package eu.darken.sdmse.deduplicator.core.arbiter
 
+import eu.darken.sdmse.common.files.APath
+
 sealed interface ArbiterCriterium {
 
     sealed interface Mode
@@ -57,4 +59,8 @@ sealed interface ArbiterCriterium {
             PREFER_SMALLER,
         }
     }
+
+    data class PreferredPath(
+        val keepPreferPaths: Set<APath> = emptySet(),
+    ) : ArbiterCriterium
 }
