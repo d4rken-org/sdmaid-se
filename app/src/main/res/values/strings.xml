@@ -306,7 +306,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Screenshot Age</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimum age for screenshots to be considered for deletion.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Superfluous APKs</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Setup files that are older or equal to app versions that are already installed.</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Setup files that are no longer needed based on installed app versions.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Include same version</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Also target APK files that match the installed version. Disable to only remove older versions.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR folders</string>
     <string name="systemcleaner_filter_lostdir_summary">Temporary files that are created when transferring data between Android devices.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux files</string>
