@@ -59,6 +59,7 @@ sealed class Permission(
         private val TAG = logTag("Permission", "UsageStats")
 
 
+        @Suppress("DEPRECATION")
         override fun isGranted(context: Context): Boolean {
             val applicationInfo = context.packageManager.getApplicationInfo(context.packageName, 0)
             val appOpsManager = context.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager

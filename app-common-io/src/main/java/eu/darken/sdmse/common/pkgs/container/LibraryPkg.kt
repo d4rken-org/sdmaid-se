@@ -37,7 +37,8 @@ data class LibraryPkg(
             return rawId.toPkgId()
         }
 
-    @get:SuppressLint("NewApi", "DEPRECATION")
+    @Suppress("DEPRECATION")
+    @get:SuppressLint("NewApi")
     override val versionCode: Long
         get() = if (hasApiLevel(28)) {
             sharedLibraryInfo.longVersion

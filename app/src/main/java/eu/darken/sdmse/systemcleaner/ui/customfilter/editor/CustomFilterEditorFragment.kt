@@ -121,6 +121,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             DataArea.Type.PRIVATE_DATA,
             DataArea.Type.PORTABLE,
         ).forEach { type ->
+            @Suppress("DEPRECATION")
             val chip = Chip(
                 context,
                 null,

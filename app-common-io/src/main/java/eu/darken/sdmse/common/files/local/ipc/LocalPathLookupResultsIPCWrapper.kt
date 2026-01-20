@@ -6,6 +6,7 @@ import android.os.Parcelable
 data class LocalPathLookupResultsIPCWrapper(
     val payload: List<LocalPathLookupResult>,
 ) : Parcelable, IPCWrapper {
+    @Suppress("DEPRECATION", "UNCHECKED_CAST")
     constructor(parcel: Parcel) : this(
         parcel.readParcelableArray(LocalPathLookupResult::class.java.classLoader)!!
             .toList() as List<LocalPathLookupResult>

@@ -99,6 +99,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
 
         ui.toolbar.apply {
             setupWithNavController(findNavController())
+            @Suppress("DEPRECATION")
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.action_filterpane -> {

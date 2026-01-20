@@ -8,6 +8,7 @@ inline fun <reified T> T.marshall(): ByteArray where T : Parcelable = Parcel.obt
     marshall()
 }
 
+@Suppress("DEPRECATION")
 inline fun <reified T> ByteArray.unmarshall(): T where T : Any, T : Parcelable = Parcel.obtain().use {
     unmarshall(this@unmarshall, 0, size)
     setDataPosition(0)

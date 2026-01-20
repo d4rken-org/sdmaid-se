@@ -39,6 +39,7 @@ class CorpseFinderListFragment : Fragment3(R.layout.corpsefinder_list_fragment) 
 
         ui.toolbar.apply {
             setupWithNavController(findNavController())
+            @Suppress("DEPRECATION")
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     else -> super.onOptionsItemSelected(it)

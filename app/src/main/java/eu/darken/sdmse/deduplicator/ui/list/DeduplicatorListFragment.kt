@@ -47,6 +47,7 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
 
         ui.toolbar.apply {
             setupWithNavController(findNavController())
+            @Suppress("DEPRECATION")
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.action_toggle_layout_mode -> {
