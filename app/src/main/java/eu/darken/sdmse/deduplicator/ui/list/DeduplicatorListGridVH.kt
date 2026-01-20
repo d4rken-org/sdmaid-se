@@ -43,7 +43,13 @@ class DeduplicatorListGridVH(parent: ViewGroup) :
             }
         }
 
-        primary.text = Formatter.formatShortFileSize(context, cluster.totalSize)
+        val totalSize = Formatter.formatShortFileSize(context, cluster.totalSize)
+        val freeable = context.getQuantityString2(
+            eu.darken.sdmse.common.R.plurals.x_space_can_be_freed,
+            1,
+            Formatter.formatShortFileSize(context, cluster.redundantSize),
+        )
+        primary.text = "$totalSize ($freeable)"
         secondary.text = context.getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, cluster.count)
 
         matchTypeChecksum.isVisible = item.cluster.types.contains(Duplicate.Type.CHECKSUM)
