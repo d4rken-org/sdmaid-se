@@ -55,11 +55,9 @@ fun Project.setupKotlinOptions() {
                     "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
                     "-opt-in=kotlinx.coroutines.FlowPreview",
                     "-opt-in=kotlin.time.ExperimentalTime",
-                    "-opt-in=kotlin.RequiresOptIn",
                     "-Xjvm-default=all",
-                    "-XXLanguage:+DataObjects",
-                    "-Xcontext-receivers",
-                    "-XXLanguage:+PropertyParamAnnotationDefaultTargetMode",
+                    "-Xcontext-parameters",
+                    "-Xannotation-default-target=param-property",
                 )
             )
         }

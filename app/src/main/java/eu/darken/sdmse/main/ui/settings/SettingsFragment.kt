@@ -70,12 +70,14 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
                     .commit()
             }
         } else {
+            @Suppress("DEPRECATION")
             savedInstanceState.getParcelableArrayList<Screen>(BKEY_SCREEN_INFOS)?.let {
                 screens.addAll(it)
             }
             screens.lastOrNull()?.let { setCurrentScreenInfo(it) }
         }
 
+        @Suppress("DEPRECATION")
         ui.toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
 
         super.onViewCreated(view, savedInstanceState)
@@ -97,6 +99,7 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
             putString(BKEY_SCREEN_TITLE, screenInfo.screenTitle)
         }
 
+        @Suppress("DEPRECATION")
         val fragment = childFragmentManager.fragmentFactory
             .instantiate(this::class.java.classLoader!!, pref.fragment!!)
             .apply {

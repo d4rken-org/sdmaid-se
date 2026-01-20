@@ -12,6 +12,7 @@ sealed class LocalPathLookupResult : Parcelable {
     data class Success(
         val lookup: LocalPathLookup
     ) : LocalPathLookupResult() {
+        @Suppress("DEPRECATION")
         constructor(parcel: Parcel) : this(
             parcel.readParcelable(LocalPathLookup::class.java.classLoader)!!
         )

@@ -30,6 +30,7 @@ class DeduplicatorDetailsFragment : Fragment3(R.layout.deduplicator_details_frag
 
         ui.toolbar.apply {
             setupWithNavController(findNavController())
+            @Suppress("DEPRECATION")
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     else -> super.onOptionsItemSelected(it)

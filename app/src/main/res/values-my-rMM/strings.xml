@@ -312,7 +312,7 @@
     <string name="analyzer_storage_content_app_media_description">ဤအက်ပ်မှ မီဒီယာ ဖိုင်များ၊ ဥပမာ - လက်ခံရရှိသော WhatsApp ဓာတ်ပုံများ။</string>
     <string name="analyzer_storage_content_app_extra_label">အပို အက်ပ် ဖိုင်များ</string>
     <string name="analyzer_storage_content_app_extra_description">ဤအက်ပ်သည် မူလ လမ်းကြောင်းများ အပြင်ဘက်တွင် ထားရှိထားသော အပို ဒေတာ၊ ဥပမာ - ဓာတ်ပုံများ သို့မဟုတ် ဒေါင်းလုဒ်များ။</string>
-    <string name="analyzer_app_details_app_occupies_x_on_y">ဤအက်ပ်သည် \"%2\" တွင် %1 ယူထားသည်။</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">ဤအက်ပ်သည် \"%2$s\" တွင် %1$s ယူထားသည်။</string>
     <string name="analyzer_app_details_app_is_archived">ဤအက်ပ်ကို မှတ်တမ်းတင်ထားသည်။</string>
     <string name="data_area_public_app_data_official_label">မူလ အများပြည်သူ အက်ပ် ဒေတာ</string>
     <string name="data_area_public_app_assets_official_label">မူလ အများပြည်သူ အက်ပ် ပစ္စည်းများ</string>

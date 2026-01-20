@@ -197,6 +197,7 @@ class TaggedInputView @JvmOverloads constructor(
 
     private fun Chip.toTag(): ChipTag = this.tag as ChipTag
 
+    @Suppress("DEPRECATION")
     private fun ChipTag.toChip(): Chip = Chip(
         context,
         null,

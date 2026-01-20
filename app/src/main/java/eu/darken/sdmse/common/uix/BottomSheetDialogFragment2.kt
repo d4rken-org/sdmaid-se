@@ -57,6 +57,7 @@ abstract class BottomSheetDialogFragment2 : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
+    @Suppress("DEPRECATION")
     @Deprecated("Deprecated in Java")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         log(tag, VERBOSE) { "onActivityCreated(savedInstanceState=$savedInstanceState)" }
@@ -88,6 +89,7 @@ abstract class BottomSheetDialogFragment2 : BottomSheetDialogFragment() {
         super.onDestroy()
     }
 
+    @Suppress("DEPRECATION")
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         log(tag, VERBOSE) { "onActivityResult(requestCode=$requestCode, resultCode=$resultCode, data=$data)" }

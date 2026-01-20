@@ -39,6 +39,7 @@ class SystemCleanerListFragment : Fragment3(R.layout.systemcleaner_list_fragment
 
         ui.toolbar.apply {
             setupWithNavController(findNavController())
+            @Suppress("DEPRECATION")
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     else -> super.onOptionsItemSelected(it)

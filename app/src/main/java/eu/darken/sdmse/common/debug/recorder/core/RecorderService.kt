@@ -98,6 +98,7 @@ class RecorderService : Service2() {
                     }
                     notificationManager.notify(NOTIFICATION_ID, builder.build())
                 } else {
+                    @Suppress("DEPRECATION")
                     stopForeground(true)
                     stopSelf()
                 }

@@ -96,6 +96,7 @@ class PreviewFragment : DialogFragment3(R.layout.preview_fragment) {
                 show(WindowInsetsCompat.Type.statusBars())
                 show(WindowInsetsCompat.Type.navigationBars())
                 // Enable immersive mode
+                @Suppress("DEPRECATION")
                 systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_BARS_BY_TOUCH
             }
         } else {

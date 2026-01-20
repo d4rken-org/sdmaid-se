@@ -15,6 +15,7 @@
 - Add trailing commas for multi-line parameter lists and collections
 - When using `if` that is not single-line, always use brackets
 - Use `FlowCombineExtensions` instead of nesting multiple combine statements
+- Place `@Suppress` annotations as close as possible to the affected code (e.g., on a constructor or function, not the entire class)
 
 ## UI Patterns
 

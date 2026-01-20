@@ -48,6 +48,7 @@ class InfoUsageVH(parent: ViewGroup) :
             } else {
                 val formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
                 val since = appInfo.usage.screenTimeSince.toSystemTimezone().format(formatter)
+                @Suppress("DEPRECATION")
                 val durationTxt = appInfo.usage.screenTime.formatDuration(abbrev = DateUtils.LENGTH_LONG)
                 getString(R.string.appcontrol_item_screentime_x_since_y_label, durationTxt, since)
             }

@@ -65,8 +65,10 @@ abstract class FragmentStatePagerAdapter4<T> @JvmOverloads constructor(
         if (currentTransaction == null) currentTransaction = fragmentManager.beginTransaction()
         val actualPosition = getItemPosition(fragment)
         if (enableSavedStates && actualPosition >= 0) {
+            @Suppress("DEPRECATION")
             savedStateArray.put(actualPosition, fragmentManager.saveFragmentInstanceState(fragment))
         }
+        @Suppress("DEPRECATION")
         fragmentArray.delete(position)
         currentTransaction!!.remove(fragment)
     }
@@ -134,12 +136,14 @@ abstract class FragmentStatePagerAdapter4<T> @JvmOverloads constructor(
                 }
             } else if (enableSavedStates && key.startsWith("s")) {
                 val index = key.substring(1).toInt()
+                @Suppress("DEPRECATION")
                 val savedState = bundle.getParcelable<Fragment.SavedState>(key)
                 if (savedState != null) savedStateArray.put(index, savedState)
             }
         }
     }
 
+    @Suppress("DEPRECATION")
     fun setItemVisible(item: Fragment, visible: Boolean) {
         item.setHasOptionsMenu(visible)
         item.setMenuVisibility(visible)
