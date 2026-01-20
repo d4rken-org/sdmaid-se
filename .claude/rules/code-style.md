@@ -12,7 +12,7 @@
 
 ## Kotlin Conventions
 
-- Always add trailing commas
+- Add trailing commas for multi-line parameter lists and collections
 - When using `if` that is not single-line, always use brackets
 - Use `FlowCombineExtensions` instead of nesting multiple combine statements
 

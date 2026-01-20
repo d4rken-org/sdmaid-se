@@ -8,9 +8,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.coil.loadFilePreview
+import eu.darken.sdmse.common.picker.PickerResult
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.ExclusionEditorPathFragmentBinding
@@ -60,6 +62,8 @@ class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment)
                 }
             }
         }
+
+        ui.targetCard.setOnClickListener { vm.editPath() }
 
         vm.state.observe2(ui) { state ->
             val exclusion = state.current
@@ -113,6 +117,20 @@ class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment)
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ ->
                     }
                 }.show()
+
+                is PathEditorEvents.LaunchPicker -> {
+                    MainDirections.goToPicker(it.request).navigate()
+                }
+            }
+        }
+
+        parentFragmentManager.setFragmentResultListener(
+            PathExclusionViewModel.PICKER_REQUEST_KEY,
+            viewLifecycleOwner
+        ) { _, result ->
+            val pickerResult = PickerResult.fromBundle(result)
+            pickerResult.selectedPaths.firstOrNull()?.let { newPath ->
+                vm.updatePath(newPath)
             }
         }
 
