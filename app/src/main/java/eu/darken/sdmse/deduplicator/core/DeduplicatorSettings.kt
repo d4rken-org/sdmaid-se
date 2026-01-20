@@ -41,6 +41,13 @@ class DeduplicatorSettings @Inject constructor(
         @Json(name = "paths") val paths: Set<APath> = emptySet(),
     )
 
+    val keepPreferPaths = dataStore.createValue("arbiter.keep.prefer.paths", KeepPreferPaths(), moshi)
+
+    @JsonClass(generateAdapter = true)
+    data class KeepPreferPaths(
+        @Json(name = "paths") val paths: Set<APath> = emptySet(),
+    )
+
     val layoutMode = dataStore.createValue("ui.list.layoutmode", LayoutMode.GRID, moshi)
 
     override val mapper = PreferenceStoreMapper(
@@ -50,6 +57,7 @@ class DeduplicatorSettings @Inject constructor(
         isSleuthChecksumEnabled,
         isSleuthPHashEnabled,
         scanPaths,
+        keepPreferPaths,
     )
 
     companion object {

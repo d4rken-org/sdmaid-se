@@ -9,6 +9,13 @@
         app:singleLineTitle="false"
         app:title="@string/deduplicator_search_locations_title" />
 
+    <eu.darken.sdmse.common.preferences.Preference2
+        app:icon="@drawable/ic_folder_home_24"
+        app:key="arbiter.keep.prefer.paths"
+        app:persistent="false"
+        app:singleLineTitle="false"
+        app:title="@string/deduplicator_keep_prefer_paths_title" />
+
     <CheckBoxPreference
         app:icon="@drawable/ic_numeric_0_box_24"
         app:key="protection.deleteall.allowed"
