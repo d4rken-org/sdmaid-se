@@ -1,10 +1,10 @@
 package eu.darken.sdmse.deduplicator.core.checks
 
+import eu.darken.sdmse.common.files.MediaStoreTool
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterCriterium
 import eu.darken.sdmse.deduplicator.core.arbiter.checks.MediaProviderCheck
-import eu.darken.sdmse.deduplicator.core.arbiter.checks.MediaStoreTool
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every

@@ -4,7 +4,9 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.MediaStoreTool
 import eu.darken.sdmse.common.files.delete
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressPrimary
@@ -21,6 +23,7 @@ import javax.inject.Inject
 class DuplicatesDeleter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val arbiter: DuplicatesArbiter,
+    private val mediaStoreTool: MediaStoreTool,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
@@ -61,6 +64,8 @@ class DuplicatesDeleter @Inject constructor(
         }
 
         log(TAG) { "Deletion finished, deleted ${deletedDupes.size} duplicates" }
+
+        mediaStoreTool.flush()
 
         return Deleted(success = deletedDupes.toSet())
     }
@@ -145,6 +150,7 @@ class DuplicatesDeleter @Inject constructor(
                 log(TAG, VERBOSE) { "___targetDuplicates(): Deleting ${dupe.identifier}" }
                 updateProgressSecondary(dupe.lookup.userReadablePath)
                 dupe.path.delete(gatewaySwitch)
+                (dupe.path as? LocalPath)?.let { mediaStoreTool.notifyDeleted(it) }
             }
     }
 

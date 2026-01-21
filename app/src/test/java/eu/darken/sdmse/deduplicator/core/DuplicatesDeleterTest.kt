@@ -3,6 +3,7 @@ package eu.darken.sdmse.deduplicator.core
 import eu.darken.sdmse.common.collections.toByteString
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.MediaStoreTool
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.hashing.Hasher
 import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterStrategy
@@ -34,10 +35,15 @@ class DuplicatesDeleterTest : BaseTest() {
             dupes.first() to dupes.drop(1).toSet()
         }
     }
+    private val mediaStoreTool: MediaStoreTool = mockk<MediaStoreTool>().apply {
+        coEvery { notifyDeleted(any()) } returns Unit
+        coEvery { flush() } returns Unit
+    }
 
     fun create() = DuplicatesDeleter(
         gatewaySwitch = gatewaySwitch,
-        arbiter = arbiter
+        arbiter = arbiter,
+        mediaStoreTool = mediaStoreTool,
     )
 
     @Test
