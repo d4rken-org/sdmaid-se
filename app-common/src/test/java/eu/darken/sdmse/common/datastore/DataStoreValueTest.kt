@@ -8,29 +8,20 @@ import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.io.TempDir
 import testhelpers.BaseTest
-import java.io.File
+import java.nio.file.Path
 
 class DataStoreValueTest : BaseTest() {
 
-    private val testFile = File(IO_TEST_BASEDIR, DataStoreValueTest::class.java.simpleName + ".preferences_pb")
-    private fun createDataStore(scope: TestScope) = PreferenceDataStoreFactory.create(
-        scope = scope,
-        produceFile = { testFile },
-    )
-
-    @AfterEach
-    fun tearDown() {
-        testFile.delete()
-    }
-
     @Test
-    fun `reading and writing strings`() = runTest {
-        val testStore = createDataStore(this)
+    fun `reading and writing strings`(@TempDir tempDir: Path) = runTest {
+        val testStore = PreferenceDataStoreFactory.create(
+            scope = this,
+            produceFile = { tempDir.resolve("test.preferences_pb").toFile() },
+        )
 
         testStore.createValue<String?>(
             key = "testKey",
@@ -67,8 +58,11 @@ class DataStoreValueTest : BaseTest() {
     }
 
     @Test
-    fun `reading and writing boolean`() = runTest {
-        val testStore = createDataStore(this)
+    fun `reading and writing boolean`(@TempDir tempDir: Path) = runTest {
+        val testStore = PreferenceDataStoreFactory.create(
+            scope = this,
+            produceFile = { tempDir.resolve("test.preferences_pb").toFile() },
+        )
 
         testStore.createValue<Boolean>(
             key = "testKey",
@@ -124,8 +118,11 @@ class DataStoreValueTest : BaseTest() {
     }
 
     @Test
-    fun `reading and writing long`() = runTest {
-        val testStore = createDataStore(this)
+    fun `reading and writing long`(@TempDir tempDir: Path) = runTest {
+        val testStore = PreferenceDataStoreFactory.create(
+            scope = this,
+            produceFile = { tempDir.resolve("test.preferences_pb").toFile() },
+        )
 
         testStore.createValue<Long?>(
             key = "testKey",
@@ -153,8 +150,11 @@ class DataStoreValueTest : BaseTest() {
     }
 
     @Test
-    fun `reading and writing integer`() = runTest {
-        val testStore = createDataStore(this)
+    fun `reading and writing integer`(@TempDir tempDir: Path) = runTest {
+        val testStore = PreferenceDataStoreFactory.create(
+            scope = this,
+            produceFile = { tempDir.resolve("test.preferences_pb").toFile() },
+        )
 
         testStore.createValue<Long?>(
             key = "testKey",
@@ -183,8 +183,11 @@ class DataStoreValueTest : BaseTest() {
     }
 
     @Test
-    fun `reading and writing float`() = runTest {
-        val testStore = createDataStore(this)
+    fun `reading and writing float`(@TempDir tempDir: Path) = runTest {
+        val testStore = PreferenceDataStoreFactory.create(
+            scope = this,
+            produceFile = { tempDir.resolve("test.preferences_pb").toFile() },
+        )
 
         testStore.createValue<Float?>(
             key = "testKey",
