@@ -139,18 +139,40 @@ android {
         }
     }
 
-    applicationVariants.all {
-        val variantName = name
+}
+
+androidComponents {
+    onVariants { variant ->
+        val buildType = variant.buildType ?: return@onVariants
+        if (buildType != "release" && buildType != "beta") return@onVariants
+
+        val formattedVariantName = variant.name
             .replace(Regex("([a-z])([A-Z])"), "$1-$2")
             .uppercase()
-        if (listOf("release", "beta").any { variantName.lowercase().contains(it) }) {
-            outputs.all {
-                val output = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
-                val outputFileName = projectConfig.packageName +
-                        "-v${defaultConfig.versionName}-${defaultConfig.versionCode}" +
-                        "-${variantName}.apk"
-                output.outputFileName = outputFileName
+
+        val apkFolder = variant.artifacts.get(com.android.build.api.artifact.SingleArtifact.APK)
+        val loader = variant.artifacts.getBuiltArtifactsLoader()
+        val packageName = projectConfig.packageName
+
+        val renameTask = tasks.register("rename${variant.name.replaceFirstChar { it.uppercase() }}Apk") {
+            inputs.files(apkFolder)
+            outputs.upToDateWhen { false }
+
+            doLast {
+                val builtArtifacts = loader.load(apkFolder.get()) ?: return@doLast
+
+                builtArtifacts.elements.forEach { element ->
+                    val apkFile = File(element.outputFile)
+                    val outputFileName = "$packageName-v${element.versionName}-${element.versionCode}-$formattedVariantName.apk"
+                    if (apkFile.exists() && apkFile.name != outputFileName) {
+                        apkFile.renameTo(File(apkFile.parentFile, outputFileName))
+                    }
+                }
             }
+        }
+
+        tasks.matching { it.name == "assemble${variant.name.replaceFirstChar { it.uppercase() }}" }.configureEach {
+            finalizedBy(renameTask)
         }
     }
 }
@@ -162,13 +184,11 @@ ksp {
 setupKotlinOptions()
 
 afterEvaluate {
-    tasks {
-        named("bundleGplayBeta") {
-            dependsOn("lintVitalGplayBeta")
-        }
-        named("bundleGplayRelease") {
-            dependsOn("lintVitalGplayRelease")
-        }
+    tasks.matching { it.name == "bundleGplayBeta" }.configureEach {
+        dependsOn("lintVitalGplayBeta")
+    }
+    tasks.matching { it.name == "bundleGplayRelease" }.configureEach {
+        dependsOn("lintVitalGplayRelease")
     }
 }
 
