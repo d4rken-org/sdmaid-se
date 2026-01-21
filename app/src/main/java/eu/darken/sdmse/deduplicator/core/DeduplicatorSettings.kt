@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.ui.LayoutMode
+import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterCriterium
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -41,11 +42,24 @@ class DeduplicatorSettings @Inject constructor(
         @Json(name = "paths") val paths: Set<APath> = emptySet(),
     )
 
-    val keepPreferPaths = dataStore.createValue("arbiter.keep.prefer.paths", KeepPreferPaths(), moshi)
+    val arbiterConfig = dataStore.createValue(
+        key = "arbiter.config",
+        defaultValue = ArbiterConfig(),
+        moshi = moshi,
+        fallbackToDefault = true,
+    )
 
     @JsonClass(generateAdapter = true)
-    data class KeepPreferPaths(
-        @Json(name = "paths") val paths: Set<APath> = emptySet(),
+    data class ArbiterConfig(
+        @Json(name = "criteria") val criteria: List<ArbiterCriterium> = listOf(
+            ArbiterCriterium.DuplicateType(),
+            ArbiterCriterium.PreferredPath(),
+            ArbiterCriterium.MediaProvider(),
+            ArbiterCriterium.Location(),
+            ArbiterCriterium.Nesting(),
+            ArbiterCriterium.Modified(),
+            ArbiterCriterium.Size(),
+        ),
     )
 
     val layoutMode = dataStore.createValue("ui.list.layoutmode", LayoutMode.GRID, moshi)
@@ -57,7 +71,7 @@ class DeduplicatorSettings @Inject constructor(
         isSleuthChecksumEnabled,
         isSleuthPHashEnabled,
         scanPaths,
-        keepPreferPaths,
+        arbiterConfig,
     )
 
     companion object {

@@ -36,8 +36,8 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
     private val searchLocationsPref: Preference2
         get() = findPreference("scan.location.paths")!!
 
-    private val keepPreferPathsPref: Preference2
-        get() = findPreference("arbiter.keep.prefer.paths")!!
+    private val arbiterConfigPref: Preference2
+        get() = findPreference("arbiter.config")!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.state.observe2(this) { state ->
@@ -67,31 +67,6 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
                     true
                 }
             }
-            keepPreferPathsPref.apply {
-                summary = if (state.keepPreferPaths.isEmpty()) {
-                    getString(R.string.deduplicator_keep_prefer_paths_none_summary)
-                } else {
-                    state.keepPreferPaths.joinToString("\n") {
-                        it.userReadablePath.get(requireContext())
-                    }
-                }
-                setOnPreferenceClickListener {
-                    MainDirections.goToPicker(
-                        PickerRequest(
-                            requestKey = keepPreferPathsPref.key,
-                            mode = PickerRequest.PickMode.DIRS,
-                            allowedAreas = setOf(
-                                DataArea.Type.PORTABLE,
-                                DataArea.Type.SDCARD,
-                                DataArea.Type.PUBLIC_DATA,
-                                DataArea.Type.PUBLIC_MEDIA
-                            ),
-                            selectedPaths = state.keepPreferPaths
-                        )
-                    ).navigate()
-                    true
-                }
-            }
         }
         super.onViewCreated(view, savedInstanceState)
 
@@ -106,18 +81,6 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
                 paths = pickerResult.selectedPaths,
             )
         }
-
-        requireParentFragment().parentFragmentManager.setFragmentResultListener(
-            keepPreferPathsPref.key,
-            viewLifecycleOwner
-        ) { requestKey, result ->
-            log(TAG) { "Fragment result $requestKey=$result" }
-            val pickerResult = PickerResult.fromBundle(result)
-            log(TAG, INFO) { "Picker result: $pickerResult" }
-            settings.keepPreferPaths.valueBlocking = DeduplicatorSettings.KeepPreferPaths(
-                paths = pickerResult.selectedPaths,
-            )
-        }
     }
 
     override fun onPreferencesCreated() {
@@ -128,8 +91,8 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
             true
         }
 
-        keepPreferPathsPref.setOnLongClickListener {
-            vm.resetKeepPreferPaths()
+        arbiterConfigPref.setOnPreferenceClickListener {
+            MainDirections.goToArbiterConfig().navigate()
             true
         }
 

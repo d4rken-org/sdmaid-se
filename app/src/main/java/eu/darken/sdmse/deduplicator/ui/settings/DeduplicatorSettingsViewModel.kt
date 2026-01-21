@@ -27,13 +27,11 @@ class DeduplicatorSettingsViewModel @Inject constructor(
         deduplicator.state,
         upgradeRepo.upgradeInfo.map { it.isPro },
         settings.scanPaths.flow,
-        settings.keepPreferPaths.flow,
-    ) { state, isPro, scanPaths, keepPreferPaths ->
+    ) { state, isPro, scanPaths ->
         State(
             isPro = isPro,
             state = state,
             scanPaths = scanPaths.paths.sortedBy { it.path },
-            keepPreferPaths = keepPreferPaths.paths.sortedBy { it.path },
         )
     }.asLiveData2()
 
@@ -41,17 +39,11 @@ class DeduplicatorSettingsViewModel @Inject constructor(
         val state: Deduplicator.State,
         val isPro: Boolean,
         val scanPaths: List<APath>,
-        val keepPreferPaths: List<APath>,
     )
 
     fun resetScanPaths() = launch {
         log(TAG) { "resetScanPaths()" }
         settings.scanPaths.value(DeduplicatorSettings.ScanPaths())
-    }
-
-    fun resetKeepPreferPaths() = launch {
-        log(TAG) { "resetKeepPreferPaths()" }
-        settings.keepPreferPaths.value(DeduplicatorSettings.KeepPreferPaths())
     }
 
     companion object {

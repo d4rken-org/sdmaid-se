@@ -1,5 +1,6 @@
 package eu.darken.sdmse.deduplicator.core
 
+import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterCriterium
 import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterStrategy
 import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
 import eu.darken.sdmse.deduplicator.core.arbiter.checks.DuplicateTypeCheck
@@ -14,6 +15,7 @@ import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
+import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf
@@ -23,8 +25,8 @@ import testhelpers.BaseTest
 
 class DuplicatesArbiterTest : BaseTest() {
     private val settings: DeduplicatorSettings = mockk<DeduplicatorSettings>().apply {
-        every { keepPreferPaths } returns mockk {
-            every { flow } returns flowOf(DeduplicatorSettings.KeepPreferPaths())
+        every { arbiterConfig } returns mockk {
+            every { flow } returns flowOf(DeduplicatorSettings.ArbiterConfig())
         }
     }
     private val duplicateTypeCheck = DuplicateTypeCheck()
@@ -96,5 +98,50 @@ class DuplicatesArbiterTest : BaseTest() {
         shouldThrow<IllegalArgumentException> {
             arbiter.decideDuplicates(setOf(), strategy)
         }.message shouldContain "Must pass at least 1 duplicate!"
+    }
+
+    @Test
+    fun `criteria at top of list have highest priority`() = runTest {
+        // Create two mock duplicates - one for "first" and one for "second" outcomes
+        val dupe1 = mockk<Duplicate>()
+        val dupe2 = mockk<Duplicate>()
+
+        // Mock locationCheck to prefer dupe1 (sorts it first)
+        coEvery { locationCheck.favorite(any(), any()) } answers {
+            val dupes = firstArg<List<Duplicate>>()
+            dupes.sortedBy { if (it == dupe1) 0 else 1 }
+        }
+
+        // Mock nestingCheck to prefer dupe2 (sorts it first)
+        coEvery { nestingCheck.favorite(any(), any()) } answers {
+            val dupes = firstArg<List<Duplicate>>()
+            dupes.sortedBy { if (it == dupe2) 0 else 1 }
+        }
+
+        val arbiter = create()
+
+        // Strategy with Location at TOP (should have highest priority)
+        val strategyLocationFirst = ArbiterStrategy(
+            criteria = listOf(
+                ArbiterCriterium.Location(), // TOP = highest priority
+                ArbiterCriterium.Nesting(),  // BOTTOM = lower priority
+            ),
+        )
+
+        // Location is at TOP, should have highest priority, so dupe1 is kept
+        val (keeper1, _) = arbiter.decideDuplicates(listOf(dupe1, dupe2), strategyLocationFirst)
+        keeper1 shouldBe dupe1
+
+        // Strategy with Nesting at TOP (should have highest priority)
+        val strategyNestingFirst = ArbiterStrategy(
+            criteria = listOf(
+                ArbiterCriterium.Nesting(),  // TOP = highest priority
+                ArbiterCriterium.Location(), // BOTTOM = lower priority
+            ),
+        )
+
+        // Nesting is at TOP, should have highest priority, so dupe2 is kept
+        val (keeper2, _) = arbiter.decideDuplicates(listOf(dupe1, dupe2), strategyNestingFirst)
+        keeper2 shouldBe dupe2
     }
 }

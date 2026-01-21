@@ -5,6 +5,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import com.squareup.moshi.Moshi
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.TestScope
@@ -151,5 +152,38 @@ class DataStoreValueMoshiTest : BaseTest() {
         monitorMode.flow.first() shouldBe Anum.A
         monitorMode.update { Anum.B }
         monitorMode.flow.first() shouldBe Anum.B
+    }
+
+    @Test
+    fun `fallbackToDefault false throws on invalid JSON`() {
+        val moshi = Moshi.Builder().build()
+        val defaultValue = TestGson(string = "default")
+        val reader = moshiReader(moshi, defaultValue, fallbackToDefault = false)
+
+        val invalidJson = """{"invalid": json}"""
+        shouldThrow<Exception> {
+            reader(invalidJson)
+        }
+    }
+
+    @Test
+    fun `fallbackToDefault true returns default on invalid JSON`() {
+        val moshi = Moshi.Builder().build()
+        val defaultValue = TestGson(string = "default")
+        val reader = moshiReader(moshi, defaultValue, fallbackToDefault = true)
+
+        val invalidJson = """{"invalid": json}"""
+        reader(invalidJson) shouldBe defaultValue
+    }
+
+    @Test
+    fun `fallbackToDefault true returns default on type mismatch`() {
+        val moshi = Moshi.Builder().build()
+        val defaultValue = TestGson(string = "default")
+        val reader = moshiReader(moshi, defaultValue, fallbackToDefault = true)
+
+        // Valid JSON but wrong type (string where int is expected causes an exception)
+        val typeErrorJson = """{"int": "not_an_int"}"""
+        reader(typeErrorJson) shouldBe defaultValue
     }
 }
