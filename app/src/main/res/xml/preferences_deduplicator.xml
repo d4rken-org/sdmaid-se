@@ -10,11 +10,12 @@
         app:title="@string/deduplicator_search_locations_title" />
 
     <eu.darken.sdmse.common.preferences.Preference2
-        app:icon="@drawable/ic_folder_home_24"
-        app:key="arbiter.keep.prefer.paths"
+        app:icon="@drawable/ic_strategy_24"
+        app:key="arbiter.config"
         app:persistent="false"
         app:singleLineTitle="false"
-        app:title="@string/deduplicator_keep_prefer_paths_title" />
+        app:summary="@string/deduplicator_arbiter_summary"
+        app:title="@string/deduplicator_arbiter_title" />
 
     <CheckBoxPreference
         app:icon="@drawable/ic_numeric_0_box_24"

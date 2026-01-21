@@ -521,6 +521,37 @@
     <string name="deduplicator_details_cluster_title">Set of duplicates</string>
     <string name="deduplicator_matches_exact_label">Exact copies</string>
     <string name="deduplicator_matches_similar_label">Similar files</string>
+    <string name="deduplicator_arbiter_title">Deletion strategy</string>
+    <string name="deduplicator_arbiter_summary">Configure which files are kept and which are deleted.</string>
+    <string name="deduplicator_arbiter_explanation">When deleting duplicates, SD Maid decides which file to keep by checking each criterion in order. The first criterion that produces a clear winner determines the result. Drag to reorder, tap to change mode.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Select mode</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Configure paths…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Duplicate type</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Prefer exact matches over similar files.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Media indexing</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Consider whether files are indexed by the media provider.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Storage location</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Prefer files on internal or external storage.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Folder depth</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Prefer files in shallower or deeper folder structures.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Modification date</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Prefer older or newer files based on modification time.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">File size</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Prefer larger or smaller files when sizes differ.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Preferred locations</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Keep files in your configured preferred locations.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Prefer exact matches</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Prefer similar files</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Prefer indexed files</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Prefer non-indexed files</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Prefer internal storage</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Prefer external storage</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Prefer shallow folders</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Prefer deeper folders</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Prefer older files</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Prefer newer files</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Prefer larger files</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Prefer smaller files</string>
 
 
     <string name="appcontrol_tool_name">AppControl</string>

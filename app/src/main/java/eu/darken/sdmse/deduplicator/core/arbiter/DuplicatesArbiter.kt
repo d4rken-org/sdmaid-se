@@ -28,17 +28,8 @@ class DuplicatesArbiter @Inject constructor(
 ) {
 
     suspend fun getStrategy(): ArbiterStrategy {
-        val keepPreferPaths = settings.keepPreferPaths.flow.first().paths
-        return ArbiterStrategy(
-            criteria = listOf(
-                ArbiterCriterium.DuplicateType(),
-                ArbiterCriterium.MediaProvider(),
-                ArbiterCriterium.Location(),
-                ArbiterCriterium.Nesting(),
-                ArbiterCriterium.Modified(),
-                ArbiterCriterium.PreferredPath(keepPreferPaths),
-            )
-        )
+        val arbiterConfig = settings.arbiterConfig.flow.first()
+        return ArbiterStrategy(criteria = arbiterConfig.criteria)
     }
 
     suspend fun decideGroups(
@@ -52,7 +43,9 @@ class DuplicatesArbiter @Inject constructor(
 
         var workList = litigants.toList()
 
-        strategy.criteria.forEach { crit ->
+        // Process in reverse order so that criteria at the TOP of the list have HIGHEST priority
+        // (they are processed LAST and thus have the final say in the sort order)
+        strategy.criteria.reversed().forEach { crit ->
             val favoritisedWorkList = when (crit) {
                 is ArbiterCriterium.DuplicateType -> duplicateTypeCheck.favoriteGroups(workList, crit)
                 is ArbiterCriterium.PreferredPath -> null
@@ -77,7 +70,9 @@ class DuplicatesArbiter @Inject constructor(
 
         var workList = litigants.toList()
 
-        strategy.criteria.forEach { crit ->
+        // Process in reverse order so that criteria at the TOP of the list have HIGHEST priority
+        // (they are processed LAST and thus have the final say in the sort order)
+        strategy.criteria.reversed().forEach { crit ->
             val favoritisedWorkList = when (crit) {
                 is ArbiterCriterium.DuplicateType -> duplicateTypeCheck.favorite(workList, crit)
                 is ArbiterCriterium.PreferredPath -> preferredPathCheck.favorite(workList, crit)

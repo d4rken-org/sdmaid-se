@@ -453,6 +453,10 @@
             app:destination="@id/deduplicatorDetailsFragment" />
     </fragment>
     <fragment
+        android:id="@+id/arbiterConfigFragment"
+        android:name="eu.darken.sdmse.deduplicator.ui.settings.arbiter.ArbiterConfigFragment"
+        tools:layout="@layout/deduplicator_arbiter_config_fragment" />
+    <fragment
         android:id="@+id/deduplicatorDetailsFragment"
         android:name="eu.darken.sdmse.deduplicator.ui.details.DeduplicatorDetailsFragment"
         tools:layout="@layout/deduplicator_details_fragment">
@@ -521,6 +525,9 @@
     <action
         android:id="@+id/goToPicker"
         app:destination="@id/pickerFragment" />
+    <action
+        android:id="@+id/goToArbiterConfig"
+        app:destination="@id/arbiterConfigFragment" />
     <fragment
         android:id="@+id/pickerFragment"
         android:name="eu.darken.sdmse.common.picker.PickerFragment"

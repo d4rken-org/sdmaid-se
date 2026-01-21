@@ -102,7 +102,7 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
 
         vm.state.observe2(ui) { state ->
             log(TAG) { "updating with new state: $state" }
-            if (state.progress != null) toolbar.subtitle = state.current?.lookup?.path ?: ""
+            toolbar.subtitle = state.current?.lookup?.path ?: ""
             toolbar.menu.iterator().forEach { it.isVisible = state.progress == null }
 
             toolbar.setNavigationIcon(

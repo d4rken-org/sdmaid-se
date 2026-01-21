@@ -26,6 +26,7 @@
     <string name="general_cancel_action">Cancel</string>
     <string name="general_discard_action">Discard</string>
     <string name="general_reset_action">Reset</string>
+    <string name="general_drag_handle_description">Drag to reorder</string>
     <string name="general_save_action">Save</string>
     <string name="general_thanks_action">Thanks</string>
     <string name="general_gotit_action">Got it</string>

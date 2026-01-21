@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import eu.darken.sdmse.common.serialization.*
+import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterCriterium
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import javax.inject.Singleton
 
@@ -19,5 +19,6 @@ class SerializationAppModule {
         @SerializationIO moshiIO: Moshi = SerializationIOModule().moshi()
     ): Moshi = moshiIO.newBuilder().apply {
         add(Exclusion.MOSHI_FACTORY)
+        add(ArbiterCriterium.MOSHI_FACTORY)
     }.build()
 }
