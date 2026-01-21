@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.isFile
 import eu.darken.sdmse.common.files.walk
@@ -26,8 +27,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.buffer
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapMerge
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.flowOn
 import java.time.Instant
 import java.util.UUID
@@ -70,12 +73,18 @@ class SwiperScanner @Inject constructor(
                 val filter: suspend (APathLookup<*>) -> Boolean = filter@{ toCheck: APathLookup<*> ->
                     exclusions.none { it.match(toCheck) }
                 }
-                path.walk(
-                    gatewaySwitch,
-                    options = APathGateway.WalkOptions(
-                        onFilter = filter,
-                    ),
-                )
+
+                val lookup = gatewaySwitch.lookup(path)
+                if (lookup.fileType == FileType.FILE) {
+                    if (filter(lookup)) flowOf(lookup) else emptyFlow()
+                } else {
+                    path.walk(
+                        gatewaySwitch,
+                        options = APathGateway.WalkOptions(
+                            onFilter = filter,
+                        ),
+                    )
+                }
             }
             .flowOn(dispatcherProvider.IO)
             .buffer(1024)
