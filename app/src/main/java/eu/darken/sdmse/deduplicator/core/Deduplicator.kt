@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.flow.replayingShare
+import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.sharedresource.SharedResource
@@ -44,6 +45,7 @@ import javax.inject.Singleton
 class Deduplicator @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val gatewaySwitch: GatewaySwitch,
+    private val fileForensics: FileForensics,
     private val exclusionManager: ExclusionManager,
     private val scanner: Provider<DuplicatesScanner>,
     private val deleter: Provider<DuplicatesDeleter>,
@@ -82,7 +84,7 @@ class Deduplicator @Inject constructor(
         updateProgress { Progress.Data() }
 
         try {
-            val result = keepResourceHoldersAlive(gatewaySwitch) {
+            val result = keepResourceHoldersAlive(gatewaySwitch, fileForensics) {
                 when (task) {
                     is DeduplicatorScanTask -> performScan(task)
                     is DeduplicatorDeleteTask -> performDelete(task)
