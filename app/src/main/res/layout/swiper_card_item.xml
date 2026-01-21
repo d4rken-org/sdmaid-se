@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- Back card (next item preview) -->
+    <FrameLayout
+        android:id="@+id/back_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerLow"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/back_preview_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    tools:src="@tools:sample/backgrounds/scenic" />
+
+                <LinearLayout
+                    android:id="@+id/back_no_preview_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/back_file_type_icon"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_file"
+                        app:tint="?attr/colorOnSurfaceVariant" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/back_file_type_label"
+                        style="@style/TextAppearance.Material3.BodyMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/swiper_no_preview_available" />
+
+                </LinearLayout>
+
+                <!-- Bottom-right notch: Queue position badge -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/back_queue_position"
+                    style="@style/TextAppearance.Material3.LabelSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/bg_notch_bottom_end"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:text="#2" />
+
+            </FrameLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </FrameLayout>
+
+    <!-- Front card (current item, swipeable) - wrapped in MaterialCardView -->
+    <FrameLayout
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerLow"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/preview_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    tools:src="@tools:sample/backgrounds/scenic" />
+
+                <LinearLayout
+                    android:id="@+id/no_preview_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/file_type_icon"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_file"
+                        app:tint="?attr/colorOnSurfaceVariant" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/file_type_label"
+                        style="@style/TextAppearance.Material3.BodyMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/swiper_no_preview_available" />
+
+                </LinearLayout>
+
+                <!-- Keep stamp: top-left (visible when swiping right, left side stays visible) -->
+                <LinearLayout
+                    android:id="@+id/stamp_keep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:alpha="0"
+                    android:background="@drawable/bg_stamp_border_primary"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:rotation="-15"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    tools:alpha="1">
+
+                    <ImageView
+                        android:id="@+id/stamp_keep_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_heart"
+                        app:tint="?attr/colorPrimary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/stamp_keep_text"
+                        style="@style/TextAppearance.Material3.HeadlineMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:textColor="?attr/colorPrimary"
+                        android:textStyle="bold"
+                        tools:text="KEEP!" />
+
+                </LinearLayout>
+
+                <!-- Delete stamp: top-right (visible when swiping left, right side stays visible) -->
+                <LinearLayout
+                    android:id="@+id/stamp_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="24dp"
+                    android:alpha="0"
+                    android:background="@drawable/bg_stamp_border_error"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:rotation="15"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    tools:alpha="1">
+
+                    <ImageView
+                        android:id="@+id/stamp_delete_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_delete"
+                        app:tint="?attr/colorError" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/stamp_delete_text"
+                        style="@style/TextAppearance.Material3.HeadlineMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:textColor="?attr/colorError"
+                        android:textStyle="bold"
+                        tools:text="NOPE!" />
+
+                </LinearLayout>
+
+                <!-- Skip stamp: center-top (visible when swiping up) -->
+                <LinearLayout
+                    android:id="@+id/stamp_skip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center_horizontal"
+                    android:layout_marginTop="32dp"
+                    android:alpha="0"
+                    android:background="@drawable/bg_stamp_border_tertiary"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    tools:alpha="1">
+
+                    <ImageView
+                        android:id="@+id/stamp_skip_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_baseline_skip_next_24"
+                        app:tint="?attr/colorTertiary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/stamp_skip_text"
+                        style="@style/TextAppearance.Material3.HeadlineMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:textColor="?attr/colorTertiary"
+                        android:textStyle="bold"
+                        tools:text="SKIP!" />
+
+                </LinearLayout>
+
+                <!-- File info overlay at bottom -->
+                <LinearLayout
+                    android:id="@+id/file_info_overlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/bg_overlay_gradient_bottom"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/file_name"
+                            style="@style/TextAppearance.Material3.TitleMedium"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="middle"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white"
+                            tools:text="IMG_20231225_123456.jpg" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/file_position"
+                            style="@style/TextAppearance.Material3.LabelMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="#B3FFFFFF"
+                            tools:text="#15 of 47" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/file_path"
+                        style="@style/TextAppearance.Material3.BodyMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:ellipsize="start"
+                        android:maxLines="1"
+                        android:textColor="#B3FFFFFF"
+                        tools:text="/storage/emulated/0/DCIM/Camera/" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/file_meta"
+                        style="@style/TextAppearance.Material3.BodyMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#B3FFFFFF"
+                        tools:text="2.4 MB, Dec 25, 2023" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </FrameLayout>
+
+</FrameLayout>
