@@ -123,17 +123,18 @@ class NotInstalledPkgsSource @Inject constructor(
         val installerData = pkgOps.getInstallerData(this)
         val converted = mapNotNull { pkgInfo ->
             when {
-                // Order matters
-                pkgInfo.isUninstalled() -> UninstalledPkg(
-                    packageInfo = pkgInfo,
-                    userHandle = handle
-                ).also { log(TAG, VERBOSE) { "UninstalledPkg: $it" } }
-
+                // Order matters: Check archived FIRST to distinguish from uninstall -k apps
+                // Both have null sourceDir, but only archived apps have ArchivedPackageInfo
                 pkgInfo.isArchived() -> ArchivedPkg(
                     packageInfo = pkgInfo,
                     userHandle = handle,
-                    installerInfo = installerData[pkgInfo] ?: InstallerInfo()
+                    installerInfo = installerData[pkgInfo] ?: InstallerInfo(),
                 ).also { log(TAG, VERBOSE) { "ArchivedPkg: $it" } }
+
+                pkgInfo.isUninstalled() -> UninstalledPkg(
+                    packageInfo = pkgInfo,
+                    userHandle = handle,
+                ).also { log(TAG, VERBOSE) { "UninstalledPkg: $it" } }
 
                 pkgInfo.isHidden(handle) -> HiddenPkg(
                     packageInfo = pkgInfo,
@@ -161,7 +162,20 @@ class NotInstalledPkgsSource @Inject constructor(
             }
         }
 
-    private suspend fun PackageInfo.isArchived(): Boolean = hasApiLevel(35) && applicationInfo?.sourceDir == null
+    @SuppressLint("NewApi")
+    private suspend fun PackageInfo.isArchived(): Boolean {
+        if (!hasApiLevel(35)) return false
+
+        // Use getArchivedPackage API to distinguish truly archived apps from uninstall -k apps
+        // Both have null sourceDir, but only archived apps return ArchivedPackageInfo
+        return try {
+            context.packageManager.getArchivedPackage(packageName) != null
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to check archived status for $packageName: ${e.asLog()}" }
+            // Fallback: old behavior (may incorrectly classify uninstall -k apps as archived)
+            applicationInfo?.sourceDir == null
+        }
+    }
 
     private suspend fun PackageInfo.isUninstalled(): Boolean = when {
         !hasApiLevel(29) -> {
@@ -173,7 +187,9 @@ class NotInstalledPkgsSource @Inject constructor(
                 false
             }
         }
-
+        // On API 35+, isArchived() is checked first, so null sourceDir means uninstalled -k
+        hasApiLevel(35) -> applicationInfo?.sourceDir == null
+        // API 29-34: fall back to flag check (no archived apps exist pre-API 35)
         else -> (privateFlags and PRIVATE_FLAG_HAS_FRAGILE_USER_DATA) != 0
     }
 
@@ -186,7 +202,7 @@ class NotInstalledPkgsSource @Inject constructor(
     }
 
     companion object {
-        // TODO Update when using API35: MATCH_ARCHIVED_PACKAGES
+        // Using constant value to support API < 35, matches PackageManager.MATCH_ARCHIVED_PACKAGES
         private const val MATCH_ARCHIVED_PACKAGES = 0x100000000L // 4294967296L
         private const val PRIVATE_FLAG_HAS_FRAGILE_USER_DATA = 1 shl 24
         private val TAG = logTag("Pkg", "Repo", "Source", "NotInstalledPkgs")
