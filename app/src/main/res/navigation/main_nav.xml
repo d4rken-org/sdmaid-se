@@ -145,6 +145,9 @@
     <action
         android:id="@+id/goToReportsFragment"
         app:destination="@id/reportsFragment" />
+    <action
+        android:id="@+id/goToSwiperSessions"
+        app:destination="@id/swiperSessionsFragment" />
     <fragment
         android:id="@+id/upgradeFragment"
         android:name="eu.darken.sdmse.common.upgrade.ui.UpgradeFragment"

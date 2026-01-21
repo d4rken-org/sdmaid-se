@@ -710,6 +710,11 @@
         <item quantity="other">%s used</item>
     </plurals>
     <string name="analyzer_content_access_opaque">No direct access available</string>
+    <string name="analyzer_content_create_swiper_session_action">Create Swiper session</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper session created with %d item</item>
+        <item quantity="other">Swiper session created with %d items</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Primary storage</string>
     <string name="analyzer_storage_type_primary_description">The primary storage of your device. Contains the internal SD card, private storage for apps and system data.</string>
     <string name="analyzer_storage_type_secondary_title">Secondary storage</string>

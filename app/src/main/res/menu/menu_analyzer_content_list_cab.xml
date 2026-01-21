@@ -21,6 +21,12 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/action_create_swiper_session"
+        android:icon="@drawable/ic_baseline_swipe_24"
+        android:title="@string/analyzer_content_create_swiper_session_action"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_select_all"
         android:icon="@drawable/ic_select_all_24"
         android:title="@string/general_list_select_all_action"

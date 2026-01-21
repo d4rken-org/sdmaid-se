@@ -71,7 +71,7 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
             // Progress bar
             val totalItems = session.totalItems
             val decidedItems = sessionWithStats.keepCount + sessionWithStats.deleteCount
-            val progressPercent = if (totalItems > 0) (decidedItems * 100 / totalItems) else 0
+            val progressPercent = if (totalItems > 0) (decidedItems * 100 / totalItems) else 100
             sessionProgressBar.progress = progressPercent
             sessionProgressText.text = "$progressPercent%"
 
@@ -116,8 +116,8 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
                 actionButton.icon = null
                 actionButton.isEnabled = false
             }
-            isScanned -> {
-                // Scan complete
+            isScanned && session.totalItems > 0 -> {
+                // Scan complete with items found
                 actionButton.text = getString(R.string.swiper_continue_action)
                 actionButton.setIconResource(R.drawable.ic_baseline_swipe_24)
                 actionButton.isEnabled = true
