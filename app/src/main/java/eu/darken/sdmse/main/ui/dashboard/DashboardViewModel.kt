@@ -3,7 +3,6 @@ package eu.darken.sdmse.main.ui.dashboard
 import androidx.lifecycle.asLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.MainDirections
-import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.ui.AnalyzerDashCardVH
 import eu.darken.sdmse.appcleaner.core.AppCleaner
@@ -23,9 +22,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.DebugCardProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -55,7 +52,6 @@ import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
-import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.DashboardCardConfig
 import eu.darken.sdmse.main.core.DashboardCardType
 import eu.darken.sdmse.main.core.GeneralSettings
@@ -80,6 +76,8 @@ import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.core.StatsSettings
 import eu.darken.sdmse.stats.ui.StatsDashCardVH
+import eu.darken.sdmse.swiper.core.Swiper
+import eu.darken.sdmse.swiper.ui.SwiperDashCardVH
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerOneClickTask
@@ -98,7 +96,6 @@ import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onStart
 import java.time.Duration
 import java.time.Instant
-import java.time.LocalDate
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.seconds
 
@@ -115,6 +112,7 @@ class DashboardViewModel @Inject constructor(
     analyzer: Analyzer,
     debugCardProvider: DebugCardProvider,
     private val deduplicator: Deduplicator,
+    swiper: Swiper,
     private val upgradeRepo: UpgradeRepo,
     private val generalSettings: GeneralSettings,
     private val webpageTool: WebpageTool,
@@ -451,6 +449,19 @@ class DashboardViewModel @Inject constructor(
 
     private val anniversaryItem: Flow<AnniversaryCardVH.Item?> = anniversaryProvider.item
 
+    private val swiperItem: Flow<SwiperDashCardVH.Item?> = combine(
+        swiper.getSessionsWithStats(),
+        swiper.progress,
+        upgradeInfo.map { it?.isPro ?: false },
+    ) { sessionsWithStats, progress, isPro ->
+        SwiperDashCardVH.Item(
+            sessionsWithStats = sessionsWithStats,
+            progress = progress,
+            showProRequirement = !isPro,
+            onViewDetails = { showSwiper() }
+        )
+    }
+
     // Combine refresh trigger with card config to stay within combine's 20-argument limit
     private val cardConfigWithRefresh: Flow<DashboardCardConfig> = kotlinx.coroutines.flow.combine(
         refreshTrigger,
@@ -476,6 +487,7 @@ class DashboardViewModel @Inject constructor(
         reviewItem,
         anniversaryItem,
         statsItem,
+        swiperItem,
         easterEggTriggered,
         cardConfigWithRefresh,
     ) { recorderState: RecorderModule.State,
@@ -496,6 +508,7 @@ class DashboardViewModel @Inject constructor(
         reviewItem: ReviewCardVH.Item?,
         anniversaryItem: AnniversaryCardVH.Item?,
         statsItem: StatsDashCardVH.Item?,
+        swiperItem: SwiperDashCardVH.Item?,
         easterEggTriggered,
         cardConfig: DashboardCardConfig ->
         val items = mutableListOf<DashboardAdapter.Item>(titleInfo)
@@ -762,6 +775,11 @@ class DashboardViewModel @Inject constructor(
     fun showDeduplicator() {
         log(TAG, INFO) { "showDeduplicatorDetails()" }
         DashboardFragmentDirections.actionDashboardFragmentToDeduplicatorListFragment().navigate()
+    }
+
+    fun showSwiper() {
+        log(TAG, INFO) { "showSwiper()" }
+        DashboardFragmentDirections.actionDashboardFragmentToSwiperSessionsFragment().navigate()
     }
 
     fun confirmDeduplicatorDeletion() = launch {

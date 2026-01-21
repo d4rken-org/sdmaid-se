@@ -913,4 +913,101 @@
     <string name="shortcuts_settings_category">Shortcuts</string>
     <string name="shortcuts_onetap_enabled_title">One-tap shortcut</string>
     <string name="shortcuts_onetap_enabled_summary">Show \"Scan + Delete\" shortcut when long-pressing the app icon. Uses the same tools as one-tap dashboard.</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Swipe through files to decide what to keep or delete.</string>
+    <string name="swiper_dashcard_description">SD Maid handles most things automatically. For everything else, there\'s swiping!</string>
+    <string name="swiper_start_action">Start swiping</string>
+    <string name="swiper_continue_action">Continue session</string>
+    <string name="swiper_sessions_description">Some files just need a human touch. Swipe to decide their fate - nothing gets deleted until you say so. You can pause anytime and continue later.</string>
+    <string name="swiper_select_folders_action">Select folders</string>
+    <string name="swiper_scanning_title">Scanning…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d item found</item>
+        <item quantity="other">%d items found</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d item deleted</item>
+        <item quantity="other">%d items deleted</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d item failed</item>
+        <item quantity="other">%d items failed</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d of %2$d</string>
+    <string name="swiper_keep_action">Keep</string>
+    <string name="swiper_skip_action">Skip</string>
+    <string name="swiper_review_action">Review</string>
+    <string name="swiper_status_title">Review decisions</string>
+    <string name="swiper_decision_undecided">Undecided</string>
+    <string name="swiper_decision_deleted">Deleted</string>
+    <string name="swiper_decision_failed">Failed</string>
+    <string name="swiper_retry_action">Retry</string>
+    <string name="swiper_delete_confirmation_title">Delete files?</string>
+    <string name="swiper_delete_confirmation_message">This will permanently delete %1$d files (%2$s). This action cannot be undone.</string>
+    <string name="swiper_delete_confirmation_message_partial">This will permanently delete %1$d files (%2$s). This action cannot be undone.\n\n%3$d undecided items will remain for later review.</string>
+    <string name="swiper_delete_x_action">Delete %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Swap swipe directions</string>
+    <string name="swiper_settings_swap_directions_summary">Swipe left to keep, right to delete.</string>
+    <string name="swiper_settings_show_details_title">Show file details</string>
+    <string name="swiper_settings_show_details_summary">Display file name, size and date on the swipe screen.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptic feedback</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibrate when making keep or delete decisions.</string>
+    <string name="swiper_discard_session_confirmation_title">Discard session?</string>
+    <string name="swiper_discard_session_confirmation_message">All decisions will be lost. Are you sure?</string>
+    <string name="swiper_no_preview_available">No preview available</string>
+
+    <string name="swiper_dashcard_session_context">Continue session from %1$d days ago (%2$d%% finished)</string>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d sessions</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d undecided item</item>
+        <item quantity="other">%d undecided items</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Created %1$s, last activity %2$s</string>
+    <string name="swiper_session_remove_action">Remove session</string>
+    <string name="swiper_sessions_empty_hint">Tap + to select a folder and start swiping</string>
+    <string name="swiper_sessions_upgrade_body">The free version is limited to %1$d files per session and %2$d sessions. Upgrade to remove these limits and support development.</string>
+    <string name="swiper_session_default_label">Session #%d</string>
+    <string name="swiper_session_rename_title">Rename session</string>
+    <string name="swiper_session_rename_hint">Enter a name for this session</string>
+    <string name="swiper_sessions_current_sessions">Current sessions</string>
+    <string name="swiper_session_paths_label">Paths</string>
+    <string name="swiper_session_status_label">Status</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d to keep</item>
+        <item quantity="other">%d to keep</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d to delete</item>
+        <item quantity="other">%d to delete</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d undecided</item>
+        <item quantity="other">%d undecided</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Exclude \"%1$s\" from Swiper scans?</string>
+
+    <string name="swiper_sessions_header_title">Ready to declutter?</string>
+    <string name="swiper_sessions_suggestions_label">Try starting with:</string>
+    <string name="swiper_sessions_suggestion_downloads">Downloads folder</string>
+    <string name="swiper_sessions_suggestion_screenshots">Screenshots</string>
+    <string name="swiper_sessions_suggestion_camera">Camera roll</string>
+
+    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">KEEP!</string>
+    <string name="swiper_stamp_keep_2">NICE!</string>
+    <string name="swiper_stamp_keep_3">YES!</string>
+    <string name="swiper_stamp_keep_4">SAVE!</string>
+    <string name="swiper_stamp_delete_1">NOPE!</string>
+    <string name="swiper_stamp_delete_2">BYE!</string>
+    <string name="swiper_stamp_delete_3">TRASH!</string>
+    <string name="swiper_stamp_delete_4">DELETE!</string>
+    <string name="swiper_stamp_skip_1">SKIP!</string>
+    <string name="swiper_stamp_skip_2">MEH!</string>
+    <string name="swiper_stamp_skip_3">LATER!</string>
+    <string name="swiper_stamp_skip_4">MAYBE!</string>
 </resources>
