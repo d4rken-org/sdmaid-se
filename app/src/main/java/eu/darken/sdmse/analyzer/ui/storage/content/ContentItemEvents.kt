@@ -8,4 +8,5 @@ sealed class ContentItemEvents {
     data class ExclusionsCreated(val items: List<ContentItem>) : ContentItemEvents()
     data class ContentDeleted(val count: Int, val freedSpace: Long) : ContentItemEvents()
     data class OpenContent(val intent: Intent) : ContentItemEvents()
+    data class SwiperSessionCreated(val sessionId: String, val itemCount: Int) : ContentItemEvents()
 }
