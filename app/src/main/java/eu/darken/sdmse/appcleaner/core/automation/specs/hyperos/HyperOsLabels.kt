@@ -220,8 +220,16 @@ class HyperOsLabels @Inject constructor() : AppCleanerLabelSource {
         acsContext: AutomationExplorer.Context
     ) = acsContext.getStrings(SETTINGS_PKG, setOf(
         "app_manager_menu_clear_data",
-        // HyperOS 2.x uses "Clear all data" instead of "Clear data"
-        // POCO/duchamp_global/duchamp:15/AP3A.240905.015.A2/OS2.0.207.0.VNLMIXM
+    ))
+
+    /**
+     * On HyperOS 2.x, ALL apps show "Clear all data" and clicking it opens a dialog with "Clear cache" option.
+     * On HyperOS 3 (Android 16), apps WITHOUT cache show "Clear all data" but the dialog has NO "Clear cache" option.
+     * We separate this label to detect apps without cache on HyperOS 3 and skip them immediately.
+     */
+    fun getClearAllDataButtonLabels(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf(
         "app_manager_clear_all_data",
     ))
 
