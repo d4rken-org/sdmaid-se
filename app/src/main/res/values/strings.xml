@@ -659,6 +659,8 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Force stopping…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Looking for \"Force stop\" button (keywords: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Trying to confirm previous action (keywords: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Archiving…</string>
+    <string name="appcontrol_automation_progress_find_archive">Looking for \"Archive\" button (keywords: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Screen time: %1$s since %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Last updated: %s</string>
     <string name="appcontrol_item_installedat_x_label">Installed on: %s</string>

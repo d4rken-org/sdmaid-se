@@ -65,6 +65,10 @@ class OneUISpecs @Inject constructor(
         }
     }
 
+    override suspend fun getArchive(pkg: Installed): AutomationSpec {
+        throw UnsupportedOperationException("Archive automation not yet supported on OneUI")
+    }
+
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
