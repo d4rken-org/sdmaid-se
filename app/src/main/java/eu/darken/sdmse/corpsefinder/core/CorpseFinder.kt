@@ -140,11 +140,13 @@ class CorpseFinder @Inject constructor(
                                 watcherNotifications.notifyOfDeletion(watcherResult)
                             }
                         } else {
-                            val watcherResult = ExternalWatcherResult.Scan(
-                                pkgId = task.target,
-                                foundItems = targets.size
-                            )
-                            watcherNotifications.notifyOfScan(watcherResult)
+                            if (targets.isNotEmpty()) {
+                                val watcherResult = ExternalWatcherResult.Scan(
+                                    pkgId = task.target,
+                                    foundItems = targets.size
+                                )
+                                watcherNotifications.notifyOfScan(watcherResult)
+                            }
                             null
                         }
 
