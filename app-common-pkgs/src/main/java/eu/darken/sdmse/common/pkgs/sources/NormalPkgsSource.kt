@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.pkgs.sources
 
 import android.content.Context
+import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import dagger.Binds
 import dagger.Module
@@ -92,7 +93,7 @@ class NormalPkgsSource @Inject constructor(
             NormalPkg(
                 packageInfo = it,
                 userHandle = currentHandle,
-                installerInfo = installerData[it] ?: InstallerInfo()
+                installerInfo = installerData[it] ?: InstallerInfo(),
             )
         }
 
@@ -119,7 +120,7 @@ class NormalPkgsSource @Inject constructor(
                     NormalPkg(
                         packageInfo = it,
                         userHandle = profile.handle,
-                        installerInfo = installerData[it] ?: InstallerInfo()
+                        installerInfo = installerData[it] ?: InstallerInfo(),
                     )
                 }
 

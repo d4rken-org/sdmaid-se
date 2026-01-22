@@ -6,6 +6,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveSupport
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveTask
+import eu.darken.sdmse.appcontrol.core.archive.Archiver
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.export.AppExporter
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
@@ -68,6 +71,8 @@ class AppControl @Inject constructor(
     private val componentToggler: ComponentToggler,
     private val forceStopper: ForceStopper,
     private val uninstaller: Uninstaller,
+    private val archiver: Archiver,
+    private val archiveSupport: ArchiveSupport,
     usageStatsSetupModule: UsageStatsSetupModule,
     storageSetupModule: StorageSetupModule,
     rootManager: RootManager,
@@ -109,6 +114,7 @@ class AppControl @Inject constructor(
             canToggle = useRoot || useAdb,
             canForceStop = useAcs || useRoot || useAdb,
             canIncludeMultiUser = useRoot || useAdb,
+            canArchive = archiveSupport.isArchivingEnabled() && (useRoot || useAdb),
         )
     }.replayingShare(appScope)
 
@@ -125,6 +131,7 @@ class AppControl @Inject constructor(
                     is UninstallTask -> performUninstall(task)
                     is AppExportTask -> performExportSave(task)
                     is ForceStopTask -> performForceStop(task)
+                    is ArchiveTask -> performArchive(task)
                     else -> throw UnsupportedOperationException("Unsupported task: $task")
                 }
             }
@@ -354,6 +361,58 @@ class AppControl @Inject constructor(
         return ForceStopTask.Result(successful, failed)
     }
 
+    private suspend fun performArchive(task: ArchiveTask): ArchiveTask.Result {
+        log(TAG) { "performArchive(): $task" }
+        updateProgressCount(Progress.Count.Counter(task.targets.size))
+
+        val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
+        val successful = mutableSetOf<InstallId>()
+        val failed = mutableSetOf<InstallId>()
+
+        archiver.useRes {
+            task.targets.forEach { targetId ->
+                val target = snapshot.apps.single { it.installId == targetId }
+                updateProgressPrimary(target.label)
+                updateProgressSecondary(R.string.appcontrol_progress_archiving_app)
+
+                try {
+                    archiver.archive(target)
+                    successful.add(target.installId)
+                    log(TAG, INFO) { "Successfully archived $target" }
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to archive $targetId: ${e.asLog()}" }
+                    failed.add(targetId)
+                } finally {
+                    increaseProgress()
+                }
+            }
+        }
+
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
+        updateProgressSecondary(CaString.EMPTY)
+        updateProgressCount(Progress.Count.Indeterminate())
+
+        appScan.refresh()
+
+        internalData.value = snapshot.copy(
+            apps = run {
+                val affectedPkgs = successful.map { it.pkgId } + failed.map { it.pkgId }
+                val cleanedSnapshot = snapshot.apps.filterNot { affectedPkgs.contains(it.id) }
+                val updatedPkgs = affectedPkgs.map {
+                    appScan.app(
+                        pkgId = it,
+                        user = if (snapshot.hasIncludedMultiUser) null else userManager.currentUser().handle,
+                        includeSize = snapshot.hasInfoSize,
+                        includeActive = snapshot.hasInfoActive,
+                        includeUsage = snapshot.hasInfoScreenTime,
+                    )
+                }.flatten()
+                cleanedSnapshot + updatedPkgs
+            }
+        )
+
+        return ArchiveTask.Result(successful, failed)
+    }
 
     data class State(
         val data: Data?,
@@ -364,6 +423,7 @@ class AppControl @Inject constructor(
         val canInfoActive: Boolean,
         val canInfoScreenTime: Boolean,
         val canIncludeMultiUser: Boolean,
+        val canArchive: Boolean,
     ) : SDMTool.State
 
     data class Data(

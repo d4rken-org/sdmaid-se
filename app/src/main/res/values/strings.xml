@@ -603,6 +603,19 @@
         <item quantity="one">%d app was uninstalled</item>
         <item quantity="other">%d apps were uninstalled</item>
     </plurals>
+    <string name="appcontrol_archive_action">Archive</string>
+    <string name="appcontrol_archive_selection_action">Archive apps</string>
+    <string name="appcontrol_archive_description">Archive to free space while keeping app data for later restoration.</string>
+    <string name="appcontrol_progress_archiving_app">Archiving app</string>
+    <string name="appcontrol_archive_confirmation_title">Confirm archive</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Archive %d app?</item>
+        <item quantity="other">Archive %d apps?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d app archived</item>
+        <item quantity="other">%d apps archived</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">App size</string>
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Data</string>

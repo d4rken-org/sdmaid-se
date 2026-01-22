@@ -15,6 +15,7 @@ import eu.darken.sdmse.appcontrol.core.AppControlSettings
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveTask
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
@@ -177,6 +178,7 @@ class AppControlListViewModel @Inject constructor(
                 },
                 allowActionToggle = cur.canToggle,
                 allowActionForceStop = cur.canForceStop,
+                allowActionArchive = cur.canArchive,
                 allowFilterActive = cur.canInfoActive && settings.moduleActivityEnabled.value(),
                 allowSortSize = cur.canInfoSize && settings.moduleSizingEnabled.value(),
                 allowSortScreenTime = cur.canInfoScreenTime,
@@ -437,6 +439,22 @@ class AppControlListViewModel @Inject constructor(
         events.postValue(AppControlListEvents.ShowResult(result))
     }
 
+    fun archive(items: Collection<AppControlListAdapter.Item>, confirmed: Boolean = false) = launch {
+        log(TAG) { "archive(${items.size}, confirmed=$confirmed)" }
+        if (items.size > 1 && !upgradeRepo.isPro()) {
+            MainDirections.goToUpgradeFragment().navigate()
+            return@launch
+        }
+
+        if (!confirmed) {
+            events.postValue(AppControlListEvents.ConfirmArchive(items.toList()))
+            return@launch
+        }
+        val targets = items.map { it.appInfo.installId }.toSet()
+        val result = taskManager.submit(ArchiveTask(targets = targets)) as ArchiveTask.Result
+        events.postValue(AppControlListEvents.ShowResult(result))
+    }
+
     data class State(
         val appInfos: List<AppControlListRowVH.Item>?,
         val progressWorker: Progress.Data?,
@@ -444,6 +462,7 @@ class AppControlListViewModel @Inject constructor(
         val options: DisplayOptions,
         val allowActionToggle: Boolean = false,
         val allowActionForceStop: Boolean = false,
+        val allowActionArchive: Boolean = false,
         val allowSortSize: Boolean = false,
         val allowSortScreenTime: Boolean = false,
         val allowFilterActive: Boolean = false,

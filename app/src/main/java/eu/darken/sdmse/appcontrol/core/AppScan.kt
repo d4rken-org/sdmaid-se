@@ -1,5 +1,6 @@
 package eu.darken.sdmse.appcontrol.core
 
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveSupport
 import eu.darken.sdmse.appcontrol.core.usage.UsageInfo
 import eu.darken.sdmse.appcontrol.core.usage.UsageTool
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -12,6 +13,8 @@ import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.current
 import eu.darken.sdmse.common.pkgs.features.InstallId
+import eu.darken.sdmse.common.pkgs.isArchived
+import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -38,6 +41,7 @@ class AppScan @Inject constructor(
     private val pkgOps: PkgOps,
     private val usageTool: UsageTool,
     private val userManager: UserManager2,
+    private val archiveSupport: ArchiveSupport,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(PkgOps.TAG, appScope + dispatcherProvider.IO)
@@ -158,6 +162,10 @@ class AppScan @Inject constructor(
         canBeStopped = this is NormalPkg,
         canBeExported = this is SourceAvailable,
         canBeDeleted = true,
+        canBeArchived = this is NormalPkg &&
+                archiveSupport.isArchivable(installId) &&
+                !isArchived &&
+                !isSystemApp,
     )
 
     companion object {
