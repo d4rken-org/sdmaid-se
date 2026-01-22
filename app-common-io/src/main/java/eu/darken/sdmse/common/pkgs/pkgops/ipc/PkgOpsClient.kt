@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.pkgs.pkgops.ipc
 
+import android.content.IntentSender
 import android.content.pm.PackageInfo
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
@@ -113,6 +114,14 @@ class PkgOpsClient @AssistedInject constructor(
     } catch (e: Exception) {
         throw e.refineException().also {
             log(TAG, ERROR) { "setAppOps(id=$id, key=$key, value=$value) failed: ${it.asLog()}" }
+        }
+    }
+
+    fun requestUnarchive(packageName: String, statusReceiver: IntentSender): Unit = try {
+        connection.requestUnarchive(packageName, statusReceiver)
+    } catch (e: Exception) {
+        throw e.refineException().also {
+            log(TAG, ERROR) { "requestUnarchive($packageName) failed: ${it.asLog()}" }
         }
     }
 

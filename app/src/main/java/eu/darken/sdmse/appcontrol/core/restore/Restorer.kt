@@ -10,9 +10,11 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.isArchived
 import eu.darken.sdmse.common.pkgs.pkgs
@@ -20,9 +22,6 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
-import eu.darken.sdmse.common.sharedresource.adoptChildResource
-import eu.darken.sdmse.common.shell.ShellOps
-import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.setup.automation.AutomationSetupModule
 import eu.darken.sdmse.setup.isComplete
@@ -40,12 +39,12 @@ class Restorer @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     dispatcherProvider: DispatcherProvider,
     private val pkgRepo: PkgRepo,
-    private val shellOps: ShellOps,
-    private val rootManager: RootManager,
-    private val adbManager: AdbManager,
     private val userManager2: UserManager2,
     private val automation: AutomationManager,
     private val automationSetupModule: AutomationSetupModule,
+    private val unarchiveManager: UnarchiveManager,
+    private val rootManager: RootManager,
+    private val adbManager: AdbManager,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
@@ -61,57 +60,34 @@ class Restorer @Inject constructor(
         }
 
         val isCurrentUser = app.installId.userHandle == userManager2.currentUser()
-        val userId = app.installId.userHandle.handleId
         val pkgName = app.installId.pkgId.name
-        val shellCmd = ShellOpsCmd("pm install-existing --user $userId $pkgName")
 
-        when {
-            rootManager.canUseRootNow() -> {
-                log(TAG) { "Using ROOT to restore ${app.installId}" }
+        val hasElevatedAccess = rootManager.canUseRootNow() || adbManager.canUseAdbNow()
 
-                adoptChildResource(shellOps)
-                val result = shellOps.execute(shellCmd, mode = ShellOps.Mode.ROOT)
-                log(TAG) { "Restore command via ROOT result: $result" }
-                if (!result.isSuccess) {
-                    throw RestoreException(
-                        installId = app.installId,
-                        cause = IllegalStateException(result.errors.joinToString()),
-                    )
+        // Try PackageInstaller API via Root/ADB first (API 35+)
+        if (hasApiLevel(35) && hasElevatedAccess) {
+            log(TAG) { "Attempting PackageInstaller.requestUnarchive via Root/ADB for ${app.installId}" }
+            try {
+                val result = unarchiveManager.requestUnarchive(pkgName)
+                if (result.isSuccess) {
+                    log(TAG, INFO) { "PackageInstaller unarchive initiated successfully for ${app.installId}" }
+                    // Continue to wait for the app to be fully restored below
+                } else {
+                    log(TAG, WARN) { "PackageInstaller unarchive failed: ${result.statusMessage}" }
+                    // Fall through to automation
+                    useAutomationFallback(app)
                 }
+            } catch (e: Exception) {
+                log(TAG, WARN) { "PackageInstaller unarchive exception, falling back: ${e.asLog()}" }
+                // Fall through to automation
+                useAutomationFallback(app)
             }
-
-            adbManager.canUseAdbNow() -> {
-                log(TAG) { "Using ADB to restore ${app.installId}" }
-
-                adoptChildResource(shellOps)
-                val result = shellOps.execute(shellCmd, mode = ShellOps.Mode.ADB)
-                log(TAG) { "Restore command via ADB result: $result" }
-                if (!result.isSuccess) {
-                    throw RestoreException(
-                        installId = app.installId,
-                        cause = IllegalStateException(result.errors.joinToString()),
-                    )
-                }
+        } else {
+            // Pre-API 35 or no Root/ADB: Only automation is supported for restore
+            if (hasApiLevel(35)) {
+                log(TAG) { "No Root/ADB access for ${app.installId}, falling back to automation" }
             }
-
-            automationSetupModule.isComplete() -> {
-                log(TAG) { "Using Automation to restore ${app.installId}" }
-                val task = RestoreAutomationTask(listOf(app.installId))
-                val result = automation.submit(task) as RestoreAutomationTask.Result
-                if (result.failed.contains(app.installId)) {
-                    throw RestoreException(
-                        message = "Automation failed to restore app",
-                        installId = app.installId,
-                    )
-                }
-            }
-
-            else -> {
-                throw RestoreException(
-                    message = "Restoring requires Root, Shizuku, or Accessibility Service access",
-                    installId = app.installId,
-                )
-            }
+            useAutomationFallback(app)
         }
 
         try {
@@ -149,6 +125,25 @@ class Restorer @Inject constructor(
         } catch (e: Exception) {
             log(TAG, ERROR) { "Failed to verify restore for ${app.installId}: ${e.asLog()}" }
             throw RestoreException(installId = app.installId, cause = e)
+        }
+    }
+
+    private suspend fun useAutomationFallback(app: AppInfo) {
+        if (!automationSetupModule.isComplete()) {
+            throw RestoreException(
+                message = "Restoring requires Accessibility Service access (or PackageInstaller for Play Store apps on Android 15+)",
+                installId = app.installId,
+            )
+        }
+
+        log(TAG) { "Using Automation to restore ${app.installId}" }
+        val task = RestoreAutomationTask(listOf(app.installId))
+        val result = automation.submit(task) as RestoreAutomationTask.Result
+        if (result.failed.contains(app.installId)) {
+            throw RestoreException(
+                message = "Automation failed to restore app",
+                installId = app.installId,
+            )
         }
     }
 

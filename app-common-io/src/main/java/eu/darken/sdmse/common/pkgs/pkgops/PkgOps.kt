@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.pkgs.pkgops
 import android.app.usage.StorageStatsManager
 import android.app.usage.UsageStatsManager
 import android.content.Context
+import android.content.IntentSender
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER
@@ -432,6 +433,34 @@ class PkgOps @Inject constructor(
                 log(TAG, WARN) { "setAppOps($id, $key, $value, $mode) failed: ${e.asLog()}" }
             }
             throw PkgOpsException(message = "setAppOps($id, $key, $value $mode) failed", cause = e)
+        }
+    }
+
+    suspend fun requestUnarchive(packageName: String, statusReceiver: IntentSender, mode: Mode = Mode.AUTO) {
+        log(TAG, VERBOSE) { "requestUnarchive($packageName, mode=$mode)" }
+        try {
+            if (mode == Mode.NORMAL) throw PkgOpsException("requestUnarchive does not support mode=NORMAL")
+
+            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
+                log(TAG) { "requestUnarchive($packageName, $mode->ROOT)" }
+                rootOps { it.requestUnarchive(packageName, statusReceiver) }
+                return
+            }
+
+            if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+                log(TAG) { "requestUnarchive($packageName, $mode->ADB)" }
+                adbOps { it.requestUnarchive(packageName, statusReceiver) }
+                return
+            }
+
+            throw ModeUnavailableException("Mode $mode is unavailable")
+        } catch (e: Exception) {
+            if (e is ModeUnavailableException) {
+                log(TAG, DEBUG) { "requestUnarchive(...): $mode unavailable" }
+            } else {
+                log(TAG, WARN) { "requestUnarchive($packageName, $mode) failed: ${e.asLog()}" }
+            }
+            throw PkgOpsException(message = "requestUnarchive($packageName, $mode) failed", cause = e)
         }
     }
 

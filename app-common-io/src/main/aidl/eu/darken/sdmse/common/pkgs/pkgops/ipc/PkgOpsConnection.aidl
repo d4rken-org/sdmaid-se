@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.pkgs.pkgops.ipc;
 
+import android.content.IntentSender;
 import android.content.pm.PackageInfo;
 import eu.darken.sdmse.common.ipc.RemoteInputStream;
 import eu.darken.sdmse.common.pkgs.features.InstallId;
@@ -30,4 +31,6 @@ interface PkgOpsConnection {
     boolean revokePermission(String packageName, int handleId, String permissionId);
 
     boolean setAppOps(String packageName, int handleId, String key, String value);
+
+    void requestUnarchive(String packageName, in IntentSender statusReceiver);
 }
