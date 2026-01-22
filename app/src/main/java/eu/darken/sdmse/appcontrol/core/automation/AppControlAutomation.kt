@@ -67,6 +67,14 @@ class AppControlAutomation @AssistedInject constructor(
     private val deviceDetective: DeviceDetective,
 ) : AutomationModule(automationHost) {
 
+    private enum class Operation {
+        ARCHIVE,
+        RESTORE;
+
+        val unsupportedMessage: String
+            get() = "ACS based ${name.lowercase()} is not supported for other users"
+    }
+
     private fun getPriotizedSpecGenerators(): List<AppControlSpecGenerator> = specGenerators
         .get()
         .also { log(TAG) { "${it.size} step generators are available" } }
@@ -122,8 +130,16 @@ class AppControlAutomation @AssistedInject constructor(
 
         return when (task) {
             is ForceStopAutomationTask -> processForceStop(task)
-            is ArchiveAutomationTask -> processArchive(task)
-            is RestoreAutomationTask -> processRestore(task)
+            is ArchiveAutomationTask -> {
+                val (successful, failed) = processOperation(task.targets, Operation.ARCHIVE)
+                ArchiveAutomationTask.Result(successful, failed)
+            }
+
+            is RestoreAutomationTask -> {
+                val (successful, failed) = processOperation(task.targets, Operation.RESTORE)
+                RestoreAutomationTask.Result(successful, failed)
+            }
+
             else -> throw NotImplementedError("$task is not implemented")
         }
     }
@@ -252,19 +268,23 @@ class AppControlAutomation @AssistedInject constructor(
         }
     }
 
-    private suspend fun processArchive(task: ArchiveAutomationTask): ArchiveAutomationTask.Result {
+    private suspend fun processOperation(
+        targets: List<InstallId>,
+        operation: Operation,
+    ): Pair<Set<InstallId>, Set<InstallId>> {
         labelDebugger.logAllLabels()
 
         val successful = mutableSetOf<InstallId>()
         val failed = mutableSetOf<InstallId>()
+        val operationName = operation.name.lowercase()
 
-        updateProgressCount(Progress.Count.Percent(task.targets.size))
+        updateProgressCount(Progress.Count.Percent(targets.size))
 
         var cancelledByUser = false
         val currentUserHandle = userManager2.currentUser().handle
-        for (target in task.targets) {
+        for (target in targets) {
             if (target.userHandle != currentUserHandle) {
-                throw UnsupportedOperationException("ACS based archive is not supported for other users ($target)")
+                throw UnsupportedOperationException("${operation.unsupportedMessage} ($target)")
             }
 
             val installed = pkgRepo.get(target.pkgId, target.userHandle)
@@ -275,12 +295,12 @@ class AppControlAutomation @AssistedInject constructor(
                 continue
             }
 
-            log(TAG) { "Archiving $installed" }
+            log(TAG) { "${operationName.replaceFirstChar { it.uppercase() }}ing $installed" }
             updateProgressPrimary(installed.label ?: target.pkgId.name.toCaString())
 
             try {
-                processArchiveSpecForPkg(installed)
-                log(TAG, INFO) { "Successfully archived $target" }
+                processOperationSpecForPkg(installed, operation)
+                log(TAG, INFO) { "Successfully ${operationName}d $target" }
                 successful.add(target)
             } catch (e: Exception) {
                 when {
@@ -324,7 +344,7 @@ class AppControlAutomation @AssistedInject constructor(
                     }
                 }
             } finally {
-                updateProgressCount(Progress.Count.Percent(task.targets.indexOf(target), task.targets.size))
+                updateProgressCount(Progress.Count.Percent(targets.indexOf(target), targets.size))
             }
         }
 
@@ -336,14 +356,12 @@ class AppControlAutomation @AssistedInject constructor(
             deviceDetective = deviceDetective,
         )
 
-        return ArchiveAutomationTask.Result(
-            successful = successful,
-            failed = failed,
-        )
+        return successful to failed
     }
 
-    private suspend fun processArchiveSpecForPkg(pkg: Installed) {
-        log(TAG) { "Processing archive spec for $pkg" }
+    private suspend fun processOperationSpecForPkg(pkg: Installed, operation: Operation) {
+        val operationName = operation.name.lowercase()
+        log(TAG) { "Processing $operationName spec for $pkg" }
         val start = System.currentTimeMillis()
 
         val specGenerator = getPriotizedSpecGenerators().firstOrNull { it.isResponsible(pkg) }
@@ -352,134 +370,26 @@ class AppControlAutomation @AssistedInject constructor(
         log(TAG) { "Using spec generator: $specGenerator" }
 
         val spec = try {
-            specGenerator.getArchive(pkg)
+            when (operation) {
+                Operation.ARCHIVE -> specGenerator.getArchive(pkg)
+                Operation.RESTORE -> specGenerator.getRestore(pkg)
+            }
         } catch (e: UnsupportedOperationException) {
-            log(TAG, WARN) { "Spec $specGenerator doesn't support archive, falling back to AOSP: ${e.message}" }
-            getPriotizedSpecGenerators().single { it is AOSPSpecs }.getArchive(pkg)
+            log(TAG, WARN) { "Spec $specGenerator doesn't support $operationName, falling back to AOSP: ${e.message}" }
+            val aospSpec = getPriotizedSpecGenerators().single { it is AOSPSpecs }
+            when (operation) {
+                Operation.ARCHIVE -> aospSpec.getArchive(pkg)
+                Operation.RESTORE -> aospSpec.getRestore(pkg)
+            }
         }
-        log(TAG) { "Generated archive spec for ${pkg.id} is $spec" }
+        log(TAG) { "Generated $operationName spec for ${pkg.id} is $spec" }
 
         when (spec) {
             is AutomationSpec.Explorer -> processExplorerSpec(pkg, spec)
         }
 
         val stop = System.currentTimeMillis()
-        log(TAG) { "Archive spec processed in ${(stop - start)}ms for $pkg " }
-    }
-
-    private suspend fun processRestore(task: RestoreAutomationTask): RestoreAutomationTask.Result {
-        labelDebugger.logAllLabels()
-
-        val successful = mutableSetOf<InstallId>()
-        val failed = mutableSetOf<InstallId>()
-
-        updateProgressCount(Progress.Count.Percent(task.targets.size))
-
-        var cancelledByUser = false
-        val currentUserHandle = userManager2.currentUser().handle
-        for (target in task.targets) {
-            if (target.userHandle != currentUserHandle) {
-                throw UnsupportedOperationException("ACS based restore is not supported for other users ($target)")
-            }
-
-            val installed = pkgRepo.get(target.pkgId, target.userHandle)
-
-            if (installed == null) {
-                log(TAG, WARN) { "$target is not in package repo" }
-                failed.add(target)
-                continue
-            }
-
-            log(TAG) { "Restoring $installed" }
-            updateProgressPrimary(installed.label ?: target.pkgId.name.toCaString())
-
-            try {
-                processRestoreSpecForPkg(installed)
-                log(TAG, INFO) { "Successfully restored $target" }
-                successful.add(target)
-            } catch (e: Exception) {
-                when {
-                    e is InvalidSystemStateException -> {
-                        log(TAG, WARN) { "Invalid system state: ${e.asLog()}" }
-                        throw e
-                    }
-
-                    e is AutomationTimeoutException -> {
-                        log(TAG, WARN) { "Timeout while processing $installed: $e" }
-                        failed.add(target)
-                    }
-
-                    e is AutomationOverlayException -> {
-                        log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
-                        throw e
-                    }
-
-                    e is UnsupportedOperationException -> {
-                        log(TAG, ERROR) { "Unsupported operation error: ${e.asLog()}" }
-                        throw e
-                    }
-
-                    e is CancellationException -> {
-                        log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
-                        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
-                        updateProgressSecondary(CaString.EMPTY)
-                        updateProgressCount(Progress.Count.Indeterminate())
-                        if (e is UserCancelledAutomationException) {
-                            log(TAG, INFO) { "User has cancelled automation process, aborting..." }
-                            cancelledByUser = true
-                            break
-                        } else {
-                            throw e
-                        }
-                    }
-
-                    else -> {
-                        log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
-                        failed.add(target)
-                    }
-                }
-            } finally {
-                updateProgressCount(Progress.Count.Percent(task.targets.indexOf(target), task.targets.size))
-            }
-        }
-
-        delay(250)
-
-        finishAutomation(
-            userCancelled = cancelledByUser,
-            returnToApp = true,
-            deviceDetective = deviceDetective,
-        )
-
-        return RestoreAutomationTask.Result(
-            successful = successful,
-            failed = failed,
-        )
-    }
-
-    private suspend fun processRestoreSpecForPkg(pkg: Installed) {
-        log(TAG) { "Processing restore spec for $pkg" }
-        val start = System.currentTimeMillis()
-
-        val specGenerator = getPriotizedSpecGenerators().firstOrNull { it.isResponsible(pkg) }
-            ?: getPriotizedSpecGenerators().single { it is AOSPSpecs }
-
-        log(TAG) { "Using spec generator: $specGenerator" }
-
-        val spec = try {
-            specGenerator.getRestore(pkg)
-        } catch (e: UnsupportedOperationException) {
-            log(TAG, WARN) { "Spec $specGenerator doesn't support restore, falling back to AOSP: ${e.message}" }
-            getPriotizedSpecGenerators().single { it is AOSPSpecs }.getRestore(pkg)
-        }
-        log(TAG) { "Generated restore spec for ${pkg.id} is $spec" }
-
-        when (spec) {
-            is AutomationSpec.Explorer -> processExplorerSpec(pkg, spec)
-        }
-
-        val stop = System.currentTimeMillis()
-        log(TAG) { "Restore spec processed in ${(stop - start)}ms for $pkg " }
+        log(TAG) { "${operationName.replaceFirstChar { it.uppercase() }} spec processed in ${(stop - start)}ms for $pkg " }
     }
 
     @Module @InstallIn(SingletonComponent::class)
