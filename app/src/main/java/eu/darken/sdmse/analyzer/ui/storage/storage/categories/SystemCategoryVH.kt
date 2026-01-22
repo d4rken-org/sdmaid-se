@@ -36,13 +36,14 @@ class SystemCategoryVH(parent: ViewGroup) :
         )
         progress.progress = totalPercent
 
-        root.setOnClickListener { item.onItemClick() }
+        // System Data is informational only - no navigation available
+        root.isClickable = false
+        root.isFocusable = false
     }
 
     data class Item(
         val storage: DeviceStorage,
         val content: SystemCategory,
-        val onItemClick: () -> Unit,
     ) : StorageContentAdapter.Item {
 
         override val stableId: Long = this.javaClass.hashCode().toLong()
