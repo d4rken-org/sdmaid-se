@@ -75,6 +75,13 @@ class AOSPSpecs @Inject constructor(
         }
     }
 
+    override suspend fun getRestore(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
+        override val tag: String = TAG
+        override suspend fun createPlan(): suspend AutomationExplorer.Context.() -> Unit = {
+            restorePlan(pkg)
+        }
+    }
+
     private val forceStopPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
@@ -209,6 +216,58 @@ class AOSPSpecs @Inject constructor(
             return@plan
         }
         // Note: Android 15+ doesn't show a confirmation dialog - archive happens immediately when the button is clicked
+    }
+
+    private val restorePlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
+        log(TAG, INFO) { "Executing restore plan for ${pkg.installId} with context $this" }
+
+        val restoreLabels = aospLabels.getRestoreButtonDynamic(this)
+        var wasDisabled = false
+
+        run {
+            val action: suspend StepContext.() -> Boolean = action@{
+                val candidate = findNode { node ->
+                    node.textMatchesAny(restoreLabels)
+                } ?: return@action false
+
+                var target = findClickableParent(maxNesting = 3, includeSelf = true, node = candidate)
+
+                if (target == null && hasApiLevel(35)) {
+                    log(TAG, WARN) { "No clickable parent found for $candidate" }
+                    target = findNearestTo(node = candidate) { it.isClickable }
+                    if (target != null) log(TAG, INFO) { "Clickable sibling found: $target" }
+                }
+
+                if (target == null) {
+                    log(TAG, WARN) { "No clickable target found for $candidate" }
+                    return@action false
+                }
+
+                if (!target.isEnabled) {
+                    wasDisabled = true
+                    return@action true
+                }
+
+                clickNormal(node = target)
+            }
+
+            val step = AutomationStep(
+                source = TAG,
+                descriptionInternal = "Restore button for $pkg",
+                label = R.string.appcontrol_automation_progress_find_restore.toCaString(restoreLabels),
+                windowLaunch = windowLauncherDefaultSettings(pkg),
+                windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
+                nodeRecovery = defaultNodeRecovery(pkg),
+                nodeAction = action,
+            )
+            stepper.withProgress(this) { process(this@plan, step) }
+        }
+
+        if (wasDisabled) {
+            log(TAG) { "Restore button was disabled, app cannot be restored." }
+            return@plan
+        }
+        // Note: Similar to archive, restore typically doesn't show a confirmation dialog
     }
 
     @Module @InstallIn(SingletonComponent::class)

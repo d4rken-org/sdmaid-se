@@ -12,23 +12,26 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppInfo
-import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
-import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveException
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveTask
+import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
+import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
+import eu.darken.sdmse.appcontrol.core.restore.RestoreException
+import eu.darken.sdmse.appcontrol.core.restore.RestoreTask
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallException
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
-import eu.darken.sdmse.appcontrol.ui.list.actions.items.ArchiveActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.ArchiveActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExcludeActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExportActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ForceStopActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.InfoSizeVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.InfoUsageVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.RestoreActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ToggleActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.UninstallActionVH
@@ -264,6 +267,22 @@ class AppActionViewModel @Inject constructor(
             null
         }
 
+        val restoreAction = if (state.canRestore && appInfo.canBeRestored) {
+            RestoreActionVH.Item(
+                appInfo = appInfo,
+                onItemClicked = { info ->
+                    val task = RestoreTask(setOf(info.installId))
+                    launch {
+                        val result = taskManager.submit(task) as RestoreTask.Result
+                        if (result.failed.isNotEmpty()) throw RestoreException(installId = result.failed.first())
+                        else events.postValue(AppActionEvents.ShowResult(result))
+                    }
+                }
+            )
+        } else {
+            null
+        }
+
         val disableAction = if (state.canToggle && appInfo.canBeToggled) {
             ToggleActionVH.Item(
                 appInfo = appInfo,
@@ -302,6 +321,7 @@ class AppActionViewModel @Inject constructor(
                 disableAction,
                 uninstallAction,
                 archiveAction,
+                restoreAction,
                 exportaction,
             ),
             progress = progress,

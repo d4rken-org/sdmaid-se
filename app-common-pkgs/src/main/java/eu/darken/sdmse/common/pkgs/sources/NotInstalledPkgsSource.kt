@@ -125,11 +125,22 @@ class NotInstalledPkgsSource @Inject constructor(
             when {
                 // Order matters: Check archived FIRST to distinguish from uninstall -k apps
                 // Both have null sourceDir, but only archived apps have ArchivedPackageInfo
-                pkgInfo.isArchived() -> ArchivedPkg(
-                    packageInfo = pkgInfo,
-                    userHandle = handle,
-                    installerInfo = installerData[pkgInfo] ?: InstallerInfo(),
-                ).also { log(TAG, VERBOSE) { "ArchivedPkg: $it" } }
+                pkgInfo.isArchived() -> {
+                    // Get ArchivedPackageInfo for label access (PM APIs fail for archived packages)
+                    val archivedInfo = try {
+                        @SuppressLint("NewApi")
+                        context.packageManager.getArchivedPackage(pkgInfo.packageName)
+                    } catch (e: Exception) {
+                        log(TAG, VERBOSE) { "Failed to get ArchivedPackageInfo for ${pkgInfo.packageName}: $e" }
+                        null
+                    }
+                    ArchivedPkg(
+                        packageInfo = pkgInfo,
+                        userHandle = handle,
+                        installerInfo = installerData[pkgInfo] ?: InstallerInfo(),
+                        archivedPackageInfo = archivedInfo,
+                    ).also { log(TAG, VERBOSE) { "ArchivedPkg: $it" } }
+                }
 
                 pkgInfo.isUninstalled() -> UninstalledPkg(
                     packageInfo = pkgInfo,

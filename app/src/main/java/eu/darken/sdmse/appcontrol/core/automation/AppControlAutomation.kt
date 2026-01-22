@@ -11,6 +11,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveAutomationTask
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlLabelDebugger
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.appcontrol.core.automation.specs.androidtv.AndroidTVSpecs
@@ -18,8 +19,8 @@ import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.hyperos.HyperOsSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.miui.MIUISpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.oneui.OneUISpecs
-import eu.darken.sdmse.appcontrol.core.archive.ArchiveAutomationTask
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopAutomationTask
+import eu.darken.sdmse.appcontrol.core.restore.RestoreAutomationTask
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
@@ -97,6 +98,7 @@ class AppControlAutomation @AssistedInject constructor(
         val subtitle = when (task) {
             is ForceStopAutomationTask -> R.string.appcontrol_automation_subtitle_force_stopping
             is ArchiveAutomationTask -> R.string.appcontrol_automation_subtitle_archiving
+            is RestoreAutomationTask -> R.string.appcontrol_automation_subtitle_restoring
             else -> R.string.appcontrol_automation_subtitle_force_stopping
         }
 
@@ -121,6 +123,7 @@ class AppControlAutomation @AssistedInject constructor(
         return when (task) {
             is ForceStopAutomationTask -> processForceStop(task)
             is ArchiveAutomationTask -> processArchive(task)
+            is RestoreAutomationTask -> processRestore(task)
             else -> throw NotImplementedError("$task is not implemented")
         }
     }
@@ -364,6 +367,121 @@ class AppControlAutomation @AssistedInject constructor(
         log(TAG) { "Archive spec processed in ${(stop - start)}ms for $pkg " }
     }
 
+    private suspend fun processRestore(task: RestoreAutomationTask): RestoreAutomationTask.Result {
+        labelDebugger.logAllLabels()
+
+        val successful = mutableSetOf<InstallId>()
+        val failed = mutableSetOf<InstallId>()
+
+        updateProgressCount(Progress.Count.Percent(task.targets.size))
+
+        var cancelledByUser = false
+        val currentUserHandle = userManager2.currentUser().handle
+        for (target in task.targets) {
+            if (target.userHandle != currentUserHandle) {
+                throw UnsupportedOperationException("ACS based restore is not supported for other users ($target)")
+            }
+
+            val installed = pkgRepo.get(target.pkgId, target.userHandle)
+
+            if (installed == null) {
+                log(TAG, WARN) { "$target is not in package repo" }
+                failed.add(target)
+                continue
+            }
+
+            log(TAG) { "Restoring $installed" }
+            updateProgressPrimary(installed.label ?: target.pkgId.name.toCaString())
+
+            try {
+                processRestoreSpecForPkg(installed)
+                log(TAG, INFO) { "Successfully restored $target" }
+                successful.add(target)
+            } catch (e: Exception) {
+                when {
+                    e is InvalidSystemStateException -> {
+                        log(TAG, WARN) { "Invalid system state: ${e.asLog()}" }
+                        throw e
+                    }
+
+                    e is AutomationTimeoutException -> {
+                        log(TAG, WARN) { "Timeout while processing $installed: $e" }
+                        failed.add(target)
+                    }
+
+                    e is AutomationOverlayException -> {
+                        log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
+                        throw e
+                    }
+
+                    e is UnsupportedOperationException -> {
+                        log(TAG, ERROR) { "Unsupported operation error: ${e.asLog()}" }
+                        throw e
+                    }
+
+                    e is CancellationException -> {
+                        log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
+                        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
+                        updateProgressSecondary(CaString.EMPTY)
+                        updateProgressCount(Progress.Count.Indeterminate())
+                        if (e is UserCancelledAutomationException) {
+                            log(TAG, INFO) { "User has cancelled automation process, aborting..." }
+                            cancelledByUser = true
+                            break
+                        } else {
+                            throw e
+                        }
+                    }
+
+                    else -> {
+                        log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
+                        failed.add(target)
+                    }
+                }
+            } finally {
+                updateProgressCount(Progress.Count.Percent(task.targets.indexOf(target), task.targets.size))
+            }
+        }
+
+        delay(250)
+
+        finishAutomation(
+            userCancelled = cancelledByUser,
+            returnToApp = true,
+            deviceDetective = deviceDetective,
+        )
+
+        return RestoreAutomationTask.Result(
+            successful = successful,
+            failed = failed,
+        )
+    }
+
+    private suspend fun processRestoreSpecForPkg(pkg: Installed) {
+        log(TAG) { "Processing restore spec for $pkg" }
+        val start = System.currentTimeMillis()
+
+        val specGenerator = getPriotizedSpecGenerators().firstOrNull { it.isResponsible(pkg) }
+            ?: getPriotizedSpecGenerators().single { it is AOSPSpecs }
+
+        log(TAG) { "Using spec generator: $specGenerator" }
+
+        val spec = try {
+            specGenerator.getRestore(pkg)
+        } catch (e: UnsupportedOperationException) {
+            log(TAG, WARN) { "Spec $specGenerator doesn't support restore, falling back to AOSP: ${e.message}" }
+            getPriotizedSpecGenerators().single { it is AOSPSpecs }.getRestore(pkg)
+        }
+        log(TAG) { "Generated restore spec for ${pkg.id} is $spec" }
+
+        when (spec) {
+            is AutomationSpec.Explorer -> processExplorerSpec(pkg, spec)
+        }
+
+        val stop = System.currentTimeMillis()
+        log(TAG) { "Restore spec processed in ${(stop - start)}ms for $pkg " }
+    }
+
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
         @Binds @IntoSet abstract fun mod(mod: Factory): AutomationModule.Factory
@@ -372,7 +490,7 @@ class AppControlAutomation @AssistedInject constructor(
     @AssistedFactory
     interface Factory : AutomationModule.Factory {
         override fun isResponsible(task: AutomationTask): Boolean =
-            task is ForceStopAutomationTask || task is ArchiveAutomationTask
+            task is ForceStopAutomationTask || task is ArchiveAutomationTask || task is RestoreAutomationTask
 
         override fun create(host: AutomationHost, moduleScope: CoroutineScope): AppControlAutomation
     }

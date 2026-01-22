@@ -13,6 +13,11 @@
         android:title="@string/appcontrol_archive_selection_action"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/action_restore_selection"
+        android:icon="@drawable/ic_settings_backup_restore_24"
+        android:title="@string/appcontrol_restore_selection_action"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_exclude_selected"
         android:icon="@drawable/ic_shield_plus_24"
         android:title="@string/general_exclude_selected_action"

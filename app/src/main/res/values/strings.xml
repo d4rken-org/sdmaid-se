@@ -616,6 +616,19 @@
         <item quantity="one">%d app archived</item>
         <item quantity="other">%d apps archived</item>
     </plurals>
+    <string name="appcontrol_restore_action">Restore</string>
+    <string name="appcontrol_restore_selection_action">Restore apps</string>
+    <string name="appcontrol_restore_description">Restore archived app to fully installed state. App data is preserved.</string>
+    <string name="appcontrol_progress_restoring_app">Restoring app</string>
+    <string name="appcontrol_restore_confirmation_title">Confirm restore</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Restore %d app?</item>
+        <item quantity="other">Restore %d apps?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d app restored</item>
+        <item quantity="other">%d apps restored</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">App size</string>
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Data</string>
@@ -661,6 +674,8 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Trying to confirm previous action (keywords: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Archiving…</string>
     <string name="appcontrol_automation_progress_find_archive">Looking for \"Archive\" button (keywords: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Restoring…</string>
+    <string name="appcontrol_automation_progress_find_restore">Looking for \"Restore\" button (keywords: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Screen time: %1$s since %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Last updated: %s</string>
     <string name="appcontrol_item_installedat_x_label">Installed on: %s</string>
