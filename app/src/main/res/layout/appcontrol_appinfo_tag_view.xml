@@ -12,6 +12,11 @@
         tools:visibility="visible" />
 
     <include
+        android:id="@+id/tag_debug"
+        layout="@layout/appcontrol_tag_debug_view"
+        tools:visibility="visible" />
+
+    <include
         android:id="@+id/tag_archived"
         layout="@layout/appcontrol_tag_archived_view"
         tools:visibility="visible" />
@@ -46,7 +51,7 @@
         style="@style/AppControlTagContainerFlow"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="tag_system,tag_apk_base,tag_apk_bundle,tag_archived,tag_uninstalled,tag_disabled,tag_active"
+        app:constraint_referenced_ids="tag_system,tag_debug,tag_apk_base,tag_apk_bundle,tag_archived,tag_uninstalled,tag_disabled,tag_active"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

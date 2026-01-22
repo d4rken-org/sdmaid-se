@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tag_debug"
+    style="@style/AppControlTagStyle"
+    android:background="@drawable/bg_tag_box"
+    android:backgroundTint="?colorTertiary"
+    android:text="@string/appcontrol_tag_debug"
+    android:textColor="?colorOnTertiary"
+    android:visibility="gone"
+    app:iconTint="?colorOnTertiary"
+    tools:visibility="visible" />

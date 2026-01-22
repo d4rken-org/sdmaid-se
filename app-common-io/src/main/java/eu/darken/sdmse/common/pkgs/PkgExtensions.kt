@@ -35,5 +35,8 @@ val Pkg.isSystemApp: Boolean
 val Pkg.isUpdatedSystemApp: Boolean
     get() = isSystemApp && (this is InstallDetails) && this.isUpdatedSystemApp
 
+val Pkg.isDebuggable: Boolean
+    get() = (this is InstallDetails) && this.isDebuggable
+
 fun Pkg.Id.getLaunchIntent(context: Context) =
     context.packageManager.getLaunchIntentForPackage(this.name)

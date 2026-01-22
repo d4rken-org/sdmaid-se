@@ -588,6 +588,7 @@
     <string name="appcontrol_tag_not_installed">Not installed</string>
     <string name="appcontrol_tag_enabled">Enabled</string>
     <string name="appcontrol_tag_disabled">Disabled</string>
+    <string name="appcontrol_tag_debug">Debug</string>
     <string name="appcontrol_progress_enabling_package">Enabling app</string>
     <string name="appcontrol_progress_disabling_package">Disabling app</string>
     <string name="appcontrol_list_filteroptions_label">Filter options</string>
