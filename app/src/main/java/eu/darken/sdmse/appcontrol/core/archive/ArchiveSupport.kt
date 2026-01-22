@@ -9,6 +9,8 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.isSystemApp
+import eu.darken.sdmse.common.pkgs.isUpdatedSystemApp
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -25,16 +27,16 @@ class ArchiveSupport @Inject constructor(
      * we assume archiving is available since it's a standard Android 15 feature.
      * If archiving is truly unavailable, the pm archive command will fail gracefully.
      */
-    fun isArchivingEnabled(): Boolean {
+    val isArchivingEnabled: Boolean by lazy {
         if (!hasApiLevel(35)) {
             log(TAG, VERBOSE) { "Archiving not available: API level < 35" }
-            return false
+            return@lazy false
         }
 
         // On API 35+, try to check the feature flag
         // If reflection fails (hidden API restrictions), assume archiving is available
         // since it's a standard Android 15 feature enabled by default
-        return try {
+        try {
             @SuppressLint("PrivateApi")
             val flagsClass = Class.forName("android.content.pm.Flags")
             val archivingMethod = flagsClass.getMethod("archiving")
@@ -60,7 +62,9 @@ class ArchiveSupport @Inject constructor(
      */
     @SuppressLint("NewApi")
     fun isArchivable(installed: Installed): Boolean {
-        if (!isArchivingEnabled()) return false
+        if (!isArchivingEnabled) return false
+        if (installed.isSystemApp || installed.isUpdatedSystemApp) return false
+
         val installer = (installed as? InstallDetails)?.installerInfo?.installer
 
         if (installer != null && unsupportedInstallers.contains(installer.id)) {

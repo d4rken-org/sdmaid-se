@@ -43,7 +43,7 @@ class ArchiveSupportTest : BaseTest() {
         every { BuildWrap.VERSION.SDK_INT } returns 34
         every { BuildWrap.VERSION.CODENAME } returns "REL"
 
-        archiveSupport.isArchivingEnabled() shouldBe false
+        archiveSupport.isArchivingEnabled shouldBe false
     }
 
     @Test
@@ -52,7 +52,7 @@ class ArchiveSupportTest : BaseTest() {
         every { BuildWrap.VERSION.CODENAME } returns "REL"
 
         // Since Flags class won't exist in test environment, assume archiving is available on API 35+
-        archiveSupport.isArchivingEnabled() shouldBe true
+        archiveSupport.isArchivingEnabled shouldBe true
     }
 
     @Test
@@ -61,6 +61,6 @@ class ArchiveSupportTest : BaseTest() {
         every { BuildWrap.VERSION.CODENAME } returns "VanillaIceCream"
 
         // Even with the codename, Flags class won't exist - assume archiving is available on API 35+
-        archiveSupport.isArchivingEnabled() shouldBe true
+        archiveSupport.isArchivingEnabled shouldBe true
     }
 }
