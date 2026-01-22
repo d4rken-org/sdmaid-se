@@ -73,7 +73,9 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
+import kotlin.time.Duration.Companion.seconds
 
 
 @Reusable
@@ -206,6 +208,8 @@ class HyperOsSpecs @Inject constructor(
         log(TAG) { "clearCacheLabels=${clearCacheLabels.toVisualStrings()}" }
         val manageSpaceLabels = hyperOsLabels.getManageSpaceButtonLabels(this)
         log(TAG) { "manageSpaceLabels=${manageSpaceLabels.toVisualStrings()}" }
+        val clearAllDataLabels = hyperOsLabels.getClearAllDataButtonLabels(this)
+        log(TAG) { "clearAllDataLabels=${clearAllDataLabels.toVisualStrings()}" }
 
         var useAlternativeStep = deviceAdminManager.getDeviceAdmins().contains(pkg.id).also {
             if (it) log(TAG) { "${pkg.id} is a device admin, using alternative step directly." }
@@ -230,7 +234,18 @@ class HyperOsSpecs @Inject constructor(
                         }
                     }
 
-                    return@action false
+                    // HyperOS 2/3: "Clear all data" shown for apps without cache leads to dialog without "Clear cache"
+                    findNode { it.isTextView() && it.textMatchesAny(clearAllDataLabels) }?.let {
+                        throw PlanAbortException(
+                            message = "Got 'Clear all data'. App has no cache, skipping.",
+                            treatAsSuccess = true,
+                        )
+                    }
+
+                    throw PlanAbortException(
+                        message = "No 'Clear data' or 'Clear cache' found. App has no cache, skipping.",
+                        treatAsSuccess = true,
+                    )
                 }
 
                 val mapped = findClickableParent(node = clearDataTarget) ?: return@action false
@@ -293,23 +308,32 @@ class HyperOsSpecs @Inject constructor(
                 if (noAnimations) log(TAG) { "Settling-Check: Animations are disabled, using short debounce." }
 
                 // Now we have to make sure the BottomSheetDialog animation is settled
-                val settledTargetPosition = host.events
-                    .mapNotNull { host.windowRoot() }
-                    .mapNotNull { root ->
-                        val rect = Rect()
-                        (host.service as AutomationService).windowRoot()?.getBoundsInScreen(rect)
-                        log(TAG) { "Settling-Check0: Window Root: $rect" }
-                        root.crawl().map { it.node }.singleOrNull {
-                            it.textMatchesAny(clearCacheLabels)
+                val settledTargetPosition = withTimeoutOrNull(3.seconds) {
+                    host.events
+                        .mapNotNull { host.windowRoot() }
+                        .mapNotNull { root ->
+                            val rect = Rect()
+                            (host.service as AutomationService).windowRoot()?.getBoundsInScreen(rect)
+                            log(TAG) { "Settling-Check0: Window Root: $rect" }
+                            root.crawl().map { it.node }.singleOrNull {
+                                it.textMatchesAny(clearCacheLabels)
+                            }
                         }
-                    }
-                    .map { Rect().apply { it.getBoundsInScreen(this) } }
-                    .onEach { log(TAG) { "Settling-Check1: $it" } }
-                    .distinctUntilChanged()
-                    .onEach { log(TAG) { "Settling-Check2: $it" } }
-                    .debounce(if (noAnimations) 100 else 500)
-                    .onEach { log(TAG) { "Settling-Check3: $it" } }
-                    .first()
+                        .map { Rect().apply { it.getBoundsInScreen(this) } }
+                        .onEach { log(TAG) { "Settling-Check1: $it" } }
+                        .distinctUntilChanged()
+                        .onEach { log(TAG) { "Settling-Check2: $it" } }
+                        .debounce(if (noAnimations) 100 else 500)
+                        .onEach { log(TAG) { "Settling-Check3: $it" } }
+                        .first()
+                }
+
+                if (settledTargetPosition == null) {
+                    throw PlanAbortException(
+                        message = "Clear cache button not found in dialog. App has no cache, skipping.",
+                        treatAsSuccess = true,
+                    )
+                }
                 log(TAG) { "Settling-Check: Target has settled on $settledTargetPosition" }
                 host.waitForWindowRoot()
             }
