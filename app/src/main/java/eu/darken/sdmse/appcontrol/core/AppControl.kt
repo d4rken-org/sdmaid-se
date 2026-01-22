@@ -114,7 +114,7 @@ class AppControl @Inject constructor(
             canToggle = useRoot || useAdb,
             canForceStop = useAcs || useRoot || useAdb,
             canIncludeMultiUser = useRoot || useAdb,
-            canArchive = archiveSupport.isArchivingEnabled() && (useRoot || useAdb),
+            canArchive = archiveSupport.isArchivingEnabled && (useRoot || useAdb || useAcs),
         )
     }.replayingShare(appScope)
 

@@ -64,11 +64,18 @@ class AOSPSpecs @Inject constructor(
     override suspend fun getForceStop(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
         override val tag: String = TAG
         override suspend fun createPlan(): suspend AutomationExplorer.Context.() -> Unit = {
-            mainPlan(pkg)
+            forceStopPlan(pkg)
         }
     }
 
-    private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
+    override suspend fun getArchive(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
+        override val tag: String = TAG
+        override suspend fun createPlan(): suspend AutomationExplorer.Context.() -> Unit = {
+            archivePlan(pkg)
+        }
+    }
+
+    private val forceStopPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
         val forceStopLabels = aospLabels.getForceStopButtonDynamic(this)
@@ -150,6 +157,58 @@ class AOSPSpecs @Inject constructor(
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
+    }
+
+    private val archivePlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
+        log(TAG, INFO) { "Executing archive plan for ${pkg.installId} with context $this" }
+
+        val archiveLabels = aospLabels.getArchiveButtonDynamic(this)
+        var wasDisabled = false
+
+        run {
+            val action: suspend StepContext.() -> Boolean = action@{
+                val candidate = findNode { node ->
+                    node.textMatchesAny(archiveLabels)
+                } ?: return@action false
+
+                var target = findClickableParent(maxNesting = 3, includeSelf = true, node = candidate)
+
+                if (target == null && hasApiLevel(35)) {
+                    log(TAG, WARN) { "No clickable parent found for $candidate" }
+                    target = findNearestTo(node = candidate) { it.isClickable }
+                    if (target != null) log(TAG, INFO) { "Clickable sibling found: $target" }
+                }
+
+                if (target == null) {
+                    log(TAG, WARN) { "No clickable target found for $candidate" }
+                    return@action false
+                }
+
+                if (!target.isEnabled) {
+                    wasDisabled = true
+                    return@action true
+                }
+
+                clickNormal(node = target)
+            }
+
+            val step = AutomationStep(
+                source = TAG,
+                descriptionInternal = "Archive button for $pkg",
+                label = R.string.appcontrol_automation_progress_find_archive.toCaString(archiveLabels),
+                windowLaunch = windowLauncherDefaultSettings(pkg),
+                windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
+                nodeRecovery = defaultNodeRecovery(pkg),
+                nodeAction = action,
+            )
+            stepper.withProgress(this) { process(this@plan, step) }
+        }
+
+        if (wasDisabled) {
+            log(TAG) { "Archive button was disabled, app cannot be archived." }
+            return@plan
+        }
+        // Note: Android 15+ doesn't show a confirmation dialog - archive happens immediately when the button is clicked
     }
 
     @Module @InstallIn(SingletonComponent::class)

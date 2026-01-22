@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcontrol.core.archive
 
 import dagger.Reusable
 import eu.darken.sdmse.appcontrol.core.AppInfo
+import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -23,6 +24,8 @@ import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.user.UserManager2
+import eu.darken.sdmse.setup.automation.AutomationSetupModule
+import eu.darken.sdmse.setup.isComplete
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
@@ -42,6 +45,8 @@ class Archiver @Inject constructor(
     private val adbManager: AdbManager,
     private val userManager2: UserManager2,
     private val archiveSupport: ArchiveSupport,
+    private val automation: AutomationManager,
+    private val automationSetupModule: AutomationSetupModule,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
@@ -49,7 +54,7 @@ class Archiver @Inject constructor(
     suspend fun archive(app: AppInfo) {
         log(TAG, VERBOSE) { "archive($app)" }
 
-        if (!archiveSupport.isArchivingEnabled()) {
+        if (!archiveSupport.isArchivingEnabled) {
             throw ArchiveException(
                 message = "Archiving is not available on this device",
                 installId = app.installId,
@@ -90,9 +95,21 @@ class Archiver @Inject constructor(
                 }
             }
 
+            automationSetupModule.isComplete() -> {
+                log(TAG) { "Using Automation to archive ${app.installId}" }
+                val task = ArchiveAutomationTask(listOf(app.installId))
+                val result = automation.submit(task) as ArchiveAutomationTask.Result
+                if (result.failed.contains(app.installId)) {
+                    throw ArchiveException(
+                        message = "Automation failed to archive app",
+                        installId = app.installId,
+                    )
+                }
+            }
+
             else -> {
                 throw ArchiveException(
-                    message = "Archiving requires Root or Shizuku access",
+                    message = "Archiving requires Root, Shizuku, or Accessibility Service access",
                     installId = app.installId,
                 )
             }

@@ -44,7 +44,10 @@ class AppControlLabelDebugger @Inject constructor(
             "dlg_cancel",
             "device_apps_app_management_force_stop",
         )
-        private val ALL_RES_IDS = RES_IDS_FORCE_STOP
-        private val TAG = logTag("Automation", "ForceStopLabelDebugger")
+        private val RES_IDS_ARCHIVE = setOf(
+            "archive",
+        )
+        private val ALL_RES_IDS = RES_IDS_FORCE_STOP + RES_IDS_ARCHIVE
+        private val TAG = logTag("Automation", "AppControlLabelDebugger")
     }
 }
