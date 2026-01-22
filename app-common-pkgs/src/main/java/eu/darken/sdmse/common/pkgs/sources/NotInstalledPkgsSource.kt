@@ -13,9 +13,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -168,6 +166,9 @@ class NotInstalledPkgsSource @Inject constructor(
     private suspend fun PackageInfo.isArchived(): Boolean {
         if (!hasApiLevel(35)) return false
 
+        // Verify the APK is removed (archived apps have no sourceDir), fast check
+        if (applicationInfo?.sourceDir != null) return false
+
         // A package is truly archived only if:
         // 1. The system has archive info for it (getArchivedPackage returns non-null)
         //    Note: This returns non-null for archivable apps too (Play Store apps with pre-generated stubs)
@@ -176,14 +177,11 @@ class NotInstalledPkgsSource @Inject constructor(
         val hasArchiveInfo = try {
             context.packageManager.getArchivedPackage(packageName) != null
         } catch (e: Exception) {
-            log(TAG, VERBOSE) { "Failed to check archived status for $packageName: $e" }
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "Failed to check archived status for $packageName: $e" }
             false
         }
 
-        if (!hasArchiveInfo) return false
-
-        // Verify the APK is actually removed (archived apps have no sourceDir)
-        return applicationInfo?.sourceDir == null
+        return hasArchiveInfo
     }
 
     private suspend fun PackageInfo.isUninstalled(): Boolean = when {
