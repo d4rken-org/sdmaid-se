@@ -32,7 +32,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onStart
 
@@ -91,6 +90,9 @@ suspend fun SpecGenerator.checkIdentifiers(
     pkgInfo: Installed,
 ): suspend StepContext.(ACSNodeInfo) -> Boolean = { root ->
     val candidates = mutableSetOf(pkgInfo.packageName)
+
+    // Use pkgInfo.label which handles archived packages correctly via ArchivedPackageInfo
+    pkgInfo.label?.get(androidContext)?.let { candidates.add(it) }
 
     ipcFunnel
         .use { packageManager.getLabel2(pkgInfo.id) }

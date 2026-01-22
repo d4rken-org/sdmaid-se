@@ -13,6 +13,8 @@ import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.export.AppExporter
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopper
+import eu.darken.sdmse.appcontrol.core.restore.RestoreTask
+import eu.darken.sdmse.appcontrol.core.restore.Restorer
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.toggle.ComponentToggler
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
@@ -72,6 +74,7 @@ class AppControl @Inject constructor(
     private val forceStopper: ForceStopper,
     private val uninstaller: Uninstaller,
     private val archiver: Archiver,
+    private val restorer: Restorer,
     private val archiveSupport: ArchiveSupport,
     usageStatsSetupModule: UsageStatsSetupModule,
     storageSetupModule: StorageSetupModule,
@@ -115,6 +118,7 @@ class AppControl @Inject constructor(
             canForceStop = useAcs || useRoot || useAdb,
             canIncludeMultiUser = useRoot || useAdb,
             canArchive = archiveSupport.isArchivingEnabled && (useRoot || useAdb || useAcs),
+            canRestore = archiveSupport.isArchivingEnabled && (useRoot || useAdb || useAcs),
         )
     }.replayingShare(appScope)
 
@@ -132,6 +136,7 @@ class AppControl @Inject constructor(
                     is AppExportTask -> performExportSave(task)
                     is ForceStopTask -> performForceStop(task)
                     is ArchiveTask -> performArchive(task)
+                    is RestoreTask -> performRestore(task)
                     else -> throw UnsupportedOperationException("Unsupported task: $task")
                 }
             }
@@ -414,6 +419,59 @@ class AppControl @Inject constructor(
         return ArchiveTask.Result(successful, failed)
     }
 
+    private suspend fun performRestore(task: RestoreTask): RestoreTask.Result {
+        log(TAG) { "performRestore(): $task" }
+        updateProgressCount(Progress.Count.Counter(task.targets.size))
+
+        val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
+        val successful = mutableSetOf<InstallId>()
+        val failed = mutableSetOf<InstallId>()
+
+        restorer.useRes {
+            task.targets.forEach { targetId ->
+                val target = snapshot.apps.single { it.installId == targetId }
+                updateProgressPrimary(target.label)
+                updateProgressSecondary(R.string.appcontrol_progress_restoring_app)
+
+                try {
+                    restorer.restore(target)
+                    successful.add(target.installId)
+                    log(TAG, INFO) { "Successfully restored $target" }
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to restore $targetId: ${e.asLog()}" }
+                    failed.add(targetId)
+                } finally {
+                    increaseProgress()
+                }
+            }
+        }
+
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
+        updateProgressSecondary(CaString.EMPTY)
+        updateProgressCount(Progress.Count.Indeterminate())
+
+        appScan.refresh()
+
+        internalData.value = snapshot.copy(
+            apps = run {
+                val affectedPkgs = successful.map { it.pkgId } + failed.map { it.pkgId }
+                val cleanedSnapshot = snapshot.apps.filterNot { affectedPkgs.contains(it.id) }
+                val updatedPkgs = affectedPkgs.map {
+                    appScan.app(
+                        pkgId = it,
+                        user = if (snapshot.hasIncludedMultiUser) null else userManager.currentUser().handle,
+                        includeSize = snapshot.hasInfoSize,
+                        includeActive = snapshot.hasInfoActive,
+                        includeUsage = snapshot.hasInfoScreenTime,
+                    )
+                }.flatten()
+                cleanedSnapshot + updatedPkgs
+            }
+        )
+
+        return RestoreTask.Result(successful, failed)
+    }
+
     data class State(
         val data: Data?,
         val progress: Progress.Data?,
@@ -424,6 +482,7 @@ class AppControl @Inject constructor(
         val canInfoScreenTime: Boolean,
         val canIncludeMultiUser: Boolean,
         val canArchive: Boolean,
+        val canRestore: Boolean,
     ) : SDMTool.State
 
     data class Data(

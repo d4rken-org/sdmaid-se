@@ -69,6 +69,10 @@ class OukitelSpecs @Inject constructor(
         throw UnsupportedOperationException("Archive automation not yet supported on Oukitel")
     }
 
+    override suspend fun getRestore(pkg: Installed): AutomationSpec {
+        throw UnsupportedOperationException("Restore automation not yet supported on Oukitel")
+    }
+
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 

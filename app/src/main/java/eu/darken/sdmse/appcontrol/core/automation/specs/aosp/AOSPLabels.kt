@@ -35,6 +35,10 @@ class AOSPLabels @Inject constructor() : AppControlLabelSource {
         acsContext: AutomationExplorer.Context,
     ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("archive"))
 
+    fun getRestoreButtonDynamic(
+        acsContext: AutomationExplorer.Context,
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("restore"))
+
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
         val TAG: String = logTag("AppControl", "Automation", "AOSP", "Labels")

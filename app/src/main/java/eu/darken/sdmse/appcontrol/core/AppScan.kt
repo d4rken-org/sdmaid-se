@@ -13,10 +13,9 @@ import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.current
 import eu.darken.sdmse.common.pkgs.features.InstallId
-import eu.darken.sdmse.common.pkgs.isArchived
-import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
+import eu.darken.sdmse.common.pkgs.isArchived
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
@@ -166,6 +165,7 @@ class AppScan @Inject constructor(
                 archiveSupport.isArchivable(this) &&
                 !isArchived &&
                 !isSystemApp,
+        canBeRestored = isArchived && archiveSupport.isArchivingEnabled,
     )
 
     companion object {
