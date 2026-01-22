@@ -2,8 +2,10 @@ package eu.darken.sdmse.common.pkgs.pkgops.ipc
 
 import android.app.ActivityManager
 import android.content.Context
+import android.content.IntentSender
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Process
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.flowshell.core.cmd.FlowCmd
@@ -241,6 +243,19 @@ class PkgOpsHost @Inject constructor(
         result.exitCode == FlowProcess.ExitCode.OK
     } catch (e: Exception) {
         log(TAG, ERROR) { "setAppOps($packageName, $handleId, $key, $value) failed: ${e.asLog()}" }
+        throw e.wrapToPropagate()
+    }
+
+    override fun requestUnarchive(packageName: String, statusReceiver: IntentSender) = try {
+        log(TAG, VERBOSE) { "requestUnarchive($packageName)..." }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            pm.packageInstaller.requestUnarchive(packageName, statusReceiver)
+        } else {
+            throw UnsupportedOperationException("requestUnarchive requires API 35+")
+        }
+        log(TAG, VERBOSE) { "requestUnarchive($packageName) initiated" }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "requestUnarchive($packageName) failed: ${e.asLog()}" }
         throw e.wrapToPropagate()
     }
 

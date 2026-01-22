@@ -86,6 +86,10 @@
             android:exported="false" />
 
         <receiver
+            android:name=".appcontrol.core.restore.UnarchiveReceiver"
+            android:exported="false" />
+
+        <receiver
             android:name="eu.darken.sdmse.scheduler.core.SchedulerRestoreReceiver"
             android:exported="false">
             <intent-filter>
