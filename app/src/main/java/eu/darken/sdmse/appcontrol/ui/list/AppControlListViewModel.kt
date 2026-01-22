@@ -333,7 +333,7 @@ class AppControlListViewModel @Inject constructor(
                 FilterSettings.Tag.ENABLED -> if (existing) {
                     old.tags.minus(tag)
                 } else {
-                    old.tags.plus(tag).minus(FilterSettings.Tag.DISABLED)
+                    old.tags.plus(tag).minus(FilterSettings.Tag.DISABLED).minus(FilterSettings.Tag.NOT_INSTALLED)
                 }
 
                 FilterSettings.Tag.DISABLED -> if (existing) {
@@ -351,7 +351,7 @@ class AppControlListViewModel @Inject constructor(
                 FilterSettings.Tag.NOT_INSTALLED -> if (existing) {
                     old.tags.minus(tag)
                 } else {
-                    old.tags.plus(tag)
+                    old.tags.plus(tag).minus(FilterSettings.Tag.ENABLED)
                 }
             }
             old.copy(tags = newTags)
