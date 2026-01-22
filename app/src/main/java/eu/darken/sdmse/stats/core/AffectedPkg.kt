@@ -15,6 +15,7 @@ interface AffectedPkg {
         ENABLED,
         DISABLED,
         DELETED,
+        ARCHIVED,
         ;
     }
 }
@@ -26,4 +27,5 @@ interface AffectedPkg {
         AffectedPkg.Action.ENABLED -> R.drawable.ic_snowflake_off_24
         AffectedPkg.Action.DISABLED -> R.drawable.ic_snowflake_24
         AffectedPkg.Action.DELETED -> R.drawable.ic_delete
+        AffectedPkg.Action.ARCHIVED -> eu.darken.sdmse.common.io.R.drawable.ic_archive_24
     }

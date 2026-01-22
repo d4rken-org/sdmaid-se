@@ -13,5 +13,6 @@ sealed class AppControlListEvents {
         val intent: Intent
     ) : AppControlListEvents()
     data class ConfirmForceStop(val items: List<AppControlListAdapter.Item>) : AppControlListEvents()
+    data class ConfirmArchive(val items: List<AppControlListAdapter.Item>) : AppControlListEvents()
     data class ShowResult(val result: AppControlTask.Result) : AppControlListEvents()
 }

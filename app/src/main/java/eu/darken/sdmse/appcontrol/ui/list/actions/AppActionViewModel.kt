@@ -14,11 +14,14 @@ import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
 import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveException
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveTask
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallException
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.ArchiveActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExcludeActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExportActionVH
@@ -245,6 +248,22 @@ class AppActionViewModel @Inject constructor(
             null
         }
 
+        val archiveAction = if (state.canArchive && appInfo.canBeArchived) {
+            ArchiveActionVH.Item(
+                appInfo = appInfo,
+                onItemClicked = { info ->
+                    val task = ArchiveTask(setOf(info.installId))
+                    launch {
+                        val result = taskManager.submit(task) as ArchiveTask.Result
+                        if (result.failed.isNotEmpty()) throw ArchiveException(installId = result.failed.first())
+                        else events.postValue(AppActionEvents.ShowResult(result))
+                    }
+                }
+            )
+        } else {
+            null
+        }
+
         val disableAction = if (state.canToggle && appInfo.canBeToggled) {
             ToggleActionVH.Item(
                 appInfo = appInfo,
@@ -282,6 +301,7 @@ class AppActionViewModel @Inject constructor(
                 excludeAction,
                 disableAction,
                 uninstallAction,
+                archiveAction,
                 exportaction,
             ),
             progress = progress,

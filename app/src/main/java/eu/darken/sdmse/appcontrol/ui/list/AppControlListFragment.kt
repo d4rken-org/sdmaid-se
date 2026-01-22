@@ -52,6 +52,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
     private var searchView: SearchView? = null
     private var showAppToggleActions: Boolean = false
     private var showAppForceStopActions: Boolean = false
+    private var showAppArchiveActions: Boolean = false
 
     val DrawerLayout.isDrawerOpen: Boolean
         get() = isDrawerOpen(GravityCompat.END)
@@ -154,6 +155,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             onPrepare = { _: SelectionTracker<String>, _: ActionMode, menu: Menu ->
                 menu.findItem(R.id.action_toggle_selection)?.isVisible = showAppToggleActions
                 menu.findItem(R.id.action_forcestop_selection)?.isVisible = showAppForceStopActions
+                menu.findItem(R.id.action_archive_selection)?.isVisible = showAppArchiveActions
                 true
             },
             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: Collection<AppControlListAdapter.Item> ->
@@ -186,6 +188,12 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
 
                     R.id.action_forcestop_selection -> {
                         vm.forceStop(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
+                    R.id.action_archive_selection -> {
+                        vm.archive(selected)
                         tracker.clearSelection()
                         true
                     }
@@ -232,6 +240,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
         vm.state.observe2(ui) { state ->
             showAppToggleActions = state.allowActionToggle
             showAppForceStopActions = state.allowActionForceStop
+            showAppArchiveActions = state.allowActionArchive
 
             loadingOverlay.setProgress(state.progress)
             list.isGone = state.progress != null
@@ -367,6 +376,18 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     )
                     setPositiveButton(R.string.appcontrol_force_stop_action) { _, _ ->
                         vm.forceStop(event.items, confirmed = true)
+                        tracker.clearSelection()
+                    }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                }.show()
+
+                is AppControlListEvents.ConfirmArchive -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    setTitle(R.string.appcontrol_archive_confirmation_title)
+                    setMessage(
+                        getQuantityString2(R.plurals.appcontrol_archive_confirmation_x, event.items.size)
+                    )
+                    setPositiveButton(R.string.appcontrol_archive_action) { _, _ ->
+                        vm.archive(event.items, confirmed = true)
                         tracker.clearSelection()
                     }
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }

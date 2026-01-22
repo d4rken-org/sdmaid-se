@@ -24,6 +24,7 @@ data class AppInfo(
     val canBeStopped: Boolean,
     val canBeExported: Boolean,
     val canBeDeleted: Boolean,
+    val canBeArchived: Boolean,
 ) {
     val label: CaString
         get() = pkg.label ?: pkg.packageName.toCaString()

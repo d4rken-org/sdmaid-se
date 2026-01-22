@@ -8,6 +8,11 @@
         android:title="@string/general_delete_selected_action"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/action_archive_selection"
+        android:icon="@drawable/ic_archive_24"
+        android:title="@string/appcontrol_archive_selection_action"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_exclude_selected"
         android:icon="@drawable/ic_shield_plus_24"
         android:title="@string/general_exclude_selected_action"
