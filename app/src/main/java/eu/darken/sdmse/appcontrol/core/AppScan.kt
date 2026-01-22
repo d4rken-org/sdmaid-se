@@ -163,7 +163,7 @@ class AppScan @Inject constructor(
         canBeExported = this is SourceAvailable,
         canBeDeleted = true,
         canBeArchived = this is NormalPkg &&
-                archiveSupport.isArchivable(installId) &&
+                archiveSupport.isArchivable(this) &&
                 !isArchived &&
                 !isSystemApp,
     )

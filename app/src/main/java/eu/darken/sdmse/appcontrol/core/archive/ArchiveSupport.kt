@@ -7,7 +7,9 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
-import eu.darken.sdmse.common.pkgs.features.InstallId
+import eu.darken.sdmse.common.pkgs.features.InstallDetails
+import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -57,15 +59,26 @@ class ArchiveSupport @Inject constructor(
      * archived APK stubs. getArchivedPackage() returns non-null for these apps.
      */
     @SuppressLint("NewApi")
-    fun isArchivable(installId: InstallId): Boolean {
+    fun isArchivable(installed: Installed): Boolean {
         if (!isArchivingEnabled()) return false
+        val installer = (installed as? InstallDetails)?.installerInfo?.installer
+
+        if (installer != null && unsupportedInstallers.contains(installer.id)) {
+            log(TAG, VERBOSE) { "Unsupported installer on ${installed.packageName}: $installer" }
+            return false
+        }
+
         return try {
-            context.packageManager.getArchivedPackage(installId.pkgId.name) != null
+            context.packageManager.getArchivedPackage(installed.packageName) != null
         } catch (e: Exception) {
-            log(TAG, VERBOSE) { "Failed to check archive support for $installId: $e" }
+            log(TAG, VERBOSE) { "Failed to check archive support for ${installed.installId}: $e" }
             false
         }
     }
+
+    private val unsupportedInstallers = setOf(
+        "com.android.shell"
+    ).map { it.toPkgId() }
 
     private val TAG = logTag("AppControl", "ArchiveSupport")
 }
