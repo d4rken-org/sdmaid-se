@@ -226,6 +226,14 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     onNeutral = { vm.showDeduplicator() },
                 )
 
+                is DashboardEvents.CompressorProcessConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    setTitle(R.string.compressor_compress_confirmation_title)
+                    setMessage(R.string.compressor_compress_confirmation_message)
+                    setPositiveButton(R.string.compressor_compress_action) { _, _ -> vm.confirmCompressorProcessing() }
+                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showCompressor() }
+                }.show()
+
                 DashboardEvents.SetupDismissHint -> {
                     Snackbar
                         .make(

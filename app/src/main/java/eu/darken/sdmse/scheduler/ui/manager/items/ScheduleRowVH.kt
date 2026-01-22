@@ -103,6 +103,11 @@ class ScheduleRowVH(parent: ViewGroup) :
             setChecked2(schedule.useAppCleaner)
             setOnCheckedChangeListener { _, _ -> item.onToggleAppCleaner() }
         }
+        toolCompressorToggle.apply {
+            isEnabled = !schedule.isEnabled
+            setChecked2(schedule.useCompressor)
+            setOnCheckedChangeListener { _, _ -> item.onToggleCompressor() }
+        }
 
         commandsContainer.isVisible = item.showCommands
         commandsInfo.text = if (schedule.commandsAfterSchedule.isNotEmpty()) {
@@ -126,6 +131,7 @@ class ScheduleRowVH(parent: ViewGroup) :
         val onToggleCorpseFinder: () -> Unit,
         val onToggleSystemCleaner: () -> Unit,
         val onToggleAppCleaner: () -> Unit,
+        val onToggleCompressor: () -> Unit,
         val onEditFinalCommands: () -> Unit,
     ) : SchedulerAdapter.Item {
 

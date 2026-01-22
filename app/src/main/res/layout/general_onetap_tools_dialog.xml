@@ -33,4 +33,11 @@
         android:layout_height="wrap_content"
         android:text="@string/deduplicator_tool_name" />
 
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/compressor_toggle"
+        style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/compressor_tool_name" />
+
 </LinearLayout>

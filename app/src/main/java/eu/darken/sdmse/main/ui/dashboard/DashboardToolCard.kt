@@ -29,6 +29,7 @@ class DashboardToolCard(parent: ViewGroup) :
                 SDMTool.Type.SYSTEMCLEANER -> R.drawable.ic_baseline_view_list_24
                 SDMTool.Type.APPCLEANER -> R.drawable.ic_recycle
                 SDMTool.Type.DEDUPLICATOR -> R.drawable.ic_content_duplicate_24
+                SDMTool.Type.COMPRESSOR -> R.drawable.ic_image_compress_24
                 SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER -> 0
             }
         )
@@ -38,6 +39,7 @@ class DashboardToolCard(parent: ViewGroup) :
                 SDMTool.Type.SYSTEMCLEANER -> R.string.systemcleaner_tool_name
                 SDMTool.Type.APPCLEANER -> R.string.appcleaner_tool_name
                 SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_tool_name
+                SDMTool.Type.COMPRESSOR -> R.string.compressor_tool_name
                 SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER -> 0
             }
         )
@@ -48,6 +50,7 @@ class DashboardToolCard(parent: ViewGroup) :
                     SDMTool.Type.SYSTEMCLEANER -> R.string.systemcleaner_explanation_short
                     SDMTool.Type.APPCLEANER -> R.string.appcleaner_explanation_short
                     SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_explanation_short
+                    SDMTool.Type.COMPRESSOR -> R.string.compressor_explanation_short
                     SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER -> 0
                 }
             )
@@ -96,10 +99,21 @@ class DashboardToolCard(parent: ViewGroup) :
         deleteAction.apply {
             isGone = item.progress != null || item.onDelete == null
             setOnClickListener { item.onDelete?.invoke() }
+            setText(
+                when (item.toolType) {
+                    SDMTool.Type.COMPRESSOR -> R.string.compressor_compress_action
+                    else -> eu.darken.sdmse.common.R.string.general_delete_action
+                }
+            )
             if (item.showProRequirement) {
                 setIconResource(R.drawable.ic_baseline_stars_24)
             } else if (item.onDelete != null) {
-                setIconResource(R.drawable.ic_delete)
+                setIconResource(
+                    when (item.toolType) {
+                        SDMTool.Type.COMPRESSOR -> R.drawable.ic_image_compress_24
+                        else -> R.drawable.ic_delete
+                    }
+                )
             } else {
                 icon = null
             }

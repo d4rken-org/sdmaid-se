@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <eu.darken.sdmse.common.preferences.Preference2
+        app:icon="@drawable/ic_folder_search_24"
+        app:key="scan.location.paths"
+        app:persistent="false"
+        app:singleLineTitle="false"
+        app:title="@string/compressor_search_locations_title" />
+
+    <Preference
+        app:icon="@drawable/ic_file_chart_outline_24"
+        app:key="filter.minsize.bytes"
+        app:singleLineTitle="false"
+        app:summary="@string/compressor_min_size_description"
+        app:title="@string/compressor_min_size_title" />
+
+    <Preference
+        app:icon="@drawable/ic_file_clock_outline_24"
+        app:key="filter.maxage.days"
+        app:singleLineTitle="false"
+        app:summary="@string/compressor_max_age_description"
+        app:title="@string/compressor_max_age_title" />
+
+    <PreferenceCategory android:title="@string/compressor_types_category_label">
+
+        <CheckBoxPreference
+            app:defaultValue="true"
+            app:icon="@drawable/ic_image_compress_24"
+            app:key="filter.type.jpeg.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/compressor_type_jpeg_description"
+            app:title="@string/compressor_type_jpeg_title" />
+
+        <CheckBoxPreference
+            app:defaultValue="true"
+            app:icon="@drawable/ic_image_compress_24"
+            app:key="filter.type.webp.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/compressor_type_webp_description"
+            app:title="@string/compressor_type_webp_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/compressor_compression_settings_label">
+
+        <Preference
+            app:icon="@drawable/ic_baseline_settings_24"
+            app:key="compression.quality"
+            app:singleLineTitle="false"
+            app:summary="@string/compressor_quality_description"
+            app:title="@string/compressor_quality_title" />
+
+        <CheckBoxPreference
+            app:defaultValue="true"
+            app:icon="@drawable/ic_skip_over_24"
+            app:key="skip.previously.compressed"
+            app:singleLineTitle="false"
+            app:summary="@string/compressor_skip_compressed_description"
+            app:title="@string/compressor_skip_compressed_title" />
+
+        <Preference
+            app:icon="@drawable/ic_baseline_history_24"
+            app:key="compression.history.info"
+            app:selectable="true"
+            app:singleLineTitle="false"
+            app:title="@string/compressor_history_title" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

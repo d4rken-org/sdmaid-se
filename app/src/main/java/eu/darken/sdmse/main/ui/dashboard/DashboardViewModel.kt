@@ -49,6 +49,13 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
 import eu.darken.sdmse.corpsefinder.core.tasks.UninstallWatcherTask
+import eu.darken.sdmse.compressor.core.Compressor
+import eu.darken.sdmse.compressor.core.hasData
+import eu.darken.sdmse.compressor.core.tasks.CompressorOneClickTask
+import eu.darken.sdmse.compressor.core.tasks.CompressorProcessTask
+import eu.darken.sdmse.compressor.core.tasks.CompressorScanTask
+import eu.darken.sdmse.compressor.core.tasks.CompressorSchedulerTask
+import eu.darken.sdmse.compressor.core.tasks.CompressorTask
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
@@ -115,6 +122,7 @@ class DashboardViewModel @Inject constructor(
     analyzer: Analyzer,
     debugCardProvider: DebugCardProvider,
     private val deduplicator: Deduplicator,
+    private val compressor: Compressor,
     private val upgradeRepo: UpgradeRepo,
     private val generalSettings: GeneralSettings,
     private val webpageTool: WebpageTool,
@@ -311,6 +319,38 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
+    private val compressorItem: Flow<DashboardToolCard.Item?> = combine(
+        (compressor.state as Flow<Compressor.State?>).onStart { emit(null) },
+        taskManager.state.map { it.getLatestResult(SDMTool.Type.COMPRESSOR) },
+        upgradeInfo.map { it?.isPro ?: false },
+    ) { state, lastResult, isPro ->
+        DashboardToolCard.Item(
+            toolType = SDMTool.Type.COMPRESSOR,
+            isInitializing = state == null,
+            result = lastResult,
+            progress = state?.progress,
+            showProRequirement = !isPro,
+            onScan = {
+                launch { submitTask(CompressorScanTask()) }
+            },
+            onDelete = {
+                launch {
+                    val event = DashboardEvents.CompressorProcessConfirmation(
+                        task = CompressorProcessTask(),
+                    )
+                    events.postValue(event)
+                }
+            }.takeIf { state?.data?.hasData == true },
+            onCancel = {
+                launch { taskManager.cancel(SDMTool.Type.COMPRESSOR) }
+            },
+            onViewTool = { showCompressor() },
+            onViewDetails = {
+                DashboardFragmentDirections.actionDashboardFragmentToCompressorListFragment().navigate()
+            },
+        )
+    }
+
     private val appControlItem: Flow<AppControlDashCardVH.Item?> = (appControl.state as Flow<AppControl.State?>)
         .onStart { emit(null) }
         .mapLatest { state ->
@@ -469,6 +509,7 @@ class DashboardViewModel @Inject constructor(
         systemCleanerItem,
         appCleanerItem,
         deduplicatorItem,
+        compressorItem,
         appControlItem,
         analyzerItem,
         schedulerItem,
@@ -489,6 +530,7 @@ class DashboardViewModel @Inject constructor(
         systemCleanerItem: DashboardToolCard.Item?,
         appCleanerItem: DashboardToolCard.Item?,
         deduplicatorItem: DashboardToolCard.Item?,
+        compressorItem: DashboardToolCard.Item?,
         appControlItem: AppControlDashCardVH.Item?,
         analyzerItem: AnalyzerDashCardVH.Item?,
         schedulerItem: SchedulerDashCardVH.Item?,
@@ -507,6 +549,7 @@ class DashboardViewModel @Inject constructor(
             systemCleanerItem?.isInitializing,
             appCleanerItem?.isInitializing,
             deduplicatorItem?.isInitializing,
+            compressorItem?.isInitializing,
             appControlItem?.isInitializing,
         ).any { it }
 
@@ -722,6 +765,27 @@ class DashboardViewModel @Inject constructor(
                 BottomBarState.Action.ONECLICK -> submitTask(DeduplicatorOneClickTask())
             }
         }
+        launch {
+            if (!generalSettings.oneClickCompressorEnabled.value()) {
+                log(VERBOSE) { "Compressor is disabled one-click mode." }
+                return@launch
+            }
+
+            when (actionState) {
+                BottomBarState.Action.SCAN -> submitTask(CompressorScanTask())
+                BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.COMPRESSOR)
+                BottomBarState.Action.WORKING -> {}
+                BottomBarState.Action.DELETE -> if (compressor.state.first().data != null) {
+                    submitTask(CompressorProcessTask())
+                }
+
+                BottomBarState.Action.ONECLICK -> {
+                    if (upgradeRepo.isPro()) {
+                        submitTask(CompressorOneClickTask())
+                    }
+                }
+            }
+        }
     }
 
     fun confirmCorpseDeletion() = launch {
@@ -774,6 +838,21 @@ class DashboardViewModel @Inject constructor(
         submitTask(DeduplicatorDeleteTask())
     }
 
+    fun showCompressor() {
+        log(TAG, INFO) { "showCompressorDetails()" }
+        DashboardFragmentDirections.actionDashboardFragmentToCompressorListFragment().navigate()
+    }
+
+    fun confirmCompressorProcessing() = launch {
+        log(TAG, INFO) { "confirmCompressorProcessing()" }
+
+        if (!upgradeRepo.isPro()) {
+            MainDirections.goToUpgradeFragment().navigate()
+            return@launch
+        }
+        submitTask(CompressorProcessTask())
+    }
+
     fun undoSetupHide() = launch {
         log(TAG) { "undoSetupHide()" }
         setupManager.setDismissed(false)
@@ -810,6 +889,13 @@ class DashboardViewModel @Inject constructor(
                 is DeduplicatorScanTask.Success -> {}
                 is DeduplicatorDeleteTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
                 is DeduplicatorOneClickTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
+            }
+
+            is CompressorTask.Result -> when (result) {
+                is CompressorScanTask.Success -> {}
+                is CompressorProcessTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
+                is CompressorOneClickTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
+                is CompressorSchedulerTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
         }
     }

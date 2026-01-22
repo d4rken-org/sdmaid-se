@@ -61,6 +61,7 @@ class ScheduleStorageTest : BaseTest() {
                         "corpsefinderEnabled": false,
                         "systemcleanerEnabled": false,
                         "appcleanerEnabled": false,
+                        "compressorEnabled": false,
                         "commandsAfterSchedule": []
                     }
                 ]
@@ -105,6 +106,7 @@ class ScheduleStorageTest : BaseTest() {
                         "corpsefinderEnabled": true,
                         "systemcleanerEnabled": true,
                         "appcleanerEnabled": true,
+                        "compressorEnabled": false,
                         "commandsAfterSchedule": ["reboot"],
                         "executedAt": "2024-01-14T21:30:00Z"
                     }

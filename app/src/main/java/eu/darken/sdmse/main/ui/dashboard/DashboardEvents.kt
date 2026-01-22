@@ -2,6 +2,7 @@ package eu.darken.sdmse.main.ui.dashboard
 
 import android.content.Intent
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
+import eu.darken.sdmse.compressor.core.tasks.CompressorProcessTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
@@ -28,6 +29,10 @@ sealed interface DashboardEvents {
     data class DeduplicatorDeleteConfirmation(
         val task: DeduplicatorDeleteTask,
         val clusters: List<Duplicate.Cluster>? = null,
+    ) : DashboardEvents
+
+    data class CompressorProcessConfirmation(
+        val task: CompressorProcessTask,
     ) : DashboardEvents
 
     data class TaskResult(

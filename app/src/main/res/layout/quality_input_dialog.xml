@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/quality_value"
+        style="@style/TextAppearance.Material3.HeadlineMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        tools:text="80%" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/quality_slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:contentDescription="Slider for compression quality"
+        android:stepSize="1"
+        android:valueFrom="20"
+        android:valueTo="100"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/example_text"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        tools:text="Example: 5 MB image → ~3.25 MB" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/warning_low_quality"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/compressor_quality_warning_low"
+        android:textColor="?colorError"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/warning_high_quality"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/compressor_quality_warning_high"
+        android:textColor="?colorTertiary"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</LinearLayout>
