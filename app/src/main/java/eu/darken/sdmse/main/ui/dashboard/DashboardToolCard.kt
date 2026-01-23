@@ -56,7 +56,12 @@ class DashboardToolCard(parent: ViewGroup) :
 
         toolLoadingIndicator.isGone = !item.isInitializing
 
-        activityContainer.isGone = item.progress == null && item.result == null
+        activityContainer.apply {
+            isGone = item.progress == null && item.result == null
+            setOnClickListener { item.onViewTool() }
+            isFocusable = item.result != null && item.progress == null
+            isClickable = item.result != null && item.progress == null
+        }
         progressBar.isInvisible = item.progress == null
         statusPrimary.isInvisible = item.progress != null
         statusSecondary.isInvisible = item.progress != null
