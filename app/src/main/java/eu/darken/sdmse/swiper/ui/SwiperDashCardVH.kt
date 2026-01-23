@@ -63,7 +63,8 @@ class SwiperDashCardVH(parent: ViewGroup) :
             }
         }
 
-        root.setOnClickListener { item.onViewDetails() }
+        viewAction.setOnClickListener { item.onViewDetails() }
+        root.setOnClickListener { viewAction.performClick() }
     }
 
     data class Item(
