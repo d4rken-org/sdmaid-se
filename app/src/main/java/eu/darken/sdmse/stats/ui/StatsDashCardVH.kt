@@ -66,6 +66,7 @@ class StatsDashCardVH(parent: ViewGroup) :
             }
         }
         root.setOnClickListener { item.onViewAction() }
+        viewAction.setOnClickListener { item.onViewAction() }
     }
 
     data class Item(

@@ -9,13 +9,15 @@
         android:orderInCategory="50"
         android:visible="false"
         android:title="@string/general_upgrade_action"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        tools:ignore="AlwaysShowAction" />
 
     <item
         android:id="@+id/menu_action_settings"
         android:icon="@drawable/ic_settings"
         android:orderInCategory="100"
         android:title="@string/general_settings_title"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        tools:ignore="AlwaysShowAction"  />
 
 </menu>

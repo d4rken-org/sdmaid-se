@@ -79,6 +79,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             }
         }
 
+
         vm.bottomBarState.observe2(ui) { state ->
             if (state.activeTasks > 0 || state.queuedTasks > 0) {
                 bottomBarTextLeft.apply {
@@ -103,6 +104,11 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 bottomBarTextLeft.text = ""
             }
 
+            bottomBar.findViewById<View>(R.id.menu_action_settings).let {
+                it.isFocusable = true
+                it.isFocusableInTouchMode = false
+                it.nextFocusUpId = R.id.main_action
+            }
             bottomBar.menu?.findItem(R.id.menu_action_upgrade)?.let {
                 it.isVisible = state.upgradeInfo?.isPro != true
             }
@@ -110,6 +116,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             mainAction.apply {
                 isInvisible = !state.isReady
                 isEnabled = state.actionState != DashboardViewModel.BottomBarState.Action.WORKING
+                ui.mainAction.nextFocusDownId = R.id.menu_action_settings
 
                 setOnClickListener {
                     if (state.actionState == DashboardViewModel.BottomBarState.Action.DELETE) {
