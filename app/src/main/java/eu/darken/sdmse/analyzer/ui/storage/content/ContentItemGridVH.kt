@@ -1,5 +1,6 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
+import android.graphics.Bitmap
 import android.text.format.Formatter
 import android.view.ViewGroup
 import androidx.core.view.isGone
@@ -10,12 +11,12 @@ import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.iconRes
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.databinding.AnalyzerContentItemVhBinding
+import eu.darken.sdmse.databinding.AnalyzerContentItemGridVhBinding
 
 
-class ContentItemVH(parent: ViewGroup) :
-    ContentAdapter.BaseVH<ContentItemVH.Item, AnalyzerContentItemVhBinding>(
-        R.layout.analyzer_content_item_vh,
+class ContentItemGridVH(parent: ViewGroup) :
+    ContentAdapter.BaseVH<ContentItemGridVH.Item, AnalyzerContentItemGridVhBinding>(
+        R.layout.analyzer_content_item_grid_vh,
         parent
     ) {
     private var lastItem: Item? = null
@@ -26,18 +27,21 @@ class ContentItemVH(parent: ViewGroup) :
         itemView.isActivated = selected
     }
 
-    override val viewBinding = lazy { AnalyzerContentItemVhBinding.bind(itemView) }
+    override val viewBinding = lazy { AnalyzerContentItemGridVhBinding.bind(itemView) }
 
-    override val onBindData: AnalyzerContentItemVhBinding.(
+    override val onBindData: AnalyzerContentItemGridVhBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
         lastItem = item
         val content = item.content
 
-        contentIcon.apply {
+        previewImage.apply {
             if (content.lookup != null) {
-                loadFilePreview(content.lookup)
+                loadFilePreview(content.lookup) {
+                    // Exception java.lang.IllegalArgumentException: Software rendering doesn't support hardware bitmaps
+                    bitmapConfig(Bitmap.Config.ARGB_8888)
+                }
             } else {
                 dispose()
                 setImageResource(content.type.iconRes)
@@ -67,13 +71,6 @@ class ContentItemVH(parent: ViewGroup) :
             else -> content.size?.let {
                 Formatter.formatShortFileSize(context, it)
             } ?: "?"
-        }
-
-        tertiary.text = when (content.type) {
-            FileType.DIRECTORY -> getString(eu.darken.sdmse.common.R.string.file_type_directory)
-            FileType.FILE -> getString(eu.darken.sdmse.common.R.string.file_type_file)
-            FileType.SYMBOLIC_LINK -> getString(eu.darken.sdmse.common.R.string.file_type_symbolic_link)
-            FileType.UNKNOWN -> getString(eu.darken.sdmse.common.R.string.file_type_unknown)
         }
 
         progress.apply {

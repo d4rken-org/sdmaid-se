@@ -24,7 +24,9 @@ import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.navigation.getSpanCount
+import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.Fragment3
+import kotlin.math.max
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.AnalyzerContentFragmentBinding
 
@@ -58,17 +60,22 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
             setNavigationOnClickListener { vm.onNavigateBack() }
             setOnMenuItemClickListener {
                 when (it.itemId) {
+                    R.id.action_toggle_layout_mode -> {
+                        vm.toggleLayoutMode()
+                        true
+                    }
+
                     else -> false
                 }
             }
-
         }
 
         val adapter = ContentAdapter()
+        val layoutManager = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false)
         ui.list.setupDefaults(
             adapter,
-            horizontalDividers = true,
-            layouter = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false),
+            horizontalDividers = false,
+            layouter = layoutManager,
         )
 
         installListSelection(
@@ -76,7 +83,13 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
             cabMenuRes = R.menu.menu_analyzer_content_list_cab,
             onPrepare = { tracker, mode, menu ->
                 val selectedItems = tracker.selection.map { key -> adapter.data.first { it.itemSelectionKey == key } }
-                val hasInaccessible = selectedItems.any { it !is ContentItemVH.Item || it.content.inaccessible }
+                val hasInaccessible = selectedItems.any {
+                    when (it) {
+                        is ContentItemListVH.Item -> it.content.inaccessible
+                        is ContentItemGridVH.Item -> it.content.inaccessible
+                        else -> true
+                    }
+                }
                 menu.findItem(R.id.action_delete_selected)?.isVisible = !hasInaccessible
                 menu.findItem(R.id.action_create_filter_selected)?.isVisible = !hasInaccessible
                 true
@@ -122,6 +135,21 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
         vm.state.observe2(ui) { state ->
             toolbar.title = state.title?.get(requireContext())
             toolbar.subtitle = state.subtitle?.get(requireContext())
+
+            val newSpanCount = when (state.layoutMode) {
+                LayoutMode.LINEAR -> getSpanCount()
+                LayoutMode.GRID -> max(getSpanCount(widthDp = 144), 3)
+            }
+            if (layoutManager.spanCount != newSpanCount) {
+                layoutManager.spanCount = newSpanCount
+            }
+
+            toolbar.menu.findItem(R.id.action_toggle_layout_mode)?.setIcon(
+                when (state.layoutMode) {
+                    LayoutMode.LINEAR -> R.drawable.baseline_grid_view_24
+                    LayoutMode.GRID -> R.drawable.ic_baseline_view_list_24
+                }
+            )
 
             loadingOverlay.setProgress(state.progress)
             if (state.progress == null) adapter.update(state.items)
