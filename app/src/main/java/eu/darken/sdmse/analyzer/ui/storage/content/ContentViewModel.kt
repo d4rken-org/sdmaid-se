@@ -6,6 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.analyzer.core.content.ContentDeleteTask
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
@@ -16,6 +17,7 @@ import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -24,6 +26,7 @@ import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
@@ -44,6 +47,7 @@ class ContentViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     @Suppress("StaticFieldLeak") @ApplicationContext private val context: Context,
     private val analyzer: Analyzer,
+    private val analyzerSettings: AnalyzerSettings,
     private val viewIntentTool: ViewIntentTool,
     private val exclusionManager: ExclusionManager,
     private val editorOptionsCreator: EditorOptionsCreator,
@@ -80,7 +84,8 @@ class ContentViewModel @Inject constructor(
         analyzer.data.filter { it.findContentGroup() != null },
         analyzer.progress,
         navigationState,
-    ) { data, progress, navLevels ->
+        analyzerSettings.contentLayoutMode.flow,
+    ) { data, progress, navLevels, layoutMode ->
         val storage = data.storages.single { it.id == targetStorageId }
         val contentGroup = data.findContentGroup()!!
 
@@ -105,32 +110,42 @@ class ContentViewModel @Inject constructor(
             subtitle = subtitle,
             storage = storage,
             items = null,
+            layoutMode = layoutMode,
             progress = progress,
         ).run { emit(this) }
 
-        val items = (currentLevel?.children ?: contentGroup.contents)
+        val items: List<ContentAdapter.Item> = (currentLevel?.children ?: contentGroup.contents)
             .sortedByDescending { it.size }
             .map { content ->
-                ContentItemVH.Item(
-                    parent = currentLevel,
-                    content = content,
-                    onItemClicked = {
-                        when (content.type) {
-                            FileType.FILE -> if (content.lookup != null) {
-                                open(content.lookup)
-                            } else {
-                                log(TAG) { "Content has no lookup, can't open: $content" }
-                            }
-
-                            else -> if (content.inaccessible) {
-                                log(TAG) { "No details available for $content" }
-                                events.postValue(ContentItemEvents.ShowNoAccessHint(content))
-                            } else {
-                                navigationState.value = (navigationState.value ?: emptyList()).plus(content.path)
-                            }
+                val onItemClicked: () -> Unit = {
+                    when (content.type) {
+                        FileType.FILE -> if (content.lookup != null) {
+                            open(content.lookup)
+                        } else {
+                            log(TAG) { "Content has no lookup, can't open: $content" }
                         }
-                    },
-                )
+
+                        else -> if (content.inaccessible) {
+                            log(TAG) { "No details available for $content" }
+                            events.postValue(ContentItemEvents.ShowNoAccessHint(content))
+                        } else {
+                            navigationState.value = (navigationState.value ?: emptyList()).plus(content.path)
+                        }
+                    }
+                }
+                when (layoutMode) {
+                    LayoutMode.LINEAR -> ContentItemListVH.Item(
+                        parent = currentLevel,
+                        content = content,
+                        onItemClicked = onItemClicked,
+                    )
+
+                    LayoutMode.GRID -> ContentItemGridVH.Item(
+                        parent = currentLevel,
+                        content = content,
+                        onItemClicked = onItemClicked,
+                    )
+                }
             }
 
         State(
@@ -138,6 +153,7 @@ class ContentViewModel @Inject constructor(
             subtitle = subtitle,
             storage = storage,
             items = items,
+            layoutMode = layoutMode,
             progress = progress,
         ).run { emit(this) }
     }.asLiveData2()
@@ -191,7 +207,8 @@ class ContentViewModel @Inject constructor(
         val targets = items
             .map {
                 when (it) {
-                    is ContentItemVH.Item -> setOf(it.content)
+                    is ContentItemListVH.Item -> setOf(it.content)
+                    is ContentItemGridVH.Item -> setOf(it.content)
                     is ContentGroupVH.Item -> it.contentGroup.contents
                     else -> throw IllegalArgumentException("Unknown type $it")
                 }
@@ -206,7 +223,8 @@ class ContentViewModel @Inject constructor(
         val contentItems = items
             .map {
                 when (it) {
-                    is ContentItemVH.Item -> setOf(it.content)
+                    is ContentItemListVH.Item -> setOf(it.content)
+                    is ContentItemGridVH.Item -> setOf(it.content)
                     is ContentGroupVH.Item -> it.contentGroup.contents
                     else -> throw IllegalArgumentException("Unknown type $it")
                 }
@@ -230,7 +248,8 @@ class ContentViewModel @Inject constructor(
         val targets = items
             .map {
                 when (it) {
-                    is ContentItemVH.Item -> setOf(it.content)
+                    is ContentItemListVH.Item -> setOf(it.content)
+                    is ContentItemGridVH.Item -> setOf(it.content)
                     is ContentGroupVH.Item -> it.contentGroup.contents
                     else -> throw IllegalArgumentException("Unknown type $it")
                 }
@@ -243,11 +262,21 @@ class ContentViewModel @Inject constructor(
         ContentFragmentDirections.goToCustomFilterEditor(initial = options).navigate()
     }
 
+    fun toggleLayoutMode() = launch {
+        log(TAG) { "toggleLayoutMode()" }
+        val newMode = when (analyzerSettings.contentLayoutMode.value()) {
+            LayoutMode.LINEAR -> LayoutMode.GRID
+            LayoutMode.GRID -> LayoutMode.LINEAR
+        }
+        analyzerSettings.contentLayoutMode.update { newMode }
+    }
+
     data class State(
         val title: CaString?,
         val subtitle: CaString?,
         val storage: DeviceStorage,
-        val items: List<ContentItemVH.Item>?,
+        val items: List<ContentAdapter.Item>?,
+        val layoutMode: LayoutMode,
         val progress: Progress.Data?,
     )
 
