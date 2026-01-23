@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.upgrade.core.billing.BillingManager
 import eu.darken.sdmse.common.upgrade.core.billing.PurchasedSku
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
+import eu.darken.sdmse.common.upgrade.core.billing.UserCanceledBillingException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -94,6 +95,10 @@ class UpgradeRepoGplay @Inject constructor(
             try {
                 billingManager.startIapFlow(activity, sku, offer)
             } catch (e: Exception) {
+                if (e is UserCanceledBillingException) {
+                    log(TAG) { "User canceled billing flow" }
+                    return@launch
+                }
                 log(TAG) { "startIapFlow failed:${e.asLog()}" }
                 withContext(dispatcherProvider.Main) {
                     e.asErrorDialogBuilder(activity).show()

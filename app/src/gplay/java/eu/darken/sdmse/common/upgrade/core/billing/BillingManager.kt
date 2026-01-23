@@ -153,10 +153,14 @@ class BillingManager @Inject constructor(
             if (this !is BillingClientException) return this
 
             return when (result.responseCode) {
+                BillingResponseCode.USER_CANCELED -> UserCanceledBillingException(this)
                 BillingResponseCode.BILLING_UNAVAILABLE,
                 BillingResponseCode.SERVICE_UNAVAILABLE,
                 BillingResponseCode.SERVICE_DISCONNECTED,
                 BillingResponseCode.SERVICE_TIMEOUT -> GplayServiceUnavailableException(this)
+                BillingResponseCode.ERROR -> InternalBillingException(this)
+                BillingResponseCode.NETWORK_ERROR -> NetworkBillingException(this)
+                BillingResponseCode.ITEM_ALREADY_OWNED -> ItemAlreadyOwnedBillingException(this)
                 else -> this
             }
         }

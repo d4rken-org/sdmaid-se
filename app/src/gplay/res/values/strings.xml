@@ -14,6 +14,15 @@
     <string name="upgrades_gplay_billing_error_label">Google Play Issue</string>
     <string name="upgrades_gplay_billing_error_description">There was a problem with Google Play. Please try again later or restart your device.\n\nDetails: %s</string>
 
+    <string name="upgrades_gplay_internal_error_title">Google Play error</string>
+    <string name="upgrades_gplay_internal_error_description">An internal Google Play error occurred. Please try the following:\n\n• Restart your device\n• Clear Google Play Store cache\n• Try again later</string>
+
+    <string name="upgrades_gplay_network_error_title">Connection error</string>
+    <string name="upgrades_gplay_network_error_description">Unable to connect to Google Play. Please check your internet connection and try again.</string>
+
+    <string name="upgrades_gplay_already_owned_error_title">Already purchased</string>
+    <string name="upgrades_gplay_already_owned_error_description">You already own this item. Use the \"Restore purchase\" option to restore your purchase. If the issue persists, try clearing Google Play cache and restarting your device.</string>
+
     <string name="upgrades_no_purchases_found_check_account">No purchases found. Are you using the right account?</string>
 
     <string name="upgrade_screen_title">Get SD Maid SE Pro</string>
