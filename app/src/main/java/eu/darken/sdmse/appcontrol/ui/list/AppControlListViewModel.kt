@@ -9,6 +9,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.MainDirections
+import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppControlScanTask
 import eu.darken.sdmse.appcontrol.core.AppControlSettings
@@ -28,8 +29,10 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.formatDuration
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.features.AppStore
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.isEnabled
+import eu.darken.sdmse.common.pkgs.toKnownPkg
 import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.progress.Progress
@@ -471,6 +474,35 @@ class AppControlListViewModel @Inject constructor(
         val targets = items.map { it.appInfo.installId }.toSet()
         val result = taskManager.submit(RestoreTask(targets = targets)) as RestoreTask.Result
         events.postValue(AppControlListEvents.ShowResult(result))
+    }
+
+    fun shareList(items: Collection<AppControlListAdapter.Item>) = launch {
+        log(TAG) { "shareList(${items.size})" }
+        val appsList = items.joinToString("\n") { item ->
+            val pkg = item.appInfo.pkg
+            val label = item.appInfo.label.get(context)
+            val pkgName = pkg.packageName
+            val versionName = pkg.versionName ?: "?"
+            val versionCode = pkg.versionCode
+
+            val store = (pkg as? InstallDetails)?.installerInfo?.installer
+                ?.let { installer ->
+                    (installer as? AppStore)
+                        ?: installer.id.toKnownPkg() as? AppStore
+                }
+
+            buildString {
+                append("- **$label** `$pkgName` v$versionName ($versionCode)")
+                val storeLink = store?.urlGenerator?.invoke(pkg.id)
+                if (storeLink != null) {
+                    append(" [${store.storeLabel}]($storeLink)")
+                }
+            }
+        }
+        val title = context.getString(R.string.appcontrol_share_list_title)
+        val footer = context.getString(R.string.appcontrol_share_list_footer)
+        val text = "# $title\n\n$appsList\n\n---\n*$footer*"
+        events.postValue(AppControlListEvents.ShareList(text))
     }
 
     data class State(
