@@ -42,4 +42,9 @@
         android:icon="@drawable/ic_select_all_24"
         android:title="@string/general_list_select_all_action"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_share_selection"
+        android:icon="@drawable/outline_share_24"
+        android:title="@string/appcontrol_share_list_action"
+        app:showAsAction="ifRoom" />
 </menu>

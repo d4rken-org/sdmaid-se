@@ -657,6 +657,9 @@
         <item quantity="other">%d apps were exported</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Exporting %s</string>
+    <string name="appcontrol_share_list_action">Share list</string>
+    <string name="appcontrol_share_list_title">My Apps</string>
+    <string name="appcontrol_share_list_footer">Shared via SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Force stop apps</string>
     <string name="appcontrol_force_stop_action">Force stop</string>
     <string name="appcontrol_force_stop_confirm_title">Confirm force stop</string>

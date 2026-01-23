@@ -206,6 +206,12 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                         true
                     }
 
+                    R.id.action_share_selection -> {
+                        vm.shareList(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
                     else -> false
                 }
             }
@@ -420,6 +426,14 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                         event.result.primaryInfo.get(requireContext()),
                         Snackbar.LENGTH_SHORT
                     ).show()
+                }
+
+                is AppControlListEvents.ShareList -> {
+                    val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                        type = "text/plain"
+                        putExtra(Intent.EXTRA_TEXT, event.text)
+                    }
+                    startActivity(Intent.createChooser(shareIntent, null))
                 }
             }
         }
