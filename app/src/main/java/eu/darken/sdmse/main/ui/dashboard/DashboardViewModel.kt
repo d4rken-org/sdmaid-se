@@ -578,6 +578,7 @@ class DashboardViewModel @Inject constructor(
                 DashboardCardType.SYSTEMCLEANER -> systemCleanerItem?.let { items.add(it) }
                 DashboardCardType.APPCLEANER -> appCleanerItem?.let { items.add(it) }
                 DashboardCardType.DEDUPLICATOR -> deduplicatorItem?.let { items.add(it) }
+                DashboardCardType.COMPRESSOR -> compressorItem?.let { items.add(it) }
                 DashboardCardType.APPCONTROL -> appControlItem?.let { items.add(it) }
                 DashboardCardType.ANALYZER -> analyzerItem?.let { items.add(it) }
                 DashboardCardType.SCHEDULER -> schedulerItem?.let { items.add(it) }

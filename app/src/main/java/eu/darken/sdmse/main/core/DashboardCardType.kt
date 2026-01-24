@@ -18,4 +18,5 @@ enum class DashboardCardType(
     ANALYZER(R.string.analyzer_tool_name, R.drawable.baseline_data_usage_24),
     SCHEDULER(R.string.scheduler_label, R.drawable.ic_alarm_check_24),
     STATS(R.string.stats_label, R.drawable.ic_chartbox_24),
+    COMPRESSOR(R.string.compressor_tool_name, R.drawable.ic_image_compress_24),
 }
