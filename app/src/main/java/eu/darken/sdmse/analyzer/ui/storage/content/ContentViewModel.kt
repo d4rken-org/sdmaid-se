@@ -270,7 +270,8 @@ class ContentViewModel @Inject constructor(
         val paths = items
             .map {
                 when (it) {
-                    is ContentItemVH.Item -> setOf(it.content)
+                    is ContentItemListVH.Item -> setOf(it.content)
+                    is ContentItemGridVH.Item -> setOf(it.content)
                     is ContentGroupVH.Item -> it.contentGroup.contents
                     else -> throw IllegalArgumentException("Unknown type $it")
                 }
@@ -292,11 +293,10 @@ class ContentViewModel @Inject constructor(
 
     fun toggleLayoutMode() = launch {
         log(TAG) { "toggleLayoutMode()" }
-        val newMode = when (analyzerSettings.contentLayoutMode.value()) {
-            LayoutMode.LINEAR -> LayoutMode.GRID
-            LayoutMode.GRID -> LayoutMode.LINEAR
+        when (analyzerSettings.contentLayoutMode.value()) {
+            LayoutMode.LINEAR -> analyzerSettings.contentLayoutMode.value(LayoutMode.GRID)
+            LayoutMode.GRID -> analyzerSettings.contentLayoutMode.value(LayoutMode.LINEAR)
         }
-        analyzerSettings.contentLayoutMode.update { newMode }
     }
 
     data class State(
