@@ -19,6 +19,7 @@ class ImageScannerEstimationTest : BaseTest() {
         return when (mimeType) {
             CompressibleImage.MIME_TYPE_JPEG -> {
                 val ratio = when {
+                    quality == 100 -> 1.0
                     quality <= 50 -> 0.3
                     quality <= 70 -> 0.5
                     quality <= 80 -> 0.65
@@ -29,6 +30,7 @@ class ImageScannerEstimationTest : BaseTest() {
             }
             CompressibleImage.MIME_TYPE_WEBP -> {
                 val ratio = when {
+                    quality == 100 -> 1.0
                     quality <= 50 -> 0.25
                     quality <= 70 -> 0.40
                     quality <= 80 -> 0.55
@@ -78,12 +80,20 @@ class ImageScannerEstimationTest : BaseTest() {
     }
 
     @Test
-    fun `JPEG at quality 91-100 - 90% of original`() {
+    fun `JPEG at quality 91-99 - 90% of original`() {
         val originalSize = 1_000_000L // 1 MB
 
         estimateCompressedSize(originalSize, CompressibleImage.MIME_TYPE_JPEG, 91) shouldBe 900_000L
         estimateCompressedSize(originalSize, CompressibleImage.MIME_TYPE_JPEG, 95) shouldBe 900_000L
-        estimateCompressedSize(originalSize, CompressibleImage.MIME_TYPE_JPEG, 100) shouldBe 900_000L
+        estimateCompressedSize(originalSize, CompressibleImage.MIME_TYPE_JPEG, 99) shouldBe 900_000L
+    }
+
+    @Test
+    fun `quality 100 returns original size - no savings`() {
+        val originalSize = 1_000_000L // 1 MB
+
+        estimateCompressedSize(originalSize, CompressibleImage.MIME_TYPE_JPEG, 100) shouldBe originalSize
+        estimateCompressedSize(originalSize, CompressibleImage.MIME_TYPE_WEBP, 100) shouldBe originalSize
     }
 
     @Test

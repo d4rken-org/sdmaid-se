@@ -15,6 +15,7 @@ class CompressionEstimator @Inject constructor() {
         return when (mimeType) {
             CompressibleImage.MIME_TYPE_JPEG -> {
                 when {
+                    quality == 100 -> 1.0
                     quality <= 50 -> 0.30
                     quality <= 70 -> 0.50
                     quality <= 80 -> 0.65
@@ -24,6 +25,7 @@ class CompressionEstimator @Inject constructor() {
             }
             CompressibleImage.MIME_TYPE_WEBP -> {
                 when {
+                    quality == 100 -> 1.0
                     quality <= 50 -> 0.25
                     quality <= 70 -> 0.40
                     quality <= 80 -> 0.55
