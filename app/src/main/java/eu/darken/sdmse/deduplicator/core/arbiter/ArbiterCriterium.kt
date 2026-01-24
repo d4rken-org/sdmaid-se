@@ -1,5 +1,6 @@
 package eu.darken.sdmse.deduplicator.core.arbiter
 
+import androidx.annotation.Keep
 import androidx.annotation.StringRes
 import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.R
@@ -20,6 +21,7 @@ sealed interface ArbiterCriterium {
     ) : ArbiterCriterium {
         override fun criteriumMode(): Mode = mode
 
+        @Keep
         enum class Mode(@StringRes override val labelRes: Int) : ArbiterCriterium.Mode {
             PREFER_CHECKSUM(R.string.deduplicator_arbiter_mode_prefer_checksum),
             PREFER_PHASH(R.string.deduplicator_arbiter_mode_prefer_phash),
@@ -32,6 +34,7 @@ sealed interface ArbiterCriterium {
     ) : ArbiterCriterium {
         override fun criteriumMode(): Mode = mode
 
+        @Keep
         enum class Mode(@StringRes override val labelRes: Int) : ArbiterCriterium.Mode {
             PREFER_INDEXED(R.string.deduplicator_arbiter_mode_prefer_indexed),
             PREFER_UNKNOWN(R.string.deduplicator_arbiter_mode_prefer_unknown),
@@ -44,6 +47,7 @@ sealed interface ArbiterCriterium {
     ) : ArbiterCriterium {
         override fun criteriumMode(): Mode = mode
 
+        @Keep
         enum class Mode(@StringRes override val labelRes: Int) : ArbiterCriterium.Mode {
             PREFER_PRIMARY(R.string.deduplicator_arbiter_mode_prefer_primary),
             PREFER_SECONDARY(R.string.deduplicator_arbiter_mode_prefer_secondary),
@@ -56,6 +60,7 @@ sealed interface ArbiterCriterium {
     ) : ArbiterCriterium {
         override fun criteriumMode(): Mode = mode
 
+        @Keep
         enum class Mode(@StringRes override val labelRes: Int) : ArbiterCriterium.Mode {
             PREFER_SHALLOW(R.string.deduplicator_arbiter_mode_prefer_shallow),
             PREFER_DEEPER(R.string.deduplicator_arbiter_mode_prefer_deeper),
@@ -68,6 +73,7 @@ sealed interface ArbiterCriterium {
     ) : ArbiterCriterium {
         override fun criteriumMode(): Mode = mode
 
+        @Keep
         enum class Mode(@StringRes override val labelRes: Int) : ArbiterCriterium.Mode {
             PREFER_OLDER(R.string.deduplicator_arbiter_mode_prefer_older),
             PREFER_NEWER(R.string.deduplicator_arbiter_mode_prefer_newer),
@@ -80,6 +86,7 @@ sealed interface ArbiterCriterium {
     ) : ArbiterCriterium {
         override fun criteriumMode(): Mode = mode
 
+        @Keep
         enum class Mode(@StringRes override val labelRes: Int) : ArbiterCriterium.Mode {
             PREFER_LARGER(R.string.deduplicator_arbiter_mode_prefer_larger),
             PREFER_SMALLER(R.string.deduplicator_arbiter_mode_prefer_smaller),
