@@ -528,6 +528,13 @@
     <action
         android:id="@+id/goToArbiterConfig"
         app:destination="@id/arbiterConfigFragment" />
+    <action
+        android:id="@+id/goToDashboardCardConfig"
+        app:destination="@id/dashboardCardConfigFragment" />
+    <fragment
+        android:id="@+id/dashboardCardConfigFragment"
+        android:name="eu.darken.sdmse.main.ui.settings.cards.DashboardCardConfigFragment"
+        tools:layout="@layout/dashboard_card_config_fragment" />
     <fragment
         android:id="@+id/pickerFragment"
         android:name="eu.darken.sdmse.common.picker.PickerFragment"

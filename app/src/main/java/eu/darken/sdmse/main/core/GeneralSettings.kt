@@ -61,6 +61,13 @@ class GeneralSettings @Inject constructor(
 
     val anniversaryDismissedYear = dataStore.createValue<Int?>("core.anniversary.dismissed.year", null, moshi)
 
+    val dashboardCardConfig = dataStore.createValue(
+        key = "dashboard.cards.config",
+        defaultValue = DashboardCardConfig(),
+        moshi = moshi,
+        fallbackToDefault = true,
+    )
+
     override val mapper = PreferenceStoreMapper(
         debugSettings.isDebugMode,
         themeMode,

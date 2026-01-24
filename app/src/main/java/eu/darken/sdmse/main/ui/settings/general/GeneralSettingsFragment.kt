@@ -38,6 +38,8 @@ class GeneralSettingsFragment : PreferenceFragment3() {
         get() = findPreference(settings.isUpdateCheckEnabled.keyName)!!
     private val oneClickTools: Preference
         get() = findPreference("dashboard.oneclick.tools")!!
+    private val dashboardCardConfig: Preference
+        get() = findPreference("dashboard.card.config")!!
     private val languageOverride: Preference
         get() = findPreference("core.ui.language")!!
 
@@ -54,6 +56,11 @@ class GeneralSettingsFragment : PreferenceFragment3() {
 
         oneClickTools.setOnPreferenceClickListener {
             oneClickToolDialog.show(requireContext())
+            true
+        }
+
+        dashboardCardConfig.setOnPreferenceClickListener {
+            MainDirections.goToDashboardCardConfig().navigate()
             true
         }
 

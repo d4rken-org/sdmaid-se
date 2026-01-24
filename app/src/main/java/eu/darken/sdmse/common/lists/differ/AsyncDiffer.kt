@@ -32,12 +32,29 @@ class AsyncDiffer<A, T : DifferItem> internal constructor(
         adapter.addMod(position = 0, mod = StableIdMod(currentList))
     }
 
-    fun submitUpdate(newData: List<T>) {
+    fun submitUpdate(newData: List<T>, onCommit: (() -> Unit)? = null) {
         listDiffer.submitList(newData) {
             synchronized(internalList) {
                 internalList.clear()
                 internalList.addAll(newData)
             }
+            onCommit?.invoke()
+        }
+    }
+
+    /**
+     * Resets the internal state to match [newData] without calculating diff-based moves.
+     * Uses submitList(null) then submitList(newData) to avoid move operations.
+     * Call this after manual notifyItemMoved operations to sync state.
+     */
+    fun resetTo(newData: List<T>, onCommit: (() -> Unit)? = null) {
+        listDiffer.submitList(null)
+        listDiffer.submitList(newData) {
+            synchronized(internalList) {
+                internalList.clear()
+                internalList.addAll(newData)
+            }
+            onCommit?.invoke()
         }
     }
 }
