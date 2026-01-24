@@ -33,7 +33,7 @@ class SwiperSettings @Inject constructor(
     )
 
     companion object {
-        const val FREE_VERSION_LIMIT = 30
+        const val FREE_VERSION_LIMIT = 50
         const val FREE_VERSION_SESSION_LIMIT = 2
         internal val TAG = logTag("Swiper", "Settings")
     }
