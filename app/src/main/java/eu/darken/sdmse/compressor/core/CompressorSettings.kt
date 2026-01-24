@@ -35,6 +35,7 @@ class CompressorSettings @Inject constructor(
     val includeJpeg = dataStore.createValue("filter.type.jpeg.enabled", true)
     val includeWebp = dataStore.createValue("filter.type.webp.enabled", true)
     val skipPreviouslyCompressed = dataStore.createValue("skip.previously.compressed", true)
+    val writeExifMarker = dataStore.createValue("compression.exif.marker.enabled", false)
     val scanPaths = dataStore.createValue("scan.location.paths", ScanPaths(), moshi)
     val layoutMode = dataStore.createValue("ui.list.layoutmode", LayoutMode.GRID, moshi)
 
@@ -50,6 +51,7 @@ class CompressorSettings @Inject constructor(
         includeJpeg,
         includeWebp,
         skipPreviouslyCompressed,
+        writeExifMarker,
         scanPaths,
     )
 

@@ -7,10 +7,8 @@ import android.media.MediaScannerConnection
 import android.os.Build
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
@@ -22,6 +20,7 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.compressor.core.CompressibleImage
 import eu.darken.sdmse.compressor.core.Compressor
+import eu.darken.sdmse.compressor.core.CompressorSettings
 import eu.darken.sdmse.compressor.core.history.CompressionHistoryDatabase
 import eu.darken.sdmse.compressor.core.tasks.CompressorProcessTask
 import kotlinx.coroutines.flow.Flow
@@ -39,6 +38,7 @@ class ImageProcessor @Inject constructor(
     private val exifPreserver: ExifPreserver,
     private val dispatcherProvider: DispatcherProvider,
     private val historyDatabase: CompressionHistoryDatabase,
+    private val settings: CompressorSettings,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
@@ -103,7 +103,10 @@ class ImageProcessor @Inject constructor(
             }
         }
 
-        log(TAG, INFO) { "Processing complete: ${successful.size}/${targets.size} images, ${failed.size} failed, saved $totalSaved bytes" }
+        log(
+            TAG,
+            INFO
+        ) { "Processing complete: ${successful.size}/${targets.size} images, ${failed.size} failed, saved $totalSaved bytes" }
 
         Result(
             success = successful,
@@ -144,6 +147,10 @@ class ImageProcessor @Inject constructor(
 
             if (image.isJpeg) {
                 exifPreserver.applyExif(tempFile.absolutePath, exifData)
+            }
+
+            if (settings.writeExifMarker.value()) {
+                exifPreserver.writeCompressionMarker(tempFile.absolutePath)
             }
 
             if (!originalFile.renameTo(backupFile)) {

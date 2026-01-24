@@ -2,9 +2,9 @@ package eu.darken.sdmse.compressor.core.scanner
 
 import eu.darken.sdmse.common.MimeTypeTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -12,16 +12,19 @@ import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.isFile
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
+import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.compressor.core.CompressibleImage
 import eu.darken.sdmse.compressor.core.CompressionEstimator
+import eu.darken.sdmse.compressor.core.CompressorSettings
 import eu.darken.sdmse.compressor.core.history.CompressionHistoryDatabase
+import eu.darken.sdmse.compressor.core.processor.ExifPreserver
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.types.match
@@ -33,6 +36,7 @@ import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flowOn
+import java.io.File
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
@@ -46,6 +50,8 @@ class ImageScanner @Inject constructor(
     private val storageEnvironment: StorageEnvironment,
     private val historyDatabase: CompressionHistoryDatabase,
     private val compressionEstimator: CompressionEstimator,
+    private val exifPreserver: ExifPreserver,
+    private val settings: CompressorSettings,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
@@ -141,12 +147,30 @@ class ImageScanner @Inject constructor(
             }
 
             val wasCompressedBefore = if (options.skipPreviouslyCompressed) {
-                try {
-                    val contentHash = historyDatabase.computeContentHash(lookup.lookedUp)
-                    historyDatabase.hasBeenCompressed(contentHash)
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "Failed to compute content hash for $lookup: ${e.message}" }
+                // Check EXIF marker first (fast - only reads file header)
+                val hasExifMarker = if (settings.writeExifMarker.value()) {
+                    try {
+                        val localPath = lookup.lookedUp as? LocalPath
+                        localPath?.let { exifPreserver.hasCompressionMarker(File(it.path)) } ?: false
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "Failed to check EXIF marker for $lookup: ${e.message}" }
+                        false
+                    }
+                } else {
                     false
+                }
+
+                // If no EXIF marker, check database hash (slow - reads entire file)
+                if (!hasExifMarker) {
+                    try {
+                        val contentHash = historyDatabase.computeContentHash(lookup.lookedUp)
+                        historyDatabase.hasBeenCompressed(contentHash)
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "Failed to compute content hash for $lookup: ${e.message}" }
+                        false
+                    }
+                } else {
+                    true
                 }
             } else {
                 false

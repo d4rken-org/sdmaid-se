@@ -596,6 +596,8 @@
     <string name="compressor_type_webp_description">Include WebP images (.webp)</string>
     <string name="compressor_skip_compressed_title">Skip previously compressed</string>
     <string name="compressor_skip_compressed_description">Skip images that have already been compressed by SD Maid.</string>
+    <string name="compressor_exif_marker_title">Write EXIF marker</string>
+    <string name="compressor_exif_marker_description">Append a marker to the image\'s EXIF user comment field to prevent re-compression even if the compression history is cleared.</string>
     <string name="compressor_estimated_savings_format">~%s savings</string>
     <string name="compressor_no_savings_expected">Limited savings</string>
     <string name="compressor_current_size_format">Size: %s</string>

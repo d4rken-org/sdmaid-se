@@ -60,6 +60,14 @@
             app:summary="@string/compressor_skip_compressed_description"
             app:title="@string/compressor_skip_compressed_title" />
 
+        <CheckBoxPreference
+            app:defaultValue="false"
+            app:icon="@drawable/ic_new_box_24"
+            app:key="compression.exif.marker.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/compressor_exif_marker_description"
+            app:title="@string/compressor_exif_marker_title" />
+
         <Preference
             app:icon="@drawable/ic_baseline_history_24"
             app:key="compression.history.info"
