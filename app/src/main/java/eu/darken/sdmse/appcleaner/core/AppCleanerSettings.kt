@@ -29,6 +29,8 @@ class AppCleanerSettings @Inject constructor(
 
     val includeInaccessibleEnabled = dataStore.createValue("include.inaccessible.enabled", true)
 
+    val forceStopBeforeClearing = dataStore.createValue("forcestop.before.clearing.enabled", false)
+
     val includeSystemAppsEnabled = dataStore.createValue("include.systemapps.enabled", false)
     val includeRunningAppsEnabled = dataStore.createValue("include.runningapps.enabled", true)
     val includeOtherUsersEnabled = dataStore.createValue("include.multiuser.enabled", false)
@@ -68,6 +70,7 @@ class AppCleanerSettings @Inject constructor(
         includeRunningAppsEnabled,
         includeOtherUsersEnabled,
         includeInaccessibleEnabled,
+        forceStopBeforeClearing,
         minCacheSizeBytes,
         minCacheAgeMs,
         filterDefaultCachesPublicEnabled,
