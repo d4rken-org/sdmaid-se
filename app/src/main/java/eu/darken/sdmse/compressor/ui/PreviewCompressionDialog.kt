@@ -6,12 +6,14 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.sdmse.R
 import eu.darken.sdmse.compressor.core.CompressibleImage
+import eu.darken.sdmse.compressor.ui.onboarding.CompressorOnboardingDialog
 import eu.darken.sdmse.databinding.CompressorPreviewDialogBinding
 import javax.inject.Inject
 
 
 class PreviewCompressionDialog @Inject constructor(
     private val fragment: Fragment,
+    private val onboardingDialog: CompressorOnboardingDialog,
 ) {
 
     fun show(
@@ -47,6 +49,16 @@ class PreviewCompressionDialog @Inject constructor(
             }
             setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ ->
                 onNegative()
+            }
+            setNeutralButton(R.string.compressor_preview_info_action) { _, _ ->
+                onboardingDialog.show(
+                    sampleImage = items.first(),
+                    quality = quality,
+                    onDismiss = {
+                        // Re-show this dialog after details are dismissed
+                        show(items, quality, onPositive, onNegative)
+                    },
+                )
             }
         }.show()
     }

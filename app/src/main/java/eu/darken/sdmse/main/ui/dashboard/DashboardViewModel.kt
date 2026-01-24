@@ -50,6 +50,7 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
 import eu.darken.sdmse.corpsefinder.core.tasks.UninstallWatcherTask
 import eu.darken.sdmse.compressor.core.Compressor
+import eu.darken.sdmse.compressor.core.CompressorSettings
 import eu.darken.sdmse.compressor.core.hasData
 import eu.darken.sdmse.compressor.core.tasks.CompressorOneClickTask
 import eu.darken.sdmse.compressor.core.tasks.CompressorProcessTask
@@ -123,6 +124,7 @@ class DashboardViewModel @Inject constructor(
     debugCardProvider: DebugCardProvider,
     private val deduplicator: Deduplicator,
     private val compressor: Compressor,
+    private val compressorSettings: CompressorSettings,
     private val upgradeRepo: UpgradeRepo,
     private val generalSettings: GeneralSettings,
     private val webpageTool: WebpageTool,
@@ -337,6 +339,8 @@ class DashboardViewModel @Inject constructor(
                 launch {
                     val event = DashboardEvents.CompressorProcessConfirmation(
                         task = CompressorProcessTask(),
+                        sampleImage = state?.data?.images?.firstOrNull(),
+                        quality = compressorSettings.compressionQuality.valueBlocking,
                     )
                     events.postValue(event)
                 }

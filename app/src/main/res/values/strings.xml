@@ -610,6 +610,13 @@
     <string name="compressor_history_empty">No compression history</string>
     <string name="compressor_history_clear_title">Clear compression history</string>
     <string name="compressor_history_clear_message">This will allow previously compressed images to be compressed again. The images themselves are not affected.</string>
+    <string name="compressor_onboarding_title">About Image Compression</string>
+    <string name="compressor_onboarding_message">Image compression reduces file size by removing visual detail. This process is irreversible - the original quality cannot be restored.\n\nHere\'s a preview of how your images will look:</string>
+    <string name="compressor_onboarding_original_label">Original</string>
+    <string name="compressor_onboarding_compressed_label">After compression</string>
+    <string name="compressor_onboarding_quality_label">Quality: %d%%</string>
+    <string name="compressor_onboarding_got_it">Got it</string>
+    <string name="compressor_preview_info_action">Info</string>
 
 
     <string name="appcontrol_tool_name">AppControl</string>

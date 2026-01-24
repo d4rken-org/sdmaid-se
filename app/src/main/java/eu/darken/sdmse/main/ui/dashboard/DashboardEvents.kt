@@ -2,6 +2,7 @@ package eu.darken.sdmse.main.ui.dashboard
 
 import android.content.Intent
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
+import eu.darken.sdmse.compressor.core.CompressibleImage
 import eu.darken.sdmse.compressor.core.tasks.CompressorProcessTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.deduplicator.core.Duplicate
@@ -33,6 +34,8 @@ sealed interface DashboardEvents {
 
     data class CompressorProcessConfirmation(
         val task: CompressorProcessTask,
+        val sampleImage: CompressibleImage?,
+        val quality: Int,
     ) : DashboardEvents
 
     data class TaskResult(
