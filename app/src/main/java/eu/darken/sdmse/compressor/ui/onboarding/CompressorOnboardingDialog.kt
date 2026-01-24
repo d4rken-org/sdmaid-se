@@ -29,9 +29,10 @@ class CompressorOnboardingDialog @Inject constructor(
 
         val path = (sampleImage.path as? LocalPath)?.path ?: sampleImage.path.path
 
-        // Load original image (scaled down for preview)
-        val options = BitmapFactory.Options().apply { inSampleSize = 4 }
-        val originalBitmap = BitmapFactory.decodeFile(path, options)
+        // Load original image at full resolution for accurate preview comparison
+        val originalBitmap = BitmapFactory.decodeFile(path)
+
+        var compressedBitmap: Bitmap? = null
 
         if (originalBitmap != null) {
             // Show original image
@@ -48,7 +49,7 @@ class CompressorOnboardingDialog @Inject constructor(
             val compressedBytes = outputStream.toByteArray()
 
             // Decode compressed bytes
-            val compressedBitmap = BitmapFactory.decodeByteArray(compressedBytes, 0, compressedBytes.size)
+            compressedBitmap = BitmapFactory.decodeByteArray(compressedBytes, 0, compressedBytes.size)
             binding.compressedImage.setImageBitmap(compressedBitmap)
 
             // Display sizes - use estimated size from the actual file, not the preview
@@ -57,6 +58,22 @@ class CompressorOnboardingDialog @Inject constructor(
 
             binding.originalSize.text = Formatter.formatShortFileSize(context, originalSize)
             binding.compressedSize.text = "~${Formatter.formatShortFileSize(context, compressedSize)}"
+
+            // Set up click listeners for zoomable preview
+            val originalLabel = context.getString(R.string.compressor_onboarding_original_label)
+            val compressedLabel = context.getString(R.string.compressor_onboarding_compressed_label)
+
+            binding.originalImage.setOnClickListener {
+                ZoomablePreviewDialog.newInstance(path, originalLabel)
+                    .show(fragment.childFragmentManager, "zoomable_original")
+            }
+
+            binding.compressedImage.setOnClickListener {
+                compressedBitmap?.let { bitmap ->
+                    ZoomablePreviewDialog.newInstance(bitmap, compressedLabel)
+                        .show(fragment.childFragmentManager, "zoomable_compressed")
+                }
+            }
         } else {
             // Fallback: just show placeholders
             binding.originalImage.setImageResource(R.drawable.splash_mascot)

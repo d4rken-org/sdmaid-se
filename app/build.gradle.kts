@@ -238,6 +238,7 @@ dependencies {
 
     implementation("androidx.core:core-splashscreen:1.0.0")
     implementation("androidx.exifinterface:exifinterface:1.3.7")
+    implementation("com.github.chrisbanes:PhotoView:2.3.0")
 
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")

@@ -42,6 +42,7 @@
                     android:id="@+id/original_image"
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
+                    android:foreground="?attr/selectableItemBackground"
                     android:scaleType="centerCrop"
                     tools:src="@drawable/splash_mascot" />
             </com.google.android.material.card.MaterialCardView>
@@ -80,6 +81,7 @@
                     android:id="@+id/compressed_image"
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
+                    android:foreground="?attr/selectableItemBackground"
                     android:scaleType="centerCrop"
                     tools:src="@drawable/splash_mascot" />
             </com.google.android.material.card.MaterialCardView>
