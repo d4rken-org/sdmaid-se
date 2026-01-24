@@ -7,24 +7,26 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.hashing.Hasher
+import eu.darken.sdmse.common.hashing.hash
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.onSubscription
 import java.io.File
-import java.security.MessageDigest
-import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class CompressionHistoryDatabase @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val gatewaySwitch: GatewaySwitch,
 ) {
 
     private val database by lazy {
         Room
             .databaseBuilder(context, CompressionHistoryRoomDb::class.java, DB_NAME)
+            .fallbackToDestructiveMigration(dropAllTables = true)
             .build()
     }
 
@@ -50,34 +52,17 @@ class CompressionHistoryDatabase @Inject constructor(
     val count: Flow<Int>
         get() = historyDao.getCount()
 
-    suspend fun hasBeenCompressed(path: APath): Boolean {
-        val hash = pathToHash(path)
-        return historyDao.getByPathHash(hash) != null
+    suspend fun hasBeenCompressed(contentHash: String): Boolean {
+        return historyDao.exists(contentHash)
     }
 
-    suspend fun getAllCompressedPathHashes(): Set<String> {
-        return historyDao.getAllPathHashes().toSet()
+    suspend fun computeContentHash(path: APath): String {
+        return gatewaySwitch.file(path, readWrite = false).source().hash(Hasher.Type.SHA256).format()
     }
 
-    fun hashPath(path: APath): String = pathToHash(path)
-
-    suspend fun recordCompression(
-        path: APath,
-        originalSize: Long,
-        compressedSize: Long,
-        quality: Int,
-    ) {
-        log(TAG, INFO) { "recordCompression($path, $originalSize -> $compressedSize, quality=$quality)" }
-        val hash = pathToHash(path)
-        val entity = CompressionHistoryEntity(
-            pathHash = hash,
-            path = path.path,
-            originalSize = originalSize,
-            compressedSize = compressedSize,
-            quality = quality,
-            compressedAt = Instant.now(),
-        )
-        historyDao.insert(entity)
+    suspend fun recordCompression(contentHash: String) {
+        log(TAG, INFO) { "recordCompression($contentHash)" }
+        historyDao.insert(CompressionHistoryEntity(contentHash))
         refreshDatabaseSize()
     }
 
@@ -85,12 +70,6 @@ class CompressionHistoryDatabase @Inject constructor(
         log(TAG, INFO) { "clear()" }
         historyDao.clear()
         refreshDatabaseSize()
-    }
-
-    private fun pathToHash(path: APath): String {
-        val digest = MessageDigest.getInstance("SHA-256")
-        val hashBytes = digest.digest(path.path.toByteArray())
-        return hashBytes.joinToString("") { "%02x".format(it) }
     }
 
     companion object {

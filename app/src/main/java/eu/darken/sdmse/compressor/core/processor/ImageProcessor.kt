@@ -86,13 +86,8 @@ class ImageProcessor @Inject constructor(
                 val saved = processImage(image, quality)
                 successful.add(image)
 
-                val compressedSize = image.size - saved
-                historyDatabase.recordCompression(
-                    path = image.path,
-                    originalSize = image.size,
-                    compressedSize = compressedSize,
-                    quality = quality,
-                )
+                val contentHash = historyDatabase.computeContentHash(image.path)
+                historyDatabase.recordCompression(contentHash)
 
                 if (saved > 0) {
                     totalSaved += saved

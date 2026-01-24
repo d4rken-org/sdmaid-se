@@ -5,44 +5,44 @@ import io.kotest.matchers.shouldNotBe
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import java.security.MessageDigest
-import java.time.Instant
 
 class CompressionHistoryTest : BaseTest() {
 
     /**
-     * Replicate the path-to-hash logic from CompressionHistoryDatabase for testing.
+     * Replicate content hashing logic for testing.
+     * In real code, this reads file bytes - here we simulate with a string.
      */
-    private fun pathToHash(path: String): String {
+    private fun contentToHash(content: String): String {
         val digest = MessageDigest.getInstance("SHA-256")
-        val hashBytes = digest.digest(path.toByteArray())
+        val hashBytes = digest.digest(content.toByteArray())
         return hashBytes.joinToString("") { "%02x".format(it) }
     }
 
     @Test
-    fun `path hashing produces consistent results`() {
-        val path = "/storage/emulated/0/DCIM/Camera/IMG_20240101_120000.jpg"
+    fun `content hashing produces consistent results`() {
+        val content = "test file content"
 
-        val hash1 = pathToHash(path)
-        val hash2 = pathToHash(path)
+        val hash1 = contentToHash(content)
+        val hash2 = contentToHash(content)
 
         hash1 shouldBe hash2
     }
 
     @Test
-    fun `different paths produce different hashes`() {
-        val path1 = "/storage/emulated/0/DCIM/Camera/IMG_001.jpg"
-        val path2 = "/storage/emulated/0/DCIM/Camera/IMG_002.jpg"
+    fun `different content produces different hashes`() {
+        val content1 = "content of file 1"
+        val content2 = "content of file 2"
 
-        val hash1 = pathToHash(path1)
-        val hash2 = pathToHash(path2)
+        val hash1 = contentToHash(content1)
+        val hash2 = contentToHash(content2)
 
         hash1 shouldNotBe hash2
     }
 
     @Test
     fun `hash is SHA-256 format`() {
-        val path = "/test/path.jpg"
-        val hash = pathToHash(path)
+        val content = "test content"
+        val hash = contentToHash(content)
 
         // SHA-256 produces 64 hex characters
         hash.length shouldBe 64
@@ -50,296 +50,183 @@ class CompressionHistoryTest : BaseTest() {
     }
 
     @Test
-    fun `CompressionHistoryEntity stores correct data`() {
-        val entity = CompressionHistoryEntity(
-            pathHash = "abc123",
-            path = "/storage/emulated/0/DCIM/Camera/test.jpg",
-            originalSize = 5_000_000L,
-            compressedSize = 3_000_000L,
-            quality = 80,
-            compressedAt = Instant.parse("2024-01-01T12:00:00Z"),
-        )
+    fun `CompressionHistoryEntity stores content hash`() {
+        val hash = "abc123def456"
+        val entity = CompressionHistoryEntity(contentHash = hash)
 
-        entity.pathHash shouldBe "abc123"
-        entity.path shouldBe "/storage/emulated/0/DCIM/Camera/test.jpg"
-        entity.originalSize shouldBe 5_000_000L
-        entity.compressedSize shouldBe 3_000_000L
-        entity.quality shouldBe 80
-        entity.compressedAt shouldBe Instant.parse("2024-01-01T12:00:00Z")
+        entity.contentHash shouldBe hash
     }
 
     @Test
-    fun `entity calculates correct savings`() {
-        val entity = CompressionHistoryEntity(
-            pathHash = "abc123",
-            path = "/test.jpg",
-            originalSize = 10_000_000L,
-            compressedSize = 6_500_000L,
-            quality = 80,
-            compressedAt = Instant.now(),
-        )
+    fun `entity data class equality`() {
+        val entity1 = CompressionHistoryEntity(contentHash = "abc123")
+        val entity2 = CompressionHistoryEntity(contentHash = "abc123")
 
-        val savings = entity.originalSize - entity.compressedSize
-
-        savings shouldBe 3_500_000L
+        entity1 shouldBe entity2
     }
 
     @Test
-    fun `entity calculates savings percentage`() {
-        val entity = CompressionHistoryEntity(
-            pathHash = "abc123",
-            path = "/test.jpg",
-            originalSize = 10_000_000L,
-            compressedSize = 6_500_000L,
-            quality = 80,
-            compressedAt = Instant.now(),
-        )
+    fun `entity data class inequality`() {
+        val entity1 = CompressionHistoryEntity(contentHash = "abc123")
+        val entity2 = CompressionHistoryEntity(contentHash = "xyz789")
 
-        val savings = entity.originalSize - entity.compressedSize
-        val savingsPercent = (savings.toDouble() / entity.originalSize.toDouble() * 100).toInt()
-
-        savingsPercent shouldBe 35 // 35% saved
-    }
-
-    @Test
-    fun `entity handles zero original size gracefully`() {
-        val entity = CompressionHistoryEntity(
-            pathHash = "abc123",
-            path = "/test.jpg",
-            originalSize = 0L,
-            compressedSize = 0L,
-            quality = 80,
-            compressedAt = Instant.now(),
-        )
-
-        val savings = entity.originalSize - entity.compressedSize
-
-        savings shouldBe 0L
-    }
-
-    @Test
-    fun `path with special characters hashes correctly`() {
-        val path = "/storage/emulated/0/DCIM/Camera/Photo 2024-01-01 12:00:00.jpg"
-
-        val hash = pathToHash(path)
-
-        // Should produce a valid hash without errors
-        hash.length shouldBe 64
-    }
-
-    @Test
-    fun `unicode path hashes correctly`() {
-        val path = "/storage/emulated/0/DCIM/相机/照片.jpg"
-
-        val hash = pathToHash(path)
-
-        hash.length shouldBe 64
+        entity1 shouldNotBe entity2
     }
 
     // === Hash Lookup Tests ===
 
     @Test
     fun `hash lookup in Set works correctly`() {
-        val path1 = "/storage/emulated/0/DCIM/Camera/IMG_001.jpg"
-        val path2 = "/storage/emulated/0/DCIM/Camera/IMG_002.jpg"
-        val path3 = "/storage/emulated/0/DCIM/Camera/IMG_003.jpg"
+        val content1 = "content of image 1"
+        val content2 = "content of image 2"
+        val content3 = "content of image 3"
 
         val compressedHashes = setOf(
-            pathToHash(path1),
-            pathToHash(path2),
+            contentToHash(content1),
+            contentToHash(content2),
         )
 
-        // path1 and path2 should be found, path3 should not
-        (pathToHash(path1) in compressedHashes) shouldBe true
-        (pathToHash(path2) in compressedHashes) shouldBe true
-        (pathToHash(path3) in compressedHashes) shouldBe false
+        // content1 and content2 should be found, content3 should not
+        (contentToHash(content1) in compressedHashes) shouldBe true
+        (contentToHash(content2) in compressedHashes) shouldBe true
+        (contentToHash(content3) in compressedHashes) shouldBe false
     }
 
     @Test
-    fun `hash uniqueness across many paths`() {
-        val paths = (1..100).map { "/storage/emulated/0/DCIM/Camera/IMG_$it.jpg" }
-        val hashes = paths.map { pathToHash(it) }.toSet()
+    fun `identical content produces same hash regardless of filename`() {
+        // This tests the key behavior: same content = same hash even if path differs
+        val content = "identical file content"
+
+        val hash1 = contentToHash(content)
+        val hash2 = contentToHash(content)
+
+        hash1 shouldBe hash2
+    }
+
+    @Test
+    fun `hash uniqueness across different content`() {
+        val contents = (1..100).map { "unique content number $it" }
+        val hashes = contents.map { contentToHash(it) }.toSet()
 
         // All hashes should be unique
         hashes.size shouldBe 100
     }
 
     @Test
-    fun `case sensitivity in path hashing`() {
-        val path1 = "/storage/emulated/0/DCIM/Camera/IMG.jpg"
-        val path2 = "/storage/emulated/0/DCIM/Camera/img.jpg"
-
-        val hash1 = pathToHash(path1)
-        val hash2 = pathToHash(path2)
-
-        // Different case = different hash
-        hash1 shouldNotBe hash2
-    }
-
-    @Test
-    fun `empty path hashes without error`() {
-        val hash = pathToHash("")
+    fun `empty content hashes without error`() {
+        val hash = contentToHash("")
 
         hash.length shouldBe 64
     }
 
     @Test
-    fun `very long path hashes correctly`() {
-        val longPath = "/storage/emulated/0/DCIM" + "/subdirectory".repeat(50) + "/photo.jpg"
+    fun `large content hashes correctly`() {
+        val largeContent = "A".repeat(10_000_000) // 10MB of 'A's
 
-        val hash = pathToHash(longPath)
+        val hash = contentToHash(largeContent)
 
         hash.length shouldBe 64
-    }
-
-    // === Entity Validation Tests ===
-
-    @Test
-    fun `entity with different quality values`() {
-        val qualities = listOf(1, 50, 80, 100)
-
-        for (quality in qualities) {
-            val entity = CompressionHistoryEntity(
-                pathHash = "hash",
-                path = "/test.jpg",
-                originalSize = 1_000_000L,
-                compressedSize = 500_000L,
-                quality = quality,
-                compressedAt = Instant.now(),
-            )
-
-            entity.quality shouldBe quality
-        }
-    }
-
-    @Test
-    fun `entity data class equality`() {
-        val timestamp = Instant.now()
-
-        val entity1 = CompressionHistoryEntity(
-            pathHash = "abc123",
-            path = "/test.jpg",
-            originalSize = 1_000_000L,
-            compressedSize = 500_000L,
-            quality = 80,
-            compressedAt = timestamp,
-        )
-
-        val entity2 = CompressionHistoryEntity(
-            pathHash = "abc123",
-            path = "/test.jpg",
-            originalSize = 1_000_000L,
-            compressedSize = 500_000L,
-            quality = 80,
-            compressedAt = timestamp,
-        )
-
-        entity1 shouldBe entity2
-    }
-
-    @Test
-    fun `entity data class inequality - different path hash`() {
-        val timestamp = Instant.now()
-
-        val entity1 = CompressionHistoryEntity(
-            pathHash = "abc123",
-            path = "/test.jpg",
-            originalSize = 1_000_000L,
-            compressedSize = 500_000L,
-            quality = 80,
-            compressedAt = timestamp,
-        )
-
-        val entity2 = CompressionHistoryEntity(
-            pathHash = "xyz789",
-            path = "/test.jpg",
-            originalSize = 1_000_000L,
-            compressedSize = 500_000L,
-            quality = 80,
-            compressedAt = timestamp,
-        )
-
-        entity1 shouldNotBe entity2
-    }
-
-    @Test
-    fun `compression ratio calculation from entity`() {
-        val entity = CompressionHistoryEntity(
-            pathHash = "hash",
-            path = "/test.jpg",
-            originalSize = 10_000_000L,
-            compressedSize = 6_500_000L,
-            quality = 80,
-            compressedAt = Instant.now(),
-        )
-
-        val ratio = entity.compressedSize.toDouble() / entity.originalSize.toDouble()
-
-        ratio shouldBe 0.65
-    }
-
-    @Test
-    fun `entity handles large file sizes`() {
-        val entity = CompressionHistoryEntity(
-            pathHash = "hash",
-            path = "/large_file.jpg",
-            originalSize = 1_000_000_000L, // 1 GB
-            compressedSize = 650_000_000L,
-            quality = 80,
-            compressedAt = Instant.now(),
-        )
-
-        val savings = entity.originalSize - entity.compressedSize
-        savings shouldBe 350_000_000L // 350 MB saved
     }
 
     // === Simulated Database Operation Tests ===
 
     @Test
     fun `simulated compression record and lookup workflow`() {
-        // Simulating what the database does
-        val compressedPathHashes = mutableSetOf<String>()
+        val compressedContentHashes = mutableSetOf<String>()
 
-        val path1 = "/storage/emulated/0/DCIM/Camera/IMG_001.jpg"
-        val path2 = "/storage/emulated/0/DCIM/Camera/IMG_002.jpg"
+        val content1 = "content of first image"
+        val content2 = "content of second image"
 
-        // Record compression
-        compressedPathHashes.add(pathToHash(path1))
+        // Record compression (use hash of compressed content)
+        compressedContentHashes.add(contentToHash(content1))
 
         // Check if compressed
-        (pathToHash(path1) in compressedPathHashes) shouldBe true
-        (pathToHash(path2) in compressedPathHashes) shouldBe false
+        (contentToHash(content1) in compressedContentHashes) shouldBe true
+        (contentToHash(content2) in compressedContentHashes) shouldBe false
 
         // Record another compression
-        compressedPathHashes.add(pathToHash(path2))
+        compressedContentHashes.add(contentToHash(content2))
 
         // Now both should be found
-        (pathToHash(path1) in compressedPathHashes) shouldBe true
-        (pathToHash(path2) in compressedPathHashes) shouldBe true
+        (contentToHash(content1) in compressedContentHashes) shouldBe true
+        (contentToHash(content2) in compressedContentHashes) shouldBe true
+    }
+
+    @Test
+    fun `moved file scenario - same content different path is recognized`() {
+        // Simulate: file was at path A, got compressed, then moved to path B
+        // With content-based hashing, it should still be recognized as compressed
+
+        val fileContent = "image file binary content"
+        val compressedHashes = mutableSetOf<String>()
+
+        // "Compress" file at path A
+        compressedHashes.add(contentToHash(fileContent))
+
+        // Later, file is "moved" to path B but content is the same
+        // Checking if file at path B needs compression
+        val needsCompression = contentToHash(fileContent) !in compressedHashes
+
+        needsCompression shouldBe false // Should skip, already compressed
+    }
+
+    @Test
+    fun `replaced file scenario - same path different content is recognized`() {
+        // Simulate: file at path was compressed, then replaced with new content
+        // With content-based hashing, the new file should be compressed
+
+        val originalContent = "original image content"
+        val newContent = "completely different new image content"
+        val compressedHashes = mutableSetOf<String>()
+
+        // "Compress" original file
+        compressedHashes.add(contentToHash(originalContent))
+
+        // File is replaced with new content at same path
+        val needsCompression = contentToHash(newContent) !in compressedHashes
+
+        needsCompression shouldBe true // Should compress, it's new content
+    }
+
+    @Test
+    fun `duplicate files scenario - only one gets compressed`() {
+        // Simulate: same image file exists in multiple locations
+        // After compressing one, others should be skipped
+
+        val duplicateContent = "identical file content at multiple locations"
+        val compressedHashes = mutableSetOf<String>()
+
+        // "Compress" first copy
+        compressedHashes.add(contentToHash(duplicateContent))
+
+        // Check second copy - should be skipped
+        val secondCopyNeedsCompression = contentToHash(duplicateContent) !in compressedHashes
+
+        secondCopyNeedsCompression shouldBe false
     }
 
     @Test
     fun `simulated clear operation`() {
-        val compressedPathHashes = mutableSetOf<String>()
+        val compressedHashes = mutableSetOf<String>()
 
         // Add some hashes
-        compressedPathHashes.add(pathToHash("/img1.jpg"))
-        compressedPathHashes.add(pathToHash("/img2.jpg"))
+        compressedHashes.add(contentToHash("content1"))
+        compressedHashes.add(contentToHash("content2"))
 
-        compressedPathHashes.size shouldBe 2
+        compressedHashes.size shouldBe 2
 
         // Clear
-        compressedPathHashes.clear()
+        compressedHashes.clear()
 
-        compressedPathHashes.size shouldBe 0
+        compressedHashes.size shouldBe 0
     }
 
     @Test
     fun `hash is deterministic across multiple calls`() {
-        val path = "/storage/emulated/0/DCIM/Camera/IMG_001.jpg"
+        val content = "test image binary content"
 
         // Call multiple times
-        val hashes = (1..10).map { pathToHash(path) }
+        val hashes = (1..10).map { contentToHash(content) }
 
         // All should be identical
         hashes.toSet().size shouldBe 1

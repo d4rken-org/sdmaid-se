@@ -96,12 +96,6 @@ class ImageScanner @Inject constructor(
         updateProgressSecondary()
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val compressedHashes: Set<String> = if (options.skipPreviouslyCompressed) {
-            historyDatabase.getAllCompressedPathHashes()
-        } else {
-            emptySet()
-        }
-
         val searchPaths = options.paths.ifEmpty { getDefaultSearchPaths() }
         val searchFlow = createSearchFlow(searchPaths)
             .flowOn(dispatcherProvider.IO)
@@ -147,8 +141,13 @@ class ImageScanner @Inject constructor(
             }
 
             val wasCompressedBefore = if (options.skipPreviouslyCompressed) {
-                val pathHash = historyDatabase.hashPath(lookup.lookedUp)
-                pathHash in compressedHashes
+                try {
+                    val contentHash = historyDatabase.computeContentHash(lookup.lookedUp)
+                    historyDatabase.hasBeenCompressed(contentHash)
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to compute content hash for $lookup: ${e.message}" }
+                    false
+                }
             } else {
                 false
             }

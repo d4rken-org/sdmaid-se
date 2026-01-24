@@ -2,60 +2,30 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "30135afa847f4c9ea72b37aae5ae95f2",
+    "identityHash": "c304be0148a79c246a6500ce8161b5a6",
     "entities": [
       {
         "tableName": "compression_history",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`path_hash` TEXT NOT NULL, `path` TEXT NOT NULL, `original_size` INTEGER NOT NULL, `compressed_size` INTEGER NOT NULL, `quality` INTEGER NOT NULL, `compressed_at` INTEGER NOT NULL, PRIMARY KEY(`path_hash`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`content_hash` TEXT NOT NULL, PRIMARY KEY(`content_hash`))",
         "fields": [
           {
-            "fieldPath": "pathHash",
-            "columnName": "path_hash",
+            "fieldPath": "contentHash",
+            "columnName": "content_hash",
             "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "path",
-            "columnName": "path",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "originalSize",
-            "columnName": "original_size",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "compressedSize",
-            "columnName": "compressed_size",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "quality",
-            "columnName": "quality",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "compressedAt",
-            "columnName": "compressed_at",
-            "affinity": "INTEGER",
             "notNull": true
           }
         ],
         "primaryKey": {
           "autoGenerate": false,
           "columnNames": [
-            "path_hash"
+            "content_hash"
           ]
         }
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '30135afa847f4c9ea72b37aae5ae95f2')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c304be0148a79c246a6500ce8161b5a6')"
     ]
   }
 }
