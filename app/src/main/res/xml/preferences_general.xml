@@ -19,6 +19,14 @@
             app:singleLineTitle="false"
             app:title="@string/dashboard_settings_oneclick_tools_title" />
 
+        <Preference
+            android:summary="@string/dashboard_card_config_desc"
+            app:icon="@drawable/baseline_grid_view_24"
+            app:key="dashboard.card.config"
+            app:persistent="false"
+            app:singleLineTitle="false"
+            app:title="@string/dashboard_card_config_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/shortcuts_settings_category">

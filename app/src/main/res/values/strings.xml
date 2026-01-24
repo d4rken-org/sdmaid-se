@@ -6,6 +6,9 @@
     <string name="dashboard_settings_oneclick_summary">Start scan and deletion for all tools with a tap on the dashboard\'s action button, no extra confirmations.</string>
     <string name="dashboard_settings_oneclick_tools_title">One-Tap Tools</string>
     <string name="dashboard_settings_oneclick_tools_desc">Which tools should be included in one-tap operations?</string>
+    <string name="dashboard_card_config_title">Dashboard cards</string>
+    <string name="dashboard_card_config_desc">Configure which cards are shown and their order</string>
+    <string name="dashboard_card_config_header_title">Drag to reorder, toggle to show/hide</string>
 
     <string name="debug_notification_channel_label">Debug notifications</string>
     <string name="debug_debuglog_file_label">Recorded log file</string>

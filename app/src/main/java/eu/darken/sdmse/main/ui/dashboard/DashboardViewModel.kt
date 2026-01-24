@@ -56,6 +56,8 @@ import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
 import eu.darken.sdmse.main.core.CurriculumVitae
+import eu.darken.sdmse.main.core.DashboardCardConfig
+import eu.darken.sdmse.main.core.DashboardCardType
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.motd.MotdRepo
@@ -449,6 +451,12 @@ class DashboardViewModel @Inject constructor(
 
     private val anniversaryItem: Flow<AnniversaryCardVH.Item?> = anniversaryProvider.item
 
+    // Combine refresh trigger with card config to stay within combine's 20-argument limit
+    private val cardConfigWithRefresh: Flow<DashboardCardConfig> = kotlinx.coroutines.flow.combine(
+        refreshTrigger,
+        generalSettings.dashboardCardConfig.flow,
+    ) { _, config -> config }
+
     private val listStateInternal: Flow<ListState> = eu.darken.sdmse.common.flow.combine(
         recorderModule.state,
         debugCardProvider.create(this),
@@ -469,7 +477,7 @@ class DashboardViewModel @Inject constructor(
         anniversaryItem,
         statsItem,
         easterEggTriggered,
-        refreshTrigger,
+        cardConfigWithRefresh,
     ) { recorderState: RecorderModule.State,
         debugItem: DebugCardVH.Item?,
         titleInfo: TitleCardVH.Item,
@@ -489,7 +497,7 @@ class DashboardViewModel @Inject constructor(
         anniversaryItem: AnniversaryCardVH.Item?,
         statsItem: StatsDashCardVH.Item?,
         easterEggTriggered,
-        _ ->
+        cardConfig: DashboardCardConfig ->
         val items = mutableListOf<DashboardAdapter.Item>(titleInfo)
 
         val noError = dataAreaError == null
@@ -515,16 +523,20 @@ class DashboardViewModel @Inject constructor(
         dataAreaError?.let { items.add(it) }
         anniversaryItem?.let { items.add(it) }
 
-        corpseFinderItem?.let { items.add(it) }
-        systemCleanerItem?.let { items.add(it) }
-        appCleanerItem?.let { items.add(it) }
-        deduplicatorItem?.let { items.add(it) }
-        appControlItem?.let { items.add(it) }
-        analyzerItem?.let { items.add(it) }
-
-        schedulerItem?.let { items.add(it) }
-
-        statsItem?.let { items.add(it) }
+        // Add tool cards based on user configuration
+        for (entry in cardConfig.cards) {
+            if (!entry.isVisible) continue
+            when (entry.type) {
+                DashboardCardType.CORPSEFINDER -> corpseFinderItem?.let { items.add(it) }
+                DashboardCardType.SYSTEMCLEANER -> systemCleanerItem?.let { items.add(it) }
+                DashboardCardType.APPCLEANER -> appCleanerItem?.let { items.add(it) }
+                DashboardCardType.DEDUPLICATOR -> deduplicatorItem?.let { items.add(it) }
+                DashboardCardType.APPCONTROL -> appControlItem?.let { items.add(it) }
+                DashboardCardType.ANALYZER -> analyzerItem?.let { items.add(it) }
+                DashboardCardType.SCHEDULER -> schedulerItem?.let { items.add(it) }
+                DashboardCardType.STATS -> statsItem?.let { items.add(it) }
+            }
+        }
 
         upgradeInfo
             ?.takeIf { !it.isPro }
