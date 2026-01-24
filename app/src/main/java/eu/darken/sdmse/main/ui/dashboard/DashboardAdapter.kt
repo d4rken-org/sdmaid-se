@@ -27,6 +27,7 @@ import eu.darken.sdmse.main.ui.dashboard.items.UpdateCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.UpgradeCardVH
 import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
 import eu.darken.sdmse.stats.ui.StatsDashCardVH
+import eu.darken.sdmse.swiper.ui.SwiperDashCardVH
 import javax.inject.Inject
 
 @ActivityScoped
@@ -56,6 +57,7 @@ class DashboardAdapter @Inject constructor(
         addMod(TypedVHCreatorMod({ data[it] is ReviewCardVH.Item }) { ReviewCardVH(activity, it) })
         addMod(TypedVHCreatorMod({ data[it] is AnniversaryCardVH.Item }) { AnniversaryCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is StatsDashCardVH.Item }) { StatsDashCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is SwiperDashCardVH.Item }) { SwiperDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ErrorDataAreaVH.Item }) { ErrorDataAreaVH(it) })
     }
 

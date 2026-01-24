@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_finalize"
+        android:icon="@drawable/ic_baseline_delete_forever_24"
+        android:title="@string/general_delete_action"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+</menu>

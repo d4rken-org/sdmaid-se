@@ -13,6 +13,7 @@ val SDMTool.Type.labelRes: Int
         SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_tool_name
         SDMTool.Type.APPCONTROL -> R.string.appcontrol_tool_name
         SDMTool.Type.ANALYZER -> R.string.analyzer_tool_name
+        SDMTool.Type.SWIPER -> R.string.swiper_tool_name
     }
 
 
@@ -25,4 +26,5 @@ val SDMTool.Type.iconRes: Int
         SDMTool.Type.DEDUPLICATOR -> R.drawable.ic_content_duplicate_24
         SDMTool.Type.APPCONTROL -> R.drawable.ic_apps
         SDMTool.Type.ANALYZER -> R.drawable.baseline_data_usage_24
+        SDMTool.Type.SWIPER -> R.drawable.ic_baseline_swipe_24
     }

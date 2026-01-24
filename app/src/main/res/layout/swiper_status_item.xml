@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_listitem_selectable"
+    android:paddingTop="4dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="4dp">
+
+    <View
+        android:id="@+id/decision_stripe"
+        android:layout_width="4dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_decision_stripe"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:backgroundTint="?attr/colorPrimary"
+        tools:visibility="visible" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/PreviewRoundedBox.Small"
+        tools:src="@tools:sample/avatars" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/name"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="middle"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@id/path"
+        app:layout_constraintEnd_toStartOf="@id/decision_indicator"
+        app:layout_constraintStart_toEndOf="@id/thumbnail"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="IMG_20231225_123456.jpg" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/path"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="start"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@id/meta"
+        app:layout_constraintEnd_toStartOf="@id/decision_indicator"
+        app:layout_constraintStart_toEndOf="@id/thumbnail"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        tools:text="/storage/emulated/0/DCIM/Camera/" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/meta"
+        style="@style/TextAppearance.Material3.LabelSmall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/decision_indicator"
+        app:layout_constraintStart_toEndOf="@id/thumbnail"
+        app:layout_constraintTop_toBottomOf="@id/path"
+        tools:text="2.4 MB" />
+
+    <ImageView
+        android:id="@+id/decision_indicator"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/action_container"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_heart"
+        tools:tint="?attr/colorPrimary" />
+
+    <LinearLayout
+        android:id="@+id/action_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- For decided items: reset button -->
+        <ImageButton
+            android:id="@+id/reset_action"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_circle_action"
+            android:contentDescription="@string/general_reset_action"
+            android:padding="8dp"
+            android:src="@drawable/ic_baseline_refresh_24"
+            app:tint="?attr/colorOnSurfaceVariant" />
+
+        <!-- For undecided items: quick keep button -->
+        <ImageButton
+            android:id="@+id/quick_keep_action"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/bg_circle_action"
+            android:contentDescription="@string/swiper_keep_action"
+            android:padding="8dp"
+            android:src="@drawable/ic_heart"
+            android:visibility="gone"
+            app:tint="?attr/colorPrimary"
+            tools:visibility="visible" />
+
+        <!-- For undecided items: quick delete button -->
+        <ImageButton
+            android:id="@+id/quick_delete_action"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_circle_action"
+            android:contentDescription="@string/general_delete_action"
+            android:padding="8dp"
+            android:src="@drawable/ic_delete"
+            android:visibility="gone"
+            app:tint="?attr/colorError"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

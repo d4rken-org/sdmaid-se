@@ -21,6 +21,7 @@
     <string name="general_todo_msg">This feature is still being worked on and currently not available.</string>
     <string name="general_share_action">Share</string>
     <string name="general_done_action">Done</string>
+    <string name="general_apply_action">Apply</string>
     <string name="general_copy_action">Copy</string>
     <string name="general_wipe_action">Wipe</string>
     <string name="general_cancel_action">Cancel</string>

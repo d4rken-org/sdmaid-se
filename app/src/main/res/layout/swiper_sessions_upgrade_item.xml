@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BaseCardItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="8dp"
+    android:backgroundTint="?colorSecondaryContainer">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/body"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="?colorOnSecondaryContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="The free version is limited to 30 files per session and 2 sessions." />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/upgrade_action"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/general_upgrade_action"
+            app:icon="@drawable/ic_baseline_stars_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/body" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

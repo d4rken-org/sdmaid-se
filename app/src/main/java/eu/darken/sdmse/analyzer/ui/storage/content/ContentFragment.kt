@@ -92,6 +92,7 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                 }
                 menu.findItem(R.id.action_delete_selected)?.isVisible = !hasInaccessible
                 menu.findItem(R.id.action_create_filter_selected)?.isVisible = !hasInaccessible
+                menu.findItem(R.id.action_create_swiper_session)?.isVisible = !hasInaccessible
                 true
             },
             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<ContentAdapter.Item> ->
@@ -123,6 +124,12 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
 
                     R.id.action_create_filter_selected -> {
                         vm.createFilter(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
+                    R.id.action_create_swiper_session -> {
+                        vm.createSwiperSession(selected)
                         tracker.clearSelection()
                         true
                     }
@@ -209,6 +216,17 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                         e.asErrorDialogBuilder(requireActivity()).show()
                     }
                 }
+
+                is ContentItemEvents.SwiperSessionCreated -> Snackbar
+                    .make(
+                        requireView(),
+                        getQuantityString2(R.plurals.analyzer_content_swiper_session_created_x_items, event.itemCount),
+                        Snackbar.LENGTH_LONG
+                    )
+                    .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
+                        ContentFragmentDirections.goToSwiperSessions().navigate()
+                    }
+                    .show()
             }
         }
 

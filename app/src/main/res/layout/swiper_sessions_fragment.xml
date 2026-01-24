@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+            app:title="@string/swiper_label" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="88dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/swiper_sessions_session_item" />
+
+    <LinearLayout
+        android:id="@+id/empty_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="32dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:visibility="visible">
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/TextAppearance.Material3.BodyLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/swiper_sessions_empty_hint"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+
+    </LinearLayout>
+
+    <eu.darken.sdmse.common.progress.ProgressOverlayView
+        android:id="@+id/loading_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="64dp"
+        android:visibility="gone"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="32dp"
+        android:contentDescription="@string/swiper_select_folders_action"
+        android:src="@drawable/ic_add"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/menu_swiper_swipe"
+            app:navigationIcon="@drawable/ic_baseline_close_24"
+            app:title="@string/swiper_label" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Stats container: pill-shaped card with progress ring and counts -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/stats_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:id="@+id/progress_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp">
+
+                <!-- Circular progress indicator with percentage text -->
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/progress_bar"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        app:indicatorSize="40dp"
+                        app:trackThickness="3dp"
+                        tools:progress="50" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/progress_percent"
+                        style="@style/TextAppearance.Material3.LabelSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="10sp"
+                        tools:text="45%" />
+
+                </FrameLayout>
+
+                <!-- Undecided state -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/undecided_count"
+                    style="@style/TextAppearance.Material3.LabelLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    app:drawableStartCompat="@drawable/ic_help_outline"
+                    app:drawableTint="?attr/colorOnSurfaceVariant"
+                    tools:text="22" />
+
+                <!-- Keep state -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/keep_count"
+                    style="@style/TextAppearance.Material3.LabelLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical"
+                    android:textColor="?attr/colorPrimary"
+                    app:drawableStartCompat="@drawable/ic_heart"
+                    app:drawableTint="?attr/colorPrimary"
+                    tools:text="5" />
+
+                <!-- Delete state -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/delete_count"
+                    style="@style/TextAppearance.Material3.LabelLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical"
+                    android:textColor="?attr/colorError"
+                    app:drawableStartCompat="@drawable/ic_delete"
+                    app:drawableTint="?attr/colorError"
+                    tools:text="3" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Thumbnail strip -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/progress_pager"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/stats_container"
+            tools:listitem="@layout/swiper_progress_item" />
+
+        <eu.darken.sdmse.swiper.ui.swipe.SwipeCardView
+            android:id="@+id/swipe_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@id/action_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progress_pager" />
+
+        <!-- Action buttons: circular FABs -->
+        <LinearLayout
+            android:id="@+id/action_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swipe_card">
+
+            <!-- Delete FAB (left) -->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/delete_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/general_delete_action"
+                app:backgroundTint="?attr/colorErrorContainer"
+                app:fabSize="normal"
+                app:srcCompat="@drawable/ic_delete"
+                app:tint="?attr/colorOnErrorContainer" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Skip FAB (center, smaller) -->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/skip_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/swiper_skip_action"
+                app:backgroundTint="?attr/colorTertiaryContainer"
+                app:fabSize="mini"
+                app:srcCompat="@drawable/ic_baseline_skip_next_24"
+                app:tint="?attr/colorOnTertiaryContainer" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Keep FAB (right) -->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/keep_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/swiper_keep_action"
+                app:backgroundTint="?attr/colorPrimaryContainer"
+                app:fabSize="normal"
+                app:srcCompat="@drawable/ic_heart"
+                app:tint="?attr/colorOnPrimaryContainer" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

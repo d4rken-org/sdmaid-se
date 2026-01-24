@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScrollTargetViewId="@id/list">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:titleEnabled="false">
+
+            <!-- Expanded content: stats on left, finalize button on right -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/expanded_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_collapseMode="parallax">
+
+                <!-- Stats container on left side -->
+                <LinearLayout
+                    android:id="@+id/stats_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/finalize_action"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!-- Keep row -->
+                    <LinearLayout
+                        android:id="@+id/keep_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_heart"
+                            app:tint="?attr/colorPrimary" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/keep_count"
+                            style="@style/TextAppearance.Material3.BodyMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            tools:text="15 to keep" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/keep_size"
+                            style="@style/TextAppearance.Material3.BodySmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            tools:text="(125.4 MB)" />
+
+                    </LinearLayout>
+
+                    <!-- Delete row -->
+                    <LinearLayout
+                        android:id="@+id/delete_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_delete"
+                            app:tint="?attr/colorError" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/delete_count"
+                            style="@style/TextAppearance.Material3.BodyMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            tools:text="8 to delete" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/delete_size"
+                            style="@style/TextAppearance.Material3.BodySmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            tools:text="(45.2 MB)" />
+
+                    </LinearLayout>
+
+                    <!-- Undecided row -->
+                    <LinearLayout
+                        android:id="@+id/undecided_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_help_outline"
+                            app:tint="?attr/colorOnSurfaceVariant" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/undecided_count"
+                            style="@style/TextAppearance.Material3.BodyMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            tools:text="24 undecided" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/undecided_size"
+                            style="@style/TextAppearance.Material3.BodySmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            tools:text="(89.1 MB)" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Finalize button on right side -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/finalize_action"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    tools:text="@string/swiper_delete_action"
+                    tools:icon="@drawable/ic_delete"
+                    app:iconGravity="top"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:menu="@menu/menu_swiper_status"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:title="@string/swiper_status_title" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/swiper_status_item" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
