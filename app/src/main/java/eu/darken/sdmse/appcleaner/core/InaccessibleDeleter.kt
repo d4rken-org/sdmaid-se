@@ -4,6 +4,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.ClearCacheTask
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCacheProvider
+import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopAutomationTask
 import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.errors.AutomationUnavailableException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
@@ -12,6 +13,7 @@ import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -28,7 +30,11 @@ import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.user.UserManager2
+import eu.darken.sdmse.setup.automation.AutomationSetupModule
+import eu.darken.sdmse.setup.isComplete
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -52,6 +58,9 @@ class InaccessibleDeleter @Inject constructor(
     private val adbManager: AdbManager,
     private val pkgOps: PkgOps,
     private val inaccessibleCacheProvider: InaccessibleCacheProvider,
+    private val rootManager: RootManager,
+    private val settings: AppCleanerSettings,
+    private val automationSetupModule: AutomationSetupModule,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -119,13 +128,18 @@ class InaccessibleDeleter @Inject constructor(
             failedTargets.putAll(adbResult.failed)
         }
 
-        if (useAutomation && targets.size != successTargets.size) {
+        val remainingTargets = targets.filter { !successTargets.contains(it.identifier) }
+
+        // Force-stop apps before clearing cache if enabled
+        if (useAutomation && remainingTargets.isNotEmpty() && settings.forceStopBeforeClearing.value()) {
+            forceStopApps(remainingTargets.map { it.identifier })
+        }
+
+        if (useAutomation && remainingTargets.isNotEmpty()) {
             log(TAG, WARN) { "Using accessibility service to delete inaccessible caches." }
             updateProgressPrimary(R.string.appcleaner_automation_loading)
             updateProgressSecondary(CaString.EMPTY)
             updateProgressCount(Progress.Count.Indeterminate())
-
-            val remainingTargets = targets.filter { !successTargets.contains(it.identifier) }
 
             log(TAG) { "Processing ${remainingTargets.size} remaining inaccessible caches" }
             remainingTargets.forEach { log(TAG, VERBOSE) { "Remaining ACS target: $it" } }
@@ -161,6 +175,41 @@ class InaccessibleDeleter @Inject constructor(
             succesful = successTargets.toSet(),
             failed = failedTargets,
         )
+    }
+
+    private suspend fun forceStopApps(targets: List<InstallId>) {
+        log(TAG, INFO) { "Force-stopping ${targets.size} apps before clearing cache" }
+
+        updateProgressPrimary(R.string.appcleaner_progress_force_stopping)
+        updateProgressSecondary(CaString.EMPTY)
+        updateProgressCount(Progress.Count.Percent(targets.size))
+
+        if (rootManager.canUseRootNow() || adbManager.canUseAdbNow()) {
+            log(TAG) { "Using ROOT/ADB for force-stop" }
+            targets.forEach { installId ->
+                try {
+                    pkgOps.forceStop(installId)
+                    log(TAG, VERBOSE) { "Force-stopped $installId" }
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to force-stop $installId: ${e.asLog()}" }
+                } finally {
+                    increaseProgress()
+                }
+            }
+        } else if (automationSetupModule.isComplete()) {
+            log(TAG) { "Using Automation for force-stop" }
+            val task = ForceStopAutomationTask(targets)
+            try {
+                automationManager.submit(task)
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Force-stop automation failed: ${e.asLog()}" }
+            }
+        } else {
+            log(TAG, WARN) { "No method available for force-stopping apps" }
+        }
+
+        // Small delay to allow apps to fully stop
+        delay(500)
     }
 
     private suspend fun trimCachesWithAdb(targets: Collection<AppJunk>): InaccDelResult {

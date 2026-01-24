@@ -479,6 +479,9 @@
     <string name="appcleaner_automation_error_no_settings_body">This system app has no settings screen. Cache clearing via accessibility service is not possible. Exclude it to speed up cache clearing.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">System app misconfigured</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'s Security app (com.miui.securitycenter) is missing the Usage Stats permission (GET_USAGE_STATS). This breaks features like "Clear Data" in app details and cache clearing via accessibility. Grant the permission to restore full functionality.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Force-stop before clearing</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Force-stop apps before clearing their cache. Can help with clearing some apps but also has potential side effects. Interrupted apps may misbehave and require to be opened manually to restart.</string>
+    <string name="appcleaner_progress_force_stopping">Force-stopping apps…</string>
 
     <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">Find duplicate data on your device.</string>
