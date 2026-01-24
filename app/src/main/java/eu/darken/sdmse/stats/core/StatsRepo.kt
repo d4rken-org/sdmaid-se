@@ -99,9 +99,9 @@ class StatsRepo @Inject constructor(
             statsSettings.totalItemsProcessed.update { it + affected }
         }
 
-        reportDetails?.affectedPaths?.let { files ->
-            log(TAG) { "report(${task.id}): Saving details about affected ${files.size} files " }
-            val affectedPaths = files.map { it.toAffectedPath(report.reportId) }
+        (reportDetails as? ReportDetails.AffectedPaths)?.let { pathsReport ->
+            log(TAG) { "report(${task.id}): Saving details about affected ${pathsReport.affectedPaths.size} files " }
+            val affectedPaths = pathsReport.affectedPaths.map { it.toAffectedPath(report.reportId, pathsReport.action) }
             reportsDatabase.addPaths(affectedPaths)
         }
 
