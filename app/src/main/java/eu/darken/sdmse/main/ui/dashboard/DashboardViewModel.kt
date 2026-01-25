@@ -52,10 +52,8 @@ import eu.darken.sdmse.corpsefinder.core.tasks.UninstallWatcherTask
 import eu.darken.sdmse.compressor.core.Compressor
 import eu.darken.sdmse.compressor.core.CompressorSettings
 import eu.darken.sdmse.compressor.core.hasData
-import eu.darken.sdmse.compressor.core.tasks.CompressorOneClickTask
 import eu.darken.sdmse.compressor.core.tasks.CompressorProcessTask
 import eu.darken.sdmse.compressor.core.tasks.CompressorScanTask
-import eu.darken.sdmse.compressor.core.tasks.CompressorSchedulerTask
 import eu.darken.sdmse.compressor.core.tasks.CompressorTask
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.hasData
@@ -333,7 +331,7 @@ class DashboardViewModel @Inject constructor(
             progress = state?.progress,
             showProRequirement = !isPro,
             onScan = {
-                launch { submitTask(CompressorScanTask()) }
+                events.postValue(DashboardEvents.CompressorSetup)
             },
             onDelete = {
                 launch {
@@ -770,27 +768,6 @@ class DashboardViewModel @Inject constructor(
                 BottomBarState.Action.ONECLICK -> submitTask(DeduplicatorOneClickTask())
             }
         }
-        launch {
-            if (!generalSettings.oneClickCompressorEnabled.value()) {
-                log(VERBOSE) { "Compressor is disabled one-click mode." }
-                return@launch
-            }
-
-            when (actionState) {
-                BottomBarState.Action.SCAN -> submitTask(CompressorScanTask())
-                BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.COMPRESSOR)
-                BottomBarState.Action.WORKING -> {}
-                BottomBarState.Action.DELETE -> if (compressor.state.first().data != null) {
-                    submitTask(CompressorProcessTask())
-                }
-
-                BottomBarState.Action.ONECLICK -> {
-                    if (upgradeRepo.isPro()) {
-                        submitTask(CompressorOneClickTask())
-                    }
-                }
-            }
-        }
     }
 
     fun confirmCorpseDeletion() = launch {
@@ -899,8 +876,6 @@ class DashboardViewModel @Inject constructor(
             is CompressorTask.Result -> when (result) {
                 is CompressorScanTask.Success -> {}
                 is CompressorProcessTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
-                is CompressorOneClickTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
-                is CompressorSchedulerTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
         }
     }

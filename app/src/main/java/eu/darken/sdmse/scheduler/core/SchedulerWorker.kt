@@ -9,7 +9,6 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.common.adb.AdbManager
-import eu.darken.sdmse.compressor.core.tasks.CompressorSchedulerTask
 import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -148,9 +147,6 @@ class SchedulerWorker @AssistedInject constructor(
         if (schedule.useAppCleaner) {
             val useAutomation = schedulerSettings.useAutomation.value()
             tasks.add(AppCleanerSchedulerTask(schedule.id, useAutomation = useAutomation))
-        }
-        if (schedule.useCompressor) {
-            tasks.add(CompressorSchedulerTask(schedule.id))
         }
 
         delay(1000)

@@ -260,6 +260,10 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 } catch (e: ActivityNotFoundException) {
                     e.asErrorDialogBuilder(requireActivity()).show()
                 }
+
+                is DashboardEvents.CompressorSetup -> {
+                    DashboardFragmentDirections.actionDashboardFragmentToCompressorSetupFragment().navigate()
+                }
             }
         }
 

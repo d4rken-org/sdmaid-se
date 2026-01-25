@@ -53,7 +53,6 @@ class GeneralSettings @Inject constructor(
     val oneClickSystemCleanerEnabled = dataStore.createValue("dashboard.oneclick.systemcleaner.enabled", true)
     val oneClickAppCleanerEnabled = dataStore.createValue("dashboard.oneclick.appcleaner.enabled", true)
     val oneClickDeduplicatorEnabled = dataStore.createValue("dashboard.oneclick.deduplicator.enabled", false)
-    val oneClickCompressorEnabled = dataStore.createValue("dashboard.oneclick.compressor.enabled", false)
     val shortcutOneClickEnabled = dataStore.createValue("shortcut.oneclick.enabled", false)
 
     val isUpdateCheckEnabled = dataStore.createValue("updater.check.enabled", updateChecker.isEnabledByDefault())

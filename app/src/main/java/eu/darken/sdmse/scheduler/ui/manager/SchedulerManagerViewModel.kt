@@ -152,11 +152,6 @@ class SchedulerManagerViewModel @Inject constructor(
                         schedulerManager.saveSchedule(schedule.copy(useAppCleaner = !schedule.useAppCleaner))
                     }
                 },
-                onToggleCompressor = {
-                    launch {
-                        schedulerManager.saveSchedule(schedule.copy(useCompressor = !schedule.useCompressor))
-                    }
-                },
                 onEditFinalCommands = {
                     events.postValue(SchedulerManagerEvents.FinalCommandsEdit(schedule))
                 },

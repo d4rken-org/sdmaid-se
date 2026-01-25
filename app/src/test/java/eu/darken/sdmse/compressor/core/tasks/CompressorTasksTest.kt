@@ -131,129 +131,23 @@ class CompressorTasksTest : BaseTest() {
         success.action shouldBe AffectedPath.Action.COMPRESSED
     }
 
-    // === CompressorOneClickTask Tests ===
-
-    @Test
-    fun `OneClickTask default noop is true`() {
-        val task = CompressorOneClickTask()
-
-        task.noop shouldBe true
-    }
-
-    @Test
-    fun `OneClickTask Success implements AffectedSpace`() {
-        val success = CompressorOneClickTask.Success(
-            affectedSpace = 5_000_000L,
-            affectedPaths = emptySet(),
-            processedCount = 10,
-        )
-
-        success.affectedSpace shouldBe 5_000_000L
-    }
-
-    @Test
-    fun `OneClickTask Success implements AffectedPaths`() {
-        val paths = setOf(
-            LocalPath.build("/img1.jpg"),
-            LocalPath.build("/img2.jpg"),
-            LocalPath.build("/img3.jpg"),
-        )
-
-        val success = CompressorOneClickTask.Success(
-            affectedSpace = 1_500_000L,
-            affectedPaths = paths,
-            processedCount = 3,
-        )
-
-        success.affectedPaths.size shouldBe 3
-        success.affectedPaths shouldContainAll paths
-    }
-
-    @Test
-    fun `OneClickTask Success action is COMPRESSED`() {
-        val success = CompressorOneClickTask.Success(
-            affectedSpace = 1_000_000L,
-            affectedPaths = emptySet(),
-            processedCount = 0,
-        )
-
-        success.action shouldBe AffectedPath.Action.COMPRESSED
-    }
-
-    @Test
-    fun `OneClickTask Success processedCount is correct`() {
-        val success = CompressorOneClickTask.Success(
-            affectedSpace = 10_000_000L,
-            affectedPaths = emptySet(),
-            processedCount = 25,
-        )
-
-        success.processedCount shouldBe 25
-    }
-
-    // === CompressorSchedulerTask Tests ===
-
-    @Test
-    fun `SchedulerTask with scheduleId`() {
-        val task = CompressorSchedulerTask(scheduleId = "schedule-123")
-
-        task.scheduleId shouldBe "schedule-123"
-    }
-
-    @Test
-    fun `SchedulerTask with different scheduleId`() {
-        val task = CompressorSchedulerTask(scheduleId = "daily-compression")
-
-        task.scheduleId shouldBe "daily-compression"
-    }
-
-    @Test
-    fun `SchedulerTask Success implements AffectedSpace`() {
-        val success = CompressorSchedulerTask.Success(
-            affectedSpace = 50_000_000L,
-            affectedPaths = emptySet(),
-            processedCount = 100,
-        )
-
-        success.affectedSpace shouldBe 50_000_000L
-    }
-
-    @Test
-    fun `SchedulerTask Success action is COMPRESSED`() {
-        val success = CompressorSchedulerTask.Success(
-            affectedSpace = 1_000_000L,
-            affectedPaths = emptySet(),
-            processedCount = 0,
-        )
-
-        success.action shouldBe AffectedPath.Action.COMPRESSED
-    }
-
     // === Task Type Tests ===
 
     @Test
     fun `all tasks implement CompressorTask interface`() {
         val scanTask: CompressorTask = CompressorScanTask()
         val processTask: CompressorTask = CompressorProcessTask()
-        val oneClickTask: CompressorTask = CompressorOneClickTask()
-        val schedulerTask: CompressorTask = CompressorSchedulerTask(scheduleId = "test-schedule")
 
         scanTask.shouldBeInstanceOf<CompressorTask>()
         processTask.shouldBeInstanceOf<CompressorTask>()
-        oneClickTask.shouldBeInstanceOf<CompressorTask>()
-        schedulerTask.shouldBeInstanceOf<CompressorTask>()
     }
 
     @Test
-    fun `ProcessTask and OneClickTask are Reportable`() {
+    fun `ProcessTask is Reportable`() {
         val processTask = CompressorProcessTask()
-        val oneClickTask = CompressorOneClickTask()
-        val schedulerTask = CompressorSchedulerTask(scheduleId = "test-schedule")
 
-        // These implement Reportable for stats
+        // ProcessTask implements Reportable for stats
         processTask.shouldBeInstanceOf<eu.darken.sdmse.stats.core.Reportable>()
-        oneClickTask.shouldBeInstanceOf<eu.darken.sdmse.stats.core.Reportable>()
-        schedulerTask.shouldBeInstanceOf<eu.darken.sdmse.stats.core.Reportable>()
     }
 
     @Test

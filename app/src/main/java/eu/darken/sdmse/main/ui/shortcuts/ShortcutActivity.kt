@@ -14,8 +14,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
-import eu.darken.sdmse.compressor.core.Compressor
-import eu.darken.sdmse.compressor.core.tasks.CompressorOneClickTask
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderOneClickTask
 import eu.darken.sdmse.deduplicator.core.Deduplicator
@@ -40,7 +38,6 @@ class ShortcutActivity : ComponentActivity() {
     @Inject lateinit var systemCleaner: SystemCleaner
     @Inject lateinit var appCleaner: AppCleaner
     @Inject lateinit var deduplicator: Deduplicator
-    @Inject lateinit var compressor: Compressor
     @Inject lateinit var appScope: AppCoroutineScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -114,13 +111,6 @@ class ShortcutActivity : ComponentActivity() {
                 taskManager.submit(DeduplicatorOneClickTask())
             } catch (e: Exception) {
                 log(TAG) { "Failed to submit DeduplicatorOneClickTask: $e" }
-            }
-        }
-        if (generalSettings.oneClickCompressorEnabled.value()) {
-            try {
-                taskManager.submit(CompressorOneClickTask())
-            } catch (e: Exception) {
-                log(TAG) { "Failed to submit CompressorOneClickTask: $e" }
             }
         }
 

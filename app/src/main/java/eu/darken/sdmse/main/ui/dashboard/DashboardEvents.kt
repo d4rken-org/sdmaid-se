@@ -43,4 +43,6 @@ sealed interface DashboardEvents {
     ) : DashboardEvents
 
     data class OpenIntent(val intent: Intent) : DashboardEvents
+
+    data object CompressorSetup : DashboardEvents
 }

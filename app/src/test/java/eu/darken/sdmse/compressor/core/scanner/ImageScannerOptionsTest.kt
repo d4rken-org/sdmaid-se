@@ -20,7 +20,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = CompressorSettings.DEFAULT_QUALITY,
@@ -28,7 +28,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
         options.paths.shouldBeEmpty()
         options.minimumSize shouldBe 512 * 1024L
-        options.maxAgeDays shouldBe null
+        options.minAgeDays shouldBe null
         options.skipPreviouslyCompressed shouldBe true
         options.compressionQuality shouldBe 80
     }
@@ -43,7 +43,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options = ImageScanner.Options(
             paths = customPaths,
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 80,
@@ -58,7 +58,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 80,
@@ -73,7 +73,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(
                 CompressibleImage.MIME_TYPE_JPEG,
                 CompressibleImage.MIME_TYPE_WEBP,
@@ -92,7 +92,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = CompressibleImage.SUPPORTED_MIME_TYPES,
             skipPreviouslyCompressed = true,
             compressionQuality = 80,
@@ -107,7 +107,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 80,
@@ -121,7 +121,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = 100 * 1024L, // 100KB
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 80,
@@ -135,7 +135,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = 1024 * 1024L, // 1MB
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 80,
@@ -145,51 +145,51 @@ class ImageScannerOptionsTest : BaseTest() {
     }
 
     @Test
-    fun `max age days - null means no age limit`() {
+    fun `min age days - null means no age limit`() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 80,
         )
 
-        options.maxAgeDays shouldBe null
+        options.minAgeDays shouldBe null
     }
 
     @Test
-    fun `max age days - 7 days`() {
+    fun `min age days - 7 days`() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = 7,
+            minAgeDays = 7,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 80,
         )
 
-        options.maxAgeDays shouldBe 7
+        options.minAgeDays shouldBe 7
     }
 
     @Test
-    fun `max age days - 30 days`() {
+    fun `min age days - 30 days`() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = 30,
+            minAgeDays = 30,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 80,
         )
 
-        options.maxAgeDays shouldBe 30
+        options.minAgeDays shouldBe 30
     }
 
     @Test
-    fun `max age duration calculation - 7 days cutoff`() {
-        val maxAgeDays = 7
-        val cutoff = Instant.now().minus(Duration.ofDays(maxAgeDays.toLong()))
+    fun `min age duration calculation - 7 days cutoff`() {
+        val minAgeDays = 7
+        val cutoff = Instant.now().minus(Duration.ofDays(minAgeDays.toLong()))
 
         cutoff shouldNotBe null
         // Cutoff should be approximately 7 days ago
@@ -202,7 +202,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 1,
@@ -216,7 +216,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 100,
@@ -230,7 +230,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = CompressorSettings.DEFAULT_QUALITY,
@@ -244,7 +244,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 80,
@@ -258,7 +258,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = false,
             compressionQuality = 80,
@@ -272,7 +272,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options1 = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 80,
@@ -281,7 +281,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options2 = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 80,
@@ -295,7 +295,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options1 = ImageScanner.Options(
             paths = emptySet(),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 80,
@@ -304,7 +304,7 @@ class ImageScannerOptionsTest : BaseTest() {
         val options2 = ImageScanner.Options(
             paths = setOf(LocalPath.build("/storage/emulated/0/DCIM")),
             minimumSize = CompressorSettings.MIN_FILE_SIZE,
-            maxAgeDays = null,
+            minAgeDays = null,
             enabledMimeTypes = setOf(CompressibleImage.MIME_TYPE_JPEG),
             skipPreviouslyCompressed = true,
             compressionQuality = 80,

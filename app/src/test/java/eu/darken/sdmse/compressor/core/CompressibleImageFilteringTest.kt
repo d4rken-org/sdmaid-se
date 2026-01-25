@@ -110,9 +110,9 @@ class CompressibleImageFilteringTest : BaseTest() {
     // === Age Filtering Tests ===
 
     @Test
-    fun `filter by max age - excludes old files`() {
-        val maxAgeDays = 7
-        val cutoff = Instant.now().minus(Duration.ofDays(maxAgeDays.toLong()))
+    fun `filter by min age - excludes recent files`() {
+        val minAgeDays = 7
+        val cutoff = Instant.now().minus(Duration.ofDays(minAgeDays.toLong()))
 
         val images = listOf(
             createImage("/recent.jpg", modifiedAt = Instant.now()),
@@ -120,24 +120,25 @@ class CompressibleImageFilteringTest : BaseTest() {
             createImage("/old.jpg", modifiedAt = Instant.now().minus(Duration.ofDays(10))),
         )
 
-        val filtered = images.filter { !it.modifiedAt.isBefore(cutoff) }
+        // Min age filter: only include files OLDER than cutoff (modified BEFORE cutoff)
+        val filtered = images.filter { !it.modifiedAt.isAfter(cutoff) }
 
-        filtered shouldHaveSize 2
+        filtered shouldHaveSize 1 // Only the 10-day old file
     }
 
     @Test
-    fun `filter with null max age - includes all ages`() {
-        val maxAgeDays: Int? = null
+    fun `filter with null min age - includes all ages`() {
+        val minAgeDays: Int? = null
 
         val images = listOf(
             createImage("/recent.jpg", modifiedAt = Instant.now()),
             createImage("/very_old.jpg", modifiedAt = Instant.EPOCH),
         )
 
-        // When maxAgeDays is null, no age filtering should be applied
-        val filtered = if (maxAgeDays != null) {
-            val cutoff = Instant.now().minus(Duration.ofDays(maxAgeDays.toLong()))
-            images.filter { !it.modifiedAt.isBefore(cutoff) }
+        // When minAgeDays is null, no age filtering should be applied
+        val filtered = if (minAgeDays != null) {
+            val cutoff = Instant.now().minus(Duration.ofDays(minAgeDays.toLong()))
+            images.filter { !it.modifiedAt.isAfter(cutoff) }
         } else {
             images
         }

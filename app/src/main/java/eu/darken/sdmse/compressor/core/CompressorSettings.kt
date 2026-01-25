@@ -30,7 +30,7 @@ class CompressorSettings @Inject constructor(
         get() = context.dataStore
 
     val minSizeBytes = dataStore.createValue<Long>("filter.minsize.bytes", MIN_FILE_SIZE)
-    val maxAgeDays = dataStore.createValue<Int?>("filter.maxage.days", null)
+    val minAgeDays = dataStore.createValue<Int?>("filter.minage.days", null)
     val compressionQuality = dataStore.createValue("compression.quality", DEFAULT_QUALITY)
     val includeJpeg = dataStore.createValue("filter.type.jpeg.enabled", true)
     val includeWebp = dataStore.createValue("filter.type.webp.enabled", true)
@@ -46,7 +46,7 @@ class CompressorSettings @Inject constructor(
 
     override val mapper = PreferenceStoreMapper(
         minSizeBytes,
-        maxAgeDays,
+        minAgeDays,
         compressionQuality,
         includeJpeg,
         includeWebp,

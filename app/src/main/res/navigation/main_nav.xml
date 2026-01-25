@@ -91,6 +91,9 @@
             android:id="@+id/action_dashboardFragment_to_compressorListFragment"
             app:destination="@id/compressorListFragment" />
         <action
+            android:id="@+id/action_dashboardFragment_to_compressorSetupFragment"
+            app:destination="@id/compressorSetupFragment" />
+        <action
             android:id="@+id/action_dashboardFragment_to_systemCleanerDetailsFragment"
             app:destination="@id/systemCleanerDetailsFragment" />
         <action
@@ -476,6 +479,14 @@
         <argument
             android:name="identifier"
             app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Id" />
+    </fragment>
+    <fragment
+        android:id="@+id/compressorSetupFragment"
+        android:name="eu.darken.sdmse.compressor.ui.setup.CompressorSetupFragment"
+        tools:layout="@layout/compressor_setup_fragment">
+        <action
+            android:id="@+id/action_compressorSetupFragment_to_compressorListFragment"
+            app:destination="@id/compressorListFragment" />
     </fragment>
     <fragment
         android:id="@+id/compressorListFragment"

@@ -120,13 +120,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/appcleaner_tool_name" />
 
-            <com.google.android.material.materialswitch.MaterialSwitch
-                android:id="@+id/tool_compressor_toggle"
-                style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/compressor_tool_name" />
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/commands_container"
                 android:layout_width="match_parent"

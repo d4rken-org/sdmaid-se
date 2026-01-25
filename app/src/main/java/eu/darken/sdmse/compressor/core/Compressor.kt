@@ -19,10 +19,8 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.compressor.core.processor.ImageProcessor
 import eu.darken.sdmse.compressor.core.scanner.ImageScanner
-import eu.darken.sdmse.compressor.core.tasks.CompressorOneClickTask
 import eu.darken.sdmse.compressor.core.tasks.CompressorProcessTask
 import eu.darken.sdmse.compressor.core.tasks.CompressorScanTask
-import eu.darken.sdmse.compressor.core.tasks.CompressorSchedulerTask
 import eu.darken.sdmse.compressor.core.tasks.CompressorTask
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
@@ -85,8 +83,6 @@ class Compressor @Inject constructor(
                 when (task) {
                     is CompressorScanTask -> performScan(task)
                     is CompressorProcessTask -> performProcess(task)
-                    is CompressorOneClickTask -> performOneClick()
-                    is CompressorSchedulerTask -> performScheduler(task)
                 }
             }
             lastResult.value = result
@@ -113,7 +109,7 @@ class Compressor @Inject constructor(
         val scanOptions = ImageScanner.Options(
             paths = task.paths ?: settings.scanPaths.value().paths,
             minimumSize = settings.minSizeBytes.value(),
-            maxAgeDays = settings.maxAgeDays.value(),
+            minAgeDays = settings.minAgeDays.value(),
             enabledMimeTypes = enabledMimeTypes,
             skipPreviouslyCompressed = settings.skipPreviouslyCompressed.value(),
             compressionQuality = settings.compressionQuality.value(),
@@ -157,34 +153,6 @@ class Compressor @Inject constructor(
             affectedSpace = result.savedSpace,
             affectedPaths = result.success.map { it.path }.toSet(),
             processedCount = result.success.size,
-        )
-    }
-
-    private suspend fun performOneClick(): CompressorOneClickTask.Success {
-        log(TAG) { "performOneClick()" }
-
-        performScan()
-
-        val processResult = performProcess()
-
-        return CompressorOneClickTask.Success(
-            affectedSpace = processResult.affectedSpace,
-            affectedPaths = processResult.affectedPaths,
-            processedCount = processResult.processedCount,
-        )
-    }
-
-    private suspend fun performScheduler(task: CompressorSchedulerTask): CompressorSchedulerTask.Success {
-        log(TAG) { "performScheduler(): $task" }
-
-        performScan()
-
-        val processResult = performProcess()
-
-        return CompressorSchedulerTask.Success(
-            affectedSpace = processResult.affectedSpace,
-            affectedPaths = processResult.affectedPaths,
-            processedCount = processResult.processedCount,
         )
     }
 

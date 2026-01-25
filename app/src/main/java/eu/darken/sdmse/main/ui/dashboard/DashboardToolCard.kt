@@ -86,7 +86,10 @@ class DashboardToolCard(parent: ViewGroup) :
 
         scanAction.apply {
             if (item.onDelete == null) {
-                text = getString(eu.darken.sdmse.common.R.string.general_scan_action)
+                text = when (item.toolType) {
+                    SDMTool.Type.COMPRESSOR -> getString(R.string.compressor_setup_action)
+                    else -> getString(eu.darken.sdmse.common.R.string.general_scan_action)
+                }
                 iconPadding = context.dpToPx(4f)
             } else {
                 text = null

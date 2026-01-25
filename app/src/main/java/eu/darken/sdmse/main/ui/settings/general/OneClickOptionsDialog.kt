@@ -21,7 +21,6 @@ class OneClickOptionsDialog @Inject constructor(private val settings: GeneralSet
             systemcleanerToggle.isChecked = settings.oneClickSystemCleanerEnabled.valueBlocking
             appcleanerToggle.isChecked = settings.oneClickAppCleanerEnabled.valueBlocking
             deduplicatorToggle.isChecked = settings.oneClickDeduplicatorEnabled.valueBlocking
-            compressorToggle.isChecked = settings.oneClickCompressorEnabled.valueBlocking
 
             corpsefinderToggle.setOnCheckedChangeListener { _, isChecked ->
                 settings.oneClickCorpseFinderEnabled.valueBlocking = isChecked
@@ -34,9 +33,6 @@ class OneClickOptionsDialog @Inject constructor(private val settings: GeneralSet
             }
             deduplicatorToggle.setOnCheckedChangeListener { _, isChecked ->
                 settings.oneClickDeduplicatorEnabled.valueBlocking = isChecked
-            }
-            compressorToggle.setOnCheckedChangeListener { _, isChecked ->
-                settings.oneClickCompressorEnabled.valueBlocking = isChecked
             }
         }
         setView(binding.root)

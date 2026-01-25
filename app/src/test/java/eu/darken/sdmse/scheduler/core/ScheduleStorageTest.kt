@@ -48,7 +48,7 @@ class ScheduleStorageTest : BaseTest() {
             load() shouldBe null
             save(setOf(schedule))
             load() shouldBe setOf(schedule)
-            val saveFile = provideBackupPath().listFiles()!!.single()
+            val saveFile = provideBackupPath().listFiles()!!.single { it.extension == "json" }
             saveFile.readText().toComparableJson() shouldBe """
                 [
                     {
@@ -61,7 +61,6 @@ class ScheduleStorageTest : BaseTest() {
                         "corpsefinderEnabled": false,
                         "systemcleanerEnabled": false,
                         "appcleanerEnabled": false,
-                        "compressorEnabled": false,
                         "commandsAfterSchedule": []
                     }
                 ]
@@ -91,7 +90,7 @@ class ScheduleStorageTest : BaseTest() {
         create().apply {
             save(setOf(schedule))
             load() shouldBe setOf(schedule)
-            val saveFile = provideBackupPath().listFiles()!!.single()
+            val saveFile = provideBackupPath().listFiles()!!.single { it.extension == "json" }
             saveFile.readText().toComparableJson() shouldBe """
                 [
                     {
@@ -106,7 +105,6 @@ class ScheduleStorageTest : BaseTest() {
                         "corpsefinderEnabled": true,
                         "systemcleanerEnabled": true,
                         "appcleanerEnabled": true,
-                        "compressorEnabled": false,
                         "commandsAfterSchedule": ["reboot"],
                         "executedAt": "2024-01-14T21:30:00Z"
                     }

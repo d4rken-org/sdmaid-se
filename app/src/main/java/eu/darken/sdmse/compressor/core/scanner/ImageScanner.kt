@@ -64,7 +64,7 @@ class ImageScanner @Inject constructor(
     data class Options(
         val paths: Set<APath>,
         val minimumSize: Long,
-        val maxAgeDays: Int?,
+        val minAgeDays: Int?,
         val enabledMimeTypes: Set<String>,
         val skipPreviouslyCompressed: Boolean,
         val compressionQuality: Int,
@@ -115,10 +115,11 @@ class ImageScanner @Inject constructor(
                     return@filter false
                 }
 
-                options.maxAgeDays?.let { maxAge ->
-                    val cutoff = Instant.now().minus(Duration.ofDays(maxAge.toLong()))
-                    if (lookup.modifiedAt.isBefore(cutoff)) {
-                        if (Bugs.isTrace) log(TAG, VERBOSE) { "Skipping (age): $lookup" }
+                options.minAgeDays?.let { minAge ->
+                    val cutoff = Instant.now().minus(Duration.ofDays(minAge.toLong()))
+                    // Skip if file is NEWER than cutoff (we want older files)
+                    if (lookup.modifiedAt.isAfter(cutoff)) {
+                        if (Bugs.isTrace) log(TAG, VERBOSE) { "Skipping (too recent): $lookup" }
                         return@filter false
                     }
                 }

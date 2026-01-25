@@ -579,8 +579,8 @@
     <string name="compressor_search_locations_default_summary">Camera folders (default)</string>
     <string name="compressor_min_size_title">Minimum file size</string>
     <string name="compressor_min_size_description">Skip images smaller than this size.</string>
-    <string name="compressor_max_age_title">Maximum age</string>
-    <string name="compressor_max_age_description">Only include images newer than this age.</string>
+    <string name="compressor_min_age_title">Minimum file age</string>
+    <string name="compressor_min_age_description">Only include images older than this age.</string>
     <string name="compressor_compression_settings_label">Compression settings</string>
     <string name="compressor_quality_label">Quality</string>
     <string name="compressor_quality_title">Compression quality</string>
@@ -618,7 +618,25 @@
     <string name="compressor_onboarding_compressed_label">After compression</string>
     <string name="compressor_onboarding_quality_label">Quality: %d%%</string>
     <string name="compressor_onboarding_got_it">Got it</string>
-    <string name="compressor_preview_info_action">Info</string>
+    <string name="compressor_preview_info_action">Show example</string>
+    <string name="compressor_no_example_found">No images found in selected paths</string>
+    <string name="compressor_setup_action">Start</string>
+    <string name="compressor_setup_warning">Compression permanently reduces image quality to save storage space. This cannot be undone. Review your settings carefully before starting.</string>
+    <string name="compressor_setup_paths_title">Search locations</string>
+    <string name="compressor_setup_paths_default">Default: Camera folders (DCIM)</string>
+    <string name="compressor_setup_quality_title">Compression quality</string>
+    <string name="compressor_setup_age_title">Minimum age</string>
+    <string name="compressor_setup_age_none">No limit (include all files)</string>
+    <string name="compressor_setup_start_action">Start Scan</string>
+    <string name="compressor_quality_value">%d%%</string>
+    <string name="compressor_quality_hint_low">Lower quality saves more space but may cause visible artifacts</string>
+    <string name="compressor_quality_hint_high">Very high quality provides minimal space savings</string>
+    <string name="compressor_quality_hint_normal">Balanced quality and space savings</string>
+    <plurals name="compressor_min_age_x_days">
+        <item quantity="one">At least %d day old</item>
+        <item quantity="other">At least %d days old</item>
+    </plurals>
+    <string name="compressor_estimated_savings_percent">Estimated ~%d%% savings for JPEG files</string>
 
 
     <string name="appcontrol_tool_name">AppControl</string>
