@@ -75,6 +75,7 @@ class CompressorSetupFragment : Fragment3(R.layout.compressor_setup_fragment) {
                 activity = requireActivity(),
                 titleRes = R.string.compressor_min_size_title,
                 currentSize = currentSize,
+                maximumSize = 20 * 1000 * 1000L,
                 onReset = { vm.updateMinSize(CompressorSettings.MIN_FILE_SIZE) },
                 onSave = { vm.updateMinSize(it) }
             ).show()
