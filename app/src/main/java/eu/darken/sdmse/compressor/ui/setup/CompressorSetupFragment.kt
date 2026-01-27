@@ -58,7 +58,7 @@ class CompressorSetupFragment : Fragment3(R.layout.compressor_setup_fragment) {
             }
         }
 
-        ui.ageChangeAction.setOnClickListener {
+        ui.ageCard.setOnClickListener {
             val currentDays = vm.state.value?.minAgeDays ?: 30
             AgeInputDialog(
                 activity = requireActivity(),
@@ -69,7 +69,7 @@ class CompressorSetupFragment : Fragment3(R.layout.compressor_setup_fragment) {
             ).show()
         }
 
-        ui.minSizeChangeAction.setOnClickListener {
+        ui.minSizeCard.setOnClickListener {
             val currentSize = vm.state.value?.minSizeBytes ?: CompressorSettings.MIN_FILE_SIZE
             SizeInputDialog(
                 activity = requireActivity(),
