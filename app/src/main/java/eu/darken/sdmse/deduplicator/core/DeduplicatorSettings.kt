@@ -64,6 +64,8 @@ class DeduplicatorSettings @Inject constructor(
 
     val layoutMode = dataStore.createValue("ui.list.layoutmode", LayoutMode.GRID, moshi)
 
+    val isDirectoryViewEnabled = dataStore.createValue("ui.cluster.directoryview.enabled", false)
+
     override val mapper = PreferenceStoreMapper(
         allowDeleteAll,
         minSizeBytes,

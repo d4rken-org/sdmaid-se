@@ -17,6 +17,7 @@ import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupFileVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ClusterHeaderVH
+import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.DirectoryHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.PHashGroupFileVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.PHashGroupHeaderVH
 import javax.inject.Inject
@@ -33,6 +34,7 @@ class ClusterAdapter @Inject constructor() :
     init {
         addMod(DataBinderMod(data))
         addMod(TypedVHCreatorMod({ data[it] is ClusterHeaderVH.Item }) { ClusterHeaderVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is DirectoryHeaderVH.Item }) { DirectoryHeaderVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ChecksumGroupHeaderVH.Item }) { ChecksumGroupHeaderVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ChecksumGroupFileVH.Item }) { ChecksumGroupFileVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is PHashGroupHeaderVH.Item }) { PHashGroupHeaderVH(it) })
@@ -73,6 +75,12 @@ class ClusterAdapter @Inject constructor() :
             get() = duplicate.identifier
         val path: APath
             get() = duplicate.path
+
+        interface VH
+    }
+
+    interface DirectoryItem : Item {
+        val directory: DirectoryGroup
 
         interface VH
     }

@@ -559,6 +559,9 @@
     <string name="deduplicator_arbiter_mode_prefer_larger">Prefer larger files</string>
     <string name="deduplicator_arbiter_mode_prefer_smaller">Prefer smaller files</string>
 
+    <string name="deduplicator_view_mode_groups_label">Groups</string>
+    <string name="deduplicator_view_mode_directories_label">Directories</string>
+
 
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Apps installed on your device.</string>
