@@ -21,9 +21,11 @@ import eu.darken.sdmse.compressor.core.CompressibleImage
 import eu.darken.sdmse.compressor.core.CompressionEstimator
 import eu.darken.sdmse.compressor.core.Compressor
 import eu.darken.sdmse.compressor.core.CompressorSettings
+import eu.darken.sdmse.compressor.core.hasData
 import eu.darken.sdmse.compressor.core.tasks.CompressorScanTask
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 import javax.inject.Inject
 
@@ -107,7 +109,11 @@ class CompressorSetupViewModel @Inject constructor(
         val result = taskManager.submit(CompressorScanTask())
         log(TAG, INFO) { "Scan result: $result" }
 
-        events.postValue(CompressorSetupEvents.NavigateToList)
+        if (compressor.state.first().data.hasData) {
+            events.postValue(CompressorSetupEvents.NavigateToList)
+        } else {
+            events.postValue(CompressorSetupEvents.NoResultsFound)
+        }
     }
 
     fun showExample() = launch {

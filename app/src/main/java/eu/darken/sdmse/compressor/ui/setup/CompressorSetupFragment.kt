@@ -164,6 +164,14 @@ class CompressorSetupFragment : Fragment3(R.layout.compressor_setup_fragment) {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+
+                is CompressorSetupEvents.NoResultsFound -> {
+                    Toast.makeText(
+                        requireContext(),
+                        R.string.compressor_result_empty_message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
 

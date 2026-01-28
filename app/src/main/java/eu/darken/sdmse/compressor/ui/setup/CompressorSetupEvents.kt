@@ -8,4 +8,5 @@ sealed class CompressorSetupEvents {
     data object NavigateToList : CompressorSetupEvents()
     data class ShowExample(val sampleImage: CompressibleImage, val quality: Int) : CompressorSetupEvents()
     data object NoExampleFound : CompressorSetupEvents()
+    data object NoResultsFound : CompressorSetupEvents()
 }
