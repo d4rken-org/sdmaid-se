@@ -38,7 +38,11 @@
                 android:id="@+id/paths_card"
                 style="@style/BaseCardItem"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:contentDescription="@string/compressor_setup_paths_title">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -50,6 +54,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_folder_search_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="?colorPrimary" />
@@ -60,8 +65,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
                         android:text="@string/compressor_setup_paths_title"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/paths_edit_icon"
                         app:layout_constraintStart_toEndOf="@id/paths_icon"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,21 +77,22 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
+                        android:layout_marginEnd="16dp"
                         android:text="@string/compressor_setup_paths_default"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/paths_edit_icon"
                         app:layout_constraintStart_toStartOf="@id/paths_title"
                         app:layout_constraintTop_toBottomOf="@id/paths_title" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/paths_change_action"
-                        style="@style/SDMButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/general_edit_action"
-                        app:icon="@drawable/ic_mode_edit"
+                    <ImageView
+                        android:id="@+id/paths_edit_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_mode_edit"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/paths_value" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="?colorOnSurfaceVariant" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

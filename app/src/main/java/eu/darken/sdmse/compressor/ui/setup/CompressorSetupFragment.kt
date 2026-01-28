@@ -48,7 +48,7 @@ class CompressorSetupFragment : Fragment3(R.layout.compressor_setup_fragment) {
 
         ui.toolbar.setupWithNavController(findNavController())
 
-        ui.pathsChangeAction.setOnClickListener {
+        ui.pathsCard.setOnClickListener {
             vm.openPathPicker()
         }
 
