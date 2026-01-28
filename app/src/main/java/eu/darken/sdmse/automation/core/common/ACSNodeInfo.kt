@@ -7,6 +7,7 @@ interface ACSNodeInfo {
 
     // Basic properties
     val text: CharSequence?
+    val contentDescription: CharSequence?
     val className: CharSequence?
     val packageName: CharSequence?
     val viewIdResourceName: String?

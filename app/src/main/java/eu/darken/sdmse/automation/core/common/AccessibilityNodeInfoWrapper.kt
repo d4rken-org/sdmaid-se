@@ -8,6 +8,7 @@ private class AccessibilityNodeInfoWrapper(
 ) : ACSNodeInfo {
 
     override val text: CharSequence? get() = node.text
+    override val contentDescription: CharSequence? get() = node.contentDescription
     override val className: CharSequence? get() = node.className
     override val packageName: CharSequence? get() = node.packageName
     override val viewIdResourceName: String? get() = node.viewIdResourceName
@@ -39,7 +40,7 @@ private class AccessibilityNodeInfoWrapper(
     override fun toString(): String {
         val identity = Integer.toHexString(System.identityHashCode(this))
         val bounds = Rect().apply { getBoundsInScreen(this) }
-        return "text='${this.text}', class=${this.className}, clickable=$isClickable, checkable=$isCheckable enabled=$isEnabled, id=$viewIdResourceName pkg=$packageName, identity=$identity, bounds=$bounds"
+        return "text='${this.text}', contentDesc='${this.contentDescription}', class=${this.className}, clickable=$isClickable, checkable=$isCheckable enabled=$isEnabled, id=$viewIdResourceName pkg=$packageName, identity=$identity, bounds=$bounds"
     }
 }
 
