@@ -23,6 +23,7 @@ suspend fun ExclusionManager.pathExclusions(tool: SDMTool.Type): Collection<Excl
             SDMTool.Type.SYSTEMCLEANER -> it.hasTags(Exclusion.Tag.SYSTEMCLEANER)
             SDMTool.Type.APPCLEANER -> it.hasTags(Exclusion.Tag.APPCLEANER)
             SDMTool.Type.DEDUPLICATOR -> it.hasTags(Exclusion.Tag.DEDUPLICATOR)
+            SDMTool.Type.COMPRESSOR -> it.hasTags(Exclusion.Tag.COMPRESSOR)
             SDMTool.Type.APPCONTROL -> throw UnsupportedOperationException()
             SDMTool.Type.ANALYZER -> throw UnsupportedOperationException()
         }
@@ -36,6 +37,7 @@ suspend fun ExclusionManager.pkgExclusions(tool: SDMTool.Type): Collection<Exclu
             SDMTool.Type.SYSTEMCLEANER -> it.hasTags(Exclusion.Tag.SYSTEMCLEANER)
             SDMTool.Type.APPCLEANER -> it.hasTags(Exclusion.Tag.APPCLEANER)
             SDMTool.Type.DEDUPLICATOR -> throw UnsupportedOperationException()
+            SDMTool.Type.COMPRESSOR -> throw UnsupportedOperationException()
             SDMTool.Type.APPCONTROL -> throw UnsupportedOperationException()
             SDMTool.Type.ANALYZER -> throw UnsupportedOperationException()
         }

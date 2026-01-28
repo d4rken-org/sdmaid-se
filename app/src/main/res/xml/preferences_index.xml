@@ -38,6 +38,11 @@
             app:summary="@string/deduplicator_explanation_short"
             app:title="@string/deduplicator_tool_name" />
         <Preference
+            android:icon="@drawable/ic_image_compress_24"
+            app:fragment="eu.darken.sdmse.compressor.ui.settings.CompressorSettingsFragment"
+            app:summary="@string/compressor_explanation_short"
+            app:title="@string/compressor_tool_name" />
+        <Preference
             android:icon="@drawable/ic_apps"
             app:fragment="eu.darken.sdmse.appcontrol.ui.settings.AppControlSettingsFragment"
             app:summary="@string/appcontrol_explanation_short"

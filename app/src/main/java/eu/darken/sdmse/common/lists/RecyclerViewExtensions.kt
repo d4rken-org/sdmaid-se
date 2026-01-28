@@ -90,7 +90,8 @@ fun <AdapterT, ItemT : SelectableItem> Fragment3.installListSelection(
     onPrepare: (SelectionTracker<String>, ActionMode, Menu) -> Boolean = { _: SelectionTracker<String>, _: ActionMode, _: Menu -> false },
     onSelected: (SelectionTracker<String>, MenuItem, List<ItemT>) -> Boolean,
     onChange: (SelectionTracker<String>) -> Unit = {},
-    selectionPredicate: SelectionTracker.SelectionPredicate<String> = SelectionPredicates.createSelectAnything()
+    selectionPredicate: SelectionTracker.SelectionPredicate<String> = SelectionPredicates.createSelectAnything(),
+    cabTitle: ((List<ItemT>) -> CharSequence)? = null,
 ): SelectionTracker<String> where AdapterT : DataAdapter<ItemT>, AdapterT : ModularAdapter<*> {
     val context = requireContext()
     val tracker = adapter.setupSelectionBase(list, selectionPredicate)
@@ -136,10 +137,17 @@ fun <AdapterT, ItemT : SelectableItem> Fragment3.installListSelection(
                 tracker.hasSelection() -> {
                     actionMode ?: toolbar.startActionMode(cabCallback)?.also { actionMode = it }
                     actionMode?.apply {
-                        title = context.getQuantityString2(
-                            eu.darken.sdmse.common.R.plurals.result_x_items,
-                            tracker.selection.size()
-                        )
+                        title = if (cabTitle != null) {
+                            val selectedItems = tracker.selection.map { key ->
+                                adapter.data.first { it.itemSelectionKey == key }
+                            }
+                            cabTitle.invoke(selectedItems)
+                        } else {
+                            context.getQuantityString2(
+                                eu.darken.sdmse.common.R.plurals.result_x_items,
+                                tracker.selection.size()
+                            )
+                        }
                         invalidate()
                     }
                 }
