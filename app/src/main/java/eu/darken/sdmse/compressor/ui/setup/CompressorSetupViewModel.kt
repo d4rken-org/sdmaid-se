@@ -1,7 +1,6 @@
 package eu.darken.sdmse.compressor.ui.setup
 
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.common.MimeTypeTool
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -18,8 +17,6 @@ import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.uix.ViewModel3
-import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.compressor.core.CompressibleImage
 import eu.darken.sdmse.compressor.core.CompressionEstimator
 import eu.darken.sdmse.compressor.core.Compressor
@@ -36,7 +33,6 @@ class CompressorSetupViewModel @Inject constructor(
     private val settings: CompressorSettings,
     private val compressor: Compressor,
     private val taskManager: TaskManager,
-    private val upgradeRepo: UpgradeRepo,
     private val compressionEstimator: CompressionEstimator,
     private val gatewaySwitch: GatewaySwitch,
     private val storageEnvironment: StorageEnvironment,
@@ -107,11 +103,6 @@ class CompressorSetupViewModel @Inject constructor(
 
     fun startScan() = launch {
         log(TAG, INFO) { "startScan()" }
-
-        if (!upgradeRepo.isPro()) {
-            MainDirections.goToUpgradeFragment().navigate()
-            return@launch
-        }
 
         val result = taskManager.submit(CompressorScanTask())
         log(TAG, INFO) { "Scan result: $result" }
