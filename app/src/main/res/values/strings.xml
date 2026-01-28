@@ -623,6 +623,7 @@
     <string name="compressor_result_empty_message">No compressible images found.</string>
     <string name="compressor_setup_action">Start</string>
     <string name="compressor_setup_warning">Compression permanently reduces image quality to save storage space. This cannot be undone. Review your settings carefully before starting.</string>
+    <string name="compressor_setup_explanation">Compressor reduces the file size of images to free up storage space. This permanently reduces image quality and cannot be undone. Review your settings carefully before starting.</string>
     <string name="compressor_setup_paths_title">Search locations</string>
     <string name="compressor_setup_paths_default">Default: Camera folders (DCIM)</string>
     <string name="compressor_setup_quality_title">Compression quality</string>
