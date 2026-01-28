@@ -121,6 +121,9 @@ class CompressorSetupFragment : Fragment3(R.layout.compressor_setup_fragment) {
             }
 
             minSizeValue.text = Formatter.formatShortFileSize(requireContext(), state.minSizeBytes)
+
+            qualityExampleAction.isInvisible = state.isLoadingExample
+            qualityExampleLoading.isVisible = state.isLoadingExample
         }
 
         vm.events.observe2(ui) { event ->

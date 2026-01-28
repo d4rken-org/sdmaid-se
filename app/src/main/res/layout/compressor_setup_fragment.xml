@@ -168,16 +168,32 @@
                         app:layout_constraintTop_toBottomOf="@id/quality_hint"
                         tools:text="Estimated ~35% savings for JPEG files" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/quality_example_action"
-                        style="@style/SDMButton"
+                    <FrameLayout
+                        android:id="@+id/quality_example_container"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/compressor_preview_info_action"
-                        app:icon="@drawable/ic_image_multiple_24"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/quality_estimate" />
+                        app:layout_constraintTop_toBottomOf="@id/quality_estimate">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/quality_example_action"
+                            style="@style/SDMButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/compressor_preview_info_action"
+                            app:icon="@drawable/ic_image_multiple_24" />
+
+                        <com.google.android.material.progressindicator.CircularProgressIndicator
+                            android:id="@+id/quality_example_loading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:indeterminate="true"
+                            android:visibility="gone"
+                            app:indicatorSize="24dp" />
+
+                    </FrameLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -11,10 +11,10 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathGateway
-import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.isFile
 import eu.darken.sdmse.common.files.walk
+import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -26,7 +26,7 @@ import eu.darken.sdmse.compressor.core.Compressor
 import eu.darken.sdmse.compressor.core.CompressorSettings
 import eu.darken.sdmse.compressor.core.tasks.CompressorScanTask
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
-import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.firstOrNull
 import javax.inject.Inject
 
@@ -45,13 +45,16 @@ class CompressorSetupViewModel @Inject constructor(
 
     val events = SingleLiveEvent<CompressorSetupEvents>()
 
+    private val isLoadingExample = MutableStateFlow(false)
+
     val state = combine(
         settings.scanPaths.flow,
         settings.compressionQuality.flow,
         settings.minAgeDays.flow,
         settings.minSizeBytes.flow,
         compressor.progress,
-    ) { scanPaths, quality, minAgeDays, minSizeBytes, progress ->
+        isLoadingExample,
+    ) { scanPaths, quality, minAgeDays, minSizeBytes, progress, loadingExample ->
         val jpegRatio = compressionEstimator.estimateOutputRatio(CompressibleImage.MIME_TYPE_JPEG, quality)
         val estimatedSavings = jpegRatio?.let { ((1.0 - it) * 100).toInt() }
 
@@ -62,6 +65,7 @@ class CompressorSetupViewModel @Inject constructor(
             minSizeBytes = minSizeBytes,
             estimatedSavingsPercent = estimatedSavings,
             progress = progress,
+            isLoadingExample = loadingExample,
         )
     }.asLiveData2()
 
@@ -72,6 +76,7 @@ class CompressorSetupViewModel @Inject constructor(
         val minSizeBytes: Long,
         val estimatedSavingsPercent: Int? = null,
         val progress: Progress.Data? = null,
+        val isLoadingExample: Boolean = false,
     )
 
     fun updateQuality(quality: Int) = launch {
@@ -116,12 +121,17 @@ class CompressorSetupViewModel @Inject constructor(
 
     fun showExample() = launch {
         log(TAG) { "showExample()" }
-        val quality = settings.compressionQuality.value()
-        val sampleImage = findSampleImage()
-        if (sampleImage != null) {
-            events.postValue(CompressorSetupEvents.ShowExample(sampleImage, quality))
-        } else {
-            events.postValue(CompressorSetupEvents.NoExampleFound)
+        isLoadingExample.value = true
+        try {
+            val quality = settings.compressionQuality.value()
+            val sampleImage = findSampleImage()
+            if (sampleImage != null) {
+                events.postValue(CompressorSetupEvents.ShowExample(sampleImage, quality))
+            } else {
+                events.postValue(CompressorSetupEvents.NoExampleFound)
+            }
+        } finally {
+            isLoadingExample.value = false
         }
     }
 
