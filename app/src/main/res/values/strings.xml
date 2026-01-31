@@ -621,7 +621,6 @@
     <string name="compressor_preview_info_action">Show example</string>
     <string name="compressor_no_example_found">No images found in selected paths.</string>
     <string name="compressor_result_empty_message">No compressible images found.</string>
-    <string name="compressor_setup_action">Start</string>
     <string name="compressor_setup_warning">Compression permanently reduces image quality to save storage space. This cannot be undone. Review your settings carefully before starting.</string>
     <string name="compressor_setup_explanation">Compressor reduces the file size of images to free up storage space. This permanently reduces image quality and cannot be undone. Review your settings carefully before starting.</string>
     <string name="compressor_setup_paths_title">Search locations</string>

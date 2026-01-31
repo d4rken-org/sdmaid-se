@@ -55,6 +55,7 @@ import eu.darken.sdmse.compressor.core.hasData
 import eu.darken.sdmse.compressor.core.tasks.CompressorProcessTask
 import eu.darken.sdmse.compressor.core.tasks.CompressorScanTask
 import eu.darken.sdmse.compressor.core.tasks.CompressorTask
+import eu.darken.sdmse.compressor.ui.CompressorDashCardVH
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
@@ -319,39 +320,18 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val compressorItem: Flow<DashboardToolCard.Item?> = combine(
-        (compressor.state as Flow<Compressor.State?>).onStart { emit(null) },
-        taskManager.state.map { it.getLatestResult(SDMTool.Type.COMPRESSOR) },
-        upgradeInfo.map { it?.isPro ?: false },
-    ) { state, lastResult, isPro ->
-        DashboardToolCard.Item(
-            toolType = SDMTool.Type.COMPRESSOR,
-            isInitializing = state == null,
-            result = lastResult,
-            progress = state?.progress,
-            showProRequirement = !isPro,
-            onScan = {
-                events.postValue(DashboardEvents.CompressorSetup)
-            },
-            onDelete = {
-                launch {
-                    val event = DashboardEvents.CompressorProcessConfirmation(
-                        task = CompressorProcessTask(),
-                        sampleImage = state?.data?.images?.firstOrNull(),
-                        quality = compressorSettings.compressionQuality.valueBlocking,
-                    )
-                    events.postValue(event)
-                }
-            }.takeIf { state?.data?.hasData == true },
-            onCancel = {
-                launch { taskManager.cancel(SDMTool.Type.COMPRESSOR) }
-            },
-            onViewTool = { showCompressor() },
-            onViewDetails = {
-                DashboardFragmentDirections.actionDashboardFragmentToCompressorListFragment().navigate()
-            },
-        )
-    }
+    private val compressorItem: Flow<CompressorDashCardVH.Item?> = (compressor.state as Flow<Compressor.State?>)
+        .onStart { emit(null) }
+        .mapLatest { state ->
+            CompressorDashCardVH.Item(
+                isInitializing = state == null,
+                data = state?.data,
+                progress = state?.progress,
+                onViewDetails = {
+                    DashboardFragmentDirections.actionDashboardFragmentToCompressorSetupFragment().navigate()
+                },
+            )
+        }
 
     private val appControlItem: Flow<AppControlDashCardVH.Item?> = (appControl.state as Flow<AppControl.State?>)
         .onStart { emit(null) }
@@ -532,7 +512,7 @@ class DashboardViewModel @Inject constructor(
         systemCleanerItem: DashboardToolCard.Item?,
         appCleanerItem: DashboardToolCard.Item?,
         deduplicatorItem: DashboardToolCard.Item?,
-        compressorItem: DashboardToolCard.Item?,
+        compressorItem: CompressorDashCardVH.Item?,
         appControlItem: AppControlDashCardVH.Item?,
         analyzerItem: AnalyzerDashCardVH.Item?,
         schedulerItem: SchedulerDashCardVH.Item?,
