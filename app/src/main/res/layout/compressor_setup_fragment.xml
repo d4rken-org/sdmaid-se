@@ -149,8 +149,9 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_baseline_settings_24"
+                        app:layout_constraintBottom_toBottomOf="@id/quality_title"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/quality_title"
                         app:tint="?colorPrimary" />
 
                     <com.google.android.material.textview.MaterialTextView
@@ -164,28 +165,28 @@
                         app:layout_constraintStart_toEndOf="@id/quality_icon"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/quality_value"
-                        style="@style/TextAppearance.Material3.BodyMedium"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@id/quality_title"
-                        app:layout_constraintTop_toBottomOf="@id/quality_title"
-                        tools:text="80%" />
-
                     <com.google.android.material.slider.Slider
                         android:id="@+id/quality_slider"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
                         android:stepSize="1"
-                        android:valueFrom="1"
+                        android:valueFrom="20"
                         android:valueTo="100"
+                        app:layout_constraintEnd_toStartOf="@id/quality_value"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/quality_title" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/quality_value"
+                        style="@style/TextAppearance.Material3.BodyMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@id/quality_slider"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@id/quality_title"
-                        app:layout_constraintTop_toBottomOf="@id/quality_value" />
+                        app:layout_constraintTop_toTopOf="@id/quality_slider"
+                        tools:text="80%" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/quality_hint"
@@ -193,7 +194,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@id/quality_title"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/quality_slider"
                         tools:text="Lower quality = smaller files" />
 
@@ -205,7 +206,7 @@
                         android:layout_marginTop="8dp"
                         android:textColor="?colorPrimary"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@id/quality_title"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/quality_hint"
                         tools:text="Estimated ~35% savings for JPEG files" />
 

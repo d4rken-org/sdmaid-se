@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.picker.PickerRequest
 import eu.darken.sdmse.common.picker.PickerResult
 import eu.darken.sdmse.common.ui.AgeInputDialog
@@ -104,6 +105,15 @@ class CompressorSetupFragment : Fragment3(R.layout.compressor_setup_fragment) {
             qualitySlider.value = state.quality.toFloat()
             qualityValue.text = getString(R.string.compressor_quality_value, state.quality)
             qualityHint.text = getQualityHint(state.quality)
+            qualityHint.setTextColor(
+                requireContext().getColorForAttr(
+                    if (state.quality < 40) {
+                        androidx.appcompat.R.attr.colorError
+                    } else {
+                        com.google.android.material.R.attr.colorOnSurfaceVariant
+                    }
+                )
+            )
 
             qualityEstimate.text = state.estimatedSavingsPercent?.let {
                 getString(R.string.compressor_estimated_savings_percent, it)
@@ -189,6 +199,7 @@ class CompressorSetupFragment : Fragment3(R.layout.compressor_setup_fragment) {
     }
 
     private fun getQualityHint(quality: Int): String = when {
+        quality < 40 -> getString(R.string.compressor_quality_hint_very_low)
         quality <= 50 -> getString(R.string.compressor_quality_hint_low)
         quality >= 95 -> getString(R.string.compressor_quality_hint_high)
         else -> getString(R.string.compressor_quality_hint_normal)
