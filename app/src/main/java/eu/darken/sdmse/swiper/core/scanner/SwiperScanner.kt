@@ -104,6 +104,9 @@ class SwiperScanner @Inject constructor(
             log(TAG, VERBOSE) { "Found file #$count: ${lookup.path}" }
         }
 
+        // Sort by modification time so users start with oldest files first
+        files.sortBy { it.modifiedAt }
+
         log(TAG) { "Scan found ${files.size} files" }
 
         val sessionId = UUID.randomUUID().toString()
