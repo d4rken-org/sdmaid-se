@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
@@ -41,7 +42,16 @@ class SwiperSwipeViewModel @Inject constructor(
 
     val events = SingleLiveEvent<SwiperSwipeEvents>()
 
-    val state = eu.darken.sdmse.common.flow.combine(
+    init {
+        launch {
+            if (!swiper.hasSessionLookups(sessionId)) {
+                log(TAG, WARN) { "Cache miss for session $sessionId after process death, navigating back to sessions" }
+                events.postValue(SwiperSwipeEvents.NavigateToSessions)
+            }
+        }
+    }
+
+    val state = combine(
         swiper.getSession(sessionId),
         swiper.getItemsForSession(sessionId),
         swiper.getSessionsWithStats(),
