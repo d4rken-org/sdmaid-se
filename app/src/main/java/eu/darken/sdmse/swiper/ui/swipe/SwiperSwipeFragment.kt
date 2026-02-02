@@ -223,23 +223,9 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
             progressBar.progress = state.progressPercent
             progressPercent.text = "${state.progressPercent}%"
 
-            // Simplified count display (no size info in the pill)
-            val keepText = "${state.keepCount}"
-            val deleteText = "${state.deleteCount}"
-
-            // Info bar position: [keepCount view (left)] [deleteCount view (right)]
-            // Match positions to button layout:
-            // - Normal (swapDirections=false): Delete button left, Keep button right
-            // - Swapped (swapDirections=true): Keep button left, Delete button right
-            if (state.swapDirections) {
-                // Swapped buttons: Keep left, Delete right
-                keepCount.text = keepText
-                deleteCount.text = deleteText
-            } else {
-                // Normal buttons: Delete left, Keep right
-                keepCount.text = deleteText
-                deleteCount.text = keepText
-            }
+            // Simplified count display - icons always match their semantic meaning
+            keepCount.text = "${state.keepCount}"
+            deleteCount.text = "${state.deleteCount}"
             undecidedCount.text = "${state.undecidedCount}"
         }
 
