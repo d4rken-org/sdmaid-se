@@ -118,7 +118,12 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
             }
             isScanned && session.totalItems > 0 -> {
                 // Scan complete with items found
-                actionButton.text = getString(R.string.swiper_continue_action)
+                val hasStarted = sessionWithStats.keepCount + sessionWithStats.deleteCount > 0
+                actionButton.text = if (hasStarted) {
+                    getString(R.string.swiper_continue_action)
+                } else {
+                    getString(R.string.swiper_start_action)
+                }
                 actionButton.setIconResource(R.drawable.ic_baseline_swipe_24)
                 actionButton.isEnabled = true
                 actionButton.setOnClickListener { item.onContinue() }
