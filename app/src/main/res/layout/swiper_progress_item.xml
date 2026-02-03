@@ -50,7 +50,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
-            android:background="@drawable/bg_circle_action"
+            android:background="@drawable/bg_circle_primary"
             android:padding="4dp"
             android:src="@drawable/ic_eye_24"
             android:visibility="gone"
