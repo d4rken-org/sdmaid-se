@@ -143,6 +143,61 @@
 
                     </LinearLayout>
 
+                    <!-- Already processed row (shown after partial finalization) -->
+                    <LinearLayout
+                        android:id="@+id/already_processed_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
+                        <!-- Kept section -->
+                        <ImageView
+                            android:id="@+id/already_kept_icon"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_check_circle"
+                            app:tint="?attr/colorPrimary" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/already_kept_count"
+                            style="@style/TextAppearance.Material3.BodyMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            tools:text="12 kept" />
+
+                        <!-- Separator -->
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/already_processed_separator"
+                            style="@style/TextAppearance.Material3.BodyMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="8dp"
+                            android:text="•"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                        <!-- Deleted section -->
+                        <ImageView
+                            android:id="@+id/already_deleted_icon"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_check_circle"
+                            app:tint="?attr/colorError" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/already_deleted_count"
+                            style="@style/TextAppearance.Material3.BodyMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            tools:text="8 deleted" />
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <!-- Finalize button on right side -->

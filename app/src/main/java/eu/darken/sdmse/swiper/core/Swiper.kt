@@ -246,6 +246,13 @@ class Swiper @Inject constructor(
             deletedPaths = result.deletedPaths
         }
 
+        // Count items being processed before removing them
+        val keptCount = itemDao.countByDecision(task.sessionId, SwipeDecision.KEEP)
+        val deletedCount = itemDao.countByDecision(task.sessionId, SwipeDecision.DELETED)
+
+        // Increment session counts before removing items
+        sessionDao.incrementProcessedCounts(task.sessionId, keptCount, deletedCount, Instant.now().toEpochMilli())
+
         // Remove decided items (DELETED and KEEP) from session
         itemDao.deleteByDecisions(task.sessionId, listOf(SwipeDecision.DELETED, SwipeDecision.KEEP))
 

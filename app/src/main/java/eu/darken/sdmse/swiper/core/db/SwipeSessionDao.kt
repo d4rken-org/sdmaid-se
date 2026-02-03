@@ -39,4 +39,7 @@ interface SwipeSessionDao {
 
     @Query("UPDATE swipe_sessions SET label = :label WHERE session_id = :sessionId")
     suspend fun updateLabel(sessionId: String, label: String?)
+
+    @Query("UPDATE swipe_sessions SET kept_count = kept_count + :keptDelta, deleted_count = deleted_count + :deletedDelta, last_modified_at = :lastModified WHERE session_id = :sessionId")
+    suspend fun incrementProcessedCounts(sessionId: String, keptDelta: Int, deletedDelta: Int, lastModified: Long)
 }

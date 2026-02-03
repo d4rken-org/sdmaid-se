@@ -994,6 +994,23 @@
         <item quantity="one">%d undecided</item>
         <item quantity="other">%d undecided</item>
     </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d already kept</item>
+        <item quantity="other">%d already kept</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d already deleted</item>
+        <item quantity="other">%d already deleted</item>
+    </plurals>
+    <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d kept</item>
+        <item quantity="other">%d kept</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d deleted</item>
+        <item quantity="other">%d deleted</item>
+    </plurals>
     <string name="swiper_exclude_confirmation_message">Exclude \"%1$s\" from Swiper scans?</string>
 
     <string name="swiper_sessions_header_title">Ready to declutter?</string>

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a76eca9a9d0b431f38adad71e8d5a130",
+    "identityHash": "6b3732d54808610fa9ddb4b8a957bfb5",
     "entities": [
       {
         "tableName": "swipe_sessions",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`session_id` TEXT NOT NULL, `source_paths` TEXT NOT NULL, `current_index` INTEGER NOT NULL, `total_items` INTEGER NOT NULL, `created_at` INTEGER NOT NULL, `last_modified_at` INTEGER NOT NULL, `state` TEXT NOT NULL, `label` TEXT, PRIMARY KEY(`session_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`session_id` TEXT NOT NULL, `source_paths` TEXT NOT NULL, `current_index` INTEGER NOT NULL, `total_items` INTEGER NOT NULL, `created_at` INTEGER NOT NULL, `last_modified_at` INTEGER NOT NULL, `state` TEXT NOT NULL, `label` TEXT, `kept_count` INTEGER NOT NULL, `deleted_count` INTEGER NOT NULL, PRIMARY KEY(`session_id`))",
         "fields": [
           {
             "fieldPath": "sessionId",
@@ -54,6 +54,18 @@
             "fieldPath": "label",
             "columnName": "label",
             "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "keptCount",
+            "columnName": "kept_count",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deletedCount",
+            "columnName": "deleted_count",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -132,7 +144,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a76eca9a9d0b431f38adad71e8d5a130')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6b3732d54808610fa9ddb4b8a957bfb5')"
     ]
   }
 }

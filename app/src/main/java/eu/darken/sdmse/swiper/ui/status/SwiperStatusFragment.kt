@@ -144,6 +144,33 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
             undecidedRow.visibility =
                 if (state.undecidedCount > 0) View.VISIBLE else View.GONE
 
+            // Already processed counts (shown after partial finalization)
+            val hasProcessedItems = state.alreadyKeptCount > 0 || state.alreadyDeletedCount > 0
+            alreadyProcessedRow.visibility = if (hasProcessedItems) View.VISIBLE else View.GONE
+
+            // Show/hide kept section
+            val showKept = state.alreadyKeptCount > 0
+            alreadyKeptIcon.visibility = if (showKept) View.VISIBLE else View.GONE
+            alreadyKeptCount.visibility = if (showKept) View.VISIBLE else View.GONE
+            alreadyKeptCount.text = resources.getQuantityString(
+                R.plurals.swiper_session_status_kept,
+                state.alreadyKeptCount,
+                state.alreadyKeptCount,
+            )
+
+            // Show/hide deleted section
+            val showDeleted = state.alreadyDeletedCount > 0
+            alreadyDeletedIcon.visibility = if (showDeleted) View.VISIBLE else View.GONE
+            alreadyDeletedCount.visibility = if (showDeleted) View.VISIBLE else View.GONE
+            alreadyDeletedCount.text = resources.getQuantityString(
+                R.plurals.swiper_session_status_deleted,
+                state.alreadyDeletedCount,
+                state.alreadyDeletedCount,
+            )
+
+            // Show separator only when both are visible
+            alreadyProcessedSeparator.visibility = if (showKept && showDeleted) View.VISIBLE else View.GONE
+
             adapter.update(state.items.map { SwiperStatusAdapter.Item(it) })
 
             // Update button and menu item state
