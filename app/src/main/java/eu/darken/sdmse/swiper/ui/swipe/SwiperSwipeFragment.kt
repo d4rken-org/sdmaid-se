@@ -38,6 +38,7 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
     private lateinit var progressAdapter: ProgressPagerAdapter
     private var currentItems: List<SwipeItem> = emptyList()
     private var currentIndex: Int = 0
+    private var isInitialScroll = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
@@ -216,8 +217,13 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                 },
             )
 
-            // Center current item in RecyclerView with smooth scrolling
-            smoothScrollToCenter(progressPager, state.currentIndex)
+            // Center current item in RecyclerView
+            if (isInitialScroll) {
+                scrollToCenterInstant(progressPager, state.currentIndex)
+                isInitialScroll = false
+            } else {
+                smoothScrollToCenter(progressPager, state.currentIndex)
+            }
 
             toolbar.subtitle = state.sessionLabel
                 ?: state.sessionPosition?.let { getString(R.string.swiper_session_default_label, it) }
@@ -285,6 +291,16 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
 
         smoothScroller.targetPosition = position
         layoutManager.startSmoothScroll(smoothScroller)
+    }
+
+    private fun scrollToCenterInstant(recyclerView: RecyclerView, position: Int) {
+        val layoutManager = recyclerView.layoutManager as? LinearLayoutManager ?: return
+        // Post to ensure RecyclerView is laid out before calculating offset
+        recyclerView.post {
+            val childWidth = recyclerView.getChildAt(0)?.width ?: return@post
+            val offset = (recyclerView.width - childWidth) / 2
+            layoutManager.scrollToPositionWithOffset(position, offset)
+        }
     }
 
     /**
