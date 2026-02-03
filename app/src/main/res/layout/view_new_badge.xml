@@ -9,6 +9,7 @@
     android:paddingHorizontal="6dp"
     android:paddingVertical="2dp"
     android:text="@string/general_new_badge_label"
+    android:textAllCaps="true"
     android:textColor="?colorOnTertiary"
     android:visibility="gone"
     tools:visibility="visible" />
