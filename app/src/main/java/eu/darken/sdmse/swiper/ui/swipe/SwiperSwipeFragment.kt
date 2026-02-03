@@ -205,11 +205,13 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                         fileName = itemFileName,
                         filePath = fullPath.removeSuffix(itemFileName),
                         fileMeta = "$size • $date",
-                        position = getString(
-                            R.string.swiper_item_position,
-                            state.currentIndex + 1,
-                            state.totalItems,
-                        ),
+                        position = state.currentItemOriginalIndex?.let { idx ->
+                            getString(
+                                R.string.swiper_item_position,
+                                idx + 1,
+                                state.totalItems,
+                            )
+                        },
                     )
                 },
             )
