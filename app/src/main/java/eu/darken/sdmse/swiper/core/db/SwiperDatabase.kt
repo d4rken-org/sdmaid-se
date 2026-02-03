@@ -25,7 +25,6 @@ class SwiperDatabaseModule {
     ): SwiperRoomDb = Room.databaseBuilder(context, SwiperRoomDb::class.java, "swiper.db").apply {
         addTypeConverter(APathTypeConverter(moshi))
         addTypeConverter(APathListTypeConverter(moshi))
-            fallbackToDestructiveMigration(dropAllTables = true)
     }.build()
 
     @Provides
