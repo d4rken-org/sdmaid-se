@@ -64,8 +64,14 @@ class SwiperSwipeViewModel @Inject constructor(
         indexOverride: Int?,
         swapDirections: Boolean,
         showDetails: Boolean ->
-        val currentIndex = (indexOverride ?: session?.currentIndex ?: 0)
-            .coerceIn(0, maxOf(0, items.size - 1))
+        // Clear stale override when session was reset to 0 (e.g., after deletion)
+        val currentIndex = when {
+            session?.currentIndex == 0 && indexOverride != null && indexOverride > 0 -> {
+                currentIndexOverride.value = null
+                0
+            }
+            else -> indexOverride ?: session?.currentIndex ?: 0
+        }.coerceIn(0, maxOf(0, items.size - 1))
         val keepItems = items.filter { it.decision == SwipeDecision.KEEP }
         val deleteItems = items.filter { it.decision == SwipeDecision.DELETE }
         val undecidedItems = items.filter { it.decision == SwipeDecision.UNDECIDED }
@@ -80,7 +86,7 @@ class SwiperSwipeViewModel @Inject constructor(
             session = session,
             items = items,
             currentIndex = currentIndex,
-            totalItems = items.size,
+            totalItems = session?.totalItems ?: items.size,
             keepCount = keepItems.size,
             keepSize = keepItems.sumOf { it.lookup.size },
             deleteCount = deleteItems.size,
@@ -193,6 +199,7 @@ class SwiperSwipeViewModel @Inject constructor(
         val sessionPosition: Int?,
     ) {
         val currentItem: SwipeItem? = items.getOrNull(currentIndex)
+        val currentItemOriginalIndex: Int? = currentItem?.itemIndex
         val progressPercent: Int = if (totalItems > 0) ((keepCount + deleteCount) * 100 / totalItems) else 0
         val sessionLabel: String? = session?.label
     }

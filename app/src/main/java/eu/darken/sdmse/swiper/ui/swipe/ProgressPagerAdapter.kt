@@ -65,8 +65,8 @@ class ProgressPagerAdapter : ListAdapter<SwipeItem, ProgressPagerAdapter.ViewHol
         fun bind(item: SwipeItem, position: Int, isCurrent: Boolean) {
             val context = binding.root.context
 
-            // Set item number
-            binding.itemNumber.text = "#${position + 1}"
+            // Set item number using original scan position
+            binding.itemNumber.text = "#${item.itemIndex + 1}"
 
             // Load thumbnail
             binding.thumbnail.loadFilePreview(item.lookup) {
