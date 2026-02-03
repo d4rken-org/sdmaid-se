@@ -20,6 +20,8 @@ data class SwipeSessionEntity(
     @ColumnInfo(name = "last_modified_at") val lastModifiedAt: Instant = Instant.now(),
     @ColumnInfo(name = "state") val state: SessionState = SessionState.CREATED,
     @ColumnInfo(name = "label") val label: String? = null,
+    @ColumnInfo(name = "kept_count") val keptCount: Int = 0,
+    @ColumnInfo(name = "deleted_count") val deletedCount: Int = 0,
 ) {
     fun toModel() = SwipeSession(
         sessionId = sessionId,
@@ -30,6 +32,8 @@ data class SwipeSessionEntity(
         lastModifiedAt = lastModifiedAt,
         state = state,
         label = label,
+        keptCount = keptCount,
+        deletedCount = deletedCount,
     )
 
     companion object {
@@ -42,6 +46,8 @@ data class SwipeSessionEntity(
             lastModifiedAt = session.lastModifiedAt,
             state = session.state,
             label = session.label,
+            keptCount = session.keptCount,
+            deletedCount = session.deletedCount,
         )
     }
 }

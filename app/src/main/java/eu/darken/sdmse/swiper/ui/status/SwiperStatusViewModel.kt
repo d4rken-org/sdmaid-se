@@ -16,9 +16,10 @@ import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
+import eu.darken.sdmse.swiper.core.SwipeSession
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.swiper.core.tasks.SwiperDeleteTask
-import kotlinx.coroutines.flow.combine
+import eu.darken.sdmse.common.flow.combine
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
@@ -37,9 +38,10 @@ class SwiperStatusViewModel @Inject constructor(
     val events = SingleLiveEvent<SwiperStatusEvents>()
 
     val state = combine(
+        swiper.getSession(sessionId),
         swiper.getItemsForSession(sessionId),
         swiper.progress,
-    ) { items, progress ->
+    ) { session: SwipeSession?, items: List<SwipeItem>, progress ->
         val keepCount = items.count { it.decision == SwipeDecision.KEEP }
         val deleteCount = items.count { it.decision == SwipeDecision.DELETE || it.decision == SwipeDecision.DELETE_FAILED }
         val undecidedCount = items.count { it.decision == SwipeDecision.UNDECIDED }
@@ -58,6 +60,8 @@ class SwiperStatusViewModel @Inject constructor(
             deleteSize = deleteSize,
             undecidedSize = undecidedSize,
             isProcessing = progress != null,
+            alreadyKeptCount = session?.keptCount ?: 0,
+            alreadyDeletedCount = session?.deletedCount ?: 0,
         )
     }.asLiveData2()
 
@@ -137,11 +141,15 @@ class SwiperStatusViewModel @Inject constructor(
         val deleteSize: Long,
         val undecidedSize: Long,
         val isProcessing: Boolean,
+        val alreadyKeptCount: Int,
+        val alreadyDeletedCount: Int,
     ) {
         // Can finalize at any time, even with undecided items (partial finalization)
         val canFinalize: Boolean = !isProcessing
         // Can show "Done" when deletions complete and nothing left to delete
         val canDone: Boolean = deletedCount > 0 && deleteCount == 0 && !isProcessing
+        // Has already processed items from previous partial finalization
+        val hasProcessedItems: Boolean = alreadyKeptCount > 0 || alreadyDeletedCount > 0
     }
 
     companion object {

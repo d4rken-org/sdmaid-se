@@ -12,4 +12,6 @@ data class SwipeSession(
     val lastModifiedAt: Instant,
     val state: SessionState,
     val label: String? = null,
+    val keptCount: Int = 0,
+    val deletedCount: Int = 0,
 )
