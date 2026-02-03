@@ -36,6 +36,7 @@
     <string name="general_edit_action">Edit</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Empty</string>
+    <string name="general_new_badge_label">New</string>
     <string name="general_dismiss_action">Dismiss</string>
     <string name="general_maybe_later_action">Maybe later</string>
     <string name="general_manage_action">Manage</string>
