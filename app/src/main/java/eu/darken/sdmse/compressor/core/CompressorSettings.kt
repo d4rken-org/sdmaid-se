@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.ui.LayoutMode
+import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -30,7 +31,7 @@ class CompressorSettings @Inject constructor(
         get() = context.dataStore
 
     val minSizeBytes = dataStore.createValue<Long>("filter.minsize.bytes", MIN_FILE_SIZE)
-    val minAgeDays = dataStore.createValue<Int?>("filter.minage.days", null)
+    val minAge = dataStore.createValue("filter.minage", MIN_AGE_DEFAULT, moshi)
     val compressionQuality = dataStore.createValue("compression.quality", DEFAULT_QUALITY)
     val includeJpeg = dataStore.createValue("filter.type.jpeg.enabled", true)
     val includeWebp = dataStore.createValue("filter.type.webp.enabled", true)
@@ -46,7 +47,7 @@ class CompressorSettings @Inject constructor(
 
     override val mapper = PreferenceStoreMapper(
         minSizeBytes,
-        minAgeDays,
+        minAge,
         compressionQuality,
         includeJpeg,
         includeWebp,
@@ -58,6 +59,7 @@ class CompressorSettings @Inject constructor(
     companion object {
         const val MIN_FILE_SIZE = 512 * 1024L
         const val DEFAULT_QUALITY = 80
+        val MIN_AGE_DEFAULT: Duration = Duration.ofDays(90)
         internal val TAG = logTag("Compressor", "Settings")
     }
 }

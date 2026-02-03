@@ -5,7 +5,7 @@ import eu.darken.sdmse.common.MimeTypeTool
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -27,6 +27,7 @@ import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
+import java.time.Duration
 import javax.inject.Inject
 
 @HiltViewModel
@@ -48,18 +49,18 @@ class CompressorSetupViewModel @Inject constructor(
     val state = combine(
         settings.scanPaths.flow,
         settings.compressionQuality.flow,
-        settings.minAgeDays.flow,
+        settings.minAge.flow,
         settings.minSizeBytes.flow,
         compressor.progress,
         isLoadingExample,
-    ) { scanPaths, quality, minAgeDays, minSizeBytes, progress, loadingExample ->
+    ) { scanPaths, quality, minAge, minSizeBytes, progress, loadingExample ->
         val jpegRatio = compressionEstimator.estimateOutputRatio(CompressibleImage.MIME_TYPE_JPEG, quality)
         val estimatedSavings = jpegRatio?.let { ((1.0 - it) * 100).toInt() }
 
         State(
             scanPaths = scanPaths.paths.sortedBy { it.path },
             quality = quality,
-            minAgeDays = minAgeDays,
+            minAge = minAge,
             minSizeBytes = minSizeBytes,
             estimatedSavingsPercent = estimatedSavings,
             progress = progress,
@@ -70,7 +71,7 @@ class CompressorSetupViewModel @Inject constructor(
     data class State(
         val scanPaths: List<APath>,
         val quality: Int,
-        val minAgeDays: Int?,
+        val minAge: Duration,
         val minSizeBytes: Long,
         val estimatedSavingsPercent: Int? = null,
         val progress: Progress.Data? = null,
@@ -82,9 +83,9 @@ class CompressorSetupViewModel @Inject constructor(
         settings.compressionQuality.value(quality)
     }
 
-    fun updateMinAge(days: Int?) = launch {
-        log(TAG, INFO) { "updateMinAge($days)" }
-        settings.minAgeDays.value(days)
+    fun updateMinAge(age: Duration) = launch {
+        log(TAG, INFO) { "updateMinAge($age)" }
+        settings.minAge.value(age)
     }
 
     fun updateMinSize(size: Long) = launch {

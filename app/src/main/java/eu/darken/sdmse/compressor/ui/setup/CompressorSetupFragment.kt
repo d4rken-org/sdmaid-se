@@ -14,7 +14,7 @@ import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.getColorForAttr
@@ -60,13 +60,14 @@ class CompressorSetupFragment : Fragment3(R.layout.compressor_setup_fragment) {
         }
 
         ui.ageCard.setOnClickListener {
-            val currentDays = vm.state.value?.minAgeDays ?: 30
+            val currentAge = vm.state.value?.minAge ?: CompressorSettings.MIN_AGE_DEFAULT
             AgeInputDialog(
                 activity = requireActivity(),
                 titleRes = R.string.compressor_min_age_title,
-                currentAge = Duration.ofDays(currentDays.toLong()),
-                onReset = { vm.updateMinAge(null) },
-                onSave = { vm.updateMinAge(it.toDays().toInt()) }
+                maximumAge = Duration.ofDays(365),
+                currentAge = currentAge,
+                onReset = { vm.updateMinAge(CompressorSettings.MIN_AGE_DEFAULT) },
+                onSave = { vm.updateMinAge(it) }
             ).show()
         }
 
@@ -120,15 +121,12 @@ class CompressorSetupFragment : Fragment3(R.layout.compressor_setup_fragment) {
             } ?: ""
             qualityEstimate.isVisible = state.estimatedSavingsPercent != null && state.quality < 100
 
-            ageValue.text = if (state.minAgeDays == null) {
-                getString(R.string.compressor_setup_age_none)
-            } else {
-                resources.getQuantityString(
-                    R.plurals.compressor_min_age_x_days,
-                    state.minAgeDays,
-                    state.minAgeDays
-                )
-            }
+            val minAgeDays = state.minAge.toDays().toInt()
+            ageValue.text = resources.getQuantityString(
+                R.plurals.compressor_min_age_x_days,
+                minAgeDays,
+                minAgeDays
+            )
 
             minSizeValue.text = Formatter.formatShortFileSize(requireContext(), state.minSizeBytes)
 

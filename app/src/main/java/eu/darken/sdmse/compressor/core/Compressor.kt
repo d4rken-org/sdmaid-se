@@ -7,10 +7,9 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.progress.Progress
@@ -109,7 +108,7 @@ class Compressor @Inject constructor(
         val scanOptions = ImageScanner.Options(
             paths = task.paths ?: settings.scanPaths.value().paths,
             minimumSize = settings.minSizeBytes.value(),
-            minAgeDays = settings.minAgeDays.value(),
+            minAge = settings.minAge.value(),
             enabledMimeTypes = enabledMimeTypes,
             skipPreviouslyCompressed = settings.skipPreviouslyCompressed.value(),
             compressionQuality = settings.compressionQuality.value(),
