@@ -325,6 +325,7 @@ class DashboardViewModel @Inject constructor(
         .mapLatest { state ->
             CompressorDashCardVH.Item(
                 isInitializing = state == null,
+                isNew = true,
                 data = state?.data,
                 progress = state?.progress,
                 onViewDetails = {

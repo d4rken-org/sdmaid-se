@@ -22,6 +22,7 @@ class CompressorDashCardVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
+        newBadge.root.isGone = !item.isNew
         toolLoadingIndicator.isGone = !item.isInitializing
         viewAction.apply {
             isEnabled = !item.isInitializing
@@ -36,6 +37,7 @@ class CompressorDashCardVH(parent: ViewGroup) :
     data class Item(
         val data: Compressor.Data?,
         val isInitializing: Boolean,
+        val isNew: Boolean,
         val progress: Progress.Data?,
         val onViewDetails: () -> Unit,
     ) : DashboardAdapter.Item {
