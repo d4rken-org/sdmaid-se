@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textview.MaterialTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/new_badge"
+    style="@style/TextAppearance.Material3.LabelSmall"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_new_badge"
+    android:paddingHorizontal="6dp"
+    android:paddingVertical="2dp"
+    android:text="@string/general_new_badge_label"
+    android:textColor="?colorOnTertiary"
+    android:visibility="gone"
+    tools:visibility="visible" />
