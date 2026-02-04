@@ -88,6 +88,21 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
             cabMenuRes = R.menu.menu_swiper_status_cab,
             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<SwiperStatusAdapter.Item> ->
                 when (item.itemId) {
+                    R.id.action_keep_selected -> {
+                        vm.updateDecisions(selected.map { it.swipeItem }, SwipeDecision.KEEP)
+                        tracker.clearSelection()
+                        true
+                    }
+                    R.id.action_delete_selected -> {
+                        vm.updateDecisions(selected.map { it.swipeItem }, SwipeDecision.DELETE)
+                        tracker.clearSelection()
+                        true
+                    }
+                    R.id.action_reset_selected -> {
+                        vm.updateDecisions(selected.map { it.swipeItem }, SwipeDecision.UNDECIDED)
+                        tracker.clearSelection()
+                        true
+                    }
                     R.id.action_exclude_selected -> {
                         vm.excludeAndRemove(selected.map { it.swipeItem })
                         tracker.clearSelection()

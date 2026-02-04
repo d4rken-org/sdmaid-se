@@ -131,6 +131,13 @@ class SwiperStatusViewModel @Inject constructor(
         }
     }
 
+    fun updateDecisions(items: Collection<SwipeItem>, decision: SwipeDecision) = launch {
+        log(TAG, INFO) { "updateDecisions(${items.size} items, decision=$decision)" }
+        items.forEach { item ->
+            swiper.updateDecision(item.id, decision)
+        }
+    }
+
     data class State(
         val items: List<SwipeItem>,
         val keepCount: Int,

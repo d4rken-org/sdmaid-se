@@ -945,6 +945,9 @@
     <string name="swiper_skip_action">Skip</string>
     <string name="swiper_review_action">Review</string>
     <string name="swiper_status_title">Review decisions</string>
+    <string name="swiper_status_action_keep_selected">Keep selected</string>
+    <string name="swiper_status_action_delete_selected">Delete selected</string>
+    <string name="swiper_status_action_reset_selected">Reset selected</string>
     <string name="swiper_decision_undecided">Undecided</string>
     <string name="swiper_decision_deleted">Deleted</string>
     <string name="swiper_decision_failed">Failed</string>
