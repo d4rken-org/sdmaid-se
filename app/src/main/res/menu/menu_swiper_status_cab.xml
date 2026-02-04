@@ -3,6 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_keep_selected"
+        android:icon="@drawable/ic_heart"
+        android:title="@string/swiper_status_action_keep_selected"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_delete_selected"
+        android:icon="@drawable/ic_baseline_delete_sweep_24"
+        android:title="@string/swiper_status_action_delete_selected"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_reset_selected"
+        android:icon="@drawable/ic_baseline_refresh_24"
+        android:title="@string/swiper_status_action_reset_selected"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_exclude_selected"
         android:icon="@drawable/ic_shield_plus_24"
         android:title="@string/general_exclude_selected_action"
