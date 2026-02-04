@@ -6,11 +6,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.DialogFragment
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.databinding.CompressorZoomablePreviewDialogBinding
 
@@ -44,6 +47,14 @@ class ZoomablePreviewDialog : DialogFragment() {
         binding.label.text = label
         binding.closeAction.setOnClickListener { dismiss() }
         binding.photoView.setOnClickListener { dismiss() }
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.closeAction) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val layoutParams = v.layoutParams as FrameLayout.LayoutParams
+            layoutParams.topMargin = requireContext().dpToPx(16f) + systemBars.top
+            v.layoutParams = layoutParams
+            insets
+        }
 
         val filePath = args.getString(ARG_FILE_PATH)
         if (filePath != null) {
