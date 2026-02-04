@@ -57,6 +57,7 @@ class SwipeCardView @JvmOverloads constructor(
         get() = width * 0.4f
 
     private val velocityThreshold = 1000f // pixels per second
+    private val swipeElevation = 24f // High enough to be above FABs during drag
 
     private val gestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
         override fun onSingleTapUp(e: MotionEvent): Boolean {
@@ -270,6 +271,7 @@ class SwipeCardView @JvmOverloads constructor(
                 velocityTracker = VelocityTracker.obtain()
                 velocityTracker?.addMovement(event)
                 parent?.requestDisallowInterceptTouchEvent(true)
+                this.translationZ = swipeElevation
                 return true
             }
             MotionEvent.ACTION_MOVE -> {
@@ -470,6 +472,7 @@ class SwipeCardView @JvmOverloads constructor(
                     binding.contentContainer.translationX = 0f
                     binding.contentContainer.translationY = 0f
                     binding.contentContainer.rotation = 0f
+                    this@SwipeCardView.translationZ = 0f
                     // Alpha stays at 0 until bind() calls resetPosition()
                     binding.stampKeep.alpha = 0f
                     binding.stampDelete.alpha = 0f
@@ -482,6 +485,12 @@ class SwipeCardView @JvmOverloads constructor(
     }
 
     private fun animateReset() {
+        this.animate()
+            .translationZ(0f)
+            .setDuration(200)
+            .setListener(null)
+            .start()
+
         binding.contentContainer.animate()
             .translationX(0f)
             .translationY(0f)
@@ -523,6 +532,7 @@ class SwipeCardView @JvmOverloads constructor(
     }
 
     fun resetPosition() {
+        this.translationZ = 0f
         binding.contentContainer.translationX = 0f
         binding.contentContainer.translationY = 0f
         binding.contentContainer.rotation = 0f
