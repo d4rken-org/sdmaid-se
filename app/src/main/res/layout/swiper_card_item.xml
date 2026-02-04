@@ -131,6 +131,68 @@
 
                 </LinearLayout>
 
+                <!-- File info overlay at bottom -->
+                <LinearLayout
+                    android:id="@+id/file_info_overlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/bg_overlay_gradient_bottom"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/file_name"
+                            style="@style/TextAppearance.Material3.TitleMedium"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="middle"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white"
+                            tools:text="IMG_20231225_123456.jpg" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/file_position"
+                            style="@style/TextAppearance.Material3.LabelMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="#B3FFFFFF"
+                            tools:text="#15 of 47" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/file_path"
+                        style="@style/TextAppearance.Material3.BodyMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:ellipsize="start"
+                        android:maxLines="1"
+                        android:textColor="#B3FFFFFF"
+                        tools:text="/storage/emulated/0/DCIM/Camera/" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/file_meta"
+                        style="@style/TextAppearance.Material3.BodyMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#B3FFFFFF"
+                        tools:text="2.4 MB, Dec 25, 2023" />
+
+                </LinearLayout>
+
                 <!-- Keep stamp: top-left (visible when swiping right, left side stays visible) -->
                 <LinearLayout
                     android:id="@+id/stamp_keep"
@@ -207,13 +269,13 @@
 
                 </LinearLayout>
 
-                <!-- Skip stamp: center-top (visible when swiping up) -->
+                <!-- Skip stamp: bottom-center (visible when swiping up) -->
                 <LinearLayout
                     android:id="@+id/stamp_skip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="top|center_horizontal"
-                    android:layout_marginTop="32dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="32dp"
                     android:alpha="0"
                     android:background="@drawable/bg_stamp_border_tertiary"
                     android:gravity="center_vertical"
@@ -243,65 +305,39 @@
 
                 </LinearLayout>
 
-                <!-- File info overlay at bottom -->
+                <!-- Undo stamp: top-center (visible when swiping down) -->
                 <LinearLayout
-                    android:id="@+id/file_info_overlay"
-                    android:layout_width="match_parent"
+                    android:id="@+id/stamp_undo"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/bg_overlay_gradient_bottom"
-                    android:orientation="vertical"
-                    android:padding="12dp"
-                    android:visibility="gone"
-                    tools:visibility="visible">
+                    android:layout_gravity="top|center_horizontal"
+                    android:layout_marginTop="32dp"
+                    android:alpha="0"
+                    android:background="@drawable/bg_stamp_border_tertiary"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    tools:alpha="1">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/file_name"
-                            style="@style/TextAppearance.Material3.TitleMedium"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:ellipsize="middle"
-                            android:maxLines="1"
-                            android:textColor="@android:color/white"
-                            tools:text="IMG_20231225_123456.jpg" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/file_position"
-                            style="@style/TextAppearance.Material3.LabelMedium"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:textColor="#B3FFFFFF"
-                            tools:text="#15 of 47" />
-
-                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/stamp_undo_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_settings_backup_restore_24"
+                        app:tint="?attr/colorTertiary" />
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/file_path"
-                        style="@style/TextAppearance.Material3.BodyMedium"
+                        android:id="@+id/stamp_undo_text"
+                        style="@style/TextAppearance.Material3.HeadlineMedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:ellipsize="start"
-                        android:maxLines="1"
-                        android:textColor="#B3FFFFFF"
-                        tools:text="/storage/emulated/0/DCIM/Camera/" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/file_meta"
-                        style="@style/TextAppearance.Material3.BodyMedium"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:textColor="#B3FFFFFF"
-                        tools:text="2.4 MB, Dec 25, 2023" />
+                        android:layout_marginStart="4dp"
+                        android:textColor="?attr/colorTertiary"
+                        android:textStyle="bold"
+                        tools:text="UNDO!" />
 
                 </LinearLayout>
 
