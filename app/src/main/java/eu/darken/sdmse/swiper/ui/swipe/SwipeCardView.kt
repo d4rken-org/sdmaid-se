@@ -137,8 +137,11 @@ class SwipeCardView @JvmOverloads constructor(
         fileInfoProvider: ((SwipeItem) -> FileInfo)? = null,
         nextItemPosition: Int? = null,
     ) {
+        // Check if we're coming from a swipe animation (content is hidden)
+        val needsFadeIn = binding.contentContainer.alpha == 0f
+
         // Bind front card (current item)
-        bindFrontCard(currentItem)
+        bindFrontCard(currentItem, needsFadeIn)
 
         // Bind back card (next item preview)
         bindBackCard(nextItem, nextItemPosition)
@@ -146,8 +149,11 @@ class SwipeCardView @JvmOverloads constructor(
         // Bind file info overlay
         bindFileInfo(currentItem, showDetails, fileInfoProvider)
 
-        // Reset position
-        resetPosition()
+        // Only reset position immediately if NOT coming from a swipe
+        // When coming from a swipe, bindFrontCard will call fadeInContent after image loads
+        if (!needsFadeIn) {
+            resetPosition()
+        }
 
         // Set random stamp texts for this card
         binding.stampKeepText.setText(keepStampResources.random())
@@ -179,24 +185,51 @@ class SwipeCardView @JvmOverloads constructor(
         }
     }
 
-    private fun bindFrontCard(item: SwipeItem?) {
+    private fun bindFrontCard(item: SwipeItem?, fadeInWhenReady: Boolean) {
+        // Copy pre-loaded image from back card as immediate placeholder
+        // This avoids the black flash while waiting for async load
+        if (fadeInWhenReady && item != null) {
+            binding.backPreviewImage.drawable?.let { backDrawable ->
+                binding.previewImage.setImageDrawable(backDrawable)
+                binding.previewImage.isVisible = true
+                binding.noPreviewContainer.isVisible = false
+                fadeInContent()
+            }
+        }
+
         if (item == null) {
             binding.previewImage.isVisible = false
             binding.noPreviewContainer.isVisible = true
+            if (fadeInWhenReady) fadeInContent()
             return
         }
+
+        // Save current drawable - Coil clears it when starting a new load
+        val currentDrawable = binding.previewImage.drawable
 
         binding.previewImage.loadFilePreview(item.lookup) {
             listener(
                 onSuccess = { _, _ ->
                     binding.previewImage.isVisible = true
                     binding.noPreviewContainer.isVisible = false
+                    // Only fade in if we didn't already (no back drawable case)
+                    if (fadeInWhenReady && binding.contentContainer.alpha == 0f) fadeInContent()
                 },
                 onError = { _, _ ->
                     binding.previewImage.isVisible = false
                     binding.noPreviewContainer.isVisible = true
+                    if (fadeInWhenReady && binding.contentContainer.alpha == 0f) fadeInContent()
                 },
             )
+        } ?: run {
+            // loadFilePreview returns null if same image already loaded (tag check)
+            // Still need to fade in the content if we haven't already
+            if (fadeInWhenReady && binding.contentContainer.alpha == 0f) fadeInContent()
+        }
+
+        // Restore drawable if Coil cleared it - prevents flash while loading new image
+        if (binding.previewImage.drawable == null && currentDrawable != null) {
+            binding.previewImage.setImageDrawable(currentDrawable)
         }
 
         // Show a subtle indicator for already-decided items
@@ -549,6 +582,10 @@ class SwipeCardView @JvmOverloads constructor(
         binding.stampUndo.alpha = 0f
         binding.stampUndo.scaleX = 0.5f
         binding.stampUndo.scaleY = 0.5f
+    }
+
+    private fun fadeInContent() {
+        resetPosition()
     }
 
 }
