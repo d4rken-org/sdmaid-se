@@ -1032,4 +1032,8 @@
     <string name="swiper_stamp_skip_2">MEH!</string>
     <string name="swiper_stamp_skip_3">LATER!</string>
     <string name="swiper_stamp_skip_4">MAYBE!</string>
+    <string name="swiper_stamp_undo_1">UNDO!</string>
+    <string name="swiper_stamp_undo_2">BACK!</string>
+    <string name="swiper_stamp_undo_3">OOPS!</string>
+    <string name="swiper_stamp_undo_4">WAIT!</string>
 </resources>
