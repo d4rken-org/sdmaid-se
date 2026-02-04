@@ -73,6 +73,10 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                 vm.skip()
             }
 
+            override fun onSwipeDown() {
+                vm.undo()
+            }
+
             override fun onSwipeProgress(progress: Float, direction: SwipeCardView.SwipeDirection?) {
                 // Could add visual feedback here if needed
             }
@@ -97,6 +101,10 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
         })
 
         // FAB click handlers with scale animation
+        ui.undoAction.setOnClickListener { view ->
+            animateFabPress(view)
+            vm.undo()
+        }
         ui.skipAction.setOnClickListener { view ->
             animateFabPress(view)
             vm.skip()
@@ -191,6 +199,7 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
 
             // Update SwipeCardView with file info provider
             swipeCard.swapDirections = state.swapDirections
+            swipeCard.canUndo = state.canUndo
             val nextItem = state.items.getOrNull(state.currentIndex + 1)
             swipeCard.bind(
                 currentItem = state.currentItem,
@@ -235,6 +244,29 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
             keepCount.text = "${state.keepCount}"
             deleteCount.text = "${state.deleteCount}"
             undecidedCount.text = "${state.undecidedCount}"
+
+            // Animate undo button visibility
+            val undoVisible = state.canUndo
+            if (undoVisible && undoAction.visibility != View.VISIBLE) {
+                undoAction.visibility = View.VISIBLE
+                undoAction.alpha = 0f
+                undoAction.scaleX = 0.5f
+                undoAction.scaleY = 0.5f
+                undoAction.animate()
+                    .alpha(1f)
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .setDuration(150)
+                    .start()
+            } else if (!undoVisible && undoAction.visibility == View.VISIBLE) {
+                undoAction.animate()
+                    .alpha(0f)
+                    .scaleX(0.5f)
+                    .scaleY(0.5f)
+                    .setDuration(150)
+                    .withEndAction { undoAction.visibility = View.INVISIBLE }
+                    .start()
+            }
         }
 
         super.onViewCreated(view, savedInstanceState)

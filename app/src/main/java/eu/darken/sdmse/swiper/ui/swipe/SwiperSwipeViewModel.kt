@@ -40,6 +40,14 @@ class SwiperSwipeViewModel @Inject constructor(
         if (startIndex >= 0) startIndex else null
     )
 
+    private data class UndoEntry(
+        val itemId: Long,
+        val previousDecision: SwipeDecision,
+        val previousIndex: Int,
+    )
+
+    private val undoHistory = MutableStateFlow<List<UndoEntry>>(emptyList())
+
     val events = SingleLiveEvent<SwiperSwipeEvents>()
 
     init {
@@ -58,12 +66,14 @@ class SwiperSwipeViewModel @Inject constructor(
         currentIndexOverride,
         settings.swapSwipeDirections.flow,
         settings.showFileDetailsOverlay.flow,
+        undoHistory,
     ) { session: SwipeSession?,
         items: List<SwipeItem>,
         allSessions: List<Swiper.SessionWithStats>,
         indexOverride: Int?,
         swapDirections: Boolean,
-        showDetails: Boolean ->
+        showDetails: Boolean,
+        undoStack: List<UndoEntry> ->
         // Clear stale override when session was reset to 0 (e.g., after deletion)
         val currentIndex = when {
             session?.currentIndex == 0 && indexOverride != null && indexOverride > 0 -> {
@@ -96,11 +106,25 @@ class SwiperSwipeViewModel @Inject constructor(
             swapDirections = swapDirections,
             showDetails = showDetails,
             sessionPosition = sessionPosition,
+            canUndo = undoStack.isNotEmpty(),
         )
     }.asLiveData2()
 
     fun setDecision(itemId: Long, decision: SwipeDecision) = launch {
         log(TAG, INFO) { "setDecision(itemId=$itemId, decision=$decision)" }
+
+        // Store undo entry before applying decision
+        val currentState = state.value
+        val currentItem = currentState?.currentItem
+        if (currentItem != null && currentItem.id == itemId) {
+            val entry = UndoEntry(
+                itemId = itemId,
+                previousDecision = currentItem.decision,
+                previousIndex = currentState.currentIndex,
+            )
+            undoHistory.value = (undoHistory.value + entry).takeLast(50)
+        }
+
         if (settings.hapticFeedbackEnabled.value()) {
             events.postValue(SwiperSwipeEvents.TriggerHapticFeedback)
         }
@@ -113,12 +137,38 @@ class SwiperSwipeViewModel @Inject constructor(
 
         val currentState = state.value ?: return@launch
         val currentItem = currentState.currentItem
+
+        // Store undo entry before skipping
+        if (currentItem != null) {
+            val entry = UndoEntry(
+                itemId = currentItem.id,
+                previousDecision = currentItem.decision,
+                previousIndex = currentState.currentIndex,
+            )
+            undoHistory.value = (undoHistory.value + entry).takeLast(50)
+        }
+
         if (currentItem != null && currentItem.decision != SwipeDecision.UNDECIDED) {
             log(TAG, INFO) { "skip(): Resetting ${currentItem.id} to UNDECIDED" }
             swiper.updateDecision(currentItem.id, SwipeDecision.UNDECIDED)
         }
 
         advanceOrNavigate()
+    }
+
+    fun undo() = launch {
+        val history = undoHistory.value
+        if (history.isEmpty()) {
+            log(TAG, WARN) { "undo(): No history to undo" }
+            return@launch
+        }
+
+        val entry = history.last()
+        log(TAG, INFO) { "undo(): Restoring itemId=${entry.itemId} to ${entry.previousDecision} at index ${entry.previousIndex}" }
+
+        undoHistory.value = history.dropLast(1)
+        swiper.updateDecision(entry.itemId, entry.previousDecision)
+        setCurrentIndex(entry.previousIndex)
     }
 
     private suspend fun advanceOrNavigate() {
@@ -197,6 +247,7 @@ class SwiperSwipeViewModel @Inject constructor(
         val swapDirections: Boolean,
         val showDetails: Boolean,
         val sessionPosition: Int?,
+        val canUndo: Boolean,
     ) {
         val currentItem: SwipeItem? = items.getOrNull(currentIndex)
         val currentItemOriginalIndex: Int? = currentItem?.itemIndex

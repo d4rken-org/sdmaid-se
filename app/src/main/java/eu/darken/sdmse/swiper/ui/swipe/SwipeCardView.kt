@@ -25,13 +25,14 @@ class SwipeCardView @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
     enum class SwipeDirection {
-        LEFT, RIGHT, UP
+        LEFT, RIGHT, UP, DOWN
     }
 
     interface SwipeListener {
         fun onSwipeLeft()
         fun onSwipeRight()
         fun onSwipeUp()
+        fun onSwipeDown()
         fun onSwipeProgress(progress: Float, direction: SwipeDirection?)
     }
 
@@ -45,6 +46,7 @@ class SwipeCardView @JvmOverloads constructor(
                 updateStampPositions()
             }
         }
+    var canUndo: Boolean = false
 
     private var initialX = 0f
     private var initialY = 0f
@@ -80,6 +82,12 @@ class SwipeCardView @JvmOverloads constructor(
         R.string.swiper_stamp_skip_2,
         R.string.swiper_stamp_skip_3,
         R.string.swiper_stamp_skip_4,
+    )
+    private val undoStampResources = listOf(
+        R.string.swiper_stamp_undo_1,
+        R.string.swiper_stamp_undo_2,
+        R.string.swiper_stamp_undo_3,
+        R.string.swiper_stamp_undo_4,
     )
 
     init {
@@ -144,6 +152,7 @@ class SwipeCardView @JvmOverloads constructor(
         binding.stampKeepText.setText(keepStampResources.random())
         binding.stampDeleteText.setText(deleteStampResources.random())
         binding.stampSkipText.setText(skipStampResources.random())
+        binding.stampUndoText.setText(undoStampResources.random())
     }
 
     data class FileInfo(
@@ -197,6 +206,7 @@ class SwipeCardView @JvmOverloads constructor(
                 binding.stampKeep.scaleY = 1f
                 binding.stampDelete.alpha = 0f
                 binding.stampSkip.alpha = 0f
+                binding.stampUndo.alpha = 0f
             }
             SwipeDecision.DELETE -> {
                 binding.stampDelete.alpha = 0.3f
@@ -204,11 +214,13 @@ class SwipeCardView @JvmOverloads constructor(
                 binding.stampDelete.scaleY = 1f
                 binding.stampKeep.alpha = 0f
                 binding.stampSkip.alpha = 0f
+                binding.stampUndo.alpha = 0f
             }
             else -> {
                 binding.stampKeep.alpha = 0f
                 binding.stampDelete.alpha = 0f
                 binding.stampSkip.alpha = 0f
+                binding.stampUndo.alpha = 0f
             }
         }
     }
@@ -272,8 +284,12 @@ class SwipeCardView @JvmOverloads constructor(
                 val absX = abs(deltaX)
                 val absY = abs(deltaY)
 
-                // Only allow upward swipes (negative deltaY)
-                val effectiveY = if (deltaY < 0) deltaY else 0f
+                // Allow upward swipes always, downward only when canUndo is true
+                val effectiveY = when {
+                    deltaY < 0 -> deltaY // Upward always allowed
+                    canUndo -> deltaY // Downward only if canUndo
+                    else -> 0f // Block downward when nothing to undo
+                }
 
                 // Apply translation
                 binding.contentContainer.translationX = deltaX
@@ -286,19 +302,20 @@ class SwipeCardView @JvmOverloads constructor(
                 // Calculate progress and direction for feedback
                 val progress = when {
                     absX > absY -> absX / swipeThreshold
-                    effectiveY != 0f -> abs(effectiveY) / swipeThreshold
+                    absY > 0 -> absY / swipeThreshold
                     else -> 0f
                 }
 
                 val direction = when {
                     absX > absY && deltaX < 0 -> SwipeDirection.LEFT
                     absX > absY && deltaX > 0 -> SwipeDirection.RIGHT
-                    effectiveY != 0f -> SwipeDirection.UP
+                    deltaY < 0 -> SwipeDirection.UP
+                    deltaY > 0 && canUndo -> SwipeDirection.DOWN
                     else -> null
                 }
 
                 // Update stamp visibility based on swipe direction
-                val stampAlpha = (progress * 1.2f).coerceIn(0f, 1f)
+                val stampAlpha = (progress * 2.0f).coerceIn(0f, 1f)
                 val stampScale = (0.5f + progress * 0.5f).coerceIn(0.5f, 1f)
 
                 when (direction) {
@@ -311,6 +328,7 @@ class SwipeCardView @JvmOverloads constructor(
                             binding.stampDelete.scaleY = stampScale
                             binding.stampKeep.alpha = 0f
                             binding.stampSkip.alpha = 0f
+                            binding.stampUndo.alpha = 0f
                         } else {
                             // Keep stamp
                             binding.stampKeep.alpha = stampAlpha
@@ -318,6 +336,7 @@ class SwipeCardView @JvmOverloads constructor(
                             binding.stampKeep.scaleY = stampScale
                             binding.stampDelete.alpha = 0f
                             binding.stampSkip.alpha = 0f
+                            binding.stampUndo.alpha = 0f
                         }
                     }
                     SwipeDirection.RIGHT -> {
@@ -329,6 +348,7 @@ class SwipeCardView @JvmOverloads constructor(
                             binding.stampKeep.scaleY = stampScale
                             binding.stampDelete.alpha = 0f
                             binding.stampSkip.alpha = 0f
+                            binding.stampUndo.alpha = 0f
                         } else {
                             // Delete stamp
                             binding.stampDelete.alpha = stampAlpha
@@ -336,6 +356,7 @@ class SwipeCardView @JvmOverloads constructor(
                             binding.stampDelete.scaleY = stampScale
                             binding.stampKeep.alpha = 0f
                             binding.stampSkip.alpha = 0f
+                            binding.stampUndo.alpha = 0f
                         }
                     }
                     SwipeDirection.UP -> {
@@ -345,11 +366,22 @@ class SwipeCardView @JvmOverloads constructor(
                         binding.stampSkip.scaleY = stampScale
                         binding.stampKeep.alpha = 0f
                         binding.stampDelete.alpha = 0f
+                        binding.stampUndo.alpha = 0f
+                    }
+                    SwipeDirection.DOWN -> {
+                        // Undo stamp
+                        binding.stampUndo.alpha = stampAlpha
+                        binding.stampUndo.scaleX = stampScale
+                        binding.stampUndo.scaleY = stampScale
+                        binding.stampKeep.alpha = 0f
+                        binding.stampDelete.alpha = 0f
+                        binding.stampSkip.alpha = 0f
                     }
                     null -> {
                         binding.stampKeep.alpha = 0f
                         binding.stampDelete.alpha = 0f
                         binding.stampSkip.alpha = 0f
+                        binding.stampUndo.alpha = 0f
                     }
                 }
 
@@ -391,6 +423,7 @@ class SwipeCardView @JvmOverloads constructor(
                                 SwipeDirection.LEFT -> swipeListener?.onSwipeLeft()
                                 SwipeDirection.RIGHT -> swipeListener?.onSwipeRight()
                                 SwipeDirection.UP -> swipeListener?.onSwipeUp()
+                                SwipeDirection.DOWN -> swipeListener?.onSwipeDown()
                             }
                         }
                     }
@@ -398,6 +431,12 @@ class SwipeCardView @JvmOverloads constructor(
                     deltaY < 0 && (absY > swipeThreshold || absVelocityY > velocityThreshold) -> {
                         animateSwipeOff(SwipeDirection.UP) {
                             swipeListener?.onSwipeUp()
+                        }
+                    }
+                    // Downward swipe (only when canUndo)
+                    canUndo && deltaY > 0 && (absY > swipeThreshold || absVelocityY > velocityThreshold) -> {
+                        animateSwipeOff(SwipeDirection.DOWN) {
+                            swipeListener?.onSwipeDown()
                         }
                     }
                     else -> {
@@ -416,6 +455,7 @@ class SwipeCardView @JvmOverloads constructor(
             SwipeDirection.LEFT -> Triple(-width * 2f, 0f, -30f)
             SwipeDirection.RIGHT -> Triple(width * 2f, 0f, 30f)
             SwipeDirection.UP -> Triple(0f, -height * 2f, 0f)
+            SwipeDirection.DOWN -> Triple(0f, height * 2f, 0f)
         }
 
         binding.contentContainer.animate()
@@ -434,6 +474,7 @@ class SwipeCardView @JvmOverloads constructor(
                     binding.stampKeep.alpha = 0f
                     binding.stampDelete.alpha = 0f
                     binding.stampSkip.alpha = 0f
+                    binding.stampUndo.alpha = 0f
                     onComplete()
                 }
             })
@@ -471,6 +512,13 @@ class SwipeCardView @JvmOverloads constructor(
             .setDuration(200)
             .start()
 
+        binding.stampUndo.animate()
+            .alpha(0f)
+            .scaleX(0.5f)
+            .scaleY(0.5f)
+            .setDuration(200)
+            .start()
+
         swipeListener?.onSwipeProgress(0f, null)
     }
 
@@ -488,6 +536,9 @@ class SwipeCardView @JvmOverloads constructor(
         binding.stampSkip.alpha = 0f
         binding.stampSkip.scaleX = 0.5f
         binding.stampSkip.scaleY = 0.5f
+        binding.stampUndo.alpha = 0f
+        binding.stampUndo.scaleX = 0.5f
+        binding.stampUndo.scaleY = 0.5f
     }
 
 }
