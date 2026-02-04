@@ -132,6 +132,8 @@ class CompressorSetupFragment : Fragment3(R.layout.compressor_setup_fragment) {
 
             qualityExampleAction.isInvisible = state.isLoadingExample
             qualityExampleLoading.isVisible = state.isLoadingExample
+
+            startScanAction.isEnabled = state.canStartScan
         }
 
         vm.events.observe2(ui) { event ->

@@ -65,6 +65,7 @@ class CompressorSetupViewModel @Inject constructor(
             estimatedSavingsPercent = estimatedSavings,
             progress = progress,
             isLoadingExample = loadingExample,
+            canStartScan = scanPaths.paths.isNotEmpty(),
         )
     }.asLiveData2()
 
@@ -76,6 +77,7 @@ class CompressorSetupViewModel @Inject constructor(
         val estimatedSavingsPercent: Int? = null,
         val progress: Progress.Data? = null,
         val isLoadingExample: Boolean = false,
+        val canStartScan: Boolean = false,
     )
 
     fun updateQuality(quality: Int) = launch {
@@ -134,9 +136,8 @@ class CompressorSetupViewModel @Inject constructor(
     }
 
     private suspend fun findSampleImage(): CompressibleImage? {
-        val searchPaths = settings.scanPaths.value().paths.ifEmpty {
-            storageEnvironment.externalDirs.map { it.child("DCIM") }.toSet()
-        }
+        val searchPaths = settings.scanPaths.value().paths
+        if (searchPaths.isEmpty()) return null
 
         for (searchPath in searchPaths) {
             try {

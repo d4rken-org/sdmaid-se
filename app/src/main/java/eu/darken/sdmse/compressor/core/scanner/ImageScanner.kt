@@ -89,20 +89,19 @@ class ImageScanner @Inject constructor(
             }
     }
 
-    private fun getDefaultSearchPaths(): Set<APath> {
-        return storageEnvironment.externalDirs
-            .map { it.child("DCIM") }
-            .toSet()
-    }
-
     suspend fun scan(options: Options): Set<CompressibleImage> {
         log(TAG) { "scan($options)" }
+
+        if (options.paths.isEmpty()) {
+            log(TAG) { "No search paths configured, returning empty result" }
+            return emptySet()
+        }
 
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
         updateProgressSecondary()
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val searchPaths = options.paths.ifEmpty { getDefaultSearchPaths() }
+        val searchPaths = options.paths
         val searchFlow = createSearchFlow(searchPaths)
             .flowOn(dispatcherProvider.IO)
             .buffer(1024)
