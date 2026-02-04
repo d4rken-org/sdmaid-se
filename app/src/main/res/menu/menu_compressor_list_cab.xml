@@ -14,4 +14,10 @@
         android:title="@string/general_exclude_selected_action"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/action_select_all"
+        android:icon="@drawable/ic_select_all_24"
+        android:title="@string/general_list_select_all_action"
+        app:showAsAction="ifRoom" />
+
 </menu>

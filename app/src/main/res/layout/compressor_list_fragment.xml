@@ -43,4 +43,22 @@
         android:layout_height="match_parent"
         app:layout_behavior=".common.ui.BelowAppBarBehavior" />
 
+    <FrameLayout
+        android:id="@+id/main_action_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_compress_all"
+            style="@style/Widget.Material3.FloatingActionButton.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:contentDescription="@string/compressor_compress_all_action"
+            app:srcCompat="@drawable/ic_image_compress_24" />
+
+    </FrameLayout>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -602,6 +602,7 @@
     <string name="compressor_no_savings_expected">Limited savings</string>
     <string name="compressor_current_size_format">Size: %s</string>
     <string name="compressor_compress_action">Compress</string>
+    <string name="compressor_compress_all_action">Compress all</string>
     <string name="compressor_preview_dialog_title">Confirm compression</string>
     <string name="compressor_preview_total_size">Total size</string>
     <string name="compressor_preview_estimated_savings">Estimated savings</string>

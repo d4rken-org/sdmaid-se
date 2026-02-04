@@ -91,6 +91,13 @@ class CompressorListViewModel @Inject constructor(
         val quality: Int,
     )
 
+    fun compressAll() = launch {
+        log(TAG, INFO) { "compressAll()" }
+        val items = state.value?.items ?: return@launch
+        if (items.isEmpty()) return@launch
+        compress(items)
+    }
+
     fun compress(
         items: Collection<CompressorListAdapter.Item>,
         confirmed: Boolean = false,

@@ -5,6 +5,7 @@ import android.text.format.Formatter
 import android.view.MenuItem
 import android.view.View
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -59,6 +60,8 @@ class CompressorListFragment : Fragment3(R.layout.compressor_list_fragment) {
             }
         }
 
+        ui.fabCompressAll.setOnClickListener { vm.compressAll() }
+
         fun determineSpanCount(mode: LayoutMode): Int = when (mode) {
             LayoutMode.LINEAR -> getSpanCount()
             LayoutMode.GRID -> max(getSpanCount(widthDp = 144), 3)
@@ -95,6 +98,9 @@ class CompressorListFragment : Fragment3(R.layout.compressor_list_fragment) {
                     else -> false
                 }
             },
+            onChange = { tracker ->
+                ui.fabCompressAll.isVisible = !tracker.hasSelection()
+            },
             cabTitle = { selected ->
                 val count = selected.size
                 val totalSavings = selected.mapNotNull { it.image.estimatedSavings }.sum()
@@ -114,6 +120,10 @@ class CompressorListFragment : Fragment3(R.layout.compressor_list_fragment) {
             (list.layoutManager as GridLayoutManager).spanCount = determineSpanCount(state.layoutMode)
 
             if (state.progress == null) adapter.update(state.items)
+
+            fabCompressAll.isVisible = state.progress == null
+                    && state.items.isNotEmpty()
+                    && !selectionTracker.hasSelection()
 
             toolbar.apply {
                 subtitle = if (state.progress == null) {
