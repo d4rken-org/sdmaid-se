@@ -618,6 +618,7 @@
     <string name="compressor_onboarding_original_label">Original</string>
     <string name="compressor_onboarding_compressed_label">After compression</string>
     <string name="compressor_onboarding_quality_label">Quality: %d%%</string>
+    <string name="compressor_onboarding_tap_to_zoom_hint">Tap images to zoom</string>
     <string name="compressor_onboarding_got_it">Got it</string>
     <string name="compressor_preview_info_action">Show example</string>
     <string name="compressor_no_example_found">No images found in selected paths.</string>
