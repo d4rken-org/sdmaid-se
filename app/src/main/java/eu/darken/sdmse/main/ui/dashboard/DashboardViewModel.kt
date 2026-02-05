@@ -49,13 +49,13 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
 import eu.darken.sdmse.corpsefinder.core.tasks.UninstallWatcherTask
-import eu.darken.sdmse.compressor.core.Compressor
-import eu.darken.sdmse.compressor.core.CompressorSettings
-import eu.darken.sdmse.compressor.core.hasData
-import eu.darken.sdmse.compressor.core.tasks.CompressorProcessTask
-import eu.darken.sdmse.compressor.core.tasks.CompressorScanTask
-import eu.darken.sdmse.compressor.core.tasks.CompressorTask
-import eu.darken.sdmse.compressor.ui.CompressorDashCardVH
+import eu.darken.sdmse.squeezer.core.Squeezer
+import eu.darken.sdmse.squeezer.core.SqueezerSettings
+import eu.darken.sdmse.squeezer.core.hasData
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
+import eu.darken.sdmse.squeezer.ui.SqueezerDashCardVH
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
@@ -122,8 +122,8 @@ class DashboardViewModel @Inject constructor(
     analyzer: Analyzer,
     debugCardProvider: DebugCardProvider,
     private val deduplicator: Deduplicator,
-    private val compressor: Compressor,
-    private val compressorSettings: CompressorSettings,
+    private val squeezer: Squeezer,
+    private val squeezerSettings: SqueezerSettings,
     private val upgradeRepo: UpgradeRepo,
     private val generalSettings: GeneralSettings,
     private val webpageTool: WebpageTool,
@@ -320,16 +320,16 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val compressorItem: Flow<CompressorDashCardVH.Item?> = (compressor.state as Flow<Compressor.State?>)
+    private val squeezerItem: Flow<SqueezerDashCardVH.Item?> = (squeezer.state as Flow<Squeezer.State?>)
         .onStart { emit(null) }
         .mapLatest { state ->
-            CompressorDashCardVH.Item(
+            SqueezerDashCardVH.Item(
                 isInitializing = state == null,
                 isNew = true,
                 data = state?.data,
                 progress = state?.progress,
                 onViewDetails = {
-                    DashboardFragmentDirections.actionDashboardFragmentToCompressorSetupFragment().navigate()
+                    DashboardFragmentDirections.actionDashboardFragmentToSqueezerSetupFragment().navigate()
                 },
             )
         }
@@ -492,7 +492,7 @@ class DashboardViewModel @Inject constructor(
         systemCleanerItem,
         appCleanerItem,
         deduplicatorItem,
-        compressorItem,
+        squeezerItem,
         appControlItem,
         analyzerItem,
         schedulerItem,
@@ -513,7 +513,7 @@ class DashboardViewModel @Inject constructor(
         systemCleanerItem: DashboardToolCard.Item?,
         appCleanerItem: DashboardToolCard.Item?,
         deduplicatorItem: DashboardToolCard.Item?,
-        compressorItem: CompressorDashCardVH.Item?,
+        squeezerItem: SqueezerDashCardVH.Item?,
         appControlItem: AppControlDashCardVH.Item?,
         analyzerItem: AnalyzerDashCardVH.Item?,
         schedulerItem: SchedulerDashCardVH.Item?,
@@ -532,7 +532,7 @@ class DashboardViewModel @Inject constructor(
             systemCleanerItem?.isInitializing,
             appCleanerItem?.isInitializing,
             deduplicatorItem?.isInitializing,
-            compressorItem?.isInitializing,
+            squeezerItem?.isInitializing,
             appControlItem?.isInitializing,
         ).any { it }
 
@@ -557,7 +557,7 @@ class DashboardViewModel @Inject constructor(
                 DashboardCardType.SYSTEMCLEANER -> systemCleanerItem?.let { items.add(it) }
                 DashboardCardType.APPCLEANER -> appCleanerItem?.let { items.add(it) }
                 DashboardCardType.DEDUPLICATOR -> deduplicatorItem?.let { items.add(it) }
-                DashboardCardType.COMPRESSOR -> compressorItem?.let { items.add(it) }
+                DashboardCardType.SQUEEZER -> squeezerItem?.let { items.add(it) }
                 DashboardCardType.APPCONTROL -> appControlItem?.let { items.add(it) }
                 DashboardCardType.ANALYZER -> analyzerItem?.let { items.add(it) }
                 DashboardCardType.SCHEDULER -> schedulerItem?.let { items.add(it) }
@@ -801,19 +801,19 @@ class DashboardViewModel @Inject constructor(
         submitTask(DeduplicatorDeleteTask())
     }
 
-    fun showCompressor() {
-        log(TAG, INFO) { "showCompressorDetails()" }
-        DashboardFragmentDirections.actionDashboardFragmentToCompressorListFragment().navigate()
+    fun showSqueezer() {
+        log(TAG, INFO) { "showSqueezerDetails()" }
+        DashboardFragmentDirections.actionDashboardFragmentToSqueezerListFragment().navigate()
     }
 
-    fun confirmCompressorProcessing() = launch {
-        log(TAG, INFO) { "confirmCompressorProcessing()" }
+    fun confirmSqueezerProcessing() = launch {
+        log(TAG, INFO) { "confirmSqueezerProcessing()" }
 
         if (!upgradeRepo.isPro()) {
             MainDirections.goToUpgradeFragment().navigate()
             return@launch
         }
-        submitTask(CompressorProcessTask())
+        submitTask(SqueezerProcessTask())
     }
 
     fun undoSetupHide() = launch {
@@ -854,9 +854,9 @@ class DashboardViewModel @Inject constructor(
                 is DeduplicatorOneClickTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
 
-            is CompressorTask.Result -> when (result) {
-                is CompressorScanTask.Success -> {}
-                is CompressorProcessTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
+            is SqueezerTask.Result -> when (result) {
+                is SqueezerScanTask.Success -> {}
+                is SqueezerProcessTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
         }
     }

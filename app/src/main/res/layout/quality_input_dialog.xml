@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="@string/compressor_quality_warning_low"
+        android:text="@string/squeezer_quality_warning_low"
         android:textColor="?colorError"
         android:visibility="gone"
         tools:visibility="visible" />
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="@string/compressor_quality_warning_high"
+        android:text="@string/squeezer_quality_warning_high"
         android:textColor="?colorTertiary"
         android:visibility="gone"
         tools:visibility="visible" />

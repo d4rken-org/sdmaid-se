@@ -2,8 +2,8 @@ package eu.darken.sdmse.main.ui.dashboard
 
 import android.content.Intent
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
-import eu.darken.sdmse.compressor.core.CompressibleImage
-import eu.darken.sdmse.compressor.core.tasks.CompressorProcessTask
+import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
@@ -32,8 +32,8 @@ sealed interface DashboardEvents {
         val clusters: List<Duplicate.Cluster>? = null,
     ) : DashboardEvents
 
-    data class CompressorProcessConfirmation(
-        val task: CompressorProcessTask,
+    data class SqueezerProcessConfirmation(
+        val task: SqueezerProcessTask,
         val sampleImage: CompressibleImage?,
         val quality: Int,
     ) : DashboardEvents
@@ -44,5 +44,5 @@ sealed interface DashboardEvents {
 
     data class OpenIntent(val intent: Intent) : DashboardEvents
 
-    data object CompressorSetup : DashboardEvents
+    data object SqueezerSetup : DashboardEvents
 }

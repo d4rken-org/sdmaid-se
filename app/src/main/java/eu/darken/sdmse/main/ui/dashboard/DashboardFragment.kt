@@ -25,7 +25,7 @@ import eu.darken.sdmse.common.navigation.getSpanCount
 import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.compressor.ui.onboarding.CompressorOnboardingDialog
+import eu.darken.sdmse.squeezer.ui.onboarding.SqueezerOnboardingDialog
 import eu.darken.sdmse.databinding.DashboardFragmentBinding
 import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
 import eu.darken.sdmse.main.ui.settings.general.OneClickOptionsDialog
@@ -40,7 +40,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
     @Inject lateinit var dashAdapter: DashboardAdapter
     @Inject lateinit var oneClickOptions: OneClickOptionsDialog
     @Inject lateinit var previewDialog: PreviewDeletionDialog
-    @Inject lateinit var compressorInfoDialog: CompressorOnboardingDialog
+    @Inject lateinit var squeezerInfoDialog: SqueezerOnboardingDialog
     @Inject lateinit var theming: Theming
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -228,7 +228,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     onNeutral = { vm.showDeduplicator() },
                 )
 
-                is DashboardEvents.CompressorProcessConfirmation -> showCompressorConfirmation(event)
+                is DashboardEvents.SqueezerProcessConfirmation -> showSqueezerConfirmation(event)
 
                 DashboardEvents.SetupDismissHint -> {
                     Snackbar
@@ -261,8 +261,8 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     e.asErrorDialogBuilder(requireActivity()).show()
                 }
 
-                is DashboardEvents.CompressorSetup -> {
-                    DashboardFragmentDirections.actionDashboardFragmentToCompressorSetupFragment().navigate()
+                is DashboardEvents.SqueezerSetup -> {
+                    DashboardFragmentDirections.actionDashboardFragmentToSqueezerSetupFragment().navigate()
                 }
             }
         }
@@ -270,18 +270,18 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun showCompressorConfirmation(event: DashboardEvents.CompressorProcessConfirmation) {
+    private fun showSqueezerConfirmation(event: DashboardEvents.SqueezerProcessConfirmation) {
         MaterialAlertDialogBuilder(requireContext()).apply {
-            setTitle(R.string.compressor_compress_confirmation_title)
-            setMessage(R.string.compressor_compress_confirmation_message)
-            setPositiveButton(R.string.compressor_compress_action) { _, _ -> vm.confirmCompressorProcessing() }
+            setTitle(R.string.squeezer_compress_confirmation_title)
+            setMessage(R.string.squeezer_compress_confirmation_message)
+            setPositiveButton(R.string.squeezer_compress_action) { _, _ -> vm.confirmSqueezerProcessing() }
             setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
             if (event.sampleImage != null) {
-                setNeutralButton(R.string.compressor_preview_info_action) { _, _ ->
-                    compressorInfoDialog.show(
+                setNeutralButton(R.string.squeezer_preview_info_action) { _, _ ->
+                    squeezerInfoDialog.show(
                         sampleImage = event.sampleImage,
                         quality = event.quality,
-                        onDismiss = { showCompressorConfirmation(event) },
+                        onDismiss = { showSqueezerConfirmation(event) },
                     )
                 }
             }

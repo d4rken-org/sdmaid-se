@@ -1,0 +1,31 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "c304be0148a79c246a6500ce8161b5a6",
+    "entities": [
+      {
+        "tableName": "compression_history",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`content_hash` TEXT NOT NULL, PRIMARY KEY(`content_hash`))",
+        "fields": [
+          {
+            "fieldPath": "contentHash",
+            "columnName": "content_hash",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "content_hash"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c304be0148a79c246a6500ce8161b5a6')"
+    ]
+  }
+}

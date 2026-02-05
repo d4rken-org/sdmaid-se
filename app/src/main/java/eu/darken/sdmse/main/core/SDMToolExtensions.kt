@@ -11,7 +11,7 @@ val SDMTool.Type.labelRes: Int
         SDMTool.Type.SYSTEMCLEANER -> R.string.systemcleaner_tool_name
         SDMTool.Type.APPCLEANER -> R.string.appcleaner_tool_name
         SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_tool_name
-        SDMTool.Type.COMPRESSOR -> R.string.compressor_tool_name
+        SDMTool.Type.SQUEEZER -> R.string.squeezer_tool_name
         SDMTool.Type.APPCONTROL -> R.string.appcontrol_tool_name
         SDMTool.Type.ANALYZER -> R.string.analyzer_tool_name
     }
@@ -24,7 +24,7 @@ val SDMTool.Type.iconRes: Int
         SDMTool.Type.SYSTEMCLEANER -> R.drawable.ic_baseline_view_list_24
         SDMTool.Type.APPCLEANER -> R.drawable.ic_recycle
         SDMTool.Type.DEDUPLICATOR -> R.drawable.ic_content_duplicate_24
-        SDMTool.Type.COMPRESSOR -> R.drawable.ic_image_compress_24
+        SDMTool.Type.SQUEEZER -> R.drawable.ic_image_compress_24
         SDMTool.Type.APPCONTROL -> R.drawable.ic_apps
         SDMTool.Type.ANALYZER -> R.drawable.baseline_data_usage_24
     }

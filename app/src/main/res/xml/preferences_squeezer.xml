@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/squeezer_types_category_label">
+
+        <CheckBoxPreference
+            app:defaultValue="true"
+            app:icon="@drawable/ic_image_compress_24"
+            app:key="filter.type.jpeg.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/squeezer_type_jpeg_description"
+            app:title="@string/squeezer_type_jpeg_title" />
+
+        <CheckBoxPreference
+            app:defaultValue="true"
+            app:icon="@drawable/ic_image_compress_24"
+            app:key="filter.type.webp.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/squeezer_type_webp_description"
+            app:title="@string/squeezer_type_webp_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/squeezer_compression_settings_label">
+
+        <CheckBoxPreference
+            app:defaultValue="true"
+            app:icon="@drawable/ic_skip_over_24"
+            app:key="skip.previously.compressed"
+            app:singleLineTitle="false"
+            app:summary="@string/squeezer_skip_compressed_description"
+            app:title="@string/squeezer_skip_compressed_title" />
+
+        <CheckBoxPreference
+            app:defaultValue="false"
+            app:icon="@drawable/ic_new_box_24"
+            app:key="compression.exif.marker.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/squeezer_exif_marker_description"
+            app:title="@string/squeezer_exif_marker_title" />
+
+        <Preference
+            app:icon="@drawable/ic_baseline_history_24"
+            app:key="compression.history.info"
+            app:selectable="true"
+            app:singleLineTitle="false"
+            app:title="@string/squeezer_history_title" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

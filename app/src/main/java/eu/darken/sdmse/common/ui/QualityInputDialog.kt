@@ -9,8 +9,8 @@ import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.slider.Slider
 import eu.darken.sdmse.R
-import eu.darken.sdmse.compressor.core.CompressibleImage
-import eu.darken.sdmse.compressor.core.CompressionEstimator
+import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.core.CompressionEstimator
 import eu.darken.sdmse.databinding.QualityInputDialogBinding
 
 class QualityInputDialog(
@@ -37,7 +37,7 @@ class QualityInputDialog(
         qualitySlider.value = currentQuality.toFloat()
 
         fun updateUI(quality: Int) {
-            qualityValue.text = context.getString(R.string.compressor_quality_value_format, quality)
+            qualityValue.text = context.getString(R.string.squeezer_quality_value_format, quality)
 
             val outputRatio = estimateOutputRatio(quality)
             val estimatedOutputSize = (exampleInputSize * outputRatio).toLong()
@@ -45,7 +45,7 @@ class QualityInputDialog(
             val inputFormatted = Formatter.formatShortFileSize(context, exampleInputSize)
             val savingsFormatted = Formatter.formatShortFileSize(context, estimatedSavings)
             exampleText.text = context.getString(
-                R.string.compressor_quality_example_format,
+                R.string.squeezer_quality_example_format,
                 inputFormatted,
                 savingsFormatted,
                 quality

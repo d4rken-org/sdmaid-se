@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_compress_selected"
+        android:icon="@drawable/ic_image_compress_24"
+        android:title="@string/squeezer_compress_action"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_exclude_selected"
+        android:icon="@drawable/ic_shield_plus_24"
+        android:title="@string/general_exclude_selected_action"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_select_all"
+        android:icon="@drawable/ic_select_all_24"
+        android:title="@string/general_list_select_all_action"
+        app:showAsAction="ifRoom" />
+
+</menu>

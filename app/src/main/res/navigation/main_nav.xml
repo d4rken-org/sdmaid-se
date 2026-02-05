@@ -88,11 +88,11 @@
             android:id="@+id/action_dashboardFragment_to_deduplicatorDetailsFragment"
             app:destination="@id/deduplicatorDetailsFragment" />
         <action
-            android:id="@+id/action_dashboardFragment_to_compressorListFragment"
-            app:destination="@id/compressorListFragment" />
+            android:id="@+id/action_dashboardFragment_to_squeezerListFragment"
+            app:destination="@id/squeezerListFragment" />
         <action
-            android:id="@+id/action_dashboardFragment_to_compressorSetupFragment"
-            app:destination="@id/compressorSetupFragment" />
+            android:id="@+id/action_dashboardFragment_to_squeezerSetupFragment"
+            app:destination="@id/squeezerSetupFragment" />
         <action
             android:id="@+id/action_dashboardFragment_to_systemCleanerDetailsFragment"
             app:destination="@id/systemCleanerDetailsFragment" />
@@ -481,24 +481,24 @@
             app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Id" />
     </fragment>
     <fragment
-        android:id="@+id/compressorSetupFragment"
-        android:name="eu.darken.sdmse.compressor.ui.setup.CompressorSetupFragment"
-        tools:layout="@layout/compressor_setup_fragment">
+        android:id="@+id/squeezerSetupFragment"
+        android:name="eu.darken.sdmse.squeezer.ui.setup.SqueezerSetupFragment"
+        tools:layout="@layout/squeezer_setup_fragment">
         <action
-            android:id="@+id/action_compressorSetupFragment_to_compressorListFragment"
-            app:destination="@id/compressorListFragment" />
+            android:id="@+id/action_squeezerSetupFragment_to_squeezerListFragment"
+            app:destination="@id/squeezerListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/compressorListFragment"
-        android:name="eu.darken.sdmse.compressor.ui.list.CompressorListFragment"
-        tools:layout="@layout/compressor_list_fragment">
+        android:id="@+id/squeezerListFragment"
+        android:name="eu.darken.sdmse.squeezer.ui.list.SqueezerListFragment"
+        tools:layout="@layout/squeezer_list_fragment">
         <action
             android:id="@+id/goToExclusions"
             app:destination="@id/exclusionsListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/compressorSettingsFragment"
-        android:name="eu.darken.sdmse.compressor.ui.settings.CompressorSettingsFragment"
+        android:id="@+id/squeezerSettingsFragment"
+        android:name="eu.darken.sdmse.squeezer.ui.settings.SqueezerSettingsFragment"
         tools:layout="@layout/preference_fragment" />
 
     <action

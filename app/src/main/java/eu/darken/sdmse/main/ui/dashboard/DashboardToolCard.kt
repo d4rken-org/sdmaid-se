@@ -29,7 +29,7 @@ class DashboardToolCard(parent: ViewGroup) :
                 SDMTool.Type.SYSTEMCLEANER -> R.drawable.ic_baseline_view_list_24
                 SDMTool.Type.APPCLEANER -> R.drawable.ic_recycle
                 SDMTool.Type.DEDUPLICATOR -> R.drawable.ic_content_duplicate_24
-                SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.COMPRESSOR -> 0
+                SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER -> 0
             }
         )
         title.setText(
@@ -38,7 +38,7 @@ class DashboardToolCard(parent: ViewGroup) :
                 SDMTool.Type.SYSTEMCLEANER -> R.string.systemcleaner_tool_name
                 SDMTool.Type.APPCLEANER -> R.string.appcleaner_tool_name
                 SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_tool_name
-                SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.COMPRESSOR -> 0
+                SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER -> 0
             }
         )
         description.apply {
@@ -48,7 +48,7 @@ class DashboardToolCard(parent: ViewGroup) :
                     SDMTool.Type.SYSTEMCLEANER -> R.string.systemcleaner_explanation_short
                     SDMTool.Type.APPCLEANER -> R.string.appcleaner_explanation_short
                     SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_explanation_short
-                    SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.COMPRESSOR -> 0
+                    SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER -> 0
                 }
             )
             isGone = item.progress != null || item.result != null
