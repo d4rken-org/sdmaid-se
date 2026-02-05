@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="2dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
+        app:strokeWidth="0dp">
+
+        <ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/avatars" />
+
+        <!-- Item number notch in top-left corner -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/item_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            style="@style/TextAppearance.Material3.LabelMedium"
+            android:background="@drawable/bg_notch_top_start"
+            android:padding="4dp"
+            tools:text="#1" />
+
+        <!-- Decision icon notch in bottom-right corner -->
+        <ImageView
+            android:id="@+id/decision_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="bottom|end"
+            android:background="@drawable/bg_notch_bottom_end"
+            android:padding="4dp"
+            android:visibility="gone"
+            tools:src="@drawable/ic_heart"
+            tools:visibility="visible" />
+
+        <!-- Current item indicator (eye icon) -->
+        <ImageView
+            android:id="@+id/current_indicator"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_circle_primary"
+            android:padding="4dp"
+            android:src="@drawable/ic_eye_24"
+            android:visibility="gone"
+            app:tint="?colorOnPrimary"
+            tools:visibility="visible" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

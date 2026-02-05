@@ -30,9 +30,15 @@ class DeduplicatorDetailsFragment : Fragment3(R.layout.deduplicator_details_frag
 
         ui.toolbar.apply {
             setupWithNavController(findNavController())
+            inflateMenu(R.menu.menu_deduplicator_details)
             @Suppress("DEPRECATION")
             setOnMenuItemClickListener {
                 when (it.itemId) {
+                    R.id.action_toggle_view_mode -> {
+                        vm.toggleDirectoryView()
+                        true
+                    }
+
                     else -> super.onOptionsItemSelected(it)
                 }
             }
@@ -68,6 +74,18 @@ class DeduplicatorDetailsFragment : Fragment3(R.layout.deduplicator_details_frag
                 state.items.indexOfFirst { it.identifier == state.target }
                     .takeIf { it != -1 }
                     ?.let { viewpager.currentItem = it }
+            }
+
+            toolbar.menu.findItem(R.id.action_toggle_view_mode)?.apply {
+                isVisible = state.progress == null
+                setIcon(
+                    if (state.isDirectoryViewEnabled) R.drawable.ic_baseline_format_list_bulleted_24
+                    else R.drawable.ic_folder
+                )
+                setTitle(
+                    if (state.isDirectoryViewEnabled) R.string.deduplicator_view_mode_groups_label
+                    else R.string.deduplicator_view_mode_directories_label
+                )
             }
         }
 

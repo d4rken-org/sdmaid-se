@@ -105,6 +105,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_reportsFragment"
             app:destination="@id/reportsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_swiperSessionsFragment"
+            app:destination="@id/swiperSessionsFragment" />
     </fragment>
 
     <action
@@ -148,6 +151,9 @@
     <action
         android:id="@+id/goToReportsFragment"
         app:destination="@id/reportsFragment" />
+    <action
+        android:id="@+id/goToSwiperSessions"
+        app:destination="@id/swiperSessionsFragment" />
     <fragment
         android:id="@+id/upgradeFragment"
         android:name="eu.darken.sdmse.common.upgrade.ui.UpgradeFragment"
@@ -568,6 +574,43 @@
         <argument
             android:name="request"
             app:argType="eu.darken.sdmse.common.picker.PickerRequest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/swiperSessionsFragment"
+        android:name="eu.darken.sdmse.swiper.ui.sessions.SwiperSessionsFragment"
+        tools:layout="@layout/swiper_sessions_fragment">
+        <action
+            android:id="@+id/action_swiperSessionsFragment_to_swiperSwipeFragment"
+            app:destination="@id/swiperSwipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/swiperSwipeFragment"
+        android:name="eu.darken.sdmse.swiper.ui.swipe.SwiperSwipeFragment"
+        tools:layout="@layout/swiper_swipe_fragment">
+        <argument
+            android:name="sessionId"
+            app:argType="string" />
+        <argument
+            android:name="startIndex"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_swiperSwipeFragment_to_swiperStatusFragment"
+            app:destination="@id/swiperStatusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/swiperStatusFragment"
+        android:name="eu.darken.sdmse.swiper.ui.status.SwiperStatusFragment"
+        tools:layout="@layout/swiper_status_fragment">
+        <argument
+            android:name="sessionId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_swiperStatusFragment_to_swiperSwipeFragment"
+            app:destination="@id/swiperSwipeFragment"
+            app:popUpTo="@id/swiperSwipeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>

@@ -37,6 +37,9 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
     private val includeInaccessibleCaches: BadgedCheckboxPreference
         get() = findPreference(settings.includeInaccessibleEnabled.keyName)!!
 
+    private val forceStopBeforeClearing: BadgedCheckboxPreference
+        get() = findPreference(settings.forceStopBeforeClearing.keyName)!!
+
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
 
@@ -76,6 +79,9 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
         includeInaccessibleCaches.badgedAction = {
             setOf(SetupModule.Type.USAGE_STATS, SetupModule.Type.AUTOMATION).showFixSetupHint(this)
         }
+        forceStopBeforeClearing.badgedAction = {
+            setOf(SetupModule.Type.USAGE_STATS, SetupModule.Type.AUTOMATION).showFixSetupHint(this)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -85,6 +91,10 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
             includeOtherUsers.isRestricted = !state.isOtherUsersAvailable
             includeRunningApps.isRestricted = !state.isRunningAppsDetectionAvailable
             includeInaccessibleCaches.apply {
+                isRestricted = !state.isInaccessibleCacheAvailable
+                isVisible = state.isAcsRequired
+            }
+            forceStopBeforeClearing.apply {
                 isRestricted = !state.isInaccessibleCacheAvailable
                 isVisible = state.isAcsRequired
             }

@@ -14,6 +14,7 @@ val SDMTool.Type.labelRes: Int
         SDMTool.Type.SQUEEZER -> R.string.squeezer_tool_name
         SDMTool.Type.APPCONTROL -> R.string.appcontrol_tool_name
         SDMTool.Type.ANALYZER -> R.string.analyzer_tool_name
+        SDMTool.Type.SWIPER -> R.string.swiper_tool_name
     }
 
 
@@ -27,4 +28,5 @@ val SDMTool.Type.iconRes: Int
         SDMTool.Type.SQUEEZER -> R.drawable.ic_image_compress_24
         SDMTool.Type.APPCONTROL -> R.drawable.ic_apps
         SDMTool.Type.ANALYZER -> R.drawable.baseline_data_usage_24
+        SDMTool.Type.SWIPER -> R.drawable.ic_baseline_swipe_24
     }

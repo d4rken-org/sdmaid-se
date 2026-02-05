@@ -33,6 +33,7 @@ import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
+import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.systemcleaner.core.filter.custom.EditorOptionsCreator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combineTransform
@@ -52,6 +53,7 @@ class ContentViewModel @Inject constructor(
     private val exclusionManager: ExclusionManager,
     private val editorOptionsCreator: EditorOptionsCreator,
     private val upgradeRepo: UpgradeRepo,
+    private val swiper: Swiper,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<ContentFragmentArgs>()
@@ -262,13 +264,39 @@ class ContentViewModel @Inject constructor(
         ContentFragmentDirections.goToCustomFilterEditor(initial = options).navigate()
     }
 
+    fun createSwiperSession(items: List<ContentAdapter.Item>) = launch {
+        log(TAG) { "createSwiperSession(${items.size})" }
+
+        val paths = items
+            .map {
+                when (it) {
+                    is ContentItemListVH.Item -> setOf(it.content)
+                    is ContentItemGridVH.Item -> setOf(it.content)
+                    is ContentGroupVH.Item -> it.contentGroup.contents
+                    else -> throw IllegalArgumentException("Unknown type $it")
+                }
+            }
+            .flatten()
+            .filter { !it.inaccessible }
+            .map { it.path }
+            .toSet()
+
+        if (paths.isEmpty()) {
+            log(TAG, WARN) { "createSwiperSession(): No accessible items to create session" }
+            return@launch
+        }
+
+        val sessionId = swiper.createSession(paths)
+        log(TAG) { "createSwiperSession(): Created session $sessionId with ${paths.size} paths" }
+        events.postValue(ContentItemEvents.SwiperSessionCreated(sessionId, paths.size))
+    }
+
     fun toggleLayoutMode() = launch {
         log(TAG) { "toggleLayoutMode()" }
-        val newMode = when (analyzerSettings.contentLayoutMode.value()) {
-            LayoutMode.LINEAR -> LayoutMode.GRID
-            LayoutMode.GRID -> LayoutMode.LINEAR
+        when (analyzerSettings.contentLayoutMode.value()) {
+            LayoutMode.LINEAR -> analyzerSettings.contentLayoutMode.value(LayoutMode.GRID)
+            LayoutMode.GRID -> analyzerSettings.contentLayoutMode.value(LayoutMode.LINEAR)
         }
-        analyzerSettings.contentLayoutMode.update { newMode }
     }
 
     data class State(

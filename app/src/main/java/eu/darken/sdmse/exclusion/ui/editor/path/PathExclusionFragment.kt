@@ -96,6 +96,10 @@ class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment)
                 isChecked = exclusion.tags.contains(Exclusion.Tag.DEDUPLICATOR)
                 setOnClickListener { vm.toggleTag(Exclusion.Tag.DEDUPLICATOR) }
             }
+            ui.toolsSwiper.apply {
+                isChecked = exclusion.tags.contains(Exclusion.Tag.SWIPER)
+                setOnClickListener { vm.toggleTag(Exclusion.Tag.SWIPER) }
+            }
         }
 
         vm.events.observe2 {
