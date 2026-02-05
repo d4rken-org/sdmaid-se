@@ -238,14 +238,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                         .show()
                 }
 
-                is DashboardEvents.TaskResult -> Snackbar
-                    .make(
-                        requireView(),
-                        event.result.primaryInfo.get(requireContext()),
-                        Snackbar.LENGTH_LONG
-                    )
-                    .setAnchorView(ui.mainAction)
-                    .show()
+                is DashboardEvents.TaskResult -> {} // No snackbar, results shown on cards
 
                 is DashboardEvents.TodoHint -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setMessage(eu.darken.sdmse.common.R.string.general_todo_msg)
