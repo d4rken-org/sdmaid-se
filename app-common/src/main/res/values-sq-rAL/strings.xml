@@ -92,6 +92,10 @@
     <string name="general_toggle_layout_mode">Ndëro modusin e pamjes</string>
     <string name="general_delete_confirmation_title">Konfirmo fshirjen</string>
     <string name="general_delete_confirmation_message_x">Të fshihet \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Të fshihet %d artikull i zgjedhur?</item>
+        <item quantity="other">Të fshihen %d artikujt të zgjedhur?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Fshinë %d artikull.</item>
         <item quantity="other">Fshinë %d artikuj.</item>
@@ -164,4 +168,6 @@
     <string name="general_error_report_bug_action">Raporto gabim</string>
     <string name="general_error_ipc_deadobject_title">Lidhja e shërbimit u ndërpre</string>
     <string name="general_error_ipc_deadobject_description">Lidhja me një shërbim kritik (p.sh. Magisk, Shizuku, ose shërbime të tjera të nivelit të sistemit) u ndërpre papritur. Ju lutemi rinisni pajisjen tuaj. Nëse problemi vazhdon, kontrolloni për përditësime ose më kontaktoni që ta rregulloj.</string>
+    <string name="general_user_label_owner">Pronari</string>
+    <string name="general_user_label_system">Sistemi</string>
 </resources>
