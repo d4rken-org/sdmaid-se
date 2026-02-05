@@ -35,6 +35,7 @@ interface SDMTool : Progress.Host, Progress.Client, HasSharedResource<Any> {
         APPCONTROL,
         ANALYZER,
         DEDUPLICATOR,
+SQUEEZER,
         SWIPER,
     }
 }

@@ -135,13 +135,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
                 android:backgroundTint="?colorError"
-                android:text="@string/general_delete_action"
                 android:textColor="?colorOnError"
                 app:icon="@drawable/ic_delete"
                 app:iconTint="?colorOnError"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/scan_action"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/general_delete_action" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/scan_action"

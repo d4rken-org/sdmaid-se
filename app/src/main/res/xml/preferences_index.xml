@@ -38,6 +38,11 @@
             app:summary="@string/deduplicator_explanation_short"
             app:title="@string/deduplicator_tool_name" />
         <Preference
+            android:icon="@drawable/ic_image_compress_24"
+            app:fragment="eu.darken.sdmse.squeezer.ui.settings.SqueezerSettingsFragment"
+            app:summary="@string/squeezer_explanation_short"
+            app:title="@string/squeezer_tool_name" />
+        <Preference
             android:icon="@drawable/ic_apps"
             app:fragment="eu.darken.sdmse.appcontrol.ui.settings.AppControlSettingsFragment"
             app:summary="@string/appcontrol_explanation_short"

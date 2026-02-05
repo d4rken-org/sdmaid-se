@@ -88,6 +88,12 @@
             android:id="@+id/action_dashboardFragment_to_deduplicatorDetailsFragment"
             app:destination="@id/deduplicatorDetailsFragment" />
         <action
+            android:id="@+id/action_dashboardFragment_to_squeezerListFragment"
+            app:destination="@id/squeezerListFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_squeezerSetupFragment"
+            app:destination="@id/squeezerSetupFragment" />
+        <action
             android:id="@+id/action_dashboardFragment_to_systemCleanerDetailsFragment"
             app:destination="@id/systemCleanerDetailsFragment" />
         <action
@@ -480,6 +486,26 @@
             android:name="identifier"
             app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Id" />
     </fragment>
+    <fragment
+        android:id="@+id/squeezerSetupFragment"
+        android:name="eu.darken.sdmse.squeezer.ui.setup.SqueezerSetupFragment"
+        tools:layout="@layout/squeezer_setup_fragment">
+        <action
+            android:id="@+id/action_squeezerSetupFragment_to_squeezerListFragment"
+            app:destination="@id/squeezerListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/squeezerListFragment"
+        android:name="eu.darken.sdmse.squeezer.ui.list.SqueezerListFragment"
+        tools:layout="@layout/squeezer_list_fragment">
+        <action
+            android:id="@+id/goToExclusions"
+            app:destination="@id/exclusionsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/squeezerSettingsFragment"
+        android:name="eu.darken.sdmse.squeezer.ui.settings.SqueezerSettingsFragment"
+        tools:layout="@layout/preference_fragment" />
 
     <action
         android:id="@+id/goToPreview"

@@ -11,6 +11,7 @@ interface AffectedPath {
 
     enum class Action {
         DELETED,
+        COMPRESSED,
         ;
     }
 }
@@ -18,4 +19,5 @@ interface AffectedPath {
 @get:DrawableRes val AffectedPath.Action.iconRes: Int
     get() = when (this) {
         AffectedPath.Action.DELETED -> R.drawable.ic_delete
+        AffectedPath.Action.COMPRESSED -> R.drawable.ic_image_compress_24
     }

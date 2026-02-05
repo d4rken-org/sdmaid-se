@@ -46,6 +46,13 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
 import eu.darken.sdmse.corpsefinder.core.tasks.UninstallWatcherTask
+import eu.darken.sdmse.squeezer.core.Squeezer
+import eu.darken.sdmse.squeezer.core.SqueezerSettings
+import eu.darken.sdmse.squeezer.core.hasData
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
+import eu.darken.sdmse.squeezer.ui.SqueezerDashCardVH
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
@@ -112,6 +119,8 @@ class DashboardViewModel @Inject constructor(
     analyzer: Analyzer,
     debugCardProvider: DebugCardProvider,
     private val deduplicator: Deduplicator,
+private val squeezer: Squeezer,
+    private val squeezerSettings: SqueezerSettings,
     swiper: Swiper,
     private val upgradeRepo: UpgradeRepo,
     private val generalSettings: GeneralSettings,
@@ -309,6 +318,20 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
+    private val squeezerItem: Flow<SqueezerDashCardVH.Item?> = (squeezer.state as Flow<Squeezer.State?>)
+        .onStart { emit(null) }
+        .mapLatest { state ->
+            SqueezerDashCardVH.Item(
+                isInitializing = state == null,
+                isNew = true,
+                data = state?.data,
+                progress = state?.progress,
+                onViewDetails = {
+                    DashboardFragmentDirections.actionDashboardFragmentToSqueezerSetupFragment().navigate()
+                },
+            )
+        }
+
     private val appControlItem: Flow<AppControlDashCardVH.Item?> = (appControl.state as Flow<AppControl.State?>)
         .onStart { emit(null) }
         .mapLatest { state ->
@@ -462,7 +485,7 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    // Combine refresh trigger with card config to stay within combine's 20-argument limit
+    // Combine refresh trigger with card config to stay within combine's argument limit
     private val cardConfigWithRefresh: Flow<DashboardCardConfig> = kotlinx.coroutines.flow.combine(
         refreshTrigger,
         generalSettings.dashboardCardConfig.flow,
@@ -480,6 +503,7 @@ class DashboardViewModel @Inject constructor(
         systemCleanerItem,
         appCleanerItem,
         deduplicatorItem,
+        squeezerItem,
         appControlItem,
         analyzerItem,
         schedulerItem,
@@ -501,6 +525,7 @@ class DashboardViewModel @Inject constructor(
         systemCleanerItem: DashboardToolCard.Item?,
         appCleanerItem: DashboardToolCard.Item?,
         deduplicatorItem: DashboardToolCard.Item?,
+        squeezerItem: SqueezerDashCardVH.Item?,
         appControlItem: AppControlDashCardVH.Item?,
         analyzerItem: AnalyzerDashCardVH.Item?,
         schedulerItem: SchedulerDashCardVH.Item?,
@@ -520,6 +545,7 @@ class DashboardViewModel @Inject constructor(
             systemCleanerItem?.isInitializing,
             appCleanerItem?.isInitializing,
             deduplicatorItem?.isInitializing,
+            squeezerItem?.isInitializing,
             appControlItem?.isInitializing,
         ).any { it }
 
@@ -544,6 +570,7 @@ class DashboardViewModel @Inject constructor(
                 DashboardCardType.SYSTEMCLEANER -> systemCleanerItem?.let { items.add(it) }
                 DashboardCardType.APPCLEANER -> appCleanerItem?.let { items.add(it) }
                 DashboardCardType.DEDUPLICATOR -> deduplicatorItem?.let { items.add(it) }
+                DashboardCardType.SQUEEZER -> squeezerItem?.let { items.add(it) }
                 DashboardCardType.APPCONTROL -> appControlItem?.let { items.add(it) }
                 DashboardCardType.ANALYZER -> analyzerItem?.let { items.add(it) }
                 DashboardCardType.SCHEDULER -> schedulerItem?.let { items.add(it) }
@@ -793,6 +820,21 @@ class DashboardViewModel @Inject constructor(
         submitTask(DeduplicatorDeleteTask())
     }
 
+    fun showSqueezer() {
+        log(TAG, INFO) { "showSqueezerDetails()" }
+        DashboardFragmentDirections.actionDashboardFragmentToSqueezerListFragment().navigate()
+    }
+
+    fun confirmSqueezerProcessing() = launch {
+        log(TAG, INFO) { "confirmSqueezerProcessing()" }
+
+        if (!upgradeRepo.isPro()) {
+            MainDirections.goToUpgradeFragment().navigate()
+            return@launch
+        }
+        submitTask(SqueezerProcessTask())
+    }
+
     fun undoSetupHide() = launch {
         log(TAG) { "undoSetupHide()" }
         setupManager.setDismissed(false)
@@ -829,6 +871,11 @@ class DashboardViewModel @Inject constructor(
                 is DeduplicatorScanTask.Success -> {}
                 is DeduplicatorDeleteTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
                 is DeduplicatorOneClickTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
+            }
+
+            is SqueezerTask.Result -> when (result) {
+                is SqueezerScanTask.Success -> {}
+                is SqueezerProcessTask.Success -> events.postValue(DashboardEvents.TaskResult(result))
             }
         }
     }

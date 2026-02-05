@@ -93,6 +93,15 @@
                 android:data="https://github.com/airbnb/lottie-android" />
         </eu.darken.sdmse.common.preferences.IntentPreference>
         <eu.darken.sdmse.common.preferences.IntentPreference
+            android:key="license.photoview"
+            android:summary="Implementation of ImageView for Android that supports zooming. (APACHE 2.0)"
+            android:title="PhotoView"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Baseflow/PhotoView" />
+        </eu.darken.sdmse.common.preferences.IntentPreference>
+        <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.indicatorfastscroll"
             android:summary="Android library providing a simple UI control for scrolling through RecyclerViews. (APACHE 2.0)"
             android:title="Indicator Fast Scroll"

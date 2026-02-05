@@ -48,7 +48,7 @@ class ScheduleStorageTest : BaseTest() {
             load() shouldBe null
             save(setOf(schedule))
             load() shouldBe setOf(schedule)
-            val saveFile = provideBackupPath().listFiles()!!.single()
+            val saveFile = provideBackupPath().listFiles()!!.single { it.extension == "json" }
             saveFile.readText().toComparableJson() shouldBe """
                 [
                     {
@@ -90,7 +90,7 @@ class ScheduleStorageTest : BaseTest() {
         create().apply {
             save(setOf(schedule))
             load() shouldBe setOf(schedule)
-            val saveFile = provideBackupPath().listFiles()!!.single()
+            val saveFile = provideBackupPath().listFiles()!!.single { it.extension == "json" }
             saveFile.readText().toComparableJson() shouldBe """
                 [
                     {
