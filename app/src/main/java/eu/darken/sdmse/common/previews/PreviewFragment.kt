@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.navigation.popBackStack
 import eu.darken.sdmse.common.uix.DialogFragment3
@@ -45,6 +46,14 @@ class PreviewFragment : DialogFragment3(R.layout.preview_fragment) {
                             or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY // Enable immersive mode
                     )
         }
+
+        // Apply display cutout (notch) insets to header
+        EdgeToEdgeHelper(requireActivity()).insetsPadding(
+            ui.previewHeaderContainer,
+            left = true,
+            top = true,
+            right = true,
+        )
 
         ui.backAction.setOnClickListener { popBackStack() }
         ui.nextAction.setOnClickListener { vm.next() }

@@ -22,6 +22,8 @@ import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SwiperSwipeFragmentBinding
+import eu.darken.sdmse.common.previews.PreviewFragmentArgs
+import eu.darken.sdmse.common.previews.PreviewOptions
 import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
 import java.time.ZoneId
@@ -79,6 +81,17 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
 
             override fun onSwipeProgress(progress: Float, direction: SwipeCardView.SwipeDirection?) {
                 // Could add visual feedback here if needed
+            }
+
+            override fun onPreviewClick(item: SwipeItem) {
+                val options = PreviewOptions(
+                    paths = listOf(item.lookup.lookedUp),
+                    position = 0,
+                )
+                findNavController().navigate(
+                    resId = R.id.goToPreview,
+                    args = PreviewFragmentArgs(options = options).toBundle(),
+                )
             }
         }
 

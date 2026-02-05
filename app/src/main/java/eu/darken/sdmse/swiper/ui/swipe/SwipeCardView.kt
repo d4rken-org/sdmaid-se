@@ -34,11 +34,13 @@ class SwipeCardView @JvmOverloads constructor(
         fun onSwipeUp()
         fun onSwipeDown()
         fun onSwipeProgress(progress: Float, direction: SwipeDirection?)
+        fun onPreviewClick(item: SwipeItem) {}
     }
 
     private val binding: SwiperCardItemBinding = SwiperCardItemBinding.inflate(LayoutInflater.from(context), this, true)
 
     var swipeListener: SwipeListener? = null
+    private var currentItem: SwipeItem? = null
     var swapDirections: Boolean = false
         set(value) {
             if (field != value) {
@@ -94,6 +96,9 @@ class SwipeCardView @JvmOverloads constructor(
     init {
         clipChildren = false
         clipToPadding = false
+        binding.previewAction.setOnClickListener {
+            currentItem?.let { swipeListener?.onPreviewClick(it) }
+        }
     }
 
     private fun updateStampPositions() {
@@ -137,6 +142,8 @@ class SwipeCardView @JvmOverloads constructor(
         fileInfoProvider: ((SwipeItem) -> FileInfo)? = null,
         nextItemPosition: Int? = null,
     ) {
+        this.currentItem = currentItem
+
         // Check if we're coming from a swipe animation (content is hidden)
         val needsFadeIn = binding.contentContainer.alpha == 0f
 
@@ -289,8 +296,36 @@ class SwipeCardView @JvmOverloads constructor(
         }
     }
 
+    private var isTouchingPreviewButton = false
+
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
+        when (ev.action) {
+            MotionEvent.ACTION_DOWN -> {
+                isTouchingPreviewButton = isTouchOnPreviewButton(ev)
+                if (isTouchingPreviewButton) return false
+            }
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                if (isTouchingPreviewButton) {
+                    isTouchingPreviewButton = false
+                    return false
+                }
+            }
+            else -> {
+                // For ACTION_MOVE etc., don't intercept if we started on button
+                if (isTouchingPreviewButton) return false
+            }
+        }
         return true
+    }
+
+    private fun isTouchOnPreviewButton(ev: MotionEvent): Boolean {
+        val button = binding.previewAction
+        val location = IntArray(2)
+        button.getLocationOnScreen(location)
+        val x = ev.rawX
+        val y = ev.rawY
+        return x >= location[0] && x <= location[0] + button.width &&
+            y >= location[1] && y <= location[1] + button.height
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -587,5 +622,4 @@ class SwipeCardView @JvmOverloads constructor(
     private fun fadeInContent() {
         resetPosition()
     }
-
 }
