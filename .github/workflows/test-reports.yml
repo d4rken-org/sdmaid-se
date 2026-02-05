@@ -30,64 +30,12 @@ jobs:
           list-tests: 'failed'
           max-annotations: 10
 
-      - name: Test Report - FOSS Beta  
-        uses: dorny/test-reporter@v2.1.1
-        if: always()
-        with:
-          name: 'Unit Tests - testFoss Beta'
-          artifact: test-results-testFoss-Beta
-          path: '**/*.xml'
-          reporter: java-junit
-          fail-on-error: false
-          list-suites: 'failed'
-          list-tests: 'failed'
-          max-annotations: 10
-
-      - name: Test Report - FOSS Release
-        uses: dorny/test-reporter@v2.1.1
-        if: always()
-        with:
-          name: 'Unit Tests - testFoss Release'
-          artifact: test-results-testFoss-Release
-          path: '**/*.xml'
-          reporter: java-junit
-          fail-on-error: false
-          list-suites: 'failed'
-          list-tests: 'failed'
-          max-annotations: 10
-
       - name: Test Report - GPlay Debug
         uses: dorny/test-reporter@v2.1.1
         if: always()
         with:
           name: 'Unit Tests - testGplay Debug'
           artifact: test-results-testGplay-Debug
-          path: '**/*.xml'
-          reporter: java-junit
-          fail-on-error: false
-          list-suites: 'failed'
-          list-tests: 'failed'
-          max-annotations: 10
-
-      - name: Test Report - GPlay Beta
-        uses: dorny/test-reporter@v2.1.1
-        if: always()
-        with:
-          name: 'Unit Tests - testGplay Beta'
-          artifact: test-results-testGplay-Beta
-          path: '**/*.xml'
-          reporter: java-junit
-          fail-on-error: false
-          list-suites: 'failed'
-          list-tests: 'failed'
-          max-annotations: 10
-
-      - name: Test Report - GPlay Release
-        uses: dorny/test-reporter@v2.1.1
-        if: always()
-        with:
-          name: 'Unit Tests - testGplay Release'
-          artifact: test-results-testGplay-Release
           path: '**/*.xml'
           reporter: java-junit
           fail-on-error: false
