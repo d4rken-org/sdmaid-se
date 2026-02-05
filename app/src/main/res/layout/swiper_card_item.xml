@@ -193,6 +193,17 @@
 
                 </LinearLayout>
 
+                <!-- Preview button: top-right corner -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/preview_action"
+                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="8dp"
+                    app:icon="@drawable/ic_magnify_expand_24"
+                    tools:ignore="ContentDescription" />
+
                 <!-- Keep stamp: top-left (visible when swiping right, left side stays visible) -->
                 <LinearLayout
                     android:id="@+id/stamp_keep"
