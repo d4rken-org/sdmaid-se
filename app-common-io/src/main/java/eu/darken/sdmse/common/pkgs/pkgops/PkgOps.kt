@@ -470,8 +470,13 @@ class PkgOps @Inject constructor(
         val externalCacheBytes: Long?,
         val dataBytes: Long,
     ) {
+        /** User data excluding cache (matches Android Settings display) */
+        val userDataBytes: Long
+            get() = (dataBytes - cacheBytes).coerceAtLeast(0)
+
+        /** Total storage. Note: dataBytes already includes cacheBytes */
         val total: Long
-            get() = appBytes + dataBytes + cacheBytes
+            get() = appBytes + dataBytes
     }
 
     suspend fun querySizeStats(
