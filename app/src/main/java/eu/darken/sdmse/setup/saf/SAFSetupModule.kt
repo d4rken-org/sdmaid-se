@@ -158,21 +158,44 @@ class SAFSetupModule @Inject constructor(
          * On Android 13 this trick no longer works :(
          */
         if (hasApiLevel(30) && !hasApiLevel(33)) {
-            val isRestricted = pkgOps.queryPkg(
-                id = "com.google.android.documentsui".toPkgId(),
-                flags = 0,
-                userHandle = userManager.currentUser().handle,
-            )?.let { pkg ->
-                log(TAG) { "Files-DocumentsUI: appInfos=$pkg" }
-                log(TAG) { "Files-DocumentsUI: targetSdkVersion=${pkg.applicationInfo?.targetSdkVersion}" }
-                log(TAG) { "Files-DocumentsUI: versionName=${pkg.versionName}" }
+            var anyRestricted = false
+            var foundAnyPackage = false
+
+            for (pkgName in DOCUMENTS_UI_PACKAGES) {
+                val pkg = pkgOps.queryPkg(
+                    id = pkgName.toPkgId(),
+                    flags = 0,
+                    userHandle = userManager.currentUser().handle,
+                ) ?: continue
+
+                foundAnyPackage = true
+
+                log(TAG) { "Files-DocumentsUI ($pkgName): appInfos=$pkg" }
+                log(TAG) { "Files-DocumentsUI ($pkgName): targetSdkVersion=${pkg.applicationInfo?.targetSdkVersion}" }
+                log(TAG) { "Files-DocumentsUI ($pkgName): versionName=${pkg.versionName}" }
                 val versionCode = PackageInfoCompat.getLongVersionCode(pkg)
-                log(TAG) { "Files-DocumentsUI: versionCode=$versionCode" }
-                // Commit 901f1d6044aade190bb943ccc18d26244132648e with changes first seen in tag 'aml_doc_331120000'
-                val isTooNew = versionCode >= 331120000L
+                log(TAG) { "Files-DocumentsUI ($pkgName): versionCode=$versionCode" }
+
                 val hasKnownMarker = (pkg.applicationInfo?.targetSdkVersion ?: 0) >= 34
-                hasKnownMarker || isTooNew
-            } ?: true
+                // Commit 901f1d6044aade190bb943ccc18d26244132648e with changes first seen in tag 'aml_doc_331120000'
+                // Version code threshold is specific to Google's DocumentsUI
+                val isTooNew = pkgName == "com.google.android.documentsui" && versionCode >= 331120000L
+                val pkgIsRestricted = hasKnownMarker || isTooNew
+
+                log(TAG) { "Files-DocumentsUI ($pkgName): isRestricted=$pkgIsRestricted (hasKnownMarker=$hasKnownMarker, isTooNew=$isTooNew)" }
+
+                if (pkgIsRestricted) {
+                    anyRestricted = true
+                    break  // Early exit - any restricted package means overall restricted
+                }
+            }
+
+            // Restricted if: any package is restricted OR no packages found at all
+            val isRestricted = anyRestricted || !foundAnyPackage
+
+            if (!foundAnyPackage) {
+                log(TAG) { "Files-DocumentsUI: No DocumentsUI package found, assuming restricted" }
+            }
 
             log(TAG) { "Files-DocumentsUI: is restricted? $isRestricted" }
 
@@ -291,5 +314,9 @@ class SAFSetupModule @Inject constructor(
 
     companion object {
         private val TAG = logTag("Setup", "SAF", "Module")
+        private val DOCUMENTS_UI_PACKAGES = listOf(
+            "com.google.android.documentsui",  // Google/GMS variant
+            "com.android.documentsui",          // AOSP variant
+        )
     }
 }
