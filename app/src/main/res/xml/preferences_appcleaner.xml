@@ -46,6 +46,14 @@
         app:summary="@string/appcleaner_include_inaccessible_summary"
         app:title="@string/appcleaner_include_inaccessible_label" />
 
+    <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+        app:enabled="false"
+        app:icon="@drawable/ic_cancel"
+        app:key="forcestop.before.clearing.enabled"
+        app:singleLineTitle="false"
+        app:summary="@string/appcleaner_forcestop_before_clearing_summary"
+        app:title="@string/appcleaner_forcestop_before_clearing_label" />
+
     <PreferenceCategory android:title="@string/settings_category_filter_generic">
         <CheckBoxPreference
             app:icon="@drawable/ic_baseline_format_list_bulleted_24"
