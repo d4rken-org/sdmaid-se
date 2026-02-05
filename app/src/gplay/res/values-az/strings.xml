@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro tələb olunur</string>
     <string name="upgrades_dashcard_title">SD Maid-i yüksəldin</string>
     <string name="upgrades_dashcard_body">SD Maid Pro daha yaxşı nəticələr, daha çox xüsusiyyətlər və güc istifadəçiləri üçün seçimlər təklif edir.</string>
     <string name="upgrades_dashcard_upgrade_action">Yüksəlt</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play əlçatan deyil</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play-ə qoşula bilmir. Google Play quraşdırılıb və yenilənib? Google hesabınız daxil olub? Google Play tətbiqinin keşini təmizləməyi və cihazınızı yenidən başlatmağı sınayın.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play Problemi</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play ilə bağlı problem yarandı. Zəhmət olmasa, bir az sonra yenidən cəhd edin və ya cihazınızı yenidən başladın.\n\nTəfərrüatlar: %s</string>
     <string name="upgrades_no_purchases_found_check_account">Heç bir alış tapılmadı. Düzgün hesabdan istifadə edirsiniz?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro əldə edin</string>
     <string name="upgrade_screen_preamble">SD Maid-də reklam yoxdur və istifadəçi məlumatları satmır. Mənim işim sizin tərəfinizdən maliyyələşdirilir ❤️.</string>
