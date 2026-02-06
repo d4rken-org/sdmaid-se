@@ -80,8 +80,9 @@ class SupportFragment : PreferenceFragment2() {
                 debugLogFolderPref.summary = getString(R.string.support_debuglog_folder_empty_desc)
             } else {
                 val formattedSize = Formatter.formatShortFileSize(requireContext(), stats.totalSizeBytes)
-                debugLogFolderPref.summary = getString(
-                    R.string.support_debuglog_folder_desc,
+                debugLogFolderPref.summary = resources.getQuantityString(
+                    R.plurals.support_debuglog_folder_desc,
+                    stats.fileCount,
                     stats.fileCount,
                     formattedSize
                 )

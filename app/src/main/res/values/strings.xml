@@ -105,7 +105,10 @@
     <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">Record everything the app is doing into a text file that you can share.</string>
     <string name="support_debuglog_folder_label">Debug log folder</string>
-    <string name="support_debuglog_folder_desc">%1$d files using %2$s</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d file using %2$s</item>
+        <item quantity="other">%1$d files using %2$s</item>
+    </plurals>
     <string name="support_debuglog_folder_empty_desc">No debug logs stored</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Delete all debug logs?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">This will permanently delete all stored debug log sessions. This action cannot be undone.</string>
@@ -480,7 +483,7 @@
     <string name="appcleaner_automation_error_securitycenter_permission_title">System app misconfigured</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'s Security app (com.miui.securitycenter) is missing the Usage Stats permission (GET_USAGE_STATS). This breaks features like "Clear Data" in app details and cache clearing via accessibility. Grant the permission to restore full functionality.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Force-stop before clearing</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Force-stop apps before clearing their cache. Can help with clearing some apps but also has potential side effects. Interrupted apps may misbehave and require to be opened manually to restart.</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Force-stop apps before clearing their cache. It can help clear some apps\' caches, but may cause apps to misbehave and require manual restart.</string>
     <string name="appcleaner_progress_force_stopping">Force-stopping apps…</string>
 
     <string name="deduplicator_tool_name">Deduplicator</string>
