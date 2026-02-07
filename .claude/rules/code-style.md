@@ -39,8 +39,40 @@
 - Room for database operations
 - Coil for image loading
 
-## Testing Requirements
+## Logging
 
-- Write tests for web APIs and serialized data
-- No UI tests required
-- Use FOSS debug flavor for local testing
+Use `logTag()` to create tags and `log()` with lambda messages:
+
+```kotlin
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+
+companion object {
+    private val TAG = logTag("AppCleaner")
+    // Multi-part: logTag("Review", "Settings", "Gplay") → "SDMSE:Review:Settings:Gplay"
+}
+
+log(TAG) { "Processing $item" }           // DEBUG (default)
+log(TAG, INFO) { "Scan complete" }         // INFO
+log(TAG, WARN) { "Unexpected state" }      // WARN
+log(TAG, ERROR) { "Failed: ${e.asLog()}" } // ERROR with stacktrace
+```
+
+## DataStore Settings
+
+Settings use `dataStore.createValue()` with optional Moshi for complex types:
+
+```kotlin
+val usePreviews = dataStore.createValue("core.ui.previews.enabled", true)
+val themeMode = dataStore.createValue("core.ui.theme.mode", ThemeMode.SYSTEM, moshi)
+```
+
+Access values with `.value()` (suspend) or `.flow` (reactive):
+
+```kotlin
+val current = settings.themeMode.value()     // suspend read
+settings.themeMode.value(ThemeMode.DARK)     // suspend write
+val reactive = settings.themeMode.flow       // Flow<ThemeMode>
+```
+

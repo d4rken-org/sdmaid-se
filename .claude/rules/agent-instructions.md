@@ -30,7 +30,7 @@
 ## Multi-Step Tasks
 
 1. Break complex tasks into discrete steps
-2. Use the TodoWrite tool to track progress
+2. Use the TaskCreate/TaskUpdate tools to track progress
 3. Complete one step fully before moving to the next
 4. Verify each step's success before proceeding
 
