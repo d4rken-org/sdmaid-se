@@ -5,6 +5,11 @@
 - **JUnit 5**: Use for normal unit tests (must extend `BaseTest`)
 - **JUnit 4**: Use for Robolectric tests (Robolectric doesn't support JUnit 5)
 
+## What to Test
+
+- Write tests for web APIs and serialized data
+- No UI tests required
+
 ## Base Test Classes
 
 - **`BaseTest`**: Base class for all unit tests using JUnit 5

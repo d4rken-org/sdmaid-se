@@ -21,19 +21,6 @@ SD Maid SE (AKA SD Maid 2) is an Android file management tool that specializes i
 - **FOSS**: Open source version without Google Play dependencies
 - **GPLAY**: Google Play version with additional features
 
-## Quick Commands
-
-```bash
-# Build
-./gradlew assembleFossDebug
-
-# Test
-./gradlew test
-
-# Lint
-./gradlew lintVitalFossRelease
-```
-
 ## Important File Locations
 
 ### Database & Schemas
@@ -67,15 +54,3 @@ All lint-vital checks, unit tests, and builds must pass.
 - Debug builds include additional logging and debug tools
 - Large file operations are chunked to prevent memory issues
 - Progress reporting is essential for long-running operations
-
-## Detailed Guidelines
-
-See `.claude/rules/` for detailed guidelines on:
-- `code-style.md`: Kotlin conventions, UI patterns
-- `testing.md`: Test frameworks, base classes, patterns
-- `localization.md`: String extraction, CAString usage
-- `architecture.md`: Module structure, patterns, DI
-- `commit-guidelines.md`: Commit message format
-- `build-commands.md`: Full build command reference
-- `automation.md`: Accessibility service patterns
-- `agent-instructions.md`: Agent delegation principles

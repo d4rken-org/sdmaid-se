@@ -38,7 +38,6 @@ SD Maid SE's cleaning tools are implemented within the main app module under `eu
 ## Path System
 
 - Abstract path system using `APath` and `RawPath`
-- `APath` offers path segment infos via `segments` - use that instead of path splitting
 - Gateway pattern for different file access methods (normal, root, ADB/Shizuku)
 - Support for root, ADB, and shell operations
 
@@ -54,3 +53,7 @@ SD Maid SE's cleaning tools are implemented within the main app module under `eu
 - `@AndroidEntryPoint` for Activities/Fragments
 - `@HiltViewModel` for ViewModels
 - Modular DI setup across different modules
+
+## Pitfalls
+
+- Use `APath.segments` for path segment access — do NOT manually split path strings

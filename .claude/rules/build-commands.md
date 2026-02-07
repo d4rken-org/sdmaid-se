@@ -67,7 +67,18 @@ fastlane android beta
 fastlane android production
 ```
 
-## Dependency Updates
+## Context Management
+
+When running gradle builds or tests, use the Task tool with a sub-agent to keep verbose output isolated from the main conversation context. The sub-agent should report back only:
+- Success or failure
+- Compilation errors with file paths and line numbers
+- Warning counts
+
+Run gradle directly in the main context only when the user explicitly requests full output.
+
+## Pitfalls
+
+### Dependency Updates
 
 When updating Kotlin or other core dependencies:
 
