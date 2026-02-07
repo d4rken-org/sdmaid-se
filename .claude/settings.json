@@ -6,6 +6,10 @@
 	  "Bash(git add:*)",
 	  "Bash(git log:*)",
 	  "Bash(git commit:*)",
+	  "Bash(git status:*)",
+	  "Bash(gh issue list:*)",
+	  "Bash(gh pr list:*)",
+	  "Bash(gh label list:*)",
 	  "Bash(git show:*)",
 	  "WebSearch",
 	  "WebFetch(domain:developer.android.com)"
