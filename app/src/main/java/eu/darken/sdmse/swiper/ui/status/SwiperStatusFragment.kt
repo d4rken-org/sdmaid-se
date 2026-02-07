@@ -332,10 +332,21 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
         // Show confirmation for delete items
         val (sizeFormatted, _) = ByteFormatter.formatSize(requireContext(), state.deleteSize)
 
+        val deleteMessage = resources.getQuantityString(
+            R.plurals.swiper_delete_confirmation_message,
+            state.deleteCount,
+            state.deleteCount,
+            sizeFormatted,
+        )
         val message = if (state.undecidedCount > 0) {
-            getString(R.string.swiper_delete_confirmation_message_partial, state.deleteCount, sizeFormatted, state.undecidedCount)
+            val undecidedMessage = resources.getQuantityString(
+                R.plurals.swiper_delete_confirmation_message_partial_undecided,
+                state.undecidedCount,
+                state.undecidedCount,
+            )
+            "$deleteMessage\n\n$undecidedMessage"
         } else {
-            getString(R.string.swiper_delete_confirmation_message, state.deleteCount, sizeFormatted)
+            deleteMessage
         }
 
         MaterialAlertDialogBuilder(requireContext()).apply {

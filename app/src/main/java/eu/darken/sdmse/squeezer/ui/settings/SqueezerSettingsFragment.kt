@@ -36,7 +36,7 @@ class SqueezerSettingsFragment : PreferenceFragment2() {
 
             historyPref.summary = if (state.historyCount > 0) {
                 val (formatted, _) = ByteFormatter.formatSize(requireContext(), state.historyDatabaseSize)
-                getString(R.string.squeezer_history_summary, state.historyCount, formatted)
+                resources.getQuantityString(R.plurals.squeezer_history_summary, state.historyCount, state.historyCount, formatted)
             } else {
                 getString(R.string.squeezer_history_empty)
             }

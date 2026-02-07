@@ -21,7 +21,7 @@
     <string name="upgrades_gplay_network_error_description">Unable to connect to Google Play. Please check your internet connection and try again.</string>
 
     <string name="upgrades_gplay_already_owned_error_title">Already purchased</string>
-    <string name="upgrades_gplay_already_owned_error_description">You already own this item. Use the \"Restore purchase\" option to restore your purchase. If the issue persists, try clearing Google Play cache and restarting your device.</string>
+    <string name="upgrades_gplay_already_owned_error_description">Use the \"Restore purchase\" option to restore your purchase. If the issue persists, try clearing Google Play cache and restarting your device.</string>
 
     <string name="upgrades_no_purchases_found_check_account">No purchases found. Are you using the right account?</string>
 

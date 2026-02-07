@@ -40,8 +40,9 @@ class SwiperDashCardVH(parent: ViewGroup) :
                 val daysAgo = Duration.between(session.lastModifiedAt, Instant.now()).toDays().toInt()
                 val finished = sessionWithStats.keepCount + sessionWithStats.deleteCount
                 val percent = if (session.totalItems > 0) (finished * 100 / session.totalItems) else 0
-                subtitle.text = getString(
-                    R.string.swiper_dashcard_session_context,
+                subtitle.text = getQuantityString(
+                    R.plurals.swiper_dashcard_session_context,
+                    daysAgo,
                     daysAgo,
                     percent,
                 )

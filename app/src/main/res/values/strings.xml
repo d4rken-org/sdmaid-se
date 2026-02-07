@@ -563,7 +563,7 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Prefer smaller files</string>
 
     <string name="deduplicator_view_mode_groups_label">Groups</string>
-    <string name="deduplicator_view_mode_directories_label">Directories</string>
+    <string name="deduplicator_view_mode_directories_label">Folders</string>
 
 
     <string name="squeezer_tool_name">Media Squeeze</string>
@@ -618,7 +618,10 @@
     <string name="squeezer_compress_confirmation_title">Compress images?</string>
     <string name="squeezer_compress_confirmation_message">This will replace original images with compressed versions. This action cannot be undone.</string>
     <string name="squeezer_history_title">Compression history</string>
-    <string name="squeezer_history_summary">%1$d items (%2$s)</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d item (%2$s)</item>
+        <item quantity="other">%1$d items (%2$s)</item>
+    </plurals>
     <string name="squeezer_history_empty">No compression history</string>
     <string name="squeezer_history_clear_title">Clear compression history</string>
     <string name="squeezer_history_clear_message">This will allow previously compressed images to be compressed again. The images themselves are not affected.</string>
@@ -705,7 +708,7 @@
     <string name="appcontrol_archive_action">Archive</string>
     <string name="appcontrol_archive_selection_action">Archive apps</string>
     <string name="appcontrol_archive_description">Archive to free space while keeping app data for later restoration.</string>
-    <string name="appcontrol_progress_archiving_app">Archiving app</string>
+    <string name="appcontrol_progress_archiving_app">Archiving app…</string>
     <string name="appcontrol_archive_confirmation_title">Confirm archive</string>
     <plurals name="appcontrol_archive_confirmation_x">
         <item quantity="one">Archive %d app?</item>
@@ -718,7 +721,7 @@
     <string name="appcontrol_restore_action">Restore</string>
     <string name="appcontrol_restore_selection_action">Restore apps</string>
     <string name="appcontrol_restore_description">Restore archived app to fully installed state. App data is preserved.</string>
-    <string name="appcontrol_progress_restoring_app">Restoring app</string>
+    <string name="appcontrol_progress_restoring_app">Restoring app…</string>
     <string name="appcontrol_restore_confirmation_title">Confirm restore</string>
     <plurals name="appcontrol_restore_confirmation_x">
         <item quantity="one">Restore %d app?</item>
@@ -1044,12 +1047,16 @@
     <string name="swiper_status_action_delete_selected">Delete selected</string>
     <string name="swiper_status_action_reset_selected">Reset selected</string>
     <string name="swiper_decision_undecided">Undecided</string>
-    <string name="swiper_decision_deleted">Deleted</string>
-    <string name="swiper_decision_failed">Failed</string>
     <string name="swiper_retry_action">Retry</string>
     <string name="swiper_delete_confirmation_title">Delete files?</string>
-    <string name="swiper_delete_confirmation_message">This will permanently delete %1$d files (%2$s). This action cannot be undone.</string>
-    <string name="swiper_delete_confirmation_message_partial">This will permanently delete %1$d files (%2$s). This action cannot be undone.\n\n%3$d undecided items will remain for later review.</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">This will permanently delete %1$d file (%2$s). This action cannot be undone.</item>
+        <item quantity="other">This will permanently delete %1$d files (%2$s). This action cannot be undone.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d undecided item will remain for later review.</item>
+        <item quantity="other">%d undecided items will remain for later review.</item>
+    </plurals>
     <string name="swiper_delete_x_action">Delete %1$d</string>
     <string name="swiper_settings_swap_directions_title">Swap swipe directions</string>
     <string name="swiper_settings_swap_directions_summary">Swipe left to keep, right to delete.</string>
@@ -1061,7 +1068,10 @@
     <string name="swiper_discard_session_confirmation_message">All decisions will be lost. Are you sure?</string>
     <string name="swiper_no_preview_available">No preview available</string>
 
-    <string name="swiper_dashcard_session_context">Continue session from %1$d days ago (%2$d%% finished)</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Continue session from %1$d day ago (%2$d%% finished)</item>
+        <item quantity="other">Continue session from %1$d days ago (%2$d%% finished)</item>
+    </plurals>
     <plurals name="swiper_dashcard_x_sessions">
         <item quantity="one">%d session</item>
         <item quantity="other">%d sessions</item>
@@ -1073,7 +1083,15 @@
     <string name="swiper_session_timestamps">Created %1$s, last activity %2$s</string>
     <string name="swiper_session_remove_action">Remove session</string>
     <string name="swiper_sessions_empty_hint">Tap + to select a folder and start swiping</string>
-    <string name="swiper_sessions_upgrade_body">The free version is limited to %1$d files per session and %2$d sessions. Upgrade to remove these limits and support development.</string>
+    <string name="swiper_sessions_upgrade_body">Upgrade to remove these limits and support development. The free version is limited to:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d file per session</item>
+        <item quantity="other">%d files per session</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d sessions</item>
+    </plurals>
     <string name="swiper_session_default_label">Session #%d</string>
     <string name="swiper_session_rename_title">Rename session</string>
     <string name="swiper_session_rename_hint">Enter a name for this session</string>
