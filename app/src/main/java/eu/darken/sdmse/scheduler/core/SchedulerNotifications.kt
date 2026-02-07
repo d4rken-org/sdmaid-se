@@ -144,6 +144,20 @@ SDMTool.Type.SQUEEZER -> R.string.squeezer_tool_name
         notificationManager.notify(id, notification)
     }
 
+    fun notifyError(scheduleId: ScheduleId) {
+        val baseId = (scheduleId.hashCode() and Int.MAX_VALUE) % 101
+        val id = NOTIFICATION_ID_RANGE_RESULT + baseId
+        val notification = getBaseResultBuilder().apply {
+            setContentTitle(context.getString(R.string.scheduler_notification_result_title))
+            val text = context.getString(R.string.scheduler_notification_result_failure_message)
+            setContentText(text)
+            setStyle(NotificationCompat.BigTextStyle().bigText(text))
+        }.build()
+        log(TAG) { "notifyError($id, $scheduleId)" }
+        notificationManager.notify(id, notification)
+    }
+
+
     data class Results(
         val task: SDMTool.Task,
         val result: SDMTool.Task.Result? = null,

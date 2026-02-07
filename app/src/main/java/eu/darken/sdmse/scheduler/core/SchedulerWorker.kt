@@ -110,6 +110,7 @@ class SchedulerWorker @AssistedInject constructor(
         if (e !is CancellationException) {
             log(TAG, ERROR) { "Execution failed: ${e.asLog()}" }
             finishedWithError = true
+            schedulerNotifications.notifyError(scheduleId)
 
             Result.failure(inputData)
         } else {
