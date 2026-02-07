@@ -33,4 +33,3 @@ exclude:
   - motd
   - tooling
   - CONTRIBUTING.md
-  - CLAUDE.md
