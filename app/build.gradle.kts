@@ -166,7 +166,7 @@ androidComponents {
                     val apkFile = File(element.outputFile)
                     val outputFileName = "$packageName-v${element.versionName}-${element.versionCode}-$formattedVariantName.apk"
                     if (apkFile.exists() && apkFile.name != outputFileName) {
-                        apkFile.renameTo(File(apkFile.parentFile, outputFileName))
+                        apkFile.copyTo(File(apkFile.parentFile, outputFileName), overwrite = true)
                     }
                 }
             }
