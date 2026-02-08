@@ -35,7 +35,7 @@ class AppActionAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        addMod(DataBinderMod(data))
+        addMod(DataBinderMod({ data }))
         addMod(TypedVHCreatorMod({ data[it] is InfoSizeVH.Item }) { InfoSizeVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is InfoUsageVH.Item }) { InfoUsageVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is LaunchActionVH.Item }) { LaunchActionVH(it) })
