@@ -71,7 +71,10 @@ class DeduplicatorDetailsFragment : Fragment3(R.layout.deduplicator_details_frag
                 if (pagerAdapter.setDataIfChanged(state.items) { it.identifier }) {
                     state.items.indexOfFirst { it.identifier == state.target }
                         .takeIf { it != -1 }
-                        ?.let { viewpager.currentItem = it }
+                        ?.let { position ->
+                            viewpager.currentItem = position
+                            tablayout.post { if (isAdded) tablayout.setScrollPosition(position, 0f, true) }
+                        }
                 }
             }
 

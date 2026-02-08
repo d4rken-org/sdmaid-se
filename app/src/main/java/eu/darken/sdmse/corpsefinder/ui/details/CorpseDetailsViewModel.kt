@@ -6,9 +6,11 @@ import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.navigation.mutableState
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.resolveTarget
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.CorpseIdentifier
@@ -35,7 +37,8 @@ class CorpseDetailsViewModel @Inject constructor(
     private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
     private val args by handle.navArgs<CorpseDetailsFragmentArgs>()
-    private var currentTarget: CorpseIdentifier? = null
+    private var currentTarget: CorpseIdentifier? by handle.mutableState("target")
+    private var lastPosition: Int? by handle.mutableState("position")
 
     init {
         corpseFinder.state
@@ -70,11 +73,21 @@ class CorpseDetailsViewModel @Inject constructor(
             .filterNotNull()
             .distinctUntilChangedBy { data -> data.corpses.map { it.identifier }.toSet() },
     ) { progress, data ->
+        val sortedCorpses = data.corpses
+            .sortedByDescending { it.size }
+            .toList()
+
+        val availableTarget = resolveTarget(
+            items = sortedCorpses,
+            requestedTarget = currentTarget ?: args.corpsePath,
+            lastPosition = lastPosition,
+            identifierOf = { it.identifier },
+            onPositionTracked = { lastPosition = it },
+        )
+
         State(
-            items = data.corpses
-                .sortedByDescending { it.size }
-                .toList(),
-            target = currentTarget ?: args.corpsePath,
+            items = sortedCorpses,
+            target = availableTarget,
             progress = progress,
         )
     }.asLiveData2()
