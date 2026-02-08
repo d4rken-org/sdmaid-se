@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.ui.updateLiftStatus
 import eu.darken.sdmse.common.uix.Fragment3
+import eu.darken.sdmse.common.uix.setDataIfChanged
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.AppcleanerDetailsFragmentBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
@@ -67,14 +68,12 @@ class AppJunkDetailsFragment : Fragment3(R.layout.appcleaner_details_fragment) {
             viewpager.isInvisible = state.progress != null
 
             if (state.progress == null) {
-                pagerAdapter.apply {
-                    setData(state.items)
-                    notifyDataSetChanged()
+                if (pagerAdapter.setDataIfChanged(state.items) { it.identifier }) {
+                    log { "state.target: ${state.target}" }
+                    state.items.indexOfFirst { it.identifier == state.target }
+                        .takeIf { it != -1 }
+                        ?.let { viewpager.currentItem = it }
                 }
-                log { "state.target: ${state.target}" }
-                state.items.indexOfFirst { it.identifier == state.target }
-                    .takeIf { it != -1 }
-                    ?.let { viewpager.currentItem = it }
             }
         }
 
