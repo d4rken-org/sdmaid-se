@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
+import eu.darken.sdmse.common.lists.resolveSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.navigation.getSpanCount
@@ -82,7 +83,7 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
             adapter = adapter,
             cabMenuRes = R.menu.menu_analyzer_content_list_cab,
             onPrepare = { tracker, mode, menu ->
-                val selectedItems = tracker.selection.map { key -> adapter.data.first { it.itemSelectionKey == key } }
+                val selectedItems = resolveSelection(tracker, adapter.data, "onPrepare")
                 val hasInaccessible = selectedItems.any {
                     when (it) {
                         is ContentItemListVH.Item -> it.content.inaccessible
