@@ -129,6 +129,7 @@ class RootManager @Inject constructor(
             "me.weishu.kernelsu",
             "com.rifsxd.ksunext",
             "me.bmax.apatch",
+            "com.sukisu.ultra",
         )
     }
 }
