@@ -11,7 +11,6 @@ import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.File
-import java.io.FileInputStream
 import java.util.Properties
 
 fun LibraryExtension.setupLibraryDefaults(projectConfig: ProjectConfig) {
@@ -80,14 +79,21 @@ fun com.android.build.api.dsl.SigningConfig.setupCredentials(
 
     if (keyStoreFromEnv?.exists() == true) {
         println("Using signing data from environment variables.")
+        val missingVars = listOf("STORE_PASSWORD", "KEY_ALIAS", "KEY_PASSWORD")
+            .filter { System.getenv(it).isNullOrBlank() }
+        if (missingVars.isNotEmpty()) {
+            println("WARNING: STORE_PATH is set but missing: ${missingVars.joinToString()}")
+        }
         storeFile = keyStoreFromEnv
         storePassword = System.getenv("STORE_PASSWORD")
         keyAlias = System.getenv("KEY_ALIAS")
         keyPassword = System.getenv("KEY_PASSWORD")
     } else {
-        println("Using signing data from properties file.")
+        println("Using signing data from properties file ($signingPropsPath).")
         val props = Properties().apply {
-            signingPropsPath?.takeIf { it.canRead() }?.let { load(FileInputStream(it)) }
+            signingPropsPath?.takeIf { it.canRead() }?.let { file ->
+                file.inputStream().use { stream -> load(stream) }
+            }
         }
 
         val keyStorePath = props.getProperty("release.storePath")?.let { File(it) }
@@ -97,6 +103,8 @@ fun com.android.build.api.dsl.SigningConfig.setupCredentials(
             storePassword = props.getProperty("release.storePassword")
             keyAlias = props.getProperty("release.keyAlias")
             keyPassword = props.getProperty("release.keyPassword")
+        } else {
+            println("WARNING: No valid signing configuration found (no env vars, no valid properties file).")
         }
     }
 }
