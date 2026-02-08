@@ -13,6 +13,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.ui.updateLiftStatus
 import eu.darken.sdmse.common.uix.Fragment3
+import eu.darken.sdmse.common.uix.setDataIfChanged
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.DeduplicatorDetailsFragmentBinding
 
@@ -67,13 +68,11 @@ class DeduplicatorDetailsFragment : Fragment3(R.layout.deduplicator_details_frag
             viewpager.isInvisible = state.progress != null
 
             if (state.progress == null) {
-                pagerAdapter.apply {
-                    setData(state.items)
-                    notifyDataSetChanged()
+                if (pagerAdapter.setDataIfChanged(state.items) { it.identifier }) {
+                    state.items.indexOfFirst { it.identifier == state.target }
+                        .takeIf { it != -1 }
+                        ?.let { viewpager.currentItem = it }
                 }
-                state.items.indexOfFirst { it.identifier == state.target }
-                    .takeIf { it != -1 }
-                    ?.let { viewpager.currentItem = it }
             }
 
             toolbar.menu.findItem(R.id.action_toggle_view_mode)?.apply {
