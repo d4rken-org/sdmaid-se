@@ -72,7 +72,10 @@ class AppJunkDetailsFragment : Fragment3(R.layout.appcleaner_details_fragment) {
                     log { "state.target: ${state.target}" }
                     state.items.indexOfFirst { it.identifier == state.target }
                         .takeIf { it != -1 }
-                        ?.let { viewpager.currentItem = it }
+                        ?.let { position ->
+                            viewpager.currentItem = position
+                            tablayout.post { if (isAdded) tablayout.setScrollPosition(position, 0f, true) }
+                        }
                 }
             }
         }

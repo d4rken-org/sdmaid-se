@@ -6,9 +6,11 @@ import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.navigation.mutableState
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.resolveTarget
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
@@ -36,7 +38,8 @@ class DeduplicatorDetailsViewModel @Inject constructor(
     private val settings: DeduplicatorSettings,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
     private val args by handle.navArgs<DeduplicatorDetailsFragmentArgs>()
-    private var currentTarget: Duplicate.Cluster.Id? = null
+    private var currentTarget: Duplicate.Cluster.Id? by handle.mutableState("target")
+    private var lastPosition: Int? by handle.mutableState("position")
 
     init {
         deduplicator.state
@@ -74,9 +77,18 @@ class DeduplicatorDetailsViewModel @Inject constructor(
     ) { progress, data, isDirectoryViewEnabled ->
         val sortedClusters = data.clusters
             .sortedByDescending { it.averageSize }
+
+        val availableTarget = resolveTarget(
+            items = sortedClusters,
+            requestedTarget = currentTarget ?: args.identifier,
+            lastPosition = lastPosition,
+            identifierOf = { it.identifier },
+            onPositionTracked = { lastPosition = it },
+        )
+
         State(
             items = sortedClusters,
-            target = currentTarget ?: args.identifier,
+            target = availableTarget,
             progress = progress,
             isDirectoryViewEnabled = isDirectoryViewEnabled,
         )
