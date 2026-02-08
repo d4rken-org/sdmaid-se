@@ -71,13 +71,19 @@ class SchedulerWorker @AssistedInject constructor(
     }
 
     override suspend fun getForegroundInfo(): ForegroundInfo {
-        val schedule = getSchedule()
-        log(TAG) { "Supplying getForegroundInfo() with $schedule" }
-        return schedulerNotifications.getForegroundInfo(schedule)
+        return schedulerNotifications.getForegroundInfo(scheduleId)
     }
 
     override suspend fun doWork(): Result = try {
         log(TAG, VERBOSE) { "Executing $inputData now (runAttemptCount=$runAttemptCount)" }
+
+        try {
+            log(TAG) { "Declaring as foreground task" }
+            setForeground(getForegroundInfo())
+            log(TAG, INFO) { "Foreground state declared!" }
+        } catch (e: IllegalStateException) {
+            log(TAG, ERROR) { "Can't execute in foreground: ${e.asLog()}" }
+        }
 
         val schedule = getSchedule()
 
@@ -88,14 +94,6 @@ class SchedulerWorker @AssistedInject constructor(
             val start = System.currentTimeMillis()
             log(TAG, INFO) { "Executing schedule $schedule" }
             Bugs.leaveBreadCrumb("Executing schedule")
-
-            try {
-                log(TAG) { "Declaring as foreground task" }
-                setForeground(getForegroundInfo())
-                log(TAG, INFO) { "Foreground state declared!" }
-            } catch (e: IllegalStateException) {
-                log(TAG, ERROR) { "Can't execute in foreground: ${e.asLog()}" }
-            }
 
             schedulerNotifications.notifyState(schedule)
 

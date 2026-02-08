@@ -77,13 +77,15 @@ class SchedulerNotifications @Inject constructor(
 
     private fun getStateNotification(schedule: Schedule?): Notification = getStateBuilder(schedule).build()
 
-    fun getForegroundInfo(schedule: Schedule): ForegroundInfo = getStateBuilder(schedule).toForegroundInfo(schedule)
+    fun getForegroundInfo(schedule: Schedule): ForegroundInfo = getStateBuilder(schedule).toForegroundInfo(schedule.id)
 
-    private fun NotificationCompat.Builder.toForegroundInfo(schedule: Schedule): ForegroundInfo = if (hasApiLevel(29)) {
+    fun getForegroundInfo(scheduleId: ScheduleId): ForegroundInfo = getStateBuilder(null).toForegroundInfo(scheduleId)
+
+    private fun NotificationCompat.Builder.toForegroundInfo(scheduleId: ScheduleId): ForegroundInfo = if (hasApiLevel(29)) {
         @Suppress("NewApi")
-        ForegroundInfo(schedule.id.toNotificationid(), build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
+        ForegroundInfo(scheduleId.toNotificationid(), build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
     } else {
-        ForegroundInfo(schedule.id.toNotificationid(), build())
+        ForegroundInfo(scheduleId.toNotificationid(), build())
     }
 
     private fun ScheduleId.toNotificationid(): Int {
