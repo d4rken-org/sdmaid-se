@@ -672,8 +672,8 @@
         <item quantity="other">%s ზომა</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-        <item quantity="one">%d ელემენტი</item>
-        <item quantity="other">%d ელემენტი</item>
+        <item quantity="one">%s ელემენტი</item>
+        <item quantity="other">%s ელემენტი</item>
     </plurals>
     <string name="stats_report_status_success">წარმატება</string>
     <string name="stats_report_status_partial_success">ნაწილობრივი წარმატება</string>
