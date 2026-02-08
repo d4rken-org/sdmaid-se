@@ -27,7 +27,6 @@ import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.withTimeoutOrNull
 
-
 @HiltWorker
 class TaskWorker @AssistedInject constructor(
     @Assisted private val context: Context,
@@ -46,8 +45,7 @@ class TaskWorker @AssistedInject constructor(
     }
 
     override suspend fun getForegroundInfo(): ForegroundInfo {
-        val state = withTimeoutOrNull(3000) { taskManager.state.first() }
-        log(TAG) { "Supplying getForegroundInfo() with $state" }
+        val state = withTimeoutOrNull(500) { taskManager.state.first() }
         if (state == null) log(TAG, WARN) { "TaskManager state was not available" }
         return taskWorkerNotifications.getForegroundInfo(state)
     }
