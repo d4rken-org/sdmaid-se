@@ -245,7 +245,7 @@ class PreviewDeletionDialog @Inject constructor(
         override fun getItemCount(): Int = data.size
 
         init {
-            addMod(DataBinderMod(data))
+            addMod(DataBinderMod({ data }))
             addMod(SimpleVHCreatorMod { VH(it) })
         }
 

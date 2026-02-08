@@ -32,7 +32,7 @@ class ClusterAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        addMod(DataBinderMod(data))
+        addMod(DataBinderMod({ data }))
         addMod(TypedVHCreatorMod({ data[it] is ClusterHeaderVH.Item }) { ClusterHeaderVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is DirectoryHeaderVH.Item }) { DirectoryHeaderVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ChecksumGroupHeaderVH.Item }) { ChecksumGroupHeaderVH(it) })

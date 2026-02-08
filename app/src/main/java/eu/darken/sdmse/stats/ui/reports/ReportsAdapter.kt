@@ -23,7 +23,7 @@ class ReportsAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        addMod(DataBinderMod(data))
+        addMod(DataBinderMod({ data }))
         addMod(TypedVHCreatorMod({ data[it] is ReportBaseRowVH.Item }) { ReportBaseRowVH(it) })
     }
 

@@ -34,7 +34,7 @@ class DeduplicatorListLinearSubAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        addMod(DataBinderMod(data))
+        addMod(DataBinderMod({ data }))
         addMod(TypedVHCreatorMod({ data[it] is DuplicateItemVH.Item }) { DuplicateItemVH(it) })
     }
 

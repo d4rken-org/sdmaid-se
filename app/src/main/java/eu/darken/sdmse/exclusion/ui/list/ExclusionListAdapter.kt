@@ -29,7 +29,7 @@ class ExclusionListAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        addMod(DataBinderMod(data))
+        addMod(DataBinderMod({ data }))
         addMod(TypedVHCreatorMod({ data[it] is PackageExclusionVH.Item }) { PackageExclusionVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is PathExclusionVH.Item }) { PathExclusionVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is SegmentExclusionVH.Item }) { SegmentExclusionVH(it) })

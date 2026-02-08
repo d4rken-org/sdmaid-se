@@ -22,22 +22,25 @@ class AsyncDiffer<A, T : DifferItem> internal constructor(
         override fun getChangePayload(oldItem: T, newItem: T): Any? = determinePayload(oldItem, newItem)
     }
 
-    private val internalList = mutableListOf<T>()
+    @Volatile
+    private var snapshot: List<T> = emptyList()
     private val listDiffer = AsyncListDiffer(adapter, callback)
 
+    /**
+     * Returns a snapshot of the current list data.
+     * A new [List] reference is produced on each [submitUpdate] or [resetTo] commit,
+     * so callers may rely on reference identity (`===`) for cheap change detection.
+     */
     val currentList: List<T>
-        get() = synchronized(internalList) { internalList }
+        get() = snapshot
 
     init {
-        adapter.addMod(position = 0, mod = StableIdMod(currentList))
+        adapter.addMod(position = 0, mod = StableIdMod(data = { snapshot }))
     }
 
     fun submitUpdate(newData: List<T>, onCommit: (() -> Unit)? = null) {
         listDiffer.submitList(newData) {
-            synchronized(internalList) {
-                internalList.clear()
-                internalList.addAll(newData)
-            }
+            snapshot = ArrayList(newData)
             onCommit?.invoke()
         }
     }
@@ -50,10 +53,7 @@ class AsyncDiffer<A, T : DifferItem> internal constructor(
     fun resetTo(newData: List<T>, onCommit: (() -> Unit)? = null) {
         listDiffer.submitList(null)
         listDiffer.submitList(newData) {
-            synchronized(internalList) {
-                internalList.clear()
-                internalList.addAll(newData)
-            }
+            snapshot = ArrayList(newData)
             onCommit?.invoke()
         }
     }

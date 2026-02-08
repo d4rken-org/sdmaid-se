@@ -24,7 +24,7 @@ class SwiperSessionsAdapter :
     override fun getItemCount(): Int = data.size
 
     init {
-        addMod(DataBinderMod(data))
+        addMod(DataBinderMod({ data }))
         addMod(TypedVHCreatorMod({ data[it] is SwiperSessionsHeaderVH.Item }) { SwiperSessionsHeaderVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is SwiperSessionsUpgradeVH.Item }) { SwiperSessionsUpgradeVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is SwiperSessionsSessionVH.Item }) { SwiperSessionsSessionVH(it) })
