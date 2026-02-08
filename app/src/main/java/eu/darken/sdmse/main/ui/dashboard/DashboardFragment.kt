@@ -15,10 +15,13 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.easterEggProgressMsg
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
+import androidx.navigation.fragment.findNavController
 import eu.darken.sdmse.common.navigation.getColorForAttr
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.navigation.getSpanCount
@@ -261,6 +264,16 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
         }
 
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val navController = findNavController()
+        val curDest = navController.currentDestination
+        if (curDest != null && curDest.id != R.id.dashboardFragment) {
+            log(tag, WARN) { "Dashboard resumed but currentDestination is ${curDest.label}, recovering" }
+            navController.popBackStack(R.id.dashboardFragment, false)
+        }
     }
 
     private fun showSqueezerConfirmation(event: DashboardEvents.SqueezerProcessConfirmation) {
