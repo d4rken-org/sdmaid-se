@@ -199,6 +199,10 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
     override fun onServiceConnected() {
         log(TAG) { "onServiceConnected()" }
+        if (!this::automationManager.isInitialized) {
+            log(TAG, WARN) { "onServiceConnected() called before injection completed, ignoring." }
+            return
+        }
         instance = this
         automationManager.setCurrentService(this)
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
