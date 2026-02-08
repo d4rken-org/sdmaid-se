@@ -21,8 +21,8 @@ class CoilTempFiles @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
 ) {
 
-    private val basePath: File = File(context.cacheDir, "coil")
-    private val legacyPath: File = context.cacheDir
+    private val basePath by lazy { File(context.cacheDir, "coil") }
+    private val legacyPath by lazy { context.cacheDir }
 
     suspend fun getBaseCachePath(): File {
         val path = basePath.apply {
