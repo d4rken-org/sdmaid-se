@@ -37,6 +37,7 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
         EdgeToEdgeHelper(requireActivity()).apply {
             insetsPadding(ui.root, left = true, right = true)
             insetsPadding(ui.appbar, top = true)
+            insetsPadding(ui.fabContainer, bottom = true)
         }
 
         ui.toolbar.setupWithNavController(findNavController())
