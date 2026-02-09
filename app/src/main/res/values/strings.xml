@@ -1020,10 +1020,10 @@
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Swipe through files to decide what to keep or delete.</string>
-    <string name="swiper_dashcard_description">SD Maid handles most things automatically. For everything else, there\'s swiping!</string>
+    <string name="swiper_dashcard_description">Manually review files in specific folders. Swipe to decide what to keep or delete.</string>
     <string name="swiper_start_action">Start swiping</string>
     <string name="swiper_continue_action">Continue session</string>
-    <string name="swiper_sessions_description">Some files just need a human touch. Swipe to decide their fate - nothing gets deleted until you say so. You can pause anytime and continue later.</string>
+    <string name="swiper_sessions_description">Some files need a human decision. Swipe through items and choose what to keep or delete. Skip anything you’re unsure about. This tool lets you review specific folders manually, and nothing is removed until you confirm.</string>
     <string name="swiper_select_folders_action">Select folders</string>
     <string name="swiper_scanning_title">Scanning…</string>
     <plurals name="swiper_result_x_items_found">

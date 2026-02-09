@@ -61,14 +61,21 @@
         android:visibility="gone"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <FrameLayout
+        android:id="@+id/fab_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="32dp"
-        android:contentDescription="@string/swiper_select_folders_action"
-        android:src="@drawable/ic_add"
-        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior" />
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:contentDescription="@string/swiper_select_folders_action"
+            android:src="@drawable/ic_add" />
+
+    </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

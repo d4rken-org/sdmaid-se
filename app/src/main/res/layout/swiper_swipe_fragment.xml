@@ -168,15 +168,32 @@
             app:layout_constraintTop_toBottomOf="@id/swipe_card">
 
             <!-- Delete FAB (left) -->
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/delete_action"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/general_delete_action"
-                app:backgroundTint="?attr/colorErrorContainer"
-                app:fabSize="normal"
-                app:srcCompat="@drawable/ic_delete"
-                app:tint="?attr/colorOnErrorContainer" />
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/delete_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/general_delete_action"
+                    app:backgroundTint="?attr/colorErrorContainer"
+                    app:fabSize="normal"
+                    app:srcCompat="@drawable/ic_delete"
+                    app:tint="?attr/colorOnErrorContainer" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/delete_label"
+                    style="@style/TextAppearance.Material3.LabelSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/general_delete_action"
+                    android:textColor="?attr/colorOnSurface" />
+
+            </LinearLayout>
 
             <Space
                 android:layout_width="0dp"
@@ -184,29 +201,63 @@
                 android:layout_weight="1" />
 
             <!-- Undo FAB (mini, before skip) -->
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/undo_action"
+            <LinearLayout
+                android:id="@+id/undo_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:contentDescription="@string/general_undo_action"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
                 android:visibility="invisible"
-                app:backgroundTint="?attr/colorSurfaceContainerHighest"
-                app:fabSize="mini"
-                app:srcCompat="@drawable/ic_settings_backup_restore_24"
-                app:tint="?attr/colorOnSurfaceVariant"
-                tools:visibility="visible" />
+                tools:visibility="visible">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/undo_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/general_undo_action"
+                    app:backgroundTint="?attr/colorSurfaceContainerHighest"
+                    app:fabSize="mini"
+                    app:srcCompat="@drawable/ic_settings_backup_restore_24"
+                    app:tint="?attr/colorOnSurfaceVariant" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/undo_label"
+                    style="@style/TextAppearance.Material3.LabelSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/general_undo_action"
+                    android:textColor="?attr/colorOnSurface" />
+
+            </LinearLayout>
 
             <!-- Skip FAB (center, smaller) -->
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/skip_action"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/swiper_skip_action"
-                app:backgroundTint="?attr/colorTertiaryContainer"
-                app:fabSize="mini"
-                app:srcCompat="@drawable/ic_baseline_skip_next_24"
-                app:tint="?attr/colorOnTertiaryContainer" />
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/skip_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/swiper_skip_action"
+                    app:backgroundTint="?attr/colorTertiaryContainer"
+                    app:fabSize="mini"
+                    app:srcCompat="@drawable/ic_baseline_skip_next_24"
+                    app:tint="?attr/colorOnTertiaryContainer" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.Material3.LabelSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/swiper_skip_action"
+                    android:textColor="?attr/colorOnSurface" />
+
+            </LinearLayout>
 
             <Space
                 android:layout_width="0dp"
@@ -214,15 +265,32 @@
                 android:layout_weight="1" />
 
             <!-- Keep FAB (right) -->
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/keep_action"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/swiper_keep_action"
-                app:backgroundTint="?attr/colorPrimaryContainer"
-                app:fabSize="normal"
-                app:srcCompat="@drawable/ic_heart"
-                app:tint="?attr/colorOnPrimaryContainer" />
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/keep_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/swiper_keep_action"
+                    app:backgroundTint="?attr/colorPrimaryContainer"
+                    app:fabSize="normal"
+                    app:srcCompat="@drawable/ic_heart"
+                    app:tint="?attr/colorOnPrimaryContainer" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/keep_label"
+                    style="@style/TextAppearance.Material3.LabelSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/swiper_keep_action"
+                    android:textColor="?attr/colorOnSurface" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

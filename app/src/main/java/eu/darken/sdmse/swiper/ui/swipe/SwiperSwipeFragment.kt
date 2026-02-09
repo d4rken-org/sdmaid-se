@@ -160,6 +160,9 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                 // Swap icons
                 deleteAction.setImageResource(R.drawable.ic_heart)
                 keepAction.setImageResource(R.drawable.ic_delete)
+                // Swap labels
+                deleteLabel.setText(R.string.swiper_keep_action)
+                keepLabel.setText(eu.darken.sdmse.common.R.string.general_delete_action)
                 // Swap tints: left button gets primary (keep), right button gets error (delete)
                 deleteAction.backgroundTintList = ColorStateList.valueOf(
                     requireContext().getColorForAttr(com.google.android.material.R.attr.colorPrimaryContainer),
@@ -190,6 +193,9 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                 // Normal icons
                 deleteAction.setImageResource(R.drawable.ic_delete)
                 keepAction.setImageResource(R.drawable.ic_heart)
+                // Normal labels
+                deleteLabel.setText(eu.darken.sdmse.common.R.string.general_delete_action)
+                keepLabel.setText(R.string.swiper_keep_action)
                 // Normal tints: left button gets error (delete), right button gets primary (keep)
                 deleteAction.backgroundTintList = ColorStateList.valueOf(
                     requireContext().getColorForAttr(com.google.android.material.R.attr.colorErrorContainer),
@@ -258,26 +264,26 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
             deleteCount.text = "${state.deleteCount}"
             undecidedCount.text = "${state.undecidedCount}"
 
-            // Animate undo button visibility
+            // Animate undo container visibility (FAB + label)
             val undoVisible = state.canUndo
-            if (undoVisible && undoAction.visibility != View.VISIBLE) {
-                undoAction.visibility = View.VISIBLE
-                undoAction.alpha = 0f
-                undoAction.scaleX = 0.5f
-                undoAction.scaleY = 0.5f
-                undoAction.animate()
+            if (undoVisible && undoContainer.visibility != View.VISIBLE) {
+                undoContainer.visibility = View.VISIBLE
+                undoContainer.alpha = 0f
+                undoContainer.scaleX = 0.5f
+                undoContainer.scaleY = 0.5f
+                undoContainer.animate()
                     .alpha(1f)
                     .scaleX(1f)
                     .scaleY(1f)
                     .setDuration(150)
                     .start()
-            } else if (!undoVisible && undoAction.visibility == View.VISIBLE) {
-                undoAction.animate()
+            } else if (!undoVisible && undoContainer.visibility == View.VISIBLE) {
+                undoContainer.animate()
                     .alpha(0f)
                     .scaleX(0.5f)
                     .scaleY(0.5f)
                     .setDuration(150)
-                    .withEndAction { undoAction.visibility = View.INVISIBLE }
+                    .withEndAction { undoContainer.visibility = View.INVISIBLE }
                     .start()
             }
         }
