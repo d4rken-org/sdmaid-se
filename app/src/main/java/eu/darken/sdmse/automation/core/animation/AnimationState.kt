@@ -1,9 +1,13 @@
 package eu.darken.sdmse.automation.core.animation
 
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 data class AnimationState(
-    val windowAnimationScale: Float?,
-    val globalTransitionAnimationScale: Float?,
-    val globalAnimatorDurationscale: Float?,
+    @Json(name = "windowAnimationScale") val windowAnimationScale: Float?,
+    @Json(name = "globalTransitionAnimationScale") val globalTransitionAnimationScale: Float?,
+    @Json(name = "globalAnimatorDurationScale") val globalAnimatorDurationscale: Float?,
 ) {
 
     companion object {
