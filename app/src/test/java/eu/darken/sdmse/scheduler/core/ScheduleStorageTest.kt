@@ -71,6 +71,98 @@ class ScheduleStorageTest : BaseTest() {
     }
 
     @Test
+    fun `corrupt main file with valid backup restores from backup`() = runTest {
+        val schedule = Schedule(
+            id = "backup-id",
+            createdAt = Instant.EPOCH,
+        )
+        create().apply {
+            save(setOf(schedule))
+        }
+
+        val dir = File(testDir, "scheduler/schedules")
+        val mainFile = File(dir, "schedules-v1.json")
+        val backupFile = File(dir, "schedules-v1.json.backup")
+
+        // Corrupt the main file, keep valid backup
+        val validJson = mainFile.readText()
+        backupFile.writeText(validJson)
+        mainFile.writeText("{corrupt json!@#\$")
+
+        create().apply {
+            load() shouldBe setOf(schedule)
+        }
+
+        // Backup should have been restored as main and deleted
+        mainFile.readText() shouldBe validJson
+        backupFile.exists() shouldBe false
+    }
+
+    @Test
+    fun `corrupt main file with no backup returns null`() = runTest {
+        val schedule = Schedule(
+            id = "no-backup-id",
+            createdAt = Instant.EPOCH,
+        )
+        create().apply {
+            save(setOf(schedule))
+        }
+
+        val dir = File(testDir, "scheduler/schedules")
+        val mainFile = File(dir, "schedules-v1.json")
+        val backupFile = File(dir, "schedules-v1.json.backup")
+
+        // Corrupt main, delete backup
+        mainFile.writeText("{corrupt json!@#\$")
+        backupFile.delete()
+
+        create().apply {
+            load() shouldBe null
+        }
+
+        mainFile.exists() shouldBe false
+    }
+
+    @Test
+    fun `both files corrupt returns null and deletes both`() = runTest {
+        val schedule = Schedule(
+            id = "both-corrupt-id",
+            createdAt = Instant.EPOCH,
+        )
+        create().apply {
+            save(setOf(schedule))
+        }
+
+        val dir = File(testDir, "scheduler/schedules")
+        val mainFile = File(dir, "schedules-v1.json")
+        val backupFile = File(dir, "schedules-v1.json.backup")
+
+        mainFile.writeText("{corrupt main!@#\$")
+        backupFile.writeText("{corrupt backup!@#\$")
+
+        create().apply {
+            load() shouldBe null
+        }
+
+        mainFile.exists() shouldBe false
+        backupFile.exists() shouldBe false
+    }
+
+    @Test
+    fun `empty main file returns null`() = runTest {
+        val dir = File(testDir, "scheduler/schedules")
+        dir.mkdirs()
+        val mainFile = File(dir, "schedules-v1.json")
+        mainFile.writeText("")
+
+        create().apply {
+            load() shouldBe null
+        }
+
+        mainFile.exists() shouldBe false
+    }
+
+    @Test
     fun `serialization - full data`() = runTest {
         val schedule = Schedule(
             id = "full-id",
