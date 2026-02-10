@@ -9,7 +9,6 @@ import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import java.io.EOFException
 import java.io.File
 import java.io.IOException
 
@@ -53,15 +52,32 @@ abstract class SerializedStorage<T>(
         }
     }
 
+    private fun tryLoadFromFile(file: File): T? = try {
+        adapter.fromFile(file)
+    } catch (e: Exception) {
+        log(logTag, ERROR) { "Failed to load from $file: ${e.asLog()}" }
+        null
+    }
+
     suspend fun load(): T? = lock.withLock {
         var data: T? = null
         withContext(dispatcherProvider.IO) {
             if (!saveCurrent.exists()) return@withContext
-            try {
-                data = adapter.fromFile(saveCurrent)
-            } catch (e: EOFException) {
-                log(logTag, ERROR) { "Empty data file: $saveCurrent" }
+
+            data = tryLoadFromFile(saveCurrent)
+
+            if (data == null && saveBackup.exists()) {
+                log(logTag) { "Main file corrupt, trying backup: $saveBackup" }
+                data = tryLoadFromFile(saveBackup)
+                if (data != null) {
+                    saveBackup.copyTo(saveCurrent, overwrite = true)
+                    saveBackup.delete()
+                }
+            }
+
+            if (data == null) {
                 saveCurrent.delete()
+                saveBackup.delete()
             }
         }
         log(logTag) { "load(): $data" }
