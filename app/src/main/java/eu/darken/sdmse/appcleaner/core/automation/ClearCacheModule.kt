@@ -31,8 +31,6 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.realme.RealmeSpecs
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
-import eu.darken.sdmse.automation.core.animation.AnimationState
-import eu.darken.sdmse.automation.core.animation.AnimationTool
 import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
 import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
 import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
@@ -71,8 +69,6 @@ import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.main.core.GeneralSettings
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.NonCancellable
-import kotlinx.coroutines.withContext
 import javax.inject.Provider
 
 class ClearCacheModule @AssistedInject constructor(
@@ -85,7 +81,6 @@ class ClearCacheModule @AssistedInject constructor(
     private val userManager2: UserManager2,
     private val labelDebugger: LabelDebugger,
     private val deviceDetective: DeviceDetective,
-    private val animationTool: AnimationTool,
     private val generalSettings: GeneralSettings,
 ) : AutomationModule(automationHost) {
 
@@ -139,25 +134,7 @@ class ClearCacheModule @AssistedInject constructor(
 
         labelDebugger.logAllLabels()
 
-        var prevAnimState: AnimationState? = null
-
-        val result = try {
-            if (animationTool.canChangeState()) {
-                log(TAG) { "Changing animation state" }
-                prevAnimState = animationTool.getState()
-                animationTool.setState(AnimationState.DISABLED)
-            }
-
-            log(TAG, INFO) { "Current animation state: ${animationTool.getState()}" }
-
-            processTask(task)
-
-        } finally {
-            if (prevAnimState != null) {
-                log(TAG) { "Restoring previous animation state" }
-                withContext(NonCancellable) { animationTool.setState(prevAnimState) }
-            }
-        }
+        val result = processTask(task)
 
         finishAutomation(
             userCancelled = result.cancelledByUser,

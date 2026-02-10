@@ -4,6 +4,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.provider.Settings
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.automation.core.animation.AnimationTool
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.AutomationNotEnabledException
 import eu.darken.sdmse.automation.core.errors.AutomationNotRunningException
@@ -13,6 +14,7 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
@@ -33,6 +35,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
@@ -45,7 +48,18 @@ class AutomationManager @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val setupHelper: SetupHelper,
     private val settingsProvider: SystemSettingsProvider,
+    private val animationTool: AnimationTool,
 ) {
+
+    init {
+        appScope.launch {
+            try {
+                animationTool.restorePendingState()
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to restore pending animation state on init: ${e.asLog()}" }
+            }
+        }
+    }
 
     private val serviceHolder = MutableStateFlow(AutomationService.instance)
     val currentService: Flow<AutomationService?> = serviceHolder
@@ -202,7 +216,6 @@ class AutomationManager @Inject constructor(
 
     suspend fun submit(task: AutomationTask): AutomationTask.Result {
         log(TAG) { "submit(): $task" }
-
         return serviceResource.useRes { it.submit(task) }
     }
 
