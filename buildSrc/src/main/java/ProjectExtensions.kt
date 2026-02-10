@@ -125,64 +125,71 @@ fun Test.setupTests() {
         showStackTraces = false
     }
 
-    val failedTests = mutableListOf<String>()
-    var totalTests = 0
-    var passedTests = 0
-    var failedTestCount = 0
-    var skippedTests = 0
+    // Only add custom test output in CLI mode; IDE has its own test result UI
+    // The "idea.active" system property is set by IntelliJ/Android Studio via the Tooling API.
+    // Raw print() calls (especially without newlines) corrupt the IDE's test event stream,
+    // causing tests to appear stuck as "still running".
+    val isRunningInIde = System.getProperty("idea.active")?.toBoolean() == true
+    if (!isRunningInIde) {
+        val failedTests = mutableListOf<String>()
+        var totalTests = 0
+        var passedTests = 0
+        var failedTestCount = 0
+        var skippedTests = 0
 
-    addTestListener(object : TestListener {
-        override fun beforeSuite(suite: TestDescriptor) {
-            if (suite.parent == null) {
-                println("\n🧪 Starting test suite: ${suite.displayName}")
-            }
-        }
-
-        override fun beforeTest(testDescriptor: TestDescriptor) {}
-
-        override fun afterTest(testDescriptor: TestDescriptor, result: TestResult) {
-            when (result.resultType) {
-                TestResult.ResultType.SUCCESS -> {
-                    print(".")
-                    passedTests++
-                }
-
-                TestResult.ResultType.FAILURE -> {
-                    print("F")
-                    failedTests.add("${testDescriptor.className} > ${testDescriptor.displayName}")
-                    failedTestCount++
-                }
-
-                TestResult.ResultType.SKIPPED -> {
-                    print("S")
-                    skippedTests++
+        addTestListener(object : TestListener {
+            override fun beforeSuite(suite: TestDescriptor) {
+                if (suite.parent == null) {
+                    println("\n🧪 Starting test suite: ${suite.displayName}")
                 }
             }
-            totalTests++
-        }
 
-        override fun afterSuite(suite: TestDescriptor, result: TestResult) {
-            // Only show final summary for the root suite
-            if (suite.parent == null) {
-                println("\n")
-                println("=".repeat(80))
-                println("📊 TEST RESULTS SUMMARY")
-                println("=".repeat(80))
-                println("Total: ${result.testCount} | ✅ Passed: ${result.successfulTestCount} | ❌ Failed: ${result.failedTestCount} | ⏭️ Skipped: ${result.skippedTestCount}")
-                println("Duration: ${(result.endTime - result.startTime) / 1000.0}s")
+            override fun beforeTest(testDescriptor: TestDescriptor) {}
 
-                if (failedTests.isNotEmpty()) {
-                    println("\n❌ FAILED TESTS:")
-                    println("-".repeat(80))
-                    failedTests.forEach { testName ->
-                        println("  • $testName")
+            override fun afterTest(testDescriptor: TestDescriptor, result: TestResult) {
+                when (result.resultType) {
+                    TestResult.ResultType.SUCCESS -> {
+                        print(".")
+                        passedTests++
                     }
-                    println("-".repeat(80))
-                }
 
-                println("Result: ${if (result.resultType == TestResult.ResultType.SUCCESS) "✅ PASSED" else "❌ FAILED"}")
-                println("=".repeat(80))
+                    TestResult.ResultType.FAILURE -> {
+                        print("F")
+                        failedTests.add("${testDescriptor.className} > ${testDescriptor.displayName}")
+                        failedTestCount++
+                    }
+
+                    TestResult.ResultType.SKIPPED -> {
+                        print("S")
+                        skippedTests++
+                    }
+                }
+                totalTests++
             }
-        }
-    })
+
+            override fun afterSuite(suite: TestDescriptor, result: TestResult) {
+                // Only show final summary for the root suite
+                if (suite.parent == null) {
+                    println("\n")
+                    println("=".repeat(80))
+                    println("📊 TEST RESULTS SUMMARY")
+                    println("=".repeat(80))
+                    println("Total: ${result.testCount} | ✅ Passed: ${result.successfulTestCount} | ❌ Failed: ${result.failedTestCount} | ⏭️ Skipped: ${result.skippedTestCount}")
+                    println("Duration: ${(result.endTime - result.startTime) / 1000.0}s")
+
+                    if (failedTests.isNotEmpty()) {
+                        println("\n❌ FAILED TESTS:")
+                        println("-".repeat(80))
+                        failedTests.forEach { testName ->
+                            println("  • $testName")
+                        }
+                        println("-".repeat(80))
+                    }
+
+                    println("Result: ${if (result.resultType == TestResult.ResultType.SUCCESS) "✅ PASSED" else "❌ FAILED"}")
+                    println("=".repeat(80))
+                }
+            }
+        })
+    }
 }
