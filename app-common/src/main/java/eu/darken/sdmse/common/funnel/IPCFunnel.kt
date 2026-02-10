@@ -2,8 +2,11 @@ package eu.darken.sdmse.common.funnel
 
 import android.content.Context
 import android.content.pm.PackageManager
+import android.os.DeadObjectException
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
@@ -43,7 +46,16 @@ class IPCFunnel @Inject constructor(
 
     suspend fun <T> use(block: suspend FunnelEnvironment.() -> T): T = withContext(dispatcherProvider.IO) {
         execLock.withPermit {
-            block(funnelEnv)
+            try {
+                block(funnelEnv)
+            } catch (e: RuntimeException) {
+                val cause = e.cause
+                if (cause is DeadObjectException) {
+                    log(TAG, WARN) { "System server is dead: ${e.asLog()}" }
+                    throw cause
+                }
+                throw e
+            }
         }
     }
 
