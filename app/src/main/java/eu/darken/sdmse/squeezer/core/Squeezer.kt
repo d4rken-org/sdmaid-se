@@ -7,6 +7,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -146,7 +147,9 @@ class Squeezer @Inject constructor(
 
         updateProgress { Progress.Data() }
 
-        internalData.value = snapshot.prune(result.success.map { it.identifier }.toSet())
+        if (!Bugs.isDryRun) {
+            internalData.value = snapshot.prune(result.success.map { it.identifier }.toSet())
+        }
 
         return SqueezerProcessTask.Success(
             affectedSpace = result.savedSpace,

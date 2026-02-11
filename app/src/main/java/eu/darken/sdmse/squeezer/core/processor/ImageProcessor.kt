@@ -7,6 +7,7 @@ import android.media.MediaScannerConnection
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -85,8 +86,10 @@ class ImageProcessor @Inject constructor(
                 val saved = processImage(image, quality)
                 successful.add(image)
 
-                val contentHash = historyDatabase.computeContentHash(image.path)
-                historyDatabase.recordCompression(contentHash)
+                if (!Bugs.isDryRun) {
+                    val contentHash = historyDatabase.computeContentHash(image.path)
+                    historyDatabase.recordCompression(contentHash)
+                }
 
                 if (saved > 0) {
                     totalSaved += saved
@@ -142,6 +145,12 @@ class ImageProcessor @Inject constructor(
                 log(TAG, VERBOSE) { "Compressed size >= original, skipping ${image.path}" }
                 tempFile.delete()
                 return 0
+            }
+
+            if (Bugs.isDryRun) {
+                log(TAG, INFO) { "DRYRUN: Not compressing ${image.path}, would save ${originalSize - compressedSize} bytes" }
+                tempFile.delete()
+                return originalSize - compressedSize
             }
 
             if (image.isJpeg) {
