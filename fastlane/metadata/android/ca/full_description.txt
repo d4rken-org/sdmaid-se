@@ -28,7 +28,7 @@ La gestió de l'emmagatzematge pot ser complexa amb aplicacions, mitjans, sistem
 📷 Cerca dades duplicades
 Baixades duplicades, fotos enviades a través de les xarxes socials o simplement imatges similars de la mateixa escena: amb el temps, es poden acumular còpies. L'eina «Desduplicador» troba fitxers que són exactament iguals o similars i us ajuda a eliminar còpies addicionals.
 
-Aquesta aplicació no té anuncis. Algunes funcions requereixen una actualització de pagament.
+Aquesta aplicació no té anuncis. Algunes funcions requereixen una millora de pagament.
 
 L'SD Maid 2/SE és el successor de l'SD Maid 1/Legacy.
 Optimitzat per a les versions més noves d'Android i centrat en la neteja.
