@@ -127,7 +127,14 @@ class SqueezerListFragment : Fragment3(R.layout.squeezer_list_fragment) {
 
             toolbar.apply {
                 subtitle = if (state.progress == null) {
-                    getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.items.size)
+                    val count = state.items.size
+                    val totalSavings = state.items.mapNotNull { it.image.estimatedSavings }.sum()
+                    if (totalSavings > 0) {
+                        val savingsText = Formatter.formatShortFileSize(requireContext(), totalSavings)
+                        getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, count) + " • ~$savingsText"
+                    } else {
+                        getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, count)
+                    }
                 } else {
                     null
                 }
