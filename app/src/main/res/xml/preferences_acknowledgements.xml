@@ -93,13 +93,13 @@
                 android:data="https://github.com/airbnb/lottie-android" />
         </eu.darken.sdmse.common.preferences.IntentPreference>
         <eu.darken.sdmse.common.preferences.IntentPreference
-            android:key="license.photoview"
-            android:summary="Implementation of ImageView for Android that supports zooming. (APACHE 2.0)"
-            android:title="PhotoView"
+            android:key="license.zoomimage"
+            android:summary="Library for zoom images, supported Android View, Compose and Compose Multiplatform. (APACHE 2.0)"
+            android:title="ZoomImage"
             app:iconSpaceReserved="false">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/Baseflow/PhotoView" />
+                android:data="https://github.com/panpf/zoomimage" />
         </eu.darken.sdmse.common.preferences.IntentPreference>
         <eu.darken.sdmse.common.preferences.IntentPreference
             android:key="license.indicatorfastscroll"

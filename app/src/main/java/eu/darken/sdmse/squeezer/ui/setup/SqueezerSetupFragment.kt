@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -52,6 +53,8 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
         ui.pathsCard.setOnClickListener {
             vm.openPathPicker()
         }
+
+        if (BuildConfigWrap.DEBUG) ui.qualitySlider.valueFrom = 1f
 
         ui.qualitySlider.addOnChangeListener { _, value, fromUser ->
             if (fromUser) {

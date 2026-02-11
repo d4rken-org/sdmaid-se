@@ -27,9 +27,8 @@ class PreviewItemViewModel @Inject constructor(
 
     val state = flowOf(args.item)
         .map { item ->
-            State(
-                lookup = item.path.lookup(gatewaySwitch)
-            )
+            val lookup = item.path.lookup(gatewaySwitch)
+            State(lookup = lookup)
         }
         .onStart { emit(State(progress = Progress.Data())) }
         .asLiveData2()
@@ -38,7 +37,6 @@ class PreviewItemViewModel @Inject constructor(
         val lookup: APathLookup<*>? = null,
         val progress: Progress.Data? = null,
     )
-
 
     companion object {
         private val TAG = logTag("Preview", "Item", "ViewModel")

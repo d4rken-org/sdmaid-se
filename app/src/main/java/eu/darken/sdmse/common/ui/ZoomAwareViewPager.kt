@@ -6,28 +6,26 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.ViewPager
-import com.github.chrisbanes.photoview.PhotoView
+import com.github.panpf.zoomimage.ZoomImageView
 
 /**
- * ViewPager that respects PhotoView zoom state:
+ * ViewPager that respects ZoomImageView zoom state:
  * - Zoomed out: normal paging with horizontal swipes
- * - Zoomed in: let PhotoView handle panning
+ * - Zoomed in: let the image view handle panning
  */
-class PhotoViewPager @JvmOverloads constructor(
+class ZoomAwareViewPager @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
 ) : ViewPager(context, attrs) {
 
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
         return try {
-            // Don't intercept if PhotoView is zoomed in
-            if (isCurrentPhotoViewZoomed()) {
+            if (isCurrentImageZoomed()) {
                 false
             } else {
                 super.onInterceptTouchEvent(ev)
             }
         } catch (e: IllegalArgumentException) {
-            // PhotoView can throw this during certain touch sequences
             false
         }
     }
@@ -40,10 +38,13 @@ class PhotoViewPager @JvmOverloads constructor(
         }
     }
 
-    private fun isCurrentPhotoViewZoomed(): Boolean {
+    private fun isCurrentImageZoomed(): Boolean {
         val currentView = findViewByPosition(currentItem) ?: return false
-        val photoView = findPhotoView(currentView) ?: return false
-        return photoView.scale > 1.05f // Small threshold to account for floating point
+        val zoomView = findZoomImageView(currentView) ?: return false
+        val zoomable = zoomView.zoomable
+        val currentScale = zoomable.transformState.value.scaleX
+        val minScale = zoomable.minScaleState.value
+        return currentScale > minScale * 1.05f
     }
 
     private fun findViewByPosition(position: Int): View? {
@@ -57,11 +58,11 @@ class PhotoViewPager @JvmOverloads constructor(
         return null
     }
 
-    private fun findPhotoView(view: View): PhotoView? {
-        if (view is PhotoView) return view
+    private fun findZoomImageView(view: View): ZoomImageView? {
+        if (view is ZoomImageView) return view
         if (view is ViewGroup) {
             for (i in 0 until view.childCount) {
-                val found = findPhotoView(view.getChildAt(i))
+                val found = findZoomImageView(view.getChildAt(i))
                 if (found != null) return found
             }
         }
