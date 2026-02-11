@@ -20,13 +20,13 @@ Cherchez les dossiers vides, les fichiers temporaires, les applis déjà install
 Imagettes, corbeilles, caches hors ligne et plus encore. Si les applis laissent des traces, cette appli fera le ménage. Le « Nettoyeur d’applis » trouve les applis qui ont des fichiers superflus.
 
 📦 Gérer toutes vos applis
-Obtenez une liste complète de toutes les applis installées sur votre appareil. Applis activées, désactivées, pour utilisateurs ou système, aucune appli ne vous échappe. Le « Vérificateur d’applis » est un gestionnaire d’applis qui vous permet de chercher, trier et de contrôler vos applis.
+Obtenez une liste complète de toutes les applis installées sur votre appareil. Applis activées, désactivées, pour utilisateurs ou système, aucune appli ne vous échappe. Le « Vérificateur d’applis » est un gestionnaire d’applis qui vous permet d’explorer, trier et de contrôler vos applis.
 
 📊 Ce qui utilise tout votre espace
 La gestion de l’espace de stockage peut s’avérer complexe avec les applis, les médias, les fichiers système et les autres fichiers répartis sur la mémoire de votre téléphone, les cartes SD et sur les périphériques USB. L’« Analyseur de mémoire » est un gestionnaire de fichiers qui affiche l’utilisation de l’espace sur votre appareil et qui simplifie la gestion de votre espace de stockage.
 
 📷 Trouver des données dupliquées
-Photos provenant des réseaux sociaux, images semblables d’une même scène et téléchargements dupliqués. Les copies s’accumulent. Le « Déduplicateur » trouve les fichiers identiques ou similaires et vous aide à supprimer les copies supplémentaires.
+Photos provenant des réseaux sociaux, images similaires d’une même scène et téléchargements dupliqués. Les copies s’accumulent. Le « Déduplicateur » trouve les fichiers identiques ou similaires et vous aide à supprimer les copies supplémentaires.
 
 SD Maid ne sert aucune publicité. Certaines fonctions sont réservées à la version payante.
 
