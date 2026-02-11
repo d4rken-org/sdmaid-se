@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">SD Maid SE 专业版</string>
     <string name="app_name_upgrade_postfix">专业版</string>
     <string name="upgrade_feature_requires_pro">需要 SD Maid SE 专业版</string>
-    <string name="upgrades_dashcard_title">升级 SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid 专业版为高级用户提供更好的结果、更多的功能和选项。</string>
     <string name="upgrades_dashcard_upgrade_action">升级</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play 不可用</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid 无法连接到 Google Play 商店。Google Play 商店是否已安装并更新至最新版本？您的 Google 账户是否已登录？请尝试清除 Google Play 商店应用的缓存，然后重启您的设备。</string>

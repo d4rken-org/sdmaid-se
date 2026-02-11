@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Над цією функцією ще працюють і наразі вона недоступна.</string>
     <string name="general_share_action">Поділитися</string>
     <string name="general_done_action">Виконано</string>
+    <string name="general_apply_action">Застосувати</string>
     <string name="general_copy_action">Копіювати</string>
     <string name="general_wipe_action">Очистити</string>
     <string name="general_cancel_action">Скасувати</string>
     <string name="general_discard_action">Відмінити</string>
     <string name="general_reset_action">Скинути</string>
+    <string name="general_drag_handle_description">Перетягніть, щоб змінити порядок</string>
     <string name="general_save_action">Зберегти</string>
     <string name="general_thanks_action">Дякую</string>
     <string name="general_gotit_action">Зрозуміло</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Редагувати</string>
     <string name="general_na_label">Недоступно</string>
     <string name="general_empty_label">Порожньо</string>
+    <string name="general_new_badge_label">Нове</string>
     <string name="general_dismiss_action">Відхилити</string>
     <string name="general_maybe_later_action">Можливо пізніше</string>
     <string name="general_manage_action">Керування</string>

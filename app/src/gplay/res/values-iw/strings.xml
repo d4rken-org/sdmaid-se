@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">SD Maid SE פרו</string>
     <string name="app_name_upgrade_postfix">פרו</string>
     <string name="upgrade_feature_requires_pro">דורש מנוי פרימיום</string>
-    <string name="upgrades_dashcard_title">שדרוג SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro מציע תוצאות טובות יותר, יותר פיצ\'רים ואפשרויות.</string>
     <string name="upgrades_dashcard_upgrade_action">שדרוג</string>
     <string name="upgrades_gplay_unavailable_error_title">החנות של גוגל לא זמינה כרגע</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid לא יכול להתחבר ל-Google Play. האם Google Play מותקן ומעודכן? האם חשבון Google שלך מחובר? נסה לנקות את המטמון של אפליקציית Google Play ולאתחל את המכשיר שלך.</string>

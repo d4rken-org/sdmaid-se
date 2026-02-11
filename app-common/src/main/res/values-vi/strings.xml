@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Tính năng này vẫn đang được phát triển và hiện không khả dụng.</string>
     <string name="general_share_action">Chia sẻ</string>
     <string name="general_done_action">Xong</string>
+    <string name="general_apply_action">Áp dụng</string>
     <string name="general_copy_action">Sao chép</string>
     <string name="general_wipe_action">Làm sạch</string>
     <string name="general_cancel_action">Hủy</string>
     <string name="general_discard_action">Bỏ qua</string>
     <string name="general_reset_action">Đặt lại</string>
+    <string name="general_drag_handle_description">Kéo để sắp xếp lại</string>
     <string name="general_save_action">Lưu</string>
     <string name="general_thanks_action">Cảm ơn</string>
     <string name="general_gotit_action">Đã hiểu</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Sửa</string>
     <string name="general_na_label">Không có sẵn</string>
     <string name="general_empty_label">Trống</string>
+    <string name="general_new_badge_label">Mới</string>
     <string name="general_dismiss_action">Bỏ qua</string>
     <string name="general_maybe_later_action">Có lẽ để sau</string>
     <string name="general_manage_action">Quản lí</string>
@@ -157,6 +160,6 @@
     <string name="general_error_report_bug_action">Báo cáo lỗi</string>
     <string name="general_error_ipc_deadobject_title">Kết nối dịch vụ bị mất</string>
     <string name="general_error_ipc_deadobject_description">Kết nối đến một dịch vụ quan trọng (như: Magisk, Shizuku hoặc các dịch vụ cấp hệ thống khác) bị mất kết nối đột ngột. Vui lòng khởi động lại thiết bị. Nếu sự cố vẫn tiếp diễn, hãy kiểm tra bản cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
-    <string name="general_user_label_owner">Chủ sở hữu</string>
+    <string name="general_user_label_owner">Người sở hữu</string>
     <string name="general_user_label_system">Hệ thống</string>
 </resources>

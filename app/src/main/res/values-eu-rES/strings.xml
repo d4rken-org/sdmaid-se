@@ -151,6 +151,7 @@
     <string name="debug_mode_explanation">Gaitu proba-aukerak eta irteera xeheagoa. Aplikazioa motelago ibiliko da eta modu ezberdinean funtzionatuko du.</string>
     <string name="debug_bugreporter_label">Akats-txosten automatikoa</string>
     <string name="debug_bugreporter_summary">Automatikoki jakinarazten ditu arazoak, adib. aplikazioaren kraskaduren xehetasunak, zergatia aurkitu eta konpon dezadan.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Erramintak</string>
     <string name="settings_category_filter">Iragazkia</string>
     <string name="settings_category_risklevel">Arrisku-maila</string>
@@ -163,4 +164,6 @@
     <string name="corpsefinder_watcher_title">Desinstalazio-behatzailea</string>
     <string name="corpsefinder_watcher_summary">Automatikoki eskaneatu hondarrak aplikazio bat kentzen denean.</string>
     <string name="corpsefinder_watcher_autodelete_title">Ezabaketa automatikoa</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

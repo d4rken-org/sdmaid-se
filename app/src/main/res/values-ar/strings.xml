@@ -181,6 +181,7 @@
     <string name="debug_mode_explanation">تمكين خيارات الاختبار والمزيد من الإخراج المطول. سيعمل التطبيق بشكل أبطأ ويعمل بشكل مختلف.</string>
     <string name="debug_bugreporter_label">تقارير الأخطاء التلقائية</string>
     <string name="debug_bugreporter_summary">الإبلاغ عن المشكلات تلقائيًا ، على سبيل المثال تفاصيل تعطل التطبيق حتى أتمكن من تحديد السبب وإصلاحه.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">الأدوات</string>
     <string name="settings_category_filter">المرشحات</string>
     <string name="settings_category_risklevel">مستوى المخاطرة</string>
@@ -296,7 +297,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">عمر لقطة الشاشة</string>
     <string name="systemcleaner_filter_screenshots_age_summary">الحد الأدنى لعمر لقطات الشاشة التي سيتم النظر في حذفها.</string>
     <string name="systemcleaner_filter_superfluosapks_label">ملفات APK زائدة</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">ملفات الإعداد الأقدم أو المساوية لإصدارات التطبيق المثبتة بالفعل.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR مجلدات</string>
     <string name="systemcleaner_filter_lostdir_summary">الملفات المؤقتة التي يتم إنشاؤها عند نقل البيانات بين أجهزة Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">ملفات لينكس</string>
@@ -870,4 +870,6 @@
     <string name="shortcuts_settings_category">الاختصارات</string>
     <string name="shortcuts_onetap_enabled_title">اختصار بنقرة واحدة</string>
     <string name="shortcuts_onetap_enabled_summary">أظهر الاختصار \"فحص + حذف\" عند الضغط المطول على أيقونة التطبيق. يستخدم نفس الأدوات مثل لوحة التحكم بنقرة واحدة.</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

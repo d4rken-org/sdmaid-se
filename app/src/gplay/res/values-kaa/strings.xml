@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro talap etiledi</string>
-    <string name="upgrades_dashcard_title">SD Maid di jańalaw</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro jaqsıraq nátiyje, kóbirek funkciyalar hám quwatlı paydalanıwshılar ushın variantlardı usınadı.</string>
     <string name="upgrades_dashcard_upgrade_action">Jańalaw</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play qol jetpeydi</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play menen baylanısa almadı. Google Play ornatılǵan hám jańalanǵan ba? Google akkawntıńız kiriw jasalǵan ba? Google Play ilovasınıń keshin tazalaw hám qurılmańızdı qayta júklep kórıń.</string>

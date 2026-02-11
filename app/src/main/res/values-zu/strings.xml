@@ -153,6 +153,7 @@
     <string name="debug_mode_explanation">Nika amandla izinketho zokuhlola nokukhipha okuningi. Uhlelo lokusebenza luzosebenza kancane futhi lusebenze ngendlela ehlukile.</string>
     <string name="debug_bugreporter_label">Imibiko yamaphutha ezenzekelayo</string>
     <string name="debug_bugreporter_summary">Ibika ngokuzenzekelayo izinkinga, isib. imininingwane mayelana nokuphahlazeka kohlelo lokusebenza ukuze ngikwazi ukuthola ukuthi kungani futhi ngikulungise.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Amathuluzi</string>
     <string name="settings_category_filter">Isihluzi</string>
     <string name="settings_category_risklevel">Izinga lengozi</string>
@@ -241,7 +242,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Iminyaka Yesithombe Sesikrini</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Iminyaka encane yezithombe zesikrini ukuze zicatshangelwe ukususwa.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Ama-APK angadingeki</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Amafayela okusetha amadala alingana noma nezinguqulo zohlelo esezifakiwe.</string>
     <string name="systemcleaner_filter_lostdir_label">Amafolda e-LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Amafayela esikhashana adalwa lapho kudluliselwa idatha phakathi kwamadivayisi e-Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Amafayela e-Linux</string>
@@ -712,4 +712,6 @@
     <string name="area_type_public_obb_label">Izinsiza zohlelo zomphakathi</string>
     <string name="area_type_private_data_label">Idatha yohlelo eyimfihlo</string>
     <string name="area_type_portable_label">Isitoreji esiphathekayo</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

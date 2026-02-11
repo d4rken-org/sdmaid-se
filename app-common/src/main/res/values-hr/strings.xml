@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Na ovoj značajci se još uvijek radi i trenutno nije dostupna.</string>
     <string name="general_share_action">Dijeli</string>
     <string name="general_done_action">Gotovo</string>
+    <string name="general_apply_action">Primijeni</string>
     <string name="general_copy_action">Kopiraj</string>
     <string name="general_wipe_action">Izbriši</string>
     <string name="general_cancel_action">Otkaži</string>
     <string name="general_discard_action">Odbaci</string>
     <string name="general_reset_action">Ponovno postavi</string>
+    <string name="general_drag_handle_description">Povuci za premještanje</string>
     <string name="general_save_action">Spremi</string>
     <string name="general_thanks_action">Hvala</string>
     <string name="general_gotit_action">U redu</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Uredi</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Prazno</string>
+    <string name="general_new_badge_label">Novo</string>
     <string name="general_dismiss_action">Odbaci</string>
     <string name="general_maybe_later_action">Možda kasnije</string>
     <string name="general_manage_action">Upravljanje</string>

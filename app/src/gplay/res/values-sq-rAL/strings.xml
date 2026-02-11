@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Nevojitet SD Maid Pro</string>
-    <string name="upgrades_dashcard_title">Përmirëso SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro ofron rezultate më të mira, më shumë veçori dhe opsione për përdoruesit e fuqishëm.</string>
     <string name="upgrades_dashcard_upgrade_action">Aktualizo</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play dyqani është i padisponueshëm</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid nuk mund të lidhet me Google Play dyqanin. A është Google Play dyqani i instaluar dhe i përditësuar? A është identifikuar llogaria juaj e Google? Provoni të pastroni cache-in e aplikacionit Google Play dhe të rindizni pajisjen tuaj.</string>

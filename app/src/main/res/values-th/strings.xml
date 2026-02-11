@@ -157,6 +157,7 @@
     <string name="debug_mode_explanation">เปิดใช้การทดสอบเพื่อแสดงรายละเอียดมากขึ้นในรายงาน แอพจะทำงานช้าลงและประสิทธิภาพลดลง</string>
     <string name="debug_bugreporter_label">รายงานข้อผิดพลาดโดยอัตโนมัติ</string>
     <string name="debug_bugreporter_summary">รายงานปัญหาโดยอัตโนมัติ เช่น รายละเอียดเกี่ยวกับแอปขัดข้อง ดังนั้นฉันจึงสามารถทราบสาเหตุและแก้ไขได้</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">เครื่องมือ</string>
     <string name="settings_category_filter">ตัวกรอง</string>
     <string name="settings_category_risklevel">ระดับความเสี่ยง</string>
@@ -239,7 +240,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">อายุภาพหน้าจอ</string>
     <string name="systemcleaner_filter_screenshots_age_summary">อายุขั้นต่ำสำหรับภาพหน้าจอที่จะพิจารณาลบ</string>
     <string name="systemcleaner_filter_superfluosapks_label">ไฟล์ APK ที่ไม่จำเป็น</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">ไฟล์ติดตั้งที่เก่ากว่าหรือเท่ากับเวอร์ชันของแอพที่ติดตั้งไว้แล้ว</string>
     <string name="systemcleaner_filter_lostdir_label">โฟลเดอร์ LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">ไฟล์ชั่วคราวที่ถูกสร้างขึ้นเมื่อโอนข้อมูลระหว่างอุปกรณ์ Android</string>
     <string name="systemcleaner_filter_linuxfiles_label">ไฟล์ Linux</string>
@@ -693,4 +693,6 @@
     <string name="debug_card_pkgs_reload_action">โหลดแอพใหม่</string>
     <string name="debug_card_root_test_action">ทดสอบ root</string>
     <string name="debug_card_shizuku_test_action">ทดสอบ Shizuku</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

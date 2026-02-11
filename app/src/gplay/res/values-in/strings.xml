@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Membutuhkan SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">Tingkatkan SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro menawarkan hasil yang lebih baik, lebih banyak fitur dan pilihan untuk pengguna mahir.</string>
     <string name="upgrades_dashcard_upgrade_action">Tingkatkan</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play tidak tersedia</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid tidak dapat terhubung ke Google Play. Apakah Google Play sudah terpasang dan diperbarui? Apakah Akun Google Anda sudah masuk? Coba hapus cache aplikasi Google Play dan mulai ulang perangkat Anda.</string>

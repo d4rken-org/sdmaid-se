@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">SD मेड SE प्रो</string>
     <string name="app_name_upgrade_postfix">प्रो</string>
     <string name="upgrade_feature_requires_pro">SD मेड SE प्रो की अवश्यकता है</string>
-    <string name="upgrades_dashcard_title">SD मेड को उन्नत करें</string>
-    <string name="upgrades_dashcard_body">SD मेड प्रो अत्यधिक उपयोगकर्ताओं के लिए बेहतर परिणाम देता है, उन्हें अधिक सुविधाएं और विकल्प प्रदान करता है।</string>
     <string name="upgrades_dashcard_upgrade_action">उन्नत करें</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play अनुपलब्ध है</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play से कनेक्ट नहीं हो सकता। क्या Google Play इंस्टॉल और अप-टू-डेट है? क्या आपका Google खाता लॉग इन है? Google Play ऐप का कैश साफ़ करने और अपने डिवाइस को रीबूट करने का प्रयास करें।</string>

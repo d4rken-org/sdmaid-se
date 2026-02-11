@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">احترافي</string>
     <string name="upgrade_feature_requires_pro">يتطلب SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">ترقية SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid الاحترافي يمنحك نتائج أفضل, ومميزات أكثر للمستخدم المحترف.</string>
     <string name="upgrades_dashcard_upgrade_action">ترقية</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play غير متاح</string>
     <string name="upgrades_gplay_unavailable_error_description">يتعذر على SD Maid الاتصال بـ Google Play. هل تم تثبيت Google Play وتحديثه؟ هل تم تسجيل الدخول إلى حسابك في Google؟ حاول مسح ذاكرة التخزين المؤقت لتطبيق Google Play وإعادة تشغيل جهازك.</string>

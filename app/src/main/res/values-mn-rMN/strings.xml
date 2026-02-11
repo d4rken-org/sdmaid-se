@@ -35,4 +35,7 @@
     <string name="onboarding_privacy_bugreport_toggle_hint">Эдгээр сонголтыг тохиргоонд өөрчлөх боломжтой.</string>
     <string name="onboarding_setup_title">Тохиргоо</string>
     <string name="onboarding_setup_continue_action">Үргэлжлүүлэх</string>
+    <!-- Debug card (dashboard) -->
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

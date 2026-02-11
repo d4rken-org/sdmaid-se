@@ -43,6 +43,7 @@
     <string name="onboarding_setup_title">Uppsetning</string>
     <string name="onboarding_setup_continue_action">Halda áfram</string>
     <string name="changelog_label">Breytingaskrá</string>
+    <!-- Debug card (dashboard) -->
     <string name="data_area_sdcard_label">SD kort</string>
     <string name="data_areas_label">Gagnasvæði</string>
     <string name="data_areas_description">Gagnasvæði tákna staðsetningar á tækinu þínu sem SD Maid hefur aðgang að. Mismunandi gagnasvæði geta verið tiltæk eftir Android útgáfu þinni og leyfi sem hafa verið veitt.</string>
@@ -95,4 +96,6 @@
     <string name="stats_settings_retention_paths_desc">Fjöldi daga til að geyma smáatriði um slóðir sem SD Maid hefur áhrif á.</string>
     <string name="stats_settings_reset_all_label">Endurstilla allt</string>
     <string name="stats_settings_reset_all_desc">Eyða öllum skýrslum og núllstilla allar tölfræði.</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

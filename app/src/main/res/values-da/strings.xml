@@ -88,11 +88,14 @@
     <string name="support_installid_desc">Automatiske fejlrapporter er anonyme. Del dit installations-ID, hvis udvikleren skal finde dine rapporter.</string>
     <string name="support_debuglog_label">Fejlfindingslog</string>
     <string name="support_debuglog_desc">Optag alt, appen gør, til en tekstfil, som du kan dele.</string>
+    <string name="support_debuglog_folder_empty_desc">Ingen fejlfindingslogs gemt</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Slet alle fejlfindingslogs?</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Et sted at hænge ud og stille spørgsmål.</string>
     <string name="changelog_label">Ændringslog</string>
     <string name="settings_acknowledgements_label">Anerkendelser</string>
     <string name="settings_acknowledgements_category_translations_title">Oversættelser</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Hvem oversatte dette?</string>
     <string name="settings_acknowledgements_category_thanks_title">Tak</string>
     <string name="settings_acknowledgements_category_thanks_subtitle">Særlig tak til vores venner.</string>
     <string name="settings_acknowledgements_category_licenses_title">Licenser</string>
@@ -168,6 +171,11 @@
     <string name="debug_mode_explanation">Aktivér testindstillinger og mere detaljeret output. Appen vil køre langsommere og opføre sig anderledes.</string>
     <string name="debug_bugreporter_label">Automatiske fejlrapporter</string>
     <string name="debug_bugreporter_summary">Rapporterer automatisk problemer, f.eks. detaljer om appnedbrud, så jeg kan finde ud af hvorfor og rette det.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Fejlfindingstilstand er aktiveret</string>
+    <string name="debug_card_areas_reload_action">Genindlæs dataområder</string>
+    <string name="debug_card_pkgs_reload_action">Genindlæs apps</string>
+    <string name="debug_card_shizuku_test_action">Test Shizuku</string>
     <string name="settings_category_tools_label">Værktøjer</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risikoniveau</string>
@@ -259,7 +267,7 @@
     <string name="systemcleaner_filter_screenshots_age_label">Skærmbilledalder</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimumsalder for, at skærmbilleder tages i betragtning til sletning.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Overflødige APK\'er</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Installationsfiler, der er ældre eller svarer til allerede installerede app-versioner.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Inkluder samme version</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mapper</string>
     <string name="systemcleaner_filter_lostdir_summary">Midlertidige filer, der oprettes, når der overføres data mellem Android-enheder.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux-filer</string>
@@ -320,6 +328,10 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Navn er lig med søgeord</string>
     <string name="systemcleaner_customfilter_last_edit">Sidste redigering: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Livesøgning</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Størrelses begrænsninger</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimumsstørrelse</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maksimal størrelse</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimumsalder</string>
     <string name="systemcleaner_customfilter_import_action">Importér nyt filter</string>
     <string name="systemcleaner_customfilter_export_action">Eksportér valgt filter</string>
     <string name="appcleaner_tool_name">Apprenser</string>
@@ -362,6 +374,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Slettede filer lagt i en særlig mappe, så de kan gendannes.</string>
     <string name="appcleaner_filter_webview_label">Webview-filer</string>
     <string name="appcleaner_filter_webview_summary">Filer cachelagret af Webview-instanser, der bruges i apps.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Genvejsikoner til app</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Cachelagrede ikoner til appgenveje og dele menuer.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp-sikkerhedskopier</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Slet ekstra sikkerhedskopier af WhatsApp, og behold kun den seneste.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Filer, du har modtaget fra folk via WhatsApp.</string>
@@ -453,6 +467,55 @@
     <string name="deduplicator_details_cluster_title">Sæt af duplikater</string>
     <string name="deduplicator_matches_exact_label">Præcise kopier</string>
     <string name="deduplicator_matches_similar_label">Lignende filer</string>
+    <string name="deduplicator_arbiter_title">Sletningsstrategi</string>
+    <string name="deduplicator_arbiter_summary">Vælg hvilke filer der gemmes, og hvilke der slettes.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Vælg tilstand</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Indstil stier…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Foretræk nøjagtige matches over lignende filer.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Indeksering af medier</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Lagerplacering</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Foretræk filer på internt eller eksternt lager.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Mappe dybde</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Ændringsdato</string>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d billede valgt</item>
+        <item quantity="other">%d billeder valgt</item>
+    </plurals>
+    <string name="squeezer_search_locations_default_summary">Kameramapper (standard)</string>
+    <string name="squeezer_min_size_title">Minimum filstørrelse</string>
+    <string name="squeezer_min_age_title">Minimum fil alder</string>
+    <string name="squeezer_min_age_description">Inkludér kun billeder ældre end denne alder.</string>
+    <string name="squeezer_compression_settings_label">Komprimering indstillinger</string>
+    <string name="squeezer_quality_label">Kvalitet</string>
+    <string name="squeezer_quality_title">Kompressions kvalitet</string>
+    <string name="squeezer_quality_description">Lavere kvalitet betyder mindre filstørrelse, men reduceret billedkvalitet.</string>
+    <string name="squeezer_quality_value_format">%d%%</string>
+    <string name="squeezer_quality_warning_low">Lavere kvaliteter kan forårsage synlige artefakter.</string>
+    <string name="squeezer_quality_warning_high">Meget høj kvalitet giver minimal pladsbesparelser.</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Inkluder JPEG-billeder (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Inkludér WebP-billeder (.Webp).</string>
+    <string name="squeezer_skip_compressed_description">Spring billeder over, der allerede er komprimeret af SD Maid.</string>
+    <string name="squeezer_current_size_format">Størrelse: %s</string>
+    <string name="squeezer_compress_action">Komprimér</string>
+    <string name="squeezer_compress_all_action">Komprimer alle</string>
+    <string name="squeezer_preview_dialog_title">Bekræft komprimering</string>
+    <string name="squeezer_preview_total_size">Total størrelse</string>
+    <string name="squeezer_preview_estimated_savings">Estimeret besparelse</string>
+    <string name="squeezer_compress_confirmation_title">Komprimer billeder?</string>
+    <string name="squeezer_compress_confirmation_message">Dette vil erstatte originale billeder med komprimerede versioner. Denne handling kan ikke fortrydes.</string>
+    <string name="squeezer_history_empty">Ingen komprimeringshistorik</string>
+    <string name="squeezer_history_clear_title">Ryd komprimeringshistorik</string>
+    <string name="squeezer_onboarding_title">Om Billedkomprimering</string>
+    <string name="squeezer_onboarding_original_label">Oprindelig</string>
+    <string name="squeezer_onboarding_compressed_label">Efter komprimering</string>
+    <string name="squeezer_onboarding_quality_label">Kvalitet: %d%%</string>
+    <string name="squeezer_onboarding_tap_to_zoom_hint">Tryk på billeder for at zoome</string>
+    <string name="squeezer_onboarding_got_it">Forstået</string>
+    <string name="squeezer_preview_info_action">Vis eksempel</string>
+    <string name="squeezer_no_example_found">Ingen billeder fundet i valgte stier.</string>
+    <string name="squeezer_result_empty_message">Ingen komprimerbare billeder fundet.</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Apps installeret på denne enhed.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -607,6 +670,7 @@
     <string name="exclusion_type_segment">Segmenteksklusion</string>
     <string name="exclusion_tags_alltools">Alle værktøjer</string>
     <string name="exclusion_target_label">Eksklusionsmål</string>
+    <string name="exclusion_editor_path_change_action">Tryk for at ændre sti</string>
     <string name="exclusion_option_allow_partial">Tillad delvise matches</string>
     <string name="exclusion_option_ignore_casing">Ignorer store/små bogstaver</string>
     <string name="exclusion_editor_affected_tools_label">Påvirkede værktøjer</string>
@@ -699,6 +763,7 @@
     <string name="review_app_body">Har du lyst til at give SD Maid en anmeldelse? ❤️</string>
     <string name="anniversary_card_title">Glædelig SD Maid Jubilæum ❤️</string>
     <string name="anniversary_card_install_date">Med dig siden %s</string>
+    <string name="anniversary_share_title">Del dit SD Maid jubilæum</string>
     <string name="stats_label">Historik</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s er blevet frigjort.</item>
@@ -744,4 +809,12 @@
     <string name="shortcut_onetap_short">Scan + Slet</string>
     <string name="shortcut_onetap_long">Scan og slet i én handling</string>
     <string name="shortcuts_settings_category">Genveje</string>
+    <string name="shortcuts_onetap_enabled_title">Ettryksgenvej</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_start_action">Start strygning</string>
+    <string name="swiper_continue_action">Fortsæt session</string>
+    <string name="swiper_select_folders_action">Vælg mapper</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

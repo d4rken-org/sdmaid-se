@@ -166,6 +166,7 @@
     <string name="debug_mode_explanation">启用测试功能和更详细的日志输出后，应用的运行速度和性能都会减慢。</string>
     <string name="debug_bugreporter_label">自动错误报告</string>
     <string name="debug_bugreporter_summary">自动报告诸如应用崩溃详情等问题，以便我能查明原因并进行修复</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">工具</string>
     <string name="settings_category_filter">筛选器</string>
     <string name="settings_category_risklevel">风险等级</string>
@@ -251,7 +252,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">截图时间</string>
     <string name="systemcleaner_filter_screenshots_age_summary">考虑删除截图的最早时间</string>
     <string name="systemcleaner_filter_superfluosapks_label">过时的安装包</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">已安装应用的过时安装文件。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 文件夹</string>
     <string name="systemcleaner_filter_lostdir_summary">在 Android 设备之间传输数据时创建的临时文件。</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux 文件</string>
@@ -724,4 +724,6 @@
     <string name="shortcuts_settings_category">快捷键</string>
     <string name="shortcuts_onetap_enabled_title">一键快捷方式</string>
     <string name="shortcuts_onetap_enabled_summary">长按应用图标时显示“扫描+删除”快捷键。使用与一键控制面板相同的工具。</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Inicia l\'escaneig i la supressió de totes les eines amb un toc al botó d\'acció del tauler sense confirmacions addicionals.</string>
     <string name="dashboard_settings_oneclick_tools_title">Eines d\'Un Sol Toc</string>
     <string name="dashboard_settings_oneclick_tools_desc">Quines eines s\'han d\'incloure en les operacions d\'Un Sol Toc?</string>
+    <string name="dashboard_card_config_title">Targetes del tauler</string>
+    <string name="dashboard_card_config_desc">Configureu quines targetes es mostren i el seu ordre</string>
+    <string name="dashboard_card_config_header_title">Arrossegueu per reordenar, commuteu per mostrar/amagar</string>
     <string name="debug_notification_channel_label">Notificacions de depuració</string>
     <string name="debug_debuglog_file_label">Fitxer de registre desat</string>
     <string name="debug_debuglog_recording_progress">Gravació del registre de depuració</string>
@@ -88,6 +91,14 @@
     <string name="support_installid_desc">Els informes d\'error automàtics són anònims. Compartiu el vostre ID d\'instal·lació si el desenvolupador necessita trobar els vostres informes d\'error.</string>
     <string name="support_debuglog_label">Registre de depuració</string>
     <string name="support_debuglog_desc">Enregistra tot el que fa l\'aplicació en un fitxer de text que podeu compartir.</string>
+    <string name="support_debuglog_folder_label">Carpeta de registre de depuració</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d fitxer que utilitza %2$s</item>
+        <item quantity="other">%1$d fitxers que utilitzen %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">No s\'han emmagatzemat registres de depuració</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Voleu suprimir tots els registres de depuració?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Això suprimirà permanentment totes les sessions de registre de depuració emmagatzemades. Aquesta acció no es pot desfer.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Un lloc on passar l\'estona i fer preguntes.</string>
     <string name="changelog_label">Registre de canvis</string>
@@ -169,6 +180,14 @@
     <string name="debug_mode_explanation">Activa les opcions de prova i una sortida més detallada. L\'aplicació funcionarà més lentament i funcionarà de manera diferent.</string>
     <string name="debug_bugreporter_label">Informes d\'errors automàtics</string>
     <string name="debug_bugreporter_summary">Informa automàticament de problemes, p. ex. detalls sobre els bloquejos de l\'aplicació perquè puguem esbrinar el motiu i solucionar-ho.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">El mode de depuració està habilitat</string>
+    <string name="debug_card_trace_mode_label">Habilita el mode de seguiment</string>
+    <string name="debug_card_dryrun_mode_label">Mode d\'execució en sec (deshabilita l\'eliminació)</string>
+    <string name="debug_card_areas_reload_action">Recarrega les àrees de dades</string>
+    <string name="debug_card_pkgs_reload_action">Recarrega les aplicacions</string>
+    <string name="debug_card_root_test_action">Prova el «root»</string>
+    <string name="debug_card_shizuku_test_action">Prova el Shizuku</string>
     <string name="settings_category_tools_label">Eines</string>
     <string name="settings_category_filter">Filtra</string>
     <string name="settings_category_risklevel">Nivell de risc</string>
@@ -260,7 +279,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Antiguitat de la captura de pantalla</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Antiguitat mínima per tenir en compte les captures de pantalla per suprimir-les.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK supèrflues</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Fitxers d\'instal·lació anteriors o iguals a les versions de l\'aplicació que ja estan instal·lades.</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Fitxers de configuració que ja no són necessaris segons les versions de l\'aplicació instal·lades.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Inclou la mateixa versió</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">També s\'ha de seleccionar els fitxers APK que coincideixin amb la versió instal·lada. Desactiveu-ho per eliminar només les versions anteriors.</string>
     <string name="systemcleaner_filter_lostdir_label">Carpetes LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Fitxers temporals que es creen en transferir dades entre dispositius Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Fitxers Linux</string>
@@ -321,6 +342,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">El nom és igual a la paraula clau</string>
     <string name="systemcleaner_customfilter_last_edit">Darrera edició: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Cerca en temps real</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Restriccions de mida</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Mida mínima</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Mida màxima</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Limita les coincidències segons la mida del fitxer. Deixeu-ho sense definir per a coincidir amb qualsevol mida.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Restricció d\'edat</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Edat mínima</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Edat màxima</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Limita les coincidències segons l\'antiguitat del fitxer (hora de l\'última modificació). Deixeu-ho sense definir per a coincidir amb qualsevol antiguitat.</string>
     <string name="systemcleaner_customfilter_import_action">Importa un filtre nou</string>
     <string name="systemcleaner_customfilter_export_action">Exporta el filtre seleccionat</string>
     <string name="appcleaner_tool_name">Netejador d\'aplicacions</string>
@@ -416,6 +445,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Aquesta aplicació del sistema no té cap pantalla de configuració. No és possible esborrar la memòria cau mitjançant el servei d\'accessibilitat. Excloeu-la per accelerar l\'esborrat de la memòria cau.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplicació del sistema mal configurada</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">L\'aplicació de seguretat d\'HyperOS (com.miui.securitycenter) no té el permís d\'estadístiques d\'ús (GET_USAGE_STATS). Això trenca funcions com ara «Esborrar dades» als detalls de l\'aplicació i l\'esborrat de la memòria cau mitjançant l\'accessibilitat. Concediu el permís per restaurar la funcionalitat completa.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Força l\'aturada abans de netejar</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Força l\'aturada de les aplicacions abans d\'esborrar-ne la memòria cau. Pot ajudar a esborrar la memòria cau d\'algunes aplicacions, però pot fer que les aplicacions es comportin malament i calgui reiniciar-les manualment.</string>
+    <string name="appcleaner_progress_force_stopping">S\'està forçant l\'aturada d\'aplicacions…</string>
     <string name="deduplicator_tool_name">Deduplicador</string>
     <string name="deduplicator_explanation_short">Troba dades duplicades al vostre dispositiu.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -430,6 +462,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostra les opcions que us permeten suprimir tots els fitxers d\'un conjunt de duplicats perquè no quedi cap fitxer.</string>
     <string name="deduplicator_search_locations_title">Cerca ubicacions</string>
     <string name="deduplicator_search_locations_all_summary">Totes les zones accessibles</string>
+    <string name="deduplicator_keep_prefer_paths_title">Prefereix mantenir</string>
+    <string name="deduplicator_keep_prefer_paths_summary">A l\'hora de decidir quin duplicat conservar, és preferible conservar els fitxers en aquestes ubicacions.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">No hi ha cap ubicació configurada</string>
     <string name="deduplicator_skip_minsize_title">Grandària mínima</string>
     <string name="deduplicator_skip_minsize_description">Omet els fitxers que estan per sota de la mida mínima.</string>
     <string name="deduplicator_skip_uncommon_title">Omet els tipus de fitxers poc comuns</string>
@@ -457,6 +492,126 @@
     <string name="deduplicator_details_cluster_title">Conjunt de duplicats</string>
     <string name="deduplicator_matches_exact_label">Còpies exactes</string>
     <string name="deduplicator_matches_similar_label">Fitxers similars</string>
+    <string name="deduplicator_arbiter_title">Estratègia d\'eliminació</string>
+    <string name="deduplicator_arbiter_summary">Configureu quins fitxers es conserven i quins s\'eliminen.</string>
+    <string name="deduplicator_arbiter_explanation">Quan s\'eliminen duplicats, l\'SD Maid decideix quin fitxer conservar comprovant cada criteri en ordre. El primer criteri que produeixi un guanyador clar determina el resultat. Arrossegueu per reordenar, toqueu per canviar de mode.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Seleccioneu un mode</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Configureu les rutes…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Tipus de duplicat</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Prefereix les coincidències exactes a fitxers similars.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Indexació de mitjans</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Considereu si el proveïdor de suports indexa els fitxers.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Ubicació d\'emmagatzematge</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Prefereix els fitxers a l\'emmagatzematge intern o extern.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Profunditat de la carpeta</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Prefereix els fitxers en estructures de carpetes més superficials o més profundes.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Data de modificació</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Prefereix fitxers més antics o més nous segons l\'hora de modificació.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Mida del fitxer</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Prefereix fitxers més grans o més petits quan les mides són diferents.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Ubicacions preferides</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Mantingueu els fitxers a les ubicacions preferides configurades.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Prefereix coincidències exactes</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Prefereix fitxers similars</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Prefereix fitxers indexats</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Prefereix fitxers no indexats</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Prefereix l\'emmagatzematge intern</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Prefereix l\'emmagatzematge extern</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Prefereix carpetes poc profundes</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Prefereix carpetes més profundes</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Prefereix els fitxers més antics</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Prefereix els fitxers més nous</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Prefereix els fitxers més grans</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Prefereix fitxers més petits</string>
+    <string name="deduplicator_view_mode_groups_label">Grups</string>
+    <string name="deduplicator_view_mode_directories_label">Carpetes</string>
+    <string name="squeezer_tool_name">Compressió multimèdia</string>
+    <string name="squeezer_explanation_short">Comprimiu imatges per estalviar espai d\'emmagatzematge.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">S\'ha trobat %d imatge</item>
+        <item quantity="other">S\'han trobat %d imatges</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">Es pot estalviar ~%s</item>
+        <item quantity="other">Es poden estalviar ~%s</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">S\'ha comprimit %d imatge</item>
+        <item quantity="other">S\'han comprimit %d imatges</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">S\'ha seleccionat %d imatge</item>
+        <item quantity="other">S\'han seleccionat %d imatges</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Cerca ubicacions</string>
+    <string name="squeezer_search_locations_default_summary">Carpetes de càmera (per defecte)</string>
+    <string name="squeezer_min_size_title">Mida mínima del fitxer</string>
+    <string name="squeezer_min_size_description">Omet les imatges més petites que aquesta mida.</string>
+    <string name="squeezer_min_age_title">Antiguitat mínima del fitxer</string>
+    <string name="squeezer_min_age_description">Només inclou imatges anteriors a aquesta antiguitat.</string>
+    <string name="squeezer_compression_settings_label">Configuració de la compressió</string>
+    <string name="squeezer_quality_label">Qualitat</string>
+    <string name="squeezer_quality_title">Qualitat de compressió</string>
+    <string name="squeezer_quality_description">Una qualitat més baixa significa una mida de fitxer més petita però una qualitat d\'imatge reduïda.</string>
+    <string name="squeezer_quality_value_format">%d%%</string>
+    <string name="squeezer_quality_example_format">Exemple: %1$s imatge → estalvia ~%2$s amb una qualitat del %3$d%%</string>
+    <string name="squeezer_quality_warning_low">Les qualitats inferiors poden causar artefactes visibles.</string>
+    <string name="squeezer_quality_warning_high">La qualitat molt alta proporciona un estalvi mínim d\'espai.</string>
+    <string name="squeezer_types_category_label">Tipus d\'imatge</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Inclou imatges JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Inclou imatges WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Omet els elements comprimits anteriorment</string>
+    <string name="squeezer_skip_compressed_description">Omet les imatges que ja han estat comprimides per l\'SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Escriu el marcador EXIF</string>
+    <string name="squeezer_exif_marker_description">Afegeix un marcador al camp de comentaris de l\'usuari EXIF ​​de la imatge per evitar la recompressió fins i tot si s\'esborra l\'historial de compressió.</string>
+    <string name="squeezer_estimated_savings_format">~%s estalviats</string>
+    <string name="squeezer_no_savings_expected">Estalvi limitat</string>
+    <string name="squeezer_current_size_format">Mida: %s</string>
+    <string name="squeezer_compress_action">Comprimeix</string>
+    <string name="squeezer_compress_all_action">Comprimeix-ho tot</string>
+    <string name="squeezer_preview_dialog_title">Confirmeu la compressió</string>
+    <string name="squeezer_preview_total_size">Mida total</string>
+    <string name="squeezer_preview_estimated_savings">Estalvi estimat</string>
+    <string name="squeezer_compress_confirmation_title">Voleu comprimir les imatges?</string>
+    <string name="squeezer_compress_confirmation_message">Això substituirà les imatges originals per versions comprimides. Aquesta acció no es pot desfer.</string>
+    <string name="squeezer_history_title">Historial de compressió</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d element (%2$s)</item>
+        <item quantity="other">%1$d elements (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Sense historial de compressió</string>
+    <string name="squeezer_history_clear_title">Esborra l\'historial de compressió</string>
+    <string name="squeezer_history_clear_message">Això permetrà que les imatges prèviament comprimides es tornin a comprimir. Les imatges en si no es veuen afectades.</string>
+    <string name="squeezer_onboarding_title">Quant a la compressió d\'imatges</string>
+    <string name="squeezer_onboarding_message">La compressió d\'imatges redueix la mida del fitxer eliminant detalls visuals. Aquest procés és irreversible: la qualitat original no es pot restaurar.\n\nAquí teniu una vista prèvia de com quedaran les vostres imatges:</string>
+    <string name="squeezer_onboarding_original_label">Original</string>
+    <string name="squeezer_onboarding_compressed_label">Després de la compressió</string>
+    <string name="squeezer_onboarding_quality_label">Qualitat: %d%%</string>
+    <string name="squeezer_onboarding_tap_to_zoom_hint">Toqueu les imatges per ampliar-les</string>
+    <string name="squeezer_onboarding_got_it">D\'acord</string>
+    <string name="squeezer_preview_info_action">Mostra un exemple</string>
+    <string name="squeezer_no_example_found">No s\'han trobat imatges a les rutes seleccionades.</string>
+    <string name="squeezer_result_empty_message">No s\'han trobat imatges comprimibles.</string>
+    <string name="squeezer_setup_warning">La compressió redueix permanentment la qualitat de la imatge per estalviar espai d\'emmagatzematge. Això no es pot desfer. Reviseu la configuració acuradament abans de començar.</string>
+    <string name="squeezer_setup_explanation">La compressió multimèdia redueix la mida dels fitxers d\'imatges per alliberar espai d\'emmagatzematge. Això redueix permanentment la qualitat de la imatge i no es pot desfer. Reviseu la configuració acuradament abans de començar.</string>
+    <string name="squeezer_setup_paths_title">Cerca ubicacions</string>
+    <string name="squeezer_setup_paths_default">Seleccioneu les carpetes per cercar</string>
+    <string name="squeezer_setup_quality_title">Qualitat de compressió</string>
+    <string name="squeezer_setup_age_title">Antiguitat mínim</string>
+    <string name="squeezer_setup_age_none">Sense límit (inclou tots els fitxers)</string>
+    <string name="squeezer_setup_start_action">Comença la cerca</string>
+    <string name="squeezer_quality_value">%d%%</string>
+    <string name="squeezer_quality_hint_very_low">Una qualitat inferior al 40% pot crear imatges inutilitzables.</string>
+    <string name="squeezer_quality_hint_low">Una qualitat més baixa estalvia més espai però pot causar artefactes visibles.</string>
+    <string name="squeezer_quality_hint_high">La qualitat molt alta proporciona un estalvi mínim d\'espai.</string>
+    <string name="squeezer_quality_hint_normal">Qualitat equilibrada i estalvi d\'espai.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Almenys %d dia d\'antiguitat</item>
+        <item quantity="other">Almenys %d dies d\'antiguitat</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Estalvi estimat d\'un%d%% per a fitxers JPEG</string>
     <string name="appcontrol_tool_name">Control d\'aplicacions</string>
     <string name="appcontrol_explanation_short">Aplicacions instal·lades al vostre dispositiu.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -491,6 +646,7 @@
     <string name="appcontrol_tag_not_installed">No instal·lat</string>
     <string name="appcontrol_tag_enabled">Habilitat</string>
     <string name="appcontrol_tag_disabled">Inhabilitat</string>
+    <string name="appcontrol_tag_debug">Depuració</string>
     <string name="appcontrol_progress_enabling_package">Activant l\'aplicació</string>
     <string name="appcontrol_progress_disabling_package">Desactivant l\'aplicació</string>
     <string name="appcontrol_list_filteroptions_label">Opcions de filtre</string>
@@ -505,6 +661,32 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">S\'ha desinstal·lat %d aplicació</item>
         <item quantity="other">S\'han desinstal·lat %d aplicacions</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Arxiva</string>
+    <string name="appcontrol_archive_selection_action">Arxiva les aplicacions</string>
+    <string name="appcontrol_archive_description">Arxiva per alliberar espai i conserva les dades de l\'aplicació per a una restauració posterior.</string>
+    <string name="appcontrol_progress_archiving_app">S\'està arxivant l\'aplicació…</string>
+    <string name="appcontrol_archive_confirmation_title">Confirmeu l\'arxivat</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Voleu arxivar %d aplicació?</item>
+        <item quantity="other">Voleu arxivar %d aplicacions?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d aplicació arxivada</item>
+        <item quantity="other">%d aplicacions arxivades</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Restaura</string>
+    <string name="appcontrol_restore_selection_action">Restaura les aplicacions</string>
+    <string name="appcontrol_restore_description">Restaura l\'aplicació arxivada al seu estat d\'instal·lació completa. Les dades de l\'aplicació es conserven.</string>
+    <string name="appcontrol_progress_restoring_app">S\'està restaurant l\'aplicació…</string>
+    <string name="appcontrol_restore_confirmation_title">Confirmació de la restauració</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Voleu restaurar %d aplicació?</item>
+        <item quantity="other">Voleu restaurar %d aplicacions?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">S\'ha restaurat %d aplicació</item>
+        <item quantity="other">S\'han restaurat %d aplicacions</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Mida de l\'aplicació</string>
     <string name="appcontrol_app_sizes_apk_label">Aplicació</string>
@@ -533,6 +715,9 @@
         <item quantity="other">S\'han exportat %d aplicacions</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">S\'està exportant %s</string>
+    <string name="appcontrol_share_list_action">Comparteix la llista</string>
+    <string name="appcontrol_share_list_title">Les meves aplicacions</string>
+    <string name="appcontrol_share_list_footer">Compartit a través de l\'SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Força l\'aturada d\'aplicacions</string>
     <string name="appcontrol_force_stop_action">Força l\'aturada</string>
     <string name="appcontrol_force_stop_confirm_title">Confirmeu l\'aturada forçada</string>
@@ -549,6 +734,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">S\'està forçant l\'aturada…</string>
     <string name="appcontrol_automation_progress_find_force_stop">S\'està buscant el botó «Força l\'aturada» (paraules clau: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">S\'està intentant confirmar l\'acció anterior (paraules clau: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">S\'està arxivant…</string>
+    <string name="appcontrol_automation_progress_find_archive">S\'està buscant el botó «Arxiva» (paraules clau: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">S\'està restaurant…</string>
+    <string name="appcontrol_automation_progress_find_restore">S\'està buscant el botó «Restaura» (paraules clau: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Temps de pantalla: %1$s des de %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Darrera actualització: %s</string>
     <string name="appcontrol_item_installedat_x_label">Instal·lada a: %s</string>
@@ -569,6 +758,11 @@
         <item quantity="other">%s usats</item>
     </plurals>
     <string name="analyzer_content_access_opaque">No hi ha accés directe disponible</string>
+    <string name="analyzer_content_create_swiper_session_action">Crea una sessió d\'escombrador</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Sessió d\'escombrador creada amb %d element</item>
+        <item quantity="other">Sessió d\'escombrador creada amb %d elements</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Emmagatzematge primari</string>
     <string name="analyzer_storage_type_primary_description">L\'emmagatzematge principal del vostre dispositiu. Conté la targeta SD interna, emmagatzematge privat per a aplicacions i dades del sistema.</string>
     <string name="analyzer_storage_type_secondary_title">Emmagatzematge secundari</string>
@@ -611,6 +805,7 @@
     <string name="exclusion_type_segment">Exclusió de segment</string>
     <string name="exclusion_tags_alltools">Totes les eines</string>
     <string name="exclusion_target_label">Objectiu d\'exclusió</string>
+    <string name="exclusion_editor_path_change_action">Toqueu per canviar la ruta</string>
     <string name="exclusion_option_allow_partial">Permet coincidències parcials</string>
     <string name="exclusion_option_ignore_casing">Ignora les maj. i min.</string>
     <string name="exclusion_editor_affected_tools_label">Eines afectades</string>
@@ -759,4 +954,136 @@
     <string name="shortcuts_settings_category">Dreceres</string>
     <string name="shortcuts_onetap_enabled_title">Drecera d\'un sol toc</string>
     <string name="shortcuts_onetap_enabled_summary">Mostra la drecera «Escaneja + Suprimeix» quan es manté premuda la icona de l\'aplicació. Utilitza les mateixes eines que el tauler de control d\'un sol toc.</string>
+    <string name="swiper_label">Escombrador</string>
+    <string name="swiper_tool_name">Escombrador</string>
+    <string name="swiper_tool_description">Llisqueu els fitxers per decidir quins voleu conservar i quins suprimir.</string>
+    <string name="swiper_dashcard_description">L\'SD Maid gestiona la majoria de coses automàticament. Per a tota la resta, només cal lliscar el dit!</string>
+    <string name="swiper_start_action">Comença a lliscar</string>
+    <string name="swiper_continue_action">Continua la sessió</string>
+    <string name="swiper_sessions_description">Alguns fitxers només necessiten la vostra atenció. Feu lliscar el dit per decidir quin serà el seu destí: no s\'elimina res fins que no ho digueu. Podeu pausar-los en qualsevol moment i continuar més tard.</string>
+    <string name="swiper_select_folders_action">Selecciona les carpetes</string>
+    <string name="swiper_scanning_title">S\'està escanejant…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">S\'ha trobat %d element</item>
+        <item quantity="other">S\'han trobat %d elements</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">S\'ha eliminat %d element</item>
+        <item quantity="other">S\'han eliminat %d elements</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">Ha fallat %d element</item>
+        <item quantity="other">Han fallat %d elements</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d de %2$d</string>
+    <string name="swiper_keep_action">Mantén</string>
+    <string name="swiper_skip_action">Omet</string>
+    <string name="swiper_review_action">Revisa</string>
+    <string name="swiper_status_title">Revisió de les decisions</string>
+    <string name="swiper_status_action_keep_selected">Mantén la selecció</string>
+    <string name="swiper_status_action_delete_selected">Suprimeix la selecció</string>
+    <string name="swiper_status_action_reset_selected">Restableix la selecció</string>
+    <string name="swiper_decision_undecided">Indecís</string>
+    <string name="swiper_retry_action">Reintenta</string>
+    <string name="swiper_delete_confirmation_title">Voleu suprimir els fitxers?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Això suprimirà permanentment %1$d fitxer (%2$s). Aquesta acció no es pot desfer.</item>
+        <item quantity="other">Això suprimirà permanentment %1$d fitxers (%2$s). Aquesta acció no es pot desfer.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d element indecís quedarà per a una revisió posterior.</item>
+        <item quantity="other">%d element indecisos quedaran per a una revisió posterior.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Suprimeix %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Commutació de la direcció de lliscament</string>
+    <string name="swiper_settings_swap_directions_summary">Llisqueu cap a l\'esquerra per mantenir, cap a la dreta per suprimir.</string>
+    <string name="swiper_settings_show_details_title">Mostra els detalls del fitxer</string>
+    <string name="swiper_settings_show_details_summary">Mostra el nom, la mida i la data del fitxer a la pantalla lliscant.</string>
+    <string name="swiper_settings_haptic_feedback_title">Resposta hàptica</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibra quan prengueu decisions sobre si voleu conservar o eliminar.</string>
+    <string name="swiper_discard_session_confirmation_title">Voleu descartar la sessió?</string>
+    <string name="swiper_discard_session_confirmation_message">Totes les decisions es perdran. N\'esteu segur?</string>
+    <string name="swiper_no_preview_available">No hi ha cap previsualització disponible</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Continua la sessió de fa %1$d dia (%2$d%% finalitzada)</item>
+        <item quantity="other">Continua la sessió de fa %1$d dies (%2$d%% finalitzada)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d sessió</item>
+        <item quantity="other">%d sessions</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d element indecís</item>
+        <item quantity="other">%d elements indecisos</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Creat el %1$s, última activitat %2$s</string>
+    <string name="swiper_session_remove_action">Elimina la sessió</string>
+    <string name="swiper_sessions_empty_hint">Toqueu + per seleccionar una carpeta i comenceu a lliscar el dit</string>
+    <string name="swiper_sessions_upgrade_body">Milloreu per eliminar aquests límits i donar suport al desenvolupament. La versió gratuïta està limitada a:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d fitxer per sessió</item>
+        <item quantity="other">%d fitxers per sessió</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d sessió</item>
+        <item quantity="other">%d sessions</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sessió #%d</string>
+    <string name="swiper_session_rename_title">Reanomeneu la sessió</string>
+    <string name="swiper_session_rename_hint">Introduïu un nom per a aquesta sessió</string>
+    <string name="swiper_sessions_current_sessions">Sessió actual</string>
+    <string name="swiper_session_paths_label">Rutes</string>
+    <string name="swiper_session_status_label">Estat</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d per mantenir</item>
+        <item quantity="other">%d per mantenir</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d per suprimir</item>
+        <item quantity="other">%d per suprimir</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d indecís</item>
+        <item quantity="other">%d indecisos</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d ja conservat</item>
+        <item quantity="other">%d ja conservats</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d ja suprimit</item>
+        <item quantity="other">%d ja suprimits</item>
+    </plurals>
+    <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d conservat</item>
+        <item quantity="other">%d conservats</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d suprimit</item>
+        <item quantity="other">%d suprimits</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Voleu excloure «%1$s» dels escanejos de l\'escombrador?</string>
+    <string name="swiper_sessions_header_title">Esteu a punt per posar ordre?</string>
+    <string name="swiper_sessions_suggestions_label">Proveu de començar amb:</string>
+    <string name="swiper_sessions_suggestion_downloads">La carpeta de baixades</string>
+    <string name="swiper_sessions_suggestion_screenshots">Captures de pantalla</string>
+    <string name="swiper_sessions_suggestion_camera">Rodet de fotos</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Mantén!</string>
+    <string name="swiper_stamp_keep_2">Bonic!</string>
+    <string name="swiper_stamp_keep_3">Sí!</string>
+    <string name="swiper_stamp_keep_4">Desa!</string>
+    <string name="swiper_stamp_delete_1">No!</string>
+    <string name="swiper_stamp_delete_2">Adéu!</string>
+    <string name="swiper_stamp_delete_3">Brossa!</string>
+    <string name="swiper_stamp_delete_4">Suprimeix!</string>
+    <string name="swiper_stamp_skip_1">Omet!</string>
+    <string name="swiper_stamp_skip_2">No m\'interessa!</string>
+    <string name="swiper_stamp_skip_3">Més tard!</string>
+    <string name="swiper_stamp_skip_4">Potser!</string>
+    <string name="swiper_stamp_undo_1">Desfés!</string>
+    <string name="swiper_stamp_undo_2">Enrere!</string>
+    <string name="swiper_stamp_undo_3">Vaja!</string>
+    <string name="swiper_stamp_undo_4">Espera!</string>
 </resources>

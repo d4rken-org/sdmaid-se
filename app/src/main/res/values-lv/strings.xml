@@ -94,9 +94,12 @@
     <string name="setup_checking_card_body">Pārbauda iestatīšanas pabeigšanu un funkcionalitāti.</string>
     <string name="general_error_setup_require_label">Iestatīšana nav pabeigta</string>
     <string name="general_error_setup_require_msg">Lai izmantotu šo funkciju, nepieciešama papildu iestatīšana. Pabeidziet atlikušās iestatīšanas darbības.</string>
+    <!-- Debug card (dashboard) -->
     <string name="analyzer_explanation_short">Noskaidrojiet, kas aizņem vietu jūsu ierīcē.</string>
     <string name="analyzer_device_storage_title">Ierīces krātuve</string>
     <string name="analyzer_content_access_opaque">Tiešā piekļuve nav pieejama</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Šī lietotne aizņem %1$s uz \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Šī lietotne ir arhivēta.</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

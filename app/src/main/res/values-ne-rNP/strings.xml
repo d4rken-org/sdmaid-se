@@ -104,6 +104,7 @@
     <string name="debug_mode_explanation">परीक्षण विकल्पहरू र अधिक विस्तृत आउटपुट सक्षम गर्नुहोस्। एप सुस्त चल्नेछ र फरक तरिकाले काम गर्नेछ।</string>
     <string name="debug_bugreporter_label">स्वचालित बग रिपोर्टहरू</string>
     <string name="debug_bugreporter_summary">स्वचालित रूपमा समस्याहरू रिपोर्ट गर्छ, जस्तै एप क्र्यासका विवरणहरू ताकि म किन भएको हो र यसलाई कसरी ठीक गर्ने भनेर पत्ता लगाउन सकूँ।</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">उपकरणहरू</string>
     <string name="settings_category_filter">फिल्टर</string>
     <string name="settings_category_risklevel">जोखिम स्तर</string>
@@ -166,7 +167,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">स्क्रिनसट उमेर</string>
     <string name="systemcleaner_filter_screenshots_age_summary">स्क्रिनसटहरूलाई मेटाउनको लागि विचार गरिने न्यूनतम उमेर।</string>
     <string name="systemcleaner_filter_superfluosapks_label">अनावश्यक APK हरू</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">पहिले नै स्थापित एप भर्सनभन्दा पुराना वा बराबरका सेटअप फाइलहरू।</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR फोल्डरहरू</string>
     <string name="systemcleaner_filter_lostdir_summary">Android डिभाइसहरू बिच डेटा स्थानान्तरण गर्दा सिर्जना हुने अस्थायी फाइलहरू।</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux फाइलहरू</string>
@@ -421,4 +421,6 @@
     <string name="data_area_public_app_data_official_label">पूर्वनिर्धारित सार्वजनिक app डेटा</string>
     <string name="data_area_public_app_assets_official_label">पूर्वनिर्धारित सार्वजनिक app assets</string>
     <string name="data_area_public_storage_label">सार्वजनिक भण्डारण</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

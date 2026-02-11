@@ -43,4 +43,7 @@
     <string name="onboarding_privacy_bugreport_toggle_hint">Այս ընտրանքները կարող են փոխվել կարգավորումներում:</string>
     <string name="onboarding_setup_title">Կարգավորում</string>
     <string name="onboarding_setup_continue_action">Շարունակել</string>
+    <!-- Debug card (dashboard) -->
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

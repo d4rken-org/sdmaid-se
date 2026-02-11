@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Запуск сканирования и очистки в одно нажатие с панели управления без дополнительных подтверждений.</string>
     <string name="dashboard_settings_oneclick_tools_title">Инструменты в одно нажатие</string>
     <string name="dashboard_settings_oneclick_tools_desc">Какие инструменты следует включить в операции одного нажатия?</string>
+    <string name="dashboard_card_config_title">Карты инструментов</string>
+    <string name="dashboard_card_config_desc">Настройка отображения карт и их порядка</string>
+    <string name="dashboard_card_config_header_title">Перетащите для изменения порядка, переключите, чтобы показать/скрыть</string>
     <string name="debug_notification_channel_label">Отладочные уведомления</string>
     <string name="debug_debuglog_file_label">Записанный файл журнала</string>
     <string name="debug_debuglog_recording_progress">Запись журнала отладки</string>
@@ -94,6 +97,16 @@
     <string name="support_installid_desc">Автоматические отчеты об ошибках анонимны. Поделитесь своим идентификатором установки, если разработчику необходимо найти Ваши отчеты об ошибках.</string>
     <string name="support_debuglog_label">Журнал отладки</string>
     <string name="support_debuglog_desc">Запись всех действий приложения в текстовый файл, которым можно поделиться.</string>
+    <string name="support_debuglog_folder_label">Папка журнала отладки</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d файл использует %2$s</item>
+        <item quantity="few">%1$d файла используют %2$s</item>
+        <item quantity="many">%1$d файлов используют %2$s</item>
+        <item quantity="other">%1$d файлов используют %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Нет сохраненных журналов отладки</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Удалить все журналы отладки?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Все сохраненные журналы отладки будут навсегда удалены. Это действие нельзя отменить.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Место, где можно пообщаться и задать вопросы.</string>
     <string name="changelog_label">Изменения</string>
@@ -175,6 +188,14 @@
     <string name="debug_mode_explanation">Включить тестовые опции и более подробный вывод данных. Приложение будет работать медленнее, производительность может варьироваться.</string>
     <string name="debug_bugreporter_label">Автоматические отчеты об ошибках</string>
     <string name="debug_bugreporter_summary">Автоматически сообщать о проблемах, например, о сбоях в работе приложения, чтобы я мог выяснить причину и устранить её.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Включён режим отладки</string>
+    <string name="debug_card_trace_mode_label">Включить режим трассировки</string>
+    <string name="debug_card_dryrun_mode_label">Режим сухого запуска (отключить удаление)</string>
+    <string name="debug_card_areas_reload_action">Перезагрузить области данных</string>
+    <string name="debug_card_pkgs_reload_action">Перезагрузка приложений</string>
+    <string name="debug_card_root_test_action">Проверка root</string>
+    <string name="debug_card_shizuku_test_action">Проверка Shizuku</string>
     <string name="settings_category_tools_label">Инструменты</string>
     <string name="settings_category_filter">Фильтр</string>
     <string name="settings_category_risklevel">Уровень риска</string>
@@ -278,7 +299,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Давность снимка экрана</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Минимальная давность снимка экрана для удаления.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Лишние APK-файлы</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Установочные файлы, версии которых старше или одинаковы с установленными версиям приложений.</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Настройка файлов, которые больше не нужны на основе установленных версий приложений.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Включать ту же версию</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Также обрабатывать APK-файлы, совпадающие с установленной версией. Отключите для удаления только старых версий.</string>
     <string name="systemcleaner_filter_lostdir_label">Папки LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Временные файлы, которые создаются при передаче данных между устройствами Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Файлы Linux</string>
@@ -339,6 +362,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Имя соответствует ключевому слову</string>
     <string name="systemcleaner_customfilter_last_edit">Последнее изменение: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Живой поиск</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Ограничения по размеру</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Минимальный размер</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Максимальный размер</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Ограничение совпадений в зависимости от размера файла. Оставьте пустым для любого размера.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Ограничения по возрасту</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Минимальный возраст</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Максимальный возраст</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Ограничение совпадений на основе возраста файла (времени последнего изменения). Оставьте пустым для любого возраста.</string>
     <string name="systemcleaner_customfilter_import_action">Импорт нового фильтра</string>
     <string name="systemcleaner_customfilter_export_action">Экспорт выбранного фильтра</string>
     <string name="appcleaner_tool_name">Приложения</string>
@@ -440,6 +471,9 @@
     <string name="appcleaner_automation_error_no_settings_body">У этого системного приложения нет экрана настроек. Очистка кэша через службу специальных возможностей невозможна. Добавьте в исключения, чтобы ускорить очистку кэша.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Системное приложение не настроено</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Приложение HyperOS Security (com.miui.securitycenter) не имеет разрешения статистики использования (GET_USAGE_STATS). Это препятствует работе таких функций, как «Очистить данные» в деталях приложения и не позволяет очистить кэш через службу специальных возможностей. Предоставьте разрешение для восстановление полной функциональности.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Принудительная остановка перед очисткой</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Принудительная остановка приложений перед очисткой их кэша. Это поможет очистить кэш некоторых приложений, но может привести к неправильному их функционированию и потребовать ручного перезапуска.</string>
+    <string name="appcleaner_progress_force_stopping">Остановка приложений…</string>
     <string name="deduplicator_tool_name">Дедупликатор</string>
     <string name="deduplicator_explanation_short">Найти дубликаты данных на Вашем устройстве.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -458,6 +492,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Показать опцию, позволяющую удалить все файлы из набора дубликатов так, чтобы не осталось ни одного файла.</string>
     <string name="deduplicator_search_locations_title">Поиск расположений</string>
     <string name="deduplicator_search_locations_all_summary">Все доступные области</string>
+    <string name="deduplicator_keep_prefer_paths_title">Выбор оставить в</string>
+    <string name="deduplicator_keep_prefer_paths_summary">При выборе того, какие дубликаты сохраняются, настройте сохранение файлов в этих местах.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Места не настроены</string>
     <string name="deduplicator_skip_minsize_title">Минимальный размер</string>
     <string name="deduplicator_skip_minsize_description">Пропускать файлы меньше заданного размера.</string>
     <string name="deduplicator_skip_uncommon_title">Пропускать неизвестные типы файлов</string>
@@ -487,6 +524,138 @@
     <string name="deduplicator_details_cluster_title">Группы дубликатов</string>
     <string name="deduplicator_matches_exact_label">Точные копии</string>
     <string name="deduplicator_matches_similar_label">Похожие файлы</string>
+    <string name="deduplicator_arbiter_title">Стратегия удаления</string>
+    <string name="deduplicator_arbiter_summary">Настройте, какие файлы сохраняются, а какие будут удалены.</string>
+    <string name="deduplicator_arbiter_explanation">При удалении дубликатов SD Maid решает, какой файл сохранить, проверяя каждый критерий по порядку. Первый критерий, дающий явное преимущество, определяет результат. Перетащите, чтобы упорядочить, нажмите для изменения режима.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Выбрать режим</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Настройка путей…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Тип дубликата</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Выбор точных совпадений у похожих файлов.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Индексация медиа</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Проверка индексации файлов источником медиа.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Место хранения</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Выбор хранения на внутреннем или внешнем накопителе.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Глубина папки</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Выбор файлов в неглубоких или более глубоких структурах папок.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Дата изменения</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Выбор более старых или новых файлов на основе времени изменения.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Размер файла</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Выбор больших или маленьких файлов, если размеры различаются.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Выбор мест</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Сохраняйте файлы в настроенных Вами местах.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Выбор точных совпадений</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Выбор похожих файлов</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Выбор проиндексированных файлов</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Выбор непроиндексированных файлов</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Выбор внутреннего хранилища</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Выбор внешнего хранилища</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Выбор неглубоких папок</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Выбор глубоких папок</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Выбор старых файлов</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Выбор новых файлов</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Выбор больших файлов</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Выбор маленьких файлов</string>
+    <string name="deduplicator_view_mode_groups_label">Группы</string>
+    <string name="deduplicator_view_mode_directories_label">Папки</string>
+    <string name="squeezer_tool_name">Сжатие медиа</string>
+    <string name="squeezer_explanation_short">Сжатие изображений для экономии места.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">Найдено изображений: %d</item>
+        <item quantity="few">Найдено изображений: %d</item>
+        <item quantity="many">Найдено изображений: %d</item>
+        <item quantity="other">Найдено изображений: %d</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">Можно сохранить: ~%s</item>
+        <item quantity="few">Можно сохранить: ~%s</item>
+        <item quantity="many">Можно сохранить: ~%s</item>
+        <item quantity="other">Можно сохранить: ~%s</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">Изображений сжато: %d</item>
+        <item quantity="few">Изображений сжато: %d</item>
+        <item quantity="many">Изображений сжато: %d</item>
+        <item quantity="other">Изображений сжато: %d</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">Изображений выбрано: %d</item>
+        <item quantity="few">Изображений выбрано: %d</item>
+        <item quantity="many">Изображений выбрано: %d</item>
+        <item quantity="other">Изображений выбрано: %d</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Поиск расположений</string>
+    <string name="squeezer_search_locations_default_summary">Папки камеры (по умолчанию)</string>
+    <string name="squeezer_min_size_title">Минимальный размер файла</string>
+    <string name="squeezer_min_size_description">Пропустить изображения меньше, чем этот размер.</string>
+    <string name="squeezer_min_age_title">Минимальный возраст файла</string>
+    <string name="squeezer_min_age_description">Включать изображения только старше этого возраста.</string>
+    <string name="squeezer_compression_settings_label">Настройки сжатия</string>
+    <string name="squeezer_quality_label">Качество</string>
+    <string name="squeezer_quality_title">Качество сжатия</string>
+    <string name="squeezer_quality_description">Меньшее качество означает меньший размер файла, но снижает качество изображения.</string>
+    <string name="squeezer_quality_value_format">%d%%</string>
+    <string name="squeezer_quality_example_format">Пример: %1$s изображение → экономия ~%2$s при качестве %3$d%%</string>
+    <string name="squeezer_quality_warning_low">Низкое качество может вызывать видимые артефакты.</string>
+    <string name="squeezer_quality_warning_high">Очень высокое качество ведет к минимальной экономии места.</string>
+    <string name="squeezer_types_category_label">Типы изображений</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Включать изображения JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Включать изображения WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Пропустить ранее сжатые</string>
+    <string name="squeezer_skip_compressed_description">Пропустить изображения, которые уже были сжаты SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Вписать маркер EXIF</string>
+    <string name="squeezer_exif_marker_description">Добавляет маркер к полю комментариев пользователя EXIF для предотвращения повторного сжатия, даже если история сжатия очищается.</string>
+    <string name="squeezer_estimated_savings_format">~%s экономия</string>
+    <string name="squeezer_no_savings_expected">Ограниченная экономия</string>
+    <string name="squeezer_current_size_format">Размер: %s</string>
+    <string name="squeezer_compress_action">Сжатие</string>
+    <string name="squeezer_compress_all_action">Сжать все</string>
+    <string name="squeezer_preview_dialog_title">Подтвердите сжатие</string>
+    <string name="squeezer_preview_total_size">Общий размер</string>
+    <string name="squeezer_preview_estimated_savings">Предполагаемая экономия</string>
+    <string name="squeezer_compress_confirmation_title">Сжать изображения?</string>
+    <string name="squeezer_compress_confirmation_message">Оригинальные изображения будут заменены сжатыми версиями. Это действие не может быть отменено.</string>
+    <string name="squeezer_history_title">История сжатия</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d элем. (%2$s)</item>
+        <item quantity="few">%1$d элем. (%2$s)</item>
+        <item quantity="many">%1$d элем. (%2$s)</item>
+        <item quantity="other">%1$d элем. (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Нет истории сжатия</string>
+    <string name="squeezer_history_clear_title">Очистить историю сжатия</string>
+    <string name="squeezer_history_clear_message">Это позволит снова сжимать ранее сжатые изображения. Сами изображения не будут затронуты.</string>
+    <string name="squeezer_onboarding_title">О сжатии изображений</string>
+    <string name="squeezer_onboarding_message">Сжатие изображений уменьшает размер файла путем удаления деталей. Этот процесс необратим - исходное качество не может быть восстановлено.\n\nВот предпросмотр того, как будут выглядеть Ваши изображения:</string>
+    <string name="squeezer_onboarding_original_label">Оригинал</string>
+    <string name="squeezer_onboarding_compressed_label">После сжатия</string>
+    <string name="squeezer_onboarding_quality_label">Качество: %d%%</string>
+    <string name="squeezer_onboarding_tap_to_zoom_hint">Нажмите на изображения, чтобы увеличить</string>
+    <string name="squeezer_onboarding_got_it">Понятно</string>
+    <string name="squeezer_preview_info_action">Показать пример</string>
+    <string name="squeezer_no_example_found">В выбранных путях изображения не найдены.</string>
+    <string name="squeezer_result_empty_message">Не найдено изображений, которые можно сжать.</string>
+    <string name="squeezer_setup_warning">Сжатие навсегда снижает качество изображения для сохранения места. Это не может быть отменено. Перед началом внимательно проверьте настройки.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze уменьшает размер файлов изображений, чтобы освободить место на диске. Это навсегда снижает качество изображения и не может быть отменено. Перед началом внимательно проверьте настройки.</string>
+    <string name="squeezer_setup_paths_title">Места для поиска</string>
+    <string name="squeezer_setup_paths_default">Выберите папки для поиска</string>
+    <string name="squeezer_setup_quality_title">Качество сжатия</string>
+    <string name="squeezer_setup_age_title">Минимальный возраст</string>
+    <string name="squeezer_setup_age_none">Нет ограничения (включать все файлы)</string>
+    <string name="squeezer_setup_start_action">Запустить сканирование</string>
+    <string name="squeezer_quality_value">%d%%</string>
+    <string name="squeezer_quality_hint_very_low">Качество ниже 40% может создать нечитаемые изображения.</string>
+    <string name="squeezer_quality_hint_low">Меньшее качество экономит больше места, но может вызвать видимые артефакты.</string>
+    <string name="squeezer_quality_hint_high">Очень высокое качество ведет к минимальной экономии места.</string>
+    <string name="squeezer_quality_hint_normal">Сбалансированное качество и экономия места.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">По крайней мере %d день</item>
+        <item quantity="few">По крайней мере %d дн.</item>
+        <item quantity="many">По крайней мере %d дн.</item>
+        <item quantity="other">По крайней мере %d дн.</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Приблизительно ~%d%% экономия для JPEG-файлов</string>
     <string name="appcontrol_tool_name">Менеджер</string>
     <string name="appcontrol_explanation_short">Управление приложениями, установленными на Вашем устройстве.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -523,6 +692,7 @@
     <string name="appcontrol_tag_not_installed">Не установлено</string>
     <string name="appcontrol_tag_enabled">Включено</string>
     <string name="appcontrol_tag_disabled">Отключено</string>
+    <string name="appcontrol_tag_debug">Отладка</string>
     <string name="appcontrol_progress_enabling_package">Включение приложения</string>
     <string name="appcontrol_progress_disabling_package">Отключение приложения</string>
     <string name="appcontrol_list_filteroptions_label">Параметры фильтра</string>
@@ -539,6 +709,40 @@
         <item quantity="few">Удалено приложений: %d</item>
         <item quantity="many">Удалено приложений: %d</item>
         <item quantity="other">Удалено приложений: %d</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Архивирование</string>
+    <string name="appcontrol_archive_selection_action">Архивировать приложения</string>
+    <string name="appcontrol_archive_description">Архивируйте для освобождения места и сохранении данных приложения для последующего восстановления.</string>
+    <string name="appcontrol_progress_archiving_app">Архивация приложения…</string>
+    <string name="appcontrol_archive_confirmation_title">Подтвердите архивирование</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Архивировать %d приложение?</item>
+        <item quantity="few">Архивировать %d прил.?</item>
+        <item quantity="many">Архивировать %d прил.?</item>
+        <item quantity="other">Архивировать %d прил.?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d приложение архивировано</item>
+        <item quantity="few">%d прил. архивировано</item>
+        <item quantity="many">%d прил. архивировано</item>
+        <item quantity="other">%d прил. архивировано</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Восстановление</string>
+    <string name="appcontrol_restore_selection_action">Восстановить приложения</string>
+    <string name="appcontrol_restore_description">Восстановление архивированного приложения до состояния полной установки. Данные приложения сохраняются.</string>
+    <string name="appcontrol_progress_restoring_app">Восстановление приложения…</string>
+    <string name="appcontrol_restore_confirmation_title">Подтвердить восстановление</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Восстановить %d приложение?</item>
+        <item quantity="few">Восстановить %d прил.?</item>
+        <item quantity="many">Восстановить %d прил.?</item>
+        <item quantity="other">Восстановить %d прил.?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d приложение восстановлено</item>
+        <item quantity="few">%d прил. восстановлено</item>
+        <item quantity="many">%d прил. восстановлено</item>
+        <item quantity="other">%d прил. восстановлено</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Размер приложения</string>
     <string name="appcontrol_app_sizes_apk_label">Приложение</string>
@@ -573,6 +777,9 @@
         <item quantity="other">Экспортировано приложений: %d</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Экспорт %s</string>
+    <string name="appcontrol_share_list_action">Поделиться списком</string>
+    <string name="appcontrol_share_list_title">Мои приложения</string>
+    <string name="appcontrol_share_list_footer">Поделиться с помощью SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Принудительное завершение приложений</string>
     <string name="appcontrol_force_stop_action">Принудительное завершение</string>
     <string name="appcontrol_force_stop_confirm_title">Подтвердите завершение</string>
@@ -593,6 +800,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Принудительное завершение…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Поиск кнопки \"Принудительное завершение\" (ключевые слова: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Попытка подтвердить предыдущее действие (ключевые слова: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Архивация…</string>
+    <string name="appcontrol_automation_progress_find_archive">Поиск кнопки \"Архивация\" (ключевые слова: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Восстановление…</string>
+    <string name="appcontrol_automation_progress_find_restore">Поиск кнопки \"Восстановление\" (ключевые слова: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Время экрана: %1$s с %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Последнее обновление: %s</string>
     <string name="appcontrol_item_installedat_x_label">Установлено: %s</string>
@@ -617,6 +828,13 @@
         <item quantity="other">Занято %s</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Отсутствует прямой доступ</string>
+    <string name="analyzer_content_create_swiper_session_action">Создать сессию Свайпер</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Сессия Свайпер создана с помощью %d элемента</item>
+        <item quantity="few">Сессия Свайпер создана с помощью %d элем.</item>
+        <item quantity="many">Сессия Свайпер создана с помощью %d элем.</item>
+        <item quantity="other">Сессия Свайпер создана с помощью %d элем.</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Основное хранилище</string>
     <string name="analyzer_storage_type_primary_description">Основное хранилище Вашего устройства. Включает в себя внутренний раздел SD card, данные приложений и системы.</string>
     <string name="analyzer_storage_type_secondary_title">Дополнительное хранилище</string>
@@ -659,6 +877,7 @@
     <string name="exclusion_type_segment">Исключение сегмента</string>
     <string name="exclusion_tags_alltools">Все инструменты</string>
     <string name="exclusion_target_label">Цель исключения</string>
+    <string name="exclusion_editor_path_change_action">Нажмите, чтобы изменить путь</string>
     <string name="exclusion_option_allow_partial">Разрешить частичное совпадение</string>
     <string name="exclusion_option_ignore_casing">Без учета регистра</string>
     <string name="exclusion_editor_affected_tools_label">Затрагиваемые инструменты</string>
@@ -823,12 +1042,170 @@
     <string name="shortcuts_settings_category">Ярлыки</string>
     <string name="shortcuts_onetap_enabled_title">Ярлык в одно нажатие</string>
     <string name="shortcuts_onetap_enabled_summary">Показывать ярлык «Сканирование + Удаление» при удержании нажатия на значке приложения. Использует те же инструменты, что и панель управления в одно нажатие.</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">Режим отладки включен</string>
-    <string name="debug_card_trace_mode_label">Включить режим трассировки</string>
-    <string name="debug_card_dryrun_mode_label">Режим пробного запуска (отключить удаление)</string>
-    <string name="debug_card_areas_reload_action">Перезагрузить области данных</string>
-    <string name="debug_card_pkgs_reload_action">Перезагрузить приложения</string>
-    <string name="debug_card_root_test_action">Проверить root</string>
-    <string name="debug_card_shizuku_test_action">Проверить Shizuku</string>
+    <string name="swiper_label">Свайпер</string>
+    <string name="swiper_tool_name">Свайпер</string>
+    <string name="swiper_tool_description">Проведите по файлам, чтобы решить, что сохранить, а что удалить.</string>
+    <string name="swiper_dashcard_description">SD Maid обрабатывает большинство процессов автоматически. Для всего остального есть свайпер!</string>
+    <string name="swiper_start_action">Начать свайп</string>
+    <string name="swiper_continue_action">Продолжить сессию</string>
+    <string name="swiper_sessions_description">Некоторые файлы просто нуждаются в человеческом касании. Проведите по экрану, чтобы решить их судьбу - ничего не удаляется, пока Вы не скажете. Вы можете приостановить процесс в любое время и продолжить позже.</string>
+    <string name="swiper_select_folders_action">Выберите папки</string>
+    <string name="swiper_scanning_title">Сканирование…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d элем. найдено</item>
+        <item quantity="few">%d элем. найдено</item>
+        <item quantity="many">%d элем. найдено</item>
+        <item quantity="other">%d элем. найдено</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d элем. удалено</item>
+        <item quantity="few">%d элем. удалено</item>
+        <item quantity="many">%d элем. удалено</item>
+        <item quantity="other">%d элем. удалено</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d элем. завершено с ошибкой</item>
+        <item quantity="few">%d элем. завершено с ошибкой</item>
+        <item quantity="many">%d элем. завершено с ошибкой</item>
+        <item quantity="other">%d элем. завершено с ошибкой</item>
+    </plurals>
+    <string name="swiper_item_position">%1$d из %2$d</string>
+    <string name="swiper_keep_action">Оставить</string>
+    <string name="swiper_skip_action">Пропустить</string>
+    <string name="swiper_review_action">Обзор</string>
+    <string name="swiper_status_title">Обзор решений</string>
+    <string name="swiper_status_action_keep_selected">Оставить выбранное</string>
+    <string name="swiper_status_action_delete_selected">Удалить выбранное</string>
+    <string name="swiper_status_action_reset_selected">Сбросить выбранное</string>
+    <string name="swiper_decision_undecided">Без решения</string>
+    <string name="swiper_retry_action">Повторить</string>
+    <string name="swiper_delete_confirmation_title">Удалить файлы?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Будет окончательно удален %1$d файл (%2$s). Это действие нельзя отменить.</item>
+        <item quantity="few">Будет окончательно удалено %1$d файла (%2$s). Это действие нельзя отменить.</item>
+        <item quantity="many">Будет окончательно удалено %1$d файлов (%2$s). Это действие нельзя отменить.</item>
+        <item quantity="other">Будет окончательно удалено %1$d файлов (%2$s). Это действие нельзя отменить.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d нерешенный элемент будет отложен на более поздний срок.</item>
+        <item quantity="few">%d нерешенных элем. будут отложены на более поздний срок.</item>
+        <item quantity="many">%d нерешенных элем. будут отложены на более поздний срок.</item>
+        <item quantity="other">%d нерешенных элем. будут отложены на более поздний срок.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Удалить %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Поменять направление свайпа</string>
+    <string name="swiper_settings_swap_directions_summary">Проведите влево для сохранения, вправо для удаления.</string>
+    <string name="swiper_settings_show_details_title">Показать сведения о файле</string>
+    <string name="swiper_settings_show_details_summary">Отображать имя файла, размер и дату на экране свайпа.</string>
+    <string name="swiper_settings_haptic_feedback_title">Тактильный отклик</string>
+    <string name="swiper_settings_haptic_feedback_summary">Вибрация при принятии или удалении решений.</string>
+    <string name="swiper_discard_session_confirmation_title">Отменить сессию?</string>
+    <string name="swiper_discard_session_confirmation_message">Все решения будут потеряны. Вы уверены?</string>
+    <string name="swiper_no_preview_available">Предпросмотр недоступен</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Продолжить сессию, начатую %1$d день назад (%2$d%% завершено)</item>
+        <item quantity="few">Продолжить сессию, начатую %1$d дн. назад (%2$d%% завершено)</item>
+        <item quantity="many">Продолжить сессию, начатую %1$d дн. назад (%2$d%% завершено)</item>
+        <item quantity="other">Продолжить сессию, начатую %1$d дн. назад (%2$d%% завершено)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">Сессий: %d</item>
+        <item quantity="few">Сессий: %d</item>
+        <item quantity="many">Сессий: %d</item>
+        <item quantity="other">Сессий: %d</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">Нет решения: %d</item>
+        <item quantity="few">Нет решения: %d</item>
+        <item quantity="many">Нет решения: %d</item>
+        <item quantity="other">Нет решения: %d</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Создано %1$s, посл. активность %2$s</string>
+    <string name="swiper_session_remove_action">Удалить сессию</string>
+    <string name="swiper_sessions_empty_hint">Нажмите +, чтобы выбрать папку и начать свайп</string>
+    <string name="swiper_sessions_upgrade_body">Обновитесь, чтобы удалить эти ограничения и поддержать разработку. Бесплатная версия ограничена:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d файл за сессию</item>
+        <item quantity="few">%d файла за сессию</item>
+        <item quantity="many">%d файлов за сессию</item>
+        <item quantity="other">%d файлов за сессию</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">Сессий: %d</item>
+        <item quantity="few">Сессий: %d</item>
+        <item quantity="many">Сессий: %d</item>
+        <item quantity="other">Сессий: %d</item>
+    </plurals>
+    <string name="swiper_session_default_label">Сессия %d</string>
+    <string name="swiper_session_rename_title">Переименовать сессию</string>
+    <string name="swiper_session_rename_hint">Введите имя для сессии</string>
+    <string name="swiper_sessions_current_sessions">Текущие сессии</string>
+    <string name="swiper_session_paths_label">Пути</string>
+    <string name="swiper_session_status_label">Состояние</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d для сохранения</item>
+        <item quantity="few">%d для сохранения</item>
+        <item quantity="many">%d для сохранения</item>
+        <item quantity="other">%d для сохранения</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d для удаления</item>
+        <item quantity="few">%d для удаления</item>
+        <item quantity="many">%d для удаления</item>
+        <item quantity="other">%d для удаления</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">Для %d решение не принято</item>
+        <item quantity="few">Для %d решение не принято</item>
+        <item quantity="many">Для %d решение не принято</item>
+        <item quantity="other">Для %d решение не принято</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d уже сохранено</item>
+        <item quantity="few">%d уже сохранено</item>
+        <item quantity="many">%d уже сохранено</item>
+        <item quantity="other">%d уже сохранено</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d уже удалено</item>
+        <item quantity="few">%d уже удалено</item>
+        <item quantity="many">%d уже удалено</item>
+        <item quantity="other">%d уже удалено</item>
+    </plurals>
+    <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d сохранено</item>
+        <item quantity="few">%d сохранено</item>
+        <item quantity="many">%d сохранено</item>
+        <item quantity="other">%d сохранено</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d удалено</item>
+        <item quantity="few">%d удалено</item>
+        <item quantity="many">%d удалено</item>
+        <item quantity="other">%d удалено</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Исключить \"%1$s\" из сканирования Swiper?</string>
+    <string name="swiper_sessions_header_title">Готовы к упорядочиванию?</string>
+    <string name="swiper_sessions_suggestions_label">Попробуйте начать с:</string>
+    <string name="swiper_sessions_suggestion_downloads">Папка загрузок</string>
+    <string name="swiper_sessions_suggestion_screenshots">Снимки экрана</string>
+    <string name="swiper_sessions_suggestion_camera">Галерея</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Оставить!</string>
+    <string name="swiper_stamp_keep_2">Класс!</string>
+    <string name="swiper_stamp_keep_3">Да!</string>
+    <string name="swiper_stamp_keep_4">Сохранить!</string>
+    <string name="swiper_stamp_delete_1">Нет!</string>
+    <string name="swiper_stamp_delete_2">Пока!</string>
+    <string name="swiper_stamp_delete_3">Мусор!</string>
+    <string name="swiper_stamp_delete_4">Удалить!</string>
+    <string name="swiper_stamp_skip_1">Пропустить!</string>
+    <string name="swiper_stamp_skip_2">Куда там!</string>
+    <string name="swiper_stamp_skip_3">Позже!</string>
+    <string name="swiper_stamp_skip_4">Может быть!</string>
+    <string name="swiper_stamp_undo_1">Отменить!</string>
+    <string name="swiper_stamp_undo_2">Назад!</string>
+    <string name="swiper_stamp_undo_3">Ой!</string>
+    <string name="swiper_stamp_undo_4">Одну минуточку!</string>
 </resources>

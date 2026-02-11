@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">Krefst SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">Uppfæra SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro býður upp á betri niðurstöður, fleiri eiginleika og valkosti fyrir háþróaða notendur.</string>
     <string name="upgrades_dashcard_upgrade_action">Uppfæra</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play er ekki tiltækt</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid getur ekki tengst Google Play. Er Google Play uppsett og uppfært? Er Google reikningurinn þinn skráður inn? Reyndu að hreinsa skyndiminni Google Play appsins og endurræstu tækið þitt.</string>

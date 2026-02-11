@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">ড্যাশবোর্ডের অ্যাকশন বোতামে একটি আলতো চাপ দিয়ে সমস্ত টুলের স্ক্যান এবং মুছে ফেলা শুরু করুন, কোনও অতিরিক্ত নিশ্চিতকরণের প্রয়োজন নেই।</string>
     <string name="dashboard_settings_oneclick_tools_title">এক-ট্যাপ টুলস</string>
     <string name="dashboard_settings_oneclick_tools_desc">এক-ট্যাপ অপারেশনে কোন সরঞ্জামগুলি অন্তর্ভুক্ত করা উচিত?</string>
+    <string name="dashboard_card_config_title">ড্যাশবোর্ড কার্ড</string>
+    <string name="dashboard_card_config_desc">কোন কার্ডগুলি দেখানো হবে এবং তাদের ক্রম কনফিগার করুন</string>
+    <string name="dashboard_card_config_header_title">পুনঃক্রম করতে টেনে আনুন, দেখান/লুকাতে টগল করুন</string>
     <string name="debug_notification_channel_label">ডিবাগ নোটিফিকেশন</string>
     <string name="debug_debuglog_file_label">রেকর্ড করা লগ ফাইল</string>
     <string name="debug_debuglog_recording_progress">রেকর্ডিং ডিবাগ লগ</string>
@@ -88,6 +91,10 @@
     <string name="support_installid_desc">স্বয়ংক্রিয় ত্রুটি রিপোর্ট বেনামী হয়। আপনার ইন্সটল আইডি শেয়ার করুন যদি ডেভেলপার আপনার বাগ রিপোর্ট খুঁজে বের করতে চায়।</string>
     <string name="support_debuglog_label">ডিবাগ লগ</string>
     <string name="support_debuglog_desc">অ্যাপটি কী করছে তা একটি টেক্সট ফাইলে রেকর্ড করুন যাতে আপনি শেয়ার করতে পারেন।</string>
+    <string name="support_debuglog_folder_label">লগ ফোল্ডার ডিবাগ করুন</string>
+    <string name="support_debuglog_folder_empty_desc">কোনও ডিবাগ লগ সংরক্ষণ করা হয়নি</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">সব ডিবাগ লগ মুছে ফেলবেন?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">এটি সমস্ত সঞ্চিত ডিবাগ লগ সেশন স্থায়ীভাবে মুছে ফেলবে। এই ক্রিয়াটি পূর্বাবস্থায় ফেরানো যাবে না।</string>
     <string name="discord_label">ডিসকর্ড</string>
     <string name="discord_description">আড্ডা দেওয়ার এবং প্রশ্ন করার জায়গা।</string>
     <string name="changelog_label">পরিবর্তনসূচী</string>
@@ -169,6 +176,14 @@
     <string name="debug_mode_explanation">পরীক্ষার বিকল্প এবং আরও verbose আউটপুট চালু করুন। অ্যাপ ধীর গতিতে চলবে এবং ভিন্নভাবে কাজ করবে।</string>
     <string name="debug_bugreporter_label">স্বয়ংক্রিয় বাগ রিপোর্ট</string>
     <string name="debug_bugreporter_summary">স্বয়ংক্রিয়ভাবে bug রিপোর্ট করুন, যেমন অ্যাপের বিশদ বিবরণ, কেনো ক্র্যাশ হয়েছে যাতে আমি কেন খুঁজে বের করতে পারি এবং এটি ঠিক করতে পারি।</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">ডিবাগ মোড সক্রিয় করা আছে</string>
+    <string name="debug_card_trace_mode_label">ট্রেস মোড সক্ষম করুন</string>
+    <string name="debug_card_dryrun_mode_label">ড্রাই-রান মোড (মুছে ফেলা বন্ধ করুন)</string>
+    <string name="debug_card_areas_reload_action">ডেটা এরিয়া পুনরায় লোড করুন</string>
+    <string name="debug_card_pkgs_reload_action">অ্যাপগুলি পুনরায় লোড করুন</string>
+    <string name="debug_card_root_test_action">রুট পরীক্ষা করুন</string>
+    <string name="debug_card_shizuku_test_action">Shizuku পরীক্ষা করুন</string>
     <string name="settings_category_tools_label">টুলস</string>
     <string name="settings_category_filter">পরিশ্রুতক</string>
     <string name="settings_category_risklevel">ঝুঁকির স্তর</string>
@@ -260,7 +275,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">স্ক্রিনশট বয়স</string>
     <string name="systemcleaner_filter_screenshots_age_summary">স্ক্রিনশট মুছে ফেলার জন্য বিবেচনা করার জন্য সর্বনিম্ন বয়স।</string>
     <string name="systemcleaner_filter_superfluosapks_label">অনাবশ্যক APK-সমূহ</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">ইতিমধ্যে ইনস্টল করা অ্যাপ সংস্করণের তুলনায় পুরানো বা সমান ফাইল সেটআপ করুন৷</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">ইনস্টল করা অ্যাপ সংস্করণের উপর ভিত্তি করে আর প্রয়োজন নেই এমন ফাইল সেটআপ করুন।</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">একই সংস্করণ অন্তর্ভুক্ত করুন</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">ইনস্টল করা সংস্করণের সাথে মেলে এমন APK ফাইলগুলিকেও লক্ষ্য করুন। শুধুমাত্র পুরানো সংস্করণগুলি সরাতে অক্ষম করুন।</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR ফোল্ডার</string>
     <string name="systemcleaner_filter_lostdir_summary">অ্যান্ড্রয়েড ডিভাইসের মধ্যে ডেটা স্থানান্তর করার সময় তৈরি করা অস্থায়ী ফাইল।</string>
     <string name="systemcleaner_filter_linuxfiles_label">লিনাক্স ফাইলসমূহ</string>
@@ -321,6 +338,7 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">নাম আর কীওয়ার্ড একই</string>
     <string name="systemcleaner_customfilter_last_edit">সর্বশেষ সম্পাদন: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">লাইভ সার্চ</string>
+    <string name="systemcleaner_customfilter_editor_size_label">আকার সীমাবদ্ধতা</string>
     <string name="systemcleaner_customfilter_import_action">নতুন ফিল্টার ইমপোর্ট করুন</string>
     <string name="systemcleaner_customfilter_export_action">নির্বাচিত ফিল্টার এক্সপোর্ট করুন</string>
     <string name="appcleaner_tool_name">অ্যাপ পরিষ্কারক</string>
@@ -756,4 +774,6 @@
     <string name="shortcuts_settings_category">শর্টকাট</string>
     <string name="shortcuts_onetap_enabled_title">এক-ট্যাপ শর্টকাট</string>
     <string name="shortcuts_onetap_enabled_summary">অ্যাপ আইকনটি দীর্ঘক্ষণ টিপে রাখলে \"স্ক্যান + ডিলিট\" শর্টকাট দেখান। ওয়ান-ট্যাপ ড্যাশবোর্ডের মতো একই টুল ব্যবহার করে।</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

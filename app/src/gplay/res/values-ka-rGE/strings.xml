@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">პრო</string>
     <string name="upgrade_feature_requires_pro">მოითხოვს SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">გაარემონტეთ SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro გთავაზობთ უკეთეს შედეგებს, მეტ ფუნქციებს და ვარიანტებს ძლიერი მომხმარებლებისთვის.</string>
     <string name="upgrades_dashcard_upgrade_action">გარემონტება</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play მიუწვდომელია</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid ვერ უკავშირდება Google Play-ს. დაინსტალირებულია და განახლებულია Google Play? შესულია თქვენი Google ანგარიში? სცადეთ Google Play აპლიკაციის ქეშის გასუფთავება და თქვენი მოწყობილობის გადატვირთვა.</string>

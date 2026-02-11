@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">Nepieciešams SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">Uzlabot SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro piedāvā labākus rezultātus, vairāk funkciju un iespējas pieredzējušiem lietotājiem.</string>
     <string name="upgrades_dashcard_upgrade_action">Uzlabot</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play nav pieejams</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid nevar izveidot savienojumu ar Google Play. Vai Google Play ir instalēts un atjaunināts? Vai jūsu Google konts ir pieteicies? Mēģiniet notīrīt Google Play lietotnes kešatmiņu un restartēt ierīci.</string>

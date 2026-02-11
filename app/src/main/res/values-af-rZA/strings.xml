@@ -150,6 +150,7 @@
     <string name="debug_mode_explanation">Aktiveer toets opsies en meer uitvoerige uitset. Toepassing sal stadiger loop en anders presteer.</string>
     <string name="debug_bugreporter_label">Outomatiese fout verslae</string>
     <string name="debug_bugreporter_summary">Rapporteer outomaties probleme, bv. besonderhede oor toepassing ongelukke sodat ek kan uitvind hoekom en dit kan regmaak.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Gereedskap</string>
     <string name="settings_category_risklevel">Risiko vlak</string>
     <string name="corpsefinder_explanation_short">Data wat behoort aan reeds verwyderde toepassings.</string>
@@ -235,7 +236,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Skermkiekie Ouderdom</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimum ouderdom vir skermkiekies om oorweeg te word vir skrapping.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Oorbodigе APK\'s</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Opstelling lêers wat ouer of gelyk is aan toepassing weergawes wat reeds geïnstalleer is.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR gidse</string>
     <string name="systemcleaner_filter_lostdir_summary">Tydelike lêers wat geskep word wanneer data tussen Android toestelle oorgedra word.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux lêers</string>
@@ -695,4 +695,6 @@
     <string name="area_type_public_obb_label">Openbare toepassing hulpbronne</string>
     <string name="area_type_private_data_label">Private toepassing data</string>
     <string name="area_type_portable_label">Draagbare berging</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

@@ -153,6 +153,7 @@
     <string name="debug_mode_explanation">啟用測試選項和更多詳細資訊輸出，應用程式會降低速度並以不同方式執行。</string>
     <string name="debug_bugreporter_label">自動錯誤報告</string>
     <string name="debug_bugreporter_summary">自動回報問題，例如關於應用程式當機的詳細資料，這樣我就可以找出原因並修正錯誤。</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">工具</string>
     <string name="settings_category_filter">過濾器</string>
     <string name="settings_category_risklevel">風險層級</string>
@@ -236,7 +237,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">螢幕截圖年齡</string>
     <string name="systemcleaner_filter_screenshots_age_summary">螢幕截圖被考慮刪除的最小年齡。</string>
     <string name="systemcleaner_filter_superfluosapks_label">非必要的 APK 檔案</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">比已安裝的應用程式較舊或相同的安裝檔案。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 資料夾</string>
     <string name="systemcleaner_filter_lostdir_summary">在 Android 裝置之間傳輸資料時建立的暫存檔案。</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux 檔案</string>
@@ -688,4 +688,6 @@
     <string name="area_type_public_obb_label">公用應用程式資源</string>
     <string name="area_type_private_data_label">私人應用程式資料</string>
     <string name="area_type_portable_label">可攜式儲存空間</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

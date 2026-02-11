@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Lancer l’analyse et la suppression pour tous les outils en touchant le bouton d’action du tableau de bord, sans confirmation.</string>
     <string name="dashboard_settings_oneclick_tools_title">Outils à accès direct</string>
     <string name="dashboard_settings_oneclick_tools_desc">Outils qui devraient faire partie des opérations à accès direct.</string>
+    <string name="dashboard_card_config_title">Cartes du tableau de bord</string>
+    <string name="dashboard_card_config_desc">Configurer les cartes affichées et leur ordre d’affichage</string>
+    <string name="dashboard_card_config_header_title">Faites-les glisser pour les réorganiser. Affichez ou cachez-les</string>
     <string name="debug_notification_channel_label">Notifications de débogage</string>
     <string name="debug_debuglog_file_label">Fichier journal enregistré</string>
     <string name="debug_debuglog_recording_progress">Enregistrement du journal de débogage</string>
@@ -88,6 +91,14 @@
     <string name="support_installid_desc">Les relevés d’erreur automatiques sont anonymes. Partagez votre identifiant d’installation si le développeur a besoin de trouver vos relevés d’erreur.</string>
     <string name="support_debuglog_label">Journal de débogage</string>
     <string name="support_debuglog_desc">Enregistrer tout ce que l’appli fait dans un fichier texte que vous pouvez partager.</string>
+    <string name="support_debuglog_folder_label">Dossier du journal de débogage</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d fichier qui utilise %2$s</item>
+        <item quantity="other">%1$d fichiers qui utilisent %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Aucun journal de débogage n’est enregistré</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Supprimer tous les journaux de débogage ?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Les sessions du journal de débogage seront supprimées irrémédiablement. Cette action est irréversible.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Un endroit où se retrouver et poser des questions.</string>
     <string name="changelog_label">Journal des changements</string>
@@ -169,6 +180,14 @@
     <string name="debug_mode_explanation">Activer des options de test et une sortie plus détaillée. L’appli fonctionnera plus lentement et différemment.</string>
     <string name="debug_bugreporter_label">Relevés de bogues automatiques</string>
     <string name="debug_bugreporter_summary">Signale automatiquement les problèmes, p. ex. les détails sur les plantages de l’appli, afin que je puisse en déterminer la cause et y remédier.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Le mode de débogage est activé</string>
+    <string name="debug_card_trace_mode_label">Activer le mode de traçage</string>
+    <string name="debug_card_dryrun_mode_label">Mode simulation (désactiver la suppression)</string>
+    <string name="debug_card_areas_reload_action">Recharger les zones de données</string>
+    <string name="debug_card_pkgs_reload_action">Recharger les applis</string>
+    <string name="debug_card_root_test_action">Tester l’accès superutilisateur</string>
+    <string name="debug_card_shizuku_test_action">Tester Shizuku</string>
     <string name="settings_category_tools_label">Outils</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Niveau de risque</string>
@@ -260,7 +279,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Âge de la capture d’écran</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Âge minimal pour que les captures d’écran soient prises en compte pour être supprimées.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK superflus</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Fichiers d\'installation plus anciens ou égaux aux versions d\'applications déjà installées.</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Fichiers d’installation inutiles d’après les versions d’applis installées.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Inclure la même version</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Cibler aussi les fichiers APK qui correspondent à la version installée. Désactiver cette option pour ne supprimer que les anciennes versions.</string>
     <string name="systemcleaner_filter_lostdir_label">Dossiers LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Fichiers temporaires créés lors du transfert de données entre appareils Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Fichiers Linux</string>
@@ -299,7 +320,7 @@
     <string name="systemcleaner_customfilter_editor_warning">Les filtres personnalisés peuvent présenter des risques. Vérifiez les résultats de votre analyse avant de supprimer.</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Zones de données</string>
     <string name="systemcleaner_customfilter_editor_areas_explanation">Si aucune zone n’est choisie, toutes les zones de données accessibles seront analysées et comparées.</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_label">Restrictions de types de fichier</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">Restriction de type de fichier</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Fichiers</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Dossiers</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Si aucun type n’est choisi, tous les types seront comparés.</string>
@@ -321,6 +342,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Le nom est égal au mots-clé</string>
     <string name="systemcleaner_customfilter_last_edit">Dernière modification : %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Recherche en direct</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Restriction de taille</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Taille minimale</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Taille maximale</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Limiter les correspondances en fonction de la taille des fichiers. Ne rien définir pour accepter toutes les tailles.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Restriction d’âge</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Âge minimal</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Âge maximal</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Limiter les correspondances en fonction de l’âge du fichier (date de dernière modification). Ne pas définir pour accepter tous les âges.</string>
     <string name="systemcleaner_customfilter_import_action">Importer un nouveau filtre</string>
     <string name="systemcleaner_customfilter_export_action">Exporter le filtre choisi</string>
     <string name="appcleaner_tool_name">Nettoyeur d’applis</string>
@@ -416,6 +445,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Cette appli système n’a pas d’écran de paramètres. Le service d’accessibilité ne peut pas en vider le cache. L’exclure accélère le vidage du cache.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Une appli système est mal configurée</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">L’autorisation d’accès aux statistiques d’utilisation (GET_USAGE_STATS) manque pour l’appli de sécurité d’HyperOS (com.miui.securitycenter). Par conséquent, « Effacer les données » des détails des applis et vider le cache grâce au service d’accessibilité ne fonctionneront pas. Pour rétablir la fonctionnalité, accordez l’autorisation.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Forcer l’arrêt avant de vider</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Forcer l’arrêt des applis avant de vider leur cache. Cela peut aider à vider le cache de certaines applis, mais peut entraîner leur dysfonctionnement et demander un redémarrage manuel.</string>
+    <string name="appcleaner_progress_force_stopping">Arrêt forcer des applis…</string>
     <string name="deduplicator_tool_name">Déduplicateur</string>
     <string name="deduplicator_explanation_short">Trouver les données dupliquées présentes sur votre appareil.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -430,6 +462,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Afficher les options de suppression de tous les fichiers d\'un jeu de doublons afin qu’aucun fichier ne reste.</string>
     <string name="deduplicator_search_locations_title">Chercher dans les emplacements</string>
     <string name="deduplicator_search_locations_all_summary">Toutes les zones accessibles</string>
+    <string name="deduplicator_keep_prefer_paths_title">Préférer ces fichiers</string>
+    <string name="deduplicator_keep_prefer_paths_summary">En cas de doublon, conserver en priorité les fichiers de ces emplacements.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Aucun emplacement n’est défini</string>
     <string name="deduplicator_skip_minsize_title">Taille minimale</string>
     <string name="deduplicator_skip_minsize_description">Ignorer les fichiers inférieurs à taille minimale.</string>
     <string name="deduplicator_skip_uncommon_title">Ignorer les types de fichier inhabituels</string>
@@ -438,7 +473,7 @@
     <string name="deduplicator_detection_method_checksum_title">Somme de contrôle du contenu</string>
     <string name="deduplicator_detection_method_checksum_summary">Déterminer les doublons en calculant les sommes de contrôle des fichiers. Le contenu des fichiers dont les sommes de contrôle correspondent est identique.</string>
     <string name="deduplicator_detection_method_phash_title">Hachage perceptuel</string>
-    <string name="deduplicator_detection_method_phash_summary">Trouvez des fichiers semblables en analysant les caractéristiques du contenu et en comparant les valeurs perceptuelles de hachage. ⚠️ La détection fondée sur la similitude peut comporter de faux positifs qui nécessitent une vérification manuelle.</string>
+    <string name="deduplicator_detection_method_phash_summary">Trouvez des fichiers similaires en analysant les caractéristiques du contenu et en comparant les valeurs perceptuelles de hachage. ⚠️ La détection fondée sur la similitude peut comporter de faux positifs qui nécessitent une vérification manuelle.</string>
     <string name="deduplicator_occupied_space_label">Mémoire occupée</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s est occupé par des doublons</item>
@@ -456,7 +491,127 @@
     <string name="deduplicator_progress_comparing_files">Comparaison des fichiers</string>
     <string name="deduplicator_details_cluster_title">Jeu de doublons</string>
     <string name="deduplicator_matches_exact_label">Copies identiques</string>
-    <string name="deduplicator_matches_similar_label">Fichiers semblables</string>
+    <string name="deduplicator_matches_similar_label">Fichiers similaires</string>
+    <string name="deduplicator_arbiter_title">Stratégie de suppression</string>
+    <string name="deduplicator_arbiter_summary">Déterminer les fichiers à conserver et ceux à supprimer.</string>
+    <string name="deduplicator_arbiter_explanation">Lors de la suppression de doublons, SD Maid décide quel fichier conserver en vérifiant chaque critère dans l’ordre. Le premier critère qui permet de déterminer sans ambiguïté le fichier à conserver détermine le résultat. Faire glisser pour réorganiser, toucher pour changer de mode.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Choisir le mode</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Configurer les chemins…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Type de doublon</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Préférer les correspondances exactes aux fichiers similaires.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Indexation des médias</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Déterminer si les fichiers sont indexés par le fournisseur de médias.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Emplacement de stockage</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Préférer les fichiers sur mémoire interne ou externe.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Profondeur des dossiers</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Préférer les fichiers dans des structures de dossiers plus ou moins profondes.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Date de modification</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Préférer les fichiers plus anciens ou plus récents en fonction de leur date de modification.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Taille du fichier</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Préférer les fichiers plus ou moins volumineux si les tailles diffèrent.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Emplacements préférés</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Conserver les fichiers dans vos emplacements préférés.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Préférer les correspondances exactes</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Préférer les fichiers similaires</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Préférer les fichiers indexés</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Préférer les fichiers non indexés</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Préférer la mémoire interne</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Préférer la mémoire externe</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Préférer les dossiers moins profonds</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Préférer les dossiers plus profonds</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Préférer les fichiers plus anciens</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Préférer les fichiers plus récents</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Préférer les fichiers plus volumineux</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Préférer les fichiers plus petits</string>
+    <string name="deduplicator_view_mode_groups_label">Groupes</string>
+    <string name="deduplicator_view_mode_directories_label">Dossiers</string>
+    <string name="squeezer_tool_name">Compression des médias</string>
+    <string name="squeezer_explanation_short">Compresser les images pour réduire l’espace utilisé.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d image trouvée</item>
+        <item quantity="other">%d images trouvées</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s en moins</item>
+        <item quantity="other">~%s en moins</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d image compressée</item>
+        <item quantity="other">%d images compressées</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d image sélectionnée</item>
+        <item quantity="other">%d images sélectionnées</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Emplacements de recherche</string>
+    <string name="squeezer_search_locations_default_summary">Dossiers de l’appareil photo (par défaut)</string>
+    <string name="squeezer_min_size_title">Taille minimale des fichiers</string>
+    <string name="squeezer_min_size_description">Ignorer les images plus petites que cette taille.</string>
+    <string name="squeezer_min_age_title">Âge minimal des fichiers</string>
+    <string name="squeezer_min_age_description">N’inclure que les images plus anciennes que cet âge.</string>
+    <string name="squeezer_compression_settings_label">Paramètres de compression</string>
+    <string name="squeezer_quality_label">Qualité</string>
+    <string name="squeezer_quality_title">Qualité de la compression</string>
+    <string name="squeezer_quality_description">Une qualité inférieure implique une taille de fichier plus petite, mais une qualité d’image moindre.</string>
+    <string name="squeezer_quality_value_format">%d%%</string>
+    <string name="squeezer_quality_example_format">Exemple : %1$s image → économise ~%2$s avec une qualité de %3$d%%</string>
+    <string name="squeezer_quality_warning_low">Les qualités inférieures peuvent entraîner des distortions visuelles.</string>
+    <string name="squeezer_quality_warning_high">Une qualité très élevée réduit peu la taille du fichier.</string>
+    <string name="squeezer_types_category_label">Types d’images</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Inclure les images JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Inclure les images WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Ignorer les images déjà compressées</string>
+    <string name="squeezer_skip_compressed_description">Ignorer les images déjà compressées par SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Écrire le marqueur EXIF</string>
+    <string name="squeezer_exif_marker_description">Ajouter un marqueur au champ de commentaire utilisateur EXIF de l’image pour empêcher la recompression, même si l’historique de compression est effacé.</string>
+    <string name="squeezer_estimated_savings_format">~%s en moins</string>
+    <string name="squeezer_no_savings_expected">Économies limitées</string>
+    <string name="squeezer_current_size_format">Taille : %s</string>
+    <string name="squeezer_compress_action">Compresser</string>
+    <string name="squeezer_compress_all_action">Tout compresser</string>
+    <string name="squeezer_preview_dialog_title">Confirmer la compression</string>
+    <string name="squeezer_preview_total_size">Taille totale</string>
+    <string name="squeezer_preview_estimated_savings">Économies probables</string>
+    <string name="squeezer_compress_confirmation_title">Compresser les images ?</string>
+    <string name="squeezer_compress_confirmation_message">Les images originales seront remplacées par les versions compressées. Cette action est irréversible.</string>
+    <string name="squeezer_history_title">Historique de compression</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d élément (%2$s)</item>
+        <item quantity="other">%1$d éléments (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Aucun historique de compression</string>
+    <string name="squeezer_history_clear_title">Effacer l’historique de compression</string>
+    <string name="squeezer_history_clear_message">Les images déjà compressées pourront être compressées de nouveau. Les images mêmes ne sont pas affectées.</string>
+    <string name="squeezer_onboarding_title">À propos de la compression des images</string>
+    <string name="squeezer_onboarding_message">La compression des images réduit la taille des fichiers en supprimant certains détails visuels. Ce processus est irréversible ; la qualité originale ne peut pas être restaurée.\n\nVoici un aperçu du rendu final de vos images :</string>
+    <string name="squeezer_onboarding_original_label">Originale</string>
+    <string name="squeezer_onboarding_compressed_label">Après compression</string>
+    <string name="squeezer_onboarding_quality_label">Qualité : %d%%</string>
+    <string name="squeezer_onboarding_tap_to_zoom_hint">Toucher les images pour zoomer</string>
+    <string name="squeezer_onboarding_got_it">J’ai compris</string>
+    <string name="squeezer_preview_info_action">Afficher un exemple</string>
+    <string name="squeezer_no_example_found">Aucune image n’a été trouvée dans les chemins définis.</string>
+    <string name="squeezer_result_empty_message">Aucune image compressible n’a été trouvée.</string>
+    <string name="squeezer_setup_warning">La compression réduit irrémédiablement la qualité des images pour économiser l’espace de stockage. Cette opération est irréversible. Confirmez vos paramètres avant de commencer.</string>
+    <string name="squeezer_setup_explanation">La compression des médias réduit la taille des images afin de libérer l’espace de stockage. Cela réduit irrémédiablement la qualité des images. Cette opération est irréversible. Confirmez vos paramètres avant de commencer.</string>
+    <string name="squeezer_setup_paths_title">Emplacements de recherche</string>
+    <string name="squeezer_setup_paths_default">Choisir les dossiers à explorer</string>
+    <string name="squeezer_setup_quality_title">Qualité de compression</string>
+    <string name="squeezer_setup_age_title">Âge minimal</string>
+    <string name="squeezer_setup_age_none">Aucune limite (tous les fichiers)</string>
+    <string name="squeezer_setup_start_action">Lancer l’analyse</string>
+    <string name="squeezer_quality_value">%d%%</string>
+    <string name="squeezer_quality_hint_very_low">Une qualité inférieure à 40 % peut créer des images inutilisables.</string>
+    <string name="squeezer_quality_hint_low">Une qualité inférieure permet d’économiser l’espace, mais peut entraîner des distortions visuelles.</string>
+    <string name="squeezer_quality_hint_high">Une qualité très élevée réduit peu la taille du fichier.</string>
+    <string name="squeezer_quality_hint_normal">Ratio équilibré qualité/espace.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Au moins %d jour</item>
+        <item quantity="other">Au moins %d jours</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Économie probable de %d%% pour les fichiers JPEG</string>
     <string name="appcontrol_tool_name">Vérificateur d’applis</string>
     <string name="appcontrol_explanation_short">Applis installées sur votre appareil.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -491,6 +646,7 @@
     <string name="appcontrol_tag_not_installed">N’est pas installée</string>
     <string name="appcontrol_tag_enabled">Activée</string>
     <string name="appcontrol_tag_disabled">Désactivée</string>
+    <string name="appcontrol_tag_debug">Débogage</string>
     <string name="appcontrol_progress_enabling_package">Activation de l’appli</string>
     <string name="appcontrol_progress_disabling_package">Désactivation de l’appli</string>
     <string name="appcontrol_list_filteroptions_label">Options de filtrage</string>
@@ -505,6 +661,32 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d appli a été désinstallée</item>
         <item quantity="other">%d appli ont été désinstallées</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Archiver</string>
+    <string name="appcontrol_archive_selection_action">Archiver les applis</string>
+    <string name="appcontrol_archive_description">Archiver des applis pour libérer de l’espace tout en conservant leur données pour restauration ultérieure.</string>
+    <string name="appcontrol_progress_archiving_app">Archivage de l’appli…</string>
+    <string name="appcontrol_archive_confirmation_title">Confirmer l’archivage</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Archiver %d appli ?</item>
+        <item quantity="other">Archiver %d applis ?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d appli a été archivée</item>
+        <item quantity="other">%d applis ont été archivées</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Restaurer</string>
+    <string name="appcontrol_restore_selection_action">Restaurer des applis</string>
+    <string name="appcontrol_restore_description">Restaurer complètement une appli archivée. Les données de l’appli sont conservées.</string>
+    <string name="appcontrol_progress_restoring_app">Restauration de l’appli…</string>
+    <string name="appcontrol_restore_confirmation_title">Confirmer la restauration</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Restaurer %d appli ?</item>
+        <item quantity="other">Restaurer %d applis ?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d appli a été restaurée</item>
+        <item quantity="other">%d applis ont été restaurées</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Taille de l’appli</string>
     <string name="appcontrol_app_sizes_apk_label">Appli</string>
@@ -533,6 +715,9 @@
         <item quantity="other">%d applis ont été exportées</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Exportation de %s</string>
+    <string name="appcontrol_share_list_action">Partager la liste</string>
+    <string name="appcontrol_share_list_title">Mes applis</string>
+    <string name="appcontrol_share_list_footer">Partagé par SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Arrêt forcer des applis</string>
     <string name="appcontrol_force_stop_action">Arrêt forcé</string>
     <string name="appcontrol_force_stop_confirm_title">Confirmer l’arrêt forcé</string>
@@ -549,6 +734,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Arrêt forcé…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Recherche du bouton « Arrêt forcé » (mots-clés : %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Tentative de confirmation de l’action précédente (mots clés : %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Archivage…</string>
+    <string name="appcontrol_automation_progress_find_archive">Recherche du bouton « Archiver » (mots-clés : %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Restauration…</string>
+    <string name="appcontrol_automation_progress_find_restore">Recherche du bouton « Restaurer » (mots-clés : %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Temps d’écran : %1$s depuis %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Dernière mise à jour : %s</string>
     <string name="appcontrol_item_installedat_x_label">Installée le : %s</string>
@@ -569,6 +758,11 @@
         <item quantity="other">%s utilisés</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Aucun accès direct n’est proposé</string>
+    <string name="analyzer_content_create_swiper_session_action">Créer une session Balayeur</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Une session Balayeur a été créée avec %d élément</item>
+        <item quantity="other">Une session Balayeur a été créée avec %d éléments</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Mémoire principale</string>
     <string name="analyzer_storage_type_primary_description">La mémoire principale de votre appareil. Comprend la carte SD interne, l’espace de stockage privé pour les applis et les données système.</string>
     <string name="analyzer_storage_type_secondary_title">Mémoire secondaire</string>
@@ -611,12 +805,13 @@
     <string name="exclusion_type_segment">Exclusion de segments</string>
     <string name="exclusion_tags_alltools">Tous les outils</string>
     <string name="exclusion_target_label">Cible de l’exclusion</string>
+    <string name="exclusion_editor_path_change_action">Toucher pour changer le chemin</string>
     <string name="exclusion_option_allow_partial">Autoriser les correspondances partielles</string>
     <string name="exclusion_option_ignore_casing">Ignorer la casse</string>
     <string name="exclusion_editor_affected_tools_label">Outils affectés</string>
     <string name="exclusion_editor_path_explanation">L\'exclusion d’un chemin empêche SD Maid de poursuivre le traitement des chemins correspondants. Cela s\'applique aux fichiers, aux dossiers et aux sous-dossiers.</string>
     <string name="exclusion_editor_pkg_explanation">L’exclusion d’une appli empêche SD Maid de traiter les paquets correspondants.</string>
-    <string name="exclusion_editor_segment_explanation">Une exclusion d’après le segment est semblable à l’exclusion d’un chemin, mais permet des correspondances partielles. Par exemple, « DCIM/Camera » exclut « /sdcard/DCIM/Camera/photo.png ».</string>
+    <string name="exclusion_editor_segment_explanation">Une exclusion d’après le segment s’apparente à l’exclusion d’un chemin, mais permet des correspondances partielles. Par exemple, « DCIM/Camera » exclut « /sdcard/DCIM/Camera/photo.png ».</string>
     <string name="exclusion_editor_remove_confirmation_message">Supprimer cette exclusion ?</string>
     <string name="exclusion_editor_unsaved_confirmation_message">Vous avez des changements non enregistrés.</string>
     <string name="exclusion_reset_default_exclusions">Rétablir les exclusions par défaut</string>
@@ -691,7 +886,7 @@
     <string name="translation_encourage_title">Traduire SD Maid</string>
     <string name="translation_encourage_body">SD Maid est traduit par des bénévoles. Traduction, révision ou correction, votre aide est précieuse.</string>
     <string name="translation_translators_title">Cette version est traduite par :</string>
-    <string name="translation_translators_people">yahoe.001 – Coordinateur de la traduction en français;V.Oberson;Choukajohn</string>
+    <string name="translation_translators_people">yahoe.001 – Coordinateur de la traduction en français;V.Oberson;Choukajohn;Mickael81</string>
     <string name="motd_setting_enabled_label">Messages importants</string>
     <string name="motd_setting_enabled_explanation">Permettre à SD Maid de vérifier la présence de messages importants du développeur.</string>
     <string name="updatecheck_setting_enabled_label">Chercher des mises à jour</string>
@@ -759,12 +954,136 @@
     <string name="shortcuts_settings_category">Raccourcis</string>
     <string name="shortcuts_onetap_enabled_title">Raccourci à accès direct</string>
     <string name="shortcuts_onetap_enabled_summary">Afficher le raccourci « Analyser + supprimer » en touchant et maintenant l’icône de l’appli. Utilise les mêmes outils que le tableau de bord à accès direct.</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">Le mode débogage est activé</string>
-    <string name="debug_card_trace_mode_label">Activer le mode traçage</string>
-    <string name="debug_card_dryrun_mode_label">Mode simulation (désactiver la suppression)</string>
-    <string name="debug_card_areas_reload_action">Recharger les zones de données</string>
-    <string name="debug_card_pkgs_reload_action">Recharger les applis</string>
-    <string name="debug_card_root_test_action">Tester root</string>
-    <string name="debug_card_shizuku_test_action">Tester Shizuku</string>
+    <string name="swiper_label">Balayeur</string>
+    <string name="swiper_tool_name">Balayeur</string>
+    <string name="swiper_tool_description">Parcourir les fichiers en balayant pour décider lesquels garder ou supprimer.</string>
+    <string name="swiper_dashcard_description">SD Maid gère la plupart des tâches automatiquement. Pour tout le reste, il suffit de balayer l’écran.</string>
+    <string name="swiper_start_action">Commencer à balayer</string>
+    <string name="swiper_continue_action">Poursuivre la session</string>
+    <string name="swiper_sessions_description">Certains fichiers méritent votre attention. Balayez pour déterminer leur sort ; rien n’est supprimé sans votre accord. Possibilité de suspendre le balayage et de poursuivre ultérieurement.</string>
+    <string name="swiper_select_folders_action">Choisir des dossiers</string>
+    <string name="swiper_scanning_title">Analyse…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d élément a été trouvé</item>
+        <item quantity="other">%d éléments ont été trouvés</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d élément a été supprimé</item>
+        <item quantity="other">%d élément ont été supprimés</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d élément en échec</item>
+        <item quantity="other">%d éléments en échec</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d sur %2$d</string>
+    <string name="swiper_keep_action">Conserver</string>
+    <string name="swiper_skip_action">Ignorer</string>
+    <string name="swiper_review_action">Réviser</string>
+    <string name="swiper_status_title">Réviser les décisions</string>
+    <string name="swiper_status_action_keep_selected">Conserver les éléments choisis</string>
+    <string name="swiper_status_action_delete_selected">Supprimer les éléments choisis</string>
+    <string name="swiper_status_action_reset_selected">Réinitialiser les éléments choisis</string>
+    <string name="swiper_decision_undecided">Sans décision</string>
+    <string name="swiper_retry_action">Réessayer</string>
+    <string name="swiper_delete_confirmation_title">Supprimer les fichiers ?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">%1$d fichier (%2$s) sera supprimé irrémédiablement. Cette opération est irréversible.</item>
+        <item quantity="other"> %1$d fichiers (%2$s) seront supprimés irrémédiablement. Cette opération est irréversible.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d élément sans décision sera conservé pour examen ultérieur.</item>
+        <item quantity="other">%d éléments sans décision seront conservés pour examen ultérieur.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Supprimer %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Inverser le sens de balayage</string>
+    <string name="swiper_settings_swap_directions_summary">Balayer vers la gauche pour conserver, vers la droite pour supprimer.</string>
+    <string name="swiper_settings_show_details_title">Afficher les détails des fichiers</string>
+    <string name="swiper_settings_show_details_summary">Afficher le nom, la taille et la date des fichiers sur l’écran de balayage.</string>
+    <string name="swiper_settings_haptic_feedback_title">Retour haptique</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibrer pour les décisions de conservation ou de suppression.</string>
+    <string name="swiper_discard_session_confirmation_title">Abandonner la session ?</string>
+    <string name="swiper_discard_session_confirmation_message">Toutes les décisions seront perdues. Confirmez-vous ?</string>
+    <string name="swiper_no_preview_available">Aucun aperçu n’est proposé</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Poursuivre la session d’il y a %1$d jour (%2$d%% terminé)</item>
+        <item quantity="other">Poursuivre la session d’il y a %1$d jours (%2$d%% terminé)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d sessions</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d élément sans décision</item>
+        <item quantity="other">%d éléments sans décision</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Créée le %1$s, dernière activité le %2$s</string>
+    <string name="swiper_session_remove_action">Supprimer la session</string>
+    <string name="swiper_sessions_empty_hint">Toucher + pour choisir un dossier et commencer à balayer</string>
+    <string name="swiper_sessions_upgrade_body">Passez à la version Pro pour lever ces limites et soutenir le développement. La version gratuite est limitée à :</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d fichier par session</item>
+        <item quantity="other">%d fichiers par session</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d sessions</item>
+    </plurals>
+    <string name="swiper_session_default_label">Session no %d</string>
+    <string name="swiper_session_rename_title">Renommer la session</string>
+    <string name="swiper_session_rename_hint">Saisir un nom pour cette session</string>
+    <string name="swiper_sessions_current_sessions">Sessions actuelles</string>
+    <string name="swiper_session_paths_label">Chemins</string>
+    <string name="swiper_session_status_label">État</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d à conserver</item>
+        <item quantity="other">%d à conserver</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d à supprimer</item>
+        <item quantity="other">%d à supprimer</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d sans décision</item>
+        <item quantity="other">%d sans décision</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d déjà conservé</item>
+        <item quantity="other">%d déjà conservés</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d déjà supprimé</item>
+        <item quantity="other">%d déjà supprimés</item>
+    </plurals>
+    <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d conservé</item>
+        <item quantity="other">%d conservés</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d supprimé</item>
+        <item quantity="other">%d supprimés</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Exclure « %1$s » des analyses du Balayeur ?</string>
+    <string name="swiper_sessions_header_title">Prêt à désencombrer ?</string>
+    <string name="swiper_sessions_suggestions_label">Essayez de commencer par :</string>
+    <string name="swiper_sessions_suggestion_downloads">Le dossier Téléchargements</string>
+    <string name="swiper_sessions_suggestion_screenshots">Les captures d’écran</string>
+    <string name="swiper_sessions_suggestion_camera">La pellicule</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Conserver !</string>
+    <string name="swiper_stamp_keep_2">Super !</string>
+    <string name="swiper_stamp_keep_3">Oui !</string>
+    <string name="swiper_stamp_keep_4">Enregistrer !</string>
+    <string name="swiper_stamp_delete_1">Non !</string>
+    <string name="swiper_stamp_delete_2">Adieu !</string>
+    <string name="swiper_stamp_delete_3">Corbeille !</string>
+    <string name="swiper_stamp_delete_4">Supprimer !</string>
+    <string name="swiper_stamp_skip_1">Ignorer !</string>
+    <string name="swiper_stamp_skip_2">Ouin !</string>
+    <string name="swiper_stamp_skip_3">Plus tard !</string>
+    <string name="swiper_stamp_skip_4">Peut-être !</string>
+    <string name="swiper_stamp_undo_1">Annuler !</string>
+    <string name="swiper_stamp_undo_2">Annuler !</string>
+    <string name="swiper_stamp_undo_3">Oups !</string>
+    <string name="swiper_stamp_undo_4">Attendre !</string>
 </resources>

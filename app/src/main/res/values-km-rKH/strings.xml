@@ -103,8 +103,11 @@
     <string name="debug_mode_label">ម៉ូតកំណែ</string>
     <string name="debug_mode_explanation">បើកជម្រើសតេស្ត និងធាតុចេញដែលសាំញ៉ាំផ្សេងទៀត។ កម្មវិធីនិងរត់កាន់តែយឺតហើយអនុវត្តន៍កាន់តែលំបាក។</string>
     <string name="debug_bugreporter_label">រាយការណ៍កំហុសស្វ័យប្រវត្តិ</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">ឧបករណ៍</string>
     <string name="settings_category_filter">តម្រង</string>
     <string name="settings_category_risklevel">កម្រិតហានិភ័យ</string>
     <string name="corpsefinder_filter_privatedata_label">ទិន្នន័យកម្មវិធីឯកជន</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

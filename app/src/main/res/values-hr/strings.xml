@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Započnite skeniranje i brisanje za sve alate dodirom akcijskog gumba na nadzornoj ploči, bez dodatnih potvrda.</string>
     <string name="dashboard_settings_oneclick_tools_title">Alati u načinu rada jednim dodirom</string>
     <string name="dashboard_settings_oneclick_tools_desc">Koji bi alati trebali biti uključeni u operacije jednog dodira?</string>
+    <string name="dashboard_card_config_title">Kartice nadzorne ploče</string>
+    <string name="dashboard_card_config_desc">Konfigurirajte koje će se kartice prikazivati ​​i njihov redoslijed</string>
+    <string name="dashboard_card_config_header_title">Povucite za promjenu redoslijeda, prebacite za prikaz/skrivanje</string>
     <string name="debug_notification_channel_label">Obavijesti o otklanjanju pogrešaka</string>
     <string name="debug_debuglog_file_label">Snimljena datoteka zapisnika</string>
     <string name="debug_debuglog_recording_progress">Snimanje zapisnika za otklanjanje pogrešaka</string>
@@ -172,6 +175,12 @@
     <string name="debug_mode_explanation">Omogućite testne opcije i opširniji opis pogrešaka. Aplikacija će raditi sporije i drugačije.</string>
     <string name="debug_bugreporter_label">Automatska izvješća o greškama</string>
     <string name="debug_bugreporter_summary">Automatski prijavljuje probleme, npr. pojedinosti o rušenju aplikacije kako bih mogao shvatiti zašto i popraviti to.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Način otklanjanja pogrešaka je omogućen</string>
+    <string name="debug_card_areas_reload_action">Ponovno učitaj područja podataka</string>
+    <string name="debug_card_pkgs_reload_action">Ponovno učitaj aplikacije</string>
+    <string name="debug_card_root_test_action">Testiraj root</string>
+    <string name="debug_card_shizuku_test_action">Testiraj Shizuku</string>
     <string name="settings_category_tools_label">Alati</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Razina rizika</string>
@@ -269,7 +278,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Starost snimke zaslona</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimalna starost snimki zaslona koja se uzima u obzir kod brisanja.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Suvišni APK-ovi</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Datoteke za postavljanje koje su starije ili jednake verzijama aplikacija koje su već instalirane.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR mape</string>
     <string name="systemcleaner_filter_lostdir_summary">Privremene datoteke koje se stvaraju prilikom prijenosa podataka između Android uređaja.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux datoteke</string>
@@ -330,6 +338,8 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Naziv je jednak ključnoj riječi</string>
     <string name="systemcleaner_customfilter_last_edit">Zadnje uređivanje: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Pretraživanje uživo</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimalna starost</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maksimalna starost</string>
     <string name="systemcleaner_customfilter_import_action">Uvezi novi filter</string>
     <string name="systemcleaner_customfilter_export_action">Izvezi odabrani filter</string>
     <string name="appcleaner_tool_name">Čistač aplikacija</string>
@@ -754,7 +764,7 @@
     <string name="stats_report_status_success">Uspjeh</string>
     <string name="stats_report_status_partial_success">Djelomični uspjeh</string>
     <string name="stats_report_status_partial_failure">Neuspjeh</string>
-    <string name="stats_settings_desc">Konfiguriraj SD Maidove statistike, izvještaje i zadržavanje podataka.</string>
+    <string name="stats_settings_desc">Konfigurirajte SD Maidove statistike, izvještaje i zadržavanje podataka.</string>
     <string name="stats_settings_retention_category">Zadržavanje</string>
     <string name="stats_settings_retention_reports_label">Opći izvještaji</string>
     <string name="stats_settings_retention_reports_desc">Broj dana prije brisanja osnovnih izvještaja o radu SD Maida.</string>
@@ -791,4 +801,25 @@
     <string name="shortcuts_settings_category">Prečaci</string>
     <string name="shortcuts_onetap_enabled_title">Prečac jednim dodirom</string>
     <string name="shortcuts_onetap_enabled_summary">Prikaže prečac \"Skeniraj + Izbriši\" kada dugo pritisnete ikonu aplikacije. Koristi iste alate kao i nadzorna ploča s jednim dodirom.</string>
+    <!-- Shorter versions for side-by-side display -->
+    <string name="swiper_sessions_suggestion_downloads">Mapa preuzimanja</string>
+    <string name="swiper_sessions_suggestion_screenshots">Snimke zaslona</string>
+    <string name="swiper_sessions_suggestion_camera">Snimke kamere</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Zadrži!</string>
+    <string name="swiper_stamp_keep_2">Dobro!</string>
+    <string name="swiper_stamp_keep_3">Da!</string>
+    <string name="swiper_stamp_keep_4">Spremi!</string>
+    <string name="swiper_stamp_delete_1">Ne!</string>
+    <string name="swiper_stamp_delete_2">Bok!</string>
+    <string name="swiper_stamp_delete_3">Smeće!</string>
+    <string name="swiper_stamp_delete_4">Izbriši!</string>
+    <string name="swiper_stamp_skip_1">Preskoči!</string>
+    <string name="swiper_stamp_skip_2">Eh!</string>
+    <string name="swiper_stamp_skip_3">Kasnije!</string>
+    <string name="swiper_stamp_skip_4">Možda!</string>
+    <string name="swiper_stamp_undo_1">Poništi!</string>
+    <string name="swiper_stamp_undo_2">Natrag!</string>
+    <string name="swiper_stamp_undo_3">Ups!</string>
+    <string name="swiper_stamp_undo_4">Čekaj!</string>
 </resources>

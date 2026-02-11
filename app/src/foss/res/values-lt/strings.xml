@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">Reikia SD Maid SE FOSS</string>
-    <string name="upgrades_dashcard_title">Atnaujinti SD Maid</string>
     <string name="upgrades_dashcard_body">Atrakinkite papildomas funkcijas ir tapkite globėju, kad palaikytumėte tolesnį plėtojimą!</string>
     <string name="upgrades_dashcard_upgrade_action">Atnaujinti</string>
     <string name="upgrade_screen_title">Tobulinti SD Maid</string>

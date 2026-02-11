@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">Vereis SD Maid SE FOSS</string>
-    <string name="upgrades_dashcard_title">Gradeer SD Maid op</string>
     <string name="upgrades_dashcard_body">Ontsluit addisionele funksies en word \'n beskermheer om voortgesette ontwikkeling te ondersteun!</string>
     <string name="upgrades_dashcard_upgrade_action">Gradeer op</string>
     <string name="upgrade_screen_title">Verbeter SD Maid</string>

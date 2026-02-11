@@ -3,7 +3,7 @@
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
     <string name="upgrade_feature_requires_pro">Потрібно SD Maid SE FOSS</string>
-    <string name="upgrades_dashcard_title">Оновити SD Maid</string>
+    <string name="upgrades_dashcard_title">Оновлення SD Maid SE</string>
     <string name="upgrades_dashcard_body">Розблокуйте додаткові можливості та станьте меценатом, щоб підтримати подальший розвиток додатка!</string>
     <string name="upgrades_dashcard_upgrade_action">Апґрейд</string>
     <string name="upgrade_screen_title">Покращити SD Maid</string>

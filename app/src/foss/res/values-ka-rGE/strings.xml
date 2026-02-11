@@ -3,7 +3,6 @@
     <string name="app_name_upgraded">SD maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
     <string name="upgrade_feature_requires_pro">საჭიროებს SD Maid SE FOSS</string>
-    <string name="upgrades_dashcard_title">გაარემონტეთ SD Maid</string>
     <string name="upgrades_dashcard_body">განბლოკეთ დამატებითი ფუნქციები და გახდით მფარველი მუდმივი განვითარების მხარდასაჭერად!</string>
     <string name="upgrades_dashcard_upgrade_action">გარემონტება</string>
     <string name="upgrade_screen_title">SD Maid-ის გაუმჯობესება</string>

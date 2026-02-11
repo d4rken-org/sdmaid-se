@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Гэтая функцыя яшчэ знаходзіцца ў стадыі распрацоўкі і пакуль яна недаступна.</string>
     <string name="general_share_action">Падзяліцца</string>
     <string name="general_done_action">Гатова</string>
+    <string name="general_apply_action">Ужыць</string>
     <string name="general_copy_action">Скапіраваць</string>
     <string name="general_wipe_action">Ачысціць</string>
     <string name="general_cancel_action">Скасаваць</string>
     <string name="general_discard_action">Адхіліць</string>
     <string name="general_reset_action">Скінуць</string>
+    <string name="general_drag_handle_description">Перацягніце, каб змяніць парадак</string>
     <string name="general_save_action">Захаваць</string>
     <string name="general_thanks_action">Падзякі</string>
     <string name="general_gotit_action">Зразумела</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Рэдагаваць</string>
     <string name="general_na_label">Н/Д</string>
     <string name="general_empty_label">Пуста</string>
+    <string name="general_new_badge_label">Новы</string>
     <string name="general_dismiss_action">Адхіліць</string>
     <string name="general_maybe_later_action">Магчыма пазней</string>
     <string name="general_manage_action">Кіраваць</string>

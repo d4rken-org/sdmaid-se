@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro gerektirir</string>
-    <string name="upgrades_dashcard_title">SD Maid\'i Yükseltin</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro, uzman kullanıcılar için daha iyi sonuçlar, daha fazla özellik ve seçenek sunar.</string>
     <string name="upgrades_dashcard_upgrade_action">Yükselt</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play kullanılamıyor</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play\'e bağlanamıyor. Google Play yüklü ve güncel mi? Google Hesabınız ile oturum açtınız mı? Google Play uygulamasının önbelleğini temizlemeyi ve cihazınızı yeniden başlatmayı deneyin.</string>

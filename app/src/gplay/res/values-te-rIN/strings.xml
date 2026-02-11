@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">ఎస్ డి పనిమనిషి ఎస్ ఈ ప్రొ</string>
     <string name="app_name_upgrade_postfix">ప్రొ</string>
     <string name="upgrade_feature_requires_pro">ఎస్ డి పనిమనిషి ఎస్ ఈ ప్రొ అవసరం</string>
-    <string name="upgrades_dashcard_title">ఎస్ డీ పనిమనిషి ని నవీకరించు</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro మెరుగైన ఫలితాలు, మరిన్ని ఫీచర్లు మరియు పవర్ యూజర్ల కోసం ఆప్షన్లను అందిస్తుంది.</string>
     <string name="upgrades_dashcard_upgrade_action">అప్‌గ్రేడ్ చేయండి</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play అందుబాటులో లేదు</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Playకి కనెక్ట్ చేయలేదు. Google Play ఇన్‌స్టాల్ చేయబడి నవీకరించబడిందా? మీ Google ఖాతా లాగిన్ చేయబడిందా? Google Play యాప్ యొక్క కాష్‌ని క్లియర్ చేసి మీ పరికరాన్ని రీబూట్ చేయడానికి ప్రయత్నించండి.</string>

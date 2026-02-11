@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Эта функция находится в стадии разработки и в настоящее время недоступна.</string>
     <string name="general_share_action">Поделиться</string>
     <string name="general_done_action">Готово</string>
+    <string name="general_apply_action">Применить</string>
     <string name="general_copy_action">Копировать</string>
     <string name="general_wipe_action">Стереть</string>
     <string name="general_cancel_action">Отменить</string>
     <string name="general_discard_action">Отказаться</string>
     <string name="general_reset_action">Сброс</string>
+    <string name="general_drag_handle_description">Перетащите, чтобы изменить порядок</string>
     <string name="general_save_action">Сохранить</string>
     <string name="general_thanks_action">Спасибо</string>
     <string name="general_gotit_action">Понятно</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Редактировать</string>
     <string name="general_na_label">Недоступно</string>
     <string name="general_empty_label">Пусто</string>
+    <string name="general_new_badge_label">Новый</string>
     <string name="general_dismiss_action">Отклонить</string>
     <string name="general_maybe_later_action">Возможно, позже</string>
     <string name="general_manage_action">Управлять</string>

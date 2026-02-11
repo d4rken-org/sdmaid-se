@@ -3,7 +3,6 @@
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
     <string name="upgrade_feature_requires_pro">Kräver SD Maid SE FOSS</string>
-    <string name="upgrades_dashcard_title">Uppgradera SD Maid</string>
     <string name="upgrades_dashcard_body">Lås upp ytterligare funktioner och bli en beskyddare för att stödja fortsatt utveckling!</string>
     <string name="upgrades_dashcard_upgrade_action">Uppgradera</string>
     <string name="upgrade_screen_title">Förbättra SD Maid</string>

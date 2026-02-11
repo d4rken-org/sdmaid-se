@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">Vaatii SD Maid SE FOSS:n</string>
-    <string name="upgrades_dashcard_title">Päivitä SD Maid</string>
     <string name="upgrades_dashcard_body">Avaa lisäominaisuuksia ja ryhdy tukijaksi tukeaksesi jatkuvaa kehitystä!</string>
     <string name="upgrades_dashcard_upgrade_action">Päivitä</string>
     <string name="upgrade_screen_title">Paranna SD Maidia</string>

@@ -151,6 +151,7 @@
     <string name="debug_mode_explanation">టెస్ట్ ఆప్షన్లు మరియు కూడా విస్తృత అవుట్‌పుట్‌ను ప్రారంభించండి. యాప్ మందగా కార్యాచరణ చేస్తుంది మరియు వేరేవిధంగా పరివర్తన చేస్తుంది.</string>
     <string name="debug_bugreporter_label">స్వయంచాలిత బగ్ రిపోర్ట్లు</string>
     <string name="debug_bugreporter_summary">సమస్యలను స్వయంచాలకంగా రిపోర్ట్ చేస్తుంది, ఉదా. యాప్ క్రాష్ వివరాలు నేను ఎందుకే చేశాను మరియు దానిని ఎలా సరిచేయాలను తెలుసుకునే వివరాలు.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">టూల్స్</string>
     <string name="settings_category_filter">ఫిల్టర్</string>
     <string name="settings_category_risklevel">రిస్క్ లెవల్</string>
@@ -237,7 +238,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">స్క్రీన్‌షాట్ వయస్సు</string>
     <string name="systemcleaner_filter_screenshots_age_summary">స్క్రీన్‌షాట్లను తొలగింపు కోసం పరిగణించడానికి కనిష్ఠ వయస్సు.</string>
     <string name="systemcleaner_filter_superfluosapks_label">అనవసరమైన APKలు</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">ఇప్పటికే ఇన్‌స్టాల్ చేయబడిన యాప్ వెర్షన్ల కన్నా పురాతనమైన లేదా సమానమైన సెటప్ ఫైల్లు.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR ఫోల్డర్లు</string>
     <string name="systemcleaner_filter_lostdir_summary">Android పరికరాల మధ్య డేటాను మార్చివేటప్పుడు సృష్టించబడే తాత్కాలిక ఫైల్లు.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux ఫైల్లు</string>
@@ -703,4 +703,6 @@
     <string name="area_type_public_obb_label">పబ్లిక్ యాప్ రిసోర్సెస్</string>
     <string name="area_type_private_data_label">ప్రైవేట్ యాప్ డేటా</string>
     <string name="area_type_portable_label">పోర్టేబుల్ స్టోరేజీ</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

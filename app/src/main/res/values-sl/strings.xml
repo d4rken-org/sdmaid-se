@@ -175,6 +175,7 @@
     <string name="debug_mode_explanation">Omogočite preizkusne možnosti in bolj obširen izpis.  Program bo deloval počasneje in se obnašal drugače.</string>
     <string name="debug_bugreporter_label">Samodejna poročila o hroščih</string>
     <string name="debug_bugreporter_summary">Samodejno poročaj o težavah, npr. o podrobnostih sesutja programa, da lahko najdem vzrok in ga popravim.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Orodja</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Raven tveganja</string>
@@ -278,7 +279,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Starost posnetkov zaslona</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Najmanjša starost posnetkov zaslona, ki naj se izbrišejo.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Odvečni APK-ji</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Namestitvene datoteke, ki so starejše ali enake različice, kot nameščeni programi.</string>
     <string name="systemcleaner_filter_lostdir_label">Mape LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Začasne datoteke, ki se ustvarijo pri prenosu podatkov med napravami Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Datoteke Linux</string>
@@ -823,4 +823,6 @@
     <string name="shortcuts_settings_category">Bližnjice</string>
     <string name="shortcuts_onetap_enabled_title">Bližnjica z enim dotikom</string>
     <string name="shortcuts_onetap_enabled_summary">Prikaži bližnjico \"Preglej + Izbriši\" ob dolgem pritisku na ikono programa.  Uporablja ista orodja, kot nadzorna plošča dejanj z enim dotikom.</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

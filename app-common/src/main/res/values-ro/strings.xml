@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Această funcție este încă în lucru și nu este disponibilă în prezent.</string>
     <string name="general_share_action">Partajează</string>
     <string name="general_done_action">Terminat</string>
+    <string name="general_apply_action">Aplicați</string>
     <string name="general_copy_action">Copiază</string>
     <string name="general_wipe_action">Șterge</string>
     <string name="general_cancel_action">Anulează</string>
     <string name="general_discard_action">Renunță</string>
     <string name="general_reset_action">Resetează</string>
+    <string name="general_drag_handle_description">Trage pentru a reordona</string>
     <string name="general_save_action">Salvează</string>
     <string name="general_thanks_action">Mulțumiri</string>
     <string name="general_gotit_action">Am înțeles</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Editează</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Gol</string>
+    <string name="general_new_badge_label">Nou</string>
     <string name="general_dismiss_action">Respinge</string>
     <string name="general_maybe_later_action">Poate mai târziu</string>
     <string name="general_manage_action">Gestionează</string>

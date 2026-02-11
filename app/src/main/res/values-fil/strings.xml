@@ -136,6 +136,7 @@
     <string name="debug_mode_explanation">I-enable ang mga test option at mas detalyadong output. Mas mabagal tatakbo ang app at iba ang performance.</string>
     <string name="debug_bugreporter_label">Awtomatikong bug reports</string>
     <string name="debug_bugreporter_summary">Awtomatikong nag-rereport ng mga isyu, hal. mga detalye tungkol sa app crash para malaman ko kung bakit at maayos ko.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Mga Kagamitan</string>
     <string name="settings_category_filter">Salaan</string>
     <string name="settings_category_risklevel">Antas ng panganib</string>
@@ -214,7 +215,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Edad ng Screenshot</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimum na edad para sa mga screenshot na dapat isaalang-alang para sa deletion.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Mga sobrang APK</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Mga setup file na mas matanda o katumbas ng mga bersyon ng app na naka-install na.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR folders</string>
     <string name="systemcleaner_filter_lostdir_summary">Mga pansamantalang file na ginagawa kapag naglilipat ng data sa pagitan ng mga Android device.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Mga Linux file</string>
@@ -614,4 +614,6 @@ Walang gagawing aksyon nang walang nauunang approval ng user. Maaaring ma-disabl
         <item quantity="other">%d mga path na napili</item>
     </plurals>
     <string name="picker_home_action">Mga data area</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

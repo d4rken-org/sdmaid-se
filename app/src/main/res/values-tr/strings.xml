@@ -169,6 +169,7 @@
     <string name="debug_mode_explanation">Test seçeneklerini ve daha ayrıntılı çıktı almayı etkinleştir. Uygulama daha yavaş ve farklı bir şekilde çalışacak.</string>
     <string name="debug_bugreporter_label">Otomatik hata raporları</string>
     <string name="debug_bugreporter_summary">Uygulama çökmesi detayları gibi hataları otomatik olarak raporlar, böylece olası sebepleri bulup düzeltebilirim.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Araçlar</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Risk Seviyesi</string>
@@ -260,7 +261,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Ekran Görüntüsü Yaşı</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Ekran görüntülerinin silinmek üzere değerlendirilebilmesi için minimum yaş.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Gereksiz APK\'lar</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Halihazırda yüklü olan uygulama sürümlerine eşit veya daha eski olan kurulum dosyaları.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR klasörleri</string>
     <string name="systemcleaner_filter_lostdir_summary">Android cihazlar arasında veri aktarımı yapılırken oluşturulan geçici dosyalar.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux dosyaları</string>
@@ -760,4 +760,6 @@
     <string name="shortcuts_settings_category">Kısayollar</string>
     <string name="shortcuts_onetap_enabled_title">Tek dokunuş kısayolu</string>
     <string name="shortcuts_onetap_enabled_summary">Uygulama simgesine uzun basıldığında \"Tara + Sil\" kısayolunu gösterir. Tek dokunuşla kontrol paneliyle aynı araçları kullanır.</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

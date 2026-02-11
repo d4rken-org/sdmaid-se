@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">پێویستی بە SD Maid SE Pro هەیە</string>
-    <string name="upgrades_dashcard_title">نوێکردنەوەی SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro ئەنجامی باشتر، تایبەتمەندی و بژاردەی زیاتر بۆ بەکارهێنەرانی پێشکەوتوو پێشکەش دەکات.</string>
     <string name="upgrades_dashcard_upgrade_action">نوێکردنەوە</string>
     <string name="upgrades_gplay_unavailable_error_title">گوگڵ پلەی بەردەست نییە</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid ناتوانێت بە گوگڵ پلەیەوە پەیوەست بێت. ئایا گوگڵ پلەی دامەزراوە و نوێکراوەتەوە؟ ئایا هەژماری گوگڵەکەت چونەتە ژوورەوە؟ هەوڵبدە کاشەی ئەپی گوگڵ پلەی بسڕیتەوە و ئامێرەکەت ڕیستارت بکەیتەوە.</string>

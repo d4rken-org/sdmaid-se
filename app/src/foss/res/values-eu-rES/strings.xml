@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">SD Maid SE FOSS behar da</string>
-    <string name="upgrades_dashcard_title">SD Maid eguneratu</string>
     <string name="upgrades_dashcard_body">Eginbide gehigarriak desblokeatu eta babesle izan etengabeko garapena laguntzeko!</string>
     <string name="upgrades_dashcard_upgrade_action">Eguneratu</string>
     <string name="upgrade_screen_title">SD Maid hobetu</string>

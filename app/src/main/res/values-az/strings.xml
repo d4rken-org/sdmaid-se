@@ -169,6 +169,7 @@
     <string name="debug_mode_explanation">Test seçimlərini və daha ətraflı çıxışı aktivləşdir. Tətbiq daha yavaş işləyəcək və fərqli çalışacaq.</string>
     <string name="debug_bugreporter_label">Avtomatik xəta hesabatı</string>
     <string name="debug_bugreporter_summary">Problemləri avtomatik bildirir, məsələn, tətbiq çökmələri haqqında təfərrüatları, beləliklə səbəbini anlaya və düzəldə bilərəm.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Alətlər</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risk səviyyəsi</string>
@@ -260,7 +261,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Ekran görüntüsünün yaşı</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Ekran görüntülərinin silinmə üçün nəzərə alınacağı minimum yaş.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Artıq APK-lər</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Artıq quraşdırılmış tətbiq versiyalarından köhnə və ya bərabər olan quraşdırma faylları.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR qovluqları</string>
     <string name="systemcleaner_filter_lostdir_summary">Android cihazları arasında məlumat köçürüldükdə yaradılan müvəqqəti fayllar.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux faylları</string>
@@ -759,4 +759,6 @@
     <string name="shortcuts_settings_category">Qısayollar</string>
     <string name="shortcuts_onetap_enabled_title">Tək toxunuşlu qısayol</string>
     <string name="shortcuts_onetap_enabled_summary">Tətbiq nişanına ikonuna uzun basdıqda \"Skan et + Sil\" qısayolunu göstər. Tək toxunuşlu idarə panelindəki eyni alətlərdən istifadə edir.</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

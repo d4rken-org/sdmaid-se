@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Start scan and deletion for all tools with a tap on the dashboard\'s action button, no extra confirmations.</string>
     <string name="dashboard_settings_oneclick_tools_title">ابزارهای حالت تک ضربه ای</string>
     <string name="dashboard_settings_oneclick_tools_desc">کدام ابزارها باید در حالت تک ضربه ای گنجانده شوند؟</string>
+    <string name="dashboard_card_config_title">کارت‌های داشبورد</string>
+    <string name="dashboard_card_config_desc">پیکربندی کنید که کدام کارت‌ها نمایش داده شوند و ترتیب آنها چگونه باشد</string>
+    <string name="dashboard_card_config_header_title">برای مرتب‌سازی بکشید، برای نمایش/پنهان کردن، کلید را تغییر دهید</string>
     <string name="debug_notification_channel_label">اعلانهای اشکال زدایی</string>
     <string name="debug_debuglog_file_label">فایل گزارش خطا ظبط شده</string>
     <string name="debug_debuglog_recording_progress">در حال ظبط کردن گزارش خطا</string>
@@ -88,6 +91,13 @@
     <string name="support_installid_desc">گزارش‌های خطای خودکار به صورت ناشناس هستند. در صورت نیاز توسعه‌دهنده به یافتن گزارش‌های خطای شما، شناسه نصب خود را به اشتراک بگذارید.</string>
     <string name="support_debuglog_label">گزارش خطاء</string>
     <string name="support_debuglog_desc">ضبط همه چیزهایی که برنامه انجام می‌دهد در یک فایل متنی که می‌توانید به اشتراک بگذارید.</string>
+    <string name="support_debuglog_folder_label">پوشه گزارش اشکال‌زدایی</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d فایل با استفاده از %2$s</item>
+        <item quantity="other">%1$d فایل با استفاده از %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">هیچ گزارش اشکال‌زدایی ذخیره نشده است</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">تمام گزارش‌های اشکال‌زدایی حذف شوند؟</string>
     <string name="discord_label">دیسکورد</string>
     <string name="discord_description">یک مکان برای وقت گذرانی و پرسش سوالات.</string>
     <string name="changelog_label">گزارش تغییرات</string>
@@ -169,6 +179,7 @@
     <string name="debug_mode_explanation">گزینه‌های آزمایشی را فعال کرده و خروجی با جزئیات بیشتر را تنظیم کنید. برنامه کندتر اجرا خواهد شد و عملکرد متفاوتی خواهد داشت.</string>
     <string name="debug_bugreporter_label">ارسال خودکار مشکلات</string>
     <string name="debug_bugreporter_summary">به طور خودکار مشکلات را گزارش می‌دهد، مانند جزئیات درباره‌ی خرابی‌های برنامه، تا بتوانم علت آن را بفهمم و آن را رفع کنم.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">ابزارها</string>
     <string name="settings_category_filter">فیلتر</string>
     <string name="settings_category_risklevel">سطح خطر</string>
@@ -260,7 +271,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">سن عکس صفحه</string>
     <string name="systemcleaner_filter_screenshots_age_summary">حداقل سن برای اسکرین‌شات‌ها که برای حذف شدن در نظر گرفته می‌شود.</string>
     <string name="systemcleaner_filter_superfluosapks_label">فایل های نصبی اضافی</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">فایل‌های تنظیماتی که قدیمی‌تر یا برابر با نسخه‌های برنامه‌هایی که قبلاً نصب شده‌اند، هستند.</string>
     <string name="systemcleaner_filter_lostdir_label">پوشه‌های LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">فایل‌های موقت که هنگام انتقال داده بین دستگاه‌های اندرویدی ایجاد می‌شوند.</string>
     <string name="systemcleaner_filter_linuxfiles_label">فایل‌های لینوکس</string>
@@ -759,4 +769,6 @@
     <string name="shortcuts_settings_category">میانبر‌ها</string>
     <string name="shortcuts_onetap_enabled_title">میانبر تک ضربه‌ای</string>
     <string name="shortcuts_onetap_enabled_summary">نمایش میانبر «اسکن + حذف» هنگام لمس طولانی نماد برنامه. از همان ابزارهای داشبورد تک‌ضربه‌ای استفاده می‌کند.</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">SD മെയ്ഡ് SE പ്രോ</string>
     <string name="app_name_upgrade_postfix">പ്രോ</string>
     <string name="upgrade_feature_requires_pro">SD മെയ്ഡ് SE പ്രോ ആവശ്യമാണ്</string>
-    <string name="upgrades_dashcard_title">SD മെയ്ഡ് നവീകരിക്കുക</string>
-    <string name="upgrades_dashcard_body">പവർ ഉപയോക്താക്കൾക്കായി SD മെയ്ഡ് പ്രോ മികച്ച ഫലങ്ങളും കൂടുതൽ സവിശേഷതകളും ഓപ്ഷനുകളും വാഗ്ദാനം ചെയ്യുന്നു.</string>
     <string name="upgrades_dashcard_upgrade_action">അപ്ഗ്രേഡുചെയ്യുക</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play ലഭ്യമല്ല</string>
     <string name="upgrades_gplay_unavailable_error_description">SD മെയ്ഡിന് Google Play-യുമായി കണക്റ്റുചെയ്യാൻ കഴിയുന്നില്ല. Google Play ഇൻസ്റ്റാൾ ചെയ്‌ത് അപ്‌ഡേറ്റ് ചെയ്‌തിട്ടുണ്ടോ? നിങ്ങളുടെ Google അക്കൗണ്ട് ലോഗിൻ ചെയ്‌തിട്ടുണ്ടോ? Google Play ആപ്പിന്റെ കാഷെ മായ്‌ക്കാനും നിങ്ങളുടെ ഉപകരണം റീബൂട്ട് ചെയ്യാനും ശ്രമിക്കുക.</string>

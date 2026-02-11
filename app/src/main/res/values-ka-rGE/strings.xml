@@ -153,6 +153,7 @@
     <string name="debug_mode_explanation">ჩართეთ ტესტის ვარიანტები და უფრო ვრცელი გამომავალი. აპლიკაცია უფრო ნელა იმუშავებს და განსხვავებულად მუშაობს.</string>
     <string name="debug_bugreporter_label">შეცდომების ავტომატური ანგარიშები</string>
     <string name="debug_bugreporter_summary">ავტომატურად ახსენებს პრობლემებს, მაგ. დეტალებს აპის კრახების შესახებ, რათა შემიძლოს გავარკვიო რატომ და შევასწორო.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">ხელსაწყოები</string>
     <string name="settings_category_filter">ფილტრი</string>
     <string name="settings_category_risklevel">რისკის დონე</string>
@@ -240,7 +241,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">სქრინშოტის ასაკი</string>
     <string name="systemcleaner_filter_screenshots_age_summary">სქრინშოტების მინიმალური ასაკი წაშლისთვის განხილვისთვის.</string>
     <string name="systemcleaner_filter_superfluosapks_label">ზედმეტი APK-ები</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">დაყენების ფაილები, რომლებიც უფრო ძველია ან ტოლია უკვე დაინსტალირებული აპების ვერსიებისა.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR საქაღალდეები</string>
     <string name="systemcleaner_filter_lostdir_summary">დროებითი ფაილები, რომლებიც იქმნება Android მოწყობილობებს შორის მონაცემების გადატანისას.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux ფაილები</string>
@@ -671,10 +671,6 @@
         <item quantity="one">%s ზომა</item>
         <item quantity="other">%s ზომა</item>
     </plurals>
-    <plurals name="stats_dash_body_count">
-        <item quantity="one">%s ელემენტი</item>
-        <item quantity="other">%s ელემენტი</item>
-    </plurals>
     <string name="stats_report_status_success">წარმატება</string>
     <string name="stats_report_status_partial_success">ნაწილობრივი წარმატება</string>
     <string name="stats_report_status_partial_failure">ვერ შედეგი</string>
@@ -706,4 +702,6 @@
     <string name="area_type_public_obb_label">საჯარო აპის რესურსები</string>
     <string name="area_type_private_data_label">კერძო აპის მონაცემები</string>
     <string name="area_type_portable_label">პორტატული მეხსიერება</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>
