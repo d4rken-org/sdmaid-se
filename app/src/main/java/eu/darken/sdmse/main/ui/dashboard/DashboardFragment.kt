@@ -7,6 +7,7 @@ import android.view.View
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -14,21 +15,19 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.EdgeToEdgeHelper
-import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
-import androidx.navigation.fragment.findNavController
 import eu.darken.sdmse.common.navigation.getColorForAttr
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.navigation.getSpanCount
 import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.squeezer.ui.onboarding.SqueezerOnboardingDialog
 import eu.darken.sdmse.databinding.DashboardFragmentBinding
 import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
 import eu.darken.sdmse.main.ui.settings.general.OneClickOptionsDialog
@@ -43,7 +42,6 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
     @Inject lateinit var dashAdapter: DashboardAdapter
     @Inject lateinit var oneClickOptions: OneClickOptionsDialog
     @Inject lateinit var previewDialog: PreviewDeletionDialog
-    @Inject lateinit var squeezerInfoDialog: SqueezerOnboardingDialog
     @Inject lateinit var theming: Theming
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -231,8 +229,6 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     onNeutral = { vm.showDeduplicator() },
                 )
 
-                is DashboardEvents.SqueezerProcessConfirmation -> showSqueezerConfirmation(event)
-
                 DashboardEvents.SetupDismissHint -> {
                     Snackbar
                         .make(
@@ -276,21 +272,4 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
         }
     }
 
-    private fun showSqueezerConfirmation(event: DashboardEvents.SqueezerProcessConfirmation) {
-        MaterialAlertDialogBuilder(requireContext()).apply {
-            setTitle(R.string.squeezer_compress_confirmation_title)
-            setMessage(R.string.squeezer_compress_confirmation_message)
-            setPositiveButton(R.string.squeezer_compress_action) { _, _ -> vm.confirmSqueezerProcessing() }
-            setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-            if (event.sampleImage != null) {
-                setNeutralButton(R.string.squeezer_preview_info_action) { _, _ ->
-                    squeezerInfoDialog.show(
-                        sampleImage = event.sampleImage,
-                        quality = event.quality,
-                        onDismiss = { showSqueezerConfirmation(event) },
-                    )
-                }
-            }
-        }.show()
-    }
 }

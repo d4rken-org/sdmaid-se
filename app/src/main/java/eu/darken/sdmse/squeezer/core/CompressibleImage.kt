@@ -1,5 +1,7 @@
 package eu.darken.sdmse.squeezer.core
 
+import android.graphics.Bitmap
+import android.os.Build
 import android.os.Parcelable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.files.APath
@@ -48,10 +50,20 @@ data class CompressibleImage(
     val isWebp: Boolean
         get() = mimeType == MIME_TYPE_WEBP
 
+    val compressFormat: Bitmap.CompressFormat
+        get() = Companion.compressFormat(mimeType)
+
     companion object {
         const val MIME_TYPE_JPEG = "image/jpeg"
         const val MIME_TYPE_WEBP = "image/webp"
 
         val SUPPORTED_MIME_TYPES = setOf(MIME_TYPE_JPEG, MIME_TYPE_WEBP)
+
+        @Suppress("DEPRECATION")
+        fun compressFormat(mimeType: String): Bitmap.CompressFormat = when {
+            mimeType == MIME_TYPE_WEBP && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R -> Bitmap.CompressFormat.WEBP_LOSSY
+            mimeType == MIME_TYPE_WEBP -> Bitmap.CompressFormat.WEBP
+            else -> Bitmap.CompressFormat.JPEG
+        }
     }
 }
