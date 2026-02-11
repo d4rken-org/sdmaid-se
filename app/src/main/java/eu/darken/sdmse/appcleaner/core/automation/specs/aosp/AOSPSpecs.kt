@@ -1,6 +1,7 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 
 import android.graphics.Rect
+import android.view.View
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -31,6 +32,7 @@ import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
 import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
 import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -44,6 +46,8 @@ import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
@@ -125,7 +129,7 @@ class AOSPSpecs @Inject constructor(
         log(tag, INFO) { "Trying coordinate-based click (API 36+ fallback)" }
 
         val headerNode = findNode {
-            it.viewIdResourceName?.contains("entity_header") == true
+            it.viewIdResourceName == "com.android.settings:id/entity_header"
         }
 
         if (headerNode == null) {
@@ -136,12 +140,43 @@ class AOSPSpecs @Inject constructor(
         val headerBounds = Rect().apply { headerNode.getBoundsInScreen(this) }
         log(tag, INFO) { "Found entity_header at: $headerBounds" }
 
-        // Clear cache button: right side, below header
-        val buttonX = headerBounds.left + (headerBounds.width() * 0.74f)
-        val buttonY = headerBounds.bottom + 153f
+        // RTL: buttons are mirrored, Clear cache is on the left
+        val isRtl = host.service.resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL
+        val xRatio = if (isRtl) 0.33f else 0.67f
+        val buttonX = headerBounds.left + (headerBounds.width() * xRatio)
 
-        log(tag, INFO) { "Coordinate-based click at ($buttonX, $buttonY) - targeting Clear cache" }
-        return clickGestureAtCoords(buttonX, buttonY, isDryRun = Bugs.isDryRun)
+        // Find first visible node below header to calculate button area midpoint
+        val firstNodeBelow = findNode {
+            val bounds = Rect().apply { it.getBoundsInScreen(this) }
+            bounds.top > headerBounds.bottom && bounds.height() > 0
+        }
+
+        val buttonY = if (firstNodeBelow != null) {
+            val belowBounds = Rect().apply { firstNodeBelow.getBoundsInScreen(this) }
+            log(tag, INFO) { "Found anchor below header at: $belowBounds" }
+            (headerBounds.bottom + belowBounds.top) / 2f
+        } else {
+            log(tag, WARN) { "No anchor below header, using fallback offset" }
+            headerBounds.bottom + 153f
+        }
+
+        log(tag, INFO) { "Coordinate click at ($buttonX, $buttonY), isRtl=$isRtl" }
+        if (Bugs.isDryRun) return true
+
+        if (inputInjector.canInject()) {
+            log(tag, WARN) { "Input injector is available" }
+            host.changeOptions { it.copy(showOverlay = false) }
+            host.state.filter { !it.hasOverlay }.first()
+
+            inputInjector.tap(buttonX.toInt(), buttonY.toInt())
+
+            host.changeOptions { it.copy(showOverlay = true) }
+            host.state.filter { it.hasOverlay }.first()
+            return true
+        } else {
+            log(tag, WARN) { "No shell access, falling back to gesture dispatch" }
+            return clickGestureAtCoords(buttonX, buttonY, isDryRun = false)
+        }
     }
 
     private suspend fun tryKeyboardNavigation(): Boolean {
@@ -204,8 +239,11 @@ class AOSPSpecs @Inject constructor(
                     log(tag, WARN) { "Could not resolve clickable target from: $candidate" }
                 }
 
-                if (hasApiLevel(36)) {
-                    // Use keyboard navigation - uiautomator conflicts with accessibility service
+                val isGoogle = BuildWrap.MANUFACTOR.equals("Google", ignoreCase = true)
+                val isBetaBuild = BuildWrap.PRODUCT?.contains("_beta", ignoreCase = true) == true
+                log(tag, INFO) { "isGoogle=$isGoogle, isBetaBuild=$isBetaBuild (MANUFACTURER=${BuildWrap.MANUFACTOR}, PRODUCT=${BuildWrap.PRODUCT})" }
+                if (hasApiLevel(36) && isGoogle && isBetaBuild) {
+                    if (tryCoordinateBasedClick()) return@action true
                     return@action tryKeyboardNavigation()
                 }
 
