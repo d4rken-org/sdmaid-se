@@ -4,14 +4,18 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.BaseAppCleanerSpecTest
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.input.InputInjector
+import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.hasApiLevel
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.mockkObject
 import io.mockk.mockkStatic
+import io.mockk.unmockkObject
 import io.mockk.unmockkStatic
+import io.mockk.verify
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
@@ -47,6 +51,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     @AfterEach
     fun cleanup() {
         unmockkStatic(::hasApiLevel)
+        unmockkObject(BuildWrap)
     }
 
     // ============================================================
@@ -149,6 +154,32 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         val action2 = testRoot.crawl()
             .first { it.node.viewIdResourceName == "com.android.settings:id/action2" }.node as TestACSNodeInfo
         action2.performedActions shouldBe listOf(ACSNodeInfo.ACTION_CLICK)
+    }
+
+    @Test
+    fun `clear cache falls back to accessibility DPAD navigation on Android 16 beta`() = runTest {
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
+
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "Google"
+        every { BuildWrap.PRODUCT } returns "komodo_beta"
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } returns true
+
+        testRoot = buildTestTree(
+            """
+            ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=com.android.settings:id/content_parent pkg=com.android.settings, identity=content, bounds=Rect(0, 159 - 1080, 2300)
+            """.trimIndent()
+        )
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(exactly = 3) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 
     // ============================================================

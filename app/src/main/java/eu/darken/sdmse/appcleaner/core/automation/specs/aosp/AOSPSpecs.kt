@@ -1,7 +1,7 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 
-import android.graphics.Rect
-import android.view.View
+import android.accessibilityservice.AccessibilityService
+import android.annotation.SuppressLint
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -18,10 +18,8 @@ import eu.darken.sdmse.automation.core.common.isTextView
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
-import eu.darken.sdmse.automation.core.common.stepper.clickGestureAtCoords
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findClickableSibling
-import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.stepper.findNodeByContentDesc
 import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.input.InputInjector
@@ -46,8 +44,7 @@ import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.delay
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
@@ -125,60 +122,6 @@ class AOSPSpecs @Inject constructor(
         return null
     }
 
-    private suspend fun StepContext.tryCoordinateBasedClick(): Boolean {
-        log(tag, INFO) { "Trying coordinate-based click (API 36+ fallback)" }
-
-        val headerNode = findNode {
-            it.viewIdResourceName == "com.android.settings:id/entity_header"
-        }
-
-        if (headerNode == null) {
-            log(tag, WARN) { "No entity_header anchor found" }
-            return false
-        }
-
-        val headerBounds = Rect().apply { headerNode.getBoundsInScreen(this) }
-        log(tag, INFO) { "Found entity_header at: $headerBounds" }
-
-        // RTL: buttons are mirrored, Clear cache is on the left
-        val isRtl = host.service.resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL
-        val xRatio = if (isRtl) 0.33f else 0.67f
-        val buttonX = headerBounds.left + (headerBounds.width() * xRatio)
-
-        // Find first visible node below header to calculate button area midpoint
-        val firstNodeBelow = findNode {
-            val bounds = Rect().apply { it.getBoundsInScreen(this) }
-            bounds.top > headerBounds.bottom && bounds.height() > 0
-        }
-
-        val buttonY = if (firstNodeBelow != null) {
-            val belowBounds = Rect().apply { firstNodeBelow.getBoundsInScreen(this) }
-            log(tag, INFO) { "Found anchor below header at: $belowBounds" }
-            (headerBounds.bottom + belowBounds.top) / 2f
-        } else {
-            log(tag, WARN) { "No anchor below header, using fallback offset" }
-            headerBounds.bottom + 153f
-        }
-
-        log(tag, INFO) { "Coordinate click at ($buttonX, $buttonY), isRtl=$isRtl" }
-        if (Bugs.isDryRun) return true
-
-        if (inputInjector.canInject()) {
-            log(tag, WARN) { "Input injector is available" }
-            host.changeOptions { it.copy(showOverlay = false) }
-            host.state.filter { !it.hasOverlay }.first()
-
-            inputInjector.tap(buttonX.toInt(), buttonY.toInt())
-
-            host.changeOptions { it.copy(showOverlay = true) }
-            host.state.filter { it.hasOverlay }.first()
-            return true
-        } else {
-            log(tag, WARN) { "No shell access, falling back to gesture dispatch" }
-            return clickGestureAtCoords(buttonX, buttonY, isDryRun = false)
-        }
-    }
-
     private suspend fun tryKeyboardNavigation(): Boolean {
         log(tag, INFO) { "Trying keyboard navigation (API 36+ fallback)" }
 
@@ -197,6 +140,62 @@ class AOSPSpecs @Inject constructor(
             InputInjector.Event.DpadCenter,
         )
 
+        return true
+    }
+
+    private suspend fun StepContext.tryAccessibilityDpadNavigation(): Boolean {
+        log(tag, INFO) { "Trying accessibility DPAD navigation (no-shell fallback)" }
+
+        if (!hasApiLevel(33)) {
+            log(tag, WARN) { "DPAD global actions require API 33+" }
+            return false
+        }
+
+        if (Bugs.isDryRun) return true
+
+        val service = host.service
+        val availableActionIds = runCatching { service.systemActions.map { it.id }.toSet() }
+            .getOrElse {
+                log(tag, WARN) { "Failed to query system actions: $it" }
+                emptySet()
+            }
+
+        val dpadActions = setOf(
+            AccessibilityService.GLOBAL_ACTION_DPAD_LEFT,
+            AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT,
+            AccessibilityService.GLOBAL_ACTION_DPAD_UP,
+            AccessibilityService.GLOBAL_ACTION_DPAD_DOWN,
+            AccessibilityService.GLOBAL_ACTION_DPAD_CENTER,
+        )
+        val missingDpadActions = dpadActions - availableActionIds
+        log(tag, INFO) { "DPAD support check: missing=${missingDpadActions.size}" }
+        if (missingDpadActions.isNotEmpty()) {
+            log(tag, WARN) { "Missing DPAD system actions: $missingDpadActions" }
+        }
+
+        repeat(3) { idx ->
+            @SuppressLint("InlinedApi")
+            val action = AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT
+            @SuppressLint("InlinedApi")
+            val success = service.performGlobalAction(action)
+            if (!success) {
+                log(tag, WARN) { "DPAD_RIGHT #${idx + 1} failed" }
+                return false
+            }
+            delay(80)
+        }
+
+        @SuppressLint("InlinedApi")
+        val selectAction = AccessibilityService.GLOBAL_ACTION_DPAD_CENTER
+        @SuppressLint("InlinedApi")
+        val selectSuccess = service.performGlobalAction(selectAction)
+        if (!selectSuccess) {
+            log(tag, WARN) { "DPAD_CENTER failed" }
+            return false
+        }
+
+        delay(120)
+        log(tag, INFO) { "Accessibility DPAD fallback finished successfully" }
         return true
     }
 
@@ -243,7 +242,7 @@ class AOSPSpecs @Inject constructor(
                 val isBetaBuild = BuildWrap.PRODUCT?.contains("_beta", ignoreCase = true) == true
                 log(tag, INFO) { "isGoogle=$isGoogle, isBetaBuild=$isBetaBuild (MANUFACTURER=${BuildWrap.MANUFACTOR}, PRODUCT=${BuildWrap.PRODUCT})" }
                 if (hasApiLevel(36) && isGoogle && isBetaBuild) {
-                    if (tryCoordinateBasedClick()) return@action true
+                    if (tryAccessibilityDpadNavigation()) return@action true
                     return@action tryKeyboardNavigation()
                 }
 
