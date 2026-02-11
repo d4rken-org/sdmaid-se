@@ -39,7 +39,7 @@ class QualityInputDialog(
         qualitySlider.value = currentQuality.toFloat()
 
         fun updateUI(quality: Int) {
-            qualityValue.text = context.getString(R.string.squeezer_quality_value_format, quality)
+            qualityValue.text = "$quality%"
 
             val outputRatio = estimateOutputRatio(quality)
             val estimatedOutputSize = (exampleInputSize * outputRatio).toLong()

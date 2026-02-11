@@ -107,7 +107,7 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
             }
 
             qualitySlider.value = state.quality.toFloat()
-            qualityValue.text = getString(R.string.squeezer_quality_value, state.quality)
+            qualityValue.text = "${state.quality}%"
             qualityHint.text = getQualityHint(state.quality)
             qualityHint.setTextColor(
                 requireContext().getColorForAttr(

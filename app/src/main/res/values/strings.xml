@@ -594,7 +594,6 @@
     <string name="squeezer_quality_label">Quality</string>
     <string name="squeezer_quality_title">Compression quality</string>
     <string name="squeezer_quality_description">Lower quality means smaller file size but reduced image quality.</string>
-    <string name="squeezer_quality_value_format">%d%%</string>
     <string name="squeezer_quality_example_format">Example: %1$s image → saves ~%2$s at %3$d%% quality</string>
     <string name="squeezer_quality_warning_low">Lower qualities may cause visible artifacts.</string>
     <string name="squeezer_quality_warning_high">Very high quality provides minimal space savings.</string>
@@ -642,7 +641,6 @@
     <string name="squeezer_setup_age_title">Minimum age</string>
     <string name="squeezer_setup_age_none">No limit (include all files)</string>
     <string name="squeezer_setup_start_action">Start Scan</string>
-    <string name="squeezer_quality_value">%d%%</string>
     <string name="squeezer_quality_hint_very_low">Quality below 40% may create unusable images.</string>
     <string name="squeezer_quality_hint_low">Lower quality saves more space but may cause visible artifacts.</string>
     <string name="squeezer_quality_hint_high">Very high quality provides minimal space savings.</string>
