@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.slider.Slider
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressionEstimator
 import eu.darken.sdmse.databinding.QualityInputDialogBinding
@@ -34,6 +35,7 @@ class QualityInputDialog(
     private val exampleInputSize = 5 * 1024 * 1024L // 5 MB
 
     private val dialogLayout = QualityInputDialogBinding.inflate(activity.layoutInflater, null, false).apply {
+        if (BuildConfigWrap.DEBUG) qualitySlider.valueFrom = 1f
         qualitySlider.value = currentQuality.toFloat()
 
         fun updateUI(quality: Int) {

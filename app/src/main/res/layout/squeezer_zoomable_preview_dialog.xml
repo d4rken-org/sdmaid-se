@@ -6,18 +6,17 @@
     android:layout_height="match_parent"
     android:background="@android:color/black">
 
-    <com.github.chrisbanes.photoview.PhotoView
+    <com.github.panpf.zoomimage.CoilZoomImageView
         android:id="@+id/photo_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitCenter" />
+        android:layout_height="match_parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/close_action"
         style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|end"
+        android:layout_gravity="top|start"
         android:layout_margin="16dp"
         android:alpha="0.65"
         app:icon="@drawable/ic_baseline_close_24" />

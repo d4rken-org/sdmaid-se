@@ -1,7 +1,6 @@
 package eu.darken.sdmse.squeezer.ui.onboarding
 
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.text.format.Formatter
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
@@ -11,6 +10,8 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.databinding.SqueezerOnboardingDialogBinding
 import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileOutputStream
 import javax.inject.Inject
 
 
@@ -28,28 +29,37 @@ class SqueezerOnboardingDialog @Inject constructor(
         val binding = SqueezerOnboardingDialogBinding.inflate(layoutInflater)
 
         val path = (sampleImage.path as? LocalPath)?.path ?: sampleImage.path.path
+        val imageFile = File(path)
 
-        // Load original image at full resolution for accurate preview comparison
-        val originalBitmap = BitmapFactory.decodeFile(path)
+        // Clean up old temp files
+        val previewDir = File(context.cacheDir, "squeezer_preview")
+        previewDir.deleteRecursively()
 
-        var compressedBitmap: Bitmap? = null
+        // Load sampled bitmap for thumbnails (avoids Canvas crash on large images)
+        val sampledBitmap = BitmapSampler.decodeSampledBitmap(imageFile)
 
-        if (originalBitmap != null) {
-            // Show original image
-            binding.originalImage.setImageBitmap(originalBitmap)
+        if (sampledBitmap != null) {
+            // Show original image thumbnail
+            binding.originalImage.setImageBitmap(sampledBitmap)
 
-            // Compress to memory
+            // Compress the sampled bitmap
             val outputStream = ByteArrayOutputStream()
             val format = if (sampleImage.isWebp) {
                 Bitmap.CompressFormat.WEBP_LOSSY
             } else {
                 Bitmap.CompressFormat.JPEG
             }
-            originalBitmap.compress(format, quality, outputStream)
+            sampledBitmap.compress(format, quality, outputStream)
             val compressedBytes = outputStream.toByteArray()
 
-            // Decode compressed bytes
-            compressedBitmap = BitmapFactory.decodeByteArray(compressedBytes, 0, compressedBytes.size)
+            // Write compressed bytes to temp file for zoom preview
+            previewDir.mkdirs()
+            val extension = if (sampleImage.isWebp) "webp" else "jpg"
+            val compressedFile = File(previewDir, "compressed_preview.$extension")
+            FileOutputStream(compressedFile).use { it.write(compressedBytes) }
+
+            // Show compressed thumbnail
+            val compressedBitmap = BitmapSampler.decodeSampledBitmap(compressedFile)
             binding.compressedImage.setImageBitmap(compressedBitmap)
 
             // Display sizes - use estimated size from the actual file, not the preview
@@ -69,10 +79,8 @@ class SqueezerOnboardingDialog @Inject constructor(
             }
 
             binding.compressedImage.setOnClickListener {
-                compressedBitmap?.let { bitmap ->
-                    ZoomablePreviewDialog.newInstance(bitmap, compressedLabel)
-                        .show(fragment.childFragmentManager, "zoomable_compressed")
-                }
+                ZoomablePreviewDialog.newInstance(compressedFile.absolutePath, compressedLabel)
+                    .show(fragment.childFragmentManager, "zoomable_compressed")
             }
         } else {
             // Fallback: just show placeholders
