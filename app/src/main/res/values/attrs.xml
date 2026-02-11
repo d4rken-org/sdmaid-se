@@ -16,4 +16,7 @@
             <enum name="party" value="4" />
         </attr>
     </declare-styleable>
+    <declare-styleable name="SpaceHistoryChartView">
+        <attr name="isCompact" format="boolean" />
+    </declare-styleable>
 </resources>

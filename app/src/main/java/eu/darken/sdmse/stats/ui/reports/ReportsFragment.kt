@@ -33,7 +33,21 @@ class ReportsFragment : Fragment3(R.layout.stats_reports_fragment) {
             insetsPadding(ui.loadingOverlay, bottom = true)
         }
 
-        ui.toolbar.setupWithNavController(findNavController())
+        ui.toolbar.apply {
+            setupWithNavController(findNavController())
+            inflateMenu(R.menu.menu_stats_reports)
+            @Suppress("DEPRECATION")
+            setOnMenuItemClickListener {
+                when (it.itemId) {
+                    R.id.action_storage_trend -> {
+                        vm.openStorageTrend()
+                        true
+                    }
+
+                    else -> super.onOptionsItemSelected(it)
+                }
+            }
+        }
 
         val adapter = ReportsAdapter()
         ui.list.setupDefaults(
@@ -47,6 +61,12 @@ class ReportsFragment : Fragment3(R.layout.stats_reports_fragment) {
             list.isGone = state.listItems == null
             state.listItems?.let {
                 toolbar.subtitle = getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, it.size)
+            }
+            toolbar.menu?.findItem(R.id.action_storage_trend)?.apply {
+                setIcon(
+                    if (state.isPro) R.drawable.ic_chart_bar_stacked_24
+                    else R.drawable.ic_baseline_stars_24
+                )
             }
         }
 

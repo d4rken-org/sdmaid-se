@@ -6,15 +6,20 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.intervalFlow
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.StatsRepo
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.minutes
@@ -26,6 +31,7 @@ class ReportsViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val statsRepo: StatsRepo,
+    private val upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val updateTicks = intervalFlow(1.minutes)
@@ -34,7 +40,8 @@ class ReportsViewModel @Inject constructor(
     val items = combine(
         statsRepo.reports,
         updateTicks,
-    ) { reports, tick ->
+        upgradeRepo.upgradeInfo.map { it.isPro },
+    ) { reports, tick, isPro ->
         val items = mutableListOf<ReportsAdapter.Item>()
 
         reports.reversed().map { report ->
@@ -66,14 +73,25 @@ class ReportsViewModel @Inject constructor(
         }
 
         State(
-            listItems = items
+            listItems = items,
+            isPro = isPro,
         )
     }
         .onStart { emit(State()) }
         .asLiveData()
 
+    fun openStorageTrend() = launch {
+        log(TAG) { "openStorageTrend()" }
+        if (upgradeRepo.isPro()) {
+            ReportsFragmentDirections.actionReportsFragmentToSpaceHistoryFragment().navigate()
+        } else {
+            MainDirections.goToUpgradeFragment().navigate()
+        }
+    }
+
     data class State(
         val listItems: List<ReportsAdapter.Item>? = null,
+        val isPro: Boolean = false,
     )
 
     companion object {

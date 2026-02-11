@@ -152,6 +152,9 @@
         android:id="@+id/goToReportsFragment"
         app:destination="@id/reportsFragment" />
     <action
+        android:id="@+id/goToSpaceHistoryFragment"
+        app:destination="@id/spaceHistoryFragment" />
+    <action
         android:id="@+id/goToSwiperSessions"
         app:destination="@id/swiperSessionsFragment" />
     <fragment
@@ -537,6 +540,19 @@
         <action
             android:id="@+id/action_reportsFragment_to_affectedPkgsFragment"
             app:destination="@id/affectedPkgsFragment" />
+        <action
+            android:id="@+id/action_reportsFragment_to_spaceHistoryFragment"
+            app:destination="@id/spaceHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/spaceHistoryFragment"
+        android:name="eu.darken.sdmse.stats.ui.spacehistory.SpaceHistoryFragment"
+        tools:layout="@layout/stats_space_history_fragment">
+        <argument
+            android:name="storageId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/affectedFilesFragment"

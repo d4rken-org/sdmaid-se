@@ -81,6 +81,7 @@ import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
 import eu.darken.sdmse.squeezer.ui.SqueezerDashCardVH
+import eu.darken.sdmse.stats.core.SpaceHistoryRepo
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.core.StatsSettings
 import eu.darken.sdmse.stats.ui.StatsDashCardVH
@@ -135,6 +136,7 @@ class DashboardViewModel @Inject constructor(
     anniversaryProvider: AnniversaryProvider,
     statsRepo: StatsRepo,
     private val statsSettings: StatsSettings,
+    private val spaceHistoryRepo: SpaceHistoryRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     init {
@@ -349,13 +351,27 @@ class DashboardViewModel @Inject constructor(
     private val analyzerItem: Flow<AnalyzerDashCardVH.Item?> = combine(
         analyzer.data,
         analyzer.progress,
-    ) { data, progress ->
+        spaceHistoryRepo.getAllHistory(Instant.now() - Duration.ofDays(7)),
+    ) { data, progress, snapshots ->
+        val combinedDelta = snapshots
+            .groupBy { it.storageId }
+            .values
+            .filter { it.size >= 2 }
+            .sumOf { group ->
+                val sorted = group.sortedBy { it.recordedAt }
+                val firstUsed = sorted.first().let { it.spaceCapacity - it.spaceFree }
+                val lastUsed = sorted.last().let { it.spaceCapacity - it.spaceFree }
+                lastUsed - firstUsed
+            }
+            .takeIf { snapshots.groupBy { s -> s.storageId }.values.any { it.size >= 2 } }
+
         AnalyzerDashCardVH.Item(
             data = data,
             progress = progress,
+            combinedDelta = combinedDelta,
             onViewDetails = {
                 DashboardFragmentDirections.actionDashboardFragmentToDeviceStorageFragment().navigate()
-            }
+            },
         )
     }
 
@@ -453,9 +469,12 @@ class DashboardViewModel @Inject constructor(
         upgradeInfo.map { it?.isPro ?: false },
         statsSettings.retentionReports.flow,
         statsSettings.retentionPaths.flow,
-    ) { state, isPro, retentionReports, retentionPaths ->
-        // Hide card if both retention settings are 0
-        if (retentionReports == Duration.ZERO && retentionPaths == Duration.ZERO) return@combine null
+        statsSettings.retentionSnapshots.flow,
+    ) { state, isPro, retentionReports, retentionPaths, retentionSnapshots ->
+        // Hide card if all retention settings are disabled
+        if (retentionReports == Duration.ZERO && retentionPaths == Duration.ZERO && retentionSnapshots == Duration.ZERO) {
+            return@combine null
+        }
         // Also hide if there's no data
         if (state.isEmpty) return@combine null
         StatsDashCardVH.Item(
@@ -467,7 +486,7 @@ class DashboardViewModel @Inject constructor(
                 } else {
                     MainDirections.goToUpgradeFragment()
                 }.navigate()
-            }
+            },
         )
     }
 

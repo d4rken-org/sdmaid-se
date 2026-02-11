@@ -27,4 +27,7 @@ interface ReportsDao {
 
     @Query("DELETE FROM reports WHERE report_id IN (:ids)")
     fun delete(ids: List<ReportId>)
+
+    @Query("SELECT * FROM reports WHERE end_at >= :since AND status IN ('SUCCESS', 'PARTIAL_SUCCESS') ORDER BY end_at ASC")
+    fun getReportsSince(since: Instant): Flow<List<ReportEntity>>
 }

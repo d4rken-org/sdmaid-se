@@ -30,6 +30,7 @@ class StatsRepo @Inject constructor(
     @ApplicationContext private val context: Context,
     private val reportsDatabase: ReportsDatabase,
     private val statsSettings: StatsSettings,
+    private val spaceTracker: SpaceTracker,
 ) {
 
     val reports: Flow<Collection<Report>>
@@ -37,22 +38,25 @@ class StatsRepo @Inject constructor(
 
     data class State(
         val reportsCount: Int,
+        val snapshotsCount: Int,
         val totalSpaceFreed: Long,
         val itemsProcessed: Long,
         val databaseSize: Long,
     ) {
         val isEmpty: Boolean
-            get() = reportsCount == 0 && totalSpaceFreed == 0L && itemsProcessed == 0L
+            get() = reportsCount == 0 && snapshotsCount == 0 && totalSpaceFreed == 0L && itemsProcessed == 0L
     }
 
     val state = combine(
         reportsDatabase.reportCount,
+        reportsDatabase.snapshotsCount,
         statsSettings.totalSpaceFreed.flow,
         statsSettings.totalItemsProcessed.flow,
         reportsDatabase.databaseSize,
-    ) { reportsCount, spaceFreed, itemsProcessed, databaseSize ->
+    ) { reportsCount, snapshotsCount, spaceFreed, itemsProcessed, databaseSize ->
         State(
             reportsCount = reportsCount,
+            snapshotsCount = snapshotsCount,
             totalSpaceFreed = spaceFreed,
             itemsProcessed = itemsProcessed,
             databaseSize = databaseSize,
@@ -63,7 +67,6 @@ class StatsRepo @Inject constructor(
 
     suspend fun report(task: TaskManager.ManagedTask) {
         log(TAG, INFO) { "report(${task.id})...${task.task.javaClass}" }
-
         if (task.task !is Reportable) {
             log(TAG) { "report(${task.id}): Not reportable" }
             return
@@ -112,10 +115,15 @@ class StatsRepo @Inject constructor(
         }
     }
 
+    suspend fun recordSnapshot(force: Boolean = false) {
+        spaceTracker.recordSnapshot(force = force)
+    }
+
     suspend fun resetAll() = withContext(NonCancellable) {
         log(TAG, INFO) { "resetAll()" }
         statsSettings.totalItemsProcessed.value(0L)
         statsSettings.totalSpaceFreed.value(0L)
+        statsSettings.lastSnapshotAt.value(0L)
         reportsDatabase.clear()
     }
 
