@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">ຕ້ອງການ SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">ອັບເກຣດ SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro ໃຫ້ຜົນລັບທີ່ດີກວ່າ, ຄຸນສົມບັດເພີ່ມເຕີມ ແລະຕົວເລືອກສຳລັບຜູ້ໃຊ້ຂັ້ນສູງ.</string>
     <string name="upgrades_dashcard_upgrade_action">ອັບເກຣດ</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play ບໍ່ພ້ອມໃຊ້ງານ</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບ Google Play ໄດ້. Google Play ຖືກຕິດຕັ້ງ ແລະອັບເດດແລ້ວບໍ? ບັນຊີ Google ຂອງທ່ານເຂົ້າສູ່ລະບົບແລ້ວບໍ? ລອງລ້າງແຄສຂອງແອັບ Google Play ແລະຣີບູດອຸປະກອນຂອງທ່ານ.</string>

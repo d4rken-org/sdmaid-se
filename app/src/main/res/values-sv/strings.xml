@@ -159,6 +159,7 @@
     <string name="debug_mode_explanation">Aktivera testalternativ och mer detaljerad utdata. Appen kommer att köra långsammare och fungera annorlunda.</string>
     <string name="debug_bugreporter_label">Automatiska buggrapporter</string>
     <string name="debug_bugreporter_summary">Rapporterar automatiskt problem, t.ex. detaljer om appkrascher så att jag kan förstå varför och fixa det.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Verktyg</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Riskivå</string>
@@ -248,7 +249,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Skärmbildsålder</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimiålder för skärmbilder som ska övervägas för borttagning.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Överflödiga APK:er</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Installationsfiler som är äldre eller lika med appversioner som redan är installerade.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mappar</string>
     <string name="systemcleaner_filter_lostdir_summary">Temporära filer som skapas när data överförs mellan Android-enheter.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux-filer</string>
@@ -724,4 +724,6 @@
     <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">Hantera installerade appar</string>
     <string name="shortcuts_settings_category">Genvägar</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

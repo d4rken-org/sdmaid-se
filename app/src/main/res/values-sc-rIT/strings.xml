@@ -151,6 +151,7 @@
     <string name="debug_mode_explanation">Abilitare optziones de test e produtzione prus verbosa. S\'aplicatzione at a funtzionare prus a su largu e si at a comportare in manera diferente.</string>
     <string name="debug_bugreporter_label">Rapòrtos de errores automàticos</string>
     <string name="debug_bugreporter_summary">Raportat automàticamente is problemas, pro es. detallios subra de is colassos de s\'aplicatzione pro chi mì potza ischire ca dda·nde benit e dd\'aggiudare.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Ainas</string>
     <string name="settings_category_filter">Filtru</string>
     <string name="settings_category_risklevel">Livellu de riscutu</string>
@@ -237,7 +238,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Edade de Caturas de Ischermada</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Edade mínima pro is caturas de ischermada pro èssere cunsideradas pro sa cantzelladura.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK superfluous</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Documentos de cunfiguratzione chi sunt prus betus o eguales a is versiones de aplicatziones ja installadas.</string>
     <string name="systemcleaner_filter_lostdir_label">Cartellas LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Documentos temporàneos chi benint creados cando si trasferrent datos intre dispositivos Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Documentos Linux</string>
@@ -696,4 +696,6 @@
     <string name="area_type_public_obb_label">Risursas públicas de aplicatzione</string>
     <string name="area_type_private_data_label">Datos privados de aplicatzione</string>
     <string name="area_type_portable_label">Archìviu portàbile</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

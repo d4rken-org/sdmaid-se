@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Aquesta funció encara s\'està desenvolupant i actualment no està disponible.</string>
     <string name="general_share_action">Comparteix</string>
     <string name="general_done_action">Fet</string>
+    <string name="general_apply_action">Aplica</string>
     <string name="general_copy_action">Copia</string>
     <string name="general_wipe_action">Neteja</string>
     <string name="general_cancel_action">Cancel·la</string>
     <string name="general_discard_action">Descarta</string>
     <string name="general_reset_action">Restableix</string>
+    <string name="general_drag_handle_description">Arrossegueu per reordenar</string>
     <string name="general_save_action">Desa</string>
     <string name="general_thanks_action">Gràcies</string>
     <string name="general_gotit_action">Entesos</string>
@@ -32,13 +34,14 @@
     <string name="general_edit_action">Edita</string>
     <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Buit</string>
+    <string name="general_new_badge_label">Nou</string>
     <string name="general_dismiss_action">Ignora</string>
     <string name="general_maybe_later_action">Potser després</string>
     <string name="general_manage_action">Gestiona</string>
     <string name="general_sync_action">Sincronitza</string>
     <string name="general_error_label">Error</string>
     <string name="general_tap_hint_msg">Toqueu per obtenir més opcions</string>
-    <string name="general_upgrade_action">Actualitza</string>
+    <string name="general_upgrade_action">Millora</string>
     <string name="general_donate_action">Dona</string>
     <string name="general_check_action">Comprova</string>
     <string name="general_filter_action">Filtra</string>
@@ -166,6 +169,8 @@
     <string name="general_error_invalid_input_label">Entrada no vàlida</string>
     <string name="general_information_for_the_developer">Informació per al desenvolupador</string>
     <string name="general_error_report_bug_action">Informa d\'un error</string>
+    <string name="general_error_ipc_deadobject_title">S\'ha perdut la connexió amb el servei</string>
+    <string name="general_error_ipc_deadobject_description">La connexió a un servei crític (per exemple, Magisk, Shizuku o altres serveis en l\'àmbit del sistema) s\'ha perdut inesperadament. Reinicieu el dispositiu. Si el problema persisteix, comproveu si hi ha actualitzacions o poseu-vos en contacte amb mi perquè ho pugui solucionar.</string>
     <string name="general_user_label_owner">Propietari</string>
     <string name="general_user_label_system">Sistema</string>
 </resources>

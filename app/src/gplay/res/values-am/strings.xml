@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro ያስፈልጋል</string>
-    <string name="upgrades_dashcard_title">SD Maid ያሻሽሉ</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro የተሻሉ ውጤቶች፣ ተጨማሪ ባህሪያት እና ለኃይለኛ ተጠቃሚዎች አማራጮች ይሰጣል።</string>
     <string name="upgrades_dashcard_upgrade_action">ያሻሽሉ</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play አይገኝም</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid ከGoogle Play ጋር መገናኘት አይችልም። Google Play ተጭኖ እና ወቅታዊ ነው? የGoogle መለያዎ ገብቷል? የGoogle Play መተግበሪያ መሸጎጫ ማጥራት እና መሳሪያዎን እንደገና ማስጀመር ይሞክሩ።</string>

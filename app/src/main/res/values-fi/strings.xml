@@ -169,6 +169,7 @@
     <string name="debug_mode_explanation">Ota käyttöön testiasetukset ja yksityiskohtaisempi tuloste. Sovellus toimii hitaammin ja käyttäytyy eri tavalla.</string>
     <string name="debug_bugreporter_label">Automaattiset virheraportit</string>
     <string name="debug_bugreporter_summary">Raportoi automaattisesti ongelmista, esim. tiedot sovelluksen kaatumisista, jotta voin selvittää miksi ja korjata sen.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Työkalut</string>
     <string name="settings_category_filter">Suodatin</string>
     <string name="settings_category_risklevel">Riskitaso</string>
@@ -260,7 +261,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Kuvakaappausten ikä</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Kuvakaappausten vähimmäisikä, jotta ne otetaan huomioon poistettaviksi.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Ylimääräiset APK:t</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Asennustiedostot, jotka ovat vanhempia tai yhtä vanhoja kuin jo asennettujen sovellusten versiot.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-kansiot</string>
     <string name="systemcleaner_filter_lostdir_summary">LOST.DIR-kansiot, jotka sisältävät tiedostojärjestelmän tarkistuksen löytämiä tiedostoja.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux-tiedostot</string>
@@ -754,4 +754,6 @@
     <string name="shortcut_onetap_short">Skannaa + Poista</string>
     <string name="shortcut_onetap_long">Skannaa ja poista yhdellä toimella</string>
     <string name="shortcuts_settings_category">Pikanäppäimet</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

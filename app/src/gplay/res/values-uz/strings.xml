@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro talab qilinadi</string>
-    <string name="upgrades_dashcard_title">SD Maid-ni yangilash</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro yaxshiroq natijalar, ko\'proq xususiyatlar va kuchli foydalanuvchilar uchun variantlarni taklif qiladi.</string>
     <string name="upgrades_dashcard_upgrade_action">Yangilash</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play mavjud emas</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play-ga ulanib bo\'lmaydi. Google Play o\'rnatilgan va yangilanganmi? Google hisobingiz tizimga kirilganmi? Google Play ilovasining keshini tozalashni va qurilmangizni qayta ishga tushirishni sinab ko\'ring.</string>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">Изисква SD Maid SE FOSS</string>
-    <string name="upgrades_dashcard_title">Надстройте SD Maid</string>
     <string name="upgrades_dashcard_body">Отключете допълнителни функции и станете покровител, за да подкрепите непрекъснатото развитие!</string>
     <string name="upgrades_dashcard_upgrade_action">Надстройване</string>
     <string name="upgrade_screen_title">Подобрете SD Maid</string>

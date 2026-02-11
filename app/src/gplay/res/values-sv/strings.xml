@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">SD Maid PRO</string>
     <string name="app_name_upgrade_postfix">Expert</string>
     <string name="upgrade_feature_requires_pro">Kräver SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">Uppgradera SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro erbjuder bättre resultat, fler funktioner och alternativ för avancerade användare.</string>
     <string name="upgrades_dashcard_upgrade_action">Uppgradera</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play är inte tillgängligt</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid kan inte ansluta till Google Play. Är Google Play installerat och uppdaterat? Är ditt Google-konto inloggat? Försök rensa cachen för Google Play-appen och starta om enheten.</string>

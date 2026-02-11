@@ -151,6 +151,7 @@
     <string name="debug_mode_explanation">Сынау опцияларын һәм толық шығарысты қосу. Қолданба баяу ишлейді һәм басқаша таң этеді.</string>
     <string name="debug_bugreporter_label">Avtomatikalıq qátelik esabatları</string>
     <string name="debug_bugreporter_summary">Қателерді автоматик хабарлайды, мысалы, мен неліктен һәм қалай түзетуге болатынын білу үшин қолданба құлашы туралы баталсыл мәліметтер.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Ásbaplar</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="settings_category_risklevel">Qáwip dárejesi</string>
@@ -215,7 +216,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Skrinshot\'tıń jası</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Skrinshot\'lardı óltirilew ushın qarastırılıwınıń minimum jası.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Artıqlı APK\'lar</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Aldında ornatlı qoldanba versiyalarına qaraganda eski yáki teń ornatlıw fayllardı.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR papkaları</string>
     <string name="systemcleaner_filter_lostdir_summary">Android qurilmalar arasında maǵlıwmatlardı kóshirgendegi jaratılıwshı waqtlıq fayllardı.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux faylları</string>
@@ -604,4 +604,6 @@
     <string name="area_type_public_obb_label">Umumiy qollanba resurstar</string>
     <string name="area_type_private_data_label">Sha\'xsiy qollanba ma\'lumotlar</string>
     <string name="area_type_portable_label">Ko\'shirilma saqlash</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

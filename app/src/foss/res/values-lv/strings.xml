@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">Nepieciešams SD Maid SE FOSS</string>
-    <string name="upgrades_dashcard_title">Uzlabot SD Maid</string>
     <string name="upgrades_dashcard_body">Atslēdziet papildu funkcijas un kļūstiet par aizbildni, lai atbalstītu turpmāko attīstību!</string>
     <string name="upgrades_dashcard_upgrade_action">Uzlabot</string>
     <string name="upgrade_screen_title">Uzlabot SD Maid</string>

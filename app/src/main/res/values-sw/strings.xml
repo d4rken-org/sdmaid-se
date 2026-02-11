@@ -152,6 +152,7 @@
     <string name="debug_mode_explanation">Wezesha chaguo za majaribio na matokeo zaidi ya kina. Programu itaendesha polepole na kutenda tofauti.</string>
     <string name="debug_bugreporter_label">Ripoti za kiotomatiki za hitilafu</string>
     <string name="debug_bugreporter_summary">Inaripoti matatizo kiotomatiki, k.m. maelezo ya programu inapokufa ili niweze kujua kwa nini na kurekebisha.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Zana</string>
     <string name="settings_category_filter">Kichungi</string>
     <string name="settings_category_risklevel">Kiwango cha hatari</string>
@@ -240,7 +241,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Umri wa picha za skrini</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Umri wa chini wa picha za skrini kuzingatiwa kufutwa.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK zisizohitajika</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Faili za usanidi zilizo na umri sawa au zaidi ya matoleo ya programu zilizokwisha kusakinishwa.</string>
     <string name="systemcleaner_filter_lostdir_label">Folda za LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Faili za muda zinazoundwa wakati wa kuhamisha data kati ya vifaa vya Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Faili za Linux</string>
@@ -708,4 +708,6 @@
     <string name="area_type_public_obb_label">Rasilimali za umma za programu</string>
     <string name="area_type_private_data_label">Data ya kibinafsi ya programu</string>
     <string name="area_type_portable_label">Hifadhi ya kubeba</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

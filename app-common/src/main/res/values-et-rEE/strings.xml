@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Seda võimalust alles luuakse ja praegu pole see saadaval.</string>
     <string name="general_share_action">Jaga</string>
     <string name="general_done_action">Valmis</string>
+    <string name="general_apply_action">Rakenda</string>
     <string name="general_copy_action">Kopeeri</string>
     <string name="general_wipe_action">Pühi</string>
     <string name="general_cancel_action">Katkesta</string>
     <string name="general_discard_action">Loobu</string>
     <string name="general_reset_action">Taasta</string>
+    <string name="general_drag_handle_description">Järjekorra muutmiseks lohista</string>
     <string name="general_save_action">Salvesta</string>
     <string name="general_thanks_action">Aitäh</string>
     <string name="general_gotit_action">Selge!</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Muuda</string>
     <string name="general_na_label">Puudub</string>
     <string name="general_empty_label">Tühi</string>
+    <string name="general_new_badge_label">Uus</string>
     <string name="general_dismiss_action">Sulge</string>
     <string name="general_maybe_later_action">Võib-olla hiljem</string>
     <string name="general_manage_action">Halda</string>

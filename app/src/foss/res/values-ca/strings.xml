@@ -3,9 +3,9 @@
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
     <string name="upgrade_feature_requires_pro">Cal l\'SD Maid SE FOSS</string>
-    <string name="upgrades_dashcard_title">Actualització de l\'SD Maid</string>
+    <string name="upgrades_dashcard_title">Millora l\'SD Maid SE</string>
     <string name="upgrades_dashcard_body">Desbloquegeu funcions addicionals i convertiu-vos en mecenes per donar suport al continuïtat del suport!</string>
-    <string name="upgrades_dashcard_upgrade_action">Actualitza</string>
+    <string name="upgrades_dashcard_upgrade_action">Millora</string>
     <string name="upgrade_screen_title">Millora l\'SD Maid</string>
     <string name="upgrade_screen_preamble">L\'SD Maid no té anuncis i no ven dades d\'usuaris. El desenvolupament continuat només és possible gràcies a tots vosaltres.</string>
     <string name="upgrade_screen_how_title">Com ajudar</string>

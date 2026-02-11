@@ -165,6 +165,7 @@
     <string name="debug_mode_explanation">テストオプションを有効にし、より詳細に出力します。アプリの動作が遅くなり、異なる動作をします。</string>
     <string name="debug_bugreporter_label">自動バグ報告</string>
     <string name="debug_bugreporter_summary">問題を自動的に報告します。例えば、アプリのクラッシュの詳細を把握し、原因を調査し修正することができます。</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">ツール</string>
     <string name="settings_category_filter">フィルタ</string>
     <string name="settings_category_risklevel">リスクレベル</string>
@@ -250,7 +251,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">スクリーンショットの期間</string>
     <string name="systemcleaner_filter_screenshots_age_summary">削除対象と見なされるスクリーンショットの最小経過期間。</string>
     <string name="systemcleaner_filter_superfluosapks_label">余分なAPKファイル</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">すでにインストールされているアプリのバージョンより古い、または同等のファイルをセットアップする。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIRフォルダ</string>
     <string name="systemcleaner_filter_lostdir_summary">Androidデバイス間でデータ転送するときに作成される一時ファイル。</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linuxのファイル</string>
@@ -707,4 +707,6 @@
     <string name="shortcut_appcontrol_long">インストールされたアプリを管理</string>
     <string name="shortcuts_settings_category">ショートカット</string>
     <string name="shortcuts_onetap_enabled_title">ワンタップショートカット</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

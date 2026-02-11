@@ -3,7 +3,7 @@
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE FOSS on vajalik</string>
-    <string name="upgrades_dashcard_title">SD Maidi täiendamine</string>
+    <string name="upgrades_dashcard_title">SD Maid SE täiendamine</string>
     <string name="upgrades_dashcard_body">Lubage lisavõimalused ja hakake toetajaks, et edendada arendamist.</string>
     <string name="upgrades_dashcard_upgrade_action">Täienda</string>
     <string name="upgrade_screen_title">SD Maidi täiendamine</string>

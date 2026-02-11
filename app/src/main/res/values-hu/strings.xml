@@ -155,6 +155,7 @@
     <string name="debug_mode_explanation">Tesztbeállítások és részletesebb kimenet engedélyezése. Az alkalmazás lassabban fog futni, és másként fog működni.</string>
     <string name="debug_bugreporter_label">Automatikus hibajelentések</string>
     <string name="debug_bugreporter_summary">Automatikusan jelenti a problémákat, pl. az alkalmazás összeomlásának részleteit, hogy kitalálhassam, miért, és kijavíthassam.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Eszközök</string>
     <string name="settings_category_filter">Szűrő</string>
     <string name="settings_category_risklevel">Kockázati szint</string>
@@ -244,7 +245,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Képernyőkép életkora</string>
     <string name="systemcleaner_filter_screenshots_age_summary">A képernyőképek minimális életkora a törléshez.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Felesleges APK-k</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Olyan telepítőfájlokat, amelyek régebbiek, vagy megegyeznek a már telepített alkalmazásverziókkal.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR mappák</string>
     <string name="systemcleaner_filter_lostdir_summary">Ideiglenes fájlok, amelyek Android-eszközök közötti adatátvitel során jönnek létre.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux fájlok</string>
@@ -717,4 +717,6 @@
     <string name="area_type_public_obb_label">Nyilvános alkalmazás-erőforrások</string>
     <string name="area_type_private_data_label">Privát alkalmazásadatok</string>
     <string name="area_type_portable_label">Hordozható tárolás</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

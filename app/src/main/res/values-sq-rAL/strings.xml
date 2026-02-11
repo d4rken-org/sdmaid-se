@@ -169,6 +169,7 @@
     <string name="debug_mode_explanation">Aktivizo opsionet e testimit dhe daljen më të hollësishme. Aplikacioni do të funksionojë më ngadalë dhe do të funksionojë ndryshe.</string>
     <string name="debug_bugreporter_label">Raportet automatike të gabimeve</string>
     <string name="debug_bugreporter_summary">Raporton automatikisht probleme, p.sh. detajet mbi dështimin e aplikacionit në mënyrë që të kuptoj pse dhe ta rregulloj atë.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Mjetet</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="settings_category_risklevel">Niveli i rrezikut</string>
@@ -260,7 +261,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Mosha e pamjeve të ekranit</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Mosha minimale për pamjet e ekranit që të konsiderohen për fshirje.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK të tepërta ose të panevojshme</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Konfiguro skedarët që janë më të vjetër ose të barabartë me versionet e aplikacionit që janë instaluar tashmë.</string>
     <string name="systemcleaner_filter_lostdir_label">Dosjet LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Skedarët e përkohshëm që krijohen gjatë transferimit të të dhënave midis pajisjeve Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Skedarët Linux</string>
@@ -759,4 +759,6 @@
     <string name="shortcuts_settings_category">Shkurtica</string>
     <string name="shortcuts_onetap_enabled_title">Shkurtica me një të klikuar</string>
     <string name="shortcuts_onetap_enabled_summary">Shfaq shkurtoren \"Skano + Fshij\" kur shtyp gjatë ikonën e aplikacionit. Përdor të njëjtat mjete si paneli me një prekje.</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

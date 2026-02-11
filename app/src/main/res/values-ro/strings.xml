@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Începe scanarea și ștergerea pentru toate uneltele cu o apăsare pe butonul de acțiune al tabloului de bord, fără confirmări suplimentare.</string>
     <string name="dashboard_settings_oneclick_tools_title">Instrumente cu o singură atingere </string>
     <string name="dashboard_settings_oneclick_tools_desc">Ce instrumente ar trebui incluse în operaţiunile cu o singură atingere?</string>
+    <string name="dashboard_card_config_title">Carduri de bord</string>
+    <string name="dashboard_card_config_desc">Configurați ce carduri sunt afișate și ordinea acestora</string>
+    <string name="dashboard_card_config_header_title">Trageți pentru a reordona, comutați pentru a arăta/ascunde</string>
     <string name="debug_notification_channel_label">Notificări de depanare</string>
     <string name="debug_debuglog_file_label">Fișier de jurnal înregistrat</string>
     <string name="debug_debuglog_recording_progress">Înregistrează jurnalul de depanare</string>
@@ -91,6 +94,15 @@
     <string name="support_installid_desc">Rapoarte de erori automatic sunt anonime. Partajează-ți ID-ul de instalare dacă dezvoltatorul are nevoie pentru a căuta rapoartele tale de erori.</string>
     <string name="support_debuglog_label">Jurnal de depanare</string>
     <string name="support_debuglog_desc">Înregistrează tot ce face aplicația într-un fișier text pe care îl poți partaja.</string>
+    <string name="support_debuglog_folder_label">Dosarul jurnalului de depanare</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d fișier utilizând %2$s</item>
+        <item quantity="few">%1$d fișiere utilizând %2$s</item>
+        <item quantity="other">%1$d fișiere utilizând %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Nu există jurnale de depanare stocate</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Ștergeți toate jurnalele de depanare?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Acest lucru va șterge definitiv toate sesiunile jurnalului de depanare stocate. Această acțiune nu poate fi anulată.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Un loc în care să stai și să pui întrebări.</string>
     <string name="changelog_label">Jurnal de schimbări</string>
@@ -172,6 +184,14 @@
     <string name="debug_mode_explanation">Activează opțiuni de test și ieșire mai detaliată. Aplicația va rula încet și va performa diferit.</string>
     <string name="debug_bugreporter_label">Rapoarte de jurnal automat</string>
     <string name="debug_bugreporter_summary">Raportează automat probleme, ex: detalii la oprirea neașteptată a aplicației ca să știu de ce și a rezolva.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Modul depanare este activat</string>
+    <string name="debug_card_trace_mode_label">Activați modul de urmărire</string>
+    <string name="debug_card_dryrun_mode_label">Modul de funcționare uscată (dezactivare ștergere)</string>
+    <string name="debug_card_areas_reload_action">Reîncărcați zonele de date</string>
+    <string name="debug_card_pkgs_reload_action">Reîncărcați aplicațiile</string>
+    <string name="debug_card_root_test_action">Testați root</string>
+    <string name="debug_card_shizuku_test_action">Testați Shizuku</string>
     <string name="settings_category_tools_label">Instrumente</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Nivel de risc</string>
@@ -269,7 +289,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Vârsta caputrii de ecran</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Vârsta minimă pentru a lua în considerare ștergerea capturilor de ecran.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK-uri inutile</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Fișiere de configurare care sunt vechi sau egale la versiuni de aplicații care sunt deja instalate.</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Configurarea fișierelor care nu mai sunt necesare pe baza versiunilor de aplicații instalate.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Includeți aceeași versiune</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">De asemenea, vizați fișierele APK care se potrivesc cu versiunea instalată. Dezactivați eliminarea numai a versiunilor mai vechi.</string>
     <string name="systemcleaner_filter_lostdir_label">Dosare LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Fișiere temporare care sunt create când transferi date dintre dispozitive Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Fișiere linux</string>
@@ -330,6 +352,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Numele este egal cu cuvântul cheie</string>
     <string name="systemcleaner_customfilter_last_edit">Ultima editare: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Căutare live</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Restricții de dimensiune</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Dimensiune minimă</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Dimensiune maximă</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Limitați meciurile în funcție de dimensiunea fișierului. Lăsați nesetat pentru a se potrivi cu orice dimensiune.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Restricție de vârstă</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Vârstă minimă</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Vârstă maximă</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Limitați meciurile pe baza vârstei fișierului (ultimul timp modificat). Lăsați nesetat pentru a se potrivi cu orice vârstă.</string>
     <string name="systemcleaner_customfilter_import_action">Importă filtru nou</string>
     <string name="systemcleaner_customfilter_export_action">Exportă filtrul selectat</string>
     <string name="appcleaner_tool_name">Curățitor de aplicații</string>
@@ -428,6 +458,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Această aplicație de sistem nu are ecran de setări. Nu este posibilă compensarea cache-ului prin intermediul serviciului de accesibilitate. Excludeți-o pentru a accelera curățarea cache-ului.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplicație de sistem configurată greșit</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Aplicația de securitate HyperOS (com.miui.securitycenter) nu are permisiunea de utilizare a statisticilor (GET_USAGE_STATS). Acest lucru rupe caracteristici precum \"Curățare Date\" în detaliile aplicației și ștergerea cache-ului prin accesibilitate. Acordați permisiunea de a restabili funcționalitatea completă.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Oprire forțată înainte de curățare</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Aplicații de oprire forțată înainte de a șterge memoria cache. Aceasta poate ajuta la ștergerea cache-urilor unor aplicații, dar poate determina aplicații să se comporte greșit și să necesite repornirea manuală a acestora.</string>
+    <string name="appcleaner_progress_force_stopping">Aplicații oprite forțat…</string>
     <string name="deduplicator_tool_name">Curățitor de duplicate</string>
     <string name="deduplicator_explanation_short">Găsiți date duplicat pe dispozitivul dvs.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -444,6 +477,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Arată opţiuni care vă permit să ştergeţi toate fişierele dintr-un set de duplicate, astfel încât nici un fişier să nu mai fie disponibil.</string>
     <string name="deduplicator_search_locations_title">Căutați locații</string>
     <string name="deduplicator_search_locations_all_summary">Toate zonele accesibile</string>
+    <string name="deduplicator_keep_prefer_paths_title">Preferați să păstrați în</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Atunci când decideți ce duplicate să păstrați, preferați să păstrați fișierele în aceste locații.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Nu există locații configurate</string>
     <string name="deduplicator_skip_minsize_title">Dimensiunea minimă</string>
     <string name="deduplicator_skip_minsize_description">Sari peste fișierele care sunt sub dimensiunea minimă.</string>
     <string name="deduplicator_skip_uncommon_title">Sari peste tipurile de fișiere mai puțin frecvente</string>
@@ -472,6 +508,126 @@
     <string name="deduplicator_details_cluster_title">Set de dubluri</string>
     <string name="deduplicator_matches_exact_label">Copii exacte</string>
     <string name="deduplicator_matches_similar_label">Fișiere similare</string>
+    <string name="deduplicator_arbiter_title">Strategia de ștergere</string>
+    <string name="deduplicator_arbiter_summary">Configurați ce fișiere sunt păstrate și care sunt șterse.</string>
+    <string name="deduplicator_arbiter_explanation">La ștergerea duplicatelor, SD Maid decide ce fișier să păstreze prin verificarea fiecărui criteriu în ordine. Primul criteriu care produce un câștigător clar determină rezultatul. Trageți pentru a reordona, atingeți pentru a schimba modul.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Mod selecție</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Configurați căile…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Tip duplicate</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Preferați potrivirile exacte în locul fișierelor similare.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Indexare media</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Luați în considerare dacă fișierele sunt indexate de furnizorul media.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Locație stocare</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Preferați fișierele de stocare internă sau externă.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Adâncime dosar</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Preferați fișierele în structuri de foldere mai puțin adânci sau mai adânci.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Data modificării</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Preferați fișierele mai vechi sau mai noi în funcție de timpul de modificare.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Dimensiune fișier</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Preferați fișierele mai mari sau mai mici atunci când dimensiunile diferă.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Locațiile preferate</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Păstrați fișierele în locațiile preferate configurate.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Preferați potrivirile exacte</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Preferați fișiere similare</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Preferați fișierele indexate</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Preferați fișierele neindexate</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Preferați stocarea internă</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Preferați stocarea externă</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Preferați dosare superficiale</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Preferați foldere profunde</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Preferați fișierele vechi</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Preferați fișierele noi</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Preferați fișierele mari</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Preferați fișierele mici</string>
+    <string name="deduplicator_view_mode_groups_label">Grupe</string>
+    <string name="squeezer_tool_name">Împărțire media</string>
+    <string name="squeezer_explanation_short">Comprimați imaginile pentru a economisi spațiu de stocare.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d imagine găsită</item>
+        <item quantity="few">%d imagini găsite</item>
+        <item quantity="other">%d imagini găsite</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s poate fi eliberat</item>
+        <item quantity="few">~%s pot fi eliberați</item>
+        <item quantity="other">~%s pot fi eliberați</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d imagine compresată</item>
+        <item quantity="few">%d imagini compresate</item>
+        <item quantity="other">%d imagini compresate</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d imagine selectată</item>
+        <item quantity="few">%d imagini selectate</item>
+        <item quantity="other">%d imagini selectate</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Locații căutate</string>
+    <string name="squeezer_search_locations_default_summary">Folderul de galerie (implicit)</string>
+    <string name="squeezer_min_size_title">Dimensiunea minimă a fișierului</string>
+    <string name="squeezer_min_size_description">Săriți peste imagini mai mici decât această dimensiune.</string>
+    <string name="squeezer_min_age_title">Vârsta minimă a fișierului</string>
+    <string name="squeezer_min_age_description">Includeți doar imagini mai vechi decât această vârstă.</string>
+    <string name="squeezer_compression_settings_label">Setări de compresie</string>
+    <string name="squeezer_quality_label">Calitate</string>
+    <string name="squeezer_quality_title">Calitatea de compresie</string>
+    <string name="squeezer_quality_description">Calitate mai scăzută înseamnă o dimensiune mai mică a fișierului, dar o calitate redusă a imaginii.</string>
+    <string name="squeezer_quality_value_format">%d%%</string>
+    <string name="squeezer_quality_example_format">Exemplu: %1$s imagine→ economisește ~%2$s la %3$d%% calitate</string>
+    <string name="squeezer_quality_warning_low">Calitățile inferioare pot provoca artefacte vizibile.</string>
+    <string name="squeezer_quality_warning_high">Calitatea foarte înaltă oferă economii minime de spațiu.</string>
+    <string name="squeezer_types_category_label">Tipuri de imagini</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Includeți imagini JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Includeți imagini WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Săriți peste compresiile anterioare</string>
+    <string name="squeezer_skip_compressed_description">Săriți peste imaginile care au fost deja comprimate de SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Scrieți marcajul EXIF</string>
+    <string name="squeezer_exif_marker_description">Adăugați un marcaj la câmpul de comentarii EXIF al imaginii pentru a preveni recompresia, chiar dacă istoricul de compresie este șters.</string>
+    <string name="squeezer_estimated_savings_format">~%s economisite</string>
+    <string name="squeezer_no_savings_expected">Economisiri limitate</string>
+    <string name="squeezer_current_size_format">Dimensiune: %s</string>
+    <string name="squeezer_compress_action">Comprimă</string>
+    <string name="squeezer_compress_all_action">Comprimați tot</string>
+    <string name="squeezer_preview_dialog_title">Confirmați compresia</string>
+    <string name="squeezer_preview_total_size">Dimensiune totală</string>
+    <string name="squeezer_preview_estimated_savings">Economii estimate</string>
+    <string name="squeezer_compress_confirmation_title">Comprimați imaginile?</string>
+    <string name="squeezer_compress_confirmation_message">Acest lucru va înlocui imaginile originale cu versiuni comprimate. Această acțiune nu poate fi anulată.</string>
+    <string name="squeezer_history_title">Istoric compresie</string>
+    <string name="squeezer_history_empty">Fără istoric de compresie</string>
+    <string name="squeezer_history_clear_title">Ștergeți istoricul de compresie</string>
+    <string name="squeezer_history_clear_message">Acest lucru va permite comprimarea din nou a imaginilor comprimate anterior. Imaginile în sine nu sunt afectate.</string>
+    <string name="squeezer_onboarding_title">Despre compresia imaginii</string>
+    <string name="squeezer_onboarding_message">Compresia imaginilor reduce dimensiunea fișierului prin eliminarea detaliilor vizuale. Acest proces este ireversibil - calitatea originală nu poate fi restaurată.\n\nIată o previzualizare a modului în care vor arăta imaginile dvs:</string>
+    <string name="squeezer_onboarding_original_label">Original</string>
+    <string name="squeezer_onboarding_compressed_label">Dupa compresie</string>
+    <string name="squeezer_onboarding_quality_label">Calitate: %d%%</string>
+    <string name="squeezer_onboarding_tap_to_zoom_hint">Atingeți imaginile pentru a mări</string>
+    <string name="squeezer_onboarding_got_it">Am înțeles</string>
+    <string name="squeezer_preview_info_action">Arătați exemple</string>
+    <string name="squeezer_no_example_found">Nu s-au găsit imagini în căile selectate.</string>
+    <string name="squeezer_result_empty_message">Nu s-au găsit imagini compresibile.</string>
+    <string name="squeezer_setup_warning">Compresia reduce permanent calitatea imaginii pentru a economisi spațiu de stocare. Acest lucru nu poate fi anulat. Examinați cu atenție setările înainte de a începe.</string>
+    <string name="squeezer_setup_explanation">Presarea media reduce dimensiunea fișierului de imagini pentru a elibera spațiul de stocare. Acest lucru reduce permanent calitatea imaginii și nu poate fi anulat. Examinați cu atenție setările înainte de a începe.</string>
+    <string name="squeezer_setup_paths_title">Locațiile de căutare</string>
+    <string name="squeezer_setup_paths_default">Selectați foldere pentru căutare</string>
+    <string name="squeezer_setup_quality_title">Calitatea compresiei</string>
+    <string name="squeezer_setup_age_title">Vârstă minimă</string>
+    <string name="squeezer_setup_age_none">Fără limită (includeți toate fișierele)</string>
+    <string name="squeezer_setup_start_action">Porniți scanarea</string>
+    <string name="squeezer_quality_value">%d%%</string>
+    <string name="squeezer_quality_hint_very_low">Calitatea sub 40% poate crea imagini inutilizabile.</string>
+    <string name="squeezer_quality_hint_low">Calitatea scăzută economisește mai mult spațiu, dar poate provoca artefacte vizibile.</string>
+    <string name="squeezer_quality_hint_high">Calitatea foarte înaltă oferă economii minime de spațiu.</string>
+    <string name="squeezer_quality_hint_normal">Calitate echilibrată și economii de spațiu.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Cel puțin %d zi vechime</item>
+        <item quantity="few">Cel puțin %d zile vechime</item>
+        <item quantity="other">Cel puțin %d zile vechime</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Se estimează că ~%d%% economii pentru fișierele JPEG</string>
     <string name="appcontrol_tool_name">Controlul Aplicațiilor</string>
     <string name="appcontrol_explanation_short">Aplicațiile instalate pe dispozitivul tău.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -507,6 +663,7 @@
     <string name="appcontrol_tag_not_installed">Neinstalat</string>
     <string name="appcontrol_tag_enabled">Activat</string>
     <string name="appcontrol_tag_disabled">Dezactivat</string>
+    <string name="appcontrol_tag_debug">Depanare</string>
     <string name="appcontrol_progress_enabling_package">Se activează aplicația</string>
     <string name="appcontrol_progress_disabling_package">Se dezactivează aplicația</string>
     <string name="appcontrol_list_filteroptions_label">Opțiuni pentru filtre</string>
@@ -522,6 +679,34 @@
         <item quantity="one">%d aplicație a fost dezinstalată</item>
         <item quantity="few">%d aplicații au fost dezinstalate</item>
         <item quantity="other">%d aplicații au fost dezinstalate</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Arhivă</string>
+    <string name="appcontrol_archive_selection_action">Aplicații arhivate</string>
+    <string name="appcontrol_archive_description">Arhiva la spațiu liber, păstrând în același timp datele aplicației pentru restaurare ulterioară.</string>
+    <string name="appcontrol_archive_confirmation_title">Confirmați arhiva</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Arhivați %d aplicație?</item>
+        <item quantity="few">Arhivați %d aplicații?</item>
+        <item quantity="other">Arhivați %d aplicații?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d aplicație arhivată</item>
+        <item quantity="few">%d aplicații arhivate</item>
+        <item quantity="other">%d aplicații arhivate</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Restaurare</string>
+    <string name="appcontrol_restore_selection_action">Restaurați aplicații</string>
+    <string name="appcontrol_restore_description">Restaurați aplicația arhivată la starea complet instalată. Datele aplicației sunt păstrate.</string>
+    <string name="appcontrol_restore_confirmation_title">Confirmați restaurare</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Restaurați %d aplicație?</item>
+        <item quantity="few">Restaurați %d aplicații?</item>
+        <item quantity="other">Restaurați %d aplicații?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d aplicație restaurată</item>
+        <item quantity="few">%d aplicații restaurate</item>
+        <item quantity="other">%d aplicații restaurate</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Dimensiunea aplicației</string>
     <string name="appcontrol_app_sizes_apk_label">Aplicație</string>
@@ -553,6 +738,9 @@
         <item quantity="other">%d aplicații au fost exportate</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Exportat %s</string>
+    <string name="appcontrol_share_list_action">Distribuiți listă</string>
+    <string name="appcontrol_share_list_title">Aplicațiile mele</string>
+    <string name="appcontrol_share_list_footer">Partajat prin SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Oprire forțată a aplicațiilor</string>
     <string name="appcontrol_force_stop_action">Opriți forțat</string>
     <string name="appcontrol_force_stop_confirm_title">Confirmați oprirea forțată</string>
@@ -571,6 +759,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Oprirea forțată…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Se caută butonul „Oprire forțată” (cuvinte cheie: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Se arhivează…</string>
+    <string name="appcontrol_automation_progress_find_archive">Se caută butonul \"Arhivați\" (cuvinte cheie: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Se restaurează…</string>
+    <string name="appcontrol_automation_progress_find_restore">Se caută butonul \"Restaurați\" (cuvinte cheie: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Timp ecran: %1$s din %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Ultima actualizare: %s</string>
     <string name="appcontrol_item_installedat_x_label">Instalat pe: %s</string>
@@ -593,6 +785,12 @@
         <item quantity="other">%s folosit</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Nu există acces direct disponibil</string>
+    <string name="analyzer_content_create_swiper_session_action">Creați sesiune rapidă</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Sesiunea de glisare creată cu %d element</item>
+        <item quantity="few">Sesiunea de glisare creată cu %d elemente</item>
+        <item quantity="other">Sesiunea de glisare creată cu %d elemente</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Stocare principală</string>
     <string name="analyzer_storage_type_primary_description">Stocarea primară a dispozitivului. Conține cardul SD intern, stocare privată pentru aplicații și date de sistem.</string>
     <string name="analyzer_storage_type_secondary_title">Stocare secundară</string>
@@ -635,6 +833,7 @@
     <string name="exclusion_type_segment">Excluderea segmentului</string>
     <string name="exclusion_tags_alltools">Toate instrumentele</string>
     <string name="exclusion_target_label">Ținta de excludere </string>
+    <string name="exclusion_editor_path_change_action">Atingeți pentru a schimba calea</string>
     <string name="exclusion_option_allow_partial">Permite potriviri parțiale</string>
     <string name="exclusion_option_ignore_casing">Ignoră carcasa </string>
     <string name="exclusion_editor_affected_tools_label">Instrumente afectate</string>
@@ -791,4 +990,127 @@
     <string name="shortcuts_settings_category">Scurtături</string>
     <string name="shortcuts_onetap_enabled_title">Comandă rapidă cu o singură atingere</string>
     <string name="shortcuts_onetap_enabled_summary">Afișează comanda rapidă „Scanare + Ștergere” atunci când apăsați lung pe pictograma aplicației. Utilizează aceleași instrumente ca și tabloul de bord cu o singură atingere.</string>
+    <string name="swiper_label">Glisare</string>
+    <string name="swiper_tool_name">Glisare</string>
+    <string name="swiper_tool_description">Glisați prin fișiere pentru a decide ce să păstrați sau să ștergeți.</string>
+    <string name="swiper_dashcard_description">SD Maid se ocupă automat de majoritatea lucrurilor. Pentru orice altceva, există glisare!</string>
+    <string name="swiper_start_action">Începeți glisarea</string>
+    <string name="swiper_continue_action">Continuați sesiunea</string>
+    <string name="swiper_sessions_description">Unele fișiere au nevoie doar de o atingere umană. Glisați pentru a decide soarta lor - nimic nu este șters până când nu spuneți acest lucru. Puteți să vă opriți oricând și să continuați mai târziu.</string>
+    <string name="swiper_select_folders_action">Selectați foldere</string>
+    <string name="swiper_scanning_title">Se scanează…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d element găsit</item>
+        <item quantity="few">%d elemente găsite</item>
+        <item quantity="other">%d elemente găsite</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d element șters</item>
+        <item quantity="few">%d elemente șterse</item>
+        <item quantity="other">%d elemente șterse</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d element eșuat</item>
+        <item quantity="few">%d elemente eșuate</item>
+        <item quantity="other">%d elemente eșuate</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d din %2$d</string>
+    <string name="swiper_keep_action">Păstrați</string>
+    <string name="swiper_skip_action">Treceți peste</string>
+    <string name="swiper_review_action">Revizuiți</string>
+    <string name="swiper_status_title">Decizii de revizuire</string>
+    <string name="swiper_status_action_keep_selected">Păstrați selecțiile</string>
+    <string name="swiper_status_action_delete_selected">Ștergeți selecțiile</string>
+    <string name="swiper_status_action_reset_selected">Resetați selecțiile</string>
+    <string name="swiper_decision_undecided">Indecis</string>
+    <string name="swiper_retry_action">Reîncărcați</string>
+    <string name="swiper_delete_confirmation_title">Ștergeți fișierele?</string>
+    <string name="swiper_delete_x_action">Ștergeți %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Schimbați direcțiile de glisare</string>
+    <string name="swiper_settings_swap_directions_summary">Trageți cu degetul spre stânga pentru a păstra, spre dreapta pentru a șterge.</string>
+    <string name="swiper_settings_show_details_title">Afișarea detaliilor fișierului</string>
+    <string name="swiper_settings_show_details_summary">Afișați numele fișierului, dimensiunea și data pe ecranul de glisare.</string>
+    <string name="swiper_settings_haptic_feedback_title">Vibrații la atingere</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibrați atunci când luați decizii de păstrare sau ștergere.</string>
+    <string name="swiper_discard_session_confirmation_title">Renunțați la sesiune?</string>
+    <string name="swiper_discard_session_confirmation_message">Toate deciziile vor fi pierdute. Sunteți sigur?</string>
+    <string name="swiper_no_preview_available">Nu există previzualizare disponibilă</string>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d sesiune</item>
+        <item quantity="few">%d sesiuni</item>
+        <item quantity="other">%d sesiuni</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d element indecis</item>
+        <item quantity="few">%d elemente indecise</item>
+        <item quantity="other">%d elemente indecise</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Creat %1$s, ultima activitate %2$s</string>
+    <string name="swiper_session_remove_action">Eliminați sesiune</string>
+    <string name="swiper_sessions_empty_hint">Atingeți + pentru a selecta un folder și a începe glisarea</string>
+    <string name="swiper_session_default_label">Sesiune #%d</string>
+    <string name="swiper_session_rename_title">Redenumiți sesiune</string>
+    <string name="swiper_session_rename_hint">Introduceți un nume pentru această sesiune</string>
+    <string name="swiper_sessions_current_sessions">Sesiuni curente</string>
+    <string name="swiper_session_paths_label">Căi</string>
+    <string name="swiper_session_status_label">Status</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d de păstrat</item>
+        <item quantity="few">%d de păstrat</item>
+        <item quantity="other">%d de păstrat</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d de șters</item>
+        <item quantity="few">%d de șters</item>
+        <item quantity="other">%d de șters</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d indecis</item>
+        <item quantity="few">%d indecise</item>
+        <item quantity="other">%d indecise</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d deja păstrat</item>
+        <item quantity="few">%d deja păstrate</item>
+        <item quantity="other">%d deja păstrate</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d deja șters</item>
+        <item quantity="few">%d deja șterse</item>
+        <item quantity="other">%d deja șterse</item>
+    </plurals>
+    <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d păstrat</item>
+        <item quantity="few">%d păstrate</item>
+        <item quantity="other">%d păstrate</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d ștearsă</item>
+        <item quantity="few">%d șterse</item>
+        <item quantity="other">%d șterse</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Excludeți \"%1$s\" din scanările Swiper?</string>
+    <string name="swiper_sessions_header_title">Pregătit de curățat?</string>
+    <string name="swiper_sessions_suggestions_label">Încercați să începeți cu:</string>
+    <string name="swiper_sessions_suggestion_downloads">Folder descărcări</string>
+    <string name="swiper_sessions_suggestion_screenshots">Capturi de ecran</string>
+    <string name="swiper_sessions_suggestion_camera">Galerie cameră</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Păstrați!</string>
+    <string name="swiper_stamp_keep_2">Grozav!</string>
+    <string name="swiper_stamp_keep_3">Da!</string>
+    <string name="swiper_stamp_keep_4">Salvați!</string>
+    <string name="swiper_stamp_delete_1">Nup!</string>
+    <string name="swiper_stamp_delete_2">La revedere!</string>
+    <string name="swiper_stamp_delete_3">Gunoi!</string>
+    <string name="swiper_stamp_delete_4">Șterge!</string>
+    <string name="swiper_stamp_skip_1">Sari!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Mai târziu!</string>
+    <string name="swiper_stamp_skip_4">Poate!</string>
+    <string name="swiper_stamp_undo_1">Anulare!</string>
+    <string name="swiper_stamp_undo_2">Înapoi!</string>
+    <string name="swiper_stamp_undo_3">Ups!</string>
+    <string name="swiper_stamp_undo_4">Așteaptă!</string>
 </resources>

@@ -88,6 +88,10 @@
     <string name="support_installid_desc">Automatische foutmeldingen zijn anoniem. Deel je installatie-ID als de ontwikkelaar je foutmeldingen moet vinden.</string>
     <string name="support_debuglog_label">Foutopsporingslogboek</string>
     <string name="support_debuglog_desc">Noteer alles wat de app doet in een tekstbestand dat je kunt delen.</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d bestand gebruikt %2$s</item>
+        <item quantity="other">%1$d bestanden gebruiken %2$s</item>
+    </plurals>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Een plek om rond te hangen en vragen te stellen.</string>
     <string name="changelog_label">Wijzigingslogboek</string>
@@ -169,6 +173,7 @@
     <string name="debug_mode_explanation">Testopties en uitgebreidere uitvoer inschakelen. App zal trager werken en anders presteren.</string>
     <string name="debug_bugreporter_label">Automatische foutmeldingen</string>
     <string name="debug_bugreporter_summary">Meldt automatisch problemen, bijv. details over de app-crashes, zodat ik erachter kan komen waarom en het kan repareren.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Hulpmiddelen</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risico niveau</string>
@@ -260,7 +265,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Schermafbeelding Leeftijd</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimumleeftijd waarop schermafbeeldingen in aanmerking komen voor verwijdering.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Overbodige APK\'s</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Installatiebestanden die ouder- of gelijk zijn aan app-versies die al zijn geïnstalleerd.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mappen</string>
     <string name="systemcleaner_filter_lostdir_summary">Tijdelijke bestanden die worden gemaakt bij de overdracht van gegevens tussen Android-apparaten.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux bestanden</string>
@@ -416,6 +420,7 @@
     <string name="appcleaner_automation_error_no_settings_body">Deze systeem-app heeft geen instellingenscherm. Cache wissen via de toegankelijkheidsservice is niet mogelijk. Sluit de app uit om het cachegeheugen sneller te kunnen wissen.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Systeem-app verkeerd geconfigureerd</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">De beveiligingsapp van HyperOS (com.miui.securitycenter) mist de toestemming Gebruiksstatistieken (GET_USAGE_STATS). Dit werkt niet meer zoals \'Gegevens wissen\' in appdetails en het wissen van de cache via toegankelijkheid. Verleen de toestemming om de volledige functionaliteit te herstellen.</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Sluit apps geforceerd af voordat je hun cache wist. Dit kan helpen om de cache van sommige apps te wissen, maar het kan er ook toe leiden dat apps niet goed meer werken en handmatig opnieuw moeten worden opgestart.</string>
     <string name="deduplicator_tool_name">Ontdubbelaar</string>
     <string name="deduplicator_explanation_short">Zoek dubbele gegevens op je toestel.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -457,6 +462,11 @@
     <string name="deduplicator_details_cluster_title">Set dubbele exemplaren</string>
     <string name="deduplicator_matches_exact_label">Exacte kopieën</string>
     <string name="deduplicator_matches_similar_label">Gelijkaardige bestanden</string>
+    <string name="deduplicator_view_mode_directories_label">Mappen</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d item (%2$s)</item>
+        <item quantity="other">%1$d items (%2$s)</item>
+    </plurals>
     <string name="appcontrol_tool_name">AppControle</string>
     <string name="appcontrol_explanation_short">Apps die op je apparaat zijn geïnstalleerd.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -506,6 +516,8 @@
         <item quantity="one">%d app werd verwijderd</item>
         <item quantity="other">%d app werden verwijderd</item>
     </plurals>
+    <string name="appcontrol_progress_archiving_app">App wordt gearchiveerd…</string>
+    <string name="appcontrol_progress_restoring_app">App wordt hersteld…</string>
     <string name="appcontrol_app_sizes_title">App-grootte</string>
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Gegevens</string>
@@ -759,4 +771,27 @@
     <string name="shortcuts_settings_category">Snelkoppelingen</string>
     <string name="shortcuts_onetap_enabled_title">Snelkoppeling met één tik</string>
     <string name="shortcuts_onetap_enabled_summary">Toon de snelkoppeling \'Scannen + Verwijderen\' wanneer je het app-pictogram lang ingedrukt houdt. Gebruikt hezelfde gereedschap als het one-tap dashboard.</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Hiermee wordt %1$d bestand (%2$s) permanent verwijderd. Deze actie kan niet ongedaan gemaakt worden.</item>
+        <item quantity="other">Hiermee worden %1$d bestanden (%2$s) permanent verwijderd. Deze actie kan niet ongedaan gemaakt worden.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d onbeslist item blijft over voor latere beoordeling.</item>
+        <item quantity="other">%d onbesliste items blijven over voor latere beoordeling.</item>
+    </plurals>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Sessie voortzetten van %1$d dag geleden (%2$d%% voltooid)</item>
+        <item quantity="other">Sessie voortzetten van %1$d dagen geleden (%2$d%% voltooid)</item>
+    </plurals>
+    <string name="swiper_sessions_upgrade_body">Upgrade om deze beperkingen op te heffen en de ontwikkeling te ondersteunen. De gratis versie heeft de volgende beperkingen:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d bestand per sessie</item>
+        <item quantity="other">%d bestanden per sessie</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d sessie</item>
+        <item quantity="other">%d sessies</item>
+    </plurals>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

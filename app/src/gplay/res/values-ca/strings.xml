@@ -3,13 +3,19 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Cal l\'SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">Actualització de l\'SD Maid</string>
-    <string name="upgrades_dashcard_body">L\'SD Maid Pro ofereix millors resultats, més funcions i opcions per als usuaris més avançats.</string>
-    <string name="upgrades_dashcard_upgrade_action">Actualitza</string>
+    <string name="upgrades_dashcard_title">Millora a l\'SD Maid SE</string>
+    <string name="upgrades_dashcard_body">L\'SD Maid SE Pro ofereix millors resultats, més funcions i opcions per a usuaris avançats.</string>
+    <string name="upgrades_dashcard_upgrade_action">Millora</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play està no disponible</string>
     <string name="upgrades_gplay_unavailable_error_description">L\'SD Maid no es pot connectar al Google Play. El Google Play està instal·lat i actualitzat? Heu iniciat sessió amb el vostre compte de Google? Proveu d\'esborrar la memòria cau de l\'aplicació Google Play i reinicieu el dispositiu.</string>
     <string name="upgrades_gplay_billing_error_label">Problema del Google Play</string>
     <string name="upgrades_gplay_billing_error_description">S\'ha produït un problema amb el Google Play. Torneu-ho a provar més tard o reinicieu el dispositiu.\n\nDetalls: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Error del Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">S\'ha produït un error intern del Google Play. Proveu el següent:\n\n• Reinicieu el dispositiu\n• Esborreu la memòria cau del Google Play Store\n• Torneu-ho a provar més tard</string>
+    <string name="upgrades_gplay_network_error_title">Error de connexió</string>
+    <string name="upgrades_gplay_network_error_description">No es pot connectar al Google Play. Comproveu la connexió a Internet i torneu-ho a provar.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Ja comprat</string>
+    <string name="upgrades_gplay_already_owned_error_description">Feu servir l\'opció «Restaura la compra» per restaurar la compra. Si el problema persisteix, proveu d\'esborrar la memòria cau del Google Play i reinicieu el dispositiu.</string>
     <string name="upgrades_no_purchases_found_check_account">No s\'han trobat compres. Esteu utilitzant el compte correcte?</string>
     <string name="upgrade_screen_title">Obtén l\'SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">L\'SD Maid no té anuncis i no ven les dades d\'usuari. El meu treball està finançat per vosaltres.</string>
@@ -24,8 +30,8 @@
     <string name="upgrade_screen_iap_action_hint">El preu de la compra única és de %s.</string>
     <string name="upgrade_screen_thanks_toast">Sou el millor! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Restaura la compra</string>
-    <string name="upgrade_screen_restore_purchase_message">La vostra actualització és vàlida en tots els dispositius del mateix compte de Google.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Consells de resolució de problemes per a actualitzacions no reconegudes:</string>
+    <string name="upgrade_screen_restore_purchase_message">La vostra millora és vàlida en tots els dispositius del mateix compte de Google.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Consells de resolució de problemes per a millores no reconegudes:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">La sincronització del Play Store pot trigar un temps. Proveu de reiniciar, esborrar la memòria cau del Google Play o simplement espereu.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Diversos comptes poden confondre el Google Play. Tanqueu la sessió d\'altres comptes o instal·leu-lo a través del lloc web del Google Play, que obliga a associar-los amb un compte específic.</string>
 </resources>

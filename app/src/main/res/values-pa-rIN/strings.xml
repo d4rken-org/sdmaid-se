@@ -152,6 +152,7 @@
     <string name="debug_mode_explanation">ਟੈਸਟ ਵਿਕਲਪਾਂ ਅਤੇ ਵਧੇਰੇ ਵਿਸਤ੍ਰਿਤ ਆਉਟਪੁੱਟ ਨੂੰ ਸਮਰੱਥ ਕਰੋ। ਐਪ ਹੌਲੀ ਚੱਲੇਗੀ ਅਤੇ ਵੱਖਰੇ ਢੰਗ ਨਾਲ ਪ੍ਰਦਰਸ਼ਨ ਕਰੇਗੀ।</string>
     <string name="debug_bugreporter_label">ਆਟੋਮੈਟਿਕ ਬੱਗ ਰਿਪੋਰਟ</string>
     <string name="debug_bugreporter_summary">ਸਮੱਸਿਆਵਾਂ ਨੂੰ ਆਪਣੇ ਆਪ ਰਿਪੋਰਟ ਕਰਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ ਐਪ ਕਰੈਸ਼ਾਂ ਦੇ ਵੇਰਵੇ ਤਾਂ ਜੋ ਮੈਂ ਕਾਰਨ ਪਤਾ ਲਗਾ ਸਕਾਂ ਅਤੇ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">ਸੰਦ</string>
     <string name="settings_category_filter">ਫਿਲਟਰ</string>
     <string name="settings_category_risklevel">ਜੋਖਿਮ ਪੱਧਰ</string>
@@ -238,7 +239,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">ਸਕ੍ਰੀਨਸ਼ਾਟ ਉਮਰ</string>
     <string name="systemcleaner_filter_screenshots_age_summary">ਮਿਟਾਉਣ ਲਈ ਵਿਚਾਰੇ ਜਾਣ ਵਾਲੇ ਸਕ੍ਰੀਨਸ਼ਾਟਾਂ ਦੀ ਘੱਟੋ-ਘੱਟ ਉਮਰ।</string>
     <string name="systemcleaner_filter_superfluosapks_label">ਫਾਲਤੂ APKs</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">ਸੈੱਟਅੱਪ ਫਾਇਲਾਂ ਜੋ ਪਹਿਲਾਂ ਹੀ ਇੰਸਟਾਲ ਕੀਤੇ ਐਪ ਸੰਸਕਰਣਾਂ ਤੋਂ ਪੁਰਾਣੀਆਂ ਜਾਂ ਬਰਾਬਰ ਹਨ।</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR ਫੋਲਡਰ</string>
     <string name="systemcleaner_filter_lostdir_summary">ਅਸਥਾਈ ਫਾਇਲਾਂ ਜੋ Android ਡਿਵਾਈਸਾਂ ਵਿਚਕਾਰ ਡੇਟਾ ਟ੍ਰਾਂਸਫਰ ਕਰਨ ਵੇਲੇ ਬਣਾਈਆਂ ਜਾਂਦੀਆਂ ਹਨ।</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux ਫਾਇਲਾਂ</string>
@@ -705,4 +705,6 @@
     <string name="area_type_public_obb_label">ਜਨਤਕ ਐਪ ਸਰੋਤ</string>
     <string name="area_type_private_data_label">ਨਿੱਜੀ ਐਪ ਡਾਟਾ</string>
     <string name="area_type_portable_label">ਪੋਰਟੇਬਲ ਸਟੋਰੇਜ</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

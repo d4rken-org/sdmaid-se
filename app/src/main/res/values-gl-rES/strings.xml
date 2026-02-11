@@ -151,6 +151,7 @@
     <string name="debug_mode_explanation">Habilitar opcións de proba e saída máis detallada. A aplicación executarase máis lentamente e funcionará de forma diferente.</string>
     <string name="debug_bugreporter_label">Informes automáticos de erros</string>
     <string name="debug_bugreporter_summary">Informa automaticamente de problemas, por exemplo, detalles sobre as fallos da aplicación para que poida descubrir por que ocorren e correxilos.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Ferramentas</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="settings_category_risklevel">Nivel de risco</string>
@@ -237,7 +238,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Antigüidade de capturas de pantalla</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Antigüidade mínima para que as capturas de pantalla se consideren para eliminar.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK superfluos</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Ficheiros de instalación que son máis antigos ou iguais ás versións de aplicacións que xa están instaladas.</string>
     <string name="systemcleaner_filter_lostdir_label">Cartafoles LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Ficheiros temporais que se crean ao transferir datos entre dispositivos Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Ficheiros Linux</string>
@@ -703,4 +703,6 @@
     <string name="area_type_public_obb_label">Recursos públicos das aplicacións</string>
     <string name="area_type_private_data_label">Datos privados das aplicacións</string>
     <string name="area_type_portable_label">Almacenamento portátil</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

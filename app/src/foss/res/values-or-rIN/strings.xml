@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">SD Maid SE FOSS ଆବଶ୍ୟକ</string>
-    <string name="upgrades_dashcard_title">SD Maid ଅପଗ୍ରେଡ କରନ୍ତୁ</string>
     <string name="upgrades_dashcard_body">ଅତିରିକ୍ତ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ ଅନଲକ କରନ୍ତୁ ଏବଂ ନିରନ୍ତର ବିକାଶକୁ ସମର୍ଥନ କରିବା ପାଇଁ ଜଣେ ପୃଷ୍ଠପୋଷକ ହୋଇଯାଆନ୍ତୁ!</string>
     <string name="upgrades_dashcard_upgrade_action">ଅପଗ୍ରେଡ କରନ୍ତୁ</string>
     <string name="upgrade_screen_title">SD Maid ଉନ୍ନତ କରନ୍ତୁ</string>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">Kailangan ang SD Maid SE FOSS</string>
-    <string name="upgrades_dashcard_title">I-upgrade ang SD Maid</string>
     <string name="upgrades_dashcard_body">I-unlock ang mga karagdagang feature at maging patron para suportahan ang patuloy na development!</string>
     <string name="upgrades_dashcard_upgrade_action">I-upgrade</string>
     <string name="upgrade_screen_title">Pahusayin ang SD Maid</string>

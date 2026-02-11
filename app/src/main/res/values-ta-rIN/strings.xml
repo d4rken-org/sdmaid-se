@@ -142,6 +142,7 @@
     <string name="debug_mode_label">பிழைதிருத்த நிலை</string>
     <string name="debug_bugreporter_label">தானியங்கி பிழை அறிக்கைகள்</string>
     <string name="debug_bugreporter_summary">சிக்கல்களை தானியங்கியாக அறிக்கையிடுகிறது, எ.கா. பயன்பாடு செயலிழப்பு விவரங்கள், இதனால் நான் காரணத்தை கண்டுபிடித்து சரிசெய்ய முடியும்.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">கருவிகள்</string>
     <string name="settings_category_filter">வடிப்பான்</string>
     <string name="settings_category_risklevel">ஆபத்து நிலை</string>
@@ -228,7 +229,6 @@
     <string name="systemcleaner_filter_trashed_summary">பல்வேறு பயன்பாடுகள் மற்றும் இடங்களிலிருந்து மீட்டுறுஞ்சுத்தொட்டிகளிலுள்ள கோப்புகள் நீக்குவதற்காக குறிக்கப்பட்டுள்ளன ஆனால் இன்னும் நிரந்தரமாக அகற்றப்படவில்லை.</string>
     <string name="systemcleaner_filter_screenshots_age_label">திரைப்பிடிப்பு வயது</string>
     <string name="systemcleaner_filter_screenshots_age_summary">நீக்குவதற்கு கருதப்பட வேண்டிய திரைப்பிடிப்புகளுக்கான குறைந்தபட்ச வயது.</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">ஏற்கனவே நிறுவப்பட்ட பயன்பாட்டு பதிப்புகளை விட பழைய அல்லது சமமான அமைப்பு கோப்புகள்.</string>
     <string name="systemcleaner_filter_lostdir_summary">Android சாதனங்களுக்கிடையே தரவை மாற்றும்போது உருவாக்கப்படும் தற்காலிக கோப்புகள்.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux கோப்புகள்</string>
     <string name="systemcleaner_filter_linuxfiles_summary">சேமிப்பகம் Linux கணினியுடன் இணைக்கப்படும்போது உருவாக்கப்படும் கோப்புகள் மற்றும் அடைவுகள்.</string>
@@ -650,4 +650,6 @@
     <string name="area_type_public_obb_label">பொது பயன்பாட்டு வளங்கள்</string>
     <string name="area_type_private_data_label">தனிப்பட்ட பயன்பாட்டு தரவு</string>
     <string name="area_type_portable_label">கையடக்க சேமிப்பு</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

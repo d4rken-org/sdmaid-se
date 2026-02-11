@@ -169,6 +169,7 @@
     <string name="debug_mode_explanation">Aktiver test-alternativer og mer detaljerte data. Appen vil kjøre saktere og yte annerledes.</string>
     <string name="debug_bugreporter_label">Automatiske feilrapporter</string>
     <string name="debug_bugreporter_summary">Rapporterer problemer automatisk, f.eks. detaljer om app-krasjer slik at jeg kan finne ut hvorfor og fikse det.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Verktøy</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Risikonivå</string>
@@ -260,7 +261,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Alder på skjermbilde</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimumsalder for at skjermbilder skal vurderes for sletting.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Overflødige APK-filer</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Installasjonsfiler som er eldre eller lik appversjoner som allerede er installert.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mapper</string>
     <string name="systemcleaner_filter_lostdir_summary">Midlertidige filer som opprettes ved overføring av data mellom Android-enheter.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux-filer</string>
@@ -759,4 +759,6 @@
     <string name="shortcuts_settings_category">Snarveier</string>
     <string name="shortcuts_onetap_enabled_title">Ett-trykk snarvei</string>
     <string name="shortcuts_onetap_enabled_summary">Vis \"Skann + Slett\" snarvei når app-ikonet holdes inne. Bruker samme verktøy som ett-trykk kontrollpanel.</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

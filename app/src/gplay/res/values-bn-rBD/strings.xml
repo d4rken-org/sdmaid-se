@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">এসডি মেইড এসই প্রো</string>
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">এসডি মেইড এসই প্রো আবশ্যক</string>
-    <string name="upgrades_dashcard_title">SD Maid আপগ্রেড করুন</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro ব্যবহারকারীদের জন্য আরও ভাল ফলাফল, আরও বৈশিষ্ট্য এবং বিকল্পগুলি অফার করে।</string>
     <string name="upgrades_dashcard_upgrade_action">আপগ্রেড করুন</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play অনুপলব্ধ৷</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play এর সাথে সংযোগ করতে পারছে না। গুগল প্লে কি ইনস্টল এবং আপ টু ডেট? আপনার Google অ্যাকাউন্ট লগ ইন আছে? Google Play অ্যাপের ক্যাশ সাফ করে এবং আপনার ডিভাইস রিবুট করে চেষ্টা করুন।</string>

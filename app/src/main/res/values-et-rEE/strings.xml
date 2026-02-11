@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Skannige ja kustutage kõiki vahendeid esilehel olevat nuppu puudutades, ilma täiendavate nõusolekuteta.</string>
     <string name="dashboard_settings_oneclick_tools_title">Ühepuutelised vahendid</string>
     <string name="dashboard_settings_oneclick_tools_desc">Mis võimalused võiksid olla ühepuutelised?</string>
+    <string name="dashboard_card_config_title">Töölaua jaotised</string>
+    <string name="dashboard_card_config_desc">Seadistage kuvatavad jaotised ja nende järjekord</string>
+    <string name="dashboard_card_config_header_title">Järjestuse muutmiseks lohistage, kuvamiseks/peitmiseks puudutage</string>
     <string name="debug_notification_channel_label">Vigade parandamise teated</string>
     <string name="debug_debuglog_file_label">Salvestatud logifail</string>
     <string name="debug_debuglog_recording_progress">Silumislogi salvestamine</string>
@@ -88,6 +91,14 @@
     <string name="support_installid_desc">Automaatsed veateated on anonüümsed. Jagage paigalduse tunnust juhuks, kui arendaja peab otsima teie veateateid.</string>
     <string name="support_debuglog_label">Silumislogi</string>
     <string name="support_debuglog_desc">Salvesta kogu rakenduse tegevus jagatavaks tekstifailiks.</string>
+    <string name="support_debuglog_folder_label">Silumislogi kaust</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d fail kasutab %2$s</item>
+        <item quantity="other">%1$d faili kasutab %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Silumislogid puuduvad</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Kustutada kõik silumislogid?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">See kustutab jäädavalt kõik talletatud silumislogi seansid. Seda ei saa ennistada.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Vaba aja veetmise ja küsimuste esitamise koht.</string>
     <string name="changelog_label">Muudatuslogi</string>
@@ -169,6 +180,14 @@
     <string name="debug_mode_explanation">Lubage katsetatavad valikud ja täpsem ülevaade toimuvast. Rakendus toimetab aeglasemalt ja teisiti.</string>
     <string name="debug_bugreporter_label">Automaatsed veateated</string>
     <string name="debug_bugreporter_summary">Automaatselt teavitage vigadest, nt rakenduse kokkujooksmise andmetest, et saaksin uurida, mis juhtus ja miks ning parandada seda.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Silumisrežiim on kasutusel</string>
+    <string name="debug_card_trace_mode_label">Luba jälitamisrežiim</string>
+    <string name="debug_card_dryrun_mode_label">Proovirežiim (säilitab kustutatava)</string>
+    <string name="debug_card_areas_reload_action">Laadi andmed uuesti</string>
+    <string name="debug_card_pkgs_reload_action">Laadi rakendused uuesti</string>
+    <string name="debug_card_root_test_action">Katseta juurpääsu</string>
+    <string name="debug_card_shizuku_test_action">Katseta Shizukut</string>
     <string name="settings_category_tools_label">Tööriistad</string>
     <string name="settings_category_filter">Filtreeri</string>
     <string name="settings_category_risklevel">Riskitase</string>
@@ -260,7 +279,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Ekraanipildi vanus</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Ekraanipiltide miinumumvanus, et kustutamiseks arvestada.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Üleliigsed .apk failid</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Juba paigaldatud rakenduse versioonist vanemad või sama versiooni seadistusfailid.</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Seadistusfailid, mida pole enam vaja olenevalt paigaldatud rakenduse versioonidest.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Kaasa sama versioon</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Lisaks kaasa APK-failid, mis kattuvad paigaldatud versiooniga. Keela vaid vanade versioonide eemaldamiseks.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR kaustad</string>
     <string name="systemcleaner_filter_lostdir_summary">Androidiga seadmete vahelisel andmete edastamisel loodud ajutised failid.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linuxi failid</string>
@@ -321,6 +342,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Nimi on sama, mis märksõna</string>
     <string name="systemcleaner_customfilter_last_edit">Viimane muudatus: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Reaalajas otsing</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Mahupiirangud</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Väikseim maht</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Suurim maht</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Piirangu tulemused olenevalt faili mahule. Iga mahu kuvamiseks jätta tühjaks.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Vanusepiirangud</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Noorim vanus</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Vanim vanus</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Piira tulemusi olenevalt faili vanusest (viimati muudetud). Kõikide vanuste kuvamiseks jätta tühjaks.</string>
     <string name="systemcleaner_customfilter_import_action">Impordi uus filter</string>
     <string name="systemcleaner_customfilter_export_action">Ekspordi valitud filter</string>
     <string name="appcleaner_tool_name">Rakendusepuhastaja</string>
@@ -416,6 +445,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Sellel süsteemirakendusel puudub seadete ekraan. Juurdepääsu teenuse kaudu pole võimalik tühjendada vahemälu. Kiiremaks vahemälu tühjendamiseks jätke see vahele.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Süsteemi rakendus seadistatud valesti</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'s Security rakendusel (com.miui.securitycenter) puudub kasutamisstatistikale juurdepääs (GET_USAGE_STATS). See segab andmete tühjendamist rakenduse seadetest ja vahemälu tühjendamist juurdepääsu teenuse kaudu. Kõikide võimaluste kasutamiseks andke vastav luba.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Sundpeata enne tühjendamist</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Sundpeatage rakendused enne nende vahemälu tühjendamist. Nii võib osade rakenduste vahemälu hõlpsamini tühjeneda, ent rakendused võivad toimida veidralt ja vajada taaskäivitamist.</string>
+    <string name="appcleaner_progress_force_stopping">Rakenduste sundpeatamine…</string>
     <string name="deduplicator_tool_name">Koopiate eemaldaja</string>
     <string name="deduplicator_explanation_short">Leidke seadmest samad andmed.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -430,6 +462,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Näita valikuid, mis lubab kustutada kõik samad failid, nii et ühtki faili ei jää alles.</string>
     <string name="deduplicator_search_locations_title">Otsinguasukohad</string>
     <string name="deduplicator_search_locations_all_summary">Kõik juurdepääsetavad alad</string>
+    <string name="deduplicator_keep_prefer_paths_title">Eelistan säilitada kohta</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Korduste säilitamise otsustamisel eelista failide hoiustamist nendes kohtades.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Asukohti pole seadistatud</string>
     <string name="deduplicator_skip_minsize_title">Väikseim maht</string>
     <string name="deduplicator_skip_minsize_description">Eira faile, mis on väiksemad kui väikseim maht.</string>
     <string name="deduplicator_skip_uncommon_title">Eira haruldasi failitüüpe</string>
@@ -457,6 +492,126 @@
     <string name="deduplicator_details_cluster_title">Koopiate pakett</string>
     <string name="deduplicator_matches_exact_label">Samad koopiad</string>
     <string name="deduplicator_matches_similar_label">Sarnased failid</string>
+    <string name="deduplicator_arbiter_title">Kustutamisstrateegia</string>
+    <string name="deduplicator_arbiter_summary">Määra säilitatavad ja kustutatavad failid.</string>
+    <string name="deduplicator_arbiter_explanation">Samasuguste kustutamisel arvestab SD Maid säilitamisel iga nõuet järjekorras. Esimene kattuv nõue määrab kustutatava saatuse. Järjekorra muutmiseks lohista. Režiimi muutmiseks puuduta.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Vali režiim</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Seadista kohad…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Korduse tüüp</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Eelista täpseid tulemusi sarnaste failide asemel.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Meedia indekseerimine</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Otsustage. kas faile indekseerida meediapakkuja põhjal.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Salvestuskoht</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Otsusta, kas failid siseses või välises salvestuskohas.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Kausta jada</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Otsusta, kas kaustad on lühikese või pika asukoha rajaga.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Muutmise kuupäev</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Vanemad või uuemad failid olenevalt muutmise ajast.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Faili maht</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Mahukamad või väiksemad failid, kui maht on esmatähtis.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Eelistatud asukohad</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Failide talletamine määratud asukohtades.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Eelista täpseid tulemusi</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Eelista sarnaseid faile</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Eelista indekseeritud faile</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Eelista indekseerimata faile</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Eelista sisemälu</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Eelista välismälu</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Eelista lühikesi kaustu</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Eelista pikki kaustu</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Eelista vanemaid faile</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Eelista uuemaid faile</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Eelista mahukamaid faile</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Eelista väiksemaid faile</string>
+    <string name="deduplicator_view_mode_groups_label">Rühmad</string>
+    <string name="deduplicator_view_mode_directories_label">Kaustad</string>
+    <string name="squeezer_tool_name">Meedia kokkupakkija</string>
+    <string name="squeezer_explanation_short">Ruumi tekitamiseks paki pilte.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">Leiti %d pilt</item>
+        <item quantity="other">Leiti %d pilti</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s saab säästa</item>
+        <item quantity="other">~%s saab säästa</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d pilt kokkupakitud</item>
+        <item quantity="other">%d pilti kokkupakitud</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d pilt valitud</item>
+        <item quantity="other">%d pilti valitud</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Otsi asukohti</string>
+    <string name="squeezer_search_locations_default_summary">Kaamera kaustad (tavaline)</string>
+    <string name="squeezer_min_size_title">Väikseim faili maht</string>
+    <string name="squeezer_min_size_description">Eira sellest mahust väiksemaid pilte.</string>
+    <string name="squeezer_min_age_title">Faili noorim vanus</string>
+    <string name="squeezer_min_age_description">Kaasa pilte, mis vanemad sellest east.</string>
+    <string name="squeezer_compression_settings_label">Kokkupakkimise seaded</string>
+    <string name="squeezer_quality_label">Kvaliteet</string>
+    <string name="squeezer_quality_title">Kokkupakkimise kvaliteet</string>
+    <string name="squeezer_quality_description">Madal kvaliteet tähendab väiksemat faili mahtu, ent kehvemat pildikvaliteeti.</string>
+    <string name="squeezer_quality_value_format">%d%%</string>
+    <string name="squeezer_quality_example_format">Näiteks: %1$s pilt → säästab ~%2$s %3$d%% kvaliteedi puhul</string>
+    <string name="squeezer_quality_warning_low">Kehvem kvaliteet võib põhjustada nähtavaid segajaid.</string>
+    <string name="squeezer_quality_warning_high">Väga kõrge kvaliteet ei paku eriti mälu säästmist.</string>
+    <string name="squeezer_types_category_label">Pildi tüübid</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Kaasa JPEG pilte (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Kaasa WebP pilte (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Eira varem kokkupakitut</string>
+    <string name="squeezer_skip_compressed_description">Eira SD Maidi juba kokkupakitud pildid.</string>
+    <string name="squeezer_exif_marker_title">Kirjuta EXIF märkus</string>
+    <string name="squeezer_exif_marker_description">Tee märge pildi EXIFi kasutaja kommentaari väljale, et ennetada uuesti kokkupakkimist isegi pärast kokkupakkimise ajaloo tühjenemist.</string>
+    <string name="squeezer_estimated_savings_format">~%s sääst</string>
+    <string name="squeezer_no_savings_expected">Piiratud säästud</string>
+    <string name="squeezer_current_size_format">Maht: %s</string>
+    <string name="squeezer_compress_action">Paki kokku</string>
+    <string name="squeezer_compress_all_action">Paki kõik kokku</string>
+    <string name="squeezer_preview_dialog_title">Kinnita kokkupakkimine</string>
+    <string name="squeezer_preview_total_size">Kogumaht</string>
+    <string name="squeezer_preview_estimated_savings">Hinnanguline sääst</string>
+    <string name="squeezer_compress_confirmation_title">Pildid kokku pakkida?</string>
+    <string name="squeezer_compress_confirmation_message">See asendab algpildid kokkupakitutega. Seda ei saa tühistada.</string>
+    <string name="squeezer_history_title">Kokkupakkimise ajalugu</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d kirje (%2$s)</item>
+        <item quantity="other">%1$d kirjet (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Kokkupakkimise ajalugu puudub</string>
+    <string name="squeezer_history_clear_title">Tühjenda kokkupakkimise ajalugu</string>
+    <string name="squeezer_history_clear_message">Pärast seda saab taas kokku pakkida varem kokkupakitud pilte. Pildid jäävad alles.</string>
+    <string name="squeezer_onboarding_title">Piltide kokkupakkimisest</string>
+    <string name="squeezer_onboarding_message">Pildi kokkupakkimine vähendab faili mahtu, eemaldades nähtavad osad. Toiming on lõplik ehk algkvaliteeti pole võimalik taastada.\n\nPildid muutuvad sellisteks:</string>
+    <string name="squeezer_onboarding_original_label">Algne</string>
+    <string name="squeezer_onboarding_compressed_label">Pärast kokkupakkimist</string>
+    <string name="squeezer_onboarding_quality_label">Kvaliteet: %d%%</string>
+    <string name="squeezer_onboarding_tap_to_zoom_hint">Suurendamiseks puuduta pilte</string>
+    <string name="squeezer_onboarding_got_it">Taipasin</string>
+    <string name="squeezer_preview_info_action">Kuva näidis</string>
+    <string name="squeezer_no_example_found">Valitud asukohtadest ei leitud ühtki pilti.</string>
+    <string name="squeezer_result_empty_message">Ühtki kokkupakitud pilti ei leitud.</string>
+    <string name="squeezer_setup_warning">Kokkupakkimine vähendab igaveseks pildi kvaliteeti, et hoida kokku mälu arvelt. Seda ei saa ennistada. Enne alustamist kontrollige seadeid hoolikalt.</string>
+    <string name="squeezer_setup_explanation">Meedia kokkupakkija vähendab pildifaili mahtu, et tekitada juurde mäluruumi. See vähendab pildi kvaliteeti jäädavalt ja seda ei saa ennistada. Enne alustamist kontrollige seadeid hoolikalt.</string>
+    <string name="squeezer_setup_paths_title">Otsi asukohti</string>
+    <string name="squeezer_setup_paths_default">Vali otsitavad kaustad</string>
+    <string name="squeezer_setup_quality_title">Kokkupakkimise kvaliteet</string>
+    <string name="squeezer_setup_age_title">Noorim vanus</string>
+    <string name="squeezer_setup_age_none">Piiranguta (kaasa kõik failid)</string>
+    <string name="squeezer_setup_start_action">Alusta skanni</string>
+    <string name="squeezer_quality_value">%d%%</string>
+    <string name="squeezer_quality_hint_very_low">40% väiksem kvaliteet võib luua kasutuid pilte.</string>
+    <string name="squeezer_quality_hint_low">Madalam kvaliteet tekitab ruumi juurde, ent võib põhjustada nähtavaid häireid.</string>
+    <string name="squeezer_quality_hint_high">Väga kõrge kvaliteet säästab mälu võimalikult vähe.</string>
+    <string name="squeezer_quality_hint_normal">Tasakaalus kvaliteet ja ruumisääst.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Vähemalt %d päev vana</item>
+        <item quantity="other">Vähemalt %d päeva vana</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Umbes %d%% sääst JPEG failide puhul</string>
     <string name="appcontrol_tool_name">Rakendusekontroll</string>
     <string name="appcontrol_explanation_short">Seadmesse paigaldatud rakendused.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -491,6 +646,7 @@
     <string name="appcontrol_tag_not_installed">Paigaldamata</string>
     <string name="appcontrol_tag_enabled">Lubatud</string>
     <string name="appcontrol_tag_disabled">Keelatud</string>
+    <string name="appcontrol_tag_debug">Silumine</string>
     <string name="appcontrol_progress_enabling_package">Rakenduse lubamine</string>
     <string name="appcontrol_progress_disabling_package">Rakenduse keelamine</string>
     <string name="appcontrol_list_filteroptions_label">Filtri valikud</string>
@@ -505,6 +661,32 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d rakendus eemaldati</item>
         <item quantity="other">%d rakendust eemaldati</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Arhiiv</string>
+    <string name="appcontrol_archive_selection_action">Arhiivi rakendusi</string>
+    <string name="appcontrol_archive_description">Arhiivi, et tekitada ruumi juurde, nii et rakenduse andmeid saab hiljem taastada.</string>
+    <string name="appcontrol_progress_archiving_app">Rakenduse arhiveerimine…</string>
+    <string name="appcontrol_archive_confirmation_title">Kinnita arhiveerimine</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Arhiveerida %d rakendus?</item>
+        <item quantity="other">Arhiveerida %d rakendust?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d rakendus arhiveeritud</item>
+        <item quantity="other">%d rakendust arhiveeritud</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Taasta</string>
+    <string name="appcontrol_restore_selection_action">Taasta rakendused</string>
+    <string name="appcontrol_restore_description">Taasta arhiveeritud rakendus paigaldatud seisu. Rakenduse andmed säilivad.</string>
+    <string name="appcontrol_progress_restoring_app">Rakenduse taastamine…</string>
+    <string name="appcontrol_restore_confirmation_title">Kinnita taastamine</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Taastada %d rakendus?</item>
+        <item quantity="other">Taastada %d rakendust?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d rakendus taastatud</item>
+        <item quantity="other">%d rakendust taastatud</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Rakenduse maht</string>
     <string name="appcontrol_app_sizes_apk_label">Rakendus</string>
@@ -533,6 +715,9 @@
         <item quantity="other">%d rakendust eksporditi</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">%s eksportimine</string>
+    <string name="appcontrol_share_list_action">Jaga loendit</string>
+    <string name="appcontrol_share_list_title">Minu rakendused</string>
+    <string name="appcontrol_share_list_footer">Jagatud SD Maid SE kaudu</string>
     <string name="appcontrol_force_stop_selection_action">Sundpeata rakendusi</string>
     <string name="appcontrol_force_stop_action">Sundpeata</string>
     <string name="appcontrol_force_stop_confirm_title">Kinnita sundpeatamine</string>
@@ -549,6 +734,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Sundpeatamine...</string>
     <string name="appcontrol_automation_progress_find_force_stop">Nupu „Sundpeata” otsimine (märksõnad: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Eelmise tegevuse kinnitamise üritamine (märksõnad: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Arhiveerimine…</string>
+    <string name="appcontrol_automation_progress_find_archive">Nupu „Arhiveeri“ otsimine (märksõnad: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Taastamine…</string>
+    <string name="appcontrol_automation_progress_find_restore">Nupu „Taasta” otsimine (märksõnad: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Ekraaniaeg: %1$s alates %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Viimati uuendatud: %s</string>
     <string name="appcontrol_item_installedat_x_label">Paigaldatud: %s</string>
@@ -569,6 +758,11 @@
         <item quantity="other">%s kasutatud</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Otsene juurdepääs puudub</string>
+    <string name="analyzer_content_create_swiper_session_action">Loo pühkimisseanss</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Pühkimisseanss loodud %d kandega</item>
+        <item quantity="other">Pühkimisseanss loodud %d kirjega</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Peamine hoiuruum</string>
     <string name="analyzer_storage_type_primary_description">Seadme peamine hoiuruum. Sisaldab sisemälu ja isiklikku hoiuruumi rakenduste ning süsteemiandmete jaoks.</string>
     <string name="analyzer_storage_type_secondary_title">Muu hoiuruum</string>
@@ -611,6 +805,7 @@
     <string name="exclusion_type_segment">Segmendi erand</string>
     <string name="exclusion_tags_alltools">Kõik tööriistad</string>
     <string name="exclusion_target_label">Erandi </string>
+    <string name="exclusion_editor_path_change_action">Asukoha muutmiseks puuduta</string>
     <string name="exclusion_option_allow_partial">Kõik osalised leiud</string>
     <string name="exclusion_option_ignore_casing">Eira tähesuurust</string>
     <string name="exclusion_editor_affected_tools_label">Mõjutatud tööriistad</string>
@@ -759,4 +954,131 @@
     <string name="shortcuts_settings_category">Otseteed</string>
     <string name="shortcuts_onetap_enabled_title">Ühepuuteline otsetee</string>
     <string name="shortcuts_onetap_enabled_summary">Kuva „Skanni ja kustuta\" otseteed, kui hoida kaua all rakenduse ikooni. Kasutab samu vahendeid nagu ühepuuteline töölaud.</string>
+    <string name="swiper_label">Pühkija</string>
+    <string name="swiper_tool_name">Pühkija</string>
+    <string name="swiper_tool_description">Pühi faile, et neid säilitada või kustutada.</string>
+    <string name="swiper_dashcard_description">SD Maid saab enamusega ise hakkama. Ent vahest pead ise pühkima.</string>
+    <string name="swiper_start_action">Alusta pühkimist</string>
+    <string name="swiper_continue_action">Jätka seanssi</string>
+    <string name="swiper_sessions_description">Osad failid vajavad inimest. Nende saatuse määrab pühkimine ehk kõik kulgeb sinu taktikepi järgi. Võid puhata silma igal ajal ja hiljem jätkata.</string>
+    <string name="swiper_select_folders_action">Vali kaustad</string>
+    <string name="swiper_scanning_title">Skanneerimine…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d leiti</item>
+        <item quantity="other">%d leiti</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d kustutatud</item>
+        <item quantity="other">%d kustutatud</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d nurjus</item>
+        <item quantity="other">%d nurjus</item>
+    </plurals>
+    <string name="swiper_item_position">%1$d / %2$d-st</string>
+    <string name="swiper_keep_action">Säilita</string>
+    <string name="swiper_skip_action">Jäta vahele</string>
+    <string name="swiper_review_action">Vaata üle</string>
+    <string name="swiper_status_title">Kontrolli otsuseid</string>
+    <string name="swiper_status_action_keep_selected">Säilita valitud</string>
+    <string name="swiper_status_action_delete_selected">Kustuta valitud</string>
+    <string name="swiper_decision_undecided">Otsustamata</string>
+    <string name="swiper_retry_action">Proovi uuesti</string>
+    <string name="swiper_delete_confirmation_title">Kustutada failid?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">See kustutab %1$d faili jäädavalt (%2$s). Seda ei saa tühistada.</item>
+        <item quantity="other">See kustutab %1$d faili jäädavalt (%2$s). Seda ei saa tühistada.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d on ootel edaspidiseks kontrolliks.</item>
+        <item quantity="other">%d on ootel edaspidiseks kontrolliks.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Kustuta %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Pühkimise suunad</string>
+    <string name="swiper_settings_swap_directions_summary">Säilitamiseks pühi vasakule, kustutamiseks paremale.</string>
+    <string name="swiper_settings_show_details_title">Kuva faili andmed</string>
+    <string name="swiper_settings_show_details_summary">Kuvab pühkimise ekraanil faili nime, mahu ja kuupäeva.</string>
+    <string name="swiper_settings_haptic_feedback_title">Värintagasiside</string>
+    <string name="swiper_settings_haptic_feedback_summary">Telefon väriseb säilitamisel või kustutamisel.</string>
+    <string name="swiper_discard_session_confirmation_title">Kustutada seanss?</string>
+    <string name="swiper_discard_session_confirmation_message">Otsused? Mäluauku! Oled kindel?</string>
+    <string name="swiper_no_preview_available">Eelvaade puudub</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Jätka %1$d päeva tagust seanssi (%2$d%% valmis)</item>
+        <item quantity="other">Jätka %1$d päeva tagust seanssi (%2$d%% valmis)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d seanss</item>
+        <item quantity="other">%d seanssi</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d ootab saatust</item>
+        <item quantity="other">%d ootab saatust</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Loodud %1$s, viimane tegevus %2$s</string>
+    <string name="swiper_session_remove_action">Eemalda seanss</string>
+    <string name="swiper_sessions_empty_hint">Kausta valimiseks ja pühkimiseks puuduta +</string>
+    <string name="swiper_sessions_upgrade_body">Nende piirangute kaotamiseks ja arenduse toetamiseks ostke. Tasuta versiooni piirangud:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d fail seansi kohta</item>
+        <item quantity="other">%d faili seansi kohta</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d seanss</item>
+        <item quantity="other">%d seanssi</item>
+    </plurals>
+    <string name="swiper_session_default_label">Seanss %d</string>
+    <string name="swiper_session_rename_title">Muuda seansi nime</string>
+    <string name="swiper_session_rename_hint">Määrake sellele seansile nimi</string>
+    <string name="swiper_sessions_current_sessions">Praegused seansid</string>
+    <string name="swiper_session_paths_label">Asukohad</string>
+    <string name="swiper_session_status_label">Olek</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d säilitada</item>
+        <item quantity="other">%d säilitada</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d kustutada</item>
+        <item quantity="other">%d kustutada</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d ootel</item>
+        <item quantity="other">%d ootel</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d juba säilitatud</item>
+        <item quantity="other">%d juba säilitatud</item>
+    </plurals>
+    <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d säilitatud</item>
+        <item quantity="other">%d säilitatud</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d kustutatud</item>
+        <item quantity="other">%d kustutatud</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Välista „%1$s“ pühkimisskannidest?</string>
+    <string name="swiper_sessions_header_title">Valmis korrastamiseks?</string>
+    <string name="swiper_sessions_suggestions_label">Ehk alustate siit:</string>
+    <string name="swiper_sessions_suggestion_downloads">Allalaadimiste kaust</string>
+    <string name="swiper_sessions_suggestion_screenshots">Ekraanipildid</string>
+    <string name="swiper_sessions_suggestion_camera">Kaamera pildid</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Säilita!</string>
+    <string name="swiper_stamp_keep_2">Tubli!</string>
+    <string name="swiper_stamp_keep_3">Jah!</string>
+    <string name="swiper_stamp_keep_4">Salvesta!</string>
+    <string name="swiper_stamp_delete_1">Ei!</string>
+    <string name="swiper_stamp_delete_2">Hüvasti!</string>
+    <string name="swiper_stamp_delete_3">Prügikasti!</string>
+    <string name="swiper_stamp_delete_4">Kustuta!</string>
+    <string name="swiper_stamp_skip_1">Eira!</string>
+    <string name="swiper_stamp_skip_2">Mida jampsi!</string>
+    <string name="swiper_stamp_skip_3">Hiljem!</string>
+    <string name="swiper_stamp_skip_4">Võib-olla!</string>
+    <string name="swiper_stamp_undo_1">Tühista!</string>
+    <string name="swiper_stamp_undo_2">Tagasi!</string>
+    <string name="swiper_stamp_undo_3">Isver-susver!</string>
+    <string name="swiper_stamp_undo_4">Pea hoogu!</string>
 </resources>

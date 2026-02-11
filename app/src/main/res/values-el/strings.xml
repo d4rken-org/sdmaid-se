@@ -169,6 +169,8 @@
     <string name="debug_mode_explanation">Ενεργοποιήστε τις επιλογές δοκιμής και πιο λεπτομερές output. Η εφαρμογή θα λειτουργεί πιο αργά και θα έχει διαφορετική απόδοση.</string>
     <string name="debug_bugreporter_label">Αυτόματες αναφορές σφαλμάτων</string>
     <string name="debug_bugreporter_summary">Αναφέρει αυτόματα ζητήματα, π.χ. λεπτομέρειες σχετικά με τα σφάλματα της εφαρμογής, ώστε να μπορώ να καταλάβω γιατί και να το διορθώσω.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_pkgs_reload_action">Επαναφόρτωση εφαρμογών</string>
     <string name="settings_category_tools_label">Εργαλεία</string>
     <string name="settings_category_filter">Φίλτρο</string>
     <string name="settings_category_risklevel">Επίπεδο κινδύνου</string>
@@ -260,7 +262,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Ηλικία Στιγμιότυπου</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Ελάχιστη ηλικία για στιγμιότυπα οθόνης που πρέπει να λαμβάνονται υπόψη για διαγραφή.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Περιττά APK</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Αρχεία εγκατάστασης που είναι παλαιότερα ή ίσα με τις εκδόσεις εφαρμογών που έχουν ήδη εγκατασταθεί.</string>
     <string name="systemcleaner_filter_lostdir_label">Φάκελοι LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Προσωρινά αρχεία που δημιουργούνται κατά τη μεταφορά δεδομένων μεταξύ συσκευών Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Αρχεία Linux</string>
@@ -321,6 +322,8 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Το όνομα είναι ίσο με τη λέξη-κλειδί</string>
     <string name="systemcleaner_customfilter_last_edit">Τελευταία επεξεργασία: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Ζωντανή αναζήτηση</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Ελάχιστο μέγεθος</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Μέγιστο μέγεθος</string>
     <string name="systemcleaner_customfilter_import_action">Εισαγωγή νέου φίλτρου</string>
     <string name="systemcleaner_customfilter_export_action">Εξαγωγή επιλεγμένου φίλτρου</string>
     <string name="appcleaner_tool_name">Εκκαθάριση Εφαρμογών</string>
@@ -457,6 +460,30 @@
     <string name="deduplicator_details_cluster_title">Σύνολο διπλότυπων</string>
     <string name="deduplicator_matches_exact_label">Ακριβή αντίγραφα</string>
     <string name="deduplicator_matches_similar_label">Παρόμοια αρχεία</string>
+    <string name="deduplicator_arbiter_select_mode_title">Λειτουργία επιλογής</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Ημερομηνία τροποποίησης</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Μέγεθος αρχείου</string>
+    <string name="deduplicator_view_mode_groups_label">Ομάδες</string>
+    <string name="deduplicator_view_mode_directories_label">Φάκελοι</string>
+    <string name="squeezer_min_size_title">Ελάχιστο μέγεθος αρχείου</string>
+    <string name="squeezer_quality_label">Ποιότητα</string>
+    <string name="squeezer_quality_title">Ποιότητα συμπίεσης</string>
+    <string name="squeezer_quality_value_format">%d%%</string>
+    <string name="squeezer_types_category_label">Τύποι εικόνων</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_current_size_format">Μέγεθος: %s</string>
+    <string name="squeezer_compress_action">Συμπίεση</string>
+    <string name="squeezer_compress_all_action">Συμπίεση όλων</string>
+    <string name="squeezer_preview_total_size">Συνολικό μέγεθος</string>
+    <string name="squeezer_history_title">Ιστορικό συμπίεσης</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d στοιχείο (%2$s)</item>
+        <item quantity="other">%1$d στοιχεία (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_clear_title">Εκκαθάριση ιστορικού συμπίεσης</string>
+    <string name="squeezer_setup_quality_title">Ποιότητα συμπίεσης</string>
+    <string name="squeezer_setup_start_action">Έναρξη σάρωσης</string>
     <string name="appcontrol_tool_name">Έλεγχος Εφαρμογών</string>
     <string name="appcontrol_explanation_short">Εφαρμογές εγκατεστημένες στη συσκευή σας.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -506,6 +533,13 @@
         <item quantity="one">%d εφαρμογή απεγκαταστάθηκε</item>
         <item quantity="other">%d εφαρμογές απεγκαταστάθηκαν</item>
     </plurals>
+    <string name="appcontrol_restore_action">Επαναφορά</string>
+    <string name="appcontrol_restore_selection_action">Επαναφορά εφαρμογών</string>
+    <string name="appcontrol_progress_restoring_app">Επαναφορά εφαρμογής…</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Επαναφορά %d εφαρμογής;</item>
+        <item quantity="other">Επαναφορά %d εφαρμογών;</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Μέγεθος εφαρμογής</string>
     <string name="appcontrol_app_sizes_apk_label">Εφαρμογή</string>
     <string name="appcontrol_app_sizes_data_label">Δεδομένα</string>
@@ -533,6 +567,7 @@
         <item quantity="other">Έγινε εξαγωγή %d εφαρμογών</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Εξαγωγή %s</string>
+    <string name="appcontrol_share_list_title">Οι εφαρμογές</string>
     <string name="appcontrol_force_stop_selection_action">Επιβολή διακοπής εφαρμογών</string>
     <string name="appcontrol_force_stop_action">Επιβολή διακοπής</string>
     <string name="appcontrol_force_stop_confirm_title">Επιβεβαίωση επιβολής διακοπής</string>
@@ -549,6 +584,7 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Επιβολή διακοπής…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Αναζήτηση για το κουμπί \"Αναγκαστική διακοπή\" (λέξεις-κλειδιά: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Προσπάθεια επιβεβαίωσης προηγούμενης ενέργειας (λέξεις-κλειδιά: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Επαναφορά…</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Χρόνος χρήσης οθόνης: %1$s από %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Τελευταία ενημέρωση: %s</string>
     <string name="appcontrol_item_installedat_x_label">Εγκαταστάθηκε σε: %s</string>
@@ -759,4 +795,18 @@
     <string name="shortcuts_settings_category">Συντομεύσεις</string>
     <string name="shortcuts_onetap_enabled_title">Συντόμευση ενός πατήματος</string>
     <string name="shortcuts_onetap_enabled_summary">Εμφάνιση συντόμευσης \"Σάρωση + Διαγραφή\" όταν πατάτε παρατεταμένα το εικονίδιο της εφαρμογής. Χρησιμοποιεί τα ίδια εργαλεία με τον πίνακα ενός πατήματος.</string>
+    <string name="swiper_select_folders_action">Επιλογή φακέλων</string>
+    <string name="swiper_scanning_title">Σάρωση…</string>
+    <string name="swiper_item_position">#%1$d από %2$d</string>
+    <string name="swiper_keep_action">Διατήρηση</string>
+    <string name="swiper_skip_action">Παράλειψη</string>
+    <string name="swiper_status_action_keep_selected">Διατήρηση επιλεγμένων</string>
+    <string name="swiper_status_action_delete_selected">Διαγραφή επιλεγμένων</string>
+    <string name="swiper_status_action_reset_selected">Επαναφορά επιλεγμένων</string>
+    <string name="swiper_retry_action">Επανάληψη</string>
+    <string name="swiper_session_paths_label">Διαδρομές</string>
+    <string name="swiper_session_status_label">Κατάσταση</string>
+    <!-- Shorter versions for side-by-side display -->
+    <string name="swiper_sessions_suggestion_screenshots">Στιγμιότυπα οθόνης</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

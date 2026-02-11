@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro தேவைப்படுகிறது</string>
-    <string name="upgrades_dashcard_title">SD Maid-ஐ மேம்படுத்துங்கள்</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro சிறந்த முடிவுகள், அதிக அம்சங்கள் மற்றும் சக்தி பயனர்களுக்கான விருப்பங்களை வழங்குகிறது.</string>
     <string name="upgrades_dashcard_upgrade_action">மேம்படுத்து</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play கிடைக்கவில்லை</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play உடன் இணைக்க முடியவில்லை. Google Play நிறுவப்பட்டு புதுப்பிக்கப்பட்டுள்ளதா? உங்கள் Google கணக்கு உள்நுழைந்துள்ளதா? Google Play ஆப்பின் தற்காலிக சேமிப்பை அழித்து உங்கள் சாதனத்தை மறுதொடக்கம் செய்ய முயற்சிக்கவும்.</string>

@@ -151,6 +151,7 @@
     <string name="debug_mode_explanation">Sinov variantlarini va batafsil natijalarni yoqish. Ilova sekinroq ishlaydi va boshqacha ishlaydi.</string>
     <string name="debug_bugreporter_label">Avtomatik xato hisobotlari</string>
     <string name="debug_bugreporter_summary">Muammolarni avtomatik hisobot qiladi, masalan, ilova ishlamay qolishi haqidagi tafsilotlar, shuning uchun men nima sababdan ekanligini aniqlay olaman va uni tuzataman.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Vositalar</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="settings_category_risklevel">Xavf darajasi</string>
@@ -240,7 +241,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Skrinshot yoshi</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Skrinshotlarni o\'chirish uchun ko\'rib chiqish uchun minimal yosh.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Ortiqcha APK fayllar</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Allaqachon o\'rnatilgan ilova versiyalaridan eski yoki teng bo\'lgan o\'rnatish fayllari.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR papkalari</string>
     <string name="systemcleaner_filter_lostdir_summary">Android qurilmalari o\'rtasida ma\'lumot uzatishda yaratilgan vaqtinchalik fayllar.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux fayllari</string>
@@ -706,4 +706,6 @@
     <string name="area_type_public_obb_label">Ommaviy ilova resurslari</string>
     <string name="area_type_private_data_label">Shaxsiy ilova ma\'lumotlari</string>
     <string name="area_type_portable_label">Ko\'chma xotira</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

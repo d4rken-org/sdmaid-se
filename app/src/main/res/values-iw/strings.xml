@@ -7,6 +7,8 @@
     <string name="dashboard_settings_oneclick_summary">התחלת סריקה ומחיקה עבור כל הכלים בלחיצה על כפתור הפעולה בלוח הבקרה, ללא אישורים נוספים.</string>
     <string name="dashboard_settings_oneclick_tools_title">כלים בלחיצה-אחת</string>
     <string name="dashboard_settings_oneclick_tools_desc">אילו כלים צריכים להיכלל בפעולות בלחיצה-אחת?</string>
+    <string name="dashboard_card_config_title">כרטיסי לוח מחוונים</string>
+    <string name="dashboard_card_config_desc">הגדר אילו כרטיסים מוצגים ואת הסדר שלהם</string>
     <string name="debug_notification_channel_label">התראות ניפוי באגים</string>
     <string name="debug_debuglog_file_label">קבצי לוג שמורים</string>
     <string name="debug_debuglog_recording_progress">מקליט לוג דיבוג</string>
@@ -160,6 +162,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="debug_mode_explanation">מפעיל אפשרויות בדיקה ופלט מפורט יותר. האפליקציה תפעל לאט יותר ובצורה שונה מהרגיל.</string>
     <string name="debug_bugreporter_label">דוחות קריסה אוטומטים</string>
     <string name="debug_bugreporter_summary">דיווח אוטומטית על בעיות, למשל. פרטים על קריסת האפליקציה כדי שאוכל להבין מה צריך לתקן.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">כלים</string>
     <string name="settings_category_filter">סינון</string>
     <string name="settings_category_risklevel">רמת סיכון</string>
@@ -261,7 +264,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="systemcleaner_filter_screenshots_age_label">גיל צילום מסך</string>
     <string name="systemcleaner_filter_screenshots_age_summary">גיל מינימלי למחיקה של צילומי מסך.</string>
     <string name="systemcleaner_filter_superfluosapks_label">חבילות APK מיותרות</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">קבצי התקנה ישנים יותר או שווים לגרסאות אפליקציה שכבר מותקנות.</string>
     <string name="systemcleaner_filter_lostdir_label">תיקיות LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">קבצים זמניים שנוצרים בעת העברת נתונים בין מכשירי אנדרואיד.</string>
     <string name="systemcleaner_filter_linuxfiles_label">קבצי לינוקס</string>
@@ -776,4 +778,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="area_type_public_obb_label">משאבי אפליקציה ציבוריים</string>
     <string name="area_type_private_data_label">נתוני אפליקציה פרטיים</string>
     <string name="area_type_portable_label">אחסון נייד</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

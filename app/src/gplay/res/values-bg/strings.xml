@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">Изисква SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">Надстройте SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro предлага по-добри резултати, повече функции и опции за напреднали потребители.</string>
     <string name="upgrades_dashcard_upgrade_action">Надстройване</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play не е достъпен</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid не може да се свърже с Google Play. Инсталиран ли е Google Play и актуален ли е? Влязъл ли е вашият Google акаунт? Опитайте да изчистите кеша на приложението Google Play и да рестартирате устройството си.</string>

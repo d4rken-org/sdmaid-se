@@ -7,6 +7,8 @@
     <string name="dashboard_settings_oneclick_summary">Mulai scan dan hapus semua alat dengan satu klik pada tombol tindakan dasbor, tanpa konfirmasi tambahan.</string>
     <string name="dashboard_settings_oneclick_tools_title">Alat Sekali Ketuk</string>
     <string name="dashboard_settings_oneclick_tools_desc">Alat apa saja yang harus disertakan dalam operasi satu ketukan?</string>
+    <string name="dashboard_card_config_title">Kartu dasbor</string>
+    <string name="dashboard_card_config_desc">Sesuaikan kartu mana yang ditampilkan dan urutannya</string>
     <string name="debug_notification_channel_label">Notifikasi debug</string>
     <string name="debug_debuglog_file_label">File log yang direkam</string>
     <string name="debug_debuglog_recording_progress">Merekam jejak debug</string>
@@ -166,6 +168,7 @@
     <string name="debug_mode_explanation">Aktifkan opsi pengujian dan lebih banyak keluaran verbose. Aplikasi akan berjalan lebih lambat dan bekerja secara berbeda.</string>
     <string name="debug_bugreporter_label">Laporan bug otomatis</string>
     <string name="debug_bugreporter_summary">Melaporkan masalah secara otomatis, seperti detail aplikasi saat tidak merespons sehingga saya dapat dengan cepat menemukan dan memperbaikinya.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Peralatan</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Tingkat risiko</string>
@@ -251,7 +254,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Lama Tangkapan layar</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Lama tangkapan layar untuk dipertimbangkan dihapus.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Berkas APK tidak digunakan</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Berkas penyetelan yang lebih lama atau sama dengan versi aplikasi yang sudah terpasang.</string>
     <string name="systemcleaner_filter_lostdir_label">Folder LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Berkas sementara yang dibuat sewaktu mengirim data antar perangkat Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Berkas Linux</string>
@@ -442,6 +444,25 @@
     <string name="deduplicator_details_cluster_title">Set duplikat</string>
     <string name="deduplicator_matches_exact_label">Salinan yang persis</string>
     <string name="deduplicator_matches_similar_label">File serupa</string>
+    <string name="deduplicator_view_mode_directories_label">Folder</string>
+    <string name="squeezer_tool_name">Optimasi Media</string>
+    <string name="squeezer_explanation_short">Perkecil gambar untuk menghemat ruang penyimpanan.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="other">%d gambar ditemukan</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="other">~%s dapat dihemat</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="other">%d gambar dikompresi</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="other">%d gambar dipilih</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Lokasi penyimpanan</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="other">%1$d item (%2$s)</item>
+    </plurals>
     <string name="appcontrol_tool_name">Pengendali Aplikasi</string>
     <string name="appcontrol_explanation_short">Aplikasi terpasang di perangkat Anda.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -489,6 +510,8 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="other">%d aplikasi dihapus</item>
     </plurals>
+    <string name="appcontrol_progress_archiving_app">Mengarsipkan apl…</string>
+    <string name="appcontrol_progress_restoring_app">Memulihkan apl…</string>
     <string name="appcontrol_app_sizes_title">Ukuran aplikasi</string>
     <string name="appcontrol_app_sizes_apk_label">Aplikasi</string>
     <string name="appcontrol_app_sizes_data_label">Data</string>
@@ -545,6 +568,10 @@
         <item quantity="other">%s digunakan</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Tidak ada akses langsung yang tersedia</string>
+    <string name="analyzer_content_create_swiper_session_action">Buat sesi Memilah</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">Sesi memilah dibuat dengan %d item</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Penyimpanan utama</string>
     <string name="analyzer_storage_type_primary_description">Penyimpanan utama pada perangkat anda. Berisi internal kartu SD, penyimpanan privat untuk aplikasi-aplikasi dan data sistem.</string>
     <string name="analyzer_storage_type_secondary_title">Penyimpanan cadangan</string>
@@ -727,4 +754,45 @@
     <string name="shortcuts_settings_category">Pintasan</string>
     <string name="shortcuts_onetap_enabled_title">Pintasan sekali ketuk</string>
     <string name="shortcuts_onetap_enabled_summary">Tampilkan pintasan \"Pindai + Hapus\" saat menekan lama ikon aplikasi. Menggunakan alat yang sama seperti dasbor sekali ketuk.</string>
+    <string name="swiper_label">Pemilah</string>
+    <string name="swiper_tool_name">Pemilah</string>
+    <string name="swiper_tool_description">Geser berkas untuk menentukan mana yang disimpan atau dihapus.</string>
+    <string name="swiper_dashcard_description">SD Maid menangani sebagian besar hal secara otomatis. Lainnya, tinggal geser!</string>
+    <string name="swiper_start_action">Mulai memilah</string>
+    <string name="swiper_continue_action">Lanjutkan sesi</string>
+    <string name="swiper_sessions_description">Beberapa berkas perlu sentuhan manusia. Geser untuk menentukan nasibnya—tidak ada yang dihapus tanpa persetujuan Anda. Anda bisa menjeda kapan saja dan melanjutkannya nanti.</string>
+    <string name="swiper_select_folders_action">Pilih folder</string>
+    <string name="swiper_scanning_title">Memindai…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="other">%d item ditemukan</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="other">%d item dihapus</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="other">%d item gagal</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d dari %2$d</string>
+    <string name="swiper_keep_action">Simpan</string>
+    <string name="swiper_skip_action">Lewati</string>
+    <string name="swiper_review_action">Tinjau</string>
+    <string name="swiper_status_title">Tinjau keputusan</string>
+    <string name="swiper_status_action_keep_selected">Simpan terpilih</string>
+    <string name="swiper_status_action_delete_selected">Hapus terpilih</string>
+    <string name="swiper_status_action_reset_selected">Atur ulang pilihan</string>
+    <string name="swiper_decision_undecided">Belum diputuskan</string>
+    <string name="swiper_retry_action">Coba lagi</string>
+    <string name="swiper_delete_confirmation_title">Hapus berkas?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="other">Ini akan menghapus secara permanen. %1$d file (%2$s). Tindakan ini tidak dapat dibatalkan.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="other">%d Item yang belum diputuskan akan tetap ada untuk ditinjau kemudian.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Hapus %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Tukar arah geser</string>
+    <string name="swiper_settings_swap_directions_summary">Geser ke kiri untuk simpan, geser ke kanan untuk hapus.</string>
+    <string name="swiper_settings_show_details_title">Lihat detail berkas</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

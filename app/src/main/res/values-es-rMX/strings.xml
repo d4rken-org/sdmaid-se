@@ -169,6 +169,7 @@
     <string name="debug_mode_explanation">Habilitar opciones de prueba y salida más detallada. La aplicación funcionará más lenta y tendrá comportamiento diferente.</string>
     <string name="debug_bugreporter_label">Reportes automáticos de errores</string>
     <string name="debug_bugreporter_summary">Reporta automáticamente problemas, p. ej. detalles sobre cierres de aplicación para que pueda averiguar por qué y arreglarlo.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Herramientas</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="settings_category_risklevel">Nivel de riesgo</string>
@@ -260,7 +261,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Antigüedad de la captura de pantalla</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Antigüedad mínima de las capturas de pantalla para ser consideradas para su eliminación.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APKs inútiles</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Archivos de configuración que son más antiguos o iguales a las versiones de aplicaciones que ya están instaladas.</string>
     <string name="systemcleaner_filter_lostdir_label">Carpetas LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Archivos temporales que se crean al transferir datos entre dispositivos Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Archivos Linux</string>
@@ -759,4 +759,6 @@
     <string name="shortcuts_settings_category">Accesos directos</string>
     <string name="shortcuts_onetap_enabled_title">Acceso directo de un toque</string>
     <string name="shortcuts_onetap_enabled_summary">Muestra el acceso directo «Buscar + Eliminar» al pulsar prolongadamente el icono de la aplicación. Utiliza las mismas herramientas que el panel de un solo toque.</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

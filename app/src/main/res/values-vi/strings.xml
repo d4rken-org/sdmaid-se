@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Bắt đầu quét và xóa tất cả các công cụ bằng một lần nhấn vào nút hành động của bảng điều khiển, không cần xác nhận thêm.</string>
     <string name="dashboard_settings_oneclick_tools_title">Công cụ một chạm</string>
     <string name="dashboard_settings_oneclick_tools_desc">Những công cụ nào nên được đưa vào thao tác một chạm?</string>
+    <string name="dashboard_card_config_title">Bảng điều khiển</string>
+    <string name="dashboard_card_config_desc">Định cấu hình thẻ nào được hiển thị và thứ tự của chúng</string>
+    <string name="dashboard_card_config_header_title">Kéo để sắp xếp lại, bật,/tắt để hiển thị/ẩn</string>
     <string name="debug_notification_channel_label">Thông báo gỡ lỗi</string>
     <string name="debug_debuglog_file_label">Tệp nhật ký đã ghi</string>
     <string name="debug_debuglog_recording_progress">Ghi nhật ký gỡ lỗi</string>
@@ -85,6 +88,13 @@
     <string name="support_installid_desc">Báo cáo lỗi tự động là ẩn danh. Chia sẻ ID cài đặt của bạn nếu nhà phát triển cần tìm báo cáo lỗi của bạn.</string>
     <string name="support_debuglog_label">Nhật ký gỡ lỗi</string>
     <string name="support_debuglog_desc">Ghi lại mọi thứ mà ứng dụng đang thực hiện vào một tệp văn bản mà bạn có thể chia sẻ.</string>
+    <string name="support_debuglog_folder_label">Thư mục nhật ký gỡ lỗi</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="other">%1$d tệp sử dụng %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Không có nhật ký gỡ lỗi được ghi</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Xóa tất cả nhật ký gỡ lỗi?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Thao tác này sẽ xóa vĩnh viễn tất cả các phiên ghi chép gỡ lỗi đã lưu. Không thể hủy bỏ thao tác này.</string>
     <string name="discord_label">Xung đột</string>
     <string name="discord_description">Một nơi để giải trí và đặt câu hỏi.</string>
     <string name="changelog_label">Nhật ký thay đổi</string>
@@ -166,6 +176,14 @@
     <string name="debug_mode_explanation">Kích hoạt các tùy chọn kiểm tra và đầu ra dài dòng hơn. Ứng dụng sẽ chạy chậm hơn và hoạt động khác đi.</string>
     <string name="debug_bugreporter_label">Báo cáo lỗi tự động</string>
     <string name="debug_bugreporter_summary">Tự động báo cáo sự cố, ví dụ: chi tiết về sự cố ứng dụng để tôi có thể tìm ra lý do và khắc phục sự cố.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Chế độ gỡ lỗi đã được kích hoạt</string>
+    <string name="debug_card_trace_mode_label">Bật chế độ dò tìm dấu vết</string>
+    <string name="debug_card_dryrun_mode_label">Chế độ chạy thử (tắt chức năng xóa)</string>
+    <string name="debug_card_areas_reload_action">Tải lại các vùng dữ liệu</string>
+    <string name="debug_card_pkgs_reload_action">Tải lại các ứng dụng</string>
+    <string name="debug_card_root_test_action">Kiểm tra root</string>
+    <string name="debug_card_shizuku_test_action">Kiểm tra Shizuku</string>
     <string name="settings_category_tools_label">Công cụ</string>
     <string name="settings_category_filter">Bộ lọc</string>
     <string name="settings_category_risklevel">Mức độ rủi ro</string>
@@ -251,7 +269,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Tuổi ảnh chụp màn hình</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Thời gian tối thiểu để xem xét xóa ảnh chụp màn hình.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK thừa</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Thiết lập các tệp cũ hơn hoặc bằng phiên bản ứng dụng đã được cài đặt.</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Các tập tin cài đặt không còn cần thiết dựa trên phiên bản ứng dụng đã cài đặt.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Bao gồm cùng phiên bản</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Cũng nhắm mục tiêu đến các tệp APK phù hợp với phiên bản đã cài đặt. Vô hiệu hóa tùy chọn này để chỉ xóa các phiên bản cũ hơn.</string>
     <string name="systemcleaner_filter_lostdir_label">Các thư mục LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Các tệp tạm thời được tạo khi truyền dữ liệu giữa các thiết bị Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Tệp Linux</string>
@@ -312,6 +332,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Tên trùng với từ khóa</string>
     <string name="systemcleaner_customfilter_last_edit">Chỉnh sửa lần cuối: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Tìm kiếm trực tiếp</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Hạn chế về kích thước</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Kích thước tối thiểu</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Kích thước tối đa</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Giới hạn số lượng kết qủa khớp dựa trên kích thước tệp. Để trống nếu muốn khớp với bất kỳ kích thước nào.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Giới hạn độ tuổi</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Độ tuổi tối thiểu</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Độ tuổi tối đa</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Giới hạn kết qủa khớp dựa trên thời gian tạo tệp (thời gian sửa đổi lần cuối). Để trống nếu muốn khớp với bất kỳ thời gian tạo tệp nào.</string>
     <string name="systemcleaner_customfilter_import_action">Nhập bộ lọc mới</string>
     <string name="systemcleaner_customfilter_export_action">Xuất bộ lọc đã chọn</string>
     <string name="appcleaner_tool_name">Dọn dẹp ứng dụng</string>
@@ -404,6 +432,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Màn hình cài đặt không có sẵn trên ứng dụng hệ thống này. Không thể xóa bộ nhớ đệm thông qua dịch vụ trợ năng. Loại bỏ nó để tăng tốc độ xóa bộ nhớ đệm.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Ứng dụng hệ thống bị cấu hình sai</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Ứng dụng Bảo mật của HyperOS (com.miui.securitycenter) thiếu quyền Thống kê Sử dụng (GET_USAGE_STATS). Điều này làm hỏng các tính năng như \"Xóa Dữ liệu\" trong chi tiết ứng dụng và xóa bộ nhớ cache qua dịch vụ trợ năng. Cấp quyền để khôi phục đầy đủ chức năng.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Buộc dừng trước khi xóa</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Buộc dừng ứng dụng trước khi xóa bộ nhớ đệm của chúng. Thao tác này có thể giúp xóa bộ nhớ đệm của một số ứng dụng, nhưng có thể khiến ứng dụng hoạt động không đúng cách và cần phải khởi động lại thủ công.</string>
+    <string name="appcleaner_progress_force_stopping">Đang buộc dừng ứng dụng…</string>
     <string name="deduplicator_tool_name">Quản lý tệp trùng lặp</string>
     <string name="deduplicator_explanation_short">Tìm dữ liệu trùng lặp trên thiết bị của bạn.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -416,6 +447,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Hiển thị các tùy chọn cho phép bạn xóa tất cả các tệp trong một tập hợp các bản sao để không còn tệp nào.</string>
     <string name="deduplicator_search_locations_title">Vị trí tìm kiếm</string>
     <string name="deduplicator_search_locations_all_summary">Tất cả các khu vực có thể tiếp cận</string>
+    <string name="deduplicator_keep_prefer_paths_title">Ưu tiên giữ lại</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Khi quyết định giữ lại bản sao nào, hãy ưu tiên lưu giữ các tệp ở những vị trí này.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Chưa có vị trí nào được cấu hình</string>
     <string name="deduplicator_skip_minsize_title">Kích thước tối thiểu</string>
     <string name="deduplicator_skip_minsize_description">Bỏ qua các tập tin có kích thước dưới kích thước tối thiểu.</string>
     <string name="deduplicator_skip_uncommon_title">Bỏ qua các loại tệp không phổ biến</string>
@@ -442,6 +476,120 @@
     <string name="deduplicator_details_cluster_title">Tập hợp các bản sao</string>
     <string name="deduplicator_matches_exact_label">Bản sao chính xác</string>
     <string name="deduplicator_matches_similar_label">Các tập tin tương tự</string>
+    <string name="deduplicator_arbiter_title">Chiến lược xóa</string>
+    <string name="deduplicator_arbiter_summary">Thiết lập những tập tin nào được giữ lại và những tập tin nào bị xóa.</string>
+    <string name="deduplicator_arbiter_explanation">Khi xóa các tệp trùng lặp, SD Maid sẽ quyết định giữ lại tệp nào bằng cách kiểm tra từng tiêu chí theo thứ tự. Tiêu chí đầu tiên cho ra kết qủa rõ ràng sẽ quyết định kết qủa cuối cùng. Kéo để sắp xếp lại thứ tự, chạm để thay đổi chế độ.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Chọn chế độ</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Cấu hình đường dẫn…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Kiểu trùng lặp</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Ưu tiên tìm kiếm các tệp trùng khớp chính xác hơn là các tệp tương tự.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Lập chỉ mục Media</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Xem xét các tệp có được nhà cung cấp phương tiện lập chỉ mục hay không.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Vị trí lưu trữ</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Ưu tiên lưu trữ tệp trên bộ nhớ trong hoặc ngoài.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Độ sâu của thư mục</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Ưu tiên sắp xếp tệp tin trong cấu trúc thư mục nông hoặc sâu hơn.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Ngày sửa đổi</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Ưu tiên các tập tin cũ hơn hoặc mới hơn dựa trên thời gian chỉnh sửa.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Kích thước tệp</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Chọn tệp có kích thước lớn hơn hoặc nhỏ hơn khi kích thước khác nhau.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Vị trí ưa thích</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Hãy lưu trữ các tệp tin ở những vị trí bạn đã thiết lập ưu tiên.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Ưu tiên các kết qủa trùng khớp chính xác</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Ưu tiên các tệp tương tự</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Giữ tập tin ở trong cơ sở dữ liệu</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Giữ tập tin không có trong cơ sở dữ liệu</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Ưu tiên bộ nhớ trong</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Ưu tiên bộ nhớ ngoài</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Ưu tiên các thư mục nông</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Ưu tiên các thư mục sâu hơn</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Ưu tiên các tập tin cũ hơn</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Ưu tiên các tập tin mới hơn</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Ưu tiên các tệp có dung lượng lớn hơn</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Ưu tiên các tệp có dung lượng nhỏ hơn</string>
+    <string name="deduplicator_view_mode_groups_label">Nhóm</string>
+    <string name="deduplicator_view_mode_directories_label">Thư mục</string>
+    <string name="squeezer_tool_name">Nén media</string>
+    <string name="squeezer_explanation_short">Nén ảnh để tiết kiệm dung lượng lưu trữ.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="other">%d ảnh được tìm thấy</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="other">~%s có thể được lưu</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="other">%d ảnh được nén</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="other">%d ảnh đã chọn</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Vị trí tìm kiếm</string>
+    <string name="squeezer_search_locations_default_summary">Thư mục ảnh (mặc định)</string>
+    <string name="squeezer_min_size_title">Kích thước tệp tối thiểu</string>
+    <string name="squeezer_min_size_description">Bỏ qua những hình ảnh có kích thước nhỏ hơn kích thước này.</string>
+    <string name="squeezer_min_age_title">Tuổi tối thiểu của tệp</string>
+    <string name="squeezer_min_age_description">Chỉ bao gồm những hình ảnh có tuổi hơn mức này.</string>
+    <string name="squeezer_compression_settings_label">Cài đặt nén</string>
+    <string name="squeezer_quality_label">Chất lượng</string>
+    <string name="squeezer_quality_title">Chất lượng nén</string>
+    <string name="squeezer_quality_description">Chất lượng thấp hơn có nghĩa là kích thước tệp nhỏ hơn nhưng chất lượng hình ảnh lại giảm.</string>
+    <string name="squeezer_quality_value_format">%d%%</string>
+    <string name="squeezer_quality_example_format">Ví dụ: %1$s ảnh → lưu ~%2$s với %3$d%% chất lượng</string>
+    <string name="squeezer_quality_warning_low">Chất lượng thấp hơn có thể gây ra hiện tượng nhiễu có thể nhìn thấy được.</string>
+    <string name="squeezer_quality_warning_high">Chất lượng rất cao nhưng lại tiết kiệm không gian tối thiểu.</string>
+    <string name="squeezer_types_category_label">Kiểu hình ảnh</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Bao gồm các hình ảnh JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Bao gồm các hình ảnh WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Bỏ qua phần đã nén trước đó</string>
+    <string name="squeezer_skip_compressed_description">Bỏ qua các hình ảnh đã được nén bởi SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Ghi dấu EXIF</string>
+    <string name="squeezer_exif_marker_description">Thêm dấu hiệu vào trường chú thích EXIF của hình ảnh để ngăn việc nén lại ngay cả khi lịch sử nén đã bị xóa.</string>
+    <string name="squeezer_estimated_savings_format">~%s đang lưu</string>
+    <string name="squeezer_no_savings_expected">Giới hạn lưu</string>
+    <string name="squeezer_current_size_format">Kích thước: %s</string>
+    <string name="squeezer_compress_action">Nén</string>
+    <string name="squeezer_compress_all_action">Nén tất cả</string>
+    <string name="squeezer_preview_dialog_title">Xác nhận nén</string>
+    <string name="squeezer_preview_total_size">Tổng kích thước</string>
+    <string name="squeezer_preview_estimated_savings">Tiết kiệm ước tính</string>
+    <string name="squeezer_compress_confirmation_title">Nén ảnh?</string>
+    <string name="squeezer_compress_confirmation_message">Điều này sẽ thay thế hình ảnh gốc bằng phiên bản nén. Không thể hoàn tác thao tác này.</string>
+    <string name="squeezer_history_title">Lịch sử nén</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="other">%1$d mục (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Không có lịch sử nén</string>
+    <string name="squeezer_history_clear_title">Xóa lịch sử nén</string>
+    <string name="squeezer_history_clear_message">Điều này sẽ cho phép nén lại các hình ảnh đã được nén trước đó. Bản thân những hình ảnh đó không bị ảnh hưởng.</string>
+    <string name="squeezer_onboarding_title">Về nén ảnh</string>
+    <string name="squeezer_onboarding_message">Nén ảnh làm giảm kích thước tập tin bằng cách loại bỏ các chi tiết hình ảnh. Qúa trình này không thể đảo ngược - chất lượng ban đầu không thể khôi phục được.\n\n Dưới đây là bản xem trước các hình ảnh của bạn sẽ trông như thế nào:</string>
+    <string name="squeezer_onboarding_original_label">Bản gốc</string>
+    <string name="squeezer_onboarding_compressed_label">Sau khi nén</string>
+    <string name="squeezer_onboarding_quality_label">Chất lượng: %d%%</string>
+    <string name="squeezer_onboarding_tap_to_zoom_hint">Chạm vào hình ảnh để phóng to</string>
+    <string name="squeezer_onboarding_got_it">Hiểu rồi</string>
+    <string name="squeezer_preview_info_action">Xem ví dụ</string>
+    <string name="squeezer_no_example_found">Không tìm thấy hình ảnh nào trong các đường dẫn đã chọn.</string>
+    <string name="squeezer_result_empty_message">Không tìm thấy hình ảnh nén nào.</string>
+    <string name="squeezer_setup_warning">Việc nén ảnh sẽ làm giảm vĩnh viễn chất lượng ảnh để tiết kiệm dung lượng lưu trữ. Điều này không thể hoàn tác được. Hãy kiểm tra kỹ các thiết lập của bạn trước khi bắt đầu.</string>
+    <string name="squeezer_setup_explanation">Chức năng Media Squeeze giảm kích thước tệp hình ảnh để giải phóng dung lượng lưu trữ. Thao tác này sẽ làm giảm chất lượng hình ảnh vĩnh viễn và không thể hoàn tác. Vui lòng xem lại cài đặt cẩn thận trước khi bắt đầu.</string>
+    <string name="squeezer_setup_paths_title">Vị trí tìm kiếm</string>
+    <string name="squeezer_setup_paths_default">Chọn thư mục để tìm kiếm</string>
+    <string name="squeezer_setup_quality_title">Chất lượng nén</string>
+    <string name="squeezer_setup_age_title">Độ tuổi tối thiểu</string>
+    <string name="squeezer_setup_age_none">Không giới hạn (bao gồm tất cả các tệp)</string>
+    <string name="squeezer_setup_start_action">Bắt đầu quét</string>
+    <string name="squeezer_quality_value">%d%%</string>
+    <string name="squeezer_quality_hint_very_low">Chất lượng dưới 40% có thể tạo ra những hình ảnh không thể sử dụng được.</string>
+    <string name="squeezer_quality_hint_low">Chất lượng thấp hơn giúp tiết kiệm dung lượng nhưng có thể gây ra hiện tượng nhiễu ảnh.</string>
+    <string name="squeezer_quality_hint_high">Chất lượng rất cao nhưng lại tiết kiệm không gian tối thiểu.</string>
+    <string name="squeezer_quality_hint_normal">Cân bằng giữa chất lượng và tiết kiệm không gian.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="other">Ít nhất %d ngày tuổi</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Ước tính tiết kiệm khoảng %d%% cho các tệp JPEG</string>
     <string name="appcontrol_tool_name">Kiểm soát ứng dụng</string>
     <string name="appcontrol_explanation_short">Ứng dụng được cài đặt trên thiết bị của bạn.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -475,6 +623,7 @@
     <string name="appcontrol_tag_not_installed">Chưa cài đặt</string>
     <string name="appcontrol_tag_enabled">Đã bật</string>
     <string name="appcontrol_tag_disabled">Đã tắt</string>
+    <string name="appcontrol_tag_debug">Gỡ lỗi</string>
     <string name="appcontrol_progress_enabling_package">Kích hoạt ứng dụng</string>
     <string name="appcontrol_progress_disabling_package">Vô hiệu hóa ứng dụng</string>
     <string name="appcontrol_list_filteroptions_label">Tùy chọn bộ lọc</string>
@@ -488,6 +637,28 @@
     <string name="appcontrol_progress_uninstalling_app">Đang gỡ cài đặt ứng dụng</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="other">%d ứng dụng đã được gỡ cài đặt</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Lưu trữ</string>
+    <string name="appcontrol_archive_selection_action">Lưu trữ ứng dụng</string>
+    <string name="appcontrol_archive_description">Lưu trữ để giải phóng dung lượng trong khi vẫn giữ lại dữ liệu ứng dụng để khôi phục sau này.</string>
+    <string name="appcontrol_progress_archiving_app">Đang lưu trữ ứng dụng…</string>
+    <string name="appcontrol_archive_confirmation_title">Xác nhận lưu trữ</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="other">Lưu trữ ứng dụng %d?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="other">%d ứng dụng đã được lưu trữ</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Khôi phục</string>
+    <string name="appcontrol_restore_selection_action">Khôi phục ứng dụng</string>
+    <string name="appcontrol_restore_description">Khôi phục ứng dụng đã lưu trữ về trạng thái cài đặt đầy đủ. Dữ liệu ứng dụng được bảo toàn.</string>
+    <string name="appcontrol_progress_restoring_app">Đang khôi phục ứng dụng…</string>
+    <string name="appcontrol_restore_confirmation_title">Xác nhận khôi phục</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="other">Khôi phục ứng dụng %d?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="other">%d ứng dụng đã được khôi phục</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Kích thước ứng dụng</string>
     <string name="appcontrol_app_sizes_apk_label">Ứng dụng</string>
@@ -513,6 +684,9 @@
         <item quantity="other">%d ứng dụng đã được xuất</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Đang xuất %s</string>
+    <string name="appcontrol_share_list_action">Chia sẻ danh sách</string>
+    <string name="appcontrol_share_list_title">Ứng dụng của tôi</string>
+    <string name="appcontrol_share_list_footer">Chia sẻ qua SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Buộc dừng ứng dụng</string>
     <string name="appcontrol_force_stop_action">Buộc dừng</string>
     <string name="appcontrol_force_stop_confirm_title">Xác nhận buộc dừng</string>
@@ -527,6 +701,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Đang buộc dừng…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Đang tìm nút \"Buộc dừng\" (từ khóa: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Đang lưu trữ…</string>
+    <string name="appcontrol_automation_progress_find_archive">Đang tìm nút \"Lưu trữ\" (từ khóa: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Đang khôi phục…</string>
+    <string name="appcontrol_automation_progress_find_restore">Đang tìm nút \"Khôi phục\" (từ khóa: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Thời gian sử dụng màn hình: %1$s kể từ %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Cập nhật lần cuối: %s</string>
     <string name="appcontrol_item_installedat_x_label">Cài đặt theo: %s</string>
@@ -545,6 +723,10 @@
         <item quantity="other">%s đã dùng</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Không có quyền truy cập trực tiếp</string>
+    <string name="analyzer_content_create_swiper_session_action">Tạo phiên Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">Phiên Swiper được tạo với mục %d</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Bộ nhớ chính</string>
     <string name="analyzer_storage_type_primary_description">Bộ nhớ chính của thiết bị của bạn. Chứa thẻ SD bên trong, bộ nhớ riêng cho ứng dụng và dữ liệu hệ thống.</string>
     <string name="analyzer_storage_type_secondary_title">Bộ nhớ thứ cấp</string>
@@ -587,6 +769,7 @@
     <string name="exclusion_type_segment">Loại trừ phân đoạn</string>
     <string name="exclusion_tags_alltools">Tất cả công cụ</string>
     <string name="exclusion_target_label">Mục tiêu loại trừ</string>
+    <string name="exclusion_editor_path_change_action">Chạm để thay đổi đường dẫn</string>
     <string name="exclusion_option_allow_partial">Cho phép khớp một phần</string>
     <string name="exclusion_option_ignore_casing">Trường hợp bỏ qua</string>
     <string name="exclusion_editor_affected_tools_label">Công cụ bị ảnh hưởng</string>
@@ -665,7 +848,9 @@
     <string name="translation_encourage_title">Dịch SD Maid</string>
     <string name="translation_encourage_body">SD Maid được dịch bởi các tình nguyện viên. Bản dịch, đánh giá hoặc hiệu đính, sự giúp đỡ của bạn được đánh giá cao!</string>
     <string name="translation_translators_title">Phiên bản này được dịch bởi</string>
-    <string name="translation_translators_people">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc); PhongInk(PhongInk);Nguyễn Trung Hậu(Nguyen_Trung_Hau)</string>
+    <string name="translation_translators_people">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc); PhongInk(PhongInk);Nguyễn Trung Hậu(Nguyen_Trung_Hau);
+Hai511;
+TheNothingGuy</string>
     <string name="motd_setting_enabled_label">Tin nhắn quan trọng</string>
     <string name="motd_setting_enabled_explanation">Cho phép SD Maid kiểm tra các tin nhắn quan trọng từ nhà phát triển.</string>
     <string name="updatecheck_setting_enabled_label">Kiểm tra cập nhật</string>
@@ -727,4 +912,119 @@
     <string name="shortcuts_settings_category">Phím tắt</string>
     <string name="shortcuts_onetap_enabled_title">Phím tắt một chạm</string>
     <string name="shortcuts_onetap_enabled_summary">Hiển thị phím tắt \"Quét + Xóa\" khi nhấn và giữ biểu tượng ứng dụng. Sử dụng các công cụ tương tự như bảng điều khiển một chạm.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Vuốt</string>
+    <string name="swiper_tool_description">Vuốt qua các tập tin để quyết định giữ lại hoặc xóa những tập tin nào.</string>
+    <string name="swiper_dashcard_description">SD Maid xử lý hầu hết mọi việc tự động. Còn những việc khác thì chỉ cần vuốt màn hình!</string>
+    <string name="swiper_start_action">Bắt đầu vuốt</string>
+    <string name="swiper_continue_action">Tiếp tục phiên</string>
+    <string name="swiper_sessions_description">Một số tập tin cần sự can thiệp của con người. Vuốt để quyết định - không có gì bị xóa cho đến khi bạn cho phép. Bạn có thể tạm dừng bất cứ lúc nào và tiếp tục sau.</string>
+    <string name="swiper_select_folders_action">Chọn thư mục</string>
+    <string name="swiper_scanning_title">Đang quét…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="other">%d mục được tìm thấy</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="other">%d mục đã xóa</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="other">%d mục bị hỏng</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d của %2$d</string>
+    <string name="swiper_keep_action">Giữ lại</string>
+    <string name="swiper_skip_action">Bỏ qua</string>
+    <string name="swiper_review_action">Đánh giá</string>
+    <string name="swiper_status_title">Xem xét lại</string>
+    <string name="swiper_status_action_keep_selected">Tiếp tục chọn</string>
+    <string name="swiper_status_action_delete_selected">Xóa đã chọn</string>
+    <string name="swiper_status_action_reset_selected">Đặt lại đã chọn</string>
+    <string name="swiper_decision_undecided">Chưa quyết định</string>
+    <string name="swiper_retry_action">Thử lại</string>
+    <string name="swiper_delete_confirmation_title">Xóa các tệp tin?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="other">Thao tác này sẽ xóa vĩnh viễn %1$d tập tin (%2$s). Hành động này không thể hoàn tác.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="other">%d các mục chưa quyết định sẽ được giữ lại để xem xét sau.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Xóa %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Đổi hướng vuốt</string>
+    <string name="swiper_settings_swap_directions_summary">Vuốt sang trái để giữ lại, vuốt sang phải để xóa.</string>
+    <string name="swiper_settings_show_details_title">Hiển thị chi tiết tệp</string>
+    <string name="swiper_settings_show_details_summary">Hiển thị tên tệp, kích thước và ngày tháng trên màn hình vuốt.</string>
+    <string name="swiper_settings_haptic_feedback_title">Phản hồi xúc giác</string>
+    <string name="swiper_settings_haptic_feedback_summary">Rung khi ra quyết định giữ hoặc xóa.</string>
+    <string name="swiper_discard_session_confirmation_title">Hủy bỏ phiên làm việc?</string>
+    <string name="swiper_discard_session_confirmation_message">Tất cả quyết định sẽ bị mất hết. Bạn có chắc không?</string>
+    <string name="swiper_no_preview_available">Không có bản xem trước</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="other">Tiếp tục phiên từ %1$d ngày trước (%2$d%% đã hoàn thành)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="other">%d phiên</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="other">%d mục chưa quyết định</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Đã tạo %1$s, hoạt động cuối cùng %2$s</string>
+    <string name="swiper_session_remove_action">Xóa phiên làm việc</string>
+    <string name="swiper_sessions_empty_hint">Nhấn + để chọn thư mục và bắt đầu vuốt</string>
+    <string name="swiper_sessions_upgrade_body">Nâng cấp để loại bỏ những giới hạn này và hỗ trợ phát triển. Phiên bản miễn phí bị giới hạn ở:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="other">%d tệp tin cho mỗi phiên</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="other">%d phiên</item>
+    </plurals>
+    <string name="swiper_session_default_label">Phiên %d</string>
+    <string name="swiper_session_rename_title">Đổi tên phiên</string>
+    <string name="swiper_session_rename_hint">Nhập tên cho phiên này</string>
+    <string name="swiper_sessions_current_sessions">Phiên hiện tại</string>
+    <string name="swiper_session_paths_label">Đường dẫn</string>
+    <string name="swiper_session_status_label">Trạng thái</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="other">%d để giữ lại</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="other">%d để xóa</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="other">%d chưa quyết định</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="other">%d đã được lưu giữ</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="other">%d đã bị xóa</item>
+    </plurals>
+    <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="other">%d được giữ lại</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="other">%d đã xóa</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Loại trừ \"%1$s\" khỏi qúa trình quét của Swiper?</string>
+    <string name="swiper_sessions_header_title">Sẵn sàng dọn dẹp chưa?</string>
+    <string name="swiper_sessions_suggestions_label">Hãy thử bắt đầu với:</string>
+    <string name="swiper_sessions_suggestion_downloads">Thư mục tải xuống</string>
+    <string name="swiper_sessions_suggestion_screenshots">Ảnh chụp màn hình</string>
+    <string name="swiper_sessions_suggestion_camera">Cuộn camera</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Giữ lại!</string>
+    <string name="swiper_stamp_keep_2">Tuyệt vời!</string>
+    <string name="swiper_stamp_keep_3">Có!</string>
+    <string name="swiper_stamp_keep_4">Lưu!</string>
+    <string name="swiper_stamp_delete_1">Không!</string>
+    <string name="swiper_stamp_delete_2">Tạm biệt!</string>
+    <string name="swiper_stamp_delete_3">Rác!</string>
+    <string name="swiper_stamp_delete_4">Xóa!</string>
+    <string name="swiper_stamp_skip_1">Bỏ qua!</string>
+    <string name="swiper_stamp_skip_2">Không quan tâm!</string>
+    <string name="swiper_stamp_skip_3">Sau!</string>
+    <string name="swiper_stamp_skip_4">Có thể!</string>
+    <string name="swiper_stamp_undo_1">Hoàn tác!</string>
+    <string name="swiper_stamp_undo_2">Trở lại!</string>
+    <string name="swiper_stamp_undo_3">Rất tiếc!</string>
+    <string name="swiper_stamp_undo_4">Chờ chút!</string>
 </resources>

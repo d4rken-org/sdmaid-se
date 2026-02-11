@@ -158,6 +158,7 @@
     <string name="debug_mode_explanation">Омогућите тест опције и детаљнији излаз. Апликација ће радити спорије и радити другачије.</string>
     <string name="debug_bugreporter_label">Аутоматски извештаји о грешкама</string>
     <string name="debug_bugreporter_summary">Аутоматски пријављује проблеме, нпр. детаље о паду апликације како би могао да схватим зашто и да то поправим.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Алати</string>
     <string name="settings_category_filter">Филтер</string>
     <string name="settings_category_risklevel">Ниво Ризика</string>
@@ -253,7 +254,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Старост снимкова екрана</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Минимална старост снимкова екрана који се разматрају за брисање.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Лишни APK фајлови</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Датотеке за инсталацију које су старије или једнаке верзијама апликација које су већ инсталиране.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR фасцикле</string>
     <string name="systemcleaner_filter_lostdir_summary">Привремене датотеке које се креирају приликом преноса података између Андроид уређаја.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux датотеке</string>
@@ -741,4 +741,6 @@
     <string name="area_type_public_obb_label">Јавни ресурси апликација</string>
     <string name="area_type_private_data_label">Приватни подаци апликација</string>
     <string name="area_type_portable_label">Преносно складиште</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

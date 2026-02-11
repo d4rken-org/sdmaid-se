@@ -152,6 +152,7 @@
     <string name="debug_mode_explanation">Dayakan pilihan ujian dan lebih banyak keluaran verbose. Aplikasi akan berjalan lebih perlahan dan berprestasi berbeza.</string>
     <string name="debug_bugreporter_label">Laporan pepijat automatik</string>
     <string name="debug_bugreporter_summary">Melaporkan isu secara automatik, cth. butiran tentang aplikasi ranap supaya saya dapat mengetahui sebabnya serta membetulkannya.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Alatan</string>
     <string name="settings_category_filter">Penyaring</string>
     <string name="settings_category_risklevel">Tahap risiko</string>
@@ -235,7 +236,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Umur tangkapan skrin</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Hanya padam tangkapan skrin yang lebih lama dari usia yang ditetapkan.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK berlebihan</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Sediakan fail yang lebih lama atau sama dengan versi aplikasi yang telah dipasang.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR folder</string>
     <string name="systemcleaner_filter_lostdir_summary">Fail sementara yang dibuat apabila memindahkan data antara peranti Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Fail Linux</string>
@@ -682,4 +682,6 @@
     <string name="area_type_public_obb_label">OBB aplikasi awam</string>
     <string name="area_type_private_data_label">Data aplikasi peribadi</string>
     <string name="area_type_portable_label">Storan mudah alih</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

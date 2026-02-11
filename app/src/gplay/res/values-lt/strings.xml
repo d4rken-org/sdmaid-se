@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">Reikia SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">Atnaujinti SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro siūlo geresnius rezultatus, daugiau funkcijų ir galimybių pažengusiems naudotojams.</string>
     <string name="upgrades_dashcard_upgrade_action">Atnaujinti</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play nepasiekiamas</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid negali prisijungti prie Google Play. Ar Google Play įdiegtas ir atnaujintas? Ar jūsų Google paskyra prisijungusi? Pabandykite išvalyti Google Play programos talpyklą ir paleisti įrenginį iš naujo.</string>

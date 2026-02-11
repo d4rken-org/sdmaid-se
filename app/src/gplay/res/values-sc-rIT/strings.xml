@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrade_feature_requires_pro">Rechedet SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_title">Agiorna SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro oferit risultados mègius, prus caraterìsticas e optziones pro utentes avantzados.</string>
     <string name="upgrades_dashcard_upgrade_action">Agiorna</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play no est disponìbile</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid non podet si connètere a Google Play. Google Play est installadu e agiornadu? Su contu Google tuo est intradu? Proa a limpiare sa cache de s\'aplicatzione Google Play e a torrare a allùghere su dispositivu tuo.</string>

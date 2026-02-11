@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Bez dalších potvrzení spusťte skenování a odstraňování pro všechny nástroje klepnutím na tlačítko akcí na panelu nástrojů.</string>
     <string name="dashboard_settings_oneclick_tools_title">Nástroje na jedno klepnutí</string>
     <string name="dashboard_settings_oneclick_tools_desc">Které nástroje by měly být zahrnuty do operací na jedno klepnutí?</string>
+    <string name="dashboard_card_config_title">Karty v panelu nástrojů</string>
+    <string name="dashboard_card_config_desc">Nakonfigurujte, které karty se zobrazují a v jakém pořadí</string>
+    <string name="dashboard_card_config_header_title">Přetažením přeskupit, přepnout pro zobrazení/skrytí</string>
     <string name="debug_notification_channel_label">Oznámení o ladění</string>
     <string name="debug_debuglog_file_label">Zaznamenaný soubor záznamu</string>
     <string name="debug_debuglog_recording_progress">Zaznamenávání soubor záznamu</string>
@@ -94,6 +97,16 @@
     <string name="support_installid_desc">Automatická hlášení chyb jsou anonymní. Sdílejte své ID instalace, pokud vývojář potřebuje najít vaše chybová hlášení.</string>
     <string name="support_debuglog_label">Záznam ladění</string>
     <string name="support_debuglog_desc">Zaznamenávejte vše, co aplikace dělá do textového souboru, který můžete sdílet.</string>
+    <string name="support_debuglog_folder_label">Složka logů ladění</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d soubor využívá %2$s</item>
+        <item quantity="few">%1$d soubory využívají %2$s</item>
+        <item quantity="many">%1$d souborů využívá %2$s</item>
+        <item quantity="other">%1$d soubory využívá %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Žádné uložené protokoly ladění</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Smazat všechny protokoly ladění?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Toto trvale odstraní všechny uložené relace ladících protokolů. Tuto akci nelze vrátit zpět.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Místo, kde se můžete scházet a klást otázky.</string>
     <string name="changelog_label">Seznam změn</string>
@@ -175,6 +188,14 @@
     <string name="debug_mode_explanation">Povolení možností testování a podrobnějšího slovního výstupu. Aplikace poběží pomaleji a její chování se změní.</string>
     <string name="debug_bugreporter_label">Automatické hlášení chyb</string>
     <string name="debug_bugreporter_summary">Automaticky hlásí problémy, např. podrobnosti o pádech aplikace, aby bylo možné zjistit příčinu a opravit ji.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Režim ladění je povolen</string>
+    <string name="debug_card_trace_mode_label">Povolit trasovací režim</string>
+    <string name="debug_card_dryrun_mode_label">Simulovaný režim (zakázat smazání)</string>
+    <string name="debug_card_areas_reload_action">Znovu načíst oblasti dat</string>
+    <string name="debug_card_pkgs_reload_action">Znovu načíst aplikace</string>
+    <string name="debug_card_root_test_action">Otestovat root</string>
+    <string name="debug_card_shizuku_test_action">Otestovat Shizuku</string>
     <string name="settings_category_tools_label">Nástroje</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="settings_category_risklevel">Úrovně rizika</string>
@@ -278,7 +299,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Stáří snímků obrazovky</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimální stáří, od kterého je možné snímky obrazovky smazat.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Nadbytečné soubory APK</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Instalační soubory, které jsou starší nebo stejné jako již nainstalované verze aplikací.</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Nastavte soubory, které již nejsou potřebné na základě verzí nainstalované aplikace.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Zahrnout stejnou verzi</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Zaměřit se taky na APK soubory, které odpovídají nainstalované verzi. Zakažte pro odstranění pouze starších verzí.</string>
     <string name="systemcleaner_filter_lostdir_label">Složky LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Dočasné soubory, které se vytvářejí při přenosu dat mezi zařízeními se systémem Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Soubory systému Linux</string>
@@ -339,6 +362,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Název je roven klíčovým slovům</string>
     <string name="systemcleaner_customfilter_last_edit">Poslední úprava: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Živé vyhledávání</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Omezení velikosti</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimální velikost</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maximální velikost</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Omezit shodu podle velikosti souboru. Pro jakoukoliv velikost nenastavujte.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Omezení stáří</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimální stáří</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maximální stáří</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Omezit shodu podle stáří souboru (naposledy upraveno). Pro jakékoliv stáří nenastavujte.</string>
     <string name="systemcleaner_customfilter_import_action">Importovat nový filtr</string>
     <string name="systemcleaner_customfilter_export_action">Exportovat vybraný filtr</string>
     <string name="appcleaner_tool_name">Čistič aplikací</string>
@@ -440,6 +471,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Tato systémová aplikace nemá žádnou obrazovku nastavení. Vyčištění mezipaměti pomocí služby usnadnění přístupu není možné. Vylučte aplikaci pro urychlení vyčištění mezipaměti.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Chybně nakonfigurovaná systémová aplikace</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Bezpečností aplikaci v HyperOS (com.miui.securitycenter) schází oprávnění Statistika využití (GET_USAGE_STATS). Toto zamezí funkcím jako \"Vymazat data\" v detailech aplikace a vyčištění mezipaměti pomocí služby přístupnosti. Udělte oprávnění pro obnovení plné funkčnosti.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Vynutit ukončení před čištěním</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Vynutit ukončení aplikací před čištěním jejich mezipaměti. Může pomoci vyčistit některé mezipaměti aplikací, ale i způsobit špatné chování aplikace a vyžadovat její manuální restart.</string>
+    <string name="appcleaner_progress_force_stopping">Vynucuji ukončení aplikací…</string>
     <string name="deduplicator_tool_name">Odstraňovač duplikátů</string>
     <string name="deduplicator_explanation_short">Vyhledejte duplicitní data v zařízení.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -458,6 +492,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Zobrazit možnosti, které umožňují smazat všechny soubory v sadě duplikátů tak, aby nezůstal žádný soubor.</string>
     <string name="deduplicator_search_locations_title">Vyhledat místa</string>
     <string name="deduplicator_search_locations_all_summary">Všechny dostupné oblasti</string>
+    <string name="deduplicator_keep_prefer_paths_title">Preferovat zachování</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Při rozhodování které duplikáty uchovat, preferovat zachování souborů v těchto místech.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Nenastavena žádná umístění</string>
     <string name="deduplicator_skip_minsize_title">Minimální velikost</string>
     <string name="deduplicator_skip_minsize_description">Přeskočit soubory, které nedosahují minimální velikosti.</string>
     <string name="deduplicator_skip_uncommon_title">Přeskočit neobvyklé typy souborů</string>
@@ -487,6 +524,138 @@
     <string name="deduplicator_details_cluster_title">Sady duplikátů</string>
     <string name="deduplicator_matches_exact_label">Přesné kopie</string>
     <string name="deduplicator_matches_similar_label">Podobné soubory</string>
+    <string name="deduplicator_arbiter_title">Strategie mazání</string>
+    <string name="deduplicator_arbiter_summary">Nastavte, které soubory jsou zachovány a které smazány.</string>
+    <string name="deduplicator_arbiter_explanation">Při mazání duplikátů se SD Maid rozhoduje, které soubory se zachovají kontrolou každého kritéria v pořadí. První kritérium, které určí vítěze, rozhodne o výsledku. Tažením změníte pořadí, klepnutím změníte mód.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Vybrat mód</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Nastavení cest…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Typy duplikátů</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Upřednostit přesné shody před podobnými soubory.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Indexování médií</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Zvážit, jestli jsou soubory indexovány poskytovatelem médií.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Umístění úložiště</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Upřednostnit soubory na vnitřním nebo externím úložišti.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Hloubka složky</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Upřednostnit soubory v mělčí nebo hlubší struktuře složky.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Datum změny</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Upřednostnit starší nebo novější soubory na základě doby změny.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Velikost souboru</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Upřednostnit větší nebo menší soubory, pokud se liší velikostí.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Upřednostněné místa</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Uchovat soubory v nastavených upřednostněných místech.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Upřednostnit přesné shody</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Upřednostnit podobné soubory</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Upřednostnit indexované soubory</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Upřednostnit neindexované soubory</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Upřednostnit vnitřní úložiště</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Upřednostnit externí úložiště</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Upřednostnit mělké složky</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Upřednostnit hluboké složky</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Upřednostnit starší soubory</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Upřednostnit novější soubory</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Upřednostnit větší soubory</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Upřednostnit menší soubory</string>
+    <string name="deduplicator_view_mode_groups_label">Skupiny</string>
+    <string name="deduplicator_view_mode_directories_label">Složky</string>
+    <string name="squeezer_tool_name">Zmáčknutí médií</string>
+    <string name="squeezer_explanation_short">Komprese obrázků pro ušetření místa v úložišti.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d obrázek nalezen</item>
+        <item quantity="few">%d obrázky nalezeny</item>
+        <item quantity="many">%d obrázků nalezeno</item>
+        <item quantity="other">%d obrázků nalezeno</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s může být uvolněno</item>
+        <item quantity="few">~%s může být uvolněno</item>
+        <item quantity="many">~%s může být uvolněno</item>
+        <item quantity="other">~%s může být uvolněno</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d obrázek komprimován</item>
+        <item quantity="few">%d obrázky komprimovány</item>
+        <item quantity="many">%d obrázků komprimováno</item>
+        <item quantity="other">%d obrázků komprimováno</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d obrázek vybrán</item>
+        <item quantity="few">%d obrázky vybrány</item>
+        <item quantity="many">%d obrázků vybráno</item>
+        <item quantity="other">%d obrázků vybráno</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Místa k prohledání</string>
+    <string name="squeezer_search_locations_default_summary">Složky kamery (výchozí)</string>
+    <string name="squeezer_min_size_title">Minimální velikost souboru</string>
+    <string name="squeezer_min_size_description">Přeskočit obrázky menší než tato velikost.</string>
+    <string name="squeezer_min_age_title">Minimální stáří souboru</string>
+    <string name="squeezer_min_age_description">Zahrnout pouze obrázky, které jsou starší.</string>
+    <string name="squeezer_compression_settings_label">Nastavení komprese</string>
+    <string name="squeezer_quality_label">Kvalita</string>
+    <string name="squeezer_quality_title">Kvalita komprese</string>
+    <string name="squeezer_quality_description">Nižší kvalita znamená menší velikost souboru, ale sníží kvalitu obrázku.</string>
+    <string name="squeezer_quality_value_format">%d%%</string>
+    <string name="squeezer_quality_example_format">Příklad: obrázek %1$s → ušetří ~%2$s v kvalitě %3$d%%</string>
+    <string name="squeezer_quality_warning_low">Nižší kvalita může způsobit viditelné artefakty.</string>
+    <string name="squeezer_quality_warning_high">Velmi vysoká kvalita nabídne minimální úspory prostoru.</string>
+    <string name="squeezer_types_category_label">Typy obrázků</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Zahrnout JPEG obrázky (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Zahrnout obrázky WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Přeskočit dříve zkomprimované</string>
+    <string name="squeezer_skip_compressed_description">Přeskočit obrázky, které již byly komprimovány SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Vložit EXIF značku</string>
+    <string name="squeezer_exif_marker_description">Připojí značku do pole komentáře v EXIF obrázku, aby se zamezilo rekompresi v případě vyčištění historie kompresí.</string>
+    <string name="squeezer_estimated_savings_format">~%s ušetřeno</string>
+    <string name="squeezer_no_savings_expected">Omezené úspory</string>
+    <string name="squeezer_current_size_format">Velikost: %s</string>
+    <string name="squeezer_compress_action">Komprimovat</string>
+    <string name="squeezer_compress_all_action">Komprimovat vše</string>
+    <string name="squeezer_preview_dialog_title">Potvrdit kompresi</string>
+    <string name="squeezer_preview_total_size">Celková velikost</string>
+    <string name="squeezer_preview_estimated_savings">Odhadované úspory</string>
+    <string name="squeezer_compress_confirmation_title">Komprimovat obrázky?</string>
+    <string name="squeezer_compress_confirmation_message">Toto nahradí původní obrázky komprimovanými verzemi. Tuto akci nelze vrátit zpět.</string>
+    <string name="squeezer_history_title">Historie komprese</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d položka (%2$s)</item>
+        <item quantity="few">%1$d položky (%2$s)</item>
+        <item quantity="many">%1$d položek (%2$s)</item>
+        <item quantity="other">%1$d položek (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Žádná historie komprese</string>
+    <string name="squeezer_history_clear_title">Vyčistit historii kompresí</string>
+    <string name="squeezer_history_clear_message">Toto umožní znovu zkomprimovat dříve zkomprimované obrázky. Samotné obrázky nejsou dotčené.</string>
+    <string name="squeezer_onboarding_title">O kompresi obrázků</string>
+    <string name="squeezer_onboarding_message">Komprese obrázků snižuje velikost souboru odstraněním vizuálních detailů. Tento proces je nevratný - původní kvalita nemůže být obnovena.\n\nZde je náhled, jak budou vaše obrázky vypadat:</string>
+    <string name="squeezer_onboarding_original_label">Originál</string>
+    <string name="squeezer_onboarding_compressed_label">Po kompresi</string>
+    <string name="squeezer_onboarding_quality_label">Kvalita: %d%%</string>
+    <string name="squeezer_onboarding_tap_to_zoom_hint">Klepněte na obrázky pro přiblížení</string>
+    <string name="squeezer_onboarding_got_it">Rozumím</string>
+    <string name="squeezer_preview_info_action">Ukázat příklad</string>
+    <string name="squeezer_no_example_found">Nenalezeny obrázky ve vybraných cestách.</string>
+    <string name="squeezer_result_empty_message">Nenalezeny obrázky ke kompresi.</string>
+    <string name="squeezer_setup_warning">Komprese trvale snižuje kvalitu obrázku, aby se ušetřil prostor v úložišti. Tuto akci nelze vrátit zpět. Před spuštěním pečlivě zkontrolujte nastavení.</string>
+    <string name="squeezer_setup_explanation">Zmáčknutí médií zmenšuje velikost souboru obrázků, čímž uvolní úložný prostor. To trvale snižuje kvalitu obrázku a nelze to vrátit zpět. Před spuštěním pečlivě zkontrolujte nastavení.</string>
+    <string name="squeezer_setup_paths_title">Místa k prohledání</string>
+    <string name="squeezer_setup_paths_default">Vyberte složky k prohledání</string>
+    <string name="squeezer_setup_quality_title">Kvalita komprese</string>
+    <string name="squeezer_setup_age_title">Minimální stáří</string>
+    <string name="squeezer_setup_age_none">Bez limitu (včetně všech souborů)</string>
+    <string name="squeezer_setup_start_action">Spustit sken</string>
+    <string name="squeezer_quality_value">%d%%</string>
+    <string name="squeezer_quality_hint_very_low">Kvalita pod 40 % může vytvářet nepoužitelné obrázky.</string>
+    <string name="squeezer_quality_hint_low">Nižší kvalita šetří více prostoru, ale může způsobit viditelné artefakty.</string>
+    <string name="squeezer_quality_hint_high">Velmi vysoká kvalita poskytuje minimální úspory prostoru.</string>
+    <string name="squeezer_quality_hint_normal">Vyvážená kvalita a úspora místa.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Alespoň %d den staré</item>
+        <item quantity="few">Alespoň %d dny staré</item>
+        <item quantity="many">Alespoň %d dnů staré</item>
+        <item quantity="other">Alespoň %d dnů staré</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Odhadovaná úspora ~%d%% pro JPEG soubory</string>
     <string name="appcontrol_tool_name">Správce aplikací</string>
     <string name="appcontrol_explanation_short">Aplikace nainstalované ve vašem zařízení.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -523,6 +692,7 @@
     <string name="appcontrol_tag_not_installed">Nenainstalováno</string>
     <string name="appcontrol_tag_enabled">Povoleno</string>
     <string name="appcontrol_tag_disabled">Zakázáno</string>
+    <string name="appcontrol_tag_debug">Ladit</string>
     <string name="appcontrol_progress_enabling_package">Povolování aplikace</string>
     <string name="appcontrol_progress_disabling_package">Zakazování aplikace</string>
     <string name="appcontrol_list_filteroptions_label">Možnosti filtrování</string>
@@ -539,6 +709,40 @@
         <item quantity="few">%d aplikace byly odinstalovány</item>
         <item quantity="many">%d aplikací bylo odinstalováno</item>
         <item quantity="other">%d aplikací bylo odinstalováno</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Archivovat</string>
+    <string name="appcontrol_archive_selection_action">Archivovat aplikace</string>
+    <string name="appcontrol_archive_description">Archivováním se uvolní místo a uchovají data aplikací pro pozdější obnovu.</string>
+    <string name="appcontrol_progress_archiving_app">Archivuji aplikaci…</string>
+    <string name="appcontrol_archive_confirmation_title">Potvrdit archivaci</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Archivovat %d aplikaci?</item>
+        <item quantity="few">Archivovat %d aplikace?</item>
+        <item quantity="many">Archivovat %d aplikací?</item>
+        <item quantity="other">Archivovat %d aplikací?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d aplikace archivována</item>
+        <item quantity="few">%d aplikace archivovány</item>
+        <item quantity="many">%d aplikací archivováno</item>
+        <item quantity="other">%d aplikací archivováno</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Obnovit</string>
+    <string name="appcontrol_restore_selection_action">Obnovit aplikace</string>
+    <string name="appcontrol_restore_description">Obnovení archivované aplikace do plně instalovaného stavu. Data aplikace jsou zachována.</string>
+    <string name="appcontrol_progress_restoring_app">Obnovuji aplikaci…</string>
+    <string name="appcontrol_restore_confirmation_title">Potvrdit obnovení</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Obnovit %d aplikaci?</item>
+        <item quantity="few">Obnovit %d aplikace?</item>
+        <item quantity="many">Obnovit %d aplikací?</item>
+        <item quantity="other">Obnovit %d aplikací?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d aplikace obnovena</item>
+        <item quantity="few">%d aplikace obnoveny</item>
+        <item quantity="many">%d aplikací obnoveno</item>
+        <item quantity="other">%d aplikací obnoveno</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Velikost aplikace</string>
     <string name="appcontrol_app_sizes_apk_label">Aplikace</string>
@@ -573,6 +777,9 @@
         <item quantity="other">%d aplikací bylo exportováno</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Exportování %s</string>
+    <string name="appcontrol_share_list_action">Sdílet seznam</string>
+    <string name="appcontrol_share_list_title">Moje aplikace</string>
+    <string name="appcontrol_share_list_footer">Sdílené přes SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Vynutit ukončení aplikací</string>
     <string name="appcontrol_force_stop_action">Vynutit ukončení</string>
     <string name="appcontrol_force_stop_confirm_title">Potvrdit vynucené ukončení</string>
@@ -593,6 +800,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Vynuceně ukončuji…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Hledání tlačítka \"Vynutit ukončení\" (klíčová slova: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Pokus o potvrzení předchozí akce (klíčová slova: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Archivace…</string>
+    <string name="appcontrol_automation_progress_find_archive">Hledám tlačítko \"Archivovat\" (klíčové slova: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Obnovuji…</string>
+    <string name="appcontrol_automation_progress_find_restore">Hledám tlačítko \"Obnovit\" (klíčové slova: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Doba používání obrazovky: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Poslední aktualizace: %s</string>
     <string name="appcontrol_item_installedat_x_label">Nainstalováno: %s</string>
@@ -617,6 +828,13 @@
         <item quantity="other">Využito: %s</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Přímý přístup není k dispozici</string>
+    <string name="analyzer_content_create_swiper_session_action">Vytvořit relaci Přetahovače</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Relace Přetahovače vytvořena s %d položkou</item>
+        <item quantity="few">Relace Přetahovače vytvořena se %d položkami</item>
+        <item quantity="many">Relace Přetahovače vytvořena s %d položkami</item>
+        <item quantity="other">Relace Přetahovače vytvořena s %d položkami</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Primární úložiště</string>
     <string name="analyzer_storage_type_primary_description">Primární úložiště vašeho zařízení. Obsahuje interní SD kartu, soukromé úložiště pro aplikace a systémová data.</string>
     <string name="analyzer_storage_type_secondary_title">Sekundární úložiště</string>
@@ -659,6 +877,7 @@
     <string name="exclusion_type_segment">Segmenty ve výjimkách</string>
     <string name="exclusion_tags_alltools">Všechny nástroje</string>
     <string name="exclusion_target_label">Cíl výjimek</string>
+    <string name="exclusion_editor_path_change_action">Klepnutím změníte cestu</string>
     <string name="exclusion_option_allow_partial">Povolit částečné shody</string>
     <string name="exclusion_option_ignore_casing">Ignorovat velikost písmen</string>
     <string name="exclusion_editor_affected_tools_label">Ovlivněné nástroje</string>
@@ -823,12 +1042,170 @@
     <string name="shortcuts_settings_category">Zkratky</string>
     <string name="shortcuts_onetap_enabled_title">Zkratka jedním klepnutím</string>
     <string name="shortcuts_onetap_enabled_summary">Zobrazení zkratky \"Skenovat + smazat\" při dlouhém stisknutí ikony aplikace. Používá stejné nástroje jako ovládací panel jedním klepnutím.</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">Režim ladění je zapnutý</string>
-    <string name="debug_card_trace_mode_label">Povolit režim stopy</string>
-    <string name="debug_card_dryrun_mode_label">Režim zkoušky (zakázat mazání)</string>
-    <string name="debug_card_areas_reload_action">Znovu načíst datové oblasti</string>
-    <string name="debug_card_pkgs_reload_action">Znovu načíst aplikace</string>
-    <string name="debug_card_root_test_action">Test root</string>
-    <string name="debug_card_shizuku_test_action">Test Shizuku</string>
+    <string name="swiper_label">Přetahovač</string>
+    <string name="swiper_tool_name">Přetahovač</string>
+    <string name="swiper_tool_description">Rozhodněte přejetím přes soubory, co chcete zachovat nebo odstranit.</string>
+    <string name="swiper_dashcard_description">SD Maid zvládne většinu věcí automaticky. Pro všechno ostatní je tady přetažení!</string>
+    <string name="swiper_start_action">Začít přetahovat</string>
+    <string name="swiper_continue_action">Pokračovat v relaci</string>
+    <string name="swiper_sessions_description">Některé soubory potřebují lidský kontakt. Přejeďte pro rozhodnutí o jejich osudu - nic se neodstraní, dokud to neuděláte. Kdykoli můžete pozastavit a pokračovat později.</string>
+    <string name="swiper_select_folders_action">Vybrat složku</string>
+    <string name="swiper_scanning_title">Skenování…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d položka nalezena</item>
+        <item quantity="few">%d položky nalezeny</item>
+        <item quantity="many">%d položek nalezeno</item>
+        <item quantity="other">%d položek nalezeno</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d položka smazána</item>
+        <item quantity="few">%d položky smazány</item>
+        <item quantity="many">%d položek smazáno</item>
+        <item quantity="other">%d položek smazáno</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d položka selhala</item>
+        <item quantity="few">%d položky selhaly</item>
+        <item quantity="many">%d položek selhalo</item>
+        <item quantity="other">%d položek selhalo</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d z %2$d</string>
+    <string name="swiper_keep_action">Ponechat</string>
+    <string name="swiper_skip_action">Přeskočit</string>
+    <string name="swiper_review_action">Posoudit</string>
+    <string name="swiper_status_title">Posouzení rozhodnutí</string>
+    <string name="swiper_status_action_keep_selected">Ponechat vybrané</string>
+    <string name="swiper_status_action_delete_selected">Smazat vybrané</string>
+    <string name="swiper_status_action_reset_selected">Obnovit vybrané</string>
+    <string name="swiper_decision_undecided">Nerozhodnutý</string>
+    <string name="swiper_retry_action">Opakovat</string>
+    <string name="swiper_delete_confirmation_title">Odstranit soubory?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Tímto trvale odstraníte %1$d soubor (%2$s). Tuto akci nelze vrátit zpět.</item>
+        <item quantity="few">Tímto trvale odstraníte %1$d soubory (%2$s). Tuto akci nelze vrátit zpět.</item>
+        <item quantity="many">Tímto trvale odstraníte %1$d souborů (%2$s). Tuto akci nelze vrátit zpět.</item>
+        <item quantity="other">Tímto trvale odstraníte %1$d souborů (%2$s). Tuto akci nelze vrátit zpět.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d nerozhodnutá položka zůstane pro pozdější posouzení.</item>
+        <item quantity="few">%d nerozhodnuté položky zůstanou pro pozdější posouzení.</item>
+        <item quantity="many">%d nerozhodnutých položek zůstane pro pozdější posouzení.</item>
+        <item quantity="other">%d nerozhodnutých položek zůstane pro pozdější posouzení.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Smazat %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Prohodit směr přejetí</string>
+    <string name="swiper_settings_swap_directions_summary">Přejetím doleva zachovat, doprava pro odstranění.</string>
+    <string name="swiper_settings_show_details_title">Zobrazit detaily souboru</string>
+    <string name="swiper_settings_show_details_summary">Zobrazit název souboru, velikost a datum na obrazovce přejetí.</string>
+    <string name="swiper_settings_haptic_feedback_title">Hmatová odezva</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibrovat při rozhodnutí zachování nebo mazání.</string>
+    <string name="swiper_discard_session_confirmation_title">Zahodit relaci?</string>
+    <string name="swiper_discard_session_confirmation_message">Všechna rozhodnutí budou ztracena. Jste si jisti?</string>
+    <string name="swiper_no_preview_available">Náhled není dostupný</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Pokračovat v relaci před %1$d dnem (%2$d%% dokončeno)</item>
+        <item quantity="few">Pokračovat v relaci před %1$d dny (%2$d%% dokončeno)</item>
+        <item quantity="many">Pokračovat v relaci před %1$d dny (%2$d%% dokončeno)</item>
+        <item quantity="other">Pokračovat v relaci před %1$d dny (%2$d%% dokončeno)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d relace</item>
+        <item quantity="few">%d relace</item>
+        <item quantity="many">%d relací</item>
+        <item quantity="other">%d relací</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d nerozhodnutá položka</item>
+        <item quantity="few">%d nerozhodnuté položky</item>
+        <item quantity="many">%d nerozhodnutých položek</item>
+        <item quantity="other">%d nerozhodnutých položek</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Vytvořeno %1$s, poslední aktivita %2$s</string>
+    <string name="swiper_session_remove_action">Odstranit relaci</string>
+    <string name="swiper_sessions_empty_hint">Klepnutím na + vyberte složku a začněte přejíždět</string>
+    <string name="swiper_sessions_upgrade_body">Upgradujte pro odstranění těchto limitů a podporu vývoje. Bezplatná verze je omezena na:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d soubor na relaci</item>
+        <item quantity="few">%d soubory na relaci</item>
+        <item quantity="many">%d souborů na relaci</item>
+        <item quantity="other">%d souborů na relaci</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d relace</item>
+        <item quantity="few">%d relace</item>
+        <item quantity="many">%d relací</item>
+        <item quantity="other">%d relací</item>
+    </plurals>
+    <string name="swiper_session_default_label">Relace #%d</string>
+    <string name="swiper_session_rename_title">Přejmenovat relaci</string>
+    <string name="swiper_session_rename_hint">Zadejte název pro tuto relaci</string>
+    <string name="swiper_sessions_current_sessions">Aktuální relace</string>
+    <string name="swiper_session_paths_label">Cesty</string>
+    <string name="swiper_session_status_label">Stav</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d k ponechání</item>
+        <item quantity="few">%d k ponechání</item>
+        <item quantity="many">%d k ponechání</item>
+        <item quantity="other">%d k ponechání</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d ke smazání</item>
+        <item quantity="few">%d ke smazání</item>
+        <item quantity="many">%d ke smazání</item>
+        <item quantity="other">%d ke smazání</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d nerozhodnuto</item>
+        <item quantity="few">%d nerozhodnuto</item>
+        <item quantity="many">%d nerozhodnuto</item>
+        <item quantity="other">%d nerozhodnuto</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d již uchovaná</item>
+        <item quantity="few">%d již uchované</item>
+        <item quantity="many">%d již uchovaných</item>
+        <item quantity="other">%d již uchovaných</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d již odstraněna</item>
+        <item quantity="few">%d již odstraněny</item>
+        <item quantity="many">%d již odstraněno</item>
+        <item quantity="other">%d již odstraněno</item>
+    </plurals>
+    <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d uchovaná</item>
+        <item quantity="few">%d uchované</item>
+        <item quantity="many">%d uchovaných</item>
+        <item quantity="other">%d uchovaných</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d odstraněna</item>
+        <item quantity="few">%d odstraněny</item>
+        <item quantity="many">%d odstraněno</item>
+        <item quantity="other">%d odstraněno</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Vyloučit \"%1$s\" ze skenování Přetahovače?</string>
+    <string name="swiper_sessions_header_title">Jste připraveni k úklidu?</string>
+    <string name="swiper_sessions_suggestions_label">Zkuste začít s:</string>
+    <string name="swiper_sessions_suggestion_downloads">Složka pro stažené</string>
+    <string name="swiper_sessions_suggestion_screenshots">Snímky obrazovky</string>
+    <string name="swiper_sessions_suggestion_camera">Fotogalerie</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Ponechat!</string>
+    <string name="swiper_stamp_keep_2">Hezké!</string>
+    <string name="swiper_stamp_keep_3">Ano!</string>
+    <string name="swiper_stamp_keep_4">Zachovat!</string>
+    <string name="swiper_stamp_delete_1">Ne!</string>
+    <string name="swiper_stamp_delete_2">Čau!</string>
+    <string name="swiper_stamp_delete_3">Odpad!</string>
+    <string name="swiper_stamp_delete_4">Smazat!</string>
+    <string name="swiper_stamp_skip_1">Přeskočit!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Později!</string>
+    <string name="swiper_stamp_skip_4">Možná!</string>
+    <string name="swiper_stamp_undo_1">Vrať zpět!</string>
+    <string name="swiper_stamp_undo_2">Zpět!</string>
+    <string name="swiper_stamp_undo_3">Oops!</string>
+    <string name="swiper_stamp_undo_4">Počkat!</string>
 </resources>

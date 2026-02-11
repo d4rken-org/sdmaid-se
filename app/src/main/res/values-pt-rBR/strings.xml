@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Iniciar a busca e exclusão em todas as ferramentas com apenas um toque no botão de ação do painel, sem confirmações extras.</string>
     <string name="dashboard_settings_oneclick_tools_title">Ferramentas Um-Toque</string>
     <string name="dashboard_settings_oneclick_tools_desc">Quais ferramentas devem ser incluídas em operações de um clique?</string>
+    <string name="dashboard_card_config_title">Cartões de painel</string>
+    <string name="dashboard_card_config_desc">Configurar quais cartões são exibidos e sua ordem</string>
+    <string name="dashboard_card_config_header_title">Arraste para reordenar, alterne para mostrar/ocultar</string>
     <string name="debug_notification_channel_label">Notificações de depuração</string>
     <string name="debug_debuglog_file_label">Arquivo de log gravado</string>
     <string name="debug_debuglog_recording_progress">Gravando log de depuração</string>
@@ -88,6 +91,14 @@
     <string name="support_installid_desc">Os relatórios automáticos de erros são anônimos. Compartilhe sua ID de instalação se o desenvolvedor precisar encontrar seus relatórios de erro.</string>
     <string name="support_debuglog_label">Log de debug</string>
     <string name="support_debuglog_desc">Registre tudo que o app está fazendo em um arquivo de texto que você pode compartilhar.</string>
+    <string name="support_debuglog_folder_label">Pasta de registros de depuração</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d arquivo usando %2$s</item>
+        <item quantity="other">%1$d arquivos usando %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Nenhum registro de depuração armazenado</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Excluir todos os registros de depuração?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Isto irá apagar permanentemente todas as sessões de depuração armazenadas. Esta ação não pode ser desfeita.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Um lugar para entrar e fazer perguntas.</string>
     <string name="changelog_label">Atualizações</string>
@@ -169,6 +180,14 @@
     <string name="debug_mode_explanation">Habilite opções de teste e saída mais detalhada. O aplicativo será executado mais lentamente e terá um desempenho diferente.</string>
     <string name="debug_bugreporter_label">Relatórios automáticos de erros</string>
     <string name="debug_bugreporter_summary">Automaticamente relata problemas, por exemplo, detalhes sobre falhas do aplicativo para eu poder descobrir o motivo e corrigi-lo.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Modo de depuração ativado</string>
+    <string name="debug_card_trace_mode_label">Habilitar modo de rastreamento</string>
+    <string name="debug_card_dryrun_mode_label">Modo de execução seca (desabilitar exclusão)</string>
+    <string name="debug_card_areas_reload_action">Recarregar áreas de dados</string>
+    <string name="debug_card_pkgs_reload_action">Recarregar aplicativos</string>
+    <string name="debug_card_root_test_action">Teste root</string>
+    <string name="debug_card_shizuku_test_action">Testar Shizuku</string>
     <string name="settings_category_tools_label">Ferramentas</string>
     <string name="settings_category_filter">Filtrar</string>
     <string name="settings_category_risklevel">Nível de risco</string>
@@ -260,7 +279,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Idade da Captura</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Idade mínima para capturas de tela a serem consideradas para exclusão.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APKs supérfluos</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Arquivos de instalação mais antigos ou iguais às versões do aplicativo já instaladas.</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Arquivos de configuração que não são mais necessários com base nas versões do aplicativo instalado.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Incluir a mesma versão</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Também direcionar os arquivos APK que correspondem à versão instalada. Desative apenas para remover versões mais antigas.</string>
     <string name="systemcleaner_filter_lostdir_label">Pastas LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Arquivos temporários criados durante a transferência de dados entre dispositivos Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Arquivos Linux</string>
@@ -321,6 +342,12 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">O nome é igual à palavra-chave</string>
     <string name="systemcleaner_customfilter_last_edit">Última edição: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Pesquisa em tempo real</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Restrições de tamanho</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Tamanho mínimo</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Tamanho máximo</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Restrição de idade</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Idade mínima</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Idade máxima</string>
     <string name="systemcleaner_customfilter_import_action">Importar novo filtro</string>
     <string name="systemcleaner_customfilter_export_action">Exportar filtro selecionado</string>
     <string name="appcleaner_tool_name">Limpador de Aplicativos</string>
@@ -416,6 +443,8 @@
     <string name="appcleaner_automation_error_no_settings_body">Este aplicativo do sistema não tem tela de configurações. A limpeza de cache através do serviço de acessibilidade não é possível. Excluí-lo para acelerar a limpeza de cache.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">App do sistema mal configurado</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">O app Segurança do HyperOS (com.miui.securitycenter) está faltando a permissão de estatísticas de uso (GET_USAGE_STATS). Isso quebra recursos como \"Limpar dados\" nos detalhes do aplicativo e limpar o cache através de acessibilidade. Conceda permissão para restaurar todas as funcionalidades.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Forçar parada antes da limpeza</string>
+    <string name="appcleaner_progress_force_stopping">Forçando parada dos aplicativos…</string>
     <string name="deduplicator_tool_name">Desduplicador</string>
     <string name="deduplicator_explanation_short">Encontrar dados duplicados no seu dispositivo.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -430,6 +459,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar opções que permitem que você exclua todos os arquivos em um conjunto de duplicados para que nenhum arquivo fique sobrando.</string>
     <string name="deduplicator_search_locations_title">Pesquisar os locais</string>
     <string name="deduplicator_search_locations_all_summary">Todas as áreas acessíveis</string>
+    <string name="deduplicator_keep_prefer_paths_title">Preferir manter</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Ao decidir qual duplicado manter, preferir manter os arquivos destes locais.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Nenhum local configurado</string>
     <string name="deduplicator_skip_minsize_title">Tamanho mínimo</string>
     <string name="deduplicator_skip_minsize_description">Pular os arquivos que estejam abaixo do tamanho mínimo.</string>
     <string name="deduplicator_skip_uncommon_title">Ignorar tipos de arquivo incomuns</string>
@@ -457,6 +489,13 @@
     <string name="deduplicator_details_cluster_title">Conjunto de duplicados</string>
     <string name="deduplicator_matches_exact_label">Cópias exatas</string>
     <string name="deduplicator_matches_similar_label">Arquivos similares</string>
+    <string name="deduplicator_arbiter_title">Estratégia de exclusão</string>
+    <string name="deduplicator_arbiter_summary">Configurar quais arquivos serão mantidos e quais serão excluídos.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Selecionar o modo</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Configurar caminhos…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Tipos de arquivos duplicados</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Preferir correspondências exatas sobre arquivos semelhantes.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Indexação de mídia</string>
     <string name="appcontrol_tool_name">Gerenciamento de aplicativos</string>
     <string name="appcontrol_explanation_short">Aplicativos instalados no seu dispositivo.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -759,13 +798,6 @@
     <string name="shortcuts_settings_category">Atalhos</string>
     <string name="shortcuts_onetap_enabled_title">Atalho com um toque</string>
     <string name="shortcuts_onetap_enabled_summary">Mostrar atalho \"Escanear + Excluir\" ao pressionar e segurar o ícone do aplicativo. Usa as mesmas ferramentas que um toque.</string>
-
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">Modo de depuração está habilitado</string>
-    <string name="debug_card_trace_mode_label">Ativar modo de rastreamento</string>
-    <string name="debug_card_dryrun_mode_label">Modo de teste (desabilitar exclusão)</string>
-    <string name="debug_card_areas_reload_action">Recarregar áreas de dados</string>
-    <string name="debug_card_pkgs_reload_action">Recarregar aplicativos</string>
-    <string name="debug_card_root_test_action">Testar root</string>
-    <string name="debug_card_shizuku_test_action">Testar Shizuku</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

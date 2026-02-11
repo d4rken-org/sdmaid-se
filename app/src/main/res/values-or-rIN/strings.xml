@@ -153,6 +153,7 @@
     <string name="debug_mode_explanation">ପରୀକ୍ଷା ବିକଳ୍ପ ଏବଂ ଅଧିକ ବିସ୍ତୃତ ଆଉଟପୁଟ୍ ସକ୍ଷମ କରନ୍ତୁ। ଆପ୍ ଧୀର ଗତିରେ ଚାଲିବ ଏବଂ ଭିନ୍ନ ଭାବରେ କାର୍ଯ୍ୟ କରିବ।</string>
     <string name="debug_bugreporter_label">ସ୍ୱୟଂଚାଳିତ ବଗ୍ ରିପୋର୍ଟ</string>
     <string name="debug_bugreporter_summary">ସ୍ୱୟଂଚାଳିତ ଭାବରେ ସମସ୍ୟାଗୁଡ଼ିକୁ ରିପୋର୍ଟ କରେ, ଯଥା ଆପ୍ କ୍ରାସ୍ ର ବିବରଣୀ ଯାହାଦ୍ୱାରା ମୁଁ କାରଣ ଜାଣି ଏହାକୁ ଠିକ୍ କରିପାରିବି।</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">ଉପକରଣଗୁଡ଼ିକ</string>
     <string name="settings_category_filter">ଶୋଧକ</string>
     <string name="settings_category_risklevel">ବିପଦ ସ୍ତର</string>
@@ -241,7 +242,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">ସ୍କ୍ରିନସଟ୍ ବୟସ</string>
     <string name="systemcleaner_filter_screenshots_age_summary">ଡିଲିଟ୍ ପାଇଁ ବିଚାର କରିବାକୁ ସ୍କ୍ରିନସଟ୍‍ର ସର୍ବନିମ୍ନ ବୟସ।</string>
     <string name="systemcleaner_filter_superfluosapks_label">ଅନାବଶ୍ୟକ APK</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">ସେଟଅପ୍ ଫାଇଲ୍ ଯାହା ପୂର୍ବରୁ ଇନଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ ସଂସ୍କରଣ ଠାରୁ ପୁରୁଣା କିମ୍ବା ସମାନ।</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR ଫୋଲ୍ଡର୍</string>
     <string name="systemcleaner_filter_lostdir_summary">ଆଣ୍ଡ୍ରଏଡ୍ ଡିଭାଇସ୍ ମଧ୍ୟରେ ଡାଟା ସ୍ଥାନାନ୍ତର କରିବା ସମୟରେ ସୃଷ୍ଟି ହୋଇଥିବା ଅସ୍ଥାୟୀ ଫାଇଲ୍।</string>
     <string name="systemcleaner_filter_linuxfiles_label">ଲିନକ୍ସ ଫାଇଲ୍</string>
@@ -709,4 +709,6 @@
     <string name="area_type_public_obb_label">ସାର୍ବଜନୀନ ଆପ୍ ଉତ୍ସ</string>
     <string name="area_type_private_data_label">ବ୍ୟକ୍ତିଗତ ଆପ୍ ଡାଟା</string>
     <string name="area_type_portable_label">ପୋର୍ଟେବଲ୍ ଷ୍ଟୋରେଜ୍</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

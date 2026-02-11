@@ -3,8 +3,6 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Zahteva SD Maid SE Pro.</string>
-    <string name="upgrades_dashcard_title">Nadgradi SD Maid</string>
-    <string name="upgrades_dashcard_body">SD Maid Pro nudi boljše rezultate, več funkcij in možnosti za napredne uporabnike.</string>
     <string name="upgrades_dashcard_upgrade_action">Nadgradi</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play ni na voljo.</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid se ne more povezati z Googlom Play.  Ali je nameščen in posodobljen?  Ali ste prijavljeni v Googlov račun?  Poizkusite počistiti predpomnilnik programa Google Play in napravo ponovno zagnati.</string>

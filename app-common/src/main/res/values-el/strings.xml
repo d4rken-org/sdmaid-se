@@ -19,6 +19,7 @@
     <string name="general_todo_msg">Αυτή η δυνατότητα είναι ακόμα υπό επεξεργασία και δεν είναι διαθέσιμη προς το παρόν.</string>
     <string name="general_share_action">Κοινοποίηση</string>
     <string name="general_done_action">Τέλος</string>
+    <string name="general_apply_action">Εφαρμογή</string>
     <string name="general_copy_action">Αντιγραφή</string>
     <string name="general_wipe_action">Σβήσιμο</string>
     <string name="general_cancel_action">Ακύρωση</string>

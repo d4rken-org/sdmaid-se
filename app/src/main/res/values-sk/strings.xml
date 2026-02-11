@@ -169,6 +169,7 @@
     <string name="debug_mode_explanation">Povoľte možnosti testovania a podrobnejší výstup. Aplikácia pobeží pomalšie a bude fungovať inak.</string>
     <string name="debug_bugreporter_label">Automatické hlásenia chýb</string>
     <string name="debug_bugreporter_summary">Automaticky hlási problémy, napr. podrobnosti o zlyhaní aplikácie, aby som mohol zistiť prečo a opraviť to.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Nástroje</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Úroveň rizika</string>
@@ -272,7 +273,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Vek snímky obrazovky</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimálny vek pre snímky obrazovky, ktoré je potrebné zvážiť na odstránenie.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Nadbytočné súbory APK</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Inštalačné súbory, ktoré sú staršie alebo rovnaké ako verzie aplikácií, ktoré sú už nainštalované.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR priečinky</string>
     <string name="systemcleaner_filter_lostdir_summary">Dočasné súbory, ktoré sa vytvárajú pri prenose údajov medzi zariadeniami so systémom Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux súbory</string>
@@ -802,4 +802,6 @@
     <string name="shortcuts_settings_category">Skratky</string>
     <string name="shortcuts_onetap_enabled_title">Skratka jedným klepnutím</string>
     <string name="shortcuts_onetap_enabled_summary">Zobraziť skratku „Skenovať + Odstrániť“ pri dlhom stlačení ikony aplikácie. Používa rovnaké nástroje ako ovládací panel s jedným klepnutím.</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

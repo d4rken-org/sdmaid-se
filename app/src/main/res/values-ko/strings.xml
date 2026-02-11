@@ -153,6 +153,7 @@
     <string name="debug_mode_explanation">실험적 설정을 활성화하고 더 자세한 정보를 출력합니다. 앱이 느려지거나 다르게 작동할 수 있습니다.</string>
     <string name="debug_bugreporter_label">자동 버그 제보</string>
     <string name="debug_bugreporter_summary">앱이 강제 종료되는 등의 문제가 있을 때 자동으로 이를 보고합니다.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">도구</string>
     <string name="settings_category_filter">필터</string>
     <string name="settings_category_risklevel">위험 수준</string>
@@ -236,7 +237,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">스크린샷 기간</string>
     <string name="systemcleaner_filter_screenshots_age_summary">삭제 대상으로 간주할 스크린샷의 최소 기간입니다.</string>
     <string name="systemcleaner_filter_superfluosapks_label">불필요한 APK 파일</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">설치된 앱 버젼보다 낮거나 같은 버젼의 APK 파일입니다.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 폴더</string>
     <string name="systemcleaner_filter_lostdir_summary">안드로이드 기기간 데이터를 이동할 때 생기는 임시 파일입니다.</string>
     <string name="systemcleaner_filter_linuxfiles_label">리눅스 파일</string>
@@ -688,4 +688,6 @@
     <string name="area_type_public_obb_label">공용 앱 리소스</string>
     <string name="area_type_private_data_label">개인 앱 데이터</string>
     <string name="area_type_portable_label">휴대용 저장소</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

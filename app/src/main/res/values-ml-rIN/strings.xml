@@ -112,7 +112,10 @@
     <string name="setup_acs_appops_restriction_title">നിയന്ത്രിത ക്രമീകരണങ്ങൾ</string>
     <string name="debug_mode_label">ഡീബഗ് മോഡ്</string>
     <string name="debug_bugreporter_label">ഓട്ടോമാറ്റിക് ബഗ് റിപ്പോർട്ട്</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">ടൂളുകൾ</string>
     <string name="settings_category_filter">ഫിൽട്ടർ</string>
     <string name="settings_category_risklevel">റിസ്ക് ലെവൽ</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>
