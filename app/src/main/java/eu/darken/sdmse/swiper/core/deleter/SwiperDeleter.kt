@@ -3,6 +3,7 @@ package eu.darken.sdmse.swiper.core.deleter
 import android.content.Context
 import android.media.MediaScannerConnection
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -53,23 +54,27 @@ class SwiperDeleter @Inject constructor(
             updateProgressSecondary(item.lookup.userReadablePath)
             updateProgressCount(Progress.Count.Percent(index, items.size))
 
-            try {
-                item.lookup.lookedUp.delete(gatewaySwitch)
-                deletedPaths.add(item.lookup.lookedUp)
-                deletedSize += item.lookup.size
-                log(TAG, VERBOSE) { "Deleted: ${item.lookup.lookedUp}" }
+            if (Bugs.isDryRun) {
+                log(TAG, INFO) { "DRYRUN: Not deleting ${item.lookup.lookedUp}" }
+            } else {
+                try {
+                    item.lookup.lookedUp.delete(gatewaySwitch)
+                    deletedPaths.add(item.lookup.lookedUp)
+                    deletedSize += item.lookup.size
+                    log(TAG, VERBOSE) { "Deleted: ${item.lookup.lookedUp}" }
 
-                // Mark item as DELETED
-                itemDao.updateDecision(item.id, SwipeDecision.DELETED)
+                    // Mark item as DELETED
+                    itemDao.updateDecision(item.id, SwipeDecision.DELETED)
 
-                // Notify MediaScanner about deleted file
-                notifyMediaScanner(item.lookup.lookedUp)
-            } catch (e: Exception) {
-                log(TAG, WARN) { "Failed to delete ${item.lookup.lookedUp}: ${e.message}" }
-                failedPaths.add(item.lookup.lookedUp)
+                    // Notify MediaScanner about deleted file
+                    notifyMediaScanner(item.lookup.lookedUp)
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to delete ${item.lookup.lookedUp}: ${e.message}" }
+                    failedPaths.add(item.lookup.lookedUp)
 
-                // Mark item as DELETE_FAILED
-                itemDao.updateDecision(item.id, SwipeDecision.DELETE_FAILED)
+                    // Mark item as DELETE_FAILED
+                    itemDao.updateDecision(item.id, SwipeDecision.DELETE_FAILED)
+                }
             }
         }
 
