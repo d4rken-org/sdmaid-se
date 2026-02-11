@@ -45,16 +45,6 @@
                     android:foreground="?attr/selectableItemBackground"
                     android:scaleType="centerCrop"
                     tools:src="@drawable/splash_mascot" />
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="top|end"
-                    android:layout_margin="6dp"
-                    android:alpha="0.8"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/ic_magnify_expand_24"
-                    app:tint="?colorOnSurface" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.textview.MaterialTextView
@@ -94,16 +84,6 @@
                     android:foreground="?attr/selectableItemBackground"
                     android:scaleType="centerCrop"
                     tools:src="@drawable/splash_mascot" />
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="top|end"
-                    android:layout_margin="6dp"
-                    android:alpha="0.8"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/ic_magnify_expand_24"
-                    app:tint="?colorOnSurface" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.textview.MaterialTextView
@@ -122,14 +102,6 @@
                 tools:text="~1.2 MB" />
         </LinearLayout>
     </LinearLayout>
-
-    <com.google.android.material.textview.MaterialTextView
-        style="@style/TextAppearance.Material3.LabelSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/squeezer_onboarding_tap_to_zoom_hint"
-        android:textColor="?colorOnSurfaceVariant" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/quality_indicator"

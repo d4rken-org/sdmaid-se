@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.media.MediaScannerConnection
-import android.os.Build
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -231,25 +230,13 @@ class ImageProcessor @Inject constructor(
         return inSampleSize
     }
 
-    @Suppress("DEPRECATION")
     private fun compressBitmapToFile(
         bitmap: Bitmap,
         mimeType: String,
         quality: Int,
         outputFile: File,
     ): Long {
-        val format = when (mimeType) {
-            CompressibleImage.MIME_TYPE_JPEG -> Bitmap.CompressFormat.JPEG
-            CompressibleImage.MIME_TYPE_WEBP -> {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                    Bitmap.CompressFormat.WEBP_LOSSY
-                } else {
-                    Bitmap.CompressFormat.WEBP
-                }
-            }
-            else -> Bitmap.CompressFormat.JPEG
-        }
-
+        val format = CompressibleImage.compressFormat(mimeType)
         outputFile.outputStream().buffered().use { output ->
             bitmap.compress(format, quality, output)
         }

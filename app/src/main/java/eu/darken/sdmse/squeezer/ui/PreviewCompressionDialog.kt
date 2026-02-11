@@ -5,15 +5,15 @@ import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.sdmse.R
-import eu.darken.sdmse.squeezer.core.CompressibleImage
-import eu.darken.sdmse.squeezer.ui.onboarding.SqueezerOnboardingDialog
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.databinding.SqueezerPreviewDialogBinding
+import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.ui.onboarding.ComparisonDialog
 import javax.inject.Inject
 
 
 class PreviewCompressionDialog @Inject constructor(
     private val fragment: Fragment,
-    private val onboardingDialog: SqueezerOnboardingDialog,
 ) {
 
     fun show(
@@ -50,15 +50,18 @@ class PreviewCompressionDialog @Inject constructor(
             setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ ->
                 onNegative()
             }
-            setNeutralButton(R.string.squeezer_preview_info_action) { _, _ ->
-                onboardingDialog.show(
-                    sampleImage = items.first(),
-                    quality = quality,
-                    onDismiss = {
-                        // Re-show this dialog after details are dismissed
-                        show(items, quality, onPositive, onNegative)
-                    },
-                )
+            setNeutralButton(R.string.squeezer_compare_action) { _, _ ->
+                val sampleImage = items.firstOrNull() ?: return@setNeutralButton
+                val path = (sampleImage.path as? LocalPath)?.path ?: sampleImage.path.path
+
+                fragment.childFragmentManager.setFragmentResultListener(
+                    ComparisonDialog.REQUEST_KEY,
+                    fragment.viewLifecycleOwner,
+                ) { _, _ ->
+                    show(items, quality, onPositive, onNegative)
+                }
+                ComparisonDialog.newInstance(path, quality, sampleImage.isWebp)
+                    .show(fragment.childFragmentManager, "comparison")
             }
         }.show()
     }

@@ -630,9 +630,8 @@
     <string name="squeezer_onboarding_original_label">Original</string>
     <string name="squeezer_onboarding_compressed_label">After compression</string>
     <string name="squeezer_onboarding_quality_label">Quality: %d%%</string>
-    <string name="squeezer_onboarding_tap_to_zoom_hint">Tap images to zoom</string>
     <string name="squeezer_onboarding_got_it">Got it</string>
-    <string name="squeezer_preview_info_action">Show example</string>
+    <string name="squeezer_compare_action">View comparison</string>
     <string name="squeezer_no_example_found">No images found in selected paths.</string>
     <string name="squeezer_result_empty_message">No compressible images found.</string>
     <string name="squeezer_setup_warning">Compression permanently reduces image quality to save storage space. This cannot be undone. Review your settings carefully before starting.</string>

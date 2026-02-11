@@ -223,8 +223,8 @@
                             style="@style/SDMButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/squeezer_preview_info_action"
-                            app:icon="@drawable/ic_image_multiple_24" />
+                            android:text="@string/general_details_label"
+                            app:icon="@drawable/ic_baseline_info_24" />
 
                         <com.google.android.material.progressindicator.CircularProgressIndicator
                             android:id="@+id/quality_example_loading"

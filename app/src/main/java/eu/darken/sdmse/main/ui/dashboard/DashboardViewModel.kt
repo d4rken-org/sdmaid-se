@@ -22,7 +22,9 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.DebugCardProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -46,13 +48,6 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
 import eu.darken.sdmse.corpsefinder.core.tasks.UninstallWatcherTask
-import eu.darken.sdmse.squeezer.core.Squeezer
-import eu.darken.sdmse.squeezer.core.SqueezerSettings
-import eu.darken.sdmse.squeezer.core.hasData
-import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
-import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
-import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
-import eu.darken.sdmse.squeezer.ui.SqueezerDashCardVH
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
@@ -80,6 +75,12 @@ import eu.darken.sdmse.main.ui.dashboard.items.UpgradeCardVH
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
 import eu.darken.sdmse.setup.SetupManager
+import eu.darken.sdmse.squeezer.core.Squeezer
+import eu.darken.sdmse.squeezer.core.SqueezerSettings
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
+import eu.darken.sdmse.squeezer.ui.SqueezerDashCardVH
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.core.StatsSettings
 import eu.darken.sdmse.stats.ui.StatsDashCardVH
@@ -119,7 +120,7 @@ class DashboardViewModel @Inject constructor(
     analyzer: Analyzer,
     debugCardProvider: DebugCardProvider,
     private val deduplicator: Deduplicator,
-private val squeezer: Squeezer,
+    private val squeezer: Squeezer,
     private val squeezerSettings: SqueezerSettings,
     swiper: Swiper,
     private val upgradeRepo: UpgradeRepo,
@@ -486,7 +487,7 @@ private val squeezer: Squeezer,
     }
 
     // Combine refresh trigger with card config to stay within combine's argument limit
-    private val cardConfigWithRefresh: Flow<DashboardCardConfig> = kotlinx.coroutines.flow.combine(
+    private val cardConfigWithRefresh: Flow<DashboardCardConfig> = combine(
         refreshTrigger,
         generalSettings.dashboardCardConfig.flow,
     ) { _, config -> config }
@@ -823,16 +824,6 @@ private val squeezer: Squeezer,
     fun showSqueezer() {
         log(TAG, INFO) { "showSqueezerDetails()" }
         DashboardFragmentDirections.actionDashboardFragmentToSqueezerListFragment().navigate()
-    }
-
-    fun confirmSqueezerProcessing() = launch {
-        log(TAG, INFO) { "confirmSqueezerProcessing()" }
-
-        if (!upgradeRepo.isPro()) {
-            MainDirections.goToUpgradeFragment().navigate()
-            return@launch
-        }
-        submitTask(SqueezerProcessTask())
     }
 
     fun undoSetupHide() = launch {
