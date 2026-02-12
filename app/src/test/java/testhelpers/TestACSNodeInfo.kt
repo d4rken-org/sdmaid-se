@@ -2,6 +2,7 @@ package testhelpers
 
 import android.graphics.Rect
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
+import eu.darken.sdmse.automation.core.common.crawl
 
 data class TestACSNodeInfo(
     override val text: CharSequence? = null,
@@ -13,10 +14,13 @@ data class TestACSNodeInfo(
     override val isEnabled: Boolean = true,
     override val isCheckable: Boolean = false,
     override val isScrollable: Boolean = false,
+    override val isFocused: Boolean = false,
+    override val isAccessibilityFocused: Boolean = false,
     private val children: MutableList<TestACSNodeInfo> = mutableListOf(),
     private var parentNode: TestACSNodeInfo? = null,
     private val childrenArray: Array<ACSNodeInfo?>? = null,
-    private val bounds: Rect = Rect(0, 0, 100, 50)
+    private val bounds: Rect = Rect(0, 0, 100, 50),
+    private val screenBoundsOverride: ACSNodeInfo.ScreenBounds? = null,
 ) : ACSNodeInfo {
 
     override val childCount: Int get() = childrenArray?.size ?: children.size
@@ -41,6 +45,18 @@ data class TestACSNodeInfo(
         outBounds.set(bounds.left, bounds.top, bounds.right, bounds.bottom)
     }
 
+    override fun getScreenBounds() = screenBoundsOverride
+        ?: ACSNodeInfo.ScreenBounds(bounds.left, bounds.top, bounds.right, bounds.bottom)
+
+    override fun findFocus(focusType: Int): ACSNodeInfo? {
+        val predicate: (ACSNodeInfo) -> Boolean = when (focusType) {
+            ACSNodeInfo.FOCUS_INPUT -> { node -> node.isFocused }
+            ACSNodeInfo.FOCUS_ACCESSIBILITY -> { node -> node.isAccessibilityFocused }
+            else -> return null
+        }
+        return crawl().map { it.node }.firstOrNull(predicate)
+    }
+
     fun addChild(child: TestACSNodeInfo): TestACSNodeInfo {
         children.add(child)
         child.parentNode = this
@@ -53,7 +69,7 @@ data class TestACSNodeInfo(
     }
 
     override fun toString(): String {
-        return "TestACSNodeInfo(text='$text', contentDesc='$contentDescription', isClickable=$isClickable, childCount=$childCount, hasParent=${parent != null})"
+        return "TestACSNodeInfo(text='$text', contentDesc='$contentDescription', isClickable=$isClickable, isFocused=$isFocused, isA11yFocused=$isAccessibilityFocused, childCount=$childCount, hasParent=${parent != null})"
     }
 
     override fun equals(other: Any?): Boolean {
@@ -68,6 +84,8 @@ data class TestACSNodeInfo(
                 isEnabled == other.isEnabled &&
                 isCheckable == other.isCheckable &&
                 isScrollable == other.isScrollable &&
+                isFocused == other.isFocused &&
+                isAccessibilityFocused == other.isAccessibilityFocused &&
                 children == other.children &&
                 childrenArray?.contentEquals(other.childrenArray) == true
     }
@@ -82,6 +100,8 @@ data class TestACSNodeInfo(
         result = 31 * result + isEnabled.hashCode()
         result = 31 * result + isCheckable.hashCode()
         result = 31 * result + isScrollable.hashCode()
+        result = 31 * result + isFocused.hashCode()
+        result = 31 * result + isAccessibilityFocused.hashCode()
         result = 31 * result + children.hashCode()
         result = 31 * result + (childrenArray?.contentHashCode() ?: 0)
         return result
