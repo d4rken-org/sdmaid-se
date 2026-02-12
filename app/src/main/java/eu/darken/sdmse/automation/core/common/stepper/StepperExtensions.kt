@@ -15,9 +15,11 @@ import eu.darken.sdmse.automation.core.dispatchGesture
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
 import eu.darken.sdmse.automation.core.errors.UnclickableTargetException
 import eu.darken.sdmse.automation.core.waitForWindowRoot
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 
@@ -57,6 +59,53 @@ suspend fun StepContext.findNodeByContentDesc(
     return labels.firstNotNullOfOrNull { label ->
         tree.find { it.contentDescMatches(label) && predicate(it) }
     }
+}
+
+data class FocusState(
+    val inputFocused: ACSNodeInfo?,
+    val accessibilityFocused: ACSNodeInfo?,
+)
+
+/**
+ * Finds the currently focused nodes using the accessibility framework's live focus query.
+ */
+suspend fun StepContext.findFocusedNode(): FocusState {
+    val root = host.windowRoot() ?: return FocusState(null, null)
+    return FocusState(
+        inputFocused = root.findFocus(ACSNodeInfo.FOCUS_INPUT),
+        accessibilityFocused = root.findFocus(ACSNodeInfo.FOCUS_ACCESSIBILITY),
+    )
+}
+
+/**
+ * Waits for the layout to stabilize by polling an anchor node's bounds.
+ * Returns the anchor node once bounds are stable across two consecutive checks, or null if
+ * the anchor is never found or bounds never stabilize within [maxChecks] iterations.
+ */
+suspend fun StepContext.waitForLayoutStability(
+    anchorId: String,
+    maxChecks: Int = 10,
+    delayMs: Long = 200,
+): ACSNodeInfo? {
+    var lastBounds: ACSNodeInfo.ScreenBounds? = null
+    for (i in 1..maxChecks) {
+        val node = host.windowRoot()?.crawl()?.map { it.node }
+            ?.firstOrNull { it.viewIdResourceName == anchorId }
+        if (node == null) {
+            log(tag, INFO) { "Stabilize check #$i: anchor '$anchorId' not found yet" }
+            delay(delayMs)
+            continue
+        }
+        val bounds = node.getScreenBounds()
+        log(tag, INFO) { "Stabilize check #$i: bounds=$bounds" }
+        if (bounds == lastBounds) {
+            log(tag, INFO) { "Layout stabilized after $i checks" }
+            return node
+        }
+        lastBounds = bounds
+        delay(delayMs)
+    }
+    return null
 }
 
 suspend fun StepContext.findClickableParent(

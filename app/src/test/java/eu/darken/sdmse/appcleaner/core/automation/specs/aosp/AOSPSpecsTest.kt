@@ -157,20 +157,22 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     }
 
     @Test
-    fun `clear cache falls back to accessibility DPAD navigation on Android 16 beta`() = runTest {
+    fun `clear cache falls back to accessibility DPAD navigation on Android 16`() = runTest {
         mockkStatic(::hasApiLevel)
         every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
-
         mockkObject(BuildWrap)
         every { BuildWrap.MANUFACTOR } returns "Google"
-        every { BuildWrap.PRODUCT } returns "komodo_beta"
+        every { BuildWrap.PRODUCT } returns "lynx_beta"
 
         coEvery { inputInjector.canInject() } returns false
         every { testHost.service.performGlobalAction(any()) } returns true
 
+        // Tree includes anchor node - production code finds it via crawl + viewIdResourceName
+        // No nodes have isFocused/isAccessibilityFocused, so DPAD loop finds no focus → blind fallback
         testRoot = buildTestTree(
             """
             ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(84, 328 - 996, 675)
             ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=com.android.settings:id/content_parent pkg=com.android.settings, identity=content, bounds=Rect(0, 159 - 1080, 2300)
             """.trimIndent()
         )
@@ -178,7 +180,8 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         val result = captureAndRunClearCacheAction()
 
         result shouldBe true
-        verify(exactly = 3) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        // 10 in main DPAD loop + 2 in blind fallback = 12
+        verify(exactly = 12) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
         verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 

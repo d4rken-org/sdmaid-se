@@ -358,4 +358,107 @@ class StepperExtensionsTest : BaseTest() {
 
         result shouldBe null
     }
+
+    // Tests for waitForLayoutStability
+
+    @Test
+    fun `waitForLayoutStability returns anchor when bounds stabilize`() = runTest {
+        val anchor = TestACSNodeInfo(
+            viewIdResourceName = "com.android.settings:id/entity_header_content",
+            screenBoundsOverride = ACSNodeInfo.ScreenBounds(84, 328, 996, 675),
+        )
+        val root = TestACSNodeInfo().addChild(anchor)
+        val context = createStepContextWithTree(root)
+
+        // Bounds are constant → stabilizes on 2nd check
+        val result = context.waitForLayoutStability(
+            anchorId = "com.android.settings:id/entity_header_content",
+            maxChecks = 5,
+            delayMs = 0,
+        )
+
+        result shouldBe anchor
+    }
+
+    @Test
+    fun `waitForLayoutStability returns null when anchor not found`() = runTest {
+        val root = TestACSNodeInfo() // No anchor child
+        val context = createStepContextWithTree(root)
+
+        val result = context.waitForLayoutStability(
+            anchorId = "com.android.settings:id/entity_header_content",
+            maxChecks = 3,
+            delayMs = 0,
+        )
+
+        result shouldBe null
+    }
+
+    @Test
+    fun `waitForLayoutStability returns null when bounds keep changing`() = runTest {
+        var callCount = 0
+        val mockHost = mockk<AutomationHost>()
+        coEvery { mockHost.windowRoot() } answers {
+            callCount++
+            val anchor = TestACSNodeInfo(
+                viewIdResourceName = "com.android.settings:id/anchor",
+                screenBoundsOverride = ACSNodeInfo.ScreenBounds(0, 0, callCount * 10, 50),
+            )
+            TestACSNodeInfo().addChild(anchor)
+        }
+
+        val mockHostContext = object : AutomationExplorer.Context {
+            override val host: AutomationHost = mockHost
+            override val progress: Flow<Progress.Data?> = emptyFlow()
+            override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {}
+        }
+
+        val context = StepContext(hostContext = mockHostContext, tag = "test", stepAttempts = 1)
+
+        val result = context.waitForLayoutStability(
+            anchorId = "com.android.settings:id/anchor",
+            maxChecks = 3,
+            delayMs = 0,
+        )
+
+        result shouldBe null
+    }
+
+    // Tests for findFocusedNode
+
+    @Test
+    fun `findFocusedNode returns focused nodes`() = runTest {
+        val focusedNode = TestACSNodeInfo(text = "Button", isFocused = true)
+        val root = TestACSNodeInfo().addChild(focusedNode)
+        val context = createStepContextWithTree(root)
+
+        val result = context.findFocusedNode()
+
+        result.inputFocused shouldBe focusedNode
+        result.accessibilityFocused shouldBe null
+    }
+
+    @Test
+    fun `findFocusedNode returns null when no focus`() = runTest {
+        val root = TestACSNodeInfo().addChild(TestACSNodeInfo(text = "Button"))
+        val context = createStepContextWithTree(root)
+
+        val result = context.findFocusedNode()
+
+        result.inputFocused shouldBe null
+        result.accessibilityFocused shouldBe null
+    }
+
+    @Test
+    fun `findFocusedNode returns both input and accessibility focus`() = runTest {
+        val inputFocused = TestACSNodeInfo(text = "Input", isFocused = true)
+        val a11yFocused = TestACSNodeInfo(text = "A11y", isAccessibilityFocused = true)
+        val root = TestACSNodeInfo().addChildren(inputFocused, a11yFocused)
+        val context = createStepContextWithTree(root)
+
+        val result = context.findFocusedNode()
+
+        result.inputFocused shouldBe inputFocused
+        result.accessibilityFocused shouldBe a11yFocused
+    }
 }
