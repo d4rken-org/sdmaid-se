@@ -954,10 +954,10 @@
     <string name="swiper_label">Balayeur</string>
     <string name="swiper_tool_name">Balayeur</string>
     <string name="swiper_tool_description">Parcourir les fichiers en balayant pour décider lesquels garder ou supprimer.</string>
-    <string name="swiper_dashcard_description">Parcourir manuellement les fichiers de dossiers spécifiques. Balayez pour décider quoi garder ou supprimer.</string>
+    <string name="swiper_dashcard_description">Examinez manuellement les fichiers de certains dossiers. Balayez pour décider quoi conserver ou supprimer.</string>
     <string name="swiper_start_action">Commencer à balayer</string>
     <string name="swiper_continue_action">Poursuivre la session</string>
-    <string name="swiper_sessions_description">Certains fichiers nécessitent une décision humaine. Parcourez les éléments et choisissez ce que vous souhaitez garder ou supprimer. Passez ce dont vous n\'êtes pas sûr. Cet outil vous permet de parcourir manuellement des dossiers spécifiques, et rien n\'est supprimé avant votre confirmation.</string>
+    <string name="swiper_sessions_description">Vous devez prendre une décision pour certains fichiers. Balayez les éléments et choisissez ceux que vous voulez conserver ou supprimer. Ignorez ceux pour lesquels vous avez un doute. Cet outil vous permet de contrôler quels dossiers examiner, et rien n’est supprimé sans votre confirmation.</string>
     <string name="swiper_select_folders_action">Choisir des dossiers</string>
     <string name="swiper_scanning_title">Analyse…</string>
     <plurals name="swiper_result_x_items_found">

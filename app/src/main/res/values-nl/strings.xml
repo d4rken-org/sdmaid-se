@@ -910,7 +910,7 @@
     <string name="squeezer_onboarding_compressed_label">Na compressie</string>
     <string name="squeezer_onboarding_quality_label">Kwaliteit: %d%%</string>
     <string name="squeezer_onboarding_got_it">Begrepen</string>
-    <string name="squeezer_compare_action">Vergelijking bekijken</string>
+    <string name="squeezer_compare_action">Bekijk de vergelijking</string>
     <string name="squeezer_no_example_found">Geen afbeeldingen gevonden in geselecteerde paden.</string>
     <string name="squeezer_result_empty_message">Geen comprimeerbare afbeeldingen gevonden.</string>
     <string name="squeezer_setup_warning">Compressie vermindert permanent de beeldkwaliteit om opslagruimte te besparen. Dit kan niet ongedaan worden gemaakt. Controleer je instellingen zorgvuldig voordat je begint.</string>
@@ -934,10 +934,10 @@
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Veeg door bestanden om te beslissen wat je wilt bewaren of verwijderen.</string>
-    <string name="swiper_dashcard_description">Bekijk bestanden in specifieke mappen handmatig. Veeg om te beslissen wat je wilt bewaren of verwijderen.</string>
+    <string name="swiper_dashcard_description">Controleer handmatig de bestanden in specifieke mappen. Veeg om te bepalen wat je wilt bewaren of verwijderen.</string>
     <string name="swiper_start_action">Begin met vegen</string>
     <string name="swiper_continue_action">Sessie voortzetten</string>
-    <string name="swiper_sessions_description">Sommige bestanden vereisen een menselijke beslissing. Veeg door items en kies wat je wilt bewaren of verwijderen. Sla alles over waar je niet zeker van bent. Met dit hulpmiddel kun je specifieke mappen handmatig bekijken, en er wordt niets verwijderd totdat je bevestigt.</string>
+    <string name="swiper_sessions_description">Voor sommige bestanden is een menselijke beoordeling nodig. Blader door de items en kies wat je wilt bewaren of verwijderen. Sla alles over waar je niet zeker van bent. Met deze tool kun je specifieke mappen handmatig controleren; niets wordt verwijderd voordat je jouw keuze bevestigt.</string>
     <string name="swiper_select_folders_action">Mappen selecteren</string>
     <string name="swiper_scanning_title">Scannen…</string>
     <plurals name="swiper_result_x_items_found">
