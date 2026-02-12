@@ -553,7 +553,6 @@
     <string name="squeezer_quality_label">Qualitat</string>
     <string name="squeezer_quality_title">Qualitat de compressió</string>
     <string name="squeezer_quality_description">Una qualitat més baixa significa una mida de fitxer més petita però una qualitat d\'imatge reduïda.</string>
-    <string name="squeezer_quality_value_format">%d%%</string>
     <string name="squeezer_quality_example_format">Exemple: %1$s imatge → estalvia ~%2$s amb una qualitat del %3$d%%</string>
     <string name="squeezer_quality_warning_low">Les qualitats inferiors poden causar artefactes visibles.</string>
     <string name="squeezer_quality_warning_high">La qualitat molt alta proporciona un estalvi mínim d\'espai.</string>
@@ -589,9 +588,8 @@
     <string name="squeezer_onboarding_original_label">Original</string>
     <string name="squeezer_onboarding_compressed_label">Després de la compressió</string>
     <string name="squeezer_onboarding_quality_label">Qualitat: %d%%</string>
-    <string name="squeezer_onboarding_tap_to_zoom_hint">Toqueu les imatges per ampliar-les</string>
     <string name="squeezer_onboarding_got_it">D\'acord</string>
-    <string name="squeezer_preview_info_action">Mostra un exemple</string>
+    <string name="squeezer_compare_action">Mostra la comparació</string>
     <string name="squeezer_no_example_found">No s\'han trobat imatges a les rutes seleccionades.</string>
     <string name="squeezer_result_empty_message">No s\'han trobat imatges comprimibles.</string>
     <string name="squeezer_setup_warning">La compressió redueix permanentment la qualitat de la imatge per estalviar espai d\'emmagatzematge. Això no es pot desfer. Reviseu la configuració acuradament abans de començar.</string>
@@ -602,7 +600,6 @@
     <string name="squeezer_setup_age_title">Antiguitat mínim</string>
     <string name="squeezer_setup_age_none">Sense límit (inclou tots els fitxers)</string>
     <string name="squeezer_setup_start_action">Comença la cerca</string>
-    <string name="squeezer_quality_value">%d%%</string>
     <string name="squeezer_quality_hint_very_low">Una qualitat inferior al 40% pot crear imatges inutilitzables.</string>
     <string name="squeezer_quality_hint_low">Una qualitat més baixa estalvia més espai però pot causar artefactes visibles.</string>
     <string name="squeezer_quality_hint_high">La qualitat molt alta proporciona un estalvi mínim d\'espai.</string>
@@ -957,10 +954,10 @@
     <string name="swiper_label">Escombrador</string>
     <string name="swiper_tool_name">Escombrador</string>
     <string name="swiper_tool_description">Llisqueu els fitxers per decidir quins voleu conservar i quins suprimir.</string>
-    <string name="swiper_dashcard_description">L\'SD Maid gestiona la majoria de coses automàticament. Per a tota la resta, només cal lliscar el dit!</string>
+    <string name="swiper_dashcard_description">Reviseu manualment els fitxers de carpetes específiques. Feu lliscar el dit per decidir què voleu conservar o suprimir.</string>
     <string name="swiper_start_action">Comença a lliscar</string>
     <string name="swiper_continue_action">Continua la sessió</string>
-    <string name="swiper_sessions_description">Alguns fitxers només necessiten la vostra atenció. Feu lliscar el dit per decidir quin serà el seu destí: no s\'elimina res fins que no ho digueu. Podeu pausar-los en qualsevol moment i continuar més tard.</string>
+    <string name="swiper_sessions_description">Alguns fitxers requereixen una decisió humana. Feu lliscar el dit pels elements i trieu què voleu conservar o suprimir. Ometeu tot allò que no tingueu clar. Aquesta eina us permet revisar carpetes específiques manualment i no s\'eliminarà res fins que no confirmeu.</string>
     <string name="swiper_select_folders_action">Selecciona les carpetes</string>
     <string name="swiper_scanning_title">S\'està escanejant…</string>
     <plurals name="swiper_result_x_items_found">

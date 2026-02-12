@@ -572,7 +572,6 @@
     <string name="squeezer_quality_label">Calitate</string>
     <string name="squeezer_quality_title">Calitatea de compresie</string>
     <string name="squeezer_quality_description">Calitate mai scăzută înseamnă o dimensiune mai mică a fișierului, dar o calitate redusă a imaginii.</string>
-    <string name="squeezer_quality_value_format">%d%%</string>
     <string name="squeezer_quality_example_format">Exemplu: %1$s imagine→ economisește ~%2$s la %3$d%% calitate</string>
     <string name="squeezer_quality_warning_low">Calitățile inferioare pot provoca artefacte vizibile.</string>
     <string name="squeezer_quality_warning_high">Calitatea foarte înaltă oferă economii minime de spațiu.</string>
@@ -604,9 +603,7 @@
     <string name="squeezer_onboarding_original_label">Original</string>
     <string name="squeezer_onboarding_compressed_label">Dupa compresie</string>
     <string name="squeezer_onboarding_quality_label">Calitate: %d%%</string>
-    <string name="squeezer_onboarding_tap_to_zoom_hint">Atingeți imaginile pentru a mări</string>
     <string name="squeezer_onboarding_got_it">Am înțeles</string>
-    <string name="squeezer_preview_info_action">Arătați exemple</string>
     <string name="squeezer_no_example_found">Nu s-au găsit imagini în căile selectate.</string>
     <string name="squeezer_result_empty_message">Nu s-au găsit imagini compresibile.</string>
     <string name="squeezer_setup_warning">Compresia reduce permanent calitatea imaginii pentru a economisi spațiu de stocare. Acest lucru nu poate fi anulat. Examinați cu atenție setările înainte de a începe.</string>
@@ -617,7 +614,6 @@
     <string name="squeezer_setup_age_title">Vârstă minimă</string>
     <string name="squeezer_setup_age_none">Fără limită (includeți toate fișierele)</string>
     <string name="squeezer_setup_start_action">Porniți scanarea</string>
-    <string name="squeezer_quality_value">%d%%</string>
     <string name="squeezer_quality_hint_very_low">Calitatea sub 40% poate crea imagini inutilizabile.</string>
     <string name="squeezer_quality_hint_low">Calitatea scăzută economisește mai mult spațiu, dar poate provoca artefacte vizibile.</string>
     <string name="squeezer_quality_hint_high">Calitatea foarte înaltă oferă economii minime de spațiu.</string>
@@ -993,10 +989,8 @@
     <string name="swiper_label">Glisare</string>
     <string name="swiper_tool_name">Glisare</string>
     <string name="swiper_tool_description">Glisați prin fișiere pentru a decide ce să păstrați sau să ștergeți.</string>
-    <string name="swiper_dashcard_description">SD Maid se ocupă automat de majoritatea lucrurilor. Pentru orice altceva, există glisare!</string>
     <string name="swiper_start_action">Începeți glisarea</string>
     <string name="swiper_continue_action">Continuați sesiunea</string>
-    <string name="swiper_sessions_description">Unele fișiere au nevoie doar de o atingere umană. Glisați pentru a decide soarta lor - nimic nu este șters până când nu spuneți acest lucru. Puteți să vă opriți oricând și să continuați mai târziu.</string>
     <string name="swiper_select_folders_action">Selectați foldere</string>
     <string name="swiper_scanning_title">Se scanează…</string>
     <plurals name="swiper_result_x_items_found">

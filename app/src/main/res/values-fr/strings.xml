@@ -553,8 +553,7 @@
     <string name="squeezer_quality_label">Qualité</string>
     <string name="squeezer_quality_title">Qualité de la compression</string>
     <string name="squeezer_quality_description">Une qualité inférieure implique une taille de fichier plus petite, mais une qualité d’image moindre.</string>
-    <string name="squeezer_quality_value_format">%d%%</string>
-    <string name="squeezer_quality_example_format">Exemple : %1$s image → économise ~%2$s avec une qualité de %3$d%%</string>
+    <string name="squeezer_quality_example_format">Exemple : %1$s image → économise ~%2$s avec une qualité de %3$d %%</string>
     <string name="squeezer_quality_warning_low">Les qualités inférieures peuvent entraîner des distortions visuelles.</string>
     <string name="squeezer_quality_warning_high">Une qualité très élevée réduit peu la taille du fichier.</string>
     <string name="squeezer_types_category_label">Types d’images</string>
@@ -588,10 +587,8 @@
     <string name="squeezer_onboarding_message">La compression des images réduit la taille des fichiers en supprimant certains détails visuels. Ce processus est irréversible ; la qualité originale ne peut pas être restaurée.\n\nVoici un aperçu du rendu final de vos images :</string>
     <string name="squeezer_onboarding_original_label">Originale</string>
     <string name="squeezer_onboarding_compressed_label">Après compression</string>
-    <string name="squeezer_onboarding_quality_label">Qualité : %d%%</string>
-    <string name="squeezer_onboarding_tap_to_zoom_hint">Toucher les images pour zoomer</string>
+    <string name="squeezer_onboarding_quality_label">Qualité : %d %%</string>
     <string name="squeezer_onboarding_got_it">J’ai compris</string>
-    <string name="squeezer_preview_info_action">Afficher un exemple</string>
     <string name="squeezer_no_example_found">Aucune image n’a été trouvée dans les chemins définis.</string>
     <string name="squeezer_result_empty_message">Aucune image compressible n’a été trouvée.</string>
     <string name="squeezer_setup_warning">La compression réduit irrémédiablement la qualité des images pour économiser l’espace de stockage. Cette opération est irréversible. Confirmez vos paramètres avant de commencer.</string>
@@ -602,7 +599,6 @@
     <string name="squeezer_setup_age_title">Âge minimal</string>
     <string name="squeezer_setup_age_none">Aucune limite (tous les fichiers)</string>
     <string name="squeezer_setup_start_action">Lancer l’analyse</string>
-    <string name="squeezer_quality_value">%d%%</string>
     <string name="squeezer_quality_hint_very_low">Une qualité inférieure à 40 % peut créer des images inutilisables.</string>
     <string name="squeezer_quality_hint_low">Une qualité inférieure permet d’économiser l’espace, mais peut entraîner des distortions visuelles.</string>
     <string name="squeezer_quality_hint_high">Une qualité très élevée réduit peu la taille du fichier.</string>
@@ -611,7 +607,7 @@
         <item quantity="one">Au moins %d jour</item>
         <item quantity="other">Au moins %d jours</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Économie probable de %d%% pour les fichiers JPEG</string>
+    <string name="squeezer_estimated_savings_percent">Économie probable de %d %% pour les fichiers JPEG</string>
     <string name="appcontrol_tool_name">Vérificateur d’applis</string>
     <string name="appcontrol_explanation_short">Applis installées sur votre appareil.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -957,10 +953,8 @@
     <string name="swiper_label">Balayeur</string>
     <string name="swiper_tool_name">Balayeur</string>
     <string name="swiper_tool_description">Parcourir les fichiers en balayant pour décider lesquels garder ou supprimer.</string>
-    <string name="swiper_dashcard_description">SD Maid gère la plupart des tâches automatiquement. Pour tout le reste, il suffit de balayer l’écran.</string>
     <string name="swiper_start_action">Commencer à balayer</string>
     <string name="swiper_continue_action">Poursuivre la session</string>
-    <string name="swiper_sessions_description">Certains fichiers méritent votre attention. Balayez pour déterminer leur sort ; rien n’est supprimé sans votre accord. Possibilité de suspendre le balayage et de poursuivre ultérieurement.</string>
     <string name="swiper_select_folders_action">Choisir des dossiers</string>
     <string name="swiper_scanning_title">Analyse…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1005,8 +999,8 @@
     <string name="swiper_discard_session_confirmation_message">Toutes les décisions seront perdues. Confirmez-vous ?</string>
     <string name="swiper_no_preview_available">Aucun aperçu n’est proposé</string>
     <plurals name="swiper_dashcard_session_context">
-        <item quantity="one">Poursuivre la session d’il y a %1$d jour (%2$d%% terminé)</item>
-        <item quantity="other">Poursuivre la session d’il y a %1$d jours (%2$d%% terminé)</item>
+        <item quantity="one">Poursuivre la session d’il y a %1$d jour (%2$d %% terminé)</item>
+        <item quantity="other">Poursuivre la session d’il y a %1$d jours (%2$d %% terminé)</item>
     </plurals>
     <plurals name="swiper_dashcard_x_sessions">
         <item quantity="one">%d session</item>

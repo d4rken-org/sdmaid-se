@@ -593,7 +593,6 @@
     <string name="squeezer_quality_label">Kvalita</string>
     <string name="squeezer_quality_title">Kvalita komprese</string>
     <string name="squeezer_quality_description">Nižší kvalita znamená menší velikost souboru, ale sníží kvalitu obrázku.</string>
-    <string name="squeezer_quality_value_format">%d%%</string>
     <string name="squeezer_quality_example_format">Příklad: obrázek %1$s → ušetří ~%2$s v kvalitě %3$d%%</string>
     <string name="squeezer_quality_warning_low">Nižší kvalita může způsobit viditelné artefakty.</string>
     <string name="squeezer_quality_warning_high">Velmi vysoká kvalita nabídne minimální úspory prostoru.</string>
@@ -631,9 +630,7 @@
     <string name="squeezer_onboarding_original_label">Originál</string>
     <string name="squeezer_onboarding_compressed_label">Po kompresi</string>
     <string name="squeezer_onboarding_quality_label">Kvalita: %d%%</string>
-    <string name="squeezer_onboarding_tap_to_zoom_hint">Klepněte na obrázky pro přiblížení</string>
     <string name="squeezer_onboarding_got_it">Rozumím</string>
-    <string name="squeezer_preview_info_action">Ukázat příklad</string>
     <string name="squeezer_no_example_found">Nenalezeny obrázky ve vybraných cestách.</string>
     <string name="squeezer_result_empty_message">Nenalezeny obrázky ke kompresi.</string>
     <string name="squeezer_setup_warning">Komprese trvale snižuje kvalitu obrázku, aby se ušetřil prostor v úložišti. Tuto akci nelze vrátit zpět. Před spuštěním pečlivě zkontrolujte nastavení.</string>
@@ -644,7 +641,6 @@
     <string name="squeezer_setup_age_title">Minimální stáří</string>
     <string name="squeezer_setup_age_none">Bez limitu (včetně všech souborů)</string>
     <string name="squeezer_setup_start_action">Spustit sken</string>
-    <string name="squeezer_quality_value">%d%%</string>
     <string name="squeezer_quality_hint_very_low">Kvalita pod 40 % může vytvářet nepoužitelné obrázky.</string>
     <string name="squeezer_quality_hint_low">Nižší kvalita šetří více prostoru, ale může způsobit viditelné artefakty.</string>
     <string name="squeezer_quality_hint_high">Velmi vysoká kvalita poskytuje minimální úspory prostoru.</string>
@@ -1045,10 +1041,8 @@
     <string name="swiper_label">Přetahovač</string>
     <string name="swiper_tool_name">Přetahovač</string>
     <string name="swiper_tool_description">Rozhodněte přejetím přes soubory, co chcete zachovat nebo odstranit.</string>
-    <string name="swiper_dashcard_description">SD Maid zvládne většinu věcí automaticky. Pro všechno ostatní je tady přetažení!</string>
     <string name="swiper_start_action">Začít přetahovat</string>
     <string name="swiper_continue_action">Pokračovat v relaci</string>
-    <string name="swiper_sessions_description">Některé soubory potřebují lidský kontakt. Přejeďte pro rozhodnutí o jejich osudu - nic se neodstraní, dokud to neuděláte. Kdykoli můžete pozastavit a pokračovat později.</string>
     <string name="swiper_select_folders_action">Vybrat složku</string>
     <string name="swiper_scanning_title">Skenování…</string>
     <plurals name="swiper_result_x_items_found">

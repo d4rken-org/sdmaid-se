@@ -593,7 +593,6 @@
     <string name="squeezer_quality_label">Качество</string>
     <string name="squeezer_quality_title">Качество сжатия</string>
     <string name="squeezer_quality_description">Меньшее качество означает меньший размер файла, но снижает качество изображения.</string>
-    <string name="squeezer_quality_value_format">%d%%</string>
     <string name="squeezer_quality_example_format">Пример: %1$s изображение → экономия ~%2$s при качестве %3$d%%</string>
     <string name="squeezer_quality_warning_low">Низкое качество может вызывать видимые артефакты.</string>
     <string name="squeezer_quality_warning_high">Очень высокое качество ведет к минимальной экономии места.</string>
@@ -631,9 +630,7 @@
     <string name="squeezer_onboarding_original_label">Оригинал</string>
     <string name="squeezer_onboarding_compressed_label">После сжатия</string>
     <string name="squeezer_onboarding_quality_label">Качество: %d%%</string>
-    <string name="squeezer_onboarding_tap_to_zoom_hint">Нажмите на изображения, чтобы увеличить</string>
     <string name="squeezer_onboarding_got_it">Понятно</string>
-    <string name="squeezer_preview_info_action">Показать пример</string>
     <string name="squeezer_no_example_found">В выбранных путях изображения не найдены.</string>
     <string name="squeezer_result_empty_message">Не найдено изображений, которые можно сжать.</string>
     <string name="squeezer_setup_warning">Сжатие навсегда снижает качество изображения для сохранения места. Это не может быть отменено. Перед началом внимательно проверьте настройки.</string>
@@ -644,7 +641,6 @@
     <string name="squeezer_setup_age_title">Минимальный возраст</string>
     <string name="squeezer_setup_age_none">Нет ограничения (включать все файлы)</string>
     <string name="squeezer_setup_start_action">Запустить сканирование</string>
-    <string name="squeezer_quality_value">%d%%</string>
     <string name="squeezer_quality_hint_very_low">Качество ниже 40% может создать нечитаемые изображения.</string>
     <string name="squeezer_quality_hint_low">Меньшее качество экономит больше места, но может вызвать видимые артефакты.</string>
     <string name="squeezer_quality_hint_high">Очень высокое качество ведет к минимальной экономии места.</string>
@@ -1045,10 +1041,8 @@
     <string name="swiper_label">Свайпер</string>
     <string name="swiper_tool_name">Свайпер</string>
     <string name="swiper_tool_description">Проведите по файлам, чтобы решить, что сохранить, а что удалить.</string>
-    <string name="swiper_dashcard_description">SD Maid обрабатывает большинство процессов автоматически. Для всего остального есть свайпер!</string>
     <string name="swiper_start_action">Начать свайп</string>
     <string name="swiper_continue_action">Продолжить сессию</string>
-    <string name="swiper_sessions_description">Некоторые файлы просто нуждаются в человеческом касании. Проведите по экрану, чтобы решить их судьбу - ничего не удаляется, пока Вы не скажете. Вы можете приостановить процесс в любое время и продолжить позже.</string>
     <string name="swiper_select_folders_action">Выберите папки</string>
     <string name="swiper_scanning_title">Сканирование…</string>
     <plurals name="swiper_result_x_items_found">

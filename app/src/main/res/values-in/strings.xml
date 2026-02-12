@@ -757,10 +757,8 @@
     <string name="swiper_label">Pemilah</string>
     <string name="swiper_tool_name">Pemilah</string>
     <string name="swiper_tool_description">Geser berkas untuk menentukan mana yang disimpan atau dihapus.</string>
-    <string name="swiper_dashcard_description">SD Maid menangani sebagian besar hal secara otomatis. Lainnya, tinggal geser!</string>
     <string name="swiper_start_action">Mulai memilah</string>
     <string name="swiper_continue_action">Lanjutkan sesi</string>
-    <string name="swiper_sessions_description">Beberapa berkas perlu sentuhan manusia. Geser untuk menentukan nasibnya—tidak ada yang dihapus tanpa persetujuan Anda. Anda bisa menjeda kapan saja dan melanjutkannya nanti.</string>
     <string name="swiper_select_folders_action">Pilih folder</string>
     <string name="swiper_scanning_title">Memindai…</string>
     <plurals name="swiper_result_x_items_found">

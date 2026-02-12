@@ -489,7 +489,6 @@
     <string name="squeezer_quality_label">Kvalitet</string>
     <string name="squeezer_quality_title">Kompressions kvalitet</string>
     <string name="squeezer_quality_description">Lavere kvalitet betyder mindre filstørrelse, men reduceret billedkvalitet.</string>
-    <string name="squeezer_quality_value_format">%d%%</string>
     <string name="squeezer_quality_warning_low">Lavere kvaliteter kan forårsage synlige artefakter.</string>
     <string name="squeezer_quality_warning_high">Meget høj kvalitet giver minimal pladsbesparelser.</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -511,9 +510,7 @@
     <string name="squeezer_onboarding_original_label">Oprindelig</string>
     <string name="squeezer_onboarding_compressed_label">Efter komprimering</string>
     <string name="squeezer_onboarding_quality_label">Kvalitet: %d%%</string>
-    <string name="squeezer_onboarding_tap_to_zoom_hint">Tryk på billeder for at zoome</string>
     <string name="squeezer_onboarding_got_it">Forstået</string>
-    <string name="squeezer_preview_info_action">Vis eksempel</string>
     <string name="squeezer_no_example_found">Ingen billeder fundet i valgte stier.</string>
     <string name="squeezer_result_empty_message">Ingen komprimerbare billeder fundet.</string>
     <string name="appcontrol_tool_name">AppControl</string>

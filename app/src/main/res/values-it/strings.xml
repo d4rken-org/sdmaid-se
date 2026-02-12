@@ -155,6 +155,7 @@
     <string name="debug_mode_explanation">Abilita le opzioni di test e output più dettagliato. L\'app verrà eseguita più lentamente e performerà diversamente.</string>
     <string name="debug_bugreporter_label">Segnalazioni di bug automatiche</string>
     <string name="debug_bugreporter_summary">Segnala automaticamente i problemi, ad esempio i dettagli sui crash dell\'app in modo da poter capire perché e correggerlo nei prossimi aggiornamenti.</string>
+    <!-- Debug card (dashboard) -->
     <string name="settings_category_tools_label">Strumenti</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="settings_category_risklevel">Livello di rischio</string>
@@ -244,7 +245,6 @@
     <string name="systemcleaner_filter_screenshots_age_label">Età Screenshot</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Età minima da considerare per l\'eliminazione degli screenshot.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK superflui</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">File installabili più vecchi o uguali a versioni di app già installate.</string>
     <string name="systemcleaner_filter_lostdir_label">Cartelle LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">File temporanei che vengono creati durante il trasferimento di dati tra dispositivi Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">File di Linux</string>
@@ -721,12 +721,6 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="area_type_public_obb_label">Risorse app pubbliche</string>
     <string name="area_type_private_data_label">Dati app privata</string>
     <string name="area_type_portable_label">Archiviazione portatile</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">Modalità debug abilitata</string>
-    <string name="debug_card_trace_mode_label">Abilita modalità traccia</string>
-    <string name="debug_card_dryrun_mode_label">Modalità dry-run (disabilita eliminazione)</string>
-    <string name="debug_card_areas_reload_action">Ricarica aree dati</string>
-    <string name="debug_card_pkgs_reload_action">Ricarica app</string>
-    <string name="debug_card_root_test_action">Test root</string>
-    <string name="debug_card_shizuku_test_action">Test Shizuku</string>
+    <!-- Shorter versions for side-by-side display -->
+    <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

@@ -553,7 +553,6 @@
     <string name="squeezer_quality_label">Kvaliteet</string>
     <string name="squeezer_quality_title">Kokkupakkimise kvaliteet</string>
     <string name="squeezer_quality_description">Madal kvaliteet tähendab väiksemat faili mahtu, ent kehvemat pildikvaliteeti.</string>
-    <string name="squeezer_quality_value_format">%d%%</string>
     <string name="squeezer_quality_example_format">Näiteks: %1$s pilt → säästab ~%2$s %3$d%% kvaliteedi puhul</string>
     <string name="squeezer_quality_warning_low">Kehvem kvaliteet võib põhjustada nähtavaid segajaid.</string>
     <string name="squeezer_quality_warning_high">Väga kõrge kvaliteet ei paku eriti mälu säästmist.</string>
@@ -589,9 +588,7 @@
     <string name="squeezer_onboarding_original_label">Algne</string>
     <string name="squeezer_onboarding_compressed_label">Pärast kokkupakkimist</string>
     <string name="squeezer_onboarding_quality_label">Kvaliteet: %d%%</string>
-    <string name="squeezer_onboarding_tap_to_zoom_hint">Suurendamiseks puuduta pilte</string>
     <string name="squeezer_onboarding_got_it">Taipasin</string>
-    <string name="squeezer_preview_info_action">Kuva näidis</string>
     <string name="squeezer_no_example_found">Valitud asukohtadest ei leitud ühtki pilti.</string>
     <string name="squeezer_result_empty_message">Ühtki kokkupakitud pilti ei leitud.</string>
     <string name="squeezer_setup_warning">Kokkupakkimine vähendab igaveseks pildi kvaliteeti, et hoida kokku mälu arvelt. Seda ei saa ennistada. Enne alustamist kontrollige seadeid hoolikalt.</string>
@@ -602,7 +599,6 @@
     <string name="squeezer_setup_age_title">Noorim vanus</string>
     <string name="squeezer_setup_age_none">Piiranguta (kaasa kõik failid)</string>
     <string name="squeezer_setup_start_action">Alusta skanni</string>
-    <string name="squeezer_quality_value">%d%%</string>
     <string name="squeezer_quality_hint_very_low">40% väiksem kvaliteet võib luua kasutuid pilte.</string>
     <string name="squeezer_quality_hint_low">Madalam kvaliteet tekitab ruumi juurde, ent võib põhjustada nähtavaid häireid.</string>
     <string name="squeezer_quality_hint_high">Väga kõrge kvaliteet säästab mälu võimalikult vähe.</string>
@@ -957,10 +953,8 @@
     <string name="swiper_label">Pühkija</string>
     <string name="swiper_tool_name">Pühkija</string>
     <string name="swiper_tool_description">Pühi faile, et neid säilitada või kustutada.</string>
-    <string name="swiper_dashcard_description">SD Maid saab enamusega ise hakkama. Ent vahest pead ise pühkima.</string>
     <string name="swiper_start_action">Alusta pühkimist</string>
     <string name="swiper_continue_action">Jätka seanssi</string>
-    <string name="swiper_sessions_description">Osad failid vajavad inimest. Nende saatuse määrab pühkimine ehk kõik kulgeb sinu taktikepi järgi. Võid puhata silma igal ajal ja hiljem jätkata.</string>
     <string name="swiper_select_folders_action">Vali kaustad</string>
     <string name="swiper_scanning_title">Skanneerimine…</string>
     <plurals name="swiper_result_x_items_found">
