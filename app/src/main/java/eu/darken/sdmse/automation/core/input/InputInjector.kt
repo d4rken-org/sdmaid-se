@@ -2,7 +2,7 @@ package eu.darken.sdmse.automation.core.input
 
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.canUseAdbNow
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.root.RootManager
@@ -47,9 +47,9 @@ class InputInjector @Inject constructor(
     }
 
     suspend fun inject(event: Event) {
-        log(TAG) { "inject($event): ${event.command}" }
+        log(TAG, INFO) { "inject($event): ${event.command}" }
         val result = shellOps.execute(ShellOpsCmd(listOf(event.command)), getShellMode())
-        log(TAG) { "inject($event) result: $result" }
+        log(TAG, if (result.isSuccess) DEBUG else WARN) { "inject($event) result: $result" }
         if (event.delayAfter > 0) delay(event.delayAfter)
     }
 
