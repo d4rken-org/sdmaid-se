@@ -126,30 +126,30 @@ class AOSPSpecs @Inject constructor(
         return null
     }
 
-    private suspend fun tryKeyboardNavigation(): Boolean {
-        log(tag, INFO) { "Trying keyboard navigation (API 36+ fallback)" }
-        // Navigate right 3 times to reach Clear cache button, then click
-        // Layout: [App icon] [Clear data] [Clear cache]
-        log(tag, INFO) { "Sending DPAD_RIGHT x3 + DPAD_CENTER" }
-        inputInjector.inject(
-            InputInjector.Event.DpadRight,
-            InputInjector.Event.DpadRight,
-            InputInjector.Event.DpadRight,
-            InputInjector.Event.DpadCenter,
-        )
+    // https://github.com/d4rken-org/sdmaid-se/issues/2056
+    @SuppressLint("InlinedApi")
+    private suspend fun StepContext.tryClickViaFocusNavigation(
+        labels: Collection<String>,
+        canInjectInput: Boolean,
+    ): Boolean {
+        log(tag, INFO) { "Trying DPAD navigation (anchor-based, inputInjection=$canInjectInput)" }
 
-        return true
-    }
-
-    private suspend fun StepContext.tryAccessibilityDpadNavigation(labels: Collection<String>): Boolean {
-        log(tag, INFO) { "Trying accessibility DPAD navigation (anchor-based)" }
-
-        if (!hasApiLevel(33)) {
+        if (!canInjectInput && !hasApiLevel(33)) {
             log(tag, WARN) { "DPAD global actions require API 33+" }
             return false
         }
 
-        val service = host.service
+        val dpadRight: suspend () -> Boolean = if (canInjectInput) {
+            { inputInjector.inject(InputInjector.Event.DpadRight); true }
+        } else {
+            { host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        }
+        val dpadCenter: suspend () -> Boolean = if (canInjectInput) {
+            { inputInjector.inject(InputInjector.Event.DpadCenter); true }
+        } else {
+            { host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        }
+
         val maxAttempts = 10
         val anchorId = "com.android.settings:id/entity_header_content"
         var anchorHits = 0
@@ -200,17 +200,16 @@ class AOSPSpecs @Inject constructor(
         }
 
         repeat(maxAttempts) { idx ->
-            @SuppressLint("InlinedApi")
-            val moved = service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT)
+            val moved = dpadRight()
             if (!moved) {
-                log(tag, WARN) { "GLOBAL_ACTION_DPAD_RIGHT #${idx + 1} failed" }
+                log(tag, WARN) { "DPAD_RIGHT #${idx + 1} failed" }
                 return false
             }
             delay(80)
 
             val rootPkg = host.windowRoot()?.packageName
             val activeWindowPkg = runCatching {
-                service.windows.firstOrNull { it.isActive }?.root?.packageName
+                host.service.windows.firstOrNull { it.isActive }?.root?.packageName
             }.getOrNull()
             val focus = findFocusedNode()
             val focused = focus.inputFocused ?: focus.accessibilityFocused
@@ -226,8 +225,7 @@ class AOSPSpecs @Inject constructor(
                 }
                 if (matchesLabel) {
                     log(tag, INFO) { "Found Clear cache via focus: $focused" }
-                    @SuppressLint("InlinedApi")
-                    val clicked = service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER)
+                    val clicked = dpadCenter()
                     delay(120)
                     return clicked
                 }
@@ -238,12 +236,7 @@ class AOSPSpecs @Inject constructor(
                     // 1st hit: header area, 2nd hit: Clear cache button (child of entity_header_content)
                     if (anchorHits >= 2) {
                         log(tag, INFO) { "Pressing DPAD_CENTER on presumed Clear cache (anchor hit #$anchorHits)" }
-                        val clicked = if (Bugs.isDryRun) {
-                            true
-                        } else {
-                            @SuppressLint("InlinedApi")
-                            service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER)
-                        }
+                        val clicked = if (Bugs.isDryRun) true else dpadCenter()
                         delay(120)
                         return clicked
                     }
@@ -251,25 +244,19 @@ class AOSPSpecs @Inject constructor(
             }
         }
 
-        if (anchorHits < 2 && anchorNode != null && bootstrapInputFocusResult) {
+        if (anchorNode != null && bootstrapInputFocusResult) {
             log(tag, WARN) {
                 "Insufficient anchor progress (anchorHits=$anchorHits); using guarded blind anchor sequence (RIGHT x2 + CENTER)"
             }
 
             repeat(2) { idx ->
-                @SuppressLint("InlinedApi")
-                val moved = service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT)
+                val moved = dpadRight()
                 log(tag, INFO) { "Blind DPAD_RIGHT #${idx + 1} result=$moved" }
                 if (!moved) return false
                 delay(80)
             }
 
-            val clicked = if (Bugs.isDryRun) {
-                true
-            } else {
-                @SuppressLint("InlinedApi")
-                service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER)
-            }
+            val clicked = if (Bugs.isDryRun) true else dpadCenter()
             log(tag, INFO) { "Blind DPAD_CENTER result=$clicked" }
             delay(120)
             return clicked
@@ -328,11 +315,7 @@ class AOSPSpecs @Inject constructor(
                     "isGoogle=$isGoogle, isBetaBuild=$isBetaBuild, useA16DpadWorkaround=$useA16DpadWorkaround (MANUFACTURER=${BuildWrap.MANUFACTOR}, PRODUCT=${BuildWrap.PRODUCT})"
                 }
                 if (useA16DpadWorkaround) {
-                    if (tryAccessibilityDpadNavigation(clearCacheButtonLabels)) return@action true
-                }
-
-                if (hasApiLevel(36) && canInjectInput) {
-                    return@action tryKeyboardNavigation()
+                    if (tryClickViaFocusNavigation(clearCacheButtonLabels, canInjectInput)) return@action true
                 }
 
                 false

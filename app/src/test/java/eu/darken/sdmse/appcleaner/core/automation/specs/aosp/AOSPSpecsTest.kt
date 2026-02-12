@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.hasApiLevel
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
@@ -157,7 +158,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     }
 
     @Test
-    fun `clear cache falls back to accessibility DPAD navigation on Android 16`() = runTest {
+    fun `clear cache falls back to DPAD navigation on Android 16`() = runTest {
         mockkStatic(::hasApiLevel)
         every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
         mockkObject(BuildWrap)
@@ -183,6 +184,59 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         // 10 in main DPAD loop + 2 in blind fallback = 12
         verify(exactly = 12) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
         verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `clear cache uses InputInjector DPAD path when injection is available`() = runTest {
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "Google"
+        every { BuildWrap.PRODUCT } returns "lynx_beta"
+
+        coEvery { inputInjector.canInject() } returns true
+        coEvery { inputInjector.inject(any<InputInjector.Event>()) } returns Unit
+
+        // Anchor exists, but no observable focused nodes -> blind fallback path.
+        testRoot = buildTestTree(
+            """
+            ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(84, 328 - 996, 675)
+            """.trimIndent()
+        )
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        coVerify(exactly = 12) { inputInjector.inject(InputInjector.Event.DpadRight) }
+        coVerify(exactly = 1) { inputInjector.inject(InputInjector.Event.DpadCenter) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(any()) }
+    }
+
+    @Test
+    fun `clear cache does not run blind center sequence when anchor is missing`() = runTest {
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "Google"
+        every { BuildWrap.PRODUCT } returns "lynx_beta"
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } returns true
+
+        // No entity_header_content anchor in tree, so guarded blind fallback must not execute.
+        testRoot = buildTestTree(
+            """
+            ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=com.android.settings:id/content_parent pkg=com.android.settings, identity=content, bounds=Rect(0, 159 - 1080, 2300)
+            """.trimIndent()
+        )
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe false
+        verify(exactly = 10) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 
     // ============================================================
