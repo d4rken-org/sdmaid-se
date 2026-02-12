@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Reikia SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Atnaujinti SD Maid SE</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro siūlo geresnius rezultatus, daugiau funkcijų ir parinkčių pažengusiems naudotojams.</string>
     <string name="upgrades_dashcard_upgrade_action">Atnaujinti</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play nepasiekiamas</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid negali prisijungti prie Google Play. Ar Google Play įdiegtas ir atnaujintas? Ar jūsų Google paskyra prisijungusi? Pabandykite išvalyti Google Play programos talpyklą ir paleisti įrenginį iš naujo.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play problema</string>
+    <string name="upgrades_gplay_billing_error_description">Kilo problema su Google Play. Bandykite dar kartą vėliau arba paleiskite įrenginį iš naujo.\n\nIšsamiau: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play klaida</string>
+    <string name="upgrades_gplay_internal_error_description">Įvyko vidinė Google Play klaida. Pabandykite šiuos veiksmus:\n\n• Paleiskite įrenginį iš naujo\n• Išvalykite Google Play parduotuvės talpyklą\n• Bandykite dar kartą vėliau</string>
+    <string name="upgrades_gplay_network_error_title">Ryšio klaida</string>
+    <string name="upgrades_gplay_network_error_description">Nepavyksta prisijungti prie Google Play. Patikrinkite interneto ryšį ir bandykite dar kartą.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Jau įsigyta</string>
+    <string name="upgrades_gplay_already_owned_error_description">Naudokite parinktį \"Atkurti pirkimą\", kad atkurtumėte savo pirkimą. Jei problema išlieka, pabandykite išvalyti Google Play talpyklą ir paleisti įrenginį iš naujo.</string>
     <string name="upgrades_no_purchases_found_check_account">Pirkimų nerasta. Ar naudojate tinkamą paskyrą?</string>
     <string name="upgrade_screen_title">Gaukite SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid neturi reklamų ir neparduoda naudotojų duomenų. Mano darbas finansuojamas jūsų ❤️.</string>

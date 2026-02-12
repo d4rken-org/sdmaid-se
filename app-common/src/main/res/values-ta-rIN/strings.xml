@@ -4,6 +4,7 @@
     <string name="slogan_message_1">சுத்தமான மற்றும் ஒழுங்கான.</string>
     <string name="slogan_message_2">குழப்பத்தைத் தடுக்கிறது.</string>
     <string name="slogan_message_3">தேவையானதைச் செய்கிறது.</string>
+    <string name="slogan_message_4">எல்லாம் ஒழுங்காக உள்ளது.</string>
     <string name="slogan_message_5">கறையற்ற.</string>
     <string name="slogan_message_6">பைட்கள், போங்கள்!</string>
     <string name="slogan_message_7">இலவச இடம், மகிழ்ச்சியான இடம்.</string>
@@ -17,11 +18,13 @@
     <string name="general_todo_msg">இந்த அம்சம் இன்னும் பணிக்கப்பட்டு வருகிறது மற்றும் தற்போது கிடைக்கவில்லை.</string>
     <string name="general_share_action">பகிர்</string>
     <string name="general_done_action">முடிந்தது</string>
+    <string name="general_apply_action">செயல்படுத்து</string>
     <string name="general_copy_action">நகலெடு</string>
     <string name="general_wipe_action">துடை</string>
     <string name="general_cancel_action">ரத்து செய்</string>
     <string name="general_discard_action">நிராகரி</string>
     <string name="general_reset_action">மீட்டமை</string>
+    <string name="general_drag_handle_description">மறுவரிசைப்படுத்த இழுக்கவும்</string>
     <string name="general_save_action">சேமி</string>
     <string name="general_thanks_action">நன்றி</string>
     <string name="general_gotit_action">புரிந்தது</string>
@@ -30,6 +33,7 @@
     <string name="general_edit_action">திருத்து</string>
     <string name="general_na_label">பொ/இ</string>
     <string name="general_empty_label">காலி</string>
+    <string name="general_new_badge_label">புதிய</string>
     <string name="general_dismiss_action">நிராகரி</string>
     <string name="general_maybe_later_action">ஒருவேளை பின்னர்</string>
     <string name="general_manage_action">நிர்வகி</string>
@@ -90,6 +94,10 @@
     <string name="general_toggle_layout_mode">பார்வை முறையை மாற்று</string>
     <string name="general_delete_confirmation_title">நீக்குதலை உறுதிப்படுத்து</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ஐ நீக்கவா?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">தேர்ந்தெடுத்த %d பொருளை நீக்கவா?</item>
+        <item quantity="other">தேர்ந்தெடுத்த %d பொருட்களை நீக்கவா?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d பொருள் நீக்கப்பட்டது.</item>
         <item quantity="other">%d பொருட்கள் நீக்கப்பட்டன.</item>
@@ -162,4 +170,6 @@
     <string name="general_error_report_bug_action">பிழையைப் புகாரளி</string>
     <string name="general_error_ipc_deadobject_title">சேவை இணைப்பு இழந்தது</string>
     <string name="general_error_ipc_deadobject_description">முக்கியமான சேவைக்கான இணைப்பு (உதா. Magisk, Shizuku, அல்லது பிற கணினி-நிலை சேவைகள்) எதிர்பாராதவிதமாக இழக்கப்பட்டது. உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும். சிக்கல் தொடர்ந்தால், புதுப்பிப்புகளைச் சரிபார்க்கவும் அல்லது அதை சரிசெய்வதற்காக என்னைத் தொடர்பு கொள்ளவும்.</string>
+    <string name="general_user_label_owner">உரிமையாளர்</string>
+    <string name="general_user_label_system">கணினி</string>
 </resources>

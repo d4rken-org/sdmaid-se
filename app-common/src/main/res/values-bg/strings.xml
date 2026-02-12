@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">На ваше разположение.</string>
     <string name="slogan_message_1">Чисто и подредено.</string>
     <string name="slogan_message_2">Предотвратява хаоса.</string>
     <string name="slogan_message_3">Прави необходимото.</string>
+    <string name="slogan_message_4">Всичко е на място.</string>
     <string name="slogan_message_5">Безупречно.</string>
     <string name="slogan_message_6">Байтове, изчезнете!</string>
     <string name="slogan_message_7">Свободно място, щастливо място.</string>
@@ -17,11 +19,13 @@
     <string name="general_todo_msg">Тази функция все още се разработва и в момента не е достъпна.</string>
     <string name="general_share_action">Споделяне</string>
     <string name="general_done_action">Готово</string>
+    <string name="general_apply_action">Приложи</string>
     <string name="general_copy_action">Копиране</string>
     <string name="general_wipe_action">Изтриване</string>
     <string name="general_cancel_action">Отказ</string>
     <string name="general_discard_action">Отхвърляне</string>
     <string name="general_reset_action">Нулиране</string>
+    <string name="general_drag_handle_description">Плъзнете за пренареждане</string>
     <string name="general_save_action">Запазване</string>
     <string name="general_thanks_action">Благодаря</string>
     <string name="general_gotit_action">Разбрах</string>
@@ -30,6 +34,7 @@
     <string name="general_edit_action">Редактиране</string>
     <string name="general_na_label">Н/П</string>
     <string name="general_empty_label">Празно</string>
+    <string name="general_new_badge_label">Ново</string>
     <string name="general_dismiss_action">Отхвърляне</string>
     <string name="general_maybe_later_action">Може би по-късно</string>
     <string name="general_manage_action">Управление</string>
@@ -90,6 +95,10 @@
     <string name="general_toggle_layout_mode">Превключване на режима на изглед</string>
     <string name="general_delete_confirmation_title">Потвърждаване на изтриването</string>
     <string name="general_delete_confirmation_message_x">Изтриване на \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Изтриване на %d избран елемент?</item>
+        <item quantity="other">Изтриване на %d избрани елемента?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Изтрит %d елемент.</item>
         <item quantity="other">Изтрити %d елемента.</item>
@@ -162,4 +171,6 @@
     <string name="general_error_report_bug_action">Докладване на грешка</string>
     <string name="general_error_ipc_deadobject_title">Връзката с услугата е загубена</string>
     <string name="general_error_ipc_deadobject_description">Връзката с критична услуга (напр. Magisk, Shizuku или други услуги на системно ниво) беше неочаквано загубена. Моля, рестартирайте устройството си. Ако проблемът продължи, проверете за актуализации или се свържете с мен, за да го поправя.</string>
+    <string name="general_user_label_owner">Собственик</string>
+    <string name="general_user_label_system">Система</string>
 </resources>

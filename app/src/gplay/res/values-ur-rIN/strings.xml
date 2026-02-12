@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro کی ضرورت ہے</string>
+    <string name="upgrades_dashcard_title">SD Maid SE کو اپ گریڈ کریں</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro بہتر نتائج، زیادہ خصوصیات اور طاقتور صارفین کے لیے اختیارات پیش کرتا ہے۔</string>
     <string name="upgrades_dashcard_upgrade_action">اپ گریڈ</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play دستیاب نہیں ہے</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play سے رابطہ نہیں کر سکتا۔ کیا Google Play انسٹال اور اپ ڈیٹ ہے؟ کیا آپ کا Google اکاؤنٹ لاگ ان ہے؟ Google Play ایپ کی کیش صاف کرنے اور اپنا ڈیوائس ری بوٹ کرنے کی کوشش کریں۔</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play کا مسئلہ</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play میں ایک مسئلہ تھا۔ براہ کرم بعد میں دوبارہ کوشش کریں یا اپنا آلہ دوبارہ شروع کریں۔\n\nتفصیلات: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play کی خرابی</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play کی اندرونی خرابی واقع ہوئی۔ براہ کرم درج ذیل آزمائیں:\n\n• اپنا آلہ دوبارہ شروع کریں\n• Google Play Store کیش صاف کریں\n• بعد میں دوبارہ کوشش کریں</string>
+    <string name="upgrades_gplay_network_error_title">کنکشن کی خرابی</string>
+    <string name="upgrades_gplay_network_error_description">Google Play سے منسلک ہونے سے قاصر۔ براہ کرم اپنا انٹرنیٹ کنکشن چیک کریں اور دوبارہ کوشش کریں۔</string>
+    <string name="upgrades_gplay_already_owned_error_title">پہلے سے خریدا ہوا</string>
+    <string name="upgrades_gplay_already_owned_error_description">اپنی خریداری بحال کرنے کے لیے \"خریداری بحال کریں\" کا اختیار استعمال کریں۔ اگر مسئلہ برقرار رہے تو Google Play کیش صاف کرنے اور اپنا آلہ دوبارہ شروع کرنے کی کوشش کریں۔</string>
     <string name="upgrades_no_purchases_found_check_account">کوئی خریداری نہیں ملی۔ کیا آپ صحیح اکاؤنٹ استعمال کر رہے ہیں؟</string>
     <string name="upgrade_screen_title">SD Maid SE Pro حاصل کریں</string>
     <string name="upgrade_screen_preamble">SD Maid میں کوئی اشتہارات نہیں ہیں اور صارف کا ڈیٹا نہیں بیچتا۔ میرا کام آپ کی طرف سے مالی اعانت فراہم کیا جاتا ہے ❤️۔</string>

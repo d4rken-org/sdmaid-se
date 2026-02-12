@@ -31,4 +31,10 @@
     <string name="upgrade_screen_restore_multiaccount_hint">Gall cyfrifon lluosog ddrysu Google Play. Allgofnodwch o gyfrifon eraill neu gosodwch drwy wefan Google Play, sy\'n gorfodi cysylltiadau â chyfrif penodol.</string>
     <string name="upgrades_gplay_billing_error_label">Problem Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Roedd problem gyda Google Play. Ceisiwch eto\'n ddiweddarach neu ailgychwynnwch eich dyfais.\n\nManylion: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Gwall Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Digwyddodd gwall mewnol Google Play. Ceisiwch y canlynol:\n\n• Ailgychwynnwch eich dyfais\n• Cliriwch storfa Google Play Store\n• Ceisiwch eto\'n ddiweddarach</string>
+    <string name="upgrades_gplay_network_error_title">Gwall cysylltiad</string>
+    <string name="upgrades_gplay_network_error_description">Methu cysylltu â Google Play. Gwiriwch eich cysylltiad rhyngrwyd a cheisiwch eto.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Eisoes wedi\'i brynu</string>
+    <string name="upgrades_gplay_already_owned_error_description">Defnyddiwch yr opsiwn \"Adfer pryniant\" i adfer eich pryniant. Os yw\'r broblem yn parhau, ceisiwch glirio storfa Google Play ac ailgychwyn eich dyfais.</string>
 </resources>

@@ -22,11 +22,13 @@
     <string name="general_todo_msg">Ĉi tiu funkcio ankoraŭ estas prilaborata kaj nuntempe ne disponebla.</string>
     <string name="general_share_action">Dividi</string>
     <string name="general_done_action">Preta</string>
+    <string name="general_apply_action">Apliki</string>
     <string name="general_copy_action">Kopii</string>
     <string name="general_wipe_action">Viŝi</string>
     <string name="general_cancel_action">Nuligi</string>
     <string name="general_discard_action">Forĵeti</string>
     <string name="general_reset_action">Rekomenci</string>
+    <string name="general_drag_handle_description">Trenu por reordigi</string>
     <string name="general_save_action">Konservi</string>
     <string name="general_thanks_action">Dankoj</string>
     <string name="general_gotit_action">Komprenis</string>
@@ -35,6 +37,7 @@
     <string name="general_edit_action">Redakti</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Malplena</string>
+    <string name="general_new_badge_label">Nova</string>
     <string name="general_dismiss_action">Forigi</string>
     <string name="general_maybe_later_action">Eble poste</string>
     <string name="general_manage_action">Administri</string>
@@ -182,4 +185,6 @@
     <string name="general_error_report_bug_action">Raporti program-eraron</string>
     <string name="general_error_ipc_deadobject_title">Serv-konekto perdiĝis</string>
     <string name="general_error_ipc_deadobject_description">Konekto kun kritika servo (ekz. Magisk, Shizuku, aŭ aliaj sistem-nivelaj servoj) neatendite perdiĝis. Bonvolu restartigii vian aparaton. Se la problemo daŭras, kontrolu ĝisdatigojn aŭ kontaktu min por solvi ĝin.</string>
+    <string name="general_user_label_owner">Posedanto</string>
+    <string name="general_user_label_system">Sistemo</string>
 </resources>

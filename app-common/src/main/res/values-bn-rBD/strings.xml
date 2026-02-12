@@ -19,11 +19,13 @@
     <string name="general_todo_msg">এই বৈশিষ্ট্যটি নিয়ে এখনও কাজ করা হচ্ছে এবং বর্তমানে উপলব্ধ নয়৷</string>
     <string name="general_share_action">ভাগাভাগি করুন</string>
     <string name="general_done_action">সম্পন্ন</string>
+    <string name="general_apply_action">প্রয়োগ করুন</string>
     <string name="general_copy_action">কপি বা অনুলিপি করুন</string>
     <string name="general_wipe_action">মুছা</string>
     <string name="general_cancel_action">বাতিল করুন</string>
     <string name="general_discard_action">বাতিল করুন</string>
     <string name="general_reset_action">রিসেট করুন</string>
+    <string name="general_drag_handle_description">পুনর্বিন্যাস করতে টানুন</string>
     <string name="general_save_action">সংরক্ষণ করুন</string>
     <string name="general_thanks_action">ধন্যবাদ</string>
     <string name="general_gotit_action">বুঝেছি</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">সম্পাদনা করুন</string>
     <string name="general_na_label">অপ্রযোজ্য</string>
     <string name="general_empty_label">খালি</string>
+    <string name="general_new_badge_label">নতুন</string>
     <string name="general_dismiss_action">খারিজ করুন</string>
     <string name="general_maybe_later_action">হয়তো পরে</string>
     <string name="general_manage_action">পরিচালনা করুন</string>

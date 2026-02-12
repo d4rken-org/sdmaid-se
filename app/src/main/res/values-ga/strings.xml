@@ -808,4 +808,331 @@
         <item quantity="many">%d gcosán roghnaithe</item>
         <item quantity="other">%d cosán roghnaithe</item>
     </plurals>
+
+    <string name="dashboard_card_config_title">Cártaí painéil</string>
+    <string name="dashboard_card_config_desc">Cumraigh cé na cártaí a thaispeántar agus a n-ord</string>
+    <string name="dashboard_card_config_header_title">Tarraing chun athordú, scoránaigh chun taispeáint/folú</string>
+
+    <string name="debug_debuglog_screen_title">Loga dífhabhtaithe</string>
+    <string name="debug_debuglog_screen_discard_action">Diúscair</string>
+    <string name="debug_debuglog_screen_session_path_label">Cosán seisiúin</string>
+    <string name="debug_debuglog_screen_log_files_label">Comhaid loga</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d chomhad réidh (%2$s)</item>
+        <item quantity="two">%1$d chomhad réidh (%2$s)</item>
+        <item quantity="few">%1$d chomhad réidh (%2$s)</item>
+        <item quantity="many">%1$d gcomhad réidh (%2$s)</item>
+        <item quantity="other">%1$d comhad réidh (%2$s)</item>
+    </plurals>
+
+    <string name="support_debuglog_folder_label">Fillteán loga dífhabhtaithe</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d chomhad ag úsáid %2$s</item>
+        <item quantity="two">%1$d chomhad ag úsáid %2$s</item>
+        <item quantity="few">%1$d chomhad ag úsáid %2$s</item>
+        <item quantity="many">%1$d gcomhad ag úsáid %2$s</item>
+        <item quantity="other">%1$d comhad ag úsáid %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Níl aon logaí dífhabhtaithe stóráilte</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Scrios gach loga dífhabhtaithe?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Scriosfaidh sé seo go buan gach seisiún loga dífhabhtaithe atá stóráilte. Ní féidir an gníomh seo a chealú.</string>
+
+    <string name="settings_acknowledgements_category_translations_title">Aistriúcháin</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Cé a d\'aistrigh é seo?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Buíochas</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Buíochas speisialta dár gcairde.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Ceadúnais</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Bogearraí a úsáideann SD Maid.</string>
+
+    <string name="debug_card_title">Tá modh dífhabhtaithe cumasaithe</string>
+    <string name="debug_card_trace_mode_label">Cumasaigh modh rianaithe</string>
+    <string name="debug_card_dryrun_mode_label">Modh trialach (díchumasaigh scriosadh)</string>
+    <string name="debug_card_areas_reload_action">Athlódáil limistéir sonraí</string>
+    <string name="debug_card_pkgs_reload_action">Athlódáil aipeanna</string>
+    <string name="debug_card_root_test_action">Tástáil root</string>
+    <string name="debug_card_shizuku_test_action">Tástáil Shizuku</string>
+
+    <string name="corpsefinder_filter_artprofiles_label">Próifílí ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Úsáideann Android próifílí ART chun feidhmíocht aipeanna a bharrfheabhsú.</string>
+
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Cuir an leagan céanna san áireamh</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Díriú freisin ar chomhaid APK a mheaitseálann an leagan suiteáilte. Díchumasaigh chun leaganacha níos sine amháin a bhaint.</string>
+
+    <string name="systemcleaner_customfilter_editor_size_label">Srianta méide</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Méid íosta</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Uasmhéid</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Teorainn meaitseálacha bunaithe ar mhéid comhaid. Fág folamh chun aon mhéid a mheaitseáil.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Srianta aoise</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Aois íosta</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Uasaois</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Teorainn meaitseálacha bunaithe ar aois comhaid (am modhnaithe deiridh). Fág folamh chun aon aois a mheaitseáil.</string>
+
+    <string name="appcleaner_filter_shortcutservice_label">Deilbhíní aicearra aipe</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Deilbhíní taisce le haghaidh aicearraí aipe agus roghchláir roinnte.</string>
+
+    <string name="appcleaner_forcestop_before_clearing_label">Brústopadh roimh ghlanadh</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Brústop aipeanna sula nglantar a dtaisce. Féadfaidh sé cabhrú le taisce roinnt aipeanna a ghlanadh, ach d\'fhéadfadh sé aipeanna a mhífheidhmiú agus atosú láimhe a éileamh.</string>
+    <string name="appcleaner_progress_force_stopping">Ag brústopadh aipeanna…</string>
+
+    <string name="deduplicator_keep_prefer_paths_title">Is fearr coinneáil i</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Agus cinneadh á dhéanamh maidir le cé acu dúblach a choinneáil, is fearr comhaid a choinneáil sna háiteanna seo.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Níl aon áiteanna cumraithe</string>
+
+    <string name="deduplicator_arbiter_title">Straitéis scriosaidh</string>
+    <string name="deduplicator_arbiter_summary">Cumraigh cé na comhaid a choinnítear agus cé na cinn a scriostar.</string>
+    <string name="deduplicator_arbiter_explanation">Agus dúblaigh á scriosadh, socraíonn SD Maid cé acu comhad a choinneáil trí gach critéar a sheiceáil in ord. Cinneann an chéad chritéar a thugann buaiteoir soiléir an toradh. Tarraing chun athordú, tapáil chun modh a athrú.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Roghnaigh modh</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Cumraigh cosáin…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Cineál dúblaigh</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Is fearr meaitseálacha beachta ná comhaid chosúla.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Innéacsú meán</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Cuir san áireamh an bhfuil comhaid innéacsaithe ag an soláthraí meán.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Suíomh stórála</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Is fearr comhaid ar stóráil inmheánach nó seachtrach.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Doimhneacht fillteáin</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Is fearr comhaid i struchtúir fillteáin éadoimhne nó doimhne.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Dáta modhnaithe</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Is fearr comhaid níos sine nó níos nuaí bunaithe ar am modhnaithe.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Méid comhaid</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Is fearr comhaid níos mó nó níos lú nuair a bhíonn méideanna difriúla.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Suímh roghnaithe</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Coinnigh comhaid i do shuímh roghnaithe cumraithe.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Is fearr meaitseálacha beachta</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Is fearr comhaid chosúla</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Is fearr comhaid innéacsaithe</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Is fearr comhaid neamhinnéacsaithe</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Is fearr stóráil inmheánach</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Is fearr stóráil sheachtrach</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Is fearr fillteáin éadoimhne</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Is fearr fillteáin doimhne</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Is fearr comhaid níos sine</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Is fearr comhaid níos nuaí</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Is fearr comhaid níos mó</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Is fearr comhaid níos lú</string>
+
+    <string name="deduplicator_view_mode_groups_label">Grúpaí</string>
+    <string name="deduplicator_view_mode_directories_label">Fillteáin</string>
+
+    <string name="squeezer_onboarding_title">Faoi chomhbhrú íomhá</string>
+    <string name="squeezer_onboarding_message">Laghdaíonn comhbhrú íomhá méid an chomhaid trí mhionsonraí amhairc a bhaint. Ní féidir an próiseas seo a aisiompú - ní féidir an cháilíocht bhunaidh a athchóiriú.\n\nSeo réamhamharc ar conas a bheidh do chuid íomhánna:</string>
+    <string name="squeezer_onboarding_original_label">Bunaidh</string>
+    <string name="squeezer_onboarding_compressed_label">Tar éis comhbhrú</string>
+    <string name="squeezer_onboarding_quality_label">Cáilíocht: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Tuigim</string>
+    <string name="squeezer_compare_action">Féach ar an gcomparáid</string>
+    <string name="squeezer_no_example_found">Níor aimsíodh aon íomhánna sna cosáin roghnaithe.</string>
+    <string name="squeezer_result_empty_message">Níor aimsíodh aon íomhánna inchomhbhrúite.</string>
+    <string name="squeezer_setup_warning">Laghdaíonn comhbhrú cáilíocht íomhá go buan chun spás stórála a shábháil. Ní féidir é seo a chealú. Déan do chuid socruithe a athbhreithniú go cúramach sula dtosaíonn tú.</string>
+    <string name="squeezer_setup_explanation">Laghdaíonn Media Squeeze méid comhaid íomhá chun spás stórála a shaoradh. Laghdaíonn sé seo cáilíocht íomhá go buan agus ní féidir é a chealú. Déan do chuid socruithe a athbhreithniú go cúramach sula dtosaíonn tú.</string>
+    <string name="squeezer_setup_paths_title">Suímh chuardaigh</string>
+    <string name="squeezer_setup_paths_default">Roghnaigh fillteáin le cuardach</string>
+    <string name="squeezer_setup_quality_title">Cáilíocht comhbhrú</string>
+    <string name="squeezer_setup_age_title">Aois íosta</string>
+    <string name="squeezer_setup_age_none">Gan teorainn (gach comhad a chur san áireamh)</string>
+    <string name="squeezer_setup_start_action">Tosaigh scanadh</string>
+    <string name="squeezer_quality_hint_very_low">D\'fhéadfadh cáilíocht faoi bhun 40%% íomhánna neamhúsáideacha a chruthú.</string>
+    <string name="squeezer_quality_hint_low">Sábhálann cáilíocht níos ísle níos mó spáis ach d\'fhéadfadh sí saobhadh infheicthe a chruthú.</string>
+    <string name="squeezer_quality_hint_high">Soláthraíonn cáilíocht an-ard coigilteas íosta spáis.</string>
+    <string name="squeezer_quality_hint_normal">Cáilíocht chothrom agus coigilteas spáis.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">%d lá ar a laghad d\'aois</item>
+        <item quantity="two">%d lá ar a laghad d\'aois</item>
+        <item quantity="few">%d lá ar a laghad d\'aois</item>
+        <item quantity="many">%d lá ar a laghad d\'aois</item>
+        <item quantity="other">%d lá ar a laghad d\'aois</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Coigilteas measta ~%d%% do chomhaid JPEG</string>
+
+    <string name="shortcut_appcontrol_short">Rialú Aipe</string>
+    <string name="shortcut_appcontrol_long">Bainistigh aipeanna suiteáilte</string>
+    <string name="shortcut_onetap_short">Scan + Scrios</string>
+    <string name="shortcut_onetap_long">Scan agus scrios in aon ghníomh amháin</string>
+
+    <string name="shortcuts_settings_category">Aicearraí</string>
+    <string name="shortcuts_onetap_enabled_title">Aicearra aon-tapáil</string>
+    <string name="shortcuts_onetap_enabled_summary">Taispeáin aicearra \"Scan + Scrios\" agus deilbhín na haipe á bhrú go fada. Úsáideann sé na huirlisí céanna leis an bpainéal aon-tapáil.</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Svaidhpeáil trí chomhaid chun cinneadh a dhéanamh cad a choinnítear nó a scriostar.</string>
+    <string name="swiper_dashcard_description">Athbhreithnigh comhaid de láimh i bhfillteáin shonracha. Svaidhpeáil chun cinneadh a dhéanamh cad a choinnítear nó a scriostar.</string>
+    <string name="swiper_start_action">Tosaigh ag svaidhpeáil</string>
+    <string name="swiper_continue_action">Lean ar aghaidh leis an seisiún</string>
+    <string name="swiper_sessions_description">Teastaíonn cinneadh daonna ó roinnt comhad. Svaidhpeáil trí mhíreanna agus roghnaigh cad a choinnítear nó a scriostar. Scipeáil aon rud nach bhfuil tú cinnte faoi. Ligeann an uirlis seo duit fillteáin shonracha a athbhreithniú de láimh, agus ní bhaintear aon rud go dtí go ndearbhaíonn tú.</string>
+    <string name="swiper_select_folders_action">Roghnaigh fillteáin</string>
+    <string name="swiper_scanning_title">Ag scanadh…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d mhír aimsíodh</item>
+        <item quantity="two">%d mhír aimsíodh</item>
+        <item quantity="few">%d mhír aimsíodh</item>
+        <item quantity="many">%d mír aimsíodh</item>
+        <item quantity="other">%d mír aimsíodh</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d mhír scriosta</item>
+        <item quantity="two">%d mhír scriosta</item>
+        <item quantity="few">%d mhír scriosta</item>
+        <item quantity="many">%d mír scriosta</item>
+        <item quantity="other">%d mír scriosta</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d mhír theipthe</item>
+        <item quantity="two">%d mhír theipthe</item>
+        <item quantity="few">%d mhír theipthe</item>
+        <item quantity="many">%d mír theipthe</item>
+        <item quantity="other">%d mír theipthe</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d as %2$d</string>
+    <string name="swiper_keep_action">Coinnigh</string>
+    <string name="swiper_skip_action">Scipeáil</string>
+    <string name="swiper_review_action">Athbhreithnigh</string>
+    <string name="swiper_status_title">Athbhreithnigh cinntí</string>
+    <string name="swiper_status_action_keep_selected">Coinnigh roghnaithe</string>
+    <string name="swiper_status_action_delete_selected">Scrios roghnaithe</string>
+    <string name="swiper_status_action_reset_selected">Athshocraigh roghnaithe</string>
+    <string name="swiper_decision_undecided">Neamhchinntithe</string>
+    <string name="swiper_retry_action">Bain triail eile as</string>
+    <string name="swiper_delete_confirmation_title">Scrios comhaid?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Scriosfaidh sé seo %1$d chomhad (%2$s) go buan. Ní féidir an gníomh seo a chealú.</item>
+        <item quantity="two">Scriosfaidh sé seo %1$d chomhad (%2$s) go buan. Ní féidir an gníomh seo a chealú.</item>
+        <item quantity="few">Scriosfaidh sé seo %1$d chomhad (%2$s) go buan. Ní féidir an gníomh seo a chealú.</item>
+        <item quantity="many">Scriosfaidh sé seo %1$d gcomhad (%2$s) go buan. Ní féidir an gníomh seo a chealú.</item>
+        <item quantity="other">Scriosfaidh sé seo %1$d comhad (%2$s) go buan. Ní féidir an gníomh seo a chealú.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">Fanfaidh %d mhír neamhchinntithe le haghaidh athbhreithnithe níos déanaí.</item>
+        <item quantity="two">Fanfaidh %d mhír neamhchinntithe le haghaidh athbhreithnithe níos déanaí.</item>
+        <item quantity="few">Fanfaidh %d mhír neamhchinntithe le haghaidh athbhreithnithe níos déanaí.</item>
+        <item quantity="many">Fanfaidh %d mír neamhchinntithe le haghaidh athbhreithnithe níos déanaí.</item>
+        <item quantity="other">Fanfaidh %d mír neamhchinntithe le haghaidh athbhreithnithe níos déanaí.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Scrios %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Malartaigh treoracha svaidhpeála</string>
+    <string name="swiper_settings_swap_directions_summary">Svaidhpeáil ar chlé chun coinneáil, ar dheis chun scriosadh.</string>
+    <string name="swiper_settings_show_details_title">Taispeáin mionsonraí comhaid</string>
+    <string name="swiper_settings_show_details_summary">Taispeáin ainm comhaid, méid agus dáta ar an scáileán svaidhpeála.</string>
+    <string name="swiper_settings_haptic_feedback_title">Aiseolas haisteach</string>
+    <string name="swiper_settings_haptic_feedback_summary">Crith agus cinntí coinneála nó scriosaidh á ndéanamh.</string>
+    <string name="swiper_discard_session_confirmation_title">Diúscair an seisiún?</string>
+    <string name="swiper_discard_session_confirmation_message">Caillfear gach cinneadh. An bhfuil tú cinnte?</string>
+    <string name="swiper_no_preview_available">Níl réamhamharc ar fáil</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Lean ar aghaidh le seisiún ó %1$d lá ó shin (%2$d%% críochnaithe)</item>
+        <item quantity="two">Lean ar aghaidh le seisiún ó %1$d lá ó shin (%2$d%% críochnaithe)</item>
+        <item quantity="few">Lean ar aghaidh le seisiún ó %1$d lá ó shin (%2$d%% críochnaithe)</item>
+        <item quantity="many">Lean ar aghaidh le seisiún ó %1$d lá ó shin (%2$d%% críochnaithe)</item>
+        <item quantity="other">Lean ar aghaidh le seisiún ó %1$d lá ó shin (%2$d%% críochnaithe)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d seisiún</item>
+        <item quantity="two">%d sheisiún</item>
+        <item quantity="few">%d sheisiún</item>
+        <item quantity="many">%d seisiún</item>
+        <item quantity="other">%d seisiún</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d mhír neamhchinntithe</item>
+        <item quantity="two">%d mhír neamhchinntithe</item>
+        <item quantity="few">%d mhír neamhchinntithe</item>
+        <item quantity="many">%d mír neamhchinntithe</item>
+        <item quantity="other">%d mír neamhchinntithe</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Cruthaithe %1$s, gníomhaíocht dheireanach %2$s</string>
+    <string name="swiper_session_remove_action">Bain seisiún</string>
+    <string name="swiper_sessions_empty_hint">Tapáil + chun fillteán a roghnú agus tosú ag svaidhpeáil</string>
+    <string name="swiper_sessions_upgrade_body">Uasghrádaigh chun na teorainneacha seo a bhaint agus forbairt a thacú. Tá an leagan saor in aisce teoranta do:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d chomhad in aghaidh an tseisiúin</item>
+        <item quantity="two">%d chomhad in aghaidh an tseisiúin</item>
+        <item quantity="few">%d chomhad in aghaidh an tseisiúin</item>
+        <item quantity="many">%d gcomhad in aghaidh an tseisiúin</item>
+        <item quantity="other">%d comhad in aghaidh an tseisiúin</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d seisiún</item>
+        <item quantity="two">%d sheisiún</item>
+        <item quantity="few">%d sheisiún</item>
+        <item quantity="many">%d seisiún</item>
+        <item quantity="other">%d seisiún</item>
+    </plurals>
+    <string name="swiper_session_default_label">Seisiún #%d</string>
+    <string name="swiper_session_rename_title">Athainmnigh seisiún</string>
+    <string name="swiper_session_rename_hint">Iontráil ainm don seisiún seo</string>
+    <string name="swiper_sessions_current_sessions">Seisiúin reatha</string>
+    <string name="swiper_session_paths_label">Cosáin</string>
+    <string name="swiper_session_status_label">Stádas</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d le coinneáil</item>
+        <item quantity="two">%d le coinneáil</item>
+        <item quantity="few">%d le coinneáil</item>
+        <item quantity="many">%d le coinneáil</item>
+        <item quantity="other">%d le coinneáil</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d le scriosadh</item>
+        <item quantity="two">%d le scriosadh</item>
+        <item quantity="few">%d le scriosadh</item>
+        <item quantity="many">%d le scriosadh</item>
+        <item quantity="other">%d le scriosadh</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d neamhchinntithe</item>
+        <item quantity="two">%d neamhchinntithe</item>
+        <item quantity="few">%d neamhchinntithe</item>
+        <item quantity="many">%d neamhchinntithe</item>
+        <item quantity="other">%d neamhchinntithe</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d coinnithe cheana</item>
+        <item quantity="two">%d choinnithe cheana</item>
+        <item quantity="few">%d choinnithe cheana</item>
+        <item quantity="many">%d gcoinnithe cheana</item>
+        <item quantity="other">%d coinnithe cheana</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d scriosta cheana</item>
+        <item quantity="two">%d scriosta cheana</item>
+        <item quantity="few">%d scriosta cheana</item>
+        <item quantity="many">%d scriosta cheana</item>
+        <item quantity="other">%d scriosta cheana</item>
+    </plurals>
+    <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d coinnithe</item>
+        <item quantity="two">%d choinnithe</item>
+        <item quantity="few">%d choinnithe</item>
+        <item quantity="many">%d gcoinnithe</item>
+        <item quantity="other">%d coinnithe</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d scriosta</item>
+        <item quantity="two">%d scriosta</item>
+        <item quantity="few">%d scriosta</item>
+        <item quantity="many">%d scriosta</item>
+        <item quantity="other">%d scriosta</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Eisiaigh \"%1$s\" ó scanta Swiper?</string>
+    <string name="swiper_sessions_header_title">Réidh le slachtú?</string>
+    <string name="swiper_sessions_suggestions_label">Bain triail as tosú le:</string>
+    <string name="swiper_sessions_suggestion_downloads">Fillteán íoslódálacha</string>
+    <string name="swiper_sessions_suggestion_screenshots">Gabhálacha scáileáin</string>
+    <string name="swiper_sessions_suggestion_camera">Rolla ceamara</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Coinnigh!</string>
+    <string name="swiper_stamp_keep_2">Go deas!</string>
+    <string name="swiper_stamp_keep_3">Sea!</string>
+    <string name="swiper_stamp_keep_4">Sábháil!</string>
+    <string name="swiper_stamp_delete_1">Ná!</string>
+    <string name="swiper_stamp_delete_2">Slán!</string>
+    <string name="swiper_stamp_delete_3">Bruscar!</string>
+    <string name="swiper_stamp_delete_4">Scrios!</string>
+    <string name="swiper_stamp_skip_1">Scipeáil!</string>
+    <string name="swiper_stamp_skip_2">Hmm!</string>
+    <string name="swiper_stamp_skip_3">Ar ball!</string>
+    <string name="swiper_stamp_skip_4">B\'fhéidir!</string>
+    <string name="swiper_stamp_undo_1">Cealaigh!</string>
+    <string name="swiper_stamp_undo_2">Siar!</string>
+    <string name="swiper_stamp_undo_3">Úps!</string>
+    <string name="swiper_stamp_undo_4">Fan!</string>
 </resources>

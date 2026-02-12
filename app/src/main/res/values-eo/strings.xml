@@ -721,4 +721,271 @@
         <item quantity="one">%d vojo elektita</item>
         <item quantity="other">%d vojoj elektitaj</item>
     </plurals>
+
+    <string name="dashboard_card_config_title">Panelaj kartoj</string>
+    <string name="dashboard_card_config_desc">Agordu kiujn kartojn montri kaj ilian ordon</string>
+    <string name="dashboard_card_config_header_title">Trenu por reordigi, ŝaltu por montri/kaŝi</string>
+
+    <string name="debug_debuglog_screen_title">Sencimiga protokolo</string>
+    <string name="debug_debuglog_screen_discard_action">Forĵeti</string>
+    <string name="debug_debuglog_screen_session_path_label">Seanca vojo</string>
+    <string name="debug_debuglog_screen_log_files_label">Protokolaj dosieroj</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d dosiero preta (%2$s)</item>
+        <item quantity="other">%1$d dosieroj pretaj (%2$s)</item>
+    </plurals>
+
+    <string name="support_debuglog_folder_label">Dosierujo de sencimiga protokolo</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d dosiero uzante %2$s</item>
+        <item quantity="other">%1$d dosieroj uzante %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Neniuj sencimigaj protokoloj konservitaj</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Ĉu forigi ĉiujn sencimigajn protokolojn?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Ĉi tio porĉiame forigos ĉiujn konservitajn sencimigajn protokolajn seancojn. Ĉi tiu ago ne estas malfarebla.</string>
+
+    <string name="settings_acknowledgements_category_translations_title">Tradukoj</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Kiu tradukis ĉi tion?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Dankoj</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Specialaj dankoj al niaj amikoj.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licencoj</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Programaro uzata de SD Maid.</string>
+
+    <string name="debug_card_title">Sencimiga reĝimo estas ŝaltita</string>
+    <string name="debug_card_trace_mode_label">Ŝalti spuran reĝimon</string>
+    <string name="debug_card_dryrun_mode_label">Prova reĝimo (malŝalti forigadon)</string>
+    <string name="debug_card_areas_reload_action">Reŝargi datumajn areojn</string>
+    <string name="debug_card_pkgs_reload_action">Reŝargi aplikaĵojn</string>
+    <string name="debug_card_root_test_action">Testi root</string>
+    <string name="debug_card_shizuku_test_action">Testi Shizuku</string>
+
+    <string name="corpsefinder_filter_artprofiles_label">ART-profiloj</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART-profiloj estas uzataj de Android por optimumigi aplikaĵan efikecon.</string>
+
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Inkluzivi saman version</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Ankaŭ celi APK-dosierojn kiuj kongruas kun la instalita versio. Malŝaltu por forigi nur pli malnovajn versiojn.</string>
+
+    <string name="systemcleaner_customfilter_editor_size_label">Grandecaj limigoj</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimuma grandeco</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maksimuma grandeco</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Limigu kongruojn laŭ dosiera grandeco. Lasu malplena por kongrui kun ajna grandeco.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Aĝaj limigoj</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimuma aĝo</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maksimuma aĝo</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Limigu kongruojn laŭ dosiera aĝo (lasta modifa tempo). Lasu malplena por kongrui kun ajna aĝo.</string>
+
+    <string name="appcleaner_filter_shortcutservice_label">Aplikaĵaj mallongigaj ikonoj</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Kaŝmemoraj ikonoj por aplikaĵaj mallongigoj kaj kunhavigaj menuoj.</string>
+
+    <string name="appcleaner_forcestop_before_clearing_label">Devige halti antaŭ purigado</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Devige haltu aplikaĵojn antaŭ purigi ilian kaŝmemoron. Ĝi povas helpi purigi la kaŝmemoron de kelkaj aplikaĵoj, sed povas kaŭzi misfunkciojn kaj postuli manan restarton.</string>
+    <string name="appcleaner_progress_force_stopping">Devige haltante aplikaĵojn…</string>
+
+    <string name="deduplicator_keep_prefer_paths_title">Preferi konservi en</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Kiam oni decidas kiun duplikaton konservi, preferi konservi dosierojn en ĉi tiuj lokoj.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Neniuj lokoj agorditaj</string>
+
+    <string name="deduplicator_arbiter_title">Forigada strategio</string>
+    <string name="deduplicator_arbiter_summary">Agordu kiuj dosieroj estas konservitaj kaj kiuj forigitaj.</string>
+    <string name="deduplicator_arbiter_explanation">Kiam oni forigas duplikatojn, SD Maid decidas kiun dosieron konservi kontrolante ĉiun kriterion laŭorde. La unua kriterio kiu produktas klaran gajnanton determinas la rezulton. Trenu por reordigi, tuŝu por ŝanĝi reĝimon.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Elekti reĝimon</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Agordi vojojn…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Duplikata tipo</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Preferi ekzaktajn kongruojn ol similajn dosierojn.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Amaskomunikila indeksado</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Konsideri ĉu dosieroj estas indeksitaj de la amaskomunikila provizanto.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Stokada loko</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Preferi dosierojn en interna aŭ eksterna stokado.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Dosieruja profundo</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Preferi dosierojn en malpli aŭ pli profundaj dosierujaj strukturoj.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Modifdato</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Preferi pli malnovajn aŭ pli novajn dosierojn laŭ modiftempo.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Dosiera grandeco</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Preferi pli grandajn aŭ pli malgrandajn dosierojn kiam grandecoj malsamas.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Preferataj lokoj</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Konservi dosierojn en viaj agorditaj preferataj lokoj.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Preferi ekzaktajn kongruojn</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Preferi similajn dosierojn</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Preferi indeksitajn dosierojn</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Preferi ne-indeksitajn dosierojn</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Preferi internan stokadon</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Preferi eksternan stokadon</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Preferi malprofundajn dosierujojn</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Preferi pli profundajn dosierujojn</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Preferi pli malnovajn dosierojn</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Preferi pli novajn dosierojn</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Preferi pli grandajn dosierojn</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Preferi pli malgrandajn dosierojn</string>
+
+    <string name="deduplicator_view_mode_groups_label">Grupoj</string>
+    <string name="deduplicator_view_mode_directories_label">Dosierujoj</string>
+
+    <string name="squeezer_onboarding_title">Pri bilda kunpremado</string>
+    <string name="squeezer_onboarding_message">Bilda kunpremado reduktas la dosieran grandecon forigante vidajn detalojn. Ĉi tiu procezo estas nerevokebla - la originala kvalito ne restaŭreblas.\n\nJen antaŭrigardo kiel viaj bildoj aspektos:</string>
+    <string name="squeezer_onboarding_original_label">Originalo</string>
+    <string name="squeezer_onboarding_compressed_label">Post kunpremado</string>
+    <string name="squeezer_onboarding_quality_label">Kvalito: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Komprenite</string>
+    <string name="squeezer_compare_action">Vidi komparon</string>
+    <string name="squeezer_no_example_found">Neniuj bildoj trovitaj en la elektitaj vojoj.</string>
+    <string name="squeezer_result_empty_message">Neniuj kunpremeblaj bildoj trovitaj.</string>
+    <string name="squeezer_setup_warning">Kunpremado porĉiame reduktas bildan kvaliton por ŝpari stokan spacon. Ĉi tio ne estas malfarebla. Revizu viajn agordojn zorge antaŭ ol komenci.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze reduktas la grandecon de bildaj dosieroj por liberigi stokan spacon. Ĉi tio porĉiame reduktas bildan kvaliton kaj ne estas malfarebla. Revizu viajn agordojn zorge antaŭ ol komenci.</string>
+    <string name="squeezer_setup_paths_title">Serĉlokoj</string>
+    <string name="squeezer_setup_paths_default">Elektu dosierujojn por serĉi</string>
+    <string name="squeezer_setup_quality_title">Kunprema kvalito</string>
+    <string name="squeezer_setup_age_title">Minimuma aĝo</string>
+    <string name="squeezer_setup_age_none">Sen limo (inkluzivi ĉiujn dosierojn)</string>
+    <string name="squeezer_setup_start_action">Komenci skanadon</string>
+    <string name="squeezer_quality_hint_very_low">Kvalito sub 40%% povas krei neuzebajn bildojn.</string>
+    <string name="squeezer_quality_hint_low">Pli malalta kvalito ŝparas pli da spaco sed povas kaŭzi videblajn artefaktojn.</string>
+    <string name="squeezer_quality_hint_high">Tre alta kvalito provizas minimuman spacan ŝparon.</string>
+    <string name="squeezer_quality_hint_normal">Ekvilibra kvalito kaj spaca ŝparo.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Almenaŭ %d tago malnova</item>
+        <item quantity="other">Almenaŭ %d tagoj malnova</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Taksita ~%d%% ŝparo por JPEG-dosieroj</string>
+
+    <string name="shortcut_appcontrol_short">Aplikaĵa Kontrolo</string>
+    <string name="shortcut_appcontrol_long">Administri instalitajn aplikaĵojn</string>
+    <string name="shortcut_onetap_short">Skani + Forigi</string>
+    <string name="shortcut_onetap_long">Skani kaj forigi en unu ago</string>
+
+    <string name="shortcuts_settings_category">Mallongigoj</string>
+    <string name="shortcuts_onetap_enabled_title">Unutuŝa mallongigo</string>
+    <string name="shortcuts_onetap_enabled_summary">Montri mallongigon \"Skani + Forigi\" ĉe longa tuŝo de la aplikaĵa ikono. Uzas la samajn ilojn kiel la unutuŝa panelo.</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Svingu tra dosieroj por decidi kion konservi aŭ forigi.</string>
+    <string name="swiper_dashcard_description">Mane revizii dosierojn en specifaj dosierujoj. Svingu por decidi kion konservi aŭ forigi.</string>
+    <string name="swiper_start_action">Komenci svingadon</string>
+    <string name="swiper_continue_action">Daŭrigi seancon</string>
+    <string name="swiper_sessions_description">Kelkaj dosieroj bezonas homan decidon. Svingu tra eroj kaj elektu kion konservi aŭ forigi. Preterpasu tion pri kio vi ne certas. Ĉi tiu ilo ebligas mane revizii specifajn dosierujojn, kaj nenio estas forigita ĝis vi konfirmas.</string>
+    <string name="swiper_select_folders_action">Elekti dosierujojn</string>
+    <string name="swiper_scanning_title">Skanante…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d ero trovita</item>
+        <item quantity="other">%d eroj trovitaj</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d ero forigita</item>
+        <item quantity="other">%d eroj forigitaj</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d ero malsukcesa</item>
+        <item quantity="other">%d eroj malsukcesaj</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d el %2$d</string>
+    <string name="swiper_keep_action">Konservi</string>
+    <string name="swiper_skip_action">Preterpasi</string>
+    <string name="swiper_review_action">Revizii</string>
+    <string name="swiper_status_title">Revizii decidojn</string>
+    <string name="swiper_status_action_keep_selected">Konservi elektitajn</string>
+    <string name="swiper_status_action_delete_selected">Forigi elektitajn</string>
+    <string name="swiper_status_action_reset_selected">Restarigi elektitajn</string>
+    <string name="swiper_decision_undecided">Nedecidita</string>
+    <string name="swiper_retry_action">Reprovi</string>
+    <string name="swiper_delete_confirmation_title">Ĉu forigi dosierojn?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Ĉi tio porĉiame forigos %1$d dosieron (%2$s). Ĉi tiu ago ne estas malfarebla.</item>
+        <item quantity="other">Ĉi tio porĉiame forigos %1$d dosierojn (%2$s). Ĉi tiu ago ne estas malfarebla.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d nedecidita ero restos por posta revizio.</item>
+        <item quantity="other">%d nedecititaj eroj restos por posta revizio.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Forigi %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Interŝanĝi svingajn direktojn</string>
+    <string name="swiper_settings_swap_directions_summary">Svingu maldekstren por konservi, dekstren por forigi.</string>
+    <string name="swiper_settings_show_details_title">Montri dosierajn detalojn</string>
+    <string name="swiper_settings_show_details_summary">Montri dosieran nomon, grandecon kaj daton sur la svinga ekrano.</string>
+    <string name="swiper_settings_haptic_feedback_title">Tuŝa reago</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibri ĉe decidoj de konservi aŭ forigi.</string>
+    <string name="swiper_discard_session_confirmation_title">Ĉu forĵeti seancon?</string>
+    <string name="swiper_discard_session_confirmation_message">Ĉiuj decidoj perdiĝos. Ĉu vi certas?</string>
+    <string name="swiper_no_preview_available">Neniu antaŭrigardo disponebla</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Daŭrigi seancon de antaŭ %1$d tago (%2$d%% finita)</item>
+        <item quantity="other">Daŭrigi seancon de antaŭ %1$d tagoj (%2$d%% finita)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d seanco</item>
+        <item quantity="other">%d seancoj</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d nedecidita ero</item>
+        <item quantity="other">%d nedecititaj eroj</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Kreita %1$s, lasta aktiveco %2$s</string>
+    <string name="swiper_session_remove_action">Forigi seancon</string>
+    <string name="swiper_sessions_empty_hint">Tuŝu + por elekti dosierujon kaj komenci svingadon</string>
+    <string name="swiper_sessions_upgrade_body">Ĝisdatigu por forigi ĉi tiujn limojn kaj subteni disvolvadon. La senpaga versio estas limigita al:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d dosiero po seanco</item>
+        <item quantity="other">%d dosieroj po seanco</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d seanco</item>
+        <item quantity="other">%d seancoj</item>
+    </plurals>
+    <string name="swiper_session_default_label">Seanco #%d</string>
+    <string name="swiper_session_rename_title">Renomi seancon</string>
+    <string name="swiper_session_rename_hint">Enigu nomon por ĉi tiu seanco</string>
+    <string name="swiper_sessions_current_sessions">Aktualaj seancoj</string>
+    <string name="swiper_session_paths_label">Vojoj</string>
+    <string name="swiper_session_status_label">Stato</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d konservenda</item>
+        <item quantity="other">%d konservendaj</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d forigenda</item>
+        <item quantity="other">%d forigendaj</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d nedecidita</item>
+        <item quantity="other">%d nedecititaj</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d jam konservita</item>
+        <item quantity="other">%d jam konservitaj</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d jam forigita</item>
+        <item quantity="other">%d jam forigitaj</item>
+    </plurals>
+    <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d konservita</item>
+        <item quantity="other">%d konservitaj</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d forigita</item>
+        <item quantity="other">%d forigitaj</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Ĉu ekskludi \"%1$s\" de Swiper-skanadoj?</string>
+    <string name="swiper_sessions_header_title">Ĉu preta por ordigi?</string>
+    <string name="swiper_sessions_suggestions_label">Provu komenci per:</string>
+    <string name="swiper_sessions_suggestion_downloads">Elŝuta dosierujo</string>
+    <string name="swiper_sessions_suggestion_screenshots">Ekrankopioj</string>
+    <string name="swiper_sessions_suggestion_camera">Kamera rulaĵo</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Konservu!</string>
+    <string name="swiper_stamp_keep_2">Bela!</string>
+    <string name="swiper_stamp_keep_3">Jes!</string>
+    <string name="swiper_stamp_keep_4">Savu!</string>
+    <string name="swiper_stamp_delete_1">Ne!</string>
+    <string name="swiper_stamp_delete_2">Adiaŭ!</string>
+    <string name="swiper_stamp_delete_3">Rubo!</string>
+    <string name="swiper_stamp_delete_4">Forigu!</string>
+    <string name="swiper_stamp_skip_1">Preterpasu!</string>
+    <string name="swiper_stamp_skip_2">Nu!</string>
+    <string name="swiper_stamp_skip_3">Poste!</string>
+    <string name="swiper_stamp_skip_4">Eble!</string>
+    <string name="swiper_stamp_undo_1">Malfaru!</string>
+    <string name="swiper_stamp_undo_2">Reen!</string>
+    <string name="swiper_stamp_undo_3">Ho!</string>
+    <string name="swiper_stamp_undo_4">Atendu!</string>
 </resources>

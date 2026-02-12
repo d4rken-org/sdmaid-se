@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Vaatii SD Maid SE Pro:n</string>
+    <string name="upgrades_dashcard_title">Päivitä SD Maid SE</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro tarjoaa parempia tuloksia, enemmän ominaisuuksia ja vaihtoehtoja tehokäyttäjille.</string>
     <string name="upgrades_dashcard_upgrade_action">Päivitä</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play ei ole käytettävissä</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid ei voi yhdistää Google Playhin. Onko Google Play asennettu ja ajan tasalla? Onko Google-tilisi kirjautunut sisään? Kokeile tyhjentää Google Play -sovelluksen välimuisti ja käynnistä laitteesi uudelleen.</string>
     <string name="upgrades_gplay_billing_error_label">Google Play -vika</string>
     <string name="upgrades_gplay_billing_error_description">Google Playssa oli ongelma. Yritäthän myöhemmin uudelleen tai käynnistäthän laite uudelleen.\n\nYksityiskohdat: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play -virhe</string>
+    <string name="upgrades_gplay_internal_error_description">Tapahtui sisäinen Google Play -virhe. Kokeile seuraavaa:\n\n• Käynnistä laitteesi uudelleen\n• Tyhjennä Google Play Kaupan välimuisti\n• Yritä myöhemmin uudelleen</string>
+    <string name="upgrades_gplay_network_error_title">Yhteysvirhe</string>
+    <string name="upgrades_gplay_network_error_description">Google Playhin ei voida yhdistää. Tarkista internetyhteytesi ja yritä uudelleen.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Jo ostettu</string>
+    <string name="upgrades_gplay_already_owned_error_description">Käytä \"Palauta ostos\" -vaihtoehtoa palauttaaksesi ostoksesi. Jos ongelma jatkuu, kokeile tyhjentää Google Play -välimuisti ja käynnistää laitteesi uudelleen.</string>
     <string name="upgrades_no_purchases_found_check_account">Ostoja ei löytynyt. Käytätkö oikeaa tiliä?</string>
     <string name="upgrade_screen_title">Hanki SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maidissa ei ole mainoksia eikä se myy käyttäjätietoja. Työni rahoitetaan sinun toimestasi ❤️.</string>

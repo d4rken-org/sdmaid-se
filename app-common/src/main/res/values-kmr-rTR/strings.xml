@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Ev taybetî hîn li ser kar e û niha tune ye.</string>
     <string name="general_share_action">Parve bike</string>
     <string name="general_done_action">Temam</string>
+    <string name="general_apply_action">Bicîh bîne</string>
     <string name="general_copy_action">Kopî bike</string>
     <string name="general_wipe_action">Pak bike</string>
     <string name="general_cancel_action">Betal bike</string>
     <string name="general_discard_action">Derxe</string>
     <string name="general_reset_action">Ji nû ve saz bike</string>
+    <string name="general_drag_handle_description">Ji bo rêzkirinê bikişîne</string>
     <string name="general_save_action">Tomar bike</string>
     <string name="general_thanks_action">Spas</string>
     <string name="general_gotit_action">Fehm kir</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Biguherîne</string>
     <string name="general_na_label">T/T</string>
     <string name="general_empty_label">Vala</string>
+    <string name="general_new_badge_label">Nû</string>
     <string name="general_dismiss_action">Red bike</string>
     <string name="general_maybe_later_action">Belkî paşê</string>
     <string name="general_manage_action">Birêve bike</string>
@@ -52,6 +55,20 @@
     <string name="general_progress_loading">Dibe</string>
     <string name="general_progress_loading_app_data">Daneyên sepanê dibe</string>
     <string name="general_progress_loading_data_areas">Qadên daneyan dibe</string>
+    <string name="general_progress_loading_egg_0">Hîn jî ji iPhone leztir e</string>
+    <string name="general_progress_loading_egg_1">RAM zêde dadixe</string>
+    <string name="general_progress_loading_egg_2">Zû™</string>
+    <string name="general_progress_loading_egg_3">CPU di navbera qehweyê de ye</string>
+    <string name="general_progress_loading_egg_4">Li benda daneyên ji Pepe Silvia</string>
+    <string name="general_progress_loading_egg_5">Turbo encabulator dest pê dike</string>
+    <string name="general_progress_loading_egg_6">Rûnê derbas dike</string>
+    <string name="general_progress_loading_egg_7">Erê. Tu çawa yî?</string>
+    <string name="general_progress_loading_egg_8">Bîp bûp bop</string>
+    <string name="general_progress_loading_egg_9">Biryarên jiyanê buffer dike</string>
+    <string name="general_progress_loading_egg_10">Cthulhu bang dike</string>
+    <string name="general_progress_loading_egg_11">Ev baş e</string>
+    <string name="general_progress_loading_egg_12">Ji kerema xwe bisekine</string>
+    <string name="general_progress_loading_egg_13">Bi kêmanî tu ne di rêzê de yî</string>
     <string name="general_help_action">Alîkarî</string>
     <string name="general_continue">Berdewam</string>
     <string name="general_progress_queued">Li rêzê ye</string>
@@ -151,4 +168,6 @@
     <string name="general_error_report_bug_action">Çewtî rapor bike</string>
     <string name="general_error_ipc_deadobject_title">Girêdana karûbarê winda bû</string>
     <string name="general_error_ipc_deadobject_description">Girêdana bi karûbarek girîng re (mînak Magisk, Shizuku an karûbarên asta pergalê yên din) bi rengekî nenas winda bû. Ji kerema xwe amûra xwe ji nû ve bide destpêkirin. Eger pirsgirêk berdewam bike, ji bo nûkirinan binêre an jî bi min re têkilî deyne da ez bikaribim çak bikim.</string>
+    <string name="general_user_label_owner">Xwedî</string>
+    <string name="general_user_label_system">Pergal</string>
 </resources>

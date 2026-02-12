@@ -614,6 +614,370 @@ Walang gagawing aksyon nang walang nauunang approval ng user. Maaaring ma-disabl
         <item quantity="other">%d mga path na napili</item>
     </plurals>
     <string name="picker_home_action">Mga data area</string>
+    <string name="area_type_sdcard_label">Pampublikong storage</string>
+    <string name="area_type_public_media_label">Pampublikong app media</string>
+    <string name="area_type_public_data_label">Pampublikong app data</string>
+    <string name="area_type_public_obb_label">Pampublikong app resources</string>
+    <string name="area_type_private_data_label">Pribadong app data</string>
+    <string name="area_type_portable_label">Portable na storage</string>
+    <string name="dashboard_card_config_title">Mga card ng dashboard</string>
+    <string name="dashboard_card_config_desc">I-configure kung aling mga card ang ipinapakita at ang pagkakasunod-sunod nila</string>
+    <string name="dashboard_card_config_header_title">I-drag upang i-reorder, toggle upang ipakita/itago</string>
+    <string name="debug_debuglog_screen_title">Debug Log</string>
+    <string name="debug_debuglog_screen_discard_action">Itapon</string>
+    <string name="debug_debuglog_screen_session_path_label">Path ng Session</string>
+    <string name="debug_debuglog_screen_log_files_label">Mga Log File</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d file na handa (%2$s)</item>
+        <item quantity="other">%1$d mga file na handa (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_folder_label">Debug log folder</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d file na gumagamit ng %2$s</item>
+        <item quantity="other">%1$d mga file na gumagamit ng %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Walang nakaimbak na debug logs</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">I-delete lahat ng debug logs?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Permanenteng mabubura ang lahat ng nakaimbak na debug log sessions. Hindi na maaaring ibalik ang aksyon na ito.</string>
+    <string name="debug_card_title">Naka-enable ang debug mode</string>
+    <string name="debug_card_trace_mode_label">I-enable ang trace mode</string>
+    <string name="debug_card_dryrun_mode_label">Dry-run mode (i-disable ang pag-delete)</string>
+    <string name="debug_card_areas_reload_action">I-reload ang mga data area</string>
+    <string name="debug_card_pkgs_reload_action">I-reload ang mga app</string>
+    <string name="debug_card_root_test_action">I-test ang root</string>
+    <string name="debug_card_shizuku_test_action">I-test ang Shizuku</string>
+    <string name="corpsefinder_filter_artprofiles_label">Mga ART profile</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Ginagamit ng Android ang mga ART profile upang i-optimize ang performance ng app.</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Mga setup file na hindi na kailangan batay sa mga naka-install na bersyon ng app.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Isama ang parehong bersyon</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">I-target din ang mga APK file na tumutugma sa naka-install na bersyon. I-disable upang tanggalin lang ang mga mas lumang bersyon.</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Mga limitasyon sa sukat</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Pinakamaliit na sukat</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Pinakamataas na sukat</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Limitahan ang mga resulta batay sa sukat ng file. Hayaang walang setting upang tumugma sa anumang sukat.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Mga limitasyon sa edad</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Pinakamababang edad</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Pinakamataas na edad</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Limitahan ang mga resulta batay sa edad ng file (huling pagbabago). Hayaang walang setting upang tumugma sa anumang edad.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Mga icon ng app shortcut</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Mga naka-cache na icon para sa mga app shortcut at share menu.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Force-stop bago i-clear</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">I-force-stop ang mga app bago i-clear ang kanilang cache. Maaari itong makatulong sa pag-clear ng cache ng ilang app, ngunit maaaring magdulot ng maling pagkilos ng mga app at mangailangan ng manu-manong pag-restart.</string>
+    <string name="appcleaner_progress_force_stopping">Finoforce-stop ang mga app…</string>
+    <string name="deduplicator_keep_prefer_paths_title">Mas gusto na panatilihin sa</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Kapag nagpapasya kung aling duplicate ang pananatilihin, mas gusto na panatilihin ang mga file sa mga lokasyong ito.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Walang naka-configure na lokasyon</string>
+    <string name="deduplicator_detection_method_phash_summary">Hanapin ang mga katulad na file sa pamamagitan ng pagsusuri ng mga content feature at paghahambing ng perceptual hash values. ⚠️ Ang similarity-based detection ay maaaring magsama ng mga false positive na nangangailangan ng manu-manong verification.</string>
+    <string name="deduplicator_arbiter_title">Diskarte sa pag-delete</string>
+    <string name="deduplicator_arbiter_summary">I-configure kung aling mga file ang pinapanatili at alin ang dine-delete.</string>
+    <string name="deduplicator_arbiter_explanation">Kapag nagde-delete ng mga duplicate, pinipili ng SD Maid kung aling file ang pananatilihin sa pamamagitan ng pagsusuri ng bawat kriterya ayon sa pagkakasunod-sunod. Ang unang kriterya na gumawa ng malinaw na panalo ang nagde-determine ng resulta. I-drag upang i-reorder, i-tap upang baguhin ang mode.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Pumili ng mode</string>
+    <string name="deduplicator_arbiter_configure_paths_action">I-configure ang mga path…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Uri ng duplicate</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Mas gusto ang eksaktong mga tugma kaysa sa mga katulad na file.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Media indexing</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Isaalang-alang kung ang mga file ay naka-index ng media provider.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Lokasyon ng storage</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Mas gusto ang mga file sa internal o external storage.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Lalim ng folder</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Mas gusto ang mga file sa mas mababaw o mas malalim na folder structure.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Petsa ng pagbabago</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Mas gusto ang mga mas lumang o mas bagong file batay sa oras ng pagbabago.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Sukat ng file</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Mas gusto ang mas malalaking o mas maliliit na file kapag magkaiba ang sukat.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Mga piniling lokasyon</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Panatilihin ang mga file sa iyong mga naka-configure na piniling lokasyon.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Mas gusto ang eksaktong mga tugma</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Mas gusto ang mga katulad na file</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Mas gusto ang mga naka-index na file</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Mas gusto ang mga hindi naka-index na file</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Mas gusto ang internal storage</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Mas gusto ang external storage</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Mas gusto ang mababaw na folder</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Mas gusto ang mas malalim na folder</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Mas gusto ang mas lumang file</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Mas gusto ang mas bagong file</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Mas gusto ang mas malalaking file</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Mas gusto ang mas maliliit na file</string>
+    <string name="deduplicator_view_mode_groups_label">Mga grupo</string>
+    <string name="deduplicator_view_mode_directories_label">Mga folder</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="squeezer_explanation_short">I-compress ang mga larawan upang makatipid ng storage space.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d larawang nahanap</item>
+        <item quantity="other">%d mga larawang nahanap</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s ang maaaring matipid</item>
+        <item quantity="other">~%s ang maaaring matipid</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d larawang na-compress</item>
+        <item quantity="other">%d mga larawang na-compress</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d larawang napili</item>
+        <item quantity="other">%d mga larawang napili</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Mga lokasyon ng paghahanap</string>
+    <string name="squeezer_search_locations_default_summary">Mga camera folder (default)</string>
+    <string name="squeezer_min_size_title">Pinakamaliit na sukat ng file</string>
+    <string name="squeezer_min_size_description">Laktawan ang mga larawang mas maliit sa sukat na ito.</string>
+    <string name="squeezer_min_age_title">Pinakamababang edad ng file</string>
+    <string name="squeezer_min_age_description">Isama lang ang mga larawang mas matanda sa edad na ito.</string>
+    <string name="squeezer_compression_settings_label">Mga setting ng compression</string>
+    <string name="squeezer_quality_label">Kalidad</string>
+    <string name="squeezer_quality_title">Kalidad ng compression</string>
+    <string name="squeezer_quality_description">Mas mababang kalidad ay nangangahulugang mas maliit na file subalit mas mababang kalidad ng larawan.</string>
+    <string name="squeezer_quality_example_format">Halimbawa: %1$s na larawan → ~%2$s na matitipid sa %3$d%% na kalidad</string>
+    <string name="squeezer_quality_warning_low">Ang mas mababang kalidad ay maaaring magdulot ng nakikitang artifact.</string>
+    <string name="squeezer_quality_warning_high">Ang napakataas na kalidad ay nagbibigay ng kaunting matitipid na espasyo.</string>
+    <string name="squeezer_types_category_label">Mga uri ng larawan</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Isama ang mga JPEG na larawan (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Isama ang mga WebP na larawan (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Laktawan ang mga dating na-compress</string>
+    <string name="squeezer_skip_compressed_description">Laktawan ang mga larawang na-compress na ng SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Isulat ang EXIF marker</string>
+    <string name="squeezer_exif_marker_description">Magdagdag ng marker sa EXIF user comment field ng larawan upang maiwasan ang muling pag-compress kahit na-clear ang compression history.</string>
+    <string name="squeezer_estimated_savings_format">~%s na matitipid</string>
+    <string name="squeezer_no_savings_expected">Limitadong matitipid</string>
+    <string name="squeezer_current_size_format">Sukat: %s</string>
+    <string name="squeezer_compress_action">I-compress</string>
+    <string name="squeezer_compress_all_action">I-compress lahat</string>
+    <string name="squeezer_preview_dialog_title">Kumpirmahin ang compression</string>
+    <string name="squeezer_preview_total_size">Kabuuang sukat</string>
+    <string name="squeezer_preview_estimated_savings">Tinatayang matitipid</string>
+    <string name="squeezer_compress_confirmation_title">I-compress ang mga larawan?</string>
+    <string name="squeezer_compress_confirmation_message">Papalitan nito ang mga orihinal na larawan ng mga na-compress na bersyon. Hindi na maaaring ibalik ang aksyon na ito.</string>
+    <string name="squeezer_history_title">History ng compression</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d item (%2$s)</item>
+        <item quantity="other">%1$d mga item (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Walang history ng compression</string>
+    <string name="squeezer_history_clear_title">I-clear ang history ng compression</string>
+    <string name="squeezer_history_clear_message">Papayagan nitong ma-compress muli ang mga dating na-compress na larawan. Hindi maaapektuhan ang mga larawan mismo.</string>
+    <string name="squeezer_onboarding_title">Tungkol sa Image Compression</string>
+    <string name="squeezer_onboarding_message">Binabawasan ng image compression ang sukat ng file sa pamamagitan ng pag-alis ng visual detail. Ang prosesong ito ay hindi na maaaring ibalik - hindi na maibabalik ang orihinal na kalidad.\n\nNarito ang preview kung paano magiging hitsura ng iyong mga larawan:</string>
+    <string name="squeezer_onboarding_original_label">Orihinal</string>
+    <string name="squeezer_onboarding_compressed_label">Pagkatapos ng compression</string>
+    <string name="squeezer_onboarding_quality_label">Kalidad: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Naintindihan ko</string>
+    <string name="squeezer_compare_action">Tingnan ang paghahambing</string>
+    <string name="squeezer_no_example_found">Walang nahanap na larawan sa mga napiling path.</string>
+    <string name="squeezer_result_empty_message">Walang nahanap na maaaring i-compress na larawan.</string>
+    <string name="squeezer_setup_warning">Permanenteng binabawasan ng compression ang kalidad ng larawan upang makatipid ng storage space. Hindi na ito maaaring ibalik. Suriin nang mabuti ang iyong mga setting bago magsimula.</string>
+    <string name="squeezer_setup_explanation">Binabawasan ng Media Squeeze ang sukat ng file ng mga larawan upang magpalaya ng storage space. Permanente nitong binabawasan ang kalidad ng larawan at hindi na maaaring ibalik. Suriin nang mabuti ang iyong mga setting bago magsimula.</string>
+    <string name="squeezer_setup_paths_title">Mga lokasyon ng paghahanap</string>
+    <string name="squeezer_setup_paths_default">Pumili ng mga folder na hahanapin</string>
+    <string name="squeezer_setup_quality_title">Kalidad ng compression</string>
+    <string name="squeezer_setup_age_title">Pinakamababang edad</string>
+    <string name="squeezer_setup_age_none">Walang limitasyon (isama lahat ng file)</string>
+    <string name="squeezer_setup_start_action">Simulan ang Scan</string>
+    <string name="squeezer_quality_hint_very_low">Ang kalidad na mas mababa sa 40% ay maaaring lumikha ng hindi magagamit na mga larawan.</string>
+    <string name="squeezer_quality_hint_low">Mas mababang kalidad ang nagtitipid ng mas maraming espasyo ngunit maaaring magdulot ng nakikitang artifact.</string>
+    <string name="squeezer_quality_hint_high">Ang napakataas na kalidad ay nagbibigay ng kaunting matitipid na espasyo.</string>
+    <string name="squeezer_quality_hint_normal">Balanseng kalidad at pagtitipid ng espasyo.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Hindi bababa sa %d araw na edad</item>
+        <item quantity="other">Hindi bababa sa %d araw na edad</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Tinatayang ~%d%% na matitipid para sa mga JPEG file</string>
+    <string name="appcontrol_app_forcestop_description">Itigil ang app. Pigilan itong mag-start mismo hangga\'t hindi mo binubuksan o nire-reboot ang device.</string>
+    <string name="appcontrol_tag_debug">Debug</string>
+    <string name="appcontrol_archive_action">I-archive</string>
+    <string name="appcontrol_archive_selection_action">I-archive ang mga app</string>
+    <string name="appcontrol_archive_description">I-archive upang magpalaya ng espasyo habang pinapanatili ang app data para sa pagbabalik mamaya.</string>
+    <string name="appcontrol_progress_archiving_app">Ina-archive ang app…</string>
+    <string name="appcontrol_archive_confirmation_title">Kumpirmahin ang pag-archive</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">I-archive ang %d app?</item>
+        <item quantity="other">I-archive ang %d mga app?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d app na na-archive</item>
+        <item quantity="other">%d mga app na na-archive</item>
+    </plurals>
+    <string name="appcontrol_restore_action">I-restore</string>
+    <string name="appcontrol_restore_selection_action">I-restore ang mga app</string>
+    <string name="appcontrol_restore_description">I-restore ang naka-archive na app sa ganap na naka-install na estado. Napapanatili ang app data.</string>
+    <string name="appcontrol_progress_restoring_app">Ire-restore ang app…</string>
+    <string name="appcontrol_restore_confirmation_title">Kumpirmahin ang pag-restore</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">I-restore ang %d app?</item>
+        <item quantity="other">I-restore ang %d mga app?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d app na na-restore</item>
+        <item quantity="other">%d mga app na na-restore</item>
+    </plurals>
+    <string name="appcontrol_include_multiuser_label">Isama ang ibang user</string>
+    <string name="appcontrol_include_multiuser_summary">Isama ang mga app mula sa ibang user profile sa device na ito.</string>
+    <string name="appcontrol_export_description">I-save ang mga installation file ng app na ito. Hindi kasama ang app data.</string>
+    <string name="appcontrol_share_list_action">I-share ang listahan</string>
+    <string name="appcontrol_share_list_title">Aking Mga App</string>
+    <string name="appcontrol_share_list_footer">Na-share sa pamamagitan ng SD Maid SE</string>
+    <string name="appcontrol_automation_subtitle_archiving">Ina-archive…</string>
+    <string name="appcontrol_automation_progress_find_archive">Hinahanap ang \"Archive\" button (mga keyword: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Ire-restore…</string>
+    <string name="appcontrol_automation_progress_find_restore">Hinahanap ang \"Restore\" button (mga keyword: %s)</string>
+    <string name="appcontrol_item_installedat_x_label">Na-install noong: %s</string>
+    <string name="analyzer_content_create_swiper_session_action">Gumawa ng Swiper session</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Nagawa ang Swiper session na may %d item</item>
+        <item quantity="other">Nagawa ang Swiper session na may %d mga item</item>
+    </plurals>
+    <string name="exclusion_editor_path_change_action">I-tap upang palitan ang path</string>
+    <string name="anniversary_card_title">Maligayang SD Maid Anniversary ❤️</string>
+    <string name="anniversary_card_install_date">Kasama mo simula pa noong %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">%1$d taon na magkasama. Salamat sa pagtitiwala sa SD Maid na panatilihing malinis at maayos ang iyong Android. Napalaya na espasyo: %2$s</item>
+        <item quantity="other">%1$d taon na malakas. Nananatiling malinis at maayos ang iyong device gamit ang SD Maid. Napalaya na espasyo: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">I-share ang iyong SD Maid anniversary</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d taon kasama ang SD Maid — Napalaya na espasyo: %2$s. Pinapanatiling malinis at maayos ang iyong Android. #SDMaid\nSubukan: %3$s</item>
+        <item quantity="other">%1$d taon kasama ang SD Maid — Napalaya na espasyo: %2$s. Pinapanatiling malinis at maayos ang iyong Android. #SDMaid\nSubukan: %3$s</item>
+    </plurals>
+    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_long">Pamahalaan ang mga naka-install na app</string>
+    <string name="shortcut_onetap_short">Scan + Delete</string>
+    <string name="shortcut_onetap_long">Mag-scan at mag-delete sa isang aksyon</string>
+    <string name="shortcuts_settings_category">Mga Shortcut</string>
+    <string name="shortcuts_onetap_enabled_title">One-tap shortcut</string>
+    <string name="shortcuts_onetap_enabled_summary">Ipakita ang \"Scan + Delete\" shortcut kapag matagal na pinindot ang app icon. Gumagamit ng parehong mga tool tulad ng one-tap dashboard.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Mag-swipe sa mga file upang magpasya kung ano ang itatabi o ide-delete.</string>
+    <string name="swiper_dashcard_description">Manu-manong suriin ang mga file sa mga tiyak na folder. Mag-swipe upang magpasya kung ano ang itatabi o ide-delete.</string>
+    <string name="swiper_start_action">Magsimulang mag-swipe</string>
+    <string name="swiper_continue_action">Ipagpatuloy ang session</string>
+    <string name="swiper_sessions_description">Ang ilang mga file ay nangangailangan ng desisyon ng tao. Mag-swipe sa mga item at piliin kung ano ang itatabi o ide-delete. Laktawan ang anumang bagay na hindi ka sigurado. Pinapayagan ka ng tool na ito na manu-manong suriin ang mga tiyak na folder, at walang matatanggal hangga\'t hindi mo kinukumpirma.</string>
+    <string name="swiper_select_folders_action">Pumili ng mga folder</string>
+    <string name="swiper_scanning_title">Nag-i-scan…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d item na nahanap</item>
+        <item quantity="other">%d mga item na nahanap</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d item na na-delete</item>
+        <item quantity="other">%d mga item na na-delete</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d item na nabigo</item>
+        <item quantity="other">%d mga item na nabigo</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d sa %2$d</string>
+    <string name="swiper_keep_action">Itabi</string>
+    <string name="swiper_skip_action">Laktawan</string>
+    <string name="swiper_review_action">Suriin</string>
+    <string name="swiper_status_title">Suriin ang mga desisyon</string>
+    <string name="swiper_status_action_keep_selected">Itabi ang napili</string>
+    <string name="swiper_status_action_delete_selected">I-delete ang napili</string>
+    <string name="swiper_status_action_reset_selected">I-reset ang napili</string>
+    <string name="swiper_decision_undecided">Hindi pa napagpasyahan</string>
+    <string name="swiper_retry_action">Subukan muli</string>
+    <string name="swiper_delete_confirmation_title">I-delete ang mga file?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Permanenteng ide-delete nito ang %1$d file (%2$s). Hindi na maaaring ibalik ang aksyon na ito.</item>
+        <item quantity="other">Permanenteng ide-delete nito ang %1$d mga file (%2$s). Hindi na maaaring ibalik ang aksyon na ito.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d hindi pa napagpasyahang item ang mananatili para sa susunod na pagsusuri.</item>
+        <item quantity="other">%d mga hindi pa napagpasyahang item ang mananatili para sa susunod na pagsusuri.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">I-delete %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Magpalit ng direksyon ng swipe</string>
+    <string name="swiper_settings_swap_directions_summary">Mag-swipe pakaliwa upang itabi, pakanan upang i-delete.</string>
+    <string name="swiper_settings_show_details_title">Ipakita ang mga detalye ng file</string>
+    <string name="swiper_settings_show_details_summary">Ipakita ang pangalan, sukat at petsa ng file sa swipe screen.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptic feedback</string>
+    <string name="swiper_settings_haptic_feedback_summary">Mag-vibrate kapag gumagawa ng desisyon na itabi o i-delete.</string>
+    <string name="swiper_discard_session_confirmation_title">Itapon ang session?</string>
+    <string name="swiper_discard_session_confirmation_message">Mawawala ang lahat ng desisyon. Sigurado ka ba?</string>
+    <string name="swiper_no_preview_available">Walang preview na available</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Ipagpatuloy ang session mula %1$d araw na ang nakalipas (%2$d%% tapos na)</item>
+        <item quantity="other">Ipagpatuloy ang session mula %1$d araw na ang nakalipas (%2$d%% tapos na)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d mga session</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d hindi pa napagpasyahang item</item>
+        <item quantity="other">%d mga hindi pa napagpasyahang item</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Ginawa %1$s, huling aktibidad %2$s</string>
+    <string name="swiper_session_remove_action">Alisin ang session</string>
+    <string name="swiper_sessions_empty_hint">I-tap ang + upang pumili ng folder at magsimulang mag-swipe</string>
+    <string name="swiper_sessions_upgrade_body">Mag-upgrade upang alisin ang mga limitasyong ito at suportahan ang development. Ang libreng bersyon ay limitado sa:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d file bawat session</item>
+        <item quantity="other">%d mga file bawat session</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d mga session</item>
+    </plurals>
+    <string name="swiper_session_default_label">Session #%d</string>
+    <string name="swiper_session_rename_title">I-rename ang session</string>
+    <string name="swiper_session_rename_hint">Maglagay ng pangalan para sa session na ito</string>
+    <string name="swiper_sessions_current_sessions">Mga kasalukuyang session</string>
+    <string name="swiper_session_paths_label">Mga Path</string>
+    <string name="swiper_session_status_label">Status</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d itatabi</item>
+        <item quantity="other">%d itatabi</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d ide-delete</item>
+        <item quantity="other">%d ide-delete</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d hindi pa napagpasyahan</item>
+        <item quantity="other">%d hindi pa napagpasyahan</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d naitabi na</item>
+        <item quantity="other">%d naitabi na</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d na-delete na</item>
+        <item quantity="other">%d na-delete na</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d naitabi</item>
+        <item quantity="other">%d naitabi</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d na-delete</item>
+        <item quantity="other">%d na-delete</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">I-exclude ang \"%1$s\" sa mga Swiper scan?</string>
+    <string name="swiper_sessions_header_title">Handa nang mag-declutter?</string>
+    <string name="swiper_sessions_suggestions_label">Subukang magsimula sa:</string>
+    <string name="swiper_sessions_suggestion_downloads">Downloads folder</string>
+    <string name="swiper_sessions_suggestion_screenshots">Mga Screenshot</string>
+    <string name="swiper_sessions_suggestion_camera">Camera roll</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Itabi!</string>
+    <string name="swiper_stamp_keep_2">Ganda!</string>
+    <string name="swiper_stamp_keep_3">Oo!</string>
+    <string name="swiper_stamp_keep_4">I-save!</string>
+    <string name="swiper_stamp_delete_1">Hindi!</string>
+    <string name="swiper_stamp_delete_2">Paalam!</string>
+    <string name="swiper_stamp_delete_3">Basura!</string>
+    <string name="swiper_stamp_delete_4">Burahin!</string>
+    <string name="swiper_stamp_skip_1">Laktawan!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Mamaya!</string>
+    <string name="swiper_stamp_skip_4">Siguro!</string>
+    <string name="swiper_stamp_undo_1">I-undo!</string>
+    <string name="swiper_stamp_undo_2">Bumalik!</string>
+    <string name="swiper_stamp_undo_3">Ay!</string>
+    <string name="swiper_stamp_undo_4">Teka!</string>
 </resources>

@@ -97,7 +97,7 @@
 
     <string name="general_delete_confirmation_title">Jêbirinê piştrast bike</string>
     <string name="general_delete_confirmation_message_x">\"%s\" jê bibî?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">%d tiştên hilbijartî jê bibî?</string>
+
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d tişt hate jêbirin.</item>
         <item quantity="other">%d tişt hatin jêbirin.</item>
@@ -181,4 +181,14 @@
     <string name="general_error_report_bug_action">Çewtiyê rapor bike</string>
     <string name="general_error_ipc_deadobject_title">Girêdana Karûbarê Winda Bû</string>
     <string name="general_error_ipc_deadobject_description">Girêdana bi karûbarek girîng (wek Magisk, Shizuku, an karûbarên din ên asta pergalê) re bi awayekî bêhêvî hate windakirin. Ji kerema xwe cîhaza xwe ji nû ve bipêçîne. Heke pirsgirêk domiya, li nûvekirinên kontrol bike an bi min re têkilî daynin da ez vê çareser bikim.</string>
+    <string name="slogan_message_4">Hemû tiştên te rêz in.</string>
+    <string name="general_apply_action">Bisepîne</string>
+    <string name="general_drag_handle_description">Ji bo rêzkirinê bikişîne</string>
+    <string name="general_new_badge_label">Nû</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d tiştê hilbijartî jê bibî?</item>
+        <item quantity="other">%d tiştên hilbijartî jê bibî?</item>
+    </plurals>
+    <string name="general_user_label_owner">Xwedî</string>
+    <string name="general_user_label_system">Pergal</string>
 </resources>

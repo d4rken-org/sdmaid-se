@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro தேவைப்படுகிறது</string>
+    <string name="upgrades_dashcard_title">SD Maid SE-ஐ மேம்படுத்து</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro சிறந்த முடிவுகள், கூடுதல் அம்சங்கள் மற்றும் மேம்பட்ட பயனர்களுக்கான விருப்பங்களை வழங்குகிறது.</string>
     <string name="upgrades_dashcard_upgrade_action">மேம்படுத்து</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play கிடைக்கவில்லை</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play உடன் இணைக்க முடியவில்லை. Google Play நிறுவப்பட்டு புதுப்பிக்கப்பட்டுள்ளதா? உங்கள் Google கணக்கு உள்நுழைந்துள்ளதா? Google Play ஆப்பின் தற்காலிக சேமிப்பை அழித்து உங்கள் சாதனத்தை மறுதொடக்கம் செய்ய முயற்சிக்கவும்.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play சிக்கல்</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play இல் சிக்கல் ஏற்பட்டது. பின்னர் மீண்டும் முயற்சிக்கவும் அல்லது உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும்.\n\nவிவரங்கள்: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play பிழை</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play உள்ளக பிழை ஏற்பட்டது. பின்வருவனவற்றை முயற்சிக்கவும்:\n\n• உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும்\n• Google Play Store தற்காலிக சேமிப்பை அழிக்கவும்\n• பின்னர் மீண்டும் முயற்சிக்கவும்</string>
+    <string name="upgrades_gplay_network_error_title">இணைப்பு பிழை</string>
+    <string name="upgrades_gplay_network_error_description">Google Play உடன் இணைக்க முடியவில்லை. உங்கள் இணைய இணைப்பை சரிபார்த்து மீண்டும் முயற்சிக்கவும்.</string>
+    <string name="upgrades_gplay_already_owned_error_title">ஏற்கனவே வாங்கப்பட்டது</string>
+    <string name="upgrades_gplay_already_owned_error_description">உங்கள் வாங்குதலை மீட்டமைக்க \"வாங்குதலை மீட்டமை\" விருப்பத்தைப் பயன்படுத்தவும். சிக்கல் தொடர்ந்தால், Google Play தற்காலிக சேமிப்பை அழித்து உங்கள் சாதனத்தை மறுதொடக்கம் செய்ய முயற்சிக்கவும்.</string>
     <string name="upgrades_no_purchases_found_check_account">கொள்முதல்கள் எதுவும் இல்லை. நீங்கள் சரியான கணக்கைப் பயன்படுத்துகிறீர்களா?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro பெறுக</string>
     <string name="upgrade_screen_preamble">SD Maid இல் விளம்பரங்கள் இல்லை மற்றும் பயனர் தரவை விற்கவில்லை. எனது பணி உங்களால் நிதியளிக்கப்படுகிறது ❤️.</string>

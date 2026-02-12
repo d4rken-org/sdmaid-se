@@ -4,6 +4,7 @@
     <string name="slogan_message_1">Lìmpia e ordinada.</string>
     <string name="slogan_message_2">Impedende su caos.</string>
     <string name="slogan_message_3">Faghende su chi serbit.</string>
+    <string name="slogan_message_4">Totu in ordine.</string>
     <string name="slogan_message_5">Ispollida.</string>
     <string name="slogan_message_6">Bytes, andaidé!</string>
     <string name="slogan_message_7">Logu lìberu, logu allegru.</string>
@@ -17,11 +18,13 @@
     <string name="general_todo_msg">Custa funtzionalidade est ancora in travàglio e non est pro issa disponìbile.</string>
     <string name="general_share_action">Cumpartire</string>
     <string name="general_done_action">Acabadu</string>
+    <string name="general_apply_action">Aplicare</string>
     <string name="general_copy_action">Copiare</string>
     <string name="general_wipe_action">Ispollidare</string>
     <string name="general_cancel_action">Annullare</string>
     <string name="general_discard_action">Iscartare</string>
     <string name="general_reset_action">Torrare a impostare</string>
+    <string name="general_drag_handle_description">Isbuda pro torrare a ordinare</string>
     <string name="general_save_action">Sarvare</string>
     <string name="general_thanks_action">Gratzie</string>
     <string name="general_gotit_action">Apat cumprèndiu</string>
@@ -30,6 +33,7 @@
     <string name="general_edit_action">Modificare</string>
     <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Bòidu</string>
+    <string name="general_new_badge_label">Nou</string>
     <string name="general_dismiss_action">Serrare</string>
     <string name="general_maybe_later_action">Fortzis a pustis</string>
     <string name="general_manage_action">Gestire</string>
@@ -90,6 +94,10 @@
     <string name="general_toggle_layout_mode">Cambiar modalidade de visualizatzione</string>
     <string name="general_delete_confirmation_title">Cunfirmare s\'iscancellatzione</string>
     <string name="general_delete_confirmation_message_x">Iscancellare \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Iscancellare %d elementu selettu?</item>
+        <item quantity="other">Iscancellare %d elementos selettus?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Iscancellau %d elementu.</item>
         <item quantity="other">Iscancellau %d elementos.</item>
@@ -137,7 +145,9 @@
     <string name="general_device_label">Dispositivu</string>
     <string name="general_settings_title">Impostatzonis</string>
     <string name="general_help_title">Agiudu</string>
+    <string name="file_type_symbolic_link">Ligòngiu</string>
     <string name="file_type_directory">Diretòriu</string>
+    <string name="file_type_file">Archìviu</string>
     <string name="file_type_unknown">Isconnotu</string>
     <string name="general_progress_ready">Prontu</string>
     <string name="general_progress_done">Acabadu</string>
@@ -150,10 +160,16 @@
         <item quantity="one">%d ora</item>
         <item quantity="other">%d oras</item>
     </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s archìviu</item>
+        <item quantity="other">%s archìvios</item>
+    </plurals>
     <string name="general_advice_title">Cunzillu</string>
     <string name="general_error_invalid_input_label">Input non vàlidu</string>
     <string name="general_information_for_the_developer">Informatziones pro su isviluppadore</string>
     <string name="general_error_report_bug_action">Sinnalare bug</string>
     <string name="general_error_ipc_deadobject_title">Connessione de su servìtziu pèrdida</string>
     <string name="general_error_ipc_deadobject_description">Sa connessione a unu servìtziu crìticu (pro es. Magisk, Shizuku, o àteros servìtzios de sistema) est istada pèrdida in manera inaspetada. Pro piaghere torra a aviare su dispositivu. Si su problema persistit, verìfica sos agiornamentos o cuntàtami pro lu currigere.</string>
+    <string name="general_user_label_owner">Propriedàriu</string>
+    <string name="general_user_label_system">Sistema</string>
 </resources>

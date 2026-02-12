@@ -22,11 +22,13 @@
     <string name="general_todo_msg">Mae\'r nodwedd hon yn dal i gael ei gweithio arni ac nid yw ar gael ar hyn o bryd.</string>
     <string name="general_share_action">Rhannu</string>
     <string name="general_done_action">Wedi gorffen</string>
+    <string name="general_apply_action">Cymhwyso</string>
     <string name="general_copy_action">Copïo</string>
     <string name="general_wipe_action">Sychu</string>
     <string name="general_cancel_action">Canslo</string>
     <string name="general_discard_action">Taflu</string>
     <string name="general_reset_action">Ailosod</string>
+    <string name="general_drag_handle_description">Llusgwch i ail-drefnu</string>
     <string name="general_save_action">Cadw</string>
     <string name="general_thanks_action">Diolch</string>
     <string name="general_gotit_action">Deall</string>
@@ -35,6 +37,7 @@
     <string name="general_edit_action">Golygu</string>
     <string name="general_na_label">D/D</string>
     <string name="general_empty_label">Gwag</string>
+    <string name="general_new_badge_label">Newydd</string>
     <string name="general_dismiss_action">Diystyru</string>
     <string name="general_maybe_later_action">Efallai\'n hwyrach</string>
     <string name="general_manage_action">Rheoli</string>
@@ -222,4 +225,6 @@
     <string name="general_error_report_bug_action">Adrodd nam</string>
     <string name="general_error_ipc_deadobject_title">Cysylltiad gwasanaeth wedi\'i golli</string>
     <string name="general_error_ipc_deadobject_description">Collwyd cysylltiad â gwasanaeth hanfodol (e.e. Magisk, Shizuku, neu wasanaethau lefel system eraill) yn annisgwyl. Ailgychwynnwch eich dyfais os gwelwch yn dda. Os yw\'r broblem yn parhau, gwiriwch am ddiweddariadau neu cysylltwch â mi i\'w ddatrys.</string>
+    <string name="general_user_label_owner">Perchennog</string>
+    <string name="general_user_label_system">System</string>
 </resources>

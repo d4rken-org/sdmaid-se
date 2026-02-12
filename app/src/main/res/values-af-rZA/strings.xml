@@ -235,7 +235,10 @@
     <string name="systemcleaner_filter_trashed_summary">Lêers in herwinning bakkies van verskeie toepassings en liggings wat gemerk is vir skrapping maar nog nie permanent verwyder nie.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Skermkiekie Ouderdom</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimum ouderdom vir skermkiekies om oorweeg te word vir skrapping.</string>
-    <string name="systemcleaner_filter_superfluosapks_label">Oorbodigе APK\'s</string>
+    <string name="systemcleaner_filter_superfluosapks_label">Oorbodige APK\'s</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Installasielêers wat nie meer nodig is gebaseer op geïnstalleerde toepassingsweergawes nie.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Sluit dieselfde weergawe in</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Teiken ook APK-lêers wat by die geïnstalleerde weergawe pas. Deaktiveer om slegs ouer weergawes te verwyder.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR gidse</string>
     <string name="systemcleaner_filter_lostdir_summary">Tydelike lêers wat geskep word wanneer data tussen Android toestelle oorgedra word.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux lêers</string>
@@ -695,6 +698,362 @@
     <string name="area_type_public_obb_label">Openbare toepassing hulpbronne</string>
     <string name="area_type_private_data_label">Private toepassing data</string>
     <string name="area_type_portable_label">Draagbare berging</string>
+    <string name="dashboard_card_config_title">Kontrolekaarte</string>
+    <string name="dashboard_card_config_desc">Stel in watter kaarte gewys word en hul volgorde</string>
+    <string name="dashboard_card_config_header_title">Sleep om te herrangskik, wissel om te wys/verberg</string>
+    <string name="debug_debuglog_screen_title">Ontfoutingslog</string>
+    <string name="debug_debuglog_screen_discard_action">Verwerp</string>
+    <string name="debug_debuglog_screen_session_path_label">Sessiepad</string>
+    <string name="debug_debuglog_screen_log_files_label">Loglêers</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d lêer gereed (%2$s)</item>
+        <item quantity="other">%1$d lêers gereed (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_folder_label">Ontfoutingslog-vouer</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d lêer gebruik %2$s</item>
+        <item quantity="other">%1$d lêers gebruik %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Geen ontfoutingslogs gestoor nie</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Verwyder alle ontfoutingslogs?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Dit sal alle gestoorde ontfoutingslog-sessies permanent verwyder. Hierdie aksie kan nie ongedaan gemaak word nie.</string>
+    <string name="debug_card_title">Ontfoutingsmodus is geaktiveer</string>
+    <string name="debug_card_trace_mode_label">Aktiveer speurmodus</string>
+    <string name="debug_card_dryrun_mode_label">Droëloop-modus (deaktiveer uitvee)</string>
+    <string name="debug_card_areas_reload_action">Herlaai data-areas</string>
+    <string name="debug_card_pkgs_reload_action">Herlaai toepassings</string>
+    <string name="debug_card_root_test_action">Toets root</string>
+    <string name="debug_card_shizuku_test_action">Toets Shizuku</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART-profiele</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART-profiele word deur Android gebruik om toepassingsprestasie te optimaliseer.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Groottebeperkings</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimum grootte</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maksimum grootte</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Beperk resultate op grond van lêergrootte. Laat ongestel om enige grootte te pas.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Ouderdomsbeperkings</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimum ouderdom</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maksimum ouderdom</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Beperk resultate op grond van lêerouderdom (laaste gewysigde tyd). Laat ongestel om enige ouderdom te pas.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Toepassing-kortpadikone</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Gekas ikone vir toepassingskortpaaie en deelspyskaarte.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Geforseerd stop voor uitvee</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Stop toepassings geforseerd voor die uitvee van hul kas. Dit kan help om sommige toepassings se kas uit te vee, maar kan veroorsaak dat toepassings wanfunksioneer en handmatige herbegin vereis.</string>
+    <string name="appcleaner_progress_force_stopping">Stop toepassings geforseerd…</string>
+    <string name="deduplicator_keep_prefer_paths_title">Verkies om te hou in</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Wanneer besluit word watter duplikaat om te hou, verkies om lêers in hierdie liggings te hou.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Geen liggings opgestel nie</string>
+    <string name="deduplicator_detection_method_phash_summary">Vind soortgelyke lêers deur inhoudkenmerke te ontleed en perseptuele hash-waardes te vergelyk. ⚠️ Ooreenkoms-gebaseerde opsporing kan vals positiewes insluit wat handmatige verifikasie vereis.</string>
+    <string name="deduplicator_arbiter_title">Uitveestrategie</string>
+    <string name="deduplicator_arbiter_summary">Stel in watter lêers gehou word en watter uitgevee word.</string>
+    <string name="deduplicator_arbiter_explanation">Wanneer duplikate uitgevee word, besluit SD Maid watter lêer om te hou deur elke kriterium in volgorde na te gaan. Die eerste kriterium wat \'n duidelike wenner lewer, bepaal die resultaat. Sleep om te herrangskik, tik om modus te verander.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Kies modus</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Stel paaie op…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Duplikaattipe</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Verkies presiese ooreenkomste bo soortgelyke lêers.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Media-indeksering</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Oorweeg of lêers deur die mediaverskaffer geïndekseer is.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Bergingsligging</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Verkies lêers op interne of eksterne berging.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Vouerdiepte</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Verkies lêers in vlakker of dieper vouerstrukture.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Wysigingsdatum</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Verkies ouer of nuwer lêers op grond van wysigingstyd.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Lêergrootte</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Verkies groter of kleiner lêers wanneer groottes verskil.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Voorkeurliggings</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Hou lêers in jou opgestelde voorkeurliggings.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Verkies presiese ooreenkomste</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Verkies soortgelyke lêers</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Verkies geïndekseerde lêers</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Verkies nie-geïndekseerde lêers</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Verkies interne berging</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Verkies eksterne berging</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Verkies vlak vouers</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Verkies dieper vouers</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Verkies ouer lêers</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Verkies nuwer lêers</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Verkies groter lêers</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Verkies kleiner lêers</string>
+    <string name="deduplicator_view_mode_groups_label">Groepe</string>
+    <string name="deduplicator_view_mode_directories_label">Vouers</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="squeezer_explanation_short">Komprimeer beelde om bergingsruimte te bespaar.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d beeld gevind</item>
+        <item quantity="other">%d beelde gevind</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s kan bespaar word</item>
+        <item quantity="other">~%s kan bespaar word</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d beeld gekomprimeer</item>
+        <item quantity="other">%d beelde gekomprimeer</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d beeld gekies</item>
+        <item quantity="other">%d beelde gekies</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Soekliggings</string>
+    <string name="squeezer_search_locations_default_summary">Kameravouers (verstek)</string>
+    <string name="squeezer_min_size_title">Minimum lêergrootte</string>
+    <string name="squeezer_min_size_description">Slaan beelde kleiner as hierdie grootte oor.</string>
+    <string name="squeezer_min_age_title">Minimum lêerouderdom</string>
+    <string name="squeezer_min_age_description">Sluit slegs beelde ouer as hierdie ouderdom in.</string>
+    <string name="squeezer_compression_settings_label">Kompressieinstellings</string>
+    <string name="squeezer_quality_label">Kwaliteit</string>
+    <string name="squeezer_quality_title">Kompressiekwaliteit</string>
+    <string name="squeezer_quality_description">Laer kwaliteit beteken kleiner lêergrootte maar verminderde beeldkwaliteit.</string>
+    <string name="squeezer_quality_example_format">Voorbeeld: %1$s beeld → bespaar ~%2$s teen %3$d%% kwaliteit</string>
+    <string name="squeezer_quality_warning_low">Laer kwaliteite kan sigbare artefakte veroorsaak.</string>
+    <string name="squeezer_quality_warning_high">Baie hoë kwaliteit bied minimale ruimtebesparings.</string>
+    <string name="squeezer_types_category_label">Beeldtipes</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Sluit JPEG-beelde in (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Sluit WebP-beelde in (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Slaan voorheen gekomprimeerdes oor</string>
+    <string name="squeezer_skip_compressed_description">Slaan beelde oor wat reeds deur SD Maid gekomprimeer is.</string>
+    <string name="squeezer_exif_marker_title">Skryf EXIF-merker</string>
+    <string name="squeezer_exif_marker_description">Voeg \'n merker by die beeld se EXIF-gebruikerkommentaarveld om herkompressie te voorkom selfs as die kompressiegeskiedenis uitgevee word.</string>
+    <string name="squeezer_estimated_savings_format">~%s besparing</string>
+    <string name="squeezer_no_savings_expected">Beperkte besparings</string>
+    <string name="squeezer_current_size_format">Grootte: %s</string>
+    <string name="squeezer_compress_action">Komprimeer</string>
+    <string name="squeezer_compress_all_action">Komprimeer alles</string>
+    <string name="squeezer_preview_dialog_title">Bevestig kompressie</string>
+    <string name="squeezer_preview_total_size">Totale grootte</string>
+    <string name="squeezer_preview_estimated_savings">Beraamde besparing</string>
+    <string name="squeezer_compress_confirmation_title">Beelde komprimeer?</string>
+    <string name="squeezer_compress_confirmation_message">Dit sal oorspronklike beelde met gekomprimeerde weergawes vervang. Hierdie aksie kan nie ongedaan gemaak word nie.</string>
+    <string name="squeezer_history_title">Kompressiegeskiedenis</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d item (%2$s)</item>
+        <item quantity="other">%1$d items (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Geen kompressiegeskiedenis nie</string>
+    <string name="squeezer_history_clear_title">Vee kompressiegeskiedenis uit</string>
+    <string name="squeezer_history_clear_message">Dit sal toelaat dat voorheen gekomprimeerde beelde weer gekomprimeer kan word. Die beelde self word nie geaffekteer nie.</string>
+    <string name="squeezer_onboarding_title">Oor beeldkompressie</string>
+    <string name="squeezer_onboarding_message">Beeldkompressie verminder lêergrootte deur visuele detail te verwyder. Hierdie proses is onomkeerbaar - die oorspronklike kwaliteit kan nie herstel word nie.\n\nHier is \'n voorskou van hoe jou beelde sal lyk:</string>
+    <string name="squeezer_onboarding_original_label">Oorspronklik</string>
+    <string name="squeezer_onboarding_compressed_label">Na kompressie</string>
+    <string name="squeezer_onboarding_quality_label">Kwaliteit: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Verstaan</string>
+    <string name="squeezer_compare_action">Bekyk vergelyking</string>
+    <string name="squeezer_no_example_found">Geen beelde gevind in gekose paaie nie.</string>
+    <string name="squeezer_result_empty_message">Geen komprimeerbare beelde gevind nie.</string>
+    <string name="squeezer_setup_warning">Kompressie verminder beeldkwaliteit permanent om bergingsruimte te bespaar. Dit kan nie ongedaan gemaak word nie. Hersien jou instellings noukeurig voor jy begin.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze verminder die lêergrootte van beelde om bergingsruimte vry te maak. Dit verminder beeldkwaliteit permanent en kan nie ongedaan gemaak word nie. Hersien jou instellings noukeurig voor jy begin.</string>
+    <string name="squeezer_setup_paths_title">Soekliggings</string>
+    <string name="squeezer_setup_paths_default">Kies vouers om te soek</string>
+    <string name="squeezer_setup_quality_title">Kompressiekwaliteit</string>
+    <string name="squeezer_setup_age_title">Minimum ouderdom</string>
+    <string name="squeezer_setup_age_none">Geen limiet (sluit alle lêers in)</string>
+    <string name="squeezer_setup_start_action">Begin skandering</string>
+    <string name="squeezer_quality_hint_very_low">Kwaliteit onder 40% kan onbruikbare beelde skep.</string>
+    <string name="squeezer_quality_hint_low">Laer kwaliteit bespaar meer ruimte maar kan sigbare artefakte veroorsaak.</string>
+    <string name="squeezer_quality_hint_high">Baie hoë kwaliteit bied minimale ruimtebesparings.</string>
+    <string name="squeezer_quality_hint_normal">Gebalanseerde kwaliteit en ruimtebesparings.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Ten minste %d dag oud</item>
+        <item quantity="other">Ten minste %d dae oud</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Beraamde ~%d%% besparing vir JPEG-lêers</string>
+    <string name="appcontrol_app_forcestop_description">Stop die toepassing. Voorkom dat dit vanself begin totdat jy dit oopmaak of die toestel herbegin word.</string>
+    <string name="appcontrol_tag_debug">Ontfouting</string>
+    <string name="appcontrol_archive_action">Argiveer</string>
+    <string name="appcontrol_archive_selection_action">Argiveer toepassings</string>
+    <string name="appcontrol_archive_description">Argiveer om ruimte vry te maak terwyl toepassingsdata vir latere herstel behou word.</string>
+    <string name="appcontrol_progress_archiving_app">Argiveer toepassing…</string>
+    <string name="appcontrol_archive_confirmation_title">Bevestig argivering</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Argiveer %d toepassing?</item>
+        <item quantity="other">Argiveer %d toepassings?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d toepassing geargiveer</item>
+        <item quantity="other">%d toepassings geargiveer</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Herstel</string>
+    <string name="appcontrol_restore_selection_action">Herstel toepassings</string>
+    <string name="appcontrol_restore_description">Herstel geargiveerde toepassing na volledig geïnstalleerde toestand. Toepassingsdata word behou.</string>
+    <string name="appcontrol_progress_restoring_app">Herstel toepassing…</string>
+    <string name="appcontrol_restore_confirmation_title">Bevestig herstel</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Herstel %d toepassing?</item>
+        <item quantity="other">Herstel %d toepassings?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d toepassing herstel</item>
+        <item quantity="other">%d toepassings herstel</item>
+    </plurals>
+    <string name="appcontrol_include_multiuser_label">Sluit ander gebruikers in</string>
+    <string name="appcontrol_include_multiuser_summary">Sluit toepassings van ander gebruikersprofiele op hierdie toestel in.</string>
+    <string name="appcontrol_export_description">Stoor hierdie toepassing se installasielêers. Dit sluit nie toepassingsdata in nie.</string>
+    <string name="appcontrol_share_list_action">Deel lys</string>
+    <string name="appcontrol_share_list_title">My toepassings</string>
+    <string name="appcontrol_share_list_footer">Gedeel via SD Maid SE</string>
+    <string name="appcontrol_automation_subtitle_archiving">Argiveer…</string>
+    <string name="appcontrol_automation_progress_find_archive">Soek na \"Argiveer\"-knoppie (sleutelwoorde: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Herstel…</string>
+    <string name="appcontrol_automation_progress_find_restore">Soek na \"Herstel\"-knoppie (sleutelwoorde: %s)</string>
+    <string name="appcontrol_item_installedat_x_label">Geïnstalleer op: %s</string>
+    <string name="analyzer_content_create_swiper_session_action">Skep Swiper-sessie</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper-sessie geskep met %d item</item>
+        <item quantity="other">Swiper-sessie geskep met %d items</item>
+    </plurals>
+    <string name="exclusion_editor_path_change_action">Tik om pad te verander</string>
+    <string name="anniversary_card_title">Gelukkige SD Maid-herdenking ❤️</string>
+    <string name="anniversary_card_install_date">By jou sedert %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Reeds %1$d jaar saam. Dankie dat jy SD Maid vertrou om jou Android skoon en netjies te hou. Vrygestelde ruimte: %2$s</item>
+        <item quantity="other">%1$d jaar sterk. Jou toestel bly skoon en netjies met SD Maid. Vrygestelde ruimte: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Deel jou SD Maid-herdenking</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d jaar met SD Maid — Vrygestelde ruimte: %2$s. Hou jou Android skoon en netjies. #SDMaid\nProbeer dit: %3$s</item>
+        <item quantity="other">%1$d jaar met SD Maid — Vrygestelde ruimte: %2$s. Hou jou Android skoon en netjies. #SDMaid\nProbeer dit: %3$s</item>
+    </plurals>
+    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_long">Bestuur geïnstalleerde toepassings</string>
+    <string name="shortcut_onetap_short">Skandeer + Verwyder</string>
+    <string name="shortcut_onetap_long">Skandeer en verwyder in een aksie</string>
+    <string name="shortcuts_settings_category">Kortpaaie</string>
+    <string name="shortcuts_onetap_enabled_title">Eentik-kortpad</string>
+    <string name="shortcuts_onetap_enabled_summary">Wys \"Skandeer + Verwyder\"-kortpad wanneer die toepassingsikoon langgedruk word. Gebruik dieselfde gereedskap as die eentik-kontrolepaneel.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Swiep deur lêers om te besluit wat om te hou of te verwyder.</string>
+    <string name="swiper_dashcard_description">Hersien lêers in spesifieke vouers handmatig. Swiep om te besluit wat om te hou of te verwyder.</string>
+    <string name="swiper_start_action">Begin swiep</string>
+    <string name="swiper_continue_action">Gaan voort met sessie</string>
+    <string name="swiper_sessions_description">Sommige lêers het \'n menslike besluit nodig. Swiep deur items en kies wat om te hou of te verwyder. Slaan enigiets oor waaroor jy onseker is. Hierdie gereedskap laat jou toe om spesifieke vouers handmatig te hersien, en niks word verwyder totdat jy bevestig nie.</string>
+    <string name="swiper_select_folders_action">Kies vouers</string>
+    <string name="swiper_scanning_title">Skandeer…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d item gevind</item>
+        <item quantity="other">%d items gevind</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d item verwyder</item>
+        <item quantity="other">%d items verwyder</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d item misluk</item>
+        <item quantity="other">%d items misluk</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d van %2$d</string>
+    <string name="swiper_keep_action">Hou</string>
+    <string name="swiper_skip_action">Slaan oor</string>
+    <string name="swiper_review_action">Hersien</string>
+    <string name="swiper_status_title">Hersien besluite</string>
+    <string name="swiper_status_action_keep_selected">Hou gekose</string>
+    <string name="swiper_status_action_delete_selected">Verwyder gekose</string>
+    <string name="swiper_status_action_reset_selected">Herstel gekose</string>
+    <string name="swiper_decision_undecided">Onbeslis</string>
+    <string name="swiper_retry_action">Probeer weer</string>
+    <string name="swiper_delete_confirmation_title">Verwyder lêers?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Dit sal %1$d lêer (%2$s) permanent verwyder. Hierdie aksie kan nie ongedaan gemaak word nie.</item>
+        <item quantity="other">Dit sal %1$d lêers (%2$s) permanent verwyder. Hierdie aksie kan nie ongedaan gemaak word nie.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d onbesliste item sal oorbly vir latere hersiening.</item>
+        <item quantity="other">%d onbesliste items sal oorbly vir latere hersiening.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Verwyder %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Ruil swieprigtings om</string>
+    <string name="swiper_settings_swap_directions_summary">Swiep links om te hou, regs om te verwyder.</string>
+    <string name="swiper_settings_show_details_title">Wys lêerbesonderhede</string>
+    <string name="swiper_settings_show_details_summary">Vertoon lêernaam, grootte en datum op die swiepskerm.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptiese terugvoer</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibreer wanneer hou- of verwyder-besluite geneem word.</string>
+    <string name="swiper_discard_session_confirmation_title">Verwerp sessie?</string>
+    <string name="swiper_discard_session_confirmation_message">Alle besluite sal verlore gaan. Is jy seker?</string>
+    <string name="swiper_no_preview_available">Geen voorskou beskikbaar nie</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Gaan voort met sessie van %1$d dag gelede (%2$d%% voltooi)</item>
+        <item quantity="other">Gaan voort met sessie van %1$d dae gelede (%2$d%% voltooi)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d sessie</item>
+        <item quantity="other">%d sessies</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d onbesliste item</item>
+        <item quantity="other">%d onbesliste items</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Geskep %1$s, laaste aktiwiteit %2$s</string>
+    <string name="swiper_session_remove_action">Verwyder sessie</string>
+    <string name="swiper_sessions_empty_hint">Tik + om \'n vouer te kies en begin swiep</string>
+    <string name="swiper_sessions_upgrade_body">Gradeer op om hierdie beperkings te verwyder en ontwikkeling te ondersteun. Die gratis weergawe is beperk tot:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d lêer per sessie</item>
+        <item quantity="other">%d lêers per sessie</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d sessie</item>
+        <item quantity="other">%d sessies</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sessie #%d</string>
+    <string name="swiper_session_rename_title">Hernoem sessie</string>
+    <string name="swiper_session_rename_hint">Voer \'n naam vir hierdie sessie in</string>
+    <string name="swiper_sessions_current_sessions">Huidige sessies</string>
+    <string name="swiper_session_paths_label">Paaie</string>
+    <string name="swiper_session_status_label">Status</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d om te hou</item>
+        <item quantity="other">%d om te hou</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d om te verwyder</item>
+        <item quantity="other">%d om te verwyder</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d onbeslis</item>
+        <item quantity="other">%d onbeslis</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d reeds gehou</item>
+        <item quantity="other">%d reeds gehou</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d reeds verwyder</item>
+        <item quantity="other">%d reeds verwyder</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d gehou</item>
+        <item quantity="other">%d gehou</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d verwyder</item>
+        <item quantity="other">%d verwyder</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Sluit \"%1$s\" uit van Swiper-skanderings?</string>
+    <string name="swiper_sessions_header_title">Gereed om op te ruim?</string>
+    <string name="swiper_sessions_suggestions_label">Probeer begin met:</string>
+    <string name="swiper_sessions_suggestion_downloads">Aflaaie-vouer</string>
+    <string name="swiper_sessions_suggestion_screenshots">Skermkiekies</string>
+    <string name="swiper_sessions_suggestion_camera">Kamerarol</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Hou!</string>
+    <string name="swiper_stamp_keep_2">Mooi!</string>
+    <string name="swiper_stamp_keep_3">Ja!</string>
+    <string name="swiper_stamp_keep_4">Stoor!</string>
+    <string name="swiper_stamp_delete_1">Nee!</string>
+    <string name="swiper_stamp_delete_2">Totsiens!</string>
+    <string name="swiper_stamp_delete_3">Gemors!</string>
+    <string name="swiper_stamp_delete_4">Verwyder!</string>
+    <string name="swiper_stamp_skip_1">Slaan oor!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Later!</string>
+    <string name="swiper_stamp_skip_4">Miskien!</string>
+    <string name="swiper_stamp_undo_1">Ontdoen!</string>
+    <string name="swiper_stamp_undo_2">Terug!</string>
+    <string name="swiper_stamp_undo_3">Oeps!</string>
+    <string name="swiper_stamp_undo_4">Wag!</string>
 </resources>

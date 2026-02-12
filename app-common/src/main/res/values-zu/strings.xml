@@ -4,6 +4,7 @@
     <string name="slogan_message_1">Kuhlanzekile futhi kuhlelekile.</string>
     <string name="slogan_message_2">Kuvimbela isiphithiphithi.</string>
     <string name="slogan_message_3">Kenza lokho okudingekayo.</string>
+    <string name="slogan_message_4">Konke kuhlelekile.</string>
     <string name="slogan_message_5">Akunamabala.</string>
     <string name="slogan_message_6">Ama-bytes, hambani!</string>
     <string name="slogan_message_7">Isikhala esikhululekile, indawo ejabulisayo.</string>
@@ -17,11 +18,13 @@
     <string name="general_todo_msg">Lesi sici sisasebenza futhi njengamanje asitholakali.</string>
     <string name="general_share_action">Yabelana</string>
     <string name="general_done_action">Kwenziwe</string>
+    <string name="general_apply_action">Sebenzisa</string>
     <string name="general_copy_action">Kopisha</string>
     <string name="general_wipe_action">Sula</string>
     <string name="general_cancel_action">Yekisa</string>
     <string name="general_discard_action">Lahla</string>
     <string name="general_reset_action">Setha kabusha</string>
+    <string name="general_drag_handle_description">Hudula ukuze uhlele kabusha</string>
     <string name="general_save_action">Londoloza</string>
     <string name="general_thanks_action">Ngiyabonga</string>
     <string name="general_gotit_action">Ngiyaqonda</string>
@@ -30,6 +33,7 @@
     <string name="general_edit_action">Hlela</string>
     <string name="general_na_label">Akutholakali</string>
     <string name="general_empty_label">Akunalutho</string>
+    <string name="general_new_badge_label">Okusha</string>
     <string name="general_dismiss_action">Lahla</string>
     <string name="general_maybe_later_action">Mhlawumbe kamuva</string>
     <string name="general_manage_action">Phatha</string>
@@ -90,6 +94,10 @@
     <string name="general_toggle_layout_mode">Shintsha imodi yokubuka</string>
     <string name="general_delete_confirmation_title">Qinisekisa ukususa</string>
     <string name="general_delete_confirmation_message_x">Susa \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Susa into ekhethiwe eyi-%d?</item>
+        <item quantity="other">Susa izinto ezikhethiwe ezingu-%d?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Isuswe into eyi-%d.</item>
         <item quantity="other">Kususiwe izinto ezingu-%d.</item>
@@ -162,4 +170,6 @@
     <string name="general_error_report_bug_action">Bika iphutha</string>
     <string name="general_error_ipc_deadobject_title">Ukuxhuma Kwensizakalo Kulahlekile</string>
     <string name="general_error_ipc_deadobject_description">Ukuxhuma ensizakalweni ebalulekile (isib. Magisk, Shizuku, noma ezinye izinsizakalo zezinga lesistimu) kulahleke ngendlela engalindelekile. Sicela uphinde uqalise idivayisi yakho. Uma inkinga iqhubeka, hlola izibuyekezo noma xhumana nami ukuze ngiyilungise.</string>
+    <string name="general_user_label_owner">Umnikazi</string>
+    <string name="general_user_label_system">Isistimu</string>
 </resources>

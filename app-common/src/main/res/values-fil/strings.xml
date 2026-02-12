@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Tinatrabaho pa at hindi pa kasalukuyang available ang feature na ito.</string>
     <string name="general_share_action">Ibahagi</string>
     <string name="general_done_action">Tapos na</string>
+    <string name="general_apply_action">Ilapat</string>
     <string name="general_copy_action">Kopyahin</string>
     <string name="general_wipe_action">Linisin</string>
     <string name="general_cancel_action">Kanselahin</string>
     <string name="general_discard_action">Itapon</string>
     <string name="general_reset_action">I-reset</string>
+    <string name="general_drag_handle_description">I-drag para baguhin ang ayos</string>
     <string name="general_save_action">I-save</string>
     <string name="general_thanks_action">Salamat</string>
     <string name="general_gotit_action">Kuha ko</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Baguhin</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Walang laman</string>
+    <string name="general_new_badge_label">Bago</string>
     <string name="general_dismiss_action">Huwag pansinin</string>
     <string name="general_maybe_later_action">Siguro mamaya</string>
     <string name="general_manage_action">Pamahalaan</string>
@@ -92,6 +95,10 @@
     <string name="general_toggle_layout_mode">Palitan ang mode ng view</string>
     <string name="general_delete_confirmation_title">Kumpirmahin ang pagbura</string>
     <string name="general_delete_confirmation_message_x">Burahin ang \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Burahin ang %d napiling item?</item>
+        <item quantity="other">Burahin ang %d na napiling item?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Nabura ang %d item.</item>
         <item quantity="other">Nabura ang %d na item.</item>
@@ -160,4 +167,10 @@
     <string name="general_error_report_bug_action">I-report ang bug</string>
     <string name="general_error_ipc_deadobject_title">Naputol ang Koneksyon sa Serbisyo</string>
     <string name="general_error_ipc_deadobject_description">Ang koneksyon sa isang kritikal na serbisyo (hal. Magisk, Shizuku, o iba pang serbisyo sa antas ng sistema) ay hindi inaasahang naputol. Mangyaring i-reboot ang iyong device. Kung magpapatuloy ang isyu, suriin ang mga update o makipag-ugnayan sa akin upang maayos ito.</string>
+    <plurals name="result_x_files">
+        <item quantity="one">%s file</item>
+        <item quantity="other">%s na file</item>
+    </plurals>
+    <string name="general_user_label_owner">May-ari</string>
+    <string name="general_user_label_system">Sistema</string>
 </resources>

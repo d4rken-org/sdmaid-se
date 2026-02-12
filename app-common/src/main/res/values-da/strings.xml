@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Denne funktion er stadig under udvikling og er ikke tilgængelig.</string>
     <string name="general_share_action">Del</string>
     <string name="general_done_action">Færdig</string>
+    <string name="general_apply_action">Anvend</string>
     <string name="general_copy_action">Kopiér</string>
     <string name="general_wipe_action">Ryd</string>
     <string name="general_cancel_action">Annuller</string>
     <string name="general_discard_action">Kassér</string>
     <string name="general_reset_action">Nulstil</string>
+    <string name="general_drag_handle_description">Træk for at omarrangere</string>
     <string name="general_save_action">Gem</string>
     <string name="general_thanks_action">Tak</string>
     <string name="general_gotit_action">Forstået</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Rediger</string>
     <string name="general_na_label">Ikke tilgængeligt</string>
     <string name="general_empty_label">Tom</string>
+    <string name="general_new_badge_label">Ny</string>
     <string name="general_dismiss_action">Afvis</string>
     <string name="general_maybe_later_action">Måske senere</string>
     <string name="general_manage_action">Administrer</string>

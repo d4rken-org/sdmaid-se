@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Вама на услузи.</string>
     <string name="slogan_message_1">Чисто и уредно.</string>
     <string name="slogan_message_2">Спречава хаос.</string>
     <string name="slogan_message_3">Ради оно што је потребно.</string>
+    <string name="slogan_message_4">Све у реду и на месту.</string>
     <string name="slogan_message_5">Беспрекорно.</string>
     <string name="slogan_message_6">Бајтови, одлазите!</string>
     <string name="slogan_message_7">Слободан простор, срећно место.</string>
@@ -17,11 +19,13 @@
     <string name="general_todo_msg">Ова функција се још развија и тренутно није доступна.</string>
     <string name="general_share_action">Подели</string>
     <string name="general_done_action">Готово</string>
+    <string name="general_apply_action">Примени</string>
     <string name="general_copy_action">Копирај</string>
     <string name="general_wipe_action">Обриши</string>
     <string name="general_cancel_action">Откажи</string>
     <string name="general_discard_action">Одбаци</string>
     <string name="general_reset_action">Ресетуј</string>
+    <string name="general_drag_handle_description">Превуците за промену редоследа</string>
     <string name="general_save_action">Сачувај</string>
     <string name="general_thanks_action">Хвала</string>
     <string name="general_gotit_action">Разумем</string>
@@ -30,6 +34,7 @@
     <string name="general_edit_action">Уреди</string>
     <string name="general_na_label">Н/Д</string>
     <string name="general_empty_label">Празно</string>
+    <string name="general_new_badge_label">Ново</string>
     <string name="general_dismiss_action">Одбаци</string>
     <string name="general_maybe_later_action">Можда касније</string>
     <string name="general_manage_action">Управљај</string>
@@ -58,6 +63,7 @@
     <string name="general_progress_loading_egg_5">Турбо енкабулатор се иницијализује</string>
     <string name="general_progress_loading_egg_6">Прослеђивање путера</string>
     <string name="general_progress_loading_egg_7">Па, како се носиш?</string>
+    <string name="general_progress_loading_egg_8">Бип буп боп</string>
     <string name="general_progress_loading_egg_9">Баферовање животних избора</string>
     <string name="general_progress_loading_egg_10">Призивање Ктулуа</string>
     <string name="general_progress_loading_egg_11">Ово је у реду</string>
@@ -90,6 +96,11 @@
     <string name="general_toggle_layout_mode">Промени режим приказа</string>
     <string name="general_delete_confirmation_title">Потврди брисање</string>
     <string name="general_delete_confirmation_message_x">Обриши \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Обрисати %d изабрану ставку?</item>
+        <item quantity="few">Обрисати %d изабране ставке?</item>
+        <item quantity="other">Обрисати %d изабраних ставки?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Обрисана %d ставка.</item>
         <item quantity="few">Обрисане %d ставке.</item>

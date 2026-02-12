@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Aan deze functie wordt nog gewerkt en is momenteel niet beschikbaar.</string>
     <string name="general_share_action">Delen</string>
     <string name="general_done_action">Klaar</string>
+    <string name="general_apply_action">Toepassen</string>
     <string name="general_copy_action">Kopiëren</string>
     <string name="general_wipe_action">Vegen</string>
     <string name="general_cancel_action">Annuleren</string>
     <string name="general_discard_action">Weggooien</string>
     <string name="general_reset_action">Resetten</string>
+    <string name="general_drag_handle_description">Sleep om te herordenen</string>
     <string name="general_save_action">Opslaan</string>
     <string name="general_thanks_action">Bedankt</string>
     <string name="general_gotit_action">Begrepen</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Bewerken</string>
     <string name="general_na_label">NVT</string>
     <string name="general_empty_label">Leeg</string>
+    <string name="general_new_badge_label">Nieuw</string>
     <string name="general_dismiss_action">Afwijzen</string>
     <string name="general_maybe_later_action">Misschien later</string>
     <string name="general_manage_action">Beheren</string>

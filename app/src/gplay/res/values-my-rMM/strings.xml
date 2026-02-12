@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro လိုအပ်သည်</string>
+    <string name="upgrades_dashcard_title">SD Maid SE ကို အဆင့်မြှင့်ပါ</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro သည် ပိုမိုကောင်းမွန်သော ရလဒ်များ၊ အင်္ဂါရပ်များနှင့် အဆင့်မြင့်သုံးစွဲသူများအတွက် ရွေးချယ်စရာများကို ပေးဆောင်သည်။</string>
     <string name="upgrades_dashcard_upgrade_action">အဆင့်မြှင့်မည်</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play မရရှိနိုင်ပါ</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid သည် Google Play နှင့် ချိတ်ဆက်၍မရပါ။ Google Play ကို ထည့်သွင်းပြီး အပ်ဒိတ်လုပ်ထားပါသလား။ သင့် Google အကောင့် ဝင်ရောက်ထားပါသလား။ Google Play အက်ပ်၏ cache ကို ရှင်းလင်းပြီး သင့်စက်ကို ပြန်လည်စတင်ကြည့်ပါ။</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play ပြဿနာ</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play တွင် ပြဿနာတစ်ခု ဖြစ်ပေါ်ခဲ့သည်။ နောက်မှ ထပ်ကြိုးစားပါ သို့မဟုတ် သင့်စက်ကို ပြန်လည်စတင်ပါ။\n\nအသေးစိတ်: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play အမှား</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play အတွင်းပိုင်း အမှားတစ်ခု ဖြစ်ပေါ်ခဲ့သည်။ အောက်ပါတို့ကို စမ်းကြည့်ပါ:\n\n• သင့်စက်ကို ပြန်လည်စတင်ပါ\n• Google Play Store cache ကို ရှင်းလင်းပါ\n• နောက်မှ ထပ်ကြိုးစားပါ</string>
+    <string name="upgrades_gplay_network_error_title">ချိတ်ဆက်မှု အမှား</string>
+    <string name="upgrades_gplay_network_error_description">Google Play သို့ ချိတ်ဆက်၍မရပါ။ သင့်အင်တာနက် ချိတ်ဆက်မှုကို စစ်ဆေးပြီး ထပ်ကြိုးစားပါ။</string>
+    <string name="upgrades_gplay_already_owned_error_title">ဝယ်ယူပြီးသား</string>
+    <string name="upgrades_gplay_already_owned_error_description">သင့်ဝယ်ယူမှုကို ပြန်လည်ရယူရန် \"ဝယ်ယူမှုကို ပြန်လည်ရယူမည်\" ရွေးချယ်စရာကို အသုံးပြုပါ။ ပြဿနာ ဆက်လက်ရှိနေပါက Google Play cache ကို ရှင်းလင်းပြီး သင့်စက်ကို ပြန်လည်စတင်ကြည့်ပါ။</string>
     <string name="upgrades_no_purchases_found_check_account">ဝယ်ယူမှုများ ရှာမတွေ့ပါ။ မှန်ကန်သော အကောင့်ကို အသုံးပြုနေပါသလား။</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ရယူပါ</string>
     <string name="upgrade_screen_preamble">SD Maid တွင် ကြော်ငြာများမရှိပါ၊ အသုံးပြုသူဒေတာများကိုလည်း မရောင်းချပါ။ ကျွန်ုပ်၏အလုပ်ကို သင်မှ ငွေကြေးထောက်ပံ့ထားပါသည် ❤️။</string>

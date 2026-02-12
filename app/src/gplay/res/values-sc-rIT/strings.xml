@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Rechedet SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Agiorna SD Maid SE</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro oferit risultados mègius, prus caraterìsticas e optziones pro sos utentes avanzados.</string>
     <string name="upgrades_dashcard_upgrade_action">Agiorna</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play no est disponìbile</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid non podet si connètere a Google Play. Google Play est installadu e agiornadu? Su contu Google tuo est intradu? Proa a limpiare sa cache de s\'aplicatzione Google Play e a torrare a allùghere su dispositivu tuo.</string>
+    <string name="upgrades_gplay_billing_error_label">Problema de Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">B\'at àpidu unu problema cun Google Play. Proa torra prus a tardu o torra a allùghere su dispositivu tuo.\n\nDetàllios: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Errore de Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">S\'est verificadu un\'errore interna de Google Play. Proa custas cosas:\n\n• Torra a allùghere su dispositivu tuo\n• Limpia sa cache de Google Play Store\n• Proa torra prus a tardu</string>
+    <string name="upgrades_gplay_network_error_title">Errore de connessione</string>
+    <string name="upgrades_gplay_network_error_description">Impossìbile si connètere a Google Play. Controlla sa connessione internet tua e proa torra.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Giai cumperadu</string>
+    <string name="upgrades_gplay_already_owned_error_description">Imprea s\'optzione \"Recùpera su cùmperu\" pro recuperare su cùmperu tuo. Si su problema sighit, proa a limpiare sa cache de Google Play e a torrare a allùghere su dispositivu tuo.</string>
     <string name="upgrades_no_purchases_found_check_account">Perunu cùmperu agatadu. Ses impreande su contu giustu?</string>
     <string name="upgrade_screen_title">Otene SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid non tenet publitzidade e non bendet datos de sos utentes. Su traballu meu est finantziadu dae bois ❤️.</string>

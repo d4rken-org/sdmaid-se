@@ -164,4 +164,13 @@
     <string name="general_error_report_bug_action">ਬੱਗ ਰਿਪੋਰਟ ਕਰੋ</string>
     <string name="general_error_ipc_deadobject_title">ਸੇਵਾ ਸੰਪਰਕ ਗੁਆਚ ਗਿਆ</string>
     <string name="general_error_ipc_deadobject_description">ਇੱਕ ਮਹੱਤਵਪੂਰਨ ਸੇਵਾ (ਜਿਵੇਂ ਕਿ Magisk, Shizuku, ਜਾਂ ਹੋਰ ਸਿਸਟਮ-ਪੱਧਰ ਦੀਆਂ ਸੇਵਾਵਾਂ) ਨਾਲ ਸੰਪਰਕ ਅਚਾਨਕ ਟੁੱਟ ਗਿਆ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਯੰਤਰ ਰੀਬੂਟ ਕਰੋ। ਜੇ ਸਮੱਸਿਆ ਜਾਰੀ ਰਹਿੰਦੀ ਹੈ, ਅਪਡੇਟ ਦੀ ਜਾਂਚ ਕਰੋ ਜਾਂ ਮੇਰੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਤਾਂ ਜੋ ਮੈਂ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
+    <string name="general_apply_action">ਲਾਗੂ ਕਰੋ</string>
+    <string name="general_drag_handle_description">ਕ੍ਰਮ ਬਦਲਣ ਲਈ ਘਸੀਟੋ</string>
+    <string name="general_new_badge_label">ਨਵਾਂ</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d ਚੁਣੀ ਆਈਟਮ ਮਿਟਾਓ?</item>
+        <item quantity="other">%d ਚੁਣੀਆਂ ਆਈਟਮਾਂ ਮਿਟਾਓ?</item>
+    </plurals>
+    <string name="general_user_label_owner">ਮਾਲਕ</string>
+    <string name="general_user_label_system">ਸਿਸਟਮ</string>
 </resources>

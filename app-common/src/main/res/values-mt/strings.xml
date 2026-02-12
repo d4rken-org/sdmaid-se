@@ -22,11 +22,13 @@
     <string name="general_todo_msg">Din il-karatteristika għadha qed tiġi maħduma u għalissa mhix disponibbli.</string>
     <string name="general_share_action">Aqsam</string>
     <string name="general_done_action">Lest</string>
+    <string name="general_apply_action">Applika</string>
     <string name="general_copy_action">Ikkopja</string>
     <string name="general_wipe_action">Imħassar</string>
     <string name="general_cancel_action">Ikkanċella</string>
     <string name="general_discard_action">Armi</string>
     <string name="general_reset_action">Irrisettja</string>
+    <string name="general_drag_handle_description">Iġbed biex tissortja mill-ġdid</string>
     <string name="general_save_action">Issalva</string>
     <string name="general_thanks_action">Grazzi</string>
     <string name="general_gotit_action">Fhimt</string>
@@ -35,6 +37,7 @@
     <string name="general_edit_action">Editja</string>
     <string name="general_na_label">M/A</string>
     <string name="general_empty_label">Vojt</string>
+    <string name="general_new_badge_label">Ġdid</string>
     <string name="general_dismiss_action">Ikċaħħad</string>
     <string name="general_maybe_later_action">Forsi aktar tard</string>
     <string name="general_manage_action">Immaniġġja</string>
@@ -202,4 +205,6 @@
     <string name="general_error_report_bug_action">Irrapporta bug</string>
     <string name="general_error_ipc_deadobject_title">Konnessjoni tas-servizz mitlufa</string>
     <string name="general_error_ipc_deadobject_description">Konnessjoni ma\' servizz kritiku (eż. Magisk, Shizuku, jew servizzi oħra fil-livell tas-sistema) mitlufa mhux mistenni. Jekk jogħġbok irristartja l-apparat tiegħek. Jekk il-problema tibqa\', iċċekkja għal aġġornamenti jew ikkuntattjani biex nissolvha.</string>
+    <string name="general_user_label_owner">Sid</string>
+    <string name="general_user_label_system">Sistema</string>
 </resources>

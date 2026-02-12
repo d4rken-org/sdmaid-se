@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Den här funktionen pågår fortfarande och är inte tillgänglig för närvarande.</string>
     <string name="general_share_action">Dela med sig</string>
     <string name="general_done_action">Gjort</string>
+    <string name="general_apply_action">Tillämpa</string>
     <string name="general_copy_action">Kopiera</string>
     <string name="general_wipe_action">Torka</string>
     <string name="general_cancel_action">Annullera</string>
     <string name="general_discard_action">Kassera</string>
     <string name="general_reset_action">Återställa</string>
+    <string name="general_drag_handle_description">Dra för att ordna om</string>
     <string name="general_save_action">Spara</string>
     <string name="general_thanks_action">Tack</string>
     <string name="general_gotit_action">Jag fattar</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Redigera</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Tömma</string>
+    <string name="general_new_badge_label">Ny</string>
     <string name="general_dismiss_action">Avfärda</string>
     <string name="general_maybe_later_action">Kanske senare</string>
     <string name="general_manage_action">Hantera</string>
@@ -92,6 +95,10 @@
     <string name="general_toggle_layout_mode">Växla visningsläge</string>
     <string name="general_delete_confirmation_title">Bekräfta radering</string>
     <string name="general_delete_confirmation_message_x">Ta bort \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Ta bort %d markerat objekt?</item>
+        <item quantity="other">Ta bort %d markerade objekt?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Raderade %d objekt.</item>
         <item quantity="other">Raderade %d objekt.</item>

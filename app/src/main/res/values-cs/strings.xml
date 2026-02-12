@@ -631,6 +631,7 @@
     <string name="squeezer_onboarding_compressed_label">Po kompresi</string>
     <string name="squeezer_onboarding_quality_label">Kvalita: %d%%</string>
     <string name="squeezer_onboarding_got_it">Rozumím</string>
+    <string name="squeezer_compare_action">Zobrazit porovnání</string>
     <string name="squeezer_no_example_found">Nenalezeny obrázky ve vybraných cestách.</string>
     <string name="squeezer_result_empty_message">Nenalezeny obrázky ke kompresi.</string>
     <string name="squeezer_setup_warning">Komprese trvale snižuje kvalitu obrázku, aby se ušetřil prostor v úložišti. Tuto akci nelze vrátit zpět. Před spuštěním pečlivě zkontrolujte nastavení.</string>
@@ -1041,8 +1042,10 @@
     <string name="swiper_label">Přetahovač</string>
     <string name="swiper_tool_name">Přetahovač</string>
     <string name="swiper_tool_description">Rozhodněte přejetím přes soubory, co chcete zachovat nebo odstranit.</string>
+    <string name="swiper_dashcard_description">Ručně zkontrolujte soubory v konkrétních složkách. Přejetím rozhodněte, co ponechat nebo smazat.</string>
     <string name="swiper_start_action">Začít přetahovat</string>
     <string name="swiper_continue_action">Pokračovat v relaci</string>
+    <string name="swiper_sessions_description">Některé soubory vyžadují lidské rozhodnutí. Přejeďte přes položky a vyberte, co ponechat nebo smazat. Přeskočte vše, čím si nejste jisti. Tento nástroj umožňuje ruční kontrolu konkrétních složek a nic nebude odstraněno, dokud to nepotvrdíte.</string>
     <string name="swiper_select_folders_action">Vybrat složku</string>
     <string name="swiper_scanning_title">Skenování…</string>
     <plurals name="swiper_result_x_items_found">

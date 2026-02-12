@@ -717,6 +717,270 @@
     <string name="area_type_public_obb_label">Nyilvános alkalmazás-erőforrások</string>
     <string name="area_type_private_data_label">Privát alkalmazásadatok</string>
     <string name="area_type_portable_label">Hordozható tárolás</string>
+    <string name="dashboard_card_config_title">Irányítópult kártyák</string>
+    <string name="dashboard_card_config_desc">Állítsd be, mely kártyák jelenjenek meg és milyen sorrendben</string>
+    <string name="dashboard_card_config_header_title">Húzd az átrendezéshez, kapcsold be/ki a megjelenítéshez/elrejtéshez</string>
+
+    <string name="debug_debuglog_screen_title">Hibakeresési napló</string>
+    <string name="debug_debuglog_screen_discard_action">Elvetés</string>
+    <string name="debug_debuglog_screen_session_path_label">Munkamenet útvonala</string>
+    <string name="debug_debuglog_screen_log_files_label">Naplófájlok</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fájl kész (%2$s)</item>
+        <item quantity="other">%1$d fájl kész (%2$s)</item>
+    </plurals>
+
+    <string name="support_debuglog_folder_label">Hibakeresési napló mappa</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d fájl, %2$s helyet foglal</item>
+        <item quantity="other">%1$d fájl, %2$s helyet foglal</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Nincsenek tárolt hibakeresési naplók</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Törli az összes hibakeresési naplót?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Ez véglegesen törli az összes tárolt hibakeresési napló munkamenetet. Ez a művelet nem vonható vissza.</string>
+
+    <string name="settings_acknowledgements_category_translations_title">Fordítások</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Ki fordította?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Köszönet</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Különleges köszönet barátainknak.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licencek</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Az SD Maid által használt szoftverek.</string>
+
+    <string name="debug_card_title">A hibakeresési mód engedélyezve van</string>
+    <string name="debug_card_trace_mode_label">Nyomkövetési mód engedélyezése</string>
+    <string name="debug_card_dryrun_mode_label">Próbaüzem (törlés letiltása)</string>
+    <string name="debug_card_areas_reload_action">Adatterületek újratöltése</string>
+    <string name="debug_card_pkgs_reload_action">Alkalmazások újratöltése</string>
+    <string name="debug_card_root_test_action">Root tesztelése</string>
+    <string name="debug_card_shizuku_test_action">Shizuku tesztelése</string>
+
+    <string name="corpsefinder_filter_artprofiles_label">ART profilok</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Az ART profilokat az Android az alkalmazások teljesítményének optimalizálásához használja.</string>
+
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Azonos verzió belefoglalása</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">A telepített verzióval megegyező APK fájlok is szerepeljenek. Tiltsd le, hogy csak a régebbi verziók legyenek eltávolítva.</string>
+
+    <string name="systemcleaner_customfilter_editor_size_label">Méretkorlátozások</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimális méret</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maximális méret</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Találatok szűrése fájlméret alapján. Hagyd üresen a bármely mérethez való illeszkedéshez.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Korkorlátozások</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimális kor</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maximális kor</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Találatok szűrése fájlkor alapján (utolsó módosítás ideje). Hagyd üresen a bármely korhoz való illeszkedéshez.</string>
+
+    <string name="appcleaner_filter_shortcutservice_label">Alkalmazás-parancsikon ikonok</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Gyorsítótárazott ikonok az alkalmazás-parancsikonokhoz és megosztási menükhöz.</string>
+
+    <string name="appcleaner_forcestop_before_clearing_label">Kényszerleállítás törlés előtt</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Alkalmazások kényszerleállítása a gyorsítótár törlése előtt. Segíthet egyes alkalmazások gyorsítótárának törlésében, de az alkalmazások hibásan működhetnek és kézi újraindítást igényelhetnek.</string>
+    <string name="appcleaner_progress_force_stopping">Alkalmazások kényszerleállítása…</string>
+
+    <string name="deduplicator_keep_prefer_paths_title">Előnyben részesítendő hely</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Amikor eldől, melyik másolatot tartjuk meg, ezeken a helyeken lévő fájlok élveznek előnyt.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Nincsenek konfigurált helyek</string>
+
+    <string name="deduplicator_arbiter_title">Törlési stratégia</string>
+    <string name="deduplicator_arbiter_summary">Állítsd be, mely fájlok maradjanak meg és melyek legyenek törölve.</string>
+    <string name="deduplicator_arbiter_explanation">Duplikátumok törlésekor az SD Maid az egyes kritériumokat sorrendben ellenőrizve dönti el, melyik fájlt tartja meg. Az első egyértelmű eredményt adó kritérium határozza meg a döntést. Húzd az átrendezéshez, érintsd meg a mód váltásához.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Mód kiválasztása</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Útvonalak beállítása…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Duplikátum típusa</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Pontos egyezések előnyben részesítése a hasonló fájlokkal szemben.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Média indexelés</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Figyelembe veszi, hogy a fájlok indexelve vannak-e a médiaszolgáltató által.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Tárolási hely</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Belső vagy külső tárhelyen lévő fájlok előnyben részesítése.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Mappamélység</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Sekélyebb vagy mélyebb mappastruktúrában lévő fájlok előnyben részesítése.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Módosítás dátuma</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Régebbi vagy újabb fájlok előnyben részesítése a módosítás ideje alapján.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Fájlméret</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Nagyobb vagy kisebb fájlok előnyben részesítése, ha a méretek különböznek.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Előnyben részesített helyek</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Fájlok megtartása a konfigurált előnyben részesített helyeken.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Pontos egyezések előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Hasonló fájlok előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Indexelt fájlok előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Nem indexelt fájlok előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Belső tárhely előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Külső tárhely előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Sekély mappák előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Mélyebb mappák előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Régebbi fájlok előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Újabb fájlok előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Nagyobb fájlok előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Kisebb fájlok előnyben részesítése</string>
+
+    <string name="deduplicator_view_mode_groups_label">Csoportok</string>
+    <string name="deduplicator_view_mode_directories_label">Mappák</string>
+
+    <string name="squeezer_onboarding_title">A képtömörítésről</string>
+    <string name="squeezer_onboarding_message">A képtömörítés csökkenti a fájlméretet a vizuális részletek eltávolításával. Ez a folyamat visszafordíthatatlan - az eredeti minőség nem állítható vissza.\n\nÍgy fognak kinézni a képeid:</string>
+    <string name="squeezer_onboarding_original_label">Eredeti</string>
+    <string name="squeezer_onboarding_compressed_label">Tömörítés után</string>
+    <string name="squeezer_onboarding_quality_label">Minőség: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Értem</string>
+    <string name="squeezer_compare_action">Összehasonlítás megtekintése</string>
+    <string name="squeezer_no_example_found">Nem található kép a kiválasztott útvonalakon.</string>
+    <string name="squeezer_result_empty_message">Nem található tömöríthető kép.</string>
+    <string name="squeezer_setup_warning">A tömörítés véglegesen csökkenti a képminőséget a tárhely megtakarítása érdekében. Ez nem vonható vissza. Gondosan ellenőrizd a beállításokat az indítás előtt.</string>
+    <string name="squeezer_setup_explanation">A Média Squeeze csökkenti a képfájlok méretét a tárhely felszabadításához. Ez véglegesen csökkenti a képminőséget és nem vonható vissza. Gondosan ellenőrizd a beállításokat az indítás előtt.</string>
+    <string name="squeezer_setup_paths_title">Keresési helyek</string>
+    <string name="squeezer_setup_paths_default">Válassz mappákat a kereséshez</string>
+    <string name="squeezer_setup_quality_title">Tömörítési minőség</string>
+    <string name="squeezer_setup_age_title">Minimális kor</string>
+    <string name="squeezer_setup_age_none">Nincs korlát (összes fájl)</string>
+    <string name="squeezer_setup_start_action">Keresés indítása</string>
+    <string name="squeezer_quality_hint_very_low">A 40%% alatti minőség használhatatlan képeket eredményezhet.</string>
+    <string name="squeezer_quality_hint_low">Az alacsonyabb minőség több helyet takarít meg, de látható műtermékeket okozhat.</string>
+    <string name="squeezer_quality_hint_high">A nagyon magas minőség minimális helytakarékosságot biztosít.</string>
+    <string name="squeezer_quality_hint_normal">Kiegyensúlyozott minőség és helytakarékosság.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Legalább %d napos</item>
+        <item quantity="other">Legalább %d napos</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Becsült ~%d%% megtakarítás JPEG fájlokhoz</string>
+
+    <string name="shortcut_appcontrol_short">Alkalmazáskezelő</string>
+    <string name="shortcut_appcontrol_long">Telepített alkalmazások kezelése</string>
+    <string name="shortcut_onetap_short">Keresés + Törlés</string>
+    <string name="shortcut_onetap_long">Keresés és törlés egy lépésben</string>
+
+    <string name="shortcuts_settings_category">Parancsikonok</string>
+    <string name="shortcuts_onetap_enabled_title">Egyérintéses parancsikon</string>
+    <string name="shortcuts_onetap_enabled_summary">\"Keresés + Törlés\" parancsikon megjelenítése az alkalmazásikon hosszú nyomásakor. Ugyanazokat az eszközöket használja, mint az egyérintéses irányítópult.</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Húzd a fájlokat, hogy eldöntsd, mit tartasz meg és mit törölsz.</string>
+    <string name="swiper_dashcard_description">Kézi áttekintés adott mappákban. Húzd a fájlokat, hogy eldöntsd, mit tartasz meg és mit törölsz.</string>
+    <string name="swiper_start_action">Húzogatás indítása</string>
+    <string name="swiper_continue_action">Munkamenet folytatása</string>
+    <string name="swiper_sessions_description">Egyes fájloknál emberi döntés szükséges. Húzd végig az elemeket és válaszd ki, mit tartasz meg és mit törölsz. Hagyd ki, amiben nem vagy biztos. Ez az eszköz lehetővé teszi mappák kézi áttekintését, és semmi sem törlődik a megerősítésig.</string>
+    <string name="swiper_select_folders_action">Mappák kiválasztása</string>
+    <string name="swiper_scanning_title">Keresés…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d elem található</item>
+        <item quantity="other">%d elem található</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d elem törölve</item>
+        <item quantity="other">%d elem törölve</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d elem sikertelen</item>
+        <item quantity="other">%d elem sikertelen</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">Megtartás</string>
+    <string name="swiper_skip_action">Kihagyás</string>
+    <string name="swiper_review_action">Áttekintés</string>
+    <string name="swiper_status_title">Döntések áttekintése</string>
+    <string name="swiper_status_action_keep_selected">Kijelöltek megtartása</string>
+    <string name="swiper_status_action_delete_selected">Kijelöltek törlése</string>
+    <string name="swiper_status_action_reset_selected">Kijelöltek visszaállítása</string>
+    <string name="swiper_decision_undecided">Eldöntetlen</string>
+    <string name="swiper_retry_action">Újrapróbálás</string>
+    <string name="swiper_delete_confirmation_title">Fájlok törlése?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Ez véglegesen törli a(z) %1$d fájlt (%2$s). Ez a művelet nem vonható vissza.</item>
+        <item quantity="other">Ez véglegesen törli a(z) %1$d fájlt (%2$s). Ez a művelet nem vonható vissza.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d eldöntetlen elem marad későbbi áttekintésre.</item>
+        <item quantity="other">%d eldöntetlen elem marad későbbi áttekintésre.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d törlése</string>
+    <string name="swiper_settings_swap_directions_title">Húzási irányok felcserélése</string>
+    <string name="swiper_settings_swap_directions_summary">Balra húzás a megtartáshoz, jobbra a törléshez.</string>
+    <string name="swiper_settings_show_details_title">Fájl részletek megjelenítése</string>
+    <string name="swiper_settings_show_details_summary">Fájlnév, méret és dátum megjelenítése a húzogatási képernyőn.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptikus visszajelzés</string>
+    <string name="swiper_settings_haptic_feedback_summary">Rezgés a megtartás vagy törlés döntéseknél.</string>
+    <string name="swiper_discard_session_confirmation_title">Munkamenet elvetése?</string>
+    <string name="swiper_discard_session_confirmation_message">Minden döntés elvész. Biztosan folytatod?</string>
+    <string name="swiper_no_preview_available">Nincs elérhető előnézet</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Munkamenet folytatása %1$d napja (%2$d%% kész)</item>
+        <item quantity="other">Munkamenet folytatása %1$d napja (%2$d%% kész)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d munkamenet</item>
+        <item quantity="other">%d munkamenet</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d eldöntetlen elem</item>
+        <item quantity="other">%d eldöntetlen elem</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Létrehozva: %1$s, utolsó tevékenység: %2$s</string>
+    <string name="swiper_session_remove_action">Munkamenet eltávolítása</string>
+    <string name="swiper_sessions_empty_hint">Érintsd meg a + gombot egy mappa kiválasztásához és a húzogatás megkezdéséhez</string>
+    <string name="swiper_sessions_upgrade_body">Frissíts a korlátok eltávolításához és a fejlesztés támogatásához. Az ingyenes verzió korlátai:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d fájl munkamenetenként</item>
+        <item quantity="other">%d fájl munkamenetenként</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d munkamenet</item>
+        <item quantity="other">%d munkamenet</item>
+    </plurals>
+    <string name="swiper_session_default_label">Munkamenet #%d</string>
+    <string name="swiper_session_rename_title">Munkamenet átnevezése</string>
+    <string name="swiper_session_rename_hint">Add meg a munkamenet nevét</string>
+    <string name="swiper_sessions_current_sessions">Jelenlegi munkamenetek</string>
+    <string name="swiper_session_paths_label">Útvonalak</string>
+    <string name="swiper_session_status_label">Állapot</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d megtartandó</item>
+        <item quantity="other">%d megtartandó</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d törlendő</item>
+        <item quantity="other">%d törlendő</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d eldöntetlen</item>
+        <item quantity="other">%d eldöntetlen</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d már megtartva</item>
+        <item quantity="other">%d már megtartva</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d már törölve</item>
+        <item quantity="other">%d már törölve</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d megtartva</item>
+        <item quantity="other">%d megtartva</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d törölve</item>
+        <item quantity="other">%d törölve</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\" kizárása a Swiper keresésekből?</string>
+    <string name="swiper_sessions_header_title">Készen állsz a rendrakásra?</string>
+    <string name="swiper_sessions_suggestions_label">Próbáld ki ezekkel:</string>
+    <string name="swiper_sessions_suggestion_downloads">Letöltések mappa</string>
+    <string name="swiper_sessions_suggestion_screenshots">Képernyőképek</string>
+    <string name="swiper_sessions_suggestion_camera">Kameratekercs</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Tartsd!</string>
+    <string name="swiper_stamp_keep_2">Szép!</string>
+    <string name="swiper_stamp_keep_3">Igen!</string>
+    <string name="swiper_stamp_keep_4">Mentés!</string>
+    <string name="swiper_stamp_delete_1">Nem!</string>
+    <string name="swiper_stamp_delete_2">Szia!</string>
+    <string name="swiper_stamp_delete_3">Kuka!</string>
+    <string name="swiper_stamp_delete_4">Törlés!</string>
+    <string name="swiper_stamp_skip_1">Kihagy!</string>
+    <string name="swiper_stamp_skip_2">Hm!</string>
+    <string name="swiper_stamp_skip_3">Később!</string>
+    <string name="swiper_stamp_skip_4">Talán!</string>
+    <string name="swiper_stamp_undo_1">Vissza!</string>
+    <string name="swiper_stamp_undo_2">Mégsem!</string>
+    <string name="swiper_stamp_undo_3">Hoppá!</string>
+    <string name="swiper_stamp_undo_4">Várj!</string>
 </resources>

@@ -19,11 +19,13 @@
     <string name="general_todo_msg">此功能仍在改善中，目前無法使用。</string>
     <string name="general_share_action">分享</string>
     <string name="general_done_action">完成</string>
+    <string name="general_apply_action">套用</string>
     <string name="general_copy_action">複製</string>
     <string name="general_wipe_action">抹除</string>
     <string name="general_cancel_action">取消</string>
     <string name="general_discard_action">捨棄</string>
     <string name="general_reset_action">重設</string>
+    <string name="general_drag_handle_description">拖曳以重新排序</string>
     <string name="general_save_action">儲存</string>
     <string name="general_thanks_action">感謝</string>
     <string name="general_gotit_action">瞭解了</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">編輯</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">空白</string>
+    <string name="general_new_badge_label">新</string>
     <string name="general_dismiss_action">關閉</string>
     <string name="general_maybe_later_action">稍後再說</string>
     <string name="general_manage_action">管理</string>
@@ -91,6 +94,9 @@
     <string name="general_toggle_layout_mode">切換檢視模式</string>
     <string name="general_delete_confirmation_title">確認刪除</string>
     <string name="general_delete_confirmation_message_x">刪除「%s」？</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="other">刪除 %d 個已選取的項目？</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">已刪除 %d 個項目。</item>
     </plurals>
@@ -154,4 +160,6 @@
     <string name="general_error_report_bug_action">報告錯誤</string>
     <string name="general_error_ipc_deadobject_title">服務連線中斷</string>
     <string name="general_error_ipc_deadobject_description">與重要服務（例如 Magisk、Shizuku 或其他系統級服務）的連線意外中斷。請重新啟動您的裝置。如果問題持續存在，請檢查更新或聯絡我以便修復。</string>
+    <string name="general_user_label_owner">擁有者</string>
+    <string name="general_user_label_system">系統</string>
 </resources>

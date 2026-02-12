@@ -483,6 +483,7 @@
     <string name="squeezer_history_clear_title">Εκκαθάριση ιστορικού συμπίεσης</string>
     <string name="squeezer_setup_quality_title">Ποιότητα συμπίεσης</string>
     <string name="squeezer_setup_start_action">Έναρξη σάρωσης</string>
+    <string name="squeezer_compare_action">Προβολή σύγκρισης</string>
     <string name="appcontrol_tool_name">Έλεγχος Εφαρμογών</string>
     <string name="appcontrol_explanation_short">Εφαρμογές εγκατεστημένες στη συσκευή σας.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -794,6 +795,8 @@
     <string name="shortcuts_settings_category">Συντομεύσεις</string>
     <string name="shortcuts_onetap_enabled_title">Συντόμευση ενός πατήματος</string>
     <string name="shortcuts_onetap_enabled_summary">Εμφάνιση συντόμευσης \"Σάρωση + Διαγραφή\" όταν πατάτε παρατεταμένα το εικονίδιο της εφαρμογής. Χρησιμοποιεί τα ίδια εργαλεία με τον πίνακα ενός πατήματος.</string>
+    <string name="swiper_dashcard_description">Ελέγξτε χειροκίνητα αρχεία σε συγκεκριμένους φακέλους. Σύρετε για να αποφασίσετε τι θα κρατήσετε ή θα διαγράψετε.</string>
+    <string name="swiper_sessions_description">Ορισμένα αρχεία χρειάζονται ανθρώπινη απόφαση. Σύρετε στα στοιχεία και επιλέξτε τι θα κρατήσετε ή θα διαγράψετε. Παραλείψτε ό,τι δεν είστε σίγουροι. Αυτό το εργαλείο σας επιτρέπει να ελέγξετε χειροκίνητα συγκεκριμένους φακέλους και τίποτα δεν αφαιρείται μέχρι να επιβεβαιώσετε.</string>
     <string name="swiper_select_folders_action">Επιλογή φακέλων</string>
     <string name="swiper_scanning_title">Σάρωση…</string>
     <string name="swiper_item_position">#%1$d από %2$d</string>

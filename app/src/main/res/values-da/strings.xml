@@ -511,6 +511,7 @@
     <string name="squeezer_onboarding_compressed_label">Efter komprimering</string>
     <string name="squeezer_onboarding_quality_label">Kvalitet: %d%%</string>
     <string name="squeezer_onboarding_got_it">Forstået</string>
+    <string name="squeezer_compare_action">Vis sammenligning</string>
     <string name="squeezer_no_example_found">Ingen billeder fundet i valgte stier.</string>
     <string name="squeezer_result_empty_message">Ingen komprimerbare billeder fundet.</string>
     <string name="appcontrol_tool_name">AppControl</string>
@@ -809,8 +810,10 @@
     <string name="shortcuts_onetap_enabled_title">Ettryksgenvej</string>
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_dashcard_description">Gennemgå filer i specifikke mapper manuelt. Stryg for at beslutte hvad der skal beholdes eller slettes.</string>
     <string name="swiper_start_action">Start strygning</string>
     <string name="swiper_continue_action">Fortsæt session</string>
+    <string name="swiper_sessions_description">Nogle filer kræver en menneskelig beslutning. Stryg gennem elementer og vælg hvad der skal beholdes eller slettes. Spring over alt du er usikker på. Dette værktøj lader dig gennemgå specifikke mapper manuelt, og intet fjernes før du bekræfter.</string>
     <string name="swiper_select_folders_action">Vælg mapper</string>
     <!-- Shorter versions for side-by-side display -->
     <!-- Swiper stamp variations (Tinder-style labels) -->

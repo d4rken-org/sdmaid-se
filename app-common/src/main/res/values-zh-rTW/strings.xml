@@ -19,11 +19,13 @@
     <string name="general_todo_msg">此功能仍在改善中，目前無法使用。</string>
     <string name="general_share_action">分享</string>
     <string name="general_done_action">完成</string>
+    <string name="general_apply_action">套用</string>
     <string name="general_copy_action">複製</string>
     <string name="general_wipe_action">抹除</string>
     <string name="general_cancel_action">取消</string>
     <string name="general_discard_action">捨棄</string>
     <string name="general_reset_action">重設</string>
+    <string name="general_drag_handle_description">拖曳以重新排序</string>
     <string name="general_save_action">儲存</string>
     <string name="general_thanks_action">感謝</string>
     <string name="general_gotit_action">瞭解了</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">編輯</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">空白</string>
+    <string name="general_new_badge_label">新增</string>
     <string name="general_dismiss_action">關閉</string>
     <string name="general_maybe_later_action">稍後再說</string>
     <string name="general_manage_action">管理</string>

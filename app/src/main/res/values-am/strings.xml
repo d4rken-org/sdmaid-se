@@ -706,6 +706,362 @@
     <string name="area_type_public_obb_label">ሕዝባዊ የመተግበሪያ ሀብቶች</string>
     <string name="area_type_private_data_label">ግላዊ የመተግበሪያ ውሂብ</string>
     <string name="area_type_portable_label">ተለዋዋጭ ማጠራቀሚያ</string>
+    <string name="dashboard_card_config_title">የዳሽቦርድ ካርዶች</string>
+    <string name="dashboard_card_config_desc">የትኞቹ ካርዶች እንደሚታዩና ቅደም ተከተላቸውን ያዋቅሩ</string>
+    <string name="dashboard_card_config_header_title">እንደገና ለማዘዝ ይጎትቱ፣ ለማሳየት/ለመደበቅ ይቀያይሩ</string>
+    <string name="debug_debuglog_screen_title">የመለያ ምዝግብ ማስታወሻ</string>
+    <string name="debug_debuglog_screen_discard_action">ጣል</string>
+    <string name="debug_debuglog_screen_session_path_label">የክፍለ ጊዜ ዱካ</string>
+    <string name="debug_debuglog_screen_log_files_label">የምዝግብ ማስታወሻ ፋይሎች</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d ፋይል ዝግጁ (%2$s)</item>
+        <item quantity="other">%1$d ፋይሎች ዝግጁ (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_folder_label">የመለያ ምዝግብ ማስታወሻ ማህደር</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d ፋይል %2$s የሚጠቀም</item>
+        <item quantity="other">%1$d ፋይሎች %2$s የሚጠቀሙ</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">ምንም የመለያ ምዝግብ ማስታወሻ አልተቀመጠም</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">ሁሉንም የመለያ ምዝግብ ማስታወሻዎች ይሰርዙ?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">ይህ ሁሉንም የተቀመጡ የመለያ ምዝግብ ማስታወሻ ክፍለ ጊዜዎችን በቋሚነት ይሰርዛል። ይህ ድርጊት ሊሰረዝ አይችልም።</string>
+    <string name="settings_acknowledgements_category_translations_title">ትርጉሞች</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">ይህን ማን ተርጎመው?</string>
+    <string name="settings_acknowledgements_category_thanks_title">ምስጋና</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">ለጓደኞቻችን ልዩ ምስጋና።</string>
+    <string name="settings_acknowledgements_category_licenses_title">ፍቃዶች</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">በSD Maid የሚጠቀምባቸው ሶፍትዌሮች።</string>
+    <string name="debug_card_title">የመለያ ሁነታ ነቅቷል</string>
+    <string name="debug_card_trace_mode_label">የመከታተያ ሁነታ አንቃ</string>
+    <string name="debug_card_dryrun_mode_label">ደረቅ-ሩጫ ሁነታ (መሰረዝ አሰናክል)</string>
+    <string name="debug_card_areas_reload_action">የውሂብ ቦታዎችን እንደገና ጫን</string>
+    <string name="debug_card_pkgs_reload_action">መተግበሪያዎችን እንደገና ጫን</string>
+    <string name="debug_card_root_test_action">Root ፈትን</string>
+    <string name="debug_card_shizuku_test_action">Shizuku ፈትን</string>
+    <string name="corpsefinder_filter_artprofiles_label">የART ፕሮፋይሎች</string>
+    <string name="corpsefinder_filter_artprofiles_summary">የART ፕሮፋይሎች በAndroid የመተግበሪያ አፈጻጸምን ለማሻሻል ይጠቅማሉ።</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">በተጫኑ የመተግበሪያ ስሪቶች ላይ ተመስርተው ከአሁን በኋላ የማያስፈልጉ የመጫኛ ፋይሎች።</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">ተመሳሳይ ስሪት ያካትት</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">ከተጫነው ስሪት ጋር የሚዛመዱ APK ፋይሎችንም ያነጣጥሩ። የቆዩ ስሪቶችን ብቻ ለማስወገድ ያሰናክሉ።</string>
+    <string name="systemcleaner_customfilter_editor_size_label">የመጠን ገደቦች</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">ዝቅተኛ መጠን</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">ከፍተኛ መጠን</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">በፋይል መጠን ላይ ተመስርተው ግጥሚያዎችን ይገድቡ። ማንኛውንም መጠን ለማዛመድ ሳያዘጋጁ ይተዉ።</string>
+    <string name="systemcleaner_customfilter_editor_age_label">የዕድሜ ገደቦች</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">ዝቅተኛ ዕድሜ</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">ከፍተኛ ዕድሜ</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">በፋይል ዕድሜ (የመጨረሻ ማሻሻያ ጊዜ) ላይ ተመስርተው ግጥሚያዎችን ይገድቡ። ማንኛውንም ዕድሜ ለማዛመድ ሳያዘጋጁ ይተዉ።</string>
+    <string name="appcleaner_filter_shortcutservice_label">የመተግበሪያ ምቹ መንገድ አዶዎች</string>
+    <string name="appcleaner_filter_shortcutservice_summary">ለመተግበሪያ ምቹ መንገዶችና ማጋሪያ ምናሌዎች የተደበቁ አዶዎች።</string>
+    <string name="appcleaner_forcestop_before_clearing_label">ከማጽዳት በፊት በግዳጅ አቁም</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">ማኅደራቸውን ከማጽዳት በፊት መተግበሪያዎችን በግዳጅ ያቁሙ። የአንዳንድ መተግበሪያዎችን ማኅደር ለማጽዳት ሊረዳ ይችላል፣ ግን መተግበሪያዎች በትክክል እንዳይሰሩ ሊያደርግና በእጅ እንደገና ማስጀመር ሊያስፈልግ ይችላል።</string>
+    <string name="appcleaner_progress_force_stopping">መተግበሪያዎችን በግዳጅ ማቆም…</string>
+    <string name="deduplicator_detection_method_phash_summary">የይዘት ባህሪያትን በመተንተንና የማስተዋል ሃሽ ዋጋዎችን በማነጻጸር ተመሳሳይ ፋይሎችን ያግኙ። ⚠️ በተመሳሳይነት ላይ የተመሰረተ ግኝት በእጅ ማረጋገጫ የሚያስፈልጋቸውን የሐሰት አዎንታዊ ውጤቶች ሊያካትት ይችላል።</string>
+    <string name="deduplicator_arbiter_title">የመሰረዝ ስትራቴጂ</string>
+    <string name="deduplicator_arbiter_summary">የትኞቹ ፋይሎች እንደሚቀመጡና እንደሚሰረዙ ያዋቅሩ።</string>
+    <string name="deduplicator_arbiter_explanation">ባለመደባለቅ ሲሰርዝ SD Maid እያንዳንዱን መስፈርት በቅደም ተከተል በመፈተሽ የትኛውን ፋይል እንደሚያስቀምጥ ይወስናል። ግልጽ አሸናፊ የሚያመጣው የመጀመሪያው መስፈርት ውጤቱን ይወስናል። እንደገና ለማዘዝ ይጎትቱ፣ ሁነታ ለመቀየር ይንኩ።</string>
+    <string name="deduplicator_arbiter_select_mode_title">ሁነታ ይምረጡ</string>
+    <string name="deduplicator_arbiter_configure_paths_action">ዱካዎችን ያዋቅሩ…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">የባለመደባለቅ ዓይነት</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">ከተመሳሳይ ፋይሎች ይልቅ ትክክለኛ ቅጂዎችን ይመርጡ።</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">የሚዲያ ማውጫ</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">ፋይሎች በሚዲያ አቅራቢ የተመዘገቡ መሆናቸውን ያስቡ።</string>
+    <string name="deduplicator_arbiter_criterium_location_title">የማከማቻ ቦታ</string>
+    <string name="deduplicator_arbiter_criterium_location_description">በውስጥ ወይም ውጫዊ ማከማቻ ላይ ያሉ ፋይሎችን ይመርጡ።</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">የማህደር ጥልቀት</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">ጥልቀት በሌላቸው ወይም ጥልቅ የማህደር መዋቅሮች ውስጥ ያሉ ፋይሎችን ይመርጡ።</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">የማሻሻያ ቀን</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">በማሻሻያ ጊዜ ላይ ተመስርተው የቆዩ ወይም አዳዲስ ፋይሎችን ይመርጡ።</string>
+    <string name="deduplicator_arbiter_criterium_size_title">የፋይል መጠን</string>
+    <string name="deduplicator_arbiter_criterium_size_description">መጠኖች ሲለያዩ ትልልቅ ወይም ትንንሽ ፋይሎችን ይመርጡ።</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">ተመራጭ ቦታዎች</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">ፋይሎችን ባዋቀሩት ተመራጭ ቦታዎች ያስቀምጡ።</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">ትክክለኛ ቅጂዎችን ይመርጡ</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">ተመሳሳይ ፋይሎችን ይመርጡ</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">የተመዘገቡ ፋይሎችን ይመርጡ</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">ያልተመዘገቡ ፋይሎችን ይመርጡ</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">ውስጣዊ ማከማቻን ይመርጡ</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">ውጫዊ ማከማቻን ይመርጡ</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">ጥልቀት የሌላቸው ማህደሮችን ይመርጡ</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">ጥልቅ ማህደሮችን ይመርጡ</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">የቆዩ ፋይሎችን ይመርጡ</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">አዳዲስ ፋይሎችን ይመርጡ</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">ትልልቅ ፋይሎችን ይመርጡ</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">ትንንሽ ፋይሎችን ይመርጡ</string>
+    <string name="deduplicator_view_mode_groups_label">ቡድኖች</string>
+    <string name="deduplicator_view_mode_directories_label">ማህደሮች</string>
+    <string name="squeezer_tool_name">ሚዲያ መጨመቂያ</string>
+    <string name="squeezer_explanation_short">የማከማቻ ቦታ ለመቆጠብ ምስሎችን ይጨምቁ።</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d ምስል ተገኝቷል</item>
+        <item quantity="other">%d ምስሎች ተገኝተዋል</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s ሊቆጠብ ይችላል</item>
+        <item quantity="other">~%s ሊቆጠቡ ይችላሉ</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d ምስል ተጨምቋል</item>
+        <item quantity="other">%d ምስሎች ተጨምቀዋል</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d ምስል ተመርጧል</item>
+        <item quantity="other">%d ምስሎች ተመርጠዋል</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">የፍለጋ ቦታዎች</string>
+    <string name="squeezer_search_locations_default_summary">የካሜራ ማህደሮች (ነባሪ)</string>
+    <string name="squeezer_min_size_title">ዝቅተኛ የፋይል መጠን</string>
+    <string name="squeezer_min_size_description">ከዚህ መጠን ያነሱ ምስሎችን ይዝለሉ።</string>
+    <string name="squeezer_min_age_title">ዝቅተኛ የፋይል ዕድሜ</string>
+    <string name="squeezer_min_age_description">ከዚህ ዕድሜ የቆዩ ምስሎችን ብቻ ያካትቱ።</string>
+    <string name="squeezer_compression_settings_label">የመጨመቅ ቅንብሮች</string>
+    <string name="squeezer_quality_label">ጥራት</string>
+    <string name="squeezer_quality_title">የመጨመቅ ጥራት</string>
+    <string name="squeezer_quality_description">ዝቅ ያለ ጥራት ትንሽ የፋይል መጠን ማለት ነው ግን የቀነሰ የምስል ጥራት።</string>
+    <string name="squeezer_quality_example_format">ምሳሌ: %1$s ምስል → በ%3$d%% ጥራት ~%2$s ይቆጥባል</string>
+    <string name="squeezer_quality_warning_low">ዝቅ ያሉ ጥራቶች የሚታዩ ጉድለቶች ሊያስከትሉ ይችላሉ።</string>
+    <string name="squeezer_quality_warning_high">በጣም ከፍተኛ ጥራት ዝቅተኛ ቦታ ቁጠባ ይሰጣል።</string>
+    <string name="squeezer_types_category_label">የምስል ዓይነቶች</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">JPEG ምስሎችን (.jpg, .jpeg) ያካትቱ።</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">WebP ምስሎችን (.webp) ያካትቱ።</string>
+    <string name="squeezer_skip_compressed_title">ቀድሞ የተጨመቁትን ይዝለሉ</string>
+    <string name="squeezer_skip_compressed_description">በSD Maid ቀድሞ የተጨመቁ ምስሎችን ይዝለሉ።</string>
+    <string name="squeezer_exif_marker_title">EXIF ምልክት ይፃፉ</string>
+    <string name="squeezer_exif_marker_description">የመጨመቅ ታሪክ ቢጸዳ እንኳን እንደገና መጨመቅን ለመከላከል በምስሉ EXIF የተጠቃሚ አስተያየት መስክ ውስጥ ምልክት ያክሉ።</string>
+    <string name="squeezer_estimated_savings_format">~%s ቁጠባ</string>
+    <string name="squeezer_no_savings_expected">ውስን ቁጠባ</string>
+    <string name="squeezer_current_size_format">መጠን: %s</string>
+    <string name="squeezer_compress_action">ጨምቅ</string>
+    <string name="squeezer_compress_all_action">ሁሉንም ጨምቅ</string>
+    <string name="squeezer_preview_dialog_title">መጨመቅ ያረጋግጡ</string>
+    <string name="squeezer_preview_total_size">ጠቅላላ መጠን</string>
+    <string name="squeezer_preview_estimated_savings">የተገመተ ቁጠባ</string>
+    <string name="squeezer_compress_confirmation_title">ምስሎችን ይጨምቁ?</string>
+    <string name="squeezer_compress_confirmation_message">ይህ ዋና ምስሎችን በተጨመቁ ስሪቶች ይተካል። ይህ ድርጊት ሊሰረዝ አይችልም።</string>
+    <string name="squeezer_history_title">የመጨመቅ ታሪክ</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d ንጥል (%2$s)</item>
+        <item quantity="other">%1$d ንጥሎች (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">ምንም የመጨመቅ ታሪክ የለም</string>
+    <string name="squeezer_history_clear_title">የመጨመቅ ታሪክ ያጽዱ</string>
+    <string name="squeezer_history_clear_message">ይህ ቀድሞ የተጨመቁ ምስሎች እንደገና እንዲጨመቁ ያስችላል። ምስሎቹ ራሳቸው አይነኩም።</string>
+    <string name="squeezer_onboarding_title">ስለ ምስል መጨመቅ</string>
+    <string name="squeezer_onboarding_message">የምስል መጨመቅ ምስላዊ ዝርዝርን በማስወገድ የፋይል መጠንን ይቀንሳል። ይህ ሂደት ሊቀለበስ አይችልም - ዋናው ጥራት ሊመለስ አይችልም።\n\nምስሎችዎ እንዴት እንደሚታዩ ቅድመ-ዕይታ ይኸውና:</string>
+    <string name="squeezer_onboarding_original_label">ዋና</string>
+    <string name="squeezer_onboarding_compressed_label">ከመጨመቅ በኋላ</string>
+    <string name="squeezer_onboarding_quality_label">ጥራት: %d%%</string>
+    <string name="squeezer_onboarding_got_it">ገባኝ</string>
+    <string name="squeezer_compare_action">ንጽጽር ይመልከቱ</string>
+    <string name="squeezer_no_example_found">በተመረጡ ዱካዎች ውስጥ ምንም ምስሎች አልተገኙም።</string>
+    <string name="squeezer_result_empty_message">ሊጨመቁ የሚችሉ ምስሎች አልተገኙም።</string>
+    <string name="squeezer_setup_warning">መጨመቅ የማከማቻ ቦታ ለመቆጠብ የምስል ጥራትን በቋሚነት ይቀንሳል። ይህ ሊሰረዝ አይችልም። ከመጀመርዎ በፊት ቅንብሮችዎን በጥንቃቄ ይገምግሙ።</string>
+    <string name="squeezer_setup_explanation">ሚዲያ መጨመቂያ የማከማቻ ቦታ ለማስለቀቅ የምስል ፋይል መጠንን ይቀንሳል። ይህ የምስል ጥራትን በቋሚነት ይቀንሳልና ሊሰረዝ አይችልም። ከመጀመርዎ በፊት ቅንብሮችዎን በጥንቃቄ ይገምግሙ።</string>
+    <string name="squeezer_setup_paths_title">የፍለጋ ቦታዎች</string>
+    <string name="squeezer_setup_paths_default">ለመፈለግ ማህደሮችን ይምረጡ</string>
+    <string name="squeezer_setup_quality_title">የመጨመቅ ጥራት</string>
+    <string name="squeezer_setup_age_title">ዝቅተኛ ዕድሜ</string>
+    <string name="squeezer_setup_age_none">ገደብ የለም (ሁሉንም ፋይሎች ያካትቱ)</string>
+    <string name="squeezer_setup_start_action">ፍለጋ ጀምር</string>
+    <string name="squeezer_quality_hint_very_low">ከ40% በታች ጥራት ጥቅም ላይ ሊውሉ የማይችሉ ምስሎችን ሊፈጥር ይችላል።</string>
+    <string name="squeezer_quality_hint_low">ዝቅ ያለ ጥራት ብዙ ቦታ ይቆጥባል ግን የሚታዩ ጉድለቶች ሊያስከትል ይችላል።</string>
+    <string name="squeezer_quality_hint_high">በጣም ከፍተኛ ጥራት ዝቅተኛ ቦታ ቁጠባ ይሰጣል።</string>
+    <string name="squeezer_quality_hint_normal">ሚዛናዊ ጥራትና ቦታ ቁጠባ።</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">ቢያንስ %d ቀን የቆየ</item>
+        <item quantity="other">ቢያንስ %d ቀናት የቆየ</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">ለJPEG ፋይሎች የሚገመት ~%d%% ቁጠባ</string>
+    <string name="appcontrol_archive_action">መዝገብ ቤት</string>
+    <string name="appcontrol_archive_selection_action">መተግበሪያዎችን ያስቀምጡ</string>
+    <string name="appcontrol_archive_description">በኋላ ለመመለስ የመተግበሪያ ውሂብ እየጠበቁ ቦታ ለማስለቀቅ ያስቀምጡ።</string>
+    <string name="appcontrol_progress_archiving_app">መተግበሪያ በማስቀመጥ ላይ…</string>
+    <string name="appcontrol_archive_confirmation_title">ማስቀመጥ ያረጋግጡ</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d መተግበሪያ ያስቀምጡ?</item>
+        <item quantity="other">%d መተግበሪያዎች ያስቀምጡ?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d መተግበሪያ ተቀምጧል</item>
+        <item quantity="other">%d መተግበሪያዎች ተቀምጠዋል</item>
+    </plurals>
+    <string name="appcontrol_restore_action">መልስ</string>
+    <string name="appcontrol_restore_selection_action">መተግበሪያዎችን ይመልሱ</string>
+    <string name="appcontrol_restore_description">የተቀመጠውን መተግበሪያ ወደ ሙሉ በሙሉ የተጫነ ሁኔታ ይመልሱ። የመተግበሪያ ውሂብ ተጠብቋል።</string>
+    <string name="appcontrol_progress_restoring_app">መተግበሪያ በመመለስ ላይ…</string>
+    <string name="appcontrol_restore_confirmation_title">መመለስ ያረጋግጡ</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d መተግበሪያ ይመልሱ?</item>
+        <item quantity="other">%d መተግበሪያዎች ይመልሱ?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d መተግበሪያ ተመልሷል</item>
+        <item quantity="other">%d መተግበሪያዎች ተመልሰዋል</item>
+    </plurals>
+    <string name="appcontrol_share_list_action">ዝርዝር ያጋሩ</string>
+    <string name="appcontrol_share_list_title">መተግበሪያዎቼ</string>
+    <string name="appcontrol_share_list_footer">በSD Maid SE የተጋራ</string>
+    <string name="appcontrol_automation_subtitle_archiving">በማስቀመጥ ላይ…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"ማስቀመጥ\" ቁልፍ በመፈለግ ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">በመመለስ ላይ…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"መመለስ\" ቁልፍ በመፈለግ ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcontrol_item_installedat_x_label">የተጫነበት: %s</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper ክፍለ ጊዜ ይፍጠሩ</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">ከ%d ንጥል ጋር Swiper ክፍለ ጊዜ ተፈጥሯል</item>
+        <item quantity="other">ከ%d ንጥሎች ጋር Swiper ክፍለ ጊዜ ተፈጥሯል</item>
+    </plurals>
+    <string name="anniversary_card_title">የSD Maid ዓመታዊ መታሰቢያ ❤️</string>
+    <string name="anniversary_card_install_date">ከ%s ጀምሮ ከእርስዎ ጋር</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">ቀድሞ %1$d ዓመት ተቀላቅለው። Android-ዎን ንጹህና ሥርዓት ያለው ለማድረግ SD Maid-ን ስላመኑ እናመሰግናለን። የተለቀቀ ቦታ: %2$s</item>
+        <item quantity="other">%1$d ዓመታት ጠንካራ። መሣሪያዎ ከSD Maid ጋር ንጹህና ሥርዓት ያለው ይቆያል። የተለቀቀ ቦታ: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">የSD Maid ዓመታዊ መታሰቢያዎን ያጋሩ</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">ከSD Maid ጋር %1$d ዓመት — የተለቀቀ ቦታ: %2$s። Android-ዎን ንጹህና ሥርዓት ያለው ያደርጋል። #SDMaid\nይሞክሩ: %3$s</item>
+        <item quantity="other">ከSD Maid ጋር %1$d ዓመታት — የተለቀቀ ቦታ: %2$s። Android-ዎን ንጹህና ሥርዓት ያለው ያደርጋል። #SDMaid\nይሞክሩ: %3$s</item>
+    </plurals>
+    <string name="shortcut_appcontrol_short">የመተግበሪያ ቁጥጥር</string>
+    <string name="shortcut_appcontrol_long">የተጫኑ መተግበሪያዎችን ያስተዳድሩ</string>
+    <string name="shortcut_onetap_short">ፈልግ + ሰርዝ</string>
+    <string name="shortcut_onetap_long">በአንድ ድርጊት ፈልግና ሰርዝ</string>
+    <string name="shortcuts_settings_category">ምቹ መንገዶች</string>
+    <string name="shortcuts_onetap_enabled_title">አንድ-ንካ ምቹ መንገድ</string>
+    <string name="shortcuts_onetap_enabled_summary">የመተግበሪያ አዶውን ረዘም ብለው ሲጫኑ \"ፈልግ + ሰርዝ\" ምቹ መንገድ ያሳዩ። ከአንድ-ንካ ዳሽቦርድ ጋር ተመሳሳይ መሣሪያዎችን ይጠቀማል።</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">ምን ማስቀመጥ ወይም መሰረዝ እንዳለብዎ ለመወሰን በፋይሎች ውስጥ ያንሸራትቱ።</string>
+    <string name="swiper_dashcard_description">በተወሰኑ ማህደሮች ውስጥ ፋይሎችን በእጅ ይገምግሙ። ምን ማስቀመጥ ወይም መሰረዝ እንዳለብዎ ለመወሰን ያንሸራትቱ።</string>
+    <string name="swiper_start_action">ማንሸራተት ጀምር</string>
+    <string name="swiper_continue_action">ክፍለ ጊዜ ቀጥል</string>
+    <string name="swiper_sessions_description">አንዳንድ ፋይሎች የሰው ውሳኔ ያስፈልጋቸዋል። በንጥሎች ውስጥ ያንሸራትቱና ምን ማስቀመጥ ወይም መሰረዝ እንዳለብዎ ይምረጡ። እርግጠኛ ያልሆኑትን ይዝለሉ። ይህ መሣሪያ የተወሰኑ ማህደሮችን በእጅ እንዲገመግሙ ያስችልዎታል፣ እና ካልአረጋገጡ ምንም አይወገድም።</string>
+    <string name="swiper_select_folders_action">ማህደሮች ይምረጡ</string>
+    <string name="swiper_scanning_title">በመፈለግ ላይ…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d ንጥል ተገኝቷል</item>
+        <item quantity="other">%d ንጥሎች ተገኝተዋል</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d ንጥል ተሰርዟል</item>
+        <item quantity="other">%d ንጥሎች ተሰርዘዋል</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d ንጥል ያልተሳካ</item>
+        <item quantity="other">%d ንጥሎች ያልተሳኩ</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d ከ%2$d</string>
+    <string name="swiper_keep_action">ያስቀምጡ</string>
+    <string name="swiper_skip_action">ይዝለሉ</string>
+    <string name="swiper_review_action">ይገምግሙ</string>
+    <string name="swiper_status_title">ውሳኔዎችን ይገምግሙ</string>
+    <string name="swiper_status_action_keep_selected">የተመረጡትን ያስቀምጡ</string>
+    <string name="swiper_status_action_delete_selected">የተመረጡትን ይሰርዙ</string>
+    <string name="swiper_status_action_reset_selected">የተመረጡትን ዳግም ያቀናብሩ</string>
+    <string name="swiper_decision_undecided">ያልተወሰነ</string>
+    <string name="swiper_retry_action">እንደገና ይሞክሩ</string>
+    <string name="swiper_delete_confirmation_title">ፋይሎችን ይሰርዙ?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">ይህ %1$d ፋይል (%2$s) በቋሚነት ይሰርዛል። ይህ ድርጊት ሊሰረዝ አይችልም።</item>
+        <item quantity="other">ይህ %1$d ፋይሎች (%2$s) በቋሚነት ይሰርዛል። ይህ ድርጊት ሊሰረዝ አይችልም።</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d ያልተወሰነ ንጥል ለወደፊት ግምገማ ይቀራል።</item>
+        <item quantity="other">%d ያልተወሰኑ ንጥሎች ለወደፊት ግምገማ ይቀራሉ።</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d ሰርዝ</string>
+    <string name="swiper_settings_swap_directions_title">የማንሸራተቻ አቅጣጫዎችን ይቀያይሩ</string>
+    <string name="swiper_settings_swap_directions_summary">ለማስቀመጥ ወደ ግራ ያንሸራትቱ፣ ለመሰረዝ ወደ ቀኝ።</string>
+    <string name="swiper_settings_show_details_title">የፋይል ዝርዝሮችን ያሳዩ</string>
+    <string name="swiper_settings_show_details_summary">በማንሸራተቻ ስክሪኑ ላይ የፋይል ስም፣ መጠንና ቀን ያሳዩ።</string>
+    <string name="swiper_settings_haptic_feedback_title">የንካ ምላሽ</string>
+    <string name="swiper_settings_haptic_feedback_summary">ማስቀመጥ ወይም መሰረዝ ውሳኔዎችን ሲያደርጉ ይንቀጠቀጡ።</string>
+    <string name="swiper_discard_session_confirmation_title">ክፍለ ጊዜ ይጣል?</string>
+    <string name="swiper_discard_session_confirmation_message">ሁሉም ውሳኔዎች ይጠፋሉ። እርግጠኛ ነዎት?</string>
+    <string name="swiper_no_preview_available">ቅድመ-ዕይታ የለም</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">ከ%1$d ቀን በፊት ክፍለ ጊዜ ቀጥል (%2$d%% ተጠናቋል)</item>
+        <item quantity="other">ከ%1$d ቀናት በፊት ክፍለ ጊዜ ቀጥል (%2$d%% ተጠናቋል)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d ክፍለ ጊዜ</item>
+        <item quantity="other">%d ክፍለ ጊዜዎች</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d ያልተወሰነ ንጥል</item>
+        <item quantity="other">%d ያልተወሰኑ ንጥሎች</item>
+    </plurals>
+    <string name="swiper_session_timestamps">የተፈጠረ %1$s፣ የመጨረሻ እንቅስቃሴ %2$s</string>
+    <string name="swiper_session_remove_action">ክፍለ ጊዜ አስወግድ</string>
+    <string name="swiper_sessions_empty_hint">ማህደር ለመምረጥና ማንሸራተት ለመጀመር + ይንኩ</string>
+    <string name="swiper_sessions_upgrade_body">እነዚህን ገደቦች ለማስወገድና ልማትን ለመደገፍ ያሻሽሉ። ነፃው ስሪት የተገደበ ነው በ:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">በክፍለ ጊዜ %d ፋይል</item>
+        <item quantity="other">በክፍለ ጊዜ %d ፋይሎች</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d ክፍለ ጊዜ</item>
+        <item quantity="other">%d ክፍለ ጊዜዎች</item>
+    </plurals>
+    <string name="swiper_session_default_label">ክፍለ ጊዜ #%d</string>
+    <string name="swiper_session_rename_title">ክፍለ ጊዜ ዳግም ይሰይሙ</string>
+    <string name="swiper_session_rename_hint">ለዚህ ክፍለ ጊዜ ስም ያስገቡ</string>
+    <string name="swiper_sessions_current_sessions">ያሉ ክፍለ ጊዜዎች</string>
+    <string name="swiper_session_paths_label">ዱካዎች</string>
+    <string name="swiper_session_status_label">ሁኔታ</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d ለማስቀመጥ</item>
+        <item quantity="other">%d ለማስቀመጥ</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d ለመሰረዝ</item>
+        <item quantity="other">%d ለመሰረዝ</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d ያልተወሰነ</item>
+        <item quantity="other">%d ያልተወሰኑ</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d ቀድሞ ተቀምጧል</item>
+        <item quantity="other">%d ቀድሞ ተቀምጠዋል</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d ቀድሞ ተሰርዟል</item>
+        <item quantity="other">%d ቀድሞ ተሰርዘዋል</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d ተቀምጧል</item>
+        <item quantity="other">%d ተቀምጠዋል</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d ተሰርዟል</item>
+        <item quantity="other">%d ተሰርዘዋል</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\"ን ከSwiper ፍለጋ ያስወግዱ?</string>
+    <string name="swiper_sessions_header_title">ለማጽዳት ዝግጁ ነዎት?</string>
+    <string name="swiper_sessions_suggestions_label">በዚህ ለመጀመር ይሞክሩ:</string>
+    <string name="swiper_sessions_suggestion_downloads">ማውረጃ ማህደር</string>
+    <string name="swiper_sessions_suggestion_screenshots">ስክሪንሾቶች</string>
+    <string name="swiper_sessions_suggestion_camera">ካሜራ ጥቅል</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">አስቀምጥ!</string>
+    <string name="swiper_stamp_keep_2">ጥሩ!</string>
+    <string name="swiper_stamp_keep_3">አዎ!</string>
+    <string name="swiper_stamp_keep_4">ጠብቅ!</string>
+    <string name="swiper_stamp_delete_1">አይ!</string>
+    <string name="swiper_stamp_delete_2">ቻው!</string>
+    <string name="swiper_stamp_delete_3">ቆሻሻ!</string>
+    <string name="swiper_stamp_delete_4">ሰርዝ!</string>
+    <string name="swiper_stamp_skip_1">ዝለል!</string>
+    <string name="swiper_stamp_skip_2">እህ!</string>
+    <string name="swiper_stamp_skip_3">ቆይ!</string>
+    <string name="swiper_stamp_skip_4">ምናልባት!</string>
+    <string name="swiper_stamp_undo_1">መልስ!</string>
+    <string name="swiper_stamp_undo_2">ተመለስ!</string>
+    <string name="swiper_stamp_undo_3">ወይ!</string>
+    <string name="swiper_stamp_undo_4">ቆይ!</string>
 </resources>

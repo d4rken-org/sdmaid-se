@@ -4,6 +4,7 @@
     <string name="slogan_message_1">శుభ్రంగా మరియు క్రమబద్ధంగా.</string>
     <string name="slogan_message_2">గందరగోళాన్ని నివారిస్తుంది.</string>
     <string name="slogan_message_3">అవసరమైనది చేస్తుంది.</string>
+    <string name="slogan_message_4">అన్నీ క్రమబద్ధంగా ఉన్నాయి.</string>
     <string name="slogan_message_5">నిర్మలమైనది.</string>
     <string name="slogan_message_6">బైట్లు, వెళ్లండి!</string>
     <string name="slogan_message_7">ఖాళీ స్థలం, సంతోషకరమైన స్థలం.</string>
@@ -17,11 +18,13 @@
     <string name="general_todo_msg">ఈ ఫీచర్ ఇంకా పని చేయబడుతూంది మరియు ప్రస్తుతం అందుబాటులో లేదు.</string>
     <string name="general_share_action">భాగస్వామ్యం</string>
     <string name="general_done_action">పూర్తయింది</string>
+    <string name="general_apply_action">అమలు చేయండి</string>
     <string name="general_copy_action">కాపీ</string>
     <string name="general_wipe_action">తుడిచివేయండి</string>
     <string name="general_cancel_action">రద్దు చేయండి</string>
     <string name="general_discard_action">విస్మరించండి</string>
     <string name="general_reset_action">రీసెట్ చేయండి</string>
+    <string name="general_drag_handle_description">పునఃక్రమీకరించడానికి లాగండి</string>
     <string name="general_save_action">సేవ్ చేయండి</string>
     <string name="general_thanks_action">ధన్యవాదాలు</string>
     <string name="general_gotit_action">అర్థమైంది</string>
@@ -30,6 +33,7 @@
     <string name="general_edit_action">సవరించండి</string>
     <string name="general_na_label">అ/లే</string>
     <string name="general_empty_label">ఖాళీ</string>
+    <string name="general_new_badge_label">కొత్త</string>
     <string name="general_dismiss_action">తీసివేయండి</string>
     <string name="general_maybe_later_action">బహుశా తరువాత</string>
     <string name="general_manage_action">నిర్వహించండి</string>
@@ -90,6 +94,10 @@
     <string name="general_toggle_layout_mode">వీక్షణ మోడ్‌ను మార్చండి</string>
     <string name="general_delete_confirmation_title">తొలగింపును నిర్ధారించండి</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ను తొలగించాలా?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">ఎంచుకున్న %d వస్తువును తొలగించాలా?</item>
+        <item quantity="other">ఎంచుకున్న %d వస్తువులను తొలగించాలా?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d వస్తువు తొలగించబడింది.</item>
         <item quantity="other">%d వస్తువులు తొలగించబడ్డాయి.</item>
@@ -162,4 +170,6 @@
     <string name="general_error_report_bug_action">బగ్ రిపోర్ట్ చేయండి</string>
     <string name="general_error_ipc_deadobject_title">సేవా కనెక్షన్ కోల్పోయింది</string>
     <string name="general_error_ipc_deadobject_description">క్రిటికల్ సేవకు (ఉదా. Magisk, Shizuku, లేదా ఇతర సిస్టమ్-స్థాయి సేవలు) కనెక్షన్ అనుకోకుండా కోల్పోయింది. దయచేసి మీ పరికరాన్ని రీస్టార్ట్ చేయండి. సమస్య కొనసాగితే, అప్‌డేట్‌లను తనిఖీ చేయండి లేదా దాన్ని పరిష్కరించడానికి నన్ను సంప్రదించండి.</string>
+    <string name="general_user_label_owner">యజమాని</string>
+    <string name="general_user_label_system">సిస్టమ్</string>
 </resources>

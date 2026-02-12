@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro ያስፈልጋል</string>
+    <string name="upgrades_dashcard_title">SD Maid SE ያሻሽሉ</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro ለላቁ ተጠቃሚዎች የተሻሉ ውጤቶች፣ ተጨማሪ ባህሪያት እና አማራጮችን ይሰጣል።</string>
     <string name="upgrades_dashcard_upgrade_action">ያሻሽሉ</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play አይገኝም</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid ከGoogle Play ጋር መገናኘት አይችልም። Google Play ተጭኖ እና ወቅታዊ ነው? የGoogle መለያዎ ገብቷል? የGoogle Play መተግበሪያ መሸጎጫ ማጥራት እና መሳሪያዎን እንደገና ማስጀመር ይሞክሩ።</string>
+    <string name="upgrades_gplay_billing_error_label">የGoogle Play ችግር</string>
+    <string name="upgrades_gplay_billing_error_description">ከGoogle Play ጋር ችግር ተፈጥሯል። እባክዎ ቆይተው ይሞክሩ ወይም መሳሪያዎን እንደገና ያስጀምሩ።\n\nዝርዝሮች: %s</string>
+    <string name="upgrades_gplay_internal_error_title">የGoogle Play ስህተት</string>
+    <string name="upgrades_gplay_internal_error_description">የGoogle Play ውስጣዊ ስህተት ተከስቷል። እባክዎ የሚከተለውን ይሞክሩ:\n\n• መሳሪያዎን እንደገና ያስጀምሩ\n• የGoogle Play Store መሸጎጫ ያጥሩ\n• ቆይተው እንደገና ይሞክሩ</string>
+    <string name="upgrades_gplay_network_error_title">የግንኙነት ስህተት</string>
+    <string name="upgrades_gplay_network_error_description">ከGoogle Play ጋር መገናኘት አልተቻለም። እባክዎ የበይነመረብ ግንኙነትዎን ያረጋግጡ እና እንደገና ይሞክሩ።</string>
+    <string name="upgrades_gplay_already_owned_error_title">አስቀድሞ ተገዝቷል</string>
+    <string name="upgrades_gplay_already_owned_error_description">ግዢዎን ለመመለስ \"ግዢን ወደነበረበት መልስ\" አማራጩን ይጠቀሙ። ችግሩ ከቀጠለ፣ የGoogle Play መሸጎጫ ማጥራት እና መሳሪያዎን እንደገና ማስጀመር ይሞክሩ።</string>
     <string name="upgrades_no_purchases_found_check_account">ምንም ግዢዎች አልተገኙም። ትክክለኛውን መለያ እየተጠቀሙ ነው?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ያግኙ</string>
     <string name="upgrade_screen_preamble">SD Maid ማስታወቂያዎች የሉትም እና የተጠቃሚ መረጃ አይሸጥም። የእኔ ስራ በእርስዎ የሚገለገል ነው ❤️።</string>

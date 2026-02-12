@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Bu özellik hâlâ geliştirme aşamasında olduğundan şu anda kullanılamıyor.</string>
     <string name="general_share_action">Paylaş</string>
     <string name="general_done_action">Tamamlandı</string>
+    <string name="general_apply_action">Uygula</string>
     <string name="general_copy_action">Kopyala</string>
     <string name="general_wipe_action">Temizle</string>
     <string name="general_cancel_action">İptal et</string>
     <string name="general_discard_action">Yoksay</string>
     <string name="general_reset_action">Sıfırla</string>
+    <string name="general_drag_handle_description">Yeniden sıralamak için sürükleyin</string>
     <string name="general_save_action">Kaydet</string>
     <string name="general_thanks_action">Teşekkürler</string>
     <string name="general_gotit_action">Anladım</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Düzenle</string>
     <string name="general_na_label">Yok</string>
     <string name="general_empty_label">Boş</string>
+    <string name="general_new_badge_label">Yeni</string>
     <string name="general_dismiss_action">Yoksay</string>
     <string name="general_maybe_later_action">Belki daha sonra</string>
     <string name="general_manage_action">Yönet</string>

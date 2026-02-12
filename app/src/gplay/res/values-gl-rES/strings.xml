@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Require SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Actualizar SD Maid SE</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro ofrece mellores resultados, máis funcións e opcións para usuarios avanzados.</string>
     <string name="upgrades_dashcard_upgrade_action">Actualizar</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play non está dispoñible</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid non pode conectar con Google Play. Está Google Play instalado e actualizado? A túa conta de Google está conectada? Proba a limpar a caché da aplicación Google Play e reinicia o teu dispositivo.</string>
+    <string name="upgrades_gplay_billing_error_label">Problema de Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Houbo un problema con Google Play. Proba de novo máis tarde ou reinicia o teu dispositivo.\n\nDetalles: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Erro de Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Produciuse un erro interno de Google Play. Proba o seguinte:\n\n• Reinicia o teu dispositivo\n• Limpa a caché de Google Play Store\n• Proba de novo máis tarde</string>
+    <string name="upgrades_gplay_network_error_title">Erro de conexión</string>
+    <string name="upgrades_gplay_network_error_description">Non se puido conectar con Google Play. Comproba a túa conexión a internet e proba de novo.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Xa comprado</string>
+    <string name="upgrades_gplay_already_owned_error_description">Usa a opción \"Restaurar compra\" para restaurar a túa compra. Se o problema persiste, proba a limpar a caché de Google Play e reiniciar o teu dispositivo.</string>
     <string name="upgrades_no_purchases_found_check_account">Non se atoparon compras. Estás usando a conta correcta?</string>
     <string name="upgrade_screen_title">Obter SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid non ten anuncios e non vende datos de usuario. O meu traballo está financiado por ti ❤️.</string>

@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Denne funksjonen jobbes fortsatt med, og er for øyeblikket ikke tilgjengelig.</string>
     <string name="general_share_action">Del</string>
     <string name="general_done_action">Ferdig</string>
+    <string name="general_apply_action">Bruk</string>
     <string name="general_copy_action">Kopier</string>
     <string name="general_wipe_action">Tøm</string>
     <string name="general_cancel_action">Avbryt</string>
     <string name="general_discard_action">Forkast</string>
     <string name="general_reset_action">Tilbakestill</string>
+    <string name="general_drag_handle_description">Dra for å endre rekkefølge</string>
     <string name="general_save_action">Lagre</string>
     <string name="general_thanks_action">Takk</string>
     <string name="general_gotit_action">Forstått</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Rediger</string>
     <string name="general_na_label">Ikke tilgjengelig</string>
     <string name="general_empty_label">Tom</string>
+    <string name="general_new_badge_label">Ny</string>
     <string name="general_dismiss_action">Lukk</string>
     <string name="general_maybe_later_action">Kanskje senere</string>
     <string name="general_manage_action">Behandle</string>

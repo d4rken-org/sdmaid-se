@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Изисква SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Надстройте SD Maid SE</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro предлага по-добри резултати, повече функции и опции за напреднали потребители.</string>
     <string name="upgrades_dashcard_upgrade_action">Надстройване</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play не е достъпен</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid не може да се свърже с Google Play. Инсталиран ли е Google Play и актуален ли е? Влязъл ли е вашият Google акаунт? Опитайте да изчистите кеша на приложението Google Play и да рестартирате устройството си.</string>
+    <string name="upgrades_gplay_billing_error_label">Проблем с Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Възникна проблем с Google Play. Моля, опитайте отново по-късно или рестартирайте устройството си.\n\nПодробности: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Грешка в Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Възникна вътрешна грешка в Google Play. Моля, опитайте следното:\n\n• Рестартирайте устройството си\n• Изчистете кеша на Google Play Store\n• Опитайте отново по-късно</string>
+    <string name="upgrades_gplay_network_error_title">Грешка при свързване</string>
+    <string name="upgrades_gplay_network_error_description">Не може да се свърже с Google Play. Моля, проверете интернет връзката си и опитайте отново.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Вече закупено</string>
+    <string name="upgrades_gplay_already_owned_error_description">Използвайте опцията \"Възстановете покупката\", за да възстановите покупката си. Ако проблемът продължава, опитайте да изчистите кеша на Google Play и да рестартирате устройството си.</string>
     <string name="upgrades_no_purchases_found_check_account">Не са намерени покупки. Използвате ли правилния акаунт?</string>
     <string name="upgrade_screen_title">Получете SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid няма реклами и не продава потребителски данни. Работата ми се финансира от вас ❤️.</string>

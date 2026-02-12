@@ -184,4 +184,15 @@
     <string name="general_error_report_bug_action">דווח על באג</string>
     <string name="general_error_ipc_deadobject_title">החיבור לשירות נותק</string>
     <string name="general_error_ipc_deadobject_description">החיבור לשירות קריטי (למשל Magisk, Shizuku או שירותים מערכתיים אחרים) נותק באופן בלתי צפוי. אנא אתחל את המכשיר שלך. אם הבעיה נמשכת, בדוק אם קיימים עדכונים או פנה אליי כדי שאוכל לתקן זאת.</string>
+    <string name="general_apply_action">החל</string>
+    <string name="general_drag_handle_description">גרור לשינוי סדר</string>
+    <string name="general_new_badge_label">חדש</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">למחוק %d פריט שנבחר?</item>
+        <item quantity="two">למחוק %d פריטים שנבחרו?</item>
+        <item quantity="many">למחוק %d פריטים שנבחרו?</item>
+        <item quantity="other">למחוק %d פריטים שנבחרו?</item>
+    </plurals>
+    <string name="general_user_label_owner">בעלים</string>
+    <string name="general_user_label_system">מערכת</string>
 </resources>

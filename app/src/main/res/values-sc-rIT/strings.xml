@@ -696,6 +696,365 @@
     <string name="area_type_public_obb_label">Risursas públicas de aplicatzione</string>
     <string name="area_type_private_data_label">Datos privados de aplicatzione</string>
     <string name="area_type_portable_label">Archìviu portàbile</string>
+    <string name="dashboard_card_config_title">Cartas de su pannellu</string>
+    <string name="dashboard_card_config_desc">Cunfigura cales cartas si mustrant e s\'òrdine insoro</string>
+    <string name="dashboard_card_config_header_title">Traga pro torrare a ordinare, cumuda pro mustrare/cuare</string>
+    <string name="debug_debuglog_screen_title">Registru de debug</string>
+    <string name="debug_debuglog_screen_discard_action">Iscarta</string>
+    <string name="debug_debuglog_screen_session_path_label">Caminu de sa sessione</string>
+    <string name="debug_debuglog_screen_log_files_label">Archìvios de registru</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d archìviu prontu (%2$s)</item>
+        <item quantity="other">%1$d archìvios prontos (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_folder_label">Cartella de registru de debug</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d archìviu chi impitat %2$s</item>
+        <item quantity="other">%1$d archìvios chi impitant %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Perunu registru de debug serbadu</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Cantzellare totu is registros de debug?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Custu at a cantzellare in manera permanente totu is sessiones de registru de debug serbadas. Custa atzione non si podet annullare.</string>
+    <string name="debug_card_title">Su modu de debug est ativadu</string>
+    <string name="debug_card_trace_mode_label">Ativa su modu de trassa</string>
+    <string name="debug_card_dryrun_mode_label">Modu de prova (disativa sa cantzelladura)</string>
+    <string name="debug_card_areas_reload_action">Torra a carrigare is àreas de datos</string>
+    <string name="debug_card_pkgs_reload_action">Torra a carrigare is aplicatziones</string>
+    <string name="debug_card_root_test_action">Prova root</string>
+    <string name="debug_card_shizuku_test_action">Prova Shizuku</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profilos ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Is profilos ART sunt impitados dae Android pro otimizare su rendimentu de is aplicatziones.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Archìvios de installadura chi no sunt prus netzessàrios segundu is versiones de is aplicatziones installadas.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Inclùe sa matessi versione</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Punna is archìvios APK chi currespondent a sa versione installada. Disativa pro bòghere feti is versiones prus betzas.</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Restritziones de mannesa</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Mannesa mìnima</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Mannesa màssima</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Lìmita is currespondèntzias segundu sa mannesa de s\'archìviu. Lassa sena cunfigurare pro currespòndere a calisisiat mannesa.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Restritziones de edade</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Edade mìnima</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Edade màssima</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Lìmita is currespondèntzias segundu s\'edade de s\'archìviu (ùrtima modìfica). Lassa sena cunfigurare pro currespòndere a calisisiat edade.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Icones de iscurtzadas de aplicatziones</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Icones in memòria temporànea pro iscurtzadas de aplicatziones e menùs de cumpartzidura.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Firma a fortza prima de sa limpesa</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Firma a fortza is aplicatziones prima de limpiare sa memòria temporànea insoro. Podet agiudare a limpiare sa memòria de àteras aplicatziones, ma podet càusare cumportamentos anòmalos e netzessitare unu torrada a aviare manuale.</string>
+    <string name="appcleaner_progress_force_stopping">Firmende a fortza is aplicatziones…</string>
+    <string name="deduplicator_keep_prefer_paths_title">Pràtzia a mantènnere in</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Cando si detzìdet cale duplicadu mantènnere, pràtzia a mantènnere is archìvios in custos logos.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Perunu logu cunfiguradu</string>
+    <string name="deduplicator_detection_method_phash_summary">Agatza archìvios simìliles analizende is caraterìsticas de su cuntenutu e paragonende is valores de hash pertzettivos. ⚠️ Sa rilevadura basada in sa similitùdine podet inclùere positivos falsos chi ant a bisongiare de verìfica manuale.</string>
+    <string name="deduplicator_arbiter_title">Estratègia de cantzelladura</string>
+    <string name="deduplicator_arbiter_summary">Cunfigura cales archìvios si mantènnent e cales si cantzèllant.</string>
+    <string name="deduplicator_arbiter_explanation">Cando si cantzèllant duplicados, SD Maid detzìdet cale archìviu mantènnere controllende ogni critèriu in òrdine. Su primu critèriu chi produet unu binchidore craru detzìdet su resurtadu. Traga pro torrare a ordinare, toca pro cambiare modu.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Sèbera su modu</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Cunfigura is caminos…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Gènere de duplicadu</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Pràtzia is currespondèntzias esatas a is archìvios simìliles.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Indicizzadura de mèdia</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Cunsìdera si is archìvios sunt indicizzados dae su frunidore de mèdia.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Logu de archìviu</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Pràtzia is archìvios in s\'archìviu internu o esternu.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Profundidade de sa cartella</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Pràtzia is archìvios in istruturades de cartellas prus bascias o prus profundas.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Data de modìfica</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Pràtzia archìvios prus betzos o prus noos segundu s\'ora de modìfica.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Mannesa de s\'archìviu</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Pràtzia archìvios prus mannos o prus minores cando is mannesas sunt diferentes.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Logos preferidos</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Mantèni is archìvios in is logos preferidos cunfigurados.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Pràtzia is currespondèntzias esatas</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Pràtzia is archìvios simìliles</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Pràtzia is archìvios indicizzados</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Pràtzia is archìvios no indicizzados</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Pràtzia s\'archìviu internu</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Pràtzia s\'archìviu esternu</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Pràtzia cartellas pagu profundas</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Pràtzia cartellas prus profundas</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Pràtzia archìvios prus betzos</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Pràtzia archìvios prus noos</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Pràtzia archìvios prus mannos</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Pràtzia archìvios prus minores</string>
+    <string name="deduplicator_view_mode_groups_label">Grupos</string>
+    <string name="deduplicator_view_mode_directories_label">Cartellas</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="squeezer_explanation_short">Cumprimi is immàgines pro isparagnare ispàtziu de archìviu.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d immàgine agatada</item>
+        <item quantity="other">%d immàgines agatadas</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s si podet isparagnare</item>
+        <item quantity="other">~%s si podent isparagnare</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d immàgine cumprimida</item>
+        <item quantity="other">%d immàgines cumprimidas</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d immàgine selecionada</item>
+        <item quantity="other">%d immàgines selecionadas</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Logos de chirca</string>
+    <string name="squeezer_search_locations_default_summary">Cartellas de sa fotocàmera (predefinidas)</string>
+    <string name="squeezer_min_size_title">Mannesa mìnima de s\'archìviu</string>
+    <string name="squeezer_min_size_description">Brinca is immàgines prus piticas de custa mannesa.</string>
+    <string name="squeezer_min_age_title">Edade mìnima de s\'archìviu</string>
+    <string name="squeezer_min_age_description">Inclùe feti is immàgines prus betzas de custa edade.</string>
+    <string name="squeezer_compression_settings_label">Impostatziones de cumpressione</string>
+    <string name="squeezer_quality_label">Calidade</string>
+    <string name="squeezer_quality_title">Calidade de cumpressione</string>
+    <string name="squeezer_quality_description">Calidade prus bascia cheret nàrrere mannesa de archìviu prus pitica ma calidade de immàgine reduida.</string>
+    <string name="squeezer_quality_example_format">Esèmpiu: %1$s immàgine → isparagnos de ~%2$s a %3$d%% calidade</string>
+    <string name="squeezer_quality_warning_low">Calidades prus bascias podent càusare artefatos visìbiles.</string>
+    <string name="squeezer_quality_warning_high">Calidade meda arta dat isparagnos mìnimos de ispàtziu.</string>
+    <string name="squeezer_types_category_label">Gèneres de immàgine</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Inclùe immàgines JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Inclùe immàgines WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Brinca is cumprimidas in antis</string>
+    <string name="squeezer_skip_compressed_description">Brinca is immàgines chi SD Maid at giai cumprimidu.</string>
+    <string name="squeezer_exif_marker_title">Iscrìe marcadore EXIF</string>
+    <string name="squeezer_exif_marker_description">Agiunghe unu marcadore a su campu de comentu EXIF de s\'immàgine pro impedire sa torrada a cumprìmere fintzas si s\'istòria de cumpressione benit limpiada.</string>
+    <string name="squeezer_estimated_savings_format">~%s de isparagnu</string>
+    <string name="squeezer_no_savings_expected">Isparagnos limitados</string>
+    <string name="squeezer_current_size_format">Mannesa: %s</string>
+    <string name="squeezer_compress_action">Cumprimi</string>
+    <string name="squeezer_compress_all_action">Cumprimi totu</string>
+    <string name="squeezer_preview_dialog_title">Cunfirma sa cumpressione</string>
+    <string name="squeezer_preview_total_size">Mannesa totale</string>
+    <string name="squeezer_preview_estimated_savings">Isparagnu istimadu</string>
+    <string name="squeezer_compress_confirmation_title">Cumprimi is immàgines?</string>
+    <string name="squeezer_compress_confirmation_message">Custu at a sostituire is immàgines originales cun versiones cumprimidas. Custa atzione non si podet annullare.</string>
+    <string name="squeezer_history_title">Istòria de cumpressione</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d elementu (%2$s)</item>
+        <item quantity="other">%1$d elementos (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Peruna istòria de cumpressione</string>
+    <string name="squeezer_history_clear_title">Lìmpia s\'istòria de cumpressione</string>
+    <string name="squeezer_history_clear_message">Custu at a permìtere de cumprìmere torra is immàgines giai cumprimidas. Is immàgines a sa sola non sunt afetadas.</string>
+    <string name="squeezer_onboarding_title">Informatzione subra sa cumpressione de immàgines</string>
+    <string name="squeezer_onboarding_message">Sa cumpressione de immàgines reduet sa mannesa de s\'archìviu boggende detàllios visivos. Custu protzessu est irreversìbile - sa calidade originale non si podet torrare.\n\nEcco comente ant a apàrrere is immàgines tuas:</string>
+    <string name="squeezer_onboarding_original_label">Originale</string>
+    <string name="squeezer_onboarding_compressed_label">Pustis de sa cumpressione</string>
+    <string name="squeezer_onboarding_quality_label">Calidade: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Cumprèndidu</string>
+    <string name="squeezer_compare_action">Bide su paragone</string>
+    <string name="squeezer_no_example_found">Peruna immàgine agatada in is caminos selecionados.</string>
+    <string name="squeezer_result_empty_message">Peruna immàgine cumprimìbile agatada.</string>
+    <string name="squeezer_setup_warning">Sa cumpressione reduet in manera permanente sa calidade de s\'immàgine pro isparagnare ispàtziu de archìviu. Non si podet annullare. Revisa is impostatziones tuas cun curu prima de cumintzare.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze reduet sa mannesa de is archìvios de is immàgines pro liberare ispàtziu de archìviu. Custu reduet in manera permanente sa calidade de s\'immàgine e non si podet annullare. Revisa is impostatziones tuas cun curu prima de cumintzare.</string>
+    <string name="squeezer_setup_paths_title">Logos de chirca</string>
+    <string name="squeezer_setup_paths_default">Sèbera cartellas de chircare</string>
+    <string name="squeezer_setup_quality_title">Calidade de cumpressione</string>
+    <string name="squeezer_setup_age_title">Edade mìnima</string>
+    <string name="squeezer_setup_age_none">Perunu lìmite (inclùe totu is archìvios)</string>
+    <string name="squeezer_setup_start_action">Cumintza sa chirca</string>
+    <string name="squeezer_quality_hint_very_low">Calidade asuta de 40% podet creare immàgines no impitàbiles.</string>
+    <string name="squeezer_quality_hint_low">Calidade prus bascia isparagniat prus ispàtziu ma podet càusare artefatos visìbiles.</string>
+    <string name="squeezer_quality_hint_high">Calidade meda arta dat isparagnos mìnimos de ispàtziu.</string>
+    <string name="squeezer_quality_hint_normal">Calidade e isparagnos de ispàtziu bilantzados.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">A su mancu %d die de edade</item>
+        <item quantity="other">A su mancu %d dies de edade</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Isparagnu istimadu de ~%d%% pro archìvios JPEG</string>
+    <string name="appcontrol_app_forcestop_description">Firma s\'aplicatzione. Impedischi·dda de s\'aviare a sa sola finas a cando no dd\'abris o su dispositivu benit torrado a aviare.</string>
+    <string name="appcontrol_tag_debug">Debug</string>
+    <string name="appcontrol_archive_action">Archìvia</string>
+    <string name="appcontrol_archive_selection_action">Archìvia aplicatziones</string>
+    <string name="appcontrol_archive_description">Archìvia pro liberare ispàtziu mantenende is datos de s\'aplicatzione pro sa torrada.</string>
+    <string name="appcontrol_progress_archiving_app">Archiviende s\'aplicatzione…</string>
+    <string name="appcontrol_archive_confirmation_title">Cunfirma s\'archiviadura</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Archìvia %d aplicatzione?</item>
+        <item quantity="other">Archìvia %d aplicatziones?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d aplicatzione archiviada</item>
+        <item quantity="other">%d aplicatziones archiviadas</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Torra</string>
+    <string name="appcontrol_restore_selection_action">Torra aplicatziones</string>
+    <string name="appcontrol_restore_description">Torra s\'aplicatzione archiviada a s\'istadu installadu cumpletu. Is datos de s\'aplicatzione sunt cunservados.</string>
+    <string name="appcontrol_progress_restoring_app">Torrende s\'aplicatzione…</string>
+    <string name="appcontrol_restore_confirmation_title">Cunfirma sa torrada</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Torra %d aplicatzione?</item>
+        <item quantity="other">Torra %d aplicatziones?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d aplicatzione torrada</item>
+        <item quantity="other">%d aplicatziones torradas</item>
+    </plurals>
+    <string name="appcontrol_include_multiuser_label">Inclùe àteros impiadores</string>
+    <string name="appcontrol_include_multiuser_summary">Inclùe aplicatziones de àteros profilos de impiadores in custu dispositivu.</string>
+    <string name="appcontrol_export_description">Sarba is archìvios de installadura de custa aplicatzione. No incluet is datos de s\'aplicatzione.</string>
+    <string name="appcontrol_share_list_action">Cumpartzi sa lista</string>
+    <string name="appcontrol_share_list_title">Is aplicatziones mias</string>
+    <string name="appcontrol_share_list_footer">Cumpartzidu cun SD Maid SE</string>
+    <string name="appcontrol_automation_subtitle_archiving">Archiviende…</string>
+    <string name="appcontrol_automation_progress_find_archive">Chirchende su butone \"Archìvia\" (paràulas crae: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Torrende…</string>
+    <string name="appcontrol_automation_progress_find_restore">Chirchende su butone \"Torra\" (paràulas crae: %s)</string>
+    <string name="appcontrol_item_installedat_x_label">Installadu su: %s</string>
+    <string name="analyzer_content_create_swiper_session_action">Crea sessione Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Sessione Swiper creada cun %d elementu</item>
+        <item quantity="other">Sessione Swiper creada cun %d elementos</item>
+    </plurals>
+    <string name="exclusion_editor_path_change_action">Toca pro cambiare su caminu</string>
+    <string name="anniversary_card_title">Bona aniversàriu de SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">Cun tue dae %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Giai %1$d annu impare. Gràtzias pro sa fidùtzia in SD Maid pro mantènnere s\'Android tuo limpu e ordinadu. Ispàtziu liberadu: %2$s</item>
+        <item quantity="other">%1$d annos forte. Su dispositivu tuo restat limpu e ordinadu cun SD Maid. Ispàtziu liberadu: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Cumpartzi s\'aniversàriu tuo de SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d annu cun SD Maid — Ispàtziu liberadu: %2$s. Mantenende s\'Android tuo limpu e ordinadu. #SDMaid\nProa·ddu: %3$s</item>
+        <item quantity="other">%1$d annos cun SD Maid — Ispàtziu liberadu: %2$s. Mantenende s\'Android tuo limpu e ordinadu. #SDMaid\nProa·ddu: %3$s</item>
+    </plurals>
+    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_long">Gesti is aplicatziones installadas</string>
+    <string name="shortcut_onetap_short">Chirca + Cantzella</string>
+    <string name="shortcut_onetap_long">Chirca e cantzella in un\'atzione</string>
+    <string name="shortcuts_settings_category">Iscurtzadas</string>
+    <string name="shortcuts_onetap_enabled_title">Iscurtzada de unu tocu</string>
+    <string name="shortcuts_onetap_enabled_summary">Mustra s\'iscurtzada \"Chirca + Cantzella\" cando si prèmit a longu s\'icone de s\'aplicatzione. Impitat is matessi istrumentos de su pannellu de unu tocu.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Iscòrre is archìvios pro detzìdere ite mantènnere o cantzellare.</string>
+    <string name="swiper_dashcard_description">Revisa manualmente is archìvios in cartellas espetzìficas. Iscòrre pro detzìdere ite mantènnere o cantzellare.</string>
+    <string name="swiper_start_action">Cumintza a iscòrrere</string>
+    <string name="swiper_continue_action">Sighit sa sessione</string>
+    <string name="swiper_sessions_description">Unos cantos archìvios ant bisongiare de una detzisione umana. Iscòrre is elementos e sèbera ite mantènnere o cantzellare. Brinca su chi no ses seguru. Custu istrumentu ti permitit de revisare cartellas espetzìficas manualmente, e nudda benit bogadu finas a cando no cunfirmas.</string>
+    <string name="swiper_select_folders_action">Sèbera cartellas</string>
+    <string name="swiper_scanning_title">Chirchende…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d elementu agatadu</item>
+        <item quantity="other">%d elementos agatados</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d elementu cantzelladu</item>
+        <item quantity="other">%d elementos cantzellados</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d elementu faddidu</item>
+        <item quantity="other">%d elementos faddidos</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d de %2$d</string>
+    <string name="swiper_keep_action">Mantèni</string>
+    <string name="swiper_skip_action">Brinca</string>
+    <string name="swiper_review_action">Revisa</string>
+    <string name="swiper_status_title">Revisa is detzisiones</string>
+    <string name="swiper_status_action_keep_selected">Mantèni is selecionados</string>
+    <string name="swiper_status_action_delete_selected">Cantzella is selecionados</string>
+    <string name="swiper_status_action_reset_selected">Reseta is selecionados</string>
+    <string name="swiper_decision_undecided">Indetzisu</string>
+    <string name="swiper_retry_action">Torra a proare</string>
+    <string name="swiper_delete_confirmation_title">Cantzellare is archìvios?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Custu at a cantzellare in manera permanente %1$d archìviu (%2$s). Custa atzione non si podet annullare.</item>
+        <item quantity="other">Custu at a cantzellare in manera permanente %1$d archìvios (%2$s). Custa atzione non si podet annullare.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d elementu indetzisu at a abarrare pro sa revisione.</item>
+        <item quantity="other">%d elementos indetzisos ant a abarrare pro sa revisione.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Cantzella %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Iscàmbia is diretzione de iscòrrimentu</string>
+    <string name="swiper_settings_swap_directions_summary">Iscòrre a manu manca pro mantènnere, a manu destra pro cantzellare.</string>
+    <string name="swiper_settings_show_details_title">Mustra is detàllios de s\'archìviu</string>
+    <string name="swiper_settings_show_details_summary">Mustra su nòmine, sa mannesa e sa data de s\'archìviu in s\'ischermu de iscòrrimentu.</string>
+    <string name="swiper_settings_haptic_feedback_title">Resposta àptica</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibra cando si leat detzisiones de mantènnere o cantzellare.</string>
+    <string name="swiper_discard_session_confirmation_title">Iscartare sa sessione?</string>
+    <string name="swiper_discard_session_confirmation_message">Totu is detzisiones ant a èssere pèrdidas. Ses seguru?</string>
+    <string name="swiper_no_preview_available">Peruna anteprima disponìbile</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Sighit sa sessione de %1$d die a como (%2$d%% acabadu)</item>
+        <item quantity="other">Sighit sa sessione de %1$d dies a como (%2$d%% acabadu)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d sessione</item>
+        <item quantity="other">%d sessiones</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d elementu indetzisu</item>
+        <item quantity="other">%d elementos indetzisos</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Creadu %1$s, ùrtima atividade %2$s</string>
+    <string name="swiper_session_remove_action">Boga sa sessione</string>
+    <string name="swiper_sessions_empty_hint">Toca + pro selecionare una cartella e cumintzare a iscòrrere</string>
+    <string name="swiper_sessions_upgrade_body">Agiorna pro bòghere custos lìmites e sustènnere s\'isvilupu. Sa versione gratùida est limitada a:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d archìviu pro sessione</item>
+        <item quantity="other">%d archìvios pro sessione</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d sessione</item>
+        <item quantity="other">%d sessiones</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sessione #%d</string>
+    <string name="swiper_session_rename_title">Torra a numenare sa sessione</string>
+    <string name="swiper_session_rename_hint">Inserta unu nòmine pro custa sessione</string>
+    <string name="swiper_sessions_current_sessions">Sessiones atuales</string>
+    <string name="swiper_session_paths_label">Caminos</string>
+    <string name="swiper_session_status_label">Istadu</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d de mantènnere</item>
+        <item quantity="other">%d de mantènnere</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d de cantzellare</item>
+        <item quantity="other">%d de cantzellare</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d indetzisu</item>
+        <item quantity="other">%d indetzisos</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d giai mantenidu</item>
+        <item quantity="other">%d giai mantenidos</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d giai cantzelladu</item>
+        <item quantity="other">%d giai cantzellados</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d mantenidu</item>
+        <item quantity="other">%d mantenidos</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d cantzelladu</item>
+        <item quantity="other">%d cantzellados</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Esclùe \"%1$s\" dae is chircas de Swiper?</string>
+    <string name="swiper_sessions_header_title">Prontu a fàghere òrdine?</string>
+    <string name="swiper_sessions_suggestions_label">Proa a cumintzare cun:</string>
+    <string name="swiper_sessions_suggestion_downloads">Cartella de iscarrigamentos</string>
+    <string name="swiper_sessions_suggestion_screenshots">Ischermos catturados</string>
+    <string name="swiper_sessions_suggestion_camera">Rùllu de sa fotocàmera</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Mantèni!</string>
+    <string name="swiper_stamp_keep_2">Bellu!</string>
+    <string name="swiper_stamp_keep_3">Eja!</string>
+    <string name="swiper_stamp_keep_4">Sarba!</string>
+    <string name="swiper_stamp_delete_1">Nono!</string>
+    <string name="swiper_stamp_delete_2">Adiosu!</string>
+    <string name="swiper_stamp_delete_3">Isciuscia!</string>
+    <string name="swiper_stamp_delete_4">Cantzella!</string>
+    <string name="swiper_stamp_skip_1">Brinca!</string>
+    <string name="swiper_stamp_skip_2">Bah!</string>
+    <string name="swiper_stamp_skip_3">A pustis!</string>
+    <string name="swiper_stamp_skip_4">Forsis!</string>
+    <string name="swiper_stamp_undo_1">Annulla!</string>
+    <string name="swiper_stamp_undo_2">Agoa!</string>
+    <string name="swiper_stamp_undo_3">Ops!</string>
+    <string name="swiper_stamp_undo_4">Firma!</string>
 </resources>

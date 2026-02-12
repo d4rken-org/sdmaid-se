@@ -19,11 +19,13 @@
     <string name="general_todo_msg">ما زالت هذه المَيزية قيد العمل وهي غير متوفرة حاليًا.</string>
     <string name="general_share_action">مشاركة</string>
     <string name="general_done_action">تم</string>
+    <string name="general_apply_action">تطبيق</string>
     <string name="general_copy_action">نسخ</string>
     <string name="general_wipe_action">مسح</string>
     <string name="general_cancel_action">إلغاء</string>
     <string name="general_discard_action">تجاهل</string>
     <string name="general_reset_action">إعادة ضبط</string>
+    <string name="general_drag_handle_description">اسحب لإعادة الترتيب</string>
     <string name="general_save_action">حفظ</string>
     <string name="general_thanks_action">شكراً</string>
     <string name="general_gotit_action">عُلم</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">تعديل</string>
     <string name="general_na_label">غير متاح</string>
     <string name="general_empty_label">فارغ</string>
+    <string name="general_new_badge_label">جديد</string>
     <string name="general_dismiss_action">تجاهل</string>
     <string name="general_maybe_later_action">فيما بعد</string>
     <string name="general_manage_action">إدارة</string>

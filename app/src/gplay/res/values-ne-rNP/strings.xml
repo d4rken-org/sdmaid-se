@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro आवश्यक छ</string>
+    <string name="upgrades_dashcard_title">SD Maid SE अपग्रेड गर्नुहोस्</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro ले राम्रा परिणामहरू, थप सुविधाहरू र उन्नत प्रयोगकर्ताहरूका लागि विकल्पहरू प्रदान गर्दछ।</string>
     <string name="upgrades_dashcard_upgrade_action">अपग्रेड</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play उपलब्ध छैन</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play सँग जडान गर्न सक्दैन। के Google Play स्थापना र अद्यावधिक गरिएको छ? के तपाईंको Google खाता लग इन गरिएको छ? Google Play एपको क्यास खाली गरेर र तपाईंको उपकरण रिबुट गर्ने प्रयास गर्नुहोस्।</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play समस्या</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play मा समस्या भयो। कृपया पछि फेरि प्रयास गर्नुहोस् वा आफ्नो उपकरण पुनः सुरु गर्नुहोस्।\n\nविवरणहरू: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play त्रुटि</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play को आन्तरिक त्रुटि भयो। कृपया निम्न प्रयास गर्नुहोस्:\n\n• आफ्नो उपकरण पुनः सुरु गर्नुहोस्\n• Google Play Store को क्यास खाली गर्नुहोस्\n• पछि फेरि प्रयास गर्नुहोस्</string>
+    <string name="upgrades_gplay_network_error_title">जडान त्रुटि</string>
+    <string name="upgrades_gplay_network_error_description">Google Play सँग जडान गर्न सकिएन। कृपया आफ्नो इन्टरनेट जडान जाँच गर्नुहोस् र फेरि प्रयास गर्नुहोस्।</string>
+    <string name="upgrades_gplay_already_owned_error_title">पहिले नै खरिद गरिसकिएको</string>
+    <string name="upgrades_gplay_already_owned_error_description">आफ्नो खरिद पुनर्स्थापना गर्न \"खरिद पुनर्स्थापना गर्नुहोस्\" विकल्प प्रयोग गर्नुहोस्। समस्या जारी रहेमा, Google Play क्यास खाली गरेर उपकरण पुनः सुरु गर्ने प्रयास गर्नुहोस्।</string>
     <string name="upgrades_no_purchases_found_check_account">कुनै खरिदहरू फेला परेनन्। के तपाईं सही खाता प्रयोग गर्दै हुनुहुन्छ?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro प्राप्त गर्नुहोस्</string>
     <string name="upgrade_screen_preamble">SD Maid मा कुनै विज्ञापनहरू छैनन् र प्रयोगकर्ता डेटा बेच्दैन। मेरो काम तपाईं द्वारा वित्त पोषित छ ❤️।</string>

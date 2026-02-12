@@ -8,6 +8,7 @@
     <string name="slogan_message_5">สมบูรณ์แบบ</string>
     <string name="slogan_message_6">ไบต์ หายไป!</string>
     <string name="slogan_message_7">พื้นที่ว่าง สถานที่มีความสุข</string>
+    <string name="slogan_message_4">จัดระเบียบทุกอย่างเรียบร้อย</string>
     <string name="slogan_message_8">ไม่เคยยอมแพ้กับคุณ</string>
     <string name="general_thank_you_label">ขอบคุณ</string>
     <string name="general_error_type_mismatch_msg">ประเภทไม่ตรงกัน: ต้องการ %1$s แต่ได้รับ %2$s</string>
@@ -18,11 +19,13 @@
     <string name="general_todo_msg">ฟีเจอร์นี้ยังอยู่ในระหว่างการพัฒนาและยังไม่พร้อมใช้งาน</string>
     <string name="general_share_action">แชร์</string>
     <string name="general_done_action">เสร็จสิ้น</string>
+    <string name="general_apply_action">นำไปใช้</string>
     <string name="general_copy_action">คัดลอก</string>
     <string name="general_wipe_action">ล้าง</string>
     <string name="general_cancel_action">ยกเลิก</string>
     <string name="general_discard_action">ทิ้ง</string>
     <string name="general_reset_action">รีเซ็ต</string>
+    <string name="general_drag_handle_description">ลากเพื่อจัดเรียงใหม่</string>
     <string name="general_save_action">บันทึก</string>
     <string name="general_thanks_action">ขอบคุณ</string>
     <string name="general_gotit_action">เข้าใจแล้ว</string>
@@ -31,6 +34,7 @@
     <string name="general_edit_action">แก้ไข</string>
     <string name="general_na_label">ไม่มี</string>
     <string name="general_empty_label">ว่างเปล่า</string>
+    <string name="general_new_badge_label">ใหม่</string>
     <string name="general_dismiss_action">ปิด</string>
     <string name="general_maybe_later_action">ทีหลัง</string>
     <string name="general_manage_action">จัดการ</string>

@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Nepieciešams SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Uzlabojiet SD Maid SE</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro piedāvā labākus rezultātus, vairāk funkciju un opcijas pieredzējušiem lietotājiem.</string>
     <string name="upgrades_dashcard_upgrade_action">Uzlabot</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play nav pieejams</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid nevar izveidot savienojumu ar Google Play. Vai Google Play ir instalēts un atjaunināts? Vai jūsu Google konts ir pieteicies? Mēģiniet notīrīt Google Play lietotnes kešatmiņu un restartēt ierīci.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play problēma</string>
+    <string name="upgrades_gplay_billing_error_description">Radās problēma ar Google Play. Lūdzu, mēģiniet vēlāk vai restartējiet ierīci.\n\nDetaļas: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play kļūda</string>
+    <string name="upgrades_gplay_internal_error_description">Radās iekšēja Google Play kļūda. Lūdzu, mēģiniet šo:\n\n• Restartējiet ierīci\n• Notīriet Google Play veikala kešatmiņu\n• Mēģiniet vēlāk</string>
+    <string name="upgrades_gplay_network_error_title">Savienojuma kļūda</string>
+    <string name="upgrades_gplay_network_error_description">Nevar izveidot savienojumu ar Google Play. Lūdzu, pārbaudiet interneta savienojumu un mēģiniet vēlreiz.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Jau iegādāts</string>
+    <string name="upgrades_gplay_already_owned_error_description">Izmantojiet opciju \"Atjaunot pirkumu\", lai atjaunotu pirkumu. Ja problēma saglabājas, mēģiniet notīrīt Google Play kešatmiņu un restartēt ierīci.</string>
     <string name="upgrades_no_purchases_found_check_account">Pirkumi nav atrasti. Vai izmantojat pareizo kontu?</string>
     <string name="upgrade_screen_title">Iegūstiet SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nav reklāmu un nepārdod lietotāju datus. Mans darbs tiek finansēts no jūsu puses ❤️.</string>

@@ -4,6 +4,7 @@
     <string name="slogan_message_1">Toza va tartibli.</string>
     <string name="slogan_message_2">Betartiblikni oldini olish.</string>
     <string name="slogan_message_3">Kerakli ishlarni qilish.</string>
+    <string name="slogan_message_4">Hamma narsa tartibda.</string>
     <string name="slogan_message_5">Dog\'siz.</string>
     <string name="slogan_message_6">Baytlar, keting!</string>
     <string name="slogan_message_7">Bo\'sh joy, xursand joy.</string>
@@ -17,11 +18,13 @@
     <string name="general_todo_msg">Ushbu xususiyat hali ishlab chiqilmoqda va hozircha mavjud emas.</string>
     <string name="general_share_action">Ulashish</string>
     <string name="general_done_action">Tayyor</string>
+    <string name="general_apply_action">Qo\'llash</string>
     <string name="general_copy_action">Nusxalash</string>
     <string name="general_wipe_action">Tozalash</string>
     <string name="general_cancel_action">Bekor qilish</string>
     <string name="general_discard_action">Rad etish</string>
     <string name="general_reset_action">Qayta o\'rnatish</string>
+    <string name="general_drag_handle_description">Tartibni o\'zgartirish uchun torting</string>
     <string name="general_save_action">Saqlash</string>
     <string name="general_thanks_action">Rahmat</string>
     <string name="general_gotit_action">Tushundim</string>
@@ -30,6 +33,7 @@
     <string name="general_edit_action">Tahrirlash</string>
     <string name="general_na_label">Mavjud emas</string>
     <string name="general_empty_label">Bo\'sh</string>
+    <string name="general_new_badge_label">Yangi</string>
     <string name="general_dismiss_action">Yopish</string>
     <string name="general_maybe_later_action">Balki keyinroq</string>
     <string name="general_manage_action">Boshqarish</string>
@@ -90,6 +94,10 @@
     <string name="general_toggle_layout_mode">Ko\'rish rejimini almashtirish</string>
     <string name="general_delete_confirmation_title">O\'chirishni tasdiqlash</string>
     <string name="general_delete_confirmation_message_x">\"%s\"ni o\'chirasizmi?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Tanlangan %d narsani o\'chirasizmi?</item>
+        <item quantity="other">Tanlangan %d narsani o\'chirasizmi?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d narsa o\'chirildi.</item>
         <item quantity="other">%d narsa o\'chirildi.</item>
@@ -162,4 +170,6 @@
     <string name="general_error_report_bug_action">Xato haqida xabar berish</string>
     <string name="general_error_ipc_deadobject_title">Xizmat aloqasi uzildi</string>
     <string name="general_error_ipc_deadobject_description">Muhim xizmat (masalan, Magisk, Shizuku yoki boshqa tizim darajasidagi xizmatlar) bilan aloqa kutilmaganda uzildi. Iltimos, qurilmangizni qayta ishga tushiring. Agar muammo davom etsa, yangilanishlarni tekshiring yoki uni tuzatish uchun men bilan bog\'laning.</string>
+    <string name="general_user_label_owner">Egasi</string>
+    <string name="general_user_label_system">Tizim</string>
 </resources>

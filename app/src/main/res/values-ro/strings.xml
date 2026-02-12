@@ -604,6 +604,7 @@
     <string name="squeezer_onboarding_compressed_label">Dupa compresie</string>
     <string name="squeezer_onboarding_quality_label">Calitate: %d%%</string>
     <string name="squeezer_onboarding_got_it">Am înțeles</string>
+    <string name="squeezer_compare_action">Vizualizare comparație</string>
     <string name="squeezer_no_example_found">Nu s-au găsit imagini în căile selectate.</string>
     <string name="squeezer_result_empty_message">Nu s-au găsit imagini compresibile.</string>
     <string name="squeezer_setup_warning">Compresia reduce permanent calitatea imaginii pentru a economisi spațiu de stocare. Acest lucru nu poate fi anulat. Examinați cu atenție setările înainte de a începe.</string>
@@ -989,8 +990,10 @@
     <string name="swiper_label">Glisare</string>
     <string name="swiper_tool_name">Glisare</string>
     <string name="swiper_tool_description">Glisați prin fișiere pentru a decide ce să păstrați sau să ștergeți.</string>
+    <string name="swiper_dashcard_description">Examinați manual fișierele din dosare specifice. Glisați pentru a decide ce să păstrați sau să ștergeți.</string>
     <string name="swiper_start_action">Începeți glisarea</string>
     <string name="swiper_continue_action">Continuați sesiunea</string>
+    <string name="swiper_sessions_description">Unele fișiere necesită o decizie umană. Glisați prin elemente și alegeți ce să păstrați sau să ștergeți. Săriți peste orice nu sunteți sigur. Acest instrument vă permite să examinați manual dosare specifice și nimic nu este eliminat până când nu confirmați.</string>
     <string name="swiper_select_folders_action">Selectați foldere</string>
     <string name="swiper_scanning_title">Se scanează…</string>
     <plurals name="swiper_result_x_items_found">

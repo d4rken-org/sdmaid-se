@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Na tejto funkcii sa stále pracuje a momentálne nie je dostupná.</string>
     <string name="general_share_action">Zdieľať</string>
     <string name="general_done_action">Hotovo</string>
+    <string name="general_apply_action">Použiť</string>
     <string name="general_copy_action">Kopírovať</string>
     <string name="general_wipe_action">Zmazať</string>
     <string name="general_cancel_action">Zrušiť</string>
     <string name="general_discard_action">Zrušiť</string>
     <string name="general_reset_action">Obnoviť</string>
+    <string name="general_drag_handle_description">Potiahnutím zmeníte poradie</string>
     <string name="general_save_action">Uložiť</string>
     <string name="general_thanks_action">Vďaka</string>
     <string name="general_gotit_action">Rozumiem</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Upraviť</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Prázdne</string>
+    <string name="general_new_badge_label">Nové</string>
     <string name="general_dismiss_action">Odmietnuť</string>
     <string name="general_maybe_later_action">Možno pozdejšie</string>
     <string name="general_manage_action">Spravovať</string>

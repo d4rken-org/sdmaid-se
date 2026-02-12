@@ -4,6 +4,7 @@
     <string name="slogan_message_1">သန့်ရှင်းပြီး စနစ်တကျ။</string>
     <string name="slogan_message_2">ရှုပ်ထွေးမှုကို ကာကွယ်ပါ။</string>
     <string name="slogan_message_3">လိုအပ်သောကိစ្စကို လုပ်ဆောင်ပါ။</string>
+    <string name="slogan_message_4">အားလုံးစနစ်တကျ စီစဉ်ထားပါပြီ။</string>
     <string name="slogan_message_5">အပြစ်အနာအဆာမရှိ။</string>
     <string name="slogan_message_6">ဘိုက်များ၊ ပျောက်သွားပါ!</string>
     <string name="slogan_message_7">နေရာလွတ်၊ ပျော်ရွှင်သောနေရာ။</string>
@@ -17,11 +18,13 @@
     <string name="general_todo_msg">ဤလုပ်ဆောင်ချက်ကို လက်ရှိတွင် ကိုင်တွယ်နေသေးသောကြောင့် အသုံးပြုမရနိုင်သေးပါ။</string>
     <string name="general_share_action">မျှဝေပါ</string>
     <string name="general_done_action">ပြီးပါပြီ</string>
+    <string name="general_apply_action">အသုံးချပါ</string>
     <string name="general_copy_action">ကူးယူပါ</string>
     <string name="general_wipe_action">သုတ်သင်ပါ</string>
     <string name="general_cancel_action">ပယ်ဖျက်ပါ</string>
     <string name="general_discard_action">စွန့်ပစ်ပါ</string>
     <string name="general_reset_action">ပြန်လည်သတ်မှတ်ပါ</string>
+    <string name="general_drag_handle_description">အစီအစဉ်ပြန်စီရန် ဆွဲပါ</string>
     <string name="general_save_action">သိမ်းပါ</string>
     <string name="general_thanks_action">ကျေးဇူးတင်ပါသည်</string>
     <string name="general_gotit_action">နား လည်ပါပြီ</string>
@@ -30,6 +33,7 @@
     <string name="general_edit_action">တည်းဖြတ်ပါ</string>
     <string name="general_na_label">မရှိပါ</string>
     <string name="general_empty_label">ဗလာ</string>
+    <string name="general_new_badge_label">အသစ်</string>
     <string name="general_dismiss_action">ပယ်ဖျက်ပါ</string>
     <string name="general_maybe_later_action">နောက်မှလုပ်မည်</string>
     <string name="general_manage_action">စီမံခန့်ခွဲပါ</string>
@@ -89,6 +93,9 @@
     <string name="general_toggle_layout_mode">ကြည့်မုဒ်လဲပါ</string>
     <string name="general_delete_confirmation_title">ဖျက်ခြင်းကို အတည်ပြုပါ</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ကို ဖျက်မလား?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="other">ရွေးချယ်ထားသော %d ခုကို ဖျက်မလား?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">%d ခုကို ဖျက်ပြီးပါပြီ။</item>
     </plurals>
@@ -152,4 +159,6 @@
     <string name="general_error_report_bug_action">အမှားတင်ပြပါ</string>
     <string name="general_error_ipc_deadobject_title">ဝန်ဆောင်မှုချိတ်ဆက်မှု ပြတ်တောက်သွားပါသည်</string>
     <string name="general_error_ipc_deadobject_description">အရေးကြီးသောဝန်ဆောင်မှု (ဥပမာ - Magisk, Shizuku, သို့မဟုတ် အခြားစနစ်အဆင့် ဝန်ဆောင်မှုများ) နှင့် ချိတ်ဆက်မှုသည် မျှော်လင့်မထားစွာ ပြတ်တောက်သွားပါသည်။ သင့်စက်ပစ္စည်းကို ပြန်လည်စတင်ပါ။ အကယ်၍ ပြဿနာ ဆက်လက်ဖြစ်ပေါ်နေပါက အပ်ဒိတ်များကို စစ်ဆေးပါ သို့မဟုတ် ကျွန်ုပ်နှင့် ဆက်သွယ်ပါ။</string>
+    <string name="general_user_label_owner">ပိုင်ရှင်</string>
+    <string name="general_user_label_system">စနစ်</string>
 </resources>

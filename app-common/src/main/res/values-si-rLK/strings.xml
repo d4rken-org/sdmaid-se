@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">ඔබගේ සේවයේ.</string>
     <string name="slogan_message_1">පිරිසිදු සහ තබා.</string>
     <string name="slogan_message_2">අවුල් වීම වළක්වමින්.</string>
     <string name="slogan_message_3">අවශ්‍ය දේ කරමින්.</string>
+    <string name="slogan_message_4">සියල්ල පිළිවෙළට.</string>
     <string name="slogan_message_5">කැළලක් නැත.</string>
     <string name="slogan_message_6">බයිට්, යන්න!</string>
     <string name="slogan_message_7">නිදහස් ඉඩ, සන්තෝෂවත් ස්ථානය.</string>
@@ -17,11 +19,13 @@
     <string name="general_todo_msg">මෙම විශේෂාංගය තවමත් වැඩ කරමින් පවතින අතර දැනට නොමැත.</string>
     <string name="general_share_action">බෙදාගන්න</string>
     <string name="general_done_action">කළා</string>
+    <string name="general_apply_action">යොදන්න</string>
     <string name="general_copy_action">පිටපත් කරන්න</string>
     <string name="general_wipe_action">පිසදන්න</string>
     <string name="general_cancel_action">අවලංගු කරන්න</string>
     <string name="general_discard_action">ඉවතලන්න</string>
     <string name="general_reset_action">නැවත සකසන්න</string>
+    <string name="general_drag_handle_description">නැවත පිළිවෙළට සැකසීමට ඇදගන්න</string>
     <string name="general_save_action">සුරකින්න</string>
     <string name="general_thanks_action">ස්තූතියි</string>
     <string name="general_gotit_action">තේරුණා</string>
@@ -30,6 +34,7 @@
     <string name="general_edit_action">සංස්කරණය කරන්න</string>
     <string name="general_na_label">නැත</string>
     <string name="general_empty_label">හිස්</string>
+    <string name="general_new_badge_label">අලුත්</string>
     <string name="general_dismiss_action">ඉවතලන්න</string>
     <string name="general_maybe_later_action">සමහර විට පසුව</string>
     <string name="general_manage_action">කළමනාකරණය කරන්න</string>
@@ -90,6 +95,10 @@
     <string name="general_toggle_layout_mode">බැලීමේ ක්‍රමය මාරු කරන්න</string>
     <string name="general_delete_confirmation_title">මකා දැමීම තහවුරු කරන්න</string>
     <string name="general_delete_confirmation_message_x">\"%s\" මකන්න ද?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">තෝරාගත් අයිතම %d ක් මකන්න ද?</item>
+        <item quantity="other">තෝරාගත් අයිතම %d ක් මකන්න ද?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">අයිතම %d ක් මකා දමන ලදී.</item>
         <item quantity="other">අයිතම %d ක් මකා දමන ලදී.</item>
@@ -162,4 +171,6 @@
     <string name="general_error_report_bug_action">දෝෂ වාර්තා කරන්න</string>
     <string name="general_error_ipc_deadobject_title">සේවා සම්බන්ධතාවය නැති විය</string>
     <string name="general_error_ipc_deadobject_description">වැදගත් සේවාවකට (උදා: Magisk, Shizuku, හෝ වෙනත් පද්ධති මට්ටමේ සේවා) සම්බන්ධතාවය අනපේක්ෂිතව නැති විය. කරුණාකර ඔබගේ උපකරණය නැවත ආරම්භ කරන්න. ගැටලුව දිගටම පවතින්නේ නම්, යාවත්කාලීන පරීක්ෂා කරන්න හෝ එය නිවැරදි කිරීම සඳහා මා සම්බන්ධ කරගන්න.</string>
+    <string name="general_user_label_owner">හිමිකරු</string>
+    <string name="general_user_label_system">පද්ධතිය</string>
 </resources>

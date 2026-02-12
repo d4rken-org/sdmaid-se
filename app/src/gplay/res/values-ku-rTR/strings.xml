@@ -31,4 +31,10 @@
     <string name="upgrade_screen_restore_multiaccount_hint">Hesabên pirjimar dikarin Google Play tevlihev bikin. Ji hesabên din derkeve an jî bi riya malperê Google Play saz bike, ku bi hesabekî taybetî re girêdanê mecbûr dike.</string>
     <string name="upgrades_gplay_billing_error_label">Pirsgirêka Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Bi Google Play re pirsgirêkek derket. Ji kerema xwe paşê dîsa biceribîne an cîhaza xwe ji nû ve vekin.\n\nHurdî: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Çewtiya Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Çewtiyeke navxweyî ya Google Play derket. Ji kerema xwe tiştên jêrîn biceribîne:\n\n• Cîhaza xwe ji nû ve veke\n• Cache-ya Google Play Store pak bike\n• Paşê dîsa biceribîne</string>
+    <string name="upgrades_gplay_network_error_title">Çewtiya girêdanê</string>
+    <string name="upgrades_gplay_network_error_description">Girêdana bi Google Play re pêk nehat. Ji kerema xwe girêdana xwe ya înternetê kontrol bike û dîsa biceribîne.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Berê hatiye kirîn</string>
+    <string name="upgrades_gplay_already_owned_error_description">Vebijarka \"Kirinê vegerîne\" bi kar bîne da ku kirina xwe vegerînî. Heke pirsgirêk berdewam dike, biceribîne cache-ya Google Play pak bikî û cîhaza xwe ji nû ve vekî.</string>
 </resources>

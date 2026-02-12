@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Kjo veçori është ende duke u punuar dhe aktualisht e pa disponueshme.</string>
     <string name="general_share_action">Shpërndaj</string>
     <string name="general_done_action">U krye</string>
+    <string name="general_apply_action">Apliko</string>
     <string name="general_copy_action">Kopjo</string>
     <string name="general_wipe_action">Zhduk</string>
     <string name="general_cancel_action">Anulo</string>
     <string name="general_discard_action">Braktise</string>
     <string name="general_reset_action">Rivendos</string>
+    <string name="general_drag_handle_description">Tërhiq për të rirenditur</string>
     <string name="general_save_action">Ruaj</string>
     <string name="general_thanks_action">Faleminderit</string>
     <string name="general_gotit_action">E kuptova</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Redakto</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Bosh</string>
+    <string name="general_new_badge_label">E re</string>
     <string name="general_dismiss_action">Largoje</string>
     <string name="general_maybe_later_action">Ndoshta më vonë</string>
     <string name="general_manage_action">Menaxhon</string>

@@ -604,6 +604,364 @@
     <string name="area_type_public_obb_label">Umumiy qollanba resurstar</string>
     <string name="area_type_private_data_label">Sha\'xsiy qollanba ma\'lumotlar</string>
     <string name="area_type_portable_label">Ko\'shirilma saqlash</string>
+    <string name="dashboard_card_config_title">Basqarma paneli kartalary</string>
+    <string name="dashboard_card_config_desc">Qaysy kartalar ko\'rsetiletuǵynyn ha\'m ta\'rtibin sazlan\'</string>
+    <string name="dashboard_card_config_header_title">Ta\'rtibin o\'zgertiwshi ushin su\'yren\', ko\'rsetiw/jasyryw ushin almastyryn\'</string>
+    <string name="debug_debuglog_screen_title">Debaglash jurnaly</string>
+    <string name="debug_debuglog_screen_discard_action">Tashlan\'</string>
+    <string name="debug_debuglog_screen_session_path_label">Sessiya joly</string>
+    <string name="debug_debuglog_screen_log_files_label">Jurnal fayllar</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fayl tayar (%2$s)</item>
+        <item quantity="other">%1$d fayl tayar (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_folder_label">Debaglash jurnaly papkasy</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d fayl %2$s paydalanada</item>
+        <item quantity="other">%1$d fayl %2$s paydalanada</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Saqlanǵan debaglash jurnallary joq</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Barliq debaglash jurnallaryn o\'shiriw?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Bul barliq saqlanǵan debaglash jurnal sessiyalaryn biyrden o\'shiredi. Bul a\'meldi qaytarǵa alıw mu\'mkin emes.</string>
+    <string name="debug_card_title">Debaglash rejimi qosylǵan</string>
+    <string name="debug_card_trace_mode_label">Iz rejimin qosıw</string>
+    <string name="debug_card_dryrun_mode_label">Synaq rejimi (o\'shiriwdi o\'shiriw)</string>
+    <string name="debug_card_areas_reload_action">Maǵlıwmat aymaqlaryn qayta ju\'klew</string>
+    <string name="debug_card_pkgs_reload_action">Qollanbalardı qayta ju\'klew</string>
+    <string name="debug_card_root_test_action">Root tekseriwi</string>
+    <string name="debug_card_shizuku_test_action">Shizuku tekseriwi</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profilleri</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART profilleri Android ta\'repinen qollanba o\'nimdirliligin optimallastırıw ushin paydalanıladı.</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Ornatılǵan qollanba versiyalarına tiykarlanǵan, kerek bolmaǵan ornatıw faylları.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Birday versiyanı qosıw</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Ornatılǵan versiyaǵa uyqas APK fayllarındı da nısanǵa alıw. Tek eski versiyalardı alıw ushin o\'shirin\'.</string>
+    <string name="systemcleaner_customfilter_editor_size_label">O\'lshem sheklewleri</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimum o\'lshem</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maksimum o\'lshem</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Fayl o\'lshemine tiykarlanıp na\'tiyjelerin sheklew. Qa\'legen o\'lshemge uyqas keliw ushin sazlanbastan qaldırın\'.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Jasılıq sheklewleri</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimum jasılıq</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maksimum jasılıq</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Fayl jasılıǵına (aqırǵı o\'zgertiw waqtı) tiykarlanıp na\'tiyjelerin sheklew. Qa\'legen jasılıqqa uyqas keliw ushin sazlanbastan qaldırın\'.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Qollanba tezkor belgileri ikonkalary</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Qollanba tezkor belgileri ha\'m bo\'lisiw menyu\'leri ushin keshlengen ikonkalar.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Tazalawdan aldın ma\'jbu\'riy toqtatıw</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Keshti tazalawdan aldın qollanbalardı ma\'jbu\'riy toqtatıw. Ayırım qollanbalardıń keshin tazalawǵa ja\'rdem beriwi mu\'mkin, biraq qollanbalardıń nadurıs islewine alıp kelwi ha\'m qoldan qayta baslatıwdı talap etiwi mu\'mkin.</string>
+    <string name="appcleaner_progress_force_stopping">Qollanbalardı ma\'jbu\'riy toqtatıw…</string>
+    <string name="deduplicator_keep_prefer_paths_title">Saqlaw ushin artıqsha ko\'riw</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Qaysy dublikattı saqlawdı sheshkende, usı orınlardaǵı faylların saqlawdı artıqsha ko\'rin\'.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Hesh qanday orın sazlanbaǵan</string>
+    <string name="deduplicator_detection_method_phash_summary">Mazmun o\'zgesheliklerdi taldaw ha\'m perseptual xesh qıymatların salıstırıw arqalı uqsas faylları tabın\'. ⚠️ Uqsaslıqqa tiykarlanǵan anıqlaw jalǵan pozitiflerdı o\'z ishine alıwı mu\'mkin, qoldan tekseriwdi talap etedi.</string>
+    <string name="deduplicator_arbiter_title">O\'shiriw strategiyası</string>
+    <string name="deduplicator_arbiter_summary">Qaysy fayllar saqlanatıǵının ha\'m qaysy fayllar o\'shiriletuǵının sazlan\'.</string>
+    <string name="deduplicator_arbiter_explanation">Dublikatlardı o\'shirgende, SD Maid ha\'r kriteriydi ta\'rtip boyınsha tekseriw arqalı qaysy fayldı saqlawdı sheshedi. Anıq jeńimpaz shıǵaratıǵın birinshi kriteriy na\'tiyjeni anıqlaydı. Ta\'rtibin o\'zgertiw ushin su\'yren\', rejimdi o\'zgertiw ushin basın\'.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Rejimdi tańlan\'</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Jollardı sazlaw…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Dublikat tu\'ri</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Uqsas fayllardan anıq sa\'ykes keliwlerdi artıqsha ko\'riw.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Media indeksaciyası</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Fayllar media provayderı ta\'repinen indekslengenligi esapqa alınadı.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Saqlash orny</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Ishki yamasa sırtqı saqlash ornındaǵı fayllar artıqsha ko\'riledi.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Papka tereńligi</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Az yamasa ko\'birek papka qurılımındaǵı fayllar artıqsha ko\'riledi.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">O\'zgertiw sa\'nesi</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">O\'zgertiw waqtına qaray eski yamasa jańa fayllar artıqsha ko\'riledi.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Fayl o\'lshemi</string>
+    <string name="deduplicator_arbiter_criterium_size_description">O\'lshemler parqlılanǵanda u\'lken yamasa kishi fayllar artıqsha ko\'riledi.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Artıqsha ko\'riletuǵın orınlar</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Sazlanǵan artıqsha ko\'riletuǵın orınlardaǵı fayllar saqlanadı.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Anıq sa\'ykes keliwlerdi artıqsha ko\'riw</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Uqsas fayllar artıqsha ko\'riledi</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Indekslengen fayllar artıqsha ko\'riledi</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Indekslenbeǵen fayllar artıqsha ko\'riledi</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Ishki saqlash ornı artıqsha ko\'riledi</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Sırtqı saqlash ornı artıqsha ko\'riledi</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Az tereń papkalar artıqsha ko\'riledi</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Tereń papkalar artıqsha ko\'riledi</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Eski fayllar artıqsha ko\'riledi</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Jańa fayllar artıqsha ko\'riledi</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">U\'lken fayllar artıqsha ko\'riledi</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Kishi fayllar artıqsha ko\'riledi</string>
+    <string name="deduplicator_view_mode_groups_label">Toparlar</string>
+    <string name="deduplicator_view_mode_directories_label">Papkalar</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="squeezer_explanation_short">Saqlash ornın u\'nemlew ushin su\'wretlerdi sıǵıstırıw.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d su\'wret tabıldı</item>
+        <item quantity="other">%d su\'wret tabıldı</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s u\'nemleniw mu\'mkin</item>
+        <item quantity="other">~%s u\'nemleniw mu\'mkin</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d su\'wret sıǵıstırıldı</item>
+        <item quantity="other">%d su\'wret sıǵıstırıldı</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d su\'wret tańlandı</item>
+        <item quantity="other">%d su\'wret tańlandı</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Izlew orınları</string>
+    <string name="squeezer_search_locations_default_summary">Kamera papkası (birden kelgen)</string>
+    <string name="squeezer_min_size_title">Minimum fayl o\'lshemi</string>
+    <string name="squeezer_min_size_description">Usı o\'lshemnen kishi su\'wretlerdi atlap o\'tiw.</string>
+    <string name="squeezer_min_age_title">Minimum fayl jasılıǵı</string>
+    <string name="squeezer_min_age_description">Tek usı jasılıqtan eski su\'wretlerdi qosıw.</string>
+    <string name="squeezer_compression_settings_label">Sıǵıstırıw sazlamaları</string>
+    <string name="squeezer_quality_label">Sapa</string>
+    <string name="squeezer_quality_title">Sıǵıstırıw sapası</string>
+    <string name="squeezer_quality_description">To\'men sapa kishi fayl o\'lshemin, biraq kemeytirilgen su\'wret sapasın bildiredi.</string>
+    <string name="squeezer_quality_example_format">Mısal: %1$s su\'wret → %3$d%% sapada ~%2$s u\'nemlew</string>
+    <string name="squeezer_quality_warning_low">To\'men sapalarda ko\'rinetug\'ın artefaktlar payda bolıwı mu\'mkin.</string>
+    <string name="squeezer_quality_warning_high">Juqarı sapa az orın u\'nemleydi.</string>
+    <string name="squeezer_types_category_label">Su\'wret tu\'rleri</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">JPEG su\'wretlerdi (.jpg, .jpeg) qosıw.</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">WebP su\'wretlerdi (.webp) qosıw.</string>
+    <string name="squeezer_skip_compressed_title">Aldın sıǵıstırılǵanlardı atlap o\'tiw</string>
+    <string name="squeezer_skip_compressed_description">SD Maid ta\'repinen aldın sıǵıstırılǵan su\'wretlerdi atlap o\'tiw.</string>
+    <string name="squeezer_exif_marker_title">EXIF belgini jazıw</string>
+    <string name="squeezer_exif_marker_description">Su\'wrettiń EXIF paydalanıwshı ko\'rsetpesi maydan\'ına belgi qosıw, sıǵıstırıw tariyxı tazalanǵan jaǵdayda da qayta sıǵıstırıwdı aldın alıw ushin.</string>
+    <string name="squeezer_estimated_savings_format">~%s u\'nemlew</string>
+    <string name="squeezer_no_savings_expected">Az u\'nemlew</string>
+    <string name="squeezer_current_size_format">O\'lshem: %s</string>
+    <string name="squeezer_compress_action">Sıǵıstırıw</string>
+    <string name="squeezer_compress_all_action">Barlıǵın sıǵıstırıw</string>
+    <string name="squeezer_preview_dialog_title">Sıǵıstırıwdı tastıyıqlaw</string>
+    <string name="squeezer_preview_total_size">Ulıwma o\'lshem</string>
+    <string name="squeezer_preview_estimated_savings">Boljamalı u\'nemlew</string>
+    <string name="squeezer_compress_confirmation_title">Su\'wretlerdi sıǵıstırıw?</string>
+    <string name="squeezer_compress_confirmation_message">Bul original su\'wretlerdi sıǵıstırılǵan versiyalar menen almastyradı. Bul a\'meldi qaytarǵa alıw mu\'mkin emes.</string>
+    <string name="squeezer_history_title">Sıǵıstırıw tariyxı</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d element (%2$s)</item>
+        <item quantity="other">%1$d element (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Sıǵıstırıw tariyxı joq</string>
+    <string name="squeezer_history_clear_title">Sıǵıstırıw tariyxın tazalaw</string>
+    <string name="squeezer_history_clear_message">Bul aldın sıǵıstırılǵan su\'wretlerdi qayta sıǵıstırıwǵa mu\'mkinshilik beredi. Su\'wretlerdiń o\'zleri ta\'sir etilmeydi.</string>
+    <string name="squeezer_onboarding_title">Su\'wret sıǵıstırıw haqqında</string>
+    <string name="squeezer_onboarding_message">Su\'wret sıǵıstırıw ko\'riniw detallarin alıp taslaw arqalı fayl o\'lshemin kemeyterdi. Bul protsess qaytarılmas - original sapa qayta tikleniwi mu\'mkin emes.\n\nSu\'wretleriniz qalay ko\'rinetuǵının aldın alıw:</string>
+    <string name="squeezer_onboarding_original_label">Original</string>
+    <string name="squeezer_onboarding_compressed_label">Sıǵıstırılǵannan keyin</string>
+    <string name="squeezer_onboarding_quality_label">Sapa: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Tu\'sindim</string>
+    <string name="squeezer_compare_action">Salıstırıwdı ko\'riw</string>
+    <string name="squeezer_no_example_found">Tańlanǵan jollarda su\'wretler tabılmadı.</string>
+    <string name="squeezer_result_empty_message">Sıǵıstırılıwshı su\'wretler tabılmadı.</string>
+    <string name="squeezer_setup_warning">Sıǵıstırıw saqlash ornın u\'nemlew ushin su\'wret sapasın biyrden kemeyterdi. Bul qaytarılmas. Baslawdan aldın sazlamalarıńızdı diqqat penen tekserin\'.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze saqlash ornın bosatıw ushin su\'wretlerdiń fayl o\'lshemin kemeyterdi. Bul su\'wret sapasın biyrden kemeyterdi ha\'m qaytarılmas. Baslawdan aldın sazlamalarıńızdı diqqat penen tekserin\'.</string>
+    <string name="squeezer_setup_paths_title">Izlew orınları</string>
+    <string name="squeezer_setup_paths_default">Izlew ushin papkalardı tańlan\'</string>
+    <string name="squeezer_setup_quality_title">Sıǵıstırıw sapası</string>
+    <string name="squeezer_setup_age_title">Minimum jasılıq</string>
+    <string name="squeezer_setup_age_none">Sheklew joq (barlıq fayllar qosıladı)</string>
+    <string name="squeezer_setup_start_action">Skanerlawdı baslaw</string>
+    <string name="squeezer_quality_hint_very_low">40%-dan to\'men sapa paydalanıp bolmaytug\'ın su\'wretler jaratıwı mu\'mkin.</string>
+    <string name="squeezer_quality_hint_low">To\'men sapa ko\'birek orın u\'nemleydi, biraq ko\'rinetug\'ın artefaktlar payda bolıwı mu\'mkin.</string>
+    <string name="squeezer_quality_hint_high">Juqarı sapa az orın u\'nemleydi.</string>
+    <string name="squeezer_quality_hint_normal">Teńlestirilgen sapa ha\'m orın u\'nemlew.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Keminde %d ku\'n eski</item>
+        <item quantity="other">Keminde %d ku\'n eski</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG faylları ushin boljamalı ~%d%% u\'nemlew</string>
+    <string name="appcontrol_app_forcestop_description">Qollanbanı toqtatıw. Siz ashqansha yamasa qurilma qayta baslanǵansha o\'zinen baslanıwın aldın alıw.</string>
+    <string name="appcontrol_tag_debug">Debaglash</string>
+    <string name="appcontrol_archive_action">Arxivlew</string>
+    <string name="appcontrol_archive_selection_action">Qollanbalardı arxivlew</string>
+    <string name="appcontrol_archive_description">Keyin tiklaw ushin qollanba maǵlıwmatların saqlap, orın bosatıw ushin arxivlew.</string>
+    <string name="appcontrol_progress_archiving_app">Qollanba arxivlenip atır…</string>
+    <string name="appcontrol_archive_confirmation_title">Arxivlawdı tastıyıqlaw</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d qollanbanı arxivlew?</item>
+        <item quantity="other">%d qollanbanı arxivlew?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d qollanba arxivlendi</item>
+        <item quantity="other">%d qollanba arxivlendi</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Tiklaw</string>
+    <string name="appcontrol_restore_selection_action">Qollanbalardı tiklaw</string>
+    <string name="appcontrol_restore_description">Arxivlengen qollanbanı tolıq ornatılǵan jaǵdayǵa tiklaw. Qollanba maǵlıwmatları saqlanadı.</string>
+    <string name="appcontrol_progress_restoring_app">Qollanba tiklenip atır…</string>
+    <string name="appcontrol_restore_confirmation_title">Tiklawdı tastıyıqlaw</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d qollanbanı tiklaw?</item>
+        <item quantity="other">%d qollanbanı tiklaw?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d qollanba tiklendi</item>
+        <item quantity="other">%d qollanba tiklendi</item>
+    </plurals>
+    <string name="appcontrol_include_multiuser_label">Basqa paydalanıwshılardı qosıw</string>
+    <string name="appcontrol_include_multiuser_summary">Usı qurilmadaǵı basqa paydalanıwshı profillerinen qollanbalardı qosıw.</string>
+    <string name="appcontrol_export_description">Usı qollanbanıń ornatıw faylların saqlap alıw. Bul qollanba maǵlıwmatların o\'z ishine almaydı.</string>
+    <string name="appcontrol_share_list_action">Dizimdi bo\'lisiw</string>
+    <string name="appcontrol_share_list_title">Meniń qollanbalarm</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE arqalı bo\'lisildi</string>
+    <string name="appcontrol_automation_subtitle_archiving">Arxivlenip atır…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"Arxivlew\" tu\'ymesin izlew (ta\'riypler: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Tiklenip atır…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"Tiklaw\" tu\'ymesin izlew (ta\'riypler: %s)</string>
+    <string name="appcontrol_item_installedat_x_label">Ornatılǵan: %s</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper sessiyasın jaratıw</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">%d element menen Swiper sessiyası jaratıldı</item>
+        <item quantity="other">%d element menen Swiper sessiyası jaratıldı</item>
+    </plurals>
+    <string name="exclusion_editor_path_change_action">Joldı o\'zgertiw ushin basın\'</string>
+    <string name="anniversary_card_title">SD Maid jubileyi qutlı bolsın ❤️</string>
+    <string name="anniversary_card_install_date">%s dan beri siz benen</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Aldınan %1$d jıl birge. Android qurilmańızdı taza ha\'m ta\'rtipli uslawǵa SD Maid\'qa isengenińiz ushin raxmet. Bosatılǵan orın: %2$s</item>
+        <item quantity="other">%1$d jıl ku\'shli. Qurilmańız SD Maid menen taza ha\'m ta\'rtipli qalıp atır. Bosatılǵan orın: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">SD Maid jubiliyińizdi bo\'lisin\'</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">SD Maid menen %1$d jıl — Bosatılǵan orın: %2$s. Android qurilmańızdı taza ha\'m ta\'rtipli uslap atır. #SDMaid\nSınap ko\'rin\': %3$s</item>
+        <item quantity="other">SD Maid menen %1$d jıl — Bosatılǵan orın: %2$s. Android qurilmańızdı taza ha\'m ta\'rtipli uslap atır. #SDMaid\nSınap ko\'rin\': %3$s</item>
+    </plurals>
+    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_long">Ornatılǵan qollanbalardı basqarıw</string>
+    <string name="shortcut_onetap_short">Skanerlew + O\'shiriw</string>
+    <string name="shortcut_onetap_long">Bir a\'melde skanerlew ha\'m o\'shiriw</string>
+    <string name="shortcuts_settings_category">Tezkor belgiler</string>
+    <string name="shortcuts_onetap_enabled_title">Bir basıw tezkor belgisi</string>
+    <string name="shortcuts_onetap_enabled_summary">Qollanba ikonkasın uzaq basqanda \"Skanerlew + O\'shiriw\" tezkor belgisini ko\'rsetiw. Bir basıw basqarma paneli menen birday qurallar paydalanıladı.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Fayılardı sıypaw arqalı neni saqlawdı ha\'m o\'shiriwdi sheshin\'.</string>
+    <string name="swiper_dashcard_description">Belgili papkalardaǵı faylardı qoldan tekserin\'. Neni saqlawdı ha\'m o\'shiriwdi sheshiw ushin sıypatın\'.</string>
+    <string name="swiper_start_action">Sıypawdı baslaw</string>
+    <string name="swiper_continue_action">Sessiyanı dawam ettiw</string>
+    <string name="swiper_sessions_description">Ayırım fayllar adam sheshimin talap etedi. Elementler arqalı sıypatıp, neni saqlawdı ha\'m o\'shiriwdi tańlan\'. Isenimli bolmaǵanlarıń atlap o\'tin\'. Bul qural belgli papkalardı qoldan tekseriwge mu\'mkinshilik beredi, tastıyıqlawǵa shekem hesh nerse o\'shirilmeydi.</string>
+    <string name="swiper_select_folders_action">Papkalardı tańlaw</string>
+    <string name="swiper_scanning_title">Skanerlenip atır…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d element tabıldı</item>
+        <item quantity="other">%d element tabıldı</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d element o\'shirildi</item>
+        <item quantity="other">%d element o\'shirildi</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d element sa\'tsiz boldı</item>
+        <item quantity="other">%d element sa\'tsiz boldı</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">Saqlap qalıw</string>
+    <string name="swiper_skip_action">Atlap o\'tiw</string>
+    <string name="swiper_review_action">Tekserw</string>
+    <string name="swiper_status_title">Sheshimlirdi tekserw</string>
+    <string name="swiper_status_action_keep_selected">Tańlanǵanlardı saqlap qalıw</string>
+    <string name="swiper_status_action_delete_selected">Tańlanǵanlardı o\'shiriw</string>
+    <string name="swiper_status_action_reset_selected">Tańlanǵanlardı qayta sazlaw</string>
+    <string name="swiper_decision_undecided">Sheshilmegen</string>
+    <string name="swiper_retry_action">Qayta urınıw</string>
+    <string name="swiper_delete_confirmation_title">Faylardı o\'shiriw?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Bul %1$d fayl (%2$s) biyrden o\'shiriledi. Bul a\'meldi qaytarǵa alıw mu\'mkin emes.</item>
+        <item quantity="other">Bul %1$d fayl (%2$s) biyrden o\'shiriledi. Bul a\'meldi qaytarǵa alıw mu\'mkin emes.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d sheshilmegen element keyingi tekserw ushin qaladı.</item>
+        <item quantity="other">%d sheshilmegen element keyingi tekserw ushin qaladı.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d o\'shiriw</string>
+    <string name="swiper_settings_swap_directions_title">Sıypaw baǵıtların almastırıw</string>
+    <string name="swiper_settings_swap_directions_summary">Saqlap qalıw ushin shepke, o\'shiriw ushin ońǵa sıypatın\'.</string>
+    <string name="swiper_settings_show_details_title">Fayl maǵlıwmatların ko\'rsetiw</string>
+    <string name="swiper_settings_show_details_summary">Sıypaw ekranında fayl atı, o\'lshemi ha\'m sa\'nesin ko\'rsetiw.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptik baylanıs</string>
+    <string name="swiper_settings_haptic_feedback_summary">Saqlap qalıw yamasa o\'shiriw sheshimlerin bergende terbeniw.</string>
+    <string name="swiper_discard_session_confirmation_title">Sessiyanı tashlap?</string>
+    <string name="swiper_discard_session_confirmation_message">Barlıq sheshimler joǵaltıladı. Isenimlimsiz?</string>
+    <string name="swiper_no_preview_available">Aldın alıw joq</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">%1$d ku\'n aldınǵı sessiyanı dawam ettiw (%2$d%% tayar)</item>
+        <item quantity="other">%1$d ku\'n aldınǵı sessiyanı dawam ettiw (%2$d%% tayar)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d sessiya</item>
+        <item quantity="other">%d sessiya</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d sheshilmegen element</item>
+        <item quantity="other">%d sheshilmegen element</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Jaratılǵan %1$s, aqırǵı belsendilik %2$s</string>
+    <string name="swiper_session_remove_action">Sessiyanı alıp taslaw</string>
+    <string name="swiper_sessions_empty_hint">Papka tańlaw ha\'m sıypawdı baslaw ushin + basın\'</string>
+    <string name="swiper_sessions_upgrade_body">Usı sheklewlerdi alıp taslaw ha\'m islenip shıǵarıwdı qollaw ushin jańartın\'. Tegin versiya sheklew:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">Ha\'r sessiyada %d fayl</item>
+        <item quantity="other">Ha\'r sessiyada %d fayl</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d sessiya</item>
+        <item quantity="other">%d sessiya</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sessiya #%d</string>
+    <string name="swiper_session_rename_title">Sessiyanı qayta atalandırıw</string>
+    <string name="swiper_session_rename_hint">Usı sessiya ushin at kiritin\'</string>
+    <string name="swiper_sessions_current_sessions">Aǵımdaǵı sessiyalar</string>
+    <string name="swiper_session_paths_label">Jollar</string>
+    <string name="swiper_session_status_label">Jaǵday</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d saqlap qalıw</item>
+        <item quantity="other">%d saqlap qalıw</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d o\'shiriw</item>
+        <item quantity="other">%d o\'shiriw</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d sheshilmegen</item>
+        <item quantity="other">%d sheshilmegen</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d aldınan saqlanǵan</item>
+        <item quantity="other">%d aldınan saqlanǵan</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d aldınan o\'shirilgen</item>
+        <item quantity="other">%d aldınan o\'shirilgen</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d saqlanǵan</item>
+        <item quantity="other">%d saqlanǵan</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d o\'shirilgen</item>
+        <item quantity="other">%d o\'shirilgen</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\" Swiper skanerlewlerinen shıǵarıp taslaw?</string>
+    <string name="swiper_sessions_header_title">Retke keltiriwge tayarsız?</string>
+    <string name="swiper_sessions_suggestions_label">Usınan baslan\':</string>
+    <string name="swiper_sessions_suggestion_downloads">Ju\'klewler papkası</string>
+    <string name="swiper_sessions_suggestion_screenshots">Ekran su\'wretleri</string>
+    <string name="swiper_sessions_suggestion_camera">Kamera ruly</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Saqlap qalıw!</string>
+    <string name="swiper_stamp_keep_2">Jaqsı!</string>
+    <string name="swiper_stamp_keep_3">Awa!</string>
+    <string name="swiper_stamp_keep_4">Saqlap!</string>
+    <string name="swiper_stamp_delete_1">Yaq!</string>
+    <string name="swiper_stamp_delete_2">Xosh!</string>
+    <string name="swiper_stamp_delete_3">Shıqındı!</string>
+    <string name="swiper_stamp_delete_4">O\'shiriw!</string>
+    <string name="swiper_stamp_skip_1">O\'tiw!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Keyin!</string>
+    <string name="swiper_stamp_skip_4">Ba\'lkim!</string>
+    <string name="swiper_stamp_undo_1">Qaytarıw!</string>
+    <string name="swiper_stamp_undo_2">Artqa!</string>
+    <string name="swiper_stamp_undo_3">Oy!</string>
+    <string name="swiper_stamp_undo_4">Toqtań!</string>
 </resources>

@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Ezen a funkción még dolgoznak, és jelenleg nem érhető el.</string>
     <string name="general_share_action">Megosztás</string>
     <string name="general_done_action">Kész</string>
+    <string name="general_apply_action">Alkalmaz</string>
     <string name="general_copy_action">Másolás</string>
     <string name="general_wipe_action">Törlés</string>
     <string name="general_cancel_action">Mégsem</string>
     <string name="general_discard_action">Elvetés</string>
     <string name="general_reset_action">Visszaállítás</string>
+    <string name="general_drag_handle_description">Húzza az átrendezéshez</string>
     <string name="general_save_action">Mentés</string>
     <string name="general_thanks_action">Köszönöm</string>
     <string name="general_gotit_action">Megvan</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Szerkesztés</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Üres</string>
+    <string name="general_new_badge_label">Új</string>
     <string name="general_dismiss_action">Elvetés</string>
     <string name="general_maybe_later_action">Talán később</string>
     <string name="general_manage_action">Kezelés</string>
@@ -92,6 +95,10 @@
     <string name="general_toggle_layout_mode">Nézetmód váltása</string>
     <string name="general_delete_confirmation_title">A törlés megerősítésére</string>
     <string name="general_delete_confirmation_message_x">Törli a \"%s\" fájlt?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d kijelölt elem törlése?</item>
+        <item quantity="other">%d kijelölt elem törlése?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d elem törölve.</item>
         <item quantity="other">%d elem törölve.</item>
@@ -165,4 +172,10 @@
     </plurals>
     <string name="general_advice_title">Tanács</string>
     <string name="general_error_invalid_input_label">Érvénytelen bemenet</string>
+    <string name="general_information_for_the_developer">Információ a fejlesztőnek</string>
+    <string name="general_error_report_bug_action">Hiba jelentése</string>
+    <string name="general_error_ipc_deadobject_title">Szolgáltatás kapcsolat elveszett</string>
+    <string name="general_error_ipc_deadobject_description">Egy kritikus szolgáltatáshoz (pl. Magisk, Shizuku vagy más rendszerszintű szolgáltatások) való kapcsolat váratlanul megszakadt. Kérjük, indítsa újra az eszközét. Ha a probléma továbbra is fennáll, ellenőrizze a frissítéseket, vagy lépjen kapcsolatba velem, hogy kijavíthassam.</string>
+    <string name="general_user_label_owner">Tulajdonos</string>
+    <string name="general_user_label_system">Rendszer</string>
 </resources>

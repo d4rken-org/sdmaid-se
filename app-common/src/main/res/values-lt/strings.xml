@@ -5,6 +5,7 @@
     <string name="slogan_message_1">Švariai ir tvarkingai.</string>
     <string name="slogan_message_2">Užkertame kelią chaosui.</string>
     <string name="slogan_message_3">Darome tai, kas būtina.</string>
+    <string name="slogan_message_4">Viskas savo vietose.</string>
     <string name="slogan_message_5">Nepriekaištingai.</string>
     <string name="slogan_message_6">Baitai, nykite!</string>
     <string name="slogan_message_7">Laisva vieta - laiminga vieta.</string>
@@ -18,11 +19,13 @@
     <string name="general_todo_msg">Ši funkcija dar kuriama ir šiuo metu nepasiekiama.</string>
     <string name="general_share_action">Dalintis</string>
     <string name="general_done_action">Atlikta</string>
+    <string name="general_apply_action">Taikyti</string>
     <string name="general_copy_action">Kopijuoti</string>
     <string name="general_wipe_action">Ištrinti</string>
     <string name="general_cancel_action">Atšaukti</string>
     <string name="general_discard_action">Atmesti</string>
     <string name="general_reset_action">Atstatyti</string>
+    <string name="general_drag_handle_description">Vilkite, kad pertvarkytumėte</string>
     <string name="general_save_action">Išsaugoti</string>
     <string name="general_thanks_action">Ačiū</string>
     <string name="general_gotit_action">Supratau</string>
@@ -31,6 +34,7 @@
     <string name="general_edit_action">Redaguoti</string>
     <string name="general_na_label">Nėra</string>
     <string name="general_empty_label">Tuščia</string>
+    <string name="general_new_badge_label">Nauja</string>
     <string name="general_dismiss_action">Atšaukti</string>
     <string name="general_maybe_later_action">Galbūt vėliau</string>
     <string name="general_manage_action">Valdyti</string>
@@ -93,6 +97,12 @@
     <string name="general_toggle_layout_mode">Perjungti peržiūros režimą</string>
     <string name="general_delete_confirmation_title">Patvirtinti trynimą</string>
     <string name="general_delete_confirmation_message_x">Trinti \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Trinti %d pasirinktą elementą?</item>
+        <item quantity="few">Trinti %d pasirinktus elementus?</item>
+        <item quantity="many">Trinti %d pasirinktų elementų?</item>
+        <item quantity="other">Trinti %d pasirinktų elementų?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Ištrintas %d elementas.</item>
         <item quantity="few">Ištrinti %d elementai.</item>
@@ -183,4 +193,6 @@
     <string name="general_error_report_bug_action">Pranešti apie klaidą</string>
     <string name="general_error_ipc_deadobject_title">Prarastas ryšys su paslauga</string>
     <string name="general_error_ipc_deadobject_description">Ryšys su kritiškai svarbia paslauga (pvz., Magisk, Shizuku ar kitomis sistemos paslaugomis) netikėtai nutrūko. Paleiskite įrenginį iš naujo. Jei problema išlieka, patikrinkite, ar yra atnaujinimų, arba kreipkitės į mane, kad galėčiau ją išspręsti.</string>
+    <string name="general_user_label_owner">Savininkas</string>
+    <string name="general_user_label_system">Sistema</string>
 </resources>

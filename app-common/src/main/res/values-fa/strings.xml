@@ -19,11 +19,13 @@
     <string name="general_todo_msg">این ویژگی هنوز در حال کار است و در حال حاضر در دسترس نیست.</string>
     <string name="general_share_action">اشتراک</string>
     <string name="general_done_action">انجام شد</string>
+    <string name="general_apply_action">اعمال</string>
     <string name="general_copy_action">رونوشت</string>
     <string name="general_wipe_action">پاک کردن</string>
     <string name="general_cancel_action">لفو</string>
     <string name="general_discard_action">صرف‌نظر کردن</string>
     <string name="general_reset_action">بازنشانی</string>
+    <string name="general_drag_handle_description">بکشید برای مرتب‌سازی مجدد</string>
     <string name="general_save_action">ذخيره</string>
     <string name="general_thanks_action">تشکر</string>
     <string name="general_gotit_action">فهمیدم</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">ویرایش</string>
     <string name="general_na_label">نامعلوم</string>
     <string name="general_empty_label">خالی</string>
+    <string name="general_new_badge_label">جدید</string>
     <string name="general_dismiss_action">نادیده گرفتن</string>
     <string name="general_maybe_later_action">شاید بعدا</string>
     <string name="general_manage_action">مدیریت</string>

@@ -4,6 +4,7 @@
     <string name="slogan_message_1">Safi na mpangilio.</string>
     <string name="slogan_message_2">Kuzuia machafuko.</string>
     <string name="slogan_message_3">Kufanya kile kinachohitajika.</string>
+    <string name="slogan_message_4">Kila kitu kimepangwa vizuri.</string>
     <string name="slogan_message_5">Bila madoa.</string>
     <string name="slogan_message_6">Bytes, ondoka!</string>
     <string name="slogan_message_7">Nafasi ya bure, mahali pazuri.</string>
@@ -17,11 +18,13 @@
     <string name="general_todo_msg">Kipengele hiki bado kinatengenezwa na kwa sasa hakipatikani.</string>
     <string name="general_share_action">Shiriki</string>
     <string name="general_done_action">Imekamilika</string>
+    <string name="general_apply_action">Tekeleza</string>
     <string name="general_copy_action">Nakili</string>
     <string name="general_wipe_action">Pangusa</string>
     <string name="general_cancel_action">Ghairi</string>
     <string name="general_discard_action">Tupa</string>
     <string name="general_reset_action">Weka upya</string>
+    <string name="general_drag_handle_description">Buruta ili kupanga upya</string>
     <string name="general_save_action">Hifadhi</string>
     <string name="general_thanks_action">Asante</string>
     <string name="general_gotit_action">Nimeelewa</string>
@@ -30,6 +33,7 @@
     <string name="general_edit_action">Hariri</string>
     <string name="general_na_label">H/P</string>
     <string name="general_empty_label">Tupu</string>
+    <string name="general_new_badge_label">Mpya</string>
     <string name="general_dismiss_action">Ondoa</string>
     <string name="general_maybe_later_action">Labda baadaye</string>
     <string name="general_manage_action">Simamia</string>
@@ -90,6 +94,10 @@
     <string name="general_toggle_layout_mode">Badilisha hali ya kuona</string>
     <string name="general_delete_confirmation_title">Thibitisha kufuta</string>
     <string name="general_delete_confirmation_message_x">Futa \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Futa kitu %d kilichochaguliwa?</item>
+        <item quantity="other">Futa vitu %d vilivyochaguliwa?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Kimefuta kitu %d.</item>
         <item quantity="other">Kimefuta vitu %d.</item>
@@ -162,4 +170,6 @@
     <string name="general_error_report_bug_action">Ripoti hitilafu</string>
     <string name="general_error_ipc_deadobject_title">Muunganisho wa Huduma Umepotea</string>
     <string name="general_error_ipc_deadobject_description">Muunganisho na huduma muhimu (k.m. Magisk, Shizuku, au huduma zingine za kiwango cha mfumo) umepotea bila kutarajiwa. Tafadhali anzisha upya kifaa chako. Ikiwa tatizo linaendelea, angalia masasisho au niwasiliane nami ili niweze kulirekebisha.</string>
+    <string name="general_user_label_owner">Mmiliki</string>
+    <string name="general_user_label_system">Mfumo</string>
 </resources>

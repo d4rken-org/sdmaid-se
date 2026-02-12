@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Fitur ini masih dalam pengerjaan dan belum tersedia saat ini.</string>
     <string name="general_share_action">Bagikan</string>
     <string name="general_done_action">Selesai</string>
+    <string name="general_apply_action">Terapkan</string>
     <string name="general_copy_action">Salin</string>
     <string name="general_wipe_action">Bersihkan</string>
     <string name="general_cancel_action">Batal</string>
     <string name="general_discard_action">Buang</string>
     <string name="general_reset_action">Mengatur ulang</string>
+    <string name="general_drag_handle_description">Seret untuk mengurutkan ulang</string>
     <string name="general_save_action">Simpan</string>
     <string name="general_thanks_action">Terima kasih</string>
     <string name="general_gotit_action">Mengerti</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Ubah</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Kosong</string>
+    <string name="general_new_badge_label">Baru</string>
     <string name="general_dismiss_action">Tutup</string>
     <string name="general_maybe_later_action">Mungkin nanti</string>
     <string name="general_manage_action">Kelola</string>

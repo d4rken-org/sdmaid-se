@@ -8,6 +8,7 @@
     <string name="slogan_message_5">Ləkəsiz.</string>
     <string name="slogan_message_6">Baytlar, gedin!</string>
     <string name="slogan_message_7">Sərbəst yer, xoşbəxt yer.</string>
+    <string name="slogan_message_4">Bütün ördəklərin bir sırada.</string>
     <string name="slogan_message_8">Heç vaxt səni atmayacağam.</string>
     <string name="general_thank_you_label">Təşəkkür edirəm</string>
     <string name="general_error_type_mismatch_msg">Tip uyğunsuzluğu: %1$s istənilir, amma %2$s alındı.</string>
@@ -18,11 +19,13 @@
     <string name="general_todo_msg">Bu xüsusiyyət hələ işlənir və hazırda mövcud deyil.</string>
     <string name="general_share_action">Paylaş</string>
     <string name="general_done_action">Hazır</string>
+    <string name="general_apply_action">Tətbiq et</string>
     <string name="general_copy_action">Kopyala</string>
     <string name="general_wipe_action">Silin</string>
     <string name="general_cancel_action">Ləğv et</string>
     <string name="general_discard_action">Rədd et</string>
     <string name="general_reset_action">Sıfırla</string>
+    <string name="general_drag_handle_description">Yenidən sıralamaq üçün sürükləyin</string>
     <string name="general_save_action">Saxla</string>
     <string name="general_thanks_action">Təşəkkürlər</string>
     <string name="general_gotit_action">Başa düşdüm</string>
@@ -31,6 +34,7 @@
     <string name="general_edit_action">Redaktə et</string>
     <string name="general_na_label">Y/A</string>
     <string name="general_empty_label">Boş</string>
+    <string name="general_new_badge_label">Yeni</string>
     <string name="general_dismiss_action">Rədd et</string>
     <string name="general_maybe_later_action">Bəlkə sonra</string>
     <string name="general_manage_action">İdarə et</string>

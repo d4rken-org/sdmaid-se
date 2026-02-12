@@ -589,6 +589,7 @@
     <string name="squeezer_onboarding_compressed_label">Pärast kokkupakkimist</string>
     <string name="squeezer_onboarding_quality_label">Kvaliteet: %d%%</string>
     <string name="squeezer_onboarding_got_it">Taipasin</string>
+    <string name="squeezer_compare_action">Vaata võrdlust</string>
     <string name="squeezer_no_example_found">Valitud asukohtadest ei leitud ühtki pilti.</string>
     <string name="squeezer_result_empty_message">Ühtki kokkupakitud pilti ei leitud.</string>
     <string name="squeezer_setup_warning">Kokkupakkimine vähendab igaveseks pildi kvaliteeti, et hoida kokku mälu arvelt. Seda ei saa ennistada. Enne alustamist kontrollige seadeid hoolikalt.</string>
@@ -953,8 +954,10 @@
     <string name="swiper_label">Pühkija</string>
     <string name="swiper_tool_name">Pühkija</string>
     <string name="swiper_tool_description">Pühi faile, et neid säilitada või kustutada.</string>
+    <string name="swiper_dashcard_description">Vaata failide üle käsitsi konkreetsetes kaustades. Pühi, et otsustada, mida säilitada või kustutada.</string>
     <string name="swiper_start_action">Alusta pühkimist</string>
     <string name="swiper_continue_action">Jätka seanssi</string>
+    <string name="swiper_sessions_description">Mõned failid vajavad inimese otsust. Pühi üksusi ja vali, mida säilitada või kustutada. Jäta vahele kõik, milles pole kindel. See tööriist võimaldab konkreetseid kaustu käsitsi üle vaadata ja midagi ei eemaldata enne kinnitamist.</string>
     <string name="swiper_select_folders_action">Vali kaustad</string>
     <string name="swiper_scanning_title">Skanneerimine…</string>
     <plurals name="swiper_result_x_items_found">
@@ -976,6 +979,7 @@
     <string name="swiper_status_title">Kontrolli otsuseid</string>
     <string name="swiper_status_action_keep_selected">Säilita valitud</string>
     <string name="swiper_status_action_delete_selected">Kustuta valitud</string>
+    <string name="swiper_status_action_reset_selected">Lähtesta valitud</string>
     <string name="swiper_decision_undecided">Otsustamata</string>
     <string name="swiper_retry_action">Proovi uuesti</string>
     <string name="swiper_delete_confirmation_title">Kustutada failid?</string>
@@ -1042,6 +1046,10 @@
     <plurals name="swiper_session_status_already_kept">
         <item quantity="one">%d juba säilitatud</item>
         <item quantity="other">%d juba säilitatud</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d juba kustutatud</item>
+        <item quantity="other">%d juba kustutatud</item>
     </plurals>
     <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">

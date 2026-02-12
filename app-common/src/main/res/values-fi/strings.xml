@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Palveluksessasi.</string>
     <string name="slogan_message_1">Puhdas ja järjestyksessä.</string>
     <string name="slogan_message_2">Estää kaaoksen.</string>
@@ -7,6 +8,7 @@
     <string name="slogan_message_5">Tahraton.</string>
     <string name="slogan_message_6">Tavut, häipykää!</string>
     <string name="slogan_message_7">Vapaa tila, onnellinen paikka.</string>
+    <string name="slogan_message_4">Kaikki järjestyksessä.</string>
     <string name="slogan_message_8">En koskaan luovuta sinusta.</string>
     <string name="general_thank_you_label">Kiitos</string>
     <string name="general_error_type_mismatch_msg">Tyyppiristiriita: Haluttiin %1$s, mutta saatiin %2$s.</string>
@@ -17,11 +19,13 @@
     <string name="general_todo_msg">Tätä ominaisuutta kehitetään vielä eikä se ole tällä hetkellä saatavilla.</string>
     <string name="general_share_action">Jaa</string>
     <string name="general_done_action">Valmis</string>
+    <string name="general_apply_action">Käytä</string>
     <string name="general_copy_action">Kopioi</string>
     <string name="general_wipe_action">Tyhjennä</string>
     <string name="general_cancel_action">Peruuta</string>
     <string name="general_discard_action">Hylkää</string>
     <string name="general_reset_action">Nollaa</string>
+    <string name="general_drag_handle_description">Vedä järjestääksesi uudelleen</string>
     <string name="general_save_action">Tallenna</string>
     <string name="general_thanks_action">Kiitos</string>
     <string name="general_gotit_action">Selvä</string>
@@ -30,6 +34,7 @@
     <string name="general_edit_action">Muokkaa</string>
     <string name="general_na_label">Ei saatavilla</string>
     <string name="general_empty_label">Tyhjä</string>
+    <string name="general_new_badge_label">Uusi</string>
     <string name="general_dismiss_action">Hylkää</string>
     <string name="general_maybe_later_action">Ehkä myöhemmin</string>
     <string name="general_manage_action">Hallitse</string>

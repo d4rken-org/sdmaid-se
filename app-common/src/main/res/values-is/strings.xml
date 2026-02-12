@@ -4,6 +4,7 @@
     <string name="slogan_message_1">Hreint og snyrtilegur.</string>
     <string name="slogan_message_2">Kemur í veg fyrir óreiðu.</string>
     <string name="slogan_message_3">Gerir það sem þarf.</string>
+    <string name="slogan_message_4">Allt á sínum stað.</string>
     <string name="slogan_message_5">Blettlaus.</string>
     <string name="slogan_message_6">Bæti, farið!</string>
     <string name="slogan_message_7">Laust pláss, glaður staður.</string>
@@ -17,11 +18,13 @@
     <string name="general_todo_msg">Þessi eiginleiki er enn í vinnslu og ekki tiltækur eins og er.</string>
     <string name="general_share_action">Deila</string>
     <string name="general_done_action">Lokið</string>
+    <string name="general_apply_action">Beita</string>
     <string name="general_copy_action">Afrita</string>
     <string name="general_wipe_action">Þurrka</string>
     <string name="general_cancel_action">Hætta við</string>
     <string name="general_discard_action">Henda</string>
     <string name="general_reset_action">Endurstilla</string>
+    <string name="general_drag_handle_description">Dragðu til að endurraða</string>
     <string name="general_save_action">Vista</string>
     <string name="general_thanks_action">Takk</string>
     <string name="general_gotit_action">Ég skil</string>
@@ -30,6 +33,7 @@
     <string name="general_edit_action">Breyta</string>
     <string name="general_na_label">Á.v.</string>
     <string name="general_empty_label">Tómt</string>
+    <string name="general_new_badge_label">Nýtt</string>
     <string name="general_dismiss_action">Hafna</string>
     <string name="general_maybe_later_action">Kannski síðar</string>
     <string name="general_manage_action">Stjórna</string>
@@ -90,6 +94,10 @@
     <string name="general_toggle_layout_mode">Skipta um útsýnisham</string>
     <string name="general_delete_confirmation_title">Staðfesta eyðingu</string>
     <string name="general_delete_confirmation_message_x">Eyða \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Eyða %d völdum hlut?</item>
+        <item quantity="other">Eyða %d völdum hlutum?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d hlut eytt.</item>
         <item quantity="other">%d hlutum eytt.</item>
@@ -162,4 +170,6 @@
     <string name="general_error_report_bug_action">Tilkynna villu</string>
     <string name="general_error_ipc_deadobject_title">Þjónustutengingu tapað</string>
     <string name="general_error_ipc_deadobject_description">Tenging við mikilvæga þjónustu (t.d. Magisk, Shizuku eða aðra kerfisstigs þjónustu) tapaðist óvænt. Vinsamlegast endurræstu tækið þitt. Ef vandamálið helst áfram skaltu athuga uppfærslur eða hafa samband við mig svo ég geti lagað það.</string>
+    <string name="general_user_label_owner">Eigandi</string>
+    <string name="general_user_label_system">Kerfi</string>
 </resources>

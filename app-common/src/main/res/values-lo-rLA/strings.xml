@@ -4,6 +4,7 @@
     <string name="slogan_message_1">ສະອາດ ແລະ ເປັນລະບຽບ.</string>
     <string name="slogan_message_2">ປ້ອງກັນຄວາມສັບສົນ.</string>
     <string name="slogan_message_3">ເຮັດສິ່ງທີ່ຈຳເປັນ.</string>
+    <string name="slogan_message_4">ທຸກຢ່າງເປັນລະບຽບ.</string>
     <string name="slogan_message_5">ບໍ່ມີຈຸດດ່າງ.</string>
     <string name="slogan_message_6">Bytes, ໄປ!</string>
     <string name="slogan_message_7">ພື້ນທີ່ຟຣີ, ສະຖານທີ່ມີຄວາມສຸກ.</string>
@@ -17,11 +18,13 @@
     <string name="general_todo_msg">ຄຸນສົມບັດນີ້ຍັງຢູ່ໃນການພັດທະນາ ແລະ ປະຈຸບັນບໍ່ມີ.</string>
     <string name="general_share_action">ແບ່ງປັນ</string>
     <string name="general_done_action">ເສັດສິ້ນ</string>
+    <string name="general_apply_action">ນຳໃຊ້</string>
     <string name="general_copy_action">ສຳເນົາ</string>
     <string name="general_wipe_action">ລຶບລ້າງ</string>
     <string name="general_cancel_action">ຍົກເລີກ</string>
     <string name="general_discard_action">ທິ້ງ</string>
     <string name="general_reset_action">ຣີເຊັດ</string>
+    <string name="general_drag_handle_description">ລາກເພື່ອຈັດລຳດັບໃໝ່</string>
     <string name="general_save_action">ບັນທຶກ</string>
     <string name="general_thanks_action">ຂອບໃຈ</string>
     <string name="general_gotit_action">ເຂົ້າໃຈແລ້ວ</string>
@@ -30,6 +33,7 @@
     <string name="general_edit_action">ແກ້ໄຂ</string>
     <string name="general_na_label">ບ/ມ</string>
     <string name="general_empty_label">ຫວ່າງເປົ່າ</string>
+    <string name="general_new_badge_label">ໃໝ່</string>
     <string name="general_dismiss_action">ປະຕິເສດ</string>
     <string name="general_maybe_later_action">ບາງທີພາຍຫຼັງ</string>
     <string name="general_manage_action">ຈັດການ</string>
@@ -50,11 +54,28 @@
     <string name="general_progress_loading">ກຳລັງໂຫຼດ</string>
     <string name="general_progress_loading_app_data">ກຳລັງໂຫຼດຂໍ້ມູນແອັບ</string>
     <string name="general_progress_loading_data_areas">ກຳລັງໂຫຼດພື້ນທີ່ຂໍ້ມູນ</string>
+    <string name="general_progress_loading_egg_0">ຍັງໄວກວ່າ iPhone</string>
+    <string name="general_progress_loading_egg_1">ກຳລັງດາວໂຫຼດ RAM ເພີ່ມ</string>
+    <string name="general_progress_loading_egg_2">ໄວໆນີ້™</string>
+    <string name="general_progress_loading_egg_3">CPU ກຳລັງພັກດື່ມກາເຟ</string>
+    <string name="general_progress_loading_egg_4">ກຳລັງລໍຖ້າຂໍ້ມູນຈາກ Pepe Silvia</string>
+    <string name="general_progress_loading_egg_5">Turbo encabulator ກຳລັງເລີ່ມ</string>
+    <string name="general_progress_loading_egg_6">ກຳລັງສົ່ງເນີຍ</string>
+    <string name="general_progress_loading_egg_7">ແລ້ວ. ເຈົ້າເປັນແນວໃດ?</string>
+    <string name="general_progress_loading_egg_8">ບິບ ບູບ ບັອບ</string>
+    <string name="general_progress_loading_egg_9">ກຳລັງ buffer ທາງເລືອກຊີວິດ</string>
+    <string name="general_progress_loading_egg_10">ກຳລັງເອີ້ນ Cthulhu</string>
+    <string name="general_progress_loading_egg_11">ບໍ່ເປັນຫຍັງ</string>
+    <string name="general_progress_loading_egg_12">ກະລຸນາລໍຖ້າ</string>
+    <string name="general_progress_loading_egg_13">ຢ່າງໜ້ອຍເຈົ້າບໍ່ໄດ້ຖ້າສາຍ</string>
     <string name="general_help_action">ຊ່ວຍເຫຼືອ</string>
     <string name="general_continue">ສືບຕໍ່</string>
     <string name="general_progress_queued">ຢູ່ໃນແຖວ</string>
     <string name="general_progress_deleting">ກຳລັງລຶບ</string>
     <string name="general_progress_deleting_x">ກຳລັງລຶບ %s</string>
+    <string name="general_sort_options_label">ຕົວເລືອກການຈັດລຽງ</string>
+    <string name="general_sort_reverse_action">ປີ້ນກັບໂໝດການຈັດລຽງ</string>
+    <string name="general_tag_filter_label">ຕອງຕາມແທັກ</string>
     <string name="general_result_success_message">ການດຳເນີນງານສຳເລັດ</string>
     <string name="general_result_failure_message">ການດຳເນີນງານລົ້ມເຫຼວ</string>
     <plurals name="general_result_x_space_freed">
@@ -72,6 +93,9 @@
     <string name="general_toggle_layout_mode">ສະຫຼັບໂໝດການສະແດງ</string>
     <string name="general_delete_confirmation_title">ຢືນຢັນການລຶບ</string>
     <string name="general_delete_confirmation_message_x">ລຶບ \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="other">ລຶບ %d ລາຍການທີ່ເລືອກ?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">ລຶບ %d ລາຍການແລ້ວ.</item>
     </plurals>
@@ -135,4 +159,6 @@
     <string name="general_error_report_bug_action">ລາຍງານຂໍ້ຜິດພາດ</string>
     <string name="general_error_ipc_deadobject_title">ການເຊື່ອມຕໍ່ບໍລິການສູນເສຍ</string>
     <string name="general_error_ipc_deadobject_description">ການເຊື່ອມຕໍ່ກັບບໍລິການສຳຄັນ (ເຊັ່ນ Magisk, Shizuku ຫຼື ບໍລິການລະດັບລະບົບອື່ນໆ) ສູນເສຍແບບບໍ່ຄາດຄິດ. ກະລຸນາຣີສະຕາດອຸປະກອນຂອງທ່ານ. ຫາກບັນຫາດັ່ງກ່າວຍັງດຳເນີນຕໍ່ໄປ, ກະລຸນາກວດສອບການອັບເດດ ຫຼື ຕິດຕໍ່ຂ້ອຍເພື່ອແກ້ໄຂ.</string>
+    <string name="general_user_label_owner">ເຈົ້າຂອງ</string>
+    <string name="general_user_label_system">ລະບົບ</string>
 </resources>
