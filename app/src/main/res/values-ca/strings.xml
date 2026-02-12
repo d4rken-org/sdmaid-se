@@ -608,7 +608,7 @@
         <item quantity="one">Almenys %d dia d\'antiguitat</item>
         <item quantity="other">Almenys %d dies d\'antiguitat</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Estalvi estimat d\'un%d%% per a fitxers JPEG</string>
+    <string name="squeezer_estimated_savings_percent">Estalvi estimat d\'un %d%% per a fitxers JPEG</string>
     <string name="appcontrol_tool_name">Control d\'aplicacions</string>
     <string name="appcontrol_explanation_short">Aplicacions instal·lades al vostre dispositiu.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -989,7 +989,7 @@
     </plurals>
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
         <item quantity="one">%d element indecís quedarà per a una revisió posterior.</item>
-        <item quantity="other">%d element indecisos quedaran per a una revisió posterior.</item>
+        <item quantity="other">%d elements indecisos quedaran per a una revisió posterior.</item>
     </plurals>
     <string name="swiper_delete_x_action">Suprimeix %1$d</string>
     <string name="swiper_settings_swap_directions_title">Commutació de la direcció de lliscament</string>

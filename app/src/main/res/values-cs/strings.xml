@@ -593,7 +593,7 @@
     <string name="squeezer_quality_label">Kvalita</string>
     <string name="squeezer_quality_title">Kvalita komprese</string>
     <string name="squeezer_quality_description">Nižší kvalita znamená menší velikost souboru, ale sníží kvalitu obrázku.</string>
-    <string name="squeezer_quality_example_format">Příklad: obrázek %1$s → ušetří ~%2$s v kvalitě %3$d%%</string>
+    <string name="squeezer_quality_example_format">Příklad: obrázek %1$s → ušetří ~%2$s v kvalitě %3$d %%</string>
     <string name="squeezer_quality_warning_low">Nižší kvalita může způsobit viditelné artefakty.</string>
     <string name="squeezer_quality_warning_high">Velmi vysoká kvalita nabídne minimální úspory prostoru.</string>
     <string name="squeezer_types_category_label">Typy obrázků</string>

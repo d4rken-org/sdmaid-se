@@ -155,13 +155,6 @@
     <string name="debug_bugreporter_label">स्वचालित त्रुटी रिपोर्ट</string>
     <string name="debug_bugreporter_summary">स्वचालित रूप से मुद्दों की रिपोर्ट करता है, जैसे ऐप पर विवरण क्रैश हो जाता है, इसलिए मैं इसका पता लगा सकता हूं और इसे ठीक कर सकता हूं।</string>
     <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">डीबग मोड सक्षम है</string>
-    <string name="debug_card_trace_mode_label">ट्रेस मोड सक्षम करें</string>
-    <string name="debug_card_dryrun_mode_label">ड्राई-रन मोड (डिलीशन अक्षम करें)</string>
-    <string name="debug_card_areas_reload_action">डेटा क्षेत्र को पुनः लोड करें</string>
-    <string name="debug_card_pkgs_reload_action">ऐप्स को पुनः लोड करें</string>
-    <string name="debug_card_root_test_action">रूट टेस्ट करें</string>
-    <string name="debug_card_shizuku_test_action">Shizuku टेस्ट करें</string>
     <string name="settings_category_tools_label">टूल</string>
     <string name="settings_category_filter">फ़िल्टर</string>
     <string name="settings_category_risklevel">जोखिम का स्तर</string>
