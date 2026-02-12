@@ -631,6 +631,7 @@
     <string name="squeezer_onboarding_compressed_label">Po kompresji</string>
     <string name="squeezer_onboarding_quality_label">Jakość: %d%%</string>
     <string name="squeezer_onboarding_got_it">Rozumiem</string>
+    <string name="squeezer_compare_action">Zobacz porównanie</string>
     <string name="squeezer_no_example_found">Nie znaleziono obrazów w wybranych ścieżkach.</string>
     <string name="squeezer_result_empty_message">Nie znaleziono kompresywnych obrazów.</string>
     <string name="squeezer_setup_warning">Kompresja trwale zmniejsza jakość obrazu, aby zapisać miejsce na dysku. Tej operacji nie można cofnąć. Przejrzyj swoje ustawienia ostrożnie przed rozpoczęciem.</string>
@@ -1042,8 +1043,10 @@
     <string name="swiper_label">Przesuwacz</string>
     <string name="swiper_tool_name">Przesuwacz</string>
     <string name="swiper_tool_description">Przesuń palcem pliki, aby zdecydować, co zachować lub usunąć.</string>
+    <string name="swiper_dashcard_description">Ręcznie przejrzyj pliki w określonych folderach. Przesuń palcem, aby zdecydować, co zachować lub usunąć.</string>
     <string name="swiper_start_action">Zacznij przesuwać</string>
     <string name="swiper_continue_action">Kontynuuj sesję</string>
+    <string name="swiper_sessions_description">Niektóre pliki wymagają ludzkiej decyzji. Przeciągnij elementy i wybierz co chcesz zachować lub usunąć. Pomiń cokolwiek, czego nie jesteś pewien. To narzędzie pozwala na ręczne przeglądanie określonych folderów i nic nie zostanie usunięte, dopóki nie potwierdzisz.</string>
     <string name="swiper_select_folders_action">Wybierz foldery</string>
     <string name="swiper_scanning_title">Skanowanie…</string>
     <plurals name="swiper_result_x_items_found">
