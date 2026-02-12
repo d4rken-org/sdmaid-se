@@ -19,11 +19,13 @@
     <string name="general_todo_msg">この機能は実行中か現在利用できません。</string>
     <string name="general_share_action">共有</string>
     <string name="general_done_action">完了</string>
+    <string name="general_apply_action">適用</string>
     <string name="general_copy_action">コピー</string>
     <string name="general_wipe_action">初期化</string>
     <string name="general_cancel_action">キャンセル</string>
     <string name="general_discard_action">破棄する</string>
     <string name="general_reset_action">リセット</string>
+    <string name="general_drag_handle_description">ドラッグして並べ替え</string>
     <string name="general_save_action">保存</string>
     <string name="general_thanks_action">感謝します</string>
     <string name="general_gotit_action">わかりました。</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">編集</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">空</string>
+    <string name="general_new_badge_label">新規</string>
     <string name="general_dismiss_action">解散</string>
     <string name="general_maybe_later_action">また後で</string>
     <string name="general_manage_action">管理</string>

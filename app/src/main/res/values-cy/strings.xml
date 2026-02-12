@@ -837,4 +837,351 @@
         <item quantity="many">%d llwybr wedi\'u dewis</item>
         <item quantity="other">%d o lwybrau wedi\'u dewis</item>
     </plurals>
+
+    <string name="dashboard_card_config_title">Cardiau dangosfwrdd</string>
+    <string name="dashboard_card_config_desc">Ffurfweddu pa gardiau sy\'n cael eu dangos a\'u trefn</string>
+    <string name="dashboard_card_config_header_title">Llusgwch i aildrefnu, toglo i ddangos/cuddio</string>
+
+    <string name="debug_debuglog_screen_title">Cofnod dadfygio</string>
+    <string name="debug_debuglog_screen_discard_action">Taflu</string>
+    <string name="debug_debuglog_screen_session_path_label">Llwybr sesiwn</string>
+    <string name="debug_debuglog_screen_log_files_label">Ffeiliau cofnod</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="zero">%1$d ffeil yn barod (%2$s)</item>
+        <item quantity="one">%1$d ffeil yn barod (%2$s)</item>
+        <item quantity="two">%1$d ffeil yn barod (%2$s)</item>
+        <item quantity="few">%1$d ffeil yn barod (%2$s)</item>
+        <item quantity="many">%1$d ffeil yn barod (%2$s)</item>
+        <item quantity="other">%1$d o ffeiliau yn barod (%2$s)</item>
+    </plurals>
+
+    <string name="support_debuglog_folder_label">Ffolder cofnod dadfygio</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="zero">%1$d ffeil yn defnyddio %2$s</item>
+        <item quantity="one">%1$d ffeil yn defnyddio %2$s</item>
+        <item quantity="two">%1$d ffeil yn defnyddio %2$s</item>
+        <item quantity="few">%1$d ffeil yn defnyddio %2$s</item>
+        <item quantity="many">%1$d ffeil yn defnyddio %2$s</item>
+        <item quantity="other">%1$d o ffeiliau yn defnyddio %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Dim cofnodion dadfygio wedi\'u storio</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Dileu pob cofnod dadfygio?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Bydd hyn yn dileu\'n barhaol bob sesiwn cofnod dadfygio sydd wedi\'u storio. Ni ellir dadwneud y weithred hon.</string>
+
+    <string name="settings_acknowledgements_category_translations_title">Cyfieithiadau</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Pwy gyfieethodd hwn?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Diolch</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Diolch arbennig i\'n ffrindiau.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Trwyddedau</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Meddalwedd a ddefnyddir gan SD Maid.</string>
+
+    <string name="debug_card_title">Mae modd dadfygio wedi\'i alluogi</string>
+    <string name="debug_card_trace_mode_label">Galluogi modd olrhain</string>
+    <string name="debug_card_dryrun_mode_label">Modd prawf (analluogi dileu)</string>
+    <string name="debug_card_areas_reload_action">Ail-lwytho ardaloedd data</string>
+    <string name="debug_card_pkgs_reload_action">Ail-lwytho apiau</string>
+    <string name="debug_card_root_test_action">Profi root</string>
+    <string name="debug_card_shizuku_test_action">Profi Shizuku</string>
+
+    <string name="corpsefinder_filter_artprofiles_label">Proffiliau ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Mae proffiliau ART yn cael eu defnyddio gan Android i wneud apiau\'n gyflymach.</string>
+
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Cynnwys yr un fersiwn</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Hefyd targedu ffeiliau APK sy\'n cyfateb i\'r fersiwn sydd wedi\'i osod. Analluogwch i ddileu fersiynau hŷn yn unig.</string>
+
+    <string name="systemcleaner_customfilter_editor_size_label">Cyfyngiadau maint</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Maint lleiaf</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maint mwyaf</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Cyfyngu canlyniadau yn ôl maint ffeil. Gadewch yn wag i gyfateb unrhyw faint.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Cyfyngiadau oedran</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Oedran lleiaf</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Oedran mwyaf</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Cyfyngu canlyniadau yn ôl oedran ffeil (amser addasu diwethaf). Gadewch yn wag i gyfateb unrhyw oedran.</string>
+
+    <string name="appcleaner_filter_shortcutservice_label">Eiconau llwybr byr ap</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Eiconau wedi\'u cadw dros dro ar gyfer llwybrau byr apiau a dewislenni rhannu.</string>
+
+    <string name="appcleaner_forcestop_before_clearing_label">Gorfodi stopio cyn clirio</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Gorfodi stopio apiau cyn clirio eu storfa dros dro. Gall helpu i glirio storfa dros dro rhai apiau, ond gall achosi i apiau gamymddwyn a gofyn am ailddechrau â llaw.</string>
+    <string name="appcleaner_progress_force_stopping">Gorfodi stopio apiau…</string>
+
+    <string name="deduplicator_keep_prefer_paths_title">Yn well cadw yn</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Wrth benderfynu pa ddyblyg i\'w gadw, yn well cadw ffeiliau yn y lleoliadau hyn.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Dim lleoliadau wedi\'u ffurfweddu</string>
+
+    <string name="deduplicator_arbiter_title">Strategaeth dileu</string>
+    <string name="deduplicator_arbiter_summary">Ffurfweddwch pa ffeiliau sy\'n cael eu cadw a pha rai sy\'n cael eu dileu.</string>
+    <string name="deduplicator_arbiter_explanation">Wrth ddileu dyblygiadau, mae SD Maid yn penderfynu pa ffeil i\'w chadw drwy wirio pob maen prawf yn eu trefn. Y maen prawf cyntaf sy\'n rhoi enillydd clir sy\'n pennu\'r canlyniad. Llusgwch i aildrefnu, tapiwch i newid modd.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Dewiswch fodd</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Ffurfweddu llwybrau…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Math o ddyblyg</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Yn well cyfatebiaeth union na ffeiliau tebyg.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Mynegeio cyfryngau</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Ystyried a yw ffeiliau wedi\'u mynegeio gan y darparwr cyfryngau.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Lleoliad storfa</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Yn well ffeiliau ar storfa fewnol neu allanol.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Dyfnder ffolder</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Yn well ffeiliau mewn strwythurau ffolder bas neu ddwfn.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Dyddiad addasu</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Yn well ffeiliau hŷn neu newydd yn seiliedig ar amser addasu.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Maint ffeil</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Yn well ffeiliau mwy neu lai pan fo meintiau\'n wahanol.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Lleoliadau a ffefrir</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Cadw ffeiliau yn eich lleoliadau a ffefrir a ffurfweddwyd.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Yn well cyfatebiaeth union</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Yn well ffeiliau tebyg</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Yn well ffeiliau wedi\'u mynegeio</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Yn well ffeiliau heb eu mynegeio</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Yn well storfa fewnol</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Yn well storfa allanol</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Yn well ffolderi bas</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Yn well ffolderi dyfnach</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Yn well ffeiliau hŷn</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Yn well ffeiliau newydd</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Yn well ffeiliau mwy</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Yn well ffeiliau llai</string>
+
+    <string name="deduplicator_view_mode_groups_label">Grwpiau</string>
+    <string name="deduplicator_view_mode_directories_label">Ffolderi</string>
+
+    <string name="squeezer_onboarding_title">Am gywasgu delweddau</string>
+    <string name="squeezer_onboarding_message">Mae cywasgu delweddau yn lleihau maint ffeil drwy dynnu manylion gweledol. Mae\'r broses hon yn anwrthdroadwy - ni ellir adfer yr ansawdd gwreiddiol.\n\nDyma ragolwg o sut bydd eich delweddau\'n edrych:</string>
+    <string name="squeezer_onboarding_original_label">Gwreiddiol</string>
+    <string name="squeezer_onboarding_compressed_label">Ar ôl cywasgu</string>
+    <string name="squeezer_onboarding_quality_label">Ansawdd: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Deall</string>
+    <string name="squeezer_compare_action">Gweld cymhariaeth</string>
+    <string name="squeezer_no_example_found">Dim delweddau wedi\'u canfod yn y llwybrau a ddewiswyd.</string>
+    <string name="squeezer_result_empty_message">Dim delweddau y gellir eu cywasgu wedi\'u canfod.</string>
+    <string name="squeezer_setup_warning">Mae cywasgu yn lleihau ansawdd delwedd yn barhaol i arbed lle storio. Ni ellir dadwneud hyn. Adolygwch eich gosodiadau\'n ofalus cyn dechrau.</string>
+    <string name="squeezer_setup_explanation">Mae Media Squeeze yn lleihau maint ffeiliau delwedd i ryddhau lle storio. Mae hyn yn lleihau ansawdd delwedd yn barhaol ac ni ellir ei ddadwneud. Adolygwch eich gosodiadau\'n ofalus cyn dechrau.</string>
+    <string name="squeezer_setup_paths_title">Lleoliadau chwilio</string>
+    <string name="squeezer_setup_paths_default">Dewiswch ffolderi i\'w chwilio</string>
+    <string name="squeezer_setup_quality_title">Ansawdd cywasgu</string>
+    <string name="squeezer_setup_age_title">Oedran lleiaf</string>
+    <string name="squeezer_setup_age_none">Dim terfyn (cynnwys pob ffeil)</string>
+    <string name="squeezer_setup_start_action">Dechrau sganio</string>
+    <string name="squeezer_quality_hint_very_low">Gall ansawdd islaw 40%% greu delweddau na ellir eu defnyddio.</string>
+    <string name="squeezer_quality_hint_low">Mae ansawdd is yn arbed mwy o le ond gall achosi nam gweledol.</string>
+    <string name="squeezer_quality_hint_high">Mae ansawdd uchel iawn yn darparu arbedion lle bach iawn.</string>
+    <string name="squeezer_quality_hint_normal">Ansawdd cytbwys ac arbedion lle.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="zero">O leiaf %d diwrnod oed</item>
+        <item quantity="one">O leiaf %d diwrnod oed</item>
+        <item quantity="two">O leiaf %d ddiwrnod oed</item>
+        <item quantity="few">O leiaf %d diwrnod oed</item>
+        <item quantity="many">O leiaf %d diwrnod oed</item>
+        <item quantity="other">O leiaf %d o ddyddiau oed</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Arbedion amcangyfrif o ~%d%% ar gyfer ffeiliau JPEG</string>
+
+    <string name="shortcut_appcontrol_short">Rheoli Apiau</string>
+    <string name="shortcut_appcontrol_long">Rheoli apiau sydd wedi\'u gosod</string>
+    <string name="shortcut_onetap_short">Sganio + Dileu</string>
+    <string name="shortcut_onetap_long">Sganio a dileu mewn un weithred</string>
+
+    <string name="shortcuts_settings_category">Llwybrau byr</string>
+    <string name="shortcuts_onetap_enabled_title">Llwybr byr un-tap</string>
+    <string name="shortcuts_onetap_enabled_summary">Dangos llwybr byr \"Sganio + Dileu\" wrth wasgu\'n hir ar eicon yr ap. Defnyddia\'r un offer â dangosfwrdd un-tap.</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Sweipiwch drwy ffeiliau i benderfynu beth i\'w gadw neu\'i ddileu.</string>
+    <string name="swiper_dashcard_description">Adolygwch ffeiliau â llaw mewn ffolderi penodol. Sweipiwch i benderfynu beth i\'w gadw neu\'i ddileu.</string>
+    <string name="swiper_start_action">Dechrau sweipio</string>
+    <string name="swiper_continue_action">Parhau â\'r sesiwn</string>
+    <string name="swiper_sessions_description">Mae rhai ffeiliau angen penderfyniad dynol. Sweipiwch drwy eitemau a dewiswch beth i\'w gadw neu\'i ddileu. Sgipiwch unrhyw beth nad ydych yn sicr amdano. Mae\'r offeryn hwn yn gadael i chi adolygu ffolderi penodol â llaw, a dim byd yn cael ei ddileu hyd nes y byddwch yn cadarnhau.</string>
+    <string name="swiper_select_folders_action">Dewis ffolderi</string>
+    <string name="swiper_scanning_title">Sganio…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="zero">%d eitem wedi\'u canfod</item>
+        <item quantity="one">%d eitem wedi\'i chanfod</item>
+        <item quantity="two">%d eitem wedi\'u canfod</item>
+        <item quantity="few">%d eitem wedi\'u canfod</item>
+        <item quantity="many">%d eitem wedi\'u canfod</item>
+        <item quantity="other">%d o eitemau wedi\'u canfod</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="zero">%d eitem wedi\'u dileu</item>
+        <item quantity="one">%d eitem wedi\'i dileu</item>
+        <item quantity="two">%d eitem wedi\'u dileu</item>
+        <item quantity="few">%d eitem wedi\'u dileu</item>
+        <item quantity="many">%d eitem wedi\'u dileu</item>
+        <item quantity="other">%d o eitemau wedi\'u dileu</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="zero">%d eitem wedi methu</item>
+        <item quantity="one">%d eitem wedi methu</item>
+        <item quantity="two">%d eitem wedi methu</item>
+        <item quantity="few">%d eitem wedi methu</item>
+        <item quantity="many">%d eitem wedi methu</item>
+        <item quantity="other">%d o eitemau wedi methu</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d o %2$d</string>
+    <string name="swiper_keep_action">Cadw</string>
+    <string name="swiper_skip_action">Sgipio</string>
+    <string name="swiper_review_action">Adolygu</string>
+    <string name="swiper_status_title">Adolygu penderfyniadau</string>
+    <string name="swiper_status_action_keep_selected">Cadw\'r rhai a ddewiswyd</string>
+    <string name="swiper_status_action_delete_selected">Dileu\'r rhai a ddewiswyd</string>
+    <string name="swiper_status_action_reset_selected">Ailosod y rhai a ddewiswyd</string>
+    <string name="swiper_decision_undecided">Heb benderfynu</string>
+    <string name="swiper_retry_action">Ailgeisio</string>
+    <string name="swiper_delete_confirmation_title">Dileu ffeiliau?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="zero">Bydd hyn yn dileu %1$d ffeil (%2$s) yn barhaol. Ni ellir dadwneud y weithred hon.</item>
+        <item quantity="one">Bydd hyn yn dileu %1$d ffeil (%2$s) yn barhaol. Ni ellir dadwneud y weithred hon.</item>
+        <item quantity="two">Bydd hyn yn dileu %1$d ffeil (%2$s) yn barhaol. Ni ellir dadwneud y weithred hon.</item>
+        <item quantity="few">Bydd hyn yn dileu %1$d ffeil (%2$s) yn barhaol. Ni ellir dadwneud y weithred hon.</item>
+        <item quantity="many">Bydd hyn yn dileu %1$d ffeil (%2$s) yn barhaol. Ni ellir dadwneud y weithred hon.</item>
+        <item quantity="other">Bydd hyn yn dileu %1$d o ffeiliau (%2$s) yn barhaol. Ni ellir dadwneud y weithred hon.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="zero">Bydd %d eitem heb benderfynu yn aros ar gyfer adolygiad diweddarach.</item>
+        <item quantity="one">Bydd %d eitem heb benderfynu yn aros ar gyfer adolygiad diweddarach.</item>
+        <item quantity="two">Bydd %d eitem heb benderfynu yn aros ar gyfer adolygiad diweddarach.</item>
+        <item quantity="few">Bydd %d eitem heb benderfynu yn aros ar gyfer adolygiad diweddarach.</item>
+        <item quantity="many">Bydd %d eitem heb benderfynu yn aros ar gyfer adolygiad diweddarach.</item>
+        <item quantity="other">Bydd %d o eitemau heb benderfynu yn aros ar gyfer adolygiad diweddarach.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Dileu %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Cyfnewid cyfeiriadau sweipio</string>
+    <string name="swiper_settings_swap_directions_summary">Sweipiwch i\'r chwith i gadw, i\'r dde i ddileu.</string>
+    <string name="swiper_settings_show_details_title">Dangos manylion ffeil</string>
+    <string name="swiper_settings_show_details_summary">Dangos enw ffeil, maint a dyddiad ar y sgrin sweipio.</string>
+    <string name="swiper_settings_haptic_feedback_title">Adborth haptig</string>
+    <string name="swiper_settings_haptic_feedback_summary">Dirgrynu wrth wneud penderfyniadau cadw neu ddileu.</string>
+    <string name="swiper_discard_session_confirmation_title">Taflu\'r sesiwn?</string>
+    <string name="swiper_discard_session_confirmation_message">Bydd pob penderfyniad yn cael ei golli. Ydych chi\'n sicr?</string>
+    <string name="swiper_no_preview_available">Dim rhagolwg ar gael</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="zero">Parhau â sesiwn o %1$d diwrnod yn ôl (%2$d%% wedi\'i gwblhau)</item>
+        <item quantity="one">Parhau â sesiwn o %1$d diwrnod yn ôl (%2$d%% wedi\'i gwblhau)</item>
+        <item quantity="two">Parhau â sesiwn o %1$d ddiwrnod yn ôl (%2$d%% wedi\'i gwblhau)</item>
+        <item quantity="few">Parhau â sesiwn o %1$d diwrnod yn ôl (%2$d%% wedi\'i gwblhau)</item>
+        <item quantity="many">Parhau â sesiwn o %1$d diwrnod yn ôl (%2$d%% wedi\'i gwblhau)</item>
+        <item quantity="other">Parhau â sesiwn o %1$d o ddyddiau yn ôl (%2$d%% wedi\'i gwblhau)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="zero">%d sesiwn</item>
+        <item quantity="one">%d sesiwn</item>
+        <item quantity="two">%d sesiwn</item>
+        <item quantity="few">%d sesiwn</item>
+        <item quantity="many">%d sesiwn</item>
+        <item quantity="other">%d o sesiynau</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="zero">%d eitem heb benderfynu</item>
+        <item quantity="one">%d eitem heb benderfynu</item>
+        <item quantity="two">%d eitem heb benderfynu</item>
+        <item quantity="few">%d eitem heb benderfynu</item>
+        <item quantity="many">%d eitem heb benderfynu</item>
+        <item quantity="other">%d o eitemau heb benderfynu</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Crëwyd %1$s, gweithgaredd diwethaf %2$s</string>
+    <string name="swiper_session_remove_action">Tynnu sesiwn</string>
+    <string name="swiper_sessions_empty_hint">Tapiwch + i ddewis ffolder a dechrau sweipio</string>
+    <string name="swiper_sessions_upgrade_body">Uwchraddiwch i dynnu\'r terfynau hyn a chefnogi datblygiad. Mae\'r fersiwn am ddim wedi\'i gyfyngu i:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="zero">%d ffeil fesul sesiwn</item>
+        <item quantity="one">%d ffeil fesul sesiwn</item>
+        <item quantity="two">%d ffeil fesul sesiwn</item>
+        <item quantity="few">%d ffeil fesul sesiwn</item>
+        <item quantity="many">%d ffeil fesul sesiwn</item>
+        <item quantity="other">%d o ffeiliau fesul sesiwn</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="zero">%d sesiwn</item>
+        <item quantity="one">%d sesiwn</item>
+        <item quantity="two">%d sesiwn</item>
+        <item quantity="few">%d sesiwn</item>
+        <item quantity="many">%d sesiwn</item>
+        <item quantity="other">%d o sesiynau</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sesiwn #%d</string>
+    <string name="swiper_session_rename_title">Ailenwi sesiwn</string>
+    <string name="swiper_session_rename_hint">Rhowch enw ar gyfer y sesiwn hwn</string>
+    <string name="swiper_sessions_current_sessions">Sesiynau presennol</string>
+    <string name="swiper_session_paths_label">Llwybrau</string>
+    <string name="swiper_session_status_label">Statws</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="zero">%d i\'w gadw</item>
+        <item quantity="one">%d i\'w gadw</item>
+        <item quantity="two">%d i\'w cadw</item>
+        <item quantity="few">%d i\'w cadw</item>
+        <item quantity="many">%d i\'w cadw</item>
+        <item quantity="other">%d i\'w cadw</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="zero">%d i\'w dileu</item>
+        <item quantity="one">%d i\'w dileu</item>
+        <item quantity="two">%d i\'w dileu</item>
+        <item quantity="few">%d i\'w dileu</item>
+        <item quantity="many">%d i\'w dileu</item>
+        <item quantity="other">%d i\'w dileu</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="zero">%d heb benderfynu</item>
+        <item quantity="one">%d heb benderfynu</item>
+        <item quantity="two">%d heb benderfynu</item>
+        <item quantity="few">%d heb benderfynu</item>
+        <item quantity="many">%d heb benderfynu</item>
+        <item quantity="other">%d heb benderfynu</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="zero">%d eisoes wedi\'u cadw</item>
+        <item quantity="one">%d eisoes wedi\'i gadw</item>
+        <item quantity="two">%d eisoes wedi\'u cadw</item>
+        <item quantity="few">%d eisoes wedi\'u cadw</item>
+        <item quantity="many">%d eisoes wedi\'u cadw</item>
+        <item quantity="other">%d eisoes wedi\'u cadw</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="zero">%d eisoes wedi\'u dileu</item>
+        <item quantity="one">%d eisoes wedi\'i ddileu</item>
+        <item quantity="two">%d eisoes wedi\'u dileu</item>
+        <item quantity="few">%d eisoes wedi\'u dileu</item>
+        <item quantity="many">%d eisoes wedi\'u dileu</item>
+        <item quantity="other">%d eisoes wedi\'u dileu</item>
+    </plurals>
+    <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="zero">%d wedi\'u cadw</item>
+        <item quantity="one">%d wedi\'i gadw</item>
+        <item quantity="two">%d wedi\'u cadw</item>
+        <item quantity="few">%d wedi\'u cadw</item>
+        <item quantity="many">%d wedi\'u cadw</item>
+        <item quantity="other">%d wedi\'u cadw</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="zero">%d wedi\'u dileu</item>
+        <item quantity="one">%d wedi\'i ddileu</item>
+        <item quantity="two">%d wedi\'u dileu</item>
+        <item quantity="few">%d wedi\'u dileu</item>
+        <item quantity="many">%d wedi\'u dileu</item>
+        <item quantity="other">%d wedi\'u dileu</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Eithrio \"%1$s\" o sganiau Swiper?</string>
+    <string name="swiper_sessions_header_title">Yn barod i dacluso?</string>
+    <string name="swiper_sessions_suggestions_label">Rhowch gynnig ar ddechrau gyda:</string>
+    <string name="swiper_sessions_suggestion_downloads">Ffolder lawrlwytho</string>
+    <string name="swiper_sessions_suggestion_screenshots">Sgrinluniau</string>
+    <string name="swiper_sessions_suggestion_camera">Rholyn camera</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Cadw!</string>
+    <string name="swiper_stamp_keep_2">Neis!</string>
+    <string name="swiper_stamp_keep_3">Ie!</string>
+    <string name="swiper_stamp_keep_4">Arbed!</string>
+    <string name="swiper_stamp_delete_1">Na!</string>
+    <string name="swiper_stamp_delete_2">Hwyl!</string>
+    <string name="swiper_stamp_delete_3">Sbwriel!</string>
+    <string name="swiper_stamp_delete_4">Dileu!</string>
+    <string name="swiper_stamp_skip_1">Sgipio!</string>
+    <string name="swiper_stamp_skip_2">Hmm!</string>
+    <string name="swiper_stamp_skip_3">Wedyn!</string>
+    <string name="swiper_stamp_skip_4">Efallai!</string>
+    <string name="swiper_stamp_undo_1">Dadwneud!</string>
+    <string name="swiper_stamp_undo_2">Nôl!</string>
+    <string name="swiper_stamp_undo_3">Wps!</string>
+    <string name="swiper_stamp_undo_4">Aros!</string>
 </resources>

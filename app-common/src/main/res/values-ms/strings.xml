@@ -154,4 +154,12 @@
     <string name="general_error_report_bug_action">Laporkan pepijat</string>
     <string name="general_error_ipc_deadobject_title">Sambungan Perkhidmatan Terputus</string>
     <string name="general_error_ipc_deadobject_description">Sambungan ke perkhidmatan kritikal (contoh: Magisk, Shizuku, atau perkhidmatan tahap sistem lain) telah terputus secara tidak dijangka. Sila but semula peranti anda. Jika isu ini berterusan, semak kemas kini atau hubungi saya untuk pembaikan.</string>
+    <string name="general_apply_action">Gunakan</string>
+    <string name="general_drag_handle_description">Seret untuk menyusun semula</string>
+    <string name="general_new_badge_label">Baharu</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="other">Padamkan %d item yang dipilih?</item>
+    </plurals>
+    <string name="general_user_label_owner">Pemilik</string>
+    <string name="general_user_label_system">Sistem</string>
 </resources>

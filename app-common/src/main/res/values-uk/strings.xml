@@ -20,6 +20,7 @@
     <string name="general_share_action">Поділитися</string>
     <string name="general_done_action">Виконано</string>
     <string name="general_apply_action">Застосувати</string>
+    <string name="general_new_badge_label">Нове</string>
     <string name="general_copy_action">Копіювати</string>
     <string name="general_wipe_action">Очистити</string>
     <string name="general_cancel_action">Скасувати</string>
@@ -34,7 +35,6 @@
     <string name="general_edit_action">Редагувати</string>
     <string name="general_na_label">Недоступно</string>
     <string name="general_empty_label">Порожньо</string>
-    <string name="general_new_badge_label">Нове</string>
     <string name="general_dismiss_action">Відхилити</string>
     <string name="general_maybe_later_action">Можливо пізніше</string>
     <string name="general_manage_action">Керування</string>
@@ -97,6 +97,12 @@
     <string name="general_toggle_layout_mode">Перемкнути режим перегляду</string>
     <string name="general_delete_confirmation_title">Підтвердити видалення</string>
     <string name="general_delete_confirmation_message_x">Видалити \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Видалити %d вибраний елемент?</item>
+        <item quantity="few">Видалити %d вибрані елементи?</item>
+        <item quantity="many">Видалити %d вибраних елементів?</item>
+        <item quantity="other">Видалити %d вибраних елементів?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Видалено елемент %d.</item>
         <item quantity="few">Видалено%d елемент.</item>
@@ -134,6 +140,12 @@
         <item quantity="many">Помилки %d</item>
         <item quantity="other">Помилка %d</item>
     </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s можна звільнити</item>
+        <item quantity="few">%s можна звільнити</item>
+        <item quantity="many">%s можна звільнити</item>
+        <item quantity="other">%s можна звільнити</item>
+    </plurals>
     <string name="general_info_label">Інформація</string>
     <string name="general_count_label">Кількість</string>
     <string name="general_app_label">Додаток</string>
@@ -157,6 +169,18 @@
     <string name="general_progress_ready">Готово</string>
     <string name="general_progress_done">Виконано</string>
     <string name="general_rom_type_auto_label">Автоматично (за замовчуванням)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d день</item>
+        <item quantity="few">%d дні</item>
+        <item quantity="many">%d днів</item>
+        <item quantity="other">%d днів</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d година</item>
+        <item quantity="few">%d години</item>
+        <item quantity="many">%d годин</item>
+        <item quantity="other">%d годин</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">Файл %s</item>
         <item quantity="few">Файли %s</item>

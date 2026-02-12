@@ -4,6 +4,7 @@
     <string name="slogan_message_1">Limpo e ordenado.</string>
     <string name="slogan_message_2">Previnindo o caos.</string>
     <string name="slogan_message_3">Facendo o necesario.</string>
+    <string name="slogan_message_4">Todo en orde.</string>
     <string name="slogan_message_5">Impecable.</string>
     <string name="slogan_message_6">Bytes, fóra!</string>
     <string name="slogan_message_7">Espazo libre, lugar feliz.</string>
@@ -17,18 +18,22 @@
     <string name="general_todo_msg">Esta función aínda está en desenvolvemento e actualmente non está dispoñible.</string>
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Feito</string>
+    <string name="general_apply_action">Aplicar</string>
     <string name="general_copy_action">Copiar</string>
     <string name="general_wipe_action">Limpar</string>
     <string name="general_cancel_action">Cancelar</string>
     <string name="general_discard_action">Descartar</string>
     <string name="general_reset_action">Reiniciar</string>
+    <string name="general_drag_handle_description">Arrastra para reordenar</string>
     <string name="general_save_action">Gardar</string>
     <string name="general_thanks_action">Grazas</string>
     <string name="general_gotit_action">Entendido</string>
     <string name="general_fix_action">Arranxar</string>
     <string name="general_set_up_action">Configurar</string>
     <string name="general_edit_action">Editar</string>
+    <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Baleiro</string>
+    <string name="general_new_badge_label">Novo</string>
     <string name="general_dismiss_action">Descartar</string>
     <string name="general_maybe_later_action">Quizais máis tarde</string>
     <string name="general_manage_action">Xestionar</string>
@@ -89,6 +94,10 @@
     <string name="general_toggle_layout_mode">Cambiar modo de vista</string>
     <string name="general_delete_confirmation_title">Confirmar eliminación</string>
     <string name="general_delete_confirmation_message_x">Eliminar \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Eliminar %d elemento seleccionado?</item>
+        <item quantity="other">Eliminar %d elementos seleccionados?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Eliminouse %d elemento.</item>
         <item quantity="other">Elimináronse %d elementos.</item>
@@ -161,4 +170,6 @@
     <string name="general_error_report_bug_action">Informar erro</string>
     <string name="general_error_ipc_deadobject_title">Conexión de servizo perdida</string>
     <string name="general_error_ipc_deadobject_description">A conexión cun servizo crítico (ex. Magisk, Shizuku ou outros servizos a nivel do sistema) perdeuse inesperadamente. Por favor reinicia o teu dispositivo. Se o problema persiste, comproba as actualizacións ou contacta comigo para que poida arranxalo.</string>
+    <string name="general_user_label_owner">Propietario</string>
+    <string name="general_user_label_system">Sistema</string>
 </resources>

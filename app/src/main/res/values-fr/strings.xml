@@ -589,6 +589,7 @@
     <string name="squeezer_onboarding_compressed_label">Après compression</string>
     <string name="squeezer_onboarding_quality_label">Qualité : %d %%</string>
     <string name="squeezer_onboarding_got_it">J’ai compris</string>
+    <string name="squeezer_compare_action">Afficher la comparaison</string>
     <string name="squeezer_no_example_found">Aucune image n’a été trouvée dans les chemins définis.</string>
     <string name="squeezer_result_empty_message">Aucune image compressible n’a été trouvée.</string>
     <string name="squeezer_setup_warning">La compression réduit irrémédiablement la qualité des images pour économiser l’espace de stockage. Cette opération est irréversible. Confirmez vos paramètres avant de commencer.</string>
@@ -953,8 +954,10 @@
     <string name="swiper_label">Balayeur</string>
     <string name="swiper_tool_name">Balayeur</string>
     <string name="swiper_tool_description">Parcourir les fichiers en balayant pour décider lesquels garder ou supprimer.</string>
+    <string name="swiper_dashcard_description">Parcourir manuellement les fichiers de dossiers spécifiques. Balayez pour décider quoi garder ou supprimer.</string>
     <string name="swiper_start_action">Commencer à balayer</string>
     <string name="swiper_continue_action">Poursuivre la session</string>
+    <string name="swiper_sessions_description">Certains fichiers nécessitent une décision humaine. Parcourez les éléments et choisissez ce que vous souhaitez garder ou supprimer. Passez ce dont vous n\'êtes pas sûr. Cet outil vous permet de parcourir manuellement des dossiers spécifiques, et rien n\'est supprimé avant votre confirmation.</string>
     <string name="swiper_select_folders_action">Choisir des dossiers</string>
     <string name="swiper_scanning_title">Analyse…</string>
     <plurals name="swiper_result_x_items_found">

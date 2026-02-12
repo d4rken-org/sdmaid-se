@@ -688,6 +688,250 @@
     <string name="area_type_public_obb_label">公用應用程式資源</string>
     <string name="area_type_private_data_label">私人應用程式資料</string>
     <string name="area_type_portable_label">可攜式儲存空間</string>
+    <string name="dashboard_card_config_title">儀表板卡片</string>
+    <string name="dashboard_card_config_desc">設定顯示哪些卡片及其順序</string>
+    <string name="dashboard_card_config_header_title">拖曳以重新排序，切換以顯示/隱藏</string>
+
+    <string name="debug_debuglog_screen_title">偵錯日誌</string>
+    <string name="debug_debuglog_screen_discard_action">捨棄</string>
+    <string name="debug_debuglog_screen_session_path_label">工作階段路徑</string>
+    <string name="debug_debuglog_screen_log_files_label">日誌檔案</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d 個檔案就緒（%2$s）</item>
+    </plurals>
+
+    <string name="support_debuglog_folder_label">偵錯日誌資料夾</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="other">%1$d 個檔案使用 %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">沒有已儲存的偵錯日誌</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">刪除所有偵錯日誌？</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">這將永久刪除所有已儲存的偵錯日誌工作階段。此操作無法撤銷。</string>
+
+    <string name="settings_acknowledgements_category_translations_title">翻譯</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">誰翻譯了這個？</string>
+    <string name="settings_acknowledgements_category_thanks_title">鳴謝</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">特別感謝我們的朋友。</string>
+    <string name="settings_acknowledgements_category_licenses_title">授權</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid 使用的軟體。</string>
+
+    <string name="debug_card_title">偵錯模式已啟用</string>
+    <string name="debug_card_trace_mode_label">啟用追蹤模式</string>
+    <string name="debug_card_dryrun_mode_label">試執行模式（停用刪除）</string>
+    <string name="debug_card_areas_reload_action">重新載入資料區域</string>
+    <string name="debug_card_pkgs_reload_action">重新載入應用程式</string>
+    <string name="debug_card_root_test_action">測試 Root</string>
+    <string name="debug_card_shizuku_test_action">測試 Shizuku</string>
+
+    <string name="corpsefinder_filter_artprofiles_label">ART 設定檔</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART 設定檔用於 Android 最佳化應用程式效能。</string>
+
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">包含相同版本</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">也包括與已安裝版本相符的 APK 檔案。停用以只移除舊版本。</string>
+
+    <string name="systemcleaner_customfilter_editor_size_label">大小限制</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">最小大小</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">最大大小</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">根據檔案大小限制符合項目。留空以符合任何大小。</string>
+    <string name="systemcleaner_customfilter_editor_age_label">年齡限制</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">最小年齡</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">最大年齡</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">根據檔案年齡（最後修改時間）限制符合項目。留空以符合任何年齡。</string>
+
+    <string name="appcleaner_filter_shortcutservice_label">應用程式捷徑圖示</string>
+    <string name="appcleaner_filter_shortcutservice_summary">應用程式捷徑和分享選單的快取圖示。</string>
+
+    <string name="appcleaner_forcestop_before_clearing_label">清除前強制停止</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">清除快取前強制停止應用程式。可能有助於清除某些應用程式的快取，但可能導致應用程式異常並需要手動重新啟動。</string>
+    <string name="appcleaner_progress_force_stopping">正在強制停止應用程式…</string>
+
+    <string name="deduplicator_keep_prefer_paths_title">優先保留於</string>
+    <string name="deduplicator_keep_prefer_paths_summary">決定保留哪個重複項目時，優先保留這些位置中的檔案。</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">尚未設定位置</string>
+
+    <string name="deduplicator_arbiter_title">刪除策略</string>
+    <string name="deduplicator_arbiter_summary">設定保留和刪除哪些檔案。</string>
+    <string name="deduplicator_arbiter_explanation">刪除重複項目時，SD Maid 會按順序檢查每個條件來決定保留哪個檔案。第一個產生明確結果的條件即為最終決定。拖曳以重新排序，輕觸以變更模式。</string>
+    <string name="deduplicator_arbiter_select_mode_title">選擇模式</string>
+    <string name="deduplicator_arbiter_configure_paths_action">設定路徑…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">重複類型</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">優先選擇完全相符而非類似的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">媒體索引</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">考慮檔案是否已被媒體提供者索引。</string>
+    <string name="deduplicator_arbiter_criterium_location_title">儲存位置</string>
+    <string name="deduplicator_arbiter_criterium_location_description">優先選擇內部或外部儲存空間的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">資料夾深度</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">優先選擇較淺或較深資料夾結構中的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">修改日期</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">根據修改時間優先選擇較舊或較新的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_size_title">檔案大小</string>
+    <string name="deduplicator_arbiter_criterium_size_description">當大小不同時優先選擇較大或較小的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">偏好位置</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">保留在已設定的偏好位置中的檔案。</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">優先完全相符</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">優先類似檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">優先已索引檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">優先未索引檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">優先內部儲存空間</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">優先外部儲存空間</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">優先較淺資料夾</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">優先較深資料夾</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">優先較舊檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">優先較新檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">優先較大檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">優先較小檔案</string>
+
+    <string name="deduplicator_view_mode_groups_label">群組</string>
+    <string name="deduplicator_view_mode_directories_label">資料夾</string>
+
+    <string name="squeezer_onboarding_title">關於圖片壓縮</string>
+    <string name="squeezer_onboarding_message">圖片壓縮透過移除視覺細節來縮小檔案大小。此過程不可逆 - 無法恢復原始品質。\n\n以下是壓縮後的預覽效果：</string>
+    <string name="squeezer_onboarding_original_label">原圖</string>
+    <string name="squeezer_onboarding_compressed_label">壓縮後</string>
+    <string name="squeezer_onboarding_quality_label">品質：%d%%</string>
+    <string name="squeezer_onboarding_got_it">了解</string>
+    <string name="squeezer_compare_action">檢視比較</string>
+    <string name="squeezer_no_example_found">在所選路徑中找不到圖片。</string>
+    <string name="squeezer_result_empty_message">找不到可壓縮的圖片。</string>
+    <string name="squeezer_setup_warning">壓縮會永久降低圖片品質以節省儲存空間。此操作無法撤銷。開始前請仔細檢查設定。</string>
+    <string name="squeezer_setup_explanation">Media Squeeze 可縮小圖片檔案大小以釋放儲存空間。這會永久降低圖片品質且無法撤銷。開始前請仔細檢查設定。</string>
+    <string name="squeezer_setup_paths_title">搜尋位置</string>
+    <string name="squeezer_setup_paths_default">選擇要搜尋的資料夾</string>
+    <string name="squeezer_setup_quality_title">壓縮品質</string>
+    <string name="squeezer_setup_age_title">最小年齡</string>
+    <string name="squeezer_setup_age_none">無限制（包含所有檔案）</string>
+    <string name="squeezer_setup_start_action">開始掃描</string>
+    <string name="squeezer_quality_hint_very_low">低於 40%% 的品質可能產生無法使用的圖片。</string>
+    <string name="squeezer_quality_hint_low">較低品質可節省更多空間，但可能產生可見瑕疵。</string>
+    <string name="squeezer_quality_hint_high">非常高的品質只能提供極少的空間節省。</string>
+    <string name="squeezer_quality_hint_normal">品質與空間節省之間取得平衡。</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="other">至少 %d 天</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG 檔案預計可節省約 %d%%</string>
+
+    <string name="shortcut_appcontrol_short">應用程式管理</string>
+    <string name="shortcut_appcontrol_long">管理已安裝的應用程式</string>
+    <string name="shortcut_onetap_short">掃描 + 刪除</string>
+    <string name="shortcut_onetap_long">一鍵掃描和刪除</string>
+
+    <string name="shortcuts_settings_category">捷徑</string>
+    <string name="shortcuts_onetap_enabled_title">一鍵捷徑</string>
+    <string name="shortcuts_onetap_enabled_summary">長按應用程式圖示時顯示「掃描 + 刪除」捷徑。使用與一鍵儀表板相同的工具。</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">滑動瀏覽檔案，決定要保留或刪除的項目。</string>
+    <string name="swiper_dashcard_description">手動檢視特定資料夾中的檔案。滑動以決定要保留或刪除。</string>
+    <string name="swiper_start_action">開始滑動</string>
+    <string name="swiper_continue_action">繼續工作階段</string>
+    <string name="swiper_sessions_description">某些檔案需要人工決定。滑動瀏覽項目，選擇要保留或刪除的內容。跳過任何不確定的項目。此工具讓您手動檢視特定資料夾，在您確認之前不會刪除任何內容。</string>
+    <string name="swiper_select_folders_action">選擇資料夾</string>
+    <string name="swiper_scanning_title">掃描中…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="other">找到 %d 個項目</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="other">已刪除 %d 個項目</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="other">%d 個項目失敗</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">保留</string>
+    <string name="swiper_skip_action">跳過</string>
+    <string name="swiper_review_action">檢視</string>
+    <string name="swiper_status_title">檢視決定</string>
+    <string name="swiper_status_action_keep_selected">保留所選</string>
+    <string name="swiper_status_action_delete_selected">刪除所選</string>
+    <string name="swiper_status_action_reset_selected">重設所選</string>
+    <string name="swiper_decision_undecided">未決定</string>
+    <string name="swiper_retry_action">重試</string>
+    <string name="swiper_delete_confirmation_title">刪除檔案？</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="other">這將永久刪除 %1$d 個檔案（%2$s）。此操作無法撤銷。</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="other">%d 個未決定的項目將保留以供日後檢視。</item>
+    </plurals>
+    <string name="swiper_delete_x_action">刪除 %1$d</string>
+    <string name="swiper_settings_swap_directions_title">交換滑動方向</string>
+    <string name="swiper_settings_swap_directions_summary">向左滑動保留，向右滑動刪除。</string>
+    <string name="swiper_settings_show_details_title">顯示檔案詳情</string>
+    <string name="swiper_settings_show_details_summary">在滑動畫面上顯示檔案名稱、大小和日期。</string>
+    <string name="swiper_settings_haptic_feedback_title">觸覺回饋</string>
+    <string name="swiper_settings_haptic_feedback_summary">做出保留或刪除決定時震動。</string>
+    <string name="swiper_discard_session_confirmation_title">捨棄工作階段？</string>
+    <string name="swiper_discard_session_confirmation_message">所有決定將會遺失。確定嗎？</string>
+    <string name="swiper_no_preview_available">無法預覽</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="other">繼續 %1$d 天前的工作階段（已完成 %2$d%%）</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="other">%d 個工作階段</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="other">%d 個未決定項目</item>
+    </plurals>
+    <string name="swiper_session_timestamps">建立於 %1$s，最後活動 %2$s</string>
+    <string name="swiper_session_remove_action">移除工作階段</string>
+    <string name="swiper_sessions_empty_hint">輕觸 + 選擇資料夾並開始滑動</string>
+    <string name="swiper_sessions_upgrade_body">升級以移除這些限制並支持開發。免費版本限制為：</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="other">每個工作階段 %d 個檔案</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="other">%d 個工作階段</item>
+    </plurals>
+    <string name="swiper_session_default_label">工作階段 #%d</string>
+    <string name="swiper_session_rename_title">重新命名工作階段</string>
+    <string name="swiper_session_rename_hint">輸入此工作階段的名稱</string>
+    <string name="swiper_sessions_current_sessions">目前的工作階段</string>
+    <string name="swiper_session_paths_label">路徑</string>
+    <string name="swiper_session_status_label">狀態</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="other">%d 個待保留</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="other">%d 個待刪除</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="other">%d 個未決定</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="other">%d 個已保留</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="other">%d 個已刪除</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="other">%d 已保留</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="other">%d 已刪除</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">將「%1$s」從 Swiper 掃描中排除？</string>
+    <string name="swiper_sessions_header_title">準備好整理了嗎？</string>
+    <string name="swiper_sessions_suggestions_label">試試從這裡開始：</string>
+    <string name="swiper_sessions_suggestion_downloads">下載資料夾</string>
+    <string name="swiper_sessions_suggestion_screenshots">螢幕截圖</string>
+    <string name="swiper_sessions_suggestion_camera">相機膠卷</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">保留！</string>
+    <string name="swiper_stamp_keep_2">不錯！</string>
+    <string name="swiper_stamp_keep_3">要！</string>
+    <string name="swiper_stamp_keep_4">留下！</string>
+    <string name="swiper_stamp_delete_1">不要！</string>
+    <string name="swiper_stamp_delete_2">掰！</string>
+    <string name="swiper_stamp_delete_3">垃圾！</string>
+    <string name="swiper_stamp_delete_4">刪除！</string>
+    <string name="swiper_stamp_skip_1">跳過！</string>
+    <string name="swiper_stamp_skip_2">嗯！</string>
+    <string name="swiper_stamp_skip_3">之後！</string>
+    <string name="swiper_stamp_skip_4">也許！</string>
+    <string name="swiper_stamp_undo_1">復原！</string>
+    <string name="swiper_stamp_undo_2">返回！</string>
+    <string name="swiper_stamp_undo_3">哎呀！</string>
+    <string name="swiper_stamp_undo_4">等等！</string>
 </resources>

@@ -164,4 +164,13 @@
     <string name="general_error_report_bug_action">ബഗ് റിപ്പോർട്ട് ചെയ്യുക</string>
     <string name="general_error_ipc_deadobject_title">സേവന കണക്ഷൻ നഷ്ടപ്പെട്ടു</string>
     <string name="general_error_ipc_deadobject_description">ഒരു നിർണായക സേവനത്തിലേക്കുള്ള കണക്ഷൻ (ഉദാ. Magisk, Shizuku, അല്ലെങ്കിൽ മറ്റ് സിസ്റ്റം-ലെവൽ സേവനങ്ങൾ) അപ്രതീക്ഷിതമായി നഷ്ടപ്പെട്ടു. ദയവായി നിങ്ങളുടെ ഉപകരണം റീബൂട്ട് ചെയ്യുക. പ്രശ്നം തുടരുകയാണെങ്കിൽ, അപ്ഡേറ്റുകൾക്കായി പരിശോധിക്കുക അല്ലെങ്കിൽ എന്നെ ബന്ധപ്പെടുക.</string>
+    <string name="general_apply_action">പ്രയോഗിക്കുക</string>
+    <string name="general_drag_handle_description">പുനഃക്രമീകരിക്കാൻ വലിച്ചിടുക</string>
+    <string name="general_new_badge_label">പുതിയത്</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d തിരഞ്ഞെടുത്ത ഇനം ഇല്ലാതാക്കണോ?</item>
+        <item quantity="other">%d തിരഞ്ഞെടുത്ത ഇനങ്ങൾ ഇല്ലാതാക്കണോ?</item>
+    </plurals>
+    <string name="general_user_label_owner">ഉടമ</string>
+    <string name="general_user_label_system">സിസ്റ്റം</string>
 </resources>

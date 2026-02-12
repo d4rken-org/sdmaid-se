@@ -650,6 +650,366 @@
     <string name="area_type_public_obb_label">பொது பயன்பாட்டு வளங்கள்</string>
     <string name="area_type_private_data_label">தனிப்பட்ட பயன்பாட்டு தரவு</string>
     <string name="area_type_portable_label">கையடக்க சேமிப்பு</string>
+    <string name="dashboard_card_config_title">டாஷ்போர்டு கார்டுகள்</string>
+    <string name="dashboard_card_config_desc">எந்த கார்டுகள் காட்டப்படும் மற்றும் அவற்றின் வரிசையை அமைக்கவும்</string>
+    <string name="dashboard_card_config_header_title">மறுவரிசைப்படுத்த இழுக்கவும், காட்ட/மறைக்க மாற்றவும்</string>
+    <string name="debug_debuglog_screen_title">பிழைத்திருத்த பதிவு</string>
+    <string name="debug_debuglog_screen_discard_action">நிராகரி</string>
+    <string name="debug_debuglog_screen_session_path_label">அமர்வு பாதை</string>
+    <string name="debug_debuglog_screen_log_files_label">பதிவு கோப்புகள்</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d கோப்பு தயார் (%2$s)</item>
+        <item quantity="other">%1$d கோப்புகள் தயார் (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_folder_label">பிழைத்திருத்த பதிவு கோப்புறை</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d கோப்பு %2$s பயன்படுத்துகிறது</item>
+        <item quantity="other">%1$d கோப்புகள் %2$s பயன்படுத்துகின்றன</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">சேமிக்கப்பட்ட பிழைத்திருத்த பதிவுகள் இல்லை</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">அனைத்து பிழைத்திருத்த பதிவுகளையும் நீக்கவா?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">இது சேமிக்கப்பட்ட அனைத்து பிழைத்திருத்த பதிவு அமர்வுகளையும் நிரந்தரமாக நீக்கும். இந்தச் செயலை மீட்க இயலாது.</string>
+    <string name="debug_card_title">பிழைத்திருத்த பயன்முறை இயக்கப்பட்டுள்ளது</string>
+    <string name="debug_card_trace_mode_label">தடமறிதல் பயன்முறையை இயக்கு</string>
+    <string name="debug_card_dryrun_mode_label">சோதனை ஓட்ட பயன்முறை (நீக்குதலை முடக்கு)</string>
+    <string name="debug_card_areas_reload_action">தரவு பகுதிகளை மீளேற்று</string>
+    <string name="debug_card_pkgs_reload_action">செயலிகளை மீளேற்று</string>
+    <string name="debug_card_root_test_action">Root சோதனை</string>
+    <string name="debug_card_shizuku_test_action">Shizuku சோதனை</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART சுயவிவரங்கள்</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART சுயவிவரங்கள் செயலி செயல்திறனை மேம்படுத்த Android ஆல் பயன்படுத்தப்படுகின்றன.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="systemcleaner_filter_superfluosapks_label">தேவையற்ற APK-கள்</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">நிறுவப்பட்ட செயலி பதிப்புகளின் அடிப்படையில் தேவையில்லாத நிறுவல் கோப்புகள்.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">அதே பதிப்பைச் சேர்</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">நிறுவப்பட்ட பதிப்புடன் பொருந்தும் APK கோப்புகளையும் இலக்காகக் கொள். பழைய பதிப்புகளை மட்டும் நீக்க முடக்கவும்.</string>
+    <string name="systemcleaner_customfilter_editor_size_label">அளவு வரம்புகள்</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">குறைந்தபட்ச அளவு</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">அதிகபட்ச அளவு</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">கோப்பு அளவின் அடிப்படையில் பொருத்தங்களை வரம்பிடு. எந்த அளவிலும் பொருத்த அமைக்காமல் விடவும்.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">வயது வரம்புகள்</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">குறைந்தபட்ச வயது</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">அதிகபட்ச வயது</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">கோப்பு வயது (கடைசி மாற்றிய நேரம்) அடிப்படையில் பொருத்தங்களை வரம்பிடு. எந்த வயதிலும் பொருத்த அமைக்காமல் விடவும்.</string>
+    <string name="appcleaner_filter_shortcutservice_label">செயலி குறுக்குவழி சின்னங்கள்</string>
+    <string name="appcleaner_filter_shortcutservice_summary">செயலி குறுக்குவழிகள் மற்றும் பகிர்வு மெனுக்களுக்கான தற்காலிக சின்னங்கள்.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">அழிக்கும் முன் கட்டாய நிறுத்தம்</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">தற்காலிக சேமிப்பை அழிக்கும் முன் செயலிகளை கட்டாயமாக நிறுத்து. சில செயலிகளின் தற்காலிக சேமிப்பை அழிக்க உதவலாம், ஆனால் செயலிகள் தவறாக செயல்படலாம் மற்றும் கைமுறையாக மறுதொடக்கம் தேவைப்படலாம்.</string>
+    <string name="appcleaner_progress_force_stopping">செயலிகளை கட்டாயமாக நிறுத்துகிறது…</string>
+    <string name="deduplicator_keep_prefer_paths_title">இதில் வைத்திருக்க விரும்பு</string>
+    <string name="deduplicator_keep_prefer_paths_summary">எந்த நகலை வைத்திருப்பது என்று முடிவு செய்யும் போது, இந்த இடங்களில் உள்ள கோப்புகளை வைத்திருக்க விரும்பு.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">இடங்கள் எதுவும் அமைக்கப்படவில்லை</string>
+    <string name="deduplicator_detection_method_phash_summary">உள்ளடக்க அம்சங்களை பகுப்பாய்வு செய்து புலனுணர்வு ஹாஷ் மதிப்புகளை ஒப்பிட்டு ஒத்த கோப்புகளைக் கண்டறியவும். ⚠️ ஒற்றுமை அடிப்படையிலான கண்டறிதலில் கைமுறை சரிபார்ப்பு தேவைப்படும் தவறான நேர்மறைகள் இருக்கலாம்.</string>
+    <string name="deduplicator_arbiter_title">நீக்கும் உத்தி</string>
+    <string name="deduplicator_arbiter_summary">எந்தக் கோப்புகள் வைத்திருக்கப்படும் எந்தவை நீக்கப்படும் என்பதை அமைக்கவும்.</string>
+    <string name="deduplicator_arbiter_explanation">நகல்களை நீக்கும் போது, SD Maid ஒவ்வொரு அளவுகோலையும் வரிசையாகச் சரிபார்த்து எந்தக் கோப்பை வைத்திருப்பது என்று முடிவு செய்கிறது. தெளிவான வெற்றியாளரை உருவாக்கும் முதல் அளவுகோல் முடிவை தீர்மானிக்கிறது. மறுவரிசைப்படுத்த இழுக்கவும், பயன்முறையை மாற்ற தட்டவும்.</string>
+    <string name="deduplicator_arbiter_select_mode_title">பயன்முறையைத் தேர்ந்தெடு</string>
+    <string name="deduplicator_arbiter_configure_paths_action">பாதைகளை அமைக்கவும்…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">நகல் வகை</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">ஒத்த கோப்புகளை விட சரியான பொருத்தங்களை விரும்பு.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">ஊடக குறியீடு</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">கோப்புகள் ஊடக வழங்குநரால் குறியீடு செய்யப்பட்டுள்ளதா என்பதைக் கருத்தில் கொள்.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">சேமிப்பு இடம்</string>
+    <string name="deduplicator_arbiter_criterium_location_description">உள் அல்லது வெளி சேமிப்பகத்தில் உள்ள கோப்புகளை விரும்பு.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">கோப்புறை ஆழம்</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">குறைவான அல்லது அதிக ஆழமான கோப்புறை கட்டமைப்புகளில் உள்ள கோப்புகளை விரும்பு.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">மாற்றிய தேதி</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">மாற்றிய நேரத்தின் அடிப்படையில் பழைய அல்லது புதிய கோப்புகளை விரும்பு.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">கோப்பு அளவு</string>
+    <string name="deduplicator_arbiter_criterium_size_description">அளவுகள் வேறுபடும் போது பெரிய அல்லது சிறிய கோப்புகளை விரும்பு.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">விருப்பமான இடங்கள்</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">உங்கள் அமைக்கப்பட்ட விருப்பமான இடங்களில் கோப்புகளை வைத்திரு.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">சரியான பொருத்தங்களை விரும்பு</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">ஒத்த கோப்புகளை விரும்பு</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">குறியீடு செய்யப்பட்ட கோப்புகளை விரும்பு</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">குறியீடு செய்யப்படாத கோப்புகளை விரும்பு</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">உள் சேமிப்பகத்தை விரும்பு</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">வெளி சேமிப்பகத்தை விரும்பு</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">ஆழமற்ற கோப்புறைகளை விரும்பு</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">ஆழமான கோப்புறைகளை விரும்பு</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">பழைய கோப்புகளை விரும்பு</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">புதிய கோப்புகளை விரும்பு</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">பெரிய கோப்புகளை விரும்பு</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">சிறிய கோப்புகளை விரும்பு</string>
+    <string name="deduplicator_view_mode_groups_label">குழுக்கள்</string>
+    <string name="deduplicator_view_mode_directories_label">கோப்புறைகள்</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="squeezer_explanation_short">சேமிப்பிடத்தை மிச்சப்படுத்த படங்களை சுருக்கவும்.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d படம் கண்டுபிடிக்கப்பட்டது</item>
+        <item quantity="other">%d படங்கள் கண்டுபிடிக்கப்பட்டன</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s மிச்சப்படுத்தலாம்</item>
+        <item quantity="other">~%s மிச்சப்படுத்தலாம்</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d படம் சுருக்கப்பட்டது</item>
+        <item quantity="other">%d படங்கள் சுருக்கப்பட்டன</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d படம் தேர்ந்தெடுக்கப்பட்டது</item>
+        <item quantity="other">%d படங்கள் தேர்ந்தெடுக்கப்பட்டன</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">தேடல் இடங்கள்</string>
+    <string name="squeezer_search_locations_default_summary">கேமரா கோப்புறைகள் (இயல்புநிலை)</string>
+    <string name="squeezer_min_size_title">குறைந்தபட்ச கோப்பு அளவு</string>
+    <string name="squeezer_min_size_description">இந்த அளவை விட சிறிய படங்களைத் தவிர்.</string>
+    <string name="squeezer_min_age_title">குறைந்தபட்ச கோப்பு வயது</string>
+    <string name="squeezer_min_age_description">இந்த வயதை விட பழைய படங்களை மட்டும் சேர்.</string>
+    <string name="squeezer_compression_settings_label">சுருக்க அமைப்புகள்</string>
+    <string name="squeezer_quality_label">தரம்</string>
+    <string name="squeezer_quality_title">சுருக்கத் தரம்</string>
+    <string name="squeezer_quality_description">குறைந்த தரம் என்பது சிறிய கோப்பு அளவு ஆனால் குறைந்த படத் தரம்.</string>
+    <string name="squeezer_quality_example_format">எடுத்துக்காட்டு: %1$s படம் → %3$d%% தரத்தில் ~%2$s மிச்சம்</string>
+    <string name="squeezer_quality_warning_low">குறைந்த தரங்களில் கண்ணுக்குத் தெரியும் குறைபாடுகள் ஏற்படலாம்.</string>
+    <string name="squeezer_quality_warning_high">மிக உயர் தரம் குறைந்தபட்ச இட மிச்சத்தை வழங்குகிறது.</string>
+    <string name="squeezer_types_category_label">படம் வகைகள்</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">JPEG படங்களைச் (.jpg, .jpeg) சேர்.</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">WebP படங்களைச் (.webp) சேர்.</string>
+    <string name="squeezer_skip_compressed_title">முன்பு சுருக்கப்பட்டவற்றைத் தவிர்</string>
+    <string name="squeezer_skip_compressed_description">SD Maid ஏற்கனவே சுருக்கிய படங்களைத் தவிர்.</string>
+    <string name="squeezer_exif_marker_title">EXIF குறிப்பான் எழுது</string>
+    <string name="squeezer_exif_marker_description">சுருக்க வரலாறு அழிக்கப்பட்டாலும் மீண்டும் சுருக்குவதைத் தடுக்க படத்தின் EXIF பயனர் கருத்து புலத்தில் குறிப்பானை இணை.</string>
+    <string name="squeezer_estimated_savings_format">~%s மிச்சம்</string>
+    <string name="squeezer_no_savings_expected">வரையறுக்கப்பட்ட மிச்சம்</string>
+    <string name="squeezer_current_size_format">அளவு: %s</string>
+    <string name="squeezer_compress_action">சுருக்கு</string>
+    <string name="squeezer_compress_all_action">அனைத்தையும் சுருக்கு</string>
+    <string name="squeezer_preview_dialog_title">சுருக்கத்தை உறுதிப்படுத்து</string>
+    <string name="squeezer_preview_total_size">மொத்த அளவு</string>
+    <string name="squeezer_preview_estimated_savings">மதிப்பிடப்பட்ட மிச்சம்</string>
+    <string name="squeezer_compress_confirmation_title">படங்களை சுருக்கவா?</string>
+    <string name="squeezer_compress_confirmation_message">இது அசல் படங்களை சுருக்கப்பட்ட பதிப்புகளால் மாற்றும். இந்தச் செயலை மீட்க இயலாது.</string>
+    <string name="squeezer_history_title">சுருக்க வரலாறு</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d உருப்படி (%2$s)</item>
+        <item quantity="other">%1$d உருப்படிகள் (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">சுருக்க வரலாறு இல்லை</string>
+    <string name="squeezer_history_clear_title">சுருக்க வரலாற்றை அழி</string>
+    <string name="squeezer_history_clear_message">இது முன்பு சுருக்கப்பட்ட படங்களை மீண்டும் சுருக்க அனுமதிக்கும். படங்கள் பாதிக்கப்படாது.</string>
+    <string name="squeezer_onboarding_title">பட சுருக்கம் பற்றி</string>
+    <string name="squeezer_onboarding_message">பட சுருக்கம் காட்சி விவரங்களை நீக்குவதன் மூலம் கோப்பு அளவைக் குறைக்கிறது. இந்தச் செயல்முறை மீளமுடியாதது - அசல் தரத்தை மீட்டெடுக்க முடியாது.\n\nஉங்கள் படங்கள் எப்படி இருக்கும் என்பதன் முன்னோட்டம்:</string>
+    <string name="squeezer_onboarding_original_label">அசல்</string>
+    <string name="squeezer_onboarding_compressed_label">சுருக்கத்திற்குப் பிறகு</string>
+    <string name="squeezer_onboarding_quality_label">தரம்: %d%%</string>
+    <string name="squeezer_onboarding_got_it">புரிந்தது</string>
+    <string name="squeezer_compare_action">ஒப்பீட்டைக் காண்</string>
+    <string name="squeezer_no_example_found">தேர்ந்தெடுக்கப்பட்ட பாதைகளில் படங்கள் காணப்படவில்லை.</string>
+    <string name="squeezer_result_empty_message">சுருக்கக்கூடிய படங்கள் காணப்படவில்லை.</string>
+    <string name="squeezer_setup_warning">சுருக்கம் சேமிப்பிடத்தை மிச்சப்படுத்த படத் தரத்தை நிரந்தரமாகக் குறைக்கிறது. இதை மீட்க முடியாது. தொடங்குவதற்கு முன் உங்கள் அமைப்புகளை கவனமாக மதிப்பாய்வு செய்யவும்.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze சேமிப்பிடத்தை விடுவிக்க படங்களின் கோப்பு அளவைக் குறைக்கிறது. இது படத் தரத்தை நிரந்தரமாகக் குறைக்கிறது, இதை மீட்க முடியாது. தொடங்குவதற்கு முன் உங்கள் அமைப்புகளை கவனமாக மதிப்பாய்வு செய்யவும்.</string>
+    <string name="squeezer_setup_paths_title">தேடல் இடங்கள்</string>
+    <string name="squeezer_setup_paths_default">தேட கோப்புறைகளைத் தேர்ந்தெடு</string>
+    <string name="squeezer_setup_quality_title">சுருக்கத் தரம்</string>
+    <string name="squeezer_setup_age_title">குறைந்தபட்ச வயது</string>
+    <string name="squeezer_setup_age_none">வரம்பு இல்லை (அனைத்து கோப்புகளையும் சேர்)</string>
+    <string name="squeezer_setup_start_action">ஸ்கேன் தொடங்கு</string>
+    <string name="squeezer_quality_hint_very_low">40%க்கு கீழ் தரம் பயன்படுத்த முடியாத படங்களை உருவாக்கலாம்.</string>
+    <string name="squeezer_quality_hint_low">குறைந்த தரம் அதிக இடத்தை மிச்சப்படுத்தும் ஆனால் கண்ணுக்குத் தெரியும் குறைபாடுகள் ஏற்படலாம்.</string>
+    <string name="squeezer_quality_hint_high">மிக உயர் தரம் குறைந்தபட்ச இட மிச்சத்தை வழங்குகிறது.</string>
+    <string name="squeezer_quality_hint_normal">சமநிலையான தரம் மற்றும் இட மிச்சம்.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">குறைந்தது %d நாள் பழமையானது</item>
+        <item quantity="other">குறைந்தது %d நாட்கள் பழமையானது</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG கோப்புகளுக்கு மதிப்பிடப்பட்ட ~%d%% மிச்சம்</string>
+    <string name="appcontrol_app_forcestop_description">செயலியை நிறுத்து. நீங்கள் திறக்கும் வரை அல்லது சாதனம் மறுதொடக்கம் செய்யும் வரை தானாகவே தொடங்குவதைத் தடு.</string>
+    <string name="appcontrol_tag_debug">பிழைத்திருத்தம்</string>
+    <string name="appcontrol_archive_action">காப்பகப்படுத்து</string>
+    <string name="appcontrol_archive_selection_action">செயலிகளை காப்பகப்படுத்து</string>
+    <string name="appcontrol_archive_description">பின்னர் மீட்டெடுக்க செயலி தரவை வைத்திருக்கும் போது இடத்தை விடுவிக்க காப்பகப்படுத்து.</string>
+    <string name="appcontrol_progress_archiving_app">செயலியை காப்பகப்படுத்துகிறது…</string>
+    <string name="appcontrol_archive_confirmation_title">காப்பகத்தை உறுதிப்படுத்து</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d செயலியை காப்பகப்படுத்தவா?</item>
+        <item quantity="other">%d செயலிகளை காப்பகப்படுத்தவா?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d செயலி காப்பகப்படுத்தப்பட்டது</item>
+        <item quantity="other">%d செயலிகள் காப்பகப்படுத்தப்பட்டன</item>
+    </plurals>
+    <string name="appcontrol_restore_action">மீட்டெடு</string>
+    <string name="appcontrol_restore_selection_action">செயலிகளை மீட்டெடு</string>
+    <string name="appcontrol_restore_description">காப்பகப்படுத்தப்பட்ட செயலியை முழுமையாக நிறுவப்பட்ட நிலைக்கு மீட்டெடு. செயலி தரவு பாதுகாக்கப்படும்.</string>
+    <string name="appcontrol_progress_restoring_app">செயலியை மீட்டெடுக்கிறது…</string>
+    <string name="appcontrol_restore_confirmation_title">மீட்டெடுப்பை உறுதிப்படுத்து</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d செயலியை மீட்டெடுக்கவா?</item>
+        <item quantity="other">%d செயலிகளை மீட்டெடுக்கவா?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d செயலி மீட்டெடுக்கப்பட்டது</item>
+        <item quantity="other">%d செயலிகள் மீட்டெடுக்கப்பட்டன</item>
+    </plurals>
+    <string name="appcontrol_include_multiuser_label">பிற பயனர்களைச் சேர்</string>
+    <string name="appcontrol_include_multiuser_summary">இந்தச் சாதனத்தில் மற்ற பயனர் சுயவிவரங்களிலிருந்து செயலிகளைச் சேர்.</string>
+    <string name="appcontrol_export_description">இந்தச் செயலியின் நிறுவல் கோப்புகளைச் சேமி. இது செயலி தரவை உள்ளடக்காது.</string>
+    <string name="appcontrol_share_list_action">பட்டியலைப் பகிர்</string>
+    <string name="appcontrol_share_list_title">எனது செயலிகள்</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE வழியாகப் பகிரப்பட்டது</string>
+    <string name="appcontrol_automation_subtitle_archiving">காப்பகப்படுத்துகிறது…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"காப்பகம்\" பொத்தானைத் தேடுகிறது (முக்கிய சொற்கள்: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">மீட்டெடுக்கிறது…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"மீட்டெடு\" பொத்தானைத் தேடுகிறது (முக்கிய சொற்கள்: %s)</string>
+    <string name="appcontrol_item_installedat_x_label">நிறுவிய தேதி: %s</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper அமர்வை உருவாக்கு</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">%d உருப்படியுடன் Swiper அமர்வு உருவாக்கப்பட்டது</item>
+        <item quantity="other">%d உருப்படிகளுடன் Swiper அமர்வு உருவாக்கப்பட்டது</item>
+    </plurals>
+    <string name="exclusion_editor_path_change_action">பாதையை மாற்ற தட்டவும்</string>
+    <string name="anniversary_card_title">SD Maid ஆண்டு நினைவு வாழ்த்துக்கள் ❤️</string>
+    <string name="anniversary_card_install_date">%s முதல் உங்களுடன்</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">ஏற்கனவே %1$d ஆண்டு ஒன்றாக. உங்கள் Android-ஐ சுத்தமாகவும் நேர்த்தியாகவும் வைத்திருக்க SD Maid-ஐ நம்பியதற்கு நன்றி. விடுவிக்கப்பட்ட இடம்: %2$s</item>
+        <item quantity="other">%1$d ஆண்டுகள் வலிமையாக. உங்கள் சாதனம் SD Maid-உடன் சுத்தமாகவும் நேர்த்தியாகவும் இருக்கிறது. விடுவிக்கப்பட்ட இடம்: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">உங்கள் SD Maid ஆண்டு நினைவைப் பகிரவும்</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">SD Maid-உடன் %1$d ஆண்டு — விடுவிக்கப்பட்ட இடம்: %2$s. உங்கள் Android-ஐ சுத்தமாகவும் நேர்த்தியாகவும் வைத்திருக்கிறது. #SDMaid\nமுயற்சிக்கவும்: %3$s</item>
+        <item quantity="other">SD Maid-உடன் %1$d ஆண்டுகள் — விடுவிக்கப்பட்ட இடம்: %2$s. உங்கள் Android-ஐ சுத்தமாகவும் நேர்த்தியாகவும் வைத்திருக்கிறது. #SDMaid\nமுயற்சிக்கவும்: %3$s</item>
+    </plurals>
+    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_long">நிறுவப்பட்ட செயலிகளை நிர்வகி</string>
+    <string name="shortcut_onetap_short">ஸ்கேன் + நீக்கு</string>
+    <string name="shortcut_onetap_long">ஒரே செயலில் ஸ்கேன் செய்து நீக்கு</string>
+    <string name="shortcuts_settings_category">குறுக்குவழிகள்</string>
+    <string name="shortcuts_onetap_enabled_title">ஒரு-தட்டு குறுக்குவழி</string>
+    <string name="shortcuts_onetap_enabled_summary">செயலி சின்னத்தை நீண்ட நேரம் அழுத்தும் போது \"ஸ்கேன் + நீக்கு\" குறுக்குவழியைக் காட்டு. ஒரு-தட்டு டாஷ்போர்டின் அதே கருவிகளைப் பயன்படுத்துகிறது.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">என்ன வைத்திருக்க வேண்டும் அல்லது நீக்க வேண்டும் என்பதை முடிவு செய்ய கோப்புகளை ஸ்வைப் செய்யவும்.</string>
+    <string name="swiper_dashcard_description">குறிப்பிட்ட கோப்புறைகளில் கோப்புகளை கைமுறையாக மதிப்பாய்வு செய்யவும். என்ன வைத்திருக்க வேண்டும் அல்லது நீக்க வேண்டும் என்பதை முடிவு செய்ய ஸ்வைப் செய்யவும்.</string>
+    <string name="swiper_start_action">ஸ்வைப் செய்யத் தொடங்கு</string>
+    <string name="swiper_continue_action">அமர்வைத் தொடர்</string>
+    <string name="swiper_sessions_description">சில கோப்புகளுக்கு மனித முடிவு தேவை. உருப்படிகள் வழியாக ஸ்வைப் செய்து என்ன வைத்திருக்க வேண்டும் அல்லது நீக்க வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும். நீங்கள் உறுதியாக இல்லாத எதையும் தவிர்க்கவும். இந்தக் கருவி குறிப்பிட்ட கோப்புறைகளை கைமுறையாக மதிப்பாய்வு செய்ய உதவுகிறது, நீங்கள் உறுதிப்படுத்தும் வரை எதுவும் நீக்கப்படாது.</string>
+    <string name="swiper_select_folders_action">கோப்புறைகளைத் தேர்ந்தெடு</string>
+    <string name="swiper_scanning_title">ஸ்கேன் செய்கிறது…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d உருப்படி கண்டுபிடிக்கப்பட்டது</item>
+        <item quantity="other">%d உருப்படிகள் கண்டுபிடிக்கப்பட்டன</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d உருப்படி நீக்கப்பட்டது</item>
+        <item quantity="other">%d உருப்படிகள் நீக்கப்பட்டன</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d உருப்படி தோல்வியடைந்தது</item>
+        <item quantity="other">%d உருப்படிகள் தோல்வியடைந்தன</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">வைத்திரு</string>
+    <string name="swiper_skip_action">தவிர்</string>
+    <string name="swiper_review_action">மதிப்பாய்வு</string>
+    <string name="swiper_status_title">முடிவுகளை மதிப்பாய்வு செய்</string>
+    <string name="swiper_status_action_keep_selected">தேர்ந்தெடுத்தவற்றை வைத்திரு</string>
+    <string name="swiper_status_action_delete_selected">தேர்ந்தெடுத்தவற்றை நீக்கு</string>
+    <string name="swiper_status_action_reset_selected">தேர்ந்தெடுத்தவற்றை மீட்டமை</string>
+    <string name="swiper_decision_undecided">முடிவு செய்யப்படவில்லை</string>
+    <string name="swiper_retry_action">மீண்டும் முயற்சி</string>
+    <string name="swiper_delete_confirmation_title">கோப்புகளை நீக்கவா?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">இது %1$d கோப்பை (%2$s) நிரந்தரமாக நீக்கும். இந்தச் செயலை மீட்க இயலாது.</item>
+        <item quantity="other">இது %1$d கோப்புகளை (%2$s) நிரந்தரமாக நீக்கும். இந்தச் செயலை மீட்க இயலாது.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d முடிவு செய்யப்படாத உருப்படி பின்னர் மதிப்பாய்வுக்கு இருக்கும்.</item>
+        <item quantity="other">%d முடிவு செய்யப்படாத உருப்படிகள் பின்னர் மதிப்பாய்வுக்கு இருக்கும்.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d நீக்கு</string>
+    <string name="swiper_settings_swap_directions_title">ஸ்வைப் திசைகளை மாற்று</string>
+    <string name="swiper_settings_swap_directions_summary">வைத்திருக்க இடமாகவும், நீக்க வலமாகவும் ஸ்வைப் செய்.</string>
+    <string name="swiper_settings_show_details_title">கோப்பு விவரங்களைக் காட்டு</string>
+    <string name="swiper_settings_show_details_summary">ஸ்வைப் திரையில் கோப்பு பெயர், அளவு மற்றும் தேதியைக் காட்டு.</string>
+    <string name="swiper_settings_haptic_feedback_title">தொட்டுணர் பின்னூட்டம்</string>
+    <string name="swiper_settings_haptic_feedback_summary">வைத்திருக்க அல்லது நீக்க முடிவு செய்யும் போது அதிர்வு.</string>
+    <string name="swiper_discard_session_confirmation_title">அமர்வை நிராகரிக்கவா?</string>
+    <string name="swiper_discard_session_confirmation_message">அனைத்து முடிவுகளும் இழக்கப்படும். உறுதியாக இருக்கிறீர்களா?</string>
+    <string name="swiper_no_preview_available">முன்னோட்டம் கிடைக்கவில்லை</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">%1$d நாளுக்கு முன் அமர்வைத் தொடரவும் (%2$d%% முடிந்தது)</item>
+        <item quantity="other">%1$d நாட்களுக்கு முன் அமர்வைத் தொடரவும் (%2$d%% முடிந்தது)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d அமர்வு</item>
+        <item quantity="other">%d அமர்வுகள்</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d முடிவு செய்யப்படாத உருப்படி</item>
+        <item quantity="other">%d முடிவு செய்யப்படாத உருப்படிகள்</item>
+    </plurals>
+    <string name="swiper_session_timestamps">உருவாக்கியது %1$s, கடைசி செயல்பாடு %2$s</string>
+    <string name="swiper_session_remove_action">அமர்வை நீக்கு</string>
+    <string name="swiper_sessions_empty_hint">கோப்புறையைத் தேர்ந்தெடுத்து ஸ்வைப் செய்யத் தொடங்க + தட்டவும்</string>
+    <string name="swiper_sessions_upgrade_body">இந்த வரம்புகளை நீக்கி மேம்பாட்டை ஆதரிக்க மேம்படுத்தவும். இலவச பதிப்பு வரம்பிடப்பட்டுள்ளது:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">ஒரு அமர்வுக்கு %d கோப்பு</item>
+        <item quantity="other">ஒரு அமர்வுக்கு %d கோப்புகள்</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d அமர்வு</item>
+        <item quantity="other">%d அமர்வுகள்</item>
+    </plurals>
+    <string name="swiper_session_default_label">அமர்வு #%d</string>
+    <string name="swiper_session_rename_title">அமர்வை மறுபெயரிடு</string>
+    <string name="swiper_session_rename_hint">இந்த அமர்வுக்கு ஒரு பெயரை உள்ளிடவும்</string>
+    <string name="swiper_sessions_current_sessions">தற்போதைய அமர்வுகள்</string>
+    <string name="swiper_session_paths_label">பாதைகள்</string>
+    <string name="swiper_session_status_label">நிலை</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d வைத்திருக்க</item>
+        <item quantity="other">%d வைத்திருக்க</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d நீக்க</item>
+        <item quantity="other">%d நீக்க</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d முடிவு செய்யப்படவில்லை</item>
+        <item quantity="other">%d முடிவு செய்யப்படவில்லை</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d ஏற்கனவே வைத்திருக்கப்பட்டது</item>
+        <item quantity="other">%d ஏற்கனவே வைத்திருக்கப்பட்டன</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d ஏற்கனவே நீக்கப்பட்டது</item>
+        <item quantity="other">%d ஏற்கனவே நீக்கப்பட்டன</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d வைத்திருக்கப்பட்டது</item>
+        <item quantity="other">%d வைத்திருக்கப்பட்டன</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d நீக்கப்பட்டது</item>
+        <item quantity="other">%d நீக்கப்பட்டன</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\" ஐ Swiper ஸ்கேன்களிலிருந்து விலக்கவா?</string>
+    <string name="swiper_sessions_header_title">ஒழுங்குபடுத்தத் தயாரா?</string>
+    <string name="swiper_sessions_suggestions_label">இதிலிருந்து தொடங்கவும்:</string>
+    <string name="swiper_sessions_suggestion_downloads">பதிவிறக்கங்கள் கோப்புறை</string>
+    <string name="swiper_sessions_suggestion_screenshots">திரைப்படங்கள்</string>
+    <string name="swiper_sessions_suggestion_camera">கேமரா ரோல்</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">வைத்திரு!</string>
+    <string name="swiper_stamp_keep_2">நல்லது!</string>
+    <string name="swiper_stamp_keep_3">ஆம்!</string>
+    <string name="swiper_stamp_keep_4">சேமி!</string>
+    <string name="swiper_stamp_delete_1">வேண்டாம்!</string>
+    <string name="swiper_stamp_delete_2">போய்வா!</string>
+    <string name="swiper_stamp_delete_3">குப்பை!</string>
+    <string name="swiper_stamp_delete_4">நீக்கு!</string>
+    <string name="swiper_stamp_skip_1">தவிர்!</string>
+    <string name="swiper_stamp_skip_2">சரி!</string>
+    <string name="swiper_stamp_skip_3">பிறகு!</string>
+    <string name="swiper_stamp_skip_4">ஒருவேளை!</string>
+    <string name="swiper_stamp_undo_1">மீட்டமை!</string>
+    <string name="swiper_stamp_undo_2">பின்!</string>
+    <string name="swiper_stamp_undo_3">அச்சோ!</string>
+    <string name="swiper_stamp_undo_4">நில்!</string>
 </resources>

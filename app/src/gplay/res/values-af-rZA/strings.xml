@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Vereis SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Gradeer SD Maid SE op</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro bied beter resultate, meer funksies en opsies vir gevorderde gebruikers.</string>
     <string name="upgrades_dashcard_upgrade_action">Gradeer op</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play is nie beskikbaar nie</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid kan nie aan Google Play koppel nie. Is Google Play geïnstalleer en opgedateer? Is jou Google-rekening aangemeld? Probeer om die kas van die Google Play-toepassing skoon te maak en jou toestel herlaai.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play-probleem</string>
+    <string name="upgrades_gplay_billing_error_description">Daar was \'n probleem met Google Play. Probeer asseblief later weer of herbegin jou toestel.\n\nBesonderhede: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play-fout</string>
+    <string name="upgrades_gplay_internal_error_description">\'n Interne Google Play-fout het voorgekom. Probeer asseblief die volgende:\n\n• Herbegin jou toestel\n• Maak Google Play Winkel-kas skoon\n• Probeer later weer</string>
+    <string name="upgrades_gplay_network_error_title">Verbindingsfout</string>
+    <string name="upgrades_gplay_network_error_description">Kan nie aan Google Play koppel nie. Kontroleer asseblief jou internetverbinding en probeer weer.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Reeds gekoop</string>
+    <string name="upgrades_gplay_already_owned_error_description">Gebruik die \"Herstel aankoop\"-opsie om jou aankoop te herstel. As die probleem voortduur, probeer om die Google Play-kas skoon te maak en jou toestel te herbegin.</string>
     <string name="upgrades_no_purchases_found_check_account">Geen aankope gevind nie. Gebruik jy die regte rekening?</string>
     <string name="upgrade_screen_title">Kry SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid het geen advertensies nie en verkoop nie gebruikersdata nie. My werk word deur jou gefinansier ❤️.</string>

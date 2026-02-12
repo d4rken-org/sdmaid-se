@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Questa funzione è ancora in fase di sviluppo e al momento non è disponibile.</string>
     <string name="general_share_action">Condividi</string>
     <string name="general_done_action">Fatto</string>
+    <string name="general_apply_action">Applica</string>
     <string name="general_copy_action">Copia</string>
     <string name="general_wipe_action">Cancella</string>
     <string name="general_cancel_action">Annulla</string>
     <string name="general_discard_action">Annulla</string>
     <string name="general_reset_action">Reimposta</string>
+    <string name="general_drag_handle_description">Trascina per riordinare</string>
     <string name="general_save_action">Salva</string>
     <string name="general_thanks_action">Grazie</string>
     <string name="general_gotit_action">Fatto</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Modifica</string>
     <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Vuoto</string>
+    <string name="general_new_badge_label">Nuovo</string>
     <string name="general_dismiss_action">Rimuovere</string>
     <string name="general_maybe_later_action">Forse dopo</string>
     <string name="general_manage_action">Gestione</string>
@@ -92,6 +95,10 @@
     <string name="general_toggle_layout_mode">Cambia modalità di visualizzazione</string>
     <string name="general_delete_confirmation_title">Conferma eliminazione</string>
     <string name="general_delete_confirmation_message_x">Eliminare \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Eliminare %d elemento selezionato?</item>
+        <item quantity="other">Eliminare %d elementi selezionati?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Eliminato %d elemento</item>
         <item quantity="other">Eliminati %d elementi</item>
@@ -160,4 +167,10 @@
     </plurals>
     <string name="general_advice_title">Consiglio</string>
     <string name="general_error_invalid_input_label">Inserimento non valido</string>
+    <string name="general_information_for_the_developer">Informazioni per lo sviluppatore</string>
+    <string name="general_error_report_bug_action">Segnala bug</string>
+    <string name="general_error_ipc_deadobject_title">Connessione al servizio persa</string>
+    <string name="general_error_ipc_deadobject_description">La connessione a un servizio critico (ad es. Magisk, Shizuku o altri servizi a livello di sistema) è stata persa inaspettatamente. Riavvia il dispositivo. Se il problema persiste, controlla gli aggiornamenti o contattami per risolvere il problema.</string>
+    <string name="general_user_label_owner">Proprietario</string>
+    <string name="general_user_label_system">Sistema</string>
 </resources>

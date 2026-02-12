@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">ダッシュボードのアクションボタンをタップすると、追加の確認を行わずにすべてのツールのスキャンと削除を開始します。</string>
     <string name="dashboard_settings_oneclick_tools_title">ワンタップツール</string>
     <string name="dashboard_settings_oneclick_tools_desc">どのツールをワンタップ操作に含める必要がありますか?</string>
+    <string name="dashboard_card_config_title">ダッシュボードカード</string>
+    <string name="dashboard_card_config_desc">表示するカードとその順序を設定</string>
+    <string name="dashboard_card_config_header_title">ドラッグで並べ替え、トグルで表示/非表示</string>
     <string name="debug_notification_channel_label">デバッグの通知</string>
     <string name="debug_debuglog_file_label">記録されたログファイル</string>
     <string name="debug_debuglog_recording_progress">デバッグログの記録中</string>
@@ -85,6 +88,13 @@
     <string name="support_installid_desc">自動送信されるエラーレポートは匿名です。開発者がユーザーのエラーレポートを特定する必要がある場合はインストール IDを共有してください。</string>
     <string name="support_debuglog_label">デバッグログ</string>
     <string name="support_debuglog_desc">アプリの動作をすべてテキストファイルに記録し、共有する事ができます。</string>
+    <string name="support_debuglog_folder_label">デバッグログフォルダ</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="other">%1$d ファイル（%2$s 使用中）</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">デバッグログが保存されていません</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">すべてのデバッグログを削除しますか？</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">保存されたすべてのデバッグログセッションが完全に削除されます。この操作は元に戻せません。</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">集まって質問ができる場所です。</string>
     <string name="changelog_label">更新履歴</string>
@@ -166,6 +176,13 @@
     <string name="debug_bugreporter_label">自動バグ報告</string>
     <string name="debug_bugreporter_summary">問題を自動的に報告します。例えば、アプリのクラッシュの詳細を把握し、原因を調査し修正することができます。</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">デバッグモードが有効です</string>
+    <string name="debug_card_trace_mode_label">トレースモードを有効にする</string>
+    <string name="debug_card_dryrun_mode_label">ドライランモード（削除を無効化）</string>
+    <string name="debug_card_areas_reload_action">データ領域を再読み込み</string>
+    <string name="debug_card_pkgs_reload_action">アプリを再読み込み</string>
+    <string name="debug_card_root_test_action">Rootをテスト</string>
+    <string name="debug_card_shizuku_test_action">Shizukuをテスト</string>
     <string name="settings_category_tools_label">ツール</string>
     <string name="settings_category_filter">フィルタ</string>
     <string name="settings_category_risklevel">リスクレベル</string>
@@ -251,6 +268,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">スクリーンショットの期間</string>
     <string name="systemcleaner_filter_screenshots_age_summary">削除対象と見なされるスクリーンショットの最小経過期間。</string>
     <string name="systemcleaner_filter_superfluosapks_label">余分なAPKファイル</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">インストール済みのアプリバージョンに基づき、不要となったセットアップファイル。</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">同じバージョンを含める</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">インストール済みのバージョンと一致するAPKファイルも対象にします。古いバージョンのみ削除するには無効にしてください。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIRフォルダ</string>
     <string name="systemcleaner_filter_lostdir_summary">Androidデバイス間でデータ転送するときに作成される一時ファイル。</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linuxのファイル</string>
@@ -707,6 +727,279 @@
     <string name="shortcut_appcontrol_long">インストールされたアプリを管理</string>
     <string name="shortcuts_settings_category">ショートカット</string>
     <string name="shortcuts_onetap_enabled_title">ワンタップショートカット</string>
+    <string name="systemcleaner_customfilter_editor_size_label">サイズ制限</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">最小サイズ</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">最大サイズ</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">ファイルサイズに基づいてマッチを制限します。未設定の場合はすべてのサイズにマッチします。</string>
+    <string name="systemcleaner_customfilter_editor_age_label">年齢制限</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">最小年齢</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">最大年齢</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">ファイルの年齢（最終更新日時）に基づいてマッチを制限します。未設定の場合はすべての年齢にマッチします。</string>
+    <string name="appcleaner_forcestop_before_clearing_label">クリア前に強制停止</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">キャッシュをクリアする前にアプリを強制停止します。一部のアプリのキャッシュクリアに役立ちますが、アプリが正常に動作しなくなり手動再起動が必要になる場合があります。</string>
+    <string name="appcleaner_progress_force_stopping">アプリを強制停止中…</string>
+    <string name="deduplicator_keep_prefer_paths_title">優先保持場所</string>
+    <string name="deduplicator_keep_prefer_paths_summary">どの重複を保持するか決定する際、これらの場所にあるファイルを優先します。</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">場所が設定されていません</string>
+    <string name="deduplicator_arbiter_title">削除戦略</string>
+    <string name="deduplicator_arbiter_summary">保持するファイルと削除するファイルを設定します。</string>
+    <string name="deduplicator_arbiter_explanation">重複を削除する際、SD Maidは各基準を順番にチェックして保持するファイルを決定します。明確な勝者を生む最初の基準が結果を決定します。ドラッグで並べ替え、タップでモードを変更。</string>
+    <string name="deduplicator_arbiter_select_mode_title">モードを選択</string>
+    <string name="deduplicator_arbiter_configure_paths_action">パスを設定…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">重複タイプ</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">類似ファイルよりも完全一致を優先します。</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">メディアインデックス</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">ファイルがメディアプロバイダーにインデックスされているかを考慮します。</string>
+    <string name="deduplicator_arbiter_criterium_location_title">ストレージの場所</string>
+    <string name="deduplicator_arbiter_criterium_location_description">内部または外部ストレージのファイルを優先します。</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">フォルダの深さ</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">より浅いまたはより深いフォルダ構造のファイルを優先します。</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">変更日</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">変更日時に基づいて古いまたは新しいファイルを優先します。</string>
+    <string name="deduplicator_arbiter_criterium_size_title">ファイルサイズ</string>
+    <string name="deduplicator_arbiter_criterium_size_description">サイズが異なる場合、より大きいまたはより小さいファイルを優先します。</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">優先場所</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">設定した優先場所にあるファイルを保持します。</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">完全一致を優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">類似ファイルを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">インデックス済みファイルを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">未インデックスファイルを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">内部ストレージを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">外部ストレージを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">浅いフォルダを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">深いフォルダを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">古いファイルを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">新しいファイルを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">大きいファイルを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">小さいファイルを優先</string>
+    <string name="deduplicator_view_mode_groups_label">グループ</string>
+    <string name="deduplicator_view_mode_directories_label">フォルダ</string>
+    <string name="appcontrol_tag_debug">デバッグ</string>
+    <string name="appcontrol_archive_action">アーカイブ</string>
+    <string name="appcontrol_archive_selection_action">アプリをアーカイブ</string>
+    <string name="appcontrol_archive_description">アプリデータを保持しながらアーカイブして空き容量を確保します。</string>
+    <string name="appcontrol_progress_archiving_app">アプリをアーカイブ中…</string>
+    <string name="appcontrol_archive_confirmation_title">アーカイブの確認</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="other">%d 個のアプリをアーカイブしますか？</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="other">%d 個のアプリをアーカイブしました</item>
+    </plurals>
+    <string name="appcontrol_restore_action">復元</string>
+    <string name="appcontrol_restore_selection_action">アプリを復元</string>
+    <string name="appcontrol_restore_description">アーカイブしたアプリを完全インストール状態に復元します。アプリデータは保持されます。</string>
+    <string name="appcontrol_progress_restoring_app">アプリを復元中…</string>
+    <string name="appcontrol_restore_confirmation_title">復元の確認</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="other">%d 個のアプリを復元しますか？</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="other">%d 個のアプリを復元しました</item>
+    </plurals>
+    <string name="appcontrol_share_list_action">リストを共有</string>
+    <string name="appcontrol_share_list_title">マイアプリ</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE で共有</string>
+    <string name="appcontrol_automation_subtitle_archiving">アーカイブ中…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"アーカイブ\" ボタンを探しています（キーワード：%s）</string>
+    <string name="appcontrol_automation_subtitle_restoring">復元中…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"復元\" ボタンを探しています（キーワード：%s）</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiperセッションを作成</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">%d 個のアイテムでSwiperセッションを作成しました</item>
+    </plurals>
+    <string name="exclusion_editor_path_change_action">タップしてパスを変更</string>
+    <string name="squeezer_tool_name">メディア圧縮</string>
+    <string name="squeezer_explanation_short">画像を圧縮してストレージ容量を節約します。</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="other">%d 枚の画像が見つかりました</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="other">約 %s 節約可能</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="other">%d 枚の画像を圧縮しました</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="other">%d 枚の画像を選択</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">検索場所</string>
+    <string name="squeezer_search_locations_default_summary">カメラフォルダ（デフォルト）</string>
+    <string name="squeezer_min_size_title">最小ファイルサイズ</string>
+    <string name="squeezer_min_size_description">このサイズより小さい画像をスキップします。</string>
+    <string name="squeezer_min_age_title">最小ファイル年齢</string>
+    <string name="squeezer_min_age_description">この年齢より古い画像のみを含めます。</string>
+    <string name="squeezer_compression_settings_label">圧縮設定</string>
+    <string name="squeezer_quality_label">品質</string>
+    <string name="squeezer_quality_title">圧縮品質</string>
+    <string name="squeezer_quality_description">品質が低いほどファイルサイズは小さくなりますが、画質が低下します。</string>
+    <string name="squeezer_quality_example_format">例：%1$s 画像 → %3$d%% 品質で約 %2$s 節約</string>
+    <string name="squeezer_quality_warning_low">品質が低いと目に見えるアーティファクトが発生する場合があります。</string>
+    <string name="squeezer_quality_warning_high">非常に高い品質では容量の節約がごくわずかです。</string>
+    <string name="squeezer_types_category_label">画像タイプ</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">JPEG画像（.jpg、.jpeg）を含めます。</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">WebP画像（.webp）を含めます。</string>
+    <string name="squeezer_skip_compressed_title">圧縮済みをスキップ</string>
+    <string name="squeezer_skip_compressed_description">SD Maidで既に圧縮された画像をスキップします。</string>
+    <string name="squeezer_exif_marker_title">EXIFマーカーを書き込む</string>
+    <string name="squeezer_exif_marker_description">圧縮履歴がクリアされても再圧縮を防ぐため、画像のEXIFユーザーコメント欄にマーカーを追加します。</string>
+    <string name="squeezer_estimated_savings_format">約 %s 節約</string>
+    <string name="squeezer_no_savings_expected">節約は限定的</string>
+    <string name="squeezer_current_size_format">サイズ：%s</string>
+    <string name="squeezer_compress_action">圧縮</string>
+    <string name="squeezer_compress_all_action">すべて圧縮</string>
+    <string name="squeezer_preview_dialog_title">圧縮の確認</string>
+    <string name="squeezer_preview_total_size">合計サイズ</string>
+    <string name="squeezer_preview_estimated_savings">推定節約量</string>
+    <string name="squeezer_compress_confirmation_title">画像を圧縮しますか？</string>
+    <string name="squeezer_compress_confirmation_message">元の画像が圧縮版に置き換えられます。この操作は元に戻せません。</string>
+    <string name="squeezer_history_title">圧縮履歴</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="other">%1$d 項目（%2$s）</item>
+    </plurals>
+    <string name="squeezer_history_empty">圧縮履歴がありません</string>
+    <string name="squeezer_history_clear_title">圧縮履歴をクリア</string>
+    <string name="squeezer_history_clear_message">以前に圧縮された画像を再度圧縮できるようにします。画像自体は影響を受けません。</string>
+    <string name="squeezer_onboarding_title">画像圧縮について</string>
+    <string name="squeezer_onboarding_message">画像圧縮は視覚的な詳細を削除してファイルサイズを縮小します。このプロセスは元に戻せません。元の品質は復元できません。\n\n圧縮後の画像のプレビューはこちらです：</string>
+    <string name="squeezer_onboarding_original_label">オリジナル</string>
+    <string name="squeezer_onboarding_compressed_label">圧縮後</string>
+    <string name="squeezer_onboarding_quality_label">品質：%d%%</string>
+    <string name="squeezer_onboarding_got_it">了解</string>
+    <string name="squeezer_compare_action">比較を表示</string>
+    <string name="squeezer_no_example_found">選択したパスに画像が見つかりません。</string>
+    <string name="squeezer_result_empty_message">圧縮可能な画像が見つかりません。</string>
+    <string name="squeezer_setup_warning">圧縮はストレージ容量を節約するために画質を永久に低下させます。元に戻せません。開始前に設定を慎重に確認してください。</string>
+    <string name="squeezer_setup_explanation">メディア圧縮は画像のファイルサイズを縮小してストレージ容量を解放します。画質が永久に低下し、元に戻せません。開始前に設定を慎重に確認してください。</string>
+    <string name="squeezer_setup_paths_title">検索場所</string>
+    <string name="squeezer_setup_paths_default">検索するフォルダを選択</string>
+    <string name="squeezer_setup_quality_title">圧縮品質</string>
+    <string name="squeezer_setup_age_title">最小年齢</string>
+    <string name="squeezer_setup_age_none">制限なし（すべてのファイルを含む）</string>
+    <string name="squeezer_setup_start_action">スキャン開始</string>
+    <string name="squeezer_quality_hint_very_low">40%未満の品質では使用不能な画像が生成される場合があります。</string>
+    <string name="squeezer_quality_hint_low">低品質はより多くの容量を節約しますが、目に見えるアーティファクトが発生する場合があります。</string>
+    <string name="squeezer_quality_hint_high">非常に高い品質では容量の節約がごくわずかです。</string>
+    <string name="squeezer_quality_hint_normal">品質と容量節約のバランス。</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="other">少なくとも %d 日以上</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEGファイルの推定節約率 約 %d%%</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">ファイルをスワイプして保持か削除かを決定します。</string>
+    <string name="swiper_dashcard_description">特定のフォルダ内のファイルを手動でレビューします。スワイプして保持か削除かを決定します。</string>
+    <string name="swiper_start_action">スワイプを開始</string>
+    <string name="swiper_continue_action">セッションを続行</string>
+    <string name="swiper_sessions_description">一部のファイルには人間の判断が必要です。アイテムをスワイプして保持か削除かを選択します。不確かなものはスキップしてください。このツールでは特定のフォルダを手動でレビューでき、確認するまで何も削除されません。</string>
+    <string name="swiper_select_folders_action">フォルダを選択</string>
+    <string name="swiper_scanning_title">スキャン中…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="other">%d 個のアイテムが見つかりました</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="other">%d 個のアイテムを削除しました</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="other">%d 個のアイテムが失敗しました</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">保持</string>
+    <string name="swiper_skip_action">スキップ</string>
+    <string name="swiper_review_action">レビュー</string>
+    <string name="swiper_status_title">決定をレビュー</string>
+    <string name="swiper_status_action_keep_selected">選択を保持</string>
+    <string name="swiper_status_action_delete_selected">選択を削除</string>
+    <string name="swiper_status_action_reset_selected">選択をリセット</string>
+    <string name="swiper_decision_undecided">未決定</string>
+    <string name="swiper_retry_action">再試行</string>
+    <string name="swiper_delete_confirmation_title">ファイルを削除しますか？</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="other">%1$d 個のファイル（%2$s）を完全に削除します。この操作は元に戻せません。</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="other">%d 個の未決定アイテムは後でレビューするために残ります。</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d 個を削除</string>
+    <string name="swiper_settings_swap_directions_title">スワイプ方向を入れ替え</string>
+    <string name="swiper_settings_swap_directions_summary">左にスワイプで保持、右にスワイプで削除。</string>
+    <string name="swiper_settings_show_details_title">ファイル詳細を表示</string>
+    <string name="swiper_settings_show_details_summary">スワイプ画面にファイル名、サイズ、日付を表示します。</string>
+    <string name="swiper_settings_haptic_feedback_title">触覚フィードバック</string>
+    <string name="swiper_settings_haptic_feedback_summary">保持または削除の決定時に振動します。</string>
+    <string name="swiper_discard_session_confirmation_title">セッションを破棄しますか？</string>
+    <string name="swiper_discard_session_confirmation_message">すべての決定が失われます。よろしいですか？</string>
+    <string name="swiper_no_preview_available">プレビューを利用できません</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="other">%1$d 日前のセッションを続行（%2$d%% 完了）</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="other">%d セッション</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="other">%d 個の未決定アイテム</item>
+    </plurals>
+    <string name="swiper_session_timestamps">作成日 %1$s、最終操作 %2$s</string>
+    <string name="swiper_session_remove_action">セッションを削除</string>
+    <string name="swiper_sessions_empty_hint">+ をタップしてフォルダを選択しスワイプを開始</string>
+    <string name="swiper_sessions_upgrade_body">アップグレードしてこれらの制限を解除し、開発を支援してください。無料版の制限：</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="other">セッションあたり %d ファイル</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="other">%d セッション</item>
+    </plurals>
+    <string name="swiper_session_default_label">セッション #%d</string>
+    <string name="swiper_session_rename_title">セッション名を変更</string>
+    <string name="swiper_session_rename_hint">このセッションの名前を入力</string>
+    <string name="swiper_sessions_current_sessions">現在のセッション</string>
+    <string name="swiper_session_paths_label">パス</string>
+    <string name="swiper_session_status_label">状態</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="other">%d 個を保持</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="other">%d 個を削除</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="other">%d 個が未決定</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="other">%d 個は保持済み</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="other">%d 個は削除済み</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="other">%d 個保持</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="other">%d 個削除</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\" をSwiperスキャンから除外しますか？</string>
+    <string name="swiper_sessions_header_title">整理する準備はできましたか？</string>
+    <string name="swiper_sessions_suggestions_label">まずはこちらから：</string>
+    <string name="swiper_sessions_suggestion_downloads">ダウンロードフォルダ</string>
+    <string name="swiper_sessions_suggestion_screenshots">スクリーンショット</string>
+    <string name="swiper_sessions_suggestion_camera">カメラロール</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">保持！</string>
+    <string name="swiper_stamp_keep_2">いいね！</string>
+    <string name="swiper_stamp_keep_3">はい！</string>
+    <string name="swiper_stamp_keep_4">残す！</string>
+    <string name="swiper_stamp_delete_1">ダメ！</string>
+    <string name="swiper_stamp_delete_2">バイバイ！</string>
+    <string name="swiper_stamp_delete_3">ゴミ！</string>
+    <string name="swiper_stamp_delete_4">削除！</string>
+    <string name="swiper_stamp_skip_1">スキップ！</string>
+    <string name="swiper_stamp_skip_2">まあ！</string>
+    <string name="swiper_stamp_skip_3">後で！</string>
+    <string name="swiper_stamp_skip_4">多分！</string>
+    <string name="swiper_stamp_undo_1">元に戻す！</string>
+    <string name="swiper_stamp_undo_2">戻る！</string>
+    <string name="swiper_stamp_undo_3">おっと！</string>
+    <string name="swiper_stamp_undo_4">待って！</string>
 </resources>

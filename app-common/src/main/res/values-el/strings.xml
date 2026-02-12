@@ -25,6 +25,7 @@
     <string name="general_cancel_action">Ακύρωση</string>
     <string name="general_discard_action">Απόρριψη</string>
     <string name="general_reset_action">Επαναφορά</string>
+    <string name="general_drag_handle_description">Σύρετε για αναδιάταξη</string>
     <string name="general_save_action">Αποθήκευση</string>
     <string name="general_thanks_action">Ευχαριστούμε</string>
     <string name="general_gotit_action">Το κατάλαβα</string>
@@ -33,6 +34,7 @@
     <string name="general_edit_action">Επεξεργασία</string>
     <string name="general_na_label">Μη διαθέσιμο</string>
     <string name="general_empty_label">Κενό</string>
+    <string name="general_new_badge_label">Νέο</string>
     <string name="general_dismiss_action">Παράλειψη</string>
     <string name="general_maybe_later_action">Ίσως αργότερα</string>
     <string name="general_manage_action">Διαχείριση</string>

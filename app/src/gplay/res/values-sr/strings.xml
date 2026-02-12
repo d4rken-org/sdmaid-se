@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Захтева SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Надоградите SD Maid SE</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro нуди боље резултате, више функција и опција за напредне кориснике.</string>
     <string name="upgrades_dashcard_upgrade_action">Надогради</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play није доступан</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid не може да се повеже са Google Play. Да ли је Google Play инсталиран и ажуриран? Да ли је ваш Google налог пријављен? Покушајте да обришете кеш Google Play апликације и поново покрените уређај.</string>
+    <string name="upgrades_gplay_billing_error_label">Проблем са Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Дошло је до проблема са Google Play. Покушајте поново касније или рестартујте уређај.\n\nДетаљи: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play грешка</string>
+    <string name="upgrades_gplay_internal_error_description">Дошло је до интерне Google Play грешке. Покушајте следеће:\n\n• Рестартујте уређај\n• Обришите кеш Google Play продавнице\n• Покушајте поново касније</string>
+    <string name="upgrades_gplay_network_error_title">Грешка при повезивању</string>
+    <string name="upgrades_gplay_network_error_description">Није могуће повезивање са Google Play. Проверите интернет везу и покушајте поново.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Већ купљено</string>
+    <string name="upgrades_gplay_already_owned_error_description">Користите опцију \"Врати куповину\" да бисте вратили куповину. Ако проблем и даље постоји, покушајте да обришете Google Play кеш и рестартујете уређај.</string>
     <string name="upgrades_no_purchases_found_check_account">Нису пронађене куповине. Користите ли прави налог?</string>
     <string name="upgrade_screen_title">Набавите SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid нема рекламе и не продаје корисничке податке. Мој рад финансирате ви ❤️.</string>

@@ -42,12 +42,531 @@
     <string name="onboarding_privacy_bugreport_toggle_hint">Þessa valkosti er hægt að breyta í stillingunum.</string>
     <string name="onboarding_setup_title">Uppsetning</string>
     <string name="onboarding_setup_continue_action">Halda áfram</string>
+
+    <string name="dashboard_card_config_title">Stjórnborðsspjöld</string>
+    <string name="dashboard_card_config_desc">Stilla hvaða spjöld eru sýnd og röð þeirra</string>
+    <string name="dashboard_card_config_header_title">Dragðu til að endurraða, smelltu til að sýna/fela</string>
+
+    <string name="debug_debuglog_screen_title">Villuleitarskrá</string>
+    <string name="debug_debuglog_screen_discard_action">Fleygja</string>
+    <string name="debug_debuglog_screen_session_path_label">Lotslóð</string>
+    <string name="debug_debuglog_screen_log_files_label">Annálaskrár</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d skrá tilbúin (%2$s)</item>
+        <item quantity="other">%1$d skrár tilbúnar (%2$s)</item>
+    </plurals>
+
+    <string name="onboarding_welcome_body_beta">Þetta er beta (prófunar) útgáfa. Haltu áfram með húmorkennd og varaáætlun. Vinsamlegast tilkynntu vandamál sem þú lendir í.</string>
+
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
+
+    <string name="onboarding_privacy_continue_action">Halda áfram</string>
+
+    <string name="onboarding_setup_body1">SD Maid mun leita í öllum aðgengilegum gagnasvæðum.</string>
+    <string name="onboarding_setup_body2">Hvað er aðgengilegt fer eftir tækinu þínu, Android útgáfu og veittu leyfi.</string>
+    <string name="onboarding_setup_body3">Byrjaðu að nota SD Maid með því að setja upp aðgang að svæðum sem á að leita í.</string>
+
+    <string name="settings_privacy_policy_label">Friðhelgisstefna</string>
+    <string name="settings_privacy_policy_desc">Ábyrgð meðhöndlun gagna.</string>
+    <string name="settings_category_other_label">Annað</string>
+
+    <string name="settings_category_filter_generic">Almennt sía</string>
+    <string name="settings_category_filter_specific">Sérstök sía</string>
+    <string name="settings_sponsor_development_title">Styrkja þróun</string>
+    <string name="settings_sponsor_development_summary">Vertu bakhjarl og gerðu áframhaldandi þróun mögulega.</string>
+
+    <string name="general_settings_label">Almennt</string>
+    <string name="general_settings_desc">Almennar stillingar sem hafa áhrif á allt forritið.</string>
+    <string name="settings_category_ui_label">Notendaviðmót</string>
+
+    <string name="ui_theme_mode_setting_label">Þemastilling</string>
+    <string name="ui_theme_mode_setting_explanation">Stillingin sem notuð er við þema forritsins (t.d. nótt eða dagur).</string>
+    <string name="ui_theme_mode_dark_label">Dökkt</string>
+    <string name="ui_theme_mode_light_label">Ljóst</string>
+    <string name="ui_theme_mode_system_label">Kerfi</string>
+
+    <string name="ui_theme_style_setting_label">Þemastíll</string>
+    <string name="ui_theme_style_setting_explanation">Litastíllinn sem notaður er við þema forritsins.</string>
+    <string name="ui_theme_style_default_label">Sjálfgefið</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+
+    <string name="ui_previews_title">Forskoðanir skráa</string>
+    <string name="ui_previews_summary">Sýna forskoðanir skráa í öllum tækjum (t.d. smámyndir mynda og myndskeiða).</string>
+
+    <string name="ui_language_override_label">Tungumál forrits</string>
+    <string name="ui_language_override_desc">Veldu annað tungumál fyrir SD Maid, óháð sjálfgefnu tungumáli kerfisins. Núverandi: %s</string>
+
+    <string name="settings_support_label">Stuðningur</string>
+    <string name="settings_support_description">Lestu skjöl, tilkynntu vandamál, spjallaðu við aðra eða skráðu villuleitarskrár.</string>
+    <string name="documentation_label">Skjöl</string>
+    <string name="issue_tracker_description">Opinber vandamálaskoðun fyrir villutilkynningar og beiðnir um eiginleika.</string>
+    <string name="issue_tracker_label">Vandamálaskoðun</string>
+    <string name="support_installid_label">Uppsetningar-ID</string>
+    <string name="support_installid_desc">Sjálfvirkar villuskýrslur eru nafnlausar. Deildu uppsetningar-ID þínu ef þróunaraðilinn þarf að finna villuskýrslur þínar.</string>
+    <string name="support_debuglog_label">Villuleitarskrá</string>
+    <string name="support_debuglog_desc">Skráðu allt sem forritið gerir í textaskrá sem þú getur deilt.</string>
+    <string name="support_debuglog_folder_label">Villuleitarskráamappa</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d skrá notar %2$s</item>
+        <item quantity="other">%1$d skrár nota %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Engar villuleitarskrár geymdar</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Eyða öllum villuleitarskrám?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Þetta mun eyða öllum geymdum villuleitarskrám varanlega. Ekki er hægt að afturkalla þessa aðgerð.</string>
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">Staður til að hitta fólk og spyrja spurninga.</string>
+
     <string name="changelog_label">Breytingaskrá</string>
+    <string name="settings_acknowledgements_label">Viðurkenningar</string>
+    <string name="settings_acknowledgements_category_translations_title">Þýðingar</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Hver þýddi þetta?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Þakkir</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Sérstakar þakkir til vina okkar.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Leyfi</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Hugbúnaður sem SD Maid notar.</string>
+
+    <string name="setup_label">Uppsetning</string>
+    <string name="setup_incomplete_card_title">Uppsetning er ófullnægjandi</string>
+    <string name="setup_incomplete_card_body">Ljúktu uppsetningu SD Maid til að fá betri niðurstöður.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid er að reyna að laga uppsetningarvandamál.</string>
+    <string name="setup_incomplete_card_dismiss_action">Hafna</string>
+    <string name="setup_incomplete_card_continue_action">Halda áfram með uppsetningu</string>
+    <string name="setup_title">Uppsetning</string>
+    <string name="setup_forcedshow_summary">Sýna uppsetningarskjá aftur, þar á meðal liði sem þegar er lokið.</string>
+    <string name="setup_checking_card_body">Staðfesti frágang uppsetningar og virkni.</string>
+
+    <string name="general_error_setup_require_label">Uppsetning er ófullnægjandi</string>
+    <string name="general_error_setup_require_msg">Frekari uppsetning er nauðsynleg til að nota þennan eiginleika. Ljúktu eftirstandandi uppsetningarskrefum.</string>
+
+    <string name="setup_saf_card_title">Geymsluaðgangsrammi</string>
+    <string name="setup_saf_card_body">Bættu niðurstöður með því að veita SD Maid aðgang að viðbótarsvæðum.</string>
+    <string name="setup_saf_card_body2">Í flestum tilfellum opnast glugginn með réttri slóð forvalinni. Færslur verða grænar þegar aðgangur er veittur.</string>
+    <string name="setup_saf_error_wrong_path">Þú valdir ranga slóð</string>
+    <string name="setup_saf_missing_app_error">Skjalaviðmótsforritið er ekki tiltækt. Það er innbyggt kerfisforrit og ætti að vera tiltækt á öllum Android tækjum.</string>
+
+    <string name="setup_manage_storage_card_title">Stjórna geymslu</string>
+    <string name="setup_manage_storage_card_body">Leyfðu SD Maid að stjórna geymslunni þinni.</string>
+    <string name="setup_manage_storage_card_body2">Grunnaðgangur að opinberri geymslu, t.d. \"Download/\" og \"DCIM/\", en ekki alltaf \"Android/data\".</string>
+
+    <string name="setup_root_card_title">Root aðgangur</string>
+    <string name="setup_root_card_body">Á SD Maid að nota root aðgang ef hann er tiltækur? Root aðgangur gerir kleift að skoða viðbótar kerfismöppur og einkagögn forrita.</string>
+    <string name="setup_root_state_ready_label">Root aðgangur er tilbúinn.</string>
+    <string name="setup_root_state_waiting_label">Bíð eftir root aðgangi.</string>
+    <string name="setup_root_enable_root_use_label">Nota root aðgang ef tiltækur</string>
+    <string name="setup_root_disable_root_use_label">Ekki nota root aðgang</string>
+    <string name="setup_root_card_body2">Aðeins tiltækt á rooted tækjum. Ef þú gerðir ekki þessa breytingu þá er tækið þitt ekki rooted og þessi stilling hefur engin áhrif.</string>
+
+    <string name="setup_shizuku_card_title">Shizuku</string>
+    <string name="setup_shizuku_card_body">Leyfðu SD Maid að nota Shizuku þar sem hægt er til að bæta niðurstöður og virkja eiginleika.</string>
+    <string name="setup_shizuku_card_body2">Þessi stilling hefur engin áhrif ef Shizuku forritið er ekki uppsett á tækinu þínu.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku ásamt root aðgangi virkjar ekki viðbótar eiginleika, en bætir áreiðanleika. SD Maid mun nota það sem varaúrræði.</string>
+    <string name="setup_shizuku_state_ready_label">Shizuku tenging er tilbúin.</string>
+    <string name="setup_shizuku_state_waiting_label">Bíð eftir tengingu við Shizuku.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Nota Shizuku ef tiltækt</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Ekki nota Shizuku</string>
+
+    <string name="setup_dismiss_hint">Þú getur fundið uppsetningarskjáinn aftur í gegnum stillingavalmynd.</string>
+    <string name="setup_permission_granted_label">Leyfi veitt</string>
+    <string name="setup_permission_error_label">Villa í leyfi</string>
+
+    <string name="setup_usagestats_title">Notkunartölfræði</string>
+    <string name="setup_usagestats_body">Notkunartölfræðileyfið veitir aðgang að nánari upplýsingum um forrit. SD Maid notar það til að ákvarða viðbótar skyndiminnisstærðir.</string>
+    <string name="setup_usagestats_hint">Nauðsynlegt fyrir eyðingu skyndiminnis byggt á aðgengisþjónustu.</string>
+
+    <string name="setup_notification_title">Tilkynningar</string>
+    <string name="setup_notification_body">Leyfðu SD Maid að senda tilkynningar til að upplýsa þig um yfirstandandi aðgerðir eða mikilvæga atburði.</string>
+    <string name="setup_notification_hint">Tilkynningar eru notaðar sparlega 🤞</string>
+
+    <string name="setup_feature_requires_additional_setup_x">Þessi eiginleiki krefst þess að viðbótar uppsetningarliðum sé lokið: %s</string>
+
+    <string name="setup_acs_card_title">Aðgengisþjónusta</string>
+    <string name="setup_acs_card_body">Aðgengisþjónustan gerir SD Maid kleift að eiga samskipti við skjáinn þinn og sjálfvirka leiðinleg verkefni, t.d. smella á \"Hreinsa skyndiminni\" á mörgum skjáum.</string>
+    <string name="setup_acs_card_body2">SD Maid mun ekki nota aðgengisþjónustuna án samþykkis þíns, mun alltaf sýna áberandi vísbendingu á meðan hún er virk og mun ekki nota hana til að safna upplýsingum.</string>
+    <string name="setup_acs_state_enabled">Aðgengisþjónusta er virk</string>
+    <string name="setup_acs_state_disabled">Aðgengisþjónusta er óvirk</string>
+    <string name="setup_acs_state_running">Aðgengisþjónusta er í gangi</string>
+    <string name="setup_acs_state_ondemand">Þjónustan verður ræst þegar þess er krafist</string>
+    <string name="setup_acs_state_stopped">Aðgengisþjónusta er stöðvuð</string>
+    <string name="setup_acs_state_stopped_hint">Þjónustan er virk, en ekki í gangi. Skiptu henni af/á eða endurræstu tækið. Athugaðu að SD Maid sé ekki verið \"fínstillt\" af kerfinu.</string>
+    <string name="setup_acs_state_stopped_hint_miui">Ef þjónustan heldur áfram að vera óvirk eftir stund, reyndu að virkja \"Sjálfvirk ræsing\" valkostinn fyrir SD Maid í kerfisstillingunum.</string>
+    <string name="setup_acs_consent_positive_action">Virkja þjónustu og veita aðgang</string>
+    <string name="setup_acs_consent_negative_action">Ekki nota aðgengisþjónustu</string>
+    <string name="setup_acs_allow_hint">Ef þú sérð lítið tákn á skjábrúninni, þá hefur þú óvart virkjað \"flýtileið\" valkostinn.</string>
+    <string name="setup_acs_disallow_hint">Ef þú skiptir um skoðun geturðu breytt þessum valkosti aftur með því að fara í stillingar og endurræsa uppsetninguna.</string>
+    <string name="setup_acs_appops_restriction_title">Takmarkaðar stillingar</string>
+    <string name="setup_acs_appops_restriction_body">Getur ekki virkjað aðgengisþjónustu SD Maid? Android 13+ gæti sett takmarkanir á forrit sem eru ekki uppsett í gegnum Google Play. Lyftu þessum takmörkunum af kerfissíðu SD Maid. Valkosturinn er í samhengisvalmyndinni efst í hægra horni.</string>
+
+    <string name="setup_inventory_card_title">Forritayfirlit</string>
+    <string name="setup_inventory_card_body">SD Maid þarf að vita hvaða forrit þú hefur til að finna skrár sem tilheyra ekki neinu uppsettum forriti.</string>
+    <string name="setup_inventory_card_extra">Leitaðu að leyfi sem kallast \"Forritalisti\" eða \"Query all packages\".</string>
+    <string name="setup_inventory_invalid_message">Kerfið gaf ógilda lista yfir uppsett forrit (t.d. of fá eða sum vantaði). Farðu í kerfisstillingar og leyfðu SD Maid aðgang að \"Forritalista\".</string>
+
+    <string name="dataarea_warningcard_empty_message">SD Maid fann engin gagnasvæði sem hægt er að skanna. Hefur þú lokið uppsetningunni?</string>
+    <string name="dataarea_warningcard_label">Gagnasvæði</string>
+    <string name="dataarea_warningcard_reload_action">Endurhlaða gagnasvæði</string>
+
+    <string name="debug_mode_label">Villuleitarstilling</string>
+    <string name="debug_mode_explanation">Virkja prófunarvalkosti og ítarlegri úttak. Forritið mun keyra hægar og virka öðruvísi.</string>
+    <string name="debug_bugreporter_label">Sjálfvirkar villuskýrslur</string>
+    <string name="debug_bugreporter_summary">Tilkynnir sjálfkrafa vandamál, t.d. upplýsingar um hrun forritsins svo ég geti fundið ástæðuna og lagað það.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Villuleitarstilling er virk</string>
+    <string name="debug_card_trace_mode_label">Virkja rakningarstillingu</string>
+    <string name="debug_card_dryrun_mode_label">Prufukeyrsla (slökkva á eyðingu)</string>
+    <string name="debug_card_areas_reload_action">Endurhlaða gagnasvæði</string>
+    <string name="debug_card_pkgs_reload_action">Endurhlaða forrit</string>
+    <string name="debug_card_root_test_action">Prófa root</string>
+    <string name="debug_card_shizuku_test_action">Prófa Shizuku</string>
+
+    <string name="settings_category_tools_label">Verkfæri</string>
+    <string name="settings_category_filter">Sía</string>
+    <string name="settings_category_risklevel">Áhættustig</string>
+
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="corpsefinder_explanation_short">Gögn sem tilheyra forritum sem þegar hafa verið fjarlægð.</string>
+    <string name="corpsefinder_settings_summary">Stilla skönnunarsíur og áhættustig.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Taka með æskileg leifar</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Skrár sem þú gætir viljað halda þrátt fyrir að forritið sé fjarlægt, t.d. myndir sem þú tókst eða afrit sem þú bjóst til.</string>
+    <string name="corpsefinder_settings_risk_common_title">Taka með algeng nöfn</string>
+    <string name="corpsefinder_settings_risk_common_summary">Gögn með algengum nöfnum, t.d. mappa \"Notes\" tilheyrir of mörgum óþekktum forritum.</string>
+    <string name="corpsefinder_watcher_title">Fjarlægingareftirvakt</string>
+    <string name="corpsefinder_watcher_summary">Skanna sjálfkrafa eftir leifum þegar forrit er fjarlægt.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Sjálfvirk eyðing</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Eyða sjálfkrafa öllum leifum sem tengjast fjarlægða forritinu.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d leif fannst eftir fjarlægingu á %2$s.</item>
+        <item quantity="other">%1$d leifar fundust eftir fjarlægingu á %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Hreinsun tókst (%1$s): Losaði %2$s og fjarlægði %3$d hlut.</item>
+        <item quantity="other">Hreinsun tókst (%1$s): Losaði %2$s og fjarlægði %3$d hluti.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Eyða leifum</string>
+
+    <string name="corpsefinder_filter_publicmedia_label">Opinber miðla</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Opinberar miðlaskrár, t.d. skrár sem berast í gegnum skilaboðaforrit.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB auðlindir</string>
+    <string name="corpsefinder_filter_publicobb_summary">Viðbótar auðlindir forrita, t.d. eignir leikja.</string>
+    <string name="corpsefinder_filter_publicdata_label">Opinber forritagögn</string>
+    <string name="corpsefinder_filter_publicdata_summary">Óviðkvæm forritagögn, t.d. kortaskyndiminni.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD kort</string>
+    <string name="corpsefinder_filter_sdcard_summary">Almenn opinber geymsla, innri og ytri (t.d. SD kort).</string>
+    <string name="corpsefinder_filter_privatedata_label">Einkagögn forrita</string>
+    <string name="corpsefinder_filter_privatedata_summary">Einkagögn forrita, t.d. auðkenni, stillingar forrita en einnig skyndiminni vafra.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik skyndiminni</string>
+    <string name="corpsefinder_filter_dalvik_summary">Geymd keyrslugögn forrita.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART prófílar</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART prófílar eru notuð af Android til að fínstilla afköst forrita.</string>
+    <string name="corpsefinder_filter_applib_label">Forritasöfn</string>
+    <string name="corpsefinder_filter_applib_summary">Forritatengd söfnunargögn.</string>
+    <string name="corpsefinder_filter_appsource_label">Forritauppsprettur</string>
+    <string name="corpsefinder_filter_appsource_summary">Uppsetningargögn forrita, þ.e. hvert APK skrár fara.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Einkauppsprettur forrita</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Takmarkaðar uppsetningargögn, t.d. vernduð forrit þriðja aðila.</string>
+    <string name="corpsefinder_filter_appasec_label">Dulkóðuð auðlindir forrita</string>
+    <string name="corpsefinder_filter_appasec_summary">Dulkóðaðar auðlindir forrita, t.d. eignir leikja.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Gögn flutt á ytri geymslu með App2Sd breytingum.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d forritaleif eytt</item>
+        <item quantity="other">%d forritaleifar eyddar</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d forritaleif fannst</item>
+        <item quantity="other">%d forritaleifar fundust</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Eyða öllum forritaleifum?</string>
+    <string name="corpsefinder_owners_label">Eigendur</string>
+    <string name="corpsefinder_corpse_hints_label">Athugasemd</string>
+    <string name="corpsefinder_owner_unknown">Óþekktur eigandi</string>
+    <string name="corpsefinder_corpse_hint_keeper">Þessi hlutur gæti innihaldið gögn sem þú vilt halda þrátt fyrir að eigandinn hafi verið fjarlægður, t.d. myndir eða afrit.</string>
+    <string name="corpsefinder_corpse_hint_common">Þessi hlutur ber mjög algengt nafn og gæti tilheyrt forritum sem enn eru uppsett en SD Maid þekkir ekki.</string>
+
     <string name="data_area_sdcard_label">SD kort</string>
     <string name="data_areas_label">Gagnasvæði</string>
     <string name="data_areas_description">Gagnasvæði tákna staðsetningar á tækinu þínu sem SD Maid hefur aðgang að. Mismunandi gagnasvæði geta verið tiltæk eftir Android útgáfu þinni og leyfi sem hafa verið veitt.</string>
     <string name="data_areas_short_summary">Svæði sem SD Maid hefur aðgang að byggt á núverandi veittu leyfum.</string>
+
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="systemcleaner_explanation_short">Óþörf gögn sem tilheyra ekki neinu ákveðnu forriti.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d samsvörun eytt</item>
+        <item quantity="other">%d samsvörunum eytt</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d samsvörun síu</item>
+        <item quantity="other">%d samsvörunar síu</item>
+    </plurals>
+    <string name="systemcleaner_filter_custom_label">Sérsniðin sía</string>
+    <string name="systemcleaner_filter_custom_manage_label">Stjórna sérsniðnum síum</string>
+    <string name="systemcleaner_filter_custom_manage_summary">Búa til, eyða, flytja inn og flytja út sérsniðnar síur.</string>
+    <string name="systemcleaner_filter_logfiles_label">Kerfisskráaannálar</string>
+    <string name="systemcleaner_filter_logfiles_summary">Annálaskrár kerfis og kerfisþjónustu (t.d. *.log) á ýmsum stöðum.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Uppsetningarskyndiminni</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Geymd gögn tengd uppsettum forritum sem notuð eru af pakka stjórnun kerfisins.</string>
+    <string name="systemcleaner_filter_advertisements_label">Auglýsingaskrár</string>
+    <string name="systemcleaner_filter_advertisements_summary">Skrár sem hafa verið búnar til fyrir eða af auglýsingum.</string>
+    <string name="systemcleaner_filter_anr_label">ANR villur</string>
+    <string name="systemcleaner_filter_anr_summary">Rakningarskrár frá \'forrit svarar ekki\' atvikum.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Tómar möppur</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Tómar möppur víðsvegar um tækið. Hreiðraðar möppur gætu þurft margar umferðir.</string>
+    <string name="systemcleaner_filter_screenshots_label">Skjámyndir</string>
+    <string name="systemcleaner_filter_screenshots_summary">Skjámyndir eldri en %s frá mörgum forritum og stöðum.</string>
+    <string name="systemcleaner_filter_trashed_label">Ruslaskrár</string>
+    <string name="systemcleaner_filter_trashed_summary">Skrár í ruslafötum ýmissa forrita og staða sem eru merktar til eyðingar en hafa ekki verið fjarlægðar varanlega.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Aldur skjámynda</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Lágmarksaldur skjámynda til að koma til greina fyrir eyðingu.</string>
+    <string name="systemcleaner_filter_superfluosapks_label">Óþarfa APK skrár</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Uppsetningarskrár sem eru ekki lengur þörf á samkvæmt uppsettum útgáfum forrita.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Taka sömu útgáfu með</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Miða einnig á APK skrár sem passa við uppsetta útgáfu. Slökktu á til að fjarlægja aðeins eldri útgáfur.</string>
+    <string name="systemcleaner_filter_lostdir_label">LOST.DIR möppur</string>
+    <string name="systemcleaner_filter_lostdir_summary">Tímabundnar skrár sem verða til þegar gögn eru flutt milli Android tækja.</string>
+    <string name="systemcleaner_filter_linuxfiles_label">Linux skrár</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">Skrár og möppur sem verða til þegar geymsla hefur verið tengd við Linux tölvu.</string>
+    <string name="systemcleaner_filter_macfiles_label">Mac skrár</string>
+    <string name="systemcleaner_filter_macfiles_summary">Skrár og möppur sem verða til þegar geymsla er skoðuð með Finder forriti Apple.</string>
+    <string name="systemcleaner_filter_windowsfiles_label">Windows skrár</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">Gögn sem Windows skráaskoðari getur búið til á tengdri geymslu.</string>
+    <string name="systemcleaner_filter_thumbnails_label">Smámyndir</string>
+    <string name="systemcleaner_filter_thumbnails_summary">Geymdar forskoðanir fyrir myndir og myndbönd.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Tímabundnar kerfisskrár</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Kerfistengdar tímabundnar skrár, venjulega skammvinnt skyndiminni fyrir virkar aðgerðir.</string>
+    <string name="systemcleaner_filter_analytics_label">Greiningarskrár</string>
+    <string name="systemcleaner_filter_analytics_summary">Gögn tengd greiningu og villurakningu.</string>
+    <string name="systemcleaner_filter_downloadcache_label">Niðurhalsskyndiminni</string>
+    <string name="systemcleaner_filter_downloadcache_summary">Skyndiminni kerfismappa notuð fyrir ýmislegt (t.d. OTA uppfærslur).</string>
+    <string name="systemcleaner_filter_localtmp_label">Staðbundnar tímabundnar skrár</string>
+    <string name="systemcleaner_filter_localtmp_summary">Kerfistengdar tímabundnar skrár (t.d. frá Android Studio).</string>
+    <string name="systemcleaner_filter_datalogger_label">Kerfisannálaskrár</string>
+    <string name="systemcleaner_filter_datalogger_summary">Annálaskrár sérstakra kerfisþjónustu.</string>
+    <string name="systemcleaner_filter_logdropbox_label">Annálafangabox</string>
+    <string name="systemcleaner_filter_logdropbox_summary">Svæði fyrir kerfið til að setja annálaskrár.</string>
+    <string name="systemcleaner_filter_recenttasks_label">Nýleg verkefni</string>
+    <string name="systemcleaner_filter_recenttasks_summary">Gögn tengd verkefnasögu í verkefnaskiptara kerfisins.</string>
+    <string name="systemcleaner_filter_tombstones_label">Kerfishrunsleifar</string>
+    <string name="systemcleaner_filter_tombstones_summary">Ef innbyggð ferli hrynja (t.d. leikir) þá verða skrár til hér.</string>
+    <string name="systemcleaner_filter_usagestats_label">Notkunartölfræði</string>
+    <string name="systemcleaner_filter_usagestats_summary">Skrár tengdar tölfræði forritanotkunar.</string>
+    <string name="systemcleaner_delete_all_confirmation_message">Eyða öllu innihaldi síunnar?</string>
+
+    <string name="systemcleaner_customfilter_label">Sérsniðin sía</string>
+    <string name="systemcleaner_customfilter_create_action">Búa til sérsniðna síu</string>
+    <string name="systemcleaner_customfilter_create_hint">Búðu til sérsniðna síu til að eyða aukaskrám sem eru sérstæk fyrir tækið þitt og notkunartilfelli.</string>
+    <string name="systemcleaner_editor_remove_confirmation_message">Fjarlægja þessa síu?</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Þú átt óvistaðar breytingar!</string>
+    <string name="systemcleaner_customfilter_editor_label_label">Merki síu</string>
+    <string name="systemcleaner_customfilter_editor_warning">Sérsniðnar síur geta verið áhættusamar. Athugaðu skönnunarniðurstöður áður en þú eyðir!</string>
+    <string name="systemcleaner_customfilter_editor_areas_label">Gagnasvæði</string>
+    <string name="systemcleaner_customfilter_editor_areas_explanation">Ef ekkert svæði er valið verða öll aðgengileg gagnasvæði skannuð og pöruð.</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">Takmarkanir skráartegundar</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_files_label">Skrár</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Möppur</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">Ef engin tegund er valin verða allar tegundir paraðar.</string>
+    <string name="systemcleaner_customfilter_editor_path_label">Slóðarviðmið</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Markslóðin verður að passa við a.m.k. eina færslu (t.d. \"Downloads/oldapks/game-\"). Langur ýtir á færslur fyrir fleiri valkosti.</string>
+    <string name="systemcleaner_customfilter_editor_name_label">Nafnaviðmið</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Marknafnið verður að innihalda a.m.k. eitt lykilorðanna (t.d. \"-receipt\"). Langur ýtir á færslur fyrir fleiri valkosti.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_label">Útilokanir</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Niðurstaðan verður útilokuð ef slóðin passar við einhverja færslu (t.d. \"DCIM\"). Langur ýtir á færslur fyrir fleiri valkosti.</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Samanburðarstilling slóðar</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Slóð byrjar á lykilorði</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Slóð inniheldur lykilorð</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Slóð endar á lykilorði</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Slóð er jöfn lykilorði</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Samanburðarstilling nafns</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Nafn byrjar á lykilorði</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Nafn inniheldur lykilorð</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Nafn endar á lykilorði</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Nafn er jafnt lykilorði</string>
+    <string name="systemcleaner_customfilter_last_edit">Síðast breytt: %s</string>
+    <string name="systemcleaner_customfilter_editor_livesearch_label">Lifandi leit</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Stærðartakmarkanir</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Lágmarksstærð</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Hámarksstærð</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Takmarka samsvörun eftir skráarstærð. Skildu eftir óstillt til að para við hvaða stærð sem er.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Aldurtakmarkanir</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Lágmarksaldur</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Hámarksaldur</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Takmarka samsvörun eftir aldri skráar (síðast breytt). Skildu eftir óstillt til að para við hvaða aldur sem er.</string>
+    <string name="systemcleaner_customfilter_import_action">Flytja inn nýja síu</string>
+    <string name="systemcleaner_customfilter_export_action">Flytja út valda síu</string>
+
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="appcleaner_explanation_short">Óþörf gögn sem tilheyra ákveðnum forritum.</string>
+    <string name="appcleaner_filter_defaultcachespublic_label">Opinbert sjálfgefið skyndiminni</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Sjálfgefið opinbert skyndiminni forrita. Aðgengilegt undir Android/data á eldri Android útgáfum. Eytt þegar ýtt er á \"Hreinsa skyndiminni\" í kerfisstillingum.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_label">Einka sjálfgefið skyndiminni</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Sjálfgefið einka skyndiminni forrita. Eytt þegar ýtt er á \"Hreinsa skyndiminni\" í kerfisstillingum.</string>
+    <string name="appcleaner_include_systemapps_label">Taka kerfisforrit með</string>
+    <string name="appcleaner_include_systemapps_summary">Taka kerfisforrit með í skönnuninni.</string>
+    <string name="appcleaner_include_runningapps_label">Taka forrit í gangi með</string>
+    <string name="appcleaner_include_runningapps_summary">Taka forrit sem eru í gangi sem gætu valdið truflun.</string>
+    <string name="appcleaner_include_inaccessible_label">Taka óaðgengileg skyndiminni með</string>
+    <string name="appcleaner_include_inaccessible_summary">Taka gögn sem ekki er hægt að nálgast beint en hægt er að eyða í gegnum kerfisstillingar og sjálfvirka með aðgengisþjónustu.</string>
+    <string name="appcleaner_include_multiuser_label">Taka aðra notendur með</string>
+    <string name="appcleaner_include_multiuser_summary">Taka forrit frá öðrum notendaprófílum á þessu tæki.</string>
+    <string name="appcleaner_include_minimumsize_label">Lágmarksstærð</string>
+    <string name="appcleaner_include_minimumsize_summary">Sleppa forritum þar sem samtala óþarfa gagna er undir lágmarki.</string>
+    <string name="appcleaner_include_minimumage_label">Lágmarksaldur</string>
+    <string name="appcleaner_include_minimumage_summary">Sleppa skrám sem eru yngri en lágmarksaldur.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Stýrikerfisgreining</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Sjálfvirkni byggð á aðgengisþjónustu gæti mistekist ef SD Maid greinir stýrikerfið þitt ekki rétt. Notaðu þessa stillingu til að hnekkja greiningunni.</string>
+    <string name="appcleaner_filter_codecache_label">Kóðaskyndiminni</string>
+    <string name="appcleaner_filter_codecache_summary">JVM kóðaskyndiminni. Blokkir af bæjakóða þýddur í innfæddan kóða.</string>
+    <string name="appcleaner_filter_advertisement_label">Auglýsingagögn</string>
+    <string name="appcleaner_filter_advertisement_summary">Skrár tengdar auglýsingum, t.d. geymd miðla.</string>
+    <string name="appcleaner_filter_bugreporting_label">Villuskýrslur</string>
+    <string name="appcleaner_filter_bugreporting_summary">Gögn tengd villuskýrslum, t.d. villuskrár eða hrunskrár.</string>
+    <string name="appcleaner_filter_analytics_label">Greining</string>
+    <string name="appcleaner_filter_analytics_summary">Gögn tengd greiningu, t.d. geymd tölfræði yfir hvað þú smellir á í forriti.</string>
+    <string name="appcleaner_filter_hiddencaches_label">Falin skyndiminni</string>
+    <string name="appcleaner_filter_hiddencaches_summary">Almenn skyndiminni geymd utan seilingar kerfisins.</string>
+    <string name="appcleaner_filter_thumbnails_label">Smámyndir miðla</string>
+    <string name="appcleaner_filter_thumbnails_summary">Forskoðunarmyndir fyrir myndir, myndbönd og hljóð.</string>
+    <string name="appcleaner_filter_gamefiles_label">Leikjaskrár</string>
+    <string name="appcleaner_filter_gamefiles_summary">Leikjatengdar auðlindir sem leikurinn myndi hlaða aftur inn við næstu ræsingu ef þörf krefur.</string>
+    <string name="appcleaner_filter_offlinecache_label">Ónettengd skyndiminni</string>
+    <string name="appcleaner_filter_offlinecache_summary">Skrár geymdar til notkunar án nettengingar, t.d. kortaflísar.</string>
+    <string name="appcleaner_filter_recyclebins_label">Ruslaföt</string>
+    <string name="appcleaner_filter_recyclebins_summary">Skrár sem hefur verið eytt en eru settar í sérstaka möppu til að leyfa endurheimt.</string>
+    <string name="appcleaner_filter_webview_label">Webview skrár</string>
+    <string name="appcleaner_filter_webview_summary">Skrár geymdar í skyndiminni af Webview tilvikum í forritum.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Flýtileiðatákn forrita</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Geymd tákn fyrir flýtileiðir forrita og deilingarvalmyndir.</string>
+    <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp afrit</string>
+    <string name="appcleaner_filter_whatsapp_backups_summary">Eyða aukaafritum af WhatsApp öryggisafritum og halda aðeins nýjasta.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">Skrár sem þú fékkst frá fólki í gegnum WhatsApp.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp mótteknar skrár</string>
+    <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp sendar skrár</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">Skrár sendar frá WhatsApp til annarra.</string>
+    <string name="appcleaner_filter_telegram_label">Telegram miðlaskrár</string>
+    <string name="appcleaner_filter_telegram_summary">Skrár mótteknar eða sendar í gegnum Telegram.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
+    <string name="appcleaner_filter_threema_summary">Skrár mótteknar í gegnum Threema.</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
+    <string name="appcleaner_filter_wechat_summary">Sendar eða mótteknar skrár í samtölum og WeChat augnablikum.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Geymd miðlaskrár sem eru sóttar aftur þegar þau eru skoðuð í spjalli.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ spjall</string>
+    <string name="appcleaner_filter_qqchat_summary">Sendar eða mótteknar skrár í QQ spjallsamtölum.</string>
+    <string name="appcleaner_delete_all_confirmation_message">Eyða óþarfa hlutum allra forrita?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d óþarfur hlutur eyddur</item>
+        <item quantity="other">%d óþarfir hlutir eyddir</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="one">%d óþarfur hlutur fannst</item>
+        <item quantity="other">%d óþarfir hlutir fundust</item>
+    </plurals>
+    <string name="appcleaner_automation_loading">Undirbý sjálfvirkni í gegnum aðgengisþjónustu</string>
+    <string name="appcleaner_automation_title">AppCleaner sjálfvirkni</string>
+    <string name="appcleaner_automation_subtitle_default_caches">Hreinsa sjálfgefin skyndiminni…</string>
+    <string name="appcleaner_automation_progress_open_settings">Opna stillingaskjá (lykilorð: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">Leita að \"Geymsla\" færslu (lykilorð: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Leita að \"Hreinsa gögn\" hnapp (lykilorð: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Leita að \"Hreinsa skyndiminni\" hnapp (lykilorð: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Reyni að staðfesta fyrri aðgerð (lykilorð: %s)</string>
+    <string name="appcleaner_item_caches_inaccessible_title">Sjálfgefin skyndiminni</string>
+    <string name="appcleaner_item_caches_inaccessible_body">Opinber og einka sjálfgefin skyndiminni. Ekki beint aðgengileg, en hægt er að eyða óbeint (t.d. í gegnum aðgengisþjónustu).</string>
+    <string name="appcleaner_automation_unavailable_title">Aðgengisþjónusta ekki tiltæk</string>
+    <string name="appcleaner_automation_unavailable_body">Hreinsun óaðgengilegra skyndiminnis krefst aðgengisþjónustu SD Maid, en hún var ekki tiltæk. Ef þú vilt ekki nota hana: Slökktu á \"Taka óaðgengileg skyndiminni með\" valkostinum.</string>
+    <string name="appcleaner_junk_userprofile_label">Notandi</string>
+    <string name="appcleaner_delete_confirmation_message_x">Eyða óþarfa skrám fyrir %s?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Eyða óþarfa skrám fyrir %d valið forrit?</item>
+        <item quantity="other">Eyða óþarfa skrám fyrir %d valin forrit?</item>
+    </plurals>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Eyði skyndiminni með Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Ákvarða óaðgengileg skyndiminni</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Hreinsun skyndiminnis ekki tiltæk</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Kerfið hefur gert \"Hreinsa skyndiminni\" hnappinn óvirkan fyrir þetta forrit. Útilokaðu það til að flýta hreinsun skyndiminnis.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Stillingaskjár ekki tiltækur</string>
+    <string name="appcleaner_automation_error_no_settings_body">Þetta kerfisforrit hefur engan stillingaskjá. Hreinsun skyndiminnis í gegnum aðgengisþjónustu er ekki möguleg. Útilokaðu það til að flýta hreinsun skyndiminnis.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Kerfisforrit rangt stillt</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Öryggisforrit HyperOS (com.miui.securitycenter) vantar leyfi fyrir notkunartölfræði (GET_USAGE_STATS). Þetta brýtur eiginleika eins og \"Hreinsa gögn\" og hreinsun skyndiminnis í gegnum aðgengisþjónustu. Veittu leyfið til að endurheimta fulla virkni.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Þvinga stopp fyrir hreinsun</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Þvinga stopp á forritum áður en skyndiminni þeirra er hreinsað. Það gæti hjálpað við hreinsun sumra forrita, en gæti valdið truflunum og krafist handvirkrar endurræsingar.</string>
+    <string name="appcleaner_progress_force_stopping">Þvinga stopp á forritum…</string>
+
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="deduplicator_explanation_short">Finna tvítekin gögn á tækinu þínu.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d tvítekinn hlutur eyddur</item>
+        <item quantity="other">%d tvíteknir hlutir eyddir</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d sett tvítekinna fundið</item>
+        <item quantity="other">%d sett tvítekinna fundust</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Gera \"Eyða öllu\" mögulegt</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Sýna valkosti sem leyfa þér að eyða öllum skrám í settum tvítekinna þannig að engin skrá er eftir.</string>
+    <string name="deduplicator_search_locations_title">Leitarstaðir</string>
+    <string name="deduplicator_search_locations_all_summary">Öll aðgengileg svæði</string>
+    <string name="deduplicator_keep_prefer_paths_title">Frekar halda í</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Þegar ákveðið er hvaða tvítekningu á að halda, frekar halda skrám á þessum stöðum.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Engir staðir stilltir</string>
+    <string name="deduplicator_skip_minsize_title">Lágmarksstærð</string>
+    <string name="deduplicator_skip_minsize_description">Sleppa skrám sem eru undir lágmarksstærð.</string>
+    <string name="deduplicator_skip_uncommon_title">Sleppa óalgengum skráartegundum</string>
+    <string name="deduplicator_skip_uncommon_description">Aðeins taka algengar miðlaskrár, skjöl og safn.</string>
+    <string name="deduplicator_detection_method_label">Greiningaraðferð</string>
+    <string name="deduplicator_detection_method_checksum_title">Efnisskoðun</string>
+    <string name="deduplicator_detection_method_checksum_summary">Ákvarða tvítekningu með því að reikna efnisskoðun skráa. Skrár með samsvarandi skoðun hafa nákvæmlega sama efni.</string>
+    <string name="deduplicator_detection_method_phash_title">Skynjunarhassh</string>
+    <string name="deduplicator_detection_method_phash_summary">Finna svipaðar skrár með því að greina efniseiginleika og bera saman skynjunarhassh gildi. ⚠️ Greining byggð á líkingu gæti falið í sér falska jákvæðninga sem krefjast handvirkrar staðfestingar.</string>
+    <string name="deduplicator_occupied_space_label">Upptekið geymslupláss</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s er tekið af tvítekningum</item>
+        <item quantity="other">%s eru tekin af tvítekningum</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">Skráarstærð</string>
+    <string name="deduplicator_average_size_label">Meðalstærð</string>
+    <string name="deduplicator_cluster_x_label">Þyrping %s</string>
+    <string name="deduplicator_delete_confirmation_message">Eyða öllu nema einu eintaki í öllum settum tvítekinna skráa?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Eyða öllu nema einu eintaki í þessu setti tvítekinna skráa?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Eyða öllum skrám í þessu setti tvítekinna skráa? Engin skrá verður eftir!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Eyða öllu nema einu eintaki í hverju völdu setti tvítekinna skráa?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Eyða öllum skrám í hverju völdu setti tvítekinna skráa? Engin skrá verður eftir!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Eyða öllum eintökum. Engin skrá verður eftir!</string>
+    <string name="deduplicator_progress_comparing_files">Beri saman skrár</string>
+    <string name="deduplicator_details_cluster_title">Sett tvítekinna</string>
+    <string name="deduplicator_matches_exact_label">Nákvæm eintök</string>
+    <string name="deduplicator_matches_similar_label">Svipaðar skrár</string>
+    <string name="deduplicator_arbiter_title">Eyðingarstefna</string>
+    <string name="deduplicator_arbiter_summary">Stilltu hvaða skrám er haldið og hverju er eytt.</string>
+    <string name="deduplicator_arbiter_explanation">Þegar tvítekningum er eytt ákveður SD Maid hvaða skrá á að halda með því að skoða hvert viðmiðanna í röð. Fyrsta viðmiðið sem gefur skýran sigurvegara ákvarðar niðurstöðuna. Dragðu til að endurraða, smelltu til að breyta stillingu.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Velja stillingu</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Stilla slóðir…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Tegund tvítekningar</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Kjósa nákvæmar samsvörunar umfram svipaðar skrár.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Miðlavísitala</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Skoða hvort skrár eru vísitölu miðlaveitu.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Geymslustaðsetning</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Kjósa skrár á innri eða ytri geymslu.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Möppudýpt</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Kjósa skrár í grynnri eða dýpri möppustrúktúrum.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Breytingadagsetning</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Kjósa eldri eða nýrri skrár eftir breytingatíma.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Skráarstærð</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Kjósa stærri eða minni skrár þegar stærðir eru mismunandi.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Æskilegir staðir</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Halda skrám á stilltum æskilegum stöðum.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Kjósa nákvæmar samsvörunar</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Kjósa svipaðar skrár</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Kjósa vísitöluðar skrár</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Kjósa óvísitöluðar skrár</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Kjósa innri geymslu</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Kjósa ytri geymslu</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Kjósa grunnar möppur</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Kjósa dýpri möppur</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Kjósa eldri skrár</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Kjósa nýrri skrár</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Kjósa stærri skrár</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Kjósa minni skrár</string>
+    <string name="deduplicator_view_mode_groups_label">Hópar</string>
+    <string name="deduplicator_view_mode_directories_label">Möppur</string>
+
     <string name="exclusion_manager_title">Útilokunarstjóri</string>
     <string name="exclusion_manager_desc">Stjórna skrá- og forritaútilokunun.</string>
     <string name="exclusion_explanation_body1">Útiloka skrár og forrit frá aðgerðum SD Maid.</string>
@@ -73,8 +592,302 @@
     <string name="exclusion_create_pkg_hint">Notaðu AppControl verkfærið til að búa til forritaútilokanir.</string>
     <string name="exclusion_create_path_hint">Notaðu StorageAnalyzer verkfærið til að búa til slóðaútilokanir.</string>
     <string name="exclusion_show_defaults_action">Sýna sjálfgefnar</string>
+
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Ein útilokun búin til</item>
+        <item quantity="other">%d útilokanir búnar til</item>
+    </plurals>
+    <string name="exclusion_editor_path_change_action">Ýttu til að breyta slóð</string>
+
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="squeezer_explanation_short">Þjappa myndum til að spara geymslupláss.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d mynd fannst</item>
+        <item quantity="other">%d myndir fundust</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s er hægt að spara</item>
+        <item quantity="other">~%s er hægt að spara</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d mynd þjöppuð</item>
+        <item quantity="other">%d myndir þjappaðar</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d mynd valin</item>
+        <item quantity="other">%d myndir valdar</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Leitarstaðir</string>
+    <string name="squeezer_search_locations_default_summary">Myndavélarmöppur (sjálfgefið)</string>
+    <string name="squeezer_min_size_title">Lágmarksstærð skráar</string>
+    <string name="squeezer_min_size_description">Sleppa myndum sem eru minni en þessi stærð.</string>
+    <string name="squeezer_min_age_title">Lágmarksaldur skráar</string>
+    <string name="squeezer_min_age_description">Aðeins taka myndir eldri en þessi aldur.</string>
+    <string name="squeezer_compression_settings_label">Þjöppunarstillingar</string>
+    <string name="squeezer_quality_label">Gæði</string>
+    <string name="squeezer_quality_title">Þjöppunargæði</string>
+    <string name="squeezer_quality_description">Lægri gæði þýðir minni skráarstærð en minni myndgæði.</string>
+    <string name="squeezer_quality_example_format">Dæmi: %1$s mynd → sparar ~%2$s við %3$d%% gæði</string>
+    <string name="squeezer_quality_warning_low">Lægri gæði gætu valdið sjáanlegum göllum.</string>
+    <string name="squeezer_quality_warning_high">Mjög há gæði veita lágmarks plásssparnað.</string>
+    <string name="squeezer_types_category_label">Myndategundir</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Taka JPEG myndir (.jpg, .jpeg) með.</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Taka WebP myndir (.webp) með.</string>
+    <string name="squeezer_skip_compressed_title">Sleppa áður þjöppuðum</string>
+    <string name="squeezer_skip_compressed_description">Sleppa myndum sem SD Maid hefur þegar þjappað.</string>
+    <string name="squeezer_exif_marker_title">Skrifa EXIF merki</string>
+    <string name="squeezer_exif_marker_description">Bæta merki við EXIF athugasemdareit myndarinnar til að koma í veg fyrir endurþjöppun jafnvel þótt þjöppunarsaga sé hreinsuð.</string>
+    <string name="squeezer_estimated_savings_format">~%s sparnaður</string>
+    <string name="squeezer_no_savings_expected">Takmarkaður sparnaður</string>
+    <string name="squeezer_current_size_format">Stærð: %s</string>
+    <string name="squeezer_compress_action">Þjappa</string>
+    <string name="squeezer_compress_all_action">Þjappa öllum</string>
+    <string name="squeezer_preview_dialog_title">Staðfesta þjöppun</string>
+    <string name="squeezer_preview_total_size">Heildarstærð</string>
+    <string name="squeezer_preview_estimated_savings">Áætlaður sparnaður</string>
+    <string name="squeezer_compress_confirmation_title">Þjappa myndum?</string>
+    <string name="squeezer_compress_confirmation_message">Þetta mun skipta upprunalegu myndunum út fyrir þjappaðar útgáfur. Ekki er hægt að afturkalla þessa aðgerð.</string>
+    <string name="squeezer_history_title">Þjöppunarsaga</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d hlutur (%2$s)</item>
+        <item quantity="other">%1$d hlutir (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Engin þjöppunarsaga</string>
+    <string name="squeezer_history_clear_title">Hreinsa þjöppunarsögu</string>
+    <string name="squeezer_history_clear_message">Þetta mun leyfa að þjappa áður þjöppuðum myndum aftur. Myndirnar sjálfar eru ekki breyttar.</string>
+    <string name="squeezer_onboarding_title">Um myndaþjöppun</string>
+    <string name="squeezer_onboarding_message">Myndaþjöppun minnkar skráarstærð með því að fjarlægja sjónræn smáatriði. Þetta ferli er óafturkræft - upprunaleg gæði er ekki hægt að endurheimta.\n\nHér er forskoðun á hvernig myndirnar þínar munu líta út:</string>
+    <string name="squeezer_onboarding_original_label">Upprunalegt</string>
+    <string name="squeezer_onboarding_compressed_label">Eftir þjöppun</string>
+    <string name="squeezer_onboarding_quality_label">Gæði: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Skil</string>
+    <string name="squeezer_compare_action">Skoða samanburð</string>
+    <string name="squeezer_no_example_found">Engar myndir fundust á völdum slóðum.</string>
+    <string name="squeezer_result_empty_message">Engar þjappanlegar myndir fundust.</string>
+    <string name="squeezer_setup_warning">Þjöppun minnkar myndgæði varanlega til að spara geymslupláss. Þetta er ekki hægt að afturkalla. Farðu vandlega yfir stillingarnar áður en þú byrjar.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze minnkar skráarstærð mynda til að losa um geymslupláss. Þetta minnkar myndgæði varanlega og er ekki hægt að afturkalla. Farðu vandlega yfir stillingarnar áður en þú byrjar.</string>
+    <string name="squeezer_setup_paths_title">Leitarstaðir</string>
+    <string name="squeezer_setup_paths_default">Veldu möppur til að leita í</string>
+    <string name="squeezer_setup_quality_title">Þjöppunargæði</string>
+    <string name="squeezer_setup_age_title">Lágmarksaldur</string>
+    <string name="squeezer_setup_age_none">Engin takmörk (taka allar skrár með)</string>
+    <string name="squeezer_setup_start_action">Hefja skönnun</string>
+    <string name="squeezer_quality_hint_very_low">Gæði undir 40% geta búið til ónothæfar myndir.</string>
+    <string name="squeezer_quality_hint_low">Lægri gæði spara meira pláss en geta valdið sjáanlegum göllum.</string>
+    <string name="squeezer_quality_hint_high">Mjög há gæði veita lágmarks plásssparnað.</string>
+    <string name="squeezer_quality_hint_normal">Jafnvægi milli gæða og plásssparnaðar.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">A.m.k. %d dags gamalt</item>
+        <item quantity="other">A.m.k. %d daga gamalt</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Áætlaður ~%d%% sparnaður fyrir JPEG skrár</string>
+
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_explanation_short">Forrit uppsett á tækinu þínu.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d forrit greint</item>
+        <item quantity="other">%d forrit greind</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Skipta um forrit</string>
+    <string name="appcontrol_toggle_app_enable_action">Virkja forrit</string>
+    <string name="appcontrol_toggle_app_disable_action">Gera forrit óvirkt</string>
+    <string name="appcontrol_toggle_app_enable_description">Virkjun forrits leyfir því að keyra og gæti gert það sýnilegt í ræsiforritinu ef það hefur virkni.</string>
+    <string name="appcontrol_toggle_app_disable_description">Óvirkjun forrits kemur í veg fyrir að það keyri og felur það úr valmyndum. Engin gögn tapast.</string>
+    <string name="appcontrol_appstore_open_title">Opna í forritaverslun</string>
+    <string name="appcontrol_appstore_open_description">Opna þetta forrit í forritaversluninni sem það var sett upp frá.</string>
+    <string name="appcontrol_systemsettings_open_title">Sýna stillingar</string>
+    <string name="appcontrol_systemsettings_open_description">Opna kerfisstillingar tækisins fyrir þetta forrit.</string>
+    <string name="appcontrol_app_launch_title">Ræsa forrit</string>
+    <string name="appcontrol_app_launch_description">Ræsa aðalvirkni þessa forrits.</string>
+    <string name="appcontrol_app_forcestop_title">Þvinga stopp</string>
+    <string name="appcontrol_app_forcestop_description">Stöðva forritið. Koma í veg fyrir að það ræsi sig sjálft þar til þú opnar það eða tækið er endurræst.</string>
+    <string name="appcontrol_app_uninstall_description">Fjarlægja þetta forrit af tækinu þínu.</string>
+    <string name="appcontrol_app_exclude_add_title">Útiloka forrit</string>
+    <string name="appcontrol_app_exclude_add_description">Útiloka þetta forrit frá öðrum aðgerðum í SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Breyta útilokun</string>
+    <string name="appcontrol_app_exclude_edit_description">Þetta forrit er nú útilokað frá einu eða fleiri verkfærum.</string>
+    <string name="appcontrol_tag_user">Notandi</string>
+    <string name="appcontrol_tag_active">Nýlega virkt</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Búnt</string>
+    <string name="appcontrol_tag_system">Kerfi</string>
+    <string name="appcontrol_tag_archived">Safnað</string>
+    <string name="appcontrol_tag_uninstalled">Aðeins gögn</string>
+    <string name="appcontrol_tag_not_installed">Ekki uppsett</string>
+    <string name="appcontrol_tag_enabled">Virkt</string>
+    <string name="appcontrol_tag_disabled">Óvirkt</string>
+    <string name="appcontrol_tag_debug">Villuleit</string>
+    <string name="appcontrol_progress_enabling_package">Virkja forrit</string>
+    <string name="appcontrol_progress_disabling_package">Geri forrit óvirkt</string>
+    <string name="appcontrol_list_filteroptions_label">Síuvalkostir</string>
+    <string name="appcontrol_list_sortmode_name_label">Nafn forrits</string>
+    <string name="appcontrol_list_sortmode_updated_label">Síðast uppfært</string>
+    <string name="appcontrol_list_sortmode_installed_label">Fyrst sett upp</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Pakkanafn</string>
+    <string name="appcontrol_list_sortmode_size_label">Stærð</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Skjátími</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Stærðir forrita eru áætlaðar af afkastasökum. Notaðu StorageAnalyzer verkfærið fyrir nákvæmari gögn.</string>
+    <string name="appcontrol_progress_uninstalling_app">Fjarlægi forrit</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d forrit var fjarlægt</item>
+        <item quantity="other">%d forrit voru fjarlægð</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Setja í safn</string>
+    <string name="appcontrol_archive_selection_action">Setja forrit í safn</string>
+    <string name="appcontrol_archive_description">Safna til að losa um pláss en halda forritagögnum til endurheimtar síðar.</string>
+    <string name="appcontrol_progress_archiving_app">Set forrit í safn…</string>
+    <string name="appcontrol_archive_confirmation_title">Staðfesta safnvistun</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Safnvista %d forrit?</item>
+        <item quantity="other">Safnvista %d forrit?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d forrit safnvistað</item>
+        <item quantity="other">%d forrit safnvistuð</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Endurheimta</string>
+    <string name="appcontrol_restore_selection_action">Endurheimta forrit</string>
+    <string name="appcontrol_restore_description">Endurheimta safnvistað forrit í fulluppsettan ástand. Forritagögn eru varðveitt.</string>
+    <string name="appcontrol_progress_restoring_app">Endurheimti forrit…</string>
+    <string name="appcontrol_restore_confirmation_title">Staðfesta endurheimt</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Endurheimta %d forrit?</item>
+        <item quantity="other">Endurheimta %d forrit?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d forrit endurheimt</item>
+        <item quantity="other">%d forrit endurheimtir</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">Stærð forrits</string>
+    <string name="appcontrol_app_sizes_apk_label">Forrit</string>
+    <string name="appcontrol_app_sizes_data_label">Gögn</string>
+    <string name="appcontrol_app_sizes_cache_label">Skyndiminni</string>
+    <string name="appcontrol_toggle_confirmation_title">Staðfesta aðgerð</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Breyta virk/óvirk stöðu %d forrits?</item>
+        <item quantity="other">Breyta virk/óvirk stöðum %d forrita?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d forriti var skipt</item>
+        <item quantity="other">%d forritum var skipt</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Ákvarða stærðir</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Fá grófan mat á stærð hvers forrits.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Ákvarða virkni</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Komast að því hvort forrit er (eða var nýlega) virkt.</string>
+    <string name="appcontrol_include_multiuser_label">Taka aðra notendur með</string>
+    <string name="appcontrol_include_multiuser_summary">Taka forrit frá öðrum notendaprófílum á þessu tæki.</string>
+    <string name="appcontrol_export_app_selection_action">Flytja forrit út</string>
+    <string name="appcontrol_export_title">Flytja forrit út</string>
+    <string name="appcontrol_export_description">Vista uppsetningarskrár þessa forrits. Þetta tekur ekki með forritagögn.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d forrit flutt út</item>
+        <item quantity="other">%d forrit flutt út</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">Flyti %s út</string>
+    <string name="appcontrol_share_list_action">Deila lista</string>
+    <string name="appcontrol_share_list_title">Forritin mín</string>
+    <string name="appcontrol_share_list_footer">Deilt í gegnum SD Maid SE</string>
+    <string name="appcontrol_force_stop_selection_action">Þvinga stopp á forritum</string>
+    <string name="appcontrol_force_stop_action">Þvinga stopp</string>
+    <string name="appcontrol_force_stop_confirm_title">Staðfesta þvingað stopp</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Þvinga stopp á %d forriti?</item>
+        <item quantity="other">Þvinga stopp á %d forritum?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d forrit var stöðvað</item>
+        <item quantity="other">%d forrit voru stöðvuð</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Undirbý sjálfvirkni í gegnum aðgengisþjónustu</string>
+    <string name="appcontrol_automation_title">AppControl sjálfvirkni</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Þvinga stopp…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Leita að \"Þvinga stopp\" hnapp (lykilorð: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Reyni að staðfesta fyrri aðgerð (lykilorð: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Set í safn…</string>
+    <string name="appcontrol_automation_progress_find_archive">Leita að \"Setja í safn\" hnapp (lykilorð: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Endurheimti…</string>
+    <string name="appcontrol_automation_progress_find_restore">Leita að \"Endurheimta\" hnapp (lykilorð: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Skjátími: %1$s síðan %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Síðast uppfært: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Uppsett: %s</string>
+
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="analyzer_explanation_short">Fáðu að vita hvað tekur pláss á tækinu þínu.</string>
+    <string name="analyzer_progress_scanning_device">Leita af geymslumiðlum</string>
+    <string name="analyzer_progress_scanning_storage">Skanna geymslu</string>
+    <string name="analyzer_progress_scanning_apps">Skanna forrit</string>
+    <string name="analyzer_progress_scanning_userfiles">Leita af notendaskrám</string>
+    <string name="analyzer_progress_scanning_system">Skanna kerfisgögn</string>
+    <string name="analyzer_device_storage_title">Geymsla tækis</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s laust</item>
+        <item quantity="other">%s laus</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s notað</item>
+        <item quantity="other">%s notuð</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Enginn beinn aðgangur tiltækur</string>
+    <string name="analyzer_content_create_swiper_session_action">Búa til Swiper lotu</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper lota búin til með %d hlut</item>
+        <item quantity="other">Swiper lota búin til með %d hlutum</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Aðalgeymsla</string>
+    <string name="analyzer_storage_type_primary_description">Aðalgeymsla tækisins þíns. Inniheldur innra SD kort, einkaforritageymslu og kerfisgögn.</string>
+    <string name="analyzer_storage_type_secondary_title">Aukageymsla</string>
+    <string name="analyzer_storage_type_secondary_description">Aukageymsla, venjulega fjarlæganlegt SD kort. Inniheldur miðlaskrár og gögn frá forritum sem styðja það.</string>
+    <string name="analyzer_storage_type_tertiary_title">Færanleg geymsla</string>
+    <string name="analyzer_storage_type_tertiary_description">Færanleg geymsla, t.d. minnislykill tengdur í USB tengið.</string>
+    <string name="analyzer_storage_content_title">Innihald geymslu</string>
+    <string name="analyzer_storage_content_type_app_label">Forrit</string>
+    <string name="analyzer_storage_content_type_app_description">Pláss sem uppsett forrit og gögn þeirra taka (þ.e. forritaskrár, gögn og skyndiminni).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Leyfi vantar</string>
+    <string name="analyzer_storage_content_type_media_label">Notendaskrár</string>
+    <string name="analyzer_storage_content_type_media_description">Teknar myndir, tekin myndbönd eða sótt gögn. Öll gögn sem tilheyra ekki ákveðnu forriti.</string>
+    <string name="analyzer_storage_content_type_system_label">Kerfisgögn</string>
+    <string name="analyzer_storage_content_type_system_description">Kerfisforrit og kerfisgögn. Forrit og gögn frá öðrum notendum, ef fleiri en einn reikningur er settur upp á þessu tæki.</string>
+    <string name="analyzer_storage_content_app_code_label">Kóði forrits</string>
+    <string name="analyzer_storage_content_app_code_description">Forritaskrár, söfn og auðlindir. Hægt er að losa um þetta pláss með því að fjarlægja forritið eða safnvista það.</string>
+    <string name="analyzer_storage_content_app_data_label">Forritagögn</string>
+    <string name="analyzer_storage_content_app_data_description">Gögn, stillingar og skyndiminni.</string>
+    <string name="analyzer_storage_content_app_media_label">Forritamiðlar</string>
+    <string name="analyzer_storage_content_app_media_description">Miðlaskrár frá þessu forriti, t.d. mótteknar WhatsApp myndir.</string>
+    <string name="analyzer_storage_content_app_extra_label">Aukaskrár forrita</string>
+    <string name="analyzer_storage_content_app_extra_description">Aukagögn sem þetta forrit hefur sett utan sjálfgefinna slóða, t.d. myndir eða niðurhal.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Þetta forrit tekur %1$s á \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Þetta forrit hefur verið safnvistað.</string>
+
+    <string name="data_area_public_app_data_official_label">Sjálfgefin opinber forritagögn</string>
+    <string name="data_area_public_app_assets_official_label">Sjálfgefnar opinberar auðlindir forrita</string>
+    <string name="data_area_public_storage_label">Opinber geymsla</string>
+
     <string name="automation_accessibility_service_description">Notendur með sérstakar aðgengisþarfir geta virkjað þessa þjónustu til að leyfa SD Maid að sjálfvirka verkefni sem annars myndu krefjast leiðinlegrar handvirkrar notendaviðrásar (t.d. eyðing skyndiminnis).\n\nDæmi: Ef þú gefur SD Maid fyrirmæli um að stöðva mörg forrit þá getur SD Maid notað þessa þjónustu til að opna stillingaskjá hvers forrits, finna \'Þvinga stopp\' hnappinn og ýta á hann.\n\nSD Maid mun alltaf sýna áberandi þegar þessi þjónusta er notuð og veita auðvelda leið fyrir notandann til að hætta við hvaða víxlverkun sem er strax.\n\nEngar aðgerðir verða framkvæmdar án fyrirfram samþykkis notanda. Hægt er að gera þessa þjónustu óvirka hvenær sem er án skaðlegra áhrifa.</string>
     <string name="automation_screenoverlay_explanation">SD Maid er í samskiptum við tækið þitt. Ekki er hægt að nota skjáinn á sama tíma. Bíddu þar til aðgerðin er lokið eða hættu við hana.</string>
+    <string name="automation_active_title">SD Maid er að vinna</string>
+    <string name="automation_error_no_consent_title">Villa í sjálfvirkni</string>
+    <string name="automation_error_no_consent_body">Aðgengisþjónusta er ekki uppsett. Ljúktu uppsetningunni og veittu samþykki.</string>
+    <string name="automation_error_not_enabled_title">Þjónusta er ekki virk</string>
+    <string name="automation_error_not_enabled_body">Aðgengisþjónustan er óvirk. Kveiktu á henni aftur.</string>
+    <string name="automation_error_not_running_title">Þjónusta er ekki í gangi</string>
+    <string name="automation_error_not_running_body">Aðgengisþjónustan er ekki í gangi. Prófaðu að endurræsa tækið.</string>
+    <string name="automation_error_screen_unavailable_title">Skjár ekki tiltækur</string>
+    <string name="automation_error_screen_unavailable_body">Aðgerðinni var hætt vegna þess að skjárinn varð ótiltækur (t.d. skjár slökktur eða lásskjár virkur).</string>
+    <string name="automation_error_compatibility_title">Samhæfni sjálfvirkni</string>
+    <string name="automation_error_compatibility_body">SD Maid gat ekki greint skipulag skjásins. Ef þetta gerist áfram gæti tungumálið þitt eða uppsetning ekki verið fullstudd. Athugaðu uppfærslur eða hafðu samband við mig svo ég geti lagað það.</string>
+    <string name="automation_error_timeout_title">Tímamörk sjálfvirkni</string>
+    <string name="automation_error_timeout_body">SD Maid lauk ekki öllum skrefum innan tímamarka. Ef þetta gerist áfram gæti þurft að aðlaga forritið að tækinu þínu. Athugaðu uppfærslur eða hafðu samband við mig svo ég geti lagað það.</string>
+    <string name="automation_error_overlay_title">Sjálfvirkniyfirlögn</string>
+    <string name="automation_error_overlay_body">SD Maid gat ekki sýnt sjálfvirkniyfirlögn. Athugaðu leyfi og prófaðu að endurræsa tækið.</string>
+
+    <string name="history_label">Saga</string>
+    <string name="history_description">Tímaröð yfir nýlegar aðgerðir og gögn sem urðu fyrir áhrifum.</string>
+
+    <string name="scheduler_label">Tímasetjari</string>
+    <string name="scheduler_execution_label">Næsta keyrsla (um það bil)</string>
     <string name="scheduler_execution_last_label">Síðasta keyrsla</string>
     <string name="scheduler_settings_label">Tímasetjari</string>
     <string name="scheduler_settings_summary">Stilltu stillingar tengdar tímasetjara.</string>
@@ -84,6 +897,52 @@
     <string name="scheduler_schedule_toggle_disabled">Tímaáætlun er óvirk</string>
     <string name="scheduler_edit_schedule_action">Breyta tímaáætlun</string>
     <string name="scheduler_schedule_time_label">Áætlaður tími</string>
+    <string name="scheduler_schedule_repeat_label">Endurtekningarbil í dögum</string>
+    <string name="scheduler_schedule_default_name">Sjálfgefin tímaáætlun</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s um %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Áætluð fyrir %s</string>
+    <string name="scheduler_schedule_last_at_x">Síðast keyrð %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Daglega</item>
+        <item quantity="other">Á %d daga fresti</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Endurtekningarbil</string>
+    <string name="scheduler_inaccurate_execution_hint">Áætlaðir keyrslutímar eru nálganir. Tímaáætlanir geta seinkað eða flýst ef það sparar rafhlöðu.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Engar virkar tímaáætlanir</string>
+    <string name="scheduler_setting_nopowersaving_title">Sleppa við litla rafhlöðu</string>
+    <string name="scheduler_setting_nopowersaving_summary">Ef tækið er í orkusparnaðarstillingu verður áætlaðri keyrslu sleppt.</string>
+    <string name="scheduler_setting_charging_title">Sleppa þegar ekki í hleðslu</string>
+    <string name="scheduler_setting_charging_summary">Ef tækið er ekki í hleðslu verður áætlaðri keyrslu sleppt.</string>
+    <string name="scheduler_setting_automation_title">Aðgengisþjónusta</string>
+    <string name="scheduler_setting_automation_summary">Taka aðgerðir sem nota aðgengisþjónustu með. Þetta krefst þess að SD Maid geti samskipt við skjáinn þinn (þ.e. hann er opinn) þegar verkefnin eru keyrð.</string>
+    <string name="scheduler_notification_channel_label">Tímasetjari</string>
+    <string name="scheduler_notification_title">Áætlað verkefni</string>
+    <string name="scheduler_notification_message">Keyri: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Tímasetjari kláraður</string>
+    <string name="scheduler_notification_result_success_message">Öll áætluð verkefni voru keyrð.</string>
+    <string name="scheduler_notification_result_failure_message">Sum áætluð verkefni mistókust eða lentu í villum. Prófaðu að keyra þau handvirkt.</string>
+    <string name="scheduler_commands_after_schedule_label">Eftir-áætlunar skipanir</string>
+    <string name="scheduler_commands_after_schedule_desc">Android skeljar skipanir sem verða keyrðar eftir áætlun.</string>
+    <string name="scheduler_battery_optimization_hint">Íhugaðu að slökkva á rafhlöðufínstillingu fyrir SD Maid ef þú átt í vandræðum með bakgrunnskeyrslu.</string>
+
+    <string name="updates_dashcard_title">Uppfærsla tiltæk</string>
+    <string name="updates_dashcard_body">Uppfærsla er tiltæk. Þú ert með %1$s og nýjasta útgáfan er %2$s.</string>
+
+    <string name="translation_encourage_title">Þýða SD Maid</string>
+    <string name="translation_encourage_body">SD Maid er þýtt af sjálfboðaliðum. Þýðing, yfirlestur eða prófarkalestur, hjálp þín er vel þegin!</string>
+    <string name="translation_translators_title">Þessi útgáfa er þýdd af</string>
+
+    <string name="motd_setting_enabled_label">Mikilvæg skilaboð</string>
+    <string name="motd_setting_enabled_explanation">Leyfa SD Maid að leita að mikilvægum skilaboðum frá þróunaraðila.</string>
+
+    <string name="updatecheck_setting_enabled_label">Uppfærsluleit</string>
+    <string name="updatecheck_setting_enabled_explanation">Leyfa SD Maid að leita að uppfærslum til að láta þig vita ef nýrri útgáfa er tiltæk.</string>
+    <string name="device_settings_category">Tæki</string>
+
+    <string name="beta_version_indicator_desc">Forupplýsingaútgáfur sýna borða á upphafsskjánum. Þær eru uppfærðar oftar, gætu haft fleiri eiginleika, en gætu einnig haft fleiri villur.</string>
+
+    <string name="review_app_review_action">Skrifa umsögn</string>
+    <string name="review_app_dismiss_action">Kannski seinna</string>
     <string name="review_app_body">Viltu skilja eftir umsögn um SD Maid? ❤️</string>
     <string name="stats_report_status_success">Tókst</string>
     <string name="stats_report_status_partial_success">Tókst að hluta</string>
@@ -96,6 +955,193 @@
     <string name="stats_settings_retention_paths_desc">Fjöldi daga til að geyma smáatriði um slóðir sem SD Maid hefur áhrif á.</string>
     <string name="stats_settings_reset_all_label">Endurstilla allt</string>
     <string name="stats_settings_reset_all_desc">Eyða öllum skýrslum og núllstilla allar tölfræði.</string>
+    <string name="stats_affected_paths_label">Slóðir sem urðu fyrir áhrifum</string>
+    <string name="stats_affected_pkgs_label">Forrit sem urðu fyrir áhrifum</string>
+
+    <string name="anniversary_card_title">Til hamingju með SD Maid afmælið ❤️</string>
+    <string name="anniversary_card_install_date">Með þér síðan %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Þegar %1$d ár saman. Takk fyrir að treysta SD Maid til að halda Android þínu hreinu og snyrtilegu. Losað pláss: %2$s</item>
+        <item quantity="other">%1$d ár sterk. Tækið þitt er áfram hreint og snyrtilegt með SD Maid. Losað pláss: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Deila SD Maid afmælinu þínu</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d ár með SD Maid — Losað pláss: %2$s. Held Android hreinu og snyrtilegu. #SDMaid\nPrófaðu: %3$s</item>
+        <item quantity="other">%1$d ár með SD Maid — Losað pláss: %2$s. Held Android hreinu og snyrtilegu. #SDMaid\nPrófaðu: %3$s</item>
+    </plurals>
+
+    <string name="stats_label">Saga</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s hefur verið losað.</item>
+        <item quantity="other">%s hafa verið losað.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">%s hlutur unninn síðan þú bauðst SD Maid á tækið þitt.</item>
+        <item quantity="other">%s hlutir unnir síðan þú bauðst SD Maid á tækið þitt.</item>
+    </plurals>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d dagur</item>
+        <item quantity="other">%d dagar</item>
+    </plurals>
+
+    <string name="picker_select_paths_title">Velja slóðir</string>
+    <string name="picker_selected_paths_title">Valdar slóðir</string>
+    <string name="picker_unsaved_confirmation_message">Fleygja breytingum?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d slóð valin</item>
+        <item quantity="other">%d slóðir valdar</item>
+    </plurals>
+    <string name="picker_home_action">Gagnasvæði</string>
+
+    <string name="area_type_sdcard_label">Opinber geymsla</string>
+    <string name="area_type_public_media_label">Opinberir forritamiðlar</string>
+    <string name="area_type_public_data_label">Opinber forritagögn</string>
+    <string name="area_type_public_obb_label">Opinberar auðlindir forrita</string>
+    <string name="area_type_private_data_label">Einkaforritagögn</string>
+    <string name="area_type_portable_label">Færanleg geymsla</string>
+
+    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_long">Stjórna uppsettum forritum</string>
+    <string name="shortcut_onetap_short">Skanna + Eyða</string>
+    <string name="shortcut_onetap_long">Skanna og eyða í einni aðgerð</string>
+
+    <string name="shortcuts_settings_category">Flýtileiðir</string>
+    <string name="shortcuts_onetap_enabled_title">Flýtileið fyrir eina snertingu</string>
+    <string name="shortcuts_onetap_enabled_summary">Sýna \"Skanna + Eyða\" flýtileið þegar forritatákninu er haldið inni. Notar sömu verkfæri og einn-snerting stjórnborð.</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Strjúktu í gegnum skrár til að ákveða hvað á að halda eða eyða.</string>
+    <string name="swiper_dashcard_description">Farðu handvirkt yfir skrár í ákveðnum möppum. Strjúktu til að ákveða hvað á að halda eða eyða.</string>
+    <string name="swiper_start_action">Byrja að strjúka</string>
+    <string name="swiper_continue_action">Halda áfram með lotu</string>
+    <string name="swiper_sessions_description">Sumar skrár þarfnast mannlegrar ákvörðunar. Strjúktu í gegnum hluti og veldu hvað á að halda eða eyða. Slepptu öllu sem þú ert ekki viss um. Þetta verkfæri gerir þér kleift að fara handvirkt yfir ákveðnar möppur, og ekkert er fjarlægt fyrr en þú staðfestir.</string>
+    <string name="swiper_select_folders_action">Veldu möppur</string>
+    <string name="swiper_scanning_title">Skanna…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d hlutur fannst</item>
+        <item quantity="other">%d hlutir fundust</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d hlut eytt</item>
+        <item quantity="other">%d hlutum eytt</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d hlutur mistókst</item>
+        <item quantity="other">%d hlutir mistókust</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d af %2$d</string>
+    <string name="swiper_keep_action">Halda</string>
+    <string name="swiper_skip_action">Sleppa</string>
+    <string name="swiper_review_action">Yfirfara</string>
+    <string name="swiper_status_title">Yfirfara ákvarðanir</string>
+    <string name="swiper_status_action_keep_selected">Halda völdum</string>
+    <string name="swiper_status_action_delete_selected">Eyða völdum</string>
+    <string name="swiper_status_action_reset_selected">Endurstilla val</string>
+    <string name="swiper_decision_undecided">Óákveðið</string>
+    <string name="swiper_retry_action">Reyna aftur</string>
+    <string name="swiper_delete_confirmation_title">Eyða skrám?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Þetta mun eyða %1$d skrá varanlega (%2$s). Ekki er hægt að afturkalla þessa aðgerð.</item>
+        <item quantity="other">Þetta mun eyða %1$d skrám varanlega (%2$s). Ekki er hægt að afturkalla þessa aðgerð.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d óákveðinn hlutur verður eftir til yfirferðar síðar.</item>
+        <item quantity="other">%d óákveðnir hlutir verða eftir til yfirferðar síðar.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Eyða %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Skipta um strjúkuáttir</string>
+    <string name="swiper_settings_swap_directions_summary">Strjúktu til vinstri til að halda, til hægri til að eyða.</string>
+    <string name="swiper_settings_show_details_title">Sýna skráarupplýsingar</string>
+    <string name="swiper_settings_show_details_summary">Birta skráarnafn, stærð og dagsetningu á strjúkuskjánum.</string>
+    <string name="swiper_settings_haptic_feedback_title">Titringur endurgjöf</string>
+    <string name="swiper_settings_haptic_feedback_summary">Titra þegar halda eða eyða ákvörðunum er tekið.</string>
+    <string name="swiper_discard_session_confirmation_title">Fleygja lotu?</string>
+    <string name="swiper_discard_session_confirmation_message">Allar ákvarðanir glatast. Ertu viss?</string>
+    <string name="swiper_no_preview_available">Engin forskoðun tiltæk</string>
+
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Halda áfram með lotu frá %1$d degi síðan (%2$d%% lokið)</item>
+        <item quantity="other">Halda áfram með lotu frá %1$d dögum síðan (%2$d%% lokið)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d lota</item>
+        <item quantity="other">%d lotur</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d óákveðinn hlutur</item>
+        <item quantity="other">%d óákveðnir hlutir</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Búin til %1$s, síðasta virkni %2$s</string>
+    <string name="swiper_session_remove_action">Fjarlægja lotu</string>
+    <string name="swiper_sessions_empty_hint">Ýttu á + til að velja möppu og byrja að strjúka</string>
+    <string name="swiper_sessions_upgrade_body">Uppfærðu til að fjarlægja þessar takmarkanir og styðja þróun. Ókeypis útgáfan er takmörkuð við:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d skrá í hverri lotu</item>
+        <item quantity="other">%d skrár í hverri lotu</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d lota</item>
+        <item quantity="other">%d lotur</item>
+    </plurals>
+    <string name="swiper_session_default_label">Lota #%d</string>
+    <string name="swiper_session_rename_title">Endurnefna lotu</string>
+    <string name="swiper_session_rename_hint">Sláðu inn nafn á þessari lotu</string>
+    <string name="swiper_sessions_current_sessions">Núverandi lotur</string>
+    <string name="swiper_session_paths_label">Slóðir</string>
+    <string name="swiper_session_status_label">Staða</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d til að halda</item>
+        <item quantity="other">%d til að halda</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d til að eyða</item>
+        <item quantity="other">%d til að eyða</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d óákveðinn</item>
+        <item quantity="other">%d óákveðnir</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d þegar haldið</item>
+        <item quantity="other">%d þegar haldið</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d þegar eytt</item>
+        <item quantity="other">%d þegar eytt</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d haldið</item>
+        <item quantity="other">%d haldið</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d eytt</item>
+        <item quantity="other">%d eytt</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Útiloka \"%1$s\" frá Swiper skönnun?</string>
+
+    <string name="swiper_sessions_header_title">Tilbúin til að hreinsa?</string>
+    <string name="swiper_sessions_suggestions_label">Prófaðu að byrja á:</string>
+    <string name="swiper_sessions_suggestion_downloads">Niðurhalsmappa</string>
+    <string name="swiper_sessions_suggestion_screenshots">Skjámyndir</string>
+    <string name="swiper_sessions_suggestion_camera">Myndavélarúlla</string>
+
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Halda!</string>
+    <string name="swiper_stamp_keep_2">Flott!</string>
+    <string name="swiper_stamp_keep_3">Já!</string>
+    <string name="swiper_stamp_keep_4">Vista!</string>
+    <string name="swiper_stamp_delete_1">Nei!</string>
+    <string name="swiper_stamp_delete_2">Bless!</string>
+    <string name="swiper_stamp_delete_3">Rusl!</string>
+    <string name="swiper_stamp_delete_4">Eyða!</string>
+    <string name="swiper_stamp_skip_1">Sleppa!</string>
+    <string name="swiper_stamp_skip_2">Svo sem!</string>
+    <string name="swiper_stamp_skip_3">Seinna!</string>
+    <string name="swiper_stamp_skip_4">Kannski!</string>
+    <string name="swiper_stamp_undo_1">Afturkalla!</string>
+    <string name="swiper_stamp_undo_2">Til baka!</string>
+    <string name="swiper_stamp_undo_3">Úps!</string>
+    <string name="swiper_stamp_undo_4">Bíddu!</string>
 </resources>

@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro අවශ්‍යයි</string>
+    <string name="upgrades_dashcard_title">SD Maid SE උත්ශ්‍රේණි කරන්න</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro වැඩි ප්‍රතිඵල, වැඩි විශේෂාංග සහ බල පරිශීලකයින් සඳහා විකල්ප ලබා දෙයි.</string>
     <string name="upgrades_dashcard_upgrade_action">උත්ශ්‍රේණි කරන්න</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play ලබා ගත නොහැක</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid හට Google Play වෙත සම්බන්ධ විය නොහැක. Google Play ස්ථාපනය කර යාවත්කාලීන කර තිබේද? ඔබගේ Google ගිණුම පුරනය වී තිබේද? Google Play යෙදුමේ හැඹිලිය මකා ඔබගේ උපාංගය නැවත ආරම්භ කිරීමට උත්සාහ කරන්න.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play ගැටලුව</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play සමඟ ගැටලුවක් ඇති විය. කරුණාකර පසුව නැවත උත්සාහ කරන්න හෝ ඔබගේ උපාංගය නැවත ආරම්භ කරන්න.\n\nවිස්තර: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play දෝෂයක්</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play අභ්‍යන්තර දෝෂයක් ඇති විය. කරුණාකර පහත සඳහන් දේ උත්සාහ කරන්න:\n\n• ඔබගේ උපාංගය නැවත ආරම්භ කරන්න\n• Google Play Store හැඹිලිය මකන්න\n• පසුව නැවත උත්සාහ කරන්න</string>
+    <string name="upgrades_gplay_network_error_title">සම්බන්ධතා දෝෂය</string>
+    <string name="upgrades_gplay_network_error_description">Google Play වෙත සම්බන්ධ විය නොහැක. කරුණාකර ඔබගේ අන්තර්ජාල සම්බන්ධතාවය පරීක්ෂා කර නැවත උත්සාහ කරන්න.</string>
+    <string name="upgrades_gplay_already_owned_error_title">දැනටමත් මිලදී ගෙන ඇත</string>
+    <string name="upgrades_gplay_already_owned_error_description">ඔබගේ මිලදී ගැනීම ප්‍රතිසාධනය කිරීමට \"මිලදී ගැනීම ප්‍රතිසාධනය කරන්න\" විකල්පය භාවිතා කරන්න. ගැටලුව දිගටම පවතී නම්, Google Play හැඹිලිය මකා ඔබගේ උපාංගය නැවත ආරම්භ කිරීමට උත්සාහ කරන්න.</string>
     <string name="upgrades_no_purchases_found_check_account">කිසිදු මිලදී ගැනීමක් හමු නොවිණි. ඔබ නිවැරදි ගිණුම භාවිතා කරන්නේද?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ලබා ගන්න</string>
     <string name="upgrade_screen_preamble">SD Maid හි දැන්වීම් නැති අතර පරිශීලක දත්ත විකුණන්නේ නැත. මගේ වැඩ ඔබ විසින් මූල්‍යාධාර සපයයි ❤️.</string>

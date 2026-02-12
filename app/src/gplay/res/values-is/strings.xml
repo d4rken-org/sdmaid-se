@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Krefst SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Uppfæra SD Maid SE</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro býður betri niðurstöður, fleiri eiginleika og valkosti fyrir vanareynda notendur.</string>
     <string name="upgrades_dashcard_upgrade_action">Uppfæra</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play er ekki tiltækt</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid getur ekki tengst Google Play. Er Google Play uppsett og uppfært? Er Google reikningurinn þinn skráður inn? Reyndu að hreinsa skyndiminni Google Play appsins og endurræstu tækið þitt.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play vandamál</string>
+    <string name="upgrades_gplay_billing_error_description">Vandamál kom upp með Google Play. Reyndu aftur síðar eða endurræstu tækið þitt.\n\nNánari upplýsingar: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play villa</string>
+    <string name="upgrades_gplay_internal_error_description">Innri Google Play villa kom upp. Reyndu eftirfarandi:\n\n• Endurræstu tækið þitt\n• Hreinsaðu skyndiminni Google Play Store\n• Reyndu aftur síðar</string>
+    <string name="upgrades_gplay_network_error_title">Tengingarvilla</string>
+    <string name="upgrades_gplay_network_error_description">Ekki er hægt að tengjast Google Play. Athugaðu nettenginguna þína og reyndu aftur.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Þegar keypt</string>
+    <string name="upgrades_gplay_already_owned_error_description">Notaðu \"Endurheimta kaup\" valkostinn til að endurheimta kaupin þín. Ef vandamálið er viðvarandi, reyndu að hreinsa Google Play skyndiminni og endurræsa tækið þitt.</string>
     <string name="upgrades_no_purchases_found_check_account">Engin kaup fundust. Ertu að nota réttan reikning?</string>
     <string name="upgrade_screen_title">Fáðu SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid hefur engar auglýsingar og selur ekki notendagögn. Vinna mín er fjármögnuð af þér ❤️.</string>

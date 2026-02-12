@@ -606,6 +606,7 @@
     <string name="squeezer_history_clear_message">Гэта дазволіць зноў сціснуць раней сціснутыя выявы. Самі выявы застануцца нязменнымі.</string>
     <string name="squeezer_onboarding_title">Аб сцісканні выяў</string>
     <string name="squeezer_onboarding_message">Сцісканне выявы памяншае памер файла, выдаляючы візуальныя дэталі. Гэты працэс незваротны — першапачатковую якасць аднавіць немагчыма.\n\nВось папярэдні прагляд таго, як будуць выглядаць вашы выявы:</string>
+    <string name="squeezer_compare_action">Паглядзець параўнанне</string>
     <string name="squeezer_no_example_found">У выбраных шляхах выявы не знойдзены.</string>
     <string name="squeezer_result_empty_message">Не знойдзена выяў, якія можна сціснуць.</string>
     <string name="squeezer_setup_warning">Сцісканне назаўсёды зніжае якасць выявы, каб сэканоміць месца. Гэта дзеянне немагчыма скасаваць. Уважліва праверце налады перад пачаткам працы.</string>
@@ -958,6 +959,8 @@
     <string name="shortcuts_settings_category">Ярлыкі</string>
     <string name="shortcuts_onetap_enabled_title">Хуткі ярлык</string>
     <string name="shortcuts_onetap_enabled_summary">Паказваць ярлык \"Сканіраванне + выдаленне\" пры доўгім націсканні на значок праграмы. Выкарыстоўвае тыя ж інструменты, што і хуткая панэль кіравання.</string>
+    <string name="swiper_dashcard_description">Прагледзьце файлы ў пэўных папках уручную. Правядзіце пальцам, каб вырашыць, што пакінуць або выдаліць.</string>
+    <string name="swiper_sessions_description">Некаторыя файлы патрабуюць рашэння чалавека. Правядзіце пальцам па элементах і абярыце, што пакінуць або выдаліць. Прапускайце тое, у чым не ўпэўненыя. Гэты інструмент дазваляе ўручную праглядаць пэўныя папкі, і нічога не выдаляецца, пакуль вы не пацвердзіце.</string>
     <string name="swiper_status_title">Агляд рашэнняў</string>
     <string name="swiper_settings_haptic_feedback_summary">Вібрацыя пры прыняцці або выдаленні рашэнняў.</string>
     <string name="swiper_discard_session_confirmation_message">Усе рашэнні будуць страчаныя. Вы ўпэўнены?</string>

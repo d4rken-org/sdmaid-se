@@ -700,6 +700,365 @@
     <string name="area_type_public_obb_label">پبلک ایپ ریسورسز</string>
     <string name="area_type_private_data_label">پرائیویٹ ایپ ڈیٹا</string>
     <string name="area_type_portable_label">پورٹابل اسٹوریج</string>
+    <string name="dashboard_card_config_title">ڈیش بورڈ کارڈز</string>
+    <string name="dashboard_card_config_desc">دکھائے جانے والے کارڈز اور ان کی ترتیب مقرر کریں</string>
+    <string name="dashboard_card_config_header_title">ترتیب بدلنے کے لیے گھسیٹیں، دکھانے/چھپانے کے لیے ٹوگل کریں</string>
+    <string name="debug_debuglog_screen_title">ڈیبگ لاگ</string>
+    <string name="debug_debuglog_screen_discard_action">رد کریں</string>
+    <string name="debug_debuglog_screen_session_path_label">سیشن کا پاتھ</string>
+    <string name="debug_debuglog_screen_log_files_label">لاگ فائلز</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d فائل تیار (%2$s)</item>
+        <item quantity="other">%1$d فائلز تیار (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_folder_label">ڈیبگ لاگ فولڈر</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d فائل %2$s استعمال کر رہی ہے</item>
+        <item quantity="other">%1$d فائلز %2$s استعمال کر رہی ہیں</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">کوئی ڈیبگ لاگ محفوظ نہیں</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">تمام ڈیبگ لاگز حذف کریں؟</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">یہ تمام محفوظ ڈیبگ لاگ سیشنز کو مستقل طور پر حذف کر دے گا۔ یہ عمل واپس نہیں ہو سکتا۔</string>
+    <string name="debug_card_title">ڈیبگ موڈ فعال ہے</string>
+    <string name="debug_card_trace_mode_label">ٹریس موڈ فعال کریں</string>
+    <string name="debug_card_dryrun_mode_label">ڈرائی رن موڈ (حذف غیر فعال)</string>
+    <string name="debug_card_areas_reload_action">ڈیٹا ایریاز دوبارہ لوڈ کریں</string>
+    <string name="debug_card_pkgs_reload_action">ایپس دوبارہ لوڈ کریں</string>
+    <string name="debug_card_root_test_action">روٹ ٹیسٹ</string>
+    <string name="debug_card_shizuku_test_action">Shizuku ٹیسٹ</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART پروفائلز</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART پروفائلز Android کی جانب سے ایپ کی کارکردگی بہتر بنانے کے لیے استعمال ہوتے ہیں۔</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">انسٹال شدہ ایپ ورژنز کی بنیاد پر غیر ضروری سیٹ اپ فائلز۔</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">ایک ہی ورژن شامل کریں</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">انسٹال شدہ ورژن سے ملتی APK فائلز کو بھی نشانہ بنائیں۔ صرف پرانے ورژن ہٹانے کے لیے غیر فعال کریں۔</string>
+    <string name="systemcleaner_customfilter_editor_size_label">سائز کی پابندیاں</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">کم از کم سائز</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">زیادہ سے زیادہ سائز</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">فائل سائز کی بنیاد پر نتائج محدود کریں۔ کسی بھی سائز سے ملاپ کے لیے غیر مقرر چھوڑیں۔</string>
+    <string name="systemcleaner_customfilter_editor_age_label">عمر کی پابندیاں</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">کم از کم عمر</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">زیادہ سے زیادہ عمر</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">فائل کی عمر (آخری ترمیم کا وقت) کی بنیاد پر نتائج محدود کریں۔ کسی بھی عمر سے ملاپ کے لیے غیر مقرر چھوڑیں۔</string>
+    <string name="appcleaner_filter_shortcutservice_label">ایپ شارٹ کٹ آئیکنز</string>
+    <string name="appcleaner_filter_shortcutservice_summary">ایپ شارٹ کٹس اور شیئر مینوز کے لیے کیشڈ آئیکنز۔</string>
+    <string name="appcleaner_forcestop_before_clearing_label">صاف کرنے سے پہلے زبردستی بند کریں</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">کیش صاف کرنے سے پہلے ایپس کو زبردستی بند کریں۔ یہ بعض ایپس کا کیش صاف کرنے میں مدد کر سکتا ہے، لیکن ایپس غلط برتاؤ کر سکتی ہیں اور دستی ری سٹارٹ کی ضرورت ہو سکتی ہے۔</string>
+    <string name="appcleaner_progress_force_stopping">ایپس زبردستی بند ہو رہی ہیں…</string>
+    <string name="deduplicator_keep_prefer_paths_title">ترجیحاً یہاں رکھیں</string>
+    <string name="deduplicator_keep_prefer_paths_summary">فیصلہ کرتے وقت کہ کون سی ڈپلیکیٹ رکھنی ہے، ان مقامات میں فائلیں رکھنے کو ترجیح دیں۔</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">کوئی مقام ترتیب نہیں دیا گیا</string>
+    <string name="deduplicator_detection_method_phash_summary">مواد کی خصوصیات کا تجزیہ کر کے اور ادراکی ہیش اقدار کا موازنہ کر کے ملتی جلتی فائلیں تلاش کریں۔ ⚠️ مماثلت پر مبنی شناخت میں غلط مثبت نتائج شامل ہو سکتے ہیں جن کی دستی تصدیق ضروری ہے۔</string>
+    <string name="deduplicator_arbiter_title">حذف کی حکمت عملی</string>
+    <string name="deduplicator_arbiter_summary">ترتیب دیں کہ کون سی فائلیں رکھی جائیں اور کون سی حذف ہوں۔</string>
+    <string name="deduplicator_arbiter_explanation">ڈپلیکیٹس حذف کرتے وقت، SD Maid ہر معیار کو ترتیب سے جانچ کر فیصلہ کرتا ہے کہ کون سی فائل رکھنی ہے۔ پہلا معیار جو واضح فاتح پیدا کرے نتیجہ طے کرتا ہے۔ ترتیب بدلنے کے لیے گھسیٹیں، موڈ تبدیل کرنے کے لیے ٹیپ کریں۔</string>
+    <string name="deduplicator_arbiter_select_mode_title">موڈ منتخب کریں</string>
+    <string name="deduplicator_arbiter_configure_paths_action">پاتھز ترتیب دیں…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">ڈپلیکیٹ قسم</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">عین مطابق نتائج کو ملتی جلتی فائلوں پر ترجیح دیں۔</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">میڈیا انڈیکسنگ</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">غور کریں کہ آیا فائلیں میڈیا پرووائیڈر کے ذریعے انڈیکس ہیں۔</string>
+    <string name="deduplicator_arbiter_criterium_location_title">اسٹوریج کا مقام</string>
+    <string name="deduplicator_arbiter_criterium_location_description">اندرونی یا بیرونی اسٹوریج پر فائلوں کو ترجیح دیں۔</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">فولڈر کی گہرائی</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">کم گہرے یا زیادہ گہرے فولڈر ڈھانچے میں فائلوں کو ترجیح دیں۔</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">ترمیم کی تاریخ</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">ترمیم کے وقت کی بنیاد پر پرانی یا نئی فائلوں کو ترجیح دیں۔</string>
+    <string name="deduplicator_arbiter_criterium_size_title">فائل سائز</string>
+    <string name="deduplicator_arbiter_criterium_size_description">جب سائز مختلف ہوں تو بڑی یا چھوٹی فائلوں کو ترجیح دیں۔</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">ترجیحی مقامات</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">اپنے ترتیب شدہ ترجیحی مقامات میں فائلیں رکھیں۔</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">عین مطابق نتائج کو ترجیح دیں</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">ملتی جلتی فائلوں کو ترجیح دیں</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">انڈیکس شدہ فائلوں کو ترجیح دیں</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">غیر انڈیکس شدہ فائلوں کو ترجیح دیں</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">اندرونی اسٹوریج کو ترجیح دیں</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">بیرونی اسٹوریج کو ترجیح دیں</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">کم گہرے فولڈرز کو ترجیح دیں</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">زیادہ گہرے فولڈرز کو ترجیح دیں</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">پرانی فائلوں کو ترجیح دیں</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">نئی فائلوں کو ترجیح دیں</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">بڑی فائلوں کو ترجیح دیں</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">چھوٹی فائلوں کو ترجیح دیں</string>
+    <string name="deduplicator_view_mode_groups_label">گروپس</string>
+    <string name="deduplicator_view_mode_directories_label">فولڈرز</string>
+    <string name="squeezer_tool_name">میڈیا سکویز</string>
+    <string name="squeezer_explanation_short">اسٹوریج بچانے کے لیے تصاویر کمپریس کریں۔</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d تصویر ملی</item>
+        <item quantity="other">%d تصاویر ملیں</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s بچائی جا سکتی ہے</item>
+        <item quantity="other">~%s بچائی جا سکتی ہیں</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d تصویر کمپریس ہوئی</item>
+        <item quantity="other">%d تصاویر کمپریس ہوئیں</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d تصویر منتخب</item>
+        <item quantity="other">%d تصاویر منتخب</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">تلاش کے مقامات</string>
+    <string name="squeezer_search_locations_default_summary">کیمرہ فولڈرز (پہلے سے طے شدہ)</string>
+    <string name="squeezer_min_size_title">کم از کم فائل سائز</string>
+    <string name="squeezer_min_size_description">اس سائز سے چھوٹی تصاویر چھوڑ دیں۔</string>
+    <string name="squeezer_min_age_title">کم از کم فائل عمر</string>
+    <string name="squeezer_min_age_description">صرف اس عمر سے پرانی تصاویر شامل کریں۔</string>
+    <string name="squeezer_compression_settings_label">کمپریشن ترتیبات</string>
+    <string name="squeezer_quality_label">معیار</string>
+    <string name="squeezer_quality_title">کمپریشن معیار</string>
+    <string name="squeezer_quality_description">کم معیار کا مطلب چھوٹی فائل سائز لیکن کم تصویر کوالٹی ہے۔</string>
+    <string name="squeezer_quality_example_format">مثال: %1$s تصویر → %3$d%% معیار پر ~%2$s بچت</string>
+    <string name="squeezer_quality_warning_low">کم معیار میں نظر آنے والی خرابیاں ہو سکتی ہیں۔</string>
+    <string name="squeezer_quality_warning_high">بہت زیادہ معیار کم جگہ بچاتا ہے۔</string>
+    <string name="squeezer_types_category_label">تصویر کی اقسام</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">JPEG تصاویر (.jpg, .jpeg) شامل کریں۔</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">WebP تصاویر (.webp) شامل کریں۔</string>
+    <string name="squeezer_skip_compressed_title">پہلے سے کمپریس شدہ چھوڑیں</string>
+    <string name="squeezer_skip_compressed_description">وہ تصاویر چھوڑیں جو پہلے سے SD Maid نے کمپریس کی ہیں۔</string>
+    <string name="squeezer_exif_marker_title">EXIF مارکر لکھیں</string>
+    <string name="squeezer_exif_marker_description">تصویر کے EXIF یوزر کمنٹ فیلڈ میں مارکر شامل کریں تاکہ کمپریشن ہسٹری صاف ہونے پر بھی دوبارہ کمپریشن روکی جائے۔</string>
+    <string name="squeezer_estimated_savings_format">~%s بچت</string>
+    <string name="squeezer_no_savings_expected">محدود بچت</string>
+    <string name="squeezer_current_size_format">سائز: %s</string>
+    <string name="squeezer_compress_action">کمپریس کریں</string>
+    <string name="squeezer_compress_all_action">سب کمپریس کریں</string>
+    <string name="squeezer_preview_dialog_title">کمپریشن کی تصدیق</string>
+    <string name="squeezer_preview_total_size">کل سائز</string>
+    <string name="squeezer_preview_estimated_savings">تخمینی بچت</string>
+    <string name="squeezer_compress_confirmation_title">تصاویر کمپریس کریں؟</string>
+    <string name="squeezer_compress_confirmation_message">یہ اصل تصاویر کو کمپریس شدہ ورژن سے بدل دے گا۔ یہ عمل واپس نہیں ہو سکتا۔</string>
+    <string name="squeezer_history_title">کمپریشن ہسٹری</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d آئٹم (%2$s)</item>
+        <item quantity="other">%1$d آئٹمز (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">کوئی کمپریشن ہسٹری نہیں</string>
+    <string name="squeezer_history_clear_title">کمپریشن ہسٹری صاف کریں</string>
+    <string name="squeezer_history_clear_message">یہ پہلے سے کمپریس شدہ تصاویر کو دوبارہ کمپریس ہونے دے گا۔ تصاویر خود متاثر نہیں ہوتیں۔</string>
+    <string name="squeezer_onboarding_title">تصویر کمپریشن کے بارے میں</string>
+    <string name="squeezer_onboarding_message">تصویر کمپریشن بصری تفصیلات ہٹا کر فائل سائز کم کرتی ہے۔ یہ عمل ناقابل واپسی ہے - اصل معیار بحال نہیں ہو سکتا۔\n\nآپ کی تصاویر کیسی نظر آئیں گی اس کا جائزہ:</string>
+    <string name="squeezer_onboarding_original_label">اصل</string>
+    <string name="squeezer_onboarding_compressed_label">کمپریشن کے بعد</string>
+    <string name="squeezer_onboarding_quality_label">معیار: %d%%</string>
+    <string name="squeezer_onboarding_got_it">سمجھ آ گئی</string>
+    <string name="squeezer_compare_action">موازنہ دیکھیں</string>
+    <string name="squeezer_no_example_found">منتخب پاتھز میں کوئی تصاویر نہیں ملیں۔</string>
+    <string name="squeezer_result_empty_message">کوئی کمپریس ہونے والی تصاویر نہیں ملیں۔</string>
+    <string name="squeezer_setup_warning">کمپریشن تصویر کے معیار کو مستقل طور پر کم کر کے اسٹوریج بچاتی ہے۔ یہ واپس نہیں ہو سکتا۔ شروع کرنے سے پہلے اپنی ترتیبات کا بغور جائزہ لیں۔</string>
+    <string name="squeezer_setup_explanation">میڈیا سکویز اسٹوریج خالی کرنے کے لیے تصاویر کا فائل سائز کم کرتا ہے۔ یہ تصویر کا معیار مستقل طور پر کم کرتا ہے اور واپس نہیں ہو سکتا۔ شروع کرنے سے پہلے اپنی ترتیبات کا بغور جائزہ لیں۔</string>
+    <string name="squeezer_setup_paths_title">تلاش کے مقامات</string>
+    <string name="squeezer_setup_paths_default">تلاش کرنے کے لیے فولڈرز منتخب کریں</string>
+    <string name="squeezer_setup_quality_title">کمپریشن معیار</string>
+    <string name="squeezer_setup_age_title">کم از کم عمر</string>
+    <string name="squeezer_setup_age_none">کوئی حد نہیں (تمام فائلیں شامل کریں)</string>
+    <string name="squeezer_setup_start_action">اسکین شروع کریں</string>
+    <string name="squeezer_quality_hint_very_low">40% سے کم معیار ناقابل استعمال تصاویر بنا سکتا ہے۔</string>
+    <string name="squeezer_quality_hint_low">کم معیار زیادہ جگہ بچاتا ہے لیکن نظر آنے والی خرابیاں ہو سکتی ہیں۔</string>
+    <string name="squeezer_quality_hint_high">بہت زیادہ معیار کم جگہ بچاتا ہے۔</string>
+    <string name="squeezer_quality_hint_normal">معیار اور جگہ کی بچت میں توازن۔</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">کم از کم %d دن پرانی</item>
+        <item quantity="other">کم از کم %d دن پرانی</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG فائلوں کے لیے تخمینی ~%d%% بچت</string>
+    <string name="appcontrol_app_forcestop_description">ایپ بند کریں۔ اسے خود شروع ہونے سے روکیں جب تک آپ اسے کھولیں یا ڈیوائس ریبوٹ نہ ہو۔</string>
+    <string name="appcontrol_tag_debug">ڈیبگ</string>
+    <string name="appcontrol_archive_action">آرکائیو</string>
+    <string name="appcontrol_archive_selection_action">ایپس آرکائیو کریں</string>
+    <string name="appcontrol_archive_description">بعد میں بحالی کے لیے ایپ ڈیٹا رکھتے ہوئے جگہ خالی کرنے کے لیے آرکائیو کریں۔</string>
+    <string name="appcontrol_progress_archiving_app">ایپ آرکائیو ہو رہی ہے…</string>
+    <string name="appcontrol_archive_confirmation_title">آرکائیو کی تصدیق</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d ایپ آرکائیو کریں؟</item>
+        <item quantity="other">%d ایپس آرکائیو کریں؟</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d ایپ آرکائیو ہوئی</item>
+        <item quantity="other">%d ایپس آرکائیو ہوئیں</item>
+    </plurals>
+    <string name="appcontrol_restore_action">بحال کریں</string>
+    <string name="appcontrol_restore_selection_action">ایپس بحال کریں</string>
+    <string name="appcontrol_restore_description">آرکائیو شدہ ایپ کو مکمل انسٹال حالت میں بحال کریں۔ ایپ ڈیٹا محفوظ رہتا ہے۔</string>
+    <string name="appcontrol_progress_restoring_app">ایپ بحال ہو رہی ہے…</string>
+    <string name="appcontrol_restore_confirmation_title">بحالی کی تصدیق</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d ایپ بحال کریں؟</item>
+        <item quantity="other">%d ایپس بحال کریں؟</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d ایپ بحال ہوئی</item>
+        <item quantity="other">%d ایپس بحال ہوئیں</item>
+    </plurals>
+    <string name="appcontrol_include_multiuser_label">دوسرے صارفین شامل کریں</string>
+    <string name="appcontrol_include_multiuser_summary">اس ڈیوائس پر دوسرے صارف پروفائلز کی ایپس شامل کریں۔</string>
+    <string name="appcontrol_export_description">اس ایپ کی انسٹالیشن فائلیں محفوظ کریں۔ اس میں ایپ ڈیٹا شامل نہیں ہے۔</string>
+    <string name="appcontrol_share_list_action">فہرست شیئر کریں</string>
+    <string name="appcontrol_share_list_title">میری ایپس</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE کے ذریعے شیئر کیا گیا</string>
+    <string name="appcontrol_automation_subtitle_archiving">آرکائیو ہو رہا ہے…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"آرکائیو\" بٹن تلاش کر رہا ہے (کلیدی الفاظ: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">بحال ہو رہا ہے…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"بحال\" بٹن تلاش کر رہا ہے (کلیدی الفاظ: %s)</string>
+    <string name="appcontrol_item_installedat_x_label">انسٹال کی تاریخ: %s</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper سیشن بنائیں</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">%d آئٹم کے ساتھ Swiper سیشن بنایا گیا</item>
+        <item quantity="other">%d آئٹمز کے ساتھ Swiper سیشن بنایا گیا</item>
+    </plurals>
+    <string name="exclusion_editor_path_change_action">پاتھ تبدیل کرنے کے لیے ٹیپ کریں</string>
+    <string name="anniversary_card_title">SD Maid کی سالگرہ مبارک ❤️</string>
+    <string name="anniversary_card_install_date">%s سے آپ کے ساتھ</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">پہلے سے %1$d سال ساتھ۔ اپنے Android کو صاف ستھرا رکھنے کے لیے SD Maid پر بھروسہ کرنے کا شکریہ۔ خالی کی گئی جگہ: %2$s</item>
+        <item quantity="other">%1$d سال مضبوط۔ آپ کا ڈیوائس SD Maid کے ساتھ صاف ستھرا رہتا ہے۔ خالی کی گئی جگہ: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">اپنی SD Maid سالگرہ شیئر کریں</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">SD Maid کے ساتھ %1$d سال — خالی کی گئی جگہ: %2$s۔ آپ کے Android کو صاف ستھرا رکھتے ہوئے۔ #SDMaid\nآزمائیں: %3$s</item>
+        <item quantity="other">SD Maid کے ساتھ %1$d سال — خالی کی گئی جگہ: %2$s۔ آپ کے Android کو صاف ستھرا رکھتے ہوئے۔ #SDMaid\nآزمائیں: %3$s</item>
+    </plurals>
+    <string name="shortcut_appcontrol_short">ایپ کنٹرول</string>
+    <string name="shortcut_appcontrol_long">انسٹال شدہ ایپس کا انتظام</string>
+    <string name="shortcut_onetap_short">اسکین + حذف</string>
+    <string name="shortcut_onetap_long">ایک عمل میں اسکین اور حذف</string>
+    <string name="shortcuts_settings_category">شارٹ کٹس</string>
+    <string name="shortcuts_onetap_enabled_title">ون ٹیپ شارٹ کٹ</string>
+    <string name="shortcuts_onetap_enabled_summary">ایپ آئیکن کو دیر تک دبانے پر \"اسکین + حذف\" شارٹ کٹ دکھائیں۔ ون ٹیپ ڈیش بورڈ جیسے ٹولز استعمال کرتا ہے۔</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">فائلوں کو سوائپ کر کے فیصلہ کریں کیا رکھنا ہے یا حذف کرنا ہے۔</string>
+    <string name="swiper_dashcard_description">مخصوص فولڈرز میں فائلوں کا دستی جائزہ لیں۔ سوائپ کر کے فیصلہ کریں کیا رکھنا ہے یا حذف کرنا ہے۔</string>
+    <string name="swiper_start_action">سوائپ شروع کریں</string>
+    <string name="swiper_continue_action">سیشن جاری رکھیں</string>
+    <string name="swiper_sessions_description">کچھ فائلوں کو انسانی فیصلے کی ضرورت ہے۔ آئٹمز میں سوائپ کریں اور منتخب کریں کیا رکھنا ہے یا حذف کرنا ہے۔ جس کے بارے میں یقین نہ ہو اسے چھوڑ دیں۔ یہ ٹول آپ کو مخصوص فولڈرز کا دستی جائزہ لینے دیتا ہے، اور تصدیق تک کچھ نہیں ہٹایا جاتا۔</string>
+    <string name="swiper_select_folders_action">فولڈرز منتخب کریں</string>
+    <string name="swiper_scanning_title">اسکین ہو رہا ہے…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d آئٹم ملا</item>
+        <item quantity="other">%d آئٹمز ملے</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d آئٹم حذف ہوا</item>
+        <item quantity="other">%d آئٹمز حذف ہوئے</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d آئٹم ناکام</item>
+        <item quantity="other">%d آئٹمز ناکام</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d از %2$d</string>
+    <string name="swiper_keep_action">رکھیں</string>
+    <string name="swiper_skip_action">چھوڑیں</string>
+    <string name="swiper_review_action">جائزہ</string>
+    <string name="swiper_status_title">فیصلوں کا جائزہ</string>
+    <string name="swiper_status_action_keep_selected">منتخب رکھیں</string>
+    <string name="swiper_status_action_delete_selected">منتخب حذف کریں</string>
+    <string name="swiper_status_action_reset_selected">منتخب ری سیٹ کریں</string>
+    <string name="swiper_decision_undecided">غیر فیصلہ شدہ</string>
+    <string name="swiper_retry_action">دوبارہ کوشش</string>
+    <string name="swiper_delete_confirmation_title">فائلیں حذف کریں؟</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">یہ %1$d فائل (%2$s) کو مستقل طور پر حذف کر دے گا۔ یہ عمل واپس نہیں ہو سکتا۔</item>
+        <item quantity="other">یہ %1$d فائلیں (%2$s) کو مستقل طور پر حذف کر دے گا۔ یہ عمل واپس نہیں ہو سکتا۔</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d غیر فیصلہ شدہ آئٹم بعد میں جائزے کے لیے رہے گا۔</item>
+        <item quantity="other">%d غیر فیصلہ شدہ آئٹمز بعد میں جائزے کے لیے رہیں گے۔</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d حذف کریں</string>
+    <string name="swiper_settings_swap_directions_title">سوائپ سمتیں تبدیل کریں</string>
+    <string name="swiper_settings_swap_directions_summary">رکھنے کے لیے بائیں سوائپ، حذف کرنے کے لیے دائیں سوائپ۔</string>
+    <string name="swiper_settings_show_details_title">فائل تفصیلات دکھائیں</string>
+    <string name="swiper_settings_show_details_summary">سوائپ اسکرین پر فائل کا نام، سائز اور تاریخ دکھائیں۔</string>
+    <string name="swiper_settings_haptic_feedback_title">ہیپٹک فیڈبیک</string>
+    <string name="swiper_settings_haptic_feedback_summary">رکھنے یا حذف کے فیصلوں پر وائبریٹ کریں۔</string>
+    <string name="swiper_discard_session_confirmation_title">سیشن رد کریں؟</string>
+    <string name="swiper_discard_session_confirmation_message">تمام فیصلے ضائع ہو جائیں گے۔ کیا آپ کو یقین ہے؟</string>
+    <string name="swiper_no_preview_available">کوئی پیش نظارہ دستیاب نہیں</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">%1$d دن پہلے کا سیشن جاری رکھیں (%2$d%% مکمل)</item>
+        <item quantity="other">%1$d دن پہلے کا سیشن جاری رکھیں (%2$d%% مکمل)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d سیشن</item>
+        <item quantity="other">%d سیشنز</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d غیر فیصلہ شدہ آئٹم</item>
+        <item quantity="other">%d غیر فیصلہ شدہ آئٹمز</item>
+    </plurals>
+    <string name="swiper_session_timestamps">بنایا گیا %1$s، آخری سرگرمی %2$s</string>
+    <string name="swiper_session_remove_action">سیشن ہٹائیں</string>
+    <string name="swiper_sessions_empty_hint">فولڈر منتخب کرنے اور سوائپ شروع کرنے کے لیے + ٹیپ کریں</string>
+    <string name="swiper_sessions_upgrade_body">ان حدود کو ہٹانے اور ترقی کی حمایت کے لیے اپ گریڈ کریں۔ مفت ورژن محدود ہے:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">فی سیشن %d فائل</item>
+        <item quantity="other">فی سیشن %d فائلیں</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d سیشن</item>
+        <item quantity="other">%d سیشنز</item>
+    </plurals>
+    <string name="swiper_session_default_label">سیشن #%d</string>
+    <string name="swiper_session_rename_title">سیشن کا نام تبدیل کریں</string>
+    <string name="swiper_session_rename_hint">اس سیشن کے لیے نام درج کریں</string>
+    <string name="swiper_sessions_current_sessions">موجودہ سیشنز</string>
+    <string name="swiper_session_paths_label">پاتھز</string>
+    <string name="swiper_session_status_label">حالت</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d رکھنا ہے</item>
+        <item quantity="other">%d رکھنے ہیں</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d حذف کرنا ہے</item>
+        <item quantity="other">%d حذف کرنے ہیں</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d غیر فیصلہ شدہ</item>
+        <item quantity="other">%d غیر فیصلہ شدہ</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d پہلے سے رکھا گیا</item>
+        <item quantity="other">%d پہلے سے رکھے گئے</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d پہلے سے حذف شدہ</item>
+        <item quantity="other">%d پہلے سے حذف شدہ</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d رکھا گیا</item>
+        <item quantity="other">%d رکھے گئے</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d حذف شدہ</item>
+        <item quantity="other">%d حذف شدہ</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\" کو Swiper اسکینز سے خارج کریں؟</string>
+    <string name="swiper_sessions_header_title">صفائی کے لیے تیار ہیں؟</string>
+    <string name="swiper_sessions_suggestions_label">یہاں سے شروع کریں:</string>
+    <string name="swiper_sessions_suggestion_downloads">ڈاؤن لوڈز فولڈر</string>
+    <string name="swiper_sessions_suggestion_screenshots">اسکرین شاٹس</string>
+    <string name="swiper_sessions_suggestion_camera">کیمرہ رول</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">رکھیں!</string>
+    <string name="swiper_stamp_keep_2">عمدہ!</string>
+    <string name="swiper_stamp_keep_3">ہاں!</string>
+    <string name="swiper_stamp_keep_4">محفوظ!</string>
+    <string name="swiper_stamp_delete_1">نہیں!</string>
+    <string name="swiper_stamp_delete_2">الوداع!</string>
+    <string name="swiper_stamp_delete_3">کچرا!</string>
+    <string name="swiper_stamp_delete_4">حذف!</string>
+    <string name="swiper_stamp_skip_1">چھوڑیں!</string>
+    <string name="swiper_stamp_skip_2">ٹھیک!</string>
+    <string name="swiper_stamp_skip_3">بعد میں!</string>
+    <string name="swiper_stamp_skip_4">شاید!</string>
+    <string name="swiper_stamp_undo_1">واپس!</string>
+    <string name="swiper_stamp_undo_2">پیچھے!</string>
+    <string name="swiper_stamp_undo_3">اوہو!</string>
+    <string name="swiper_stamp_undo_4">رکیں!</string>
 </resources>

@@ -778,6 +778,308 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="area_type_public_obb_label">משאבי אפליקציה ציבוריים</string>
     <string name="area_type_private_data_label">נתוני אפליקציה פרטיים</string>
     <string name="area_type_portable_label">אחסון נייד</string>
+    <string name="dashboard_card_config_header_title">גרור לשינוי סדר, החלף להצגה/הסתרה</string>
+
+    <string name="debug_debuglog_screen_title">יומן ניפוי שגיאות</string>
+    <string name="debug_debuglog_screen_discard_action">מחק</string>
+    <string name="debug_debuglog_screen_session_path_label">נתיב הפעלה</string>
+    <string name="debug_debuglog_screen_log_files_label">קבצי יומן</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">קובץ %1$d מוכן (%2$s)</item>
+        <item quantity="two">%1$d קבצים מוכנים (%2$s)</item>
+        <item quantity="many">%1$d קבצים מוכנים (%2$s)</item>
+        <item quantity="other">%1$d קבצים מוכנים (%2$s)</item>
+    </plurals>
+
+    <string name="support_debuglog_folder_label">תיקיית יומני ניפוי שגיאות</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">קובץ %1$d משתמש ב-%2$s</item>
+        <item quantity="two">%1$d קבצים משתמשים ב-%2$s</item>
+        <item quantity="many">%1$d קבצים משתמשים ב-%2$s</item>
+        <item quantity="other">%1$d קבצים משתמשים ב-%2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">אין יומני ניפוי שגיאות מאוחסנים</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">למחוק את כל יומני ניפוי השגיאות?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">פעולה זו תמחק לצמיתות את כל הפעלות יומני ניפוי השגיאות המאוחסנות. לא ניתן לבטל פעולה זו.</string>
+
+    <string name="settings_acknowledgements_category_translations_title">תרגומים</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">מי תרגם?</string>
+    <string name="settings_acknowledgements_category_thanks_title">תודות</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">תודה מיוחדת לחברינו.</string>
+    <string name="settings_acknowledgements_category_licenses_title">רישיונות</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">תוכנות בשימוש SD Maid.</string>
+
+    <string name="debug_card_title">מצב ניפוי שגיאות מופעל</string>
+    <string name="debug_card_trace_mode_label">הפעל מצב מעקב</string>
+    <string name="debug_card_dryrun_mode_label">מצב ניסיון (בטל מחיקה)</string>
+    <string name="debug_card_areas_reload_action">טען מחדש אזורי נתונים</string>
+    <string name="debug_card_pkgs_reload_action">טען מחדש אפליקציות</string>
+    <string name="debug_card_root_test_action">בדוק root</string>
+    <string name="debug_card_shizuku_test_action">בדוק Shizuku</string>
+
+    <string name="corpsefinder_filter_artprofiles_label">פרופילי ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">פרופילי ART משמשים את Android לאופטימיזציה של ביצועי אפליקציות.</string>
+
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">כלול אותה גרסה</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">כלול גם קבצי APK שתואמים לגרסה המותקנת. בטל כדי להסיר רק גרסאות ישנות יותר.</string>
+
+    <string name="systemcleaner_customfilter_editor_size_label">הגבלות גודל</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">גודל מינימלי</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">גודל מקסימלי</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">הגבל התאמות על פי גודל קובץ. השאר ריק כדי להתאים לכל גודל.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">הגבלות גיל</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">גיל מינימלי</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">גיל מקסימלי</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">הגבל התאמות על פי גיל הקובץ (זמן שינוי אחרון). השאר ריק כדי להתאים לכל גיל.</string>
+
+    <string name="appcleaner_filter_shortcutservice_label">סמלי קיצורי דרך לאפליקציות</string>
+    <string name="appcleaner_filter_shortcutservice_summary">סמלים ששמורים במטמון עבור קיצורי דרך לאפליקציות ותפריטי שיתוף.</string>
+
+    <string name="appcleaner_forcestop_before_clearing_label">עצירה מאולצת לפני ניקוי</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">עצור אפליקציות בכוח לפני ניקוי המטמון. יכול לעזור לנקות את המטמון של חלק מהאפליקציות, אך עלול לגרום לתקלות ולדרוש הפעלה מחדש ידנית.</string>
+    <string name="appcleaner_progress_force_stopping">עוצר אפליקציות בכוח…</string>
+
+    <string name="deduplicator_keep_prefer_paths_title">העדף שמירה ב</string>
+    <string name="deduplicator_keep_prefer_paths_summary">כאשר מחליטים איזה עותק לשמור, העדף לשמור קבצים במיקומים אלה.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">לא הוגדרו מיקומים</string>
+
+    <string name="deduplicator_arbiter_title">אסטרטגיית מחיקה</string>
+    <string name="deduplicator_arbiter_summary">הגדר אילו קבצים נשמרים ואילו נמחקים.</string>
+    <string name="deduplicator_arbiter_explanation">בעת מחיקת כפילויות, SD Maid מחליט איזה קובץ לשמור על ידי בדיקת כל קריטריון לפי הסדר. הקריטריון הראשון שמפיק מנצח ברור קובע את התוצאה. גרור לשינוי סדר, הקש לשינוי מצב.</string>
+    <string name="deduplicator_arbiter_select_mode_title">בחר מצב</string>
+    <string name="deduplicator_arbiter_configure_paths_action">הגדר נתיבים…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">סוג כפילות</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">העדף התאמות מדויקות על פני קבצים דומים.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">אינדקס מדיה</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">בדוק האם קבצים מאונדקסים על ידי ספק המדיה.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">מיקום אחסון</string>
+    <string name="deduplicator_arbiter_criterium_location_description">העדף קבצים באחסון פנימי או חיצוני.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">עומק תיקיות</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">העדף קבצים במבני תיקיות רדודים או עמוקים יותר.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">תאריך שינוי</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">העדף קבצים ישנים או חדשים יותר על פי זמן השינוי.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">גודל קובץ</string>
+    <string name="deduplicator_arbiter_criterium_size_description">העדף קבצים גדולים או קטנים יותר כאשר הגדלים שונים.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">מיקומים מועדפים</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">שמור קבצים במיקומים המועדפים שהוגדרו.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">העדף התאמות מדויקות</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">העדף קבצים דומים</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">העדף קבצים מאונדקסים</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">העדף קבצים לא מאונדקסים</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">העדף אחסון פנימי</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">העדף אחסון חיצוני</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">העדף תיקיות רדודות</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">העדף תיקיות עמוקות</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">העדף קבצים ישנים</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">העדף קבצים חדשים</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">העדף קבצים גדולים</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">העדף קבצים קטנים</string>
+
+    <string name="deduplicator_view_mode_groups_label">קבוצות</string>
+    <string name="deduplicator_view_mode_directories_label">תיקיות</string>
+
+    <string name="squeezer_onboarding_title">אודות דחיסת תמונות</string>
+    <string name="squeezer_onboarding_message">דחיסת תמונות מקטינה את גודל הקובץ על ידי הסרת פרטים חזותיים. תהליך זה בלתי הפיך - לא ניתן לשחזר את האיכות המקורית.\n\nהנה תצוגה מקדימה של איך התמונות שלך ייראו:</string>
+    <string name="squeezer_onboarding_original_label">מקור</string>
+    <string name="squeezer_onboarding_compressed_label">לאחר דחיסה</string>
+    <string name="squeezer_onboarding_quality_label">איכות: %d%%</string>
+    <string name="squeezer_onboarding_got_it">הבנתי</string>
+    <string name="squeezer_compare_action">הצג השוואה</string>
+    <string name="squeezer_no_example_found">לא נמצאו תמונות בנתיבים הנבחרים.</string>
+    <string name="squeezer_result_empty_message">לא נמצאו תמונות לדחיסה.</string>
+    <string name="squeezer_setup_warning">דחיסה מפחיתה לצמיתות את איכות התמונה כדי לחסוך שטח אחסון. לא ניתן לבטל פעולה זו. בדוק היטב את ההגדרות לפני ההתחלה.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze מקטין את גודל קבצי התמונות כדי לפנות שטח אחסון. פעולה זו מפחיתה לצמיתות את איכות התמונה ולא ניתן לבטלה. בדוק היטב את ההגדרות לפני ההתחלה.</string>
+    <string name="squeezer_setup_paths_title">מיקומי חיפוש</string>
+    <string name="squeezer_setup_paths_default">בחר תיקיות לחיפוש</string>
+    <string name="squeezer_setup_quality_title">איכות דחיסה</string>
+    <string name="squeezer_setup_age_title">גיל מינימלי</string>
+    <string name="squeezer_setup_age_none">ללא הגבלה (כלול את כל הקבצים)</string>
+    <string name="squeezer_setup_start_action">התחל סריקה</string>
+    <string name="squeezer_quality_hint_very_low">איכות מתחת ל-40%% עלולה ליצור תמונות בלתי שמישות.</string>
+    <string name="squeezer_quality_hint_low">איכות נמוכה יותר חוסכת יותר מקום אך עלולה לגרום לעיוותים נראים לעין.</string>
+    <string name="squeezer_quality_hint_high">איכות גבוהה מאוד מספקת חיסכון מינימלי במקום.</string>
+    <string name="squeezer_quality_hint_normal">איכות וחיסכון במקום מאוזנים.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">לפחות יום %d</item>
+        <item quantity="two">לפחות %d ימים</item>
+        <item quantity="many">לפחות %d ימים</item>
+        <item quantity="other">לפחות %d ימים</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">חיסכון משוער של ~%d%% עבור קבצי JPEG</string>
+
+    <string name="shortcut_appcontrol_short">ניהול אפליקציות</string>
+    <string name="shortcut_appcontrol_long">נהל אפליקציות מותקנות</string>
+    <string name="shortcut_onetap_short">סריקה + מחיקה</string>
+    <string name="shortcut_onetap_long">סריקה ומחיקה בפעולה אחת</string>
+
+    <string name="shortcuts_settings_category">קיצורי דרך</string>
+    <string name="shortcuts_onetap_enabled_title">קיצור דרך בלחיצה אחת</string>
+    <string name="shortcuts_onetap_enabled_summary">הצג קיצור \"סריקה + מחיקה\" בלחיצה ארוכה על סמל האפליקציה. משתמש באותם כלים כמו לוח המחוונים בלחיצה אחת.</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">החלק בין קבצים כדי להחליט מה לשמור ומה למחוק.</string>
+    <string name="swiper_dashcard_description">סקור קבצים ידנית בתיקיות ספציפיות. החלק כדי להחליט מה לשמור ומה למחוק.</string>
+    <string name="swiper_start_action">התחל להחליק</string>
+    <string name="swiper_continue_action">המשך הפעלה</string>
+    <string name="swiper_sessions_description">חלק מהקבצים דורשים החלטה אנושית. החלק בין פריטים ובחר מה לשמור ומה למחוק. דלג על כל דבר שאתה לא בטוח לגביו. כלי זה מאפשר לך לסקור תיקיות ספציפיות ידנית, ושום דבר לא נמחק עד שתאשר.</string>
+    <string name="swiper_select_folders_action">בחר תיקיות</string>
+    <string name="swiper_scanning_title">סורק…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">נמצא פריט %d</item>
+        <item quantity="two">נמצאו %d פריטים</item>
+        <item quantity="many">נמצאו %d פריטים</item>
+        <item quantity="other">נמצאו %d פריטים</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">פריט %d נמחק</item>
+        <item quantity="two">%d פריטים נמחקו</item>
+        <item quantity="many">%d פריטים נמחקו</item>
+        <item quantity="other">%d פריטים נמחקו</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">פריט %d נכשל</item>
+        <item quantity="two">%d פריטים נכשלו</item>
+        <item quantity="many">%d פריטים נכשלו</item>
+        <item quantity="other">%d פריטים נכשלו</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d מתוך %2$d</string>
+    <string name="swiper_keep_action">שמור</string>
+    <string name="swiper_skip_action">דלג</string>
+    <string name="swiper_review_action">סקור</string>
+    <string name="swiper_status_title">סקור החלטות</string>
+    <string name="swiper_status_action_keep_selected">שמור נבחרים</string>
+    <string name="swiper_status_action_delete_selected">מחק נבחרים</string>
+    <string name="swiper_status_action_reset_selected">אפס נבחרים</string>
+    <string name="swiper_decision_undecided">לא הוחלט</string>
+    <string name="swiper_retry_action">נסה שוב</string>
+    <string name="swiper_delete_confirmation_title">למחוק קבצים?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">פעולה זו תמחק לצמיתות קובץ %1$d (%2$s). לא ניתן לבטל פעולה זו.</item>
+        <item quantity="two">פעולה זו תמחק לצמיתות %1$d קבצים (%2$s). לא ניתן לבטל פעולה זו.</item>
+        <item quantity="many">פעולה זו תמחק לצמיתות %1$d קבצים (%2$s). לא ניתן לבטל פעולה זו.</item>
+        <item quantity="other">פעולה זו תמחק לצמיתות %1$d קבצים (%2$s). לא ניתן לבטל פעולה זו.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">פריט %d שלא הוחלט לגביו יישאר לסקירה מאוחרת.</item>
+        <item quantity="two">%d פריטים שלא הוחלט לגביהם יישארו לסקירה מאוחרת.</item>
+        <item quantity="many">%d פריטים שלא הוחלט לגביהם יישארו לסקירה מאוחרת.</item>
+        <item quantity="other">%d פריטים שלא הוחלט לגביהם יישארו לסקירה מאוחרת.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">מחק %1$d</string>
+    <string name="swiper_settings_swap_directions_title">החלף כיווני החלקה</string>
+    <string name="swiper_settings_swap_directions_summary">החלק שמאלה לשמירה, ימינה למחיקה.</string>
+    <string name="swiper_settings_show_details_title">הצג פרטי קובץ</string>
+    <string name="swiper_settings_show_details_summary">הצג שם קובץ, גודל ותאריך במסך ההחלקה.</string>
+    <string name="swiper_settings_haptic_feedback_title">משוב הפטי</string>
+    <string name="swiper_settings_haptic_feedback_summary">רטט בעת קבלת החלטות שמירה או מחיקה.</string>
+    <string name="swiper_discard_session_confirmation_title">לבטל הפעלה?</string>
+    <string name="swiper_discard_session_confirmation_message">כל ההחלטות יאבדו. האם אתה בטוח?</string>
+    <string name="swiper_no_preview_available">אין תצוגה מקדימה זמינה</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">המשך הפעלה מלפני יום %1$d (%2$d%% הושלם)</item>
+        <item quantity="two">המשך הפעלה מלפני %1$d ימים (%2$d%% הושלם)</item>
+        <item quantity="many">המשך הפעלה מלפני %1$d ימים (%2$d%% הושלם)</item>
+        <item quantity="other">המשך הפעלה מלפני %1$d ימים (%2$d%% הושלם)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">הפעלה %d</item>
+        <item quantity="two">%d הפעלות</item>
+        <item quantity="many">%d הפעלות</item>
+        <item quantity="other">%d הפעלות</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">פריט %d שלא הוחלט</item>
+        <item quantity="two">%d פריטים שלא הוחלט</item>
+        <item quantity="many">%d פריטים שלא הוחלט</item>
+        <item quantity="other">%d פריטים שלא הוחלט</item>
+    </plurals>
+    <string name="swiper_session_timestamps">נוצר %1$s, פעילות אחרונה %2$s</string>
+    <string name="swiper_session_remove_action">הסר הפעלה</string>
+    <string name="swiper_sessions_empty_hint">הקש + כדי לבחור תיקיה ולהתחיל להחליק</string>
+    <string name="swiper_sessions_upgrade_body">שדרג כדי להסיר מגבלות אלה ולתמוך בפיתוח. הגרסה החינמית מוגבלת ל:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">קובץ %d להפעלה</item>
+        <item quantity="two">%d קבצים להפעלה</item>
+        <item quantity="many">%d קבצים להפעלה</item>
+        <item quantity="other">%d קבצים להפעלה</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">הפעלה %d</item>
+        <item quantity="two">%d הפעלות</item>
+        <item quantity="many">%d הפעלות</item>
+        <item quantity="other">%d הפעלות</item>
+    </plurals>
+    <string name="swiper_session_default_label">הפעלה #%d</string>
+    <string name="swiper_session_rename_title">שנה שם הפעלה</string>
+    <string name="swiper_session_rename_hint">הזן שם להפעלה זו</string>
+    <string name="swiper_sessions_current_sessions">הפעלות נוכחיות</string>
+    <string name="swiper_session_paths_label">נתיבים</string>
+    <string name="swiper_session_status_label">מצב</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d לשמירה</item>
+        <item quantity="two">%d לשמירה</item>
+        <item quantity="many">%d לשמירה</item>
+        <item quantity="other">%d לשמירה</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d למחיקה</item>
+        <item quantity="two">%d למחיקה</item>
+        <item quantity="many">%d למחיקה</item>
+        <item quantity="other">%d למחיקה</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d לא הוחלט</item>
+        <item quantity="two">%d לא הוחלט</item>
+        <item quantity="many">%d לא הוחלט</item>
+        <item quantity="other">%d לא הוחלט</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d כבר נשמר</item>
+        <item quantity="two">%d כבר נשמרו</item>
+        <item quantity="many">%d כבר נשמרו</item>
+        <item quantity="other">%d כבר נשמרו</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d כבר נמחק</item>
+        <item quantity="two">%d כבר נמחקו</item>
+        <item quantity="many">%d כבר נמחקו</item>
+        <item quantity="other">%d כבר נמחקו</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d נשמר</item>
+        <item quantity="two">%d נשמרו</item>
+        <item quantity="many">%d נשמרו</item>
+        <item quantity="other">%d נשמרו</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d נמחק</item>
+        <item quantity="two">%d נמחקו</item>
+        <item quantity="many">%d נמחקו</item>
+        <item quantity="other">%d נמחקו</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">להחריג את \"%1$s\" מסריקות Swiper?</string>
+    <string name="swiper_sessions_header_title">מוכן לסדר?</string>
+    <string name="swiper_sessions_suggestions_label">נסה להתחיל עם:</string>
+    <string name="swiper_sessions_suggestion_downloads">תיקיית הורדות</string>
+    <string name="swiper_sessions_suggestion_screenshots">צילומי מסך</string>
+    <string name="swiper_sessions_suggestion_camera">גליל מצלמה</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">שמור!</string>
+    <string name="swiper_stamp_keep_2">יפה!</string>
+    <string name="swiper_stamp_keep_3">כן!</string>
+    <string name="swiper_stamp_keep_4">שמור!</string>
+    <string name="swiper_stamp_delete_1">לא!</string>
+    <string name="swiper_stamp_delete_2">ביי!</string>
+    <string name="swiper_stamp_delete_3">זבל!</string>
+    <string name="swiper_stamp_delete_4">מחק!</string>
+    <string name="swiper_stamp_skip_1">דלג!</string>
+    <string name="swiper_stamp_skip_2">מה!</string>
+    <string name="swiper_stamp_skip_3">אחר כך!</string>
+    <string name="swiper_stamp_skip_4">אולי!</string>
+    <string name="swiper_stamp_undo_1">בטל!</string>
+    <string name="swiper_stamp_undo_2">חזור!</string>
+    <string name="swiper_stamp_undo_3">אופס!</string>
+    <string name="swiper_stamp_undo_4">רגע!</string>
 </resources>

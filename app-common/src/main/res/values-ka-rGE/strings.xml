@@ -164,4 +164,13 @@
     <string name="general_error_report_bug_action">ბაგის მოხსენება</string>
     <string name="general_error_ipc_deadobject_title">სერვისის კავშირი დაიკარგა</string>
     <string name="general_error_ipc_deadobject_description">კავშირი კრიტიკულ სერვისთან (მაგ. Magisk, Shizuku, ან სხვა სისტემის დონის სერვისები) მოულოდნელად დაიკარგა. გთხოვთ გადატვირთოთ თქვენი მოწყობილობა. თუ პრობლემა გრძელდება, შეამოწმეთ განახლებები ან დამიკავშირდით, რომ შევასწოროთ.</string>
+    <string name="general_apply_action">გამოყენება</string>
+    <string name="general_drag_handle_description">გადაათრიეთ გადასალაგებლად</string>
+    <string name="general_new_badge_label">ახალი</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">წავშალოთ %d მონიშნული ელემენტი?</item>
+        <item quantity="other">წავშალოთ %d მონიშნული ელემენტი?</item>
+    </plurals>
+    <string name="general_user_label_owner">მფლობელი</string>
+    <string name="general_user_label_system">სისტემა</string>
 </resources>

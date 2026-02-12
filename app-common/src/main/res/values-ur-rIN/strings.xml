@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">آپ کی خدمت میں۔</string>
     <string name="slogan_message_1">صاف اور منظم۔</string>
     <string name="slogan_message_2">افراتفری سے بچانا۔</string>
     <string name="slogan_message_3">ضروری کام کرنا۔</string>
+    <string name="slogan_message_4">سب کچھ ترتیب میں۔</string>
     <string name="slogan_message_5">بے داغ۔</string>
     <string name="slogan_message_6">بائٹس، جاؤ!</string>
     <string name="slogan_message_7">آزاد جگہ، خوش جگہ۔</string>
@@ -17,11 +19,13 @@
     <string name="general_todo_msg">یہ فیچر ابھی بھی بنایا جا رہا ہے اور فلحال دستیاب نہیں۔</string>
     <string name="general_share_action">شیئر کریں</string>
     <string name="general_done_action">مکمل</string>
+    <string name="general_apply_action">لاگو کریں</string>
     <string name="general_copy_action">کاپی</string>
     <string name="general_wipe_action">صاف کریں</string>
     <string name="general_cancel_action">منسوخ کریں</string>
     <string name="general_discard_action">رد کریں</string>
     <string name="general_reset_action">ری سیٹ کریں</string>
+    <string name="general_drag_handle_description">ترتیب بدلنے کے لیے گھسیٹیں</string>
     <string name="general_save_action">محفوظ کریں</string>
     <string name="general_thanks_action">شکریہ</string>
     <string name="general_gotit_action">سمجھ گیا</string>
@@ -30,6 +34,7 @@
     <string name="general_edit_action">تبدیلی کریں</string>
     <string name="general_na_label">دستیاب نہیں</string>
     <string name="general_empty_label">خالی</string>
+    <string name="general_new_badge_label">نیا</string>
     <string name="general_dismiss_action">بار کریں</string>
     <string name="general_maybe_later_action">شاید بعد میں</string>
     <string name="general_manage_action">مینج کریں</string>
@@ -90,6 +95,10 @@
     <string name="general_toggle_layout_mode">دیکھنے کی موڈ تبدیل کریں</string>
     <string name="general_delete_confirmation_title">حذف کی تصدیق کریں</string>
     <string name="general_delete_confirmation_message_x">\"%s\" کو حذف کریں؟</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d منتخب آئٹم حذف کریں؟</item>
+        <item quantity="other">%d منتخب آئٹمز حذف کریں؟</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d آئٹم حذف کیا گیا۔</item>
         <item quantity="other">%d آئٹمز حذف کیے گئے۔</item>
@@ -162,4 +171,6 @@
     <string name="general_error_report_bug_action">بگ کی رپورٹ کریں</string>
     <string name="general_error_ipc_deadobject_title">سروس کنکشن ضائع</string>
     <string name="general_error_ipc_deadobject_description">اہم سروس (جیسے Magisk، Shizuku، یا دیگر سسٹم لیول سروسز) کے ساتھ کنکشن غیر متوقع طور پر ضائع ہو گیا ہے۔ براہ کرم اپنی ڈیوائس ری اسٹارٹ کریں۔ اگر مسئلہ برقرار رہتا ہے، تو اپ ڈیٹس کی جانچ کریں یا اسے حل کرنے کے لیے مجھ سے رابطہ کریں۔</string>
+    <string name="general_user_label_owner">مالک</string>
+    <string name="general_user_label_system">سسٹم</string>
 </resources>

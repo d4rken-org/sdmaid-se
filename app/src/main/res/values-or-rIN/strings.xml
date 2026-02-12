@@ -709,6 +709,363 @@
     <string name="area_type_public_obb_label">ସାର୍ବଜନୀନ ଆପ୍ ଉତ୍ସ</string>
     <string name="area_type_private_data_label">ବ୍ୟକ୍ତିଗତ ଆପ୍ ଡାଟା</string>
     <string name="area_type_portable_label">ପୋର୍ଟେବଲ୍ ଷ୍ଟୋରେଜ୍</string>
+    <string name="dashboard_card_config_title">ଡ୍ୟାସବୋର୍ଡ କାର୍ଡଗୁଡିକ</string>
+    <string name="dashboard_card_config_desc">କେଉଁ କାର୍ଡ ଦେଖାଯିବ ଏବଂ ସେମାନଙ୍କ କ୍ରମ ବିନ୍ୟାସ କରନ୍ତୁ</string>
+    <string name="dashboard_card_config_header_title">ପୁନଃକ୍ରମ ପାଇଁ ଟାଣନ୍ତୁ, ଦେଖାଇବା/ଲୁଚାଇବା ପାଇଁ ଟୋଗଲ୍ କରନ୍ତୁ</string>
+    <string name="debug_debuglog_screen_title">ଡିବଗ୍ ଲଗ୍</string>
+    <string name="debug_debuglog_screen_discard_action">ଖାରଜ କରନ୍ତୁ</string>
+    <string name="debug_debuglog_screen_session_path_label">ସେସନ୍ ପଥ</string>
+    <string name="debug_debuglog_screen_log_files_label">ଲଗ୍ ଫାଇଲ୍‌ଗୁଡିକ</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d ଫାଇଲ୍ ପ୍ରସ୍ତୁତ (%2$s)</item>
+        <item quantity="other">%1$d ଫାଇଲ୍‌ଗୁଡିକ ପ୍ରସ୍ତୁତ (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_folder_label">ଡିବଗ୍ ଲଗ୍ ଫୋଲ୍ଡର</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d ଫାଇଲ୍ %2$s ବ୍ୟବହାର କରୁଛି</item>
+        <item quantity="other">%1$d ଫାଇଲ୍‌ଗୁଡିକ %2$s ବ୍ୟବହାର କରୁଛି</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">କୌଣସି ଡିବଗ୍ ଲଗ୍ ଗଚ୍ଛିତ ନାହିଁ</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">ସମସ୍ତ ଡିବଗ୍ ଲଗ୍ ଡିଲିଟ୍ କରିବେ?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">ଏହା ସମସ୍ତ ଗଚ୍ଛିତ ଡିବଗ୍ ଲଗ୍ ସେସନ୍‌ଗୁଡିକୁ ସ୍ଥାୟୀ ଭାବରେ ଡିଲିଟ୍ କରିବ। ଏହି କାର୍ଯ୍ୟ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଯୋଗ୍ୟ ନୁହେଁ।</string>
+    <string name="discord_label">Discord</string>
+    <string name="settings_acknowledgements_category_translations_title">ଅନୁବାଦ</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">ଏହା କିଏ ଅନୁବାଦ କରିଛି?</string>
+    <string name="settings_acknowledgements_category_thanks_title">ଧନ୍ୟବାଦ</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">ଆମ ବନ୍ଧୁମାନଙ୍କ ପ୍ରତି ବିଶେଷ ଧନ୍ୟବାଦ।</string>
+    <string name="settings_acknowledgements_category_licenses_title">ଲାଇସେନ୍ସ</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid ଦ୍ୱାରା ବ୍ୟବହୃତ ସଫ୍ଟୱେର୍।</string>
+    <string name="debug_card_title">ଡିବଗ୍ ମୋଡ୍ ସକ୍ଷମ ହୋଇଛି</string>
+    <string name="debug_card_trace_mode_label">ଟ୍ରେସ୍ ମୋଡ୍ ସକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="debug_card_dryrun_mode_label">ଡ୍ରାଇ-ରନ୍ ମୋଡ୍ (ଡିଲିଟ୍ ଅକ୍ଷମ କରନ୍ତୁ)</string>
+    <string name="debug_card_areas_reload_action">ଡାଟା ଏରିଆ ପୁନଃଲୋଡ୍ କରନ୍ତୁ</string>
+    <string name="debug_card_pkgs_reload_action">ଆପ୍ସ ପୁନଃଲୋଡ୍ କରନ୍ତୁ</string>
+    <string name="debug_card_root_test_action">Root ପରୀକ୍ଷା କରନ୍ତୁ</string>
+    <string name="debug_card_shizuku_test_action">Shizuku ପରୀକ୍ଷା କରନ୍ତୁ</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART ପ୍ରୋଫାଇଲ୍</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART ପ୍ରୋଫାଇଲ୍‌ଗୁଡିକ Android ଦ୍ୱାରା ଆପ୍ ପ୍ରଦର୍ଶନ ଉନ୍ନତ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହୁଏ।</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">ଇନଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ ସଂସ୍କରଣ ଆଧାରରେ ଆଉ ଆବଶ୍ୟକ ନଥିବା ସେଟଅପ୍ ଫାଇଲ୍‌ଗୁଡିକ।</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">ସମାନ ସଂସ୍କରଣ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">ଇନଷ୍ଟଲ୍ ସଂସ୍କରଣ ସହ ମେଳ ଖାଉଥିବା APK ଫାଇଲ୍‌ଗୁଡିକୁ ମଧ୍ୟ ଲକ୍ଷ୍ୟ କରନ୍ତୁ। କେବଳ ପୁରୁଣା ସଂସ୍କରଣ ଅପସାରଣ କରିବା ପାଇଁ ଅକ୍ଷମ କରନ୍ତୁ।</string>
+    <string name="systemcleaner_customfilter_editor_size_label">ଆକାର ପ୍ରତିବନ୍ଧ</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">ସର୍ବନିମ୍ନ ଆକାର</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">ସର୍ବାଧିକ ଆକାର</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">ଫାଇଲ୍ ଆକାର ଆଧାରରେ ମ୍ୟାଚ୍ ସୀମିତ କରନ୍ତୁ। ଯେକୌଣସି ଆକାର ସହ ମ୍ୟାଚ୍ କରିବା ପାଇଁ ଅସେଟ୍ ଛାଡନ୍ତୁ।</string>
+    <string name="systemcleaner_customfilter_editor_age_label">ବୟସ ପ୍ରତିବନ୍ଧ</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">ସର୍ବନିମ୍ନ ବୟସ</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">ସର୍ବାଧିକ ବୟସ</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">ଫାଇଲ୍ ବୟସ (ଶେଷ ସଂଶୋଧିତ ସମୟ) ଆଧାରରେ ମ୍ୟାଚ୍ ସୀମିତ କରନ୍ତୁ। ଯେକୌଣସି ବୟସ ସହ ମ୍ୟାଚ୍ କରିବା ପାଇଁ ଅସେଟ୍ ଛାଡନ୍ତୁ।</string>
+    <string name="appcleaner_filter_shortcutservice_label">ଆପ୍ ସର୍ଟକଟ୍ ଆଇକନ୍</string>
+    <string name="appcleaner_filter_shortcutservice_summary">ଆପ୍ ସର୍ଟକଟ୍ ଏବଂ ସେୟାର ମେନ୍ୟୁ ପାଇଁ କ୍ୟାସ୍ ହୋଇଥିବା ଆଇକନ୍।</string>
+    <string name="appcleaner_forcestop_before_clearing_label">ସଫା କରିବା ପୂର୍ବରୁ ଫୋର୍ସ-ଷ୍ଟପ୍ କରନ୍ତୁ</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">ସେମାନଙ୍କ କ୍ୟାସ୍ ସଫା କରିବା ପୂର୍ବରୁ ଆପ୍ସ ଫୋର୍ସ-ଷ୍ଟପ୍ କରନ୍ତୁ। ଏହା କିଛି ଆପ୍ସର କ୍ୟାସ୍ ସଫା କରିବାରେ ସାହାଯ୍ୟ କରିପାରେ, କିନ୍ତୁ ଆପ୍ସ ଖରାପ ଆଚରଣ କରିପାରେ ଏବଂ ହାତରେ ପୁନଃଆରମ୍ଭ ଆବଶ୍ୟକ ହୋଇପାରେ।</string>
+    <string name="appcleaner_progress_force_stopping">ଆପ୍ସ ଫୋର୍ସ-ଷ୍ଟପ୍ କରୁଛି…</string>
+    <string name="deduplicator_detection_method_phash_summary">ବିଷୟବସ୍ତୁ ବୈଶିଷ୍ଟ୍ୟ ବିଶ୍ଳେଷଣ ଏବଂ ଅନୁଭୂତିମୂଳକ ହ୍ୟାସ୍ ମୂଲ୍ୟ ତୁଳନା କରି ସମାନ ଫାଇଲ୍ ଖୋଜନ୍ତୁ। ⚠️ ସମାନତା-ଆଧାରିତ ଚିହ୍ନଟ ମିଥ୍ୟା ସକରାତ୍ମକ ଅନ୍ତର୍ଭୁକ୍ତ କରିପାରେ ଯାହା ହାତରେ ଯାଞ୍ଚ ଆବଶ୍ୟକ କରେ।</string>
+    <string name="deduplicator_arbiter_title">ଡିଲିଟ୍ ରଣନୀତି</string>
+    <string name="deduplicator_arbiter_summary">କେଉଁ ଫାଇଲ୍ ରଖାଯିବ ଏବଂ କେଉଁ ଡିଲିଟ୍ ହେବ ବିନ୍ୟାସ କରନ୍ତୁ।</string>
+    <string name="deduplicator_arbiter_explanation">ଡୁପ୍ଲିକେଟ୍ ଡିଲିଟ୍ କରିବା ସମୟରେ, SD Maid ପ୍ରତ୍ୟେକ ମାନଦଣ୍ଡ କ୍ରମରେ ଯାଞ୍ଚ କରି କେଉଁ ଫାଇଲ୍ ରଖିବ ନିଷ୍ପତ୍ତି ନିଏ। ପ୍ରଥମ ମାନଦଣ୍ଡ ଯାହା ଏକ ସ୍ପଷ୍ଟ ବିଜେତା ଉତ୍ପାଦନ କରେ ଫଳାଫଳ ନିର୍ଧାରଣ କରେ। ପୁନଃକ୍ରମ ପାଇଁ ଟାଣନ୍ତୁ, ମୋଡ୍ ବଦଳାଇବା ପାଇଁ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
+    <string name="deduplicator_arbiter_select_mode_title">ମୋଡ୍ ଚୟନ କରନ୍ତୁ</string>
+    <string name="deduplicator_arbiter_configure_paths_action">ପଥ ବିନ୍ୟାସ କରନ୍ତୁ…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">ଡୁପ୍ଲିକେଟ୍ ପ୍ରକାର</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">ସମାନ ଫାଇଲ୍ ଅପେକ୍ଷା ସଠିକ୍ କପି ପସନ୍ଦ କରନ୍ତୁ।</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">ମିଡିଆ ଇଣ୍ଡେକ୍ସିଂ</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">ଫାଇଲ୍‌ଗୁଡିକ ମିଡିଆ ପ୍ରଦାତା ଦ୍ୱାରା ଇଣ୍ଡେକ୍ସ ହୋଇଛି କି ନାହିଁ ବିଚାର କରନ୍ତୁ।</string>
+    <string name="deduplicator_arbiter_criterium_location_title">ଷ୍ଟୋରେଜ୍ ସ୍ଥାନ</string>
+    <string name="deduplicator_arbiter_criterium_location_description">ଆଭ୍ୟନ୍ତରୀଣ କିମ୍ବା ବାହ୍ୟ ଷ୍ଟୋରେଜ୍‌ରେ ଫାଇଲ୍ ପସନ୍ଦ କରନ୍ତୁ।</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">ଫୋଲ୍ଡର ଗଭୀରତା</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">ଅଗଭୀର କିମ୍ବା ଗଭୀର ଫୋଲ୍ଡର ସଂରଚନାରେ ଫାଇଲ୍ ପସନ୍ଦ କରନ୍ତୁ।</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">ସଂଶୋଧନ ତାରିଖ</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">ସଂଶୋଧନ ସମୟ ଆଧାରରେ ପୁରୁଣା କିମ୍ବା ନୂଆ ଫାଇଲ୍ ପସନ୍ଦ କରନ୍ତୁ।</string>
+    <string name="deduplicator_arbiter_criterium_size_title">ଫାଇଲ୍ ଆକାର</string>
+    <string name="deduplicator_arbiter_criterium_size_description">ଆକାର ଭିନ୍ନ ହେଲେ ବଡ କିମ୍ବା ଛୋଟ ଫାଇଲ୍ ପସନ୍ଦ କରନ୍ତୁ।</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">ପସନ୍ଦିତ ସ୍ଥାନ</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">ଆପଣଙ୍କ ବିନ୍ୟାସ କରାଯାଇଥିବା ପସନ୍ଦିତ ସ୍ଥାନରେ ଫାଇଲ୍ ରଖନ୍ତୁ।</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">ସଠିକ୍ କପି ପସନ୍ଦ କରନ୍ତୁ</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">ସମାନ ଫାଇଲ୍ ପସନ୍ଦ କରନ୍ତୁ</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">ଇଣ୍ଡେକ୍ସ ହୋଇଥିବା ଫାଇଲ୍ ପସନ୍ଦ କରନ୍ତୁ</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">ଅଣ-ଇଣ୍ଡେକ୍ସ ଫାଇଲ୍ ପସନ୍ଦ କରନ୍ତୁ</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">ଆଭ୍ୟନ୍ତରୀଣ ଷ୍ଟୋରେଜ୍ ପସନ୍ଦ କରନ୍ତୁ</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">ବାହ୍ୟ ଷ୍ଟୋରେଜ୍ ପସନ୍ଦ କରନ୍ତୁ</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">ଅଗଭୀର ଫୋଲ୍ଡର ପସନ୍ଦ କରନ୍ତୁ</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">ଗଭୀର ଫୋଲ୍ଡର ପସନ୍ଦ କରନ୍ତୁ</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">ପୁରୁଣା ଫାଇଲ୍ ପସନ୍ଦ କରନ୍ତୁ</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">ନୂଆ ଫାଇଲ୍ ପସନ୍ଦ କରନ୍ତୁ</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">ବଡ ଫାଇଲ୍ ପସନ୍ଦ କରନ୍ତୁ</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">ଛୋଟ ଫାଇଲ୍ ପସନ୍ଦ କରନ୍ତୁ</string>
+    <string name="deduplicator_view_mode_groups_label">ଗୋଷ୍ଠୀ</string>
+    <string name="deduplicator_view_mode_directories_label">ଫୋଲ୍ଡର</string>
+    <string name="squeezer_tool_name">ମିଡିଆ ସ୍କ୍ୱିଜ୍</string>
+    <string name="squeezer_explanation_short">ଷ୍ଟୋରେଜ୍ ସ୍ଥାନ ସଞ୍ଚୟ ପାଇଁ ଚିତ୍ର ସଙ୍କୋଚନ କରନ୍ତୁ।</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d ଚିତ୍ର ମିଳିଲା</item>
+        <item quantity="other">%d ଚିତ୍ରଗୁଡିକ ମିଳିଲା</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s ସଞ୍ଚୟ ହୋଇପାରେ</item>
+        <item quantity="other">~%s ସଞ୍ଚୟ ହୋଇପାରେ</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d ଚିତ୍ର ସଙ୍କୋଚିତ</item>
+        <item quantity="other">%d ଚିତ୍ରଗୁଡିକ ସଙ୍କୋଚିତ</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d ଚିତ୍ର ଚୟନ ହୋଇଛି</item>
+        <item quantity="other">%d ଚିତ୍ରଗୁଡିକ ଚୟନ ହୋଇଛି</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">ଖୋଜ ସ୍ଥାନ</string>
+    <string name="squeezer_search_locations_default_summary">କ୍ୟାମେରା ଫୋଲ୍ଡର (ଡିଫଲ୍ଟ)</string>
+    <string name="squeezer_min_size_title">ସର୍ବନିମ୍ନ ଫାଇଲ୍ ଆକାର</string>
+    <string name="squeezer_min_size_description">ଏହି ଆକାରଠାରୁ ଛୋଟ ଚିତ୍ର ଛାଡନ୍ତୁ।</string>
+    <string name="squeezer_min_age_title">ସର୍ବନିମ୍ନ ଫାଇଲ୍ ବୟସ</string>
+    <string name="squeezer_min_age_description">କେବଳ ଏହି ବୟସଠାରୁ ପୁରୁଣା ଚିତ୍ର ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
+    <string name="squeezer_compression_settings_label">ସଙ୍କୋଚନ ସେଟିଂସ</string>
+    <string name="squeezer_quality_label">ଗୁଣବତ୍ତା</string>
+    <string name="squeezer_quality_title">ସଙ୍କୋଚନ ଗୁଣବତ୍ତା</string>
+    <string name="squeezer_quality_description">କମ୍ ଗୁଣବତ୍ତା ମାନେ ଛୋଟ ଫାଇଲ୍ ଆକାର କିନ୍ତୁ ଚିତ୍ର ଗୁଣବତ୍ତା ହ୍ରାସ।</string>
+    <string name="squeezer_quality_example_format">ଉଦାହରଣ: %1$s ଚିତ୍ର → %3$d%% ଗୁଣବତ୍ତାରେ ~%2$s ସଞ୍ଚୟ</string>
+    <string name="squeezer_quality_warning_low">କମ୍ ଗୁଣବତ୍ତା ଦୃଶ୍ୟମାନ ତ୍ରୁଟି ସୃଷ୍ଟି କରିପାରେ।</string>
+    <string name="squeezer_quality_warning_high">ଅତ୍ୟଧିକ ଉଚ୍ଚ ଗୁଣବତ୍ତା ସର୍ବନିମ୍ନ ସ୍ଥାନ ସଞ୍ଚୟ ପ୍ରଦାନ କରେ।</string>
+    <string name="squeezer_types_category_label">ଚିତ୍ର ପ୍ରକାର</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">JPEG ଚିତ୍ର (.jpg, .jpeg) ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">WebP ଚିତ୍ର (.webp) ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
+    <string name="squeezer_skip_compressed_title">ପୂର୍ବରୁ ସଙ୍କୋଚିତ ଛାଡନ୍ତୁ</string>
+    <string name="squeezer_skip_compressed_description">SD Maid ଦ୍ୱାରା ପୂର୍ବରୁ ସଙ୍କୋଚିତ ହୋଇଥିବା ଚିତ୍ର ଛାଡନ୍ତୁ।</string>
+    <string name="squeezer_exif_marker_title">EXIF ମାର୍କର ଲେଖନ୍ତୁ</string>
+    <string name="squeezer_exif_marker_description">ସଙ୍କୋଚନ ଇତିହାସ ସଫା ହେଲେ ମଧ୍ୟ ପୁନଃ-ସଙ୍କୋଚନ ରୋକିବା ପାଇଁ ଚିତ୍ରର EXIF ବ୍ୟବହାରକାରୀ ମନ୍ତବ୍ୟ କ୍ଷେତ୍ରରେ ଏକ ମାର୍କର ଯୋଡନ୍ତୁ।</string>
+    <string name="squeezer_estimated_savings_format">~%s ସଞ୍ଚୟ</string>
+    <string name="squeezer_no_savings_expected">ସୀମିତ ସଞ୍ଚୟ</string>
+    <string name="squeezer_current_size_format">ଆକାର: %s</string>
+    <string name="squeezer_compress_action">ସଙ୍କୋଚନ</string>
+    <string name="squeezer_compress_all_action">ସବୁ ସଙ୍କୋଚନ କରନ୍ତୁ</string>
+    <string name="squeezer_preview_dialog_title">ସଙ୍କୋଚନ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
+    <string name="squeezer_preview_total_size">ମୋଟ ଆକାର</string>
+    <string name="squeezer_preview_estimated_savings">ଆନୁମାନିକ ସଞ୍ଚୟ</string>
+    <string name="squeezer_compress_confirmation_title">ଚିତ୍ର ସଙ୍କୋଚନ କରିବେ?</string>
+    <string name="squeezer_compress_confirmation_message">ଏହା ମୂଳ ଚିତ୍ରଗୁଡିକୁ ସଙ୍କୋଚିତ ସଂସ୍କରଣ ସହ ବଦଳାଇବ। ଏହି କାର୍ଯ୍ୟ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଯୋଗ୍ୟ ନୁହେଁ।</string>
+    <string name="squeezer_history_title">ସଙ୍କୋଚନ ଇତିହାସ</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d ଆଇଟମ୍ (%2$s)</item>
+        <item quantity="other">%1$d ଆଇଟମ୍‌ଗୁଡିକ (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">କୌଣସି ସଙ୍କୋଚନ ଇତିହାସ ନାହିଁ</string>
+    <string name="squeezer_history_clear_title">ସଙ୍କୋଚନ ଇତିହାସ ସଫା କରନ୍ତୁ</string>
+    <string name="squeezer_history_clear_message">ଏହା ପୂର୍ବରୁ ସଙ୍କୋଚିତ ଚିତ୍ରଗୁଡିକୁ ପୁନଃ ସଙ୍କୋଚନ ହେବାକୁ ଅନୁମତି ଦେବ। ଚିତ୍ରଗୁଡିକ ନିଜେ ପ୍ରଭାବିତ ହୁଅନ୍ତି ନାହିଁ।</string>
+    <string name="squeezer_onboarding_title">ଚିତ୍ର ସଙ୍କୋଚନ ବିଷୟରେ</string>
+    <string name="squeezer_onboarding_message">ଚିତ୍ର ସଙ୍କୋଚନ ଦୃଶ୍ୟ ବିବରଣୀ ଅପସାରଣ କରି ଫାଇଲ୍ ଆକାର ହ୍ରାସ କରେ। ଏହି ପ୍ରକ୍ରିୟା ଅପ୍ରତ୍ୟାବର୍ତ୍ତନୀୟ - ମୂଳ ଗୁଣବତ୍ତା ପୁନଃସ୍ଥାପିତ ହୋଇପାରିବ ନାହିଁ।\n\nଆପଣଙ୍କ ଚିତ୍ରଗୁଡିକ କିପରି ଦେଖାଯିବ ତାହାର ଏକ ପୂର୍ବାବଲୋକନ ଏଠାରେ ଅଛି:</string>
+    <string name="squeezer_onboarding_original_label">ମୂଳ</string>
+    <string name="squeezer_onboarding_compressed_label">ସଙ୍କୋଚନ ପରେ</string>
+    <string name="squeezer_onboarding_quality_label">ଗୁଣବତ୍ତା: %d%%</string>
+    <string name="squeezer_onboarding_got_it">ବୁଝିଲି</string>
+    <string name="squeezer_compare_action">ତୁଳନା ଦେଖନ୍ତୁ</string>
+    <string name="squeezer_no_example_found">ଚୟନ ହୋଇଥିବା ପଥରେ କୌଣସି ଚିତ୍ର ମିଳିଲା ନାହିଁ।</string>
+    <string name="squeezer_result_empty_message">କୌଣସି ସଙ୍କୋଚନଯୋଗ୍ୟ ଚିତ୍ର ମିଳିଲା ନାହିଁ।</string>
+    <string name="squeezer_setup_warning">ସଙ୍କୋଚନ ଷ୍ଟୋରେଜ୍ ସ୍ଥାନ ସଞ୍ଚୟ ପାଇଁ ସ୍ଥାୟୀ ଭାବରେ ଚିତ୍ର ଗୁଣବତ୍ତା ହ୍ରାସ କରେ। ଏହା ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଯୋଗ୍ୟ ନୁହେଁ। ଆରମ୍ଭ କରିବା ପୂର୍ବରୁ ଆପଣଙ୍କ ସେଟିଂସ ଯତ୍ନର ସହ ସମୀକ୍ଷା କରନ୍ତୁ।</string>
+    <string name="squeezer_setup_explanation">ମିଡିଆ ସ୍କ୍ୱିଜ୍ ଷ୍ଟୋରେଜ୍ ସ୍ଥାନ ମୁକ୍ତ କରିବା ପାଇଁ ଚିତ୍ର ଫାଇଲ୍ ଆକାର ହ୍ରାସ କରେ। ଏହା ସ୍ଥାୟୀ ଭାବରେ ଚିତ୍ର ଗୁଣବତ୍ତା ହ୍ରାସ କରେ ଏବଂ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଯୋଗ୍ୟ ନୁହେଁ। ଆରମ୍ଭ କରିବା ପୂର୍ବରୁ ଆପଣଙ୍କ ସେଟିଂସ ଯତ୍ନର ସହ ସମୀକ୍ଷା କରନ୍ତୁ।</string>
+    <string name="squeezer_setup_paths_title">ଖୋଜ ସ୍ଥାନ</string>
+    <string name="squeezer_setup_paths_default">ଖୋଜିବା ପାଇଁ ଫୋଲ୍ଡର ଚୟନ କରନ୍ତୁ</string>
+    <string name="squeezer_setup_quality_title">ସଙ୍କୋଚନ ଗୁଣବତ୍ତା</string>
+    <string name="squeezer_setup_age_title">ସର୍ବନିମ୍ନ ବୟସ</string>
+    <string name="squeezer_setup_age_none">କୌଣସି ସୀମା ନାହିଁ (ସମସ୍ତ ଫାଇଲ୍ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ)</string>
+    <string name="squeezer_setup_start_action">ସ୍କାନ୍ ଆରମ୍ଭ କରନ୍ତୁ</string>
+    <string name="squeezer_quality_hint_very_low">40% ତଳର ଗୁଣବତ୍ତା ବ୍ୟବହାରଯୋଗ୍ୟ ନୁହେଁ ଏପରି ଚିତ୍ର ସୃଷ୍ଟି କରିପାରେ।</string>
+    <string name="squeezer_quality_hint_low">କମ୍ ଗୁଣବତ୍ତା ଅଧିକ ସ୍ଥାନ ସଞ୍ଚୟ କରେ କିନ୍ତୁ ଦୃଶ୍ୟମାନ ତ୍ରୁଟି ସୃଷ୍ଟି କରିପାରେ।</string>
+    <string name="squeezer_quality_hint_high">ଅତ୍ୟଧିକ ଉଚ୍ଚ ଗୁଣବତ୍ତା ସର୍ବନିମ୍ନ ସ୍ଥାନ ସଞ୍ଚୟ ପ୍ରଦାନ କରେ।</string>
+    <string name="squeezer_quality_hint_normal">ସନ୍ତୁଳିତ ଗୁଣବତ୍ତା ଏବଂ ସ୍ଥାନ ସଞ୍ଚୟ।</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">ଅତିକମରେ %d ଦିନ ପୁରୁଣା</item>
+        <item quantity="other">ଅତିକମରେ %d ଦିନ ପୁରୁଣା</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG ଫାଇଲ୍ ପାଇଁ ଆନୁମାନିକ ~%d%% ସଞ୍ଚୟ</string>
+    <string name="appcontrol_archive_action">ଆର୍କାଇଭ୍</string>
+    <string name="appcontrol_archive_selection_action">ଆପ୍ସ ଆର୍କାଇଭ୍ କରନ୍ତୁ</string>
+    <string name="appcontrol_archive_description">ପରେ ପୁନଃସ୍ଥାପନ ପାଇଁ ଆପ୍ ଡାଟା ରଖିବା ସହ ସ୍ଥାନ ମୁକ୍ତ କରିବା ପାଇଁ ଆର୍କାଇଭ୍ କରନ୍ତୁ।</string>
+    <string name="appcontrol_progress_archiving_app">ଆପ୍ ଆର୍କାଇଭ୍ କରୁଛି…</string>
+    <string name="appcontrol_archive_confirmation_title">ଆର୍କାଇଭ୍ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d ଆପ୍ ଆର୍କାଇଭ୍ କରିବେ?</item>
+        <item quantity="other">%d ଆପ୍ସ ଆର୍କାଇଭ୍ କରିବେ?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d ଆପ୍ ଆର୍କାଇଭ୍ ହୋଇଛି</item>
+        <item quantity="other">%d ଆପ୍ସ ଆର୍କାଇଭ୍ ହୋଇଛି</item>
+    </plurals>
+    <string name="appcontrol_restore_action">ପୁନଃସ୍ଥାପନ</string>
+    <string name="appcontrol_restore_selection_action">ଆପ୍ସ ପୁନଃସ୍ଥାପନ କରନ୍ତୁ</string>
+    <string name="appcontrol_restore_description">ଆର୍କାଇଭ୍ ହୋଇଥିବା ଆପ୍‌କୁ ସମ୍ପୂର୍ଣ୍ଣ ଇନଷ୍ଟଲ୍ ସ୍ଥିତିକୁ ପୁନଃସ୍ଥାପନ କରନ୍ତୁ। ଆପ୍ ଡାଟା ସଂରକ୍ଷିତ।</string>
+    <string name="appcontrol_progress_restoring_app">ଆପ୍ ପୁନଃସ୍ଥାପନ କରୁଛି…</string>
+    <string name="appcontrol_restore_confirmation_title">ପୁନଃସ୍ଥାପନ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d ଆପ୍ ପୁନଃସ୍ଥାପନ କରିବେ?</item>
+        <item quantity="other">%d ଆପ୍ସ ପୁନଃସ୍ଥାପନ କରିବେ?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d ଆପ୍ ପୁନଃସ୍ଥାପିତ</item>
+        <item quantity="other">%d ଆପ୍ସ ପୁନଃସ୍ଥାପିତ</item>
+    </plurals>
+    <string name="appcontrol_share_list_action">ତାଲିକା ସେୟାର କରନ୍ତୁ</string>
+    <string name="appcontrol_share_list_title">ମୋ ଆପ୍ସ</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE ମାଧ୍ୟମରେ ସେୟାର ହୋଇଛି</string>
+    <string name="appcontrol_automation_subtitle_archiving">ଆର୍କାଇଭ୍ କରୁଛି…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"ଆର୍କାଇଭ୍\" ବଟନ୍ ଖୋଜୁଛି (ମୁଖ୍ୟ ଶବ୍ଦ: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">ପୁନଃସ୍ଥାପନ କରୁଛି…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"ପୁନଃସ୍ଥାପନ\" ବଟନ୍ ଖୋଜୁଛି (ମୁଖ୍ୟ ଶବ୍ଦ: %s)</string>
+    <string name="appcontrol_item_installedat_x_label">ଇନଷ୍ଟଲ୍ ହୋଇଥିବା: %s</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper ସେସନ୍ ସୃଷ୍ଟି କରନ୍ତୁ</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">%d ଆଇଟମ୍ ସହ Swiper ସେସନ୍ ସୃଷ୍ଟି ହୋଇଛି</item>
+        <item quantity="other">%d ଆଇଟମ୍‌ଗୁଡିକ ସହ Swiper ସେସନ୍ ସୃଷ୍ଟି ହୋଇଛି</item>
+    </plurals>
+    <string name="anniversary_card_title">SD Maid ବାର୍ଷିକୀ ଶୁଭକାମନା ❤️</string>
+    <string name="anniversary_card_install_date">%s ଠାରୁ ଆପଣଙ୍କ ସହ</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">ପୂର୍ବରୁ %1$d ବର୍ଷ ଏକାଠି। ଆପଣଙ୍କ Android ସଫା ଏବଂ ଶୁଦ୍ଧ ରଖିବା ପାଇଁ SD Maid ଉପରେ ବିଶ୍ୱାସ ପାଇଁ ଧନ୍ୟବାଦ। ମୁକ୍ତ ସ୍ଥାନ: %2$s</item>
+        <item quantity="other">%1$d ବର୍ଷ ଶକ୍ତିଶାଳୀ। ଆପଣଙ୍କ ଡିଭାଇସ SD Maid ସହ ସଫା ଏବଂ ଶୁଦ୍ଧ ରହେ। ମୁକ୍ତ ସ୍ଥାନ: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">ଆପଣଙ୍କ SD Maid ବାର୍ଷିକୀ ସେୟାର କରନ୍ତୁ</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">SD Maid ସହ %1$d ବର୍ଷ — ମୁକ୍ତ ସ୍ଥାନ: %2$s। ଆପଣଙ୍କ Android ସଫା ଏବଂ ଶୁଦ୍ଧ ରଖେ। #SDMaid\nଚେଷ୍ଟା କରନ୍ତୁ: %3$s</item>
+        <item quantity="other">SD Maid ସହ %1$d ବର୍ଷ — ମୁକ୍ତ ସ୍ଥାନ: %2$s। ଆପଣଙ୍କ Android ସଫା ଏବଂ ଶୁଦ୍ଧ ରଖେ। #SDMaid\nଚେଷ୍ଟା କରନ୍ତୁ: %3$s</item>
+    </plurals>
+    <string name="shortcut_appcontrol_short">ଆପ୍ ନିୟନ୍ତ୍ରଣ</string>
+    <string name="shortcut_appcontrol_long">ଇନଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ସ ପରିଚାଳନା କରନ୍ତୁ</string>
+    <string name="shortcut_onetap_short">ସ୍କାନ୍ + ଡିଲିଟ୍</string>
+    <string name="shortcut_onetap_long">ଏକ କାର୍ଯ୍ୟରେ ସ୍କାନ୍ ଏବଂ ଡିଲିଟ୍ କରନ୍ତୁ</string>
+    <string name="shortcuts_settings_category">ସର୍ଟକଟ୍</string>
+    <string name="shortcuts_onetap_enabled_title">ଏକ-ଟ୍ୟାପ୍ ସର୍ଟକଟ୍</string>
+    <string name="shortcuts_onetap_enabled_summary">ଆପ୍ ଆଇକନ୍ ଦୀର୍ଘ-ଦବାଇବା ସମୟରେ \"ସ୍କାନ୍ + ଡିଲିଟ୍\" ସର୍ଟକଟ୍ ଦେଖାନ୍ତୁ। ଏକ-ଟ୍ୟାପ୍ ଡ୍ୟାସବୋର୍ଡ ସହ ସମାନ ଟୁଲ୍ ବ୍ୟବହାର କରେ।</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">କଣ ରଖିବେ କିମ୍ବା ଡିଲିଟ୍ କରିବେ ନିଷ୍ପତ୍ତି ନେବା ପାଇଁ ଫାଇଲ୍ ମଧ୍ୟରେ ସ୍ୱାଇପ୍ କରନ୍ତୁ।</string>
+    <string name="swiper_dashcard_description">ନିର୍ଦ୍ଦିଷ୍ଟ ଫୋଲ୍ଡରରେ ଫାଇଲ୍‌ଗୁଡିକୁ ହାତରେ ସମୀକ୍ଷା କରନ୍ତୁ। କଣ ରଖିବେ କିମ୍ବା ଡିଲିଟ୍ କରିବେ ନିଷ୍ପତ୍ତି ନେବା ପାଇଁ ସ୍ୱାଇପ୍ କରନ୍ତୁ।</string>
+    <string name="swiper_start_action">ସ୍ୱାଇପ୍ ଆରମ୍ଭ କରନ୍ତୁ</string>
+    <string name="swiper_continue_action">ସେସନ୍ ଜାରି ରଖନ୍ତୁ</string>
+    <string name="swiper_sessions_description">କିଛି ଫାଇଲ୍ ମାନବ ନିଷ୍ପତ୍ତି ଆବଶ୍ୟକ କରେ। ଆଇଟମ୍ ମଧ୍ୟରେ ସ୍ୱାଇପ୍ କରନ୍ତୁ ଏବଂ କଣ ରଖିବେ କିମ୍ବା ଡିଲିଟ୍ କରିବେ ବାଛନ୍ତୁ। ଅନିଶ୍ଚିତ ଯେକୌଣସି ଜିନିଷ ଛାଡନ୍ତୁ। ଏହି ଟୁଲ୍ ଆପଣଙ୍କୁ ନିର୍ଦ୍ଦିଷ୍ଟ ଫୋଲ୍ଡର ହାତରେ ସମୀକ୍ଷା କରିବାକୁ ଅନୁମତି ଦିଏ, ଏବଂ ଆପଣ ନିଶ୍ଚିତ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ଅପସାରିତ ହୁଏ ନାହିଁ।</string>
+    <string name="swiper_select_folders_action">ଫୋଲ୍ଡର ଚୟନ କରନ୍ତୁ</string>
+    <string name="swiper_scanning_title">ସ୍କାନ୍ କରୁଛି…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d ଆଇଟମ୍ ମିଳିଲା</item>
+        <item quantity="other">%d ଆଇଟମ୍‌ଗୁଡିକ ମିଳିଲା</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d ଆଇଟମ୍ ଡିଲିଟ୍ ହୋଇଛି</item>
+        <item quantity="other">%d ଆଇଟମ୍‌ଗୁଡିକ ଡିଲିଟ୍ ହୋଇଛି</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d ଆଇଟମ୍ ବିଫଳ</item>
+        <item quantity="other">%d ଆଇଟମ୍‌ଗୁଡିକ ବିଫଳ</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d ର %2$d</string>
+    <string name="swiper_keep_action">ରଖନ୍ତୁ</string>
+    <string name="swiper_skip_action">ଛାଡନ୍ତୁ</string>
+    <string name="swiper_review_action">ସମୀକ୍ଷା</string>
+    <string name="swiper_status_title">ନିଷ୍ପତ୍ତି ସମୀକ୍ଷା</string>
+    <string name="swiper_status_action_keep_selected">ଚୟନିତ ରଖନ୍ତୁ</string>
+    <string name="swiper_status_action_delete_selected">ଚୟନିତ ଡିଲିଟ୍ କରନ୍ତୁ</string>
+    <string name="swiper_status_action_reset_selected">ଚୟନିତ ପୁନଃସେଟ୍ କରନ୍ତୁ</string>
+    <string name="swiper_decision_undecided">ଅନିଷ୍ପତ୍ତିତ</string>
+    <string name="swiper_retry_action">ପୁନଃଚେଷ୍ଟା</string>
+    <string name="swiper_delete_confirmation_title">ଫାଇଲ୍ ଡିଲିଟ୍ କରିବେ?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">ଏହା ସ୍ଥାୟୀ ଭାବରେ %1$d ଫାଇଲ୍ (%2$s) ଡିଲିଟ୍ କରିବ। ଏହି କାର୍ଯ୍ୟ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଯୋଗ୍ୟ ନୁହେଁ।</item>
+        <item quantity="other">ଏହା ସ୍ଥାୟୀ ଭାବରେ %1$d ଫାଇଲ୍‌ଗୁଡିକ (%2$s) ଡିଲିଟ୍ କରିବ। ଏହି କାର୍ଯ୍ୟ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଯୋଗ୍ୟ ନୁହେଁ।</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d ଅନିଷ୍ପତ୍ତିତ ଆଇଟମ୍ ପରେ ସମୀକ୍ଷା ପାଇଁ ରହିବ।</item>
+        <item quantity="other">%d ଅନିଷ୍ପତ୍ତିତ ଆଇଟମ୍‌ଗୁଡିକ ପରେ ସମୀକ୍ଷା ପାଇଁ ରହିବ।</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d ଡିଲିଟ୍ କରନ୍ତୁ</string>
+    <string name="swiper_settings_swap_directions_title">ସ୍ୱାଇପ୍ ଦିଗ ବଦଳାନ୍ତୁ</string>
+    <string name="swiper_settings_swap_directions_summary">ରଖିବା ପାଇଁ ବାମକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ, ଡିଲିଟ୍ ପାଇଁ ଡାହାଣକୁ।</string>
+    <string name="swiper_settings_show_details_title">ଫାଇଲ୍ ବିବରଣୀ ଦେଖାନ୍ତୁ</string>
+    <string name="swiper_settings_show_details_summary">ସ୍ୱାଇପ୍ ସ୍କ୍ରୀନ୍‌ରେ ଫାଇଲ୍ ନାମ, ଆକାର ଏବଂ ତାରିଖ ଦେଖାନ୍ତୁ।</string>
+    <string name="swiper_settings_haptic_feedback_title">ସ୍ପର୍ଶ ପ୍ରତିକ୍ରିୟା</string>
+    <string name="swiper_settings_haptic_feedback_summary">ରଖିବା କିମ୍ବା ଡିଲିଟ୍ ନିଷ୍ପତ୍ତି ନେବା ସମୟରେ କମ୍ପନ।</string>
+    <string name="swiper_discard_session_confirmation_title">ସେସନ୍ ଖାରଜ କରିବେ?</string>
+    <string name="swiper_discard_session_confirmation_message">ସମସ୍ତ ନିଷ୍ପତ୍ତି ହରାଇ ଯିବ। ଆପଣ ନିଶ୍ଚିତ?</string>
+    <string name="swiper_no_preview_available">ପୂର୍ବାବଲୋକନ ଉପಲବ୍ଧ ନାହିଁ</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">%1$d ଦିନ ଆଗରୁ ସେସନ୍ ଜାରି ରଖନ୍ତୁ (%2$d%% ସମ୍ପୂର୍ଣ୍ଣ)</item>
+        <item quantity="other">%1$d ଦିନ ଆଗରୁ ସେସନ୍ ଜାରି ରଖନ୍ତୁ (%2$d%% ସମ୍ପୂର୍ଣ୍ଣ)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d ସେସନ୍</item>
+        <item quantity="other">%d ସେସନ୍</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d ଅନିଷ୍ପତ୍ତିତ ଆଇଟମ୍</item>
+        <item quantity="other">%d ଅନିଷ୍ପତ୍ତିତ ଆଇଟମ୍‌ଗୁଡିକ</item>
+    </plurals>
+    <string name="swiper_session_timestamps">ସୃଷ୍ଟି %1$s, ଶେଷ ସକ୍ରିୟତା %2$s</string>
+    <string name="swiper_session_remove_action">ସେସନ୍ ଅପସାରଣ କରନ୍ତୁ</string>
+    <string name="swiper_sessions_empty_hint">ଏକ ଫୋଲ୍ଡର ଚୟନ କରିବା ଏବଂ ସ୍ୱାଇପ୍ ଆରମ୍ଭ କରିବା ପାଇଁ + ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
+    <string name="swiper_sessions_upgrade_body">ଏହି ସୀମା ଅପସାରଣ ଏବଂ ବିକାଶ ସମର୍ଥନ ପାଇଁ ଅପଗ୍ରେଡ୍ କରନ୍ତୁ। ମାଗଣା ସଂସ୍କରଣ ସୀମିତ:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">ସେସନ୍ ପ୍ରତି %d ଫାଇଲ୍</item>
+        <item quantity="other">ସେସନ୍ ପ୍ରତି %d ଫାଇଲ୍</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d ସେସନ୍</item>
+        <item quantity="other">%d ସେସନ୍</item>
+    </plurals>
+    <string name="swiper_session_default_label">ସେସନ୍ #%d</string>
+    <string name="swiper_session_rename_title">ସେସନ୍ ପୁନଃନାମକରଣ</string>
+    <string name="swiper_session_rename_hint">ଏହି ସେସନ୍ ପାଇଁ ଏକ ନାମ ପ୍ରବେଶ କରନ୍ତୁ</string>
+    <string name="swiper_sessions_current_sessions">ବର୍ତ୍ତମାନ ସେସନ୍</string>
+    <string name="swiper_session_paths_label">ପଥ</string>
+    <string name="swiper_session_status_label">ସ୍ଥିତି</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d ରଖିବା ପାଇଁ</item>
+        <item quantity="other">%d ରଖିବା ପାଇଁ</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d ଡିଲିଟ୍ ପାଇଁ</item>
+        <item quantity="other">%d ଡିଲିଟ୍ ପାଇଁ</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d ଅନିଷ୍ପତ୍ତିତ</item>
+        <item quantity="other">%d ଅନିଷ୍ପତ୍ତିତ</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d ପୂର୍ବରୁ ରଖାଯାଇଛି</item>
+        <item quantity="other">%d ପୂର୍ବରୁ ରଖାଯାଇଛି</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d ପୂର୍ବରୁ ଡିଲିଟ୍ ହୋଇଛି</item>
+        <item quantity="other">%d ପୂର୍ବରୁ ଡିଲିଟ୍ ହୋଇଛି</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d ରଖାଯାଇଛି</item>
+        <item quantity="other">%d ରଖାଯାଇଛି</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d ଡିଲିଟ୍ ହୋଇଛି</item>
+        <item quantity="other">%d ଡିଲିଟ୍ ହୋଇଛି</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Swiper ସ୍କାନ୍‌ରୁ \"%1$s\" ବାହାର କରିବେ?</string>
+    <string name="swiper_sessions_header_title">ସଫା କରିବାକୁ ପ୍ରସ୍ତୁତ?</string>
+    <string name="swiper_sessions_suggestions_label">ଏଥିରୁ ଆରମ୍ଭ କରି ଚେଷ୍ଟା କରନ୍ତୁ:</string>
+    <string name="swiper_sessions_suggestion_downloads">ଡାଉନଲୋଡ ଫୋଲ୍ଡର</string>
+    <string name="swiper_sessions_suggestion_screenshots">ସ୍କ୍ରୀନସଟ୍</string>
+    <string name="swiper_sessions_suggestion_camera">କ୍ୟାମେରା ରୋଲ୍</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">ରଖନ୍ତୁ!</string>
+    <string name="swiper_stamp_keep_2">ଭଲ!</string>
+    <string name="swiper_stamp_keep_3">ହଁ!</string>
+    <string name="swiper_stamp_keep_4">ସଞ୍ଚୟ!</string>
+    <string name="swiper_stamp_delete_1">ନାହିଁ!</string>
+    <string name="swiper_stamp_delete_2">ବିଦାୟ!</string>
+    <string name="swiper_stamp_delete_3">ଆବର୍ଜନା!</string>
+    <string name="swiper_stamp_delete_4">ଡିଲିଟ୍!</string>
+    <string name="swiper_stamp_skip_1">ଛାଡନ୍ତୁ!</string>
+    <string name="swiper_stamp_skip_2">ହମ୍!</string>
+    <string name="swiper_stamp_skip_3">ପରେ!</string>
+    <string name="swiper_stamp_skip_4">ହୋଇପାରେ!</string>
+    <string name="swiper_stamp_undo_1">ପ୍ରତ୍ୟାବର୍ତ୍ତନ!</string>
+    <string name="swiper_stamp_undo_2">ପଛକୁ!</string>
+    <string name="swiper_stamp_undo_3">ଓହୋ!</string>
+    <string name="swiper_stamp_undo_4">ଅପେକ୍ଷା!</string>
 </resources>

@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Daar word nog aan hierdie kenmerk gewerk en tans nie beskikbaar nie.</string>
     <string name="general_share_action">Deel</string>
     <string name="general_done_action">Klaar</string>
+    <string name="general_apply_action">Pas toe</string>
     <string name="general_copy_action">Kopieer</string>
     <string name="general_wipe_action">Vee uit</string>
     <string name="general_cancel_action">Kanselleer</string>
     <string name="general_discard_action">Gooi weg</string>
     <string name="general_reset_action">Herstel</string>
+    <string name="general_drag_handle_description">Sleep om te herrangskik</string>
     <string name="general_save_action">Stoor</string>
     <string name="general_thanks_action">Dankie</string>
     <string name="general_gotit_action">Verstaan</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Redigeer</string>
     <string name="general_na_label">N/B</string>
     <string name="general_empty_label">Leeg</string>
+    <string name="general_new_badge_label">Nuut</string>
     <string name="general_dismiss_action">Maak toe</string>
     <string name="general_maybe_later_action">Miskien later</string>
     <string name="general_manage_action">Bestuur</string>
@@ -41,6 +44,7 @@
     <string name="general_upgrade_action">Opgradeer</string>
     <string name="general_donate_action">Skenk</string>
     <string name="general_check_action">Kontroleer</string>
+    <string name="general_filter_action">Filter</string>
     <string name="general_internal_not_available_msg">Internetverbinding nie beskikbaar nie</string>
     <string name="general_refresh_action">Verfris</string>
     <string name="general_progress_searching">Soek</string>
@@ -91,6 +95,10 @@
     <string name="general_toggle_layout_mode">Wissel aansig modus</string>
     <string name="general_delete_confirmation_title">Bevestig skrapping</string>
     <string name="general_delete_confirmation_message_x">Skrap \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Skrap %d geselekteerde item?</item>
+        <item quantity="other">Skrap %d geselekteerde items?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d item geskrap.</item>
         <item quantity="other">%d items geskrap.</item>
@@ -106,6 +114,10 @@
     <string name="general_search_action">Soek</string>
     <string name="general_scan_device_action">Skandeer toestel</string>
     <string name="general_open_system_settings_action">Maak sisteem instellings oop</string>
+    <plurals name="result_x_items">
+        <item quantity="one">%s item</item>
+        <item quantity="other">%s items</item>
+    </plurals>
     <plurals name="result_x_successful">
         <item quantity="one">%d suksesvol</item>
         <item quantity="other">%d suksesvol</item>
@@ -120,6 +132,7 @@
     </plurals>
     <string name="general_info_label">Inligting</string>
     <string name="general_count_label">Tel</string>
+    <string name="general_app_label">Toep</string>
     <string name="general_more_info_action">Meer inligting</string>
     <string name="general_grant_access_action">Verleen toegang</string>
     <string name="general_enable_service_action">Aktiveer diens</string>
@@ -158,4 +171,6 @@
     <string name="general_error_report_bug_action">Rapporteer fout</string>
     <string name="general_error_ipc_deadobject_title">Diens Verbinding Verloor</string>
     <string name="general_error_ipc_deadobject_description">Die verbinding na \'n kritieke diens (bv. Magisk, Shizuku, of ander stelsel-vlak dienste) is onverwags verloor. Herlaai asseblief jou toestel. As die probleem voortduur, kontroleer vir opdaterings of kontak my sodat ek dit kan regstel.</string>
+    <string name="general_user_label_owner">Eienaar</string>
+    <string name="general_user_label_system">Stelsel</string>
 </resources>

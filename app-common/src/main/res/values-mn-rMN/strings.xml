@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Таны үйлчилгээнд.</string>
     <string name="slogan_message_1">Цэвэр бөгөөд эмх цэгцтэй.</string>
     <string name="slogan_message_2">Эмх замбараагүй байдлаас сэргийлэх.</string>
     <string name="slogan_message_3">Хэрэгтэй зүйлийг хийх.</string>
+    <string name="slogan_message_4">Бүгд эмх цэгцтэй.</string>
     <string name="slogan_message_5">Толигор.</string>
     <string name="slogan_message_6">Байт, явж!</string>
     <string name="slogan_message_7">Чөлөөт зай, баяр баясгалантай газар.</string>
@@ -17,11 +19,13 @@
     <string name="general_todo_msg">Энэ функц одоогоор боловсруулагдаж байгаа тул одоогоор боломжгүй байна.</string>
     <string name="general_share_action">Хуваалцах</string>
     <string name="general_done_action">Дууссан</string>
+    <string name="general_apply_action">Хэрэглэх</string>
     <string name="general_copy_action">Хуулах</string>
     <string name="general_wipe_action">Арчих</string>
     <string name="general_cancel_action">Цуцлах</string>
     <string name="general_discard_action">Хаях</string>
     <string name="general_reset_action">Дахин тохируулах</string>
+    <string name="general_drag_handle_description">Дарааллыг өөрчлөхийн тулд чирнэ үү</string>
     <string name="general_save_action">Хадгалах</string>
     <string name="general_thanks_action">Баярлалаа</string>
     <string name="general_gotit_action">Ойлголоо</string>
@@ -30,6 +34,7 @@
     <string name="general_edit_action">Засах</string>
     <string name="general_na_label">Байхгүй</string>
     <string name="general_empty_label">Хоосон</string>
+    <string name="general_new_badge_label">Шинэ</string>
     <string name="general_dismiss_action">Хаах</string>
     <string name="general_maybe_later_action">Дараа нь магадгүй</string>
     <string name="general_manage_action">Удирдах</string>
@@ -90,6 +95,10 @@
     <string name="general_toggle_layout_mode">Харах горимыг сэлгэх</string>
     <string name="general_delete_confirmation_title">Устгахыг баталгаажуулах</string>
     <string name="general_delete_confirmation_message_x">\"%s\" устгах уу?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Сонгосон %d зүйлийг устгах уу?</item>
+        <item quantity="other">Сонгосон %d зүйлийг устгах уу?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d зүйл устгасан.</item>
         <item quantity="other">%d зүйл устгасан.</item>
@@ -162,4 +171,6 @@
     <string name="general_error_report_bug_action">Алдаа мэдээлэх</string>
     <string name="general_error_ipc_deadobject_title">Үйлчилгээний холболт тасарсан</string>
     <string name="general_error_ipc_deadobject_description">Чухал үйлчилгээний холболт (жишээ нь Magisk, Shizuku эсвэл бусад системийн түвшний үйлчилгээнүүд) гэнэт тасарсан. Төхөөрөмжөө дахин эхлүүлнэ үү. Хэрэв асуудал үргэлжилвэл шинэчлэлийг шалгаж эсвэл надтай холбогдоно уу.</string>
+    <string name="general_user_label_owner">Эзэмшигч</string>
+    <string name="general_user_label_system">Систем</string>
 </resources>

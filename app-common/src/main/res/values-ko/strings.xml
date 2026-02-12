@@ -154,4 +154,12 @@
     <string name="general_error_report_bug_action">버그 신고</string>
     <string name="general_error_ipc_deadobject_title">서비스 연결 끊김</string>
     <string name="general_error_ipc_deadobject_description">중요한 서비스(예: Magisk, Shizuku 또는 기타 시스템 수준 서비스)와의 연결이 예기치 않게 끊어졌습니다. 기기를 재부팅하십시오. 문제가 지속되면 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
+    <string name="general_apply_action">적용</string>
+    <string name="general_drag_handle_description">끌어서 순서 변경</string>
+    <string name="general_new_badge_label">새로운</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="other">선택한 %d개 항목을 삭제할까요?</item>
+    </plurals>
+    <string name="general_user_label_owner">소유자</string>
+    <string name="general_user_label_system">시스템</string>
 </resources>

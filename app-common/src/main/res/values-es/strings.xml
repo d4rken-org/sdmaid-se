@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Esta característica está en desarrollo y aún no está disponible.</string>
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Realizado</string>
+    <string name="general_apply_action">Aplicar</string>
     <string name="general_copy_action">Copiar</string>
     <string name="general_wipe_action">Limpiar</string>
     <string name="general_cancel_action">Cancelar</string>
     <string name="general_discard_action">Ignorar</string>
     <string name="general_reset_action">Restablecer</string>
+    <string name="general_drag_handle_description">Arrastrar para reordenar</string>
     <string name="general_save_action">Guardar</string>
     <string name="general_thanks_action">Gracias</string>
     <string name="general_gotit_action">Entiendo</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Editar</string>
     <string name="general_na_label">No disponible</string>
     <string name="general_empty_label">Vacío</string>
+    <string name="general_new_badge_label">Nuevo</string>
     <string name="general_dismiss_action">Descartar</string>
     <string name="general_maybe_later_action">Tal vez más tarde</string>
     <string name="general_manage_action">Administrar</string>

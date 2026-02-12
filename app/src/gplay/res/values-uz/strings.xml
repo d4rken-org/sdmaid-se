@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro talab qilinadi</string>
+    <string name="upgrades_dashcard_title">SD Maid SE ni yangilash</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro yaxshiroq natijalar, ko\'proq funksiyalar va ilg\'or foydalanuvchilar uchun variantlarni taqdim etadi.</string>
     <string name="upgrades_dashcard_upgrade_action">Yangilash</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play mavjud emas</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play-ga ulanib bo\'lmaydi. Google Play o\'rnatilgan va yangilanganmi? Google hisobingiz tizimga kirilganmi? Google Play ilovasining keshini tozalashni va qurilmangizni qayta ishga tushirishni sinab ko\'ring.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play muammosi</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play bilan muammo yuz berdi. Keyinroq qayta urinib ko\'ring yoki qurilmangizni qayta ishga tushiring.\n\nTafsilotlar: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play xatosi</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play ichki xatosi yuz berdi. Quyidagilarni sinab ko\'ring:\n\n• Qurilmangizni qayta ishga tushiring\n• Google Play Store keshini tozalang\n• Keyinroq qayta urinib ko\'ring</string>
+    <string name="upgrades_gplay_network_error_title">Ulanish xatosi</string>
+    <string name="upgrades_gplay_network_error_description">Google Play-ga ulanib bo\'lmadi. Internet aloqangizni tekshiring va qayta urinib ko\'ring.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Allaqachon xarid qilingan</string>
+    <string name="upgrades_gplay_already_owned_error_description">Xaridni tiklash uchun \"Xaridni tiklash\" variantidan foydalaning. Muammo davom etsa, Google Play keshini tozalashni va qurilmangizni qayta ishga tushirishni sinab ko\'ring.</string>
     <string name="upgrades_no_purchases_found_check_account">Hech qanday xarid topilmadi. To\'g\'ri hisobdan foydalanyapsizmi?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ni oling</string>
     <string name="upgrade_screen_preamble">SD Maid-da reklama yo\'q va foydalanuvchi ma\'lumotlarini sotmaydi. Mening ishim sizning moliyalashtirishingiz hisobiga amalga oshiriladi ❤️.</string>

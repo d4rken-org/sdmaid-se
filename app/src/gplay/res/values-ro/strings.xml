@@ -15,6 +15,7 @@
     <string name="upgrades_gplay_network_error_title">Eroare conexiune</string>
     <string name="upgrades_gplay_network_error_description">Nu se poate conecta la Google Play. Vă rugăm să verificați conexiunea la internet și să încercați din nou.</string>
     <string name="upgrades_gplay_already_owned_error_title">Deja achiziționat</string>
+    <string name="upgrades_gplay_already_owned_error_description">Folosiți opțiunea \"Restabiliți achiziția\" pentru a vă restabili achiziția. Dacă problema persistă, încercați să ștergeți memoria cache Google Play și să reporniți dispozitivul.</string>
     <string name="upgrades_no_purchases_found_check_account">Nu s-a găsit nicio achiziție. Ești sigur că folosești contul corect?</string>
     <string name="upgrade_screen_title">Obține SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nu are reclame și nu vinde datele utilizatorului. Munca mea este finanțată de tine.</string>

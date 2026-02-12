@@ -22,11 +22,13 @@
     <string name="general_todo_msg">Tá an ghné seo fós á hoibriú agus níl sí ar fáil faoi láthair.</string>
     <string name="general_share_action">Roinn</string>
     <string name="general_done_action">Déanta</string>
+    <string name="general_apply_action">Cuir i bhfeidhm</string>
     <string name="general_copy_action">Cóipeáil</string>
     <string name="general_wipe_action">Glan</string>
     <string name="general_cancel_action">Cealaigh</string>
     <string name="general_discard_action">Caith ar lár</string>
     <string name="general_reset_action">Athshocraigh</string>
+    <string name="general_drag_handle_description">Tarraing chun athordú</string>
     <string name="general_save_action">Sábháil</string>
     <string name="general_thanks_action">Buíochas</string>
     <string name="general_gotit_action">Tuigim</string>
@@ -35,6 +37,7 @@
     <string name="general_edit_action">Cuir in eagar</string>
     <string name="general_na_label">N/B</string>
     <string name="general_empty_label">Folamh</string>
+    <string name="general_new_badge_label">Nua</string>
     <string name="general_dismiss_action">Ruaig</string>
     <string name="general_maybe_later_action">B\'fhéidir níos déanaí</string>
     <string name="general_manage_action">Bainistigh</string>
@@ -202,4 +205,6 @@
     <string name="general_error_report_bug_action">Tuairiscigh fabht</string>
     <string name="general_error_ipc_deadobject_title">Ceangal seirbhíse caillte</string>
     <string name="general_error_ipc_deadobject_description">Cailleadh ceangal le seirbhís ríthábhachtach (m.sh. Magisk, Shizuku, nó seirbhísí córas-leibhéal eile) go tobann. Atosaigh do ghléas le do thoil. Má leanann an fhadhb, seiceáil le haghaidh nuashonruithe nó déan teagmháil liom chun í a shocrú.</string>
+    <string name="general_user_label_owner">Úinéir</string>
+    <string name="general_user_label_system">Córas</string>
 </resources>

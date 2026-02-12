@@ -3,6 +3,7 @@
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">Açıq mənbəli proqram təminatı</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE FOSS tələb olunur</string>
+    <string name="upgrades_dashcard_title">SD Maid SE-ni yüksəldin</string>
     <string name="upgrades_dashcard_body">Əlavə xüsusiyyətləri açın və davamlı inkişafı dəstəkləmək üçün himayədar olun!</string>
     <string name="upgrades_dashcard_upgrade_action">Yüksəlt</string>
     <string name="upgrade_screen_title">SD Maid-i təkmilləşdirin</string>

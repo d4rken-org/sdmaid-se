@@ -31,4 +31,10 @@
     <string name="upgrade_screen_restore_multiaccount_hint">Is féidir le cuntais iolracha Google Play a mheascadh. Logáil amach as cuntais eile nó suiteáil tríd an láithreán gréasáin Google Play, a fhorfheidhmeann comhlachais le cuntas ar leith.</string>
     <string name="upgrades_gplay_billing_error_label">Fadhb Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Bhí fadhb ann le Google Play. Déan iarracht arís níos déanaí nó atosú do ghléas.\n\nSonraí: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Earráid Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Tharla earráid inmheánach Google Play. Déan iarracht na rudaí seo a leanas:\n\n• Atosaigh do ghléas\n• Glan taisce Google Play Store\n• Déan iarracht arís níos déanaí</string>
+    <string name="upgrades_gplay_network_error_title">Earráid ceangail</string>
+    <string name="upgrades_gplay_network_error_description">Ní féidir ceangal le Google Play. Seiceáil do cheangal idirlín agus déan iarracht arís.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Ceannaithe cheana</string>
+    <string name="upgrades_gplay_already_owned_error_description">Úsáid an rogha \"Athchóirigh ceannach\" chun do cheannach a athchóiriú. Má leanann an fhadhb, déan iarracht taisce Google Play a ghlanadh agus do ghléas a atosú.</string>
 </resources>

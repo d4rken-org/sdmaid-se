@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Inahitaji SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Boresha SD Maid SE</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro inatoa matokeo bora zaidi, vipengele zaidi na chaguo kwa watumiaji wa hali ya juu.</string>
     <string name="upgrades_dashcard_upgrade_action">Boresha</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play haipo</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid haiwezi kuunganisha na Google Play. Je, Google Play imesakinishwa na imesasishwa? Je, akaunti yako ya Google imeingia? Jaribu kusafisha akiba ya programu ya Google Play na uanzishe upya kifaa chako.</string>
+    <string name="upgrades_gplay_billing_error_label">Tatizo la Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Kulikuwa na tatizo na Google Play. Tafadhali jaribu tena baadaye au uanzishe upya kifaa chako.\n\nMaelezo: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Hitilafu ya Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Hitilafu ya ndani ya Google Play ilitokea. Tafadhali jaribu yafuatayo:\n\n• Anzisha upya kifaa chako\n• Safisha akiba ya Google Play Store\n• Jaribu tena baadaye</string>
+    <string name="upgrades_gplay_network_error_title">Hitilafu ya muunganisho</string>
+    <string name="upgrades_gplay_network_error_description">Haiwezi kuunganisha na Google Play. Tafadhali angalia muunganisho wako wa intaneti na ujaribu tena.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Tayari umenunua</string>
+    <string name="upgrades_gplay_already_owned_error_description">Tumia chaguo la \"Rejesha ununuzi\" kurejesha ununuzi wako. Ikiwa tatizo linaendelea, jaribu kusafisha akiba ya Google Play na kuanzisha upya kifaa chako.</string>
     <string name="upgrades_no_purchases_found_check_account">Hakuna ununuzi uliopatikana. Je, unatumia akaunti sahihi?</string>
     <string name="upgrade_screen_title">Pata SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid haina matangazo na hauzuzi data za watumiaji. Kazi yangu inafadhiliwa na wewe ❤️.</string>

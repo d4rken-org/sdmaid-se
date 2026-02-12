@@ -708,6 +708,386 @@
     <string name="area_type_public_obb_label">Rasilimali za umma za programu</string>
     <string name="area_type_private_data_label">Data ya kibinafsi ya programu</string>
     <string name="area_type_portable_label">Hifadhi ya kubeba</string>
+    <string name="dashboard_card_config_title">Kadi za dashibodi</string>
+    <string name="dashboard_card_config_desc">Sanidi kadi zipi zinaonyeshwa na mpangilio wao</string>
+    <string name="dashboard_card_config_header_title">Buruta kupanga upya, geuza kuonyesha/kuficha</string>
+
+    <string name="debug_debuglog_screen_title">Rekodi ya Marekebisho</string>
+    <string name="debug_debuglog_screen_discard_action">Tupa</string>
+    <string name="debug_debuglog_screen_session_path_label">Njia ya Kipindi</string>
+    <string name="debug_debuglog_screen_log_files_label">Mafaili ya Rekodi</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">faili %1$d tayari (%2$s)</item>
+        <item quantity="other">mafaili %1$d tayari (%2$s)</item>
+    </plurals>
+
+    <string name="support_debuglog_folder_label">Folda ya rekodi ya marekebisho</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">faili %1$d inatumia %2$s</item>
+        <item quantity="other">mafaili %1$d yanatumia %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Hakuna rekodi za marekebisho zilizohifadhiwa</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Futa rekodi zote za marekebisho?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Hii itafuta kabisa vipindi vyote vya rekodi za marekebisho vilivyohifadhiwa. Kitendo hiki hakiwezi kutenduliwa.</string>
+
+    <string name="discord_label">Discord</string>
+
+    <string name="settings_acknowledgements_category_translations_title">Tafsiri</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Ni nani aliyetafsiri hii?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Shukrani</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Shukrani maalum kwa marafiki wetu.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Leseni</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Programu zinazotumiwa na SD Maid.</string>
+
+    <string name="debug_card_title">Hali ya marekebisho imewashwa</string>
+    <string name="debug_card_trace_mode_label">Wezesha hali ya ufuatiliaji</string>
+    <string name="debug_card_dryrun_mode_label">Hali ya majaribio (zima ufutaji)</string>
+    <string name="debug_card_areas_reload_action">Pakia upya maeneo ya data</string>
+    <string name="debug_card_pkgs_reload_action">Pakia upya programu</string>
+    <string name="debug_card_root_test_action">Jaribu root</string>
+    <string name="debug_card_shizuku_test_action">Jaribu Shizuku</string>
+
+    <string name="corpsefinder_filter_artprofiles_label">Profaili za ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Profaili za ART zinatumiwa na Android kuboresha utendaji wa programu.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+
+    <string name="systemcleaner_filter_superfluosapks_summary">Mafaili ya usanidi ambayo hayahitajiki tena kulingana na matoleo ya programu zilizosakinishwa.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Jumuisha toleo sawa</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Pia lengo mafaili ya APK yanayolingana na toleo lililosakinishwa. Zima ili kuondoa matoleo ya zamani tu.</string>
+
+    <string name="systemcleaner_customfilter_editor_size_label">Vikwazo vya ukubwa</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Ukubwa wa chini</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Ukubwa wa juu</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Punguza matokeo kulingana na ukubwa wa faili. Acha bila kuweka ili kulingana na ukubwa wowote.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Vikwazo vya umri</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Umri wa chini</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Umri wa juu</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Punguza matokeo kulingana na umri wa faili (wakati wa mwisho wa kubadilishwa). Acha bila kuweka ili kulingana na umri wowote.</string>
+
+    <string name="appcleaner_filter_shortcutservice_label">Aikoni za mkato wa programu</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Aikoni zilizohifadhiwa kwa mikato ya programu na menyu za kushiriki.</string>
+
+    <string name="appcleaner_forcestop_before_clearing_label">Simamisha kwa nguvu kabla ya kusafisha</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Simamisha programu kwa nguvu kabla ya kusafisha hifadhi yao. Inaweza kusaidia kusafisha hifadhi ya programu fulani, lakini inaweza kusababisha programu kutofanya kazi vizuri na kuhitaji kuanzishwa upya kwa mikono.</string>
+    <string name="appcleaner_progress_force_stopping">Kusimamisha programu kwa nguvu…</string>
+
+    <string name="deduplicator_detection_method_phash_summary">Pata mafaili yanayofanana kwa kuchanganua vipengele vya maudhui na kulinganisha thamani za hash ya mtazamo. ⚠️ Ugunduzi unaotegemea ufanano unaweza kujumuisha matokeo ya uongo yanayohitaji uthibitisho wa mikono.</string>
+
+    <string name="deduplicator_arbiter_title">Mkakati wa kufuta</string>
+    <string name="deduplicator_arbiter_summary">Sanidi mafaili yapi yanayohifadhiwa na yapi yanayofutwa.</string>
+    <string name="deduplicator_arbiter_explanation">Inapofuta nakala pacha, SD Maid inaamua faili lipi litahifadhiwa kwa kukagua kila kigezo kwa mpangilio. Kigezo cha kwanza kinachozalisha mshindi wazi kinaamua matokeo. Buruta kupanga upya, bofya kubadilisha hali.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Chagua hali</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Sanidi njia…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Aina ya nakala pacha</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Pendelea nakala sahihi kuliko mafaili yanayofanana.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Uorodheshaji wa media</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Zingatia iwapo mafaili yameorodheshwa na mtoa media.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Mahali pa hifadhi</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Pendelea mafaili kwenye hifadhi ya ndani au ya nje.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Kina cha folda</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Pendelea mafaili katika miundo ya folda isiyo na kina au yenye kina.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Tarehe ya kubadilishwa</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Pendelea mafaili ya zamani au mapya kulingana na wakati wa kubadilishwa.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Ukubwa wa faili</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Pendelea mafaili makubwa au madogo wakati ukubwa unatofautiana.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Maeneo yanayopendelewa</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Hifadhi mafaili katika maeneo yako yanayopendelewa yaliyosanidiwa.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Pendelea nakala sahihi</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Pendelea mafaili yanayofanana</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Pendelea mafaili yaliyoorodheshwa</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Pendelea mafaili yasiyoorodheshwa</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Pendelea hifadhi ya ndani</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Pendelea hifadhi ya nje</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Pendelea folda zisizo na kina</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Pendelea folda zenye kina</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Pendelea mafaili ya zamani</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Pendelea mafaili mapya</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Pendelea mafaili makubwa</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Pendelea mafaili madogo</string>
+
+    <string name="deduplicator_view_mode_groups_label">Vikundi</string>
+    <string name="deduplicator_view_mode_directories_label">Folda</string>
+
+    <string name="squeezer_tool_name">Bana Media</string>
+    <string name="squeezer_explanation_short">Bana picha ili kuokoa nafasi ya hifadhi.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">picha %d imepatikana</item>
+        <item quantity="other">picha %d zimepatikana</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s inaweza kuokolewa</item>
+        <item quantity="other">~%s zinaweza kuokolewa</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">picha %d imebaniwa</item>
+        <item quantity="other">picha %d zimebaniwa</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">picha %d imechaguliwa</item>
+        <item quantity="other">picha %d zimechaguliwa</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Maeneo ya kutafuta</string>
+    <string name="squeezer_search_locations_default_summary">Folda za kamera (chaguo-msingi)</string>
+    <string name="squeezer_min_size_title">Ukubwa wa chini wa faili</string>
+    <string name="squeezer_min_size_description">Ruka picha ndogo kuliko ukubwa huu.</string>
+    <string name="squeezer_min_age_title">Umri wa chini wa faili</string>
+    <string name="squeezer_min_age_description">Jumuisha picha za zamani kuliko umri huu tu.</string>
+    <string name="squeezer_compression_settings_label">Mipangilio ya kubana</string>
+    <string name="squeezer_quality_label">Ubora</string>
+    <string name="squeezer_quality_title">Ubora wa kubana</string>
+    <string name="squeezer_quality_description">Ubora wa chini unamaanisha ukubwa mdogo wa faili lakini ubora uliopunguzwa wa picha.</string>
+    <string name="squeezer_quality_example_format">Mfano: picha ya %1$s → inaokoa ~%2$s kwa ubora wa %3$d%%</string>
+    <string name="squeezer_quality_warning_low">Ubora wa chini unaweza kusababisha kasoro zinazoonekana.</string>
+    <string name="squeezer_quality_warning_high">Ubora wa juu sana unatoa akiba ndogo ya nafasi.</string>
+    <string name="squeezer_types_category_label">Aina za picha</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Jumuisha picha za JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Jumuisha picha za WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Ruka zilizobaniwa hapo awali</string>
+    <string name="squeezer_skip_compressed_description">Ruka picha ambazo tayari zimebaniwa na SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Andika alama ya EXIF</string>
+    <string name="squeezer_exif_marker_description">Ongeza alama kwenye sehemu ya maoni ya mtumiaji wa EXIF ya picha ili kuzuia kubaniwa tena hata kama historia ya kubana inafutwa.</string>
+    <string name="squeezer_estimated_savings_format">~%s akiba</string>
+    <string name="squeezer_no_savings_expected">Akiba ndogo</string>
+    <string name="squeezer_current_size_format">Ukubwa: %s</string>
+    <string name="squeezer_compress_action">Bana</string>
+    <string name="squeezer_compress_all_action">Bana zote</string>
+    <string name="squeezer_preview_dialog_title">Thibitisha kubana</string>
+    <string name="squeezer_preview_total_size">Ukubwa wa jumla</string>
+    <string name="squeezer_preview_estimated_savings">Akiba iliyokadiriwa</string>
+    <string name="squeezer_compress_confirmation_title">Bana picha?</string>
+    <string name="squeezer_compress_confirmation_message">Hii itabadilisha picha asili na matoleo yaliyobaniwa. Kitendo hiki hakiwezi kutenduliwa.</string>
+    <string name="squeezer_history_title">Historia ya kubana</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">kipengele %1$d (%2$s)</item>
+        <item quantity="other">vipengele %1$d (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Hakuna historia ya kubana</string>
+    <string name="squeezer_history_clear_title">Futa historia ya kubana</string>
+    <string name="squeezer_history_clear_message">Hii itaruhusu picha zilizobaniwa hapo awali kubaniwa tena. Picha zenyewe haziathiriwi.</string>
+    <string name="squeezer_onboarding_title">Kuhusu Kubana Picha</string>
+    <string name="squeezer_onboarding_message">Kubana picha kunapunguza ukubwa wa faili kwa kuondoa maelezo ya kuona. Mchakato huu hauwezi kutenduliwa - ubora wa asili hauwezi kurejeshwa.\n\nHapa kuna hakikisho la jinsi picha zako zitakavyoonekana:</string>
+    <string name="squeezer_onboarding_original_label">Asili</string>
+    <string name="squeezer_onboarding_compressed_label">Baada ya kubana</string>
+    <string name="squeezer_onboarding_quality_label">Ubora: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Nimeelewa</string>
+    <string name="squeezer_compare_action">Tazama kulinganisha</string>
+    <string name="squeezer_no_example_found">Hakuna picha zilizopatikana katika njia zilizochaguliwa.</string>
+    <string name="squeezer_result_empty_message">Hakuna picha zinazoweza kubaniwa zilizopatikana.</string>
+    <string name="squeezer_setup_warning">Kubana kunapunguza ubora wa picha kwa kudumu ili kuokoa nafasi ya hifadhi. Hii haiwezi kutenduliwa. Kagua mipangilio yako kwa makini kabla ya kuanza.</string>
+    <string name="squeezer_setup_explanation">Bana Media inapunguza ukubwa wa faili la picha ili kuachilia nafasi ya hifadhi. Hii inapunguza ubora wa picha kwa kudumu na haiwezi kutenduliwa. Kagua mipangilio yako kwa makini kabla ya kuanza.</string>
+    <string name="squeezer_setup_paths_title">Maeneo ya kutafuta</string>
+    <string name="squeezer_setup_paths_default">Chagua folda za kutafuta</string>
+    <string name="squeezer_setup_quality_title">Ubora wa kubana</string>
+    <string name="squeezer_setup_age_title">Umri wa chini</string>
+    <string name="squeezer_setup_age_none">Hakuna kikomo (jumuisha mafaili yote)</string>
+    <string name="squeezer_setup_start_action">Anza Kutafuta</string>
+    <string name="squeezer_quality_hint_very_low">Ubora chini ya 40% unaweza kuunda picha zisizotumika.</string>
+    <string name="squeezer_quality_hint_low">Ubora wa chini unaokoa nafasi zaidi lakini unaweza kusababisha kasoro zinazoonekana.</string>
+    <string name="squeezer_quality_hint_high">Ubora wa juu sana unatoa akiba ndogo ya nafasi.</string>
+    <string name="squeezer_quality_hint_normal">Ubora na akiba ya nafasi iliyosawazishwa.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Angalau siku %d</item>
+        <item quantity="other">Angalau siku %d</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Takriban ~%d%% akiba kwa mafaili ya JPEG</string>
+
+    <string name="appcontrol_archive_action">Hifadhi</string>
+    <string name="appcontrol_archive_selection_action">Hifadhi programu</string>
+    <string name="appcontrol_archive_description">Hifadhi ili kupata nafasi huku ukihifadhi data ya programu kwa urejeshaji wa baadaye.</string>
+    <string name="appcontrol_progress_archiving_app">Inahifadhi programu…</string>
+    <string name="appcontrol_archive_confirmation_title">Thibitisha kuhifadhi</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Hifadhi programu %d?</item>
+        <item quantity="other">Hifadhi programu %d?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">programu %d imehifadhiwa</item>
+        <item quantity="other">programu %d zimehifadhiwa</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Rejesha</string>
+    <string name="appcontrol_restore_selection_action">Rejesha programu</string>
+    <string name="appcontrol_restore_description">Rejesha programu iliyohifadhiwa hadi hali iliyosakinishwa kikamilifu. Data ya programu imehifadhiwa.</string>
+    <string name="appcontrol_progress_restoring_app">Inarejesha programu…</string>
+    <string name="appcontrol_restore_confirmation_title">Thibitisha kurejeshwa</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Rejesha programu %d?</item>
+        <item quantity="other">Rejesha programu %d?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">programu %d imerejeshwa</item>
+        <item quantity="other">programu %d zimerejeshwa</item>
+    </plurals>
+    <string name="appcontrol_share_list_action">Shiriki orodha</string>
+    <string name="appcontrol_share_list_title">Programu Zangu</string>
+    <string name="appcontrol_share_list_footer">Imeshirikiwa kupitia SD Maid SE</string>
+    <string name="appcontrol_automation_subtitle_archiving">Inahifadhi…</string>
+    <string name="appcontrol_automation_progress_find_archive">Inatafuta kitufe cha \"Hifadhi\" (maneno muhimu: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Inarejesha…</string>
+    <string name="appcontrol_automation_progress_find_restore">Inatafuta kitufe cha \"Rejesha\" (maneno muhimu: %s)</string>
+    <string name="appcontrol_item_installedat_x_label">Ilisakinishwa: %s</string>
+
+    <string name="analyzer_content_create_swiper_session_action">Tengeneza kipindi cha Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Kipindi cha Swiper kimetengenezwa na kipengele %d</item>
+        <item quantity="other">Kipindi cha Swiper kimetengenezwa na vipengele %d</item>
+    </plurals>
+
+    <string name="anniversary_card_title">Siku ya Kumbukumbu ya SD Maid Yenye Furaha ❤️</string>
+    <string name="anniversary_card_install_date">Nawe tangu %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Tayari mwaka %1$d pamoja. Asante kwa kuamini SD Maid kuweka Android yako safi na nadhifu. Nafasi iliyoachiliwa: %2$s</item>
+        <item quantity="other">Miaka %1$d yenye nguvu. Kifaa chako kinabaki safi na nadhifu na SD Maid. Nafasi iliyoachiliwa: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Shiriki siku yako ya kumbukumbu ya SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">Mwaka %1$d na SD Maid — Nafasi iliyoachiliwa: %2$s. Inaweka Android yako safi na nadhifu. #SDMaid\nJaribu: %3$s</item>
+        <item quantity="other">Miaka %1$d na SD Maid — Nafasi iliyoachiliwa: %2$s. Inaweka Android yako safi na nadhifu. #SDMaid\nJaribu: %3$s</item>
+    </plurals>
+
+    <string name="shortcut_appcontrol_short">Udhibiti wa Programu</string>
+    <string name="shortcut_appcontrol_long">Simamia programu zilizosakinishwa</string>
+    <string name="shortcut_onetap_short">Tafuta + Futa</string>
+    <string name="shortcut_onetap_long">Tafuta na futa kwa kitendo kimoja</string>
+
+    <string name="shortcuts_settings_category">Mikato</string>
+    <string name="shortcuts_onetap_enabled_title">Mkato wa kubofya mara moja</string>
+    <string name="shortcuts_onetap_enabled_summary">Onyesha mkato wa \"Tafuta + Futa\" unapobonyeza kwa muda mrefu aikoni ya programu. Inatumia zana sawa na dashibodi ya kubofya mara moja.</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Telezesha kupitia mafaili kuamua nini cha kuhifadhi au kufuta.</string>
+    <string name="swiper_dashcard_description">Kagua mafaili kwa mikono katika folda maalum. Telezesha kuamua nini cha kuhifadhi au kufuta.</string>
+    <string name="swiper_start_action">Anza kutelezesha</string>
+    <string name="swiper_continue_action">Endelea na kipindi</string>
+    <string name="swiper_sessions_description">Mafaili mengine yanahitaji uamuzi wa binadamu. Telezesha kupitia vipengele na uchague nini cha kuhifadhi au kufuta. Ruka chochote ambacho huna uhakika nacho. Zana hii inakuruhusu kukagua folda maalum kwa mikono, na hakuna kinachoondolewa hadi uthibitishe.</string>
+    <string name="swiper_select_folders_action">Chagua folda</string>
+    <string name="swiper_scanning_title">Inatafuta…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">kipengele %d kimepatikana</item>
+        <item quantity="other">vipengele %d vimepatikana</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">kipengele %d kimefutwa</item>
+        <item quantity="other">vipengele %d vimefutwa</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">kipengele %d kimeshindwa</item>
+        <item quantity="other">vipengele %d vimeshindwa</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d kati ya %2$d</string>
+    <string name="swiper_keep_action">Hifadhi</string>
+    <string name="swiper_skip_action">Ruka</string>
+    <string name="swiper_review_action">Kagua</string>
+    <string name="swiper_status_title">Kagua maamuzi</string>
+    <string name="swiper_status_action_keep_selected">Hifadhi vilivyochaguliwa</string>
+    <string name="swiper_status_action_delete_selected">Futa vilivyochaguliwa</string>
+    <string name="swiper_status_action_reset_selected">Weka upya vilivyochaguliwa</string>
+    <string name="swiper_decision_undecided">Haijamuliwa</string>
+    <string name="swiper_retry_action">Jaribu tena</string>
+    <string name="swiper_delete_confirmation_title">Futa mafaili?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Hii itafuta kabisa faili %1$d (%2$s). Kitendo hiki hakiwezi kutenduliwa.</item>
+        <item quantity="other">Hii itafuta kabisa mafaili %1$d (%2$s). Kitendo hiki hakiwezi kutenduliwa.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">Kipengele %d kisichoamuliwa kitabaki kwa ukaguzi wa baadaye.</item>
+        <item quantity="other">Vipengele %d visivyoamuliwa vitabaki kwa ukaguzi wa baadaye.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Futa %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Badilisha mwelekeo wa kutelezesha</string>
+    <string name="swiper_settings_swap_directions_summary">Telezesha kushoto kuhifadhi, kulia kufuta.</string>
+    <string name="swiper_settings_show_details_title">Onyesha maelezo ya faili</string>
+    <string name="swiper_settings_show_details_summary">Onyesha jina la faili, ukubwa na tarehe kwenye skrini ya kutelezesha.</string>
+    <string name="swiper_settings_haptic_feedback_title">Majibu ya kugusa</string>
+    <string name="swiper_settings_haptic_feedback_summary">Tetema unapofanya maamuzi ya kuhifadhi au kufuta.</string>
+    <string name="swiper_discard_session_confirmation_title">Tupa kipindi?</string>
+    <string name="swiper_discard_session_confirmation_message">Maamuzi yote yatapotea. Una uhakika?</string>
+    <string name="swiper_no_preview_available">Hakikisho haipatikani</string>
+
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Endelea na kipindi kutoka siku %1$d iliyopita (%2$d%% imekamilika)</item>
+        <item quantity="other">Endelea na kipindi kutoka siku %1$d zilizopita (%2$d%% imekamilika)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">kipindi %d</item>
+        <item quantity="other">vipindi %d</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">kipengele %d kisichoamuliwa</item>
+        <item quantity="other">vipengele %d visivyoamuliwa</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Kilitengenezwa %1$s, shughuli ya mwisho %2$s</string>
+    <string name="swiper_session_remove_action">Ondoa kipindi</string>
+    <string name="swiper_sessions_empty_hint">Bofya + kuchagua folda na kuanza kutelezesha</string>
+    <string name="swiper_sessions_upgrade_body">Panda daraja kuondoa vikwazo hivi na kusaidia maendeleo. Toleo la bure limezuiliwa kwa:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">faili %d kwa kila kipindi</item>
+        <item quantity="other">mafaili %d kwa kila kipindi</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">kipindi %d</item>
+        <item quantity="other">vipindi %d</item>
+    </plurals>
+    <string name="swiper_session_default_label">Kipindi #%d</string>
+    <string name="swiper_session_rename_title">Badilisha jina la kipindi</string>
+    <string name="swiper_session_rename_hint">Ingiza jina la kipindi hiki</string>
+    <string name="swiper_sessions_current_sessions">Vipindi vya sasa</string>
+    <string name="swiper_session_paths_label">Njia</string>
+    <string name="swiper_session_status_label">Hali</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d ya kuhifadhi</item>
+        <item quantity="other">%d ya kuhifadhi</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d ya kufuta</item>
+        <item quantity="other">%d ya kufuta</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d isiyoamuliwa</item>
+        <item quantity="other">%d zisizioamuliwa</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d tayari imehifadhiwa</item>
+        <item quantity="other">%d tayari zimehifadhiwa</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d tayari imefutwa</item>
+        <item quantity="other">%d tayari zimefutwa</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d imehifadhiwa</item>
+        <item quantity="other">%d zimehifadhiwa</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d imefutwa</item>
+        <item quantity="other">%d zimefutwa</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Ondoa \"%1$s\" kutoka kwa utafutaji wa Swiper?</string>
+
+    <string name="swiper_sessions_header_title">Tayari kusafisha?</string>
+    <string name="swiper_sessions_suggestions_label">Jaribu kuanza na:</string>
+    <string name="swiper_sessions_suggestion_downloads">Folda ya vipakuliwa</string>
+    <string name="swiper_sessions_suggestion_screenshots">Picha za skrini</string>
+    <string name="swiper_sessions_suggestion_camera">Picha za kamera</string>
+
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Hifadhi!</string>
+    <string name="swiper_stamp_keep_2">Nzuri!</string>
+    <string name="swiper_stamp_keep_3">Ndiyo!</string>
+    <string name="swiper_stamp_keep_4">Okoa!</string>
+    <string name="swiper_stamp_delete_1">Hapana!</string>
+    <string name="swiper_stamp_delete_2">Kwaheri!</string>
+    <string name="swiper_stamp_delete_3">Taka!</string>
+    <string name="swiper_stamp_delete_4">Futa!</string>
+    <string name="swiper_stamp_skip_1">Ruka!</string>
+    <string name="swiper_stamp_skip_2">Hmm!</string>
+    <string name="swiper_stamp_skip_3">Baadaye!</string>
+    <string name="swiper_stamp_skip_4">Labda!</string>
+    <string name="swiper_stamp_undo_1">Tendua!</string>
+    <string name="swiper_stamp_undo_2">Rudi!</string>
+    <string name="swiper_stamp_undo_3">Lo!</string>
+    <string name="swiper_stamp_undo_4">Ngoja!</string>
 </resources>

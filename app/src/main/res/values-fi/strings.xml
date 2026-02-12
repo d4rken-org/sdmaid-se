@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Aloita skannaus ja poisto kaikille työkaluille kojelaudan toimintopainikkeella, ei lisävahvistuksia.</string>
     <string name="dashboard_settings_oneclick_tools_title">Yhden napautuksen työkalut</string>
     <string name="dashboard_settings_oneclick_tools_desc">Mitkä työkalut tulisi sisällyttää yhden napautuksen toimintoihin?</string>
+    <string name="dashboard_card_config_title">Kojelaudan kortit</string>
+    <string name="dashboard_card_config_desc">Määritä näytettävät kortit ja niiden järjestys</string>
+    <string name="dashboard_card_config_header_title">Vedä järjestääksesi, vaihda näyttääksesi/piilottaaksesi</string>
     <string name="debug_notification_channel_label">Virheenkorjausilmoitukset</string>
     <string name="debug_debuglog_file_label">Tallennettu lokitiedosto</string>
     <string name="debug_debuglog_recording_progress">Tallennetaan virheenkorjauslokia</string>
@@ -88,6 +91,14 @@
     <string name="support_installid_desc">Automaattiset virheraportit ovat nimettömiä. Jaa asennustunnuksesi jos kehittäjän tarvitsee löytää virheraporttisi.</string>
     <string name="support_debuglog_label">Virheenkorjausloki</string>
     <string name="support_debuglog_desc">Tallenna kaikki mitä sovellus tekee tekstitiedostoon jonka voit jakaa.</string>
+    <string name="support_debuglog_folder_label">Virheenkorjauslokin kansio</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d tiedosto käyttää %2$s</item>
+        <item quantity="other">%1$d tiedostoa käyttää %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Ei tallennettuja virheenkorjauslokeja</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Poista kaikki virheenkorjauslokit?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Tämä poistaa pysyvästi kaikki tallennetut virheenkorjausloki-istunnot. Tätä toimintoa ei voi kumota.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Paikka missä hengailla ja kysyä kysymyksiä.</string>
     <string name="changelog_label">Muutosloki</string>
@@ -170,6 +181,13 @@
     <string name="debug_bugreporter_label">Automaattiset virheraportit</string>
     <string name="debug_bugreporter_summary">Raportoi automaattisesti ongelmista, esim. tiedot sovelluksen kaatumisista, jotta voin selvittää miksi ja korjata sen.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Virheenkorjaustila on käytössä</string>
+    <string name="debug_card_trace_mode_label">Ota jäljitystila käyttöön</string>
+    <string name="debug_card_dryrun_mode_label">Testiajon tila (poistaminen pois käytöstä)</string>
+    <string name="debug_card_areas_reload_action">Lataa tietoalueet uudelleen</string>
+    <string name="debug_card_pkgs_reload_action">Lataa sovellukset uudelleen</string>
+    <string name="debug_card_root_test_action">Testaa pääkäyttäjä</string>
+    <string name="debug_card_shizuku_test_action">Testaa Shizuku</string>
     <string name="settings_category_tools_label">Työkalut</string>
     <string name="settings_category_filter">Suodatin</string>
     <string name="settings_category_risklevel">Riskitaso</string>
@@ -261,6 +279,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Kuvakaappausten ikä</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Kuvakaappausten vähimmäisikä, jotta ne otetaan huomioon poistettaviksi.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Ylimääräiset APK:t</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Asennustiedostot, joita ei enää tarvita asennettujen sovellusversioiden perusteella.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Sisällytä sama versio</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Kohdista myös APK-tiedostot, jotka vastaavat asennettua versiota. Poista käytöstä poistaaksesi vain vanhemmat versiot.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-kansiot</string>
     <string name="systemcleaner_filter_lostdir_summary">LOST.DIR-kansiot, jotka sisältävät tiedostojärjestelmän tarkistuksen löytämiä tiedostoja.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux-tiedostot</string>
@@ -754,6 +775,309 @@
     <string name="shortcut_onetap_short">Skannaa + Poista</string>
     <string name="shortcut_onetap_long">Skannaa ja poista yhdellä toimella</string>
     <string name="shortcuts_settings_category">Pikanäppäimet</string>
+    <string name="shortcuts_onetap_enabled_title">Yhden napautuksen pikakuvake</string>
+    <string name="shortcuts_onetap_enabled_summary">Näytä \"Skannaa + Poista\" -pikakuvake painamalla sovelluskuvaketta pitkään. Käyttää samoja työkaluja kuin yhden napautuksen kojelauta.</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Kokorajoitukset</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Vähimmäiskoko</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Enimmäiskoko</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Rajoita osumia tiedostokoon perusteella. Jätä asettamatta osuaksesi mihin tahansa kokoon.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Ikärajoitukset</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Vähimmäisikä</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Enimmäisikä</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Rajoita osumia tiedoston iän (viimeisin muokkausaika) perusteella. Jätä asettamatta osuaksesi mihin tahansa ikään.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Pysäytä pakotetusti ennen tyhjennystä</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Pysäytä sovellukset pakotetusti ennen välimuistin tyhjennystä. Voi auttaa joidenkin sovellusten välimuistin tyhjentämisessä, mutta saattaa aiheuttaa sovellusten virhetoimintaa ja vaatia manuaalista uudelleenkäynnistystä.</string>
+    <string name="appcleaner_progress_force_stopping">Pysäytetään sovelluksia pakotetusti…</string>
+    <string name="deduplicator_keep_prefer_paths_title">Suosi säilyttämistä kohteessa</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Päätettäessä minkä kaksoiskappaleen säilyttää, suosi tiedostoja näissä sijainneissa.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Ei määritettyjä sijainteja</string>
+    <string name="deduplicator_arbiter_title">Poistamisstrategia</string>
+    <string name="deduplicator_arbiter_summary">Määritä mitkä tiedostot säilytetään ja mitkä poistetaan.</string>
+    <string name="deduplicator_arbiter_explanation">Poistettaessa kaksoiskappaleita SD Maid päättää minkä tiedoston säilyttää tarkistamalla kunkin kriteerin järjestyksessä. Ensimmäinen kriteeri, joka tuottaa selkeän voittajan, määrittää tuloksen. Vedä järjestääksesi uudelleen, napauta vaihtaaksesi tilaa.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Valitse tila</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Määritä polut…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Kaksoiskappaleen tyyppi</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Suosi tarkkoja kopioita samankaltaisten tiedostojen sijaan.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Mediaindeksointi</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Huomioi onko tiedostot indeksoitu mediatarjoajan toimesta.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Tallennussijainti</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Suosi tiedostoja sisäisessä tai ulkoisessa tallennustilassa.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Kansion syvyys</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Suosi tiedostoja matalammissa tai syvemmissä kansiorakenteissa.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Muokkauspäivä</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Suosi vanhempia tai uudempia tiedostoja muokkausajan perusteella.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Tiedostokoko</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Suosi suurempia tai pienempiä tiedostoja kun koot eroavat.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Suositut sijainnit</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Säilytä tiedostot määritetyissä suosituissa sijainneissa.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Suosi tarkkoja kopioita</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Suosi samankaltaisia tiedostoja</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Suosi indeksoituja tiedostoja</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Suosi indeksoimattomia tiedostoja</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Suosi sisäistä tallennustilaa</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Suosi ulkoista tallennustilaa</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Suosi matalia kansioita</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Suosi syvempiä kansioita</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Suosi vanhempia tiedostoja</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Suosi uudempia tiedostoja</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Suosi suurempia tiedostoja</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Suosi pienempiä tiedostoja</string>
+    <string name="deduplicator_view_mode_groups_label">Ryhmät</string>
+    <string name="deduplicator_view_mode_directories_label">Kansiot</string>
+    <string name="squeezer_tool_name">Median tiivistys</string>
+    <string name="squeezer_explanation_short">Pakkaa kuvia tallennustilan säästämiseksi.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d kuva löydetty</item>
+        <item quantity="other">%d kuvaa löydetty</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s voidaan säästää</item>
+        <item quantity="other">~%s voidaan säästää</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d kuva pakattu</item>
+        <item quantity="other">%d kuvaa pakattu</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d kuva valittu</item>
+        <item quantity="other">%d kuvaa valittu</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Hakusijainnit</string>
+    <string name="squeezer_search_locations_default_summary">Kamerakansiot (oletus)</string>
+    <string name="squeezer_min_size_title">Tiedoston vähimmäiskoko</string>
+    <string name="squeezer_min_size_description">Ohita kuvia jotka ovat pienempiä kuin tämä koko.</string>
+    <string name="squeezer_min_age_title">Tiedoston vähimmäisikä</string>
+    <string name="squeezer_min_age_description">Sisällytä vain tätä ikää vanhemmat kuvat.</string>
+    <string name="squeezer_compression_settings_label">Pakkausasetukset</string>
+    <string name="squeezer_quality_label">Laatu</string>
+    <string name="squeezer_quality_title">Pakkauksen laatu</string>
+    <string name="squeezer_quality_description">Matalampi laatu tarkoittaa pienempää tiedostokokoa mutta heikompaa kuvanlaatua.</string>
+    <string name="squeezer_quality_example_format">Esimerkki: %1$s kuva → säästä ~%2$s laadulla %3$d%%</string>
+    <string name="squeezer_quality_warning_low">Matalampi laatu voi aiheuttaa näkyviä artefakteja.</string>
+    <string name="squeezer_quality_warning_high">Erittäin korkea laatu tarjoaa minimaalisia tilansäästöjä.</string>
+    <string name="squeezer_types_category_label">Kuvatyypit</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Sisällytä JPEG-kuvat (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Sisällytä WebP-kuvat (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Ohita aiemmin pakatut</string>
+    <string name="squeezer_skip_compressed_description">Ohita kuvat jotka SD Maid on jo pakkannut.</string>
+    <string name="squeezer_exif_marker_title">Kirjoita EXIF-merkintä</string>
+    <string name="squeezer_exif_marker_description">Lisää merkintä kuvan EXIF-käyttäjäkommenttikenttään estääksesi uudelleenpakkauksen vaikka pakkaushistoria tyhjennettäisiin.</string>
+    <string name="squeezer_estimated_savings_format">~%s säästöä</string>
+    <string name="squeezer_no_savings_expected">Rajallinen säästö</string>
+    <string name="squeezer_current_size_format">Koko: %s</string>
+    <string name="squeezer_compress_action">Pakkaa</string>
+    <string name="squeezer_compress_all_action">Pakkaa kaikki</string>
+    <string name="squeezer_preview_dialog_title">Vahvista pakkaus</string>
+    <string name="squeezer_preview_total_size">Kokonaiskoko</string>
+    <string name="squeezer_preview_estimated_savings">Arvioitu säästö</string>
+    <string name="squeezer_compress_confirmation_title">Pakataan kuvat?</string>
+    <string name="squeezer_compress_confirmation_message">Tämä korvaa alkuperäiset kuvat pakatuilla versioilla. Tätä toimintoa ei voi kumota.</string>
+    <string name="squeezer_history_title">Pakkaushistoria</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d kohde (%2$s)</item>
+        <item quantity="other">%1$d kohdetta (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Ei pakkaushistoriaa</string>
+    <string name="squeezer_history_clear_title">Tyhjennä pakkaushistoria</string>
+    <string name="squeezer_history_clear_message">Tämä mahdollistaa aiemmin pakattujen kuvien pakkaamisen uudelleen. Itse kuviin ei vaikuteta.</string>
+    <string name="squeezer_onboarding_title">Tietoa kuvien pakkaamisesta</string>
+    <string name="squeezer_onboarding_message">Kuvien pakkaaminen pienentää tiedostokokoa poistamalla visuaalisia yksityiskohtia. Prosessi on peruuttamaton - alkuperäistä laatua ei voi palauttaa.\n\nTässä esikatselu miltä kuvasi näyttävät:</string>
+    <string name="squeezer_onboarding_original_label">Alkuperäinen</string>
+    <string name="squeezer_onboarding_compressed_label">Pakkauksen jälkeen</string>
+    <string name="squeezer_onboarding_quality_label">Laatu: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Selvä</string>
+    <string name="squeezer_compare_action">Näytä vertailu</string>
+    <string name="squeezer_no_example_found">Kuvia ei löytynyt valituista poluista.</string>
+    <string name="squeezer_result_empty_message">Pakattavia kuvia ei löytynyt.</string>
+    <string name="squeezer_setup_warning">Pakkaus pienentää pysyvästi kuvanlaatua säästääkseen tallennustilaa. Tätä ei voi kumota. Tarkista asetuksesi huolellisesti ennen aloittamista.</string>
+    <string name="squeezer_setup_explanation">Median tiivistys pienentää kuvatiedostojen kokoa vapauttaakseen tallennustilaa. Tämä pienentää pysyvästi kuvanlaatua eikä sitä voi kumota. Tarkista asetuksesi huolellisesti ennen aloittamista.</string>
+    <string name="squeezer_setup_paths_title">Hakusijainnit</string>
+    <string name="squeezer_setup_paths_default">Valitse kansiot haettavaksi</string>
+    <string name="squeezer_setup_quality_title">Pakkauksen laatu</string>
+    <string name="squeezer_setup_age_title">Vähimmäisikä</string>
+    <string name="squeezer_setup_age_none">Ei rajoitusta (sisällytä kaikki tiedostot)</string>
+    <string name="squeezer_setup_start_action">Aloita skannaus</string>
+    <string name="squeezer_quality_hint_very_low">Laatu alle 40% voi tuottaa käyttökelvottomia kuvia.</string>
+    <string name="squeezer_quality_hint_low">Matalampi laatu säästää enemmän tilaa mutta voi aiheuttaa näkyviä artefakteja.</string>
+    <string name="squeezer_quality_hint_high">Erittäin korkea laatu tarjoaa minimaalisia tilansäästöjä.</string>
+    <string name="squeezer_quality_hint_normal">Tasapainotettu laatu ja tilansäästö.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Vähintään %d päivä vanha</item>
+        <item quantity="other">Vähintään %d päivää vanha</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Arvioitu ~%d%% säästö JPEG-tiedostoille</string>
+    <string name="appcontrol_tag_debug">Virheenkorjaus</string>
+    <string name="appcontrol_archive_action">Arkistoi</string>
+    <string name="appcontrol_archive_selection_action">Arkistoi sovellukset</string>
+    <string name="appcontrol_archive_description">Arkistoi vapauttaaksesi tilaa säilyttäen sovellustiedot myöhempää palauttamista varten.</string>
+    <string name="appcontrol_progress_archiving_app">Arkistoidaan sovellusta…</string>
+    <string name="appcontrol_archive_confirmation_title">Vahvista arkistointi</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Arkistoidaanko %d sovellus?</item>
+        <item quantity="other">Arkistoidaanko %d sovellusta?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d sovellus arkistoitu</item>
+        <item quantity="other">%d sovellusta arkistoitu</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Palauta</string>
+    <string name="appcontrol_restore_selection_action">Palauta sovellukset</string>
+    <string name="appcontrol_restore_description">Palauta arkistoitu sovellus täysin asennettuun tilaan. Sovellustiedot säilytetään.</string>
+    <string name="appcontrol_progress_restoring_app">Palautetaan sovellusta…</string>
+    <string name="appcontrol_restore_confirmation_title">Vahvista palautus</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Palautetaanko %d sovellus?</item>
+        <item quantity="other">Palautetaanko %d sovellusta?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d sovellus palautettu</item>
+        <item quantity="other">%d sovellusta palautettu</item>
+    </plurals>
+    <string name="appcontrol_share_list_action">Jaa lista</string>
+    <string name="appcontrol_share_list_title">Sovellukseni</string>
+    <string name="appcontrol_share_list_footer">Jaettu SD Maid SE:n kautta</string>
+    <string name="appcontrol_automation_subtitle_archiving">Arkistoidaan…</string>
+    <string name="appcontrol_automation_progress_find_archive">Etsitään \"Arkistoi\"-painiketta (avainsanat: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Palautetaan…</string>
+    <string name="appcontrol_automation_progress_find_restore">Etsitään \"Palauta\"-painiketta (avainsanat: %s)</string>
+    <string name="analyzer_content_create_swiper_session_action">Luo Swiper-istunto</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper-istunto luotu %d kohteella</item>
+        <item quantity="other">Swiper-istunto luotu %d kohteella</item>
+    </plurals>
+    <string name="exclusion_editor_path_change_action">Napauta vaihtaaksesi polkua</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Pyyhkäise tiedostojen läpi päättääksesi mitä säilytät tai poistat.</string>
+    <string name="swiper_dashcard_description">Tarkista tiedostoja manuaalisesti tietyissä kansioissa. Pyyhkäise päättääksesi mitä säilytät tai poistat.</string>
+    <string name="swiper_start_action">Aloita pyyhkäisy</string>
+    <string name="swiper_continue_action">Jatka istuntoa</string>
+    <string name="swiper_sessions_description">Jotkut tiedostot tarvitsevat ihmisen päätöksen. Pyyhkäise kohteiden läpi ja valitse mitä säilytät tai poistat. Ohita kaikki mistä et ole varma. Tämä työkalu antaa sinun tarkistaa tietyt kansiot manuaalisesti, eikä mitään poisteta ennen kuin vahvistat.</string>
+    <string name="swiper_select_folders_action">Valitse kansiot</string>
+    <string name="swiper_scanning_title">Skannataan…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d kohde löydetty</item>
+        <item quantity="other">%d kohdetta löydetty</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d kohde poistettu</item>
+        <item quantity="other">%d kohdetta poistettu</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d kohde epäonnistui</item>
+        <item quantity="other">%d kohdetta epäonnistui</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">Säilytä</string>
+    <string name="swiper_skip_action">Ohita</string>
+    <string name="swiper_review_action">Tarkista</string>
+    <string name="swiper_status_title">Tarkista päätökset</string>
+    <string name="swiper_status_action_keep_selected">Säilytä valitut</string>
+    <string name="swiper_status_action_delete_selected">Poista valitut</string>
+    <string name="swiper_status_action_reset_selected">Nollaa valitut</string>
+    <string name="swiper_decision_undecided">Päättämätön</string>
+    <string name="swiper_retry_action">Yritä uudelleen</string>
+    <string name="swiper_delete_confirmation_title">Poistetaanko tiedostot?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Tämä poistaa pysyvästi %1$d tiedoston (%2$s). Tätä toimintoa ei voi kumota.</item>
+        <item quantity="other">Tämä poistaa pysyvästi %1$d tiedostoa (%2$s). Tätä toimintoa ei voi kumota.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d päättämätön kohde jää myöhempää tarkistusta varten.</item>
+        <item quantity="other">%d päättämätöntä kohdetta jää myöhempää tarkistusta varten.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Poista %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Vaihda pyyhkäisysuunnat</string>
+    <string name="swiper_settings_swap_directions_summary">Pyyhkäise vasemmalle säilyttääksesi, oikealle poistaaksesi.</string>
+    <string name="swiper_settings_show_details_title">Näytä tiedoston tiedot</string>
+    <string name="swiper_settings_show_details_summary">Näytä tiedoston nimi, koko ja päivämäärä pyyhkäisynäytöllä.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptinen palaute</string>
+    <string name="swiper_settings_haptic_feedback_summary">Värise tehdessä säilytys- tai poistopäätöksiä.</string>
+    <string name="swiper_discard_session_confirmation_title">Hylätäänkö istunto?</string>
+    <string name="swiper_discard_session_confirmation_message">Kaikki päätökset menetetään. Oletko varma?</string>
+    <string name="swiper_no_preview_available">Esikatselu ei saatavilla</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Jatka istuntoa %1$d päivän takaa (%2$d%% valmis)</item>
+        <item quantity="other">Jatka istuntoa %1$d päivän takaa (%2$d%% valmis)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d istunto</item>
+        <item quantity="other">%d istuntoa</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d päättämätön kohde</item>
+        <item quantity="other">%d päättämätöntä kohdetta</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Luotu %1$s, viimeisin toiminta %2$s</string>
+    <string name="swiper_session_remove_action">Poista istunto</string>
+    <string name="swiper_sessions_empty_hint">Napauta + valitaksesi kansion ja aloittaaksesi pyyhkäisyn</string>
+    <string name="swiper_sessions_upgrade_body">Päivitä poistaaksesi nämä rajoitukset ja tukeaksesi kehitystä. Ilmaisversio on rajoitettu:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d tiedosto per istunto</item>
+        <item quantity="other">%d tiedostoa per istunto</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d istunto</item>
+        <item quantity="other">%d istuntoa</item>
+    </plurals>
+    <string name="swiper_session_default_label">Istunto #%d</string>
+    <string name="swiper_session_rename_title">Nimeä istunto uudelleen</string>
+    <string name="swiper_session_rename_hint">Anna nimi tälle istunnolle</string>
+    <string name="swiper_sessions_current_sessions">Nykyiset istunnot</string>
+    <string name="swiper_session_paths_label">Polut</string>
+    <string name="swiper_session_status_label">Tila</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d säilytettävä</item>
+        <item quantity="other">%d säilytettävää</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d poistettava</item>
+        <item quantity="other">%d poistettavaa</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d päättämätön</item>
+        <item quantity="other">%d päättämätöntä</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d jo säilytetty</item>
+        <item quantity="other">%d jo säilytettyä</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d jo poistettu</item>
+        <item quantity="other">%d jo poistettua</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d säilytetty</item>
+        <item quantity="other">%d säilytettyä</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d poistettu</item>
+        <item quantity="other">%d poistettua</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Suljetaanko \"%1$s\" pois Swiper-skannauksista?</string>
+    <string name="swiper_sessions_header_title">Valmis järjestämään?</string>
+    <string name="swiper_sessions_suggestions_label">Kokeile aloittaa:</string>
+    <string name="swiper_sessions_suggestion_downloads">Lataukset-kansio</string>
+    <string name="swiper_sessions_suggestion_screenshots">Kuvakaappaukset</string>
+    <string name="swiper_sessions_suggestion_camera">Kameran kuvat</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Säilytä!</string>
+    <string name="swiper_stamp_keep_2">Kiva!</string>
+    <string name="swiper_stamp_keep_3">Kyllä!</string>
+    <string name="swiper_stamp_keep_4">Tallenna!</string>
+    <string name="swiper_stamp_delete_1">Ei!</string>
+    <string name="swiper_stamp_delete_2">Hei hei!</string>
+    <string name="swiper_stamp_delete_3">Roskiin!</string>
+    <string name="swiper_stamp_delete_4">Poista!</string>
+    <string name="swiper_stamp_skip_1">Ohita!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Myöhemmin!</string>
+    <string name="swiper_stamp_skip_4">Ehkä!</string>
+    <string name="swiper_stamp_undo_1">Kumoa!</string>
+    <string name="swiper_stamp_undo_2">Takaisin!</string>
+    <string name="swiper_stamp_undo_3">Oho!</string>
+    <string name="swiper_stamp_undo_4">Odota!</string>
 </resources>

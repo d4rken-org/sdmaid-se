@@ -4,6 +4,7 @@
     <string name="slogan_message_1">Tīrs un kārtīgs.</string>
     <string name="slogan_message_2">Novērš haoss.</string>
     <string name="slogan_message_3">Dara to, kas nepieciešams.</string>
+    <string name="slogan_message_4">Viss savās vietās.</string>
     <string name="slogan_message_5">Nevainojams.</string>
     <string name="slogan_message_6">Baiti, nost!</string>
     <string name="slogan_message_7">Brīva vieta, laimīga vieta.</string>
@@ -17,11 +18,13 @@
     <string name="general_todo_msg">Šī funkcija vēl tiek izstrādāta un pašlaik nav pieejama.</string>
     <string name="general_share_action">Dalīties</string>
     <string name="general_done_action">Gatavs</string>
+    <string name="general_apply_action">Lietot</string>
     <string name="general_copy_action">Kopēt</string>
     <string name="general_wipe_action">Dzēst</string>
     <string name="general_cancel_action">Atcelt</string>
     <string name="general_discard_action">Atmest</string>
     <string name="general_reset_action">Atiestatīt</string>
+    <string name="general_drag_handle_description">Velciet, lai pārkārtotu</string>
     <string name="general_save_action">Saglabāt</string>
     <string name="general_thanks_action">Paldies</string>
     <string name="general_gotit_action">Sapratu</string>
@@ -30,6 +33,7 @@
     <string name="general_edit_action">Rediģēt</string>
     <string name="general_na_label">Nav pieejams</string>
     <string name="general_empty_label">Tukšs</string>
+    <string name="general_new_badge_label">Jauns</string>
     <string name="general_dismiss_action">Noraidīt</string>
     <string name="general_maybe_later_action">Varbūt vēlāk</string>
     <string name="general_manage_action">Pārvaldīt</string>
@@ -58,6 +62,7 @@
     <string name="general_progress_loading_egg_5">Turbo enkabulators inicializējas</string>
     <string name="general_progress_loading_egg_6">Nodod sviestu</string>
     <string name="general_progress_loading_egg_7">Nu. Kā tev klājas?</string>
+    <string name="general_progress_loading_egg_8">Bīp būp bop</string>
     <string name="general_progress_loading_egg_9">Buferē dzīves izvēles</string>
     <string name="general_progress_loading_egg_10">Izsauc Cthulhu</string>
     <string name="general_progress_loading_egg_11">Tas ir labi</string>
@@ -90,6 +95,11 @@
     <string name="general_toggle_layout_mode">Pārslēgt skata režīmu</string>
     <string name="general_delete_confirmation_title">Apstiprināt dzēšanu</string>
     <string name="general_delete_confirmation_message_x">Dzēst \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="zero">Dzēst %d izvēlēto vienumu?</item>
+        <item quantity="one">Dzēst %d izvēlēto vienumu?</item>
+        <item quantity="other">Dzēst %d izvēlētos vienumus?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="zero">Izdzēsts %d vienums.</item>
         <item quantity="one">Izdzēsts %d vienums.</item>
@@ -171,4 +181,6 @@
     <string name="general_error_report_bug_action">Ziņot par kļūdu</string>
     <string name="general_error_ipc_deadobject_title">Pakalpojuma savienojums zaudēts</string>
     <string name="general_error_ipc_deadobject_description">Savienojums ar kritiski svarīgu pakalpojumu (piemēram, Magisk, Shizuku vai citi sistēmas līmeņa pakalpojumi) tika negaidīti zaudēts. Lūdzu restartējiet savu ierīci. Ja problēma turpinās, pārbaudiet atjauninājumus vai sazinieties ar mani, lai es to labotu.</string>
+    <string name="general_user_label_owner">Īpašnieks</string>
+    <string name="general_user_label_system">Sistēma</string>
 </resources>

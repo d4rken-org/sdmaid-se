@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">通过主界面下方的小按钮轻松开始所有扫描和删除步骤，无需二次确认。</string>
     <string name="dashboard_settings_oneclick_tools_title">一键模式执行的操作</string>
     <string name="dashboard_settings_oneclick_tools_desc">要将哪些步骤添加至一键模式执行？</string>
+    <string name="dashboard_card_config_title">控制面板卡片</string>
+    <string name="dashboard_card_config_desc">配置显示哪些卡片及其顺序</string>
+    <string name="dashboard_card_config_header_title">拖动以重新排序，切换以显示/隐藏</string>
     <string name="debug_notification_channel_label">Debug 通知</string>
     <string name="debug_debuglog_file_label">已记录的日志文件</string>
     <string name="debug_debuglog_recording_progress">正在记录 Debug 日志</string>
@@ -85,6 +88,13 @@
     <string name="support_installid_desc">自动错误报告是匿名的。如果开发者需要查找您的错误报告，请分享您的安装 ID。</string>
     <string name="support_debuglog_label">调试日志</string>
     <string name="support_debuglog_desc">记录应用正在执行的所有操作，并将其记录到文本文件中，以便共享。</string>
+    <string name="support_debuglog_folder_label">调试日志文件夹</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="other">%1$d 个文件，占用 %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">没有存储的调试日志</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">删除所有调试日志？</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">这将永久删除所有已存储的调试日志会话。此操作无法撤消。</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">一个供闲聊和提问的社区平台</string>
     <string name="changelog_label">更新日志</string>
@@ -167,6 +177,13 @@
     <string name="debug_bugreporter_label">自动错误报告</string>
     <string name="debug_bugreporter_summary">自动报告诸如应用崩溃详情等问题，以便我能查明原因并进行修复</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">调试模式已启用</string>
+    <string name="debug_card_trace_mode_label">启用跟踪模式</string>
+    <string name="debug_card_dryrun_mode_label">模拟运行模式（禁用删除）</string>
+    <string name="debug_card_areas_reload_action">重载数据区域</string>
+    <string name="debug_card_pkgs_reload_action">重载应用</string>
+    <string name="debug_card_root_test_action">测试 Root</string>
+    <string name="debug_card_shizuku_test_action">测试 Shizuku</string>
     <string name="settings_category_tools_label">工具</string>
     <string name="settings_category_filter">筛选器</string>
     <string name="settings_category_risklevel">风险等级</string>
@@ -252,6 +269,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">截图时间</string>
     <string name="systemcleaner_filter_screenshots_age_summary">考虑删除截图的最早时间</string>
     <string name="systemcleaner_filter_superfluosapks_label">过时的安装包</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">根据已安装的应用版本，不再需要的安装文件。</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">包含相同版本</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">同时包含与已安装版本相同的 APK 文件。禁用此选项则仅移除旧版本。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 文件夹</string>
     <string name="systemcleaner_filter_lostdir_summary">在 Android 设备之间传输数据时创建的临时文件。</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux 文件</string>
@@ -312,6 +332,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">关键词与文件名匹配</string>
     <string name="systemcleaner_customfilter_last_edit">最后编辑于：%s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">实时搜索</string>
+    <string name="systemcleaner_customfilter_editor_size_label">大小限制</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">最小大小</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">最大大小</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">根据文件大小限制匹配结果。留空则匹配任意大小。</string>
+    <string name="systemcleaner_customfilter_editor_age_label">时间限制</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">最小时间</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">最大时间</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">根据文件时间（最后修改时间）限制匹配结果。留空则匹配任意时间。</string>
     <string name="systemcleaner_customfilter_import_action">导入新过滤规则</string>
     <string name="systemcleaner_customfilter_export_action">导出选中的过滤规则</string>
     <string name="appcleaner_tool_name">应用清理</string>
@@ -401,7 +429,10 @@
     <string name="appcleaner_automation_error_no_settings_title">设置屏幕不可用</string>
     <string name="appcleaner_automation_error_no_settings_body">该系统应用没有设置界面。无法通过无障碍服务清除缓存。请手动将该应用添加到排除列表。</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">系统应用配置错误</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS 的手机管家 (com.miui.securitycenter) 缺少使用使用情况统计权限 (GET_USAGE_STATS) 。这会破坏应用详情中的“清除数据”功能以及通过辅助功能清除缓存等功能。授予此权限可恢复完整功能。</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS 的手机管家 (com.miui.securitycenter) 缺少使用使用情况统计权限 (GET_USAGE_STATS) 。这会破坏应用详情中的"清除数据"功能以及通过辅助功能清除缓存等功能。授予此权限可恢复完整功能。</string>
+    <string name="appcleaner_forcestop_before_clearing_label">清除前强制停止</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">清除缓存前先强制停止应用。这有助于清除部分应用的缓存，但可能导致应用异常，需要手动重启。</string>
+    <string name="appcleaner_progress_force_stopping">正在强制停止应用…</string>
     <string name="deduplicator_tool_name">去重工具</string>
     <string name="deduplicator_explanation_short">查找设备上的重复数据。</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -414,6 +445,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">显示允许您删除一组重复文件中的所有文件的选项，实现一键清空</string>
     <string name="deduplicator_search_locations_title">搜索位置</string>
     <string name="deduplicator_search_locations_all_summary">所有可访问区域</string>
+    <string name="deduplicator_keep_prefer_paths_title">偏好保留位置</string>
+    <string name="deduplicator_keep_prefer_paths_summary">在决定保留哪个重复文件时，偏好保留在这些位置的文件。</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">未配置位置</string>
     <string name="deduplicator_skip_minsize_title">最小文件大小</string>
     <string name="deduplicator_skip_minsize_description">跳过小于最小大小的文件</string>
     <string name="deduplicator_skip_uncommon_title">跳过不常见的文件类型</string>
@@ -439,6 +473,39 @@
     <string name="deduplicator_details_cluster_title">重复组</string>
     <string name="deduplicator_matches_exact_label">完全相同</string>
     <string name="deduplicator_matches_similar_label">相似文件</string>
+    <string name="deduplicator_arbiter_title">删除策略</string>
+    <string name="deduplicator_arbiter_summary">配置保留哪些文件以及删除哪些文件。</string>
+    <string name="deduplicator_arbiter_explanation">删除重复文件时，SD Maid 按顺序检查每个条件来决定保留哪个文件。第一个产生明确结果的条件决定最终结果。拖动以重新排序，点击以更改模式。</string>
+    <string name="deduplicator_arbiter_select_mode_title">选择模式</string>
+    <string name="deduplicator_arbiter_configure_paths_action">配置路径…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">重复类型</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">偏好完全匹配而非相似文件。</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">媒体索引</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">考虑文件是否已被媒体提供程序索引。</string>
+    <string name="deduplicator_arbiter_criterium_location_title">存储位置</string>
+    <string name="deduplicator_arbiter_criterium_location_description">偏好内部或外部存储的文件。</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">文件夹深度</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">偏好较浅或较深文件夹结构中的文件。</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">修改日期</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">根据修改时间偏好较旧或较新的文件。</string>
+    <string name="deduplicator_arbiter_criterium_size_title">文件大小</string>
+    <string name="deduplicator_arbiter_criterium_size_description">当大小不同时偏好较大或较小的文件。</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">偏好位置</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">保留在您配置的偏好位置中的文件。</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">偏好完全匹配</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">偏好相似文件</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">偏好已索引文件</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">偏好未索引文件</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">偏好内部存储</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">偏好外部存储</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">偏好较浅文件夹</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">偏好较深文件夹</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">偏好较旧文件</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">偏好较新文件</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">偏好较大文件</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">偏好较小文件</string>
+    <string name="deduplicator_view_mode_groups_label">分组</string>
+    <string name="deduplicator_view_mode_directories_label">文件夹</string>
     <string name="appcontrol_tool_name">应用控制</string>
     <string name="appcontrol_explanation_short">管理安装在您的设备上的应用程序。</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -472,6 +539,7 @@
     <string name="appcontrol_tag_not_installed">未安装</string>
     <string name="appcontrol_tag_enabled">已启用</string>
     <string name="appcontrol_tag_disabled">已停用</string>
+    <string name="appcontrol_tag_debug">调试</string>
     <string name="appcontrol_progress_enabling_package">正在启用应用</string>
     <string name="appcontrol_progress_disabling_package">正在停用应用</string>
     <string name="appcontrol_list_filteroptions_label">过滤器选项</string>
@@ -724,6 +792,231 @@
     <string name="shortcuts_settings_category">快捷键</string>
     <string name="shortcuts_onetap_enabled_title">一键快捷方式</string>
     <string name="shortcuts_onetap_enabled_summary">长按应用图标时显示“扫描+删除”快捷键。使用与一键控制面板相同的工具。</string>
+    <string name="appcontrol_archive_action">存档</string>
+    <string name="appcontrol_archive_selection_action">存档应用</string>
+    <string name="appcontrol_archive_description">存档以释放空间，同时保留应用数据供日后恢复。</string>
+    <string name="appcontrol_progress_archiving_app">正在存档应用…</string>
+    <string name="appcontrol_archive_confirmation_title">确认存档</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="other">存档 %d 个应用？</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="other">已存档 %d 个应用</item>
+    </plurals>
+    <string name="appcontrol_restore_action">恢复</string>
+    <string name="appcontrol_restore_selection_action">恢复应用</string>
+    <string name="appcontrol_restore_description">将存档的应用恢复到完整安装状态。应用数据将被保留。</string>
+    <string name="appcontrol_progress_restoring_app">正在恢复应用…</string>
+    <string name="appcontrol_restore_confirmation_title">确认恢复</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="other">恢复 %d 个应用？</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="other">已恢复 %d 个应用</item>
+    </plurals>
+    <string name="appcontrol_share_list_action">分享列表</string>
+    <string name="appcontrol_share_list_title">我的应用</string>
+    <string name="appcontrol_share_list_footer">通过 SD Maid SE 分享</string>
+    <string name="appcontrol_automation_subtitle_archiving">正在存档…</string>
+    <string name="appcontrol_automation_progress_find_archive">寻找"存档"按钮（关键词：%s）</string>
+    <string name="appcontrol_automation_subtitle_restoring">正在恢复…</string>
+    <string name="appcontrol_automation_progress_find_restore">寻找"恢复"按钮（关键词：%s）</string>
+    <string name="analyzer_content_create_swiper_session_action">创建 Swiper 会话</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">已创建包含 %d 个项目的 Swiper 会话</item>
+    </plurals>
+    <string name="exclusion_editor_path_change_action">点击以更改路径</string>
+    <string name="squeezer_tool_name">媒体压缩</string>
+    <string name="squeezer_explanation_short">压缩图片以节省存储空间。</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="other">找到 %d 张图片</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="other">可节省约 %s</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="other">已压缩 %d 张图片</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="other">已选择 %d 张图片</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">搜索位置</string>
+    <string name="squeezer_search_locations_default_summary">相机文件夹（默认）</string>
+    <string name="squeezer_min_size_title">最小文件大小</string>
+    <string name="squeezer_min_size_description">跳过小于此大小的图片。</string>
+    <string name="squeezer_min_age_title">最小文件年龄</string>
+    <string name="squeezer_min_age_description">仅包含超过此年龄的图片。</string>
+    <string name="squeezer_compression_settings_label">压缩设置</string>
+    <string name="squeezer_quality_label">质量</string>
+    <string name="squeezer_quality_title">压缩质量</string>
+    <string name="squeezer_quality_description">质量越低，文件越小，但图片质量也会降低。</string>
+    <string name="squeezer_quality_example_format">示例：%1$s 图片 → 以 %3$d%% 质量节省约 %2$s</string>
+    <string name="squeezer_quality_warning_low">较低的质量可能会导致明显的伪影。</string>
+    <string name="squeezer_quality_warning_high">非常高的质量只能节省极少空间。</string>
+    <string name="squeezer_types_category_label">图片类型</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">包含 JPEG 图片（.jpg、.jpeg）。</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">包含 WebP 图片（.webp）。</string>
+    <string name="squeezer_skip_compressed_title">跳过已压缩的图片</string>
+    <string name="squeezer_skip_compressed_description">跳过已被 SD Maid 压缩过的图片。</string>
+    <string name="squeezer_exif_marker_title">写入 EXIF 标记</string>
+    <string name="squeezer_exif_marker_description">在图片的 EXIF 用户备注字段中添加标记，以防止即使压缩记录被清除也不会重新压缩。</string>
+    <string name="squeezer_estimated_savings_format">约可节省 %s</string>
+    <string name="squeezer_no_savings_expected">节省有限</string>
+    <string name="squeezer_current_size_format">大小：%s</string>
+    <string name="squeezer_compress_action">压缩</string>
+    <string name="squeezer_compress_all_action">全部压缩</string>
+    <string name="squeezer_preview_dialog_title">确认压缩</string>
+    <string name="squeezer_preview_total_size">总大小</string>
+    <string name="squeezer_preview_estimated_savings">预估节省量</string>
+    <string name="squeezer_compress_confirmation_title">压缩图片？</string>
+    <string name="squeezer_compress_confirmation_message">这将用压缩版本替换原始图片。此操作无法撤消。</string>
+    <string name="squeezer_history_title">压缩历史</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="other">%1$d 个项目（%2$s）</item>
+    </plurals>
+    <string name="squeezer_history_empty">没有压缩历史</string>
+    <string name="squeezer_history_clear_title">清除压缩历史</string>
+    <string name="squeezer_history_clear_message">这将允许重新压缩之前已压缩的图片。图片本身不受影响。</string>
+    <string name="squeezer_onboarding_title">关于图片压缩</string>
+    <string name="squeezer_onboarding_message">图片压缩通过移除视觉细节来缩小文件大小。此过程不可逆——原始质量无法恢复。\n\n以下是压缩后图片的预览：</string>
+    <string name="squeezer_onboarding_original_label">原始</string>
+    <string name="squeezer_onboarding_compressed_label">压缩后</string>
+    <string name="squeezer_onboarding_quality_label">质量：%d%%</string>
+    <string name="squeezer_onboarding_got_it">知道了</string>
+    <string name="squeezer_compare_action">查看对比</string>
+    <string name="squeezer_no_example_found">在所选路径中未找到图片。</string>
+    <string name="squeezer_result_empty_message">未找到可压缩的图片。</string>
+    <string name="squeezer_setup_warning">压缩会永久降低图片质量以节省存储空间。此操作无法撤消。开始前请仔细检查您的设置。</string>
+    <string name="squeezer_setup_explanation">媒体压缩通过缩小图片文件大小来释放存储空间。这会永久降低图片质量且无法撤消。开始前请仔细检查您的设置。</string>
+    <string name="squeezer_setup_paths_title">搜索位置</string>
+    <string name="squeezer_setup_paths_default">选择要搜索的文件夹</string>
+    <string name="squeezer_setup_quality_title">压缩质量</string>
+    <string name="squeezer_setup_age_title">最小年龄</string>
+    <string name="squeezer_setup_age_none">无限制（包含所有文件）</string>
+    <string name="squeezer_setup_start_action">开始扫描</string>
+    <string name="squeezer_quality_hint_very_low">质量低于 40% 可能会产生无法使用的图片。</string>
+    <string name="squeezer_quality_hint_low">较低的质量可节省更多空间，但可能会产生明显的伪影。</string>
+    <string name="squeezer_quality_hint_high">非常高的质量只能节省极少空间。</string>
+    <string name="squeezer_quality_hint_normal">质量与空间节省之间的平衡。</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="other">至少 %d 天前</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG 文件预估可节省约 %d%%</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">滑动浏览文件以决定保留或删除。</string>
+    <string name="swiper_dashcard_description">手动浏览特定文件夹中的文件。滑动以决定保留或删除。</string>
+    <string name="swiper_start_action">开始滑动</string>
+    <string name="swiper_continue_action">继续会话</string>
+    <string name="swiper_sessions_description">有些文件需要人工决定。滑动浏览项目并选择保留或删除。不确定的项目可以跳过。此工具让您手动浏览特定文件夹，在您确认之前不会删除任何文件。</string>
+    <string name="swiper_select_folders_action">选择文件夹</string>
+    <string name="swiper_scanning_title">正在扫描…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="other">找到 %d 个项目</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="other">已删除 %d 个项目</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="other">%d 个项目失败</item>
+    </plurals>
+    <string name="swiper_item_position">第 %1$d 个，共 %2$d 个</string>
+    <string name="swiper_keep_action">保留</string>
+    <string name="swiper_skip_action">跳过</string>
+    <string name="swiper_review_action">审查</string>
+    <string name="swiper_status_title">审查决定</string>
+    <string name="swiper_status_action_keep_selected">保留所选</string>
+    <string name="swiper_status_action_delete_selected">删除所选</string>
+    <string name="swiper_status_action_reset_selected">重置所选</string>
+    <string name="swiper_decision_undecided">未决定</string>
+    <string name="swiper_retry_action">重试</string>
+    <string name="swiper_delete_confirmation_title">删除文件？</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="other">这将永久删除 %1$d 个文件（%2$s）。此操作无法撤消。</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="other">%d 个未决定的项目将保留供日后审查。</item>
+    </plurals>
+    <string name="swiper_delete_x_action">删除 %1$d</string>
+    <string name="swiper_settings_swap_directions_title">交换滑动方向</string>
+    <string name="swiper_settings_swap_directions_summary">向左滑动保留，向右滑动删除。</string>
+    <string name="swiper_settings_show_details_title">显示文件详情</string>
+    <string name="swiper_settings_show_details_summary">在滑动屏幕上显示文件名、大小和日期。</string>
+    <string name="swiper_settings_haptic_feedback_title">触觉反馈</string>
+    <string name="swiper_settings_haptic_feedback_summary">做出保留或删除决定时振动。</string>
+    <string name="swiper_discard_session_confirmation_title">丢弃会话？</string>
+    <string name="swiper_discard_session_confirmation_message">所有决定将会丢失。您确定吗？</string>
+    <string name="swiper_no_preview_available">没有可用的预览</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="other">继续 %1$d 天前的会话（已完成 %2$d%%）</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="other">%d 个会话</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="other">%d 个未决定的项目</item>
+    </plurals>
+    <string name="swiper_session_timestamps">创建于 %1$s，最后活动 %2$s</string>
+    <string name="swiper_session_remove_action">移除会话</string>
+    <string name="swiper_sessions_empty_hint">点击 + 选择文件夹并开始滑动</string>
+    <string name="swiper_sessions_upgrade_body">升级以移除这些限制并支持开发。免费版受限于：</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="other">每个会话 %d 个文件</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="other">%d 个会话</item>
+    </plurals>
+    <string name="swiper_session_default_label">会话 #%d</string>
+    <string name="swiper_session_rename_title">重命名会话</string>
+    <string name="swiper_session_rename_hint">为此会话输入名称</string>
+    <string name="swiper_sessions_current_sessions">当前会话</string>
+    <string name="swiper_session_paths_label">路径</string>
+    <string name="swiper_session_status_label">状态</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="other">%d 个待保留</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="other">%d 个待删除</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="other">%d 个未决定</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="other">%d 个已保留</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="other">%d 个已删除</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="other">已保留 %d 个</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="other">已删除 %d 个</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">从 Swiper 扫描中排除"%1$s"？</string>
+    <string name="swiper_sessions_header_title">准备好整理了吗？</string>
+    <string name="swiper_sessions_suggestions_label">试试从以下开始：</string>
+    <string name="swiper_sessions_suggestion_downloads">下载文件夹</string>
+    <string name="swiper_sessions_suggestion_screenshots">截图</string>
+    <string name="swiper_sessions_suggestion_camera">相机胶卷</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">保留！</string>
+    <string name="swiper_stamp_keep_2">不错！</string>
+    <string name="swiper_stamp_keep_3">要！</string>
+    <string name="swiper_stamp_keep_4">留下！</string>
+    <string name="swiper_stamp_delete_1">不要！</string>
+    <string name="swiper_stamp_delete_2">拜拜！</string>
+    <string name="swiper_stamp_delete_3">垃圾！</string>
+    <string name="swiper_stamp_delete_4">删除！</string>
+    <string name="swiper_stamp_skip_1">跳过！</string>
+    <string name="swiper_stamp_skip_2">算了！</string>
+    <string name="swiper_stamp_skip_3">以后！</string>
+    <string name="swiper_stamp_skip_4">也许！</string>
+    <string name="swiper_stamp_undo_1">撤销！</string>
+    <string name="swiper_stamp_undo_2">返回！</string>
+    <string name="swiper_stamp_undo_3">糟糕！</string>
+    <string name="swiper_stamp_undo_4">等等！</string>
 </resources>

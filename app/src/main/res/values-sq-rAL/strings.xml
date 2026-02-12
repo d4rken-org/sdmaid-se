@@ -759,6 +759,299 @@
     <string name="shortcuts_settings_category">Shkurtica</string>
     <string name="shortcuts_onetap_enabled_title">Shkurtica me një të klikuar</string>
     <string name="shortcuts_onetap_enabled_summary">Shfaq shkurtoren \"Skano + Fshij\" kur shtyp gjatë ikonën e aplikacionit. Përdor të njëjtat mjete si paneli me një prekje.</string>
-    <!-- Shorter versions for side-by-side display -->
-    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="deduplicator_arbiter_explanation">Kur fshini dublikatat, SD Maid vendos se cilin skedar ta mbajë duke kontrolluar çdo kriter sipas radhës. Kriteri i parë që jep një fitues të qartë përcakton rezultatin. Tërhiqni për të rirenditur, prekni për të ndryshuar modalitetin.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Zgjidhni modalitetin</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Konfiguro shtegjet…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Lloji i dublikatës</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Prefero përputhjet e sakta ndaj skedarëve të ngjashëm.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Indeksimi i mediave</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Merrni parasysh nëse skedarët janë të indeksuar nga ofruesi i mediave.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Vendndodhja e ruajtjes</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Prefero skedarët në ruajtjen e brendshme ose të jashtme.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Thellësia e dosjes</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Prefero skedarët në struktura dosjesh më të cekëta ose më të thella.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Data e modifikimit</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Prefero skedarët më të vjetër ose më të rinj bazuar në kohën e modifikimit.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Madhësia e skedarit</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Prefero skedarët më të mëdhenj ose më të vegjël kur madhësitë ndryshojnë.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Vendndodhjet e preferuara</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Mbani skedarët në vendndodhjet tuaja të preferuara të konfiguruara.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Prefero përputhjet e sakta</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Prefero skedarët e ngjashëm</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Prefero skedarët e indeksuar</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Prefero skedarët e pa-indeksuar</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Prefero ruajtjen e brendshme</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Prefero ruajtjen e jashtme</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Prefero dosjet e cekëta</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Prefero dosjet më të thella</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Prefero skedarët më të vjetër</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Prefero skedarët më të rinj</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Prefero skedarët më të mëdhenj</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Prefero skedarët më të vegjël</string>
+    <string name="deduplicator_view_mode_groups_label">Grupe</string>
+    <string name="deduplicator_view_mode_directories_label">Dosje</string>
+
+    <string name="appcontrol_archive_action">Arkivo</string>
+    <string name="appcontrol_archive_selection_action">Arkivo aplikacionet</string>
+    <string name="appcontrol_archive_description">Arkivoni për të liruar hapësirë duke ruajtur të dhënat e aplikacionit për rikthim të mëvonshëm.</string>
+    <string name="appcontrol_progress_archiving_app">Duke arkivuar aplikacionin…</string>
+    <string name="appcontrol_archive_confirmation_title">Konfirmo arkivimin</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Arkivo %d aplikacion?</item>
+        <item quantity="other">Arkivo %d aplikacione?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d aplikacion u arkivua</item>
+        <item quantity="other">%d aplikacione u arkivuan</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Rikthe</string>
+    <string name="appcontrol_restore_selection_action">Rikthe aplikacionet</string>
+    <string name="appcontrol_restore_description">Riktheni aplikacionin e arkivuar në gjendjen e instaluar plotësisht. Të dhënat e aplikacionit ruhen.</string>
+    <string name="appcontrol_progress_restoring_app">Duke rikthyer aplikacionin…</string>
+    <string name="appcontrol_restore_confirmation_title">Konfirmo rikthimin</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Rikthe %d aplikacion?</item>
+        <item quantity="other">Rikthe %d aplikacione?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d aplikacion u rikthye</item>
+        <item quantity="other">%d aplikacione u rikthyen</item>
+    </plurals>
+    <string name="appcontrol_share_list_action">Ndaj listën</string>
+    <string name="appcontrol_share_list_title">Aplikacionet e mia</string>
+    <string name="appcontrol_share_list_footer">Ndarë përmes SD Maid SE</string>
+    <string name="appcontrol_automation_subtitle_archiving">Duke arkivuar…</string>
+    <string name="appcontrol_automation_progress_find_archive">Duke kërkuar butonin \"Arkivo\" (fjalëkyçe: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Duke rikthyer…</string>
+    <string name="appcontrol_automation_progress_find_restore">Duke kërkuar butonin \"Rikthe\" (fjalëkyçe: %s)</string>
+    <string name="appcontrol_tag_debug">Debug</string>
+
+    <string name="analyzer_content_create_swiper_session_action">Krijo sesion Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Sesioni Swiper u krijua me %d artikull</item>
+        <item quantity="other">Sesioni Swiper u krijua me %d artikuj</item>
+    </plurals>
+
+    <string name="exclusion_editor_path_change_action">Prekni për të ndryshuar shtegun</string>
+
+    <string name="systemcleaner_customfilter_editor_size_explanation">Kufizoni rezultatet bazuar në madhësinë e skedarit. Lëreni pa vendosur për të përputhur çdo madhësi.</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Kufizoni rezultatet bazuar në moshën e skedarit (koha e modifikimit të fundit). Lëreni pa vendosur për të përputhur çdo moshë.</string>
+
+    <string name="appcleaner_forcestop_before_clearing_summary">Ndaloni me forcë aplikacionet para se të pastroni memorien e fshehur. Kjo mund të ndihmojë në pastrimin e memorive të fshehura të disa aplikacioneve, por mund të shkaktojë keqfunksionim të aplikacioneve dhe të kërkojë rinisje manuale.</string>
+
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="squeezer_explanation_short">Kompresoni imazhet për të kursyer hapësirë ​​ruajtëse.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d imazh u gjet</item>
+        <item quantity="other">%d imazhe u gjetën</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s mund të kursehet</item>
+        <item quantity="other">~%s mund të kursehen</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d imazh u kompresua</item>
+        <item quantity="other">%d imazhe u kompresuan</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d imazh i zgjedhur</item>
+        <item quantity="other">%d imazhe të zgjedhura</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Vendndodhjet e kërkimit</string>
+    <string name="squeezer_search_locations_default_summary">Dosjet e kamerës (parazgjedhur)</string>
+    <string name="squeezer_min_size_title">Madhësia minimale e skedarit</string>
+    <string name="squeezer_min_size_description">Kapërce imazhet më të vogla se kjo madhësi.</string>
+    <string name="squeezer_min_age_title">Mosha minimale e skedarit</string>
+    <string name="squeezer_min_age_description">Përfshi vetëm imazhet më të vjetra se kjo moshë.</string>
+    <string name="squeezer_compression_settings_label">Cilësimet e kompresimit</string>
+    <string name="squeezer_quality_label">Cilësia</string>
+    <string name="squeezer_quality_title">Cilësia e kompresimit</string>
+    <string name="squeezer_quality_description">Cilësia më e ulët do të thotë madhësi më e vogël e skedarit por cilësi e ulur e imazhit.</string>
+    <string name="squeezer_quality_example_format">Shembull: imazh %1$s → kursen ~%2$s në cilësinë %3$d%%</string>
+    <string name="squeezer_quality_warning_low">Cilësi më e ulët mund të shkaktojë artefakte të dukshme.</string>
+    <string name="squeezer_quality_warning_high">Cilësia shumë e lartë ofron kursime minimale të hapësirës.</string>
+    <string name="squeezer_types_category_label">Llojet e imazheve</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Përfshi imazhet JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Përfshi imazhet WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Kapërce të kompresuarat më parë</string>
+    <string name="squeezer_skip_compressed_description">Kapërce imazhet që janë kompresuar tashmë nga SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Shkruaj shënuesin EXIF</string>
+    <string name="squeezer_exif_marker_description">Shto një shënues në fushën e komentit EXIF të imazhit për të parandaluar rikompresimin edhe nëse historia e kompresimit pastrohet.</string>
+    <string name="squeezer_estimated_savings_format">~%s kursime</string>
+    <string name="squeezer_no_savings_expected">Kursime të kufizuara</string>
+    <string name="squeezer_current_size_format">Madhësia: %s</string>
+    <string name="squeezer_compress_action">Kompreso</string>
+    <string name="squeezer_compress_all_action">Kompreso të gjitha</string>
+    <string name="squeezer_preview_dialog_title">Konfirmo kompresimin</string>
+    <string name="squeezer_preview_total_size">Madhësia totale</string>
+    <string name="squeezer_preview_estimated_savings">Kursime të vlerësuara</string>
+    <string name="squeezer_compress_confirmation_title">Kompreso imazhet?</string>
+    <string name="squeezer_compress_confirmation_message">Kjo do të zëvendësojë imazhet origjinale me versione të kompresuara. Ky veprim nuk mund të zhbëhet.</string>
+    <string name="squeezer_history_title">Historia e kompresimit</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d artikull (%2$s)</item>
+        <item quantity="other">%1$d artikuj (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Asnjë histori kompresimi</string>
+    <string name="squeezer_history_clear_title">Pastro historinë e kompresimit</string>
+    <string name="squeezer_history_clear_message">Kjo do të lejojë imazhet e kompresuara më parë të kompresohen përsëri. Vetë imazhet nuk preken.</string>
+    <string name="squeezer_onboarding_title">Rreth kompresimit të imazheve</string>
+    <string name="squeezer_onboarding_message">Kompresimi i imazheve zvogëlon madhësinë e skedarit duke hequr detajet vizuale. Ky proces është i pakthyeshëm - cilësia origjinale nuk mund të rikthehet.\n\nJa një pamje paraprake se si do të duken imazhet tuaja:</string>
+    <string name="squeezer_onboarding_original_label">Origjinale</string>
+    <string name="squeezer_onboarding_compressed_label">Pas kompresimit</string>
+    <string name="squeezer_onboarding_quality_label">Cilësia: %d%%</string>
+    <string name="squeezer_onboarding_got_it">E kuptova</string>
+    <string name="squeezer_compare_action">Shiko krahasimin</string>
+    <string name="squeezer_no_example_found">Nuk u gjetën imazhe në shtegjet e zgjedhura.</string>
+    <string name="squeezer_result_empty_message">Nuk u gjetën imazhe të kompresueshme.</string>
+    <string name="squeezer_setup_warning">Kompresimi zvogëlon përgjithmonë cilësinë e imazhit për të kursyer hapësirë ​​ruajtëse. Kjo nuk mund të zhbëhet. Rishikoni cilësimet tuaja me kujdes para se të filloni.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze zvogëlon madhësinë e skedarëve të imazheve për të liruar hapësirë ​​ruajtëse. Kjo zvogëlon përgjithmonë cilësinë e imazhit dhe nuk mund të zhbëhet. Rishikoni cilësimet tuaja me kujdes para se të filloni.</string>
+    <string name="squeezer_setup_paths_title">Vendndodhjet e kërkimit</string>
+    <string name="squeezer_setup_paths_default">Zgjidhni dosjet për të kërkuar</string>
+    <string name="squeezer_setup_quality_title">Cilësia e kompresimit</string>
+    <string name="squeezer_setup_age_title">Mosha minimale</string>
+    <string name="squeezer_setup_age_none">Pa kufizim (përfshi të gjitha skedarët)</string>
+    <string name="squeezer_setup_start_action">Fillo skanimin</string>
+    <string name="squeezer_quality_hint_very_low">Cilësia nën 40% mund të krijojë imazhe të papërdorshme.</string>
+    <string name="squeezer_quality_hint_low">Cilësia më e ulët kursen më shumë hapësirë por mund të shkaktojë artefakte të dukshme.</string>
+    <string name="squeezer_quality_hint_high">Cilësia shumë e lartë ofron kursime minimale të hapësirës.</string>
+    <string name="squeezer_quality_hint_normal">Cilësi e balancuar dhe kursime hapësire.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Të paktën %d ditë e vjetër</item>
+        <item quantity="other">Të paktën %d ditë të vjetra</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Kursime të vlerësuara ~%d%% për skedarët JPEG</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Rrëshqitni nëpër skedarë për të vendosur çfarë të mbani ose fshini.</string>
+    <string name="swiper_dashcard_description">Rishikoni manualisht skedarët në dosje specifike. Rrëshqitni për të vendosur çfarë të mbani ose fshini.</string>
+    <string name="swiper_start_action">Fillo rrëshqitjen</string>
+    <string name="swiper_continue_action">Vazhdo sesionin</string>
+    <string name="swiper_sessions_description">Disa skedarë kërkojnë vendim njerëzor. Rrëshqitni nëpër artikuj dhe zgjidhni çfarë të mbani ose fshini. Kapërceni çdo gjë për të cilën nuk jeni të sigurt. Ky mjet ju lejon të rishikoni manualisht dosje specifike dhe asgjë nuk hiqet derisa të konfirmoni.</string>
+    <string name="swiper_select_folders_action">Zgjidhni dosjet</string>
+    <string name="swiper_scanning_title">Duke skanuar…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d artikull u gjet</item>
+        <item quantity="other">%d artikuj u gjetën</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d artikull u fshi</item>
+        <item quantity="other">%d artikuj u fshinë</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d artikull dështoi</item>
+        <item quantity="other">%d artikuj dështuan</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d nga %2$d</string>
+    <string name="swiper_keep_action">Mbaj</string>
+    <string name="swiper_skip_action">Kapërce</string>
+    <string name="swiper_review_action">Rishiko</string>
+    <string name="swiper_status_title">Rishiko vendimet</string>
+    <string name="swiper_status_action_keep_selected">Mbaj të zgjedhurat</string>
+    <string name="swiper_status_action_delete_selected">Fshi të zgjedhurat</string>
+    <string name="swiper_status_action_reset_selected">Rivendos të zgjedhurat</string>
+    <string name="swiper_decision_undecided">I pavendosur</string>
+    <string name="swiper_retry_action">Riprovo</string>
+    <string name="swiper_delete_confirmation_title">Fshi skedarët?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Kjo do të fshijë përgjithmonë %1$d skedar (%2$s). Ky veprim nuk mund të zhbëhet.</item>
+        <item quantity="other">Kjo do të fshijë përgjithmonë %1$d skedarë (%2$s). Ky veprim nuk mund të zhbëhet.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d artikull i pavendosur do të mbetet për rishikim të mëvonshëm.</item>
+        <item quantity="other">%d artikuj të pavendosur do të mbeten për rishikim të mëvonshëm.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Fshi %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Ndrysho drejtimet e rrëshqitjes</string>
+    <string name="swiper_settings_swap_directions_summary">Rrëshqitni majtas për të mbajtur, djathtas për të fshirë.</string>
+    <string name="swiper_settings_show_details_title">Shfaq detajet e skedarit</string>
+    <string name="swiper_settings_show_details_summary">Shfaq emrin e skedarit, madhësinë dhe datën në ekranin e rrëshqitjes.</string>
+    <string name="swiper_settings_haptic_feedback_title">Reagim haptik</string>
+    <string name="swiper_settings_haptic_feedback_summary">Dridhu kur merrni vendime për mbajtje ose fshirje.</string>
+    <string name="swiper_discard_session_confirmation_title">Hidhni sesionin?</string>
+    <string name="swiper_discard_session_confirmation_message">Të gjitha vendimet do të humbasin. Jeni të sigurt?</string>
+    <string name="swiper_no_preview_available">Nuk ka pamje paraprake</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Vazhdo sesionin nga %1$d ditë më parë (%2$d%% e përfunduar)</item>
+        <item quantity="other">Vazhdo sesionin nga %1$d ditë më parë (%2$d%% e përfunduar)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d sesion</item>
+        <item quantity="other">%d sesione</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d artikull i pavendosur</item>
+        <item quantity="other">%d artikuj të pavendosur</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Krijuar %1$s, aktiviteti i fundit %2$s</string>
+    <string name="swiper_session_remove_action">Hiq sesionin</string>
+    <string name="swiper_sessions_empty_hint">Prekni + për të zgjedhur një dosje dhe filloni rrëshqitjen</string>
+    <string name="swiper_sessions_upgrade_body">Përmirësoni për të hequr këto kufizime dhe mbështetur zhvillimin. Versioni falas është i kufizuar në:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d skedar për sesion</item>
+        <item quantity="other">%d skedarë për sesion</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d sesion</item>
+        <item quantity="other">%d sesione</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sesioni #%d</string>
+    <string name="swiper_session_rename_title">Riemërto sesionin</string>
+    <string name="swiper_session_rename_hint">Shkruani një emër për këtë sesion</string>
+    <string name="swiper_sessions_current_sessions">Sesionet aktuale</string>
+    <string name="swiper_session_paths_label">Shtegjet</string>
+    <string name="swiper_session_status_label">Statusi</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d për t\'u mbajtur</item>
+        <item quantity="other">%d për t\'u mbajtur</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d për t\'u fshirë</item>
+        <item quantity="other">%d për t\'u fshirë</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d i pavendosur</item>
+        <item quantity="other">%d të pavendosur</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d tashmë i mbajtur</item>
+        <item quantity="other">%d tashmë të mbajtur</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d tashmë i fshirë</item>
+        <item quantity="other">%d tashmë të fshirë</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d i mbajtur</item>
+        <item quantity="other">%d të mbajtur</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d i fshirë</item>
+        <item quantity="other">%d të fshirë</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Përjashto \"%1$s\" nga skanimet Swiper?</string>
+    <string name="swiper_sessions_header_title">Gati për të pastruar?</string>
+    <string name="swiper_sessions_suggestions_label">Filloni me:</string>
+    <string name="swiper_sessions_suggestion_downloads">Dosja e shkarkimeve</string>
+    <string name="swiper_sessions_suggestion_screenshots">Fotografitë e ekranit</string>
+    <string name="swiper_sessions_suggestion_camera">Ruli i kamerës</string>
+    <string name="swiper_stamp_keep_1">Mbaj!</string>
+    <string name="swiper_stamp_keep_2">Bukur!</string>
+    <string name="swiper_stamp_keep_3">Po!</string>
+    <string name="swiper_stamp_keep_4">Ruaj!</string>
+    <string name="swiper_stamp_delete_1">Jo!</string>
+    <string name="swiper_stamp_delete_2">Mirupafshim!</string>
+    <string name="swiper_stamp_delete_3">Mbeturinë!</string>
+    <string name="swiper_stamp_delete_4">Fshi!</string>
+    <string name="swiper_stamp_skip_1">Kapërce!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Më vonë!</string>
+    <string name="swiper_stamp_skip_4">Ndoshta!</string>
+    <string name="swiper_stamp_undo_1">Zhbëj!</string>
+    <string name="swiper_stamp_undo_2">Prapa!</string>
+    <string name="swiper_stamp_undo_3">Ups!</string>
+    <string name="swiper_stamp_undo_4">Prit!</string>
 </resources>

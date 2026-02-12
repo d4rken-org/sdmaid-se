@@ -4,6 +4,7 @@
     <string name="slogan_message_1">Garbi eta txukun.</string>
     <string name="slogan_message_2">Kaosa saihesten.</string>
     <string name="slogan_message_3">Beharrezkoa egiten.</string>
+    <string name="slogan_message_4">Dena bere lekuan.</string>
     <string name="slogan_message_5">Orbain gabe.</string>
     <string name="slogan_message_6">Byteak, joan zaitezte!</string>
     <string name="slogan_message_7">Leku librea, leku zoriontsua.</string>
@@ -17,11 +18,13 @@
     <string name="general_todo_msg">Eginbide hau oraindik lanean dago eta une honetan ez dago eskuragarri.</string>
     <string name="general_share_action">Partekatu</string>
     <string name="general_done_action">Eginda</string>
+    <string name="general_apply_action">Aplikatu</string>
     <string name="general_copy_action">Kopiatu</string>
     <string name="general_wipe_action">Garbitu</string>
     <string name="general_cancel_action">Utzi</string>
     <string name="general_discard_action">Baztertu</string>
     <string name="general_reset_action">Berrezarri</string>
+    <string name="general_drag_handle_description">Arrastatu berrordenatzeko</string>
     <string name="general_save_action">Gorde</string>
     <string name="general_thanks_action">Esker</string>
     <string name="general_gotit_action">Ulertuta</string>
@@ -30,6 +33,7 @@
     <string name="general_edit_action">Editatu</string>
     <string name="general_na_label">E/E</string>
     <string name="general_empty_label">Hutsik</string>
+    <string name="general_new_badge_label">Berria</string>
     <string name="general_dismiss_action">Baztertu</string>
     <string name="general_maybe_later_action">Agian geroago</string>
     <string name="general_manage_action">Kudeatu</string>
@@ -90,6 +94,10 @@
     <string name="general_toggle_layout_mode">Ikuste modua aldatu</string>
     <string name="general_delete_confirmation_title">Ezabatzea berretsi</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ezabatu?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Hautatutako %d elementu ezabatu?</item>
+        <item quantity="other">Hautatutako %d elementu ezabatu?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d elementu ezabatu da.</item>
         <item quantity="other">%d elementu ezabatu dira.</item>
@@ -162,4 +170,6 @@
     <string name="general_error_report_bug_action">Errore txostena</string>
     <string name="general_error_ipc_deadobject_title">Zerbitzuaren konexioa galdu da</string>
     <string name="general_error_ipc_deadobject_description">Zerbitzu kritiko batekin (adib. Magisk, Shizuku edo bestelako sistema-mailako zerbitzuak) konexioa ustekabean galdu da. Mesedez berrabiarazi zure gailua. Arazoa jarraitzen badu, eguneraketak egiaztatu edo nirekin harremanetan jarri konpon dezadan.</string>
+    <string name="general_user_label_owner">Jabea</string>
+    <string name="general_user_label_system">Sistema</string>
 </resources>

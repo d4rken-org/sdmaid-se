@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro шаардлагатай</string>
+    <string name="upgrades_dashcard_title">SD Maid SE шинэчлэх</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro нь илүү сайн үр дүн, олон боломж, ахисан хэрэглэгчдэд зориулсан нэмэлт сонголтуудыг санал болгодог.</string>
     <string name="upgrades_dashcard_upgrade_action">Шинэчлэх</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play боломжгүй байна</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play-тэй холбогдож чадахгүй байна. Google Play суулгасан бөгөөд шинэчлэгдсэн үү? Таны Google бүртгэл нэвтэрсэн үү? Google Play аппын кэшийг цэвэрлэж, төхөөрөмжөө дахин эхлүүлэхийг оролдоно уу.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play асуудал</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play-тай холбоотой асуудал гарлаа. Дараа дахин оролдоно уу эсвэл төхөөрөмжөө дахин эхлүүлнэ үү.\n\nДэлгэрэнгүй: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play алдаа</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play-н дотоод алдаа гарлаа. Дараахийг оролдоно уу:\n\n• Төхөөрөмжөө дахин эхлүүлэх\n• Google Play Store кэшийг цэвэрлэх\n• Дараа дахин оролдох</string>
+    <string name="upgrades_gplay_network_error_title">Холболтын алдаа</string>
+    <string name="upgrades_gplay_network_error_description">Google Play-тай холбогдож чадсангүй. Интернэт холболтоо шалгаад дахин оролдоно уу.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Аль хэдийн худалдаж авсан</string>
+    <string name="upgrades_gplay_already_owned_error_description">Худалдан авалтаа сэргээхийн тулд \"Худалдан авалтыг сэргээх\" сонголтыг ашиглана уу. Асуудал арилахгүй бол Google Play кэшийг цэвэрлэж, төхөөрөмжөө дахин эхлүүлэхийг оролдоно уу.</string>
     <string name="upgrades_no_purchases_found_check_account">Худалдан авалт олдсонгүй. Та зөв бүртгэл ашиглаж байна уу?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro авах</string>
     <string name="upgrade_screen_preamble">SD Maid зар сурталчилгаагүй бөгөөд хэрэглэгчийн өгөгдлийг зардаггүй. Миний ажлыг та санхүүжүүлдэг ❤️.</string>

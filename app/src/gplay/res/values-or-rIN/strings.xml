@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro ଆବଶ୍ୟକ</string>
+    <string name="upgrades_dashcard_title">SD Maid SE ଅପଗ୍ରେଡ୍ କରନ୍ତୁ</string>
+    <string name="upgrades_dashcard_body">SD Maid SE Pro ଉନ୍ନତ ଫଳାଫଳ, ଅଧିକ ବୈଶିଷ୍ଟ୍ୟ ଏବଂ ପାୱାର ବ୍ୟବହାରକାରୀଙ୍କ ପାଇଁ ବିକଳ୍ପ ପ୍ରଦାନ କରେ।</string>
     <string name="upgrades_dashcard_upgrade_action">ଅପଗ୍ରେଡ୍</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play ସହିତ ସଂଯୋଗ କରିପାରୁନାହିଁ। Google Play ସଂସ୍ଥାପିତ ଏବଂ ଅପଡେଟ୍ ହୋଇଛି କି? ଆପଣଙ୍କର Google ଆକାଉଣ୍ଟ ଲଗ୍ ଇନ୍ ହୋଇଛି କି? Google Play ଆପ୍‌ର କ୍ୟାଶ୍ ସଫା କରିବାକୁ ଏବଂ ଆପଣଙ୍କ ଡିଭାଇସ୍ ପୁନଃ ଆରମ୍ଭ କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play ସମସ୍ୟା</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play ସହିତ ଏକ ସମସ୍ୟା ହୋଇଥିଲା। ଦୟାକରି ପରେ ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ କିମ୍ବା ଆପଣଙ୍କ ଡିଭାଇସ୍ ପୁନଃ ଆରମ୍ଭ କରନ୍ତୁ।\n\nବିବରଣୀ: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play ତ୍ରୁଟି</string>
+    <string name="upgrades_gplay_internal_error_description">ଏକ ଆଭ୍ୟନ୍ତରୀଣ Google Play ତ୍ରୁଟି ଘଟିଲା। ଦୟାକରି ନିମ୍ନଲିଖିତ ଚେଷ୍ଟା କରନ୍ତୁ:\n\n• ଆପଣଙ୍କ ଡିଭାଇସ୍ ପୁନଃ ଆରମ୍ଭ କରନ୍ତୁ\n• Google Play Store କ୍ୟାଶ୍ ସଫା କରନ୍ତୁ\n• ପରେ ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ</string>
+    <string name="upgrades_gplay_network_error_title">ସଂଯୋଗ ତ୍ରୁଟି</string>
+    <string name="upgrades_gplay_network_error_description">Google Play ସହିତ ସଂଯୋଗ କରିବାରେ ଅସମର୍ଥ। ଦୟାକରି ଆପଣଙ୍କ ଇଣ୍ଟରନେଟ୍ ସଂଯୋଗ ଯାଞ୍ଚ କରନ୍ତୁ ଏବଂ ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="upgrades_gplay_already_owned_error_title">ପୂର୍ବରୁ କ୍ରୟ ହୋଇସାରିଛି</string>
+    <string name="upgrades_gplay_already_owned_error_description">ଆପଣଙ୍କ କ୍ରୟ ପୁନଃସ୍ଥାପନ କରିବାକୁ \"କ୍ରୟ ପୁନଃସ୍ଥାପନ କରନ୍ତୁ\" ବିକଳ୍ପ ବ୍ୟବହାର କରନ୍ତୁ। ଯଦି ସମସ୍ୟା ଜାରି ରହେ, Google Play କ୍ୟାଶ୍ ସଫା କରିବାକୁ ଏବଂ ଆପଣଙ୍କ ଡିଭାଇସ୍ ପୁନଃ ଆରମ୍ଭ କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="upgrades_no_purchases_found_check_account">କୌଣସି କ୍ରୟ ମିଳିଲାନାହିଁ। ଆପଣ ସଠିକ୍ ଆକାଉଣ୍ଟ ବ୍ୟବହାର କରୁଛନ୍ତି କି?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ପାଆନ୍ତୁ</string>
     <string name="upgrade_screen_preamble">SD Maid ରେ କୌଣସି ବିଜ୍ଞାପନ ନାହିଁ ଏବଂ ବ୍ୟବହାରକାରୀ ତଥ୍ୟ ବିକ୍ରୟ କରେନାହିଁ। ମୋର କାର୍ଯ୍ୟ ଆପଣଙ୍କ ଦ୍ୱାରା ଅର୍ଥାୟନ ହୋଇଥାଏ ❤️।</string>

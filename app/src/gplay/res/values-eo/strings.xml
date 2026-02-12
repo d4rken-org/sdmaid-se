@@ -31,4 +31,10 @@
     <string name="upgrade_screen_restore_multiaccount_hint">Pluraj kontoj povas konfuzi Google Play. Elsalutu el aliaj kontoj aŭ instalu per la Google Play-retejo, kiu devigas asociojn kun specifa konto.</string>
     <string name="upgrades_gplay_billing_error_label">Google Play Problemo</string>
     <string name="upgrades_gplay_billing_error_description">Estis problemo kun Google Play. Bonvolu provi denove poste aŭ restartigi vian aparaton.\n\nDetaloj: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Eraro de Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Interna eraro de Google Play okazis. Bonvolu provi la jenajn:\n\n• Restartigu vian aparaton\n• Vakigu la kaŝmemoron de Google Play Store\n• Provu denove poste</string>
+    <string name="upgrades_gplay_network_error_title">Konekteraro</string>
+    <string name="upgrades_gplay_network_error_description">Ne eblas konektiĝi al Google Play. Bonvolu kontroli vian interretan konekton kaj provi denove.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Jam aĉetita</string>
+    <string name="upgrades_gplay_already_owned_error_description">Uzu la opcion \"Restarigi aĉeton\" por restarigi vian aĉeton. Se la problemo daŭras, provu vakigi la kaŝmemoron de Google Play kaj restartigi vian aparaton.</string>
 </resources>

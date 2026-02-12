@@ -31,4 +31,10 @@
     <string name="upgrade_screen_restore_multiaccount_hint">Kontijiet multipli jistgħu jikkonfondu Google Play. Illogja \'l barra minn kontijiet oħra jew installa permezz tal-websajt Google Play, li jforza assoċjazzjonijiet ma\' kont speċifiku.</string>
     <string name="upgrades_gplay_billing_error_label">Problema ta\' Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Kien hemm problema ma\' Google Play. Jekk jogħġbok ipprova mill-ġdid aktar tard jew erġa\' ixgħel l-apparat tiegħek.\n\nDettalji: %s</string>
+    <string name="upgrades_gplay_internal_error_title">Żball ta\' Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Seħħ żball intern ta\' Google Play. Jekk jogħġbok ipprova dawn li ġejjin:\n\n• Erġa\' ixgħel l-apparat tiegħek\n• Ħassar il-cache tal-Google Play Store\n• Ipprova mill-ġdid aktar tard</string>
+    <string name="upgrades_gplay_network_error_title">Żball fil-konnessjoni</string>
+    <string name="upgrades_gplay_network_error_description">Ma nistax nikkonnettja ma\' Google Play. Jekk jogħġbok iċċekkja l-konnessjoni tal-internet tiegħek u pprova mill-ġdid.</string>
+    <string name="upgrades_gplay_already_owned_error_title">Diġà mixtrija</string>
+    <string name="upgrades_gplay_already_owned_error_description">Uża l-għażla \"Irrestawra x-xiri\" biex tirrestawra x-xiri tiegħek. Jekk il-problema tibqa\', ipprova ħassar il-cache ta\' Google Play u erġa\' ixgħel l-apparat tiegħek.</string>
 </resources>

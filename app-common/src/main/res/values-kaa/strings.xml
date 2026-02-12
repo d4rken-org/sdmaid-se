@@ -5,6 +5,7 @@
     <string name="slogan_message_1">Taza hám retli.</string>
     <string name="slogan_message_2">Bulaǵannı aldın alaw.</string>
     <string name="slogan_message_3">Keregli nárseni etetiw.</string>
+    <string name="slogan_message_4">Barlıǵı retli.</string>
     <string name="slogan_message_5">Íz joq.</string>
     <string name="slogan_message_6">Baytlar, ketetiń!</string>
     <string name="slogan_message_7">Bos orın, baxıtlı orın.</string>
@@ -18,11 +19,13 @@
     <string name="general_todo_msg">Bul mümkinshilik áli islenip atır hám házir joq.</string>
     <string name="general_share_action">Bólisiw</string>
     <string name="general_done_action">Tayar</string>
+    <string name="general_apply_action">Qollanıw</string>
     <string name="general_copy_action">Kóshirip alıw</string>
     <string name="general_wipe_action">Tazalaw</string>
     <string name="general_cancel_action">Biykarlaw</string>
     <string name="general_discard_action">Bıykarlaw</string>
     <string name="general_reset_action">Qayta ornatıw</string>
+    <string name="general_drag_handle_description">Tartıplew ushın sırǵatıń</string>
     <string name="general_save_action">Saqlaw</string>
     <string name="general_thanks_action">Raxmet</string>
     <string name="general_gotit_action">Túsinikli</string>
@@ -31,6 +34,7 @@
     <string name="general_edit_action">Ózgeris kiritiw</string>
     <string name="general_na_label">Joq</string>
     <string name="general_empty_label">Bos</string>
+    <string name="general_new_badge_label">Taza</string>
     <string name="general_dismiss_action">Jabıw</string>
     <string name="general_maybe_later_action">Moǵdan kiyın</string>
     <string name="general_manage_action">Basqarıw</string>
@@ -91,6 +95,10 @@
     <string name="general_toggle_layout_mode">Kóriw modesin ózgertew</string>
     <string name="general_delete_confirmation_title">Óshiriwdi tastıyıqlaw</string>
     <string name="general_delete_confirmation_message_x">\"%s\" óshirilsin be?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d tańlanǵan element óshirilsin be?</item>
+        <item quantity="other">%d tańlanǵan element óshirilsin be?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d element óshirildi.</item>
         <item quantity="other">%d element óshirildi.</item>
@@ -163,4 +171,6 @@
     <string name="general_error_report_bug_action">Qáte haqqında xabar beriw</string>
     <string name="general_error_ipc_deadobject_title">Xızmet baylanısı úzildi</string>
     <string name="general_error_ipc_deadobject_description">Mánisli xızmetke (masalan, Magisk, Shizuku, yamasa basqa sistema darajasındaǵı xızmetler) baylanıs kútilmegen túrde úzildi. Qurılmańızdı qayta júklań. Eger máselerni dawam etse, jańartıwlardı tekseriń yamasa mańa ádepki ústinde ózi sheshimni tapıw ushın xabar beriń.</string>
+    <string name="general_user_label_owner">Iye</string>
+    <string name="general_user_label_system">Sistema</string>
 </resources>

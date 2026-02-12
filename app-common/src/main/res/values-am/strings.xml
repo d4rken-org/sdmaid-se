@@ -4,6 +4,7 @@
     <string name="slogan_message_1">ንፁህ እና ተደራጅቶ።</string>
     <string name="slogan_message_2">ትርምስ መከላከል።</string>
     <string name="slogan_message_3">አስፈላጊውን ማድረግ።</string>
+    <string name="slogan_message_4">ሁሉም ነገር በቅደም ተከተል።</string>
     <string name="slogan_message_5">ንፁህ።</string>
     <string name="slogan_message_6">ባይቶች፣ ሂዱ!</string>
     <string name="slogan_message_7">ነፃ ቦታ፣ ደስተኛ ቦታ።</string>
@@ -17,11 +18,13 @@
     <string name="general_todo_msg">ይህ ባህሪ አሁንም በስራ ላይ ነው እና አሁን አይገኝም።</string>
     <string name="general_share_action">ማካፈል</string>
     <string name="general_done_action">ተከናውኗል</string>
+    <string name="general_apply_action">ተግብር</string>
     <string name="general_copy_action">ቅዳ</string>
     <string name="general_wipe_action">ማጽዳት</string>
     <string name="general_cancel_action">ሰርዝ</string>
     <string name="general_discard_action">ትው</string>
     <string name="general_reset_action">እንደገና አዋቅር</string>
+    <string name="general_drag_handle_description">እንደገና ለማስቀመጥ ጎትት</string>
     <string name="general_save_action">አስቀምጥ</string>
     <string name="general_thanks_action">አመሰግናለሁ</string>
     <string name="general_gotit_action">ገባኝ</string>
@@ -30,6 +33,7 @@
     <string name="general_edit_action">አርትዕ</string>
     <string name="general_na_label">የለም</string>
     <string name="general_empty_label">ባዶ</string>
+    <string name="general_new_badge_label">አዲስ</string>
     <string name="general_dismiss_action">አስወግድ</string>
     <string name="general_maybe_later_action">ምናልባት በኋላ</string>
     <string name="general_manage_action">ያስተዳድሩ</string>
@@ -90,6 +94,10 @@
     <string name="general_toggle_layout_mode">የእይታ ሁነታ ቀይር</string>
     <string name="general_delete_confirmation_title">መሰረዝን አረጋግጥ</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ይሰረዝ?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d የተመረጠ ንጥል ይሰረዝ?</item>
+        <item quantity="other">%d የተመረጡ ንጥሎች ይሰረዙ?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d ንጥል ተሰርዟል።</item>
         <item quantity="other">%d ንጥሎች ተሰርዘዋል።</item>
@@ -162,4 +170,6 @@
     <string name="general_error_report_bug_action">ስህተት ሪፖርት ያድርጉ</string>
     <string name="general_error_ipc_deadobject_title">የአገልግሎት ግንኙነት ጠፋ</string>
     <string name="general_error_ipc_deadobject_description">ከአስፈላጊ አገልግሎት (ምሳሌ Magisk፣ Shizuku፣ ወይም ሌሎች የስርዓት-ደረጃ አገልግሎቶች) ጋር ያለው ግንኙነት በሚያስደንቅ ሁኔታ ጠፋ። እባክዎ መሳሪያዎን እንደገና ይጀምሩ። ችግሩ ቢቀጥል፣ ለዝመናዎች ይፈትሹ ወይም ለማስተካከል ያገኙኝ።</string>
+    <string name="general_user_label_owner">ባለቤት</string>
+    <string name="general_user_label_system">ስርዓት</string>
 </resources>
