@@ -468,7 +468,6 @@
     <string name="squeezer_min_size_title">Ελάχιστο μέγεθος αρχείου</string>
     <string name="squeezer_quality_label">Ποιότητα</string>
     <string name="squeezer_quality_title">Ποιότητα συμπίεσης</string>
-    <string name="squeezer_quality_value_format">%d%%</string>
     <string name="squeezer_types_category_label">Τύποι εικόνων</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_webp_title">WebP</string>

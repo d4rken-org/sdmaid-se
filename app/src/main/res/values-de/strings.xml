@@ -92,8 +92,13 @@
     <string name="support_debuglog_label">Debug-Protokoll</string>
     <string name="support_debuglog_desc">Zeichne alles, was die App macht, in einer Textdatei auf, die Du teilen kannst.</string>
     <string name="support_debuglog_folder_label">Debug-Protokollordner</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d Datei mit %2$s</item>
+        <item quantity="other">%1$d Datein mit %2$s</item>
+    </plurals>
     <string name="support_debuglog_folder_empty_desc">Keine Debug-Logs gespeichert</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Alle Debug-Logs löschen?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Dadurch werden alle gespeicherten Debug-Log-Sitzungen dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Ein Ort zum Verweilen und Fragen stellen.</string>
     <string name="changelog_label">Änderungsprotokoll</string>
@@ -176,6 +181,13 @@
     <string name="debug_bugreporter_label">Automatische Fehlerberichte</string>
     <string name="debug_bugreporter_summary">Meldet automatisch Probleme - z. B. Details zu den App-Abstürzen - damit ich sie verstehen und beheben kann.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Debug-Modus ist aktiviert</string>
+    <string name="debug_card_trace_mode_label">Trace-Modus aktivieren</string>
+    <string name="debug_card_dryrun_mode_label">Testlauf-Modus (Löschen deaktivieren)</string>
+    <string name="debug_card_areas_reload_action">Datenbereiche neu laden</string>
+    <string name="debug_card_pkgs_reload_action">Apps neu laden</string>
+    <string name="debug_card_root_test_action">Root testen</string>
+    <string name="debug_card_shizuku_test_action">Shizuku testen</string>
     <string name="settings_category_tools_label">Werkzeuge</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risikostufe</string>
@@ -267,6 +279,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Screenshot Alter</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Mindestalter für Screenshots, damit diese für eine Löschung in Betracht gezogen werden.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Überflüssige APKs</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Einrichtungsdateien, die basierend auf den installierten App-Versionen nicht mehr benötigt werden.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Gleiche Version einbeziehen</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Auch APK-Dateien berücksichtigen, die der installierten Version entsprechen. Deaktivieren, um nur ältere Versionen zu entfernen.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR Ordner</string>
     <string name="systemcleaner_filter_lostdir_summary">Temporäre Dateien, die beim Übertragen von Daten zwischen Android-Geräten erstellt werden.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux-Dateien</string>
@@ -327,6 +342,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Name ist mit Schlüsselwort identisch</string>
     <string name="systemcleaner_customfilter_last_edit">Letzte Bearbeitung: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Live-Suche</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Größenbeschränkungen</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Mindestgröße</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maximalgröße</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Übereinstimmungen basierend auf der Dateigröße einschränken. Leer lassen, um jede Größe zu berücksichtigen.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Altersbeschränkungen</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Mindestalter</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maximales Alter</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Übereinstimmungen basierend auf dem Dateialter (Zeitpunkt der letzten Änderung) einschränken. Leer lassen, um jedes Alter zu berücksichtigen.</string>
     <string name="systemcleaner_customfilter_import_action">Neuen Filter importieren</string>
     <string name="systemcleaner_customfilter_export_action">Ausgewählten Filter exportieren</string>
     <string name="appcleaner_tool_name">App-Reiniger</string>
@@ -422,6 +445,7 @@
     <string name="appcleaner_automation_error_no_settings_body">Diese System-App verfügt über keinen Einstellungsbildschirm. Das Leeren des Caches über den Bedienungshilfedienst ist nicht möglich. Erstelle eine Ausnahme für diese App, um das Cacheleeren zu beschleunigen.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">System-App falsch konfiguriert</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Der HyperOS-Sicherheits-App (com.miui.securitycenter) fehlt die Berechtigung zur Nutzung von Statistiken (GET_USAGE_STATS). Dies behindert Funktionen wie \"Daten löschen\" in den App-Details und Cache-Clearing über den Barrierefreiheitsdienst. Gewähre die Berechtigung, um die volle Funktionalität wiederherzustellen.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Vor dem Leeren zwangsweise beenden</string>
     <string name="deduplicator_tool_name">Duplikat-Entferner</string>
     <string name="deduplicator_explanation_short">Finde doppelte Daten auf deinem Gerät.</string>
     <plurals name="deduplicator_result_x_clusters_processed">

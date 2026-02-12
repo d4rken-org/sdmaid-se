@@ -727,14 +727,6 @@
     <string name="shortcuts_settings_category">捷徑</string>
     <string name="shortcuts_onetap_enabled_title">一鍵捷徑</string>
     <string name="shortcuts_onetap_enabled_summary">長按應用程式圖示時顯示「掃描 + 刪除」捷徑。使用與一鍵式儀表板相同的工具。</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">Debug 模式已啟用</string>
-    <string name="debug_card_trace_mode_label">啟用 trace 模式</string>
-    <string name="debug_card_dryrun_mode_label">Dry-run 模式（停用刪除）</string>
-    <string name="debug_card_areas_reload_action">重新載入資料區域</string>
-    <string name="debug_card_pkgs_reload_action">重新載入應用程式</string>
-    <string name="debug_card_root_test_action">測試 root</string>
-    <string name="debug_card_shizuku_test_action">測試 Shizuku</string>
     <!-- Shorter versions for side-by-side display -->
     <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

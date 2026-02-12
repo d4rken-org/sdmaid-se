@@ -606,7 +606,6 @@
     <string name="squeezer_history_clear_message">Гэта дазволіць зноў сціснуць раней сціснутыя выявы. Самі выявы застануцца нязменнымі.</string>
     <string name="squeezer_onboarding_title">Аб сцісканні выяў</string>
     <string name="squeezer_onboarding_message">Сцісканне выявы памяншае памер файла, выдаляючы візуальныя дэталі. Гэты працэс незваротны — першапачатковую якасць аднавіць немагчыма.\n\nВось папярэдні прагляд таго, як будуць выглядаць вашы выявы:</string>
-    <string name="squeezer_onboarding_tap_to_zoom_hint">Націсніце на выявы, каб павялічыць</string>
     <string name="squeezer_no_example_found">У выбраных шляхах выявы не знойдзены.</string>
     <string name="squeezer_result_empty_message">Не знойдзена выяў, якія можна сціснуць.</string>
     <string name="squeezer_setup_warning">Сцісканне назаўсёды зніжае якасць выявы, каб сэканоміць месца. Гэта дзеянне немагчыма скасаваць. Уважліва праверце налады перад пачаткам працы.</string>

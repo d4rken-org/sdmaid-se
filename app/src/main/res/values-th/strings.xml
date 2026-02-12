@@ -685,14 +685,6 @@
     <string name="area_type_public_obb_label">ทรัพยากรแอพสาธารณะ</string>
     <string name="area_type_private_data_label">ข้อมูลแอพส่วนตัว</string>
     <string name="area_type_portable_label">พื้นที่จัดเก็บแบบพกพา</string>
-    <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">เปิดใช้งานโหมดดีบัก</string>
-    <string name="debug_card_trace_mode_label">เปิดใช้งานโหมดติดตาม</string>
-    <string name="debug_card_dryrun_mode_label">โหมดทดลอง (ปิดใช้งานการลบ)</string>
-    <string name="debug_card_areas_reload_action">โหลดข้อมูลพื้นที่ใหม่</string>
-    <string name="debug_card_pkgs_reload_action">โหลดแอพใหม่</string>
-    <string name="debug_card_root_test_action">ทดสอบ root</string>
-    <string name="debug_card_shizuku_test_action">ทดสอบ Shizuku</string>
     <!-- Shorter versions for side-by-side display -->
     <!-- Swiper stamp variations (Tinder-style labels) -->
 </resources>

@@ -554,7 +554,6 @@ Recursos dos jogos.</string>
     <string name="squeezer_quality_label">Qualidade</string>
     <string name="squeezer_quality_title">Qualidade da Compressão</string>
     <string name="squeezer_quality_description">Menor qualidade significa menor tamanho de arquivo, mas redução de qualidade de imagem.</string>
-    <string name="squeezer_quality_value_format">%d%%</string>
     <string name="squeezer_quality_example_format">Exemplo: %1$s imagem → salva ~%2$s a %3$d%% qualidade</string>
     <string name="squeezer_quality_warning_low">Qualidade inferiore pode causar artefatos visíveis.</string>
     <string name="squeezer_quality_warning_high">Alta qualidade não economiza espaço.</string>
@@ -590,9 +589,8 @@ Recursos dos jogos.</string>
     <string name="squeezer_onboarding_original_label">Original</string>
     <string name="squeezer_onboarding_compressed_label">Após compressão</string>
     <string name="squeezer_onboarding_quality_label">Qualidade: %d%%</string>
-    <string name="squeezer_onboarding_tap_to_zoom_hint">Toque nas imagens para ampliar</string>
     <string name="squeezer_onboarding_got_it">Entendido</string>
-    <string name="squeezer_preview_info_action">Mostrar exemplo</string>
+    <string name="squeezer_compare_action">Ver comparação</string>
     <string name="squeezer_no_example_found">Nenhuma imagem encontrada nos caminhos selecionados.</string>
     <string name="squeezer_result_empty_message">Nenhuma imagem comprimida encontrada.</string>
     <string name="squeezer_setup_warning">Compressão reduz permanentemente a qualidade de imagem para economizar espaço de armazenamento. Isto não pode ser desfeito. Reveja as configurações cuidadosamente antes de iniciar.</string>
@@ -603,7 +601,6 @@ Recursos dos jogos.</string>
     <string name="squeezer_setup_age_title">Antiguidade mínima</string>
     <string name="squeezer_setup_age_none">Sem limite (incluir todos os arquivos)</string>
     <string name="squeezer_setup_start_action">Iniciar Verificação</string>
-    <string name="squeezer_quality_value">%d%%</string>
     <string name="squeezer_quality_hint_very_low">A qualidade abaixo de 40% pode criar imagens inutilizáveis.</string>
     <string name="squeezer_quality_hint_low">Baixa qualidade economiza mais espaço, mas pode causar artefatos visíveis.</string>
     <string name="squeezer_quality_hint_high">Alta qualidade fornece economias mínimas de espaço.</string>
@@ -960,10 +957,10 @@ Recursos dos jogos.</string>
     <string name="swiper_label">Esfregona</string>
     <string name="swiper_tool_name">Esfregona</string>
     <string name="swiper_tool_description">Deslize através dos arquivos para decidir o que manter ou excluir.</string>
-    <string name="swiper_dashcard_description">O SD Maid lida com a maioria das coisas automaticamente. Para todo o resto, há a esfregona!</string>
+    <string name="swiper_dashcard_description">Rever manualmente arquivos em pastas específicas. Deslize para decidir o que manter ou excluir.</string>
     <string name="swiper_start_action">Comece a limpar</string>
     <string name="swiper_continue_action">Continuar sessão</string>
-    <string name="swiper_sessions_description">Alguns arquivos só precisam de um toque humano. Verifique para decidir seu destino - nada é excluído até que você diga. Você pode pausar a qualquer momento e continuar mais tarde.</string>
+    <string name="swiper_sessions_description">Alguns ficheiros precisam duma decisão humana. Deslize através dos itens e escolha o que deseja manter ou excluir. Pule qualquer coisa que não tenha certeza. Esta ferramenta permite rever pastas específicas manualmente, e, nada é removido até que você confirme.</string>
     <string name="swiper_select_folders_action">Selecionar pastas</string>
     <string name="swiper_scanning_title">Verificando…</string>
     <plurals name="swiper_result_x_items_found">

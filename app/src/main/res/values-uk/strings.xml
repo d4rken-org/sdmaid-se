@@ -556,7 +556,6 @@
     <string name="squeezer_quality_label">Якість</string>
     <string name="squeezer_quality_title">Якість стиснення</string>
     <string name="squeezer_quality_description">Нижча якість означає менший розмір файлу, але знижену якість зображення.</string>
-    <string name="squeezer_quality_value_format">%d%%</string>
     <string name="squeezer_quality_example_format">Приклад: %1$s зображення → зберігає ~%2$s з якістю %3$d%%</string>
     <string name="squeezer_quality_warning_low">Нижча якість може спричинити появу видимих артефактів.</string>
     <string name="squeezer_quality_warning_high">Дуже висока якість забезпечує мінімальну економію місця.</string>
@@ -588,9 +587,8 @@
     <string name="squeezer_onboarding_original_label">Оригінал</string>
     <string name="squeezer_onboarding_compressed_label">Після стиснення</string>
     <string name="squeezer_onboarding_quality_label">Якість: %d%%</string>
-    <string name="squeezer_onboarding_tap_to_zoom_hint">Натисніть на зображення, щоб збільшити</string>
     <string name="squeezer_onboarding_got_it">Зрозуміло</string>
-    <string name="squeezer_preview_info_action">Показати приклад</string>
+    <string name="squeezer_compare_action">Переглянути порівняння</string>
     <string name="squeezer_no_example_found">У вибраних шляхах не знайдено зображень.</string>
     <string name="squeezer_result_empty_message">Не знайдено стиснутих зображень.</string>
     <string name="squeezer_setup_warning">Стиснення назавжди знижує якість зображення, щоб заощадити місце для зберігання. Цю дію неможливо скасувати. Уважно перегляньте налаштування перед початком роботи.</string>
@@ -601,7 +599,6 @@
     <string name="squeezer_setup_age_title">Мінімальний вік</string>
     <string name="squeezer_setup_age_none">Без обмежень (включити всі файли)</string>
     <string name="squeezer_setup_start_action">Почати сканування</string>
-    <string name="squeezer_quality_value">%d%%</string>
     <string name="squeezer_quality_hint_very_low">Якість нижче 40% може призвести до створення непридатних зображень.</string>
     <string name="squeezer_quality_hint_low">Нижча якість економить більше місця, але може спричинити появу видимих артефактів.</string>
     <string name="squeezer_quality_hint_high">Дуже висока якість забезпечує мінімальну економію місця.</string>
@@ -953,10 +950,10 @@
     <string name="shortcuts_onetap_enabled_summary">Показувати ярлик «Сканувати + Видалити» при довгому натисканні на значок додатка. Використовує ті ж інструменти, що й панель керування одним дотиком.</string>
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_description">Прокрутіть файли, щоб вирішити, що зберегти, а що видалити.</string>
-    <string name="swiper_dashcard_description">SD Maid автоматично обробляє більшість завдань. Для всього іншого є функція прокручування!</string>
+    <string name="swiper_dashcard_description">Перегляньте файли в певних папках вручну. Проведіть пальцем, щоб вирішити, що залишити, а що видалити.</string>
     <string name="swiper_start_action">Почніть прокручувати</string>
     <string name="swiper_continue_action">Продовжити сесію</string>
-    <string name="swiper_sessions_description">Деякі файли потребують людського втручання. Проведіть пальцем, щоб вирішити їхню долю — нічого не буде видалено, поки ви не дасте на це дозвіл. Ви можете зупинитися в будь-який момент і продовжити пізніше.</string>
+    <string name="swiper_sessions_description">Деякі файли потребують рішення людини. Прокрутіть елементи та виберіть, що зберегти, а що видалити. Пропустіть все, щодо чого ви не впевнені. Цей інструмент дозволяє вручну переглядати певні папки, і нічого не видаляється, поки ви не підтвердите.</string>
     <string name="swiper_select_folders_action">Вибрати папки</string>
     <string name="swiper_scanning_title">Сканування…</string>
     <string name="swiper_item_position">#%1$d з %2$d</string>

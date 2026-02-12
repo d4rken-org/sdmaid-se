@@ -593,7 +593,6 @@
     <string name="squeezer_quality_label">Jakość</string>
     <string name="squeezer_quality_title">Kompresja jakości</string>
     <string name="squeezer_quality_description">Niższa jakość oznacza mniejszy rozmiar pliku, ale mniejszą jakość obrazu.</string>
-    <string name="squeezer_quality_value_format">%d%%</string>
     <string name="squeezer_quality_example_format">Przykład: %1$s obraz → zapisuje ~%2$s przy %3$d%% jakości</string>
     <string name="squeezer_quality_warning_low">Niższa jakość może powodować widoczne artefakty.</string>
     <string name="squeezer_quality_warning_high">Bardzo wysoka jakość zapewnia minimalne oszczędności przestrzeni.</string>
@@ -631,9 +630,7 @@
     <string name="squeezer_onboarding_original_label">Oryginał</string>
     <string name="squeezer_onboarding_compressed_label">Po kompresji</string>
     <string name="squeezer_onboarding_quality_label">Jakość: %d%%</string>
-    <string name="squeezer_onboarding_tap_to_zoom_hint">Dotknij zdjęcia, aby powiększyć</string>
     <string name="squeezer_onboarding_got_it">Rozumiem</string>
-    <string name="squeezer_preview_info_action">Pokaż przykład</string>
     <string name="squeezer_no_example_found">Nie znaleziono obrazów w wybranych ścieżkach.</string>
     <string name="squeezer_result_empty_message">Nie znaleziono kompresywnych obrazów.</string>
     <string name="squeezer_setup_warning">Kompresja trwale zmniejsza jakość obrazu, aby zapisać miejsce na dysku. Tej operacji nie można cofnąć. Przejrzyj swoje ustawienia ostrożnie przed rozpoczęciem.</string>
@@ -644,7 +641,6 @@
     <string name="squeezer_setup_age_title">Minimalny wiek</string>
     <string name="squeezer_setup_age_none">Brak limitu (dołącz wszystkie pliki)</string>
     <string name="squeezer_setup_start_action">Rozpocznij skanowanie</string>
-    <string name="squeezer_quality_value">%d%%</string>
     <string name="squeezer_quality_hint_very_low">Jakość poniżej 40% może tworzyć niezdatne do użytku obrazy.</string>
     <string name="squeezer_quality_hint_low">Niższa jakość pozwala zaoszczędzić więcej miejsca, ale może powodować widoczne artefakty.</string>
     <string name="squeezer_quality_hint_high">Bardzo wysoka jakość zapewnia minimalne oszczędności przestrzeni.</string>
@@ -1046,10 +1042,8 @@
     <string name="swiper_label">Przesuwacz</string>
     <string name="swiper_tool_name">Przesuwacz</string>
     <string name="swiper_tool_description">Przesuń palcem pliki, aby zdecydować, co zachować lub usunąć.</string>
-    <string name="swiper_dashcard_description">SD Maid obsługuje większość rzeczy automatycznie. Dla wszystkich innych jest przesuwanie!</string>
     <string name="swiper_start_action">Zacznij przesuwać</string>
     <string name="swiper_continue_action">Kontynuuj sesję</string>
-    <string name="swiper_sessions_description">Niektóre pliki potrzebują po prostu ludzkiego dotyku. Przesuń palcem, aby zdecydować o ich losie – nic nie zostanie usunięte, dopóki tego nie powiesz. Możesz w dowolnym momencie wstrzymać i wznowić później.</string>
     <string name="swiper_select_folders_action">Wybierz foldery</string>
     <string name="swiper_scanning_title">Skanowanie…</string>
     <plurals name="swiper_result_x_items_found">

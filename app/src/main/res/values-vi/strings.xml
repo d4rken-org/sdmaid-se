@@ -533,7 +533,6 @@
     <string name="squeezer_quality_label">Chất lượng</string>
     <string name="squeezer_quality_title">Chất lượng nén</string>
     <string name="squeezer_quality_description">Chất lượng thấp hơn có nghĩa là kích thước tệp nhỏ hơn nhưng chất lượng hình ảnh lại giảm.</string>
-    <string name="squeezer_quality_value_format">%d%%</string>
     <string name="squeezer_quality_example_format">Ví dụ: %1$s ảnh → lưu ~%2$s với %3$d%% chất lượng</string>
     <string name="squeezer_quality_warning_low">Chất lượng thấp hơn có thể gây ra hiện tượng nhiễu có thể nhìn thấy được.</string>
     <string name="squeezer_quality_warning_high">Chất lượng rất cao nhưng lại tiết kiệm không gian tối thiểu.</string>
@@ -568,9 +567,8 @@
     <string name="squeezer_onboarding_original_label">Bản gốc</string>
     <string name="squeezer_onboarding_compressed_label">Sau khi nén</string>
     <string name="squeezer_onboarding_quality_label">Chất lượng: %d%%</string>
-    <string name="squeezer_onboarding_tap_to_zoom_hint">Chạm vào hình ảnh để phóng to</string>
     <string name="squeezer_onboarding_got_it">Hiểu rồi</string>
-    <string name="squeezer_preview_info_action">Xem ví dụ</string>
+    <string name="squeezer_compare_action">Xem so sánh</string>
     <string name="squeezer_no_example_found">Không tìm thấy hình ảnh nào trong các đường dẫn đã chọn.</string>
     <string name="squeezer_result_empty_message">Không tìm thấy hình ảnh nén nào.</string>
     <string name="squeezer_setup_warning">Việc nén ảnh sẽ làm giảm vĩnh viễn chất lượng ảnh để tiết kiệm dung lượng lưu trữ. Điều này không thể hoàn tác được. Hãy kiểm tra kỹ các thiết lập của bạn trước khi bắt đầu.</string>
@@ -581,7 +579,6 @@
     <string name="squeezer_setup_age_title">Độ tuổi tối thiểu</string>
     <string name="squeezer_setup_age_none">Không giới hạn (bao gồm tất cả các tệp)</string>
     <string name="squeezer_setup_start_action">Bắt đầu quét</string>
-    <string name="squeezer_quality_value">%d%%</string>
     <string name="squeezer_quality_hint_very_low">Chất lượng dưới 40% có thể tạo ra những hình ảnh không thể sử dụng được.</string>
     <string name="squeezer_quality_hint_low">Chất lượng thấp hơn giúp tiết kiệm dung lượng nhưng có thể gây ra hiện tượng nhiễu ảnh.</string>
     <string name="squeezer_quality_hint_high">Chất lượng rất cao nhưng lại tiết kiệm không gian tối thiểu.</string>
@@ -915,10 +912,10 @@ TheNothingGuy</string>
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_name">Vuốt</string>
     <string name="swiper_tool_description">Vuốt qua các tập tin để quyết định giữ lại hoặc xóa những tập tin nào.</string>
-    <string name="swiper_dashcard_description">SD Maid xử lý hầu hết mọi việc tự động. Còn những việc khác thì chỉ cần vuốt màn hình!</string>
+    <string name="swiper_dashcard_description">Xem lại các tệp theo cách thủ công trong các thư mục cụ thể. Vuốt qua để quyết định giữ lại hoặc xóa những tệp nào.</string>
     <string name="swiper_start_action">Bắt đầu vuốt</string>
     <string name="swiper_continue_action">Tiếp tục phiên</string>
-    <string name="swiper_sessions_description">Một số tập tin cần sự can thiệp của con người. Vuốt để quyết định - không có gì bị xóa cho đến khi bạn cho phép. Bạn có thể tạm dừng bất cứ lúc nào và tiếp tục sau.</string>
+    <string name="swiper_sessions_description">Một số tệp tin cần có quyết định của con người. Trượt qua các mục và chọn những mục cần lưu hoặc xóa. Hãy bỏ qua bất cứ điều gì bạn không chắc chắn. Công cụ này cho phép bạn xem lại các thư mục cụ thể theo cách thủ công, và không có gì bị xóa cho đến khi bạn xác nhận.</string>
     <string name="swiper_select_folders_action">Chọn thư mục</string>
     <string name="swiper_scanning_title">Đang quét…</string>
     <plurals name="swiper_result_x_items_found">
