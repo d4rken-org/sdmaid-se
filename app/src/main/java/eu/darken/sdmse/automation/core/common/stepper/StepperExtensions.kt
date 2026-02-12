@@ -15,9 +15,7 @@ import eu.darken.sdmse.automation.core.dispatchGesture
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
 import eu.darken.sdmse.automation.core.errors.UnclickableTargetException
 import eu.darken.sdmse.automation.core.waitForWindowRoot
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.filter
@@ -97,7 +95,7 @@ suspend fun StepContext.waitForLayoutStability(
             continue
         }
         val bounds = node.getScreenBounds()
-        log(tag, INFO) { "Stabilize check #$i: bounds=$bounds" }
+        log(tag) { "Stabilize check #$i: bounds=$bounds" }
         if (bounds == lastBounds) {
             log(tag, INFO) { "Layout stabilized after $i checks" }
             return node

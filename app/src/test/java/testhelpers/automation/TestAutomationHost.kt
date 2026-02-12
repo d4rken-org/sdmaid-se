@@ -42,7 +42,7 @@ class TestAutomationHost(
     override suspend fun windowRoot(): ACSNodeInfo? = _windowRoot.value
 
     // Event stream for specs that use host.events
-    private val _events = MutableSharedFlow<AutomationEvent>(replay = 1, extraBufferCapacity = 10)
+    private val _events = MutableSharedFlow<AutomationEvent>(replay = 0, extraBufferCapacity = 10)
     override val events: Flow<AutomationEvent> = _events
 
     // State (always available in tests by default)
@@ -88,7 +88,10 @@ class TestAutomationHost(
     /**
      * Emit an automation event. Use for testing event-based window detection.
      */
-    suspend fun emitEvent(pkgId: String, eventType: Int = android.view.accessibility.AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
+    suspend fun emitEvent(
+        pkgId: String,
+        eventType: Int = android.view.accessibility.AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
+    ) {
         _events.emit(TestAutomationEvent(pkgId = pkgId.toPkgId(), eventType = eventType))
     }
 

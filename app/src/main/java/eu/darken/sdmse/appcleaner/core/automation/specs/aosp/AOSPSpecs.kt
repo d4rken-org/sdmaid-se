@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 
 import android.accessibilityservice.AccessibilityService
 import android.annotation.SuppressLint
+import android.view.accessibility.AccessibilityEvent
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -51,6 +52,8 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 
 @Reusable
@@ -126,7 +129,41 @@ class AOSPSpecs @Inject constructor(
         return null
     }
 
-    // https://github.com/d4rken-org/sdmaid-se/issues/2056
+    private suspend fun StepContext.validateClickEffect(
+        source: String,
+        timeoutMs: Long = 3000,
+    ): Boolean {
+        if (Bugs.isDryRun) return true
+
+        val qualifyingTypes = setOf(
+            AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED,
+            AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED,
+        )
+        val event = withTimeoutOrNull(timeoutMs) {
+            host.events.first { it.eventType in qualifyingTypes && it.pkgId == SETTINGS_PKG }
+        }
+
+        val root = host.windowRoot()
+        val rootPkg = root?.packageName
+
+        val focus = findFocusedNode()
+        log(tag, INFO) {
+            "validateClickEffect[$source]: event=${event?.eventType}, rootPkg=$rootPkg, focused=${focus.inputFocused ?: focus.accessibilityFocused}"
+        }
+
+        if (event == null) {
+            log(tag, WARN) { "validateClickEffect[$source]: no_event" }
+            return false
+        }
+        if (rootPkg != SETTINGS_PKG.name) {
+            log(tag, WARN) { "validateClickEffect[$source]: wrong_root_pkg=$rootPkg" }
+            return false
+        }
+
+        log(tag, INFO) { "validateClickEffect[$source]: ok" }
+        return true
+    }
+
     @SuppressLint("InlinedApi")
     private suspend fun StepContext.tryClickViaFocusNavigation(
         labels: Collection<String>,
@@ -150,119 +187,175 @@ class AOSPSpecs @Inject constructor(
             { host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
         }
 
-        val maxAttempts = 10
+        val maxCycles = 4
+        val stepsPerCycle = 2
+        val stepDelayMs = 120L
+        val stallThreshold = 2
         val anchorId = "com.android.settings:id/entity_header_content"
         var anchorHits = 0
+        var totalRightSteps = 0
+        var hadBootstrapInputFocus = false
 
         waitForLayoutStability(anchorId)
 
-        val anchorNode = host.windowRoot()?.crawl()?.map { it.node }
-            ?.firstOrNull { it.viewIdResourceName == anchorId }
-        var bootstrapInputFocusResult = false
-        var bootstrapA11yFocusResult = false
-        if (anchorNode != null) {
-            bootstrapInputFocusResult = anchorNode.performAction(ACSNodeInfo.ACTION_FOCUS)
-            bootstrapA11yFocusResult = anchorNode.performAction(ACSNodeInfo.ACTION_ACCESSIBILITY_FOCUS)
-            log(tag, INFO) {
-                "DPAD bootstrap focus on anchor: inputFocus=$bootstrapInputFocusResult, a11yFocus=$bootstrapA11yFocusResult, node=$anchorNode"
-            }
-            delay(100)
-        } else {
-            log(tag, WARN) { "DPAD bootstrap focus skipped, anchor not found: $anchorId" }
-        }
-
-        var focusReady = false
-        val maxFocusReadyChecks = 6
-        for (i in 1..maxFocusReadyChecks) {
-            val focus = findFocusedNode()
-            val readyFocused = focus.inputFocused ?: focus.accessibilityFocused
-
-            if (readyFocused != null) {
-                if (readyFocused.viewIdResourceName == anchorId) {
-                    focusReady = true
-                    log(tag, INFO) { "Focus ready on anchor after $i checks: $readyFocused" }
-                    break
-                } else {
-                    log(tag, INFO) {
-                        "Focus on wrong node ($i/$maxFocusReadyChecks): $readyFocused, re-bootstrapping..."
-                    }
-                    host.windowRoot()?.crawl()?.map { it.node }
-                        ?.firstOrNull { it.viewIdResourceName == anchorId }
-                        ?.performAction(ACSNodeInfo.ACTION_FOCUS)
-                    delay(150)
-                }
-            } else {
-                delay(120)
-            }
-        }
-        if (!focusReady) {
-            log(tag, INFO) { "Focus not on anchor after bootstrap, continuing with DPAD traversal" }
-        }
-
-        repeat(maxAttempts) { idx ->
-            val moved = dpadRight()
-            if (!moved) {
-                log(tag, WARN) { "DPAD_RIGHT #${idx + 1} failed" }
+        suspend fun bootstrapAnchor(reason: String): Boolean {
+            val anchorNode = host.windowRoot()?.crawl()?.map { it.node }
+                ?.firstOrNull { it.viewIdResourceName == anchorId }
+            if (anchorNode == null) {
+                log(tag, WARN) { "DPAD bootstrap skipped ($reason), anchor not found: $anchorId" }
                 return false
             }
-            delay(80)
 
-            val rootPkg = host.windowRoot()?.packageName
-            val activeWindowPkg = runCatching {
-                host.service.windows.firstOrNull { it.isActive }?.root?.packageName
-            }.getOrNull()
-            val focus = findFocusedNode()
-            val focused = focus.inputFocused ?: focus.accessibilityFocused
+            val bootstrapInputFocusResult = anchorNode.performAction(ACSNodeInfo.ACTION_FOCUS)
+            val bootstrapA11yFocusResult = anchorNode.performAction(ACSNodeInfo.ACTION_ACCESSIBILITY_FOCUS)
+            hadBootstrapInputFocus = hadBootstrapInputFocus || bootstrapInputFocusResult
+            log(tag) {
+                "DPAD bootstrap focus ($reason): inputFocus=$bootstrapInputFocusResult, a11yFocus=$bootstrapA11yFocusResult, node=$anchorNode"
+            }
+            delay(100)
+            return bootstrapInputFocusResult || bootstrapA11yFocusResult
+        }
 
-            log(tag, INFO) {
-                "DPAD step #${idx + 1}: rootPkg=$rootPkg, activeWindowPkg=$activeWindowPkg, focusedInput=${focus.inputFocused}, focusedAccessibility=${focus.accessibilityFocused}"
+        if (canInjectInput) {
+            val fastBootstrapped = bootstrapAnchor("input-fast-path")
+            if (fastBootstrapped) {
+                val moved = dpadRight()
+                if (moved) {
+                    delay(stepDelayMs)
+                    val clicked = if (Bugs.isDryRun) true else dpadCenter()
+                    log(tag, INFO) { "DPAD_CENTER result=$clicked (source=input-fast-path)" }
+                    if (clicked && validateClickEffect("input-fast-path", timeoutMs = 800)) return true
+                }
+                // Check if anchor is still present before falling through to cycle loop.
+                // If anchor is gone, the click likely had an effect (UI changed) — don't double-click.
+                val anchorStillPresent = host.windowRoot()?.crawl()?.map { it.node }
+                    ?.any { it.viewIdResourceName == anchorId } == true
+                if (!anchorStillPresent) {
+                    log(tag, WARN) {
+                        "Input fast-path: validation failed but anchor gone, aborting to avoid double-click"
+                    }
+                    return false
+                }
+                log(tag, INFO) { "Input fast-path failed, anchor still present, falling through to cycle loop" }
+            }
+        }
+
+        for (cycle in 1..maxCycles) {
+            val bootstrapped = bootstrapAnchor("cycle-$cycle")
+            if (!bootstrapped) {
+                delay(120)
+                continue
             }
 
-            if (focused != null) {
-                // Check if it matches Clear cache directly (future-proofing)
-                val matchesLabel = labels.any { label ->
-                    focused.textMatches(label) || focused.contentDescMatches(label)
-                }
-                if (matchesLabel) {
-                    log(tag, INFO) { "Found Clear cache via focus: $focused" }
-                    val clicked = dpadCenter()
-                    delay(120)
-                    return clicked
+            var focusReady = false
+            val maxFocusReadyChecks = 4
+            for (i in 1..maxFocusReadyChecks) {
+                val focus = findFocusedNode()
+                val readyFocused = focus.inputFocused ?: focus.accessibilityFocused
+
+                if (readyFocused?.viewIdResourceName == anchorId) {
+                    focusReady = true
+                    log(tag) { "Focus ready on anchor in cycle $cycle after $i checks: $readyFocused" }
+                    break
                 }
 
-                if (focused.viewIdResourceName == anchorId) {
-                    anchorHits++
-                    log(tag, INFO) { "entity_header_content hit #$anchorHits" }
-                    // 1st hit: header area, 2nd hit: Clear cache button (child of entity_header_content)
-                    if (anchorHits >= 2) {
-                        log(tag, INFO) { "Pressing DPAD_CENTER on presumed Clear cache (anchor hit #$anchorHits)" }
+                if (readyFocused != null) {
+                    log(tag) {
+                        "Cycle $cycle focus on wrong node ($i/$maxFocusReadyChecks): $readyFocused, re-bootstrapping..."
+                    }
+                    bootstrapAnchor("cycle-$cycle-focus-wrong")
+                } else {
+                    delay(120)
+                }
+            }
+            if (!focusReady) {
+                log(tag, INFO) { "Focus not on anchor in cycle $cycle, attempting DPAD traversal anyway" }
+            }
+
+            var stalledSteps = 0
+            var lastSignature: String? = null
+
+            for (stepIdx in 1..stepsPerCycle) {
+                val moved = dpadRight()
+                if (!moved) {
+                    log(tag, WARN) { "DPAD_RIGHT cycle=$cycle step=$stepIdx failed" }
+                    return false
+                }
+                totalRightSteps++
+                delay(stepDelayMs)
+
+                val rootPkg = host.windowRoot()?.packageName
+                val activeWindowPkg = runCatching {
+                    host.service.windows.firstOrNull { it.isActive }?.root?.packageName
+                }.getOrNull()
+                val focus = findFocusedNode()
+                val focused = focus.inputFocused ?: focus.accessibilityFocused
+
+                log(tag) {
+                    "DPAD cycle=$cycle step=$stepIdx globalStep=$totalRightSteps: rootPkg=$rootPkg, activeWindowPkg=$activeWindowPkg, focusedInput=${focus.inputFocused}, focusedAccessibility=${focus.accessibilityFocused}"
+                }
+
+                if (focused != null) {
+                    val matchesLabel = labels.any { label ->
+                        focused.textMatches(label) || focused.contentDescMatches(label)
+                    }
+                    if (matchesLabel) {
+                        log(tag, INFO) { "Found Clear cache via focus: $focused" }
                         val clicked = if (Bugs.isDryRun) true else dpadCenter()
-                        delay(120)
-                        return clicked
+                        log(tag, INFO) { "DPAD_CENTER result=$clicked (source=label-match)" }
+                        return if (clicked) validateClickEffect("label-match") else false
+                    }
+
+                    if (focused.viewIdResourceName == anchorId) {
+                        anchorHits++
+                        log(tag, INFO) { "entity_header_content hit #$anchorHits (cycle=$cycle step=$stepIdx)" }
+                        if (anchorHits >= 2) {
+                            log(tag, INFO) { "Pressing DPAD_CENTER on presumed Clear cache (anchor hit #$anchorHits)" }
+                            val clicked = if (Bugs.isDryRun) true else dpadCenter()
+                            log(tag, INFO) { "DPAD_CENTER result=$clicked (source=anchor-hit-$anchorHits)" }
+                            return if (clicked) validateClickEffect("anchor-hit-$anchorHits") else false
+                        }
                     }
                 }
+
+                val signature =
+                    focused?.let { "${it.viewIdResourceName}|${it.className}|${it.text}|${it.contentDescription}" }
+                stalledSteps = if (signature == null || signature == lastSignature) stalledSteps + 1 else 0
+                lastSignature = signature
+
+                if (stalledSteps >= stallThreshold) {
+                    log(tag, INFO) {
+                        "DPAD focus stalled in cycle $cycle after $stepIdx steps (stalledSteps=$stalledSteps), re-bootstrapping"
+                    }
+                    break
+                }
             }
         }
 
-        if (anchorNode != null && bootstrapInputFocusResult) {
+        if (hadBootstrapInputFocus) {
             log(tag, WARN) {
-                "Insufficient anchor progress (anchorHits=$anchorHits); using guarded blind anchor sequence (RIGHT x2 + CENTER)"
+                "Insufficient anchor progress after $totalRightSteps DPAD_RIGHT steps (anchorHits=$anchorHits); re-bootstrapping for blind fallback (RIGHT + CENTER)"
             }
 
-            repeat(2) { idx ->
-                val moved = dpadRight()
-                log(tag, INFO) { "Blind DPAD_RIGHT #${idx + 1} result=$moved" }
-                if (!moved) return false
-                delay(80)
+            if (!bootstrapAnchor("blind-fallback")) {
+                log(tag, WARN) { "Blind fallback: anchor lost, aborting" }
+                return false
             }
+
+            val moved = dpadRight()
+            log(tag, INFO) { "Blind DPAD_RIGHT result=$moved" }
+            if (!moved) return false
+            delay(stepDelayMs)
 
             val clicked = if (Bugs.isDryRun) true else dpadCenter()
-            log(tag, INFO) { "Blind DPAD_CENTER result=$clicked" }
-            delay(120)
-            return clicked
+            log(tag, INFO) { "DPAD_CENTER result=$clicked (source=blind-fallback)" }
+            return if (clicked) validateClickEffect("blind-fallback") else false
         }
 
-        log(tag, WARN) { "Could not find Clear cache after $maxAttempts DPAD steps" }
+        log(
+            tag,
+            WARN
+        ) { "Could not find Clear cache after $totalRightSteps DPAD steps (no successful anchor bootstrap)" }
         return false
     }
 
@@ -294,7 +387,7 @@ class AOSPSpecs @Inject constructor(
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             val canInjectInput = inputInjector.canInject()
-            log(TAG, INFO) { "InputInjector available? canInjectInput=$canInjectInput)" }
+            log(TAG, INFO) { "InputInjector available? (canInjectInput=$canInjectInput)" }
 
             val nodeAction: suspend StepContext.() -> Boolean = action@{
                 val candidate = findClearCacheCandidate(clearCacheButtonLabels)
@@ -308,6 +401,7 @@ class AOSPSpecs @Inject constructor(
                     log(tag, WARN) { "Could not resolve clickable target from: $candidate" }
                 }
 
+                // https://github.com/d4rken-org/sdmaid-se/issues/2056
                 val isGoogle = BuildWrap.MANUFACTOR.equals("Google", ignoreCase = true)
                 val isBetaBuild = BuildWrap.PRODUCT?.contains("_beta", ignoreCase = true) == true
                 val useA16DpadWorkaround = hasApiLevel(36) && isGoogle && isBetaBuild
