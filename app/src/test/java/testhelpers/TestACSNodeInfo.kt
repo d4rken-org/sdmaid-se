@@ -21,6 +21,7 @@ data class TestACSNodeInfo(
     private val childrenArray: Array<ACSNodeInfo?>? = null,
     private val bounds: Rect = Rect(0, 0, 100, 50),
     private val screenBoundsOverride: ACSNodeInfo.ScreenBounds? = null,
+    private val performActionResult: Boolean = true,
 ) : ACSNodeInfo {
 
     override val childCount: Int get() = childrenArray?.size ?: children.size
@@ -34,7 +35,7 @@ data class TestACSNodeInfo(
 
     override fun performAction(action: Int): Boolean {
         _performedActions.add(action)
-        return true
+        return performActionResult
     }
 
     fun clearPerformedActions() {

@@ -432,6 +432,46 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         coVerify(exactly = 0) { inputInjector.inject(InputInjector.Event.DpadCenter) }
     }
 
+    @Test
+    fun `DPAD bootstrap succeeds when anchor is already focused but performAction returns false`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "Google"
+        every { BuildWrap.PRODUCT } returns "lynx_beta"
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) {
+                emitValidationEventAsync()
+            }
+            true
+        }
+
+        // Anchor is already focused (isFocused=true) but performAction returns false
+        // This simulates the Pixel 9 / Android 15 behavior
+        val anchor = TestACSNodeInfo(
+            className = "android.widget.LinearLayout",
+            packageName = "com.android.settings",
+            viewIdResourceName = "com.android.settings:id/entity_header_content",
+            isClickable = true,
+            isFocused = true,
+            performActionResult = false,
+        )
+        testRoot = TestACSNodeInfo(
+            className = "android.widget.FrameLayout",
+            packageName = "com.android.settings",
+        ).addChild(anchor) as TestACSNodeInfo
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        // Bootstrap succeeds via isFocused → cycle loop runs → blind fallback fires
+        verify(atLeast = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
     // ============================================================
     // Event-based window transition tests
     // ============================================================

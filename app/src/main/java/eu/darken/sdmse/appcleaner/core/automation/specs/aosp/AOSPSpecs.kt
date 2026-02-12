@@ -208,12 +208,14 @@ class AOSPSpecs @Inject constructor(
 
             val bootstrapInputFocusResult = anchorNode.performAction(ACSNodeInfo.ACTION_FOCUS)
             val bootstrapA11yFocusResult = anchorNode.performAction(ACSNodeInfo.ACTION_ACCESSIBILITY_FOCUS)
-            hadBootstrapInputFocus = hadBootstrapInputFocus || bootstrapInputFocusResult
+            val alreadyInputFocused = anchorNode.isFocused
+            val alreadyA11yFocused = anchorNode.isAccessibilityFocused
+            hadBootstrapInputFocus = hadBootstrapInputFocus || bootstrapInputFocusResult || alreadyInputFocused
             log(tag) {
-                "DPAD bootstrap focus ($reason): inputFocus=$bootstrapInputFocusResult, a11yFocus=$bootstrapA11yFocusResult, node=$anchorNode"
+                "DPAD bootstrap focus ($reason): inputFocus=$bootstrapInputFocusResult, a11yFocus=$bootstrapA11yFocusResult, alreadyInputFocused=$alreadyInputFocused, alreadyA11yFocused=$alreadyA11yFocused, node=$anchorNode"
             }
             delay(100)
-            return bootstrapInputFocusResult || bootstrapA11yFocusResult
+            return bootstrapInputFocusResult || bootstrapA11yFocusResult || alreadyInputFocused || alreadyA11yFocused
         }
 
         if (canInjectInput) {
