@@ -15,6 +15,7 @@ build/
 .cxx
 .DS_Store
 .kotlin/sessions
+.kotlin/errors
 
 # Claude Code
 .claude/settings.local.json
