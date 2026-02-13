@@ -50,11 +50,34 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
+import eu.darken.sdmse.common.ui.SizeParser
 import eu.darken.sdmse.main.core.GeneralSettings
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
+
+internal data class StorageSnapshot(val values: List<ParsedSize>) {
+    internal data class ParsedSize(val bytes: Long?, val rawText: String)
+}
+
+internal enum class DeltaResult { SUCCESS, SKIP_SUCCESS, NO_CHANGE, INCONCLUSIVE }
+
+internal fun compareSnapshots(pre: StorageSnapshot, post: StorageSnapshot): DeltaResult {
+    if (pre.values.isEmpty() || post.values.isEmpty()) return DeltaResult.INCONCLUSIVE
+    if (pre.values.size != post.values.size) return DeltaResult.INCONCLUSIVE
+
+    val pairs = pre.values.zip(post.values).mapNotNull { (a, b) ->
+        if (a.bytes != null && b.bytes != null) a.bytes to b.bytes else null
+    }
+    if (pairs.isEmpty()) return DeltaResult.INCONCLUSIVE
+
+    if (pairs.any { (before, after) -> after < before }) return DeltaResult.SUCCESS
+
+    if (pre.values.any { it.bytes == 0L }) return DeltaResult.SKIP_SUCCESS
+
+    return DeltaResult.NO_CHANGE
+}
 
 @Reusable
 class AOSPSpecs @Inject constructor(
@@ -164,6 +187,52 @@ class AOSPSpecs @Inject constructor(
         return true
     }
 
+    private suspend fun StepContext.takeStorageSnapshot(sizeParser: SizeParser?): StorageSnapshot {
+        if (sizeParser == null) {
+            log(tag, WARN) { "takeStorageSnapshot(): SizeParser unavailable" }
+            return StorageSnapshot(emptyList())
+        }
+        val nodes = host.windowRoot()?.crawl()?.map { it.node }
+            ?.filter { it.viewIdResourceName == "android:id/summary" }
+            ?: emptySequence()
+        val values = nodes.mapNotNull { node ->
+            val raw = node.text?.toString() ?: return@mapNotNull null
+            val parsed = runCatching { sizeParser.parse(raw) }.getOrNull()
+            if (parsed == null) {
+                log(tag, WARN) { "takeStorageSnapshot(): failed to parse '$raw'" }
+                return@mapNotNull null
+            }
+            StorageSnapshot.ParsedSize(parsed, raw)
+        }.toList()
+        log(tag) { "takeStorageSnapshot(): ${values.size} values: $values" }
+        return StorageSnapshot(values)
+    }
+
+    private suspend fun StepContext.validateWithDelta(
+        source: String,
+        preSnapshot: StorageSnapshot,
+        sizeParser: SizeParser?,
+        timeoutMs: Long = 3000,
+    ): Boolean {
+        val eventOk = validateClickEffect(source, timeoutMs)
+        if (!eventOk) return false
+
+        // No parseable values → can't compare, degrade to event-only validation
+        if (preSnapshot.values.isEmpty()) {
+            log(tag, INFO) { "Delta[$source]: no pre-snapshot values, trusting event" }
+            return true
+        }
+
+        delay(250)
+        val postSnapshot = takeStorageSnapshot(sizeParser)
+        return when (compareSnapshots(preSnapshot, postSnapshot)) {
+            DeltaResult.SUCCESS -> { log(tag, INFO) { "Delta[$source]: values decreased" }; true }
+            DeltaResult.SKIP_SUCCESS -> { log(tag, INFO) { "Delta[$source]: cache already zero" }; true }
+            DeltaResult.NO_CHANGE -> { log(tag, WARN) { "Delta[$source]: no change, retrying" }; false }
+            DeltaResult.INCONCLUSIVE -> { log(tag, WARN) { "Delta[$source]: inconclusive, retrying" }; false }
+        }
+    }
+
     @SuppressLint("InlinedApi")
     private suspend fun StepContext.tryClickViaFocusNavigation(
         labels: Collection<String>,
@@ -198,6 +267,9 @@ class AOSPSpecs @Inject constructor(
 
         waitForLayoutStability(anchorId)
 
+        val sizeParser = runCatching { SizeParser(host.service) }.getOrNull()
+        val preSnapshot = takeStorageSnapshot(sizeParser)
+
         suspend fun bootstrapAnchor(reason: String): Boolean {
             val anchorNode = host.windowRoot()?.crawl()?.map { it.node }
                 ?.firstOrNull { it.viewIdResourceName == anchorId }
@@ -226,7 +298,7 @@ class AOSPSpecs @Inject constructor(
                     delay(stepDelayMs)
                     val clicked = if (Bugs.isDryRun) true else dpadCenter()
                     log(tag, INFO) { "DPAD_CENTER result=$clicked (source=input-fast-path)" }
-                    if (clicked && validateClickEffect("input-fast-path", timeoutMs = 800)) return true
+                    if (clicked && validateWithDelta("input-fast-path", preSnapshot, sizeParser, timeoutMs = 800)) return true
                 }
                 // Check if anchor is still present before falling through to cycle loop.
                 // If anchor is gone, the click likely had an effect (UI changed) — don't double-click.
@@ -305,7 +377,9 @@ class AOSPSpecs @Inject constructor(
                         log(tag, INFO) { "Found Clear cache via focus: $focused" }
                         val clicked = if (Bugs.isDryRun) true else dpadCenter()
                         log(tag, INFO) { "DPAD_CENTER result=$clicked (source=label-match)" }
-                        return if (clicked) validateClickEffect("label-match") else false
+                        if (!clicked) return false
+                        if (validateWithDelta("label-match", preSnapshot, sizeParser)) return true
+                        break // Delta validation failed, try next cycle
                     }
 
                     if (focused.viewIdResourceName == anchorId) {
@@ -315,7 +389,9 @@ class AOSPSpecs @Inject constructor(
                             log(tag, INFO) { "Pressing DPAD_CENTER on presumed Clear cache (anchor hit #$anchorHits)" }
                             val clicked = if (Bugs.isDryRun) true else dpadCenter()
                             log(tag, INFO) { "DPAD_CENTER result=$clicked (source=anchor-hit-$anchorHits)" }
-                            return if (clicked) validateClickEffect("anchor-hit-$anchorHits") else false
+                            if (!clicked) return false
+                            if (validateWithDelta("anchor-hit-$anchorHits", preSnapshot, sizeParser)) return true
+                            break // Delta validation failed, try next cycle
                         }
                     }
                 }
@@ -351,7 +427,7 @@ class AOSPSpecs @Inject constructor(
 
             val clicked = if (Bugs.isDryRun) true else dpadCenter()
             log(tag, INFO) { "DPAD_CENTER result=$clicked (source=blind-fallback)" }
-            return if (clicked) validateClickEffect("blind-fallback") else false
+            return clicked && validateWithDelta("blind-fallback", preSnapshot, sizeParser)
         }
 
         log(

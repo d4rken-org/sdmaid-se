@@ -473,6 +473,109 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     }
 
     // ============================================================
+    // Delta validation unit tests (compareSnapshots)
+    // ============================================================
+
+    @Test
+    fun `compareSnapshots detects full clear as SUCCESS`() {
+        val pre = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
+                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
+                StorageSnapshot.ParsedSize(143000, "143 kB"),
+                StorageSnapshot.ParsedSize(1360000, "1.36 MB"),
+            )
+        )
+        val post = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
+                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
+                StorageSnapshot.ParsedSize(0, "0 B"),
+                StorageSnapshot.ParsedSize(1220000, "1.22 MB"),
+            )
+        )
+        compareSnapshots(pre, post) shouldBe DeltaResult.SUCCESS
+    }
+
+    @Test
+    fun `compareSnapshots detects partial clear as SUCCESS`() {
+        val pre = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
+                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
+                StorageSnapshot.ParsedSize(500000, "500 kB"),
+                StorageSnapshot.ParsedSize(1717340, "1.72 MB"),
+            )
+        )
+        val post = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
+                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
+                StorageSnapshot.ParsedSize(200000, "200 kB"),
+                StorageSnapshot.ParsedSize(1417340, "1.42 MB"),
+            )
+        )
+        compareSnapshots(pre, post) shouldBe DeltaResult.SUCCESS
+    }
+
+    @Test
+    fun `compareSnapshots detects already zero as SKIP_SUCCESS`() {
+        val snapshot = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
+                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
+                StorageSnapshot.ParsedSize(0, "0 B"),
+                StorageSnapshot.ParsedSize(1217340, "1.22 MB"),
+            )
+        )
+        compareSnapshots(snapshot, snapshot) shouldBe DeltaResult.SKIP_SUCCESS
+    }
+
+    @Test
+    fun `compareSnapshots detects no change as NO_CHANGE`() {
+        val snapshot = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
+                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
+                StorageSnapshot.ParsedSize(143000, "143 kB"),
+                StorageSnapshot.ParsedSize(1360000, "1.36 MB"),
+            )
+        )
+        compareSnapshots(snapshot, snapshot) shouldBe DeltaResult.NO_CHANGE
+    }
+
+    @Test
+    fun `compareSnapshots returns INCONCLUSIVE when all values unparseable`() {
+        val snapshot = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(null, "unknown"),
+                StorageSnapshot.ParsedSize(null, "data"),
+            )
+        )
+        compareSnapshots(snapshot, snapshot) shouldBe DeltaResult.INCONCLUSIVE
+    }
+
+    @Test
+    fun `compareSnapshots returns INCONCLUSIVE when row count changes`() {
+        val pre = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
+                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
+                StorageSnapshot.ParsedSize(143000, "143 kB"),
+                StorageSnapshot.ParsedSize(1360000, "1.36 MB"),
+            )
+        )
+        val post = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
+                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
+                StorageSnapshot.ParsedSize(0, "0 B"),
+            )
+        )
+        compareSnapshots(pre, post) shouldBe DeltaResult.INCONCLUSIVE
+    }
+
+    // ============================================================
     // Event-based window transition tests
     // ============================================================
 

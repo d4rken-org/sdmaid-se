@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.ui
 
 import android.content.Context
+import android.text.format.Formatter
 import androidx.test.core.app.ApplicationProvider
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
@@ -117,6 +118,46 @@ class SizeParserTest : BaseTest() {
         parser.parse("1").shouldBeNull()
         parser.parse("1 XB").shouldBeNull()
         parser.parse("1 TB").shouldBeNull() // TB not supported
+    }
+
+    @Test
+    fun `parse long-form units from formatFileSize`() {
+        val parser = createParser()
+        parser.parse(Formatter.formatFileSize(context, 0)) shouldBe 0L
+        parser.parse(Formatter.formatFileSize(context, 1)) shouldBe 1L
+        parser.parse(Formatter.formatFileSize(context, 1_000)) shouldBe 1_000L
+        parser.parse(Formatter.formatFileSize(context, 1_000_000)) shouldBe 1_000_000L
+        parser.parse(Formatter.formatFileSize(context, 1_000_000_000)) shouldBe 1_000_000_000L
+    }
+
+    @Test
+    fun `parse with non-breaking space between number and unit`() {
+        val parser = createParser()
+        // NO-BREAK SPACE (U+00A0) - common in Android Formatter output
+        parser.parse("0\u00A0B") shouldBe 0L
+        parser.parse("57.34\u00A0kB") shouldBe 57_340L
+        parser.parse("1.16\u00A0MB") shouldBe 1_160_000L
+        // NARROW NO-BREAK SPACE (U+202F)
+        parser.parse("0\u202FB") shouldBe 0L
+        parser.parse("1.16\u202FMB") shouldBe 1_160_000L
+    }
+
+    @Test
+    fun `parse formatFileSize output with non-breaking spaces`() {
+        val parser = createParser()
+        // Simulate Android 16 behavior: formatFileSize output with non-breaking spaces
+        val shortZero = Formatter.formatShortFileSize(context, 0)
+        parser.parse(shortZero.replace(' ', '\u00A0')) shouldBe 0L
+        parser.parse(shortZero.replace(' ', '\u202F')) shouldBe 0L
+    }
+
+    @Test
+    fun `parse long-form byte units`() {
+        val parser = createParser()
+        parser.parse("0 byte") shouldBe 0L
+        parser.parse("1 byte") shouldBe 1L
+        parser.parse("0 bytes") shouldBe 0L
+        parser.parse("100 bytes") shouldBe 100L
     }
 
     @Test
