@@ -38,7 +38,7 @@ android {
     }
 
     signingConfigs {
-        val basePath = File(System.getProperty("user.home"), ".appconfig/${projectConfig.packageName}")
+        val basePath = File(System.getProperty("user.home"), ".config/projects/${projectConfig.packageName}")
         val hasEnvCredentials = System.getenv("STORE_PATH")?.let { File(it).exists() } == true
         create("releaseFoss") {
             if (hasEnvCredentials || basePath.exists()) {
