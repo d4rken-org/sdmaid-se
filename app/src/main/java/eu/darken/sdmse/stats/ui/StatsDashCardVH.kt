@@ -24,39 +24,44 @@ class StatsDashCardVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        val (space, spaceQuantity) = ByteFormatter.formatSize(context, item.state.totalSpaceFreed)
-        val spaceFormatted = getQuantityString(
-            R.plurals.stats_dash_body_size,
-            spaceQuantity,
-            space
-        )
-
-        val processed = item.state.itemsProcessed.toString()
-        val processedQuantity = item.state.itemsProcessed
-        val processedFormatted = getQuantityString(
-            R.plurals.stats_dash_body_count,
-            processedQuantity.toInt(),
-            processed,
-        )
-        val wholeText = "$spaceFormatted $processedFormatted"
-
-        body.text = SpannableString(wholeText).apply {
-            val startFreed = wholeText.indexOf(space)
-            val endFreed = startFreed + space.length
-            setSpan(
-                ForegroundColorSpan(getColorForAttr(androidx.appcompat.R.attr.colorPrimary)),
-                startFreed,
-                endFreed,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        val hasCleanupData = item.state.reportsCount > 0 || item.state.totalSpaceFreed > 0L
+        if (hasCleanupData) {
+            val (space, spaceQuantity) = ByteFormatter.formatSize(context, item.state.totalSpaceFreed)
+            val spaceFormatted = getQuantityString(
+                R.plurals.stats_dash_body_size,
+                spaceQuantity,
+                space
             )
-            val startProcessed = wholeText.indexOf(processedFormatted)
-            val endProcessed = startProcessed + processed.length
-            setSpan(
-                ForegroundColorSpan(getColorForAttr(androidx.appcompat.R.attr.colorPrimary)),
-                startProcessed,
-                endProcessed,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+
+            val processed = item.state.itemsProcessed.toString()
+            val processedQuantity = item.state.itemsProcessed
+            val processedFormatted = getQuantityString(
+                R.plurals.stats_dash_body_count,
+                processedQuantity.toInt(),
+                processed,
             )
+            val wholeText = "$spaceFormatted $processedFormatted"
+
+            body.text = SpannableString(wholeText).apply {
+                val startFreed = wholeText.indexOf(space)
+                val endFreed = startFreed + space.length
+                setSpan(
+                    ForegroundColorSpan(getColorForAttr(androidx.appcompat.R.attr.colorPrimary)),
+                    startFreed,
+                    endFreed,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                val startProcessed = wholeText.indexOf(processedFormatted)
+                val endProcessed = startProcessed + processed.length
+                setSpan(
+                    ForegroundColorSpan(getColorForAttr(androidx.appcompat.R.attr.colorPrimary)),
+                    startProcessed,
+                    endProcessed,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+            }
+        } else {
+            body.text = getString(R.string.stats_dash_body_snapshots_only)
         }
         viewAction.apply {
             if (item.showProRequirement) {

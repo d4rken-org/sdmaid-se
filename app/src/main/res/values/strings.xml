@@ -971,6 +971,7 @@
         <item quantity="one">%s item processed since you invited SD Maid to your device.</item>
         <item quantity="other">%s items processed since you invited SD Maid to your device.</item>
     </plurals>
+    <string name="stats_dash_body_snapshots_only">Tracking your storage history.</string>
     <string name="stats_report_status_success">Success</string>
     <string name="stats_report_status_partial_success">Partial success</string>
     <string name="stats_report_status_partial_failure">Failure</string>
@@ -988,6 +989,22 @@
     <string name="stats_settings_reset_all_desc">Delete all reports and set all statistics to zero.</string>
     <string name="stats_affected_paths_label">Affected paths</string>
     <string name="stats_affected_pkgs_label">Affected apps</string>
+    <string name="stats_storage_trend_action">Storage Trend</string>
+    <string name="stats_space_history_title">Storage Trend</string>
+    <string name="stats_space_history_range_title">Range</string>
+    <string name="stats_space_history_range_7d">7d</string>
+    <string name="stats_space_history_range_30d">30d</string>
+    <string name="stats_space_history_range_90d">90d</string>
+    <string name="stats_space_history_storage_title">Storage</string>
+    <string name="stats_space_history_current_free_label">Current used</string>
+    <string name="stats_space_history_min_label">Minimum used</string>
+    <string name="stats_space_history_max_label">Maximum used</string>
+    <string name="stats_space_history_delta_label">Delta</string>
+    <string name="stats_space_history_delta_in_x">%1$s in %2$s</string>
+    <string name="stats_space_history_upgrade_title">Full history is a Pro feature</string>
+    <string name="stats_space_history_upgrade_body">Upgrade to unlock the full 90-day trend view for each storage device.</string>
+    <string name="stats_space_history_marker_freed">Freed %1$s</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%1$s in 7d</string>
 
     <string name="picker_select_paths_title">Select paths</string>
     <string name="picker_selected_paths_title">Selected paths</string>

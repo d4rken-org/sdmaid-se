@@ -1,6 +1,7 @@
 package eu.darken.sdmse.stats.core.db
 
 import androidx.room.Database
+import androidx.room.AutoMigration
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import eu.darken.sdmse.common.room.APathTypeConverter
@@ -16,10 +17,11 @@ import eu.darken.sdmse.stats.core.db.converter.ReportStatusConverter
         ReportEntity::class,
         AffectedPathEntity::class,
         AffectedPkgEntity::class,
+        SpaceSnapshotEntity::class,
     ],
-    version = 1,
+    version = 2,
     autoMigrations = [
-        //AutoMigration(1, 2)
+        AutoMigration(from = 1, to = 2),
     ],
     exportSchema = true,
 )
@@ -36,4 +38,5 @@ abstract class ReportsRoomDb : RoomDatabase() {
     abstract fun reports(): ReportsDao
     abstract fun paths(): AffectedPathsDao
     abstract fun pkgs(): AffectedPkgsDao
+    abstract fun spaceSnapshots(): SpaceSnapshotDao
 }

@@ -27,6 +27,8 @@ class StatsSettings @Inject constructor(
 
     val retentionReports = dataStore.createValue("retention.reports", DEFAULT_RETENTION_REPORTS, moshi)
     val retentionPaths = dataStore.createValue("retention.paths", DEFAULT_RETENTION_PATHS, moshi)
+    val retentionSnapshots = dataStore.createValue("retention.snapshots", DEFAULT_RETENTION_SNAPSHOTS, moshi)
+    val lastSnapshotAt = dataStore.createValue("snapshot.last.at", 0L)
 
     val totalSpaceFreed = dataStore.createValue("total.space.freed", 0L)
     val totalItemsProcessed = dataStore.createValue("total.items.processed", 0L)
@@ -35,11 +37,14 @@ class StatsSettings @Inject constructor(
     override val mapper = PreferenceStoreMapper(
         retentionReports,
         retentionPaths,
+        retentionSnapshots,
     )
 
     companion object {
         val DEFAULT_RETENTION_REPORTS: Duration = Duration.ofDays(30)
         val DEFAULT_RETENTION_PATHS: Duration = Duration.ofDays(7)
+        val DEFAULT_RETENTION_SNAPSHOTS: Duration = Duration.ofDays(90)
+        val FREE_RETENTION_SNAPSHOTS: Duration = Duration.ofDays(7)
         internal val TAG = logTag("Stats", "Settings")
     }
 }

@@ -4,7 +4,6 @@ import android.os.storage.StorageManager
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.asFile
@@ -20,7 +19,6 @@ import eu.darken.sdmse.setup.isComplete
 import eu.darken.sdmse.setup.storage.StorageSetupModule
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import java.util.UUID
 import javax.inject.Inject
 
 class DeviceStorageScanner @Inject constructor(
@@ -88,22 +86,7 @@ class DeviceStorageScanner @Inject constructor(
                     volume.path?.path?.toCaString() ?: R.string.analyzer_storage_type_secondary_title.toCaString()
                 )
 
-                var volumeId: UUID? = try {
-                    UUID.fromString(volume.fsUuid)
-                } catch (e: IllegalArgumentException) {
-                    null
-                }
-                if (volumeId == null && volume.fsUuid != null) {
-                    try {
-                        // StorageManager.FAT_UUID_PREFIX
-                        volumeId = UUID.fromString(
-                            "fafafafa-fafa-5afa-8afa-fafa" + volume.fsUuid!!.replace("-", "")
-                        )
-                    } catch (e: Exception) {
-                        log(TAG, WARN) { "Failed to construct UUID: ${e.asLog()}" }
-                    }
-                }
-
+                val volumeId = StorageId.parseVolumeUuid(volume.fsUuid)
                 if (volumeId == null) {
                     log(TAG, WARN) { "Failed to determine UUID of $volume" }
                     return@mapNotNull null

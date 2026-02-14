@@ -2,6 +2,7 @@ package eu.darken.sdmse.stats.core.db
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.withTransaction
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -73,6 +74,9 @@ class ReportsDatabase @Inject constructor(
     private val pkgsDao: AffectedPkgsDao
         get() = database.pkgs()
 
+    internal val spaceSnapshotDao: SpaceSnapshotDao
+        get() = database.spaceSnapshots()
+
     init {
         statsSettings.retentionReports.flow
             .mapNotNull { retention ->
@@ -122,12 +126,31 @@ class ReportsDatabase @Inject constructor(
             }
             .catch { log(TAG, ERROR) { "Failed to clean up affected files: ${it.asLog()}" } }
             .launchIn(appScope + dispatcherProvider.IO)
+
+        statsSettings.retentionSnapshots.flow
+            .onEach { retention ->
+                val cutOff = Instant.now() - retention
+                val beforeCount = spaceSnapshotDao.snapshotCount().first()
+                log(TAG, INFO) { "Retention for snapshots is $retention, deleting older than $cutOff" }
+                spaceSnapshotDao.deleteOlderThan(cutOff)
+                val deleted = beforeCount - spaceSnapshotDao.snapshotCount().first()
+                log(TAG) { "Clean up of snapshots finished, deleted $deleted" }
+
+                if (deleted > 0) databaseSize.value = getDatabaseSize()
+            }
+            .catch { log(TAG, ERROR) { "Failed to clean up snapshots: ${it.asLog()}" } }
+            .launchIn(appScope + dispatcherProvider.IO)
     }
 
     val reports = reportsDao.waterfall()
 
     val reportCount: Flow<Int>
         get() = reportsDao.reportCount()
+
+    val snapshotsCount: Flow<Int>
+        get() = spaceSnapshotDao.snapshotCount()
+
+    fun getReportsSince(since: Instant): Flow<List<ReportEntity>> = reportsDao.getReportsSince(since)
 
     suspend fun getReport(id: ReportId): Report? = reportsDao.getById(id)
 
@@ -166,6 +189,14 @@ class ReportsDatabase @Inject constructor(
         log(TAG, INFO) { "clear()" }
         database.clearAllTables()
 
+        databaseSize.value = getDatabaseSize()
+    }
+
+    internal suspend fun <T> withTransaction(block: suspend () -> T): T {
+        return database.withTransaction { block() }
+    }
+
+    internal fun refreshDatabaseSize() {
         databaseSize.value = getDatabaseSize()
     }
 

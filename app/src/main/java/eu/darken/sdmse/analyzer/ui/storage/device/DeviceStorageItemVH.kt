@@ -9,6 +9,8 @@ import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.AnalyzerDeviceVhBinding
+import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
+import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
 
@@ -77,11 +79,50 @@ class DeviceStorageItemVH(parent: ViewGroup) :
         }
 
         root.setOnClickListener { item.onItemClicked(item) }
+
+        val snapshots = item.snapshots
+        trendContainer.isVisible = snapshots.isNotEmpty()
+        trendDelta.isVisible = snapshots.size >= 2
+
+        if (snapshots.isNotEmpty()) {
+            trendChart.setData(snapshots)
+        }
+
+        if (snapshots.size >= 2) {
+            val oldest = snapshots.first().let { it.spaceCapacity - it.spaceFree }
+            val newest = snapshots.last().let { it.spaceCapacity - it.spaceFree }
+            val delta = newest - oldest
+            val absDelta = Formatter.formatShortFileSize(context, delta.absoluteValue)
+            val signedDelta = when {
+                delta > 0 -> "+$absDelta"
+                delta < 0 -> "-$absDelta"
+                else -> absDelta
+            }
+            trendDelta.text = getString(R.string.analyzer_storage_trend_delta_in_7d, signedDelta)
+            trendDelta.setTextColor(
+                when {
+                    delta > 0 -> getColorForAttr(android.R.attr.colorError)
+                    delta < 0 -> getColorForAttr(androidx.appcompat.R.attr.colorPrimary)
+                    else -> getColorForAttr(android.R.attr.textColorSecondary)
+                }
+            )
+        }
+
+        trendContainer.setOnClickListener {
+            item.onTrendClicked?.invoke(item)
+        }
+        trendContainer.setOnLongClickListener {
+            item.onTrendClicked?.invoke(item)
+            true
+        }
     }
 
     data class Item(
         val storage: DeviceStorage,
+        val snapshots: List<SpaceSnapshotEntity>,
+        val isPro: Boolean,
         val onItemClicked: (Item) -> Unit,
+        val onTrendClicked: ((Item) -> Unit)?,
     ) : DeviceStorageAdapter.Item {
 
         override val stableId: Long = storage.id.hashCode().toLong()
