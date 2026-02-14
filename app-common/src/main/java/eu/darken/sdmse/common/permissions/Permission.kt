@@ -17,7 +17,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
-import kotlin.reflect.full.isSubclassOf
 
 
 @Suppress("ClassName")
@@ -120,10 +119,15 @@ sealed class Permission(
     companion object {
         // Without lazy there is an NPE: https://youtrack.jetbrains.com/issue/KT-25957
         val values: List<Permission> by lazy {
-            Permission::class.nestedClasses
-                .filter { clazz -> clazz.isSubclassOf(Permission::class) }
-                .map { clazz -> clazz.objectInstance }
-                .filterIsInstance<Permission>()
+            listOf(
+                POST_NOTIFICATIONS,
+                MANAGE_EXTERNAL_STORAGE,
+                WRITE_EXTERNAL_STORAGE,
+                READ_EXTERNAL_STORAGE,
+                PACKAGE_USAGE_STATS,
+                WRITE_SECURE_SETTINGS,
+                QUERY_ALL_PACKAGES,
+            )
         }
 
         fun fromId(rawId: String) = values.singleOrNull { it.permissionId == rawId }
