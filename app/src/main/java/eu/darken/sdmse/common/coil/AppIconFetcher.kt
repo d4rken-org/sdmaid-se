@@ -7,6 +7,7 @@ import coil.fetch.DrawableResult
 import coil.fetch.FetchResult
 import coil.fetch.Fetcher
 import coil.request.Options
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -20,7 +21,7 @@ class AppIconFetcher @Inject constructor(
 ) : Fetcher {
 
     override suspend fun fetch(): FetchResult {
-        log { "Fetching $data" }
+        log(VERBOSE) { "Fetching $data" }
         val baseIcon = ipcFunnel.use {
             data.icon?.get(options.context) ?: packageManager.getIcon2(data.id)
         } ?: ContextCompat.getDrawable(options.context, eu.darken.sdmse.common.io.R.drawable.ic_default_app_icon_24)!!
