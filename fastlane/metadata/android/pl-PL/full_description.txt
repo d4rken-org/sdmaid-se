@@ -14,7 +14,7 @@ SD Maid 2/SE to menedżer aplikacji i plików, który specjalizuje się w sprawd
 Jeśli aplikacje tworzą pliki poza wyznaczonymi folderami, pliki mogą pozostać nawet po odinstalowaniu aplikacji. Narzędzie „Wyszukiwarka pozostałości” wyszukuje pozostałości aplikacji, informuje, do której aplikacji należały i pomaga je usunąć.
 
 🔍 Przeszukuj swoje urządzenie w inteligentny sposób
-Filtruj puste foldery, pliki tymczasowe, już zainstalowane aplikacje i nie tylko. Możesz nawet utworzyć własne kryteria wyszukiwania. Narzędzie "Sprzątacz systemowy" pozwala automatycznie przeszukiwać urządzenie i usuwać pliki w oparciu o różne kryteria.
+Filtruj puste foldery, pliki tymczasowe, już zainstalowane aplikacje i nie tylko. Możesz nawet utworzyć własne kryteria wyszukiwania. Narzędzie "Sprzątacz systemu" pozwala automatycznie przeszukiwać urządzenie i usuwać pliki w oparciu o różne kryteria.
 
 * Usuń niepotrzebnie pliki i ukryte pliki pamięci podręcznej
 Miniaturki, kosz, pliki pamięci podręcznej i wiele innych: Jeśli aplikacje nie posprzątają same po siebie, to ta aplikacja to zrobi. Narzędzie „Sprzątacz aplikacji” wyszukuje aplikacje zawierające zbędne pliki.
@@ -26,7 +26,7 @@ Pobierz wyczerpującą listę wszystkich aplikacji zainstalowanych na twoim urz�
 Zarządzanie pamięcią masową może być skomplikowane w przypadku aplikacji, multimediów, systemu i innych plików w pamięci telefonu, kartach SD i urządzeniach USB. "Analizator pamięci" jest menedżerem plików, który wyświetla sposób wykorzystania miejsca na urządzeniu, upraszczając zarządzanie pamięcią.
 
 📷 Znajdź duplikaty danych
-Zduplikowane pobierania, zdjęcia wysyłane przez media społecznościowe lub podobne zdjęcia tej samej sceny: Z czasem kopie mogą się kumulować. Narzędzie "Deduplikator" znajduje pliki, które są dokładnie takie same lub podobne i pomagają usunąć dodatkowe kopie.
+Zduplikowane pobierania, zdjęcia wysyłane przez media społecznościowe lub podobne zdjęcia tej samej sceny: Z czasem kopie mogą się kumulować. Narzędzie "Usuwanie duplikatów" znajduje pliki, które są dokładnie takie same lub podobne i pomaga usunąć dodatkowe kopie.
 
 Ta aplikacja nie zawiera reklam. Niektóre funkcje wymagają płatnego ulepszenia.
 
