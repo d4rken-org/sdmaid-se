@@ -169,7 +169,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     }
 
     @Test
-    fun `clear cache falls back to DPAD navigation on Android 16`() = runTest {
+    fun `clear cache quick-try succeeds via DPAD without Shizuku`() = runTest {
         setupTestScope(this)
         mockkStatic(::hasApiLevel)
         every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
@@ -185,8 +185,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
             true
         }
 
-        // Tree includes anchor node - production code finds it via crawl + viewIdResourceName
-        // No nodes have isFocused/isAccessibilityFocused, so DPAD loop finds no focus → blind fallback
+        // Anchor present → quick-try bootstraps, fires RIGHT + CENTER, validation passes
         testRoot = buildTestTree(
             """
             ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
@@ -198,8 +197,8 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         val result = captureAndRunClearCacheAction()
 
         result shouldBe true
-        // 4 cycles x 2 steps + 1 blind fallback step = 9
-        verify(exactly = 9) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        // Quick-try succeeds: 1 RIGHT + 1 CENTER
+        verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
         verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 
@@ -286,7 +285,8 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         val result = captureAndRunClearCacheAction()
 
         result shouldBe false
-        verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        // 1 quick-try + 3 blind-sweep (positions 2-4) = 4 CENTER, all fail without events
+        verify(exactly = 4) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 
     @Test
@@ -360,9 +360,9 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         val result = captureAndRunClearCacheAction()
 
         result shouldBe true
-        // 1 fast-path + 4 cycles x 2 steps + 1 blind fallback = 10 RIGHT
-        coVerify(exactly = 10) { inputInjector.inject(InputInjector.Event.DpadRight) }
-        // 1 fast-path + 1 blind fallback = 2 CENTER
+        // 1 quick-try + 4 cycles x 2 steps + 2 blind-sweep-2 = 11 RIGHT
+        coVerify(exactly = 11) { inputInjector.inject(InputInjector.Event.DpadRight) }
+        // 1 quick-try + 1 blind-sweep-2 = 2 CENTER
         coVerify(exactly = 2) { inputInjector.inject(InputInjector.Event.DpadCenter) }
     }
 
@@ -472,107 +472,42 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 
-    // ============================================================
-    // Delta validation unit tests (compareSnapshots)
-    // ============================================================
-
     @Test
-    fun `compareSnapshots detects full clear as SUCCESS`() {
-        val pre = StorageSnapshot(
-            listOf(
-                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
-                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
-                StorageSnapshot.ParsedSize(143000, "143 kB"),
-                StorageSnapshot.ParsedSize(1360000, "1.36 MB"),
-            )
-        )
-        val post = StorageSnapshot(
-            listOf(
-                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
-                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
-                StorageSnapshot.ParsedSize(0, "0 B"),
-                StorageSnapshot.ParsedSize(1220000, "1.22 MB"),
-            )
-        )
-        compareSnapshots(pre, post) shouldBe DeltaResult.SUCCESS
-    }
+    fun `blind sweep succeeds at position 3 when earlier positions fail`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "Google"
+        every { BuildWrap.PRODUCT } returns "lynx_beta"
 
-    @Test
-    fun `compareSnapshots detects partial clear as SUCCESS`() {
-        val pre = StorageSnapshot(
-            listOf(
-                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
-                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
-                StorageSnapshot.ParsedSize(500000, "500 kB"),
-                StorageSnapshot.ParsedSize(1717340, "1.72 MB"),
-            )
-        )
-        val post = StorageSnapshot(
-            listOf(
-                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
-                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
-                StorageSnapshot.ParsedSize(200000, "200 kB"),
-                StorageSnapshot.ParsedSize(1417340, "1.42 MB"),
-            )
-        )
-        compareSnapshots(pre, post) shouldBe DeltaResult.SUCCESS
-    }
+        coEvery { inputInjector.canInject() } returns false
+        var centerCount = 0
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) {
+                centerCount++
+                // Only 3rd CENTER (blind-sweep-3) emits event; quick-try and sweep-2 fail
+                if (centerCount >= 3) {
+                    emitValidationEventAsync()
+                }
+            }
+            true
+        }
 
-    @Test
-    fun `compareSnapshots detects already zero as SKIP_SUCCESS`() {
-        val snapshot = StorageSnapshot(
-            listOf(
-                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
-                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
-                StorageSnapshot.ParsedSize(0, "0 B"),
-                StorageSnapshot.ParsedSize(1217340, "1.22 MB"),
-            )
+        testRoot = buildTestTree(
+            """
+            ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(84, 328 - 996, 675)
+            """.trimIndent()
         )
-        compareSnapshots(snapshot, snapshot) shouldBe DeltaResult.SKIP_SUCCESS
-    }
 
-    @Test
-    fun `compareSnapshots detects no change as NO_CHANGE`() {
-        val snapshot = StorageSnapshot(
-            listOf(
-                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
-                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
-                StorageSnapshot.ParsedSize(143000, "143 kB"),
-                StorageSnapshot.ParsedSize(1360000, "1.36 MB"),
-            )
-        )
-        compareSnapshots(snapshot, snapshot) shouldBe DeltaResult.NO_CHANGE
-    }
+        val result = captureAndRunClearCacheAction()
 
-    @Test
-    fun `compareSnapshots returns INCONCLUSIVE when all values unparseable`() {
-        val snapshot = StorageSnapshot(
-            listOf(
-                StorageSnapshot.ParsedSize(null, "unknown"),
-                StorageSnapshot.ParsedSize(null, "data"),
-            )
-        )
-        compareSnapshots(snapshot, snapshot) shouldBe DeltaResult.INCONCLUSIVE
-    }
-
-    @Test
-    fun `compareSnapshots returns INCONCLUSIVE when row count changes`() {
-        val pre = StorageSnapshot(
-            listOf(
-                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
-                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
-                StorageSnapshot.ParsedSize(143000, "143 kB"),
-                StorageSnapshot.ParsedSize(1360000, "1.36 MB"),
-            )
-        )
-        val post = StorageSnapshot(
-            listOf(
-                StorageSnapshot.ParsedSize(57340, "57.34 kB"),
-                StorageSnapshot.ParsedSize(1160000, "1.16 MB"),
-                StorageSnapshot.ParsedSize(0, "0 B"),
-            )
-        )
-        compareSnapshots(pre, post) shouldBe DeltaResult.INCONCLUSIVE
+        result shouldBe true
+        // 1 quick-try + 8 cycles + 2 (sweep-2) + 3 (sweep-3) = 14 RIGHT
+        verify(exactly = 14) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        // 1 quick-try + 1 sweep-2 + 1 sweep-3 = 3 CENTER
+        verify(exactly = 3) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 
     // ============================================================

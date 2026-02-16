@@ -57,28 +57,6 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 
-internal data class StorageSnapshot(val values: List<ParsedSize>) {
-    internal data class ParsedSize(val bytes: Long?, val rawText: String)
-}
-
-internal enum class DeltaResult { SUCCESS, SKIP_SUCCESS, NO_CHANGE, INCONCLUSIVE }
-
-internal fun compareSnapshots(pre: StorageSnapshot, post: StorageSnapshot): DeltaResult {
-    if (pre.values.isEmpty() || post.values.isEmpty()) return DeltaResult.INCONCLUSIVE
-    if (pre.values.size != post.values.size) return DeltaResult.INCONCLUSIVE
-
-    val pairs = pre.values.zip(post.values).mapNotNull { (a, b) ->
-        if (a.bytes != null && b.bytes != null) a.bytes to b.bytes else null
-    }
-    if (pairs.isEmpty()) return DeltaResult.INCONCLUSIVE
-
-    if (pairs.any { (before, after) -> after < before }) return DeltaResult.SUCCESS
-
-    if (pre.values.any { it.bytes == 0L }) return DeltaResult.SKIP_SUCCESS
-
-    return DeltaResult.NO_CHANGE
-}
-
 @Reusable
 class AOSPSpecs @Inject constructor(
     private val ipcFunnel: IPCFunnel,
@@ -290,15 +268,15 @@ class AOSPSpecs @Inject constructor(
             return bootstrapInputFocusResult || bootstrapA11yFocusResult || alreadyInputFocused || alreadyA11yFocused
         }
 
-        if (canInjectInput) {
-            val fastBootstrapped = bootstrapAnchor("input-fast-path")
+        run {
+            val fastBootstrapped = bootstrapAnchor("quick-try")
             if (fastBootstrapped) {
                 val moved = dpadRight()
                 if (moved) {
                     delay(stepDelayMs)
                     val clicked = if (Bugs.isDryRun) true else dpadCenter()
-                    log(tag, INFO) { "DPAD_CENTER result=$clicked (source=input-fast-path)" }
-                    if (clicked && validateWithDelta("input-fast-path", preSnapshot, sizeParser, timeoutMs = 800)) return true
+                    log(tag, INFO) { "DPAD_CENTER result=$clicked (source=quick-try)" }
+                    if (clicked && validateWithDelta("quick-try", preSnapshot, sizeParser, timeoutMs = 800)) return true
                 }
                 // Check if anchor is still present before falling through to cycle loop.
                 // If anchor is gone, the click likely had an effect (UI changed) — don't double-click.
@@ -306,11 +284,11 @@ class AOSPSpecs @Inject constructor(
                     ?.any { it.viewIdResourceName == anchorId } == true
                 if (!anchorStillPresent) {
                     log(tag, WARN) {
-                        "Input fast-path: validation failed but anchor gone, aborting to avoid double-click"
+                        "Quick-try: validation failed but anchor gone, aborting to avoid double-click"
                     }
                     return false
                 }
-                log(tag, INFO) { "Input fast-path failed, anchor still present, falling through to cycle loop" }
+                log(tag, INFO) { "Quick-try failed, anchor still present, falling through to cycle loop" }
             }
         }
 
@@ -411,23 +389,38 @@ class AOSPSpecs @Inject constructor(
         }
 
         if (hadBootstrapInputFocus) {
-            log(tag, WARN) {
-                "Insufficient anchor progress after $totalRightSteps DPAD_RIGHT steps (anchorHits=$anchorHits); re-bootstrapping for blind fallback (RIGHT + CENTER)"
+            val maxBlindPositions = 4
+            val startPosition = 2 // quick-try already covered position 1
+            log(tag, INFO) {
+                "Blind sweep: trying positions $startPosition..$maxBlindPositions (totalRightSteps=$totalRightSteps, anchorHits=$anchorHits)"
             }
 
-            if (!bootstrapAnchor("blind-fallback")) {
-                log(tag, WARN) { "Blind fallback: anchor lost, aborting" }
-                return false
+            for (rightSteps in startPosition..maxBlindPositions) {
+                if (!bootstrapAnchor("blind-sweep-$rightSteps")) {
+                    log(tag, WARN) { "Blind sweep: anchor lost at position $rightSteps, aborting" }
+                    return false
+                }
+
+                repeat(rightSteps) {
+                    dpadRight()
+                    delay(stepDelayMs)
+                }
+
+                val clicked = if (Bugs.isDryRun) true else dpadCenter()
+                log(tag, INFO) { "DPAD_CENTER result=$clicked (source=blind-sweep-$rightSteps)" }
+                if (!clicked) continue
+
+                if (validateWithDelta("blind-sweep-$rightSteps", preSnapshot, sizeParser, timeoutMs = 800)) {
+                    return true
+                }
+
+                val anchorStillPresent = host.windowRoot()?.crawl()?.map { it.node }
+                    ?.any { it.viewIdResourceName == anchorId } == true
+                if (!anchorStillPresent) {
+                    log(tag, WARN) { "Blind sweep: anchor gone after position $rightSteps, aborting" }
+                    return false
+                }
             }
-
-            val moved = dpadRight()
-            log(tag, INFO) { "Blind DPAD_RIGHT result=$moved" }
-            if (!moved) return false
-            delay(stepDelayMs)
-
-            val clicked = if (Bugs.isDryRun) true else dpadCenter()
-            log(tag, INFO) { "DPAD_CENTER result=$clicked (source=blind-fallback)" }
-            return clicked && validateWithDelta("blind-fallback", preSnapshot, sizeParser)
         }
 
         log(
